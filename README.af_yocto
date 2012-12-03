@@ -25,7 +25,9 @@ CONTENT of the repository:
   meta/recipes-devtools/python/python-pyyaml_3.10.bb   recipe for pyyaml python library
   meta/recipes-devtools/python/python-rospkg_1.0.15.bb   recipe for rospkg tool
 
+RESOLVED ISSUES:
+  - recipes for python-pyyaml and python-rospkg create invalid shell scripts (header line refers to python-native instead of python.)
+    RESOLVED by patching distutils class--will be committed to yocto.
+
 OPEN ISSUES:
-  - recipes for python-pyyaml and python-rospkg create invalid shell scripts
-    (header line refers to python-native instead of python.)
   - Yocto: python-setuptools requires python-modules at run-time.
