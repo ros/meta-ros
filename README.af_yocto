@@ -31,3 +31,4 @@ RESOLVED ISSUES:
 
 OPEN ISSUES:
   - Yocto: python-setuptools requires python-modules at run-time.
+  - rospkg modules are not found when runnning python.
