@@ -1,0 +1,39 @@
+From a32da098ded31e6399658a01dd5c994e23f8c5a8 Mon Sep 17 00:00:00 2001
+From: Tasslehoff Kjappfot <tasskjapp@gmail.com>
+Date: Thu, 14 Oct 2010 09:02:11 +0200
+Subject: [PATCH 2/2] Remove duplicates
+
+---
+ src/main/include/log4cxx/Makefile.am         |    2 +-
+ src/main/include/log4cxx/private/Makefile.am |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/main/include/log4cxx/Makefile.am b/src/main/include/log4cxx/Makefile.am
+index 719c2dd..53e99b0 100644
+--- a/src/main/include/log4cxx/Makefile.am
++++ b/src/main/include/log4cxx/Makefile.am
+@@ -15,7 +15,7 @@
+ #
+ SUBDIRS = helpers net nt rolling spi varia xml config db private pattern filter
+ log4cxxincdir = $(includedir)/log4cxx
+-log4cxxinc_HEADERS= $(top_srcdir)/src/main/include/log4cxx/*.h log4cxx.h
++log4cxxinc_HEADERS= $(top_srcdir)/src/main/include/log4cxx/*.h
+ DISTCLEANFILES = log4cxx.h
+ EXTRA_DIST = log4cxx.hw
+ 
+diff --git a/src/main/include/log4cxx/private/Makefile.am b/src/main/include/log4cxx/private/Makefile.am
+index 3a896ea..474e31d 100644
+--- a/src/main/include/log4cxx/private/Makefile.am
++++ b/src/main/include/log4cxx/private/Makefile.am
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ privateincdir = $(includedir)/log4cxx/private
+-privateinc_HEADERS= $(top_builddir)/src/main/include/log4cxx/private/*.h log4cxx_private.h
++privateinc_HEADERS= $(top_builddir)/src/main/include/log4cxx/private/*.h
+ DISTCLEANFILES = log4cxx_private.h
+ EXTRA_DIST = log4cxx_private.hw
+ 
+-- 
+1.7.0.4
+
