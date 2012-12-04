@@ -15,7 +15,7 @@ INSTALLATION and USE:
   With `runqemu qemux86-64 core-image-bmw` the linux image runs within a virtual machine.
   We assume that this is running on and compiled for an x86-64 architecture. For other architectures, some settings must be adjusted.
   
-  Unpack ros_server.tar.gz somewhere, adjust pathes in fuerte-ros-base.rosinstall to the location where it has been unpacked.
+  Extract ros_server.tar.gz somewhere, adjust pathes in fuerte-ros-base.rosinstall to the location where it has been extracted to.
   After starting the virtual machine, copy the installation script from the guest system to the home directory with scp and execute it.
   
     scp lukas@192.168.7.1:/<location of repository>/install.sh .
