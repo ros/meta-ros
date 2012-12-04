@@ -13,4 +13,4 @@ IMAGE_ROOTFS_EXTRA_SPACE = "524288"
 # remove not needed ipkg informations
 ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; "
 
-IMAGE_INSTALL += "boost boost-dev packagegroup-core-ssh-openssh dhcp-client file ldd python-modules python-setuptools python-rospkg python-rosinstall git cmake python-empy python-pyyaml python-nose"
+IMAGE_INSTALL += "boost boost-dev packagegroup-core-ssh-openssh dhcp-client file ldd python-modules python-setuptools python-rospkg python-rosinstall git cmake python-empy python-pyyaml python-nose log4cxx log4cxx-dev"
