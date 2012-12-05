@@ -21,7 +21,10 @@ INSTALLATION and USE:
     scp lukas@192.168.7.1:/<location of repository>/install.sh .
     sh ./install.sh
   
-
+WARNING:
+  When contributing repository, notice that the recipe for log4cxx was based on the recipe in the OpenEmbedded (Classic) Development
+  (cf. http://cgit.openembedded.org/openembedded/tree/recipes/log4cxx), which is licensed with the MIT Licence.
+  
 CONTENT of the repository:
 
   .gitignore   list of filenames of the poky-danny-8.0 release to ignore. Adjust file to track newly added recipes.
@@ -35,9 +38,10 @@ CONTENT of the repository:
 RESOLVED ISSUES:
   - recipes for python-pyyaml and python-rospkg create invalid shell scripts (header line refers to python-native instead of python.)
     RESOLVED by patching distutils class--will be committed to yocto.
+  - recipe for log4cxx requires another patch.
+    RESOLVED by providing patch 0003 in recipe
 
 OPEN ISSUES:
-  - recipe for log4cxx requires another patch.
   - Yocto: python-setuptools requires some python-modules at run-time.
     TEMPORARILY RESOLVED by adding all python-modules in the image
     SHOULD BE RESOLVED by creating an appropriate patch for python-setuptools and contributing to openembedded-core
