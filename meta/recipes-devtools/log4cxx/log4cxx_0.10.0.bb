@@ -7,8 +7,9 @@ HOMEPAGE = "http://logging.apache.org/log4cxx/"
 PR = "r0"
 
 SRC_URI = "http://archive.apache.org/dist/logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz \
-          file://0001-log4cxx_0-10-0_add-missing-includes.patch \
-          file://0002-Remove-duplicates-from-makefile.patch"
+  file://0001-log4cxx_0-10-0_add-missing-includes.patch \
+  file://0002-Remove-duplicates-from-makefile.patch \
+  file://0003-log4cxx-0.10.0-add_stdio_header.patch"
 
 S = "${WORKDIR}/apache-${PN}-${PV}"
 
