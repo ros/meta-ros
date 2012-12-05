@@ -27,13 +27,19 @@ WARNING:
 CONTENT of the repository:
 
   .gitignore                                                    list of filenames of the poky-danny-8.0 release to ignore. Adjust file to track newly added recipes.
+  README.af_yocto                                               this README file, which contains all important information
+  install.sh                                                    installation script that runs within the virtual machine
+  ros_server.tar.gz                                             archive with all ros-base repositories and an adjusted .rosinstall file
   build/conf/bblayers.conf                                      setting file for building image
   build/conf/local.conf                                         setting file for building image
   meta/recipes-core/images/core-image-bmw.bb                    recipe for our own core image (derived from core-image-minimal)
   meta/recipes-devtools/python/python-pyyaml_3.10.bb            recipe for pyyaml python library
   meta/recipes-devtools/python/python-rospkg_1.0.15.bb          recipe for rospkg tool
+  meta/recipes-devtools/python/python-empy_3.3.bb               recipe for empy python library
+  meta/recipes-devtools/python/python-nose_1.2.1.bb             recipe for nose python library
+  meta/recipes-devtools/python/python-rosinstall_0.6.21.bb      recipe for rosinstall tool
+  meta/recipes-devtools/log4cxx                                 recipes and patches for log4cxx (only 0.10.0 is used)
   
-
 MILESTONES
 
   M1: basic image with dev-tools (make, cmake, ...) and ROS compiles natively in the virtual machine
