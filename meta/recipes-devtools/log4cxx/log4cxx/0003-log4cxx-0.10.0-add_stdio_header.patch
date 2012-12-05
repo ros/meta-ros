@@ -1,0 +1,13 @@
+diff -cr apache-log4cxx-0.10.0.orig/src/examples/cpp/console.cpp apache-log4cxx-0.10.0/src/examples/cpp/console.cpp
+*** apache-log4cxx-0.10.0.orig/src/examples/cpp/console.cpp	2012-12-05 08:55:15.750389873 +0100
+--- apache-log4cxx-0.10.0/src/examples/cpp/console.cpp	2012-12-05 08:56:09.538392104 +0100
+***************
+*** 16,21 ****
+--- 16,22 ----
+   */
+  
+  #include <stdlib.h>
++ #include <stdio.h>
+  #include <log4cxx/logger.h>
+  #include <log4cxx/consoleappender.h>
+  #include <log4cxx/simplelayout.h>
