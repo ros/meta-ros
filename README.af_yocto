@@ -1,7 +1,6 @@
 PURPOSE:
   This document describes the installation, use and content of the git repository af_yocto.
 
-
 INSTALLATION and USE:
 
   The repository only contains our contributions to the existing yocto poky-danny-8.0 archive.
@@ -27,26 +26,33 @@ WARNING:
   
 CONTENT of the repository:
 
-  .gitignore   list of filenames of the poky-danny-8.0 release to ignore. Adjust file to track newly added recipes.
-  build/conf/bblayers.conf   setting files for building image
-  build/conf/local.conf
-  meta/recipes-core/images/core-image-bmw.bb   recipe for our own core image (derived from core-image-minimal)
-  meta/recipes-devtools/python/python-pyyaml_3.10.bb   recipe for pyyaml python library
-  meta/recipes-devtools/python/python-rospkg_1.0.15.bb   recipe for rospkg tool
+  .gitignore                                                    list of filenames of the poky-danny-8.0 release to ignore. Adjust file to track newly added recipes.
+  build/conf/bblayers.conf                                      setting file for building image
+  build/conf/local.conf                                         setting file for building image
+  meta/recipes-core/images/core-image-bmw.bb                    recipe for our own core image (derived from core-image-minimal)
+  meta/recipes-devtools/python/python-pyyaml_3.10.bb            recipe for pyyaml python library
+  meta/recipes-devtools/python/python-rospkg_1.0.15.bb          recipe for rospkg tool
+  
 
+MILESTONES
 
-RESOLVED ISSUES:
+  M1: basic image with dev-tools (make, cmake, ...) and ROS compiles natively in the virtual machine
+  M2: Linux+ROS System can be built completely with bitbake (no compilation and installing in the virtual machine)
+  M3: Linux+ROS System with configured kernel (e.g. RT-Linux, System-D) that meets AF requirements 
+
+RESOLVED ISSUES for M1:
+
   - recipes for python-pyyaml and python-rospkg create invalid shell scripts (header line refers to python-native instead of python.)
     RESOLVED by patching distutils class--will be committed to yocto.
   - recipe for log4cxx requires another patch.
     RESOLVED by providing patch 0003 in recipe
 
-OPEN ISSUES:
+OPEN ISSUES for M1:
+
   - Yocto: python-setuptools requires some python-modules at run-time.
     TEMPORARILY RESOLVED by adding all python-modules in the image
     SHOULD BE RESOLVED by creating an appropriate patch for python-setuptools and contributing to openembedded-core
   - rospkg modules are not found when runnning python.
-    UNCLEAR. Maybe we need rospkg-dev?
+    TEMPORARILY RESOLVED by installing natively in the virtual machine
+    SOLUTION UNCLEAR. Maybe we need rospkg-dev?
   - Compilation with make fails in the virtual machine because of insufficient memory during compilation.
-    
-  
