@@ -58,12 +58,8 @@ distutils_do_install() {
                 sed -i -e s:${STAGING_BINDIR_NATIVE}:${bindir}:g $i
             done
         fi
-        
-        if test -e ${D}${PYTHON_SITEPACKAGES_DIR}/easy-install.pth; then
-            echo "easy-install.pth exists"
-            cat ${D}${PYTHON_SITEPACKAGES_DIR}/easy-install.pth
-        fi
-        # rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/easy-install.pth
+
+        rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/easy-install.pth
         
         #
         # FIXME: Bandaid against wrong datadir computation

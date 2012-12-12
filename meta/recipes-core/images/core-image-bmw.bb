@@ -19,4 +19,4 @@ augment_hosts_setting_file () {
 # create a custom hosts file
 ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; augment_hosts_setting_file ; "
 
-IMAGE_INSTALL += "boost boost-dev packagegroup-core-ssh-openssh dhcp-client file ldd python-modules python-rospkg python-rosinstall git cmake python-empy python-pyyaml python-nose log4cxx log4cxx-dev libbz2-dev python-setuptools"
+IMAGE_INSTALL += "boost boost-dev packagegroup-core-ssh-openssh dhcp-client file ldd python-modules python-setuptools python-rospkg python-rosinstall git cmake python-empy python-pyyaml python-nose log4cxx log4cxx-dev libbz2-dev"
