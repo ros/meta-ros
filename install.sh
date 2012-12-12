@@ -7,9 +7,9 @@ scp lukas@192.168.7.1:/home/lukas/ros_server/fuerte-ros-base.rosinstall .
 mkdir ~/ros
 rosinstall --catkin ~/ros fuerte-ros-base.rosinstall
 # install rospkg manually
-git clone ssh://lukas@192.168.7.1//home/lukas/ros_server/rospkg
-cd ~/rospkg
-python setup.py install
+## git clone ssh://lukas@192.168.7.1//home/lukas/ros_server/rospkg
+## cd ~/rospkg
+## python setup.py install
 # apply patch
 cd ~/ros/ros_comm
 patch -p1 << EOF
