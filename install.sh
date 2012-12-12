@@ -42,8 +42,6 @@ cmake .. -DCMAKE_INSTALL_PREFIX=/opt/ros/fuerte -DSETUPTOOLS_DEB_LAYOUT=OFF
 # compile and install
 make
 make install
-# add own name to hosts
-echo -e '127.0.0.1\tqemux86-64.localdomain\t\tqemux86-64' >> /etc/hosts
 # start roscore
 . /opt/ros/fuerte/setup.sh
 roscore

@@ -62,4 +62,12 @@ OPEN ISSUES for M1:
     SHOULD BE RESOLVED by creating an appropriate patch for python-setuptools and contributing to openembedded-core
   - rospkg modules are not found when runnning python.
     TEMPORARILY RESOLVED by installing natively in the virtual machine
-    SOLUTION UNCLEAR. Cannot be solved by adding rospkg-dev.
+    CAUSE of PROBLEM: must add /usr/lib/python2.7/site-packages/rospkg-1.0.15-py2.7.egg to PYTHON_PATH (sys.path)
+    In the usual setting, this is done by adding rospkg-1.0.15-py2.7.egg to the easy-install.pth
+    However, the distutils class removes the created easy-install.pth before packaging.
+    Modifying the class, to not remove the easy-install.pth does not solve the issue, because
+    also the python-setuptools must add an entry to easy-install.pth
+    This can be only solved by providing a general merge mechanism for the easy-install.pth file.
+    Implementing this should not be difficult because the format of this file is very easy, and
+    the pathes can be simply accumulated.
+    TEMPORARY SOLUTION NOW: we simply write the easy-install.pth file in the rootfs task of the image generation.
