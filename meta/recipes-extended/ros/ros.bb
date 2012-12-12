@@ -32,8 +32,8 @@ import sys; sys.__plen = len(sys.path)
 ./rospkg-1.0.15-py2.7.egg
 import sys; new=sys.path[sys.__plen:]; del sys.path[sys.__plen:]; p=getattr(sys,'__egginsert',0); sys.path[p:p]=new; sys.__egginsert = p+len(new)
 EOF
-
 }
+
 
 inherit cmake pythonnative
 
