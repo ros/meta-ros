@@ -20,12 +20,14 @@ add_easyinstall_pth () {
 	echo "rospkg add_easyinstall_pth..."
 }
 
+EASYINSTALL_python-rospkg = "rospkg-1.0.15-py2.7.egg"
 
-pkg_postinst_python-rospkg () {
-	if test -e ${PYTHON_SITEPACKAGES_DIR}/easy-install.pth; then
-            echo insert >> ${PYTHON_SITEPACKAGES_DIR}/easy-install.pth
-        else
-            echo create >> ${PYTHON_SITEPACKAGES_DIR}/easy-install.pth
+pkg_postinst_${PN} () {
+	if test ! -e ${PYTHON_SITEPACKAGES_DIR}/easy-install.pth; then
+            cat > ${PYTHON_SITEPACKAGES_DIR}/easy-install.pth << EOF
+import sys; sys.__plen = len(sys.path)
+import sys; new=sys.path[sys.__plen:]; del sys.path[sys.__plen:]; p=getattr(sys,'__egginsert',0); sys.path[p:p]=new; sys.__egginsert = p+len(new)
+EOF
         fi
-
+        sed -i '$ i ${EASYINSTALL_${PN}}' ${PYTHON_SITEPACKAGES_DIR}/easy-install.pth
 }
