@@ -11,3 +11,21 @@ SRC_URI[sha256sum] = "f8be5a9d74f7e656d38b2c3b44b7e367fce4001d613ca3fbfcbb87c493
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
 inherit distutils
+
+# Must inherit package first before changing PACKAGEFUNCS
+inherit package
+PACKAGEFUNCS += "add_easyinstall_pth"
+
+add_easyinstall_pth () {
+	echo "rospkg add_easyinstall_pth..."
+}
+
+
+pkg_postinst_python-rospkg () {
+	if test -e ${PYTHON_SITEPACKAGES_DIR}/easy-install.pth; then
+            echo insert >> ${PYTHON_SITEPACKAGES_DIR}/easy-install.pth
+        else
+            echo create >> ${PYTHON_SITEPACKAGES_DIR}/easy-install.pth
+        fi
+
+}
