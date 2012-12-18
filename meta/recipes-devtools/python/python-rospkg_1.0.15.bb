@@ -12,12 +12,6 @@ S = "${WORKDIR}/${SRCNAME}-${PV}"
 
 inherit distutils
 
-# Must inherit package first before changing PACKAGEFUNCS
-inherit package
-PACKAGEFUNCS += "add_easyinstall_pth"
+EASYINSTALL_python-rospkg = "./rospkg-1.0.15-py2.7.egg"
 
-add_easyinstall_pth () {
-	echo "rospkg add_easyinstall_pth..."
-}
-
-EASYINSTALL_python-rospkg = "rospkg-1.0.15-py2.7.egg"
+inherit easyinstall
