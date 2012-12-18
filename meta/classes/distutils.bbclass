@@ -59,9 +59,6 @@ distutils_do_install() {
             done
         fi
 
-        set EASYINSTALL_${PN}="`sed '1d;$d' ${D}${PYTHON_SITEPACKAGES_DIR}/easy-install.pth`"
-	echo "${EASYINSTALL_${PN}}"
-
         rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/easy-install.pth
         
         #
@@ -75,4 +72,3 @@ distutils_do_install() {
 EXPORT_FUNCTIONS do_compile do_install
 
 export LDSHARED="${CCLD} -shared"
-export EASYINSTALL_${PN}
