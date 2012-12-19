@@ -71,3 +71,8 @@ OPEN ISSUES for M1:
     Implementing this should not be difficult because the format of this file is very easy, and
     the pathes can be simply accumulated.
     TEMPORARY SOLUTION NOW: we simply write the easy-install.pth file in the rootfs task of the image generation.
+
+OPEN ISSUES for PUBLICATION:
+  - Maybe remove the ros_server.tar.gz files and explain how to obtain them.
+  - Maybe remove build/conf/ from repository.
+
