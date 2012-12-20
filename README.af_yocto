@@ -57,7 +57,7 @@ RESOLVED ISSUES for M1:
   
 OPEN ISSUES for M1:
 
-  - Yocto: python-setuptools requires some python-modules at run-time.
+  - python-setuptools requires some python-modules at run-time.
     TEMPORARILY RESOLVED by adding all python-modules in the image
     SHOULD BE RESOLVED by creating an appropriate patch for python-setuptools and contributing to openembedded-core
   - rospkg modules are not found when runnning python.
@@ -70,9 +70,15 @@ OPEN ISSUES for M1:
     This can be only solved by providing a general merge mechanism for the easy-install.pth file.
     Implementing this should not be difficult because the format of this file is very easy, and
     the pathes can be simply accumulated.
-    TEMPORARY SOLUTION NOW: we simply write the easy-install.pth file in the rootfs task of the image generation.
+    FIRST TEMPORARY SOLUTION: we simply write the easy-install.pth file in the rootfs task of the image generation.
+    SECOND SOLUTION: implemented behavior described above
+    THIRD SOLUTION: uses the dist_utils argument to use traditional packaging mechanism and avoid .egg files at all (suggested by Ross Burton)
+
+OPEN ISSUES for M2:
+  - understand what rosinstall actually does
+  - how fetch from multiple git repositories?
 
 OPEN ISSUES for PUBLICATION:
   - Maybe remove the ros_server.tar.gz files and explain how to obtain them.
   - Maybe remove build/conf/ from repository.
-
+  - make a proper layer
