@@ -1,14 +1,20 @@
-PURPOSE:
-  This document describes the installation, use and content of the git repository af_yocto.
+This is a layer to provide ros in an openembedded linux system.
+Currently, this layer is still under development and not fully functional.
 
-INSTALLATION and USE:
+PURPOSE of this document:
+  This document describes:
+  * the installation, use and content of the git repository meta_ros 
+  * milestones, the open issues and how some issues have been resolved. 
+
+INSTALLATION:
 
   The repository only contains a layer for ros to be added to the existing yocto poky-danny-8.0 archive.
 
   To install, unpack http://downloads.yoctoproject.org/releases/yocto/yocto-1.3/poky-danny-8.0.tar.bz2 into a directory <dir>.
   In <dir>, clone this repository into the subdirectory meta-ros. 
-  Add 
+  Add the meta-ros directory to your local bblayers.conf file 
 
+USE for native compilation on the VM (milestone M1):
   The commands
     source oe-init-build-env
     bitbake core-image-ros
@@ -38,6 +44,7 @@ CONTENT of the repository:
   recipes-devtools/python/python-nose_1.2.1.bb             recipe for nose python library
   recipes-devtools/python/python-rosinstall_0.6.21.bb      recipe for rosinstall tool
   recipes-devtools/log4cxx                                 recipes and patches for log4cxx (only 0.10.0 is used)
+
   
 MILESTONES
 
