@@ -36,6 +36,8 @@ WARNING:
 CONTENT of the repository:
 
   README                                                   this README file, which contains all important information
+  COPYING.MIT
+  conf/layer.conf                                          configuration file for this layer
   install.sh                                               installation script that runs within the virtual machine
   recipes-core/images/core-image-bmw.bb                    recipe for our own core image (derived from core-image-minimal)
   recipes-devtools/python/python-pyyaml_3.10.bb            recipe for pyyaml python library
@@ -43,19 +45,31 @@ CONTENT of the repository:
   recipes-devtools/python/python-empy_3.3.bb               recipe for empy python library
   recipes-devtools/python/python-nose_1.2.1.bb             recipe for nose python library
   recipes-devtools/python/python-rosinstall_0.6.21.bb      recipe for rosinstall tool
-  recipes-devtools/log4cxx                                 recipes and patches for log4cxx (only 0.10.0 is used)
+  recipes-devtools/python/python-pyyaml-native_3.10.bb     native recipes for cross-compilation
+  recipes-devtools/python/python-rospkg-native_1.0.15.bb
+  recipes-devtools/python/python-empy-native_3.3.bb
+  recipes-devtools/python/python-nose-native_1.2.1.bb
+  recipes-devtools/python/python-setuptools_0.6c11.bb      setuptools recipe originated from oe-core
+  recipes-devtools/log4cxx                                 recipes and patches for log4cxx 0.10.0
+  recipes-devtools/log4cxx/log4cxx_0.10.0.bb
+  recipes-devtools/log4cxx/log4cxx/0001-log4cxx_0-10-0_add-missing-includes.patch
+  recipes-devtools/log4cxx/log4cxx/0003-log4cxx-0.10.0-add_stdio_header.patch
+  recipes-devtools/log4cxx/log4cxx/0002-Remove-duplicates-from-makefile.patch
+  recipes-ros/ros/ros.bb                                   recipe for ros (incomplete)
+  recipes-ros/ros/ros/fuerte-ros-base.rosinstall           the .rosinstall file to download ros
+  classes/distutils.bbclass                                distutils recipe originated from oe-core (patch submitted to oe-core and accepted)
+  classes/easyinstall.bbclass                              adjustments for easyinstall
 
-  
 MILESTONES
 
   M1: basic image with dev-tools (make, cmake, ...) and ROS compiles natively in the virtual machine
   M2: Linux+ROS System can be built completely with bitbake (no compilation and installing in the virtual machine)
-  M3: Linux+ROS System with configured kernel (e.g. RT-Linux, System-D) that meets AF requirements 
+  M3: Linux+ROS System with configured kernel (e.g. RT-Linux, System-D) that meets real-time and safety requirements 
 
 RESOLVED ISSUES for M1:
 
   - recipes for python-pyyaml and python-rospkg create invalid shell scripts (header line refers to python-native instead of python.)
-    RESOLVED by patching distutils class--will be committed to yocto.
+    RESOLVED by patching distutils class--has be committed to oe-core.
   - recipe for log4cxx requires another patch.
     RESOLVED by providing patch 0003 in recipe
   - Compilation with make fails in the virtual machine because of insufficient memory during compilation.
@@ -86,4 +100,3 @@ OPEN ISSUES for M2:
 
 OPEN ISSUES for PUBLICATION:
   - Explain how to/write a script to obtain the files in ros_server
-  - make a proper layer
