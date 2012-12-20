@@ -3,16 +3,19 @@ PURPOSE:
 
 INSTALLATION and USE:
 
-  The repository only contains our contributions to the existing yocto poky-danny-8.0 archive.
-  To obtain all files, unpack http://downloads.yoctoproject.org/releases/yocto/yocto-1.3/poky-danny-8.0.tar.bz2 into this repository.
+  The repository only contains a layer for ros to be added to the existing yocto poky-danny-8.0 archive.
+
+  To install, unpack http://downloads.yoctoproject.org/releases/yocto/yocto-1.3/poky-danny-8.0.tar.bz2 into a directory <dir>.
+  In <dir>, clone this repository into the subdirectory meta-ros. 
+  Add 
 
   The commands
     source oe-init-build-env
-    bitbake core-image-bmw
+    bitbake core-image-ros
   builds our specifically configured linux image.
   
-  With `runqemu qemux86-64 qemuparams="-m 2048" core-image-bmw` the linux image runs within a virtual machine with 2048 MB of memory.
-  We assume that this is running on and compiled for an x86-64 architecture. For other architectures, some settings must be adjusted.
+  With `runqemu qemux86-64 qemuparams="-m 2048" core-image-ros` the linux image runs within a virtual machine with 2048 MB of memory.
+  We assumed that this is running on and compiled for an x86-64 architecture. For other architectures, some settings must be adjusted.
   
   Extract ros_server.tar.gz somewhere, adjust pathes in fuerte-ros-base.rosinstall to the location where it has been extracted to.
   After starting the virtual machine, copy the installation script from the guest system to the home directory with scp and execute it.
@@ -26,19 +29,15 @@ WARNING:
   
 CONTENT of the repository:
 
-  .gitignore                                                    list of filenames of the poky-danny-8.0 release to ignore. Adjust file to track newly added recipes.
-  README.af_yocto                                               this README file, which contains all important information
-  install.sh                                                    installation script that runs within the virtual machine
-  ros_server.tar.gz                                             archive with all ros-base repositories and an adjusted .rosinstall file
-  build/conf/bblayers.conf                                      setting file for building image
-  build/conf/local.conf                                         setting file for building image
-  meta/recipes-core/images/core-image-bmw.bb                    recipe for our own core image (derived from core-image-minimal)
-  meta/recipes-devtools/python/python-pyyaml_3.10.bb            recipe for pyyaml python library
-  meta/recipes-devtools/python/python-rospkg_1.0.15.bb          recipe for rospkg tool
-  meta/recipes-devtools/python/python-empy_3.3.bb               recipe for empy python library
-  meta/recipes-devtools/python/python-nose_1.2.1.bb             recipe for nose python library
-  meta/recipes-devtools/python/python-rosinstall_0.6.21.bb      recipe for rosinstall tool
-  meta/recipes-devtools/log4cxx                                 recipes and patches for log4cxx (only 0.10.0 is used)
+  README                                                   this README file, which contains all important information
+  install.sh                                               installation script that runs within the virtual machine
+  recipes-core/images/core-image-bmw.bb                    recipe for our own core image (derived from core-image-minimal)
+  recipes-devtools/python/python-pyyaml_3.10.bb            recipe for pyyaml python library
+  recipes-devtools/python/python-rospkg_1.0.15.bb          recipe for rospkg tool
+  recipes-devtools/python/python-empy_3.3.bb               recipe for empy python library
+  recipes-devtools/python/python-nose_1.2.1.bb             recipe for nose python library
+  recipes-devtools/python/python-rosinstall_0.6.21.bb      recipe for rosinstall tool
+  recipes-devtools/log4cxx                                 recipes and patches for log4cxx (only 0.10.0 is used)
   
 MILESTONES
 
@@ -80,5 +79,4 @@ OPEN ISSUES for M2:
 
 OPEN ISSUES for PUBLICATION:
   - Explain how to/write a script to obtain the files in ros_server
-  - Maybe remove build/conf/ from repository.
   - make a proper layer
