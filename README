@@ -2,9 +2,11 @@ This is a layer to provide ros in an openembedded linux system.
 Currently, this layer is still under development and not fully functional.
 
 PURPOSE of this document:
-  This document describes:
-  * the installation, use and content of the git repository meta_ros 
-  * milestones, the open issues and how some issues have been resolved. 
+  This document describes
+  - the installation, use and content of the git repository meta_ros 
+  - milestones, the open issues and how some issues have been resolved. 
+  - license information and origin of redistributed files
+
 
 INSTALLATION:
 
@@ -23,23 +25,22 @@ USE for native compilation on the VM (milestone M1):
   With `runqemu qemux86-64 qemuparams="-m 2048" core-image-ros` the linux image runs within a virtual machine with 2048 MB of memory.
   We assumed that this is running on and compiled for an x86-64 architecture. For other architectures, some settings must be adjusted.
   
-  Extract ros_server.tar.gz somewhere, adjust pathes in fuerte-ros-base.rosinstall to the location where it has been extracted to.
-  After starting the virtual machine, copy the installation script from the guest system to the home directory with scp and execute it.
+  On the host system, run fetch_ros.sh in a fresh directory, e.g. ~/ros-repos/.
+  It clones all ros repositories locally.
+  Then adjust pathes in fuerte-ros-base.rosinstall to the local repositories.
+  After starting the virtual machine, copy the installation script from the host system to the home directory with scp and execute it.
   
     scp lukas@192.168.7.1:/<location of repository>/install.sh .
     sh ./install.sh
-  
-WARNING:
-  When contributing repository, notice that the recipe for log4cxx was based on the recipe in the OpenEmbedded (Classic) Development
-  (cf. http://cgit.openembedded.org/openembedded/tree/recipes/log4cxx), which is licensed with the MIT Licence.
-  
+
+
 CONTENT of the repository:
 
   README                                                   this README file, which contains all important information
   COPYING.MIT
   conf/layer.conf                                          configuration file for this layer
   install.sh                                               installation script that runs within the virtual machine
-  recipes-core/images/core-image-bmw.bb                    recipe for our own core image (derived from core-image-minimal)
+  recipes-core/images/core-image-ros.bb                    recipe for our own core image (derived from core-image-minimal)
   recipes-devtools/python/python-pyyaml_3.10.bb            recipe for pyyaml python library
   recipes-devtools/python/python-rospkg_1.0.15.bb          recipe for rospkg tool
   recipes-devtools/python/python-empy_3.3.bb               recipe for empy python library
@@ -59,6 +60,7 @@ CONTENT of the repository:
   recipes-ros/ros/ros/fuerte-ros-base.rosinstall           the .rosinstall file to download ros
   classes/distutils.bbclass                                distutils recipe originated from oe-core (patch submitted to oe-core and accepted)
   classes/easyinstall.bbclass                              adjustments for easyinstall
+
 
 MILESTONES
 
@@ -96,7 +98,31 @@ OPEN ISSUES for M1:
 
 OPEN ISSUES for M2:
   - understand what rosinstall actually does
-  - how fetch from multiple git repositories?
+  - how fetch from multiple git repositories in one recipe?
 
 OPEN ISSUES for PUBLICATION:
   - Explain how to/write a script to obtain the files in ros_server
+
+
+LICENSE
+
+All metadata is MIT licensed unless otherwise stated. Source code included
+in tree for individual recipes is under the LICENSE stated in each recipe
+(.bb file) unless otherwise stated.
+
+This README document is Copyright (C) 2012 BMW Car IT GmbH.
+
+
+REDISTRIBUTIONS
+
+The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Development
+  (cf. http://cgit.openembedded.org/openembedded/tree/recipes/log4cxx)
+  licensed with the MIT License.
+The core-image-ros recipe originated from the core-image-minimal recipe in OpenEmbedded Core
+  (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
+  licensed with the MIT License.
+The distutils class originated the distutils class in OpenEmbedded Core
+  (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/classes/distutils.bbclass)
+  licensed with the MIT License.
+
+The modified files are redistributed here under the same MIT License.
