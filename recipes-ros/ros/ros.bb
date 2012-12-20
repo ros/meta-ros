@@ -8,8 +8,7 @@ DEPENDS = "python-empy-native python-rospkg-native python-native python-pyyaml-n
 
 PR = "r0"
 
-SRC_URI = "file://ros_server.tar.gz \
-	file://fuerte-ros-base.rosinstall"
+SRC_URI = "file://fuerte-ros-base.rosinstall"
 
 S = "${WORKDIR}"
 
