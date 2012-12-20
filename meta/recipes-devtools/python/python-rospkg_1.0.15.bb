@@ -12,6 +12,6 @@ S = "${WORKDIR}/${SRCNAME}-${PV}"
 
 inherit distutils
 
-EASYINSTALL_python-rospkg = "./rospkg-1.0.15-py2.7.egg"
-
-inherit easyinstall
+DISTUTILS_INSTALL_ARGS = "--single-version-externally-managed \
+                          --root=${D} \
+                          --install-lib=${PYTHON_SITEPACKAGES_DIR}"

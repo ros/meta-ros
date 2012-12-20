@@ -30,8 +30,8 @@ RDEPENDS_${PN} = "\
 SRC_URI[md5sum] = "7df2a529a074f613b509fb44feefe74e"
 SRC_URI[sha256sum] = "630fea9b726320b73ee3ca6ff61732cb32675b0389be658080fe46383b87a1d3"
 
-EASYINSTALL_${PN} = "./setuptools-0.6c11-py2.7.egg"
-
-inherit easyinstall
+DISTUTILS_INSTALL_ARGS = "--single-version-externally-managed \
+                          --root=${D} \
+                          --install-lib=${PYTHON_SITEPACKAGES_DIR}"
 
 BBCLASSEXTEND = "native"
