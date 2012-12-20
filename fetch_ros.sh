@@ -1,0 +1,11 @@
+git clone git://github.com/wg-debs/catkin-release.git
+git clone git://github.com/wg-debs/common_msgs-release.git
+git clone git://github.com/wg-debs/gencpp-release.git
+git clone git://github.com/wg-debs/genlisp-release.git
+git clone git://github.com/wg-debs/genmsg-release.git
+git clone git://github.com/wg-debs/genpy-release.git
+git clone git://github.com/wg-debs/ros-release.git
+git clone git://github.com/wg-debs/ros_comm-release.git
+git clone git://github.com/wg-debs/roscpp_core-release.git
+git clone git://github.com/wg-debs/rospack-release.git
+git clone git://github.com/wg-debs/std_msgs-release.git
