@@ -1,8 +1,18 @@
+## Installation script that should run in the virtual machine
+# copy it into the virtual machine with:
+# scp <user>@192.168.7.1:/<location of install.sh> .
+# and run it:
+# sh ./install.sh
+#
+# This script does the following steps:
 # create ssh login without password
+USERNAME = lukas
+REPOS_PATH = /home/lukas/ros_server/
+HOST_IP = 192.168.7.1
 ssh-keygen -t rsa
-cat .ssh/id_rsa.pub | ssh lukas@192.168.7.1 'cat >> .ssh/authorized_keys'
+cat .ssh/id_rsa.pub | ssh $USERNAME@$HOST_IP 'cat >> .ssh/authorized_keys'
 # copy prepared rosinstall file
-scp lukas@192.168.7.1:/home/lukas/ros_server/fuerte-ros-base.rosinstall .
+scp $USERNAME@$HOST_IP:$REPOS_PATH/fuerte-ros-base.rosinstall .
 # run rosinstall
 mkdir ~/ros
 rosinstall --catkin ~/ros fuerte-ros-base.rosinstall
