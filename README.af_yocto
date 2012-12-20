@@ -79,6 +79,6 @@ OPEN ISSUES for M2:
   - how fetch from multiple git repositories?
 
 OPEN ISSUES for PUBLICATION:
-  - Maybe remove the ros_server.tar.gz files and explain how to obtain them.
+  - Explain how to/write a script to obtain the files in ros_server
   - Maybe remove build/conf/ from repository.
   - make a proper layer
