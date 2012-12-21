@@ -150,6 +150,9 @@ REDISTRIBUTIONS
 The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Development
   (cf. http://cgit.openembedded.org/openembedded/tree/recipes/log4cxx)
   licensed with the MIT License.
+The setuptools class originated from the class in the OpenEmbedded (Classic) Development
+  (cf. http://cgit.openembedded.org/openembedded/tree/classes/setuptools.bbclass)
+  licensed with the MIT License.
 The core-image-ros recipe originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
   licensed with the MIT License.

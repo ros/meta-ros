@@ -10,5 +10,5 @@ SRC_URI[sha256sum] = "7163106c93460c8d092c5e74749cefd3fc17295f3a06c4f041fe83a772
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-inherit distutils
+inherit setuptools
 
