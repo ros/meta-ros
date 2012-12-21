@@ -24,4 +24,7 @@ create_python_easy_install_pth_file () {
 # create a custom hosts file
 ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; augment_hosts_setting_file ; create_python_easy_install_pth_file ; "
 
-IMAGE_INSTALL += "boost boost-dev packagegroup-core-ssh-openssh python-modules python-setuptools python-rospkg python-rosinstall git cmake python-empy python-pyyaml python-nose log4cxx log4cxx-dev libbz2-dev"
+IMAGE_INSTALL += "packagegroup-core-ssh-openssh git cmake \
+  boost boost-dev log4cxx log4cxx-dev libbz2-dev \
+  python-modules python-empy python-pyyaml python-nose \
+  python-setuptools python-rospkg python-vcstools python-rosinstall"
