@@ -10,6 +10,8 @@ inherit core-image
 
 IMAGE_ROOTFS_EXTRA_SPACE = "524288"
 
+IMAGE_FEATURES += "tools-sdk"
+
 # add own name to hosts
 augment_hosts_setting_file () {
 	echo '127.0.0.1\tqemux86-64.localdomain\t\tqemux86-64' >> ${IMAGE_ROOTFS}/etc/hosts
