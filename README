@@ -60,11 +60,12 @@ CONTENT of the repository:
   recipes-devtools/python/python-empy_3.3.bb               recipe for empy python library
   recipes-devtools/python/python-nose_1.2.1.bb             recipe for nose python library
   recipes-devtools/python/python-rosinstall_0.6.21.bb      recipe for rosinstall tool
+  recipes-devtools/python/python-vcstools_0.1.26.bb        recipe required by rosinstall tool
+  recipes-devtools/python/python-dateutil_1.5.bb           recipe required by rosinstall tool
   recipes-devtools/python/python-pyyaml-native_3.10.bb     native recipes for cross-compilation
   recipes-devtools/python/python-rospkg-native_1.0.15.bb
   recipes-devtools/python/python-empy-native_3.3.bb
   recipes-devtools/python/python-nose-native_1.2.1.bb
-  recipes-devtools/python/python-setuptools_0.6c11.bb      setuptools recipe originated from oe-core
   recipes-devtools/log4cxx                                 recipes and patches for log4cxx 0.10.0
   recipes-devtools/log4cxx/log4cxx_0.10.0.bb
   recipes-devtools/log4cxx/log4cxx/0001-log4cxx_0-10-0_add-missing-includes.patch
@@ -73,7 +74,7 @@ CONTENT of the repository:
   recipes-ros/ros/ros.bb                                   recipe for ros (incomplete)
   recipes-ros/ros/ros/fuerte-ros-base.rosinstall           the .rosinstall file to download ros
   classes/distutils.bbclass                                distutils recipe originated from oe-core (patch submitted to oe-core and accepted)
-  classes/easyinstall.bbclass                              adjustments for easyinstall
+  classes/setuptools.bbclass                               adjustments for python setuptools
 
 
 MILESTONES
@@ -149,9 +150,6 @@ REDISTRIBUTIONS
 
 The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Development
   (cf. http://cgit.openembedded.org/openembedded/tree/recipes/log4cxx)
-  licensed with the MIT License.
-The setuptools class originated from the class in the OpenEmbedded (Classic) Development
-  (cf. http://cgit.openembedded.org/openembedded/tree/classes/setuptools.bbclass)
   licensed with the MIT License.
 The core-image-ros recipe originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
