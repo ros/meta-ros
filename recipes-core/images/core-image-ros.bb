@@ -17,14 +17,9 @@ augment_hosts_setting_file () {
 	echo '127.0.0.1\tqemux86-64.localdomain\t\tqemux86-64' >> ${IMAGE_ROOTFS}/etc/hosts
 }
 
-# installs the easy_install_pth_file that we need
-create_python_easy_install_pth_file () {
-	:
-}
-
 # remove not needed ipkg informations
 # create a custom hosts file
-ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; augment_hosts_setting_file ; create_python_easy_install_pth_file ; "
+ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; augment_hosts_setting_file ; "
 
 IMAGE_INSTALL += "packagegroup-core-ssh-openssh git cmake \
   boost boost-dev log4cxx log4cxx-dev libbz2-dev \
