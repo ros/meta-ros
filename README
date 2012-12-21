@@ -100,8 +100,26 @@ OPEN ISSUES for M2:
   - understand what rosinstall actually does
   - how fetch from multiple git repositories in one recipe?
 
-OPEN ISSUES for PUBLICATION:
-  - Explain how to/write a script to obtain the files in ros_server
+
+CURRENT STATE:
+
+`bitbake ros` fails with:
+
+> CMake Error at catkin/cmake/find_program_required.cmake:5 (message):
+>  check_test_ran.py not found
+> Call Stack (most recent call first):
+>  ../catkin/CMakeFiles/tests.cmake:31 (find_program_required)
+>  ../catkin/CMakeFiles/tests.cmake:41 (catkin_initialize_tests)
+>  catkin/cmake/all.cmake:54 (include)
+>  catkin/CMakeLists.txt:12 (include)
+>
+>
+>
+> -- Configuring incomplete, errors occurred!
+>
+>
+> ERROR: Function failed: do_configure (see /home/lukas/NEW/poky-danny-8.0/build/tmp/work/i586-poky-linux/ros-1.0-r0/temp/log.do_configure.9702 for further information)
+> ERROR: Logfile of failure stored in: /home/lukas/NEW/poky-danny-8.0/build/tmp/work/i586-poky-linux/ros-1.0-r0/temp/log.do_configure.9702
 
 
 LICENSE

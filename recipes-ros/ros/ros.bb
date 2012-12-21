@@ -31,6 +31,6 @@ do_rosinstall () {
         mkdir -p ./ros-underlay
 	rosinstall --catkin ./ros-underlay fuerte-ros-base.rosinstall
 }
-addtask rosinstall after do_patch before generate_toolchain_file
+addtask rosinstall after do_patch before do_configure
 
 
