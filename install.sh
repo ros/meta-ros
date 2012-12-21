@@ -1,18 +1,67 @@
+#!/bin/bash
 ## Installation script that should run in the virtual machine
 # copy it into the virtual machine with:
 # scp <user>@192.168.7.1:/<location of install.sh> .
 # and run it:
 # sh ./install.sh
 #
+# local setting (must be adjusted)
+USERNAME="lukas"
+REPOS_PATH="/home/lukas/ros-repos/"
+HOST_IP="192.168.7.1"
 # This script does the following steps:
 # create ssh login without password
-USERNAME = lukas
-REPOS_PATH = /home/lukas/ros_server/
-HOST_IP = 192.168.7.1
+#
 ssh-keygen -t rsa
 cat .ssh/id_rsa.pub | ssh $USERNAME@$HOST_IP 'cat >> .ssh/authorized_keys'
-# copy prepared rosinstall file
-scp $USERNAME@$HOST_IP:$REPOS_PATH/fuerte-ros-base.rosinstall .
+# create prepared rosinstall file
+
+cat > fuerte-ros-base.rosinstall << EOF
+- git:
+    local-name: catkin
+    uri: git://$HOST_IP/$REPOS_PATH/catkin-release
+    version: debian/ros-fuerte-catkin_0.4.4_lucid
+- git:
+    local-name: common_msgs
+    uri: git://$HOST_IP/$REPOS_PATH/common_msgs-release
+    version: debian/ros-fuerte-common-msgs_1.8.7_lucid
+- git:
+    local-name: gencpp
+    uri: git://$HOST_IP/$REPOS_PATH/gencpp-release
+    version: debian/ros-fuerte-gencpp_0.3.4_lucid
+- git:
+    local-name: genlisp
+    uri: git://$HOST_IP/$REPOS_PATH/genlisp-release
+    version: debian/ros-fuerte-genlisp_0.3.3_lucid
+- git:
+    local-name: genmsg
+    uri: git://$HOST_IP/$REPOS_PATH/genmsg-release
+    version: debian/ros-fuerte-genmsg_0.3.10_lucid
+- git:
+    local-name: genpy
+    uri: git://$HOST_IP/$REPOS_PATH/genpy-release
+    version: debian/ros-fuerte-genpy_0.3.7_lucid
+- git:
+    local-name: ros
+    uri: git://$HOST_IP/$REPOS_PATH/ros-release
+    version: debian/ros-fuerte-ros_1.8.9_lucid
+- git:
+    local-name: ros_comm
+    uri: git://$HOST_IP/$REPOS_PATH/ros_comm-release
+    version: debian/ros-fuerte-ros-comm_1.8.12_lucid
+- git:
+    local-name: roscpp_core
+    uri: git://$HOST_IP/$REPOS_PATH/roscpp_core-release
+    version: debian/ros-fuerte-roscpp-core_0.2.5_lucid
+- git:
+    local-name: rospack
+    uri: git://$HOST_IP/$REPOS_PATH/rospack-release
+    version: debian/ros-fuerte-rospack_2.0.13_lucid
+- git:
+    local-name: std_msgs
+    uri: git://$HOST_IP/$REPOS_PATH/std_msgs-release
+    version: debian/ros-fuerte-std-msgs_0.4.8_lucid
+EOF
 # run rosinstall
 mkdir ~/ros
 rosinstall --catkin ~/ros fuerte-ros-base.rosinstall
