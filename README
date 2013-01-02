@@ -19,6 +19,7 @@ PURPOSE of this document:
   - milestones, the open issues and how some issues have been resolved. 
   - license information and origin of redistributed files
 
+
 INSTALLATION:
 
   The repository only contains a layer for ros that builds on top of the existing openembedded core layer.
