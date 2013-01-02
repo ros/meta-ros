@@ -17,15 +17,6 @@ EXTRA_OECMAKE = "-DSETUPTOOLS_DEB_LAYOUT=OFF"
 
 inherit pythonnative cmake
 
-do_configure_prepend () {   
-cat > /home/lukas/af_yocto/build/tmp/sysroots/x86_64-linux/usr/lib/python2.7/site-packages/easy-install.pth << EOF
-import sys; sys.__plen = len(sys.path)
-./setuptools-0.6c11-py2.7.egg
-./rospkg-1.0.15-py2.7.egg
-import sys; new=sys.path[sys.__plen:]; del sys.path[sys.__plen:]; p=getattr(sys,'__egginsert',0); sys.path[p:p]=new; sys.__egginsert = p+len(new)
-EOF
-}
-
 do_rosinstall () {
 	echo "Installing ros"
         mkdir -p ./ros-underlay
