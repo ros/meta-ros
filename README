@@ -1,12 +1,23 @@
 This is a layer to provide ROS in an openembedded linux system.
 Currently, this layer is still under development and not fully functional.
 
+AUTHOR
+  Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+
+HOW TO CONTRIBUTE
+
+We are still working on this development and are interested in other use cases.
+If you are interested in this project, please contact us via email.
+The more people are interested, the more we will be pushing this project.
+If you want to contribute, please contact us and we can discuss open issues
+and how we could join forces.
+
+
 PURPOSE of this document:
   This document describes
   - the installation, use and content of the git repository meta_ros 
   - milestones, the open issues and how some issues have been resolved. 
   - license information and origin of redistributed files
-
 
 INSTALLATION:
 
@@ -86,30 +97,19 @@ MILESTONES
 RESOLVED ISSUES for M1:
 
   - recipes for python-pyyaml and python-rospkg create invalid shell scripts (header line refers to python-native instead of python.)
-    RESOLVED by patching distutils class--has be committed to oe-core.
+    RESOLVED by patching distutils class--has been committed to oe-core.
   - recipe for log4cxx requires another patch.
     RESOLVED by providing patch 0003 in recipe
   - Compilation with make fails in the virtual machine because of insufficient memory during compilation.
     RESOLVED by increasing memory.
+  - rospkg modules are not found when runnning python.
+    RESOLVED by using the dist_utils argument to use traditional packaging mechanism and avoid .egg files at all (suggested by Ross Burton)
   
 OPEN ISSUES for M1:
 
   - python-setuptools requires some python-modules at run-time.
     TEMPORARILY RESOLVED by adding all python-modules in the image
     SHOULD BE RESOLVED by creating an appropriate patch for python-setuptools and contributing to openembedded-core
-  - rospkg modules are not found when runnning python.
-    TEMPORARILY RESOLVED by installing natively in the virtual machine
-    CAUSE of PROBLEM: must add /usr/lib/python2.7/site-packages/rospkg-1.0.15-py2.7.egg to PYTHON_PATH (sys.path)
-    In the usual setting, this is done by adding rospkg-1.0.15-py2.7.egg to the easy-install.pth
-    However, the distutils class removes the created easy-install.pth before packaging.
-    Modifying the class, to not remove the easy-install.pth does not solve the issue, because
-    also the python-setuptools must add an entry to easy-install.pth
-    This can be only solved by providing a general merge mechanism for the easy-install.pth file.
-    Implementing this should not be difficult because the format of this file is very easy, and
-    the pathes can be simply accumulated.
-    FIRST TEMPORARY SOLUTION: we simply write the easy-install.pth file in the rootfs task of the image generation.
-    SECOND SOLUTION: implemented behavior described above
-    THIRD SOLUTION: uses the dist_utils argument to use traditional packaging mechanism and avoid .egg files at all (suggested by Ross Burton)
 
 OPEN ISSUES for M2:
   - understand what rosinstall actually does
