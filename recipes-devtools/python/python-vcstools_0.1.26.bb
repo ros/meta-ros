@@ -10,5 +10,8 @@ SRC_URI[sha256sum] = "11cae4907609d3524655c7cdba66260821f69fd2ff2330ae93db35111c
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
+# install_requires=['pyyaml','python-dateutil']
+RDEPENDS_${PN} += "python-pyyaml python-dateutil"
+
 inherit setuptools
 
