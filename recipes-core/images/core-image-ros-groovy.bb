@@ -21,4 +21,9 @@ augment_hosts_setting_file () {
 # create a custom hosts file
 ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; augment_hosts_setting_file ; "
 
-IMAGE_INSTALL += "python-rosdep python-wstool"
+# currently install all python-modules, but we only need a subset.
+# also adding python-misc to obtain the ast module. We should check if this ast file should better
+# be a python module in the openembedded core repository.
+IMAGE_INSTALL += "packagegroup-core-ssh-openssh cmake \
+  python-modules python-misc python-empy \
+  python-argparse python-rosdep python-wstool"
