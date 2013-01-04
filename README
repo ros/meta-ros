@@ -155,8 +155,11 @@ The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Deve
 The core-image-ros recipe originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
   licensed with the MIT License.
-The distutils class originated the distutils class in OpenEmbedded Core
+The distutils class originated from the distutils class in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/classes/distutils.bbclass)
+  licensed with the MIT License.
+The libtinyxml recipe originated from the recipe in the OpenEmbedded meta layer
+  (cf. http://cgit.openembedded.org/meta-openembedded/tree/meta-oe/recipes-support/libtinyxml)
   licensed with the MIT License.
 
 The modified files are redistributed here under the same MIT License.
