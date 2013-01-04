@@ -25,5 +25,6 @@ ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; augment_hosts_setti
 # also adding python-misc to obtain the ast module. We should check if this ast file should better
 # be a python module in the openembedded core repository.
 IMAGE_INSTALL += "packagegroup-core-ssh-openssh cmake \
-  python-modules python-misc python-empy \
+  python-modules python-misc python-empy python-setuptools \
+  boost boost-dev python-dev \
   python-argparse python-rosdep python-wstool"
