@@ -2,7 +2,7 @@ This is a layer to provide ROS in an openembedded linux system.
 Currently, this layer is still under development and not fully functional.
 
 AUTHOR
-  Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+  Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
 
 HOW TO CONTRIBUTE
 
@@ -15,10 +15,20 @@ and how we could join forces.
 
 PURPOSE of this document:
   This document describes
+  - the state of the current work
   - the installation, use and content of the git repository meta_ros 
   - milestones, the open issues and how some issues have been resolved. 
   - license information and origin of redistributed files
 
+
+STATE OF THIS WORK:
+
+  This repository provides
+  - Native compilation of ROS-fuerte
+  - Native compilation of ROS-groovy
+  - Attempt of cross-compilation of ROS-fuerte (in development)
+  - Attempt of cross-compilation of catkin 0.5.58 (shipped with ROS-groovy) (in development)
+  - Attempt of cross-compilation of ROS-groovy (in development)
 
 INSTALLATION:
 
