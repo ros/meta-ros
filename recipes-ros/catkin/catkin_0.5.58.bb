@@ -11,7 +11,9 @@ SRC_URI[sha256sum] = "dd99cc04eeaf16a13185dd0a2f576939fa997dfb16a40ba45068c4d2eb
 
 EXTRA_OECMAKE = "-DSETUPTOOLS_DEB_LAYOUT=OFF"
 
-inherit cmake pythonnative
+inherit cmake pythonnative python-dir
+
+FILES_${PN} += "${libdir}/${PYTHON_DIR}/* ${PYTHON_SITEPACKAGES_DIR}/*"
 
 export BUILD_SYS
 export HOST_SYS
