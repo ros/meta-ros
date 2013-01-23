@@ -18,3 +18,6 @@ cd ros_catkin_ws
 tar -xzf ../src.tar.gz
 # compile, make and install
 catkin_make_isolated --install
+# start roscore
+. install_isolated/setup.sh
+roscore

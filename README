@@ -41,39 +41,86 @@ INSTALLATION:
   Add the meta-ros directory to your local bblayers.conf file.
 
 
-USE for native compilation on the VM (milestone M1):
+USE for native compilation of ROS-fuerte on the qemu VM:
   The commands
     source oe-init-build-env
-    bitbake core-image-ros
+    bitbake core-image-ros-fuerte
   builds our specifically configured linux image.
   
-  With `runqemu qemux86-64 qemuparams="-m 2048" core-image-ros` the linux image runs within a virtual machine with 2048 MB of memory.
-  We assumed that this is running on and compiled for an x86-64 architecture. For other architectures, some settings must be adjusted.
+  With `runqemu qemux86 qemuparams="-m 2048" core-image-ros-fuerte` the linux image runs within a virtual machine with 2048 MB of memory.
+  We assumed that this is running on and compiled for an x86 architecture. For other architectures, some settings must be adjusted.
   
-  On the host system, run fetch_ros.sh in a fresh directory, e.g. ~/ros-repos/.
+  On the host system, run fetch-ros-fuerte.sh in a fresh directory, e.g. ~/ros-repos/.
   It clones all ros repositories locally.
   After starting the virtual machine, copy the installation script from the host system to the home directory with scp.
   
-    scp lukas@192.168.7.1:/<location of repository>/install.sh .
+    scp lukas@192.168.7.1:/<location of repository>/install-fuerte.sh .
 
-  Adjust configuration in install.sh and then run
-
-    sh ./install.sh
+  Adjust configuration in install-fuerte.sh and then run
+c
+    sh ./install-fuerte.sh
   
   The installation script installs ros and starts roscore.
 
-USE for cross-compilation (milestone M2):
+
+USE for native compilation of ROS-groovy on the qemu VM:
+  The commands
+    source oe-init-build-env
+    bitbake core-image-ros-groovy
+  builds our specifically configured linux image.
+  
+  With `runqemu qemux86 qemuparams="-m 2048" core-image-ros-groovy` the linux image runs within a virtual machine with 2048 MB of memory.
+  We assumed that this is running on and compiled for an x86 architecture. For other architectures, some settings must be adjusted.
+  
+  On the host system, run mk_src in some clean temporary directory.
+  It copies all ros sources from their URLs and puts them into one src.tar.gz archive.
+  After starting the virtual machine, copy the installation script from the host system to the home directory with scp.
+  
+    scp lukas@192.168.7.1:/<location of repository>/install-groovy.sh .
+
+  Adjust configuration in install-groovy.sh and then run
+
+    sh ./install-groovy.sh
+  
+  The installation script installs ros and starts roscore.
+
+
+USE for cross-compilation of ROS-fuerte (in development):
    
   source oe-init-build-env
   bitbake ros
 
-  momentarily fails at some point (see CURRENT STATE)
+  momentarily fails at some point with:
+
+> CMake Error at catkin/cmake/find_program_required.cmake:5 (message):
+>  check_test_ran.py not found
+> Call Stack (most recent call first):
+>  ../catkin/CMakeFiles/tests.cmake:31 (find_program_required)
+>  ../catkin/CMakeFiles/tests.cmake:41 (catkin_initialize_tests)
+>  catkin/cmake/all.cmake:54 (include)
+>  catkin/CMakeLists.txt:12 (include)
+>
+>
+>
+> -- Configuring incomplete, errors occurred!
+>
+>
+> ERROR: Function failed: do_configure (see /home/lukas/NEW/poky-danny-8.0/build/tmp/work/i586-poky-linux/ros-1.0-r0/temp/log.do_configure.9702 for further information)
+> ERROR: Logfile of failure stored in: /home/lukas/NEW/poky-danny-8.0/build/tmp/work/i586-poky-linux/ros-1.0-r0/temp/log.do_configure.9702
+
+
+USE for cross-compilation of ROS-groovy (in development):
+   
+  source oe-init-build-env
+  bitbake ros-cpp-common
+
+  does not work because the catkin-native package does not install correctly yet.
 
 
 CONTENT of the repository:
 
   README                                                   this README file, which contains all important information
-  COPYING.MIT
+  COPYING.MIT                                              MIT license
   conf/layer.conf                                          configuration file for this layer
   install.sh                                               installation script that runs within the virtual machine
   recipes-core/images/core-image-ros.bb                    recipe for our own core image (derived from core-image-minimal)
@@ -99,13 +146,7 @@ CONTENT of the repository:
   classes/setuptools.bbclass                               adjustments for python setuptools
 
 
-MILESTONES
-
-  M1: basic image with dev-tools (make, cmake, ...) and ROS compiles natively in the virtual machine
-  M2: Linux+ROS System can be built completely with bitbake (no compilation and installing in the virtual machine)
-  M3: Linux+ROS System with configured kernel (e.g. RT-Linux, System-D) that meets real-time and safety requirements 
-
-RESOLVED ISSUES for M1:
+RESOLVED ISSUES for native compilation:
 
   - recipes for python-pyyaml and python-rospkg create invalid shell scripts (header line refers to python-native instead of python.)
     RESOLVED by patching distutils class--has been committed to oe-core.
@@ -116,36 +157,15 @@ RESOLVED ISSUES for M1:
   - rospkg modules are not found when runnning python.
     RESOLVED by using the dist_utils argument to use traditional packaging mechanism and avoid .egg files at all (suggested by Ross Burton)
   
-OPEN ISSUES for M1:
+OPEN ISSUES for native compilation:
 
   - python-setuptools requires some python-modules at run-time.
     TEMPORARILY RESOLVED by adding all python-modules in the image
     SHOULD BE RESOLVED by creating an appropriate patch for python-setuptools and contributing to openembedded-core
 
-OPEN ISSUES for M2:
+OPEN ISSUES for cross-compilation of ros-fuerte:
   - understand what rosinstall actually does
   - how fetch from multiple git repositories in one recipe?
-
-
-CURRENT STATE:
-
-`bitbake ros` fails with:
-
-> CMake Error at catkin/cmake/find_program_required.cmake:5 (message):
->  check_test_ran.py not found
-> Call Stack (most recent call first):
->  ../catkin/CMakeFiles/tests.cmake:31 (find_program_required)
->  ../catkin/CMakeFiles/tests.cmake:41 (catkin_initialize_tests)
->  catkin/cmake/all.cmake:54 (include)
->  catkin/CMakeLists.txt:12 (include)
->
->
->
-> -- Configuring incomplete, errors occurred!
->
->
-> ERROR: Function failed: do_configure (see /home/lukas/NEW/poky-danny-8.0/build/tmp/work/i586-poky-linux/ros-1.0-r0/temp/log.do_configure.9702 for further information)
-> ERROR: Logfile of failure stored in: /home/lukas/NEW/poky-danny-8.0/build/tmp/work/i586-poky-linux/ros-1.0-r0/temp/log.do_configure.9702
 
 
 LICENSE

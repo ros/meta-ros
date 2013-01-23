@@ -1,0 +1,26 @@
+DESCRIPTION = "Low-level build system macros and infrastructure for ROS"
+SECTION = "devel"
+# TODO: License of cpp_common not mentioned in the file
+LICENSE = "CLOSED"
+
+SRC_URI = "https://github.com/ros-gbp/roscpp_core-release/archive/release/cpp_common/0.3.11.tar.gz"
+SRC_URI[md5sum] = "7bf32963b9e2c82911bf089531c18482"
+SRC_URI[sha256sum] = "86018219aa77f109d3340d332e7a041a9e047fd48d3d0e03bf2a4bd9baa66bde"
+
+S = "${WORKDIR}/roscpp_core-release-release-cpp_common-0.3.11"
+
+DEPENDS = "catkin-native"
+
+## changed in catkinConfig.cmake
+# set(catkin_EXTRAS_DIR "/usr/share/catkin/cmake")
+# to
+# set(catkin_EXTRAS_DIR "/home/lukas/poky-danny-8.0/build/tmp/sysroots/qemux86/usr/share/catkin/cmake")
+##
+# should somehow install catkin to know the right pathes.
+#
+
+EXTRA_OECMAKE = ""
+
+inherit cmake pythonnative
+
+

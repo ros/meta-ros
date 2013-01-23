@@ -3,7 +3,7 @@
 # copy it into the virtual machine with:
 # scp <user>@192.168.7.1:/<location of install.sh> .
 # and run it:
-# sh ./install.sh
+# sh ./install-fuerte.sh
 #
 # local setting (must be adjusted)
 USERNAME="lukas"
