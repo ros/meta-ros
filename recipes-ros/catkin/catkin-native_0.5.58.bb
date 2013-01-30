@@ -9,6 +9,7 @@ SRC_URI[md5sum] = "e4df85e60dc792af9324334547cc76aa"
 SRC_URI[sha256sum] = "dd99cc04eeaf16a13185dd0a2f576939fa997dfb16a40ba45068c4d2ebbcb44b"
 
 # DEPENDS = "python-setuptools"
+DEPENDS = "python-empy-native python-catkin-pkg-native"
 
 EXTRA_OECMAKE = "-DSETUPTOOLS_DEB_LAYOUT=OFF"
 
@@ -16,9 +17,19 @@ inherit cmake pythonnative python-dir
 
 FILES_${PN} += "${libdir}/${PYTHON_DIR}/* ${PYTHON_SITEPACKAGES_DIR}/*"
 
+# catkin_EXTRAS_DIR = ${PROJECT_SPACE_DIR}/share/${PROJECT_NAME}/cmake
+# export catkin_EXTRAS_DIR
+
 export BUILD_SYS
 export HOST_SYS
 export STAGING_LIBDIR
 export STAGING_INCDIR
 
-BBCLASSEXTEND += "native"
+### OPEN QUESTION: use
+# inherit native
+# or use
+# BBCLASSEXTEND += "native"
+## TODO: what is the difference?
+
+inherit native
+#BBCLASSEXTEND += "native"
