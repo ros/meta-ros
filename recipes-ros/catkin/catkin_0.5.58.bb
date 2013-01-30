@@ -16,6 +16,7 @@ EXTRA_OECMAKE = "-DSETUPTOOLS_DEB_LAYOUT=OFF"
 inherit cmake pythonnative python-dir
 
 FILES_${PN} += "${libdir}/${PYTHON_DIR}/* ${PYTHON_SITEPACKAGES_DIR}/*"
+# FILES_${PN}-dev += "${libdir}/${PYTHON_DIR}/* ${PYTHON_SITEPACKAGES_DIR}/*"
 
 export BUILD_SYS
 export HOST_SYS
