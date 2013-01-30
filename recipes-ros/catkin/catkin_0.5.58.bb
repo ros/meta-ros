@@ -13,6 +13,7 @@ DEPENDS = "python-empy-native python-catkin-pkg-native"
 
 EXTRA_OECMAKE = "-DSETUPTOOLS_DEB_LAYOUT=OFF"
 
+BBCLASSEXTEND += "native"
 inherit cmake pythonnative python-dir
 
 FILES_${PN} += "${libdir}/${PYTHON_DIR}/* ${PYTHON_SITEPACKAGES_DIR}/*"
