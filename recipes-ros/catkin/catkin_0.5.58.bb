@@ -9,7 +9,7 @@ SRC_URI[md5sum] = "e4df85e60dc792af9324334547cc76aa"
 SRC_URI[sha256sum] = "dd99cc04eeaf16a13185dd0a2f576939fa997dfb16a40ba45068c4d2ebbcb44b"
 
 # DEPENDS = "python-setuptools"
-DEPENDS = "python-empy-native python-catkin-pkg-native"
+DEPENDS = "python-empy-native python-catkin-pkg-native python"
 
 EXTRA_OECMAKE = "-DSETUPTOOLS_DEB_LAYOUT=OFF"
 
