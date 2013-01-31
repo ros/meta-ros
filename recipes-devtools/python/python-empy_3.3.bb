@@ -1,6 +1,6 @@
 DESCRIPTION = "A powerful and robust templating system for Python"
 SECTION = "devel/python"
-LICENSE = "LGPL"
+LICENSE = "LGPL-2.1"
 LIC_FILES_CHKSUM = "file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34"
 SRCNAME = "empy"
 
