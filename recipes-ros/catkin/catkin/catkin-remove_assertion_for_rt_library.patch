@@ -1,0 +1,21 @@
+diff -crB a/cmake/tools/rt.cmake b/cmake/tools/rt.cmake
+*** a/cmake/tools/rt.cmake	2012-12-22 03:30:48.000000000 +0100
+--- b/cmake/tools/rt.cmake	2013-01-31 08:09:48.789321920 +0100
+***************
+*** 39,45 ****
+      set(RT_LIBRARY rt CACHE FILEPATH "Hacked find of rt for cmake < 2.8.4")
+    else()
+      find_library(RT_LIBRARY rt)
+!     assert_file_exists(${RT_LIBRARY} "RT Library")
+    endif()
+    #message(STATUS "RT_LIBRARY: ${RT_LIBRARY}")
+  endif()
+--- 39,45 ----
+      set(RT_LIBRARY rt CACHE FILEPATH "Hacked find of rt for cmake < 2.8.4")
+    else()
+      find_library(RT_LIBRARY rt)
+!     #assert_file_exists(${RT_LIBRARY} "RT Library")
+    endif()
+    #message(STATUS "RT_LIBRARY: ${RT_LIBRARY}")
+  endif()
+Only in b/cmake/tools: rt.cmake~
