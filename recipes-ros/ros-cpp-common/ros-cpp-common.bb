@@ -23,4 +23,6 @@ EXTRA_OECMAKE = ""
 
 inherit cmake pythonnative
 
+FILES_${PN} += "${libdir}/*"
+FILES_${PN}-dev += "${datadir}/*"
 
