@@ -1,7 +1,7 @@
 DESCRIPTION = "roscpp-serialization contains the code for serialization."
 SECTION = "devel"
-# TODO: License not mentioned in the file
-LICENSE = "CLOSED"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ## Problem: the filename 0.3.12.tar.gz of roscpp_traits clashes with the identical filename 0.3.12.tar.gz of rostime and rostraits
 ## can we somehow influence the naming?

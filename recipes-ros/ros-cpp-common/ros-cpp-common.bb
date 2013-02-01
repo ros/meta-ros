@@ -1,7 +1,7 @@
 DESCRIPTION = "Low-level build system macros and infrastructure for ROS"
 SECTION = "devel"
-# TODO: License of cpp_common not mentioned in the file
-LICENSE = "CLOSED"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 SRC_URI = "https://github.com/ros-gbp/roscpp_core-release/archive/release/cpp_common/0.3.11.tar.gz"
 SRC_URI[md5sum] = "7bf32963b9e2c82911bf089531c18482"

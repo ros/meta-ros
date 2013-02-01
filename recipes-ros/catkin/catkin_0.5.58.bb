@@ -1,7 +1,8 @@
 DESCRIPTION = "Low-level build system macros and infrastructure for ROS"
 SECTION = "devel"
 # TODO: License of catkin unmentioned in the repository
-LICENSE = "CLOSED"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 SRC_URI = "https://github.com/ros/catkin/archive/0.5.58.tar.gz \
   file://catkin-change_default_for_debsetuptools.patch \
