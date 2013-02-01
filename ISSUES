@@ -1,0 +1,23 @@
+
+RESOLVED ISSUES for native compilation:
+
+  - recipes for python-pyyaml and python-rospkg create invalid shell scripts (header line refers to python-native instead of python.)
+    RESOLVED by patching distutils class--has been committed to oe-core.
+  - recipe for log4cxx requires another patch.
+    RESOLVED by providing patch 0003 in recipe
+  - Compilation with make fails in the virtual machine because of insufficient memory during compilation.
+    RESOLVED by increasing memory.
+  - rospkg modules are not found when runnning python.
+    RESOLVED by using the dist_utils argument to use traditional packaging mechanism and avoid .egg files at all (suggested by Ross Burton)
+  
+OPEN ISSUES for native compilation:
+
+  - python-setuptools requires some python-modules at run-time.
+    TEMPORARILY RESOLVED by adding all python-modules in the image
+    SHOULD BE RESOLVED by creating an appropriate patch for python-setuptools and contributing to openembedded-core
+
+OPEN ISSUES for cross-compilation of ros-fuerte:
+  - understand what rosinstall actually does
+  - how fetch from multiple git repositories in one recipe?
+
+
