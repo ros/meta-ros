@@ -3,10 +3,9 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-## Problem: the filename 0.3.12.tar.gz of roscpp_traits clashes with the identical filename 0.3.12.tar.gz of rostime and rostraits
-## can we somehow influence the naming?
-# hack for now: downloaded the file manually and renamed it
-SRC_URI = "file://roscpp-serialization_0.3.12.tar.gz"
+SRC_URI = "https://github.com/ros-gbp/roscpp_core-release/archive/release/roscpp_serialization/0.3.12.tar.gz;downloadfilename=roscpp-serialization_0.3.12.tar.gz"
+SRC_URI[md5sum] = "38827d61eb88211d6be597d3be30ee58"
+SRC_URI[sha256sum] = "27581440aabb75df787e850124daaec252fdca8f5b70f8a4996f82bb8eb65eb7"
 
 S = "${WORKDIR}/roscpp_core-release-release-roscpp_serialization-0.3.12"
 
