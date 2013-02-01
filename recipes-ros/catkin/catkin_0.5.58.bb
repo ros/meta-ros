@@ -1,6 +1,5 @@
 DESCRIPTION = "Low-level build system macros and infrastructure for ROS"
 SECTION = "devel"
-# TODO: License of catkin unmentioned in the repository
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
@@ -26,15 +25,4 @@ export BUILD_SYS
 export HOST_SYS
 export STAGING_LIBDIR
 export STAGING_INCDIR
-
-# catkin-native: Fails in assert.cmake/rt.cmake;
-# after removing check in rt.cmake it works
-# but does this resolve the issue?
-
-# Installation of catkin must install catkinConfig.cmake so that
-# catkin_EXTRAS_DIR in catkinConfig.cmake points to the right path.
-# At the moment, installation points wrongly to the root directory set(catkin_EXTRAS_DIR "/usr/share/catkin/cmake")
-# instead of the sysroots environment, e.g.,
-# set(catkin_EXTRAS_DIR "/home/lukas/poky-danny-8.0/build/tmp/sysroots/qemux86/usr/share/catkin/cmake")
-# TODO: tweak installation to point to the correct path!
 
