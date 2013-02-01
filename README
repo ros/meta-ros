@@ -26,8 +26,9 @@ STATE OF THIS WORK:
   This repository provides
   - Native compilation of ROS-fuerte
   - Native compilation of ROS-groovy
-  - Attempt of cross-compilation of ROS-fuerte (in development)
-  - Attempt of cross-compilation of catkin 0.5.58 (shipped with ROS-groovy) (in development)
+  - Attempt of cross-compilation of ROS-fuerte (discontinued)
+  - Cross-compilation of catkin 0.5.58 (shipped with ROS-groovy)
+  - catkin 0.5.58 setup for cross-compiling catkin packages
   - Attempt of cross-compilation of ROS-groovy (in development)
 
 INSTALLATION:
@@ -57,7 +58,7 @@ USE for native compilation of ROS-fuerte on the qemu VM:
     scp lukas@192.168.7.1:/<location of repository>/install-fuerte.sh .
 
   Adjust configuration in install-fuerte.sh and then run
-c
+
     sh ./install-fuerte.sh
   
   The installation script installs ros and starts roscore.
@@ -72,7 +73,7 @@ USE for native compilation of ROS-groovy on the qemu VM:
   With `runqemu qemux86 qemuparams="-m 2048" core-image-ros-groovy` the linux image runs within a virtual machine with 2048 MB of memory.
   We assumed that this is running on and compiled for an x86 architecture. For other architectures, some settings must be adjusted.
   
-  On the host system, run mk_src in some clean temporary directory.
+  On the host system, run mk_srcarchive.sh in some clean temporary directory.
   It copies all ros sources from their URLs and puts them into one src.tar.gz archive.
   After starting the virtual machine, copy the installation script from the host system to the home directory with scp.
   
@@ -85,7 +86,7 @@ USE for native compilation of ROS-groovy on the qemu VM:
   The installation script installs ros and starts roscore.
 
 
-USE for cross-compilation of ROS-fuerte (in development):
+USE for cross-compilation of ROS-fuerte (discontinued):
    
   source oe-init-build-env
   bitbake ros
@@ -110,40 +111,13 @@ USE for cross-compilation of ROS-fuerte (in development):
 
 
 USE for cross-compilation of ROS-groovy (in development):
-   
+
+  Currently, we can cross-compile 4 packages:
+  ros-cpp-common, rostime, roscpp-traits, roscpp-serialization (packages in roscpp_core)
+  
+  with the commands:
   source oe-init-build-env
-  bitbake ros-cpp-common
-
-  does not work because the catkin-native package does not install correctly yet.
-
-
-CONTENT of the repository:
-
-  README                                                   this README file, which contains all important information
-  COPYING.MIT                                              MIT license
-  conf/layer.conf                                          configuration file for this layer
-  install.sh                                               installation script that runs within the virtual machine
-  recipes-core/images/core-image-ros.bb                    recipe for our own core image (derived from core-image-minimal)
-  recipes-devtools/python/python-pyyaml_3.10.bb            recipe for pyyaml python library
-  recipes-devtools/python/python-rospkg_1.0.15.bb          recipe for rospkg tool
-  recipes-devtools/python/python-empy_3.3.bb               recipe for empy python library
-  recipes-devtools/python/python-nose_1.2.1.bb             recipe for nose python library
-  recipes-devtools/python/python-rosinstall_0.6.21.bb      recipe for rosinstall tool
-  recipes-devtools/python/python-vcstools_0.1.26.bb        recipe required by rosinstall tool
-  recipes-devtools/python/python-dateutil_1.5.bb           recipe required by rosinstall tool
-  recipes-devtools/python/python-pyyaml-native_3.10.bb     native recipes for cross-compilation
-  recipes-devtools/python/python-rospkg-native_1.0.15.bb
-  recipes-devtools/python/python-empy-native_3.3.bb
-  recipes-devtools/python/python-nose-native_1.2.1.bb
-  recipes-devtools/log4cxx                                 recipes and patches for log4cxx 0.10.0
-  recipes-devtools/log4cxx/log4cxx_0.10.0.bb
-  recipes-devtools/log4cxx/log4cxx/0001-log4cxx_0-10-0_add-missing-includes.patch
-  recipes-devtools/log4cxx/log4cxx/0003-log4cxx-0.10.0-add_stdio_header.patch
-  recipes-devtools/log4cxx/log4cxx/0002-Remove-duplicates-from-makefile.patch
-  recipes-ros/ros/ros.bb                                   recipe for ros (incomplete)
-  recipes-ros/ros/ros/fuerte-ros-base.rosinstall           the .rosinstall file to download ros
-  classes/distutils.bbclass                                distutils recipe originated from oe-core (patch submitted to oe-core and accepted)
-  classes/setuptools.bbclass                               adjustments for python setuptools
+  bitbake <package-name>
 
 
 RESOLVED ISSUES for native compilation:
