@@ -30,4 +30,5 @@ IMAGE_INSTALL += "packagegroup-core-ssh-openssh cmake \
   log4cxx log4cxx-dev libbz2-dev \
   python-argparse python-rosdep python-wstool \
   catkin \
+  roscpp-core \
   "
