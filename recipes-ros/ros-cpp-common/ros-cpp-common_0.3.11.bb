@@ -11,14 +11,6 @@ S = "${WORKDIR}/roscpp_core-release-release-cpp_common-0.3.11"
 
 DEPENDS = "catkin-native"
 
-## changed in catkinConfig.cmake
-# set(catkin_EXTRAS_DIR "/usr/share/catkin/cmake")
-# to
-# set(catkin_EXTRAS_DIR "/home/lukas/poky-danny-8.0/build/tmp/sysroots/qemux86/usr/share/catkin/cmake")
-##
-# should somehow install catkin to know the right pathes.
-#
-
 EXTRA_OECMAKE = ""
 
 inherit cmake pythonnative
