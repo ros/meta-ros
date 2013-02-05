@@ -9,7 +9,9 @@ SRC_URI[sha256sum] = "b9ed9dadb21430deb87d56f4051da80238a36feea972ec0d3cecbfe91b
 
 S = "${WORKDIR}/roscpp_core-release-release-roscpp_core-0.3.12"
 
-RDEPENDS_${PN} = "\
+ALLOW_EMPTY = "1"
+
+DEPENDS = "\
   ros-cpp-common \
   roscpp-serialization \
   roscpp-traits \
