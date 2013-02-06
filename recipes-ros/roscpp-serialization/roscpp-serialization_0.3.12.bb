@@ -9,6 +9,8 @@ SRC_URI[sha256sum] = "27581440aabb75df787e850124daaec252fdca8f5b70f8a4996f82bb8e
 
 S = "${WORKDIR}/roscpp_core-release-release-roscpp_serialization-0.3.12"
 
+ALLOW_EMPTY = "1"
+
 DEPENDS = "catkin-native \
   ros-cpp-common \
   roscpp-traits \

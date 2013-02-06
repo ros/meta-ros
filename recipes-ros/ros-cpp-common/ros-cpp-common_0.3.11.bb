@@ -11,6 +11,8 @@ S = "${WORKDIR}/roscpp_core-release-release-cpp_common-0.3.11"
 
 DEPENDS = "catkin-native"
 
+ALLOW_EMPTY = "1"
+
 EXTRA_OECMAKE = ""
 
 inherit cmake pythonnative

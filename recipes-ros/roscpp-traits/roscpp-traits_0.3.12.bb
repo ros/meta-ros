@@ -9,6 +9,8 @@ SRC_URI[sha256sum] = "f35cd1e29b50a2ffd89b36a9c919653ba2f6242c4b92618b544ded4f00
 
 S = "${WORKDIR}/roscpp_core-release-release-roscpp_traits-0.3.12"
 
+ALLOW_EMPTY = "1"
+
 DEPENDS = "catkin-native"
 
 inherit cmake pythonnative
