@@ -16,5 +16,6 @@ FILES_${PN} += "${libdir}/*"
 
 inherit cmake pythonnative
 
-EXTRA_OECMAKE = "-DCMAKE_PREFIX_PATH=/home/lukas/poky-danny-8.0/build/tmp/sysroots/qemux86/usr/share/cpp_common/cmake/ \
-  -Dcpp_common_DIR=/home/lukas/poky-danny-8.0/build/tmp/sysroots/qemux86/usr/share/cpp_common/cmake/"
+EXTRA_OECMAKE = " \
+  -Dcpp_common_DIR=${STAGING_DATADIR}/cpp_common/cmake/ \
+  "

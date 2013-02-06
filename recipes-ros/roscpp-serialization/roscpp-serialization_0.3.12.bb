@@ -14,10 +14,10 @@ DEPENDS = "catkin-native \
   roscpp-traits \
   rostime"
 
-EXTRA_OECMAKE = \
-  " -Dcpp_common_DIR=/home/lukas/poky-danny-8.0/build/tmp/sysroots/qemux86/usr/share/cpp_common/cmake/ \
-    -Droscpp_traits_DIR=/home/lukas/poky-danny-8.0/build/tmp/sysroots/qemux86/usr/share/roscpp_traits/cmake/ \
-    -Drostime_DIR=/home/lukas/poky-danny-8.0/build/tmp/sysroots/qemux86/usr/share/rostime/cmake/ \
+EXTRA_OECMAKE = " \
+    -Dcpp_common_DIR=${STAGING_DATADIR}/cpp_common/cmake/ \
+    -Droscpp_traits_DIR=${STAGING_DATADIR}/roscpp_traits/cmake/ \
+    -Drostime_DIR=${STAGING_DATADIR}/rostime/cmake/ \
   "
 
 inherit cmake pythonnative
