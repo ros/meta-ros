@@ -10,7 +10,6 @@ SRC_URI[sha256sum] = "887a89406d9682dc49c4049b4fe0766b6613208fd9df95a0efa55579b9
 S = "${WORKDIR}/roscpp_core-release-release-rostime-0.3.12"
 
 DEPENDS = "catkin-native boost cpp-common"
-RDEPENDS = "boost cpp-common"
 
 FILES_${PN} += "${libdir}/*"
 
