@@ -12,7 +12,7 @@ S = "${WORKDIR}/roscpp_core-release-release-roscpp_core-0.3.12"
 ALLOW_EMPTY = "1"
 
 DEPENDS = "\
-  ros-cpp-common \
+  cpp-common \
   roscpp-serialization \
   roscpp-traits \
   rostime \

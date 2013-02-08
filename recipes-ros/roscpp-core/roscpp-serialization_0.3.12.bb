@@ -12,7 +12,7 @@ S = "${WORKDIR}/roscpp_core-release-release-roscpp_serialization-0.3.12"
 ALLOW_EMPTY = "1"
 
 DEPENDS = "catkin-native \
-  ros-cpp-common \
+  cpp-common \
   roscpp-traits \
   rostime"
 
