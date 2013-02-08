@@ -13,3 +13,8 @@ S = "${WORKDIR}/${SRCNAME}-${PV}"
 RDEPENDS = "python-modules"
 
 inherit distutils
+
+DEPENDS += "python"
+DEPENDS_class-native  += "python-native"
+BBCLASSEXTEND = "native"
+

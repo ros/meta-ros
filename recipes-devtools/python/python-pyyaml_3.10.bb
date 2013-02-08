@@ -12,3 +12,8 @@ SRC_URI[sha256sum] = "e713da45c96ca53a3a8b48140d4120374db622df16ab71759c9ceb5b8d
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
 inherit distutils
+
+DEPENDS += "python"
+DEPENDS_class-native  += "python-native"
+BBCLASSEXTEND = "native"
+

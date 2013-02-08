@@ -13,3 +13,8 @@ S = "${WORKDIR}/${SRCNAME}-${PV}"
 RDEPENDS_${PN} += "python-modules"
 
 inherit setuptools
+
+DEPENDS += "python"
+DEPENDS_class-native  += "python-native"
+BBCLASSEXTEND = "native"
+
