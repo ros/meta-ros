@@ -1,7 +1,7 @@
 DESCRIPTION = "Underlying data libraries for roscpp messages"
 SECTION = "devel"
-LICENSE = "BSD & LGPL"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=9;md5=20ce6a31158ec69f9cec7df32db0676f"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 SRC_URI = "https://github.com/ros-gbp/roscpp_core-release/archive/release/roscpp_core/0.3.12.tar.gz;downloadfilename=roscpp-cppcore_0.3.12.tar.gz"
 SRC_URI[md5sum] = "56cfd5b11cba6d28f742106a1eeafc92"
