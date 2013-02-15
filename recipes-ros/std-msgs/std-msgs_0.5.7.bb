@@ -4,20 +4,12 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-SRC_URI = "https://github.com/ros-gbp/std_msgs-release/archive/release/std_msgs/0.5.7.tar.gz;downloadfilename=std-msgs_0.5.7.tar.gz"
-SRC_URI[md5sum] = "7665733101cc69106dd7a2902dc67f19"
-SRC_URI[sha256sum] = "636f0871d52531d6764d7b26ded476a49881e5e9166999efed2f1a6ee3787fec"
+DEPENDS = "message-generation genlisp"
 
-S = "${WORKDIR}/std_msgs-release-release-std_msgs-0.5.7"
+SRC_URI = "https://github.com/ros/${ROS_BPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_BP}.tar.gz"
+SRC_URI[md5sum] = "ea40e6dd8ea19fe54a2b476358c0ceea"
+SRC_URI[sha256sum] = "acc3d6aed8ede795e4bc6676c1849924699a418769b3d29016a9a2ac08319a56"
 
-DEPENDS = "catkin-native message-generation"
-# also depends on genlisp
+S = "${WORKDIR}/${ROS_BPN}-${PV}"
 
-FILES_${PN} += "${libdir}/*"
-
-inherit cmake pythonnative
-
-EXTRA_OECMAKE = " \
-  -Dmessage_generation_DIR=${STAGING_DATADIR}/message_generation/cmake/ \
-  "
-
+inherit catkin
