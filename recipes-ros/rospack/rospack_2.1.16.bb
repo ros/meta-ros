@@ -3,17 +3,10 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-SRC_URI = "https://github.com/ros-gbp/rospack-release/archive/release/rospack/2.1.16.tar.gz;downloadfilename=rospack_2.1.16.tar.gz"
-SRC_URI[md5sum] = "35b37d6bea2ed092e9265dd975b3be17"
-SRC_URI[sha256sum] = "a9a997ea584ef2c41a78e03e3b24d315dc1020545b2a1a0cde474d24fe912f24"
+DEPENDS = "boost python libtinyxml"
 
-S = "${WORKDIR}/rospack-release-release-rospack-2.1.16"
+SRC_URI = "https://github.com/ros/${BPN}/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz"
+SRC_URI[md5sum] = "1383bdce36fe6319884e7b158c22d8b4"
+SRC_URI[sha256sum] = "5bfdcc93db555fe23dead5d471f8bba25dc72c2f0f928bd2319e06bf42f9d117"
 
-DEPENDS = "catkin-native boost python libtinyxml"
-
-FILES_${PN} += "${libdir}/*"
-
-inherit cmake pythonnative
-
-EXTRA_OECMAKE = " \
-  "
+inherit catkin

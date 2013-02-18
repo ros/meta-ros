@@ -1,0 +1,35 @@
+From fcdeade11a2d2e882512fcbaa0ea32bc0d5fd6d0 Mon Sep 17 00:00:00 2001
+From: Stefan Herbrechtsmeier <stefan@herbrechtsmeier.net>
+Date: Fri, 15 Feb 2013 13:06:36 +0100
+Subject: [PATCH 2/2] catkinConfig: use curent path for catkin_EXTRA_DIR
+
+Signed-off-by: Stefan Herbrechtsmeier <stefan@herbrechtsmeier.net>
+---
+ cmake/catkin_package.cmake |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
+index ee107c7..8b2bf2c 100644
+--- a/cmake/catkin_package.cmake
++++ b/cmake/catkin_package.cmake
+@@ -255,7 +255,7 @@ function(_catkin_package)
+   # prepend library path of this workspace
+   set(PKG_CONFIG_LIB_PATHS ${lib_paths})
+   list(INSERT PKG_CONFIG_LIB_PATHS 0 ${PROJECT_SPACE_DIR}/lib)
+-  set(PKG_CMAKE_DIR ${PROJECT_SPACE_DIR}/share/${PROJECT_NAME}/cmake)
++  set(PKG_CMAKE_DIR "\${CMAKE_CURRENT_LIST_DIR}")
+   if("${PROJECT_NAME}" STREQUAL "catkin")
+     set(PKG_CMAKE_DIR "${catkin_EXTRAS_DIR}")
+   endif()
+@@ -336,7 +336,7 @@ function(_catkin_package)
+   # prepend library path of this workspace
+   set(PKG_CONFIG_LIB_PATHS ${lib_paths})
+   list(INSERT PKG_CONFIG_LIB_PATHS 0 ${PROJECT_SPACE_DIR}/lib)
+-  set(PKG_CMAKE_DIR ${PROJECT_SPACE_DIR}/share/${PROJECT_NAME}/cmake)
++  set(PKG_CMAKE_DIR "\${CMAKE_CURRENT_LIST_DIR}")
+ 
+   # ensure that output folder exists
+   file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace)
+-- 
+1.7.0.4
+
