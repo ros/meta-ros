@@ -1,8 +1,12 @@
-This is a layer to provide ROS in an openembedded linux system.
+This is a layer to provide ROS in an OpenEmbedded Linux system.
 Currently, this layer is still under development and not fully functional.
 
-AUTHOR
+MAINTAINER
   Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
+
+CONTRIBUTORS
+  Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
+  Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
 
 HOW TO CONTRIBUTE
 
