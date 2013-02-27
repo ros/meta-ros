@@ -1,0 +1,25 @@
+From 2dc8c3356e38a9b6343c362f70c0cf900ed51296 Mon Sep 17 00:00:00 2001
+From: Stefan Herbrechtsmeier <stefan@herbrechtsmeier.net>
+Date: Thu, 21 Feb 2013 10:33:19 +0100
+Subject: [PATCH] rosunit-extras.cmake.em: remove NO_CMAKE_FIND_ROOT_PATH from find_program
+
+---
+ tools/rosunit/cmake/rosunit-extras.cmake.em |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/tools/rosunit/cmake/rosunit-extras.cmake.em b/tools/rosunit/cmake/rosunit-extras.cmake.em
+index 4b9bb0d..30db4d1 100644
+--- a/tools/rosunit/cmake/rosunit-extras.cmake.em
++++ b/tools/rosunit/cmake/rosunit-extras.cmake.em
+@@ -14,7 +14,7 @@ macro(rosunit_initialize_tests)
+   # find binary and scripts in installspace
+   find_program(ROSUNIT_EXE rosunit
+     PATHS @(CMAKE_INSTALL_PREFIX)/bin
+-    NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
++    NO_DEFAULT_PATH)
+   if(NOT ROSUNIT_EXE)
+     message(FATAL_ERROR "'rosunit' not found")
+   endif()
+-- 
+1.7.0.4
+
