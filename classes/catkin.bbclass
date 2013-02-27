@@ -33,16 +33,11 @@ ROS_BP = "${BPN}-${PV}"
 
 FILES_${PN} += "\
     ${prefix}/etc \
-    ${datadir}/${BPN}/conf \
-    ${datadir}/${BPN}/scripts \
     ${datadir}/${ROS_BPN}/conf \
     ${datadir}/${ROS_BPN}/scripts \
     "
 
 FILES_${PN}-dev += "\
-    ${datadir}/${BPN}/cmake \
-    ${datadir}/${BPN}/package.xml \
-    ${datadir}/${BPN}/*.template \
     ${datadir}/${ROS_BPN}/cmake \
     ${datadir}/${ROS_BPN}/package.xml \
     ${datadir}/${ROS_BPN}/*.template \
