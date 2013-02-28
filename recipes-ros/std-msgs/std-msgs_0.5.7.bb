@@ -2,9 +2,9 @@ DESCRIPTION = "Standard ROS Messages including common message types representing
     For common, generic robot-specific message types, please see common_msgs."
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=5ee5b8b046ae48ad94a2037ca953a67b"
 
-DEPENDS = "message-generation genlisp"
+DEPENDS = "message-generation genlisp genpy"
 
 SRC_URI = "https://github.com/ros/${ROS_BPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_BP}.tar.gz"
 SRC_URI[md5sum] = "ea40e6dd8ea19fe54a2b476358c0ceea"
