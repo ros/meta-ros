@@ -5,13 +5,15 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc
 
 DEPENDS = "cmake python-empy python-catkin-pkg"
 
-SRC_URI = "https://github.com/ros/${BPN}/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz \
-           file://0001-catkin_package-use-relative-paths-in-PKG_CFG_EXTRAS.patch \
-           file://0002-catkinConfig-use-curent-path-for-catkin_EXTRA_DIR.patch \
+SRC_URI = "git://github.com/ros/${BPN}.git \
+           file://0001-pkgConfig.cmake-use-filenames-in-PKG_CFG_EXTRAS.patch \
+           file://0002-catkin_package.cmake-use-PROJECT_NAME-_EXTRAS_DIR-fo.patch \
            "
 
-SRC_URI[md5sum] = "e4df85e60dc792af9324334547cc76aa"
-SRC_URI[sha256sum] = "dd99cc04eeaf16a13185dd0a2f576939fa997dfb16a40ba45068c4d2ebbcb44b"
+SRCREV = "cbe6a0ce3ac6d13914d3b4b010148f72e7984149"
+PV = "0.5.63+gitr${SRCPV}"
+
+S = "${WORKDIR}/git"
 
 inherit catkin
 
