@@ -22,6 +22,9 @@ EXTRA_OECMAKE_prepend = "\
     -DSETUPTOOLS_DEB_LAYOUT=OFF \
     "
 
+OECMAKE_SOURCEPATH = "${S}"
+OECMAKE_BUILDPATH = "${S}/build"
+
 export BUILD_SYS
 export HOST_SYS
 
