@@ -22,6 +22,9 @@ EXTRA_OECMAKE_prepend = "\
     -DSETUPTOOLS_DEB_LAYOUT=OFF \
     "
 
+OECMAKE_SOURCEPATH = "${S}"
+OECMAKE_BUILDPATH = "${S}/build"
+
 export BUILD_SYS
 export HOST_SYS
 
@@ -33,16 +36,13 @@ ROS_BP = "${BPN}-${PV}"
 
 FILES_${PN} += "\
     ${prefix}/etc \
-    ${datadir}/${BPN}/conf \
-    ${datadir}/${BPN}/scripts \
+    ${datadir}/ros/config/${ROS_BPN}.config \
     ${datadir}/${ROS_BPN}/conf \
     ${datadir}/${ROS_BPN}/scripts \
+    ${datadir}/${ROS_BPN}/msg \
     "
 
 FILES_${PN}-dev += "\
-    ${datadir}/${BPN}/cmake \
-    ${datadir}/${BPN}/package.xml \
-    ${datadir}/${BPN}/*.template \
     ${datadir}/${ROS_BPN}/cmake \
     ${datadir}/${ROS_BPN}/package.xml \
     ${datadir}/${ROS_BPN}/*.template \
