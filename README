@@ -128,6 +128,10 @@ LICENSE
 All metadata is MIT licensed unless otherwise stated. Source code included
 in tree for individual recipes is under the LICENSE stated in each recipe
 (.bb file) unless otherwise stated.
+The descriptions in the recipes of ROS packages have been extracted from
+the ROS wiki (http://www.ros.org/wiki/) and are licensed under 
+Creative Commons Attribution 3.0 (http://creativecommons.org/licenses/by/3.0/)
+unless otherwise noted.
 
 This README document is Copyright (C) 2012 BMW Car IT GmbH.
 
