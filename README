@@ -29,7 +29,6 @@ STATE OF THIS WORK:
   This repository provides
   - Native compilation of ROS-fuerte
   - Native compilation of ROS-groovy
-  - Attempt of cross-compilation of ROS-fuerte (discontinued)
   - Cross-compilation of catkin 0.5.58 (shipped with ROS-groovy)
   - catkin 0.5.58 setup for cross-compiling catkin packages
   - Attempt of cross-compilation of ROS-groovy (in development)
@@ -87,30 +86,6 @@ USE for native compilation of ROS-groovy on the qemu VM:
     sh ./install-groovy.sh
   
   The installation script installs ros and starts roscore.
-
-
-USE for cross-compilation of ROS-fuerte (discontinued):
-   
-  source oe-init-build-env
-  bitbake ros
-
-  momentarily fails at some point with:
-
-> CMake Error at catkin/cmake/find_program_required.cmake:5 (message):
->  check_test_ran.py not found
-> Call Stack (most recent call first):
->  ../catkin/CMakeFiles/tests.cmake:31 (find_program_required)
->  ../catkin/CMakeFiles/tests.cmake:41 (catkin_initialize_tests)
->  catkin/cmake/all.cmake:54 (include)
->  catkin/CMakeLists.txt:12 (include)
->
->
->
-> -- Configuring incomplete, errors occurred!
->
->
-> ERROR: Function failed: do_configure (see /home/lukas/NEW/poky-danny-8.0/build/tmp/work/i586-poky-linux/ros-1.0-r0/temp/log.do_configure.9702 for further information)
-> ERROR: Logfile of failure stored in: /home/lukas/NEW/poky-danny-8.0/build/tmp/work/i586-poky-linux/ros-1.0-r0/temp/log.do_configure.9702
 
 
 USE for cross-compilation of ROS-groovy (in development):
