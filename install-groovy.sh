@@ -16,8 +16,31 @@ mkdir ros_catkin_ws
 cd ros_catkin_ws
 # extract
 tar -xzf ../src.tar.gz
+# patch catkin
+patch -p1 << EOF
+*** A/src/catkin/cmake/python.cmake	2013-01-04 14:22:33.223884756 +0100
+--- B/src/catkin/cmake/python.cmake	2013-01-04 14:28:01.971898385 +0100
+***************
+*** 6,12 ****
+  set(PYTHON_VERSION_XDOTY ${PYTHON_VERSION_XDOTY} CACHE STRING "Python version")
+  
+  #This should be resolved automatically one day...
+! option(SETUPTOOLS_DEB_LAYOUT "ON for debian style python packages layout" ON)
+  
+  if(APPLE OR MSVC)
+    set(SETUPTOOLS_DEB_LAYOUT OFF)
+--- 6,12 ----
+  set(PYTHON_VERSION_XDOTY ${PYTHON_VERSION_XDOTY} CACHE STRING "Python version")
+  
+  #This should be resolved automatically one day...
+! option(SETUPTOOLS_DEB_LAYOUT "ON for debian style python packages layout" OFF)
+  
+  if(APPLE OR MSVC)
+    set(SETUPTOOLS_DEB_LAYOUT OFF)
+EOF
 # compile, make and install
-catkin_make_isolated --install
+./src/catkin/bin/catkin_make_isolated --install
 # start roscore
 . install_isolated/setup.sh
 roscore
+
