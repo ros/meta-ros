@@ -12,6 +12,7 @@ S = "${WORKDIR}/${SRCNAME}-${PV}"
 
 # install_requires=['vcstools', 'pyyaml'],
 DEPENDS += "python-vcstools python-pyyaml"
+RDEPENDS_${PN} = "python-vcstools"
 
 inherit setuptools
 
