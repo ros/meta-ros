@@ -29,6 +29,5 @@ IMAGE_INSTALL += "packagegroup-core-ssh-openssh cmake \
   boost boost-dev python-dev libtinyxml libtinyxml-dev \
   log4cxx log4cxx-dev libbz2-dev \
   python-argparse python-rosdep python-wstool \
-  catkin \
-  roscpp-core \
-  "
+"
+
