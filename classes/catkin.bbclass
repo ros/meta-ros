@@ -6,7 +6,6 @@ inherit cmake distutils-base
 
 DEPENDS_prepend = "${@['catkin-native ', ''][d.getVar('BPN', True) == 'catkin']}"
 
-
 EXTRA_OECMAKE_CATKIN = "\
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}/usr;${STAGING_DIR_NATIVE}/usr' \
     "
@@ -47,3 +46,5 @@ FILES_${PN}-dev += "\
     ${datadir}/${ROS_BPN}/package.xml \
     ${datadir}/${ROS_BPN}/*.template \
     "
+
+BBCLASSEXTEND += "native"
