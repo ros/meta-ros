@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc
 DEPENDS = "cmake python-empy python-catkin-pkg"
 
 SRC_URI = "git://github.com/ros/${BPN}.git \
+           file://0001-CATKIN_WORKSPACES-Don-t-require-.catkin-file.patch \
            "
 
 SRCREV = "cbe6a0ce3ac6d13914d3b4b010148f72e7984149"
