@@ -102,7 +102,7 @@ bake_all () {
     # Init the build environment
     cd "$path_to_project_root_relative_to_script"
     build_directory=build
-    source ./oe-init-env $build_directory
+    source ./oe-init-build-env $build_directory
 
     # Go to the meta-ros git repository location to gather information about commits.
     cd ../meta-ros
