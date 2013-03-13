@@ -1,0 +1,3 @@
+[submodule "test-reports"]
+	path = test-reports
+	url = https://github.com/bmwcarit/meta-ros-test-reports.git
