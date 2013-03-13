@@ -39,6 +39,7 @@ FILES_${PN} += "\
     ${datadir}/${ROS_BPN}/conf \
     ${datadir}/${ROS_BPN}/scripts \
     ${datadir}/${ROS_BPN}/msg \
+    ${datadir}/${ROS_BPN}/nodes \
     "
 
 FILES_${PN}-dev += "\
