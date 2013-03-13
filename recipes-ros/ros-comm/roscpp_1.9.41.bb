@@ -7,7 +7,7 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 DEPENDS = "\
-  catkin-native cpp-common message-generation rosconsole roscpp-serialization \
+  catkin-native cpp-common message-generation-native rosconsole roscpp-serialization \
   roscpp-traits rosgraph-msgs roslang rostime std-msgs xmlrpcpp \
 "
 
