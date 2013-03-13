@@ -43,7 +43,7 @@ authors='Tobias Weigl (tobias.weigl@bmw-carit.de)'
 path_to_script_relative_to_project_root='./meta-ros/scripts/'
 path_to_topmost_recipes_directory_relative_to_project_root='./meta-ros/recipes-ros/'
 path_to_project_root_relative_to_script='./../../'
-report_folder_name='build-report-data'
+report_folder_name='../test-reports'
 #
 # Autodetect
 current_script_location="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -102,7 +102,7 @@ bake_all () {
     # Init the build environment
     cd "$path_to_project_root_relative_to_script"
     build_directory=build
-    source ./oe-init-build-env $build_directory
+    source ./oe-init-env $build_directory
 
     # Go to the meta-ros git repository location to gather information about commits.
     cd ../meta-ros
