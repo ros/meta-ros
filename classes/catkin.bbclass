@@ -36,10 +36,7 @@ ROS_BP = "${BPN}-${PV}"
 FILES_${PN} += "\
     ${prefix}/etc \
     ${datadir}/ros/config/${ROS_BPN}.config \
-    ${datadir}/${ROS_BPN}/conf \
-    ${datadir}/${ROS_BPN}/scripts \
-    ${datadir}/${ROS_BPN}/msg \
-    ${datadir}/${ROS_BPN}/nodes \
+    ${datadir}/${ROS_BPN} \
     "
 
 FILES_${PN}-dev += "\
