@@ -6,12 +6,11 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc
 DEPENDS = "cmake python-empy python-catkin-pkg"
 
 SRC_URI = "git://github.com/ros/${BPN}.git \
-           file://0001-pkgConfig.cmake-use-filenames-in-PKG_CFG_EXTRAS.patch \
-           file://0002-catkin_package.cmake-use-PROJECT_NAME-_EXTRAS_DIR-fo.patch \
+           file://0001-CATKIN_WORKSPACES-Don-t-require-.catkin-file.patch \
            "
 
-SRCREV = "cbe6a0ce3ac6d13914d3b4b010148f72e7984149"
-PV = "0.5.63+gitr${SRCPV}"
+SRCREV = "041f6fc530b56cb6664824db399416f17c1961dd"
+PV = "0.5.64+gitr${SRCPV}"
 
 S = "${WORKDIR}/git"
 
