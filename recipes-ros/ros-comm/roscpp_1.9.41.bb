@@ -14,3 +14,5 @@ DEPENDS = "\
 require ros-comm.inc
 
 S = "${WORKDIR}/ros_comm-${PV}/clients/${BPN}"
+
+CXXFLAGS_append = " -I${OECMAKE_BUILDPATH}/devel/include"
