@@ -9,9 +9,8 @@ SRC_URI = "git://github.com/ros/${BPN}.git \
            file://0001-CATKIN_WORKSPACES-Don-t-require-.catkin-file.patch \
            "
 
-SRCREV = "cbe6a0ce3ac6d13914d3b4b010148f72e7984149"
-SRCREV = "e54faacad535791a2aed2f37d1a7ff18249c61cd"
-PV = "0.5.63+gitr${SRCPV}"
+SRCREV = "041f6fc530b56cb6664824db399416f17c1961dd"
+PV = "0.5.64+gitr${SRCPV}"
 
 S = "${WORKDIR}/git"
 
