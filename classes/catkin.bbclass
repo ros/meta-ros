@@ -6,7 +6,6 @@ inherit cmake distutils-base
 
 DEPENDS_prepend = "${@['catkin-native ', ''][d.getVar('BPN', True) == 'catkin']}"
 
-
 EXTRA_OECMAKE_CATKIN = "\
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}/usr;${STAGING_DIR_NATIVE}/usr' \
     "
@@ -37,9 +36,7 @@ ROS_BP = "${BPN}-${PV}"
 FILES_${PN} += "\
     ${prefix}/etc \
     ${datadir}/ros/config/${ROS_BPN}.config \
-    ${datadir}/${ROS_BPN}/conf \
-    ${datadir}/${ROS_BPN}/scripts \
-    ${datadir}/${ROS_BPN}/msg \
+    ${datadir}/${ROS_BPN} \
     "
 
 FILES_${PN}-dev += "\
@@ -47,3 +44,5 @@ FILES_${PN}-dev += "\
     ${datadir}/${ROS_BPN}/package.xml \
     ${datadir}/${ROS_BPN}/*.template \
     "
+
+BBCLASSEXTEND += "native"

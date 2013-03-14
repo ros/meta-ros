@@ -4,7 +4,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=5ee5b8b046ae48ad94a2037ca953a67b"
 
-DEPENDS = "message-generation genlisp genpy"
+DEPENDS = "message-generation-native message-runtime-native"
 
 SRC_URI = "https://github.com/ros/${ROS_BPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_BP}.tar.gz"
 SRC_URI[md5sum] = "ea40e6dd8ea19fe54a2b476358c0ceea"
