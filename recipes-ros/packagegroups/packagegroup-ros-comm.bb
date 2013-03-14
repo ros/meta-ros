@@ -12,19 +12,41 @@ RDEPENDS_${PN} = "\
     genmsg \
     rosgraph \
     genpy \
+    rosbuild \
     rospack \
+    rosmake \
+    rosboost-cfg \
+    rosbash \
     roslib \
+    roscreate \
+    mk \
+    rosclean \
     rosunit \
+    roslang \
+    roscpp \
+    rosout \
     roscpp-serialization \
     roscpp-traits \
+    topic-tools \
     rostest \
+    rostopic \
     message-generation \
     cpp-common \
     genlisp \
+    message-filters \
+    rosservice \
+    rospy \
     rosgraph-msgs \
+    rosnode \
+    std-srvs \
     xmlrpcpp \
+    roslaunch \
+    rosmaster \
     roswtf \
+    rosbag \
+    rosmsg \
     std-msgs \
+    message-runtime \
     rostime \
     gencpp \
     "
