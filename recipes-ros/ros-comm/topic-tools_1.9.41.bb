@@ -8,4 +8,4 @@ DEPENDS = "rostest-native"
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/tools/${BPN}"
+S = "${WORKDIR}/ros_comm-${PV}/tools/${ROS_BPN}"
