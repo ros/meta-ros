@@ -31,6 +31,26 @@ STATE OF THIS WORK:
   - Native compilation of ROS-groovy
   - Cross compilation of ROS-groovy (under development)
 
+INSTALLATION/SETUP:
+  The repository only contains a layer for ROS that builds on top of the existing OpenEmbedded Core layer.
+  Currently, I work with
+    * commit 1dab754cb1ec942f86a7cf9758e6b5169e50bff3 of https://github.com/openembedded/oe-core
+    * commit 324ed96e28ec31cff8cef1824d20d40f9a5d46ad of git://git.openembedded.org/bitbake in the bitbake directory
+    * and this patch for boost: http://lists.linuxtogo.org/pipermail/openembedded-core/2013-March/036973.html
+
+
+USE for cross-compilation of ROS-groovy (in development):
+
+  Currently, we can cross-compile the ROS packages with the commands:
+  source oe-init-build-env
+  bitbake <package-name>
+
+  Look at the meta-ros test reports for the description of the current state.
+
+
+PREVIOUS USE CASES
+
+
 INSTALLATION:
 
   The repository only contains a layer for ROS that builds on top of the existing OpenEmbedded Core layer.
@@ -86,16 +106,6 @@ USE for native compilation of ROS-groovy on the qemu VM:
   The installation script installs ros and starts roscore.
 
 
-USE for cross-compilation of ROS-groovy (in development):
-
-  Currently, we can cross-compile 4 packages:
-  ros-cpp-common, rostime, roscpp-traits, roscpp-serialization (packages in roscpp_core)
-  
-  with the commands:
-  source oe-init-build-env
-  bitbake <package-name>
-
-
 LICENSE
 
 All metadata is MIT licensed unless otherwise stated. Source code included
@@ -116,9 +126,6 @@ The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Deve
   licensed with the MIT License.
 The core-image-ros recipe originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
-  licensed with the MIT License.
-The distutils class originated from the distutils class in OpenEmbedded Core
-  (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/classes/distutils.bbclass)
   licensed with the MIT License.
 The libtinyxml recipe originated from the recipe in the OpenEmbedded meta layer
   (cf. http://cgit.openembedded.org/meta-openembedded/tree/meta-oe/recipes-support/libtinyxml)
