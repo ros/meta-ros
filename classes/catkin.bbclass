@@ -45,6 +45,10 @@ FILES_${PN}-dev += "\
     ${datadir}/${ROS_BPN}/*.template \
     "
 
+FILES_${PN}-dbg += "\
+    ${libdir}/${ROS_BPN}/.debug/* \
+    "
+
 SYSROOT_PREPROCESS_FUNCS += "catkin_sysroot_preprocess"
 
 catkin_sysroot_preprocess () {
