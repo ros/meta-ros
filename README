@@ -123,7 +123,7 @@ REDISTRIBUTIONS
 The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Development
   (cf. http://cgit.openembedded.org/openembedded/tree/recipes/log4cxx)
   licensed with the MIT License.
-The core-image-ros recipe originated from the core-image-minimal recipe in OpenEmbedded Core
+The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
   licensed with the MIT License.
 The libtinyxml recipe originated from the recipe in the OpenEmbedded meta layer
