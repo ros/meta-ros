@@ -34,9 +34,8 @@ STATE OF THIS WORK:
 INSTALLATION/SETUP:
   The repository only contains a layer for ROS that builds on top of the existing OpenEmbedded Core layer.
   Currently, I work with
-    * commit 1dab754cb1ec942f86a7cf9758e6b5169e50bff3 of https://github.com/openembedded/oe-core
+    * commit c8b411608bea2700e904141268f609eeee542ae2 of https://github.com/openembedded/oe-core
     * commit 324ed96e28ec31cff8cef1824d20d40f9a5d46ad of git://git.openembedded.org/bitbake in the bitbake directory
-    * and this patch for boost: http://lists.linuxtogo.org/pipermail/openembedded-core/2013-March/036973.html
 
 
 USE for cross-compilation of ROS-groovy (in development):
