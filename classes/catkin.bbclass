@@ -45,4 +45,8 @@ FILES_${PN}-dev += "\
     ${datadir}/${ROS_BPN}/*.template \
     "
 
+FILES_${PN}-dbg += "\
+    ${libdir}/${ROS_BPN}/.debug/* \
+    "
+
 BBCLASSEXTEND += "native"
