@@ -3,10 +3,12 @@ Currently, this layer is still under development and not fully functional.
 
 MAINTAINER
   Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
+  Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
 
 CONTRIBUTORS
   Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
   Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
+  Tobias Weigl, BMW Car IT GmbH <tobias.weigl@bmw-carit.de>
 
 HOW TO CONTRIBUTE
 
@@ -34,9 +36,8 @@ STATE OF THIS WORK:
 INSTALLATION/SETUP:
   The repository only contains a layer for ROS that builds on top of the existing OpenEmbedded Core layer.
   Currently, I work with
-    * commit 1dab754cb1ec942f86a7cf9758e6b5169e50bff3 of https://github.com/openembedded/oe-core
+    * commit c8b411608bea2700e904141268f609eeee542ae2 of https://github.com/openembedded/oe-core
     * commit 324ed96e28ec31cff8cef1824d20d40f9a5d46ad of git://git.openembedded.org/bitbake in the bitbake directory
-    * and this patch for boost: http://lists.linuxtogo.org/pipermail/openembedded-core/2013-March/036973.html
 
 
 USE for cross-compilation of ROS-groovy (in development):
@@ -124,7 +125,7 @@ REDISTRIBUTIONS
 The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Development
   (cf. http://cgit.openembedded.org/openembedded/tree/recipes/log4cxx)
   licensed with the MIT License.
-The core-image-ros recipe originated from the core-image-minimal recipe in OpenEmbedded Core
+The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
   licensed with the MIT License.
 The libtinyxml recipe originated from the recipe in the OpenEmbedded meta layer
