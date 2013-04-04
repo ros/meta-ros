@@ -17,7 +17,6 @@ RDEPENDS_${PN} = "\
   rosmaster \
   rosgraph-msgs \
     genpy \
-      genmsg \
     std-msgs \
 "
 
