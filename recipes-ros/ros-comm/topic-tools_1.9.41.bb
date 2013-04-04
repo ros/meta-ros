@@ -4,7 +4,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=68b329da9893e34099c7d8ad5cb9c940"
 
-DEPENDS = "rostest-native roscpp"
+DEPENDS = "rostest-native rostest roscpp"
 
 require ros-comm.inc
 
