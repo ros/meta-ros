@@ -11,8 +11,6 @@ RDEPENDS_${PN} = "\
   rosgraph \
   python-pyyaml \
   roslib \
-  catkin \
-  python-catkin-pkg \
   rosclean \
   rosmaster \
   rosgraph-msgs \
