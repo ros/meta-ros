@@ -7,7 +7,7 @@ SRC_URI = "https://github.com/ros/${BPN}/archive/${PV}.tar.gz;downloadfilename=$
            file://0001-modify-msg-file-handling-to-reference-them-relatively.patch \
            "
 
-RDEPENDS_${PN} = "python-stringold python-pprint python-io"
+RDEPENDS_${PN} = "python-stringold python-pprint"
 RDEPENDS_${PN}_class-native = ""
 
 SRC_URI[md5sum] = "de385f1796bf025915ed7b20e1e1acc4"

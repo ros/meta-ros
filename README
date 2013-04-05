@@ -36,7 +36,7 @@ STATE OF THIS WORK:
 INSTALLATION/SETUP:
   The repository only contains a layer for ROS that builds on top of the existing OpenEmbedded Core layer.
   Currently, I work with
-    * commit c8b411608bea2700e904141268f609eeee542ae2 of https://github.com/openembedded/oe-core
+    * commit 2587a33134fde80dd1367629d9def45ac70256ee of https://github.com/openembedded/oe-core
     * commit 324ed96e28ec31cff8cef1824d20d40f9a5d46ad of git://git.openembedded.org/bitbake in the bitbake directory
 
 
