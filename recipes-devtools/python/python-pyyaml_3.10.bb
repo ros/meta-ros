@@ -15,5 +15,8 @@ inherit distutils
 
 DEPENDS += "python"
 DEPENDS_class-native  += "python-native"
+
+RDEPENDS_${PN} = "python-datetime"
+
 BBCLASSEXTEND = "native"
 
