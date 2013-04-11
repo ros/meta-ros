@@ -41,7 +41,6 @@ FILES_${PN} += "\
 
 FILES_${PN}-dev += "\
     ${datadir}/${ROS_BPN}/cmake \
-    ${datadir}/${ROS_BPN}/package.xml \
     ${datadir}/${ROS_BPN}/*.template \
     "
 
