@@ -16,6 +16,7 @@ RDEPENDS_${PN} = "\
   rosgraph-msgs \
     genpy \
     std-msgs \
+  rosout \
 "
 
 require ros-comm.inc
