@@ -5,6 +5,6 @@ CONTENT of the repository:
 * conf/layer.conf                                          configuration file for this layer
 * classes/catkin.bbclass                                   class for catkin-based packages
 * recipes-core/images                                      recipes of images for native compilation of ROS
-* recipes-devtools, recipes-support                        recipes of system prerequisites of ROS
+* recipes-devtools                                         recipes of system prerequisites of ROS
 * recipes-ros                                              recipes for cross-compiling ROS packages
-                                                  
+

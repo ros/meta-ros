@@ -34,9 +34,12 @@ STATE OF THIS WORK:
   - Cross compilation of ROS-groovy (under development)
 
 INSTALLATION/SETUP:
-  The repository only contains a layer for ROS that builds on top of the existing OpenEmbedded Core layer.
+  The repository only contains a layer for ROS that builds on top of the existing OpenEmbedded Core layer
+  and the meta-oe layer.
+
   Currently, I work with
-    * commit 2587a33134fde80dd1367629d9def45ac70256ee of https://github.com/openembedded/oe-core
+    * commit 395b90054eccddc1c9062a9a8657ed4482b7710a of https://github.com/openembedded/oe-core
+    * commit 2a5dea2399e2be5e5d964eda7465dcaf4c2e152b of https://github.com/openembedded/meta-oe
     * commit 324ed96e28ec31cff8cef1824d20d40f9a5d46ad of git://git.openembedded.org/bitbake in the bitbake directory
 
 
@@ -127,9 +130,6 @@ The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Deve
   licensed with the MIT License.
 The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
-  licensed with the MIT License.
-The libtinyxml recipe originated from the recipe in the OpenEmbedded meta layer
-  (cf. http://cgit.openembedded.org/meta-openembedded/tree/meta-oe/recipes-support/libtinyxml)
   licensed with the MIT License.
 
 The modified files are redistributed here under the same MIT License.
