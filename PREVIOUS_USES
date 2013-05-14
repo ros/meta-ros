@@ -1,0 +1,58 @@
+
+PREVIOUS USE CASES
+
+INSTALLATION:
+
+  The repository only contains a layer for ROS that builds on top of the existing OpenEmbedded Core layer.
+  You can download the yocto poky-danny-8.0 archive, but then you should update the distutils.bbclass,
+  and maybe also the url of libarchive.
+  To install, unpack http://downloads.yoctoproject.org/releases/yocto/yocto-1.3/poky-danny-8.0.tar.bz2 into a directory <dir>.
+  
+  In the directory of the layers, clone this repository into the subdirectory meta-ros. 
+  Add the meta-ros directory to your local bblayers.conf file.
+
+
+USE for native compilation of ROS-fuerte on the qemu VM:
+  The commands
+    source oe-init-build-env
+    bitbake core-image-ros-fuerte
+  builds our specifically configured linux image.
+  
+  With `runqemu qemux86 qemuparams="-m 2048" core-image-ros-fuerte` the linux image runs within a virtual machine with 2048 MB of memory.
+  We assumed that this is running on and compiled for an x86 architecture. For other architectures, some settings must be adjusted.
+  
+  On the host system, run fetch-ros-fuerte.sh in a fresh directory, e.g. ~/ros-repos/.
+  It clones all ros repositories locally.
+  After starting the virtual machine, copy the installation script from the host system to the home directory with scp.
+  
+    scp lukas@192.168.7.1:/<location of repository>/install-fuerte.sh .
+
+  Adjust configuration in install-fuerte.sh and then run
+
+    sh ./install-fuerte.sh
+  
+  The installation script installs ros and starts roscore.
+
+
+USE for native compilation of ROS-groovy on the qemu VM:
+  The commands
+    source oe-init-build-env
+    bitbake core-image-ros-groovy
+  builds our specifically configured linux image.
+  
+  With `runqemu qemux86 qemuparams="-m 2048" core-image-ros-groovy` the linux image runs within a virtual machine with 2048 MB of memory.
+  We assumed that this is running on and compiled for an x86 architecture. For other architectures, some settings must be adjusted.
+  
+  On the host system, run mk_srcarchive.sh in some clean temporary directory.
+  It copies all ros sources from their URLs and puts them into one src.tar.gz archive.
+  After starting the virtual machine, copy the installation script from the host system to the home directory with scp.
+  
+    scp lukas@192.168.7.1:/<location of repository>/install-groovy.sh .
+
+  Adjust configuration in install-groovy.sh and then run
+
+    sh ./install-groovy.sh
+  
+  The installation script installs ros and starts roscore.
+
+
