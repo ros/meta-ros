@@ -5,5 +5,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc
 
 require ros.inc
 
+RDEPENDS_${PN} = "bash findutils"
+
 S = "${WORKDIR}/ros-${PV}/tools/${BPN}"
 
