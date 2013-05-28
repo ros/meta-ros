@@ -10,6 +10,7 @@ CONTRIBUTORS
   Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
   Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
   Tobias Weigl, BMW Car IT GmbH <tobias.weigl@bmw-carit.de>
+  Kartik Mohta <kartikmohta@gmail.com>
 
 HOW TO CONTRIBUTE
 
@@ -92,8 +93,11 @@ REDISTRIBUTIONS
   The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Development
   (cf. http://cgit.openembedded.org/openembedded/tree/recipes/log4cxx)
   licensed with the MIT License.
+  The eigen recipe originated from the recipe in Kartik Mohta's OpenEmbedded layer
+  (cf. https://github.com/kartikmohta/meta-km/tree/master/recipes-extended/eigen)
+  licensed with the MIT License.
   The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
   licensed with the MIT License.
 
-  The modified files are redistributed here under the same MIT License.
+  The original or modified files are redistributed here under the same MIT License.
