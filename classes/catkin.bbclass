@@ -31,7 +31,7 @@ FILES_SOLIBSDEV = ""
 FILES_${PN} += "${libdir}/lib*${SOLIBSDEV}"
 
 ROS_BPN = "${@d.getVar('BPN', True).replace('-', '_')}"
-ROS_BP = "${BPN}-${PV}"
+ROS_BP = "${ROS_BPN}-${PV}"
 
 FILES_${PN} += "\
     ${prefix}/etc \
