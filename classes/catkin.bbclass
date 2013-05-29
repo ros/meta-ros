@@ -48,6 +48,12 @@ FILES_${PN}-dbg += "\
     ${libdir}/${ROS_BPN}/.debug/* \
     "
 
+PACKAGES += "${PN}-commonlisp"
+
+FILES_${PN}-commonlisp += " \
+    ${datadir}/common-lisp/ \
+    "
+
 SYSROOT_PREPROCESS_FUNCS += "catkin_sysroot_preprocess"
 
 catkin_sysroot_preprocess () {
