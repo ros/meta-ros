@@ -1,7 +1,7 @@
 diff -Naur a/cmake/genpy-extras.cmake.em b/cmake/genpy-extras.cmake.em
---- a/cmake/genpy-extras.cmake.em	2012-12-22 03:39:57.000000000 +0100
-+++ b/cmake/genpy-extras.cmake.em	2013-05-22 10:46:08.000000000 +0200
-@@ -1,11 +1,16 @@
+--- a/cmake/genpy-extras.cmake.em	2013-05-30 12:31:39.000000000 +0200
++++ b/cmake/genpy-extras.cmake.em	2013-05-30 12:43:02.000000000 +0200
+@@ -1,13 +1,15 @@
  @[if DEVELSPACE]@
  # bin dir variables in develspace
  set(GENPY_BIN_DIR @(CMAKE_CURRENT_SOURCE_DIR)/scripts)
@@ -14,7 +14,8 @@ diff -Naur a/cmake/genpy-extras.cmake.em b/cmake/genpy-extras.cmake.em
  
 +find_program(GENMSG_PY_BIN genmsg_py.py PATHS ${GENPY_BIN_DIR} NO_DEFAULT_PATH CATKIN_FIND_ROOT_PATH_MODE)
 +find_program(GENSRV_PY_BIN gensrv_py.py PATHS ${GENPY_BIN_DIR} NO_DEFAULT_PATH CATKIN_FIND_ROOT_PATH_MODE)
-+
- set(GENMSG_PY_BIN ${GENPY_BIN_DIR}/genmsg_py.py)
- set(GENSRV_PY_BIN ${GENPY_BIN_DIR}/gensrv_py.py)
+-set(GENMSG_PY_BIN ${GENPY_BIN_DIR}/genmsg_py.py)
+-set(GENSRV_PY_BIN ${GENPY_BIN_DIR}/gensrv_py.py)
  
+ # Generate .msg->.h for py
+ # The generated .h files should be added ALL_GEN_OUTPUT_FILES_py
