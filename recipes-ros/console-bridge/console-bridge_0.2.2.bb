@@ -21,9 +21,3 @@ SRC_URI[sha256sum] = "69c3efa4ef86b2c3ffb37d29a9c6169853975a3bc362815c9cffc40f74
 S = "${WORKDIR}/console_bridge-${PV}"
 
 inherit cmake
-
-FILES_${PN}-dev += "\
-    ${datadir}/console_bridge \
-    ${datadir}/console_bridge/cmake \
-    "
-
