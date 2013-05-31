@@ -8,9 +8,8 @@ LICENSE = "BSD & BSL-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=10;md5=bbbb6ab628b1f3daee74dd9c62bee312"
 
 SRC_URI = "https://github.com/ros/${PN}/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz"
-
-SRC_URI[md5sum] = "0346edf3d399b3cdcbd96ee535585b31"
-SRC_URI[sha256sum] = "6d1280b03f67666d128b98c478312d59b1eea0dd1e4233d268a565ce39ce5739"
+SRC_URI[md5sum] = "64682c8e49434c333915fd0906fb4d84"
+SRC_URI[sha256sum] = "532d9358a8559effb3fabe57ac97ced8b5a61226251973f08f8901709d9591f7"
 
 DEPENDS = "boost class-loader rosconsole roslib libtinyxml"
 
