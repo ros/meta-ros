@@ -1,0 +1,38 @@
+From 93cb4ebe5c4063d3ed5c0baf0b696476a90306cb Mon Sep 17 00:00:00 2001
+From: Stefan Herbrechtsmeier <stefan@herbrechtsmeier.net>
+Date: Tue, 4 Jun 2013 17:53:08 +0200
+Subject: [PATCH] gencpp-extras.cmake.em: Use find_program for GENCPP_BIN
+
+Signed-off-by: Stefan Herbrechtsmeier <stefan@herbrechtsmeier.net>
+---
+ cmake/gencpp-extras.cmake.em |   10 +++++++---
+ 1 files changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/cmake/gencpp-extras.cmake.em b/cmake/gencpp-extras.cmake.em
+index a77a5f1..1d4bf10 100644
+--- a/cmake/gencpp-extras.cmake.em
++++ b/cmake/gencpp-extras.cmake.em
+@@ -1,13 +1,17 @@
+ @[if DEVELSPACE]@
+ # bin and template dir variables in develspace
+-set(GENCPP_BIN @(CMAKE_CURRENT_SOURCE_DIR)/scripts/gen_cpp.py)
++set(GENCPP_BIN_DIR @(CMAKE_CURRENT_SOURCE_DIR)/scripts)
+ set(GENCPP_TEMPLATE_DIR @(CMAKE_CURRENT_SOURCE_DIR)/scripts)
++set(CATKIN_FIND_ROOT_PATH_MODE NO_CMAKE_FIND_ROOT_PATH)
+ @[else]@
+ # bin and template dir variables in installspace
+-set(GENCPP_BIN @(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_BIN_DESTINATION)/gen_cpp.py)
+-set(GENCPP_TEMPLATE_DIR @(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_SHARE_DESTINATION))
++set(GENCPP_BIN_DIR @(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_BIN_DESTINATION))
++set(GENCPP_TEMPLATE_DIR "${CMAKE_CURRENT_LIST_DIR}/..")
++set(CATKIN_FIND_ROOT_PATH_MODE "")
+ @[end if]@
+ 
++find_program(GENCPP_BIN gen_cpp.py PATHS ${GENCPP_BIN_DIR} NO_DEFAULT_PATH ${CATKIN_FIND_ROOT_PATH_MODE})
++
+ # Generate .msg->.h for cpp
+ # The generated .h files should be added ALL_GEN_OUTPUT_FILES_cpp
+ macro(_generate_msg_cpp ARG_PKG ARG_MSG ARG_IFLAGS ARG_MSG_DEPS ARG_GEN_OUTPUT_DIR)
+-- 
+1.7.0.4
+
