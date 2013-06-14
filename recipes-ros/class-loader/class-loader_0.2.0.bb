@@ -19,4 +19,4 @@ DEPENDS = "console-bridge libpoco"
 
 S = "${WORKDIR}/${ROS_BP}"
 
-inherit catkin
+inherit catkin gtest
