@@ -1,0 +1,68 @@
+From c829c96f0a4a9c58043311503405a398fe17f97d Mon Sep 17 00:00:00 2001
+From: vmayoral <v.mayoralv@gmail.com>
+Date: Thu, 27 Jun 2013 12:05:09 +0200
+Subject: [PATCH] python-catkin-pkg: updated from 0.1.8 to 0.1.16 (see #99)
+
+The current catkin requires catkin_pkg >= 0.1.12 as indicated in
+https://github.com/ros/catkin/blob/groovy-devel/package.xml.
+See discussion in #99.
+
+lb: minor tweaking and commit message rewording
+
+Signed-off-by: Víctor Mayoral Vilches <v.mayoralv@gmail.com>
+---
+ .../python/python-catkin-pkg_0.1.16.bb             |   17 +++++++++++++++++
+ recipes-devtools/python/python-catkin-pkg_0.1.8.bb |   17 -----------------
+ 2 files changed, 17 insertions(+), 17 deletions(-)
+ create mode 100644 recipes-devtools/python/python-catkin-pkg_0.1.16.bb
+ delete mode 100644 recipes-devtools/python/python-catkin-pkg_0.1.8.bb
+
+diff --git a/recipes-devtools/python/python-catkin-pkg_0.1.16.bb b/recipes-devtools/python/python-catkin-pkg_0.1.16.bb
+new file mode 100644
+index 0000000..b8cbc72
+--- /dev/null
++++ b/recipes-devtools/python/python-catkin-pkg_0.1.16.bb
+@@ -0,0 +1,17 @@
++DESCRIPTION = "catkin package library"
++SECTION = "devel/python"
++LICENSE = "BSD"
++LIC_FILES_CHKSUM = "file://PKG-INFO;md5=748559ae3cef240be7edaaa8a4f4da31"
++SRCNAME = "catkin_pkg"
++
++SRC_URI = "https://pypi.python.org/packages/source/c/catkin_pkg/catkin_pkg-${PV}.tar.gz"
++SRC_URI[md5sum] = "851d3bdcdaa65a6a7bad8712a84c6915"
++SRC_URI[sha256sum] = "342b866d718d831aa570dadcf6aff6a40508fe6a16b9bcf147c3ec7a7dab2b16"
++
++S = "${WORKDIR}/${SRCNAME}-${PV}"
++
++inherit distutils
++
++DEPENDS += "python"
++DEPENDS_class-native  += "python-native"
++BBCLASSEXTEND = "native"
+diff --git a/recipes-devtools/python/python-catkin-pkg_0.1.8.bb b/recipes-devtools/python/python-catkin-pkg_0.1.8.bb
+deleted file mode 100644
+index b8370d3..0000000
+--- a/recipes-devtools/python/python-catkin-pkg_0.1.8.bb
++++ /dev/null
+@@ -1,17 +0,0 @@
+-DESCRIPTION = "catkin package library"
+-SECTION = "devel/python"
+-LICENSE = "BSD"
+-LIC_FILES_CHKSUM = "file://PKG-INFO;md5=9d7780acc19bb1483beb724d32e59bef"
+-SRCNAME = "catkin_pkg"
+-
+-SRC_URI = "http://pypi.python.org/packages/source/c/catkin_pkg/catkin_pkg-0.1.8.tar.gz"
+-SRC_URI[md5sum] = "ed7e9a15a2e9eaaf707add4c1f07e659"
+-SRC_URI[sha256sum] = "06fa265610333f8e37e1ed7c93075ddcbf7a3c26190dfd53ebb4d4cce35f6ae6"
+-
+-S = "${WORKDIR}/${SRCNAME}-${PV}"
+-
+-inherit distutils
+-
+-DEPENDS += "python"
+-DEPENDS_class-native  += "python-native"
+-BBCLASSEXTEND = "native"
+-- 
+1.7.9.5
+
