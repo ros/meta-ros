@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc
 
 DEPENDS = "cmake python-empy python-catkin-pkg"
 RDEPENDS_${PN} = "cmake packagegroup-core-buildessential \
-    python-catkin-pkg python-argparse python-multiprocessing \
+    python-catkin-pkg python-argparse python-misc python-multiprocessing \
     python-shell python-subprocess python-xml"
 
 SRC_URI = "git://github.com/ros/${BPN}.git \
