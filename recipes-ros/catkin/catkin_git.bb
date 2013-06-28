@@ -4,7 +4,9 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 DEPENDS = "cmake python-empy python-catkin-pkg"
-RDEPENDS_${PN} = "python-catkin-pkg python-argparse"
+RDEPENDS_${PN} = "cmake packagegroup-core-buildessential \
+    python-catkin-pkg python-argparse python-misc python-multiprocessing \
+    python-shell python-subprocess python-xml"
 
 SRC_URI = "git://github.com/ros/${BPN}.git \
            file://0001-CATKIN_WORKSPACES-Don-t-require-.catkin-file.patch \
