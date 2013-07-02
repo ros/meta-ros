@@ -1,0 +1,1 @@
+RPROVIDES += "python-xml-native"
