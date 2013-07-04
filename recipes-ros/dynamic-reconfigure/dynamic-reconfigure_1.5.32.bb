@@ -10,7 +10,7 @@ SRC_URI = "https://github.com/ros/${ROS_BPN}/archive/${PV}.tar.gz;downloadfilena
 SRC_URI[md5sum] = "9061fd30e5a04e8376eaddffaae86b07"
 SRC_URI[sha256sum] = "4203b0a8389d9ac3203110b507d23fa353262cf26253f40abece6418d6c2bdd4"
 
-DEPENDS = "roscpp std-msgs"
+DEPENDS = "roscpp std-msgs roslib"
 RDEPENDS_${PN} = "roslib"
 
 S = "${WORKDIR}/${ROS_BP}"
