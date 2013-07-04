@@ -1,0 +1,66 @@
+From 57ad3092284903295e24931adc46af837cef02a2 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Wed, 3 Jul 2013 08:44:00 +0200
+Subject: [PATCH] using CATKIN_ENABLE_TESTING to optionally configure tests in
+ tf
+
+Since ff60599b8077b86a6d75d510da72e69899d16008 in the catkin
+repository, catkin provides to optionally configure tests. This
+commit adjusts the CMakeLists.txt to opt-in the tests.
+Furthermore, it groups static_transformer_publisher to the other
+debug tools and adds some structuring comments in CMakeLists.txt.
+
+This commit is currently needed for cross-compiling tf (without
+tests) in the meta-ros project (github.com/bmwcarit/meta-ros)
+without requiring gtest.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+---
+ tf/CMakeLists.txt |   13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/tf/CMakeLists.txt b/tf/CMakeLists.txt
+index 771257a..1d36679 100644
+--- a/tf/CMakeLists.txt
++++ b/tf/CMakeLists.txt
+@@ -42,6 +42,12 @@ target_link_libraries(tf_change_notifier ${PROJECT_NAME})
+ add_executable(tf_monitor src/tf_monitor.cpp)
+ target_link_libraries(tf_monitor ${PROJECT_NAME})
+ 
++add_executable(static_transform_publisher src/static_transform_publisher.cpp)
++target_link_libraries(static_transform_publisher ${PROJECT_NAME})
++
++# Tests
++if(CATKIN_ENABLE_TESTING)
++
+ catkin_add_gtest(tf_unittest test/tf_unittest.cpp)
+ target_link_libraries(tf_unittest ${PROJECT_NAME})
+ 
+@@ -85,10 +91,11 @@ add_rostest(test/test_broadcaster.launch)
+ 
+ add_executable(testBroadcaster test/testBroadcaster.cpp)
+ target_link_libraries(testBroadcaster ${PROJECT_NAME})
+-add_executable(static_transform_publisher src/static_transform_publisher.cpp)
+-target_link_libraries(static_transform_publisher ${PROJECT_NAME})
++
++endif()
+ 
+ 
++#Python setup
+ set(Python_ADDITIONAL_VERSIONS 2.7)
+ find_package(PythonLibs REQUIRED)
+ include_directories(${PYTHON_INCLUDE_PATH})
+@@ -126,8 +133,10 @@ set_target_properties(pytf_py PROPERTIES OUTPUT_NAME tf PREFIX "_" SUFFIX ".so"
+ # DOES PYUNIT WORK IN CATKIN?
+ target_link_libraries(pytf_py ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+ 
++if(CATKIN_ENABLE_TESTING)
+ add_executable(tf_speed_test EXCLUDE_FROM_ALL test/speed_test.cpp)
+ target_link_libraries(tf_speed_test ${PROJECT_NAME})
++endif()
+ 
+ 
+ install(DIRECTORY include/${PROJECT_NAME}/
+-- 
+1.7.9.5
+
