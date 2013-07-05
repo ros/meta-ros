@@ -7,3 +7,4 @@ DEPENDS = "angles geometry-msgs message-filters sensor-msgs"
 
 require geometry.inc
 
+SRC_URI += "file://0001-using-CATKIN_ENABLE_TESTING-to-optionally-configure-.patch;striplevel=2"
