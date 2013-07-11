@@ -1,5 +1,5 @@
 SRC_URI = "https://github.com/ros/ros/archive/${PV}.tar.gz;downloadfilename=ros_${PV}.tar.gz"
-SRC_URI[md5sum] = "e38f95785dc6dcbb8f8620c9298c2752"
-SRC_URI[sha256sum] = "2d8997e1f6980c9cea85a27f39e17beb58db924283fc337c8df11fd79bcb3cb2"
+SRC_URI[md5sum] = "26ad8652a18bc11b530b0054bbb204b3"
+SRC_URI[sha256sum] = "ae3b8db6bf26867c38b1215e1e014616f00a396847fea31df64da63d2eac6ef2"
 
 inherit catkin
