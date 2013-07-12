@@ -1,21 +1,21 @@
 diff -Naur a/cmake/genmsg-extras.cmake.em b/cmake/genmsg-extras.cmake.em
---- a/cmake/genmsg-extras.cmake.em	2013-05-23 09:45:59.000000000 +0200
-+++ b/cmake/genmsg-extras.cmake.em	2013-05-23 09:48:56.000000000 +0200
-@@ -172,8 +172,7 @@
+--- a/cmake/genmsg-extras.cmake.em	2013-07-12 09:10:43.810555389 +0200
++++ b/cmake/genmsg-extras.cmake.em	2013-07-12 09:14:17.122564232 +0200
+@@ -202,8 +202,7 @@
      ${CATKIN_DEVEL_PREFIX}/share/${PROJECT_NAME}/cmake/${PROJECT_NAME}-msg-paths.cmake
      @@ONLY)
    # generate and install config of message include dirs for project
--  _prepend_path(${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME} "${${PROJECT_NAME}_MSG_INCLUDE_DIRS_INSTALLSPACE}" INCLUDE_DIRS_W_PATH)
+-  _prepend_path(${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME} "${${PROJECT_NAME}_MSG_INCLUDE_DIRS_INSTALLSPACE}" INCLUDE_DIRS_W_PATH UNIQUE)
 -  set(PKG_MSG_INCLUDE_DIRS "${INCLUDE_DIRS_W_PATH}")
 +  set(PKG_MSG_INCLUDE_DIRS "${${PROJECT_NAME}_MSG_INCLUDE_DIRS_INSTALLSPACE}")
    configure_file(
      ${genmsg_CMAKE_DIR}/pkg-msg-paths.cmake.in
      ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace/${PROJECT_NAME}-msg-paths.cmake
 diff -Naur a/cmake/pkg-msg-paths.cmake.in b/cmake/pkg-msg-paths.cmake.in
---- a/cmake/pkg-msg-paths.cmake.in	2013-05-23 09:45:59.000000000 +0200
-+++ b/cmake/pkg-msg-paths.cmake.in	2013-05-23 11:03:04.000000000 +0200
+--- a/cmake/pkg-msg-paths.cmake.in	2013-07-12 09:10:43.814555390 +0200
++++ b/cmake/pkg-msg-paths.cmake.in	2013-07-12 09:15:35.818567495 +0200
 @@ -1,2 +1,7 @@
--set(@PROJECT_NAME@_MSG_INCLUDE_DIRS @PKG_MSG_INCLUDE_DIRS@)
+-set(@PROJECT_NAME@_MSG_INCLUDE_DIRS "@PKG_MSG_INCLUDE_DIRS@")
 +if(@DEVELSPACE@)
 +  set(@PROJECT_NAME@_MSG_INCLUDE_DIRS @PKG_MSG_INCLUDE_DIRS@)
 +else()
