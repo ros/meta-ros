@@ -136,8 +136,9 @@ bake_all () {
 	activity="$txt_file_pkg_checking_kw $((i+1))/$array_length: ${array[$i]}"
 	echo $activity
         # create clean bitbake environment
-	rm bitbake.lock cache/ sstate-cache/ tmp-eglibc/ -rf
-        bitbake
+	# uncomment the following line if it should always clean the environment
+        # for each bitbake run
+        # rm bitbake.lock cache/ sstate-cache/ tmp-eglibc/ -rf
 	if [ "$arg" = "txt" ]; then
 	    # Try to bake every recipe. Store results in a report file. Just give $txt_file_pkg_ok_kw for working recipes, print more information on errors.
 	    echo $activity | tee -a "$report_file_raw" >> "$report_file_txt"
