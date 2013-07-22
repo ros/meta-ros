@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc
 DEPENDS = "cmake python-empy python-catkin-pkg python-empy-native python-catkin-pkg-native"
 RDEPENDS_${PN}_class-native = ""
 
-RDEPENDS_${PN} = "cmake packagegroup-core-buildessential \
+RDEPENDS_${PN} = "cmake make binutils binutils-symlinks gcc gcc-symlinks g++ g++-symlinks \
     python-catkin-pkg python-argparse python-misc python-multiprocessing \
     python-shell python-subprocess python-xml"
 
