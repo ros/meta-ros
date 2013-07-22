@@ -11,12 +11,6 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-SRC_URI = "https://github.com/ros/nodelet_core/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz"
-SRC_URI[md5sum] = "840b98ace89034029569f20a2a41af05"
-SRC_URI[sha256sum] = "4cc5a76ec90b0610b794128509923beba9b6dee2cb18fdeb6fd3ecc409051262"
-
 DEPENDS = "bondcpp boost message-generation pluginlib rosconsole roscpp rospy std-msgs libtinyxml"
 
-S = "${WORKDIR}/nodelet_core-${PV}/${PN}"
-
-inherit catkin
+require nodelet-core.inc
