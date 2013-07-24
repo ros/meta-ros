@@ -12,7 +12,7 @@ SRC_URI = "https://github.com/ros/${BPN}/archive/${PV}.tar.gz;downloadfilename=$
 RDEPENDS_${PN} = "python-stringold python-pprint"
 RDEPENDS_${PN}_class-native = ""
 
-SRC_URI[md5sum] = "de385f1796bf025915ed7b20e1e1acc4"
-SRC_URI[sha256sum] = "e510caa7692a4b0a0948688b9d2d8f6ff2f329980d7f78787276afec030806b7"
+SRC_URI[md5sum] = "03ff82b1efa75552d4a5a000e0576cc4"
+SRC_URI[sha256sum] = "e7e4b23eadb97b0deca53874532c0b42f10f406a9db2affd7d6f04101a4a2901"
 
 inherit catkin

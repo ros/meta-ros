@@ -15,8 +15,8 @@ LIC_FILES_CHKSUM = "\
 DEPENDS = "boost"
 
 SRC_URI = "https://github.com/ros/console_bridge/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz"
-SRC_URI[md5sum] = "82c24b68ffaacee540055571669dcdd7"
-SRC_URI[sha256sum] = "69c3efa4ef86b2c3ffb37d29a9c6169853975a3bc362815c9cffc40f74b25f18"
+SRC_URI[md5sum] = "e484d34bf0170ee12311d0fc6dd5f4fe"
+SRC_URI[sha256sum] = "d4bdd0b6bce0c6fa9ff18b8926d4953161451bc49dd11497211eb1a62cfe72b7"
 
 S = "${WORKDIR}/console_bridge-${PV}"
 
