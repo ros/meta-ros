@@ -13,6 +13,8 @@ DEPENDS = "\
 
 require ros-comm.inc
 
+SRC_URI += "file://0001-roscpp-do-not-try-to-find-pthread-by-own-methods.patch;striplevel=3"
+
 S = "${WORKDIR}/ros_comm-${PV}/clients/${BPN}"
 
 CXXFLAGS_append = " -I${OECMAKE_BUILDPATH}/devel/include"
