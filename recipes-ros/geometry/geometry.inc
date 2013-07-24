@@ -1,6 +1,6 @@
 SRC_URI = "https://github.com/ros/geometry/archive/${PV}.tar.gz;downloadfilename=geometry-${PV}.tar.gz"
-SRC_URI[md5sum] = "e7df8e2b209881c3cf262c8ccf7598d5"
-SRC_URI[sha256sum] = "862918e3997b90570c282f29b03a9f70b4a354f1447fdce8c8940666e1811239"
+SRC_URI[md5sum] = "ccaadd38c183c2c257e75ac907868c87"
+SRC_URI[sha256sum] = "30527d91f182478b7819a947237c92ce1effe61cd11d2d710e0408c971f2bc74"
 
 inherit catkin
 

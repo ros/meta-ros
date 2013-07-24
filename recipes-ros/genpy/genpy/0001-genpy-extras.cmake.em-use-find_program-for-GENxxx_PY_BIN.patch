@@ -4,11 +4,11 @@ diff -Naur a/cmake/genpy-extras.cmake.em b/cmake/genpy-extras.cmake.em
 @@ -1,13 +1,15 @@
  @[if DEVELSPACE]@
  # bin dir variables in develspace
- set(GENPY_BIN_DIR @(CMAKE_CURRENT_SOURCE_DIR)/scripts)
+ set(GENPY_BIN_DIR "@(CMAKE_CURRENT_SOURCE_DIR)/scripts")
 +set(CATKIN_FIND_ROOT_PATH_MODE NO_CMAKE_FIND_ROOT_PATH)
  @[else]@
  # bin dir variables in installspace
- set(GENPY_BIN_DIR @(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_BIN_DESTINATION))
+ set(GENPY_BIN_DIR "@(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_BIN_DESTINATION)")
 +set(CATKIN_FIND_ROOT_PATH_MODE "")
  @[end if]@
  

@@ -1,0 +1,42 @@
+From a392a5e614883c18bf64568b1ebffe95d7efcf15 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Tue, 23 Jul 2013 15:18:07 +0200
+Subject: [PATCH] roscpp: do not try to find pthread by own methods
+
+This commit partially reverts c5dfa6305e883f76dc2aa52d27d2977e3d66ea2e
+in the ros/ros_comm repository.
+---
+ clients/roscpp/CMakeLists.txt |   15 +--------------
+ 1 file changed, 1 insertion(+), 14 deletions(-)
+
+diff --git a/clients/roscpp/CMakeLists.txt b/clients/roscpp/CMakeLists.txt
+index 4545073..872f3f6 100644
+--- a/clients/roscpp/CMakeLists.txt
++++ b/clients/roscpp/CMakeLists.txt
+@@ -34,22 +34,9 @@ add_service_files(
+ 
+ generate_messages()
+ 
+-set(PTHREAD_LIB "")
+-find_package(Threads)
+-if(CMAKE_THREAD_LIBS_INIT)
+-  string(LENGTH ${CMAKE_THREAD_LIBS_INIT} _length)
+-  if(_length GREATER 2)
+-    string(SUBSTRING ${CMAKE_THREAD_LIBS_INIT} 0 2 _prefix)
+-    if(${_prefix} STREQUAL "-l")
+-      math(EXPR _rest_len "${_length} - 2")
+-      string(SUBSTRING ${CMAKE_THREAD_LIBS_INIT} 2 ${_rest_len} PTHREAD_LIB)
+-    endif()
+-  endif()
+-endif()
+-
+ catkin_package(
+   INCLUDE_DIRS include ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros
+-  LIBRARIES roscpp ${PTHREAD_LIB}
++  LIBRARIES roscpp
+   CATKIN_DEPENDS cpp_common message_runtime rosconsole roscpp_serialization roscpp_traits rosgraph_msgs rostime std_msgs xmlrpcpp
+   DEPENDS Boost
+ )
+-- 
+1.7.9.5
+

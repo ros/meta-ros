@@ -9,7 +9,7 @@ PR = "r1"
 
 SRC_URI = "https://github.com/ros/${BPN}/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz \
            file://0001-gencpp-extras.cmake.em-Use-find_program-for-GENCPP_B.patch"
-SRC_URI[md5sum] = "be0b3986e98f3370fef4c1fffe3a69f4"
-SRC_URI[sha256sum] = "c68b4518dbc5d65fd19d43724e5c9b0e66c769ef6066e3d511a6ffce2623f3c7"
+SRC_URI[md5sum] = "801b40dcfab468f761dbdae33f848782"
+SRC_URI[sha256sum] = "d1dcd6655c8c4d4325ab067c25284032d40e00aa3409a5a5cf069d310a60d485"
 
 inherit catkin

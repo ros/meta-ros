@@ -9,7 +9,7 @@ PR = "r1"
 
 SRC_URI = "https://github.com/ros/${BPN}/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz \
            file://0001-genlisp-extras.cmake.em-Use-find_program-for-GENLISP.patch"
-SRC_URI[md5sum] = "ae3026fd36a31d286f79a9111450adfa"
-SRC_URI[sha256sum] = "13f606f23eec18c0f653a259d972d9bdb13251111e4af280830a961a4858c475"
+SRC_URI[md5sum] = "b9be0a57abf76187a1057fb62cdc31e1"
+SRC_URI[sha256sum] = "cc373440fcbf57cafb758795cb50045fdd96de717b93d3d5956b7a1a2af4d3e2"
 
 inherit catkin
