@@ -1,0 +1,27 @@
+From d088253337ada896fc09e59fc25e0729473d8b6e Mon Sep 17 00:00:00 2001
+From: vmayoral <v.mayoralv@gmail.com>
+Date: Sat, 27 Jul 2013 11:18:36 +0200
+Subject: [PATCH] CMakeLists patch for cross-compiling
+
+---
+ rospy_tutorials/CMakeLists.txt |    4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/rospy_tutorials/CMakeLists.txt b/rospy_tutorials/CMakeLists.txt
+index bcd4ddd..7a493f6 100644
+--- a/rospy_tutorials/CMakeLists.txt
++++ b/rospy_tutorials/CMakeLists.txt
+@@ -18,7 +18,9 @@ foreach(T
+     test/test-talker-listener-with-roscpp.launch
+     test/test-on-shutdown.launch
+     test/test-connection-header.launch)
+-  add_rostest(${T})
++  if(CATKIN_ENABLE_TESTING)
++    add_rostest(${T})
++  endif()
+ endforeach()
+ 
+ # do not wildcard install files since the root folder of the package will contain a debian folder for releasing
+-- 
+1.7.9.5
+
