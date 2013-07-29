@@ -5,13 +5,13 @@ HOMEPAGE="http://pocoproject.org"
 LICENSE="BSL-1.0"
 LIC_FILES_CHKSUM="file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
 DEPENDS="expat zlib pcre"
-SRC_URI="${SOURCEFORGE_MIRROR}/poco/poco-1.3.6p2-all.tar.bz2 \
-         file://OE"
-SRC_URI[md5sum] = "8f1a6c3511764167d39f1950da3fcb37"
-SRC_URI[sha256sum] = "290c7f80827e509642f200b766e3709ef6ace0b6efadc832c9e879ac11830ae5"
 
-S="${WORKDIR}/poco-${PV}-all"
-PR = "r4"
+SRC_URI = "${SOURCEFORGE_MIRROR}/poco/poco-${PV}-all.tar.bz2 \
+           file://OE"
+SRC_URI[md5sum] = "2598b53d481e2bd3fb92bd23172abe53"
+SRC_URI[sha256sum] = "95af0382257614c70841629c928184cddc228831a8bfc4c57399931bed8a16f8"
+
+S = "${WORKDIR}/poco-${PV}-all"
 
 inherit autotools binconfig pkgconfig
 
