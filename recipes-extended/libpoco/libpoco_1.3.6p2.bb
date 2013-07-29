@@ -2,7 +2,7 @@
 
 DESCRIPTION="POCO C++ Libraries"
 HOMEPAGE="http://pocoproject.org"
-LICENSE="Boost Software License"
+LICENSE="BSL-1.0"
 LIC_FILES_CHKSUM="file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
 DEPENDS="expat zlib pcre"
 SRC_URI="${SOURCEFORGE_MIRROR}/poco/poco-1.3.6p2-all.tar.bz2 \
