@@ -1,9 +1,8 @@
-# POCO C++ libraries build file
+DESCRIPTION = "POCO C++ Libraries"
+HOMEPAGE = "http://pocoproject.org"
+LICENSE = "BSL-1.0"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
 
-DESCRIPTION="POCO C++ Libraries"
-HOMEPAGE="http://pocoproject.org"
-LICENSE="BSL-1.0"
-LIC_FILES_CHKSUM="file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
 DEPENDS = "expat zlib libpcre"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/poco/poco-${PV}-all.tar.bz2 \
@@ -17,17 +16,11 @@ inherit autotools binconfig pkgconfig
 
 TARGET_CC_ARCH += "${LDFLAGS}"
 
-EXTRA_OECONF += "--config=OE \
-                --no-samples \
-                --no-wstring \
-                --no-tests \
-                --unbundled \
-                --omit=Data/MySQL,Data/SQLite,Data/ODBC,PageCompiler \
+EXTRA_OECONF += "--config=OE --no-samples --no-wstring --no-tests --unbundled \
+                 --omit=Data/MySQL,Data/SQLite,Data/ODBC,PageCompiler \
                 "
 
 do_configure_prepend() {
     install ${WORKDIR}/OE ${S}/build/config/OE
     export POCO_TARGET_OSARCH=${TARGET_ARCH}
 }
-
-# not in the mood to fix the rpath badness, we do not need those files anyway
