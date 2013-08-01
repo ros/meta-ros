@@ -10,7 +10,7 @@ RDEPENDS_${PN} = "cmake make binutils binutils-symlinks gcc gcc-symlinks g++ g++
     python-catkin-pkg python-argparse python-misc python-multiprocessing \
     python-shell python-subprocess python-xml"
 
-SRC_URI = "https://github.com/ros/catkin/archive/${PV}.tar.gz;downloadfilename={ROS_BP}.tar.gz \
+SRC_URI = "https://github.com/ros/catkin/archive/${PV}.tar.gz;downloadfilename=${ROS_BP}.tar.gz \
            file://0001-CATKIN_WORKSPACES-Don-t-require-.catkin-file.patch \
            "
 SRC_URI[md5sum] = "1c30ac4fcc82ce2aedf610ea972ab4d2"
