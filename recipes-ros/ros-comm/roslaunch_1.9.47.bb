@@ -18,6 +18,7 @@ RDEPENDS_${PN} = "\
     genpy \
     std-msgs \
   rosout \
+  rosparam \
 "
 
 require ros-comm.inc
