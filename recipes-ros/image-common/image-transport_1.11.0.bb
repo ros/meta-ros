@@ -6,4 +6,3 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9de
 DEPENDS = "message-filters pluginlib rosconsole roscpp roslib sensor-msgs"
 
 require image-common.inc
-
