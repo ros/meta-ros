@@ -10,9 +10,8 @@ SRC_URI[sha256sum] = "c3e741db57b7230c8ac2cceca837b98181b4fa6d1488819e615366a858
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-# install_requires=['catkin_pkg', 'rospkg', 'PyYAML >= 3.1'],
-# setup_requires=['nose >= 1.0'],
-
-RDEPENDS_${PN} += "python-catkin-pkg python-rospkg python-pyyaml"
+RDEPENDS_${PN} += "python-catkin-pkg python-rospkg python-pyyaml python-netclient"
 
 inherit setuptools
+
+BBCLASSEXTEND += "native"

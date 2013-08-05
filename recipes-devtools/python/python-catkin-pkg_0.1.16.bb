@@ -12,6 +12,4 @@ S = "${WORKDIR}/${SRCNAME}-${PV}"
 
 inherit distutils
 
-DEPENDS += "python"
-DEPENDS_class-native  += "python-native"
 BBCLASSEXTEND = "native"

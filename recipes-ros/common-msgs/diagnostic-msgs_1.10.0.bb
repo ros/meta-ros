@@ -1,4 +1,4 @@
-DESCRIPTION = "\This package holds the diagnostic messages which provide the \
+DESCRIPTION = "This package holds the diagnostic messages which provide the \
 standardized interface for the diagnostic and runtime monitoring systems in ROS."
 SECTION = "devel"
 LICENSE = "BSD"

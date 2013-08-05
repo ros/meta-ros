@@ -14,6 +14,4 @@ RDEPENDS_${PN} += "python-xml"
 
 inherit setuptools
 
-DEPENDS += "python"
 BBCLASSEXTEND = "native"
-

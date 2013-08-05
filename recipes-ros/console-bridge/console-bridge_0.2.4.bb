@@ -24,4 +24,3 @@ inherit cmake
 
 FILES_SOLIBSDEV = ""
 FILES_${PN} += "${libdir}/lib*${SOLIBSDEV}"
-

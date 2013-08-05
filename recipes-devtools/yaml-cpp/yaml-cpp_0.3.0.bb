@@ -9,7 +9,6 @@ PR = "r0"
 S = "${WORKDIR}/${PN}"
 
 SRC_URI = "http://yaml-cpp.googlecode.com/files/yaml-cpp-${PV}.tar.gz"
-
 SRC_URI[md5sum] = "9aa519205a543f9372bf4179071c8ac6"
 SRC_URI[sha256sum] = "2cd038b5a1583b6745e949e196fba525f6d0d5fd340566585fde24fc7e117b82"
 
