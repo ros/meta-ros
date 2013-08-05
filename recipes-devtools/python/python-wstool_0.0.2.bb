@@ -10,7 +10,6 @@ SRC_URI[sha256sum] = "487602f7d5bef1e0b759c60ab4b86db884dd2abfb756e1743ad4ae3754
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-# install_requires=['vcstools', 'pyyaml', 'rosinstall'],
 RDEPENDS_${PN} += "python-vcstools python-pyyaml python-rosinstall"
 
 inherit setuptools

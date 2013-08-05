@@ -8,4 +8,3 @@ require ros.inc
 RDEPENDS_${PN} = "bash findutils"
 
 S = "${WORKDIR}/ros-${PV}/tools/${BPN}"
-

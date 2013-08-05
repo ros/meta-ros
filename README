@@ -1,4 +1,4 @@
-This is a layer to provide ROS Groovy Galapagos in an OpenEmbedded Linux system.
+This is a layer to provide ROS Hydromedusa in an OpenEmbedded Linux system.
 Currently, this layer is still under development and only provides 
 cross-compilation of the basic ros-comm packages.
 
@@ -58,17 +58,22 @@ USAGE
 
   Look at the meta-ros test reports for the description of the current state.
 
-
-  The recipe core-image-ros-groovy-qemux86-running-roscore provides a minimal
-  Linux system that runs roscore on the qemu x86 virtual machine.
+  The recipe core-image-ros-roscore provides a minimal Linux system that runs
+  roscore.
 
   You can compile the minimal Linux system with
-    bitbake core-image-ros-groovy-qemux86-running-roscore
+    bitbake core-image-ros-roscore
 
-  Then, you start this system with
-    runqemu qemux86 core-image-ros-groovy-qemux86-running-roscore
+  Then for example, you start this system in the qemu virtual machine with
+    runqemu <MACHINE> core-image-ros-roscore
 
-  In the qemu shell, set up the environment with
+  
+  On the Linux system, ensure that the own host's name in resolved by adding
+  
+    127.0.0.1	<HOSTNAME>.localdomain		<HOSTNAME>
+
+  to the /etc/hosts file, and set up the environment with
+
     export ROS_ROOT=/usr
     export ROS_MASTER_URI=http://localhost:11311
     export CMAKE_PREFIX_PATH=/usr
