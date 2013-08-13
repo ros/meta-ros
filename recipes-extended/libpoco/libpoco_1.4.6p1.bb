@@ -3,6 +3,8 @@ HOMEPAGE = "http://pocoproject.org"
 LICENSE = "BSL-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
 
+PR = "r1"
+
 DEPENDS = "expat zlib libpcre openssl"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/poco/poco-${PV}-all.tar.bz2 \
@@ -21,7 +23,13 @@ EXTRA_OECONF += "--config=OE --no-samples --no-wstring --no-tests --unbundled \
                  --omit=Data/MySQL,Data/SQLite,Data/ODBC,PageCompiler \
                 "
 
+EXTRA_OEMAKE += 'STRIP=""'
+
 do_configure_prepend() {
     install ${WORKDIR}/OE ${S}/build/config/OE
     export POCO_TARGET_OSARCH=${TARGET_ARCH}
+}
+
+do_install_append () {
+    rmdir ${D}${bindir}
 }
