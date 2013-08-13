@@ -1,0 +1,57 @@
+From e0366e14128ed0083e9450bbe9f98fd9b2806454 Mon Sep 17 00:00:00 2001
+From: Dirk Thomas <dthomas@osrfoundation.org>
+Date: Fri, 26 Jul 2013 13:37:23 -0700
+Subject: [PATCH] resolve roslaunch/rostest paths in installspace at runtime
+ without find_program()  (ros/catkin#490)
+
+---
+ tools/roslaunch/cmake/roslaunch-extras.cmake.em |  6 +++---
+ tools/rostest/cmake/rostest-extras.cmake.em     | 12 ++++--------
+ 2 files changed, 7 insertions(+), 11 deletions(-)
+
+diff --git a/tools/roslaunch/cmake/roslaunch-extras.cmake.em b/tools/roslaunch/cmake/roslaunch-extras.cmake.em
+index bb1ae40..6df3a14 100644
+--- a/tools/roslaunch/cmake/roslaunch-extras.cmake.em
++++ b/tools/roslaunch/cmake/roslaunch-extras.cmake.em
+@@ -1,11 +1,11 @@
+ # generated from ros_comm/tools/roslaunch/cmake/roslaunch-extras.cmake.em
+ 
+ @[if DEVELSPACE]@
+-# set path to roslaunch-check.py in develspace
++# set path to roslaunch-check script in develspace
+ set(roslaunch_check_script @(CMAKE_CURRENT_SOURCE_DIR)/scripts/roslaunch-check)
+ @[else]@
+-# set path to roslaunch-check.py installspace
+-set(roslaunch_check_script @(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_SHARE_DESTINATION)/scripts/roslaunch-check)
++# set path to roslaunch-check script installspace
++set(roslaunch_check_script ${roslaunch_DIR}/../scripts/roslaunch-check)
+ @[end if]@
+ 
+ #
+diff --git a/tools/rostest/cmake/rostest-extras.cmake.em b/tools/rostest/cmake/rostest-extras.cmake.em
+index 1fca6bc..93ca8ff 100644
+--- a/tools/rostest/cmake/rostest-extras.cmake.em
++++ b/tools/rostest/cmake/rostest-extras.cmake.em
+@@ -8,15 +8,11 @@ function(add_rostest file)
+   _warn_if_skip_testing("add_rostest")
+ 
+ @[if DEVELSPACE]@
+-  # find program in develspace
+-  find_program_required(ROSTEST_EXE rostest 
+-    PATHS @(PROJECT_SOURCE_DIR)/scripts
+-    NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
++  # bin in develspace
++  set(ROSTEST_EXE "@(PROJECT_SOURCE_DIR)/scripts/rostest")
+ @[else]@
+-  # find program in installspace
+-  find_program_required(ROSTEST_EXE rostest 
+-    PATHS @(CMAKE_INSTALL_PREFIX)/bin
+-    NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
++  # bin in installspace
++  set(ROSTEST_EXE "${rostest_DIR}/../../../@(CATKIN_GLOBAL_BIN_DESTINATION)/rostest")
+ @[end if]@
+ 
+   cmake_parse_arguments(_rostest "" "WORKING_DIRECTORY" "ARGS" ${ARGN})
+-- 
+1.8.1.6
+
