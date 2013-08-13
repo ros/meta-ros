@@ -7,4 +7,4 @@ DEPENDS = "apr boost cpp-common log4cxx rostime rosunit-native"
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/tools/${BPN}"
+ROS_PKG_SUBDIR = "tools"

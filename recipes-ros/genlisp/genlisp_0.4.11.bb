@@ -7,9 +7,10 @@ DEPENDS = "genmsg-native"
 
 PR = "r1"
 
-SRC_URI = "https://github.com/ros/${BPN}/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz \
-           file://0001-genlisp-extras.cmake.em-Use-find_program-for-GENLISP.patch"
+SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "b9be0a57abf76187a1057fb62cdc31e1"
 SRC_URI[sha256sum] = "cc373440fcbf57cafb758795cb50045fdd96de717b93d3d5956b7a1a2af4d3e2"
+
+SRC_URI += "file://0001-genlisp-extras.cmake.em-Use-find_program-for-GENLISP.patch"
 
 inherit catkin

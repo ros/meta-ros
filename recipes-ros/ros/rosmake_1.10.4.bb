@@ -5,4 +5,4 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc
 
 require ros.inc
 
-S = "${WORKDIR}/ros-${PV}/tools/${BPN}"
+ROS_PKG_SUBDIR = "tools"

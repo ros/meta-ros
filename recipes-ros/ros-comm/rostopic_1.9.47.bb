@@ -5,8 +5,9 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 DEPENDS = "rostest-native"
-RDEPENDS_${PN} = "rosbag"
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/tools/${BPN}"
+ROS_PKG_SUBDIR = "tools"
+
+RDEPENDS_${PN} = "rosbag"
