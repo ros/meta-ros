@@ -11,6 +11,7 @@ FILES_${PN} += "${libdir}/lib*${SOLIBSDEV}"
 FILES_${PN} += "\
     ${prefix}/etc \
     ${datadir}/ros/config/${ROS_BPN}.config \
+    ${datadir}/ros/core/${ROS_BPN} \
     ${datadir}/${ROS_BPN} \
     "
 
