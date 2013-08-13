@@ -1,0 +1,28 @@
+From e5acaf690d6276d427f6b0ecaab67b52f55bbe8a Mon Sep 17 00:00:00 2001
+From: Dirk Thomas <dthomas@osrfoundation.org>
+Date: Fri, 26 Jul 2013 13:33:58 -0700
+Subject: [PATCH] resolve gencpp path in installspace at runtime
+ (ros/catkin#490)
+
+---
+ cmake/gencpp-extras.cmake.em | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/gencpp-extras.cmake.em b/cmake/gencpp-extras.cmake.em
+index 87f46fd..88ce935 100644
+--- a/cmake/gencpp-extras.cmake.em
++++ b/cmake/gencpp-extras.cmake.em
+@@ -4,8 +4,8 @@ set(GENCPP_BIN "@(CMAKE_CURRENT_SOURCE_DIR)/scripts/gen_cpp.py")
+ set(GENCPP_TEMPLATE_DIR "@(CMAKE_CURRENT_SOURCE_DIR)/scripts")
+ @[else]@
+ # bin and template dir variables in installspace
+-set(GENCPP_BIN "@(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_BIN_DESTINATION)/gen_cpp.py")
+-set(GENCPP_TEMPLATE_DIR "@(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_SHARE_DESTINATION)")
++set(GENCPP_BIN "${gencpp_DIR}/../../../@(CATKIN_PACKAGE_BIN_DESTINATION)/gen_cpp.py")
++set(GENCPP_TEMPLATE_DIR "${gencpp_DIR}/..")
+ @[end if]@
+ 
+ # Generate .msg->.h for cpp
+-- 
+1.8.1.6
+
