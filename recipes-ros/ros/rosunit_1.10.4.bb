@@ -7,4 +7,4 @@ require ros.inc
 
 SRC_URI += "file://0001-rosunit-extras.cmake.em-remove-NO_CMAKE_FIND_ROOT_PA.patch;striplevel=3"
 
-S = "${WORKDIR}/ros-${PV}/tools/${BPN}"
+ROS_PKG_SUBDIR = "tools"

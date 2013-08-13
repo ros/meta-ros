@@ -7,4 +7,4 @@ DEPENDS = "log4cxx roscpp rosgraph-msgs"
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/tools/${BPN}"
+ROS_PKG_SUBDIR = "tools"

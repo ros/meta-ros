@@ -3,7 +3,9 @@
 # 
 
 ROS_BPN = "${@d.getVar('BPN', True).replace('-', '_')}"
-ROS_BP = "${ROS_BPN}-${PV}"
+
+ROS_SPN ?= "${ROS_BPN}"
+ROS_SP = "${ROS_SPN}-${PV}"
 
 FILES_SOLIBSDEV = ""
 FILES_${PN} += "${libdir}/lib*${SOLIBSDEV}"
