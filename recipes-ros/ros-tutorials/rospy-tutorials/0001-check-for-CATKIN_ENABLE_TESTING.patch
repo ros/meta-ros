@@ -1,0 +1,65 @@
+From 1e559b3f811a6cf3daac59088d6d86ca1d31b261 Mon Sep 17 00:00:00 2001
+From: Dirk Thomas <dthomas@osrfoundation.org>
+Date: Wed, 3 Jul 2013 11:22:45 -0700
+Subject: [PATCH] check for CATKIN_ENABLE_TESTING
+
+---
+ rospy_tutorials/CMakeLists.txt | 24 +++++++++++++-----------
+ rospy_tutorials/package.xml    |  2 +-
+ 2 files changed, 14 insertions(+), 12 deletions(-)
+
+diff --git a/rospy_tutorials/CMakeLists.txt b/rospy_tutorials/CMakeLists.txt
+index bcd4ddd..b588dfc 100644
+--- a/rospy_tutorials/CMakeLists.txt
++++ b/rospy_tutorials/CMakeLists.txt
+@@ -10,17 +10,6 @@ generate_messages(DEPENDENCIES std_msgs)
+ 
+ catkin_package(CATKIN_DEPENDS message_runtime std_msgs)
+ 
+-foreach(T
+-    test/test-add-two-ints.launch
+-    test/test-peer-subscribe-notify.launch
+-    test/test-add-two-ints-with-roscpp-server.launch
+-    test/test-talker-listener.launch
+-    test/test-talker-listener-with-roscpp.launch
+-    test/test-on-shutdown.launch
+-    test/test-connection-header.launch)
+-  add_rostest(${T})
+-endforeach()
+-
+ # do not wildcard install files since the root folder of the package will contain a debian folder for releasing
+ foreach(T
+     001_talker_listener
+@@ -36,3 +25,16 @@ foreach(T
+     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+     USE_SOURCE_PERMISSIONS)
+ endforeach()
++
++if(CATKIN_ENABLE_TESTING)
++  foreach(T
++      test/test-add-two-ints.launch
++      test/test-peer-subscribe-notify.launch
++      test/test-add-two-ints-with-roscpp-server.launch
++      test/test-talker-listener.launch
++      test/test-talker-listener-with-roscpp.launch
++      test/test-on-shutdown.launch
++      test/test-connection-header.launch)
++     add_rostest(${T})
++  endforeach()
++endif()
+diff --git a/rospy_tutorials/package.xml b/rospy_tutorials/package.xml
+index 1be85c0..f7517e8 100644
+--- a/rospy_tutorials/package.xml
++++ b/rospy_tutorials/package.xml
+@@ -14,7 +14,7 @@
+   <url type="repository">https://github.com/ros/ros_tutorials</url>
+   <author>Ken Conley</author>
+ 
+-  <buildtool_depend>catkin</buildtool_depend>
++  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+ 
+   <build_depend>message_generation</build_depend>
+   <build_depend>rostest</build_depend>
+-- 
+1.8.1.6
+
