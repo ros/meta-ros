@@ -2,13 +2,13 @@ DESCRIPTION = "Standard ROS Messages including common message types representing
     For common, generic robot-specific message types, please see common_msgs."
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=5ee5b8b046ae48ad94a2037ca953a67b"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 DEPENDS = "message-generation-native message-runtime-native"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "ea40e6dd8ea19fe54a2b476358c0ceea"
-SRC_URI[sha256sum] = "acc3d6aed8ede795e4bc6676c1849924699a418769b3d29016a9a2ac08319a56"
+SRC_URI[md5sum] = "5382be6760984ea6818858cd6f6ccf04"
+SRC_URI[sha256sum] = "c9a0008c70d3383979de6e1733a730d62aaaf4c3e15e8f20873816d8013cea6c"
 
 S = "${WORKDIR}/${ROS_SP}"
 

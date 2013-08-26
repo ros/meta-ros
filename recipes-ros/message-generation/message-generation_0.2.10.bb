@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc
 DEPENDS = "gencpp-native genlisp-native genmsg-native genpy-native"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "b3086fbe24cc103f412cb30d83362e36"
-SRC_URI[sha256sum] = "9ce9c5b4e995933c575f2a5cb5c4b042b39913637bca06554092a52c3bb24c12"
+SRC_URI[md5sum] = "2bd63c01f909baba3a4b0737ae5e55dd"
+SRC_URI[sha256sum] = "c653fa7c0eed41d85afd20dc08cec0474d191ed4afe4d90b7e38ff784b310501"
 
 S = "${WORKDIR}/${ROS_SP}"
 
