@@ -8,4 +8,4 @@ RDEPENDS_${PN} = "python-xmlrpc python-threading python-rospkg rospy python-neti
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/tools/${BPN}"
+ROS_PKG_SUBDIR = "tools"

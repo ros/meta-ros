@@ -11,4 +11,4 @@ DEPENDS = "cpp-common"
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/utilities/${BPN}"
+ROS_PKG_SUBDIR = "utilities"

@@ -2,7 +2,7 @@
 # Copyright (c) 2013 Stefan Herbrechtsmeier, Bielefeld University
 # 
 
-inherit cmake distutils-base
+inherit cmake distutils-base ros
 
 DEPENDS_prepend = "${@['catkin-native ', ''][d.getVar('BPN', True) == 'catkin']}"
 
@@ -27,33 +27,6 @@ OECMAKE_BUILDPATH = "${S}/build"
 
 export BUILD_SYS
 export HOST_SYS
-
-FILES_SOLIBSDEV = ""
-FILES_${PN} += "${libdir}/lib*${SOLIBSDEV}"
-
-ROS_BPN = "${@d.getVar('BPN', True).replace('-', '_')}"
-ROS_BP = "${ROS_BPN}-${PV}"
-
-FILES_${PN} += "\
-    ${prefix}/etc \
-    ${datadir}/ros/config/${ROS_BPN}.config \
-    ${datadir}/${ROS_BPN} \
-    "
-
-FILES_${PN}-dev += "\
-    ${datadir}/${ROS_BPN}/cmake \
-    ${datadir}/${ROS_BPN}/*.template \
-    "
-
-FILES_${PN}-dbg += "\
-    ${libdir}/${ROS_BPN}/.debug/* \
-    "
-
-PACKAGES += "${PN}-commonlisp"
-
-FILES_${PN}-commonlisp += " \
-    ${datadir}/common-lisp/ \
-    "
 
 SYSROOT_PREPROCESS_FUNCS += "catkin_sysroot_preprocess"
 

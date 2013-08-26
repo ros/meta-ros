@@ -5,4 +5,4 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9de
 
 require ros.inc
 
-S = "${WORKDIR}/ros-${PV}/core/${BPN}"
+ROS_PKG_SUBDIR = "core"
