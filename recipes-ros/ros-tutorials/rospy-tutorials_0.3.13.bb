@@ -6,5 +6,3 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9de
 DEPENDS = "message-generation rostest std-msgs cpp-common roscpp-serialization"
 
 require ros-tutorials.inc
-
-SRC_URI += "file://0001-check-for-CATKIN_ENABLE_TESTING.patch;striplevel=2"

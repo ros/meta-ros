@@ -7,9 +7,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 DEPENDS = "actionlib-msgs roscpp rostest"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "8da88314483b1330906b0ecf89c33494"
-SRC_URI[sha256sum] = "c76317f60afec9e4cdcce28e0b88b9aef7e355ba8295228e759aa914ed10aae4"
-
-SRC_URI += "file://0001-check-for-CATKIN_ENABLE_TESTING.patch"
+SRC_URI[md5sum] = "d16d2369554d8060beb4369b61d3cc68"
+SRC_URI[sha256sum] = "d0a5eac521832cf09ddff833d7c7965874e3a0bf837d9464c344f71147dabb4b"
 
 inherit catkin
