@@ -1,0 +1,26 @@
+From b7b222534f7259ca457ea354d92c5708f895202e Mon Sep 17 00:00:00 2001
+From: Dirk Thomas <dthomas@osrfoundation.org>
+Date: Mon, 29 Jul 2013 11:51:23 -0700
+Subject: [PATCH] resolve dynamic_reconfigure path in installspace at runtime
+ (ros/catkin#490)
+
+---
+ cmake/extras.cmake.em | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/extras.cmake.em b/cmake/extras.cmake.em
+index de2082e..e37b1fa 100644
+--- a/cmake/extras.cmake.em
++++ b/cmake/extras.cmake.em
+@@ -3,7 +3,7 @@
+ set(dynamic_reconfigure_BASE_DIR "@(CMAKE_CURRENT_SOURCE_DIR)")
+ @[else]@
+ # base dir in installspace
+-set(dynamic_reconfigure_BASE_DIR "@(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_SHARE_DESTINATION)")
++set(dynamic_reconfigure_BASE_DIR "${dynamic_reconfigure_DIR}/..")
+ @[end if]@
+ 
+ macro(generate_dynamic_reconfigure_options)
+-- 
+1.8.1.6
+

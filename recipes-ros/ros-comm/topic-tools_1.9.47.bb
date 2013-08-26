@@ -8,4 +8,4 @@ DEPENDS = "rostest-native rostest roscpp"
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/tools/${ROS_BPN}"
+ROS_PKG_SUBDIR = "tools"

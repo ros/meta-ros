@@ -8,6 +8,6 @@ DEPENDS_class-native = "boost-native rosunit-native"
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/tools/${BPN}"
+ROS_PKG_SUBDIR = "tools"
 
 OECMAKE_EXTRA_ROOT_PATH_class-native = "${OECMAKE_BUILDPATH}/devel"

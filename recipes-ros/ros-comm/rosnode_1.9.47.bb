@@ -9,4 +9,4 @@ RDEPENDS_${PN} = "python-io python-xmlrpc rosgraph rostopic"
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/tools/${BPN}"
+ROS_PKG_SUBDIR = "tools"

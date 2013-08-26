@@ -1,0 +1,128 @@
+From cb45b131576a898ced69e3e5e9758173365dc5cf Mon Sep 17 00:00:00 2001
+From: Dirk Thomas <dthomas@osrfoundation.org>
+Date: Fri, 26 Jul 2013 13:35:17 -0700
+Subject: [PATCH] resolve path of message file and include dirs in installspace
+ at runtime (ros/catkin#490)
+
+---
+ CMakeLists.txt                 |  3 ++-
+ cmake/genmsg-extras.cmake.em   | 29 ++++++++++++++++++-----------
+ cmake/pkg-msg-paths.cmake.em   | 10 ++++++++++
+ cmake/pkg-msg-paths.cmake.in   |  2 --
+ cmake/pkg-msg-paths.context.in |  8 ++++++++
+ 5 files changed, 38 insertions(+), 14 deletions(-)
+ create mode 100644 cmake/pkg-msg-paths.cmake.em
+ delete mode 100644 cmake/pkg-msg-paths.cmake.in
+ create mode 100644 cmake/pkg-msg-paths.context.in
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5e8fcf0..aa66f86 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,7 +9,8 @@ install(
+   cmake/pkg-genmsg.cmake.em
+   cmake/pkg-genmsg.context.in
+   cmake/pkg-msg-extras.cmake.in
+-  cmake/pkg-msg-paths.cmake.in
++  cmake/pkg-msg-paths.cmake.em
++  cmake/pkg-msg-paths.context.in
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/cmake)
+ 
+ catkin_python_setup()
+diff --git a/cmake/genmsg-extras.cmake.em b/cmake/genmsg-extras.cmake.em
+index 3ba4b37..b57af38 100644
+--- a/cmake/genmsg-extras.cmake.em
++++ b/cmake/genmsg-extras.cmake.em
+@@ -106,7 +106,7 @@ macro(add_message_files)
+     install(FILES ${FILES_W_PATH}
+       DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${ARG_DIRECTORY})
+ 
+-    _prepend_path("${CMAKE_INSTALL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/${ARG_DIRECTORY}" "${ARG_FILES}" FILES_W_PATH)
++    _prepend_path("${ARG_DIRECTORY}" "${ARG_FILES}" FILES_W_PATH)
+     list(APPEND ${PROJECT_NAME}_INSTALLED_MESSAGE_FILES ${FILES_W_PATH})
+   endif()
+ endmacro()
+@@ -196,18 +196,21 @@ macro(generate_messages)
+   catkin_destinations()
+ 
+   # generate devel space config of message include dirs for project
++  set(DEVELSPACE TRUE)
++  set(INSTALLSPACE FALSE)
+   set(PKG_MSG_INCLUDE_DIRS "${${PROJECT_NAME}_MSG_INCLUDE_DIRS_DEVELSPACE}")
+-  configure_file(
+-    ${genmsg_CMAKE_DIR}/pkg-msg-paths.cmake.in
+-    ${CATKIN_DEVEL_PREFIX}/share/${PROJECT_NAME}/cmake/${PROJECT_NAME}-msg-paths.cmake
+-    @@ONLY)
++  em_expand(${genmsg_CMAKE_DIR}/pkg-msg-paths.context.in
++    ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/${PROJECT_NAME}-msg-paths-context.py
++    ${genmsg_CMAKE_DIR}/pkg-msg-paths.cmake.em
++    ${CATKIN_DEVEL_PREFIX}/share/${PROJECT_NAME}/cmake/${PROJECT_NAME}-msg-paths.cmake)
+   # generate and install config of message include dirs for project
+-  _prepend_path(${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME} "${${PROJECT_NAME}_MSG_INCLUDE_DIRS_INSTALLSPACE}" INCLUDE_DIRS_W_PATH UNIQUE)
+-  set(PKG_MSG_INCLUDE_DIRS "${INCLUDE_DIRS_W_PATH}")
+-  configure_file(
+-    ${genmsg_CMAKE_DIR}/pkg-msg-paths.cmake.in
+-    ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace/${PROJECT_NAME}-msg-paths.cmake
+-    @@ONLY)
++  set(DEVELSPACE FALSE)
++  set(INSTALLSPACE TRUE)
++  set(PKG_MSG_INCLUDE_DIRS "${${PROJECT_NAME}_MSG_INCLUDE_DIRS_INSTALLSPACE}")
++  em_expand(${genmsg_CMAKE_DIR}/pkg-msg-paths.context.in
++    ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace/${PROJECT_NAME}-msg-paths-context.py
++    ${genmsg_CMAKE_DIR}/pkg-msg-paths.cmake.em
++    ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace/${PROJECT_NAME}-msg-paths.cmake)
+   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace/${PROJECT_NAME}-msg-paths.cmake
+     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/cmake)
+ 
+@@ -256,6 +259,10 @@ macro(generate_messages)
+     include(${config})
+     unset(config CACHE)
+ 
++    # explicitly set message include dirs for current project since information from pkg-msg-paths.cmake is not yet available
++    if(${dep} STREQUAL ${PROJECT_NAME})
++      set(${dep}_MSG_INCLUDE_DIRS ${${PROJECT_NAME}_MSG_INCLUDE_DIRS_DEVELSPACE})
++    endif()
+     foreach(path ${${dep}_MSG_INCLUDE_DIRS})
+       list(APPEND MSG_INCLUDE_DIRS "${dep}")
+       list(APPEND MSG_INCLUDE_DIRS "${path}")
+diff --git a/cmake/pkg-msg-paths.cmake.em b/cmake/pkg-msg-paths.cmake.em
+new file mode 100644
+index 0000000..eb6f88a
+--- /dev/null
++++ b/cmake/pkg-msg-paths.cmake.em
+@@ -0,0 +1,10 @@
++# generated from genmsg/cmake/pkg-msg-paths.cmake.em
++
++@[if DEVELSPACE]@
++# message include dirs in develspace
++set(@(PROJECT_NAME)_MSG_INCLUDE_DIRS "@(PKG_MSG_INCLUDE_DIRS)")
++@[else]@
++# message include dirs in installspace
++_prepend_path("${@(PROJECT_NAME)_DIR}/.." "@(PKG_MSG_INCLUDE_DIRS)" @(PROJECT_NAME)_MSG_INCLUDE_DIRS UNIQUE)
++@[end if]@
++set(@(PROJECT_NAME)_MSG_DEPENDENCIES @(ARG_DEPENDENCIES))
+diff --git a/cmake/pkg-msg-paths.cmake.in b/cmake/pkg-msg-paths.cmake.in
+deleted file mode 100644
+index c40966c..0000000
+--- a/cmake/pkg-msg-paths.cmake.in
++++ /dev/null
+@@ -1,2 +0,0 @@
+-set(@PROJECT_NAME@_MSG_INCLUDE_DIRS "@PKG_MSG_INCLUDE_DIRS@")
+-set(@PROJECT_NAME@_MSG_DEPENDENCIES @ARG_DEPENDENCIES@)
+diff --git a/cmake/pkg-msg-paths.context.in b/cmake/pkg-msg-paths.context.in
+new file mode 100644
+index 0000000..499e2f9
+--- /dev/null
++++ b/cmake/pkg-msg-paths.context.in
+@@ -0,0 +1,8 @@
++# generated from genmsg/cmake/pkg-msg-paths.context.in
++
++DEVELSPACE = '@DEVELSPACE@' == 'TRUE'
++INSTALLSPACE = '@INSTALLSPACE@' == 'TRUE'
++
++PROJECT_NAME = '@PROJECT_NAME@'
++PKG_MSG_INCLUDE_DIRS = '@PKG_MSG_INCLUDE_DIRS@'
++ARG_DEPENDENCIES = '@ARG_DEPENDENCIES@'
+-- 
+1.8.1.6
+

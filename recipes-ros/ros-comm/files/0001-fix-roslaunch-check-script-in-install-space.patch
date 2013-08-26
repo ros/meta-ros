@@ -1,0 +1,25 @@
+From 60f0f657bd9aabfedba0b00374ae8398e5e92359 Mon Sep 17 00:00:00 2001
+From: Dirk Thomas <dthomas@osrfoundation.org>
+Date: Wed, 24 Jul 2013 00:19:21 -0700
+Subject: [PATCH] fix roslaunch check script in install space (fix #257)
+
+---
+ tools/roslaunch/cmake/roslaunch-extras.cmake.em | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/roslaunch/cmake/roslaunch-extras.cmake.em b/tools/roslaunch/cmake/roslaunch-extras.cmake.em
+index 10c0ce2..bb1ae40 100644
+--- a/tools/roslaunch/cmake/roslaunch-extras.cmake.em
++++ b/tools/roslaunch/cmake/roslaunch-extras.cmake.em
+@@ -5,7 +5,7 @@
+ set(roslaunch_check_script @(CMAKE_CURRENT_SOURCE_DIR)/scripts/roslaunch-check)
+ @[else]@
+ # set path to roslaunch-check.py installspace
+-set(roslaunch_check_script @(CMAKE_INSTALL_PREFIX)/${CATKIN_PACKAGE_SHARE_DESTINATION}/scripts/roslaunch-check)
++set(roslaunch_check_script @(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_SHARE_DESTINATION)/scripts/roslaunch-check)
+ @[end if]@
+ 
+ #
+-- 
+1.8.1.6
+

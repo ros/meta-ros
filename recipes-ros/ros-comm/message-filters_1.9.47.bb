@@ -7,4 +7,4 @@ DEPENDS = "boost rosconsole roscpp rostest-native rosunit-native xmlrpcpp"
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/utilities/${ROS_BPN}"
+ROS_PKG_SUBDIR = "utilities"

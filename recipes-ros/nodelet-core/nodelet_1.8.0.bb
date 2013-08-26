@@ -6,7 +6,6 @@ This package provides both the nodelet base class needed for \
 implementing a nodelet, as well as the NodeletLoader class used \
 for instantiating nodelets\
 "
-
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"

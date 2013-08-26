@@ -8,4 +8,4 @@ RDEPENDS_${PN} = "std-msgs genpy python-logging python-pyyaml rosgraph roslib ro
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/clients/${BPN}"
+ROS_PKG_SUBDIR = "clients"

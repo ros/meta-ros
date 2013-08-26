@@ -1,0 +1,139 @@
+From 7628b0d56df5fec691be9d8f913cf026fb125f6a Mon Sep 17 00:00:00 2001
+From: Dirk Thomas <dthomas@osrfoundation.org>
+Date: Fri, 2 Aug 2013 17:54:03 -0700
+Subject: [PATCH] resolve rosunit path in installspace at runtime without
+ find_program(), update env hooks to use runtime context (ros/catkin#490)
+
+---
+ core/rosbuild/env-hooks/10.rosbuild.sh.em   |  2 +-
+ core/rosbuild/package.xml                   |  2 +-
+ core/roslib/cmake/roslib-extras.cmake.em    |  2 +-
+ core/roslib/env-hooks/10.ros.sh.em          |  2 +-
+ core/roslib/package.xml                     |  2 +-
+ tools/rosbash/env-hooks/15.rosbash.bash.em  |  2 +-
+ tools/rosbash/package.xml                   |  2 +-
+ tools/rosunit/cmake/rosunit-extras.cmake.em | 22 ++++++----------------
+ 8 files changed, 13 insertions(+), 23 deletions(-)
+
+diff --git a/core/rosbuild/env-hooks/10.rosbuild.sh.em b/core/rosbuild/env-hooks/10.rosbuild.sh.em
+index af16b15..ebbfb0f 100644
+--- a/core/rosbuild/env-hooks/10.rosbuild.sh.em
++++ b/core/rosbuild/env-hooks/10.rosbuild.sh.em
+@@ -5,5 +5,5 @@
+ export ROS_ROOT="@(CMAKE_CURRENT_SOURCE_DIR)"
+ @[else]@
+ # env variables in installspace
+-export ROS_ROOT="@(CMAKE_INSTALL_PREFIX)/@(CATKIN_GLOBAL_SHARE_DESTINATION)/ros"
++export ROS_ROOT="$CATKIN_ENV_HOOK_WORKSPACE/@(CATKIN_GLOBAL_SHARE_DESTINATION)/ros"
+ @[end if]@
+diff --git a/core/rosbuild/package.xml b/core/rosbuild/package.xml
+index f96160a..d0c8836 100644
+--- a/core/rosbuild/package.xml
++++ b/core/rosbuild/package.xml
+@@ -12,7 +12,7 @@
+   <author>Troy Straszheim</author>
+   <author>Morgan Quigley</author>
+ 
+-  <buildtool_depend>catkin</buildtool_depend>
++  <buildtool_depend version_gte="0.5.72">catkin</buildtool_depend>
+ 
+   <build_depend>pkg-config</build_depend>
+ 
+diff --git a/core/roslib/cmake/roslib-extras.cmake.em b/core/roslib/cmake/roslib-extras.cmake.em
+index bf4742b..cf4ccb5 100644
+--- a/core/roslib/cmake/roslib-extras.cmake.em
++++ b/core/roslib/cmake/roslib-extras.cmake.em
+@@ -5,5 +5,5 @@
+ set(gendeps_exe @(CMAKE_CURRENT_SOURCE_DIR)/scripts/gendeps)
+ @[else]@
+ # set path to gendeps executable in installspace
+-set(gendeps_exe @(CMAKE_INSTALL_PREFIX)/lib/roslib/gendeps)
++set(gendeps_exe ${genlib_DIR}/../../../@(CATKIN_PACKAGE_BIN_DESTINATION)/gendeps)
+ @[end if]@
+diff --git a/core/roslib/env-hooks/10.ros.sh.em b/core/roslib/env-hooks/10.ros.sh.em
+index 39cde1b..bf4c0a2 100644
+--- a/core/roslib/env-hooks/10.ros.sh.em
++++ b/core/roslib/env-hooks/10.ros.sh.em
+@@ -37,7 +37,7 @@ export ROS_PACKAGE_PATH="`python -c \"$PYTHON_CODE_BUILD_ROS_PACKAGE_PATH\"`"
+ export ROS_ETC_DIR="@(CATKIN_DEVEL_PREFIX)/@(CATKIN_GLOBAL_ETC_DESTINATION)/ros"
+ @[else]@
+ # env variables in installspace
+-export ROS_ETC_DIR="@(CMAKE_INSTALL_PREFIX)/@(CATKIN_GLOBAL_ETC_DESTINATION)/ros"
++export ROS_ETC_DIR="$CATKIN_ENV_HOOK_WORKSPACE/@(CATKIN_GLOBAL_ETC_DESTINATION)/ros"
+ @[end if]@
+ 
+ # unset ROS workspace
+diff --git a/core/roslib/package.xml b/core/roslib/package.xml
+index 5e17842..9f2dc3e 100644
+--- a/core/roslib/package.xml
++++ b/core/roslib/package.xml
+@@ -13,7 +13,7 @@
+   <author email="mquigley@cs.stanford.edu">Morgan Quigley</author>
+   <author email="jfaust@willowgarage.com">Josh Faust</author>
+ 
+-  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
++  <buildtool_depend version_gte="0.5.72">catkin</buildtool_depend>
+ 
+   <build_depend>boost</build_depend>
+   <build_depend>rospack</build_depend>
+diff --git a/tools/rosbash/env-hooks/15.rosbash.bash.em b/tools/rosbash/env-hooks/15.rosbash.bash.em
+index 0430caf..07bd623 100644
+--- a/tools/rosbash/env-hooks/15.rosbash.bash.em
++++ b/tools/rosbash/env-hooks/15.rosbash.bash.em
+@@ -3,5 +3,5 @@
+ @[if DEVELSPACE]@
+ . "@(CMAKE_CURRENT_SOURCE_DIR)/rosbash"
+ @[else]@
+-. "@(CMAKE_INSTALL_PREFIX)/share/rosbash/rosbash"
++. "$CATKIN_ENV_HOOK_WORKSPACE/share/rosbash/rosbash"
+ @[end if]@
+diff --git a/tools/rosbash/package.xml b/tools/rosbash/package.xml
+index 50b969a..6642437 100644
+--- a/tools/rosbash/package.xml
++++ b/tools/rosbash/package.xml
+@@ -11,7 +11,7 @@
+   <author>Jeremy Leibs</author>
+   <author>Thibault Kruse</author>
+ 
+-  <buildtool_depend>catkin</buildtool_depend>
++  <buildtool_depend version_gte="0.5.72">catkin</buildtool_depend>
+ 
+   <run_depend>catkin</run_depend>
+ </package>
+diff --git a/tools/rosunit/cmake/rosunit-extras.cmake.em b/tools/rosunit/cmake/rosunit-extras.cmake.em
+index 47bd120..aad1a22 100644
+--- a/tools/rosunit/cmake/rosunit-extras.cmake.em
++++ b/tools/rosunit/cmake/rosunit-extras.cmake.em
+@@ -2,23 +2,13 @@ include(CMakeParseArguments)
+ 
+ macro(rosunit_initialize_tests)
+ @[if DEVELSPACE]@
+-  # find binary and scripts in develspace
+-  find_program(ROSUNIT_EXE rosunit
+-    PATHS "@(PROJECT_SOURCE_DIR)/scripts"
+-    NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
+-  if(NOT ROSUNIT_EXE)
+-    message(FATAL_ERROR "'rosunit' not found")
+-  endif()
+-  set(ROSUNIT_SCRIPTS_DIR @(PROJECT_SOURCE_DIR)/scripts)
++  # binary and script in develspace
++  set(ROSUNIT_SCRIPTS_DIR "@(CMAKE_CURRENT_SOURCE_DIR)/scripts")
++  set(ROSUNIT_EXE "${ROSUNIT_SCRIPTS_DIR}/rosunit")
+ @[else]@
+-  # find binary and scripts in installspace
+-  find_program(ROSUNIT_EXE rosunit
+-    PATHS "@(CMAKE_INSTALL_PREFIX)/bin"
+-    NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
+-  if(NOT ROSUNIT_EXE)
+-    message(FATAL_ERROR "'rosunit' not found")
+-  endif()
+-  set(ROSUNIT_SCRIPTS_DIR @(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_SHARE_DESTINATION)/scripts)
++  # binary and script in installspace
++  set(ROSUNIT_SCRIPTS_DIR "${rosunit_DIR}/../scripts")
++  set(ROSUNIT_EXE "${rosunit_DIR}/../../../@(CATKIN_GLOBAL_BIN_DESTINATION)/rosunit")
+ @[end if]@
+ endmacro()
+ 
+-- 
+1.8.1.6
+

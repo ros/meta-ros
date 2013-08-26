@@ -7,4 +7,4 @@ DEPENDS = "message-generation-native message-runtime-native std-msgs roscpp-seri
 
 require ros-comm.inc
 
-S = "${WORKDIR}/ros_comm-${PV}/messages/${ROS_BPN}"
+ROS_PKG_SUBDIR = "messages"
