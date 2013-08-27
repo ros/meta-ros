@@ -25,6 +25,7 @@ RDEPENDS_${PN} = "\
     stereo-msgs \
     trajectory-msgs \
     visualization-msgs \
+    actionlib-tutorials \
     nodelet-tutorial-math \
     pluginlib-tutorials \
     console-bridge \
