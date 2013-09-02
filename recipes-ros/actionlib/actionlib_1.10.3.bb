@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 DEPENDS = "actionlib-msgs roscpp rostest"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "d16d2369554d8060beb4369b61d3cc68"
-SRC_URI[sha256sum] = "d0a5eac521832cf09ddff833d7c7965874e3a0bf837d9464c344f71147dabb4b"
+SRC_URI[md5sum] = "2e13067c3c85e81a3ab4b603ff15e45b"
+SRC_URI[sha256sum] = "f71df286552e6bf3a03ef83635342d3bdd6eef836e7b0565dccd2d341dbeaa11"
 
 inherit catkin
