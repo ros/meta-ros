@@ -1,0 +1,64 @@
+From 612e2ac00fa82d160de82b09da67eb41b828ae95 Mon Sep 17 00:00:00 2001
+From: vmayoral <v.mayoralv@gmail.com>
+Date: Thu, 8 Aug 2013 16:02:07 +0200
+Subject: [PATCH] CMakeLists CATKIN_ENABLE_TESTING patch
+
+---
+ hardware_interface/CMakeLists.txt |   34 ++++++++++++++++++----------------
+ 1 file changed, 18 insertions(+), 16 deletions(-)
+
+diff --git a/hardware_interface/CMakeLists.txt b/hardware_interface/CMakeLists.txt
+index 2681794..105421a 100644
+--- a/hardware_interface/CMakeLists.txt
++++ b/hardware_interface/CMakeLists.txt
+@@ -40,29 +40,31 @@ else()
+     INCLUDE_DIRS include
+     )
+ 
+-  catkin_add_gtest(hardware_resource_manager_test  test/hardware_resource_manager_test.cpp)
+-  target_link_libraries(hardware_resource_manager_test ${catkin_LIBRARIES})
++  if(CATKIN_ENABLE_TESTING)
++    catkin_add_gtest(hardware_resource_manager_test  test/hardware_resource_manager_test.cpp)
++    target_link_libraries(hardware_resource_manager_test ${catkin_LIBRARIES})
+ 
+-  catkin_add_gtest(actuator_state_interface_test   test/actuator_state_interface_test.cpp)
+-  target_link_libraries(actuator_state_interface_test ${catkin_LIBRARIES})
++    catkin_add_gtest(actuator_state_interface_test   test/actuator_state_interface_test.cpp)
++    target_link_libraries(actuator_state_interface_test ${catkin_LIBRARIES})
+ 
+-  catkin_add_gtest(actuator_command_interface_test test/actuator_command_interface_test.cpp)
+-  target_link_libraries(actuator_command_interface_test ${catkin_LIBRARIES})
++    catkin_add_gtest(actuator_command_interface_test test/actuator_command_interface_test.cpp)
++    target_link_libraries(actuator_command_interface_test ${catkin_LIBRARIES})
+ 
+-  catkin_add_gtest(joint_state_interface_test      test/joint_state_interface_test.cpp)
+-  target_link_libraries(joint_state_interface_test ${catkin_LIBRARIES})
++    catkin_add_gtest(joint_state_interface_test      test/joint_state_interface_test.cpp)
++    target_link_libraries(joint_state_interface_test ${catkin_LIBRARIES})
+ 
+-  catkin_add_gtest(joint_command_interface_test    test/joint_command_interface_test.cpp)
+-  target_link_libraries(joint_command_interface_test ${catkin_LIBRARIES})
++    catkin_add_gtest(joint_command_interface_test    test/joint_command_interface_test.cpp)
++    target_link_libraries(joint_command_interface_test ${catkin_LIBRARIES})
+ 
+-  catkin_add_gtest(force_torque_sensor_interface_test test/force_torque_sensor_interface_test.cpp)
+-  target_link_libraries(force_torque_sensor_interface_test ${catkin_LIBRARIES})
++    catkin_add_gtest(force_torque_sensor_interface_test test/force_torque_sensor_interface_test.cpp)
++    target_link_libraries(force_torque_sensor_interface_test ${catkin_LIBRARIES})
+ 
+-  catkin_add_gtest(imu_sensor_interface_test       test/imu_sensor_interface_test.cpp)
+-  target_link_libraries(imu_sensor_interface_test ${catkin_LIBRARIES})
++    catkin_add_gtest(imu_sensor_interface_test       test/imu_sensor_interface_test.cpp)
++    target_link_libraries(imu_sensor_interface_test ${catkin_LIBRARIES})
+ 
+-  catkin_add_gtest(robot_hw_test                   test/robot_hw_test.cpp)
+-  target_link_libraries(robot_hw_test ${catkin_LIBRARIES})
++    catkin_add_gtest(robot_hw_test                   test/robot_hw_test.cpp)
++    target_link_libraries(robot_hw_test ${catkin_LIBRARIES})
++  endif()
+ 
+   # Install
+   install(DIRECTORY include/${PROJECT_NAME}/
+-- 
+1.7.9.5
+

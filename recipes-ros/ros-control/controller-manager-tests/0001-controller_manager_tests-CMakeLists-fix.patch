@@ -1,0 +1,33 @@
+From 2a9bdc617eea3334f8859adaa77df2af14b45a31 Mon Sep 17 00:00:00 2001
+From: vmayoral <v.mayoralv@gmail.com>
+Date: Thu, 8 Aug 2013 17:15:31 +0200
+Subject: [PATCH] controller_manager_tests CMakeLists fix
+
+---
+ controller_manager_tests/CMakeLists.txt |   10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/controller_manager_tests/CMakeLists.txt b/controller_manager_tests/CMakeLists.txt
+index 1f553fa..95c73cc 100644
+--- a/controller_manager_tests/CMakeLists.txt
++++ b/controller_manager_tests/CMakeLists.txt
+@@ -52,10 +52,12 @@ else()
+   add_executable(dummy_app src/dummy_app.cpp)
+   target_link_libraries(dummy_app ${PROJECT_NAME} ${catkin_LIBRARIES})
+ 
+-  add_executable(cm_test test/cm_test.cpp)
+-  add_dependencies(tests cm_test)
+-  target_link_libraries(cm_test ${GTEST_LIBRARIES} ${catkin_LIBRARIES})
+-  add_rostest(test/cm_test.test)
++  if(CATKIN_ENABLE_TESTING)
++    add_executable(cm_test test/cm_test.cpp)
++    add_dependencies(tests cm_test)
++    target_link_libraries(cm_test ${GTEST_LIBRARIES} ${catkin_LIBRARIES})
++    add_rostest(test/cm_test.test)
++  endif()
+ 
+   # Install
+   install(DIRECTORY include/${PROJECT_NAME}/
+-- 
+1.7.9.5
+

@@ -1,0 +1,34 @@
+From 492463deaeaef8ae869f766571a7e88e24d3e0c6 Mon Sep 17 00:00:00 2001
+From: Victor Mayoral Vilches <v.mayoralv@gmail.com>
+Date: Thu, 15 Aug 2013 12:13:13 +0200
+Subject: [PATCH] transmission interface fix2
+
+---
+ transmission_interface/CMakeLists.txt |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/transmission_interface/CMakeLists.txt b/transmission_interface/CMakeLists.txt
+index 89b5178..f703490 100644
+--- a/transmission_interface/CMakeLists.txt
++++ b/transmission_interface/CMakeLists.txt
+@@ -34,7 +34,7 @@ else()
+   )
+ 
+   # Include a custom cmake file for TinyXML
+-  find_package(TinyXML REQUIRED)
++  #find_package(TinyXML REQUIRED)
+ 
+   # Declare a catkin package
+   catkin_package(
+@@ -43,7 +43,7 @@ else()
+     INCLUDE_DIRS
+       include
+     DEPENDS
+-      TinyXML
++  #    TinyXML
+   )
+ 
+ ###########
+-- 
+1.7.9.5
+
