@@ -1,7 +1,7 @@
 DESCRIPTION = "The COLLADA Document Object Model (DOM) is an application \
 programming interface (API) that provides a C++ object representation of a \
 COLLADA XML instance document." 
-LICENSE = "Sony Computer Entertainment"
+LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://License_Folder/license_e.txt;md5=33ea5b7341abf67bd9055a229646feae"
 
 DEPENDS = ""

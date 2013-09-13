@@ -1,0 +1,28 @@
+From b9651118b1e034400b1f670b6a80a411c81695d1 Mon Sep 17 00:00:00 2001
+From: vmayoral <v.mayoralv@gmail.com>
+Date: Tue, 10 Sep 2013 16:47:45 +0200
+Subject: [PATCH] collada-urdf CMakeLists fix
+
+---
+ collada_urdf/CMakeLists.txt |    2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/collada_urdf/CMakeLists.txt b/collada_urdf/CMakeLists.txt
+index 9b5be44..df1267d 100644
+--- a/collada_urdf/CMakeLists.txt
++++ b/collada_urdf/CMakeLists.txt
+@@ -60,9 +60,11 @@ add_executable(urdf_to_collada src/urdf_to_collada.cpp)
+ target_link_libraries(urdf_to_collada ${catkin_LIBRARIES} ${COLLADA_DOM_LIBRARIES}  
+   ${Boost_LIBRARIES} ${PROJECT_NAME})
+ 
++if(CATKIN_ENABLE_TESTING)
+ catkin_add_gtest(test_collada_writer test/test_collada_urdf.cpp)
+ target_link_libraries(test_collada_writer ${PROJECT_NAME} ${catkin_LIBRARIES} ${COLLADA_DOM_LIBRARIES}  
+   ${Boost_LIBRARIES})
++endif()
+ 
+ install(TARGETS ${PROJECT_NAME} urdf_to_collada
+   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+-- 
+1.7.9.5
+
