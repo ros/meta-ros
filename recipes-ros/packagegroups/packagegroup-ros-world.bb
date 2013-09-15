@@ -46,4 +46,32 @@ RDEPENDS_${PN} = "\
     compressed-image-transport \
     compressed-depth-image-transport \
     theora-image-transport \
+    cmake-modules \
+    rosconsole-bridge \
+    urdfdom-headers \
+    urdfdom \
+    control-msgs \
+    realtime-tools \
+    control-toolbox \
+    controller-interface \
+    controller-manager-msgs \
+    controller-manager-tests \
+    controller-manager \
+    hardware-interface \
+    joint-limits-interface \
+    transmission-interface \
+    collada-parser \
+    resource-retriever \
+    urdf-parser-plugin \
+    urdf \
+    collada-dom \
+    effort-controllers \
+    force-torque-sensor-controller \
+    forward-command-controller \
+    imu-sensor-controller \
+    joint-state-controller \
+    position-controllers \
+    velocity-controllers \
     "
+
+# joint-state-publisher still has some issues
