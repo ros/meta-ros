@@ -1,0 +1,25 @@
+From dcc52b56eaade728f92356dd96f7d4cd2c95057e Mon Sep 17 00:00:00 2001
+From: vmayoral <v.mayoralv@gmail.com>
+Date: Fri, 9 Aug 2013 17:57:43 +0200
+Subject: [PATCH] resource_retriever test/CMakeLists.txt fix
+
+---
+ resource_retriever/test/CMakeLists.txt |    6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/resource_retriever/test/CMakeLists.txt b/resource_retriever/test/CMakeLists.txt
+index f133bf6..5e0ce18 100644
+--- a/resource_retriever/test/CMakeLists.txt
++++ b/resource_retriever/test/CMakeLists.txt
+@@ -1,4 +1,6 @@
+ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
+ 
+-catkin_add_gtest(${PROJECT_NAME}_utest test.cpp)
+-target_link_libraries(${PROJECT_NAME}_utest ${PROJECT_NAME})
++if(CATKIN_ENABLE_TESTING)
++    catkin_add_gtest(${PROJECT_NAME}_utest test.cpp)
++    target_link_libraries(${PROJECT_NAME}_utest ${PROJECT_NAME})
++endif()
+-- 
+1.7.9.5
+
