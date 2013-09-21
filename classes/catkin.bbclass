@@ -33,5 +33,3 @@ SYSROOT_PREPROCESS_FUNCS += "catkin_sysroot_preprocess"
 catkin_sysroot_preprocess () {
     sysroot_stage_dir ${D}${prefix}/etc ${SYSROOT_DESTDIR}${prefix}/etc
 }
-
-BBCLASSEXTEND += "native"
