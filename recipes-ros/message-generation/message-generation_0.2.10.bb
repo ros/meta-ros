@@ -3,7 +3,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "gencpp-native genlisp-native genmsg-native genpy-native"
+DEPENDS = "gencpp genlisp genmsg genpy"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "2bd63c01f909baba3a4b0737ae5e55dd"

@@ -3,7 +3,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "genmsg-native"
+DEPENDS = "genmsg"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "56f32da469434f1a2ca28fc8aa3d8eb5"
