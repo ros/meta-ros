@@ -14,6 +14,7 @@ CONTRIBUTORS
   Koen Kooi <koen@dominion.thruhere.net>
   Victor Mayoral Vilches <v.mayoralv@gmail.com>
   Sergey 'Jin' Bostandzhyan <jin@dev.digitalstrom.org>
+  Andreas Hildisch, BMW Car IT GmbH <andreas.hildisch@bmw-carit.de>
 
 HOW TO CONTRIBUTE
 
@@ -37,6 +38,10 @@ DEPENDENCIES
   branch: master
   revision: HEAD
 
+DEPENDENCIES ON RECENT COMMITS
+
+cv-bridge and dependent recipes, e.g. the image-transport recipes, depend on
+7568bfdd114597956a1da68746f207ec7f93a48d@openembedded-core.
 
 INSTALLATION
 
