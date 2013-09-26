@@ -42,4 +42,8 @@ RDEPENDS_${PN} = "\
     pluginlib \
     roscpp-tutorials \
     rospy-tutorials \
+    cv-bridge \
+    compressed-image-transport \
+    compressed-depth-image-transport \
+    theora-image-transport \
     "
