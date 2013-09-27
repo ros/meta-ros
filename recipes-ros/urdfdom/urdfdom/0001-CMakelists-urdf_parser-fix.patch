@@ -1,0 +1,43 @@
+From 902fa53f0c9800ea42d91ba1f9c319418fbbf988 Mon Sep 17 00:00:00 2001
+From: vmayoral <v.mayoralv@gmail.com>
+Date: Thu, 22 Aug 2013 15:41:06 +0200
+Subject: [PATCH] CMakelists urdf_parser fix
+
+---
+ urdf_parser/CMakeLists.txt |   14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/urdf_parser/CMakeLists.txt b/urdf_parser/CMakeLists.txt
+index 85a5778..907ee9d 100644
+--- a/urdf_parser/CMakeLists.txt
++++ b/urdf_parser/CMakeLists.txt
+@@ -14,19 +14,19 @@ target_link_libraries(urdfdom_model_state ${tinyxml_libraries} ${console_bridge_
+ 
+ # --------------------------------
+ 
+-add_executable(check_urdf src/check_urdf.cpp)
+-target_link_libraries(check_urdf urdfdom_model urdfdom_world)
++#add_executable(check_urdf src/check_urdf.cpp)
++#target_link_libraries(check_urdf urdfdom_model urdfdom_world)
+ 
+-add_executable(urdf_to_graphiz src/urdf_to_graphiz.cpp)
+-target_link_libraries(urdf_to_graphiz urdfdom_model)
++#add_executable(urdf_to_graphiz src/urdf_to_graphiz.cpp)
++#target_link_libraries(urdf_to_graphiz urdfdom_model)
+ 
+-add_executable(urdf_mem_test test/memtest.cpp)
+-target_link_libraries(urdf_mem_test urdfdom_model)
++#add_executable(urdf_mem_test test/memtest.cpp)
++#target_link_libraries(urdf_mem_test urdfdom_model)
+ 
+ 
+ INSTALL(TARGETS urdfdom_model DESTINATION lib/)
+ INSTALL(TARGETS urdfdom_world DESTINATION lib/)
+-INSTALL(TARGETS check_urdf urdf_to_graphiz urdf_mem_test DESTINATION share/${PROJECT_NAME})
++#INSTALL(TARGETS check_urdf urdf_to_graphiz urdf_mem_test DESTINATION share/${PROJECT_NAME})
+ INSTALL(TARGETS urdfdom_sensor DESTINATION lib/)
+ INSTALL(TARGETS urdfdom_model_state DESTINATION lib/)
+ INSTALL(DIRECTORY include/urdf_parser DESTINATION include)
+-- 
+1.7.9.5
+
