@@ -1,0 +1,22 @@
+From 47c18f75d6a3950836d64b77d7e415ecca3755e9 Mon Sep 17 00:00:00 2001
+From: vmayoral <v.mayoralv@gmail.com>
+Date: Fri, 20 Sep 2013 13:22:53 +0200
+Subject: [PATCH] Fix the path added to CMAKE_MODULE_PATH.
+
+@CMAKE_INSTALL_PREFIX@/@CATKIN_PACKAGE_SHARE_DESTINATION@ have been
+replaced with "${cmake_modules_DIR}/.." to make the module work.
+---
+ cmake/cmake_modules-extras.cmake.installspace.in |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/cmake_modules-extras.cmake.installspace.in b/cmake/cmake_modules-extras.cmake.installspace.in
+index a4cd265..0701f02 100644
+--- a/cmake/cmake_modules-extras.cmake.installspace.in
++++ b/cmake/cmake_modules-extras.cmake.installspace.in
+@@ -1,2 +1,2 @@
+ # Prepend the installed cmake modules to the cmake module path
+-list(INSERT CMAKE_MODULE_PATH 0 @CMAKE_INSTALL_PREFIX@/@CATKIN_PACKAGE_SHARE_DESTINATION@/cmake/Modules)
++list(INSERT CMAKE_MODULE_PATH 0 ${cmake_modules_DIR}/../cmake/Modules)
+-- 
+1.7.9.5
+

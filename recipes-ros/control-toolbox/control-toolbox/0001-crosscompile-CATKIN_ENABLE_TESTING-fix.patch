@@ -1,0 +1,29 @@
+From 9de24db0b59a56dcb2ce0dc224a49315a6ada4c8 Mon Sep 17 00:00:00 2001
+From: vmayoral <v.mayoralv@gmail.com>
+Date: Thu, 8 Aug 2013 17:03:16 +0200
+Subject: [PATCH] crosscompile CATKIN_ENABLE_TESTING fix
+
+---
+ CMakeLists.txt |    6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 90f44e1..405c905 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -87,8 +87,10 @@ else()
+   add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencpp) # wait for msgs
+ 
+   # Tests
+-  catkin_add_gtest(pid_tests test/pid_tests.cpp)
+-  target_link_libraries(pid_tests ${catkin_LIBRARIES} ${PROJECT_NAME})
++  if(CATKIN_ENABLE_TESTING)
++    catkin_add_gtest(pid_tests test/pid_tests.cpp)
++    target_link_libraries(pid_tests ${catkin_LIBRARIES} ${PROJECT_NAME})
++  endif()
+ 
+   # add_executable(test_linear test/linear.cpp)
+ 
+-- 
+1.7.9.5
+
