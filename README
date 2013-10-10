@@ -106,9 +106,6 @@ REDISTRIBUTIONS
   The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Development
   (cf. http://cgit.openembedded.org/openembedded/tree/recipes/log4cxx)
   licensed with the MIT License.
-  The eigen recipe originated from the recipe in Kartik Mohta's OpenEmbedded layer
-  (cf. https://github.com/kartikmohta/meta-km/tree/master/recipes-extended/eigen)
-  licensed with the MIT License.
   The yaml-cpp recipe originated from the recipe in Kartik Mohta's OpenEmbedded layer
   (cf. https://github.com/kartikmohta/meta-km/blob/master/recipes-devtools/yaml-cpp/yaml-cpp_0.3.0.bb)
   licensed with the MIT License.
