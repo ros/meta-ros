@@ -10,4 +10,8 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/${BPN}/${BP}.tgz"
 SRC_URI[md5sum] = "20399de4206eab850c32e65c04e907cb"
 SRC_URI[sha256sum] = "5ca2d12f744bdceff0066ed3067b3b23d6859581fb0d657f98ba4487d8fa3896"
 
+EXTRA_OECMAKE += "\
+  -DCMAKE_SKIP_RPATH=ON \
+"
+
 inherit cmake
