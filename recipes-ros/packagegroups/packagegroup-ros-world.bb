@@ -72,6 +72,25 @@ RDEPENDS_${PN} = "\
     joint-state-controller \
     position-controllers \
     velocity-controllers \
+    openslam-gmapping \
+    gmapping \
+    image-geometry \
+    camera-calibration-parsers \
+    camera-info-manager \
+    polled-camera \
+    xacro \
+    filters \
+    smach \
+    smach-msgs \
+    smach-ros \
+    eigen-stl-containers \
+    ivcon \
+    convex-decomposition \
+    camera-calibration \
+    image-proc \
+    image-rotate \
+    image-view \
+    stereo-image-proc \
     "
 
 # joint-state-publisher still has some issues
