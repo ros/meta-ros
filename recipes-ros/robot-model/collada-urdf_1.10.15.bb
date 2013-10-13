@@ -6,3 +6,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9de
 DEPENDS = "angles assimp resource-retriever collada-dom collada-parser roscpp urdf geometric-shapes"
 
 require robot-model.inc
+
+do_configure_append() {
+	for f in collada_urdf.dir urdf_to_collada.dir
+	do 
+	sed -i -e 's: /usr/lib/liboctomap.so: ${STAGING_LIBDIR}/liboctomap.so:g' \
+	  -e 's: /usr/lib/liboctomath.so: ${STAGING_LIBDIR}/liboctomath.so:g' \
+	  ${S}/build/CMakeFiles/$f/build.make
+	done
+}
