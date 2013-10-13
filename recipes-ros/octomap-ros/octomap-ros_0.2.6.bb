@@ -12,3 +12,9 @@ SRC_URI[sha256sum] = "f39877bc3595f0d3808762042aee2c2cdc50ad8db6032beac31995da70
 S = "${WORKDIR}/${ROS_SP}"
 
 inherit catkin
+
+do_configure_append() {
+	sed -i -e 's: /usr/lib/liboctomap.so: ${STAGING_LIBDIR}/liboctomap.so:g' \
+	  -e 's: /usr/lib/liboctomath.so: ${STAGING_LIBDIR}/liboctomath.so:g' \
+	  ${S}/build/CMakeFiles/octomap_ros.dir/build.make
+}
