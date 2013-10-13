@@ -6,6 +6,3 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9de
 DEPENDS = "curl rosconsole roslib"
 
 require robot-model.inc
-
-SRC_URI += "file://0001-resource_retriever-test-CMakeLists.txt-fix.patch;striplevel=2"
-
