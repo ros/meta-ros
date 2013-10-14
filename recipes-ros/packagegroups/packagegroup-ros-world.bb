@@ -36,6 +36,7 @@ RDEPENDS_${PN} = "\
     tf2-ros \
     tf2 \
     tf \
+    tf2-tools \
     image-transport \
     nodelet-topic-tools \
     nodelet \
@@ -91,6 +92,12 @@ RDEPENDS_${PN} = "\
     image-rotate \
     image-view \
     stereo-image-proc \
+    random-numbers \
+    shape-tools \
+    octomap-msgs \
+    pcl-msgs \
+    laser-geometry \
+    map-msgs \
     "
 
 # joint-state-publisher still has some issues
