@@ -36,6 +36,7 @@ RDEPENDS_${PN} = "\
     tf2-ros \
     tf2 \
     tf \
+    tf2-tools \
     image-transport \
     nodelet-topic-tools \
     nodelet \
@@ -46,4 +47,57 @@ RDEPENDS_${PN} = "\
     compressed-image-transport \
     compressed-depth-image-transport \
     theora-image-transport \
+    cmake-modules \
+    rosconsole-bridge \
+    urdfdom-headers \
+    urdfdom \
+    control-msgs \
+    realtime-tools \
+    control-toolbox \
+    controller-interface \
+    controller-manager-msgs \
+    controller-manager-tests \
+    controller-manager \
+    hardware-interface \
+    joint-limits-interface \
+    transmission-interface \
+    collada-parser \
+    resource-retriever \
+    urdf-parser-plugin \
+    urdf \
+    collada-dom \
+    effort-controllers \
+    force-torque-sensor-controller \
+    forward-command-controller \
+    imu-sensor-controller \
+    joint-state-controller \
+    position-controllers \
+    velocity-controllers \
+    openslam-gmapping \
+    gmapping \
+    image-geometry \
+    camera-calibration-parsers \
+    camera-info-manager \
+    polled-camera \
+    xacro \
+    filters \
+    smach \
+    smach-msgs \
+    smach-ros \
+    eigen-stl-containers \
+    ivcon \
+    convex-decomposition \
+    camera-calibration \
+    image-proc \
+    image-rotate \
+    image-view \
+    stereo-image-proc \
+    random-numbers \
+    shape-tools \
+    octomap-msgs \
+    pcl-msgs \
+    laser-geometry \
+    map-msgs \
     "
+
+# joint-state-publisher still has some issues

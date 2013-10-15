@@ -6,5 +6,3 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9de
 DEPENDS = "rosconsole-bridge roscpp urdfdom-headers urdf-parser-plugin pluginlib urdfdom cmake-modules libtinyxml"
 
 require robot-model.inc
-
-SRC_URI += "file://0001-urdf-CMakeLists-fix.patch;striplevel=2"
