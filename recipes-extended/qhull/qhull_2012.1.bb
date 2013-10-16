@@ -10,4 +10,8 @@ SRC_URI[sha256sum] = "a35ecaa610550b7f05c3ce373d89c30cf74b059a69880f03080c556dae
 
 CFLAGS += "-fPIC"
 
+EXTRA_OECMAKE += "\
+  -DCMAKE_SKIP_RPATH=ON \
+"
+
 inherit cmake

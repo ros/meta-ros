@@ -1,0 +1,40 @@
+From 1a534325ce98bd1250c3f586b243c85a0515fcac Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Sat, 12 Oct 2013 11:14:26 +0200
+Subject: [PATCH] check for CATKIN_ENABLE_TESTING
+
+---
+ CMakeLists.txt | 6 ++++--
+ package.xml    | 2 +-
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2d67593..f68faa8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -16,5 +16,7 @@ install(PROGRAMS xacro.py DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+ 
+ install(PROGRAMS scripts/xacro DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+ 
+-## Add folders to be run by python nosetests
+-catkin_add_nosetests(test)
++if(CATKIN_ENABLE_TESTING)
++  ## Add folders to be run by python nosetests
++  catkin_add_nosetests(test)
++endif()
+diff --git a/package.xml b/package.xml
+index 69cb9e7..26f61e2 100644
+--- a/package.xml
++++ b/package.xml
+@@ -17,7 +17,7 @@
+ 
+   <author>Stuart Glaser</author>
+ 
+-  <buildtool_depend>catkin</buildtool_depend>
++  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+ 
+   <run_depend>roslaunch</run_depend>
+ 
+-- 
+1.8.1.2
+
