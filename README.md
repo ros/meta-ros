@@ -2,21 +2,25 @@ This is a layer to provide ROS Hydromedusa in an OpenEmbedded Linux system.
 Currently, this layer is still under development and only provides 
 cross-compilation of the basic ros-comm packages.
 
-MAINTAINERS
-  Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
-  Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
+## MAINTAINERS ##
 
-CONTRIBUTORS
-  Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
-  Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
-  Tobias Weigl, BMW Car IT GmbH <tobias.weigl@bmw-carit.de>
-  Kartik Mohta <kartikmohta@gmail.com>
-  Koen Kooi <koen@dominion.thruhere.net>
-  Victor Mayoral Vilches <v.mayoralv@gmail.com>
-  Sergey 'Jin' Bostandzhyan <jin@dev.digitalstrom.org>
-  Andreas Hildisch, BMW Car IT GmbH <andreas.hildisch@bmw-carit.de>
+  * Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
+  * Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
 
-HOW TO CONTRIBUTE
+
+## CONTRIBUTORS ##
+
+  * Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
+  * Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
+  * Tobias Weigl, BMW Car IT GmbH <tobias.weigl@bmw-carit.de>
+  * Kartik Mohta <kartikmohta@gmail.com>
+  * Koen Kooi <koen@dominion.thruhere.net>
+  * Victor Mayoral Vilches <v.mayoralv@gmail.com>
+  * Sergey 'Jin' Bostandzhyan <jin@dev.digitalstrom.org>
+  * Andreas Hildisch, BMW Car IT GmbH <andreas.hildisch@bmw-carit.de>
+
+
+## HOW TO CONTRIBUTE ##
 
   We are still working on this development and are interested in other use cases.
   If you are interested in this project, please contact us via email.
@@ -25,20 +29,21 @@ HOW TO CONTRIBUTE
   and how to join forces.
 
 
-DEPENDENCIES
+## DEPENDENCIES ##
 
   This layer depends on:
 
-  URI: git://git.openembedded.org/openembedded-core
-  branch: master
-  revision: HEAD
+  URI: git://git.openembedded.org/openembedded-core  
+  branch: master  
+  revision: HEAD  
 
-  URI: git://git.openembedded.org/meta-openembedded
-  layers: meta-oe
-  branch: master
-  revision: HEAD
 
-DEPENDENCIES ON RECENT COMMITS
+  URI: git://git.openembedded.org/meta-openembedded  
+  layers: meta-oe  
+  branch: master  
+  revision: HEAD  
+
+## DEPENDENCIES ON RECENT COMMITS ##
 
   cv-bridge and dependent recipes, e.g., the image-transport recipes, depend on
   7568bfdd114597956a1da68746f207ec7f93a48d@openembedded-core.
@@ -47,7 +52,7 @@ DEPENDENCIES ON RECENT COMMITS
   424e3c1b930c0103c2cedfd4df1671e84a5256d5@meta-openembedded.
 
 
-INSTALLATION
+## INSTALLATION ##
 
   The repository contains a layer for ROS that builds on top of the
   OpenEmbedded Core layer and the meta-oe layer.
@@ -55,14 +60,15 @@ INSTALLATION
   We believe it should work with the current HEAD of the layers mentioned above.
   As a further reference, here are the version I currently work with:
 
-    * commit d3d5ccd3275196fb9e4cb8f49d3c087b97c20ed6 of https://github.com/openembedded/oe-core
-    * commit 2a463dddcf76d7fa437e96f6cf0210143e97a904 of https://github.com/openembedded/meta-oe
-    * commit bf9be2029b2bded5f532bdda4c38ae3dff5d1cf6 of git://git.openembedded.org/bitbake in the bitbake directory
+  * commit d3d5ccd3275196fb9e4cb8f49d3c087b97c20ed6 of https://github.com/openembedded/oe-core
+  * commit 2a463dddcf76d7fa437e96f6cf0210143e97a904 of https://github.com/openembedded/meta-oe
+  * commit bf9be2029b2bded5f532bdda4c38ae3dff5d1cf6 of git://git.openembedded.org/bitbake in the bitbake directory
 
 
-USAGE
+## USAGE ##
 
   Currently, you can cross-compile the ROS packages with the commands:
+
     source oe-init-build-env
     bitbake <package-name>
 
@@ -72,9 +78,11 @@ USAGE
   roscore.
 
   You can compile the minimal Linux system with
+
     bitbake core-image-ros-roscore
 
   Then for example, you start this system in the qemu virtual machine with
+
     runqemu <MACHINE> core-image-ros-roscore
 
   
@@ -90,10 +98,11 @@ USAGE
     touch /usr/.catkin
 
   Finally, you can start roscore with
+
     roscore
 
     
-LICENSE
+## LICENSE ##
 
   All metadata is MIT licensed unless otherwise stated. Source code included
   in tree for individual recipes is under the LICENSE stated in each recipe
@@ -106,17 +115,20 @@ LICENSE
   This README document is Copyright (C) 2012 BMW Car IT GmbH.
 
 
-REDISTRIBUTIONS
+## REDISTRIBUTIONS ##
 
   The log4cxx recipe originated from the recipe in the OpenEmbedded (Classic) Development
   (cf. http://cgit.openembedded.org/openembedded/tree/recipes/log4cxx)
   licensed with the MIT License.
+
   The yaml-cpp recipe originated from the recipe in Kartik Mohta's OpenEmbedded layer
   (cf. https://github.com/kartikmohta/meta-km/blob/master/recipes-devtools/yaml-cpp/yaml-cpp_0.3.0.bb)
   licensed with the MIT License.
+
   The libpoco recipe originated from the recipe in digitalSTROM's OpenEmbedded layer
   (cf. https://gitorious.digitalstrom.org/dss-oe/dss-oe/blobs/master/dS/meta-dss11-production/recipes-support/poco/poco_1.3.6p2.bb)
   licensed with the MIT License.
+
   The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
   licensed with the MIT License.
