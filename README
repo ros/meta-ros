@@ -2,7 +2,7 @@ This is a layer to provide ROS Hydromedusa in an OpenEmbedded Linux system.
 Currently, this layer is still under development and only provides 
 cross-compilation of the basic ros-comm packages.
 
-MAINTAINER
+MAINTAINERS
   Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
   Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
 
@@ -40,8 +40,12 @@ DEPENDENCIES
 
 DEPENDENCIES ON RECENT COMMITS
 
-cv-bridge and dependent recipes, e.g. the image-transport recipes, depend on
-7568bfdd114597956a1da68746f207ec7f93a48d@openembedded-core.
+  cv-bridge and dependent recipes, e.g., the image-transport recipes, depend on
+  7568bfdd114597956a1da68746f207ec7f93a48d@openembedded-core.
+  
+  Some recipes that need the Eigen library, e.g., the pcl-ros recipe, depend on
+  424e3c1b930c0103c2cedfd4df1671e84a5256d5@meta-openembedded.
+
 
 INSTALLATION
 
@@ -50,9 +54,10 @@ INSTALLATION
 
   We believe it should work with the current HEAD of the layers mentioned above.
   As a further reference, here are the version I currently work with:
-    * commit 395b90054eccddc1c9062a9a8657ed4482b7710a of https://github.com/openembedded/oe-core
-    * commit 2a5dea2399e2be5e5d964eda7465dcaf4c2e152b of https://github.com/openembedded/meta-oe
-    * commit 324ed96e28ec31cff8cef1824d20d40f9a5d46ad of git://git.openembedded.org/bitbake in the bitbake directory
+
+    * commit d3d5ccd3275196fb9e4cb8f49d3c087b97c20ed6 of https://github.com/openembedded/oe-core
+    * commit 2a463dddcf76d7fa437e96f6cf0210143e97a904 of https://github.com/openembedded/meta-oe
+    * commit bf9be2029b2bded5f532bdda4c38ae3dff5d1cf6 of git://git.openembedded.org/bitbake in the bitbake directory
 
 
 USAGE
