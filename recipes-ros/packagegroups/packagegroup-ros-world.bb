@@ -98,6 +98,11 @@ RDEPENDS_${PN} = "\
     pcl-msgs \
     laser-geometry \
     map-msgs \
+    diagnostic-aggregator \
+    diagnostic-analysis \
+    diagnostic-common-diagnostics \
+    diagnostic-updater \
+    joy \
     "
 
 # joint-state-publisher still has some issues
