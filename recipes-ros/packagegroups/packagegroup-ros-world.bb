@@ -103,6 +103,12 @@ RDEPENDS_${PN} = "\
     diagnostic-common-diagnostics \
     diagnostic-updater \
     joy \
+    rosserial-arduino \
+    rosserial-client \
+    rosserial-embeddedlinux \
+    rosserial-msgs \
+    rosserial-python \
+    rosserial-xbee \
     "
 
 # joint-state-publisher still has some issues
