@@ -18,7 +18,7 @@ cross-compilation of the basic ros-comm packages.
   * Victor Mayoral Vilches <v.mayoralv@gmail.com>
   * Sergey 'Jin' Bostandzhyan <jin@dev.digitalstrom.org>
   * Andreas Hildisch, BMW Car IT GmbH <andreas.hildisch@bmw-carit.de>
-
+  * William <william@friedcircuits.us>
 
 ## HOW TO CONTRIBUTE ##
 
