@@ -1,7 +1,7 @@
 DESCRIPTION = "This package allows you to publish the state of a robot to tf."
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=5ee5b8b046ae48ad94a2037ca953a67b"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "2315f637a70871bb460d6365a240741f"
