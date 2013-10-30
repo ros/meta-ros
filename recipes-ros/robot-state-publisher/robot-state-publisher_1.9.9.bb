@@ -12,4 +12,3 @@ S = "${WORKDIR}/${ROS_SP}"
 inherit catkin
 
 DEPENDS = "libeigen kdl-parser rosconsole roscpp rostime sensor-msgs tf tf-conversions"
-RDEPENDS_${PN} = "libeigen kdl-parser rosconsole roscpp rostime sensor-msgs tf tf-conversions"
