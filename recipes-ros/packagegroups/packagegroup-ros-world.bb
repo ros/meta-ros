@@ -49,7 +49,6 @@ RDEPENDS_${PN} = "\
     theora-image-transport \
     cmake-modules \
     rosconsole-bridge \
-    urdfdom-headers \
     urdfdom \
     control-msgs \
     realtime-tools \
