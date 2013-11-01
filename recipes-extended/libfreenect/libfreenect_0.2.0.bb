@@ -12,5 +12,5 @@ inherit cmake
 
 S = "${WORKDIR}/libfreenect-${PV}"
 
-FILES_${PN}-dev += "/usr/lib/fakenect/libfreenect.so.0.1 /usr/lib/fakenect/libfreenect.so /usr/lib/fakenect/libfreenect.so.0.1.2" 
-FILES_${PN}-dbg += "/usr/lib/fakenect/.debug"
+FILES_${PN}-dev += "${libdir}/fakenect/libfreenect.so.0.1 ${libdir}/fakenect/libfreenect.so ${libdir}/fakenect/libfreenect.so.0.1.2" 
+FILES_${PN}-dbg += "${libdir}/fakenect/.debug"
