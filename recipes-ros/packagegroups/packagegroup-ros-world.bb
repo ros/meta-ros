@@ -31,12 +31,17 @@ RDEPENDS_${PN} = "\
     console-bridge \
     dynamic-reconfigure \
     angles \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-kdl \    
     tf2-msgs \
     tf2-py \
     tf2-ros \
-    tf2 \
-    tf \
     tf2-tools \
+    eigen-conversions \
+    kdl-conversions \
+    tf \
+    tf-conversions \
     image-transport \
     nodelet-topic-tools \
     nodelet \
@@ -61,6 +66,8 @@ RDEPENDS_${PN} = "\
     joint-limits-interface \
     transmission-interface \
     collada-parser \
+    collada-urdf \
+    kdl-parser \
     resource-retriever \
     urdf-parser-plugin \
     urdf \
@@ -108,6 +115,10 @@ RDEPENDS_${PN} = "\
     rosserial-msgs \
     rosserial-python \
     rosserial-xbee \
+    robot-state-publisher \
+    octomap \
+    geometric-shapes \
     "
 
 # joint-state-publisher still has some issues
+# freenect-camera requires opengl distro feature.
