@@ -12,5 +12,8 @@ inherit cmake
 
 S = "${WORKDIR}/libfreenect-${PV}"
 
+#force libs always into /usr/lib, even when compiling on 64bit arch
+EXTRA_OECMAKE += " -DLIB_SUFFIX=''"
+
 FILES_${PN}-dev += "${libdir}/fakenect/libfreenect.so.0.1 ${libdir}/fakenect/libfreenect.so ${libdir}/fakenect/libfreenect.so.0.1.2" 
 FILES_${PN}-dbg += "${libdir}/fakenect/.debug"
