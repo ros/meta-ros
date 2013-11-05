@@ -7,6 +7,4 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 DEPENDS = "camera-info-manager diagnostic-updater dynamic-reconfigure \
 	image-transport libfreenect nodelet roscpp sensor-msgs pluginlib"
 
-S = "${WORKDIR}/${ROS_SP}"
-
 require freenect-stack.inc
