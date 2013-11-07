@@ -118,7 +118,26 @@ RDEPENDS_${PN} = "\
     robot-state-publisher \
     octomap \
     geometric-shapes \
+    pcl-conversions \
+    pcl-ros \
+    depth-image-proc \
+    rgbd-launch \
+    amcl \
+    base-local-planner \
+    carrot-planner \
+    clear-costmap-recovery \
+    costmap-2d \
+    dwa-local-planner \
+    fake-localization \
+    global-planner \
+    map-server \
+    move-base-msgs \
+    move-slow-and-clear \
+    nav-core \
+    navfn \
+    rotate-recovery \
+    voxel-grid \
     "
 
-# joint-state-publisher still has some issues
-# freenect-camera requires opengl distro feature.
+# joint-state-publisher still has some issues.
+# freenect-camera and freenect-launch requires opengl distro feature.

@@ -8,10 +8,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 DEPENDS = "angles boost libeigen sensor-msgs roscpp tf"
 
 SRC_URI = "https://github.com/ros-perception/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "dce0a6f2a6a7eeee3913bb01ff8081e1"
-SRC_URI[sha256sum] = "8df2f328bc8dfb7c54d89ffbe832c0f2756864d6baddb39d5ea229be9f52b14d"
-
-SRC_URI += "file://0001-check-for-CATKIN_ENABLE_TESTING.patch"
+SRC_URI[md5sum] = "111534440e0b04a1e269b47dcb806753"
+SRC_URI[sha256sum] = "63504536e8f28df2baf11f9cc5cec265c92f2a3b1b717af6e8c6bc6c110d15e3"
 
 S = "${WORKDIR}/${ROS_SP}"
 
