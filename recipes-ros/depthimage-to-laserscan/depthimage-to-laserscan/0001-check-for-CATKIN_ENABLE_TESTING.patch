@@ -1,0 +1,19 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7e73a89..60c4bff 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -30,9 +30,11 @@ target_link_libraries(DepthImageToLaserScanNodelet DepthImageToLaserScanROS ${ca
+ add_executable(depthimage_to_laserscan src/depthimage_to_laserscan.cpp)
+ target_link_libraries(depthimage_to_laserscan DepthImageToLaserScanROS ${catkin_LIBRARIES})
+ 
+-# Test the library
+-catkin_add_gtest(libtest test/DepthImageToLaserScanTest.cpp)
+-target_link_libraries(libtest DepthImageToLaserScan ${catkin_LIBRARIES})
++if(CATKIN_ENABLE_TESTING)
++  # Test the library
++  catkin_add_gtest(libtest test/DepthImageToLaserScanTest.cpp)
++  target_link_libraries(libtest DepthImageToLaserScan ${catkin_LIBRARIES})
++endif()
+ 
+ # add the test executable, keep it from being built by "make all"
+ add_executable(test_dtl EXCLUDE_FROM_ALL test/depthimage_to_laserscan_rostest.cpp)
