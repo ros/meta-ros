@@ -137,6 +137,7 @@ RDEPENDS_${PN} = "\
     navfn \
     rotate-recovery \
     voxel-grid \
+    octomap-ros \
     "
 
 # joint-state-publisher still has some issues.
