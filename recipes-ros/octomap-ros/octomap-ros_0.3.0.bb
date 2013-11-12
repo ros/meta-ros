@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9de
 DEPENDS = "octomap-msgs octomap pcl-ros sensor-msgs tf"
 
 SRC_URI = "https://github.com/OctoMap/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "a72a025e3c144e2db7bd0ff0d6775fee"
-SRC_URI[sha256sum] = "f39877bc3595f0d3808762042aee2c2cdc50ad8db6032beac31995da70c0b62b"
+SRC_URI[md5sum] = "bb532a09683512adb2f5d6ce6589914f"
+SRC_URI[sha256sum] = "0a43b252916905eca03b893211d9fc1f031480909a5fde8a2d904f7d408bde10"
 
 S = "${WORKDIR}/${ROS_SP}"
 
