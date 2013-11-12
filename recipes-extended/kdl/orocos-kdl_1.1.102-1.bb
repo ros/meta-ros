@@ -3,12 +3,14 @@ SECTION = "devel"
 LICENSE = "LGPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=a8ffd58e6eb29a955738b8fcc9e9e8f2"
 
-require kdl.inc
+DEPENDS = "libeigen"
 
-FILES_${PN}-dev += "/usr/share/orocos_kdl/package.xml /usr/share/orocos_kdl/orocos_kdl-config.cmake"
+require kdl.inc
 
 do_install_append() {
         # remove sysroot library path from pkgconfig files
         sed -i -e 's#${STAGING_INCDIR}#${includedir}#g' \
                    ${D}${libdir}/pkgconfig/*.pc
 }
+
+FILES_${PN}-dev += "${datadir}/orocos_kdl/*"
