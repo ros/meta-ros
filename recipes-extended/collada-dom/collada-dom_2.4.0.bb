@@ -15,3 +15,5 @@ EXTRA_OECMAKE += "\
 "
 
 inherit cmake
+
+FILES_${PN}-dev += "${libdir}/cmake/collada_dom-2.4/*.cmake"

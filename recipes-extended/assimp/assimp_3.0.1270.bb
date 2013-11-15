@@ -12,3 +12,5 @@ SRC_URI[sha256sum] = "ac29beb596db97df57451a5503afaf2d8b4366522842a6914da8964492
 S = "${WORKDIR}/assimp--${PV}-source-only"
 
 inherit cmake
+
+FILES_${PN}-dev += "${libdir}/cmake/assimp-3.0/*.cmake"
