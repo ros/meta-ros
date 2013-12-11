@@ -7,8 +7,6 @@ DEPENDS = "sip-native python-sip orocos-kdl"
 
 require kdl.inc
 
-SRC_URI += "file://0001-findSIP-fix.patch"
-
 inherit pythonnative
 
 FILES_${PN} += "${libdir}/python*/dist-packages/PyKDL.so"
