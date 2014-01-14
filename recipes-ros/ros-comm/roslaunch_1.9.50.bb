@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9de
 
 require ros-comm.inc
 
+SRC_URI += "file://0001-increase-rosmaster-timeout.patch"
+
 ROS_PKG_SUBDIR = "tools"
 
 RDEPENDS_${PN} = "\
