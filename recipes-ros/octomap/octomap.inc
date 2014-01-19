@@ -1,6 +1,6 @@
 SRC_URI = "https://github.com/OctoMap/${ROS_SPN}/archive/v${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "c53b4a57bd5dd3bb0c6da98be06bfb44"
-SRC_URI[sha256sum] = "897d8dc8859cc1a43d1b505382dc2afcecd7310880282ef777d90498751b1d1b"
+SRC_URI[md5sum] = "ffbc6dd63a3c374fdce82ed124ece42b"
+SRC_URI[sha256sum] = "a73fd0e7c77fa0bc5db6f654dd1bc2d6173c7bfe1b178c75edbf493527ee9682"
 
 S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 
