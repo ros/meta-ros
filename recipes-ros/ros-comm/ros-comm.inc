@@ -1,6 +1,6 @@
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "823b571ac861a0c5bf41af103570c97c"
-SRC_URI[sha256sum] = "e7c045b95a28e0f125a01bc79da0335d5cdf19d52c2c1814587c8c8a943e2e34"
+SRC_URI[md5sum] = "22c0dfbf60d3e4f77e253bb56d75c00c"
+SRC_URI[sha256sum] = "693635e84d2a0cb0074c799fce78c474af2870b37e6805073b99a888e650fca4"
 
 SRC_URI += "file://0001-rostest-is-optional.patch;patchdir=../.."
 
