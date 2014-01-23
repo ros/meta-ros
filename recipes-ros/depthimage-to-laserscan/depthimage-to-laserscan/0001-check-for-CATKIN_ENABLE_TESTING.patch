@@ -1,5 +1,15 @@
+From f953151cce932ffa8e0d14fc12b512d8e7d448fe Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Wed, 22 Jan 2014 11:18:25 +0100
+Subject: [PATCH] check for CATKIN_ENABLE_TESTING
+
+---
+ CMakeLists.txt | 8 +++++---
+ package.xml    | 2 +-
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7e73a89..60c4bff 100644
+index cdf4a9f..a76b054 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -30,9 +30,11 @@ target_link_libraries(DepthImageToLaserScanNodelet DepthImageToLaserScanROS ${ca
@@ -17,3 +27,19 @@ index 7e73a89..60c4bff 100644
  
  # add the test executable, keep it from being built by "make all"
  add_executable(test_dtl EXCLUDE_FROM_ALL test/depthimage_to_laserscan_rostest.cpp)
+diff --git a/package.xml b/package.xml
+index 86f182a..d5ecc06 100644
+--- a/package.xml
++++ b/package.xml
+@@ -12,7 +12,7 @@
+ 
+   <author>Chad Rockey</author>
+ 
+-  <buildtool_depend>catkin</buildtool_depend>
++  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+ 
+   <build_depend>roscpp</build_depend>
+   <build_depend>gtest</build_depend>
+-- 
+1.8.5.1
+
