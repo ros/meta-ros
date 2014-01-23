@@ -3,6 +3,8 @@ From: Stefan Herbrechtsmeier <stefan@herbrechtsmeier.net>
 Date: Wed, 13 Mar 2013 11:49:17 +0100
 Subject: [PATCH] CATKIN_WORKSPACES: Don't require .catkin file
 
+Upstream-Status: Inappropriate [only for our setup]
+
 Signed-off-by: Stefan Herbrechtsmeier <stefan@herbrechtsmeier.net>
 ---
  cmake/all.cmake                            |    8 +++-----

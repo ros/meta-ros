@@ -3,6 +3,7 @@ From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
 Date: Mon, 15 Jul 2013 14:04:43 +0200
 Subject: [PATCH] check for CATKIN_ENABLE_TESTING
 
+Upstream-Status: Accepted
 ---
  angles/CMakeLists.txt | 4 +++-
  angles/package.xml    | 2 +-
