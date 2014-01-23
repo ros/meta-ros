@@ -1,0 +1,1 @@
+PACKAGECONFIG_append = " python"

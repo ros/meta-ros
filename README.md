@@ -20,6 +20,7 @@ cross-compilation of the basic ros-comm packages.
   * Andreas Hildisch, BMW Car IT GmbH <andreas.hildisch@bmw-carit.de>
   * William <william@friedcircuits.us>
   * Kristof Robot <krirobo@gmail.com>
+  * Khem Raj <raj.khem@gmail.com>
 
 
 ## HOW TO CONTRIBUTE ##
@@ -45,6 +46,8 @@ cross-compilation of the basic ros-comm packages.
   branch: master  
   revision: HEAD  
 
+ bitbake > 1.20
+
 ## DEPENDENCIES ON RECENT COMMITS ##
 
   cv-bridge and dependent recipes, e.g., the image-transport recipes, depend on
@@ -53,6 +56,9 @@ cross-compilation of the basic ros-comm packages.
   Some recipes that need the Eigen library, e.g., the pcl-ros recipe, depend on
   424e3c1b930c0103c2cedfd4df1671e84a5256d5@meta-openembedded.
 
+  Using wildcards in bbappend versions part in name depends on
+  31bc9af9cd56e7b318924869970e850993fafc5f@bitbake and
+  991cbeedbde8bd25ce08c669b1bfac8b99e33149@bitbake
 
 ## INSTALLATION ##
 
