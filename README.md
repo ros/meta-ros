@@ -96,24 +96,20 @@ cross-compilation of the basic ros-comm packages.
   Then for example, you start this system in the qemu virtual machine with
 
     runqemu <MACHINE> core-image-ros-roscore
-
   
-  On the Linux system, ensure that the own host's name in resolved by adding
-  
-    127.0.0.1	<HOSTNAME>.localdomain		<HOSTNAME>
-
-  to the /etc/hosts file, and set up the environment with
+  On the qemu virtual machine, you can now login as root and setup the bash
+  environment with:
 
     export ROS_ROOT=/usr
     export ROS_MASTER_URI=http://localhost:11311
     export CMAKE_PREFIX_PATH=/usr
     touch /usr/.catkin
 
-  Finally, you can start roscore with
+  Finally, you start roscore with:
 
     roscore
 
-    
+
 ## LICENSE ##
 
   All metadata is MIT licensed unless otherwise stated. Source code included
