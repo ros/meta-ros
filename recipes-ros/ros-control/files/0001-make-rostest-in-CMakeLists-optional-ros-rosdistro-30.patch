@@ -1,0 +1,56 @@
+From b746072f9729b9d39a5e1901c0ffa7dcb5f19956 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Tue, 4 Feb 2014 16:06:33 +0100
+Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
+
+---
+ controller_manager_tests/CMakeLists.txt | 3 ++-
+ joint_limits_interface/CMakeLists.txt   | 4 +++-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/controller_manager_tests/CMakeLists.txt b/controller_manager_tests/CMakeLists.txt
+index 95c73cc..9e018b1 100644
+--- a/controller_manager_tests/CMakeLists.txt
++++ b/controller_manager_tests/CMakeLists.txt
+@@ -29,7 +29,7 @@ if(USE_ROSBUILD)
+ else()
+ 
+   # Load catkin and all dependencies required for this package
+-  find_package(catkin REQUIRED COMPONENTS rostest controller_manager controller_interface control_toolbox)
++  find_package(catkin REQUIRED COMPONENTS controller_manager controller_interface control_toolbox)
+ 
+   include_directories(include ${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
+ 
+@@ -53,6 +53,7 @@ else()
+   target_link_libraries(dummy_app ${PROJECT_NAME} ${catkin_LIBRARIES})
+ 
+   if(CATKIN_ENABLE_TESTING)
++    find_package(rostest)
+     add_executable(cm_test test/cm_test.cpp)
+     add_dependencies(tests cm_test)
+     target_link_libraries(cm_test ${GTEST_LIBRARIES} ${catkin_LIBRARIES})
+diff --git a/joint_limits_interface/CMakeLists.txt b/joint_limits_interface/CMakeLists.txt
+index 16644a2..7053abc 100644
+--- a/joint_limits_interface/CMakeLists.txt
++++ b/joint_limits_interface/CMakeLists.txt
+@@ -23,7 +23,7 @@ if(USE_ROSBUILD)
+ 
+ else() # catkin
+ 
+-  find_package(catkin REQUIRED COMPONENTS roscpp rostest)
++  find_package(catkin REQUIRED COMPONENTS roscpp)
+ 
+   include_directories(
+     SYSTEM 
+@@ -44,6 +44,8 @@ else() # catkin
+   )
+ 
+   if(CATKIN_ENABLE_TESTING)
++    find_package(rostest)
++
+     catkin_add_gtest(joint_limits_interface_test test/joint_limits_interface_test.cpp)
+     target_link_libraries(joint_limits_interface_test ${catkin_LIBRARIES})
+ 
+-- 
+1.8.3.2
+
