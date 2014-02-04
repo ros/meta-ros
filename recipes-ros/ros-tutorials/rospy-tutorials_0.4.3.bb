@@ -7,4 +7,4 @@ DEPENDS = "message-generation std-msgs cpp-common roscpp-serialization"
 
 require ros-tutorials.inc
 
-SRC_URI += "file://0001-rostest-is-optional.patch;striplevel=2"
+SRC_URI += "file://0001-make-rostest-in-CMakeLists-optional-ros-rosdistro-30.patch;striplevel=2"
