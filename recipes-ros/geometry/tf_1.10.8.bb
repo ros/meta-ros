@@ -7,6 +7,6 @@ DEPENDS = "angles geometry-msgs message-filters sensor-msgs tf2-ros"
 
 require geometry.inc
 
-SRC_URI += "file://0001-rostest-is-optional.patch;striplevel=2"
+SRC_URI += "file://0001-make-rostest-in-CMakeLists-optional-ros-rosdistro-30.patch;striplevel=2"
 
 RDEPENDS_${PN} = "python-numpy"
