@@ -7,7 +7,7 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 DEPENDS = "dynamic-reconfigure geometry-msgs laser-geometry map-msgs message-filters \
-  message-generation nav-msgs pcl-conversions pcl-ros pluginlib roscpp rostest \
+  message-generation nav-msgs pcl-conversions pcl-ros pluginlib roscpp \
   sensor-msgs std-msgs tf visualization-msgs voxel-grid"
 
 require navigation.inc

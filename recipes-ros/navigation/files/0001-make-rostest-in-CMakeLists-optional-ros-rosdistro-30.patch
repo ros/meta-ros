@@ -1,0 +1,54 @@
+From 9fdd83868742a5f00406632d7c7084a4fc272c35 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Tue, 4 Feb 2014 16:05:31 +0100
+Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
+
+---
+ map_server/CMakeLists.txt     | 2 +-
+ robot_pose_ekf/CMakeLists.txt | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/map_server/CMakeLists.txt b/map_server/CMakeLists.txt
+index 40be4cc..c2bff5f 100644
+--- a/map_server/CMakeLists.txt
++++ b/map_server/CMakeLists.txt
+@@ -6,7 +6,6 @@ find_package(catkin REQUIRED
+             roscpp
+             tf
+             nav_msgs
+-            rostest
+         )
+ 
+ find_package(Boost REQUIRED COMPONENTS system)
+@@ -55,6 +54,7 @@ endfunction()
+ 
+ ## Tests
+ if(CATKIN_ENABLE_TESTING)
++  find_package(rostest)
+   copy_test_data( FILES
+       test/testmap.bmp
+       test/testmap.png )
+diff --git a/robot_pose_ekf/CMakeLists.txt b/robot_pose_ekf/CMakeLists.txt
+index c6d6ff0..bd51164 100644
+--- a/robot_pose_ekf/CMakeLists.txt
++++ b/robot_pose_ekf/CMakeLists.txt
+@@ -23,7 +23,6 @@ link_directories(${BFL_LIBRARY_DIRS})
+ find_package(catkin REQUIRED
+         COMPONENTS
+             roscpp
+-            rostest
+             tf
+             nav_msgs
+             std_msgs
+@@ -79,6 +78,8 @@ include(CMakeDetermineSystem)
+ if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+ if(CATKIN_ENABLE_TESTING)
+ 
++find_package(rostest)
++
+ catkin_download_test_data(download_data_ekf_test2_indexed.bag http://download.ros.org/data/robot_pose_ekf/ekf_test2_indexed.bag FILENAME test/ekf_test2.bag MD5 71addef0ed900e05b301e0b4fdca99e2)
+ add_executable(test_robot_pose_ekf test/test_robot_pose_ekf.cpp)
+ target_link_libraries(test_robot_pose_ekf
+-- 
+1.8.3.2
+
