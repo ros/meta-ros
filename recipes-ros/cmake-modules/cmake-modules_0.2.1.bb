@@ -5,8 +5,8 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "8e24844c6c06043b596291be926f9141"
-SRC_URI[sha256sum] = "d10ec20fb5997a84513044abb2597ab090ddd4a6cd551b4fd277b2ee4649afcf"
+SRC_URI[md5sum] = "428f2fd70cac67a3a3ccfcc8220894b4"
+SRC_URI[sha256sum] = "3e42c825a1aa956ef47dff0fff058320a8253e96c756a870a7c647902d30c875"
 
 SRC_URI += "file://0001-Fix-the-path-added-to-CMAKE_MODULE_PATH.patch;striplevel=1;name=patch"
 SRC_URI[patch.md5sum] = "eba3a7eda081516f2113d6db70e881df"
