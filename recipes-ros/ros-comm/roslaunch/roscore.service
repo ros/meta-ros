@@ -1,0 +1,12 @@
+[Unit]
+Description=Launcher for the ROS master, parameter server and rosout logging node
+After=network.target ros-set-cmake-prefix
+
+[Service]
+EnvironmentFile=/etc/default/roscore
+ExecStartPre=/bin/touch ${CMAKE_PREFIX_PATH}/.catkin
+ExecStart=/usr/bin/roscore -p $ROS_PORT
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
