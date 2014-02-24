@@ -74,8 +74,11 @@ cross-compilation of the basic ros-comm packages.
 
 ### Setup using repo tool
 
-```
- repo init -b bmwcarit-develop -u https://github.com/b-sh/ros-embedded-manifest.git -m openembedded.xml
+More information on [repo tool](http://source.android.com/source/downloading.html)
+
+```bash
+ $ repo init -b bmwcarit-develop -u https://github.com/b-sh/ros-embedded-manifest.git -m openembedded.xml
+ $ repo sync
 ```
 
 ## USAGE ##
