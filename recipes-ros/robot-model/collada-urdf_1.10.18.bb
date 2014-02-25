@@ -12,6 +12,6 @@ do_configure_append() {
 	do 
 	sed -i -e 's: /usr/lib/liboctomap.so: ${STAGING_LIBDIR}/liboctomap.so:g' \
 	  -e 's: /usr/lib/liboctomath.so: ${STAGING_LIBDIR}/liboctomath.so:g' \
-	  ${S}/build/CMakeFiles/$f/build.make
+	  ${B}/CMakeFiles/$f/build.make
 	done
 }

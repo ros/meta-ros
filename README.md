@@ -58,7 +58,11 @@ cross-compilation of the basic ros-comm packages.
 
   Using wildcards in bbappend versions part in name depends on
   31bc9af9cd56e7b318924869970e850993fafc5f@bitbake and
-  991cbeedbde8bd25ce08c669b1bfac8b99e33149@bitbake
+  991cbeedbde8bd25ce08c669b1bfac8b99e33149@bitbake.
+
+  octomap-ros and collada-urdf depend on
+  43073569cb67d98c11aa71211d77b566b64f9145@openembedded-core and
+  783fb88f476c94d5d4f4b954f7053464d9a6dff5@openembedded-core.
 
 ## INSTALLATION ##
 
