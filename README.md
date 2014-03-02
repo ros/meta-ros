@@ -72,6 +72,14 @@ cross-compilation of the basic ros-comm packages.
   * commit 2a463dddcf76d7fa437e96f6cf0210143e97a904 of https://github.com/openembedded/meta-oe
   * commit bf9be2029b2bded5f532bdda4c38ae3dff5d1cf6 of git://git.openembedded.org/bitbake in the bitbake directory
 
+### Setup using repo tool
+
+More information on [repo tool](http://source.android.com/source/downloading.html)
+
+```bash
+ $ repo init -b bmwcarit-develop -u https://github.com/b-sh/ros-embedded-manifest.git -m openembedded.xml
+ $ repo sync
+```
 
 ## USAGE ##
 
