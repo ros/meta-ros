@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9de
 DEPENDS = "roscpp rospy"
 
 SRC_URI = "https://github.com/ros-controls/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "21603474b7acc0d10204a3d8cf4f1247"
-SRC_URI[sha256sum] = "8f9ba638f78026794a6e01d614f78dc2e4de19c9988fb308197608aa6ff7bf23"
+SRC_URI[md5sum] = "822a59e2c24a7e08d3a9ce44f894dea3"
+SRC_URI[sha256sum] = "6016a28f5a26b581330327f801eee3cadbc7ae116d8f4d8dc56e77bc57fe6068"
 
 S = "${WORKDIR}/${ROS_SP}"
 

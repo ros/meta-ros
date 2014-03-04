@@ -6,5 +6,3 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9de
 DEPENDS = "boost camera-calibration-parsers image-transport roscpp roslib rostest sensor-msgs"
 
 require image-common.inc
-
-SRC_URI += "file://0001-check-for-CATKIN_ENABLE_TESTING.patch;striplevel=2"
