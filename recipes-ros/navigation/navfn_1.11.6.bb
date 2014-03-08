@@ -7,5 +7,3 @@ DEPENDS = "costmap-2d geometry-msgs nav-core nav-msgs pcl-conversions pcl-ros \
   pluginlib rosconsole roscpp tf visualization-msgs"
 
 require navigation.inc
-
-SRC_URI += "file://0001-check-for-CATKIN_ENABLE_TESTING.patch;striplevel=2"
