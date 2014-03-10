@@ -6,3 +6,5 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9de
 require ros-comm.inc
 
 ROS_PKG_SUBDIR = "tools"
+
+RDEPENDS_${PN} = "rosmsg"

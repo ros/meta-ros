@@ -15,4 +15,4 @@ S = "${WORKDIR}/${ROS_SP}"
 
 inherit catkin
 
-RDEPENDS_${PN} = "roslib"
+RDEPENDS_${PN} = "roslib rosservice"

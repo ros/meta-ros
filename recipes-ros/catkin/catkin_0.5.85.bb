@@ -26,6 +26,6 @@ FILES_${PN}-dev += "\
 RDEPENDS_${PN}_class-native = ""
 RDEPENDS_${PN} = "cmake make binutils binutils-symlinks gcc gcc-symlinks g++ g++-symlinks \
     python-catkin-pkg python-argparse python-misc python-multiprocessing \
-    python-shell python-subprocess python-xml"
+    python-shell python-subprocess python-xml python-pkgutil"
 
 BBCLASSEXTEND += "native"
