@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9de
 DEPENDS = "rosconsole console-bridge"
 
 SRC_URI ="https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "baee1ae9061c360b0b68d550c0f345bb"
-SRC_URI[sha256sum] = "30f69f79fbedd121263dc61825f799e13536b031872146dce653d0d4af42abd4"
+SRC_URI[md5sum] = "d847f18aa69b913f52489bb238281ee0"
+SRC_URI[sha256sum] = "3fc09e575f41d33ee31e1e4392ed09b8fed549634478e5d7176818479e9216dc"
 
 S = "${WORKDIR}/${ROS_SP}"
 

@@ -6,5 +6,3 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=01c2bc31767cc
 DEPENDS = "roscpp"
 
 require navigation.inc
-
-SRC_URI += "file://0001-check-for-CATKIN_ENABLE_TESTING.patch;striplevel=2"

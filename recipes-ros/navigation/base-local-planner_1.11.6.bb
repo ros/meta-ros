@@ -8,5 +8,3 @@ DEPENDS = "angles costmap-2d dynamic-reconfigure geometry-msgs libeigen message-
   voxel-grid visualization-msgs"
 
 require navigation.inc
-
-SRC_URI += "file://0001-check-for-CATKIN_ENABLE_TESTING.patch;striplevel=2"
