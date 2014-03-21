@@ -3,6 +3,6 @@ SECTION = "devel"
 LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=58d727014cda5ed405b7fb52666a1f97"
 
-DEPENDS = "dynamic-reconfigure message-filters nav-msgs roscpp rostest std-srvs tf"
+DEPENDS = "dynamic-reconfigure message-filters nav-msgs roscpp std-srvs tf"
 
 require navigation.inc

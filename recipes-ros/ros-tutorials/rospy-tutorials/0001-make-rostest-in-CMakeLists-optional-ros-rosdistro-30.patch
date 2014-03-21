@@ -1,0 +1,33 @@
+From 8e1fdde288fe2f1edb20e504846dabac026ca2ff Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Tue, 4 Feb 2014 16:07:10 +0100
+Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
+
+---
+ rospy_tutorials/CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/rospy_tutorials/CMakeLists.txt b/rospy_tutorials/CMakeLists.txt
+index b588dfc..5287af3 100644
+--- a/rospy_tutorials/CMakeLists.txt
++++ b/rospy_tutorials/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 2.8.3)
+ project(rospy_tutorials)
+ 
+-find_package(catkin REQUIRED COMPONENTS message_generation rostest std_msgs)
++find_package(catkin REQUIRED COMPONENTS message_generation std_msgs)
+ 
+ add_message_files(DIRECTORY msg FILES Floats.msg HeaderString.msg)
+ add_service_files(DIRECTORY srv FILES AddTwoInts.srv BadTwoInts.srv)
+@@ -27,6 +27,7 @@ foreach(T
+ endforeach()
+ 
+ if(CATKIN_ENABLE_TESTING)
++  find_package(rostest)
+   foreach(T
+       test/test-add-two-ints.launch
+       test/test-peer-subscribe-notify.launch
+-- 
+1.8.3.2
+

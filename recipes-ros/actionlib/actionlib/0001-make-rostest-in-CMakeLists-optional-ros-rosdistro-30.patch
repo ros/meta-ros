@@ -1,0 +1,32 @@
+From ee8607f48165af73c23b1210179a88ff1d08e5bf Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Tue, 4 Feb 2014 16:00:25 +0100
+Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
+
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9a3652f..16adefe 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 2.8.3)
+ project(actionlib)
+ 
+-find_package(catkin REQUIRED COMPONENTS actionlib_msgs message_generation roscpp rostest rosunit std_msgs)
++find_package(catkin REQUIRED COMPONENTS actionlib_msgs message_generation roscpp rosunit std_msgs)
+ find_package(Boost REQUIRED COMPONENTS thread)
+ 
+ include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+@@ -34,5 +34,6 @@ install(DIRECTORY include/${PROJECT_NAME}/
+   FILES_MATCHING PATTERN "*.h")
+ 
+ if(CATKIN_ENABLE_TESTING)
++  find_package(rostest)
+   add_subdirectory(test)
+ endif()
+-- 
+1.8.3.2
+
