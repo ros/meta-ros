@@ -1,6 +1,6 @@
 SRC_URI = "https://github.com/ros-controls/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "f3fa5aabaa68f4f23bb277f47746cfc4"
-SRC_URI[sha256sum] = "598d6c28148764f328b87ef0c2533e49f9b4925a1457688f2715ce332fc82dfd"
+SRC_URI[md5sum] = "4eadd134fcb828a341fc65ff521f7e5c"
+SRC_URI[sha256sum] = "7bc3bfde309e0938cf2cd639d97e95c06e837c140831357378df861e3b657577"
 
 SRC_URI += "file://0001-make-rostest-in-CMakeLists-optional-ros-rosdistro-30.patch;patchdir=.."
 
