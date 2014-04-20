@@ -1,7 +1,7 @@
 DESCRIPTION = "wxWidgets is a cross platform application framework utilizing native python."
 HOMEPAGE = "http://www.wxpython.org"
 
-LICENSE = "wxWindows"
+LICENSE = "WXwindows"
 LIC_FILES_CHKSUM = "file://licence/licence.txt;md5=18346072db6eb834b6edbd2cdc4f109b"
 
 DEPENDS = "wxwidgets"
