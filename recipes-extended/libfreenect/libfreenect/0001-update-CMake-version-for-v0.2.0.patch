@@ -1,0 +1,28 @@
+From 5eed1f061da229aab600471a4a85e83844151af9 Mon Sep 17 00:00:00 2001
+From: Benn Snyder <benn.snyder@gmail.com>
+Date: Thu, 8 Aug 2013 18:09:53 -0400
+Subject: [PATCH] Update CMake version for v0.2.0
+
+Signed-off-by: Benn Snyder <benn.snyder@gmail.com>
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e7aa066..272a410 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -41,8 +41,8 @@ cmake_minimum_required(VERSION 2.6)
+ PROJECT(libfreenect)
+ 
+ set (PROJECT_VER_MAJOR 0)
+-set (PROJECT_VER_MINOR 1)
+-set (PROJECT_VER_PATCH 2)
++set (PROJECT_VER_MINOR 2)
++set (PROJECT_VER_PATCH 0)
+ set (PROJECT_VER 
+   "${PROJECT_VER_MAJOR}.${PROJECT_VER_MINOR}.${PROJECT_VER_PATCH}")
+ set (PROJECT_APIVER 
+-- 
+1.9.1
+
