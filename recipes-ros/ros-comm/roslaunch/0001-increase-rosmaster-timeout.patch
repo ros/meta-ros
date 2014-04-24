@@ -6,6 +6,8 @@ Subject: Increase start and stop timeouts for ROS master.
 Certain boards are too slow to boot up the ROS master before roscore gives up.
 This patch increases the start and stop timeouts, giving the ROS master more
 time to start.
+
+Upstream-Status: Inappropriate [embedded specific]
 ---
  src/roslaunch/launch.py |    4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)

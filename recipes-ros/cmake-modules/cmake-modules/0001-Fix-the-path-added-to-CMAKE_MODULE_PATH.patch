@@ -5,6 +5,8 @@ Subject: [PATCH] Fix the path added to CMAKE_MODULE_PATH.
 
 @CMAKE_INSTALL_PREFIX@/@CATKIN_PACKAGE_SHARE_DESTINATION@ have been
 replaced with "${cmake_modules_DIR}/.." to make the module work.
+
+Upstream-Status: Pending
 ---
  cmake/cmake_modules-extras.cmake.installspace.in |    2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

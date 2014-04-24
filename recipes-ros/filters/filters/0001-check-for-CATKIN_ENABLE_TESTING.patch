@@ -3,6 +3,7 @@ From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
 Date: Sat, 12 Oct 2013 11:39:36 +0200
 Subject: [PATCH] check for CATKIN_ENABLE_TESTING
 
+Upstream-Status: Accepted
 ---
  CMakeLists.txt | 64 +++++++++++++++++++++++++++++++---------------------------
  package.xml    |  2 +-

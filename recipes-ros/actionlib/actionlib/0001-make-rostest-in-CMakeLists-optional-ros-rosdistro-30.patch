@@ -3,6 +3,7 @@ From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
 Date: Tue, 4 Feb 2014 16:00:25 +0100
 Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
 
+Upstream-Status: Backport [Accepted in indigo-devel branch]
 ---
  CMakeLists.txt | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)

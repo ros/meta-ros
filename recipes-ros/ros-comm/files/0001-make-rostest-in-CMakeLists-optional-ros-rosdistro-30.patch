@@ -3,6 +3,10 @@ From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
 Date: Tue, 4 Feb 2014 12:57:23 +0100
 Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
 
+This patch includes the subsequent fix in the indigo-devel branch of the
+ros_comm repository (commit "fix find_package() call with two package names").
+
+Upstream-Status: Backport [Accepted in indigo-devel branch]
 ---
  tools/rosnode/CMakeLists.txt     | 3 ++-
  tools/rostopic/CMakeLists.txt    | 3 ++-
@@ -62,7 +66,8 @@ index e441b9a..2d52451 100644
  
  #Testing
  if(CATKIN_ENABLE_TESTING)
-+  find_package(rostest rosunit)
++  find_package(rostest)
++  find_package(rosunit)
    catkin_add_gtest(${PROJECT_NAME}-utest test/utest.cpp)
    if(TARGET ${PROJECT_NAME}-utest)
      target_link_libraries(${PROJECT_NAME}-utest topic_tools)

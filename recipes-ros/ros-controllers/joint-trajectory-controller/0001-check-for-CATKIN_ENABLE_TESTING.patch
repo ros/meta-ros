@@ -3,6 +3,7 @@ From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
 Date: Thu, 10 Apr 2014 07:31:32 +0200
 Subject: [PATCH] check for CATKIN_ENABLE_TESTING
 
+Upstream-Status: Submitted
 ---
  joint_trajectory_controller/CMakeLists.txt | 44 ++++++++++++++++--------------
  joint_trajectory_controller/package.xml    |  2 +-
