@@ -1,11 +1,12 @@
 This is a layer to provide ROS Hydromedusa in an OpenEmbedded Linux system.
-Currently, this layer is still under development and only provides 
-cross-compilation of the basic ros-comm packages.
+It provides a stable cross-compilation build system for many common ROS packages. 
+Currently, this layer is still under continuous development.
 
 ## MAINTAINERS ##
 
   * Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
   * Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
+  * Kristof Robot <krirobo@gmail.com>
 
 
 ## CONTRIBUTORS ##
@@ -21,6 +22,8 @@ cross-compilation of the basic ros-comm packages.
   * William <william@friedcircuits.us>
   * Kristof Robot <krirobo@gmail.com>
   * Khem Raj <raj.khem@gmail.com>
+  * Esteve Fernandez <esteve@apache.org>
+  * Jonas Sticha <jonas.sticha@bmw-carit.de>
 
 
 ## HOW TO CONTRIBUTE ##
