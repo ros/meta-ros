@@ -62,7 +62,7 @@ index e441b9a..2d52451 100644
  
  include_directories(include)
  include_directories(${catkin_INCLUDE_DIRS})
-@@ -62,6 +62,7 @@ install(PROGRAMS
+@@ -62,6 +62,8 @@ install(PROGRAMS
  
  #Testing
  if(CATKIN_ENABLE_TESTING)
