@@ -64,6 +64,12 @@ Currently, this layer is still under continuous development.
 
 ## DEPENDENCIES ON RECENT COMMITS ##
 
+  Here, we list which parts of this layer depend on recent commits in the
+  bitbake, openembedded-core and meta-openembedded repositories. Using
+  `git blame` on the lines below, you can find the commits in meta-ros that
+  rely on the remote commits. In case of porting to other versions, you must
+  possibly revert some of those commits.
+
   cv-bridge and dependent recipes, e.g., the image-transport recipes, depend on
   7568bfdd114597956a1da68746f207ec7f93a48d@openembedded-core.
   
