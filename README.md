@@ -72,12 +72,14 @@ Currently, this layer is still under continuous development.
   The repository contains a layer for ROS that builds on top of the
   OpenEmbedded Core layer and the meta-oe layer.
 
-  We believe it should work with the current HEAD of the layers mentioned above.
-  As a further reference, here are the version I currently work with:
+  We try our best to keep up with the development of the current HEAD
+  of the layers mentioned above. If you notice any problems with the
+  current HEAD, please report this in our issue tracker.
 
-  * commit d3d5ccd3275196fb9e4cb8f49d3c087b97c20ed6 of https://github.com/openembedded/oe-core
-  * commit 2a463dddcf76d7fa437e96f6cf0210143e97a904 of https://github.com/openembedded/meta-oe
-  * commit bf9be2029b2bded5f532bdda4c38ae3dff5d1cf6 of git://git.openembedded.org/bitbake in the bitbake directory
+  You can use this layer with earlier versions of the layers mentioned above
+  and their release branches, dora and daisy, with a few minor adjustments.
+  The section "dependencies on recent commits" in this file provides a few
+  pointers to adjust this layer for other versions.
 
 
 ## USAGE ##
