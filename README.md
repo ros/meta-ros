@@ -2,6 +2,17 @@ This is a layer to provide ROS Hydromedusa in an OpenEmbedded Linux system.
 It provides a stable cross-compilation build system for many common ROS packages. 
 Currently, this layer is still under continuous development.
 
+## IMPORTANT RESOURCES ##
+
+  * Source Code Repository: https://github.com/bmwcarit/meta-ros.git
+  * Issue Tracker: https://github.com/bmwcarit/meta-ros/issues
+  * Mailing List: https://groups.google.com/forum/#!forum/meta-ros
+  * Installation Guide: http://wiki.ros.org/hydro/Installation/OpenEmbedded
+  * Development Guides:
+    * https://github.com/bmwcarit/meta-ros/wiki/Guidelines-for-ROS-recipes
+    * https://github.com/bmwcarit/meta-ros/wiki/Developer-Guidelines
+
+
 ## MAINTAINERS ##
 
   * Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
