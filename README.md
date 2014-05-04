@@ -1,11 +1,23 @@
 This is a layer to provide ROS Hydromedusa in an OpenEmbedded Linux system.
-Currently, this layer is still under development and only provides 
-cross-compilation of the basic ros-comm packages.
+It provides a stable cross-compilation build system for many common ROS packages. 
+Currently, this layer is still under continuous development.
+
+## IMPORTANT RESOURCES ##
+
+  * Source Code Repository: https://github.com/bmwcarit/meta-ros.git
+  * Issue Tracker: https://github.com/bmwcarit/meta-ros/issues
+  * Mailing List: https://groups.google.com/forum/#!forum/meta-ros
+  * Installation Guide: http://wiki.ros.org/hydro/Installation/OpenEmbedded
+  * Development Guides:
+    * https://github.com/bmwcarit/meta-ros/wiki/Guidelines-for-ROS-recipes
+    * https://github.com/bmwcarit/meta-ros/wiki/Developer-Guidelines
+
 
 ## MAINTAINERS ##
 
   * Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
   * Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
+  * Kristof Robot <krirobo@gmail.com>
 
 
 ## CONTRIBUTORS ##
@@ -21,6 +33,8 @@ cross-compilation of the basic ros-comm packages.
   * William <william@friedcircuits.us>
   * Kristof Robot <krirobo@gmail.com>
   * Khem Raj <raj.khem@gmail.com>
+  * Esteve Fernandez <esteve@apache.org>
+  * Jonas Sticha <jonas.sticha@bmw-carit.de>
 
 
 ## HOW TO CONTRIBUTE ##
@@ -50,6 +64,12 @@ cross-compilation of the basic ros-comm packages.
 
 ## DEPENDENCIES ON RECENT COMMITS ##
 
+  Here, we list which parts of this layer depend on recent commits in the
+  bitbake, openembedded-core and meta-openembedded repositories. Using
+  `git blame` on the lines below, you can find the commits in meta-ros that
+  rely on the remote commits. In case of porting to other versions, you must
+  possibly revert some of those commits.
+
   cv-bridge and dependent recipes, e.g., the image-transport recipes, depend on
   7568bfdd114597956a1da68746f207ec7f93a48d@openembedded-core.
   
@@ -69,12 +89,14 @@ cross-compilation of the basic ros-comm packages.
   The repository contains a layer for ROS that builds on top of the
   OpenEmbedded Core layer and the meta-oe layer.
 
-  We believe it should work with the current HEAD of the layers mentioned above.
-  As a further reference, here are the version I currently work with:
+  We try our best to keep up with the development of the current HEAD
+  of the layers mentioned above. If you notice any problems with the
+  current HEAD, please report this in our issue tracker.
 
-  * commit d3d5ccd3275196fb9e4cb8f49d3c087b97c20ed6 of https://github.com/openembedded/oe-core
-  * commit 2a463dddcf76d7fa437e96f6cf0210143e97a904 of https://github.com/openembedded/meta-oe
-  * commit bf9be2029b2bded5f532bdda4c38ae3dff5d1cf6 of git://git.openembedded.org/bitbake in the bitbake directory
+  You can use this layer with earlier versions of the layers mentioned above
+  and their release branches, dora and daisy, with a few minor adjustments.
+  The section "dependencies on recent commits" in this file provides a few
+  pointers to adjust this layer for other versions.
 
 
 ## USAGE ##
