@@ -33,7 +33,7 @@ RDEPENDS_${PN} = "\
     angles \
     tf2 \
     tf2-geometry-msgs \
-    tf2-kdl \    
+    tf2-kdl \
     tf2-msgs \
     tf2-py \
     tf2-ros \
@@ -71,7 +71,6 @@ RDEPENDS_${PN} = "\
     resource-retriever \
     urdf-parser-plugin \
     urdf \
-    collada-dom \
     effort-controllers \
     force-torque-sensor-controller \
     forward-command-controller \
@@ -138,6 +137,29 @@ RDEPENDS_${PN} = "\
     rotate-recovery \
     voxel-grid \
     octomap-ros \
+    audio-common-msgs \
+    camera-info-manager-py \
+    depthimage-to-laserscan \
+    diff-drive-controller \
+    gripper-action-controller \
+    gscam \
+    imu-pipeline \
+    joint-trajectory-controller \
+    laser-assembler \
+    laser-filters \
+    move-base \
+    robot-pose-ekf \
+    roslint \
+    ros-pocketsphinx \
+    sound-play \
+    timer-tests \
+    urdfdom-headers \
+    urdfdom-py \
+    urdf-tutorial \
+    velodyne-driver \
+    velodyne-msgs \
+    velodyne-pointcloud \
+    ar-track-alvar \
     "
 
 # joint-state-publisher still has some issues.

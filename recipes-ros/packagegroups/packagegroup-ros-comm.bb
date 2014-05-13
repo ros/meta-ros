@@ -43,6 +43,7 @@ RDEPENDS_${PN} = "\
     roslaunch \
     rosmaster \
     roswtf \
+    rosbag-storage \
     rosbag \
     rosmsg \
     std-msgs \
