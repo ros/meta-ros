@@ -15,6 +15,6 @@ SRC_URI[sha256sum] = "0de0396220a9566a580166e66b39674cb40efd2176f52ad2c65486c99c
 
 S = "${WORKDIR}/apache-${BP}"
 
-inherit autotools pkgconfig
+inherit autotools-brokensep pkgconfig
 
 BBCLASSEXTEND += "native"
