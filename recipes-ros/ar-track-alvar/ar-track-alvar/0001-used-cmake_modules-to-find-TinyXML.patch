@@ -1,0 +1,79 @@
+From 3f0419f9d890e8c0ffe745bfd1e0290911598645 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Thu, 15 May 2014 07:55:45 +0200
+Subject: [PATCH] used cmake_modules to find TinyXML
+
+This commit follows the pattern from the ROS core developers to
+use cmake_modules to find TinyXML. E.g., This pattern is found in
+the pluginlib package, commit 2e0860ca [1], and this commit here
+bluntly copies the steps of that commit.
+
+This commit is needed to find tinyxml when cross-compiling
+the ar_track_alvar package with the OpenEmbedded/Yocto build
+environment and the ROS layer for OpenEmbedded [2].
+
+[1] https://github.com/ros/pluginlib/commit/2e0860ca42138f837b2e34921a207d40a095d996
+[2] https://github.com/bmwcarit/meta-ros
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+---
+ CMakeLists.txt | 10 ++++------
+ package.xml    |  1 +
+ 2 files changed, 5 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 933f57a..6986a0d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -20,13 +20,12 @@ find_package(catkin COMPONENTS
+         message_generation
+         ${MSG_DEPS}
+         dynamic_reconfigure
++        cmake_modules
+         REQUIRED)
+ 
+ find_package(Eigen REQUIRED)
+ find_package(OpenCV REQUIRED)
+-
+-find_package(PkgConfig)
+-pkg_check_modules(PC_TINYXML REQUIRED tinyxml)
++find_package(TinyXML REQUIRED)
+ 
+ # generate messages
+ set(MSG_FILES AlvarMarker.msg AlvarMarkers.msg)
+@@ -57,10 +56,9 @@ catkin_package(
+ )
+ 
+ include_directories(include 
+-                    ${PC_TINYXML_INCLUDE_DIRS}
+                     ${catkin_INCLUDE_DIRS}
+                     ${OpenCV_INCLUDE_DIRS}
+-                    ${PC_TINYXML_INCLUDE_DIRS}
++                    ${TinyXML_INCLUDE_DIRS}
+ 
+ )
+ 
+@@ -97,7 +95,7 @@ add_library(ar_track_alvar
+     src/MultiMarker.cpp
+     src/MultiMarkerBundle.cpp
+     src/MultiMarkerInitializer.cpp)
+-target_link_libraries(ar_track_alvar ${OpenCV_LIBS} tinyxml ${catkin_LIBRARIES})
++target_link_libraries(ar_track_alvar ${OpenCV_LIBS} ${TinyXML_LIBRARIES} ${catkin_LIBRARIES})
+ add_dependencies(ar_track_alvar ${GENCPP_DEPS})
+ 
+ # Kinect filtering code
+diff --git a/package.xml b/package.xml
+index ed9a560..a18ec5c 100644
+--- a/package.xml
++++ b/package.xml
+@@ -10,6 +10,7 @@ This package is a ROS wrapper for Alvar, an open source AR tag tracking library.
+ 
+  <buildtool_depend>catkin</buildtool_depend>
+ 
++ <build_depend>cmake_modules</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>image_transport</build_depend>
+-- 
+1.8.5.3
+
