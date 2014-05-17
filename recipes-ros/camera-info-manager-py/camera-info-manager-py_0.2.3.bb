@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9de
 DEPENDS = "rospy sensor-msgs"
 
 SRC_URI = "https://github.com/ros-perception/${ROS_SPN}/archive/${ROS_SP}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "92ad0ca87343bb6fa4b7da5b54ce691e"
-SRC_URI[sha256sum] = "925545b955cc4eab45791ba788439324ebdba8958c6cbcdee57b6fe4f62eec78"
+SRC_URI[md5sum] = "9d1ead73e678fa2f51a70a933b0bf017"
+SRC_URI[sha256sum] = "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
 
 S = "${WORKDIR}/${ROS_SPN}-${ROS_SP}"
 
