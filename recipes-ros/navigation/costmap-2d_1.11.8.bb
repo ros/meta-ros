@@ -4,9 +4,9 @@ DESCRIPTION = "This package provides an implementation of a 2D costmap that take
   2D costmap based on the occupancy grid and a user specified inflation radius."
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=01c2bc31767ccb3a68e12f02612b2a97"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=19;endline=19;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
-DEPENDS = "dynamic-reconfigure geometry-msgs laser-geometry map-msgs message-filters \
+DEPENDS = "libeigen cmake-modules dynamic-reconfigure geometry-msgs laser-geometry map-msgs message-filters \
   message-generation nav-msgs pcl-conversions pcl-ros pluginlib roscpp \
   sensor-msgs std-msgs tf visualization-msgs voxel-grid"
 

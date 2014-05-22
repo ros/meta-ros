@@ -3,7 +3,7 @@ DESCRIPTION = "This package provides a recovery behavior for the navigation stac
   the static map outside of a given area."
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=01c2bc31767ccb3a68e12f02612b2a97"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 DEPENDS = "costmap-2d libeigen nav-core pluginlib roscpp tf"
 

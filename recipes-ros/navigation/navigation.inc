@@ -1,8 +1,6 @@
 SRC_URI = "https://github.com/ros-planning/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "f6dd416880d0e92985be5268699d9cb8"
-SRC_URI[sha256sum] = "52d88c64047539f3d7552cee48def65f082e39d37221659b2533aecef429bb42"
-
-SRC_URI += "file://0001-make-rostest-in-CMakeLists-optional-ros-rosdistro-30.patch;patchdir=.."
+SRC_URI[md5sum] = "e6d44439bd062a75ec15d8fd845a657c"
+SRC_URI[sha256sum] = "9c1ca5fca90e59876782b92e4c67339ce2df84eedc5af4358c5a4b42c6aaed30"
 
 S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 
