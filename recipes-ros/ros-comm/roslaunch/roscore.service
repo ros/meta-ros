@@ -1,6 +1,6 @@
 [Unit]
 Description=Launcher for the ROS master, parameter server and rosout logging node
-After=network.target ros-set-cmake-prefix
+After=network.target
 
 [Service]
 EnvironmentFile=/etc/default/roscore
