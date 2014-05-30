@@ -11,4 +11,4 @@ require urdfdom.inc
 
 S = "${WORKDIR}/${ROS_SP}"
 
-inherit ros cmake
+inherit cmake ros faulty-solibs

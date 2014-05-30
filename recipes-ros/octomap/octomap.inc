@@ -8,6 +8,6 @@ EXTRA_OECMAKE += "\
   -DCMAKE_SKIP_RPATH=ON \
 "
 
-inherit cmake ros
+inherit cmake ros faulty-solibs
 
 ROS_SPN = "octomap"

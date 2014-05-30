@@ -18,4 +18,4 @@ SRC_URI[sha256sum] = "d4bdd0b6bce0c6fa9ff18b8926d4953161451bc49dd11497211eb1a62c
 
 S = "${WORKDIR}/${ROS_SP}"
 
-inherit cmake ros
+inherit cmake ros faulty-solibs
