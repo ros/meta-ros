@@ -2,7 +2,7 @@
 # Copyright (c) 2013 Stefan Herbrechtsmeier, Bielefeld University
 # 
 
-inherit cmake distutils-base ros
+inherit cmake distutils-base ros faulty-solibs
 
 DEPENDS_prepend = "${@['catkin-native ', ''][d.getVar('BPN', True) == 'catkin']}"
 

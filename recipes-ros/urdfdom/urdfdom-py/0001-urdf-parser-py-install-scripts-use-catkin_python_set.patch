@@ -15,6 +15,8 @@ The obtained files were slightly adjusted:
   - The version in the package.xml is fixed.
   - Paths in CMakeLists.txt and setup.py were changed for use
     with the bitbake recipe.
+
+Upstream-Status: Inappropriate [source repository shall work without catkin]
 ---
  urdf_parser_py/CMakeLists.txt | 16 ++++++++++------
  urdf_parser_py/package.xml    | 28 ++++++++++++++++++++++++++++

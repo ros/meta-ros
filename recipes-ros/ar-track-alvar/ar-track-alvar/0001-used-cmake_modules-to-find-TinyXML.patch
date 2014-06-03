@@ -15,6 +15,8 @@ environment and the ROS layer for OpenEmbedded [2].
 [1] https://github.com/ros/pluginlib/commit/2e0860ca42138f837b2e34921a207d40a095d996
 [2] https://github.com/bmwcarit/meta-ros
 
+Upstream-Status: Accepted
+
 Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
 ---
  CMakeLists.txt | 10 ++++------
