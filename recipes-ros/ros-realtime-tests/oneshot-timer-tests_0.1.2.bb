@@ -3,6 +3,6 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/${ROS_SP}/LICENSE.bsd;md5=53d029b66e4cf837754fabf81702aad6"
 
-DEPENDS = "roscpp"
+DEPENDS = "roscpp rt-tests-support"
 
 require ros-realtime-tests.inc
