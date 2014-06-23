@@ -152,7 +152,9 @@ RDEPENDS_${PN} = "\
     roslint \
     ros-pocketsphinx \
     sound-play \
-    timer-tests \
+    communication-tests \
+    cyclic-timer-tests \
+    oneshot-timer-tests \ 
     urdfdom-headers \
     urdfdom-py \
     urdf-tutorial \
