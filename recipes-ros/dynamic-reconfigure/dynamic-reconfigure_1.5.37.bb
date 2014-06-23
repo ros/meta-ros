@@ -6,8 +6,8 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "a6df76bcd6da3130043c792ff90f6a80"
-SRC_URI[sha256sum] = "d27b6be763be88ec2a0eab946a9d55b1074ec4bcddb0da6d6ed90b81541487bd"
+SRC_URI[md5sum] = "38248b33c5c8bc6d97d8f9e3ae349016"
+SRC_URI[sha256sum] = "5f2c978861d6273af9fc40ff53b457d15b871ea7276278dcbd3eb9ba70044da3"
 
 DEPENDS = "roscpp std-msgs roslib"
 
