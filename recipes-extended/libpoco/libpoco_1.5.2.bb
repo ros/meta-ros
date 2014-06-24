@@ -13,6 +13,6 @@ SRC_URI += "file://0001-correct-path-for-CONFIGURE_FILE-in-CMakeLists.txt.patch"
 
 S = "${WORKDIR}/poco-poco-${PV}-release"
 
-EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release"
+EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release -DPOCO_UNBUNDLED=On"
 
 inherit cmake
