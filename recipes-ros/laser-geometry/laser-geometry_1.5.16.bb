@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 DEPENDS = "angles boost libeigen sensor-msgs roscpp tf"
 
 SRC_URI = "https://github.com/ros-perception/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "effc25dcef8c05e68895584ba8d59ca2"
-SRC_URI[sha256sum] = "d10f3201720199d2654583c3b2f5b63fe57dcb1ad50ebedbaf8b82f87b9be6d6"
+SRC_URI[md5sum] = "7ce41e57b1fdedee4bb4d181e7dd150b"
+SRC_URI[sha256sum] = "7f3a8a9c2ebf0d93014ff62fc1dd38999945ea1bffb5fe30c7622e8765ea3e5d"
 
 S = "${WORKDIR}/${ROS_SP}"
 
