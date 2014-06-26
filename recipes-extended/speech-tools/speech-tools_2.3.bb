@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "75e203402483b78de635943671aaf6f86cb6f9bf181fc84a931c2a560a
 
 S = "${WORKDIR}/speech_tools"
 
-inherit autotools
+inherit autotools-brokensep
 
 do_configure_prepend() { 
     #force crosscompilation compiler
