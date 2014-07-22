@@ -11,6 +11,9 @@ SRC_URI[sha256sum] = "ecc97e979e47eefeade93c6e3905420b3e780ea434247cd2171a5f4d73
 
 S = "${WORKDIR}/bfl-release-release-hydro-${P}"
 
-inherit cmake
+inherit cmake faulty-solibs
+
+PACKAGES += "${PN}-tests"
 
 FILES_${PN}-dbg += "${bindir}/bfl/.debug"
+FILES_${PN}-tests = "${bindir}/bfl/*"

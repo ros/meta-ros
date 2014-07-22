@@ -1,6 +1,6 @@
 SRC_URI = "https://github.com/bmwcarit/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "7bc5ff099f51dccae6a56c8b957152b6"
-SRC_URI[sha256sum] = "92f19fc3f591fee7d35a92d1e74a8755f4755452dd146f00c78e738b298cc1c9"
+SRC_URI[md5sum] = "8fbf5ff2bd671584da27272d45e11bc9"
+SRC_URI[sha256sum] = "0b36c6ee0035ab8c5c5e048d6a66bd83a55bcfe1d8ec6150fa8e62cab9fc4c4d"
 
 S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 
