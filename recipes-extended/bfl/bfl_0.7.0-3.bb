@@ -13,4 +13,7 @@ S = "${WORKDIR}/bfl-release-release-hydro-${P}"
 
 inherit cmake faulty-solibs
 
+PACKAGES += "${PN}-tests"
+
 FILES_${PN}-dbg += "${bindir}/bfl/.debug"
+FILES_${PN}-tests = "${bindir}/bfl/*"
