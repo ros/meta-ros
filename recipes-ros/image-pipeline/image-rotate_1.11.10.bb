@@ -4,6 +4,6 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=26;endline=26;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "cv-bridge dynamic-reconfigure image-transport opencv roscpp tf tf-conversions"
+DEPENDS = "cv-bridge dynamic-reconfigure image-transport opencv roscpp tf tf-conversions eigen-conversions"
 
 require image-pipeline.inc
