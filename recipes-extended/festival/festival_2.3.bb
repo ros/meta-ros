@@ -22,7 +22,7 @@ SRC_URI[kallpc16k.sha256sum] = "7a357c34086fbba8b813f9750f6b5ba13e2a00478a0a2e78
 
 S = "${WORKDIR}/${PN}"
 
-inherit autotools
+inherit autotools-brokensep
 
 #disable parallel make (make -j), as festival cannot handle that
 PARALLEL_MAKE = ""
