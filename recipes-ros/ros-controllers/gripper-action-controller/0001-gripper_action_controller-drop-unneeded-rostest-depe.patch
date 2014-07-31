@@ -1,0 +1,38 @@
+From 79856f596b827981fb5dad854c56347b912836fd Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Thu, 31 Jul 2014 21:06:41 +0200
+Subject: [PATCH] gripper_action_controller: drop unneeded rostest dependency
+
+Upstream-Status: Accepted
+---
+ gripper_action_controller/CMakeLists.txt |    1 -
+ gripper_action_controller/package.xml    |    1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/gripper_action_controller/CMakeLists.txt b/gripper_action_controller/CMakeLists.txt
+index 555ec69..2b925a9 100644
+--- a/gripper_action_controller/CMakeLists.txt
++++ b/gripper_action_controller/CMakeLists.txt
+@@ -17,7 +17,6 @@ find_package(catkin
+       realtime_tools
+       control_msgs
+       trajectory_msgs
+-      rostest
+       controller_manager
+       xacro
+ )
+diff --git a/gripper_action_controller/package.xml b/gripper_action_controller/package.xml
+index 513321b..2607005 100644
+--- a/gripper_action_controller/package.xml
++++ b/gripper_action_controller/package.xml
+@@ -49,7 +49,6 @@
+   <build_depend>controller_manager</build_depend>
+   <build_depend>hardware_interface</build_depend>
+   <build_depend>realtime_tools</build_depend>
+-  <build_depend>rostest</build_depend>
+   <build_depend>trajectory_msgs</build_depend>
+   <build_depend>urdf</build_depend>
+   <build_depend>xacro</build_depend>
+-- 
+1.7.9.5
+
