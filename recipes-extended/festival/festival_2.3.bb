@@ -55,7 +55,7 @@ do_install() {
     install -m 0755 ${S}/bin/text2wave ${D}${bindir}
 
     install -m 0755 -d ${D}${libdir} 
-    install -m 0644 ${S}/lib/etc/unknown_DebianGNULinux/audsp ${D}${libdir}
+    install -m 0644 ${S}/lib/etc/unknown_*/audsp ${D}${libdir}
 
     install -m 0755 -d ${D}${datadir}/festival
     install -m 0644 ${S}/lib/*scm ${D}${datadir}/festival
