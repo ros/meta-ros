@@ -1,0 +1,36 @@
+From a4404ea5ee0f4fb192c5765ee4dce6a265a70ec9 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Sun, 27 Jul 2014 09:58:36 +0200
+Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
+
+Upstream-Status: Submitted
+---
+ CMakeLists.txt | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1ad9dbc..7309f3d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -10,8 +10,7 @@ tf sensor_msgs message_filters roscpp laser_geometry filters)
+ 
+ find_package(catkin REQUIRED COMPONENTS 
+   ${THIS_PACKAGE_ROS_DEPS} 
+-  message_generation
+-  rostest)
++  message_generation)
+ find_package(Boost REQUIRED COMPONENTS system signals)
+ include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+ 
+@@ -68,6 +67,8 @@ add_dependencies(point_cloud2_assembler ${PROJECT_NAME}_gencpp)
+ ## unit testing
+ 
+ if(CATKIN_ENABLE_TESTING)
++  find_package(rostest)
++
+   add_executable(periodic_snapshotter examples/periodic_snapshotter.cpp)
+   target_link_libraries(periodic_snapshotter ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+   add_dependencies(periodic_snapshotter ${PROJECT_NAME}_gencpp)
+-- 
+1.9.1
+

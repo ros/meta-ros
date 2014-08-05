@@ -22,7 +22,7 @@ SRC_URI[kallpc16k.sha256sum] = "7a357c34086fbba8b813f9750f6b5ba13e2a00478a0a2e78
 
 S = "${WORKDIR}/${PN}"
 
-inherit autotools
+inherit autotools-brokensep
 
 #disable parallel make (make -j), as festival cannot handle that
 PARALLEL_MAKE = ""
@@ -55,7 +55,7 @@ do_install() {
     install -m 0755 ${S}/bin/text2wave ${D}${bindir}
 
     install -m 0755 -d ${D}${libdir} 
-    install -m 0644 ${S}/lib/etc/unknown_DebianGNULinux/audsp ${D}${libdir}
+    install -m 0644 ${S}/lib/etc/unknown_*/audsp ${D}${libdir}
 
     install -m 0755 -d ${D}${datadir}/festival
     install -m 0644 ${S}/lib/*scm ${D}${datadir}/festival

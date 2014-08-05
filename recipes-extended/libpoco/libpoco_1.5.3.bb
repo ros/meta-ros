@@ -1,15 +1,13 @@
 DESCRIPTION = "POCO C++ Libraries"
 HOMEPAGE = "http://pocoproject.org"
 LICENSE = "BSL-1.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=4267f48fc738f50380cbeeb76f95cebc"
 
 DEPENDS = "expat zlib libpcre openssl"
 
 SRC_URI = "https://github.com/pocoproject/poco/archive/poco-${PV}-release.tar.gz"
-SRC_URI[md5sum] = "4ed751311fe4eb437a485139fcfdf558"
-SRC_URI[sha256sum] = "315f0947b3494172cb2833d7c978fc24f16f6f10dd1a5299e83b81fee7b62f27"
-
-SRC_URI += "file://0001-correct-path-for-CONFIGURE_FILE-in-CMakeLists.txt.patch"
+SRC_URI[md5sum] = "4636d84055a434fde3a67396bf15924a"
+SRC_URI[sha256sum] = "f26bbd7879ad79b45630f8efa20b1c65f0ddf81dc44f169245d512d208c71e53"
 
 S = "${WORKDIR}/poco-poco-${PV}-release"
 

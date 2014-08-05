@@ -4,7 +4,7 @@ COLLADA XML instance document."
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://License_Folder/license_e.txt;md5=33ea5b7341abf67bd9055a229646feae"
 
-DEPENDS = "boost libxml2"
+DEPENDS = "boost libxml2 libpcre"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/${BPN}/${BP}.tgz"
 SRC_URI[md5sum] = "20399de4206eab850c32e65c04e907cb"

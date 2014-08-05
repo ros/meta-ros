@@ -1,16 +1,16 @@
-From 8c6aa59b2380a5aa39d7e815c521407f40640545 Mon Sep 17 00:00:00 2001
+From 00fbc3fa30d78c10e13ecd04d85ecf98a39a4bb2 Mon Sep 17 00:00:00 2001
 From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
-Date: Tue, 4 Feb 2014 16:06:33 +0100
+Date: Sun, 27 Jul 2014 09:07:29 +0200
 Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
 
-Upstream-Status: Submitted
+Upstream-Status: Accepted
 ---
  controller_manager_tests/CMakeLists.txt | 3 ++-
  joint_limits_interface/CMakeLists.txt   | 3 ++-
  2 files changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/controller_manager_tests/CMakeLists.txt b/controller_manager_tests/CMakeLists.txt
-index 95c73cc..9e018b1 100644
+index 64731bd..badc147 100644
 --- a/controller_manager_tests/CMakeLists.txt
 +++ b/controller_manager_tests/CMakeLists.txt
 @@ -29,7 +29,7 @@ if(USE_ROSBUILD)
@@ -22,7 +22,7 @@ index 95c73cc..9e018b1 100644
  
    include_directories(include ${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
  
-@@ -53,6 +53,7 @@ else()
+@@ -54,6 +54,7 @@ else()
    target_link_libraries(dummy_app ${PROJECT_NAME} ${catkin_LIBRARIES})
  
    if(CATKIN_ENABLE_TESTING)
@@ -31,7 +31,7 @@ index 95c73cc..9e018b1 100644
      add_dependencies(tests cm_test)
      target_link_libraries(cm_test ${GTEST_LIBRARIES} ${catkin_LIBRARIES})
 diff --git a/joint_limits_interface/CMakeLists.txt b/joint_limits_interface/CMakeLists.txt
-index 2ac2b3f..1a72061 100644
+index fedaadd..f8305f1 100644
 --- a/joint_limits_interface/CMakeLists.txt
 +++ b/joint_limits_interface/CMakeLists.txt
 @@ -25,7 +25,6 @@ else() # catkin
@@ -42,7 +42,7 @@ index 2ac2b3f..1a72061 100644
      hardware_interface
      urdfdom
    )
-@@ -48,6 +47,8 @@ else() # catkin
+@@ -49,6 +48,8 @@ else() # catkin
    )
  
    if(CATKIN_ENABLE_TESTING)
@@ -52,5 +52,5 @@ index 2ac2b3f..1a72061 100644
      target_link_libraries(joint_limits_interface_test ${catkin_LIBRARIES})
  
 -- 
-1.8.3.2
+1.9.3
 
