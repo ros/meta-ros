@@ -6,4 +6,3 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc
 DEPENDS = "roscpp hardware-interface pluginlib"
 
 require ros-control.inc
-

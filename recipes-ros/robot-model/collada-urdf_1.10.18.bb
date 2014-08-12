@@ -8,10 +8,10 @@ DEPENDS = "angles assimp resource-retriever collada-dom collada-parser roscpp ur
 require robot-model.inc
 
 do_configure_append() {
-	for f in collada_urdf.dir collada_to_urdf.dir urdf_to_collada.dir
-	do 
-	sed -i -e 's: /usr/lib/liboctomap.so: ${STAGING_LIBDIR}/liboctomap.so:g' \
-	  -e 's: /usr/lib/liboctomath.so: ${STAGING_LIBDIR}/liboctomath.so:g' \
-	  ${B}/CMakeFiles/$f/build.make
-	done
+  for f in collada_urdf.dir collada_to_urdf.dir urdf_to_collada.dir
+  do
+  sed -i -e 's: /usr/lib/liboctomap.so: ${STAGING_LIBDIR}/liboctomap.so:g' \
+    -e 's: /usr/lib/liboctomath.so: ${STAGING_LIBDIR}/liboctomath.so:g' \
+    ${B}/CMakeFiles/$f/build.make
+  done
 }
