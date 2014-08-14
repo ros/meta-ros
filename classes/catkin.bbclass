@@ -7,11 +7,13 @@ inherit cmake distutils-base ros faulty-solibs
 DEPENDS_prepend = "${@['catkin-native ', ''][d.getVar('BPN', True) == 'catkin']}"
 
 EXTRA_OECMAKE_CATKIN = "\
-    -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}/usr;${STAGING_DIR_NATIVE}/usr' \
+    -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}${ros_prefix};${STAGING_DIR_HOST}${prefix};${STAGING_DIR_NATIVE}${ros_prefix};${STAGING_DIR_NATIVE}${prefix}' \
+    -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
     "
 
 EXTRA_OECMAKE_CATKIN_class-native = "\
-    -DCMAKE_PREFIX_PATH=${STAGING_DIR_NATIVE}/usr \
+    -DCMAKE_PREFIX_PATH='${ros_prefix}' \
+    -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
     -DRT_LIBRARY=${libdir_native} \
     "
 
@@ -29,7 +31,6 @@ export BUILD_SYS
 export HOST_SYS
 
 SYSROOT_PREPROCESS_FUNCS += "catkin_sysroot_preprocess"
-
 catkin_sysroot_preprocess () {
-    sysroot_stage_dir ${D}${prefix}/etc ${SYSROOT_DESTDIR}${prefix}/etc
+    sysroot_stage_dir ${D}${ros_sysconfdir} ${SYSROOT_DESTDIR}${ros_sysconfdir}
 }
