@@ -5,4 +5,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9de
 
 DEPENDS = "rospy tf2"
 
+EXTRA_OECMAKE += "\
+    -DCMAKE_SKIP_RPATH=ON \
+    "
+
 require geometry-experimental.inc
