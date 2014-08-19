@@ -50,17 +50,25 @@ Currently, this layer is still under continuous development.
 
   This layer depends on:
 
+  **openembedded-core**  
   URI: git://git.openembedded.org/openembedded-core  
+  subdirectory: meta  
   branch: master  
   revision: HEAD  
 
-
+  **meta-openembedded (meta-oe)**  
   URI: git://git.openembedded.org/meta-openembedded  
-  layers: meta-oe  
+  subdirectory: meta-oe  
   branch: master  
   revision: HEAD  
 
- bitbake > 1.20
+  **meta-python** (since a6d7ba92645a112af358efd94ff3aa0c74985a51@meta-openembedded)  
+  URI: git://git.openembedded.org/meta-openembedded  
+  subdirectory: meta-python  
+  branch: master  
+  revision: HEAD  
+
+  **bitbake** > 1.20
 
 ## DEPENDENCIES ON RECENT COMMITS ##
 
@@ -83,6 +91,9 @@ Currently, this layer is still under continuous development.
   octomap-ros and collada-urdf depend on
   43073569cb67d98c11aa71211d77b566b64f9145@openembedded-core and
   783fb88f476c94d5d4f4b954f7053464d9a6dff5@openembedded-core.
+
+  urdfdom-py depends on the meta-python layer since
+  a6d7ba92645a112af358efd94ff3aa0c74985a51@meta-openembedded.
 
 ## INSTALLATION ##
 
