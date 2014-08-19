@@ -5,7 +5,7 @@ SRC_URI[sha256sum] = "cad32744152970d0ab141d12c122d0482510644f29c61b8464bbfc65eb
 S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 
 EXTRA_OECMAKE += "\
-  -DCMAKE_SKIP_RPATH=ON \
+    -DCMAKE_SKIP_RPATH=ON \
 "
 
 inherit cmake ros

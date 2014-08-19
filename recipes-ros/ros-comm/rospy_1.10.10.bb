@@ -1,5 +1,5 @@
-DESCRIPTION = "rospy is a pure Python client library for ROS. The rospy client \
-  API enables Python programmers to quickly interface with ROS Topics, Services, and Parameters."
+DESCRIPTION = "rospy is a pure Python client library for ROS. The rospy client API enables Python \
+programmers to quickly interface with ROS Topics, Services, and Parameters."
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=23;endline=23;md5=d566ef916e9dedc494f5f793a6690ba5"

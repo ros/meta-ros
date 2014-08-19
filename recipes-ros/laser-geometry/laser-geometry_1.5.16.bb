@@ -1,6 +1,6 @@
 DESCRIPTION = "This package contains a class for converting from a 2D laser scan as defined by \
-  sensor_msgs/LaserScan into a point cloud as defined by sensor_msgs/PointCloud \
-  or sensor_msgs/PointCloud2."
+sensor_msgs/LaserScan into a point cloud as defined by sensor_msgs/PointCloud \
+or sensor_msgs/PointCloud2."
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
