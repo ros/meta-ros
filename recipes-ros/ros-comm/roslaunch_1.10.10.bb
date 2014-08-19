@@ -9,37 +9,37 @@ PR = "r1"
 require ros-comm.inc
 
 SRC_URI += "file://0001-increase-rosmaster-timeout.patch \
-  file://roscore.service \
-  file://roscore-default \
+    file://roscore.service \
+    file://roscore-default \
 "
 
 ROS_PKG_SUBDIR = "tools"
 
 RDEPENDS_${PN} = "\
-  coreutils \
-  python-textutils \
-  python-logging \
-  python-threading \
-  python-rospkg \
-  rosgraph \
-  python-pyyaml \
-  roslib \
-  rosclean \
-  rosmaster \
-  rosgraph-msgs \
+    coreutils \
+    python-textutils \
+    python-logging \
+    python-threading \
+    python-rospkg \
+    rosgraph \
+    python-pyyaml \
+    roslib \
+    rosclean \
+    rosmaster \
+    rosgraph-msgs \
     genpy \
     std-msgs \
-  rosout \
-  rosparam \
+    rosout \
+    rosparam \
 "
 
 do_install_append() {
-  install -d ${D}/${sysconfdir}/default
-  install -m 0644 ${WORKDIR}/roscore-default ${D}/${sysconfdir}/default/roscore
+    install -d ${D}/${sysconfdir}/default
+    install -m 0644 ${WORKDIR}/roscore-default ${D}/${sysconfdir}/default/roscore
 
-  # Install systemd unit file
-  install -d ${D}${systemd_unitdir}/system/
-  install -m 0644 ${WORKDIR}/roscore.service ${D}${systemd_unitdir}/system/roscore.service
+    # Install systemd unit file
+    install -d ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/roscore.service ${D}${systemd_unitdir}/system/roscore.service
 }
 
 FILES_${PN}-systemd += "${sysconfdir}/default/roscore \

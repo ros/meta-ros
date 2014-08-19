@@ -1,0 +1,2 @@
+language: ruby
+script: ./scripts/check-patch-files.sh recipes-ros

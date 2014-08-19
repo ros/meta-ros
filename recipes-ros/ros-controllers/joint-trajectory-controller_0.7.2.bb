@@ -8,4 +8,4 @@ DEPENDS = "actionlib angles cmake-modules control-toolbox controller-interface c
 require ros-controllers.inc
 
 SRC_URI += "file://0001-check-for-CATKIN_ENABLE_TESTING.patch;striplevel=2 \
-  file://0001-joint_trajectory_controller-make-rostest-in-CMakeLis.patch;striplevel=2"
+    file://0001-joint_trajectory_controller-make-rostest-in-CMakeLis.patch;striplevel=2"

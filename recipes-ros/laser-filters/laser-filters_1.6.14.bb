@@ -1,5 +1,5 @@
-DESCRIPTION = "Assorted filters designed to operate on 2D planar laser scanners, \
-  which use the sensor_msgs/LaserScan type."
+DESCRIPTION = "Assorted filters designed to operate on 2D planar laser scanners, which use the \
+sensor_msgs/LaserScan type."
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"

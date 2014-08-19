@@ -10,6 +10,6 @@ SRC_URI[md5sum] = "0dd26504be16afa7816e9a5aa11715f1"
 SRC_URI[sha256sum] = "fb71f1fbeaf89726877fce66dce1db8957c5cc6dffa1973d6a104a10233f8237"
 
 SRC_URI += "file://0001-check-for-CATKIN_ENABLE_TESTING.patch; \
-  file://0001-make-rostest-in-CMakeLists-optional-ros-rosdistro-30.patch"
+    file://0001-make-rostest-in-CMakeLists-optional-ros-rosdistro-30.patch"
 
 inherit catkin

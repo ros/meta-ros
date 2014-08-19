@@ -154,7 +154,7 @@ RDEPENDS_${PN} = "\
     sound-play \
     communication-tests \
     cyclic-timer-tests \
-    oneshot-timer-tests \ 
+    oneshot-timer-tests \
     urdfdom-headers \
     urdfdom-py \
     urdf-tutorial \
