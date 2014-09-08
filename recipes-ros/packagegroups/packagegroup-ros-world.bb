@@ -155,7 +155,6 @@ RDEPENDS_${PN} = "\
     communication-tests \
     cyclic-timer-tests \
     oneshot-timer-tests \
-    urdfdom-headers \
     urdfdom-py \
     urdf-tutorial \
     velodyne-driver \
