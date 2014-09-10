@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=11e24f757f025
 DEPENDS = "nav-msgs openslam-gmapping roscpp rostest tf"
 
 SRC_URI = "https://github.com/ros-perception/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "f5ce250bea6e5798735ddba602e69815"
-SRC_URI[sha256sum] = "35fb00bed65a11de5c901fd9b32608bf2fb172d2428779f06489837910b09684"
+SRC_URI[md5sum] = "da3c1ec894314a469e93c344f01a9cd5"
+SRC_URI[sha256sum] = "9ffc587372fa9bb0b966322977cfdfdb52f2233c0ce15c07fb1447148faec08d"
 
 S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 

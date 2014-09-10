@@ -9,6 +9,8 @@ SRC_URI = "https://github.com/PointCloudLibrary/${PN}/archive/${P}.tar.gz"
 SRC_URI[md5sum] = "e2ac2d2e72825d991c6d194f9586b5d8"
 SRC_URI[sha256sum] = "a5446b4d892d0e6b080ab6b6b745faad2f2f415c6c1353b1424f6b38175c777e"
 
+SRC_URI += "file://0001-Fix-incompatibility-with-Boost-1.56.patch"
+
 S = "${WORKDIR}/pcl-${P}"
 
 EXTRA_OECMAKE += "\
