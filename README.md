@@ -129,13 +129,9 @@ Currently, this layer is still under continuous development.
   Then for example, you start this system in the qemu virtual machine with
 
     runqemu <MACHINE> core-image-ros-roscore
-
   
-  On the Linux system, ensure that the own host's name in resolved by adding
-  
-    127.0.0.1	<HOSTNAME>.localdomain		<HOSTNAME>
-
-  to the /etc/hosts file, and set up the environment with
+  On the qemu virtual machine, you can now login as root and setup the bash
+  environment with:
 
     export ROS_ROOT=/opt/ros/hydro
     export PATH=$PATH:/opt/ros/hydro/bin
@@ -145,11 +141,11 @@ Currently, this layer is still under continuous development.
     export CMAKE_PREFIX_PATH=/opt/ros/hydro
     touch /opt/ros/hydro/.catkin
 
-  Finally, you can start roscore with
+  Finally, you start roscore with:
 
     roscore
 
-    
+
 ## LICENSE ##
 
   All metadata is MIT licensed unless otherwise stated. Source code included
