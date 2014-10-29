@@ -18,3 +18,5 @@ EXTRA_OECMAKE += " -DLIB_SUFFIX=''"
 FILES_${PN} += "${libdir}/fakenect/${BPN}.so.*" 
 FILES_${PN}-dev += "${libdir}/fakenect/${BPN}.so" 
 FILES_${PN}-dbg += "${libdir}/fakenect/.debug"
+
+RDEPENDS_${PN} += "bash"
