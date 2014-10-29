@@ -1,0 +1,129 @@
+From 3c1098e119c39a0b42503371e0a452a399f4b170 Mon Sep 17 00:00:00 2001
+From: Benn Snyder <benn.snyder@gmail.com>
+Date: Sat, 22 Mar 2014 16:06:09 -0400
+Subject: [PATCH] Stop clobbering CFLAGS FN_DEBUG: lost packets per frame
+ (lppf)
+
+Signed-off-by: Benn Snyder <benn.snyder@gmail.com>
+
+Upstream-Status: Backport [Accepted in 0.4.1]
+---
+ CMakeLists.txt              | 21 ++++++++++++---------
+ examples/CMakeLists.txt     |  2 --
+ src/CMakeLists.txt          |  2 --
+ src/cameras.c               |  6 ++++++
+ src/freenect_internal.h     |  1 +
+ wrappers/cpp/CMakeLists.txt |  2 --
+ 6 files changed, 19 insertions(+), 15 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c1f4c02..4731324 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -100,15 +100,18 @@ SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+ SET(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
+ SET(DOC_OUTPUT_PATH ${CMAKE_BINARY_DIR}/doc)
+ 
+-# let CFLAGS env override this
+-if(CMAKE_C_FLAGS STREQUAL "")
+-  set(CMAKE_C_FLAGS "-O2")
+-endif()
+-SET(CMAKE_C_FLAGS_DEBUG "-g -DDEBUG=1")
+-SET(CMAKE_C_FLAGS_RELEASE "-O2")
+-SET(CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
+-
+-add_definitions(-Wall)
++if    (MSVC)
++  set(C_FLAGS_WARNING "-W4")
++else  ()
++  set(C_FLAGS_WARNING "-Wall")
++endif (MSVC)
++
++# These defaults can be overriden by environment CFLAGS
++set(CMAKE_C_FLAGS "-O2 ${C_FLAGS_WARNING} ${CMAKE_C_FLAGS}")
++# Configurations
++SET(CMAKE_C_FLAGS_DEBUG   "${CMAKE_C_FLAGS} -g -DDEBUG=1")
++SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS}")
++SET(CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS_RELEASE} -g")
+ 
+ # Pretty much everyone is going to need the main includes
+ include_directories (${CMAKE_CURRENT_SOURCE_DIR}/include)
+diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
+index 3ae566e..9cc401b 100644
+--- a/examples/CMakeLists.txt
++++ b/examples/CMakeLists.txt
+@@ -2,8 +2,6 @@
+ # Packages needed for examples
+ ######################################################################################
+ 
+-set(CMAKE_C_FLAGS "-Wall")
+-
+ if (WIN32)
+   set_source_files_properties(glview.c PROPERTIES LANGUAGE CXX)
+   set_source_files_properties(regview.c PROPERTIES LANGUAGE CXX)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index e248ec4..669cab9 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -4,8 +4,6 @@
+ 
+ include_directories (${CMAKE_CURRENT_SOURCE_DIR})
+ 
+-set(CMAKE_C_FLAGS "-Wall")
+-
+ include_directories(${LIBUSB_1_INCLUDE_DIRS})
+ IF(WIN32)
+   LIST(APPEND SRC core.c tilt.c cameras.c flags.c usb_libusb10.c registration.c ../platform/windows/libusb10emu/libusb-1.0/libusbemu.cpp ../platform/windows/libusb10emu/libusb-1.0/failguard.cpp)
+diff --git a/src/cameras.c b/src/cameras.c
+index 4a54d27..3b1c0e7 100644
+--- a/src/cameras.c
++++ b/src/cameras.c
+@@ -129,7 +129,12 @@ static int stream_process(freenect_context *ctx, packet_stream *strm, uint8_t *p
+ 	// handle lost packets
+ 	if (strm->seq != hdr->seq) {
+ 		uint8_t lost = hdr->seq - strm->seq;
++		strm->lost_pkts += lost;
+ 		FN_LOG(l_info, "[Stream %02x] Lost %d packets\n", strm->flag, lost);
++
++		FN_DEBUG("[Stream %02x] Lost %d total packets in %d frames (%f lppf)\n",
++			strm->flag, strm->lost_pkts, strm->valid_frames, (float)strm->lost_pkts / strm->valid_frames);
++
+ 		if (lost > 5 || strm->variable_length) {
+ 			FN_LOG(l_notice, "[Stream %02x] Lost too many packets, resyncing...\n", strm->flag);
+ 			strm->synced = 0;
+@@ -215,6 +220,7 @@ static int stream_process(freenect_context *ctx, packet_stream *strm, uint8_t *p
+ 		strm->timestamp = strm->last_timestamp;
+ 		strm->valid_frames++;
+ 	}
++
+ 	return got_frame_size;
+ }
+ 
+diff --git a/src/freenect_internal.h b/src/freenect_internal.h
+index 8df4ee2..dee3525 100644
+--- a/src/freenect_internal.h
++++ b/src/freenect_internal.h
+@@ -147,6 +147,7 @@ typedef struct {
+ 	int frame_size;
+ 	int last_pkt_size;
+ 	int valid_pkts;
++	uint lost_pkts;
+ 	int valid_frames;
+ 	int variable_length;
+ 	uint32_t last_timestamp;
+diff --git a/wrappers/cpp/CMakeLists.txt b/wrappers/cpp/CMakeLists.txt
+index ff8469f..64b721d 100644
+--- a/wrappers/cpp/CMakeLists.txt
++++ b/wrappers/cpp/CMakeLists.txt
+@@ -3,8 +3,6 @@ INSTALL(FILES libfreenect.hpp
+ 
+ IF(BUILD_EXAMPLES)
+ 
+-set(CMAKE_C_FLAGS "-Wall")
+-
+ if (WIN32)
+   set(THREADS_USE_PTHREADS_WIN32 true)
+   find_package(Threads REQUIRED)
+-- 
+1.8.3.2
+
