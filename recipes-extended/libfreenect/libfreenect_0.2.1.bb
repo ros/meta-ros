@@ -8,6 +8,8 @@ SRC_URI = "https://github.com/OpenKinect/libfreenect/archive/v${PV}.tar.gz;downl
 SRC_URI[md5sum] = "95a3d8d2cc6a71db1bc53c579647fabf"
 SRC_URI[sha256sum] = "9fdc348a12b9a7008f4ec20188666bf549e6bbbe3fe9199757c37332a286abfb"
 
+SRC_URI += "file://0001-Stop-clobbering-CFLAGS.patch"
+
 inherit cmake
 
 #force libs always into /usr/lib, even when compiling on 64bit arch
@@ -16,3 +18,5 @@ EXTRA_OECMAKE += " -DLIB_SUFFIX=''"
 FILES_${PN} += "${libdir}/fakenect/${BPN}.so.*" 
 FILES_${PN}-dev += "${libdir}/fakenect/${BPN}.so" 
 FILES_${PN}-dbg += "${libdir}/fakenect/.debug"
+
+RDEPENDS_${PN} += "bash"

@@ -12,7 +12,7 @@ SRC_URI[sha256sum] = "b74ba96ca537cc5d049d21ec9ab5eb2670406a4aa9f1ea4845ea84a995
 
 S = "${WORKDIR}/wxWidgets-${PV}"
 
-inherit autotools pkgconfig binconfig
+inherit autotools-brokensep pkgconfig binconfig
 
 EXTRA_AUTORECONF = " -I ${S}/build/aclocal"
 EXTRA_OECONF = "  --with-opengl \
