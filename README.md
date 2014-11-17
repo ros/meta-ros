@@ -70,6 +70,7 @@ Currently, this layer is still under continuous development.
 
   **bitbake** > 1.20
 
+
 ## DEPENDENCIES ON RECENT COMMITS ##
 
   Here, we list which parts of this layer depend on recent commits in the
@@ -112,9 +113,21 @@ Currently, this layer is still under continuous development.
 
 ## USAGE ##
 
-  Currently, you can cross-compile the ROS packages with the commands:
+  Initialize the build environment:
 
     source oe-init-build-env
+
+  Add the required layers (see **DEPENDENCIES**) by modifying ``./conf/bblayers.conf`` (adjust ``/home/me/devel`` as necessary): 
+
+    BBLAYERS ?= " \
+    /home/me/devel/openembedded-core/meta \
+    /home/me/devel/meta-openembedded/meta-oe \
+    /home/me/devel/meta-openembedded/meta-python \
+    /home/me/devel/meta-ros \
+    "
+
+  Compile package:
+
     bitbake <package-name>
 
   Look at the meta-ros test reports for the description of the current state.
@@ -129,7 +142,6 @@ Currently, this layer is still under continuous development.
   Then for example, you start this system in the qemu virtual machine with
 
     runqemu <MACHINE> core-image-ros-roscore
-
   
   On the Linux system, ensure that the own host's name in resolved by adding
   
