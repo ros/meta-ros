@@ -7,5 +7,3 @@ DEPENDS = "actionlib angles cmake-modules roscpp urdf control-toolbox controller
     hardware-interface realtime-tools control-msgs trajectory-msgs controller-manager xacro"
 
 require ros-controllers.inc
-
-SRC_URI += "file://0001-gripper_action_controller-drop-unneeded-rostest-depe.patch;striplevel=2"
