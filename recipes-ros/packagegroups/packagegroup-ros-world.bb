@@ -161,6 +161,8 @@ RDEPENDS_${PN} = "\
     velodyne-msgs \
     velodyne-pointcloud \
     ar-track-alvar \
+    razor-imu-9dof \
+    xv-11-laser-driver \
     "
 
 # joint-state-publisher still has some issues.
