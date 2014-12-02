@@ -130,8 +130,6 @@ Currently, this layer is still under continuous development.
 
     bitbake <package-name>
 
-  Look at the meta-ros test reports for the description of the current state.
-
   The recipe core-image-ros-roscore provides a minimal Linux system that runs
   roscore.
 
