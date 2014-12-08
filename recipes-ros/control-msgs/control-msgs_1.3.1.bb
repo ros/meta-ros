@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9de
 DEPENDS = "message-generation std-msgs trajectory-msgs geometry-msgs actionlib-msgs"
 
 SRC_URI = "https://github.com/ros-controls/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "aeb714ca2cddc7d1a20a4bc67b0e1b10"
-SRC_URI[sha256sum] = "7d7eb32a98dbb10ecca7de28dbfc403974966f0e5f435e9798e3277d1acbf77f"
+SRC_URI[md5sum] = "5cecfc4a80df27ee0ec5046d6d8bf6fd"
+SRC_URI[sha256sum] = "578be636504dc6ca895876eda36741fbf1ca4b0bb034904912f37729436d40df"
 
 S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 
