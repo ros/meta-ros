@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=5ee5b8b046ae4
 DEPENDS = "message-generation geometry-msgs std-msgs"
 
 SRC_URI = "https://github.com/OctoMap/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "7a804a06a48278e32e9e297ec50affef"
-SRC_URI[sha256sum] = "4a4138dbedc651a3effe8140482230a9a6db31078c08e4b1402a12487e720fb2"
+SRC_URI[md5sum] = "94179d8ffe356b153c84f6b9cf9823ea"
+SRC_URI[sha256sum] = "9185a7150c3177111dec48e814ff0f42bfced3503471f7c578c6319a664f1af1"
 
 S = "${WORKDIR}/${ROS_SP}"
 
