@@ -6,5 +6,3 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9de
 DEPENDS = "message-generation std-msgs cpp-common roscpp-serialization"
 
 require ros-tutorials.inc
-
-SRC_URI += "file://0001-make-rostest-in-CMakeLists-optional-ros-rosdistro-30.patch;striplevel=2"
