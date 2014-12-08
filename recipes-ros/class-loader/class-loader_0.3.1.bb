@@ -8,11 +8,11 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "console-bridge libpoco"
+DEPENDS = "cmake-modules console-bridge libpoco"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "cb3a369025092087d5c47dbfbb8e9439"
-SRC_URI[sha256sum] = "84fc8e32648fb8c76a58d4e116884b9c6f28470c60d9508d4aeb18d407f42940"
+SRC_URI[md5sum] = "6919e079a0be77e9a3199ac97fa2751e"
+SRC_URI[sha256sum] = "f48bad942d7feda76925bb8529c97f8ca8ffb8d45a04de3232650b4d4acaa821"
 
 S = "${WORKDIR}/${ROS_SP}"
 
