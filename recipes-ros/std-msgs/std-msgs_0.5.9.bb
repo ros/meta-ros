@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc
 DEPENDS = "message-generation message-runtime"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "5382be6760984ea6818858cd6f6ccf04"
-SRC_URI[sha256sum] = "c9a0008c70d3383979de6e1733a730d62aaaf4c3e15e8f20873816d8013cea6c"
+SRC_URI[md5sum] = "f25689a5b82a5e49e487411c4b43ee3e"
+SRC_URI[sha256sum] = "eb855f13c5009145785b090c074718290355baad3439c155589be709f6ee1f25"
 
 S = "${WORKDIR}/${ROS_SP}"
 
