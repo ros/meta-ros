@@ -3,11 +3,11 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "boost python-rospkg-native libtinyxml"
+DEPENDS = "boost cmake-modules python-rospkg-native libtinyxml"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "3c152a2f6c39d205b373fa674b76244d"
-SRC_URI[sha256sum] = "1eaf4139e4286c4bce85c152989a2081cc04020c038dcef8d8b36d98fbb3778c"
+SRC_URI[md5sum] = "cb33ed17803998a42ad449c3cd3603e2"
+SRC_URI[sha256sum] = "8602e21172ef453b63c6c6f1698c5ac81ec014b0a78bf98f31a60937dacee9ef"
 
 inherit catkin
 
