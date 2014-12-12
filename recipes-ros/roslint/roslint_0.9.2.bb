@@ -10,3 +10,5 @@ SRC_URI[sha256sum] = "b1a77e8d3a2ee3a065f9d6aea11867650facda40263feda6451d581aa7
 S = "${WORKDIR}/${ROS_SP}"
 
 inherit catkin
+
+RDEPENDS_${PN} += "bash"

@@ -39,3 +39,5 @@ speechtools_sysroot_preprocess() {
     sysroot_stage_dir ${WORKDIR}/speech_tools/base_class ${STAGING_DIR_TARGET}${datadir}/${PN}/base_class
     sysroot_stage_dir ${WORKDIR}/speech_tools/lib ${STAGING_DIR_TARGET}${datadir}/${PN}/lib
 }
+
+RDEPENDS_${PN} += "perl"
