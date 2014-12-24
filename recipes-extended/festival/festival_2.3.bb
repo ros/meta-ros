@@ -27,8 +27,6 @@ inherit autotools-brokensep
 #disable parallel make (make -j), as festival cannot handle that
 PARALLEL_MAKE = ""
 
-FILES_${PN} += "/usr/lib/audsp"
-
 do_configure_prepend() { 
     #point to speech-tools in sysroots
     sed -i 's:EST=$(TOP)/../speech_tools:EST=${STAGING_DIR_TARGET}${datadir}/speech-tools:g' ${S}/config/config.in
@@ -37,7 +35,10 @@ do_configure_prepend() {
     sed -i 's:ALSO_INCLUDE:#ALSO_INCLUDE:g' ${S}/config/config.in
 
     #fix hardcoded library path
-    sed -i 's:festival_libdir = FTLIBDIR:festival_libdir = "${datadir}/festival":g' ${S}/src/arch/festival/festival.cc
+    sed -i 's:FTLIBDIR = $(FESTIVAL_HOME)/lib:FTLIBDIR = ${datadir}/festival:g' ${S}/config/project.mak
+
+    #fix audsp path
+    sed -i 's:audfds = pipe_open("audsp"): audfds = pipe_open("${libdir}/festival/audsp"):g' ${S}/src/arch/festival/audspio.cc
 }
 
 do_configure_append() { 
@@ -54,8 +55,8 @@ do_install() {
     install -m 0755 ${S}/bin/festival_client ${D}${bindir}
     install -m 0755 ${S}/bin/text2wave ${D}${bindir}
 
-    install -m 0755 -d ${D}${libdir} 
-    install -m 0644 ${S}/lib/etc/unknown_*/audsp ${D}${libdir}
+    install -m 0755 -d ${D}${libdir}/festival 
+    install -m 0755 ${S}/lib/etc/unknown_*/audsp ${D}${libdir}/festival
 
     install -m 0755 -d ${D}${datadir}/festival
     install -m 0644 ${S}/lib/*scm ${D}${datadir}/festival
