@@ -1,4 +1,7 @@
-ROS_ROOT=/usr
+ROS_ROOT=/opt/ros/hydro/
 ROS_PORT=11311
-ROS_MASTER_URI=http://localhost:$ROS_PORT
-CMAKE_PREFIX_PATH=$ROS_ROOT
+ROS_MASTER_URI=http://localhost:11311
+CMAKE_PREFIX_PATH=/opt/ros/hydro/
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/ros/hydro/bin
+LD_LIBRARY_PATH=/opt/ros/hydro/lib
+PYTHONPATH=/opt/ros/hydro/lib/python2.7/site-packages
