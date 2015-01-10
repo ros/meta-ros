@@ -14,13 +14,14 @@ SRC_URI += "file://0001-CATKIN_WORKSPACES-Don-t-require-.catkin-file.patch"
 inherit catkin
 
 FILES_${PN}-dev += "\
-    ${datadir}/eigen/cmake \
-    ${datadir}/ros/cmake \
-    ${prefix}/.catkin \
-    ${prefix}/.rosinstall \
-    ${prefix}/_setup_util.py \
-    ${prefix}/env.sh \
-    ${prefix}/setup.* \
+    ${ros_datadir}/eigen/cmake \
+    ${ros_datadir}/ros/cmake \
+    ${ros_datadir}/.catkin \
+    ${ros_prefix}/.catkin \
+    ${ros_prefix}/.rosinstall \
+    ${ros_prefix}/_setup_util.py \
+    ${ros_prefix}/env.sh \
+    ${ros_prefix}/setup.* \
     "
 
 RDEPENDS_${PN}_class-native = ""
