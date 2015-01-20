@@ -1,0 +1,52 @@
+From 40e8f29f5ef9024bf048b48b0e51b906f9f5aa2a Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Tue, 20 Jan 2015 08:41:49 +0100
+Subject: [PATCH] gscam_nodelet.h: include scoped_ptr.hpp to compile with boost
+ 1.57
+
+When compiling gscam with the currently latest boost version 1.57,
+it fails with:
+In file included from [...]/src/gscam_nodelet.cpp:5:0:
+[...]/include/gscam/gscam_nodelet.h:20:12: error: 'scoped_ptr' in namespace 'boost' does not name a template type
+     boost::scoped_ptr<GSCam> gscam_driver_;
+            ^
+[...]/include/gscam/gscam_nodelet.h:21:12: error: 'scoped_ptr' in namespace 'boost' does not name a template type
+     boost::scoped_ptr<boost::thread> stream_thread_;
+            ^
+
+It seems that the dependencies of boost/thread.hpp have changed
+and boost/scoped_ptr.hpp is not included anymore with
+boost/thread.hpp. Hence, the scoped_ptr is not defined in the
+gscam_nodelet header. After scanning quickly through the release
+notes of version 1.57, the boost bug tracker and a few changesets,
+I could not find not a hint what has changed in the thread library
+that gscam must include scoped_ptr itself.
+
+This commit simply addresses the compiler error by explicitly
+adding boost's scoped_ptr header in the gscam_nodelet header.
+As this commit also compiles with boost version 1.56, the commit
+is not expected to cause any problems with other build
+configurations.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+
+Upstream-Status: Submitted [https://github.com/ros-drivers/gscam/pull/24]
+---
+ include/gscam/gscam_nodelet.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/gscam/gscam_nodelet.h b/include/gscam/gscam_nodelet.h
+index 60fc25f..c450dab 100644
+--- a/include/gscam/gscam_nodelet.h
++++ b/include/gscam/gscam_nodelet.h
+@@ -6,6 +6,7 @@
+ #include <gscam/gscam.h>
+ 
+ #include <boost/thread.hpp>
++#include <boost/scoped_ptr.hpp>
+ 
+ namespace gscam {
+   class GSCamNodelet : public nodelet::Nodelet
+-- 
+1.9.3
+

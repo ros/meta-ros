@@ -10,4 +10,6 @@ SRC_URI = "https://github.com/ros-drivers/${ROS_SPN}/archive/${PV}.tar.gz;downlo
 SRC_URI[md5sum] = "c20617a0db24124168fe968365ecb990"
 SRC_URI[sha256sum] = "56fbb0c31d32cf4ff1a1b702732c3e8373e6d541c431329bcd931bd705991a35"
 
+SRC_URI += "file://0001-gscam_nodelet.h-include-scoped_ptr.hpp-to-compile-wi.patch"
+
 inherit catkin
