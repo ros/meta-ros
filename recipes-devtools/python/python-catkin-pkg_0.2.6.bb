@@ -1,12 +1,12 @@
 DESCRIPTION = "catkin package library"
 SECTION = "devel/python"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://PKG-INFO;md5=748559ae3cef240be7edaaa8a4f4da31"
+LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=e910b35b0ef4e1f665b9a75d6afb7709"
 SRCNAME = "catkin_pkg"
 
 SRC_URI = "https://pypi.python.org/packages/source/c/catkin_pkg/catkin_pkg-${PV}.tar.gz"
-SRC_URI[md5sum] = "851d3bdcdaa65a6a7bad8712a84c6915"
-SRC_URI[sha256sum] = "342b866d718d831aa570dadcf6aff6a40508fe6a16b9bcf147c3ec7a7dab2b16"
+SRC_URI[md5sum] = "d1b82c9e3acd873e6a07e2c932f4bea4"
+SRC_URI[sha256sum] = "7d3d955ec1848565ccfee18e685cf1bd677cdd03283a00d22fb271e072aa48fa"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
