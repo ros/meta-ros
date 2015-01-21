@@ -5,8 +5,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34"
 SRCNAME = "empy"
 
 SRC_URI = "http://www.alcyone.com/software/empy/empy-${PV}.tar.gz"
-SRC_URI[md5sum] = "e7b518a6fc4fd28fef87726cdb003118"
-SRC_URI[sha256sum] = "c625436d03cff8adbbade639d14a2df9bc4c4de99ec3a821ad4d6eeb66ade805"
+SRC_URI[md5sum] = "fbb34761cdf9acc4c65e298c9eced395"
+SRC_URI[sha256sum] = "99f016af2770c48ab57a65df7aae251360dc69a1514c15851458a71d4ddfea9c"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
