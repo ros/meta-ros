@@ -5,8 +5,8 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "46c3190968bf5f2d4c05ba6424372e40"
-SRC_URI[sha256sum] = "298a7f29e7bda94c2117f5cd8fcbe9cbf56f79c4328e036639bb5f417113165c"
+SRC_URI[md5sum] = "c3c2057e022976d89bddd857da028746"
+SRC_URI[sha256sum] = "4f9358aab07cdc5455ee0545e6791a47687b6e5f4b8fe11481c168968105b8cb"
 
 S = "${WORKDIR}/${ROS_SP}"
 
