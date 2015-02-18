@@ -159,7 +159,25 @@ Currently, this layer is still under continuous development.
 
     roscore
 
-    
+
+## CROSS-COMPILING ALL ROS PACKAGES IN meta-ros
+  
+  The meta-ros layers only includes a subset of the officially released ROS
+  packages, available from packages.ros.org. The here provided ROS packages
+  are mainly driven by the current users' needs.
+  
+  For ROS packages that depend on cv-bridge, the commercial license flag
+  must be whitelisted, as cv-bridge depends on opencv, and opencv by
+  default depends on libav that has special terms and conditions when used
+  commercially.
+  This can be done by adding to the local.conf the line: 
+
+    LICENSE_FLAGS_WHITELIST = "commercial"
+
+  Alternatively, the dependency from opencv on libav can be explicit excluded
+  by modifying the PACKAGECONFIG setting.
+
+
 ## LICENSE ##
 
   All metadata is MIT licensed unless otherwise stated. Source code included
