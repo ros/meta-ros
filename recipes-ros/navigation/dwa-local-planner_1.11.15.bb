@@ -8,3 +8,5 @@ DEPENDS = "base-local-planner costmap-2d dynamic-reconfigure libeigen nav-core \
     nav-msgs pluginlib pcl-conversions roscpp tf"
 
 require navigation.inc
+
+SRC_URI += "file://0001-link-only-libraries-found-with-find_package.patch;striplevel=2"

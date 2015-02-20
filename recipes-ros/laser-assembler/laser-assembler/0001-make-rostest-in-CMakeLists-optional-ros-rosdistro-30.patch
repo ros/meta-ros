@@ -3,7 +3,7 @@ From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
 Date: Sun, 27 Jul 2014 09:58:36 +0200
 Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
 
-Upstream-Status: Submitted
+Upstream-Status: Accepted
 ---
  CMakeLists.txt | 5 +++--
  1 file changed, 3 insertions(+), 2 deletions(-)
