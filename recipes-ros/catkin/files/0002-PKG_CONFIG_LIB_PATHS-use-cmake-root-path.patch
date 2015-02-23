@@ -1,0 +1,28 @@
+From 25b1c65090ece840e29844253577d7ed6dc8251f Mon Sep 17 00:00:00 2001
+From: Kristof Robot <krirobo@gmail.com>
+Date: Thu, 21 Aug 2014 12:48:41 +0200
+Subject: [PATCH] catkin: including root path in library search
+
+Upstream-Status: Inappropriate [only for our setup]
+
+Signed-off-by: Kristof Robot <krirobo@gmail.com>
+---
+ cmake/templates/pkgConfig.cmake.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
+index 91f6d65..f7bf2b2 100644
+--- a/cmake/templates/pkgConfig.cmake.in
++++ b/cmake/templates/pkgConfig.cmake.in
+@@ -125,7 +125,7 @@ foreach(library ${libraries})
+     foreach(path @PKG_CONFIG_LIB_PATHS@)
+       find_library(lib ${library}
+         PATHS ${path}
+-        NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
++        NO_DEFAULT_PATH)
+       if(lib)
+         set(lib_path ${path})
+         break()
+-- 
+1.8.3.2
+
