@@ -28,7 +28,7 @@ find_package resolved to the hard-coded value.
 
 Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
 
-Upstream-Status: Submitted [https://github.com/ros-planning/navigation/pull/311]
+Upstream-Status: Accepted [in indigo-devel branch]
 ---
  dwa_local_planner/CMakeLists.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
