@@ -152,6 +152,7 @@ RDEPENDS_${PN} = "\
     roslint \
     ros-pocketsphinx \
     sound-play \
+    rt-tests-support \
     communication-tests \
     cyclic-timer-tests \
     oneshot-timer-tests \
@@ -163,6 +164,11 @@ RDEPENDS_${PN} = "\
     ar-track-alvar \
     razor-imu-9dof \
     xv-11-laser-driver \
+    ros-arduino-firmware \
+    ros-arduino-msgs \
+    ros-arduino-python \
+    frontier-exploration \
+    hector-mapping \
     "
 
 # joint-state-publisher still has some issues.
