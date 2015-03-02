@@ -16,7 +16,6 @@ SRC_URI += "file://0001-increase-rosmaster-timeout.patch \
 ROS_PKG_SUBDIR = "tools"
 
 RDEPENDS_${PN} = "\
-    coreutils \
     python-textutils \
     python-logging \
     python-threading \
