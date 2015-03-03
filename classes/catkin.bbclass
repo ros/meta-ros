@@ -4,7 +4,7 @@
 
 inherit cmake distutils-base ros faulty-solibs
 
-DEPENDS_prepend = "${@['catkin-native ', ''][d.getVar('BPN', True) == 'catkin']}"
+DEPENDS_prepend = "${@['catkin-native ', ''][(d.getVar('BPN', True) == 'catkin') | (d.getVar('BPN', True) == 'catkin-runtime')]}"
 
 EXTRA_OECMAKE_CATKIN = "\
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}${ros_prefix};${STAGING_DIR_HOST}${prefix};${STAGING_DIR_NATIVE}${ros_prefix};${STAGING_DIR_NATIVE}${prefix}' \
