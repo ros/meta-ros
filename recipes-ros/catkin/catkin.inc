@@ -9,7 +9,8 @@ SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilena
 SRC_URI[md5sum] = "a0dd74c4a665a56b02af9f8c873c451d"
 SRC_URI[sha256sum] = "71441206945e8d77dace831375effde5b5f54b95e3a054106848432eceec58c0"
 
-SRC_URI += "file://0001-CATKIN_WORKSPACES-Don-t-require-.catkin-file.patch"
+SRC_URI += "file://0001-CATKIN_WORKSPACES-Don-t-require-.catkin-file.patch\
+            file://0002-PKG_CONFIG_LIB_PATHS-use-cmake-root-path.patch"
 
 inherit catkin
 

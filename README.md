@@ -35,6 +35,12 @@ Currently, this layer is still under continuous development.
   * Khem Raj <raj.khem@gmail.com>
   * Esteve Fernandez <esteve@apache.org>
   * Jonas Sticha <jonas.sticha@bmw-carit.de>
+  * Pascal Bach <pascal.bach@siemens.com>
+  * Andreas Galauner <andreas@galauner.de>
+  * Peter S. Housel <housel@acm.org>
+  * Gauthier Monserand <simkim@simkim.net>
+  * Timo Mueller <timo.mueller@bmw-carit.de>
+  * Andreas Baak <andreas.baak@bmw-carit.de>
 
 
 ## HOW TO CONTRIBUTE ##
