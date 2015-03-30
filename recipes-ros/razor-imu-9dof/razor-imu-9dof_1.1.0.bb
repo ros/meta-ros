@@ -7,9 +7,11 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
 
+DEPENDS = "dynamic-reconfigure"
+
 SRC_URI = "https://github.com/KristofRobot/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "3a05ce324d043400a2a214bcc040f843"
-SRC_URI[sha256sum] = "4a948cc34e36ce5be9c3e4a2e681eed713e1a5a3df674dd4761a0795e607da35"
+SRC_URI[md5sum] = "8b82e5752d5d4f788e87b434ffee6a39"
+SRC_URI[sha256sum] = "97dac4e4d287b41d40aa9c1a4bb09f716e244a49f928cfc1ec31a9d2962965f9"
 
 S = "${WORKDIR}/${ROS_SP}"
 
