@@ -5,12 +5,10 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=f62de161dc7a8f8
 
 DEPENDS = "cmake-modules cv-bridge image-transport libtinyxml pcl-ros resource-retriever roscpp tf visualization-msgs"
 
-SRC_URI = "https://github.com/sniekum/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "2786829c43437da2aa93eff77a4c862f"
-SRC_URI[sha256sum] = "f87759a0a4decbf0da3ff9341e1aa6fcfdcaf302f0844d6ace371c7e5dc9e53e"
+SRC_URI = "git://github.com/sniekum/${ROS_SPN}.git;protocol=https;branch=hydro-devel"
+# commit df56a7429 is intended to be version 0.4.2
+SRCREV = "df56a742976712a1de7212039de8056c93b39375"
 
-SRC_URI += "file://0001-used-cmake_modules-to-find-TinyXML.patch"
-
-S = "${WORKDIR}/${ROS_SP}"
+S = "${WORKDIR}/git"
 
 inherit catkin
