@@ -1,8 +1,8 @@
 DESCRIPTION = "Frontier exploration implementation in ROS, \
 accepts exploration goals via actionlib, sends movement commands to move_base"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=982a0c0253535646914c5d3dde650928"
+LICENSE = "GPLv3"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=1e7b3bcc2e271699c77c769685058cbe"
 
 DEPENDS = "geometry-msgs roscpp pcl costmap-2d actionlib move-base-msgs visualization-msgs tf"
 
