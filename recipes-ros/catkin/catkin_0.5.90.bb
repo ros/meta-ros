@@ -1,6 +1,5 @@
 require catkin.inc
 
-
 DEPENDS_virtclass-native += "catkin-runtime"
 
 RDEPENDS_${PN}_class-native = ""
