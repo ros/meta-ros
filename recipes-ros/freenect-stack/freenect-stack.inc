@@ -1,6 +1,6 @@
 SRC_URI = "https://github.com/ros-drivers/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "5599c0d4f1846de30072836bc8279001"
-SRC_URI[sha256sum] = "e46805ee5daa301e42028007b49e19a11846769dce5718f88a576eb7755eba38"
+SRC_URI[md5sum] = "6a360b208435b23ec1f55ffcfa5ec6b8"
+SRC_URI[sha256sum] = "2e62ca45afacc1d0129bee3f2672f7b677315fc98317d1380cb74842025e0811"
 
 S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 
