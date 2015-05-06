@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=1e7b3bcc2e271
 DEPENDS = "geometry-msgs roscpp pcl costmap-2d actionlib move-base-msgs visualization-msgs tf"
 
 SRC_URI = "https://github.com/paulbovbel/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "05c1be2938dcb998deba340012b5b91a"
-SRC_URI[sha256sum] = "a26149014a5ded055f5424d97d3621bcfd7f472fc0664ef61f76ed2f114a6e20"
+SRC_URI[md5sum] = "a27eb097cb0fd2b0a381ffae1461e06a"
+SRC_URI[sha256sum] = "991a1350ab3daab7665251215105f25fb107ae5b0a0337fbdcd9adea4d7b72d3"
 
 S = "${WORKDIR}/${ROS_SP}"
 
