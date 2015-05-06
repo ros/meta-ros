@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=5ee5b8b046ae4
 DEPENDS = "urdf"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "b4f889f4c6c1cf70e89c2014d66d8ab4"
-SRC_URI[sha256sum] = "52cc8a8ddd562f84f41b655c4600adb8986314b657a372d32f868ea14e49d485"
+SRC_URI[md5sum] = "00ca53e1f00b58f39d3ca89cca1819a7"
+SRC_URI[sha256sum] = "ac6c1d666eae7987ace46bab78dc9cc837a17462e59a80574d5441d0653cf333"
 
 S = "${WORKDIR}/${ROS_SP}"
 
