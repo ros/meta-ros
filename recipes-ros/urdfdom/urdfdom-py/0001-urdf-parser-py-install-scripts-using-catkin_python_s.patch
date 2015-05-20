@@ -1,7 +1,7 @@
-From e54fcaaecfbaeaa45f5ace25c2b2a959ed5b2b1d Mon Sep 17 00:00:00 2001
+From f82a1e7cb9ff3f09e5c20467ce4040e6e4d3545c Mon Sep 17 00:00:00 2001
 From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
-Date: Tue, 25 Mar 2014 08:58:12 +0100
-Subject: [PATCH] urdf-parser-py: install scripts use catkin_python_setup
+Date: Wed, 20 May 2015 19:41:05 +0200
+Subject: [PATCH] urdf-parser-py: install scripts using catkin_python_setup
 
 To install urdf-parser-py properly with the bitbake recipe in the
 meta-ros layer, the install scripts, CMakeLists.txt and setup.py
@@ -9,7 +9,8 @@ are adjusted. The package.xml file is needed for the new
 CMakeLists.txt due to using catkin.
 
 The files were obtained from the urdfdom_py release repository at:
-https://github.com/ros-gbp/urdfdom_py-release/tree/4664fc1445f4c75b427dcc6fbad579ba285c1901/hydro
+https://github.com/ros-gbp/urdfdom_py-release/tree/5990766f4a164fab8250a384354152737b5acfb7/indigo
+(with the latest commit in the indigo directory being c96421515d974d3110f889a3db615dc622886689)
 
 The obtained files were slightly adjusted:
   - The version in the package.xml is fixed.
@@ -19,9 +20,9 @@ The obtained files were slightly adjusted:
 Upstream-Status: Inappropriate [source repository shall work without catkin]
 ---
  urdf_parser_py/CMakeLists.txt | 16 ++++++++++------
- urdf_parser_py/package.xml    | 28 ++++++++++++++++++++++++++++
+ urdf_parser_py/package.xml    | 29 +++++++++++++++++++++++++++++
  urdf_parser_py/setup.py       | 18 ++++++------------
- 3 files changed, 44 insertions(+), 18 deletions(-)
+ 3 files changed, 45 insertions(+), 18 deletions(-)
  create mode 100644 urdf_parser_py/package.xml
 
 diff --git a/urdf_parser_py/CMakeLists.txt b/urdf_parser_py/CMakeLists.txt
@@ -48,16 +49,16 @@ index c811815..6a48657 100644
 +  )
 diff --git a/urdf_parser_py/package.xml b/urdf_parser_py/package.xml
 new file mode 100644
-index 0000000..c9d2285
+index 0000000..9677831
 --- /dev/null
 +++ b/urdf_parser_py/package.xml
-@@ -0,0 +1,28 @@
+@@ -0,0 +1,29 @@
 +<?xml version="1.0"?>
 +<package>
 +  <name>urdfdom_py</name>
-+  <version>0.2.10</version>
++  <version>0.3.0</version>
 +  <description>A library to access URDFs using the DOM model.</description>
-+  <maintainer email="isucan@willowgarage.com">Ioan Sucan</maintainer>
++  <maintainer email="isucan@google.com">Ioan Sucan</maintainer>
 +
 +  <license>BSD</license>
 +
@@ -67,7 +68,7 @@ index 0000000..c9d2285
 +  <author>Antonio El Khoury</author>
 +  <author>Eric Cousineau</author>
 +
-+  <url type="website">http://ros.org/wiki/urdf</url>
++  <url type="website">http://wiki.ros.org/urdf</url>
 +  <url type="bugtracker">https://github.com/ros/urdfdom/issues</url>
 +  <url type="repository">https://github.com/ros/urdfdom</url>
 +
@@ -76,8 +77,9 @@ index 0000000..c9d2285
 +
 +  <build_depend>python</build_depend>
 +
-+  <run_depend>python</run_depend>
 +  <run_depend>catkin</run_depend>
++  <run_depend>python</run_depend>
++  <run_depend>python-lxml</run_depend>
 +  
 +</package>
 diff --git a/urdf_parser_py/setup.py b/urdf_parser_py/setup.py
@@ -108,5 +110,5 @@ index eeb4c6d..45478d9 100644
  
  setup(**d)
 -- 
-1.8.3.2
+1.9.3
 
