@@ -5,11 +5,11 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34"
 
 DEPENDS = "cppunit boost"
 
-SRC_URI = "https://github.com/ros-gbp/${PN}-release/archive/release/hydro/${PN}/${PV}.tar.gz"
-SRC_URI[md5sum] = "0ef8a8dd76d7ecc78cd8f9aab80ba5a5"
-SRC_URI[sha256sum] = "ecc97e979e47eefeade93c6e3905420b3e780ea434247cd2171a5f4d731352f9"
+SRC_URI = "https://github.com/ros-gbp/${PN}-release/archive/release/indigo/${PN}/${PV}.tar.gz"
+SRC_URI[md5sum] = "8140555e28ddea22a10a9ec59d96a4a0"
+SRC_URI[sha256sum] = "296bec7f11430dd99a9617333d91c5c94ccf96ef6a4aa242917cc19480169740"
 
-S = "${WORKDIR}/bfl-release-release-hydro-${P}"
+S = "${WORKDIR}/bfl-release-release-indigo-${P}"
 
 inherit cmake faulty-solibs
 
