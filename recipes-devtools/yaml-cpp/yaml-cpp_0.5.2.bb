@@ -9,8 +9,8 @@ PR = "r0"
 S = "${WORKDIR}/yaml-cpp-release-${PV}"
 
 SRC_URI = "https://github.com/jbeder/yaml-cpp/archive/release-${PV}.tar.gz"
-SRC_URI[md5sum] = "0c0496b195299e956056430444e237b9"
-SRC_URI[sha256sum] = "ab8d0e07aa14f10224ed6682065569761f363ec44bc36fcdb2946f6d38fe5a89"
+SRC_URI[md5sum] = "2728af8a15e2b2c407730c45b99b274b"
+SRC_URI[sha256sum] = "6fb92f6f5925e0af918ffbb90acf19b7b88706ebcd40fc186b7caa76609b6350"
 
 EXTRA_OECMAKE = "-DBUILD_SHARED_LIBS=ON"
 
