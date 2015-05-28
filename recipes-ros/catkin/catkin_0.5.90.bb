@@ -1,6 +1,6 @@
 require catkin.inc
 
-DEPENDS_virtclass-native += "catkin-runtime"
+DEPENDS_class-native += "catkin-runtime"
 
 RDEPENDS_${PN}_class-native = ""
 RDEPENDS_${PN} = "cmake make binutils binutils-symlinks gcc gcc-symlinks g++ g++-symlinks \
