@@ -4,6 +4,8 @@ SECTION = "libs"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license.txt;md5=7c6a629da965ebdfba9f6fdb76ab8ab4"
 
+DEPENDS = "boost"
+
 PR = "r0"
 
 S = "${WORKDIR}/yaml-cpp-release-${PV}"
