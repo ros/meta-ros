@@ -5,7 +5,7 @@ After=network.target
 [Service]
 EnvironmentFile=/etc/default/roscore
 ExecStartPre=/bin/touch ${CMAKE_PREFIX_PATH}/.catkin
-ExecStart=/opt/ros/hydro/bin/roscore -p $ROS_PORT
+ExecStart=/opt/ros/indigo/bin/roscore -p $ROS_PORT
 Restart=on-abort
 
 [Install]

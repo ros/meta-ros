@@ -7,7 +7,7 @@ Currently, this layer is still under continuous development.
   * Source Code Repository: https://github.com/bmwcarit/meta-ros.git
   * Issue Tracker: https://github.com/bmwcarit/meta-ros/issues
   * Mailing List: https://groups.google.com/forum/#!forum/meta-ros
-  * Installation Guide: http://wiki.ros.org/hydro/Installation/OpenEmbedded
+  * Installation Guide: http://wiki.ros.org/indigo/Installation/OpenEmbedded
   * Development Guides:
     * https://github.com/bmwcarit/meta-ros/wiki/Guidelines-for-ROS-recipes
     * https://github.com/bmwcarit/meta-ros/wiki/Developer-Guidelines
@@ -153,13 +153,13 @@ Currently, this layer is still under continuous development.
 
   to the /etc/hosts file, and set up the environment with
 
-    export ROS_ROOT=/opt/ros/hydro
-    export PATH=$PATH:/opt/ros/hydro/bin
-    export LD_LIBRARY_PATH=/opt/ros/hydro/lib
-    export PYTHONPATH=/opt/ros/hydro/lib/python2.7/site-packages
+    export ROS_ROOT=/opt/ros/indigo
+    export PATH=$PATH:/opt/ros/indigo/bin
+    export LD_LIBRARY_PATH=/opt/ros/indigo/lib
+    export PYTHONPATH=/opt/ros/indigo/lib/python2.7/site-packages
     export ROS_MASTER_URI=http://localhost:11311
-    export CMAKE_PREFIX_PATH=/opt/ros/hydro
-    touch /opt/ros/hydro/.catkin
+    export CMAKE_PREFIX_PATH=/opt/ros/indigo
+    touch /opt/ros/indigo/.catkin
 
   Finally, you can start roscore with
 

@@ -143,7 +143,8 @@ RDEPENDS_${PN} = "\
     diff-drive-controller \
     gripper-action-controller \
     gscam \
-    imu-pipeline \
+    imu-processors \
+    imu-transformer \
     joint-trajectory-controller \
     laser-assembler \
     laser-filters \
