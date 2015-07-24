@@ -25,6 +25,7 @@ EXTRA_OECONF = "  --with-opengl \
                "
 
 CXXFLAGS := "${@oe_filter_out('-fvisibility-inlines-hidden', '${CXXFLAGS}', d)}"
+CXXFLAGS += "-std=gnu++11"
 
 # Broken autotools :/
 do_configure() {
