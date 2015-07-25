@@ -9,6 +9,7 @@ S = "${WORKDIR}/catkin-${PV}"
 # from the catkin tool.
 FILES_${PN} = "${PYTHON_SITEPACKAGES_DIR}"
 
+RDEPENDS_${PN}_class-native = ""
 RDEPENDS_${PN} = "\
     python-catkin-pkg python-argparse python-misc python-multiprocessing \
     python-shell python-subprocess python-xml python-pkgutil"
@@ -20,3 +21,5 @@ do_install_append() {
     rm -rf ${D}${ros_datadir}
     rm -rf ${D}${ros_libdir}/pkgconfig
 }
+
+BBCLASSEXTEND += "native"
