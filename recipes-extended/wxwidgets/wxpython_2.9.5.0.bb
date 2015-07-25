@@ -15,6 +15,7 @@ S = "${WORKDIR}/wxPython-src-${PV}/wxPython"
 inherit pkgconfig pythonnative python-dir distutils
 
 CFLAGS += "-I${STAGING_INCDIR}/wx-2.9/ -I${STAGING_LIBDIR}/wx/include/${TARGET_PREFIX}gtk2-unicode-2.9/"
+CFLAGS += "-std=gnu++11"
 
 # Enable output on stdout for buildpaths
 export WXDEBUG = "findprogress"

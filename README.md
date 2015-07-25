@@ -73,6 +73,12 @@ Currently, this layer is still under continuous development.
   subdirectory: meta-python  
   branch: master  
   revision: HEAD  
+  
+  **meta-multimedia** (since fe44ac167a2a76531af3519f3889fce92024567b@meta-openembedded)  
+  URI: git://git.openembedded.org/meta-openembedded  
+  subdirectory: meta-multimedia  
+  branch: master  
+  revision: HEAD  
 
   **bitbake** > 1.20
 
@@ -129,6 +135,7 @@ Currently, this layer is still under continuous development.
     /home/me/devel/openembedded-core/meta \
     /home/me/devel/meta-openembedded/meta-oe \
     /home/me/devel/meta-openembedded/meta-python \
+    /home/me/devel/meta-openembedded/meta-multimedia \
     /home/me/devel/meta-ros \
     "
 
