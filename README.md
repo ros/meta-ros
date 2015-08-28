@@ -7,7 +7,7 @@ Currently, this layer is still under continuous development.
   * Source Code Repository: https://github.com/bmwcarit/meta-ros.git
   * Issue Tracker: https://github.com/bmwcarit/meta-ros/issues
   * Mailing List: https://groups.google.com/forum/#!forum/meta-ros
-  * Installation Guide: http://wiki.ros.org/indigo/Installation/OpenEmbedded
+  * Installation Guide: http://wiki.ros.org/hydro/Installation/OpenEmbedded
   * Development Guides:
     * https://github.com/bmwcarit/meta-ros/wiki/Guidelines-for-ROS-recipes
     * https://github.com/bmwcarit/meta-ros/wiki/Developer-Guidelines
