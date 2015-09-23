@@ -1,4 +1,4 @@
-This is a layer to provide ROS Hydromedusa in an OpenEmbedded Linux system.
+This is a layer to provide ROS Indigo Igloo in an OpenEmbedded Linux system.
 It provides a stable cross-compilation build system for many common ROS packages. 
 Currently, this layer is still under continuous development.
 
