@@ -161,6 +161,7 @@ Currently, this layer is still under continuous development.
   to the /etc/hosts file, and set up the environment with
 
     export ROS_ROOT=/opt/ros/indigo
+    export ROS_DISTRO=indigo
     export PATH=$PATH:/opt/ros/indigo/bin
     export LD_LIBRARY_PATH=/opt/ros/indigo/lib
     export PYTHONPATH=/opt/ros/indigo/lib/python2.7/site-packages
