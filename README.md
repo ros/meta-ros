@@ -1,4 +1,4 @@
-This is a layer to provide ROS Hydromedusa in an OpenEmbedded Linux system.
+This is a layer to provide ROS Indigo Igloo in an OpenEmbedded Linux system.
 It provides a stable cross-compilation build system for many common ROS packages. 
 Currently, this layer is still under continuous development.
 
@@ -161,6 +161,8 @@ Currently, this layer is still under continuous development.
   to the /etc/hosts file, and set up the environment with
 
     export ROS_ROOT=/opt/ros/indigo
+    export ROS_DISTRO=indigo
+    export ROS_PACKAGE_PATH=/opt/ros/indigo/share
     export PATH=$PATH:/opt/ros/indigo/bin
     export LD_LIBRARY_PATH=/opt/ros/indigo/lib
     export PYTHONPATH=/opt/ros/indigo/lib/python2.7/site-packages

@@ -1,4 +1,6 @@
 ROS_ROOT=/opt/ros/indigo/
+ROS_DISTRO=indigo
+ROS_PACKAGE_PATH=/opt/ros/indigo/share
 ROS_PORT=11311
 ROS_MASTER_URI=http://localhost:11311
 CMAKE_PREFIX_PATH=/opt/ros/indigo/
