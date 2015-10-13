@@ -9,11 +9,6 @@ SRC_URI = "https://github.com/WPI-RAIL/rosauth/archive/${PV}.tar.gz;downloadfile
 SRC_URI[md5sum] = "0e165e867239157266aa2e4c192244bf"
 SRC_URI[sha256sum] = "c85c4163c94d20bce9864180785210bfe3dfd110114f18212bd711d1be87c48e"
 
-
-
-
 S = "${WORKDIR}/${ROS_SP}"
 
 inherit catkin
-
-ROS_SPN = "rosauth"
