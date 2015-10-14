@@ -34,3 +34,16 @@ SYSROOT_PREPROCESS_FUNCS += "catkin_sysroot_preprocess"
 catkin_sysroot_preprocess () {
     sysroot_stage_dir ${D}${ros_sysconfdir} ${SYSROOT_DESTDIR}${ros_sysconfdir}
 }
+
+PACKAGE_PREPROCESS_FUNCS += "catkin_package_preprocess"
+catkin_package_preprocess() {
+    for ENDING in 'Config.cmake' '-config.cmake'; do
+        if [ -e ${PKGD}/${ros_datadir}/${ROS_BPN}/cmake/${ROS_BPN}${ENDING} ]; then
+            # Fix stuff with target system paths
+            sed -i "s|${STAGING_DIR_TARGET}||g" ${PKGD}/${ros_datadir}/${ROS_BPN}/cmake/${ROS_BPN}${ENDING}
+
+            # Remove stuff with host system paths
+            sed -i "s|${STAGING_DIR_NATIVE}[^;\")]*||g" ${PKGD}/${ros_datadir}/${ROS_BPN}/cmake/${ROS_BPN}${ENDING}
+        fi
+    done
+}
