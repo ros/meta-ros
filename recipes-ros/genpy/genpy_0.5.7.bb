@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc
 DEPENDS = "genmsg"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "0403cb238a394c0b386cdce7e3ab0731"
-SRC_URI[sha256sum] = "bf0c613206340483e054ff49570ba0b254ab285391fadbfecc1c392d642f6e77"
+SRC_URI[md5sum] = "cade8bce4b6bd3b00999d9f4ab0e0de1"
+SRC_URI[sha256sum] = "e45d05206d71a32e8e3e9d4a87e966aec716e54035b298723b5cb51db66bcab9"
 
 inherit catkin
 
