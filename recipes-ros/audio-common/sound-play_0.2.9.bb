@@ -11,4 +11,6 @@ DEPENDS += "roscpp roslib audio-common-msgs diagnostic-msgs"
 
 require audio-common.inc
 
+SRC_URI += "file://0002-sound_play-Fix-build-with-DCATKIN_ENABLE_TESTING-OFF.patch;striplevel=2"
+
 RRECOMMENDS_${PN} += "roscpp roslib audio-common-msgs diagnostic-msgs gst-plugins-base gst-plugins-ugly gst-plugins-good rospy festival python-gst gst-meta-audio"
