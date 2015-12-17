@@ -93,7 +93,10 @@ Currently, this layer is still under continuous development.
 
   cv-bridge and dependent recipes, e.g., the image-transport recipes, depend on
   7568bfdd114597956a1da68746f207ec7f93a48d@openembedded-core.
-  
+  For native python-numpy support, these recipes also depend on
+  c13c5f40160d289bb62538a16900fed30621cb22@meta-openembedded or on
+  9bf355cceaec6ebacdcbcc35f9713ff73e1c85da@openembedded-core.
+
   Some recipes that need the Eigen library, e.g., the pcl-ros recipe, depend on
   424e3c1b930c0103c2cedfd4df1671e84a5256d5@meta-openembedded.
 
