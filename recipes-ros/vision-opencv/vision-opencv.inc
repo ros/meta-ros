@@ -1,6 +1,6 @@
 SRC_URI = "https://github.com/ros-perception/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "64ead6f8535b38eada57366ae9e08021"
-SRC_URI[sha256sum] = "0cf0934d4d9bd91e966afc2f25a4e54646016b6628f4fe58e81faee0c58c88c2"
+SRC_URI[md5sum] = "4cd45df1c6ffa9fea705560e11a51290"
+SRC_URI[sha256sum] = "3ce781847f5f855083cfae94a8d89defbe4cc83e086b4c796653561aee08b826"
 
 S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 
