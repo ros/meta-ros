@@ -170,6 +170,11 @@ RDEPENDS_${PN} = "\
     ros-arduino-python \
     frontier-exploration \
     hector-mapping \
+    rosauth \
+    rosapi \
+    rosbridge-library \
+    rosbridge-server \
+    rosbridge-suite \
     "
 
 # joint-state-publisher still has some issues.
