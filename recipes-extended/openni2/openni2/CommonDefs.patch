@@ -1,0 +1,42 @@
+diff --git a/ThirdParty/PSCommon/BuildSystem/CommonDefs.mak b/ThirdParty/PSCommon/BuildSystem/CommonDefs.mak
+index dd88b04..b6d82a1 100644
+--- a/ThirdParty/PSCommon/BuildSystem/CommonDefs.mak
++++ b/ThirdParty/PSCommon/BuildSystem/CommonDefs.mak
+@@ -22,21 +22,14 @@ else
+ 	DUMMY:=$(error Can't determine host platform)
+ endif
+ 
+-# now check if this is a cross-compilation or not
+-ifeq "$(PLATFORM)" ""
+-	PLATFORM = $(HOST_PLATFORM)
+-else
+-	ifneq "$(PLATFORM)" "$(HOST_PLATFORM)"
+-		# cross compiling. Take CXX and STAGING_DIR from environment
+-		PLATFORM_UPPER = $(shell echo $(PLATFORM) | tr 'a-z' 'A-Z')
+-		DUMMY:=$(eval CXX = $($(PLATFORM_UPPER)_CXX))
+-		DUMMY:=$(eval TARGET_SYS_ROOT = $($(PLATFORM_UPPER)_STAGING))
+-		
+-		ifeq "$(and $(CXX), $(TARGET_SYS_ROOT))" ""
+-			DUMMY:=$(error Cross-Compilation error. Can't find $(PLATFORM_UPPER)_CXX and $(PLATFORM_UPPER)_STAGING)
+-		endif
+-	endif
+-endif
++# Rely on bitbake for cross-compiling
++PLATFORM=ARM
++
++# Add compile flags manually
++CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
++CFLAGS += -ftree-vectorize -ffast-math
++CFLAGS += -flax-vector-conversions
++DEFINES += XN_NEON
+ 
+ # expand file list
+ SRC_FILES_LIST = $(wildcard $(SRC_FILES))
+@@ -56,7 +49,4 @@ COMMON_MAK_DIR = $(dir $(lastword $(MAKEFILE_LIST)))
+ # get the OS type
+ OSTYPE := $(shell uname -s)
+ 
+-# platform specific args
+-include $(COMMON_MAK_DIR)Platform.$(PLATFORM)
+-
+ endif # _COMMON_DEFS_MAKE_
