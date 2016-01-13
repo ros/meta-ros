@@ -5,8 +5,8 @@ LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=e910b35b0ef4e1f665
 SRCNAME = "rospkg"
 
 SRC_URI = "http://pypi.python.org/packages/source/r/rospkg/rospkg-${PV}.tar.gz"
-SRC_URI[md5sum] = "2c3c217ede5d5175e151756d6bf6bcf8"
-SRC_URI[sha256sum] = "8b00a013d40c2140ed2081ce41798ce1c9b00ba5757a8aafa783de6cd74d2d38"
+SRC_URI[md5sum] = "9953ac8a1e6c393ff27dcec8cb88feb5"
+SRC_URI[sha256sum] = "774b478fb7b2fe49733d40c120af785af898b838ef1a0082951351e0113b8c32"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 

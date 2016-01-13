@@ -34,3 +34,44 @@ SYSROOT_PREPROCESS_FUNCS += "catkin_sysroot_preprocess"
 catkin_sysroot_preprocess () {
     sysroot_stage_dir ${D}${ros_sysconfdir} ${SYSROOT_DESTDIR}${ros_sysconfdir}
 }
+
+PACKAGE_PREPROCESS_FUNCS += "catkin_package_preprocess"
+catkin_package_preprocess() {
+    # Fix hard-coded paths in cmake config files
+    for file in ${PKGD}/${ros_datadir}/${ROS_BPN}/cmake/*.cmake; do
+        if [ -e ${file} ]; then
+            # Fix stuff with target system paths
+            sed -i "s|${STAGING_DIR_TARGET}||g" ${file}
+
+            # Remove stuff with host system paths
+            sed -i "s|${STAGING_DIR_NATIVE}[^;\")]*||g" ${file}
+        fi
+    done
+
+    # Fix hard-coded paths in pkg-config files
+    for file in ${PKGD}/${ros_libdir}/pkgconfig/*.pc; do
+        if [ -e ${file} ]; then
+            # Fix stuff with target system paths
+            sed -i "s|${STAGING_DIR_TARGET}||g" ${file}
+
+            # Remove stuff with host system paths
+            sed -i "s|${STAGING_DIR_NATIVE}[^;\")]*||g" ${file}
+        fi
+    done
+
+    # Fix hard-coded paths in environment hooks
+    for shell in 'sh' 'bash'; do
+        for file in ${PKGD}/${ros_sysconfdir}/catkin/profile.d/*.${shell}; do
+            if [ -e ${file} ]; then
+                # Special fix for substituted PYTHON_EXECUTABLE
+                sed -i "s|${PYTHON}|/usr/bin/python|g" ${file}
+
+                # Fix stuff with target system paths
+                sed -i "s|${STAGING_DIR_TARGET}||g" ${file}
+
+                # Remove stuff with host system paths
+                sed -i "s|${STAGING_DIR_NATIVE}[^;\")]*||g" ${file}
+            fi
+        done
+    done
+}
