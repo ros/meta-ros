@@ -1,0 +1,38 @@
+From 1361899d1a336938811eceb17e2f71abe650ae17 Mon Sep 17 00:00:00 2001
+From: Davide Viti <zinosat@tiscali.it>
+Date: Sun, 9 Nov 2014 21:37:28 +0100
+Subject: [PATCH] Add "WITH_OPENGL" option to make OpenGL and Glut inclusion
+ conditional
+
+Upstream-Status: Accepted
+
+This patch file was created from the pcl repository with:
+
+  `git checkout 1361899d1a336938811eceb17e2f71abe650ae17 && git format-patch -1`
+
+I expect this patch to be dropped in any recipe version later than 1.7.2.
+
+Signed-off-by: Lukas.Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+---
+ CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6cc473d..7fda151 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -403,7 +403,10 @@ if(WITH_PCAP)
+ endif(WITH_PCAP)
+ 
+ # OpenGL and GLUT
+-include("${PCL_SOURCE_DIR}/cmake/pcl_find_gl.cmake")
++option(WITH_OPENGL "Support for OpenGL" TRUE)
++if(WITH_OPENGL)
++  include("${PCL_SOURCE_DIR}/cmake/pcl_find_gl.cmake")
++endif(WITH_OPENGL)
+ 
+ ### ---[ Create the config.h file
+ set(pcl_config_h_in "${CMAKE_CURRENT_SOURCE_DIR}/pcl_config.h.in")
+-- 
+2.4.3
+
