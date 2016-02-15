@@ -9,6 +9,8 @@ SRC_URI = "https://github.com/ros-gbp/${PN}-release/archive/release/indigo/${PN}
 SRC_URI[md5sum] = "8140555e28ddea22a10a9ec59d96a4a0"
 SRC_URI[sha256sum] = "296bec7f11430dd99a9617333d91c5c94ccf96ef6a4aa242917cc19480169740"
 
+SRC_URI += "file://0001-drop-pathes-to-unused-libraries-for-passing-the-qa_s.patch"
+
 S = "${WORKDIR}/bfl-release-release-indigo-${P}"
 
 inherit cmake faulty-solibs

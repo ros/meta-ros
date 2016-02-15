@@ -1,0 +1,28 @@
+From 382f7de16cc13b6604e77ca5903c844c513277cc Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Sat, 6 Feb 2016 18:10:24 +0100
+Subject: [PATCH] drop pathes to unused libraries for passing the qa_staging
+ pkgconfig sanity check
+
+Upstream-Status: Inappropriate [configuration]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+---
+ orocos-bfl.pc.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/orocos-bfl.pc.in b/orocos-bfl.pc.in
+index c1efd60..8e32035 100644
+--- a/orocos-bfl.pc.in
++++ b/orocos-bfl.pc.in
+@@ -5,5 +5,5 @@ includedir=${prefix}/include/bfl
+ Name: orocos-bfl
+ Description: Orocos Bayesian Filtering Library
+ Version: @VERSION@
+-Libs: -L${libdir} -lorocos-bfl @MATRIX_LIBS@ @RNG_LIBS@ @GINAC_LIBS@
+-Cflags: -I${includedir} -I@MATRIX_INCLUDE@ -I@RNG_INCLUDE@ -I@GINAC_INCLUDE@
++Libs: -L${libdir} -lorocos-bfl
++Cflags: -I${includedir}
+-- 
+2.4.3
+
