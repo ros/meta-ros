@@ -1,0 +1,1 @@
+cmake_2.8.12.%.bbappend

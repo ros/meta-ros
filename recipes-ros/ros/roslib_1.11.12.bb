@@ -9,4 +9,6 @@ require ros.inc
 
 ROS_PKG_SUBDIR = "core"
 
+SRC_URI += "file://0001-use-env-to-get-python-exec.patch"
+
 RDEPENDS_${PN} = "python-rospkg catkin-runtime"
