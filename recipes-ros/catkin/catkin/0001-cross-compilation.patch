@@ -1,0 +1,72 @@
+diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
+index 7d56edf..ef05fa2 100644
+--- a/cmake/catkin_package.cmake
++++ b/cmake/catkin_package.cmake
+@@ -430,6 +430,26 @@ function(_catkin_package)
+   # package cmake dir is the folder where the generated pkgConfig.cmake is located
+   set(PKG_CMAKE_DIR "\${${PROJECT_NAME}_DIR}")
+ 
++  # strip SYSROOT prefixes for each element in the list `list_name`
++  macro(catkin_strip_sysroot list_name)
++    set(_list ${${list_name}})
++    set(${list_name})
++    foreach(_ele ${_list})
++      if(IS_ABSOLUTE ${_ele})
++        foreach(_path ${CMAKE_FIND_ROOT_PATH})
++          string(REGEX REPLACE "^${_path}" "" _ele ${_ele})
++        endforeach()
++      endif()
++      list_append_unique(${list_name} ${_ele})
++    endforeach()
++  endmacro()
++
++  catkin_strip_sysroot(PROJECT_CMAKE_CONFIG_INCLUDE_DIRS)
++  catkin_strip_sysroot(PROJECT_PKG_CONFIG_INCLUDE_DIRS)
++  catkin_strip_sysroot(PKG_CONFIG_LIBRARIES)
++  catkin_strip_sysroot(PKG_CONFIG_LIBRARIES_WITH_PREFIX)
++  catkin_strip_sysroot(PKG_CONFIG_LIB_PATHS)
++
+   if(NOT PROJECT_SKIP_PKG_CONFIG_GENERATION)
+     # ensure that output folder exists
+     file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace)
+diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
+index d99b811..00fee58 100644
+--- a/cmake/templates/pkgConfig.cmake.in
++++ b/cmake/templates/pkgConfig.cmake.in
+@@ -95,8 +95,8 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
+   set(@PROJECT_NAME@_INCLUDE_DIRS "")
+   set(_include_dirs "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@")
+   foreach(idir ${_include_dirs})
+-    if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
+-      set(include ${idir})
++    if(IS_ABSOLUTE ${idir} AND (IS_DIRECTORY ${idir} OR CMAKE_CROSSCOMPILING))
++      set(include $<$<BOOL:${CMAKE_CROSSCOMPILING}>:=>${idir})
+     elseif("${idir} " STREQUAL "@CATKIN_GLOBAL_INCLUDE_DESTINATION@ ")
+       get_filename_component(include "${@PROJECT_NAME@_DIR}/../../../@CATKIN_GLOBAL_INCLUDE_DESTINATION@" ABSOLUTE)
+       if(NOT IS_DIRECTORY ${include})
+@@ -117,7 +117,15 @@ foreach(library ${libraries})
+   elseif(TARGET ${library})
+     list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
+   elseif(IS_ABSOLUTE ${library})
+-    list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
++    get_filename_component(path ${library} DIRECTORY)
++    get_filename_component(library ${library} NAME)
++    find_library(lib ${library}
++      PATHS ${path}
++      NO_DEFAULT_PATH)
++    if(NOT lib)
++      message(FATAL_ERROR "Project '${PROJECT_NAME}' tried to find library '${library}'.  The library is neither a target nor built/installed properly.  Did you compile project '@PROJECT_NAME@'?  Did you find_package() it before the subdirectory containing its code is included?")
++    endif()
++    list(APPEND @PROJECT_NAME@_LIBRARIES ${lib})
+   else()
+     set(lib_path "")
+     set(lib "${library}-NOTFOUND")
+@@ -125,7 +133,7 @@ foreach(library ${libraries})
+     foreach(path @PKG_CONFIG_LIB_PATHS@)
+       find_library(lib ${library}
+         PATHS ${path}
+-        NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
++        NO_DEFAULT_PATH)
+       if(lib)
+         set(lib_path ${path})
+         break()

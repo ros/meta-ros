@@ -12,4 +12,4 @@ S = "${WORKDIR}/${SRCNAME}-${PV}"
 
 inherit distutils
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
