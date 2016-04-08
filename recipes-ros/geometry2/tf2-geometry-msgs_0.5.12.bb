@@ -5,4 +5,4 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc
 
 DEPENDS = "actionlib-msgs geometry-msgs tf2-ros tf2 orocos-kdl"
 
-require geometry-experimental.inc
+require geometry2.inc

@@ -6,4 +6,4 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9de
 
 DEPENDS = "tf2-msgs geometry-msgs console-bridge rospy"
 
-require geometry-experimental.inc
+require geometry2.inc
