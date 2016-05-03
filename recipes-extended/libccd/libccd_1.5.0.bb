@@ -3,9 +3,9 @@ HOMEPAGE = "https://github.com/danfis/libccd"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://BSD-LICENSE;md5=ff7a32175d897961df3eec70a6166429"
 
-SRC_URI = "http://libccd.danfis.cz/files/libccd-1.5.tar.gz"
-SRC_URI[md5sum] = "461a8d57a7899074e197a8f0c05ed38e"
-SRC_URI[sha256sum] = "676f937193090579ecddc5075adbcd963e3001d4ea4dc16b163031f50bc16130"
+SRC_URI = "https://github.com/danfis/libccd/archive/v1.5.tar.gz"
+SRC_URI[md5sum] = "092ae20c4e139e60cb12e13edf4e14b1"
+SRC_URI[sha256sum] = "686f2dd7a042fd75a3d88aff728bbabaebece727747aa18bb7f6f5e247831a95"
 
 S = "${WORKDIR}/libccd-1.5"
 
