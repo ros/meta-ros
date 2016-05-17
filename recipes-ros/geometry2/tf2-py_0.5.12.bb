@@ -9,4 +9,4 @@ EXTRA_OECMAKE += "\
     -DCMAKE_SKIP_RPATH=ON \
     "
 
-require geometry-experimental.inc
+require geometry2.inc

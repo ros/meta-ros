@@ -5,4 +5,4 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9de
 
 DEPENDS = "actionlib-msgs geometry-msgs"
 
-require geometry-experimental.inc
+require geometry2.inc
