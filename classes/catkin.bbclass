@@ -34,3 +34,42 @@ SYSROOT_PREPROCESS_FUNCS += "catkin_sysroot_preprocess"
 catkin_sysroot_preprocess () {
     sysroot_stage_dir ${D}${ros_sysconfdir} ${SYSROOT_DESTDIR}${ros_sysconfdir}
 }
+
+_catkin_clean_paths() {
+    # Fix paths containing the target sysroot
+    sed -i "s|${STAGING_DIR_TARGET}||g" $1
+
+    # Remove paths containing the host sysroot
+    sed -i "s|${STAGING_DIR_NATIVE}[^;\")]*||g" $1
+}
+
+PACKAGE_PREPROCESS_FUNCS += "catkin_package_preprocess"
+catkin_package_preprocess() {
+    # Fix hard-coded paths in cmake config files
+    for file in ${PKGD}/${ros_datadir}/${ROS_BPN}/cmake/*.cmake; do
+        if [ -e ${file} ]; then
+            _catkin_clean_paths ${file}
+        fi
+    done
+
+    # Fix hard-coded paths in pkg-config files
+    for file in ${PKGD}/${ros_libdir}/pkgconfig/*.pc; do
+        if [ -e ${file} ]; then
+            _catkin_clean_paths ${file}
+        fi
+    done
+
+    # Fix hard-coded paths in environment hooks
+    for shell in 'sh' 'bash' 'tcsh' 'zsh'; do
+        for file in ${PKGD}/${ros_sysconfdir}/catkin/profile.d/*.${shell}; do
+            if [ -e ${file} ]; then
+                # Special fix for substituted PYTHON_EXECUTABLE
+                # Note: has to be executed before _catkin_clean_paths; otherwise
+                #       the substituted variable has already been removed
+                sed -i "s|${PYTHON}|/usr/bin/python|g" ${file}
+
+                _catkin_clean_paths ${file}
+            fi
+        done
+    done
+}
