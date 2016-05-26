@@ -71,7 +71,7 @@ ros_sysroot_preprocess () {
         sysroot_stage_dir ${D}${ros_sysconfdir} ${SYSROOT_DESTDIR}${ros_sysconfdir}
     fi
     if [ -d ${D}${ros_libdir} ]; then
-        sysroot_stage_libdir ${D}${ros_libdir} ${SYSROOT_DESTDIR}${ros_libdir}
+        sysroot_stage_dir ${D}${ros_libdir} ${SYSROOT_DESTDIR}${ros_libdir}
     fi
     sysroot_stage_dir ${D}${ros_datadir} ${SYSROOT_DESTDIR}${ros_datadir}
     if [ -d ${D}${ros_stacksdir} ]; then
