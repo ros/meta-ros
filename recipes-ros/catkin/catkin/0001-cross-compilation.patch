@@ -1,30 +1,35 @@
 diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
-index 7d56edf..ef05fa2 100644
+index 7d56edf..346dc0e 100644
 --- a/cmake/catkin_package.cmake
 +++ b/cmake/catkin_package.cmake
-@@ -430,6 +430,26 @@ function(_catkin_package)
+@@ -430,6 +430,31 @@ function(_catkin_package)
    # package cmake dir is the folder where the generated pkgConfig.cmake is located
    set(PKG_CMAKE_DIR "\${${PROJECT_NAME}_DIR}")
  
-+  # strip SYSROOT prefixes for each element in the list `list_name`
-+  macro(catkin_strip_sysroot list_name)
-+    set(_list ${${list_name}})
-+    set(${list_name})
++  # strip SYSROOT prefixes for each element in LIST
++  macro(catkin_strip_sysroot)
++    cmake_parse_arguments(_fn "UNIQUE" "LIST" "" ${ARGN})
++    set(_list ${${_fn_LIST}})
++    set(${_fn_LIST})
 +    foreach(_ele ${_list})
 +      if(IS_ABSOLUTE ${_ele})
 +        foreach(_path ${CMAKE_FIND_ROOT_PATH})
 +          string(REGEX REPLACE "^${_path}" "" _ele ${_ele})
 +        endforeach()
 +      endif()
-+      list_append_unique(${list_name} ${_ele})
++      if(_fn_UNIQUE)
++        list_append_unique(${_fn_LIST} ${_ele})
++      else()
++        list(APPEND ${_fn_LIST} ${_ele})
++      endif()
 +    endforeach()
 +  endmacro()
 +
-+  catkin_strip_sysroot(PROJECT_CMAKE_CONFIG_INCLUDE_DIRS)
-+  catkin_strip_sysroot(PROJECT_PKG_CONFIG_INCLUDE_DIRS)
-+  catkin_strip_sysroot(PKG_CONFIG_LIBRARIES)
-+  catkin_strip_sysroot(PKG_CONFIG_LIBRARIES_WITH_PREFIX)
-+  catkin_strip_sysroot(PKG_CONFIG_LIB_PATHS)
++  catkin_strip_sysroot(LIST PROJECT_CMAKE_CONFIG_INCLUDE_DIRS UNIQUE)
++  catkin_strip_sysroot(LIST PROJECT_PKG_CONFIG_INCLUDE_DIRS UNIQUE)
++  catkin_strip_sysroot(LIST PKG_CONFIG_LIBRARIES)
++  catkin_strip_sysroot(LIST PKG_CONFIG_LIBRARIES_WITH_PREFIX)
++  catkin_strip_sysroot(LIST PKG_CONFIG_LIB_PATHS UNIQUE)
 +
    if(NOT PROJECT_SKIP_PKG_CONFIG_GENERATION)
      # ensure that output folder exists
