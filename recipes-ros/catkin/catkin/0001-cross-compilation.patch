@@ -35,21 +35,28 @@ index 7d56edf..346dc0e 100644
      # ensure that output folder exists
      file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace)
 diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
-index d99b811..00fee58 100644
+index d99b811..910437a 100644
 --- a/cmake/templates/pkgConfig.cmake.in
 +++ b/cmake/templates/pkgConfig.cmake.in
-@@ -95,8 +95,8 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
+@@ -95,8 +95,15 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
    set(@PROJECT_NAME@_INCLUDE_DIRS "")
    set(_include_dirs "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@")
    foreach(idir ${_include_dirs})
 -    if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
 -      set(include ${idir})
-+    if(IS_ABSOLUTE ${idir} AND (IS_DIRECTORY ${idir} OR CMAKE_CROSSCOMPILING))
-+      set(include $<$<BOOL:${CMAKE_CROSSCOMPILING}>:=>${idir})
++    if(IS_ABSOLUTE ${idir})
++      get_filename_component(path ${idir} DIRECTORY)
++      get_filename_component(idir ${idir} NAME)
++      find_path(include ${idir}
++        PATHS ${path}
++        NO_DEFAULT_PATH)
++      if(NOT include)
++        message(FATAL_ERROR "Project '@PROJECT_NAME@' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '@PKG_INCLUDE_PREFIX@/${idir}'.  Ask the maintainer '@PROJECT_MAINTAINER@' to fix it.")
++      endif()
      elseif("${idir} " STREQUAL "@CATKIN_GLOBAL_INCLUDE_DESTINATION@ ")
        get_filename_component(include "${@PROJECT_NAME@_DIR}/../../../@CATKIN_GLOBAL_INCLUDE_DESTINATION@" ABSOLUTE)
        if(NOT IS_DIRECTORY ${include})
-@@ -117,7 +117,15 @@ foreach(library ${libraries})
+@@ -117,7 +124,15 @@ foreach(library ${libraries})
    elseif(TARGET ${library})
      list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
    elseif(IS_ABSOLUTE ${library})
@@ -66,7 +73,7 @@ index d99b811..00fee58 100644
    else()
      set(lib_path "")
      set(lib "${library}-NOTFOUND")
-@@ -125,7 +133,7 @@ foreach(library ${libraries})
+@@ -125,7 +140,7 @@ foreach(library ${libraries})
      foreach(path @PKG_CONFIG_LIB_PATHS@)
        find_library(lib ${library}
          PATHS ${path}
