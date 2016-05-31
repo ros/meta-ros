@@ -34,7 +34,6 @@ RDEPENDS_${PN} += "\
     g++-symlinks \
     gettext \
     libstdc++ \
-    libstdc++-dev \
     libtool \
     pkgconfig \
     python-empy \
