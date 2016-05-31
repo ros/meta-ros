@@ -35,10 +35,10 @@ index 7d56edf..346dc0e 100644
      # ensure that output folder exists
      file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace)
 diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
-index d99b811..ba9fe28 100644
+index a9dd856..c526f87 100644
 --- a/cmake/templates/pkgConfig.cmake.in
 +++ b/cmake/templates/pkgConfig.cmake.in
-@@ -95,8 +95,16 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
+@@ -95,8 +95,17 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
    set(@PROJECT_NAME@_INCLUDE_DIRS "")
    set(_include_dirs "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@")
    foreach(idir ${_include_dirs})
@@ -54,10 +54,11 @@ index d99b811..ba9fe28 100644
 +      if(NOT include)
 +        message(FATAL_ERROR "Project '@PROJECT_NAME@' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '@PKG_INCLUDE_PREFIX@/${idir}'.  Ask the maintainer '@PROJECT_MAINTAINER@' to fix it.")
 +      endif()
++      set(include "${include}/${idir}")
      elseif("${idir} " STREQUAL "@CATKIN_GLOBAL_INCLUDE_DESTINATION@ ")
        get_filename_component(include "${@PROJECT_NAME@_DIR}/../../../@CATKIN_GLOBAL_INCLUDE_DESTINATION@" ABSOLUTE)
        if(NOT IS_DIRECTORY ${include})
-@@ -117,15 +125,25 @@ foreach(library ${libraries})
+@@ -117,15 +126,25 @@ foreach(library ${libraries})
    elseif(TARGET ${library})
      list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
    elseif(IS_ABSOLUTE ${library})
