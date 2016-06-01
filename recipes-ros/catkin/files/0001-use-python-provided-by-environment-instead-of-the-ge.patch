@@ -1,0 +1,32 @@
+From 431739f10027022b6e3d2cd75cffa04c848cd14d Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@bmw-carit.de>
+Date: Tue, 31 May 2016 15:38:05 +0200
+Subject: [PATCH] use python provided by environment instead of the generated
+ one
+
+The catkin developers changed the cmake-generated template _setup_util.py
+to use @PYTHON_EXECUTABLE@ instead of /usr/bin/env python in changeset
+bf12b40c2 [1]. We revert this change here to address the issue #384 [2].
+
+[1] https://github.com/ros/catkin/commit/bf12b40c2a93b11c3666619a474d35bcfea20837
+[2] https://github.com/bmwcarit/meta-ros/issues/384
+
+Upstream-Status: Inappropriate [only for our setup]
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+---
+ cmake/templates/_setup_util.py.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/templates/_setup_util.py.in b/cmake/templates/_setup_util.py.in
+index cace21c..ff2c6b4 100755
+--- a/cmake/templates/_setup_util.py.in
++++ b/cmake/templates/_setup_util.py.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON_EXECUTABLE@
++#!/usr/bin/env python
+ # -*- coding: utf-8 -*-
+ 
+ # Software License Agreement (BSD License)
+-- 
+1.9.1
+
