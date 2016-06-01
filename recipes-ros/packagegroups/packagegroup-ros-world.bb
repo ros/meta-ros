@@ -152,7 +152,6 @@ RDEPENDS_${PN} = "\
     robot-pose-ekf \
     roslint \
     ros-pocketsphinx \
-    sound-play \
     rt-tests-support \
     communication-tests \
     cyclic-timer-tests \
@@ -177,5 +176,6 @@ RDEPENDS_${PN} = "\
     rosbridge-suite \
     "
 
+# sound-play requires python-gst (which is not available in any layers' master branch)
 # joint-state-publisher still has some issues.
 # freenect-camera and freenect-launch requires opengl distro feature.
