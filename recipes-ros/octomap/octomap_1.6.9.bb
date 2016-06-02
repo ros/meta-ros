@@ -4,8 +4,8 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=9b0e1f01a68f441eeaf7b5e18812d3c8"
 
 SRC_URI = "https://github.com/OctoMap/${BPN}/archive/v${PV}.tar.gz;downloadfilename=${BP}.tar.gz"
-SRC_URI[md5sum] = "e4f9ab54fecfc031ec160b8989340804"
-SRC_URI[sha256sum] = "833adba0d3b203cab0e28a0180490e74bc852a7fea9adf6ee53bbfb8f10bc79a"
+SRC_URI[md5sum] = "3cba6c41544c89a8b51610bdec610f00"
+SRC_URI[sha256sum] = "3383ee9c6b18577c860d747369c84814058e2a9413f7d482846b1e02ce76f0f7"
 
 S = "${WORKDIR}/${BP}/${BPN}"
 
