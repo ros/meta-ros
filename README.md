@@ -111,6 +111,10 @@ Currently, this layer is still under continuous development.
   urdfdom-py depends on the meta-python layer since
   a6d7ba92645a112af358efd94ff3aa0c74985a51@meta-openembedded.
 
+  Since 3edf08b38b0af93cef0933b061349264dc86d54c@openembedded-core,
+  recipes relying on opencv need to activate the DISTRO\_FEATURE
+  opengl.
+
 ## INSTALLATION ##
 
   The repository contains a layer for ROS that builds on top of the
