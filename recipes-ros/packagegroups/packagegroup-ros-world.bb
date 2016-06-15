@@ -95,7 +95,6 @@ RDEPENDS_${PN} = "\
     camera-calibration \
     image-proc \
     image-rotate \
-    image-view \
     stereo-image-proc \
     random-numbers \
     shape-tools \
@@ -176,6 +175,7 @@ RDEPENDS_${PN} = "\
     rosbridge-suite \
     "
 
+# image-view requires gtk+, but it cannot be found by cmake for some reason.
 # sound-play requires python-gst (which is not available in any layers' master branch)
 # joint-state-publisher still has some issues.
 # freenect-camera and freenect-launch requires opengl distro feature.
