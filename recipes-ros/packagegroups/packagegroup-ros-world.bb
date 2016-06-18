@@ -95,7 +95,6 @@ RDEPENDS_${PN} = "\
     camera-calibration \
     image-proc \
     image-rotate \
-    image-view \
     stereo-image-proc \
     random-numbers \
     shape-tools \
@@ -161,7 +160,6 @@ RDEPENDS_${PN} = "\
     velodyne-driver \
     velodyne-msgs \
     velodyne-pointcloud \
-    ar-track-alvar \
     razor-imu-9dof \
     xv-11-laser-driver \
     ros-arduino-firmware \
@@ -176,6 +174,8 @@ RDEPENDS_${PN} = "\
     rosbridge-suite \
     "
 
+# ar-track-alvar does not compile due to unknown opencv identifiers.
+# image-view requires gtk+, but it cannot be found by cmake for some reason.
 # sound-play requires python-gst (which is not available in any layers' master branch)
 # joint-state-publisher still has some issues.
 # freenect-camera and freenect-launch requires opengl distro feature.

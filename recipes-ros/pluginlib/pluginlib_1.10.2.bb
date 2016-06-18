@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=10;md5=bbbb6ab628b1f3
 DEPENDS = "boost class-loader rosconsole roslib libtinyxml"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "2fffc63aed17307ad165a1dfa05a7190"
-SRC_URI[sha256sum] = "239591f5eb263e48769942feb125c46a56ae3e226dc3ef4bf5dfa39ab94c47e1"
+SRC_URI[md5sum] = "f839e0d81741d0f2f6aca175e28ba1c5"
+SRC_URI[sha256sum] = "2ff0ec664c8b3c3d8a5c8f14e654a19dcfb4c06d7e2bb3756c4ea23691e5a9ee"
 
 inherit catkin
