@@ -4,7 +4,7 @@ require catkin.inc
 
 S = "${WORKDIR}/catkin-${PV}"
 
-DEPENDS = "python-argparse python-catkin-pkg catkin-native"
+DEPENDS = "python-catkin-pkg catkin-native"
 
 # Disable binary package option to generate setup scripts and .catkin marker
 ### TODO: ENABLE GENERATION OF SETUP UTILS
@@ -43,7 +43,6 @@ RDEPENDS_${PN} += "\
 
 RDEPENDS_${PN}_class-native += "\
     python-native \
-    python-argparse-native \
     python-catkin-pkg-native \
     "
 
