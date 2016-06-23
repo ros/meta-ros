@@ -2,7 +2,7 @@ DESCRIPTION = "The pluginlib package provides tools for writing and dynamically 
 using the ROS build infrastructure."
 SECTION = "devel"
 LICENSE = "BSD & BSL-1.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=10;md5=bbbb6ab628b1f3daee74dd9c62bee312"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 DEPENDS = "boost class-loader rosconsole roslib libtinyxml"
 
