@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc
 DEPENDS = "roscpp std-msgs roslib"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "4b28db549ad2b4aa49769683b2e990b0"
-SRC_URI[sha256sum] = "84d9bf55353c1d816ed8a3b40d77ed933bb53493fadcc0826018c93138777b4c"
+SRC_URI[md5sum] = "5728cc591b90e7ddd42b936e74e3062c"
+SRC_URI[sha256sum] = "f1b073c36fd937bd8697bc92ec38926f9194069e6e8d80ab70eb09610720ee7f"
 
 S = "${WORKDIR}/${ROS_SP}"
 
