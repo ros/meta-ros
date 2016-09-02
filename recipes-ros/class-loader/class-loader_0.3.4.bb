@@ -11,8 +11,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc
 DEPENDS = "cmake-modules console-bridge libpoco"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "41395ef8a62a17109c95e16b49c26a95"
-SRC_URI[sha256sum] = "b39fc7ad4da4d092411bb82b5008d9ae480ab7dddd998253c4edb1f6efb48579"
+SRC_URI[md5sum] = "3fb8bbc0273a613fcc519bdf549fcab6"
+SRC_URI[sha256sum] = "34f7be503c333b45b5d006125b1d3b850dd2702e31c6a1e0d3b7535a0c553452"
 
 S = "${WORKDIR}/${ROS_SP}"
 
