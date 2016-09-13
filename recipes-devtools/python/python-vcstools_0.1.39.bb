@@ -4,9 +4,9 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=e910b35b0ef4e1f665b9a75d6afb7709"
 SRCNAME = "vcstools"
 
-SRC_URI = "https://pypi.python.org/packages/source/v/vcstools/vcstools-${PV}.tar.gz"
-SRC_URI[md5sum] = "e3ef997da464cf284ca36fd60e993ed6"
-SRC_URI[sha256sum] = "83b38c3f055454590333debdb6db23b3f5ed694e6a27fb506e8639bf87a4d61e"
+SRC_URI = "http://download.ros.org/downloads/vcstools/vcstools-${PV}.tar.gz"
+SRC_URI[md5sum] = "ae2f802460458142727d69c46315ae54"
+SRC_URI[sha256sum] = "80c5bef67d9b4933b962565bd9b012d001a44b72b9157da3623ace980213427e"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
