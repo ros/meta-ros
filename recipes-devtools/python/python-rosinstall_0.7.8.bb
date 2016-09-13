@@ -4,9 +4,9 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=e910b35b0ef4e1f665b9a75d6afb7709"
 SRCNAME = "rosinstall"
 
-SRC_URI = "https://pypi.python.org/packages/source/r/rosinstall/rosinstall-${PV}.tar.gz"
-SRC_URI[md5sum] = "fd49a9cc6ede3d1bf4932effdac414e9"
-SRC_URI[sha256sum] = "65de7c1594e80799b2da68fc7c1d466bbec08a0cedd61437ae276e90f8cff411"
+SRC_URI = "http://download.ros.org/downloads/rosinstall/rosinstall-${PV}.tar.gz"
+SRC_URI[md5sum] = "b52ea80b199efdb94e35229eb427965f"
+SRC_URI[sha256sum] = "2ba808bf8bac2cc3f13af9745184b9714c1426e11d09eb96468611b2ad47ed40"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
