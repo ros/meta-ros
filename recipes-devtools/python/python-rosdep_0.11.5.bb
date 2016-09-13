@@ -6,9 +6,9 @@ SRCNAME = "rosdep"
 
 DEPENDS = "python-nose"
 
-SRC_URI = "http://pypi.python.org/packages/source/r/rosdep/rosdep-${PV}.tar.gz"
-SRC_URI[md5sum] = "c1e3f200d9beddb5c70cc0a74ab47734"
-SRC_URI[sha256sum] = "6d043e1fb58d8b366f90b63ccfaff3140416bf1a6f4014bb3bb1b85af7a77073"
+SRC_URI = "http://download.ros.org/downloads/rosdep/rosdep-${PV}.tar.gz"
+SRC_URI[md5sum] = "2c5669bc5cafcb1df8cd21ce14844cc4"
+SRC_URI[sha256sum] = "46e072074270a1ea25411829814f4bdc1f34b358c950e9b8a7b75b4a40efd96a"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
