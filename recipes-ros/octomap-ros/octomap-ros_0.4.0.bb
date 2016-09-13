@@ -17,4 +17,5 @@ do_configure_append() {
     sed -i -e 's: /usr/lib/liboctomap.so: ${STAGING_LIBDIR}/liboctomap.so:g' \
         -e 's: /usr/lib/liboctomath.so: ${STAGING_LIBDIR}/liboctomath.so:g' \
         ${B}/CMakeFiles/octomap_ros.dir/build.make
+    sed -i -e 's:-L\/opt\/ros\/indigo\/lib::g' ${B}/CMakeFiles/octomap_ros.dir/link.txt
 }
