@@ -115,6 +115,9 @@ Currently, this layer is still under continuous development.
   recipes relying on opencv need to activate the DISTRO\_FEATURE
   opengl.
 
+  rosbridge-library depends on python-six, which is provided in meta-python
+  since a36869c700bed940f7f0aa4b9703ae630dc84eac@meta-openembedded.
+
 ## INSTALLATION ##
 
   The repository contains a layer for ROS that builds on top of the

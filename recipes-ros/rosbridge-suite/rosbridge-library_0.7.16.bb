@@ -3,6 +3,6 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=68b329da9893e34099c7d8ad5cb9c940"
 
-DEPENDS = "message-generation std-msgs geometry-msgs rospy python-six python-bson python-pytz"
+DEPENDS = "message-generation std-msgs geometry-msgs rospy python-six python-bson"
 
 require rosbridge-suite.inc
