@@ -1,0 +1,22 @@
+Those lines link python-imaging to host tcl.
+
+Signed-off-by: David Bensoussan <david.bensoussan.job@gmail.com>
+
+diff -uNr a/setup.py b/setup.py
+--- a/setup.py  2016-09-18 08:18:43.507521296 +0000
++++ b/setup.py  2016-09-18 08:18:32.635521296 +0000
+@@ -207,10 +207,10 @@
+         # add standard directories
+ 
+         # look for tcl specific subdirectory (e.g debian)
+-        if _tkinter:
+-            tcl_dir = "/usr/include/tcl" + TCL_VERSION
+-            if os.path.isfile(os.path.join(tcl_dir, "tk.h")):
+-                add_directory(include_dirs, tcl_dir)
++#        if _tkinter:
++#            tcl_dir = "/usr/include/tcl" + TCL_VERSION
++#            if os.path.isfile(os.path.join(tcl_dir, "tk.h")):
++#                add_directory(include_dirs, tcl_dir)
+ 
+         #
+         # insert new dirs *before* default libs, to avoid conflicts
