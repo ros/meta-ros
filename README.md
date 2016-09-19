@@ -226,9 +226,9 @@ Currently, this layer is still under continuous development.
   (cf. https://github.com/kartikmohta/meta-km/blob/master/recipes-devtools/yaml-cpp/yaml-cpp_0.3.0.bb)
   licensed with the MIT License.
 
-  The libpoco recipe originated from the recipe in digitalSTROM's OpenEmbedded layer
-  (cf. https://gitorious.digitalstrom.org/dss-oe/dss-oe/blobs/master/dS/meta-dss11-production/recipes-support/poco/poco_1.3.6p2.bb)
-  licensed with the MIT License.
+  The poco recipe is a copy of the poco recipe in the meta-oe layer licensed with the MIT License
+  (cf. http://cgit.openembedded.org/meta-openembedded/tree/meta-oe/recipes-support/poco).
+  The recipe is included in the meta-ros layer to support the use of older versions of the meta-oe layer.
 
   The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
