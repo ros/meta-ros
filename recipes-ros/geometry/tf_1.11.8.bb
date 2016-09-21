@@ -7,4 +7,6 @@ DEPENDS = "angles geometry-msgs message-filters sensor-msgs tf2-ros"
 
 require geometry.inc
 
+SRC_URI += "file://0001-Fix-stdlib.h-No-such-file-or-directory-errors-in-GCC.patch;striplevel=2"
+
 RDEPENDS_${PN} = "python-numpy"
