@@ -1,0 +1,43 @@
+From 77e184e32b19bfd7ee64d3344bcff0a28eccbb4e Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Wed, 28 Sep 2016 10:25:02 +0200
+Subject: [PATCH] address gcc6 build error (backport for 0.4.4)
+
+With gcc6, compiling fails with `stdlib.h: No such file or directory`,
+as including '-isystem /usr/include' breaks with gcc6, cf.,
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70129.
+
+This commit addresses this issue for this package in the same way
+it was addressed in various other ROS packages. A list of related
+commits and pull requests is at:
+
+  https://github.com/ros/rosdistro/issues/12783
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+
+Upstream-Status: Accepted [https://github.com/ros-planning/geometric_shapes/commit/7a0af36bb67c0718373f6bbac31959e8356cda92]
+
+The content of commit 7a0af36bb67c0718373f6bbac31959e8356cda92 has been
+manually backported for version 0.4.4, and resulted in this patch.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9ae6b09..145d7a8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -52,7 +52,7 @@ if (HAVE_QHULL_2011)
+ endif()
+ 
+ include_directories(include)
+-include_directories(SYSTEM ${EIGEN_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} ${ASSIMP_INCLUDE_DIRS} ${OCTOMAP_INCLUDE_DIRS})
++include_directories(${EIGEN_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} ${ASSIMP_INCLUDE_DIRS} ${OCTOMAP_INCLUDE_DIRS})
+ include_directories(${catkin_INCLUDE_DIRS} ${console_bridge_INCLUDE_DIRS})
+ link_directories(${catkin_LIBRARY_DIRS} ${console_bridge_LIBRARY_DIRS} ${ASSIMP_LIBRARY_DIRS})
+ 
+-- 
+2.5.5
+
