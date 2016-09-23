@@ -1,0 +1,65 @@
+From aaf08c721c35a654c0ef0ac013e18db1b111bfdc Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Wed, 21 Sep 2016 11:27:28 +0200
+Subject: [PATCH] address gcc6 build error in cv_bridge and tune
+
+With gcc6, compiling fails with `stdlib.h: No such file or directory`,
+as including '-isystem /usr/include' breaks with gcc6, cf.,
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70129
+
+This commit addresses this issue for cv_bridge in the same way
+it was done in the commit ead421b8 [1] for image_geometry.
+This issue was also addressed in various other ROS packages.
+A list of related commits and pull requests is at:
+
+  https://github.com/ros/rosdistro/issues/12783
+
+[1] https://github.com/ros-perception/vision_opencv/commit/ead421b85eeb750cbf7988657015296ed6789bcf
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+
+Upstream-Status: Accepted [https://github.com/ros-perception/vision_opencv/commit/aaf08c721c35a654c0ef0ac013e18db1b111bfdc]
+
+This patch has been generated with:
+  `git format-patch -1 aaf08c721c35a654c0ef0ac013e18db1b111bfdc`
+in the vision_opencv repository.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+---
+ cv_bridge/CMakeLists.txt     | 3 +--
+ cv_bridge/src/CMakeLists.txt | 5 +----
+ 2 files changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/cv_bridge/CMakeLists.txt b/cv_bridge/CMakeLists.txt
+index 075fbbd..cce8af7 100644
+--- a/cv_bridge/CMakeLists.txt
++++ b/cv_bridge/CMakeLists.txt
+@@ -19,8 +19,7 @@ catkin_package(
+ 
+ catkin_python_setup()
+ 
+-include_directories(SYSTEM ${Boost_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+-include_directories(include ${catkin_INCLUDE_DIRS})
++include_directories(include ${Boost_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
+ 
+ if(NOT ANDROID)
+ add_subdirectory(python)
+diff --git a/cv_bridge/src/CMakeLists.txt b/cv_bridge/src/CMakeLists.txt
+index 8ec321c..37ba30e 100644
+--- a/cv_bridge/src/CMakeLists.txt
++++ b/cv_bridge/src/CMakeLists.txt
+@@ -26,10 +26,7 @@ if(NOT PYTHON_NUMPY_INCLUDE_DIR)
+     endif(PYTHON_NUMPY_PROCESS EQUAL 0)
+  endif(NOT PYTHON_NUMPY_INCLUDE_DIR)
+ 
+-include_directories(SYSTEM ${PYTHON_INCLUDE_PATH}
+-                           ${Boost_INCLUDE_DIRS}
+-                           ${PYTHON_NUMPY_INCLUDE_DIR} # cv_bridge module uses NumPy functions
+-)
++include_directories(${PYTHON_INCLUDE_PATH} ${Boost_INCLUDE_DIRS} ${PYTHON_NUMPY_INCLUDE_DIR})
+ 
+ if (PYTHON_VERSION_MAJOR VERSION_EQUAL 3)
+   add_definitions(-DPYTHON3)
+-- 
+2.5.5
+
