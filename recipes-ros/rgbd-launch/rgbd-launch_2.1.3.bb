@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 DEPENDS = "image-proc nodelet tf"
 
 SRC_URI = "https://github.com/ros-drivers/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "468e3b959050a4f5afda3fd2e8d5b3c5"
-SRC_URI[sha256sum] = "f53d02e99514301dd55cb3701b362a9c96ac0d4ab109b1b3b20d3c62de91839b"
+SRC_URI[md5sum] = "748ffef5e89fbf970b2a5c0e8bfef7dd"
+SRC_URI[sha256sum] = "e1753671dfc01af7fa3220aa33cb893851b20dcfbe9909c9d86afd47ce2f0514"
 
 S = "${WORKDIR}/${ROS_SP}"
 
