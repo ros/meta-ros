@@ -6,10 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5b8a2a1aa14e6de44b4273134946a34c"
 DEPENDS = "boost libflann libeigen qhull"
 
 SRC_URI = "https://github.com/PointCloudLibrary/${PN}/archive/${P}.tar.gz"
-SRC_URI[md5sum] = "02c72eb6760fcb1f2e359ad8871b9968"
-SRC_URI[sha256sum] = "479f84f2c658a6319b78271111251b4c2d6cf07643421b66bbc351d9bed0ae93"
-
-SRC_URI += "file://0001-Add-WITH_OPENGL-option-to-make-OpenGL-and-Glut-inclu.patch"
+SRC_URI[md5sum] = "8c1308be2c13106e237e4a4204a32cca"
+SRC_URI[sha256sum] = "9e54b0c1b59a67a386b9b0f4acb2d764272ff9a0377b825c4ed5eedf46ebfcf4"
 
 S = "${WORKDIR}/pcl-${P}"
 
@@ -19,6 +17,7 @@ EXTRA_OECMAKE += "\
   -DHAVE_POSIX_MEMALIGN_EXITCODE=0 \
    ${@bb.utils.contains("TARGET_CC_ARCH", "-msse4.2", "-DHAVE_SSE4_2_EXTENSIONS_EXITCODE=0", "-DHAVE_SSE4_2_EXTENSIONS_EXITCODE=1", d)} \
    ${@bb.utils.contains("TARGET_CC_ARCH", "-msse4.1", "-DHAVE_SSE4_1_EXTENSIONS_EXITCODE=0", "-DHAVE_SSE4_1_EXTENSIONS_EXITCODE=1", d)} \
+  -DHAVE_SSSE3_EXTENSIONS_EXITCODE=0 \
    ${@bb.utils.contains("TARGET_CC_ARCH", "-msse3", "-DHAVE_SSE3_EXTENSIONS_EXITCODE=0", "-DHAVE_SSE3_EXTENSIONS_EXITCODE=1", d)} \
    ${@bb.utils.contains("TARGET_CC_ARCH", "-msse2", "-DHAVE_SSE2_EXTENSIONS_EXITCODE=0", "-DHAVE_SSE2_EXTENSIONS_EXITCODE=1", d)} \
    ${@bb.utils.contains("TARGET_CC_ARCH", "-msse", "-DHAVE_SSE_EXTENSIONS_EXITCODE=0", "-DHAVE_SSE_EXTENSIONS_EXITCODE=1", d)} \
@@ -37,4 +36,4 @@ CXXFLAGS += "${@bb.utils.contains("TARGET_CC_ARCH", "-mfpmath=sse", "", "-ffloat
 
 inherit cmake
 
-FILES_${PN}-dev += "${datadir}/${PN}-1.7/*.cmake"
+FILES_${PN}-dev += "${datadir}/${PN}-1.8/*.cmake"
