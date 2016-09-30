@@ -9,6 +9,8 @@ SRC_URI = "https://github.com/PointCloudLibrary/${PN}/archive/${P}.tar.gz"
 SRC_URI[md5sum] = "8c1308be2c13106e237e4a4204a32cca"
 SRC_URI[sha256sum] = "9e54b0c1b59a67a386b9b0f4acb2d764272ff9a0377b825c4ed5eedf46ebfcf4"
 
+SRC_URI += "file://0001-make-the-pcl-library-compile-with-gcc6.patch"
+
 S = "${WORKDIR}/pcl-${P}"
 
 EXTRA_OECMAKE += "\
