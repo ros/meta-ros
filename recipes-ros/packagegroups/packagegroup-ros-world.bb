@@ -93,6 +93,7 @@ RDEPENDS_${PN} = "\
     ivcon \
     convex-decomposition \
     camera-calibration \
+    image-publisher \
     image-proc \
     image-rotate \
     stereo-image-proc \
