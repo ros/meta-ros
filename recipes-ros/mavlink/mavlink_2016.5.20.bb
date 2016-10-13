@@ -9,6 +9,10 @@ SRC_URI[sha256sum] = "20afe71b71f851a68dd9f467959635a9a1239aaaa16837b790d3b13913
 
 S = "${WORKDIR}/mavlink-gbp-release-release-indigo-${PN}-${PV}-0"
 
+SRC_URI += "\
+	file://0001-Modify-INCLUDE_DIRS-to-fix-yocto-build.patch \
+"
+
 inherit catkin
 
 
