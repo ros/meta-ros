@@ -9,6 +9,8 @@ SRC_URI = "https://github.com/ros-planning/${ROS_SPN}/archive/${PV}.tar.gz;downl
 SRC_URI[md5sum] = "f684af3e76eb37b4c0153527162d73dc"
 SRC_URI[sha256sum] = "4d600890b72d0b20b2fbcc9ded06464a37c871317445ec32d3858bd719b0aa02"
 
+SRC_URI += "file://0001-address-gcc6-build-error-backport-for-0.4.4.patch"
+
 S = "${WORKDIR}/${ROS_SP}"
 
 inherit catkin

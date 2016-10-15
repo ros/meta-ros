@@ -1,0 +1,56 @@
+From 6b9e3cab6b09c9b65a7bef1374e079a87711a473 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Wed, 21 Sep 2016 21:22:30 +0200
+Subject: [PATCH] [urdf] address gcc6 build error and tune (#156)
+
+With gcc6, compiling fails with `stdlib.h: No such file or directory`,
+as including '-isystem /usr/include' breaks with gcc6, cf.,
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70129.
+
+This commit addresses this issue for this package in the same way
+it was addressed in various other ROS packages. A list of related
+commits and pull requests is at:
+
+  https://github.com/ros/rosdistro/issues/12783
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+
+Upstream-Status: Accepted [https://github.com/ros/robot_model/commit/6b9e3cab6b09c9b65a7bef1374e079a87711a473]
+
+This patch has been generated with:
+  `git format-patch -1 6b9e3cab6b09c9b65a7bef1374e079a87711a473`
+in the robot_model repository.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+---
+ urdf/CMakeLists.txt | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/urdf/CMakeLists.txt b/urdf/CMakeLists.txt
+index ae7437e..a0872e9 100644
+--- a/urdf/CMakeLists.txt
++++ b/urdf/CMakeLists.txt
+@@ -20,17 +20,16 @@ catkin_package(
+   DEPENDS urdfdom_headers urdfdom Boost pcrecpp
+ )
+ 
+-include_directories(SYSTEM ${Boost_INCLUDE_DIR})
+-link_directories(${Boost_LIBRARY_DIRS})
+-
+ include_directories(
+   include
++  ${Boost_INCLUDE_DIR}
+   ${catkin_INCLUDE_DIRS}
+   ${urdfdom_INCLUDE_DIRS}
+   ${urdfdom_headers_INCLUDE_DIRS}
+   ${TinyXML_INCLUDE_DIRS}
+   )
+-link_directories(${catkin_LIBRARY_DIRS})
++
++link_directories(${Boost_LIBRARY_DIRS} ${catkin_LIBRARY_DIRS})
+ 
+ add_library(${PROJECT_NAME} src/model.cpp src/rosconsole_bridge.cpp)
+ target_link_libraries(${PROJECT_NAME} ${TinyXML_LIBRARIES} ${catkin_LIBRARIES} ${urdfdom_LIBRARIES})
+-- 
+2.5.5
+

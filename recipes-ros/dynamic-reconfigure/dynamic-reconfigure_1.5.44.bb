@@ -10,6 +10,8 @@ SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilena
 SRC_URI[md5sum] = "5728cc591b90e7ddd42b936e74e3062c"
 SRC_URI[sha256sum] = "f1b073c36fd937bd8697bc92ec38926f9194069e6e8d80ab70eb09610720ee7f"
 
+SRC_URI += "file://0001-address-gcc6-build-error.patch"
+
 S = "${WORKDIR}/${ROS_SP}"
 
 inherit catkin

@@ -1,0 +1,138 @@
+From 6c2d65452bd5fe62723988a1a570789921900d59 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Fri, 30 Sep 2016 15:39:47 +0200
+Subject: [PATCH 1/2] address gcc6 build error
+
+With gcc6, compiling fails with `stdlib.h: No such file or directory`,
+as including '-isystem /usr/include' breaks with gcc6, cf.,
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70129.
+
+This commit addresses this issue for this package in the same way
+it was addressed in various other ROS packages. A list of related
+commits and pull requests is at:
+
+  https://github.com/ros/rosdistro/issues/12783
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+
+Upstream-Status: Accepted [https://github.com/ros-perception/image_pipeline/commit/6c2d65452bd5fe62723988a1a570789921900d59]
+
+This patch has been generated with:
+  `git format-patch -2 562332df73781c1e56ce9123542334cc1d91b143`
+in the image_pipeline repository.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+---
+ depth_image_proc/CMakeLists.txt  | 6 +-----
+ image_proc/CMakeLists.txt        | 3 +--
+ image_publisher/CMakeLists.txt   | 3 +--
+ image_rotate/CMakeLists.txt      | 5 +----
+ image_view/CMakeLists.txt        | 8 ++++----
+ stereo_image_proc/CMakeLists.txt | 4 +---
+ 6 files changed, 9 insertions(+), 20 deletions(-)
+
+diff --git a/depth_image_proc/CMakeLists.txt b/depth_image_proc/CMakeLists.txt
+index 0a7c7e2..6ceebfe 100644
+--- a/depth_image_proc/CMakeLists.txt
++++ b/depth_image_proc/CMakeLists.txt
+@@ -10,11 +10,7 @@ catkin_package(
+ find_package(Boost REQUIRED)
+ find_package(Eigen REQUIRED)
+ find_package(OpenCV REQUIRED)
+-include_directories(include
+-        SYSTEM ${BOOST_INCLUDE_DIRS}
+-               ${catkin_INCLUDE_DIRS}
+-               ${EIGEN_INCLUDE_DIRS}
+-)
++include_directories(include ${BOOST_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIRS})
+ 
+ add_library(${PROJECT_NAME} src/nodelets/convert_metric.cpp
+                              src/nodelets/crop_foremost.cpp
+diff --git a/image_proc/CMakeLists.txt b/image_proc/CMakeLists.txt
+index a13371f..34905f0 100755
+--- a/image_proc/CMakeLists.txt
++++ b/image_proc/CMakeLists.txt
+@@ -17,8 +17,7 @@ catkin_package(
+   LIBRARIES ${PROJECT_NAME}
+ )
+ 
+-include_directories(SYSTEM ${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+-include_directories(include)
++include_directories(include ${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+ 
+ # Nodelet library
+ add_library(${PROJECT_NAME} src/libimage_proc/processor.cpp
+diff --git a/image_publisher/CMakeLists.txt b/image_publisher/CMakeLists.txt
+index 8015a45..431109c 100644
+--- a/image_publisher/CMakeLists.txt
++++ b/image_publisher/CMakeLists.txt
+@@ -8,8 +8,7 @@ generate_dynamic_reconfigure_options(cfg/ImagePublisher.cfg)
+ 
+ catkin_package()
+ 
+-# add the executable
+-include_directories(SYSTEM ${catkin_INCLUDE_DIRS})
++include_directories(${catkin_INCLUDE_DIRS})
+ 
+ add_library(${PROJECT_NAME} SHARED src/nodelet/image_publisher_nodelet.cpp)
+ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
+diff --git a/image_rotate/CMakeLists.txt b/image_rotate/CMakeLists.txt
+index 04ba03b..75d8e77 100644
+--- a/image_rotate/CMakeLists.txt
++++ b/image_rotate/CMakeLists.txt
+@@ -12,10 +12,7 @@ find_package(OpenCV REQUIRED core imgproc)
+ find_package(Eigen REQUIRED)
+ 
+ # add the executable
+-include_directories(SYSTEM ${catkin_INCLUDE_DIRS}
+-                           ${EIGEN_INCLUDE_DIRS}
+-                           ${OpenCV_INCLUDE_DIRS}
+-)
++include_directories(${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+ 
+ add_library(${PROJECT_NAME} SHARED src/nodelet/image_rotate_nodelet.cpp)
+ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+diff --git a/image_view/CMakeLists.txt b/image_view/CMakeLists.txt
+index 78b9eaa..93fabe7 100644
+--- a/image_view/CMakeLists.txt
++++ b/image_view/CMakeLists.txt
+@@ -8,9 +8,9 @@ catkin_package(CATKIN_DEPENDS dynamic_reconfigure)
+ find_package(Boost REQUIRED COMPONENTS signals thread)
+ find_package(OpenCV REQUIRED)
+ 
+-include_directories(SYSTEM ${Boost_INCLUDE_DIRS}
+-                           ${catkin_INCLUDE_DIRS}
+-                           ${OpenCV_INCLUDE_DIRS}
++include_directories(${Boost_INCLUDE_DIRS}
++                    ${catkin_INCLUDE_DIRS}
++                    ${OpenCV_INCLUDE_DIRS}
+ )
+ 
+ # Extra tools
+@@ -40,7 +40,7 @@ endif()
+ 
+ find_package(GTK2)
+ add_definitions(-DHAVE_GTK)
+-include_directories(SYSTEM ${GTK2_INCLUDE_DIRS})
++include_directories(${GTK2_INCLUDE_DIRS})
+ 
+ # Nodelet library
+ add_library(image_view src/nodelets/image_nodelet.cpp src/nodelets/disparity_nodelet.cpp src/nodelets/window_thread.cpp)
+diff --git a/stereo_image_proc/CMakeLists.txt b/stereo_image_proc/CMakeLists.txt
+index b7127d2..e201436 100644
+--- a/stereo_image_proc/CMakeLists.txt
++++ b/stereo_image_proc/CMakeLists.txt
+@@ -16,9 +16,7 @@ catkin_package(
+ include_directories(include)
+ 
+ find_package(OpenCV REQUIRED)
+-include_directories(SYSTEM ${catkin_INCLUDE_DIRS}
+-                           ${OpenCV_INCLUDE_DIRS}
+-)
++include_directories(${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+ 
+ # Nodelet library
+ add_library(${PROJECT_NAME} src/libstereo_image_proc/processor.cpp src/nodelets/disparity.cpp src/nodelets/point_cloud2.cpp)
+-- 
+2.5.5
+
