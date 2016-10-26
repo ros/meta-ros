@@ -6,11 +6,17 @@ Currently, this layer is still under continuous development.
 
   * Source Code Repository: https://github.com/bmwcarit/meta-ros.git
   * Issue Tracker: https://github.com/bmwcarit/meta-ros/issues
-  * Mailing List: https://groups.google.com/forum/#!forum/meta-ros
+  * Discussion Forum: http://discourse.ros.org/c/openembedded
   * Installation Guide: http://wiki.ros.org/hydro/Installation/OpenEmbedded
   * Development Guides:
     * https://github.com/bmwcarit/meta-ros/wiki/Guidelines-for-ROS-recipes
     * https://github.com/bmwcarit/meta-ros/wiki/Developer-Guidelines
+
+Note: In October 2016, the mailing list at
+https://groups.google.com/forum/#!forum/meta-ros has been discontinued and
+discussion has moved to http://discourse.ros.org/c/openembedded.
+However, the mailing list is still a good resource on issues that have been
+resolved in the past.
 
 
 ## MAINTAINERS ##
