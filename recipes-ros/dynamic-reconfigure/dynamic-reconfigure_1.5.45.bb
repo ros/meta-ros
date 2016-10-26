@@ -7,10 +7,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc
 DEPENDS = "roscpp std-msgs roslib"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "5728cc591b90e7ddd42b936e74e3062c"
-SRC_URI[sha256sum] = "f1b073c36fd937bd8697bc92ec38926f9194069e6e8d80ab70eb09610720ee7f"
-
-SRC_URI += "file://0001-address-gcc6-build-error.patch"
+SRC_URI[md5sum] = "368adb420f761be39cc0b9840237d599"
+SRC_URI[sha256sum] = "409807fea59061a3d5788e6fa8c46ed2e2198cb1a8d59c66a417049b8e9cf754"
 
 S = "${WORKDIR}/${ROS_SP}"
 
