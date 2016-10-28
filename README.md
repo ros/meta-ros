@@ -176,7 +176,7 @@ resolved in the past.
 
   to the /etc/hosts file, and set up the environment with
 
-    export ROS_ROOT=/opt/ros/indigo
+    export ROS_ROOT=/opt/ros
     export ROS_DISTRO=indigo
     export ROS_PACKAGE_PATH=/opt/ros/indigo/share
     export PATH=$PATH:/opt/ros/indigo/bin
