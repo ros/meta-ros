@@ -12,7 +12,7 @@ SRC_URI[sha256sum] = "46e072074270a1ea25411829814f4bdc1f34b358c950e9b8a7b75b4a40
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-RDEPENDS_${PN} += "python-catkin-pkg python-rospkg python-pyyaml python-netclient"
+RDEPENDS_${PN} += "python-catkin-pkg python-rospkg python-pyyaml python-netclient python-rosdistro"
 
 inherit setuptools
 
