@@ -176,7 +176,7 @@ resolved in the past.
 
   to the /etc/hosts file, and set up the environment with
 
-    export ROS_ROOT=/opt/ros/indigo
+    export ROS_ROOT=/opt/ros
     export ROS_DISTRO=indigo
     export ROS_PACKAGE_PATH=/opt/ros/indigo/share
     export PATH=$PATH:/opt/ros/indigo/bin
@@ -189,6 +189,20 @@ resolved in the past.
   Finally, you can start roscore with
 
     roscore
+
+  If you want to use the roswtf utility for diagnostics and experience an
+  exception like
+
+    rospkg.os_detect.OsNotDetected: Could not detect OS, tried ['windows', 'ubuntu', 'slackware', 'rhel', 'qnx', 'osx', 'opensuse', 'opensuse', 'mint', 'linaro', 'gentoo', 'funtoo', 'freebsd', 'fedora', 'elementary', 'debian', 'cygwin', 'centos', 'arch']
+
+  then you need to set `ROS_OS_OVERRIDE` to one of the listed OS names, e.g.
+
+    export ROS_OS_OVERRIDE=ubuntu
+
+  And since Yocto-based distributions are not supported by the `rospkg`
+  library you have to interpret roswtf's output by translating Ubuntu
+  package names manually to their corresponding package/recipe names that
+  were chosen in the meta-ros layer.
 
 
 ## CROSS-COMPILING ALL ROS PACKAGES IN meta-ros
