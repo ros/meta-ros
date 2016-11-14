@@ -6,6 +6,8 @@ S = "${WORKDIR}/catkin-${PV}"
 
 DEPENDS = "python-catkin-pkg catkin-native"
 
+SRC_URI += "file://0001-use-python-provided-by-environment-instead-of-the-ge.patch"
+
 # Disable binary package option to generate setup scripts and .catkin marker
 ### TODO: ENABLE GENERATION OF SETUP UTILS
 # EXTRA_OECMAKE += "-DCATKIN_BUILD_BINARY_PACKAGE=OFF"
