@@ -1,0 +1,31 @@
+From af522ba6b85be00a712618c719e831b941a8ffdc Mon Sep 17 00:00:00 2001
+From: Gustavo Jose de Sousa <gustavo.sousa@intel.com>
+Date: Wed, 16 Nov 2016 13:23:49 -0200
+Subject: [PATCH] Fix @PKG_NAME@_INCLUDE_DIR variable
+
+The previous approach hardcoded the path to the include directory and cross
+compilation using a sysroot directory would fail. This patch takes the
+resulting config files generated from other ROS packages as reference.
+
+Upstream-Status: Backport [https://github.com/mavlink/mavlink-gbp-release/pull/5]
+---
+ config.cmake.in | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/config.cmake.in b/config.cmake.in
+index b62ab64..34bed61 100644
+--- a/config.cmake.in
++++ b/config.cmake.in
+@@ -3,7 +3,8 @@ if (@PKG_NAME@_CONFIG_INCLUDED)
+ endif()
+ set(@PKG_NAME@_CONFIG_INCLUDED TRUE)
+ 
+-set(@PKG_NAME@_INCLUDE_DIRS "@CMAKE_INSTALL_PREFIX@/include")
++get_filename_component(include "${@PKG_NAME@_DIR}/../../../include" ABSOLUTE)
++set(@PKG_NAME@_INCLUDE_DIRS ${include})
+ set(@PKG_NAME@_DIALECTS @PKG_MAVLINK_DIALECTS@)
+ set(@PKG2_NAME@_DIALECTS @PKG2_MAVLINK_DIALECTS@)
+ 
+-- 
+2.10.2
+
