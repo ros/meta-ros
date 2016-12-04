@@ -171,10 +171,10 @@ RDEPENDS_${PN} = "\
     rosbridge-library \
     rosbridge-server \
     rosbridge-suite \
-    "
+    ar-track-alvar \
+"
 
 # collada-parser and collada-urdf require collada-dom, which does not compile with gcc6.
-# ar-track-alvar does not compile due to unknown opencv identifiers.
 # image-view requires gtk+, but it cannot be found by cmake for some reason.
 # sound-play requires python-gst (which is not available in any layers' master branch)
 # joint-state-publisher still has some issues.
