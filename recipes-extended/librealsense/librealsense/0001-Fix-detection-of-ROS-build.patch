@@ -1,0 +1,35 @@
+From e036c870bca711ef419f6942df125b20d988353c Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Fri, 9 Dec 2016 16:10:21 +0200
+Subject: [PATCH] Fix detection of ROS build
+
+CMAKE_PREFIX_PATH is not an environment variable, but CMake's
+internal one that contains a list of items (strings). This
+list needs to be concattenated into a single string in order
+to become "match"-able against a regex.
+
+Upstream-Status: Submitted [https://github.com/IntelRealSense/librealsense/pull/387]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8772f10..44295ee 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,8 +3,8 @@
+ # ubuntu 16.04 LTS cmake version 3.5.1
+ cmake_minimum_required(VERSION 2.8.3)
+ 
+-IF(DEFINED ENV{CMAKE_PREFIX_PATH})
+-  IF($ENV{CMAKE_PREFIX_PATH} MATCHES "/opt/ros")
++IF(DEFINED CMAKE_PREFIX_PATH)
++  IF("${CMAKE_PREFIX_PATH}" MATCHES "/opt/ros")
+     set(ROS_BUILD_TYPE TRUE)
+   ENDIF()
+ ENDIF()
+-- 
+2.7.4
+
