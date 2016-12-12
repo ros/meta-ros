@@ -1,0 +1,37 @@
+From 6eac973eb36a6f10dd7278b6bc3798a216e52e16 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Mon, 12 Dec 2016 11:11:58 +0200
+Subject: [PATCH] realsense-camera: don't ignore linker flags set by user
+
+Yocto's bitbake sets global LDFLAGS that include the option
+--hash-style=gnu. If this option is ignored then bitbake's
+QA checks report that
+
+QA Issue: No GNU_HASH in the elf binary: '/[...]/opt/ros/indigo/lib/librealsense_camera_nodelet.so' [ldflags]
+
+The patch includes user defined linker flags to
+CMAKE_SHARED_LINKER_FLAGS defined in the project's CMakeList.txt.
+
+Upstream-Status: Submitted [https://github.com/intel-ros/realsense/pull/162]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ realsense_camera/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c5cfffe..307fd97 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -12,7 +12,7 @@ set(CMAKE_CXX_FLAGS "-fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-prot
+ # Flags executables
+ set(CMAKE_EXE_LINKER_FLAGS "-pie -z noexecstack -z relro -z now")
+ # Flags shared libraries
+-set(CMAKE_SHARED_LINKER_FLAGS "-z noexecstack -z relro -z now")
++set(CMAKE_SHARED_LINKER_FLAGS "-z noexecstack -z relro -z now ${CMAKE_SHARED_LINKER_FLAGS}")
+ 
+ find_package(catkin REQUIRED COMPONENTS
+   librealsense
+-- 
+2.7.4
+
