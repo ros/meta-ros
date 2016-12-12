@@ -1,0 +1,41 @@
+From 604642cadfc605da2d08decf34129aa040dd7d2e Mon Sep 17 00:00:00 2001
+From: CyPhyWorks <pocketflyer@cyphyworks.com>
+Date: Mon, 18 Jul 2016 17:33:36 +0530
+Subject: [PATCH] Modify INCLUDE_DIRS to fix yocto build
+
+Mavlink uses CMAKE_INSTALL_PREFIX to refer location of include files.
+This causes issue in yocto build where CMAKE_INSTALL_PREFIX points to
+/opt/ros/indigo.
+
+Use CMAKE_PREFIX_PATH instead of CMAKE_INSTALL_PREFIX to point the
+correct location of the header files in yocto build system.
+
+Upstream-Status: Pending
+
+---
+ config.cmake.in | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/config.cmake.in b/config.cmake.in
+index b62ab64..809eefc 100644
+--- a/config.cmake.in
++++ b/config.cmake.in
+@@ -3,7 +3,14 @@ if (@PKG_NAME@_CONFIG_INCLUDED)
+ endif()
+ set(@PKG_NAME@_CONFIG_INCLUDED TRUE)
+ 
+-set(@PKG_NAME@_INCLUDE_DIRS "@CMAKE_INSTALL_PREFIX@/include")
++set(@PKG_NAME@_INCLUDE_DIRS "")
++
++foreach(location @CMAKE_PREFIX_PATH@)
++  if(IS_DIRECTORY ${location}/include)
++     list(APPEND @PKG_NAME@_INCLUDE_DIRS ${location}/include)
++  endif()
++endforeach()
++
+ set(@PKG_NAME@_DIALECTS @PKG_MAVLINK_DIALECTS@)
+ set(@PKG2_NAME@_DIALECTS @PKG2_MAVLINK_DIALECTS@)
+ 
+-- 
+1.9.1
+
