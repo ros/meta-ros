@@ -1,9 +1,9 @@
 DESCRIPTION = "This package contains the python bindings PyKDL for the Kinematics and Dynamics Library (KDL), distributed by the Orocos Project."
 SECTION = "devel"
 LICENSE = "LGPLv2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=46ee8693f40a89a31023e97ae17ecf19"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=46ee8693f40a89a31023e97ae17ecf19"
 
-DEPENDS = "sip-native python-sip orocos-kdl"
+DEPENDS = "sip-native sip orocos-kdl"
 
 require kdl.inc
 
