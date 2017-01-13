@@ -1,6 +1,8 @@
 SRC_URI = "https://github.com/ros-planning/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "52a9730cc9d6e3b9480c2e80cbb9dd2a"
-SRC_URI[sha256sum] = "bb8b8df8df4c8c2055518dbe2963d1b587db61def31eeb0d63e4f20811b87d73"
+SRC_URI[md5sum] = "d7a392da183b3c2a5fce063e90cbf1f2"
+SRC_URI[sha256sum] = "169f89a4a3a94437ffbf80a9b06b65471c17529169d1940a217e92d85481f18f"
+
+SRC_URI += "file://0001-address-gcc6-build-error.patch;patchdir=.."
 
 S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 

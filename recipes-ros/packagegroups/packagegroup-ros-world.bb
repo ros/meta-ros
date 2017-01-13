@@ -65,8 +65,6 @@ RDEPENDS_${PN} = "\
     hardware-interface \
     joint-limits-interface \
     transmission-interface \
-    collada-parser \
-    collada-urdf \
     kdl-parser \
     resource-retriever \
     urdf-parser-plugin \
@@ -93,6 +91,7 @@ RDEPENDS_${PN} = "\
     ivcon \
     convex-decomposition \
     camera-calibration \
+    image-publisher \
     image-proc \
     image-rotate \
     stereo-image-proc \
@@ -172,9 +171,10 @@ RDEPENDS_${PN} = "\
     rosbridge-library \
     rosbridge-server \
     rosbridge-suite \
-    "
+    ar-track-alvar \
+"
 
-# ar-track-alvar does not compile due to unknown opencv identifiers.
+# collada-parser and collada-urdf require collada-dom, which does not compile with gcc6.
 # image-view requires gtk+, but it cannot be found by cmake for some reason.
 # sound-play requires python-gst (which is not available in any layers' master branch)
 # joint-state-publisher still has some issues.
