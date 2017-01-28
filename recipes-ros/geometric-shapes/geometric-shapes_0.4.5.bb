@@ -6,10 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=5ee5b8b046ae4
 DEPENDS = "boost shape-msgs shape-tools octomap assimp libeigen qhull console-bridge random-numbers eigen-stl-containers resource-retriever"
 
 SRC_URI = "https://github.com/ros-planning/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "f684af3e76eb37b4c0153527162d73dc"
-SRC_URI[sha256sum] = "4d600890b72d0b20b2fbcc9ded06464a37c871317445ec32d3858bd719b0aa02"
-
-SRC_URI += "file://0001-address-gcc6-build-error-backport-for-0.4.4.patch"
+SRC_URI[md5sum] = "2a11cd903e581f4e9cef57551e3f284b"
+SRC_URI[sha256sum] = "dc3e826930642d6a2e47e8847550c680d03649fa90ca521fa752ff01bd3b697c"
 
 S = "${WORKDIR}/${ROS_SP}"
 
