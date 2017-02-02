@@ -3,9 +3,11 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=9b0e1f01a68f441eeaf7b5e18812d3c8"
 
-SRC_URI = "https://github.com/OctoMap/${BPN}/archive/v${PV}.tar.gz;downloadfilename=${BP}.tar.gz"
-SRC_URI[md5sum] = "3cba6c41544c89a8b51610bdec610f00"
-SRC_URI[sha256sum] = "3383ee9c6b18577c860d747369c84814058e2a9413f7d482846b1e02ce76f0f7"
+SRC_URI = "https://github.com/OctoMap/${BPN}/archive/v${PV}.tar.gz;downloadfilename=${BP}.tar.gz \
+           file://0001-Improve-the-generation-of-config.cmake-and-version.c.patch \
+           "
+SRC_URI[md5sum] = "e341c3ef92c978cc0261158bbafbf46a"
+SRC_URI[sha256sum] = "158f66af55bb660a2aa7d0a00c60c9e5320f6594bd0924748af1471d315d5633"
 
 S = "${WORKDIR}/${BP}/${BPN}"
 
