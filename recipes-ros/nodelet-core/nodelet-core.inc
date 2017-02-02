@@ -1,6 +1,6 @@
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "83719b720e925860d0804978fdb75eac"
-SRC_URI[sha256sum] = "9432422b56a586828e75ec038f5400c3a92b0b108dd42bc331d8160972df012c"
+SRC_URI[md5sum] = "fd356be7e92f3425fc426209a928ad4a"
+SRC_URI[sha256sum] = "65181dfe8070c9cd7ed2d16a9cb0204f2ab122fd3f960c4042a5cbf5566f6ede"
 
 S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 

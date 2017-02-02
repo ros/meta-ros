@@ -6,11 +6,17 @@ Currently, this layer is still under continuous development.
 
   * Source Code Repository: https://github.com/bmwcarit/meta-ros.git
   * Issue Tracker: https://github.com/bmwcarit/meta-ros/issues
-  * Mailing List: https://groups.google.com/forum/#!forum/meta-ros
+  * Discussion Forum: http://discourse.ros.org/c/openembedded
   * Installation Guide: http://wiki.ros.org/hydro/Installation/OpenEmbedded
   * Development Guides:
     * https://github.com/bmwcarit/meta-ros/wiki/Guidelines-for-ROS-recipes
     * https://github.com/bmwcarit/meta-ros/wiki/Developer-Guidelines
+
+Note: In October 2016, the mailing list at
+https://groups.google.com/forum/#!forum/meta-ros has been discontinued and
+discussion has moved to http://discourse.ros.org/c/openembedded.
+However, the mailing list is still a good resource on issues that have been
+resolved in the past.
 
 
 ## MAINTAINERS ##
@@ -115,6 +121,9 @@ Currently, this layer is still under continuous development.
   recipes relying on opencv need to activate the DISTRO\_FEATURE
   opengl.
 
+  rosbridge-library depends on python-six, which is provided in meta-python
+  since a36869c700bed940f7f0aa4b9703ae630dc84eac@meta-openembedded.
+
 ## INSTALLATION ##
 
   The repository contains a layer for ROS that builds on top of the
@@ -167,7 +176,7 @@ Currently, this layer is still under continuous development.
 
   to the /etc/hosts file, and set up the environment with
 
-    export ROS_ROOT=/opt/ros/indigo
+    export ROS_ROOT=/opt/ros
     export ROS_DISTRO=indigo
     export ROS_PACKAGE_PATH=/opt/ros/indigo/share
     export PATH=$PATH:/opt/ros/indigo/bin
@@ -180,6 +189,20 @@ Currently, this layer is still under continuous development.
   Finally, you can start roscore with
 
     roscore
+
+  If you want to use the roswtf utility for diagnostics and experience an
+  exception like
+
+    rospkg.os_detect.OsNotDetected: Could not detect OS, tried ['windows', 'ubuntu', 'slackware', 'rhel', 'qnx', 'osx', 'opensuse', 'opensuse', 'mint', 'linaro', 'gentoo', 'funtoo', 'freebsd', 'fedora', 'elementary', 'debian', 'cygwin', 'centos', 'arch']
+
+  then you need to set `ROS_OS_OVERRIDE` to one of the listed OS names, e.g.
+
+    export ROS_OS_OVERRIDE=ubuntu
+
+  And since Yocto-based distributions are not supported by the `rospkg`
+  library you have to interpret roswtf's output by translating Ubuntu
+  package names manually to their corresponding package/recipe names that
+  were chosen in the meta-ros layer.
 
 
 ## CROSS-COMPILING ALL ROS PACKAGES IN meta-ros
@@ -223,9 +246,9 @@ Currently, this layer is still under continuous development.
   (cf. https://github.com/kartikmohta/meta-km/blob/master/recipes-devtools/yaml-cpp/yaml-cpp_0.3.0.bb)
   licensed with the MIT License.
 
-  The libpoco recipe originated from the recipe in digitalSTROM's OpenEmbedded layer
-  (cf. https://gitorious.digitalstrom.org/dss-oe/dss-oe/blobs/master/dS/meta-dss11-production/recipes-support/poco/poco_1.3.6p2.bb)
-  licensed with the MIT License.
+  The poco recipe is a copy of the poco recipe in the meta-oe layer licensed with the MIT License
+  (cf. http://cgit.openembedded.org/meta-openembedded/tree/meta-oe/recipes-support/poco).
+  The recipe is included in the meta-ros layer to support the use of older versions of the meta-oe layer.
 
   The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
