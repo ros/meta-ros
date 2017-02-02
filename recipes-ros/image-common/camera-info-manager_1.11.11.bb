@@ -6,3 +6,9 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9de
 DEPENDS = "boost camera-calibration-parsers image-transport roscpp roslib sensor-msgs"
 
 require image-common.inc
+
+do_configure_append(){
+  sed -i -e 's:-L\/opt\/ros\/${ROSDISTRO}\/lib::g' ${B}/CMakeFiles/camera_info_manager.dir/link.txt
+  sed -i -e 's:\/opt\/ros\/${ROSDISTRO}\/lib\/libcamera_calibration_parsers.so::g' ${B}/CMakeFiles/camera_info_manager.dir/link.txt
+  sed -i -e 's:\/opt\/ros\/${ROSDISTRO}\/lib\/libimage_transport.so::g' ${B}/CMakeFiles/camera_info_manager.dir/link.txt
+}
