@@ -1,0 +1,58 @@
+From 736d9a4598018d174bb33580c920c295df317825 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Mon, 6 Feb 2017 15:55:09 +0200
+Subject: [PATCH] Add missing std namespace prefixes
+
+Upstream-Status: Submitted [https://github.com/ros-perception/depthimage_to_laserscan/pull/20]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ src/DepthImageToLaserScan.cpp      | 2 +-
+ test/DepthImageToLaserScanTest.cpp | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/DepthImageToLaserScan.cpp b/src/DepthImageToLaserScan.cpp
+index 6ad0487..f1949ba 100644
+--- a/src/DepthImageToLaserScan.cpp
++++ b/src/DepthImageToLaserScan.cpp
+@@ -59,7 +59,7 @@ bool DepthImageToLaserScan::use_point(const float new_value, const float old_val
+   
+   // Infs are preferable over NaNs (more information)
+   if(!new_finite && !old_finite){ // Both are not NaN or Inf.
+-    if(!isnan(new_value)){ // new is not NaN, so use it's +-Inf value.
++    if(!std::isnan(new_value)){ // new is not NaN, so use it's +-Inf value.
+       return true;
+     }
+     return false; // Do not replace old_value
+diff --git a/test/DepthImageToLaserScanTest.cpp b/test/DepthImageToLaserScanTest.cpp
+index 1b4acc2..dbf25e3 100644
+--- a/test/DepthImageToLaserScanTest.cpp
++++ b/test/DepthImageToLaserScanTest.cpp
+@@ -235,7 +235,7 @@ TEST(ConvertTest, testPositiveInf)
+   for(size_t i = 0; i < scan_msg->ranges.size(); i++){
+     if(std::isfinite(scan_msg->ranges[i])){ // NaNs are acceptable.
+       ADD_FAILURE() << "Non-finite value produced from postive infniity test.";
+-    } else if(isnan(scan_msg->ranges[i])){
++    } else if(std::isnan(scan_msg->ranges[i])){
+       nan_count++;
+     } else if(scan_msg->ranges[i] < 0){
+       ADD_FAILURE() << "Negative value produced from postive infinity test.";
+@@ -267,7 +267,7 @@ TEST(ConvertTest, testNegativeInf)
+   for(size_t i = 0; i < scan_msg->ranges.size(); i++){
+     if(std::isfinite(scan_msg->ranges[i])){ // NaNs are acceptable.
+       ADD_FAILURE() << "Non-finite value produced from postive infniity test.";
+-    } else if(isnan(scan_msg->ranges[i])){
++    } else if(std::isnan(scan_msg->ranges[i])){
+       nan_count++;
+     } else if(scan_msg->ranges[i] > 0){
+       ADD_FAILURE() << "Postive value produced from negative infinity test.";
+@@ -282,4 +282,4 @@ TEST(ConvertTest, testNegativeInf)
+ int main(int argc, char **argv){
+ testing::InitGoogleTest(&argc, argv);
+ return RUN_ALL_TESTS();
+-}
+\ No newline at end of file
++}
+-- 
+2.7.4
+
