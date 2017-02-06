@@ -7,7 +7,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "dynamic-reconfigure"
+DEPENDS = "dynamic-reconfigure python-rospkg"
 
 SRC_URI = "https://github.com/KristofRobot/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "4712cbe1d9d8bacd9eebfd51825ada36"
