@@ -12,6 +12,7 @@ SRC_URI[sha256sum] = "81aff570966cb99d6305881cce6a645080a9778380e7fc2e67a33ac972
 SRC_URI += "\
     file://0001-CATKIN_WORKSPACES-Don-t-require-.catkin-file.patch \
     file://0001-use-python-provided-by-environment-instead-of-the-ge.patch \
+    file://0001-avoid-using-host-s-paths-when-cross-compiling.patch \
     "
 
 inherit catkin
