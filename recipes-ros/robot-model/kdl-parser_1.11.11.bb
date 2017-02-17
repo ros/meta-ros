@@ -6,3 +6,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9de
 DEPENDS = "libeigen orocos-kdl rosconsole roscpp urdf cmake-modules"
 
 require robot-model.inc
+
+SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz \
+           file://0001-add-explicit-dependency-on-libeigen.patch \
+           "
