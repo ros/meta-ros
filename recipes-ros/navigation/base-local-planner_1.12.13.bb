@@ -6,6 +6,6 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=01c2bc31767cc
 
 DEPENDS = "angles costmap-2d dynamic-reconfigure geometry-msgs libeigen message-generation \
     nav-core nav-msgs pcl-conversions pcl-ros pluginlib rosconsole roscpp rospy std-msgs tf \
-    voxel-grid visualization-msgs"
+    voxel-grid visualization-msgs rostest"
 
 require navigation.inc
