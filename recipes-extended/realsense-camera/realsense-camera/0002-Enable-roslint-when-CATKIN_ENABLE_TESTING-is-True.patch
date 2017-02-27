@@ -1,0 +1,68 @@
+From 787ebb1f9b598e4444ab820a9d6c36142935f793 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Fri, 17 Mar 2017 10:40:26 +0200
+Subject: [PATCH 2/2] Enable roslint when CATKIN_ENABLE_TESTING is True
+
+roslint depends on catkin_run_tests_target() which is defined only
+when CATKIN_ENABLE_TESTING is True.
+
+Thus run roslint functions in CMakeLists.txt only when testing
+is enabled.
+
+Upstream-Status: Submitted [https://github.com/intel-ros/realsense/pull/204]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ CMakeLists.txt | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ae10f84..a1ec2f6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -28,7 +28,6 @@ set(REALSENSE_CATKIN_BASED_DEPS
+   std_msgs
+   sensor_msgs
+   pcl_ros
+-  roslint
+ )
+ 
+ if(USE_SYSTEM_LIBREALSENSE)
+@@ -37,6 +36,10 @@ else()
+   list(APPEND REALSENSE_CATKIN_BASED_DEPS librealsense)
+ endif()
+ 
++if(CATKIN_ENABLE_TESTING)
++  list(APPEND REALSENSE_CATKIN_BASED_DEPS roslint)
++endif()
++
+ find_package(catkin REQUIRED COMPONENTS
+   ${REALSENSE_CATKIN_BASED_DEPS}
+ )
+@@ -68,11 +71,6 @@ generate_dynamic_reconfigure_options(
+   cfg/zr300_params.cfg
+ )
+ 
+-# ROS Lint the code
+-roslint_cpp()
+-roslint_python()
+-roslint_add_test()
+-
+ #################################
+ # catkin specific configuration #
+ #################################
+@@ -120,6 +118,11 @@ endif()
+ if (CATKIN_ENABLE_TESTING)
+   find_package(rostest REQUIRED)
+ 
++  # ROS Lint the code
++  roslint_cpp()
++  roslint_python()
++  roslint_add_test()
++
+   add_executable(tests_camera_core test/camera_core.cpp)
+   target_link_libraries(tests_camera_core
+     ${catkin_LIBRARIES}
+-- 
+2.7.4
+
