@@ -1,0 +1,41 @@
+From c46a8ed481810a647d505139731dfa3fb1c8d657 Mon Sep 17 00:00:00 2001
+From: Dave Coleman <dave@dav.ee>
+Date: Wed, 20 Jul 2016 08:42:23 -0600
+Subject: [PATCH 2/2] Add C++11 support for moveit_ros_perception and
+ moveit_ros_robot_interaction (#721)
+
+Upstream-Status: Backported [kinetic-devel]
+---
+ CMakeLists.txt                                    | 2 ++
+ pointcloud_octomap_updater/src/pointcloud_octomap_updater.cpp       | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fd91cc6..ea040f2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,6 +3,8 @@ project(moveit_ros_perception)
+ 
+ option(BUILD_OPENGL "Build the parts that depends on OpenGL" ON)
+ 
++add_compile_options(-std=c++11)
++
+ if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
+   set(CMAKE_BUILD_TYPE Release)
+ endif()
+diff --git a/pointcloud_octomap_updater/src/pointcloud_octomap_updater.cpp b/pointcloud_octomap_updater/src/pointcloud_octomap_updater.cpp
+index db0b1c2..22be20a 100644
+--- a/pointcloud_octomap_updater/src/pointcloud_octomap_updater.cpp
++++ b/pointcloud_octomap_updater/src/pointcloud_octomap_updater.cpp
+@@ -251,7 +251,7 @@ void PointCloudOctomapUpdater::cloudMsgCallback(const sensor_msgs::PointCloud2::
+         //  continue;
+ 
+         /* check for NaN */
+-        if (!isnan(pt_iter[0]) && !isnan(pt_iter[1]) && !isnan(pt_iter[2]))
++        if (!std::isnan(pt_iter[0]) && !std::isnan(pt_iter[1]) && !std::isnan(pt_iter[2]))
+         {
+           /* transform to map frame */
+           tf::Vector3 point_tf = map_H_sensor * tf::Vector3(pt_iter[0], pt_iter[1], pt_iter[2]);
+-- 
+2.7.4
+

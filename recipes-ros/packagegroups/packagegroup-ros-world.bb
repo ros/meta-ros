@@ -172,6 +172,7 @@ RDEPENDS_${PN} = "\
     rosbridge-server \
     rosbridge-suite \
     ar-track-alvar \
+    moveit-ros-planning \
 "
 
 # collada-parser and collada-urdf require collada-dom, which does not compile with gcc6.
