@@ -86,6 +86,12 @@ resolved in the past.
   branch: master  
   revision: HEAD  
 
+  **meta-intel-realsense** (since 4a5ba0f20094dd3d07c0a0c1dede2ba40e9d6abf)
+  URI: https://github.com/IntelRealSense/meta-intel-realsense
+  branch: master
+  revision: HEAD
+  This layer is required only if you need to build realsense-camera driver.
+
   **bitbake** > 1.20
 
 
