@@ -56,4 +56,8 @@ RDEPENDS_${PN} = "\
     yocs-virtual-sensor \
     yocs-waypoint-provider \
     yocs-waypoints-navi \
+    capabilities \
+    std-capabilities \
+    unique-id \
+    uuid-msgs \
 "
