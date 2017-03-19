@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc
 DEPENDS = "boost cmake-modules python-rospkg-native libtinyxml"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "6608b514bc7aff7e8350855369228cd8"
-SRC_URI[sha256sum] = "e11d7aebc61c71fd4b3d1d6c775766d6d58573a79d5076d7f13595eeeeba0ad2"
+SRC_URI[md5sum] = "f415d53b620d35ce674959ac7616d202"
+SRC_URI[sha256sum] = "a8fecbe03f9757510fe47137642e39a7c31b823d5bf7fa7890acc1169106b638"
 
 inherit catkin
 
