@@ -38,4 +38,22 @@ RDEPENDS_${PN} = "\
     ecl-time-lite \
     ecl-type-traits \
     ecl-utilities \
+    yocs-ar-marker-tracking \
+    yocs-ar-pair-approach \
+    yocs-ar-pair-tracking \
+    yocs-cmd-vel-mux \
+    yocs-controllers \
+    yocs-diff-drive-pose-controller \
+    yocs-joyop \
+    yocs-keyop \
+    yocs-localization-manager \
+    yocs-math-toolkit \
+    yocs-msgs \
+    yocs-navigator \
+    yocs-rapps \
+    yocs-safety-controller \
+    yocs-velocity-smoother \
+    yocs-virtual-sensor \
+    yocs-waypoint-provider \
+    yocs-waypoints-navi \
 "
