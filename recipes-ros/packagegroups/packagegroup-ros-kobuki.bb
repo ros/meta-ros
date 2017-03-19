@@ -60,4 +60,7 @@ RDEPENDS_${PN} = "\
     std-capabilities \
     unique-id \
     uuid-msgs \
+    zeroconf-avahi \
+    zeroconf-avahi-demos \
+    zeroconf-msgs \
 "
