@@ -6,10 +6,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 DEPENDS = "roslib rosconsole roscpp pluginlib"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "0dd26504be16afa7816e9a5aa11715f1"
-SRC_URI[sha256sum] = "fb71f1fbeaf89726877fce66dce1db8957c5cc6dffa1973d6a104a10233f8237"
-
-SRC_URI += "file://0001-check-for-CATKIN_ENABLE_TESTING.patch; \
-    file://0001-make-rostest-in-CMakeLists-optional-ros-rosdistro-30.patch"
+SRC_URI[md5sum] = "93b0685f061351dd2169f6b7f5373ca6"
+SRC_URI[sha256sum] = "6632c8bc2f3c47db6f69d136ccf58a1963ac0c83f5f542173caaebd2c7086160"
 
 inherit catkin
