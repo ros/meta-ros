@@ -7,6 +7,7 @@ PACKAGES = "${PN}"
 
 RDEPENDS_${PN} = "\
     packagegroup-ros-comm \
+    packagegroup-ros-kobuki \
     actionlib \
     bond \
     bondcpp \
