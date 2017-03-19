@@ -9,6 +9,6 @@ SRC_URI += "file://0001-Fix-PKG_NAME-_INCLUDE_DIR-variable.patch"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "python-setuptools"
+DEPENDS = "python-setuptools-native"
 
 inherit catkin
