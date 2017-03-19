@@ -96,4 +96,19 @@ RDEPENDS_${PN} = "\
     rocon-tutorial-msgs \
     rocon-uri \
     scheduler-msgs \
+    kobuki-auto-docking \
+    kobuki-bumper2pc \
+    kobuki-capabilities \
+    kobuki-controller-tutorial \
+    kobuki-description \
+    kobuki-dock-drive \
+    kobuki-driver \
+    kobuki-keyop \
+    kobuki-msgs \
+    kobuki-node \
+    kobuki-random-walker \
+    kobuki-rapps \
+    kobuki-safety-controller \
 "
+
+# kobuki-testsuite depends on python-orocos-kdl; python-orocos-kdl fails with #469.
