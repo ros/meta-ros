@@ -63,4 +63,37 @@ RDEPENDS_${PN} = "\
     zeroconf-avahi \
     zeroconf-avahi-demos \
     zeroconf-msgs \
+    concert-msgs \
+    concert-service-msgs \
+    concert-workflow-engine-msgs \
+    gateway-msgs \
+    rocon-app-manager \
+    rocon-app-manager-msgs \
+    rocon-apps \
+    rocon-app-utilities \
+    rocon-bubble-icons \
+    rocon-console \
+    rocon-device-msgs \
+    rocon-ebnf \
+    rocon-gateway \
+    rocon-gateway-tests \
+    rocon-gateway-utils \
+    rocon-hub \
+    rocon-hub-client \
+    rocon-icons \
+    rocon-interaction-msgs \
+    rocon-interactions \
+    rocon-launch \
+    rocon-master-info \
+    rocon-python-comms \
+    rocon-python-redis \
+    rocon-python-utils \
+    rocon-python-wifi \
+    rocon-semantic-version \
+    rocon-service-pair-msgs \
+    rocon-std-msgs \
+    rocon-test \
+    rocon-tutorial-msgs \
+    rocon-uri \
+    scheduler-msgs \
 "
