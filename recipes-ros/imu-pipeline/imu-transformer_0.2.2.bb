@@ -8,5 +8,3 @@ DEPENDS = "geometry-msgs nodelet message-filters roscpp roslaunch sensor-msgs \
   tf2 tf2-ros tf2-sensor-msgs topic-tools"
 
 require imu-pipeline.inc
-
-SRC_URI += "file://0001-CMakeLists.txt-check-launch-file-if-testing-is-on.patch;striplevel=2"

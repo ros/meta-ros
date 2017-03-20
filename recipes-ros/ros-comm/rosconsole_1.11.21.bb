@@ -8,5 +8,3 @@ DEPENDS = "apr boost cpp-common log4cxx rostime rosunit"
 require ros-comm.inc
 
 ROS_PKG_SUBDIR = "tools"
-
-SRC_URI += "file://0001-Add-Include-vector-to-fix-building-on-GCC-6.patch;striplevel=3"
