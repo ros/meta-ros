@@ -1,0 +1,46 @@
+From 5571eaff800b8be87add3436507659b5e166ab9c Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Fri, 20 Jan 2017 11:29:58 +0200
+Subject: [PATCH] address gcc6 build error
+
+With gcc6, compiling fails with `stdlib.h: No such file or directory`,
+as including '-isystem /usr/include' breaks with gcc6, cf.,
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70129.
+
+This commit addresses this issue for this package in the same way
+it was addressed in various other ROS packages. A list of related
+commits and pull requests is at:
+
+  https://github.com/ros/rosdistro/issues/12783
+
+Upstream-Status: Backported [from kinetic-devel]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ CMakeLists.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a28ecea..545934b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 2.8.3)
+ project(srdfdom)
+ 
+ find_package(Boost REQUIRED)
+-include_directories(SYSTEM ${Boost_INCLUDE_DIR})
+ 
+ find_package(console_bridge REQUIRED)
+ find_package(urdfdom_headers REQUIRED)
+@@ -11,7 +10,7 @@ find_package(catkin REQUIRED COMPONENTS cmake_modules urdfdom_py)
+ 
+ find_package(TinyXML REQUIRED)
+ 
+-include_directories(include ${TinyXML_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS} ${console_bridge_INCLUDE_DIRS} ${urdfdom_headers_INCLUDE_DIRS})
++include_directories(include ${Boost_INCLUDE_DIR} ${TinyXML_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS} ${console_bridge_INCLUDE_DIRS} ${urdfdom_headers_INCLUDE_DIRS})
+ link_directories(${catkin_LIBRARY_DIRS})
+ 
+ catkin_python_setup()
+-- 
+2.7.4
+

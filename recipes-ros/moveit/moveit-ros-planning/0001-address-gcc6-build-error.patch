@@ -1,0 +1,49 @@
+From 6734257c8d611e7561372be93e31ea5c4887c7e2 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Wed, 25 Jan 2017 11:02:22 +0200
+Subject: [PATCH 1/2] address gcc6 build error
+
+With gcc6, compiling fails with `stdlib.h: No such file or directory`,
+as including '-isystem /usr/include' breaks with gcc6, cf.,
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70129.
+
+This commit addresses this issue for this package in almost the same way
+it was addressed in various other ROS packages. A list of related
+commits and pull requests is at:
+
+    https://github.com/ros/rosdistro/issues/12783
+
+Particularly when searching for the Boost library CMake sets
+Boost_INCLUDE_DIRS to @SYSROOT@/usr/include which should be
+avoided in the `-isystem` option of gcc.
+
+Upstream-Status: Accepted
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ CMakeLists.txt | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2f41991..4829da0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -62,11 +62,12 @@ catkin_package(
+ 
+ include_directories(${THIS_PACKAGE_INCLUDE_DIRS}
+                     ${catkin_INCLUDE_DIRS}
+-		    )
++                    ${Boost_INCLUDE_DIRS}
++)
+ include_directories(SYSTEM
+                     ${EIGEN_INCLUDE_DIRS}
+-                    ${Boost_INCLUDE_DIRS}
+-                    )
++)
++
+ 
+ link_directories(${Boost_LIBRARY_DIRS})
+ link_directories(${catkin_LIBRARY_DIRS})
+-- 
+2.7.4
+
