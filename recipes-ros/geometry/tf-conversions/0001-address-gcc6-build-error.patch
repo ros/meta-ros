@@ -1,0 +1,51 @@
+From b2c5148ce426cc89c1954b9f5def3f1474a726c0 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Fri, 24 Mar 2017 11:15:08 +0100
+Subject: [PATCH] address gcc6 build error
+
+With gcc6, compiling fails with `stdlib.h: No such file or directory`,
+as including '-isystem /usr/include' breaks with gcc6, cf.,
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70129.
+
+This commit addresses this issue for this package in the same way
+it was addressed in various other ROS packages. A list of related
+commits and pull requests is at:
+
+  ros/rosdistro#12783
+
+I identified this issue when updating the orocos_kdl package to the
+current git commit:
+
+  https://github.com/orocos/orocos_kinematics_dynamics/commit/d798f594552cb6f6223981b9c304d3db2b6a7d18
+
+The issue occurred when compiling tf_conversions with this updated orocos_kdl.
+
+This commit addresses for tf_conversions the same issue as
+b0d31cc1e9a43b45d216ee7f804e901a5c0f8936 was addressing for tf.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
+Upstream-Status: Submitted [https://github.com/ros/geometry/pull/143]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ tf_conversions/CMakeLists.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/tf_conversions/CMakeLists.txt b/tf_conversions/CMakeLists.txt
+index 9c92e83..6db73d7 100644
+--- a/tf_conversions/CMakeLists.txt
++++ b/tf_conversions/CMakeLists.txt
+@@ -14,8 +14,7 @@ catkin_package(
+   CATKIN_DEPENDS geometry_msgs kdl_conversions tf
+ )
+ 
+-include_directories(SYSTEM ${EIGEN_INCLUDE_DIRS} ${orocos_kdl_INCLUDE_DIRS})
+-include_directories(include ${catkin_INCLUDE_DIRS})
++include_directories(include ${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIRS} ${orocos_kdl_INCLUDE_DIRS})
+ 
+ # Needed due to no full filename in orocos_kdl pkg-config export
+ link_directories(${orocos_kdl_LIBRARY_DIRS})
+-- 
+2.5.5
+

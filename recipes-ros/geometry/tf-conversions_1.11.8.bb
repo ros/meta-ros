@@ -6,3 +6,5 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=19;endline=19;md5=d566ef916e9de
 DEPENDS = "libeigen geometry-msgs kdl-conversions tf cmake-modules"
 
 require geometry.inc
+
+SRC_URI += "file://0001-address-gcc6-build-error.patch;striplevel=2"
