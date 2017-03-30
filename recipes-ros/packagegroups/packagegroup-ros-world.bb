@@ -96,7 +96,6 @@ RDEPENDS_${PN} = "\
     image-rotate \
     stereo-image-proc \
     random-numbers \
-    shape-tools \
     octomap-msgs \
     pcl-msgs \
     laser-geometry \
