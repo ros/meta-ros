@@ -1,0 +1,33 @@
+From fb74e5eec2368f20c4b43cf9224519b29aee35ad Mon Sep 17 00:00:00 2001
+From: Murilo Belluzzo <murilo.belluzzo@intel.com>
+Date: Wed, 5 Apr 2017 17:06:44 -0700
+Subject: [PATCH 3/3] librealsense: Fix link when the system library is used
+
+Otherwise librealsense won't be listed as a dependency for the nodelet
+that will fail to load due to undefined symbols.
+
+Upstream-Status: Accepted (expected in v1.8.1)
+    [https://github.com/intel-ros/realsense/pull/226]
+
+Signed-off-by: Murilo Belluzzo <murilo.belluzzo@intel.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a1ec2f6..926992a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -106,6 +106,12 @@ add_library(${PROJECT_NAME}_nodelet src/base_nodelet.cpp src/r200_nodelet.cpp sr
+ target_link_libraries(${PROJECT_NAME}_nodelet
+   ${catkin_LIBRARIES}
+ )
++if(USE_SYSTEM_LIBREALSENSE)
++  target_link_libraries(${PROJECT_NAME}_nodelet
++    ${realsense_LIBRARY}
++    )
++endif()
++
+ add_dependencies(${PROJECT_NAME}_nodelet ${PROJECT_NAME}_generate_messages_cpp ${PROJECT_NAME}_gencfg)
+ add_dependencies(${PROJECT_NAME}_nodelet ${catkin_EXPORTED_TARGETS})
+ 
+-- 
+2.12.2
+
