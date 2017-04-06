@@ -7,6 +7,7 @@ DEPENDS = "librealsense cv-bridge camera-info-manager pcl-ros roscpp"
 SRC_URI = "https://github.com/intel-ros/realsense/archive/${PV}.tar.gz \
            file://0001-Add-option-to-link-against-non-catkin-librealsense.patch \
            file://0002-Enable-roslint-when-CATKIN_ENABLE_TESTING-is-True.patch \
+           file://0003-librealsense-Fix-link-when-the-system-library-is-use.patch \
            "
 SRC_URI[md5sum] = "aaa0d0ddaaee210e2a2529767ba45a4b"
 SRC_URI[sha256sum] = "65c6c4a0b6bd0214dffa8528033f03c0fbc4be00e52e058cfbd96b4f7d733b10"
