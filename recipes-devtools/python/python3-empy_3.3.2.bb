@@ -1,3 +1,3 @@
 require python-empy.inc
 
-inherit distutils
+inherit distutils3
