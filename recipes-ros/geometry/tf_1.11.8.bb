@@ -9,4 +9,4 @@ require geometry.inc
 
 SRC_URI += "file://0001-Fix-stdlib.h-No-such-file-or-directory-errors-in-GCC.patch;striplevel=2"
 
-RDEPENDS_${PN} = "python-numpy"
+RDEPENDS_${PN} = "${PYTHON_PN}-numpy"

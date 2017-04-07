@@ -9,4 +9,4 @@ require ros.inc
 
 ROS_PKG_SUBDIR = "core"
 
-RDEPENDS_${PN} = "python-rospkg catkin-runtime"
+RDEPENDS_${PN} = "${PYTHON_PN}-rospkg catkin-runtime"

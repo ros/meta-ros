@@ -11,8 +11,8 @@ FILES_${PN} = "${PYTHON_SITEPACKAGES_DIR} ${ros_bindir}/catkin_find"
 
 RDEPENDS_${PN}_class-native = ""
 RDEPENDS_${PN} = "\
-    python-catkin-pkg python-argparse python-misc python-multiprocessing \
-    python-shell python-subprocess python-xml python-pkgutil"
+    ${PYTHON_PN}-catkin-pkg ${PYTHON_PN}-argparse ${PYTHON_PN}-misc ${PYTHON_PN}-multiprocessing \
+    ${PYTHON_PN}-shell ${PYTHON_PN}-subprocess ${PYTHON_PN}-xml ${PYTHON_PN}-pkgutil"
 
 # Delete everything but the python packages in order to avoid
 # that the QA error [installed-vs-shipped] hits on us.

@@ -2,7 +2,9 @@
 # Copyright (c) 2013 Stefan Herbrechtsmeier, Bielefeld University
 # 
 
-inherit cmake distutils-base ros faulty-solibs
+ROS_USE_PYTHON3 ??= "no"
+
+inherit cmake ${@'distutils3-base' if bb.utils.to_boolean(d.getVar('ROS_USE_PYTHON3', True)) else 'distutils-base'} ros faulty-solibs
 
 DEPENDS_prepend = "${@'' if (d.getVar('BPN', True) == 'catkin') or (d.getVar('BPN', True) == 'catkin-runtime') else 'catkin-native '}"
 

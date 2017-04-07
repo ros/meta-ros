@@ -9,5 +9,5 @@ SRC_URI[sha256sum] = "d7627a2df169e4e8208347d9215e47c723a015b67ef3ed8cda8b61b6cf
 
 inherit catkin
 
-RDEPENDS_${PN} = "python-stringold python-pprint"
+RDEPENDS_${PN} = "${PYTHON_PN}-stringold ${PYTHON_PN}-pprint"
 RDEPENDS_${PN}_class-native = ""

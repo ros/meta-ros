@@ -2,7 +2,7 @@ require catkin.inc
 
 DEPENDS_class-native += "catkin-runtime"
 
-RDEPENDS_${PN}_class-native = "python-catkin-pkg"
+RDEPENDS_${PN}_class-native = "${PYTHON_PN}-catkin-pkg"
 RDEPENDS_${PN} = "cmake make binutils binutils-symlinks gcc gcc-symlinks g++ g++-symlinks \
     catkin-runtime"
 
@@ -14,7 +14,7 @@ RDEPENDS_${PN} = "cmake make binutils binutils-symlinks gcc gcc-symlinks g++ g++
 do_install_append() {
     rm ${D}${ros_bindir}/catkin_find
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}
-    rmdir ${D}${ros_libdir}/python2.7
+    rmdir ${D}${ros_libdir}/${PYTHON_DIR}
 }
 
 BBCLASSEXTEND += "native"

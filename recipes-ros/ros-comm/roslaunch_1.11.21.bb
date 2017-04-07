@@ -16,12 +16,12 @@ SRC_URI += "file://0001-increase-rosmaster-timeout.patch \
 ROS_PKG_SUBDIR = "tools"
 
 RDEPENDS_${PN} = "\
-    python-textutils \
-    python-logging \
-    python-threading \
-    python-rospkg \
+    ${PYTHON_PN}-textutils \
+    ${PYTHON_PN}-logging \
+    ${PYTHON_PN}-threading \
+    ${PYTHON_PN}-rospkg \
     rosgraph \
-    python-pyyaml \
+    ${PYTHON_PN}-pyyaml \
     roslib \
     rosclean \
     rosmaster \
