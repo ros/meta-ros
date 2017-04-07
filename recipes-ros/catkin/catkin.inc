@@ -3,7 +3,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "cmake python-catkin-pkg python-empy-native python-catkin-pkg-native"
+DEPENDS = "cmake python-empy-native python-catkin-pkg-native"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "d58460cc9112812d8c4e6ecf98bbcc85"
