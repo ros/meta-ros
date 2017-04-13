@@ -9,6 +9,4 @@ require moveit.inc
 
 ROS_BPN = "moveit_ros/planning"
 
-SRC_URI += "file://0001-address-gcc6-build-error.patch"
-
 FILES_${PN} += "${ros_libdir}/moveit_ros_planning/*"
