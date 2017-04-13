@@ -9,4 +9,8 @@ require geometry.inc
 
 SRC_URI += "file://0001-Fix-stdlib.h-No-such-file-or-directory-errors-in-GCC.patch;striplevel=2"
 
-RDEPENDS_${PN} = "python-numpy"
+RDEPENDS_${PN} = "${PYTHON_PN}-numpy"
+
+# This option disables python support in case of python3 flavour of ROS because
+# only python2 is supported by tf.
+EXTRA_OECMAKE =+ "${@'-DANDROID=ON' if d.getVar('PYTHON_PN', True) == 'python3' else ''}"

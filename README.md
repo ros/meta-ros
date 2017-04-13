@@ -24,6 +24,7 @@ resolved in the past.
   * Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
   * Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
   * Kristof Robot <krirobo@gmail.com>
+  * Dmitry Rozhkov, Intel <dmitry.rozhkov@linux.intel.com>
 
 
 ## CONTRIBUTORS ##
@@ -47,6 +48,7 @@ resolved in the past.
   * Gauthier Monserand <simkim@simkim.net>
   * Timo Mueller <timo.mueller@bmw-carit.de>
   * Andreas Baak <andreas.baak@bmw-carit.de>
+  * Dmitry Rozhkov, Intel <dmitry.rozhkov@linux.intel.com>
 
 
 ## HOW TO CONTRIBUTE ##
@@ -160,6 +162,11 @@ resolved in the past.
     /home/me/devel/meta-openembedded/meta-multimedia \
     /home/me/devel/meta-ros \
     "
+
+  By default meta-ros uses python2 in all its recipes. If you want ROS packages
+  to use python3 then add the following line in your `./conf/local.conf` file:
+
+    ROS_USE_PYTHON3 = "yes"
 
   Compile package:
 

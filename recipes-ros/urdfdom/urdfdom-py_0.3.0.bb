@@ -11,4 +11,4 @@ S = "${WORKDIR}/${ROS_SP}/urdf_parser_py"
 
 inherit catkin
 
-RDEPENDS_${PN} = "python-lxml"
+RDEPENDS_${PN} = "${PYTHON_PN}-lxml"

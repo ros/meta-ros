@@ -3,7 +3,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "cmake python-catkin-pkg python-empy-native python-catkin-pkg-native"
+DEPENDS = "cmake ${PYTHON_PN}-empy-native ${PYTHON_PN}-catkin-pkg-native"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "d58460cc9112812d8c4e6ecf98bbcc85"
@@ -14,6 +14,7 @@ SRC_URI += "\
     file://0001-use-python-provided-by-environment-instead-of-the-ge.patch \
     file://0001-avoid-using-host-s-paths-when-cross-compiling.patch \
     file://0001-relocate-dependency-s-headers-to-current-sysroot.patch \
+    ${@'file://0001-python.cmake-look-for-python3-first.patch' if d.getVar('PYTHON_PN', True) == 'python3' else ''} \
     "
 
 inherit catkin
