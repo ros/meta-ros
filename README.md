@@ -259,10 +259,6 @@ resolved in the past.
   (cf. https://github.com/kartikmohta/meta-km/blob/master/recipes-devtools/yaml-cpp/yaml-cpp_0.3.0.bb)
   licensed with the MIT License.
 
-  The poco recipe is a copy of the poco recipe in the meta-oe layer licensed with the MIT License
-  (cf. http://cgit.openembedded.org/meta-openembedded/tree/meta-oe/recipes-support/poco).
-  The recipe is included in the meta-ros layer to support the use of older versions of the meta-oe layer.
-
   The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
   licensed with the MIT License.
