@@ -1,0 +1,36 @@
+From b63fb159dcf85f450c5770f55f57b281ab9cce68 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Tue, 4 Apr 2017 06:04:39 +0200
+Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
+
+Upstream-Status: Submitted [https://github.com/GT-RAIL/rosauth/pull/11]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9d45c59..434e6ce 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -4,7 +4,7 @@ project(rosauth)
+ ## Find catkin macros and libraries
+ ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
+ ## is used, also find other catkin packages
+-find_package(catkin REQUIRED COMPONENTS roscpp message_generation rostest)
++find_package(catkin REQUIRED COMPONENTS roscpp message_generation)
+ 
+ #######################################
+ ## Declare ROS messages and services ##
+@@ -62,6 +62,7 @@ install(TARGETS ros_mac_authentication
+ #############
+ 
+ if(CATKIN_ENABLE_TESTING)
++  find_package(rostest)
+   ## Add gtest based cpp test target and link libraries
+   add_executable(ros_mac_authentication_test test/ros_mac_authentication_test.cpp)
+   add_dependencies(ros_mac_authentication_test ${PROJECT_NAME}_gencpp)
+-- 
+2.5.5
+
