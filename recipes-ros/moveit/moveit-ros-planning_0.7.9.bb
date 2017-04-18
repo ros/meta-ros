@@ -5,11 +5,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9de
 
 DEPENDS = "moveit-core moveit-ros-perception dynamic-reconfigure ${PYTHON_PN}-rospkg libtinyxml"
 
-require moveit-${PV}.inc
+require moveit.inc
 
 ROS_BPN = "moveit_ros/planning"
 
-SRC_URI = "https://github.com/ros-planning/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz \
-           file://0001-address-gcc6-build-error.patch \
-           "
 FILES_${PN} += "${ros_libdir}/moveit_ros_planning/*"
