@@ -5,8 +5,8 @@ parser when working with Collada robot descriptions, the preferred user \
 API is found in the urdf package."
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=19;endline=19;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "collada-dom roscpp urdfdom-headers urdf-parser-plugin class-loader"
+DEPENDS = "collada-dom roscpp urdfdom-headers urdf urdf-parser-plugin class-loader"
 
 require robot-model.inc
