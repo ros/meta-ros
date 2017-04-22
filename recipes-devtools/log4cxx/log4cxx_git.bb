@@ -5,10 +5,10 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 HOMEPAGE = "http://logging.apache.org/log4cxx/"
 
-SRC_URI = "svn://svn.apache.org/repos/asf;module=incubator/log4cxx/trunk;protocol=http"
-SRCREV = "1738416"
+SRC_URI = "git://git-wip-us.apache.org/repos/asf/logging-log4cxx.git;protocol=http"
+SRCREV = "03c581216a469eb2bc5cabaa686199504d257af0"
 
-S = "${WORKDIR}/incubator/log4cxx/trunk"
+S = "${WORKDIR}/git"
 
 inherit autotools-brokensep pkgconfig
 
