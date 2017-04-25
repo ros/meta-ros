@@ -15,8 +15,7 @@ FILES_${PN} = "\
     ${ros_sysconfdir} \
     ${ros_stacksdir} \
     ${ros_datadir} \
-    "
-
+"
 FILES_${PN}-dev = "\
     ${datadir}/${ROS_BPN}/cmake \
     ${datadir}/${ROS_BPN}/*.template \
@@ -37,12 +36,11 @@ RDEPENDS_${PN} += "\
     libtool \
     pkgconfig \
     python-empy \
-    catkin-runtime \
-    "
+"
 
 RDEPENDS_${PN}_class-native = "\
     catkin-runtime-native \
-    "
+"
 
 RDEPENDS_${PN}_class-nativesdk += "\
     nativesdk-catkin-runtime \
@@ -50,7 +48,7 @@ RDEPENDS_${PN}_class-nativesdk += "\
     nativesdk-make \
     nativesdk-python-empy \
     nativesdk-catkin-runtime \
-    "
+"
 
 # The files in ${PYTHON_SITEPACKAGES_DIR} and catkin_find are
 # installed by the catkin-runtime package. Therefore, we remove
@@ -61,6 +59,9 @@ do_install_append() {
     rm ${D}${ros_bindir}/catkin_find
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}
     rmdir ${D}${ros_libdir}/python2.7
+    rm -rf ${D}/opt/ros/indigo/share/catkin/LICENSE
+    rm -rf ${D}/opt/ros/indigo/share/catkin/package.xml
+    rm -rf ${D}/opt/ros/indigo/lib/pkgconfig/catkin.pc
 }
 
 # Append environment hook for SDK

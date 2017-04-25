@@ -8,9 +8,8 @@ DEPENDS = "python-catkin-pkg catkin-native"
 
 SRC_URI += "file://0001-use-python-provided-by-environment-instead-of-the-ge.patch"
 
-# Disable binary package option to generate setup scripts and .catkin marker
-### TODO: ENABLE GENERATION OF SETUP UTILS
-# EXTRA_OECMAKE += "-DCATKIN_BUILD_BINARY_PACKAGE=OFF"
+# If not enabled, doesn't generate setup scripts and .catkin marker
+EXTRA_OECMAKE += "-DCATKIN_BUILD_BINARY_PACKAGE=OFF"
 
 # The "catkin-runtime" package includes ONLY the python packages AND catkin_find
 # The "catkin" package includes all other files from the catkin tool.
@@ -18,14 +17,16 @@ FILES_${PN} = "\
     ${ros_bindir}/catkin_find \
     ${PYTHON_SITEPACKAGES_DIR} \
     ${ros_prefix}/.catkin \
-    "
-
-### TODO: ENABLE GENERATION OF SETUP UTILS
-#     ${ros_prefix}/.rosinstall \
-#     ${ros_prefix}/_setup_util.py \
-#     ${ros_prefix}/env.sh \
-#     ${ros_prefix}/setup.* \
-#     "
+    ${ros_prefix}/.rosinstall \
+    ${ros_prefix}/_setup_util.py \
+    ${ros_prefix}/env.sh \
+    ${ros_prefix}/setup.* \
+    ${ros_prefix}/lib/pkgconfig/catkin.pc \
+    ${ros_datadir} \
+    ${ros_bindir} \
+    ${ros_sysconfdir}/catkin/profile.d/05.catkin_make.bash \
+    ${ros_sysconfdir}/catkin/profile.d/05.catkin_make_isolated.bash \
+"
 
 FILES_${PN}-dev = ""
 
@@ -33,7 +34,7 @@ RDEPENDS_${PN} += "\
     python-argparse \
     python-codecs \
     python-datetime \
-    python-docutils \
+    python3-docutils \
     python-io \
     python-misc \
     python-multiprocessing \
@@ -41,24 +42,21 @@ RDEPENDS_${PN} += "\
     python-shell \
     python-subprocess \
     python-catkin-pkg \
-    "
+"
 
 RDEPENDS_${PN}_class-native += "\
     python-native \
     python-catkin-pkg-native \
-    "
+"
 
 # Delete everything but the python packages in order to avoid
 # that the QA error [installed-vs-shipped] hits on us.
-do_install_append() {
-    rm  ${D}${ros_bindir}/catkin_*_*
-    rm  ${D}${ros_bindir}/catkin_make
-    rm -rf ${D}${ros_datadir}
-    rm -rf ${D}${ros_libdir}/pkgconfig
-    rm -rf ${D}${ros_sysconfdir}
-    rm -rf ${D}${ros_stacksdir}
+do_install_prepend() {
+  rm -rf ${D}/opt/ros/indigo/share/catkin/cmake
+}
 
-### TODO: ENABLE GENERATION OF SETUP UTILS
+do_install_append() {
+# Enables generation of setup utils
     touch ${D}${ros_prefix}/.catkin
 }
 
