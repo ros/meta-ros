@@ -1,0 +1,71 @@
+From 5aa9a6a148b91380210a79f5a48ed4823401e9c0 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Tue, 25 Apr 2017 10:41:56 +0300
+Subject: [PATCH] call python3 for dynamic reconfigurations
+
+If python2 is available in build environment then according to
+PEP-394 python should reference python2. But in case of building
+a python3 flavor of meta-ros PYTHONPATH is set explicitly to
+python3 libraries. When python2 is called with PYTHONPATH
+pointing to python3 libs the following error triggers:
+
+    Could not find platform independent libraries <prefix>
+    Could not find platform dependent libraries <exec_prefix>
+    Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+
+This patch makes the dynamic reconfigurations call python3
+explicitly.
+
+Upstream-Status: Inappropriate [Yocto specific python version mismatch]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ .../planning/plan_execution/cfg/PlanExecutionDynamicReconfigure.cfg     | 2 +-
+ .../planning/plan_execution/cfg/SenseForPlanDynamicReconfigure.cfg      | 2 +-
+ .../cfg/PlanningSceneMonitorDynamicReconfigure.cfg                      | 2 +-
+ .../cfg/TrajectoryExecutionDynamicReconfigure.cfg                       | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a//plan_execution/cfg/PlanExecutionDynamicReconfigure.cfg b/plan_execution/cfg/PlanExecutionDynamicReconfigure.cfg
+index fd8be08..fc9f298 100755
+--- a/plan_execution/cfg/PlanExecutionDynamicReconfigure.cfg
++++ b/plan_execution/cfg/PlanExecutionDynamicReconfigure.cfg
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ PACKAGE = "moveit_ros_planning"
+ from dynamic_reconfigure.parameter_generator_catkin import *
+ gen = ParameterGenerator()
+diff --git a/plan_execution/cfg/SenseForPlanDynamicReconfigure.cfg b/plan_execution/cfg/SenseForPlanDynamicReconfigure.cfg
+index 905bfb0..5584563 100755
+--- a/plan_execution/cfg/SenseForPlanDynamicReconfigure.cfg
++++ b/plan_execution/cfg/SenseForPlanDynamicReconfigure.cfg
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ PACKAGE = "moveit_ros_planning"
+ from dynamic_reconfigure.parameter_generator_catkin import *
+ gen = ParameterGenerator()
+diff --git a/planning_scene_monitor/cfg/PlanningSceneMonitorDynamicReconfigure.cfg b/planning_scene_monitor/cfg/PlanningSceneMonitorDynamicReconfigure.cfg
+index 56f2b88..ebf8c91 100755
+--- a/planning_scene_monitor/cfg/PlanningSceneMonitorDynamicReconfigure.cfg
++++ b/planning_scene_monitor/cfg/PlanningSceneMonitorDynamicReconfigure.cfg
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ PACKAGE = "moveit_ros_planning"
+ from dynamic_reconfigure.parameter_generator_catkin import *
+ gen = ParameterGenerator()
+diff --git a/trajectory_execution_manager/cfg/TrajectoryExecutionDynamicReconfigure.cfg b/trajectory_execution_manager/cfg/TrajectoryExecutionDynamicReconfigure.cfg
+index 79e1621..1282276 100755
+--- a/trajectory_execution_manager/cfg/TrajectoryExecutionDynamicReconfigure.cfg
++++ b/trajectory_execution_manager/cfg/TrajectoryExecutionDynamicReconfigure.cfg
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ PACKAGE = "moveit_ros_planning"
+ from dynamic_reconfigure.parameter_generator_catkin import *
+ gen = ParameterGenerator()
+-- 
+2.9.3
+

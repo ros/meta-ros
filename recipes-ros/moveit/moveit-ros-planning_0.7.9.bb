@@ -9,4 +9,6 @@ require moveit.inc
 
 ROS_BPN = "moveit_ros/planning"
 
+SRC_URI =+ "${@'file://0001-call-python3-for-dynamic-reconfigurations.patch' if d.getVar('PYTHON_PN', True) == 'python3' else ''}"
+
 FILES_${PN} += "${ros_libdir}/moveit_ros_planning/*"
