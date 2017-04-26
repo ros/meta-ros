@@ -1,0 +1,37 @@
+From aae6b852e318015f46b2d49134594e14ca9d1321 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rojkov@gmail.com>
+Date: Wed, 21 Dec 2016 23:03:53 +0200
+Subject: [PATCH] Remove build dependency on nose from setup.py (#491)
+
+Having nose required to run setup.py is needed only to enable
+the `nosetests` command which is redundant since it duplicates
+the `test` command. Also it prevents building python-rosdep
+in build environments where external downloads during build time
+are prohibited in order to provide reproducible and more reliable
+builds.
+
+Upstream-Status: Accepted [https://github.com/ros-infrastructure/rosdep/pull/491]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ setup.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 0f6950c..a2146cf 100644
+--- a/setup.py
++++ b/setup.py
+@@ -9,9 +9,8 @@ setup(
+     packages=['rosdep2', 'rosdep2.platforms'],
+     package_dir={'': 'src'},
+     install_requires=['catkin_pkg', 'rospkg >= 1.0.37', 'rosdistro >= 0.4.0', 'PyYAML >= 3.1'],
+-    setup_requires=['nose >= 1.0'],
+     test_suite='nose.collector',
+-    test_requires=['mock'],
++    test_requires=['mock', 'nose >= 1.0'],
+     scripts=['scripts/rosdep', 'scripts/rosdep-source'],
+     author="Tully Foote, Ken Conley",
+     author_email="tfoote@osrfoundation.org",
+-- 
+2.7.4
+

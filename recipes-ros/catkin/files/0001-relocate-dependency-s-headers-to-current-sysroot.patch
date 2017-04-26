@@ -1,0 +1,80 @@
+From b0ad0d6e6a7872c59180596d29ac5f52723c4317 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Wed, 22 Feb 2017 13:48:37 +0200
+Subject: [PATCH] relocate dependency's headers to current sysroot
+
+If a package (A) depends on another package (B) and the package
+B depends on Boost then it might happen that B produces BConfig.cmake
+file where absolute paths to Boost's headers are put (because CMake's
+standard FindBoost.cmake module reports absolute paths). In case of
+Yocto it means that BConfig.cmake will contain something like
+/path/to/build/tmp-glibc/work/i586/package_B/0.0.1/recipe-sysroot/usr/include.
+The path may not exist at the moment when the package A is being built.
+And that leads to the failure of the check this patch switches off.
+
+The problem has been reported to catkin's issue tracker:
+https://github.com/ros/catkin/issues/851
+
+This patch "relocates" required headers from dependencies' sysroots
+to the current sysroot by removing sysroot prefix from include dirs
+in *Config.cmake files at the moment the files get created and
+by prepending the include dirs again with the current sysroot prefix.
+
+Upstream-Status: Inappropriate [suitable for Yocto's RSS feature only]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+
+---
+ cmake/catkin_package.cmake         |  5 ++++-
+ cmake/templates/pkgConfig.cmake.in | 10 +++++++---
+ 2 files changed, 11 insertions(+), 4 deletions(-)
+
+diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
+index 71f700f..818ccd9 100644
+--- a/cmake/catkin_package.cmake
++++ b/cmake/catkin_package.cmake
+@@ -161,7 +161,10 @@ function(_catkin_package)
+           if(NOT ${${depend_name}_FOUND})
+             message(FATAL_ERROR "catkin_package() DEPENDS on '${depend_name}' which must be find_package()-ed before. If it is a catkin package it can be declared as CATKIN_DEPENDS instead without find_package()-ing it.")
+           endif()
+-          list(APPEND PROJECT_DEPENDENCIES_INCLUDE_DIRS ${${depend_name}_INCLUDE_DIRS})
++          foreach(incdir ${${depend_name}_INCLUDE_DIRS})
++            string(REPLACE ${ROOT_PATH} "" tweaked_idir ${incdir})
++            list_append_deduplicate(PROJECT_DEPENDENCIES_INCLUDE_DIRS ${tweaked_idir})
++          endforeach()
+           list(APPEND PROJECT_DEPENDENCIES_LIBRARIES ${${depend_name}_LIBRARIES})
+         endif()
+       endforeach()
+diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
+index c692108..683ef67 100644
+--- a/cmake/templates/pkgConfig.cmake.in
++++ b/cmake/templates/pkgConfig.cmake.in
+@@ -94,18 +94,22 @@ set(@PROJECT_NAME@_FOUND_CATKIN_PROJECT TRUE)
+ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
+   set(@PROJECT_NAME@_INCLUDE_DIRS "")
+   set(_include_dirs "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@")
++  list(GET CMAKE_FIND_ROOT_PATH 0 root_path)
+   foreach(idir ${_include_dirs})
++    if(IS_ABSOLUTE ${idir} AND NOT "${idir}" MATCHES "^${root_path}.*")
++      set(idir "${root_path}${idir}")
++    endif()
+     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
+-      set(include ${idir})
++      _list_append_unique(@PROJECT_NAME@_INCLUDE_DIRS ${idir})
+     elseif("${idir} " STREQUAL "@CATKIN_GLOBAL_INCLUDE_DESTINATION@ ")
+       get_filename_component(include "${@PROJECT_NAME@_DIR}/../../../@CATKIN_GLOBAL_INCLUDE_DESTINATION@" ABSOLUTE)
+       if(NOT IS_DIRECTORY ${include})
+         message(FATAL_ERROR "Project '@PROJECT_NAME@' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer '@PROJECT_MAINTAINER@' to fix it.")
+       endif()
++      _list_append_unique(@PROJECT_NAME@_INCLUDE_DIRS ${include})
+     else()
+-      message(FATAL_ERROR "Project '@PROJECT_NAME@' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '@PKG_INCLUDE_PREFIX@/${idir}'.  Ask the maintainer '@PROJECT_MAINTAINER@' to fix it.")
++      message(WARNING "Project '@PROJECT_NAME@' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '@PKG_INCLUDE_PREFIX@/${idir}'.  Ask the maintainer '@PROJECT_MAINTAINER@' to fix it.")
+     endif()
+-    _list_append_unique(@PROJECT_NAME@_INCLUDE_DIRS ${include})
+   endforeach()
+ endif()
+ 
+-- 
+2.7.4
+

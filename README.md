@@ -24,6 +24,7 @@ resolved in the past.
   * Lukas Bulwahn, BMW Car IT GmbH <lukas.bulwahn@oss.bmw-carit.de>
   * Stefan Herbrechtsmeier, Bielefeld University <stefan@herbrechtsmeier.net>
   * Kristof Robot <krirobo@gmail.com>
+  * Dmitry Rozhkov, Intel <dmitry.rozhkov@linux.intel.com>
 
 
 ## CONTRIBUTORS ##
@@ -47,6 +48,7 @@ resolved in the past.
   * Gauthier Monserand <simkim@simkim.net>
   * Timo Mueller <timo.mueller@bmw-carit.de>
   * Andreas Baak <andreas.baak@bmw-carit.de>
+  * Dmitry Rozhkov, Intel <dmitry.rozhkov@linux.intel.com>
 
 
 ## HOW TO CONTRIBUTE ##
@@ -85,6 +87,12 @@ resolved in the past.
   subdirectory: meta-multimedia  
   branch: master  
   revision: HEAD  
+
+  **meta-intel-realsense** (since 4a5ba0f20094dd3d07c0a0c1dede2ba40e9d6abf)
+  URI: https://github.com/IntelRealSense/meta-intel-realsense
+  branch: master
+  revision: HEAD
+  This layer is required only if you need to build realsense-camera driver.
 
   **bitbake** > 1.20
 
@@ -154,6 +162,11 @@ resolved in the past.
     /home/me/devel/meta-openembedded/meta-multimedia \
     /home/me/devel/meta-ros \
     "
+
+  By default meta-ros uses python2 in all its recipes. If you want ROS packages
+  to use python3 then add the following line in your `./conf/local.conf` file:
+
+    ROS_USE_PYTHON3 = "yes"
 
   Compile package:
 
@@ -245,10 +258,6 @@ resolved in the past.
   The yaml-cpp recipe originated from the recipe in Kartik Mohta's OpenEmbedded layer
   (cf. https://github.com/kartikmohta/meta-km/blob/master/recipes-devtools/yaml-cpp/yaml-cpp_0.3.0.bb)
   licensed with the MIT License.
-
-  The poco recipe is a copy of the poco recipe in the meta-oe layer licensed with the MIT License
-  (cf. http://cgit.openembedded.org/meta-openembedded/tree/meta-oe/recipes-support/poco).
-  The recipe is included in the meta-ros layer to support the use of older versions of the meta-oe layer.
 
   The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)

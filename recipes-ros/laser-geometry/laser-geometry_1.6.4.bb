@@ -5,7 +5,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "angles boost libeigen sensor-msgs roscpp tf"
+DEPENDS = "angles boost libeigen sensor-msgs roscpp tf cmake-modules"
 
 SRC_URI = "https://github.com/ros-perception/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "1ee7479b8c5914b4ffae996945121441"

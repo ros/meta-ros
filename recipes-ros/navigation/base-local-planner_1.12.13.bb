@@ -9,3 +9,5 @@ DEPENDS = "angles costmap-2d dynamic-reconfigure geometry-msgs libeigen message-
     voxel-grid visualization-msgs"
 
 require navigation.inc
+
+SRC_URI += "file://0001-make-rostest-in-CMakeLists-optional-ros-rosdistro-30.patch;striplevel=2"

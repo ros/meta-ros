@@ -1,0 +1,64 @@
+From ddf9ddefb51502fb21ba01e31187e4ffebc70cce Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Mon, 10 Apr 2017 10:35:26 +0300
+Subject: [PATCH] Drop support for python
+
+Upstream-Status: Inappropriate [ROS still supports python2 officially]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ CMakeLists.txt | 23 ++---------------------
+ 1 file changed, 2 insertions(+), 21 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c21e54a..3a89d94 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,13 +3,8 @@ project(camera_calibration_parsers)
+ 
+ find_package(catkin REQUIRED sensor_msgs rosconsole roscpp roscpp_serialization)
+ 
+-find_package(PythonLibs REQUIRED)
+-if(PYTHONLIBS_VERSION_STRING VERSION_LESS 3)
+-  find_package(Boost REQUIRED COMPONENTS filesystem python)
+-else()
+-  find_package(Boost REQUIRED COMPONENTS filesystem python3)
+-endif()
+-include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
++
++include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+ 
+ catkin_python_setup()
+ 
+@@ -41,17 +36,7 @@ add_library(${PROJECT_NAME}
+   src/parse_yml.cpp
+ )
+ 
+-add_library(${PROJECT_NAME}_wrapper
+-  src/parse_wrapper.cpp)
+-
+ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${YAML_CPP_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY})
+-target_link_libraries(${PROJECT_NAME}_wrapper ${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_PYTHON_LIBRARY} ${PYTHON_LIBRARIES})
+-
+-# Don't prepend wrapper library name with lib and add to Python libs.
+-set_target_properties(${PROJECT_NAME}_wrapper PROPERTIES
+-        PREFIX ""
+-        LIBRARY_OUTPUT_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_PYTHON_DESTINATION}
+-        )
+ 
+ add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
+ 
+@@ -74,10 +59,6 @@ install(
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+ )
+ 
+-install(TARGETS ${PROJECT_NAME}_wrapper
+-  DESTINATION ${CATKIN_PACKAGE_PYTHON_DESTINATION}
+-)
+-
+ if(CATKIN_ENABLE_TESTING)
+   add_subdirectory(test)
+ endif()
+-- 
+2.9.3
+
