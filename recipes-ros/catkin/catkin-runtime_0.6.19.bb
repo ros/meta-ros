@@ -10,7 +10,6 @@ RDEPENDS_${PN}_class-native = ""
 RDEPENDS_${PN} = "\
     ${PYTHON_PN}-catkin-pkg ${PYTHON_PN}-argparse ${PYTHON_PN}-misc ${PYTHON_PN}-multiprocessing \
     ${PYTHON_PN}-shell ${PYTHON_PN}-subprocess ${PYTHON_PN}-xml ${PYTHON_PN}-pkgutil"
-SRC_URI += "file://0001-use-python-provided-by-environment-instead-of-the-ge.patch"
 
 # If not enabled, doesn't generate setup scripts and .catkin marker
 EXTRA_OECMAKE += "-DCATKIN_BUILD_BINARY_PACKAGE=OFF"

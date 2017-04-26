@@ -2,7 +2,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 require catkin.inc
 
-SRC_URI += "file://environment.d-catkin.sh file://0001-cross-compilation.patch file://0001-use-python-provided-by-environment-instead-of-the-ge.patch"
+SRC_URI += "file://environment.d-catkin.sh file://0001-cross-compilation.patch"
 
 DEPENDS = "cmake make python-empy python-catkin-pkg"
 RDEPENDS_${PN}_class-native = "${PYTHON_PN}-catkin-pkg"

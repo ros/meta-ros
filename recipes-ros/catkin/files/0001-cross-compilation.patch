@@ -1,8 +1,21 @@
+From 3ab68a14cdf83da671849b4704e0a4e9fdc4f8cd Mon Sep 17 00:00:00 2001
+From: David Bensoussan <minipada@gmail.com>
+Date: Wed, 26 Apr 2017 14:08:16 +0200
+Subject: [PATCH 1/1] cross_compile_master_new_patch
+
+---
+ cmake/all.cmake                    |  1 +
+ cmake/catkin_package.cmake         |  8 ++++++++
+ cmake/catkin_strip_root_path.cmake | 28 ++++++++++++++++++++++++++
+ cmake/templates/pkgConfig.cmake.in | 40 +++++++++++++++++++++++++++++++++++---
+ 4 files changed, 74 insertions(+), 3 deletions(-)
+ create mode 100644 cmake/catkin_strip_root_path.cmake
+
 diff --git a/cmake/all.cmake b/cmake/all.cmake
-index 6910906..e421b76 100644
+index 95b82e0..40f6f92 100644
 --- a/cmake/all.cmake
 +++ b/cmake/all.cmake
-@@ -118,6 +118,7 @@ foreach(filename
+@@ -116,6 +116,7 @@ foreach(filename
      catkin_metapackage
      catkin_package
      catkin_package_xml
@@ -11,10 +24,10 @@ index 6910906..e421b76 100644
      debug_message
      em_expand
 diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
-index 8ef6c48..d6bc68f 100644
+index 177ac24..026449e 100644
 --- a/cmake/catkin_package.cmake
 +++ b/cmake/catkin_package.cmake
-@@ -432,6 +432,14 @@ function(_catkin_package)
+@@ -441,6 +441,14 @@ function(_catkin_package)
    # package cmake dir is the folder where the generated pkgConfig.cmake is located
    set(PKG_CMAKE_DIR "\${${PROJECT_NAME}_DIR}")
  
@@ -64,7 +77,7 @@ index 0000000..6398289
 +  set(${var} ${_list} PARENT_SCOPE)
 +endfunction()
 diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
-index a9dd856..60addce 100644
+index 683ef67..a0b387e 100644
 --- a/cmake/templates/pkgConfig.cmake.in
 +++ b/cmake/templates/pkgConfig.cmake.in
 @@ -78,6 +78,15 @@ else()
@@ -83,11 +96,11 @@ index a9dd856..60addce 100644
  # warn when using a deprecated package
  if(NOT "@PROJECT_DEPRECATED@" STREQUAL "")
    set(_msg "WARNING: package '@PROJECT_NAME@' is deprecated")
-@@ -95,7 +104,19 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
-   set(@PROJECT_NAME@_INCLUDE_DIRS "")
+@@ -96,7 +105,19 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
    set(_include_dirs "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@")
+   list(GET CMAKE_FIND_ROOT_PATH 0 root_path)
    foreach(idir ${_include_dirs})
--    if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
+-    if(IS_ABSOLUTE ${idir} AND NOT "${idir}" MATCHES "^${root_path}.*")
 +    if(IS_ABSOLUTE ${idir} AND CMAKE_CROSSCOMPILING)
 +      get_filename_component(idir_path ${idir} DIRECTORY)
 +      get_filename_component(idir_name ${idir} NAME)
@@ -101,10 +114,10 @@ index a9dd856..60addce 100644
 +      endif()
 +      set(include "${include_dir_path}/${idir_name}")
 +    elseif(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
-       set(include ${idir})
-     elseif("${idir} " STREQUAL "@CATKIN_GLOBAL_INCLUDE_DESTINATION@ ")
-       get_filename_component(include "${@PROJECT_NAME@_DIR}/../../../@CATKIN_GLOBAL_INCLUDE_DESTINATION@" ABSOLUTE)
-@@ -116,16 +137,29 @@ foreach(library ${libraries})
+       set(idir "${root_path}${idir}")
+     endif()
+     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
+@@ -120,16 +141,29 @@ foreach(library ${libraries})
      list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
    elseif(TARGET ${library})
      list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
@@ -131,8 +144,11 @@ index a9dd856..60addce 100644
      foreach(path @PKG_CONFIG_LIB_PATHS@)
        find_library(lib ${library}
          PATHS ${path}
--        NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
+-        NO_DEFAULT_PATH ONLY_CMAKE_FIND_ROOT_PATH)
 +        NO_DEFAULT_PATH)
        if(lib)
-         set(lib_path ${path})
+         get_filename_component(lib_path ${lib} DIRECTORY)
          break()
+-- 
+2.7.4
+
