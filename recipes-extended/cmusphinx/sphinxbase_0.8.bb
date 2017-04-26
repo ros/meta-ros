@@ -12,6 +12,10 @@ require cmusphinx.inc
 
 SRC_URI += "file://0001-TESTS-srcdir-remove.patch"
 
+DEPENDS = "libsndfile1 alsa-lib libsamplerate0"
+
+EXTRA_OECONF = " --without-python"
+
 do_install_append () {
     #remove egg-info
     rm -rf ${D}/${PYTHON_SITEPACKAGES_DIR}/*.egg-info

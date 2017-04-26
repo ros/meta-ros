@@ -3,6 +3,6 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=19;endline=19;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "libeigen geometry-msgs kdl-conversions tf"
+DEPENDS = "libeigen geometry-msgs kdl-conversions tf cmake-modules"
 
 require geometry.inc

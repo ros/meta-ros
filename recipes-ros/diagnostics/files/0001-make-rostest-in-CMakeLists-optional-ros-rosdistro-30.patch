@@ -1,0 +1,77 @@
+From aa8052e042192946386d2c564baa1883c4866593 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Wed, 5 Apr 2017 10:58:34 +0200
+Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
+
+Upstream-Status: Submitted [https://github.com/ros/diagnostics/pull/60]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ diagnostic_aggregator/CMakeLists.txt | 3 ++-
+ diagnostic_analysis/CMakeLists.txt   | 3 ++-
+ diagnostic_updater/CMakeLists.txt    | 3 ++-
+ 3 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/diagnostic_aggregator/CMakeLists.txt b/diagnostic_aggregator/CMakeLists.txt
+index 5995f67..1660d94 100644
+--- a/diagnostic_aggregator/CMakeLists.txt
++++ b/diagnostic_aggregator/CMakeLists.txt
+@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.3)
+ project(diagnostic_aggregator)
+ 
+ # Load catkin and all dependencies required for this package
+-find_package(catkin REQUIRED diagnostic_msgs pluginlib roscpp rospy rostest xmlrpcpp bondcpp)
++find_package(catkin REQUIRED diagnostic_msgs pluginlib roscpp rospy xmlrpcpp bondcpp)
+ catkin_package(DEPENDS diagnostic_msgs pluginlib roscpp rospy xmlrpcpp bondcpp bondpy
+     INCLUDE_DIRS include
+     LIBRARIES ${PROJECT_NAME})
+@@ -46,6 +46,7 @@ add_executable(analyzer_loader test/analyzer_loader.cpp
+ target_link_libraries(analyzer_loader diagnostic_aggregator)
+ 
+ if(CATKIN_ENABLE_TESTING)
++  find_package(rostest REQUIRED)
+   add_rostest(test/launch/test_agg.launch)
+   add_rostest(test/launch/test_add_agg.launch)
+ 
+diff --git a/diagnostic_analysis/CMakeLists.txt b/diagnostic_analysis/CMakeLists.txt
+index c20c24c..eb8cf64 100644
+--- a/diagnostic_analysis/CMakeLists.txt
++++ b/diagnostic_analysis/CMakeLists.txt
+@@ -2,11 +2,12 @@ cmake_minimum_required(VERSION 2.8.3)
+ project(diagnostic_analysis)
+ 
+ # Load catkin and all dependencies required for this package
+-find_package(catkin REQUIRED diagnostic_msgs rosbag roslib rostest)
++find_package(catkin REQUIRED diagnostic_msgs rosbag roslib)
+ 
+ catkin_package(DEPENDS diagnostic_msgs rosbag roslib)
+ 
+ if(CATKIN_ENABLE_TESTING)
++  find_package(rostest REQUIRED)
+   catkin_add_nosetests(test/bag_csv_test.py)
+ endif()
+ 
+diff --git a/diagnostic_updater/CMakeLists.txt b/diagnostic_updater/CMakeLists.txt
+index 72f7af0..7dae0a1 100644
+--- a/diagnostic_updater/CMakeLists.txt
++++ b/diagnostic_updater/CMakeLists.txt
+@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
+ project(diagnostic_updater)
+ 
+ # Load catkin and all dependencies required for this package
+-find_package(catkin REQUIRED diagnostic_msgs roscpp rostest std_msgs)
++find_package(catkin REQUIRED diagnostic_msgs roscpp std_msgs)
+ 
+ catkin_python_setup()
+ 
+@@ -15,6 +15,7 @@ add_executable(example src/example.cpp)
+ target_link_libraries(example ${catkin_LIBRARIES})
+ 
+ if(CATKIN_ENABLE_TESTING)
++  find_package(rostest REQUIRED)
+   add_rostest_gtest(diagnostic_updater_test test/diagnostic_updater_test.xml test/diagnostic_updater_test.cpp)
+   add_rostest(test/diagnostic_updater_fast_test.xml)
+   target_link_libraries(diagnostic_updater_test ${catkin_LIBRARIES})
+-- 
+2.5.5
+

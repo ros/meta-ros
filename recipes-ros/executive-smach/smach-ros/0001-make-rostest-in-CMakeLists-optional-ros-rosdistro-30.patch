@@ -1,0 +1,36 @@
+From 9835342260d40cfeb4d062be1d6ddcc85c5037d8 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Tue, 4 Apr 2017 11:43:26 +0200
+Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
+
+Upstream-Status: Submitted [https://github.com/ros/executive_smach/pull/45]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ smach_ros/CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/smach_ros/CMakeLists.txt b/smach_ros/CMakeLists.txt
+index e5694b1..f409e2e 100644
+--- a/smach_ros/CMakeLists.txt
++++ b/smach_ros/CMakeLists.txt
+@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
+ 
+ project(smach_ros)
+ 
+-find_package(catkin REQUIRED COMPONENTS rostest)
++find_package(catkin REQUIRED)
+ 
+ catkin_python_setup()
+ 
+@@ -11,6 +11,7 @@ catkin_package(
+ )
+ 
+ if(CATKIN_ENABLE_TESTING)
++  find_package(rostest REQUIRED)
+   add_rostest(test/state_machine.test)
+   add_rostest(test/sequence.test)
+   add_rostest(test/concurrence.test)
+-- 
+2.5.5
+
