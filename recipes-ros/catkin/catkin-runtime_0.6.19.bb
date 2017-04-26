@@ -54,11 +54,12 @@ RDEPENDS_${PN}_class-native += "\
 
 # Delete everything but the python packages in order to avoid
 # that the QA error [installed-vs-shipped] hits on us.
-do_install_prepend() {
-  rm -rf ${D}/opt/ros/indigo/share/catkin/cmake
-}
-
 do_install_append() {
+  rm -rf ${D}/opt/ros/indigo/share/catkin/cmake
+  rm -rf ${D}/opt/ros/indigo/share/catkin/LICENSE
+  rm -rf ${D}/opt/ros/indigo/share/catkin/package.xml
+  rm -rf ${D}/opt/ros/indigo/lib/pkgconfig/catkin.pc
+  rm -rf ${D}/opt/ros/indigo/lib/pkgconfig
 # Enables generation of setup utils
     touch ${D}${ros_prefix}/.catkin
 }
