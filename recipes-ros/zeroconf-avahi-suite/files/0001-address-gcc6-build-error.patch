@@ -1,0 +1,63 @@
+From aa0fce16bc80ce7a890dc63b380462f3819cf5e0 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Sat, 14 Jan 2017 06:42:53 +0100
+Subject: [PATCH] address gcc6 build error
+
+With gcc6, compiling fails with `stdlib.h: No such file or directory`,
+as including '-isystem /usr/include' breaks with gcc6, cf.,
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70129.
+
+This commit addresses this issue for this package in the same way
+it was addressed in various other ROS packages. A list of related
+commits and pull requests is at:
+
+  https://github.com/ros/rosdistro/issues/12783
+
+The SYSTEM attribute for the include directories was added in commit
+188f8fe9 on 2012-11-10 when the packages were changed to use catkin as
+build system. The exact reason for using the SYSTEM attribute cannot be
+inferred from that commit.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+
+Upstream-Status: Accepted [https://github.com/stonier/zeroconf_avahi_suite/pull/6/commits/aa0fce16bc80ce7a890dc63b380462f3819cf5e0]
+
+This patch has been generated with:
+  `git format-patch -1 aa0fce16bc80ce7a890dc63b380462f3819cf5e0`
+in the zeroconf_avahi_suite repository.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+---
+ zeroconf_avahi/CMakeLists.txt       | 2 +-
+ zeroconf_avahi_demos/CMakeLists.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/zeroconf_avahi/CMakeLists.txt b/zeroconf_avahi/CMakeLists.txt
+index 7a05c7c..ec1a48a 100644
+--- a/zeroconf_avahi/CMakeLists.txt
++++ b/zeroconf_avahi/CMakeLists.txt
+@@ -21,7 +21,7 @@ catkin_package(
+   CATKIN_DEPENDS rosconsole roscpp zeroconf_msgs 
+   DEPENDS Boost
+ )
+-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDES} ${AVAHI_INCLUDE_DIR})
++include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDES} ${AVAHI_INCLUDE_DIR})
+ 
+ ##############################################################################
+ # Project
+diff --git a/zeroconf_avahi_demos/CMakeLists.txt b/zeroconf_avahi_demos/CMakeLists.txt
+index c558870..17495a4 100644
+--- a/zeroconf_avahi_demos/CMakeLists.txt
++++ b/zeroconf_avahi_demos/CMakeLists.txt
+@@ -15,7 +15,7 @@ find_package(catkin REQUIRED COMPONENTS zeroconf_avahi zeroconf_msgs)
+ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${zeroconf_avahi_DIR})
+ find_package(Avahi REQUIRED)
+ catkin_package()
+-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS} ${AVAHI_INCLUDE_DIR})
++include_directories(include ${catkin_INCLUDE_DIRS} ${AVAHI_INCLUDE_DIR})
+ 
+ ##############################################################################
+ # Project
+-- 
+2.5.5
+
