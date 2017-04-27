@@ -8,6 +8,7 @@ inherit cmake ${@'distutils3-base' if bb.utils.to_boolean(d.getVar('ROS_USE_PYTH
 # Prepend build dependency on "catkin-runtime" and "catkin-native"
 # if the package is not "catkin" or "catkin-runtime"
 DEPENDS_prepend = "${@['catkin-runtime catkin-native ', ''][(d.getVar('BPN', True) == 'catkin') | (d.getVar('BPN', True) == 'catkin-runtime')]}"
+inherit cmake ${@'distutils3-base' if bb.utils.to_boolean(d.getVar('ROS_USE_PYTHON3', True)) else 'distutils-base'} ros faulty-solibs
 
 # Prepend run dependency on "catkin" for *-dev packages
 # if the package is not "catkin" or "catkin-runtime"
