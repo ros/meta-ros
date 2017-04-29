@@ -1,0 +1,48 @@
+From f58947cf910ec4de1a9f093b4eb1fe68e6cfd602 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Thu, 27 Apr 2017 11:04:27 +0300
+Subject: [PATCH] ignore LD_LIBRARY_PATH set in environment_cache.py
+
+The script environment_cache.py generates a cache file that
+sets LD_LIBRARY_PATH so that the paths to target libs
+go first. This confuses native python3 which dynamically links
+to the target libpython3 and that leads to wrong linking
+of dynamic python modules:
+
+    04:09:43 | [ 16%] Generating Python from MSG std_msgs/Float32
+    04:09:43 | catkin_generated/env_cached.sh /srv/jenkins/workspace/builder-slot-0/build/tmp-glibc/work/corei7-64-refkit-linux/std-msgs/0.5.10-r0/recipe-sysroot-native/usr/bin/python3-native/python3 /srv/jenkins/workspace/builder-slot-0/build/tmp-glibc/work/corei7-64-refkit-linux/std-msgs/0.5.10-r0/recipe-sysroot/opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /srv/jenkins/workspace/builder-slot-0/build/tmp-glibc/work/corei7-64-refkit-linux/std-msgs/0.5.10-r0/std_msgs-0.5.10/msg/Float32.msg -Istd_msgs:/srv/jenkins/workspace/builder-slot-0/build/tmp-glibc/work/corei7-64-refkit-linux/std-msgs/0.5.10-r0/std_msgs-0.5.10/msg -p std_msgs -o /srv/jenkins/workspace/builder-slot-0/build/tmp-glibc/work/corei7-64-refkit-linux/std-msgs/0.5.10-r0/build/devel/lib/python3.5/site-packages/std_msgs/msg
+    04:09:43 | Traceback (most recent call last):
+    04:09:43 |   File "/srv/jenkins/workspace/builder-slot-0/build/tmp-glibc/work/corei7-64-refkit-linux/std-msgs/0.5.10-r0/recipe-sysroot/opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py", line 44, in <module>
+    04:09:43 |     import genpy.generator
+    04:09:43 |   File "/srv/jenkins/workspace/builder-slot-0/build/tmp-glibc/work/corei7-64-refkit-linux/std-msgs/0.5.10-r0/recipe-sysroot/opt/ros/indigo/lib/python3.5/site-packages/genpy/__init__.py", line 34, in <module>
+    04:09:43 |     from . message import Message, SerializationError, DeserializationError, MessageException, struct_I
+    04:09:43 |   File "/srv/jenkins/workspace/builder-slot-0/build/tmp-glibc/work/corei7-64-refkit-linux/std-msgs/0.5.10-r0/recipe-sysroot/opt/ros/indigo/lib/python3.5/site-packages/genpy/message.py", line 40, in <module>
+    04:09:43 |     import math
+    04:09:43 | ImportError: /srv/jenkins/workspace/builder-slot-0/build/tmp-glibc/work/corei7-64-refkit-linux/std-msgs/0.5.10-r0/recipe-sysroot-native/usr/lib/python3.5/lib-dynload/math.cpython-35m-x86_64-linux-gnu.so: undefined symbol: _Py_dg_stdnan
+
+Don't put LD_LIBRARY_PATH to the cache, but use the value provided
+by bitbake.
+
+Upstream-Status: Inappropriate [upstream doesn't use bitbake and the change may break on-target development]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ python/catkin/environment_cache.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/python/catkin/environment_cache.py b/python/catkin/environment_cache.py
+index 3defa52..dba2c50 100755
+--- a/python/catkin/environment_cache.py
++++ b/python/catkin/environment_cache.py
+@@ -112,6 +112,7 @@ def _append_comment(code, value):
+ 
+ def _set_variable(code, key, value):
+     if _is_not_windows():
+-        code.append('export %s="%s"' % (key, value))
++        if key != "LD_LIBRARY_PATH":
++            code.append('export %s="%s"' % (key, value))
+     else:
+         code.append('set %s=%s' % (key, value))
+-- 
+2.9.3
+
