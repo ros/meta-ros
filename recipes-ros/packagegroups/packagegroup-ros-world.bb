@@ -184,9 +184,12 @@ RDEPENDS_${PN} = "\
     cv-camera \
     object-recognition-msgs \
     srdfdom \
+    libmavconn \
+    mavros \
+    mavros-extras \
+    ros-mavlink \
 "
 
-# ros-mavlink fails while configuring; libmavconn, mavros, mavros-extras depend on ros-mavlink.
 # urdfdom-headers is an empty deploy package.
 # image-view requires gtk+, but it cannot be found by cmake for some reason.
 # sound-play requires python-gst (which is not available in any layers' master branch)
