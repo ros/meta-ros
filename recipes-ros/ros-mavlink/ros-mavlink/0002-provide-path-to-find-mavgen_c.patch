@@ -1,0 +1,43 @@
+From 6ac7498052f0e97e978c8adf887b9bbf851d58e2 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Sun, 7 May 2017 07:02:49 +0200
+Subject: [PATCH 2/2] provide path to find mavgen_c
+
+When compiling mavlink, it failed with:
+
+```
+| Generating C headers
+| Traceback (most recent call last):
+|   File "/home/lukas/work/repositories/openembedded.org/openembedded-core/build/tmp-glibc/work/core2-64-oe-linux/ros-mavlink/git-r0/git/pymavlink/tools/mavgen.py", line 30, in <module>
+|     mavgen.mavgen(args, args.definitions)
+|   File "/home/lukas/work/repositories/openembedded.org/openembedded-core/build/tmp-glibc/work/core2-64-oe-linux/ros-mavlink/git-r0/git/pymavlink/generator/mavgen.py", line 154, in mavgen
+|     mavgen_cpp11.generate(opts.output, xml)
+|   File "/home/lukas/work/repositories/openembedded.org/openembedded-core/build/tmp-glibc/work/core2-64-oe-linux/ros-mavlink/git-r0/git/pymavlink/generator/mavgen_cpp11.py", line 451, in generate
+|     import mavgen_c
+| ImportError: No module named 'mavgen_c'
+```
+
+This commit provides the path to find mavgen_c, as already done in
+many other places.
+
+Upstream-Status: Pending
+---
+ pymavlink/generator/mavgen_cpp11.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pymavlink/generator/mavgen_cpp11.py b/pymavlink/generator/mavgen_cpp11.py
+index 797ab2e..5fc824a 100644
+--- a/pymavlink/generator/mavgen_cpp11.py
++++ b/pymavlink/generator/mavgen_cpp11.py
+@@ -448,7 +448,7 @@ def generate_one(basename, xml):
+ def generate(basename, xml_list):
+     '''generate serialization MAVLink C++ implemenation'''
+     print("Generating C headers")
+-    import mavgen_c
++    from . import mavgen_c
+     mavgen_c.generate(basename, xml_list)
+     for xml in xml_list:
+         generate_one(basename, xml)
+-- 
+1.9.1
+
