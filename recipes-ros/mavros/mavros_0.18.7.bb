@@ -8,12 +8,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=14;md5=9b511d4c606b1
 DEPENDS = " \
     boost \
     libeigen \
-    ros-mavlink \
+    mavlink \
 "
 
 RDEPENDS_${PN} = " \
     boost \
-    ros-mavlink \
+    mavlink \
 "
 
 # ROS packages dependencies

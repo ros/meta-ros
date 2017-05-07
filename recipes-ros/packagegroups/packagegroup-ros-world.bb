@@ -187,7 +187,7 @@ RDEPENDS_${PN} = "\
     libmavconn \
     mavros \
     mavros-extras \
-    ros-mavlink \
+    mavlink \
 "
 
 # urdfdom-headers is an empty deploy package.
