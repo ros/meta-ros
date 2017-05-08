@@ -8,12 +8,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=14;md5=9b511d4c606b1
 DEPENDS = " \
     boost \
     libeigen \
-    ros-mavlink \
+    mavlink \
 "
 
 RDEPENDS_${PN} = " \
     boost \
-    ros-mavlink \
+    mavlink \
 "
 
 # ROS packages dependencies
@@ -47,3 +47,5 @@ RDEPENDS_${PN}_append = "${MAVROS_RUN_AND_BUILD_DEPENDS}"
 require mavros.inc
 
 ROS_PKG_SUBDIR = "mavros"
+
+SRC_URI += "file://0001-always-find-Eigen-with-cmake_modules-mechanism.patch;striplevel=2"
