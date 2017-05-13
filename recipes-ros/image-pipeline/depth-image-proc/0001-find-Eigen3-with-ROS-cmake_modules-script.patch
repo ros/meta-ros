@@ -1,0 +1,33 @@
+From 579993db0e7ef1f6820b39f4e7598324c0bde097 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Tue, 2 May 2017 08:15:28 +0200
+Subject: [PATCH] find Eigen3 with ROS cmake_modules script
+
+Upstream-Status: Pending
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ depth_image_proc/CMakeLists.txt | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/depth_image_proc/CMakeLists.txt b/depth_image_proc/CMakeLists.txt
+index 060d295..dbe26a5 100644
+--- a/depth_image_proc/CMakeLists.txt
++++ b/depth_image_proc/CMakeLists.txt
+@@ -8,11 +8,8 @@ catkin_package(
+     LIBRARIES ${PROJECT_NAME})
+ 
+ find_package(Boost REQUIRED)
+-find_package(Eigen3 QUIET)
+-if(NOT EIGEN3_FOUND)
+-  find_package(Eigen REQUIRED)
+-  set(EIGEN3_INCLUDE_DIRS ${EIGEN_INCLUDE_DIRS})
+-endif()
++find_package(Eigen REQUIRED)
++set(EIGEN3_INCLUDE_DIRS ${EIGEN_INCLUDE_DIRS})
+ find_package(OpenCV REQUIRED)
+ include_directories(include ${BOOST_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIRS})
+ 
+-- 
+1.9.1
+
