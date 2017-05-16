@@ -5,4 +5,6 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=9add477069b61
 
 DEPENDS = "rosbridge-library rosapi rospy rosauth"
 
+RDEPENDS_${PN} = "rosauth rosbridge-library python-twisted"
+
 require rosbridge-suite.inc
