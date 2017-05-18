@@ -1,0 +1,33 @@
+From 72e1dc2e983bdef9845b45e1bf9717ad43015b28 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Thu, 5 Jan 2017 12:11:14 +0200
+Subject: [PATCH] utils: build unit tests conditionally
+
+Upstream-Status: Accepted [https://github.com/ros-industrial/industrial_core/pull/171]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ CMakeLists.txt | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cac163f..b1db333 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -20,9 +20,10 @@ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
+ 
+ 
+ 
+-catkin_add_gtest(utest_inds_utils test/utest.cpp)
+-target_link_libraries(utest_inds_utils ${PROJECT_NAME} ${catkin_LIBRARIES})
+-
++if(CATKIN_ENABLE_TESTING)
++    catkin_add_gtest(utest_inds_utils test/utest.cpp)
++    target_link_libraries(utest_inds_utils ${PROJECT_NAME} ${catkin_LIBRARIES})
++endif()
+ 
+ 
+ install(
+-- 
+2.7.4
+
