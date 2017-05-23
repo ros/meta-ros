@@ -1,0 +1,40 @@
+From 3658bb95c120228cac55cd10e4103ababf30474b Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Tue, 23 May 2017 10:01:06 +0300
+Subject: [PATCH 1/2] address gcc6 build error
+
+With gcc6, compiling fails with `stdlib.h: No such file or directory`,
+as including '-isystem /usr/include' breaks with gcc6, cf.,
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70129.
+
+This commit addresses this issue for this package in almost the same way
+it was addressed in various other ROS packages. A list of related
+commits and pull requests is at:
+
+    https://github.com/ros/rosdistro/issues/12783
+
+Particularly when searching for the Boost library CMake sets
+Boost_INCLUDE_DIRS to @SYSROOT@/usr/include which should be
+avoided in the `-isystem` option of gcc.
+
+Upstream-Status: Submitted [https://github.com/ompl/ompl/pull/101]
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 46ae14d..be53fac 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -74,7 +74,7 @@ else()
+   # don't use chrono
+   find_package(Boost COMPONENTS date_time thread serialization filesystem system program_options unit_test_framework REQUIRED)
+ endif()
+-include_directories(SYSTEM ${Boost_INCLUDE_DIR})
++include_directories(${Boost_INCLUDE_DIR})
+ 
+ if(${Boost_VERSION} LESS 105300)
+   # Include bundled version of boost::odeint if it isn't installed natively
+-- 
+2.9.3
+
