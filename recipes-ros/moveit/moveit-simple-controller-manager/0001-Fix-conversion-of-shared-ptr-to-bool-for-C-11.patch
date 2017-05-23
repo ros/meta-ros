@@ -1,0 +1,27 @@
+From 475a3477b2949392130e67182459390960a375c9 Mon Sep 17 00:00:00 2001
+From: Maarten de Vries <maarten@de-vri.es>
+Date: Fri, 20 May 2016 20:08:29 +0200
+Subject: [PATCH] Fix conversion of shared ptr to bool for C++11.
+
+Upstream-Status: Backported [from Kinetic release]
+
+---
+ .../moveit_simple_controller_manager/action_based_controller_handle.h   | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/moveit_simple_controller_manager/action_based_controller_handle.h b/include/moveit_simple_controller_manager/action_based_controller_handle.h
+index f1bec33..e1315fe 100644
+--- a/include/moveit_simple_controller_manager/action_based_controller_handle.h
++++ b/include/moveit_simple_controller_manager/action_based_controller_handle.h
+@@ -86,7 +86,7 @@ public:
+ 
+   bool isConnected() const
+   {
+-    return controller_action_client_;
++    return static_cast<bool>(controller_action_client_);
+   }
+ 
+   virtual bool cancelExecution()
+-- 
+2.9.3
+
