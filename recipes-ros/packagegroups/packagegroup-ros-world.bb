@@ -178,9 +178,14 @@ RDEPENDS_${PN} = "\
     ar-track-alvar \
     ar-track-alvar-msgs \
     moveit-core \
+    moveit-kinematics \
     moveit-msgs \
+    moveit-planners-ompl \
+    moveit-ros-manipulation \
+    moveit-ros-move-group \
     moveit-ros-perception \
     moveit-ros-planning \
+    moveit-simple-controller-manager \
     mavros-msgs \
     cv-camera \
     object-recognition-msgs \
