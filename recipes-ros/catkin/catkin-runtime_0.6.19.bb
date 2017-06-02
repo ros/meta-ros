@@ -11,7 +11,8 @@ S = "${WORKDIR}/catkin-${PV}"
 # This package includes ONLY the python packages AND catkin_find
 # The catkin_${PV} package includes all other files
 # from the catkin tool.
-FILES_${PN} = "${PYTHON_SITEPACKAGES_DIR} ${ros_bindir}/catkin_find"
+FILES_${PN} = "${PYTHON_SITEPACKAGES_DIR} ${ros_bindir}/catkin_find ${ros_prefix}/.catkin"
+FILES_${PN}-dev = ""
 
 RDEPENDS_${PN}_class-native = ""
 RDEPENDS_${PN} = "\
@@ -25,6 +26,13 @@ do_install_append() {
     rm  ${D}${ros_bindir}/catkin_make
     rm -rf ${D}${ros_datadir}
     rm -rf ${D}${ros_libdir}/pkgconfig
+
+    # Manually add the marker file
+    touch ${D}${ros_prefix}/.catkin
+}
+
+catkin_sysroot_preprocess_append() {
+    install -m 644 -t ${SYSROOT_DESTDIR}${ros_prefix} ${D}${ros_prefix}/.catkin
 }
 
 BBCLASSEXTEND += "native"
