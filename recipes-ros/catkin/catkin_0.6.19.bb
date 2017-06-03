@@ -1,5 +1,7 @@
 require catkin.inc
 
+SRC_URI += "file://environment.d-catkin.sh"
+
 DEPENDS_class-native += "catkin-runtime"
 
 # The files in ${PYTHON_SITEPACKAGES_DIR} and catkin_find are
@@ -27,4 +29,12 @@ do_install_append() {
     rmdir ${D}${ros_libdir}/${PYTHON_DIR}
 }
 
-BBCLASSEXTEND += "native"
+# Append environment hook for SDK
+do_install_append_class-nativesdk() {
+    mkdir -p ${D}${SDKPATHNATIVE}/environment-setup.d
+    install -m 644 ${WORKDIR}/environment.d-catkin.sh ${D}${SDKPATHNATIVE}/environment-setup.d/catkin.sh
+}
+
+FILES_${PN}_append_class-nativesdk = " ${SDKPATHNATIVE}"
+
+BBCLASSEXTEND += "native nativesdk"
