@@ -13,4 +13,4 @@ S = "${WORKDIR}/${SRCNAME}-${PV}"
 RDEPENDS_${PN} = "${PYTHON_PN}-unixadmin"
 RDEPENDS_${PN}_class-native = ""
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"

@@ -31,8 +31,26 @@ do_install_append() {
     touch ${D}${ros_prefix}/.catkin
 }
 
+# Append environment hook for SDK
+do_install_append_class-nativesdk() {
+    mkdir -p ${D}${SDKPATHNATIVE}/environment-setup.d
+
+    script=${D}${SDKPATHNATIVE}/environment-setup.d/catkin-runtime.sh
+
+    # Note: These exports need to be kept in sync with the ros_* exports as well as
+    #       PYTHON_SITEPACKAGES_DIR in ros.bbclass; however, the variables can not
+    #       be used directly here due to the prefix base_prefix.
+    echo "export ROSDISTRO=${ROSDISTRO}" >> $script
+    echo "export PATH=\$PATH:\$OECORE_NATIVE_SYSROOT/opt/ros/\$ROSDISTRO/bin" >> $script
+    echo "export PYTHONPATH=\$OECORE_NATIVE_SYSROOT/opt/ros/\$ROSDISTRO/${baselib}/${PYTHON_DIR}/site-packages" >> $script
+    echo "export ROS_ROOT=\$OECORE_TARGET_SYSROOT/opt/ros/\$ROSDISTRO/share/ros" >> $script
+    echo "export CMAKE_PREFIX_PATH=\$OECORE_TARGET_SYSROOT/opt/ros/\$ROSDISTRO:\$OECORE_NATIVE_SYSROOT/opt/ros/\$ROSDISTRO" >> $script
+}
+
+FILES_${PN}_append_class-nativesdk = " ${SDKPATHNATIVE}"
+
 catkin_sysroot_preprocess_append() {
     install -m 644 -t ${SYSROOT_DESTDIR}${ros_prefix} ${D}${ros_prefix}/.catkin
 }
 
-BBCLASSEXTEND += "native"
+BBCLASSEXTEND += "native nativesdk"
