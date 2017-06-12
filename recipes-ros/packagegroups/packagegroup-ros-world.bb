@@ -196,6 +196,7 @@ RDEPENDS_${PN} = "\
     mavlink \
 "
 
+# kdl-parser-py requires python-orocos-kdl, which current fails due to #469.
 # urdfdom-headers is an empty deploy package.
 # image-view requires gtk+, but it cannot be found by cmake for some reason.
 # sound-play requires python-gst (which is not available in any layers' master branch)
