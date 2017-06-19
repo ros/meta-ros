@@ -1,0 +1,43 @@
+From a0c4dbca05a2ff61903e1692bce5ad9fac411eb9 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Mon, 19 Jun 2017 11:39:08 +0300
+Subject: [PATCH] avoid interfering with bitbake's LD_LIBRARY_PATH
+ modifications
+
+With "usrmerge" feature added to DISTRO_FEATURES catkin reveals a problem
+with mangled LD_LIBRARY_PATH. Particularly genmsg fails to build with the
+message
+
+rm: relocation error: /home/rojkov/work/iot-ref-kit/build/tmp-glibc/work/corei7-64-refkit-linux/genmsg/0.5.8-r0/recipe-sysroot/usr/lib/libc.so.6: symbol __tunable_set_val, version GLIBC_PRIVATE not defined in file ld-linux-x86-64.so.2 with link time reference
+
+The problem is that the `rm` utility is enabled in HOSTTOOLS and
+the host's rm tries to resolve `__tunable_set_val` against libraries
+from the native recipe-specific sysroot, because catkin mangles
+LD_LIBRARY_PATH. With usrmerge disabled it runs successfully by pure
+luck since the sets of symbols in the host's glibc and in RSS glibc
+are more or less identical. The GLIBC_PRIVATE symbols reside in /lib
+which the usermerge feature eliminates.
+
+The patch precludes catkin from mangling LD_LIBRARY_PATH.
+
+Upstream-Status: Inappropriate [upstream doesn't use bitbake and the change may break on-target development]
+
+---
+ cmake/templates/_setup_util.py.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/cmake/templates/_setup_util.py.in b/cmake/templates/_setup_util.py.in
+index f8807f3..87b3b26 100755
+--- a/cmake/templates/_setup_util.py.in
++++ b/cmake/templates/_setup_util.py.in
+@@ -53,7 +53,6 @@ IS_WINDOWS = (system == 'Windows')
+ ENV_VAR_SUBFOLDERS = {
+     'CMAKE_PREFIX_PATH': '',
+     'CPATH': 'include',
+-    'LD_LIBRARY_PATH' if not IS_DARWIN else 'DYLD_LIBRARY_PATH': @CATKIN_LIB_ENVIRONMENT_PATHS@,
+     'PATH': '@CATKIN_GLOBAL_BIN_DESTINATION@',
+     'PKG_CONFIG_PATH': @CATKIN_PKGCONFIG_ENVIRONMENT_PATHS@,
+     'PYTHONPATH': '@PYTHON_INSTALL_DIR@',
+-- 
+2.9.3
+
