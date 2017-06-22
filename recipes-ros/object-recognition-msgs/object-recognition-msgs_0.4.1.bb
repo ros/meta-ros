@@ -9,8 +9,8 @@ SRC_URI[sha256sum] = "b7689a079ad78a4358946fa5a38de0c9a5c12e46381d22106f053ac5cd
 
 S = "${WORKDIR}/${ROS_SP}"
 
-inherit catkin
-
 ROS_SPN = "object_recognition_msgs"
 
 DEPENDS = "message-generation std-msgs geometry-msgs sensor-msgs actionlib-msgs shape-msgs"
+
+inherit catkin
