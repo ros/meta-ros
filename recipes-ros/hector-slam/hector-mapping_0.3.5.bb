@@ -5,6 +5,6 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=19;endline=19;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-require hector-slam.inc
-
 DEPENDS = "cmake-modules message-runtime boost nav-msgs visualization-msgs tf message-filters laser-geometry tf-conversions"
+
+require hector-slam.inc
