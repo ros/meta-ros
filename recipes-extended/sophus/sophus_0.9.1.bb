@@ -15,3 +15,9 @@ inherit cmake
 
 # CXXFLAGS are needed to compile eigen 3.3.1 headers properly
 CXXFLAGS += "-Wno-deprecated-declarations -Wno-misleading-indentation -Wno-int-in-bool-context -Wno-ignored-attributes"
+
+do_install_append() {
+        # remove sysroot library path from cmake config files
+        sed -i -e 's#${STAGING_DIR_TARGET}##g' \
+                   ${D}${datadir}/sophus/*.cmake
+}
