@@ -6,5 +6,3 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9de
 DEPENDS = "ecl-license ecl-config ecl-errors ecl-exceptions ecl-formatters ecl-converters ecl-mpl ecl-type-traits ecl-utilities"
 
 require ecl-core.inc
-
-SRC_URI += "file://0001-ecl_containers-Fix-gcc-v7.1-compilation-issue.patch;patchdir=.."
