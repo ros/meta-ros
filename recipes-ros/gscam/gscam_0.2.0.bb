@@ -7,9 +7,7 @@ DEPENDS = "gstreamer gst-plugins-base gst-plugins-good nodelet opencv roscpp ima
     camera-calibration-parsers camera-info-manager"
 
 SRC_URI = "https://github.com/ros-drivers/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "c20617a0db24124168fe968365ecb990"
-SRC_URI[sha256sum] = "56fbb0c31d32cf4ff1a1b702732c3e8373e6d541c431329bcd931bd705991a35"
-
-SRC_URI += "file://0001-gscam_nodelet.h-include-scoped_ptr.hpp-to-compile-wi.patch"
+SRC_URI[md5sum] = "b0512882e06f5cdd4c6015f16dceb346"
+SRC_URI[sha256sum] = "84d02ed9a0bed769bebddfb67d27085ae779aaf9ab1311aaad94e9d17aa0fbc6"
 
 inherit catkin
