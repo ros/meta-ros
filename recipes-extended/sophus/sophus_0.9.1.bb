@@ -14,4 +14,4 @@ S = "${WORKDIR}/sophus-${PV}"
 inherit cmake
 
 # CXXFLAGS are needed to compile eigen 3.3.1 headers properly
-CXXFLAGS += "-Wno-deprecated-declarations -Wno-misleading-indentation -Wno-int-in-bool-context"
+CXXFLAGS += "-Wno-deprecated-declarations -Wno-misleading-indentation -Wno-int-in-bool-context -Wno-ignored-attributes"
