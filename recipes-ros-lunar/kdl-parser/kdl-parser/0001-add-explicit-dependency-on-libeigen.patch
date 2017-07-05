@@ -1,0 +1,45 @@
+From 48eebb8144f326040c82ea37e8cf00291fbc1403 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Fri, 17 Feb 2017 10:49:30 +0200
+Subject: [PATCH] add explicit dependency on libeigen
+
+libeigen is an interface dependency needed by orocos-kdl and
+orocos-kdl does export this dependency, but it does so with
+a hardcoded absolute path pointing to the sysroot where
+orocos-kdl was built. In case the sysroot doesn't exist
+the compiler can't find libeigen's headers.
+
+Unfortunately orocos-kdl's CMakeList.txt doesn't use
+per-target include dirs, but global ones. I don't know
+an easy way how to make them relocatable.
+
+The easiest way to fix it is to add the explicit dependency
+on libeigen to kdl-parser's CMakeList.txt. Anyway it's already
+been declarated as a dependency in kdl-parser's recipe.
+
+Upstream-Status: Inappropriate [It's not kdl-parser's problem, but orocos-kdl's one]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 43b96b7..5c96e55 100644
+--- aCMakeLists.txt
++++ bCMakeLists.txt
+@@ -9,9 +9,10 @@ find_package(catkin REQUIRED
+   COMPONENTS roscpp rosconsole urdf cmake_modules
+ )
+ find_package(orocos_kdl REQUIRED)
++find_package(Eigen3 REQUIRED)
+ find_package(TinyXML REQUIRED)
+ 
+-include_directories(include ${orocos_kdl_INCLUDE_DIRS} ${TinyXML_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
++include_directories(include ${EIGEN3_INCLUDE_DIR} ${orocos_kdl_INCLUDE_DIRS} ${TinyXML_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
+ 
+ link_directories(${catkin_LIBRARY_DIRS})
+ link_directories(${orocos_kdl_LIBRARY_DIRS})
+-- 
+2.7.4
+

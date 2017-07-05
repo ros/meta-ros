@@ -1,0 +1,36 @@
+From d7b00940cb69d659d77bb08b1cbbf5aad4ea4617 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Sun, 7 May 2017 06:14:18 +0200
+Subject: [PATCH] always find Eigen with cmake_modules mechanism
+
+Upstream-Status: Pending
+---
+ mavros/CMakeLists.txt | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
+
+diff --git a/mavros/CMakeLists.txt b/mavros/CMakeLists.txt
+index 3b3a0bd..bcc7924 100644
+--- a/mavros/CMakeLists.txt
++++ b/mavros/CMakeLists.txt
+@@ -26,14 +26,10 @@ find_package(catkin REQUIRED COMPONENTS
+ # find_package(Boost REQUIRED COMPONENTS system)
+ find_package(Boost REQUIRED COMPONENTS system)
+ 
+-find_package(Eigen3)
+-if(NOT EIGEN3_FOUND)
+-  # Fallback to cmake_modules
+-  find_package(cmake_modules REQUIRED)
+-  find_package(Eigen REQUIRED)
+-  set(EIGEN3_INCLUDE_DIRS ${EIGEN_INCLUDE_DIRS})
+-  set(EIGEN3_LIBRARIES ${EIGEN_LIBRARIES})
+-endif()
++find_package(cmake_modules REQUIRED)
++find_package(Eigen REQUIRED)
++set(EIGEN3_INCLUDE_DIRS ${EIGEN_INCLUDE_DIRS})
++set(EIGEN3_LIBRARIES ${EIGEN_LIBRARIES})
+ 
+ include(EnableCXX11)
+ include(MavrosMavlink)
+-- 
+1.9.1
+

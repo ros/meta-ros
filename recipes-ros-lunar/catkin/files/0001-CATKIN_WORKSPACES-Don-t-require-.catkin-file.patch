@@ -1,0 +1,56 @@
+From a34e7d9d7f77c123cb8cbf464ead628f97e42fd4 Mon Sep 17 00:00:00 2001
+From: Stefan Herbrechtsmeier <stefan@herbrechtsmeier.net>
+Date: Wed, 13 Mar 2013 11:49:17 +0100
+Subject: [PATCH] CATKIN_WORKSPACES: Don't require .catkin file
+
+Upstream-Status: Inappropriate [only for our setup]
+
+Signed-off-by: Stefan Herbrechtsmeier <stefan@herbrechtsmeier.net>
+---
+ cmake/all.cmake                            |    8 +++-----
+ cmake/list_insert_in_workspace_order.cmake |    9 ++++-----
+ 2 files changed, 7 insertions(+), 10 deletions(-)
+
+diff --git a/cmake/all.cmake b/cmake/all.cmake
+index 83da965..a5f9df9 100644
+--- a/cmake/all.cmake
++++ b/cmake/all.cmake
+@@ -44,11 +44,9 @@ set(CMAKE_PREFIX_PATH_AS_IS ${CMAKE_PREFIX_PATH})
+ # list of unique catkin workspaces based on CMAKE_PREFIX_PATH
+ set(CATKIN_WORKSPACES "")
+ foreach(path ${CMAKE_PREFIX_PATH})
+-  if(EXISTS "${path}/.catkin")
+-    list(FIND CATKIN_WORKSPACES ${path} _index)
+-    if(_index EQUAL -1)
+-      list(APPEND CATKIN_WORKSPACES ${path})
+-    endif()
++  list(FIND CATKIN_WORKSPACES ${path} _index)
++  if(_index EQUAL -1)
++    list(APPEND CATKIN_WORKSPACES ${path})
+   endif()
+ endforeach()
+ if(CATKIN_WORKSPACES)
+diff --git a/cmake/list_insert_in_workspace_order.cmake b/cmake/list_insert_in_workspace_order.cmake
+index 57ade4a..46887af 100644
+--- a/cmake/list_insert_in_workspace_order.cmake
++++ b/cmake/list_insert_in_workspace_order.cmake
+@@ -4,12 +4,11 @@
+ set(CATKIN_ORDERED_SPACES "")
+ foreach(_space ${CATKIN_DEVEL_PREFIX} ${CATKIN_WORKSPACES})
+   list(APPEND CATKIN_ORDERED_SPACES ${_space})
+-  if(NOT EXISTS "${_space}/.catkin")
+-    message(FATAL_ERROR "The path '${_space}' is in CATKIN_WORKSPACES but does not have a .catkin file")
++  if(EXISTS "${_space}/.catkin")
++    # prepend to existing list of sourcespaces
++    file(READ "${_space}/.catkin" _sourcespaces)
++    list(APPEND CATKIN_ORDERED_SPACES ${_sourcespaces})
+   endif()
+-  # prepend to existing list of sourcespaces
+-  file(READ "${_space}/.catkin" _sourcespaces)
+-  list(APPEND CATKIN_ORDERED_SPACES ${_sourcespaces})
+ endforeach()
+ 
+ debug_message(10 "CATKIN_ORDERED_SPACES ${CATKIN_ORDERED_SPACES}")
+-- 
+1.7.0.4
+

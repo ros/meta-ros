@@ -1,0 +1,56 @@
+From 6492044a8c7c5c285962c104217111716fd7bb78 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Tue, 3 Jan 2017 11:17:10 +0100
+Subject: [PATCH] yocs_waypoint_provider: also install libraries
+
+To provide a package where all needed content is installed, also
+the two libraries waypoint_provider_lib and
+way_provider_yaml_parser_lib that are required by the
+waypoint_provider executable must be installed.
+
+I became aware of this issue when creating bitbake recipes for the
+yocs_waypoint_provider package in the OpenEmbedded layer for ROS [1].
+The bitbake tool chain reported the following warnings for the
+yocs_waypoint_provider 0.6.4, shipped in the indigo distribution:
+```
+WARNING: yocs-waypoint-provider-0.6.4-r0 do_package_qa: QA Issue: /opt/ros/indigo/lib/yocs_waypoint_provider/waypoint_provider contained in package yocs-waypoint-provider requires libwaypoint_provider_lib.so, but no providers found in RDEPENDS_yocs-waypoint-provider? [file-rdeps]
+WARNING: yocs-waypoint-provider-0.6.4-r0 do_package_qa: QA Issue: /opt/ros/indigo/lib/yocs_waypoint_provider/waypoint_provider contained in package yocs-waypoint-provider requires libwaypoint_provider_yaml_parser_lib.so, but no providers found in RDEPENDS_yocs-waypoint-provider? [file-rdeps]
+```
+These two warnings pointed out that the two libraries in
+yocs_waypoint_provider were not installed.
+
+[1] https://github.com/bmwcarit/meta-ros
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
+Upstream-Status: Accepted [https://github.com/yujinrobot/yujin_ocs/commit/60c1d5d1046217836aa926e3b8e491c737f8d93e]
+
+This patch has been generated with:
+  `git format-patch -1 6492044a8c7c5c285962c104217111716fd7bb78`
+in the yujin_ocs repository.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ yocs_waypoint_provider/CMakeLists.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/yocs_waypoint_provider/CMakeLists.txt b/yocs_waypoint_provider/CMakeLists.txt
+index 13c7ae2..f736e78 100644
+--- a/yocs_waypoint_provider/CMakeLists.txt
++++ b/yocs_waypoint_provider/CMakeLists.txt
+@@ -38,6 +38,12 @@ target_link_libraries(waypoint_provider waypoint_provider_lib waypoint_provider_
+ ## Install ##
+ #############
+ 
++install(TARGETS waypoint_provider_lib waypoint_provider_yaml_parser_lib
++  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
++  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
++  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
++)
++
+ install(TARGETS waypoint_provider 
+         DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+ )
+-- 
+2.5.5
+
