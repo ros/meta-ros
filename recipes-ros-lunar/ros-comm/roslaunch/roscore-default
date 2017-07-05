@@ -1,0 +1,9 @@
+ROS_ROOT=/opt/ros/indigo/
+ROS_DISTRO=indigo
+ROS_PACKAGE_PATH=/opt/ros/indigo/share
+ROS_PORT=11311
+ROS_MASTER_URI=http://localhost:11311
+CMAKE_PREFIX_PATH=/opt/ros/indigo/
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/ros/indigo/bin
+LD_LIBRARY_PATH=/opt/ros/indigo/lib
+PYTHONPATH=/opt/ros/indigo/lib/python2.7/site-packages

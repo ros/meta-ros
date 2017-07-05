@@ -1,0 +1,76 @@
+From 1aa4eeea5b693e67f41e59cf1b0019f45d3a8976 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Mon, 6 Feb 2017 16:15:16 +0200
+Subject: [PATCH 1/2] avoid using host's paths when cross-compiling
+
+This patch makes catkin to look for libraries only under Yocto's
+sysroots and if a library is found the actual directory is used
+for that library. Not the one that was provided to CMake's
+find_library() command.
+
+For better insights please refer to this WONTFIX'ed issue
+https://github.com/ros/catkin/issues/379
+
+Upstream-Status: Inappropriate [suitable for Yocto only]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+
+---
+ cmake/catkin_package.cmake         | 10 ++++++++--
+ cmake/templates/pkgConfig.cmake.in |  4 ++--
+ 2 files changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
+index 7d56edf..71f700f 100644
+--- a/cmake/catkin_package.cmake
++++ b/cmake/catkin_package.cmake
+@@ -104,6 +104,9 @@ function(_catkin_package)
+     message(FATAL_ERROR "catkin_package() called with unused arguments: ${PROJECT_UNPARSED_ARGUMENTS}")
+   endif()
+ 
++  # cmake.bbclass always sets $STAGING_DIR as the first value of CMAKE_FIND_ROOT_PATH
++  list(GET CMAKE_FIND_ROOT_PATH 0 ROOT_PATH)
++
+   if(NOT ${PROJECT_NAME} STREQUAL "catkin")
+     list(FIND ${PROJECT_NAME}_BUILDTOOL_DEPENDS "catkin" _index)
+     if(_index EQUAL -1)
+@@ -231,7 +234,8 @@ function(_catkin_package)
+   # get library paths from all workspaces
+   set(lib_paths "")
+   foreach(workspace ${CATKIN_WORKSPACES})
+-    list_append_unique(lib_paths ${workspace}/lib)
++    string(REPLACE ${ROOT_PATH} "" tweaked_ws ${workspace})
++    list_append_unique(lib_paths ${tweaked_ws}/lib)
+   endforeach()
+ 
+   # merge explicitly listed libraries and libraries from non-catkin but find_package()-ed packages
+@@ -250,7 +254,9 @@ function(_catkin_package)
+   catkin_pack_libraries_with_build_configuration(_PKG_CONFIG_LIBRARIES ${_PKG_CONFIG_LIBRARIES})
+   set(PKG_CONFIG_LIBRARIES "")
+   foreach(library ${_PKG_CONFIG_LIBRARIES})
+-    list_append_deduplicate(PKG_CONFIG_LIBRARIES ${library})
++    string(REPLACE ${ROOT_PATH} "" newlib ${library})
++    get_filename_component(newlib ${newlib} NAME)
++    list_append_deduplicate(PKG_CONFIG_LIBRARIES ${newlib})
+   endforeach()
+   catkin_unpack_libraries_with_build_configuration(PKG_CONFIG_LIBRARIES ${PKG_CONFIG_LIBRARIES})
+ 
+diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
+index d99b811..c692108 100644
+--- a/cmake/templates/pkgConfig.cmake.in
++++ b/cmake/templates/pkgConfig.cmake.in
+@@ -125,9 +125,9 @@ foreach(library ${libraries})
+     foreach(path @PKG_CONFIG_LIB_PATHS@)
+       find_library(lib ${library}
+         PATHS ${path}
+-        NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
++        NO_DEFAULT_PATH ONLY_CMAKE_FIND_ROOT_PATH)
+       if(lib)
+-        set(lib_path ${path})
++        get_filename_component(lib_path ${lib} DIRECTORY)
+         break()
+       endif()
+     endforeach()
+-- 
+2.7.4
+

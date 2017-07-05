@@ -1,0 +1,63 @@
+From f3f1c4d55c6f707685f727c80d3e04bbb37be8ed Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Javier=20V=2E=20G=C3=B3mez?= <engjotauve@gmail.com>
+Date: Wed, 16 Nov 2016 19:54:30 +0100
+Subject: [PATCH 1/3] Make rostest dependency conditional, depending on
+ CATKIN_ENABLE_TESTING (#66)
+
+* Make rostest dependency conditional, depending on CATKIN_ENABLE_TESTING
+
+* Make rostest dependency REQUIRED
+
+Upstream-Status: Backport [https://github.com/ros/robot_state_publisher/commit/f3f1c4d55c6f707685f727c80d3e04bbb37be8ed]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ CMakeLists.txt | 4 +++-
+ package.xml    | 3 +--
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 11ea778..0510171 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,7 +3,7 @@ project(robot_state_publisher)
+ 
+ find_package(orocos_kdl REQUIRED)
+ find_package(catkin REQUIRED
+-  COMPONENTS roscpp rosconsole rostime tf tf2_ros tf2_kdl kdl_parser cmake_modules rostest
++  COMPONENTS roscpp rosconsole rostime tf tf2_ros tf2_kdl kdl_parser cmake_modules
+ )
+ find_package(Eigen REQUIRED)
+ 
+@@ -33,6 +33,8 @@ target_link_libraries(state_publisher ${PROJECT_NAME}_solver ${orocos_kdl_LIBRAR
+ 
+ if (CATKIN_ENABLE_TESTING)
+ 
++  find_package(rostest REQUIRED)
++
+   add_rostest_gtest(test_one_link ${CMAKE_CURRENT_SOURCE_DIR}/test/test_one_link.launch test/test_one_link.cpp)
+   target_link_libraries(test_one_link ${catkin_LIBRARIES} ${PROJECT_NAME}_solver)
+ 
+diff --git a/package.xml b/package.xml
+index 793a235..1eea965 100644
+--- a/package.xml
++++ b/package.xml
+@@ -26,7 +26,6 @@
+   <build_depend version_gte="1.3.0">orocos_kdl</build_depend>
+   <build_depend>rosconsole</build_depend>
+   <build_depend>roscpp</build_depend>
+-  <build_depend>rostest</build_depend>
+   <build_depend>rostime</build_depend>
+   <build_depend>sensor_msgs</build_depend>
+   <build_depend>tf</build_depend>
+@@ -47,6 +46,6 @@
+   <run_depend>tf2_kdl</run_depend>
+   <run_depend>tf_conversions</run_depend>
+ 
+-  <build_depend>rostest</build_depend>
++  <test_depend>rostest</test_depend>
+ 
+ </package>
+-- 
+2.5.5
+

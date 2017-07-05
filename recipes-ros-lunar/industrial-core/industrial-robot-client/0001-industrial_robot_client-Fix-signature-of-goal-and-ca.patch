@@ -1,0 +1,61 @@
+From 75b97718c0e99c916d7890e38cf86c66e62bca6e Mon Sep 17 00:00:00 2001
+From: Maarten de Vries <maarten@de-vri.es>
+Date: Wed, 11 May 2016 22:32:19 +0200
+Subject: [PATCH] industrial_robot_client: Fix signature of goal and cancel
+ callbacks.
+
+Upstream-Status: Backported [from v0.5.1]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ .../include/industrial_robot_client/joint_trajectory_action.h         | 4 ++--
+ industrial_robot_client/src/joint_trajectory_action.cpp               | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/include/industrial_robot_client/joint_trajectory_action.h b/include/industrial_robot_client/joint_trajectory_action.h
+index 6eaf6b5..90fb35f 100644
+--- a/include/industrial_robot_client/joint_trajectory_action.h
++++ b/include/industrial_robot_client/joint_trajectory_action.h
+@@ -185,7 +185,7 @@ private:
+    * \param gh goal handle
+    *
+    */
+-  void goalCB(JointTractoryActionServer::GoalHandle & gh);
++  void goalCB(JointTractoryActionServer::GoalHandle gh);
+ 
+   /**
+    * \brief Action server cancel callback method
+@@ -194,7 +194,7 @@ private:
+    *
+    */
+ 
+-  void cancelCB(JointTractoryActionServer::GoalHandle & gh);
++  void cancelCB(JointTractoryActionServer::GoalHandle gh);
+   /**
+    * \brief Controller state callback (executed when feedback message
+    * received)
+diff --git a/industrial_robot_client/src/joint_trajectory_action.cpp b/industrial_robot_client/src/joint_trajectory_action.cpp
+index 0f92b95..407da6d 100644
+--- a/src/joint_trajectory_action.cpp
++++ b/src/joint_trajectory_action.cpp
+@@ -107,7 +107,7 @@ void JointTrajectoryAction::watchdog(const ros::TimerEvent &e)
+   }
+ }
+ 
+-void JointTrajectoryAction::goalCB(JointTractoryActionServer::GoalHandle & gh)
++void JointTrajectoryAction::goalCB(JointTractoryActionServer::GoalHandle gh)
+ {
+   ROS_INFO("Received new goal");
+ 
+@@ -180,7 +180,7 @@ void JointTrajectoryAction::goalCB(JointTractoryActionServer::GoalHandle & gh)
+   }
+ }
+ 
+-void JointTrajectoryAction::cancelCB(JointTractoryActionServer::GoalHandle & gh)
++void JointTrajectoryAction::cancelCB(JointTractoryActionServer::GoalHandle gh)
+ {
+   ROS_DEBUG("Received action cancel request");
+   if (active_goal_ == gh)
+-- 
+2.7.4
+

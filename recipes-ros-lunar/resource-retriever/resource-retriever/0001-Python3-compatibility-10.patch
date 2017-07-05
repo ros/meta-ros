@@ -1,0 +1,141 @@
+From 2105ad5c201bacd9860ad21fa3b4de96eed0e124 Mon Sep 17 00:00:00 2001
+From: Ruben Smits <ruben.smits@intermodalics.eu>
+Date: Mon, 13 Feb 2017 18:02:23 +0100
+Subject: [PATCH] Python3 compatibility (#10)
+
+* Replace urlgrabber with urllib[2]
+
+As urlgrabber is not supported for Python 3 replace it with either the built-in urllib (Python 2) or urllib2 (Python 3)
+
+* Use rospkg instead of system call for rospack
+
+* Add test for python functionality
+
+* Fix rospkg dependency definition
+
+Upstream-Status: Backported
+---
+ package.xml                        |  2 +-
+ src/resource_retriever/__init__.py | 26 ++++++++++++++------------
+ test/CMakeLists.txt                |  2 ++
+ test/test.py                       | 36 ++++++++++++++++++++++++++++++++++++
+ 4 files changed, 53 insertions(+), 13 deletions(-)
+ create mode 100644 test/test.py
+
+diff --git a/package.xml b/package.xml
+index fc1d789..4b447dc 100644
+--- a/package.xml
++++ b/package.xml
+@@ -28,6 +28,6 @@
+   <run_depend>curl</run_depend>
+   <run_depend>rosconsole</run_depend>
+   <run_depend>roslib</run_depend>
+-  <run_depend>python-urlgrabber</run_depend>
++  <run_depend>python-rospkg</run_depend>
+ 
+ </package>
+diff --git a/src/resource_retriever/__init__.py b/src/resource_retriever/__init__.py
+index d92baca..747a63f 100644
+--- a/src/resource_retriever/__init__.py
++++ b/src/resource_retriever/__init__.py
+@@ -33,17 +33,16 @@
+ 
+ import roslib; roslib.load_manifest('resource_retriever')
+ import subprocess
+-import urlgrabber, string
++import rospkg
++try:
++    from urllib.request import urlopen
++    from urllib.error import URLError
++except ImportError:
++    from urllib2 import urlopen
++    from urllib2 import URLError
+ 
+ PACKAGE_PREFIX = 'package://'
+-
+-def rospack_find(package):
+-    process = subprocess.Popen(['rospack', 'find', package], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+-    (stdout, stderr) = process.communicate()
+-    if len(stderr) > 0:
+-        raise Exception(stderr)
+-    else:
+-        return string.strip(stdout)
++r = rospkg.RosPack()
+ 
+ def get_filename(url, use_protocol=True ):
+     mod_url = url
+@@ -55,7 +54,7 @@ def get_filename(url, use_protocol=True ):
+ 
+         package = mod_url[0:pos]
+         mod_url = mod_url[pos:]
+-        package_path = rospack_find(package)
++        package_path = r.get_path(package)
+ 
+         if use_protocol:
+             protocol = "file://"
+@@ -65,5 +64,8 @@ def get_filename(url, use_protocol=True ):
+     return mod_url
+ 
+ def get(url):
+-    return urlgrabber.urlopen(get_filename(url))
+-
++    filename = get_filename(url)
++    try:
++        return urlopen(filename).read()
++    except URLError:
++        raise Exception("Invalid URL: {}".format(filename))
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index f133bf6..e311f59 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -2,3 +2,5 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
+ 
+ catkin_add_gtest(${PROJECT_NAME}_utest test.cpp)
+ target_link_libraries(${PROJECT_NAME}_utest ${PROJECT_NAME})
++
++catkin_add_nosetests(test.py)
+diff --git a/test/test.py b/test/test.py
+new file mode 100644
+index 0000000..ce1843f
+--- /dev/null
++++ b/test/test.py
+@@ -0,0 +1,36 @@
++import resource_retriever as r
++
++import os
++import rospkg
++from nose.tools import raises
++
++rospack = rospkg.RosPack()
++
++def test_get_by_package():
++    res = r.get("package://resource_retriever/test/test.txt")
++    assert len(res) == 1
++    assert res == 'A'.encode()
++
++def test_get_large_file():
++    res_path = os.path.join(rospack.get_path("resource_retriever"), "test/large_file.dat")
++    with open(res_path, 'w') as f:
++        for _ in range(1024*1024*50):
++            f.write('A')
++    res = r.get("package://resource_retriever/test/large_file.dat")
++    assert len(res) == 1024*1024*50
++
++def test_http():
++    res = r.get("http://packages.ros.org/ros.key")
++    assert len(res) > 0
++
++@raises(Exception)
++def test_invalid_file():
++    r.get("file://fail")
++
++@raises(Exception)
++def test_no_file():
++    r.get("package://roscpp")
++
++@raises(rospkg.common.ResourceNotFound)
++def test_invalid_package():
++    r.get("package://invalid_package_blah/test.xml")
+-- 
+2.9.3
+

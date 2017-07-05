@@ -1,0 +1,36 @@
+From 52605268cc37e6e765b2168f41c77d430dde7e51 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Mon, 3 Apr 2017 17:44:07 +0200
+Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
+
+Upstream-Status: Submitted [https://github.com/ros-perception/slam_gmapping/pull/48]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ gmapping/CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/gmapping/CMakeLists.txt b/gmapping/CMakeLists.txt
+index 209d4f3..42388fa 100644
+--- a/gmapping/CMakeLists.txt
++++ b/gmapping/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 2.8)
+ project(gmapping)
+ 
+-find_package(catkin REQUIRED nav_msgs openslam_gmapping roscpp rostest tf rosbag_storage)
++find_package(catkin REQUIRED nav_msgs openslam_gmapping roscpp tf rosbag_storage)
+ 
+ find_package(Boost REQUIRED signals)
+ 
+@@ -33,6 +33,7 @@ install(TARGETS slam_gmapping slam_gmapping_replay
+ )
+ 
+ if(CATKIN_ENABLE_TESTING)
++  find_package(rostest REQUIRED)
+   if(TARGET tests)
+     add_executable(gmapping-rtest EXCLUDE_FROM_ALL test/rtest.cpp)
+     target_link_libraries(gmapping-rtest ${catkin_LIBRARIES} ${GTEST_LIBRARIES})
+-- 
+2.5.5
+

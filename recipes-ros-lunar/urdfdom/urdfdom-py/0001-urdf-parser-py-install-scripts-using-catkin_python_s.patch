@@ -1,0 +1,114 @@
+From f82a1e7cb9ff3f09e5c20467ce4040e6e4d3545c Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
+Date: Wed, 20 May 2015 19:41:05 +0200
+Subject: [PATCH] urdf-parser-py: install scripts using catkin_python_setup
+
+To install urdf-parser-py properly with the bitbake recipe in the
+meta-ros layer, the install scripts, CMakeLists.txt and setup.py
+are adjusted. The package.xml file is needed for the new
+CMakeLists.txt due to using catkin.
+
+The files were obtained from the urdfdom_py release repository at:
+https://github.com/ros-gbp/urdfdom_py-release/tree/5990766f4a164fab8250a384354152737b5acfb7/indigo
+(with the latest commit in the indigo directory being c96421515d974d3110f889a3db615dc622886689)
+
+The obtained files were slightly adjusted:
+  - The version in the package.xml is fixed.
+  - Paths in CMakeLists.txt and setup.py were changed for use
+    with the bitbake recipe.
+
+Upstream-Status: Inappropriate [source repository shall work without catkin]
+---
+ urdf_parser_py/CMakeLists.txt | 16 ++++++++++------
+ urdf_parser_py/package.xml    | 29 +++++++++++++++++++++++++++++
+ urdf_parser_py/setup.py       | 18 ++++++------------
+ 3 files changed, 45 insertions(+), 18 deletions(-)
+ create mode 100644 urdf_parser_py/package.xml
+
+diff --git a/urdf_parser_py/CMakeLists.txt b/urdf_parser_py/CMakeLists.txt
+index c811815..6a48657 100644
+--- a/urdf_parser_py/CMakeLists.txt
++++ b/urdf_parser_py/CMakeLists.txt
+@@ -1,7 +1,11 @@
+-find_program(PYTHON "python")
++cmake_minimum_required(VERSION 2.8.3)
++project(urdfdom_py)
+ 
+-if (PYTHON)
+-  set(SETUP_PY "${CMAKE_CURRENT_SOURCE_DIR}/setup.py")
+-  install(CODE "execute_process(COMMAND \"${PYTHON}\" \"${SETUP_PY}\" build --build-base \"${CMAKE_CURRENT_BINARY_DIR}/pybuild\" install --install-layout deb --prefix \"${CMAKE_INSTALL_PREFIX}\"
+-                WORKING_DIRECTORY \"${CMAKE_CURRENT_SOURCE_DIR}\")")
+-endif()
++find_package(catkin)
++catkin_python_setup()
++catkin_package()
++
++install(PROGRAMS
++  scripts/display_urdf
++  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
++  )
+diff --git a/urdf_parser_py/package.xml b/urdf_parser_py/package.xml
+new file mode 100644
+index 0000000..9677831
+--- /dev/null
++++ b/urdf_parser_py/package.xml
+@@ -0,0 +1,29 @@
++<?xml version="1.0"?>
++<package>
++  <name>urdfdom_py</name>
++  <version>0.3.0</version>
++  <description>A library to access URDFs using the DOM model.</description>
++  <maintainer email="isucan@google.com">Ioan Sucan</maintainer>
++
++  <license>BSD</license>
++
++  <author>Thomas Moulard</author>
++  <author>David Lu</author>
++  <author>Kelsey Hawkins</author>
++  <author>Antonio El Khoury</author>
++  <author>Eric Cousineau</author>
++
++  <url type="website">http://wiki.ros.org/urdf</url>
++  <url type="bugtracker">https://github.com/ros/urdfdom/issues</url>
++  <url type="repository">https://github.com/ros/urdfdom</url>
++
++  <buildtool_depend>catkin</buildtool_depend>
++  <buildtool_depend>python-catkin-pkg</buildtool_depend>  
++
++  <build_depend>python</build_depend>
++
++  <run_depend>catkin</run_depend>
++  <run_depend>python</run_depend>
++  <run_depend>python-lxml</run_depend>
++  
++</package>
+diff --git a/urdf_parser_py/setup.py b/urdf_parser_py/setup.py
+index eeb4c6d..45478d9 100644
+--- a/urdf_parser_py/setup.py
++++ b/urdf_parser_py/setup.py
+@@ -1,16 +1,10 @@
+ #!/usr/bin/env python
+-
+ from distutils.core import setup
+-
+-d = {'author': u'Thomas Moulard <thomas.moulard@gmail.com>, David Lu <davidlu@wustl.edu>, Kelsey Hawkins <kphawkins@gmail.com>, Antonio El Khoury <aelkhour@laas.fr>, Eric Cousineau <eacousineau@gmail.com>',
+- 'description': 'The urdf_parser_py package contains a Python implementation of the\nurdf_parser modeling various aspects of robot information, specified in the\nXml Robot Description Format (URDF).',
+- 'license': 'BSD',
+- 'maintainer': u'Thomas Moulard',
+- 'maintainer_email': 'thomas.moulard@gmail.com',
+- 'name': 'urdf_parser_py',
+- 'package_dir': {'': 'src'},
+- 'packages': ['urdf_parser_py', 'urdf_parser_py.xml_reflection'],
+- 'url': 'http://ros.org/wiki/urdf_parser_py',
+- 'version': '0.3.0'}
++from catkin_pkg.python_setup import generate_distutils_setup
++ 
++d = generate_distutils_setup(
++    packages=['urdf_parser_py', 'urdf_parser_py.xml_reflection'],
++    package_dir={'': 'src'}
++)
+ 
+ setup(**d)
+-- 
+1.9.3
+

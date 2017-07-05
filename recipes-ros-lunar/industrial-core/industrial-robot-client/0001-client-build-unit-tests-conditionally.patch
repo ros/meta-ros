@@ -1,0 +1,36 @@
+From 1b919470ba4434aca1ae5c62adbf574ea0065065 Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Thu, 5 Jan 2017 14:33:32 +0200
+Subject: [PATCH] client: build unit tests conditionally
+
+Upstream-Status: Accepted [https://github.com/ros-industrial/industrial_core/pull/171]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ CMakeLists.txt | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 95f6298..29bb239 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -139,10 +139,12 @@ add_dependencies(joint_trajectory_action industrial_robot_client_gencpp)
+ ## Test ##
+ ##########
+ # Testing - Only performed on normal (non byte swapped library)
+-catkin_add_gtest(utest_robot_client test/utest.cpp)
+-target_link_libraries(utest_robot_client 
+-  industrial_robot_client 
+-  ${catkin_LIBRARIES})
++if(CATKIN_ENABLE_TESTING)
++    catkin_add_gtest(utest_robot_client test/utest.cpp)
++    target_link_libraries(utest_robot_client
++      industrial_robot_client
++      ${catkin_LIBRARIES})
++endif()
+ 
+ # ROS launch testing
+ ## ROS launch test should be enabled when launch parameters are supported,
+-- 
+2.7.4
+
