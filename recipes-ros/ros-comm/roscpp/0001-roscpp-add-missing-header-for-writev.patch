@@ -1,0 +1,39 @@
+From 4fbb9f952726a12b1938ea7af9e88ae8b234395e Mon Sep 17 00:00:00 2001
+From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+Date: Wed, 19 Jul 2017 11:17:11 +0300
+Subject: [PATCH] [roscpp] add missing header for writev().
+
+After an update of gcc and glibc roscpp started to fail builds with the error:
+
+    /home/rojkov/work/ros/build/tmp-glibc/work/i586-oe-linux/roscpp/1.11.21-r0/ros_comm-1.11.21/clients/roscpp/src/libros/transport/transport_udp.cpp:579:25: error: 'writev' was not declared in this scope
+         ssize_t num_bytes = writev(sock_, iov, 2);
+                             ^~~~~~
+
+According to POSIX.1-2001 the function writev() is declared in sys/uio.h.
+
+The patch includes the missing header for POSIX compliant systems.
+
+Upstream-Status: Accepted [https://github.com/ros/ros_comm/pull/1105]
+
+Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+---
+ clients/roscpp/src/libros/transport/transport_udp.cpp | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/clients/roscpp/src/libros/transport/transport_udp.cpp b/clients/roscpp/src/libros/transport/transport_udp.cpp
+index c7d8298..47d969e 100644
+--- a/clients/roscpp/src/libros/transport/transport_udp.cpp
++++ b/clients/roscpp/src/libros/transport/transport_udp.cpp
+@@ -48,6 +48,9 @@
+ #elif defined(__ANDROID__)
+   // For readv() and writev() on ANDROID
+   #include <sys/uio.h>
++#elif defined(_POSIX_VERSION)
++  // For readv() and writev()
++  #include <sys/uio.h>
+ #endif
+ 
+ namespace ros
+-- 
+2.9.3
+
