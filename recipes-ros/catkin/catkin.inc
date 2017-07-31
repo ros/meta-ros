@@ -18,15 +18,3 @@ SRC_URI += "\
     "
 
 inherit catkin
-
-FILES_${PN}-dev += "\
-    ${ros_datadir}/eigen/cmake \
-    ${ros_datadir}/ros/cmake \
-    ${ros_datadir}/.catkin \
-    ${ros_prefix}/.catkin \
-    ${ros_prefix}/.rosinstall \
-    ${ros_prefix}/_setup_util.py \
-    ${ros_prefix}/env.sh \
-    ${ros_prefix}/setup.* \
-    "
-

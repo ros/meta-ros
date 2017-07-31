@@ -1,0 +1,35 @@
+From ee6b78f26b59538582af1ba4a5ba8a463f52266f Mon Sep 17 00:00:00 2001
+From: "Javier V. Gomez" <jvgomez@rapyuta-robotics.com>
+Date: Tue, 30 Aug 2016 11:55:24 +0200
+Subject: [PATCH] rostest is optional
+
+---
+ CMakeLists.txt | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 11ea778..cf7a8b6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,9 +2,16 @@ cmake_minimum_required(VERSION 2.8)
+ project(robot_state_publisher)
+ 
+ find_package(orocos_kdl REQUIRED)
+-find_package(catkin REQUIRED
+-  COMPONENTS roscpp rosconsole rostime tf tf2_ros tf2_kdl kdl_parser cmake_modules rostest
+-)
++if(CATKIN_ENABLE_TESTING)
++  find_package(catkin REQUIRED
++    COMPONENTS roscpp rosconsole rostime tf tf2_ros tf2_kdl kdl_parser cmake_modules rostest
++  )
++else()
++  find_package(catkin REQUIRED
++    COMPONENTS roscpp rosconsole rostime tf tf2_ros tf2_kdl kdl_parser cmake_modules
++  )
++endif()
++
+ find_package(Eigen REQUIRED)
+ 
+ catkin_package(
+-- 
+1.9.1
