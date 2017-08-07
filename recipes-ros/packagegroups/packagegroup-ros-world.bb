@@ -9,6 +9,7 @@ RDEPENDS_${PN} = "\
     packagegroup-ros-comm \
     packagegroup-ros-kobuki \
     packagegroup-ros-industrial-core \
+    packagegroup-ros2-world \
     actionlib \
     bond \
     bondcpp \
