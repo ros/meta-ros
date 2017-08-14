@@ -1,0 +1,64 @@
+From fc3670a9a37c806458fba9ef6332a63ea8f31951 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Mon, 14 Aug 2017 18:00:37 +0200
+Subject: [PATCH] find Eigen with cmake_modules' Find script (partly reverts
+ 707eb4119d)
+
+Upstream-Status: Inappropriate [openembedded-specific adjustment]
+---
+ eigen_conversions/CMakeLists.txt | 6 +++---
+ tf_conversions/CMakeLists.txt    | 6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/eigen_conversions/CMakeLists.txt b/eigen_conversions/CMakeLists.txt
+index 5277aea..f056048 100644
+--- a/eigen_conversions/CMakeLists.txt
++++ b/eigen_conversions/CMakeLists.txt
+@@ -3,15 +3,15 @@ project(eigen_conversions)
+ 
+ find_package(orocos_kdl REQUIRED)
+ find_package(catkin REQUIRED cmake_modules geometry_msgs std_msgs)
+-find_package(Eigen3 REQUIRED)
++find_package(Eigen REQUIRED)
+ 
+-include_directories(SYSTEM ${EIGEN3_INCLUDE_DIRS})
++include_directories(SYSTEM ${EIGEN_INCLUDE_DIRS})
+ include_directories(include ${catkin_INCLUDE_DIRS} ${orocos_kdl_INCLUDE_DIRS})
+ link_directories(${catkin_LIBRARY_DIRS})
+ link_directories(${orocos_kdl_LIBRARY_DIRS})
+ 
+ catkin_package(
+-  INCLUDE_DIRS include ${EIGEN3_INCLUDE_DIRS}
++  INCLUDE_DIRS include ${EIGEN_INCLUDE_DIRS}
+   LIBRARIES ${PROJECT_NAME}
+   CATKIN_DEPENDS geometry_msgs std_msgs
+   DEPENDS orocos_kdl
+diff --git a/tf_conversions/CMakeLists.txt b/tf_conversions/CMakeLists.txt
+index 543bbdb..5797b2f 100644
+--- a/tf_conversions/CMakeLists.txt
++++ b/tf_conversions/CMakeLists.txt
+@@ -3,18 +3,18 @@ project(tf_conversions)
+ 
+ find_package(orocos_kdl REQUIRED)
+ find_package(catkin REQUIRED cmake_modules geometry_msgs kdl_conversions tf)
+-find_package(Eigen3 REQUIRED)
++find_package(Eigen REQUIRED)
+ 
+ catkin_python_setup()
+ 
+ catkin_package(
+   INCLUDE_DIRS include
+   LIBRARIES ${PROJECT_NAME}
+-  DEPENDS EIGEN3 orocos_kdl
++  DEPENDS EIGEN orocos_kdl
+   CATKIN_DEPENDS geometry_msgs kdl_conversions tf
+ )
+ 
+-include_directories(include ${catkin_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIRS} ${orocos_kdl_INCLUDE_DIRS})
++include_directories(include ${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIRS} ${orocos_kdl_INCLUDE_DIRS})
+ 
+ # Needed due to no full filename in orocos_kdl pkg-config export
+ link_directories(${orocos_kdl_LIBRARY_DIRS})
+-- 
+1.9.1
+
