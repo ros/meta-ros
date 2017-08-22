@@ -6,3 +6,5 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9de
 DEPENDS = "diagnostic-updater libpcap nodelet pluginlib roscpp tf velodyne-msgs"
 
 require velodyne.inc
+
+RDEPENDS_${PN} = "bash"
