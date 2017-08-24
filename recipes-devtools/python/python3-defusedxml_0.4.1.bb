@@ -1,3 +1,3 @@
 require python-defusedxml.inc
 
-inherit setuptools
+inherit setuptools3
