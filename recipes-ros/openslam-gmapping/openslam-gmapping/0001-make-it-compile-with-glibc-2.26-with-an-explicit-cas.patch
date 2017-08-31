@@ -1,0 +1,41 @@
+From a48b8169305527f480bfae0f413bd48f818b6bf9 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Mon, 21 Aug 2017 11:25:33 +0200
+Subject: [PATCH] make it compile with glibc-2.26 with an explicit cast to bool
+
+With glibc-2.26, openslam_gmapping failed to compile with:
+```
+| [...]/gridfastslam/gfsreader.cpp: In member function 'virtual void GMapping::GFSReader::RawOdometryRecord::read(std::istream&)':
+| [...]/gridfastslam/gfsreader.cpp:79:3: error: no match for 'operator==' (operand types are 'std::istream {aka std::basic_istream<char>}' and 'int')
+|    assert(is);
+|    ^
+```
+
+Hence, this commit explicitly casts to bool, so that the assert annotation compiles
+properly again.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
+Upstream-Status: Submitted [https://github.com/ros-perception/openslam_gmapping/pull/19]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ gridfastslam/gfsreader.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gridfastslam/gfsreader.cpp b/gridfastslam/gfsreader.cpp
+index 8b16427..c83f721 100644
+--- a/gridfastslam/gfsreader.cpp
++++ b/gridfastslam/gfsreader.cpp
+@@ -76,7 +76,7 @@ void RawOdometryRecord::read(istream& is){
+   is >> pose.y;
+   is >> pose.theta;
+   time = 0;
+-  assert(is);
++  assert(static_cast<bool>(is));
+     is >> time;
+  
+ }
+-- 
+1.9.1
+

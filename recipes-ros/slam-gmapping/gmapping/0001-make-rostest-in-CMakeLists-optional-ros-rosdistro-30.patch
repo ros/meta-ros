@@ -3,7 +3,7 @@ From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 Date: Mon, 3 Apr 2017 17:44:07 +0200
 Subject: [PATCH] make rostest in CMakeLists optional (ros/rosdistro#3010)
 
-Upstream-Status: Submitted [https://github.com/ros-perception/slam_gmapping/pull/48]
+Upstream-Status: Accepted [https://github.com/ros-perception/slam_gmapping/commit/52605268cc37e6e765b2168f41c77d430dde7e51]
 
 Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 ---
