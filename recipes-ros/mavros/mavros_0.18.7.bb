@@ -48,4 +48,5 @@ require mavros.inc
 
 ROS_PKG_SUBDIR = "mavros"
 
-SRC_URI += "file://0001-always-find-Eigen-with-cmake_modules-mechanism.patch;striplevel=2"
+SRC_URI += "file://0001-always-find-Eigen-with-cmake_modules-mechanism.patch;striplevel=2 \
+            file://0001-CMake-explicitly-link-the-atomic-library-797.patch;striplevel=2"

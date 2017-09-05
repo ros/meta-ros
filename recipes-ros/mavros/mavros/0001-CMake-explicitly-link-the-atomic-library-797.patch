@@ -1,0 +1,56 @@
+From 658347978fc97675dbdff480f4557eb772e915dc Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Mon, 4 Sep 2017 16:17:12 +0100
+Subject: [PATCH] CMake: explicitly link the atomic library (#797)
+
+For arm & mips architecture, the linker must explicitly be asked to
+link the atomic library (with `-latomic`).
+
+Otherwise, the linking fails with:
+
+```
+| devel/lib/libmavros.so: undefined reference to `__atomic_load_8'
+| devel/lib/libmavros.so: undefined reference to `__atomic_store_8'
+| collect2: error: ld returned 1 exit status
+```
+
+Linking `atomic` unconditionally as library is strictly needed only
+for arm & mips, but it seems not to imply any further differences
+with other architectures. Hence, this commit simply adds `atomic`
+unconditionally for a uniform handling of all machine architectures.
+
+This is an alternative solution to the proposed solution in #790.
+
+The issue was discovered cross-compiling mavros in meta-ros, the
+OpenEmbedded layer for ROS. Some further pointers are available at:
+
+  https://github.com/bmwcarit/meta-ros/issues/525
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
+Upstream-Status: Accepted [https://github.com/mavlink/mavros/commit/658347978fc97675dbdff480f4557eb772e915dc]
+
+This patch has been generated with:
+  `git format-patch -1 658347978fc97675dbdff480f4557eb772e915dc`
+in the mavros repository.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ mavros/CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/mavros/CMakeLists.txt b/mavros/CMakeLists.txt
+index a4ac3cb..5233e96 100644
+--- a/mavros/CMakeLists.txt
++++ b/mavros/CMakeLists.txt
+@@ -102,6 +102,7 @@ add_library(mavros
+   src/lib/rosconsole_bridge.cpp
+ )
+ target_link_libraries(mavros
++  atomic
+   ${catkin_LIBRARIES}
+   ${Boost_LIBRARIES}
+   ${GeographicLib_LIBRARIES}
+-- 
+1.9.1
+
