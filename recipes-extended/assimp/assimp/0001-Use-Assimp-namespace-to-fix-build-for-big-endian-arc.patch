@@ -1,0 +1,33 @@
+From c2c12c1db5c8d7610ad46b1970aabf4afde0eef4 Mon Sep 17 00:00:00 2001
+From: Daniel Knezevic <danielknezevic90@gmail.com>
+Date: Thu, 18 Aug 2016 10:51:20 +0200
+Subject: [PATCH] Use Assimp namespace to fix build for big-endian
+ architectures
+
+Upstream-Status: Backport [https://github.com/assimp/assimp/commit/c2c12c1db5c8d7610ad46b1970aabf4afde0eef4]
+
+This patch has been generated with:
+  `git format-patch -1 c2c12c1db5c8d7610ad46b1970aabf4afde0eef4`
+in the assimp repository.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ code/glTFAsset.inl | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/code/glTFAsset.inl b/code/glTFAsset.inl
+index d52c825..470246c 100644
+--- a/code/glTFAsset.inl
++++ b/code/glTFAsset.inl
+@@ -40,6 +40,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+ #include "StringUtils.h"
+ 
++using namespace Assimp;
++
+ namespace glTF {
+ 
+ namespace {
+-- 
+1.9.1
+
