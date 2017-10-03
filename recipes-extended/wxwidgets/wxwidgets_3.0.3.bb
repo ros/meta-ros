@@ -4,11 +4,11 @@ HOMEPAGE = "http://www.wxwidgets.org"
 LICENSE = "WXwindows"
 LIC_FILES_CHKSUM = "file://docs/licence.txt;md5=18346072db6eb834b6edbd2cdc4f109b"
 
-DEPENDS = "webkit-gtk gstreamer gtk+ jpeg tiff libpng zlib expat libxinerama libglu"
+DEPENDS = "webkitgtk gstreamer gtk+ jpeg tiff libpng zlib expat libxinerama libglu"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/wxwindows/wxWidgets-${PV}.tar.bz2"
-SRC_URI[md5sum] = "e98c5f92805493f150656403ffef3bb0"
-SRC_URI[sha256sum] = "b74ba96ca537cc5d049d21ec9ab5eb2670406a4aa9f1ea4845ea84a9955a6e02"
+SRC_URI = "https://github.com/wxWidgets/wxWidgets/releases/download/v${PV}/wxWidgets-${PV}.tar.bz2"
+SRC_URI[md5sum] = "ba23578300f33eeb26bc75894b9aaf11"
+SRC_URI[sha256sum] = "08c8033f48ec1b23520f036cde37b5ae925a6a65f137ded665633ca159b9307b"
 
 S = "${WORKDIR}/wxWidgets-${PV}"
 
@@ -40,9 +40,11 @@ do_install_prepend() {
 
 # wx-config doesn't handle the suffixed libwx_media, xrc, etc, make a compat symlink
 do_install_append() {
-	for lib in adv aui core html media propgrid qa ribbon richtext stc webview xrc ; do
-		ln -sf libwx_gtk2u_$lib-2.9.so.5.0.0 ${D}${libdir}/libwx_gtk2u_$lib-2.9.so
+	for lib in adv aui core gl html media propgrid qa ribbon richtext stc xrc ; do
+		ln -sf libwx_gtk2u_$lib-3.0.so.0.3.0 ${D}${libdir}/libwx_gtk2u_$lib-3.0.so
 	done
+	rm ${D}${bindir}/wx-config
+	cp -f ${S}/wx-config ${D}${bindir}/wx-config
 }
 
 SYSROOT_PREPROCESS_FUNCS += "wxwidgets_sysroot_preprocess"
