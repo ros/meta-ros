@@ -3,7 +3,7 @@ From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
 Date: Thu, 5 Jan 2017 11:46:57 +0200
 Subject: [PATCH] Build unit tests conditionally
 
-Upstream-Status: Accepted [https://github.com/ros-industrial/industrial_core/pull/171]
+Upstream-Status: Submitted [https://github.com/ros-industrial/industrial_core/pull/184]
 
 Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
 ---
