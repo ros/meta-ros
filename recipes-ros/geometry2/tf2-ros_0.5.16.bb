@@ -5,4 +5,6 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9de
 
 DEPENDS = "actionlib message-filters rosgraph tf2 tf2-py"
 
+RDEPENDS_${PN} = "actionlib message-filters rosgraph tf2 tf2-py"
+
 require geometry2.inc
