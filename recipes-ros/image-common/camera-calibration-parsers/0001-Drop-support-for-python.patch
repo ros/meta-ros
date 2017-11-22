@@ -1,20 +1,24 @@
-From ddf9ddefb51502fb21ba01e31187e4ffebc70cce Mon Sep 17 00:00:00 2001
-From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
-Date: Mon, 10 Apr 2017 10:35:26 +0300
+From 4227ce0c22e6757db1c66e46b163df7d0ecf1282 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Wed, 22 Nov 2017 13:56:25 +0100
 Subject: [PATCH] Drop support for python
 
 Upstream-Status: Inappropriate [ROS still supports python2 officially]
 
 Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
----
- CMakeLists.txt | 23 ++---------------------
- 1 file changed, 2 insertions(+), 21 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c21e54a..3a89d94 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -3,13 +3,8 @@ project(camera_calibration_parsers)
+[I rewrote the patch for the update from 1.11.12 to 1.11.13.]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ camera_calibration_parsers/CMakeLists.txt | 22 +---------------------
+ 1 file changed, 1 insertion(+), 21 deletions(-)
+
+diff --git a/camera_calibration_parsers/CMakeLists.txt b/camera_calibration_parsers/CMakeLists.txt
+index b70b853..b0bdf9a 100644
+--- a/camera_calibration_parsers/CMakeLists.txt
++++ b/camera_calibration_parsers/CMakeLists.txt
+@@ -3,13 +3,7 @@ project(camera_calibration_parsers)
  
  find_package(catkin REQUIRED sensor_msgs rosconsole roscpp roscpp_serialization)
  
@@ -25,12 +29,11 @@ index c21e54a..3a89d94 100644
 -  find_package(Boost REQUIRED COMPONENTS filesystem python3)
 -endif()
 -include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
-+
 +include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
  
  catkin_python_setup()
  
-@@ -41,17 +36,7 @@ add_library(${PROJECT_NAME}
+@@ -41,17 +35,7 @@ add_library(${PROJECT_NAME}
    src/parse_yml.cpp
  )
  
@@ -38,7 +41,7 @@ index c21e54a..3a89d94 100644
 -  src/parse_wrapper.cpp)
 -
  target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${YAML_CPP_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY})
--target_link_libraries(${PROJECT_NAME}_wrapper ${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_PYTHON_LIBRARY} ${PYTHON_LIBRARIES})
+-target_link_libraries(${PROJECT_NAME}_wrapper ${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
 -
 -# Don't prepend wrapper library name with lib and add to Python libs.
 -set_target_properties(${PROJECT_NAME}_wrapper PROPERTIES
@@ -48,7 +51,7 @@ index c21e54a..3a89d94 100644
  
  add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
  
-@@ -74,10 +59,6 @@ install(
+@@ -74,10 +58,6 @@ install(
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
  
@@ -60,5 +63,5 @@ index c21e54a..3a89d94 100644
    add_subdirectory(test)
  endif()
 -- 
-2.9.3
+2.7.4
 
