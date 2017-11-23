@@ -12,5 +12,3 @@ SRC_URI[sha256sum] = "170b74b99c54fcf0334df2c4b0ecef84007d3bc0be7f9c530e69edf391
 S = "${WORKDIR}/${ROS_SP}"
 
 inherit catkin
-
-ROS_SPN = "moveit_msgs"

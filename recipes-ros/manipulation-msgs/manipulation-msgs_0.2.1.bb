@@ -12,5 +12,3 @@ SRC_URI[sha256sum] = "b34fae176367ff727876959e5f40eafeb9a7c158424bc288ae7eb9045e
 S = "${WORKDIR}/${ROS_SP}"
 
 inherit catkin
-
-ROS_SPN = "manipulation_msgs"
