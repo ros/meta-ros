@@ -10,4 +10,4 @@ require image-common.inc
 # OE upstream doesn't support python2 in Boost, but python3 only.
 # So, drop python support from camera-calibration-parsers in case
 # we're building a python2 flavour of ROS.
-SRC_URI += "${@'file://0001-Drop-support-for-python.patch' if d.getVar('PYTHON_PN', True) != 'python3' else ''}"
+SRC_URI += "${@'file://0001-Drop-support-for-python.patch;striplevel=2' if d.getVar('PYTHON_PN', True) != 'python3' else ''}"
