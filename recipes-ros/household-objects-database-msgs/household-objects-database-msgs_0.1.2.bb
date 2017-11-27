@@ -12,5 +12,3 @@ SRC_URI[sha256sum] = "1ab82ef50d580635a7248c83585e641687aa32465c766ebcda5f044778
 S = "${WORKDIR}/${ROS_SP}"
 
 inherit catkin
-
-ROS_SPN = "household_objects_database_msgs"
