@@ -14,6 +14,7 @@ SRC_URI += "\
     file://0001-use-python-provided-by-environment-instead-of-the-ge.patch \
     file://0001-avoid-using-host-s-paths-when-cross-compiling.patch \
     file://0001-relocate-dependency-s-headers-to-current-sysroot.patch \
+    file://0001-avoid-interfering-with-bitbake-s-LD_LIBRARY_PATH-mod.patch \
     ${@'file://0001-python.cmake-look-for-python3-first.patch' if d.getVar('PYTHON_PN', True) == 'python3' else ''} \
     "
 
