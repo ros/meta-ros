@@ -194,11 +194,11 @@ RDEPENDS_${PN} = "\
     mavros \
     mavros-extras \
     mavlink \
+    joint-state-publisher \
 "
 
 # kdl-parser-py requires python-orocos-kdl, which current fails due to #469.
 # urdfdom-headers is an empty deploy package.
 # image-view requires gtk+, but it cannot be found by cmake for some reason.
 # sound-play requires python-gst (which is not available in any layers' master branch)
-# joint-state-publisher requires opengl distro feature and has further issues building.
 # freenect-camera and freenect-launch requires opengl distro feature.
