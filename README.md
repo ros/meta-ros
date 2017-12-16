@@ -259,6 +259,10 @@ resolved in the past.
   (cf. https://github.com/kartikmohta/meta-km/blob/master/recipes-devtools/yaml-cpp/yaml-cpp_0.3.0.bb)
   licensed with the MIT License.
 
+  The python-ecdsa recipe originated from the recipe in the OpenStack Yocto layer
+  (cf. http://git.yoctoproject.org/clean/cgit.cgi/meta-cloud-services/tree/meta-openstack/recipes-devtools/python/python-ecdsa_0.13.bb?id=38973e8bc393a4ca36090c58c8b6eb6d093ea69a)
+  licensed with the MIT License.
+
   The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
   licensed with the MIT License.
