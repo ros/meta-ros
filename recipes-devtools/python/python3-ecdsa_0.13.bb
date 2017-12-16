@@ -1,3 +1,3 @@
 require python-ecdsa.inc
 
-inherit setuptools
+inherit setuptools3

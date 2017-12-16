@@ -1,3 +1,3 @@
 require python-paramiko.inc
 
-inherit setuptools
+inherit setuptools3
