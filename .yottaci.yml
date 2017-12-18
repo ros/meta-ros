@@ -4,6 +4,7 @@ bitbake_ref: master
 oecore_ref: master
 localconf: |
   LICENSE_FLAGS_WHITELIST = "commercial"
+  DISTRO_FEATURES += "directfb opengl x11"
 dependencies:
   - url: git://git.openembedded.org/meta-openembedded
     ref: master
