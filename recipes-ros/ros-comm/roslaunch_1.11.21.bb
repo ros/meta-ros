@@ -20,10 +20,10 @@ RDEPENDS_${PN} = "\
     ${PYTHON_PN}-logging \
     ${PYTHON_PN}-threading \
     ${PYTHON_PN}-rospkg \
-    rosgraph \
     ${PYTHON_PN}-pyyaml \
-    python-defusedxml \
-    python-paramiko \
+    ${PYTHON_PN}-defusedxml \
+    ${PYTHON_PN}-paramiko \ 
+    rosgraph \
     roslib \
     rosclean \
     rosmaster \
