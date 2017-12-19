@@ -263,6 +263,10 @@ resolved in the past.
   (cf. http://git.yoctoproject.org/clean/cgit.cgi/meta-cloud-services/tree/meta-openstack/recipes-devtools/python/python-ecdsa_0.13.bb?id=38973e8bc393a4ca36090c58c8b6eb6d093ea69a)
   licensed with the MIT License.
 
+  The python-pbr recipe originated from the recipe in the meta-python layer
+  (cf. http://git.openembedded.org/meta-openembedded/tree/meta-python/recipes-devtools/python/python-pbr_3.1.1.bb?id=b3eb3c647dc86306d9346bea621fb4b6994ec461)
+  licensed with the MIT License.
+
   The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
   (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
   licensed with the MIT License.
