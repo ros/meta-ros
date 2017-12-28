@@ -12,7 +12,7 @@ src/amcl/map/map_cspace.cpp:98:34: error: call of overloaded 'abs(unsigned int)'
 
 Use `int abs(int)` flavour of the abs() function.
 
-Upstream-Status: Submitted [https://github.com/ros-planning/navigation/pull/587]
+Upstream-Status: Backported [included in kinetic; will not be backported to indigo releases]
 ---
  amcl/src/amcl/map/map_cspace.cpp | 8 ++++----
  1 file changed, 4 insertions(+), 4 deletions(-)
