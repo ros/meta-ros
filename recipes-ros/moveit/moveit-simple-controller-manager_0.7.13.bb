@@ -1,7 +1,7 @@
 DESCRIPTION = "A generic, simple controller manager plugin for MoveIt."
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 DEPENDS = "moveit-core actionlib control-msgs pluginlib roscpp"
 

@@ -6,13 +6,13 @@ plugin classes, and allows users to instantiate objects of said exported \
 classes without the explicit declaration (i.e. header file) for those classes."
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 DEPENDS = "cmake-modules console-bridge poco"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "faa7b419ba0ea1714f71404c2e76af0a"
-SRC_URI[sha256sum] = "4413ea6492bc75a197fa2f219f59e46f70a33dc740aef0fba4f583c3de7bbbc3"
+SRC_URI[md5sum] = "3684301f5f1e8c901391e929564b9743"
+SRC_URI[sha256sum] = "fb58efe5ec10597770d32f67093976d1522b0e09dfa1b2b9ba1191081421ba49"
 
 S = "${WORKDIR}/${ROS_SP}"
 
