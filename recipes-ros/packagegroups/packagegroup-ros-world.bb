@@ -194,6 +194,9 @@ RDEPENDS_${PN} = "\
     mavros \
     mavros-extras \
     mavlink \
+    can-msgs \
+    socketcan-bridge \
+    socketcan-interface \
 "
 
 # kdl-parser-py requires python-orocos-kdl, which current fails due to #469.

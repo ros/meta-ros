@@ -1,0 +1,60 @@
+From 3bf9d9726b278b000a829f639af21d423a38798a Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Sat, 2 Dec 2017 09:17:02 +0100
+Subject: [PATCH] explicitly include iostream to compile with boost >= 1.65.0
+
+When compiling with boost version >= 1.65.0, it fails with:
+```
+In file included from /[...]/include/socketcan_interface/asio_base.h:4:0,
+                 from /[...]/include/socketcan_interface/socketcan.h:4,
+                 from /[...]/src/socketcan_interface_plugin.cpp:2:
+/[...]/include/socketcan_interface/socketcan.h: In member function 'virtual bool can::SocketCANInterface::enqueue(const can::Frame&)':
+/[...]/include/socketcan_interface/interface.h:202:96: error: 'cout' is not a member of 'std'
+ #define LOG(log) { boost::mutex::scoped_lock _cout_lock(_cout_wrapper::get_cout_mutex()); std::cout << log << std::endl; }
+                                                                                                ^
+/[...]/include/socketcan_interface/socketcan.h:183:13: note: in expansion of macro 'LOG'
+             LOG("FAILED " << ec);
+             ^
+/[...]/include/socketcan_interface/interface.h:202:96: note: suggested alternative: 'count'
+```
+
+With boost version < 1.65.0, iostream is probably included by the
+boost dependencies in the header files; with boost version >= 1.65.0,
+it is not included anymore and hence leads to this compile error.
+
+The issue was identified by the work on meta-ros, the OpenEmbedded
+layer for ROS [1,2]. It provides a cross-compilation tool chain for
+ROS packages and its current master version already uses boost
+version 1.65.1.
+
+[1] https://github.com/bmwcarit/meta-ros
+[2] https://github.com/bulwahn/meta-ros/pull/8
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
+Upstream-Status: Accepted [https://github.com/ros-industrial/ros_canopen/commit/3bf9d9726b278b000a829f639af21d423a38798a]
+
+This patch has been generated with:
+  `git format-patch -1 3bf9d9726b278b000a829f639af21d423a38798a`
+in the ros_canopen repository.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ socketcan_interface/include/socketcan_interface/interface.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/socketcan_interface/include/socketcan_interface/interface.h b/socketcan_interface/include/socketcan_interface/interface.h
+index f60f308..33378de 100644
+--- a/socketcan_interface/include/socketcan_interface/interface.h
++++ b/socketcan_interface/include/socketcan_interface/interface.h
+@@ -190,6 +190,7 @@ public:
+ 
+ } // namespace can
+ 
++#include <iostream>
+ #include <boost/thread/mutex.hpp>
+ 
+ struct _cout_wrapper{
+-- 
+2.7.4
+
