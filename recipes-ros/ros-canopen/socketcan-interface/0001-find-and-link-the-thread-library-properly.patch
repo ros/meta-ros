@@ -1,0 +1,68 @@
+From 401544fa4aab80c0b511df6e629a90c439f5e067 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Tue, 16 Jan 2018 15:57:59 +0100
+Subject: [PATCH] find and link the thread library properly
+
+Compiling socketcan_dump in the socketcan_interface package fails in
+the bitbake cross-compile tool chain with this linker problem:
+
+```
+| /[...]/libexec/arm-oe-linux-gnueabi/gcc/arm-oe-linux-gnueabi/7.2.0/ld: CMakeFiles/socketcan_dump.dir/src/candump.cpp.o: undefined reference to symbol 'pthread_getspecific@@GLIBC_2.4'
+| /[...]/armv5e-oe-linux-gnueabi/socketcan-interface/0.6.8-r0/recipe-sysroot/lib/libpthread.so.0: error adding symbols: DSO missing from command line
+| collect2: error: ld returned 1 exit status
+| CMakeFiles/socketcan_dump.dir/build.make:115: recipe for target 'devel/lib/socketcan_interface/socketcan_dump' failed
+| make[2]: *** [devel/lib/socketcan_interface/socketcan_dump] Error 1
+| make[2]: Leaving directory '/[...]/armv5e-oe-linux-gnueabi/socketcan-interface/0.6.8-r0/build'
+| CMakeFiles/Makefile2:171: recipe for target 'CMakeFiles/socketcan_dump.dir/all' failed
+| make[1]: *** [CMakeFiles/socketcan_dump.dir/all] Error 2
+| make[1]: Leaving directory '/[...]/armv5e-oe-linux-gnueabi/socketcan-interface/0.6.8-r0/build'
+| Makefile:132: recipe for target 'all' failed
+| make: *** [all] Error 2
+| WARNING: exit code 2 from a shell command.
+| ERROR: Function failed: do_compile (log file is located at /[...]/armv5e-oe-linux-gnueabi/socketcan-interface/0.6.8-r0/temp/log.do_compile.20764)
+```
+
+This error above was identified in meta-ros, the OpenEmbedded layer
+for ROS packages [1, 2].
+
+The cmake script does not ensure that the thread library is linked;
+hence, it does not work on builds for some architectures. The commit
+provides in the CMake build script a standard way to find the Thread
+library and link it.
+
+[1] https://github.com/bmwcarit/meta-ros
+[2] https://github.com/bmwcarit/meta-ros/issues/574
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
+Upstream-Status: Submitted [https://github.com/ros-industrial/ros_canopen/pull/263]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ socketcan_interface/CMakeLists.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/socketcan_interface/CMakeLists.txt b/socketcan_interface/CMakeLists.txt
+index 97dc658..c1ee4e4 100644
+--- a/socketcan_interface/CMakeLists.txt
++++ b/socketcan_interface/CMakeLists.txt
+@@ -13,6 +13,8 @@ find_package(Boost REQUIRED
+     thread
+ )
+ 
++find_package(Threads REQUIRED)
++
+ catkin_package(
+   INCLUDE_DIRS
+     include
+@@ -43,6 +45,7 @@ target_link_libraries(socketcan_dump
+    ${PROJECT_NAME}_string
+    ${catkin_LIBRARIES}
+    ${Boost_LIBRARIES}
++   ${CMAKE_THREAD_LIBS_INIT}
+ )
+ 
+ # socketcan_bcm
+-- 
+2.7.4
+
