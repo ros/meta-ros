@@ -8,8 +8,3 @@ DEPENDS = "rospy tf2"
 EXTRA_OECMAKE += "-DCMAKE_SKIP_RPATH=ON"
 
 require geometry2.inc
-
-SRC_URI += " \
-    file://0001-Use-string-conversion-from-python_compat_h.patch;patchdir=${WORKDIR}/${ROS_SP} \
-    file://0002-fix-python3-import-error.patch;patchdir=${WORKDIR}/${ROS_SP} \
-"
