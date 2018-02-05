@@ -24,7 +24,7 @@ EXTRA_OECONF = "  --with-opengl \
                  --disable-rpath \
                "
 
-CXXFLAGS := "${@oe_filter_out('-fvisibility-inlines-hidden', '${CXXFLAGS}', d)}"
+CXXFLAGS := "${@oe.utils.str_filter_out('-fvisibility-inlines-hidden', '${CXXFLAGS}', d)}"
 CXXFLAGS += "-std=gnu++11"
 
 # Broken autotools :/
