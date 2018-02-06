@@ -10,8 +10,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9de
 DEPENDS = "dynamic-reconfigure ${PYTHON_PN}-rospkg"
 
 SRC_URI = "https://github.com/KristofRobot/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "4712cbe1d9d8bacd9eebfd51825ada36"
-SRC_URI[sha256sum] = "9917e7ae713016c63786511736bbdc1b671a9685ea0ddfc87839251ca7513c95"
+SRC_URI[md5sum] = "1d036536b614e4e9841c970150692e46"
+SRC_URI[sha256sum] = "9953df3323167510243386525558dd4fc40d628326852db5ebb303fbcc42a7cb"
 
 S = "${WORKDIR}/${ROS_SP}"
 
