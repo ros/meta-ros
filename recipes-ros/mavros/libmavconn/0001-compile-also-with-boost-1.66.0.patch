@@ -1,0 +1,107 @@
+From 74e82fa924055edb84ed90d49b9bd45b078df5c4 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Sat, 17 Feb 2018 17:55:16 +0100
+Subject: [PATCH] compile also with boost >= 1.66.0
+
+In boost 1.66.0, which includes boost-asio 1.12.0, the asio
+interfaces have been changed to follow the "C++ Extensions for
+Networking" Technical Specification [1]. As a consequence,
+resolvers now produce ranges rather than iterators.
+
+In boost < 1.66.0, resolver.resolve returns an iterator that must
+be passed to `std::for_each`. As this iterator in boost < 1.66.0
+does not provide begin() and end() member functions, it cannot be
+simply turned into a proper range.
+For boost >= 1.66.0, resolver.resolve returns a range, which
+can be just iterated through with `for (auto v : _)` syntax.
+
+As it is not possible to have one way to iterate through the result
+independent of the boost version, a preprocessing directive selects
+the proper synactic iteration construction depending on the provided
+boost-asio library version [2].
+
+This way, this commit is backwards compatible with boost < 1.66.0
+and compiles properly with boost >= 1.66.0.
+
+The issue was identified in a build with the cross-compilation tool
+chain provided in the meta-ros OpenEmbedded layer [3].
+
+[1] http://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio/net_ts.html
+[2] https://github.com/boostorg/asio/commit/0c9cbdfbf217146c096265b5eb56089e8cebe608
+[3] http://github.com/bmwcarit/meta-ros
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
+Upstream-Status: Accepted [https://github.com/mavlink/mavros/commit/74e82fa92405]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ libmavconn/src/tcp.cpp | 20 +++++++++++++-------
+ libmavconn/src/udp.cpp | 20 +++++++++++++-------
+ 2 files changed, 26 insertions(+), 14 deletions(-)
+
+diff --git a/libmavconn/src/tcp.cpp b/libmavconn/src/tcp.cpp
+index adec9fc..655f11c 100644
+--- a/libmavconn/src/tcp.cpp
++++ b/libmavconn/src/tcp.cpp
+@@ -41,13 +41,19 @@ static bool resolve_address_tcp(io_service &io, size_t chan, std::string host, u
+ 	error_code ec;
+ 
+ 	tcp::resolver::query query(host, "");
+-	std::for_each(resolver.resolve(query, ec), tcp::resolver::iterator(),
+-			[&](const tcp::endpoint & q_ep) {
+-				ep = q_ep;
+-				ep.port(port);
+-				result = true;
+-				logDebug(PFXd "host %s resolved as %s", chan, host.c_str(), to_string_ss(ep).c_str());
+-			});
++
++	auto fn = [&](const tcp::endpoint & q_ep) {
++		ep = q_ep;
++		ep.port(port);
++		result = true;
++		logDebug(PFXd "host %s resolved as %s", chan, host.c_str(), to_string_ss(ep).c_str());
++	};
++
++#if BOOST_ASIO_VERSION >= 101200
++	for (auto q_ep : resolver.resolve(query, ec)) fn(q_ep);
++#else
++	std::for_each(resolver.resolve(query, ec), tcp::resolver::iterator(), fn);
++#endif
+ 
+ 	if (ec) {
+ 		logWarn(PFXd "resolve error: %s", chan, ec.message().c_str());
+diff --git a/libmavconn/src/udp.cpp b/libmavconn/src/udp.cpp
+index d01b551..be0df47 100644
+--- a/libmavconn/src/udp.cpp
++++ b/libmavconn/src/udp.cpp
+@@ -41,13 +41,19 @@ static bool resolve_address_udp(io_service &io, size_t chan, std::string host, u
+ 	error_code ec;
+ 
+ 	udp::resolver::query query(host, "");
+-	std::for_each(resolver.resolve(query, ec), udp::resolver::iterator(),
+-			[&](const udp::endpoint & q_ep) {
+-				ep = q_ep;
+-				ep.port(port);
+-				result = true;
+-				logDebug(PFXd "host %s resolved as %s", chan, host.c_str(), to_string_ss(ep).c_str());
+-			});
++	
++	auto fn = [&](const udp::endpoint & q_ep) {
++		ep = q_ep;
++		ep.port(port);
++		result = true;
++		logDebug(PFXd "host %s resolved as %s", chan, host.c_str(), to_string_ss(ep).c_str());
++	};
++
++#if BOOST_ASIO_VERSION >= 101200
++	for (auto q_ep : resolver.resolve(query, ec)) fn(q_ep);
++#else
++	std::for_each(resolver.resolve(query, ec), udp::resolver::iterator(), fn);
++#endif
+ 
+ 	if (ec) {
+ 		logWarn(PFXd "resolve error: %s", chan, ec.message().c_str());
+-- 
+2.7.4
+

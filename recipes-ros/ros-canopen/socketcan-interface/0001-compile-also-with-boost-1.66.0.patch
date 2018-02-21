@@ -1,0 +1,45 @@
+From 89b29ca3a3c23ee07bb2df36b95ccfd60af98028 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Sat, 17 Feb 2018 20:15:12 +0100
+Subject: [PATCH] compile also with boost >= 1.66.0
+
+In boost 1.66.0, which includes boost-asio 1.12.0, the asio
+interfaces have been changed to follow the "C++ Extensions for
+Networking" Technical Specification [1]. As a consequence, the type
+boost::asio::strand has been moved to boost::asio::io_service::strand.
+
+A preprocessing directive ensures backwards compatibility using the
+provided boost-asio version [2], and a comment to clarify the
+minimum boost version that includes the boost-asio version.
+
+[1] http://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio/net_ts.html
+[2] https://github.com/boostorg/asio/commit/0c9cbdfbf217146c096265b5eb56089e8cebe608
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
+Upstream-Status: Accepted [https://github.com/ros-industrial/ros_canopen/commit/89b29ca3a3c23ee07bb2df36b95ccfd60af98028]
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ socketcan_interface/include/socketcan_interface/asio_base.h | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/socketcan_interface/include/socketcan_interface/asio_base.h b/socketcan_interface/include/socketcan_interface/asio_base.h
+index c54ff12..1a14480 100644
+--- a/socketcan_interface/include/socketcan_interface/asio_base.h
++++ b/socketcan_interface/include/socketcan_interface/asio_base.h
+@@ -23,7 +23,11 @@ template<typename Socket> class AsioDriver : public DriverInterface{
+     
+ protected:
+     boost::asio::io_service io_service_;
++#if BOOST_ASIO_VERSION >= 101200 // Boost 1.66+
++    boost::asio::io_context::strand strand_;
++#else
+     boost::asio::strand strand_;
++#endif
+     Socket socket_;
+     Frame input_;
+     
+-- 
+2.7.4
+
