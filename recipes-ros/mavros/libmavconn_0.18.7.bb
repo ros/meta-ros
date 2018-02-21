@@ -17,3 +17,5 @@ RDEPENDS_${PN} = " \
 require mavros.inc
 
 ROS_PKG_SUBDIR = "libmavconn"
+
+SRC_URI += "file://0001-compile-also-with-boost-1.66.0.patch;striplevel=2"
