@@ -2,13 +2,13 @@ DESCRIPTION = "This unary stack contains the dynamic_reconfigure package which p
 change node parameters at any time without having to restart the node."
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 DEPENDS = "roscpp std-msgs roslib"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "f10a72f0c9cf1a8e7c6b8cccbbb6ca04"
-SRC_URI[sha256sum] = "351b778ea8478faad7287e2c70219deb13114b4983cd09d6d5faa4825706664a"
+SRC_URI[md5sum] = "c8205d14f3084e1dae677bc0812bb769"
+SRC_URI[sha256sum] = "873c29fcd1d4731c4d76f29513a7fca87f9262ad9aca064e22423a92294a6121"
 
 S = "${WORKDIR}/${ROS_SP}"
 
