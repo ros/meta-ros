@@ -8,7 +8,7 @@ PR = "r1"
 
 require ros-comm.inc
 
-SRC_URI += "file://0001-increase-rosmaster-timeout.patch \
+SRC_URI += "file://0001-increase-rosmaster-timeout.patch;patchdir=../.. \
     file://roscore.service \
     file://roscore-default \
 "
