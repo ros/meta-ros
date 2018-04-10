@@ -1,4 +1,4 @@
-From 89b29ca3a3c23ee07bb2df36b95ccfd60af98028 Mon Sep 17 00:00:00 2001
+From 430b5e4dbb1e047b016cb7a4e244aca73f8bafc8 Mon Sep 17 00:00:00 2001
 From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 Date: Sat, 17 Feb 2018 20:15:12 +0100
 Subject: [PATCH] compile also with boost >= 1.66.0
@@ -20,6 +20,7 @@ Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 Upstream-Status: Accepted [https://github.com/ros-industrial/ros_canopen/commit/89b29ca3a3c23ee07bb2df36b95ccfd60af98028]
 
 Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
 ---
  socketcan_interface/include/socketcan_interface/asio_base.h | 4 ++++
  1 file changed, 4 insertions(+)
@@ -40,6 +41,3 @@ index c54ff12..1a14480 100644
      Socket socket_;
      Frame input_;
      
--- 
-2.7.4
-
