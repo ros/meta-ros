@@ -1,4 +1,4 @@
-From 658347978fc97675dbdff480f4557eb772e915dc Mon Sep 17 00:00:00 2001
+From 06d862fcf3bdcd50fe726e5364200cc5e7b87fcd Mon Sep 17 00:00:00 2001
 From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 Date: Mon, 4 Sep 2017 16:17:12 +0100
 Subject: [PATCH] CMake: explicitly link the atomic library (#797)
@@ -35,22 +35,20 @@ This patch has been generated with:
 in the mavros repository.
 
 Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
 ---
  mavros/CMakeLists.txt | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/mavros/CMakeLists.txt b/mavros/CMakeLists.txt
-index a4ac3cb..5233e96 100644
+index 47a24a9..a0bec5d 100644
 --- a/mavros/CMakeLists.txt
 +++ b/mavros/CMakeLists.txt
-@@ -102,6 +102,7 @@ add_library(mavros
+@@ -90,6 +90,7 @@ add_library(mavros
    src/lib/rosconsole_bridge.cpp
  )
  target_link_libraries(mavros
 +  atomic
    ${catkin_LIBRARIES}
    ${Boost_LIBRARIES}
-   ${GeographicLib_LIBRARIES}
--- 
-1.9.1
-
+ )
