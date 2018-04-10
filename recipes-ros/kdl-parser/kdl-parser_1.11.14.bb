@@ -7,4 +7,4 @@ DEPENDS = "libeigen orocos-kdl rosconsole roscpp urdf cmake-modules"
 
 require kdl-parser.inc
 
-SRC_URI += "file://0001-add-explicit-dependency-on-libeigen.patch"
+SRC_URI += "file://0001-add-explicit-dependency-on-libeigen.patch;patchdir=.."
