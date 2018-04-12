@@ -1,4 +1,4 @@
-From 401544fa4aab80c0b511df6e629a90c439f5e067 Mon Sep 17 00:00:00 2001
+From 16469e41f490c96d01dd8d894b784baf3d20f340 Mon Sep 17 00:00:00 2001
 From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 Date: Tue, 16 Jan 2018 15:57:59 +0100
 Subject: [PATCH] find and link the thread library properly
@@ -38,12 +38,13 @@ Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 Upstream-Status: Submitted [https://github.com/ros-industrial/ros_canopen/pull/263]
 
 Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
 ---
  socketcan_interface/CMakeLists.txt | 3 +++
  1 file changed, 3 insertions(+)
 
 diff --git a/socketcan_interface/CMakeLists.txt b/socketcan_interface/CMakeLists.txt
-index 97dc658..c1ee4e4 100644
+index 934451d..340872f 100644
 --- a/socketcan_interface/CMakeLists.txt
 +++ b/socketcan_interface/CMakeLists.txt
 @@ -13,6 +13,8 @@ find_package(Boost REQUIRED
@@ -56,13 +57,10 @@ index 97dc658..c1ee4e4 100644
    INCLUDE_DIRS
      include
 @@ -43,6 +45,7 @@ target_link_libraries(socketcan_dump
-    ${PROJECT_NAME}_string
+    socketcan_interface_string
     ${catkin_LIBRARIES}
     ${Boost_LIBRARIES}
 +   ${CMAKE_THREAD_LIBS_INIT}
  )
  
  # socketcan_bcm
--- 
-2.7.4
-

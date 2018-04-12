@@ -1,24 +1,25 @@
-From 3802a766efee8438c604b49507b15c17cf00982f Mon Sep 17 00:00:00 2001
+From 2455d52f41d886970d62f26e69849df29b3405b8 Mon Sep 17 00:00:00 2001
 From: Esteve Fernandez <esteve@osrfoundation.org>
 Date: Tue, 14 Jan 2014 17:53:29 +0100
-Subject: Increase start and stop timeouts for ROS master.
+Subject: [PATCH] Increase start and stop timeouts for ROS master.
 
 Certain boards are too slow to boot up the ROS master before roscore gives up.
 This patch increases the start and stop timeouts, giving the ROS master more
 time to start.
 
 Upstream-Status: Inappropriate [embedded specific]
+
 ---
- src/roslaunch/launch.py |    4 ++--
+ tools/roslaunch/src/roslaunch/launch.py | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/src/roslaunch/launch.py b/src/roslaunch/launch.py
-index 1a2d3e4..a2d1fbd 100644
---- a/src/roslaunch/launch.py
-+++ b/src/roslaunch/launch.py
-@@ -55,8 +55,8 @@ from roslaunch.pmon import start_process_monitor, ProcessListener
+diff --git a/tools/roslaunch/src/roslaunch/launch.py b/tools/roslaunch/src/roslaunch/launch.py
+index 758d6fe..25b4053 100644
+--- a/tools/roslaunch/src/roslaunch/launch.py
++++ b/tools/roslaunch/src/roslaunch/launch.py
+@@ -59,8 +59,8 @@ from roslaunch.rlutil import update_terminal_name
  
- from roslaunch.rlutil import update_terminal_name
+ from rosmaster.master_api import NUM_WORKERS
  
 -_TIMEOUT_MASTER_START = 10.0 #seconds
 -_TIMEOUT_MASTER_STOP  = 10.0 #seconds
@@ -27,6 +28,3 @@ index 1a2d3e4..a2d1fbd 100644
  
  _ID = '/roslaunch'
  
--- 
-1.7.9.5
-

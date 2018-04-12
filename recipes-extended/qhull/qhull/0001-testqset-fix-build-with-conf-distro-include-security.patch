@@ -1,0 +1,32 @@
+From d4489d05dadf025ac1f84b3a76a0979dcfbd2bec Mon Sep 17 00:00:00 2001
+From: Martin Jansa <Martin.Jansa@gmail.com>
+Date: Mon, 9 Apr 2018 21:45:24 +0000
+Subject: [PATCH] testqset: fix build with
+ conf/distro/include/security_flags.inc
+
+* fixes:
+  http://errors.yoctoproject.org/Errors/Details/174716/
+  qhull/2012.1-r0/qhull-2012.1/src/testqset/testqset.c:217:9: error: format not a string literal and no format arguments [-Werror=format-security]
+         printf(promptstr);
+         ^~~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <Martin.Jansa@gmail.com>
+---
+ src/testqset/testqset.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/testqset/testqset.c b/src/testqset/testqset.c
+index 2bdcf17..309d3bf 100644
+--- a/src/testqset/testqset.c
++++ b/src/testqset/testqset.c
+@@ -214,7 +214,7 @@ void readOptions(int argc, char **argv, const char *promptstr, int *numInts, int
+     char *endp;
+ 
+     if (argc != 2 && argc != 3) {
+-        printf(promptstr);
++        printf("%s", promptstr);
+         exit(0);
+     }
+     numIntsArg= strtol(argv[1], &endp, 10);

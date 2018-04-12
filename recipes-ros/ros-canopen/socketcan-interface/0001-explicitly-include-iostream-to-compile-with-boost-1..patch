@@ -1,4 +1,4 @@
-From 3bf9d9726b278b000a829f639af21d423a38798a Mon Sep 17 00:00:00 2001
+From 221747309d445a38412c2bb97c4b06e301ea7136 Mon Sep 17 00:00:00 2001
 From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 Date: Sat, 2 Dec 2017 09:17:02 +0100
 Subject: [PATCH] explicitly include iostream to compile with boost >= 1.65.0
@@ -39,12 +39,13 @@ This patch has been generated with:
 in the ros_canopen repository.
 
 Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
 ---
  socketcan_interface/include/socketcan_interface/interface.h | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/socketcan_interface/include/socketcan_interface/interface.h b/socketcan_interface/include/socketcan_interface/interface.h
-index f60f308..33378de 100644
+index a78a392..0912bc7 100644
 --- a/socketcan_interface/include/socketcan_interface/interface.h
 +++ b/socketcan_interface/include/socketcan_interface/interface.h
 @@ -190,6 +190,7 @@ public:
@@ -55,6 +56,3 @@ index f60f308..33378de 100644
  #include <boost/thread/mutex.hpp>
  
  struct _cout_wrapper{
--- 
-2.7.4
-

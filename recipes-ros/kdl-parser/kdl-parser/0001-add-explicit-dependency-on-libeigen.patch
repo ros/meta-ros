@@ -1,4 +1,4 @@
-From 48eebb8144f326040c82ea37e8cf00291fbc1403 Mon Sep 17 00:00:00 2001
+From 473d1546f7bbc3bacce1c9b8ada28d591e4ff3f0 Mon Sep 17 00:00:00 2001
 From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
 Date: Fri, 17 Feb 2017 10:49:30 +0200
 Subject: [PATCH] add explicit dependency on libeigen
@@ -20,14 +20,15 @@ been declarated as a dependency in kdl-parser's recipe.
 Upstream-Status: Inappropriate [It's not kdl-parser's problem, but orocos-kdl's one]
 
 Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+
 ---
- CMakeLists.txt | 3 ++-
+ kdl_parser/CMakeLists.txt | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 43b96b7..5c96e55 100644
---- aCMakeLists.txt
-+++ bCMakeLists.txt
+diff --git a/kdl_parser/CMakeLists.txt b/kdl_parser/CMakeLists.txt
+index fe6eab9..2ad285e 100644
+--- a/kdl_parser/CMakeLists.txt
++++ b/kdl_parser/CMakeLists.txt
 @@ -9,9 +9,10 @@ find_package(catkin REQUIRED
    COMPONENTS roscpp rosconsole urdf cmake_modules
  )
@@ -39,7 +40,4 @@ index 43b96b7..5c96e55 100644
 +include_directories(include ${EIGEN3_INCLUDE_DIR} ${orocos_kdl_INCLUDE_DIRS} ${TinyXML_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
  
  link_directories(${catkin_LIBRARY_DIRS})
- link_directories(${orocos_kdl_LIBRARY_DIRS})
--- 
-2.7.4
-
+ link_directories(${Boost_LIBRARY_DIRS})

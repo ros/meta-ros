@@ -1,15 +1,16 @@
-From d7b00940cb69d659d77bb08b1cbbf5aad4ea4617 Mon Sep 17 00:00:00 2001
+From 800775cf398c51db878524755fde3c29490f2f5d Mon Sep 17 00:00:00 2001
 From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 Date: Sun, 7 May 2017 06:14:18 +0200
 Subject: [PATCH] always find Eigen with cmake_modules mechanism
 
 Upstream-Status: Pending
+
 ---
  mavros/CMakeLists.txt | 12 ++++--------
  1 file changed, 4 insertions(+), 8 deletions(-)
 
 diff --git a/mavros/CMakeLists.txt b/mavros/CMakeLists.txt
-index 3b3a0bd..bcc7924 100644
+index 9c33dff..47a24a9 100644
 --- a/mavros/CMakeLists.txt
 +++ b/mavros/CMakeLists.txt
 @@ -26,14 +26,10 @@ find_package(catkin REQUIRED COMPONENTS
@@ -31,6 +32,3 @@ index 3b3a0bd..bcc7924 100644
  
  include(EnableCXX11)
  include(MavrosMavlink)
--- 
-1.9.1
-
