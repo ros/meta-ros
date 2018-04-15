@@ -1,3 +1,30 @@
+From e6179255b99264a51f8733f52d92ca579fbacb61 Mon Sep 17 00:00:00 2001
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Sun, 15 Apr 2018 02:11:42 +0200
+Subject: [PATCH] allow proper cross-compilation with catkin
+
+The original patch is:
+
+From: Dominique Hunziker <dominique.hunziker@gmail.com>
+Date: Fri, 2 Jun 2017 12:12:33 +0200
+
+I just re-applied it to the current version 0.6.19 and adjusted
+the context of the patch as reaction to bitbake warning:
+
+WARNING: catkin-runtime-0.6.19-r0 do_patch:
+Some of the context lines in patches were ignored. This can lead to incorrectly applied patches.
+
+Upstream-Status: Pending
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ cmake/all.cmake                    |  1 +
+ cmake/catkin_package.cmake         |  8 ++++++++
+ cmake/catkin_strip_root_path.cmake | 32 +++++++++++++++++++++++++++++
+ cmake/templates/pkgConfig.cmake.in | 42 ++++++++++++++++++++++++++++++++++----
+ 4 files changed, 79 insertions(+), 4 deletions(-)
+ create mode 100644 cmake/catkin_strip_root_path.cmake
+
 diff --git a/cmake/all.cmake b/cmake/all.cmake
 index 6910906..e421b76 100644
 --- a/cmake/all.cmake
@@ -11,10 +38,10 @@ index 6910906..e421b76 100644
      debug_message
      em_expand
 diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
-index 07613ce..2b13edc 100644
+index 8ef6c48..d6bc68f 100644
 --- a/cmake/catkin_package.cmake
 +++ b/cmake/catkin_package.cmake
-@@ -441,6 +441,14 @@ function(_catkin_package)
+@@ -432,6 +432,14 @@ function(_catkin_package)
    # package cmake dir is the folder where the generated pkgConfig.cmake is located
    set(PKG_CMAKE_DIR "\${${PROJECT_NAME}_DIR}")
  
@@ -68,7 +95,7 @@ index 0000000..ca5c453
 +  set(${var} ${output} PARENT_SCOPE)
 +endfunction()
 diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
-index 4677100..d3b7067 100644
+index d99b811..3af5c71 100644
 --- a/cmake/templates/pkgConfig.cmake.in
 +++ b/cmake/templates/pkgConfig.cmake.in
 @@ -78,6 +78,15 @@ else()
@@ -87,9 +114,9 @@ index 4677100..d3b7067 100644
  # warn when using a deprecated package
  if(NOT "@PROJECT_DEPRECATED@" STREQUAL "")
    set(_msg "WARNING: package '@PROJECT_NAME@' is deprecated")
-@@ -102,7 +111,19 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
-     set(_report "Report the problem to the maintainer '@PROJECT_MAINTAINER@' and request to fix the problem.")
-   endif()
+@@ -95,7 +104,19 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
+   set(@PROJECT_NAME@_INCLUDE_DIRS "")
+   set(_include_dirs "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@")
    foreach(idir ${_include_dirs})
 -    if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
 +    if(IS_ABSOLUTE ${idir} AND CMAKE_CROSSCOMPILING)
@@ -108,7 +135,7 @@ index 4677100..d3b7067 100644
        set(include ${idir})
      elseif("${idir} " STREQUAL "@CATKIN_GLOBAL_INCLUDE_DESTINATION@ ")
        get_filename_component(include "${@PROJECT_NAME@_DIR}/../../../@CATKIN_GLOBAL_INCLUDE_DESTINATION@" ABSOLUTE)
-@@ -123,18 +144,31 @@ foreach(library ${libraries})
+@@ -116,18 +137,31 @@ foreach(library ${libraries})
      list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
    elseif(TARGET ${library})
      list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
@@ -143,3 +170,6 @@ index 4677100..d3b7067 100644
          break()
        endif()
      endforeach()
+-- 
+2.7.4
+
