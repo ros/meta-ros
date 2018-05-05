@@ -18,7 +18,7 @@ RDEPENDS_${PN}_class-native = ""
 RDEPENDS_${PN} = "\
     ${PYTHON_PN}-catkin-pkg ${PYTHON_PN}-misc ${PYTHON_PN}-multiprocessing \
     ${PYTHON_PN}-shell ${PYTHON_PN}-xml ${PYTHON_PN}-pkgutil \
-    ${@'python-argparse python-subprocess' if d.getVar('PYTHON_PN', True) == 'python2' else ''}"
+    ${@'python-argparse python-subprocess' if d.getVar('PYTHON_PN', True) == 'python' else ''}"
 
 # Delete everything but the python packages in order to avoid
 # that the QA error [installed-vs-shipped] hits on us.

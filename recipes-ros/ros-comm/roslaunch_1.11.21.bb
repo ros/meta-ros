@@ -16,7 +16,7 @@ SRC_URI += "file://0001-increase-rosmaster-timeout.patch;patchdir=../.. \
 ROS_PKG_SUBDIR = "tools"
 
 RDEPENDS_${PN} = "\
-    ${@'python-textutils' if d.getVar('PYTHON_PN', True) == 'python2' else ''} \
+    ${@'python-textutils' if d.getVar('PYTHON_PN', True) == 'python' else ''} \
     ${PYTHON_PN}-logging \
     ${PYTHON_PN}-threading \
     ${PYTHON_PN}-rospkg \
