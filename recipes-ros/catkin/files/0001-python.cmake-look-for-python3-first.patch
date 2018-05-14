@@ -1,4 +1,4 @@
-From 224186a1af40cd3b7efb4f0648a3a4ca6ca1e7fa Mon Sep 17 00:00:00 2001
+From a429081b23223b1d6729da2c9087318bc08a808c Mon Sep 17 00:00:00 2001
 From: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
 Date: Thu, 6 Apr 2017 15:25:13 +0300
 Subject: [PATCH] python.cmake: look for python3 first
@@ -6,6 +6,7 @@ Subject: [PATCH] python.cmake: look for python3 first
 Upstream-Status: Inappropriate [the patch overrides ROS's default to python2]
 
 Signed-off-by: Dmitry Rozhkov <dmitry.rozhkov@linux.intel.com>
+
 ---
  cmake/python.cmake | 1 +
  1 file changed, 1 insertion(+)
@@ -22,6 +23,3 @@ index 70f3d26..38f8320 100644
  find_package(PythonInterp REQUIRED)
  message(STATUS "Using PYTHON_EXECUTABLE: ${PYTHON_EXECUTABLE}")
  
--- 
-2.9.3
-

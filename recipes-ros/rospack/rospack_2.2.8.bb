@@ -14,4 +14,4 @@ SRC_URI[sha256sum] = "a8fecbe03f9757510fe47137642e39a7c31b823d5bf7fa7890acc11691
 inherit catkin
 
 RDEPENDS_${PN} = "${PYTHON_PN}-rosdep \
-                  ${@'python-subprocess' if d.getVar('PYTHON_PN', True) == 'python2' else ''}"
+                  ${@'python-subprocess' if d.getVar('PYTHON_PN', True) == 'python' else ''}"

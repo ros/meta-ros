@@ -6,17 +6,29 @@ ROS_USE_PYTHON3 ??= "no"
 
 inherit cmake ${@'distutils3-base' if bb.utils.to_boolean(d.getVar('ROS_USE_PYTHON3', True)) else 'distutils-base'} ros faulty-solibs
 
-DEPENDS_prepend = "${@'' if (d.getVar('BPN', True) == 'catkin') or (d.getVar('BPN', True) == 'catkin-runtime') else 'catkin-native '}"
+# Prepend build dependency on "catkin-runtime" and "catkin-native"
+# if the package is not "catkin" or "catkin-runtime"
+DEPENDS =+ "${@'' if d.getVar('BPN', True) in ('catkin', 'catkin-runtime') else 'catkin-runtime catkin-native'}"
+
+# Prepend run dependency on "catkin-runtime" for base packages
+# if the package is not "catkin" or "catkin-runtime"
+RDEPENDS_${PN} =+ "${@'' if d.getVar('BPN', True) in ('catkin', 'catkin-runtime') else 'catkin-runtime'}"
+
+# Prepend run dependency on "catkin" for dev packages
+# if the package is not "catkin" or "catkin-runtime"
+RDEPENDS_${PN}-dev =+ "${@'' if d.getVar('BPN', True) in ('catkin', 'catkin-runtime') else 'catkin'}"
 
 EXTRA_OECMAKE_CATKIN = "\
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}${ros_prefix};${STAGING_DIR_HOST}${prefix};${STAGING_DIR_NATIVE}${ros_prefix};${STAGING_DIR_NATIVE}${prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
+    -DCATKIN_DEVEL_PREFIX='${WORKDIR}/devel' \
     "
 
 EXTRA_OECMAKE_CATKIN_class-native = "\
-    -DCMAKE_PREFIX_PATH='${ros_prefix}' \
+    -DCMAKE_PREFIX_PATH='${STAGING_DIR_NATIVE}${ros_prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
     -DRT_LIBRARY=${libdir_native} \
+    -DCATKIN_DEVEL_PREFIX='${WORKDIR}/devel' \
     "
 
 EXTRA_OECMAKE_prepend = "\
