@@ -40,3 +40,8 @@ CXXFLAGS += "${@bb.utils.contains("TARGET_CC_ARCH", "-mfpmath=sse", "", "-ffloat
 inherit cmake
 
 FILES_${PN}-dev += "${datadir}/${PN}-1.8/*.cmake"
+
+# The build is really memory hungry (at least with gcc8), even with just -j 8 it triggers OOMK on system with 32GB ram
+# High memory needs mentioned in: https://github.com/PointCloudLibrary/pcl/issues/2284
+# Setting just empty doesn't work, ninja will by default use number of cores available
+PARALLEL_MAKE = "-j1"
