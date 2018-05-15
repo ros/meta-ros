@@ -3,7 +3,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "moveit-core moveit-ros-perception dynamic-reconfigure ${PYTHON_PN}-rospkg libtinyxml"
+DEPENDS = "moveit-core moveit-ros-perception dynamic-reconfigure ${PYTHON_PN}-rospkg libtinyxml tf-conversions"
 
 require moveit.inc
 
