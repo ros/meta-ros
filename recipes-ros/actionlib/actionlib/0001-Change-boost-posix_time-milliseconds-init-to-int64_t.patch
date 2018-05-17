@@ -1,0 +1,87 @@
+From 677e952fcbfe49e6e4c5b835357f88740f49c6ff Mon Sep 17 00:00:00 2001
+From: Tobias Fischer <t.fischer@imperial.ac.uk>
+Date: Sun, 29 Apr 2018 23:56:16 +0100
+Subject: [PATCH] Change boost::posix_time::milliseconds init to int64_t (#105)
+
+* Change boost::posix_time::milliseconds init to uint64_t
+
+Fixes #104
+
+* Update simple_action_server_imp.h
+
+* Update destruction_guard.h
+
+* Update simple_action_client.h
+
+* use int64_t
+
+Upstream-Status: Accepted [https://github.com/ros/actionlib/commit/677e952fcbfe49e6e4c5b835357f88740f49c6ff]
+
+This patch has been generated with:
+  `git format-patch -1 677e952fcbfe49e6e4c5b835357f88740f49c6ff`
+in the actionlib repository.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ include/actionlib/client/simple_action_client.h     | 3 ++-
+ include/actionlib/destruction_guard.h               | 2 +-
+ include/actionlib/server/simple_action_server_imp.h | 2 +-
+ src/connection_monitor.cpp                          | 2 +-
+ 4 files changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/include/actionlib/client/simple_action_client.h b/include/actionlib/client/simple_action_client.h
+index f86ac99..eda76aa 100644
+--- a/include/actionlib/client/simple_action_client.h
++++ b/include/actionlib/client/simple_action_client.h
+@@ -601,7 +601,8 @@ bool SimpleActionClient<ActionSpec>::waitForResult(const ros::Duration & timeout
+       time_left = loop_period;
+     }
+ 
+-    done_condition_.timed_wait(lock, boost::posix_time::milliseconds(time_left.toSec() * 1000.0f));
++    done_condition_.timed_wait(lock,
++      boost::posix_time::milliseconds(static_cast<int64_t>(time_left.toSec() * 1000.0f)));
+   }
+ 
+   return cur_simple_state_ == SimpleGoalState::DONE;
+diff --git a/include/actionlib/destruction_guard.h b/include/actionlib/destruction_guard.h
+index 196a0a7..1aaa776 100644
+--- a/include/actionlib/destruction_guard.h
++++ b/include/actionlib/destruction_guard.h
+@@ -59,7 +59,7 @@ public:
+     boost::mutex::scoped_lock lock(mutex_);
+     destructing_ = true;
+     while (use_count_ > 0) {
+-      count_condition_.timed_wait(lock, boost::posix_time::milliseconds(1000.0f));
++      count_condition_.timed_wait(lock, boost::posix_time::milliseconds(1000));
+     }
+   }
+ 
+diff --git a/include/actionlib/server/simple_action_server_imp.h b/include/actionlib/server/simple_action_server_imp.h
+index 3975ec6..367bc22 100644
+--- a/include/actionlib/server/simple_action_server_imp.h
++++ b/include/actionlib/server/simple_action_server_imp.h
+@@ -394,7 +394,7 @@ void SimpleActionServer<ActionSpec>::executeLoop()
+       }
+     } else {
+       execute_condition_.timed_wait(lock,
+-        boost::posix_time::milliseconds(loop_duration.toSec() * 1000.0f));
++        boost::posix_time::milliseconds(static_cast<int64_t>(loop_duration.toSec() * 1000.0f)));
+     }
+   }
+ }
+diff --git a/src/connection_monitor.cpp b/src/connection_monitor.cpp
+index 19fe21a..43184c3 100644
+--- a/src/connection_monitor.cpp
++++ b/src/connection_monitor.cpp
+@@ -275,7 +275,7 @@ bool actionlib::ConnectionMonitor::waitForActionServerToStart(const ros::Duratio
+     }
+ 
+     check_connection_condition_.timed_wait(lock,
+-      boost::posix_time::milliseconds(time_left.toSec() * 1000.0f));
++      boost::posix_time::milliseconds(static_cast<int64_t>(time_left.toSec() * 1000.0f)));
+   }
+ 
+   return isServerConnected();
+-- 
+2.7.4
+
