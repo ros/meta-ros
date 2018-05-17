@@ -1,3 +1,24 @@
+From e5de3c20eb178683c78e225d00bf0f47c48895a5 Mon Sep 17 00:00:00 2001
+From: Lukas Solanka <lsolanka@gmail.com>
+Date: Tue, 17 Apr 2018 22:59:48 +0100
+Subject: [PATCH] argument to boost microseconds must be integral
+
+With Boost >= 1.67 compilation fails because now it requires the
+constructor argument to be integral.
+
+Upstream-Status: Submitted [https://github.com/ros/roscpp_core/pull/79]
+
+This patch has been generated with:
+  `git pull https://github.com/lsolanka/roscpp_core.git pr.microseconds-integer && \
+  git format-patch -1 e5de3c20eb178683c78e225d00bf0f47c48895a5`
+in the roscpp_core repository.
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ rostime/include/ros/impl/duration.h | 2 +-
+ rostime/include/ros/impl/time.h     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
 diff --git a/rostime/include/ros/impl/duration.h b/rostime/include/ros/impl/duration.h
 index 2ca2f5b..7ebd202 100644
 --- a/rostime/include/ros/impl/duration.h
@@ -24,3 +45,6 @@ index ec991e6..61b686c 100644
  #endif
    }
  
+-- 
+2.7.4
+
