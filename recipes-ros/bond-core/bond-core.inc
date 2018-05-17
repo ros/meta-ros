@@ -7,3 +7,5 @@ S = "${WORKDIR}/${ROS_SP}/${ROS_BPN}"
 inherit catkin
 
 ROS_SPN = "bond_core"
+
+SRC_URI += "file://0001-Argument-to-Boost-Milliseconds-must-be-integral-in-B.patch;patchdir=.."
