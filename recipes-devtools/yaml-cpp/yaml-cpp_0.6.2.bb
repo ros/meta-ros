@@ -4,16 +4,14 @@ SECTION = "libs"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6a8aaf0595c2efc1a9c2e0913e9c1a2c"
 
-DEPENDS = "boost"
-
 PR = "r0"
 
 S = "${WORKDIR}/git"
 
 SRC_URI = "git://github.com/jbeder/${PN}.git;branch=master;protocol=git"
-SRCREV = "b57efe94e7d445713c29f863adb8c23438eaa217"
+SRCREV = "562aefc114938e388457e6a531ed7b54d9dc1b62"
 
 
-EXTRA_OECMAKE = "-DBUILD_SHARED_LIBS=ON"
+EXTRA_OECMAKE = "-DBUILD_SHARED_LIBS=ON -DYAML_CPP_BUILD_TESTS=OFF"
 
 inherit cmake
