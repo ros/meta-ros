@@ -8,4 +8,4 @@ S = "${WORKDIR}/git/ros2cli"
 
 inherit setuptools3
 
-RDEPENDS_${PN} += "rclpy python3-setuptools"
+RDEPENDS_${PN} += "rclpy python3-setuptools ${PYTHON_PN}-xmlrpc ${PYTHON_PN}-pydoc"

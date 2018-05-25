@@ -7,6 +7,8 @@ include rosidl.inc
 
 RDEPENDS_${PN} += " \
     rosidl-parser \
+    ${PYTHON_PN}-json \
+    ${PYTHON_PN}-empy \
 "
 
 RDEPENDS_${PN}-dev += " \
