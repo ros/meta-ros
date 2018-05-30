@@ -1,6 +1,6 @@
 HOMEPAGE = "https://github.com/ament/ament_cmake"
 
-SRCREV = "dc243d84429ccefbe3532c59a242a114eb20bad6"
+SRCREV = "af0789c46d03aabf6ee2cae360bf0487dd8a84d4"
 SRC_URI = "git://github.com/ament/ament_cmake.git;protocol=git;"
 
 inherit cmake python3native

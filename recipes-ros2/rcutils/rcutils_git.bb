@@ -7,7 +7,7 @@ DEPENDS = " \
         python3-empy-native \
 "
 
-SRCREV = "346a02b856cf457c820e5c6bcbca674932a86058"
+SRCREV = "85043d2da60cae000ea8137ab3eaff78d2ff2d42"
 SRC_URI = "git://github.com/ros2/rcutils.git;protocol=git;"
 
 inherit ament

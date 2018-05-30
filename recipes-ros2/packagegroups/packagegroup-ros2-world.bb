@@ -15,4 +15,5 @@ RDEPENDS_${PN} = "\
     ros2-stereo-msgs \
     ros2-trajectory-msgs \
     ros2-visualization-msgs \
+    rosidl-generator-py \
 "

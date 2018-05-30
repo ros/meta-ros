@@ -1,6 +1,6 @@
 HOMEPAGE = "https://github.com/ros2/rosidl"
 
-SRCREV = "c4cfbae3905bdb128378b1198fb4a581afcd2889"
-SRC_URI = "git://github.com/ros2/rosidl.git;protocol=git;"
+SRCREV = "8a19b290a04b36136bcf931cb4a983ab587b4db6"
+SRC_URI = "git://github.com/ros2/rosidl.git;protocol=git;branch=ardent;"
 
 inherit ament

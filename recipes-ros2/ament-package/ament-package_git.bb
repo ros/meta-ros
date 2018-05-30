@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/ament/ament_package"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-SRCREV = "778906c805fd6b3fa070c582fbb06b7a5fab03b8"
+SRCREV = "2cc251b627607e2d8ada6fa75add45cbe86cb9d8"
 SRC_URI = "git://github.com/ament/ament_package.git;protocol=git;"
 
 S = "${WORKDIR}/git"

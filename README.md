@@ -105,6 +105,21 @@ resolved in the past.
   rely on the remote commits. In case of porting to other versions, you must
   possibly revert some of those commits.
 
+  ament-cmake-core depends on python3-pyparsing which is available in
+  meta-python since pyro
+  1a373a033f482981eb59ff8d9eb7a9437fa18cd4@meta-openembedded and native
+  version since rocko
+  06eb9d658e71b6a61f2589d9618ae2ca35eaaf8b@meta-openembedded
+  python3-pyparsing-native depends on python3-datetime-native,
+  python3-debugger-native and python3-stringold-native which were added
+  in oe-core python3-native in pyro:
+  462ccb35a5de32b52ddb733d1868df6ac5426f20@openembedded-core and
+  800753069f667cd1664d70b3779150c467e3b3fe@openembedded-core simple
+  bbappend as shown in:
+  https://github.com/bmwcarit/meta-ros/pull/607#pullrequestreview-143981126
+  is enough to resolve this if you're using old pyro unsupported
+  release.
+
   cv-bridge and dependent recipes, e.g., the image-transport recipes, depend on
   7568bfdd114597956a1da68746f207ec7f93a48d@openembedded-core.
   For native python-numpy support, these recipes also depend on

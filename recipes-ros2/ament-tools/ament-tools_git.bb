@@ -4,7 +4,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 DEPENDS = "osrf-pycommon ament-package"
 
-SRCREV = "d1c6bcebea9cd5d9ac171d2e226146f07c147bed"
+SRCREV = "0885dfb957260bcab00e6a626624cf4e447d19c0"
 SRC_URI = "git://github.com/ament/ament_tools.git;protocol=git;"
 
 S = "${WORKDIR}/git"

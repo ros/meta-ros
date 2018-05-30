@@ -1,6 +1,6 @@
 HOMEPAGE = "https://github.com/ros2/rmw"
 
-SRCREV = "10ba01cbb5cf44f49bc87aff9cedf0cc29824ef1"
+SRCREV = "4c39335411910f1e8d6cb49352b44fef6052455d"
 SRC_URI = "git://github.com/ros2/rmw.git;protocol=git;"
 
 inherit ament

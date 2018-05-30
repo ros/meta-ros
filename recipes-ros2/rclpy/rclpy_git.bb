@@ -7,7 +7,9 @@ DEPENDS = " \
         rcl \
 "
 
-SRCREV = "6b217daf62f4be6b679d3b8a4946aaafff5dc2be"
+SRCREV = "018b9fbf1c66f1c1c488510e0caa299fb0223277"
 SRC_URI = "git://github.com/ros2/rclpy.git;protocol=git;"
+
+RDEPENDS_${PN} += "${PYTHON_PN}-multiprocessing"
 
 inherit ament
