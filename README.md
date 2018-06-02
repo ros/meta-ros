@@ -120,6 +120,10 @@ resolved in the past.
   is enough to resolve this if you're using old pyro unsupported
   release.
 
+  ros2topic (and few more recipes when ROS_USE_PYTHON3 is set to yes)
+  depends on python3-pyyaml which was added in
+  1161ab8f8dda272eb5d09917446cc5b971be1335@meta-openembedded.
+
   cv-bridge and dependent recipes, e.g., the image-transport recipes, depend on
   7568bfdd114597956a1da68746f207ec7f93a48d@openembedded-core.
   For native python-numpy support, these recipes also depend on

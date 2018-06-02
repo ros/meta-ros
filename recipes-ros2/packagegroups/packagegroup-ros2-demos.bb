@@ -8,4 +8,5 @@ PACKAGES = "${PN}"
 RDEPENDS_${PN} = "\
         ros2-demo-nodes-cpp \
         ros2run \
+        ros2topic \
 "
