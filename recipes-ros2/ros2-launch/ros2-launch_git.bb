@@ -8,4 +8,6 @@ SRC_URI = "git://github.com/ros2/launch.git;protocol=git;"
 
 S = "${WORKDIR}/git/launch"
 
+RDEPENDS_${PN} += "${PYTHON_PN}-asyncio"
+
 inherit setuptools3
