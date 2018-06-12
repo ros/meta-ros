@@ -4,7 +4,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "roscpp std-msgs roslib"
+DEPENDS = "roscpp std-msgs roslib ${PYTHON_PN}-rospkg"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "c8205d14f3084e1dae677bc0812bb769"
