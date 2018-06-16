@@ -8,3 +8,5 @@ DEPENDS = "boost rosconsole roscpp xmlrpcpp"
 require ros-comm.inc
 
 ROS_PKG_SUBDIR = "utilities"
+
+SRC_URI += "file://0001-Changed-invocation-to-add-to-conform-template-syntax.patch;patchdir=../.."
