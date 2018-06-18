@@ -45,8 +45,9 @@ based on already pre-existing patterns in the CMakeLists.txt file.
 
 Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
 
-Upstream-Status: Pending [https://github.com/PointCloudLibrary/pcl/pull/1730]
+Upstream-Status: Inappropriate [openembedded specific]
 
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 ---
  CMakeLists.txt                  | 2 +-
  cmake/Modules/FindOpenNI.cmake  | 2 +-

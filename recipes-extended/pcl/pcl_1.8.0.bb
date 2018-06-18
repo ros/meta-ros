@@ -10,6 +10,7 @@ SRC_URI[md5sum] = "8c1308be2c13106e237e4a4204a32cca"
 SRC_URI[sha256sum] = "9e54b0c1b59a67a386b9b0f4acb2d764272ff9a0377b825c4ed5eedf46ebfcf4"
 
 SRC_URI += "file://0001-make-the-pcl-library-compile-with-gcc6.patch"
+SRC_URI += "file://0001-Dereference-shared_ptr-fix-for-GCC8.patch"
 
 S = "${WORKDIR}/pcl-${P}"
 
@@ -39,3 +40,8 @@ CXXFLAGS += "${@bb.utils.contains("TARGET_CC_ARCH", "-mfpmath=sse", "", "-ffloat
 inherit cmake
 
 FILES_${PN}-dev += "${datadir}/${PN}-1.8/*.cmake"
+
+# The build is really memory hungry (at least with gcc8), even with just -j 8 it triggers OOMK on system with 32GB ram
+# High memory needs mentioned in: https://github.com/PointCloudLibrary/pcl/issues/2284
+# Setting just empty doesn't work, ninja will by default use number of cores available
+PARALLEL_MAKE = "-j1"
