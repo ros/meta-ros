@@ -11,3 +11,5 @@ SRC_URI[sha256sum] = "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa7
 S = "${WORKDIR}/flann-${PV}"
 
 inherit cmake
+
+SRC_URI += "file://0001-Use-object-libraries-instead-of-empty-file-list-in-C.patch"
