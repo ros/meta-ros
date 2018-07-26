@@ -4,8 +4,6 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f49
 
 include ros2cli.inc
 
-S = "${WORKDIR}/git/ros2run"
-
 inherit setuptools3
 
 RDEPENDS_${PN} += "ros2pkg"
