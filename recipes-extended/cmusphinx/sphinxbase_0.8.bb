@@ -12,7 +12,7 @@ require cmusphinx.inc
 
 SRC_URI += "file://0001-TESTS-srcdir-remove.patch"
 
-DEPENDS = "libsndfile1 alsa-lib libsamplerate0"
+DEPENDS = "libsndfile1 alsa-lib libsamplerate0 bison-native"
 
 EXTRA_OECONF = " --without-python"
 
