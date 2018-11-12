@@ -13,4 +13,8 @@ SRC_URI[sha256sum] = "aa975c19b79b6aa6c0518c0cc2ae33528900478f0b500531dbcdbf05be
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
+do_compile_prepend() {
+    make gen
+}
+
 inherit distutils
