@@ -17,7 +17,7 @@ FILES_${PN}-dev = ""
 RDEPENDS_${PN}_class-native = ""
 RDEPENDS_${PN} = "\
     ${PYTHON_PN}-catkin-pkg ${PYTHON_PN}-misc ${PYTHON_PN}-multiprocessing \
-    ${PYTHON_PN}-shell ${PYTHON_PN}-xml ${PYTHON_PN}-pkgutil \
+    ${PYTHON_PN}-shell ${PYTHON_PN}-xml ${PYTHON_PN}-pkgutil ${PYTHON_PN}-pyparsing \
     ${@'python-argparse python-subprocess' if d.getVar('PYTHON_PN', True) == 'python' else ''}"
 
 # Delete everything but the python packages in order to avoid
