@@ -9,6 +9,8 @@ require geometry.inc
 
 RDEPENDS_${PN} = "${PYTHON_PN}-numpy"
 
+SRC_URI += "file://0001-cmake-remove-boost-signals-search-as-it-is-removed-s.patch;striplevel=2"
+
 # This option disables python support in case of python3 flavour of ROS because
 # only python2 is supported by tf.
 EXTRA_OECMAKE =+ "${@'-DANDROID=ON' if d.getVar('PYTHON_PN', True) == 'python3' else ''}"

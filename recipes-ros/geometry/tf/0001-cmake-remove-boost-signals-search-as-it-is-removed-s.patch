@@ -1,0 +1,24 @@
+From 65a6507591ba13333c4d79d119b3316a29e49f6a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jo=C3=ABl=20Esponde?= <joel.esponde@easymile.com>
+Date: Wed, 27 Feb 2019 15:18:57 +0100
+Subject: [PATCH] cmake: remove boost signals search as it is removed since
+ 1.69
+
+Upstream-Status: Inappropriate [upstream source code changed]
+---
+ tf/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tf/CMakeLists.txt b/tf/CMakeLists.txt
+index 8429516..9fcdebd 100644
+--- a/tf/CMakeLists.txt
++++ b/tf/CMakeLists.txt
+@@ -13,7 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
+     std_msgs
+     tf2_ros
+ )
+-find_package(Boost REQUIRED COMPONENTS thread signals system)
++find_package(Boost REQUIRED COMPONENTS thread system)
+ 
+ catkin_python_setup()
+ 

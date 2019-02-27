@@ -12,7 +12,8 @@ require ros-comm.inc
 
 SRC_URI += "\
     file://0001-roscpp-add-missing-header-for-writev.patch;striplevel=3\
-    file://0001-make-implicit-cast-explicit.patch;striplevel=3"
+    file://0002-make-implicit-cast-explicit.patch;striplevel=3\
+    file://0003-cmake-remove-boost-signals-search-as-it-is-removed-s.patch;striplevel=3"
 
 ROS_PKG_SUBDIR = "clients"
 
