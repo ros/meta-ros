@@ -12,4 +12,4 @@ require ros-comm.inc
 ROS_PKG_SUBDIR = "tools"
 
 RDEPENDS_${PN} = "python-compression python-threading python-pyyaml python-io \
-    genmsg genpy roslib rospy python-gnupg"
+    genmsg genpy roslib rospy python-gnupg python-pycrypto"
