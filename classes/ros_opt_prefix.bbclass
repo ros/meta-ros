@@ -1,6 +1,7 @@
 #
 # Copyright (c) 2013 Stefan Herbrechtsmeier, Bielefeld University
-# 
+# Copyright (c) 2019 LG Electronics, Inc.
+#
 
 ROS_BPN = "${@d.getVar('BPN', True).replace('-', '_')}"
 

@@ -1,10 +1,11 @@
 #
 # Copyright (c) 2013 Stefan Herbrechtsmeier, Bielefeld University
-# 
+# Copyright (c) 2019 LG Electronics, Inc.
+#
 
 ROS_USE_PYTHON3 ??= "no"
 
-inherit cmake ${@'distutils3-base' if bb.utils.to_boolean(d.getVar('ROS_USE_PYTHON3', True)) else 'distutils-base'} ros faulty-solibs
+inherit cmake ${@'distutils3-base' if bb.utils.to_boolean(d.getVar('ROS_USE_PYTHON3', True)) else 'distutils-base'} ros_opt_prefix faulty-solibs
 
 # Prepend build dependency on "catkin-runtime" and "catkin-native"
 # if the package is not "catkin" or "catkin-runtime"
