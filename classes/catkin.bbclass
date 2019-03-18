@@ -3,9 +3,9 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 #
 
-ROS_USE_PYTHON3 ??= "no"
-
-inherit cmake ${@'distutils3-base' if bb.utils.to_boolean(d.getVar('ROS_USE_PYTHON3', True)) else 'distutils-base'} ros_opt_prefix faulty-solibs
+inherit ros_opt_prefix
+# ROS_PYTHON_VERSION is set in generated-ros-distro.inc, ie, it will never be unset here.
+inherit cmake ${@'distutils3-base' if d.getVar('ROS_PYTHON_VERSION', True) == '3' else 'distutils-base'} faulty-solibs
 
 # Prepend build dependency on "catkin-runtime" and "catkin-native"
 # if the package is not "catkin" or "catkin-runtime"
@@ -52,8 +52,3 @@ OECMAKE_CXX_LINK_FLAGS += "-Wl,-rpath-link=${RECIPE_SYSROOT}${ros_libdir}"
 
 export BUILD_SYS
 export HOST_SYS
-
-SYSROOT_PREPROCESS_FUNCS += "catkin_sysroot_preprocess"
-catkin_sysroot_preprocess () {
-    sysroot_stage_dir ${D}${ros_sysconfdir} ${SYSROOT_DESTDIR}${ros_sysconfdir}
-}

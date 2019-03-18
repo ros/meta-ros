@@ -18,10 +18,14 @@ ros_datadir = "${ros_prefix}/share"
 ros_sysconfdir = "${ros_prefix}/etc"
 ros_stacksdir = "${ros_prefix}/stacks"
 
+# Used by chrpath.bbclass
 PREPROCESS_RELOCATE_DIRS += " \
     ${ros_bindir} \
     ${ros_libdir} \
 "
+
+# ROS_PYTHON_VERSION is set in generated-ros-distro.inc, ie, it will never be unset here.
+inherit ${@'python3-dir' if d.getVar('ROS_PYTHON_VERSION', True) == '3' else 'python-dir'}
 
 PKG_CONFIG_PATH .= ":${PKG_CONFIG_DIR}:${STAGING_DIR_HOST}${ros_libdir}/pkgconfig:${STAGING_DATADIR}/pkgconfig"
 PYTHON_SITEPACKAGES_DIR = "${ros_libdir}/${PYTHON_DIR}/site-packages"
@@ -64,18 +68,15 @@ FILES_${PN}-commonlisp += " \
     ${datadir}/common-lisp/ \
     "
 
-SYSROOT_PREPROCESS_FUNCS += "ros_sysroot_preprocess"
-ros_sysroot_preprocess () {
-    sysroot_stage_dir ${D}${ros_includedir} ${SYSROOT_DESTDIR}${ros_includedir}
-    if [ "${BUILD_SYS}" = "${HOST_SYS}" ]; then
-        sysroot_stage_dir ${D}${ros_bindir} ${SYSROOT_DESTDIR}${ros_bindir}
-        sysroot_stage_dir ${D}${ros_sysconfdir} ${SYSROOT_DESTDIR}${ros_sysconfdir}
-    fi
-    if [ -d ${D}${ros_libdir} ]; then
-        sysroot_stage_dir ${D}${ros_libdir} ${SYSROOT_DESTDIR}${ros_libdir}
-    fi
-    sysroot_stage_dir ${D}${ros_datadir} ${SYSROOT_DESTDIR}${ros_datadir}
-    if [ -d ${D}${ros_stacksdir} ]; then
-        sysroot_stage_dir ${D}${ros_stacksdir} ${SYSROOT_DESTDIR}${ros_stacksdir}
-    fi
-}
+SYSROOT_DIRS_append = " \
+    ${ros_includedir} \
+    ${ros_libdir} \
+    ${ros_datadir} \
+    ${ros_stacksdir} \
+    ${ros_sysconfdir} \
+    "
+
+SYSROOT_DIRS_NATIVE_append = " \
+    ${ros_bindir} \
+    ${ros_libexecdir} \
+    "
