@@ -2,7 +2,7 @@ require catkin.inc
 
 SRC_URI += "file://environment.d-catkin.sh"
 
-DEPENDS_class-native += "catkin-runtime"
+DEPENDS_class-native += "catkin-runtime ${PYTHON_PN}-empy"
 
 # The files in ${PYTHON_SITEPACKAGES_DIR} and catkin_find are
 # installed by the catkin-runtime package. Therefore, we remove
