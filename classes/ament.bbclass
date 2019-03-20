@@ -18,8 +18,6 @@ DEPENDS_append = " \
     ament-cmake-test-native \
 "
 
-S = "${WORKDIR}/git/${ROS_BPN}"
-
 EXTRA_OECMAKE_append = " -DBUILD_TESTING=OFF -DPYTHON_SOABI=cpython-35m-${TUNE_ARCH}-${TARGET_OS}${ARMPKGSFX_EABI}"
 export AMENT_PREFIX_PATH="${STAGING_DIR_HOST}${prefix};${STAGING_DIR_NATIVE}${prefix}"
 
