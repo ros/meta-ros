@@ -1,7 +1,5 @@
 # Copyright (c) 2018-2019 LG Electronics, Inc.
 
-S = "${WORKDIR}/git/${ROS_BPN}"
-
 inherit setuptools3
 
 do_install_append() {
