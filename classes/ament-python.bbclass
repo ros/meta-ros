@@ -1,6 +1,4 @@
-# Copyright (c) 2018 LG Electronics, Inc.
-
-ROS_BPN ?= "${@d.getVar('BPN', True).replace('-', '_')}"
+# Copyright (c) 2018-2019 LG Electronics, Inc.
 
 S = "${WORKDIR}/git/${ROS_BPN}"
 
