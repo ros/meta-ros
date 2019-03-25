@@ -3,11 +3,6 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 #
 
-ROS_BPN = "${@d.getVar('BPN', True).replace('-', '_')}"
-
-ROS_SPN ?= "${ROS_BPN}"
-ROS_SP = "${ROS_SPN}-${PV}"
-
 ros_prefix = "${base_prefix}/opt/ros/${ROS_DISTRO}"
 
 ros_bindir = "${ros_prefix}/bin"
