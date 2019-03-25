@@ -19,6 +19,10 @@ DEPENDS_append = " \
 "
 
 EXTRA_OECMAKE_append = " -DBUILD_TESTING=OFF -DPYTHON_SOABI=cpython-35m-${TUNE_ARCH}-${TARGET_OS}${ARMPKGSFX_EABI}"
+# XXX Without STAGING_DIR_HOST path included, rmw-implementation:do_configure() fails with:
+#
+#    "Could not find ROS middleware implementation 'NOTFOUND'"
+#
 export AMENT_PREFIX_PATH="${STAGING_DIR_HOST}${prefix};${STAGING_DIR_NATIVE}${prefix}"
 
 inherit cmake python3native
