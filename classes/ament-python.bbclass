@@ -13,7 +13,6 @@ do_install_append() {
 }
 
 FILES_${PN} = " \
-    /usr/share/* \
     ${datadir}/${ROS_BPN}/package.xml \
     ${datadir}/${ROS_BPN}/resource/* \
     ${datadir}/ament_index/* \
