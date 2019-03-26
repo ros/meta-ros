@@ -28,7 +28,7 @@ export PYTHONPATH = "${STAGING_DIR_NATIVE}${PYTHON_SITEPACKAGES_DIR}"
 PYTHONPATH_class-native = "${PYTHON_SITEPACKAGES_DIR}"
 
 FILES_${PN} += "\
-    ${ros_bindir}/* ${ros_libexecdir}/* ${ros_libdir}/lib*.so \
+    ${ros_bindir} ${ros_libexecdir} ${ros_libdir}/lib*.so \
     ${PYTHON_SITEPACKAGES_DIR} \
     ${ros_datadir} \
     ${ros_sysconfdir} \

@@ -43,16 +43,16 @@ do_install_append() {
 
 FILES_${PN} = " \
     ${datadir}/${ROS_BPN}/package.xml \
-    ${datadir}/${ROS_BPN}/resource/* \
-    ${datadir}/${ROS_BPN}/msg/* \
-    ${datadir}/${ROS_BPN}/srv/* \
-    ${datadir}/ament_index/* \
-    ${libdir}/${PYTHON_DIR}/* \
-    ${libdir}/${ROS_BPN}/* \
+    ${datadir}/${ROS_BPN}/resource \
+    ${datadir}/${ROS_BPN}/msg \
+    ${datadir}/${ROS_BPN}/srv \
+    ${datadir}/ament_index \
+    ${libdir}/${PYTHON_DIR} \
+    ${libdir}/${ROS_BPN} \
     ${libdir}/lib*.so \
 "
 
 FILES_${PN}-dev = " \
-    ${datadir}/${ROS_BPN}/cmake/* \
+    ${datadir}/${ROS_BPN}/cmake \
     ${includedir} \
 "
