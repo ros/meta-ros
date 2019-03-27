@@ -1,13 +1,11 @@
-DESCRIPTION = "A small image just capable of starting roscore."
+require ${COREBASE}/meta/recipes-core/images/core-image-minimal.bb
 
-IMAGE_INSTALL = "packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL}"
+SUMMARY = "A small image just capable of starting core ROS."
+DESCRIPTION = "${SUMMARY}"
 
-IMAGE_LINGUAS = " "
+inherit ros_distro_${ROS_DISTRO}
+inherit ${ROS_DISTRO_TYPE}_image
 
-LICENSE = "MIT"
-
-inherit core-image
-
-IMAGE_ROOTFS_SIZE = "8192"
-
-IMAGE_INSTALL += "roslaunch"
+IMAGE_INSTALL_append = " \
+    ros-core \
+"
