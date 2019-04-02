@@ -1,0 +1,17 @@
+--- a/Makefile
++++ b/Makefile-1
+@@ -94,11 +94,11 @@
+ endif
+ 
+ ifeq ($(HAVE_RULES),yes)
+-    override CXXFLAGS += -DHAVE_RULES -DTIXML_USE_STL $(shell pcre-config --cflags)
++    override CXXFLAGS += -DHAVE_RULES -DTIXML_USE_STL $(shell pkg-config libpcre --cflags)
+     ifdef LIBS
+-        LIBS += $(shell pcre-config --libs)
++        LIBS += $(shell pkg-config libpcre --libs)
+     else
+-        LIBS=$(shell pcre-config --libs)
++        LIBS=$(shell pkg-config libpcre --libs)
+     endif
+ endif
+ 
