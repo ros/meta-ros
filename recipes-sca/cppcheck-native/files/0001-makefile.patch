@@ -1,0 +1,43 @@
+--- a/Makefile
++++ b/Makefile
+@@ -102,9 +102,11 @@
+     endif
+ endif
+ 
+-ifndef PREFIX
+-    PREFIX=/usr
+-endif
++DESTDIR?= ""
++prefix?= "/usr"
++bindir?= "$(prefix)/bin"
++BINDIR=$(bindir)
++PREFIX=$(prefix)
+ 
+ ifndef INCLUDE_FOR_LIB
+     INCLUDE_FOR_LIB=-Ilib -Iexternals/simplecpp -Iexternals/tinyxml
+@@ -117,8 +119,6 @@
+ ifndef INCLUDE_FOR_TEST
+     INCLUDE_FOR_TEST=-Ilib -Icli -Iexternals/simplecpp -Iexternals/tinyxml
+ endif
+-
+-BIN=$(DESTDIR)$(PREFIX)/bin
+ 
+ # For 'make man': sudo apt-get install xsltproc docbook-xsl docbook-xml on Linux
+ DB2MAN?=/usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl
+@@ -287,11 +287,11 @@
+ 	ctags -R --exclude=doxyoutput --exclude=test/cfg cli externals gui lib test
+ 
+ install: cppcheck
+-	install -d ${BIN}
+-	install cppcheck ${BIN}
+-	install addons/*.py ${BIN}
+-	install addons/*/*.py ${BIN}
+-	install htmlreport/cppcheck-htmlreport ${BIN}
++	install -d ${DESTDIR}${BINDIR}
++	install cppcheck ${DESTDIR}${BINDIR}
++	install addons/*.py ${DESTDIR}${BINDIR}
++	install addons/*/*.py ${DESTDIR}${BINDIR}
++	install htmlreport/cppcheck-htmlreport ${DESTDIR}${BINDIR}
+ ifdef CFGDIR 
+ 	install -d ${DESTDIR}${CFGDIR}
+ 	install -m 644 cfg/* ${DESTDIR}${CFGDIR}
