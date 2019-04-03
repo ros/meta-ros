@@ -1,7 +1,7 @@
 DESCRIPTION = "library to compute convex hulls, Delaunay triangulations and Voronoi diagrams."
 HOMEPAGE = "http://www.qhull.org/"
 SECTION = "libs"
-LICENSE = "qhull"
+LICENSE = "Qhull"
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=4d4e8c0754b225e2c78cfdd911e8b09e"
 
 SRC_URI = "http://www.qhull.org/download/qhull-${PV}-src.tgz \
