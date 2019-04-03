@@ -1,6 +1,6 @@
 DESCRIPTION = "XML bomb protection for Python stdlib modules"
 SECTION = "devel/python"
-LICENSE = "PSFL"
+LICENSE = "Python-2.0"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=a560e172e996ab553d352ccff41c7d20"
 PYPI_PACKAGE = "defusedxml"
 
