@@ -2,3 +2,6 @@
 
 FILES_${PN}-dev_prepend = "${prefix}/cmake "
 SYSROOT_DIRS_append = " ${prefix}/cmake"
+
+PROVIDES_crystal += "libyaml"
+RPROVIDES_${PN}_crystal += "libyaml"
