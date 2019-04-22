@@ -8,4 +8,5 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/nav2-map-server:"
 
 SRC_URI += " \
     file://0001-removed-bullet-dependency-from-map_server-594.patch \
+    file://0002-Fix-build-with-catching-polymorphic-type-error.patch \
 "
