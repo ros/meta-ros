@@ -45,3 +45,14 @@ FILES_${PN}-dev += "${datadir}/${PN}-1.8/*.cmake"
 # High memory needs mentioned in: https://github.com/PointCloudLibrary/pcl/issues/2284
 # Setting just empty doesn't work, ninja will by default use number of cores available
 PARALLEL_MAKE = "-j1"
+
+# Fixes this:
+# | fatal error: stdlib.h: No such file or directory
+# |   #include_next <stdlib.h>
+do_configure_append() {
+    if [ -e ${B}/build.ninja ]; then
+        sed -i -e 's/-isystem /-I/g' ${B}/build.ninja
+    else
+        grep -rl -- '-isystem ' ${B} | xargs sed -i -e 's/-isystem /-I/g'
+    fi
+}
