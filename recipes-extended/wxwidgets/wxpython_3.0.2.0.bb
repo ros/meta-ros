@@ -7,14 +7,14 @@ LIC_FILES_CHKSUM = "file://licence/licence.txt;md5=18346072db6eb834b6edbd2cdc4f1
 DEPENDS = "wxwidgets"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/wxpython/wxPython-src-${PV}.tar.bz2"
-SRC_URI[md5sum] = "a2a28fe8223391c93bf8788316767c9e"
-SRC_URI[sha256sum] = "1a5b7e771eff467538d0834136188e8a7506a4fe6e85d0a46c40158cdbd4c48c"
+SRC_URI[md5sum] = "922b02ff2c0202a7bf1607c98bbbbc04"
+SRC_URI[sha256sum] = "d54129e5fbea4fb8091c87b2980760b72c22a386cb3b9dd2eebc928ef5e8df61"
 
 S = "${WORKDIR}/wxPython-src-${PV}/wxPython"
 
 inherit pkgconfig pythonnative python-dir distutils
 
-CFLAGS += "-I${STAGING_INCDIR}/wx-2.9/ -I${STAGING_LIBDIR}/wx/include/${TARGET_PREFIX}gtk2-unicode-2.9/"
+CFLAGS += "-I${STAGING_INCDIR}/wx-3.0/ -I${STAGING_LIBDIR}/wx/include/${TARGET_PREFIX}gtk3-unicode-3.0/"
 CFLAGS += "-std=gnu++11"
 
 # Enable output on stdout for buildpaths
@@ -29,5 +29,5 @@ do_configure_prepend() {
 
 do_iinstall_append() {
     cp -a ${D}${STAGING_DIR_HOST}/* ${D}
-    rm -rf ${D}${STAGING_DIR}	
+    rm -rf ${D}${STAGING_DIR}
 }
