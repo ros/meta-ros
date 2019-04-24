@@ -1,10 +1,10 @@
 This fixes the numpy import problem in setupext.py using a hard-coded path.
 
-Index: matplotlib-2.0.2/setupext.py
+Index: matplotlib-2.1.1/setupext.py
 ===================================================================
---- matplotlib-2.0.2.orig/setupext.py
-+++ matplotlib-2.0.2/setupext.py
-@@ -148,6 +148,7 @@ def has_include_file(include_dirs, filen
+--- matplotlib-2.1.1.orig/setupext.py	2018-01-17 20:21:34.000000000 -0800
++++ matplotlib-2.1.1/setupext.py	2019-04-24 16:08:56.634978457 -0700
+@@ -150,6 +150,7 @@ def has_include_file(include_dirs, filen
      Returns `True` if `filename` can be found in one of the
      directories in `include_dirs`.
      """
@@ -12,16 +12,16 @@ Index: matplotlib-2.0.2/setupext.py
      if sys.platform == 'win32':
          include_dirs += os.environ.get('INCLUDE', '.').split(';')
      for dir in include_dirs:
-@@ -172,7 +173,7 @@ def get_base_dirs():
+@@ -174,7 +175,7 @@ def get_base_dirs():
      Returns a list of standard base directories on this platform.
      """
      if options['basedirlist']:
 -        return options['basedirlist']
 +        return [os.environ['STAGING_LIBDIR']]
  
-     basedir_map = {
-         'win32': ['win32_static', ],
-@@ -260,14 +261,6 @@ def make_extension(name, files, *args, *
+     if os.environ.get('MPLBASEDIRLIST'):
+         return os.environ.get('MPLBASEDIRLIST').split(os.pathsep)
+@@ -274,14 +275,6 @@ def make_extension(name, files, *args, *
      `distutils.core.Extension` constructor.
      """
      ext = DelayedExtension(name, files, *args, **kwargs)
@@ -36,7 +36,7 @@ Index: matplotlib-2.0.2/setupext.py
      ext.include_dirs.append('.')
  
      return ext
-@@ -314,6 +307,7 @@ class PkgConfig(object):
+@@ -328,6 +321,7 @@ class PkgConfig(object):
                      "    matplotlib may not be able to find some of its dependencies")
  
      def set_pkgconfig_path(self):
@@ -61,18 +61,18 @@ Index: matplotlib-2.0.2/setupext.py
  
      def check(self):
          min_version = extract_versions()['__version__numpy__']
-Index: matplotlib-2.0.2/setup.py
+Index: matplotlib-2.1.1/setup.py
 ===================================================================
---- matplotlib-2.0.2.orig/setup.py
-+++ matplotlib-2.0.2/setup.py
-@@ -66,28 +66,6 @@ mpl_packages = [
+--- matplotlib-2.1.1.orig/setup.py	2018-01-17 20:21:34.000000000 -0800
++++ matplotlib-2.1.1/setup.py	2019-04-24 16:01:42.474978457 -0700
+@@ -66,27 +66,6 @@ mpl_packages = [
      setupext.Python(),
      setupext.Platform(),
      'Required dependencies and extensions',
 -    setupext.Numpy(),
 -    setupext.Six(),
 -    setupext.Dateutil(),
--    setupext.FuncTools32(),
+-    setupext.BackportsFuncToolsLRUCache(),
 -    setupext.Subprocess32(),
 -    setupext.Pytz(),
 -    setupext.Cycler(),
@@ -88,13 +88,12 @@ Index: matplotlib-2.0.2/setup.py
 -    setupext.Path(),
 -    setupext.ContourLegacy(),
 -    setupext.Contour(),
--    setupext.Delaunay(),
 -    setupext.QhullWrap(),
 -    setupext.Tri(),
      'Optional subpackages',
      setupext.SampleData(),
      setupext.Toolkits(),
-@@ -100,13 +78,8 @@ mpl_packages = [
+@@ -99,13 +78,8 @@ mpl_packages = [
      setupext.BackendMacOSX(),
      setupext.BackendQt5(),
      setupext.BackendQt4(),
