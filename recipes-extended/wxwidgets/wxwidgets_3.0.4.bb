@@ -6,9 +6,9 @@ LIC_FILES_CHKSUM = "file://docs/licence.txt;md5=18346072db6eb834b6edbd2cdc4f109b
 
 DEPENDS = "webkit-gtk gstreamer gtk+ jpeg tiff libpng zlib expat libxinerama libglu"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/wxwindows/wxWidgets-${PV}.tar.bz2"
-SRC_URI[md5sum] = "e98c5f92805493f150656403ffef3bb0"
-SRC_URI[sha256sum] = "b74ba96ca537cc5d049d21ec9ab5eb2670406a4aa9f1ea4845ea84a9955a6e02"
+SRC_URI = "https://github.com/wxWidgets/wxWidgets/releases/download/v${PV}/wxWidgets-${PV}.tar.bz2"
+SRC_URI[md5sum] = "b0035731777acc5597cea8982da10317"
+SRC_URI[sha256sum] = "96157f988d261b7368e5340afa1a0cad943768f35929c22841f62c25b17bf7f0"
 
 S = "${WORKDIR}/wxWidgets-${PV}"
 
@@ -36,13 +36,6 @@ do_configure() {
 # this_prefix=`check_dirname "/build/v2013.06/build/tmp-angstrom_v2013_06-eglibc/work/cortexa8hf-vfp-neon-angstrom-linux-gnueabi/wxwidgets/2.9.5-r0/wxWidgets-2.9.5"`
 do_install_prepend() {
 	sed -i -e s:${S}:${STAGING_DIR_HOST}${prefix}:g ${S}/wx-config
-}
-
-# wx-config doesn't handle the suffixed libwx_media, xrc, etc, make a compat symlink
-do_install_append() {
-	for lib in adv aui core html media propgrid qa ribbon richtext stc webview xrc ; do
-		ln -sf libwx_gtk2u_$lib-2.9.so.5.0.0 ${D}${libdir}/libwx_gtk2u_$lib-2.9.so
-	done
 }
 
 SYSROOT_PREPROCESS_FUNCS += "wxwidgets_sysroot_preprocess"
