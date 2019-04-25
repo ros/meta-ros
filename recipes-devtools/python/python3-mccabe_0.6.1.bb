@@ -1,19 +1,19 @@
 SUMMARY = "McCabe checker, plugin for flake8"
 HOMEPAGE = "https://github.com/dreamhost/cliff"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://README.rst;md5=f8b50fba1711ecac6bcdb6324f85a66d"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=a489dc62bacbdad3335c0f160a974f0f"
 
 SRC_URI += " \
            file://0001-python-mccabe-remove-unnecessary-setup_requires-pyte.patch \
 "
 
-SRC_URI[md5sum] = "8c425db05f310adcd4bb174b991f26f5"
-SRC_URI[sha256sum] = "9a2b12ebd876e77c72e41ebf401cc2e7c5b566649d50105ca49822688642207b"
+SRC_URI[md5sum] = "723df2f7b1737b8887475bac4c763e1e"
+SRC_URI[sha256sum] = "dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"
 
 inherit pypi setuptools3
 
 RDEPENDS_${PN} += " \
-    ${PYTHON_PN}-python-prettytable \
+    ${PYTHON_PN}-prettytable \
     ${PYTHON_PN}-cmd2 \
     ${PYTHON_PN}-pyparsing"
 
