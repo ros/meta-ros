@@ -19,3 +19,5 @@ RDEPENDS_${PN} += "${PYTHON_PN}-prettytable \
             ${PYTHON_PN}-mccabe \
             ${PYTHON_PN}-pep8 \
             ${PYTHON_PN}-pyflakes"
+
+BBCLASSEXTEND = "native"
