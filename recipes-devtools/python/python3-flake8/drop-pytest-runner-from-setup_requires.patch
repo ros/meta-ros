@@ -1,0 +1,17 @@
+Remove unnecessary pytest-runner from setup_requires.
+
+Modelled after similar patch to python3-mccabe.
+
+Upstream-Status: Pending
+---
+diff -U3 -r flake8-3.5.0-orig/setup.py flake8-3.5.0/setup.py
+--- flake8-3.5.0-orig/setup.py	2019-04-25 15:11:52.406978457 -0700
++++ flake8-3.5.0/setup.py	2019-04-25 15:12:38.102978457 -0700
+@@ -142,6 +142,5 @@
+         "Topic :: Software Development :: Libraries :: Python Modules",
+         "Topic :: Software Development :: Quality Assurance",
+     ],
+-    tests_require=tests_require,
+-    setup_requires=['pytest-runner'],
++    tests_require=tests_require
+ )
