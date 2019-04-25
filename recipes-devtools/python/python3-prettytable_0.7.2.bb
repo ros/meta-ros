@@ -12,7 +12,7 @@ SRC_URI = "https://pypi.python.org/packages/source/P/PrettyTable/${SRCNAME}-${PV
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-inherit setuptools
+inherit setuptools3
 
 do_install_append() {
     perm_files=`find "${D}${PYTHON_SITEPACKAGES_DIR}/" -name "*.txt" -o -name "PKG-INFO"`
