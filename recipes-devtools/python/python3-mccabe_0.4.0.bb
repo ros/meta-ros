@@ -10,11 +10,11 @@ SRC_URI += " \
 SRC_URI[md5sum] = "8c425db05f310adcd4bb174b991f26f5"
 SRC_URI[sha256sum] = "9a2b12ebd876e77c72e41ebf401cc2e7c5b566649d50105ca49822688642207b"
 
-inherit pypi setuptools
+inherit pypi setuptools3
 
 RDEPENDS_${PN} += " \
-    python-prettytable \
-    python-cmd2 \
-    python-pyparsing"
+    ${PYTHON_PN}-python-prettytable \
+    ${PYTHON_PN}-cmd2 \
+    ${PYTHON_PN}-pyparsing"
 
 BBCLASSEXTEND = "native nativesdk"
