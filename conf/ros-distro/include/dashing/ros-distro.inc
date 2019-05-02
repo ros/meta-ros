@@ -17,4 +17,17 @@ LAYERSERIES_COMPAT_ros-layer = "thud"
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
+    poco-vendor-native \
+    rcpputils-native \
+    rcutils-native \
+    rmw-native \
+    rmw-fastrtps-cpp-native \
+    rmw-fastrtps-dynamic-cpp-native \
+    rmw-fastrtps-shared-cpp-native \
+    rmw-implementation-cmake-native \
+    rmw-implementation-native \
+    rosidl-actions-native \
+    rosidl-adapter-native \
+    rosidl-typesupport-fastrtps-c-native \
+    uncrustify-vendor-native \
 "
