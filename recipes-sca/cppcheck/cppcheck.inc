@@ -5,11 +5,9 @@ HOMEPAGE = " http://cppcheck.sourceforge.net/"
 BUGTRACKER = " https://trac.cppcheck.net/"
 LICENSE = "GPLv3"
 
-inherit native
-
 inherit pkgconfig
 
-DEPENDS = "libpcre-native"
+DEPENDS = "libpcre"
 
 ## we don't need debug packages
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
@@ -32,3 +30,5 @@ do_install() {
     install -D ${B}/htmlreport/cppcheck-htmlreport ${D}${bindir}
     install ${WORKDIR}/cppcheck.sca.description ${D}${datadir}
 }
+
+BBCLASSEXTEND = "native"
