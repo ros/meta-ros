@@ -6,18 +6,12 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=60bc6842001870a418935bd84570b676"
 SRC_URI[md5sum] = "eeb80d5c29715b4ac39ecc032842a25f"
 SRC_URI[sha256sum] = "f518d30c641483c8d6c246afae6e4447f816f8300befc6a11c476eeb62a496e6"
 
-inherit pypi setuptools
+inherit pypi setuptools3
 
 RDEPENDS_${PN} += "\
-    ${PYTHON_PN}-doctest \
     ${PYTHON_PN}-pyparsing \
     ${PYTHON_PN}-pyperclip \
-    ${PYTHON_PN}-shell \
     ${PYTHON_PN}-six \
-    ${PYTHON_PN}-stringold \
-    ${PYTHON_PN}-subprocess \
-    ${PYTHON_PN}-threading \
-    ${PYTHON_PN}-textutils \
     "
 
 BBCLASSEXTEND = "native nativesdk"
