@@ -36,6 +36,20 @@ RDEPENDS_${PN}_remove = "rcl-logging-log4cxx"
 # |   SchurSpecializations, OpenMP, Multithreading].
 RDEPENDS_${PN}_remove = "cartographer"
 
+# do_configure() failed:
+# Log data follows:
+# DEBUG: Executing shell function do_configure
+# Traceback (most recent call last):
+#   File "setup.py", line 7, in <module>
+#     package = ElementTree.parse(here / 'package.xml')
+#   File "/mnt/disk2/YOCTO-ARTIFACTS/BUILD-1/tmp-glibc/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/keystroke/0.3.0-1-r0/recipe-sysroot-native/usr/lib/python3.5/xml/etree/ElementTree.py", line 1195, in parse
+#     tree.parse(source, parser)
+#   File "/mnt/disk2/YOCTO-ARTIFACTS/BUILD-1/tmp-glibc/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/keystroke/0.3.0-1-r0/recipe-sysroot-native/usr/lib/python3.5/xml/etree/ElementTree.py", line 585, in parse
+#     source = open(source, "rb")
+# TypeError: invalid file: PosixPath('package.xml')
+# WARNING: exit code 1 from a shell command.
+RDEPENDS_${PN}_remove = "keystroke"
+
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
 
