@@ -1,4 +1,4 @@
-DESCRIPTION = "ros-kobuki package group"
+DESCRIPTION = "ros1-kobuki package group"
 LICENSE = "MIT"
 
 inherit packagegroup
