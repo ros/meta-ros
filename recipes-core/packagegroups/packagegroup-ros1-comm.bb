@@ -1,4 +1,4 @@
-DESCRIPTION = "ros-comm package group"
+DESCRIPTION = "ros1-comm package group"
 LICENSE = "MIT"
 
 inherit packagegroup

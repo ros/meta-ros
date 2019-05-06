@@ -1,4 +1,4 @@
-DESCRIPTION = "ros-industrial-core package group"
+DESCRIPTION = "ros1-industrial-core package group"
 LICENSE = "MIT"
 
 inherit packagegroup
