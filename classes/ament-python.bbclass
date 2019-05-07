@@ -12,12 +12,6 @@ do_install_append() {
     fi
 }
 
-FILES_${PN} = " \
-    ${datadir}/${ROS_BPN}/package.xml \
-    ${datadir}/${ROS_BPN}/resource \
+FILES_${PN}_prepend = " \
     ${datadir}/ament_index \
-    ${libdir}/${PYTHON_DIR} \
-    ${libdir}/${ROS_BPN} \
-    ${libdir}/lib*.so \
 "
-
