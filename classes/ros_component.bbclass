@@ -11,6 +11,7 @@ export ROS_PYTHON_VERSION
 PYTHON_PN ??= "${@'python3' if d.getVar('ROS_PYTHON_VERSION', True) == '3' else 'python'}"
 
 ROS_BPN ??= "${@d.getVar('BPN', True).replace('-', '_')}"
+ROS_CN ??= "${ROS_BPN}"
 ROS_SPN ??= "${ROS_BPN}"
 ROS_SP ??= "${ROS_SPN}-${PV}"
 
