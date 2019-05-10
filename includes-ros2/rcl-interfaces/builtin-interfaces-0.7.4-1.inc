@@ -1,0 +1,12 @@
+# Copyright (c) 2019 LG Electronics, Inc.
+
+ROS_BUILD_DEPENDS += " \
+    fastcdr \
+    fastrtps \
+"
+
+# usr/share/builtin_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake contains:
+#
+#     set(_exported_dependencies "rosidl_default_runtime")
+
+ROS_EXPORT_DEPENDS += "rosidl-default-runtime"
