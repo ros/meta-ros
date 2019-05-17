@@ -4,7 +4,6 @@
 
 # Initially, blacklist any platform duplicates found by "bitbake-layers show-overlayed". Remove from the blacklist once a
 # PREFERRED_VERSION_<PN> setting is made in ros-distro-platform-preferred-versions.inc .
-PNBLACKLIST[cppunit] ?= "Must specify PREFERRED_VERSION"
 PNBLACKLIST[python-matplotlib] ?= "Must specify PREFERRED_VERSION"
 
 # Initially, blacklist any platform recipes with multiple versions found by "bitbake-layers show-recipes --multiple" (except for
