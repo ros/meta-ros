@@ -5,16 +5,11 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5b8a2a1aa14e6de44b4273134946a34c"
 
 DEPENDS = "boost libflann libeigen qhull"
 
-SRCREV = "39732f5a7c8455ed51fd0f6278d8b25322a68dd9"
-# pcl-1.8.1 tag isn't in any branch
-ROS_BRANCH ?= "nobranch=1"
-SRC_URI = "git://github.com/PointCloudLibrary/pcl;${ROS_BRANCH};protocol=https \
-    file://0001-Dereference-shared_ptr-fix-for-GCC8.patch \
-    file://0001-Fix-deprecated-boost-endians.patch \
-    file://0002-pcl_pclconfig.cmake-don-t-pass-SSE_FLAGS-as-DEFINITI.patch \
-"
-S = "${WORKDIR}/git"
+PV = "1.10.1+git${SRCPV}"
+SRCREV = "cbed174ba0a0c9ef021015d54d3b60320d808593"
+SRC_URI = "git://github.com/PointCloudLibrary/pcl.git"
 
+S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE += "\
   -DCMAKE_SKIP_RPATH=ON \
@@ -39,33 +34,6 @@ EXTRA_OECMAKE += "\
 #Setting -ffloat-store to alleviate 32bit vs 64bit discrepancies on non-SSE platforms.
 CXXFLAGS += "${@bb.utils.contains("TARGET_CC_ARCH", "-mfpmath=sse", "", "-ffloat-store", d)}"
 
-# pcl/1.8.1-r0/git/recognition/include/pcl/recognition/3rdparty/metslib/abstract-search.hh:137:7: error: ISO C++17 does not allow dynamic exception specifications
-#  137 |       throw(no_moves_error) = 0;
-#      |       ^~~~~
-CXXFLAGS += "-std=gnu++14"
-
 inherit cmake
 
-FILES:${PN}-dev += "${datadir}/${PN}-1.8/*.cmake"
-
-# The build is really memory hungry (at least with gcc8), even with just -j 8 it triggers OOMK on system with 32GB ram
-# High memory needs mentioned in: https://github.com/PointCloudLibrary/pcl/issues/2284
-# Setting just empty doesn't work, ninja will by default use number of cores available
-# However, quick experiments have shown that it's possible to use up to CEIL(<RAM-in-GB>/5) as the argument to -j without running
-# out of memory as long as the machine has a few GB of swap space. If this fails, override it by setting
-# PARALLEL_MAKE:pn-pcl = "-j <A-SMALLER-N>" in conf/local.conf .
-
-# Tried this, but psutil fails to import:
-#   inherit python3native
-#   DEPENDS += "python3-psutil-native"
-#   PARALLEL_MAKE = "-j ${@from psutil import virtual_memory; import math; int(math.ceil(virtual_memory().total / float(1024*1024*1024*5)))}"
-
-def pcl_parallel_make_n():
-    import math
-    with open('/proc/meminfo', 'r') as f:
-        # First line of /proc/meminfo is:
-        #   MemTotal:       65879500 kB
-        _, phys_mem_kb, _ = f.readline().split()
-    return int(math.ceil(float(phys_mem_kb)/float(1024*1024*5)))
-
-PARALLEL_MAKE = "-j ${@pcl_parallel_make_n()}"
+FILES:${PN}-dev += "${datadir}/${BPN}-*/*.cmake ${datadir}/${BPN}-*/Modules/*.cmake"
