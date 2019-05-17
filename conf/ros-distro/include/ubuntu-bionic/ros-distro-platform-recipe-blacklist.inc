@@ -12,7 +12,6 @@ PNBLACKLIST[python-matplotlib] ?= "Must specify PREFERRED_VERSION"
 # ros-distro-platform-preferred-versions.inc .
 PNBLACKLIST[libgpiod] ?= "Must specify PREFERRED_VERSION"
 PNBLACKLIST[libmodbus] ?= "Must specify PREFERRED_VERSION"
-PNBLACKLIST[linux-yocto] ?= "Must specify PREFERRED_VERSION"
 PNBLACKLIST[linux-yocto-rt] ?= "Must specify PREFERRED_VERSION"
 PNBLACKLIST[linux-yocto-tiny] ?= "Must specify PREFERRED_VERSION"
 PNBLACKLIST[php] ?= "Must specify PREFERRED_VERSION"
