@@ -3,6 +3,12 @@
 # This is the tree under which CMakeLists.txt installs the files. Assume it's been done for a good reason.
 ROS_PREFIX = "${prefix}/opt/${ROS_BPN}"
 
+do_install_append() {
+    # Fix up prefix to be like what's in all the other .pc files of ROS components. Did not investigate why this one's value is
+    # different. Write $<pcfiledir> to that isn't not accidentally expanded by bitbake.
+    sed -i -e '/^prefix=/ s@=.*$@=$<pcfiledir>/../../..'${prefix}'@' -e 'y@<>@{}@' ${D}${ROS_PREFIX}/lib/pkgconfig/yaml-cpp.pc
+}
+
 SYSROOT_DIRS_append = " ${ROS_PREFIX}"
 
 FILES_${PN}_prepend = "${ROS_PREFIX}/lib/libyaml-cpp.so* "
