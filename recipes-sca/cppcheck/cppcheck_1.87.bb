@@ -1,6 +1,6 @@
 require cppcheck.inc
 
-SRC_URI = " https://github.com/danmar/cppcheck/archive/${PV}.tar.gz \
+SRC_URI = " https://github.com/danmar/cppcheck/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz \
             file://0001-makefile.patch \
             file://0002-pkgconfig-instaed-of-pcre-config.patch \
             file://cppcheck.sca.description"
