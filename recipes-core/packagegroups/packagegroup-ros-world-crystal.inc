@@ -50,6 +50,15 @@ RDEPENDS_${PN}_remove = "cartographer"
 # WARNING: exit code 1 from a shell command.
 RDEPENDS_${PN}_remove = "keystroke"
 
+# do_compile() failed to build .a:
+# NOTE: VERBOSE=1 cmake --build .../fmi-adapter/0.1.4-1-r0/build --target all -- -j 24
+# ninja: error: 'FMILibraryProject-prefix/src/install/lib/libfmilib.a', needed by 'libfmi_adapter.so', missing and no known rule to make it
+# WARNING: exit code 1 from a shell command.
+# ERROR: Function failed: do_compile
+RDEPENDS_${PN}_remove = "fmi-adapter"
+RDEPENDS_${PN}_remove = "fmi-adapter-examples"
+
+
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
 
