@@ -26,7 +26,7 @@ import glob
 import importlib.util
 import importlib.machinery
 
-__version__ = "7.0.0"
+__version__ = "7.1.0"
 
 logger = logging.getLogger(__name__)
 
@@ -85,7 +85,7 @@ def process_file(f, replacements):
     with open(ofile, 'w') as f:
         f.write(status)
 
-def getopts():
+def getopts(bblayers_only):
     mcfcommand_option = '--command'
     mcfcommand_dest = 'mcfcommand'
     # be careful when changing this, jenkins-job.sh is doing
@@ -94,14 +94,23 @@ def getopts():
     mcfcommand_choices = ['configure', 'update', 'update+configure']
     mcfcommand_default = 'update+configure'
 
-    # Just parse the --command argument here, so that we can select a parser
-    mcfcommand_parser = argparse.ArgumentParser(add_help=False)
-    mcfcommand_parser.add_argument(mcfcommand_option, dest=mcfcommand_dest, choices=mcfcommand_choices, default=mcfcommand_default)
-    mcfcommand_parser_result = mcfcommand_parser.parse_known_args()
-    mcfcommand = mcfcommand_parser_result[0].mcfcommand
-
-    # Put --command back in (as the first option) so that the main parser sees everything
-    arglist = [mcfcommand_option, mcfcommand ] + mcfcommand_parser_result[1]
+    if bblayers_only:
+        mcfcommand = 'update'
+        mcfcommand_choices = [mcfcommand]
+        mcfcommand_default = mcfcommand
+        mcfcommand_help = argparse.SUPPRESS
+        configfile_help_append = '(default: none)'
+        arglist = [mcfcommand_option, mcfcommand ] + sys.argv[1:]
+    else:
+        # Just parse the --command argument here, so that we can select a parser
+        mcfcommand_parser = argparse.ArgumentParser(add_help=False)
+        mcfcommand_parser.add_argument(mcfcommand_option, dest=mcfcommand_dest, choices=mcfcommand_choices, default=mcfcommand_default)
+        mcfcommand_parser_result = mcfcommand_parser.parse_known_args()
+        mcfcommand = mcfcommand_parser_result[0].mcfcommand
+        mcfcommand_help = 'command to mcf; if update is given, none of the remaining options nor MACHINE can be specified (default: %(default)s)'
+        configfile_help_append = '(default: weboslayers.py in same directory as this script)'
+        # Put --command back in (as the first option) so that the main parser sees everything
+        arglist = [mcfcommand_option, mcfcommand ] + mcfcommand_parser_result[1]
 
     parser = argparse.ArgumentParser()
 
@@ -118,7 +127,7 @@ def getopts():
     general.add_argument(mcfcommand_option, dest=mcfcommand_dest, choices=mcfcommand_choices, default=mcfcommand_default,
                               help='command to mcf; if update is given, none of the remaining options nor MACHINE can be specified (default: %(default)s)')
 
-    general.add_argument('-f', '--config-file', dest='configfile', help='.mcf/.py file specifying the build configuration (default: weboslayers.py in same directory as this script)')
+    general.add_argument('-f', '--config-file', dest='configfile', help=('.mcf/.py file specifying the build configuration ' + configfile_help_append))
 
     if mcfcommand in ('configure','update+configure'):
         variations = parser.add_argument_group('Build Instructions')
@@ -267,7 +276,7 @@ def location_to_dirname(location):
     str1 = location.split('/')
     return os.path.splitext(str1[len(str1)-1])[0]
 
-def read_mcfconfigfile(configfile):
+def read_mcfconfigfile(configfile, bblayers_only):
     if not os.path.isfile(configfile):
         raise Exception("Error: Configuration file %s does not exist!" % configfile)
 
@@ -461,7 +470,7 @@ def parse_collections(srcdir):
         else:
             raise Exception("Error: Directory '%s' does not exist, you probably need to call update" % layer["location"])
 
-def write_bblayers_conf(sourcedir):
+def write_bblayers_conf(sourcedir, append):
     locations = ""
     bblayers = ""
     priorities = ""
@@ -483,6 +492,18 @@ def write_bblayers_conf(sourcedir):
         locations  += "%s_LAYER ?= \"%s/%s\"\n" % (layer_name, topdir, layer["collection_path"])
         bblayers   += "    ${%s_LAYER} \\\n" % layer_name
         priorities += "BBFILE_PRIORITY_%s_forcevariable = \"%s\"\n" % (layer["collection_name"], layer["priority"])
+
+    if not append:
+        with open(os.path.join(sourcedir, "conf", "bblayers.conf"), 'w') as f:
+            # XXX Figure out a way to find openembedded-core/meta/conf/bblayers.conf.sample so that it can be used as a template
+            # instead of the hardcoding below.
+            f.write('# LAYER_CONF_VERSION is increased each time build/conf/bblayers.conf\n')
+            f.write('# changes incompatibly\n')
+            f.write('LCONF_VERSION = "7"\n')
+            f.write('\n')
+            f.write('TOPDIR = "' + sourcedir + '"\n')
+            f.write('\n')
+            f.write('BBPATH = "${TOPDIR}"\n')
 
     with open(os.path.join(sourcedir, "conf", "bblayers.conf"), 'a') as f:
         f.write('\n')
@@ -808,7 +829,7 @@ def recover_current_mcf_state(srcdir, origoptions):
                         commandlinereconstructed.append(lline)
 
     sys.argv = commandlinereconstructed
-    options = getopts()
+    options = getopts(False)
     # always use clean/verbose/silent flags from origoptions not mcf.status
     options.clean = origoptions.clean
     options.verbose = origoptions.verbose
@@ -841,6 +862,10 @@ def sanitycheck(options):
             checkmirror('sstatemirror', m)
     if options.premirror:
         checkmirror('premirror', options.premirror)
+
+def generate_bblayers(srcdir, append):
+    parse_collections(srcdir)
+    write_bblayers_conf(srcdir, append)
 
 def configure_build(srcdir, options):
     files = [
@@ -903,8 +928,7 @@ def configure_build(srcdir, options):
     logger.info('MCF-%s: Configuring build directory BUILD' % __version__)
     for f in files:
         process_file(f, replacements)
-    parse_collections(srcdir)
-    write_bblayers_conf(srcdir)
+    generate_bblayers(srcdir, True)
     logger.info('MCF-%s: Done configuring build directory BUILD' % __version__)
 
     echo_check_call('/bin/chmod a+x mcf.status', options.verbose)
@@ -923,18 +947,26 @@ if __name__ == '__main__':
     # Use the same timestamp for everything created by this invocation of mcf
     timestamp = strftime("%Y%m%d%H%M%S", gmtime())
 
-    options = getopts()
+    # If the templates aren't present, then only we update the layers and generate conf/bblayers.conf using the configuration file
+    # (which must be specified with -f/--config-file).
+    srcdir = os.path.dirname(progname)
+    bblayers_only = not os.path.exists(os.path.join(srcdir, 'build-templates'))
+
+    options = getopts(bblayers_only)
 
     if options.configfile:
         srcdir = "."
         configfile = options.configfile
     else:
-        srcdir = os.path.dirname(progname)
-        configfile = os.path.join(srcdir, "weboslayers.py")
+        if bblayers_only:
+            logger.error("Configuration file must be specified")
+            sys.exit(1)
+        else:
+            configfile = os.path.join(srcdir, "weboslayers.py")
 
     abs_srcdir = os.path.abspath(srcdir)
 
-    if options.mcfcommand == 'update':
+    if options.mcfcommand == 'update' and not bblayers_only:
          # recover current mcf state
         options = recover_current_mcf_state(srcdir, options)
 
@@ -943,16 +975,26 @@ if __name__ == '__main__':
     if options.clean:
         enable_clean()
 
-    read_mcfconfigfile(configfile)
-    for M in options.MACHINE:
-        if M not in SUPPORTED_MACHINES:
-            logger.error("MACHINE argument '%s' isn't supported (does not appear in Machines in %s: '%s')" % (M, options.configfile, SUPPORTED_MACHINES))
-            sys.exit(1)
+    read_mcfconfigfile(configfile, bblayers_only)
+
+    if not bblayers_only:
+        for M in options.MACHINE:
+            if M not in SUPPORTED_MACHINES:
+                logger.error("MACHINE argument '%s' isn't supported (does not appear in Machines in weboslayers.py '%s')" % (M, SUPPORTED_MACHINES))
+                sys.exit(1)
 
     if options.mcfcommand != 'configure':
         update_layers(srcdir)
 
-    configure_build(srcdir, options)
+    if bblayers_only:
+        logger.info('MCF-%s: Generating conf/bblayers.conf' % __version__)
+        if not os.path.exists("conf"):
+            logger.error("'conf' subdirectory does not exist")
+            sys.exit(1)
+        generate_bblayers(abs_srcdir, False)
+        logger.info('MCF-%s: Done generating conf/bblayers.conf' % __version__)
+    else:
+        configure_build(srcdir, options)
+        sanitycheck(options)
 
-    sanitycheck(options)
     logger.info('Done.')
