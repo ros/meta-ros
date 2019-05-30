@@ -45,9 +45,24 @@ FILES_${PN}-dev += "${datadir}/${PN}-1.8/*.cmake"
 # High memory needs mentioned in: https://github.com/PointCloudLibrary/pcl/issues/2284
 # Setting just empty doesn't work, ninja will by default use number of cores available
 # However, quick experiments have shown that it's possible to use up to CEIL(<RAM-in-GB>/5) as the argument to -j without running
-# out of memory as long as the machine has a few GB of swap spacce => override the setting here by setting
-# PARALLEL_MAKE_pn-pcl in conf/local.conf .
-PARALLEL_MAKE = "-j1"
+# out of memory as long as the machine has a few GB of swap space. If this fails, override it by setting
+# PARALLEL_MAKE_pn-pcl = "-j <A-SMALLER-N>" in conf/local.conf .
+
+# Tried this, but psutil fails to import:
+#   inherit python3native
+#   DEPENDS += "python3-psutil-native"
+#   PARALLEL_MAKE = "-j ${@from psutil import virtual_memory; import math; int(math.ceil(virtual_memory().total / float(1024*1024*1024*5)))}"
+
+def pcl_parallel_make_n():
+    import math
+    with open('/proc/meminfo', 'r') as f:
+        # First line of /proc/meminfo is:
+        #   MemTotal:       65879500 kB
+        _, phys_mem_kb, _ = f.readline().split()
+    return int(math.ceil(float(phys_mem_kb)/float(1024*1024*5)))
+
+PARALLEL_MAKE = "-j ${@pcl_parallel_make_n()}"
+
 
 # Fixes this:
 # | fatal error: stdlib.h: No such file or directory
