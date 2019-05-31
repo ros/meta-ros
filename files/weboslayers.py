@@ -28,13 +28,13 @@ webos_layers = [
 ('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              'branch=1.40,commit=7c1eb51d', ''),
 
 ('meta-gplv2',                 1, 'git://git.yoctoproject.org/meta-gplv2',                  'branch=thud,commit=aabc30f', ''),
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    'branch=thud,commit=f162d5bfe6', 'oe-core'),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    'branch=thud,commit=f162d5bfe6', ''),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    'branch=thud,commit=9b3b907f30', 'meta-oe'),
-('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    '', 'meta-oe'),
-('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    '', 'meta-oe'),
-('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    '', 'meta-oe'),
-('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    '', 'meta-oe'),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    'branch=thud,commit=9b3b907f30', ''),
+('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    '', ''),
+('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    '', ''),
+('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    '', ''),
+('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    '', ''),
 
 ('meta-qt5-compat',           19, 'git://github.com/webosose/meta-webosose.git',            '', ''),
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 'branch=krogoth,commit=dcfcb58', ''),
