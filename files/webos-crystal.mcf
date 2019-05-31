@@ -55,4 +55,7 @@ Layers = [
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
 # conf/bblayers.conf .
-BblayersConfExtraLines = []
+BblayersConfExtraLines = ['DISTRO ?= "' + Distribution + '"',
+                          'ROS_DISTRO ?= "crystal"',
+                          'ROS_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
+                         ]
