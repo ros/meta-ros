@@ -13,6 +13,51 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+# The configuration file that "mcf" reads specifies the name of the distribution, the supported MACHINE-s, the layers used in the
+# build, and optionally, additional lines to be appended to the generated conf/bblayers.conf . It has this format:
+#
+# McfFileVersion = 2  (If this setting is absent, version 1 is assumed.)
+#
+# Distribution = 'DISTRO'
+#
+# Machines = ['MACHINE1', 'MACHINE2', ...]
+#
+# Layers = [
+# (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
+# ...
+# ]
+#
+#   where:
+#
+#   layer-name  = Unique identifier; it represents the layer, whose location must contain a conf/layer.conf.
+#
+#   priority    = Integer layer priority as defined by OpenEmbedded. It also  specifies the order in which layers are searched for
+#                 files. Larger values have higher priority. In also determines the order of layer updates. A value of -1
+#                 indicates that the entry is not for a metadata layer; for example, bitbake.
+#
+#   URL         = Git repository address of the layer from which to clone. A value of '' skips the cloning.
+#
+#   fetch       = Information used by Git to fetch the layer and to name the local branch. This item is a dict with the form:
+#                       { ['branch': '<remote-branch-name>'] [,] ['commit': '<id|tag>'] }
+#                 The default for <remote-branch-name> is the branch pointed to by "origin/HEAD", which is usually "master". If
+#                 "commit" is not present, the current head of <remote-branch-name> is fetched. Note that the commit fetched is
+#                 not required lie along <remote-branch-name>. If the value of the item is {}, no fetch is done for the layer.
+#
+#                 The file version 1 str form of the item continues to be recognized:
+#                      '[branch=<remote-branch-name>][,][commit=<id|tag>]'
+#
+#   options    = Layer options. This item is a dict with this key recognized:
+#                       'location': '<alternative-directory>'       Passed as the <directory> argument to "git clone".
+#
+#                The file version 1 str form of the item continues to be recognized as the value for <alternative-directory>.
+#
+# BblayersConfExtraLines = ['LINE1',    (This setting is optional.)
+#                           'LINE2',
+#                           ...
+#                           ]
+
+
 import argparse
 import errno
 import logging
@@ -26,7 +71,7 @@ import glob
 import importlib.util
 import importlib.machinery
 
-__version__ = "7.1.0"
+__version__ = "7.1.1"
 
 logger = logging.getLogger(__name__)
 
