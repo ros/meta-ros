@@ -1,3 +1,3 @@
 require python-catkin-pkg.inc
 
-inherit distutils
+inherit setuptools3
