@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=5823baab4b8de52197d0fb775e8fd4b7"
 # Octomap dependency not included as it is optional.
 DEPENDS = "boost libccd"
 
-SRC_URI = "https://github.com/flexible-collision-library/fcl/archive/${PV}.tar.gz \
+SRC_URI = "https://github.com/flexible-collision-library/fcl/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz \
            file://0001-Add-configure-option-NO_DEFAULT_RPATH.patch \
           "
 SRC_URI[md5sum] = "b12246df3f4e1d0768ce1e46a52900ff"
