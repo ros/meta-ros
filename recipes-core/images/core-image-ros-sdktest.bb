@@ -6,6 +6,8 @@ inherit core-image
 
 IMAGE_ROOTFS_SIZE = "8192"
 
-IMAGE_INSTALL += "sshd roslaunch rostopic roscpp-dev std-msgs-dev"
+IMAGE_FEATURES += "ssh-server-openssh"
+
+IMAGE_INSTALL += "roslaunch rostopic roscpp-dev std-msgs-dev"
 
 TOOLCHAIN_HOST_TASK += "nativesdk-cmake nativesdk-catkin"
