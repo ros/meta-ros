@@ -17,6 +17,8 @@ McfFileVersion = 2
 # Value for DISTRO
 Distribution = 'webos'
 
+webOSOSEBuildNumber = '84'
+
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi3']
 
@@ -45,7 +47,7 @@ Layers = [
 ('meta-webos-backports-2.8',  33, 'git://github.com/webosose/meta-webosose.git',            {}, {}),
 
 ('meta-ros2',                 38, 'git://github.com/lgsvl/meta-ros2.git',                   {'branch': 'master', 'commit': '577f371'}, {}),
-('meta-webos',                40, 'git://github.com/webosose/meta-webosose.git',            {'branch': 'master', 'commit': '4e3ddd5'}, {}),
+('meta-webos',                40, 'git://github.com/webosose/meta-webosose.git',            {'branch': 'master', 'commit': 'builds/webosose/master/' + webOSOSEBuildNumber}, {}),
 
 ('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': 'c71d79e'}, {}),
 ('meta-webos-raspberrypi',    51, 'git://github.com/webosose/meta-webosose.git',            {}, {}),
@@ -58,4 +60,5 @@ Layers = [
 BblayersConfExtraLines = ['DISTRO ?= "' + Distribution + '"',
                           'ROS_DISTRO ?= "crystal"',
                           'ROS_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
+                          'WEBOS_DISTRO_VERSION_TYPE_append = ".' + webOSOSEBuildNumber + '"',
                          ]
