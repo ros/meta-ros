@@ -32,3 +32,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rmw-connext-shared-cpp"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rosidl-typesupport-connext-c"
 # rosidl-typesupport-cpp.inc removes "rosidl-typesupport-connext-cpp" from ROS_BUILD_DEPENDS.
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rosidl-typesupport-connext-cpp"
+
+PNBLACKLIST[opensplice-cmake-module] ?= "Not yet supporting use of OpenSplice"
+PNBLACKLIST[rmw-opensplice-cpp] ?= "Not yet supporting use of OpenSplice"
+PNBLACKLIST[rosidl-typesupport-opensplice-c] ?= "Not yet supporting use of OpenSplice"
+PNBLACKLIST[rosidl-typesupport-opensplice-cpp] ?= "Not yet supporting use of OpenSplice"
+
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "opensplice-cmake-module"
+# rmw-implementation.inc removes "rmw-opensplice-cpp" from ROS_BUILD_DEPENDS.
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rmw-opensplice-cpp"
+# rosidl-typesupport-c.inc removes "rosidl-typesupport-opensplice-c" from ROS_BUILD_DEPENDS.
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rosidl-typesupport-opensplice-c"
+# rosidl-typesupport-cpp.inc removes "rosidl-typesupport-opensplice-cpp" from ROS_BUILD_DEPENDS.
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rosidl-typesupport-opensplice-cpp"
