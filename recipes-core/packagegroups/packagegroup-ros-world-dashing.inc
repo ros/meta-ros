@@ -24,7 +24,7 @@ RDEPENDS_${PN}_remove = "rosidl-default-generators"
 RDEPENDS_${PN}_remove = "ament-clang-format"
 RDEPENDS_${PN}_remove = "ament-cmake-clang-format"
 
-# Not used by "crystal"; this allows us to defer fixing log4cxx v0.10.0-13 until working on "melodic".
+# Not used by "dashing"; this allows us to defer fixing log4cxx v0.10.0-13 until working on "melodic".
 RDEPENDS_${PN}_remove = "rcl-logging-log4cxx"
 
 # | CMake Error at .../cartographer/1.0.0-1-r0/recipe-sysroot/usr/lib/cmake/Ceres/CeresConfig.cmake:88 (message):
@@ -36,20 +36,6 @@ RDEPENDS_${PN}_remove = "rcl-logging-log4cxx"
 # |   SchurSpecializations, OpenMP, Multithreading].
 RDEPENDS_${PN}_remove = "cartographer"
 
-# do_configure() failed:
-# Log data follows:
-# DEBUG: Executing shell function do_configure
-# Traceback (most recent call last):
-#   File "setup.py", line 7, in <module>
-#     package = ElementTree.parse(here / 'package.xml')
-#   File "/mnt/disk2/YOCTO-ARTIFACTS/BUILD-1/tmp-glibc/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/keystroke/0.3.0-1-r0/recipe-sysroot-native/usr/lib/python3.5/xml/etree/ElementTree.py", line 1195, in parse
-#     tree.parse(source, parser)
-#   File "/mnt/disk2/YOCTO-ARTIFACTS/BUILD-1/tmp-glibc/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/keystroke/0.3.0-1-r0/recipe-sysroot-native/usr/lib/python3.5/xml/etree/ElementTree.py", line 585, in parse
-#     source = open(source, "rb")
-# TypeError: invalid file: PosixPath('package.xml')
-# WARNING: exit code 1 from a shell command.
-RDEPENDS_${PN}_remove = "keystroke"
-
 # do_compile() failed to build .a:
 # NOTE: VERBOSE=1 cmake --build .../fmi-adapter/0.1.4-1-r0/build --target all -- -j 24
 # ninja: error: 'FMILibraryProject-prefix/src/install/lib/libfmilib.a', needed by 'libfmi_adapter.so', missing and no known rule to make it
@@ -57,10 +43,6 @@ RDEPENDS_${PN}_remove = "keystroke"
 # ERROR: Function failed: do_compile
 RDEPENDS_${PN}_remove = "fmi-adapter"
 RDEPENDS_${PN}_remove = "fmi-adapter-examples"
-
-# Only builds for Intel achitectures; could build for emulator, but don't because its rootfs contents should be kept the same as
-# that of the actual device.
-RDEPENDS_${PN}_remove = "ets-plugin"
 
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
