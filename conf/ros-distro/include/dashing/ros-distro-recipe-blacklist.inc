@@ -45,3 +45,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rmw-opensplice-cpp"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rosidl-typesupport-opensplice-c"
 # rosidl-typesupport-cpp.inc removes "rosidl-typesupport-opensplice-cpp" from ROS_BUILD_DEPENDS.
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rosidl-typesupport-opensplice-cpp"
+
+# Others
+PNBLACKLIST[libyaml] ?= "Provided by libyaml-vendor"
