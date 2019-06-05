@@ -1,5 +1,11 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
+ROS_EXPORT_DEPENDS += " \
+    python3-numpy \
+"
+
+# NB. RECIPE_SYSROOT_NATIVE doesn't exist in [morty].
+export RECIPE_SYSROOT_NATIVE
 do_install_append() {
     # - Add <NATIVE-SYSROOT>/<PYTHON-SITE-PACKAGES>/numpy/core/include to the include file search path. XXX Why doesn't this need
     #   to be done under Ubuntu bionic?
