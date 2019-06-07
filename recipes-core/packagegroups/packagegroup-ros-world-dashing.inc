@@ -50,6 +50,15 @@ RDEPENDS_${PN}_remove = "cartographer"
 RDEPENDS_${PN}_remove = "fmi-adapter"
 RDEPENDS_${PN}_remove = "fmi-adapter-examples"
 
+# Call of overloaded function is ambiguous:
+# | from .../teleop_twist_joy-release-release-dashing-teleop_twist_joy-2.2.0-1/src/teleop_twist_joy.cpp:28:
+# | .../recipe-sysroot/usr/include/rclcpp/node_impl.hpp: In instantiation of 'auto rclcpp::Node::declare_parameter(const string&, const ParameterT&, const ParameterDescriptor&) [with ParameterT = long int; std::__cxx11::string = std::__cxx11::basic_string<char>; rcl_interfaces::msg::ParameterDescriptor = rcl_interfaces::msg::ParameterDescriptor_<std::allocator<void> >]':
+# | .../teleop_twist_joy-release-release-dashing-teleop_twist_joy-2.2.0-1/src/teleop_twist_joy.cpp:78:70:   required from here
+# | .../recipe-sysroot/usr/include/rclcpp/node_impl.hpp:257:13: error: call of overloaded 'ParameterValue(const long int&)' is ambiguous
+# |      rclcpp::ParameterValue(default_value),
+# |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RDEPENDS_${PN}_remove = "teleop-twist-joy"
+
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
 
