@@ -1,0 +1,70 @@
+# Copyright (c) 2019 LG Electronics, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+McfFileVersion = 2
+
+# Value for DISTRO
+Distribution = 'webos'
+
+webOSOSEBuildNumber = '84'
+
+# Supported MACHINE-s
+Machines = ['qemux86', 'raspberrypi3']
+
+# Allow the URL and branch for meta-ros and meta-webos to be overridden by settings in the environment.
+from os import getenv
+MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
+MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'thud')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'master/milestones/6')
+
+MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/webosose/meta-webosose.git')
+MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
+MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'builds/webosose/master/' + webOSOSEBuildNumber)
+
+# Layers = [
+# (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
+# ...
+# ]
+# Note that the github.com/openembedded repositories are read-only mirrors of
+# the authoritative repositories on git.openembedded.org .
+Layers = [
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '7c1eb51d'}, {}),
+
+('meta-gplv2',                 1, 'git://git.yoctoproject.org/meta-gplv2',                  {'branch': 'thud', 'commit': 'aabc30f'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'thud', 'commit': 'f162d5bfe6'}, {}),
+
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '9b3b907f30'}, {}),
+('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
+('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
+('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
+('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
+
+('meta-qt5-compat',           19, MetaWebos_RepoURL,                                        {}, {}),
+('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'krogoth', 'commit': 'dcfcb58'}, {}),
+
+('meta-ros',                  38, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
+
+('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
+
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': 'c71d79e'}, {}),
+('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
+]
+
+# BblayersConfExtraLines is a list of strings to be appended to the generated
+# conf/bblayers.conf .
+BblayersConfExtraLines = ['DISTRO ?= "' + Distribution + '"',
+                          'ROS_DISTRO ?= "melodic"',
+                          'ROS_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
+                          'WEBOS_DISTRO_VERSION_TYPE_append = ".' + webOSOSEBuildNumber + '"',
+                         ]
