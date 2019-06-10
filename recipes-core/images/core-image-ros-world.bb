@@ -1,13 +1,11 @@
-DESCRIPTION = "An image with packagegroup-ros-world installed"
+require ${COREBASE}/meta/recipes-core/images/core-image-minimal.bb
 
-IMAGE_INSTALL = "packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL}"
+SUMMARY = "An image with packagegroup-ros-world installed"
+DESCRIPTION = "${SUMMARY}"
 
-IMAGE_LINGUAS = " "
+inherit ros_distro_${ROS_DISTRO}
+inherit ${ROS_DISTRO_TYPE}_image
 
-LICENSE = "MIT"
-
-inherit core-image
-
-IMAGE_ROOTFS_SIZE = "8192"
-
-IMAGE_INSTALL += "packagegroup-ros-world"
+IMAGE_INSTALL_append = " \
+    packagegroup-ros-world \
+"
