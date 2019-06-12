@@ -32,6 +32,7 @@ SRC_URI = "git://github.com/opencv/opencv.git;name=opencv \
     file://0001-Make-opencv-ts-create-share-library-intead-of-static.patch \
     file://0001-To-fix-errors-as-following.patch \
     file://0001-tracking-make-opencv_dnn-dependancy-optional.patch;patchdir=../contrib/ \
+    file://fixmissingconst.patch \
 "
 
 PV = "3.2+git${SRCPV}"
