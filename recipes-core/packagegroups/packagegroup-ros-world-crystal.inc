@@ -2,6 +2,10 @@
 #
 # Copyright (c) 2019 LG Electronics, Inc.
 
+# "rmw-fastrtps-dynamic-cpp" is mentioned in http://www.ros.org/reps/rep-2000.html, so make sure we always build it (it appears in
+# ROS_SUPERFLORE_GENERATED_TESTS, so it's not been added to ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES).
+RDEPENDS_${PN}_append = " rmw-fastrtps-dynamic-cpp"
+
 # Can't build these until we figure out how to build clang-format without building all of clang.
 RDEPENDS_${PN}_remove = "ament-clang-format"
 RDEPENDS_${PN}_remove = "ament-cmake-clang-format"
