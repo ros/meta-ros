@@ -83,19 +83,6 @@ index 5bb0479..4b19fdb 100644
  if(APPLE AND NOT CMAKE_CROSSCOMPILING AND NOT DEFINED ENV{LDFLAGS} AND EXISTS "/usr/local/lib")
    link_directories("/usr/local/lib")
  endif()
-diff --git a/modules/core/include/opencv2/core/cvdef.h b/modules/core/include/opencv2/core/cvdef.h
-index efc24ca..a10936b 100644
---- a/modules/core/include/opencv2/core/cvdef.h
-+++ b/modules/core/include/opencv2/core/cvdef.h
-@@ -312,7 +312,7 @@ enum CpuFeatures {
- typedef union Cv16suf
- {
-     short i;
--#if CV_FP16_TYPE
-+#if ( defined (__arm__) || defined (__aarch64__) ) && !defined (__CUDACC__) && ( defined (__GNUC__) && ( ( ( 4 <= __GNUC__ ) && ( 7 <= __GNUC__ ) ) || ( 5 <= __GNUC__ ) ) )
-     __fp16 h;
- #endif
-     struct _fp16Format
 diff --git a/modules/core/src/convert.cpp b/modules/core/src/convert.cpp
 index e04d89e..46db26f 100644
 --- a/modules/core/src/convert.cpp
