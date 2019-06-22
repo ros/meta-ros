@@ -58,6 +58,9 @@ RDEPENDS_${PN}_remove = "keystroke"
 RDEPENDS_${PN}_remove = "fmi-adapter"
 RDEPENDS_${PN}_remove = "fmi-adapter-examples"
 
+# Only builds for Intel achitectures; could build for emulator, but don't because its rootfs contents should be kept the same as
+# that of the actual device.
+RDEPENDS_${PN}_remove = "ets-plugin"
 
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
