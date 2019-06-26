@@ -2,6 +2,11 @@
 #
 # Place the fixups necessary to make meta-webosose compatible with meta-ros version 2 here.
 
+# These will be "<unknown>" if TOPDIR isn't a Git repo => drop them from the display of the build configuration if this is the
+# case.
+BUILDCFG_VARS_remove = "${@oe.utils.conditional('WEBOS_DISTRO_TOPDIR_REVISION', '<unknown>', 'WEBOS_DISTRO_TOPDIR_REVISION', '', d)}"
+BUILDCFG_VARS_remove = "${@oe.utils.conditional('WEBOS_DISTRO_TOPDIR_DESCRIBE', '<unknown>', 'WEBOS_DISTRO_TOPDIR_DESCRIBE', '', d)}"
+
 # Undo blacklisting
 PNBLACKLIST[libfreenect] ?= ""
 PNBLACKLIST[freenect-camera] ?= ""
