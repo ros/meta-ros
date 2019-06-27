@@ -1,20 +1,28 @@
-This is a layer to provide ROS Indigo Igloo in an OpenEmbedded Linux system.
-It provides a stable cross-compilation build system for many common ROS packages. 
-Currently, this layer is still under continuous development.
+# Branch `legacy`
+
+This branch contains the legacy layer version 1 implementation of `meta-ros`
+that provides ROS 1 Indigo Igloo (and a few initial bits of ROS 2 Ardent Apalone
+from #538, see the `recipes-ros2` directory) in an OpenEmbedded Linux system.
+This branch might work better with older OpenEmbedded releases prior to **thud**
+than the other layer version 2 branches.
+
+It supplies a cross-compilation build system for many common ROS packages.
+
+It is no longer under active development and is not being tested, but will be
+retained until it is no longer needed by the community. The only criterion for
+acceptance of a pull request for it is that it's based off its current HEAD and
+merges cleanly.
 
 ## IMPORTANT RESOURCES ##
 
-  * Source Code Repository: https://github.com/bmwcarit/meta-ros.git
-  * Issue Tracker: https://github.com/bmwcarit/meta-ros/issues
-  * Discussion Forum: http://discourse.ros.org/c/openembedded
-  * Installation Guide: http://wiki.ros.org/hydro/Installation/OpenEmbedded
-  * Development Guides:
-    * https://github.com/bmwcarit/meta-ros/wiki/Guidelines-for-ROS-recipes
-    * https://github.com/bmwcarit/meta-ros/wiki/Developer-Guidelines
+  * Source Code Repository: https://github.com/ros/meta-ros.git
+  * Issue Tracker: https://github.com/ros/meta-ros/issues
+  * Discussion Forum: https://discourse.ros.org/c/openembedded
+  * Installation Guide: https://wiki.ros.org/hydro/Installation/OpenEmbedded
 
 Note: In October 2016, the mailing list at
 https://groups.google.com/forum/#!forum/meta-ros has been discontinued and
-discussion has moved to http://discourse.ros.org/c/openembedded.
+discussion has moved to https://discourse.ros.org/c/openembedded.
 However, the mailing list is still a good resource on issues that have been
 resolved in the past.
 
@@ -64,33 +72,33 @@ resolved in the past.
 
   This layer depends on:
 
-  **openembedded-core**  
-  URI: git://git.openembedded.org/openembedded-core  
-  subdirectory: meta  
-  branch: master  
-  revision: HEAD  
+  **openembedded-core**
+  URI: git://git.openembedded.org/openembedded-core
+  subdirectory: meta
+  branch: thud
+  revision: HEAD
 
-  **meta-openembedded (meta-oe)**  
-  URI: git://git.openembedded.org/meta-openembedded  
-  subdirectory: meta-oe  
-  branch: master  
-  revision: HEAD  
+  **meta-openembedded (meta-oe)**
+  URI: git://git.openembedded.org/meta-openembedded
+  subdirectory: meta-oe
+  branch: thud
+  revision: HEAD
 
-  **meta-python** (since a6d7ba92645a112af358efd94ff3aa0c74985a51@meta-openembedded)  
-  URI: git://git.openembedded.org/meta-openembedded  
-  subdirectory: meta-python  
-  branch: master  
-  revision: HEAD  
-  
-  **meta-multimedia** (since fe44ac167a2a76531af3519f3889fce92024567b@meta-openembedded)  
-  URI: git://git.openembedded.org/meta-openembedded  
-  subdirectory: meta-multimedia  
-  branch: master  
-  revision: HEAD  
+  **meta-python** (since a6d7ba92645a112af358efd94ff3aa0c74985a51@meta-openembedded)
+  URI: git://git.openembedded.org/meta-openembedded
+  subdirectory: meta-python
+  branch: thud
+  revision: HEAD
+
+  **meta-multimedia** (since fe44ac167a2a76531af3519f3889fce92024567b@meta-openembedded)
+  URI: git://git.openembedded.org/meta-openembedded
+  subdirectory: meta-multimedia
+  branch: thud
+  revision: HEAD
 
   **meta-intel-realsense** (since 4a5ba0f20094dd3d07c0a0c1dede2ba40e9d6abf)
   URI: https://github.com/IntelRealSense/meta-intel-realsense
-  branch: master
+  branch: thud
   revision: HEAD
   This layer is required only if you need to build realsense-camera driver.
 
@@ -116,7 +124,7 @@ resolved in the past.
   462ccb35a5de32b52ddb733d1868df6ac5426f20@openembedded-core and
   800753069f667cd1664d70b3779150c467e3b3fe@openembedded-core simple
   bbappend as shown in:
-  https://github.com/bmwcarit/meta-ros/pull/607#pullrequestreview-143981126
+  https://github.com/ros/meta-ros/pull/607#pullrequestreview-143981126
   is enough to resolve this if you're using old pyro unsupported
   release.
 
@@ -172,7 +180,7 @@ resolved in the past.
 
     source oe-init-build-env
 
-  Add the required layers (see **DEPENDENCIES**) by modifying ``./conf/bblayers.conf`` (adjust ``/home/me/devel`` as necessary): 
+  Add the required layers (see **DEPENDENCIES**) by modifying ``./conf/bblayers.conf`` (adjust ``/home/me/devel`` as necessary):
 
     BBLAYERS ?= " \
     /home/me/devel/openembedded-core/meta \
@@ -201,9 +209,9 @@ resolved in the past.
   Then for example, you start this system in the qemu virtual machine with
 
     runqemu <MACHINE> core-image-ros-roscore
-  
+
   On the Linux system, ensure that the own host's name in resolved by adding
-  
+
     127.0.0.1	<HOSTNAME>.localdomain		<HOSTNAME>
 
   to the /etc/hosts file, and set up the environment with
@@ -238,16 +246,16 @@ resolved in the past.
 
 
 ## CROSS-COMPILING ALL ROS PACKAGES IN meta-ros
-  
+
   The meta-ros layers only includes a subset of the officially released ROS
   packages, available from packages.ros.org. The here provided ROS packages
   are mainly driven by the current users' needs.
-  
+
   For ROS packages that depend on cv-bridge, the commercial license flag
   must be whitelisted, as cv-bridge depends on opencv, and opencv by
   default depends on libav that has special terms and conditions when used
   commercially.
-  This can be done by adding to the local.conf the line: 
+  This can be done by adding to the local.conf the line:
 
     LICENSE_FLAGS_WHITELIST = "commercial"
 
@@ -261,8 +269,8 @@ resolved in the past.
   in tree for individual recipes is under the LICENSE stated in each recipe
   (.bb file) unless otherwise stated.
   The descriptions in the recipes of ROS packages have been extracted from
-  the ROS wiki (http://www.ros.org/wiki/) and are licensed under 
-  Creative Commons Attribution 3.0 (http://creativecommons.org/licenses/by/3.0/)
+  the ROS wiki (https://www.ros.org/wiki/) and are licensed under
+  Creative Commons Attribution 3.0 (https://creativecommons.org/licenses/by/3.0/)
   unless otherwise noted.
 
   This README document is Copyright (C) 2012 BMW Car IT GmbH.
@@ -279,15 +287,15 @@ resolved in the past.
   licensed with the MIT License.
 
   The python-ecdsa recipe originated from the recipe in the OpenStack Yocto layer
-  (cf. http://git.yoctoproject.org/clean/cgit.cgi/meta-cloud-services/tree/meta-openstack/recipes-devtools/python/python-ecdsa_0.13.bb?id=38973e8bc393a4ca36090c58c8b6eb6d093ea69a)
+  (cf. https://git.yoctoproject.org/clean/cgit.cgi/meta-cloud-services/tree/meta-openstack/recipes-devtools/python/python-ecdsa_0.13.bb?id=38973e8bc393a4ca36090c58c8b6eb6d093ea69a)
   licensed with the MIT License.
 
   The python-pbr recipe originated from the recipe in the meta-python layer
-  (cf. http://git.openembedded.org/meta-openembedded/tree/meta-python/recipes-devtools/python/python-pbr_3.1.1.bb?id=b3eb3c647dc86306d9346bea621fb4b6994ec461)
+  (cf. https://git.openembedded.org/meta-openembedded/tree/meta-python/recipes-devtools/python/python-pbr_3.1.1.bb?id=b3eb3c647dc86306d9346bea621fb4b6994ec461)
   licensed with the MIT License.
 
   The core-image-ros-* recipes originated from the core-image-minimal recipe in OpenEmbedded Core
-  (cf. http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
+  (cf. https://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/images/core-image-minimal.bb)
   licensed with the MIT License.
 
   The original or modified files are redistributed here under the same MIT License.
