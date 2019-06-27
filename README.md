@@ -14,7 +14,8 @@ branch.
 The original implementation has been retained in the
 [`legacy`](https://github.com/ros/meta-ros/tree/legacy) branch.
 
-As of 2019-06-27, this branch can be used to build ROS 2 **crystal** and
-**dashing**. See
+As of 2019-09-18, this branch can be used to build ROS 2 **crystal** and
+**dashing**, and the portion of ROS 1 **melodic** required for the TurtleBot 3,
+using OpenEmbedded **thud** on Ubuntu **bionic**. See
 [here](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions)
 for instructions.
