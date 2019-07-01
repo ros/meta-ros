@@ -1,12 +1,12 @@
 DESCRIPTION = "The Edinburgh Speech Tools Library"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://README;md5=9fe1b4db906b7d75f821c72a358638fd"
+LIC_FILES_CHKSUM = "file://README;md5=5a04850e2bcfae66d6cae547274d72c3"
 
 DEPENDS = "alsa-lib ncurses"
 
-SRC_URI = "http://tts.speech.cs.cmu.edu/awb/20130703/speech_tools-${PV}-current.tar.gz"
-SRC_URI[md5sum] = "02863b3ead04a0ade65982a1f34a60bb"
-SRC_URI[sha256sum] = "75e203402483b78de635943671aaf6f86cb6f9bf181fc84a931c2a560ade6a7c"
+SRC_URI = "http://www.cstr.ed.ac.uk/downloads/festival/${PV}/speech_tools-${PV}-release.tar.gz"
+SRC_URI[md5sum] = "3d60e563135363eb2548d947f7ef4e14"
+SRC_URI[sha256sum] = "fbc2482c443919aa79d2e599d6a5faee4e793df55a79ef377f1dc7e8ba237010"
 
 S = "${WORKDIR}/speech_tools"
 
@@ -34,10 +34,10 @@ SYSROOT_PREPROCESS_FUNCS += "speechtools_sysroot_preprocess"
 
 #stage speech_tools directories for usage by festival
 speechtools_sysroot_preprocess() {
-    sysroot_stage_dir ${WORKDIR}/speech_tools/config ${STAGING_DIR_TARGET}${datadir}/${PN}/config
-    sysroot_stage_dir ${WORKDIR}/speech_tools/include ${STAGING_DIR_TARGET}${datadir}/${PN}/include
-    sysroot_stage_dir ${WORKDIR}/speech_tools/base_class ${STAGING_DIR_TARGET}${datadir}/${PN}/base_class
-    sysroot_stage_dir ${WORKDIR}/speech_tools/lib ${STAGING_DIR_TARGET}${datadir}/${PN}/lib
+    sysroot_stage_dir ${WORKDIR}/speech_tools/config ${SYSROOT_DESTDIR}${datadir}/${PN}/config
+    sysroot_stage_dir ${WORKDIR}/speech_tools/include ${SYSROOT_DESTDIR}${datadir}/${PN}/include
+    sysroot_stage_dir ${WORKDIR}/speech_tools/base_class ${SYSROOT_DESTDIR}${datadir}/${PN}/base_class
+    sysroot_stage_dir ${WORKDIR}/speech_tools/lib ${SYSROOT_DESTDIR}${datadir}/${PN}/lib
 }
 
 RDEPENDS_${PN} += "perl"

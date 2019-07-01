@@ -3,22 +3,29 @@ multi-lingual speech synthesis workbench that runs on multiple-platforms offerin
 as well as an open architecture for research in speech synthesis. \
 It designed as a component of large speech technology systems."
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://COPYING;md5=566f852956cd542e6a0587df0354f673"
+LIC_FILES_CHKSUM = "file://COPYING;md5=929d21c5ebf729ca3fa206e0b64ff0c7"
 
 DEPENDS = "speech-tools"
 
-SRC_URI = "http://tts.speech.cs.cmu.edu/awb/20130703/${PN}-${PV}-current.tar.gz;name=festival \
-	http://tts.speech.cs.cmu.edu/awb/20130703/festlex_CMU.tar.gz;name=CMU \
-	http://tts.speech.cs.cmu.edu/awb/20130703/festlex_POSLEX.tar.gz;name=POSLEX \
-	http://tts.speech.cs.cmu.edu/awb/20130703/festvox_kallpc16k.tar.gz;name=kallpc16k"
-SRC_URI[festival.md5sum] = "eddcce27b873048360aaf3ea51c0e9cf"
-SRC_URI[festival.sha256sum] = "8ea3a6f8ea301a37db5dbf4824e8e088adf4197f156a6c42e868af1b72d36488"
+SRC_URI = "http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/${PN}-${PV}-release.tar.gz;name=festival \
+    http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/festlex_CMU.tar.gz;name=CMU \
+    http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/festlex_OALD.tar.gz;name=OALD \
+    http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/festlex_POSLEX.tar.gz;name=POSLEX \
+    http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/voices/festvox_kallpc16k.tar.gz;name=kallpc16k \
+    http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/voices/festvox_rablpc16k.tar.gz;name=rablpc16k \
+    "
+SRC_URI[festival.md5sum] = "49707d2f6744d5a67f81a96c36f7cb59"
+SRC_URI[festival.sha256sum] = "1e47f293e0857ffde2bccead97947c040ea0b35ea12dd5796edb51583e5e5d84"
 SRC_URI[CMU.md5sum] = "6a2ee4fed7c3ebedf197a3b8524ccb87"
 SRC_URI[CMU.sha256sum] = "c19430919bca45d5368cd4c82af6153fbcc96a487ebd30b78b5f3c08718b7c07"
+SRC_URI[OALD.md5sum] = "84af32a914d996f57bc4cb36fe8cdc97"
+SRC_URI[OALD.sha256sum] = "e33a345390d4c76f8b987b06a5332bcdd0b168cf67c95ddc3270f9163cbe61f8"
 SRC_URI[POSLEX.md5sum] = "aa80f9250065b318325f16fdad3a4484"
 SRC_URI[POSLEX.sha256sum] = "e7c6e3642dbd5b0d64942bc015a986fdd6244a79e51ec2e8309e63d569e49ea3"
 SRC_URI[kallpc16k.md5sum] = "3869af78f473b616601cac3fa83cc14e"
 SRC_URI[kallpc16k.sha256sum] = "7a357c34086fbba8b813f9750f6b5ba13e2a00478a0a2e78a97981cb76395578"
+SRC_URI[rablpc16k.md5sum] = "34cb2478f5b8fa1ed02f5cbb496c1dcd"
+SRC_URI[rablpc16k.sha256sum] = "a017ef70f6d3e64d51d3772ab438eb47a26b529b456dae3cea18936925ec20e8"
 
 S = "${WORKDIR}/${PN}"
 
