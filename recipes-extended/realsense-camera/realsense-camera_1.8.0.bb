@@ -13,6 +13,8 @@ SRC_URI[sha256sum] = "18e2d3e847b3b1158c124b6167ea2751236a2749aca03532ca7d9f5b7b
 
 S = "${WORKDIR}/realsense-${PV}/realsense_camera"
 
-inherit catkin
+inherit catkin distro_features_check
+
+REQUIRED_DISTRO_FEATURES = "ros-realsense"
 
 EXTRA_OECMAKE = "-DUSE_SYSTEM_LIBREALSENSE:BOOL=ON"
