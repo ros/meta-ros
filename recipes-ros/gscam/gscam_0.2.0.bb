@@ -11,3 +11,5 @@ SRC_URI[md5sum] = "b0512882e06f5cdd4c6015f16dceb346"
 SRC_URI[sha256sum] = "84d02ed9a0bed769bebddfb67d27085ae779aaf9ab1311aaad94e9d17aa0fbc6"
 
 inherit catkin
+
+PNBLACKLIST[gscam] ?= "Depends on old gstreamer 0.10 recipes removed from meta-oe in 2.7 Warrior"

@@ -31,3 +31,5 @@ do_iinstall_append() {
     cp -a ${D}${STAGING_DIR_HOST}/* ${D}
     rm -rf ${D}${STAGING_DIR}	
 }
+
+PNBLACKLIST[wxpython] ?= "Depends on wxwidgets which depends on old gstreamer 0.10 recipes removed from meta-oe in 2.7 Warrior"

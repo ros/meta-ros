@@ -9,3 +9,5 @@ DEPENDS = "rospy wxpython sensor-msgs"
 require robot-model.inc
 
 RDEPENDS_${PN} = "wxpython"
+
+PNBLACKLIST[joint-state-publisher] ?= "Depends on wxpython which depends on wxwidgets which depends on old gstreamer 0.10 recipes removed from meta-oe in 2.7 Warrior"

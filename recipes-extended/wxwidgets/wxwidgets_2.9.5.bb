@@ -4,7 +4,7 @@ HOMEPAGE = "http://www.wxwidgets.org"
 LICENSE = "WXwindows"
 LIC_FILES_CHKSUM = "file://docs/licence.txt;md5=18346072db6eb834b6edbd2cdc4f109b"
 
-DEPENDS = "webkit-gtk gstreamer gtk+ jpeg tiff libpng zlib expat libxinerama libglu"
+DEPENDS = "webkitgtk gstreamer gtk+ jpeg tiff libpng zlib expat libxinerama libglu"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/wxwindows/wxWidgets-${PV}.tar.bz2"
 SRC_URI[md5sum] = "e98c5f92805493f150656403ffef3bb0"
@@ -53,3 +53,5 @@ wxwidgets_sysroot_preprocess () {
 
 FILES_${PN} += "${bindir} ${libdir}/wx/config"
 FILES_${PN}-dev += "${libdir}/wx/include ${datadir}/bakefile"
+
+PNBLACKLIST[wxwidgets] ?= "Depends on old gstreamer 0.10 recipes removed from meta-oe in 2.7 Warrior"

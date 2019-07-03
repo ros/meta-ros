@@ -27,3 +27,5 @@ RDEPENDS_${PN} = "std-srvs rospy gstreamer0.10-pocketsphinx"
 RRECOMMENDS_${PN} += "gst-plugins-good-gconfelements"
 
 ROS_SPN = "ros_pocketsphinx"
+
+PNBLACKLIST[ros-pocketsphinx] ?= "Depends on old gstreamer 0.10 recipes removed from meta-oe in 2.7 Warrior"

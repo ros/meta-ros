@@ -28,3 +28,5 @@ FILES_gstreamer0.10-${PN} += "${libdir}/gstreamer-0.10/libgstpocketsphinx.so"
 FILES_gstreamer0.10-${PN}-staticdev += "${libdir}/gstreamer-0.10/libgstpocketsphinx.a \
 					${libdir}/gstreamer-0.10/libgstpocketsphinx.la"
 FILES_gstreamer0.10-${PN}-dbg += "${libdir}/gstreamer-0.10/.debug"
+
+PNBLACKLIST[pocketsphinx] ?= "Depends on old gstreamer 0.10 recipes removed from meta-oe in 2.7 Warrior"

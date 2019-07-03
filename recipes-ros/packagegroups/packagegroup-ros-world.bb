@@ -145,7 +145,6 @@ RDEPENDS_${PN} = "\
     depthimage-to-laserscan \
     diff-drive-controller \
     gripper-action-controller \
-    gscam \
     imu-processors \
     imu-transformer \
     joint-trajectory-controller \
@@ -154,7 +153,6 @@ RDEPENDS_${PN} = "\
     move-base \
     robot-pose-ekf \
     roslint \
-    ros-pocketsphinx \
     rt-tests-support \
     communication-tests \
     cyclic-timer-tests \
