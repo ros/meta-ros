@@ -14,6 +14,8 @@ inherit autotools-brokensep
 
 PARALLEL_MAKE = ""
 
+EXTRA_OEMAKE = "LINKFLAGS='${LDFLAGS}'"
+
 do_configure_prepend() { 
     #force crosscompilation compiler
     sed -i 's:CC=gcc:CC=${CC}:g' ${S}/config/compilers/gcc_defaults.mak
