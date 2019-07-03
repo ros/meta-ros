@@ -13,3 +13,7 @@ S = "${WORKDIR}/${SRCNAME}-${PV}"
 RDEPENDS_${PN} += "python-vcstools python-pyyaml python-rosinstall"
 
 inherit setuptools
+
+PACKAGES =+ "${PN}-zsh-completion"
+FILES_${PN}-zsh-completion += "${datadir}/zsh/"
+RDEPENDS_${PN}-zsh-completion += "zsh"
