@@ -7,12 +7,12 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=929d21c5ebf729ca3fa206e0b64ff0c7"
 
 DEPENDS = "speech-tools"
 
-SRC_URI = "http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/${PN}-${PV}-release.tar.gz;name=festival \
-    http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/festlex_CMU.tar.gz;name=CMU \
-    http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/festlex_OALD.tar.gz;name=OALD \
-    http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/festlex_POSLEX.tar.gz;name=POSLEX \
-    http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/voices/festvox_kallpc16k.tar.gz;name=kallpc16k \
-    http://www.cstr.ed.ac.uk/downloads/${PN}/${PV}/voices/festvox_rablpc16k.tar.gz;name=rablpc16k \
+SRC_URI = "http://www.cstr.ed.ac.uk/downloads/${BPN}/${PV}/${BP}-release.tar.gz;name=festival \
+    http://www.cstr.ed.ac.uk/downloads/${BPN}/${PV}/festlex_CMU.tar.gz;name=CMU \
+    http://www.cstr.ed.ac.uk/downloads/${BPN}/${PV}/festlex_OALD.tar.gz;name=OALD \
+    http://www.cstr.ed.ac.uk/downloads/${BPN}/${PV}/festlex_POSLEX.tar.gz;name=POSLEX \
+    http://www.cstr.ed.ac.uk/downloads/${BPN}/${PV}/voices/festvox_kallpc16k.tar.gz;name=kallpc16k \
+    http://www.cstr.ed.ac.uk/downloads/${BPN}/${PV}/voices/festvox_rablpc16k.tar.gz;name=rablpc16k \
     "
 SRC_URI[festival.md5sum] = "49707d2f6744d5a67f81a96c36f7cb59"
 SRC_URI[festival.sha256sum] = "1e47f293e0857ffde2bccead97947c040ea0b35ea12dd5796edb51583e5e5d84"
@@ -27,7 +27,7 @@ SRC_URI[kallpc16k.sha256sum] = "7a357c34086fbba8b813f9750f6b5ba13e2a00478a0a2e78
 SRC_URI[rablpc16k.md5sum] = "34cb2478f5b8fa1ed02f5cbb496c1dcd"
 SRC_URI[rablpc16k.sha256sum] = "a017ef70f6d3e64d51d3772ab438eb47a26b529b456dae3cea18936925ec20e8"
 
-S = "${WORKDIR}/${PN}"
+S = "${WORKDIR}/${BPN}"
 
 inherit autotools-brokensep
 
