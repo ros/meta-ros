@@ -9,3 +9,5 @@ DEPENDS = "tf2-msgs geometry-msgs console-bridge rospy"
 RDEPENDS_${PN} += "tf2-msgs geometry-msgs console-bridge rostime"
 
 require geometry2.inc
+
+SRC_URI += "file://0001-cmake-remove-boost-signals-search-as-it-is-removed-s.patch;striplevel=2"

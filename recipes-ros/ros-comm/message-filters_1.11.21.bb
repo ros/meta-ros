@@ -9,4 +9,6 @@ require ros-comm.inc
 
 ROS_PKG_SUBDIR = "utilities"
 
-SRC_URI += "file://0001-Changed-invocation-to-add-to-conform-template-syntax.patch;patchdir=../.."
+SRC_URI += "\
+    file://0001-Changed-invocation-to-add-to-conform-template-syntax.patch;striplevel=3\
+    file://0002-cmake-remove-boost-signals-search-as-it-is-removed-s.patch;striplevel=3"

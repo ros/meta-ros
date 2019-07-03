@@ -1,0 +1,24 @@
+From 075784dd6599521ee03b7103e0b13d1a4d229e0f Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jo=C3=ABl=20Esponde?= <joel.esponde@easymile.com>
+Date: Wed, 27 Feb 2019 14:24:38 +0100
+Subject: [PATCH] cmake: remove boost signals search as it is removed since
+ 1.69
+
+Upstream-Status: Inappropriate [upstream source code changed]
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tf2/CMakeLists.txt b/tf2/CMakeLists.txt
+index 0d5754f..c9e2597 100644
+--- a/tf2/CMakeLists.txt
++++ b/tf2/CMakeLists.txt
+@@ -3,7 +3,7 @@ project(tf2)
+ 
+ find_package(console_bridge REQUIRED)
+ find_package(catkin REQUIRED COMPONENTS geometry_msgs rostime tf2_msgs)
+-find_package(Boost REQUIRED COMPONENTS signals system thread)
++find_package(Boost REQUIRED COMPONENTS system thread)
+ 
+ catkin_package(
+    INCLUDE_DIRS include

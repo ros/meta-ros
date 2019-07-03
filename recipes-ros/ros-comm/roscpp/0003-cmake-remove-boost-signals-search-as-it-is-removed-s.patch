@@ -1,0 +1,23 @@
+From 80858e3ba7ea3d89cb745e79c50794edf7c568f8 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jo=C3=ABl=20Esponde?= <joel.esponde@easymile.com>
+Date: Wed, 27 Feb 2019 13:15:13 +0100
+Subject: [PATCH] cmake: remove boost signals search as it is removed since
+ 1.69
+
+Upstream-Status: Inappropriate [upstream source code changed]
+---
+ CMakeLists.txt | 2 ++--
+ 1 file changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/clients/roscpp/CMakeLists.txt b/clients/roscpp/CMakeLists.txt
+index 91bd3113..c3a38487 100644
+--- a/clients/roscpp/CMakeLists.txt
++++ b/clients/roscpp/CMakeLists.txt
+@@ -22,7 +22,7 @@ list(GET roscpp_VERSION_LIST 2 roscpp_VERSION_PATCH)
+
+ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/ros/common.h.in ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros/common.h)
+
+-find_package(Boost REQUIRED COMPONENTS signals filesystem system)
++find_package(Boost REQUIRED COMPONENTS filesystem system)
+
+ include_directories(include ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
