@@ -1,6 +1,8 @@
 require catkin.inc
 
-SRC_URI += "file://environment.d-catkin.sh"
+SRC_URI += "file://environment.d-catkin.sh \
+    file://0001-strip-l-from-lpthread-library-to-fix-a-build-failure.patch \
+"
 
 DEPENDS_class-native += "catkin-runtime"
 

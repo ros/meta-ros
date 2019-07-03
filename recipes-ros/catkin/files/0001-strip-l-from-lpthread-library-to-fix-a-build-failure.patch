@@ -1,0 +1,26 @@
+From e19e2085e1aa58456ed94c529536df387e0ab340 Mon Sep 17 00:00:00 2001
+From: Jochen Sprickerhof <github@jochen.sprickerhof.de>
+Date: Sat, 26 Jan 2019 07:36:24 +0100
+Subject: [PATCH] strip "-l" from "-lpthread" library, to fix a build failure
+
+ on ros-ros-comm (#975)
+
+Upstream-Status: Backport from 0.17.15 [https://github.com/ros/catkin/commit/98f97ffcffbb7127d4a8aff0fcb26d1578557906]
+
+---
+ cmake/templates/pkgConfig.cmake.in | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
+index 3af5c71..8bc8979 100644
+--- a/cmake/templates/pkgConfig.cmake.in
++++ b/cmake/templates/pkgConfig.cmake.in
+@@ -135,6 +135,8 @@ foreach(library ${libraries})
+   # keep build configuration keywords, target names and absolute libraries as-is
+   if("${library}" MATCHES "^(debug|optimized|general)$")
+     list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
++  elseif(${library} MATCHES "^-l")
++    list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
+   elseif(TARGET ${library})
+     list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
+   elseif(IS_ABSOLUTE ${library} AND CMAKE_CROSSCOMPILING)
