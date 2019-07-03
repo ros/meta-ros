@@ -77,6 +77,6 @@ do_install() {
     install -m 0755 -d ${D}${datadir}/festival/multisyn
     install -m 0644 ${S}/lib/multisyn/*scm ${D}${datadir}/festival/multisyn
 
-    cp -a ${S}/lib/dicts ${D}${datadir}/festival
-    cp -a ${S}/lib/voices ${D}${datadir}/festival
+    cp -R --no-dereference --preserve=mode,links -v ${S}/lib/dicts ${D}${datadir}/festival
+    cp -R --no-dereference --preserve=mode,links -v ${S}/lib/voices ${D}${datadir}/festival
 }
