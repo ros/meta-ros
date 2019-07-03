@@ -35,10 +35,10 @@ SYSROOT_PREPROCESS_FUNCS += "speechtools_sysroot_preprocess"
 
 #stage speech_tools directories for usage by festival
 speechtools_sysroot_preprocess() {
-    sysroot_stage_dir ${WORKDIR}/speech_tools/config ${SYSROOT_DESTDIR}${datadir}/${PN}/config
-    sysroot_stage_dir ${WORKDIR}/speech_tools/include ${SYSROOT_DESTDIR}${datadir}/${PN}/include
-    sysroot_stage_dir ${WORKDIR}/speech_tools/base_class ${SYSROOT_DESTDIR}${datadir}/${PN}/base_class
-    sysroot_stage_dir ${WORKDIR}/speech_tools/lib ${SYSROOT_DESTDIR}${datadir}/${PN}/lib
+    sysroot_stage_dir ${S}/config ${SYSROOT_DESTDIR}${datadir}/${PN}/config
+    sysroot_stage_dir ${S}/include ${SYSROOT_DESTDIR}${datadir}/${PN}/include
+    sysroot_stage_dir ${S}/base_class ${SYSROOT_DESTDIR}${datadir}/${PN}/base_class
+    sysroot_stage_dir ${S}/lib ${SYSROOT_DESTDIR}${datadir}/${PN}/lib
 }
 
 RDEPENDS_${PN} += "perl"
