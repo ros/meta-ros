@@ -44,3 +44,9 @@ FILES_${PN}-dev += "${datadir}/${PN}-1.9/*.cmake ${datadir}/${PN}-1.9/Modules/*.
 # High memory needs mentioned in: https://github.com/PointCloudLibrary/pcl/issues/2284
 # Setting just empty doesn't work, ninja will by default use number of cores available
 PARALLEL_MAKE = "-j4"
+
+# Disable thumb for armv[45] to resolve
+# pcl/1.9.1+gitAUTOINC+72f41b60a5-r0/git/features/include/pcl/features/impl/pfh.hpp:129: error: relocation overflow in R_ARM_THM_CALL
+# http://caprica.lgsvl.com:8080/Errors/Details/1510736
+ARM_INSTRUCTION_SET_armv4 = "arm"
+ARM_INSTRUCTION_SET_armv5 = "arm"

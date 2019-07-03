@@ -10,3 +10,9 @@ DEPENDS = " \
 ROS_BPN = "demo_nodes_cpp"
 
 include ros2-demos.inc
+
+# FAILED: allocator_tutorial
+# /usr/include/c++/8.2.0/bits/atomic_base.h:514: error: undefined reference to '__atomic_fetch_add_8'
+# http://caprica.lgsvl.com:8080/Errors/Details/1510771
+LDFLAGS_append_armv4 = " -latomic"
+LDFLAGS_append_armv5 = " -latomic"
