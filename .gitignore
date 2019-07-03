@@ -1,2 +1,5 @@
 *~
 .*.swp
+
+# From scripts/ros-generate-recipes.sh
+/.pr-*.tmp
