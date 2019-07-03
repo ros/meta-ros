@@ -34,6 +34,8 @@ inherit autotools-brokensep
 #disable parallel make (make -j), as festival cannot handle that
 PARALLEL_MAKE = ""
 
+EXTRA_OEMAKE = "CC='${CC}' CXX='${CXX} ${LDFLAGS}'"
+
 do_configure_prepend() { 
     #point to speech-tools in sysroots
     sed -i 's:EST=$(TOP)/../speech_tools:EST=${STAGING_DIR_TARGET}${datadir}/speech-tools:g' ${S}/config/config.in

@@ -14,12 +14,11 @@ inherit autotools-brokensep
 
 PARALLEL_MAKE = ""
 
-EXTRA_OEMAKE = "LINKFLAGS='${LDFLAGS}'"
+EXTRA_OEMAKE = "CC='${CC}' CXX='${CXX} ${LDFLAGS}'"
 
-do_configure_prepend() { 
-    #force crosscompilation compiler
-    sed -i 's:CC=gcc:CC=${CC}:g' ${S}/config/compilers/gcc_defaults.mak
-    sed -i 's:CXX=gcc:CXX=${CC}:g' ${S}/config/compilers/gcc_defaults.mak
+do_configure_prepend() {
+    # respect CC and CXX from EXTRA_OEMAKE
+    sed -i '/^CC=gcc/d; /^CXX=gcc$/d' ${S}/config/compilers/gcc_defaults.mak
 }
 
 do_install() {
