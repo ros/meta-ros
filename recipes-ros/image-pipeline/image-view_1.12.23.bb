@@ -9,3 +9,5 @@ require image-pipeline.inc
 
 inherit distro_features_check
 ANY_OF_DISTRO_FEATURES = "${GTK2DISTROFEATURES}"
+
+SRC_URI += "file://image-view-remove-unused-signals-boost-component.patch;patchdir=.."
