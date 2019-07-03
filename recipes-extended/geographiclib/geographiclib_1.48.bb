@@ -12,3 +12,8 @@ SRC_URI[sha256sum] = "7203d56123b6f6fb31842295d57b2418f79fb0db9a06f2f65ee9e415c6
 S = "${WORKDIR}/GeographicLib-${PV}"
 
 inherit cmake
+
+PACKAGES =+ "${PN}-python ${PN}-node ${PN}-matlab"
+FILES_${PN}-python += "${libdir}/python/"
+FILES_${PN}-node += "${libdir}/node_modules/"
+FILES_${PN}-matlab += "${datadir}/matlab/"
