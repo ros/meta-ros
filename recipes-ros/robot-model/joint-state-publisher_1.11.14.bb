@@ -10,4 +10,9 @@ require robot-model.inc
 
 RDEPENDS_${PN} = "wxpython"
 
+inherit distro_features_check
+
+# Depends on wxpython which depends on wxwidgets which depends on libxinerama, libglu, gtk need x11 in DISTRO_FEATURES
+REQUIRED_DISTRO_FEATURES = "x11"
+
 PNBLACKLIST[joint-state-publisher] ?= "Depends on wxpython which depends on wxwidgets which depends on old gstreamer 0.10 recipes removed from meta-oe in 2.7 Warrior"

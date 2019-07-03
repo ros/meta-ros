@@ -10,4 +10,7 @@ SRC_URI[sha256sum] = "dde46626a62a1cd9cf48a11951cdd592e7067c345cffe193a149dfd47a
 
 S = "${WORKDIR}/freeglut-${PV}"
 
-inherit autotools
+inherit autotools distro_features_check
+
+# Depends on libxi libglu which need x11 in DISTRO_FEATURES
+REQUIRED_DISTRO_FEATURES = "x11"

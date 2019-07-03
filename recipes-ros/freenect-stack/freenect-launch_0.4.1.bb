@@ -8,3 +8,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9de
 require freenect-stack.inc
 
 RRECOMMENDS_${PN} = "freenect-camera image-proc nodelet rgbd-launch tf"
+
+inherit distro_features_check
+
+# Depends on freenect-camera which depends on libfreenect which depends on freeglut libxi libxmu which need x11 in DISTRO_FEATURES
+REQUIRED_DISTRO_FEATURES = "x11"
