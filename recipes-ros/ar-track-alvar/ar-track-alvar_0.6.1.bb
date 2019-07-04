@@ -12,3 +12,5 @@ SRC_URI[sha256sum] = "c34ff4358fb167edccc4357d74425e3370691f04be1f8971f5258aa25d
 S = "${WORKDIR}/${ROS_SP}"
 
 inherit catkin
+
+SRC_URI += "file://fix.missing.include.patch"

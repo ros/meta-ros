@@ -8,3 +8,8 @@ DEPENDS = "camera-info-manager diagnostic-updater dynamic-reconfigure \
     image-transport libfreenect nodelet roscpp sensor-msgs pluginlib"
 
 require freenect-stack.inc
+
+inherit distro_features_check
+
+# Depends on libfreenect which depends on freeglut libxi libxmu which need x11 in DISTRO_FEATURES
+REQUIRED_DISTRO_FEATURES = "x11"

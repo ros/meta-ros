@@ -12,7 +12,10 @@ SRC_URI[sha256sum] = "1a5b7e771eff467538d0834136188e8a7506a4fe6e85d0a46c40158cdb
 
 S = "${WORKDIR}/wxPython-src-${PV}/wxPython"
 
-inherit pkgconfig pythonnative python-dir distutils
+inherit pkgconfig pythonnative python-dir distutils distro_features_check
+
+# Depends on wxwidgets which depends on libxinerama, libglu, gtk need x11 in DISTRO_FEATURES
+REQUIRED_DISTRO_FEATURES = "x11"
 
 CFLAGS += "-I${STAGING_INCDIR}/wx-2.9/ -I${STAGING_LIBDIR}/wx/include/${TARGET_PREFIX}gtk2-unicode-2.9/"
 CFLAGS += "-std=gnu++11"
@@ -31,3 +34,5 @@ do_iinstall_append() {
     cp -a ${D}${STAGING_DIR_HOST}/* ${D}
     rm -rf ${D}${STAGING_DIR}	
 }
+
+PNBLACKLIST[wxpython] ?= "Depends on wxwidgets which depends on old gstreamer 0.10 recipes removed from meta-oe in 2.7 Warrior"

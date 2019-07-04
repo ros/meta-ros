@@ -1,0 +1,31 @@
+add missing include
+  
+* CV_RGB is defined in opencv2/imgproc.hpp
+* fixes:
+  ar-track-alvar/0.6.1-r0/ar_track_alvar-0.6.1/src/Marker.cpp: In member function 'virtual void alvar::MarkerData::VisualizeMarkerContent(IplImage*, alvar::Camera*, double*, double*) const':
+  ar-track-alvar/0.6.1-r0/ar_track_alvar-0.6.1/src/Marker.cpp:123:15: error: 'CV_RGB' was not declared in this scope
+  CvScalar rgb=CV_RGB(255,255,0);
+               ^~~~~~
+
+Upstream-Status: Pending
+
+--- a/include/ar_track_alvar/Draw.h     2019-07-03 16:28:16.540970593 +0000
++++ b/include/ar_track_alvar/Draw.h     2019-07-03 16:19:45.113388531 +0000
+@@ -36,6 +36,7 @@
+ #include "Camera.h"
+ #include "Line.h"
+ #include <sstream>
++#include <opencv2/imgproc.hpp>
+
+ namespace alvar {
+
+--- a/include/ar_track_alvar/Marker.h   2019-07-03 16:24:35.995976014 +0000
++++ b/include/ar_track_alvar/Marker.h   2019-07-03 16:24:52.396347425 +0000
+@@ -41,6 +41,7 @@
+ #include <vector>
+ #include "filter/kinect_filtering.h"
+ #include <Eigen/StdVector>
++#include <opencv2/imgproc.hpp>
+
+ namespace alvar {
+

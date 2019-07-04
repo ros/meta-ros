@@ -1,0 +1,14 @@
+Upstream-Status: Pending
+
+diff -uNr image_pipeline-1.12.23.orig/image_view/CMakeLists.txt image_pipeline-1.12.23/image_view/CMakeLists.txt
+--- image_pipeline-1.12.23.orig/image_view/CMakeLists.txt       2018-05-10 12:52:54.000000000 +0000
++++ image_pipeline-1.12.23/image_view/CMakeLists.txt    2019-07-03 17:02:21.775288064 +0000
+@@ -5,7 +5,7 @@
+ generate_dynamic_reconfigure_options(cfg/ImageView.cfg)
+
+ catkin_package(CATKIN_DEPENDS dynamic_reconfigure)
+-find_package(Boost REQUIRED COMPONENTS signals thread)
++find_package(Boost REQUIRED COMPONENTS thread)
+ find_package(OpenCV REQUIRED)
+
+ include_directories(${Boost_INCLUDE_DIRS}

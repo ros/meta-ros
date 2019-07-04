@@ -14,10 +14,11 @@ inherit autotools-brokensep
 
 PARALLEL_MAKE = ""
 
-do_configure_prepend() { 
-    #force crosscompilation compiler
-    sed -i 's:CC=gcc:CC=${CC}:g' ${S}/config/compilers/gcc_defaults.mak
-    sed -i 's:CXX=gcc:CXX=${CC}:g' ${S}/config/compilers/gcc_defaults.mak
+EXTRA_OEMAKE = "CC='${CC}' CXX='${CXX} ${LDFLAGS}'"
+
+do_configure_prepend() {
+    # respect CC and CXX from EXTRA_OEMAKE
+    sed -i '/^CC=gcc/d; /^CXX=gcc$/d' ${S}/config/compilers/gcc_defaults.mak
 }
 
 do_install() {
@@ -34,10 +35,10 @@ SYSROOT_PREPROCESS_FUNCS += "speechtools_sysroot_preprocess"
 
 #stage speech_tools directories for usage by festival
 speechtools_sysroot_preprocess() {
-    sysroot_stage_dir ${WORKDIR}/speech_tools/config ${SYSROOT_DESTDIR}${datadir}/${PN}/config
-    sysroot_stage_dir ${WORKDIR}/speech_tools/include ${SYSROOT_DESTDIR}${datadir}/${PN}/include
-    sysroot_stage_dir ${WORKDIR}/speech_tools/base_class ${SYSROOT_DESTDIR}${datadir}/${PN}/base_class
-    sysroot_stage_dir ${WORKDIR}/speech_tools/lib ${SYSROOT_DESTDIR}${datadir}/${PN}/lib
+    sysroot_stage_dir ${S}/config ${SYSROOT_DESTDIR}${datadir}/${PN}/config
+    sysroot_stage_dir ${S}/include ${SYSROOT_DESTDIR}${datadir}/${PN}/include
+    sysroot_stage_dir ${S}/base_class ${SYSROOT_DESTDIR}${datadir}/${PN}/base_class
+    sysroot_stage_dir ${S}/lib ${SYSROOT_DESTDIR}${datadir}/${PN}/lib
 }
 
 RDEPENDS_${PN} += "perl"

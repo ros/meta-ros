@@ -4,7 +4,7 @@ HOMEPAGE = "http://www.wxwidgets.org"
 LICENSE = "WXwindows"
 LIC_FILES_CHKSUM = "file://docs/licence.txt;md5=18346072db6eb834b6edbd2cdc4f109b"
 
-DEPENDS = "webkit-gtk gstreamer gtk+ jpeg tiff libpng zlib expat libxinerama libglu"
+DEPENDS = "webkitgtk gstreamer gtk+ jpeg tiff libpng zlib expat libxinerama libglu"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/wxwindows/wxWidgets-${PV}.tar.bz2"
 SRC_URI[md5sum] = "e98c5f92805493f150656403ffef3bb0"
@@ -12,7 +12,10 @@ SRC_URI[sha256sum] = "b74ba96ca537cc5d049d21ec9ab5eb2670406a4aa9f1ea4845ea84a995
 
 S = "${WORKDIR}/wxWidgets-${PV}"
 
-inherit autotools-brokensep pkgconfig binconfig
+inherit autotools-brokensep pkgconfig binconfig distro_features_check
+
+# Depends on libxinerama, libglu, gtk need x11 in DISTRO_FEATURES
+REQUIRED_DISTRO_FEATURES = "x11"
 
 EXTRA_AUTORECONF = " -I ${S}/build/aclocal"
 EXTRA_OECONF = "  --with-opengl \
@@ -53,3 +56,5 @@ wxwidgets_sysroot_preprocess () {
 
 FILES_${PN} += "${bindir} ${libdir}/wx/config"
 FILES_${PN}-dev += "${libdir}/wx/include ${datadir}/bakefile"
+
+PNBLACKLIST[wxwidgets] ?= "Depends on old gstreamer 0.10 recipes removed from meta-oe in 2.7 Warrior"

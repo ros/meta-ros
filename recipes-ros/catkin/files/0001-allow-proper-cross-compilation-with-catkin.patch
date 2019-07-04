@@ -1,4 +1,4 @@
-From e6179255b99264a51f8733f52d92ca579fbacb61 Mon Sep 17 00:00:00 2001
+From 5de0fe25ec27bca4c593e06cdc0c3dff3d553e06 Mon Sep 17 00:00:00 2001
 From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 Date: Sun, 15 Apr 2018 02:11:42 +0200
 Subject: [PATCH] allow proper cross-compilation with catkin
@@ -17,11 +17,12 @@ Some of the context lines in patches were ignored. This can lead to incorrectly 
 Upstream-Status: Pending
 
 Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
 ---
  cmake/all.cmake                    |  1 +
- cmake/catkin_package.cmake         |  8 ++++++++
- cmake/catkin_strip_root_path.cmake | 32 +++++++++++++++++++++++++++++
- cmake/templates/pkgConfig.cmake.in | 42 ++++++++++++++++++++++++++++++++++----
+ cmake/catkin_package.cmake         |  8 ++++++
+ cmake/catkin_strip_root_path.cmake | 32 +++++++++++++++++++++++
+ cmake/templates/pkgConfig.cmake.in | 42 +++++++++++++++++++++++++++---
  4 files changed, 79 insertions(+), 4 deletions(-)
  create mode 100644 cmake/catkin_strip_root_path.cmake
 
@@ -170,6 +171,3 @@ index d99b811..3af5c71 100644
          break()
        endif()
      endforeach()
--- 
-2.7.4
-
