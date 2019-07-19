@@ -133,7 +133,7 @@ echo "Running 'rosdep update'"
 rosdep update || { echo "ABORT: 'rosdep update' failed"; exit 1; }
 echo "'rosdep update' finished"
 
-generated="files/$ROS_DISTRO"
+generated="meta-ros$ROS_VERSION-$ROS_DISTRO/files/$ROS_DISTRO/generated"
 mkdir -p $generated
 gzip -d $tmpdir/$ROS_DISTRO-cache.yaml.gz -c > $generated/cache.yaml
 # Identify how the files were generated so that they can be reused.
