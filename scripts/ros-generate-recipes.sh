@@ -76,7 +76,7 @@ if [ -n "$(git status --porcelain=v1)" ]; then
     exit 1
 fi
 
-generated=files/$ROS_DISTRO
+generated=meta-ros$ROS_VERSION-$ROS_DISTRO/files/$ROS_DISTRO/generated
 if [ ! -f $generated/cache.yaml ]; then
     echo "ABORT: $generated/cache.yaml doesn't exist -- run ros-generate-cache.sh to create it"
     exit 1
@@ -167,7 +167,7 @@ after_commit=$(git rev-list -1 HEAD)
 if [ $after_commit != $before_commit -a -z "$only_option" ]; then
     git add $generated/cache.yaml $generated/cache.diffme
 
-    generated_inc="conf/ros-distro/include/$ROS_DISTRO/generated-ros-distro.inc"
+    generated_inc="meta-ros$ROS_VERSION-$ROS_DISTRO/conf/ros-distro/include/$ROS_DISTRO/generated/ros-distro.inc"
     [ $ROS_DISTRO_RELEASE_DATE = "pre-release" ] && ROS_DISTRO_RELEASE_DATE=""
     cat <<! >> $generated_inc
 
