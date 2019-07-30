@@ -26,9 +26,6 @@ EXTRA_OECMAKE_prepend = "\
     -DCATKIN_ENABLE_TESTING=0 \
     "
 
-OECMAKE_SOURCEPATH = "${S}"
-OECMAKE_BUILDPATH = "${S}/build"
-
 # Having a command like `find_package(catkin COMPONENTS roscpp)` in a package's CMakeLists.txt
 # leads to adding "-Wl,-rpath=${RECIPE_SYSROOT}${ros_libdir}" option to the cross-linker.
 # However starting from binutils 2.29 the cross-linker prepends this path with the value
