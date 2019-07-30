@@ -1,0 +1,63 @@
+This should be properly fixed in apriltag, not here in apriltag-ros, but
+as this work around is already here we would need to fix both places anyway.
+
+The issue is that apriltag.h is installed in ${includedir}/apriltag:
+mjansa@raven-build:~/mjansa/build-webos-robotics-prelim-nosplit$ find /jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag/3.1.1-1-r0/image/ | grep apriltag.h
+/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag/3.1.1-1-r0/image/usr/include/apriltag/apriltag.h
+
+but the pkg-config file sets only -I${includedir}:
+
+mjansa@raven-build:~/mjansa/build-webos-robotics-prelim-nosplit$ cat /jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag/3.1.1-1-r0/image/usr/lib/pkgconfig/apriltag.pc
+prefix=/usr
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: apriltag
+Description: AprilTag detector library
+Version: 0.10.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lapriltag
+
+So the pkg-config --cflags apriltag called from apriltag-ros CMake returns nothing:
+
+mjansa@raven-build:/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0$ pkg-config --libs apriltag
+-lapriltag
+mjansa@raven-build:/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0$ pkg-config --cflags apriltag
+
+
+And because apriltag_INCLUDE_DIRS is empty:
+./CMakeCache.txt:apriltag_INCLUDEDIR:INTERNAL=/usr/include
+./CMakeCache.txt:apriltag_INCLUDE_DIRS:INTERNAL=
+./CMakeCache.txt:apriltag_apriltag_INCLUDEDIR:INTERNAL=
+
+We end with:
+
+FAILED: CMakeFiles/apriltag_ros_single_image_server_node.dir/src/apriltag_ros_single_image_server_node.cpp.o
+/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"apriltag_ros\" -I/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/devel/include -I/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/apriltag_ros-release-release-melodic-apriltag_ros-3.1.0-1/include -I/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include -I/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/recipe-sysroot/usr/include -I/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/recipe-sysroot/usr/include/opencv -I/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/recipe-sysroot/usr/include/eigen3 -I/apriltag -march=armv7ve -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0=/usr/src/debug/apriltag-ros/3.1.0-1-r0 -fdebug-prefix-map=/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -march=armv7ve -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/recipe-sysroot   -O3 -funsafe-loop-optimizations -fsee -funroll-loops -fno-math-errno -funsafe-math-optimizations -ffinite-math-only -fno-signed-zeros -std=gnu++11 -MD -MT CMakeFiles/apriltag_ros_single_image_server_node.dir/src/apriltag_ros_single_image_server_node.cpp.o -MF CMakeFiles/apriltag_ros_single_image_server_node.dir/src/apriltag_ros_single_image_server_node.cpp.o.d -o CMakeFiles/apriltag_ros_single_image_server_node.dir/src/apriltag_ros_single_image_server_node.cpp.o -c /jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/apriltag_ros-release-release-melodic-apriltag_ros-3.1.0-1/src/apriltag_ros_single_image_server_node.cpp
+In file included from /jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/apriltag_ros-release-release-melodic-apriltag_ros-3.1.0-1/src/apriltag_ros_single_image_server_node.cpp:32:
+/jenkins/mjansa/build-webos-robotics-prelim-nosplit/BUILD/work/raspberrypi4-webos-linux-gnueabi/apriltag-ros/3.1.0-1-r0/apriltag_ros-release-release-melodic-apriltag_ros-3.1.0-1/include/apriltag_ros/common_functions.h:65:10: fatal error: apriltag.h: No such file or directory
+ #include <apriltag.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+
+Notice the -I/apriltag flag above, because apriltag-ros is trying to work around
+this issue by appending /apriltag to whatever is returned from pkg-config:
+
+pkg_search_module(apriltag REQUIRED apriltag)
+set(apriltag_INCLUDE_DIRS "${apriltag_INCLUDE_DIRS}/apriltag")
+
+Which is clearly wrong and will start causing issues now when this fix is applied
+and apriltag_INCLUDE_DIRS will already contain /usr/include/apriltag (another
+patch will be added to apriltag-ros to remove this work around)
+
+diff -uNr apriltag-release-release-melodic-apriltag-3.1.1-1/apriltag.pc.in apriltag-release-release-melodic-apriltag-3.1.1-1-new/apriltag.pc.in
+--- apriltag-release-release-melodic-apriltag-3.1.1-1/apriltag.pc.in	2019-06-14 01:12:44.000000000 +0000
++++ apriltag-release-release-melodic-apriltag-3.1.1-1-new/apriltag.pc.in	2019-09-19 21:03:24.236179141 +0000
+@@ -6,5 +6,5 @@
+ Name: apriltag
+ Description: AprilTag detector library
+ Version: 0.10.0
+-Cflags: -I${includedir}
++Cflags: -I${includedir}/apriltag
+ Libs: -L${libdir} -lapriltag

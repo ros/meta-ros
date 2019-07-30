@@ -1,0 +1,11 @@
+--- a/cmake/templates/setup.sh.in	2019-07-28 12:57:22.573982635 -0700
++++ b/cmake/templates/setup.sh.in	2019-07-28 12:55:17.127154095 -0700
+@@ -58,7 +58,7 @@
+   echo "Could not create temporary file: $_SETUP_TMP"
+   return 1
+ fi
+-CATKIN_SHELL=$CATKIN_SHELL "$_SETUP_UTIL" $@ ${CATKIN_SETUP_UTIL_ARGS:-} >> "$_SETUP_TMP"
++CATKIN_SHELL=$CATKIN_SHELL @PYTHON_EXECUTABLE@ "$_SETUP_UTIL" $@ ${CATKIN_SETUP_UTIL_ARGS:-} >> "$_SETUP_TMP"
+ _RC=$?
+ if [ $_RC -ne 0 ]; then
+   if [ $_RC -eq 2 ]; then
