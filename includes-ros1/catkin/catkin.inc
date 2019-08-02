@@ -13,3 +13,28 @@ ROS_BUILDTOOL_DEPENDS += " \
     python-catkin-pkg-native \
     python-empy-native \
 "
+
+EXTRA_OECMAKE_prepend = " \
+    -DCATKIN_INSTALL_INTO_PREFIX_ROOT=ON \
+"
+
+CATKIN_PREFIX_ROOT_FILES = " \
+    ${ros_prefix}/.catkin \
+    ${ros_prefix}/.rosinstall \
+    ${ros_prefix}/_setup_util.py \
+    ${ros_prefix}/*.bash \
+    ${ros_prefix}/*.zsh \
+    ${ros_prefix}/*.sh \
+"
+
+FILES_${PN}_prepend = "${CATKIN_PREFIX_ROOT_FILES} "
+
+
+SSTATE_SCAN_FILES_append = " _setup_util.py"
+# Must do this to include CATKIN_PREFIX_ROOT_FILES. It might add "extra" files to what's staged, but who cares?
+SYSROOT_DIRS_append = " ${ros_prefix}"
+
+# XXX Why doesn't SSTATE_SCAN_FILES fix this up?
+do_install_append_class-target() {
+    sed -i -e 's@${RECIPE_SYSROOT}/@/@g' ${D}${ros_prefix}/_setup_util.py
+}
