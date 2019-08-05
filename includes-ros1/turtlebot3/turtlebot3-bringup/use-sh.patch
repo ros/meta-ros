@@ -1,0 +1,9 @@
+diff -U 3 scripts-orig/create_udev_rules scripts/create_udev_rules
+--- a/scripts/create_udev_rules	2019-01-22 04:26:26.000000000 -0800
++++ b/scripts/create_udev_rules	2019-08-05 15:01:26.385112000 -0700
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/bin/sh
+ 
+ echo ""
+ echo "This script copies a udev rule to /etc to facilitate bringing"
