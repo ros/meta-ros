@@ -560,3 +560,8 @@ PNBLACKLIST[core-image-ros-world] ?= ""
 PNBLACKLIST[packagegroup-ros-kobuki] ?= ""
 PNBLACKLIST[packagegroup-ros-comm] ?= ""
 PNBLACKLIST[packagegroup-ros-industrial-core] ?= ""
+
+PNBLACKLIST[graphviz] ?= ""
+PNBLACKLIST[librsvg] ?= ""
+PNBLACKLIST[libsdl] ?= ""
+PNBLACKLIST[libsdl-image] ?= ""
