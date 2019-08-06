@@ -49,6 +49,3 @@ OECMAKE_BUILDPATH = "${S}/build"
 # These options help to aleviate the problem.
 OECMAKE_C_LINK_FLAGS += "-Wl,-rpath-link=${RECIPE_SYSROOT}${ros_libdir}"
 OECMAKE_CXX_LINK_FLAGS += "-Wl,-rpath-link=${RECIPE_SYSROOT}${ros_libdir}"
-
-export BUILD_SYS
-export HOST_SYS
