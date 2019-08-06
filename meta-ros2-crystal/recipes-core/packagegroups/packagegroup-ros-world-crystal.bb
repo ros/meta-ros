@@ -1,6 +1,14 @@
-# packagegroup-ros-world-dashing.inc
-#
 # Copyright (c) 2019 LG Electronics, Inc.
+
+DESCRIPTION = "All non-test packages for the target from files/crystal/cache.yaml"
+LICENSE = "MIT"
+
+inherit packagegroup
+inherit ros_distro_crystal
+
+PACKAGES = "${PN}"
+
+RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 
 # "rmw-fastrtps-dynamic-cpp" is mentioned in http://www.ros.org/reps/rep-2000.html, so make sure we always build it (it appears in
 # ROS_SUPERFLORE_GENERATED_TESTS, so it's not been added to ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES).
@@ -24,14 +32,8 @@ RDEPENDS_${PN}_remove = "rosidl-default-generators"
 RDEPENDS_${PN}_remove = "ament-clang-format"
 RDEPENDS_${PN}_remove = "ament-cmake-clang-format"
 
-# Not used by "dashing"; this allows us to defer fixing log4cxx v0.10.0-13 until working on "melodic".
+# Not used by "crystal"; this allows us to defer fixing log4cxx v0.10.0-13 until working on "melodic".
 RDEPENDS_${PN}_remove = "rcl-logging-log4cxx"
-
-# Needs work to launch qemu to run tests on image on build machine.
-RDEPENDS_${PN}_remove = "launch-testing"
-RDEPENDS_${PN}_remove = "launch-testing-ament-cmake"
-RDEPENDS_${PN}_remove = "launch-testing-ros"
-RDEPENDS_${PN}_remove = "ros-testing"
 
 # | CMake Error at .../cartographer/1.0.0-1-r0/recipe-sysroot/usr/lib/cmake/Ceres/CeresConfig.cmake:88 (message):
 # |   Failed to find Ceres - Missing requested Ceres components: [SuiteSparse]
@@ -42,6 +44,20 @@ RDEPENDS_${PN}_remove = "ros-testing"
 # |   SchurSpecializations, OpenMP, Multithreading].
 RDEPENDS_${PN}_remove = "cartographer"
 
+# do_configure() failed:
+# Log data follows:
+# DEBUG: Executing shell function do_configure
+# Traceback (most recent call last):
+#   File "setup.py", line 7, in <module>
+#     package = ElementTree.parse(here / 'package.xml')
+#   File "/mnt/disk2/YOCTO-ARTIFACTS/BUILD-1/tmp-glibc/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/keystroke/0.3.0-1-r0/recipe-sysroot-native/usr/lib/python3.5/xml/etree/ElementTree.py", line 1195, in parse
+#     tree.parse(source, parser)
+#   File "/mnt/disk2/YOCTO-ARTIFACTS/BUILD-1/tmp-glibc/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/keystroke/0.3.0-1-r0/recipe-sysroot-native/usr/lib/python3.5/xml/etree/ElementTree.py", line 585, in parse
+#     source = open(source, "rb")
+# TypeError: invalid file: PosixPath('package.xml')
+# WARNING: exit code 1 from a shell command.
+RDEPENDS_${PN}_remove = "keystroke"
+
 # do_compile() failed to build .a:
 # NOTE: VERBOSE=1 cmake --build .../fmi-adapter/0.1.4-1-r0/build --target all -- -j 24
 # ninja: error: 'FMILibraryProject-prefix/src/install/lib/libfmilib.a', needed by 'libfmi_adapter.so', missing and no known rule to make it
@@ -50,14 +66,9 @@ RDEPENDS_${PN}_remove = "cartographer"
 RDEPENDS_${PN}_remove = "fmi-adapter"
 RDEPENDS_${PN}_remove = "fmi-adapter-examples"
 
-# Call of overloaded function is ambiguous:
-# | from .../teleop_twist_joy-release-release-dashing-teleop_twist_joy-2.2.0-1/src/teleop_twist_joy.cpp:28:
-# | .../recipe-sysroot/usr/include/rclcpp/node_impl.hpp: In instantiation of 'auto rclcpp::Node::declare_parameter(const string&, const ParameterT&, const ParameterDescriptor&) [with ParameterT = long int; std::__cxx11::string = std::__cxx11::basic_string<char>; rcl_interfaces::msg::ParameterDescriptor = rcl_interfaces::msg::ParameterDescriptor_<std::allocator<void> >]':
-# | .../teleop_twist_joy-release-release-dashing-teleop_twist_joy-2.2.0-1/src/teleop_twist_joy.cpp:78:70:   required from here
-# | .../recipe-sysroot/usr/include/rclcpp/node_impl.hpp:257:13: error: call of overloaded 'ParameterValue(const long int&)' is ambiguous
-# |      rclcpp::ParameterValue(default_value),
-# |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RDEPENDS_${PN}_remove = "teleop-twist-joy"
+# Only builds for Intel achitectures; could build for emulator, but don't because its rootfs contents should be kept the same as
+# that of the actual device.
+RDEPENDS_${PN}_remove = "ets-plugin"
 
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
@@ -74,6 +85,11 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'gazebo-plugins', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'gazebo-ros', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'gazebo-ros-pkgs', d)}"
+
+# MRPT requires the "opengl" distro feature.
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-mrpt opengl', '', 'mrpt2', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-mrpt opengl', '', 'wxpython', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-mrpt opengl', '', 'wxwidgets', d)}"
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-realsense', '', 'librealsense2', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-realsense', '', 'realsense-camera-msgs', d)}"
