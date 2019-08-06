@@ -3,7 +3,6 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 #
 
-inherit ros_opt_prefix
 # ROS_PYTHON_VERSION is set in generated-ros-distro.inc, ie, it will never be unset here.
 inherit cmake ${@'distutils3-base' if d.getVar('ROS_PYTHON_VERSION', True) == '3' else 'distutils-base'} faulty-solibs
 
