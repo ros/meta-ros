@@ -57,12 +57,6 @@ FILES_${PN}-staticdev += "\
     ${ros_libdir}/${BPN}/*.a \
     "
 
-PACKAGES += "${PN}-commonlisp"
-
-FILES_${PN}-commonlisp += " \
-    ${datadir}/common-lisp/ \
-    "
-
 SYSROOT_DIRS_append = " \
     ${ros_includedir} \
     ${ros_libdir} \
