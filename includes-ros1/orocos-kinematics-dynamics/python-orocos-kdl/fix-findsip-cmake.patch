@@ -1,0 +1,11 @@
+--- a/cmake/FindSIP.cmake	2019-08-07 15:35:47.792823300 -0700
++++ b/cmake/FindSIP.cmake	2019-08-07 15:36:49.304778888 -0700
+@@ -44,8 +44,6 @@
+     IF(CMAKE_CROSSCOMPILING)
+       FIND_PROGRAM(SIP_EXECUTABLE sip)
+       STRING(REGEX REPLACE ".*\nsip_inc_dir:([^\n]+).*$" "\\1" SIP_INCLUDE_DIR ${sip_config})
+-      LIST(GET CMAKE_FIND_ROOT_PATH 0 SIP_SYSROOT)
+-      SET(SIP_INCLUDE_DIR "${SIP_SYSROOT}${SIP_INCLUDE_DIR}")
+     ELSE(CMAKE_CROSSCOMPILING)
+       STRING(REGEX REPLACE ".*\nsip_bin:([^\n]+).*$" "\\1" SIP_EXECUTABLE ${sip_config})
+       STRING(REGEX REPLACE ".*\nsip_inc_dir:([^\n]+).*$" "\\1" SIP_INCLUDE_DIR ${sip_config})
