@@ -13,9 +13,19 @@ RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 RDEPENDS_${PN}_remove = "${@ '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT}' if 'qt5-layer' not in BBFILE_COLLECTIONS.split() else '' }"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT = " \
+    dataspeed-pds-rqt \
+    multimaster-fkie \
+    node-manager-fkie \
+    python-qt-binding \
+    qt-dotgraph \
+    qt-gui-core \
+    qt-gui-py-common \
+    rqt-action \
     rqt-bag \
+    rqt-common-plugins \
     rqt-console \
     rqt-dep \
+    rqt-ez-publisher \
     rqt-graph \
     rqt-launch \
     rqt-logger-level \
@@ -25,16 +35,19 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT = " \
     rqt-plot \
     rqt-pose-view \
     rqt-publisher \
+    rqt-py-common \
     rqt-py-console \
+    rqt-py-trees \
     rqt-reconfigure \
     rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
     rqt-runtime-monitor \
+    rqt-service-caller \
     rqt-shell \
     rqt-tf-tree \
-    rqt-topic \
     rqt-top \
+    rqt-topic \
     rqt-web \
     rviz \
 "
