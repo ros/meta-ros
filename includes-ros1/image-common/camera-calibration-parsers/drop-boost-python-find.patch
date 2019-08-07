@@ -1,0 +1,14 @@
+--- a/CMakeLists.txt	2019-08-07 16:48:32.926016344 -0700
++++ b/CMakeLists.txt	2019-08-07 16:48:50.193994684 -0700
+@@ -5,9 +5,9 @@
+ 
+ find_package(PythonLibs REQUIRED)
+ if(PYTHONLIBS_VERSION_STRING VERSION_LESS 3)
+-  find_package(Boost REQUIRED COMPONENTS filesystem python)
++  find_package(Boost REQUIRED COMPONENTS filesystem)
+ else()
+-  find_package(Boost REQUIRED COMPONENTS filesystem python3)
++  find_package(Boost REQUIRED COMPONENTS filesystem)
+ endif()
+ include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
+ 
