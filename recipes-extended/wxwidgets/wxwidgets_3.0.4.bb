@@ -4,7 +4,9 @@ HOMEPAGE = "http://www.wxwidgets.org"
 LICENSE = "WXwindows"
 LIC_FILES_CHKSUM = "file://docs/licence.txt;md5=18346072db6eb834b6edbd2cdc4f109b"
 
-DEPENDS = "webkitgtk gstreamer1.0 jpeg tiff libpng zlib expat libxinerama libglu"
+# XXX Set up PACKAGECONFIG
+DEPENDS = "gtk+3 jpeg tiff libpng zlib expat libglu"
+#DEPENDS = "webkitgtk gstreamer1.0 jpeg tiff libpng zlib expat libxinerama libglu"
 
 SRC_URI = "https://github.com/wxWidgets/wxWidgets/releases/download/v${PV}/wxWidgets-${PV}.tar.bz2"
 SRC_URI[md5sum] = "b0035731777acc5597cea8982da10317"
@@ -17,8 +19,8 @@ inherit autotools-brokensep pkgconfig binconfig
 EXTRA_AUTORECONF = " -I ${S}/build/aclocal"
 EXTRA_OECONF = "  --with-opengl \
                  --without-sdl \
-                 --enable-mediactrl=yes \
-                 --enable-webviewwebkit=yes \
+                 --enable-mediactrl=no \
+                 --enable-webviewwebkit=no \
                  --disable-gpe \
                  --disable-visibility \
                  --disable-rpath \
