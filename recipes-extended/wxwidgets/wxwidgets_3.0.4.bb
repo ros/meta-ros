@@ -24,6 +24,7 @@ EXTRA_OECONF = "  --with-opengl \
                  --disable-rpath \
                "
 
+
 CXXFLAGS := "${@oe.utils.str_filter_out('-fvisibility-inlines-hidden', '${CXXFLAGS}', d)}"
 CXXFLAGS += "-std=gnu++11"
 
@@ -32,11 +33,8 @@ do_configure() {
 	oe_runconf
 }
 
-# wx-config contains entries like this:
-# this_prefix=`check_dirname "/build/v2013.06/build/tmp-angstrom_v2013_06-eglibc/work/cortexa8hf-vfp-neon-angstrom-linux-gnueabi/wxwidgets/2.9.5-r0/wxWidgets-2.9.5"`
-do_install_prepend() {
-	sed -i -e s:${S}:${STAGING_DIR_HOST}${prefix}:g ${S}/wx-config
-}
+# wx-config is a symlink to a file that starts with TARGET_PREFIX (and is under ${libdir}/wx/config/).
+SSTATE_SCAN_FILES += "${TARGET_PREFIX}*"
 
 SYSROOT_PREPROCESS_FUNCS += "wxwidgets_sysroot_preprocess"
 wxwidgets_sysroot_preprocess () {
