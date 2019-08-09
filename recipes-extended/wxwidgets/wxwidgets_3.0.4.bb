@@ -4,7 +4,7 @@ HOMEPAGE = "http://www.wxwidgets.org"
 LICENSE = "WXwindows"
 LIC_FILES_CHKSUM = "file://docs/licence.txt;md5=18346072db6eb834b6edbd2cdc4f109b"
 
-DEPENDS = "webkit-gtk gstreamer gtk+ jpeg tiff libpng zlib expat libxinerama libglu"
+DEPENDS = "webkitgtk gstreamer1.0 jpeg tiff libpng zlib expat libxinerama libglu"
 
 SRC_URI = "https://github.com/wxWidgets/wxWidgets/releases/download/v${PV}/wxWidgets-${PV}.tar.bz2"
 SRC_URI[md5sum] = "b0035731777acc5597cea8982da10317"
