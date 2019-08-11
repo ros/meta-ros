@@ -56,6 +56,7 @@ SYSROOT_PREPROCESS_FUNCS += "wxwidgets_sysroot_preprocess"
 wxwidgets_sysroot_preprocess () {
     sed -i -e 's,includedir="/usr/include",includedir="${STAGING_INCDIR}",g' ${SYSROOT_DESTDIR}${libdir}/wx/config/${TARGET_PREFIX}*
     sed -i -e 's,libdir="/usr/lib",libdir="${STAGING_LIBDIR}",g' ${SYSROOT_DESTDIR}${libdir}/wx/config/${TARGET_PREFIX}*
+    sed -i -e 's,bindir="/usr/bin",bindir="${STAGING_BINDIR}",g' ${SYSROOT_DESTDIR}${libdir}/wx/config/${TARGET_PREFIX}*
 }
 
 FILES_${PN} += "${bindir} ${libdir}/wx/config"
