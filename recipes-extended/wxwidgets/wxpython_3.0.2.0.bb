@@ -14,7 +14,6 @@ S = "${WORKDIR}/wxPython-src-${PV}/wxPython"
 
 inherit pkgconfig pythonnative python-dir distutils
 
-CFLAGS += "-I${STAGING_INCDIR}/wx-3.0/ -I${STAGING_LIBDIR}/wx/include/${TARGET_PREFIX}gtk3-unicode-3.0/"
 CFLAGS += "-std=gnu++11"
 
 # Enable output on stdout for buildpaths
