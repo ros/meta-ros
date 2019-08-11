@@ -20,6 +20,8 @@ CFLAGS += "-std=gnu++11"
 # Enable output on stdout for buildpaths
 export WXDEBUG = "findprogress"
 
+DISTUTILS_BUILD_ARGS = "WX_CONFIG=${RECIPE_SYSROOT}${libdir}/wx/config/wx-config"
+
 # remove -L/usr/X11R6/lib hardcodes
 do_configure_prepend() {
 	sed -i -e s:/usr/X11R6/lib::g ${S}/config.py
