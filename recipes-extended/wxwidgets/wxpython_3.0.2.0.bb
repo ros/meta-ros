@@ -34,3 +34,5 @@ do_iinstall_append() {
     cp -a ${D}${STAGING_DIR_HOST}/* ${D}
     rm -rf ${D}${STAGING_DIR}
 }
+
+PNBLACKLIST[wxpython] = "Doesn't build: 'ld: cannot find -lwx_gtk3u_xrc-3.0'"
