@@ -33,13 +33,29 @@ do_configure() {
 	oe_runconf
 }
 
+# Users of wxwidgets will want to execute what the symlink wx-config points to, but it's installed under ${bindir}, which
+# isn't included in the sysroot (because it contains wxrc, a cross-compiled executable). So instead, place it under
+# ${libdir}/wx/config and require that users of wxwidgets cause it to be invoked by adding passing
+# "WX_CONFIG=${RECIPE_SYSROOT}${libdir}/wx/config/wx-config" when configuring.
+do_install_append() {
+    rm -f ${D}${bindir}/wx-config
+    # There's only one file under ${libdir}/wx/config/, and its name starts with ${TARGET_PREFIX}
+    if [ -d ${D}${libdir}/wx/config/ ]; then
+        cd ${D}${libdir}/wx/config/
+        ln -snf ${TARGET_PREFIX}* wx-config
+        cd - > /dev/null
+    else
+        true
+    fi
+}
+
 # wx-config is a symlink to a file that starts with TARGET_PREFIX (and is under ${libdir}/wx/config/).
 SSTATE_SCAN_FILES += "${TARGET_PREFIX}*"
 
 SYSROOT_PREPROCESS_FUNCS += "wxwidgets_sysroot_preprocess"
 wxwidgets_sysroot_preprocess () {
-    sed -i -e 's,includedir="/usr/include",includedir="${STAGING_INCDIR}",g' ${SYSROOT_DESTDIR}${libdir}/wx/config/*
-    sed -i -e 's,libdir="/usr/lib",libdir="${STAGING_LIBDIR}",g' ${SYSROOT_DESTDIR}${libdir}/wx/config/*
+    sed -i -e 's,includedir="/usr/include",includedir="${STAGING_INCDIR}",g' ${SYSROOT_DESTDIR}${libdir}/wx/config/${TARGET_PREFIX}*
+    sed -i -e 's,libdir="/usr/lib",libdir="${STAGING_LIBDIR}",g' ${SYSROOT_DESTDIR}${libdir}/wx/config/${TARGET_PREFIX}*
 }
 
 FILES_${PN} += "${bindir} ${libdir}/wx/config"
