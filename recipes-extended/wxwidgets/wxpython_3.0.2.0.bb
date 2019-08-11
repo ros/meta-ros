@@ -21,6 +21,8 @@ CFLAGS += "-std=gnu++11"
 export WXDEBUG = "findprogress"
 
 DISTUTILS_BUILD_ARGS = "WX_CONFIG=${RECIPE_SYSROOT}${libdir}/wx/config/wx-config"
+# Needed otherwise GTK include paths aren't added to CFLAGS.
+DISTUTILS_BUILD_ARGS += "WXPORT=gtk3"
 
 # remove -L/usr/X11R6/lib hardcodes
 do_configure_prepend() {
