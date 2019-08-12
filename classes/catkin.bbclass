@@ -6,18 +6,6 @@
 # ROS_PYTHON_VERSION is set in generated-ros-distro.inc, ie, it will never be unset here.
 inherit cmake ${@'distutils3-base' if d.getVar('ROS_PYTHON_VERSION', True) == '3' else 'distutils-base'} faulty-solibs
 
-# Prepend build dependency on "catkin-runtime" and "catkin-native"
-# if the package is not "catkin" or "catkin-runtime"
-DEPENDS =+ "${@'' if d.getVar('BPN', True) in ('catkin', 'catkin-runtime') else 'catkin-runtime catkin-native'}"
-
-# Prepend run dependency on "catkin-runtime" for base packages
-# if the package is not "catkin" or "catkin-runtime"
-RDEPENDS_${PN} =+ "${@'' if d.getVar('BPN', True) in ('catkin', 'catkin-runtime') else 'catkin-runtime'}"
-
-# Prepend run dependency on "catkin" for dev packages
-# if the package is not "catkin" or "catkin-runtime"
-RDEPENDS_${PN}-dev =+ "${@'' if d.getVar('BPN', True) in ('catkin', 'catkin-runtime') else 'catkin'}"
-
 EXTRA_OECMAKE_CATKIN = "\
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}${ros_prefix};${STAGING_DIR_HOST}${prefix};${STAGING_DIR_NATIVE}${ros_prefix};${STAGING_DIR_NATIVE}${prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \

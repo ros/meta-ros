@@ -9,7 +9,6 @@ RDEPENDS_${PN} = "\
     rosconsole \
     rosparam \
     catkin \
-    catkin-runtime \
     genmsg \
     rosgraph \
     genpy \
