@@ -14,7 +14,7 @@ SRC_URI[sha256sum] = "cf914f85b32cf8b63879907726df64e50da33f00d538759d789fe10fc5
 
 S = "${WORKDIR}/fcl-${PV}"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 
 SRC_URI += "file://LICENSE;subdir=fcl-${PV}"
 
