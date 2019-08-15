@@ -25,11 +25,3 @@ EXTRA_OECMAKE_prepend = "\
     -DSETUPTOOLS_DEB_LAYOUT=OFF \
     -DCATKIN_ENABLE_TESTING=0 \
     "
-
-# Having a command like `find_package(catkin COMPONENTS roscpp)` in a package's CMakeLists.txt
-# leads to adding "-Wl,-rpath=${RECIPE_SYSROOT}${ros_libdir}" option to the cross-linker.
-# However starting from binutils 2.29 the cross-linker prepends this path with the value
-# of --sysroot option thus producing wrong effective path (see https://sourceware.org/ml/binutils/2017-03/msg00161.html)
-# These options help to aleviate the problem.
-OECMAKE_C_LINK_FLAGS += "-Wl,-rpath-link=${RECIPE_SYSROOT}${ros_libdir}"
-OECMAKE_CXX_LINK_FLAGS += "-Wl,-rpath-link=${RECIPE_SYSROOT}${ros_libdir}"
