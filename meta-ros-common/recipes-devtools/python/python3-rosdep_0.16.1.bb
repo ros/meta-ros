@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/python-rosdep:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 
 require python-rosdep.inc
 
