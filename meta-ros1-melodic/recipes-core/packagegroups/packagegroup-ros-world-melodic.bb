@@ -13,13 +13,37 @@ RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 RDEPENDS_${PN}_remove = "${@ '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT}' if 'qt5-layer' not in BBFILE_COLLECTIONS.split() else '' }"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT = " \
+    agni-tf-tools \
+    cartographer-rviz \
     dataspeed-pds-rqt \
+    distance-map-rviz \
+    dynamixel-workbench-single-manager-gui \
+    find-object-2d \
+    fkie-potree-rviz-plugin \
+    grid-map-rviz-plugin \
+    jsk-pcl-ros \
+    jsk-recognition-utils \
+    libqt-core \
+    libqt-gui \
+    libqt-opengl \
+    libqt-rosdev \
+    libqt-widgets \
+    librviz-tutorial \
+    moveit-ros-visualization \
+    moveit-setup-assistant \
+    mrpt-bridge \
     multimaster-fkie \
     node-manager-fkie \
+    octomap-rviz-plugins \
+    open-manipulator-control-gui \
+    plotjuggler \
     python-qt-binding \
     qt-dotgraph \
+    qt-gui \
     qt-gui-core \
+    qt-gui-cpp \
     qt-gui-py-common \
+    qt-qmake \
     rqt-action \
     rqt-bag \
     rqt-common-plugins \
@@ -27,10 +51,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT = " \
     rqt-dep \
     rqt-ez-publisher \
     rqt-graph \
+    rqt-gui-cpp \
+    rqt-image-view \
     rqt-launch \
     rqt-logger-level \
     rqt-moveit \
     rqt-msg \
+    rqt-multiplot \
     rqt-nav-view \
     rqt-plot \
     rqt-pose-view \
@@ -42,7 +69,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT = " \
     rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
+    rqt-rosmon \
     rqt-runtime-monitor \
+    rqt-rviz \
     rqt-service-caller \
     rqt-shell \
     rqt-tf-tree \
@@ -50,6 +79,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT = " \
     rqt-topic \
     rqt-web \
     rviz \
+    rviz-imu-plugin \
+    rviz-plugin-tutorials \
+    swri-console \
+    trajectory-tracker-rviz-plugins \
+    turtlesim \
 "
 
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
