@@ -6,17 +6,15 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=5823baab4b8de52197d0fb775e8fd4b7"
 # Octomap dependency not included as it is optional.
 DEPENDS = "boost libccd"
 
-SRC_URI = "https://github.com/flexible-collision-library/fcl/archive/${PV}.tar.gz;downloadfilename=${BP}.tar.gz \
-           file://0001-Add-configure-option-NO_DEFAULT_RPATH.patch \
-          "
-SRC_URI[md5sum] = "b12246df3f4e1d0768ce1e46a52900ff"
-SRC_URI[sha256sum] = "cf914f85b32cf8b63879907726df64e50da33f00d538759d789fe10fc5fbc95b"
+SRCREV = "49a6edfa058773b428cdf69831f4d3ea6ea69cb0"
+ROS_BRANCH ?= "branch=master"
+SRC_URI = " \
+    git://github.com/flexible-collision-library/fcl;${ROS_BRANCH};protocol=https \
+    file://0001-Add-configure-option-NO_DEFAULT_RPATH.patch \
+    file://LICENSE;subdir=git \
+"
 
-S = "${WORKDIR}/fcl-${PV}"
-
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-
-SRC_URI += "file://LICENSE;subdir=fcl-${PV}"
+S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release -DNO_DEFAULT_RPATH=OFF"
 FILES_${PN} += "${libdir}/libfcl.so"
