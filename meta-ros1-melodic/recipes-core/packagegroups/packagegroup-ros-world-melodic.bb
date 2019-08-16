@@ -13,47 +13,125 @@ RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 RDEPENDS_${PN}_remove = "${@ '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT}' if 'qt5-layer' not in BBFILE_COLLECTIONS.split() else '' }"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT = " \
+    adi-driver \
     agni-tf-tools \
+    ainstein-radar \
+    ainstein-radar-rviz-plugins \
+    asmach-tutorials \
     cartographer-rviz \
+    cis-camera \
+    cob-command-tools \
+    cob-dashboard \
+    cob-manipulation \
+    common-tutorials \
     dataspeed-pds-rqt \
+    desktop \
+    desktop-full \
+    distance-map \
     distance-map-rviz \
+    dynamixel-workbench \
     dynamixel-workbench-single-manager-gui \
+    fetch-gazebo-demo \
+    fetch-simulation \
     find-object-2d \
     fkie-potree-rviz-plugin \
+    fmi-adapter-examples \
+    franka-example-controllers \
+    franka-ros \
+    fsrobo-r \
+    fsrobo-r-bringup \
+    fsrobo-r-moveit-config \
+    geometry-tutorials \
+    gl-dependency \
+    grid-map \
+    grid-map-demos \
     grid-map-rviz-plugin \
+    husky-desktop \
+    husky-viz \
+    imagesift \
+    imu-tools \
+    jackal-desktop \
+    jackal-viz \
+    jsk-common \
+    jsk-data \
+    jsk-interactive \
+    jsk-interactive-marker \
+    jsk-interactive-test \
     jsk-pcl-ros \
+    jsk-pcl-ros-utils \
+    jsk-perception \
+    jsk-recognition \
     jsk-recognition-utils \
+    jsk-rqt-plugins \
+    jsk-rviz-plugins \
+    jsk-tools \
+    jsk-visualization \
     libqt-core \
     libqt-gui \
     libqt-opengl \
     libqt-rosdev \
     libqt-widgets \
     librviz-tutorial \
+    linux-networking \
+    mapviz \
+    mapviz-plugins \
+    mir-gazebo \
+    mir-robot \
+    moveit \
+    moveit-ros \
     moveit-ros-visualization \
     moveit-setup-assistant \
     mrpt-bridge \
+    multi-map-server \
     multimaster-fkie \
+    multires-image \
+    neonavigation \
+    neonavigation-launch \
+    neonavigation-rviz-plugins \
     node-manager-fkie \
     octomap-rviz-plugins \
+    open-manipulator \
     open-manipulator-control-gui \
+    open-manipulator-with-tb3 \
+    panda-moveit-config \
+    pilz-robots \
     plotjuggler \
+    pr2eus-tutorials \
+    prbt-gazebo \
+    prbt-grippers \
+    prbt-moveit-config \
+    prbt-pg70-support \
     python-qt-binding \
     qt-dotgraph \
     qt-gui \
+    qt-gui-app \
     qt-gui-core \
     qt-gui-cpp \
     qt-gui-py-common \
     qt-qmake \
+    ridgeback-desktop \
+    ridgeback-viz \
+    ros-controllers \
+    ros-tutorials \
+    rosbag-editor \
+    rosmon \
+    rqt \
     rqt-action \
     rqt-bag \
+    rqt-bag-plugins \
     rqt-common-plugins \
     rqt-console \
+    rqt-controller-manager \
     rqt-dep \
     rqt-ez-publisher \
     rqt-graph \
+    rqt-gui \
     rqt-gui-cpp \
+    rqt-gui-py \
     rqt-image-view \
+    rqt-joint-trajectory-controller \
     rqt-launch \
+    rqt-launchtree \
     rqt-logger-level \
     rqt-moveit \
     rqt-msg \
@@ -68,22 +146,49 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT = " \
     rqt-reconfigure \
     rqt-robot-dashboard \
     rqt-robot-monitor \
+    rqt-robot-plugins \
     rqt-robot-steering \
     rqt-rosmon \
+    rqt-rotors \
     rqt-runtime-monitor \
     rqt-rviz \
     rqt-service-caller \
     rqt-shell \
+    rqt-srv \
     rqt-tf-tree \
     rqt-top \
     rqt-topic \
     rqt-web \
+    rtabmap-ros \
     rviz \
     rviz-imu-plugin \
     rviz-plugin-tutorials \
+    rviz-python-tutorial \
+    rviz-visual-tools \
+    seed-r7-bringup \
+    seed-r7-moveit-config \
+    seed-r7-ros-pkg \
+    seed-r7-samples \
+    seed-r7-typef-moveit-config \
+    sick-safetyscanners \
+    slam-toolbox \
     swri-console \
+    swri-profiler-tools \
+    tile-map \
+    towr-ros \
     trajectory-tracker-rviz-plugins \
+    turtle-actionlib \
+    turtle-tf \
+    turtle-tf2 \
     turtlesim \
+    turtlesim-dash-tutorial \
+    urdf-sim-tutorial \
+    urdf-tutorial \
+    visualization-tutorials \
+    viz \
+    warthog-desktop \
+    warthog-viz \
+    webkit-dependency \
 "
 
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
@@ -123,168 +228,6 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commer
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'audio-common', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'audio-play', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'sound-play', d)}"
-
-# Depends on qtbase
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'agni-tf-tools', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'asmach-tutorials', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'ainstein-radar-rviz-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'cartographer-rviz', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'common-tutorials', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'cob-dashboard', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'distance-map-rviz', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'dynamixel-workbench', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'dynamixel-workbench-single-manager-gui', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'find-object-2d', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'fkie-potree-rviz-plugin', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'geometry-tutorials', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'grid-map', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'grid-map-demos', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'grid-map-rviz-plugin', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'husky-desktop', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'husky-viz', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'imu-tools', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'jsk-recognition-utils', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'libqt-core', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'libqt-gui', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'libqt-opengl', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'libqt-rosdev', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'libqt-widgets', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'librviz-tutorial', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'moveit-ros-visualization', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'moveit-setup-assistant', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'mrpt-bridge', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'neonavigation', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'neonavigation-launch', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'neonavigation-rviz-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'octomap-rviz-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'open-manipulator-control-gui', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'plotjuggler', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'python-qt-binding', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'qt-gui', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'qt-gui-cpp', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'qt-gui-app', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'qt-qmake', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rosbag-editor', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'ros-tutorials', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-action', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-bag', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-console', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-controller-manager', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'ros-controllers', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-ez-publisher', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-gui', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-gui-cpp', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-gui-py', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-image-view', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-joint-trajectory-controller', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-launch', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-launchtree', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-logger-level', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-moveit', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-msg', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-multiplot', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-nav-view', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-py-common', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-py-console', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-publisher', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-reconfigure', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-robot-dashboard', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-robot-monitor', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-robot-steering', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-rosmon', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-rotors', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-runtime-monitor', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-rviz', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-service-caller', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-shell', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-srv', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-top', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-topic', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rviz-imu-plugin', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rviz-plugin-tutorials', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'sick-safetyscanners', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'slam-toolbox', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'swri-console', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'swri-profiler-tools', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'trajectory-tracker-rviz-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'turtle-actionlib', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'turtle-tf', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'turtle-tf2', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'turtlesim', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'turtlesim-dash-tutorial', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'urdf-sim-tutorial', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'visualization-tutorials', d)}"
-
-# Depends on qt-qmake-native->qtbase-native
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'mapviz-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'mapviz', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'multires-image', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'tile-map', d)}"
-
-# Depends on python-qt-binding
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'agni-tf-tools', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'ainstein-radar-rviz-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'cartographer-rviz', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'dataspeed-pds-rqt', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'distance-map-rviz', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'dynamixel-workbench-single-manager-gui', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'find-object-2d', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'fkie-potree-rviz-plugin', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'grid-map-rviz-plugin', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'jsk-recognition-utils', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'libqt-core', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'libqt-gui', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'libqt-opengl', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'libqt-rosdev', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'libqt-widgets', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'librviz-tutorial', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'moveit-ros-visualization', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'moveit-setup-assistant', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'mrpt-bridge', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'node-manager-fkie', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'octomap-rviz-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'open-manipulator-control-gui', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'plotjuggler', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'python-qt-binding', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'qt-gui', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'qt-gui-cpp', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'qt-qmake', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rosbag-editor', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-bag', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-console', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-dep', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-graph', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-gui-cpp', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-image-view', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-launch', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-logger-level', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-moveit', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-msg', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-multiplot', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-nav-view', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-plot', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-pose-view', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-publisher', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-py-common', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-py-console', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-robot-dashboard', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-robot-monitor', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-rosmon', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-runtime-monitor', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-rviz', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-shell', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-tf-tree', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-top', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-topic', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rqt-web', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rviz-imu-plugin', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'rviz-plugin-tutorials', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'slam-toolbox', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'swri-console', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'swri-profiler-tools', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'trajectory-tracker-rviz-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'turtlesim', d)}"
 
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'ainstein-radar-gazebo-plugins', d)}"
