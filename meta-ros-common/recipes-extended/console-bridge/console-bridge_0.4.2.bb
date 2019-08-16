@@ -14,11 +14,11 @@ ROS_BPN = "console_bridge"
 ROS_SPN = "${ROS_BPN}"
 ROS_SP = "${ROS_BPN}-${PV}"
 
-SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "12e9a6b876ef160fc4a705003790ede0"
-SRC_URI[sha256sum] = "f44641bed7268d72354476c8c5ff936f0e600e4170e1ff7f61a4b6e1f3fc20ff"
+SRCREV = "99b8780ee40f0c9702555823bf45126a5eb4f865"
+ROS_BRANCH ?= "branch=master"
+SRC_URI = "git://github.com/ros/console_bridge;${ROS_BRANCH};protocol=https"
 
-S = "${WORKDIR}/${ROS_SP}"
+S = "${WORKDIR}/git"
 
 inherit cmake
 
