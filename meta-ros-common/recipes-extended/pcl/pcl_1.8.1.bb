@@ -5,14 +5,15 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5b8a2a1aa14e6de44b4273134946a34c"
 
 DEPENDS = "boost libflann libeigen qhull"
 
-SRC_URI = "https://github.com/PointCloudLibrary/${PN}/archive/${P}.tar.gz"
-SRC_URI[md5sum] = "436704215670bb869ca742af48c749a9"
-SRC_URI[sha256sum] = "5a102a2fbe2ba77c775bf92c4a5d2e3d8170be53a68c3a76cfc72434ff7b9783"
+SRCREV = "39732f5a7c8455ed51fd0f6278d8b25322a68dd9"
+# pcl-1.8.1 tag isn't in any branch
+ROS_BRANCH ?= "nobranch=1"
+SRC_URI = "git://github.com/PointCloudLibrary/pcl;${ROS_BRANCH};protocol=https"
+
+S = "${WORKDIR}/git"
 
 #SRC_URI += "file://0001-make-the-pcl-library-compile-with-gcc6.patch"
 SRC_URI += "file://0001-Dereference-shared_ptr-fix-for-GCC8.patch"
-
-S = "${WORKDIR}/pcl-${P}"
 
 EXTRA_OECMAKE += "\
   -DCMAKE_SKIP_RPATH=ON \
