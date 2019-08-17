@@ -1,4 +1,4 @@
-bitbake_target: core-image-ros-world
+bitbake_target: ros-image-world
 configuration_name: latest
 bitbake_ref: master
 oecore_ref: master
