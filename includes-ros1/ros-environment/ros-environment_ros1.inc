@@ -2,7 +2,7 @@
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/ros-environment-ros1:"
 SRC_URI_append = " \
-    file://add-os-override.patch \
+    file://add-vars.patch \
 "
 
 do_configure_prepend_class-target() {
