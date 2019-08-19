@@ -13,3 +13,7 @@ PROVIDES += "${IMAGE_BASENAME}"
 IMAGE_INSTALL_append_rpi = " \
     ${MACHINE_EXTRA_RRECOMMENDS} \
 "
+
+# XXX (add description)
+IMAGE_FEATURES[validitems] += "ros-implicit-workspace"
+COMPLEMENTARY_GLOB[ros-implicit-workspace] = "*-implicitworkspace"
