@@ -1,0 +1,53 @@
+From 1195cd30e0e2dc0df3a4e4684fbff51bafce71fa Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 22 Aug 2019 18:31:42 +0000
+Subject: [PATCH] CMakeLists.txt: Use FindPython2 instead of deprecated
+ FindPythonLibs
+
+* Deprecated since version 3.12: Use FindPython3, FindPython2 or FindPython instead.
+* drop build3/cmake/ files which don't seem to be needed
+---
+ CMakeLists.txt                   | 6 ++----
+ examples/pybullet/CMakeLists.txt | 2 +-
+ 2 files changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f0e62d396..0eb1fb62e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -312,9 +312,7 @@ IF(EXACT_PYTHON_VERSION)
+   set(EXACT_PYTHON_VERSION_FLAG EXACT REQUIRED)
+ ENDIF(EXACT_PYTHON_VERSION)
+ # first find the python interpreter
+-FIND_PACKAGE(PythonInterp ${PYTHON_VERSION_PYBULLET} ${EXACT_PYTHON_VERSION_FLAG})
+-# python library should exactly match that of the interpreter
+-FIND_PACKAGE(PythonLibs ${PYTHON_VERSION_STRING} EXACT)
++FIND_PACKAGE(Python2 COMPONENTS Interpreter Development)
+ SET(DEFAULT_BUILD_PYBULLET OFF)
+ IF(PYTHONLIBS_FOUND)
+ 	SET(DEFAULT_BUILD_PYBULLET ON)
+@@ -326,7 +324,7 @@ OPTION(BUILD_CLSOCKET "Set when you want to build apps with enet TCP networking
+ 
+ 
+ IF(BUILD_PYBULLET)
+-	FIND_PACKAGE(PythonLibs)
++	FIND_PACKAGE(Python2 COMPONENTS Interpreter Development)
+ 
+ 	OPTION(BUILD_PYBULLET_NUMPY "Set when you want to build pybullet with NumPy support" OFF)
+ 	OPTION(BUILD_PYBULLET_ENET "Set when you want to build pybullet with enet UDP networking support" ON)
+diff --git a/examples/pybullet/CMakeLists.txt b/examples/pybullet/CMakeLists.txt
+index 7ca72805b..cd7b3e379 100644
+--- a/examples/pybullet/CMakeLists.txt
++++ b/examples/pybullet/CMakeLists.txt
+@@ -5,7 +5,7 @@ INCLUDE_DIRECTORIES(
+ 		${BULLET_PHYSICS_SOURCE_DIR}/examples/ThirdPartyLibs
+ 		${BULLET_PHYSICS_SOURCE_DIR}/examples/ThirdPartyLibs/enet/include
+                 ${BULLET_PHYSICS_SOURCE_DIR}/examples/ThirdPartyLibs/clsocket/src
+-		${PYTHON_INCLUDE_DIRS}
++		${Python2_INCLUDE_DIRS}
+   )
+ IF(BUILD_PYBULLET_NUMPY)
+ 	INCLUDE_DIRECTORIES(
+-- 
+2.17.1
+
