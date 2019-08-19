@@ -5,4 +5,6 @@
 inherit ${ROS_DISTRO_TYPE}_distro
 
 # If not using Qt, drop all RDEPENDS on "python-qt-binding".
-ROS_EXEC_DEPENDS_remove = "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'python-qt-binding', d)}"
+#ROS_EXEC_DEPENDS_remove = "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'python-qt-binding', d)}"
+# XXX TEMP until "python-qt-binding" builds
+ROS_EXEC_DEPENDS_remove = "python-qt-binding"
