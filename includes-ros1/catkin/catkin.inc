@@ -29,7 +29,6 @@ CATKIN_PREFIX_ROOT_FILES = " \
 
 FILES_${PN}_prepend = "${CATKIN_PREFIX_ROOT_FILES} "
 
-
 SSTATE_SCAN_FILES_append = " _setup_util.py"
 # Must do this to include CATKIN_PREFIX_ROOT_FILES. It might add "extra" files to what's staged, but who cares?
 SYSROOT_DIRS_append = " ${ros_prefix}"
@@ -37,4 +36,14 @@ SYSROOT_DIRS_append = " ${ros_prefix}"
 # XXX Why doesn't SSTATE_SCAN_FILES fix this up?
 do_install_append_class-target() {
     sed -i -e 's@${RECIPE_SYSROOT}/@/@g' ${D}${ros_prefix}/_setup_util.py
+
+    mkdir -p ${D}${sysconfdir}/profile.d
+    echo ". ${ros_prefix}/setup.sh" > ${D}${sysconfdir}/profile.d/ros.sh
 }
+
+# NB. COMPLEMENTARY_GLOB[ros-implicit-workspace] = "*-implicitworkspace"
+PACKAGES =+ "${PN}-implicitworkspace"
+
+FILES_${PN}-implicitworkspace = " \
+    ${sysconfdir}/profile.d/ros.sh \
+"
