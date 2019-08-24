@@ -40,6 +40,10 @@ RPI_KERNEL_DEVICETREE_append_rpi = " \
     bcm2710-rpi-3-b-plus.dtb \
 "
 
+# webos-rpi.inc _removes "kernel-modules" from MACHINE_EXTRA_RRECOMMENDS, and _remove happens last, so we can't add it back to
+# MACHINE_EXTRA_RRECOMMENDS.
+IMAGE_INSTALL_append_rpi = " kernel-modules"
+
 # Undo blacklisting
 PNBLACKLIST[libfreenect] ?= ""
 PNBLACKLIST[freenect-camera] ?= ""
