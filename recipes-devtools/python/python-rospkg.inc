@@ -10,6 +10,6 @@ SRC_URI[sha256sum] = "735edfb831525e85d02e015bcefd277252fc018ead857dce4889fc60f5
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-RDEPENDS_${PN} += "${PYTHON_PN}-xml"
+RDEPENDS_${PN} += "${PYTHON_PN}-xml ${PYTHON_PN}-rosdep"
 
 BBCLASSEXTEND = "native"
