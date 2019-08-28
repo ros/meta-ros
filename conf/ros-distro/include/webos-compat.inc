@@ -14,6 +14,12 @@ do_install_prepend_pn-ntp() {
     sed -i -e  '/time.server.example.com/ s/^.*$/server time.google.com iburst prefer/' ${WORKDIR}/ntp.conf
 }
 
+# Remove AMENT_PREFIX_PATH from the default environment of webOS OSE. We add it and the others to the environment via
+# ros_setup.sh .
+do_configure_prepend_pn-webos-initscripts() {
+    sed -i -e '/ROS2 settings/ d' -e '/AMENT_PREFIX_PATH/ d' ${S}/files/systemd/environments/30-webos-global.conf.in
+}
+
 # We need to revert changes from
 #
 # commit 49720e6d680d0041850c00ce6dc859d557825595
