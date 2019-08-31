@@ -8,15 +8,15 @@ ROS_BPN = "${@d.getVar('BPN', True).replace('-', '_')}"
 ROS_SPN ?= "${ROS_BPN}"
 ROS_SP = "${ROS_SPN}-${PV}"
 
-export ros_prefix = "${base_prefix}/opt/ros/${ROS_DISTRO}"
+ros_prefix = "${base_prefix}/opt/ros/${ROS_DISTRO}"
 
-export ros_bindir = "${ros_prefix}/bin"
-export ros_libdir = "${ros_prefix}/${baselib}"
-export ros_libexecdir = "${ros_libdir}/${ROS_BPN}"
-export ros_includedir = "${ros_prefix}/include"
-export ros_datadir = "${ros_prefix}/share"
-export ros_sysconfdir = "${ros_prefix}/etc"
-export ros_stacksdir = "${ros_prefix}/stacks"
+ros_bindir = "${ros_prefix}/bin"
+ros_libdir = "${ros_prefix}/${baselib}"
+ros_libexecdir = "${ros_libdir}/${ROS_BPN}"
+ros_includedir = "${ros_prefix}/include"
+ros_datadir = "${ros_prefix}/share"
+ros_sysconfdir = "${ros_prefix}/etc"
+ros_stacksdir = "${ros_prefix}/stacks"
 
 PREPROCESS_RELOCATE_DIRS += " \
     ${ros_bindir} \
