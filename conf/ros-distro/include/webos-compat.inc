@@ -44,6 +44,9 @@ RPI_KERNEL_DEVICETREE_append_rpi = " \
 # MACHINE_EXTRA_RRECOMMENDS.
 IMAGE_INSTALL_append_rpi = " kernel-modules"
 
+# otherwise e.g. vboxguest needed by qemux86 webos-images isn't enabled and do_rootfs fails
+PREFERRED_VERSION_linux-yocto = "4.18%"
+
 # Undo blacklisting
 PNBLACKLIST[libfreenect] ?= ""
 PNBLACKLIST[freenect-camera] ?= ""
