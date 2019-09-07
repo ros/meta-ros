@@ -15,3 +15,6 @@ DEPENDS += " \
 
 # Otherwise linking with liblua.a fails with undefined references to dlsym, dlopen, dlerror, dlclose
 CXXFLAGS += "-fuse-ld=gold"
+
+# Doesn't need runtime dependency on ceres-solver
+ROS_EXEC_DEPENDS_remove = "ceres-solver"
