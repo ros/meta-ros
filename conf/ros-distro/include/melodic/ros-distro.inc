@@ -18,3 +18,6 @@ LAYERSERIES_COMPAT_ros-layer = "thud"
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 "
+
+# "lapack" needs FORTRAN support
+require conf/ros-distro/include/enable-fortran.inc
