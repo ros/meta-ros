@@ -29,3 +29,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-typesupport-fastrtps-c-native \
     uncrustify-vendor-native \
 "
+
+# XXX Temp until superflore fixed.
+ROS_BUILD_TYPE_pn-ml-classifiers = "ament_cmake"
