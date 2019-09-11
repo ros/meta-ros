@@ -38,6 +38,12 @@ ROS_WORLD_SKIP_GROUPS += "clang"
 # recipes depending on 'opengl' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'opengl', d)}"
 
+# XXX Temp until superflore fixed.
+# Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
+# because we need to set this variable before the "inherit" line in the recipe is parsed,
+# and having it in a .bbappend sets it too late.
+ROS_BUILD_TYPE_pn-fmilibrary-vendor = "ament_cmake"
+
 # Used by:
 # generated-recipes/spdlog-vendor/spdlog-vendor_1.1.1-1.bb
 # generated-recipes/rcl-logging/rcl-logging-spdlog_0.4.0-1.bb
