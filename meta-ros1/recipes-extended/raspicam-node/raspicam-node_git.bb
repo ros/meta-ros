@@ -12,7 +12,7 @@ SRCREV = "195694afee514370aaf28712e1e09c48bdaf2af7"
 SRC_URI = "git://github.com/UbiquityRobotics/raspicam_node;protocol=https;branch=kinetic"
 S = "${WORKDIR}/git"
 
-inherit ros_distro_${ROS_DISTRO}
+inherit ros1_distro
 inherit ros_component
 inherit ros_catkin
 
@@ -38,4 +38,5 @@ RDEPENDS_${PN} = "message-runtime"
 
 COMPATIBLE_MACHINE = "^rpi$"
 
-PNBLACKLIST[raspicam-node] = "${@'' if d.getVar('ROS_VERSION', True) == '1' else 'raspicam-node is ROS 1 only'}"
+# aarch64 userland doesn't provide mmal needed by raspicam-node
+COMPATIBLE_MACHINE_aarch64 = "^$"
