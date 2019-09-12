@@ -36,6 +36,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_micro-xrce-dds-agent = "microxrcedds_agent"
 ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69 = ""
 ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native = ""
 
+ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = ""
+ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = ""
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
