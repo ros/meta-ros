@@ -29,3 +29,11 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-typesupport-fastrtps-c-native \
     uncrustify-vendor-native \
 "
+
+# XXX Temp until superflore fixed.
+# Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
+# because we need to set this variable before the "inherit" line in the recipe is parsed,
+# and having it in a .bbappend sets it too late.
+ROS_BUILD_TYPE_pn-ml-classifiers = "ament_cmake"
+ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
+ROS_BUILD_TYPE_pn-sros2-cmake = "ament_cmake"
