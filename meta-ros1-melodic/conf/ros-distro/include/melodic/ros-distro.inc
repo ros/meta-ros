@@ -19,3 +19,5 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 
 # "lapack" needs FORTRAN support
 require conf/ros-distro/include/enable-fortran.inc
+
+ROS_BUILD_TYPE_pn-python-orocos-kdl = "catkin"
