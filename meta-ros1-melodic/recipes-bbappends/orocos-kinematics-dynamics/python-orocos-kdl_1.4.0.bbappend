@@ -4,8 +4,6 @@
 # https://github.com/orocos/orocos-kdl-release/issues/4
 LICENSE = "LGPL-2.1"
 
-ROS_BUILD_TYPE = "catkin"
-
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://fix-findsip-cmake.patch \
