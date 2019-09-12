@@ -17,9 +17,6 @@ ROS_DISTRO_BASELINE_PLATFORM = "ubuntu-bionic"
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 "
 
-# "lapack" needs FORTRAN support
-require conf/ros-distro/include/enable-fortran.inc
-
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
 # and having it in a .bbappend sets it too late.
