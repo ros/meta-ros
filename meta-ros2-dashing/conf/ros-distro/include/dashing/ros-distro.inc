@@ -30,6 +30,10 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     uncrustify-vendor-native \
 "
 
+# https://github.com/ADLINK-IST/opensplice
+ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69 = ""
+ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native = ""
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
