@@ -15,3 +15,9 @@ do_configure_class-native() {
 }
 
 SSTATE_SCAN_FILES_append = " *.py"
+
+# There's no way to add STRIP="" to configure.py command line in do_configure_class-native(), so just ignore the warning:
+#   WARNING: sip-native-4.19.13-r0 do_populate_sysroot:
+#     File '.../work/x86_64-linux/sip-native/4.19.13-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/PyQt5/sip.so'
+#     from sip-native was already stripped, this will prevent future debugging!
+INSANE_SKIP_${PN}_class-native += "already-stripped"
