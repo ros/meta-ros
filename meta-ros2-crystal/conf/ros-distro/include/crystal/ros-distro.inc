@@ -36,6 +36,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_micro-xrce-dds-agent = "microxrcedds_agent"
 ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69 = ""
 ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native = ""
 
+ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = ""
+ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = ""
+
 # XXX Temp until superflore fixed.
 ROS_BUILD_TYPE_pn-ml-classifiers = "ament_cmake"
 ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"

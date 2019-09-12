@@ -34,6 +34,9 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69 = ""
 ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native = ""
 
+ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = ""
+ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = ""
+
 # XXX Temp until superflore fixed.
 ROS_BUILD_TYPE_pn-fmilibrary-vendor = "ament_cmake"
 ROS_BUILD_TYPE_pn-ml-classifiers = "ament_cmake"
