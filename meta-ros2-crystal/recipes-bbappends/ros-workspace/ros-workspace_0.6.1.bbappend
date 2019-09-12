@@ -1,7 +1,5 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
-# ros-workspace is a ament dependent package but they use 'cmake' as build_type.
-ROS_BUILD_TYPE = "ament_cmake"
 ROS_BUILD_DEPENDS_remove = "ament-cmake-core"
 ROS_BUILD_DEPENDS_remove = "ament-package"
 ROS_BUILDTOOL_DEPENDS += " \

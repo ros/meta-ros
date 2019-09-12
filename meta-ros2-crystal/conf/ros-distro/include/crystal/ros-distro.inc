@@ -37,3 +37,5 @@ require conf/ros-distro/include/enable-fortran.inc
 
 # XXX Temp until superflore fixed.
 ROS_BUILD_TYPE_pn-ml-classifiers = "ament_cmake"
+ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
+ROS_BUILD_TYPE_pn-sros2-cmake = "ament_cmake"
