@@ -65,6 +65,10 @@ RDEPENDS_${PN}_remove = "ets-plugin"
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
 
+# behaviortree-cpp-v3 and behaviortree-cpp are mutually exclusive because they install files in the same locations. Unlike
+# behaviortree-cpp, nothing depends on behaviortree-cpp-v3, so exclude it.
+RDEPENDS_${PN}_remove = "behaviortree-cpp-v3"
+
 # desktop RDEPENDS on rviz packages.
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-desktop ros-rviz', '', 'desktop', d)}"
 
