@@ -33,3 +33,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 
 # The package.xml of microxrcedds-agent-cmake-module still has the old name.
 ROS_UNRESOLVED_PLATFORM_PKG_micro-xrce-dds-agent = "microxrcedds_agent"
+
+# "lapack" needs FORTRAN support
+require conf/ros-distro/include/enable-fortran.inc
