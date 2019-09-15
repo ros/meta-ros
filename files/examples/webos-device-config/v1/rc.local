@@ -1,0 +1,88 @@
+#! /bin/sh
+# webos-device-config/v1/rc.local firstboot|start
+#
+# $1 is "firstboot" when this script invoked by webos-device-config.service upon first boot. $1 is "start" when, upon subsequent
+# boots, /etc/rc.local has invoked it. Return failure when "firstboot" to prevent the copying of the script off of the USB flash
+# drive (which means /etc/rc.local won't find it).
+#
+# Copyright (c) 2019 LG Electronics, Inc.
+
+# Useful when debugging:
+# set -x
+# exec >> /var/log/legacy-log 2>> /var/log/legacy-log
+# : webos-device-config/v1/rc.local $1
+
+# Increment this when making structural changes so that it's easy to know if what's on a particular flash drive is the latest.
+SCRIPT_REVISION=1
+
+DEVICE_HOSTNAME="tb3-01"
+
+DEVICE_WIFI_SSID="TP-Link_ACF6"
+DEVICE_WIFI_PASSWORD="********"
+
+DEVICE_SET_MODEL="export TURTLEBOT3_MODEL=waffle_pi"
+
+# Set this if the device will run a ROS 1 image.
+DEVICE_ROS1_DISTRO="melodic"
+
+# If the device is running ROS 1 and will be communicating with remote ROS nodes, set this to the address DHCP gave the network
+# interface that will be used.
+DEVICE_IPV4_ADDR="192.168.0.105"
+
+# If the device is running ROS 1 and "roscore" will be run on another ROS node, set this to the value for ROS_MASTER_URI. NB. The
+# default port is 11311.
+DEVICE_MASTER_URI=""
+
+
+
+# Things to be done only upon first boot.
+do_firstboot_actions()
+{
+    # Set the hostname.
+    hostnamectl set-hostname $DEVICE_HOSTNAME
+
+    # Set up WiFi.
+    luna-send -n 1 -f luna://com.webos.service.wifi/setstate '{"state": "enabled" }'
+    # Empirically determined:
+    sleep 10
+    luna-send -n 1 -f luna://com.webos.service.wifi/connect '{"ssid": "'$DEVICE_WIFI_SSID'", "security": {"securityType": "psk", "simpleSecurity": {"passKey": "'$DEVICE_WIFI_PASSWORD'"} } }'
+
+    # Add setting up the ROS workspace to $HOME/.profile .
+    [ -w $HOME/.profile ] && sed -i -e '/^# WEBOS-DEVICE-CONFIG-BEGIN/,/^# WEBOS-DEVICE-CONFIG-END/ d' $HOME/.profile
+    cat >> $HOME/.profile <<!
+# WEBOS-DEVICE-CONFIG-BEGIN
+$DEVICE_SET_MODEL
+
+# Set up the ROS workspace, if necessary.
+if [ -n "$DEVICE_ROS1_DISTRO" -a -r /opt/ros/$DEVICE_ROS1_DISTRO/setup.sh ]; then
+    # Running under ROS 1. If the image was not built with the "ros-implicit-workspace" setting in IMAGE_FEATURES, or if it was,
+    # but different values for ROS_IP or ROS_MASTER_URI from the defaults are needed, we need to source setup.sh again.
+    [ -n "$DEVICE_IPV4_ADDR" ]  && export ROS_IP=$DEVICE_IPV4_ADDR
+    [ -n "$DEVICE_MASTER_URI" ] && export ROS_MASTER_URI=$DEVICE_MASTER_URI
+    [ -z "\$ROS_VERSION" -o -n "$DEVICE_IPV4_ADDR$DEVICE_MASTER_URI" ] && source /opt/ros/$DEVICE_ROS1_DISTRO/setup.sh || true
+else
+    # Set up the ROS 2 workspace if it hasn't been already (ie, the image was not built with the "ros-implicit-workspace" setting
+    # in IMAGE_FEATURES).
+    [ -z "\$ROS_VERSION" ] && source ros_setup.sh || true
+fi
+# WEBOS-DEVICE-CONFIG-END
+!
+}
+
+# Things to be done upon every boot.
+do_everyboot_actions()
+{
+    # Currently, there's nothing additional we want done.
+    true
+}
+
+
+if [ "$1" = "firstboot" ]; then
+    do_firstboot_actions
+    do_everyboot_actions
+    # Return success so that this file is copied and do_everyboot_actions() will be run by /etc/rc.local on subsequent boots.
+    true
+else
+    do_everyboot_actions
+    # Return to /etc/rc.local what do_everyboot_actions() returns.
+fi
