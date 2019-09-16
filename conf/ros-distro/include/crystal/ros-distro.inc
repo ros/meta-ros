@@ -30,3 +30,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-typesupport-fastrtps-c-native \
     uncrustify-vendor-native \
 "
+
+# The package.xml of microxrcedds-agent-cmake-module still has the old name.
+ROS_UNRESOLVED_PLATFORM_PKG_micro-xrce-dds-agent = "microxrcedds_agent"
