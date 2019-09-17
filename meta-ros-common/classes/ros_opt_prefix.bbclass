@@ -3,7 +3,7 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 #
 
-ros_prefix = "${base_prefix}/opt/ros/${ROS_DISTRO}"
+ros_prefix ?= "${base_prefix}/opt/ros/${ROS_DISTRO}"
 
 ros_bindir = "${ros_prefix}/bin"
 ros_libdir = "${ros_prefix}/${baselib}"
