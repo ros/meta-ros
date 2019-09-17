@@ -69,3 +69,17 @@ SYSROOT_DIRS_NATIVE_append = " \
     ${ros_bindir} \
     ${ros_libexecdir} \
     "
+
+# The libraries are installed in ros_libdir and if ros_libdir starts with /usr/ it will be catched by libdir QA checker showing errors like these:
+# ERROR: filters-1.8.1-r0 do_package_qa: QA Issue: filters-dbg: found library in wrong location: /usr/opt/ros/melodic/lib/.debug/libmean.so
+# filters-dbg: found library in wrong location: /usr/opt/ros/melodic/lib/.debug/libtransfer_function.so
+# filters-dbg: found library in wrong location: /usr/opt/ros/melodic/lib/.debug/libparams.so
+# filters-dbg: found library in wrong location: /usr/opt/ros/melodic/lib/.debug/libmedian.so
+# filters-dbg: found library in wrong location: /usr/opt/ros/melodic/lib/.debug/libincrement.so
+# filters: found library in wrong location: /usr/opt/ros/melodic/lib/libmean.so
+# filters: found library in wrong location: /usr/opt/ros/melodic/lib/libtransfer_function.so
+# filters: found library in wrong location: /usr/opt/ros/melodic/lib/libparams.so
+# filters: found library in wrong location: /usr/opt/ros/melodic/lib/libmedian.so
+# filters: found library in wrong location: /usr/opt/ros/melodic/lib/libincrement.so [libdir]
+INSANE_SKIP_${PN}-dbg += "libdir"
+INSANE_SKIP_${PN} += "libdir"
