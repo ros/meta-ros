@@ -1,0 +1,164 @@
+# dashing/rosdep-resolve.yaml
+asio:
+- asio@meta-oe
+assimp:
+- assimp@openembedded-core
+boost:
+- boost@openembedded-core
+clang-format:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format}
+cmake:
+- cmake@openembedded-core
+cppcheck:
+- cppcheck@meta-ros
+cppunit:
+- cppunit@meta-oe
+curl:
+- curl@openembedded-core
+dkms: []
+eigen:
+- libeigen@meta-oe
+g++-static: []
+gazebo9: []
+google-mock:
+- gtest@meta-oe
+gtest:
+- gtest@meta-oe
+gtk3:
+- gtk+3@openembedded-core
+libcairo2-dev:
+- cairo@openembedded-core
+libceres-dev:
+- ceres-solver@meta-oe
+libconsole-bridge-dev:
+- console-bridge@meta-ros
+libfreetype6:
+- freetype@openembedded-core
+libfreetype6-dev:
+- freetype@openembedded-core
+libgazebo9-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev}
+libgflags-dev:
+- gflags@meta-oe
+libglfw3-dev:
+- glfw@meta-intel-realsense
+libgoogle-glog-dev:
+- glog@meta-oe
+libopencv-dev:
+- opencv@meta-oe
+libopensplice69:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69}
+libpcl-all:
+- pcl@meta-ros
+libpcl-all-dev:
+- pcl@meta-ros
+libpoco-dev:
+- poco@meta-oe
+libqt5-core:
+- qtbase@meta-qt5
+libqt5-gui:
+- qtbase@meta-qt5
+libqt5-opengl:
+- qtbase@meta-qt5
+libqt5-widgets:
+- qtbase@meta-qt5
+libsqlite3-dev:
+- sqlite3@openembedded-core
+libssl-dev:
+- openssl@openembedded-core
+libusb-1.0-dev:
+- libusb1@openembedded-core
+libx11-dev:
+- libx11@openembedded-core
+libxaw:
+- libxaw@meta-oe
+libxml2-utils:
+- libxml2@openembedded-core
+libxrandr:
+- libxrandr@openembedded-core
+libzmq3-dev:
+- zeromq@meta-oe
+linux-headers-generic:
+- virtual/kernel@openembedded-core
+log4cxx:
+- log4cxx@meta-ros
+lua5.2-dev:
+- lua@meta-oe
+lz4:
+- lz4@openembedded-core
+opengl:
+- mesa@openembedded-core
+openssl:
+- openssl@openembedded-core
+pcre:
+- libpcre@openembedded-core
+pkg-config:
+- pkgconfig@openembedded-core
+protobuf-dev:
+- protobuf@meta-oe
+pydocstyle:
+- ${PYTHON_PN}-pydocstyle@meta-ros
+pyflakes3:
+- ${PYTHON_PN}-pyflakes@meta-ros
+python-sphinx:
+- python-sphinx@meta-ros
+python3-catkin-pkg-modules:
+- python3-catkin-pkg@meta-ros
+python3-dev:
+- python3@openembedded-core
+python3-empy:
+- python3-empy@meta-ros
+python3-flake8:
+- python3-flake8@meta-ros
+python3-lark-parser:
+- python3-lark-parser@meta-ros
+python3-lxml:
+- python3-lxml@meta-python
+python3-matplotlib:
+- python3-matplotlib@meta-python
+python3-mock:
+- python3-mock@meta-ros
+python3-nose:
+- python3-nose@openembedded-core
+python3-numpy:
+- python3-numpy@openembedded-core
+python3-opencv:
+- opencv@meta-oe
+python3-pep8:
+- python3-pep8@meta-ros
+python3-pkg-resources:
+- python3-setuptools@openembedded-core
+python3-psutil:
+- python3-psutil@meta-python
+python3-pydot:
+- python3-pydot@meta-ros
+python3-pygraphviz:
+- python3-pygraphviz@meta-ros
+python3-pytest:
+- python3-pytest@meta-python
+python3-qt5-bindings:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings}
+python3-setuptools:
+- python3-setuptools@openembedded-core
+python3-yaml:
+- python3-pyyaml@meta-python
+qt5-qmake:
+- qtbase@meta-qt5
+qtbase5-dev:
+- qtbase@meta-qt5
+rti-connext-dds-5.3.1:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1}
+tango-icon-theme:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
+tinyxml:
+- libtinyxml@meta-oe
+tinyxml2:
+- libtinyxml2@meta-oe
+udev:
+- udev@openembedded-core
+uncrustify:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify}
+yaml:
+- libyaml@openembedded-core
+zlib:
+- zlib@openembedded-core
