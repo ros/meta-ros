@@ -7,7 +7,7 @@ DEPENDS = "jpeg zlib tiff freetype libpng jpeg"
 
 inherit pkgconfig setuptools
 
-SRCREV = "e5bd7eb6235cc24b9c8d3e7ce51ed48a780c7c70"
+SRCREV = "fda33d5c09142c4bb0e99964919d01c2cc5f5995"
 SRC_URI = "git://github.com/python-pillow/Pillow;protocol=https \
            file://0001-build-always-disable-platform-guessing.patch \
           "
