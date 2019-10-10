@@ -24,3 +24,15 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 "
 
 ROS_BUILD_TYPE_pn-python-orocos-kdl = "catkin"
+
+# python-backports-ssl@meta-python
+ROS_UNRESOLVED_PLATFORM_PKG_python-backports.ssl-match-hostname = "python-backports-ssl"
+
+# python-pillow@meta-ros v5.1.0
+ROS_UNRESOLVED_PLATFORM_PKG_python-imaging = "python-pillow"
+
+# python-tornado45@meta-ros v4.5.3
+ROS_UNRESOLVED_PLATFORM_PKG_python-tornado = "python-tornado45"
+
+# python-twisted-core@meta-python (v18.4.0 instead of  bionic's v17.9.0)
+ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core = "python-twisted-core"
