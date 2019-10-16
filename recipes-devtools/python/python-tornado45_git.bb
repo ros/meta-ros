@@ -14,6 +14,9 @@ inherit setuptools
 DEPENDS = "python-certifi"
 
 RDEPENDS_${PN} = "python-certifi"
+RDEPENDS_${PN} += "python-backports-abc"
+RDEPENDS_${PN} += "python-singledispatch"
+
 RCONFLICTS_${PN} = "python-tornado"
 RCONFLICTS_${PN} += "python-tornado40"
 RCONFLICTS_${PN} += "python-tornado50"
