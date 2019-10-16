@@ -15,6 +15,6 @@ DEPENDS = "python-certifi"
 
 RDEPENDS_${PN} = "python-certifi"
 RCONFLICTS_${PN} = "python-tornado"
-RCONFLICTS_${PN} = "python-tornado40"
-RCONFLICTS_${PN} = "python-tornado50"
+RCONFLICTS_${PN} += "python-tornado40"
+RCONFLICTS_${PN} += "python-tornado50"
 
