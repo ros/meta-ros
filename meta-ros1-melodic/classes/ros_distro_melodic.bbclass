@@ -4,9 +4,6 @@
 
 ROS_DISTRO = "melodic"
 
-require conf/ros-distro/include/${ROS_DISTRO}/generated/superflore-ros-distro.inc
-require conf/ros-distro/include/${ROS_DISTRO}/ros-distro.inc
-
 inherit ${ROS_DISTRO_TYPE}_distro
 
 # If not using Qt, drop all RDEPENDS on "python-qt-binding".

@@ -10,6 +10,12 @@ ROS_DISTRO_CODENAME = "Crystal Clemmys"
 # generated/superflore-ros-distro.inc).
 ROS_DISTRO_BASELINE_PLATFORM = "ubuntu-bionic"
 
+require conf/ros-distro/include/crystal/generated/superflore-datetime.inc
+require conf/ros-distro/include/crystal/generated/superflore-ros-distro.inc
+require conf/ros-distro/include/crystal/ros-distro-recipe-blacklist.inc
+require conf/ros-distro/include/crystal/ros-distro-preferred-versions.inc
+require conf/ros-distro/include/crystal/ros-distro-preferred-providers.inc
+
 # Override settings from generated/superflore-ros-distro.inc here.
 
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
