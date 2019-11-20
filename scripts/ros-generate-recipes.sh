@@ -8,16 +8,16 @@
 #               or
 #           --version
 #
-# Generate (or re-generate) recipes for ROS_DISTRO from an existing files/ROS_DISTRO/cache.yaml. If no ROS_PKG arguments are
+# Generate (or re-generate) recipes for ROS_DISTRO from an existing cache.yaml. If no ROS_PKG arguments are
 # given, then all of the recipes for ROS_DISTRO are generated.
 #
 # This script will abort if Git detects any uncommitted modifications, eg, from a previous run that did not complete or untracked
-# files (which would otherwise appear in files/ROS_DISTRO/superflore-change-summary.txt).
+# files (which would otherwise appear in superflore-change-summary.txt).
 #
 # Copyright (c) 2019 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-recipes"
-readonly SCRIPT_VERSION="1.0.0"
+readonly SCRIPT_VERSION="1.1.0"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-cache.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -76,23 +76,24 @@ if [ -n "$(git status --porcelain=v1)" ]; then
     exit 1
 fi
 
-if [ ! -f files/$ROS_DISTRO/cache.yaml ]; then
-    echo "ABORT: files/$ROS_DISTRO/cache.yaml doesn't exist -- run ros-generate-cache.sh to create it"
+generated=files/$ROS_DISTRO
+if [ ! -f $generated/cache.yaml ]; then
+    echo "ABORT: $generated/cache.yaml doesn't exist -- run ros-generate-cache.sh to create it"
     exit 1
 fi
 
-if [ ! -f files/$ROS_DISTRO/index-v4.yaml ]; then
-    echo "ABORT: files/$ROS_DISTRO/index-v4.yaml doesn't exist -- run ros-generate-cache.sh to create it"
+if [ ! -f $generated/index-v4.yaml ]; then
+    echo "ABORT: $generated/index-v4.yaml doesn't exist -- run ros-generate-cache.sh to create it"
     exit 1
 fi
 
-set -- $(head -n 1 files/$ROS_DISTRO/cache.yaml)
+set -- $(head -n 1 $generated/cache.yaml)
 ROS_DISTRO_RELEASE_DATE=$3
 ROS_ROSDISTRO_COMMIT=$4
 ROS_ROSDISTRO_COMMIT_DATETIME=$5
 
 if [ -z "$ROS_DISTRO_RELEASE_DATE" -o -z "$ROS_ROSDISTRO_COMMIT" -o -z "$ROS_ROSDISTRO_COMMIT_DATETIME" ] ; then
-    echo "ABORT: files/$ROS_DISTRO/cache.yaml should start with '# $ROS_DISTRO/cache.yaml' and 3 space separated values:"
+    echo "ABORT: $generated/cache.yaml should start with '# $ROS_DISTRO/cache.yaml' and 3 space separated values:"
     echo "       ROS_DISTRO_RELEASE_DATE, ROS_ROSDISTRO_COMMIT, ROS_ROSDISTRO_COMMIT_DATETIME. Run ros-generate-cache.sh to"
     echo "       re-create it."
     exit 1
@@ -114,11 +115,11 @@ abort=false
 for f in $ROSDEP_YAML_BASENAMES; do
     ff=$(sed -n "\@^yaml file:/.*/$f.yaml\$@ s@.*file://@@p" /etc/ros/rosdep/sources.list.d/20-default.list)
     # -q reports when they differ.
-    diff -q files/$ROS_DISTRO/rosdep/$f.yaml $ff || abort=true
+    diff -q $generated/rosdep/$f.yaml $ff || abort=true
 done
 unset f ff
 if $abort; then
-    echo "ABORT: The files pointed to by /etc/ros/rosdep/sources.list.d/20-default.list must match those under files/$ROS_DISTRO/rosdep"
+    echo "ABORT: The files pointed to by /etc/ros/rosdep/sources.list.d/20-default.list must match those under $generated/rosdep"
     exit 1
 fi
 unset abort
@@ -150,8 +151,8 @@ echo "'rosdep update' finished"
 tmpdir=$(mktemp -t -d ros-generate-recipes-XXXXXXXX)
 trap "rm -rf $tmpdir" 0
 
-cp files/$ROS_DISTRO/index-v4.yaml $tmpdir/
-sed -i -e "/$ROS_DISTRO-cache.yaml.gz/ s@: .*\$@: file://$PWD/files/$ROS_DISTRO/cache.yaml@" $tmpdir/index-v4.yaml
+cp $generated/index-v4.yaml $tmpdir/
+sed -i -e "/$ROS_DISTRO-cache.yaml.gz/ s@: .*\$@: file://$PWD/$generated/cache.yaml@" $tmpdir/index-v4.yaml
 
 # Tell superflore to use this index instead of the upstream one.
 export ROSDISTRO_INDEX_URL="file://$tmpdir/index-v4.yaml"
@@ -164,15 +165,11 @@ $SUPERFLORE_GEN_OE_RECIPES --dry-run --no-branch --ros-distro $ROS_DISTRO --outp
 
 after_commit=$(git rev-list -1 HEAD)
 if [ $after_commit != $before_commit -a -z "$only_option" ]; then
-    # XXX Pretend that superflore has already been fixed not to generate files/ROS_DISTRO/cache.* and delete the comment line it
-    # prepends. (The line ends with the filename.)
-    sed -i -e '/^#.*cache[.]yaml$/ d' files/$ROS_DISTRO/cache.yaml
-    sed -i -e '/^#.*cache[.]diffme$/ d' files/$ROS_DISTRO/cache.diffme
-    git add files/$ROS_DISTRO/cache.yaml files/$ROS_DISTRO/cache.diffme
+    git add $generated/cache.yaml $generated/cache.diffme
 
-    generated="conf/ros-distro/include/$ROS_DISTRO/generated-ros-distro.inc"
+    generated_inc="conf/ros-distro/include/$ROS_DISTRO/generated-ros-distro.inc"
     [ $ROS_DISTRO_RELEASE_DATE = "pre-release" ] && ROS_DISTRO_RELEASE_DATE=""
-    cat <<! >> $generated
+    cat <<! >> $generated_inc
 
 # From the release announcement or the last field of the "release-ROS_DISTRO-YYYYMMDD" tag for the release in
 # https://github.com/ros2/ros2/releases. Prior to the first release of a ROS_DISTRO, it is set to "".
@@ -181,8 +178,8 @@ ROS_DISTRO_RELEASE_DATE = "$ROS_DISTRO_RELEASE_DATE"
 # The commit of ros/rosdistro/$ROS_DISTRO/distribution.yaml from which the recipes were generated.
 ROS_SUPERFLORE_GENERATION_COMMIT = "$ROS_ROSDISTRO_COMMIT"
 !
-    git add $generated
+    git add $generated_inc
     git commit --amend -q -C HEAD
 
-    unset generated
+    unset generated_inc
 fi
