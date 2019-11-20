@@ -5,14 +5,14 @@
 #            or
 #        sh scripts/ros-generate-cache.sh --version
 #
-# Generate and commit a files/ROS_DISTRO/cache.yaml for the YYYYMMDD release of ROS_DISTRO from the specified commit of a local
+# Generate and commit a cache.yaml for the YYYYMMDD release of ROS_DISTRO from the specified commit of a local
 # ros/rosdistro.git . RELEASE-YYYYMMDD is taken from the release announcement or the last field of the
 # "release-ROS_DISTRO-YYYYMMDD" tag; if running prior to first release of ROS_DISTRO, specify "pre-release" for RELEASE-YYYYMMDD.
 # Note that the release date generally does not match the commit timestamp of ROS-ROSDISTRO-COMMIT; however, the commit timestamp
 # is used for the DATETIME when forming the name of the created branch. Optionally you can set your own branch name in
 # or use ":nobranch" to prevent the creation of a new branch.
 #
-# The files from PATH-TO-LOCAL-ROS-ROSDISTRO/rosdep are to files/ROS_DISTRO/rosdep. The script will abort if the entries in
+# The files from PATH-TO-LOCAL-ROS-ROSDISTRO/rosdep are to rosdep. The script will abort if the entries in
 # /etc/ros/rosdep/sources.list.d/20-default.list do not point to files under PATH-TO-LOCAL-ROS-ROSDISTRO/rosdep .
 #
 # Copyright (c) 2019 LG Electronics, Inc.
@@ -137,11 +137,11 @@ generated="files/$ROS_DISTRO"
 mkdir -p $generated
 gzip -d $tmpdir/$ROS_DISTRO-cache.yaml.gz -c > $generated/cache.yaml
 # Identify how the files were generated so that they can be reused.
-sed -i -e "1 i# $ROS_DISTRO/cache.yaml $ROS_DISTRO_RELEASE_DATE $ROS_ROSDISTRO_COMMIT $ROS_ROSDISTRO_COMMIT_DATETIME" files/$ROS_DISTRO/cache.yaml
+sed -i -e "1 i# $ROS_DISTRO/cache.yaml $ROS_DISTRO_RELEASE_DATE $ROS_ROSDISTRO_COMMIT $ROS_ROSDISTRO_COMMIT_DATETIME" $generated/cache.yaml
 sed -e 's@{\([^ }][^ }]*\)}@[[\1]]@g' -e 's@{@{\n@g' -e 's@}@\n}@g' -e 's@\[\[@{@g' -e 's@]]@}@g' -e 's@, @,\n@g' \
     -e 's@^    @-----\n@' -e 's@<version>[^<]*</version>@@' -e 's@><@>\n<@g' -e 's@^  @-----\n@' \
     -e 's@^\(source_repo_package_xmls:\)@-----\n\1@' \
-    files/$ROS_DISTRO/cache.yaml > files/$ROS_DISTRO/cache.diffme
+    $generated/cache.yaml > $generated/cache.diffme
 
 mkdir -p $generated/rosdep
 cp -f $tmpdir/index-v4.yaml $generated/
