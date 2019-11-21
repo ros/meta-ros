@@ -22,11 +22,15 @@ webOSOSEBuildNumber = '84'
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi3']
 
-# Allow the URL and branch for meta-ros and meta-webos to be overridden by settings in the environment.
+# Allow the URL and branch for meta-ros, meta-ros-webos and meta-webos to be overridden by settings in the environment.
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'thud')
 MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'thud/milestones/7')
+
+MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
+MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'thud')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'master/milestones/7')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/webosose/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
@@ -53,12 +57,17 @@ Layers = [
 ('meta-qt5-compat',           19, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'krogoth', 'commit': 'dcfcb58'}, {}),
 
-('meta-ros',                  38, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
+('meta-ros-backports-warrior',34, MetaRos_RepoURL,                                          {}, {}),
+('meta-ros-common',           37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
+('meta-ros2',                 38, MetaRos_RepoURL,                                          {}, {}),
+('meta-ros2-crystal',         39, MetaRos_RepoURL,                                          {}, {}),
 
 ('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
 
 ('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': 'c71d79e'}, {}),
 ('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
+
+('meta-ros-webos',            60, MetaRosWebos_RepoURL,                                     {'branch': MetaRosWebos_Branch, 'commit': MetaRosWebos_Commit}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
