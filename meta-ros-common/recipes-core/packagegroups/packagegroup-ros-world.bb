@@ -12,4 +12,5 @@ RDEPENDS_${PN} += "\
     ${@ 'packagegroup-ros-world-melodic' if 'ros1-melodic-layer' in BBFILE_COLLECTIONS.split() else '' } \
     ${@ 'packagegroup-ros-world-dashing' if 'ros2-dashing-layer' in BBFILE_COLLECTIONS.split() else '' } \
     ${@ 'packagegroup-ros-world-eloquent' if 'ros2-eloquent-layer' in BBFILE_COLLECTIONS.split() else '' } \
+    ${@ 'packagegroup-ros-world-foxy' if 'ros2-foxy-layer' in BBFILE_COLLECTIONS.split() else '' } \
 "
