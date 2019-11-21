@@ -20,6 +20,7 @@ require conf/ros-distro/include/eloquent/ros-distro-preferred-providers.inc
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
+    ament-lint-native \
     foonathan-memory-vendor-native \
     domain-coordinator-native \
     poco-vendor-native \
@@ -43,6 +44,12 @@ ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native = ""
 
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = ""
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = ""
+
+ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography = "python3-cryptography"
+#ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = "python3-ifcfg"
+#ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = "python3-netifaces"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = ""
+ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = ""
 
 # XXX Temp until superflore fixed.
 ROS_BUILD_TYPE_pn-fmilibrary-vendor = "ament_cmake"
