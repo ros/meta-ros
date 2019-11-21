@@ -35,9 +35,12 @@ Layers = [
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '9b3b907f30'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-ros',                  38, 'git://github.com/ros/meta-ros.git',                      {'branch': 'thud-draft'}, {}),
+('meta-ros-backports-warrior',34, 'git://github.com/ros/meta-ros.git',                      {'branch': 'thud-draft'}, {}),
+('meta-ros-common',           35, 'git://github.com/ros/meta-ros.git',                      {}, {}),
+('meta-ros1',                 36, 'git://github.com/ros/meta-ros.git',                      {}, {}),
+('meta-ros1-melodic',         37, 'git://github.com/ros/meta-ros.git',                      {}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': 'c71d79e'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi.git',        {'branch': 'thud', 'commit': 'c71d79e'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated

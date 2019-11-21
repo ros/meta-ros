@@ -31,7 +31,7 @@ Machines = ['qemux86', 'raspberrypi3']
 Layers = [
 ('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '7c1eb51d'}, {}),
 
-('meta-gplv2',                 1, 'git://git.yoctoproject.org/meta-gplv2',                  {'branch': 'thud', 'commit': 'aabc30f'}, {}),
+('meta-gplv2',                 1, 'git://git.yoctoproject.org/meta-gplv2.git',              {'branch': 'thud', 'commit': 'aabc30f'}, {}),
 ('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'thud', 'commit': 'f162d5bfe6'}, {}),
 
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '9b3b907f30'}, {}),
@@ -43,12 +43,17 @@ Layers = [
 ('meta-qt5-compat',           19, 'git://github.com/webosose/meta-webosose.git',            {}, {}),
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'krogoth', 'commit': 'dcfcb58'}, {}),
 
-('meta-ros',                  38, 'git://github.com/ros/meta-ros.git',                      {'branch': 'thud-draft'}, {}),
+('meta-ros-backports-warrior',34, 'git://github.com/ros/meta-ros.git',                      {'branch': 'thud-draft'}, {}),
+('meta-ros-common',           35, 'git://github.com/ros/meta-ros.git',                      {}, {}),
+('meta-ros2',                 38, 'git://github.com/ros/meta-ros.git',                      {}, {}),
+('meta-ros2-dashing',         39, 'git://github.com/ros/meta-ros.git',                      {}, {}),
 
 ('meta-webos',                40, 'git://github.com/webosose/meta-webosose.git',            {'branch': 'master', 'commit': 'builds/webosose/master/' + webOSOSEBuildNumber}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': 'c71d79e'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi.git',        {'branch': 'thud', 'commit': 'c71d79e'}, {}),
 ('meta-webos-raspberrypi',    51, 'git://github.com/webosose/meta-webosose.git',            {}, {}),
+
+('meta-ros-webos',            60, 'git://github.com/ros/meta-ros-webos.git',                {'branch': 'thud-draft'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
