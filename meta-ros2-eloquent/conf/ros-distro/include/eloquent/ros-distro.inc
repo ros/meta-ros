@@ -20,6 +20,8 @@ require conf/ros-distro/include/eloquent/ros-distro-preferred-providers.inc
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
+    foonathan-memory-vendor-native \
+    domain-coordinator-native \
     poco-vendor-native \
     rcpputils-native \
     rcutils-native \
