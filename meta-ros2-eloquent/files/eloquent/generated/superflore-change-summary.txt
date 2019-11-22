@@ -263,6 +263,12 @@ A  meta-ros2-eloquent/generated-recipes/ros-testing/ros-testing_0.2.0-1.bb
 A  meta-ros2-eloquent/generated-recipes/ros-testing/ros2test_0.2.0-1.bb
 A  meta-ros2-eloquent/generated-recipes/ros-workspace/ros-workspace_0.8.0-1.bb
 A  meta-ros2-eloquent/generated-recipes/ros1-bridge/ros1-bridge_0.8.1-3.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/ros2trace_0.2.10-1.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/tracetools-launch_0.2.10-1.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/tracetools-read_0.2.10-1.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/tracetools-test_0.2.10-1.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/tracetools-trace_0.2.10-1.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/tracetools_0.2.10-1.bb
 A  meta-ros2-eloquent/generated-recipes/ros2cli/ros2action_0.8.6-1.bb
 A  meta-ros2-eloquent/generated-recipes/ros2cli/ros2cli_0.8.6-1.bb
 A  meta-ros2-eloquent/generated-recipes/ros2cli/ros2component_0.8.6-1.bb
@@ -327,9 +333,13 @@ A  meta-ros2-eloquent/generated-recipes/rqt-reconfigure/rqt-reconfigure_1.0.4-1.
 A  meta-ros2-eloquent/generated-recipes/rqt-robot-steering/rqt-robot-steering_1.0.0-1.bb
 A  meta-ros2-eloquent/generated-recipes/rqt-service-caller/rqt-service-caller_1.0.3-1.bb
 A  meta-ros2-eloquent/generated-recipes/rqt-shell/rqt-shell_1.0.0-1.bb
-A  meta-ros2-eloquent/generated-recipes/rqt-srv/rqt-srv_1.0.1-1.bb
-A  meta-ros2-eloquent/generated-recipes/rqt-top/rqt-top_1.0.0-1.bb
-A  meta-ros2-eloquent/generated-recipes/rqt-topic/rqt-topic_1.1.0-1.bb
+A  meta-ros2-eloquent/generated-recipes/rqt-srv/rqt-srv_1.0.1-1.bbA  meta-ros2-eloquent/generated-recipes/ros2-tracing/ros2trace_0.2.10-1.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/tracetools-launch_0.2.10-1.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/tracetools-read_0.2.10-1.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/tracetools-test_0.2.10-1.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/tracetools-trace_0.2.10-1.bb
+A  meta-ros2-eloquent/generated-recipes/ros2-tracing/tracetools_0.2.10-1.bb
+
 A  meta-ros2-eloquent/generated-recipes/rqt/rqt-gui-cpp_1.0.5-1.bb
 A  meta-ros2-eloquent/generated-recipes/rqt/rqt-gui-py_1.0.5-1.bb
 A  meta-ros2-eloquent/generated-recipes/rqt/rqt-gui_1.0.5-1.bb
@@ -376,4 +386,25 @@ A  meta-ros2-eloquent/generated-recipes/yaml-cpp-vendor/yaml-cpp-vendor_7.0.0-1.
 -----
 
 -----
-
+diff --git a/meta-ros2-eloquent/files/eloquent/generated/rosdep-resolve.yaml b/meta-ros2-eloquent/files/eloquent/generated/rosdep-resolve.yaml
+index 1467002b8..3f0c82373 100644
+--- a/meta-ros2-eloquent/files/eloquent/generated/rosdep-resolve.yaml
++++ b/meta-ros2-eloquent/files/eloquent/generated/rosdep-resolve.yaml
+@@ -107,6 +107,8 @@ pyqt5-dev-tools:
+ - ${ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools}
+ python-sphinx:
+ - python-sphinx@meta-ros
++python3-babeltrace:
++- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace}
+ python3-catkin-pkg-modules:
+ - python3-catkin-pkg@meta-ros
+ python3-cryptography:
+@@ -121,6 +123,8 @@ python3-ifcfg:
+ - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg}
+ python3-lark-parser:
+ - python3-lark-parser@meta-ros
++python3-lttng:
++- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng}
+ python3-lxml:
+ - python3-lxml@meta-python
+ python3-matplotlib:
