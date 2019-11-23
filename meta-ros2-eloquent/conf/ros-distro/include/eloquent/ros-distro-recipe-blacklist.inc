@@ -23,8 +23,6 @@ PNBLACKLIST[rmw-connext-cpp] ?= "Not yet supporting use of Connext"
 PNBLACKLIST[rmw-connext-shared-cpp] ?= "Not yet supporting use of Connext"
 PNBLACKLIST[rosidl-typesupport-connext-c] ?= "Not yet supporting use of Connext"
 PNBLACKLIST[rosidl-typesupport-connext-cpp] ?= "Not yet supporting use of Connext"
-PNBLACKLIST[rcl-logging-spdlog] ?= "Not yet supporting use of spdlog"
-PNBLACKLIST[spdlog-vendor] ?= "Not yet supporting use of spdlog"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "connext-cmake-module"
 # rmw-implementation.inc removes "rmw-connext-cpp" from ROS_BUILD_DEPENDS.
@@ -34,9 +32,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rmw-connext-shared-cpp"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rosidl-typesupport-connext-c"
 # rosidl-typesupport-cpp.inc removes "rosidl-typesupport-connext-cpp" from ROS_BUILD_DEPENDS.
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rosidl-typesupport-connext-cpp"
-
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "rcl-logging-spdlog"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_remove = "spdlog-vendor"
 
 PNBLACKLIST[opensplice-cmake-module] ?= "Not yet supporting use of OpenSplice"
 PNBLACKLIST[rmw-opensplice-cpp] ?= "Not yet supporting use of OpenSplice"
