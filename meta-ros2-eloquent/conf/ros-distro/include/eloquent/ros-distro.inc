@@ -51,6 +51,8 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography = "python3-cryptography"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = ""
 ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = ""
 
+ROS_UNRESOLVED_PLATFORM_PKG_spdlog = "spdlog"
+
 # XXX Temp until superflore fixed.
 ROS_BUILD_TYPE_pn-fmilibrary-vendor = "ament_cmake"
 ROS_BUILD_TYPE_pn-ml-classifiers = "ament_cmake"
