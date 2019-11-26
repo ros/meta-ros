@@ -54,7 +54,6 @@ SRC_URI = "git://github.com/FlexBE/flexbe_behavior_engine-release;${ROS_BRANCH};
 SRCREV = "d36c12357b0d619c5886154e78fb3a0271f363c7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('flexbe', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

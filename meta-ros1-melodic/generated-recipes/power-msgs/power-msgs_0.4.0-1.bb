@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/fetchrobotics-gbp/power_msgs-release;${ROS_BRANCH};p
 SRCREV = "28ab3b5d23757eb17dd9591f2c4f12763768935f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('power-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

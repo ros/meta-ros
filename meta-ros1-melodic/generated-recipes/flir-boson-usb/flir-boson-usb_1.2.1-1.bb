@@ -66,7 +66,6 @@ SRC_URI = "git://github.com/astuff/flir_boson_usb-release;${ROS_BRANCH};protocol
 SRCREV = "e6326a5e50bb7396cf35d1fa734a96d680f1941d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('flir-boson-usb', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

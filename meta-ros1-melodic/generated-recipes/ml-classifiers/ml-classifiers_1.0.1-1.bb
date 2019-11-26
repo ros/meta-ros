@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/astuff/ml_classifiers-release;${ROS_BRANCH};protocol
 SRCREV = "c7513f22f8b50e0e502c0728fe7502487e2c5036"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ml-classifiers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

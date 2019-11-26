@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/tork-a/jskeus-release;${ROS_BRANCH};protocol=https"
 SRCREV = "57d0916e6d9726587f65e62deb93fdebe5954c5f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('jskeus', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

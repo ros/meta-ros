@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_tf_tree-release;${ROS_BRANCH};protocol=h
 SRCREV = "d55a649629c5d44b82a43fe76ce0451c0c612822"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-tf-tree', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

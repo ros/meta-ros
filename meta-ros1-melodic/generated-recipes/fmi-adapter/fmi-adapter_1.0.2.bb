@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/boschresearch/fmi_adapter-release;${ROS_BRANCH};prot
 SRCREV = "28c923bf90740e8fbbd80b15087aec547986316e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('fmi-adapter', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

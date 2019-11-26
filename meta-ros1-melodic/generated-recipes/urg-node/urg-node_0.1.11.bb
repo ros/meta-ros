@@ -87,7 +87,6 @@ SRC_URI = "git://github.com/ros-gbp/urg_node-release;${ROS_BRANCH};protocol=http
 SRCREV = "dd878e425f70ae49d2298cfb50abc7801d12539b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('urg-node', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

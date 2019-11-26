@@ -81,7 +81,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/microstrain_mips-release;${ROS_BRANC
 SRCREV = "acedc75ec7ed0e4cfb3537fe48f703f17ba4fdb2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('microstrain-mips', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

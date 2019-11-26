@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/tud-cor/acado-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d3b78daa22fa85713f8c52fea9a0f8b41508dd94"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('acado', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/wu-robotics/roscompile-release;${ROS_BRANCH};protoco
 SRCREV = "a7e02af71208a6363d689d5ae310ef54ce6e189d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('roscompile', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

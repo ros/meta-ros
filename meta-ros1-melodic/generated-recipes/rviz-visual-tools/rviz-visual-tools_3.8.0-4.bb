@@ -92,7 +92,6 @@ SRC_URI = "git://github.com/PickNikRobotics/rviz_visual_tools-release;${ROS_BRAN
 SRCREV = "ca151a9a610bc0ef998c3dbf11fe7b3e6100daa5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rviz-visual-tools', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

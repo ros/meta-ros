@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/AprilRobotics/apriltag-release;${ROS_BRANCH};protoco
 SRCREV = "4db996f831946a2696ffd66d96d6e5c1e4a91d58"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('apriltag', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

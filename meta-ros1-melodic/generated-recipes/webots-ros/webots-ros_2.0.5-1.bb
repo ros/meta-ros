@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/cyberbotics/webots_ros-release;${ROS_BRANCH};protoco
 SRCREV = "17e2b6534cbe1f76b6285101cf12d95849ebcb29"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('webots-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

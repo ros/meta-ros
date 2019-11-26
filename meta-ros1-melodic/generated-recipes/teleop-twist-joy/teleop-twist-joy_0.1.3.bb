@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros-teleop/teleop_twist_joy-release;${ROS_BRANCH};pr
 SRCREV = "99c0a6bfdbaea1805704427ae356ee385d591688"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('teleop-twist-joy', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

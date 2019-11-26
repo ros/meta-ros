@@ -68,7 +68,6 @@ SRC_URI = "git://github.com/aws-gbp/cloudwatch_logger-release;${ROS_BRANCH};prot
 SRCREV = "b60802e72028e86c2b2cb7d1eb943a558a2deb0c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cloudwatch-logger', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

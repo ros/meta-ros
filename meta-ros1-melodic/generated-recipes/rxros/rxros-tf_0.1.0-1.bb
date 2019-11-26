@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/rosin-project/rxros-release;${ROS_BRANCH};protocol=h
 SRCREV = "71517b0a79616b3a7b8f8bc74819b40930f24a4a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rxros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

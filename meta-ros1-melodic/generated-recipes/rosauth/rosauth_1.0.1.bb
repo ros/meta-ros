@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/gt-rail-release/rosauth-release;${ROS_BRANCH};protoc
 SRCREV = "ce65d864c1a09327a93e206c018dd16774870641"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosauth', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

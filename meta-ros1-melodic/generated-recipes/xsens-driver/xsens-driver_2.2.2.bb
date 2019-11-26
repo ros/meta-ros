@@ -66,7 +66,6 @@ SRC_URI = "git://github.com/ethz-asl/ethzasl_xsens_driver-release;${ROS_BRANCH};
 SRCREV = "cff8be7d792fda6b0496bf7ef36334e29ce51a53"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('xsens-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

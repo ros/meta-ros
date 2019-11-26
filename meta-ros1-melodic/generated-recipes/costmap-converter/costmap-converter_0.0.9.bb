@@ -71,7 +71,6 @@ SRC_URI = "git://github.com/rst-tu-dortmund/costmap_converter-release;${ROS_BRAN
 SRCREV = "8cc4b31f3a3dcc5493e1cb29cd0cc00be592d61f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('costmap-converter', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

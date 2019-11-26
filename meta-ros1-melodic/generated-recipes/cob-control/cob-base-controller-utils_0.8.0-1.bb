@@ -75,7 +75,6 @@ SRC_URI = "git://github.com/ipa320/cob_control-release;${ROS_BRANCH};protocol=ht
 SRCREV = "dfc2f053cd2fc1756405257719ad71a5fe3e7a9d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-control', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -54,7 +54,6 @@ SRC_URI = "git://github.com/ethz-adrl/towr-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2d6d872ed0172b95d5d1f6ed86577dba9ee37715"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('towr', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

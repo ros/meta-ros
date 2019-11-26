@@ -88,7 +88,6 @@ SRC_URI = "git://github.com/PickNikRobotics/ros_control_boilerplate-release;${RO
 SRCREV = "aacfbcdc8eefdc127391457f6913689a93353afb"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros-control-boilerplate', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

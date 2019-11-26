@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ROBOTIS-GIT-release/turtlebot3_autorace-release;${RO
 SRCREV = "ec62387aa2f5ffc44b59c39a1da06acb3d656366"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('turtlebot3-autorace', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

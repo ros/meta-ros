@@ -61,7 +61,6 @@ SRC_URI = "git://github.com/robustify/audibot-release;${ROS_BRANCH};protocol=htt
 SRCREV = "9e358024168056d16bf7e7d13ff2c943deb0d887"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('audibot', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

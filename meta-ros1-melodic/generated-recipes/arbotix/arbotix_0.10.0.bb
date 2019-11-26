@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/vanadiumlabs/arbotix_ros-release;${ROS_BRANCH};proto
 SRCREV = "920e6808030e5bdcdede59d33ba1e386b71901f4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('arbotix', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/AutonomyLab/libcreate-release;${ROS_BRANCH};protocol
 SRCREV = "8ce303c56b8bac4c2bfbd4c6c1db3fb85d9f407b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('libcreate', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

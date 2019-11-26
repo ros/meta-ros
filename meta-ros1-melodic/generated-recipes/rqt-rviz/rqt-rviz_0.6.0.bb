@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_rviz-release;${ROS_BRANCH};protocol=http
 SRCREV = "34d433354319af9f0250c6884fd152d906cbaf13"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-rviz', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

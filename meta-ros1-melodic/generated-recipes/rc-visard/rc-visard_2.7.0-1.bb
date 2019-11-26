@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/roboception-gbp/rc_visard-release;${ROS_BRANCH};prot
 SRCREV = "0aa4bc03a75fab2c481f530557a15dc1267902cd"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rc-visard', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

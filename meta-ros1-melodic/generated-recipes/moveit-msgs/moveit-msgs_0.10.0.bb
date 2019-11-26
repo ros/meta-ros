@@ -74,7 +74,6 @@ SRC_URI = "git://github.com/ros-gbp/moveit_msgs-release;${ROS_BRANCH};protocol=h
 SRCREV = "c81d3dc3e4c19978b165146b5739121d32afaf74"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('moveit-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

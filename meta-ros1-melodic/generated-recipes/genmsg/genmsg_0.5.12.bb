@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ros-gbp/genmsg-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f1c006668e4a4aa288668a9315f122fb4c34889d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('genmsg', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

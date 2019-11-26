@@ -71,7 +71,6 @@ SRC_URI = "git://github.com/DataspeedInc-release/dataspeed_ulc_ros-release;${ROS
 SRCREV = "af0c9b2cfa21d682c2e7fce19ab88f90c4edd63b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('dataspeed-ulc-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_console-release;${ROS_BRANCH};protocol=h
 SRCREV = "00b65cbec877c8cd114725c7747ff5728f48b7b7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-console', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

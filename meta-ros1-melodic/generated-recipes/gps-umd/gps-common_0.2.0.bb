@@ -67,7 +67,6 @@ SRC_URI = "git://github.com/swri-robotics-gbp/gps_umd-release;${ROS_BRANCH};prot
 SRCREV = "e45cd57f359e06a26726d9dcebfa2fcb0a8525e7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('gps-umd', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

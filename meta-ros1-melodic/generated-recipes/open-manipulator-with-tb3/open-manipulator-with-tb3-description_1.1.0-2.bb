@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/ROBOTIS-GIT-release/open_manipulator_with_tb3-releas
 SRCREV = "99d8edd190bf9b9e481b851ce3f003dd13453922"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('open-manipulator-with-tb3', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

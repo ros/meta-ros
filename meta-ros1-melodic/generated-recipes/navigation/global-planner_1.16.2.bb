@@ -76,7 +76,6 @@ SRC_URI = "git://github.com/ros-gbp/navigation-release;${ROS_BRANCH};protocol=ht
 SRCREV = "48092b8599af369c809459700be94516e1b3314d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('navigation', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

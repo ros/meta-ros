@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/ros-gbp/perception_pcl-release;${ROS_BRANCH};protoco
 SRCREV = "a402123034c085b3d655e5492d4fbd207e25eee5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('perception-pcl', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -66,7 +66,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_robot_monitor-release;${ROS_BRANCH};prot
 SRCREV = "78b8a723dd7ff7e573de83b1192d5b9da11fcd1f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-robot-monitor', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

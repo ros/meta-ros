@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/ros-gbp/bond_core-release;${ROS_BRANCH};protocol=htt
 SRCREV = "bf43dfa8f77844d513c1117c332331b610348f78"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('bond-core', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

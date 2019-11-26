@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/ros-geographic-info/unique_identifier-release;${ROS_
 SRCREV = "f9ea0d71c9d431481c0ea59efccea04b540eb7b4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('unique-identifier', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

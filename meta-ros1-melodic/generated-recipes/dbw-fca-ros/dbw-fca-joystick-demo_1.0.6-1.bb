@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/DataspeedInc-release/dbw_fca_ros-release;${ROS_BRANC
 SRCREV = "214be644a93c28c3fa55483899a04147419ffd54"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('dbw-fca-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

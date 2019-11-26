@@ -43,7 +43,6 @@ SRC_URI = "git://github.com/ros-gbp/ros_environment-release;${ROS_BRANCH};protoc
 SRCREV = "ba868f2c37c85724d45ad043ff03a35138a636b0"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros-environment', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

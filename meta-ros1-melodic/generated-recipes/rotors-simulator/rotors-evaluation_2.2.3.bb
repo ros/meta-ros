@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ethz-asl/rotors_simulator-release;${ROS_BRANCH};prot
 SRCREV = "13af8bf3f2844ac7429a40b8248b7bba43c01e23"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rotors-simulator', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

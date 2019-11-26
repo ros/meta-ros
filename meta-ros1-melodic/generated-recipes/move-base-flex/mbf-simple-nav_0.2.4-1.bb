@@ -92,7 +92,6 @@ SRC_URI = "git://github.com/uos-gbp/move_base_flex-release;${ROS_BRANCH};protoco
 SRCREV = "1a073c02d6ae0a154df68d78e5ac8a5d35cba07f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('move-base-flex', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/snt-robotics/robot_activity-release;${ROS_BRANCH};pr
 SRCREV = "6465e51414c228881793e8ef00899e0d34a50500"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-activity', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

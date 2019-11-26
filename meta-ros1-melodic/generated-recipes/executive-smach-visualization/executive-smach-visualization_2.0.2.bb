@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/jbohren/executive_smach_visualization-release;${ROS_
 SRCREV = "30f3e9b54f135dac4aa6f2e92d3f218ed529ed3f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('executive-smach-visualization', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

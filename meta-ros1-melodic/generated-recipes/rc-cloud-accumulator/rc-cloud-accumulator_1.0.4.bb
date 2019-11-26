@@ -77,7 +77,6 @@ SRC_URI = "git://github.com/roboception-gbp/rc_cloud_accumulator-release;${ROS_B
 SRCREV = "cc78b3e777393972d86c57e9d958f000a39588f3"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rc-cloud-accumulator', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

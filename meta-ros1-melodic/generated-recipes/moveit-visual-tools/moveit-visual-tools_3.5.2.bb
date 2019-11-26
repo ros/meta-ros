@@ -86,7 +86,6 @@ SRC_URI = "git://github.com/ros-gbp/moveit_visual_tools-release;${ROS_BRANCH};pr
 SRCREV = "00961cfb16b113b5f40fee57c6a77ec56fe809a7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('moveit-visual-tools', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

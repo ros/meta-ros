@@ -93,7 +93,6 @@ SRC_URI = "git://github.com/lagadic/visp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2c61077ad67475f9833544af810cfcfe841cbd8d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('visp', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

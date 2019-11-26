@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/ipa320/schunk_modular_robotics-release;${ROS_BRANCH}
 SRCREV = "5a210797a7e417736ac9bd17ae4fd9e91bda0809"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('schunk-modular-robotics', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

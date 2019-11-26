@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/gt-rail-release/rail_mesh_icp-release;${ROS_BRANCH};
 SRCREV = "8faa73765ed8224c109426acae8951a4bf62f4bc"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rail-mesh-icp', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

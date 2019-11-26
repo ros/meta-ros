@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ros-gbp/slam_gmapping-release;${ROS_BRANCH};protocol
 SRCREV = "a9f65ff96a7fbdb8965faf91de465b04537ff537"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('slam-gmapping', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

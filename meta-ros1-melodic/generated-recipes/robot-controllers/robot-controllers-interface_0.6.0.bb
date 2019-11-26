@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/fetchrobotics-gbp/robot_controllers-release;${ROS_BR
 SRCREV = "6509541ae6cf86ee3fb3d380b743d10488d5700d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-controllers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

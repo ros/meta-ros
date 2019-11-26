@@ -57,7 +57,6 @@ SRC_URI = "git://github.com/AutonomyLab/parrot_arsdk-release;${ROS_BRANCH};proto
 SRCREV = "14e5cf04628342ce9135de19301baf6a580d2c6f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('parrot-arsdk', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/xqms/rosfmt-release;${ROS_BRANCH};protocol=https"
 SRCREV = "930482a51f0edc0271acca8e52152f843687707f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosfmt', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

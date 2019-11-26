@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/HebiRobotics/hebi_description-release;${ROS_BRANCH};
 SRCREV = "fe1ff063f00f06c8377e0657afa796cad2111356"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('hebi-description', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

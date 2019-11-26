@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/yoshito-n-students/usb_cam_hardware-release;${ROS_BR
 SRCREV = "9f8d7c9c469d9819cd1c98717c2ab821b6cd3105"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('usb-cam-hardware', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

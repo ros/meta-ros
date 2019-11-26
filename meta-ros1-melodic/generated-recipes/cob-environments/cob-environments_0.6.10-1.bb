@@ -45,7 +45,6 @@ SRC_URI = "git://github.com/ipa320/cob_environments-release;${ROS_BRANCH};protoc
 SRCREV = "bc29a412cc1afba593505e634b675d7daa415d59"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-environments', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

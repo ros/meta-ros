@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/yujinrobot-release/yocs_msgs-release;${ROS_BRANCH};p
 SRCREV = "6ab0409645d4e219a089b6d4bbebc68d0315311d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('yocs-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

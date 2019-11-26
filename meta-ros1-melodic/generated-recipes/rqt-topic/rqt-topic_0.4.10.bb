@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_topic-release;${ROS_BRANCH};protocol=htt
 SRCREV = "0d471e97aa71cc83aa8fc1821db64ed860a6b5b1"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-topic', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

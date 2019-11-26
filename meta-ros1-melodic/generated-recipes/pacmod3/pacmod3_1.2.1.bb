@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/astuff/pacmod3-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d3ae660d23347805ea1c4bfd0b37fc972dfdd182"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pacmod3', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

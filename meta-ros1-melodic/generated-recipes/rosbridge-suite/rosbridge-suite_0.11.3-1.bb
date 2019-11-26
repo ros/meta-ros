@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/RobotWebTools-release/rosbridge_suite-release;${ROS_
 SRCREV = "6146a11f6fe4e11e93302e905ec9380e3586d185"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosbridge-suite', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

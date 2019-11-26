@@ -68,7 +68,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/omron-release;${ROS_BRANCH};protocol
 SRCREV = "f88fcc0b9072b63f207b024b0b5fd53f422728ba"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('omron-os32c-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

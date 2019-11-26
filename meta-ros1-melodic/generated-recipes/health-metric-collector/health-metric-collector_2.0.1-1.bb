@@ -72,7 +72,6 @@ SRC_URI = "git://github.com/aws-gbp/health_metric_collector-release;${ROS_BRANCH
 SRCREV = "d9d67b54a0c072379b83946ed95be38473fb6f6f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('health-metric-collector', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/uuvsimulator/eca_a9-release;${ROS_BRANCH};protocol=h
 SRCREV = "932bcc9245a6480aead8ac49aabdab8f9333f962"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('eca-a9', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -83,7 +83,6 @@ SRC_URI = "git://github.com/ros-gbp/simple_grasping-release;${ROS_BRANCH};protoc
 SRCREV = "f42523cb940694e473287d3f2bebd37b18baa071"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('simple-grasping', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

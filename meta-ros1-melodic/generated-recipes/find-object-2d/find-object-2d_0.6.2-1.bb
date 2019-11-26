@@ -78,7 +78,6 @@ SRC_URI = "git://github.com/introlab/find_object_2d-release;${ROS_BRANCH};protoc
 SRCREV = "b74ac2275b55f80a860a42f791d9bed15a870092"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('find-object-2d', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

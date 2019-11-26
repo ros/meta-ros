@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros-gbp/octomap_rviz_plugins-release;${ROS_BRANCH};p
 SRCREV = "e49145cf464a4197502750c54ffd5e7e6842f522"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('octomap-rviz-plugins', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

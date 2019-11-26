@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros-gbp/kdl_parser-release;${ROS_BRANCH};protocol=ht
 SRCREV = "85f929346bad8c6967e6c1f5605dce3a19830614"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('kdl-parser', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

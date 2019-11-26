@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros-gbp/pcl_msgs-release;${ROS_BRANCH};protocol=http
 SRCREV = "60ffbfa1eeb247501213bbaa6cbef73c2c6bf783"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pcl-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

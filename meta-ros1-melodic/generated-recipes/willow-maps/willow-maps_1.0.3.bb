@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ros-gbp/willow_maps-release;${ROS_BRANCH};protocol=h
 SRCREV = "23b71b52c3d3573df7f86257bf5cb99cca7e1020"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('willow-maps', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

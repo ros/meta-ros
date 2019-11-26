@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/CPFL/robosense-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ae8a546a36e990664a236d7b097e7ffef6b17299"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robosense', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

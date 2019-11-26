@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/DataspeedInc-release/dataspeed_can-release;${ROS_BRA
 SRCREV = "67a5ee897a05b57de375459b6bf23e0b825f80ca"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('dataspeed-can', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

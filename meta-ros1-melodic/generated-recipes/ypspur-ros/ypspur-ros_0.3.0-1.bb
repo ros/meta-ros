@@ -77,7 +77,6 @@ SRC_URI = "git://github.com/openspur/ypspur_ros-release;${ROS_BRANCH};protocol=h
 SRCREV = "bdfa99d8bcd031ab44f8d1c463a519b5c9311735"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ypspur-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

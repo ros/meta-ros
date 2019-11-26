@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/gavanderhoorn/industrial_robot_status_controller-rel
 SRCREV = "ce410b819d8ecd1efd78d56281e7fc8de6ae30f5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('industrial-robot-status-controller', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

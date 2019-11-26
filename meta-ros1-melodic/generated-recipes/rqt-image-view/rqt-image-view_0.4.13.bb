@@ -66,7 +66,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_image_view-release;${ROS_BRANCH};protoco
 SRCREV = "cf52b880ef959d8d836f0c82f8d17c6456aa8c0c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-image-view', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

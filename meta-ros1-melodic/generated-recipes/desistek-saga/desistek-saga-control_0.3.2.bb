@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/uuvsimulator/desistek_saga-release;${ROS_BRANCH};pro
 SRCREV = "dcb71a48df3beb9e913f0492e845dd930b0d98e7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('desistek-saga', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

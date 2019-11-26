@@ -125,7 +125,6 @@ SRC_URI = "git://github.com/tork-a/jsk_visualization-release;${ROS_BRANCH};proto
 SRCREV = "26eddd4e2853a8484e6ab5d5141c41f77ce34fe4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('jsk-visualization', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

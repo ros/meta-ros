@@ -68,7 +68,6 @@ SRC_URI = "git://github.com/ros-gbp/collada_urdf-release;${ROS_BRANCH};protocol=
 SRCREV = "eebd4976e5cdd113473284acd3e720c0c09c9353"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('collada-urdf', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

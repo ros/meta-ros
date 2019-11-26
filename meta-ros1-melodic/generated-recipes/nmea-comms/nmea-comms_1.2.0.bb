@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/nmea_comms-release;${ROS_BRANCH};pro
 SRCREV = "39473fe7bc6a093752245032dc40f1df05ce3708"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('nmea-comms', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

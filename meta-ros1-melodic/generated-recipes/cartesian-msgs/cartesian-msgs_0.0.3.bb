@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/PickNikRobotics/cartesian_msgs-release;${ROS_BRANCH}
 SRCREV = "703501c467b72ed308769dc90f4b465e7ea3633c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cartesian-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

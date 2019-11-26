@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/OUXT-Polaris/quaternion_operation-release;${ROS_BRAN
 SRCREV = "7f2d521bcbca5bfd78777f0779f8fff0a522dc7f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('quaternion-operation', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

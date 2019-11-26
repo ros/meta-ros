@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/yujinrobot-release/rocon_msgs-release;${ROS_BRANCH};
 SRCREV = "d6c09aa15eb45f6a3f5c113e901e0f2d49ebaea6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rocon-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

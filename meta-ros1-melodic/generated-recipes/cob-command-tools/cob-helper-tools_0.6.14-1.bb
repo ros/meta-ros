@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/ipa320/cob_command_tools-release;${ROS_BRANCH};proto
 SRCREV = "93806e3ceb897fdaeec79101bdea60e1d6be86d7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-command-tools', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

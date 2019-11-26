@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ros-gbp/gencpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c7842915f20fea38066d16aa068e4f87816c3072"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('gencpp', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

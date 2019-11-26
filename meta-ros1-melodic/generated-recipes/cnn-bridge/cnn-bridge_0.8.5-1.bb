@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/wew84/cnn_bridge-release;${ROS_BRANCH};protocol=http
 SRCREV = "394eeb2f4120235be9e928e5331d3b5470173e97"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cnn-bridge', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

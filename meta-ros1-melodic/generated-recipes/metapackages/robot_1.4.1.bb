@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/ros-gbp/metapackages-release;${ROS_BRANCH};protocol=
 SRCREV = "237f7094587c0e1effde73c47d83a32319e5061b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('metapackages', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/rosin-project/rxcpp_vendor-release;${ROS_BRANCH};pro
 SRCREV = "0343de6dbe7c650c4a32a2420a0dbbe7976d0210"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rxcpp-vendor', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

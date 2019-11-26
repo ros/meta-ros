@@ -68,7 +68,6 @@ SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protoc
 SRCREV = "4b98ec74d0bfd433f74ed3e1c808671c76601544"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros-controllers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

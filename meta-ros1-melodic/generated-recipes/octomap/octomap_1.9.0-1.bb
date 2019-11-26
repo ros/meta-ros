@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/ros-gbp/octomap-release;${ROS_BRANCH};protocol=https
 SRCREV = "2d4d198b10e6a3981051ea3ae6df4c8f4f3b16d5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('octomap', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

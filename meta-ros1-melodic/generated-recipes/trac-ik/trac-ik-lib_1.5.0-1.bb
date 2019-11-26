@@ -67,7 +67,6 @@ SRC_URI = "git://github.com/traclabs/trac_ik-release;${ROS_BRANCH};protocol=http
 SRCREV = "8f7af40ba8f06693b3313baf9c7b327db6e20585"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('trac-ik', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

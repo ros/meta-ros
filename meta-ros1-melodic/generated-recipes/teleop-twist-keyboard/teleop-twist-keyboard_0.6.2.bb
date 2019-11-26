@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ros-gbp/teleop_twist_keyboard-release;${ROS_BRANCH};
 SRCREV = "8e5c45701774f927b97874631229293a5a68e36f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('teleop-twist-keyboard', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros-gbp/laser_proc-release;${ROS_BRANCH};protocol=ht
 SRCREV = "286a229144e66b1d2045a9da52c080d693e3f060"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('laser-proc', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

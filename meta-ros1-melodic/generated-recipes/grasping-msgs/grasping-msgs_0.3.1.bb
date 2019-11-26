@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/mikeferguson/grasping_msgs-gbp;${ROS_BRANCH};protoco
 SRCREV = "6257644360e3628d629100d8a15725f5411bf8e4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('grasping-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

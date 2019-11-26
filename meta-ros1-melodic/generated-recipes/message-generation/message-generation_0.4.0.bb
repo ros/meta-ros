@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/ros-gbp/message_generation-release;${ROS_BRANCH};pro
 SRCREV = "e6ca64d4f7580e1150daa15a8fb6cd77c80dfc65"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('message-generation', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

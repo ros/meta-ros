@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/anybotics/grid_map-release;${ROS_BRANCH};protocol=ht
 SRCREV = "176a9ecab0f3ddb50e2f0b9263faf549bd53f5ab"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('grid-map', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

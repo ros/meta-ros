@@ -67,7 +67,6 @@ SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=htt
 SRCREV = "4a1a282cbfdcf3be7b3e178b6511427f19f6d391"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('exotica', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

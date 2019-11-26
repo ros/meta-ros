@@ -64,7 +64,6 @@ SRC_URI = "git://github.com/ros-gbp/libg2o-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4bead40a8a6a5adeaa1f34d364ecf3aeaaac9e68"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('libg2o', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

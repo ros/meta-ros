@@ -94,7 +94,6 @@ SRC_URI = "git://github.com/at-wat/neonavigation-release;${ROS_BRANCH};protocol=
 SRCREV = "5092030acc753ea862d005115b18da24d3c8b473"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('neonavigation', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

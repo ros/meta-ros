@@ -64,7 +64,6 @@ SRC_URI = "git://github.com/squarerobot/bagger-release;${ROS_BRANCH};protocol=ht
 SRCREV = "d96bf8e5dadaef3c83c8683d39dcdd7cce0586ca"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('bagger', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

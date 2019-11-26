@@ -66,7 +66,6 @@ SRC_URI = "git://github.com/aws-gbp/kinesis_manager-release;${ROS_BRANCH};protoc
 SRCREV = "4578a3ceacc6e49c6683934369b28de74d503d97"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('kinesis-manager', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

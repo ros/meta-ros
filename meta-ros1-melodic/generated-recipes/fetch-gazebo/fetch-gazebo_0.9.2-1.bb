@@ -80,7 +80,6 @@ SRC_URI = "git://github.com/fetchrobotics-gbp/fetch_gazebo-release;${ROS_BRANCH}
 SRCREV = "837b0d7a355c6cd49d73faae6d9e0f69f78e2d0b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('fetch-gazebo', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

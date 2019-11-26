@@ -75,7 +75,6 @@ SRC_URI = "git://github.com/pr2-gbp/pr2_kinematics-release;${ROS_BRANCH};protoco
 SRCREV = "d5dd822b7972130cc667c2797a83f04f2650cc8d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pr2-kinematics', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

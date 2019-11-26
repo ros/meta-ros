@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/PickNikRobotics/rosparam_shortcuts-release;${ROS_BRA
 SRCREV = "ddc612bc05ad4074fc16dd5fa81dcca3ca0e1b12"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosparam-shortcuts', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

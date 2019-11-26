@@ -81,7 +81,6 @@ SRC_URI = "git://github.com/ethz-adrl/towr-release;${ROS_BRANCH};protocol=https"
 SRCREV = "902e709124bea4eaac36adcef8bf81055d08d4e6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('towr', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

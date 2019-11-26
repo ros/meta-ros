@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/clearpath-gbp/ridgeback_simulator-release;${ROS_BRAN
 SRCREV = "efcddb1b093a3b8b0eb6f4dcce275b1fd62132d4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ridgeback-simulator', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

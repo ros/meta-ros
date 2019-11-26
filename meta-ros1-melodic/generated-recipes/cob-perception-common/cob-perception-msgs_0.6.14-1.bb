@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/ipa320/cob_perception_common-release;${ROS_BRANCH};p
 SRCREV = "a2156691fa26b4075c647a75dfa8b5c5b8c56a3e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-perception-common', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

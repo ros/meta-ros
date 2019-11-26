@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/ipab-slmc/hpp-fcl_catkin-release;${ROS_BRANCH};proto
 SRCREV = "664ff4a31a536fa3a2bf45394a6bd958c4b7fea7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('hpp-fcl', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

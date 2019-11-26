@@ -46,7 +46,6 @@ SRC_URI = "git://github.com/frankaemika/franka_ros-release;${ROS_BRANCH};protoco
 SRCREV = "185238d1e455d0fc29099b0530c5f009490c753f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('franka-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

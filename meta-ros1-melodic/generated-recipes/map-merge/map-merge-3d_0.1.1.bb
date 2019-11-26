@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/hrnr/map-merge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "93aff190ed50b2de8454fe9372ac25d947a06780"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('map-merge', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

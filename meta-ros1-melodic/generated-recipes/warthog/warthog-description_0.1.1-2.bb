@@ -54,7 +54,6 @@ SRC_URI = "git://github.com/clearpath-gbp/warthog-release;${ROS_BRANCH};protocol
 SRCREV = "ee82931bb7ad43075deb298763cd2ffe8156a9d2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('warthog', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

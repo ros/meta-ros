@@ -72,7 +72,6 @@ SRC_URI = "git://github.com/ros-gbp/graft-release;${ROS_BRANCH};protocol=https"
 SRCREV = "adccb4c5b48be9c05eb1a315fd6df1775dbd999e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('graft', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

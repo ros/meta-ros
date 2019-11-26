@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros-gbp/urdf_geometry_parser-release;${ROS_BRANCH};p
 SRCREV = "7934d229364cf8984a8d57190a4b95c05465ace3"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('urdf-geometry-parser', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

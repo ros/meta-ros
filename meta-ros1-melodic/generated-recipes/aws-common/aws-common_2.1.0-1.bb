@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/aws-gbp/aws_common-release;${ROS_BRANCH};protocol=ht
 SRCREV = "fdab214374596ea234f7e2c43e407ed2459b8a30"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('aws-common', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

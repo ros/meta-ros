@@ -103,7 +103,6 @@ SRC_URI = "git://github.com/swri-robotics-gbp/mapviz-release;${ROS_BRANCH};proto
 SRCREV = "04ee7fe045a8d76fef247d21ffa5a4f231622911"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mapviz', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

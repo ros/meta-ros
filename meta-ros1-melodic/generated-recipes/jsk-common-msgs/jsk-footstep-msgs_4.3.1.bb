@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/tork-a/jsk_common_msgs-release;${ROS_BRANCH};protoco
 SRCREV = "e9e356010b22aa5c8640dad840e9cbdbfa39a387"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('jsk-common-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -57,7 +57,6 @@ SRC_URI = "git://github.com/ros-gbp/class_loader-release;${ROS_BRANCH};protocol=
 SRCREV = "aa4182a5224f03bfba451bf12d3c484eec66c024"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('class-loader', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

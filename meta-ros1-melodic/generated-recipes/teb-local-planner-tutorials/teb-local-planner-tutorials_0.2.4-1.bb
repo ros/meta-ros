@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/rst-tu-dortmund/teb_local_planner_tutorials-release;
 SRCREV = "659bb8b80533b0d7581a2cf06c1bd966bb949257"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('teb-local-planner-tutorials', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

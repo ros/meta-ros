@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/uuvsimulator/uuv_simulator-release;${ROS_BRANCH};pro
 SRCREV = "197ce267f776bdf02b1b154886e9816adc2dab37"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('uuv-simulator', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

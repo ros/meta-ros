@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/wxmerkt/pybind11_catkin-release;${ROS_BRANCH};protoc
 SRCREV = "73850b840bb9d55de0df83f7c863d4cc95a254e6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pybind11-catkin', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

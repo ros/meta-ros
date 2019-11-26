@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/praveen-palanisamy/multi_object_tracking_lidar-relea
 SRCREV = "fc1822f7da52dc0c40947bb7e860238ca2011d51"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('multi-object-tracking-lidar', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

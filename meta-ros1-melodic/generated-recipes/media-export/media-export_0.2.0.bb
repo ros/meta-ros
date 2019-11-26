@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ros-gbp/media_export-release;${ROS_BRANCH};protocol=
 SRCREV = "1e990cbafb3186752c9eaea7a9a933106a9aefda"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('media-export', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

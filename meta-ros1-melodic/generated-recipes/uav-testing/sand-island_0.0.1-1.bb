@@ -45,7 +45,6 @@ SRC_URI = "git://github.com/ros-gbp/uav_testing-release;${ROS_BRANCH};protocol=h
 SRCREV = "b13aa1b4f133911a59515ec7b95772f5fd5a76c3"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('uav-testing', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

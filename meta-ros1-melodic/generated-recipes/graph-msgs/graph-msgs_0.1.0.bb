@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/davetcoleman/graph_msgs-release;${ROS_BRANCH};protoc
 SRCREV = "593aa8a4d9952b11ffa8aa111f591032e8e97014"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('graph-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

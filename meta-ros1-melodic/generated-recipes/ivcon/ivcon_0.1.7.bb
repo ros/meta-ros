@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ros-gbp/ivcon-release;${ROS_BRANCH};protocol=https"
 SRCREV = "56b4843fd8879918050d5d539edc9d1eb07e8763"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ivcon', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

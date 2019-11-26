@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/pal-gbp/ddynamic_reconfigure_python-release;${ROS_BR
 SRCREV = "9b529459320d2bc0f1026bad3b39a7bcecdf9381"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ddynamic-reconfigure-python', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

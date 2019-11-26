@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/ros-gbp/realtime_tools-release;${ROS_BRANCH};protoco
 SRCREV = "f07a9191815ee8298b164509b311b1b05dfe7239"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('realtime-tools', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

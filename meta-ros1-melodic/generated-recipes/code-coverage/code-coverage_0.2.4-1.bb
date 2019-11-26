@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/mikeferguson/code_coverage-gbp;${ROS_BRANCH};protoco
 SRCREV = "2a5128637f52bcdb649fc7dab26006d21a95efe3"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('code-coverage', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

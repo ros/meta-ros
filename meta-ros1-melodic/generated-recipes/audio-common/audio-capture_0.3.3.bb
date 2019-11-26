@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/ros-gbp/audio_common-release;${ROS_BRANCH};protocol=
 SRCREV = "1c387f50c07af770b83055df5fde7a3f566838c2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('audio-common', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

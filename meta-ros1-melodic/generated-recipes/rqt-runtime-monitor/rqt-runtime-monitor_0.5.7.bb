@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_runtime_monitor-release;${ROS_BRANCH};pr
 SRCREV = "b5526295ba6a418ea9e88f0eb7e5e46675d56e7e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-runtime-monitor', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

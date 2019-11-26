@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/aws-gbp/cloudwatch_common-release;${ROS_BRANCH};prot
 SRCREV = "c615af64fd5f5dfe44b5dc192ece2951e10b8ca3"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cloudwatch-common', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/tuw-robotics/tuw_geometry-release;${ROS_BRANCH};prot
 SRCREV = "037aa884d1094527cfc1b474a0ef7e00c84df71d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('tuw-geometry', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

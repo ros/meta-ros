@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/ros-gbp/rosserial-release;${ROS_BRANCH};protocol=htt
 SRCREV = "b88d7f6bb529da81d7d5bcdfcf99c0190ef954da"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosserial', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

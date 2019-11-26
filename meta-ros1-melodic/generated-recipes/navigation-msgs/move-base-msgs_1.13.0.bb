@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros-gbp/navigation_msgs-release;${ROS_BRANCH};protoc
 SRCREV = "f6555ea02ff62a2467e699158a3ad2d9970ed0eb"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('navigation-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

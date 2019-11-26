@@ -74,7 +74,6 @@ SRC_URI = "git://github.com/tuw-robotics/tuw_marker_detection-release;${ROS_BRAN
 SRCREV = "817f1f1215a015623257375e8223ead3a276b1c7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('tuw-marker-detection', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

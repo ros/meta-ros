@@ -66,7 +66,6 @@ SRC_URI = "git://github.com/ros-gbp/warehouse_ros_mongo-release;${ROS_BRANCH};pr
 SRCREV = "02e4441a9ee478b69cadc9f6b582c2bb2230973c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('warehouse-ros-mongo', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

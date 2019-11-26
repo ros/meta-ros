@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/ros-gbp/rosconsole-release;${ROS_BRANCH};protocol=ht
 SRCREV = "5a1704198d15f186c383688041a3c822f6a031c5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosconsole', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

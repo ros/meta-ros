@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/pr2-gbp/pr2_common_actions-release;${ROS_BRANCH};pro
 SRCREV = "ce1c9cc475f0d013e0f648532cf78083ed20b4bb"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pr2-common-actions', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

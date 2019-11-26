@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/ros-gbp/webkit_dependency-release;${ROS_BRANCH};prot
 SRCREV = "3506f24228e77ac6e74f29a26b5dae6e7d476f57"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('webkit-dependency', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

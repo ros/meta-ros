@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/AndyZe/pid-release;${ROS_BRANCH};protocol=https"
 SRCREV = "40289c0730376c36a5a0068ff8a3a94954d09fb2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pid', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

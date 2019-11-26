@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/swri-robotics-gbp/marti_messages-release;${ROS_BRANC
 SRCREV = "ac0681d357909c25368e268309bfbd543bd620dd"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('marti-messages', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

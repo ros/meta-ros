@@ -87,7 +87,6 @@ SRC_URI = "git://github.com/gt-rail-release/rail_segmentation;${ROS_BRANCH};prot
 SRCREV = "f43d2b8597063bcfb1efc8506c26c43da8812da9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rail-segmentation', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

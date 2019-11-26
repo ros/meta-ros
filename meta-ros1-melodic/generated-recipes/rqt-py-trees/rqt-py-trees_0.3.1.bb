@@ -78,7 +78,6 @@ SRC_URI = "git://github.com/stonier/rqt_py_trees-release;${ROS_BRANCH};protocol=
 SRCREV = "1ce9a3792c8dad0b8073a905316dd5d9e0b61044"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-py-trees', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

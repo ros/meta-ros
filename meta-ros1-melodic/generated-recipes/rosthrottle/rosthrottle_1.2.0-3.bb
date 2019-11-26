@@ -46,7 +46,6 @@ SRC_URI = "git://github.com/UTNuclearRoboticsPublic/rosthrottle-release;${ROS_BR
 SRCREV = "e2f318e0169c36a5f5e8f46b17c6486f31a50b9b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosthrottle', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

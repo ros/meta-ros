@@ -57,7 +57,6 @@ SRC_URI = "git://github.com/seqsense/urg_stamped-release;${ROS_BRANCH};protocol=
 SRCREV = "1b611de56f238e2ff048ef9d1a962773b3f8dc52"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('urg-stamped', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

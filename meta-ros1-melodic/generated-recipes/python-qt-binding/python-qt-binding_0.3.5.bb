@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/ros-gbp/python_qt_binding-release;${ROS_BRANCH};prot
 SRCREV = "3db928afa92e1b3db971409f1ed5985b93f018de"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('python-qt-binding', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

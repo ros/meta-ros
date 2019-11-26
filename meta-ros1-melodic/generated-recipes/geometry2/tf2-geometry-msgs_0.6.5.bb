@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/ros-gbp/geometry2-release;${ROS_BRANCH};protocol=htt
 SRCREV = "508932a3f0e976be96687bcbc238271d04cb0618"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('geometry2', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

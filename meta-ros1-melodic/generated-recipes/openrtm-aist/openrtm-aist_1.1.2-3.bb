@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/tork-a/openrtm_aist-release;${ROS_BRANCH};protocol=h
 SRCREV = "3c1672d0f098ee7e7db8928a94674c7d64590ccc"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('openrtm-aist', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

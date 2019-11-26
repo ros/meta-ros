@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/fetchrobotics-gbp/fetch_tools-release;${ROS_BRANCH};
 SRCREV = "fcc9af1a02c8561698864412fa9136e656c59049"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('fetch-tools', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -78,7 +78,6 @@ SRC_URI = "git://github.com/introlab/rtabmap-release;${ROS_BRANCH};protocol=http
 SRCREV = "bd69ae2d33d2bebb2eab1eb484a68e605b7ec8b9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rtabmap', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

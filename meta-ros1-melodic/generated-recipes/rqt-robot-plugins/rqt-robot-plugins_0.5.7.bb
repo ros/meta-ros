@@ -64,7 +64,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_robot_plugins-release;${ROS_BRANCH};prot
 SRCREV = "cc4f09dbb3c1a29732315dd707ada36d48b925aa"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-robot-plugins', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

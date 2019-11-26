@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/yujinrobot-release/yujin_ocs-release;${ROS_BRANCH};p
 SRCREV = "4adcc15dad5e8638c51019de9bac2b0afb3a15af"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('yujin-ocs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

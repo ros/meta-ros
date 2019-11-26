@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ros-gbp/convex_decomposition-release;${ROS_BRANCH};p
 SRCREV = "8a1e090d98cf9af495d22824700d7a92e835f7ad"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('convex-decomposition', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

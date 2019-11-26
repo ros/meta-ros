@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/clearpath-gbp/lms1xx-release;${ROS_BRANCH};protocol=
 SRCREV = "2b7361cb6e91de496c21c0a19e0e3a124be4195d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('lms1xx', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

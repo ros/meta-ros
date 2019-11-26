@@ -54,7 +54,6 @@ SRC_URI = "git://github.com/ros-gbp/urdfdom_py-release;${ROS_BRANCH};protocol=ht
 SRCREV = "6f9f8e8b7684eb70de1d6c33dd36ee2017d80bea"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('urdfdom-py', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -80,7 +80,6 @@ SRC_URI = "git://github.com/skasperski/navigation_2d-release;${ROS_BRANCH};proto
 SRCREV = "48fd34b20a28155b23816834d8bf38e330b6bd91"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('navigation-2d', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

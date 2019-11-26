@@ -61,7 +61,6 @@ SRC_URI = "git://github.com/ros-gbp/rgbd_launch-release;${ROS_BRANCH};protocol=h
 SRCREV = "3a34fdc2e146020fdb89e8eddad6409f13661d78"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rgbd-launch', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

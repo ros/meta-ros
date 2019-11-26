@@ -85,7 +85,6 @@ SRC_URI = "git://github.com/ros-gbp/ros_comm-release;${ROS_BRANCH};protocol=http
 SRCREV = "ad1bef4be8245a13fb6dddcc9a9ed8ff8b7c1f24"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros-comm', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

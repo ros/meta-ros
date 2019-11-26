@@ -71,7 +71,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/phidgets_drivers-release;${ROS_BRANC
 SRCREV = "8808cdea54efa6c38fd163b69847f0039ef690e7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('phidgets-drivers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

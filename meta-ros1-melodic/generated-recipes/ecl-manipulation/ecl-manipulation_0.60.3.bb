@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/yujinrobot-release/ecl_manipulation-release;${ROS_BR
 SRCREV = "73acf7839d336a830973b5ed6226b8bacfff414f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ecl-manipulation', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

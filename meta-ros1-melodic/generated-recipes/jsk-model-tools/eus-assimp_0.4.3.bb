@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/tork-a/jsk_model_tools-release;${ROS_BRANCH};protoco
 SRCREV = "f8ee5e8e1b0b58aa5e7cf15b513c794c423ba259"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('jsk-model-tools', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

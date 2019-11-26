@@ -88,7 +88,6 @@ SRC_URI = "git://github.com/lagadic/vision_visp-release;${ROS_BRANCH};protocol=h
 SRCREV = "4043448bb4d7455b6a05dc1accb20a23c3f1b71e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('vision-visp', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

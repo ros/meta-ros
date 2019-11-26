@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/astuff/pacmod_game_control-release;${ROS_BRANCH};pro
 SRCREV = "ed063795b11a546db19b1b9d285c73ab4f1a4da7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pacmod-game-control', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

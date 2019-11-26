@@ -102,7 +102,6 @@ SRC_URI = "git://github.com/peci1/robot_body_filter-release;${ROS_BRANCH};protoc
 SRCREV = "b141df10713114463f1e9894773c34df39203522"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-body-filter', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

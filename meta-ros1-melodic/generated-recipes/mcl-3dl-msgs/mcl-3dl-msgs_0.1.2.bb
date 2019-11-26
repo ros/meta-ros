@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/at-wat/mcl_3dl_msgs-release;${ROS_BRANCH};protocol=h
 SRCREV = "c0d69dcc4c70249640fcf8c02a80740d79f6159a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mcl-3dl-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/ipab-slmc/eigenpy_catkin-release;${ROS_BRANCH};proto
 SRCREV = "04f06578c31d7cc154449caccdfe47abc6b3cac6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('eigenpy', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

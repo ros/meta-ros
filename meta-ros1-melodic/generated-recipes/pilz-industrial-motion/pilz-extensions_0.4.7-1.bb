@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/PilzDE/pilz_industrial_motion-release;${ROS_BRANCH};
 SRCREV = "2a3ee41832738335b5998da1305ab7b85124a5c5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pilz-industrial-motion', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

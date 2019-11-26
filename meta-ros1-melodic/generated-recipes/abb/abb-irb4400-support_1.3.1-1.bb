@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/ros-industrial-release/abb-release;${ROS_BRANCH};pro
 SRCREV = "06c822a4e0fccd81137580f7b0575d9d29bb0c97"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('abb', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

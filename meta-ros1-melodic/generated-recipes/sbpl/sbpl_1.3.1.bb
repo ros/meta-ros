@@ -46,7 +46,6 @@ SRC_URI = "git://github.com/ros-gbp/sbpl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f24eb38d588c4d990168b9fb5a9681da707b6c7f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('sbpl', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

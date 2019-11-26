@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ros-gbp/roslint-release;${ROS_BRANCH};protocol=https
 SRCREV = "f9ddef819849e46a2c46f3660309d9d98e9c1df8"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('roslint', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

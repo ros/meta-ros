@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/four_wheel_steering_msgs-release;${R
 SRCREV = "f02580919042ec73459f9e65524e7df2d1465d70"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('four-wheel-steering-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -71,7 +71,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/novatel_span_driver-release;${ROS_BR
 SRCREV = "7b73da7bcc5b429d375722356183ec4a28eeb53b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('novatel-span-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

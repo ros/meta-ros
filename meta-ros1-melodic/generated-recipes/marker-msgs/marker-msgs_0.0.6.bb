@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/tuw-robotics/marker_msgs-release;${ROS_BRANCH};proto
 SRCREV = "4b16dc07e8e831be750ee5eaa684c0d98e82d3a5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('marker-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

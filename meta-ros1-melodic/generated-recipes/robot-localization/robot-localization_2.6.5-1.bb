@@ -112,7 +112,6 @@ SRC_URI = "git://github.com/cra-ros-pkg/robot_localization-release;${ROS_BRANCH}
 SRCREV = "a4909e1a5df89b896102e7f4cd0d02a89e74e2eb"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-localization', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

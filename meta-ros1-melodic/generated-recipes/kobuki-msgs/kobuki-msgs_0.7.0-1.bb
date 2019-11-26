@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/yujinrobot-release/kobuki_msgs-release;${ROS_BRANCH}
 SRCREV = "4f85726fca43c6f799b8b91e7fe717932c2e402b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('kobuki-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

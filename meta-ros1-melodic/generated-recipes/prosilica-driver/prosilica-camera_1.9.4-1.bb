@@ -84,7 +84,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/prosilica_driver-release;${ROS_BRANC
 SRCREV = "2091a5eafb50a1bf2f207cc0b1bd4185f3386da6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('prosilica-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

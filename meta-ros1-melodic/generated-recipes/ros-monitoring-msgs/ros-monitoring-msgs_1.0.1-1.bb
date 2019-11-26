@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/aws-gbp/ros_monitoring_msgs-release;${ROS_BRANCH};pr
 SRCREV = "4d72fb7684afb1b0c121705ce1aa528cbdf01ec2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros-monitoring-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -81,7 +81,6 @@ SRC_URI = "git://github.com/pr2-gbp/robot_self_filter-gbp;${ROS_BRANCH};protocol
 SRCREV = "a0c04ca1bc1d67c8de6dd57222d9f8b0b8023e41"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-self-filter', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

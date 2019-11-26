@@ -61,7 +61,6 @@ SRC_URI = "git://github.com/yujinrobot-release/rocon_tools-release;${ROS_BRANCH}
 SRCREV = "ac11c2251b968d0817031829ed829e017d850de6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rocon-tools', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

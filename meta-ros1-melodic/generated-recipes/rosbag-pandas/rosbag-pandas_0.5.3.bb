@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/eurogroep/rosbag_pandas-release;${ROS_BRANCH};protoc
 SRCREV = "a52db839c63ba26f01128e871231bc03d65baac3"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosbag-pandas', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

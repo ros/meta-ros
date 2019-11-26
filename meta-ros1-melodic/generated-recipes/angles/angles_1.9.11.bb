@@ -46,7 +46,6 @@ SRC_URI = "git://github.com/ros-gbp/geometry_angles_utils-release;${ROS_BRANCH};
 SRCREV = "67e2f0296318d24eb38b5bd9aabffca56db1b209"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('angles', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

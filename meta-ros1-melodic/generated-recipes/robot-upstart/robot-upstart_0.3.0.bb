@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/clearpath-gbp/robot_upstart-release;${ROS_BRANCH};pr
 SRCREV = "c0b54ef153914e69b15650a6c82c1ec49b4a0bc0"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-upstart', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

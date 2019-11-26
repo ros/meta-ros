@@ -43,7 +43,6 @@ SRC_URI = "git://github.com/ros-gbp/rosbag_migration_rule-release;${ROS_BRANCH};
 SRCREV = "724c171cac784b4a313f0330b70b60cfaa5cbd3a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosbag-migration-rule', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

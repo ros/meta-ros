@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/pyros-dev/pyros-test-release;${ROS_BRANCH};protocol=
 SRCREV = "e97eac341c422e49bf144cf3b355370dd6a27cee"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pyros-test', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

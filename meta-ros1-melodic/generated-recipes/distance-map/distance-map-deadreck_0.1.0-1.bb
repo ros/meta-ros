@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/artivis/distance_map-release;${ROS_BRANCH};protocol=
 SRCREV = "78f4e4157acf741b568878e4ea0ea072ed71f601"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('distance-map', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

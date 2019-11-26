@@ -90,7 +90,6 @@ SRC_URI = "git://github.com/AprilRobotics/apriltag_ros-release;${ROS_BRANCH};pro
 SRCREV = "4afbe653f4061d1b12cf996a39bb5ac1c20084e1"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('apriltag-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

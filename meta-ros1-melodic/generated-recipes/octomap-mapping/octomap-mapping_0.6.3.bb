@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/ros-gbp/octomap_mapping-release;${ROS_BRANCH};protoc
 SRCREV = "a35b584bbc798166036e1165341b8ad86f225ad1"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('octomap-mapping', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

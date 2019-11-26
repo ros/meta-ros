@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/swri-robotics-gbp/qt_metapackages-release;${ROS_BRAN
 SRCREV = "54094e882d82bed06f66ec9c637c02676e48e520"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('qt-metapackages', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

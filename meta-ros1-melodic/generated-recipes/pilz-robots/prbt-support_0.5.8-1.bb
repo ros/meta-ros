@@ -66,7 +66,6 @@ SRC_URI = "git://github.com/PilzDE/pilz_robots-release;${ROS_BRANCH};protocol=ht
 SRCREV = "1e4421b81430c5dbac77ebd52bdd697b24739a14"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pilz-robots', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros-gbp/robot_calibration-release;${ROS_BRANCH};prot
 SRCREV = "7b30547dd8a56cb261bb4180f4394996a3df0cfb"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-calibration', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

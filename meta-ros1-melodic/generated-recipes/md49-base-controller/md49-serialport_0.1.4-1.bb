@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/Scheik/md49_base_controller-release;${ROS_BRANCH};pr
 SRCREV = "6416034b3e1037068a16f6bc3d21491c67e24378"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('md49-base-controller', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

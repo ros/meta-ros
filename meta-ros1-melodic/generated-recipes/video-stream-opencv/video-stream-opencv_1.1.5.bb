@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/ros-drivers/video_stream_opencv-release;${ROS_BRANCH
 SRCREV = "95ec59da0bff3e0398cbc8a467f86bff639bfa3a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('video-stream-opencv', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

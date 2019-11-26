@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/OTL/rqt_ez_publisher-release;${ROS_BRANCH};protocol=
 SRCREV = "682ed9a3a0c1baa92d8c9f2b897593c0a7ac3b7c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-ez-publisher', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

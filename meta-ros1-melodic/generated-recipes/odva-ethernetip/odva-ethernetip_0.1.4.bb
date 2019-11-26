@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/odva_ethernetip-release;${ROS_BRANCH
 SRCREV = "78d8eccd42436befbd9aeb83b6062e07a49e162b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('odva-ethernetip', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/tork-a/adi_driver-release;${ROS_BRANCH};protocol=htt
 SRCREV = "246346cc84b14d992ff426e65a944678874b93cd"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('adi-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

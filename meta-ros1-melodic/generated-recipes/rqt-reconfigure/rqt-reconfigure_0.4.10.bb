@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_reconfigure-release;${ROS_BRANCH};protoc
 SRCREV = "5b8f90c90ccaee7e225ff8a582e2de7a196ebc13"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-reconfigure', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

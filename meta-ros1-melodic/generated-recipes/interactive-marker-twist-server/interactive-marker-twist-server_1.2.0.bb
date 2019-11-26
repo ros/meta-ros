@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/ros-gbp/interactive_marker_twist_server-release;${RO
 SRCREV = "c0aad159fac065f1c3944472b62572e7c0b2c4ad"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('interactive-marker-twist-server', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

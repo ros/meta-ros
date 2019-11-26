@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/uos-gbp/rospy_message_converter-release;${ROS_BRANCH
 SRCREV = "f8f268976bff1c3d86c6ad8d0d178144cf01ceab"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rospy-message-converter', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

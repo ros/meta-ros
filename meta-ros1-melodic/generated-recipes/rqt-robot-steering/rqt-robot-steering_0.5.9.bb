@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_robot_steering-release;${ROS_BRANCH};pro
 SRCREV = "e46a2ec2443f3a0ccfd0ef70dcda8eeaaa27577b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-robot-steering', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

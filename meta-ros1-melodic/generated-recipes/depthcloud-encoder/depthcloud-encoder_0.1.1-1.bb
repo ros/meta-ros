@@ -74,7 +74,6 @@ SRC_URI = "git://github.com/RobotWebTools-release/depthcloud_encoder-release;${R
 SRCREV = "f016fa054dad892a70da2bbda395e3c422afc9f4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('depthcloud-encoder', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

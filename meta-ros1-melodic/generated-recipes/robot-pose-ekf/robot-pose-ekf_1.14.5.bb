@@ -74,7 +74,6 @@ SRC_URI = "git://github.com/ros-gbp/robot_pose_ekf-release;${ROS_BRANCH};protoco
 SRCREV = "7a80a93b7809fc107ce0a9a611d557ed830fa423"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-pose-ekf', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

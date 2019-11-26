@@ -46,7 +46,6 @@ SRC_URI = "git://github.com/roboception-gbp/rcdiscover-release;${ROS_BRANCH};pro
 SRCREV = "0cd1882a0f660a024899260293fa207f91c2c93d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rcdiscover', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

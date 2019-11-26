@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/gt-rail-release/async_web_server_cpp-release;${ROS_B
 SRCREV = "03f15ffab351b3c2525e1438d82e73d261b3b397"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('async-web-server-cpp', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

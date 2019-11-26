@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/openspur/yp-spur-release;${ROS_BRANCH};protocol=http
 SRCREV = "23099422c54d8275f312e43ed44860d77e54cef6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('yp-spur', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

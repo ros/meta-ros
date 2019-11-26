@@ -73,7 +73,6 @@ SRC_URI = "git://github.com/nerian-vision/nerian_stereo-release;${ROS_BRANCH};pr
 SRCREV = "5b40828575961af3f51a06a870980d5747e1b11a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('nerian-stereo', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

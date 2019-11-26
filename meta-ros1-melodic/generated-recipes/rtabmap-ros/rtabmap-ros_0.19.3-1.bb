@@ -146,7 +146,6 @@ SRC_URI = "git://github.com/introlab/rtabmap_ros-release;${ROS_BRANCH};protocol=
 SRCREV = "92449fdf0ceb8721e381fba68dc5085bea74cd94"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rtabmap-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

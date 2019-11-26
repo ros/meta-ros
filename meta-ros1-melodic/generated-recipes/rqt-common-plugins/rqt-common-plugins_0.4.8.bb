@@ -88,7 +88,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_common_plugins-release;${ROS_BRANCH};pro
 SRCREV = "95b8bad7611294be16f1c11f5f5b44cbbdc00cb7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-common-plugins', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

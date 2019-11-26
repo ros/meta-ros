@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_publisher-release;${ROS_BRANCH};protocol
 SRCREV = "2c6d32608cd996b42c76e52f3b6f2a71549884ed"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-publisher', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -71,7 +71,6 @@ SRC_URI = "git://github.com/ros-gbp/openni2_camera-release;${ROS_BRANCH};protoco
 SRCREV = "9512d8cab972b943cd7370c63b9c75fdeae32889"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('openni2-camera', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

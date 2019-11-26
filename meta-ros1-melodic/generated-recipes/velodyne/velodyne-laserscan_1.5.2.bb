@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/velodyne-release;${ROS_BRANCH};proto
 SRCREV = "cfd1099dc0352be624c782bcd9d023f80f70bfae"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('velodyne', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

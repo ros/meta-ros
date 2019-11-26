@@ -46,7 +46,6 @@ SRC_URI = "git://github.com/ipa320/cob_hand-release;${ROS_BRANCH};protocol=https
 SRCREV = "57417feafc6ad1a281d70bf2c5df6161b98c2279"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-hand', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

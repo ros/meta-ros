@@ -91,7 +91,6 @@ SRC_URI = "git://github.com/xqms/rosmon-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d8941f26084fa8a394d476830ee1449ae2f88bcf"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosmon', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ros-gbp/driver_common-release;${ROS_BRANCH};protocol
 SRCREV = "c63bfa206efb5b0feb3cf6f3da6b62f8e3e6a397"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('driver-common', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

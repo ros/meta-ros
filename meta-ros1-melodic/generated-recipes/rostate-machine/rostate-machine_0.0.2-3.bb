@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/OUXT-Polaris/rostate_machine-release;${ROS_BRANCH};p
 SRCREV = "583dc0757bda40ba32c3d4c5baa6f5ecad8038c8"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rostate-machine', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

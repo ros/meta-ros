@@ -68,7 +68,6 @@ SRC_URI = "git://github.com/anybotics/rqt_multiplot_plugin-release;${ROS_BRANCH}
 SRCREV = "890b0183dd413c19d262447de004e70f23b03cee"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-multiplot-plugin', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

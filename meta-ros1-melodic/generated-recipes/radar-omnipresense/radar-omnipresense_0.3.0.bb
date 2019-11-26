@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/SCU-RSL-ROS/radar_omnipresense-release;${ROS_BRANCH}
 SRCREV = "92ed94b267e649f3d3734d8c4df08516a840894f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('radar-omnipresense', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/prosilica_gige_sdk-release;${ROS_BRA
 SRCREV = "9c3eb71c5673abaa5e764cc52d893e8f35105ceb"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('prosilica-gige-sdk', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

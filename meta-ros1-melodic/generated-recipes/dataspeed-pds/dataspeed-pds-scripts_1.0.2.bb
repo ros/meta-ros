@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/DataspeedInc-release/dataspeed_pds-release;${ROS_BRA
 SRCREV = "b51964adcd70e8b0989283c7f53040e3edb62104"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('dataspeed-pds', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -66,7 +66,6 @@ SRC_URI = "git://github.com/ros-gbp/srdfdom-release;${ROS_BRANCH};protocol=https
 SRCREV = "6baf951a077ad1ca4a1163b39a703a5c38eb6448"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('srdfdom', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

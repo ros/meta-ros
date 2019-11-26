@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/ipa320/cob_driver-release;${ROS_BRANCH};protocol=htt
 SRCREV = "f250057ea9ad0440e063fcd7fc666f46aa2b8012"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/pal-gbp/urdf_test-release;${ROS_BRANCH};protocol=htt
 SRCREV = "f8ecc5c0713f451603f7c0b34c51c5553b3adcf2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('urdf-test', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

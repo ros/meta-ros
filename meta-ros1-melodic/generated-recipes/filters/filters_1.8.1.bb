@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/ros-gbp/filters-release;${ROS_BRANCH};protocol=https
 SRCREV = "d02dbcdf6a76c22df9c92656a0f339b30ad73fdd"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('filters', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

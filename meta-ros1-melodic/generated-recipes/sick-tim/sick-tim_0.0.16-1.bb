@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/uos-gbp/sick_tim-release;${ROS_BRANCH};protocol=http
 SRCREV = "0c1d352e226d19a470d23becbc61e8fd27716f68"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('sick-tim', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

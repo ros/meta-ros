@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/PilzDE/prbt_grippers-release;${ROS_BRANCH};protocol=
 SRCREV = "c45e6fe91a901e4ccd702d6f7467d2b45065c268"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('prbt-grippers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

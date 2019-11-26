@@ -71,7 +71,6 @@ SRC_URI = "git://github.com/RobotWebTools-release/tf2_web_republisher-release;${
 SRCREV = "0f4d1473a6ce16d06a93d72b3b54dea798c7797b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('tf2-web-republisher', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

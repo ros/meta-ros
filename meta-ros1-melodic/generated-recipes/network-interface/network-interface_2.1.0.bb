@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/astuff/network_interface-release;${ROS_BRANCH};proto
 SRCREV = "7f2eb931756cf9984eb60b1b54a3b70c71c6c62b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('network-interface', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/ros-gbp/message_runtime-release;${ROS_BRANCH};protoc
 SRCREV = "80b7354d834b0ba6e32df03c2ff5f4ca6f2d92e6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('message-runtime', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

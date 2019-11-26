@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ROBOTIS-GIT-release/turtlebot3_applications_msgs-rel
 SRCREV = "d2afd771084631787d433985f6bb6e20afa01bb0"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('turtlebot3-applications-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

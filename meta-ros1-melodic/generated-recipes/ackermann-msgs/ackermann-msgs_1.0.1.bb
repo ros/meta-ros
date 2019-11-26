@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/ackermann_msgs-release;${ROS_BRANCH}
 SRCREV = "b3b69275c25cd85184b4218a463f11ecda0f1f1c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ackermann-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

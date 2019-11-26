@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ROBOTIS-GIT-release/dynamixel-workbench-release;${RO
 SRCREV = "e250b2f7ae8778a8f054995cabcecfab8fdba902"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('dynamixel-workbench', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

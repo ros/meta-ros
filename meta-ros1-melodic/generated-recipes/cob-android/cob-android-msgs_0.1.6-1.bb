@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/ipa320/cob_android-release;${ROS_BRANCH};protocol=ht
 SRCREV = "a8d9e4df57d81e5ef57f4c63e5359abd7babf84d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-android', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

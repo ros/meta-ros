@@ -46,7 +46,6 @@ SRC_URI = "git://github.com/at-wat/neonavigation_rviz_plugins-release;${ROS_BRAN
 SRCREV = "56760245c8aa5bae6d1de1a402f1073cf768deb1"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('neonavigation-rviz-plugins', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

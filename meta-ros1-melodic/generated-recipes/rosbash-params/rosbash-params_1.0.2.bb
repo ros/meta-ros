@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/peci1/rosbash_params-release;${ROS_BRANCH};protocol=
 SRCREV = "8452b8baa3b02b74186e6d5888537e261db013f1"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosbash-params', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

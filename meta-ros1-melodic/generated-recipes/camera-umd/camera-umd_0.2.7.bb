@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/camera_umd-release;${ROS_BRANCH};pro
 SRCREV = "5af6fbec658c0b6e42fa6369c68735149af9a490"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('camera-umd', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

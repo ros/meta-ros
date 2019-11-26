@@ -54,7 +54,6 @@ SRC_URI = "git://github.com/ethz-adrl/ifopt-release;${ROS_BRANCH};protocol=https
 SRCREV = "5d96174f3c52defe8028772a66317903e17866bc"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ifopt', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

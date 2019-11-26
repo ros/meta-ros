@@ -82,7 +82,6 @@ SRC_URI = "git://github.com/ros-gbp/robot_state_publisher-release;${ROS_BRANCH};
 SRCREV = "d80bf8e55813ecb89573d712ecbe60977aa9ec0f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-state-publisher', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

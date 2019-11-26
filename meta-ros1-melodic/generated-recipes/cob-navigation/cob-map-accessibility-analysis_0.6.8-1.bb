@@ -89,7 +89,6 @@ SRC_URI = "git://github.com/ipa320/cob_navigation-release;${ROS_BRANCH};protocol
 SRCREV = "7ab8a338e9a0913339769a1b30d4cb6bbeca1a22"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-navigation', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

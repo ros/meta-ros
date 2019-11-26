@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/ros-gbp/gl_dependency-release;${ROS_BRANCH};protocol
 SRCREV = "e1ccfb6fc648472ac3baf827b61d704d06e367f9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('gl-dependency', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

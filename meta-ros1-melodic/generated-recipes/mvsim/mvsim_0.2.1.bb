@@ -79,7 +79,6 @@ SRC_URI = "git://github.com/ual-arm-ros-pkg-release/mvsim-release;${ROS_BRANCH};
 SRCREV = "825aa70c95213d7955d2dc6d4344ef5b73713486"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mvsim', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

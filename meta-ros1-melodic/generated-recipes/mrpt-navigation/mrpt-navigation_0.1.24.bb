@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/mrpt-ros-pkg-release/mrpt_navigation-release;${ROS_B
 SRCREV = "3d62ba3f64b2c315b23404f0a201ee8a13bb994b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mrpt-navigation', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/roboception-gbp/rc_common_msgs-release;${ROS_BRANCH}
 SRCREV = "48512f8b4a1b16eed39f14f0828cc583d4f95405"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rc-common-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

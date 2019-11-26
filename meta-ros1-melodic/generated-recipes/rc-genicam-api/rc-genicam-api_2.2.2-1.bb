@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/roboception-gbp/rc_genicam_api-release;${ROS_BRANCH}
 SRCREV = "683b8c543b1f66121f4170493a9a816c1b6e8d12"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rc-genicam-api', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

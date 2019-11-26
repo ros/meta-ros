@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros-gbp/visualization_tutorials-release;${ROS_BRANCH
 SRCREV = "a5113ab3804dfc2004c529d147e2193bae2da413"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('visualization-tutorials', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

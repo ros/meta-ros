@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/aws-gbp/aws_ros1_common-release;${ROS_BRANCH};protoc
 SRCREV = "e419f123ceb7051a09d3225add68a2aae282ac9d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('aws-ros1-common', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

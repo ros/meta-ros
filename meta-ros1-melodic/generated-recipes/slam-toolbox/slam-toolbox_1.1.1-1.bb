@@ -120,7 +120,6 @@ SRC_URI = "git://github.com/SteveMacenski/slam_toolbox-release;${ROS_BRANCH};pro
 SRCREV = "eb2de6572a16c3f2a6c5ddb346b28dbc65e6a22c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('slam-toolbox', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

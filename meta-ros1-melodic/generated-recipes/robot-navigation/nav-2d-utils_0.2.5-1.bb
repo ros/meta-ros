@@ -86,7 +86,6 @@ SRC_URI = "git://github.com/DLu/robot_navigation-release;${ROS_BRANCH};protocol=
 SRCREV = "3e9c46bf740819eb08b53ebe20e8eab1c28d4043"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-navigation', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

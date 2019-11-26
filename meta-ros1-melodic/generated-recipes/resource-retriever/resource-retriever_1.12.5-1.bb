@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros-gbp/resource_retriever-release;${ROS_BRANCH};pro
 SRCREV = "c00f6383a9a954cb36e2952db251330761089092"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('resource-retriever', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

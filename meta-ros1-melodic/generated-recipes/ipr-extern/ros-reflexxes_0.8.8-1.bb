@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/KITrobotics/ipr_extern-release;${ROS_BRANCH};protoco
 SRCREV = "33d0d00e35a9c081b071f12e24a3e8985a26c9d2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ipr-extern', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

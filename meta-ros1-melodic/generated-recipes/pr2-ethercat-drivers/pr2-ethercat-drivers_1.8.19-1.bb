@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/pr2-gbp/pr2_ethercat_drivers-release;${ROS_BRANCH};p
 SRCREV = "c38a632e2be2f5429d1d1c8521420b63725d508e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pr2-ethercat-drivers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

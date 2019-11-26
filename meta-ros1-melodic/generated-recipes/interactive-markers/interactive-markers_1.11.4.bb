@@ -68,7 +68,6 @@ SRC_URI = "git://github.com/ros-gbp/interactive_markers-release;${ROS_BRANCH};pr
 SRCREV = "49ec2894066d9ceae1d0b2f4ae18d2f1e1c28ab9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('interactive-markers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -61,7 +61,6 @@ SRC_URI = "git://github.com/at-wat/neonavigation_msgs-release;${ROS_BRANCH};prot
 SRCREV = "d769abc938dbbf8842b95d39afdb02d7c7e35b25"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('neonavigation-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

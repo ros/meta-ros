@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/yujinrobot-release/ecl_navigation-release;${ROS_BRAN
 SRCREV = "b963898181cf7b711959f0d7a57037fd264bd420"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ecl-navigation', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

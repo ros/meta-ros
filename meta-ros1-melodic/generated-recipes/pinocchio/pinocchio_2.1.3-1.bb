@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/ipab-slmc/pinocchio_catkin-release;${ROS_BRANCH};pro
 SRCREV = "426ddff3b83a3efd075054731222cef4f68618e4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pinocchio', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

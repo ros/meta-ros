@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_py_console-release;${ROS_BRANCH};protoco
 SRCREV = "1518ea23baae2dddbf26cc10598bfef35dd79eff"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-py-console', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

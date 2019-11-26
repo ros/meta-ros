@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/vrpn-release;${ROS_BRANCH};protocol=
 SRCREV = "2c191f6336f5b6568616375c3fb6a1c6f0c2fe0d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('vrpn', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -69,7 +69,6 @@ SRC_URI = "git://github.com/stonier/py_trees_ros-release;${ROS_BRANCH};protocol=
 SRCREV = "67eeccf496330646626b0bd91db609fcbbba02ff"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('py-trees-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

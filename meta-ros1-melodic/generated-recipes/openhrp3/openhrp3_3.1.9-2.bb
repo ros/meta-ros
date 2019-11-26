@@ -82,7 +82,6 @@ SRC_URI = "git://github.com/tork-a/openhrp3-release;${ROS_BRANCH};protocol=https
 SRCREV = "3c792587ed025488689a74ae9f057b92d63cb0f4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('openhrp3', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

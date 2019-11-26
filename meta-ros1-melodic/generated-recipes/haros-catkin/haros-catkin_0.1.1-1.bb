@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/rosin-project/haros_catkin-release;${ROS_BRANCH};pro
 SRCREV = "e2dfc50c1e8f1f00207ca5fc74ceb5bed3c07046"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('haros-catkin', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

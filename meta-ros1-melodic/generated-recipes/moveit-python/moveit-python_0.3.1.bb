@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/mikeferguson/moveit_python-release;${ROS_BRANCH};pro
 SRCREV = "286d8f1622b6e0ffd4b89028f4259b8e318a943b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('moveit-python', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

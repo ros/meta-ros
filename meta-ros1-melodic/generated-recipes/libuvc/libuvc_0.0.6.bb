@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/libuvc-release;${ROS_BRANCH};protoco
 SRCREV = "b6b0dfc549e9d5ffff841f888f5669e49b9bb913"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('libuvc', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

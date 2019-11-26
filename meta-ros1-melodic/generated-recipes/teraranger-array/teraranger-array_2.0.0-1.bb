@@ -73,7 +73,6 @@ SRC_URI = "git://github.com/Terabee/teraranger_array-release;${ROS_BRANCH};proto
 SRCREV = "33e806ab9aa523488279b3f03de2e1fd180eb4c0"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('teraranger-array', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

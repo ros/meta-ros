@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/ROBOTIS-GIT-release/open_manipulator-release;${ROS_B
 SRCREV = "a8a289fd4bcb11a575c62707f3a8d9285ee5ca47"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('open-manipulator', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

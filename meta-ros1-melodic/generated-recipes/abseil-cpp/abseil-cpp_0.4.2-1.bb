@@ -45,7 +45,6 @@ SRC_URI = "git://github.com/Eurecat/abseil_cpp-release;${ROS_BRANCH};protocol=ht
 SRCREV = "21b7b81962058ed7f6cc584478898d23cc5f01be"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('abseil-cpp', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

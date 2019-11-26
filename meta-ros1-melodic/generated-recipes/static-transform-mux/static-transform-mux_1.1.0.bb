@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/peci1/static_transform_mux-release;${ROS_BRANCH};pro
 SRCREV = "b222a038238745813f261fa4e0d504c6f9a5a19d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('static-transform-mux', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

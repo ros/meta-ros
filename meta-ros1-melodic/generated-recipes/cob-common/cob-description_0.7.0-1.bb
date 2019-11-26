@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ipa320/cob_common-release;${ROS_BRANCH};protocol=htt
 SRCREV = "a192c4f4a17d1f48de26c1654b06929eb961911f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-common', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

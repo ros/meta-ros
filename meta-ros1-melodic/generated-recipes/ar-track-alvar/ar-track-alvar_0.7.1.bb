@@ -102,7 +102,6 @@ SRC_URI = "git://github.com/ros-gbp/ar_track_alvar-release;${ROS_BRANCH};protoco
 SRCREV = "ec155f44d9ef78e8ef407555c66706fc614ee8d3"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ar-track-alvar', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

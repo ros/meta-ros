@@ -83,7 +83,6 @@ SRC_URI = "git://github.com/uos-gbp/mir_robot-release;${ROS_BRANCH};protocol=htt
 SRCREV = "db28bdca8b69f5580c1266cb103a04ed11876253"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mir-robot', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

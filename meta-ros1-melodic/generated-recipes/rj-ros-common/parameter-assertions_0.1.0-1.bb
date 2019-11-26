@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/RoboJackets/rj-ros-common-release;${ROS_BRANCH};prot
 SRCREV = "6f981a7b4153ae6236b2e97e1b2dad2f44ff7e05"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rj-ros-common', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

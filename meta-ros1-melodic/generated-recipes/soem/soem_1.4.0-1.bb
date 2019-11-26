@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/mgruhler/soem-gbp;${ROS_BRANCH};protocol=https"
 SRCREV = "a680902cd1165100ae3b01f8d28127600ea4c261"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('soem', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/astuff/ibeo_core-release;${ROS_BRANCH};protocol=http
 SRCREV = "08b8c332d707ec3a0e0a3833e8f40f0564d33cf4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ibeo-core', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

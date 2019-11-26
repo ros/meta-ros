@@ -57,7 +57,6 @@ SRC_URI = "git://github.com/ros-gbp/diagnostics-release;${ROS_BRANCH};protocol=h
 SRCREV = "befb03bae2b9e4aba570bdecf57de7ddf024a1ef"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('diagnostics', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

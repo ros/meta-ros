@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/pal-gbp/backward_ros-release;${ROS_BRANCH};protocol=
 SRCREV = "7df5f8d961ce5bf27736ed66d9ec87ee26cf075d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('backward-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

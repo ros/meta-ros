@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/wu-robotics/static_tf_release;${ROS_BRANCH};protocol
 SRCREV = "39366e622cd0e2424c8576d052eec75b1f0e0ab9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('static-tf', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

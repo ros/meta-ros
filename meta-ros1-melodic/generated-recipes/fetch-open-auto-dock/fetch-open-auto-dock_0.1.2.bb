@@ -84,7 +84,6 @@ SRC_URI = "git://github.com/fetchrobotics-gbp/fetch_open_auto_dock-gbp;${ROS_BRA
 SRCREV = "ab928ccab9c5c60f35cb29bbc8e828c7fe6e82e5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('fetch-open-auto-dock', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

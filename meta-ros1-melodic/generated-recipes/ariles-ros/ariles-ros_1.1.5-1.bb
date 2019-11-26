@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/asherikov/ariles-release;${ROS_BRANCH};protocol=http
 SRCREV = "81533bacfe34ec577d3ea5a41585bc914d26f59a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ariles-ros', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

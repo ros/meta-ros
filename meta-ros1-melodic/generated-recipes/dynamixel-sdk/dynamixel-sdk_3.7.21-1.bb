@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/ROBOTIS-GIT-release/DynamixelSDK-release;${ROS_BRANC
 SRCREV = "f1fd633bc7e0e16b53c681ec147e7e63264e6106"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('dynamixel-sdk', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

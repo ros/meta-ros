@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/ros-gbp/control_toolbox-release;${ROS_BRANCH};protoc
 SRCREV = "c53b7ee328a97d89c9f6893f1f97d9453e78593e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('control-toolbox', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

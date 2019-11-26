@@ -113,7 +113,6 @@ SRC_URI = "git://github.com/rospilot/rospilot-release;${ROS_BRANCH};protocol=htt
 SRCREV = "f2d7c6ed294131b0ab72c8537517418d5127d5f9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rospilot', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

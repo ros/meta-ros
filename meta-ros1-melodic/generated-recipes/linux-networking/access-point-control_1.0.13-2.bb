@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/pr2-gbp/linux_networking-release;${ROS_BRANCH};proto
 SRCREV = "b992d340d34be2e73804693c6f429de5ac2c5106"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('linux-networking', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

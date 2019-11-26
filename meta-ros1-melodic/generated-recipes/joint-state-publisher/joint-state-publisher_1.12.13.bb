@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ros-gbp/joint_state_publisher-release;${ROS_BRANCH};
 SRCREV = "f5243640bacd1eb139c0d3351c0f1f964853cbd2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('joint-state-publisher', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/anybotics/variant-release;${ROS_BRANCH};protocol=htt
 SRCREV = "ac692e7435283ef57afd5ec11699d5e4b155da5d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('variant', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

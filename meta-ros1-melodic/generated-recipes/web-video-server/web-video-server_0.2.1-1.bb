@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/RobotWebTools-release/web_video_server-release;${ROS
 SRCREV = "7187f300774754f747f7907611c9a19415b82fd5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('web-video-server', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_plot-release;${ROS_BRANCH};protocol=http
 SRCREV = "0c1609db215f7154c4732fabf515a1d6194e9e20"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-plot', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

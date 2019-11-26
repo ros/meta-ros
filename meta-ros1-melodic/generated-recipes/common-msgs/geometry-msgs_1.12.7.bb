@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/ros-gbp/common_msgs-release;${ROS_BRANCH};protocol=h
 SRCREV = "d3fa3eeebe4804ae8149e11e825788e625a04f42"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('common-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

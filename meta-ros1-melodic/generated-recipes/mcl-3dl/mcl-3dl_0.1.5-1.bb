@@ -93,7 +93,6 @@ SRC_URI = "git://github.com/at-wat/mcl_3dl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "34dc8d46062cf4f0dac70d721abea848d5c7cd36"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mcl-3dl', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

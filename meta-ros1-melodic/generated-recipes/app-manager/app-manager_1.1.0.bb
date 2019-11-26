@@ -66,7 +66,6 @@ SRC_URI = "git://github.com/ros-gbp/app_manager-release;${ROS_BRANCH};protocol=h
 SRCREV = "332d4b6046d2d3fff718c50b19ab6905275fc252"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('app-manager', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

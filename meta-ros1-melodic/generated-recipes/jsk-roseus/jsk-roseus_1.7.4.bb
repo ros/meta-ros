@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/tork-a/jsk_roseus-release;${ROS_BRANCH};protocol=htt
 SRCREV = "77a99347db043d2ae24af75c2884e1fe27249ea5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('jsk-roseus', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

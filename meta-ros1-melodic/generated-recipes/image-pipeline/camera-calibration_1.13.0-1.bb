@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros-gbp/image_pipeline-release;${ROS_BRANCH};protoco
 SRCREV = "a338b98f360bf561a59e8c68cca222079eef1304"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('image-pipeline', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

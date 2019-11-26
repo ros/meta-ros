@@ -80,7 +80,6 @@ SRC_URI = "git://github.com/pr2-gbp/pr2_controllers-release;${ROS_BRANCH};protoc
 SRCREV = "340f51783ac2bd973953f44e8d43f2a924aa2778"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pr2-controllers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

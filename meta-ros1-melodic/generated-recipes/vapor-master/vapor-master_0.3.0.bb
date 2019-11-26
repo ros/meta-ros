@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/roshub/vapor_master-release;${ROS_BRANCH};protocol=h
 SRCREV = "d5d2d4cf47f3ec7f7eec3b189336d8a61d97066e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('vapor-master', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

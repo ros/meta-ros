@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/uuvsimulator/rexrov2-release;${ROS_BRANCH};protocol=
 SRCREV = "33f1e18e0e8f14f11fa974930da8d14193a8127c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rexrov2', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

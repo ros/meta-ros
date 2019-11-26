@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/shadow-robot/ethercat_grant-release;${ROS_BRANCH};pr
 SRCREV = "ca7ed75dd682f8d42057bd8da954f1d4c548e942"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ethercat-grant', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

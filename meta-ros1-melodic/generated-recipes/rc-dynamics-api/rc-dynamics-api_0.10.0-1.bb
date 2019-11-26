@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/roboception-gbp/rc_dynamics_api-release;${ROS_BRANCH
 SRCREV = "371632e7aea627f9b93120399bc6194739344cc5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rc-dynamics-api', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

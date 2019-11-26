@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/swri-robotics-gbp/swri_console-release;${ROS_BRANCH}
 SRCREV = "cec06c347dc239abb4ca369c752bbcf7c19e7e2b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('swri-console', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

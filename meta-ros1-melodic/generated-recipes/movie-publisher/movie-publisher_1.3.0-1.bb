@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/peci1/movie_publisher-release;${ROS_BRANCH};protocol
 SRCREV = "97129d0a020b6dc696f9d311cd7baaf4e28a62f5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('movie-publisher', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

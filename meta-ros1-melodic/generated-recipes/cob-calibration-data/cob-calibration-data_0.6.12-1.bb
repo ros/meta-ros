@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/ipa320/cob_calibration_data-release;${ROS_BRANCH};pr
 SRCREV = "950cfb2895c9dce447812ef66d1f970075590a42"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-calibration-data', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

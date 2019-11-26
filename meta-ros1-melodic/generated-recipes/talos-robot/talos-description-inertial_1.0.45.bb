@@ -45,7 +45,6 @@ SRC_URI = "git://github.com/pal-gbp/talos_robot-release;${ROS_BRANCH};protocol=h
 SRCREV = "eefad1038f9d935c66ee26ab3052669d3f7d36bf"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('talos-robot', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

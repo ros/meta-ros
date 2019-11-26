@@ -68,7 +68,6 @@ SRC_URI = "git://github.com/ros-gbp/panda_moveit_config-release;${ROS_BRANCH};pr
 SRCREV = "4fc2d6069f854732b7ec1a38c4ccb9d43350ee87"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('panda-moveit-config', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

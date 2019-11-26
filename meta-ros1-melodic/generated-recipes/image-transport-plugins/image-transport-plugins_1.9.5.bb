@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/ros-gbp/image_transport_plugins-release;${ROS_BRANCH
 SRCREV = "5e32bab7f03f8c153da77c3a231ce606f57fe0ab"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('image-transport-plugins', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

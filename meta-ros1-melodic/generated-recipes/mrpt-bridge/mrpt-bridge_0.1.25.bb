@@ -90,7 +90,6 @@ SRC_URI = "git://github.com/mrpt-ros-pkg-release/mrpt_bridge-release;${ROS_BRANC
 SRCREV = "a3b9f2a6824521c40c782e1e7c92187a176144d2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mrpt-bridge', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

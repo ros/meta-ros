@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_logger_level-release;${ROS_BRANCH};proto
 SRCREV = "017b660320b4c5605c4a4d994081fa85e1379733"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-logger-level', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

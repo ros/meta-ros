@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/RobotWebTools-release/webrtc_ros-release;${ROS_BRANC
 SRCREV = "2bc043bd256ffc9d7fe44815999c65762a710355"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('webrtc-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros-gbp/pr2_mechanism_msgs-release;${ROS_BRANCH};pro
 SRCREV = "94116a306c19870b068e3f7ebd535bfb57d0f66e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pr2-mechanism-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

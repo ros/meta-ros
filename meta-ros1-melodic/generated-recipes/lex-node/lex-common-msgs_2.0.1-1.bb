@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/aws-gbp/lex_node-release;${ROS_BRANCH};protocol=http
 SRCREV = "066f1534a105b68d781c38ac4ed459b9e52f1f8b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('lex-node', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

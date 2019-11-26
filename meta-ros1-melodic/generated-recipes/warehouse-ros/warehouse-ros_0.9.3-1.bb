@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/ros-gbp/warehouse_ros-release;${ROS_BRANCH};protocol
 SRCREV = "b620ec63023ea221d3d1dea5c1b718165b238e55"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('warehouse-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

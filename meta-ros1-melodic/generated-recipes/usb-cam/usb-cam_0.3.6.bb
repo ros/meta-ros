@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/ros-gbp/usb_cam-release;${ROS_BRANCH};protocol=https
 SRCREV = "f633d034079c5db19b9128f91a18b6d446e61139"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('usb-cam', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

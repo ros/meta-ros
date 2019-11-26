@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_service_caller-release;${ROS_BRANCH};pro
 SRCREV = "3f762760b877c3bc452482f37d12a1d8d82dd47c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-service-caller', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -71,7 +71,6 @@ SRC_URI = "git://github.com/SICKAG/sick_scan-release;${ROS_BRANCH};protocol=http
 SRCREV = "5fd49807fda2d0779cd7f315d03555977313d4ea"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('sick-scan', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

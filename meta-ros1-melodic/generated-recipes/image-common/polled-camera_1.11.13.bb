@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros-gbp/image_common-release;${ROS_BRANCH};protocol=
 SRCREV = "35065bca5d1f2b7c1269939565a5cabd6d721673"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('image-common', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

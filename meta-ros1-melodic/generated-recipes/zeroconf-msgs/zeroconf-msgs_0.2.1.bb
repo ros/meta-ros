@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/yujinrobot-release/zeroconf_msgs-release;${ROS_BRANC
 SRCREV = "e41c5219d8d5be0828db715958708d80c8c97dde"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('zeroconf-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

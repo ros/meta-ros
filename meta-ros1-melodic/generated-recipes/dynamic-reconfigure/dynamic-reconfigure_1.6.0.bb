@@ -64,7 +64,6 @@ SRC_URI = "git://github.com/ros-gbp/dynamic_reconfigure-release;${ROS_BRANCH};pr
 SRCREV = "4a9d58bd8e841f81203102d3ced0d7ac6e14d992"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('dynamic-reconfigure', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

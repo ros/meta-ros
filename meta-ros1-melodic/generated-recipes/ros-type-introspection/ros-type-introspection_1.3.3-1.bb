@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/facontidavide/ros_type_introspection-release;${ROS_B
 SRCREV = "21782f0db83828502b0d19091f976206ddb117b2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros-type-introspection', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

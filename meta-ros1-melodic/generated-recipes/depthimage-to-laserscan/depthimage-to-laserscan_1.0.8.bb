@@ -66,7 +66,6 @@ SRC_URI = "git://github.com/ros-gbp/depthimage_to_laserscan-release;${ROS_BRANCH
 SRCREV = "12921a7b5944b80ff687bbec9a5d6be1ebce7aa6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('depthimage-to-laserscan', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

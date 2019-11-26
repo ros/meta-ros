@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/uos-gbp/volksbot_driver-release;${ROS_BRANCH};protoc
 SRCREV = "b3003a352ae6308cedb30e8f50723ed264fc2e25"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('volksbot-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

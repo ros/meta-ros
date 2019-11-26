@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ros-geographic-info/geographic_info-release;${ROS_BR
 SRCREV = "0209eac593c827e1fce6f403db46214db2a4842b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('geographic-info', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

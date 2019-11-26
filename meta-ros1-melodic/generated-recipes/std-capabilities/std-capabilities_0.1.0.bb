@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ros-gbp/std_capabilities-release;${ROS_BRANCH};proto
 SRCREV = "b3ce4780053beaf904c72a588fb9fe1aa90cad0e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('std-capabilities', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

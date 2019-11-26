@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/ros-gbp/executive_smach-release;${ROS_BRANCH};protoc
 SRCREV = "86bf20d3741595749d18a53e35acfe880f990f03"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('executive-smach', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

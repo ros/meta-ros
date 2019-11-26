@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/DataspeedInc-release/velodyne_simulator-release;${RO
 SRCREV = "8f4fed8c2996fb37743a73a7d0f3ec984f45dd93"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('velodyne-simulator', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

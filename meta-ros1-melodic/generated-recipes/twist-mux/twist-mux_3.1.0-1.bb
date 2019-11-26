@@ -68,7 +68,6 @@ SRC_URI = "git://github.com/ros-gbp/twist_mux-release;${ROS_BRANCH};protocol=htt
 SRCREV = "8f585747ca90d364d37a3b78031ce6811db6725a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('twist-mux', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

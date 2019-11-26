@@ -74,7 +74,6 @@ SRC_URI = "git://github.com/gt-rail-release/fetch_simple_linear_controller-relea
 SRCREV = "9ae168a3bac8682feee0ca0ad2e04645f1f613c6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('fetch-simple-linear-controller', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

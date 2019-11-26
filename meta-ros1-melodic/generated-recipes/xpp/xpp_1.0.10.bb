@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/leggedrobotics/xpp-release;${ROS_BRANCH};protocol=ht
 SRCREV = "c2045db8bef813e31bf815cd0dc6c2301e39521c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('xpp', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

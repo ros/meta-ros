@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/DataspeedInc-release/lusb-release;${ROS_BRANCH};prot
 SRCREV = "2ee06ea855b9c51f3507d41a9e2856bd01748f9b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('lusb', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

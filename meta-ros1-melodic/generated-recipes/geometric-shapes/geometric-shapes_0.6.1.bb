@@ -83,7 +83,6 @@ SRC_URI = "git://github.com/ros-gbp/geometric_shapes-release;${ROS_BRANCH};proto
 SRCREV = "6bf21b85fc6700493b6833762632a33e07b3c8d8"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('geometric-shapes', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

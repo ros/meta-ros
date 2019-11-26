@@ -43,7 +43,6 @@ SRC_URI = "git://github.com/ros-gbp/qwt_dependency-release;${ROS_BRANCH};protoco
 SRCREV = "6f78b84a54b76449c8331b421dc1debeb1af387c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('qwt-dependency', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

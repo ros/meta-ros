@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/ros-industrial-release/industrial_core-release;${ROS
 SRCREV = "ff685bcb0af4738adbd7bac123fccf6e6069992f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('industrial-core', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

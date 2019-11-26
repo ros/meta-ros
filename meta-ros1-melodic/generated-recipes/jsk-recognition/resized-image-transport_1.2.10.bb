@@ -72,7 +72,6 @@ SRC_URI = "git://github.com/tork-a/jsk_recognition-release;${ROS_BRANCH};protoco
 SRCREV = "c0a80cbde1654389476e728025dd16ecd163afd4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('jsk-recognition', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

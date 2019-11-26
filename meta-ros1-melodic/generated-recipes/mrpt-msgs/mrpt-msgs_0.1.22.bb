@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/mrpt-ros-pkg-release/mrpt_msgs-release;${ROS_BRANCH}
 SRCREV = "0fb948b3c9bdf66738a75285df95869b537709f5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mrpt-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -72,7 +72,6 @@ SRC_URI = "git://github.com/ros-gbp/laser_assembler-release;${ROS_BRANCH};protoc
 SRCREV = "2a68371da9ebb14e1caffd6c0c05b6e1609f224e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('laser-assembler', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

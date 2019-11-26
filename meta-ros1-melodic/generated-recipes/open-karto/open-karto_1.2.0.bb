@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/ros-gbp/open_karto-release;${ROS_BRANCH};protocol=ht
 SRCREV = "c8e65d9613f81c892bada2ece2822bbee1c1e361"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('open-karto', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

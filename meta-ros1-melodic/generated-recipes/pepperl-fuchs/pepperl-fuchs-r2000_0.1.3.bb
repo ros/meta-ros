@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/dillenberger/pepperl_fuchs-release;${ROS_BRANCH};pro
 SRCREV = "42866a0b54e9869b575e72c1d1c9531365c9d357"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pepperl-fuchs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

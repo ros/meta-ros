@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/uos-gbp/epos2_motor_controller-release;${ROS_BRANCH}
 SRCREV = "9e5434f07d992f4e81b3b970837c9d4dd9ef8698"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('epos2-motor-controller', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

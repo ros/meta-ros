@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/ros-gbp/stage-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ee98d472a5dce094f09dce29faa5b799561284e4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('stage', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

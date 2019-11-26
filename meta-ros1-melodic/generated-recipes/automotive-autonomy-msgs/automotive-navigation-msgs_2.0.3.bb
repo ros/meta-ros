@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/astuff/automotive_autonomy_msgs-release;${ROS_BRANCH
 SRCREV = "8cc52499dd7ff65b5a146bb5e7204927905c3a5b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('automotive-autonomy-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/wnowak/brics_actuator-release;${ROS_BRANCH};protocol
 SRCREV = "c38f306a672f000fb80d3317e894978139254d7c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('brics-actuator', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros-gbp/urdf_tutorial-release;${ROS_BRANCH};protocol
 SRCREV = "296d8eee1d9e35f34242b42c7dd3f7025055b79d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('urdf-tutorial', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

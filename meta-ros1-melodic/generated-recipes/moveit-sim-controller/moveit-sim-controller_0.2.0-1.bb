@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/PickNikRobotics/moveit_sim_controller-release;${ROS_
 SRCREV = "b74181c2bc3f79203dd0269896fac28ca5678e60"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('moveit-sim-controller', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

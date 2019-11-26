@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/dpkoch/async_comm-release;${ROS_BRANCH};protocol=htt
 SRCREV = "d370592a6d777de7cf428ed1ff5ee333cf621267"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('async-comm', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

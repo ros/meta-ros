@@ -54,7 +54,6 @@ SRC_URI = "git://github.com/machinekoder/ros_pytest-release;${ROS_BRANCH};protoc
 SRCREV = "5cc9b6c89f277b6db331124705ac74f29a6c5284"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros-pytest', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

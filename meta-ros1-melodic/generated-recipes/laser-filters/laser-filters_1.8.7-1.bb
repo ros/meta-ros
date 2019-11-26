@@ -72,7 +72,6 @@ SRC_URI = "git://github.com/ros-gbp/laser_filters-release;${ROS_BRANCH};protocol
 SRCREV = "375a252eb121a091b041ceb2d88b14dba6d0bd8d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('laser-filters', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

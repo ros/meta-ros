@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/Slamtec/rplidar_ros-release;${ROS_BRANCH};protocol=h
 SRCREV = "b9412d2f56dcbaa689f4c456d6809f9c19a96785"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rplidar-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

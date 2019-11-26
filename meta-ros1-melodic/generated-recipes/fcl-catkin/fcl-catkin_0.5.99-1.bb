@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/wxmerkt/fcl_catkin-release;${ROS_BRANCH};protocol=ht
 SRCREV = "694400920980ed8ae9911c0d6ea2e1dd0a6f67d0"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('fcl-catkin', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

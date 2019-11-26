@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/ros-gbp/bfl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c890914642b5d2bd91a57b18b40786caa63bb9f3"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('bfl', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ipab-slmc/SDHLibrary-CPP-release;${ROS_BRANCH};proto
 SRCREV = "33e24962abb8a0cbb58bdabf8dd63454dc554cda"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('sdhlibrary-cpp', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

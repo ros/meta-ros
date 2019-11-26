@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/ros-gbp/random_numbers-release;${ROS_BRANCH};protoco
 SRCREV = "bee7dd844f3393fcfa04c5dc26dcb18dec966bb8"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('random-numbers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

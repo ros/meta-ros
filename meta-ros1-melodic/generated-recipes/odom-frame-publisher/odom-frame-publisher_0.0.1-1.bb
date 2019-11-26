@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/OUXT-Polaris/odom_frame_publisher-release;${ROS_BRAN
 SRCREV = "b4beca4cb07648bd16af18f911690d6423aa2864"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('odom-frame-publisher', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

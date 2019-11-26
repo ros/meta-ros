@@ -61,7 +61,6 @@ SRC_URI = "git://github.com/yoshito-n-students/codec_image_transport-release;${R
 SRCREV = "7e8cf283fb66c83ff0c43b7f69ccf27e83a70880"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('codec-image-transport', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -69,7 +69,6 @@ SRC_URI = "git://github.com/OUXT-Polaris/nmea_gps_plugin-release;${ROS_BRANCH};p
 SRCREV = "55a72aee58f1b4e26066970e4b882334e830a647"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('nmea-gps-plugin', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

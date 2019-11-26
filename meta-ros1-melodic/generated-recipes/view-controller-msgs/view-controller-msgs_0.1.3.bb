@@ -57,7 +57,6 @@ SRC_URI = "git://github.com/ros-gbp/view_controller_msgs-release;${ROS_BRANCH};p
 SRCREV = "33f6b9adf72ed50551f243ac8f96e2e4ca6839a2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('view-controller-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

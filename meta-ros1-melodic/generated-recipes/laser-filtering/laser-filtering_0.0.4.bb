@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/wu-robotics/laser_filtering_release;${ROS_BRANCH};pr
 SRCREV = "e0fbf3fcf03b16cc882463a82b090eb5d022928e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('laser-filtering', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

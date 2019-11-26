@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/ros-gbp/common_tutorials-release;${ROS_BRANCH};proto
 SRCREV = "88a92c73e544b8a1b27b9fa4569e05bd72e278bc"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('common-tutorials', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

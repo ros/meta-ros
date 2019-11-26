@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/vooon/ntpd_driver-release;${ROS_BRANCH};protocol=htt
 SRCREV = "7858973136c8888f2901c90c1c5647eae8de0de8"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ntpd-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

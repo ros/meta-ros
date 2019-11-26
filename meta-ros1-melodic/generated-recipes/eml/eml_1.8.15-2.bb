@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/ros-gbp/eml-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ec7193b06f0c82c8ff271fdebd98088a85598a7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('eml', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

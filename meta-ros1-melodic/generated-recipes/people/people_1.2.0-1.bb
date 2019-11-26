@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/OSUrobotics/people-release;${ROS_BRANCH};protocol=ht
 SRCREV = "3322eae961aec2718e862ac4f83cc31082eb5154"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('people', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -71,7 +71,6 @@ SRC_URI = "git://github.com/aws-gbp/cloudwatch_metrics_collector-release;${ROS_B
 SRCREV = "f5ebc94831a40cdf78272a18b795a2eefb06c8e6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cloudwatch-metrics-collector', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

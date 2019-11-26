@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/frankaemika/libfranka-release;${ROS_BRANCH};protocol
 SRCREV = "5bdf657e1870b282c7d42d1e1339d0f47b204c27"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('libfranka', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

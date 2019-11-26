@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/yujinrobot-release/sophus-release;${ROS_BRANCH};prot
 SRCREV = "d1f4143bf6277e4a96d8f057b4e216d3f57600e4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('sophus', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

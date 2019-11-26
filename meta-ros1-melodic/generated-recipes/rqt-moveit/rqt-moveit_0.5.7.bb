@@ -64,7 +64,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_moveit-release;${ROS_BRANCH};protocol=ht
 SRCREV = "632fc21a95752ae6f2915adf28919cc363c419ae"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-moveit', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

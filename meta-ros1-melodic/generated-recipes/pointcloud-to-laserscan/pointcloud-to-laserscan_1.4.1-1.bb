@@ -73,7 +73,6 @@ SRC_URI = "git://github.com/ros-gbp/pointcloud_to_laserscan-release;${ROS_BRANCH
 SRCREV = "e554bbbd36e9c7e1bf810f6d5d5730ad636d4ee7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pointcloud-to-laserscan', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

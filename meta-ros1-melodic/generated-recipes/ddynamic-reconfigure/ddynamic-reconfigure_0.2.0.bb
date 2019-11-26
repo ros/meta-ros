@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/pal-gbp/ddynamic_reconfigure;${ROS_BRANCH};protocol=
 SRCREV = "4de8c040ccc88589ae552f8c5639080c75f0e2fd"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ddynamic-reconfigure', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

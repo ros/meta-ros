@@ -68,7 +68,6 @@ SRC_URI = "git://github.com/bosch-ros-pkg/photo-release;${ROS_BRANCH};protocol=h
 SRCREV = "5b2ddc42a330be5de4d88e6ec8ded972ec67a03b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('photo', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

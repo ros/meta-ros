@@ -64,7 +64,6 @@ SRC_URI = "git://github.com/AlexanderSilvaB/robot-one-ros-release;${ROS_BRANCH};
 SRCREV = "970e643d212b59e1c2b97c4d271bee4d4c0e27e9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-one', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

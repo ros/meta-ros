@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/um6-release;${ROS_BRANCH};protocol=h
 SRCREV = "ba9d22f7d4cd8375c27266378905c038586239d0"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('um6', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

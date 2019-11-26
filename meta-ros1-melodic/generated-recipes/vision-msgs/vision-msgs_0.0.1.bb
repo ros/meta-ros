@@ -64,7 +64,6 @@ SRC_URI = "git://github.com/Kukanani/vision_msgs-release;${ROS_BRANCH};protocol=
 SRCREV = "582a34334b193148cecf346ed289ad21e49ada70"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('vision-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -78,7 +78,6 @@ SRC_URI = "git://github.com/ros-gbp/slam_karto-release;${ROS_BRANCH};protocol=ht
 SRCREV = "3befd4541a347599f54e2633343f5cd98b03a92e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('slam-karto', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

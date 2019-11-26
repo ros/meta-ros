@@ -74,7 +74,6 @@ SRC_URI = "git://github.com/ethz-asl/mav_comm-release;${ROS_BRANCH};protocol=htt
 SRCREV = "38cccd42948668ced074c0d88d541d7d5689aec0"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mav-comm', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

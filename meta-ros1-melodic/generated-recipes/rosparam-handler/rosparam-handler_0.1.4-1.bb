@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/cbandera/rosparam_handler-release;${ROS_BRANCH};prot
 SRCREV = "48c5efdfbeee34edd6c1362cb4c6ea293eb7e6df"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosparam-handler', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/nmea_navsat_driver-release;${ROS_BRA
 SRCREV = "ebcd7b41785891f3bce24e14b59272f51b04113a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('nmea-navsat-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

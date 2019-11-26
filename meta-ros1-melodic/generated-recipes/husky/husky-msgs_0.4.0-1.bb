@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/clearpath-gbp/husky-release;${ROS_BRANCH};protocol=h
 SRCREV = "d3bde00c7f366bf91777fdba1c66339bd4889c39"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('husky', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

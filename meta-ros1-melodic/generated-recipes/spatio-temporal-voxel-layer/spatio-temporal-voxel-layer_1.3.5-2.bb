@@ -101,7 +101,6 @@ SRC_URI = "git://github.com/SteveMacenski/spatio_temporal_voxel_layer-release;${
 SRCREV = "d945719d0ff8376c46272d4e325927dc0042be20"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('spatio-temporal-voxel-layer', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

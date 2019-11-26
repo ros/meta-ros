@@ -50,7 +50,6 @@ SRC_URI = "git://github.com/AIS-Bonn/catch_ros-release;${ROS_BRANCH};protocol=ht
 SRCREV = "0cd2301b455d642dff5c5396698d0f0793002d79"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('catch-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

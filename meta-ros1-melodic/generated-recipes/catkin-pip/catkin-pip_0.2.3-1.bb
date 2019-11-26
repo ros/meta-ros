@@ -54,7 +54,6 @@ SRC_URI = "git://github.com/pyros-dev/catkin_pip-release;${ROS_BRANCH};protocol=
 SRCREV = "a851be31b724262c879ac9e36b47ee9d5e2432d8"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('catkin-pip', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

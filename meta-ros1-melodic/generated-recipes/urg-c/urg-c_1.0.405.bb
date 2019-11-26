@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ros-gbp/urg_c-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8b02ea4e031329faedff95dd03a4315b7fb24059"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('urg-c', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

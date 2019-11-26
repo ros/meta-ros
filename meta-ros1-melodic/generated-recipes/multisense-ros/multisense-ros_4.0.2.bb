@@ -98,7 +98,6 @@ SRC_URI = "git://github.com/carnegieroboticsllc/multisense_ros-release;${ROS_BRA
 SRCREV = "bdbd005bbe0f4b06e4c6e227884faca35e648ce2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('multisense-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

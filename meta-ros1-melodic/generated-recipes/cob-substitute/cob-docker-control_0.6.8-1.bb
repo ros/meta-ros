@@ -43,7 +43,6 @@ SRC_URI = "git://github.com/ipa320/cob_substitute-release;${ROS_BRANCH};protocol
 SRCREV = "f27bdf7d2555dd7b8195af0b5e69cbb3ba750a4c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-substitute', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

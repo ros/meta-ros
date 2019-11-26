@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/HebiRobotics/hebi_cpp_api_ros-release;${ROS_BRANCH};
 SRCREV = "bf2d64751ed9d2bb3cb2f0a241d09afc68b5ae1d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('hebi-cpp-api-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

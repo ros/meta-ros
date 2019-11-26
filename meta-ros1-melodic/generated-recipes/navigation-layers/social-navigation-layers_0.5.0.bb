@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/wu-robotics/navigation_layers_release;${ROS_BRANCH};
 SRCREV = "0e5ab7b1ece1a6c6bf2318e337552062e2581fd8"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('navigation-layers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

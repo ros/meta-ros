@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ipa320/cob_extern-release;${ROS_BRANCH};protocol=htt
 SRCREV = "46dc3f1192be954a6eeed6969e9021f7c0c46625"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-extern', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

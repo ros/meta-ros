@@ -61,7 +61,6 @@ SRC_URI = "git://github.com/fkie-release/message_filters-release;${ROS_BRANCH};p
 SRCREV = "60636a979e1198711798497cb456e28c39704438"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('fkie-message-filters', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

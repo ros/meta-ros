@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/ros-gbp/object_recognition_msgs-release;${ROS_BRANCH
 SRCREV = "32986713abfb0240f81a4e76b3e72f292b768722"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('object-recognition-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

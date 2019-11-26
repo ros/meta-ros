@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/ros-industrial-release/ros_canopen-release;${ROS_BRA
 SRCREV = "036e622d3e10e919582ee175c723f24eba44eeea"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros-canopen', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

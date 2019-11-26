@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/tork-a/rtshell-release;${ROS_BRANCH};protocol=https"
 SRCREV = "97c8d4bb1d0ac6af58e2cbef446e84efe915a37d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rtshell', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

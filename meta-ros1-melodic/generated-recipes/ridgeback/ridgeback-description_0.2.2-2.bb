@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/clearpath-gbp/ridgeback-release;${ROS_BRANCH};protoc
 SRCREV = "d587ac41ea20f45f516196ecb731c6098e82a7b0"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ridgeback', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

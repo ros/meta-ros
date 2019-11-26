@@ -118,7 +118,6 @@ SRC_URI = "git://github.com/ros-gbp/cartographer_ros-release;${ROS_BRANCH};proto
 SRCREV = "493d748d50abac952a223be2097462abb77f15ca"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cartographer-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

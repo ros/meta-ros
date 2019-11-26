@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/gt-rail-release/rail_manipulation_msgs-release;${ROS
 SRCREV = "7805bc507d6721792f6248ba9486cb36fd6a6b46"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rail-manipulation-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

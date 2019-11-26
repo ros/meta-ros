@@ -54,7 +54,6 @@ SRC_URI = "git://github.com/aws-gbp/lex_common-release;${ROS_BRANCH};protocol=ht
 SRCREV = "8b02292937026b7325c4e9e0237dd1e412ba58ca"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('lex-common', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

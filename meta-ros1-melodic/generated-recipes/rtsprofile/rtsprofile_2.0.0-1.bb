@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/tork-a/rtsprofile-release;${ROS_BRANCH};protocol=htt
 SRCREV = "9b0bb558c00e9523afa64793466a9fdec9d067e5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rtsprofile', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

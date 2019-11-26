@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/ros-gbp/laser_geometry-release;${ROS_BRANCH};protoco
 SRCREV = "26eb04023a7c8366ddd7affd2e5a04c7809cce4f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('laser-geometry', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -89,7 +89,6 @@ SRC_URI = "git://github.com/facontidavide/plotjuggler-release;${ROS_BRANCH};prot
 SRCREV = "7a9f4df4aabcece7e9a6869ab9ac0070eb3dc6e2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('plotjuggler', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

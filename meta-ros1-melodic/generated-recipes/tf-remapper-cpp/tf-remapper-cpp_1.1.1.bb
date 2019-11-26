@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/peci1/tf_remapper_cpp-release;${ROS_BRANCH};protocol
 SRCREV = "05caf8830ec38f53e63e0f9c24dd2c5a6b66cd01"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('tf-remapper-cpp', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

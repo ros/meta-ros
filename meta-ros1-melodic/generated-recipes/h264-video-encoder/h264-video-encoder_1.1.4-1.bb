@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/aws-gbp/h264_video_encoder-release;${ROS_BRANCH};pro
 SRCREV = "22460d6f17a8c0b1ccb10a4ab563346127e597a1"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('h264-video-encoder', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

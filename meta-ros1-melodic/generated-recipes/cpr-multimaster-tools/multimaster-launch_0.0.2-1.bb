@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/clearpath-gbp/cpr_multimaster_tools-release;${ROS_BR
 SRCREV = "9cb63a481e566e16f77814f0b13574762c9cdc8a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cpr-multimaster-tools', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

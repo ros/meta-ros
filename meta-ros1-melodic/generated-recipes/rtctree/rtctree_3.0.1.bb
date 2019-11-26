@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/tork-a/rtctree-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ba713f024d8aedf81a9042ecdd5fc44bfb9f29fa"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rtctree', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -47,7 +47,6 @@ SRC_URI = "git://github.com/ipab-slmc/optpp_catkin-release;${ROS_BRANCH};protoco
 SRCREV = "9b2391d1135681d2b406eb98194bf7dfe95fc0fa"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('optpp-catkin', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -71,7 +71,6 @@ SRC_URI = "git://github.com/astuff/ibeo_lux-release;${ROS_BRANCH};protocol=https
 SRCREV = "5c1428a874d794db72e4602df5b343d63683b558"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ibeo-lux', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

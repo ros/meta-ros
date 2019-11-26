@@ -54,7 +54,6 @@ SRC_URI = "git://github.com/orocos/orocos-kdl-release;${ROS_BRANCH};protocol=htt
 SRCREV = "6995671810f03c03fce006d04883b6899ccece10"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('orocos-kinematics-dynamics', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

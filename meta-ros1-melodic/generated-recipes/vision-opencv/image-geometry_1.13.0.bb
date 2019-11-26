@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/ros-gbp/vision_opencv-release;${ROS_BRANCH};protocol
 SRCREV = "b84da6f58d4e436680a397874e12cb52a2336a36"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('vision-opencv', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

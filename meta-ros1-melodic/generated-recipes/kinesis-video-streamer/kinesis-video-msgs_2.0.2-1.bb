@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/aws-gbp/kinesis_video_streamer-release;${ROS_BRANCH}
 SRCREV = "7c65724cba17b824da5abf69eac0f574f85283b6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('kinesis-video-streamer', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros-gbp/rosconsole_bridge-release;${ROS_BRANCH};prot
 SRCREV = "adbf1aac01615669a5d2c4eef63bd874ebc5df58"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosconsole-bridge', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

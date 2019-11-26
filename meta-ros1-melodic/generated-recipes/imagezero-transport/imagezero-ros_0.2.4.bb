@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/swri-robotics-gbp/imagezero_transport-release;${ROS_
 SRCREV = "d06a4e99e745c2f3f11090189493140adc91c767"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('imagezero-transport', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

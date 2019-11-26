@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ros-gbp/openslam_gmapping-release;${ROS_BRANCH};prot
 SRCREV = "cb0669d766e064e67da2706eb86f6a51882f1ce8"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('openslam-gmapping', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

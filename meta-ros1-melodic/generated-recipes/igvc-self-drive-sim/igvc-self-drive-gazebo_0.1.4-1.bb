@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/robustify/igvc_self_drive_sim-release;${ROS_BRANCH};
 SRCREV = "ab1ee42af916927c68049e3f8f805870d4df7396"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('igvc-self-drive-sim', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

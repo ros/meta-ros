@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/ubi-agni-gbp/agni_tf_tools-release;${ROS_BRANCH};pro
 SRCREV = "476544be215a966a85702aeabf19a1b0ace56d35"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('agni-tf-tools', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

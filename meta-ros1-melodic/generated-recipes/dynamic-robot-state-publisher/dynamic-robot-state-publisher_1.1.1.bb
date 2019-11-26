@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/peci1/dynamic_robot_state_publisher-release;${ROS_BR
 SRCREV = "5bd979bbaf5074fcbe238b147f8f43119b05c792"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('dynamic-robot-state-publisher', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

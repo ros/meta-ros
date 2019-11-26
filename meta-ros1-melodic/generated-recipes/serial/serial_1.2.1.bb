@@ -46,7 +46,6 @@ SRC_URI = "git://github.com/wjwwood/serial-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8945a00bc9fc7a66f6919198861e78278c8aa26c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('serial', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

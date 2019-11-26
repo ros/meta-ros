@@ -75,7 +75,6 @@ SRC_URI = "git://github.com/ros-gbp/capabilities-release;${ROS_BRANCH};protocol=
 SRCREV = "b32dd8198e1cf2b0467c2802a00247da529150a8"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('capabilities', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

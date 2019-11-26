@@ -74,7 +74,6 @@ SRC_URI = "git://github.com/ipa320/cob_gazebo_plugins-release;${ROS_BRANCH};prot
 SRCREV = "1a0948aee1115670cc79e3c61fd65cc2940616d2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cob-gazebo-plugins', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

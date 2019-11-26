@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/gscam-release;${ROS_BRANCH};protocol
 SRCREV = "f9a1a2abe20f2369c9f70d61b80fa23602d44582"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('gscam', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ros-gbp/cmake_modules-release;${ROS_BRANCH};protocol
 SRCREV = "9a9a244d605cf8ecb85fbd80efaa7defdf0641ad"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cmake-modules', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

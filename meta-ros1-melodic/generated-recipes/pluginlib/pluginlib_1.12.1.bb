@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/ros-gbp/pluginlib-release;${ROS_BRANCH};protocol=htt
 SRCREV = "b0d7efcaa6a16f8948b5d8d854be072201f104c7"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pluginlib', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

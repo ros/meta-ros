@@ -101,7 +101,6 @@ SRC_URI = "git://github.com/SteveMacenski/nonpersistent_voxel_layer-release;${RO
 SRCREV = "e493222514aaf248a98324aeb9860fd152bbb4b2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('nonpersistent-voxel-layer', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

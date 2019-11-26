@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/clearpath-gbp/jackal_simulator-release;${ROS_BRANCH}
 SRCREV = "b53daa4bead524adec786a3679a47302cbfbbc27"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('jackal-simulator', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

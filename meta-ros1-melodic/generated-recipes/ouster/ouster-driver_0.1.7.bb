@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/CPFL/ouster-release;${ROS_BRANCH};protocol=https"
 SRCREV = "df938779e7b4ed0b26573ea3433e551b3e49db31"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ouster', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

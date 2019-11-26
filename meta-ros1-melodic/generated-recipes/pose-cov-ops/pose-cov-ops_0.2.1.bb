@@ -61,7 +61,6 @@ SRC_URI = "git://github.com/mrpt-ros-pkg-release/pose_cov_ops-release;${ROS_BRAN
 SRCREV = "fc3fda829667fc5d9d352ea74147e8089cbfe947"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pose-cov-ops', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

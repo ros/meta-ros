@@ -80,7 +80,6 @@ SRC_URI = "git://github.com/ros-gbp/joystick_drivers-release;${ROS_BRANCH};proto
 SRCREV = "6955fb246686b534bc73686eba80f64fd3c350b6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('joystick-drivers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

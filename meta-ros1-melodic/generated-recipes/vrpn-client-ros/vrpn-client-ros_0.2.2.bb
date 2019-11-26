@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros-drivers-gbp/vrpn_client_ros-release;${ROS_BRANCH
 SRCREV = "30b8bf7f803c73f752f88fe197e7758eb603d3bd"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('vrpn-client-ros', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

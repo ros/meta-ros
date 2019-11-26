@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/locusrobotics/json_transport-release;${ROS_BRANCH};p
 SRCREV = "5099d013d9dc9056cd89ef68220d5f29dd8e5dbf"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('json-transport', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

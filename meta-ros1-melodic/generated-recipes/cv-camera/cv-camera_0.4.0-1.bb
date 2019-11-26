@@ -70,7 +70,6 @@ SRC_URI = "git://github.com/OTL/cv_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2e3031311ba027d085db00376fa3914d36993800"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cv-camera', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

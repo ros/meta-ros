@@ -84,7 +84,6 @@ SRC_URI = "git://github.com/ros-perception/opencv_apps-release;${ROS_BRANCH};pro
 SRCREV = "32cb0e59521302d5fbfd8db99a7164b24a4dda6e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('opencv-apps', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

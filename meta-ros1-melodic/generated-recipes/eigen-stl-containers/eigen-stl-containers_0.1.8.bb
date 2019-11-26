@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/ros-gbp/eigen_stl_containers-release;${ROS_BRANCH};p
 SRCREV = "e23ac2d84a7c6281fb3fffa0662fb73e11fb7cae"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('eigen-stl-containers', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

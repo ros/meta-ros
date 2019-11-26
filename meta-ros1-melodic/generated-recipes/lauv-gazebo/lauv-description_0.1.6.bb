@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/uuvsimulator/lauv_gazebo-release;${ROS_BRANCH};proto
 SRCREV = "544cecb14bc2a0151ddccbc20facaaff64d8b472"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('lauv-gazebo', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

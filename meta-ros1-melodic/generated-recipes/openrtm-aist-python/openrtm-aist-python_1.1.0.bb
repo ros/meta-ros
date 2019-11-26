@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/tork-a/openrtm_aist_python-release;${ROS_BRANCH};pro
 SRCREV = "f88805f139b723ac9b861a88b8d9807a4edb4dfa"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('openrtm-aist-python', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

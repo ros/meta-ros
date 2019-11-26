@@ -77,7 +77,6 @@ SRC_URI = "git://github.com/UbiquityRobotics-release/fiducials-release;${ROS_BRA
 SRCREV = "41e663d6637ec80d01306226c27b8c1e6806bcd6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('fiducials', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -64,7 +64,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_nav_view-release;${ROS_BRANCH};protocol=
 SRCREV = "8eac52d5b576353f01f8f90af097cc02e62ce684"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-nav-view', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

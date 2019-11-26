@@ -88,7 +88,6 @@ SRC_URI = "git://github.com/fkie-release/multimaster_fkie-release;${ROS_BRANCH};
 SRCREV = "0b9465c8f877051a53e25e34fd7cf3caec2c1b1b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('multimaster-fkie', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

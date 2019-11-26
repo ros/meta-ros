@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/clearpath-gbp/jackal_desktop-release;${ROS_BRANCH};p
 SRCREV = "b4f83d6a20b85cd47da7b5deac73492d233cb296"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('jackal-desktop', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

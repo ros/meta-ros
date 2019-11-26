@@ -57,7 +57,6 @@ SRC_URI = "git://github.com/fkie-release/potree_rviz_plugin-release;${ROS_BRANCH
 SRCREV = "bee4b735f52266f337f34e84a25464b7890eb46a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('fkie-potree-rviz-plugin', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

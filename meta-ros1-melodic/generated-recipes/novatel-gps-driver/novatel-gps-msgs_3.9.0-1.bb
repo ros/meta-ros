@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/swri-robotics-gbp/novatel_gps_driver-release;${ROS_B
 SRCREV = "8d357ae0509420db59bab81c205735888cb6237b"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('novatel-gps-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -69,7 +69,6 @@ SRC_URI = "git://github.com/aws-gbp/tts-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6f2b6802404aa0fd8ff4386dc47f02ca7bcb0538"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('tts', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

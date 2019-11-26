@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/strands-project-releases/mongodb_store;${ROS_BRANCH}
 SRCREV = "84d0f4412511183e6ff46265cc22605ca9934216"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mongodb-store', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

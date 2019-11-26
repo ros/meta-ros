@@ -43,7 +43,6 @@ SRC_URI = "git://github.com/wxmerkt/exotica_val_description-release;${ROS_BRANCH
 SRCREV = "ad1be7d5602ee7bc5fa670fd5bb705830f1d1e97"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('exotica-val-description', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

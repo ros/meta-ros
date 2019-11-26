@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/aws-gbp/h264_encoder_core-release;${ROS_BRANCH};prot
 SRCREV = "a32b20a54e4e92ce81bc13bd33317da57d579033"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('h264-encoder-core', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

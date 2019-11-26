@@ -69,7 +69,6 @@ SRC_URI = "git://github.com/DataspeedInc-release/oxford_gps_eth-release;${ROS_BR
 SRCREV = "90f6588e8f2f80622a8828fe6625fed275375f8e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('oxford-gps-eth', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

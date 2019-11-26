@@ -79,7 +79,6 @@ SRC_URI = "git://github.com/uos-gbp/imu_tools-release;${ROS_BRANCH};protocol=htt
 SRCREV = "7d29b9031e389fbdd8a17ca45931460ff23a531f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('imu-tools', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

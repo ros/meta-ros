@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/rohbotics/xv_11_laser_driver-release;${ROS_BRANCH};p
 SRCREV = "e36049f76e7be45ab45f241357dac0227955bd7d"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('xv-11-laser-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

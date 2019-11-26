@@ -74,7 +74,6 @@ SRC_URI = "git://github.com/ros-gbp/microstrain_3dmgx2_imu-release;${ROS_BRANCH}
 SRCREV = "36503b2f07adef20439d0488d5e7e7139f763a6c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('microstrain-3dmgx2-imu', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

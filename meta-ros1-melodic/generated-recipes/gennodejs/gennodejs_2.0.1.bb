@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/RethinkRobotics-release/gennodejs-release;${ROS_BRAN
 SRCREV = "5ab7537799995ece83fe594fc0c1aa26a530219e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('gennodejs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

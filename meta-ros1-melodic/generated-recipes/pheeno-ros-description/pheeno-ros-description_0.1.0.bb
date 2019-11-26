@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/acslaboratory/pheeno_ros_description-release;${ROS_B
 SRCREV = "fe521b758441ad7d251ea762c77d1f1ee48bf2ba"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pheeno-ros-description', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

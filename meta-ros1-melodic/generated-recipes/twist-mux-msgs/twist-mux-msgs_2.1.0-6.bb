@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros-gbp/twist_mux_msgs-release;${ROS_BRANCH};protoco
 SRCREV = "d35d50437bec59346c4e68a93ca58ce1e1cdf12f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('twist-mux-msgs', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

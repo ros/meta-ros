@@ -61,7 +61,6 @@ SRC_URI = "git://github.com/ros-gbp/sparse_bundle_adjustment-release;${ROS_BRANC
 SRCREV = "a270cf9dbc24edecdb3d3b28e78786e60f4dfedb"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('sparse-bundle-adjustment', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -84,7 +84,6 @@ SRC_URI = "git://github.com/astuff/avt_vimba_camera-release;${ROS_BRANCH};protoc
 SRCREV = "e4533dfcf795df26da0afc4d1918cf43c3b9c521"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('avt-vimba-camera', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

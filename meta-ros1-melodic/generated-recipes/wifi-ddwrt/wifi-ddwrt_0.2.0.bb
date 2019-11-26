@@ -67,7 +67,6 @@ SRC_URI = "git://github.com/ros-gbp/wifi_ddwrt-release;${ROS_BRANCH};protocol=ht
 SRCREV = "2413f09dadf0ccf4d2f5c4ada1ca4a4fe46bcb01"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('wifi-ddwrt', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

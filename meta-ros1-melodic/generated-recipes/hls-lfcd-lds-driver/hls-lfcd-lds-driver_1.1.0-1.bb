@@ -59,7 +59,6 @@ SRC_URI = "git://github.com/ROBOTIS-GIT-release/hls-lfcd-lds-driver-release;${RO
 SRCREV = "61eddccb043af488f19d920de99c4bf457d3e813"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('hls-lfcd-lds-driver', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

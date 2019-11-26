@@ -90,7 +90,6 @@ SRC_URI = "git://github.com/tork-a/jsk_common-release;${ROS_BRANCH};protocol=htt
 SRCREV = "32c9febdb08a236b4818894926002cc3046665cb"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('jsk-common', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

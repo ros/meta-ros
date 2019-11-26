@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/ros-gbp/laser_pipeline-release;${ROS_BRANCH};protoco
 SRCREV = "3e831a7f69ad162f92e87f1496ce677acd45b495"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('laser-pipeline', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

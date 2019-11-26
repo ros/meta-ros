@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/gstavrinos/jointstick-release;${ROS_BRANCH};protocol
 SRCREV = "2a77b4eb0bf08286f92af6295f0727b326430907"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('jointstick', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

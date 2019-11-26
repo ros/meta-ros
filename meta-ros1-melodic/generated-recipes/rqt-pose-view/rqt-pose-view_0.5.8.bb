@@ -68,7 +68,6 @@ SRC_URI = "git://github.com/ros-gbp/rqt_pose_view-release;${ROS_BRANCH};protocol
 SRCREV = "e6468870711f7cdda7644dbb99d685be17080c44"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-pose-view', d)}"
 ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}
