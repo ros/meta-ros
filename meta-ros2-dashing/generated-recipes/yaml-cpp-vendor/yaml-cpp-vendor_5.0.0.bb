@@ -37,10 +37,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/yaml_cpp_vendor-release/archive/release/dashing/yaml_cpp_vendor/6.0.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/yaml_cpp_vendor"
+# matches with: https://github.com/ros2-gbp/yaml_cpp_vendor-release/archive/release/crystal/yaml_cpp_vendor/5.0.0-0.tar.gz
+ROS_BRANCH ?= "branch=release/crystal/yaml_cpp_vendor"
 SRC_URI = "git://github.com/ros2-gbp/yaml_cpp_vendor-release;${ROS_BRANCH};protocol=https"
-SRCREV = "dc87d9510f3256b5769ca1cd658a31d288755011"
+SRCREV = "89c8b9acfc891fb2533c129105dc1aa7db6ba27f"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
