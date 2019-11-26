@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/ros2-gbp/class_loader-release;${ROS_BRANCH};protocol
 SRCREV = "c92f80593c1d785e8154a6812d1c9b2ad5726881"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('class-loader', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

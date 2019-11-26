@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/ros2-gbp/rosidl_python-release;${ROS_BRANCH};protoco
 SRCREV = "49236bf44c82c58ee395e6c14182d587d3677ffc"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosidl-python', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

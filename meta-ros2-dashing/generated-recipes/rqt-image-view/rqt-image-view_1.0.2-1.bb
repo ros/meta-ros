@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/ros2-gbp/rqt_image_view-release;${ROS_BRANCH};protoc
 SRCREV = "f538c1577a784002a28e44b171f1cc18e3382983"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-image-view', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros2-gbp/pcl_conversions-release;${ROS_BRANCH};proto
 SRCREV = "8d0d0ef7d5d253f11fbf52388d64fad59e46377a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('pcl-conversions', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

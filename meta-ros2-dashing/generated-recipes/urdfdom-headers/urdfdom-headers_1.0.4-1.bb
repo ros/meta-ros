@@ -43,7 +43,6 @@ SRC_URI = "git://github.com/ros2-gbp/urdfdom_headers-release;${ROS_BRANCH};proto
 SRCREV = "1c85c83dbb19c632199883e18ac66145c4e00609"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('urdfdom-headers', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

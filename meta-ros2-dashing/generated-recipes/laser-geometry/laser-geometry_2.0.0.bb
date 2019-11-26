@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros2-gbp/laser_geometry-release;${ROS_BRANCH};protoc
 SRCREV = "8bb6eac0d809bdb27afa43d86d8efdef17607bf6"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('laser-geometry', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

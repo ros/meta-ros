@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/ros-gbp/ompl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b2befd9d4ae87009e67a01dadbc8807d479736a3"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ompl', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

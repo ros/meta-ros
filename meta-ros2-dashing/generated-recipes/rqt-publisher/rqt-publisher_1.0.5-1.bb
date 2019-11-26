@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/ros2-gbp/rqt_publisher-release;${ROS_BRANCH};protoco
 SRCREV = "abe201b6228b6d307dc82465c961cb0107319d06"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-publisher', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

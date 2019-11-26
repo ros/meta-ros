@@ -54,7 +54,6 @@ SRC_URI = "git://github.com/ros2-gbp/rcutils-release;${ROS_BRANCH};protocol=http
 SRCREV = "fe8ec76b3878941c2c5ca89f4a5106a4984f3a86"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rcutils', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

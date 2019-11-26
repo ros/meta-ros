@@ -63,7 +63,6 @@ SRC_URI = "git://github.com/ros2-gbp/image_common-release;${ROS_BRANCH};protocol
 SRCREV = "395f0dfc6d4e732a3dc0f133c43dfacaf1d421ab"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('image-common', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

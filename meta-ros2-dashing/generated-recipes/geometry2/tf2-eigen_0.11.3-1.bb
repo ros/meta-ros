@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros2-gbp/geometry2-release;${ROS_BRANCH};protocol=ht
 SRCREV = "436532124ef159c875892927024a5257564134f2"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('geometry2', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

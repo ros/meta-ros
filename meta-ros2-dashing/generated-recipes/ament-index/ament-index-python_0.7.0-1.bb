@@ -45,7 +45,6 @@ SRC_URI = "git://github.com/ros2-gbp/ament_index-release;${ROS_BRANCH};protocol=
 SRCREV = "6599351da70e564505acefab6370a497371fbcf5"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ament-index', d)}"
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

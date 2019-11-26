@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros2-gbp/navigation_msgs-release;${ROS_BRANCH};proto
 SRCREV = "0898736faa0df2426ee479f2d0986aec007bedad"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('navigation-msgs', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

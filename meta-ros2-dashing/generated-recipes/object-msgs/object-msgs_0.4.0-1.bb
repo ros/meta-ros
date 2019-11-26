@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/ros2-gbp/ros2_object_msgs-release;${ROS_BRANCH};prot
 SRCREV = "637607cf1a73ca62742038e6a9b6b278fb90a72f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('object-msgs', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

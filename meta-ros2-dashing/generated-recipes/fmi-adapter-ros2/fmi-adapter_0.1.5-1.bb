@@ -65,7 +65,6 @@ SRC_URI = "git://github.com/boschresearch/fmi_adapter_ros2-release;${ROS_BRANCH}
 SRCREV = "0365e32eccb776ccacdb0c3429e4144df6e8a381"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('fmi-adapter-ros2', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -69,7 +69,6 @@ SRC_URI = "git://github.com/ros2-gbp/rmw_opensplice-release;${ROS_BRANCH};protoc
 SRCREV = "3f288cfeb9e9d576686e64f8835c07415bcd6b25"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rmw-opensplice', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

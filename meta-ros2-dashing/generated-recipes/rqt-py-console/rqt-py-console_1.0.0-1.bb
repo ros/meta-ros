@@ -52,7 +52,6 @@ SRC_URI = "git://github.com/ros2-gbp/rqt_py_console-release;${ROS_BRANCH};protoc
 SRCREV = "15b3d5a939f67c93ab4d631d5e147a7f55120d3f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-py-console', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

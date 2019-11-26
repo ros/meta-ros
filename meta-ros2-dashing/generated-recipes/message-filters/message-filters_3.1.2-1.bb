@@ -56,7 +56,6 @@ SRC_URI = "git://github.com/ros2-gbp/ros2_message_filters-release;${ROS_BRANCH};
 SRCREV = "e78b08297db3a87b37b49c2bc317bc7492653cee"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('message-filters', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
