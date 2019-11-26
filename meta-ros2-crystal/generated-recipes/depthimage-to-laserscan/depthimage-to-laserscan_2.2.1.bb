@@ -61,7 +61,6 @@ SRC_URI = "git://github.com/ros2-gbp/depthimage_to_laserscan-release;${ROS_BRANC
 SRCREV = "03de817f7723bc8f22cc2d8de564a825e37b647e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('depthimage-to-laserscan', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -60,7 +60,6 @@ SRC_URI = "git://github.com/ros2-gbp/image_pipeline-release;${ROS_BRANCH};protoc
 SRCREV = "8fb1f55d17edbc921bdc1bec6b49ef7cdd134270"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('image-pipeline', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/ros2-gbp/rosidl_typesupport_opensplice-release;${ROS
 SRCREV = "844b1d670a231c115365081df76b8332d9d64897"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosidl-typesupport-opensplice', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -82,7 +82,6 @@ SRC_URI = "git://github.com/ros2-gbp/variants-release;${ROS_BRANCH};protocol=htt
 SRCREV = "81c89d39a8452dc85fd9d93c6093f00bd273c9ae"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('variants', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

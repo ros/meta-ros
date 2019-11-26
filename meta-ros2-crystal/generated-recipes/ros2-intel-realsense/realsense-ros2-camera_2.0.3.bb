@@ -71,7 +71,6 @@ SRC_URI = "git://github.com/ros2-gbp/ros2_intel_realsense-release;${ROS_BRANCH};
 SRCREV = "ced85711f93d53f0ab7d16699f88e39c24c83734"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros2-intel-realsense', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

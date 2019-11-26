@@ -43,7 +43,6 @@ SRC_URI = "git://github.com/ros2-gbp/osrf_testings_tools_cpp-release;${ROS_BRANC
 SRCREV = "cea4bfb56d8dfd882169e3008e77e2bcc88c40d9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('osrf-testing-tools-cpp', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

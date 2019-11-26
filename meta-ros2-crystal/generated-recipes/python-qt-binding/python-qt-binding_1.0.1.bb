@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/ros2-gbp/python_qt_binding-release;${ROS_BRANCH};pro
 SRCREV = "013dbcbff2a54cf927c660de172219c12935b334"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('python-qt-binding', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

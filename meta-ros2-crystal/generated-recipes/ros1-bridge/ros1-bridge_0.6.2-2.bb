@@ -97,7 +97,6 @@ SRC_URI = "git://github.com/ros2-gbp/ros1_bridge-release;${ROS_BRANCH};protocol=
 SRCREV = "771ed37a80c3525743f882cfd933c2ad7b7bc709"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros1-bridge', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

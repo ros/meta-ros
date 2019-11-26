@@ -48,7 +48,6 @@ SRC_URI = "git://github.com/ros2-gbp/rqt_service_caller-release;${ROS_BRANCH};pr
 SRCREV = "5f2d0ea842debc5430a9bda3c8a84e13ec74c050"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rqt-service-caller', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -73,7 +73,6 @@ SRC_URI = "git://github.com/ros2-gbp/image_transport_plugins-release;${ROS_BRANC
 SRCREV = "4257357700151513a1f8af5a10cce3bbd9d2e157"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('image-transport-plugins', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

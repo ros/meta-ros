@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/ros2-gbp/resource_retriever-release;${ROS_BRANCH};pr
 SRCREV = "e3366fe81da788f6f51101f57c995a14450ed5e3"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('resource-retriever', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

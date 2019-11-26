@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/stonier/py_trees-release;${ROS_BRANCH};protocol=http
 SRCREV = "f0e0bb93fe90868af7c5ccef877d65cbfc594fef"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('py-trees', d)}"
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

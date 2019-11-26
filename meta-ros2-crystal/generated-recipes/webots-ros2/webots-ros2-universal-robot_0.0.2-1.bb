@@ -55,7 +55,6 @@ SRC_URI = "git://github.com/cyberbotics/webots_ros2-release;${ROS_BRANCH};protoc
 SRCREV = "6b63b2112405a8e8f01e79c5ac94b9069bc48aa1"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('webots-ros2', d)}"
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

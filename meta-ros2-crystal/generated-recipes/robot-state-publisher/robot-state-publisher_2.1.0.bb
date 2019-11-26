@@ -64,7 +64,6 @@ SRC_URI = "git://github.com/ros2-gbp/robot_state_publisher-release;${ROS_BRANCH}
 SRCREV = "70f2a30cb8308d2815538eaa090863de851b5841"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('robot-state-publisher', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

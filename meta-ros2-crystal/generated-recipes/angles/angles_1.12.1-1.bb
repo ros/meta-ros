@@ -44,7 +44,6 @@ SRC_URI = "git://github.com/ros2-gbp/angles-release;${ROS_BRANCH};protocol=https
 SRCREV = "1a1c5b1f2deaa30f07cc21fab65fc271c105535a"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('angles', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

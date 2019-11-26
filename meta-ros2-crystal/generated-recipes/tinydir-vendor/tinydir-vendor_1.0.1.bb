@@ -43,7 +43,6 @@ SRC_URI = "git://github.com/ros2-gbp/tinydir_vendor-release;${ROS_BRANCH};protoc
 SRCREV = "2e4a5b420855236e274284e518b3f12d59fe570e"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('tinydir-vendor', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -86,7 +86,6 @@ SRC_URI = "git://github.com/mrpt-ros2-pkg-release/mrpt2-release;${ROS_BRANCH};pr
 SRCREV = "1f77e80481da857161fea27875e75f64adb0d5e4"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('mrpt2', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

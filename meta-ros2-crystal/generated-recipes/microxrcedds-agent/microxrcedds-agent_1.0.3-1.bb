@@ -53,7 +53,6 @@ SRC_URI = "git://github.com/micro-ROS/microxrcedds_agent-release;${ROS_BRANCH};p
 SRCREV = "eb3d9c65af9ab81abd63f6ec7029683058c2d523"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('microxrcedds-agent', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

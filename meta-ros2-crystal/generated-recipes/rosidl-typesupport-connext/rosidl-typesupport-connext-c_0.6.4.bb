@@ -62,7 +62,6 @@ SRC_URI = "git://github.com/ros2-gbp/rosidl_typesupport_connext-release;${ROS_BR
 SRCREV = "f1ec99a1251aa16bb683899f6b07caf66c51d4b0"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('rosidl-typesupport-connext', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

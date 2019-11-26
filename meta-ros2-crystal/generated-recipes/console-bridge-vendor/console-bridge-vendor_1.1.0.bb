@@ -49,7 +49,6 @@ SRC_URI = "git://github.com/ros2-gbp/console_bridge_vendor-release;${ROS_BRANCH}
 SRCREV = "e4c0e1060e3ccd6029ee76f35638da865695afaf"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('console-bridge-vendor', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

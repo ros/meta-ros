@@ -43,7 +43,6 @@ SRC_URI = "git://github.com/ros2-gbp/googletest-release;${ROS_BRANCH};protocol=h
 SRCREV = "1b8406aabb71cdca75788d552836d3f3d5ea430c"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('googletest', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

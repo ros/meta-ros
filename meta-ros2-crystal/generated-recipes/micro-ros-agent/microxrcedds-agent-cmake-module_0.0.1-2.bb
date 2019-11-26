@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/micro-ROS/micro-ROS-Agent-release;${ROS_BRANCH};prot
 SRCREV = "4036bfecc28c396060c80bd288fc56a37cfa7c72"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('micro-ros-agent', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

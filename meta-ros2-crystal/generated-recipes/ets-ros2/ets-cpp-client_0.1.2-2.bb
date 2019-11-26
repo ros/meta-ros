@@ -58,7 +58,6 @@ SRC_URI = "git://github.com/brunodmt/ets_ros2-release;${ROS_BRANCH};protocol=htt
 SRCREV = "f835903510e633a171626450577e23f8545fa5f9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ets-ros2', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

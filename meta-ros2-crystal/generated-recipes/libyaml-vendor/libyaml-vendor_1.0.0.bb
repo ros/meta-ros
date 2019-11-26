@@ -43,7 +43,6 @@ SRC_URI = "git://github.com/ros2-gbp/libyaml_vendor-release;${ROS_BRANCH};protoc
 SRCREV = "11b7745a8cfb4114dbb2912a4993713aae5726a8"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('libyaml-vendor', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

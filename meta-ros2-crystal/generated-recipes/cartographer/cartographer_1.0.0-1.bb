@@ -73,7 +73,6 @@ SRC_URI = "git://github.com/ros2-gbp/cartographer-release;${ROS_BRANCH};protocol
 SRCREV = "3d8efe2a6e2c0d3300fbd75763df5b16f4002be9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('cartographer', d)}"
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

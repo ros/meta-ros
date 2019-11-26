@@ -51,7 +51,6 @@ SRC_URI = "git://github.com/RoverRobotics/ros2-keystroke-release;${ROS_BRANCH};p
 SRCREV = "78e4ddf78aa4ea248530fdd637386574a332163f"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('keystroke', d)}"
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

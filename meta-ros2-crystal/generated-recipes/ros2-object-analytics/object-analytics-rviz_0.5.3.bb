@@ -67,7 +67,6 @@ SRC_URI = "git://github.com/ros2-gbp/ros2_object_analytics-release;${ROS_BRANCH}
 SRCREV = "88fd6be89a2de8052c816977fd4db7f26acce8e1"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros2-object-analytics', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -74,7 +74,6 @@ SRC_URI = "git://github.com/microROS/system_modes-release;${ROS_BRANCH};protocol
 SRCREV = "277cb85af5e4467fef4ce9dfdc11975135af23db"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('system-modes', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
