@@ -30,7 +30,13 @@ Machines = ['qemux86', 'raspberrypi3']
 # when the 'meta' layer pin is unchanged, but those of other upstream layers
 # have been. If a ".<N>" is to be added and there is no hyphen in
 # <YOCTO-VERSION>, append "-0" to it.
-OpenEmbeddedVersion = '2.6-464.1-thud'
+#
+# This scheme is modified when used for the <OPENEMBEDDED-RELEASE-SERIES> being
+# developed in the [master] branch: "git describe" is not used to form
+# <YOCTO-VERSION>; instead it is the value in the Yocto Project Version column
+# of https://wiki.yoctoproject.org/wiki/Releases for
+# <OPENEMBEDDED-RELEASE-SERIES> to which a constant "~master" is appended.
+OpenEmbeddedVersion = '2.6-513-thud'
 
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
 from os import getenv
@@ -45,11 +51,11 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'thud/milestones/10')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '4ce92f43'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '6b045e07'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'thud', 'commit': 'f162d5bfe6'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'thud', 'commit': 'cd7cf933b3'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '9b3b907f30'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '2d088d2526'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
 ('meta-ros-backports-warrior',34, MetaRos_RepoURL,                                          {}, {}),
@@ -57,7 +63,7 @@ Layers = [
 ('meta-ros2',                 38, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros2-crystal',         39, MetaRos_RepoURL,                                          {}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': '89bdf97'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': '4e5be97'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
