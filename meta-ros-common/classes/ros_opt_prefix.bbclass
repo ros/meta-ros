@@ -19,7 +19,7 @@ PREPROCESS_RELOCATE_DIRS += " \
     ${ros_libdir} \
 "
 
-# ROS_PYTHON_VERSION is set in generated/ros-distro.inc, ie, it will never be unset here.
+# ROS_PYTHON_VERSION is set in generated/superflore-ros-distro.inc, ie, it will never be unset here.
 inherit ${@'python3-dir' if d.getVar('ROS_PYTHON_VERSION', True) == '3' else 'python-dir'}
 
 PKG_CONFIG_PATH .= ":${PKG_CONFIG_DIR}:${STAGING_DIR_HOST}${ros_libdir}/pkgconfig:${STAGING_DATADIR}/pkgconfig"

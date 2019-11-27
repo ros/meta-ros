@@ -167,7 +167,7 @@ after_commit=$(git rev-list -1 HEAD)
 if [ $after_commit != $before_commit -a -z "$only_option" ]; then
     git add $generated/cache.yaml $generated/cache.diffme
 
-    generated_inc="meta-ros$ROS_VERSION-$ROS_DISTRO/conf/ros-distro/include/$ROS_DISTRO/generated/ros-distro.inc"
+    generated_inc="meta-ros$ROS_VERSION-$ROS_DISTRO/conf/ros-distro/include/$ROS_DISTRO/generated/superflore-ros-distro.inc"
     [ $ROS_DISTRO_RELEASE_DATE = "pre-release" ] && ROS_DISTRO_RELEASE_DATE=""
     cat <<! >> $generated_inc
 
