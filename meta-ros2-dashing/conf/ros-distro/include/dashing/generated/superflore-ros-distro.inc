@@ -18,9 +18,7 @@ ROS_PYTHON_VERSION = "3"
 ROS_SUPERFLORE_GENERATION_SKIP_LIST = ""
 
 # Superflore was unable to generate recipes for these packages, eg, because their repositories are not on GitHub.
-ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
-    fmi_adapter_examples \
-"
+ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = ""
 
 # Number of commits that will be returned by "git log files/ROS_DISTRO-cache.yaml" when the generated files are committed. This is
 # used for the fourth version field of DISTRO_VERSION.
@@ -127,6 +125,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     fastrtps \
     fastrtps-cmake-module \
     fmi-adapter \
+    fmi-adapter-examples \
     gazebo-msgs \
     gazebo-plugins \
     gazebo-ros \
@@ -419,6 +418,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          fastrtps/fastrtps_1.8.0-2 \
       rosidl-typesupport-fastrtps/fastrtps-cmake-module_0.7.1-1 \
                  fmi-adapter-ros2/fmi-adapter_0.1.5-1 \
+                 fmi-adapter-ros2/fmi-adapter-examples_0.1.5-1 \
                   gazebo-ros-pkgs/gazebo-msgs_3.3.1-1 \
                   gazebo-ros-pkgs/gazebo-plugins_3.3.1-1 \
                   gazebo-ros-pkgs/gazebo-ros_3.3.1-1 \
@@ -708,6 +708,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     fastrtps \
     fastrtps-cmake-module \
     fmi-adapter \
+    fmi-adapter-examples \
     gazebo-msgs \
     gazebo-plugins \
     gazebo-ros \
@@ -896,7 +897,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
 
 # Packages found in the <buildtool_depend> and <buildtool_export_depend> items, ie, ones for which a -native is built. Does not
 # include those found in the ROS_EXEC_DEPENDS values in the recipes of build tools.
-ROS_SUPERFLORE_GENERATED_BUILDTOOLS = " \
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS_DASHING = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
     ament-clang-format-native \
@@ -965,6 +966,8 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS = " \
     rosidl-typesupport-introspection-cpp-native \
     rosidl-typesupport-opensplice-cpp-native \
 "
+
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS_append ="${ROS_SUPERFLORE_GENERATED_BUILDTOOLS_DASHING}"
 
 ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${PYTHON_PN}-pydocstyle \

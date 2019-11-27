@@ -5,17 +5,19 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around yaml-cpp, it provides a fixed CMake module and an ExternalProject build of it."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
-HOMEPAGE = "https://github.com/jbeder/yaml-cpp"
+DESCRIPTION = "Provides small examples for use of the fmi_adapter package"
+AUTHOR = "Ralph Lange <ralph.lange@de.bosch.com>"
+HOMEPAGE = "http://wiki.ros.org/fmi_adapter"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "yaml_cpp_vendor"
-ROS_BPN = "yaml_cpp_vendor"
+ROS_CN = "fmi_adapter_ros2"
+ROS_BPN = "fmi_adapter_examples"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    fmi-adapter \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
@@ -25,7 +27,11 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    fmi-adapter \
+    launch \
+    launch-ros \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""
@@ -37,10 +43,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/yaml_cpp_vendor-release/archive/release/crystal/yaml_cpp_vendor/5.0.0-0.tar.gz
-ROS_BRANCH ?= "branch=release/crystal/yaml_cpp_vendor"
-SRC_URI = "git://github.com/ros2-gbp/yaml_cpp_vendor-release;${ROS_BRANCH};protocol=https"
-SRCREV = "89c8b9acfc891fb2533c129105dc1aa7db6ba27f"
+# matches with: https://github.com/boschresearch/fmi_adapter_ros2-release/archive/release/dashing/fmi_adapter_examples/0.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/fmi_adapter_examples"
+SRC_URI = "git://github.com/boschresearch/fmi_adapter_ros2-release;${ROS_BRANCH};protocol=https"
+SRCREV = "25b4b6a737cc9df6952ccfa4bb2ffb85c4ebbb2b"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
