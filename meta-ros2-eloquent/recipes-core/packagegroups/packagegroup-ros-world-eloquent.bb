@@ -1,6 +1,14 @@
-# packagegroup-ros-world-eloquent.inc
-#
 # Copyright (c) 2019 LG Electronics, Inc.
+
+DESCRIPTION = "All non-test packages for the target from files/eloquent/cache.yaml"
+LICENSE = "MIT"
+
+inherit packagegroup
+inherit ros_distro_eloquent
+
+PACKAGES = "${PN}"
+
+RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 
 # "rmw-fastrtps-dynamic-cpp" is mentioned in http://www.ros.org/reps/rep-2000.html, so make sure we always build it (it appears in
 # ROS_SUPERFLORE_GENERATED_TESTS, so it's not been added to ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES).
