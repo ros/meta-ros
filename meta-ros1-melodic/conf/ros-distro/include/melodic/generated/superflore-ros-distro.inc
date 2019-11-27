@@ -4797,7 +4797,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
 
 # Packages found in the <buildtool_depend> and <buildtool_export_depend> items, ie, ones for which a -native is built. Does not
 # include those found in the ROS_EXEC_DEPENDS values in the recipes of build tools.
-ROS_SUPERFLORE_GENERATED_BUILDTOOLS = " \
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS_MELODIC = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_automake-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libtool-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_nodejs-native} \
@@ -4814,6 +4814,8 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS = " \
     ros-environment-native \
     yaml-cpp-native \
 "
+
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS_append ="${ROS_SUPERFLORE_GENERATED_BUILDTOOLS_MELODIC}"
 
 ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_alsa-oss} \
