@@ -37,10 +37,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-SRC_URI = "https://github.com/ros2-gbp/yaml_cpp_vendor-release/archive/release/crystal/yaml_cpp_vendor/5.0.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "65588716ed72419f3f8026cc8c0fb6de"
-SRC_URI[sha256sum] = "40ebab2a3298b5c6f44d69b287d305097cc267912e38722e181f1a903e1d0e63"
-S = "${WORKDIR}/yaml_cpp_vendor-release-release-crystal-yaml_cpp_vendor-5.0.0-0"
+SRC_URI = "https://github.com/ros2-gbp/yaml_cpp_vendor-release/archive/release/dashing/yaml_cpp_vendor/6.0.1-1.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
+SRC_URI[md5sum] = "498921fbbecb8975f0334fdd265d20ef"
+SRC_URI[sha256sum] = "8677db72dad5ef1a587bb1bc260e72cecd4d721cb68d5ed3eb480a083f223d1a"
+S = "${WORKDIR}/yaml_cpp_vendor-release-release-dashing-yaml_cpp_vendor-6.0.1-1"
 
 ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('yaml-cpp-vendor', d)}"
 ROS_BUILD_TYPE = "ament_cmake"
