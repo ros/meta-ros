@@ -1140,7 +1140,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
 
 # Packages found in the <buildtool_depend> and <buildtool_export_depend> items, ie, ones for which a -native is built. Does not
 # include those found in the ROS_EXEC_DEPENDS values in the recipes of build tools.
-ROS_SUPERFLORE_GENERATED_BUILDTOOLS = " \
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS_CRYSTAL = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
     ament-clang-format-native \
@@ -1208,6 +1208,8 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS = " \
     rosidl-typesupport-introspection-cpp-native \
     rosidl-typesupport-opensplice-cpp-native \
 "
+
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS_append ="${ROS_SUPERFLORE_GENERATED_BUILDTOOLS_CRYSTAL}"
 
 ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${PYTHON_PN}-pydocstyle \
