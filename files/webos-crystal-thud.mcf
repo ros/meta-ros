@@ -74,6 +74,6 @@ Layers = [
 # conf/bblayers.conf .
 BblayersConfExtraLines = ['MCF_DISTRO ?= "' + Distribution + '"',
                           'ROS_DISTRO ?= "crystal"',
-                          'ROS_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
+                          'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
                           'WEBOS_DISTRO_VERSION_TYPE_append = ".' + webOSOSEBuildNumber + '"',
                          ]
