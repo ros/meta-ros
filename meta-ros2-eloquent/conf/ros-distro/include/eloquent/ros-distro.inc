@@ -53,6 +53,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = ""
 
 ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "python3-mypy"
 
+# python3 bindings are provided by lttng-tools when python PACKAGECONFIG is enabled there
+ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng = "lttng-tools"
+
 ROS_UNRESOLVED_PLATFORM_PKG_spdlog = "spdlog"
 
 # XXX Temp until superflore fixed.
