@@ -50,7 +50,10 @@ RDEPENDS_${PN}_remove = "ros-testing"
 # |   .../cartographer/1.0.0-1-r0/recipe-sysroot/usr
 # |   with components: [EigenSparse, SparseLinearAlgebraLibrary,
 # |   SchurSpecializations, OpenMP, Multithreading].
+# Also depends on python2 python-sphinx which isn't available in ROS2 which is python3-only
 RDEPENDS_${PN}_remove = "cartographer"
+RDEPENDS_${PN}_remove = "cartographer-ros"
+RDEPENDS_${PN}_remove = "cartographer-ros-msgs"
 
 # do_compile() failed to build .a:
 # NOTE: VERBOSE=1 cmake --build .../fmi-adapter/0.1.4-1-r0/build --target all -- -j 24
