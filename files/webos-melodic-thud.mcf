@@ -76,5 +76,5 @@ Layers = [
 BblayersConfExtraLines = ['MCF_DISTRO ?= "' + Distribution + '"',
                           'ROS_DISTRO ?= "melodic"',
                           'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
-                          'WEBOS_DISTRO_VERSION_TYPE_append = ".' + webOSOSEBuildNumber + '"',
+                          'MCF_WEBOS_BUILD_NUMBER = "' + webOSOSEBuildNumber + '"',
                          ]
