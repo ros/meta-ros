@@ -1,4 +1,4 @@
-# Rebaseable Branch `thud-draft`
+# Rebaseable Branch `[master-draft]`
 
 **NOTICE:** This branch may be rebased without warning. You are advised to
 specify the `--rebase` option when pulling.
