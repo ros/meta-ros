@@ -43,6 +43,12 @@ RDEPENDS_${PN}_remove = "launch-testing-ament-cmake"
 RDEPENDS_${PN}_remove = "launch-testing-ros"
 RDEPENDS_${PN}_remove = "ros-testing"
 
+# sophus package is empty, so not created, crystal and melodic have bbappend to create empty package
+# but that is quite useless, either we should fix the packaging to have something useful in PN
+# or not to install completely empty package like here
+RDEPENDS_${PN}_remove = "sophus"
+RDEPENDS_${PN}_remove = "test-osrf-testing-tools-cpp"
+
 # | CMake Error at .../cartographer/1.0.0-1-r0/recipe-sysroot/usr/lib/cmake/Ceres/CeresConfig.cmake:88 (message):
 # |   Failed to find Ceres - Missing requested Ceres components: [SuiteSparse]
 # |   (components requested: [SuiteSparse]).  Detected Ceres version: 1.14.0
