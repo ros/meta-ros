@@ -6,3 +6,5 @@ EXTRA_OECMAKE += "-DBUILD_IDLC=OFF"
 FILES_${PN}-dev += "${datadir}/CycloneDDS"
 
 inherit ros-insane
+
+BBCLASSEXTEND = "native"
