@@ -6,3 +6,7 @@ EXTRA_OECMAKE += "-DBUILD_IDLC=OFF"
 FILES_${PN}-dev += "${datadir}/CycloneDDS"
 
 inherit ros-insane
+
+# Use SPDX name of the license
+LICENSE_remove = "Eclipse-Public-License-2.0"
+LICENSE += "EPL-2.0"
