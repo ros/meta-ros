@@ -8,3 +8,7 @@ FILES_${PN}-dev += "${datadir}/CycloneDDS"
 inherit ros-insane
 
 BBCLASSEXTEND = "native"
+
+# Use SPDX name of the license
+LICENSE_remove = "Eclipse-Public-License-2.0"
+LICENSE += "EPL-2.0"
