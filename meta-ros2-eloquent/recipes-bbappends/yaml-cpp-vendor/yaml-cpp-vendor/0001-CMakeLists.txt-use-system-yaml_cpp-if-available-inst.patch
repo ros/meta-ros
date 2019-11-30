@@ -1,0 +1,31 @@
+From 227a84a1f3093c1c4e37e020cb993ded84cfc68c Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 30 Nov 2019 02:04:57 +0000
+Subject: [PATCH] CMakeLists.txt: use system yaml_cpp if available instead of
+ trying to build own version
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b0b704f..1687887 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -63,7 +63,14 @@ macro(build_yaml_cpp)
+   )
+ endmacro()
+ 
+-build_yaml_cpp()
++find_package(yaml-cpp)
++
++if(NOT yaml-cpp_FOUND)
++  build_yaml_cpp()
++else()
++  message(STATUS "Found yaml-cpp ${yaml-cpp_VERSION}")
++endif()
++
+ 
+ if(WIN32)
+   ament_environment_hooks(env_hook/yaml_cpp_vendor_library_path.bat)
