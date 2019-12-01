@@ -1,6 +1,19 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 #
-# Place the fixups necessary to make meta-webosose compatible with meta-ros version 2 here.
+# Place the fixups necessary to make meta-webosose compatible with meta-ros layer version 3 here.
+
+# Give ROS billing in DISTRO_NAME.
+ROS_DISTRO_NAME_PREPEND ?= "${@'ROS ' + d.getVar('ROS_VERSION', True) + ' with '}"
+DISTRO_NAME_prepend = "${ROS_DISTRO_NAME_PREPEND}"
+
+# Append the webOS OSE build number to WEBOS_DISTRO_VERSION.
+ROS_WEBOS_DISTRO_VERSION_APPEND ??= ""
+WEBOS_DISTRO_VERSION_TYPE_append = "${ROS_WEBOS_DISTRO_VERSION_APPEND}"
+
+# Append the ROS metadata version to DISTRO_VERSION.
+ROS_OE_DISTRO_VERSION_APPEND ?= "${@'+' + d.getVar('ROS_DISTRO_METADATA_VERSION', True)}"
+DISTRO_VERSION_append = "${ROS_OE_DISTRO_VERSION_APPEND}"
+
 
 # These will be "<unknown>" if TOPDIR isn't a Git repo => drop them from the display of the build configuration if this is the
 # case.
