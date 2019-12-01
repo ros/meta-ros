@@ -30,7 +30,7 @@ Machines = ['qemux86', 'raspberrypi3']
 # where <COMMIT> is the commit in poky.git that corresponds to the commit to
 # which the 'meta' layer is pinned in Layers[]. Use the optional ".N" to
 # indicate a change in the pins of upstream layers other than 'meta'.
-OpenEmbeddedVersion = '2.6.2-83-thud'
+OpenEmbeddedVersion = '2.6.2-83.1-thud'
 
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
 from os import getenv
@@ -44,7 +44,7 @@ MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'thud-draft')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '7c1eb51d'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '4ce92f43'}, {}),
 
 ('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'thud', 'commit': 'f162d5bfe6'}, {}),
 
@@ -56,7 +56,7 @@ Layers = [
 ('meta-ros2',                 38, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros2-crystal',         39, MetaRos_RepoURL,                                          {}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi.git',        {'branch': 'thud', 'commit': 'c71d79e'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi.git',        {'branch': 'thud', 'commit': '89bdf97'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
