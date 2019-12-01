@@ -21,6 +21,18 @@ Distribution = 'ros1'
 # Deferring support for "qemux86" until later.
 Machines = ['raspberrypi3']
 
+# The format of OpenEmbeddedVersion is:
+#   <YOCTO-VERSION>[.<N>]-<OPENEMBEDDED-RELEASE-SERIES>
+# <YOCTO-VERSION> is the second and third hyphen-separated fields of the output
+# from:
+#   git clone -b <OPENEMBEDDED-RELEASE-SERIES> git://git.yoctoproject.org/poky.git
+#   cd poky
+#   git describe --match yocto-* <COMMIT>
+# where <COMMIT> is the commit in poky.git that corresponds to the commit to
+# which the 'meta' layer is pinned in Layers[]. Include the optional ".<N>" when
+# the 'meta' layer pin is unchanged, but those of other upstream layers are.
+OpenEmbeddedVersion = '2.6.2-83-thud'
+
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
@@ -54,4 +66,5 @@ Layers = [
 BblayersConfExtraLines = ['MCF_DISTRO ?= "' + Distribution + '"',
                           'ROS_DISTRO ?= "melodic"',
                           'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
+                          'MCF_OPENEMBEDDED_VERSION ?= "' + OpenEmbeddedVersion + '"',
                          ]
