@@ -17,7 +17,7 @@ McfFileVersion = 2
 # Value for DISTRO
 Distribution = 'webos'
 
-webOSOSEBuildNumber = '84'
+webOSOSEBuildNumber = '91'
 
 # Supported MACHINE-s
 # Deferring support for "qemux86" until later.
@@ -44,9 +44,8 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'builds/webosose/master/' 
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '7c1eb51d'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '4ce92f43'}, {}),
 
-('meta-gplv2',                 1, 'git://git.yoctoproject.org/meta-gplv2',                  {'branch': 'thud', 'commit': 'aabc30f'}, {}),
 ('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'thud', 'commit': 'f162d5bfe6'}, {}),
 
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '9b3b907f30'}, {}),
@@ -65,7 +64,7 @@ Layers = [
 
 ('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': 'c71d79e'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': '89bdf97'}, {}),
 ('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
 
 ('meta-ros-webos',            60, MetaRosWebos_RepoURL,                                     {'branch': MetaRosWebos_Branch, 'commit': MetaRosWebos_Commit}, {}),
