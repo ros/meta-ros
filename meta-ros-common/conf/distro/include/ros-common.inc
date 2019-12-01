@@ -2,8 +2,11 @@
 #
 # Copyright (c) 2019 LG Electronics, Inc.
 
+DISTRO_NAME_append = " with OpenEmbedded Linux"
 DISTRO_CODENAME = "${ROS_DISTRO}"
-DISTRO_VERSION = "${ROS_DISTRO_METADATA_VERSION}"
+
+ROS_DISTRO_VERSION_APPEND ??= ""
+DISTRO_VERSION = "${ROS_DISTRO_METADATA_VERSION}${ROS_DISTRO_VERSION_APPEND}"
 
 MAINTAINER = "Herb Kuta <herb.kuta@lge.com>"
 
