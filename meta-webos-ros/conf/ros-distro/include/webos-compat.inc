@@ -3,8 +3,8 @@
 # Place the fixups necessary to make meta-webosose compatible with meta-ros layer version 3 here.
 
 # Give ROS billing in DISTRO_NAME.
-ROS_DISTRO_NAME_PREPEND ?= "${@'ROS ' + d.getVar('ROS_VERSION', True) + ' with '}"
-DISTRO_NAME_prepend = "${ROS_DISTRO_NAME_PREPEND}"
+ROS_OE_DISTRO_NAME_PREPEND ?= "${ROS_OE_DISTRO_NAME} with "
+DISTRO_NAME_prepend = "${ROS_OE_DISTRO_NAME_PREPEND}"
 
 # Append the webOS OSE build number to WEBOS_DISTRO_VERSION.
 ROS_WEBOS_DISTRO_VERSION_APPEND ??= ""
