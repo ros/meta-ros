@@ -19,8 +19,14 @@ ROS_SUPERFLORE_GENERATION_SKIP_LIST = ""
 
 # Superflore was unable to generate recipes for these packages, eg, because their repositories are not on GitHub.
 ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
+    ros2trace \
     ros2trace_analysis \
+    tracetools \
     tracetools_analysis \
+    tracetools_launch \
+    tracetools_read \
+    tracetools_test \
+    tracetools_trace \
 "
 
 # Number of commits that will be returned by "git log files/ROS_DISTRO-cache.yaml" when the generated files are committed. This is
@@ -300,7 +306,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ros2srv \
     ros2test \
     ros2topic \
-    ros2trace \
     rosbag2 \
     rosbag2-bag-v2-plugins \
     rosbag2-converter-default-plugins \
@@ -393,11 +398,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     tlsf \
     tlsf-cpp \
     topic-monitor \
-    tracetools \
-    tracetools-launch \
-    tracetools-read \
-    tracetools-test \
-    tracetools-trace \
     trajectory-msgs \
     turtlesim \
     uncrustify-vendor \
@@ -679,7 +679,6 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                           ros2cli/ros2srv_0.8.6-1 \
                       ros-testing/ros2test_0.2.0-1 \
                           ros2cli/ros2topic_0.8.6-1 \
-                     ros2-tracing/ros2trace_0.2.10-1 \
                           rosbag2/rosbag2_0.2.4-1 \
                    rosbag2-bag-v2/rosbag2-bag-v2-plugins_0.0.7-1 \
                           rosbag2/rosbag2-converter-default-plugins_0.2.4-1 \
@@ -772,11 +771,6 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                              tlsf/tlsf_0.5.0-1 \
                  realtime-support/tlsf-cpp_0.8.2-1 \
                             demos/topic-monitor_0.8.4-1 \
-                     ros2-tracing/tracetools_0.2.10-1 \
-                     ros2-tracing/tracetools-launch_0.2.10-1 \
-                     ros2-tracing/tracetools-read_0.2.10-1 \
-                     ros2-tracing/tracetools-test_0.2.10-1 \
-                     ros2-tracing/tracetools-trace_0.2.10-1 \
                 common-interfaces/trajectory-msgs_0.8.1-1 \
                         turtlesim/turtlesim_1.1.0-1 \
                 uncrustify-vendor/uncrustify-vendor_1.3.0-1 \
@@ -1050,7 +1044,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ros2srv \
     ros2test \
     ros2topic \
-    ros2trace \
     rosbag2 \
     rosbag2-bag-v2-plugins \
     rosbag2-storage \
@@ -1137,9 +1130,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     tlsf \
     tlsf-cpp \
     topic-monitor \
-    tracetools \
-    tracetools-test \
-    tracetools-trace \
     trajectory-msgs \
     turtlesim \
     uncrustify-vendor \
@@ -1243,10 +1233,8 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine} \
@@ -1355,8 +1343,6 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     rviz-rendering-tests \
     rviz-visual-testing-framework \
     test-msgs \
-    tracetools-launch \
-    tracetools-read \
 "
 
 ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
@@ -1439,7 +1425,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     ros-testing \
     ros-workspace \
     ros1-bridge \
-    ros2-tracing \
     ros2cli \
     rosbag2 \
     rosbag2-bag-v2 \
@@ -1501,10 +1486,8 @@ ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev = "UNRESOLVED-libgazebo9-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69 = "UNRESOLVED-libopensplice69"
 ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native = "UNRESOLVED-libopensplice69-native"
 ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools = "UNRESOLVED-pyqt5-dev-tools"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace = "UNRESOLVED-python3-babeltrace"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography = "UNRESOLVED-python3-cryptography"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = "UNRESOLVED-python3-ifcfg"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng = "UNRESOLVED-python3-lttng"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "UNRESOLVED-python3-mypy"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = "UNRESOLVED-python3-netifaces"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine = "UNRESOLVED-python3-pyqt5.qtwebengine"
