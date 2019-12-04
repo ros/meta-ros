@@ -6,5 +6,5 @@ cmake_do_compile_prepend() {
 }
 
 # Don't test the external project because of we are in cross-compiling
-FILESEXTRAPATHS_prepend := "${THISDIR}/fmi-adapter:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " file://0001-Don-t-test-external-project.patch"
