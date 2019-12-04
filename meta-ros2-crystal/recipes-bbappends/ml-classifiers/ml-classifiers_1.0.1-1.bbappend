@@ -1,10 +1,10 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
-ROS_BUILD_DEPENDS_ros2-distro += " \
+ROS_BUILD_DEPENDS += " \
     rclcpp \
 "
 
-ROS_BUILDTOOL_DEPENDS_ros2-distro += " \
+ROS_BUILDTOOL_DEPENDS += " \
     rosidl-adapter-native \
     rosidl-default-generators-native \
 "
