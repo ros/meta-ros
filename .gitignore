@@ -3,3 +3,6 @@
 
 # From vi
 .*.swp
+
+# From scripts/mcf
+__pycache__/
