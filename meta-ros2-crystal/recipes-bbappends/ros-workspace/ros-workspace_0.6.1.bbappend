@@ -12,5 +12,5 @@ ROS_BUILDTOOL_DEPENDS += " \
 # The package find files from CMAKE_INSTALL_PREFIX that is just absolute "/usr".
 # Need to pass the native sysroot folder path.
 export STAGING_DIR_NATIVE
-FILESEXTRAPATHS_prepend := "${THISDIR}/ros-workspace:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI_append = " file://0001-Don-t-use-CMAKE_INSTALL_PREFIX-as-sysroot-for-cross-.patch"
