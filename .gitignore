@@ -3,6 +3,3 @@
 
 # From scripts/ros-generate-recipes.sh
 /.pr-*.tmp
-
-# From scripts/mcf
-files/__pycache__/
