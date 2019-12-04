@@ -6,3 +6,6 @@
 
 # From scripts/mcf
 __pycache__/
+
+# From bitbake
+bitbake-cookerdaemon.log
