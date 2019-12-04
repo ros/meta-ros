@@ -4,7 +4,7 @@
 DEPENDS_remove = "bullet"
 ROS_EXEC_DEPENDS_remove = "bullet"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/nav2-map-server:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 
 SRC_URI += " \
     file://0001-removed-bullet-dependency-from-map_server-594.patch \
