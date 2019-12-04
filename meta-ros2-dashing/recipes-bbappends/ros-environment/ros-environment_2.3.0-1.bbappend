@@ -1,3 +1,6 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
-require ros-environment_ros2.inc
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI_append = " \
+    file://add-os-override.patch \
+"
