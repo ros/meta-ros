@@ -1,8 +1,8 @@
-# Copyright (c) 2019 LG Electronics, Inc
+# Copyright (c) 2019 LG Electronics, Inc.
 
 ROS_BUILD_TYPE = "catkin"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/python-orocos-kdl:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://fix-findsip-cmake.patch \
 "
