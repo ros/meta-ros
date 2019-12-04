@@ -42,7 +42,6 @@ do_install_append() {
     cd - > /dev/null
 }
 
-
 PACKAGES =+ "${PN}-implicitworkspace"
 
 FILES_${PN}-implicitworkspace = " \
