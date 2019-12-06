@@ -1,0 +1,639 @@
+# melodic/rosdep-resolve.yaml
+alsa-oss:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_alsa-oss}
+apr:
+- apr@openembedded-core
+arduino-core:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_arduino-core}
+assimp:
+- assimp@openembedded-core
+assimp-dev:
+- assimp@openembedded-core
+atlas:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_atlas}
+autoconf:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_autoconf}
+automake:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_automake}
+avahi-daemon:
+- avahi@openembedded-core
+binutils:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_binutils}
+bison:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_bison}
+bluez:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_bluez}
+boost:
+- boost@openembedded-core
+bullet:
+- bullet@meta-ros
+bzip2:
+- bzip2@openembedded-core
+ca-certificates:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates}
+cccc:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_cccc}
+cmake:
+- cmake@openembedded-core
+coinor-libipopt-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev}
+collada-dom:
+- collada-dom@meta-ros
+coreutils:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_coreutils}
+cppcheck:
+- cppcheck@meta-ros
+cppunit:
+- cppunit@meta-oe
+curl:
+- curl@openembedded-core
+cwiid:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_cwiid}
+cwiid-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_cwiid-dev}
+cython:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_cython}
+daemontools:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_daemontools}
+dnsmasq:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq}
+doxygen:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen}
+dpkg:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_dpkg}
+eigen:
+- libeigen@meta-oe
+f2c:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_f2c}
+festival:
+- festival@meta-ros
+ffmpeg:
+- ffmpeg@openembedded-core
+flex:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_flex}
+ftdi-eeprom:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom}
+g++-static: []
+gawk:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gawk}
+gazebo:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo}
+gazebo9: []
+gdal-bin:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gdal-bin}
+geographiclib:
+- geographiclib@meta-ros
+geographiclib-tools:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools}
+gforth:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gforth}
+gfortran:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gfortran}
+git:
+- git@openembedded-core
+glut:
+- freeglut@meta-oe
+google-mock:
+- gtest@meta-oe
+graphviz:
+- graphviz@meta-ros
+gstreamer1.0:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0}
+gstreamer1.0-plugins-base:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-base}
+gstreamer1.0-plugins-good:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good}
+gstreamer1.0-plugins-ugly:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-ugly}
+gtest:
+- gtest@meta-oe
+gtk2:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2}
+gtk3:
+- gtk+3@openembedded-core
+hddtemp:
+- hddtemp@meta-oe
+hostapd:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_hostapd}
+ifstat:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ifstat}
+ipmitool:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ipmitool}
+iproute2:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_iproute2}
+ipython:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ipython}
+joystick:
+- joystick@meta-ros
+julius-voxforge:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_julius-voxforge}
+jython:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_jython}
+lcov:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_lcov}
+leveldb:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_leveldb}
+libasound2-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libasound2-dev}
+libavahi-client-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libavahi-client-dev}
+libavahi-core-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libavahi-core-dev}
+libblas-dev:
+- openblas@meta-ros
+libcairo2-dev:
+- cairo@openembedded-core
+libcap-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libcap-dev}
+libccd-dev:
+- libccd@meta-ros
+libceres-dev:
+- ceres-solver@meta-oe
+libcoin80-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libcoin80-dev}
+libconsole-bridge-dev:
+- console-bridge@meta-ros
+libdc1394-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libdc1394-dev}
+libdmtx-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev}
+libdw-dev:
+- elfutils@openembedded-core
+libfcl-dev:
+- fcl@meta-ros
+libfltk-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libfltk-dev}
+libfreenect-dev:
+- libfreenect@meta-ros
+libftdi-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev}
+libftdipp-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libftdipp-dev}
+libgazebo9-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev}
+libgeos++-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev}
+libgflags-dev:
+- gflags@meta-oe
+libglew-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev}
+libglib-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev}
+libgoogle-glog-dev:
+- glog@meta-oe
+libgpgme-dev:
+- gpgme@openembedded-core
+libgphoto-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgphoto-dev}
+libgps:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgps}
+libgstreamer-plugins-base1.0-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer-plugins-base1.0-dev}
+libgstreamer1.0-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer1.0-dev}
+libgts:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgts}
+libjpeg:
+- jpeg@openembedded-core
+libjsoncpp:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp}
+libjsoncpp-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev}
+liblapack-dev:
+- lapack@meta-ros
+libmicrohttpd:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libmicrohttpd}
+libmodbus-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libmodbus-dev}
+libmongoclient-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libmongoclient-dev}
+libncurses-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev}
+libnl-3:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libnl-3}
+libnl-3-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libnl-3-dev}
+libnlopt-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libnlopt-dev}
+libnlopt0:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libnlopt0}
+libogg:
+- libogg@openembedded-core
+libogre-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev}
+libois-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libois-dev}
+libopencv-dev:
+- opencv@meta-oe
+libopenexr-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev}
+libopenni-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni-dev}
+libopenni2-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni2-dev}
+libopenvdb:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb}
+libopenvdb-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev}
+libpcap:
+- libpcap@openembedded-core
+libpcl-all:
+- pcl@meta-ros
+libpcl-all-dev:
+- pcl@meta-ros
+libpng-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev}
+libpng12-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libpng12-dev}
+libpoco-dev:
+- poco@meta-oe
+libpulse-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev}
+libqhull:
+- qhull@meta-ros
+libqt5-concurrent:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-concurrent}
+libqt5-core:
+- qtbase@meta-qt5
+libqt5-gui:
+- qtbase@meta-qt5
+libqt5-network:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-network}
+libqt5-opengl:
+- qtbase@meta-qt5
+libqt5-opengl-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev}
+libqt5-svg-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev}
+libqt5-widgets:
+- qtbase@meta-qt5
+libqt5x11extras5-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev}
+libqwt-qt5-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev}
+libreadline:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline}
+libreadline-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline-dev}
+libspnav-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libspnav-dev}
+libsqlite3-dev:
+- sqlite3@openembedded-core
+libssl-dev:
+- openssl@openembedded-core
+libtheora:
+- libtheora@openembedded-core
+libtool:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libtool}
+libturbojpeg:
+- libjpeq-turbo@openembedded-core
+libudev-dev:
+- udev@openembedded-core
+liburdfdom-dev:
+- urdfdom@meta-ros
+liburdfdom-headers-dev:
+- urdfdom-headers@meta-ros
+liburdfdom-tools:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_liburdfdom-tools}
+libusb-1.0:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0}
+libusb-1.0-dev:
+- libusb1@openembedded-core
+libusb-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev}
+libv4l-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev}
+libvlc-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev}
+libvtk-qt:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt}
+libx11-dev:
+- libx11@openembedded-core
+libxi-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev}
+libxml2:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2}
+libxmu-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev}
+libzmq3-dev:
+- zeromq@meta-oe
+linux-headers-generic:
+- virtual/kernel@openembedded-core
+linux-kernel-headers:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_linux-kernel-headers}
+log4cplus:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_log4cplus}
+log4cxx:
+- log4cxx@meta-ros
+lua5.2-dev:
+- lua@meta-oe
+lz4:
+- lz4@openembedded-core
+mapnik-utils:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_mapnik-utils}
+mongodb:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_mongodb}
+muparser:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_muparser}
+nasm:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_nasm}
+netpbm:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_netpbm}
+nkf:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_nkf}
+nodejs:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_nodejs}
+npm:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_npm}
+ntpdate:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ntpdate}
+omniorb:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb}
+opengl:
+- mesa@openembedded-core
+openssl:
+- openssl@openembedded-core
+osm2pgsql:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_osm2pgsql}
+paramiko:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_paramiko}
+phantomjs:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_phantomjs}
+pkg-config:
+- pkgconfig@openembedded-core
+postgresql-postgis:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_postgresql-postgis}
+proj:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_proj}
+protobuf:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_protobuf}
+protobuf-dev:
+- protobuf@meta-oe
+python:
+- python@openembedded-core
+python-argcomplete:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-argcomplete}
+python-argparse: []
+python-avahi:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-avahi}
+python-backports.ssl-match-hostname:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-backports.ssl-match-hostname}
+python-bluez:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-bluez}
+python-boto3:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-boto3}
+python-bson:
+- python-pymongo@meta-python
+python-cairo:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-cairo}
+python-cairosvg:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-cairosvg}
+python-catkin-lint:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-lint}
+python-catkin-pkg:
+- python-catkin-pkg@meta-ros
+python-catkin-tools:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-tools}
+python-chainer-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainer-pip}
+python-chainercv-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainercv-pip}
+python-cheetah:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-cheetah}
+python-cherrypy:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-cherrypy}
+python-click:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-click}
+python-colorama:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-colorama}
+python-coverage:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-coverage}
+python-crypto:
+- python-pycrypto@meta-python
+python-cwiid:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid}
+python-defusedxml:
+- python-defusedxml@meta-ros
+python-dlib:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-dlib}
+python-docopt:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-docopt}
+python-docutils:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-docutils}
+python-empy:
+- python-empy@meta-ros
+python-enum34:
+- python-enum34@meta-python
+python-fcn-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-fcn-pip}
+python-freezegun-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-freezegun-pip}
+python-future:
+- python-future@meta-python
+python-gdown-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-gdown-pip}
+python-gi:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-gi}
+python-gnupg:
+- python-gnupg@meta-ros
+python-gtk2:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-gtk2}
+python-h5py:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-h5py}
+python-imageio:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-imageio}
+python-imaging:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-imaging}
+python-impacket:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-impacket}
+python-joblib:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-joblib}
+python-libpgm-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-libpgm-pip}
+python-lxml:
+- python-lxml@meta-python
+python-mapnik:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-mapnik}
+python-matplotlib:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib}
+python-mechanize:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize}
+python-mock:
+- python-mock@meta-python
+python-msgpack:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-msgpack}
+python-netifaces:
+- python-netifaces@meta-ros
+python-nose:
+- python-nose@openembedded-core
+python-numpy:
+- python-numpy@openembedded-core
+python-omniorb:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb}
+python-opencv:
+- opencv@meta-oe
+python-opengl:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-opengl}
+python-pandas:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pandas}
+python-paramiko:
+- python-paramiko@meta-ros
+python-pcapy:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pcapy}
+python-pep8:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pep8}
+python-percol:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-percol}
+python-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pip}
+python-progressbar:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-progressbar}
+python-psutil:
+- python-psutil@meta-python
+python-pyassimp:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp}
+python-pyaudio:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio}
+python-pydot:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pydot}
+python-pygithub3:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygithub3}
+python-pygraphviz:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygraphviz}
+python-pymongo:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pymongo}
+python-pyproj:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj}
+python-pytest:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pytest}
+python-pyusb-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip}
+python-qt5-bindings:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings}
+python-qt5-bindings-gl:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-gl}
+python-qt5-bindings-webkit:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-webkit}
+python-requests:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests}
+python-requests-oauthlib:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests-oauthlib}
+python-rosdep:
+- python-rosdep@meta-ros
+python-rospkg:
+- python-rospkg@meta-ros
+python-scipy:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-scipy}
+python-selenium-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-selenium-pip}
+python-serial:
+- python-pyserial@meta-python
+python-setuptools:
+- python-setuptools@openembedded-core
+python-simplejson:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson}
+python-sip:
+- sip@meta-oe
+python-skimage:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-skimage}
+python-sklearn:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-sklearn}
+python-slacker-cli:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-slacker-cli}
+python-speechrecognition-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-speechrecognition-pip}
+python-sphinx:
+- python-sphinx@meta-ros
+python-tabulate-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-tabulate-pip}
+python-termcolor:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-termcolor}
+python-texttable:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-texttable}
+python-tilestache:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-tilestache}
+python-tk:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk}
+python-tornado:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-tornado}
+python-twisted-core:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core}
+python-urlgrabber:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-urlgrabber}
+python-websocket:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-websocket}
+python-wxtools:
+- wxpython@meta-oe
+python-yaml:
+- python-pyyaml@meta-python
+qt5-qmake:
+- qtbase@meta-qt5
+qtbase5-dev:
+- qtbase@meta-qt5
+qtdeclarative5-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev}
+qtmultimedia5-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev}
+rsync:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_rsync}
+ruby:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ruby}
+screen:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_screen}
+sdl:
+- libsdl@openembedded-core
+sdl-image:
+- libsdl-image@meta-oe
+spacenavd:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_spacenavd}
+sshpass:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_sshpass}
+subversion:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_subversion}
+suitesparse:
+- suitesparse-cholmod@meta-ros
+- suitesparse-cxsparse@meta-ros
+swig:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_swig}
+sysstat:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_sysstat}
+tango-icon-theme:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
+tbb:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_tbb}
+time:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_time}
+tinyxml:
+- libtinyxml@meta-oe
+tinyxml2:
+- libtinyxml2@meta-oe
+unzip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_unzip}
+usbutils:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_usbutils}
+uuid:
+- util-linux@openembedded-core
+v4l-utils:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils}
+vlc:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_vlc}
+wget:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_wget}
+wx-common:
+- wxwidgets@meta-ros
+wxpython:
+- wxpython@meta-ros
+wxwidgets:
+- wxwidgets@meta-ros
+xterm:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_xterm}
+xvfb:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_xvfb}
+yaml-cpp:
+- yaml-cpp@meta-ros
+yasm:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_yasm}
+zbar:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_zbar}
+zlib:
+- zlib@openembedded-core
