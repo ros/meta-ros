@@ -18,7 +18,8 @@ McfFileVersion = 2
 Distribution = 'ros1'
 
 # Supported MACHINE-s
-Machines = ['qemux86', 'raspberrypi3']
+# Deferring support for "qemux86" until later.
+Machines = ['raspberrypi3']
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
