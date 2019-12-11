@@ -2,9 +2,10 @@
 
 # ASSERT(<prefix> == /usr)
 # ros-workspace installs its setup scripts under <prefix>, which is an unnatural location when <prefix> is /usr. Move them to be
-# under <sysconfdir>/profile.d/ros and create "ros_" prefixed symlinks to them under <bindir>. If "ros-implicit-workspace"
-# appears in DISTRO_FEATURES, create a ros.sh that sources ros/setup.sh, thereby setting up the ROS workspace for every login
-# shell.
+# under <sysconfdir>/profile.d/ros and create "ros_" prefixed symlinks to them under <bindir>.
+#
+# Create a ros.sh that sources ros/setup.sh, thereby setting up the ROS workspace for every login. Place it in a separate package
+# which will be added to images when IMAGE_FEATURES contains "ros-implicit-workspace"
 do_install_append() {
     profile_dir=${sysconfdir}/profile.d/ros
     mkdir -p ${D}$profile_dir
