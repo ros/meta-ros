@@ -34,7 +34,7 @@ Layers = [
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '9b3b907f30'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-ros',                  38, 'git://github.com/ros/meta-ros.git',                      {'branch': 'thud-draft'}, {}),
+('meta-ros',                  38, 'git://github.com/ros/meta-ros.git',                      {'branch': 'legacy-v2'}, {}),
 
 ('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': 'c71d79e'}, {}),
 ]
