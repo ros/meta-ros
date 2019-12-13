@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 DESCRIPTION = "All non-test packages for the target from files/crystal/cache.yaml"
 LICENSE = "MIT"
@@ -452,4 +452,175 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     wxwidgets \
     rc-roi-manager-gui \
     rqt-pose-view \
+"
+
+# There is unbuildable dependency on virtual/egl from gstreamer1.0-plugins-base because:
+# 1) gstreamer1.0-plugins-base depends on virtual/egl because of "egl" PACKAGECONFIG
+#
+# 2) "egl" PACKAGECONFIG is enabled by
+#    meta-raspberrypi/recipes-multimedia/gstreamer/gstreamer1.0-plugins-base_%.bbappend
+#    PACKAGECONFIG_GL_rpi = "egl gles2"
+#
+#    without respecting the "opengl" in DISTRO_FEATURES like the recipe in oe-core does
+#    openembedded-core/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-base_1.14.4.bb:
+#    PACKAGECONFIG_GL ?= "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'gles2 egl', '', d)}"
+#
+# 3) virtual/egl is provided either by:
+#    - userland (only without vc4graphics in MACHINE_FEATURES):
+#      meta-raspberrypi/recipes-graphics/userland/userland_git.bb:PROVIDES += "${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", "", "virtual/libgles2 virtual/egl", d)}"
+#    - mesa (selected with vc4graphics in MACHINE_FEATURES)
+#      meta-raspberrypi/conf/machine/include/rpi-default-providers.inc:PREFERRED_PROVIDER_virtual/egl ?= "${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", "mesa", "userland", d)}"
+#    - vc-graphics(-hardfp)
+#      meta-raspberrypirecipes-graphics/vc-graphics/vc-graphics.inc:PROVIDES = "virtual/libgles2 virtual/egl"
+#
+# 4) vc-graphics(-hardfp) recipe are skipped in default setup, because with vc4graphics being
+#    in MACHINE_FEATURES by default since:
+#    https://github.com/agherzan/meta-raspberrypi/commit/690bdca57422447e49d4ef43862bf675e9acc28f
+#    the PREFERRED_PROVIDER_virtual/libgles2 is set to mesa in:
+#    conf/machine/include/rpi-default-providers.inc:PREFERRED_PROVIDER_virtual/libgles2 ?= "${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", "mesa", "userland", d)}"
+#
+#    resulting in skipping the other virtual/libgles2 providers:
+#    vc-graphics-hardfp PROVIDES virtual/egl but was skipped: PREFERRED_PROVIDER_virtual/libgles2 set to mesa, not vc-graphics-hardfp
+#    vc-graphics PROVIDES virtual/egl but was skipped: PREFERRED_PROVIDER_virtual/libgles2 set to mesa, not vc-graphics
+#
+# 5) mesa is skipped when neither opengl nor vulkan are in DISTRO_FEATURES
+#
+# 6) userland doesn't provide virtual/egl because we have the default vc4graphics
+#    meta-raspberrypi/recipes-graphics/userland/userland_git.bb:PROVIDES += "${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", "", "virtual/libgles2 virtual/egl", d)}"
+#    and it cannot be built anyway, because with the default vc4graphics it depends on libegl-mesa:
+#    meta-raspberrypi/recipes-graphics/userland/userland_git.bb:RDEPENDS_${PN} += "${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", "libegl-mesa", "", d)}"
+#    and libegl-mesa is provided only by mesa recipe from oe-core which in turn
+#    requires either "opengl" or "vulkan" to be in DISTRO_FEATURES
+#
+# This causes a lot of unresolved dependencies in default setup with vc4graphics but without opengl.
+# - with Yocto 2.6 Thud and older it worked, because vc4graphics wasn't enabled by default before:
+#   https://github.com/agherzan/meta-raspberrypi/commit/690bdca57422447e49d4ef43862bf675e9acc28f
+#
+# To build these packages you have 3 options:
+# A) Just add "opengl" to DISTRO_FEATURES and use the default vc4graphics with mesa providing virtual/egl
+# B) Use DISABLE_VC4GRAPHICS added in
+#    https://github.com/agherzan/meta-raspberrypi/commit/96c8459c9363cc6bf463aedf4d24f92a1ee7d6ba
+#    to explicitly disable vc4graphics and use userland to provide virtual/egl
+# C) Apply https://github.com/agherzan/meta-raspberrypi/pull/551 in meta-raspberrypi,
+#    this part can be removed once upgrading to Yocto release with this applied
+RDEPENDS_${PN}_remove_rpi = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS}', d)}"
+
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS = " \
+    ainstein-radar-tools \
+    apriltag-ros \
+    ar-track-alvar \
+    aruco-detect \
+    avt-vimba-camera \
+    calibration \
+    calibration-launch \
+    calibration-setup-helper \
+    camera-calibration \
+    checkerboard-detector \
+    cob-camera-sensors \
+    cob-image-flip \
+    cob-map-accessibility-analysis \
+    cob-navigation \
+    cob-object-detection-visualizer \
+    cob-perception-common \
+    cob-vision-utils \
+    compressed-depth-image-transport \
+    compressed-image-transport \
+    costmap-converter \
+    criutils \
+    cv-bridge \
+    cv-camera \
+    depth-image-proc \
+    depthcloud-encoder \
+    depthimage-to-laserscan \
+    distance-map-opencv \
+    face-detector \
+    fetch-calibration \
+    fetch-depth-layer \
+    fetch-navigation \
+    fiducials \
+    fiducial-slam \
+    flir-boson-usb \
+    freight-bringup \
+    generic-throttle \
+    grid-map-cv \
+    grid-map-filters \
+    grid-map-loader \
+    grid-map-ros \
+    grid-map-visualization \
+    gscam \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-base-meta \
+    handeye \
+    hector-compressed-map-transport \
+    image-cb-detector \
+    image-geometry \
+    image-pipeline \
+    image-proc \
+    image-publisher \
+    image-rotate \
+    image-transport-plugins \
+    image-view \
+    image-view2 \
+    imagezero-image-transport \
+    imagezero-ros \
+    ipa-3d-fov-visualization \
+    jsk-common-msgs \
+    laser-cb-detector \
+    leg-detector \
+    libcmt \
+    multi-object-tracking-lidar \
+    multisense \
+    multisense-bringup \
+    multisense-cal-check \
+    multisense-lib \
+    multisense-ros \
+    nerian-stereo \
+    opencv \
+    opencv-apps \
+    openni-launch \
+    openni2-launch \
+    opt-camera \
+    people \
+    people-velocity-tracker \
+    perception \
+    photo \
+    posedetection-msgs \
+    rgbd-launch \
+    robot-calibration \
+    roseus-tutorials \
+    slic \
+    stereo-image-proc \
+    swri-geometry-util \
+    swri-image-util \
+    swri-opencv-util \
+    swri-route-util \
+    swri-transform-util \
+    theora-image-transport \
+    turtlebot3-applications \
+    turtlebot3-automatic-parking-vision \
+    turtlebot3-autorace \
+    turtlebot3-autorace-camera \
+    turtlebot3-autorace-control \
+    turtlebot3-autorace-core \
+    turtlebot3-autorace-detect \
+    turtlebot3-panorama \
+    tuw-aruco \
+    tuw-checkerboard \
+    tuw-ellipses \
+    tuw-geometry \
+    tuw-marker-detection \
+    tuw-marker-pose-estimation \
+    usb-cam-controllers \
+    video-stream-opencv \
+    vision-opencv \
+    vision-visp \
+    visp \
+    visp-auto-tracker \
+    visp-bridge \
+    visp-camera-calibration \
+    visp-hand2eye-calibration \
+    visp-tracker \
+    web-video-server \
+    webrtc-ros \
+    yocs-localization-manager \
 "
