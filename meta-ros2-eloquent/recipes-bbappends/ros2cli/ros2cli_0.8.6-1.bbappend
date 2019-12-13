@@ -6,6 +6,7 @@ RDEPENDS_${PN} += " \
     ${PYTHON_PN}-debugger \
     ${PYTHON_PN}-json \
     ${PYTHON_PN}-misc \
+    ${PYTHON_PN}-netifaces \
     ${PYTHON_PN}-pydoc \
     ${PYTHON_PN}-pyparsing \
     ${PYTHON_PN}-pyyaml \
