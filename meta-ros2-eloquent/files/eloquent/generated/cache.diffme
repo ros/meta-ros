@@ -1,4 +1,4 @@
-# eloquent/cache.yaml 20191122 273dff446b63914f042f9c75123d41520f2c0022 20191123210819 1.3.0
+# eloquent/cache.yaml 20191214 a8d18ef60ae6812e21d45912b12a41e97713d78c 20191213034733 1.3.0
 distribution_file:
 - release_platforms:
 -----
@@ -36,7 +36,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ament_cmake-release.git',
-version: 0.8.1-1
+version: 0.8.2-1
 },
 source: {
 type: git,
@@ -158,7 +158,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ament_package-release.git',
-version: 0.8.5-1
+version: 0.8.8-1
 },
 source: {
 type: git,
@@ -330,6 +330,27 @@ version: eloquent
 status: maintained
 }
 -----
+control_msgs: {
+doc: {
+type: git,
+url: 'https://github.com/ros-controls/control_msgs.git',
+version: crystal-devel
+},
+release: {
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros-gbp/control_msgs-release.git',
+version: 2.2.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-controls/control_msgs.git',
+version: crystal-devel
+},
+status: maintained
+}
+-----
 cyclonedds: {
 release: {
 tags: {
@@ -409,6 +430,30 @@ url: 'https://github.com/ros-perception/depthimage_to_laserscan.git',
 version: dashing-devel
 },
 status: maintained
+}
+-----
+diagnostics: {
+doc: {
+type: git,
+url: 'https://github.com/ros/diagnostics.git',
+version: eloquent
+},
+release: {
+packages: [diagnostic_updater,
+self_test],
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/diagnostics-release.git',
+version: 2.0.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros/diagnostics.git',
+version: eloquent
+},
+status: developed
 }
 -----
 ecl_core: {
@@ -728,6 +773,20 @@ version: eloquent
 status: developed
 }
 -----
+geographic_info: {
+release: {
+packages: [geodesy,
+geographic_info,
+geographic_msgs],
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros-geographic-info/geographic_info-release.git',
+version: 1.0.1-1
+},
+status: maintained
+}
+-----
 geometry2: {
 doc: {
 type: git,
@@ -1033,6 +1092,30 @@ version: eloquent
 status: maintained
 }
 -----
+octomap: {
+doc: {
+type: git,
+url: 'https://github.com/octomap/octomap.git',
+version: v1.9.1
+},
+release: {
+packages: [dynamic_edt_3d,
+octomap,
+octovis],
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros-gbp/octomap-release.git',
+version: 1.9.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/octomap/octomap.git',
+version: devel
+},
+status: maintained
+}
+-----
 orocos_kinematics_dynamics: {
 doc: {
 type: git,
@@ -1102,27 +1185,6 @@ version: eloquent
 status: maintained
 }
 -----
-pcl_conversions: {
-doc: {
-type: git,
-url: 'https://github.com/ros2/pcl_conversions.git',
-version: ros2
-},
-release: {
-tags: {
-release: 'release/eloquent/{package}/{version}'
-},
-url: 'https://github.com/ros2-gbp/pcl_conversions-release.git',
-version: 2.0.0-1
-},
-source: {
-type: git,
-url: 'https://github.com/ros2/pcl_conversions.git',
-version: ros2
-},
-status: maintained
-}
------
 pcl_msgs: {
 doc: {
 type: git,
@@ -1141,6 +1203,67 @@ type: git,
 url: 'https://github.com/ros-perception/pcl_msgs.git',
 version: ros2
 }
+}
+-----
+perception_pcl: {
+doc: {
+type: git,
+url: 'https://github.com/ros-perception/perception_pcl.git',
+version: eloquent-devel
+},
+release: {
+packages: [pcl_conversions,
+perception_pcl],
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/perception_pcl-release.git',
+version: 2.1.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros-perception/perception_pcl.git',
+version: eloquent-devel
+},
+status: developed
+}
+-----
+phidgets_drivers: {
+doc: {
+type: git,
+url: 'https://github.com/ros-drivers/phidgets_drivers.git',
+version: dashing
+},
+release: {
+packages: [libphidget22,
+phidgets_accelerometer,
+phidgets_analog_inputs,
+phidgets_api,
+phidgets_digital_inputs,
+phidgets_digital_outputs,
+phidgets_drivers,
+phidgets_gyroscope,
+phidgets_high_speed_encoder,
+phidgets_ik,
+phidgets_magnetometer,
+phidgets_motors,
+phidgets_msgs,
+phidgets_spatial,
+phidgets_temperature],
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/phidgets_drivers-release.git',
+version: 2.0.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros-drivers/phidgets_drivers.git',
+version: dashing
+},
+status: maintained
 }
 -----
 pluginlib: {
@@ -1204,7 +1327,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/stonier/py_trees-release.git',
-version: 2.0.1-1
+version: 2.0.4-1
 },
 source: {
 type: git,
@@ -1246,7 +1369,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/stonier/py_trees_ros-release.git',
-version: 2.0.0-1
+version: 2.0.1-1
 },
 source: {
 test_pull_requests: true,
@@ -1268,7 +1391,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/stonier/py_trees_ros_interfaces-release.git',
-version: 1.2.0-1
+version: 2.0.0-1
 },
 source: {
 type: git,
@@ -1282,14 +1405,14 @@ py_trees_ros_tutorials: {
 doc: {
 type: git,
 url: 'https://github.com/splintered-reality/py_trees_ros_tutorials.git',
-version: release/1.0.x
+version: release/2.0.x
 },
 release: {
 tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/stonier/py_trees_ros_tutorials-release.git',
-version: 1.0.6-1
+version: 2.0.0-1
 },
 source: {
 test_pull_requests: true,
@@ -1601,7 +1724,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/resource_retriever-release.git',
-version: 2.2.0-1
+version: 2.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -1787,7 +1910,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros1_bridge-release.git',
-version: 0.8.1-3
+version: 0.8.1-4
 },
 source: {
 test_pull_requests: true,
@@ -1815,7 +1938,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release.git',
-version: 0.2.10-1
+version: 0.2.12-1
 },
 source: {
 test_commits: false,
@@ -2165,7 +2288,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rosidl_typesupport_connext-release.git',
-version: 0.8.2-1
+version: 0.8.4-1
 },
 source: {
 test_pull_requests: true,
@@ -2270,6 +2393,27 @@ source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_action.git',
 version: crystal-devel
+},
+status: maintained
+}
+-----
+rqt_common_plugins: {
+doc: {
+type: git,
+url: 'https://github.com/ros-visualization/rqt_common_plugins.git',
+version: dashing-devel
+},
+release: {
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rqt_common_plugins-release.git',
+version: 1.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-visualization/rqt_common_plugins.git',
+version: dashing-devel
 },
 status: maintained
 }
@@ -2698,6 +2842,32 @@ version: 0.1.5-1
 status: developed
 }
 -----
+teleop_tools: {
+doc: {
+type: git,
+url: 'https://github.com/ros-teleop/teleop_tools.git',
+version: dashing-devel
+},
+release: {
+packages: [joy_teleop,
+key_teleop,
+mouse_teleop,
+teleop_tools,
+teleop_tools_msgs],
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros-gbp/teleop_tools-release.git',
+version: 1.0.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-teleop/teleop_tools.git',
+version: dashing-devel
+},
+status: maintained
+}
+-----
 teleop_twist_joy: {
 doc: {
 type: git,
@@ -3016,7 +3186,7 @@ vision_opencv: {
 doc: {
 type: git,
 url: 'https://github.com/ros-perception/vision_opencv.git',
-version: ros2
+version: eloquent
 },
 release: {
 packages: [cv_bridge,
@@ -3032,7 +3202,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-perception/vision_opencv.git',
-version: ros2
+version: eloquent
 },
 status: maintained
 }
@@ -4449,6 +4619,31 @@ it provides an ExternalProject build of console_bridge.</description>
 </export>
 </package>"
 -----
+control_msgs: <?xml version="1.0" ?>
+<package format="3">
+<name>control_msgs</name>
+<description>control_msgs contains base messages and actions useful for controlling robots. It provides representations for controller setpoints and joint and cartesian trajectories.</description>
+<author email="sglaser@willowgarage.com">Stuart Glaser</author>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/control_msgs</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<depend>action_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>std_msgs</depend>
+<depend>trajectory_msgs</depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 cv_bridge: <?xml version="1.0" ?>
 <package format="2">
 <name>cv_bridge</name>
@@ -4697,6 +4892,37 @@ diagnostic_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+diagnostic_updater: <?xml version="1.0" ?>
+<package format="2">
+<name>diagnostic_updater</name>
+<description>diagnostic_updater contains tools for easily updating diagnostics. it is commonly used in device drivers to keep track of the status of output topics,
+device status,
+etc.</description>
+<author>Kevin Watts</author>
+<author email="brice.rebsamen@gmail.com">Brice Rebsamen</author>
+<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
+<maintainer email="brice.rebsamen@gmail.com">Brice Rebsamen</maintainer>
+<maintainer email="karsten.knese@us.bosch.com">Karsten Knese</maintainer>
+<license>BSD</license>
+<url type="website">http://www.ros.org/wiki/diagnostic_updater</url>
+<author>Jeremy Leibs</author>
+<author>Blaise Gassend</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_python</buildtool_depend>
+<depend>diagnostic_msgs</depend>
+<depend>rclcpp</depend>
+<depend>rclpy</depend>
+<depend>std_msgs</depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>rclcpp_lifecycle</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 domain_coordinator: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -4772,6 +4998,23 @@ dummy_sensors: <?xml version="1.0" ?>
 <test_depend>ament_lint_common</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+dynamic_edt_3d: <?xml version="1.0" ?>
+<package format="2">
+<name>dynamic_edt_3d</name>
+<description>The dynamicEDT3D library implements an inrementally updatable Euclidean distance transform (EDT) in 3D. It comes with a wrapper to use the OctoMap 3D representation and hooks into the change detection of the OctoMap library to propagate changes to the EDT.</description>
+<author email="sprunkc@informatik.uni-freiburg.de">Christoph Sprunk</author>
+<maintainer email="sprunkc@informatik.uni-freiburg.de">Christoph Sprunk</maintainer>
+<maintainer email="w.merkt+oss@gmail.com">Wolfgang Merkt</maintainer>
+<license>BSD</license>
+<url type="website">http://octomap.github.io</url>
+<url type="bugtracker">https://github.com/OctoMap/octomap/issues</url>
+<depend>octomap</depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
 </export>
 </package>
 -----
@@ -6416,6 +6659,74 @@ gazebo_ros_pkgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+geodesy: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>geodesy</name>
+<description>Python and C++ interfaces for manipulating geodetic coordinates.</description>
+<maintainer email="jack.oquin@gmail.com">Jack O'Quin</maintainer>
+<maintainer email="stevenmacenski@gmail.com">Steve Macenski</maintainer>
+<author>Jack O'Quin</author>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/geodesy</url>
+<url type="bugtracker">https://github.com/ros-geographic-info/geographic_info/issues</url>
+<url type="repository">https://github.com/ros-geographic-info/geographic_info.git</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>angles</depend>
+<depend>geographic_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>unique_identifier_msgs</depend>
+<depend>python-pyproj</depend>
+<build_depend>python-catkin-pkg</build_depend>
+<export>
+<build_type>ament_cmake</build_type>
+<rosdoc config="rosdoc.yaml"/>
+</export>
+</package>
+-----
+geographic_info: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>geographic_info</name>
+<description>Geographic information metapackage. Not needed for wet packages,
+use only to resolve dry stack dependencies.</description>
+<maintainer email="jack.oquin@gmail.com">Jack O'Quin</maintainer>
+<maintainer email="stevenmacenski@gmail.com">Steve Macenski</maintainer>
+<author>Jack O'Quin</author>
+<license>BSD</license>
+<url>http://wiki.ros.org/geographic_info</url>
+<url type="repository">https://github.com/ros-geographic-info/geographic_info</url>
+<url type="bugtracker">https://github.com/ros-geographic-info/geographic_info/issues</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>geodesy</depend>
+<depend>geographic_msgs</depend>
+</package>
+-----
+geographic_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>geographic_msgs</name>
+<description>ROS messages for Geographic Information Systems.</description>
+<maintainer email="jack.oquin@gmail.com">Jack O'Quin</maintainer>
+<maintainer email="stevenmacenski@gmail.com">Steve Macenski</maintainer>
+<author>Jack O'Quin</author>
+<license>BSD</license>
+<url>http://wiki.ros.org/geographic_msgs</url>
+<url type="bugtracker">https://github.com/ros-geographic-info/geographic_info/issues</url>
+<url type="repository">https://github.com/ros-geographic-info/geographic_info.git</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<depend>geometry_msgs</depend>
+<depend>std_msgs</depend>
+<depend>unique_identifier_msgs</depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 geometry2: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -6691,6 +7002,28 @@ which contains the current state of each one of the joystick's buttons and axes.
 </export>
 </package>
 -----
+joy_teleop: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>joy_teleop</name>
+<description>A (to be) generic joystick interface to control a robot</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<license>BSD</license>
+<author email="paul.mathieu@pal-robotics.com">Paul Mathieu</author>
+<exec_depend>control_msgs</exec_depend>
+<exec_depend>rclpy</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<exec_depend>teleop_tools_msgs</exec_depend>
+<exec_depend>trajectory_msgs</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
 kdl_parser: <?xml version="1.0" ?>
 <package format="2">
 <name>kdl_parser</name>
@@ -6717,6 +7050,25 @@ kdl_parser: <?xml version="1.0" ?>
 <build_export_depend>urdfdom_headers</build_export_depend>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+key_teleop: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>key_teleop</name>
+<description>A text-based interface to send a robot movement commands.</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<license>BSD</license>
+<author email="siegfried.gevatter@pal-robotics.com">Siegfried-A. Gevatter Pujals</author>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rclpy</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
 </export>
 </package>
 -----
@@ -6911,6 +7263,26 @@ it provides a fixed CMake module and an ExternalProject build of it.</descriptio
 </export>
 </package>"
 -----
+libphidget22: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"2\">
+<name>libphidget22</name>
+<description>This package wraps the libphidget22 to use it as a ROS dependency</description>
+<maintainer email=\"martin.guenther@dfki.de\">Martin Günther</maintainer>
+<maintainer email=\"clalancette@openrobotics.org\">Chris Lalancette</maintainer>
+<license>LGPL</license>
+<url type=\"website\">http://ros.org/wiki/libphidget22</url>
+<url type=\"repository\">https://github.com/ros-drivers/phidgets_drivers.git</url>
+<url type=\"bugtracker\">https://github.com/ros-drivers/phidgets_drivers/issues</url>
+<author>Alexander Bubeck</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>libusb-1.0-dev</build_depend>
+<exec_depend>libusb-1.0</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>"
+-----
 libyaml_vendor: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
 <package format=\"2\">
@@ -7058,6 +7430,27 @@ based on the conditions that filter needs met.</description>
 </export>
 </package>
 -----
+mouse_teleop: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mouse_teleop</name>
+<description>A mouse teleop tool for holonomic mobile robots.</description>
+<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<license>BSD</license>
+<author email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</author>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rclpy</exec_depend>
+<exec_depend>python-numpy</exec_depend>
+<exec_depend>python-tk</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
 move_base_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -7103,6 +7496,49 @@ nav_msgs: <?xml version="1.0" ?>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
+</package>
+-----
+octomap: <?xml version="1.0" ?>
+<package format="2">
+<name>octomap</name>
+<description>The OctoMap library implements a 3D occupancy grid mapping approach,
+providing data structures and mapping algorithms in C++. The map implementation is based on an octree. See http://octomap.github.io for details.</description>
+<author email="wurm@informatik.uni-freiburg.de">Kai M. Wurm</author>
+<author email="armin@hornung.io">Armin Hornung</author>
+<maintainer email="armin@hornung.io">Armin Hornung</maintainer>
+<maintainer email="w.merkt+oss@gmail.com">Wolfgang Merkt</maintainer>
+<license>BSD</license>
+<url type="website">http://octomap.github.io</url>
+<url type="bugtracker">https://github.com/OctoMap/octomap/issues</url>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+octovis: <?xml version="1.0" ?>
+<package format="2">
+<name>octovis</name>
+<description>octovis is visualization tool for the OctoMap library based on Qt and libQGLViewer. See http://octomap.github.io for details.</description>
+<author email="wurm@informatik.uni-freiburg.de">Kai M. Wurm</author>
+<author email="armin@hornung.io">Armin Hornung</author>
+<maintainer email="armin@hornung.io">Armin Hornung</maintainer>
+<maintainer email="w.merkt+oss@gmail.com">Wolfgang Merkt</maintainer>
+<license>GPLv2</license>
+<url type="website">http://octomap.github.io</url>
+<url type="bugtracker">https://github.com/OctoMap/octomap/issues</url>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+<build_depend>octomap</build_depend>
+<build_depend>libqglviewer-qt4-dev</build_depend>
+<build_depend>libqt4-dev</build_depend>
+<build_depend>libqt4-opengl-dev</build_depend>
+<exec_depend>octomap</exec_depend>
+<exec_depend>libqglviewer-qt4</exec_depend>
+<exec_depend>libqtgui4</exec_depend>
+<exec_depend>libqt4-opengl</exec_depend>
 </package>
 -----
 opensplice_cmake_module: <?xml version="1.0" ?>
@@ -7176,23 +7612,22 @@ pcl_conversions: <?xml version="1.0" ?>
 <author email="william@osrfoundation.org">William Woodall</author>
 <author email="paul@bovbel.com">Paul Bovbel</author>
 <author email="bill@neautomation.com">Bill Morris</author>
-<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<author email="ankl@kth.se">Andreas Klintberg</author>
+<maintainer email="paul@bovbel.com">Paul Bovbel</maintainer>
+<maintainer email="www.kentaro.wada@gmail.com">Kentaro Wada</maintainer>
+<maintainer email="stevenmacenski@gmail.com">Steve Macenski</maintainer>
 <license>BSD</license>
 <url>http://wiki.ros.org/pcl_conversions</url>
-<url type="repository">https://github.com/ros-perception/pcl_conversions</url>
-<url type="bugtracker">https://github.com/ros-perception/pcl_conversions/issues</url>
+<url type="repository">https://github.com/ros-perception/perception_pcl</url>
+<url type="bugtracker">https://github.com/ros-perception/perception_pcl/issues</url>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<build_depend>builtin_interfaces</build_depend>
-<build_depend>eigen</build_depend>
-<build_depend>libpcl-all-dev</build_depend>
-<build_depend>sensor_msgs</build_depend>
-<build_depend>std_msgs</build_depend>
-<build_export_depend>builtin_interfaces</build_export_depend>
-<build_export_depend>eigen</build_export_depend>
-<build_export_depend>libpcl-all-dev</build_export_depend>
-<build_export_depend>sensor_msgs</build_export_depend>
-<build_export_depend>std_msgs</build_export_depend>
-<exec_depend>libpcl-all-dev</exec_depend>
+<depend>eigen</depend>
+<depend>libpcl-all-dev</depend>
+<depend>message_filters</depend>
+<depend>pcl_msgs</depend>
+<depend>rclcpp</depend>
+<depend>sensor_msgs</depend>
+<depend>std_msgs</depend>
 <test_depend>ament_cmake_gtest</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
@@ -7273,6 +7708,325 @@ pendulum_msgs: <?xml version="1.0" ?>
 <exec_depend>builtin_interfaces</exec_depend>
 <exec_depend>rosidl_default_runtime</exec_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+perception_pcl: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>perception_pcl</name>
+<description>PCL (Point Cloud Library) ROS interface stack. PCL-ROS is the preferred bridge for 3D applications involving n-D Point Clouds and 3D geometry processing in ROS.</description>
+<author>Open Perception</author>
+<author email="william@osrfoundation.org">William Woodall</author>
+<author email="julius@kammerl.de">Julius Kammerl</author>
+<maintainer email="paul@bovbel.com">Paul Bovbel</maintainer>
+<maintainer email="stevenmacenski@gmail.com">Steve Macenski</maintainer>
+<maintainer email="www.kentaro.wada@gmail.com">Kentaro Wada</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/perception_pcl</url>
+<url type="bugtracker">https://github.com/ros-perception/perception_pcl/issues</url>
+<url type="repository">https://github.com/ros-perception/perception_pcl</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>pcl_conversions</exec_depend>
+<exec_depend>pcl_msgs</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_accelerometer: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_accelerometer</name>
+<description>Driver for the Phidgets Accelerometer devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<author>Chris Lalancette</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>phidgets_api</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>sensor_msgs</depend>
+<exec_depend>launch</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_analog_inputs: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_analog_inputs</name>
+<description>Driver for the Phidgets Analog Input devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<author>Chris Lalancette</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>phidgets_api</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>std_msgs</depend>
+<exec_depend>launch</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_api: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_api</name>
+<description>A C++ Wrapper for the Phidgets C API</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/phidgets_api</url>
+<url type="repository">https://github.com/ros-drivers/phidgets_drivers.git</url>
+<url type="bugtracker">https://github.com/ros-drivers/phidgets_drivers/issues</url>
+<author>Tully Foote</author>
+<author>Ivan Dryanovski</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>libphidget22</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_digital_inputs: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_digital_inputs</name>
+<description>Driver for the Phidgets Digital Input devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<author>Chris Lalancette</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>phidgets_api</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>std_msgs</depend>
+<exec_depend>launch</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_digital_outputs: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_digital_outputs</name>
+<description>Driver for the Phidgets Digital Output devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<author>Chris Lalancette</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>phidgets_api</depend>
+<depend>phidgets_msgs</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>std_msgs</depend>
+<exec_depend>launch</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_drivers: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_drivers</name>
+<description>API and ROS drivers for Phidgets devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD,
+LGPL</license>
+<url type="website">http://ros.org/wiki/phidgets_drivers</url>
+<url type="repository">https://github.com/ros-drivers/phidgets_drivers.git</url>
+<url type="bugtracker">https://github.com/ros-drivers/phidgets_drivers/issues</url>
+<author>Phidgets Inc.</author>
+<author>Tully Foote</author>
+<author>Ivan Dryanovski</author>
+<author>Martin Günther</author>
+<author>Murilo FM</author>
+<author>José-Luis Blanco Claraco</author>
+<author>Chris Lalancette</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>libphidget22</exec_depend>
+<exec_depend>phidgets_accelerometer</exec_depend>
+<exec_depend>phidgets_api</exec_depend>
+<exec_depend>phidgets_analog_inputs</exec_depend>
+<exec_depend>phidgets_digital_inputs</exec_depend>
+<exec_depend>phidgets_digital_outputs</exec_depend>
+<exec_depend>phidgets_gyroscope</exec_depend>
+<exec_depend>phidgets_ik</exec_depend>
+<exec_depend>phidgets_high_speed_encoder</exec_depend>
+<exec_depend>phidgets_magnetometer</exec_depend>
+<exec_depend>phidgets_motors</exec_depend>
+<exec_depend>phidgets_msgs</exec_depend>
+<exec_depend>phidgets_spatial</exec_depend>
+<exec_depend>phidgets_temperature</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_gyroscope: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_gyroscope</name>
+<description>Driver for the Phidgets Gyroscope devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<author>Chris Lalancette</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>phidgets_api</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>sensor_msgs</depend>
+<depend>std_msgs</depend>
+<depend>std_srvs</depend>
+<exec_depend>launch</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_high_speed_encoder: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_high_speed_encoder</name>
+<description>Driver for the Phidgets high speed encoder devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<author email="geoffrey.viola@asirobots.com">Geoff Viola</author>
+<author email="jlblanco@ual.es">José-Luis Blanco Claraco</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>phidgets_api</depend>
+<depend>phidgets_msgs</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>sensor_msgs</depend>
+<exec_depend>launch</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_ik: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_ik</name>
+<description>Driver for the Phidgets InterfaceKit devices</description>
+<license>BSD</license>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<author>James Sarrett</author>
+<author email="russel@appliedinvention.com">Russel Howe</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>launch</exec_depend>
+<exec_depend>phidgets_analog_inputs</exec_depend>
+<exec_depend>phidgets_digital_inputs</exec_depend>
+<exec_depend>phidgets_digital_outputs</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_magnetometer: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_magnetometer</name>
+<description>Driver for the Phidgets Magnetometer devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<author>Chris Lalancette</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>phidgets_api</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>sensor_msgs</depend>
+<exec_depend>launch</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_motors: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_motors</name>
+<description>Driver for the Phidgets Motor devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<author>Chris Lalancette</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>phidgets_api</depend>
+<depend>phidgets_msgs</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>std_msgs</depend>
+<exec_depend>launch</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>phidgets_msgs</name>
+<description>Custom ROS messages for Phidgets drivers</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<author>Chris Lalancette</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>std_msgs</depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_spatial: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_spatial</name>
+<description>Driver for the Phidgets Spatial 3/3/3 devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/phidgets_spatial</url>
+<url type="repository">https://github.com/ros-drivers/phidgets_drivers.git</url>
+<url type="bugtracker">https://github.com/ros-drivers/phidgets_drivers/issues</url>
+<author email="ccnyroboticslab@gmail.com">Ivan Dryanovski</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>phidgets_api</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>sensor_msgs</depend>
+<depend>std_msgs</depend>
+<depend>std_srvs</depend>
+<exec_depend>launch</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+phidgets_temperature: <?xml version="1.0" ?>
+<package format="2">
+<name>phidgets_temperature</name>
+<description>Driver for the Phidgets Temperature devices</description>
+<maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>BSD</license>
+<author>Chris Lalancette</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>phidgets_api</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>std_msgs</depend>
+<exec_depend>launch</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -7457,7 +8211,7 @@ py_trees_ros_tutorials: <?xml version="1.0" ?>
 <description>ROS2 extensions and behaviours for py_trees.</description>
 <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
 <license>BSD</license>
-<url type="website">https://py-trees-ros-tutorials.readthedocs.io/en/release-1.0.x/</url>
+<url type="website">https://py-trees-ros-tutorials.readthedocs.io/en/release-2.0.x/</url>
 <url type="repository">https://github.com/splintered-treality/py_trees_ros_tutorials</url>
 <url type="bugtracker">https://github.com/splintered-treality/py_trees_ros_tutorials/issues</url>
 <author>Daniel Stonier</author>
@@ -8540,6 +9294,34 @@ ros1_bridge: <?xml version="1.0" ?>
 <test_depend>launch_testing_ament_cmake</test_depend>
 <test_depend>launch_testing_ros</test_depend>
 <test_depend>ros2run</test_depend>
+<build_depend>action_msgs</build_depend>
+<exec_depend>action_msgs</exec_depend>
+<build_depend>actionlib_msgs</build_depend>
+<exec_depend>actionlib_msgs</exec_depend>
+<build_depend>diagnostic_msgs</build_depend>
+<exec_depend>diagnostic_msgs</exec_depend>
+<build_depend>example_interfaces</build_depend>
+<exec_depend>example_interfaces</exec_depend>
+<build_depend>gazebo_msgs</build_depend>
+<exec_depend>gazebo_msgs</exec_depend>
+<build_depend>geometry_msgs</build_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<build_depend>nav_msgs</build_depend>
+<exec_depend>nav_msgs</exec_depend>
+<build_depend>sensor_msgs</build_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<build_depend>shape_msgs</build_depend>
+<exec_depend>shape_msgs</exec_depend>
+<build_depend>std_srvs</build_depend>
+<exec_depend>std_srvs</exec_depend>
+<build_depend>stereo_msgs</build_depend>
+<exec_depend>stereo_msgs</exec_depend>
+<build_depend>tf2_msgs</build_depend>
+<exec_depend>tf2_msgs</exec_depend>
+<build_depend>trajectory_msgs</build_depend>
+<exec_depend>trajectory_msgs</exec_depend>
+<build_depend>visualization_msgs</build_depend>
+<exec_depend>visualization_msgs</exec_depend>
 <group_depend>rosidl_interface_packages</group_depend>
 <export>
 <build_type>ament_cmake</build_type>
@@ -9958,6 +10740,56 @@ not on the ROS core your rqt instance connects to.</description>
 </export>
 </package>
 -----
+rqt_common_plugins: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rqt_common_plugins</name>
+<description>rqt_common_plugins metapackage provides ROS backend graphical tools suite that can be used on/off of robot runtime.<br/>
+<br/>To run any rqt plugins,
+just type in a single command &quot;rqt&quot;,
+then select any plugins you want from the GUI that launches afterwards.<br/>
+<br/>rqt consists of three following metapackages:<br/>
+<ul>
+<li>
+<a href="http://ros.org/wiki/rqt">rqt</a>- core modules of rqt (ROS GUI) framework. rqt plugin developers barely needs to pay attention to this metapackage.</li>
+<li>rqt_common_plugins (you're here!)</li>
+<li>
+<a href="http://ros.org/wiki/rqt_robot_plugins">rqt_robot_plugins</a>- rqt plugins that are particularly used with robots during their runtime.</li>
+<br/>
+</ul>
+<br/>
+</description>
+<maintainer email="ablasdel@gmail.com">Aaron Blasdel</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/rqt_common_plugins</url>
+<url type="repository">https://github.com/ros-visualization/rqt_common_plugins</url>
+<url type="bugtracker">https://github.com/ros-visualization/rqt_common_plugins/issues</url>
+<author>Dirk Thomas</author>
+<author>Dorian Scholz</author>
+<author>Thibault Kruse</author>
+<author>Aaron Blasdel</author>
+<author>Isaac Saito</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>rqt_action</exec_depend>
+<exec_depend>rqt_console</exec_depend>
+<exec_depend>rqt_graph</exec_depend>
+<exec_depend>rqt_image_view</exec_depend>
+<exec_depend>rqt_msg</exec_depend>
+<exec_depend>rqt_plot</exec_depend>
+<exec_depend>rqt_publisher</exec_depend>
+<exec_depend>rqt_py_common</exec_depend>
+<exec_depend>rqt_py_console</exec_depend>
+<exec_depend>rqt_reconfigure</exec_depend>
+<exec_depend>rqt_service_caller</exec_depend>
+<exec_depend>rqt_shell</exec_depend>
+<exec_depend>rqt_srv</exec_depend>
+<exec_depend>rqt_top</exec_depend>
+<exec_depend>rqt_topic</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 rqt_console: <?xml version="1.0" ?>
 <package format="2">
 <name>rqt_console</name>
@@ -10725,6 +11557,30 @@ rviz_visual_testing_framework: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+self_test: <?xml version="1.0" ?>
+<package format="2">
+<name>self_test</name>
+<description>self_test</description>
+<author>Kevin Watts</author>
+<author email="brice.rebsamen@gmail.com">Brice Rebsamen</author>
+<maintainer email="brice.rebsamen@gmail.com">Brice Rebsamen</maintainer>
+<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
+<maintainer email="karsten.knese@us.bosch.com">Karsten Knese</maintainer>
+<license>BSD</license>
+<url type="website">http://www.ros.org/wiki/self_test</url>
+<author>Jeremy Leibs and Blaise Gassend</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>diagnostic_msgs</depend>
+<depend>diagnostic_updater</depend>
+<depend>rclcpp</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 sensor_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -10977,6 +11833,39 @@ system_modes_examples: <?xml version="1.0" ?>
 <depend>libboost-program-options-dev</depend>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <test_depend>ament_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+teleop_tools: <?xml version="1.0" ?>
+<package format="2">
+<name>teleop_tools</name>
+<description>A set of generic teleoperation tools for any robot.</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>joy_teleop</exec_depend>
+<exec_depend>key_teleop</exec_depend>
+<exec_depend>teleop_tools_msgs</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+teleop_tools_msgs: <?xml version="1.0" ?>
+<package format="3">
+<name>teleop_tools_msgs</name>
+<description>The teleop_tools_msgs package</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>action_msgs</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
