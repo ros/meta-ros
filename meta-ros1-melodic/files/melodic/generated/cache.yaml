@@ -1,4 +1,4 @@
-# melodic/cache.yaml 20190930 55713451c1ca6831834ebb38ab3213acaaf73773 20190925123136
+# melodic/cache.yaml 20190930 55713451c1ca6831834ebb38ab3213acaaf73773 20190925123136 1.3.0
 distribution_file:
 - release_platforms:
     debian: [stretch]
