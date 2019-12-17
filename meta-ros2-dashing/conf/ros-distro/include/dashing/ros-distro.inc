@@ -47,6 +47,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = ""
 # use python3 version because python2 is EOL
 ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj = "python3-pyproj"
 
+# Used by generated-recipes/phidgets-drivers/libphidget22_2.0.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0 = "libusb1"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
