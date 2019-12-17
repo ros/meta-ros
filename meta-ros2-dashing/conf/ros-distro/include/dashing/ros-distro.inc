@@ -47,6 +47,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = ""
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
 # and having it in a .bbappend sets it too late.
+ROS_BUILD_TYPE_pn-async-web-server-cpp = "ament_cmake"
 ROS_BUILD_TYPE_pn-fmilibrary-vendor = "ament_cmake"
 ROS_BUILD_TYPE_pn-geographic-info = "ament_cmake"
 ROS_BUILD_TYPE_pn-gps-umd = "ament_cmake"
