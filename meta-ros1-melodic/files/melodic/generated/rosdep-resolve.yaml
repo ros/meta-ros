@@ -33,6 +33,8 @@ ca-certificates:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates}
 cccc:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_cccc}
+clang-tidy:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy}
 cmake:
 - cmake@openembedded-core
 coinor-libipopt-dev:
@@ -161,6 +163,8 @@ libdw-dev:
 - elfutils@openembedded-core
 libfcl-dev:
 - fcl@meta-ros
+libfftw3:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libfftw3}
 libfltk-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libfltk-dev}
 libfreenect-dev:
@@ -231,6 +235,8 @@ libopenni-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni-dev}
 libopenni2-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni2-dev}
+libopenscenegraph:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph}
 libopenvdb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb}
 libopenvdb-dev:
@@ -251,6 +257,8 @@ libpulse-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev}
 libqhull:
 - qhull@meta-ros
+libqt4-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev}
 libqt5-concurrent:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-concurrent}
 libqt5-core:
@@ -267,6 +275,8 @@ libqt5-svg-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev}
 libqt5-widgets:
 - qtbase@meta-qt5
+libqt5multimedia5-plugins:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins}
 libqt5x11extras5-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev}
 libqwt-qt5-dev:
@@ -275,6 +285,8 @@ libreadline:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline}
 libreadline-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline-dev}
+libsensors4-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libsensors4-dev}
 libspnav-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libspnav-dev}
 libsqlite3-dev:
@@ -309,16 +321,18 @@ libvtk-qt:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt}
 libx11-dev:
 - libx11@openembedded-core
+libxext:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxext}
 libxi-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev}
+libxml++-2.6:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxml++-2.6}
 libxml2:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2}
 libxmu-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev}
 libzmq3-dev:
 - zeromq@meta-oe
-linux-headers-generic:
-- virtual/kernel@openembedded-core
 linux-kernel-headers:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_linux-kernel-headers}
 log4cplus:
@@ -339,6 +353,8 @@ nasm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_nasm}
 netpbm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_netpbm}
+network-manager:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_network-manager}
 nkf:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_nkf}
 nodejs:
@@ -416,6 +432,8 @@ python-defusedxml:
 - python-defusedxml@meta-ros
 python-dlib:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-dlib}
+python-docker:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-docker}
 python-docopt:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-docopt}
 python-docutils:
