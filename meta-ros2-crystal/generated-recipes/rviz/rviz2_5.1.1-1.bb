@@ -57,10 +57,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/crystal/rviz2/5.1.0-0.tar.gz
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/crystal/rviz2/5.1.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/crystal/rviz2"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c9a091a878b4b4499e89d6ebee21b12869bc6c01"
+SRCREV = "83bb78000022e85974a15d7c79123e14664131c9"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

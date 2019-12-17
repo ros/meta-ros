@@ -5,60 +5,62 @@
 inherit ros_distro_crystal
 inherit ros_superflore_generated
 
-DESCRIPTION = "Package containing the Python client."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
-ROS_AUTHOR = "Esteve Fernandez <esteve@osrfoundation.org>"
+DESCRIPTION = "The ROS client library in C++."
+AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "rclpy"
-ROS_BPN = "rclpy"
+ROS_CN = "rclcpp"
+ROS_BPN = "rclcpp"
 
 ROS_BUILD_DEPENDS = " \
+    builtin-interfaces \
     rcl \
-    rcl-action \
+    rcl-interfaces \
     rcl-yaml-param-parser \
-    rcutils \
     rmw-implementation \
-    rmw-implementation-cmake \
-    unique-identifier-msgs \
+    rosgraph-msgs \
+    rosidl-generator-cpp \
+    rosidl-typesupport-c \
+    rosidl-typesupport-cpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-native \
-    python-cmake-module-native \
+    ament-cmake-ros-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    builtin-interfaces \
     rcl \
-    rcl-action \
+    rcl-interfaces \
     rcl-yaml-param-parser \
+    rmw \
     rmw-implementation \
-    unique-identifier-msgs \
+    rosgraph-msgs \
+    rosidl-generator-cpp \
+    rosidl-typesupport-c \
+    rosidl-typesupport-cpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ament-index-python \
-    builtin-interfaces \
+    ament-cmake \
     rcl \
-    rcl-action \
     rcl-yaml-param-parser \
     rmw-implementation \
-    unique-identifier-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-cmake-pytest \
+    ament-cmake-gmock \
+    ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
-    python3-pytest \
-    rcl-interfaces \
-    rosidl-generator-py \
+    rmw \
+    rmw-implementation-cmake \
     test-msgs \
 "
 
@@ -69,10 +71,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rclpy-release/archive/release/crystal/rclpy/0.6.4-0.tar.gz
-ROS_BRANCH ?= "branch=release/crystal/rclpy"
-SRC_URI = "git://github.com/ros2-gbp/rclpy-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8a4daccf147f71e494c56feb2c7eb831df5fa026"
+# matches with: https://github.com/ros2-gbp/rclcpp-release/archive/release/crystal/rclcpp/0.6.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/crystal/rclcpp"
+SRC_URI = "git://github.com/ros2-gbp/rclcpp-release;${ROS_BRANCH};protocol=https"
+SRCREV = "07dbc134c07b6185f4fe6bc1a85268dcf9151c21"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

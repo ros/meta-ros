@@ -54,10 +54,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rclcpp-release/archive/release/crystal/rclcpp_lifecycle/0.6.4-0.tar.gz
+# matches with: https://github.com/ros2-gbp/rclcpp-release/archive/release/crystal/rclcpp_lifecycle/0.6.5-1.tar.gz
 ROS_BRANCH ?= "branch=release/crystal/rclcpp_lifecycle"
 SRC_URI = "git://github.com/ros2-gbp/rclcpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "eab7c665b23eba76b279dfb13cc44b67d256edef"
+SRCREV = "6ca319ba9eb354db96c7c0d6e368ce5dffdc4eaf"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
