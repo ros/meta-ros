@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.0+23.g222ceba"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.0+25.g1f16e47"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros2"
@@ -1198,3 +1198,10 @@ ROS_DISTRO_RELEASE_DATE = "20190531"
 
 # The commit of ros/rosdistro/dashing/distribution.yaml from which the recipes were generated.
 ROS_SUPERFLORE_GENERATION_COMMIT = "81871deb27ece12bcf3ebb49c089b1518d83d2b7"
+
+# Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
+# file were last generated
+ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.3.0"
+
+# Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
+ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.3.0"
