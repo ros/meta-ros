@@ -1,4 +1,4 @@
-# crystal/cache.yaml 20190919 46ee88ddb6d563bcb99ff5a504c9b2f1ac041a00 20190909121320 1.3.0
+# crystal/cache.yaml 20191212 83e4fd34efce4afca1de0c9fa8800dcbada4dc03 20191209133746 1.3.0
 distribution_file:
 - release_platforms:
 -----
@@ -153,6 +153,29 @@ url: 'https://github.com/ament/ament_package.git',
 version: crystal
 },
 status: maintained
+}
+-----
+ament_virtualenv: {
+doc: {
+type: git,
+url: 'https://github.com/esol-community/ament_virtualenv.git',
+version: master
+},
+release: {
+packages: [ament_cmake_virtualenv,
+ament_virtualenv],
+tags: {
+release: 'release/crystal/{package}/{version}'
+},
+url: 'https://github.com/esol-community/ament_virtualenv-release.git',
+version: 0.0.4-1
+},
+source: {
+type: git,
+url: 'https://github.com/esol-community/ament_virtualenv.git',
+version: master
+},
+status: developed
 }
 -----
 angles: {
@@ -839,7 +862,6 @@ url: 'https://github.com/ros2-gbp/image_pipeline-release.git',
 version: 2.0.0-0
 },
 source: {
-test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-perception/image_pipeline.git',
 version: ros2
@@ -851,7 +873,7 @@ image_transport_plugins: {
 doc: {
 type: git,
 url: 'https://github.com/ros-perception/image_transport_plugins.git',
-version: ros2
+version: crystal
 },
 release: {
 packages: [compressed_depth_image_transport,
@@ -868,7 +890,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-perception/image_transport_plugins.git',
-version: ros2
+version: crystal
 },
 status: maintained
 }
@@ -1042,8 +1064,7 @@ status: maintained
 -----
 micro-ROS-Agent: {
 release: {
-packages: [micro_ros_agent,
-microxrcedds_agent_cmake_module],
+packages: [microxrcedds_agent_cmake_module],
 tags: {
 release: 'release/crystal/{package}/{version}'
 },
@@ -1356,6 +1377,17 @@ version: crystal
 status: developed
 }
 -----
+px4_msgs: {
+release: {
+tags: {
+release: 'release/crystal/{package}/{version}'
+},
+url: 'https://github.com/PX4/px4_msgs2-release.git',
+version: 2.0.1-1
+},
+status: developed
+}
+-----
 py_trees: {
 doc: {
 type: git,
@@ -1534,7 +1566,7 @@ tags: {
 release: 'release/crystal/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rclcpp-release.git',
-version: 0.6.4-0
+version: 0.6.5-1
 },
 source: {
 test_pull_requests: true,
@@ -1556,7 +1588,7 @@ tags: {
 release: 'release/crystal/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rclpy-release.git',
-version: 0.6.4-0
+version: 0.6.5-1
 },
 source: {
 test_pull_requests: true,
@@ -1758,7 +1790,7 @@ status: developed
 robot_state_publisher: {
 doc: {
 type: git,
-url: 'https://github.com/ros2/robot_state_publisher.git',
+url: 'https://github.com/ros/robot_state_publisher.git',
 version: crystal
 },
 release: {
@@ -1771,7 +1803,7 @@ version: 2.1.0-0
 source: {
 test_pull_requests: true,
 type: git,
-url: 'https://github.com/ros2/robot_state_publisher.git',
+url: 'https://github.com/ros/robot_state_publisher.git',
 version: crystal
 },
 status: developed
@@ -2479,7 +2511,7 @@ tags: {
 release: 'release/crystal/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rviz-release.git',
-version: 5.1.0-0
+version: 5.1.1-1
 },
 source: {
 test_pull_requests: true,
@@ -2859,6 +2891,27 @@ url: 'https://github.com/cyberbotics/webots_ros2.git',
 version: crystal
 },
 status: developed
+}
+-----
+xacro: {
+doc: {
+type: git,
+url: 'https://github.com/ros/xacro.git',
+version: dashing-devel
+},
+release: {
+tags: {
+release: 'release/crystal/{package}/{version}'
+},
+url: 'https://github.com/ros-gbp/xacro-release.git',
+version: 2.0.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros/xacro.git',
+version: dashing-devel
+},
+status: maintained
 }
 -----
 yaml_cpp_vendor: {
@@ -3440,6 +3493,24 @@ ament_cmake_uncrustify: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+ament_cmake_virtualenv: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_virtualenv</name>
+<description>Bundle python requirements in a ament package via virtualenv.</description>
+<maintainer email="v-krichenbauer7715@esol.co.jp">Max Krichenbauer</maintainer>
+<license>GPL</license>
+<author email="v-krichenbauer7715@esol.co.jp">Max Krichenbauer</author>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_depend>ament_virtualenv</buildtool_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 ament_cmake_xmllint: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -3686,6 +3757,23 @@ ament_uncrustify: <?xml version="1.0" ?>
 <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
 <license>Apache License 2.0</license>
 <exec_depend>uncrustify_vendor</exec_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_virtualenv: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_virtualenv</name>
+<description>Bundle python requirements in a ament package via virtualenv.</description>
+<maintainer email="v-krichenbauer7715@esol.co.jp">Max Krichenbauer</maintainer>
+<license>GPL</license>
+<author email="v-krichenbauer7715@esol.co.jp">Max Krichenbauer</author>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
 <export>
 <build_type>ament_python</build_type>
 </export>
@@ -6735,30 +6823,6 @@ based on the conditions that filter needs met.</description>
 </export>
 </package>
 -----
-micro_ros_agent: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>micro_ros_agent</name>
-<description>DDS-XCRE agent implementation</description>
-<maintainer email="borjaouterelo@eprosima.com">Borja Outerelo</maintainer>
-<license>Apache License 2.0</license>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<buildtool_export_depend>ament_cmake</buildtool_export_depend>
-<exec_depend>rosidl_parser</exec_depend>
-<depend>fastcdr</depend>
-<depend>fastrtps</depend>
-<depend>microxrcedds_agent_cmake_module</depend>
-<depend>rosidl_cmake</depend>
-<build_depend>rclcpp</build_depend>
-<exec_depend>rclcpp</exec_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>ament_lint_common</test_depend>
-<group_depend>rosidl_interface_packages</group_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
 microxrcedds_agent: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -7883,6 +7947,26 @@ poco_vendor: "<?xml version=\"1.0\" ?>
 <build_type>cmake</build_type>
 </export>
 </package>"
+-----
+px4_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>px4_msgs</name>
+<description>Package with the ROS-equivalent of PX4 uORB msgs</description>
+<maintainer email="nuno.marques@dronesolutions.io">Nuno Marques</maintainer>
+<author email="nuno.marques@dronesolutions.io">Nuno Marques</author>
+<license>BSD 3-Clause</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>builtin_interfaces</depend>
+<depend>ros_environment</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
 -----
 py_trees: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -11616,6 +11700,30 @@ webots_ros2_universal_robot: <?xml version="1.0" ?>
 <test_depend>python3-pytest</test_depend>
 <export>
 <build_type>ament_python</build_type>
+</export>
+</package>
+-----
+xacro: <?xml version="1.0" ?>
+<package format="2">
+<name>xacro</name>
+<description>Xacro (XML Macros) Xacro is an XML macro language. With xacro,
+you can construct shorter and more readable XML files by using macros that expand to larger XML expressions.</description>
+<maintainer email="rhaschke@techfak.uni-bielefeld.de">Robert Haschke</maintainer>
+<maintainer email="morgan@osrfoundation.org">Morgan Quigley</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/xacro</url>
+<url type="repository">https://github.com/ros/xacro</url>
+<url type="bugtracker">https://github.com/ros/xacro/issues</url>
+<author>Stuart Glaser</author>
+<author>William Woodall</author>
+<author>Robert Haschke</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>ament_index_python</depend>
+<depend>python3-yaml</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
