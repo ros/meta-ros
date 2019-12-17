@@ -43,6 +43,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native = ""
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = ""
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = ""
 
+# Used by generated-recipes/geographic-info/geodesy_1.0.1-1.bb
+# use python3 version because python2 is EOL
+ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj = "python3-pyproj"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
