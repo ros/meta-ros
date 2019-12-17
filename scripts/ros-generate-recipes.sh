@@ -17,7 +17,7 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-recipes"
-readonly SCRIPT_VERSION="1.2.0"
+readonly SCRIPT_VERSION="1.3.0"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-cache.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -91,10 +91,11 @@ set -- $(head -n 1 $generated/cache.yaml)
 ROS_DISTRO_RELEASE_DATE=$3
 ROS_ROSDISTRO_COMMIT=$4
 ROS_ROSDISTRO_COMMIT_DATETIME=$5
+ROS_GENERATE_CACHE_VERSION=$6
 
-if [ -z "$ROS_DISTRO_RELEASE_DATE" -o -z "$ROS_ROSDISTRO_COMMIT" -o -z "$ROS_ROSDISTRO_COMMIT_DATETIME" ] ; then
-    echo "ABORT: $generated/cache.yaml should start with '# $ROS_DISTRO/cache.yaml' and 3 space separated values:"
-    echo "       ROS_DISTRO_RELEASE_DATE, ROS_ROSDISTRO_COMMIT, ROS_ROSDISTRO_COMMIT_DATETIME. Run ros-generate-cache.sh to"
+if [ -z "$ROS_DISTRO_RELEASE_DATE" -o -z "$ROS_ROSDISTRO_COMMIT" -o -z "$ROS_ROSDISTRO_COMMIT_DATETIME" -o -z "$ROS_GENERATE_CACHE_VERSION" ] ; then
+    echo "ABORT: $generated/cache.yaml should start with '# $ROS_DISTRO/cache.yaml' and 4 space separated values:"
+    echo "       ROS_DISTRO_RELEASE_DATE, ROS_ROSDISTRO_COMMIT, ROS_ROSDISTRO_COMMIT_DATETIME ROS_GENERATE_CACHE_VERSION. Run ros-generate-cache.sh to"
     echo "       re-create it."
     exit 1
 fi
@@ -177,6 +178,13 @@ ROS_DISTRO_RELEASE_DATE = "$ROS_DISTRO_RELEASE_DATE"
 
 # The commit of ros/rosdistro/$ROS_DISTRO/distribution.yaml from which the recipes were generated.
 ROS_SUPERFLORE_GENERATION_COMMIT = "$ROS_ROSDISTRO_COMMIT"
+
+# Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
+# file were last generated
+ROS_GENERATE_CACHE_PROGRAM_VERSION = "$ROS_GENERATE_CACHE_VERSION"
+
+# Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
+ROS_GENERATE_RECIPES_PROGRAM_VERSION = "$SCRIPT_VERSION"
 !
     git add $generated_inc
     git commit --amend -q -C HEAD
