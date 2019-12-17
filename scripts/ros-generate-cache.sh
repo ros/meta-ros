@@ -18,7 +18,7 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-cache"
-readonly SCRIPT_VERSION="1.2.0"
+readonly SCRIPT_VERSION="1.3.0"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-recipes.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -137,7 +137,7 @@ generated="meta-ros$ROS_VERSION-$ROS_DISTRO/files/$ROS_DISTRO/generated"
 mkdir -p $generated
 gzip -d $tmpdir/$ROS_DISTRO-cache.yaml.gz -c > $generated/cache.yaml
 # Identify how the files were generated so that they can be reused.
-sed -i -e "1 i# $ROS_DISTRO/cache.yaml $ROS_DISTRO_RELEASE_DATE $ROS_ROSDISTRO_COMMIT $ROS_ROSDISTRO_COMMIT_DATETIME" $generated/cache.yaml
+sed -i -e "1 i# $ROS_DISTRO/cache.yaml $ROS_DISTRO_RELEASE_DATE $ROS_ROSDISTRO_COMMIT $ROS_ROSDISTRO_COMMIT_DATETIME $SCRIPT_VERSION" $generated/cache.yaml
 sed -e 's@{\([^ }][^ }]*\)}@[[\1]]@g' -e 's@{@{\n@g' -e 's@}@\n}@g' -e 's@\[\[@{@g' -e 's@]]@}@g' -e 's@, @,\n@g' \
     -e 's@^    @-----\n@' -e 's@<version>[^<]*</version>@@' -e 's@><@>\n<@g' -e 's@^  @-----\n@' \
     -e 's@^\(source_repo_package_xmls:\)@-----\n\1@' \
