@@ -5,23 +5,24 @@
 inherit ros_distro_crystal
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around ogre3d, it provides a fixed CMake module and an ExternalProject build of ogre."
+DESCRIPTION = "Library which provides the 3D rendering functionality in rviz."
 AUTHOR = "William Woodall <william@osrfoundation.org>"
-HOMEPAGE = "https://www.ogre3d.org/"
+ROS_AUTHOR = "Dave Hershberger"
+HOMEPAGE = "https://github.com/ros2/rviz/blob/ros2/README.md"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rviz"
-ROS_BPN = "rviz_ogre_vendor"
+ROS_BPN = "rviz_rendering"
 
 ROS_BUILD_DEPENDS = " \
-    freetype \
-    libx11 \
-    libxaw \
-    libxrandr \
-    mesa \
-    pkgconfig \
+    ament-index-cpp \
+    libeigen \
+    qtbase \
+    resource-retriever \
+    rviz-assimp-vendor \
+    rviz-ogre-vendor \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -29,25 +30,32 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    freetype \
-    libx11 \
-    libxaw \
-    libxrandr \
-    mesa \
+    libeigen \
+    qtbase \
+    rviz-ogre-vendor \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    freetype \
-    libx11 \
-    libxaw \
-    libxrandr \
-    mesa \
+    ament-index-cpp \
+    libeigen \
+    qtbase \
+    resource-retriever \
+    rviz-assimp-vendor \
+    rviz-ogre-vendor \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    ament-cmake-cppcheck \
+    ament-cmake-cpplint \
+    ament-cmake-gmock \
+    ament-cmake-gtest \
+    ament-cmake-lint-cmake \
+    ament-cmake-uncrustify \
+    rviz-assimp-vendor \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -56,10 +64,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/crystal/rviz_ogre_vendor/5.1.0-0.tar.gz
-ROS_BRANCH ?= "branch=release/crystal/rviz_ogre_vendor"
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/crystal/rviz_rendering/5.1.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/crystal/rviz_rendering"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "9ec7dc6b2ecb843337b8d6f9f00ff48eeb04969f"
+SRCREV = "045e45b2810db302a56a072d2da69c404efbf170"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

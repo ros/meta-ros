@@ -5,34 +5,20 @@
 inherit ros_distro_crystal
 inherit ros_superflore_generated
 
-DESCRIPTION = "Common rviz API, used by rviz plugins and applications."
+DESCRIPTION = "Example plugin for RViz - documents and tests RViz plugin development"
 AUTHOR = "William Woodall <william@osrfoundation.org>"
-ROS_AUTHOR = "Dave Hershberger"
-HOMEPAGE = "https://github.com/ros2/rviz/blob/ros2/README.md"
+HOMEPAGE = "https://github.com/ros2/rviz"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "rviz"
-ROS_BPN = "rviz_common"
+ROS_BPN = "rviz_rendering_tests"
 
 ROS_BUILD_DEPENDS = " \
-    geometry-msgs \
-    pluginlib \
     qtbase \
-    rclcpp \
     resource-retriever \
-    rviz-assimp-vendor \
-    rviz-ogre-vendor \
     rviz-rendering \
-    sensor-msgs \
-    std-msgs \
-    tf2 \
-    tf2-geometry-msgs \
-    tf2-ros \
-    tinyxml-vendor \
-    urdf \
-    yaml-cpp-vendor \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -40,42 +26,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    geometry-msgs \
-    pluginlib \
-    qtbase \
-    rclcpp \
     resource-retriever \
-    rviz-assimp-vendor \
-    rviz-ogre-vendor \
     rviz-rendering \
-    sensor-msgs \
-    std-msgs \
-    tf2 \
-    tf2-geometry-msgs \
-    tf2-ros \
-    tinyxml-vendor \
-    urdf \
-    yaml-cpp-vendor \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    geometry-msgs \
-    pluginlib \
-    qtbase \
-    rclcpp \
     resource-retriever \
-    rviz-ogre-vendor \
     rviz-rendering \
-    sensor-msgs \
-    std-msgs \
-    tf2 \
-    tf2-geometry-msgs \
-    tf2-ros \
-    tinyxml-vendor \
-    urdf \
-    yaml-cpp-vendor \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -86,6 +45,7 @@ ROS_TEST_DEPENDS = " \
     ament-cmake-gtest \
     ament-cmake-lint-cmake \
     ament-cmake-uncrustify \
+    ament-index-cpp \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -95,10 +55,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/crystal/rviz_common/5.1.0-0.tar.gz
-ROS_BRANCH ?= "branch=release/crystal/rviz_common"
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/crystal/rviz_rendering_tests/5.1.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/crystal/rviz_rendering_tests"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "a123afc256dc146f03bbacde7f84e527e2cf4320"
+SRCREV = "43f8b75a59de03085b6366549ba09d3afe5b2f2a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

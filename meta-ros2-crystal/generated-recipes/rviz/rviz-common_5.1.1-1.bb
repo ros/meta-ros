@@ -5,7 +5,7 @@
 inherit ros_distro_crystal
 inherit ros_superflore_generated
 
-DESCRIPTION = "Library which provides the 3D rendering functionality in rviz."
+DESCRIPTION = "Common rviz API, used by rviz plugins and applications."
 AUTHOR = "William Woodall <william@osrfoundation.org>"
 ROS_AUTHOR = "Dave Hershberger"
 HOMEPAGE = "https://github.com/ros2/rviz/blob/ros2/README.md"
@@ -14,15 +14,25 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rviz"
-ROS_BPN = "rviz_rendering"
+ROS_BPN = "rviz_common"
 
 ROS_BUILD_DEPENDS = " \
-    ament-index-cpp \
-    libeigen \
+    geometry-msgs \
+    pluginlib \
     qtbase \
+    rclcpp \
     resource-retriever \
     rviz-assimp-vendor \
     rviz-ogre-vendor \
+    rviz-rendering \
+    sensor-msgs \
+    std-msgs \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
+    tinyxml-vendor \
+    urdf \
+    yaml-cpp-vendor \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -30,20 +40,42 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    libeigen \
+    geometry-msgs \
+    pluginlib \
     qtbase \
+    rclcpp \
+    resource-retriever \
+    rviz-assimp-vendor \
     rviz-ogre-vendor \
+    rviz-rendering \
+    sensor-msgs \
+    std-msgs \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
+    tinyxml-vendor \
+    urdf \
+    yaml-cpp-vendor \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ament-index-cpp \
-    libeigen \
+    geometry-msgs \
+    pluginlib \
     qtbase \
+    rclcpp \
     resource-retriever \
-    rviz-assimp-vendor \
     rviz-ogre-vendor \
+    rviz-rendering \
+    sensor-msgs \
+    std-msgs \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
+    tinyxml-vendor \
+    urdf \
+    yaml-cpp-vendor \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -54,7 +86,6 @@ ROS_TEST_DEPENDS = " \
     ament-cmake-gtest \
     ament-cmake-lint-cmake \
     ament-cmake-uncrustify \
-    rviz-assimp-vendor \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -64,10 +95,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/crystal/rviz_rendering/5.1.0-0.tar.gz
-ROS_BRANCH ?= "branch=release/crystal/rviz_rendering"
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/crystal/rviz_common/5.1.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/crystal/rviz_common"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ef04fb4a207341e78f4dc001e0d1df14873a160e"
+SRCREV = "7c57c85165a96a120204e194d7f8151a47e8e40a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

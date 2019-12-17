@@ -5,53 +5,43 @@
 inherit ros_distro_crystal
 inherit ros_superflore_generated
 
-DESCRIPTION = "Adds action APIs for C++."
-AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
+DESCRIPTION = "Package with the ROS-equivalent of PX4 uORB msgs"
+AUTHOR = "Nuno Marques <nuno.marques@dronesolutions.io>"
+ROS_AUTHOR = "Nuno Marques <nuno.marques@dronesolutions.io>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=f5654d47d02d927c4f7a04f0a51abaa1"
 
-ROS_CN = "rclcpp"
-ROS_BPN = "rclcpp_action"
+ROS_CN = "px4_msgs"
+ROS_BPN = "px4_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    action-msgs \
-    ament-cmake \
-    rcl-action \
-    rclcpp \
-    rosidl-generator-c \
-    rosidl-generator-cpp \
+    builtin-interfaces \
+    ros-environment \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-ros-native \
+    ament-cmake-native \
+    rosidl-default-generators-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    action-msgs \
-    ament-cmake \
-    rcl-action \
-    rclcpp \
-    rosidl-generator-c \
-    rosidl-generator-cpp \
+    builtin-interfaces \
+    ros-environment \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    action-msgs \
-    ament-cmake \
-    rcl-action \
-    rclcpp \
+    builtin-interfaces \
+    ros-environment \
+    rosidl-default-runtime \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-cmake-gtest \
-    ament-lint-auto \
     ament-lint-common \
-    test-msgs \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -61,10 +51,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rclcpp-release/archive/release/crystal/rclcpp_action/0.6.4-0.tar.gz
-ROS_BRANCH ?= "branch=release/crystal/rclcpp_action"
-SRC_URI = "git://github.com/ros2-gbp/rclcpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "bbbeb9fe4897fb2339925961195081d67788b929"
+# matches with: https://github.com/PX4/px4_msgs2-release/archive/release/crystal/px4_msgs/2.0.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/crystal/px4_msgs"
+SRC_URI = "git://github.com/PX4/px4_msgs2-release;${ROS_BRANCH};protocol=https"
+SRCREV = "cab999bf137afac824612ef09e3cc8b6aa27efea"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

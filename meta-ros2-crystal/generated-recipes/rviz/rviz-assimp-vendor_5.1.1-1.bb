@@ -5,21 +5,18 @@
 inherit ros_distro_crystal
 inherit ros_superflore_generated
 
-DESCRIPTION = "3D testing framework for RViz."
-AUTHOR = "William Woodall <william@openrobotics.org>"
-ROS_AUTHOR = "Alessandro Bottero"
-HOMEPAGE = "http://ros.org/wiki/rviz2"
+DESCRIPTION = "Wrapper around assimp, providing nothing but a dependency on assimp, on some systems.     On others, it provides a fixed CMake module or even an ExternalProject build of assimp."
+AUTHOR = "William Woodall <william@osrfoundation.org>"
+HOMEPAGE = "http://assimp.sourceforge.net/index.html"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "Apache-2.0 & BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "rviz"
-ROS_BPN = "rviz_visual_testing_framework"
+ROS_BPN = "rviz_assimp_vendor"
 
 ROS_BUILD_DEPENDS = " \
-    ament-cmake-gtest \
-    qtbase \
-    rviz-common \
+    assimp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -27,25 +24,17 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ament-cmake-gtest \
-    rviz-common \
+    assimp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ament-cmake-gtest \
-    rviz-common \
+    assimp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    ament-cmake-cppcheck \
-    ament-cmake-cpplint \
-    ament-cmake-gmock \
-    ament-cmake-lint-cmake \
-    ament-cmake-uncrustify \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -54,10 +43,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/crystal/rviz_visual_testing_framework/5.1.0-0.tar.gz
-ROS_BRANCH ?= "branch=release/crystal/rviz_visual_testing_framework"
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/crystal/rviz_assimp_vendor/5.1.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/crystal/rviz_assimp_vendor"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "b9f3f1952f82d1e6ceffd6a4aef637fe1f83349e"
+SRCREV = "8df75b02fef84a04f0d0651f9f28fe22c416b746"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
