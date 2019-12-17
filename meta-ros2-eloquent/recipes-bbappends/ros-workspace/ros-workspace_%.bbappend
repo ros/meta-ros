@@ -29,8 +29,16 @@ do_install_append() {
     # Don't attempt to use the build-time Python executable on the target and hardcode the directory where _order_packages.py
     # resides.
     sed -i -e '/^_ament_python_executable=/ s@=.*@=${bindir}/${PYTHON_PN}@' \
-           -e '/_order_packages\.py/ s@\$AMENT_CURRENT_PREFIX/@'$profile_dir'/@' \
+           -e '/_local_setup_util\.py/ s@\$_ament_prefix_sh_AMENT_CURRENT_PREFIX/@'$profile_dir'/@' \
            local_setup.sh
+
+    # This script assumes, that it's installed in root of ROS distro instalation (e.g. /opt/ros/eloquent/_local_setup_util.py
+    # in our setup it's installed in /etc/profile.d/ros/_local_setup_util.py) and uses it's path to search for ament packages:
+    # https://github.com/ament/ament_package/commit/0a41c282b36902cee6b64f7c80138b93c729fb7b#diff-f837dfb214b29ba2075cb54047ffa159R54
+    # and then also passes it's path in get_commands() call as a prefix:
+    # https://github.com/ament/ament_package/commit/0a41c282b36902cee6b64f7c80138b93c729fb7b#diff-f837dfb214b29ba2075cb54047ffa159R62
+    # so it wasn't finding anything in our setup, change it to ${prefix} and drop all this when we switch ROS2 to use ros_opt_prefix.bbclass
+    sed -i -e "s#__file__#'${libdir}'#g" _local_setup_util.py
 
     mkdir -p ${D}${bindir}
     for f in *setup.bash *setup.zsh *setup.sh; do
