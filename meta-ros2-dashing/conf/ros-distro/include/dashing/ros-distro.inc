@@ -68,6 +68,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev = "boost"
 # Used by generated-recipes/navigation2/nav2-util_0.2.6-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options = "boost"
 
+# Used by generated-recipes/marti-common/swri-geometry-util_3.0.3-1.bb
+# generated-recipes/marti-common/swri-transform-util_3.0.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev = "geos"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
