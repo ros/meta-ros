@@ -43,6 +43,11 @@ RDEPENDS_${PN}_remove = "launch-testing-ament-cmake"
 RDEPENDS_${PN}_remove = "launch-testing-ros"
 RDEPENDS_${PN}_remove = "ros-testing"
 
+# Depends on python3-docker which is available in meta-virtualization, but we don't want to add the
+# dependency on this layer to meta-ros yet
+RDEPENDS_${PN}_remove = "cross-compile"
+RDEPENDS_${PN}_remove = "launch-ros-sandbox"
+
 # | CMake Error at .../cartographer/1.0.0-1-r0/recipe-sysroot/usr/lib/cmake/Ceres/CeresConfig.cmake:88 (message):
 # |   Failed to find Ceres - Missing requested Ceres components: [SuiteSparse]
 # |   (components requested: [SuiteSparse]).  Detected Ceres version: 1.14.0
