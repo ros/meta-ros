@@ -61,6 +61,12 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-bson = "python3-pymongo"
 # use python3 version because python2 is EOL
 ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "python3-tkinter"
 
+# Used by generated-recipes/hls-lfcd-lds-driver/hls-lfcd-lds-driver_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev = "boost"
+
+# Used by generated-recipes/navigation2/nav2-util_0.2.6-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options = "boost"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
