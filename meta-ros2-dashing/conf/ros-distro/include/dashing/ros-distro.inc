@@ -57,6 +57,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_proj = "proj"
 # and bson is now provided by pymongo
 ROS_UNRESOLVED_PLATFORM_PKG_python3-bson = "python3-pymongo"
 
+# Used by generated-recipes/teleop-tools/mouse-teleop_1.0.1-1.bb
+# use python3 version because python2 is EOL
+ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "python3-tkinter"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
