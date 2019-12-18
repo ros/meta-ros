@@ -78,6 +78,9 @@ RDEPENDS_${PN}_remove = "fmi-adapter-examples"
 # |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 RDEPENDS_${PN}_remove = "teleop-twist-joy"
 
+# Depends on Qt4 (libqt4-dev libqt4-opengl-dev libqglviewer-qt4-dev) which we don't plan to support
+RDEPENDS_${PN}_remove = "octovis"
+
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
 
