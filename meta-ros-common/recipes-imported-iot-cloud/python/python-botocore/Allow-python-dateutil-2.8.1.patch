@@ -1,0 +1,36 @@
+From d6c1ab03920d553c6022016dba3a5816c2390043 Mon Sep 17 00:00:00 2001
+From: Alex Kiernan <alex.kiernan@gmail.com>
+Date: Sat, 23 Nov 2019 05:44:58 +0000
+Subject: [PATCH] setup: Allow python-dateutil 2.8.1
+
+Upstream-Status: Inappropriate [https://github.com/boto/botocore/issues/1872#issuecomment-549612354]
+---
+ botocore.egg-info/requires.txt | 2 +-
+ setup.py                       | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/botocore.egg-info/requires.txt b/botocore.egg-info/requires.txt
+index a1eadc8d0abc..5080ea4500f0 100644
+--- a/botocore.egg-info/requires.txt
++++ b/botocore.egg-info/requires.txt
+@@ -1,6 +1,6 @@
+ jmespath<1.0.0,>=0.7.1
+ docutils<0.16,>=0.10
+-python-dateutil<2.8.1,>=2.1
++python-dateutil<=2.8.1,>=2.1
+ urllib3<1.26,>=1.20
+ 
+ [:python_version=="2.6"]
+diff --git a/setup.py b/setup.py
+index c62ab875fc1a..a4bfd3d04892 100644
+--- a/setup.py
++++ b/setup.py
+@@ -40,7 +40,7 @@ if sys.version_info[:2] == (2, 6):
+     requires.append('simplejson==3.3.0')
+     requires.append('python-dateutil>=2.1,<2.7.0')
+ else:
+-    requires.append('python-dateutil>=2.1,<2.8.1')
++    requires.append('python-dateutil>=2.1,<=2.8.1')
+ 
+ if sys.version_info[:2] == (2, 6):
+     requires.append('urllib3>=1.20,<1.24')
