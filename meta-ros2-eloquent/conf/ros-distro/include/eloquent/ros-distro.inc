@@ -58,6 +58,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "python3-mypy"
 # use python3 version because python2 is EOL
 ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj = "python3-pyproj"
 
+# Used by generated-recipes/teleop-tools/mouse-teleop_1.0.1-1.bb
+# use python3 version because python2 is EOL
+ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "python3-tkinter"
+
 # python3 bindings are provided by lttng-tools when python PACKAGECONFIG is enabled there
 ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng = "lttng-tools"
 
