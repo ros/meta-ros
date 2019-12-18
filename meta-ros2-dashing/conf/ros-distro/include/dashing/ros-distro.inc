@@ -90,6 +90,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_lcov = "lcov"
 # Used by generated-recipes/rosbridge-suite/rosbridge-server_1.0.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-twisted = "python3-twisted"
 
+# Used by generated-recipes/rosbridge-suite/rosbridge-server_1.0.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-tornado = "python3-tornado"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
