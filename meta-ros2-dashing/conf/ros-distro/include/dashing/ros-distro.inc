@@ -93,6 +93,13 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-twisted = "python3-twisted"
 # Used by generated-recipes/rosbridge-suite/rosbridge-server_1.0.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-tornado = "python3-tornado"
 
+# Used by generated-recipes/tts/tts_2.0.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good = "gstreamer1.0-plugins-good"
+ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0 = "gstreamer1.0"
+ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-alsa = "gstreamer1.0-plugins-base"
+ROS_UNRESOLVED_PLATFORM_PKG_python-gst-1.0 = "gstreamer1.0-python"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-boto3 = "python3-boto3"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
