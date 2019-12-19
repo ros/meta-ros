@@ -17,7 +17,7 @@ McfFileVersion = 2
 # Value for DISTRO
 Distribution = 'webos'
 
-webOSOSEBuildNumber = '154'
+webOSOSEBuildNumber = '174'
 
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
@@ -43,9 +43,9 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'builds/webosose/master/' 
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '97067634'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': 'b690030e'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'thud', 'commit': 'cd7cf933b3'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'thud', 'commit': 'e68991ceb5'}, {}),
 
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '446bd615fd'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
@@ -53,13 +53,14 @@ Layers = [
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'thud', 'commit': '0b087a3'}, {}),
+('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'thud', 'commit': '544eecf'}, {}),
 ('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'thud', 'commit': '7685c7d'}, {}),
 
-('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': '17187128'}, {}),
+('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': '20331bd'}, {}),
 
 ('meta-webos-backports-2.7',  30, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-backports-3.0',  31, MetaWebos_RepoURL,                                        {}, {}),
+('meta-webos-backports-3.1',  32, MetaWebos_RepoURL,                                        {}, {}),
 
 ('meta-ros-backports-warrior',34, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros-backports-zeus',   35, MetaRos_RepoURL,                                          {}, {}),
