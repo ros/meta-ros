@@ -12,3 +12,6 @@ ROS_BUILD_DEPENDS_remove = "${PYTHON_PN}-sphinx python-sphinx"
 DEPENDS += " \
     protobuf-native \
 "
+
+# Otherwise linking with liblua.a fails with undefined references to dlsym, dlopen, dlerror, dlclose
+CXXFLAGS += "-fuse-ld=gold"
