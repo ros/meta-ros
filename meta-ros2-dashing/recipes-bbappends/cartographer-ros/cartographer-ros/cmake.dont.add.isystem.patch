@@ -1,0 +1,78 @@
+From d0f87fc1d7462c6f4779a2ad72e984564887bca7 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 19 Dec 2019 10:41:52 -0800
+Subject: [PATCH] CMake: don't add isystem
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt                  | 12 ++++++------
+ cartographer_ros/CMakeLists.txt |  4 ++--
+ 2 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0a0b2e1..35049f7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -111,10 +111,10 @@ add_subdirectory("cartographer_ros")
+ target_link_libraries(${PROJECT_NAME} PUBLIC cartographer)
+ 
+ # Lua
+-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${LUA_INCLUDE_DIR})
++target_include_directories(${PROJECT_NAME} PUBLIC ${LUA_INCLUDE_DIR})
+ 
+ # PCL
+-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${PCL_INCLUDE_DIRS})
++target_include_directories(${PROJECT_NAME} PUBLIC ${PCL_INCLUDE_DIRS})
+ target_link_libraries(${PROJECT_NAME} PUBLIC ${PCL_LIBRARIES})
+ set(BLACKLISTED_PCL_DEFINITIONS " -march=native -msse4.2 -mfpmath=sse ")
+ foreach(DEFINITION ${PCL_DEFINITIONS})
+@@ -126,20 +126,20 @@ foreach(DEFINITION ${PCL_DEFINITIONS})
+ endforeach()
+ 
+ # Eigen
+-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
++target_include_directories(${PROJECT_NAME} PUBLIC
+   "${EIGEN3_INCLUDE_DIR}")
+ 
+ # # Boost
+-# target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
++# target_include_directories(${PROJECT_NAME} PUBLIC
+ #   "${Boost_INCLUDE_DIRS}")
+ # target_link_libraries(${PROJECT_NAME} PUBLIC ${Boost_LIBRARIES})
+ 
+ # YAML
+-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${YAMLCPP_INCLUDE_DIRS})
++target_include_directories(${PROJECT_NAME} PUBLIC ${YAMLCPP_INCLUDE_DIRS})
+ target_link_libraries(${PROJECT_NAME} PUBLIC ${YAMLCPP_LIBRARIES})
+ 
+ # URDFDOM
+-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${urdfdom_headers_INCLUDE_DIRS})
++target_include_directories(${PROJECT_NAME} PUBLIC ${urdfdom_headers_INCLUDE_DIRS})
+ 
+ # Add the binary directory first, so that port.h is included after it has
+ # been generated.
+diff --git a/cartographer_ros/CMakeLists.txt b/cartographer_ros/CMakeLists.txt
+index fe5107e..07f6e59 100644
+--- a/cartographer_ros/CMakeLists.txt
++++ b/cartographer_ros/CMakeLists.txt
+@@ -14,7 +14,7 @@
+ 
+ add_executable(cartographer_node
+   node_main.cc)
+-target_include_directories(cartographer_node SYSTEM PUBLIC ${LUA_INCLUDE_DIR})
++target_include_directories(cartographer_node PUBLIC ${LUA_INCLUDE_DIR})
+ target_link_libraries(cartographer_node ${PROJECT_NAME})
+ ament_target_dependencies(cartographer_node
+   "cartographer_ros_msgs"
+@@ -32,7 +32,7 @@ ament_target_dependencies(cartographer_node
+ 
+ add_executable(occupancy_grid_node
+   occupancy_grid_node_main.cc)
+-target_include_directories(occupancy_grid_node SYSTEM PUBLIC ${LUA_INCLUDE_DIR})
++target_include_directories(occupancy_grid_node PUBLIC ${LUA_INCLUDE_DIR})
+ target_link_libraries(occupancy_grid_node ${PROJECT_NAME})
+ ament_target_dependencies(occupancy_grid_node
+   "cartographer_ros_msgs"
+-- 
+2.17.1
+
