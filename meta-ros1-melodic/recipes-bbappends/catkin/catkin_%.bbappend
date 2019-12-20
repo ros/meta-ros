@@ -4,7 +4,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 
 SRC_URI += " \
     file://0001-use-python-provided-by-environment-instead-of-the-ge.patch \
-    file://0001-allow-proper-cross-compilation-with-catkin.patch \
+    file://0002-allow-proper-cross-compilation-with-catkin.patch \
 "
 
 ROS_BUILD_DEPENDS_remove = "python-catkin-pkg"
