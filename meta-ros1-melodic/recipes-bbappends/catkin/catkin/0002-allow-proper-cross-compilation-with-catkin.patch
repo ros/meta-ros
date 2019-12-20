@@ -1,4 +1,4 @@
-From 5de0fe25ec27bca4c593e06cdc0c3dff3d553e06 Mon Sep 17 00:00:00 2001
+From a73388b27e3e4f8ede21271dc7ef31220b9bd51b Mon Sep 17 00:00:00 2001
 From: Herb Kuta <herb.kuta@lge.com>
 Date: Wed, 31 Jul 2019 12:00:00 -0700
 Subject: [PATCH] allow proper cross-compilation with catkin
@@ -13,10 +13,18 @@ the context of the patch as reaction to bitbake warning:
 
 Upstream-Status: Pending
 ---
-diff -r -U 3 cmake-orig/all.cmake cmake/all.cmake
---- a/cmake/all.cmake	2019-03-18 09:44:36.000000000 -0700
-+++ b/cmake/all.cmake	2019-07-31 12:29:18.285194817 -0700
-@@ -132,6 +132,7 @@
+ cmake/all.cmake                    |  1 +
+ cmake/catkin_package.cmake         |  8 ++++++
+ cmake/catkin_strip_root_path.cmake | 32 +++++++++++++++++++++++
+ cmake/templates/pkgConfig.cmake.in | 42 +++++++++++++++++++++++++++---
+ 4 files changed, 79 insertions(+), 4 deletions(-)
+ create mode 100644 cmake/catkin_strip_root_path.cmake
+
+diff --git a/cmake/all.cmake b/cmake/all.cmake
+index 7768f968..dd9271e1 100644
+--- a/cmake/all.cmake
++++ b/cmake/all.cmake
+@@ -133,6 +133,7 @@ foreach(filename
      catkin_metapackage
      catkin_package
      catkin_package_xml
@@ -24,13 +32,14 @@ diff -r -U 3 cmake-orig/all.cmake cmake/all.cmake
      custom_install # required by catkin_symlink_install and test/gtest
      catkin_symlink_install
      catkin_workspace
-diff -r -U 3 cmake-orig/catkin_package.cmake cmake/catkin_package.cmake
---- a/cmake/catkin_package.cmake	2019-03-18 09:44:36.000000000 -0700
-+++ b/cmake/catkin_package.cmake	2019-07-31 12:30:44.709401490 -0700
-@@ -438,6 +438,14 @@
+diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
+index a9b77b30..423a822e 100644
+--- a/cmake/catkin_package.cmake
++++ b/cmake/catkin_package.cmake
+@@ -439,6 +439,14 @@ function(_catkin_package)
    # package cmake dir is the folder where the generated pkgConfig.cmake is located
    set(PKG_CMAKE_DIR "\${${PROJECT_NAME}_DIR}")
-
+ 
 +  if(CMAKE_CROSSCOMPILING)
 +    catkin_strip_root_path(PROJECT_CMAKE_CONFIG_INCLUDE_DIRS UNIQUE)
 +    catkin_strip_root_path(PROJECT_PKG_CONFIG_INCLUDE_DIRS UNIQUE)
@@ -44,7 +53,7 @@ diff -r -U 3 cmake-orig/catkin_package.cmake cmake/catkin_package.cmake
      file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace)
 diff --git a/cmake/catkin_strip_root_path.cmake b/cmake/catkin_strip_root_path.cmake
 new file mode 100644
-index 0000000..ca5c453
+index 00000000..ca5c4532
 --- /dev/null
 +++ b/cmake/catkin_strip_root_path.cmake
 @@ -0,0 +1,32 @@
@@ -80,13 +89,14 @@ index 0000000..ca5c453
 +  endforeach()
 +  set(${var} ${output} PARENT_SCOPE)
 +endfunction()
-diff -r -U 3 cmake-orig/templates/pkgConfig.cmake.in cmake/templates/pkgConfig.cmake.in
---- a/cmake/templates/pkgConfig.cmake.in	2019-03-18 09:44:36.000000000 -0700
-+++ b/cmake/templates/pkgConfig.cmake.in	2019-07-31 12:45:38.310082809 -0700
-@@ -78,6 +78,15 @@
+diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
+index 4e52046d..dcf3b7c2 100644
+--- a/cmake/templates/pkgConfig.cmake.in
++++ b/cmake/templates/pkgConfig.cmake.in
+@@ -78,6 +78,15 @@ else()
    set(@PROJECT_NAME@_PREFIX ${@PROJECT_NAME@_INSTALL_PREFIX})
  endif()
-
+ 
 +if(CMAKE_CROSSCOMPILING)
 +  if("@DEVELSPACE@" STREQUAL "TRUE")
 +    # can not disable host filesystem altogether; otherwise files in src/devel are no longer found
@@ -99,7 +109,7 @@ diff -r -U 3 cmake-orig/templates/pkgConfig.cmake.in cmake/templates/pkgConfig.c
  # warn when using a deprecated package
  if(NOT "@PROJECT_DEPRECATED@" STREQUAL "")
    set(_msg "WARNING: package '@PROJECT_NAME@' is deprecated")
-@@ -102,7 +111,19 @@
+@@ -102,7 +111,19 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
      set(_report "Report the problem to the maintainer '@PROJECT_MAINTAINER@' and request to fix the problem.")
    endif()
    foreach(idir ${_include_dirs})
@@ -120,8 +130,8 @@ diff -r -U 3 cmake-orig/templates/pkgConfig.cmake.in cmake/templates/pkgConfig.c
        set(include ${idir})
      elseif("${idir} " STREQUAL "@CATKIN_GLOBAL_INCLUDE_DESTINATION@ ")
        get_filename_component(include "${@PROJECT_NAME@_DIR}/../../../@CATKIN_GLOBAL_INCLUDE_DESTINATION@" ABSOLUTE)
-@@ -125,18 +146,31 @@
-     list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
+@@ -148,18 +169,31 @@ foreach(library ${libraries})
+     list(APPEND @PROJECT_NAME@_LIBRARIES "${interface_target_name}")
    elseif(TARGET ${library})
      list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
 +  elseif(IS_ABSOLUTE ${library} AND CMAKE_CROSSCOMPILING)

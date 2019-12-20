@@ -1,4 +1,4 @@
-From 23972aa72e7364f6fd69cdd102274fc2a29fb395 Mon Sep 17 00:00:00 2001
+From a885cbf6d9f15cf89c020b9cfa6a3f40193b0b78 Mon Sep 17 00:00:00 2001
 From: Lukas Bulwahn <lukas.bulwahn@bmw-carit.de>
 Date: Tue, 31 May 2016 15:38:05 +0200
 Subject: [PATCH] use python provided by environment instead of the generated
@@ -13,13 +13,12 @@ bf12b40c2 [1]. We revert this change here to address the issue #384 [2].
 
 Upstream-Status: Inappropriate [only for our setup]
 Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
-
 ---
  cmake/templates/_setup_util.py.in | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/cmake/templates/_setup_util.py.in b/cmake/templates/_setup_util.py.in
-index 1949c4c..f8807f3 100755
+index d03cd813..00e86d30 100755
 --- a/cmake/templates/_setup_util.py.in
 +++ b/cmake/templates/_setup_util.py.in
 @@ -1,4 +1,4 @@
