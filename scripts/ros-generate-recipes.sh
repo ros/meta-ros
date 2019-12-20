@@ -17,7 +17,7 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-recipes"
-readonly SCRIPT_VERSION="1.3.1"
+readonly SCRIPT_VERSION="1.3.2"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-cache.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -50,7 +50,7 @@ ROS_DISTRO=$1
 # ROS_VERSION and ROS_PYTHON_VERSION must be in the environment as they appear in "conditional" attributes. Keep this block in
 # sync with the one in ros-generate-cache.sh .
 case $ROS_DISTRO in
-    "kinetic"|"melodic")
+    "melodic")
         export ROS_VERSION="1"
         export ROS_PYTHON_VERSION="2"
         ;;
@@ -130,11 +130,6 @@ unset abort
 skip_keys_option=""
 ros1_lisp_packages="euslisp geneus genlisp roslisp actionlib_lisp cl_tf cl_tf2 cl_transforms cl_transforms_stamped cl_urdf cl_utils roslisp_common roslisp_utilities rosemacs ros_emacs_utils roslisp_repl slime_ros slime_wrapper"
 case $ROS_DISTRO in
-    "kinetic")
-        skip_keys_option="--skip-keys catkin_virtualenv flatbuffers grpc nanomsg octovis rosdoc_lite"
-        skip_keys_option="$skip_keys_option $ros1_lisp_packages"
-        ;;
-
     "melodic")
         skip_keys_option="--skip-keys catkin_virtualenv flatbuffers iirob_filters grpc nanomsg octovis rosdoc_lite"
         skip_keys_option="$skip_keys_option $ros1_lisp_packages"
