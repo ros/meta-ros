@@ -17,7 +17,7 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-recipes"
-readonly SCRIPT_VERSION="1.3.0"
+readonly SCRIPT_VERSION="1.3.1"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-cache.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -55,7 +55,7 @@ case $ROS_DISTRO in
         export ROS_PYTHON_VERSION="2"
         ;;
 
-    "crystal"|"dashing"|"eloquent")
+    "dashing"|"eloquent")
         export ROS_VERSION="2"
         export ROS_PYTHON_VERSION="3"
         ;;
@@ -140,7 +140,7 @@ case $ROS_DISTRO in
         skip_keys_option="$skip_keys_option $ros1_lisp_packages"
         ;;
 
-    *)  : Nothing is skipped for "crystal", "dashing" and "eloquent".
+    *)  : Nothing is skipped for "dashing" and "eloquent".
         ;;
 esac
 
