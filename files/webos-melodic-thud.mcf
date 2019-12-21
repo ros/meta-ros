@@ -49,6 +49,9 @@ Layers = [
 ('meta-qt5-compat',           19, 'git://github.com/webosose/meta-webosose.git',            {}, {}),
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'krogoth', 'commit': 'dcfcb58'}, {}),
 
+('meta-webos-backports-2.7',  30, 'git://github.com/webosose/meta-webosose.git',            {}, {}),
+('meta-webos-backports-2.8',  31, 'git://github.com/webosose/meta-webosose.git',            {}, {}),
+
 ('meta-ros-backports-warrior',34, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch}, {}),
 ('meta-ros-common',           35, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros1',                 36, MetaRos_RepoURL,                                          {}, {}),
