@@ -42,11 +42,11 @@ MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'thud-draft')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '6b045e07'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': '97067634'}, {}),
 
 ('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'thud', 'commit': 'cd7cf933b3'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '2d088d2526'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '446bd615fd'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
 ('meta-ros-backports-warrior',34, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch}, {}),
