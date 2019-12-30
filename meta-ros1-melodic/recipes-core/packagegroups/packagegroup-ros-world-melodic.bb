@@ -21,6 +21,9 @@ RDEPENDS_${PN}_remove = "sophus"
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
 RDEPENDS_${PN}_remove = "cloudwatch-metrics-common"
 
+# Contains only dev, dbg and staticdev files, so PN is empty and not created
+RDEPENDS_${PN}_remove = "lex-common"
+
 # Contains only dev files, so PN is empty and not created
 RDEPENDS_${PN}_remove = "qpmad"
 
