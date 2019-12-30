@@ -77,6 +77,9 @@ RDEPENDS_${PN}_remove = "teleop-twist-joy"
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
 RDEPENDS_${PN}_remove = "cloudwatch-metrics-common"
 
+# Contains only dev, dbg and staticdev files, so PN is empty and not created
+RDEPENDS_${PN}_remove = "lex-common"
+
 # Depends on Qt4 (libqt4-dev libqt4-opengl-dev libqglviewer-qt4-dev) which we don't plan to support
 RDEPENDS_${PN}_remove = "octovis"
 
