@@ -1,6 +1,17 @@
+From d8858fcb05e0d961c336175310ce7884bc4e2bbd Mon Sep 17 00:00:00 2001
+From: Herb Kuta <herb.kuta@lge.com>
+Date: Tue, 2 Apr 2019 16:30:36 -0700
+ 0002-pkgconfig-instaed-of-pcre-config.patch
+
+---
+ Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index bc5a603ff..8897b0480 100644
 --- a/Makefile
-+++ b/Makefile-1
-@@ -94,11 +94,11 @@
++++ b/Makefile
+@@ -94,11 +94,11 @@ else ifeq ($(CXX), c++)
  endif
  
  ifeq ($(HAVE_RULES),yes)
