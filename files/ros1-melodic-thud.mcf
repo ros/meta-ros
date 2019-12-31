@@ -18,8 +18,7 @@ McfFileVersion = 2
 Distribution = 'ros1'
 
 # Supported MACHINE-s
-# Deferring support for "qemux86" until later.
-Machines = ['raspberrypi3']
+Machines = ['qemux86', 'raspberrypi3']
 
 # The format of OpenEmbeddedVersion is:
 #   <YOCTO-VERSION>[.<N>]-<OPENEMBEDDED-RELEASE-SERIES>

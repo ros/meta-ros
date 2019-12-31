@@ -20,8 +20,7 @@ Distribution = 'webos'
 webOSOSEBuildNumber = '91'
 
 # Supported MACHINE-s
-# Deferring support for "qemux86" until later.
-Machines = ['raspberrypi3']
+Machines = ['qemux86', 'raspberrypi3']
 
 # Allow the URL and branch for meta-ros, meta-ros-webos and meta-webos to be overridden by settings in the environment.
 from os import getenv
