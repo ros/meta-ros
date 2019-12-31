@@ -18,11 +18,10 @@ DEPENDS = "make"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5adf4792c949a00013ce25d476a2abc0"
 
-SRC_URI = "https://github.com/xianyi/OpenBLAS/archive/v${PV}.tar.gz"
-SRC_URI[md5sum] = "579bda57f68ea6e9074bf5780e8620bb"
-SRC_URI[sha256sum] = "0950c14bd77c90a6427e26210d6dab422271bc86f9fc69126725833ecdaa0e85"
+SRCREV = "eebc18928715775c9ed254684edee16e4efe0342"
+SRC_URI = "git://github.com/xianyi/OpenBLAS.git;protocol=https;branch=release-0.3.0"
 
-S = "${WORKDIR}/OpenBLAS-${PV}"
+S = "${WORKDIR}/git"
 
 def map_arch(a, d):
         import re
