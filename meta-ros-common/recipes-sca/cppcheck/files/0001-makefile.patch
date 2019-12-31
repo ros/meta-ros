@@ -1,6 +1,16 @@
+From f354a7264519cbb40473e0de6539b622ddb0579c Mon Sep 17 00:00:00 2001
+From: Herb Kuta <herb.kuta@lge.com>
+Date: Tue, 2 Apr 2019 16:30:36 -0700
+
+---
+ Makefile | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index a72cc6c62..bc5a603ff 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -102,9 +102,11 @@
+@@ -102,9 +102,11 @@ ifeq ($(HAVE_RULES),yes)
      endif
  endif
  
@@ -15,17 +25,17 @@
  
  ifndef INCLUDE_FOR_LIB
      INCLUDE_FOR_LIB=-Ilib -Iexternals/simplecpp -Iexternals/tinyxml
-@@ -117,8 +119,6 @@
- ifndef INCLUDE_FOR_TEST
+@@ -118,8 +120,6 @@ ifndef INCLUDE_FOR_TEST
      INCLUDE_FOR_TEST=-Ilib -Icli -Iexternals/simplecpp -Iexternals/tinyxml
  endif
--
--BIN=$(DESTDIR)$(PREFIX)/bin
  
+-BIN=$(DESTDIR)$(PREFIX)/bin
+-
  # For 'make man': sudo apt-get install xsltproc docbook-xsl docbook-xml on Linux
  DB2MAN?=/usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl
-@@ -287,11 +287,11 @@
- 	ctags -R --exclude=doxyoutput --exclude=test/cfg cli externals gui lib test
+ XP=xsltproc -''-nonet -''-param man.charmap.use.subset "0"
+@@ -292,11 +292,11 @@ tags:
+ 	ctags -R --exclude=doxyoutput --exclude=test/cfg --exclude=test/synthetic cli externals gui lib test
  
  install: cppcheck
 -	install -d ${BIN}
