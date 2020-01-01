@@ -80,3 +80,11 @@ ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates = "ca-certificates"
 # generated-recipes/rc-genicam-api/rc-genicam-api_2.2.2-1.bb
 # generated-recipes/phidgets-drivers/phidgets-api_0.7.9-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0 = "libusb1"
+
+# Used by:
+# generated-recipes/kobuki-core/kobuki-ftdi_0.7.8.bb
+# generated-recipes/phidgets-drivers/libphidget21_0.7.9-1.bb
+# generated-recipes/cob-extern/libphidgets_0.6.14-1.bb
+# generated-recipes/joystick-drivers/ps3joy_1.13.0-1.bb
+# generated-recipes/schunk-modular-robotics/schunk-sdh_0.6.14-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev = "libusb1"
