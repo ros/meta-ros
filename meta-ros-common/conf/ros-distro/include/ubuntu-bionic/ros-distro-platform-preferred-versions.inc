@@ -6,5 +6,6 @@
 
 PREFERRED_VERSION_cppunit ?= "1.14.0"
 PREFERRED_VERSION_opencv ?= "3.2%"
+PREFERRED_VERSION_libmodbus ?= "3.1.%"
 PREFERRED_VERSION_python-matplotlib ?= "2.1.1"
 PREFERRED_VERSION_yajl ?= "2.1.0"
