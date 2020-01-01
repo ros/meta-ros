@@ -95,3 +95,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev = "libusb1"
 # generated-recipes/pr2-controllers/ethercat-trigger-controllers_1.10.17-1.bb
 # generated-recipes/stage/stage_4.3.0.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libtool = "libtool"
+
+# Used by:
+# generated-recipes/ros-canopen/socketcan-interface_0.8.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_linux-kernel-headers = "linux-libc-headers"
