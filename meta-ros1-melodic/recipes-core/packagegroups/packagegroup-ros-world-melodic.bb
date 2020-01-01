@@ -203,3 +203,9 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'swri-profiler-tools', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'trajectory-tracker-rviz-plugins', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-qt5', '', 'turtlesim', d)}"
+
+# Depends on libqt4-dev
+RDEPENDS_${PN}_remove = "hector-geotiff"
+RDEPENDS_${PN}_remove = "hector-geotiff-plugins"
+RDEPENDS_${PN}_remove = "hector-slam"
+RDEPENDS_${PN}_remove = "hector-slam-launch"
