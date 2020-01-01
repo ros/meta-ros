@@ -39,3 +39,31 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-tornado = "python-tornado45"
 
 # python-twisted-core@meta-python (v18.4.0 instead of  bionic's v17.9.0)
 ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core = "python-twisted-core"
+
+# Used by:
+# generated-recipes/audio-common/audio-play_0.3.3.bb
+# generated-recipes/audio-common/audio-capture_0.3.3.bb
+# generated-recipes/audio-common/sound-play_0.3.3.bb
+# generated-recipes/gscam/gscam_1.0.1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0 = "gstreamer1.0"
+ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer1.0-dev = "gstreamer1.0"
+
+# Used by:
+# generated-recipes/audio-common/audio-play_0.3.3.bb
+# generated-recipes/audio-common/audio-capture_0.3.3.bb
+# generated-recipes/audio-common/sound-play_0.3.3.bb
+# generated-recipes/gscam/gscam_1.0.1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-base = "gstreamer1.0-plugins-base"
+ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer-plugins-base1.0-dev = "gstreamer1.0-plugins-base"
+
+# Used by:
+# generated-recipes/audio-common/audio-play_0.3.3.bb
+# generated-recipes/audio-common/audio-capture_0.3.3.bb
+# generated-recipes/audio-common/sound-play_0.3.3.bb
+ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good = "gstreamer1.0-plugins-good"
+
+# Used by:
+# generated-recipes/audio-common/audio-play_0.3.3.bb
+# generated-recipes/audio-common/audio-capture_0.3.3.bb
+# generated-recipes/audio-common/sound-play_0.3.3.bb
+ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-ugly = "gstreamer1.0-plugins-ugly"
