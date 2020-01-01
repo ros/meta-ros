@@ -75,3 +75,8 @@ ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-ugly = "gstreamer1.0-plugins-ug
 # generated-recipes/jsk-3rdparty/libcmt_2.1.13-1.bb
 # generated-recipes/jsk-3rdparty/slic_2.1.13-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates = "ca-certificates"
+
+# Used by:
+# generated-recipes/rc-genicam-api/rc-genicam-api_2.2.2-1.bb
+# generated-recipes/phidgets-drivers/phidgets-api_0.7.9-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0 = "libusb1"
