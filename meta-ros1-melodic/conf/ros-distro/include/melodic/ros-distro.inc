@@ -67,3 +67,11 @@ ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good = "gstreamer1.0-plugins-go
 # generated-recipes/audio-common/audio-capture_0.3.3.bb
 # generated-recipes/audio-common/sound-play_0.3.3.bb
 ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-ugly = "gstreamer1.0-plugins-ugly"
+
+# Used by:
+# generated-recipes/jsk-3rdparty/assimp-devel_2.1.13-1.bb
+# generated-recipes/jsk-3rdparty/downward_2.1.13-1.bb
+# generated-recipes/jsk-3rdparty/ff_2.1.13-1.bb
+# generated-recipes/jsk-3rdparty/libcmt_2.1.13-1.bb
+# generated-recipes/jsk-3rdparty/slic_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates = "ca-certificates"
