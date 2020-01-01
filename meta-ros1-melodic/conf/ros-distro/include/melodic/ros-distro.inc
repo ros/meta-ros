@@ -88,3 +88,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0 = "libusb1"
 # generated-recipes/joystick-drivers/ps3joy_1.13.0-1.bb
 # generated-recipes/schunk-modular-robotics/schunk-sdh_0.6.14-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev = "libusb1"
+
+# Used by:
+# generated-recipes/pr2-controllers/robot-mechanism-controllers_1.10.17-1.bb
+# generated-recipes/jsk-3rdparty/nlopt_2.1.13-1.bb
+# generated-recipes/pr2-controllers/ethercat-trigger-controllers_1.10.17-1.bb
+# generated-recipes/stage/stage_4.3.0.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libtool = "libtool"
