@@ -20,9 +20,9 @@ ROS_SUPERFLORE_GENERATION_SKIP_LIST = ""
 # Superflore was unable to generate recipes for these packages, eg, because their repositories are not on GitHub.
 ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = ""
 
-# Number of commits that will be returned by "git log files/ROS_DISTRO-cache.yaml" when the generated files are committed. This is
-# used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "1"
+# Number of commits that will be returned by "git log meta-ros2-crystal/files/crystal/generated/cache.yaml" when the
+# generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
+ROS_NUM_CACHE_YAML_COMMITS = "3"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
