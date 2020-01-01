@@ -99,3 +99,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_libtool = "libtool"
 # Used by:
 # generated-recipes/ros-canopen/socketcan-interface_0.8.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_linux-kernel-headers = "linux-libc-headers"
+
+# Used by:
+# generated-recipes/image-pipeline/image-view_1.13.0-1.bb
+# generated-recipes/webrtc-ros/webrtc_59.0.3.bb
+# generated-recipes/stage/stage_4.3.0.bb
+ROS_UNRESOLVED_PLATFORM_PKG_gtk2 = "gtk+"
