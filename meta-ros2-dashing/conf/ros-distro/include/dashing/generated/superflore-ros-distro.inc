@@ -55,9 +55,9 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
     voxel_grid_nodes \
 "
 
-# Number of commits that will be returned by "git log files/ROS_DISTRO-cache.yaml" when the generated files are committed. This is
-# used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "1"
+# Number of commits that will be returned by "git log meta-ros2-dashing/files/dashing/generated/cache.yaml" when the
+# generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
+ROS_NUM_CACHE_YAML_COMMITS = "3"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
