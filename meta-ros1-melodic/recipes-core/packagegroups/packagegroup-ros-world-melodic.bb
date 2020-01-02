@@ -242,89 +242,99 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY =
 "
 
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'ainstein-radar-gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'audibot', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'audibot-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'blender-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'cob-common', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'cob-description', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'cob-gazebo-objects', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'cob-gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'cob-gazebo-ros-control', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'cob-gazebo-worlds', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'cob-grasp-generation', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'cob-hardware-config', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'desistek-saga-control', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'desistek-saga-description', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'desistek-saga-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'eca-a9-description', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'eca-a9-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'fetch-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'fetchit-challenge', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'fsrobo-r-description', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'gazebo-ros', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'gazebo-ros-control', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'gazebo-ros-pkgs', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'gazebo-rosdev', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'hector-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'hector-gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'hector-gazebo-thermal-camera', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'hector-gazebo-worlds', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'hector-sensors-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'husky-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'husky-simulator', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'igvc-self-drive-description', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'igvc-self-drive-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'igvc-self-drive-gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'igvc-self-drive-sim', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'jackal-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'jackal-simulator', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'ksql-airport', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'lauv-control', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'lauv-description', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'lauv-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'mcmillan-airfield', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'mecanum-gazebo-plugin', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'mir-description', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'nmea-gps-plugin', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'open-manipulator-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'open-manipulator-simulations', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'open-manipulator-with-tb3-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'open-manipulator-with-tb3-simulations', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'pr2-controller-configuration-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'pr2-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'pr2-simulator', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'raw-description', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'rexrov2-control', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'rexrov2-description', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'rexrov2-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'ridgeback-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'ridgeback-gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'ridgeback-simulator', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'rotors-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'rotors-gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'rotors-simulator', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'sand-island', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'turtlebot3-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'turtlebot3-simulations', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'urdf-sim-tutorial', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'usv-gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'uuv-descriptions', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'uuv-gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'uuv-gazebo-ros-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'uuv-gazebo-worlds', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'uuv-sensor-ros-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'uuv-simulator', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'uuv-world-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'uuv-world-ros-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'velodyne-gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'velodyne-simulator', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'wamv-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'warthog-gazebo', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'warthog-simulator', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'wave-gazebo-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-gazebo', '', 'yosemite-valley', d)}"
+RDEPENDS_${PN}_remove = "${@ '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}' if 'ros-gazebo' not in d.getVar('DISTRO_FEATURES').split() else '' }"
+
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
+    ainstein-radar-gazebo-plugins \
+    audibot \
+    audibot-gazebo \
+    blender-gazebo \
+    cob-common \
+    cob-description \
+    cob-gazebo-objects \
+    cob-gazebo-plugins \
+    cob-gazebo-ros-control \
+    cob-gazebo-worlds \
+    cob-grasp-generation \
+    cob-hardware-config \
+    desistek-saga-control \
+    desistek-saga-description \
+    desistek-saga-gazebo \
+    eca-a9-description \
+    eca-a9-gazebo \
+    eusurdf \
+    fetch-gazebo \
+    fetchit-challenge \
+    fsrobo-r-description \
+    gazebo-plugins \
+    gazebo-ros \
+    gazebo-ros-control \
+    gazebo-ros-pkgs \
+    gazebo-rosdev \
+    hector-gazebo \
+    hector-gazebo-plugins \
+    hector-gazebo-thermal-camera \
+    hector-gazebo-worlds \
+    hector-sensors-gazebo \
+    husky-gazebo \
+    husky-simulator \
+    igvc-self-drive-description \
+    igvc-self-drive-gazebo \
+    igvc-self-drive-gazebo-plugins \
+    igvc-self-drive-sim \
+    jackal-gazebo \
+    jackal-simulator \
+    ksql-airport \
+    lauv-control \
+    lauv-description \
+    lauv-gazebo \
+    mcmillan-airfield \
+    mecanum-gazebo-plugin \
+    mir-description \
+    mir-driver \
+    mir-navigation \
+    nmea-gps-plugin \
+    open-manipulator-gazebo \
+    open-manipulator-simulations \
+    open-manipulator-with-tb3-gazebo \
+    open-manipulator-with-tb3-simulations \
+    pr2-controller-configuration-gazebo \
+    pr2-gazebo \
+    pr2-gazebo-plugins \
+    pr2-simulator \
+    raw-description \
+    rexrov2-control \
+    rexrov2-description \
+    rexrov2-gazebo \
+    ridgeback-gazebo \
+    ridgeback-gazebo-plugins \
+    ridgeback-simulator \
+    rotors-gazebo \
+    rotors-gazebo-plugins \
+    rotors-simulator \
+    sand-island \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
+    urdf-sim-tutorial \
+    usv-gazebo-plugins \
+    uuv-descriptions \
+    uuv-gazebo-plugins \
+    uuv-gazebo-ros-plugins \
+    uuv-gazebo-worlds \
+    uuv-sensor-ros-plugins \
+    uuv-simulator \
+    uuv-world-plugins \
+    uuv-world-ros-plugins \
+    velodyne-gazebo-plugins \
+    velodyne-simulator \
+    vrx-gazebo \
+    wamv-gazebo \
+    warthog-gazebo \
+    warthog-simulator \
+    wave-gazebo \
+    wave-gazebo-plugins \
+    yosemite-valley \
+"
 
 # Depends on libqt4-dev
 RDEPENDS_${PN}_remove = "hector-geotiff"
