@@ -246,3 +246,19 @@ ROS_UNRESOLVED_PLATFORM_PKG_zbar = "zbar"
 # generated-recipes/pinocchio/pinocchio_2.2.1-1.bb
 # generated-recipes/visp/visp_3.2.0-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_doxygen = "doxygen"
+
+# Used by:
+# generated-recipes/qt-metapackages/libqt-concurrent_1.0.1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5-concurrent = "qtbase"
+
+# Used by:
+# generated-recipes/qt-metapackages/libqt-network_1.0.1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5-network = "qtbase"
+
+# Used by:
+# generated-recipes/qt-metapackages/libqt-opengl-rosdev_1.0.1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev = "qtbase"
+
+# Used by:
+# generated-recipes/qt-metapackages/libqt-svg-rosdev_1.0.1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev = "qtsvg"

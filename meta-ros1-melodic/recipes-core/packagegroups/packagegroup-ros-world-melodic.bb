@@ -66,10 +66,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT = " \
     jsk-rviz-plugins \
     jsk-tools \
     jsk-visualization \
+    libqt-concurrent \
     libqt-core \
     libqt-gui \
     libqt-opengl \
+    libqt-opengl-rosdev \
     libqt-rosdev \
+    libqt-svg-rosdev \
+    libqt-network \
     libqt-widgets \
     librviz-tutorial \
     linux-networking \
