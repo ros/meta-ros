@@ -336,11 +336,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     yosemite-valley \
 "
 
-# Depends on libqt4-dev
-RDEPENDS_${PN}_remove = "hector-geotiff"
-RDEPENDS_${PN}_remove = "hector-geotiff-plugins"
-RDEPENDS_${PN}_remove = "hector-slam"
-RDEPENDS_${PN}_remove = "hector-slam-launch"
+# Depends on libqt4-dev from https://git.yoctoproject.org/cgit/cgit.cgi/meta-qt4
+RDEPENDS_${PN}_remove = "${@ '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT4}' if 'qt4-layer' not in BBFILE_COLLECTIONS.split() else '' }"
+
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT4 = " \
+    hector-geotiff \
+    hector-geotiff-plugins \
+    hector-slam \
+    hector-slam-launch \
+"
 
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
 RDEPENDS_${PN}_remove = "${@ '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL}' if 'opengl' not in d.getVar('DISTRO_FEATURES').split() else '' }"
