@@ -332,67 +332,82 @@ RDEPENDS_${PN}_remove = "hector-geotiff-plugins"
 RDEPENDS_${PN}_remove = "hector-slam"
 RDEPENDS_${PN}_remove = "hector-slam-launch"
 
-# Depends on mesa which requires opengl or vulkan DISTRO_FEATURE
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'abb', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'abb-irb2400-moveit-config', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'abb-irb6640-moveit-config', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'cob-collision-monitor', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'cob-moveit-bringup', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'desktop-full', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-aico-solver', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-collision-scene-fcl', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-collision-scene-fcl-latest', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-core', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-core-task-maps', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-examples', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-ik-solver', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-levenberg-marquardt-solver', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-ompl-solver', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-python', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'exotica-time-indexed-rrt-connect-solver', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'fetch-bringup', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'fetch-moveit-config', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'fetch-ros', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'fsrobo-r-trajectory-filters', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'industrial-core', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'industrial-trajectory-filters', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'libg2o', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-fake-controller-manager', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-planners', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-planners-ompl', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-plugins', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-pr2', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-ros-benchmarks', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-ros-manipulation', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-ros-move-group', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-ros-perception', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-ros-planning', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-ros-robot-interaction', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-ros-warehouse', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-sim-controller', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'moveit-visual-tools', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'navigation-stage', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'navigation-tutorials', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'open-manipulator-moveit', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'open-manipulator-with-tb3-waffle-moveit', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'open-manipulator-with-tb3-waffle-pi-moveit', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'pr2-moveit-config', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'robot-body-filter', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'roomba-stage', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'rtabmap', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'rtabmap-ros', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'seed-r7-navigation', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'simulators', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'stage', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'stage-ros', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'teb-local-planner', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'teb-local-planner-tutorials', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'uwsim-osgbullet', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'uwsim-osgocean', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'uwsim-osgworks', d)}"
-# Depends on libglu which requires opengl in DISTRO_FEATURES
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'wxwidgets', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'rc-roi-manager-gui', d)}"
-# Depends on python-opengl and gl-dependency which requires opengl in DISTRO_FEATURES
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'rqt-pose-view', d)}"
+# Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
+RDEPENDS_${PN}_remove = "${@ '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL}' if 'opengl' not in d.getVar('DISTRO_FEATURES').split() else '' }"
+
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
+    abb \
+    abb-irb2400-moveit-config \
+    abb-irb6640-moveit-config \
+    cob-collision-monitor \
+    cob-obstacle-distance-moveit \
+    cob-moveit-bringup \
+    cob-moveit-interface \
+    desktop-full \
+    exotica \
+    exotica-aico-solver \
+    exotica-collision-scene-fcl \
+    exotica-collision-scene-fcl-latest \
+    exotica-core \
+    exotica-core-task-maps \
+    exotica-examples \
+    exotica-ik-solver \
+    exotica-levenberg-marquardt-solver \
+    exotica-ompl-solver \
+    exotica-python \
+    exotica-time-indexed-rrt-connect-solver \
+    fetch-bringup \
+    fetch-moveit-config \
+    fetch-ros \
+    fsrobo-r-trajectory-filters \
+    industrial-core \
+    industrial-trajectory-filters \
+    libg2o \
+    moveit-commander \
+    moveit-fake-controller-manager \
+    moveit-planners \
+    moveit-planners-ompl \
+    moveit-plugins \
+    moveit-pr2 \
+    moveit-ros-benchmarks \
+    moveit-ros-manipulation \
+    moveit-ros-move-group \
+    moveit-ros-perception \
+    moveit-ros-planning \
+    moveit-ros-planning-interface \
+    moveit-ros-robot-interaction \
+    moveit-ros-warehouse \
+    moveit-runtime \
+    moveit-sim-controller \
+    moveit-visual-tools \
+    navigation-stage \
+    navigation-tutorials \
+    open-manipulator-controller \
+    open-manipulator-moveit \
+    open-manipulator-with-tb3-tools \
+    open-manipulator-with-tb3-waffle-moveit \
+    open-manipulator-with-tb3-waffle-pi-moveit \
+    pilz-industrial-motion \
+    pilz-robot-programming \
+    pilz-trajectory-generation \
+    pr2-moveit-config \
+    rc-visard \
+    robot-body-filter \
+    roomba-stage \
+    rtabmap \
+    rtabmap-ros \
+    seed-r7-navigation \
+    simulators \
+    stage \
+    stage-ros \
+    teb-local-planner \
+    teb-local-planner-tutorials \
+    uwsim \
+    uwsim-bullet \
+    uwsim-osgbullet \
+    uwsim-osgocean \
+    uwsim-osgworks \
+    wxwidgets \
+    rc-roi-manager-gui \
+    rqt-pose-view \
+"
