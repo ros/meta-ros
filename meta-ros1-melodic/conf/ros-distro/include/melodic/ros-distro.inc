@@ -238,3 +238,11 @@ ROS_UNRESOLVED_PLATFORM_PKG_wget-native = "wget-native"
 # generated-recipes/vision-visp/visp-auto-tracker_0.11.1-1.bb
 # generated-recipes/visp/visp_3.2.0-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_zbar = "zbar"
+
+# Used by:
+# generated-recipes/openrtm-aist-python/openrtm-aist-python_1.1.0.bb
+# generated-recipes/eigenpy/eigenpy_1.6.9-1.bb
+# generated-recipes/openrtm-aist/openrtm-aist_1.1.2-3.bb
+# generated-recipes/pinocchio/pinocchio_2.2.1-1.bb
+# generated-recipes/visp/visp_3.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_doxygen = "doxygen"
