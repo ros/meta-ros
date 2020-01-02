@@ -105,3 +105,136 @@ ROS_UNRESOLVED_PLATFORM_PKG_linux-kernel-headers = "linux-libc-headers"
 # generated-recipes/webrtc-ros/webrtc_59.0.3.bb
 # generated-recipes/stage/stage_4.3.0.bb
 ROS_UNRESOLVED_PLATFORM_PKG_gtk2 = "gtk+"
+
+# Used by:
+# generated-recipes/optpp-catkin/optpp-catkin_2.4.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_autoconf = "autoconf"
+
+# Used by:
+# generated-recipes/openrtm-aist/openrtm-aist_1.1.2-3.bb
+ROS_UNRESOLVED_PLATFORM_PKG_automake-native = "automake-native"
+
+# Used by:
+# generated-recipes/jsk-3rdparty/ff_2.1.13-1.bb
+# generated-recipes/jsk-3rdparty/ffha_2.1.13-1.bb
+# generated-recipes/jsk-3rdparty/downward_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_bison = "bison"
+
+# Used by:
+# generated-recipes/jsk-roseus/roseus_1.7.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_coreutils = "coreutils"
+
+# Used by:
+# generated-recipes/schunk-modular-robotics/schunk-sdh_0.6.14-1.bb
+# generated-recipes/cob-extern/libntcan_0.6.14-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_dpkg = "dpkg"
+
+# Used by:
+# generated-recipes/jsk-3rdparty/ff_2.1.13-1.bb,
+# generated-recipes/jsk-3rdparty/ffha_2.1.13-1.bb
+# generated-recipes/jsk-3rdparty/downward_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_flex = "flex"
+
+# Used by:
+# generated-recipes/jsk-3rdparty/ffha_2.1.13-1.bb
+# generated-recipes/jsk-3rdparty/downward_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_gawk = "gawk"
+
+# Used by:
+# generated-recipes/openrtm-aist/openrtm-aist_1.1.2-3.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libtool-native = "libtool-native"
+
+# Used by:
+# generated-recipes/visp/visp_3.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxml2 = "libxml2"
+
+# Used by:
+# generated-recipes/kinesis-manager/kinesis-manager_2.0.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_log4cplus = "log4cplus"
+
+# Used by:
+# generated-recipes/vapor-master/vapor-master_0.3.0.bb
+ROS_UNRESOLVED_PLATFORM_PKG_nodejs-native = "nodejs-native"
+
+# Used by:
+# generated-recipes/marti-common/swri-transform-util_2.11.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_proj = "proj"
+
+# Used by:
+# generated-recipes/cpr-multimaster-tools/message-relay_0.0.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-cheetah = "python-cheetah"
+
+# Used by:
+# generated-recipes/calibration/calibration-estimation_0.10.14.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib = "python-matplotlib"
+
+# Used by:
+# generated-recipes/catkin-pip/catkin-pip_0.2.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-pip = "python-pip"
+
+# Used by:
+# generated-recipes/mongodb-store/mongodb-store_0.5.2-1.bb
+# generated-recipes/mongodb-store/mongodb-log_0.5.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-pymongo = "python-pymongo"
+
+# Used by:
+# generated-recipes/geographic-info/geodesy_0.5.3.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj = "python-pyproj"
+
+# Used by:
+# generated-recipes/ros-pytest/ros-pytest_0.1.2-2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-pytest = "python-pytest"
+
+# Used by:
+# generated-recipes/jsk-3rdparty/rostwitter_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-requests = "python-requests"
+
+# Used by:
+# generated-recipes/jsk-3rdparty/rostwitter_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson = "python-simplejson"
+
+# Used by:
+# generated-recipes/abseil-cpp/abseil-cpp_0.4.2-1.bb
+# generated-recipes/jsk-3rdparty/julius_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_rsync = "rsync"
+
+# Used by:
+# generated-recipes/jsk-3rdparty/libsiftfast_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_subversion = "subversion"
+
+# Used by:
+# generated-recipes/trac-ik/trac-ik-python_1.5.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_swig = "swig"
+
+# Used by:
+# generated-recipes/spatio-temporal-voxel-layer/spatio-temporal-voxel-layer_1.3.5-2.bb
+# generated-recipes/navigation-2d/nav2d-karto_0.4.2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_tbb = "tbb"
+
+# Used by:
+# generated-recipes/jsk-3rdparty/downward_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_time = "time"
+
+# Used by:
+# generated-recipes/convex-decomposition/convex-decomposition_0.1.12.bb
+# generated-recipes/jsk-3rdparty/julius_2.1.13-1.bb
+# generated-recipes/jsk-3rdparty/assimp-devel_2.1.13-1.bb
+# generated-recipes/jsk-3rdparty/ff_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_unzip = "unzip"
+
+# Used by:
+# generated-recipes/openni2-camera/openni2-launch_0.4.2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_usbutils = "usbutils"
+
+# Used by:
+# generated-recipes/jsk-3rdparty/julius_2.1.13-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_wget = "wget"
+
+# Used by:
+# generated-recipes/webrtc-ros/webrtc_59.0.3.bb
+ROS_UNRESOLVED_PLATFORM_PKG_wget-native = "wget-native"
+
+# Used by:
+# generated-recipes/vision-visp/visp-auto-tracker_0.11.1-1.bb
+# generated-recipes/visp/visp_3.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_zbar = "zbar"
