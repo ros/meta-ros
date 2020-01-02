@@ -350,6 +350,23 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT4 = " \
     hector-slam-launch \
 "
 
+# Depends on vlc from meta-multimedia
+RDEPENDS_${PN}_remove = "${@ '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_MULTIMEDIA}' if 'multimedia-layer' not in BBFILE_COLLECTIONS.split() else '' }"
+
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_MULTIMEDIA = " \
+    cob-android \
+    cob-android-script-server \
+    cob-command-gui \
+    cob-default-robot-behavior \
+    cob-driver \
+    cob-helper-tools \
+    cob-mimic \
+    cob-monitoring \
+    cob-script-server \
+    cob-sound \
+    cob-teleop \
+"
+
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
 RDEPENDS_${PN}_remove = "${@ '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL}' if 'opengl' not in d.getVar('DISTRO_FEATURES').split() else '' }"
 

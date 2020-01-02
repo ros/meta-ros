@@ -262,3 +262,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev = "qtbase"
 # Used by:
 # generated-recipes/qt-metapackages/libqt-svg-rosdev_1.0.1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev = "qtsvg"
+
+# Used by:
+# generated-recipes/cob-driver/cob-mimic_0.7.1-1.bb
+# generated-recipes/cob-driver/cob-sound_0.7.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev = "vlc"
+ROS_UNRESOLVED_PLATFORM_PKG_vlc = "vlc"
