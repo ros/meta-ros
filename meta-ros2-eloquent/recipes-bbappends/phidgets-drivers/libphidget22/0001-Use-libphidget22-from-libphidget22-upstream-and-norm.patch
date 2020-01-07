@@ -1,21 +1,21 @@
-From 4e9b597ccd72ddfa97f3fc487ff265df37114d93 Mon Sep 17 00:00:00 2001
+From 122764a72cd8b21d9366f29647050d2cd2517eb0 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 18 Dec 2019 11:11:30 -0800
 Subject: [PATCH] Use libphidget22 from libphidget22-upstream and normal prefix
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- CMakeLists.txt                                | 34 +----------
+ CMakeLists.txt                                | 36 +-----------
  cmake/libphidget22-extras.cmake.in            |  4 +-
  ...ts22-fix-uninitialized-memory-access.patch | 56 -------------------
- 3 files changed, 3 insertions(+), 91 deletions(-)
+ 3 files changed, 3 insertions(+), 93 deletions(-)
  delete mode 100644 patch/libphidgets22-fix-uninitialized-memory-access.patch
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c19ed20..78ec0ae 100644
+index c19ed20..706e59a 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -3,39 +3,7 @@ project(libphidget22)
+@@ -3,40 +3,6 @@ project(libphidget22)
  
  find_package(ament_cmake REQUIRED)
  
@@ -52,10 +52,11 @@ index c19ed20..78ec0ae 100644
 -  DESTINATION
 -    ${CMAKE_INSTALL_PREFIX}/opt/libphidget22/include/libphidget22/
 -)
+-
+-ament_environment_hooks(env_hook/libphidget22_library_path.sh)
 +find_package(libphidget22)
  
- ament_environment_hooks(env_hook/libphidget22_library_path.sh)
- 
+ ament_package(CONFIG_EXTRAS "cmake/libphidget22-extras.cmake.in")
 diff --git a/cmake/libphidget22-extras.cmake.in b/cmake/libphidget22-extras.cmake.in
 index 7a386fa..ccf3d59 100644
 --- a/cmake/libphidget22-extras.cmake.in
@@ -128,6 +129,3 @@ index 60817ac..0000000
 - 
 - 
 - 
--- 
-2.17.1
-
