@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 DESCRIPTION = "Extensible Modelica-based platform for optimization, simulation and analysis of complex dynamic systems."
 HOMEPAGE = "https://jmodelica.org/"
@@ -34,3 +34,9 @@ FILES_SOLIBSDEV = ""
 FILES_${PN} += " \
     ${libdir}/lib*${SOLIBSDEV} \
 "
+
+# it generates duplicate rules for ExpatEx/libexpat.a and newer ninja-1.9.0 fails because of that
+# NOTE: VERBOSE=1 cmake --build fmilibrary/2.0.3-r0/build --target all -- -j 20
+# ninja: error: build.ninja:1652: multiple rules generate ExpatEx/libexpat.a [-w dupbuild=err]
+EXTRA_OECMAKE_BUILD_append_task-compile = "-w dupbuild=warn"
+EXTRA_OECMAKE_BUILD_append_task-install = "-w dupbuild=warn"
