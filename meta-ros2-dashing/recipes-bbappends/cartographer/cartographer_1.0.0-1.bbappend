@@ -1,8 +1,9 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://cmake.dont.add.isystem.patch \
+    file://0001-Fix-build-with-gtest-1.8.1.patch \
 "
 
 # This is used only to generate documentation so it should
