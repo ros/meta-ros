@@ -97,6 +97,9 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commer
 # behaviortree-cpp, nothing depends on behaviortree-cpp-v3, so exclude it.
 RDEPENDS_${PN}_remove = "behaviortree-cpp-v3"
 
+# Depends on gstreamer1.0-python which requires gobject-introspection-data in DISTRO_FEATURES
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'gobject-introspection-data', '', 'tts', d)}"
+
 # desktop RDEPENDS on rviz packages.
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-desktop ros-rviz', '', 'desktop', d)}"
 
