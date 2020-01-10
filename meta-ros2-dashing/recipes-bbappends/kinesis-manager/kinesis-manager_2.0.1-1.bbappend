@@ -1,8 +1,8 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
 DEPENDS += " \
-    amazon-kinesis-video-streams-producer-sdk-cpp-kinesis-video-native-build \
-    amazon-kinesis-video-streams-producer-sdk-cpp-kinesis-video-producer \
+    amazon-kvs-sdk-cpp-kinesis-video-native-build \
+    amazon-kvs-sdk-cpp-kinesis-video-producer \
 "
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
