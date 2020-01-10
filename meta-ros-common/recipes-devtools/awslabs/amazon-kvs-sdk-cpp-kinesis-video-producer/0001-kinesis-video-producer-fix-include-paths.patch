@@ -1,0 +1,42 @@
+From 29515a91caec6d995c5e34dab50204fb29b5f64d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 30 Dec 2019 11:58:01 -0800
+Subject: [PATCH] kinesis-video-producer: fix include paths
+
+* fixes:
+FAILED: src/CMakeFiles/KinesisVideoProducer.dir/common/PutFrameHelper.cpp.o
+/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot-native/usr/bin/i586-oe-linux/i586-oe-linux-g++  -DKinesisVideoProducer_EXPORTS -I/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/git/kinesis-video-producer -m32 -march=i586  --sysroot=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0=/usr/src/debug/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0 -fdebug-prefix-map=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m32 -march=i586  --sysroot=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot -fPIC -std=c++14  -ldl -lrt -lpthread -fPIC   -std=c++14 -MD -MT src/CMakeFiles/KinesisVideoProducer.dir/common/PutFrameHelper.cpp.o -MF src/CMakeFiles/KinesisVideoProducer.dir/common/PutFrameHelper.cpp.o.d -o src/CMakeFiles/KinesisVideoProducer.dir/common/PutFrameHelper.cpp.o -c /jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/git/kinesis-video-producer/src/common/PutFrameHelper.cpp
+In file included from /jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/git/kinesis-video-producer/src/common/PutFrameHelper.cpp:1:
+/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/git/kinesis-video-producer/src/common/PutFrameHelper.h:4:10: fatal error: KinesisVideoProducer.h: No such file or directory
+ #include "KinesisVideoProducer.h"
+          ^~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+[2/30] /jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot-native/usr/bin/i586-oe-linux/i586-oe-linux-g++  -DKinesisVideoProducer_EXPORTS -I/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/git/kinesis-video-producer -m32 -march=i586  --sysroot=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0=/usr/src/debug/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0 -fdebug-prefix-map=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m32 -march=i586  --sysroot=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot -fPIC -std=c++14  -ldl -lrt -lpthread -fPIC   -std=c++14 -MD -MT src/CMakeFiles/KinesisVideoProducer.dir/credential-providers/CredentialProviderUtil.cpp.o -MF src/CMakeFiles/KinesisVideoProducer.dir/credential-providers/CredentialProviderUtil.cpp.o.d -o src/CMakeFiles/KinesisVideoProducer.dir/credential-providers/CredentialProviderUtil.cpp.o -c /jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/git/kinesis-video-producer/src/credential-providers/CredentialProviderUtil.cpp
+FAILED: src/CMakeFiles/KinesisVideoProducer.dir/credential-providers/CredentialProviderUtil.cpp.o
+/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot-native/usr/bin/i586-oe-linux/i586-oe-linux-g++  -DKinesisVideoProducer_EXPORTS -I/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/git/kinesis-video-producer -m32 -march=i586  --sysroot=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0=/usr/src/debug/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0 -fdebug-prefix-map=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m32 -march=i586  --sysroot=/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/recipe-sysroot -fPIC -std=c++14  -ldl -lrt -lpthread -fPIC   -std=c++14 -MD -MT src/CMakeFiles/KinesisVideoProducer.dir/credential-providers/CredentialProviderUtil.cpp.o -MF src/CMakeFiles/KinesisVideoProducer.dir/credential-providers/CredentialProviderUtil.cpp.o.d -o src/CMakeFiles/KinesisVideoProducer.dir/credential-providers/CredentialProviderUtil.cpp.o -c /jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/git/kinesis-video-producer/src/credential-providers/CredentialProviderUtil.cpp
+In file included from /jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/git/kinesis-video-producer/src/credential-providers/CredentialProviderUtil.cpp:1:
+/jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/git/kinesis-video-producer/src/credential-providers/CredentialProviderUtil.h:7:10: fatal error: Logger.h: No such file or directory
+ #include <Logger.h>
+          ^~~~~~~~~~
+compilation terminated.
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ kinesis-video-producer/CMakeLists.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/kinesis-video-producer/CMakeLists.txt b/kinesis-video-producer/CMakeLists.txt
+index 9a92f75..968d94f 100644
+--- a/kinesis-video-producer/CMakeLists.txt
++++ b/kinesis-video-producer/CMakeLists.txt
+@@ -25,6 +25,10 @@ get_filename_component(ROOT "${CMAKE_CURRENT_SOURCE_DIR}" ABSOLUTE)
+ # Include source base directory to allow absolute header paths
+ include_directories(${CMAKE_SOURCE_DIR})
+ 
++# Include also src subdirectory where the header files actually are
++# tst/CMakeLists.txt already does that, but it's used even outside tst
++include_directories(${CMAKE_SOURCE_DIR}/src)
++
+ enable_testing()
+ add_subdirectory(src)
+ 
