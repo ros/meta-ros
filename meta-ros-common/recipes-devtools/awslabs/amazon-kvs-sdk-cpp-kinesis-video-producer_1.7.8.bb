@@ -1,10 +1,10 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
-require amazon-kinesis-video-streams-producer-sdk-cpp-${PV}.inc
+require amazon-kvs-sdk-cpp-${PV}.inc
 
 KVSSDK_PROJECT = "kinesis-video-producer"
 
-DEPENDS = "curl jsoncpp log4cplus openssl amazon-kinesis-video-streams-producer-sdk-cpp-kinesis-video-pic"
+DEPENDS = "curl jsoncpp log4cplus openssl amazon-kvs-sdk-cpp-kinesis-video-pic"
 
 SRC_URI += "file://0001-kinesis-video-producer-fix-include-paths.patch;patchdir=.. \
     file://0001-kinesis-video-producer-don-t-build-tst-subdirectory-.patch;patchdir=.. \
@@ -18,5 +18,5 @@ do_install_append() {
     mv ${D}${includedir}/*.h ${D}${includedir}/kinesis-video-producer/
 }
 
-# ERROR: amazon-kinesis-video-streams-producer-sdk-cpp-kinesis-video-producer-1.7.8-r0 do_package_qa: QA Issue: -dev package contains non-symlink .so: amazon-kinesis-video-streams-producer-sdk-cpp-kinesis-video-producer-dev path '/work/i586-oe-linux/amazon-kinesis-video-streams-producer-sdk-cpp-kinesis-video-producer/1.7.8-r0/packages-split/amazon-kinesis-video-streams-producer-sdk-cpp-kinesis-video-producer-dev/usr/lib/libKinesisVideoProducer.so' [dev-elf]
+# ERROR: amazon-kvs-sdk-cpp-kinesis-video-producer-1.7.8-r0 do_package_qa: QA Issue: -dev package contains non-symlink .so: amazon-kvs-sdk-cpp-kinesis-video-producer-dev path '/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/packages-split/amazon-kvs-sdk-cpp-kinesis-video-producer-dev/usr/lib/libKinesisVideoProducer.so' [dev-elf]
 inherit faulty-solibs
