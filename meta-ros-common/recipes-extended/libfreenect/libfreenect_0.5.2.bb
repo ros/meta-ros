@@ -25,5 +25,5 @@ FILES_${PN}-dbg += "${libdir}/fakenect/.debug"
 RDEPENDS_${PN} += "bash"
 
 # Depends on freeglut with this restriction:
-inherit distro_features_check
+inherit features_check
 REQUIRED_DISTRO_FEATURES = "opengl"

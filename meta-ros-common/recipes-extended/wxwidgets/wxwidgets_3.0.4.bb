@@ -65,5 +65,5 @@ FILES_${PN} += "${bindir} ${libdir}/wx/config"
 FILES_${PN}-dev += "${libdir}/wx/include ${datadir}/bakefile"
 
 # Depends on freeglut with this restriction:
-inherit distro_features_check
+inherit features_check
 REQUIRED_DISTRO_FEATURES = "opengl"
