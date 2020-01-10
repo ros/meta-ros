@@ -10,5 +10,5 @@ ROS_EXPORT_DEPENDS_append = " libjpeg-turbo"
 ROS_EXEC_DEPENDS_append = " libjpeg-turbo"
 
 # Depends on gstreamer1.0-* with this restriction:
-inherit distro_features_check
+inherit features_check
 REQUIRED_DISTRO_FEATURES_append_rpi = " opengl"
