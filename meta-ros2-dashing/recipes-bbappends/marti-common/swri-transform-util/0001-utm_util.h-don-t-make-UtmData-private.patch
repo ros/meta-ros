@@ -1,0 +1,39 @@
+From d14253a0810ffbbdebaeb124a550d700f6995353 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 11 Jan 2020 20:01:42 +0000
+Subject: [PATCH] utm_util.h: don't make UtmData private
+
+* with newer boost-1.69.0 it fails with:
+
+In file included from /jenkins/mjansa/build-ros/webos-dashing-warrior/tmp-glibc/work/raspberrypi3-webos-linux-gnueabi/swri-transform-util/3.0.3-1-r0/git/include/swri_transform_util/utm_util.h:35,
+                 from /jenkins/mjansa/build-ros/webos-dashing-warrior/tmp-glibc/work/raspberrypi3-webos-linux-gnueabi/swri-transform-util/3.0.3-1-r0/git/src/utm_util.cpp:30:
+/jenkins/mjansa/build-ros/webos-dashing-warrior/tmp-glibc/work/raspberrypi3-webos-linux-gnueabi/swri-transform-util/3.0.3-1-r0/recipe-sysroot/usr/include/boost/serialization/singleton.hpp: In instantiation of 'boost::serialization::detail::singleton_wrapper<T>::singleton_wrapper() [with T = swri_transform_util::UtmUtil::UtmData]':
+/jenkins/mjansa/build-ros/webos-dashing-warrior/tmp-glibc/work/raspberrypi3-webos-linux-gnueabi/swri-transform-util/3.0.3-1-r0/recipe-sysroot/usr/include/boost/serialization/singleton.hpp:171:47:   required from 'static T& boost::serialization::singleton<T>::get_instance() [with T = swri_transform_util::UtmUtil::UtmData]'
+/jenkins/mjansa/build-ros/webos-dashing-warrior/tmp-glibc/work/raspberrypi3-webos-linux-gnueabi/swri-transform-util/3.0.3-1-r0/recipe-sysroot/usr/include/boost/serialization/singleton.hpp:196:28:   required from 'static const T& boost::serialization::singleton<T>::get_const_instance() [with T = swri_transform_util::UtmUtil::UtmData]'
+/jenkins/mjansa/build-ros/webos-dashing-warrior/tmp-glibc/work/raspberrypi3-webos-linux-gnueabi/swri-transform-util/3.0.3-1-r0/git/src/utm_util.cpp:180:33:   required from here
+/jenkins/mjansa/build-ros/webos-dashing-warrior/tmp-glibc/work/raspberrypi3-webos-linux-gnueabi/swri-transform-util/3.0.3-1-r0/recipe-sysroot/usr/include/boost/serialization/singleton.hpp:147:24: error: 'swri_transform_util::UtmUtil::UtmData::UtmData()' is private within this context
+     singleton_wrapper(){
+                        ^
+/jenkins/mjansa/build-ros/webos-dashing-warrior/tmp-glibc/work/raspberrypi3-webos-linux-gnueabi/swri-transform-util/3.0.3-1-r0/git/src/utm_util.cpp:82:3: note: declared private here
+   UtmUtil::UtmData::UtmData()
+   ^~~~~~~
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/swri_transform_util/utm_util.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/swri_transform_util/utm_util.h b/include/swri_transform_util/utm_util.h
+index b323ad0bb..40289ac2b 100644
+--- a/include/swri_transform_util/utm_util.h
++++ b/include/swri_transform_util/utm_util.h
+@@ -163,8 +163,8 @@ namespace swri_transform_util
+ #else
+         friend class boost::serialization::detail::singleton_wrapper<swri_transform_util::UtmUtil::UtmData>;
+ #endif
+-      private:
+         UtmData();
++      private:
+ 
+         projPJ lat_lon_;
+         projPJ utm_north_[60];
