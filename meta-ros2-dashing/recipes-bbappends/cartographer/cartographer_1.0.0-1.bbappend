@@ -4,6 +4,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://cmake.dont.add.isystem.patch \
     file://0001-Fix-build-with-gtest-1.8.1.patch \
+    file://0001-hybrid_grid_test-drop-this-test.patch \
 "
 
 # This is used only to generate documentation so it should
