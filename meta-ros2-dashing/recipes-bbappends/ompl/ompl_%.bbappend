@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 inherit ros-insane
 
@@ -8,3 +8,8 @@ DEPENDS_append_class-target = " chrpath-replacement-native"
 do_install_append() {
     chrpath --delete ${D}${libdir}/*${SOLIBS}
 }
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += " \
+    file://0001-compilation-fix-for-boost-1.71.patch \
+"
