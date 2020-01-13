@@ -1,0 +1,39 @@
+From 23ba17d002b045e419b3d5dcf4a634892ea683b2 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 13 Jan 2020 08:26:15 -0800
+Subject: [PATCH] rosserial_server: fix build with boost-1.70.0
+
+taken from:
+https://aur.archlinux.org/cgit/aur.git/plain/io-service.patch?h=ros-melodic-rosserial-server
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/rosserial_server/async_read_buffer.h | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/include/rosserial_server/async_read_buffer.h b/include/rosserial_server/async_read_buffer.h
+index 1e30d978..180e979f 100644
+--- a/include/rosserial_server/async_read_buffer.h
++++ b/include/rosserial_server/async_read_buffer.h
+@@ -38,6 +38,12 @@
+ #include <boost/asio.hpp>
+ #include <boost/function.hpp>
+ 
++#if BOOST_VERSION >= 107000
++#define GET_IO_SERVICE(s) ((boost::asio::io_context&)(s).get_executor().context())
++#else
++#define GET_IO_SERVICE(s) ((s).get_io_service())
++#endif
++
+ #include <ros/ros.h>
+ 
+ namespace rosserial_server
+@@ -166,7 +172,7 @@ private:
+ 
+     // Post the callback rather than executing it here so, so that we have a chance to do the cleanup
+     // below prior to it actually getting run, in the event that the callback queues up another read.
+-    stream_.get_io_service().post(boost::bind(read_success_callback_, stream));
++    GET_IO_SERVICE(stream_).post(boost::bind(read_success_callback_, stream));
+ 
+     // Resetting these values clears our state so that we know there isn't a callback pending.
+     read_requested_bytes_ = 0;
