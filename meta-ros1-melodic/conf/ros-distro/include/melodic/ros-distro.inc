@@ -269,13 +269,18 @@ ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev = "qtsvg"
 ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev = "vlc"
 ROS_UNRESOLVED_PLATFORM_PKG_vlc = "vlc"
 
+# Used by:
+# generated-recipes/mavros/mavros_0.33.3-1.bb
+# generated-recipes/underwater-simulation/uwsim_1.4.2-1.bb
+# Just a package built by geographiclib
+ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools = "geographiclib-tools"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
 #ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev = "coinor-libipopt-dev"
 #ROS_UNRESOLVED_PLATFORM_PKG_cwiid-dev = "cwiid-dev"
 #ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "ftdi-eeprom"
-#ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools = "geographiclib-tools"
 #ROS_UNRESOLVED_PLATFORM_PKG_gforth = "gforth"
 #ROS_UNRESOLVED_PLATFORM_PKG_gfortran = "gfortran"
 ROS_UNRESOLVED_PLATFORM_PKG_libasound2-dev = "alsa-lib"
