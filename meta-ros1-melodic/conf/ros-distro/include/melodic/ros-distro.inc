@@ -28,6 +28,11 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 # and having it in a .bbappend sets it too late.
 ROS_BUILD_TYPE_pn-python-orocos-kdl = "catkin"
 
+# Otherwise it will use cmake as specified in
+# https://github.com/mavlink/mavlink-gbp-release/blob/release/melodic/mavlink/2019.11.11-1/package.xml#L29
+# but that doesn't respect the prefix set in meta-ros-common/classes/ros_opt_prefix.bbclass
+ROS_BUILD_TYPE_pn-mavlink = "catkin"
+
 # python-backports-ssl@meta-python
 ROS_UNRESOLVED_PLATFORM_PKG_python-backports.ssl-match-hostname = "python-backports-ssl"
 
@@ -269,13 +274,18 @@ ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev = "qtsvg"
 ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev = "vlc"
 ROS_UNRESOLVED_PLATFORM_PKG_vlc = "vlc"
 
+# Used by:
+# generated-recipes/mavros/mavros_0.33.3-1.bb
+# generated-recipes/underwater-simulation/uwsim_1.4.2-1.bb
+# Just a package built by geographiclib
+ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools = "geographiclib-tools"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
 #ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev = "coinor-libipopt-dev"
 #ROS_UNRESOLVED_PLATFORM_PKG_cwiid-dev = "cwiid-dev"
 #ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "ftdi-eeprom"
-#ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools = "geographiclib-tools"
 #ROS_UNRESOLVED_PLATFORM_PKG_gforth = "gforth"
 #ROS_UNRESOLVED_PLATFORM_PKG_gfortran = "gfortran"
 ROS_UNRESOLVED_PLATFORM_PKG_libasound2-dev = "alsa-lib"
