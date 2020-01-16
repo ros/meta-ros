@@ -31,7 +31,7 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'warrior/milestones/11')
 Layers = [
 ('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.42', 'commit': '4ce50bbd'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'warrior', 'commit': '0a1b1e88b9'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'warrior', 'commit': '279c4da2e5'}, {}),
 
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'warrior', 'commit': 'a24acf94d4'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
