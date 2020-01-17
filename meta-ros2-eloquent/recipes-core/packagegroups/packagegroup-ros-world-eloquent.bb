@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 DESCRIPTION = "All non-test packages for the target from files/eloquent/cache.yaml"
 LICENSE = "MIT"
@@ -80,9 +80,6 @@ RDEPENDS_${PN}_remove = "teleop-twist-joy"
 
 # Depends on Qt4 (libqt4-dev libqt4-opengl-dev libqglviewer-qt4-dev) which we don't plan to support
 RDEPENDS_${PN}_remove = "octovis"
-
-# OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
 
 # behaviortree-cpp-v3 and behaviortree-cpp are mutually exclusive because they install files in the same locations. Unlike
 # behaviortree-cpp, nothing depends on behaviortree-cpp-v3, so exclude it.
