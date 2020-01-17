@@ -1,10 +1,11 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 
 SRC_URI += " \
     file://0001-use-python-provided-by-environment-instead-of-the-ge.patch \
     file://0002-allow-proper-cross-compilation-with-catkin.patch \
+    file://0001-builder.py-don-t-prepend-ld_path-to-LD_LIBRARY_PATH.patch \
 "
 
 ROS_BUILD_DEPENDS_remove = "python-catkin-pkg"
@@ -48,3 +49,9 @@ PACKAGES =+ "${PN}-implicitworkspace"
 FILES_${PN}-implicitworkspace = " \
     ${sysconfdir}/profile.d/ros.sh \
 "
+
+# Used to disable exporting LD_LIBRARY_PATH when building with catkin
+# because on builder with the same architecture as target MACHINE it
+# will try to use incompatible libraries (e.g. libpython) from TARGET
+# sysroot instead using the one from host (e.g. for native python)
+export CATKIN_CROSSCOMPILING = "1"
