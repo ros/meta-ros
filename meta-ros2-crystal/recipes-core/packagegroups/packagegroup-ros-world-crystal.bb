@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 DESCRIPTION = "All non-test packages for the target from files/crystal/cache.yaml"
 LICENSE = "MIT"
@@ -69,9 +69,6 @@ RDEPENDS_${PN}_remove = "fmi-adapter-examples"
 # Only builds for Intel achitectures; could build for emulator, but don't because its rootfs contents should be kept the same as
 # that of the actual device.
 RDEPENDS_${PN}_remove = "ets-plugin"
-
-# OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
 
 # behaviortree-cpp-v3 and behaviortree-cpp are mutually exclusive because they install files in the same locations. Unlike
 # behaviortree-cpp, nothing depends on behaviortree-cpp-v3, so exclude it.
