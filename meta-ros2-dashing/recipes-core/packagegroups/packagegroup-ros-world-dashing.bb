@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 DESCRIPTION = "All non-test packages for the target from files/dashing/cache.yaml"
 LICENSE = "MIT"
@@ -88,8 +88,7 @@ RDEPENDS_${PN}_remove = "lex-common"
 # Depends on Qt4 (libqt4-dev libqt4-opengl-dev libqglviewer-qt4-dev) which we don't plan to support
 RDEPENDS_${PN}_remove = "octovis"
 
-# OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'ffmpeg', d)}"
+# OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical". These packages depend on it:
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'web-video-server', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'h264-encoder-core', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'commercial', '', 'h264-video-encoder', d)}"
