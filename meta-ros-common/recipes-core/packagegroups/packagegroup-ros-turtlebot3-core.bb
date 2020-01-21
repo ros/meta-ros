@@ -20,6 +20,9 @@ TURTLEBOT3_PACKAGES_CAMERA_rpi ??= " \
     compressed-image-transport \
     raspicam-node \
 "
+# raspicam-node depends on userland to provide mmal, but for aarch64 it doesn't provide it.
+TURTLEBOT3_PACKAGES_CAMERA_remove_aarch64 = "raspicam-node"
+
 TURTLEBOT3_PACKAGES_CAMERA ??= ""
 
 # From http://emanual.robotis.com/docs/en/platform/turtlebot3/raspberry_pi_3_setup/#3-install-dependent-packages-on-turtlebot-pc
