@@ -17,7 +17,7 @@ McfFileVersion = 2
 # Value for DISTRO
 Distribution = 'webos'
 
-webOSOSEBuildNumber = '143'
+webOSOSEBuildNumber = '154'
 
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
@@ -59,7 +59,7 @@ Layers = [
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': '17187128'}, {}),
 
 ('meta-webos-backports-2.7',  30, MetaWebos_RepoURL,                                        {}, {}),
-('meta-webos-backports-2.8',  31, MetaWebos_RepoURL,                                        {}, {}),
+('meta-webos-backports-3.0',  31, MetaWebos_RepoURL,                                        {}, {}),
 
 ('meta-ros-backports-warrior',34, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros-common',           37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
