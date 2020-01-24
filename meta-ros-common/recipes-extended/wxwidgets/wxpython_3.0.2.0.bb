@@ -12,7 +12,14 @@ SRC_URI[sha256sum] = "d54129e5fbea4fb8091c87b2980760b72c22a386cb3b9dd2eebc928ef5
 
 S = "${WORKDIR}/wxPython-src-${PV}/wxPython"
 
-inherit pkgconfig pythonnative python-dir distutils
+inherit pkgconfig
+
+inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "pythonnative python-dir distutils", "", d)}
+
+python() {
+    if 'meta-python2' not in d.getVar('BBFILE_COLLECTIONS').split():
+        raise bb.parse.SkipRecipe('Requires meta-python2 to be present.')
+}
 
 CFLAGS += "-std=gnu++11"
 

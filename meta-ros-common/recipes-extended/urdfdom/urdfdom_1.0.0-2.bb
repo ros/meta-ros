@@ -24,6 +24,11 @@ DEPENDS = " \
     python-setuptools \
 "
 
+python() {
+    if 'meta-python2' not in d.getVar('BBFILE_COLLECTIONS').split():
+        raise bb.parse.SkipRecipe('Requires meta-python2 to be present.')
+}
+
 # This component puts its cmake files under libdir instead of datadir.
 FILES_${PN}-dev_prepend = " \
     ${libdir}/${ROS_BPN}/cmake \

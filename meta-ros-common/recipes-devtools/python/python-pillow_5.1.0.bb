@@ -5,7 +5,14 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=c6379001ecb47e2a0420c40177fc1125"
 
 DEPENDS = "jpeg zlib tiff freetype libpng jpeg"
 
-inherit pkgconfig setuptools
+inherit pkgconfig
+
+inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
+
+python() {
+    if 'meta-python2' not in d.getVar('BBFILE_COLLECTIONS').split():
+        raise bb.parse.SkipRecipe('Requires meta-python2 to be present.')
+}
 
 SRCREV = "fda33d5c09142c4bb0e99964919d01c2cc5f5995"
 SRC_URI = "git://github.com/python-pillow/Pillow;protocol=https \
