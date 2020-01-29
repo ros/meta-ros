@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 ROS_BUILD_DEPENDS_remove = "python-numpy"
 ROS_BUILD_DEPENDS_remove = "python3-numpy"
@@ -14,3 +14,6 @@ EXTRA_OECMAKE += "-DANDROID=ON"
 # Depends on gstreamer1.0-* with this restriction:
 inherit distro_features_check
 REQUIRED_DISTRO_FEATURES_append_rpi = " opengl"
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-add-OpenCV4-support-addresses-ros-perception-vision_.patch"
