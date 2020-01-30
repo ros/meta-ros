@@ -1,0 +1,44 @@
+From 9d2e0c7c1fab9930b82e8bfa3c42c81729ef85af Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 30 Jan 2020 11:45:57 +0000
+Subject: [PATCH] compressed_publisher.cpp: make it compatible with OpenCV 4
+
+* fixes:
+  compressed-image-transport/1.9.5-r0/git/src/compressed_publisher.cpp: In member function 'virtual void compressed_image_transport::CompressedPublisher::publish(const Image&, const PublishFn&) const':
+  compressed-image-transport/1.9.5-r0/git/src/compressed_publisher.cpp:100:19: error: 'CV_IMWRITE_JPEG_QUALITY' was not declared in this scope
+  100 |       params[0] = CV_IMWRITE_JPEG_QUALITY;
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/compressed_publisher.cpp | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/src/compressed_publisher.cpp b/src/compressed_publisher.cpp
+index 026d6e9..b7cbbf0 100644
+--- a/src/compressed_publisher.cpp
++++ b/src/compressed_publisher.cpp
+@@ -97,7 +97,11 @@ void CompressedPublisher::publish(const sensor_msgs::Image& message, const Publi
+     // JPEG Compression
+     case JPEG:
+     {
++#if CV_MAJOR_VERSION == 4
++      params[0] = cv::IMWRITE_JPEG_QUALITY;
++#else
+       params[0] = CV_IMWRITE_JPEG_QUALITY;
++#endif
+       params[1] = config_.jpeg_quality;
+ 
+       // Update ros message format header
+@@ -154,7 +158,11 @@ void CompressedPublisher::publish(const sensor_msgs::Image& message, const Publi
+       // PNG Compression
+     case PNG:
+     {
++#if CV_MAJOR_VERSION == 4
++      params[0] = cv::IMWRITE_PNG_COMPRESSION;
++#else
+       params[0] = CV_IMWRITE_PNG_COMPRESSION;
++#endif
+       params[1] = config_.png_level;
+ 
+       // Update ros message format header
