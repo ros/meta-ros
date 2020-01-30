@@ -1,0 +1,29 @@
+From 7e49a4d3b8db49a5ec9577e64ffe0bddc6bc6ccb Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 30 Jan 2020 03:52:27 -0800
+Subject: [PATCH] codec.cpp: make it compatible with OpenCV 4
+
+* fixes:
+compressed-depth-image-transport/2.1.0-1-r0/git/src/codec.cpp: In function 'sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr compressed_depth_image_transport::decodeCompressedDepthImage(const CompressedImage&)':
+compressed-depth-image-transport/2.1.0-1-r0/git/src/codec.cpp:141:49: error: 'CV_LOAD_IMAGE_UNCHANGED' was not declared in this scope
+  141 |         cv_ptr->image = cv::imdecode(imageData, CV_LOAD_IMAGE_UNCHANGED);
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/codec.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/codec.cpp b/src/codec.cpp
+index 4c94440..d0f2941 100644
+--- a/src/codec.cpp
++++ b/src/codec.cpp
+@@ -138,7 +138,7 @@ sensor_msgs::msg::Image::SharedPtr decodeCompressedDepthImage(
+       // Decode raw image
+       try
+       {
+-        cv_ptr->image = cv::imdecode(imageData, CV_LOAD_IMAGE_UNCHANGED);
++        cv_ptr->image = cv::imdecode(imageData, cv::IMREAD_UNCHANGED);
+       }
+       catch (cv::Exception& e)
+       {
