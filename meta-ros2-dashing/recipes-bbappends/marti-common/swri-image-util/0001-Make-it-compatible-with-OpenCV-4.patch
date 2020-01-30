@@ -1,0 +1,141 @@
+From fd00af2e83833318b5f4f80fb3a86fa9c6e91560 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 30 Jan 2020 08:57:29 -0800
+Subject: [PATCH] Make it compatible with OpenCV 4
+
+* fixes:
+swri-image-util/3.0.3-1-r0/git/src/draw_util.cpp:142:37: error: 'CV_GRAY2BGR' was not declared in this scope
+swri-image-util/3.0.3-1-r0/git/src/draw_util.cpp:151:37: error: 'CV_GRAY2BGR' was not declared in this scope
+swri-image-util/3.0.3-1-r0/git/src/draw_util.cpp:188:56: error: 'CV_AA' was not declared in this scope
+swri-image-util/3.0.3-1-r0/git/src/draw_util.cpp:227:35: error: 'CV_GRAY2BGR' was not declared in this scope
+swri-image-util/3.0.3-1-r0/git/src/draw_util.cpp:242:50: error: 'CV_AA' was not declared in this scope
+swri-image-util/3.0.3-1-r0/git/src/image_matching.cpp:73:7: error: 'CV_FM_RANSAC' was not declared in this scope
+swri-image-util/3.0.3-1-r0/git/src/image_normalization.cpp:394:51: error: 'CV_GRAY2BGR' was not declared in this scope
+swri-image-util/3.0.3-1-r0/git/src/nodes/image_pub_node.cpp:64:49: error: 'CV_LOAD_IMAGE_COLOR' was not declared in this scope
+swri-image-util/3.0.3-1-r0/git/src/nodes/image_pub_node.cpp:69:49: error: 'CV_LOAD_IMAGE_GRAYSCALE' was not declared in this scope
+swri-image-util/3.0.3-1-r0/git/src/replace_colors.cpp:42:45: error: 'CV_GRAY2BGR' was not declared in this scope
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/draw_util.cpp            | 16 ++++++++--------
+ src/image_matching.cpp       |  2 +-
+ src/image_normalization.cpp  |  2 +-
+ src/nodes/image_pub_node.cpp |  4 ++--
+ src/replace_colors.cpp       |  4 ++--
+ 5 files changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/src/draw_util.cpp b/src/draw_util.cpp
+index 2dc93ce84..2f788390d 100644
+--- a/src/draw_util.cpp
++++ b/src/draw_util.cpp
+@@ -139,7 +139,7 @@ namespace swri_image_util
+ 
+     if (image1.type() == CV_8U)
+     {
+-      cvtColor(image1, draw_image1, CV_GRAY2BGR);
++      cvtColor(image1, draw_image1, cv::COLOR_GRAY2BGR);
+     }
+     else
+     {
+@@ -148,7 +148,7 @@ namespace swri_image_util
+ 
+     if (image2.type() == CV_8U)
+     {
+-      cvtColor(image2, draw_image2, CV_GRAY2BGR);
++      cvtColor(image2, draw_image2, cv::COLOR_GRAY2BGR);
+     }
+     else
+     {
+@@ -185,9 +185,9 @@ namespace swri_image_util
+       cv::Point2f dcenter2(
+         std::min(center2.x + draw_image1.cols * 16.0, (image_out.cols - 1) * 16.0), 
+         center2.y);
+-      circle(draw_image1, center1, 48, match_color, 1, CV_AA, 4);
+-      circle(draw_image2, center2, 48, match_color, 1, CV_AA, 4);
+-      line(image_out, center1, dcenter2, match_color, 1, CV_AA, 4);
++      circle(draw_image1, center1, 48, match_color, 1, cv::LINE_AA, 4);
++      circle(draw_image2, center2, 48, match_color, 1, cv::LINE_AA, 4);
++      line(image_out, center1, dcenter2, match_color, 1, cv::LINE_AA, 4);
+     }
+   }
+ 
+@@ -224,7 +224,7 @@ namespace swri_image_util
+     cv::Mat draw_image;
+     if (image.type() == CV_8U)
+     {
+-      cvtColor(image, draw_image, CV_GRAY2BGR);
++      cvtColor(image, draw_image, cv::COLOR_GRAY2BGR);
+     }
+     else
+     {
+@@ -239,8 +239,8 @@ namespace swri_image_util
+       cv::Point2f center2(cvRound(
+         points2.at<cv::Vec2f>(0, i)[0] * 16.0),
+         cvRound(points2.at<cv::Vec2f>(0, i)[1] * 16.0));
+-      circle(draw_image, center1, 48, color1, 1, CV_AA, 4);
+-      line(draw_image, center1, center2, color2, 1, CV_AA, 4);
++      circle(draw_image, center1, 48, color1, 1, cv::LINE_AA, 4);
++      line(draw_image, center1, center2, color2, 1, cv::LINE_AA, 4);
+     }
+ 
+     swri_opencv_util::ShowScaled(title, draw_image);
+diff --git a/src/image_matching.cpp b/src/image_matching.cpp
+index 03f694bb4..14c9868a9 100644
+--- a/src/image_matching.cpp
++++ b/src/image_matching.cpp
+@@ -70,7 +70,7 @@ namespace swri_image_util
+       points1,
+       points2,
+       status,
+-      CV_FM_RANSAC,
++      cv::FM_RANSAC,
+       max_distance,
+       confidence);
+ 
+diff --git a/src/image_normalization.cpp b/src/image_normalization.cpp
+index cc32bf22f..fb115c4ad 100644
+--- a/src/image_normalization.cpp
++++ b/src/image_normalization.cpp
+@@ -391,7 +391,7 @@ namespace swri_image_util
+               if (image.type() == CV_8UC3)
+                 return image;
+               cv::Mat Image8Bit = scale_2_8bit(image), Image8BitColor;
+-              cvtColor(Image8Bit, Image8BitColor, CV_GRAY2BGR);
++              cvtColor(Image8Bit, Image8BitColor, cv::COLOR_GRAY2BGR);
+               return Image8BitColor;
+        }
+ }
+diff --git a/src/nodes/image_pub_node.cpp b/src/nodes/image_pub_node.cpp
+index 00349d6fd..3f27487ce 100644
+--- a/src/nodes/image_pub_node.cpp
++++ b/src/nodes/image_pub_node.cpp
+@@ -61,12 +61,12 @@ namespace swri_image_util
+       cv_image.header.stamp = rclcpp::Clock().now();
+       if (mode == sensor_msgs::image_encodings::BGR8)
+       {
+-        cv_image.image = cv::imread(image_file, CV_LOAD_IMAGE_COLOR);
++        cv_image.image = cv::imread(image_file, cv::IMREAD_COLOR);
+         cv_image.encoding = sensor_msgs::image_encodings::BGR8;
+       }
+       else
+       {
+-        cv_image.image = cv::imread(image_file, CV_LOAD_IMAGE_GRAYSCALE);
++        cv_image.image = cv::imread(image_file, cv::IMREAD_GRAYSCALE);
+         cv_image.encoding = sensor_msgs::image_encodings::MONO8;
+       }
+ 
+diff --git a/src/replace_colors.cpp b/src/replace_colors.cpp
+index 0b217914a..9815a5989 100644
+--- a/src/replace_colors.cpp
++++ b/src/replace_colors.cpp
+@@ -39,7 +39,7 @@ namespace swri_image_util
+     cv::Mat& modified_image)
+   {
+     cv::Mat input_rgb;
+-    cv::cvtColor(original_image, input_rgb, CV_GRAY2BGR);
++    cv::cvtColor(original_image, input_rgb, cv::COLOR_GRAY2BGR);
+     cv::LUT(input_rgb, lut, modified_image);
+   }
+-}
+\ No newline at end of file
++}
