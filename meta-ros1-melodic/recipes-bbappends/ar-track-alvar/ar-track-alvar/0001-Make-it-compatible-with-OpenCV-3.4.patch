@@ -1,0 +1,58 @@
+From 9b6c297a9d7fdaf5806cd1e1b4f501a969edd4fa Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 30 Jan 2020 12:27:26 +0000
+Subject: [PATCH] Make it compatible with OpenCV 3.4
+
+* fixes:
+ar-track-alvar/0.7.1-r0/git/include/ar_track_alvar/Draw.h:102:79: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/include/ar_track_alvar/Draw.h:109:86: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/include/ar_track_alvar/Draw.h:118:99: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/include/ar_track_alvar/Draw.h:125:85: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/include/ar_track_alvar/Draw.h:70:86: error: there are no arguments to 'CV_RGB' that depend on a template parameter, so a declaration of 'CV_RGB' must be available [-fpermissive]
+ar-track-alvar/0.7.1-r0/git/include/ar_track_alvar/Marker.h:55:109: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/include/ar_track_alvar/Marker.h:98:65: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/ConnectedComponents.cpp:228:83: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/ConnectedComponents.cpp:229:83: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/ConnectedComponents.cpp:230:83: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/ConnectedComponents.cpp:231:83: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/Marker.cpp:103:105: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/Marker.cpp:123:15: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/Marker.cpp:47:158: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/Marker.cpp:69:102: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/Marker.cpp:99:105: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/MarkerDetector.cpp:136:47: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/MarkerDetector.cpp:159:46: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/MarkerDetector.cpp:202:32: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/MultiMarker.cpp:320:120: error: 'CV_RGB' was not declared in this scope
+ar-track-alvar/0.7.1-r0/git/src/MultiMarker.cpp:363:89: error: 'CV_RGB' was not declared in this scope
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/ar_track_alvar/Draw.h   | 1 +
+ include/ar_track_alvar/Marker.h | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/include/ar_track_alvar/Draw.h b/include/ar_track_alvar/Draw.h
+index c2b7978..69ea8fd 100644
+--- a/include/ar_track_alvar/Draw.h
++++ b/include/ar_track_alvar/Draw.h
+@@ -36,6 +36,7 @@
+ #include "Camera.h"
+ #include "Line.h"
+ #include <sstream>
++#include <opencv2/imgproc.hpp>
+ 
+ namespace alvar {
+ 
+diff --git a/include/ar_track_alvar/Marker.h b/include/ar_track_alvar/Marker.h
+index 0313833..135255f 100644
+--- a/include/ar_track_alvar/Marker.h
++++ b/include/ar_track_alvar/Marker.h
+@@ -41,6 +41,7 @@
+ #include <vector>
+ #include "filter/kinect_filtering.h"
+ #include <Eigen/StdVector>
++#include <opencv2/imgproc.hpp>
+ 
+ namespace alvar {
+ 
