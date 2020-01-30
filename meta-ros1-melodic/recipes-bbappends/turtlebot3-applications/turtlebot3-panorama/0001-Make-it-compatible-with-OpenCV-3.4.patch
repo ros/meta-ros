@@ -1,0 +1,28 @@
+From 924b7ce9bd50202fa32df8903881b4f9e72c095a Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 30 Jan 2020 17:09:05 +0000
+Subject: [PATCH] Make it compatible with OpenCV 3.4
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/panorama.cpp | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/src/panorama.cpp b/src/panorama.cpp
+index 9a81d79..e1e43ed 100644
+--- a/src/panorama.cpp
++++ b/src/panorama.cpp
+@@ -113,8 +113,13 @@ void PanoApp::spin()
+         ROS_INFO("Stiching %lu images", images_.size());
+ 
+         cv::Mat pano;
++#if CV_MAJOR_VERSION == 4
++	cv::Ptr<cv::Stitcher> stitcher = cv::Stitcher::create();
++	cv::Stitcher::Status status = stitcher->stitch(images_, pano);
++#else
+         cv::Stitcher stitcher = cv::Stitcher::createDefault(false);
+         cv::Stitcher::Status status = stitcher.stitch(images_, pano);
++#endif
+         log("Finished Stiching");
+ 
+         cv_bridge::CvImage cv_img;
