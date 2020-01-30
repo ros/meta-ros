@@ -1,0 +1,214 @@
+From a384ecd957712384d154a1bb7337388b87dc9871 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 30 Jan 2020 04:19:29 -0800
+Subject: [PATCH] Make it compatible with OpenCV 4
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/convert.cpp   | 22 +++++++++++-----------
+ src/model_fit.cpp |  4 ++--
+ src/models.cpp    | 12 ++++++------
+ src/show.cpp      |  8 ++++----
+ 4 files changed, 23 insertions(+), 23 deletions(-)
+
+diff --git a/src/convert.cpp b/src/convert.cpp
+index 5838693de..0512dddc2 100644
+--- a/src/convert.cpp
++++ b/src/convert.cpp
+@@ -60,7 +60,7 @@ namespace swri_opencv_util
+         mat.convertTo(scaled, CV_8U, a, b);
+ 
+         cv::Mat color;
+-        cv::cvtColor(scaled, color, CV_GRAY2BGRA);
++        cv::cvtColor(scaled, color, cv::COLOR_GRAY2BGRA);
+         SetAlpha(color, 255);
+         color.setTo(cv::Scalar(0, 0, 0, 0), mask == 0);
+         scaled = color;
+@@ -72,7 +72,7 @@ namespace swri_opencv_util
+         mat.convertTo(scaled, CV_8U, a, b);
+  
+         cv::Mat color;
+-        cv::cvtColor(scaled, color, CV_GRAY2BGRA);
++        cv::cvtColor(scaled, color, cv::COLOR_GRAY2BGRA);
+         SetAlpha(color, 255);
+         color.setTo(cv::Scalar(0, 0, 0, 0), mask == 0);
+         scaled = color;
+@@ -87,11 +87,11 @@ namespace swri_opencv_util
+         
+         if (is_rgb)
+         {
+-          cv::cvtColor(scaled, color, CV_RGB2BGRA);
++          cv::cvtColor(scaled, color, cv::COLOR_RGB2BGRA);
+         }
+         else
+         {
+-          cv::cvtColor(scaled, color, CV_BGR2BGRA);
++          cv::cvtColor(scaled, color, cv::COLOR_BGR2BGRA);
+         }
+         
+         SetAlpha(color, 255);
+@@ -108,11 +108,11 @@ namespace swri_opencv_util
+         
+         if (is_rgb)
+         {
+-          cv::cvtColor(scaled, color, CV_RGB2BGRA);
++          cv::cvtColor(scaled, color, cv::COLOR_RGB2BGRA);
+         }
+         else
+         {
+-          cv::cvtColor(scaled, color, CV_BGR2BGRA);
++          cv::cvtColor(scaled, color, cv::COLOR_BGR2BGRA);
+         }
+         
+         SetAlpha(color, 255);
+@@ -129,7 +129,7 @@ namespace swri_opencv_util
+ 
+         if (is_rgb)
+         {
+-          cv::cvtColor(scaled, color, CV_RGBA2BGRA);
++          cv::cvtColor(scaled, color, cv::COLOR_RGBA2BGRA);
+         }
+         else
+         {
+@@ -154,11 +154,11 @@ namespace swri_opencv_util
+         cv::Mat color;
+         if (is_rgb)
+         {
+-          cv::cvtColor(scaled, color, CV_RGB2BGRA);
++          cv::cvtColor(scaled, color, cv::COLOR_RGB2BGRA);
+         }
+         else
+         {
+-          cv::cvtColor(scaled, color, CV_BGR2BGRA);
++          cv::cvtColor(scaled, color, cv::COLOR_BGR2BGRA);
+         }
+         
+         SetAlpha(color, 255);
+@@ -172,7 +172,7 @@ namespace swri_opencv_util
+         cv::Mat color;
+         if (is_rgb)
+         {
+-          cv::cvtColor(scaled, color, CV_RGBA2BGRA);
++          cv::cvtColor(scaled, color, cv::COLOR_RGBA2BGRA);
+         }
+         else
+         {
+@@ -188,7 +188,7 @@ namespace swri_opencv_util
+         mat.convertTo(scaled, CV_8U, a, b);
+ 
+         cv::Mat color;
+-        cv::cvtColor(scaled, color, CV_GRAY2BGRA);
++        cv::cvtColor(scaled, color, cv::COLOR_GRAY2BGRA);
+         SetAlpha(color, 255);
+         color.setTo(cv::Scalar(0, 0, 0, 0), mask == 0);
+         scaled = color;
+diff --git a/src/model_fit.cpp b/src/model_fit.cpp
+index f2db1ee9d..0a814a5da 100644
+--- a/src/model_fit.cpp
++++ b/src/model_fit.cpp
+@@ -320,7 +320,7 @@ namespace swri_opencv_util
+       return model;
+     }
+     cv::Mat centroid;
+-    cv::reduce(points.reshape(3), centroid, 0, CV_REDUCE_AVG);
++    cv::reduce(points.reshape(3), centroid, 0, cv::REDUCE_AVG);
+ 
+     cv::Scalar c(centroid.at<float>(0, 0), centroid.at<float>(0, 1), centroid.at<float>(0, 2));
+ 
+@@ -419,7 +419,7 @@ namespace swri_opencv_util
+       return model;
+     }
+     cv::Mat centroid;
+-    cv::reduce(points.reshape(3), centroid, 0, CV_REDUCE_AVG);
++    cv::reduce(points.reshape(3), centroid, 0, cv::REDUCE_AVG);
+ 
+     cv::Scalar c(centroid.at<float>(0, 0), centroid.at<float>(0, 1), centroid.at<float>(0, 2));
+ 
+diff --git a/src/models.cpp b/src/models.cpp
+index e21caef1b..9adefde1b 100644
+--- a/src/models.cpp
++++ b/src/models.cpp
+@@ -517,7 +517,7 @@ namespace swri_opencv_util
+ 
+     // (x0 - p) . n
+     cv::multiply(x0_p__, temp1__, temp2__);
+-    cv::reduce(temp2__.reshape(1), x0_p_dot_n__, 1, CV_REDUCE_SUM);
++    cv::reduce(temp2__.reshape(1), x0_p_dot_n__, 1, cv::REDUCE_SUM);
+ 
+     // ((x0 - p) . n)n
+     cv::multiply(n_x, x0_p_dot_n__, n_x);
+@@ -531,7 +531,7 @@ namespace swri_opencv_util
+     cv::multiply(n_x, n_x, n_x);
+     cv::multiply(n_y, n_y, n_y);
+     cv::multiply(n_z, n_z, n_z);
+-    cv::reduce(temp1__.reshape(1), norms, 1, CV_REDUCE_SUM);
++    cv::reduce(temp1__.reshape(1), norms, 1, cv::REDUCE_SUM);
+     cv::sqrt(norms, norms);
+   }
+ 
+@@ -654,7 +654,7 @@ namespace swri_opencv_util
+ 
+     // (x0 - p) . n
+     cv::multiply(x0_p__, temp1__, temp2__);
+-    cv::reduce(temp2__.reshape(1), x0_p_dot_n__, 1, CV_REDUCE_SUM);
++    cv::reduce(temp2__.reshape(1), x0_p_dot_n__, 1, cv::REDUCE_SUM);
+ 
+     // ((x0 - p) . n)n
+     cv::multiply(n_x, x0_p_dot_n__, n_x);
+@@ -668,7 +668,7 @@ namespace swri_opencv_util
+     cv::multiply(n_x, n_x, n_x);
+     cv::multiply(n_y, n_y, n_y);
+     cv::multiply(n_z, n_z, n_z);
+-    cv::reduce(temp1__.reshape(1), temp3__, 1, CV_REDUCE_SUM);
++    cv::reduce(temp1__.reshape(1), temp3__, 1, cv::REDUCE_SUM);
+     cv::sqrt(temp3__, temp3__);
+ 
+ 
+@@ -686,7 +686,7 @@ namespace swri_opencv_util
+ 
+     // (x0 - p) . n
+     cv::multiply(x0_p__, temp1__, temp2__);
+-    cv::reduce(temp2__.reshape(1), x0_p_dot_n__, 1, CV_REDUCE_SUM);
++    cv::reduce(temp2__.reshape(1), x0_p_dot_n__, 1, cv::REDUCE_SUM);
+ 
+     // ((x0 - p) . n)n
+     cv::multiply(n_x, x0_p_dot_n__, n_x);
+@@ -700,7 +700,7 @@ namespace swri_opencv_util
+     cv::multiply(n_x, n_x, n_x);
+     cv::multiply(n_y, n_y, n_y);
+     cv::multiply(n_z, n_z, n_z);
+-    cv::reduce(temp1__.reshape(1), norms, 1, CV_REDUCE_SUM);
++    cv::reduce(temp1__.reshape(1), norms, 1, cv::REDUCE_SUM);
+     cv::sqrt(norms, norms);
+ 
+     // Use the minimum distance to either line.
+diff --git a/src/show.cpp b/src/show.cpp
+index e85fb4867..cd29c275f 100644
+--- a/src/show.cpp
++++ b/src/show.cpp
+@@ -51,14 +51,14 @@ namespace swri_opencv_util
+ 
+       if (windows_.empty())
+       {
+-        cvStartWindowThread();
++        cv::startWindowThread();
+       }
+ 
+       if (windows_.count(name) == 0)
+       {
+         windows_[name] = name;
+ 
+-        cvNamedWindow(name.c_str(), CV_WINDOW_NORMAL);
++	cv::namedWindow(name.c_str(), cv::WINDOW_NORMAL);
+       }
+     }
+ 
+@@ -110,7 +110,7 @@ namespace swri_opencv_util
+         if (!mask.empty())
+         {
+           cv::Mat color;
+-          cv::cvtColor(scaled, color, CV_GRAY2BGR);
++          cv::cvtColor(scaled, color, cv::COLOR_GRAY2BGR);
+           color.setTo(cv::Scalar(0.0,0.0,255.0), mask == 0);
+           scaled = color;
+         }
