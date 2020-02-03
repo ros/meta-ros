@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 # Fix up PACKAGECONFIG if Python 2 is being used.
 PACKAGECONFIG_prepend = "${@'python2 ' if d.getVar('ROS_PYTHON_VERSION', True) == '2' else ''}"
@@ -15,3 +15,10 @@ PACKAGECONFIG_remove = "${@'python3' if d.getVar('ROS_PYTHON_VERSION', True) == 
 # overwrites all variables opencv needs to configure python2 support
 # correctly.
 inherit ${@bb.utils.contains('PACKAGECONFIG', 'python2', 'distutils-base', '', d)}
+
+# This is needed only for webOS OSE and it's not in meta-ros-webos, because
+# then meta-ros-webos would need to include this .bbappend just when
+# meta-ros1-melodic layer is included
+VIRTUAL-RUNTIME_bash ?= "bash"
+RDEPENDS_${PN}-apps_append_class-target_webos = " ${VIRTUAL-RUNTIME_bash}"
+RDEPENDS_${PN}-apps_remove_class-target_webos = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"
