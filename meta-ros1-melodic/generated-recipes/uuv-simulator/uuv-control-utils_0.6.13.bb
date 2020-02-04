@@ -27,11 +27,11 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
+    ${PYTHON_PN}-pyyaml \
     gazebo-msgs \
     geometry-msgs \
     nav-msgs \
-    python-numpy \
-    python-pyyaml \
     rospy \
     std-msgs \
     uuv-control-msgs \

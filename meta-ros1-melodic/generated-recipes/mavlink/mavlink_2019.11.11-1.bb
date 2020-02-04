@@ -17,10 +17,10 @@ ROS_CN = "mavlink"
 ROS_BPN = "mavlink"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-future \
+    ${PYTHON_PN}-lxml \
+    ${PYTHON_PN}-setuptools \
     python \
-    python-future \
-    python-lxml \
-    python-setuptools \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

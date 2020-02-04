@@ -17,11 +17,11 @@ ROS_CN = "joystick_drivers"
 ROS_BPN = "wiimote"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_cwiid-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid} \
     genmsg \
     geometry-msgs \
-    python-numpy \
     roscpp \
     roslib \
     roslint \
@@ -36,10 +36,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid} \
     genmsg \
     geometry-msgs \
-    python-numpy \
     roscpp \
     roslib \
     rospy \
@@ -51,11 +51,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_cwiid} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid} \
     genmsg \
     geometry-msgs \
-    python-numpy \
     roscpp \
     roslib \
     rospy \

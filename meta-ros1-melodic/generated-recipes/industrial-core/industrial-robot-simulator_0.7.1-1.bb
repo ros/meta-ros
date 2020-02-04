@@ -27,10 +27,10 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     control-msgs \
     industrial-msgs \
     industrial-robot-client \
-    python-rospkg \
     rospy \
     sensor-msgs \
     trajectory-msgs \

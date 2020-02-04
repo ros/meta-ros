@@ -35,6 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-psutil \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ifstat} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ipmitool} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ntpdate} \
@@ -48,7 +49,6 @@ ROS_EXEC_DEPENDS = " \
     cob-script-server \
     diagnostic-msgs \
     diagnostic-updater \
-    python-psutil \
     roscpp \
     rospy \
     rostopic \

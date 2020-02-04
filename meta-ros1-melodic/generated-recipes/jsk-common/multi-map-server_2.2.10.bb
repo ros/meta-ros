@@ -17,12 +17,12 @@ ROS_CN = "jsk_common"
 ROS_BPN = "multi_map_server"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-pyyaml \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-imaging} \
     jsk-tools \
     libsdl-image \
     map-server \
     nav-msgs \
-    python-pyyaml \
     rosconsole \
     roscpp \
     rosmake \
