@@ -62,6 +62,7 @@ Layers = [
 ('meta-webos-backports-3.0',  31, MetaWebos_RepoURL,                                        {}, {}),
 
 ('meta-ros-backports-warrior',34, MetaRos_RepoURL,                                          {}, {}),
+('meta-ros-backports-zeus',   35, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros-common',           37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
 ('meta-ros2',                 38, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros2-eloquent',        39, MetaRos_RepoURL,                                          {}, {}),
