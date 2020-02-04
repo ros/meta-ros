@@ -45,13 +45,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release/archive/release/eloquent/tracetools_trace/0.2.10-1.tar.gz
+# matches with: https://github.com/shr-project/ros2_tracing-release/archive/release/eloquent/tracetools_trace/0.2.12-1.tar.gz
 ROS_BRANCH ?= "branch=release/eloquent/tracetools_trace"
 SRC_URI = "git://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "4f2c83782512d1fe1a94868635a0db000f2fca8d"
+SRCREV = "492fa8cbaefbc88cd56e7857c0c08a67ff8c9ea9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros2-tracing', d)}"
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -6,7 +6,7 @@
 inherit ros_distro_eloquent
 inherit ros_superflore_generated
 
-DESCRIPTION = "Testing utilities and tests for the tracetools package."
+DESCRIPTION = "The trace command for ROS 2 command line tools."
 AUTHOR = "Christophe Bedard <bedard.christophe@gmail.com>"
 ROS_AUTHOR = "Christophe Bedard <fixed-term.christophe.bourquebedard@de.bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
@@ -15,39 +15,34 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "ros2_tracing"
-ROS_BPN = "tracetools_test"
+ROS_BPN = "ros2trace"
 
 ROS_BUILD_DEPENDS = " \
-    rclcpp \
-    std-msgs \
-    std-srvs \
+    ros2cli \
+    tracetools-trace \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-native \
-    pkgconfig-native \
-"
+ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    ros2cli \
+    tracetools-trace \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    rclcpp \
-    std-msgs \
-    std-srvs \
+    ros2cli \
+    tracetools-trace \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-cmake-pytest \
-    ament-lint-auto \
-    ament-lint-common \
-    launch-ros \
+    ament-copyright \
+    ament-flake8 \
+    ament-pep257 \
+    ament-xmllint \
     python3-pytest \
-    tracetools \
-    tracetools-launch \
-    tracetools-read \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -57,13 +52,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release/archive/release/eloquent/tracetools_test/0.2.10-1.tar.gz
-ROS_BRANCH ?= "branch=release/eloquent/tracetools_test"
+# matches with: https://github.com/shr-project/ros2_tracing-release/archive/release/eloquent/ros2trace/0.2.12-1.tar.gz
+ROS_BRANCH ?= "branch=release/eloquent/ros2trace"
 SRC_URI = "git://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "980e5cab58abaf5ed04d9d34db89f176e33e7535"
+SRCREV = "f5c5d4c3674297478ea255eec41cbaaf64b5e3d9"
 S = "${WORKDIR}/git"
 
-ROS_COMPONENT_TYPE = "${@ros_distro__get_component_type('ros2-tracing', d)}"
-ROS_BUILD_TYPE = "ament_cmake"
+ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}
