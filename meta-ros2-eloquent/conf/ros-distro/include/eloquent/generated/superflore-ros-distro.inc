@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.0+25.g1f16e47"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.1+7.g4511fcc"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros2"
@@ -31,7 +31,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-eloquent/files/eloquent/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "3"
+ROS_NUM_CACHE_YAML_COMMITS = "6"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -1322,8 +1322,11 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_ELOQUENT = " \
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_append = " ${ROS_SUPERFLORE_GENERATED_BUILDTOOLS_ELOQUENT}"
 
 ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
+    ${PYTHON_PN}-catkin-pkg \
+    ${PYTHON_PN}-numpy \
     ${PYTHON_PN}-pydocstyle \
     ${PYTHON_PN}-pyflakes \
+    ${PYTHON_PN}-sphinx \
     ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
@@ -1396,9 +1399,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     pkgconfig-native \
     poco \
     protobuf \
-    python-catkin-pkg \
-    python-numpy \
-    python-sphinx \
     python3-catkin-pkg \
     python3-catkin-pkg-native \
     python3-empy \
