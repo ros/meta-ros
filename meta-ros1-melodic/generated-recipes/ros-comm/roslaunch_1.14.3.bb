@@ -23,9 +23,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    python-paramiko \
-    python-pyyaml \
-    python-rospkg \
+    ${PYTHON_PN}-paramiko \
+    ${PYTHON_PN}-pyyaml \
+    ${PYTHON_PN}-rospkg \
     rosclean \
     rosgraph-msgs \
     roslib \
@@ -38,9 +38,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    python-paramiko \
-    python-pyyaml \
-    python-rospkg \
+    ${PYTHON_PN}-paramiko \
+    ${PYTHON_PN}-pyyaml \
+    ${PYTHON_PN}-rospkg \
     rosclean \
     rosgraph-msgs \
     roslib \

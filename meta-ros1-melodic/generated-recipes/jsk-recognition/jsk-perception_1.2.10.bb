@@ -53,6 +53,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-pyyaml \
     ${ROS_UNRESOLVED_PLATFORM_PKG_leveldb} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainer-pip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainercv-pip} \
@@ -83,7 +84,6 @@ ROS_EXPORT_DEPENDS = " \
     openni2-launch \
     pcl-ros \
     posedetection-msgs \
-    python-pyyaml \
     robot-self-filter \
     rosbag \
     roscpp \
@@ -103,6 +103,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pyyaml \
     ${ROS_UNRESOLVED_PLATFORM_PKG_leveldb} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainer-pip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainercv-pip} \
@@ -133,7 +134,6 @@ ROS_EXEC_DEPENDS = " \
     openni2-launch \
     pcl-ros \
     posedetection-msgs \
-    python-pyyaml \
     robot-self-filter \
     rosbag \
     roscpp \

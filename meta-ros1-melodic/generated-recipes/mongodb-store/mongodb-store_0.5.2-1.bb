@@ -17,13 +17,13 @@ ROS_CN = "mongodb_store"
 ROS_BPN = "mongodb_store"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-catkin-pkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libmongoclient-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_mongodb} \
     geometry-msgs \
     message-generation \
     mongodb-store-msgs \
     openssl \
-    python-catkin-pkg \
     roscpp \
     rospy \
     rostest \
@@ -37,12 +37,12 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-future \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libmongoclient-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_mongodb} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pymongo} \
     geometry-msgs \
     mongodb-store-msgs \
-    python-future \
     roscpp \
     rospy \
     std-msgs \
@@ -53,12 +53,12 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-future \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libmongoclient-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_mongodb} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pymongo} \
     geometry-msgs \
     mongodb-store-msgs \
-    python-future \
     roscpp \
     rospy \
     std-msgs \

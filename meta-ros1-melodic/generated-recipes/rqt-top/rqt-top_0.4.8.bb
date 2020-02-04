@@ -23,7 +23,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    python-psutil \
+    ${PYTHON_PN}-psutil \
     python-qt-binding \
     rospy \
     rqt-gui \
@@ -33,7 +33,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    python-psutil \
+    ${PYTHON_PN}-psutil \
     python-qt-binding \
     rospy \
     rqt-gui \

@@ -29,9 +29,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-pyserial \
     diagnostic-msgs \
     geometry-msgs \
-    python-pyserial \
     rospy \
     sensor-msgs \
     std-msgs \
@@ -41,9 +41,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pyserial \
     diagnostic-msgs \
     geometry-msgs \
-    python-pyserial \
     rospy \
     sensor-msgs \
     std-msgs \

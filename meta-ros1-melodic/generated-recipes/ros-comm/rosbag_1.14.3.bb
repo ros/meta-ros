@@ -34,12 +34,12 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-gnupg \
+    ${PYTHON_PN}-pycrypto \
+    ${PYTHON_PN}-rospkg \
     boost \
     genmsg \
     genpy \
-    python-gnupg \
-    python-pycrypto \
-    python-rospkg \
     rosbag-storage \
     rosconsole \
     roscpp \
@@ -53,12 +53,12 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-gnupg \
+    ${PYTHON_PN}-pycrypto \
+    ${PYTHON_PN}-rospkg \
     boost \
     genmsg \
     genpy \
-    python-gnupg \
-    python-pycrypto \
-    python-rospkg \
     rosbag-storage \
     rosconsole \
     roscpp \

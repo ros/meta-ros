@@ -17,7 +17,7 @@ ROS_CN = "py_trees_ros"
 ROS_BPN = "py_trees_ros"
 
 ROS_BUILD_DEPENDS = " \
-    python-setuptools \
+    ${PYTHON_PN}-setuptools \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -29,6 +29,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-termcolor} \
     actionlib \
     actionlib-msgs \
@@ -38,7 +39,6 @@ ROS_EXEC_DEPENDS = " \
     nav-msgs \
     py-trees \
     py-trees-msgs \
-    python-rospkg \
     rosbag \
     rospy \
     sensor-msgs \

@@ -27,6 +27,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-paramiko \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-docutils} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_screen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_xterm} \
@@ -36,7 +37,6 @@ ROS_EXPORT_DEPENDS = " \
     master-discovery-fkie \
     master-sync-fkie \
     multimaster-msgs-fkie \
-    python-paramiko \
     python-qt-binding \
     rosgraph \
     roslaunch \
@@ -51,6 +51,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-paramiko \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-docutils} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_screen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_xterm} \
@@ -60,7 +61,6 @@ ROS_EXEC_DEPENDS = " \
     master-discovery-fkie \
     master-sync-fkie \
     multimaster-msgs-fkie \
-    python-paramiko \
     python-qt-binding \
     rosgraph \
     roslaunch \

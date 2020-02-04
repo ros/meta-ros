@@ -43,12 +43,12 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-lxml \
     ${ROS_UNRESOLVED_PLATFORM_PKG_liburdfdom-tools} \
     libeigen \
     moveit-core \
     orocos-kdl \
     pluginlib \
-    python-lxml \
     roscpp \
     tf2 \
     tf2-kdl \

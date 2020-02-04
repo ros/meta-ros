@@ -17,9 +17,9 @@ ROS_CN = "jsk_model_tools"
 ROS_BPN = "eusurdf"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-lxml \
     collada-urdf-jsk-patch \
     gazebo-ros \
-    python-lxml \
     roseus \
     rostest \
 "
@@ -29,18 +29,18 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-lxml \
     collada-urdf-jsk-patch \
     gazebo-ros \
-    python-lxml \
     rostest \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-lxml \
     collada-urdf-jsk-patch \
     gazebo-ros \
-    python-lxml \
     rostest \
 "
 
