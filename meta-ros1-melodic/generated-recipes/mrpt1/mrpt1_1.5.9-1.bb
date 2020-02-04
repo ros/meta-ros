@@ -17,6 +17,7 @@ ROS_CN = "mrpt1"
 ROS_BPN = "mrpt1"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     assimp \
     boost \
     ffmpeg \
@@ -28,7 +29,6 @@ ROS_BUILD_DEPENDS = " \
     octomap \
     opencv \
     python \
-    python-numpy \
     suitesparse-cholmod \
     suitesparse-cxsparse \
     udev \
@@ -41,6 +41,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     assimp \
     boost \
     ffmpeg \
@@ -52,7 +53,6 @@ ROS_EXPORT_DEPENDS = " \
     octomap \
     opencv \
     python \
-    python-numpy \
     suitesparse-cholmod \
     suitesparse-cxsparse \
     udev \
@@ -63,6 +63,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     assimp \
     boost \
     catkin \
@@ -75,7 +76,6 @@ ROS_EXEC_DEPENDS = " \
     octomap \
     opencv \
     python \
-    python-numpy \
     suitesparse-cholmod \
     suitesparse-cxsparse \
     udev \

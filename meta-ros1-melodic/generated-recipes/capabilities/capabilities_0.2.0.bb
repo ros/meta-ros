@@ -30,10 +30,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-pyyaml \
     bondpy \
     message-runtime \
     nodelet \
-    python-pyyaml \
     roslaunch \
     rospy \
     std-msgs \
@@ -43,10 +43,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pyyaml \
     bondpy \
     message-runtime \
     nodelet \
-    python-pyyaml \
     roslaunch \
     rospy \
     std-msgs \
@@ -55,10 +55,10 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ${PYTHON_PN}-mock \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-coverage} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pep8} \
     geometry-msgs \
-    python-mock \
     rosservice \
 "
 

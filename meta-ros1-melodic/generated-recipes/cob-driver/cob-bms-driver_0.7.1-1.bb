@@ -39,11 +39,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     cob-msgs \
     cob-srvs \
     diagnostic-msgs \
     diagnostic-updater \
-    python-numpy \
     roscpp \
     rospy \
     socketcan-interface \

@@ -35,14 +35,14 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-enum34 \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-scipy} \
     baldor \
     criutils \
     geometry-msgs \
     message-runtime \
-    python-enum34 \
-    python-numpy \
     std-msgs \
 "
 

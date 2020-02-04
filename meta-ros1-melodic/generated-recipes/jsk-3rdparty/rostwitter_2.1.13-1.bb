@@ -16,12 +16,12 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "rostwitter"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-setuptools \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests-oauthlib} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson} \
     git \
     mk \
-    python-setuptools \
     rospy \
     std-msgs \
 "

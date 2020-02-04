@@ -27,11 +27,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-pyserial \
     diagnostic-msgs \
     diagnostic-updater \
     geodesy \
     novatel-msgs \
-    python-pyserial \
     rospy \
     sensor-msgs \
     std-msgs \
@@ -41,11 +41,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pyserial \
     diagnostic-msgs \
     diagnostic-updater \
     geodesy \
     novatel-msgs \
-    python-pyserial \
     rospy \
     sensor-msgs \
     std-msgs \

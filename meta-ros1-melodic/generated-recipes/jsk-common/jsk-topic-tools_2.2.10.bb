@@ -43,6 +43,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-scipy} \
     diagnostic-msgs \
     diagnostic-updater \
@@ -54,7 +55,6 @@ ROS_EXPORT_DEPENDS = " \
     message-runtime \
     nodelet \
     opencv \
-    python-numpy \
     roscpp \
     roslaunch \
     rosnode \
@@ -71,6 +71,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-scipy} \
     diagnostic-msgs \
     diagnostic-updater \
@@ -82,7 +83,6 @@ ROS_EXEC_DEPENDS = " \
     message-runtime \
     nodelet \
     opencv \
-    python-numpy \
     roscpp \
     roslaunch \
     rosnode \

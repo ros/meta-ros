@@ -25,6 +25,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-speechrecognition-pip} \
@@ -32,7 +33,6 @@ ROS_EXPORT_DEPENDS = " \
     audio-common-msgs \
     dynamic-reconfigure \
     geometry-msgs \
-    python-numpy \
     std-msgs \
     tf \
 "
@@ -40,6 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-speechrecognition-pip} \
@@ -47,7 +48,6 @@ ROS_EXEC_DEPENDS = " \
     audio-common-msgs \
     dynamic-reconfigure \
     geometry-msgs \
-    python-numpy \
     std-msgs \
     tf \
 "

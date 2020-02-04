@@ -17,7 +17,7 @@ ROS_CN = "fetch_tools"
 ROS_BPN = "fetch_tools"
 
 ROS_BUILD_DEPENDS = " \
-    python-rospkg \
+    ${PYTHON_PN}-rospkg \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

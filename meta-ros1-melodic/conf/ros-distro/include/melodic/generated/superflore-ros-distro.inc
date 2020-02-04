@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.0+25.g1f16e47"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.1+7.g4511fcc"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros1"
@@ -93,7 +93,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros1-melodic/files/melodic/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "3"
+ROS_NUM_CACHE_YAML_COMMITS = "4"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -5180,6 +5180,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
 # Packages found in the <buildtool_depend> and <buildtool_export_depend> items, ie, ones for which a -native is built. Does not
 # include those found in the ROS_EXEC_DEPENDS values in the recipes of build tools.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_MELODIC = " \
+    ${PYTHON_PN}-catkin-pkg-native \
     ${ROS_UNRESOLVED_PLATFORM_PKG_automake-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libtool-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_nodejs-native} \
@@ -5192,7 +5193,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_MELODIC = " \
     message-generation-native \
     pkgconfig-native \
     protobuf-native \
-    python-catkin-pkg-native \
     qt-qmake-native \
     qtbase-native \
     ros-environment-native \
@@ -5202,6 +5202,28 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_MELODIC = " \
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_append = " ${ROS_SUPERFLORE_GENERATED_BUILDTOOLS_MELODIC}"
 
 ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
+    ${PYTHON_PN}-catkin-pkg \
+    ${PYTHON_PN}-catkin-pkg-native \
+    ${PYTHON_PN}-defusedxml \
+    ${PYTHON_PN}-empy \
+    ${PYTHON_PN}-enum34 \
+    ${PYTHON_PN}-future \
+    ${PYTHON_PN}-gnupg \
+    ${PYTHON_PN}-lxml \
+    ${PYTHON_PN}-mock \
+    ${PYTHON_PN}-netifaces \
+    ${PYTHON_PN}-nose \
+    ${PYTHON_PN}-numpy \
+    ${PYTHON_PN}-paramiko \
+    ${PYTHON_PN}-psutil \
+    ${PYTHON_PN}-pycrypto \
+    ${PYTHON_PN}-pymongo \
+    ${PYTHON_PN}-pyserial \
+    ${PYTHON_PN}-pyyaml \
+    ${PYTHON_PN}-rosdep \
+    ${PYTHON_PN}-rospkg \
+    ${PYTHON_PN}-setuptools \
+    ${PYTHON_PN}-sphinx \
     ${ROS_UNRESOLVED_PLATFORM_PKG_alsa-oss} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_arduino-core} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_atlas} \
@@ -5489,28 +5511,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     protobuf \
     protobuf-native \
     python \
-    python-catkin-pkg \
-    python-catkin-pkg-native \
-    python-defusedxml \
-    python-empy \
-    python-enum34 \
-    python-future \
-    python-gnupg \
-    python-lxml \
-    python-mock \
-    python-netifaces \
-    python-nose \
-    python-numpy \
-    python-paramiko \
-    python-psutil \
-    python-pycrypto \
-    python-pymongo \
-    python-pyserial \
-    python-pyyaml \
-    python-rosdep \
-    python-rospkg \
-    python-setuptools \
-    python-sphinx \
     qhull \
     qtbase \
     qtbase-native \
@@ -5532,6 +5532,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
 
 # Packages found only in <test_depend> items. Does not include those found only in the ROS_*_DEPENDS of recipes of tests.
 ROS_SUPERFLORE_GENERATED_TESTS = " \
+    ${PYTHON_PN}-mock \
     ${ROS_UNRESOLVED_PLATFORM_PKG_phantomjs} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-coverage} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-docopt} \
@@ -5549,7 +5550,6 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     pilz-industrial-motion-testutils \
     pilz-testutils \
     pyros-test \
-    python-mock \
     urdf-test \
 "
 

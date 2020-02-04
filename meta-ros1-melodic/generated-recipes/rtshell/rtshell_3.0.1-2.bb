@@ -17,8 +17,8 @@ ROS_CN = "rtshell"
 ROS_BPN = "rtshell"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-setuptools \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
-    python-setuptools \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

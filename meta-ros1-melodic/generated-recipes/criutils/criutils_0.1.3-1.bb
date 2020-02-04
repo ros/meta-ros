@@ -27,12 +27,12 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-termcolor} \
     baldor \
     cv-bridge \
     geometry-msgs \
     image-geometry \
-    python-numpy \
     resource-retriever \
     rostopic \
     sensor-msgs \

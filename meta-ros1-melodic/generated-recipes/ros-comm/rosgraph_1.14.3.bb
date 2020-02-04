@@ -23,22 +23,22 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    python-netifaces \
-    python-pyyaml \
-    python-rospkg \
+    ${PYTHON_PN}-netifaces \
+    ${PYTHON_PN}-pyyaml \
+    ${PYTHON_PN}-rospkg \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    python-netifaces \
-    python-pyyaml \
-    python-rospkg \
+    ${PYTHON_PN}-netifaces \
+    ${PYTHON_PN}-pyyaml \
+    ${PYTHON_PN}-rospkg \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    python-mock \
+    ${PYTHON_PN}-mock \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"

@@ -17,10 +17,10 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "libsiftfast"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_subversion} \
     boost \
     mk \
-    python-numpy \
     rosboost-cfg \
     roslib \
     rospack \
@@ -31,15 +31,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     boost \
-    python-numpy \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     boost \
-    python-numpy \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

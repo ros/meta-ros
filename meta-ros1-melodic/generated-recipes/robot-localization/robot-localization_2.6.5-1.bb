@@ -17,6 +17,7 @@ ROS_CN = "robot_localization"
 ROS_BPN = "robot_localization"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-catkin-pkg \
     cmake-modules \
     diagnostic-msgs \
     diagnostic-updater \
@@ -28,7 +29,6 @@ ROS_BUILD_DEPENDS = " \
     message-generation \
     nav-msgs \
     nodelet \
-    python-catkin-pkg \
     roscpp \
     roslint \
     sensor-msgs \

@@ -17,7 +17,7 @@ ROS_CN = "rocon_tools"
 ROS_BPN = "rocon_interactions"
 
 ROS_BUILD_DEPENDS = " \
-    python-catkin-pkg \
+    ${PYTHON_PN}-catkin-pkg \
     roslint \
     rostest \
 "
@@ -27,8 +27,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     genpy \
-    python-rospkg \
     rocon-app-manager-msgs \
     rocon-bubble-icons \
     rocon-console \
@@ -46,8 +46,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     genpy \
-    python-rospkg \
     rocon-app-manager-msgs \
     rocon-bubble-icons \
     rocon-console \

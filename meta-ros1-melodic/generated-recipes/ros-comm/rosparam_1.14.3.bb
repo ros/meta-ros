@@ -23,14 +23,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    python-pyyaml \
+    ${PYTHON_PN}-pyyaml \
     rosgraph \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    python-pyyaml \
+    ${PYTHON_PN}-pyyaml \
     rosgraph \
 "
 

@@ -17,7 +17,7 @@ ROS_CN = "openni2_camera"
 ROS_BPN = "openni2_launch"
 
 ROS_BUILD_DEPENDS = " \
-    python-catkin-pkg \
+    ${PYTHON_PN}-catkin-pkg \
     roslaunch \
 "
 

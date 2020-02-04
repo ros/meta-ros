@@ -25,10 +25,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-psutil \
     moveit-commander \
     pilz-msgs \
     pilz-trajectory-generation \
-    python-psutil \
     rospy \
     tf \
     tf-conversions \
@@ -37,10 +37,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-psutil \
     moveit-commander \
     pilz-msgs \
     pilz-trajectory-generation \
-    python-psutil \
     rospy \
     tf \
     tf-conversions \
@@ -48,12 +48,12 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ${PYTHON_PN}-mock \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-coverage} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-docopt} \
     pilz-industrial-motion-testutils \
     prbt-moveit-config \
     prbt-pg70-support \
-    python-mock \
     rostest \
     rosunit \
 "

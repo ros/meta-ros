@@ -23,13 +23,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-lxml \
+    ${PYTHON_PN}-rospkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_julius-voxforge} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_nkf} \
     audio-capture \
     audio-common-msgs \
     julius \
-    python-lxml \
-    python-rospkg \
     rospy \
     sound-play \
     speech-recognition-msgs \
@@ -39,13 +39,13 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-lxml \
+    ${PYTHON_PN}-rospkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_julius-voxforge} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_nkf} \
     audio-capture \
     audio-common-msgs \
     julius \
-    python-lxml \
-    python-rospkg \
     rospy \
     sound-play \
     speech-recognition-msgs \

@@ -17,10 +17,10 @@ ROS_CN = "geographic_info"
 ROS_BPN = "geodesy"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-catkin-pkg \
     angles \
     geographic-msgs \
     geometry-msgs \
-    python-catkin-pkg \
     sensor-msgs \
     tf \
     unique-id \

@@ -23,9 +23,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     geometry-msgs \
     python-qt-binding \
-    python-rospkg \
     qt-dotgraph \
     rospy \
     rqt-graph \
@@ -39,9 +39,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     geometry-msgs \
     python-qt-binding \
-    python-rospkg \
     qt-dotgraph \
     rospy \
     rqt-graph \
@@ -54,7 +54,7 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    python-mock \
+    ${PYTHON_PN}-mock \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"

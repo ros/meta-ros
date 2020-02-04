@@ -31,10 +31,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     angles \
     boost \
     libeigen \
-    python-numpy \
     roscpp \
     sensor-msgs \
     tf \
@@ -43,10 +43,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     angles \
     boost \
     libeigen \
-    python-numpy \
     roscpp \
     sensor-msgs \
     tf \

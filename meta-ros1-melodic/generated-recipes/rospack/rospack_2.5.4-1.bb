@@ -39,12 +39,12 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-catkin-pkg \
+    ${PYTHON_PN}-rosdep \
     boost \
     libtinyxml2 \
     pkgconfig \
     python \
-    python-catkin-pkg \
-    python-rosdep \
     ros-environment \
 "
 

@@ -17,7 +17,7 @@ ROS_CN = "roswww"
 ROS_BPN = "roswww"
 
 ROS_BUILD_DEPENDS = " \
-    python-catkin-pkg \
+    ${PYTHON_PN}-catkin-pkg \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

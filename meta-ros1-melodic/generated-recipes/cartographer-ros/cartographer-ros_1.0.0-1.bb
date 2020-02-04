@@ -17,6 +17,7 @@ ROS_CN = "cartographer_ros"
 ROS_BPN = "cartographer_ros"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-sphinx \
     cartographer \
     cartographer-ros-msgs \
     eigen-conversions \
@@ -29,7 +30,6 @@ ROS_BUILD_DEPENDS = " \
     pcl \
     pcl-conversions \
     protobuf \
-    python-sphinx \
     robot-state-publisher \
     rosbag \
     roscpp \

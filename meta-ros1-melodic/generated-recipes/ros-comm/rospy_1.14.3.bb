@@ -23,10 +23,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
+    ${PYTHON_PN}-pyyaml \
+    ${PYTHON_PN}-rospkg \
     genpy \
-    python-numpy \
-    python-pyyaml \
-    python-rospkg \
     roscpp \
     rosgraph \
     rosgraph-msgs \
@@ -37,10 +37,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
+    ${PYTHON_PN}-pyyaml \
+    ${PYTHON_PN}-rospkg \
     genpy \
-    python-numpy \
-    python-pyyaml \
-    python-rospkg \
     roscpp \
     rosgraph \
     rosgraph-msgs \

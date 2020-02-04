@@ -41,10 +41,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     gazebo-msgs \
     geometry-msgs \
     nav-msgs \
-    python-numpy \
     roscpp \
     rosgraph \
     rospy \

@@ -17,8 +17,8 @@ ROS_CN = "catkin"
 ROS_BPN = "catkin"
 
 ROS_BUILD_DEPENDS = " \
-    python-catkin-pkg \
-    python-empy \
+    ${PYTHON_PN}-catkin-pkg \
+    ${PYTHON_PN}-empy \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -26,10 +26,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-catkin-pkg \
+    ${PYTHON_PN}-empy \
+    ${PYTHON_PN}-nose \
     gtest \
-    python-catkin-pkg \
-    python-empy \
-    python-nose \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = " \
@@ -37,14 +37,14 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = " \
 "
 
 ROS_EXEC_DEPENDS = " \
-    python-catkin-pkg \
-    python-empy \
+    ${PYTHON_PN}-catkin-pkg \
+    ${PYTHON_PN}-empy \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    python-mock \
-    python-nose \
+    ${PYTHON_PN}-mock \
+    ${PYTHON_PN}-nose \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"

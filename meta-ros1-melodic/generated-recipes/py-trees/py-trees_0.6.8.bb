@@ -17,7 +17,7 @@ ROS_CN = "py_trees"
 ROS_BPN = "py_trees"
 
 ROS_BUILD_DEPENDS = " \
-    python-setuptools \
+    ${PYTHON_PN}-setuptools \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -29,8 +29,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-enum34 \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pydot} \
-    python-enum34 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

@@ -25,6 +25,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-pyyaml \
     ${ROS_UNRESOLVED_PLATFORM_PKG_paramiko} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-click} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-gdown-pip} \
@@ -37,7 +38,6 @@ ROS_EXPORT_DEPENDS = " \
     openni-launch \
     pr2-description \
     pr2-machine \
-    python-pyyaml \
     rosbag \
     rqt-bag \
     rviz \
@@ -48,6 +48,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pyyaml \
     ${ROS_UNRESOLVED_PLATFORM_PKG_paramiko} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-click} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-gdown-pip} \
@@ -60,7 +61,6 @@ ROS_EXEC_DEPENDS = " \
     openni-launch \
     pr2-description \
     pr2-machine \
-    python-pyyaml \
     rosbag \
     rqt-bag \
     rviz \
@@ -70,8 +70,8 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ${PYTHON_PN}-nose \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-freezegun-pip} \
-    python-nose \
     roslaunch \
     roslint \
     rostest \

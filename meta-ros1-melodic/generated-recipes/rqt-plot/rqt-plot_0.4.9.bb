@@ -23,10 +23,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
+    ${PYTHON_PN}-rospkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib} \
-    python-numpy \
     python-qt-binding \
-    python-rospkg \
     qt-gui-py-common \
     qwt-dependency \
     rosgraph \
@@ -40,10 +40,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
+    ${PYTHON_PN}-rospkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib} \
-    python-numpy \
     python-qt-binding \
-    python-rospkg \
     qt-gui-py-common \
     qwt-dependency \
     rosgraph \

@@ -36,6 +36,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-psutil \
+    ${PYTHON_PN}-pyserial \
     ${ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_gdal-bin} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_hostapd} \
@@ -53,8 +55,6 @@ ROS_EXPORT_DEPENDS = " \
     geometry-msgs \
     mavlink \
     message-runtime \
-    python-psutil \
-    python-pyserial \
     rosbash \
     rosbridge-suite \
     roslaunch \
@@ -68,6 +68,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-psutil \
+    ${PYTHON_PN}-pyserial \
     ${ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_gdal-bin} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_hostapd} \
@@ -85,8 +87,6 @@ ROS_EXEC_DEPENDS = " \
     geometry-msgs \
     mavlink \
     message-runtime \
-    python-psutil \
-    python-pyserial \
     rosbash \
     rosbridge-suite \
     roslaunch \

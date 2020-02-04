@@ -30,9 +30,9 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme} \
     python-qt-binding \
-    python-rospkg \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

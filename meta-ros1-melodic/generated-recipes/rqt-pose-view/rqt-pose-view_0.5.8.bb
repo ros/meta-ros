@@ -23,11 +23,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-opengl} \
     geometry-msgs \
     gl-dependency \
     python-qt-binding \
-    python-rospkg \
     rospy \
     rostopic \
     rqt-gui \
@@ -39,11 +39,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-opengl} \
     geometry-msgs \
     gl-dependency \
     python-qt-binding \
-    python-rospkg \
     rospy \
     rostopic \
     rqt-gui \

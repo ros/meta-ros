@@ -17,7 +17,7 @@ ROS_CN = "rqt_ez_publisher"
 ROS_BPN = "rqt_ez_publisher"
 
 ROS_BUILD_DEPENDS = " \
-    python-catkin-pkg \
+    ${PYTHON_PN}-catkin-pkg \
     rostest \
 "
 

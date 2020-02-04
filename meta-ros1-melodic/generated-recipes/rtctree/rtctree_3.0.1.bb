@@ -17,8 +17,8 @@ ROS_CN = "rtctree"
 ROS_BPN = "rtctree"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-setuptools \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
-    python-setuptools \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

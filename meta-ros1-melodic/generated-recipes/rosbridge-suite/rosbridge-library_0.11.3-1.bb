@@ -17,10 +17,10 @@ ROS_CN = "rosbridge_suite"
 ROS_BPN = "rosbridge_library"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-pymongo \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-imaging} \
     geometry-msgs \
     message-generation \
-    python-pymongo \
     std-msgs \
 "
 
@@ -33,10 +33,10 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pymongo \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-imaging} \
     geometry-msgs \
     message-runtime \
-    python-pymongo \
     roscpp \
     rosgraph \
     rospy \

@@ -27,12 +27,12 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygraphviz} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-termcolor} \
     geometry-msgs \
     py-trees \
     py-trees-msgs \
-    python-rospkg \
     qt-dotgraph \
     rospy \
     rqt-bag \
@@ -45,12 +45,12 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygraphviz} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-termcolor} \
     geometry-msgs \
     py-trees \
     py-trees-msgs \
-    python-rospkg \
     qt-dotgraph \
     rospy \
     rqt-bag \
@@ -62,7 +62,7 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    python-mock \
+    ${PYTHON_PN}-mock \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
