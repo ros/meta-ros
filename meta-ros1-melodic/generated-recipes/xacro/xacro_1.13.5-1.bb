@@ -5,35 +5,38 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper interface for tracing libraries"
-AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-ROS_AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Xacro (XML Macros)      Xacro is an XML macro language. With xacro, you can construct shorter and more readable XML files by using macros that expand to larger XML expressions."
+AUTHOR = "Robert Haschke <rhaschke@techfak.uni-bielefeld.de>"
+ROS_AUTHOR = "Stuart Glaser"
+HOMEPAGE = "http://ros.org/wiki/xacro"
 SECTION = "devel"
-LICENSE = "APLv2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=7b404913b4819f2321770961dc72a54f"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "tracetools"
-ROS_BPN = "tracetools"
+ROS_CN = "xacro"
+ROS_BPN = "xacro"
 
 ROS_BUILD_DEPENDS = " \
-    boost \
+    roslint \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    pkgconfig-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    roslaunch \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    roslaunch \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    rosbash \
+    rostest \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -43,10 +46,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/ros1-tracetools-release/archive/release/melodic/tracetools/0.2.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/tracetools"
-SRC_URI = "git://github.com/boschresearch/ros1-tracetools-release;${ROS_BRANCH};protocol=https"
-SRCREV = "043770f3add566077c39d251ce7ab98b5ba2966b"
+# matches with: https://github.com/ros-gbp/xacro-release/archive/release/melodic/xacro/1.13.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/xacro"
+SRC_URI = "git://github.com/ros-gbp/xacro-release;${ROS_BRANCH};protocol=https"
+SRCREV = "7f9abfb798cab12959dc4d5d2fb1da96266d127d"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
