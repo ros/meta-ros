@@ -54,6 +54,8 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = ""
 
 ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "python3-mypy"
 
+ROS_UNRESOLVED_PLATFORM_PKG_python3-future = "python3-future"
+
 # Used by generated-recipes/geographic-info/geodesy_1.0.1-1.bb
 # use python3 version because python2 is EOL
 ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj = "python3-pyproj"
