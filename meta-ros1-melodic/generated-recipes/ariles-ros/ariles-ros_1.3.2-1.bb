@@ -5,36 +5,45 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper interface for tracing libraries"
-AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-ROS_AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
+DESCRIPTION = "Catkin package Ariles serialization/configuration library"
+AUTHOR = "Alexander Sherikov <asherikov@yandex.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "APLv2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=7b404913b4819f2321770961dc72a54f"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
-ROS_CN = "tracetools"
-ROS_BPN = "tracetools"
+ROS_CN = "ariles_ros"
+ROS_BPN = "ariles_ros"
 
 ROS_BUILD_DEPENDS = " \
     boost \
+    libeigen \
+    roscpp \
+    yaml-cpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    pkgconfig-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    boost \
+    libeigen \
+    roscpp \
+    yaml-cpp \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    boost \
+    libeigen \
+    roscpp \
+    yaml-cpp \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    rosbash \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -43,12 +52,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/ros1-tracetools-release/archive/release/melodic/tracetools/0.2.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/tracetools"
-SRC_URI = "git://github.com/boschresearch/ros1-tracetools-release;${ROS_BRANCH};protocol=https"
-SRCREV = "043770f3add566077c39d251ce7ab98b5ba2966b"
+# matches with: https://github.com/asherikov/ariles-release/archive/release/melodic/ariles_ros/1.3.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/ariles_ros"
+SRC_URI = "git://github.com/asherikov/ariles-release;${ROS_BRANCH};protocol=https"
+SRCREV = "974154c34bcb64536e4852803f91265783a4e0c6"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

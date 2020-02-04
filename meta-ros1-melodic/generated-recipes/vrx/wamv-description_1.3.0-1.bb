@@ -5,36 +5,37 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper interface for tracing libraries"
-AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-ROS_AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "This package provides a URDF model of WAM-V"
+AUTHOR = "Carlos Aguero <caguero@osrfoundation.org>"
+ROS_AUTHOR = "Brian Bingham <briansbingham@gmail.com>"
+HOMEPAGE = "http://wiki.ros.org/wamv_description"
 SECTION = "devel"
-LICENSE = "APLv2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=7b404913b4819f2321770961dc72a54f"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
-ROS_CN = "tracetools"
-ROS_BPN = "tracetools"
+ROS_CN = "vrx"
+ROS_BPN = "wamv_description"
 
 ROS_BUILD_DEPENDS = " \
-    boost \
+    xacro \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    pkgconfig-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    xacro \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    xacro \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    rosbash \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -43,10 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/ros1-tracetools-release/archive/release/melodic/tracetools/0.2.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/tracetools"
-SRC_URI = "git://github.com/boschresearch/ros1-tracetools-release;${ROS_BRANCH};protocol=https"
-SRCREV = "043770f3add566077c39d251ce7ab98b5ba2966b"
+# matches with: https://github.com/ros-gbp/vrx-release/archive/release/melodic/wamv_description/1.3.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/wamv_description"
+SRC_URI = "git://github.com/ros-gbp/vrx-release;${ROS_BRANCH};protocol=https"
+SRCREV = "d8eee16fd016b9e0ff53f7fc1011e12dd37f951c"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
