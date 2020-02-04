@@ -10,6 +10,9 @@ PACKAGES = "${PN}"
 
 RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 
+# Depends on openvdb and openexr for which we don't have recipes yet
+RDEPENDS_${PN}_remove = "spatio-temporal-voxel-layer"
+
 # "rmw-fastrtps-dynamic-cpp" is mentioned in http://www.ros.org/reps/rep-2000.html, so make sure we always build it (it appears in
 # ROS_SUPERFLORE_GENERATED_TESTS, so it's not been added to ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES).
 RDEPENDS_${PN}_append = " rmw-fastrtps-dynamic-cpp"
