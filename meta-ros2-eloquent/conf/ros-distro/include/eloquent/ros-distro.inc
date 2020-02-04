@@ -87,6 +87,12 @@ ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "libftdi"
 ROS_UNRESOLVED_PLATFORM_PKG_flex = "flex"
 ROS_UNRESOLVED_PLATFORM_PKG_bison = "bison"
 
+# Used by generated-recipes/ament-virtualenv/ament-virtualenv_0.0.5-6.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging = "python3-packaging"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging-native = "python3-packaging-native"
+ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv = "python3-virtualenv"
+ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv-native = "python3-virtualenv-native"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
