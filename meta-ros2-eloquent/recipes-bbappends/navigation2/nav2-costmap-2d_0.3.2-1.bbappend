@@ -2,4 +2,7 @@
 
 DEPENDS += "eigen3-cmake-module"
 
-FILES_${PN} += "${datadir}/costmap_plugins.xml"
+do_install_append() {
+    # Move it to existing ROS_BPN subdirectory to prevent conflict with nonpersistent-voxel-layer
+    mv ${D}${datadir}/costmap_plugins.xml ${D}${datadir}/${ROS_BPN}/ 
+}
