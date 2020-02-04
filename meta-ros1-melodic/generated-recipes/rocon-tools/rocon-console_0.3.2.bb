@@ -17,7 +17,7 @@ ROS_CN = "rocon_tools"
 ROS_BPN = "rocon_console"
 
 ROS_BUILD_DEPENDS = " \
-    python-catkin-pkg \
+    ${PYTHON_PN}-catkin-pkg \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

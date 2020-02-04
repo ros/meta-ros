@@ -31,14 +31,14 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-enum34 \
+    ${PYTHON_PN}-numpy \
     cv-bridge \
     dynamic-reconfigure \
     geometry-msgs \
     move-base-msgs \
     nav-msgs \
     opencv \
-    python-enum34 \
-    python-numpy \
     rospy \
     sensor-msgs \
     std-msgs \

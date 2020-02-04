@@ -17,12 +17,12 @@ ROS_CN = "eigenpy"
 ROS_BPN = "eigenpy"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     boost \
     git \
     libeigen \
     python \
-    python-numpy \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -30,19 +30,19 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     boost \
     libeigen \
     python \
-    python-numpy \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     boost \
     libeigen \
     python \
-    python-numpy \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

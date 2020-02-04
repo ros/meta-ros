@@ -23,13 +23,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-pyserial \
     actionlib \
     arbotix-msgs \
     control-msgs \
     diagnostic-msgs \
     geometry-msgs \
     nav-msgs \
-    python-pyserial \
     rospy \
     sensor-msgs \
     tf \
@@ -38,13 +38,13 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pyserial \
     actionlib \
     arbotix-msgs \
     control-msgs \
     diagnostic-msgs \
     geometry-msgs \
     nav-msgs \
-    python-pyserial \
     rospy \
     sensor-msgs \
     tf \

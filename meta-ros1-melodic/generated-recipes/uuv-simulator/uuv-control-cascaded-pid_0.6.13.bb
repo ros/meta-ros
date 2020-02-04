@@ -31,10 +31,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     dynamic-reconfigure \
     geometry-msgs \
     nav-msgs \
-    python-numpy \
     rospy \
     tf \
 "

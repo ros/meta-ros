@@ -32,9 +32,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pyyaml \
     geometry-msgs \
     message-runtime \
-    python-pyyaml \
     rospy \
     std-msgs \
     tf \
@@ -44,9 +44,9 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ${PYTHON_PN}-numpy \
     geometry-msgs \
     joint-state-publisher \
-    python-numpy \
     robot-state-publisher \
     rostest \
     rosunit \

@@ -17,9 +17,9 @@ ROS_CN = "openrtm_aist_python"
 ROS_BPN = "openrtm_aist_python"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-setuptools \
     ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
-    python-setuptools \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

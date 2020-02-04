@@ -23,9 +23,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     diagnostic-msgs \
     python-qt-binding \
-    python-rospkg \
     qt-gui \
     qt-gui-py-common \
     rospy \
@@ -38,9 +38,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-rospkg \
     diagnostic-msgs \
     python-qt-binding \
-    python-rospkg \
     qt-gui \
     qt-gui-py-common \
     rospy \

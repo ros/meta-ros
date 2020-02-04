@@ -17,7 +17,7 @@ ROS_CN = "rocon_tools"
 ROS_BPN = "rocon_python_comms"
 
 ROS_BUILD_DEPENDS = " \
-    python-catkin-pkg \
+    ${PYTHON_PN}-catkin-pkg \
     rostest \
 "
 
@@ -26,8 +26,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-pyyaml \
     genpy \
-    python-pyyaml \
     rocon-console \
     rocon-service-pair-msgs \
     rosgraph \
@@ -43,8 +43,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pyyaml \
     genpy \
-    python-pyyaml \
     rocon-console \
     rocon-service-pair-msgs \
     rosgraph \

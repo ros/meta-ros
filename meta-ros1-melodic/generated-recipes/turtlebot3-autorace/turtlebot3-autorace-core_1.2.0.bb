@@ -27,8 +27,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    python-enum34 \
-    python-numpy \
+    ${PYTHON_PN}-enum34 \
+    ${PYTHON_PN}-numpy \
     roslaunch \
     rospy \
     std-msgs \
