@@ -93,6 +93,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging-native = "python3-packaging-native
 ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv = "python3-virtualenv"
 ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv-native = "python3-virtualenv-native"
 
+# used by generated-recipes/navigation2/nav2-util_0.3.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options = "boost"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
