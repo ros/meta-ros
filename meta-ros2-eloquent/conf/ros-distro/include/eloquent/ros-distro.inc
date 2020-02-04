@@ -75,6 +75,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0 = "libusb1"
 # Used by generated-recipes/spatio-temporal-voxel-layer/spatio-temporal-voxel-layer_2.1.2-2.bb
 ROS_UNRESOLVED_PLATFORM_PKG_tbb = "tbb"
 
+# Used by generated-recipes/navigation2/nav2-map-server_0.3.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick = "graphicsmagick"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
