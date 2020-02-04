@@ -1,0 +1,26 @@
+From 5decccd779ddfe2570dd9eb2302c2c0b3389985c Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 4 Feb 2020 08:58:20 -0800
+Subject: [PATCH] CMakeLists: update libusb, libftdi pkg-config names to match
+ what OE provides
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5004f97..48089e8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -4,8 +4,8 @@ find_package(catkin REQUIRED COMPONENTS ecl_command_line)
+ 
+ # pkg-config packages
+ find_package(PkgConfig)
+-pkg_search_module(libusb REQUIRED libusb)
+-pkg_search_module(libftdi REQUIRED libftdi)
++pkg_search_module(libusb REQUIRED libusb-1.0)
++pkg_search_module(libftdi REQUIRED libftdi1)
+ 
+ catkin_package(
+    INCLUDE_DIRS include
