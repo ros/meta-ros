@@ -17,6 +17,7 @@ ROS_CN = "cartographer"
 ROS_BPN = "cartographer"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-sphinx \
     boost \
     cairo \
     ceres-solver \
@@ -26,7 +27,6 @@ ROS_BUILD_DEPENDS = " \
     libeigen \
     lua \
     protobuf \
-    python-sphinx \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
