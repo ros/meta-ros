@@ -43,6 +43,10 @@ RDEPENDS_${PN}_remove = "launch-testing-ament-cmake"
 RDEPENDS_${PN}_remove = "launch-testing-ros"
 RDEPENDS_${PN}_remove = "ros-testing"
 
+# Depends on python3-docker which is available in meta-virtualization, but we don't want to add the
+# dependency on this layer to meta-ros yet
+RDEPENDS_${PN}_remove = "cross-compile"
+
 # sophus package is empty, so not created, crystal and melodic have bbappend to create empty package
 # but that is quite useless, either we should fix the packaging to have something useful in PN
 # or not to install completely empty package like here
