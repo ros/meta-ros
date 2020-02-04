@@ -5,36 +5,39 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper interface for tracing libraries"
-AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-ROS_AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
+DESCRIPTION = "fmt is an open-source formatting library for C++. 		It can be used as a safe and fast alternative to (s)printf and IOStreams."
+AUTHOR = "Max Schwarz <max.schwarz@ais.uni-bonn.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "APLv2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=7b404913b4819f2321770961dc72a54f"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=75730354549103aaba72b66caf53717b"
 
-ROS_CN = "tracetools"
-ROS_BPN = "tracetools"
+ROS_CN = "rosfmt"
+ROS_BPN = "rosfmt"
 
 ROS_BUILD_DEPENDS = " \
-    boost \
+    rosconsole \
+    roscpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    pkgconfig-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    rosconsole \
+    roscpp \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    rosconsole \
+    roscpp \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    rosbash \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -43,10 +46,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/ros1-tracetools-release/archive/release/melodic/tracetools/0.2.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/tracetools"
-SRC_URI = "git://github.com/boschresearch/ros1-tracetools-release;${ROS_BRANCH};protocol=https"
-SRCREV = "043770f3add566077c39d251ce7ab98b5ba2966b"
+# matches with: https://github.com/xqms/rosfmt-release/archive/release/melodic/rosfmt/6.2.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/rosfmt"
+SRC_URI = "git://github.com/xqms/rosfmt-release;${ROS_BRANCH};protocol=https"
+SRCREV = "eaf759693f58f0d296b9e4ccf5cde570a4f390ed"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

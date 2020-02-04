@@ -5,36 +5,32 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper interface for tracing libraries"
-AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-ROS_AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
+DESCRIPTION = "The blender_gazebo package"
+AUTHOR = "Dave Niewinski <david_0429@hotmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "APLv2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=7b404913b4819f2321770961dc72a54f"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "tracetools"
-ROS_BPN = "tracetools"
+ROS_CN = "blender_gazebo"
+ROS_BPN = "blender_gazebo"
 
-ROS_BUILD_DEPENDS = " \
-    boost \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    pkgconfig-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    gazebo-ros \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    rosbash \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -43,10 +39,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/ros1-tracetools-release/archive/release/melodic/tracetools/0.2.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/tracetools"
-SRC_URI = "git://github.com/boschresearch/ros1-tracetools-release;${ROS_BRANCH};protocol=https"
-SRCREV = "043770f3add566077c39d251ce7ab98b5ba2966b"
+# matches with: https://github.com/david0429-gbp/blender_gazebo_gbp/archive/release/melodic/blender_gazebo/0.0.4-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/blender_gazebo"
+SRC_URI = "git://github.com/david0429-gbp/blender_gazebo_gbp;${ROS_BRANCH};protocol=https"
+SRCREV = "864c51ec584c344187a4e82a2c3b4e0c1556bc10"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
