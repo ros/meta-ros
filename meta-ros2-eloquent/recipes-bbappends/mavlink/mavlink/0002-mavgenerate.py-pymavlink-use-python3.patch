@@ -1,0 +1,822 @@
+From e567c449c1cdb94a8b8997557116a7b5132fd8ac Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 4 Feb 2020 22:44:56 +0000
+Subject: [PATCH 2/2] mavgenerate.py, pymavlink: use python3
+
+* mavgenerate.py needs future module which we will add only for
+  python3native + python3-future-native, so we need it to use
+  python3 explicitly (instead of using host's python(2) from
+  HOSTTOOLS)
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ mavgenerate.py                                  | 2 +-
+ pymavlink/DFReader.py                           | 2 +-
+ pymavlink/examples/apmsetrate.py                | 2 +-
+ pymavlink/examples/bwtest.py                    | 2 +-
+ pymavlink/examples/magtest.py                   | 2 +-
+ pymavlink/examples/mav2pcap.py                  | 2 +-
+ pymavlink/examples/mav_accel.py                 | 2 +-
+ pymavlink/examples/mavtcpsniff.py               | 2 +-
+ pymavlink/examples/mavtest.py                   | 2 +-
+ pymavlink/examples/mavtester.py                 | 2 +-
+ pymavlink/examples/wptogpx.py                   | 2 +-
+ pymavlink/fgFDM.py                              | 2 +-
+ pymavlink/generator/C/test/posix/sha256_test.py | 2 +-
+ pymavlink/generator/mavgen.py                   | 2 +-
+ pymavlink/generator/mavgen_c.py                 | 2 +-
+ pymavlink/generator/mavgen_cpp11.py             | 2 +-
+ pymavlink/generator/mavgen_cs.py                | 2 +-
+ pymavlink/generator/mavgen_java.py              | 2 +-
+ pymavlink/generator/mavgen_javascript.py        | 2 +-
+ pymavlink/generator/mavgen_objc.py              | 2 +-
+ pymavlink/generator/mavgen_python.py            | 2 +-
+ pymavlink/generator/mavgen_swift.py             | 2 +-
+ pymavlink/generator/mavgen_typescript.py        | 2 +-
+ pymavlink/generator/mavgen_wlua.py              | 2 +-
+ pymavlink/generator/mavparse.py                 | 2 +-
+ pymavlink/generator/mavtemplate.py              | 2 +-
+ pymavlink/generator/mavtestgen.py               | 2 +-
+ pymavlink/mavexpression.py                      | 2 +-
+ pymavlink/mavextra.py                           | 2 +-
+ pymavlink/mavutil.py                            | 2 +-
+ pymavlink/quaternion.py                         | 2 +-
+ pymavlink/rotmat.py                             | 2 +-
+ pymavlink/tests/test_mavlogdump.py              | 2 +-
+ pymavlink/tests/test_quaternion.py              | 2 +-
+ pymavlink/tests/test_rotmat.py                  | 2 +-
+ pymavlink/tools/AccelSearch.py                  | 2 +-
+ pymavlink/tools/MPU6KSearch.py                  | 2 +-
+ pymavlink/tools/find_aliasing.py                | 2 +-
+ pymavlink/tools/isb_extract.py                  | 2 +-
+ pymavlink/tools/magfit.py                       | 2 +-
+ pymavlink/tools/magfit_WMM.py                   | 2 +-
+ pymavlink/tools/magfit_compassmot.py            | 2 +-
+ pymavlink/tools/magfit_delta.py                 | 2 +-
+ pymavlink/tools/magfit_elliptical.py            | 2 +-
+ pymavlink/tools/magfit_gps.py                   | 2 +-
+ pymavlink/tools/magfit_motors.py                | 2 +-
+ pymavlink/tools/magfit_rotation_gps.py          | 2 +-
+ pymavlink/tools/magfit_rotation_gyro.py         | 2 +-
+ pymavlink/tools/mavextract.py                   | 2 +-
+ pymavlink/tools/mavfft.py                       | 2 +-
+ pymavlink/tools/mavfft_int.py                   | 2 +-
+ pymavlink/tools/mavfft_isb.py                   | 2 +-
+ pymavlink/tools/mavflightmodes.py               | 2 +-
+ pymavlink/tools/mavflighttime.py                | 2 +-
+ pymavlink/tools/mavgen.py                       | 2 +-
+ pymavlink/tools/mavgpslag.py                    | 2 +-
+ pymavlink/tools/mavgpslock.py                   | 2 +-
+ pymavlink/tools/mavgraph.py                     | 2 +-
+ pymavlink/tools/mavlink_bitmask_decoder.py      | 2 +-
+ pymavlink/tools/mavlogdump.py                   | 2 +-
+ pymavlink/tools/mavloss.py                      | 2 +-
+ pymavlink/tools/mavmission.py                   | 2 +-
+ pymavlink/tools/mavparmdiff.py                  | 2 +-
+ pymavlink/tools/mavparms.py                     | 2 +-
+ pymavlink/tools/mavplayback.py                  | 2 +-
+ pymavlink/tools/mavsearch.py                    | 2 +-
+ pymavlink/tools/mavsigloss.py                   | 2 +-
+ pymavlink/tools/mavsummarize.py                 | 2 +-
+ pymavlink/tools/mavtogpx.py                     | 2 +-
+ pymavlink/tools/mavtomfile.py                   | 2 +-
+ pymavlink/tools/python_array_test_recv.py       | 2 +-
+ pymavlink/tools/python_array_test_send.py       | 2 +-
+ pymavlink/tools/sertotcp.py                     | 2 +-
+ 73 files changed, 73 insertions(+), 73 deletions(-)
+
+diff --git a/mavgenerate.py b/mavgenerate.py
+index bd3b1cac..9d677329 100755
+--- a/mavgenerate.py
++++ b/mavgenerate.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ """\
+ mavgenerate.py is a GUI front-end for mavgen, a python based MAVLink
+ header generation tool.
+diff --git a/pymavlink/DFReader.py b/pymavlink/DFReader.py
+index b6e237cd..d80cf658 100644
+--- a/pymavlink/DFReader.py
++++ b/pymavlink/DFReader.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ APM DataFlash log file reader
+ 
+diff --git a/pymavlink/examples/apmsetrate.py b/pymavlink/examples/apmsetrate.py
+index 51a9237d..b9f5e5cc 100755
+--- a/pymavlink/examples/apmsetrate.py
++++ b/pymavlink/examples/apmsetrate.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ set stream rate on an APM
+diff --git a/pymavlink/examples/bwtest.py b/pymavlink/examples/bwtest.py
+index d8e4cc78..899c3794 100755
+--- a/pymavlink/examples/bwtest.py
++++ b/pymavlink/examples/bwtest.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ check bandwidth of link
+diff --git a/pymavlink/examples/magtest.py b/pymavlink/examples/magtest.py
+index c2582fa1..2160520d 100755
+--- a/pymavlink/examples/magtest.py
++++ b/pymavlink/examples/magtest.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ rotate APMs on bench to test magnetometers
+diff --git a/pymavlink/examples/mav2pcap.py b/pymavlink/examples/mav2pcap.py
+index 5ee4b9f5..dbc7dab6 100755
+--- a/pymavlink/examples/mav2pcap.py
++++ b/pymavlink/examples/mav2pcap.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ # Copyright 2012, Holger Steinhaus
+ # Released under the GNU GPL version 3 or later
+diff --git a/pymavlink/examples/mav_accel.py b/pymavlink/examples/mav_accel.py
+index 999f2f3f..2b50f8c6 100755
+--- a/pymavlink/examples/mav_accel.py
++++ b/pymavlink/examples/mav_accel.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ show accel calibration for a set of logs
+diff --git a/pymavlink/examples/mavtcpsniff.py b/pymavlink/examples/mavtcpsniff.py
+index 8de7ecca..a349ec4a 100755
+--- a/pymavlink/examples/mavtcpsniff.py
++++ b/pymavlink/examples/mavtcpsniff.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ connect as a client to two tcpip ports on localhost with mavlink packets.    pass them both directions, and show packets in human-readable format on-screen.
+diff --git a/pymavlink/examples/mavtest.py b/pymavlink/examples/mavtest.py
+index 908a5c04..af61306b 100755
+--- a/pymavlink/examples/mavtest.py
++++ b/pymavlink/examples/mavtest.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ """
+ Generate a message using different MAVLink versions, put in a buffer and then read from it.
+diff --git a/pymavlink/examples/mavtester.py b/pymavlink/examples/mavtester.py
+index 706ef455..a8e0594f 100755
+--- a/pymavlink/examples/mavtester.py
++++ b/pymavlink/examples/mavtester.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ test mavlink messages
+diff --git a/pymavlink/examples/wptogpx.py b/pymavlink/examples/wptogpx.py
+index d9da4419..6baebef6 100755
+--- a/pymavlink/examples/wptogpx.py
++++ b/pymavlink/examples/wptogpx.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ example program to extract GPS data from a waypoint file, and create a GPX
+diff --git a/pymavlink/fgFDM.py b/pymavlink/fgFDM.py
+index 39c6cd58..6af9bae9 100644
+--- a/pymavlink/fgFDM.py
++++ b/pymavlink/fgFDM.py
+@@ -1,5 +1,5 @@
+ 
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ # parse and construct FlightGear NET FDM packets
+ # Andrew Tridgell, November 2011
+ # released under GNU GPL version 2 or later
+diff --git a/pymavlink/generator/C/test/posix/sha256_test.py b/pymavlink/generator/C/test/posix/sha256_test.py
+index be9b4cd0..cc94a009 100755
+--- a/pymavlink/generator/C/test/posix/sha256_test.py
++++ b/pymavlink/generator/C/test/posix/sha256_test.py
+@@ -1,5 +1,5 @@
+ from builtins import range
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ import hashlib, sys
+ 
+diff --git a/pymavlink/generator/mavgen.py b/pymavlink/generator/mavgen.py
+index 52a58bfa..06546054 100755
+--- a/pymavlink/generator/mavgen.py
++++ b/pymavlink/generator/mavgen.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ parse a MAVLink protocol XML file and generate a python implementation
+diff --git a/pymavlink/generator/mavgen_c.py b/pymavlink/generator/mavgen_c.py
+index 2869f22a..cd8def43 100644
+--- a/pymavlink/generator/mavgen_c.py
++++ b/pymavlink/generator/mavgen_c.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ parse a MAVLink protocol XML file and generate a C implementation
+ 
+diff --git a/pymavlink/generator/mavgen_cpp11.py b/pymavlink/generator/mavgen_cpp11.py
+index 93baa07a..ab2e71e3 100644
+--- a/pymavlink/generator/mavgen_cpp11.py
++++ b/pymavlink/generator/mavgen_cpp11.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ parse a MAVLink protocol XML file and generate a C++ implementation
+ 
+diff --git a/pymavlink/generator/mavgen_cs.py b/pymavlink/generator/mavgen_cs.py
+index b2164dd4..ed8d05e9 100644
+--- a/pymavlink/generator/mavgen_cs.py
++++ b/pymavlink/generator/mavgen_cs.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ parse a MAVLink protocol XML file and generate a CSharp implementation
+ 
+diff --git a/pymavlink/generator/mavgen_java.py b/pymavlink/generator/mavgen_java.py
+index 34778ce0..414ba0f9 100644
+--- a/pymavlink/generator/mavgen_java.py
++++ b/pymavlink/generator/mavgen_java.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+     Parse a MAVLink protocol XML file and generate a Java implementation
+     
+diff --git a/pymavlink/generator/mavgen_javascript.py b/pymavlink/generator/mavgen_javascript.py
+index a5935a8b..a97ba091 100644
+--- a/pymavlink/generator/mavgen_javascript.py
++++ b/pymavlink/generator/mavgen_javascript.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ parse a MAVLink protocol XML file and generate a Node.js javascript module implementation
+ 
+diff --git a/pymavlink/generator/mavgen_objc.py b/pymavlink/generator/mavgen_objc.py
+index d3fe3cc4..86a1022d 100644
+--- a/pymavlink/generator/mavgen_objc.py
++++ b/pymavlink/generator/mavgen_objc.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ parse a MAVLink protocol XML file and generate an Objective-C implementation
+ 
+diff --git a/pymavlink/generator/mavgen_python.py b/pymavlink/generator/mavgen_python.py
+index ac91e96c..b87b1cfb 100644
+--- a/pymavlink/generator/mavgen_python.py
++++ b/pymavlink/generator/mavgen_python.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ parse a MAVLink protocol XML file and generate a python implementation
+ 
+diff --git a/pymavlink/generator/mavgen_swift.py b/pymavlink/generator/mavgen_swift.py
+index b3bf4481..9c0e3af5 100644
+--- a/pymavlink/generator/mavgen_swift.py
++++ b/pymavlink/generator/mavgen_swift.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ """
+ Parse a MAVLink protocol XML file and generate Swift implementation
+ 
+diff --git a/pymavlink/generator/mavgen_typescript.py b/pymavlink/generator/mavgen_typescript.py
+index 371c40df..9b453bee 100644
+--- a/pymavlink/generator/mavgen_typescript.py
++++ b/pymavlink/generator/mavgen_typescript.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ """
+ parse a MAVLink protocol XML file and generate a Node.js typescript module implementation
+ 
+diff --git a/pymavlink/generator/mavgen_wlua.py b/pymavlink/generator/mavgen_wlua.py
+index 794268b1..50f70fa5 100644
+--- a/pymavlink/generator/mavgen_wlua.py
++++ b/pymavlink/generator/mavgen_wlua.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ parse a MAVLink protocol XML file and generate a Wireshark LUA dissector
+ 
+diff --git a/pymavlink/generator/mavparse.py b/pymavlink/generator/mavparse.py
+index 85ddaf5e..afbe4299 100644
+--- a/pymavlink/generator/mavparse.py
++++ b/pymavlink/generator/mavparse.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ mavlink python parse functions
+ 
+diff --git a/pymavlink/generator/mavtemplate.py b/pymavlink/generator/mavtemplate.py
+index db3056c6..2847a2b5 100644
+--- a/pymavlink/generator/mavtemplate.py
++++ b/pymavlink/generator/mavtemplate.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ simple templating system for mavlink generator
+ 
+diff --git a/pymavlink/generator/mavtestgen.py b/pymavlink/generator/mavtestgen.py
+index 6876e654..f8757cf3 100755
+--- a/pymavlink/generator/mavtestgen.py
++++ b/pymavlink/generator/mavtestgen.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ generate a MAVLink test suite
+ 
+diff --git a/pymavlink/mavexpression.py b/pymavlink/mavexpression.py
+index eec7008d..163e07f8 100644
+--- a/pymavlink/mavexpression.py
++++ b/pymavlink/mavexpression.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ mavlink expression evaluation functions
+ 
+diff --git a/pymavlink/mavextra.py b/pymavlink/mavextra.py
+index b438e8c2..410a1e21 100644
+--- a/pymavlink/mavextra.py
++++ b/pymavlink/mavextra.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ useful extra functions for use by mavlink clients
+ 
+diff --git a/pymavlink/mavutil.py b/pymavlink/mavutil.py
+index 37fe98c2..d36efa43 100644
+--- a/pymavlink/mavutil.py
++++ b/pymavlink/mavutil.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ mavlink python utility functions
+ 
+diff --git a/pymavlink/quaternion.py b/pymavlink/quaternion.py
+index dfe22fc3..f2002336 100644
+--- a/pymavlink/quaternion.py
++++ b/pymavlink/quaternion.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ 
+ """
+diff --git a/pymavlink/rotmat.py b/pymavlink/rotmat.py
+index 2e3637fe..605ac22c 100755
+--- a/pymavlink/rotmat.py
++++ b/pymavlink/rotmat.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ #
+ # vector3 and rotation matrix classes
+ # This follows the conventions in the ArduPilot code,
+diff --git a/pymavlink/tests/test_mavlogdump.py b/pymavlink/tests/test_mavlogdump.py
+index 368a4ffb..204bb23d 100755
+--- a/pymavlink/tests/test_mavlogdump.py
++++ b/pymavlink/tests/test_mavlogdump.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ 
+ """
+diff --git a/pymavlink/tests/test_quaternion.py b/pymavlink/tests/test_quaternion.py
+index 27eaa906..1587e63f 100755
+--- a/pymavlink/tests/test_quaternion.py
++++ b/pymavlink/tests/test_quaternion.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ 
+ """
+diff --git a/pymavlink/tests/test_rotmat.py b/pymavlink/tests/test_rotmat.py
+index 6551ce4c..70aa82c0 100755
+--- a/pymavlink/tests/test_rotmat.py
++++ b/pymavlink/tests/test_rotmat.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ 
+ """
+diff --git a/pymavlink/tools/AccelSearch.py b/pymavlink/tools/AccelSearch.py
+index 0b6d007a..56e17024 100755
+--- a/pymavlink/tools/AccelSearch.py
++++ b/pymavlink/tools/AccelSearch.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ search a set of log files for bad accel values
+diff --git a/pymavlink/tools/MPU6KSearch.py b/pymavlink/tools/MPU6KSearch.py
+index 0f2e2efd..a8c6c0f1 100755
+--- a/pymavlink/tools/MPU6KSearch.py
++++ b/pymavlink/tools/MPU6KSearch.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ search a set of log files for signs of inconsistent IMU data
+diff --git a/pymavlink/tools/find_aliasing.py b/pymavlink/tools/find_aliasing.py
+index 09f6ad68..ad6ef8db 100755
+--- a/pymavlink/tools/find_aliasing.py
++++ b/pymavlink/tools/find_aliasing.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ find signs of aliasing on IMU3
+ '''
+diff --git a/pymavlink/tools/isb_extract.py b/pymavlink/tools/isb_extract.py
+index 8b1bc4b2..3f412d6e 100644
+--- a/pymavlink/tools/isb_extract.py
++++ b/pymavlink/tools/isb_extract.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ extract ISBH and ISBD messages from AP_Logging files into a csv file
+diff --git a/pymavlink/tools/magfit.py b/pymavlink/tools/magfit.py
+index 98e45053..5b4dd1ef 100755
+--- a/pymavlink/tools/magfit.py
++++ b/pymavlink/tools/magfit.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ fit best estimate of magnetometer offsets
+diff --git a/pymavlink/tools/magfit_WMM.py b/pymavlink/tools/magfit_WMM.py
+index c57baabe..12e1acfd 100755
+--- a/pymavlink/tools/magfit_WMM.py
++++ b/pymavlink/tools/magfit_WMM.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ fit best estimate of magnetometer offsets, diagonals, off-diagonals, cmot and scaling using WMM target
+diff --git a/pymavlink/tools/magfit_compassmot.py b/pymavlink/tools/magfit_compassmot.py
+index a2a66b1f..6ed36e3b 100755
+--- a/pymavlink/tools/magfit_compassmot.py
++++ b/pymavlink/tools/magfit_compassmot.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ estimate COMPASS_MOT_* parameters for throttle based compensation
+diff --git a/pymavlink/tools/magfit_delta.py b/pymavlink/tools/magfit_delta.py
+index 549af01a..f6b0a4e9 100755
+--- a/pymavlink/tools/magfit_delta.py
++++ b/pymavlink/tools/magfit_delta.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ fit best estimate of magnetometer offsets using the algorithm from
+diff --git a/pymavlink/tools/magfit_elliptical.py b/pymavlink/tools/magfit_elliptical.py
+index 17ee2469..cc92e62c 100755
+--- a/pymavlink/tools/magfit_elliptical.py
++++ b/pymavlink/tools/magfit_elliptical.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ fit best estimate of magnetometer offsets
+diff --git a/pymavlink/tools/magfit_gps.py b/pymavlink/tools/magfit_gps.py
+index dbb5d68f..3c69bc0b 100755
+--- a/pymavlink/tools/magfit_gps.py
++++ b/pymavlink/tools/magfit_gps.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ fit best estimate of magnetometer offsets
+diff --git a/pymavlink/tools/magfit_motors.py b/pymavlink/tools/magfit_motors.py
+index 35d45ae5..6996c241 100755
+--- a/pymavlink/tools/magfit_motors.py
++++ b/pymavlink/tools/magfit_motors.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ fit best estimate of magnetometer offsets, trying to take into account motor interference
+diff --git a/pymavlink/tools/magfit_rotation_gps.py b/pymavlink/tools/magfit_rotation_gps.py
+index 815fd4fd..3220f739 100755
+--- a/pymavlink/tools/magfit_rotation_gps.py
++++ b/pymavlink/tools/magfit_rotation_gps.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ fit best estimate of magnetometer rotation to GPS data
+diff --git a/pymavlink/tools/magfit_rotation_gyro.py b/pymavlink/tools/magfit_rotation_gyro.py
+index 77fa3ea9..77226005 100755
+--- a/pymavlink/tools/magfit_rotation_gyro.py
++++ b/pymavlink/tools/magfit_rotation_gyro.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ fit best estimate of magnetometer rotation to gyro data
+diff --git a/pymavlink/tools/mavextract.py b/pymavlink/tools/mavextract.py
+index 59ea98d4..5105c320 100755
+--- a/pymavlink/tools/mavextract.py
++++ b/pymavlink/tools/mavextract.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ extract one mode type from a log
+diff --git a/pymavlink/tools/mavfft.py b/pymavlink/tools/mavfft.py
+index 05e21b8f..00a3e965 100755
+--- a/pymavlink/tools/mavfft.py
++++ b/pymavlink/tools/mavfft.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ fit best estimate of magnetometer offsets
+diff --git a/pymavlink/tools/mavfft_int.py b/pymavlink/tools/mavfft_int.py
+index 75619fb9..888c9f37 100755
+--- a/pymavlink/tools/mavfft_int.py
++++ b/pymavlink/tools/mavfft_int.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ interactively select accel and gyro data for FFT analysis
+diff --git a/pymavlink/tools/mavfft_isb.py b/pymavlink/tools/mavfft_isb.py
+index 8dc8aa17..76c334b0 100755
+--- a/pymavlink/tools/mavfft_isb.py
++++ b/pymavlink/tools/mavfft_isb.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ extract ISBH and ISBD messages from AP_Logging files and produce FFT plots
+diff --git a/pymavlink/tools/mavflightmodes.py b/pymavlink/tools/mavflightmodes.py
+index 9177dc10..1746d22f 100755
+--- a/pymavlink/tools/mavflightmodes.py
++++ b/pymavlink/tools/mavflightmodes.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ show changes in flight modes
+diff --git a/pymavlink/tools/mavflighttime.py b/pymavlink/tools/mavflighttime.py
+index bdc6e4c6..cf9a2c1e 100755
+--- a/pymavlink/tools/mavflighttime.py
++++ b/pymavlink/tools/mavflighttime.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ work out total flight time for a mavlink log
+diff --git a/pymavlink/tools/mavgen.py b/pymavlink/tools/mavgen.py
+index 672e9740..836ff7ab 100755
+--- a/pymavlink/tools/mavgen.py
++++ b/pymavlink/tools/mavgen.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ parse a MAVLink protocol XML file and generate a python implementation
+diff --git a/pymavlink/tools/mavgpslag.py b/pymavlink/tools/mavgpslag.py
+index a0fe4f99..7be55ef4 100755
+--- a/pymavlink/tools/mavgpslag.py
++++ b/pymavlink/tools/mavgpslag.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ calculate GPS lag from DF log
+diff --git a/pymavlink/tools/mavgpslock.py b/pymavlink/tools/mavgpslock.py
+index 7bdd0674..c63c6432 100755
+--- a/pymavlink/tools/mavgpslock.py
++++ b/pymavlink/tools/mavgpslock.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ show GPS lock events in a MAVLink log
+diff --git a/pymavlink/tools/mavgraph.py b/pymavlink/tools/mavgraph.py
+index 7b8cb530..3b4a2edc 100755
+--- a/pymavlink/tools/mavgraph.py
++++ b/pymavlink/tools/mavgraph.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ graph a MAVLink log file
+ Andrew Tridgell August 2011
+diff --git a/pymavlink/tools/mavlink_bitmask_decoder.py b/pymavlink/tools/mavlink_bitmask_decoder.py
+index 9e3d6783..f7ac4a86 100755
+--- a/pymavlink/tools/mavlink_bitmask_decoder.py
++++ b/pymavlink/tools/mavlink_bitmask_decoder.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ from __future__ import print_function
+ 
+diff --git a/pymavlink/tools/mavlogdump.py b/pymavlink/tools/mavlogdump.py
+index 67188b4e..8905c40a 100755
+--- a/pymavlink/tools/mavlogdump.py
++++ b/pymavlink/tools/mavlogdump.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ example program that dumps a Mavlink log file. The log file is
+diff --git a/pymavlink/tools/mavloss.py b/pymavlink/tools/mavloss.py
+index eec6c9e9..f13337e1 100755
+--- a/pymavlink/tools/mavloss.py
++++ b/pymavlink/tools/mavloss.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ show MAVLink packet loss
+diff --git a/pymavlink/tools/mavmission.py b/pymavlink/tools/mavmission.py
+index 1c3f2e16..a3d62576 100755
+--- a/pymavlink/tools/mavmission.py
++++ b/pymavlink/tools/mavmission.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ extract mavlink mission from log
+diff --git a/pymavlink/tools/mavparmdiff.py b/pymavlink/tools/mavparmdiff.py
+index 670ddbf8..31f23b72 100755
+--- a/pymavlink/tools/mavparmdiff.py
++++ b/pymavlink/tools/mavparmdiff.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ compare two MAVLink parameter files
+ '''
+diff --git a/pymavlink/tools/mavparms.py b/pymavlink/tools/mavparms.py
+index 3846abee..43231b52 100755
+--- a/pymavlink/tools/mavparms.py
++++ b/pymavlink/tools/mavparms.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ extract mavlink parameter values
+diff --git a/pymavlink/tools/mavplayback.py b/pymavlink/tools/mavplayback.py
+index e3fb390c..b5e541c2 100755
+--- a/pymavlink/tools/mavplayback.py
++++ b/pymavlink/tools/mavplayback.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ play back a mavlink log as a FlightGear FG NET stream, and as a
+diff --git a/pymavlink/tools/mavsearch.py b/pymavlink/tools/mavsearch.py
+index 5d3c4b77..6e640b13 100755
+--- a/pymavlink/tools/mavsearch.py
++++ b/pymavlink/tools/mavsearch.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ search a set of log files for a condition
+diff --git a/pymavlink/tools/mavsigloss.py b/pymavlink/tools/mavsigloss.py
+index f9c5752f..2df95cd9 100755
+--- a/pymavlink/tools/mavsigloss.py
++++ b/pymavlink/tools/mavsigloss.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ show times when signal is lost
+diff --git a/pymavlink/tools/mavsummarize.py b/pymavlink/tools/mavsummarize.py
+index 8755df2a..821e7569 100644
+--- a/pymavlink/tools/mavsummarize.py
++++ b/pymavlink/tools/mavsummarize.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ Summarize MAVLink logs. Useful for identifying which log is of interest in a large set.
+diff --git a/pymavlink/tools/mavtogpx.py b/pymavlink/tools/mavtogpx.py
+index 3cb23a62..8fa350b5 100755
+--- a/pymavlink/tools/mavtogpx.py
++++ b/pymavlink/tools/mavtogpx.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ example program to extract GPS data from a mavlink log, and create a GPX
+diff --git a/pymavlink/tools/mavtomfile.py b/pymavlink/tools/mavtomfile.py
+index babce4d4..19a388aa 100755
+--- a/pymavlink/tools/mavtomfile.py
++++ b/pymavlink/tools/mavtomfile.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ convert a MAVLink tlog file to a MATLab mfile
+diff --git a/pymavlink/tools/python_array_test_recv.py b/pymavlink/tools/python_array_test_recv.py
+index 7eac7155..62f1d648 100644
+--- a/pymavlink/tools/python_array_test_recv.py
++++ b/pymavlink/tools/python_array_test_recv.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ 
+ from __future__ import print_function
+diff --git a/pymavlink/tools/python_array_test_send.py b/pymavlink/tools/python_array_test_send.py
+index d9e38063..2480e134 100644
+--- a/pymavlink/tools/python_array_test_send.py
++++ b/pymavlink/tools/python_array_test_send.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ 
+ import time
+diff --git a/pymavlink/tools/sertotcp.py b/pymavlink/tools/sertotcp.py
+index 8603c35b..cd590e84 100755
+--- a/pymavlink/tools/sertotcp.py
++++ b/pymavlink/tools/sertotcp.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ """
+ map a serial port to an outgoing TCP connection
+-- 
+2.17.1
+
