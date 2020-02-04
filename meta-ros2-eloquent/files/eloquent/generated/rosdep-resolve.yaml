@@ -122,13 +122,13 @@ pyflakes3:
 pyqt5-dev-tools:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools}
 python-catkin-pkg:
-- python-catkin-pkg@meta-ros
+- ${PYTHON_PN}-catkin-pkg@meta-ros
 python-numpy:
-- python-numpy@openembedded-core
+- ${PYTHON_PN}-numpy@openembedded-core
 python-pyproj:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj}
 python-sphinx:
-- python-sphinx@meta-ros
+- ${PYTHON_PN}-sphinx@meta-ros
 python-tk:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk}
 python3-catkin-pkg-modules:
