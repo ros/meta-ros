@@ -39,6 +39,9 @@ RDEPENDS_${PN}_remove = "odom-frame-publisher"
 # Fetches depot_tools during do_configure and then tries to use vpython which isn't in dependencies
 RDEPENDS_${PN}_remove = "webrtc"
 
+# Not compatible with newer libftdi included in meta-oe: https://github.com/kobuki-base/kobuki_ftdi/issues/3
+RDEPENDS_${PN}_remove = "kobuki-ftdi"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
