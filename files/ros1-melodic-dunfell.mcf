@@ -55,10 +55,10 @@ Layers = [
 
 ('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': 'a18d8beb0d'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '463f9a3ef0'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '3eaed6f989'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': 'master', 'commit': '27ce1ab'}, {}),
+('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': 'master', 'commit': 'd5c1bc6'}, {}),
 
 ('meta-ros-common',           37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
 ('meta-ros1',                 38, MetaRos_RepoURL,                                          {}, {}),
