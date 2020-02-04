@@ -5,35 +5,43 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper interface for tracing libraries"
-AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-ROS_AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
+DESCRIPTION = "The psen_scan package for Pilz laser scanner"
+AUTHOR = "Alexander Gutenkunst <a.gutenkunst@pilz.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "APLv2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=7b404913b4819f2321770961dc72a54f"
+LICENSE = "LGPL-2"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
-ROS_CN = "tracetools"
-ROS_BPN = "tracetools"
+ROS_CN = "psen_scan"
+ROS_BPN = "psen_scan"
 
 ROS_BUILD_DEPENDS = " \
-    boost \
+    roscpp \
+    sensor-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    pkgconfig-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    roscpp \
+    sensor-msgs \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    roscpp \
+    rviz \
+    sensor-msgs \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    rosbash \
+    code-coverage \
+    rostest \
+    rosunit \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -43,10 +51,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/ros1-tracetools-release/archive/release/melodic/tracetools/0.2.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/tracetools"
-SRC_URI = "git://github.com/boschresearch/ros1-tracetools-release;${ROS_BRANCH};protocol=https"
-SRCREV = "043770f3add566077c39d251ce7ab98b5ba2966b"
+# matches with: https://github.com/PilzDE/psen_scan-release/archive/release/melodic/psen_scan/1.0.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/psen_scan"
+SRC_URI = "git://github.com/PilzDE/psen_scan-release;${ROS_BRANCH};protocol=https"
+SRCREV = "9539033a44d5ec827a64201be37ac0983c8138de"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

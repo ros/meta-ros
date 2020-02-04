@@ -5,36 +5,45 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper interface for tracing libraries"
-AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-ROS_AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
+DESCRIPTION = "This package contains the source code for testing and comparing trac_ik"
+AUTHOR = "Patrick Beeson <pbeeson@traclabs.com>"
+ROS_AUTHOR = "Patrick Beeson"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "APLv2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=7b404913b4819f2321770961dc72a54f"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "tracetools"
-ROS_BPN = "tracetools"
+ROS_CN = "trac_ik"
+ROS_BPN = "trac_ik_examples"
 
 ROS_BUILD_DEPENDS = " \
     boost \
+    orocos-kdl \
+    trac-ik-lib \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    pkgconfig-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    boost \
+    orocos-kdl \
+    trac-ik-lib \
+    xacro \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    boost \
+    orocos-kdl \
+    trac-ik-lib \
+    xacro \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    rosbash \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -43,10 +52,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/ros1-tracetools-release/archive/release/melodic/tracetools/0.2.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/tracetools"
-SRC_URI = "git://github.com/boschresearch/ros1-tracetools-release;${ROS_BRANCH};protocol=https"
-SRCREV = "043770f3add566077c39d251ce7ab98b5ba2966b"
+# matches with: https://github.com/traclabs/trac_ik-release/archive/release/melodic/trac_ik_examples/1.5.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/trac_ik_examples"
+SRC_URI = "git://github.com/traclabs/trac_ik-release;${ROS_BRANCH};protocol=https"
+SRCREV = "9dcef813b8dbe695632793bda1aa3599810eb9ca"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

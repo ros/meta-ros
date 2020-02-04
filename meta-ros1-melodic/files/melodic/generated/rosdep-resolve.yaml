@@ -57,6 +57,7 @@ cython:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_cython}
 daemontools:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_daemontools}
+dkms: []
 dnsmasq:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq}
 doxygen:
@@ -125,6 +126,8 @@ iproute2:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_iproute2}
 ipython:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_ipython}
+java:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_java}
 joystick:
 - joystick@meta-ros
 julius-voxforge:
@@ -165,6 +168,8 @@ libfcl-dev:
 - fcl@meta-ros
 libfftw3:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libfftw3}
+libflann-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libflann-dev}
 libfltk-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libfltk-dev}
 libfreenect-dev:
@@ -191,12 +196,16 @@ libgphoto-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgphoto-dev}
 libgps:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgps}
+libgsl:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgsl}
 libgstreamer-plugins-base1.0-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer-plugins-base1.0-dev}
 libgstreamer1.0-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer1.0-dev}
 libgts:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgts}
+libhdf5-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libhdf5-dev}
 libjpeg:
 - jpeg@openembedded-core
 libjsoncpp:
@@ -249,8 +258,6 @@ libpcl-all-dev:
 - pcl@meta-ros
 libpng-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev}
-libpng12-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libpng12-dev}
 libpoco-dev:
 - poco@meta-oe
 libpulse-dev:
@@ -317,6 +324,8 @@ libv4l-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev}
 libvlc-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev}
+libvtk:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk}
 libvtk-qt:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt}
 libx11-dev:
@@ -333,6 +342,8 @@ libxmu-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev}
 libzmq3-dev:
 - zeromq@meta-oe
+linux-headers-generic:
+- virtual/kernel@openembedded-core
 linux-kernel-headers:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_linux-kernel-headers}
 log4cplus:
@@ -363,6 +374,8 @@ npm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_npm}
 ntpdate:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_ntpdate}
+ocl-icd-opencl-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev}
 omniorb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb}
 opengl:
@@ -452,6 +465,8 @@ python-gdown-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-gdown-pip}
 python-gi:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-gi}
+python-gi-cairo:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-gi-cairo}
 python-gnupg:
 - ${PYTHON_PN}-gnupg@meta-ros
 python-gtk2:
@@ -609,8 +624,8 @@ sshpass:
 subversion:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_subversion}
 suitesparse:
-- suitesparse-cxsparse@meta-ros
 - suitesparse-cholmod@meta-ros
+- suitesparse-cxsparse@meta-ros
 swig:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_swig}
 sysstat:
@@ -625,6 +640,8 @@ tinyxml:
 - libtinyxml@meta-oe
 tinyxml2:
 - libtinyxml2@meta-oe
+udev:
+- udev@openembedded-core
 unzip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_unzip}
 usbutils:

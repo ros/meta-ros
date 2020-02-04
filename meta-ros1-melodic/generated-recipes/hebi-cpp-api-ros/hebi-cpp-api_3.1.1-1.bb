@@ -5,24 +5,24 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper interface for tracing libraries"
-AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-ROS_AUTHOR = "Ingo Luetkebohle <ingo.luetkebohle@de.bosch.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "A ROS package providing access to the HEBI C++ API."
+AUTHOR = "Chris Bollinger <chris@hebirobotics.com>"
+ROS_AUTHOR = "Chris Bollinger <chris@hebirobotics.com>"
+HOMEPAGE = "http://docs.hebi.us/tools.html#cpp-api"
 SECTION = "devel"
-LICENSE = "APLv2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=7b404913b4819f2321770961dc72a54f"
+LICENSE = "HEBI-C-Software-License-https-www.hebirobotics.com-softwarelicense-"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=8cc38e87392e4480a4870daca61af5fd"
 
-ROS_CN = "tracetools"
-ROS_BPN = "tracetools"
+ROS_CN = "hebi_cpp_api_ros"
+ROS_BPN = "hebi_cpp_api"
 
 ROS_BUILD_DEPENDS = " \
-    boost \
+    cmake-modules \
+    libeigen \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    pkgconfig-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
@@ -32,9 +32,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    rosbash \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -43,10 +41,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/ros1-tracetools-release/archive/release/melodic/tracetools/0.2.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/tracetools"
-SRC_URI = "git://github.com/boschresearch/ros1-tracetools-release;${ROS_BRANCH};protocol=https"
-SRCREV = "043770f3add566077c39d251ce7ab98b5ba2966b"
+# matches with: https://github.com/HebiRobotics/hebi_cpp_api_ros-release/archive/release/melodic/hebi_cpp_api/3.1.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/hebi_cpp_api"
+SRC_URI = "git://github.com/HebiRobotics/hebi_cpp_api_ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "6a5ce126bf45f499f71c70413890c40beb7705b6"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
