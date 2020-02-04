@@ -78,6 +78,11 @@ ROS_UNRESOLVED_PLATFORM_PKG_tbb = "tbb"
 # Used by generated-recipes/navigation2/nav2-map-server_0.3.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick = "graphicsmagick"
 
+# Used by generated-recipes/kobuki-ftdi/kobuki-ftdi_1.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev = "libusb1"
+ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev = "libftdi"
+ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "libftdi"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
