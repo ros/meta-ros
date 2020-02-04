@@ -305,12 +305,15 @@ ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools = "geographiclib-tools"
 # generated-recipes/webrtc-ros/webrtc_59.0.3.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev = "glib-2.0"
 
+# Used by:
+# generated-recipes/kobuki-core/kobuki-ftdi_0.7.8.bb
+ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "libftdi"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
 #ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev = "coinor-libipopt-dev"
 #ROS_UNRESOLVED_PLATFORM_PKG_cwiid-dev = "cwiid-dev"
-#ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "ftdi-eeprom"
 #ROS_UNRESOLVED_PLATFORM_PKG_gforth = "gforth"
 #ROS_UNRESOLVED_PLATFORM_PKG_gfortran = "gfortran"
 ROS_UNRESOLVED_PLATFORM_PKG_libasound2-dev = "alsa-lib"
