@@ -154,6 +154,19 @@ gunicorn:
   fedora: [python-gunicorn]
   gentoo: [www-servers/gunicorn]
   ubuntu: [gunicorn]
+gym-pip:
+  debian:
+    pip:
+      packages: [gym]
+  fedora:
+    pip:
+      packages: [gym]
+  osx:
+    pip:
+      packages: [gym]
+  ubuntu:
+    pip:
+      packages: [gym]
 imgaug-pip:
   debian:
     pip:
@@ -1438,6 +1451,23 @@ python-fastdtw-pip:
   ubuntu:
     pip:
       packages: [python-fastdtw]
+python-fcl-pip:
+  debian:
+    pip:
+      depends: [libfcl-dev]
+      packages: [python-fcl]
+  fedora:
+    pip:
+      depends: [libfcl-dev]
+      packages: [python-fcl]
+  osx:
+    pip:
+      depends: [libfcl-dev]
+      packages: [python-fcl]
+  ubuntu:
+    pip:
+      depends: [libfcl-dev]
+      packages: [python-fcl]
 python-fcn-pip:
   debian:
     pip:
@@ -2165,6 +2195,9 @@ python-kitchen:
     pip:
       packages: [kitchen]
   ubuntu: [python-kitchen]
+python-kml:
+  debian: [python-kml]
+  ubuntu: [python-kml]
 python-kombu:
   debian: [python-kombu]
   fedora: [python-kombu]
@@ -5151,6 +5184,15 @@ python3-dev:
   openembedded: [python3@openembedded-core]
   rhel: ['python%{python3_pkgversion}-devel']
   ubuntu: [python3-dev]
+python3-distutils:
+  debian:
+    '*': [python3-distutils]
+    stretch: null
+  fedora: [python3]
+  gentoo: [dev-lang/python]
+  ubuntu:
+    '*': [python3-distutils]
+    xenial: null
 python3-django:
   debian: [python3-django]
   fedora: [python3-django]
@@ -5236,10 +5278,22 @@ python3-ifcfg:
   rhel: ['python%{python3_pkgversion}-ifcfg']
   ubuntu:
     bionic: [python3-ifcfg]
+    focal: [python3-ifcfg]
 python3-imageio:
   debian: [python3-imageio]
   gentoo: [dev-python/imageio]
   ubuntu: [python3-imageio]
+python3-kitchen:
+  arch: [python-kitchen]
+  debian: [python3-kitchen]
+  fedora: [python3-kitchen]
+  gentoo: [dev-python/kitchen]
+  osx:
+    pip:
+      packages: [kitchen]
+  ubuntu:
+    '*': [python3-kitchen]
+    xenial: null
 python3-lark-parser:
   debian:
     buster: [python3-lark-parser]
@@ -5252,6 +5306,7 @@ python3-lark-parser:
   rhel: ['python%{python3_pkgversion}-lark-parser']
   ubuntu:
     bionic: [python3-lark-parser]
+    focal: [python3-lark]
     xenial: [python3-lark-parser]
 python3-lttng:
   debian: [python3-lttng]
