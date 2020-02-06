@@ -66,6 +66,10 @@ dpkg:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_dpkg}
 eigen:
 - libeigen@meta-oe
+emacs:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_emacs}
+epydoc:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_epydoc}
 f2c:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_f2c}
 festival:
@@ -260,12 +264,22 @@ libpng-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev}
 libpoco-dev:
 - poco@meta-oe
+libpq-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libpq-dev}
 libpulse-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev}
+libqglviewer-qt4:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4}
+libqglviewer-qt4-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev}
 libqhull:
 - qhull@meta-ros
 libqt4-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev}
+libqt4-opengl:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl}
+libqt4-opengl-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev}
 libqt5-concurrent:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-concurrent}
 libqt5-core:
@@ -286,6 +300,8 @@ libqt5multimedia5-plugins:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins}
 libqt5x11extras5-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev}
+libqtgui4:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4}
 libqwt-qt5-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev}
 libreadline:
@@ -481,6 +497,8 @@ python-impacket:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-impacket}
 python-joblib:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-joblib}
+python-kitchen:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-kitchen}
 python-libpgm-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-libpgm-pip}
 python-lxml:
@@ -507,6 +525,8 @@ python-opencv:
 - opencv@meta-oe
 python-opengl:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-opengl}
+python-packaging:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-packaging}
 python-pandas:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pandas}
 python-paramiko:
@@ -595,12 +615,18 @@ python-twisted-core:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core}
 python-urlgrabber:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-urlgrabber}
+python-virtualenv:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv}
 python-websocket:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-websocket}
 python-wxtools:
 - wxpython@meta-oe
 python-yaml:
 - ${PYTHON_PN}-pyyaml@meta-python
+python3-dev:
+- python3@openembedded-core
+python3-venv:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-venv}
 qt5-qmake:
 - qtbase@meta-qt5
 qtbase5-dev:
@@ -613,6 +639,8 @@ rsync:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_rsync}
 ruby:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_ruby}
+sbcl:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_sbcl}
 screen:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_screen}
 sdl:
@@ -626,8 +654,8 @@ sshpass:
 subversion:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_subversion}
 suitesparse:
-- suitesparse-cxsparse@meta-ros
 - suitesparse-cholmod@meta-ros
+- suitesparse-cxsparse@meta-ros
 swig:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_swig}
 sysstat:
@@ -652,6 +680,8 @@ uuid:
 - util-linux@openembedded-core
 v4l-utils:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils}
+virtualenv:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_virtualenv}
 vlc:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_vlc}
 wget:
@@ -662,6 +692,10 @@ wxpython:
 - wxpython@meta-ros
 wxwidgets:
 - wxwidgets@meta-ros
+xfonts-100dpi:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-100dpi}
+xfonts-75dpi:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-75dpi}
 xterm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_xterm}
 xvfb:
