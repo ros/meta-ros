@@ -545,6 +545,8 @@ python-qt5-bindings:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings}
 python-qt5-bindings-gl:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-gl}
+python-qt5-bindings-qsci:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-qsci}
 python-qt5-bindings-webkit:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-webkit}
 python-requests:
@@ -624,8 +626,8 @@ sshpass:
 subversion:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_subversion}
 suitesparse:
-- suitesparse-cholmod@meta-ros
 - suitesparse-cxsparse@meta-ros
+- suitesparse-cholmod@meta-ros
 swig:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_swig}
 sysstat:
