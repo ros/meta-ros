@@ -17,7 +17,7 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-recipes"
-readonly SCRIPT_VERSION="1.3.2"
+readonly SCRIPT_VERSION="1.3.3"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-cache.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -127,18 +127,6 @@ unset abort
 
 # Done checking things.
 
-skip_keys_option=""
-ros1_lisp_packages="euslisp geneus genlisp roslisp actionlib_lisp cl_tf cl_tf2 cl_transforms cl_transforms_stamped cl_urdf cl_utils roslisp_common roslisp_utilities rosemacs ros_emacs_utils roslisp_repl slime_ros slime_wrapper"
-case $ROS_DISTRO in
-    "melodic")
-        skip_keys_option="--skip-keys catkin_virtualenv flatbuffers iirob_filters grpc nanomsg octovis rosdoc_lite"
-        skip_keys_option="$skip_keys_option $ros1_lisp_packages"
-        ;;
-
-    *)  : Nothing is skipped for "dashing" and "eloquent".
-        ;;
-esac
-
 # Keep this block in sync with the one in ros-generate-cache.sh .
 echo "Running 'rosdep update'"
 rosdep update || { echo "ABORT: 'rosdep update' failed"; exit 1; }
@@ -157,7 +145,7 @@ export SUPERFLORE_GENERATION_DATETIME="$ROS_ROSDISTRO_COMMIT_DATETIME"
 
 before_commit=$(git rev-list -1 HEAD)
 $SUPERFLORE_GEN_OE_RECIPES --dry-run --no-branch --ros-distro $ROS_DISTRO --output-repository-path . --upstream-branch HEAD \
-                            $skip_keys_option $only_option
+                            $only_option
 
 after_commit=$(git rev-list -1 HEAD)
 if [ $after_commit != $before_commit -a -z "$only_option" ]; then
