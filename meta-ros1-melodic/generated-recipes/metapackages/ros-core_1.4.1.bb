@@ -32,6 +32,8 @@ ROS_EXEC_DEPENDS = " \
     cmake-modules \
     common-msgs \
     gencpp \
+    geneus \
+    genlisp \
     genmsg \
     gennodejs \
     genpy \
@@ -45,6 +47,7 @@ ROS_EXEC_DEPENDS = " \
     rosconsole-bridge \
     roscpp-core \
     rosgraph-msgs \
+    roslisp \
     rospack \
     std-msgs \
     std-srvs \
