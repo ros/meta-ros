@@ -1573,6 +1573,14 @@ libboost-chrono-dev:
   debian: [libboost-chrono-dev]
   fedora: [boost-chrono]
   ubuntu: [libboost-chrono-dev]
+libboost-date-time-dev:
+  debian: [libboost-date-time-dev]
+  fedora: [boost-date-time]
+  ubuntu: [libboost-date-time-dev]
+libboost-dev:
+  debian: [libboost-dev]
+  fedora: [boost-devel]
+  ubuntu: [libboost-dev]
 libboost-filesystem-dev:
   debian: [libboost-filesystem-dev]
   fedora: [boost-fileystem]
@@ -1619,6 +1627,10 @@ libboost-random-dev:
   debian: [libboost-random-dev]
   fedora: [boost-devel]
   ubuntu: [libboost-random-dev]
+libboost-regex-dev:
+  debian: [libboost-regex-dev]
+  fedora: [boost-devel]
+  ubuntu: [libboost-regex-dev]
 libboost-system-dev:
   debian: [libboost-system-dev]
   fedora: [boost-system]
@@ -1653,6 +1665,12 @@ libccd-dev:
   gentoo: [sci-libs/libccd]
   openembedded: [libccd@meta-ros]
   ubuntu: [libccd-dev]
+libcdd-dev:
+  arch: [cddlib]
+  debian: [libcdd-dev]
+  fedora: [cddlib]
+  gentoo: [sci-libs/cddlib]
+  ubuntu: [libcdd-dev]
 libcegui-mk2-dev:
   arch: [cegui]
   debian: [libcegui-mk2-dev]
@@ -1947,6 +1965,12 @@ libftdi-dev:
   fedora: [libftdi-devel]
   gentoo: [dev-embedded/libftdi]
   ubuntu: [libftdi-dev]
+libftdi1-dev:
+  arch: [libftdi]
+  debian: [libftdi1-dev]
+  fedora: [libftdi-devel]
+  gentoo: [dev-embedded/libftdi]
+  ubuntu: [libftdi1-dev]
 libftdipp-dev:
   debian:
     buster: [libftdipp1-dev]
@@ -2104,6 +2128,7 @@ libgomp1:
   gentoo: [sys-libs/gcc]
   ubuntu: [libgomp1]
 libgoogle-glog-dev:
+  arch: [google-glog]
   debian: [libgoogle-glog-dev]
   fedora: [glog-devel]
   gentoo: [dev-cpp/glog]
@@ -2371,6 +2396,10 @@ libkdtree++-dev:
   debian: [libkdtree++-dev]
   fedora: [libkdtree++-devel]
   ubuntu: [libkdtree++-dev]
+libkml-dev:
+  arch: [libkml]
+  debian: [libkml-dev]
+  ubuntu: [libkml-dev]
 liblapack-dev:
   arch: [lapack]
   debian: [liblapack-dev]
@@ -4035,6 +4064,7 @@ lua-dev:
   macports: [lua51]
   ubuntu: [liblua5.1-0-dev]
 lua5.2-dev:
+  arch: [lua52]
   debian: [liblua5.2-dev]
   fedora: [lua]
   gentoo: ['dev-lang/lua:5.2']
