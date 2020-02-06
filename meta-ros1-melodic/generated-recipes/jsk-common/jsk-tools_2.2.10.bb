@@ -41,6 +41,7 @@ ROS_EXPORT_DEPENDS = " \
     jsk-network-tools \
     jsk-topic-tools \
     rosbag \
+    rosemacs \
     rosgraph-msgs \
     rospy \
     rqt-reconfigure \
@@ -64,6 +65,7 @@ ROS_EXEC_DEPENDS = " \
     jsk-network-tools \
     jsk-topic-tools \
     rosbag \
+    rosemacs \
     rosgraph-msgs \
     rospy \
     rqt-reconfigure \

@@ -23,6 +23,8 @@ ROS_BUILD_DEPENDS = " \
     actionlib-tutorials \
     angles \
     dynamic-reconfigure \
+    euslisp \
+    geneus \
     geometry-msgs \
     jskeus \
     message-generation \
@@ -53,6 +55,8 @@ ROS_EXPORT_DEPENDS = " \
     actionlib-msgs \
     actionlib-tutorials \
     dynamic-reconfigure \
+    euslisp \
+    geneus \
     geometry-msgs \
     jskeus \
     message-runtime \
@@ -78,6 +82,8 @@ ROS_EXEC_DEPENDS = " \
     actionlib-msgs \
     actionlib-tutorials \
     dynamic-reconfigure \
+    euslisp \
+    geneus \
     geometry-msgs \
     jskeus \
     message-runtime \
