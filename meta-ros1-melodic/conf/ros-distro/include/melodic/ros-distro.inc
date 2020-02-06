@@ -23,6 +23,8 @@ require conf/ros-distro/include/melodic/ros-distro-preferred-providers.inc
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 "
 
+# roslisp depends on sbcl, for which there is no OE recipe
+ROS_WORLD_SKIP_GROUPS += "lisp"
 # recipes depending on gazebo, for which there is no OE recipe
 ROS_WORLD_SKIP_GROUPS += "gazebo"
 # recipes depending on wxpython
