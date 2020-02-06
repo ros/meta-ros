@@ -16,7 +16,9 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=58e54c03ca7f821
 ROS_CN = "haros_catkin"
 ROS_BPN = "haros_catkin"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    catkin-virtualenv \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \

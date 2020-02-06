@@ -35,6 +35,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 ROS_EXPORT_DEPENDS = " \
     actionlib \
     actionlib-tutorials \
+    euslisp \
     message-runtime \
     roseus \
     rostest \
@@ -49,6 +50,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     actionlib \
     actionlib-tutorials \
+    euslisp \
     message-runtime \
     roseus \
     rostest \

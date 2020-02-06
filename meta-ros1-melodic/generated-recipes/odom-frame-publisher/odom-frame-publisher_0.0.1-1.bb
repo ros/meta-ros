@@ -48,6 +48,7 @@ ROS_EXEC_DEPENDS = " \
     libeigen \
     quaternion-operation \
     roscpp \
+    rosdoc-lite \
     tf2 \
     tf2-geometry-msgs \
     tf2-msgs \

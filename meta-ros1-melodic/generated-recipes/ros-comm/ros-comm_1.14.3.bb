@@ -31,6 +31,7 @@ ROS_EXPORT_DEPENDS = " \
     rosgraph \
     rosgraph-msgs \
     roslaunch \
+    roslisp \
     rosmaster \
     rosmsg \
     rosnode \
@@ -57,6 +58,7 @@ ROS_EXEC_DEPENDS = " \
     rosgraph \
     rosgraph-msgs \
     roslaunch \
+    roslisp \
     rosmaster \
     rosmsg \
     rosnode \

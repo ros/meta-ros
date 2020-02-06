@@ -51,6 +51,7 @@ ROS_EXEC_DEPENDS = " \
     nmea-msgs \
     quaternion-operation \
     roscpp \
+    rosdoc-lite \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
