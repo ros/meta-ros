@@ -374,6 +374,28 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WXPYTHON = " \
     executive-smach-visualization \
 "
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lisp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_LISP}', '', d)}"
+
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_LISP = " \
+    actionlib-lisp \
+    cl-tf \
+    cl-tf2 \
+    cl-transforms \
+    cl-transforms-stamped \
+    cl-urdf \
+    cl-utils \
+    euslisp \
+    geneus genlisp \
+    ros-emacs-utils \
+    rosemacs \
+    roslisp \
+    roslisp-common \
+    roslisp-repl \
+    roslisp-utilities \
+    slime-ros \
+    slime-wrapper \
+"
+
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL}', '', d)}"
 
