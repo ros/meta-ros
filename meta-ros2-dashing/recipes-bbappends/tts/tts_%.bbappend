@@ -1,5 +1,3 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
-# Depends on gstreamer1.0-python which requires gobject-introspection-data in DISTRO_FEATURES
-inherit features_check
-REQUIRED_DISTRO_FEATURES = "gobject-introspection-data"
+PNBLACKLIST[tts] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gst-python', 'gst-python: requires gstreamer1.0-python which requires gobject-introspection-data in DISTRO_FEATURES', '', d)}"
