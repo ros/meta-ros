@@ -16,6 +16,63 @@ require conf/ros-distro/include/eloquent/ros-distro-recipe-blacklist.inc
 require conf/ros-distro/include/eloquent/ros-distro-preferred-versions.inc
 require conf/ros-distro/include/eloquent/ros-distro-preferred-providers.inc
 
+# alternative not yet supported implementation for fastrtps
+ROS_WORLD_SKIP_GROUPS += "connext"
+# alternative not yet supported implementation for fastrtps
+ROS_WORLD_SKIP_GROUPS += "opensplice"
+# Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
+ROS_WORLD_SKIP_GROUPS += "clang"
+# Depends on python3-docker which is available in meta-virtualization, but we don't want to add the
+# dependency on this layer to meta-ros yet
+ROS_WORLD_SKIP_GROUPS += "docker"
+# Needs work to launch qemu to run tests on image on build machine.
+ROS_WORLD_SKIP_GROUPS += "launch"
+# | CMake Error at .../cartographer/1.0.0-1-r0/recipe-sysroot/usr/lib/cmake/Ceres/CeresConfig.cmake:88 (message):
+# |   Failed to find Ceres - Missing requested Ceres components: [SuiteSparse]
+# |   (components requested: [SuiteSparse]).  Detected Ceres version: 1.14.0
+# |   installed in:
+# |   .../cartographer/1.0.0-1-r0/recipe-sysroot/usr
+# |   with components: [EigenSparse, SparseLinearAlgebraLibrary,
+# |   SchurSpecializations, OpenMP, Multithreading].
+# Also depends on python2 python-sphinx which isn't available in ROS2 which is python3-only
+ROS_WORLD_SKIP_GROUPS += "cartographer"
+# recipes depending on python3-matplotlib
+# there is python2 version in meta-ros-common/recipes-devtools/python/python-matplotlib_2.1.1.bb
+# but no python3 version yet
+ROS_WORLD_SKIP_GROUPS += "python3-matplotlib"
+# recipes depending on coin-or libcbc for which we don't have recipes yet
+ROS_WORLD_SKIP_GROUPS += "coin-or"
+# Not compatible with newer libftdi included in meta-oe: https://github.com/kobuki-base/kobuki_ftdi/issues/3
+ROS_WORLD_SKIP_GROUPS += "kobuki-ftdi"
+# recipes depending on openvdb and openexr for which we don't have recipes yet
+ROS_WORLD_SKIP_GROUPS += "openvdb-openexr"
+# recipes depending on gazebo, for which there is no OE recipe
+ROS_WORLD_SKIP_GROUPS += "gazebo"
+
+# recipes depending on something from meta-qt5 layer
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'qt5', d)}"
+# recipes depending on something from meta-qt4 layer
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt4-layer', '', 'qt4', d)}"
+
+# recipes depending on 'x11' in DISTRO_FEATURES
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
+# recipes depending on 'opengl' in DISTRO_FEATURES
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'opengl', d)}"
+
+# recipes depending on python*-pyqt5 from meta-qt5 layer
+# Use separate group, because e.g. webOS OSE has meta-qt5 layer included, but python*-pyqt5
+# is blacklisted, because webOS OSE is missing newer meta-qt5 from warrior with older meta-oe thud which has
+# incompatible old sip
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'pyqt5', d)}"
+
+# if vc4graphics is enabled without opengl in DISTRO_FEATURES then
+# gstreamer1.0-plugins-base will be unbuildable for rpi MACHINEs, the
+# fix is already included in dunfell and backported to zeus:
+# https://github.com/agherzan/meta-raspberrypi/commit/71e188ecd572a00708805989bae71bf4e3ba0f3b
+# so this is needed only in warrior (and thud if you enabled vc4graphics
+# yourself, because it's included by default only since warrior)
+ROS_WORLD_SKIP_GROUPS_append_rpi = "${@ ' vc4graphics-without-opengl' if bb.utils.contains('MACHINE_FEATURES', 'vc4graphics', True, False, d) and not bb.utils.contains('DISTRO_FEATURES', 'opengl', True, False, d) else ''}"
+
 # Override settings from generated/superflore-ros-distro.inc here.
 
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
@@ -38,13 +95,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-typesupport-fastrtps-c-native \
     uncrustify-vendor-native \
 "
-
-# https://github.com/ADLINK-IST/opensplice
-ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69 = ""
-ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native = ""
-
-ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = ""
-ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = ""
 
 ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography = "python3-cryptography"
 #ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = "python3-ifcfg"
@@ -95,6 +145,34 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv-native = "python3-virtualenv-nativ
 
 # used by generated-recipes/navigation2/nav2-util_0.3.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options = "boost"
+
+# Used by:
+# generated-recipes/py-trees-ros-tutorials/py-trees-ros-tutorials_2.0.1-1.bb
+# generated-recipes/py-trees-js/py-trees-js_0.6.1-1.bb
+# generated-recipes/py-trees-ros-viewer/py-trees-ros-viewer_0.2.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools = "python3-pyqt5"
+
+# Used by:
+# generated-recipes/py-trees-ros-tutorials/py-trees-ros-tutorials_2.0.1-1.bb
+# generated-recipes/py-trees-js/py-trees-js_0.6.1-1.bb
+# generated-recipes/py-trees-ros-viewer/py-trees-ros-viewer_0.2.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools = "python3-pyqt5"
+
+# Used by:
+# generated-recipes/py-trees-ros-tutorials/py-trees-ros-tutorials_2.0.1-1.bb
+# generated-recipes/py-trees-js/py-trees-js_0.6.1-1.bb
+# generated-recipes/py-trees-ros-viewer/py-trees-ros-viewer_0.2.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings = "python3-pyqt5"
+
+# Used by:
+# generated-recipes/py-trees-js/py-trees-js_0.6.1-1.bb
+# generated-recipes/py-trees-ros-viewer/py-trees-ros-viewer_0.2.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine = "python3-pyqt5"
+
+# tango-icon-theme isn't available, but adwaita-icon-theme should be compatible
+# Used by:
+# generated-recipes/qt-gui-core/qt-gui_1.0.7-1.bbb
+ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "adwaita-icon-theme"
 
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
