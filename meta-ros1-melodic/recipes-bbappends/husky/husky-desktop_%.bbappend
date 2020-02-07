@@ -1,3 +1,3 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
-PNBLACKLIST[husky-desktop] = "${@ 'Requires husky-rviz which depends on rviz which requires meta-qt5 to be included' if 'qt5-layer' not in BBFILE_COLLECTIONS.split() else '' }"
+PNBLACKLIST[husky-desktop] ?= "${@ 'Requires husky-rviz which depends on rviz which requires meta-qt5 to be included' if 'qt5-layer' not in BBFILE_COLLECTIONS.split() else '' }"

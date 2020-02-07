@@ -1,3 +1,3 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
-PNBLACKLIST[multi-map-server] = "${@ 'Requires jsk-tools which depends on rqt-reconfigure which depends on python-qt-binding which requires meta-qt5 to be included' if 'qt5-layer' not in BBFILE_COLLECTIONS.split() else '' }"
+PNBLACKLIST[multi-map-server] ?= "${@ 'Requires jsk-tools which depends on rqt-reconfigure which depends on python-qt-binding which requires meta-qt5 to be included' if 'qt5-layer' not in BBFILE_COLLECTIONS.split() else '' }"
