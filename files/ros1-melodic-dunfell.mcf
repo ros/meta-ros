@@ -39,7 +39,10 @@ Machines = ['qemux86', 'raspberrypi4']
 OpenEmbeddedVersion = '3.1~master-dunfell'
 
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
-from os import getenvfiles/ros1-melodic-dunfell.mcf
+from os import getenv
+MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
+MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'master-draft')
+
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
 # ...
