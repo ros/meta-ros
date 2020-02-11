@@ -1,3 +1,3 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
-PNBLACKLIST[mir-robot] ?= "${@ 'Requires mir-gazebo which depends on rqt-robot-steering which depends on python-qt-binding which requires meta-qt5 to be included' if 'qt5-layer' not in BBFILE_COLLECTIONS.split() else '' }"
+PNBLACKLIST[mir-robot] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires mir-gazebo which depends on rqt-robot-steering which depends on python-qt-binding which requires meta-qt5 to be included', '', d)}"

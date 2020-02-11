@@ -1,3 +1,3 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
-PNBLACKLIST[cob-mimic] ?= "${@ 'Requires vlc which requires meta-multimedia to be included' if 'multimedia-layer' not in BBFILE_COLLECTIONS.split() else '' }"
+PNBLACKLIST[cob-mimic] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'multimedia', 'Requires vlc which requires meta-multimedia to be included', '', d)}"

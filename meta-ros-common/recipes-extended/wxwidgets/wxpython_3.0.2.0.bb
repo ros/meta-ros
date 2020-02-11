@@ -35,4 +35,4 @@ do_iinstall_append() {
     rm -rf ${D}${STAGING_DIR}
 }
 
-PNBLACKLIST[wxpython] ?= "Doesn't build: 'ld: cannot find -lwx_gtk3u_xrc-3.0'"
+PNBLACKLIST[wxpython] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wxpython', 'Does not build: ld: cannot find -lwx_gtk3u_xrc-3.0', '', d)}"

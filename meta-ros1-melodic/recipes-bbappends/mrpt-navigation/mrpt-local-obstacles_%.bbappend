@@ -1,6 +1,6 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
-PNBLACKLIST[mrpt-local-obstacles] ?= "${@ 'Requires mrpt-bridge which depends on qtbase which requires meta-qt5 to be included' if 'qt5-layer' not in BBFILE_COLLECTIONS.split() else '' }"
+PNBLACKLIST[mrpt-local-obstacles] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires mrpt-bridge which depends on qtbase which requires meta-qt5 to be included', '', d)}"
 
 # Depends on ffmpeg with this restriction:
 LICENSE_FLAGS = "commercial"

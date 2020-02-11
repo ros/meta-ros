@@ -23,6 +23,25 @@ require conf/ros-distro/include/melodic/ros-distro-preferred-providers.inc
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 "
 
+# recipes depending on gazebo, for which there is no OE recipe
+ROS_WORLD_SKIP_GROUPS += "gazebo"
+# recipes depending on wxpython
+ROS_WORLD_SKIP_GROUPS += "wxpython"
+
+# recipes depending on something from meta-qt5 layer
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'qt5', d)}"
+# recipes depending on something from meta-qt4 layer
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt4-layer', '', 'qt4', d)}"
+# recipes depending on something from meta-multimedia layer
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'multimedia-layer', '', 'multimedia', d)}"
+
+# recipes depending on 'opengl' in DISTRO_FEATURES
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'opengl', d)}"
+# recipes depending on 'ffmpeg' which is restricted by 'commercial' LICENSE_FLAG
+ROS_WORLD_SKIP_GROUPS += "${@ 'ffmpeg' if not d.getVar('LICENSE_FLAGS_WHITELIST') or 'commercial' not in d.getVar('LICENSE_FLAGS_WHITELIST').split() else ''}"
+# recipes depending on 'gstreamer1.0-plugins-ugly' which is restricted by 'commercial' LICENSE_FLAG
+ROS_WORLD_SKIP_GROUPS += "${@ 'gst-ugly' if not d.getVar('LICENSE_FLAGS_WHITELIST') or 'commercial' not in d.getVar('LICENSE_FLAGS_WHITELIST').split() else ''}"
+
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
 # and having it in a .bbappend sets it too late.
