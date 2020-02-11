@@ -3,672 +3,81 @@ melodic/generated/superflore-change-summary.txt
 M  meta-ros1-melodic/conf/ros-distro/include/melodic/generated/superflore-ros-distro.inc
 M  meta-ros1-melodic/files/melodic/generated/rosdep-resolve.yaml
 D  meta-ros1-melodic/files/melodic/generated/superflore-change-summary.txt
-A  meta-ros1-melodic/generated-recipes/catkin-virtualenv/catkin-virtualenv_0.5.1-1.bb
-A  meta-ros1-melodic/generated-recipes/euslisp/euslisp_9.26.0-1.bb
-A  meta-ros1-melodic/generated-recipes/flatbuffers/flatbuffers_1.1.0.bb
-A  meta-ros1-melodic/generated-recipes/geneus/geneus_2.2.6.bb
-A  meta-ros1-melodic/generated-recipes/genlisp/genlisp_0.4.16.bb
-A  meta-ros1-melodic/generated-recipes/grpc/grpc_0.0.10.bb
-M  meta-ros1-melodic/generated-recipes/haros-catkin/haros-catkin_0.1.1-1.bb
-A  meta-ros1-melodic/generated-recipes/iirob-filters/iirob-filters_0.8.1-2.bb
-M  meta-ros1-melodic/generated-recipes/jackal/jackal-tutorials_0.6.3-1.bb
-M  meta-ros1-melodic/generated-recipes/jsk-common/jsk-tools_2.2.10.bb
-M  meta-ros1-melodic/generated-recipes/jsk-model-tools/eus-assimp_0.4.3.bb
-M  meta-ros1-melodic/generated-recipes/jsk-roseus/jsk-roseus_1.7.4-1.bb
-M  meta-ros1-melodic/generated-recipes/jsk-roseus/roseus-smach_1.7.4-1.bb
-M  meta-ros1-melodic/generated-recipes/jsk-roseus/roseus_1.7.4-1.bb
-M  meta-ros1-melodic/generated-recipes/jskeus/jskeus_1.2.1-1.bb
-M  meta-ros1-melodic/generated-recipes/message-generation/message-generation_0.4.0.bb
-M  meta-ros1-melodic/generated-recipes/metapackages/ros-core_1.4.1.bb
-A  meta-ros1-melodic/generated-recipes/nanomsg/nanomsg_0.4.1.bb
-M  meta-ros1-melodic/generated-recipes/nmea-gps-plugin/nmea-gps-plugin_0.0.2-1.bb
-A  meta-ros1-melodic/generated-recipes/octomap/octovis_1.9.0-1.bb
-M  meta-ros1-melodic/generated-recipes/odom-frame-publisher/odom-frame-publisher_0.0.1-1.bb
-M  meta-ros1-melodic/generated-recipes/ros-comm/ros-comm_1.14.3.bb
-A  meta-ros1-melodic/generated-recipes/ros-emacs-utils/ros-emacs-utils_0.4.13.bb
-A  meta-ros1-melodic/generated-recipes/ros-emacs-utils/rosemacs_0.4.13.bb
-A  meta-ros1-melodic/generated-recipes/ros-emacs-utils/roslisp-repl_0.4.13.bb
-A  meta-ros1-melodic/generated-recipes/ros-emacs-utils/slime-ros_0.4.13.bb
-A  meta-ros1-melodic/generated-recipes/ros-emacs-utils/slime-wrapper_0.4.13.bb
-A  meta-ros1-melodic/generated-recipes/rosdoc-lite/rosdoc-lite_0.2.9.bb
-A  meta-ros1-melodic/generated-recipes/roslisp-common/actionlib-lisp_0.2.12-1.bb
-A  meta-ros1-melodic/generated-recipes/roslisp-common/cl-tf2_0.2.12-1.bb
-A  meta-ros1-melodic/generated-recipes/roslisp-common/cl-tf_0.2.12-1.bb
-A  meta-ros1-melodic/generated-recipes/roslisp-common/cl-transforms-stamped_0.2.12-1.bb
-A  meta-ros1-melodic/generated-recipes/roslisp-common/cl-transforms_0.2.12-1.bb
-A  meta-ros1-melodic/generated-recipes/roslisp-common/cl-urdf_0.2.12-1.bb
-A  meta-ros1-melodic/generated-recipes/roslisp-common/cl-utils_0.2.12-1.bb
-A  meta-ros1-melodic/generated-recipes/roslisp-common/roslisp-common_0.2.12-1.bb
-A  meta-ros1-melodic/generated-recipes/roslisp-common/roslisp-utilities_0.2.12-1.bb
-A  meta-ros1-melodic/generated-recipes/roslisp/roslisp_1.9.22.bb
+M  meta-ros1-melodic/generated-recipes/asr-msgs/asr-msgs_1.0.0-1.bb
+M  meta-ros1-melodic/generated-recipes/axis-camera/axis-camera_0.3.0-1.bb
+M  meta-ros1-melodic/generated-recipes/catkin-virtualenv/catkin-virtualenv_0.5.1-1.bb
+M  meta-ros1-melodic/generated-recipes/euslisp/euslisp_9.26.0-1.bb
+M  meta-ros1-melodic/generated-recipes/fake-joint/fake-joint-driver_0.0.4-1.bb
+M  meta-ros1-melodic/generated-recipes/fake-joint/fake-joint-launch_0.0.4-1.bb
+M  meta-ros1-melodic/generated-recipes/fake-joint/fake-joint_0.0.4-1.bb
+M  meta-ros1-melodic/generated-recipes/flatbuffers/flatbuffers_1.1.0.bb
+M  meta-ros1-melodic/generated-recipes/geneus/geneus_2.2.6.bb
+M  meta-ros1-melodic/generated-recipes/genlisp/genlisp_0.4.16.bb
+M  meta-ros1-melodic/generated-recipes/grpc/grpc_0.0.10.bb
+M  meta-ros1-melodic/generated-recipes/gundam-robot/gundam-robot_0.0.3-1.bb
+M  meta-ros1-melodic/generated-recipes/gundam-robot/gundam-rx78-control_0.0.3-1.bb
+M  meta-ros1-melodic/generated-recipes/gundam-robot/gundam-rx78-description_0.0.3-1.bb
+M  meta-ros1-melodic/generated-recipes/gundam-robot/gundam-rx78-gazebo_0.0.3-1.bb
+M  meta-ros1-melodic/generated-recipes/iirob-filters/iirob-filters_0.8.1-2.bb
+M  meta-ros1-melodic/generated-recipes/jderobot-assets/jderobot-assets_0.1.0-1.bb
+M  meta-ros1-melodic/generated-recipes/jderobot-drones/drone-wrapper_1.1.0-1.bb
+M  meta-ros1-melodic/generated-recipes/jderobot-drones/rqt-drone-teleop_1.1.0-1.bb
+M  meta-ros1-melodic/generated-recipes/joint-state-publisher/joint-state-publisher-gui_1.12.14-1.bb
+M  meta-ros1-melodic/generated-recipes/kvh-geo-fog-3d/kvh-geo-fog-3d-driver_1.3.3-1.bb
+M  meta-ros1-melodic/generated-recipes/kvh-geo-fog-3d/kvh-geo-fog-3d-msgs_1.3.3-1.bb
+M  meta-ros1-melodic/generated-recipes/kvh-geo-fog-3d/kvh-geo-fog-3d-rviz_1.3.3-1.bb
+M  meta-ros1-melodic/generated-recipes/kvh-geo-fog-3d/kvh-geo-fog-3d_1.3.3-1.bb
+M  meta-ros1-melodic/generated-recipes/librealsense2/librealsense2_2.31.0-3.bb
+M  meta-ros1-melodic/generated-recipes/lvr2/lvr2_19.12.1-1.bb
+M  meta-ros1-melodic/generated-recipes/nanomsg/nanomsg_0.4.1.bb
+M  meta-ros1-melodic/generated-recipes/nao-meshes/nao-meshes_0.1.12-2.bb
+M  meta-ros1-melodic/generated-recipes/naoqi-bridge-msgs/naoqi-bridge-msgs_0.0.8.bb
+M  meta-ros1-melodic/generated-recipes/naoqi-driver/naoqi-driver_0.5.11.bb
+M  meta-ros1-melodic/generated-recipes/naoqi-libqi/naoqi-libqi_2.9.0-8.bb
+M  meta-ros1-melodic/generated-recipes/naoqi-libqicore/naoqi-libqicore_2.9.0-5.bb
+M  meta-ros1-melodic/generated-recipes/octomap/octovis_1.9.0-1.bb
+M  meta-ros1-melodic/generated-recipes/open-street-map/osm-cartography_0.2.5-1.bb
+M  meta-ros1-melodic/generated-recipes/open-street-map/route-network_0.2.5-1.bb
+M  meta-ros1-melodic/generated-recipes/open-street-map/test-osm_0.2.5-1.bb
+M  meta-ros1-melodic/generated-recipes/pepper-meshes/pepper-meshes_0.2.4-3.bb
+M  meta-ros1-melodic/generated-recipes/qpmad/qpmad_1.0.2-1.bb
+M  meta-ros1-melodic/generated-recipes/realsense2-camera/realsense2-camera_2.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/realsense2-camera/realsense2-description_2.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/ros-emacs-utils/ros-emacs-utils_0.4.13.bb
+M  meta-ros1-melodic/generated-recipes/ros-emacs-utils/rosemacs_0.4.13.bb
+M  meta-ros1-melodic/generated-recipes/ros-emacs-utils/roslisp-repl_0.4.13.bb
+M  meta-ros1-melodic/generated-recipes/ros-emacs-utils/slime-ros_0.4.13.bb
+M  meta-ros1-melodic/generated-recipes/ros-emacs-utils/slime-wrapper_0.4.13.bb
+M  meta-ros1-melodic/generated-recipes/rosdoc-lite/rosdoc-lite_0.2.9.bb
+M  meta-ros1-melodic/generated-recipes/roslisp-common/actionlib-lisp_0.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/roslisp-common/cl-tf2_0.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/roslisp-common/cl-tf_0.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/roslisp-common/cl-transforms-stamped_0.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/roslisp-common/cl-transforms_0.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/roslisp-common/cl-urdf_0.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/roslisp-common/cl-utils_0.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/roslisp-common/roslisp-common_0.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/roslisp-common/roslisp-utilities_0.2.12-1.bb
+M  meta-ros1-melodic/generated-recipes/roslisp/roslisp_1.9.22.bb
+M  meta-ros1-melodic/generated-recipes/shared-autonomy-manipulation/safe-teleop-base_0.0.3-1.bb
+M  meta-ros1-melodic/generated-recipes/shared-autonomy-manipulation/safe-teleop-pr2_0.0.3-1.bb
+M  meta-ros1-melodic/generated-recipes/shared-autonomy-manipulation/safe-teleop-stage_0.0.3-1.bb
+M  meta-ros1-melodic/generated-recipes/visualstates/visualstates_0.2.3-2.bb
 -----
 diff --git a/meta-ros1-melodic/conf/ros-distro/include/melodic/generated/superflore-ros-distro.inc b/meta-ros1-melodic/conf/ros-distro/include/melodic/generated/superflore-ros-distro.inc
-index fe2003a85..00dfc3a49 100644
+index 27f7ad6a3..b19ef4033 100644
 --- a/meta-ros1-melodic/conf/ros-distro/include/melodic/generated/superflore-ros-distro.inc
 +++ b/meta-ros1-melodic/conf/ros-distro/include/melodic/generated/superflore-ros-distro.inc
-@@ -13,33 +13,7 @@ ROS_VERSION = "1"
- # DO NOT OVERRIDE ROS_PYTHON_VERSION
- ROS_PYTHON_VERSION = "2"
+@@ -7,7 +7,7 @@
+ # resets it to "0").
+ ROS_DISTRO_METADATA_VERSION_REVISION = "0"
  
--ROS_SUPERFLORE_GENERATION_SKIP_LIST = " \
--    actionlib-lisp \
--    catkin-virtualenv \
--    cl-tf \
--    cl-tf2 \
--    cl-transforms \
--    cl-transforms-stamped \
--    cl-urdf \
--    cl-utils \
--    euslisp \
--    flatbuffers \
--    geneus \
--    genlisp \
--    grpc \
--    iirob-filters \
--    nanomsg \
--    octovis \
--    ros-emacs-utils \
--    rosdoc-lite \
--    rosemacs \
--    roslisp \
--    roslisp-common \
--    roslisp-repl \
--    roslisp-utilities \
--    slime-ros \
--    slime-wrapper \
--"
-+ROS_SUPERFLORE_GENERATION_SKIP_LIST = ""
+-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.1+7.g81596a3"
++ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.1+7.g15ca7e4"
+ ROS_SUPERFLORE_GENERATION_SCHEME = "2"
  
- # Superflore was unable to generate recipes for these packages, eg, because their repositories are not on GitHub.
- ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
-@@ -117,6 +91,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     ackermann-msgs \
-     ackermann-steering-controller \
-     actionlib \
-+    actionlib-lisp \
-     actionlib-msgs \
-     actionlib-tutorials \
-     adi-driver \
-@@ -205,9 +180,16 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     catch-ros \
-     catkin \
-     catkin-pip \
-+    catkin-virtualenv \
-     checkerboard-detector \
-     chomp-motion-planner \
-     cis-camera \
-+    cl-tf \
-+    cl-tf2 \
-+    cl-transforms \
-+    cl-transforms-stamped \
-+    cl-urdf \
-+    cl-utils \
-     class-loader \
-     clear-costmap-recovery \
-     clock-relay \
-@@ -479,6 +461,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     ethercat-trigger-controllers \
-     eus-assimp \
-     euscollada \
-+    euslisp \
-     eusurdf \
-     executive-smach \
-     executive-smach-visualization \
-@@ -532,6 +515,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     fingertip-pressure \
-     fkie-message-filters \
-     fkie-potree-rviz-plugin \
-+    flatbuffers \
-     flexbe-behavior-engine \
-     flexbe-core \
-     flexbe-input \
-@@ -573,6 +557,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     gazebo-rosdev \
-     gencpp \
-     generic-throttle \
-+    geneus \
-+    genlisp \
-     genmsg \
-     gennodejs \
-     genpy \
-@@ -610,6 +596,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     grid-map-sdf \
-     grid-map-visualization \
-     gripper-action-controller \
-+    grpc \
-     gscam \
-     gundam-robot \
-     gundam-rx78-control \
-@@ -668,6 +655,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     igvc-self-drive-gazebo \
-     igvc-self-drive-gazebo-plugins \
-     igvc-self-drive-sim \
-+    iirob-filters \
-     image-cb-detector \
-     image-common \
-     image-geometry \
-@@ -980,6 +968,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     multisense-lib \
-     multisense-ros \
-     mvsim \
-+    nanomsg \
-     nao-meshes \
-     naoqi-bridge-msgs \
-     naoqi-driver \
-@@ -1048,6 +1037,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     octomap-ros \
-     octomap-rviz-plugins \
-     octomap-server \
-+    octovis \
-     odom-frame-publisher \
-     odometry-publisher-tutorial \
-     odva-ethernetip \
-@@ -1322,6 +1312,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     ros-control-boilerplate \
-     ros-controllers \
-     ros-core \
-+    ros-emacs-utils \
-     ros-environment \
-     ros-introspection \
-     ros-monitoring-msgs \
-@@ -1360,6 +1351,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     roscpp-tutorials \
-     roscreate \
-     rosdiagnostic \
-+    rosdoc-lite \
-+    rosemacs \
-     roseus \
-     roseus-mongo \
-     roseus-smach \
-@@ -1371,6 +1364,10 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     roslaunch \
-     roslib \
-     roslint \
-+    roslisp \
-+    roslisp-common \
-+    roslisp-repl \
-+    roslisp-utilities \
-     roslz4 \
-     rosmake \
-     rosmaster \
-@@ -1536,6 +1533,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
-     slam-karto \
-     slam-toolbox \
-     slic \
-+    slime-ros \
-+    slime-wrapper \
-     smach \
-     smach-msgs \
-     smach-ros \
-@@ -1846,6 +1845,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                            ackermann-msgs/ackermann-msgs_1.0.1 \
-                           ros-controllers/ackermann-steering-controller_0.15.0 \
-                                 actionlib/actionlib_1.12.0-1 \
-+                           roslisp-common/actionlib-lisp_0.2.12-1 \
-                               common-msgs/actionlib-msgs_1.12.7 \
-                          common-tutorials/actionlib-tutorials_0.1.11 \
-                                adi-driver/adi-driver_1.0.3 \
-@@ -1934,9 +1934,16 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                                 catch-ros/catch-ros_0.3.0 \
-                                    catkin/catkin_0.7.20-1 \
-                                catkin-pip/catkin-pip_0.2.3-1 \
-+                        catkin-virtualenv/catkin-virtualenv_0.5.1-1 \
-                           jsk-recognition/checkerboard-detector_1.2.10 \
-                                    moveit/chomp-motion-planner_1.0.2-1 \
-                                cis-camera/cis-camera_0.0.4-1 \
-+                           roslisp-common/cl-tf_0.2.12-1 \
-+                           roslisp-common/cl-tf2_0.2.12-1 \
-+                           roslisp-common/cl-transforms_0.2.12-1 \
-+                           roslisp-common/cl-transforms-stamped_0.2.12-1 \
-+                           roslisp-common/cl-urdf_0.2.12-1 \
-+                           roslisp-common/cl-utils_0.2.12-1 \
-                              class-loader/class-loader_0.4.1 \
-                                navigation/clear-costmap-recovery_1.16.3-1 \
-                     cpr-multimaster-tools/clock-relay_0.0.2-1 \
-@@ -2208,6 +2215,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                           pr2-controllers/ethercat-trigger-controllers_1.10.17-1 \
-                           jsk-model-tools/eus-assimp_0.4.3 \
-                           jsk-model-tools/euscollada_0.4.3 \
-+                                  euslisp/euslisp_9.26.0-1 \
-                           jsk-model-tools/eusurdf_0.4.3 \
-                           executive-smach/executive-smach_2.0.1 \
-             executive-smach-visualization/executive-smach-visualization_3.0.0-1 \
-@@ -2261,6 +2269,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                      pr2-ethercat-drivers/fingertip-pressure_1.8.19-1 \
-                      fkie-message-filters/fkie-message-filters_1.0.1-1 \
-                   fkie-potree-rviz-plugin/fkie-potree-rviz-plugin_1.0.0 \
-+                              flatbuffers/flatbuffers_1.1.0 \
-                                    flexbe/flexbe-behavior-engine_1.2.3-1 \
-                                    flexbe/flexbe-core_1.2.3-1 \
-                                    flexbe/flexbe-input_1.2.3-1 \
-@@ -2302,6 +2311,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                           gazebo-ros-pkgs/gazebo-rosdev_2.8.6-1 \
-                                    gencpp/gencpp_0.6.2 \
-                         cob-command-tools/generic-throttle_0.6.15-1 \
-+                                   geneus/geneus_2.2.6 \
-+                                  genlisp/genlisp_0.4.16 \
-                                    genmsg/genmsg_0.5.12 \
-                                 gennodejs/gennodejs_2.0.1 \
-                                     genpy/genpy_0.6.9-1 \
-@@ -2339,6 +2350,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                                  grid-map/grid-map-sdf_1.6.2-1 \
-                                  grid-map/grid-map-visualization_1.6.2-1 \
-                           ros-controllers/gripper-action-controller_0.15.0 \
-+                                     grpc/grpc_0.0.10 \
-                                     gscam/gscam_1.0.1 \
-                              gundam-robot/gundam-robot_0.0.3-1 \
-                              gundam-robot/gundam-rx78-control_0.0.3-1 \
-@@ -2397,6 +2409,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                       igvc-self-drive-sim/igvc-self-drive-gazebo_0.1.4-1 \
-                       igvc-self-drive-sim/igvc-self-drive-gazebo-plugins_0.1.4-1 \
-                       igvc-self-drive-sim/igvc-self-drive-sim_0.1.4-1 \
-+                            iirob-filters/iirob-filters_0.8.1-2 \
-                               calibration/image-cb-detector_0.10.14 \
-                              image-common/image-common_1.11.13 \
-                             vision-opencv/image-geometry_1.13.0 \
-@@ -2709,6 +2722,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                            multisense-ros/multisense-lib_4.0.3-1 \
-                            multisense-ros/multisense-ros_4.0.3-1 \
-                                     mvsim/mvsim_0.2.1 \
-+                                  nanomsg/nanomsg_0.4.1 \
-                                nao-meshes/nao-meshes_0.1.12-2 \
-                         naoqi-bridge-msgs/naoqi-bridge-msgs_0.0.8 \
-                              naoqi-driver/naoqi-driver_0.5.11 \
-@@ -2777,6 +2791,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                               octomap-ros/octomap-ros_0.4.0 \
-                      octomap-rviz-plugins/octomap-rviz-plugins_0.2.2-1 \
-                           octomap-mapping/octomap-server_0.6.4-1 \
-+                                  octomap/octovis_1.9.0-1 \
-                      odom-frame-publisher/odom-frame-publisher_0.0.1-1 \
-                      navigation-tutorials/odometry-publisher-tutorial_0.2.3-1 \
-                           odva-ethernetip/odva-ethernetip_0.1.4 \
-@@ -3051,6 +3066,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                   ros-control-boilerplate/ros-control-boilerplate_0.5.0-1 \
-                           ros-controllers/ros-controllers_0.15.0 \
-                              metapackages/ros-core_1.4.1 \
-+                          ros-emacs-utils/ros-emacs-utils_0.4.13 \
-                           ros-environment/ros-environment_1.2.2-1 \
-                                roscompile/ros-introspection_1.0.1 \
-                       ros-monitoring-msgs/ros-monitoring-msgs_1.0.1-1 \
-@@ -3089,6 +3105,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                             ros-tutorials/roscpp-tutorials_0.9.1 \
-                                       ros/roscreate_1.14.7-1 \
-                               diagnostics/rosdiagnostic_1.9.3 \
-+                              rosdoc-lite/rosdoc-lite_0.2.9 \
-+                          ros-emacs-utils/rosemacs_0.4.13 \
-                                jsk-roseus/roseus_1.7.4-1 \
-                                jsk-roseus/roseus-mongo_1.7.4-1 \
-                                jsk-roseus/roseus-smach_1.7.4-1 \
-@@ -3100,6 +3118,10 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                                  ros-comm/roslaunch_1.14.3 \
-                                       ros/roslib_1.14.7-1 \
-                                   roslint/roslint_0.11.2 \
-+                                  roslisp/roslisp_1.9.22 \
-+                           roslisp-common/roslisp-common_0.2.12-1 \
-+                          ros-emacs-utils/roslisp-repl_0.4.13 \
-+                           roslisp-common/roslisp-utilities_0.2.12-1 \
-                                  ros-comm/roslz4_1.14.3 \
-                                       ros/rosmake_1.14.7-1 \
-                                  ros-comm/rosmaster_1.14.3 \
-@@ -3265,6 +3287,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                                slam-karto/slam-karto_0.8.1 \
-                              slam-toolbox/slam-toolbox_1.1.2-1 \
-                              jsk-3rdparty/slic_2.1.13-1 \
-+                          ros-emacs-utils/slime-ros_0.4.13 \
-+                          ros-emacs-utils/slime-wrapper_0.4.13 \
-                           executive-smach/smach_2.0.1 \
-                           executive-smach/smach-msgs_2.0.1 \
-                           executive-smach/smach-ros_2.0.1 \
-@@ -3577,6 +3601,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     ackermann-msgs \
-     ackermann-steering-controller \
-     actionlib \
-+    actionlib-lisp \
-     actionlib-msgs \
-     actionlib-tutorials \
-     adi-driver \
-@@ -3664,9 +3689,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     cartographer-rviz \
-     catkin \
-     catkin-pip \
-+    catkin-virtualenv \
-     checkerboard-detector \
-     chomp-motion-planner \
-     cis-camera \
-+    cl-tf \
-+    cl-tf2 \
-+    cl-transforms \
-+    cl-transforms-stamped \
-+    cl-urdf \
-+    cl-utils \
-     class-loader \
-     clear-costmap-recovery \
-     clock-relay \
-@@ -3936,6 +3968,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     ethercat-trigger-controllers \
-     eus-assimp \
-     euscollada \
-+    euslisp \
-     eusurdf \
-     executive-smach \
-     executive-smach-visualization \
-@@ -3988,6 +4021,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     fingertip-pressure \
-     fkie-message-filters \
-     fkie-potree-rviz-plugin \
-+    flatbuffers \
-     flexbe-behavior-engine \
-     flexbe-core \
-     flexbe-input \
-@@ -4029,6 +4063,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     gazebo-rosdev \
-     gencpp \
-     generic-throttle \
-+    geneus \
-+    genlisp \
-     genmsg \
-     gennodejs \
-     genpy \
-@@ -4066,6 +4102,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     grid-map-sdf \
-     grid-map-visualization \
-     gripper-action-controller \
-+    grpc \
-     gscam \
-     gundam-robot \
-     gundam-rx78-control \
-@@ -4124,6 +4161,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     igvc-self-drive-gazebo \
-     igvc-self-drive-gazebo-plugins \
-     igvc-self-drive-sim \
-+    iirob-filters \
-     image-cb-detector \
-     image-common \
-     image-geometry \
-@@ -4435,6 +4473,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     multisense-lib \
-     multisense-ros \
-     mvsim \
-+    nanomsg \
-     nao-meshes \
-     naoqi-bridge-msgs \
-     naoqi-driver \
-@@ -4503,6 +4542,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     octomap-ros \
-     octomap-rviz-plugins \
-     octomap-server \
-+    octovis \
-     odom-frame-publisher \
-     odometry-publisher-tutorial \
-     odva-ethernetip \
-@@ -4773,6 +4813,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     ros-control-boilerplate \
-     ros-controllers \
-     ros-core \
-+    ros-emacs-utils \
-     ros-environment \
-     ros-introspection \
-     ros-monitoring-msgs \
-@@ -4811,6 +4852,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     roscpp-tutorials \
-     roscreate \
-     rosdiagnostic \
-+    rosdoc-lite \
-+    rosemacs \
-     roseus \
-     roseus-mongo \
-     roseus-smach \
-@@ -4822,6 +4865,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     roslaunch \
-     roslib \
-     roslint \
-+    roslisp \
-+    roslisp-common \
-+    roslisp-repl \
-+    roslisp-utilities \
-     roslz4 \
-     rosmake \
-     rosmaster \
-@@ -4987,6 +5034,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
-     slam-karto \
-     slam-toolbox \
-     slic \
-+    slime-ros \
-+    slime-wrapper \
-     smach \
-     smach-msgs \
-     smach-ros \
-@@ -5346,6 +5395,8 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_dpkg} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_emacs} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_epydoc} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_f2c} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_flex} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom} \
-@@ -5412,14 +5463,20 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_libpq-dev} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-concurrent} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-network} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline-dev} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline} \
-@@ -5492,6 +5549,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-imaging} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-impacket} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-joblib} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_python-kitchen} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-libpgm-pip} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-mapnik} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib} \
-@@ -5499,6 +5557,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-msgpack} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-opengl} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_python-packaging} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pandas} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pcapy} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pep8} \
-@@ -5535,11 +5594,14 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-tornado} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-urlgrabber} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_python-websocket} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-venv} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_rsync} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_ruby} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_sbcl} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_screen} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_spacenavd} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_sshpass} \
-@@ -5552,9 +5614,12 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_usbutils} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_virtualenv} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_vlc} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_wget-native} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_wget} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-100dpi} \
-+    ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-75dpi} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_xterm} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_xvfb} \
-     ${ROS_UNRESOLVED_PLATFORM_PKG_yasm} \
-@@ -5619,6 +5684,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
-     protobuf \
-     protobuf-native \
-     python \
-+    python3 \
-     qhull \
-     qtbase \
-     qtbase-native \
-@@ -5709,6 +5775,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
-     catch-ros \
-     catkin \
-     catkin-pip \
-+    catkin-virtualenv \
-     cis-camera \
-     class-loader \
-     cloudwatch-common \
-@@ -5775,6 +5842,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
-     eml \
-     epos2-motor-controller \
-     ethercat-grant \
-+    euslisp \
-     executive-smach \
-     executive-smach-visualization \
-     exotica \
-@@ -5793,6 +5861,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
-     find-object-2d \
-     fkie-message-filters \
-     fkie-potree-rviz-plugin \
-+    flatbuffers \
-     flexbe \
-     flir-boson-usb \
-     fmi-adapter \
-@@ -5801,6 +5870,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
-     fsrobo-r \
-     gazebo-ros-pkgs \
-     gencpp \
-+    geneus \
-+    genlisp \
-     genmsg \
-     gennodejs \
-     genpy \
-@@ -5815,6 +5886,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
-     graph-msgs \
-     grasping-msgs \
-     grid-map \
-+    grpc \
-     gscam \
-     gundam-robot \
-     h264-encoder-core \
-@@ -5834,6 +5906,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
-     ibeo-lux \
-     ifopt \
-     igvc-self-drive-sim \
-+    iirob-filters \
-     image-common \
-     image-pipeline \
-     image-transport-plugins \
-@@ -5931,6 +6004,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
-     multimaster-fkie \
-     multisense-ros \
-     mvsim \
-+    nanomsg \
-     nao-meshes \
-     naoqi-bridge-msgs \
-     naoqi-driver \
-@@ -6078,6 +6152,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
-     ros-control \
-     ros-control-boilerplate \
-     ros-controllers \
-+    ros-emacs-utils \
-     ros-environment \
-     ros-monitoring-msgs \
-     ros-pytest \
-@@ -6095,8 +6170,11 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
-     rosconsole \
-     rosconsole-bridge \
-     roscpp-core \
-+    rosdoc-lite \
-     rosfmt \
-     roslint \
-+    roslisp \
-+    roslisp-common \
-     rosmon \
-     rospack \
-     rosparam-handler \
-@@ -6296,6 +6374,8 @@ ROS_UNRESOLVED_PLATFORM_PKG_daemontools = "UNRESOLVED-daemontools"
- ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq = "UNRESOLVED-dnsmasq"
- ROS_UNRESOLVED_PLATFORM_PKG_doxygen = "UNRESOLVED-doxygen"
- ROS_UNRESOLVED_PLATFORM_PKG_dpkg = "UNRESOLVED-dpkg"
-+ROS_UNRESOLVED_PLATFORM_PKG_emacs = "UNRESOLVED-emacs"
-+ROS_UNRESOLVED_PLATFORM_PKG_epydoc = "UNRESOLVED-epydoc"
- ROS_UNRESOLVED_PLATFORM_PKG_f2c = "UNRESOLVED-f2c"
- ROS_UNRESOLVED_PLATFORM_PKG_flex = "UNRESOLVED-flex"
- ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "UNRESOLVED-ftdi-eeprom"
-@@ -6362,14 +6442,20 @@ ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph = "UNRESOLVED-libopenscenegraph"
- ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb = "UNRESOLVED-libopenvdb"
- ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev = "UNRESOLVED-libopenvdb-dev"
- ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev = "UNRESOLVED-libpng-dev"
-+ROS_UNRESOLVED_PLATFORM_PKG_libpq-dev = "UNRESOLVED-libpq-dev"
- ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev = "UNRESOLVED-libpulse-dev"
-+ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4 = "UNRESOLVED-libqglviewer-qt4"
-+ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev = "UNRESOLVED-libqglviewer-qt4-dev"
- ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev = "UNRESOLVED-libqt4-dev"
-+ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl = "UNRESOLVED-libqt4-opengl"
-+ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev = "UNRESOLVED-libqt4-opengl-dev"
- ROS_UNRESOLVED_PLATFORM_PKG_libqt5-concurrent = "UNRESOLVED-libqt5-concurrent"
- ROS_UNRESOLVED_PLATFORM_PKG_libqt5-network = "UNRESOLVED-libqt5-network"
- ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev = "UNRESOLVED-libqt5-opengl-dev"
- ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev = "UNRESOLVED-libqt5-svg-dev"
- ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins = "UNRESOLVED-libqt5multimedia5-plugins"
- ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev = "UNRESOLVED-libqt5x11extras5-dev"
-+ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4 = "UNRESOLVED-libqtgui4"
- ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev = "UNRESOLVED-libqwt-qt5-dev"
- ROS_UNRESOLVED_PLATFORM_PKG_libreadline = "UNRESOLVED-libreadline"
- ROS_UNRESOLVED_PLATFORM_PKG_libreadline-dev = "UNRESOLVED-libreadline-dev"
-@@ -6442,6 +6528,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-imageio = "UNRESOLVED-python-imageio"
- ROS_UNRESOLVED_PLATFORM_PKG_python-imaging = "UNRESOLVED-python-imaging"
- ROS_UNRESOLVED_PLATFORM_PKG_python-impacket = "UNRESOLVED-python-impacket"
- ROS_UNRESOLVED_PLATFORM_PKG_python-joblib = "UNRESOLVED-python-joblib"
-+ROS_UNRESOLVED_PLATFORM_PKG_python-kitchen = "UNRESOLVED-python-kitchen"
- ROS_UNRESOLVED_PLATFORM_PKG_python-libpgm-pip = "UNRESOLVED-python-libpgm-pip"
- ROS_UNRESOLVED_PLATFORM_PKG_python-mapnik = "UNRESOLVED-python-mapnik"
- ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib = "UNRESOLVED-python-matplotlib"
-@@ -6449,6 +6536,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize = "UNRESOLVED-python-mechanize"
- ROS_UNRESOLVED_PLATFORM_PKG_python-msgpack = "UNRESOLVED-python-msgpack"
- ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb = "UNRESOLVED-python-omniorb"
- ROS_UNRESOLVED_PLATFORM_PKG_python-opengl = "UNRESOLVED-python-opengl"
-+ROS_UNRESOLVED_PLATFORM_PKG_python-packaging = "UNRESOLVED-python-packaging"
- ROS_UNRESOLVED_PLATFORM_PKG_python-pandas = "UNRESOLVED-python-pandas"
- ROS_UNRESOLVED_PLATFORM_PKG_python-pcapy = "UNRESOLVED-python-pcapy"
- ROS_UNRESOLVED_PLATFORM_PKG_python-pep8 = "UNRESOLVED-python-pep8"
-@@ -6485,11 +6573,14 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "UNRESOLVED-python-tk"
- ROS_UNRESOLVED_PLATFORM_PKG_python-tornado = "UNRESOLVED-python-tornado"
- ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core = "UNRESOLVED-python-twisted-core"
- ROS_UNRESOLVED_PLATFORM_PKG_python-urlgrabber = "UNRESOLVED-python-urlgrabber"
-+ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv = "UNRESOLVED-python-virtualenv"
- ROS_UNRESOLVED_PLATFORM_PKG_python-websocket = "UNRESOLVED-python-websocket"
-+ROS_UNRESOLVED_PLATFORM_PKG_python3-venv = "UNRESOLVED-python3-venv"
- ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev = "UNRESOLVED-qtdeclarative5-dev"
- ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev = "UNRESOLVED-qtmultimedia5-dev"
- ROS_UNRESOLVED_PLATFORM_PKG_rsync = "UNRESOLVED-rsync"
- ROS_UNRESOLVED_PLATFORM_PKG_ruby = "UNRESOLVED-ruby"
-+ROS_UNRESOLVED_PLATFORM_PKG_sbcl = "UNRESOLVED-sbcl"
- ROS_UNRESOLVED_PLATFORM_PKG_screen = "UNRESOLVED-screen"
- ROS_UNRESOLVED_PLATFORM_PKG_spacenavd = "UNRESOLVED-spacenavd"
- ROS_UNRESOLVED_PLATFORM_PKG_sshpass = "UNRESOLVED-sshpass"
-@@ -6502,24 +6593,13 @@ ROS_UNRESOLVED_PLATFORM_PKG_time = "UNRESOLVED-time"
- ROS_UNRESOLVED_PLATFORM_PKG_unzip = "UNRESOLVED-unzip"
- ROS_UNRESOLVED_PLATFORM_PKG_usbutils = "UNRESOLVED-usbutils"
- ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils = "UNRESOLVED-v4l-utils"
-+ROS_UNRESOLVED_PLATFORM_PKG_virtualenv = "UNRESOLVED-virtualenv"
- ROS_UNRESOLVED_PLATFORM_PKG_vlc = "UNRESOLVED-vlc"
- ROS_UNRESOLVED_PLATFORM_PKG_wget = "UNRESOLVED-wget"
- ROS_UNRESOLVED_PLATFORM_PKG_wget-native = "UNRESOLVED-wget-native"
-+ROS_UNRESOLVED_PLATFORM_PKG_xfonts-100dpi = "UNRESOLVED-xfonts-100dpi"
-+ROS_UNRESOLVED_PLATFORM_PKG_xfonts-75dpi = "UNRESOLVED-xfonts-75dpi"
- ROS_UNRESOLVED_PLATFORM_PKG_xterm = "UNRESOLVED-xterm"
+ ROS_DISTRO_TYPE = "ros1"
+@@ -6605,17 +6605,3 @@ ROS_UNRESOLVED_PLATFORM_PKG_xterm = "UNRESOLVED-xterm"
  ROS_UNRESOLVED_PLATFORM_PKG_xvfb = "UNRESOLVED-xvfb"
  ROS_UNRESOLVED_PLATFORM_PKG_yasm = "UNRESOLVED-yasm"
  ROS_UNRESOLVED_PLATFORM_PKG_zbar = "UNRESOLVED-zbar"
@@ -685,128 +94,19 @@ index fe2003a85..00dfc3a49 100644
 -ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.3.2"
 -
 -# Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
--ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.3.2"
+-ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.3.3"
 -----
 diff --git a/meta-ros1-melodic/files/melodic/generated/rosdep-resolve.yaml b/meta-ros1-melodic/files/melodic/generated/rosdep-resolve.yaml
-index 6495bdda6..b75c5cd5a 100644
+index b75c5cd5a..563498829 100644
 --- a/meta-ros1-melodic/files/melodic/generated/rosdep-resolve.yaml
 +++ b/meta-ros1-melodic/files/melodic/generated/rosdep-resolve.yaml
-@@ -66,6 +66,10 @@ dpkg:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_dpkg}
- eigen:
- - libeigen@meta-oe
-+emacs:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_emacs}
-+epydoc:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_epydoc}
- f2c:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_f2c}
- festival:
-@@ -260,12 +264,22 @@ libpng-dev:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev}
- libpoco-dev:
- - poco@meta-oe
-+libpq-dev:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_libpq-dev}
- libpulse-dev:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev}
-+libqglviewer-qt4:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4}
-+libqglviewer-qt4-dev:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev}
- libqhull:
- - qhull@meta-ros
- libqt4-dev:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev}
-+libqt4-opengl:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl}
-+libqt4-opengl-dev:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev}
- libqt5-concurrent:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-concurrent}
- libqt5-core:
-@@ -286,6 +300,8 @@ libqt5multimedia5-plugins:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins}
- libqt5x11extras5-dev:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev}
-+libqtgui4:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4}
- libqwt-qt5-dev:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev}
- libreadline:
-@@ -481,6 +497,8 @@ python-impacket:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_python-impacket}
- python-joblib:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_python-joblib}
-+python-kitchen:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-kitchen}
- python-libpgm-pip:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_python-libpgm-pip}
- python-lxml:
-@@ -507,6 +525,8 @@ python-opencv:
- - opencv@meta-oe
- python-opengl:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_python-opengl}
-+python-packaging:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-packaging}
- python-pandas:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pandas}
- python-paramiko:
-@@ -595,12 +615,18 @@ python-twisted-core:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core}
- python-urlgrabber:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_python-urlgrabber}
-+python-virtualenv:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv}
- python-websocket:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_python-websocket}
- python-wxtools:
- - wxpython@meta-oe
- python-yaml:
- - ${PYTHON_PN}-pyyaml@meta-python
-+python3-dev:
-+- python3@openembedded-core
-+python3-venv:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-venv}
- qt5-qmake:
- - qtbase@meta-qt5
- qtbase5-dev:
-@@ -613,6 +639,8 @@ rsync:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_rsync}
- ruby:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_ruby}
-+sbcl:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_sbcl}
- screen:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_screen}
- sdl:
-@@ -626,8 +654,8 @@ sshpass:
+@@ -654,8 +654,8 @@ sshpass:
  subversion:
  - ${ROS_UNRESOLVED_PLATFORM_PKG_subversion}
  suitesparse:
--- suitesparse-cxsparse@meta-ros
- - suitesparse-cholmod@meta-ros
-+- suitesparse-cxsparse@meta-ros
+-- suitesparse-cholmod@meta-ros
+ - suitesparse-cxsparse@meta-ros
++- suitesparse-cholmod@meta-ros
  swig:
  - ${ROS_UNRESOLVED_PLATFORM_PKG_swig}
  sysstat:
-@@ -652,6 +680,8 @@ uuid:
- - util-linux@openembedded-core
- v4l-utils:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils}
-+virtualenv:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_virtualenv}
- vlc:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_vlc}
- wget:
-@@ -662,6 +692,10 @@ wxpython:
- - wxpython@meta-ros
- wxwidgets:
- - wxwidgets@meta-ros
-+xfonts-100dpi:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-100dpi}
-+xfonts-75dpi:
-+- ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-75dpi}
- xterm:
- - ${ROS_UNRESOLVED_PLATFORM_PKG_xterm}
- xvfb:
