@@ -31,7 +31,7 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'zeus-2020-01-28')
 Layers = [
 ('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.44', 'commit': '1a026d4a'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'zeus', 'commit': 'af41a2238b'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'zeus', 'commit': '832588c287'}, {}),
 
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'zeus', 'commit': 'e855ecc6d3'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
@@ -39,7 +39,7 @@ Layers = [
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'zeus', 'commit': 'e81f2e7'}, {}),
+('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'zeus', 'commit': 'b7817c3'}, {}),
 ('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'zeus', 'commit': '3ab5647'}, {}),
 
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': '20331bd'}, {}),
