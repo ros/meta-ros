@@ -1,3 +1,3 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
-PNBLACKLIST[turtle-tf2] ?= "${@ 'Requires turtlesim which depends on qtbase which requires meta-qt5 to be included' if 'qt5-layer' not in BBFILE_COLLECTIONS.split() else '' }"
+PNBLACKLIST[turtle-tf2] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires turtlesim which depends on qtbase which requires meta-qt5 to be included', '', d)}"
