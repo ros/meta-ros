@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.1+7.g4511fcc"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.1+7.g15ca7e4"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros2"
@@ -32,7 +32,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-eloquent/files/eloquent/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "7"
+ROS_NUM_CACHE_YAML_COMMITS = "5"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -1899,4 +1899,4 @@ ROS_SUPERFLORE_GENERATION_COMMIT = "ab9167b4f0fafeeebcea68a94d6f31fb513369b4"
 ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.3.0"
 
 # Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
-ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.3.0"
+ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.3.3"
