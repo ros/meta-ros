@@ -12,6 +12,8 @@ RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 
 # Requires Python 3; it is not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "catkin-virtualenv"
+# Depends on blacklisted catkin-virtualenv
+RDEPENDS_${PN}_remove = "haros-catkin"
 
 # It is a fork of https://github.com/google/flatbuffers that's not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "flatbuffers"
