@@ -1,5 +1,3 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-# Depends on pr2-gazebo, pr2-gazebo-plugins, pr2-controller-configuration-gazebo with this restriction:
-inherit distro_features_check
-REQUIRED_DISTRO_FEATURES = "ros-gazebo"
+PNBLACKLIST[pr2-simulator] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, pr2-gazebo, pr2-gazebo-plugins, pr2-controller-configuration-gazebo which is not available', '', d)}"
