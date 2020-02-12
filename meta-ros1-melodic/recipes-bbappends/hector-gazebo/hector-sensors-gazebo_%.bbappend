@@ -1,5 +1,3 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-# Depends on hector-gazebo-plugins, gazebo-plugins with this restriction:
-inherit distro_features_check
-REQUIRED_DISTRO_FEATURES = "ros-gazebo"
+PNBLACKLIST[hector-sensors-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, hector-gazebo-plugins, gazebo-plugins which is not available', '', d)}"
