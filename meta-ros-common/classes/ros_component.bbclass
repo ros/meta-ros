@@ -15,7 +15,7 @@ ROS_CN ??= "${ROS_BPN}"
 ROS_SPN ??= "${ROS_BPN}"
 ROS_SP ??= "${ROS_SPN}-${PV}"
 
-inherit faulty-solibs
+inherit ros_faulty_solibs
 FILES_${PN}_prepend = " \
     ${datadir}/${ROS_BPN} \
     ${libdir}/${PYTHON_DIR} \

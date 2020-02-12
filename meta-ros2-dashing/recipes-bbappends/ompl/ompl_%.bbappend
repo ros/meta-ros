@@ -1,6 +1,6 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
-inherit ros-insane
+inherit ros_insane_dev_so
 
 DEPENDS_append_class-target = " chrpath-replacement-native"
 # For some reason ends with bad RPATH
