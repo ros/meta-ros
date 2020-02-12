@@ -414,10 +414,18 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_LISP = " \
     cl-transforms-stamped \
     cl-urdf \
     cl-utils \
+    eus-assimp \
     euslisp \
-    geneus genlisp \
+    geneus \
+    genlisp \
+    jskeus \
+    jsk-model-tools \
+    jsk-roseus \
     ros-emacs-utils \
     rosemacs \
+    roseus \
+    roseus-mongo \
+    roseus-smach \
     roslisp \
     roslisp-common \
     roslisp-repl \
