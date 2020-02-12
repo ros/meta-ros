@@ -32,6 +32,9 @@ RDEPENDS_${PN}_remove = "octovis"
 
 # Generation of ROS package documentation will never be done on the target.
 RDEPENDS_${PN}_remove = "rosdoc-lite"
+# Depends on blacklisted rosdoc-lite
+RDEPENDS_${PN}_remove = "jackal-tutorials"
+RDEPENDS_${PN}_remove = "odom-frame-publisher"
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 
