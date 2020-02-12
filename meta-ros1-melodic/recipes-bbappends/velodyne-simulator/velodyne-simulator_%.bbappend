@@ -1,5 +1,3 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-# Depends on velodyne-gazebo-plugins with this restriction:
-inherit distro_features_check
-REQUIRED_DISTRO_FEATURES = "ros-gazebo"
+PNBLACKLIST[velodyne-simulator] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, velodyne-gazebo-plugins which is not available', '', d)}"

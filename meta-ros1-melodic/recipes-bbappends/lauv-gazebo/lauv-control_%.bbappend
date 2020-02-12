@@ -1,5 +1,3 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-# Depends on lauv-description with this restriction:
-inherit distro_features_check
-REQUIRED_DISTRO_FEATURES = "ros-gazebo"
+PNBLACKLIST[lauv-control] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, lauv-description which is not available', '', d)}"

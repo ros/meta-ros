@@ -1,5 +1,3 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-# Depends on eca-a9-description with this restriction:
-inherit distro_features_check
-REQUIRED_DISTRO_FEATURES = "ros-gazebo"
+PNBLACKLIST[eca-a9-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, eca-a9-description which is not available', '', d)}"

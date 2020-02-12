@@ -1,5 +1,3 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-# Depends on turtlebot3-gazebo with this restriction:
-inherit distro_features_check
-REQUIRED_DISTRO_FEATURES = "ros-gazebo"
+PNBLACKLIST[turtlebot3-simulations] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, turtlebot3-gazebo which is not available', '', d)}"
