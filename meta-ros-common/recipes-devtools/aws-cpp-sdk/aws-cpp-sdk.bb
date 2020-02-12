@@ -13,7 +13,7 @@ SRCREV = "59337ec3dd6a998bddb41e4bad39e783cad34b6b"
 SRC_URI = "git://github.com/aws/aws-sdk-cpp.git;protocol=https"
 S = "${WORKDIR}/git"
 
-inherit cmake faulty-solibs
+inherit cmake ros_faulty_solibs
 
 DEPENDS += "aws-c-common aws-c-event-stream aws-checksums curl openssl zlib"
 

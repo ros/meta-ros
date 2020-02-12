@@ -16,6 +16,6 @@ do_install_append() {
     chrpath --delete ${D}${bindir}/* ${D}${libdir}/*${SOLIBS}
 }
 
-inherit ros-insane
+inherit ros_insane_dev_so
 # ERROR: octomap-1.9.2-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: octomap path '/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/octomap/1.9.2-1-r0/packages-split/octomap/usr/lib/liboctomath.so'
 # non -dev/-dbg/nativesdk- package contains symlink .so: octomap path '/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/octomap/1.9.2-1-r0/packages-split/octomap/usr/lib/liboctomap.so' [dev-so]

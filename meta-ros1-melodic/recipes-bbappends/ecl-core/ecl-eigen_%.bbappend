@@ -2,4 +2,4 @@
 
 FILES_${PN}-doc_prepend = "${datadir}/licenses "
 
-inherit ros-insane
+inherit ros_insane_dev_so

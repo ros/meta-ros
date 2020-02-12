@@ -19,4 +19,4 @@ do_install_append() {
 }
 
 # ERROR: amazon-kvs-sdk-cpp-kinesis-video-producer-1.7.8-r0 do_package_qa: QA Issue: -dev package contains non-symlink .so: amazon-kvs-sdk-cpp-kinesis-video-producer-dev path '/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/packages-split/amazon-kvs-sdk-cpp-kinesis-video-producer-dev/usr/lib/libKinesisVideoProducer.so' [dev-elf]
-inherit faulty-solibs
+inherit ros_faulty_solibs

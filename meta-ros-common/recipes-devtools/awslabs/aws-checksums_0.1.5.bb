@@ -8,6 +8,6 @@ SRCREV = "519d6d9093819b6cf89ffff589a27ef8f83d0f65"
 SRC_URI = "git://github.com/awslabs/${BPN}.git;protocol=https"
 S = "${WORKDIR}/git"
 
-inherit cmake faulty-solibs
+inherit cmake ros_faulty_solibs
 
 EXTRA_OECMAKE += "-DBUILD_SHARED_LIBS=ON"
