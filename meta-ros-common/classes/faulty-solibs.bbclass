@@ -1,5 +1,5 @@
-# Ideally, the software packages upstream should be fixed to provide dynamic
-# libraries with version number and symlinks without version number to them.
-# This class sets up bitbake to handle improper set up software packages. 
-FILES_SOLIBSDEV = ""
-FILES_${PN} += "${libdir}/lib*${SOLIBSDEV}"
+python __anonymous() {
+    bb.warn("faulty-solibs.bbclass is deprecated, please use ros_faulty_solibs.bbclass instead")
+}
+
+inherit ros_faulty_solibs
