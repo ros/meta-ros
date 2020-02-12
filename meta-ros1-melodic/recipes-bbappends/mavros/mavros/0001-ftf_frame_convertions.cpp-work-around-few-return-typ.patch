@@ -1,0 +1,101 @@
+From 0cf3f345b09a511c78713130ab248055e37e06a0 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 12 Feb 2020 13:04:35 +0000
+Subject: [PATCH] ftf_frame_convertions.cpp: work around few return-type issues
+
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DHAVE_SENSOR_MSGS_BATTERYSTATE_MSG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"mavros\" -Dmavros_EXPORTS -I/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/include -I/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include -I/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/recipe-sysroot/usr/include/eigen3 -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0=/usr/src/debug/mavros/1.0.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0=/usr/src/debug/mavros/1.0.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/recipe-sysroot -std=c++14 -fPIC -MD -MT CMakeFiles/mavros.dir/src/lib/ftf_frame_conversions.cpp.o -MF CMakeFiles/mavros.dir/src/lib/ftf_frame_conversions.cpp.o.d -o CMakeFiles/mavros.dir/src/lib/ftf_frame_conversions.cpp.o -c /jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp: In function 'Eigen::Quaterniond mavros::ftf::detail::transform_orientation(const Quaterniond&, mavros::ftf::StaticTF)':
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp:88:1: error: control reaches end of non-void function [-Werror=return-type]
+   88 | }
+      | ^
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp: In function 'Eigen::Vector3d mavros::ftf::detail::transform_static_frame(const Vector3d&, mavros::ftf::StaticTF)':
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp:102:1: error: control reaches end of non-void function [-Werror=return-type]
+  102 | }
+      | ^
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp: In function 'mavros::ftf::Covariance3d mavros::ftf::detail::transform_static_frame(const Covariance3d&, mavros::ftf::StaticTF)':
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp:122:1: error: control reaches end of non-void function [-Werror=return-type]
+  122 | }
+      | ^
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp: In function 'mavros::ftf::Covariance6d mavros::ftf::detail::transform_static_frame(const Covariance6d&, mavros::ftf::StaticTF)':
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp:153:1: error: control reaches end of non-void function [-Werror=return-type]
+  153 | }
+      | ^
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp: In function 'mavros::ftf::Covariance9d mavros::ftf::detail::transform_static_frame(const Covariance9d&, mavros::ftf::StaticTF)':
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp:186:1: error: control reaches end of non-void function [-Werror=return-type]
+  186 | }
+      | ^
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp: In function 'Eigen::Vector3d mavros::ftf::detail::transform_static_frame(const Vector3d&, const Vector3d&, mavros::ftf::StaticTF)':
+/jenkins/mjansa/build-ros/webos-melodic-zeus/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mavros/1.0.0-1-r0/git/src/lib/ftf_frame_conversions.cpp:227:1: error: control reaches end of non-void function [-Werror=return-type]
+  227 | }
+      | ^
+cc1plus: some warnings being treated as errors
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/lib/ftf_frame_conversions.cpp | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/src/lib/ftf_frame_conversions.cpp b/src/lib/ftf_frame_conversions.cpp
+index 003477dc8..296d09285 100644
+--- a/src/lib/ftf_frame_conversions.cpp
++++ b/src/lib/ftf_frame_conversions.cpp
+@@ -84,6 +84,9 @@ Eigen::Quaterniond transform_orientation(const Eigen::Quaterniond &q, const Stat
+ 	case StaticTF::AIRCRAFT_TO_BASELINK:
+ 	case StaticTF::BASELINK_TO_AIRCRAFT:
+ 		return q * AIRCRAFT_BASELINK_Q;
++	default:
++		ROS_FATAL("Unexpected transformation");
++		__builtin_unreachable ();
+ 	}
+ }
+ 
+@@ -98,6 +101,9 @@ Eigen::Vector3d transform_static_frame(const Eigen::Vector3d &vec, const StaticT
+ 	case StaticTF::AIRCRAFT_TO_BASELINK:
+ 	case StaticTF::BASELINK_TO_AIRCRAFT:
+ 		return AIRCRAFT_BASELINK_AFFINE * vec;
++	default:
++		ROS_FATAL("Unexpected transformation");
++		__builtin_unreachable ();
+ 	}
+ }
+ 
+@@ -118,6 +124,9 @@ Covariance3d transform_static_frame(const Covariance3d &cov, const StaticTF tran
+ 	case StaticTF::BASELINK_TO_AIRCRAFT:
+ 		cov_out = cov_in * AIRCRAFT_BASELINK_Q;
+ 		return cov_out_;
++	default:
++		ROS_FATAL("Unexpected transformation");
++		__builtin_unreachable ();
+ 	}
+ }
+ 
+@@ -149,6 +158,9 @@ Covariance6d transform_static_frame(const Covariance6d &cov, const StaticTF tran
+ 
+ 		cov_out = R * cov_in * R.transpose();
+ 		return cov_out_;
++	default:
++		ROS_FATAL("Unexpected transformation");
++		__builtin_unreachable ();
+ 	}
+ }
+ 
+@@ -182,6 +194,9 @@ Covariance9d transform_static_frame(const Covariance9d &cov, const StaticTF tran
+ 
+ 		cov_out = R * cov_in * R.transpose();
+ 		return cov_out_;
++	default:
++		ROS_FATAL("Unexpected transformation");
++		__builtin_unreachable ();
+ 	}
+ }
+ 
+@@ -223,6 +238,9 @@ Eigen::Vector3d transform_static_frame(const Eigen::Vector3d &vec, const Eigen::
+ 		// ENU to ECEF rotation is just an inverse rotation from ECEF to ENU, which means transpose.
+ 		R.transposeInPlace();
+ 		return R * vec;
++	default:
++		ROS_FATAL("Unexpected transformation");
++		__builtin_unreachable ();
+ 	}
+ }
+ 
