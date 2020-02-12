@@ -26,3 +26,6 @@ RDEPENDS_${PN}_remove_webos = "bash"
 # see https://github.com/ros-infrastructure/superflore/issues/271
 _LICENSE := "${LICENSE}"
 LICENSE = "${@'${_LICENSE}'.replace('LGPL-2', 'LGPL-3.0')}"
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-ftf_frame_convertions.cpp-work-around-few-return-typ.patch"
