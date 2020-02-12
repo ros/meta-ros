@@ -10,6 +10,27 @@ PACKAGES = "${PN}"
 
 RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 
+# Requires Python 3; it is not used by any other ROS 1 package.
+RDEPENDS_${PN}_remove = "catkin-virtualenv"
+
+# It is a fork of https://github.com/google/flatbuffers that's not used by any other ROS 1 package.
+RDEPENDS_${PN}_remove = "flatbuffers"
+
+# It is a "catkin-ized" edition of the upstream version that is not used by any other ROS 1 package.
+RDEPENDS_${PN}_remove = "grpc"
+
+# It has a dependency on rosparam_handler for which there isn't an entry in melodic-cache.yaml nor base.yaml nor python.yaml nor ruby.yaml; it is not used by any other ROS 1 package.
+RDEPENDS_${PN}_remove = "iirob-filters"
+
+# It is a "catkin-ized" edition of the upstream version that is not used by any other ROS 1 package.
+RDEPENDS_${PN}_remove = "nanomsg"
+
+# It has dependencies on Qt4 packages; it is not used by any other ROS 1 package.
+RDEPENDS_${PN}_remove = "octovis"
+
+# Generation of ROS package documentation will never be done on the target.
+RDEPENDS_${PN}_remove = "rosdoc-lite"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
