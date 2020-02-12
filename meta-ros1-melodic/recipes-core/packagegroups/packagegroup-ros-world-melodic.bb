@@ -67,6 +67,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     grid-map \
     grid-map-demos \
     grid-map-rviz-plugin \
+    gundam-robot \
+    gundam-rx78-control \
     husky-desktop \
     husky-viz \
     imagesift \
@@ -87,6 +89,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     jsk-rviz-plugins \
     jsk-tools \
     jsk-visualization \
+    kvh-geo-fog-3d \
+    kvh-geo-fog-3d-rviz \
     libqt-concurrent \
     libqt-core \
     libqt-gui \
@@ -98,6 +102,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     libqt-widgets \
     librviz-tutorial \
     linux-networking \
+    lvr2 \
     mapviz \
     mapviz-plugins \
     mir-gazebo \
@@ -134,6 +139,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-cpp \
     qt-gui-py-common \
     qt-qmake \
+    rc-cloud-accumulator \
     ridgeback-desktop \
     ridgeback-viz \
     ros-controllers \
@@ -148,6 +154,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-console \
     rqt-controller-manager \
     rqt-dep \
+    rqt-drone-teleop \
     rqt-ez-publisher \
     rqt-graph \
     rqt-gui \
@@ -196,6 +203,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     seed-r7-samples \
     seed-r7-typef-moveit-config \
     sick-safetyscanners \
+    simple-grasping \
     slam-toolbox \
     swri-console \
     swri-profiler-tools \
@@ -210,6 +218,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     urdf-sim-tutorial \
     urdf-tutorial \
     visualization-tutorials \
+    visualstates \
     viz \
     warthog-desktop \
     warthog-viz \
