@@ -4,7 +4,7 @@
 #
 
 inherit cmake
-inherit faulty-solibs
+inherit ros_faulty_solibs
 # ROS_PYTHON_VERSION is set in generated/superflore-ros-distro.inc, ie, it will never be unset here.
 inherit ${@'distutils3-base' if d.getVar('ROS_PYTHON_VERSION', True) == '3' else 'distutils-base'}
 
