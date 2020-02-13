@@ -165,6 +165,32 @@ RDEPENDS_${PN}_remove = "wge100-driver"
 RDEPENDS_${PN}_remove = "prbt-support"
 RDEPENDS_${PN}_remove = "ros-canopen"
 
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-tk' (but generated-recipes/cob-driver/cob-voltage-control_0.7.1-1.bb RDEPENDS on or otherwise requires it)
+RDEPENDS_${PN}_remove = "cob-voltage-control"
+
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-pydot' (but generated-recipes/py-trees/py-trees_0.6.8.bb RDEPENDS on or otherwise requires it)
+RDEPENDS_${PN}_remove = "py-trees"
+
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-pandas' (but generated-recipes/rosbag-pandas/rosbag-pandas_0.5.3.bb RDEPENDS on or otherwise requires it)
+RDEPENDS_${PN}_remove = "rosbag-pandas"
+
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-scipy' (but generated-recipes/uuv-simulator/uuv-trajectory-control_0.6.13.bb RDEPENDS on or otherwise requires it)
+RDEPENDS_${PN}_remove = "uuv-trajectory-control"
+
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-termcolor' (but generated-recipes/py-trees-ros/py-trees-ros_0.5.18.bb RDEPENDS on or otherwise requires it)
+RDEPENDS_${PN}_remove = "py-trees-ros"
+
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-msgpack' (but generated-recipes/json-transport/json-transport_0.0.3.bb RDEPENDS on or otherwise requires it)
+RDEPENDS_${PN}_remove = "json-transport"
+
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-catkin-lint' (but generated-recipes/fetch-tools/fetch-tools_0.2.1.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-argcomplete' (but generated-recipes/fetch-tools/fetch-tools_0.2.1.bb RDEPENDS on or otherwise requires it)
+RDEPENDS_${PN}_remove = "fetch-tools"
+
+# ERROR: Nothing RPROVIDES 'uuv-trajectory-control' (but generated-recipes/eca-a9/eca-a9-control_0.1.6.bb, generated-recipes/uuv-simulator/uuv-control-utils_0.6.13.bb RDEPENDS on or otherwise requires it)
+RDEPENDS_${PN}_remove = "eca-a9-control"
+RDEPENDS_${PN}_remove = "uuv-control-utils"
+
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libnlopt-dev' (but generated-recipes/trac-ik/trac-ik-lib_1.5.1-1.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libnlopt0' (but generated-recipes/trac-ik/trac-ik-lib_1.5.1-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'trac-ik', 'trac-ik trac-ik-examples trac-ik-kinematics-plugin trac-ik-lib trac-ik-python', '', d)}"
