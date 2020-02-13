@@ -299,6 +299,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     desistek-saga-control \
     desistek-saga-description \
     desistek-saga-gazebo \
+    drone-wrapper \
     eca-a9-description \
     eca-a9-gazebo \
     eusurdf \
@@ -310,6 +311,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-ros-control \
     gazebo-ros-pkgs \
     gazebo-rosdev \
+    gundam-rx78-gazebo \
     hector-gazebo \
     hector-gazebo-plugins \
     hector-gazebo-thermal-camera \
@@ -323,6 +325,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     igvc-self-drive-sim \
     jackal-gazebo \
     jackal-simulator \
+    jderobot-assets \
     ksql-airport \
     lauv-control \
     lauv-description \
