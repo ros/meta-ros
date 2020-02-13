@@ -329,6 +329,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_protobuf = "protobuf"
 ROS_UNRESOLVED_PLATFORM_PKG_libreadline-dev = "readline"
 ROS_UNRESOLVED_PLATFORM_PKG_libreadline = "readline"
 
+# Used by:
+# generated-recipes/robot-upstart/robot-upstart_0.3.0.bb
+ROS_UNRESOLVED_PLATFORM_PKG_daemontools = "daemontools"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
