@@ -429,12 +429,29 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY =
     audio-capture \
     audio-common \
     audio-play \
+    cis-camera \
+    imagesift \
     jsk-3rdparty \
+    jsk-common \
+    jsk-data \
+    jsk-interactive \
+    jsk-interactive-marker \
+    jsk-interactive-test \
+    jsk-pcl-ros-utils \
+    jsk-pcl-ros \
+    jsk-perception \
     jsk-pr2eus \
+    jsk-recognition \
+    jsk-recognition-utils \
+    jsk-rviz-plugins \
+    jsk-tools \
     jsk-topic-tools \
+    jsk-visualization \
     julius-ros \
+    multi-map-server \
     pr2eus \
     pr2eus-moveit \
+    pr2eus-tutorials \
     resized-image-transport \
     ros-speech-recognition \
     sound-play \
