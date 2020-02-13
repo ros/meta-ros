@@ -1,5 +1,3 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-# Depends on freeglut with this restriction:
-inherit distro_features_check
-REQUIRED_DISTRO_FEATURES = "opengl"
+PNBLACKLIST[uwsim-bullet] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', 'Depends on freeglut which is not available because of missing opengl in DISTRO_FEATURES', '', d)}"
