@@ -3,6 +3,4 @@
 # Depends on ffmpeg with this restriction:
 LICENSE_FLAGS = "commercial"
 
-# Depends on gstreamer1.0-* with this restriction:
-inherit distro_features_check
-REQUIRED_DISTRO_FEATURES_append_rpi = " opengl"
+PNBLACKLIST[web-video-server] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'Depends on gstreamer1.0-plugins-base which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
