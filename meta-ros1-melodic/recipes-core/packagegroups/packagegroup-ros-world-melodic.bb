@@ -568,8 +568,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
 #    to explicitly disable vc4graphics and use userland to provide virtual/egl
 # C) Apply https://github.com/agherzan/meta-raspberrypi/pull/551 in meta-raspberrypi,
 #    this part can be removed once upgrading to Yocto release with this applied
-RDEPENDS_${PN}_remove_rpi = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS}', d)}"
-
+RDEPENDS_${PN}_remove_rpi = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS = " \
     ainstein-radar-tools \
     apriltag-ros \
