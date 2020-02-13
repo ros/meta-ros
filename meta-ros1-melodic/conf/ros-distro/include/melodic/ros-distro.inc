@@ -325,6 +325,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_libreadline = "readline"
 # generated-recipes/robot-upstart/robot-upstart_0.3.0.bb
 ROS_UNRESOLVED_PLATFORM_PKG_daemontools = "daemontools"
 
+# Used by:
+# generated-recipes/moveit/moveit-kinematics_1.0.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_liburdfdom-tools = "urdfdom"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
