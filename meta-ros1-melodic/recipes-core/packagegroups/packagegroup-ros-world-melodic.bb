@@ -641,6 +641,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS = " 
     multisense-cal-check \
     multisense-lib \
     multisense-ros \
+    naoqi-driver \
     nerian-stereo \
     opencv \
     opencv-apps \
@@ -652,6 +653,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS = " 
     perception \
     photo \
     posedetection-msgs \
+    realsense2-camera \
     rgbd-launch \
     robot-calibration \
     roseus-tutorials \
