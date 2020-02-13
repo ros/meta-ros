@@ -506,6 +506,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     roomba-stage \
     rtabmap \
     rtabmap-ros \
+    safe-teleop-stage \
     seed-r7-navigation \
     simulators \
     stage \
