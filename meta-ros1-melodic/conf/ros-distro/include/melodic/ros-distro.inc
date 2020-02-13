@@ -311,6 +311,16 @@ ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev = "glib-2.0"
 # generated-recipes/kobuki-core/kobuki-ftdi_0.7.8.bb
 ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "libftdi"
 
+# Used by:
+# generated-recipes/rc-dynamics-api/rc-dynamics-api_0.10.0-1.bb
+# generated-recipes/rc-visard/rc-visard-driver_2.7.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_protobuf = "protobuf"
+
+# Used by:
+# generated-recipes/yp-spur/ypspur_1.17.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libreadline-dev = "readline"
+ROS_UNRESOLVED_PLATFORM_PKG_libreadline = "readline"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
@@ -346,7 +356,6 @@ ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev = "ncurses"
 ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev = "libpng"
 #ROS_UNRESOLVED_PLATFORM_PKG_libpng12-dev = "libpng12-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev = "pulseaudio"
-ROS_UNRESOLVED_PLATFORM_PKG_libreadline-dev = "readline"
 ROS_UNRESOLVED_PLATFORM_PKG_libsensors4-dev = "lmsensors"
 #ROS_UNRESOLVED_PLATFORM_PKG_libspnav-dev = "libspnav-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev = "v4l-utils"
