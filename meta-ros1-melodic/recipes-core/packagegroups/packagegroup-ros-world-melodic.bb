@@ -36,6 +36,9 @@ RDEPENDS_${PN}_remove = "rosdoc-lite"
 RDEPENDS_${PN}_remove = "jackal-tutorials"
 RDEPENDS_${PN}_remove = "odom-frame-publisher"
 
+# Fetches depot_tools during do_configure and then tries to use vpython which isn't in dependencies
+RDEPENDS_${PN}_remove = "webrtc"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \

@@ -301,6 +301,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_vlc = "vlc"
 # Just a package built by geographiclib
 ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools = "geographiclib-tools"
 
+# Used by:
+# generated-recipes/webrtc-ros/webrtc_59.0.3.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev = "glib-2.0"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
@@ -318,7 +322,6 @@ ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev = "libftdi"
 # with cpp-wrapper PACKAGECONFIG enabled
 ROS_UNRESOLVED_PLATFORM_PKG_libftdipp-dev = "libftdi"
 #ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev = "libgeos++-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev = "libglib-2.0"
 ROS_UNRESOLVED_PLATFORM_PKG_libgphoto-dev = "libgphoto2"
 ROS_UNRESOLVED_PLATFORM_PKG_libgps = "gpsd"
 #ROS_UNRESOLVED_PLATFORM_PKG_libgts = "libgts"
