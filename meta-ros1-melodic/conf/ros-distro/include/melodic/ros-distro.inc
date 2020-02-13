@@ -29,6 +29,8 @@ ROS_WORLD_SKIP_GROUPS += "lisp"
 ROS_WORLD_SKIP_GROUPS += "gazebo"
 # recipes depending on wxpython
 ROS_WORLD_SKIP_GROUPS += "wxpython"
+# recipes depending on libnlopt0 (http://neuro.debian.net/pkgs/libnlopt0.html)
+ROS_WORLD_SKIP_GROUPS += "trac-ik"
 
 # recipes depending on something from meta-qt5 layer
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'qt5', d)}"
