@@ -46,6 +46,12 @@ ROS_WORLD_SKIP_GROUPS += "${@ 'ffmpeg' if not d.getVar('LICENSE_FLAGS_WHITELIST'
 # recipes depending on 'gstreamer1.0-plugins-ugly' which is restricted by 'commercial' LICENSE_FLAG
 ROS_WORLD_SKIP_GROUPS += "${@ 'gst-ugly' if not d.getVar('LICENSE_FLAGS_WHITELIST') or 'commercial' not in d.getVar('LICENSE_FLAGS_WHITELIST').split() else ''}"
 
+# recipes depending on python*-pyqt5 from meta-qt5 layer
+# Use separate group, because e.g. webOS OSE has meta-qt5 layer included, but python*-pyqt5
+# is blacklisted, because webOS OSE is missing newer meta-qt5 from warrior with older meta-oe thud which has
+# incompatible old sip
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'pyqt5', d)}"
+
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
 # and having it in a .bbappend sets it too late.
@@ -328,6 +334,28 @@ ROS_UNRESOLVED_PLATFORM_PKG_daemontools = "daemontools"
 # Used by:
 # generated-recipes/moveit/moveit-kinematics_1.0.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_liburdfdom-tools = "urdfdom"
+
+# Used by:
+# generated-recipes/python-qt-binding/python-qt-binding_0.3.6-2.bb
+# generated-recipes/qt-gui-core/qt-gui_0.3.16-1.bb
+# generated-recipes/visualstates/visualstates_0.2.3-2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings = "python-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings = "python3-pyqt5"
+
+# Used by:
+# generated-recipes/webkit-dependency/webkit-dependency_1.1.0.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-webkit = "python-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-webkit = "python3-pyqt5"
+
+# Used by:
+# generated-recipes/visualstates/visualstates_0.2.3-2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-qsci = "python-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-qsci = "python3-pyqt5"
+
+# Used by:
+# generated-recipes/gl-dependency/gl-dependency_1.1.0.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-gl = "python-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-gl = "python3-pyqt5"
 
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
