@@ -1,5 +1,3 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
-# Depends on teb-local-planner->stage->mesa with this restriction:
-inherit distro_features_check
-ANY_OF_DISTRO_FEATURES = "opengl vulkan"
+PNBLACKLIST[seed-r7-navigation] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', 'Depends on teb-local-planner->stage->mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES', '', d)}"
