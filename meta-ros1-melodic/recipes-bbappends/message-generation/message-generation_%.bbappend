@@ -7,3 +7,7 @@ do_configure_prepend() {
 
 ROS_EXPORT_DEPENDS_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lisp', 'geneus genlisp', '', d)}"
 ROS_EXEC_DEPENDS_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lisp', 'geneus genlisp', '', d)}"
+
+# These aren't available for native build
+ROS_EXPORT_DEPENDS_remove_class-native = "gencpp geneus genlisp gennodejs genpy"
+ROS_EXEC_DEPENDS_remove_class-native = "gencpp geneus genlisp gennodejs genpy"
