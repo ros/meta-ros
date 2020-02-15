@@ -463,6 +463,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY =
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
+    ainstein-radar \
     ainstein-radar-gazebo-plugins \
     audibot \
     audibot-gazebo \
@@ -475,21 +476,30 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     cob-gazebo-worlds \
     cob-grasp-generation \
     cob-hardware-config \
+    cob-manipulation \
+    cob-moveit-bringup \
     desistek-saga-control \
     desistek-saga-description \
     desistek-saga-gazebo \
+    desktop-full \
     drone-wrapper \
     eca-a9-description \
     eca-a9-gazebo \
     eusurdf \
     fetch-gazebo \
+    fetch-gazebo-demo \
+    fetch-simulation \
     fetchit-challenge \
+    fsrobo-r \
+    fsrobo-r-bringup \
     fsrobo-r-description \
+    fsrobo-r-moveit-config \
     gazebo-plugins \
     gazebo-ros \
     gazebo-ros-control \
     gazebo-ros-pkgs \
     gazebo-rosdev \
+    gundam-robot \
     gundam-rx78-gazebo \
     hector-gazebo \
     hector-gazebo-plugins \
@@ -513,7 +523,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     mecanum-gazebo-plugin \
     mir-description \
     mir-driver \
+    mir-gazebo \
     mir-navigation \
+    mir-robot \
     nmea-gps-plugin \
     open-manipulator-gazebo \
     open-manipulator-simulations \
@@ -523,6 +535,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     pr2-gazebo \
     pr2-gazebo-plugins \
     pr2-simulator \
+    prbt-gazebo \
     raw-description \
     rexrov2-control \
     rexrov2-description \
@@ -534,6 +547,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     rotors-gazebo-plugins \
     rotors-simulator \
     sand-island \
+    simulators \
     turtlebot3-gazebo \
     turtlebot3-simulations \
     urdf-sim-tutorial \
