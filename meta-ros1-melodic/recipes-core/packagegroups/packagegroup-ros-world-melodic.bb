@@ -574,11 +574,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_MULTIMEDIA = " \
     cob-android \
     cob-android-script-server \
     cob-command-gui \
+    cob-command-tools \
     cob-default-robot-behavior \
     cob-driver \
     cob-helper-tools \
     cob-mimic \
     cob-monitoring \
+    cob-moveit-interface \
     cob-script-server \
     cob-sound \
     cob-teleop \
