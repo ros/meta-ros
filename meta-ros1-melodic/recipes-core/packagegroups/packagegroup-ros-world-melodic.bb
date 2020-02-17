@@ -155,10 +155,16 @@ RDEPENDS_${PN}_remove = "towr-ros"
 RDEPENDS_${PN}_remove = "vapor-master"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libopenscenegraph' (but generated-recipes/visualization-osg/osg-utils_1.0.2-2.bb, generated-recipes/visualization-osg/osg-interactive-markers_1.0.2-2.bb, generated-recipes/visualization-osg/osg-markers_1.0.2-2.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "osg-utils"
-RDEPENDS_${PN}_remove = "osg-interactive-markers"
-RDEPENDS_${PN}_remove = "osg-markers"
-RDEPENDS_${PN}_remove = "uwsim"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'osg', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OSG}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OSG = " \
+    osg-interactive-markers \
+    osg-markers \
+    osg-utils \
+    uwsim \
+    uwsim-osgbullet \
+    uwsim-osgocean \
+    uwsim-osgworks \
+"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-muparser' (but generated-recipes/ros-canopen/canopen-motor-node_0.8.2-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "canopen-motor-node"
