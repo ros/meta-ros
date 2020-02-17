@@ -44,6 +44,8 @@ ROS_WORLD_SKIP_GROUPS += "ogre"
 ROS_WORLD_SKIP_GROUPS += "pyassimp"
 # recipes depending on libvtk-qt
 ROS_WORLD_SKIP_GROUPS += "vtk-qt"
+# recipes depending on libopenscenegraph
+ROS_WORLD_SKIP_GROUPS += "osg"
 
 # recipes depending on something from meta-qt5 layer
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'qt5', d)}"
