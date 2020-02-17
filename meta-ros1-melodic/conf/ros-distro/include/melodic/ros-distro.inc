@@ -36,6 +36,12 @@ ROS_WORLD_SKIP_GROUPS += "trac-ik"
 # https://github.com/openembedded/openembedded/blob/master/recipes/ogre/ogre-egl_svn.bb
 # but wasn'te ever ported to new layers
 ROS_WORLD_SKIP_GROUPS += "ogre"
+# recipes depending on python-pyassimp
+# there is assimp recipe in oe-core and older meta-ros:
+# http://cgit.openembedded.org/openembedded-core/commit/meta/recipes-graphics/vulkan/assimp_5.0.1.bb?id=ea43f8af4652d78546fee874606cf4093b11098e
+# https://github.com/ros/meta-ros/commit/5d71cc0abbc827719ffbbcb41db9cb5d71177401
+# but doesn't seem to provide python
+ROS_WORLD_SKIP_GROUPS += "pyassimp"
 
 # recipes depending on something from meta-qt5 layer
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'qt5', d)}"
