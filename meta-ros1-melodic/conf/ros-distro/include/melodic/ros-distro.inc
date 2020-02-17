@@ -42,6 +42,8 @@ ROS_WORLD_SKIP_GROUPS += "ogre"
 # https://github.com/ros/meta-ros/commit/5d71cc0abbc827719ffbbcb41db9cb5d71177401
 # but doesn't seem to provide python
 ROS_WORLD_SKIP_GROUPS += "pyassimp"
+# recipes depending on libvtk-qt
+ROS_WORLD_SKIP_GROUPS += "vtk-qt"
 
 # recipes depending on something from meta-qt5 layer
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'qt5', d)}"
@@ -473,7 +475,6 @@ ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev = "pulseaudio"
 ROS_UNRESOLVED_PLATFORM_PKG_libsensors4-dev = "lmsensors"
 #ROS_UNRESOLVED_PLATFORM_PKG_libspnav-dev = "libspnav-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev = "v4l-utils"
-#ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt = "libvtk-qt"
 ROS_UNRESOLVED_PLATFORM_PKG_mongodb = "mongodb"
 #ROS_UNRESOLVED_PLATFORM_PKG_muparser = "muparser"
 #ROS_UNRESOLVED_PLATFORM_PKG_npm-native = "npm-native"
