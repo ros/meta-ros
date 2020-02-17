@@ -439,6 +439,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_binutils = "binutils"
 # generated-recipes/uwsim-osgocean/uwsim-osgocean_1.0.4-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libfftw3 = "fftw"
 
+# Used by:
+# generated-recipes/rqt-multiplot-plugin/rqt-multiplot_0.0.10.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev = "qwt-qt5"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
