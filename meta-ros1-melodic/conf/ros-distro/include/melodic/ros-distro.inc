@@ -377,6 +377,20 @@ ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev = "qtx11extras"
 # generated-recipes/moveit/moveit-ros-perception_1.0.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev = "glew"
 
+# Used by:
+# generated-recipes/uwsim-bullet/uwsim-bullet_2.82.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxext = "libxext"
+
+# Used by:
+# generated-recipes/lvr2/lvr2_19.12.1-1.bb
+# generated-recipes/mapviz/mapviz_1.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev = "libxmu"
+
+# Used by:
+# generated-recipes/lvr2/lvr2_19.12.1-1.bb
+# generated-recipes/mapviz/mapviz_1.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev = "libxi"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
