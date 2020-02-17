@@ -1,3 +1,3 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
-PNBLACKLIST[rqt-py-trees] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires qt-dotgraph which requires meta-qt5 to be included', 'depends on py-trees which rdepends on unavailable UNRESOLVED-python-pydot', d)}"
+PNBLACKLIST[rqt-py-trees] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'python-deps'], 'Requires qt-dotgraph which requires meta-qt5 to be included and depends on unavailable UNRESOLVED-python-termcolor, UNRESOLVED-python-pygraphviz', '', d)}"
