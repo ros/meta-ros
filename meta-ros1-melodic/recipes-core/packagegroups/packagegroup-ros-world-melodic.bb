@@ -216,6 +216,36 @@ RDEPENDS_${PN}_remove = "network-autoconfig"
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libnlopt0' (but generated-recipes/trac-ik/trac-ik-lib_1.5.1-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'trac-ik', 'trac-ik trac-ik-examples trac-ik-kinematics-plugin trac-ik-lib trac-ik-python', '', d)}"
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ogre', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
+    abb \
+    abb-irb2400-moveit-config \
+    abb-irb6640-moveit-config \
+    franka-example-controllers \
+    franka-ros \
+    moveit \   
+    moveit-ros \
+    moveit-ros-visualization \
+    moveit-setup-assistant \
+    moveit-visual-tools \
+    open-manipulator \
+    open-manipulator-moveit \
+    open-manipulator-with-tb3 \
+    open-manipulator-with-tb3-waffle-moveit \
+    open-manipulator-with-tb3-waffle-pi-moveit \
+    panda-moveit-config \
+    rviz-visual-tools \
+    seed-r7-bringup \
+    seed-r7-moveit-config \   
+    seed-r7-typef-moveit-config \
+    vision-visp \
+    visp \
+    visp-auto-tracker \
+    visp-bridge \
+    visp-camera-calibration \
+    visp-hand2eye-calibration \
+    visp-tracker \
+"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
