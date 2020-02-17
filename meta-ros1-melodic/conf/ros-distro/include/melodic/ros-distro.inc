@@ -357,6 +357,15 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-qsci = "python3-pyqt5"
 ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-gl = "python-pyqt5"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-gl = "python3-pyqt5"
 
+# tango-icon-theme isn't available, but adwaita-icon-theme should be compatible
+# Used by:
+# generated-recipes/qt-gui-core/qt-gui_0.3.16-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "adwaita-icon-theme"
+
+# Used by:
+# generated-recipes/rviz-visual-tools/rviz-visual-tools_3.8.0-4.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev = "qtx11extras"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
