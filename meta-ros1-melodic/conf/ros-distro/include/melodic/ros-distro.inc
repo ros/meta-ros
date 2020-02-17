@@ -371,6 +371,12 @@ ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "adwaita-icon-theme"
 # generated-recipes/rviz-visual-tools/rviz-visual-tools_3.8.0-4.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev = "qtx11extras"
 
+# Used by:
+# generated-recipes/mapviz/mapviz_1.2.0-1.bb
+# generated-recipes/mapviz/tile-map_1.2.0-1.bb
+# generated-recipes/moveit/moveit-ros-perception_1.0.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev = "glew"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
