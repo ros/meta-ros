@@ -74,11 +74,22 @@ RDEPENDS_${PN}_remove = "husky-bringup"
 RDEPENDS_${PN}_remove = "husky-robot"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-pyassimp' (but generated-recipes/moveit-python/moveit-python_0.3.3-1.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "moveit-python"
-RDEPENDS_${PN}_remove = "simple-grasping"
-RDEPENDS_${PN}_remove = "fetch-bringup"
-RDEPENDS_${PN}_remove = "fetch-moveit-config"
-RDEPENDS_${PN}_remove = "fetch-ros"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyassimp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYASSIMP}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYASSIMP = " \
+    exotica \
+    exotica-core-task-maps \
+    exotica-examples \
+    exotica-ompl-solver \
+    exotica-python \
+    fetch-bringup \
+    fetch-moveit-config \
+    fetch-ros \
+    moveit-commander \
+    moveit-python \
+    pilz-industrial-motion \
+    pilz-robot-programming \
+    simple-grasping \
+"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-pyusb-pip' (but generated-recipes/jsk-3rdparty/respeaker-ros_2.1.13-1.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-speechrecognition-pip' (but generated-recipes/jsk-3rdparty/respeaker-ros_2.1.13-1.bb DEPENDS on or otherwise requires it)
