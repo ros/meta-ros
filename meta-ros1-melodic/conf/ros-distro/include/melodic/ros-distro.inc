@@ -460,6 +460,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_libfftw3 = "fftw"
 # generated-recipes/rqt-multiplot-plugin/rqt-multiplot_0.0.10.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev = "qwt-qt5"
 
+# Used by:
+# generated-recipes/qt-gui-core/qt-dotgraph_0.3.16-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-pydot = "python-pydot"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
