@@ -399,6 +399,44 @@ ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev = "libxmu"
 # generated-recipes/mapviz/mapviz_1.2.0-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev = "libxi"
 
+# Used by:
+# generated-recipes/marti-common/swri-transform-util_2.11.0-1.bb
+# generated-recipes/marti-common/swri-geometry-util_2.11.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev = "geos"
+
+# Used by:
+# generated-recipes/stage/stage_4.3.0.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libfltk-dev = "fltk"
+
+# Used by:
+# generated-recipes/fkie-potree-rviz-plugin/fkie-potree-rviz-plugin_1.0.0.bb
+# generated-recipes/mapviz/tile-map_1.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev = "jsoncpp"
+ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp = "jsoncpp"
+
+# Used by:
+# generated-recipes/plotjuggler/plotjuggler_2.5.0-1.bb
+# generated-recipes/kvh-geo-fog-3d/kvh-geo-fog-3d-rviz_1.3.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins = "qtmultimedia"
+
+# Used by:
+# generated-recipes/plotjuggler/plotjuggler_2.5.0-1.bb
+# generated-recipes/kvh-geo-fog-3d/kvh-geo-fog-3d-rviz_1.3.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev = "qtmultimedia"
+
+# Used by:
+# generated-recipes/plotjuggler/plotjuggler_2.5.0-1.bb
+# generated-recipes/kvh-geo-fog-3d/kvh-geo-fog-3d-rviz_1.3.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev = "qtdeclarative"
+
+# Used by:
+# generated-recipes/plotjuggler/plotjuggler_2.5.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_binutils = "binutils"
+
+# Used by:
+# generated-recipes/uwsim-osgocean/uwsim-osgocean_1.0.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libfftw3 = "fftw"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
