@@ -115,6 +115,67 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_DEPS = " \
     viz \
 "
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
+    adi-driver \
+    cob-command-tools \
+    cob-dashboard \
+    dataspeed-pds-rqt \
+    fmi-adapter-examples \
+    gl-dependency \
+    gundam-rx78-control \
+    python-qt-binding \
+    qt-gui \
+    qt-gui-app \
+    qt-gui-core \
+    qt-gui-cpp \
+    ros-controllers \
+    rosmon \
+    rqt \
+    rqt-action \
+    rqt-bag \
+    rqt-console \
+    rqt-controller-manager \
+    rqt-dep \
+    rqt-drone-teleop \
+    rqt-ez-publisher \
+    rqt-graph \
+    rqt-gui \
+    rqt-gui-cpp \
+    rqt-gui-py \
+    rqt-image-view \
+    rqt-joint-trajectory-controller \
+    rqt-launch \
+    rqt-launchtree \
+    rqt-logger-level \
+    rqt-moveit \
+    rqt-msg \
+    rqt-multiplot \
+    rqt-nav-view \
+    rqt-plot \
+    rqt-publisher \
+    rqt-py-common \
+    rqt-py-console \
+    rqt-reconfigure \
+    rqt-robot-dashboard \
+    rqt-robot-monitor \
+    rqt-robot-steering \
+    rqt-rosmon \
+    rqt-rotors \
+    rqt-runtime-monitor \
+    rqt-rviz \
+    rqt-service-caller \
+    rqt-shell \
+    rqt-srv \
+    rqt-tf-tree \
+    rqt-top \
+    rqt-topic \
+    rqt-web \
+    sick-safetyscanners \
+    visualstates \
+    webkit-dependency \
+"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vtk-qt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT = " \
     lvr2 \
