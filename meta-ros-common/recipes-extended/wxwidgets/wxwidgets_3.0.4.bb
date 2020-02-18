@@ -64,6 +64,8 @@ wxwidgets_sysroot_preprocess () {
 FILES_${PN} += "${bindir} ${libdir}/wx/config"
 FILES_${PN}-dev += "${libdir}/wx/include ${datadir}/bakefile"
 
-# Depends on freeglut with this restriction:
 inherit distro_features_check
+# Depends on freeglut with this restriction:
 REQUIRED_DISTRO_FEATURES = "opengl"
+# and libglu with this:
+REQUIRED_DISTRO_FEATURES += "x11"
