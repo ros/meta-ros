@@ -124,6 +124,61 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT = " \
     simple-grasping \
 "
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
+    cob-collision-monitor \
+    cob-obstacle-distance-moveit \
+    exotica-aico-solver \
+    exotica-collision-scene-fcl \
+    exotica-collision-scene-fcl-latest \
+    exotica-core \
+    exotica-ik-solver \
+    exotica-levenberg-marquardt-solver \
+    exotica-time-indexed-rrt-connect-solver \
+    fsrobo-r-trajectory-filters \
+    image-pipeline \
+    image-view \
+    image-view2 \
+    industrial-core \
+    industrial-trajectory-filters \
+    mapviz \
+    mapviz-plugins \
+    moveit-fake-controller-manager \
+    moveit-planners \
+    moveit-planners-ompl \
+    moveit-plugins \
+    moveit-pr2 \
+    moveit-ros-benchmarks \
+    moveit-ros-manipulation \
+    moveit-ros-move-group \
+    moveit-ros-perception \
+    moveit-ros-planning \
+    moveit-ros-planning-interface \
+    moveit-ros-robot-interaction \
+    moveit-ros-warehouse \
+    moveit-runtime \
+    moveit-sim-controller \
+    multires-image \
+    navigation-stage \
+    navigation-tutorials \
+    open-manipulator-controller \
+    open-manipulator-with-tb3-tools \
+    perception \
+    pilz-trajectory-generation \
+    pr2-moveit-config \
+    rc-roi-manager-gui \
+    rc-visard \
+    robot-body-filter \
+    roomba-stage \
+    safe-teleop-stage \
+    stage \
+    stage-ros \
+    teb-local-planner-tutorials \
+    tile-map \
+    tuw-checkerboard \
+    tuw-marker-detection \
+    uwsim-bullet \
+"
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-pyusb-pip' (but generated-recipes/jsk-3rdparty/respeaker-ros_2.1.13-1.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-speechrecognition-pip' (but generated-recipes/jsk-3rdparty/respeaker-ros_2.1.13-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "respeaker-ros"
