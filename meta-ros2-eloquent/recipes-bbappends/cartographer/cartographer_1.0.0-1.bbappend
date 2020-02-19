@@ -6,4 +6,3 @@ ROS_BUILDTOOL_DEPENDS += " \
     protobuf-native \
 "
 
-PNBLACKLIST[cartographer] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cartographer', 'does not build in ROS2 yet', '', d)"
