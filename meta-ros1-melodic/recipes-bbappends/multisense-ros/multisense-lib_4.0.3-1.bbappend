@@ -1,7 +1,5 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-PNBLACKLIST[multisense-lib] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'Depends on gstreamer1.0-plugins-base which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
-
 # WARNING: multisense-lib-4.0.3-1-r0 do_package_qa: QA Issue:
 # package multisense-lib contains bad RPATH multisense-lib/4.0.3-1-r0/devel/lib in file multisense-lib/4.0.3-1-r0/packages-split/multisense-lib/opt/ros/melodic/lib/multisense_lib/DeviceInfoUtility
 # package multisense-lib contains bad RPATH multisense-lib/4.0.3-1-r0/devel/lib in file multisense-lib/4.0.3-1-r0/packages-split/multisense-lib/opt/ros/melodic/lib/multisense_lib/ImageCalUtility

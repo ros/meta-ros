@@ -1,4 +1,0 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
-
-PNBLACKLIST[qt-qmake] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires qtbase which requires meta-qt5 to be included', '', d)}"
-PNBLACKLIST[qt-qmake-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires qtbase which requires meta-qt5 to be included', '', d)}"
