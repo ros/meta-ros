@@ -1,6 +1,5 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-PNBLACKLIST[grpc] ?= "It is a catkin-ized edition of the upstream version that is not used by any other ROS 1 package."
 
 # NOTE: VERBOSE=1 cmake --build /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/grpc/0.0.10-r0/build --target all -- -j 32
 # ninja: error: build.ninja:1064: bad $-escape (literal $ must be written as $$)
