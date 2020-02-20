@@ -36,6 +36,12 @@ ROS_WORLD_SKIP_GROUPS += "launch"
 # |   SchurSpecializations, OpenMP, Multithreading].
 # Also depends on python2 python-sphinx which isn't available in ROS2 which is python3-only
 ROS_WORLD_SKIP_GROUPS += "cartographer"
+# recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
+ROS_WORLD_SKIP_GROUPS += "turtlebot3"
+# recipes depending on ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace which cannot be just
+# set to babeltrace, because python bindings in babeltrace are not enabled as shown in log.do_configure:
+# configure: You may configure with --enable-python-bindings if you want Python bindings.
+ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
 # recipes depending on python3-matplotlib
 # there is python2 version in meta-ros-common/recipes-devtools/python/python-matplotlib_2.1.1.bb
 # but no python3 version yet
