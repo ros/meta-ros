@@ -29,7 +29,13 @@ PARALLEL_MAKE = ""
 
 do_configure_prepend() { 
     #point to speech-tools in sysroots
-    sed -i 's:EST=$(TOP)/../speech_tools:EST=${STAGING_DIR_TARGET}${datadir}/speech-tools:g' ${S}/config/config.in
+    cp -ra ${STAGING_DIR_TARGET}${datadir}/speech-tools ${WORKDIR}/speech-tools
+
+    # fix gcc_defaults.mak to point to our RSS with --sysroot, not the one from speech-tools
+    sed -i 's:^CC=.*$:CC=${CC}:g' ${WORKDIR}/speech-tools/config/compilers/gcc_defaults.mak
+    sed -i 's:^CXX=.*$:CXX=${CC} ${LDFLAGS}:g' ${WORKDIR}/speech-tools/config/compilers/gcc_defaults.mak
+
+    sed -i 's:EST=$(TOP)/../speech_tools:EST=${WORKDIR}/speech-tools:g' ${S}/config/config.in
 
     #exclude experimental includes
     sed -i 's:ALSO_INCLUDE:#ALSO_INCLUDE:g' ${S}/config/config.in
@@ -70,6 +76,6 @@ do_install() {
     install -m 0755 -d ${D}${datadir}/festival/multisyn
     install -m 0644 ${S}/lib/multisyn/*scm ${D}${datadir}/festival/multisyn
 
-    cp -a ${S}/lib/dicts ${D}${datadir}/festival
-    cp -a ${S}/lib/voices ${D}${datadir}/festival
+    cp -R --no-dereference --preserve=mode,links -v ${S}/lib/dicts ${D}${datadir}/festival
+    cp -R --no-dereference --preserve=mode,links -v ${S}/lib/voices ${D}${datadir}/festival
 }
