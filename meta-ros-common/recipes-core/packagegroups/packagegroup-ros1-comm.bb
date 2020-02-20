@@ -32,7 +32,6 @@ RDEPENDS_${PN} = "\
     rostopic \
     message-generation \
     cpp-common \
-    genlisp \
     message-filters \
     rosservice \
     rospy \
