@@ -18,3 +18,5 @@ python() {
     if 'meta-python2' not in d.getVar('BBFILE_COLLECTIONS').split():
         raise bb.parse.SkipRecipe('Requires meta-python2 to be present.')
 }
+
+FILES_${PN} += "${datadir}/zsh"
