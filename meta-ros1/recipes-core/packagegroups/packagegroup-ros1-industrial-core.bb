@@ -11,7 +11,3 @@ RDEPENDS_${PN} = "\
         industrial-robot-client \
         industrial-utils \
 "
-
-# Depends on industrial-trajectory-filters->moveit-ros-planning->moveit-ros-perception->mesa with this restriction:
-inherit features_check
-ANY_OF_DISTRO_FEATURES = "opengl vulkan"
