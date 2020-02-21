@@ -15,6 +15,9 @@ RDEPENDS_${PN}_remove = "catkin-virtualenv"
 # Depends on blacklisted catkin-virtualenv
 RDEPENDS_${PN}_remove = "haros-catkin"
 
+# Contains only dev files, so PN is empty and not created
+RDEPENDS_${PN}_remove = "qpmad"
+
 # It is a fork of https://github.com/google/flatbuffers that's not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "flatbuffers"
 
