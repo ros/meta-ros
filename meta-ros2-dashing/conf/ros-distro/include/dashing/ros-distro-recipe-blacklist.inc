@@ -13,6 +13,8 @@
 # Others
 PNBLACKLIST[libyaml] ?= "Provided by libyaml-vendor"
 
+PNBLACKLIST[turtlesim] ?= "ERROR: turtlesim-1.0.1-1-r0 do_configure: Function failed: do_configure: CMake Error at CMakeLists.txt:45 (qt5_wrap_cpp): Unknown CMake command qt5_wrap_cpp."
+
 PNBLACKLIST[ament-clang-format-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang-format: depends on clang-format', '', d)}"
 PNBLACKLIST[ament-clang-format] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang-format: depends on clang-format', '', d)}"
 PNBLACKLIST[ament-clang-tidy-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-tidy', '', d)}"
