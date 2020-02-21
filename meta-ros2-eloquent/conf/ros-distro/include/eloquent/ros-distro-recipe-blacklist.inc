@@ -2,10 +2,6 @@
 #
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
-# This is a ROS 2 distro, so blacklist ROS 1 packages that will never be ROS 2.
-PNBLACKLIST[packagegroup-ros1-comm] ?= "Not a ROS 2 package"
-PNBLACKLIST[packagegroup-ros1-industrial] ?= "Not a ROS 2 package"
-
 # Initially, blacklist any non-platform duplicates found by "bitbake-layers show-overlayed". Remove from the blacklist once a
 # PREFERRED_VERSION_<PN> setting is made in ros-distro-preferred-versions.inc .
 # (none)
@@ -161,6 +157,8 @@ PNBLACKLIST[qt-gui] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5'
 PNBLACKLIST[rmw-connext-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds which is not available', '', d)}"
 PNBLACKLIST[rmw-connext-shared-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds which is not available', '', d)}"
 PNBLACKLIST[rmw-opensplice-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opensplice', 'opensplice: depends on libopensplice69 which is not available', '', d)}"
+PNBLACKLIST[ros-image-turtlebot3-all] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'turtlebot3', 'turtlebot3: Depends on packagegroup-ros-turtlebot3-extended which depends on turtlebot3-autorace, turtlebot3-applications, turtlebot3-applications-msgs, slam-karto which exist in melodic where this packagegroup was originally used, but were never ported to dashing', '', d)}"
+PNBLACKLIST[ros-image-turtlebot3-core] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'turtlebot3', 'turtlebot3: Depends on packagegroup-ros-turtlebot3-extended which depends on turtlebot3-autorace, turtlebot3-applications, turtlebot3-applications-msgs, slam-karto which exist in melodic where this packagegroup was originally used, but were never ported to dashing', '', d)}"
 PNBLACKLIST[ros-testing] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', 'launch: depends on launch-testing-ament-cmake->launch-testing-native->launch-native', '', d)}"
 PNBLACKLIST[ros2test-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', 'launch: depends on launch-testing-native->launch-native', '', d)}"
 PNBLACKLIST[rosidl-typesupport-connext-c] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on (rosidl-typesupport-connext-cpp-native,connext-cmake-module-native)->rti-connext-dds-native which is not available', '', d)}"
