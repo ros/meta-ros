@@ -16,16 +16,6 @@ PNBLACKLIST[gst-examples] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wor
 PNBLACKLIST[packagegroup-core-x11-sato] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-license', 'depends on gst-examples which depends on gstreamer1.0-plugins-bad which depends on faad2 which has a restricted license not whitelisted in LICENSE_FLAGS_WHITELIST', '', d)}"
 PNBLACKLIST[packagegroup-core-tools-testapps] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-license', 'depends on gst-examples which depends on gstreamer1.0-plugins-bad which depends on faad2 which has a restricted license not whitelisted in LICENSE_FLAGS_WHITELIST', '', d)}"
 
-# vc4graphics-without-opengl restrictions for other than superflore generated recipes
-PNBLACKLIST[gstreamer1.0-plugins-base] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'depends on virtual/libgles2, virtual/egl which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
-PNBLACKLIST[gstreamer1.0-meta-base] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'depends on gstreamer1.0-plugins-base which depends on virtual/libgles2, virtual/egl which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
-PNBLACKLIST[gstreamer1.0-rtsp-server] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'depends on gstreamer1.0-plugins-base which depends on virtual/libgles2, virtual/egl which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
-PNBLACKLIST[gst-validate] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'depends on gstreamer1.0-plugins-base which depends on virtual/libgles2, virtual/egl which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
-PNBLACKLIST[opencv] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'depends on gstreamer1.0-plugins-base which depends on virtual/libgles2, virtual/egl which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
-PNBLACKLIST[gstreamer1.0-plugins-good] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'depends on gstreamer1.0-plugins-base which depends on virtual/libgles2, virtual/egl which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
-PNBLACKLIST[libnice] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'depends on gstreamer1.0-plugins-base which depends on virtual/libgles2, virtual/egl which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
-PNBLACKLIST[userland] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'depends on libegl-mesa which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
-
 # Recipes failing because of svn fetcher issue
 # http://lists.openembedded.org/pipermail/openembedded-devel/2020-February/205012.html
 ROS_WORLD_SKIP_GROUPS += "world-svn-fetcher"
@@ -52,3 +42,7 @@ PNBLACKLIST[libmodulemd] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'worl
 PNBLACKLIST[libdnf] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on blacklisted libmodulemd', '', d)}"
 PNBLACKLIST[dnf] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on blacklisted libdnf->libmodulemd', '', d)}"
 PNBLACKLIST[dnfdragora] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on blacklisted dnf->libdnf->libmodulemd', '', d)}"
+PNBLACKLIST[dnf-plugin-tui] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on blacklisted dnf->libdnf->libmodulemd', '', d)}"
+PNBLACKLIST[createrepo-c] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on blacklisted libmodulemd', '', d)}"
+PNBLACKLIST[renderdoc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on mesa-gl without setting correct REQUIRED_DISTRO_FEATURES to match it: mesa-gl PROVIDES virtual/libgl but was skipped: one of vulkan opengl needs to be in DISTRO_FEATURES', '', d)}"
+PNBLACKLIST[userland] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', 'depends on libegl-mesa from mesa-gl which is not available without opengl in DISTRO_FEATURES', '', d)}"
