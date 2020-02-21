@@ -674,3 +674,29 @@ PNBLACKLIST[smem] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', '
 PNBLACKLIST[ltp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-extended/cfengine/cfengine_3.12.0.bb
 PNBLACKLIST[cfengine] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+
+# More recipes since warrior:
+# meta-openembedded/meta-oe/recipes-devtools/guider/guider_3.9.4.bb
+PNBLACKLIST[guider] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-cachetools_3.1.0.bb
+PNBLACKLIST[python-cachetools] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-engineio_3.5.0.bb
+PNBLACKLIST[python-engineio] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-flask-socketio_3.3.2.bb
+PNBLACKLIST[python-flask-socketio] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-isodate_0.6.0.bb
+PNBLACKLIST[python-isodate] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-rdflib_4.2.2.bb
+PNBLACKLIST[python-rdflib] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-requests-oauthlib_0.8.0.bb
+PNBLACKLIST[python-requests-oauthlib] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-socketio_4.0.0.bb
+PNBLACKLIST[python-socketio] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-tqdm_4.31.1.bb
+PNBLACKLIST[python-tqdm] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-twitter_3.7.0.bb
+PNBLACKLIST[python-twitter] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-tzlocal_1.5.1.bb
+PNBLACKLIST[python-tzlocal] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# openembedded-core/meta/recipes-core/packagegroups/packagegroup-core-tools-testapps.bb
+PNBLACKLIST[packagegroup-core-tools-testapps] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
