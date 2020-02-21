@@ -18,6 +18,8 @@ TURTLEBOT3_PACKAGES_LIDAR_qemux86 = ""
 TURTLEBOT3_PACKAGES_CAMERA_rpi ??= " \
     camera-info-manager \
     compressed-image-transport \
+"
+TURTLEBOT3_PACKAGES_CAMERA_rpi_append_ros1-distro = " \
     raspicam-node \
 "
 # raspicam-node depends on userland to provide mmal, but for aarch64 it doesn't provide it.

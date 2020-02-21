@@ -2,10 +2,6 @@
 #
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
-# This is a ROS 1 distro, so blacklist ROS 2 packages that will never be ROS 1.
-PNBLACKLIST[packagegroup-ros2-demos] ?= "Not a ROS 1 package"
-PNBLACKLIST[packagegroup-ros2-world] ?= "Not a ROS 1 package"
-
 # Initially, blacklist any non-platform recipes with multiple versions found by "bitbake-layers show-recipes --multiple". Remove
 # from the blacklist once a PREFERRED_VERSION_<PN> setting is made in ros-distro-preferred-versions.inc .
 # (none)
@@ -311,6 +307,7 @@ PNBLACKLIST[optpp-catkin] ?= "Depends on unavailable UNRESOLVED-gfortran"
 PNBLACKLIST[osg-interactive-markers] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'osg', 'depends on unavailable UNRESOLVED-libopenscenegraph', '', d)}"
 PNBLACKLIST[osg-markers] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'osg', 'depends on unavailable UNRESOLVED-libopenscenegraph', '', d)}"
 PNBLACKLIST[osg-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'osg', 'depends on unavailable UNRESOLVED-libopenscenegraph', '', d)}"
+PNBLACKLIST[packagegroup-ros1-industrial-core] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11', 'unknown-victim'], 'Depends on industrial-trajectory-filters->moveit-ros-planning->moveit-ros-perception->mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES and industrial-trajectory-filters->moveit-ros-planning->moveit-ros-perception->freeglut which requires x11; unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[panda-moveit-config] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre'], 'Requires moveit-ros-visualization->qtbase which requires meta-qt5 to be included and depends on moveit-ros-visualization->ogre which is not available', '', d)}"
 PNBLACKLIST[parrot-arsdk] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', 'Depends on ffmpeg which requires commercial license', '', d)}"
 PNBLACKLIST[pepper-meshes] ?= "Depends on unavailable UNRESOLVED-java"
@@ -1141,4 +1138,3 @@ PNBLACKLIST[teleop-tools] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unk
 PNBLACKLIST[xpp-examples] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[xpp-hyq] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[xpp-quadrotor] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
-PNBLACKLIST[packagegroup-ros1-industrial-core] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
