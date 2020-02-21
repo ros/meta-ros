@@ -700,3 +700,57 @@ PNBLACKLIST[python-twitter] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'p
 PNBLACKLIST[python-tzlocal] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # openembedded-core/meta/recipes-core/packagegroups/packagegroup-core-tools-testapps.bb
 PNBLACKLIST[packagegroup-core-tools-testapps] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+
+# More recipes since zeus:
+# meta-openembedded/meta-oe/recipes-devtools/python/python-jsmin_2.2.2.bb
+PNBLACKLIST[python-jsmin] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-oe/recipes-devtools/python/python-pytoml_0.1.21.bb
+PNBLACKLIST[python-pytoml] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-oe/recipes-devtools/python/python-which_1.1.0.bb
+PNBLACKLIST[python-which] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-oe/recipes-support/pidgin/funyahoo-plusplus_git.bb
+PNBLACKLIST[funyahoo-plusplus] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-oe/recipes-support/pidgin/icyque_git.bb
+PNBLACKLIST[icyque] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-oe/recipes-support/pidgin/pidgin-sipe_1.24.0.bb
+PNBLACKLIST[pidgin-sipe] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-oe/recipes-support/pidgin/purple-skypeweb_git.bb
+PNBLACKLIST[purple-skypeweb] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-oe/recipes-support/remmina/remmina_1.3.6.bb
+PNBLACKLIST[remmina] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python-jsonref/python-jsonref_0.2.bb
+PNBLACKLIST[python-jsonref] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-atomicwrites_1.3.0.bb
+PNBLACKLIST[python-atomicwrites] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-coloredlogs_10.0.bb
+PNBLACKLIST[python-coloredlogs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-humanfriendly_4.18.bb
+PNBLACKLIST[python-humanfriendly] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-importlib-metadata_0.23.bb
+PNBLACKLIST[python-importlib-metadata] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-lrparsing_1.0.16.bb
+PNBLACKLIST[python-lrparsing] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-more-itertools_5.0.0.bb
+PNBLACKLIST[python-more-itertools] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-pathlib2_2.3.4.bb
+PNBLACKLIST[python-pathlib2] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-pika_1.1.0.bb
+PNBLACKLIST[python-pika] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-pycurl_7.43.0.3.bb
+PNBLACKLIST[python-pycurl] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-pymysql_0.9.3.bb
+PNBLACKLIST[python-pymysql] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-pyperf_1.6.1.bb
+PNBLACKLIST[python-pyperf] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-pyrsistent_0.15.4.bb
+PNBLACKLIST[python-pyrsistent] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-statistics_1.0.3.5.bb
+PNBLACKLIST[python-statistics] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-toml_0.10.0.bb
+PNBLACKLIST[python-toml] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-versiontools_1.9.1.bb
+PNBLACKLIST[python-versiontools] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-waitress_1.3.1.bb
+PNBLACKLIST[python-waitress] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-openembedded/meta-python/recipes-devtools/python/python-zipp_0.6.0.bb
+PNBLACKLIST[python-zipp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
