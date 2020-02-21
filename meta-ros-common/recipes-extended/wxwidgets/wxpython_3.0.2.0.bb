@@ -43,3 +43,7 @@ do_iinstall_append() {
 }
 
 PNBLACKLIST[wxpython] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wxpython', 'Does not build: ld: cannot find -lwx_gtk3u_xrc-3.0', '', d)}"
+
+inherit features_check
+# Depends on wxwidgets with this restriction:
+REQUIRED_DISTRO_FEATURES = "opengl x11"
