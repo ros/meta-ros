@@ -19,6 +19,9 @@ RDEPENDS_${PN}_remove = "lex-common"
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
 RDEPENDS_${PN}_remove = "sophus"
 
+# ERROR: turtlesim-1.0.1-1-r0 do_configure: Function failed: do_configure: CMake Error at CMakeLists.txt:45 (qt5_wrap_cpp): Unknown CMake command qt5_wrap_cpp.
+RDEPENDS_${PN}_remove = "turtlesim"
+
 # alternative not yet supported implementation for fastrtps
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
