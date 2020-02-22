@@ -1,0 +1,75 @@
+From 091e5609deb8a2c47dc9ef94aaa07b4ae47c8250 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 22 Feb 2020 17:58:11 +0000
+Subject: [PATCH] pybind11 tools/FindPythonLibsNew.cmake ignore pointer size
+
+* PythonInterp finds the native python which will be 64bit, but then
+  when building for 32bit target MACHINE it will fail as shown bellow:
+
+-- Found PythonInterp:
+/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/pybind11-catkin/2.4.3-1-r0/recipe-sysroot-native/usr/bin/python-native/python2.7
+(found suitable version "2.7.16", minimum required is "2.7.16")
+CMake Error at tools/FindPythonLibsNew.cmake:127 (message):
+  Python config failure: Python is 64-bit, chosen compiler is 32-bit
+Call Stack (most recent call first):
+  tools/pybind11Tools.cmake:16 (find_package)
+  CMakeLists.txt:33 (include)
+
+  FindPythonInterp is deprected since 3.12:
+  https://cmake.org/cmake/help/latest/module/FindPythonInterp.html
+  using FindPython2 would work better here, but for now just ignore
+  this error to unblock the build
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt                                |  1 +
+ ...indPythonLibsNew.ignore.pointer.size.patch | 25 +++++++++++++++++++
+ 2 files changed, 26 insertions(+)
+ create mode 100644 patch/FindPythonLibsNew.ignore.pointer.size.patch
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e06db80..070e96c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -7,6 +7,7 @@ include(ExternalProject)
+ ExternalProject_Add(pybind11_src
+   URL "https://github.com/pybind/pybind11/archive/v2.4.3.zip"
+   UPDATE_COMMAND ""
++  PATCH_COMMAND patch -p1 < ${CMAKE_CURRENT_SOURCE_DIR}/patch/FindPythonLibsNew.ignore.pointer.size.patch
+   CMAKE_ARGS -DPYBIND11_PYTHON_VERSION=${PYTHON_VERSION_STRING}
+              -DPYBIND11_TEST:BOOL=OFF -DPYBIND11_INSTALL:BOOL=ON
+              -DCMAKE_INSTALL_PREFIX:PATH=${PROJECT_BINARY_DIR}/install
+diff --git a/patch/FindPythonLibsNew.ignore.pointer.size.patch b/patch/FindPythonLibsNew.ignore.pointer.size.patch
+new file mode 100644
+index 0000000..4035124
+--- /dev/null
++++ b/patch/FindPythonLibsNew.ignore.pointer.size.patch
+@@ -0,0 +1,25 @@
++diff -uNr pybind11_src.orig/tools/FindPythonLibsNew.cmake pybind11_src/tools/FindPythonLibsNew.cmake
++--- pybind11_src.orig/tools/FindPythonLibsNew.cmake	2019-10-14 23:57:24.000000000 +0000
+++++ pybind11_src/tools/FindPythonLibsNew.cmake	2020-02-22 17:56:08.839846973 +0000
++@@ -118,21 +118,6 @@
++ list(GET _PYTHON_VALUES 8 PYTHON_LIBDIR)
++ list(GET _PYTHON_VALUES 9 PYTHON_MULTIARCH)
++ 
++-# Make sure the Python has the same pointer-size as the chosen compiler
++-# Skip if CMAKE_SIZEOF_VOID_P is not defined
++-if(CMAKE_SIZEOF_VOID_P AND (NOT "${PYTHON_SIZEOF_VOID_P}" STREQUAL "${CMAKE_SIZEOF_VOID_P}"))
++-    if(PythonLibsNew_FIND_REQUIRED)
++-        math(EXPR _PYTHON_BITS "${PYTHON_SIZEOF_VOID_P} * 8")
++-        math(EXPR _CMAKE_BITS "${CMAKE_SIZEOF_VOID_P} * 8")
++-        message(FATAL_ERROR
++-            "Python config failure: Python is ${_PYTHON_BITS}-bit, "
++-            "chosen compiler is  ${_CMAKE_BITS}-bit")
++-    endif()
++-    set(PYTHONLIBS_FOUND FALSE)
++-    set(PythonLibsNew_FOUND FALSE)
++-    return()
++-endif()
++-
++ # The built-in FindPython didn't always give the version numbers
++ string(REGEX REPLACE "\\." ";" _PYTHON_VERSION_LIST ${_PYTHON_VERSION_LIST})
++ list(GET _PYTHON_VERSION_LIST 0 PYTHON_VERSION_MAJOR)
+-- 
+2.17.1
+
