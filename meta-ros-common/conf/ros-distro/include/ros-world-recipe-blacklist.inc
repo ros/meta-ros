@@ -45,4 +45,6 @@ PNBLACKLIST[dnfdragora] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world
 PNBLACKLIST[dnf-plugin-tui] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on blacklisted dnf->libdnf->libmodulemd', '', d)}"
 PNBLACKLIST[createrepo-c] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on blacklisted libmodulemd', '', d)}"
 PNBLACKLIST[renderdoc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on mesa-gl without setting correct REQUIRED_DISTRO_FEATURES to match it: mesa-gl PROVIDES virtual/libgl but was skipped: one of vulkan opengl needs to be in DISTRO_FEATURES', '', d)}"
+PNBLACKLIST[remmina] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on spice, spice-protocol from meta-networking, fixed in dunfell: http://git.openembedded.org/meta-openembedded/commit/?id=876f4ce7639def476664834acafbf87cc227fb05', '', d)}"
+
 PNBLACKLIST[userland] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', 'depends on libegl-mesa from mesa-gl which is not available without opengl in DISTRO_FEATURES', '', d)}"
