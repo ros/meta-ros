@@ -7,7 +7,9 @@ DEPENDS = "alsa-lib ncurses"
 SHRT_VER = "${@oe.utils.trim_version("${PV}", 2)}"
 SNAPSHOT = "${@d.getVar('PV').split('.')[2]}"
 
-SRC_URI = "http://tts.speech.cs.cmu.edu/awb/${SNAPSHOT}/speech_tools-${SHRT_VER}-current.tar.gz;downloadfilename=speech_tools-${PV}.tar.gz"
+SRC_URI = "http://tts.speech.cs.cmu.edu/awb/${SNAPSHOT}/speech_tools-${SHRT_VER}-current.tar.gz;downloadfilename=speech_tools-${PV}.tar.gz \
+    file://remove.siod_fringe_init.patch \
+"
 SRC_URI[md5sum] = "1e6878a0ecc5bde6c2f4c91ae0113547"
 SRC_URI[sha256sum] = "26c08519313cd83f9a54daf3a86e6924e2797f3991af222fa6dcb61812815783"
 
@@ -38,6 +40,11 @@ do_install() {
 }
 
 PACKAGE_BEFORE_PN =+ "${PN}-source"
+
+# ERROR: speech-tools-2.3.20131016-r0 do_package_qa: QA Issue: non -staticdev package contains static .a library: speech-tools-source path '/work/raspberrypi4-webos-linux-gnueabi/speech-tools/2.3.20131016-r0/packages-split/speech-tools-source/usr/share/speech-tools/lib/libestbase.a'
+# non -staticdev package contains static .a library: speech-tools-source path '/work/raspberrypi4-webos-linux-gnueabi/speech-tools/2.3.20131016-r0/packages-split/speech-tools-source/usr/share/speech-tools/lib/libeststring.a'
+# non -staticdev package contains static .a library: speech-tools-source path '/work/raspberrypi4-webos-linux-gnueabi/speech-tools/2.3.20131016-r0/packages-split/speech-tools-source/usr/share/speech-tools/lib/libestools.a' [staticdev]
+INSANE_SKIP_${PN}-source += "staticdev"
 
 FILES_${PN}-source = "${datadir}/${BPN}"
 

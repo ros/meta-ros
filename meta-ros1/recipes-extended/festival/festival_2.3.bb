@@ -8,9 +8,11 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=566f852956cd542e6a0587df0354f673"
 DEPENDS = "speech-tools"
 
 SRC_URI = "http://tts.speech.cs.cmu.edu/awb/20130703/${PN}-${PV}-current.tar.gz;name=festival \
-	http://tts.speech.cs.cmu.edu/awb/20130703/festlex_CMU.tar.gz;name=CMU \
-	http://tts.speech.cs.cmu.edu/awb/20130703/festlex_POSLEX.tar.gz;name=POSLEX \
-	http://tts.speech.cs.cmu.edu/awb/20130703/festvox_kallpc16k.tar.gz;name=kallpc16k"
+    http://tts.speech.cs.cmu.edu/awb/20130703/festlex_CMU.tar.gz;name=CMU \
+    http://tts.speech.cs.cmu.edu/awb/20130703/festlex_POSLEX.tar.gz;name=POSLEX \
+    http://tts.speech.cs.cmu.edu/awb/20130703/festvox_kallpc16k.tar.gz;name=kallpc16k \
+    file://remove.siod_fringe_init.patch \
+"
 SRC_URI[festival.md5sum] = "eddcce27b873048360aaf3ea51c0e9cf"
 SRC_URI[festival.sha256sum] = "8ea3a6f8ea301a37db5dbf4824e8e088adf4197f156a6c42e868af1b72d36488"
 SRC_URI[CMU.md5sum] = "6a2ee4fed7c3ebedf197a3b8524ccb87"

@@ -1,0 +1,20 @@
+It's no longer defined anywhere and its call in main/siod_main.cc
+was also commented out.
+
+Causes festival to fail linking with undefined reference to it:
+
+| arm-webos-linux-gnueabi-gcc  -march=armv7ve -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type --sysroot=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/festival/2.3-r0/recipe-sysroot -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -fstack-protector-strong -Wl,-z,relro,-z,now -O3 -Wall     -o festival festival_main.o   -L../../src/lib -lFestival -L/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/festival/2.3-r0/speech-tools/lib -lestools -L/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/festival/2.3-r0/speech-tools/lib -lestbase -L/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/festival/2.3-r0/speech-tools/lib -leststring  -lncurses   -ldl -lncurses -lm  -lstdc++
+| ../../src/lib/libFestival.a(festival.o):festival.cc:function festival_initialize(int, int): error: undefined reference to 'siod_fringe_init()'
+| collect2: error: ld returned 1 exit status
+
+diff -uNr speech_tools.orig/include/siod_est.h speech_tools/include/siod_est.h
+--- speech_tools.orig/include/siod_est.h	2020-02-22 08:19:58.490168578 -0800
++++ speech_tools/include/siod_est.h	2020-02-22 08:18:59.917255624 -0800
+@@ -41,7 +41,6 @@
+ #define __SIOD_EST_H__
+ 
+ void siod_est_init();
+-void siod_fringe_init();
+ 
+ class EST_Val &val(LISP x);
+ int val_p(LISP x);
