@@ -12,6 +12,8 @@ S = "${WORKDIR}/linuxconsoletools-${PV}"
 do_compile_prepend() {
     # drop ffmvforce so that we don't need libsdl
     sed '/^PROGRAMS/s/ffmvforce *//g' -i ${S}/utils/Makefile
+    # respect nonarch_base_libdir path to keep QA check happy
+    sed 's#DESTDIR)/lib/udev#DESTDIR)/${nonarch_base_libdir}/udev#g' -i ${S}/utils/Makefile
 }
 
 do_install() {
