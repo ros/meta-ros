@@ -13,8 +13,6 @@
 # Others
 PNBLACKLIST[libyaml] ?= "Provided by libyaml-vendor"
 
-PNBLACKLIST[turtlesim] ?= "ERROR: turtlesim-1.0.1-1-r0 do_configure: Function failed: do_configure: CMake Error at CMakeLists.txt:45 (qt5_wrap_cpp): Unknown CMake command qt5_wrap_cpp."
-
 PNBLACKLIST[ament-clang-format-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang-format: depends on clang-format', '', d)}"
 PNBLACKLIST[ament-clang-format] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang-format: depends on clang-format', '', d)}"
 PNBLACKLIST[ament-clang-tidy-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-tidy', '', d)}"
@@ -95,5 +93,5 @@ PNBLACKLIST[slam-toolbox] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', 
 PNBLACKLIST[tts] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gst-python', 'gst-python: requires gstreamer1.0-python which requires gobject-introspection-data in DISTRO_FEATURES', '', d)}"
 PNBLACKLIST[turtlebot3-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'gazebo: depends on gazebo-ros-pkgs->gazebo-rosdev->gazebo which is not available', '', d)}"
 PNBLACKLIST[turtlebot3-simulations] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'gazebo: depends on turtlebot3-gazebo->gazebo-ros-pkgs->gazebo-rosdev->gazebo which is not available', '', d)}"
-PNBLACKLIST[turtlesim] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'qt5: depends on qtbase', '', d)}"
+PNBLACKLIST[turtlesim] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], 'qt5: depends on qtbase; qt5-widgets: needs widgets enabled in qtbase PACKAGECONFIG', '', d)}"
 PNBLACKLIST[web-video-server] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', 'ffmpeg: Depends on ffmpeg which requires commercial license', '', d)}"
