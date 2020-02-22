@@ -1,0 +1,34 @@
+From 4dbf210cac9360f7c5433ca25a4a6ca8e9ec8824 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 22 Feb 2020 14:11:39 +0000
+Subject: [PATCH] CMakeLists.txt: include CMAKE_THREAD_LIBS_INIT also for
+ socketcan_bcm
+
+* as shown in build with gold
+FAILED: /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/devel/lib/socketcan_interface/socketcan_bcm
+: && /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  -march=armv7ve -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0=/usr/src/debug/socketcan-interface/0.8.2-1-r0 -fdebug-prefix-map=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -march=armv7ve -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot -fuse-ld=gold  -march=armv7ve -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0=/usr/src/debug/socketcan-interface/0.8.2-1-r0 -fdebug-prefix-map=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -march=armv7ve -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot -fuse-ld=gold -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -fstack-protector-strong -Wl,-z,relro,-z,now -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -fstack-protector-strong -Wl,-z,relro,-z,now   -rdynamic CMakeFiles/socketcan_bcm.dir/src/canbcm.cpp.o  -o /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/devel/lib/socketcan_interface/socketcan_bcm  -Wl,-rpath,/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/devel/lib:/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib: /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/devel/lib/libsocketcan_interface_string.so /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot/usr/lib/libconsole_bridge.so.0.4 /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libclass_loader.so -lboost_thread-mt -lboost_system-mt -lboost_chrono-mt -lboost_date_time-mt -lboost_atomic-mt -lPocoFoundation -ldl /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot/usr/lib/libconsole_bridge.so.0.4 -lboost_chrono-mt -lboost_system-mt -lboost_thread-mt -lboost_date_time-mt -lboost_atomic-mt -lPocoFoundation -ldl /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot/usr/lib/libconsole_bridge.so.0.4 && :
+/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libclass_loader.so: error: undefined reference to 'pthread_mutexattr_init'
+/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libclass_loader.so: error: undefined reference to 'pthread_mutexattr_settype'
+/jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libclass_loader.so: error: undefined reference to 'pthread_mutexattr_destroy'
+collect2: error: ld returned 1 exit status
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e3b45fe6..5902f473 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -68,6 +68,7 @@ target_link_libraries(socketcan_bcm
+    ${console_bridge_LIBRARIES}
+    ${catkin_LIBRARIES}
+    ${Boost_LIBRARIES}
++   ${CMAKE_THREAD_LIBS_INIT}
+ )
+ 
+ # ${PROJECT_NAME}_plugin
+-- 
+2.17.1
+
