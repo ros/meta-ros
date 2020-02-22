@@ -1,0 +1,11 @@
+diff -uNr festival.orig/src/arch/festival/festival.cc festival/src/arch/festival/festival.cc
+--- festival.orig/src/arch/festival/festival.cc	2013-04-11 08:07:41.000000000 -0700
++++ festival/src/arch/festival/festival.cc	2020-02-22 08:34:11.403465120 -0800
+@@ -94,7 +94,6 @@
+     {
+ 	siod_init(heap_size);
+ 	siod_est_init();		// add support for EST objects
+-	siod_fringe_init();		// and for talking to fringe.
+ 	
+ 	siod_prog_name = "festival";
+ 	cdebug = new ofstream("/dev/null");  // This wont work on Win/NT
