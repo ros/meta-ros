@@ -619,7 +619,7 @@ PNBLACKLIST[lmsensors] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python
 # meta-openembedded/meta-oe/recipes-connectivity/libimobiledevice/libimobiledevice_git.bb
 PNBLACKLIST[libimobiledevice] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-core/packagegroups/packagegroup-meta-oe.bb
-PNBLACKLIST[packagegroup-meta-oe] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+PNBLACKLIST[packagegroup-meta-oe] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['world-svn-fetcher', 'python2'], 'Depends on blacklisted packages like s3c24xx-gpio, s3c64xx-gpio, wmiconfig, usbpath; python2: Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-dbs/psqlodbc/psqlodbc_09.05.0300.bb
 PNBLACKLIST[psqlodbc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-extended/openlmi/openlmi-tools_0.10.5.bb
@@ -631,7 +631,7 @@ PNBLACKLIST[telepathy-python] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 # meta-openembedded/meta-python/recipes-devtools/python/python3-m2crypto_0.30.1.bb
 PNBLACKLIST[python3-m2crypto] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-raspberrypi/recipes-core/packagegroups/packagegroup-rpi-test.bb
-PNBLACKLIST[packagegroup-rpi-test] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+PNBLACKLIST[packagegroup-rpi-test] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['world-issues', 'python2'], 'world-issues: Depends on blacklisted packages like wiringpi and recipes from meta-multimedia we do not depend on: bigbuckbunny-480p, bigbuckbunny-720p, bigbuckbunny-1080p and wireless-regdb from meta-networking; python2: Depends on blacklisted python2', '', d)}"
 # meta-ros/meta-ros-common/recipes-devtools/python/python-tornado45_git.bb
 PNBLACKLIST[python-tornado45] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-ros/meta-ros-common/recipes-extended/bullet/bullet_2.87.bb
@@ -659,7 +659,7 @@ PNBLACKLIST[opensc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2',
 # openembedded-core/meta/recipes-core/packagegroups/packagegroup-core-tools-profile.bb
 PNBLACKLIST[packagegroup-core-tools-profile] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-support/freerdp/freerdp_git.bb
-PNBLACKLIST[freerdp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+PNBLACKLIST[freerdp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['vc4graphics-without-opengl', 'python2'], 'vc4graphics-without-opengl: depends on gstreamer1.0-plugins-base which depends on virtual/libgles2, virtual/egl which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES; python2: depends on python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-benchmark/analyze-suspend/analyze-suspend_git.bb
 PNBLACKLIST[analyze-suspend] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-devtools/nodejs/nodejs_8.12.0.bb
@@ -699,4 +699,4 @@ PNBLACKLIST[python-twitter] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'p
 # meta-openembedded/meta-python/recipes-devtools/python/python-tzlocal_1.5.1.bb
 PNBLACKLIST[python-tzlocal] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # openembedded-core/meta/recipes-core/packagegroups/packagegroup-core-tools-testapps.bb
-PNBLACKLIST[packagegroup-core-tools-testapps] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+PNBLACKLIST[packagegroup-core-tools-testapps] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['world-license', 'python2'], 'world-license: depends on gst-examples which depends on gstreamer1.0-plugins-bad which depends on faad2 which has a restricted license not whitelisted in LICENSE_FLAGS_WHITELIST; python: depends on python2', '', d)}"
