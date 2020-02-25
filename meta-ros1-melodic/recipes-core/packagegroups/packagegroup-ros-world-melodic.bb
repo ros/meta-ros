@@ -15,6 +15,9 @@ RDEPENDS_${PN}_remove = "catkin-virtualenv"
 # Depends on blacklisted catkin-virtualenv
 RDEPENDS_${PN}_remove = "haros-catkin"
 
+# Contains only dev, dbg and staticdev files, so PN is empty and not created
+RDEPENDS_${PN}_remove = "sophus"
+
 # Contains only dev files, so PN is empty and not created
 RDEPENDS_${PN}_remove = "qpmad"
 
