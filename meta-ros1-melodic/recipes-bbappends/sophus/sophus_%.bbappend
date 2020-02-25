@@ -1,7 +1,5 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
-ALLOW_EMPTY_${PN} = "1"
-
 # Ignore this for now
 # sophus/1.0.1-1-r0/git/sophus/se2.hpp:700:7: error: implicitly-declared 'Eigen::Map<Sophus::SO2<double>, 0, Eigen::Stride<0, 0> >::Map(const Eigen::Map<Sophus::SO2<double>, 0, Eigen::Stride<0, 0> >&)' is deprecated [-Werror=deprecated-copy]
 # sophus/1.0.1-1-r0/git/sophus/se2.hpp:700:7: error: implicitly-declared 'Eigen::Map<Sophus::SO2<float>, 0, Eigen::Stride<0, 0> >::Map(const Eigen::Map<Sophus::SO2<float>, 0, Eigen::Stride<0, 0> >&)' is deprecated [-Werror=deprecated-copy]
