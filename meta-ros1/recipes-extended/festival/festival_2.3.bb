@@ -12,6 +12,7 @@ SRC_URI = "http://tts.speech.cs.cmu.edu/awb/20130703/${PN}-${PV}-current.tar.gz;
     http://tts.speech.cs.cmu.edu/awb/20130703/festlex_POSLEX.tar.gz;name=POSLEX \
     http://tts.speech.cs.cmu.edu/awb/20130703/festvox_kallpc16k.tar.gz;name=kallpc16k \
     file://remove.siod_fringe_init.patch \
+    file://gcc-9.patch \
 "
 SRC_URI[festival.md5sum] = "eddcce27b873048360aaf3ea51c0e9cf"
 SRC_URI[festival.sha256sum] = "8ea3a6f8ea301a37db5dbf4824e8e088adf4197f156a6c42e868af1b72d36488"
