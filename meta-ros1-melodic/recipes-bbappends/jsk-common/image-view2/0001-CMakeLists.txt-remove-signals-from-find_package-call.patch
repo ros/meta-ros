@@ -1,0 +1,36 @@
+From ad7e8b927a829c0beb383629f8fcbb29d93202ac Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 24 Feb 2020 18:17:03 -0800
+Subject: [PATCH] CMakeLists.txt: remove signals from find_package() calls to
+ support boost 1.69
+
+Deprecated signals library was dropped in 1.69.0 release:
+https://www.boost.org/users/history/version_1_69_0.html
+
+Signals (v1) is now removed. Its removal was announced in 1.68 and its
+deprecation was announced in 1.54. Boost 1.68 is the last release that
+provides this library. Users are encouraged to use Signals2 instead. The
+Boost community thanks Douglas Gregor for his work on Signals which
+served its users well and which also inspired Signals2.
+
+It doesn't use signals library at all, this reference in find_package()
+was useless and more importantly source of error at configure time.
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e4e89d15cc..f31069c032 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -37,7 +37,7 @@ add_dependencies(image_view2 ${PROJECT_NAME}_gencpp ${PROJECT_NAME}_gencfg)
+ 
+ # Point Rectangle Extractor
+ add_executable(points_rectangle_extractor points_rectangle_extractor.cpp)
+-find_package(Boost REQUIRED COMPONENTS signals)
++find_package(Boost REQUIRED)
+ include_directories(${Boost_INCLUDE_DIRS})
+ find_package(PCL REQUIRED)
+ include_directories(${PCL_INCLUDE_DIRS})
