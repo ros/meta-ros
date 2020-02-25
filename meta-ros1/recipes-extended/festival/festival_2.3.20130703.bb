@@ -7,10 +7,13 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=566f852956cd542e6a0587df0354f673"
 
 DEPENDS = "speech-tools"
 
-SRC_URI = "http://tts.speech.cs.cmu.edu/awb/20130703/${PN}-${PV}-current.tar.gz;name=festival \
-    http://tts.speech.cs.cmu.edu/awb/20130703/festlex_CMU.tar.gz;name=CMU \
-    http://tts.speech.cs.cmu.edu/awb/20130703/festlex_POSLEX.tar.gz;name=POSLEX \
-    http://tts.speech.cs.cmu.edu/awb/20130703/festvox_kallpc16k.tar.gz;name=kallpc16k \
+SHRT_VER = "${@oe.utils.trim_version("${PV}", 2)}"
+SNAPSHOT = "${@d.getVar('PV').split('.')[2]}"
+
+SRC_URI = "http://tts.speech.cs.cmu.edu/awb/${SNAPSHOT}/${BPN}-${SHRT_VER}-current.tar.gz;downloadfilename=${BP}.tar.gz;name=festival \
+    http://tts.speech.cs.cmu.edu/awb/${SNAPSHOT}/festlex_CMU.tar.gz;name=CMU \
+    http://tts.speech.cs.cmu.edu/awb/${SNAPSHOT}/festlex_POSLEX.tar.gz;name=POSLEX \
+    http://tts.speech.cs.cmu.edu/awb/${SNAPSHOT}/festvox_kallpc16k.tar.gz;name=kallpc16k \
     file://remove.siod_fringe_init.patch \
     file://gcc-9.patch \
 "
@@ -23,7 +26,7 @@ SRC_URI[POSLEX.sha256sum] = "e7c6e3642dbd5b0d64942bc015a986fdd6244a79e51ec2e8309
 SRC_URI[kallpc16k.md5sum] = "3869af78f473b616601cac3fa83cc14e"
 SRC_URI[kallpc16k.sha256sum] = "7a357c34086fbba8b813f9750f6b5ba13e2a00478a0a2e78a97981cb76395578"
 
-S = "${WORKDIR}/${PN}"
+S = "${WORKDIR}/${BPN}"
 
 inherit autotools-brokensep
 
