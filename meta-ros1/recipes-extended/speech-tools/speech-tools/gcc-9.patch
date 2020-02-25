@@ -1,0 +1,144 @@
+Imported from https://bugs.gentoo.org/685810
+
+diff -uNr speech_tools.orig/grammar/ngram/EST_Ngrammar.cc speech_tools/grammar/ngram/EST_Ngrammar.cc
+--- speech_tools.orig/grammar/ngram/EST_Ngrammar.cc	2010-11-05 07:12:43.000000000 -0700
++++ speech_tools/grammar/ngram/EST_Ngrammar.cc	2020-02-25 08:41:23.316379488 -0800
+@@ -1503,7 +1503,7 @@
+     
+     backoff_restore_unigram_states();
+     
+-    Good_Turing_discount(*this,maxcount);
++    Good_Turing_discount(*this,maxcount,0.5);
+     
+     // and since some frequencies will have been set to zero
+     // we have to prune away those branches of the tree
+diff -uNr speech_tools.orig/grammar/ngram/freqsmooth.cc speech_tools/grammar/ngram/freqsmooth.cc
+--- speech_tools.orig/grammar/ngram/freqsmooth.cc	2006-10-05 11:24:11.000000000 -0700
++++ speech_tools/grammar/ngram/freqsmooth.cc	2020-02-25 08:41:23.316379488 -0800
+@@ -60,7 +60,7 @@
+     EST_Ngrammar *backoff_ngrams;
+     backoff_ngrams = new EST_Ngrammar[ngram.order()-1];
+ 
+-    Good_Turing_smooth(ngram,smooth_thresh1);
++    Good_Turing_smooth(ngram,smooth_thresh1,0.5);
+ 
+     fs_build_backoff_ngrams(backoff_ngrams,ngram);
+ 
+diff -uNr speech_tools.orig/grammar/ngram/ngrammar_aux.cc speech_tools/grammar/ngram/ngrammar_aux.cc
+--- speech_tools.orig/grammar/ngram/ngrammar_aux.cc	2006-10-05 11:24:11.000000000 -0700
++++ speech_tools/grammar/ngram/ngrammar_aux.cc	2020-02-25 08:41:23.316379488 -0800
+@@ -430,13 +430,13 @@
+ 	EST_DVector freqs,mapped_freqs;
+ 	// grammar is of a single order - simple
+ 	// Find frequency distribution
+-	frequency_of_frequencies(freqs,ngrammar);
++	frequency_of_frequencies(freqs,ngrammar,0);
+ 	// smoothing should be optional - to do
+ 	smoothed_frequency_distribution_ExponentialFit(freqs,maxcount-1);
+ 	// Build map of frequencies
+ 	adjusted_frequencies_BasicGoodTuring(mapped_freqs,freqs,maxcount);
+ 	// Map all frequencies in grammar to Good Turing Smoothed values
+-	map_frequencies(ngrammar,mapped_freqs);
++	map_frequencies(ngrammar,mapped_freqs,0);
+ 	
+     }
+     break;
+diff -uNr speech_tools.orig/include/EST_Ngrammar.h speech_tools/include/EST_Ngrammar.h
+--- speech_tools.orig/include/EST_Ngrammar.h	2004-09-29 01:24:17.000000000 -0700
++++ speech_tools/include/EST_Ngrammar.h	2020-02-25 08:41:23.316379488 -0800
+@@ -538,18 +538,18 @@
+ 						     double floor);
+     friend EST_write_status save_ngram_htk_ascii(const EST_String filename, 
+ 						 EST_Ngrammar &n,
+-						 double floor=0.0);
++						 double floor);
+ 
+     //friend EST_write_status save_ngram_htk_binary(const EST_String filename, 
+     //					  EST_Ngrammar &n);
+     friend EST_write_status save_ngram_cstr_ascii(const EST_String filename, 
+ 						  EST_Ngrammar &n,
+-						  const bool trace=false,
+-						  double floor=0.0);
++						  const bool trace,
++						  double floor);
+     friend EST_write_status save_ngram_cstr_bin(const EST_String filename, 
+ 						EST_Ngrammar &n, 
+-						const bool trace=false,
+-						double floor=0.0);
++						const bool trace,
++						double floor);
+     friend EST_write_status save_ngram_arpa(const EST_String filename, 
+ 					    EST_Ngrammar &n);
+     friend EST_write_status save_ngram_arpa_sub(ostream *ost, 
+@@ -561,11 +561,11 @@
+     // Auxiliary functions
+     
+     // smoothing
+-friend void frequency_of_frequencies(EST_DVector &ff, EST_Ngrammar &n,int this_order=0);
+-friend void map_frequencies(EST_Ngrammar &n, const EST_DVector &map, const int this_order=0);
+-friend bool Good_Turing_smooth(EST_Ngrammar &n, int maxcount, int mincount=0);
++friend void frequency_of_frequencies(EST_DVector &ff, EST_Ngrammar &n,int this_order);
++friend void map_frequencies(EST_Ngrammar &n, const EST_DVector &map, const int this_order);
++friend bool Good_Turing_smooth(EST_Ngrammar &n, int maxcount, int mincount);
+ friend void Good_Turing_discount(EST_Ngrammar &ngrammar, const int maxcount,
+-				 const double default_discount=0.5);
++				 const double default_discount);
+ 
+ friend void fs_build_backoff_ngrams(EST_Ngrammar *backoff_ngrams,
+ 				    EST_Ngrammar &ngram);
+diff -uNr speech_tools.orig/include/EST_String.h speech_tools/include/EST_String.h
+--- speech_tools.orig/include/EST_String.h	2009-07-03 10:13:56.000000000 -0700
++++ speech_tools/include/EST_String.h	2020-02-25 08:41:23.312379420 -0800
+@@ -574,10 +574,10 @@
+       */
+     //@{
+     friend int fcompare(const EST_String &a, const EST_String &b, 
+-			const unsigned char *table=NULL);
++			const unsigned char *table);
+ 
+     friend int fcompare(const EST_String &a, const char *b, 
+-				const unsigned char *table=NULL);
++				const unsigned char *table);
+     ///
+     friend inline int fcompare(const EST_String &a, const EST_String &b, 
+ 			       const EST_String &table) 
+diff -uNr speech_tools.orig/include/EST_TMatrix.h speech_tools/include/EST_TMatrix.h
+--- speech_tools.orig/include/EST_TMatrix.h	2006-07-19 14:52:12.000000000 -0700
++++ speech_tools/include/EST_TMatrix.h	2020-02-25 08:41:23.316379488 -0800
+@@ -313,8 +313,9 @@
+   friend ostream& operator << (ostream &st,const EST_TMatrix<T> &a)
+     {int i, j; 
+         for (i = 0; i < a.num_rows(); ++i) {
+-            for (j = 0; j < a.num_columns(); ++j) 
++            for (j = 0; j < a.num_columns(); ++j) {
+                 st << a.a_no_check(i, j) << " "; st << endl;
++			}
+         }
+         return st;
+     }
+diff -uNr speech_tools.orig/include/EST_TVector.h speech_tools/include/EST_TVector.h
+--- speech_tools.orig/include/EST_TVector.h	2006-07-19 14:52:12.000000000 -0700
++++ speech_tools/include/EST_TVector.h	2020-02-25 08:41:23.316379488 -0800
+@@ -313,8 +313,9 @@
+     friend ostream& operator << (ostream &st, const EST_TVector<T> &m)
+     {
+         int i; 
+-        for (i = 0; i < m.n(); ++i) 
++        for (i = 0; i < m.n(); ++i) {
+             st << m(i) << " "; st << endl; 
++		}
+         return st;
+     }
+ 
+diff -uNr speech_tools.orig/main/ngram_build_main.cc speech_tools/main/ngram_build_main.cc
+--- speech_tools.orig/main/ngram_build_main.cc	2004-09-29 01:24:17.000000000 -0700
++++ speech_tools/main/ngram_build_main.cc	2020-02-25 08:41:51.248856391 -0800
+@@ -429,7 +429,7 @@
+     else if (al.present("-smooth") && !al.present("-backoff"))
+     {
+ 	int smoothcount = atoi(al.val("-smooth"));
+-	if(!Good_Turing_smooth(ngrammar,smoothcount))
++	if(!Good_Turing_smooth(ngrammar,smoothcount,0.5))
+ 	{
+ 	    cerr << "build_ngram: Failed to smooth " << order << "-gram" << endl;
+ 	    exit(1);
