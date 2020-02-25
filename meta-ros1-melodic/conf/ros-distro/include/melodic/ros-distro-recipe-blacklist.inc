@@ -535,6 +535,14 @@ PNBLACKLIST[wge100-driver] ?= "Depends on wge100-camera-firmware->unavailable UN
 PNBLACKLIST[wifi-ddwrt] ?= "Depends on unavailable UNRESOLVED-python-mechanize"
 PNBLACKLIST[wiimote] ?= "Depends on unavailable UNRESOLVED-python-cwiid"
 PNBLACKLIST[yosemite-valley] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
+
+# Other issues in the generated recipes
+ROS_WORLD_SKIP_GROUPS += "unknown-compile"
+ROS_WORLD_SKIP_GROUPS += "unknown-configure"
+ROS_WORLD_SKIP_GROUPS += "unknown-install"
+ROS_WORLD_SKIP_GROUPS += "unknown-package_qa"
+ROS_WORLD_SKIP_GROUPS += "unknown-packagedata"
+
 PNBLACKLIST[acado] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[ackermann-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[ainstein-radar-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
@@ -764,6 +772,9 @@ PNBLACKLIST[ypspur] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-p
 PNBLACKLIST[ypspur-ros] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[yocs-ar-pair-approach] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-package_qa', 'unknown-package_qa: do_package_qa tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[zeroconf-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
+
+# Victims depend on something already blacklisted by the unknown failures above
+ROS_WORLD_SKIP_GROUPS += "unknown-victim"
 PNBLACKLIST[ainstein-radar-drivers] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[ainstein-radar-filters] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[ainstein-radar-tools] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
