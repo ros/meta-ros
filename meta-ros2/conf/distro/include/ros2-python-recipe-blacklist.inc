@@ -657,7 +657,7 @@ PNBLACKLIST[openct] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2',
 # meta-openembedded/meta-oe/recipes-support/opensc/opensc_0.18.0.bb
 PNBLACKLIST[opensc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # openembedded-core/meta/recipes-core/packagegroups/packagegroup-core-tools-profile.bb
-PNBLACKLIST[packagegroup-core-tools-profile] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+PNBLACKLIST[packagegroup-core-tools-profile] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['world-issues', 'python2'], 'world-issues: Depends on blacklisted perf; python2: Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-support/freerdp/freerdp_git.bb
 PNBLACKLIST[freerdp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-benchmark/analyze-suspend/analyze-suspend_git.bb
@@ -717,7 +717,7 @@ PNBLACKLIST[pidgin-sipe] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyth
 # meta-openembedded/meta-oe/recipes-support/pidgin/purple-skypeweb_git.bb
 PNBLACKLIST[purple-skypeweb] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-support/remmina/remmina_1.3.6.bb
-PNBLACKLIST[remmina] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['world-issues', 'python2'], 'world-issues: Depends on spice, spice-protocol from meta-networking, fixed in dunfell: http://git.openembedded.org/meta-openembedded/commit/?id=876f4ce7639def476664834acafbf87cc227fb05; python2: Depends on blacklisted python2', '', d)}"
+PNBLACKLIST[remmina] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-python/recipes-devtools/python-jsonref/python-jsonref_0.2.bb
 PNBLACKLIST[python-jsonref] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-python/recipes-devtools/python/python-atomicwrites_1.3.0.bb
