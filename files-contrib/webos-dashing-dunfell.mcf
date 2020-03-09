@@ -15,12 +15,12 @@ MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'master')
 MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'master/milestones/11')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-ros-webos.git')
-MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'master')
-MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'master-2020-02-22')
+MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'dunfell')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'dunfell-2020-02-22')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
-MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
-MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2020-03-07')
+MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'dunfell')
+MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'dunfell-2020-03-09')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
