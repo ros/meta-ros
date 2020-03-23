@@ -150,6 +150,12 @@ libavahi-core-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libavahi-core-dev}
 libblas-dev:
 - openblas@meta-ros
+libboost-date-time-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-date-time-dev}
+libboost-filesystem-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-filesystem-dev}
+libboost-thread-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev}
 libcairo2-dev:
 - cairo@openembedded-core
 libcap-dev:
@@ -354,6 +360,8 @@ libxml++-2.6:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libxml++-2.6}
 libxml2:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2}
+libxmlrpc-c++:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++}
 libxmu-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev}
 libzmq3-dev:
@@ -374,6 +382,8 @@ mapnik-utils:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_mapnik-utils}
 mongodb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_mongodb}
+msgpack:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_msgpack}
 muparser:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_muparser}
 nasm:
@@ -419,6 +429,8 @@ python:
 python-argcomplete:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-argcomplete}
 python-argparse: []
+python-autobahn:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-autobahn}
 python-avahi:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-avahi}
 python-backports.ssl-match-hostname:
@@ -437,6 +449,8 @@ python-catkin-lint:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-lint}
 python-catkin-pkg:
 - ${PYTHON_PN}-catkin-pkg@meta-ros
+python-catkin-pkg-modules:
+- ${PYTHON_PN}-catkin-pkg@meta-ros
 python-catkin-tools:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-tools}
 python-chainer-pip:
@@ -453,8 +467,6 @@ python-colorama:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-colorama}
 python-coverage:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-coverage}
-python-crypto:
-- ${PYTHON_PN}-pycrypto@meta-python
 python-cwiid:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid}
 python-defusedxml:
@@ -547,6 +559,8 @@ python-pyassimp:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp}
 python-pyaudio:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio}
+python-pycryptodome:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome}
 python-pydot:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pydot}
 python-pygithub3:
@@ -575,6 +589,8 @@ python-requests-oauthlib:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests-oauthlib}
 python-rosdep:
 - ${PYTHON_PN}-rosdep@meta-ros
+python-rosdep-modules:
+- ${PYTHON_PN}-rosdep@meta-ros
 python-rospkg:
 - ${PYTHON_PN}-rospkg@meta-ros
 python-scipy:
@@ -589,6 +605,8 @@ python-simplejson:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson}
 python-sip:
 - sip@meta-oe
+python-six:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-six}
 python-skimage:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-skimage}
 python-sklearn:
@@ -623,10 +641,14 @@ python-wxtools:
 - wxpython@meta-oe
 python-yaml:
 - ${PYTHON_PN}-pyyaml@meta-python
+python3-catkin-pkg-modules:
+- python3-catkin-pkg@meta-ros
 python3-dev:
 - python3@openembedded-core
 python3-venv:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-venv}
+python3-yaml:
+- python3-pyyaml@meta-python
 qt5-qmake:
 - qtbase@meta-qt5
 qtbase5-dev:
@@ -654,8 +676,8 @@ sshpass:
 subversion:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_subversion}
 suitesparse:
-- suitesparse-cxsparse@meta-ros
 - suitesparse-cholmod@meta-ros
+- suitesparse-cxsparse@meta-ros
 swig:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_swig}
 sysstat:
