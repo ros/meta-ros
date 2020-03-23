@@ -14,10 +14,10 @@
 # This script will abort if Git detects any uncommitted modifications, eg, from a previous run that did not complete or untracked
 # files (which would otherwise appear in superflore-change-summary.txt).
 #
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-recipes"
-readonly SCRIPT_VERSION="1.3.3"
+readonly SCRIPT_VERSION="1.3.4"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-cache.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -115,12 +115,22 @@ esac
 abort=false
 for f in $ROSDEP_YAML_BASENAMES; do
     ff=$(sed -n "\@^yaml file:/.*/$f.yaml\$@ s@.*file://@@p" /etc/ros/rosdep/sources.list.d/20-default.list)
+    if [ -z "$ff" ] ; then
+        abort=true
+        echo "ERROR: /etc/ros/rosdep/sources.list.d/20-default.list doesn't have file://.*/$f.yaml, maybe it's using, the default URL over http:// (yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/$f.yaml)?"
+        continue
+    fi
+    if [ ! -e "$ff" ] ; then
+        abort=true
+        echo "ERROR: /etc/ros/rosdep/sources.list.d/20-default.list points to $ff file, which doesn't exist"
+        continue
+    fi
     # -q reports when they differ.
     diff -q $generated/rosdep/$f.yaml $ff || abort=true
 done
 unset f ff
 if $abort; then
-    echo "ABORT: The files pointed to by /etc/ros/rosdep/sources.list.d/20-default.list must match those under $generated/rosdep"
+    echo "ABORT: The yaml files pointed to by /etc/ros/rosdep/sources.list.d/20-default.list must be local (with file:// URL) and must match those under $generated/rosdep"
     exit 1
 fi
 unset abort
