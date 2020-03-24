@@ -51,7 +51,7 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'warrior/milestones/11')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.42', 'commit': 'd411b097'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.42', 'commit': '7f712621'}, {}),
 
 ('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'warrior', 'commit': 'ca019eec13'}, {}),
 
@@ -63,7 +63,7 @@ Layers = [
 ('meta-ros2',                 38, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros2-dashing',         39, MetaRos_RepoURL,                                          {}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'warrior', 'commit': '615a1a8'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'warrior', 'commit': '5551792'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
