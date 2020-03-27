@@ -610,8 +610,6 @@ PNBLACKLIST[libhugetlbfs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyt
 PNBLACKLIST[kernel-devsrc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-connectivity/lirc/lirc_0.9.4d.bb
 PNBLACKLIST[lirc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# openembedded-core/meta/recipes-kernel/perf/perf.bb
-PNBLACKLIST[perf] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 
 # The rest depends on something which depends on python:
 # meta-openembedded/meta-oe/recipes-bsp/lm_sensors/lmsensors_3.4.0.bb
@@ -656,8 +654,6 @@ PNBLACKLIST[ccid] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', '
 PNBLACKLIST[openct] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-support/opensc/opensc_0.18.0.bb
 PNBLACKLIST[opensc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# openembedded-core/meta/recipes-core/packagegroups/packagegroup-core-tools-profile.bb
-PNBLACKLIST[packagegroup-core-tools-profile] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['world-issues', 'python2'], 'world-issues: Depends on blacklisted perf; python2: Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-support/freerdp/freerdp_git.bb
 PNBLACKLIST[freerdp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-benchmark/analyze-suspend/analyze-suspend_git.bb

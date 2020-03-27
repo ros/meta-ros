@@ -32,19 +32,7 @@ PNBLACKLIST[createrepo-c] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wor
 PNBLACKLIST[renderdoc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on mesa-gl without setting correct REQUIRED_DISTRO_FEATURES to match it: mesa-gl PROVIDES virtual/libgl but was skipped: one of vulkan opengl needs to be in DISTRO_FEATURES', '', d)}"
 PNBLACKLIST[python-ldap] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on cyrus-sasl from meta-networking, skipped since http://lists.openembedded.org/pipermail/openembedded-devel/2020-February/205123.html', '', d)}"
 PNBLACKLIST[python-networkmanager] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Depends on networkmanager, skipped since http://lists.openembedded.org/pipermail/openembedded-devel/2020-February/205124.html', '', d)}"
-PNBLACKLIST[perf] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'Fails for raspberrypi, linux-raspberrypi needs kernel patch to fix perf build with binutils-2.34, fixed in: https://github.com/agherzan/meta-raspberrypi/pull/586"
-PNBLACKLIST[oprofile] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'world-issues', 'world-issues: Fails to build: ERROR: oprofile-1.3.0-r0 do_compile: oe_runmake failed: oprofile-1.3.0/libutil++/bfd_support.cpp:140:53: error: cannot convert bfd* to const asection* {aka const bfd_section*} fixed in http://git.openembedded.org/meta-openembedded/commit/?id=d280be7d5d6238ef7024c1a89277dabbe7e08c2b', '', d)}"
-
-# Depends on c-ares from meta-networking
-# Fixed in http://lists.openembedded.org/pipermail/openembedded-devel/2020-February/205122.html
-PACKAGECONFIG_remove_pn-nodejs = "ares"
-PACKAGECONFIG_remove_pn-nodejs-native = "ares"
-# Depends on cyrus-sasl from meta-networking
-# Fixed in http://lists.openembedded.org/pipermail/openembedded-devel/2020-February/205122.html
-# Otherwise needs x11vnc and remmina to be blacklisted as well
-PACKAGECONFIG_remove_pn-libvncserver = "sasl"
 
 PNBLACKLIST[packagegroup-meta-oe] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['world-issues', 'python2'], 'world-issues: Depends on blacklisted packages like libvncserver,x11vnc; python2: Depends on blacklisted python2', '', d)}"
-PNBLACKLIST[packagegroup-core-tools-profile] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['world-issues', 'python2'], 'world-issues: Depends on blacklisted perf; python2: Depends on blacklisted python2', '', d)}"
 
 PNBLACKLIST[userland] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', 'depends on libegl-mesa from mesa-gl which is not available without opengl in DISTRO_FEATURES', '', d)}"
