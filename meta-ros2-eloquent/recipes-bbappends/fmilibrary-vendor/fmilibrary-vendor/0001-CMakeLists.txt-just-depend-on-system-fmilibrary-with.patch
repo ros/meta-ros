@@ -1,4 +1,4 @@
-From 889a8667d9dbba75f5ed575e0f14955a1469af98 Mon Sep 17 00:00:00 2001
+From a2b01c8d9bd3e8f502dd96a51f8c0abbcf929559 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Fri, 29 Nov 2019 19:03:46 -0800
 Subject: [PATCH] CMakeLists.txt: just depend on system fmilibrary without
@@ -12,7 +12,7 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 20 insertions(+), 12 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d75722b..4672503 100644
+index adb4abf..31b3468 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -3,19 +3,27 @@ project(fmilibrary_vendor)
@@ -21,8 +21,8 @@ index d75722b..4672503 100644
  
 -include(ExternalProject)
 -externalproject_add(FMILibraryProject
--  URL https://jmodelica.org/fmil/FMILibrary-2.0.3-src.zip
--  URL_MD5 53d8edd7442c31bcd3fb56477e574845
+-  GIT_REPOSITORY https://github.com/modelon-community/fmi-library.git
+-  GIT_TAG 2.1
 -  TIMEOUT 60
 -)
 -externalproject_get_property(FMILibraryProject INSTALL_DIR)
@@ -38,8 +38,8 @@ index d75722b..4672503 100644
 +if (false)
 +  include(ExternalProject)
 +  externalproject_add(FMILibraryProject
-+    URL https://jmodelica.org/fmil/FMILibrary-2.0.3-src.zip
-+    URL_MD5 53d8edd7442c31bcd3fb56477e574845
++    GIT_REPOSITORY https://github.com/modelon-community/fmi-library.git
++    GIT_TAG 2.1
 +    TIMEOUT 60
 +  )
 +  externalproject_get_property(FMILibraryProject INSTALL_DIR)
