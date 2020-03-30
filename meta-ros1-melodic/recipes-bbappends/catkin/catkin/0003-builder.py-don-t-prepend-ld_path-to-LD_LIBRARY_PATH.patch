@@ -1,4 +1,4 @@
-From 996c48510c5582fadb41a2ee512328b5518bddd7 Mon Sep 17 00:00:00 2001
+From ee5d4dfdd20854c9e49f6e0e8c37f91e9dcda7a5 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Fri, 17 Jan 2020 04:58:28 -0800
 Subject: [PATCH] builder.py: don't prepend ld_path to LD_LIBRARY_PATH
@@ -65,18 +65,17 @@ ERROR: Task (/jenkins/mjansa/build-ros/ros1-melodic-thud/meta-ros/meta-ros1-melo
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- cmake/templates/_setup_util.py.in | 1 -
- python/catkin/builder.py          | 6 ------
- 2 files changed, 7 deletions(-)
+ cmake/templates/_setup_util.py.in | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/cmake/templates/_setup_util.py.in b/cmake/templates/_setup_util.py.in
-index d03cd813..8c67184f 100755
+index 1810d81b..2b9172fb 100755
 --- a/cmake/templates/_setup_util.py.in
 +++ b/cmake/templates/_setup_util.py.in
-@@ -146,6 +146,9 @@ def prepend_env_variables(environ, env_var_subfolders, workspaces):
+@@ -145,6 +145,9 @@ def prepend_env_variables(environ, env_var_subfolders, workspaces):
      lines.append(prepend(environ, 'CMAKE_PREFIX_PATH', prefix))
  
-     for key in sorted([key for key in env_var_subfolders.keys() if key != 'CMAKE_PREFIX_PATH']):
+     for key in sorted(key for key in env_var_subfolders.keys() if key != 'CMAKE_PREFIX_PATH'):
 +        if key == 'LD_LIBRARY_PATH':
 +            if 'CATKIN_CROSSCOMPILING' in environ.keys() and environ['CATKIN_CROSSCOMPILING'] == '1':
 +                continue

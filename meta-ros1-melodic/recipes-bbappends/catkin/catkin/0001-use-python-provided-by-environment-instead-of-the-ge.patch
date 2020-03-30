@@ -1,4 +1,4 @@
-From a885cbf6d9f15cf89c020b9cfa6a3f40193b0b78 Mon Sep 17 00:00:00 2001
+From d1d014e1acfbe50a6fb069715cab2aff85485a9d Mon Sep 17 00:00:00 2001
 From: Lukas Bulwahn <lukas.bulwahn@bmw-carit.de>
 Date: Tue, 31 May 2016 15:38:05 +0200
 Subject: [PATCH] use python provided by environment instead of the generated
@@ -18,7 +18,7 @@ Signed-off-by: Lukas Bulwahn <lukas.bulwahn@oss.bmw-carit.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/cmake/templates/_setup_util.py.in b/cmake/templates/_setup_util.py.in
-index d03cd813..00e86d30 100755
+index 0b0d6dda..1810d81b 100755
 --- a/cmake/templates/_setup_util.py.in
 +++ b/cmake/templates/_setup_util.py.in
 @@ -1,4 +1,4 @@
