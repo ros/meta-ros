@@ -464,6 +464,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-pydot = "python-pydot"
 # generated-recipes/ros/roslib_1.14.8-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev = "boost"
 
+# Used by:
+# generated-recipes/ros-comm/rosbag_1.14.5-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome = "python-pycryptodome"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
