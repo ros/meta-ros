@@ -27,9 +27,6 @@ RDEPENDS_${PN}_remove = "flatbuffers"
 # It is a "catkin-ized" edition of the upstream version that is not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "grpc"
 
-# It has a dependency on rosparam_handler for which there isn't an entry in melodic-cache.yaml nor base.yaml nor python.yaml nor ruby.yaml; it is not used by any other ROS 1 package.
-RDEPENDS_${PN}_remove = "iirob-filters"
-
 # It is a "catkin-ized" edition of the upstream version that is not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "nanomsg"
 
