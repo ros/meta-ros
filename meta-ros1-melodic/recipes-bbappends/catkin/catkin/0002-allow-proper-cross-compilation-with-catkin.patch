@@ -1,4 +1,4 @@
-From a73388b27e3e4f8ede21271dc7ef31220b9bd51b Mon Sep 17 00:00:00 2001
+From 0a44f3d28f0f800bd7b8c2066e0219e1bea826dd Mon Sep 17 00:00:00 2001
 From: Herb Kuta <herb.kuta@lge.com>
 Date: Wed, 31 Jul 2019 12:00:00 -0700
 Subject: [PATCH] allow proper cross-compilation with catkin
@@ -33,7 +33,7 @@ index 7768f968..dd9271e1 100644
      catkin_symlink_install
      catkin_workspace
 diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
-index a9b77b30..423a822e 100644
+index df36e236..995e5e5b 100644
 --- a/cmake/catkin_package.cmake
 +++ b/cmake/catkin_package.cmake
 @@ -439,6 +439,14 @@ function(_catkin_package)
