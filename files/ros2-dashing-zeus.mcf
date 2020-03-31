@@ -36,7 +36,7 @@ Machines = ['qemux86-64', 'raspberrypi4-64']
 # <YOCTO-VERSION>; instead it is the value in the Yocto Project Version column
 # of https://wiki.yoctoproject.org/wiki/Releases for
 # <OPENEMBEDDED-RELEASE-SERIES> to which a constant "~master" is appended.
-OpenEmbeddedVersion = '3.0-267-zeus'
+OpenEmbeddedVersion = '3.0-267.1-zeus'
 
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
 from os import getenv
@@ -62,7 +62,7 @@ Layers = [
 ('meta-ros2',                 38, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros2-dashing',         39, MetaRos_RepoURL,                                          {}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'zeus', 'commit': 'd17588f'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'zeus', 'commit': '0e05098'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
