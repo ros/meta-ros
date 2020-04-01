@@ -65,6 +65,10 @@ RDEPENDS_${PN}_remove = "rtsprofile"
 RDEPENDS_${PN}_remove = "rtshell"
 RDEPENDS_${PN}_remove = "openrtm-aist-python"
 
+# ERROR: Nothing PROVIDES 'UNRESOLVED-libxmlrpc-c++"
+RDEPENDS_${PN}_remove = "ifm3d"
+RDEPENDS_${PN}_remove = "ifm3d-core"
+
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-libpgm-pip' (but generated-recipes/jsk-3rdparty/pgm-learner_2.1.13-1.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-scipy' (but generated-recipes/jsk-3rdparty/pgm-learner_2.1.13-1.bb, generated-recipes/husky/husky-bringup_0.4.2-1.bb, generated-recipes/calibration/calibration-estimation_0.10.14.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "pgm-learner"
@@ -127,6 +131,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     fmi-adapter-examples \
     gl-dependency \
     gundam-rx78-control \
+    jderobot-drones \
+    pilz-status-indicator-rqt \
     python-qt-binding \
     qt-gui \
     qt-gui-app \
@@ -143,11 +149,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-drone-teleop \
     rqt-ez-publisher \
     rqt-graph \
+    rqt-ground-robot-teleop \
     rqt-gui \
     rqt-gui-cpp \
     rqt-gui-py \
     rqt-image-view \
     rqt-joint-trajectory-controller \
+    rqt-joint-trajectory-plot \
     rqt-launch \
     rqt-launchtree \
     rqt-logger-level \
@@ -181,6 +189,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vtk-qt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT = " \
+    ira-laser-tools \
     lvr2 \
     rc-cloud-accumulator \
     rtabmap \
@@ -193,11 +202,22 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     cob-collision-monitor \
     cob-obstacle-distance-moveit \
     exotica-aico-solver \
+    exotica-cartpole-dynamics-solver \
     exotica-collision-scene-fcl \
     exotica-collision-scene-fcl-latest \
     exotica-core \
+    exotica-ddp-solver \
+    exotica-double-integrator-dynamics-solver \
+    exotica-dynamics-solvers \
     exotica-ik-solver \
+    exotica-ilqg-solver \
+    exotica-ilqr-solver \
     exotica-levenberg-marquardt-solver \
+    exotica-ompl-control-solver \
+    exotica-pendulum-dynamics-solver \
+    exotica-pinocchio-dynamics-solver \
+    exotica-quadrotor-dynamics-solver \
+    exotica-scipy-solver \
     exotica-time-indexed-rrt-connect-solver \
     fsrobo-r-trajectory-filters \
     image-pipeline \
@@ -222,6 +242,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     moveit-ros-warehouse \
     moveit-runtime \
     moveit-sim-controller \
+    mpc-local-planner-examples \
     multires-image \
     navigation-stage \
     navigation-tutorials \
@@ -317,6 +338,7 @@ RDEPENDS_${PN}_remove = "rosserial-arduino"
 # ERROR: Nothing PROVIDES 'UNRESOLVED-coinor-libipopt-dev' (but generated-recipes/ifopt/ifopt_2.0.7-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "ifopt"
 RDEPENDS_${PN}_remove = "towr-ros"
+RDEPENDS_${PN}_remove = "control-box-rst"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-npm-native' (but generated-recipes/vapor-master/vapor-master_0.3.0.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "vapor-master"
@@ -479,6 +501,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     imu-tools \
     jackal-desktop \
     jackal-viz \
+    jderobot-drones \
     jsk-common \
     jsk-data \
     jsk-interactive \
@@ -529,6 +552,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     open-manipulator-with-tb3 \
     panda-moveit-config \
     pilz-robots \
+    pilz-status-indicator-rqt \
     plotjuggler \
     pr2eus-tutorials \
     prbt-gazebo \
@@ -561,11 +585,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-drone-teleop \
     rqt-ez-publisher \
     rqt-graph \
+    rqt-ground-robot-teleop \
     rqt-gui \
     rqt-gui-cpp \
     rqt-gui-py \
     rqt-image-view \
     rqt-joint-trajectory-controller \
+    rqt-joint-trajectory-plot \
     rqt-launch \
     rqt-launchtree \
     rqt-logger-level \
@@ -702,6 +728,7 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo',
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     ainstein-radar \
     ainstein-radar-gazebo-plugins \
+    ati-force-torque \
     audibot \
     audibot-gazebo \
     blender-gazebo \
@@ -752,6 +779,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     jackal-gazebo \
     jackal-simulator \
     jderobot-assets \
+    jderobot-drones \
     ksql-airport \
     lauv-control \
     lauv-description \
@@ -816,6 +844,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT4 = " \
     hector-geotiff-plugins \
     hector-slam \
     hector-slam-launch \
+    qt-ros \
+    qt-tutorials \
 "
 
 # Depends on vlc from meta-multimedia
@@ -891,15 +921,26 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     desktop-full \
     exotica \
     exotica-aico-solver \
+    exotica-cartpole-dynamics-solver \
     exotica-collision-scene-fcl \
     exotica-collision-scene-fcl-latest \
     exotica-core \
     exotica-core-task-maps \
+    exotica-ddp-solver \
+    exotica-double-integrator-dynamics-solver \
+    exotica-dynamics-solvers \
     exotica-examples \
     exotica-ik-solver \
+    exotica-ilqg-solver \
+    exotica-ilqr-solver \
     exotica-levenberg-marquardt-solver \
     exotica-ompl-solver \
+    exotica-ompl-control-solver \
+    exotica-pendulum-dynamics-solver \
+    exotica-pinocchio-dynamics-solver \
     exotica-python \
+    exotica-quadrotor-dynamics-solver \
+    exotica-scipy-solver \
     exotica-time-indexed-rrt-connect-solver \
     fetch-bringup \
     fetch-moveit-config \
@@ -925,6 +966,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     moveit-runtime \
     moveit-sim-controller \
     moveit-visual-tools \
+    mpc-local-planner-examples \
     navigation-stage \
     navigation-tutorials \
     open-manipulator-controller \
@@ -1418,6 +1460,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     arbotix-sensors \
     asmach-tutorials \
     astuff-sensor-msgs \
+    ati-force-torque \
     automotive-autonomy-msgs \
     aws-ros1-common \
     calibration-launch \
@@ -1517,17 +1560,29 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     dynamixel-workbench-controllers \
     dynamixel-workbench-single-manager \
     dynamixel-workbench-single-manager-gui \
+    eband-local-planner \
     effort-controllers \
     ethercat-hardware \
     ethercat-trigger-controllers \
     euscollada \
     executive-smach \
     exotica-aico-solver \
+    exotica-cartpole-dynamics-solver \
     exotica-collision-scene-fcl \
     exotica-collision-scene-fcl-latest \
     exotica-core \
+    exotica-ddp-solver \
+    exotica-double-integrator-dynamics-solver \
+    exotica-dynamics-solvers \
     exotica-ik-solver \
+    exotica-ilqg-solver \
+    exotica-ilqr-solver \
     exotica-levenberg-marquardt-solver \
+    exotica-ompl-control-solver \
+    exotica-pendulum-dynamics-solver \
+    exotica-pinocchio-dynamics-solver \
+    exotica-quadrotor-dynamics-solver \
+    exotica-scipy-solver \
     exotica-time-indexed-rrt-connect-solver \
     face-detector \
     fake-joint \
@@ -1574,6 +1629,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     health-metric-collector \
     hector-map-server \
     hector-trajectory-server \
+    husky-cartographer-navigation \
     husky-desktop \
     husky-viz \
     ibeo-core \
@@ -1659,6 +1715,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     moveit-runtime \
     moveit-sim-controller \
     moveit-simple-controller-manager \
+    mpc-local-planner \
+    mpc-local-planner-examples \
     multires-image \
     multisense \
     multisense-bringup \
@@ -1701,6 +1759,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     open-manipulator-with-tb3-tools \
     p2os-driver \
     p2os-launch \
+    pacmod \
     pacmod-game-control \
     pacmod3 \
     people \
@@ -1766,6 +1825,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     realsense2-camera \
     ridgeback-control \
     ridgeback-desktop \
+    ridgeback-cartographer-navigation \
     robot \
     robot-activity \
     robot-activity-tutorials \
@@ -1850,6 +1910,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     tuw-marker-pose-estimation \
     tuw-msgs \
     ubiquity-motor \
+    ublox \
     ublox-gps \
     usb-cam-controllers \
     usb-cam-hardware \
