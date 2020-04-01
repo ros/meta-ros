@@ -68,6 +68,7 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer'
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     ament-lint-native \
+    builtin-interfaces-native \
     poco-vendor-native \
     rcpputils-native \
     rcutils-native \
@@ -79,6 +80,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-implementation-native \
     rosidl-actions-native \
     rosidl-adapter-native \
+    rosidl-default-runtime-native \
     rosidl-typesupport-fastrtps-c-native \
     uncrustify-vendor-native \
 "
