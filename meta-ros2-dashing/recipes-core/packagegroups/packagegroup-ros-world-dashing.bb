@@ -268,6 +268,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS = " 
     apriltag-ros \
     compressed-depth-image-transport \
     compressed-image-transport \
+    costmap-converter \
     cv-bridge \
     depthimage-to-laserscan \
     image-geometry \
@@ -276,6 +277,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS = " 
     intra-process-demo \
     object-analytics-node \
     object-analytics-rviz \
+    slide-show \
     swri-geometry-util \
     swri-image-util \
     swri-opencv-util \
