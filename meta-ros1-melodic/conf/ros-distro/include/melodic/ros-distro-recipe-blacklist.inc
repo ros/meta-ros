@@ -235,6 +235,7 @@ PNBLACKLIST[jackal-simulator] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 PNBLACKLIST[jackal-tutorials] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lisp', 'depends on blacklisted rosdoc-lite', '', d)}"
 PNBLACKLIST[jackal-viz] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'unknown-victim'], 'Requires rviz which requires meta-qt5 to be included; unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[jderobot-assets] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros, turtlebot3-gazebo which is not available', '', d)}"
+PNBLACKLIST[jderobot-camviz] ?= "Expects jderobot header files in wrong directory (/opt/jderobot/include/jderobot/types/image.h) and not compatible with opencv version we're using"
 PNBLACKLIST[jderobot-drones] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'gazebo'], 'qt5: Requires rqt-gui->qt-gui->qtbase which requires meta-qt5 to be included; pyqt5: rqt-gui-py->qt-gui->python-pyqt5 which requires pyqt5; gazebo: drone-wrapper depends on gazebo, turtlebot3-gazebo which is not available', '', d)}"
 PNBLACKLIST[joystick-drivers] ?= "Depends on wiimote->unavailable UNRESOLVED-python-cwiid and spacenav-node->UNRESOLVED-libspnav-dev"
 PNBLACKLIST[jsk-3rdparty] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gst-ugly', 'Depends on (voice-text,julius-ros)->sound-play->gstreamer1.0-plugins-ugly which requires commercial license', '', d)}"
