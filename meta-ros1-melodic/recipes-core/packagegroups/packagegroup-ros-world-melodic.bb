@@ -33,6 +33,9 @@ RDEPENDS_${PN}_remove = "nanomsg"
 # It has dependencies on Qt4 packages; it is not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "octovis"
 
+# Expects jderobot header files in wrong directory (/opt/jderobot/include/jderobot/types/image.h) and not compatible with opencv version we're using
+RDEPENDS_${PN}_remove = "jderobot-camviz"
+
 # Generation of ROS package documentation will never be done on the target.
 RDEPENDS_${PN}_remove = "rosdoc-lite"
 # Depends on blacklisted rosdoc-lite
