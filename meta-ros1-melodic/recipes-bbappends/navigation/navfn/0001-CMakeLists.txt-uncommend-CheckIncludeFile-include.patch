@@ -1,0 +1,32 @@
+From 6c769c9fc6d72e9a0417e1b87dfd54976904a882 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 3 Apr 2020 04:55:17 -0700
+Subject: [PATCH] CMakeLists.txt: uncommend CheckIncludeFile include
+
+* check_include_file is used few lines bellow:
+  check_include_file(sys/time.h HAVE_SYS_TIME_H)
+
+* fixes:
+  | CMake Error at CMakeLists.txt:58 (check_include_file):
+  |   Unknown CMake command "check_include_file".
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 98899c7f9..9c089fd35 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -55,6 +55,7 @@ catkin_package(
+         visualization_msgs
+ )
+ 
++include (CheckIncludeFile)
+ check_include_file(sys/time.h HAVE_SYS_TIME_H)
+ if (HAVE_SYS_TIME_H)
+   add_definitions(-DHAVE_SYS_TIME_H)
+-- 
+2.17.1
+
