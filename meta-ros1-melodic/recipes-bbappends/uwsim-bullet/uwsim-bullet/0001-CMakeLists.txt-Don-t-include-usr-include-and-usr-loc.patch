@@ -1,0 +1,38 @@
+From 32e7a02ee3d4234aaadd900631ffcb14c289ef1c Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 7 Apr 2020 12:52:18 -0700
+Subject: [PATCH] CMakeLists.txt: Don't include /usr/include and
+ /usr/local/include
+
+* it's unwanted while cross-compiling
+* fixes:
+  cc1plus: warning: include location "/usr/local/include" is unsafe for cross-compilation [-Wpoison-system-directories]
+
+  and
+
+  WARNING: uwsim-bullet-2.82.2-1-r0 do_package_qa: QA Issue: uwsim-bullet: The compile log indicates that host include and/or library paths were used.
+         Please check the log 'ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/uwsim-bullet/2.82.2-1-r0/temp/log.do_compile' for more information. [compile-host-path]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b7bb768..809d023 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -353,10 +353,6 @@ IF (USE_GLUT)
+ 		ENDIF (MSVC)
+ 	ENDIF (GLUT_FOUND)
+ 
+-	IF(NOT WIN32)	
+-		# This is added for linux. This should always work if everything is installed and working fine.
+-		INCLUDE_DIRECTORIES(/usr/include /usr/local/include) 
+-	ENDIF()
+ ENDIF(USE_GLUT)
+ 
+ 
+-- 
+2.17.1
+
