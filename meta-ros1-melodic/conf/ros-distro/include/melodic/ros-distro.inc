@@ -466,7 +466,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev = "boost"
 
 # Used by:
 # generated-recipes/ros-comm/rosbag_1.14.5-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome = "python-pycryptodome"
+ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome = "python-pycryptodomex"
 
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
