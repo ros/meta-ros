@@ -1,4 +1,4 @@
-# eloquent/cache.yaml 20200124 ab9167b4f0fafeeebcea68a94d6f31fb513369b4 20200121215414 1.3.0
+# eloquent/cache.yaml 20200220 18eb3ffb52e9016a56be6fd884d0dee1d77db10c 20200219170306 1.3.2
 distribution_file:
 - release_platforms:
 -----
@@ -294,7 +294,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/cartographer_ros-release.git',
-version: 1.0.9000-1
+version: 1.0.9001-1
 },
 source: {
 test_pull_requests: true,
@@ -397,6 +397,30 @@ url: 'https://github.com/ros-controls/control_msgs.git',
 version: crystal-devel
 },
 status: maintained
+}
+-----
+costmap_converter: {
+doc: {
+type: git,
+url: 'https://github.com/rst-tu-dortmund/costmap_converter.git',
+version: ros2
+},
+release: {
+packages: [costmap_converter,
+costmap_converter_msgs],
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/rst-tu-dortmund/costmap_converter-ros2-release.git',
+version: 0.1.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/rst-tu-dortmund/costmap_converter.git',
+version: ros2
+},
+status: developed
 }
 -----
 cross_compile: {
@@ -770,14 +794,14 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/fastrtps-release.git',
-version: 1.9.3-1
+version: 1.9.3-2
 },
 source: {
 test_commits: false,
 test_pull_requests: false,
 type: git,
 url: 'https://github.com/eProsima/Fast-RTPS.git',
-version: 141b778c66c4f1f7aeb5c55551c173e3237beae9
+version: ros2-eloquent
 },
 status: developed
 }
@@ -795,7 +819,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/boschresearch/fmi_adapter_ros2-release.git',
-version: 0.1.6-1
+version: 0.1.7-2
 },
 source: {
 type: git,
@@ -811,7 +835,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/boschresearch/fmilibrary_vendor-release.git',
-version: 0.1.1-1
+version: 0.2.0-1
 }
 }
 -----
@@ -1142,7 +1166,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/laser_geometry-release.git',
-version: 2.1.0-1
+version: 2.1.1-1
 },
 source: {
 test_pull_requests: true,
@@ -1205,6 +1229,17 @@ version: eloquent
 status: developed
 }
 -----
+libg2o: {
+release: {
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/libg2o-release.git',
+version: 2019.11.23-4
+},
+status: maintained
+}
+-----
 libyaml_vendor: {
 release: {
 tags: {
@@ -1233,7 +1268,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavlink-gbp-release.git',
-version: 2019.12.30-1
+version: 2020.2.2-1
 },
 source: {
 type: git,
@@ -1305,7 +1340,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/SteveMacenski/navigation2-release.git',
-version: 0.3.2-1
+version: 0.3.3-1
 },
 source: {
 test_pull_requests: true,
@@ -1596,6 +1631,28 @@ version: eloquent
 status: maintained
 }
 -----
+pointcloud_to_laserscan: {
+doc: {
+type: git,
+url: 'https://github.com/ros-perception/pointcloud_to_laserscan.git',
+version: eloquent-devel
+},
+release: {
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/pointcloud_to_laserscan-release.git',
+version: 2.0.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros-perception/pointcloud_to_laserscan.git',
+version: eloquent-devel
+},
+status: maintained
+}
+-----
 popf: {
 doc: {
 type: git,
@@ -1639,7 +1696,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/stonier/py_trees-release.git',
-version: 2.0.6-1
+version: 2.0.9-1
 },
 source: {
 type: git,
@@ -1681,7 +1738,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/stonier/py_trees_ros-release.git',
-version: 2.0.4-1
+version: 2.0.7-1
 },
 source: {
 test_pull_requests: true,
@@ -1703,7 +1760,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/stonier/py_trees_ros_interfaces-release.git',
-version: 2.0.2-1
+version: 2.0.3-2
 },
 source: {
 type: git,
@@ -1746,7 +1803,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/stonier/py_trees_ros_viewer-release.git',
-version: 0.2.2-1
+version: 0.2.3-1
 },
 source: {
 type: git,
@@ -3076,7 +3133,7 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt_tf_tree-release.git',
-version: 1.0.1-1
+version: 1.0.2-1
 },
 source: {
 test_pull_requests: true,
@@ -3157,6 +3214,22 @@ url: 'https://github.com/ros2/rviz.git',
 version: eloquent
 },
 status: maintained
+}
+-----
+slide_show: {
+release: {
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/slide_show-release.git',
+version: 0.1.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros2/slide_show.git',
+version: master
+},
+status: developed
 }
 -----
 sophus: {
@@ -3251,7 +3324,12 @@ tags: {
 release: 'release/eloquent/{package}/{version}'
 },
 url: 'https://github.com/microROS/system_modes-release.git',
-version: 0.1.5-1
+version: 0.2.0-3
+},
+source: {
+type: git,
+url: 'https://github.com/microROS/system_modes.git',
+version: master
 },
 status: developed
 }
@@ -3614,6 +3692,49 @@ test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros2/variants.git',
 version: master
+},
+status: maintained
+}
+-----
+velocity_smoother: {
+doc: {
+type: git,
+url: 'https://github.com/kobuki-base/velocity_smoother.git',
+version: release/0.14.x
+},
+release: {
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/stonier/velocity_smoother-release.git',
+version: 0.14.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/kobuki-base/velocity_smoother.git',
+version: devel
+},
+status: maintained
+}
+-----
+vision_msgs: {
+doc: {
+type: git,
+url: 'https://github.com/Kukanani/vision_msgs.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/eloquent/{package}/{version}'
+},
+url: 'https://github.com/Kukanani/vision_msgs-release.git',
+version: 1.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/Kukanani/vision_msgs.git',
+version: ros2
 },
 status: maintained
 }
@@ -5206,6 +5327,55 @@ control_msgs: <?xml version="1.0" ?>
 <exec_depend>builtin_interfaces</exec_depend>
 <exec_depend>rosidl_default_runtime</exec_depend>
 <test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+costmap_converter: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>costmap_converter</name>
+<description>A ros package that includes plugins and nodes to convert occupied costmap2d cells to primitive types.</description>
+<maintainer email="christoph.roesmann@tu-dortmund.de">Christoph Rösmann</maintainer>
+<author email="christoph.roesmann@tu-dortmund.de">Christoph Rösmann</author>
+<author email="franz.albers@tu-dortmund.de">Franz Albers</author>
+<author email="otniel.rinaldo@tu-dortmund.de">Otniel Rinaldo</author>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/costmap_converter</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>class_loader</depend>
+<depend>costmap_converter_msgs</depend>
+<depend>cv_bridge</depend>
+<depend>geometry_msgs</depend>
+<depend>nav2_costmap_2d</depend>
+<depend>tf2</depend>
+<depend>pluginlib</depend>
+<depend>rclcpp</depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+costmap_converter_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>costmap_converter_msgs</name>
+<description>Package containing message types for costmap conversion</description>
+<maintainer email="christoph.roesmann@tu-dortmund.de">Christoph Rösmann</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
 <test_depend>ament_lint_common</test_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
 <export>
@@ -7264,6 +7434,7 @@ fmilibrary_vendor: <?xml version="1.0" ?>
 <license>BSD-3-Clause</license>
 <url type="website">https://jmodelica.org/</url>
 <buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>git</build_depend>
 </package>
 -----
 foonathan_memory_vendor: "<?xml version=\"1.0\" ?>
@@ -8198,6 +8369,31 @@ it provides a fixed CMake module and an ExternalProject build of it.</descriptio
 </export>
 </package>"
 -----
+libg2o: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>libg2o</name>
+<description>The libg2o library from http://openslam.org/g2o.html</description>
+<author>Rainer Kuemmerle</author>
+<author>Giorgio Grisetti</author>
+<author>Hauke Strasdat</author>
+<author>Kurt Konolige</author>
+<author>Wolfram Burgard</author>
+<maintainer email="christoph.roesmann@tu-dortmund.de">Christoph Rösmann</maintainer>
+<license>BSD</license>
+<url type="website">https://github.com/RainerKuemmerle/g2o</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>eigen</build_depend>
+<build_depend>opengl</build_depend>
+<build_depend>suitesparse</build_depend>
+<exec_depend>eigen</exec_depend>
+<exec_depend>opengl</exec_depend>
+<exec_depend>suitesparse</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 libphidget22: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
 <package format=\"2\">
@@ -8348,12 +8544,15 @@ mavlink: <?xml version="1.0" ?>
 <author>Lorenz Meier</author>
 <license>LGPLv3</license>
 <buildtool_depend>cmake</buildtool_depend>
-<depend condition="$ROS_VERSION == 1">python</depend>
+<build_depend condition="$ROS_PYTHON_VERSION == 2">python</build_depend>
 <build_depend condition="$ROS_PYTHON_VERSION == 2">python-lxml</build_depend>
 <build_depend condition="$ROS_PYTHON_VERSION == 2">python-future</build_depend>
+<build_depend condition="$ROS_PYTHON_VERSION == 3">python3-dev</build_depend>
 <build_depend condition="$ROS_PYTHON_VERSION == 3">python3-lxml</build_depend>
 <build_depend condition="$ROS_PYTHON_VERSION == 3">python3-future</build_depend>
 <exec_depend condition="$ROS_VERSION == 1">catkin</exec_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ros_environment</buildtool_depend>
 <export>
 <build_type>cmake</build_type>
 </export>
@@ -8996,6 +9195,7 @@ nav2_system_tests: <?xml version="1.0" ?>
 <build_depend>gazebo_ros_pkgs</build_depend>
 <build_depend>launch_ros</build_depend>
 <build_depend>launch_testing</build_depend>
+<build_depend>nav2_bringup</build_depend>
 <build_depend>nav2_planner</build_depend>
 <exec_depend>launch_ros</exec_depend>
 <exec_depend>launch_testing</exec_depend>
@@ -10153,6 +10353,43 @@ poco_vendor: "<?xml version=\"1.0\" ?>
 <build_type>cmake</build_type>
 </export>
 </package>"
+-----
+pointcloud_to_laserscan: <?xml version="1.0" ?>
+<package format="2">
+<name>pointcloud_to_laserscan</name>
+<description>Converts a 3D Point Cloud into a 2D laser scan. This is useful for making devices like the Kinect appear like a laser scanner for 2D-based algorithms (e.g. laser-based SLAM).</description>
+<maintainer email="paul@bovbel.com">Paul Bovbel</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
+<author email="paul@bovbel.com">Paul Bovbel</author>
+<author email="michel@ekumenlabs.com">Michel Hidalgo</author>
+<author>Tully Foote</author>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/perception_pcl</url>
+<url type="bugtracker">https://github.com/ros-perception/perception_pcl/issues</url>
+<url type="repository">https://github.com/ros-perception/perception_pcl</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>laser_geometry</depend>
+<depend>message_filters</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>sensor_msgs</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>tf2_sensor_msgs</depend>
+<exec_depend>launch</exec_depend>
+<exec_depend>launch_ros</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_cppcheck</test_depend>
+<test_depend>ament_cmake_cpplint</test_depend>
+<test_depend>ament_cmake_flake8</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<test_depend>ament_cmake_pep257</test_depend>
+<test_depend>ament_cmake_uncrustify</test_depend>
+<test_depend>ament_cmake_xmllint</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
 -----
 popf: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -13788,6 +14025,27 @@ shared_queues_vendor: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+slide_show: <?xml version="1.0" ?>
+<package format="2">
+<name>slide_show</name>
+<description>Publishes images from the file system.</description>
+<author email="sloretz@openrobotics.org">Shane Loretz</author>
+<maintainer email="sloretz@openrobotics.org">Shane Loretz</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>cv_bridge</exec_depend>
+<exec_depend>python3-opencv</exec_depend>
+<exec_depend>rcl_interfaces</exec_depend>
+<exec_depend>rclpy</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
 sophus: <?xml version="1.0" ?>
 <package format="2">
 <name>sophus</name>
@@ -14017,7 +14275,7 @@ system_modes_examples: <?xml version="1.0" ?>
 <depend>rclcpp_lifecycle</depend>
 <depend>system_modes</depend>
 <depend>libboost-program-options-dev</depend>
-<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <test_depend>ament_cmake</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
@@ -14789,6 +15047,63 @@ v4l2_camera: <?xml version="1.0" ?>
 <depend>camera_info_manager</depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+velocity_smoother: <?xml version="1.0" ?>
+<package format="2">
+<name>velocity_smoother</name>
+<description>Bound incoming velocity messages according to robot velocity and acceleration limits.</description>
+<author>Jorge Santos Simon</author>
+<maintainer email="jihoonl@yujinrobot.com">Jihoon Lee</maintainer>
+<license>BSD</license>
+<url type="website">https://index.ros.org/p/velocity_smoother/github-kobuki-base-velocity_smoother/</url>
+<url type="repository">https://github.com/kobuki-base/velocity_smoother</url>
+<url type="bugtracker">https://github.com/kobuki-base/velocity_smoother/issues</url>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<build_depend>ecl_build</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>nav_msgs</build_depend>
+<build_depend>rcl_interfaces</build_depend>
+<build_depend>rclcpp</build_depend>
+<build_depend>rclcpp_components</build_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>nav_msgs</exec_depend>
+<exec_depend>rcl_interfaces</exec_depend>
+<exec_depend>rclcpp</exec_depend>
+<exec_depend>rclcpp_components</exec_depend>
+<test_depend>launch_testing</test_depend>
+<test_depend>launch_testing_ament_cmake</test_depend>
+<test_depend>launch_testing_ros</test_depend>
+<test_depend>python3-matplotlib</test_depend>
+<test_depend>ros2test</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+vision_msgs: <?xml version="1.0" ?>
+<package format="3">
+<name>vision_msgs</name>
+<description>Messages for interfacing with various computer vision pipelines,
+such as object detectors.</description>
+<maintainer email="adam.d.allevato@gmail.com">Adam Allevato</maintainer>
+<license>Apache License 2.0</license>
+<author email="adam.d.allevato@gmail.com">Adam Allevato</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
