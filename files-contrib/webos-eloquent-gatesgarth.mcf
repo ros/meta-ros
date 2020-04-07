@@ -1,0 +1,73 @@
+McfFileVersion = 2
+
+# Value for DISTRO
+Distribution = 'webos'
+
+webOSOSEBuildNumber = 'XXX'
+
+# Supported MACHINE-s
+Machines = ['qemux86', 'raspberrypi4']
+
+# Allow the URL and branch for meta-ros, meta-ros-webos and meta-webos to be overridden by settings in the environment.
+from os import getenv
+MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
+MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'master')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'master/milestones/11')
+
+MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-ros-webos.git')
+MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'master')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'master-2020-03-25')
+
+MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
+MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
+MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2020-04-05')
+
+# Layers = [
+# (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
+# ...
+# ]
+# Note that the github.com/openembedded repositories are read-only mirrors of
+# the authoritative repositories on git.openembedded.org .
+Layers = [
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': '4618da20'}, {}),
+
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': 'fcc68424f1'}, {}),
+
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': 'daa5033135'}, {}),
+('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
+('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
+('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
+('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
+
+('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'master', 'commit': '177081d'}, {}),
+('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'master', 'commit': '420479e'}, {}),
+('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': 'master', 'commit': '231c3d7'}, {}),
+
+('meta-qt5-compat',           19, MetaWebos_RepoURL,                                        {}, {}),
+('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': '20331bd'}, {}),
+
+('meta-ros-common',           37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
+('meta-ros2',                 38, MetaRos_RepoURL,                                          {}, {}),
+('meta-ros2-eloquent',        39, MetaRos_RepoURL,                                          {}, {}),
+
+('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
+
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': '1264148'}, {}),
+('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
+('meta-webos-updater',        52, MetaWebos_RepoURL,                                        {}, {}),
+('meta-webos-virtualization', 53, MetaWebos_RepoURL,                                        {}, {}),
+
+('meta-ros-webos',            60, MetaRosWebos_RepoURL,                                     {'branch': MetaRosWebos_Branch, 'commit': MetaRosWebos_Commit}, {}),
+
+('meta-webos-smack',          75, MetaWebos_RepoURL,                                        {}, {}),
+('meta-security',             77, 'git://git.yoctoproject.org/meta-security',               {'branch': 'master', 'commit': '98a6664'}, {}),
+]
+
+# BblayersConfExtraLines is a list of strings to be appended to the generated
+# conf/bblayers.conf .
+BblayersConfExtraLines = ['MCF_DISTRO ?= "' + Distribution + '"',
+                          'ROS_DISTRO ?= "eloquent"',
+                          'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
+                          'MCF_WEBOS_BUILD_NUMBER = "' + webOSOSEBuildNumber + '"',
+                          'MCF_OE_RELEASE_SERIES ?= "gatesgarth"',
+                         ]
