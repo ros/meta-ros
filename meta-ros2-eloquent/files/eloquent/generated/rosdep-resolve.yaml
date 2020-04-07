@@ -243,6 +243,9 @@ sdl-image:
 - libsdl-image@meta-oe
 spdlog:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog}
+suitesparse:
+- suitesparse-cxsparse@meta-ros
+- suitesparse-cholmod@meta-ros
 tango-icon-theme:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
 tbb:
