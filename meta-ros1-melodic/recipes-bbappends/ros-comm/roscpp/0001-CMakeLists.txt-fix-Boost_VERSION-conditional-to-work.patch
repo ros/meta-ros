@@ -1,0 +1,50 @@
+From 734f43d79399f19633b2a473770f268816c1604d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 8 Apr 2020 17:18:50 +0000
+Subject: [PATCH] CMakeLists.txt: fix Boost_VERSION conditional to work with
+ 1.7x Boost as well
+
+* format of Boost_VERSION is different with newer CMake/Boost in Yocto
+  3.0 Zeus and newer:
+  ros1-melodic-dunfell/tmp-glibc/work/aarch64-oe-linux/roscpp/1.14.5-1-r0/build/log.cmake:-- Boost found with Boost_VERSION: '1.72.0' Boost_VERSION_MACRO: '107200' Boost_VERSION_STRING: '1.72.0'
+  ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/roscpp/1.14.5-1-r0/build/log.cmake:-- Boost found with Boost_VERSION: '106800' Boost_VERSION_MACRO: '' Boost_VERSION_STRING: ''
+  ros1-melodic-warrior/tmp-glibc/work/aarch64-oe-linux/roscpp/1.14.5-1-r0/build/log.cmake:-- Boost found with Boost_VERSION: '106900' Boost_VERSION_MACRO: '' Boost_VERSION_STRING: '1.69.0'
+  ros1-melodic-zeus/tmp-glibc/work/aarch64-oe-linux/roscpp/1.14.5-1-r0/build/log.cmake:-- Boost found with Boost_VERSION: '1.71.0' Boost_VERSION_MACRO: '107100' Boost_VERSION_STRING: '1.71.0'
+
+* see CMP0093 in
+  https://cmake.org/cmake/help/v3.15/policy/CMP0093.html
+  https://cmake.org/cmake/help/v3.15/module/FindBoost.html
+
+* we cannot just remove this conditional completely like the roscpp version
+  for Noetic did in:
+  https://github.com/ros/ros_comm/commit/8fde429a4b4dd345067dd94cd72983c8bb3a8e30#diff-af96143090deaa643970030f962c964d
+  because we still support Yocto 2.6 Thud with 1.68.0 version
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b5ef3ff1b2..68164f7f7b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -22,7 +22,15 @@ list(GET roscpp_VERSION_LIST 2 roscpp_VERSION_PATCH)
+ 
+ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/ros/common.h.in ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros/common.h)
+ 
++cmake_policy(SET CMP0093 OLD)
++cmake_policy(GET CMP0093 Boost_CMP0093)
+ find_package(Boost REQUIRED COMPONENTS chrono filesystem system)
++message(STATUS "Boost found with Boost_VERSION: '${Boost_VERSION}' Boost_VERSION_MACRO: '${Boost_VERSION_MACRO}' Boost_VERSION_STRING: '${Boost_VERSION_STRING}' CMP0093 set to '${Boost_CMP0093}'")
++# The above isn't enough, because without Boost_NO_BOOST_CMAKE=ON it might use Boost CMake packages which don't respect CMP0093
++if(Boost_VERSION_MACRO)
++  set(Boost_VERSION ${Boost_VERSION_MACRO})
++  message(STATUS "Boost_VERSION set to Boost_VERSION_MACRO to enforce CMP0093 OLD behavior even when Boost CMake packages are used without Boost_NO_BOOST_CMAKE=ON")
++endif()
+ 
+ # Make sure we use CLOCK_MONOTONIC for the condition variable wait_for if not Apple.
+ if(NOT APPLE AND NOT WIN32)
+-- 
+2.17.1
+
