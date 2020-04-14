@@ -658,8 +658,6 @@ PNBLACKLIST[openct] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2',
 PNBLACKLIST[opensc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # openembedded-core/meta/recipes-core/packagegroups/packagegroup-core-tools-profile.bb
 PNBLACKLIST[packagegroup-core-tools-profile] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-openembedded/meta-oe/recipes-support/freerdp/freerdp_git.bb
-PNBLACKLIST[freerdp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['vc4graphics-without-opengl', 'python2'], 'vc4graphics-without-opengl: depends on gstreamer1.0-plugins-base which depends on virtual/libgles2, virtual/egl which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES; python2: depends on python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-benchmark/analyze-suspend/analyze-suspend_git.bb
 PNBLACKLIST[analyze-suspend] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-devtools/nodejs/nodejs_8.12.0.bb
