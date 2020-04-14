@@ -33,8 +33,8 @@ index b5ef3ff1b2..68164f7f7b 100644
  
  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/ros/common.h.in ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros/common.h)
  
-+cmake_policy(SET CMP0093 OLD)
-+cmake_policy(GET CMP0093 Boost_CMP0093)
++# cmake_policy(SET CMP0093 OLD)
++# cmake_policy(GET CMP0093 Boost_CMP0093)
  find_package(Boost REQUIRED COMPONENTS chrono filesystem system)
 +message(STATUS "Boost found with Boost_VERSION: '${Boost_VERSION}' Boost_VERSION_MACRO: '${Boost_VERSION_MACRO}' Boost_VERSION_STRING: '${Boost_VERSION_STRING}' CMP0093 set to '${Boost_CMP0093}'")
 +# The above isn't enough, because without Boost_NO_BOOST_CMAKE=ON it might use Boost CMake packages which don't respect CMP0093
