@@ -34,6 +34,7 @@ PNBLACKLIST[gazebo-rosdev] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ga
 PNBLACKLIST[kobuki-ftdi] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'kobuki-ftdi', 'kobuki-ftdi: Not compatible with newer libftdi included in meta-oe: https://github.com/kobuki-base/kobuki_ftdi/issues/3', '', d)}"
 PNBLACKLIST[launch-testing-ament-cmake] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', 'launch: depends on launch-testing-native->launch-native', '', d)}"
 PNBLACKLIST[launch-testing-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', 'launch: depends on launch-native', '', d)}"
+PNBLACKLIST[libg2o] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', 'opengl: depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES', '', d)}"
 PNBLACKLIST[nav2-rviz-plugins] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'x11'], 'qt5: depends on qtbase; x11: depends on rviz-ogre-vendor->(libx11,libxrandr,libxaw) which require x11 in DISTRO_FEATURES', '', d)}"
 PNBLACKLIST[nav2-system-tests] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'gazebo: depends on gazebo-ros-pkgs->gazebo-ros->gazebo-rosdev->gazebo which is not available', '', d)}"
 PNBLACKLIST[octovis] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt4', 'qt4: depends on qt4 packages UNRESOLVED-libqt4-opengl-dev, UNRESOLVED-libqglviewer-qt4-dev, UNRESOLVED-libqt4-dev, UNRESOLVED-libqt4-opengl, UNRESOLVED-libqtgui4', '', d)}"
