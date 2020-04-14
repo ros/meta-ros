@@ -5,6 +5,13 @@ ROS_EXEC_DEPENDS += " \
     bash \
 "
 
+# This isn't defined while building jderobot-color-tunner
+# set it to something so that the /qdarkstyle files aren't
+# installed to root of the filesystem, normally it's probably
+# set by jderobot-base as in:
+# https://github.com/JdeRobot/base/blob/master/Deps/python/CMakeLists.txt
+EXTRA_OECMAKE += "-DJDEROBOT_PYTHON2_MODULE_PATH=${PYTHON_SITEPACKAGES_DIR}/jderobot"
+
 # This is needed only for webOS OSE, which uses busybox to provide
 # bash by default, but with newer OSE this should respect
 # WEBOS_PREFERRED_PROVIDER_FOR_BASH and it's not in meta-ros-webos, because
