@@ -258,12 +258,14 @@ RDEPENDS_${PN}_remove_rpi = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4g
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS = " \
     compressed-depth-image-transport \
     compressed-image-transport \
+    costmap-converter \
     cv-bridge \
     depthimage-to-laserscan \
     image-geometry \
     image-tools \
     image-transport-plugins \
     intra-process-demo \
+    slide-show \
     theora-image-transport \
     vision-opencv \
 "
