@@ -1,0 +1,1287 @@
+# foxy/cache.yaml 20200415 c2c0e288438714c5bb1b0146174733e47d7d62b2 20200414220106 1.4.0
+distribution_file:
+- release_platforms:
+-----
+ubuntu: [focal]
+-----
+repositories:
+-----
+ament_cmake: {
+release: {
+packages: [ament_cmake,
+ament_cmake_auto,
+ament_cmake_core,
+ament_cmake_export_definitions,
+ament_cmake_export_dependencies,
+ament_cmake_export_include_directories,
+ament_cmake_export_interfaces,
+ament_cmake_export_libraries,
+ament_cmake_export_link_flags,
+ament_cmake_gmock,
+ament_cmake_gtest,
+ament_cmake_include_directories,
+ament_cmake_libraries,
+ament_cmake_nose,
+ament_cmake_pytest,
+ament_cmake_python,
+ament_cmake_target_dependencies,
+ament_cmake_test,
+ament_cmake_version],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ament_cmake-release.git',
+version: 0.8.1-3
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ament/ament_cmake.git',
+version: master
+},
+status: developed
+}
+-----
+ament_lint: {
+doc: {
+type: git,
+url: 'https://github.com/ament/ament_lint.git',
+version: master
+},
+release: {
+packages: [ament_clang_format,
+ament_clang_tidy,
+ament_cmake_clang_format,
+ament_cmake_clang_tidy,
+ament_cmake_copyright,
+ament_cmake_cppcheck,
+ament_cmake_cpplint,
+ament_cmake_flake8,
+ament_cmake_lint_cmake,
+ament_cmake_mypy,
+ament_cmake_pclint,
+ament_cmake_pep257,
+ament_cmake_pycodestyle,
+ament_cmake_pyflakes,
+ament_cmake_uncrustify,
+ament_cmake_xmllint,
+ament_copyright,
+ament_cppcheck,
+ament_cpplint,
+ament_flake8,
+ament_lint,
+ament_lint_auto,
+ament_lint_cmake,
+ament_lint_common,
+ament_mypy,
+ament_pclint,
+ament_pep257,
+ament_pycodestyle,
+ament_pyflakes,
+ament_uncrustify,
+ament_xmllint],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ament_lint-release.git',
+version: 0.9.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ament/ament_lint.git',
+version: master
+},
+status: developed
+}
+-----
+ament_package: {
+doc: {
+type: git,
+url: 'https://github.com/ament/ament_package.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ament_package-release.git',
+version: 0.8.5-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ament/ament_package.git',
+version: master
+},
+status: developed
+}
+-----
+console_bridge_vendor: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/console_bridge_vendor.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/console_bridge_vendor-release.git',
+version: 1.2.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/console_bridge_vendor.git',
+version: master
+},
+status: maintained
+}
+-----
+googletest: {
+release: {
+packages: [gmock_vendor,
+gtest_vendor],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/googletest-release.git',
+version: 1.8.9000-1
+},
+source: {
+type: git,
+url: 'https://github.com/ament/googletest.git',
+version: ros2
+},
+status: maintained
+}
+-----
+osrf_testing_tools_cpp: {
+doc: {
+type: git,
+url: 'https://github.com/osrf/osrf_testing_tools_cpp.git',
+version: master
+},
+release: {
+packages: [osrf_testing_tools_cpp,
+test_osrf_testing_tools_cpp],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/osrf_testings_tools_cpp-release.git',
+version: 1.3.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/osrf/osrf_testing_tools_cpp.git',
+version: master
+},
+status: maintained
+}
+-----
+ros_workspace: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ros_workspace-release.git',
+version: 0.8.0-3
+},
+source: {
+type: git,
+url: 'https://github.com/ros2/ros_workspace.git',
+version: latest
+},
+status: maintained
+}
+-----
+spdlog_vendor: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/spdlog_vendor-release.git',
+version: 1.1.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/spdlog_vendor.git',
+version: master
+},
+status: maintained
+}
+-----
+test_interface_files: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/test_interface_files.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/test_interface_files-release.git',
+version: 0.8.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/test_interface_files.git',
+version: master
+},
+status: maintained
+}
+-----
+tinyxml2_vendor: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/tinyxml2_vendor.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/tinyxml2_vendor-release.git',
+version: 0.7.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/tinyxml2_vendor.git',
+version: master
+},
+status: maintained
+}
+-----
+uncrustify_vendor: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/uncrustify_vendor-release.git',
+version: 1.4.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ament/uncrustify_vendor.git',
+version: master
+},
+status: maintained
+}
+-----
+type: distribution
+-----
+version: 2
+name: foxy
+release_package_xmls:
+-----
+ament_clang_format: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_clang_format</name>
+<description>The ability to check code against style conventions using clang-format and generate xUnit test result files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>clang-format</exec_depend>
+<exec_depend>python3-yaml</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_clang_tidy: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_clang_tidy</name>
+<description>The ability to check code against style conventions using clang-tidy and generate xUnit test result files.</description>
+<maintainer email="john@openrobotics.org">John Shepherd</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>clang-tidy</exec_depend>
+<exec_depend>python3-yaml</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_cmake: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake</name>
+<description>The entry point package for the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>cmake</buildtool_depend>
+<buildtool_export_depend>cmake</buildtool_export_depend>
+<build_depend>ament_cmake_core</build_depend>
+<build_depend>ament_cmake_export_dependencies</build_depend>
+<build_export_depend>ament_cmake_core</build_export_depend>
+<build_export_depend>ament_cmake_export_definitions</build_export_depend>
+<build_export_depend>ament_cmake_export_dependencies</build_export_depend>
+<build_export_depend>ament_cmake_export_include_directories</build_export_depend>
+<build_export_depend>ament_cmake_export_interfaces</build_export_depend>
+<build_export_depend>ament_cmake_export_libraries</build_export_depend>
+<build_export_depend>ament_cmake_export_link_flags</build_export_depend>
+<build_export_depend>ament_cmake_libraries</build_export_depend>
+<build_export_depend>ament_cmake_python</build_export_depend>
+<build_export_depend>ament_cmake_target_dependencies</build_export_depend>
+<build_export_depend>ament_cmake_test</build_export_depend>
+<build_export_depend>ament_cmake_version</build_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_auto: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_auto</name>
+<description>The auto-magic functions for ease to use of the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_clang_format: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_clang_format</name>
+<description>The CMake API for ament_clang_format to lint C / C++ code using clang format.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_clang_format</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_clang_tidy: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_clang_tidy</name>
+<description>The CMake API for ament_clang_tidy to lint C / C++ code using clang tidy.</description>
+<maintainer email="john@openrobotics.org">John Shepherd</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_clang_tidy</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_copyright: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_copyright</name>
+<description>The CMake API for ament_copyright to check every source file contains copyright reference.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_depend>ament_copyright</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_copyright</buildtool_export_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_core: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_core</name>
+<description>The core of the ament buildsystem in CMake. Several subcomponents provide specific funtionalities: * environment: provide prefix-level setup files * environment_hooks: provide package-level setup files and environment hooks * index: store information in an index and retrieve them without crawling * package_templates: templates from the ament_package Python package * symlink_install: use symlinks for CMake install commands</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>cmake</buildtool_depend>
+<buildtool_depend>ament_package</buildtool_depend>
+<buildtool_depend>python3-catkin-pkg-modules</buildtool_depend>
+<buildtool_export_depend>cmake</buildtool_export_depend>
+<buildtool_export_depend>ament_package</buildtool_export_depend>
+<buildtool_export_depend>python3-catkin-pkg-modules</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>'
+-----
+ament_cmake_cppcheck: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_cppcheck</name>
+<description>The CMake API for ament_cppcheck to perform static code analysis on C/C++ code using Cppcheck.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_cppcheck</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_cpplint: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_cpplint</name>
+<description>The CMake API for ament_cpplint to lint C / C++ code using cpplint.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_cpplint</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_export_definitions: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_export_definitions</name>
+<description>The ability to export definitions to downstream packages in the ament buildsystem.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_export_dependencies: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_export_dependencies</name>
+<description>The ability to export dependencies to downstream packages in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_libraries</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_export_include_directories: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_export_include_directories</name>
+<description>The ability to export include directories to downstream packages in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_export_interfaces: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_export_interfaces</name>
+<description>The ability to export interfaces to downstream packages in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_export_libraries</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_export_libraries: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_export_libraries</name>
+<description>The ability to export libraries to downstream packages in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_export_link_flags: <?xml version="1.0" ?>
+<package format="2">
+<name>ament_cmake_export_link_flags</name>
+<description>The ability to export link flags to downstream packages in the ament buildsystem.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_flake8: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_flake8</name>
+<description>The CMake API for ament_flake8 to check code syntax and style conventions with flake8.</description>
+<maintainer email="steven@osrfoundation.org">Steven! Ragnarok</maintainer>
+<license>Apache License 2.0</license>
+<author email="dhood@osrfoundation.org">D. Hood</author>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_flake8</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_gmock: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_gmock</name>
+<description>The ability to add Google mock-based tests in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_gtest</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>gmock_vendor</buildtool_export_depend>
+<buildtool_export_depend>google-mock</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_gtest: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_gtest</name>
+<description>The ability to add gtest-based tests in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>gtest</buildtool_export_depend>
+<buildtool_export_depend>gtest_vendor</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_include_directories: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_include_directories</name>
+<description>The functionality to order include directories according to a chain of prefixes in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_libraries: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_libraries</name>
+<description>The functionality to deduplicate libraries in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_lint_cmake: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_lint_cmake</name>
+<description>The CMake API for ament_lint_cmake to lint CMake code using cmakelint.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_depend>ament_lint_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_lint_cmake</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_mypy: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>ament_cmake_mypy</name>
+<description>The CMake API for ament_mypy to perform static type analysis on python code with mypy.</description>
+<maintainer email="ted.kern@canonical.com">Ted Kern</maintainer>
+<license>Apache License 2.0</license>
+<author email="ted.kern@canonical.com">Ted Kern</author>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_mypy</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_nose: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_nose</name>
+<description>The ability to add nose-based tests in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>python3-nose</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_pclint: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_pclint</name>
+<description>The CMake API for ament_pclint to perform static code analysis on C/C++ code using PCLint.</description>
+<maintainer email="jp.samper@apex.ai">Juan Pablo Samper</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_pclint</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_pep257: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_pep257</name>
+<description>The CMake API for ament_pep257 to check code against the style conventions in PEP 257.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_pep257</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_pycodestyle: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_pycodestyle</name>
+<description>The CMake API for ament_pycodestyle to check code against the style conventions in PEP 8.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_pycodestyle</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_pyflakes: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_pyflakes</name>
+<description>The CMake API for ament_pyflakes to check code using pyflakes.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_pyflakes</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_pytest: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_pytest</name>
+<description>The ability to run Python tests using pytest in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>python3-pytest</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_python: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_python</name>
+<description>The ability to use Python in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_target_dependencies: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_target_dependencies</name>
+<description>The ability to add definitions,
+include directories and libraries of a package to a target in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_include_directories</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_libraries</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_test: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_test</name>
+<description>The ability to add tests in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_python</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_uncrustify: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_uncrustify</name>
+<description>The CMake API for ament_uncrustify to check code against styleconventions using uncrustify.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_uncrustify</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_version: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_version</name>
+<description>The ability to override the exported package version in the ament buildsystem.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_xmllint: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_xmllint</name>
+<description>The CMake API for ament_xmllint to check XML file using xmmlint.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>ament_xmllint</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_copyright: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_copyright</name>
+<description>The ability to check source files for copyright and license information.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>ament_lint</exec_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_cppcheck: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cppcheck</name>
+<description>The ability to perform static code analysis on C/C++ code using Cppcheck and generate xUnit test result files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>cppcheck</exec_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_cpplint: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cpplint</name>
+<description>The ability to check code against the Google style conventions using cpplint and generate xUnit test result files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<license>BSD</license>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_flake8: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_flake8</name>
+<description>The ability to check code for style and syntax conventions with flake8.</description>
+<maintainer email="steven@osrfoundation.org">Steven! Ragnarok</maintainer>
+<license>Apache License 2.0</license>
+<author email="dhood@osrfoundation.org">D. Hood</author>
+<exec_depend>ament_lint</exec_depend>
+<exec_depend>python3-flake8</exec_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_lint: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_lint</name>
+<description>Providing common API for ament linter packages.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_lint_auto: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_lint_auto</name>
+<description>The auto-magic functions for ease to use of the ament linters in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_test</buildtool_depend>
+<buildtool_export_depend version_gte="0.7.1">ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_lint_cmake: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_lint_cmake</name>
+<description>The ability to lint CMake code using cmakelint and generate xUnit test result files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_lint_common: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_lint_common</name>
+<description>The list of commonly used linters in the ament buildsytem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_export_dependencies</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<exec_depend>ament_cmake_copyright</exec_depend>
+<exec_depend>ament_cmake_cppcheck</exec_depend>
+<exec_depend>ament_cmake_cpplint</exec_depend>
+<exec_depend>ament_cmake_flake8</exec_depend>
+<exec_depend>ament_cmake_lint_cmake</exec_depend>
+<exec_depend>ament_cmake_pep257</exec_depend>
+<exec_depend>ament_cmake_uncrustify</exec_depend>
+<exec_depend>ament_cmake_xmllint</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_mypy: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>ament_mypy</name>
+<description>Support for mypy static type checking in ament.</description>
+<maintainer email="ted.kern@canonical.com">Ted Kern</maintainer>
+<license>Apache License 2.0</license>
+<author email="ted.kern@canonical.com">Ted Kern</author>
+<exec_depend>python3-mypy</exec_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>python3-pytest</test_depend>
+<test_depend>python3-pytest-mock</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_package: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_package</name>
+<description>The parser for the manifest files in the ament buildsystem.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<depend>python3-setuptools</depend>
+<test_depend>python3-flake8</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_pclint: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_pclint</name>
+<description>The ability to perform static code analysis on C/C++ code using pclint and generate xUnit test result files.</description>
+<maintainer email="jp.samper@apex.ai">Juan Pablo Samper</maintainer>
+<license>Apache License 2.0</license>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_pep257: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_pep257</name>
+<description>The ability to check code against the style conventions in PEP 8 and generate xUnit test result files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<license>MIT</license>
+<exec_depend>ament_lint</exec_depend>
+<exec_depend>pydocstyle</exec_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_pycodestyle: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_pycodestyle</name>
+<description>The ability to check code against the style conventions in PEP 8 and generate xUnit test result files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>python3-pycodestyle</exec_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_pyflakes: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_pyflakes</name>
+<description>The ability to check code using pyflakes and generate xUnit test result files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>pyflakes3</exec_depend>
+<test_depend>ament_pycodestyle</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_uncrustify: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_uncrustify</name>
+<description>The ability to check code against style conventions using uncrustify and generate xUnit test result files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>uncrustify_vendor</exec_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_xmllint: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_xmllint</name>
+<description>The ability to check XML files like the package manifest using xmllint and generate xUnit test result files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>ament_lint</exec_depend>
+<exec_depend>libxml2-utils</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+console_bridge_vendor: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"2\">
+<name>console_bridge_vendor</name>
+<description>Wrapper around console_bridge,
+providing nothing but a dependency on console_bridge,
+on some systems. On others,
+it provides an ExternalProject build of console_bridge.</description>
+<maintainer email=\"steven@osrfoundation.org\">Steven! Ragnarök</maintainer>
+<license>Apache License 2.0</license>
+<license>BSD</license>
+<url type=\"website\">https://github.com/ros/console_bridge</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>libconsole-bridge-dev</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>"
+-----
+gmock_vendor: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>gmock_vendor</name>
+<description>The package provides GoogleMock.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>BSD</license>
+<build_depend>cmake</build_depend>
+<build_export_depend>gtest_vendor</build_export_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+gtest_vendor: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>gtest_vendor</name>
+<description>The package provides GoogleTest.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>BSD</license>
+<build_depend>cmake</build_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+osrf_testing_tools_cpp: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
+<name>osrf_testing_tools_cpp</name>
+<description>Testing tools for C++,
+and is used in various OSRF projects.</description>
+<maintainer email=\"william@osrfoundation.org\">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>"
+-----
+ros_workspace: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>ros_workspace</name>
+<description>Provides the prefix level environment files for ROS 2 packages.</description>
+<maintainer email="steven@openrobotics.org">Steven! Ragnarök</maintainer>
+<license file="LICENSE">Apache License 2.0</license>
+<build_depend>ament_cmake_core</build_depend>
+<build_depend>ament_package</build_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+spdlog_vendor: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"2\">
+<name>spdlog_vendor</name>
+<description>Wrapper around spdlog,
+providing nothing but a dependency on spdlog,
+on some systems. On others,
+it provides an ExternalProject build of spdlog.</description>
+<maintainer email=\"clalancette@openrobotics.org\">Chris Lalancette</maintainer>
+<license>Apache License 2.0</license>
+<license>MIT</license>
+<url type=\"website\">https://github.com/gabime/spdlog</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>spdlog</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>"
+-----
+test_interface_files: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>test_interface_files</name>
+<description>A package containing message definitions and fixtures used exclusively for testing purposes.</description>
+<maintainer email="karsten@osrfoundation.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+test_osrf_testing_tools_cpp: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
+<name>test_osrf_testing_tools_cpp</name>
+<description>Test package,
+which uses things exported by osrf_testing_tools_cpp.</description>
+<maintainer email=\"william@osrfoundation.org\">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>cmake</buildtool_depend>
+<test_depend>osrf_testing_tools_cpp</test_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>"
+-----
+tinyxml2_vendor: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"2\">
+<name>tinyxml2_vendor</name>
+<description>Wrapper around tinyxml2,
+providing nothing but a dependency on tinyxml2,
+on some systems. On others,
+it provides a fixed CMake module or even an ExternalProject build of tinyxml2.</description>
+<maintainer email=\"william@osrfoundation.org\">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>tinyxml2</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>"
+-----
+uncrustify_vendor: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"2\">
+<name>uncrustify_vendor</name>
+<description>Wrapper around uncrustify,
+providing nothing but a dependency on uncrustify,
+on some systems. On others,
+it provides an ExternalProject build of uncrustify.</description>
+<maintainer email=\"steven@openrobotics.org\">Steven! Ragnarök</maintainer>
+<license>Apache License 2.0</license>
+<license>GNU General Public License v2.0</license>
+<url type=\"website\">https://github.com/uncrustify/uncrustify</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>uncrustify</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>"
+-----
+source_repo_package_xmls: {
+
+}
+type: cache
+version: 2
