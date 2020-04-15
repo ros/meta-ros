@@ -20,7 +20,7 @@ MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'zeus-2020-02-22')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'zeus')
-MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'zeus-2020-03-18')
+MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'zeus-2020-04-15')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
@@ -42,7 +42,7 @@ Layers = [
 ('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'zeus', 'commit': '416a934'}, {}),
 ('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'zeus', 'commit': '2f3c13b'}, {}),
 
-('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': '20331bd'}, {}),
+('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': '1f1afdb'}, {}),
 
 ('meta-webos-backports-3.1',  30, MetaWebos_RepoURL,                                        {}, {}),
 
