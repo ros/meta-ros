@@ -12,4 +12,7 @@ S = "${WORKDIR}/git"
 
 inherit cmake
 
+# Prevent it finding python
+EXTRA_OECMAKE += "-UPYTHON_EXECUTABLE"
+
 SRC_URI += "file://0001-Use-object-libraries-instead-of-empty-file-list-in-C.patch"
