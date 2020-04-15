@@ -1,0 +1,49 @@
+From 2012252526b53d016eb6b186a0698d2798b59558 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 15 Apr 2020 04:00:36 +0000
+Subject: [PATCH] Make it compatible with OpenCV 4
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ .../costmap_to_dynamic_obstacles/multitarget_tracker/Kalman.h | 2 +-
+ src/costmap_to_dynamic_obstacles/blob_detector.cpp            | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/costmap_converter/costmap_to_dynamic_obstacles/multitarget_tracker/Kalman.h b/include/costmap_converter/costmap_to_dynamic_obstacles/multitarget_tracker/Kalman.h
+index 4440612..a65b101 100644
+--- a/include/costmap_converter/costmap_to_dynamic_obstacles/multitarget_tracker/Kalman.h
++++ b/include/costmap_converter/costmap_to_dynamic_obstacles/multitarget_tracker/Kalman.h
+@@ -3,7 +3,7 @@
+ 
+ #pragma once
+ #include "defines.h"
+-#include <opencv/cv.h>
++#include <opencv2/video/tracking.hpp>
+ 
+ // http://www.morethantechnical.com/2011/06/17/simple-kalman-filter-for-tracking-using-opencv-2-2-w-code/
+ class TKalmanFilter
+diff --git a/src/costmap_to_dynamic_obstacles/blob_detector.cpp b/src/costmap_to_dynamic_obstacles/blob_detector.cpp
+index 50e428d..c7352f4 100644
+--- a/src/costmap_to_dynamic_obstacles/blob_detector.cpp
++++ b/src/costmap_to_dynamic_obstacles/blob_detector.cpp
+@@ -18,7 +18,7 @@ void BlobDetector::detect(const cv::Mat& image, std::vector<cv::KeyPoint>& keypo
+   keypoints.clear();
+   cv::Mat grayscale_image;
+   if (image.channels() == 3)
+-    cv::cvtColor(image, grayscale_image, CV_BGR2GRAY);
++    cv::cvtColor(image, grayscale_image, cv::COLOR_BGR2GRAY);
+   else
+     grayscale_image = image;
+ 
+@@ -99,7 +99,7 @@ void BlobDetector::findBlobs(const cv::Mat& image, const cv::Mat& binary_image,
+ 
+   std::vector<std::vector<cv::Point>> contours;
+   cv::Mat tmp_binary_image = binary_image.clone();
+-  cv::findContours(tmp_binary_image, contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
++  cv::findContours(tmp_binary_image, contours, cv::RETR_LIST, cv::CHAIN_APPROX_SIMPLE);
+ 
+   for (std::size_t contour_idx = 0; contour_idx < contours.size(); ++contour_idx)
+   {
+-- 
+2.17.1
+
