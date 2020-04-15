@@ -19,6 +19,12 @@ EXTRA_OECMAKE += " \
     -DVRPN_BUILD_PYTHON_HANDCODED_2X=OFF \
 "
 
+do_install_append () {
+    if [ -d ${D}${prefix}${sysconfdir} ] ; then
+        mv ${D}${prefix}${sysconfdir} ${D}${sysconfdir}
+    fi
+}
+
 # ERROR: vrpn-7.34.0-1-r0 do_package: QA Issue: vrpn: Files/directories were installed but not shipped in any package:
 #  /usr/etc
 #  /usr/etc/vrpn.cfg
@@ -28,7 +34,6 @@ EXTRA_OECMAKE += " \
 #  /usr/share/vrpn-07.34
 #  /usr/share/vrpn-07.34/vrpn.cfg.sample
 FILES_${PN} += " \
-    ${prefix}${sysconfdir}/vrpn.cfg \
     ${datadir}/quatlib \
     ${datadir}/vrpn-07.34 \
 "
