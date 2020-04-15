@@ -1,0 +1,45 @@
+# foxy/rosdep-resolve.yaml
+clang-format:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format}
+clang-tidy:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy}
+cmake:
+- cmake@openembedded-core
+cppcheck:
+- cppcheck@meta-ros
+google-mock:
+- gtest@meta-oe
+gtest:
+- gtest@meta-oe
+libconsole-bridge-dev:
+- console-bridge@meta-ros
+libxml2-utils:
+- libxml2@openembedded-core
+pydocstyle:
+- ${PYTHON_PN}-pydocstyle@meta-ros
+pyflakes3:
+- ${PYTHON_PN}-pyflakes@meta-ros
+python3-catkin-pkg-modules:
+- python3-catkin-pkg@meta-ros
+python3-flake8:
+- python3-flake8@meta-ros
+python3-mypy:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy}
+python3-nose:
+- python3-nose@openembedded-core
+python3-pycodestyle:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle}
+python3-pytest:
+- python3-pytest@meta-python
+python3-pytest-mock:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock}
+python3-setuptools:
+- python3-setuptools@openembedded-core
+python3-yaml:
+- python3-pyyaml@meta-python
+spdlog:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog}
+tinyxml2:
+- libtinyxml2@meta-oe
+uncrustify:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify}
