@@ -175,7 +175,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     slam-toolbox \
     turtlesim \
 "
-# OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commerical".
+# OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commercial".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
     h264-encoder-core \
