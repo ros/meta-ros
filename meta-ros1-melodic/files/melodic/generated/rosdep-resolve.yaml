@@ -122,6 +122,8 @@ hddtemp:
 - hddtemp@meta-oe
 hostapd:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_hostapd}
+hostname:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_hostname}
 ifstat:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_ifstat}
 ipmitool:
@@ -154,6 +156,8 @@ libboost-date-time-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-date-time-dev}
 libboost-filesystem-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-filesystem-dev}
+libboost-python-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev}
 libboost-thread-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev}
 libcairo2-dev:
@@ -176,6 +180,8 @@ libdw-dev:
 - elfutils@openembedded-core
 libfcl-dev:
 - fcl@meta-ros
+libffi-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libffi-dev}
 libfftw3:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libfftw3}
 libflann-dev:
@@ -216,6 +222,8 @@ libgts:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgts}
 libhdf5-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libhdf5-dev}
+libirrlicht-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libirrlicht-dev}
 libjpeg:
 - jpeg@openembedded-core
 libjsoncpp:
@@ -310,6 +318,8 @@ libqtgui4:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4}
 libqwt-qt5-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev}
+libraw1394-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libraw1394-dev}
 libreadline:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline}
 libreadline-dev:
@@ -388,6 +398,8 @@ muparser:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_muparser}
 nasm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_nasm}
+net-tools:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_net-tools}
 netpbm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_netpbm}
 network-manager:
@@ -418,12 +430,18 @@ pkg-config:
 - pkgconfig@openembedded-core
 postgresql-postgis:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_postgresql-postgis}
+procps:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_procps}
 proj:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_proj}
 protobuf:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_protobuf}
 protobuf-dev:
 - protobuf@meta-oe
+pugixml-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_pugixml-dev}
+pydrive-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_pydrive-pip}
 python:
 - python@openembedded-core
 python-argcomplete:
@@ -471,6 +489,8 @@ python-cwiid:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid}
 python-defusedxml:
 - ${PYTHON_PN}-defusedxml@meta-ros
+python-dialogflow-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-dialogflow-pip}
 python-dlib:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-dlib}
 python-docker:
@@ -551,6 +571,8 @@ python-percol:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-percol}
 python-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pip}
+python-pixel-ring-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pixel-ring-pip}
 python-progressbar:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-progressbar}
 python-psutil:
