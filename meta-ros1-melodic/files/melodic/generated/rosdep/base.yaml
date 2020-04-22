@@ -104,6 +104,9 @@ asio:
   fedora: [asio-devel]
   gentoo: [dev-cpp/asio]
   openembedded: [asio@meta-oe]
+  osx:
+    homebrew:
+      packages: [asio]
   rhel: [asio-devel]
   ubuntu: [libasio-dev]
 assimp:
@@ -394,6 +397,9 @@ clang-format:
     stretch: [clang-format]
   fedora: [clang]
   gentoo: [sys-devel/clang]
+  osx:
+    homebrew:
+      packages: [clang-format]
   rhel: [clang]
   ubuntu: [clang-format]
 clang-tidy:
@@ -401,6 +407,10 @@ clang-tidy:
     buster: [clang-tidy]
     stretch: [clang-tidy]
   fedora: [clang-tools-extra]
+  gentoo: [sys-devel/clang]
+  osx:
+    homebrew:
+      packages: [llvm]
   rhel:
     '*': [clang-tools-extra]
     '7': null
@@ -512,6 +522,9 @@ cppcheck:
   fedora: [cppcheck]
   gentoo: [dev-util/cppcheck]
   openembedded: [cppcheck@meta-ros]
+  osx:
+    homebrew:
+      packages: [cppcheck]
   rhel: [cppcheck]
   ubuntu: [cppcheck]
 cppunit:
@@ -727,6 +740,15 @@ espeak:
   fedora: [espeak]
   gentoo: [app-accessibility/espeak]
   ubuntu: [espeak]
+exfat-fuse:
+  debian: [exfat-fuse]
+  gentoo: [sys-fs/fuse-exfat]
+  ubuntu: [exfat-fuse]
+exfat-utils:
+  arch: [exfat-utils]
+  debian: [exfat-utils]
+  gentoo: [sys-fs/exfat-utils]
+  ubuntu: [exfat-utils]
 f2c:
   arch: [f2c]
   debian: [f2c, libf2c2, libf2c2-dev]
@@ -1094,6 +1116,9 @@ gperf:
   debian: [gperf]
   fedora: [gperf]
   gentoo: [dev-util/gperf]
+  osx:
+    homebrew:
+      packages: [gperf]
   rhel: [gperf]
   ubuntu: [gperf]
 gperftools:
@@ -1229,6 +1254,9 @@ gstreamer1.0-plugins-ugly:
   fedora: [gstreamer1-plugins-ugly]
   gentoo: ['media-libs/gst-plugins-ugly:1.0']
   ubuntu: [gstreamer1.0-plugins-ugly]
+gstreamer1.0-rtsp:
+  debian: [gstreamer1.0-rtsp]
+  ubuntu: [gstreamer1.0-rtsp]
 gstreamer1.0-tools:
   debian: [gstreamer1.0-tools]
   fedora: [gstreamer1]
@@ -1707,8 +1735,8 @@ libboost-python:
     disco: [libboost-python1.67.0]
     eoan: [libboost-python1.67.0]
     focal: [libboost-python1.71.0]
-    trusty: [libboost-python-1.54.0]
-    xenial: [libboost-python-1.58.0]
+    trusty: [libboost-python1.54.0]
+    xenial: [libboost-python1.58.0]
 libboost-python-dev:
   alpine: [boost-python2]
   debian: [libboost-python-dev]
@@ -2011,12 +2039,9 @@ libfcl-dev:
   gentoo: [sci-libs/fcl]
   openembedded: [fcl@meta-ros]
   ubuntu:
-    artful: [libfcl-dev]
-    bionic: [libfcl-dev]
+    '*': [libfcl-dev]
     wily: [libfcl-0.5-dev]
     xenial: [libfcl-0.5-dev]
-    yakkety: [libfcl-dev]
-    zesty: [libfcl-dev]
 libffi-dev:
   debian: [libffi-dev]
   fedora: [libffi-devel]
@@ -2352,9 +2377,7 @@ libgsl:
   gentoo: [sci-libs/gsl]
   macports: [gsl]
   ubuntu:
-    artful: [libgsl-dev]
-    bionic: [libgsl-dev]
-    cosmic: [libgsl-dev]
+    '*': [libgsl-dev]
     precise: [libgsl0-dev]
     raring: [libgsl0-dev]
     saucy: [libgsl0-dev]
@@ -2362,8 +2385,6 @@ libgsl:
     utopic: [libgsl0-dev]
     vivid: [libgsl0-dev]
     wily: [libgsl0-dev]
-    xenial: [libgsl-dev]
-    yakkety: [libgsl-dev]
 libgstreamer-plugins-base0.10-0:
   arch: [gstreamer0.10-base-plugins]
   debian:
@@ -2408,6 +2429,14 @@ libgstreamer1.0-dev:
   fedora: [gstreamer1-devel]
   gentoo: ['media-libs/gstreamer:1.0']
   ubuntu: [libgstreamer1.0-dev]
+libgstrtspserver-1.0-0:
+  debian: [libgstrtspserver-1.0-0]
+  fedora: [gstreamer1-rtsp-server]
+  ubuntu: [libgstrtspserver-1.0-0]
+libgstrtspserver-1.0-dev:
+  debian: [libgstrtspserver-1.0-dev]
+  fedora: [gstreamer1-rtsp-server-devel]
+  ubuntu: [libgstrtspserver-1.0-dev]
 libgtkmm:
   arch: [gtkmm]
   debian: [libgtkmm-2.4-dev]
@@ -2685,6 +2714,9 @@ libncurses:
   debian: [libncurses5]
   fedora: [ncurses]
   gentoo: [sys-libs/ncurses]
+  osx:
+    homebrew:
+      packages: [ncurses]
   rhel: [ncurses]
   ubuntu: [libncurses5]
 libncurses-dev:
@@ -2826,6 +2858,12 @@ libopal-dev:
   fedora: [opal-devel]
   gentoo: [net-libs/opal]
   ubuntu: [libopal-dev]
+libopenal-dev:
+  arch: [openal]
+  debian: [libopenal-dev]
+  fedora: [openal-soft-devel]
+  gentoo: [media-libs/openal]
+  ubuntu: [libopenal-dev]
 libopenblas-dev:
   debian: [libopenblas-dev]
   fedora: [openblas-devel]
@@ -2987,6 +3025,7 @@ libpcl-all:
   ubuntu:
     artful: [libpcl-apps1.8, libpcl-common1.8, libpcl-features1.8, libpcl-filters1.8, libpcl-io1.8, libpcl-kdtree1.8, libpcl-keypoints1.8, libpcl-ml1.8, libpcl-octree1.8, libpcl-outofcore1.8, libpcl-people1.8, libpcl-recognition1.8, libpcl-registration1.8, libpcl-sample-consensus1.8, libpcl-search1.8, libpcl-segmentation1.8, libpcl-stereo1.8, libpcl-surface1.8, libpcl-tracking1.8, libpcl-visualization1.8]
     bionic: [libpcl-apps1.8, libpcl-common1.8, libpcl-features1.8, libpcl-filters1.8, libpcl-io1.8, libpcl-kdtree1.8, libpcl-keypoints1.8, libpcl-ml1.8, libpcl-octree1.8, libpcl-outofcore1.8, libpcl-people1.8, libpcl-recognition1.8, libpcl-registration1.8, libpcl-sample-consensus1.8, libpcl-search1.8, libpcl-segmentation1.8, libpcl-stereo1.8, libpcl-surface1.8, libpcl-tracking1.8, libpcl-visualization1.8]
+    focal: [libpcl-apps1.10, libpcl-common1.10, libpcl-features1.10, libpcl-filters1.10, libpcl-io1.10, libpcl-kdtree1.10, libpcl-keypoints1.10, libpcl-ml1.10, libpcl-octree1.10, libpcl-outofcore1.10, libpcl-people1.10, libpcl-recognition1.10, libpcl-registration1.10, libpcl-sample-consensus1.10, libpcl-search1.10, libpcl-segmentation1.10, libpcl-stereo1.10, libpcl-surface1.10, libpcl-tracking1.10, libpcl-visualization1.10]
     precise: [libpcl-1.7-all]
     quantal: [libpcl-1.7-all]
     raring: [libpcl-1.7-all]
@@ -3015,6 +3054,7 @@ libpcl-all-dev:
     cosmic: [libpcl-dev]
     disco: [libpcl-dev]
     eoan: [libpcl-dev]
+    focal: [libpcl-dev]
     precise: [libpcl-1.7-all-dev]
     quantal: [libpcl-1.7-all-dev]
     raring: [libpcl-1.7-all-dev]
@@ -3060,8 +3100,7 @@ libpng-dev:
   opensuse: [libpng12-devel]
   slackware: [libpng]
   ubuntu:
-    artful: [libpng-dev]
-    bionic: [libpng-dev]
+    '*': [libpng-dev]
     precise: [libpng12-dev]
     quantal: [libpng12-dev]
     raring: [libpng12-dev]
@@ -3071,8 +3110,6 @@ libpng-dev:
     vivid: [libpng12-dev]
     wily: [libpng12-dev]
     xenial: [libpng12-dev]
-    yakkety: [libpng-dev]
-    zesty: [libpng-dev]
 libpng12-dev:
   arch: [libpng]
   debian: [libpng12-dev]
@@ -3193,6 +3230,10 @@ libqd-dev:
   gentoo: [sci-libs/qd]
   macports: [qd]
   ubuntu: [libqd-dev]
+libqglviewer-dev-qt5:
+  debian: [libqglviewer-dev-qt5]
+  fedora: [libQGLViewer-qt5-devel]
+  ubuntu: [libqglviewer-dev-qt5]
 libqglviewer-qt4:
   arch: [libqglviewer-qt4]
   debian:
@@ -3248,6 +3289,9 @@ libqglviewer-qt4-dev:
     xenial: [libqglviewer-dev-qt4]
     yakkety: [libqglviewer-dev-qt4]
     zesty: [libqglviewer-dev-qt4]
+libqglviewer2-qt5:
+  debian: [libqglviewer2-qt5]
+  ubuntu: [libqglviewer2-qt5]
 libqhull:
   arch: [qhull]
   debian: [libqhull-dev]
@@ -3269,7 +3313,7 @@ libqrencode-dev:
   ubuntu: [libqrencode-dev]
 libqt4:
   arch: [qt4]
-  debian: [libqt4-core]
+  debian: [libqt4-dbus, libqt4-network, libqt4-script, libqt4-test, libqt4-xml, libqtcore4]
   fedora: [qt]
   freebsd: [qt4-corelib]
   gentoo: ['dev-qt/qtcore:4']
@@ -4119,7 +4163,11 @@ libxml2:
 libxml2-utils:
   debian: [libxml2-utils]
   fedora: [libxml2]
+  gentoo: [dev-libs/libxml2]
   openembedded: [libxml2@openembedded-core]
+  osx:
+    homebrew:
+      packages: [libxml2]
   rhel: [libxml2]
   ubuntu: [libxml2-utils]
 libxmlrpc-c++:
@@ -4798,6 +4846,11 @@ php:
     xenial: [php7.0]
     yakkety: [php7.0]
     zesty: [php7.0]
+pigz:
+  debian: [pigz]
+  fedora: [pigz]
+  gentoo: [app-arch/pigz]
+  ubuntu: [pigz]
 pkg-config:
   alpine: [pkgconf]
   arch: [pkg-config]
@@ -4944,6 +4997,7 @@ protobuf:
     artful: [libprotobuf10]
     bionic: [libprotobuf10]
     cosmic: [libprotobuf10]
+    focal: [libprotobuf17]
     precise: [libprotobuf7]
     raring: [libprotobuf7]
     saucy: [libprotobuf7]
@@ -5001,6 +5055,27 @@ qhull-bin:
   fedora: [qhull]
   gentoo: [media-libs/qhull]
   ubuntu: [qhull-bin]
+qml-module-qtmultimedia:
+  debian: [qml-module-qtmultimedia]
+  ubuntu: [qml-module-qtmultimedia]
+qml-module-qtquick-controls:
+  debian: [qml-module-qtquick-controls]
+  ubuntu: [qml-module-qtquick-controls]
+qml-module-qtquick-controls2:
+  debian: [qml-module-qtquick-controls2]
+  ubuntu: [qml-module-qtquick-controls2]
+qml-module-qtquick-dialogs:
+  debian: [qml-module-qtquick-dialogs]
+  ubuntu: [qml-module-qtquick-dialogs]
+qml-module-qtquick-layouts:
+  debian: [qml-module-qtquick-layouts]
+  ubuntu: [qml-module-qtquick-layouts]
+qml-module-qtquick-templates2:
+  debian: [qml-module-qtquick-templates2]
+  ubuntu: [qml-module-qtquick-templates2]
+qml-module-qtquick2:
+  debian: [qml-module-qtquick2]
+  ubuntu: [qml-module-qtquick2]
 qrencode:
   arch: [qrencode]
   debian: [qrencode]
@@ -5640,6 +5715,13 @@ tmux:
   fedora: [tmux]
   gentoo: [app-misc/tmux]
   ubuntu: [tmux]
+trang:
+  debian: [trang]
+  fedora: [trang]
+  gentoo: [app-text/trang]
+  rhel:
+    '7': [trang]
+  ubuntu: [trang]
 tree:
   debian: [tree]
   fedora: [tree]
@@ -5693,6 +5775,9 @@ uncrustify:
   debian: [uncrustify]
   fedora: [uncrustify]
   gentoo: [uncrustify]
+  osx:
+    homebrew:
+      packages: [uncrustify]
   rhel: [uncrustify]
   ubuntu: [uncrustify]
 unison:
@@ -5737,6 +5822,9 @@ usbutils:
   fedora: [usbutils]
   gentoo: [sys-apps/usbutils]
   macports: [usbutils]
+  osx:
+    homebrew:
+      packages: [mikhailai/misc/usbutils]
   ubuntu: [usbutils]
 uuid:
   arch: [util-linux]
@@ -5993,6 +6081,7 @@ yaml-cpp:
     cosmic: [libyaml-cpp-dev]
     disco: [libyaml-cpp-dev]
     eoan: [libyaml-cpp-dev]
+    focal: [libyaml-cpp-dev]
     lucid: [yaml-cpp0.2.6-dev]
     maverick: [yaml-cpp0.2.6-dev]
     natty: [yaml-cpp0.2.6-dev]
