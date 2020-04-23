@@ -1250,22 +1250,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-package_qa', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_PACKAGE_QA}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_PACKAGE_QA = "\
-    apriltag-ros \
     cob-model-identifier \
     libpcan \
-    cob-reflector-referencing \
-    cob-safety-controller \
-    flexbe-widget \
-    jsk-network-tools \
     libfranka \
-    swri-prefix-tools \
     octomap \
     rcdiscover \
-    ridgeback-description \
-    robot-upstart \
-    tracetools \
     ypspur \
-    yocs-ar-pair-approach \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS}', '', d)}"
@@ -1434,6 +1424,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     flexbe-onboard \
     flexbe-states \
     flexbe-testing \
+    flexbe-widget \
     fmi-adapter-examples \
     four-wheel-steering-controller \
     franka-control \
