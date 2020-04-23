@@ -1626,7 +1626,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     prosilica-camera \
     qt-gui-core \
     rail-segmentation \
-    rc-hand-eye-calibration-client \
     rc-pick-client \
     rc-roi-manager-gui \
     rc-tagdetect-client \
