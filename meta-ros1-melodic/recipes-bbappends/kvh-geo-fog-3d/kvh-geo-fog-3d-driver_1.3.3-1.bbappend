@@ -1,11 +1,6 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2020 LG Electronics, Inc.
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += " \
-    file://fix.apriltag.include.flag.patch \
-"
-
-# ERROR: apriltag-ros-3.1.1-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/apriltag_ros/analyze_image contained in package apriltag-ros requires /bin/bash, but no providers found in RDEPENDS_apriltag-ros? [file-rdeps]
+# ERROR: kvh-geo-fog-3d-driver-1.3.3-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/share/kvh_geo_fog_3d_driver/run_tests.sh contained in package kvh-geo-fog-3d-driver requires /bin/bash, but no providers found in RDEPENDS_kvh-geo-fog-3d-driver? [file-rdeps]
 RDEPENDS_${PN} += "bash"
 
 # This is needed only for webOS OSE and it's not in meta-ros-webos, because
