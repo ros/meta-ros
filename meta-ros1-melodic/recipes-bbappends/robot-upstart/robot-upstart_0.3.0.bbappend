@@ -1,11 +1,6 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2020 LG Electronics, Inc.
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += " \
-    file://fix.apriltag.include.flag.patch \
-"
-
-# ERROR: apriltag-ros-3.1.1-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/apriltag_ros/analyze_image contained in package apriltag-ros requires /bin/bash, but no providers found in RDEPENDS_apriltag-ros? [file-rdeps]
+# ERROR: robot-upstart-0.3.0-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/robot_upstart/mkxacro contained in package robot-upstart requires /bin/bash, but no providers found in RDEPENDS_robot-upstart? [file-rdeps]
 RDEPENDS_${PN} += "bash"
 
 # This is needed only for webOS OSE and it's not in meta-ros-webos, because

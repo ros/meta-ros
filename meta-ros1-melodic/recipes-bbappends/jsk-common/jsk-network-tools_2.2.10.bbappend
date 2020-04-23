@@ -1,11 +1,6 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2020 LG Electronics, Inc.
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += " \
-    file://fix.apriltag.include.flag.patch \
-"
-
-# ERROR: apriltag-ros-3.1.1-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/apriltag_ros/analyze_image contained in package apriltag-ros requires /bin/bash, but no providers found in RDEPENDS_apriltag-ros? [file-rdeps]
+# ERROR: jsk-network-tools-2.2.10-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/jsk_network_tools/expand_udp_receive_buffer.sh contained in package jsk-network-tools requires /bin/bash, but no providers found in RDEPENDS_jsk-network-tools? [file-rdeps]
 RDEPENDS_${PN} += "bash"
 
 # This is needed only for webOS OSE and it's not in meta-ros-webos, because
