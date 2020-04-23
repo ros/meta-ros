@@ -563,7 +563,6 @@ PNBLACKLIST[yosemite-valley] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', '
 # Other issues in the generated recipes
 ROS_WORLD_SKIP_GROUPS += "unknown-compile"
 ROS_WORLD_SKIP_GROUPS += "unknown-configure"
-ROS_WORLD_SKIP_GROUPS += "unknown-package_qa"
 
 PNBLACKLIST[acado] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[ackermann-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
@@ -595,7 +594,6 @@ PNBLACKLIST[cob-actions] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unkn
 PNBLACKLIST[cob-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[cob-srvs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[cob-control-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[cob-model-identifier] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-package_qa', 'unknown-package_qa: do_package_qa tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[libdlib] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[libntcan] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[libphidgets] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
