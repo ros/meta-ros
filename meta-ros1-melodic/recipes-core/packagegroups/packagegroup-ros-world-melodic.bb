@@ -83,6 +83,15 @@ RDEPENDS_${PN}_remove = "husky-bringup"
 # ERROR: Nothing PROVIDES 'husky-bringup' (but generated-recipes/husky/husky-robot_0.4.2-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "husky-robot"
 
+ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_64_x86_86 = ""
+ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_64 = "\
+    libreflexxestype2 \
+"
+ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC = " \
+    ${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_64} \
+"
+RDEPENDS_${PN}_remove = "${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC}"
+
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-pyassimp' (but generated-recipes/moveit-python/moveit-python_0.3.3-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyassimp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYASSIMP}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYASSIMP = " \
@@ -1237,11 +1246,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     warthog-description \
     willow-maps \
     ypspur-ros \
-"
-
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-install', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_INSTALL}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_INSTALL = "\
-    libreflexxestype2 \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-package_qa', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_PACKAGE_QA}', '', d)}"
