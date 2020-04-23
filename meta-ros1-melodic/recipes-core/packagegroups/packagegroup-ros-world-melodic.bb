@@ -1708,7 +1708,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     turtle-tf \
     turtle-tf2 \
     turtlesim-dash-tutorial \
-    tuw-aruco \
     tuw-checkerboard \
     tuw-ellipses \
     tuw-marker-detection \
