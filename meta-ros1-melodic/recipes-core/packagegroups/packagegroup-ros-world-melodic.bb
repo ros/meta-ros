@@ -1046,7 +1046,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     libphidgets \
     cob-object-detection-msgs \
     cob-perception-msgs \
-    control-msgs \
     multimaster-msgs \
     dataspeed-pds-msgs \
     dataspeed-ulc-msgs \
@@ -1095,7 +1094,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     libg2o \
     libuvc-camera \
     map-merge-3d \
-    marker-msgs \
     marti-can-msgs \
     marti-common-msgs \
     marti-perception-msgs \
@@ -1156,7 +1154,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     gateway-msgs \
     can-msgs \
     canopen-master \
-    controller-manager-msgs \
     position-controllers \
     ros-monitoring-msgs \
     roscpp-tutorials \
@@ -1323,7 +1320,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     common-tutorials \
     concert-msgs \
     control-toolbox \
-    controller-manager \
     controller-manager-tests \
     costmap-cspace \
     costmap-queue \
@@ -1348,7 +1344,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     dccomms-ros \
     default-cfg-fkie \
     derived-object-msgs \
-    diff-drive-controller \
     distance-map \
     distance-map-core \
     distance-map-deadreck \
