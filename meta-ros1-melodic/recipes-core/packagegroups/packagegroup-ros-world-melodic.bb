@@ -1713,7 +1713,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     tuw-marker-detection \
     tuw-marker-pose-estimation \
     tuw-msgs \
-    ubiquity-motor \
     ublox \
     ublox-gps \
     usb-cam-controllers \
