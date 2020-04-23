@@ -743,7 +743,6 @@ PNBLACKLIST[ff] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compi
 PNBLACKLIST[ffha] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[julius] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[libsiftfast] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[mini-maxwell] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-package_qa', 'unknown-package_qa: do_package_qa tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[nlopt] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[rosping] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[jsk-footstep-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
