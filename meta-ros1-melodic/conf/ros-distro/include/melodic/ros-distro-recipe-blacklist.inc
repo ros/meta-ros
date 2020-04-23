@@ -563,7 +563,6 @@ PNBLACKLIST[yosemite-valley] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', '
 # Other issues in the generated recipes
 ROS_WORLD_SKIP_GROUPS += "unknown-compile"
 ROS_WORLD_SKIP_GROUPS += "unknown-configure"
-ROS_WORLD_SKIP_GROUPS += "unknown-install"
 ROS_WORLD_SKIP_GROUPS += "unknown-package_qa"
 ROS_WORLD_SKIP_GROUPS += "unknown-packagedata"
 
@@ -644,7 +643,6 @@ PNBLACKLIST[husky-navigation] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 PNBLACKLIST[imagezero-ros] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[imagezero] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[industrial-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[libreflexxestype2] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-install', 'unknown-install: do_install tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[jackal-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[jackal-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[jackal-navigation] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
