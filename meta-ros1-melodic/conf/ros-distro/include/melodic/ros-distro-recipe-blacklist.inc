@@ -1113,7 +1113,6 @@ PNBLACKLIST[pr2-navigation-teleop] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROU
 PNBLACKLIST[pr2-power-drivers] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[prbt-ikfast-manipulator-plugin] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[rail-segmentation] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
-PNBLACKLIST[rc-hand-eye-calibration-client] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[rc-pick-client] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[rc-tagdetect-client] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[rc-visard-driver] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
