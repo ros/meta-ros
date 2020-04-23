@@ -1256,7 +1256,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_PACKAGE_QA = "\
     cob-reflector-referencing \
     cob-safety-controller \
     flexbe-widget \
-    mini-maxwell \
     jsk-network-tools \
     libfranka \
     swri-prefix-tools \
