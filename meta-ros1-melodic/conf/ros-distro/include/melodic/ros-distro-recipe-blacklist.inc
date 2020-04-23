@@ -564,7 +564,6 @@ PNBLACKLIST[yosemite-valley] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', '
 ROS_WORLD_SKIP_GROUPS += "unknown-compile"
 ROS_WORLD_SKIP_GROUPS += "unknown-configure"
 ROS_WORLD_SKIP_GROUPS += "unknown-package_qa"
-ROS_WORLD_SKIP_GROUPS += "unknown-packagedata"
 
 PNBLACKLIST[acado] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[ackermann-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
@@ -714,7 +713,6 @@ PNBLACKLIST[dynamic-edt-3d] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'u
 PNBLACKLIST[octomap] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-package_qa', 'unknown-package_qa: do_package_qa tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[odva-ethernetip] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[open-manipulator-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[opencv-apps] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-packagedata', 'unknown-packagedata: do_packagedata tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[p2os-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[p2os-urdf] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[people-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
