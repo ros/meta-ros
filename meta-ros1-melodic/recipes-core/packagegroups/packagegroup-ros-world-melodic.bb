@@ -1320,7 +1320,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     cob-trajectory-controller \
     cob-twist-controller \
     cob-undercarriage-ctrl \
-    collada-urdf \
     combined-robot-hw-tests \
     common-tutorials \
     concert-msgs \
@@ -1422,7 +1421,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     freight-bringup \
     fsrobo-r-driver \
     fsrobo-r-trajectory-filters \
-    geometric-shapes \
     geometry-tutorials \
     global-planner-tests \
     grasping-msgs \
@@ -1430,7 +1428,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     grid-map-demos \
     grid-map-filters \
     grid-map-loader \
-    grid-map-octomap \
     grid-map-ros \
     grid-map-rviz-plugin \
     grid-map-visualization \
