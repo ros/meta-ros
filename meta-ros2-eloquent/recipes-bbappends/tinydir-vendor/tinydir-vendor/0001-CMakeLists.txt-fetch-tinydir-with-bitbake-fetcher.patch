@@ -1,0 +1,25 @@
+From 2cd1555fae9d3639157dce49d5376bf01e30144d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 23 Apr 2020 10:02:08 -0700
+Subject: [PATCH] CMakeLists.txt: fetch tinydir with bitbake fetcher
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4f12400..f85c42e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,9 +3,7 @@ project(tinydir_vendor)
+ 
+ include(ExternalProject)
+ ExternalProject_Add(tinydir-1.2.4
+-  PREFIX tinydir-1.2.4
+-  URL https://github.com/cxong/tinydir/archive/1.2.4.tar.gz
+-  URL_MD5 15978c5f498e2ff3d26a9975c734cda0
++  SOURCE_DIR ${CMAKE_SOURCE_DIR}/tinydir-upstream
+   CMAKE_ARGS
+     -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
+   BUILD_IN_SOURCE 1
