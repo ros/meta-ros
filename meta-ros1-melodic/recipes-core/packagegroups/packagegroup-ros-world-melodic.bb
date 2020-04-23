@@ -1425,7 +1425,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_PACKAGE_QA = "\
     cob-model-identifier \
     libpcan \
     libfranka \
-    octomap \
     rcdiscover \
     ypspur \
 "
