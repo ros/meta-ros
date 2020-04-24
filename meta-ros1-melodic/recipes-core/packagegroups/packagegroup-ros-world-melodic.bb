@@ -1186,159 +1186,47 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL_AND_VC4GRAPHICS = " 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     acado \
-    ackermann-msgs \
-    arbotix-msgs \
-    asr-msgs \
-    delphi-esr-msgs \
-    delphi-mrr-msgs \
-    delphi-srr-msgs \
-    ibeo-msgs \
-    kartech-linear-actuator-msgs \
-    mobileye-560-660-msgs \
-    neobotix-usboard-msgs \
-    radar-msgs \
-    async-comm \
-    audio-common-msgs \
-    automotive-navigation-msgs \
-    automotive-platform-msgs \
-    aws-common \
-    behaviortree-cpp \
-    behaviortree-cpp-v3 \
-    brics-actuator \
-    cartesian-msgs \
-    cob-actions \
-    cob-msgs \
-    cob-srvs \
-    cob-control-msgs \
-    libdlib \
-    libphidgets \
-    cob-object-detection-msgs \
-    cob-perception-msgs \
-    multimaster-msgs \
-    dataspeed-pds-msgs \
-    dataspeed-ulc-msgs \
-    dbw-fca-msgs \
-    dbw-mkz-msgs \
-    dynamic-robot-state-publisher \
-    smach-msgs \
-    fcl-catkin \
-    four-wheel-steering-msgs \
-    fsrobo-r-msgs \
-    gazebo-msgs \
-    graph-msgs \
-    grid-map-msgs \
-    hector-nav-msgs \
-    husky-msgs \
-    imagezero-ros \
-    imagezero \
-    jackal-msgs \
     assimp-devel \
+    aws-common \
     bayesian-belief-networks \
-    downward \
-    ff \
+    behaviortree-cpp \  
+    behaviortree-cpp-v3 \
+    canopen-master \
+    cob-obstacle-distance \
+    downward \ 
+    fcl-catkin \  
+    fetch-drivers \
+    ff \ 
     ffha \
+    fsrobo-r-driver \
+    imagezero \
+    imagezero-ros \
     julius \
-    libsiftfast \
-    nlopt \
-    jsk-gui-msgs \
-    jsk-hark-msgs \
-    speech-recognition-msgs \
-    json-msgs \
-    kinesis-video-msgs \
-    kobuki-msgs \
-    leuze-msgs \
-    lgsvl-msgs \
+    libdlib \   
+    libphidget21 \
+    libphidgets \
+    libsiftfast \ 
     libuvc-camera \
     map-merge-3d \
-    marti-can-msgs \
-    marti-common-msgs \
-    marti-perception-msgs \
-    marti-sensor-msgs \
-    marti-status-msgs \
-    marti-visualization-msgs \
-    mav-msgs \
-    mcl-3dl-msgs \
-    md49-messages \
-    mir-msgs \
-    ml-classifiers \
-    mrpt-msgs \
-    multimaster-msgs-fkie \
+    moveit-core \  
     multisense-ros \
-    naoqi-bridge-msgs \
-    naoqi-libqi \
-    nav2d-msgs \
-    sbpl-lattice-planner \
-    range-sensor-layer \
-    costmap-cspace-msgs \
-    map-organizer-msgs \
-    planner-cspace-msgs \
-    safety-limiter-msgs \
-    trajectory-tracker-msgs \
-    obj-to-pointcloud \
+    naoqi-libqi \ 
     nerian-stereo \
-    network-interface \
-    nmea-msgs \
-    novatel-gps-msgs \
-    novatel-msgs \
+    nlopt \
+    obj-to-pointcloud \
     odva-ethernetip \
-    open-manipulator-msgs \
-    p2os-msgs \
-    p2os-urdf \
-    people-msgs \
-    libphidget21 \
-    power-msgs \
-    pr2-common-action-msgs \
+    p2os-urdf \   
     pr2-description \
-    pr2-msgs \
-    pr2-controllers-msgs \
-    pr2-mechanism-msgs \
-    px4-msgs \
-    rail-mesh-icp \
-    rc-common-msgs \
+    rail-mesh-icp \ 
     rc-dynamics-api \
-    ridgeback-msgs \
-    robot-activity-msgs \
-    robot-calibration-msgs \
-    robot-controllers-msgs \
-    nav-2d-msgs \
-    concert-workflow-engine-msgs \
-    gateway-msgs \
-    canopen-master \
-    position-controllers \
-    ros-monitoring-msgs \
-    roscpp-tutorials \
-    rosauth \
     rosbag-editor \
-    rosapi \
-    rosbridge-library \
-    rosbridge-msgs \
-    rosmon-msgs \
     sainsmart-relay-usb \
-    sbg-driver \
-    sick-safetyscanners \
+    sbpl-lattice-planner \
     sick-scan \
-    soem \
-    swri-profiler-msgs \
-    tuw-airskin-msgs \
-    tuw-multi-robot-msgs \
-    tuw-object-msgs \
-    ublox-msgs \
-    um7 \
-    underwater-sensor-msgs \
-    uuv-auv-control-allocator \
-    uuv-control-msgs \
-    uuv-gazebo-ros-plugins-msgs \
-    uuv-sensor-ros-plugins-msgs \
-    uuv-thruster-manager \
-    uuv-world-ros-plugins-msgs \
-    variant-msgs \
-    velodyne-msgs \
-    view-controller-msgs \
-    vision-msgs \
+    teb-local-planner \
+    trajectory-tracker \
+    usb-cam-controllers \
     wamv-description \
-    warthog-msgs \
-    xpp-msgs \
-    zeroconf-msgs \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE}', '', d)}"
