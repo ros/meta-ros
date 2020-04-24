@@ -1187,7 +1187,6 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     acado \
     ackermann-msgs \
-    ainstein-radar-msgs \
     arbotix-msgs \
     asr-msgs \
     delphi-esr-msgs \
@@ -1197,7 +1196,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     kartech-linear-actuator-msgs \
     mobileye-560-660-msgs \
     neobotix-usboard-msgs \
-    pacmod-msgs \
     radar-msgs \
     async-comm \
     audio-common-msgs \
@@ -1224,7 +1222,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     dbw-mkz-msgs \
     distance-map-msgs \
     dynamic-robot-state-publisher \
-    dynamixel-workbench-msgs \
     smach-msgs \
     fcl-catkin \
     four-wheel-steering-msgs \
@@ -1237,7 +1234,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     husky-msgs \
     imagezero-ros \
     imagezero \
-    industrial-msgs \
     jackal-msgs \
     assimp-devel \
     bayesian-belief-networks \
@@ -1247,14 +1243,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     julius \
     libsiftfast \
     nlopt \
-    jsk-footstep-msgs \
     jsk-gui-msgs \
     jsk-hark-msgs \
     speech-recognition-msgs \
     json-msgs \
     kinesis-video-msgs \
     kobuki-msgs \
-    kvh-geo-fog-3d-msgs \
     leuze-msgs \
     lgsvl-msgs \
     libg2o \
@@ -1306,19 +1300,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     pr2-controllers-msgs \
     pr2-mechanism-msgs \
     px4-msgs \
-    rail-manipulation-msgs \
     rail-mesh-icp \
     rc-common-msgs \
     rc-dynamics-api \
     ridgeback-msgs \
-    rslidar-msgs \
     robot-activity-msgs \
     robot-calibration-msgs \
     robot-controllers-msgs \
     nav-2d-msgs \
     concert-workflow-engine-msgs \
     gateway-msgs \
-    can-msgs \
     canopen-master \
     position-controllers \
     ros-monitoring-msgs \
@@ -1606,7 +1597,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     jointstick \
     joy-teleop \
     jsk-common-msgs \
-    jsk-recognition-msgs \
     kinesis-manager \
     kinesis-video-streamer \
     kvh-geo-fog-3d \
