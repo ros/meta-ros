@@ -758,6 +758,17 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
     web-video-server \
 "
 
+# Recipes which need widgets enabled in qtbase PACKAGECONFIG which webOS OSE explicitly disables:
+# meta-webos/recipes-qt/qt5/qtbase_git.bbappend:PACKAGECONFIG_remove = "widgets"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5-widgets', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
+    dynamixel-workbench-single-manager-gui \
+    open-manipulator-control-gui \
+    swri-console \
+    swri-profiler-tools \
+    turtlesim \
+"
+
 # OE won't let us build gstreamer1.0-plugins-ugly unless LICENSE_FLAGS_WHITELIST contains "commercial".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gst-ugly', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY}', '', d)}"
 
@@ -1126,7 +1137,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     ariles-ros \
     combined-robot-hw-tests \
     dccomms-ros-msgs \
-    dynamixel-workbench-single-manager-gui \
     eigenpy \
     eml \
     epos2-motor-controller \
@@ -1139,7 +1149,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     libntcan \
     librealsense2 \
     novatel-gps-driver \
-    open-manipulator-control-gui \
     plotjuggler \
     prosilica-gige-sdk \
     ps3joy \
@@ -1147,12 +1156,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     rc-genicam-api \
     rosmon-core \
     slic \
-    swri-console \
     swri-image-util \
-    swri-profiler-tools \
     swri-transform-util \
     trajectory-tracker-rviz-plugins \
-    turtlesim \
     tuw-geometry \
     ypspur-ros \
 "
