@@ -288,7 +288,9 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vlc', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VLC = " \
     cob-android \
     cob-android-script-server \
+    cob-cartesian-controller \
     cob-command-gui \
+    cob-control \
     cob-default-robot-behavior \
     cob-driver \
     cob-helper-tools \
@@ -298,6 +300,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VLC = " \
     cob-script-server \
     cob-sound \
     cob-teleop \
+    cob-twist-controller \
 "
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-pyusb-pip' (but generated-recipes/jsk-3rdparty/respeaker-ros_2.1.13-1.bb DEPENDS on or otherwise requires it)
@@ -866,8 +869,10 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'multimed
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_MULTIMEDIA = " \
     cob-android \
     cob-android-script-server \
+    cob-cartesian-controller \
     cob-command-gui \
     cob-command-tools \
+    cob-control \
     cob-default-robot-behavior \
     cob-driver \
     cob-helper-tools \
@@ -877,6 +882,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_MULTIMEDIA = " \
     cob-script-server \
     cob-sound \
     cob-teleop \
+    cob-twist-controller \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wxpython', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WXPYTHON}', '', d)}"
@@ -1324,9 +1330,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     cob-base-drive-chain \
     cob-bms-driver \
     cob-canopen-motor \
-    cob-cartesian-controller \
     cob-collision-monitor \
-    cob-control \
     cob-control-mode-adapter \
     cob-dashboard \
     cob-elmo-homing \
@@ -1355,7 +1359,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     cob-relayboard \
     cob-substitute \
     cob-trajectory-controller \
-    cob-twist-controller \
     cob-undercarriage-ctrl \
     combined-robot-hw-tests \
     common-tutorials \

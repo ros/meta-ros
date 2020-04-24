@@ -472,12 +472,17 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-pydot = "python-pydot"
 # generated-recipes/ros/roslib_1.14.8-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev = "boost"
 
-# Used by generated-recipes/ros-tutorials/roscpp-tutorials_0.9.2-1.bb
+# Used by:
+# generated-recipes/ros-tutorials/roscpp-tutorials_0.9.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-date-time-dev = "boost"
 
 # Used by:
 # generated-recipes/ros-comm/rosbag_1.14.5-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome = "python-pycryptodomex"
+
+# Used by:
+# generated-recipes/cob-control/cob-twist-controller_0.8.11-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-six = "python-six"
 
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
