@@ -1,0 +1,37 @@
+From af0beacd372385456e89bcd8f8ba0b6c84d58856 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 22 Feb 2020 07:58:02 -0800
+Subject: [PATCH] CMakeLists.txt: remove signals from find_package() calls to
+ support boost 1.69
+
+Deprecated signals library was dropped in 1.69.0 release:
+https://www.boost.org/users/history/version_1_69_0.html
+
+Signals (v1) is now removed. Its removal was announced in 1.68 and its
+deprecation was announced in 1.54. Boost 1.68 is the last release that
+provides this library. Users are encouraged to use Signals2 instead. The
+Boost community thanks Douglas Gregor for his work on Signals which
+served its users well and which also inspired Signals2.
+
+It doesn't use signals library at all, was already migrated to signals2
+this reference in find_package() was useless and more importantly source
+of error at configure time.
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e5716941..458e0f26 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 2.8.3)
+ project(laser_cb_detector)
+ 
+-find_package(Boost REQUIRED signals thread)
++find_package(Boost REQUIRED thread)
+ find_package(catkin REQUIRED actionlib actionlib_msgs cv_bridge image_cb_detector message_filters roscpp settlerlib std_msgs)
+ 
+ add_action_files(DIRECTORY action FILES Config.action)
