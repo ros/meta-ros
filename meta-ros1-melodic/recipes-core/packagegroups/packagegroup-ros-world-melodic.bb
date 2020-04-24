@@ -451,23 +451,36 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     abb \
     abb-irb2400-moveit-config \
     abb-irb6640-moveit-config \
+    agni-tf-tools \
+    ainstein-radar-rviz-plugins \
+    cartographer-rviz \
+    distance-map-rviz \
+    fkie-potree-rviz-plugin \
     franka-example-controllers \
     franka-ros \
+    grid-map-rviz-plugin \
+    kvh-geo-fog-3d-rviz \
+    librviz-tutorial \
     moveit \   
     moveit-ros \
     moveit-ros-visualization \
     moveit-setup-assistant \
     moveit-visual-tools \
+    octomap-rviz-plugins \
     open-manipulator \
     open-manipulator-moveit \
     open-manipulator-with-tb3 \
     open-manipulator-with-tb3-waffle-moveit \
     open-manipulator-with-tb3-waffle-pi-moveit \
     panda-moveit-config \
+    rviz-imu-plugin \
+    rviz-python-tutorial \
+    rviz-plugin-tutorials \
     rviz-visual-tools \
     seed-r7-bringup \
     seed-r7-moveit-config \   
     seed-r7-typef-moveit-config \
+    slam-toolbox \
     vision-visp \
     visp \
     visp-auto-tracker \
@@ -1241,31 +1254,22 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
-    agni-tf-tools \
-    ainstein-radar-rviz-plugins \
     ariles-ros \
-    cartographer-rviz \
     combined-robot-hw-tests \
     dccomms-ros-msgs \
-    distance-map-rviz \
     dynamixel-workbench-single-manager-gui \
     eigenpy \
     eml \
     epos2-motor-controller \
     fake-joint-driver \
     find-object-2d \
-    fkie-potree-rviz-plugin \
     fmi-adapter \
-    grid-map-rviz-plugin \
     hebi-cpp-api \
     hpp-fcl \
-    kvh-geo-fog-3d-rviz \
     libcmt \
     libntcan \
     librealsense2 \
-    librviz-tutorial \
     novatel-gps-driver \
-    octomap-rviz-plugins \
     open-manipulator-control-gui \
     plotjuggler \
     prosilica-gige-sdk \
@@ -1273,10 +1277,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     pyros-utils \
     rc-genicam-api \
     rosmon-core \
-    rviz-imu-plugin \
-    rviz-plugin-tutorials \
-    rviz-python-tutorial \
-    slam-toolbox \
     slic \
     swri-console \
     swri-image-util \
@@ -1300,7 +1300,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     ackermann-steering-controller \
     adi-driver \
     ainstein-radar-drivers \
-    ainstein-radar-rviz-plugins \
     ainstein-radar-tools \
     arbotix \
     arbotix-controllers \
@@ -1384,7 +1383,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     default-cfg-fkie \
     derived-object-msgs \
     distance-map \
-    distance-map-rviz \
     dlux-global-planner \
     dlux-plugins \
     driver-common \
@@ -1453,7 +1451,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     grid-map-filters \
     grid-map-loader \
     grid-map-ros \
-    grid-map-rviz-plugin \
     grid-map-visualization \
     gripper-action-controller \
     gundam-rx78-control \
@@ -1482,7 +1479,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     kinesis-manager \
     kinesis-video-streamer \
     kvh-geo-fog-3d \
-    kvh-geo-fog-3d-rviz \
     laser-tilt-controller-filter \
     leg-detector \
     leuze-bringup \
@@ -1566,7 +1562,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     ocean-battery-driver \
     octomap-mapping \
     octomap-ros \
-    octomap-rviz-plugins \
     octomap-server \
     omron-os32c-driver \
     open-manipulator-control-gui \
@@ -1688,7 +1683,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     seed-r7-ros-controller \
     simple-message \
     single-joint-position-action \
-    slam-toolbox \
     smach-ros \
     social-navigation-layers \
     socketcan-bridge \
