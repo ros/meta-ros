@@ -1,0 +1,42 @@
+From 2cadf052badd7204155b24cc11a8321202f54a9f Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/gtest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8f98c50..e6f30a8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -13,9 +13,11 @@ catkin_package(
+     LIBRARIES # TODO
+ )
+ 
+-catkin_add_gtest(test_aligned_alloc test/test_aligned_alloc.cpp)## Generate added messages and services with any dependencies listed here
+-target_link_libraries(test_aligned_alloc ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+-add_dependencies(test_aligned_alloc allocators_gencpp)
++if (CATKIN_ENABLE_TESTING)
++  catkin_add_gtest(test_aligned_alloc test/test_aligned_alloc.cpp)## Generate added messages and services with any dependencies listed here
++  target_link_libraries(test_aligned_alloc ${Boost_LIBRARIES} ${catkin_LIBRARIES})
++  add_dependencies(test_aligned_alloc allocators_gencpp)
++endif()
+ 
+ install(DIRECTORY test/ DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+ 
