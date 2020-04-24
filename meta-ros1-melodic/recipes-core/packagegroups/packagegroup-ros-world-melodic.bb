@@ -1377,7 +1377,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     pyros-utils \
     qt-gui-cpp \
     rc-genicam-api \
-    ridgeback-navigation \
     allocators \
     rosatomic \
     turtlesim \
