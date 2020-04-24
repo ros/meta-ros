@@ -86,6 +86,8 @@ RDEPENDS_${PN}_remove = "husky-robot"
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_64_x86_86 = ""
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_64 = "\
     libreflexxestype2 \
+    ros-reflexxes \
+    ipr-extern \
 "
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC = " \
     ${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_64} \
@@ -1479,7 +1481,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     industrial-robot-client \
     industrial-robot-simulator \
     industrial-trajectory-filters \
-    ipr-extern \
     jackal-desktop \
     joint-trajectory-action \
     joint-trajectory-action-tools \
@@ -1663,7 +1664,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     ros-control-boilerplate \
     ros-controllers \
     ros-realtime \
-    ros-reflexxes \
     ros-tutorials \
     rosbridge-server \
     rosbridge-suite \
