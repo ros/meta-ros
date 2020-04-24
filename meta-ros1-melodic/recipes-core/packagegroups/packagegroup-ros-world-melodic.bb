@@ -1243,7 +1243,6 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     agni-tf-tools \
     ainstein-radar-rviz-plugins \
-    allocators \
     ariles-ros \
     cartographer-rviz \
     combined-robot-hw-tests \
@@ -1275,7 +1274,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     ps3joy \
     pyros-utils \
     rc-genicam-api \
-    rosatomic \
     rosmon-core \
     rosping \
     rviz-imu-plugin \
