@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 inherit ros_distro
 
@@ -21,6 +21,3 @@ do_install_append_class-target() {
         true
     fi
 }
-
-DEPENDS_remove =  "${@bb.utils.contains('DISTRO_FEATURES', 'ros-rviz', '', 'rviz2', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'ros-rviz', '', 'rviz2', d)}"
