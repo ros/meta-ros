@@ -1388,7 +1388,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     pyros-utils \
     qt-gui-cpp \
     rc-genicam-api \
-    ridgeback-viz \
     ridgeback-navigation \
     allocators \
     rosatomic \
@@ -1401,7 +1400,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     rviz-plugin-tutorials \
     rviz-python-tutorial \
     warehouse-ros-mongo \
-    warthog-description \
     willow-maps \
     ypspur-ros \
 "
@@ -1877,7 +1875,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     velodyne-pointcloud \
     visualization-tutorials \
     volksbot-driver \
-    warthog-control \
     warthog-desktop \
     warthog-viz \
     wge100-camera \
