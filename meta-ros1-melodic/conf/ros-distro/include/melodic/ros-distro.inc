@@ -476,6 +476,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome = "python-pycryptodomex"
 # generated-recipes/cob-control/cob-twist-controller_0.8.11-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python-six = "python-six"
 
+# Used by:
+# generated-recipes/rosbridge-suite/rosbridge-server_0.11.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-autobahn = "python-autobahn"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
