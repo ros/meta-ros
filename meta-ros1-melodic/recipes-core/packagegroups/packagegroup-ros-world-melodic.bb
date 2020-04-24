@@ -354,6 +354,7 @@ RDEPENDS_${PN}_remove = "rosserial-arduino"
 RDEPENDS_${PN}_remove = "ifopt"
 RDEPENDS_${PN}_remove = "towr-ros"
 RDEPENDS_${PN}_remove = "control-box-rst"
+RDEPENDS_${PN}_remove = "mpc-local-planner"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-npm-native' (but generated-recipes/vapor-master/vapor-master_0.3.0.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "vapor-master"
@@ -1369,7 +1370,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     moveit-runtime \
     moveit-sim-controller \
     moveit-simple-controller-manager \
-    mpc-local-planner \
     mpc-local-planner-examples \
     multires-image \
     multisense \
