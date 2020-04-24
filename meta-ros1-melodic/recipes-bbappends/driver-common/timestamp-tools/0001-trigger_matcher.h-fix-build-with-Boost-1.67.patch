@@ -1,0 +1,55 @@
+From 22f13fc1f67034de8453f3d7f3280147122e4306 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 18:54:52 +0000
+Subject: [PATCH] trigger_matcher.h: fix build with Boost 1.67
+
+* it doesn't fail here, but in wge100-camera/1.8.2-1-r0 with:
+In file included from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/git/src/nodes/wge100_camera_node.cpp:62:
+webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/timestamp_tools/trigger_matcher.h: In member function 'ros::Time timestamp_tools::TriggerMatcher::getTimestampBlocking(const ros::Time&, double)':
+webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/timestamp_tools/trigger_matcher.h:269:90: error: no matching function for call to 'boost::date_time::subsecond_duration<boost::posix_time::time_duration, 1000000>::subsecond_duration(double)'
+     got_trigger_condition_.timed_wait(lock, boost::posix_time::microseconds(timeout * 1e6));
+                                                                                          ^
+In file included from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/date_time/posix_time/posix_time_config.hpp:16,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/date_time/posix_time/posix_time_system.hpp:13,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/date_time/posix_time/ptime.hpp:12,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/date_time/posix_time/posix_time_types.hpp:12,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/thread/thread_time.hpp:11,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/thread/lock_types.hpp:18,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/thread/pthread/thread_data.hpp:12,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/thread/thread_only.hpp:17,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/thread/thread.hpp:12,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/thread.hpp:13,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/diagnostic_updater/diagnostic_updater.h:48,
+                 from webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/git/src/nodes/wge100_camera_node.cpp:47:
+webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/date_time/time_duration.hpp:285:14: note: candidate: 'template<class T> boost::date_time::subsecond_duration<base_duration, frac_of_second>::subsecond_duration(const T&, typename boost::enable_if<boost::is_integral<Functor>, void>::type*)'
+     explicit subsecond_duration(T const& ss,
+              ^~~~~~~~~~~~~~~~~~
+webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/date_time/time_duration.hpp:285:14: note:   template argument deduction/substitution failed:
+webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/date_time/time_duration.hpp: In substitution of 'template<class T> boost::date_time::subsecond_duration<boost::posix_time::time_duration, 1000000>::subsecond_duration(const T&, typename boost::enable_if<boost::is_integral<T> >::type*) [with T = double]':
+webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/timestamp_tools/trigger_matcher.h:269:90:   required from here
+webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera/1.8.2-1-r0/recipe-sysroot/usr/include/boost/date_time/time_duration.hpp:285:14: error: no type named 'type' in 'struct boost::enable_if<boost::is_integral<double>, void>'
+
+* introduced in boost 1.67 with:
+  https://github.com/boostorg/date_time/commit/f9f2aaf5216c
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/timestamp_tools/trigger_matcher.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/timestamp_tools/trigger_matcher.h b/include/timestamp_tools/trigger_matcher.h
+index a1bf9e3..7acf0a4 100644
+--- a/include/timestamp_tools/trigger_matcher.h
++++ b/include/timestamp_tools/trigger_matcher.h
+@@ -266,7 +266,7 @@ public:
+     if (stamp != RetryLater)
+       return stamp;
+ 
+-    got_trigger_condition_.timed_wait(lock, boost::posix_time::microseconds(timeout * 1e6));
++    got_trigger_condition_.timed_wait(lock, boost::posix_time::microseconds(long(timeout * 1e6)));
+     
+     return getTimestampNoblockPrelocked(t);
+   }
+-- 
+2.17.1
+
