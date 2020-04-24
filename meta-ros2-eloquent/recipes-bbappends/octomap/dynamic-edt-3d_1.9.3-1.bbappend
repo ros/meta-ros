@@ -1,11 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
-
-do_configure_append() {
-    # Fixes this:
-    # | fatal error: stdlib.h: No such file or directory
-    # |   #include_next <stdlib.h>
-    sed -i 's/-isystem /-I/g' ${B}/build.ninja
-}
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 #   /usr/share/dynamicEDT3D/dynamicEDT3DConfig-version.cmake
 #   /usr/share/dynamicEDT3D/dynamicEDT3DConfig.cmake
