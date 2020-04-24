@@ -1248,7 +1248,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     calibration-setup-helper \
     canopen-402 \
     canopen-chain-node \
-    checkerboard-detector \
     chomp-motion-planner \
     clock-relay \
     cloudwatch-logger \
@@ -1321,11 +1320,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     default-cfg-fkie \
     derived-object-msgs \
     distance-map \
-    distance-map-deadreck \
-    distance-map-node \
-    distance-map-opencv \
     distance-map-rviz \
-    distance-map-tools \
     dlux-global-planner \
     dlux-plugins \
     driver-common \
@@ -1384,7 +1379,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     flexbe-widget \
     fmi-adapter-examples \
     four-wheel-steering-controller \
-    franka-control \
     freight-bringup \
     fsrobo-r-driver \
     fsrobo-r-trajectory-filters \
@@ -1417,7 +1411,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     ipr-extern \
     jackal-desktop \
     jackal-viz \
-    joint-states-settler \
     joint-trajectory-action \
     joint-trajectory-action-tools \
     joint-trajectory-controller \
@@ -1429,7 +1422,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     kinesis-video-streamer \
     kvh-geo-fog-3d \
     kvh-geo-fog-3d-rviz \
-    laser-cb-detector \
     laser-tilt-controller-filter \
     leg-detector \
     leuze-bringup \
@@ -1458,7 +1450,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     message-relay \
     mir-dwb-critics \
     mongodb-log \
-    monocam-settler \
     move-base-flex \
     moveit-chomp-optimizer-adapter \
     moveit-controller-manager-example \
