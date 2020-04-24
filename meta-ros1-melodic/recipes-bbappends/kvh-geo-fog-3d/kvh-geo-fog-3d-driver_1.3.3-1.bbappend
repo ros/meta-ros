@@ -9,3 +9,7 @@ RDEPENDS_${PN} += "bash"
 VIRTUAL-RUNTIME_bash ?= "bash"
 RDEPENDS_${PN}_append_class-target_webos = " ${VIRTUAL-RUNTIME_bash}"
 RDEPENDS_${PN}_remove_class-target_webos = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"
+
+# Fails with webOS OSE which by default uses -Werror=return-type
+# kvh-geo-fog-3d-driver/1.3.3-1-r0/git/src/kvh_driver/driver_main.cpp:310:3: error: no return statement in function returning non-void [-Werror=return-type]
+CXXFLAGS += "-Wno-error=return-type"

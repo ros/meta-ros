@@ -1231,7 +1231,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     fcl-catkin \
     fkie-message-filters \
     four-wheel-steering-msgs \
-    franka-hw \
     franka-msgs \
     franka-visualization \
     fsrobo-r-msgs \
@@ -1428,7 +1427,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     ackermann-steering-controller \
     adi-driver \
     ainstein-radar-drivers \
-    ainstein-radar-filters \
     ainstein-radar-rviz-plugins \
     ainstein-radar-tools \
     arbotix \
@@ -1532,7 +1530,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     dwb-plugins \
     dynamixel-workbench \
     dynamixel-workbench-controllers \
-    dynamixel-workbench-single-manager \
     dynamixel-workbench-single-manager-gui \
     eband-local-planner \
     effort-controllers \
@@ -1613,7 +1610,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     industrial-core \
     industrial-robot-client \
     industrial-robot-simulator \
-    industrial-robot-status-controller \
     industrial-trajectory-filters \
     interval-intersection \
     ipr-extern \
@@ -1632,7 +1628,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     kinesis-manager \
     kinesis-video-streamer \
     kvh-geo-fog-3d \
-    kvh-geo-fog-3d-driver \
     kvh-geo-fog-3d-rviz \
     laser-cb-detector \
     laser-tilt-controller-filter \
@@ -1732,7 +1727,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     open-manipulator-with-tb3-tools \
     p2os-driver \
     p2os-launch \
-    pacmod \
     pacmod-game-control \
     pacmod3 \
     people \
@@ -1788,7 +1782,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     prbt-ikfast-manipulator-plugin \
     prosilica-camera \
     qt-gui-core \
-    rail-segmentation \
     rc-pick-client \
     rc-roi-manager-gui \
     rc-tagdetect-client \
@@ -1834,7 +1827,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     rqt-rosmon \
     rqt-rviz \
     rslidar \
-    rslidar-driver \
     rslidar-pointcloud \
     safe-teleop-pr2 \
     safe-teleop-stage \
