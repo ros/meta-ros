@@ -381,6 +381,7 @@ RDEPENDS_${PN}_remove = "nao-meshes"
 RDEPENDS_${PN}_remove = "pepper-meshes"
 
 # ERROR: Nothing PROVIDES 'clang-tidy' (but generated-recipes/pilz-robots/pilz-utils_0.5.13-1.bb DEPENDS on or otherwise requires it)
+RDEPENDS_${PN}_remove = "pilz-control"
 RDEPENDS_${PN}_remove = "pilz-utils"
 RDEPENDS_${PN}_remove = "prbt-moveit-config"
 
@@ -1594,7 +1595,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     phidgets-high-speed-encoder \
     phidgets-ik \
     phidgets-imu \
-    pilz-control \
     pilz-msgs \
     pilz-trajectory-generation \
     pinocchio \
