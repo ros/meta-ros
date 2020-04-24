@@ -1030,7 +1030,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     automotive-navigation-msgs \
     automotive-platform-msgs \
     aws-common \
-    backward-ros \
     behaviortree-cpp \
     behaviortree-cpp-v3 \
     brics-actuator \
@@ -1049,15 +1048,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     dataspeed-ulc-msgs \
     dbw-fca-msgs \
     dbw-mkz-msgs \
-    test-diagnostic-aggregator \
     distance-map-msgs \
     dynamic-robot-state-publisher \
     smach-msgs \
     fcl-catkin \
-    fkie-message-filters \
     four-wheel-steering-msgs \
     franka-msgs \
-    franka-visualization \
     fsrobo-r-msgs \
     gazebo-msgs \
     graph-msgs \
@@ -1077,7 +1073,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     nlopt \
     jsk-gui-msgs \
     jsk-hark-msgs \
-    posedetection-msgs \
     speech-recognition-msgs \
     json-msgs \
     kinesis-video-msgs \
@@ -1159,7 +1154,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     sick-scan \
     soem \
     swri-profiler-msgs \
-    tf2-server \
     tuw-airskin-msgs \
     tuw-multi-robot-msgs \
     tuw-object-msgs \
@@ -1176,7 +1170,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
     velodyne-msgs \
     view-controller-msgs \
     vision-msgs \
-    vrpn-client-ros \
     wamv-description \
     warthog-msgs \
     xpp-msgs \
@@ -1328,7 +1321,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     default-cfg-fkie \
     derived-object-msgs \
     distance-map \
-    distance-map-core \
     distance-map-deadreck \
     distance-map-node \
     distance-map-opencv \
@@ -1393,7 +1385,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     fmi-adapter-examples \
     four-wheel-steering-controller \
     franka-control \
-    franka-gripper \
     freight-bringup \
     fsrobo-r-driver \
     fsrobo-r-trajectory-filters \
@@ -1417,14 +1408,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     husky-viz \
     ibeo-core \
     ibeo-lux \
-    image-cb-detector \
     imagezero-image-transport \
     imu-tools \
     industrial-core \
     industrial-robot-client \
     industrial-robot-simulator \
     industrial-trajectory-filters \
-    interval-intersection \
     ipr-extern \
     jackal-desktop \
     jackal-viz \
@@ -1473,7 +1462,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     move-base-flex \
     moveit-chomp-optimizer-adapter \
     moveit-controller-manager-example \
-    moveit-core \
     moveit-fake-controller-manager \
     moveit-kinematics \
     moveit-msgs \
@@ -1651,7 +1639,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     seed-r7-navigation \
     seed-r7-robot-interface \
     seed-r7-ros-controller \
-    settlerlib \
     simple-message \
     single-joint-position-action \
     slam-toolbox \
@@ -1665,7 +1652,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     swri-roscpp \
     swri-route-util \
     swri-transform-util \
-    teb-local-planner \
     teb-local-planner-tutorials \
     teleop-tools \
     teleop-tools-msgs \
