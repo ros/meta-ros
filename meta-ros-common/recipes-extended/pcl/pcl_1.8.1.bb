@@ -63,15 +63,3 @@ def pcl_parallel_make_n():
     return int(math.ceil(float(phys_mem_kb)/float(1024*1024*5)))
 
 PARALLEL_MAKE = "-j ${@pcl_parallel_make_n()}"
-
-
-# Fixes this:
-# | fatal error: stdlib.h: No such file or directory
-# |   #include_next <stdlib.h>
-do_configure_append() {
-    if [ -e ${B}/build.ninja ]; then
-        sed -i -e 's/-isystem /-I/g' ${B}/build.ninja
-    else
-        grep -rl -- '-isystem ' ${B} | xargs sed -i -e 's/-isystem /-I/g'
-    fi
-}
