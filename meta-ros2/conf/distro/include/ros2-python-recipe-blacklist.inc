@@ -560,6 +560,20 @@ PNBLACKLIST[python-pyproj] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'py
 PNBLACKLIST[python-sphinx] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-ros/meta-ros-common/recipes-extended/wxwidgets/wxpython_3.0.2.0.bb
 PNBLACKLIST[wxpython] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-ros-common/recipes-imported-labgrid/recipes-devtools/python/python-autobahn_17.10.1.bb
+PNBLACKLIST[python-autobahn] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-ros-common/recipes-imported-labgrid/recipes-devtools/python/python-cbor_1.0.0.bb
+PNBLACKLIST[python-cbor] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-ros-common/recipes-imported-labgrid/recipes-devtools/python/python-lz4_0.11.1.bb
+PNBLACKLIST[python-lz4] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-ros-common/recipes-imported-labgrid/recipes-devtools/python/python-py-ubjson_0.11.0.bb
+PNBLACKLIST[python-py-ubjson] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-ros-common/recipes-imported-labgrid/recipes-devtools/python/python-snappy_0.5.1.bb
+PNBLACKLIST[python-snappy] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-ros-common/recipes-imported-labgrid/recipes-devtools/python/python-txaio_2.8.2.bb
+PNBLACKLIST[python-txaio] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-ros-common/recipes-imported-labgrid/recipes-devtools/python/python-u-msgpack-python_2.4.1.bb
+PNBLACKLIST[python-u-msgpack-python] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-ros/meta-ros-common/recipes-imported-iot-cloud/python/python-boto3_1.10.25.bb
 PNBLACKLIST[python-boto3] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-ros/meta-ros-common/recipes-imported-iot-cloud/python/python-botocore_1.13.26.bb
