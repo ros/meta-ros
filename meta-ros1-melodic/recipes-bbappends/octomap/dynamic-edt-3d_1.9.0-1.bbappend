@@ -1,12 +1,5 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-do_configure_append() {
-    # Fixes this:
-    # | fatal error: stdlib.h: No such file or directory
-    # |   #include_next <stdlib.h>
-    sed -i 's/-isystem /-I/g' ${B}/build.ninja
-}
-
 # WARNING: dynamic-edt-3d-1.9.0-1-r0 do_package: QA Issue: dynamic-edt-3d: Files/directories were installed but not shipped in any package:
 #   /usr/share/dynamicEDT3D
 #   /usr/share/dynamicEDT3D/dynamicEDT3DTargets-release.cmake
