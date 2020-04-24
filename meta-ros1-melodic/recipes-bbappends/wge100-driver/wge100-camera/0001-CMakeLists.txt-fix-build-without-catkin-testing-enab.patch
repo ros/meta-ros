@@ -1,0 +1,40 @@
+From 3717cc3b1b47a94cfb1ebd1bc2c49c002eb62468 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/rostest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6b5da31..176d761 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -98,8 +98,10 @@ target_link_libraries(wge100_sim wge100camera)
+ add_executable(stress_discover test/cycle_tests/stress_discover.cpp)
+ target_link_libraries(stress_discover wge100camera)
+ 
+-add_rostest(test/test_with_sim_hztest.xml)
+-add_rostest(test/test_with_sim_selftest.xml)
++if (CATKIN_ENABLE_TESTING)
++  add_rostest(test/test_with_sim_hztest.xml)
++  add_rostest(test/test_with_sim_selftest.xml)
++endif()
+ 
+ # INSTALL
+ install(TARGETS 

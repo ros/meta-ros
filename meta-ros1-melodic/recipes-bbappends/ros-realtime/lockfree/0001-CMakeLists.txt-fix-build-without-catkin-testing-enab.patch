@@ -1,0 +1,50 @@
+From 28cced1b0781d10ad55f6db995d910d726adc9d6 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/gtest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 665d577..d3691b0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -16,13 +16,15 @@ add_library(${PROJECT_NAME} src/free_list.cpp)
+ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+ add_dependencies(${PROJECT_NAME} rosatomic_gencpp allocators_gencpp allocators rosatomic ${catkin_INCLUDE_DIRS})
+ 
+-catkin_add_gtest(test_freelist test/test_freelist.cpp)
+-target_link_libraries(test_freelist ${PROJECT_NAME})
+-add_dependencies(test_freelist rosatomic_gencpp rosatomic${catkin_INCLUDE_DIRS} allocators_gencpp allocators)
+-
+-catkin_add_gtest(test_object_pool test/test_object_pool.cpp)
+-target_link_libraries(test_object_pool ${PROJECT_NAME})
+-add_dependencies(test_object_pool rosatomic_gencpp rosatomic ${catkin_INCLUDE_DIRS} allocators_gencpp allocators)
++if (CATKIN_ENABLE_TESTING)
++  catkin_add_gtest(test_freelist test/test_freelist.cpp)
++  target_link_libraries(test_freelist ${PROJECT_NAME})
++  add_dependencies(test_freelist rosatomic_gencpp rosatomic${catkin_INCLUDE_DIRS} allocators_gencpp allocators)
++
++  catkin_add_gtest(test_object_pool test/test_object_pool.cpp)
++  target_link_libraries(test_object_pool ${PROJECT_NAME})
++  add_dependencies(test_object_pool rosatomic_gencpp rosatomic ${catkin_INCLUDE_DIRS} allocators_gencpp allocators)
++endif()
+ 
+ 
+ install(TARGETS ${PROJECT_NAME}
