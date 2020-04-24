@@ -762,11 +762,20 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
 # meta-webos/recipes-qt/qt5/qtbase_git.bbappend:PACKAGECONFIG_remove = "widgets"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5-widgets', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
+    asmach-tutorials \
+    common-tutorials \
+    dynamixel-workbench \
     dynamixel-workbench-single-manager-gui \
+    geometry-tutorials \
     open-manipulator-control-gui \
+    ros-tutorials \
     swri-console \
     swri-profiler-tools \
+    turtle-actionlib \
+    turtle-tf \
+    turtle-tf2 \
     turtlesim \
+    turtlesim-dash-tutorial \
 "
 
 # OE won't let us build gstreamer1.0-plugins-ugly unless LICENSE_FLAGS_WHITELIST contains "commercial".
