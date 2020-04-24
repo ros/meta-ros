@@ -1,0 +1,35 @@
+From 906a584ee83d935a88f38154b410de88fce7126a Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 7 Apr 2020 14:17:57 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in:
+  http://wiki.ros.org/roslaunch#Catkin
+* it's not really clear that roslaunch_add_file_check shouldn't
+  be called at all or roslaunch_add_file_check should check CATKIN_ENABLE_TESTING
+  before trying to call catkin_run_tests_target inside
+* see:
+  https://answers.ros.org/question/200359/purpose-of-roslaunch_add_file_check/
+  similar fix for imu_transformer in gentoo:
+  https://github.com/gentoo/gentoo/commit/452c8600bbe989ad3b4f06211cdbdccfe5eb2f52
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 75edff3..b5f710e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -5,7 +5,9 @@ find_package(catkin REQUIRED COMPONENTS roslaunch)
+ 
+ catkin_package()
+ 
+-roslaunch_add_file_check(launch/description.launch)
++if (CATKIN_ENABLE_TESTING)
++  roslaunch_add_file_check(launch/description.launch)
++endif()
+ 
+ install(DIRECTORY meshes launch urdf
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
