@@ -1232,43 +1232,57 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     agni-tf-tools \
+    ainstein-radar-rviz-plugins \
+    allocators \
     ariles-ros \
     cartographer-rviz \
-    libntcan \
+    combined-robot-hw-tests \
     dccomms-ros-msgs \
-    timestamp-tools \
+    distance-map-rviz \
+    dynamixel-workbench-single-manager-gui \
     eigenpy \
     eml \
     epos2-motor-controller \
+    fake-joint-driver \
     find-object-2d \
+    fingertip-pressure \
     fkie-potree-rviz-plugin \
     fmi-adapter \
+    grid-map-rviz-plugin \
     hebi-cpp-api \
     hpp-fcl \
-    rviz-imu-plugin \
-    ps3joy \
+    kvh-geo-fog-3d-rviz \
     libcmt \
-    rosping \
-    slic \
+    libntcan \
     librealsense2 \
-    mongodb-store \
+    librviz-tutorial \
+    novatel-gps-driver \
+    octomap-rviz-plugins \
+    open-manipulator-control-gui \
     plotjuggler \
     pr2-mechanism-model \
     prosilica-gige-sdk \
+    ps3joy \
     pyros-utils \
-    qt-gui-cpp \
     rc-genicam-api \
-    allocators \
     rosatomic \
-    turtlesim \
-    stage \
-    swri-console \
-    tuw-geometry \
-    um6 \
-    librviz-tutorial \
+    rosmon-core \
+    rosping \
+    rviz-imu-plugin \
     rviz-plugin-tutorials \
     rviz-python-tutorial \
-    warehouse-ros-mongo \
+    slam-toolbox \
+    slic \
+    swri-console \
+    swri-image-util \
+    swri-profiler-tools \
+    swri-transform-util \
+    timestamp-tools \
+    trajectory-tracker-rviz-plugins \
+    turtlesim \
+    tuw-geometry \
+    um6 \
+    variant-topic-test \
     willow-maps \
     ypspur-ros \
 "
