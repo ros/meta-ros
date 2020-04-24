@@ -38,12 +38,5 @@ inherit cmake
 # This recipe is generated for ROS 2 distros.
 inherit ros_recipe_now_generated
 
-do_configure_append() {
-    # Fixes this:
-    # | fatal error: stdlib.h: No such file or directory
-    # |   #include_next <stdlib.h>
-    sed -i 's/-isystem /-I/g' ${B}/build.ninja
-}
-
 # *.cmake files have hardcoded sysroot-s in them.
 SSTATE_SCAN_FILES_append = " *.cmake"
