@@ -450,22 +450,52 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ogre', '
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     abb \
     abb-irb2400-moveit-config \
+    abb-irb2400-support \
+    abb-irb4400-support \
+    abb-irb5400-support \
+    abb-irb6600-support \
     abb-irb6640-moveit-config \
+    abb-irb6640-support \
     agni-tf-tools \
     ainstein-radar-rviz-plugins \
     cartographer-rviz \
+    cob-interactive-teleop \
+    cob-mapping-slam \
+    cob-navigation \
+    cob-navigation-global \
+    cob-navigation-local \
+    cob-navigation-slam \
+    cob-obstacle-distance \
+    distance-map \
     distance-map-rviz \
+    fake-joint \
+    fake-joint-launch \
     fkie-potree-rviz-plugin \
     franka-example-controllers \
     franka-ros \
+    grid-map \
+    grid-map-demos \
     grid-map-rviz-plugin \
+    gundam-rx78-description \
+    husky-desktop \
+    husky-viz \
+    imu-tools \
+    jackal-desktop \
+    jackal-viz \
+    kvh-geo-fog-3d \
     kvh-geo-fog-3d-rviz \
+    leuze-bringup \
+    leuze-description \
+    leuze-ros-drivers \
     librviz-tutorial \
     moveit \   
     moveit-ros \
     moveit-ros-visualization \
     moveit-setup-assistant \
     moveit-visual-tools \
+    neonavigation \
+    neonavigation-launch \
+    neonavigation-rviz-plugins \
     octomap-rviz-plugins \
     open-manipulator \
     open-manipulator-moveit \
@@ -473,6 +503,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     open-manipulator-with-tb3-waffle-moveit \
     open-manipulator-with-tb3-waffle-pi-moveit \
     panda-moveit-config \
+    psen-scan \
+    ridgeback-desktop \
+    ridgeback-viz \
+    rviz \
     rviz-imu-plugin \
     rviz-python-tutorial \
     rviz-plugin-tutorials \
@@ -481,6 +515,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     seed-r7-moveit-config \   
     seed-r7-typef-moveit-config \
     slam-toolbox \
+    trajectory-tracker-rviz-plugins \
+    turtlebot3-automatic-parking-vision \
+    urdf-tutorial \
     vision-visp \
     visp \
     visp-auto-tracker \
@@ -488,7 +525,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     visp-camera-calibration \
     visp-hand2eye-calibration \
     visp-tracker \
+    visualization-tutorials \
+    warthog-desktop \
+    warthog-viz \
 "
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
