@@ -1,0 +1,44 @@
+From 619daf27a677aeef997aabdc2e119e44a053bed7 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/rostest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 166e41b..2156f89 100755
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -19,11 +19,13 @@ generate_messages(DEPENDENCIES std_msgs geometry_msgs)
+ 
+ catkin_package(CATKIN_DEPENDS std_msgs geometry_msgs message_runtime)
+ 
+-add_rostest(test/pressure_info_tests.xml)
++if (CATKIN_ENABLE_TESTING)
++  add_rostest(test/pressure_info_tests.xml)
+ 
+-add_rostest(test/test_marker_rectangle.xml)
++  add_rostest(test/test_marker_rectangle.xml)
+ 
+-add_rostest(test/test_marker_sphere.xml)
++  add_rostest(test/test_marker_sphere.xml)
++endif()
+ 
+ install(DIRECTORY scripts/
+    USE_SOURCE_PERMISSIONS

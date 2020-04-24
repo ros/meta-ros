@@ -1,0 +1,36 @@
+From 7304f6e2bca7687f08e549bdb81067a63e15ddd1 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/rostest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 33c3af3a1..0b1c0b614 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -45,5 +45,7 @@ install(DIRECTORY test
+   USE_SOURCE_PERMISSIONS
+   )
+ if (NOT $ENV{ROS_DISTRO} STREQUAL "indigo")
+-  add_rostest(test/test-rosping.test)
++  if (CATKIN_ENABLE_TESTING)
++    add_rostest(test/test-rosping.test)
++  endif()
+ endif(NOT $ENV{ROS_DISTRO} STREQUAL "indigo")
