@@ -1,0 +1,68 @@
+From 9bd10f239cc75f83bb8d1ac522e0a4c7b83f6c83 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/downloading_test_data.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/noetic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 21 +++++++++++----------
+ 1 file changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 15046db..99acd52 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -25,14 +25,15 @@ find_package(catkin REQUIRED )
+ # CATKIN_MIGRATION: removed during catkin migration
+ # rosbuild_init()
+ 
+-catkin_download_test_data(download_data_willow-willow-full-0.025.pgm http://download.ros.org/data/maps/willow-full-0.025.pgm FILENAME willow-full-0.025.pgm MD5 e66b17ee374f2d7657972efcb3e2e4f7)
+-catkin_download_test_data(download_data_willow-willow-full-0.05.pgm http://download.ros.org/data/maps/willow-full-0.05.pgm FILENAME willow-full-0.05.pgm  MD5 b61694296e08965096c5e78611fd9765)
+-catkin_download_test_data(download_data_willow-willow-full-0.10.pgm http://download.ros.org/data/maps/willow-full-0.10.pgm FILENAME willow-full-0.10.pgm MD5 b84465cdbbfe3e2fb9eb4579e0bcaf0e)
+-catkin_download_test_data(download_data_willow-willow-sans-whitelab-0.025.pgm http://download.ros.org/data/maps/willow-sans-whitelab-0.025.pgm FILENAME willow-sans-whitelab-0.025.pgm  MD5 dce0081e83a9e2eb8b29c51c8cd3ffac)
+-catkin_download_test_data(download_data_willow-willow.tmap http://download.ros.org/data/maps/willow.tmap FILENAME willow.tmap MD5 48864073990c66173dade2bfcae5669d)
+-#catkin_download_test_data(download_data_willow-willow-2010-02-18-0.025.pgm http://download.ros.org/data/maps/willow-2010-02-18-0.025.pgm FILENAME willow-2010-02-18-0.025.pgm  MD5 1f82c191f1e4a830669de7bbc4bc989a)
+-#catkin_download_test_data(download_data_willow-willow-sans-whitelab-2010-02-18-0.025.pgm http://download.ros.org/data/maps/willow-sans-whitelab-2010-02-18-0.025.pgm FILENAME willow-sans-whitelab-2010-02-18-0.025.pgm MD5 9fc85f28c98034979f10e8f6ece676bb)## Generate added messages and services with any dependencies listed here
+-
++if (CATKIN_ENABLE_TESTING)
++  catkin_download_test_data(download_data_willow-willow-full-0.025.pgm http://download.ros.org/data/maps/willow-full-0.025.pgm FILENAME willow-full-0.025.pgm MD5 e66b17ee374f2d7657972efcb3e2e4f7)
++  catkin_download_test_data(download_data_willow-willow-full-0.05.pgm http://download.ros.org/data/maps/willow-full-0.05.pgm FILENAME willow-full-0.05.pgm  MD5 b61694296e08965096c5e78611fd9765)
++  catkin_download_test_data(download_data_willow-willow-full-0.10.pgm http://download.ros.org/data/maps/willow-full-0.10.pgm FILENAME willow-full-0.10.pgm MD5 b84465cdbbfe3e2fb9eb4579e0bcaf0e)
++  catkin_download_test_data(download_data_willow-willow-sans-whitelab-0.025.pgm http://download.ros.org/data/maps/willow-sans-whitelab-0.025.pgm FILENAME willow-sans-whitelab-0.025.pgm  MD5 dce0081e83a9e2eb8b29c51c8cd3ffac)
++  catkin_download_test_data(download_data_willow-willow.tmap http://download.ros.org/data/maps/willow.tmap FILENAME willow.tmap MD5 48864073990c66173dade2bfcae5669d)
++  #catkin_download_test_data(download_data_willow-willow-2010-02-18-0.025.pgm http://download.ros.org/data/maps/willow-2010-02-18-0.025.pgm FILENAME willow-2010-02-18-0.025.pgm  MD5 1f82c191f1e4a830669de7bbc4bc989a)
++  #catkin_download_test_data(download_data_willow-willow-sans-whitelab-2010-02-18-0.025.pgm http://download.ros.org/data/maps/willow-sans-whitelab-2010-02-18-0.025.pgm FILENAME willow-sans-whitelab-2010-02-18-0.025.pgm MD5 9fc85f28c98034979f10e8f6ece676bb)## Generate added messages and services with any dependencies listed here
++endif()
+ 
+ 
+ 
+@@ -59,7 +60,7 @@ install(FILES
+ )
+ 
+ 
+-
++if (CATKIN_ENABLE_TESTING)
+ install(CODE "execute_process(COMMAND  make -C ${PROJECT_BINARY_DIR} tests)")
+ install(FILES
+   ${PROJECT_BINARY_DIR}/willow-full-0.025.pgm
+@@ -71,4 +72,4 @@ install(FILES
+ #  ${PROJECT_BINARY_DIR}/willow-sans-whitelab-2010-02-18-0.025.pgm
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+ )
+-
++endif()
