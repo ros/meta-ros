@@ -1,0 +1,45 @@
+From e2eb8bae18d293ae3447f811d1ac9ce8b715ee37 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 26 Apr 2020 05:54:17 -0700
+Subject: [PATCH] CMakeLists.txt: search for boost_python37 instead of just
+ boost_python
+
+* as described in
+  https://github.com/espressopp/espressopp/issues/277
+
+The core of the issue can be found in FindBoost.cmake:
+
+Note that Boost Python components require a Python version suffix
+(Boost 1.67 and later), e.g. python36 or python27 for the
+versions built against Python 3.6 and 2.7, respectively.
+
+This basically means for Boost-1.67 and later, we need to check for the
+python27 component instead of just python, however this feature is only
+supported in cmake-3.11 and newer.
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b70b8530..0f0ebb52 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,14 +1,10 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.11)
+ project(camera_calibration_parsers)
+ 
+ find_package(catkin REQUIRED sensor_msgs rosconsole roscpp roscpp_serialization)
+ 
+ find_package(PythonLibs REQUIRED)
+-if(PYTHONLIBS_VERSION_STRING VERSION_LESS 3)
+-  find_package(Boost REQUIRED COMPONENTS filesystem python)
+-else()
+-  find_package(Boost REQUIRED COMPONENTS filesystem python3)
+-endif()
++find_package(Boost REQUIRED COMPONENTS filesystem python37)
+ include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
+ 
+ catkin_python_setup()
