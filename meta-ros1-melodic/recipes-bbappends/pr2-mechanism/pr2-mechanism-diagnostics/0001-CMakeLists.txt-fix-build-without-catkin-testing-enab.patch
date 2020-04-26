@@ -1,0 +1,44 @@
+From bdd919ad1cba848a91c2bac006a39837c26e5871 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/rostest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b9cf363..b64759e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -24,10 +24,12 @@ add_executable(pr2_mechanism_diagnostics_node src/pr2_mechanism_diagnostics.cpp)
+ target_link_libraries(pr2_mechanism_diagnostics_node ${PROJECT_NAME} ${catkin_LIBRARIES})
+ set_target_properties(pr2_mechanism_diagnostics_node PROPERTIES OUTPUT_NAME pr2_mechanism_diagnostics)
+ 
+-add_rostest(test/launch/mech_diag_test_main.launch)
+-add_rostest(test/launch/overrun_test.launch)
+-add_rostest(test/launch/uncal_test.launch)
+-add_rostest(test/launch/nan_test.launch)
++if (CATKIN_ENABLE_TESTING)
++  add_rostest(test/launch/mech_diag_test_main.launch)
++  add_rostest(test/launch/overrun_test.launch)
++  add_rostest(test/launch/uncal_test.launch)
++  add_rostest(test/launch/nan_test.launch)
++endif()
+ 
+ install(TARGETS pr2_mechanism_diagnostics_node
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
