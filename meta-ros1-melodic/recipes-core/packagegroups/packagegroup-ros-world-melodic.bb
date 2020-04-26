@@ -1146,7 +1146,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     eigenpy \
     eml \
     epos2-motor-controller \
-    fake-joint-driver \
     find-object-2d \
     fmi-adapter \
     hebi-cpp-api \
@@ -1297,7 +1296,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     exotica-time-indexed-rrt-connect-solver \
     face-detector \
     fake-joint \
-    fake-joint-driver \
     fake-joint-launch \
     fetch-calibration \
     fetch-driver-msgs \
