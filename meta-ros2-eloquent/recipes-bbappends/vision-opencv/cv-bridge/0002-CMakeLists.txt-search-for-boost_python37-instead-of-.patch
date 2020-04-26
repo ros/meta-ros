@@ -1,0 +1,60 @@
+From 97f0b08fe28011cc0d3355c0af64dfa20eb6f0c4 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 26 Apr 2020 05:54:17 -0700
+Subject: [PATCH] CMakeLists.txt: search for boost_python37 instead of just
+ boost_python
+
+* as described in
+  https://github.com/espressopp/espressopp/issues/277
+
+The core of the issue can be found in FindBoost.cmake:
+
+Note that Boost Python components require a Python version suffix
+(Boost 1.67 and later), e.g. python36 or python27 for the
+versions built against Python 3.6 and 2.7, respectively.
+
+This basically means for Boost-1.67 and later, we need to check for the
+python27 component instead of just python, however this feature is only
+supported in cmake-3.11 and newer.
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 21 ++-------------------
+ 1 file changed, 2 insertions(+), 19 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6edd605..c8e0a80 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.11)
+ project(cv_bridge)
+ 
+ find_package(ament_cmake_ros REQUIRED)
+@@ -14,24 +14,7 @@ endif()
+ 
+ if(NOT ANDROID)
+   find_package(PythonLibs)
+-  if(PYTHONLIBS_VERSION_STRING VERSION_LESS 3)
+-    find_package(Boost REQUIRED python)
+-  else()
+-    find_package(Boost QUIET)
+-    if(Boost_VERSION LESS 106500)
+-      find_package(Boost REQUIRED python)
+-    else()
+-      # This is a bit of a hack to suppress a warning
+-      #   No header defined for python3; skipping header check
+-      # Which should only affect Boost versions < 1.67
+-      # Resolution for newer versions:
+-      #  https://gitlab.kitware.com/cmake/cmake/issues/16391
+-      if (Boost_VERSION LESS 106700)
+-        set(_Boost_PYTHON3_HEADERS "boost/python.hpp")
+-      endif()
+-      find_package(Boost COMPONENTS python3 REQUIRED)
+-    endif()
+-  endif()
++  find_package(Boost REQUIRED python37)
+ else()
+   find_package(Boost REQUIRED)
+ endif()
