@@ -769,6 +769,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
     find-object-2d \
     geometry-tutorials \
     open-manipulator-control-gui \
+    plotjuggler \
     ros-tutorials \
     swri-console \
     swri-profiler-tools \
@@ -1153,7 +1154,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     librealsense2 \
     novatel-gps-driver \
     pinocchio \
-    plotjuggler \
     prosilica-gige-sdk \
     pyros-utils \
     rc-genicam-api \
