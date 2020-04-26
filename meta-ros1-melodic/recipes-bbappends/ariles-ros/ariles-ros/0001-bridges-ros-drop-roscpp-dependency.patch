@@ -1,0 +1,41 @@
+From 8b8865e712a791692caa4f09cad82da3ee870ae5 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 26 Apr 2020 14:26:57 +0000
+Subject: [PATCH] bridges/ros: drop roscpp dependency
+
+* for some reason it doesn't find roscpp even when it's available in RSS
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ ariles/CMakeLists.txt             | 2 +-
+ ariles/bridges/ros/CMakeLists.txt | 4 ----
+ 2 files changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/ariles/CMakeLists.txt b/ariles/CMakeLists.txt
+index 0748a6e..813890e 100644
+--- a/ariles/CMakeLists.txt
++++ b/ariles/CMakeLists.txt
+@@ -14,7 +14,7 @@ include(CPackComponent)
+ include(CMakePackageConfigHelpers)
+ 
+ 
+-set (CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
++list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
+ 
+ include(cmakeut_copy_dir_if_exists)
+ include(cmakeut_copy_file_if_exists)
+diff --git a/ariles/bridges/ros/CMakeLists.txt b/ariles/bridges/ros/CMakeLists.txt
+index 156a48d..9d9cc69 100644
+--- a/ariles/bridges/ros/CMakeLists.txt
++++ b/ariles/bridges/ros/CMakeLists.txt
+@@ -8,10 +8,6 @@ add_dependencies("TGT_ariles_copy_headers_bridge_ros_h" "TGT_ariles_copy_headers
+ 
+ set (TGT_ROS            "${BRIDGE_TARGET_PREFIX}_${ARILES_BRIDGE}")
+ 
+-if(NOT ARILES_DEB_TARGETS)
+-    find_package(roscpp  REQUIRED)
+-endif()
+-
+ add_custom_target(${TGT_ROS})
+ 
+ set(ARILES_BRIDGE_${ARILES_BRIDGE}_INCLUDES "${roscpp_INCLUDE_DIRS}")
