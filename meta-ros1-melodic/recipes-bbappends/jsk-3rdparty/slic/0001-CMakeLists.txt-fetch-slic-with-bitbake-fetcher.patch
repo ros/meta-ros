@@ -1,0 +1,30 @@
+From 6004127d343ca8d67537a0f6ff8984464c077188 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 26 Apr 2020 12:29:13 -0700
+Subject: [PATCH] CMakeLists.txt: fetch slic with bitbake fetcher
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 32b85b88a..77becd01c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -5,14 +5,11 @@ include(ExternalProject)
+ ## Find catkin macros and libraries
+ ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
+ ## is used, also find other catkin packages
+-execute_process(COMMAND
+-  git config --global http.sslVerify false)
+ ## System dependencies are found with CMake's conventions
+ # find_package(Boost REQUIRED COMPONENTS system)
+ ExternalProject_Add(
+   slic
+-  GIT_REPOSITORY https://github.com/garaemon/SLIC-Superpixels
+-  GIT_TAG 78d9a2ba7ae1d3fee8c2ec774a52536c5f08f07c
++  SOURCE_DIR ${PROJECT_SOURCE_DIR}/slic-upstream
+   CMAKE_COMMAND echo "configure"
+   BUILD_COMMAND echo "build"
+   INSTALL_COMMAND echo "install"
