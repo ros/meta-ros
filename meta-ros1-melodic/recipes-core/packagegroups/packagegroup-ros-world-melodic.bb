@@ -1659,7 +1659,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     pr2-mannequin-mode \
     pr2-mechanism \
     pr2-mechanism-controllers \
-    pr2-mechanism-diagnostics \
     pr2-move-base \
     pr2-moveit-config \
     pr2-moveit-plugins \
@@ -1688,7 +1687,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     realsense2-camera \
     ridgeback-control \
     ridgeback-desktop \
-    ridgeback-cartographer-navigation \
     robot \
     robot-activity \
     robot-activity-tutorials \
@@ -1703,7 +1701,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     ros-control \
     ros-control-boilerplate \
     ros-controllers \
-    ros-realtime \
     ros-tutorials \
     rosbridge-server \
     rosbridge-suite \
