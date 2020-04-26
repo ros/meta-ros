@@ -1324,6 +1324,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     libntcan \
     librealsense2 \
     novatel-gps-driver \
+    pinocchio \
     plotjuggler \
     prosilica-gige-sdk \
     pyros-utils \
@@ -1332,7 +1333,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     slic \
     swri-image-util \
     swri-transform-util \
-    trajectory-tracker-rviz-plugins \
     ypspur-ros \
 "
 
@@ -1426,7 +1426,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     dbw-mkz-can \
     dbw-mkz-joystick-demo \
     dbw-mkz-twist-controller \
-    dccomms-ros \
     default-cfg-fkie \
     derived-object-msgs \
     distance-map \

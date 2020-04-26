@@ -1,0 +1,23 @@
+From f78aa4e3365e4ddd3f7e7b5a41089c74cba30490 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 26 Apr 2020 10:41:50 -0700
+Subject: [PATCH] CMakeLists.txt: don't require native git
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 025a560..127960b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -43,7 +43,7 @@ endfunction()
+ #https://bravenewmethod.com/2017/07/14/git-revision-as-compiler-definition-in-build-with-cmake/
+ message(STATUS "Resolving GIT Version...")
+ set(_build_version "unknown")
+-find_package(Git REQUIRED)
++find_package(Git)
+ if(GIT_FOUND)
+   execute_process(
+     COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
