@@ -1332,7 +1332,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     novatel-gps-driver \
     plotjuggler \
     prosilica-gige-sdk \
-    ps3joy \
     pyros-utils \
     rc-genicam-api \
     rosmon-core \
