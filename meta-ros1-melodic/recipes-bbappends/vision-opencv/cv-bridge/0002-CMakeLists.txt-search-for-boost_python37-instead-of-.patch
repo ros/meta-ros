@@ -1,0 +1,46 @@
+From 5f3d4385cfbe18e86a86b2b66f0e14de28e75037 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 26 Apr 2020 05:54:17 -0700
+Subject: [PATCH] CMakeLists.txt: search for boost_python37 instead of just
+ boost_python
+
+* as described in
+  https://github.com/espressopp/espressopp/issues/277
+
+The core of the issue can be found in FindBoost.cmake:
+
+Note that Boost Python components require a Python version suffix
+(Boost 1.67 and later), e.g. python36 or python27 for the
+versions built against Python 3.6 and 2.7, respectively.
+
+This basically means for Boost-1.67 and later, we need to check for the
+python27 component instead of just python, however this feature is only
+supported in cmake-3.11 and newer.
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c203aad1..f2c05040 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,15 +1,11 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.11)
+ project(cv_bridge)
+ 
+ find_package(catkin REQUIRED COMPONENTS rosconsole sensor_msgs)
+ 
+ if(NOT ANDROID)
+   find_package(PythonLibs)
+-  if(PYTHONLIBS_VERSION_STRING VERSION_LESS 3)
+-    find_package(Boost REQUIRED python)
+-  else()
+-    find_package(Boost REQUIRED python3)
+-  endif()
++  find_package(Boost REQUIRED python37)
+ else()
+ find_package(Boost REQUIRED)
+ endif()
