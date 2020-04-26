@@ -1166,7 +1166,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     swri-image-util \
     swri-transform-util \
     trajectory-tracker-rviz-plugins \
-    tuw-geometry \
     ypspur-ros \
 "
 
