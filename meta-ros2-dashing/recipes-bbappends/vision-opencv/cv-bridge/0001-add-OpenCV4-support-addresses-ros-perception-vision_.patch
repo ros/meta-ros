@@ -1,4 +1,4 @@
-From 2e76b164edc9c138e8a6bef8b9362195135ab56e Mon Sep 17 00:00:00 2001
+From b9e8584cae94b22afcb08a8210256deefbf10cac Mon Sep 17 00:00:00 2001
 From: BrutusTT <brutusthetschiepel@gmail.com>
 Date: Wed, 4 Sep 2019 11:39:30 +0100
 Subject: [PATCH] add OpenCV4 support addresses
@@ -417,6 +417,3 @@ index 0000000..60a9d05
 +    pyopencv_to(const_cast<PyObject*>(o), m, "unknown");
 +    return 0;
 +}
--- 
-2.17.1
-
