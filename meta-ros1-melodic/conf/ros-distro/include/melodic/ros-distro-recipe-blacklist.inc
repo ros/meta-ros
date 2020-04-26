@@ -108,6 +108,7 @@ PNBLACKLIST[fetch-simulation] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUP
 PNBLACKLIST[fetch-tools] ?= "Rdepends on unavailable UNRESOLVED-python-catkin-lint, UNRESOLVED-python-argcomplete"
 PNBLACKLIST[fetchit-challenge] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
 PNBLACKLIST[fiducials] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-deps', 'depends on aruco-detect->unavailable UNRESOLVED-python-cairosvg and UNRESOLVED-python-joblib', '', d)}"
+PNBLACKLIST[find-object-2d] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], 'Requires qtbase which requires meta-qt5 to be included; qt5-widgets: needs widgets enabled in qtbase PACKAGECONFIG', '', d)}"
 PNBLACKLIST[fkie-potree-rviz-plugin] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre'], 'Requires qtbase which requires meta-qt5 to be included; ogre: Requires rviz which depends on unavailable ogre', '', d)}"
 PNBLACKLIST[franka-example-controllers] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre'], 'Requires panda-moveit-config->moveit-ros-visualization->qtbase which requires meta-qt5 to be included and depends on panda-moveit-config->moveit-ros-visualization->ogre which is not available', '', d)}"
 PNBLACKLIST[franka-ros] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre'], 'Requires panda-moveit-config->moveit-ros-visualization->qtbase which requires meta-qt5 to be included and depends on panda-moveit-config->moveit-ros-visualization->ogre which is not available', '', d)}"
@@ -632,7 +633,6 @@ PNBLACKLIST[wamv-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 # do_configure issues in the generated recipes
 ROS_WORLD_SKIP_GROUPS += "unknown-configure"
 PNBLACKLIST[epos2-motor-controller] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[find-object-2d] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'unknown-configure'], 'Requires qtbase which requires meta-qt5 to be included; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[fmi-adapter] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[hebi-cpp-api] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[hpp-fcl] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
