@@ -640,7 +640,6 @@ PNBLACKLIST[dbw-mkz-can] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unkn
 PNBLACKLIST[dbw-mkz-joystick-demo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[dbw-mkz-twist-controller] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[dbw-mkz] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
-PNBLACKLIST[dccomms-ros] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[default-cfg-fkie] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[derived-object-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[dlux-global-planner] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
