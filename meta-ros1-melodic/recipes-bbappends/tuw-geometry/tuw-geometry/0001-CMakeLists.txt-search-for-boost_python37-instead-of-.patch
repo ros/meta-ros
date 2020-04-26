@@ -1,7 +1,7 @@
 From 10605701d9dcf396549ee17b320f638994948b3c Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Sun, 26 Apr 2020 12:23:02 +0000
-Subject: [PATCH] CMakeLists.txt: search for boost_python37 instead of just
+Subject: [PATCH] CMakeLists.txt: search for boost_python38 instead of just
  boost_python
 
 * as described in
@@ -37,7 +37,7 @@ index b4607d9..0d04646 100644
  # find_package(Boost REQUIRED COMPONENTS system)
  find_package(OpenCV REQUIRED)
 -find_package(Boost REQUIRED COMPONENTS python)
-+find_package(Boost REQUIRED COMPONENTS python37)
++find_package(Boost REQUIRED COMPONENTS python38)
  find_package(PythonLibs 2.7 REQUIRED)
  find_package(Eigen3 QUIET)
  

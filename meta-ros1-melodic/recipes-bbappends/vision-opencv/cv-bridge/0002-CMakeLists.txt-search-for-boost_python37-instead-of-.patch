@@ -1,7 +1,7 @@
 From 5f3d4385cfbe18e86a86b2b66f0e14de28e75037 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Sun, 26 Apr 2020 05:54:17 -0700
-Subject: [PATCH] CMakeLists.txt: search for boost_python37 instead of just
+Subject: [PATCH] CMakeLists.txt: search for boost_python38 instead of just
  boost_python
 
 * as described in
@@ -40,7 +40,7 @@ index c203aad1..f2c05040 100644
 -  else()
 -    find_package(Boost REQUIRED python3)
 -  endif()
-+  find_package(Boost REQUIRED python37)
++  find_package(Boost REQUIRED python38)
  else()
  find_package(Boost REQUIRED)
  endif()
