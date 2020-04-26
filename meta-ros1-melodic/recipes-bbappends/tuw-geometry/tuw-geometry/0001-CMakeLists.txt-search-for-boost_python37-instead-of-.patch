@@ -1,0 +1,43 @@
+From 10605701d9dcf396549ee17b320f638994948b3c Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 26 Apr 2020 12:23:02 +0000
+Subject: [PATCH] CMakeLists.txt: search for boost_python37 instead of just
+ boost_python
+
+* as described in
+  https://github.com/espressopp/espressopp/issues/277
+
+The core of the issue can be found in FindBoost.cmake:
+
+Note that Boost Python components require a Python version suffix
+(Boost 1.67 and later), e.g. python36 or python27 for the
+versions built against Python 3.6 and 2.7, respectively.
+
+This basically means for Boost-1.67 and later, we need to check for the
+python27 component instead of just python, however this feature is only
+supported in cmake-3.11 and newer.
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b4607d9..0d04646 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8.3)
++cmake_minimum_required(VERSION 3.11)
+ project(tuw_geometry)
+ add_compile_options(-std=c++14) ## for c++ 2014
+ 
+@@ -14,7 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
+ ## System dependencies are found with CMake's conventions
+ # find_package(Boost REQUIRED COMPONENTS system)
+ find_package(OpenCV REQUIRED)
+-find_package(Boost REQUIRED COMPONENTS python)
++find_package(Boost REQUIRED COMPONENTS python37)
+ find_package(PythonLibs 2.7 REQUIRED)
+ find_package(Eigen3 QUIET)
+ 
