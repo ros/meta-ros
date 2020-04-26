@@ -1143,7 +1143,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
-    combined-robot-hw-tests \
     eigenpy \
     eml \
     epos2-motor-controller \
@@ -1234,7 +1233,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     cob-substitute \
     cob-trajectory-controller \
     cob-undercarriage-ctrl \
-    combined-robot-hw-tests \
     common-tutorials \
     concert-msgs \
     control-toolbox \
