@@ -1,0 +1,48 @@
+From d589eb29b37e7a602c497ff3c6d0d2529f997974 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/gtest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a90edf3..100521f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -34,13 +34,15 @@ target_link_libraries(test_subscriber ${PROJECT_NAME})
+ 
+ add_library(test_malloc_wrappers_so EXCLUDE_FROM_ALL test/test_malloc_wrappers_so.cpp)
+ target_link_libraries(test_malloc_wrappers_so ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+-catkin_add_gtest(test_malloc_wrappers test/test_malloc_wrappers.cpp)
+-target_link_libraries(test_malloc_wrappers ${PROJECT_NAME} ${catkin_LIBRARIES})
+ 
+-catkin_add_gtest(test_publisher_no_initialize test/test_publisher_no_initialize.cpp)
+-target_link_libraries(test_publisher_no_initialize ${PROJECT_NAME} ${catkin_LIBRARIES} ${lockfree_LIBRARIES})
+-add_dependencies(test_publisher_no_initialize ${catkin_EXPORTED_TARGETS})
++if (CATKIN_ENABLE_TESTING)
++  catkin_add_gtest(test_malloc_wrappers test/test_malloc_wrappers.cpp)
++  target_link_libraries(test_malloc_wrappers ${PROJECT_NAME} ${catkin_LIBRARIES})
+ 
++  catkin_add_gtest(test_publisher_no_initialize test/test_publisher_no_initialize.cpp)
++  target_link_libraries(test_publisher_no_initialize ${PROJECT_NAME} ${catkin_LIBRARIES} ${lockfree_LIBRARIES})
++  add_dependencies(test_publisher_no_initialize ${catkin_EXPORTED_TARGETS})
++endif()
+ 
+ install(TARGETS ${PROJECT_NAME}
+ ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
