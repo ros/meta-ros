@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.1+14.gd3a8c83"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.1+13.g0be23cc"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros2"
@@ -18,11 +18,15 @@ ROS_PYTHON_VERSION = "3"
 ROS_SUPERFLORE_GENERATION_SKIP_LIST = ""
 
 # Superflore was unable to generate recipes for these packages, eg, because their repositories are not on GitHub.
-ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = ""
+ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
+    tracetools \
+    tracetools_read \
+    tracetools_trace \
+"
 
 # Number of commits that will be returned by "git log meta-ros2-foxy/files/foxy/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "2"
+ROS_NUM_CACHE_YAML_COMMITS = "3"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -30,6 +34,8 @@ ROS_DISTRO_RELEASE_PLATFORMS = " \
 "
 
 ROS_SUPERFLORE_GENERATED_RECIPES = " \
+    action-msgs \
+    actionlib-msgs \
     ament-clang-format \
     ament-clang-tidy \
     ament-cmake \
@@ -46,6 +52,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ament-cmake-export-interfaces \
     ament-cmake-export-libraries \
     ament-cmake-export-link-flags \
+    ament-cmake-export-targets \
     ament-cmake-flake8 \
     ament-cmake-gmock \
     ament-cmake-gtest \
@@ -60,6 +67,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ament-cmake-pyflakes \
     ament-cmake-pytest \
     ament-cmake-python \
+    ament-cmake-ros \
     ament-cmake-target-dependencies \
     ament-cmake-test \
     ament-cmake-uncrustify \
@@ -69,6 +77,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ament-cppcheck \
     ament-cpplint \
     ament-flake8 \
+    ament-index-cpp \
+    ament-index-python \
     ament-lint \
     ament-lint-auto \
     ament-lint-cmake \
@@ -81,85 +91,229 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ament-pyflakes \
     ament-uncrustify \
     ament-xmllint \
+    builtin-interfaces \
+    class-loader \
+    common-interfaces \
+    composition-interfaces \
+    connext-cmake-module \
     console-bridge-vendor \
+    diagnostic-msgs \
+    domain-coordinator \
+    eigen3-cmake-module \
+    fastcdr \
+    foonathan-memory-vendor \
+    geometry-msgs \
     gmock-vendor \
     gtest-vendor \
+    launch \
+    launch-testing \
+    launch-testing-ament-cmake \
+    launch-xml \
+    launch-yaml \
+    librealsense2 \
+    libyaml-vendor \
+    lifecycle-msgs \
+    nav-msgs \
+    osrf-pycommon \
     osrf-testing-tools-cpp \
+    pluginlib \
+    python-cmake-module \
+    rcl-interfaces \
+    rcl-logging-log4cxx \
+    rcl-logging-noop \
+    rcl-logging-spdlog \
+    rcpputils \
+    rcutils \
+    rmw \
+    rmw-connext-cpp \
+    rmw-connext-shared-cpp \
+    rmw-dds-common \
+    rmw-implementation-cmake \
     ros-workspace \
+    rosgraph-msgs \
+    rosidl-adapter \
+    rosidl-cmake \
+    rosidl-default-generators \
+    rosidl-default-runtime \
+    rosidl-generator-c \
+    rosidl-generator-cpp \
+    rosidl-generator-dds-idl \
+    rosidl-generator-py \
+    rosidl-parser \
+    rosidl-runtime-c \
+    rosidl-runtime-cpp \
+    rosidl-typesupport-c \
+    rosidl-typesupport-connext-c \
+    rosidl-typesupport-connext-cpp \
+    rosidl-typesupport-cpp \
+    rosidl-typesupport-interface \
+    rosidl-typesupport-introspection-c \
+    rosidl-typesupport-introspection-cpp \
+    sensor-msgs \
+    shape-msgs \
     spdlog-vendor \
+    statistics-msgs \
+    std-msgs \
+    std-srvs \
+    stereo-msgs \
     test-interface-files \
+    test-msgs \
     test-osrf-testing-tools-cpp \
+    tinyxml-vendor \
     tinyxml2-vendor \
+    trajectory-msgs \
     uncrustify-vendor \
+    unique-identifier-msgs \
+    urdf \
+    urdfdom \
+    urdfdom-headers \
+    visualization-msgs \
+    yaml-cpp-vendor \
 "
 
 ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                ament-lint/ament-clang-format_0.9.1-1 \
-                ament-lint/ament-clang-tidy_0.9.1-1 \
-               ament-cmake/ament-cmake_0.8.1-3 \
-               ament-cmake/ament-cmake-auto_0.8.1-3 \
-                ament-lint/ament-cmake-clang-format_0.9.1-1 \
-                ament-lint/ament-cmake-clang-tidy_0.9.1-1 \
-                ament-lint/ament-cmake-copyright_0.9.1-1 \
-               ament-cmake/ament-cmake-core_0.8.1-3 \
-                ament-lint/ament-cmake-cppcheck_0.9.1-1 \
-                ament-lint/ament-cmake-cpplint_0.9.1-1 \
-               ament-cmake/ament-cmake-export-definitions_0.8.1-3 \
-               ament-cmake/ament-cmake-export-dependencies_0.8.1-3 \
-               ament-cmake/ament-cmake-export-include-directories_0.8.1-3 \
-               ament-cmake/ament-cmake-export-interfaces_0.8.1-3 \
-               ament-cmake/ament-cmake-export-libraries_0.8.1-3 \
-               ament-cmake/ament-cmake-export-link-flags_0.8.1-3 \
-                ament-lint/ament-cmake-flake8_0.9.1-1 \
-               ament-cmake/ament-cmake-gmock_0.8.1-3 \
-               ament-cmake/ament-cmake-gtest_0.8.1-3 \
-               ament-cmake/ament-cmake-include-directories_0.8.1-3 \
-               ament-cmake/ament-cmake-libraries_0.8.1-3 \
-                ament-lint/ament-cmake-lint-cmake_0.9.1-1 \
-                ament-lint/ament-cmake-mypy_0.9.1-1 \
-               ament-cmake/ament-cmake-nose_0.8.1-3 \
-                ament-lint/ament-cmake-pclint_0.9.1-1 \
-                ament-lint/ament-cmake-pep257_0.9.1-1 \
-                ament-lint/ament-cmake-pycodestyle_0.9.1-1 \
-                ament-lint/ament-cmake-pyflakes_0.9.1-1 \
-               ament-cmake/ament-cmake-pytest_0.8.1-3 \
-               ament-cmake/ament-cmake-python_0.8.1-3 \
-               ament-cmake/ament-cmake-target-dependencies_0.8.1-3 \
-               ament-cmake/ament-cmake-test_0.8.1-3 \
-                ament-lint/ament-cmake-uncrustify_0.9.1-1 \
-               ament-cmake/ament-cmake-version_0.8.1-3 \
-                ament-lint/ament-cmake-xmllint_0.9.1-1 \
-                ament-lint/ament-copyright_0.9.1-1 \
-                ament-lint/ament-cppcheck_0.9.1-1 \
-                ament-lint/ament-cpplint_0.9.1-1 \
-                ament-lint/ament-flake8_0.9.1-1 \
-                ament-lint/ament-lint_0.9.1-1 \
-                ament-lint/ament-lint-auto_0.9.1-1 \
-                ament-lint/ament-lint-cmake_0.9.1-1 \
-                ament-lint/ament-lint-common_0.9.1-1 \
-                ament-lint/ament-mypy_0.9.1-1 \
-             ament-package/ament-package_0.8.5-1 \
-                ament-lint/ament-pclint_0.9.1-1 \
-                ament-lint/ament-pep257_0.9.1-1 \
-                ament-lint/ament-pycodestyle_0.9.1-1 \
-                ament-lint/ament-pyflakes_0.9.1-1 \
-                ament-lint/ament-uncrustify_0.9.1-1 \
-                ament-lint/ament-xmllint_0.9.1-1 \
-     console-bridge-vendor/console-bridge-vendor_1.2.0-1 \
-                googletest/gmock-vendor_1.8.9000-1 \
-                googletest/gtest-vendor_1.8.9000-1 \
-    osrf-testing-tools-cpp/osrf-testing-tools-cpp_1.3.0-1 \
-             ros-workspace/ros-workspace_0.8.0-3 \
-             spdlog-vendor/spdlog-vendor_1.1.0-1 \
-      test-interface-files/test-interface-files_0.8.0-1 \
-    osrf-testing-tools-cpp/test-osrf-testing-tools-cpp_1.3.0-1 \
-           tinyxml2-vendor/tinyxml2-vendor_0.7.0-1 \
-         uncrustify-vendor/uncrustify-vendor_1.4.0-1 \
+                rcl-interfaces/action-msgs_0.9.0-1 \
+             common-interfaces/actionlib-msgs_0.9.0-1 \
+                    ament-lint/ament-clang-format_0.9.1-1 \
+                    ament-lint/ament-clang-tidy_0.9.1-1 \
+                   ament-cmake/ament-cmake_0.9.1-1 \
+                   ament-cmake/ament-cmake-auto_0.9.1-1 \
+                    ament-lint/ament-cmake-clang-format_0.9.1-1 \
+                    ament-lint/ament-cmake-clang-tidy_0.9.1-1 \
+                    ament-lint/ament-cmake-copyright_0.9.1-1 \
+                   ament-cmake/ament-cmake-core_0.9.1-1 \
+                    ament-lint/ament-cmake-cppcheck_0.9.1-1 \
+                    ament-lint/ament-cmake-cpplint_0.9.1-1 \
+                   ament-cmake/ament-cmake-export-definitions_0.9.1-1 \
+                   ament-cmake/ament-cmake-export-dependencies_0.9.1-1 \
+                   ament-cmake/ament-cmake-export-include-directories_0.9.1-1 \
+                   ament-cmake/ament-cmake-export-interfaces_0.9.1-1 \
+                   ament-cmake/ament-cmake-export-libraries_0.9.1-1 \
+                   ament-cmake/ament-cmake-export-link-flags_0.9.1-1 \
+                   ament-cmake/ament-cmake-export-targets_0.9.1-1 \
+                    ament-lint/ament-cmake-flake8_0.9.1-1 \
+                   ament-cmake/ament-cmake-gmock_0.9.1-1 \
+                   ament-cmake/ament-cmake-gtest_0.9.1-1 \
+                   ament-cmake/ament-cmake-include-directories_0.9.1-1 \
+                   ament-cmake/ament-cmake-libraries_0.9.1-1 \
+                    ament-lint/ament-cmake-lint-cmake_0.9.1-1 \
+                    ament-lint/ament-cmake-mypy_0.9.1-1 \
+                   ament-cmake/ament-cmake-nose_0.9.1-1 \
+                    ament-lint/ament-cmake-pclint_0.9.1-1 \
+                    ament-lint/ament-cmake-pep257_0.9.1-1 \
+                    ament-lint/ament-cmake-pycodestyle_0.9.1-1 \
+                    ament-lint/ament-cmake-pyflakes_0.9.1-1 \
+                   ament-cmake/ament-cmake-pytest_0.9.1-1 \
+                   ament-cmake/ament-cmake-python_0.9.1-1 \
+               ament-cmake-ros/ament-cmake-ros_0.9.0-1 \
+                   ament-cmake/ament-cmake-target-dependencies_0.9.1-1 \
+                   ament-cmake/ament-cmake-test_0.9.1-1 \
+                    ament-lint/ament-cmake-uncrustify_0.9.1-1 \
+                   ament-cmake/ament-cmake-version_0.9.1-1 \
+                    ament-lint/ament-cmake-xmllint_0.9.1-1 \
+                    ament-lint/ament-copyright_0.9.1-1 \
+                    ament-lint/ament-cppcheck_0.9.1-1 \
+                    ament-lint/ament-cpplint_0.9.1-1 \
+                    ament-lint/ament-flake8_0.9.1-1 \
+                   ament-index/ament-index-cpp_0.8.0-1 \
+                   ament-index/ament-index-python_0.8.0-1 \
+                    ament-lint/ament-lint_0.9.1-1 \
+                    ament-lint/ament-lint-auto_0.9.1-1 \
+                    ament-lint/ament-lint-cmake_0.9.1-1 \
+                    ament-lint/ament-lint-common_0.9.1-1 \
+                    ament-lint/ament-mypy_0.9.1-1 \
+                 ament-package/ament-package_0.9.0-1 \
+                    ament-lint/ament-pclint_0.9.1-1 \
+                    ament-lint/ament-pep257_0.9.1-1 \
+                    ament-lint/ament-pycodestyle_0.9.1-1 \
+                    ament-lint/ament-pyflakes_0.9.1-1 \
+                    ament-lint/ament-uncrustify_0.9.1-1 \
+                    ament-lint/ament-xmllint_0.9.1-1 \
+                rcl-interfaces/builtin-interfaces_0.9.0-1 \
+                  class-loader/class-loader_2.0.0-1 \
+             common-interfaces/common-interfaces_0.9.0-1 \
+                rcl-interfaces/composition-interfaces_0.9.0-1 \
+    rosidl-typesupport-connext/connext-cmake-module_0.9.0-1 \
+         console-bridge-vendor/console-bridge-vendor_1.2.0-1 \
+             common-interfaces/diagnostic-msgs_0.9.0-1 \
+               ament-cmake-ros/domain-coordinator_0.9.0-1 \
+           eigen3-cmake-module/eigen3-cmake-module_0.1.1-1 \
+                       fastcdr/fastcdr_1.0.13-1 \
+       foonathan-memory-vendor/foonathan-memory-vendor_0.6.0-1 \
+             common-interfaces/geometry-msgs_0.9.0-1 \
+                    googletest/gmock-vendor_1.8.9000-1 \
+                    googletest/gtest-vendor_1.8.9000-1 \
+                        launch/launch_0.10.0-1 \
+                        launch/launch-testing_0.10.0-1 \
+                        launch/launch-testing-ament-cmake_0.10.0-1 \
+                        launch/launch-xml_0.10.0-1 \
+                        launch/launch-yaml_0.10.0-1 \
+                  librealsense/librealsense2_2.34.0-1 \
+                libyaml-vendor/libyaml-vendor_1.0.1-1 \
+                rcl-interfaces/lifecycle-msgs_0.9.0-1 \
+             common-interfaces/nav-msgs_0.9.0-1 \
+                 osrf-pycommon/osrf-pycommon_0.1.9-1 \
+        osrf-testing-tools-cpp/osrf-testing-tools-cpp_1.3.1-1 \
+                     pluginlib/pluginlib_2.5.0-1 \
+           python-cmake-module/python-cmake-module_0.8.0-1 \
+                rcl-interfaces/rcl-interfaces_0.9.0-1 \
+                   rcl-logging/rcl-logging-log4cxx_0.4.0-1 \
+                   rcl-logging/rcl-logging-noop_0.4.0-1 \
+                   rcl-logging/rcl-logging-spdlog_0.4.0-1 \
+                     rcpputils/rcpputils_0.3.0-2 \
+                       rcutils/rcutils_0.9.0-1 \
+                           rmw/rmw_0.9.0-1 \
+                   rmw-connext/rmw-connext-cpp_0.9.0-1 \
+                   rmw-connext/rmw-connext-shared-cpp_0.9.0-1 \
+                rmw-dds-common/rmw-dds-common_0.1.0-1 \
+                           rmw/rmw-implementation-cmake_0.9.0-1 \
+                 ros-workspace/ros-workspace_0.8.0-4 \
+                rcl-interfaces/rosgraph-msgs_0.9.0-1 \
+                        rosidl/rosidl-adapter_0.9.0-1 \
+                        rosidl/rosidl-cmake_0.9.0-1 \
+               rosidl-defaults/rosidl-default-generators_0.9.0-1 \
+               rosidl-defaults/rosidl-default-runtime_0.9.0-1 \
+                        rosidl/rosidl-generator-c_0.9.0-1 \
+                        rosidl/rosidl-generator-cpp_0.9.0-1 \
+                    rosidl-dds/rosidl-generator-dds-idl_0.7.1-1 \
+                 rosidl-python/rosidl-generator-py_0.9.0-1 \
+                        rosidl/rosidl-parser_0.9.0-1 \
+                        rosidl/rosidl-runtime-c_0.9.0-1 \
+                        rosidl/rosidl-runtime-cpp_0.9.0-1 \
+            rosidl-typesupport/rosidl-typesupport-c_0.9.0-2 \
+    rosidl-typesupport-connext/rosidl-typesupport-connext-c_0.9.0-1 \
+    rosidl-typesupport-connext/rosidl-typesupport-connext-cpp_0.9.0-1 \
+            rosidl-typesupport/rosidl-typesupport-cpp_0.9.0-2 \
+                        rosidl/rosidl-typesupport-interface_0.9.0-1 \
+                        rosidl/rosidl-typesupport-introspection-c_0.9.0-1 \
+                        rosidl/rosidl-typesupport-introspection-cpp_0.9.0-1 \
+             common-interfaces/sensor-msgs_0.9.0-1 \
+             common-interfaces/shape-msgs_0.9.0-1 \
+                 spdlog-vendor/spdlog-vendor_1.1.1-1 \
+                rcl-interfaces/statistics-msgs_0.9.0-1 \
+             common-interfaces/std-msgs_0.9.0-1 \
+             common-interfaces/std-srvs_0.9.0-1 \
+             common-interfaces/stereo-msgs_0.9.0-1 \
+          test-interface-files/test-interface-files_0.8.0-1 \
+                rcl-interfaces/test-msgs_0.9.0-1 \
+        osrf-testing-tools-cpp/test-osrf-testing-tools-cpp_1.3.1-1 \
+                tinyxml-vendor/tinyxml-vendor_0.8.0-1 \
+               tinyxml2-vendor/tinyxml2-vendor_0.7.0-1 \
+             common-interfaces/trajectory-msgs_0.9.0-1 \
+             uncrustify-vendor/uncrustify-vendor_1.4.0-1 \
+        unique-identifier-msgs/unique-identifier-msgs_2.1.1-1 \
+                          urdf/urdf_2.3.0-1 \
+                       urdfdom/urdfdom_2.3.0-1 \
+               urdfdom-headers/urdfdom-headers_1.0.4-1 \
+             common-interfaces/visualization-msgs_0.9.0-1 \
+               yaml-cpp-vendor/yaml-cpp-vendor_7.0.1-1 \
 "
 
 # What's built by packagegroup-ros-world. Does not include packages that appear solely in ROS_SUPERFLORE_GENERATED_BUILDTOOLS
 # (with a -native suffix) or ROS_SUPERFLORE_GENERATED_TESTS.
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
+    action-msgs \
+    actionlib-msgs \
     ament-clang-format \
     ament-clang-tidy \
     ament-cmake \
@@ -176,9 +330,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-cmake-export-interfaces \
     ament-cmake-export-libraries \
     ament-cmake-export-link-flags \
+    ament-cmake-export-targets \
     ament-cmake-flake8 \
-    ament-cmake-gmock \
-    ament-cmake-gtest \
     ament-cmake-include-directories \
     ament-cmake-libraries \
     ament-cmake-lint-cmake \
@@ -188,8 +341,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-cmake-pep257 \
     ament-cmake-pycodestyle \
     ament-cmake-pyflakes \
-    ament-cmake-pytest \
     ament-cmake-python \
+    ament-cmake-ros \
     ament-cmake-target-dependencies \
     ament-cmake-test \
     ament-cmake-uncrustify \
@@ -197,6 +350,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-cmake-xmllint \
     ament-cppcheck \
     ament-cpplint \
+    ament-index-cpp \
+    ament-index-python \
     ament-lint \
     ament-lint-cmake \
     ament-mypy \
@@ -205,20 +360,85 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-pyflakes \
     ament-uncrustify \
     ament-xmllint \
+    builtin-interfaces \
+    class-loader \
+    common-interfaces \
+    composition-interfaces \
+    connext-cmake-module \
     console-bridge-vendor \
+    diagnostic-msgs \
+    domain-coordinator \
+    eigen3-cmake-module \
+    fastcdr \
+    foonathan-memory-vendor \
+    geometry-msgs \
     gmock-vendor \
     gtest-vendor \
+    launch \
+    launch-xml \
+    launch-yaml \
+    librealsense2 \
+    libyaml-vendor \
+    lifecycle-msgs \
+    nav-msgs \
+    osrf-pycommon \
+    pluginlib \
+    rcl-interfaces \
+    rcl-logging-log4cxx \
+    rcl-logging-noop \
+    rcl-logging-spdlog \
+    rcpputils \
+    rcutils \
+    rmw \
+    rmw-connext-cpp \
+    rmw-connext-shared-cpp \
+    rmw-dds-common \
+    rmw-implementation-cmake \
     ros-workspace \
+    rosgraph-msgs \
+    rosidl-adapter \
+    rosidl-cmake \
+    rosidl-default-generators \
+    rosidl-default-runtime \
+    rosidl-generator-c \
+    rosidl-generator-dds-idl \
+    rosidl-generator-py \
+    rosidl-parser \
+    rosidl-runtime-c \
+    rosidl-runtime-cpp \
+    rosidl-typesupport-c \
+    rosidl-typesupport-connext-c \
+    rosidl-typesupport-connext-cpp \
+    rosidl-typesupport-cpp \
+    rosidl-typesupport-interface \
+    rosidl-typesupport-introspection-c \
+    rosidl-typesupport-introspection-cpp \
+    sensor-msgs \
+    shape-msgs \
     spdlog-vendor \
+    statistics-msgs \
+    std-msgs \
+    std-srvs \
+    stereo-msgs \
     test-interface-files \
+    test-msgs \
     test-osrf-testing-tools-cpp \
+    tinyxml-vendor \
     tinyxml2-vendor \
+    trajectory-msgs \
     uncrustify-vendor \
+    unique-identifier-msgs \
+    urdf \
+    urdfdom \
+    urdfdom-headers \
+    visualization-msgs \
+    yaml-cpp-vendor \
 "
 
 # Packages found in the <buildtool_depend> and <buildtool_export_depend> items, ie, ones for which a -native is built. Does not
 # include those found in the ROS_EXEC_DEPENDS values in the recipes of build tools.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_FOXY = " \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
     ament-clang-format-native \
     ament-clang-tidy-native \
     ament-cmake-core-native \
@@ -228,11 +448,15 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_FOXY = " \
     ament-cmake-export-interfaces-native \
     ament-cmake-export-libraries-native \
     ament-cmake-export-link-flags-native \
+    ament-cmake-export-targets-native \
+    ament-cmake-gmock-native \
     ament-cmake-gtest-native \
     ament-cmake-include-directories-native \
     ament-cmake-libraries-native \
     ament-cmake-native \
+    ament-cmake-pytest-native \
     ament-cmake-python-native \
+    ament-cmake-ros-native \
     ament-cmake-target-dependencies-native \
     ament-cmake-test-native \
     ament-cmake-version-native \
@@ -240,6 +464,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_FOXY = " \
     ament-cppcheck-native \
     ament-cpplint-native \
     ament-flake8-native \
+    ament-index-python-native \
     ament-lint-cmake-native \
     ament-mypy-native \
     ament-package-native \
@@ -250,12 +475,33 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_FOXY = " \
     ament-uncrustify-native \
     ament-xmllint-native \
     cmake-native \
+    connext-cmake-module-native \
+    git-native \
     gmock-vendor-native \
     gtest-native \
     gtest-vendor-native \
+    launch-testing-native \
+    python-cmake-module-native \
     python3-catkin-pkg-native \
+    python3-empy-native \
+    python3-native \
     python3-nose-native \
     python3-pytest-native \
+    rcutils-native \
+    rosidl-cmake-native \
+    rosidl-default-generators-native \
+    rosidl-generator-c-native \
+    rosidl-generator-cpp-native \
+    rosidl-generator-dds-idl-native \
+    rosidl-generator-py-native \
+    rosidl-runtime-c-native \
+    rosidl-runtime-cpp-native \
+    rosidl-typesupport-c-native \
+    rosidl-typesupport-connext-cpp-native \
+    rosidl-typesupport-cpp-native \
+    rosidl-typesupport-interface-native \
+    rosidl-typesupport-introspection-c-native \
+    rosidl-typesupport-introspection-cpp-native \
 "
 
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_append = " ${ROS_SUPERFLORE_GENERATED_BUILDTOOLS_FOXY}"
@@ -268,49 +514,107 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify} \
     cmake \
     cmake-native \
     console-bridge \
     cppcheck \
+    git-native \
+    glfw \
     gtest-native \
+    gtk+3 \
+    libtinyxml \
     libtinyxml2 \
+    libusb1 \
     libxml2 \
+    log4cxx \
+    mesa \
+    openssl \
+    pkgconfig \
     python3-catkin-pkg-native \
+    python3-empy \
+    python3-empy-native \
     python3-flake8 \
+    python3-lark-parser \
+    python3-mock \
+    python3-native \
     python3-nose-native \
+    python3-numpy \
     python3-pytest \
     python3-pytest-native \
     python3-pyyaml \
     python3-setuptools \
+    udev \
+    virtual/kernel \
 "
 
 # Packages found only in <test_depend> items. Does not include those found only in the ROS_*_DEPENDS of recipes of tests.
 ROS_SUPERFLORE_GENERATED_TESTS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
+    ament-cmake-gmock \
+    ament-cmake-gtest \
+    ament-cmake-pytest \
     ament-copyright \
     ament-flake8 \
     ament-lint-auto \
     ament-lint-common \
     ament-pep257 \
     ament-pycodestyle \
+    launch-testing \
+    launch-testing-ament-cmake \
     osrf-testing-tools-cpp \
+    python-cmake-module \
     python3-pytest \
+    rosidl-generator-cpp \
 "
 
 ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     ament-cmake \
+    ament-cmake-ros \
+    ament-index \
     ament-lint \
     ament-package \
+    class-loader \
+    common-interfaces \
     console-bridge-vendor \
+    eigen3-cmake-module \
+    fastcdr \
+    foonathan-memory-vendor \
     googletest \
+    launch \
+    librealsense \
+    libyaml-vendor \
+    osrf-pycommon \
     osrf-testing-tools-cpp \
+    pluginlib \
+    python-cmake-module \
+    rcl-interfaces \
+    rcl-logging \
+    rcpputils \
+    rcutils \
+    rmw \
+    rmw-connext \
+    rmw-dds-common \
     ros-workspace \
+    rosidl \
+    rosidl-dds \
+    rosidl-defaults \
+    rosidl-python \
+    rosidl-typesupport \
+    rosidl-typesupport-connext \
     spdlog-vendor \
     test-interface-files \
+    tinyxml-vendor \
     tinyxml2-vendor \
     uncrustify-vendor \
+    unique-identifier-msgs \
+    urdf \
+    urdfdom \
+    urdfdom-headers \
+    yaml-cpp-vendor \
 "
 
 # Platform packages without a OE-RECIPE@OE-LAYER mapping in base.yaml, python.yaml, or ruby.yaml. Until they are added, override
@@ -320,15 +624,17 @@ ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "UNRESOLVED-clang-tidy"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "UNRESOLVED-python3-mypy"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle = "UNRESOLVED-python3-pycodestyle"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock = "UNRESOLVED-python3-pytest-mock"
+ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = "UNRESOLVED-rti-connext-dds-5.3.1"
+ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = "UNRESOLVED-rti-connext-dds-5.3.1-native"
 ROS_UNRESOLVED_PLATFORM_PKG_spdlog = "UNRESOLVED-spdlog"
 ROS_UNRESOLVED_PLATFORM_PKG_uncrustify = "UNRESOLVED-uncrustify"
 
 # From the release announcement or the last field of the "release-ROS_DISTRO-YYYYMMDD" tag for the release in
 # https://github.com/ros2/ros2/releases. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "20200415"
+ROS_DISTRO_RELEASE_DATE = "20200428"
 
 # The commit of ros/rosdistro/foxy/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "c2c0e288438714c5bb1b0146174733e47d7d62b2"
+ROS_SUPERFLORE_GENERATION_COMMIT = "237d8887df4388463053defd46c3e721ae1396e9"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
