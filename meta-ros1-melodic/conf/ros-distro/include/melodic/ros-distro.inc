@@ -57,6 +57,12 @@ ROS_WORLD_SKIP_GROUPS += "osg"
 # src/mongo/client/dbclient.h and src/mongo/client/dbclientinterface.h are only in the legacy branches
 ROS_WORLD_SKIP_GROUPS += "mongodb-legacy-cxx-driver"
 
+# do_configure failures
+ROS_WORLD_SKIP_GROUPS += " \
+    dccomms-ros \
+    pyros-utils \
+"
+
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
     qt-gui-cpp \
