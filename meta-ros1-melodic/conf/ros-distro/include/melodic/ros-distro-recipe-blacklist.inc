@@ -78,6 +78,7 @@ PNBLACKLIST[control-box-rst] ?= "Depends on unavailable UNRESOLVED-coinor-libipo
 PNBLACKLIST[common-tutorials] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], 'Requires turtle-actionlib->turtlesim->qtbase which requires meta-qt5 to be included; qt5-widgets: needs widgets enabled in qtbase PACKAGECONFIG', '', d)}"
 PNBLACKLIST[cpr-multimaster-tools] ?= "Depends on multimaster-launch->master-discovery-fkie->unavailable UNRESOLVED-python-avahi"
 PNBLACKLIST[criutils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-deps', 'Depends on unavailable UNRESOLVED-python-termcolor', '', d)}"
+PNBLACKLIST[dccomms-ros] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dccomms-ros', 'dccomms-ros: do_configure tasks fails: fails to cross-compile bundled network simulator with waf triggered from CMake, using separate recipe for ns-3 might work better', '', d)}"
 PNBLACKLIST[desistek-saga-control] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, desistek-saga-description which is not available', '', d)}"
 PNBLACKLIST[desistek-saga-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
 PNBLACKLIST[desistek-saga-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, desistek-saga-description which is not available', '', d)}"
@@ -324,6 +325,7 @@ PNBLACKLIST[prbt-pg70-support] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS',
 PNBLACKLIST[prbt-support] ?= "Depends on canopen-motor-node->unavailable UNRESOLVED-muparser"
 PNBLACKLIST[psen-scan] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'Requires rviz which requires pyqt5 for python-qt-bindings and meta-qt5 to be included; ogre: Requires rviz which depends on unavailable ogre', '', d)}"
 PNBLACKLIST[py-trees-ros] ?= "Rdepends on unavailable UNRESOLVED-python-termcolor"
+PNBLACKLIST[pyros-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyros-utils', 'pyros-utils: do_configure tasks fails: pip from catkin-pip is not usable even with pythonnative', '', d)}"
 PNBLACKLIST[python-qt-binding] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'Requires meta-qt5 to be included and pyqt5 enabled', '', d)}"
 PNBLACKLIST[qt-dotgraph] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires python-qt-binding which requires meta-qt5 to be included', '', d)}"
 PNBLACKLIST[qt-gui-app] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'Requires qt-gui->qtbase which requires meta-qt5 to be included and qt-gui->python-pyqt5 which requires pyqt5', '', d)}"
@@ -544,10 +546,6 @@ PNBLACKLIST[sbpl-lattice-planner] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUP
 PNBLACKLIST[sick-scan] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[teb-local-planner] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'unknown-compile'], 'Depends on libg2o->mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[wamv-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-compile', 'unknown-compile: do_compile tasks fails for unknown reason', '', d)}"
-
-# do_configure issues in the generated recipes
-ROS_WORLD_SKIP_GROUPS += "unknown-configure"
-PNBLACKLIST[pyros-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 
 # Victims depend on something already blacklisted by the unknown failures above
 ROS_WORLD_SKIP_GROUPS += "unknown-victim"

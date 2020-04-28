@@ -1,0 +1,182 @@
+DEBUG: Executing shell function do_configure
+-- The CXX compiler identification is GNU 8.2.0
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/devel
+-- Using CMAKE_PREFIX_PATH: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot/usr/opt/ros/melodic;/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot/usr
+-- This workspace overlays: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot/usr/opt/ros/melodic
+-- Found PythonInterp: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/python-native/python2 (found suitable version "2.7.16", minimum required is "2") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/python-native/python2
+-- Using default Python package layout
+-- Found PY_em: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc  
+-- Using empy: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc
+-- Using CATKIN_ENABLE_TESTING: 0
+-- catkin 0.7.23
+-- BUILD_SHARED_LIBS is on
+-- Using these message generators: gencpp;gennodejs;genpy
+-- Resolving GIT Version...
+-- Could NOT find Git (missing: GIT_EXECUTABLE) 
+-- GIT not found
+-- Check NS3 libraries...
+NS3 build path: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build
+NS3 include path: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build
+NS3 headers dir: /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build/ns3
+-- Configure and build NS3 in /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build
+Setting top to                           : /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev 
+Setting out to                           : /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build 
+Checking for 'gcc' (C compiler)          : arm-webos-linux-gnueabi-gcc -march=armv7ve -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type --sysroot=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot 
+Checking for cc version                  : 8.2.0 
+Checking for 'g++' (C++ compiler)        : /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++ 
+Checking for compilation flag -Wl,--soname=foo support : ok 
+Checking for program 'python'                          : /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/python-native/python 
+Checking for python version                            : (2, 7, 16, 'final', 0) 
+python-config                                          : /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/python-native/python-config 
+Asking python-config for pyembed '--cflags --libs --ldflags' flags : yes 
+Testing pyembed configuration                                      : Could not build a python embedded interpreter 
+Checking boost includes                                            : headers not found, please provide a --boost-includes argument (see help) 
+Checking boost includes                                            : headers not found, please provide a --boost-includes argument (see help) 
+Checking for header stdint.h                                       : not found 
+Checking for click location                                        : not found 
+Checking for program 'pkg-config'                                  : /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/pkg-config 
+Checking for 'gtk+-2.0' >= 2.12                                    : not found 
+Checking for 'libxml-2.0' >= 2.7                                   : yes 
+Checking for type uint128_t                                        : not found 
+Checking for type __uint128_t                                      : not found 
+Checking high precision implementation                             : cairo 128-bit integer (default) 
+Checking for header stdint.h                                       : not found 
+Checking for header inttypes.h                                     : not found 
+Checking for header sys/inttypes.h                                 : not found 
+Checking for header sys/types.h                                    : not found 
+Checking for header sys/stat.h                                     : not found 
+Checking for header dirent.h                                       : not found 
+Checking for header stdlib.h                                       : not found 
+Checking for header signal.h                                       : not found 
+Checking for header pthread.h                                      : Could not find pthread support (build/config.log for details) 
+Checking for header stdint.h                                       : not found 
+Checking for header inttypes.h                                     : not found 
+Checking for header sys/inttypes.h                                 : not found 
+Checking for library rt                                            : not found 
+Checking for NSC location                                          : not found 
+Checking for 'sqlite3'                                             : yes 
+Checking boost includes                                            : headers not found, please provide a --boost-includes argument (see help) 
+Checking boost includes                                            : headers not found, please provide a --boost-includes argument (see help) 
+Checking for program 'sudo'                                        : /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/hosttools/sudo 
+Checking for program 'valgrind'                                    : not found 
+Checking for 'gsl'                                                 : not found 
+python-config                                                      : not found 
+Checking for compilation flag -Wno-error=deprecated-d... support   : ok 
+Checking for compilation flag -fstrict-aliasing support            : ok 
+Checking for compilation flag -Wstrict-aliasing support            : ok 
+Checking for program 'doxygen'                                     : not found 
+---- Summary of optional NS-3 features:
+Build profile                 : debug
+Build directory               : /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build
+BRITE Integration             : not enabled (BRITE not enabled (see option --with-brite))
+DES Metrics event collection  : not enabled (defaults to disabled)
+Examples                      : enabled
+File descriptor NetDevice     : not enabled (needs threading support which is not available)
+GNU Scientific Library (GSL)  : not enabled (GSL not found)
+Gcrypt library                : not enabled (libgcrypt not found: you can use libgcrypt-config to find its location.)
+GtkConfigStore                : not enabled (library 'gtk+-2.0 >= 2.12' not found)
+MPI Support                   : not enabled (option --enable-mpi not selected)
+NS-3 Click Integration        : not enabled (nsclick not enabled (see option --with-nsclick))
+NS-3 OpenFlow Integration     : not enabled (Required boost libraries not found)
+Network Simulation Cradle     : not enabled (NSC not found (see option --with-nsc))
+PyViz visualizer              : not enabled (Python Bindings are needed but not enabled)
+Python Bindings               : not enabled (Python library or headers missing)
+Real Time Simulator           : not enabled (librt is not available)
+SQlite stats data output      : enabled
+Tap Bridge                    : not enabled (needs threading support which is not available)
+Tests                         : enabled
+Threading Primitives          : not enabled (<pthread.h> include not detected)
+Use sudo to set suid bit      : not enabled (option --enable-sudo not selected)
+XmlIo                         : enabled
+'configure' finished successfully (4.410s)
+Waf: Entering directory `/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build'
+[ 937/2626] Compiling examples/routing/dynamic-global-routing.cc
+[ 938/2626] Compiling examples/routing/static-routing-slash32.cc
+[ 939/2626] Compiling examples/routing/global-routing-slash32.cc
+[ 940/2626] Compiling examples/routing/global-injection-slash32.cc
+In file included from ./ns3/core-module.h:19,
+                 from ../examples/routing/dynamic-global-routing.cc:70:
+./ns3/cairo-wideint-private.h:89:2: error: #error Cannot find definitions for fixed-width integral types (uint8_t, uint32_t, etc.)
+ #error Cannot find definitions for fixed-width integral types (uint8_t, uint32_t, etc.)
+  ^~~~~
+In file included from ./ns3/core-module.h:25,
+                 from ../examples/routing/dynamic-global-routing.cc:70:
+./ns3/default-simulator-impl.h:27:10: fatal error: system-thread.h: No such file or directory
+ #include "system-thread.h"
+          ^~~~~~~~~~~~~~~~~
+compilation terminated.
+
+In file included from ./ns3/core-module.h:19,
+                 from ../examples/routing/static-routing-slash32.cc:27:
+./ns3/cairo-wideint-private.h:89:2: error: #error Cannot find definitions for fixed-width integral types (uint8_t, uint32_t, etc.)
+ #error Cannot find definitions for fixed-width integral types (uint8_t, uint32_t, etc.)
+  ^~~~~
+In file included from ./ns3/core-module.h:25,
+                 from ../examples/routing/static-routing-slash32.cc:27:
+./ns3/default-simulator-impl.h:27:10: fatal error: system-thread.h: No such file or directory
+ #include "system-thread.h"
+          ^~~~~~~~~~~~~~~~~
+compilation terminated.
+
+In file included from ./ns3/int64x64-cairo.h:26,
+                 from ./ns3/int64x64.h:32,
+                 from ./ns3/nstime.h:26,
+                 from ./ns3/backoff.h:26,
+                 from ./ns3/csma-net-device.h:26,
+                 from ../examples/routing/global-injection-slash32.cc:27:
+./ns3/cairo-wideint-private.h:89:2: error: #error Cannot find definitions for fixed-width integral types (uint8_t, uint32_t, etc.)
+ #error Cannot find definitions for fixed-width integral types (uint8_t, uint32_t, etc.)
+  ^~~~~
+In file included from ./ns3/core-module.h:25,
+                 from ../examples/routing/global-injection-slash32.cc:28:
+./ns3/default-simulator-impl.h:27:10: fatal error: system-thread.h: No such file or directory
+ #include "system-thread.h"
+          ^~~~~~~~~~~~~~~~~
+compilation terminated.
+
+In file included from ./ns3/int64x64-cairo.h:26,
+                 from ./ns3/int64x64.h:32,
+                 from ./ns3/nstime.h:26,
+                 from ./ns3/backoff.h:26,
+                 from ./ns3/csma-net-device.h:26,
+                 from ../examples/routing/global-routing-slash32.cc:27:
+./ns3/cairo-wideint-private.h:89:2: error: #error Cannot find definitions for fixed-width integral types (uint8_t, uint32_t, etc.)
+ #error Cannot find definitions for fixed-width integral types (uint8_t, uint32_t, etc.)
+  ^~~~~
+In file included from ./ns3/core-module.h:25,
+                 from ../examples/routing/global-routing-slash32.cc:28:
+./ns3/default-simulator-impl.h:27:10: fatal error: system-thread.h: No such file or directory
+ #include "system-thread.h"
+          ^~~~~~~~~~~~~~~~~
+compilation terminated.
+
+Waf: Leaving directory `/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build'
+Build failed
+ -> task in 'dynamic-global-routing' failed (exit status 1): 
+	{task 139889848022736: cxx dynamic-global-routing.cc -> dynamic-global-routing.cc.1.o}
+['/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++', '-O2', '-pipe', '-g', '-feliminate-unused-debug-types', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0=/usr/src/debug/dccomms-ros/0.0.3-1-r0', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot=', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native=', '-fvisibility-inlines-hidden', '-march=armv7ve', '-mthumb', '-mfpu=neon-vfpv4', '-mfloat-abi=hard', '-mcpu=cortex-a7', '-fstack-protector-strong', '-D_FORTIFY_SOURCE=2', '-Wformat', '-Wformat-security', '-Werror=format-security', '-Werror=return-type', '--sysroot=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot', '-std=c++11', '-I.', '-I..', '-I/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot/usr/include/libxml2', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SQLITE3=1', '-DHAVE_LIBXML2=1', '../examples/routing/dynamic-global-routing.cc', '-c', '-o', '/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build/examples/routing/dynamic-global-routing.cc.1.o']
+ -> task in 'static-routing-slash32' failed (exit status 1): 
+	{task 139889848023056: cxx static-routing-slash32.cc -> static-routing-slash32.cc.2.o}
+['/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++', '-O2', '-pipe', '-g', '-feliminate-unused-debug-types', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0=/usr/src/debug/dccomms-ros/0.0.3-1-r0', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot=', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native=', '-fvisibility-inlines-hidden', '-march=armv7ve', '-mthumb', '-mfpu=neon-vfpv4', '-mfloat-abi=hard', '-mcpu=cortex-a7', '-fstack-protector-strong', '-D_FORTIFY_SOURCE=2', '-Wformat', '-Wformat-security', '-Werror=format-security', '-Werror=return-type', '--sysroot=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot', '-std=c++11', '-I.', '-I..', '-I/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot/usr/include/libxml2', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SQLITE3=1', '-DHAVE_LIBXML2=1', '../examples/routing/static-routing-slash32.cc', '-c', '-o', '/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build/examples/routing/static-routing-slash32.cc.2.o']
+ -> task in 'global-injection-slash32' failed (exit status 1): 
+	{task 139889848024208: cxx global-injection-slash32.cc -> global-injection-slash32.cc.4.o}
+['/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++', '-O2', '-pipe', '-g', '-feliminate-unused-debug-types', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0=/usr/src/debug/dccomms-ros/0.0.3-1-r0', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot=', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native=', '-fvisibility-inlines-hidden', '-march=armv7ve', '-mthumb', '-mfpu=neon-vfpv4', '-mfloat-abi=hard', '-mcpu=cortex-a7', '-fstack-protector-strong', '-D_FORTIFY_SOURCE=2', '-Wformat', '-Wformat-security', '-Werror=format-security', '-Werror=return-type', '--sysroot=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot', '-std=c++11', '-I.', '-I..', '-I/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot/usr/include/libxml2', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SQLITE3=1', '-DHAVE_LIBXML2=1', '../examples/routing/global-injection-slash32.cc', '-c', '-o', '/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build/examples/routing/global-injection-slash32.cc.4.o']
+ -> task in 'global-routing-slash32' failed (exit status 1): 
+	{task 139889848023632: cxx global-routing-slash32.cc -> global-routing-slash32.cc.3.o}
+['/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++', '-O2', '-pipe', '-g', '-feliminate-unused-debug-types', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0=/usr/src/debug/dccomms-ros/0.0.3-1-r0', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot=', '-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot-native=', '-fvisibility-inlines-hidden', '-march=armv7ve', '-mthumb', '-mfpu=neon-vfpv4', '-mfloat-abi=hard', '-mcpu=cortex-a7', '-fstack-protector-strong', '-D_FORTIFY_SOURCE=2', '-Wformat', '-Wformat-security', '-Werror=format-security', '-Werror=return-type', '--sysroot=/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot', '-std=c++11', '-I.', '-I..', '-I/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/recipe-sysroot/usr/include/libxml2', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SQLITE3=1', '-DHAVE_LIBXML2=1', '../examples/routing/global-routing-slash32.cc', '-c', '-o', '/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/git/modules/ns-3-dev/build/examples/routing/global-routing-slash32.cc.3.o']
+NS3 modules: ns3-dev-antenna-debug;ns3-dev-flow-monitor-test-debug;ns3-dev-propagation-debug;ns3-dev-antenna-test-debug;ns3-dev-internet-apps-debug;ns3-dev-propagation-test-debug;ns3-dev-aodv-debug;ns3-dev-internet-apps-test-debug;ns3-dev-sixlowpan-debug;ns3-dev-aodv-test-debug;ns3-dev-internet-debug;ns3-dev-sixlowpan-test-debug;ns3-dev-applications-debug;ns3-dev-internet-test-debug;ns3-dev-spectrum-debug;ns3-dev-applications-test-debug;ns3-dev-lr-wpan-debug;ns3-dev-spectrum-test-debug;ns3-dev-aqua-sim-ng-debug;ns3-dev-lr-wpan-test-debug;ns3-dev-stats-debug;ns3-dev-aqua-sim-ng-test-debug;ns3-dev-lte-debug;ns3-dev-stats-test-debug;ns3-dev-bridge-debug;ns3-dev-lte-test-debug;ns3-dev-tap-bridge-debug;ns3-dev-buildings-debug;ns3-dev-mesh-debug;ns3-dev-test-debug;ns3-dev-buildings-test-debug;ns3-dev-mesh-test-debug;ns3-dev-test-test-debug;ns3-dev-config-store-debug;ns3-dev-mobility-debug;ns3-dev-topology-read-debug;ns3-dev-core-debug;ns3-dev-mobility-test-debug;ns3-dev-topology-read-test-debug;ns3-dev-core-test-debug;ns3-dev-mpi-debug;ns3-dev-traffic-control-debug;ns3-dev-csma-debug;ns3-dev-netanim-debug;ns3-dev-traffic-control-test-debug;ns3-dev-csma-layout-debug;ns3-dev-netanim-test-debug;ns3-dev-uan-debug;ns3-dev-dsdv-debug;ns3-dev-network-debug;ns3-dev-uan-test-debug;ns3-dev-dsdv-test-debug;ns3-dev-network-test-debug;ns3-dev-virtual-net-device-debug;ns3-dev-dsr-debug;ns3-dev-nix-vector-routing-debug;ns3-dev-wave-debug;ns3-dev-dsr-test-debug;ns3-dev-olsr-debug;ns3-dev-wave-test-debug;ns3-dev-energy-debug;ns3-dev-olsr-test-debug;ns3-dev-wifi-debug;ns3-dev-energy-test-debug;ns3-dev-point-to-point-debug;ns3-dev-wifi-test-debug;ns3-dev-fd-net-device-debug;ns3-dev-point-to-point-layout-debug;ns3-dev-wimax-debug;ns3-dev-flow-monitor-debug;ns3-dev-point-to-point-test-debug;ns3-dev-wimax-test-debug
+CMake Error at CMakeLists.txt:142 (message):
+  NS3 LIBRARY ns3-dev-antenna-debug NOT FOUND
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/build/CMakeFiles/CMakeOutput.log".
+WARNING: exit code 1 from a shell command.
+ERROR: Function failed: do_configure (log file is located at /jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/dccomms-ros/0.0.3-1-r0/temp/log.do_configure.47314)
