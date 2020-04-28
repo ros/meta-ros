@@ -407,6 +407,7 @@ clang-tidy:
     buster: [clang-tidy]
     stretch: [clang-tidy]
   fedora: [clang-tools-extra]
+  gentoo: [sys-devel/clang]
   osx:
     homebrew:
       packages: [llvm]
@@ -1608,6 +1609,12 @@ libblas-dev:
   gentoo: [virtual/blas]
   openembedded: [openblas@meta-ros]
   ubuntu: [libblas-dev]
+libbluetooth:
+  arch: [bluez]
+  debian: [libbluetooth3]
+  fedora: [bluez-libs]
+  gentoo: [net-wireless/bluez-libs]
+  ubuntu: [libbluetooth3]
 libbluetooth-dev:
   arch: [bluez]
   debian: [libbluetooth-dev]
@@ -1986,6 +1993,22 @@ libdxflib-dev:
   debian: [libdxflib-dev]
   fedora: [libdxflib-devel]
   ubuntu: [libdxflib-dev]
+libedit:
+  arch: [libedit]
+  debian: [libedit2]
+  fedora: [libedit]
+  gentoo: [dev-libs/libedit]
+  macports: [libedit]
+  rhel: [libedit]
+  ubuntu: [libedit2]
+libedit-dev:
+  arch: [libedit]
+  debian: [libedit-dev]
+  fedora: [libedit-devel]
+  gentoo: [dev-libs/libedit]
+  macports: [libedit]
+  rhel: [libedit-devel]
+  ubuntu: [libedit-dev]
 libesd0-dev:
   debian: [libesd0-dev]
   fedora: [esound-devel]
@@ -3097,6 +3120,7 @@ libpng-dev:
   gentoo: [media-libs/libpng]
   macports: [libpng]
   opensuse: [libpng12-devel]
+  rhel: [libpng-devel]
   slackware: [libpng]
   ubuntu:
     '*': [libpng-dev]
@@ -3410,9 +3434,10 @@ libqt5-opengl:
 libqt5-opengl-dev:
   arch: [qt5-base]
   debian: [libqt5opengl5-dev]
-  fedora: [qt5-qtbase]
+  fedora: [qt5-qtbase-devel]
   freebsd: [qt5-opengl]
   gentoo: ['dev-qt/qtopengl:5']
+  rhel: [qt5-qtbase-devel]
   slackware: [qt5]
   ubuntu: [libqt5opengl5-dev]
 libqt5-printsupport:
@@ -4162,6 +4187,7 @@ libxml2:
 libxml2-utils:
   debian: [libxml2-utils]
   fedora: [libxml2]
+  gentoo: [dev-libs/libxml2]
   openembedded: [libxml2@openembedded-core]
   osx:
     homebrew:
@@ -4290,8 +4316,7 @@ log4cplus:
   arch: [log4cplus]
   debian: [liblog4cplus-dev]
   fedora: [log4cplus-devel]
-  rhel:
-    '7': [log4cplus-devel]
+  rhel: [log4cplus-devel]
   ubuntu: [liblog4cplus-dev]
 log4cxx:
   alpine: [log4cxx-dev]
@@ -4990,6 +5015,7 @@ protobuf:
   gentoo: [dev-libs/protobuf]
   macports: [protobuf-cpp]
   opensuse: [libprotobuf9]
+  rhel: [protobuf]
   slackware: [protobuf]
   ubuntu:
     artful: [libprotobuf10]
