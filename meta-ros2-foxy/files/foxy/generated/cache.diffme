@@ -1,4 +1,4 @@
-# foxy/cache.yaml 20200415 c2c0e288438714c5bb1b0146174733e47d7d62b2 20200414220106 1.4.0
+# foxy/cache.yaml 20200428 237d8887df4388463053defd46c3e721ae1396e9 20200428175726 1.4.0
 distribution_file:
 - release_platforms:
 -----
@@ -7,6 +7,11 @@ ubuntu: [focal]
 repositories:
 -----
 ament_cmake: {
+doc: {
+type: git,
+url: 'https://github.com/ament/ament_cmake.git',
+version: master
+},
 release: {
 packages: [ament_cmake,
 ament_cmake_auto,
@@ -17,6 +22,7 @@ ament_cmake_export_include_directories,
 ament_cmake_export_interfaces,
 ament_cmake_export_libraries,
 ament_cmake_export_link_flags,
+ament_cmake_export_targets,
 ament_cmake_gmock,
 ament_cmake_gtest,
 ament_cmake_include_directories,
@@ -31,7 +37,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ament_cmake-release.git',
-version: 0.8.1-3
+version: 0.9.1-1
 },
 source: {
 test_pull_requests: true,
@@ -40,6 +46,54 @@ url: 'https://github.com/ament/ament_cmake.git',
 version: master
 },
 status: developed
+}
+-----
+ament_cmake_ros: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/ament_cmake_ros.git',
+version: master
+},
+release: {
+packages: [ament_cmake_ros,
+domain_coordinator],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ament_cmake_ros-release.git',
+version: 0.9.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/ament_cmake_ros.git',
+version: master
+},
+status: maintained
+}
+-----
+ament_index: {
+doc: {
+type: git,
+url: 'https://github.com/ament/ament_index.git',
+version: master
+},
+release: {
+packages: [ament_index_cpp,
+ament_index_python],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ament_index-release.git',
+version: 0.8.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ament/ament_index.git',
+version: master
+},
+status: maintained
 }
 -----
 ament_lint: {
@@ -106,7 +160,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ament_package-release.git',
-version: 0.8.5-1
+version: 0.9.0-1
 },
 source: {
 test_pull_requests: true,
@@ -115,6 +169,62 @@ url: 'https://github.com/ament/ament_package.git',
 version: master
 },
 status: developed
+}
+-----
+class_loader: {
+doc: {
+type: git,
+url: 'https://github.com/ros/class_loader.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/class_loader-release.git',
+version: 2.0.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros/class_loader.git',
+version: ros2
+},
+status: maintained
+}
+-----
+common_interfaces: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/common_interfaces.git',
+version: master
+},
+release: {
+packages: [actionlib_msgs,
+common_interfaces,
+diagnostic_msgs,
+geometry_msgs,
+nav_msgs,
+sensor_msgs,
+shape_msgs,
+std_msgs,
+std_srvs,
+stereo_msgs,
+trajectory_msgs,
+visualization_msgs],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/common_interfaces-release.git',
+version: 0.9.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/common_interfaces.git',
+version: master
+},
+status: maintained
 }
 -----
 console_bridge_vendor: {
@@ -139,6 +249,61 @@ version: master
 status: maintained
 }
 -----
+eigen3_cmake_module: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/eigen3_cmake_module.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/eigen3_cmake_module-release.git',
+version: 0.1.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros2/eigen3_cmake_module.git',
+version: master
+},
+status: maintained
+}
+-----
+fastcdr: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/fastcdr-release.git',
+version: 1.0.13-1
+},
+source: {
+test_commits: false,
+test_pull_requests: false,
+type: git,
+url: 'https://github.com/eProsima/Fast-CDR.git',
+version: v1.0.13
+},
+status: maintained
+}
+-----
+foonathan_memory_vendor: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/foonathan_memory_vendor-release.git',
+version: 0.6.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/eProsima/foonathan_memory_vendor.git',
+version: master
+},
+status: maintained
+}
+-----
 googletest: {
 release: {
 packages: [gmock_vendor,
@@ -157,6 +322,93 @@ version: ros2
 status: maintained
 }
 -----
+launch: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/launch.git',
+version: master
+},
+release: {
+packages: [launch,
+launch_testing,
+launch_testing_ament_cmake,
+launch_xml,
+launch_yaml],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/launch-release.git',
+version: 0.10.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/launch.git',
+version: master
+},
+status: developed
+}
+-----
+librealsense: {
+doc: {
+type: git,
+url: 'https://github.com/IntelRealSense/librealsense.git',
+version: ros2debian
+},
+release: {
+packages: [librealsense2],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/librealsense-release.git',
+version: 2.34.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/IntelRealSense/librealsense.git',
+version: ros2debian
+},
+status: maintained
+}
+-----
+libyaml_vendor: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/libyaml_vendor-release.git',
+version: 1.0.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/libyaml_vendor.git',
+version: master
+},
+status: maintained
+}
+-----
+osrf_pycommon: {
+doc: {
+type: git,
+url: 'https://github.com/osrf/osrf_pycommon.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/osrf_pycommon-release.git',
+version: 0.1.9-1
+},
+source: {
+type: git,
+url: 'https://github.com/osrf/osrf_pycommon.git',
+version: master
+},
+status: maintained
+}
+-----
 osrf_testing_tools_cpp: {
 doc: {
 type: git,
@@ -170,7 +422,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/osrf_testings_tools_cpp-release.git',
-version: 1.3.0-1
+version: 1.3.1-1
 },
 source: {
 test_pull_requests: true,
@@ -181,18 +433,398 @@ version: master
 status: maintained
 }
 -----
+pluginlib: {
+doc: {
+type: git,
+url: 'https://github.com/ros/pluginlib.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/pluginlib-release.git',
+version: 2.5.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros/pluginlib.git',
+version: ros2
+},
+status: maintained
+}
+-----
+python_cmake_module: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/python_cmake_module.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/python_cmake_module-release.git',
+version: 0.8.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros2/python_cmake_module.git',
+version: master
+},
+status: developed
+}
+-----
+rcl_interfaces: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rcl_interfaces.git',
+version: master
+},
+release: {
+packages: [action_msgs,
+builtin_interfaces,
+composition_interfaces,
+lifecycle_msgs,
+rcl_interfaces,
+rosgraph_msgs,
+statistics_msgs,
+test_msgs],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rcl_interfaces-release.git',
+version: 0.9.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rcl_interfaces.git',
+version: master
+},
+status: maintained
+}
+-----
+rcl_logging: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rcl_logging.git',
+version: master
+},
+release: {
+packages: [rcl_logging_log4cxx,
+rcl_logging_noop,
+rcl_logging_spdlog],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rcl_logging-release.git',
+version: 0.4.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rcl_logging.git',
+version: master
+},
+status: maintained
+}
+-----
+rcpputils: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rcpputils.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rcpputils-release.git',
+version: 0.3.0-2
+},
+source: {
+type: git,
+url: 'https://github.com/ros2/rcpputils.git',
+version: master
+},
+status: developed
+}
+-----
+rcutils: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rcutils.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rcutils-release.git',
+version: 0.9.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rcutils.git',
+version: master
+},
+status: maintained
+}
+-----
+rmw: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rmw.git',
+version: master
+},
+release: {
+packages: [rmw,
+rmw_implementation_cmake],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rmw-release.git',
+version: 0.9.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rmw.git',
+version: master
+},
+status: maintained
+}
+-----
+rmw_connext: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rmw_connext.git',
+version: master
+},
+release: {
+packages: [rmw_connext_cpp,
+rmw_connext_shared_cpp],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rmw_connext-release.git',
+version: 0.9.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rmw_connext.git',
+version: master
+},
+status: maintained
+}
+-----
+rmw_dds_common: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rmw_dds_common.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rmw_dds_common-release.git',
+version: 0.1.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rmw_dds_common.git',
+version: master
+},
+status: maintained
+}
+-----
+ros2_tracing: {
+release: {
+packages: [tracetools,
+tracetools_read,
+tracetools_trace],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release.git',
+version: 1.0.0-1
+},
+source: {
+type: git,
+url: 'https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing.git',
+version: foxy
+},
+status: developed
+}
+-----
 ros_workspace: {
 release: {
 tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros_workspace-release.git',
-version: 0.8.0-3
+version: 0.8.0-4
 },
 source: {
 type: git,
 url: 'https://github.com/ros2/ros_workspace.git',
 version: latest
+},
+status: maintained
+}
+-----
+rosidl: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rosidl.git',
+version: master
+},
+release: {
+packages: [rosidl_adapter,
+rosidl_cmake,
+rosidl_generator_c,
+rosidl_generator_cpp,
+rosidl_parser,
+rosidl_runtime_c,
+rosidl_runtime_cpp,
+rosidl_typesupport_interface,
+rosidl_typesupport_introspection_c,
+rosidl_typesupport_introspection_cpp],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rosidl-release.git',
+version: 0.9.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rosidl.git',
+version: master
+},
+status: maintained
+}
+-----
+rosidl_dds: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rosidl_dds.git',
+version: master
+},
+release: {
+packages: [rosidl_generator_dds_idl],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rosidl_dds-release.git',
+version: 0.7.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rosidl_dds.git',
+version: master
+},
+status: maintained
+}
+-----
+rosidl_defaults: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rosidl_defaults.git',
+version: master
+},
+release: {
+packages: [rosidl_default_generators,
+rosidl_default_runtime],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rosidl_defaults-release.git',
+version: 0.9.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rosidl_defaults.git',
+version: master
+},
+status: maintained
+}
+-----
+rosidl_python: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rosidl_python.git',
+version: master
+},
+release: {
+packages: [rosidl_generator_py],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rosidl_python-release.git',
+version: 0.9.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rosidl_python.git',
+version: master
+},
+status: maintained
+}
+-----
+rosidl_typesupport: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rosidl_typesupport.git',
+version: master
+},
+release: {
+packages: [rosidl_typesupport_c,
+rosidl_typesupport_cpp],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rosidl_typesupport-release.git',
+version: 0.9.0-2
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/rosidl_typesupport.git',
+version: master
+},
+status: maintained
+}
+-----
+rosidl_typesupport_connext: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/rosidl_typesupport_connext.git',
+version: master
+},
+release: {
+packages: [connext_cmake_module,
+rosidl_typesupport_connext_c,
+rosidl_typesupport_connext_cpp],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rosidl_typesupport_connext-release.git',
+version: 0.9.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros2/rosidl_typesupport_connext.git',
+version: master
 },
 status: maintained
 }
@@ -203,7 +835,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/spdlog_vendor-release.git',
-version: 1.1.0-1
+version: 1.1.1-1
 },
 source: {
 test_pull_requests: true,
@@ -258,6 +890,23 @@ version: master
 status: maintained
 }
 -----
+tinyxml_vendor: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/tinyxml_vendor-release.git',
+version: 0.8.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/tinyxml_vendor.git',
+version: master
+},
+status: maintained
+}
+-----
 uncrustify_vendor: {
 release: {
 tags: {
@@ -274,11 +923,159 @@ version: master
 status: maintained
 }
 -----
+unique_identifier_msgs: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/unique_identifier_msgs.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/unique_identifier_msgs-release.git',
+version: 2.1.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/unique_identifier_msgs.git',
+version: master
+},
+status: maintained
+}
+-----
+urdf: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/urdf.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/urdf-release.git',
+version: 2.3.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/urdf.git',
+version: ros2
+},
+status: maintained
+}
+-----
+urdfdom: {
+doc: {
+type: git,
+url: 'https://github.com/ros2/urdfdom.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/urdfdom-release.git',
+version: 2.3.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/urdfdom.git',
+version: ros2
+},
+status: maintained
+}
+-----
+urdfdom_headers: {
+doc: {
+type: git,
+url: 'https://github.com/ros/urdfdom_headers.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/urdfdom_headers-release.git',
+version: 1.0.4-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros/urdfdom_headers.git',
+version: master
+},
+status: maintained
+}
+-----
+yaml_cpp_vendor: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/yaml_cpp_vendor-release.git',
+version: 7.0.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros2/yaml_cpp_vendor.git',
+version: master
+},
+status: maintained
+}
+-----
 type: distribution
 -----
 version: 2
 name: foxy
 release_package_xmls:
+-----
+action_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>action_msgs</name>
+<description>Messages and service definitions common among all ROS actions.</description>
+<maintainer email="karsten@osrfoundation.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<author email="jacob@openrobotics.org">Jacob Perron</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>builtin_interfaces</depend>
+<depend>unique_identifier_msgs</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+actionlib_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>actionlib_msgs</name>
+<description>A package containing some message definitions used in the implementation of ROS 1 actions.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+<deprecated>This package will be removed in a future ROS distro,
+once the ROS 1 bridge supports actions.</deprecated>
+</export>
+</package>
 -----
 ament_clang_format: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -334,6 +1131,7 @@ ament_cmake: <?xml version="1.0" ?>
 <build_export_depend>ament_cmake_export_interfaces</build_export_depend>
 <build_export_depend>ament_cmake_export_libraries</build_export_depend>
 <build_export_depend>ament_cmake_export_link_flags</build_export_depend>
+<build_export_depend>ament_cmake_export_targets</build_export_depend>
 <build_export_depend>ament_cmake_libraries</build_export_depend>
 <build_export_depend>ament_cmake_python</build_export_depend>
 <build_export_depend>ament_cmake_target_dependencies</build_export_depend>
@@ -547,6 +1345,21 @@ ament_cmake_export_link_flags: <?xml version="1.0" ?>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_export_targets: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_export_targets</name>
+<description>The ability to export targets to downstream packages in the ament buildsystem in CMake.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_export_libraries</buildtool_export_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -786,6 +1599,26 @@ ament_cmake_python: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+ament_cmake_ros: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_ros</name>
+<description>The ROS specific CMake bits in the ament buildsystem.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>domain_coordinator</depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_gtest</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_gmock</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_pytest</buildtool_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 ament_cmake_target_dependencies: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -924,6 +1757,38 @@ ament_flake8: <?xml version="1.0" ?>
 <author email="dhood@osrfoundation.org">D. Hood</author>
 <exec_depend>ament_lint</exec_depend>
 <exec_depend>python3-flake8</exec_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ament_index_cpp: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_index_cpp</name>
+<description>C++ API to access the ament resource index.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_index_python: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_index_python</name>
+<description>Python API to access the ament resource index.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
 <export>
 <build_type>ament_python</build_type>
 </export>
@@ -1120,6 +1985,110 @@ ament_xmllint: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+builtin_interfaces: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>builtin_interfaces</name>
+<description>A package containing message and service definitions for types defined in the OMG IDL Platform Specific Model.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+class_loader: <?xml version="1.0" ?>
+<package format="2">
+<name>class_loader</name>
+<description>The class_loader package is a ROS-independent package for loading plugins during runtime and the foundation of the higher level ROS &quot;pluginlib&quot; library. class_loader utilizes the host operating system's runtime loader to open runtime libraries (e.g. .so/.dll files),
+introspect the library for exported plugin classes,
+and allows users to instantiate objects of these exported classes without the explicit declaration (i.e. header file) for those classes.</description>
+<maintainer email="stevenragnarok@osrfoundation.org">Steven! Ragnarök</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/class_loader</url>
+<author>Mirza Shah</author>
+<author>Dirk Thomas</author>
+<build_depend>console_bridge_vendor</build_depend>
+<build_depend>libconsole-bridge-dev</build_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>console_bridge_vendor</exec_depend>
+<exec_depend>libconsole-bridge-dev</exec_depend>
+<depend>rcpputils</depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+common_interfaces: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>common_interfaces</name>
+<description>common_interfaces contains messages and services that are widely used by other ROS packages.</description>
+<maintainer email="scott@openrobotics.org">Scott K Logan</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>actionlib_msgs</exec_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>diagnostic_msgs</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>nav_msgs</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<exec_depend>shape_msgs</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>std_srvs</exec_depend>
+<exec_depend>stereo_msgs</exec_depend>
+<exec_depend>trajectory_msgs</exec_depend>
+<exec_depend>visualization_msgs</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+composition_interfaces: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>composition_interfaces</name>
+<description>A package containing message and service definitions for managing composable nodes in a container process.</description>
+<maintainer email="sloretz@osrfoundation.org">Shane Loretz</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>rcl_interfaces</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+connext_cmake_module: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>connext_cmake_module</name>
+<description>Provide CMake module to find RTI Connext.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<build_depend>rti-connext-dds-5.3.1</build_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 console_bridge_vendor: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
 <package format=\"2\">
@@ -1138,6 +2107,113 @@ it provides an ExternalProject build of console_bridge.</description>
 <build_type>ament_cmake</build_type>
 </export>
 </package>"
+-----
+diagnostic_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>diagnostic_msgs</name>
+<description>A package containing some diagnostics related message and service definitions.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+domain_coordinator: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>domain_coordinator</name>
+<description>A tool to coordinate unique ROS_DOMAIN_IDs across multiple processes</description>
+<maintainer email="pete.baughman@apex.ai">Pete Baughman</maintainer>
+<license>Apache License 2.0</license>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+eigen3_cmake_module: <?xml version="1.0" ?>
+<package format="2">
+<name>eigen3_cmake_module</name>
+<description>Exports a custom CMake module to find Eigen3.</description>
+<author email="sloretz@openrobotics.org">Shane Loretz</author>
+<maintainer email="sloretz@openrobotics.org">Shane Loretz</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+fastcdr: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fastcdr</name>
+<description>CDR serialization implementation.</description>
+<maintainer email="stevenragnarok@osrfoundation.org">Steven! Ragnarök</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+foonathan_memory_vendor: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
+<name>foonathan_memory_vendor</name>
+<description>Foonathan/memory vendor package for Fast-RTPS.</description>
+<maintainer email=\"miguelcompany@eprosima.com\">Miguel Company</maintainer>
+<maintainer email=\"steven@openrobotics.org\">Steven! Ragnarök</maintainer>
+<license>Apache License 2.0</license>
+<license>zlib License</license>
+<buildtool_depend>cmake</buildtool_depend>
+<buildtool_depend>git</buildtool_depend>
+<buildtool_export_depend>cmake</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<test_depend>ament_cmake_test</test_depend>
+<test_depend>ament_cmake_xmllint</test_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>"
+-----
+geometry_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>geometry_msgs</name>
+<description>A package containing some geometry related message definitions.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
 -----
 gmock_vendor: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -1166,6 +2242,208 @@ gtest_vendor: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+launch: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>launch</name>
+<description>The ROS launch tool.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<depend>osrf_pycommon</depend>
+<exec_depend>ament_index_python</exec_depend>
+<exec_depend>python3-lark-parser</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+launch_testing: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>launch_testing</name>
+<description>A package to create tests which involve launch files and multiple processes.</description>
+<maintainer email="pete.baughman@apex.ai">Pete Baughman</maintainer>
+<author email="pete.baughman@apex.ai">Pete Baughman</author>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
+<author>Esteve Fernandez</author>
+<license>Apache License 2.0</license>
+<exec_depend>ament_index_python</exec_depend>
+<exec_depend>launch</exec_depend>
+<exec_depend>osrf_pycommon</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>launch</test_depend>
+<test_depend>python3-pytest</test_depend>
+<test_depend>python3-mock</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+launch_testing_ament_cmake: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>launch_testing_ament_cmake</name>
+<description>A package providing cmake functions for running launch tests from the build.</description>
+<maintainer email="pete.baughman@apex.ai">Pete Baughman</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake_test</buildtool_export_depend>
+<buildtool_export_depend>python_cmake_module</buildtool_export_depend>
+<buildtool_export_depend>launch_testing</buildtool_export_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>launch_testing</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+launch_xml: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>launch_xml</name>
+<description>XML frontend for the launch package.</description>
+<maintainer email="ivanpauno@ekumenlabs.com">Ivan Paunovic</maintainer>
+<license>Apache License 2.0</license>
+<depend>launch</depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+launch_yaml: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>launch_yaml</name>
+<description>YAML frontend for the launch package.</description>
+<maintainer email="ivanpauno@ekumenlabs.com">Ivan Paunovic</maintainer>
+<license>Apache License 2.0</license>
+<depend>launch</depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+librealsense2: <?xml version="1.0" ?>
+<package format="2">
+<name>librealsense2</name>
+<description>Library for capturing data from the Intel(R) RealSense(TM) SR300,
+D400 Depth cameras and T2xx Tracking devices. This effort was initiated to better support researchers,
+creative coders,
+and app developers in domains such as robotics,
+virtual reality,
+and the internet of things. Several often-requested features of RealSense(TM); devices are implemented in this project.</description>
+<maintainer email="sergey.dorodnicov@intel.com">Sergey Dorodnicov</maintainer>
+<url type="website">https://github.com/IntelRealSense/librealsense/</url>
+<author email="sergey.dorodnicov@intel.com">Sergey Dorodnicov</author>
+<author email="doron.hirshberg@intel.com">Doron Hirshberg</author>
+<author email="mark.d.horn@intel.com">Mark Horn</author>
+<author email="reagan.lopez@intel.com">Reagan Lopez</author>
+<author email="itay.carpis@intel.com">Itay Carpis</author>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>pkg-config</build_depend>
+<depend>dkms</depend>
+<depend>gtk3</depend>
+<depend>libglfw3-dev</depend>
+<depend>libssl-dev</depend>
+<depend>libusb-1.0-dev</depend>
+<depend>linux-headers-generic</depend>
+<depend>opengl</depend>
+<depend>udev</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+libyaml_vendor: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"2\">
+<name>libyaml_vendor</name>
+<description>Wrapper around libyaml,
+provides the last version (1.8.0 rc) that ships with a CMake module</description>
+<maintainer email=\"mikael@osrfoundation.org\">Mikael Arguedas</maintainer>
+<license>Apache License 2.0</license>
+<license>MIT</license>
+<url type=\"website\">https://github.com/yaml/libyaml</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>"
+-----
+lifecycle_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>lifecycle_msgs</name>
+<description>A package containing some lifecycle related message and service definitions.</description>
+<maintainer email="karsten@osrfoundation.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+nav_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>nav_msgs</name>
+<description>A package containing some navigation related message and service definitions.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+osrf_pycommon: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
+<name>osrf_pycommon</name>
+<description>Commonly needed Python modules,
+used by Python software developed at OSRF.</description>
+<maintainer email=\"william@osrfoundation.org\">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-mock</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-mock</exec_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>"
+-----
 osrf_testing_tools_cpp: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
 <package format=\"3\">
@@ -1180,6 +2458,308 @@ and is used in various OSRF projects.</description>
 </export>
 </package>"
 -----
+pluginlib: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>pluginlib</name>
+<description>The pluginlib package provides tools for writing and dynamically loading plugins using the ROS build infrastructure. To work,
+these tools require plugin providers to register their plugins in the package.xml of their package.</description>
+<maintainer email="stevenragnarok@osrfoundation.org">Steven! Ragnarök</maintainer>
+<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+<license>BSD</license>
+<url>http://www.ros.org/wiki/pluginlib</url>
+<url type="bugtracker">https://github.com/ros/pluginlib/issues</url>
+<url type="repository">https://github.com/ros/pluginlib</url>
+<author>Eitan Marder-Eppstein</author>
+<author>Tully Foote</author>
+<author>Dirk Thomas</author>
+<author>Mirza Shah</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>ament_index_cpp</depend>
+<depend>class_loader</depend>
+<depend>rcutils</depend>
+<depend>rcpputils</depend>
+<depend>tinyxml2_vendor</depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+python_cmake_module: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>python_cmake_module</name>
+<description>Provide CMake module with extra functionality for Python.</description>
+<maintainer email="scott@openrobotics.org">Scott K Logan</maintainer>
+<license>Apache License 2.0</license>
+<author>Esteve Fernandez</author>
+<author>Mikael Arguedas</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_export_depend>python3-dev</buildtool_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rcl_interfaces: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rcl_interfaces</name>
+<description>The ROS client library common interfaces. This package contains the messages and services which ROS client libraries will use under the hood to communicate higher level concepts such as parameters.</description>
+<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>builtin_interfaces</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+<ros1_bridge mapping_rules="mapping_rules.yaml"/>
+</export>
+</package>
+-----
+rcl_logging_log4cxx: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rcl_logging_log4cxx</name>
+<description>C API providing common interface to a shared library wrapping 3rd party loggers.</description>
+<maintainer email="amazon-b9-ros@amazon.com">Amazon B9</maintainer>
+<license>Apache License 2.0</license>
+<author email="amazon-b9-ros@amazon.com">Nick Burek</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>python3-empy</buildtool_depend>
+<depend>log4cxx</depend>
+<depend>rcutils</depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>launch_testing</test_depend>
+<member_of_group>rcl_logging_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rcl_logging_noop: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rcl_logging_noop</name>
+<description>An rcl logger implementation that doesn't do anything with log messages.</description>
+<maintainer email="amazon-b9-ros@amazon.com">Amazon B9</maintainer>
+<license>Apache License 2.0</license>
+<author email="amazon-b9-ros@amazon.com">Nick Burek</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>python3-empy</buildtool_depend>
+<depend>rcutils</depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>launch_testing</test_depend>
+<member_of_group>rcl_logging_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rcl_logging_spdlog: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rcl_logging_spdlog</name>
+<description>Implementation of rcl_logging API for an spdlog backend.</description>
+<maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+<license>Apache License 2.0</license>
+<author email="clalancette@openrobotics.org">Chris Lalancette</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<build_depend>spdlog_vendor</build_depend>
+<build_depend>spdlog</build_depend>
+<depend>rcutils</depend>
+<exec_depend>spdlog_vendor</exec_depend>
+<exec_depend>spdlog</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rcl_logging_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rcpputils: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rcpputils</name>
+<description>Package containing utility code for C++.</description>
+<maintainer email="eknapp@amazon.com">Emerson Knapp</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>rcutils</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rcutils: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rcutils</name>
+<description>Package containing various utility types and functions for C</description>
+<maintainer email="karsten@osrfoundation.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>python3-empy</buildtool_depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>launch</test_depend>
+<test_depend>launch_testing</test_depend>
+<test_depend>launch_testing_ament_cmake</test_depend>
+<test_depend>osrf_testing_tools_cpp</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rmw: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rmw</name>
+<description>Contains the ROS middleware API.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>ament_cmake_version</buildtool_depend>
+<build_depend>rcutils</build_depend>
+<build_depend>rosidl_runtime_c</build_depend>
+<build_export_depend>rcutils</build_export_depend>
+<build_export_depend>rosidl_runtime_c</build_export_depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>osrf_testing_tools_cpp</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rmw_connext_cpp: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rmw_connext_cpp</name>
+<description>Implement the ROS middleware interface using RTI Connext static code generation in C++.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<build_depend>connext_cmake_module</build_depend>
+<build_depend>rcutils</build_depend>
+<build_depend>rmw</build_depend>
+<build_depend>rmw_connext_shared_cpp</build_depend>
+<build_depend>rosidl_runtime_c</build_depend>
+<build_depend>rosidl_runtime_cpp</build_depend>
+<build_depend>rosidl_generator_dds_idl</build_depend>
+<build_depend>rosidl_typesupport_connext_c</build_depend>
+<build_depend>rosidl_typesupport_connext_cpp</build_depend>
+<build_depend>rti-connext-dds-5.3.1</build_depend>
+<build_export_depend>connext_cmake_module</build_export_depend>
+<build_export_depend>rosidl_runtime_c</build_export_depend>
+<build_export_depend>rosidl_runtime_cpp</build_export_depend>
+<build_export_depend>rosidl_typesupport_connext_c</build_export_depend>
+<build_export_depend>rosidl_typesupport_connext_cpp</build_export_depend>
+<build_export_depend>rti-connext-dds-5.3.1</build_export_depend>
+<exec_depend>rcutils</exec_depend>
+<exec_depend>rmw</exec_depend>
+<exec_depend>rmw_connext_shared_cpp</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rmw_implementation_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rmw_connext_shared_cpp: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rmw_connext_shared_cpp</name>
+<description>C++ types and functions shared by the ROS middleware interface to RTI Connext Static and RTI Connext Dynamic.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>rosidl_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<build_depend>connext_cmake_module</build_depend>
+<build_depend>rcpputils</build_depend>
+<build_depend>rcutils</build_depend>
+<build_depend>rmw</build_depend>
+<build_depend>rti-connext-dds-5.3.1</build_depend>
+<build_export_depend>connext_cmake_module</build_export_depend>
+<build_export_depend>rti-connext-dds-5.3.1</build_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rmw_dds_common: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rmw_dds_common</name>
+<description>Define a common interface between DDS implementations of ROS middleware.</description>
+<maintainer email="ivanpauno@ekumenlabs.com">Ivan Paunovic</maintainer>
+<license>Apache License 2.0</license>
+<author>Ivan Paunovic</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<depend>rcutils</depend>
+<depend>rcpputils</depend>
+<depend>rmw</depend>
+<depend>rosidl_runtime_cpp</depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rmw_implementation_cmake: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rmw_implementation_cmake</name>
+<description>CMake functions which can discover and enumerate available implementations.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 ros_workspace: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -1192,6 +2772,495 @@ ros_workspace: <?xml version="1.0" ?>
 <buildtool_depend>cmake</buildtool_depend>
 <export>
 <build_type>cmake</build_type>
+</export>
+</package>
+-----
+rosgraph_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosgraph_msgs</name>
+<description>Messages relating to the ROS Computation Graph. These are generally considered to be low-level messages that end users do not interact with.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_adapter: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rosidl_adapter</name>
+<description>API and scripts to parse .msg/.srv/.action files and convert them to .idl.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<build_depend>ament_cmake</build_depend>
+<exec_depend>python3-empy</exec_depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_cmake: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rosidl_cmake</name>
+<description>The CMake functionality to invoke code generation for ROS interface files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_python</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<buildtool_export_depend>python3-empy</buildtool_export_depend>
+<exec_depend>rosidl_adapter</exec_depend>
+<exec_depend>rosidl_parser</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_default_generators: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_default_generators</name>
+<description>A configuration package defining the default ROS interface generators.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<buildtool_export_depend>rosidl_generator_c</buildtool_export_depend>
+<buildtool_export_depend>rosidl_generator_cpp</buildtool_export_depend>
+<buildtool_export_depend>rosidl_generator_py</buildtool_export_depend>
+<buildtool_export_depend>rosidl_typesupport_c</buildtool_export_depend>
+<buildtool_export_depend>rosidl_typesupport_cpp</buildtool_export_depend>
+<buildtool_export_depend>rosidl_typesupport_introspection_c</buildtool_export_depend>
+<buildtool_export_depend>rosidl_typesupport_introspection_cpp</buildtool_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<group_depend>rosidl_generator_packages</group_depend>
+<group_depend>rosidl_typesupport_c_packages</group_depend>
+<group_depend>rosidl_typesupport_cpp_packages</group_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_default_runtime: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_default_runtime</name>
+<description>A configuration package defining the runtime for the ROS interfaces.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_export_depend>rosidl_runtime_c</build_export_depend>
+<build_export_depend>rosidl_runtime_cpp</build_export_depend>
+<build_export_depend>rosidl_generator_py</build_export_depend>
+<build_export_depend>rosidl_typesupport_c</build_export_depend>
+<build_export_depend>rosidl_typesupport_cpp</build_export_depend>
+<build_export_depend>rosidl_typesupport_introspection_c</build_export_depend>
+<build_export_depend>rosidl_typesupport_introspection_cpp</build_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<group_depend>rosidl_runtime_packages</group_depend>
+<group_depend>rosidl_typesupport_c_packages</group_depend>
+<group_depend>rosidl_typesupport_cpp_packages</group_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_generator_c: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_generator_c</name>
+<description>Generate the ROS interfaces in C.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_python</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<build_export_depend>rosidl_typesupport_interface</build_export_depend>
+<exec_depend>rosidl_parser</exec_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>rosidl_cmake</test_depend>
+<test_depend>rosidl_runtime_c</test_depend>
+<test_depend>test_interface_files</test_depend>
+<member_of_group>rosidl_generator_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_generator_cpp: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_generator_cpp</name>
+<description>Generate the ROS interfaces in C++.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<build_export_depend>rosidl_generator_c</build_export_depend>
+<exec_depend>rosidl_parser</exec_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>rosidl_cmake</test_depend>
+<test_depend>rosidl_runtime_cpp</test_depend>
+<test_depend>rosidl_runtime_c</test_depend>
+<test_depend>test_interface_files</test_depend>
+<member_of_group>rosidl_generator_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_generator_dds_idl: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rosidl_generator_dds_idl</name>
+<description>Generate the DDS interfaces for ROS interfaces.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_generator_py: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_generator_py</name>
+<description>Generate the ROS interfaces in Python.</description>
+<maintainer email="scott@openrobotics.org">Scott K Logan</maintainer>
+<license>Apache License 2.0</license>
+<author>Esteve Fernandez</author>
+<author>Mikael Arguedas</author>
+<build_depend>rosidl_runtime_c</build_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_export_depend>rmw</build_export_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<buildtool_export_depend>ament_index_python</buildtool_export_depend>
+<buildtool_export_depend>python_cmake_module</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<buildtool_export_depend>rosidl_typesupport_c</buildtool_export_depend>
+<buildtool_export_depend>rosidl_typesupport_interface</buildtool_export_depend>
+<exec_depend>python3-numpy</exec_depend>
+<exec_depend>rosidl_generator_c</exec_depend>
+<exec_depend>rosidl_parser</exec_depend>
+<exec_depend>rosidl_runtime_c</exec_depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>ament_index_python</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>python3-numpy</test_depend>
+<test_depend>python3-pytest</test_depend>
+<test_depend>python_cmake_module</test_depend>
+<test_depend>rmw</test_depend>
+<test_depend>rosidl_cmake</test_depend>
+<test_depend>rosidl_generator_c</test_depend>
+<test_depend>rosidl_generator_cpp</test_depend>
+<test_depend>rosidl_parser</test_depend>
+<test_depend>rosidl_typesupport_c</test_depend>
+<test_depend>test_interface_files</test_depend>
+<member_of_group>rosidl_generator_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_parser: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rosidl_parser</name>
+<description>The parser for ROS interface files.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>python3-lark-parser</exec_depend>
+<exec_depend>rosidl_adapter</exec_depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_runtime_c: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_runtime_c</name>
+<description>Generate the ROS interfaces in C.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<build_depend>rosidl_typesupport_interface</build_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<build_export_depend>rosidl_typesupport_interface</build_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_runtime_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_runtime_cpp: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_runtime_cpp</name>
+<description>Generate the ROS interfaces in C++.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_runtime_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_typesupport_c: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_typesupport_c</name>
+<description>Generate the type support for C messages.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>rcpputils</depend>
+<build_depend>rosidl_runtime_c</build_depend>
+<build_depend>rosidl_typesupport_connext_c</build_depend>
+<build_depend>rosidl_typesupport_introspection_c</build_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<build_export_depend>rosidl_runtime_c</build_export_depend>
+<exec_depend>rosidl_typesupport_interface</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<group_depend>rosidl_typesupport_c_packages</group_depend>
+<member_of_group>rosidl_runtime_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_typesupport_connext_c: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_typesupport_connext_c</name>
+<description>Generate the C interfaces for RTI Connext.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>connext_cmake_module</buildtool_depend>
+<buildtool_depend>rosidl_cmake</buildtool_depend>
+<buildtool_depend>rosidl_runtime_c</buildtool_depend>
+<buildtool_depend>rosidl_typesupport_connext_cpp</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<buildtool_export_depend>connext_cmake_module</buildtool_export_depend>
+<buildtool_export_depend>rcutils</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<buildtool_export_depend>rosidl_generator_c</buildtool_export_depend>
+<buildtool_export_depend>rosidl_runtime_c</buildtool_export_depend>
+<buildtool_export_depend>rosidl_generator_dds_idl</buildtool_export_depend>
+<buildtool_export_depend>rosidl_typesupport_connext_cpp</buildtool_export_depend>
+<build_export_depend>rmw</build_export_depend>
+<exec_depend>rosidl_parser</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_typesupport_c_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_typesupport_connext_cpp: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_typesupport_connext_cpp</name>
+<description>Generate the C++ interfaces for RTI Connext.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>connext_cmake_module</buildtool_depend>
+<buildtool_depend>rosidl_cmake</buildtool_depend>
+<buildtool_depend>rti-connext-dds-5.3.1</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<buildtool_export_depend>connext_cmake_module</buildtool_export_depend>
+<buildtool_export_depend>rcutils</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<buildtool_export_depend>rosidl_runtime_c</buildtool_export_depend>
+<buildtool_export_depend>rosidl_runtime_cpp</buildtool_export_depend>
+<buildtool_export_depend>rosidl_generator_dds_idl</buildtool_export_depend>
+<buildtool_export_depend>rti-connext-dds-5.3.1</buildtool_export_depend>
+<build_export_depend>rmw</build_export_depend>
+<exec_depend>rosidl_parser</exec_depend>
+<exec_depend>rosidl_typesupport_interface</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_typesupport_cpp_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_typesupport_cpp: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_typesupport_cpp</name>
+<description>Generate the type support for C++ messages.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>rcpputils</depend>
+<build_depend>rosidl_runtime_c</build_depend>
+<build_depend>rosidl_typesupport_connext_cpp</build_depend>
+<build_depend>rosidl_typesupport_introspection_cpp</build_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<build_export_depend>rosidl_typesupport_c</build_export_depend>
+<build_export_depend>rosidl_runtime_c</build_export_depend>
+<build_export_depend>rosidl_runtime_cpp</build_export_depend>
+<exec_depend>rosidl_typesupport_interface</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<group_depend>rosidl_typesupport_cpp_packages</group_depend>
+<member_of_group>rosidl_runtime_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_typesupport_interface: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>rosidl_typesupport_interface</name>
+<description>The interface for rosidl typesupport packages.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_typesupport_introspection_c: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_typesupport_introspection_c</name>
+<description>Generate the message type support for dynamic message construction in C.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<build_export_depend>rosidl_runtime_c</build_export_depend>
+<exec_depend>rosidl_cmake</exec_depend>
+<exec_depend>rosidl_parser</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_typesupport_c_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosidl_typesupport_introspection_cpp: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rosidl_typesupport_introspection_cpp</name>
+<description>Generate the message type support for dynamic message construction in C++.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<build_export_depend>rosidl_runtime_c</build_export_depend>
+<build_export_depend>rosidl_runtime_cpp</build_export_depend>
+<build_depend>rosidl_runtime_cpp</build_depend>
+<build_depend>rosidl_typesupport_introspection_c</build_depend>
+<exec_depend>rosidl_cmake</exec_depend>
+<exec_depend>rosidl_parser</exec_depend>
+<exec_depend>rosidl_typesupport_interface</exec_depend>
+<exec_depend>rosidl_typesupport_introspection_c</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_typesupport_cpp_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+sensor_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>sensor_msgs</name>
+<description>A package containing some sensor data related message and service definitions.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>rosidl_cmake</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+shape_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>shape_msgs</name>
+<description>A package containing some message definitions which describe geometric shapes.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>geometry_msgs</build_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -1216,6 +3285,83 @@ it provides an ExternalProject build of spdlog.</description>
 </export>
 </package>"
 -----
+statistics_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>statistics_msgs</name>
+<description>Message definitions for reporting statistics for topics and system resources.</description>
+<maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_export_depend>builtin_interfaces</build_export_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+std_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>std_msgs</name>
+<description>A package containing some standard message definitions.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+std_srvs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>std_srvs</name>
+<description>A package containing some standard service definitions.</description>
+<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+stereo_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>stereo_msgs</name>
+<description>A package containing some stereo camera related message definitions.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>sensor_msgs</build_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 test_interface_files: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -1224,6 +3370,29 @@ test_interface_files: <?xml version="1.0" ?>
 <maintainer email="karsten@osrfoundation.org">Karsten Knese</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+test_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>test_msgs</name>
+<description>A package containing message definitions and fixtures used exclusively for testing purposes.</description>
+<maintainer email="karsten@osrfoundation.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>test_interface_files</build_depend>
+<depend>action_msgs</depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -1261,6 +3430,104 @@ it provides a fixed CMake module or even an ExternalProject build of tinyxml2.</
 </export>
 </package>"
 -----
+tinyxml_vendor: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>tinyxml_vendor</name>
+<description>CMake shim over the tinxml library.</description>
+<maintainer email="steven@openrobotics.org">Steven! Ragnarök</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>tinyxml</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+tracetools: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>tracetools</name>
+<description>Tracing wrapper for ROS 2.</description>
+<maintainer email="bedard.christophe@gmail.com">Christophe Bedard</maintainer>
+<maintainer email="ingo.luetkebohle@de.bosch.com">Ingo Luetkebohle</maintainer>
+<license>Apache 2.0</license>
+<author email="ingo.luetkebohle@de.bosch.com">Ingo Lütkebohle</author>
+<author email="fixed-term.christophe.bourquebedard@de.bosch.com">Christophe Bedard</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>pkg-config</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+tracetools_read: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>tracetools_read</name>
+<description>Tools for reading traces.</description>
+<maintainer email="bedard.christophe@gmail.com">Christophe Bedard</maintainer>
+<maintainer email="ingo.luetkebohle@de.bosch.com">Ingo Luetkebohle</maintainer>
+<license>Apache 2.0</license>
+<author email="fixed-term.christophe.bourquebedard@de.bosch.com">Christophe Bedard</author>
+<exec_depend>python3-babeltrace</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_mypy</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+tracetools_trace: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>tracetools_trace</name>
+<description>Tools for setting up tracing sessions.</description>
+<maintainer email="bedard.christophe@gmail.com">Christophe Bedard</maintainer>
+<maintainer email="ingo.luetkebohle@de.bosch.com">Ingo Luetkebohle</maintainer>
+<license>Apache 2.0</license>
+<author email="fixed-term.christophe.bourquebedard@de.bosch.com">Christophe Bedard</author>
+<exec_depend>python3-lttng</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_mypy</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+trajectory_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>trajectory_msgs</name>
+<description>A package containing some robot trajectory message definitions.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 uncrustify_vendor: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
 <package format=\"2\">
@@ -1275,6 +3542,135 @@ it provides an ExternalProject build of uncrustify.</description>
 <url type=\"website\">https://github.com/uncrustify/uncrustify</url>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <depend>uncrustify</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>"
+-----
+unique_identifier_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>unique_identifier_msgs</name>
+<description>ROS messages for universally unique identifiers.</description>
+<maintainer email="jacob@openrobotics.org">Jacob Perron</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/unique_identifier_msgs</url>
+<author>Jack O'Quin</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+<ros1_bridge mapping_rules="mapping_rules.yaml"/>
+</export>
+</package>
+-----
+urdf: <?xml version="1.0" ?>
+<package format="2">
+<name>urdf</name>
+<description>This package contains a C++ parser for the Unified Robot Description Format (URDF),
+which is an XML format for representing a robot model. The code API of the parser has been through our review process and will remain backwards compatible in future releases.</description>
+<author email="isucan@gmail.com">Ioan Sucan</author>
+<author email="jacquelinekay1@gmail.com">Jackie Kay</author>
+<maintainer email="clalancette@osrfoundation.org">Chris Lalancette</maintainer>
+<maintainer email="sloretz@osrfoundation.org">Shane Loretz</maintainer>
+<license>BSD</license>
+<url type="repository">https://github.com/ros2/urdf</url>
+<url type="bugtracker">https://github.com/ros2/urdf/issues</url>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<build_depend>tinyxml</build_depend>
+<build_depend>tinyxml_vendor</build_depend>
+<build_depend>urdfdom</build_depend>
+<build_depend>urdfdom_headers</build_depend>
+<exec_depend>tinyxml</exec_depend>
+<exec_depend>tinyxml_vendor</exec_depend>
+<exec_depend>urdfdom</exec_depend>
+<exec_depend>urdfdom_headers</exec_depend>
+<build_export_depend>tinyxml</build_export_depend>
+<build_export_depend>urdfdom_headers</build_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+urdfdom: <?xml version="1.0" ?>
+<package format="2">
+<name>urdfdom</name>
+<description>A library to access URDFs using the DOM model.</description>
+<maintainer email="steven@osrfoundation.org">Steven! Ragnarök</maintainer>
+<license>BSD</license>
+<author>Wim Meeussen</author>
+<author>John Hsu</author>
+<author>Ioan Sucan</author>
+<build_depend>console_bridge_vendor</build_depend>
+<build_depend>libconsole-bridge-dev</build_depend>
+<build_depend>tinyxml</build_depend>
+<build_depend>tinyxml_vendor</build_depend>
+<build_depend version_gte="0.2.3">urdfdom_headers</build_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<exec_depend>console_bridge_vendor</exec_depend>
+<exec_depend>libconsole-bridge-dev</exec_depend>
+<exec_depend>tinyxml</exec_depend>
+<exec_depend>tinyxml_vendor</exec_depend>
+<exec_depend version_gte="0.2.3">urdfdom_headers</exec_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+urdfdom_headers: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>urdfdom_headers</name>
+<description>C++ headers for URDF.</description>
+<maintainer email="steven@openrobotics.org">Steven! Ragnarök</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/urdf</url>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+visualization_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>visualization_msgs</name>
+<description>A package containing some visualization and interaction related message definitions.</description>
+<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+yaml_cpp_vendor: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"2\">
+<name>yaml_cpp_vendor</name>
+<description>Wrapper around yaml-cpp,
+it provides a fixed CMake module and an ExternalProject build of it.</description>
+<maintainer email=\"william@osrfoundation.org\">William Woodall</maintainer>
+<license>Apache License 2.0</license>
+<license>MIT</license>
+<url type=\"website\">https://github.com/jbeder/yaml-cpp</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
