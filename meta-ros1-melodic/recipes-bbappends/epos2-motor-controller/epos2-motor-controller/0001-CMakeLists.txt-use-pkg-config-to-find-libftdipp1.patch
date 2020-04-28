@@ -1,0 +1,42 @@
+From f401fc8c5ffadc4db906612580541de4453c0eb4 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 28 Apr 2020 18:55:09 +0000
+Subject: [PATCH] CMakeLists.txt: use pkg-config to find libftdipp1
+
+* keep in mind that for this to work, the cpp-wrapper PACKAGECONFIG needs
+  to be enabled in libftdi recipe, otherwise there is only ftdi.h, not ftdi.hpp
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/CMakeLists.txt | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 97b11a9..271bc05 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -4,11 +4,13 @@ SET(sources Epos2.cpp)
+ SET(headers Epos2.h)
+ 
+ # locate the necessary dependencies
+-FIND_PACKAGE(LibFTDI1 NO_MODULE REQUIRED)
++include(FindPkgConfig)
++pkg_check_modules(LIBFTDIPP libftdipp1 REQUIRED)
+ 
+ # add the necessary include directories
+ INCLUDE_DIRECTORIES(.)
+-INCLUDE(${LIBFTDI_USE_FILE})
++
++include_directories(${LIBFTDIPP_INCLUDE_DIRS})
+ 
+ # create the shared library
+ ADD_LIBRARY(epos2 SHARED ${sources})
+@@ -26,7 +28,7 @@ INSTALL(TARGETS epos2
+ INSTALL(FILES ${headers} DESTINATION include/${PROJECT_NAME} COMPONENT headers)
+ 
+ SET(LIBEPOS2_INCLUDE_DIR ${includedir})
+-SET(LIBEPOS2_INCLUDE_DIRS ${LIBEPOS2_INCLUDE_DIR})
++SET(LIBEPOS2_INCLUDE_DIRS ${LIBEPOS2_INCLUDE_DIR} ${LIBFTDIPP_INCLUDE_DIRS})
+ GET_TARGET_PROPERTY(_LIBEPOS2_LIBRARY_LOCATION epos2 LOCATION)
+ GET_FILENAME_COMPONENT(_LIBEPOS2_LIBRARY_NAME ${_LIBEPOS2_LIBRARY_LOCATION} NAME)
+ SET(LIBEPOS2_LIBRARY ${libdir}/${_LIBEPOS2_LIBRARY_NAME})
