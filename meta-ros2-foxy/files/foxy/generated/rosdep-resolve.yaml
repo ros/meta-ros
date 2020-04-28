@@ -7,26 +7,55 @@ cmake:
 - cmake@openembedded-core
 cppcheck:
 - cppcheck@meta-ros
+dkms: []
+git:
+- git@openembedded-core
 google-mock:
 - gtest@meta-oe
 gtest:
 - gtest@meta-oe
+gtk3:
+- gtk+3@openembedded-core
 libconsole-bridge-dev:
 - console-bridge@meta-ros
+libglfw3-dev:
+- glfw@meta-intel-realsense
+libssl-dev:
+- openssl@openembedded-core
+libusb-1.0-dev:
+- libusb1@openembedded-core
 libxml2-utils:
 - libxml2@openembedded-core
+linux-headers-generic:
+- virtual/kernel@openembedded-core
+log4cxx:
+- log4cxx@meta-ros
+opengl:
+- mesa@openembedded-core
+pkg-config:
+- pkgconfig@openembedded-core
 pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros
 pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros
 python3-catkin-pkg-modules:
 - python3-catkin-pkg@meta-ros
+python3-dev:
+- python3@openembedded-core
+python3-empy:
+- python3-empy@meta-ros
 python3-flake8:
 - python3-flake8@meta-ros
+python3-lark-parser:
+- python3-lark-parser@meta-ros
+python3-mock:
+- python3-mock@meta-ros
 python3-mypy:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy}
 python3-nose:
 - python3-nose@openembedded-core
+python3-numpy:
+- python3-numpy@openembedded-core
 python3-pycodestyle:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle}
 python3-pytest:
@@ -37,9 +66,15 @@ python3-setuptools:
 - python3-setuptools@openembedded-core
 python3-yaml:
 - python3-pyyaml@meta-python
+rti-connext-dds-5.3.1:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1}
 spdlog:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog}
+tinyxml:
+- libtinyxml@meta-oe
 tinyxml2:
 - libtinyxml2@meta-oe
+udev:
+- udev@openembedded-core
 uncrustify:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify}
