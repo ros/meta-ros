@@ -17,3 +17,6 @@ require conf/ros-distro/include/foxy/ros-distro-preferred-versions.inc
 require conf/ros-distro/include/foxy/ros-distro-preferred-providers.inc
 
 # Override settings from generated/superflore-ros-distro.inc here.
+
+# alternative not yet supported implementation for fastrtps
+ROS_WORLD_SKIP_GROUPS += "connext"
