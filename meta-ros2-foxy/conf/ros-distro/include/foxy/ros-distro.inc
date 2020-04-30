@@ -46,3 +46,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_spdlog = "spdlog"
 # Used by:
 # generated-recipes/ament-lint/ament-mypy_0.9.1-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "python3-mypy"
+
+# Used by:
+# generated-recipes/ament-lint/ament-pycodestyle_0.9.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle = "python3-pycodestyle"
