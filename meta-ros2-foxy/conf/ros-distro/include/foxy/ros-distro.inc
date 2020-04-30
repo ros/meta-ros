@@ -28,3 +28,7 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 
 # generated-recipes/spdlog-vendor/spdlog-vendor_1.1.1-1.bb
 # generated-recipes/rcl-logging/rcl-logging-spdlog_0.4.0-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_spdlog = "spdlog"
+
+# Used by:
+# generated-recipes/ament-lint/ament-mypy_0.9.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "python3-mypy"
