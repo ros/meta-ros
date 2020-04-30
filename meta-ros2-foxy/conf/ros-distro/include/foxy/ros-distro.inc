@@ -20,6 +20,8 @@ require conf/ros-distro/include/foxy/ros-distro-preferred-providers.inc
 
 # alternative not yet supported implementation for fastrtps
 ROS_WORLD_SKIP_GROUPS += "connext"
+# Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
+ROS_WORLD_SKIP_GROUPS += "clang"
 
 # recipes depending on 'opengl' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'opengl', d)}"
