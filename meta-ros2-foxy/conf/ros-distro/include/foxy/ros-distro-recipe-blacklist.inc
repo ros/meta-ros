@@ -10,6 +10,12 @@
 # from the blacklist once a PREFERRED_VERSION_<PN> setting is made in ros-distro-preferred-versions.inc .
 # (none)
 
+PNBLACKLIST[ament-clang-format-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-format', '', d)}"
+PNBLACKLIST[ament-clang-format] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-format', '', d)}"
+PNBLACKLIST[ament-clang-tidy-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-tidy', '', d)}"
+PNBLACKLIST[ament-clang-tidy] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-tidy', '', d)}"
+PNBLACKLIST[ament-cmake-clang-format] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on ament-clang-format-native->clang-format', '', d)}"
+PNBLACKLIST[ament-cmake-clang-tidy] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on ament-clang-tidy-native->clang-tidy', '', d)}"
 PNBLACKLIST[connext-cmake-module-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds-native which is not available', '', d)}"
 PNBLACKLIST[connext-cmake-module] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds which is not available', '', d)}"
 PNBLACKLIST[librealsense2] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'glfw'], 'opengl: depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; glfw: Depends on glfw which is not available in zeus and older', '', d)}"
