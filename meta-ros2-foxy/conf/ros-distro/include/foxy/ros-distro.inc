@@ -18,6 +18,18 @@ require conf/ros-distro/include/foxy/ros-distro-preferred-providers.inc
 
 # Override settings from generated/superflore-ros-distro.inc here.
 
+# Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
+# ROS_EXEC_DEPEND are also build tools. Manually add them here.
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
+    ament-lint-native \
+    domain-coordinator-native \
+    rcpputils-native \
+    rmw-native \
+    rosidl-adapter-native \
+    rosidl-parser-native \
+    uncrustify-vendor-native \
+"
+
 # alternative not yet supported implementation for fastrtps
 ROS_WORLD_SKIP_GROUPS += "connext"
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
