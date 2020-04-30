@@ -20,3 +20,8 @@ require conf/ros-distro/include/foxy/ros-distro-preferred-providers.inc
 
 # alternative not yet supported implementation for fastrtps
 ROS_WORLD_SKIP_GROUPS += "connext"
+
+# Used by:
+# generated-recipes/spdlog-vendor/spdlog-vendor_1.1.1-1.bb
+# generated-recipes/rcl-logging/rcl-logging-spdlog_0.4.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_spdlog = "spdlog"
