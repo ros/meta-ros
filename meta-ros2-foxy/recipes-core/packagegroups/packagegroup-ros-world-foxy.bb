@@ -19,7 +19,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
     rosidl-typesupport-connext-c \
     rosidl-typesupport-connext-cpp \
 "
-
+# Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
+    ament-clang-format \
+    ament-clang-tidy \
+    ament-cmake-clang-format \
+    ament-cmake-clang-tidy \
+"
 # There is recipe for glfw in meta-oe in dunfell:
 # http://cgit.openembedded.org/meta-openembedded/commit/meta-oe/recipes-core/glfw/glfw_3.3.bb?id=a7464eaa69a7ee4734001aab2e232102e7135772
 # but we don't have a backports layer from dunfell yet, lets skip it for now
