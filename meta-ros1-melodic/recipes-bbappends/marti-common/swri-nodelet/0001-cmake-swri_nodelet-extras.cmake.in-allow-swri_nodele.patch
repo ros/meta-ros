@@ -1,0 +1,29 @@
+From 44211730a1f952ae1ae16a754e204d5b93769dc6 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 3 May 2020 08:14:05 -0700
+Subject: [PATCH] cmake/swri_nodelet-extras.cmake.in: allow swri_nodelet_SHARE
+ to be set
+
+* before calling swri_nodelet_add_node macro
+* this is usedful when cross-compiling where swri_nodelet_SHARE points to path on target
+  but we need to prefix it with path to RSS
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cmake/swri_nodelet-extras.cmake.in | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/cmake/swri_nodelet-extras.cmake.in b/cmake/swri_nodelet-extras.cmake.in
+index 26d1df637..296408b52 100644
+--- a/cmake/swri_nodelet-extras.cmake.in
++++ b/cmake/swri_nodelet-extras.cmake.in
+@@ -1,6 +1,8 @@
+ cmake_minimum_required(VERSION 2.8.3)
+ 
+-set(swri_nodelet_SHARE ${swri_nodelet_PREFIX}/@CATKIN_PACKAGE_SHARE_DESTINATION@)
++if(NOT DEFINED swri_nodelet_SHARE)
++  set(swri_nodelet_SHARE ${swri_nodelet_PREFIX}/@CATKIN_PACKAGE_SHARE_DESTINATION@)
++endif()
+ 
+ macro(swri_nodelet_add_node NODELET_NODENAME NODELET_NS NODELET_CLASS)
+   find_package(roscpp REQUIRED)
