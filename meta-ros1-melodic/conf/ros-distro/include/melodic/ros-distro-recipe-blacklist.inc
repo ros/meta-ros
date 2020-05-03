@@ -220,6 +220,7 @@ PNBLACKLIST[libqt-opengl] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5
 PNBLACKLIST[libqt-rosdev] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires qtbase which requires meta-qt5 to be included', '', d)}"
 PNBLACKLIST[libqt-svg-rosdev] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires qtsvg which requires meta-qt5 to be included', '', d)}"
 PNBLACKLIST[libqt-widgets] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires qtbase which requires meta-qt5 to be included', '', d)}"
+PNBLACKLIST[librealsense2] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'glfw'], 'opengl: depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; glfw: Depends on glfw which is not available in zeus and older', '', d)}"
 PNBLACKLIST[librviz-tutorial] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre'], 'Requires qtbase which requires meta-qt5 to be included; ogre: Requires rviz which depends on unavailable ogre', '', d)}"
 PNBLACKLIST[linux-networking] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires asmach-tutorials->turtlesim->qtbase which requires meta-qt5 to be included', 'depends on multi-interface-roam->unavailable python-twisted-core', d)}"
 PNBLACKLIST[lvr2] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'vtk-qt'], 'Requires qtbase which requires meta-qt5 to be included and requires libvtk-qt which is not available', '', d)}"
@@ -541,7 +542,6 @@ PNBLACKLIST[wamv-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 
 # do_configure issues in the generated recipes
 ROS_WORLD_SKIP_GROUPS += "unknown-configure"
-PNBLACKLIST[librealsense2] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[mongodb-store] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['mongodb', 'unknown-configure'], 'Requires mongodb; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[novatel-gps-driver] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[prosilica-gige-sdk] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
@@ -860,7 +860,7 @@ PNBLACKLIST[rc-roi-manager-gui] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GRO
 PNBLACKLIST[rc-tagdetect-client] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[rc-visard-driver] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[rc-visard] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11', 'unknown-victim'], 'Depends on rc-roi-manager-gui->wxwidgets->freeglut which is not available because of missing opengl in DISTRO_FEATURES and rc-roi-manager-gui->wxwidgets->x11; unknown-victim: depends on something failing for unknown reason', '', d)}"
-PNBLACKLIST[realsense2-camera] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
+PNBLACKLIST[realsense2-camera] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'glfw'], 'opengl: depends on librealsense2->mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; glfw: Depends on librealsense2->glfw which is not available in zeus and older', '', d)}"
 PNBLACKLIST[ridgeback-control] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[robot-activity-tutorials] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[robot-activity] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
