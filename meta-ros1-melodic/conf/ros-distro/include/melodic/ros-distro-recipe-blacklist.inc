@@ -543,7 +543,6 @@ PNBLACKLIST[wamv-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 # do_configure issues in the generated recipes
 ROS_WORLD_SKIP_GROUPS += "unknown-configure"
 PNBLACKLIST[mongodb-store] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['mongodb', 'unknown-configure'], 'Requires mongodb; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[novatel-gps-driver] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[prosilica-gige-sdk] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[pyros-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[qt-gui-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'unknown-configure'], 'Requires qtbase which requires meta-qt5 to be included and python-qt-binding which requires pyqt5; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"

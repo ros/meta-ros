@@ -1156,7 +1156,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
-    novatel-gps-driver \
     pinocchio \
     prosilica-gige-sdk \
     pyros-utils \
@@ -1433,7 +1432,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     nmea-comms \
     nmea-navsat-driver \
     nmea-to-geopose \
-    novatel-gps-driver \
     novatel-span-driver \
     ocean-battery-driver \
     octomap-mapping \
