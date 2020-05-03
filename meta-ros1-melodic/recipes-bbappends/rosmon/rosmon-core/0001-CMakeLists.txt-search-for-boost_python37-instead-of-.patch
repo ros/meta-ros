@@ -31,7 +31,7 @@ index 043539f..d022ec0 100644
  endif()
  
 -find_package(Boost REQUIRED COMPONENTS python REQUIRED)
-+find_package(Boost REQUIRED COMPONENTS python37 REQUIRED)
++find_package(Boost REQUIRED COMPONENTS python38 REQUIRED)
  include_directories(${Boost_INCLUDE_DIRS})
  
  # Specific feature tests
