@@ -807,7 +807,6 @@ PNBLACKLIST[phidgets-ik] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unkn
 PNBLACKLIST[phidgets-imu] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[pilz-msgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[pilz-trajectory-generation] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11', 'unknown-victim'], 'Depends on moveit-ros-planning->moveit-ros-perception->mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES and moveit-ros-planning(-interface)->moveit-ros-perception->freeglut which requires x11; unknown-victim: depends on something failing for unknown reason', '', d)}"
-PNBLACKLIST[pinocchio] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[planner-cspace] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[power-monitor] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[pr2-app-manager] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
