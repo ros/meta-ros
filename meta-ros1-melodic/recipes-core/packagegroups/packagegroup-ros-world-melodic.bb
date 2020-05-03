@@ -1161,7 +1161,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     pyros-utils \
     rc-genicam-api \
     rosmon-core \
-    swri-transform-util \
     ypspur-ros \
 "
 
@@ -1560,7 +1559,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     swri-profiler-tools \
     swri-roscpp \
     swri-route-util \
-    swri-transform-util \
     teb-local-planner-tutorials \
     teleop-tools \
     teleop-tools-msgs \
