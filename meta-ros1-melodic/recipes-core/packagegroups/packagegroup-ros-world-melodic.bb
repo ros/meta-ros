@@ -1346,7 +1346,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
-    pinocchio \
     prosilica-gige-sdk \
     pyros-utils \
     rc-genicam-api \
@@ -1640,7 +1639,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     phidgets-imu \
     pilz-msgs \
     pilz-trajectory-generation \
-    pinocchio \
     planner-cspace \
     power-monitor \
     pr2-app-manager \
