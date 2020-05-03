@@ -83,15 +83,33 @@ RDEPENDS_${PN}_remove = "husky-bringup"
 # ERROR: Nothing PROVIDES 'husky-bringup' (but generated-recipes/husky/husky-robot_0.4.2-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "husky-robot"
 
-ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_64_x86_86 = ""
+ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_64_x86_64 = ""
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_64 = "\
     libreflexxestype2 \
     ros-reflexxes \
     ipr-extern \
 "
+
+ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_OR_X86_64_x86 = ""
+ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_OR_X86_64_x86_64 = ""
+ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_OR_X86_64 = "\
+    libntcan \
+    cob-base-drive-chain \
+    cob-canopen-motor \
+    cob-extern \
+    cob-generic-can \
+    schunk-libm5api \
+    schunk-modular-robotics \
+    schunk-powercube-chain \
+    schunk-sdh \
+    schunk-simulated-tactile-sensors \
+"
+
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC = " \
     ${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_64} \
+    ${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_X86_OR_X86_64} \
 "
+
 RDEPENDS_${PN}_remove = "${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC}"
 
 # There is recipe for glfw in meta-oe in dunfell:
@@ -1369,17 +1387,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     cloudwatch-metrics-collector \
     cloudwatch-metrics-common \
     cob-3d-mapping-msgs \
-    cob-base-drive-chain \
     cob-bms-driver \
-    cob-canopen-motor \
     cob-collision-monitor \
     cob-control-mode-adapter \
     cob-dashboard \
     cob-elmo-homing \
-    cob-extern \
     cob-frame-tracker \
     cob-gazebo-tools \
-    cob-generic-can \
     cob-hand \
     cob-hand-bridge \
     cob-hardware-emulation \
@@ -1713,11 +1727,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     safe-teleop-stage \
     safety-limiter \
     sbpl-recovery \
-    schunk-libm5api \
-    schunk-modular-robotics \
-    schunk-powercube-chain \
-    schunk-sdh \
-    schunk-simulated-tactile-sensors \
     seed-r7-navigation \
     seed-r7-robot-interface \
     seed-r7-ros-controller \
