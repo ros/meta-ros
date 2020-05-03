@@ -1,0 +1,27 @@
+From a03bda0347f02bac475322c9ea650ec9fdf435ad Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 3 May 2020 12:52:43 +0000
+Subject: [PATCH] CMakeLists.txt: fetch hpp-fcl with bitbake fetcher
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 398623a..5ab3aa4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,10 +9,9 @@ find_package(assimp REQUIRED)
+ include(ExternalProject)
+ 
+ ExternalProject_Add(hpp-fcl_src
+-  GIT_REPOSITORY "https://github.com/humanoid-path-planner/hpp-fcl.git"
+-  GIT_TAG "v1.0.1"
++  SOURCE_DIR ${CMAKE_SOURCE_DIR}/hpp-fcl-upstream
+ 
+-  CMAKE_ARGS -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=${PROJECT_BINARY_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib
++  CMAKE_ARGS -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=${PROJECT_BINARY_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_TOOLCHAIN_FILE=${PROJECT_SOURCE_DIR}/../toolchain.cmake
+ )
+ ExternalProject_Add_Step(hpp-fcl_src CopyToDevel
+   COMMENT "Copying to devel"
