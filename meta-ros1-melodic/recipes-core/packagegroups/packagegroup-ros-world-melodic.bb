@@ -1333,7 +1333,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     pyros-utils \
     rc-genicam-api \
     rosmon-core \
-    swri-image-util \
     swri-transform-util \
     ypspur-ros \
 "
@@ -1729,7 +1728,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     social-navigation-layers \
     socketcan-bridge \
     stage-ros \
-    swri-image-util \
     swri-profiler \
     swri-profiler-tools \
     swri-roscpp \
