@@ -1,0 +1,37 @@
+From 5eb5268b4a45c2999b1ebe6c7a159d013e1b3377 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 3 May 2020 11:43:36 -0700
+Subject: [PATCH] CMakeLists.txt: search for boost_python37 instead of just
+ boost_python
+
+* as described in
+  https://github.com/espressopp/espressopp/issues/277
+
+The core of the issue can be found in FindBoost.cmake:
+
+Note that Boost Python components require a Python version suffix
+(Boost 1.67 and later), e.g. python36 or python27 for the
+versions built against Python 3.6 and 2.7, respectively.
+
+This basically means for Boost-1.67 and later, we need to check for the
+python27 component instead of just python, however this feature is only
+supported in cmake-3.11 and newer.
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 043539f..d022ec0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -33,7 +33,7 @@ else()
+ 	message(WARNING "Please install libpython-dev (or equivalent) for $(eval ...) support")
+ endif()
+ 
+-find_package(Boost REQUIRED COMPONENTS python REQUIRED)
++find_package(Boost REQUIRED COMPONENTS python37 REQUIRED)
+ include_directories(${Boost_INCLUDE_DIRS})
+ 
+ # Specific feature tests
