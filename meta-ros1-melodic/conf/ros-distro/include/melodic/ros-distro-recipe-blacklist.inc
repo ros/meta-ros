@@ -549,7 +549,6 @@ PNBLACKLIST[qt-gui-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['
 PNBLACKLIST[rc-genicam-api] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[rosmon-core] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[stage] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11', 'unknown-configure'], 'Depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES and fltk, gtk+->x11; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[swri-transform-util] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[warehouse-ros-mongo] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['mongodb', 'unknown-configure'], 'Requires mongodb; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[ypspur-ros] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 
