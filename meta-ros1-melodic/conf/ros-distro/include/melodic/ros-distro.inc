@@ -25,6 +25,10 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 
 # roslisp depends on sbcl, for which there is no OE recipe
 ROS_WORLD_SKIP_GROUPS += "lisp"
+# There is recipe for glfw in meta-oe in dunfell:
+# http://cgit.openembedded.org/meta-openembedded/commit/meta-oe/recipes-core/glfw/glfw_3.3.bb?id=a7464eaa69a7ee4734001aab2e232102e7135772
+# but we don't have a backports layer from dunfell yet, lets skip it for now
+ROS_WORLD_SKIP_GROUPS += "glfw"
 # recipes depending on gazebo, for which there is no OE recipe
 ROS_WORLD_SKIP_GROUPS += "gazebo"
 # recipes depending on wxpython

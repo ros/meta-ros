@@ -94,6 +94,15 @@ ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC = " \
 "
 RDEPENDS_${PN}_remove = "${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC}"
 
+# There is recipe for glfw in meta-oe in dunfell:
+# http://cgit.openembedded.org/meta-openembedded/commit/meta-oe/recipes-core/glfw/glfw_3.3.bb?id=a7464eaa69a7ee4734001aab2e232102e7135772
+# but we don't have a backports layer from dunfell yet, lets skip it for now
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'glfw', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
+    librealsense2 \
+    realsense2-camera \
+"
+
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-pyassimp' (but generated-recipes/moveit-python/moveit-python_0.3.3-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyassimp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYASSIMP}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYASSIMP = " \
@@ -1047,6 +1056,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     industrial-core \
     industrial-trajectory-filters \
     libg2o \
+    librealsense2 \
     moveit-commander \
     moveit-fake-controller-manager \
     moveit-planners \
@@ -1076,6 +1086,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     pilz-robot-programming \
     pilz-trajectory-generation \
     pr2-moveit-config \
+    realsense2-camera \
     rc-visard \
     robot-body-filter \
     roomba-stage \
@@ -1145,7 +1156,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
-    librealsense2 \
     novatel-gps-driver \
     pinocchio \
     prosilica-gige-sdk \
@@ -1494,7 +1504,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     rc-tagdetect-client \
     rc-visard \
     rc-visard-driver \
-    realsense2-camera \
     ridgeback-control \
     ridgeback-desktop \
     robot \
