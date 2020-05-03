@@ -1,0 +1,43 @@
+From 7bebc93530668373c1eea4413a5e9d00f663c130 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 3 May 2020 04:58:39 -0700
+Subject: [PATCH] hebi/CMakeLists.txt: fix configure with empty
+ CMAKE_LIBRARY_ARCHITECTURE
+
+* CMAKE_LIBRARY_ARCHITECTURE can be empty as shown e.g. in:
+  https://bugzilla.redhat.com/show_bug.cgi?id=1531678
+* fixes:
+  CMake Error at hebi/CMakeLists.txt:21 (elseif):
+  given arguments:
+
+    "arm-linux-gnueabihf" "STREQUAL"
+
+  Unknown arguments specified
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ hebi/CMakeLists.txt | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/hebi/CMakeLists.txt b/hebi/CMakeLists.txt
+index 8253566..a4b68d6 100644
+--- a/hebi/CMakeLists.txt
++++ b/hebi/CMakeLists.txt
+@@ -16,13 +16,14 @@ if (UNIX AND NOT APPLE)
+     "Target architecture. [i686, x86_64, armhf, aarch64]")
+ 
+   # Detect cross-compilation, especially on the ROS build farm:
+-  if (${CMAKE_LIBRARY_ARCHITECTURE} MATCHES "^i[3456]86-linux-gnu$")
++  if ("${CMAKE_LIBRARY_ARCHITECTURE}" MATCHES "^i[3456]86-linux-gnu$")
+     set(LIBHEBI_TARGET_ARCHITECTURE "i686")
+-  elseif ("arm-linux-gnueabihf" STREQUAL ${CMAKE_LIBRARY_ARCHITECTURE})
++  elseif ("arm-linux-gnueabihf" STREQUAL "${CMAKE_LIBRARY_ARCHITECTURE}")
+     set(LIBHEBI_TARGET_ARCHITECTURE "armhf")
+-  elseif ("aarch64-linux-gnu" STREQUAL ${CMAKE_LIBRARY_ARCHITECTURE})
++  elseif ("aarch64-linux-gnu" STREQUAL "${CMAKE_LIBRARY_ARCHITECTURE}")
+     set(LIBHEBI_TARGET_ARCHITECTURE "aarch64")
+   endif()
++  message(STATUS "CMAKE_LIBRARY_ARCHITECTURE is set to '${CMAKE_LIBRARY_ARCHITECTURE}' setting LIBHEBI_TARGET_ARCHITECTURE to '${LIBHEBI_TARGET_ARCHITECTURE}'")
+ 
+   set(LIBHEBI_LOCATION "lib/linux_${LIBHEBI_TARGET_ARCHITECTURE}")
+ elseif (APPLE)
