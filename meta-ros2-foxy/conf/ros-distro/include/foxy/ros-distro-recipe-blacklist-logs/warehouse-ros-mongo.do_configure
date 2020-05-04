@@ -1,0 +1,183 @@
+DEBUG: Executing python function extend_recipe_sysroot
+NOTE: Direct dependencies are ['/jenkins/mjansa/build/ros/webos-foxy-hardknott/meta-ros/meta-ros2-foxy/generated-recipes/class-loader/class-loader_2.0.1-1.bb:do_populate_sysroot', 'virtual:native:/jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/recipes-devtools/icecc-create-env/icecc-create-env_0.1.bb:do_populate_sysroot', '/jenkins/mjansa/build/ros/webos-foxy-hardknott/meta-openembedded/meta-oe/dynamic-layers/meta-python/recipes-dbs/mongodb/mongodb_git.bb:do_populate_sysroot', 'virtual:native:/jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/recipes-devtools/python/python3_3.9.2.bb:do_populate_sysroot', '/jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/recipes-devtools/cmake/cmake-native_3.19.5.bb:do_populate_sysroot', 'virtual:native:/jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/recipes-devtools/patch/patch_2.7.6.bb:do_populate_sysroot', '/jenkins/mjansa/build/ros/webos-foxy-hardknott/meta-ros/meta-ros2-foxy/generated-recipes/common-interfaces/std-msgs_2.0.3-1.bb:do_populate_sysroot', 'virtual:native:/jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/recipes-devtools/ninja/ninja_1.10.2.bb:do_populate_sysroot', '/jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/recipes-devtools/gcc/gcc-cross_10.2.bb:do_populate_sysroot', '/jenkins/mjansa/build/ros/webos-foxy-hardknott/meta-ros/meta-ros2-foxy/generated-recipes/warehouse-ros/warehouse-ros_2.0.0-1.bb:do_populate_sysroot', '/jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/recipes-devtools/quilt/quilt-native_0.66.bb:do_populate_sysroot', '/jenkins/mjansa/build/ros/webos-foxy-hardknott/meta-ros/meta-ros2-foxy/generated-recipes/rclcpp/rclcpp_2.3.0-1.bb:do_populate_sysroot', '/jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/recipes-devtools/gcc/gcc-runtime_10.2.bb:do_populate_sysroot', 'virtual:native:/jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/recipes-devtools/pseudo/pseudo_git.bb:do_populate_sysroot', 'virtual:native:/jenkins/mjansa/build/ros/webos-foxy-hardknott/meta-ros/meta-ros2-foxy/generated-recipes/ament-cmake/ament-cmake-python_0.9.8-1.bb:do_populate_sysroot', '/jenkins/mjansa/build/ros/webos-foxy-hardknott/meta-ros/meta-ros2-foxy/generated-recipes/rclpy/rclpy_1.0.5-1.bb:do_populate_sysroot', 'virtual:native:/jenkins/mjansa/build/ros/webos-foxy-hardknott/meta-ros/meta-ros2-foxy/generated-recipes/ament-cmake/ament-cmake_0.9.8-1.bb:do_populate_sysroot', '/jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/recipes-core/glibc/glibc_2.33.bb:do_populate_sysroot']
+NOTE: Installed into sysroot: []
+NOTE: Skipping as already exists in sysroot: ['class-loader', 'icecc-create-env-native', 'mongodb', 'python3-native', 'cmake-native', 'patch-native', 'std-msgs', 'ninja-native', 'gcc-cross-i686', 'warehouse-ros', 'quilt-native', 'rclcpp', 'gcc-runtime', 'pseudo-native', 'ament-cmake-python-native', 'rclpy', 'ament-cmake-native', 'glibc', 'console-bridge-vendor', 'rcpputils', 'console-bridge', 'shadow-sysroot', 'gperftools', 'libpcre', 'base-files', 'libpcap', 'base-passwd', 'python3', 'shadow', 'boost', 'zlib', 'curl', 'openssl', 'shadow-native', 'libnsl2-native', 'gdbm-native', 'ncurses-native', 'util-linux-native', 'libtool-native', 'xz-native', 'pkgconfig-native', 'openssl-native', 'bzip2-native', 'autoconf-native', 'libffi-native', 'zlib-native', 'sqlite3-native', 'readline-native', 'libtirpc-native', 'automake-native', 'curl-native', 'rosidl-typesupport-c', 'rosidl-typesupport-cpp', 'builtin-interfaces', 're2c-native', 'gmp-native', 'linux-libc-headers', 'texinfo-dummy-native', 'mpfr-native', 'binutils-cross-i686', 'gnu-config-native', 'flex-native', 'libmpc-native', 'pluginlib', 'tf2-ros', 'tf2', 'geometry-msgs', 'tf2-geometry-msgs', 'rosidl-runtime-cpp', 'rmw', 'rcutils', 'libstatistics-collector', 'statistics-msgs', 'rcl-yaml-param-parser', 'rcl-interfaces', 'tracetools', 'rosgraph-msgs', 'rcl', 'libgcc', 'ament-cmake-export-interfaces-native', 'ament-cmake-libraries-native', 'ament-cmake-target-dependencies-native', 'ament-cmake-export-include-directories-native', 'ament-cmake-export-libraries-native', 'ament-cmake-export-definitions-native', 'ament-cmake-export-dependencies-native', 'ament-cmake-version-native', 'ament-cmake-export-targets-native', 'ament-cmake-export-link-flags-native', 'ament-cmake-test-native', 'ament-cmake-core-native', 'rcl-action', 'rmw-implementation-cmake', 'unique-identifier-msgs', 'rmw-implementation', 'attr-native', 'libunwind', 'bzip2', 'bluez5', 'util-linux', 'sqlite3', 'ncurses', 'opkg-utils', 'xz', 'libxcrypt', 'libtirpc', 'readline', 'libnsl2', 'libffi', 'gdbm', 'attr', 'icu', 'libidn2', 'c-ares', 'gettext-minimal-native', 'util-linux-libuuid-native', 'libpcre2-native', 'libcap-ng-native', 'm4-native', 'rosidl-runtime-c', 'rosidl-typesupport-introspection-c', 'rosidl-typesupport-introspection-cpp', 'rosidl-cmake', 'rosidl-generator-cpp', 'fastrtps-cmake-module', 'fastrtps', 'rosidl-default-runtime', 'python-cmake-module', 'rosidl-typesupport-fastrtps-c', 'rosidl-typesupport-fastrtps-cpp', 'fastcdr', 'tinyxml2-vendor', 'ament-index-cpp', 'tf2-py', 'message-filters', 'rclcpp-components', 'rclcpp-action', 'tf2-msgs', 'orocos-kdl', 'rosidl-default-generators', 'libyaml-vendor', 'libyaml', 'rmw-fastrtps-cpp', 'rmw-fastrtps-shared-cpp', 'rcl-logging-spdlog', 'ament-cmake-include-directories-native', 'python3-catkin-pkg-native', 'ament-package-native', 'action-msgs', 'rmw-cyclonedds-cpp', 'libatomic-ops', 'dbus', 'glib-2.0', 'systemd', 'libical', 'bash-completion', 'libcap-ng', 'util-linux-libuuid', 'libunistring', 'rosidl-typesupport-interface', 'rosidl-generator-c', 'libtinyxml2', 'asio', 'foonathan-memory-vendor', 'rosidl-generator-py', 'composition-interfaces', 'ament-cmake', 'eigen3-cmake-module', 'libeigen', 'rmw-dds-common', 'spdlog-vendor', 'spdlog', 'python3-pyparsing-native', 'python3-setuptools-native', 'cyclonedds', 'expat', 'autoconf-archive', 'kmod', 'libcap', 'libxml2', 'foonathan-memory', 'ament-cmake-export-dependencies', 'ament-cmake-core', 'fmt']
+DEBUG: Python function extend_recipe_sysroot finished
+DEBUG: Executing shell function do_configure
+-- The C compiler identification is GNU 10.2.0
+-- The CXX compiler identification is GNU 10.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 0.9.8 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/ament_cmake/cmake)
+-- Found PythonInterp: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 (found suitable version "3.9.2", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3
+-- Found rclcpp: 2.3.0 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+CMake Warning at /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_cmake/cmake/rosidl_cmake-extras.cmake:30 (find_package):
+  By not providing "Findrosidl_adapter.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "rosidl_adapter", but CMake did not find one.
+
+  Could not find a package configuration file provided by "rosidl_adapter"
+  with any of the following names:
+
+    rosidl_adapterConfig.cmake
+    rosidl_adapter-config.cmake
+
+  Add the installation prefix of "rosidl_adapter" to CMAKE_PREFIX_PATH or set
+  "rosidl_adapter_DIR" to a directory containing one of the above files.  If
+  "rosidl_adapter" provides a separate development package or SDK, be sure it
+  has been installed.
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_cmake/cmake/rosidl_cmakeConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_generator_c/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_generator_c/cmake/rosidl_generator_cConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_typesupport_c/cmake/rosidl_typesupport_c-extras.cmake:11 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_typesupport_c/cmake/rosidl_typesupport_cConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_default_runtime/cmake/rosidl_default_runtime-extras.cmake:12 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_default_runtime/cmake/rosidl_default_runtimeConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/builtin_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/builtin_interfaces/cmake/builtin_interfacesConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rcl_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rcl_interfaces/cmake/rcl_interfacesConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rcl/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rcl/cmake/rclConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/libstatistics_collector/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/libstatistics_collector/cmake/libstatistics_collectorConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rclcpp/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rclcpp/cmake/rclcppConfig.cmake:41 (include)
+  CMakeLists.txt:13 (find_package)
+
+
+-- Found OpenSSL: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/lib/libcrypto.so (found version "1.1.1k")  
+-- Found FastRTPS: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/include  
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.2 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found std_msgs: 2.0.3 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/std_msgs/cmake)
+-- Found warehouse_ros: 2.0.0 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/warehouse_ros/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.3.7") 
+-- Found Boost: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/lib/cmake/Boost-1.75.0/BoostConfig.cmake (found version "1.75.0") found components: system filesystem thread 
+CMake Error at cmake/FindMONGODB.cmake:62 (message):
+  MONGODB not found.
+Call Stack (most recent call first):
+  CMakeLists.txt:19 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/build/CMakeFiles/CMakeOutput.log".
+See also "/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/build/CMakeFiles/CMakeError.log".
+WARNING: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/temp/run.do_configure.4757:289 exit 1 from 'cmake -G 'Ninja' -DCMAKE_MAKE_PROGRAM=ninja $oecmake_sitefile /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/git -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_BINDIR:PATH=bin -DCMAKE_INSTALL_SBINDIR:PATH=sbin -DCMAKE_INSTALL_LIBEXECDIR:PATH=libexec -DCMAKE_INSTALL_SYSCONFDIR:PATH=/etc -DCMAKE_INSTALL_SHAREDSTATEDIR:PATH=../com -DCMAKE_INSTALL_LOCALSTATEDIR:PATH=/var -DCMAKE_INSTALL_LIBDIR:PATH=lib -DCMAKE_INSTALL_INCLUDEDIR:PATH=include -DCMAKE_INSTALL_DATAROOTDIR:PATH=share -DPYTHON_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DPython_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DPython3_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DLIB_SUFFIX= -DCMAKE_INSTALL_SO_NO_EXE=0 -DCMAKE_TOOLCHAIN_FILE=/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/toolchain.cmake -DCMAKE_NO_SYSTEM_FROM_IMPORTED=1 -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DBUILD_TESTING=OFF -DPYTHON_SOABI=cpython-39-i386-linux-gnu -Wno-dev'
+WARNING: Backtrace (BB generated script): 
+	#1: cmake_do_configure, /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/temp/run.do_configure.4757, line 289
+	#2: do_configure, /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/temp/run.do_configure.4757, line 158
+	#3: main, /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/temp/run.do_configure.4757, line 349
+ERROR: Execution of '/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/temp/run.do_configure.4757' failed with exit code 1:
+-- The C compiler identification is GNU 10.2.0
+-- The CXX compiler identification is GNU 10.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 0.9.8 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/ament_cmake/cmake)
+-- Found PythonInterp: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 (found suitable version "3.9.2", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3
+-- Found rclcpp: 2.3.0 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+CMake Warning at /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_cmake/cmake/rosidl_cmake-extras.cmake:30 (find_package):
+  By not providing "Findrosidl_adapter.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "rosidl_adapter", but CMake did not find one.
+
+  Could not find a package configuration file provided by "rosidl_adapter"
+  with any of the following names:
+
+    rosidl_adapterConfig.cmake
+    rosidl_adapter-config.cmake
+
+  Add the installation prefix of "rosidl_adapter" to CMAKE_PREFIX_PATH or set
+  "rosidl_adapter_DIR" to a directory containing one of the above files.  If
+  "rosidl_adapter" provides a separate development package or SDK, be sure it
+  has been installed.
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_cmake/cmake/rosidl_cmakeConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_generator_c/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_generator_c/cmake/rosidl_generator_cConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_typesupport_c/cmake/rosidl_typesupport_c-extras.cmake:11 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_typesupport_c/cmake/rosidl_typesupport_cConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_default_runtime/cmake/rosidl_default_runtime-extras.cmake:12 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rosidl_default_runtime/cmake/rosidl_default_runtimeConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/builtin_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/builtin_interfaces/cmake/builtin_interfacesConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rcl_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rcl_interfaces/cmake/rcl_interfacesConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rcl/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rcl/cmake/rclConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/libstatistics_collector/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/libstatistics_collector/cmake/libstatistics_collectorConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rclcpp/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rclcpp/cmake/rclcppConfig.cmake:41 (include)
+  CMakeLists.txt:13 (find_package)
+
+
+-- Found OpenSSL: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/lib/libcrypto.so (found version "1.1.1k")  
+-- Found FastRTPS: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/include  
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.2 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found std_msgs: 2.0.3 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/std_msgs/cmake)
+-- Found warehouse_ros: 2.0.0 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/warehouse_ros/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.3.7") 
+-- Found Boost: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot/usr/lib/cmake/Boost-1.75.0/BoostConfig.cmake (found version "1.75.0") found components: system filesystem thread 
+CMake Error at cmake/FindMONGODB.cmake:62 (message):
+  MONGODB not found.
+Call Stack (most recent call first):
+  CMakeLists.txt:19 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/build/CMakeFiles/CMakeOutput.log".
+See also "/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/build/CMakeFiles/CMakeError.log".
+WARNING: /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/temp/run.do_configure.4757:289 exit 1 from 'cmake -G 'Ninja' -DCMAKE_MAKE_PROGRAM=ninja $oecmake_sitefile /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/git -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_BINDIR:PATH=bin -DCMAKE_INSTALL_SBINDIR:PATH=sbin -DCMAKE_INSTALL_LIBEXECDIR:PATH=libexec -DCMAKE_INSTALL_SYSCONFDIR:PATH=/etc -DCMAKE_INSTALL_SHAREDSTATEDIR:PATH=../com -DCMAKE_INSTALL_LOCALSTATEDIR:PATH=/var -DCMAKE_INSTALL_LIBDIR:PATH=lib -DCMAKE_INSTALL_INCLUDEDIR:PATH=include -DCMAKE_INSTALL_DATAROOTDIR:PATH=share -DPYTHON_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DPython_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DPython3_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DLIB_SUFFIX= -DCMAKE_INSTALL_SO_NO_EXE=0 -DCMAKE_TOOLCHAIN_FILE=/jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/toolchain.cmake -DCMAKE_NO_SYSTEM_FROM_IMPORTED=1 -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DBUILD_TESTING=OFF -DPYTHON_SOABI=cpython-39-i386-linux-gnu -Wno-dev'
+WARNING: Backtrace (BB generated script): 
+	#1: cmake_do_configure, /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/temp/run.do_configure.4757, line 289
+	#2: do_configure, /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/temp/run.do_configure.4757, line 158
+	#3: main, /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/warehouse-ros-mongo/2.0.0-1-r0/temp/run.do_configure.4757, line 349
+
+Backtrace (metadata-relative locations):
+	#1: cmake_do_configure, /jenkins/mjansa/build/ros/webos-foxy-hardknott/openembedded-core/meta/classes/cmake.bbclass, line 173
+	#2: do_configure, autogenerated, line 3
