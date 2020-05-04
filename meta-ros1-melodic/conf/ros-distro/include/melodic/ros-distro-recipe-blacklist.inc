@@ -225,6 +225,8 @@ PNBLACKLIST[mir-driver] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazeb
 PNBLACKLIST[mir-gazebo] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'gazebo'], 'Requires rqt-robot-steering->python-qt-binding which requires meta-qt5 to be included and rdepends on mir-driver, mir-description, gazebo-ros which require gazebo', '', d)}"
 PNBLACKLIST[mir-navigation] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, mir-driver which is not available', '', d)}"
 PNBLACKLIST[mir-robot] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'gazebo'], 'Requires mir-gazebo->rqt-robot-steering->python-qt-binding which requires meta-qt5 to be included and rdepends on mir-driver, mir-navigation, mir-description which require gazebo', '', d)}"
+PNBLACKLIST[mongodb-log] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['mongodb', 'mongodb-legacy-cxx-driver'], 'Requires mongodb; mongodb-legacy-cxx-driver: depends on mongodb-store which requires unavailable mongo-cxx-driver-legacy', '', d)}"
+PNBLACKLIST[mongodb-store] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['mongodb', 'mongodb-legacy-cxx-driver'], 'Requires mongodb; mongodb-legacy-cxx-driver: requires unavailable mongo-cxx-driver-legacy', '', d)}"
 PNBLACKLIST[moveit-commander] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'pyassimp'], 'Depends on moveit-ros-planning-interface->moveit-ros-planning->moveit-ros-perception->mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES and depends on unavailable UNRESOLVED-python-pyassimp', '', d)}"
 PNBLACKLIST[moveit-python] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyassimp', 'Depends on UNRESOLVED-python-pyassimp', '', d)}"
 PNBLACKLIST[moveit-ros-visualization] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre'], 'Requires qtbase which requires meta-qt5 to be included and ogre which is not available', '', d)}"
@@ -464,6 +466,7 @@ PNBLACKLIST[viz] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', '
 PNBLACKLIST[voice-text] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gst-ugly', 'Depends on sound-play->gstreamer1.0-plugins-ugly which requires commercial license', '', d)}"
 PNBLACKLIST[vrx-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
 PNBLACKLIST[wamv-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, hector-gazebo-plugins, gazebo-plugins, velodyne-gazebo-plugins, usv-gazebo-plugins which is not available', '', d)}"
+PNBLACKLIST[warehouse-ros-mongo] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['mongodb', 'mongodb-legacy-cxx-driver'], 'Requires mongodb; mongodb-legacy-cxx-driver: requires unavailable mongo-cxx-driver-legacy', '', d)}"
 PNBLACKLIST[warthog-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
 PNBLACKLIST[warthog-desktop] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'Requires warthog-viz->rviz which requires pyqt5 for python-qt-bindings and meta-qt5 to be included; ogre: Requires rviz which depends on unavailable ogre', '', d)}"
 PNBLACKLIST[warthog-simulator] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, warthog-gazebo which is not available', '', d)}"
@@ -634,11 +637,9 @@ PNBLACKLIST[wamv-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 
 # do_configure issues in the generated recipes
 ROS_WORLD_SKIP_GROUPS += "unknown-configure"
-PNBLACKLIST[mongodb-store] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['mongodb', 'unknown-configure'], 'Requires mongodb; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[pyros-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[qt-gui-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'unknown-configure'], 'Requires qtbase which requires meta-qt5 to be included and python-qt-binding which requires pyqt5; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[stage] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11', 'unknown-configure'], 'Depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES and fltk, gtk+->x11; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[warehouse-ros-mongo] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['mongodb', 'unknown-configure'], 'Requires mongodb; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 
 # Victims depend on something already blacklisted by the unknown failures above
 ROS_WORLD_SKIP_GROUPS += "unknown-victim"
@@ -805,7 +806,6 @@ PNBLACKLIST[mcl-3dl] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-
 PNBLACKLIST[md49-base-controller] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[message-relay] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[mir-dwb-critics] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
-PNBLACKLIST[mongodb-log] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['mongodb', 'unknown-victim'], 'Requires mongodb-store->mongodb; unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[move-base-flex] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[moveit-chomp-optimizer-adapter] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[moveit-controller-manager-example] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
