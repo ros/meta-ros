@@ -50,6 +50,13 @@ ROS_WORLD_SKIP_GROUPS += "pyassimp"
 ROS_WORLD_SKIP_GROUPS += "vtk-qt"
 # recipes depending on libopenscenegraph
 ROS_WORLD_SKIP_GROUPS += "osg"
+# recipes depending on legacy mongo-cxx-driver (https://packages.debian.org/source/stretch/mongo-cxx-driver-legacy)
+# the mongodb recipe in meta-oe installs just the binaries mongoc, mongos, install_compass
+# the header files searched by mongo-store, warehouse-ros-mongo cmake files cmake/FindMongoClient.cmake and cmake/FindMongoDB.cmake
+# aren't even part of current version of mongo-cxx-driver
+# src/mongo/client/dbclient.h and src/mongo/client/dbclientinterface.h are only in the legacy branches
+ROS_WORLD_SKIP_GROUPS += "mongodb-legacy-cxx-driver"
+
 # recipes depending on various unavailable python modules
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-cairosvg' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-joblib' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
