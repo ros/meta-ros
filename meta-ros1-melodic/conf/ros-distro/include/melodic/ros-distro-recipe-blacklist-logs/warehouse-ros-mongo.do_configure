@@ -1,0 +1,55 @@
+DEBUG: Executing shell function do_configure
+-- The C compiler identification is GNU 8.2.0
+-- The CXX compiler identification is GNU 8.2.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/devel
+-- Using CMAKE_PREFIX_PATH: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot/opt/ros/melodic;/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot/usr
+-- This workspace overlays: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot/opt/ros/melodic
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot-native/usr/bin/python-native/python2 (found suitable version "2.7.16", minimum required is "2") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot-native/usr/bin/python-native/python2
+-- Using default Python package layout
+-- Found PY_em: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc  
+-- Using empy: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc
+-- Using CATKIN_ENABLE_TESTING: 0
+-- catkin 0.7.23
+-- BUILD_SHARED_LIBS is on
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Boost version: 1.68.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+--   thread
+--   chrono
+--   date_time
+--   atomic
+-- Found OpenSSL: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/recipe-sysroot/usr/lib/libcrypto.so (found version "1.1.1b")  
+CMake Error at cmake/FindMongoDB.cmake:61 (message):
+  MongoDB not found.
+Call Stack (most recent call first):
+  CMakeLists.txt:18 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/build/CMakeFiles/CMakeOutput.log".
+See also "/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/build/CMakeFiles/CMakeError.log".
+WARNING: exit code 1 from a shell command.
+ERROR: Function failed: do_configure (log file is located at /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/warehouse-ros-mongo/0.9.1-1-r0/temp/log.do_configure.63457)
