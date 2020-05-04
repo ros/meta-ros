@@ -431,6 +431,7 @@ PNBLACKLIST[smach-viewer] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wxp
 PNBLACKLIST[sound-play] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gst-ugly', 'Depends on gstreamer1.0-plugins-ugly which requires commercial license', '', d)}"
 PNBLACKLIST[spacenav-node] ?= "Depends on unavailable UNRESOLVED-libspnav-dev"
 PNBLACKLIST[spatio-temporal-voxel-layer] ?= "Depends on unavailable UNRESOLVED-libopenvdb, UNRESOLVED-libopenexr-dev, UNRESOLVED-libopenvdb-dev"
+PNBLACKLIST[stage] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11'], 'Depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES and fltk, gtk+->x11', '', d)}"
 PNBLACKLIST[swri-console] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], 'qt5: depends on qtbase; qt5-widgets: needs widgets enabled in qtbase PACKAGECONFIG', '', d)}"
 PNBLACKLIST[swri-profiler-tools] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], 'qt5: depends on qtbase; qt5-widgets: needs widgets enabled in qtbase PACKAGECONFIG', '', d)}"
 PNBLACKLIST[towr-ros] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires rqt-bag->python-qt-binding which requires meta-qt5 to be included', 'depends on towr->ifopt->unavailable UNRESOLVED-coinor-libipopt-dev', d)}"
@@ -547,7 +548,6 @@ PNBLACKLIST[wamv-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 ROS_WORLD_SKIP_GROUPS += "unknown-configure"
 PNBLACKLIST[pyros-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[qt-gui-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'unknown-configure'], 'Requires qtbase which requires meta-qt5 to be included and python-qt-binding which requires pyqt5; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[stage] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11', 'unknown-configure'], 'Depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES and fltk, gtk+->x11; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 
 # Victims depend on something already blacklisted by the unknown failures above
 ROS_WORLD_SKIP_GROUPS += "unknown-victim"
