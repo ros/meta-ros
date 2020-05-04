@@ -543,7 +543,6 @@ PNBLACKLIST[wamv-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 # do_configure issues in the generated recipes
 ROS_WORLD_SKIP_GROUPS += "unknown-configure"
 PNBLACKLIST[mongodb-store] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['mongodb', 'unknown-configure'], 'Requires mongodb; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[prosilica-gige-sdk] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[pyros-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[qt-gui-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'unknown-configure'], 'Requires qtbase which requires meta-qt5 to be included and python-qt-binding which requires pyqt5; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 PNBLACKLIST[rc-genicam-api] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
@@ -844,7 +843,6 @@ PNBLACKLIST[pr2-tilt-laser-interface] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_G
 PNBLACKLIST[pr2-tuck-arms-action] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[pr2-tuckarm] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[prbt-ikfast-manipulator-plugin] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
-PNBLACKLIST[prosilica-camera] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[qt-gui-core] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'unknown-victim'], 'Requires qt-gui-py-common which requires meta-qt5 to be included and qt-gui(-cpp)->python-qt-binding which requires pyqt5; unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[rc-pick-client] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-victim', 'unknown-victim: depends on something failing for unknown reason', '', d)}"
 PNBLACKLIST[rc-roi-manager-gui] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11', 'unknown-victim'], 'Depends on wxwidgets->freeglut which is not available because of missing opengl in DISTRO_FEATURES and wxwidgets->x11; unknown-victim: depends on something failing for unknown reason', '', d)}"
