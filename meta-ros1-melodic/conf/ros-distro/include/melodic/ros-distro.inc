@@ -57,6 +57,11 @@ ROS_WORLD_SKIP_GROUPS += "osg"
 # src/mongo/client/dbclient.h and src/mongo/client/dbclientinterface.h are only in the legacy branches
 ROS_WORLD_SKIP_GROUPS += "mongodb-legacy-cxx-driver"
 
+# do_compile failures
+ROS_WORLD_SKIP_GROUPS += " \
+    qt-gui-cpp \
+"
+
 # recipes depending on various unavailable python modules
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-cairosvg' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-joblib' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
