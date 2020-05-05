@@ -316,6 +316,7 @@ PNBLACKLIST[py-trees-ros] ?= "Rdepends on unavailable UNRESOLVED-python-termcolo
 PNBLACKLIST[python-qt-binding] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'Requires meta-qt5 to be included and pyqt5 enabled', '', d)}"
 PNBLACKLIST[qt-dotgraph] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires python-qt-binding which requires meta-qt5 to be included', '', d)}"
 PNBLACKLIST[qt-gui-app] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'Requires qt-gui->qtbase which requires meta-qt5 to be included and qt-gui->python-pyqt5 which requires pyqt5', '', d)}"
+PNBLACKLIST[qt-gui-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'qt-gui-cpp'], 'Requires qtbase which requires meta-qt5 to be included and python-qt-binding which requires pyqt5; qt-gui-cpp: requires pyqt5-native for sip', '', d)}"
 PNBLACKLIST[qt-gui-py-common] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires python-qt-binding which requires meta-qt5 to be included', '', d)}"
 PNBLACKLIST[qt-gui] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'Requires qtbase which requires meta-qt5 to be included and python-pyqt5 which requires pyqt5', '', d)}"
 PNBLACKLIST[qt-qmake-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires qtbase which requires meta-qt5 to be included', '', d)}"
@@ -639,7 +640,6 @@ PNBLACKLIST[wamv-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 # do_configure issues in the generated recipes
 ROS_WORLD_SKIP_GROUPS += "unknown-configure"
 PNBLACKLIST[pyros-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unknown-configure', 'unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
-PNBLACKLIST[qt-gui-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'unknown-configure'], 'Requires qtbase which requires meta-qt5 to be included and python-qt-binding which requires pyqt5; unknown-configure: do_configure tasks fails for unknown reason', '', d)}"
 
 # Victims depend on something already blacklisted by the unknown failures above
 ROS_WORLD_SKIP_GROUPS += "unknown-victim"
