@@ -282,7 +282,10 @@ boost:
     squeeze: [libboost1.42-all-dev]
     stretch: [libboost-all-dev]
     wheezy: [libboost-all-dev]
-  fedora: [boost-devel, boost-python2-devel, boost-python3-devel]
+  fedora:
+    '*': [boost-devel, boost-python3-devel]
+    '30': [boost-devel, boost-python2-devel, boost-python3-devel]
+    '31': [boost-devel, boost-python2-devel, boost-python3-devel]
   freebsd: [py27-boost-libs]
   gentoo: ['dev-libs/boost[python]']
   macports: [boost]
@@ -800,6 +803,12 @@ ffmpeg2theora:
   fedora: [ffmpeg2theora]
   gentoo: [media-video/ffmpeg2theora]
   ubuntu: [ffmpeg2theora]
+flac:
+  arch: [flac]
+  debian: [flac]
+  fedora: [flac]
+  gentoo: [media-libs/flac]
+  ubuntu: [flac]
 flex:
   arch: [flex]
   debian: [flex]
@@ -954,6 +963,7 @@ gazebo9:
     stretch: [gazebo9]
   fedora:
     '30': [gazebo]
+    '31': [gazebo]
   gentoo: [sci-electronics/gazebo]
   openembedded: []
   ubuntu:
@@ -1221,6 +1231,7 @@ gstreamer1.0:
   ubuntu: [gstreamer1.0-tools, libgstreamer1.0-0, gir1.2-gstreamer-1.0]
 gstreamer1.0-alsa:
   debian: [gstreamer1.0-alsa]
+  fedora: [gstreamer1-plugins-base]
   rhel: [gstreamer1-plugins-base]
   ubuntu: [gstreamer1.0-alsa]
 gstreamer1.0-libav:
@@ -1329,6 +1340,7 @@ hddtemp:
   macports: [python27]
   openembedded: [hddtemp@meta-oe]
   opensuse: [hddtemp]
+  rhel: [hddtemp]
   slackware: [hddtemp]
   ubuntu: [hddtemp]
 hdf5:
@@ -1516,7 +1528,7 @@ lcov:
   ubuntu: [lcov]
 leveldb:
   debian: [libleveldb-dev]
-  fedora: [libleveldb-devel]
+  fedora: [leveldb-devel]
   gentoo: [dev-libs/leveldb]
   ubuntu: [libleveldb-dev]
 lib32asound2:
@@ -1636,6 +1648,7 @@ libboost-atomic-dev:
   debian: [libboost-atomic-dev]
   fedora: [boost-devel]
   gentoo: [dev-libs/boost]
+  rhel: [boost-devel]
   ubuntu: [libboost-atomic-dev]
 libboost-chrono:
   debian:
@@ -1652,6 +1665,7 @@ libboost-chrono-dev:
   debian: [libboost-chrono-dev]
   fedora: [boost-devel]
   gentoo: [dev-libs/boost]
+  rhel: [boost-devel]
   ubuntu: [libboost-chrono-dev]
 libboost-date-time:
   debian:
@@ -1668,6 +1682,7 @@ libboost-date-time-dev:
   debian: [libboost-date-time-dev]
   fedora: [boost-devel]
   gentoo: [dev-libs/boost]
+  rhel: [boost-devel]
   ubuntu: [libboost-date-time-dev]
 libboost-dev:
   debian: [libboost-dev]
@@ -1689,6 +1704,7 @@ libboost-filesystem-dev:
   debian: [libboost-filesystem-dev]
   fedora: [boost-devel]
   gentoo: ['dev-libs/boost[python]']
+  rhel: [boost-devel]
   ubuntu: [libboost-filesystem-dev]
 libboost-iostreams:
   debian:
@@ -1705,6 +1721,7 @@ libboost-iostreams-dev:
   debian: [libboost-iostreams-dev]
   fedora: [boost-devel]
   gentoo: [dev-libs/boost]
+  rhel: [boost-devel]
   ubuntu: [libboost-iostreams-dev]
 libboost-program-options:
   debian:
@@ -1769,6 +1786,7 @@ libboost-random-dev:
   debian: [libboost-random-dev]
   fedora: [boost-devel]
   gentoo: [dev-libs/boost]
+  rhel: [boost-devel]
   ubuntu: [libboost-random-dev]
 libboost-regex:
   debian:
@@ -1785,6 +1803,7 @@ libboost-regex-dev:
   debian: [libboost-regex-dev]
   fedora: [boost-devel]
   gentoo: [dev-libs/boost]
+  rhel: [boost-devel]
   ubuntu: [libboost-regex-dev]
 libboost-system:
   debian:
@@ -1823,6 +1842,7 @@ libboost-thread-dev:
   debian: [libboost-thread-dev]
   fedora: [boost-devel]
   gentoo: ['dev-libs/boost[threads]']
+  rhel: [boost-devel]
   ubuntu: [libboost-thread-dev]
 libcairo2-dev:
   arch: [cairo]
@@ -2216,6 +2236,7 @@ libgazebo9-dev:
     stretch: [libgazebo9-dev]
   fedora:
     '30': [gazebo-devel]
+    '31': [gazebo-devel]
   gentoo: [sci-electronics/gazebo]
   ubuntu:
     artful: [libgazebo9-dev]
@@ -2817,7 +2838,6 @@ libogre:
   gentoo: [dev-games/ogre]
   macports: [ogre]
   opensuse: [ogre-devel]
-  rhel: [ogre-devel]
   slackware: [ogre]
   ubuntu:
     artful: [libogre-1.9-dev]
@@ -2849,7 +2869,6 @@ libogre-dev:
   gentoo: [dev-games/ogre]
   macports: [ogre]
   opensuse: [ogre-devel]
-  rhel: [ogre-devel]
   slackware: [ogre]
   ubuntu:
     artful: [libogre-1.9-dev]
@@ -2907,6 +2926,13 @@ libopencv-dev:
   openembedded: [opencv@meta-oe]
   rhel: [opencv-devel]
   ubuntu: [libopencv-dev]
+libopencv-imgproc-dev:
+  arch: [opencv]
+  debian: [libopencv-imgproc-dev]
+  fedora: [opencv-devel]
+  gentoo: [media-libs/opencv]
+  rhel: [opencv-devel]
+  ubuntu: [libopencv-imgproc-dev]
 libopenexr-dev:
   arch: [openexr]
   debian: [libopenexr-dev]
@@ -3169,16 +3195,7 @@ libpopt-dev:
 libpq-dev:
   arch: [postgresql-libs]
   debian: [libpq-dev]
-  fedora:
-    '21': [derelict-PQ-devel, postgresql-devel]
-    '22': [derelict-PQ-devel, postgresql-devel]
-    '23': [derelict-PQ-devel, postgresql-devel]
-    '24': [derelict-PQ-devel, postgresql-devel]
-    '28': [derelict-PQ-devel, postgresql-devel]
-    beefy: [derelict-postgresql-devel, postgresql-devel]
-    heisenbug: [derelict-postgresql-devel, postgresql-devel]
-    schrödinger’s: [derelict-postgresql-devel, postgresql-devel]
-    spherical: [derelict-postgresql-devel, postgresql-devel]
+  fedora: [libpq-devel]
   gentoo: [dev-db/postgresql]
   ubuntu: [libpq-dev]
 libpqxx:
@@ -3314,6 +3331,7 @@ libqglviewer-qt4-dev:
     zesty: [libqglviewer-dev-qt4]
 libqglviewer2-qt5:
   debian: [libqglviewer2-qt5]
+  fedora: [libQGLViewer-qt5]
   ubuntu: [libqglviewer2-qt5]
 libqhull:
   arch: [qhull]
@@ -3898,6 +3916,7 @@ liburdfdom-dev:
   gentoo: [dev-libs/urdfdom]
   openembedded: [urdfdom@meta-ros]
   opensuse: [urdfdom-devel]
+  rhel: [urdfdom-devel]
   slackware: [urdfdom]
   ubuntu: [liburdfdom-dev]
 liburdfdom-headers-dev:
@@ -3908,6 +3927,7 @@ liburdfdom-headers-dev:
   gentoo: [dev-libs/urdfdom_headers]
   openembedded: [urdfdom-headers@meta-ros]
   opensuse: [urdfdom-headers-devel]
+  rhel: [urdfdom-headers-devel]
   slackware: [urdfdom_headers]
   ubuntu: [liburdfdom-headers-dev]
 liburdfdom-tools:
@@ -4273,6 +4293,7 @@ libzstd-dev:
   debian: [libzstd-dev]
   fedora: [libzstd-devel]
   gentoo: [app-arch/zstd]
+  rhel: [libzstd-devel]
   ubuntu:
     '*': [libzstd-dev]
     xenial: [libzstd1-dev]
@@ -4382,7 +4403,7 @@ lua-dev:
 lua5.2-dev:
   arch: [lua52]
   debian: [liblua5.2-dev]
-  fedora: [lua]
+  fedora: [lua-devel]
   gentoo: ['dev-lang/lua:5.2']
   openembedded: [lua@meta-oe]
   rhel: [lua-devel]
@@ -4720,6 +4741,7 @@ nvidia-cuda-dev:
   ubuntu: [nvidia-cuda-dev]
 ocl-icd-opencl-dev:
   debian: [ocl-icd-opencl-dev]
+  fedora: [ocl-icd-devel]
   gentoo: [virtual/opencl]
   ubuntu: [ocl-icd-opencl-dev]
 odb:
@@ -5269,6 +5291,7 @@ sbcl:
   gentoo: [dev-lisp/sbcl]
   macports: [sbcl]
   opensuse: [sbcl]
+  rhel: [sbcl]
   slackware: [sbcl]
   ubuntu: [sbcl]
 scons:
@@ -5937,7 +5960,7 @@ workrave:
 wx-common:
   arch: [wxgtk]
   debian: [wx-common]
-  fedora: [wxGTK-devel]
+  fedora: [wxGTK3-devel]
   gentoo: [x11-libs/wxGTK]
   openembedded: [wxwidgets@meta-ros]
   ubuntu: [wx-common]
@@ -5948,7 +5971,7 @@ wxwidgets:
     jessie: [libwxgtk3.0-dev]
     stretch: [libwxgtk3.0-dev]
     wheezy: [libwxgtk2.8-dev]
-  fedora: [wxGTK-devel]
+  fedora: [wxGTK3-devel]
   freebsd: [wxgtk2]
   gentoo: [x11-libs/wxGTK]
   macports: [wxWidgets-python]
