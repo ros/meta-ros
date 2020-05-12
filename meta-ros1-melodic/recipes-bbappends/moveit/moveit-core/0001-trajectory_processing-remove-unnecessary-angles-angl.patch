@@ -1,0 +1,33 @@
+From 80e69c234c6a3a85ad9051c295aaae0ed42d227d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 12 May 2020 12:45:26 -0700
+Subject: [PATCH] trajectory_processing: remove unnecessary angles/angles.h
+ include
+
+* angles should be used only when testing is enabled since:
+  0.6.10 (2014-10-27)
+  -------------------
+  * Moved find_package angles to within CATKIN_ENABLE_TESTING
+
+  so in our builds it's not enabled and build was failing with:
+  moveit-core/1.0.2-1-r0/git/trajectory_processing/src/time_optimal_trajectory_generation.cpp:42:10: fatal error: angles/angles.h: No such file or directory
+
+  drop the include as it doesn't seem to be used at all
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ trajectory_processing/src/time_optimal_trajectory_generation.cpp | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/trajectory_processing/src/time_optimal_trajectory_generation.cpp b/trajectory_processing/src/time_optimal_trajectory_generation.cpp
+index b9a1e0941..f8f6d3652 100644
+--- a/trajectory_processing/src/time_optimal_trajectory_generation.cpp
++++ b/trajectory_processing/src/time_optimal_trajectory_generation.cpp
+@@ -39,7 +39,6 @@
+ #include <limits>
+ #include <Eigen/Geometry>
+ #include <algorithm>
+-#include <angles/angles.h>
+ #include <cmath>
+ #include <moveit/trajectory_processing/time_optimal_trajectory_generation.h>
+ #include <ros/console.h>
