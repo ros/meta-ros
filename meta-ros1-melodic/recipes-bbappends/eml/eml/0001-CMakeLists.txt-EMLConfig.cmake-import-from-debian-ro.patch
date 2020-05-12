@@ -1,0 +1,105 @@
+From 2375f637bd3b8a4c653d75f11d99d66af83348d0 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 12 May 2020 08:05:17 -0700
+Subject: [PATCH] CMakeLists.txt, EMLConfig.cmake: import from
+ debian/ros-melodic-eml_1.8.15-2_bionic
+
+* these are missing in regular tag release/melodic/eml/1.8.15-2 but are actually needed, e.g. by
+  ethercat-hardware:
+* fixes:
+
+DEBUG: Executing shell function do_configure
+-- The C compiler identification is GNU 8.2.0
+-- The CXX compiler identification is GNU 8.2.0
+-- Check for working C compiler: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot-native/usr/bin/i586-webos-linux/i586-webos-linux-gcc
+-- Check for working C compiler: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot-native/usr/bin/i586-webos-linux/i586-webos-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot-native/usr/bin/i586-webos-linux/i586-webos-linux-g++
+-- Check for working CXX compiler: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot-native/usr/bin/i586-webos-linux/i586-webos-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/devel
+-- Using CMAKE_PREFIX_PATH: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot/usr/opt/ros/melodic;webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot/usr
+-- This workspace overlays: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot/usr/opt/ros/melodic
+-- Found PythonInterp: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot-native/usr/bin/python-native/python2 (found suitable version "2.7.16", minimum required is "2")
+-- Using PYTHON_EXECUTABLE: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot-native/usr/bin/python-native/python2
+-- Using default Python package layout
+-- Found PY_em: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc
+-- Using empy: webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc
+-- Using CATKIN_ENABLE_TESTING: 0
+-- catkin 0.7.23
+-- BUILD_SHARED_LIBS is on
+-- Using these message generators: gencpp;gennodejs;genpy
+CMake Error at CMakeLists.txt:9 (find_package):
+  By not providing "FindEML.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "EML", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "EML" with any of
+  the following names:
+
+    EMLConfig.cmake
+    eml-config.cmake
+
+  Add the installation prefix of "EML" to CMAKE_PREFIX_PATH or set "EML_DIR"
+  to a directory containing one of the above files.  If "EML" provides a
+  separate development package or SDK, be sure it has been installed.
+
+-- Configuring incomplete, errors occurred!
+See also "webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/build/CMakeFiles/CMakeOutput.log".
+WARNING: exit code 1 from a shell command.
+ERROR: Function failed: do_configure (log file is located at webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/temp/log.do_configure.76172)
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt  |  6 ++++++
+ EMLConfig.cmake | 22 ++++++++++++++++++++++
+ 2 files changed, 28 insertions(+)
+ create mode 100644 CMakeLists.txt
+ create mode 100644 EMLConfig.cmake
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+new file mode 100644
+index 0000000..03f3666
+--- /dev/null
++++ b/CMakeLists.txt
+@@ -0,0 +1,6 @@
++cmake_minimum_required(VERSION 2.8.3)
++
++add_subdirectory(eml-svn)
++
++install( FILES package.xml EMLConfig.cmake DESTINATION share/eml )
++
+diff --git a/EMLConfig.cmake b/EMLConfig.cmake
+new file mode 100644
+index 0000000..4674b83
+--- /dev/null
++++ b/EMLConfig.cmake
+@@ -0,0 +1,22 @@
++# - Try to find EML
++# Once done this will define
++#  EML_FOUND - System has EML
++#  EML_INCLUDE_DIRS - The EML include directories
++#  EML_LIBRARIES - The libraries needed to use EML
++#  EML_DEFINITIONS - Compiler switches required for using EML
++
++find_path(EML_INCLUDE_DIR al/ethercat_master.h)
++
++find_library(EML_LIBRARY NAMES eml)
++
++set(EML_LIBRARIES ${EML_LIBRARY} )
++set(EML_INCLUDE_DIRS ${EML_INCLUDE_DIR} )
++
++include(FindPackageHandleStandardArgs)
++# handle the QUIETLY and REQUIRED arguments and set EML_FOUND to TRUE
++# if all listed variables are TRUE
++find_package_handle_standard_args(EML  DEFAULT_MSG
++   EML_LIBRARY EML_INCLUDE_DIR)
++
++mark_as_advanced(EML_INCLUDE_DIR EML_LIBRARY )
++
