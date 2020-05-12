@@ -23,3 +23,10 @@
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-ros-perception path '/work/core2-64-oe-linux/moveit-ros-perception/1.0.2-1-r0/packages-split/moveit-ros-perception/opt/ros/melodic/lib/libmoveit_mesh_filter.so'
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-ros-perception path '/work/core2-64-oe-linux/moveit-ros-perception/1.0.2-1-r0/packages-split/moveit-ros-perception/opt/ros/melodic/lib/libmoveit_semantic_world.so' [dev-so]
 inherit ros_insane_dev_so
+
+do_configure_append() {
+    # Fixes this:
+    # moveit-ros-perception/1.0.2-1-r0/recipe-sysroot/usr/include/c++/8.2.0/cmath:45:15: fatal error: math.h: No such file or directory
+    # moveit-ros-perception/1.0.2-1-r0/recipe-sysroot/usr/include/c++/8.2.0/cstdlib:75:15: fatal error: stdlib.h: No such file or directory
+    sed -i 's/-isystem /-I/g' ${B}/build.ninja
+}
