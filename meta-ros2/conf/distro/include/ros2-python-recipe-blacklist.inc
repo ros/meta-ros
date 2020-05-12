@@ -42,8 +42,6 @@ PNBLACKLIST[sanlock] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2'
 PNBLACKLIST[pyxdg] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-graphics/fontforge/fontforge_20170731.bb
 PNBLACKLIST[fontforge] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-openembedded/meta-oe/recipes-security/nmap/nmap_7.70.bb
-PNBLACKLIST[nmap] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-support/libiio/libiio_git.bb
 PNBLACKLIST[libiio] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-support/lio-utils/lio-utils_4.1.bb
