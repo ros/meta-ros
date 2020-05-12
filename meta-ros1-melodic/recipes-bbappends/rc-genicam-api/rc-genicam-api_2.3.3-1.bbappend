@@ -26,3 +26,29 @@ RDEPENDS_${PN} += "bash"
 VIRTUAL-RUNTIME_bash ?= "bash"
 RDEPENDS_${PN}_append_class-target_webos = " ${VIRTUAL-RUNTIME_bash}"
 RDEPENDS_${PN}_remove_class-target_webos = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"
+
+# Uses cxx -dumpmachine to check the target architecture and fails for qemux86
+# because it detects i586 and supports only i686 (and arm, aarch64, x86_64)
+#   EXECUTE_PROCESS(COMMAND ${CMAKE_CXX_COMPILER} -dumpmachine COMMAND tr -d '\n' OUTPUT_VARIABLE CXX_MACHINE)
+#   string(REGEX REPLACE "([a-zA-Z_0-9]+).*" "\\1" ARCHITECTURE ${CXX_MACHINE})
+#
+# Restrict this recipe with COMPATIBLE_MACHINE and then just force
+# ARCHITECTURE with EXTRA_OECMAKE
+
+COMPATIBLE_MACHINE = "(^$)"
+COMPATIBLE_MACHINE_x86-64 = "(.*)"
+COMPATIBLE_MACHINE_x86 = "(.*)"
+COMPATIBLE_MACHINE_aarch64 = "(.*)"
+COMPATIBLE_MACHINE_armv7a = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '(^$)', '(.*)', d)}"
+COMPATIBLE_MACHINE_armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '(^$)', '(.*)', d)}"
+
+RC_GENICAM_API_ARCHITECTURE_x86-64 = "x86_64"
+RC_GENICAM_API_ARCHITECTURE_x86 = "i686"
+RC_GENICAM_API_ARCHITECTURE_aarch64 = "aarch64"
+RC_GENICAM_API_ARCHITECTURE_armv7a = "arm"
+RC_GENICAM_API_ARCHITECTURE_armv7ve = "arm"
+
+EXTRA_OECMAKE += "-DARCHITECTURE=${RC_GENICAM_API_ARCHITECTURE}"
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-GenicamConfig.cmake-detect-ARCHITECTURE-only-when-no.patch"
