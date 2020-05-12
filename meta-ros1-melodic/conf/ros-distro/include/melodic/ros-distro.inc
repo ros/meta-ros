@@ -48,6 +48,8 @@ ROS_WORLD_SKIP_GROUPS += "ogre"
 # https://github.com/ros/meta-ros/commit/5d71cc0abbc827719ffbbcb41db9cb5d71177401
 # but doesn't seem to provide python
 ROS_WORLD_SKIP_GROUPS += "pyassimp"
+# recipes depending on python-scipy
+ROS_WORLD_SKIP_GROUPS += "python-scipy"
 # recipes depending on libvtk-qt
 ROS_WORLD_SKIP_GROUPS += "vtk-qt"
 # recipes depending on libopenscenegraph
