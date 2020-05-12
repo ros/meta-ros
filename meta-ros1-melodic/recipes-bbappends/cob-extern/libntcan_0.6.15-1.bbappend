@@ -21,3 +21,10 @@ COMPATIBLE_MACHINE_x86-64 = "(.*)"
 COMPATIBLE_MACHINE_x86 = "(.*)"
 EXTRA_OECMAKE_append_x86-64 = "-DMYARCH=x86_64"
 EXTRA_OECMAKE_append_x86 = "-DMYARCH=i686"
+
+# ERROR: QA Issue: libntcan: Files/directories were installed but not shipped in any package:
+#  /usr/opt/ros/melodic/lib/libntcan.so.3
+#  /usr/opt/ros/melodic/lib/libntcan.so.3.1.7
+# Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
+# libntcan: 2 installed and not shipped files. [installed-vs-shipped]
+FILES_${PN} += "${ros_libdir}/*${SOLIBS}"
