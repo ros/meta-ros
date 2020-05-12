@@ -1,0 +1,52 @@
+From 8b15753ebbb404d3e3301c71aa915e84a753bca1 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 12 May 2020 08:13:59 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/gtest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9071463..01b979b 100755
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -65,15 +65,17 @@ find_package(Boost REQUIRED COMPONENTS regex system thread filesystem)
+ include_directories(${Boost_INCLUDE_DIRS})
+ target_link_libraries(motorconf ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+ 
+-catkin_add_gtest(wg0x_test test/wg0x_test.cpp )
+-target_link_libraries(wg0x_test ethercat_hardware tinyxml ${EML_LIBRARIES})
+-add_dependencies(wg0x_test ${ethercat_hardware_EXPORTED_TARGETS})
++if (CATKIN_ENABLE_TESTING)
++  catkin_add_gtest(wg0x_test test/wg0x_test.cpp )
++  target_link_libraries(wg0x_test ethercat_hardware tinyxml ${EML_LIBRARIES})
++  add_dependencies(wg0x_test ${ethercat_hardware_EXPORTED_TARGETS})
+ 
+-catkin_add_gtest(motor_heating_model_test test/motor_heating_model_test.cpp )
+-target_link_libraries(motor_heating_model_test ethercat_hardware tinyxml
+-   ${EML_LIBRARIES})
++  catkin_add_gtest(motor_heating_model_test test/motor_heating_model_test.cpp )
++  target_link_libraries(motor_heating_model_test ethercat_hardware tinyxml
++     ${EML_LIBRARIES})
+ 
+-add_dependencies(motor_heating_model_test ${ethercat_hardware_EXPORTED_TARGETS})
++  add_dependencies(motor_heating_model_test ${ethercat_hardware_EXPORTED_TARGETS})
++endif()
+ 
+ install(TARGETS ethercat_hardware
+    RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
