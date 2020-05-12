@@ -486,6 +486,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY = " \
     calibration \
     calibration-estimation \
     eca-a9-control \
+    exotica-scipy-solver \
     husky-bringup \
     husky-robot \
     pgm-learner \
@@ -1324,7 +1325,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     exotica-pendulum-dynamics-solver \
     exotica-pinocchio-dynamics-solver \
     exotica-quadrotor-dynamics-solver \
-    exotica-scipy-solver \
     exotica-time-indexed-rrt-connect-solver \
     face-detector \
     fake-joint \
