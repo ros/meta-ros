@@ -138,7 +138,10 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyassimp
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYASSIMP = " \
     exotica \
     exotica-core-task-maps \
+    exotica-ddp-solver \
     exotica-examples \
+    exotica-ilqg-solver \
+    exotica-ilqr-solver \
     exotica-ompl-solver \
     exotica-python \
     fetch-bringup \
@@ -1314,12 +1317,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     exotica-collision-scene-fcl \
     exotica-collision-scene-fcl-latest \
     exotica-core \
-    exotica-ddp-solver \
     exotica-double-integrator-dynamics-solver \
     exotica-dynamics-solvers \
     exotica-ik-solver \
-    exotica-ilqg-solver \
-    exotica-ilqr-solver \
     exotica-levenberg-marquardt-solver \
     exotica-ompl-control-solver \
     exotica-pendulum-dynamics-solver \
