@@ -432,10 +432,15 @@ RDEPENDS_${PN}_remove = "prbt-grippers"
 RDEPENDS_${PN}_remove = "nao-meshes"
 RDEPENDS_${PN}_remove = "pepper-meshes"
 
-# ERROR: Nothing PROVIDES 'clang-tidy' (but generated-recipes/pilz-robots/pilz-utils_0.5.13-1.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "pilz-control"
-RDEPENDS_${PN}_remove = "pilz-utils"
-RDEPENDS_${PN}_remove = "prbt-moveit-config"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang-tidy', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG_TIDY}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG_TIDY = " \
+    pilz-control \
+    pilz-robots \
+    pilz-status-indicator-rqt \
+    pilz-utils \
+    prbt-hardware-support \
+    prbt-moveit-config \
+"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libopenni2-dev' (but generated-recipes/openni2-camera/openni2-camera_0.4.2.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "openni2-camera"
