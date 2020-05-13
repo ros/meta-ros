@@ -64,3 +64,10 @@ FILES_${PN} += "${ros_libdir}/*${SOLIBS}"
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/core2-64-oe-linux/moveit-core/1.0.2-1-r0/packages-split/moveit-core/opt/ros/melodic/lib/libmoveit_planning_request_adapter.so'
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/core2-64-oe-linux/moveit-core/1.0.2-1-r0/packages-split/moveit-core/opt/ros/melodic/lib/libmoveit_robot_trajectory.so' [dev-so]
 inherit ros_insane_dev_so
+
+# Just to get rid of bogus QA issue, because both fcl and fcl-catkin provide the same libfcl.so.0.6 library, luckily in different paths (so that they don't conflict in RSS):
+# fcl-catkin: /opt/ros/melodic/lib/libfcl.so.0.6
+# fcl: /usr/lib/libfcl.so.0.6
+# which confuses shlibs code and causes:
+# ERROR: QA Issue: moveit-core rdepends on fcl-catkin, but it isn't a build dependency, missing fcl-catkin in DEPENDS or PACKAGECONFIG? [build-deps]
+DEPENDS += "fcl-catkin"
