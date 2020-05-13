@@ -1203,7 +1203,22 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_COMPILE = "\
 "
 
 # do_compile failures
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt-gui-cpp', 'qt-gui-cpp', '', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt-gui-cpp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT_GUI_CPP}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT_GUI_CPP = " \
+    mapviz-plugins \
+    mapviz \
+    multires-image \
+    qt-gui-core \
+    qt-gui-cpp \
+    rosmon \
+    rqt-gui-cpp \
+    rqt-image-view \
+    rqt-multiplot \
+    rqt-rosmon \
+    rqt-rviz \
+    rqt \
+    tile-map \
+"
 
 # do_configure failures
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dccomms-ros', 'dccomms-ros' , '', d)}"
@@ -1402,8 +1417,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     locomotor-msgs \
     locomove-base \
     map-organizer \
-    mapviz \
-    mapviz-plugins \
     marti-nav-msgs \
     mav-comm \
     mav-planning-msgs \
@@ -1437,7 +1450,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     moveit-sim-controller \
     moveit-simple-controller-manager \
     mpc-local-planner-examples \
-    multires-image \
     multisense \
     multisense-bringup \
     multisense-cal-check \
@@ -1552,7 +1564,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     ros-tutorials \
     rosbridge-server \
     rosbridge-suite \
-    rosmon \
     rosrt \
     roswww \
     rotors-comm \
@@ -1590,7 +1601,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     teleop-tools-msgs \
     test-mavros \
     tf2-relay \
-    tile-map \
     trajectory-tracker \
     trajectory-tracker-rviz-plugins \
     turtle-actionlib \
