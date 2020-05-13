@@ -401,11 +401,15 @@ RDEPENDS_${PN}_remove = "wge100-camera-firmware"
 # ERROR: Nothing PROVIDES 'UNRESOLVED-arduino-core' (but generated-recipes/rosserial/rosserial-arduino_0.8.0.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "rosserial-arduino"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-coinor-libipopt-dev' (but generated-recipes/ifopt/ifopt_2.0.7-1.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "ifopt"
-RDEPENDS_${PN}_remove = "towr-ros"
-RDEPENDS_${PN}_remove = "control-box-rst"
-RDEPENDS_${PN}_remove = "mpc-local-planner"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'coinor-libipopt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
+    control-box-rst \
+    ifopt \
+    mpc-local-planner-examples \
+    mpc-local-planner \
+    towr-ros \
+    towr \
+"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-npm-native' (but generated-recipes/vapor-master/vapor-master_0.3.0.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "vapor-master"
