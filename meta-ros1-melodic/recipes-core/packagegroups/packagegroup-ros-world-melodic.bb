@@ -422,11 +422,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OSG = " \
     uwsim-osgworks \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-muparser' (but generated-recipes/ros-canopen/canopen-motor-node_0.8.2-1.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "canopen-motor-node"
-RDEPENDS_${PN}_remove = "pilz-robots"
-RDEPENDS_${PN}_remove = "prbt-pg70-support"
-RDEPENDS_${PN}_remove = "prbt-grippers"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'muparser', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MUPARSER}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MUPARSER = " \
+    canopen-motor-node \
+    pilz-robots \
+    prbt-grippers \
+    prbt-moveit-config \
+    prbt-pg70-support \
+    prbt-support \
+    ros-canopen \
+"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-java' (but generated-recipes/nao-meshes/nao-meshes_0.1.12-2.bb, generated-recipes/pepper-meshes/pepper-meshes_0.2.4-3.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "nao-meshes"
