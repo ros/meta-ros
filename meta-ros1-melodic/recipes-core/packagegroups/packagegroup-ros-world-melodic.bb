@@ -511,6 +511,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     abb-irb6600-support \
     abb-irb6640-moveit-config \
     abb-irb6640-support \
+    adi-driver \
     agni-tf-tools \
     ainstein-radar-rviz-plugins \
     cartographer-rviz \
@@ -561,6 +562,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     psen-scan \
     ridgeback-desktop \
     ridgeback-viz \
+    rqt-rviz \
     rviz \
     rviz-imu-plugin \
     rviz-python-tutorial \
@@ -1217,7 +1219,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     abb-irb6600-support \
     abb-irb6640-support \
     ackermann-steering-controller \
-    adi-driver \
     ainstein-radar-drivers \
     ainstein-radar-tools \
     arbotix \
@@ -1565,7 +1566,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     rqt-joint-trajectory-controller \
     rqt-multiplot \
     rqt-rosmon \
-    rqt-rviz \
     rslidar \
     rslidar-pointcloud \
     safe-teleop-pr2 \
