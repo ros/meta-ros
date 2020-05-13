@@ -50,6 +50,8 @@ ROS_WORLD_SKIP_GROUPS += "ogre"
 ROS_WORLD_SKIP_GROUPS += "pyassimp"
 # recipes depending on python-scipy
 ROS_WORLD_SKIP_GROUPS += "python-scipy"
+# recipes depending on clang-tidy
+ROS_WORLD_SKIP_GROUPS += "clang-tidy"
 # recipes depending on libvtk-qt
 ROS_WORLD_SKIP_GROUPS += "vtk-qt"
 # recipes depending on libopenscenegraph
