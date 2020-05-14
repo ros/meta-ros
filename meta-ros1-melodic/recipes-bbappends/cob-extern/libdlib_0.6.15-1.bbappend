@@ -9,3 +9,6 @@ SRC_URI += "file://0001-CMakeLists.txt-fetch-dlib-with-bitbake-fetcher.patch \
 "
 SRC_URI[dlib.md5sum] = "4a3868a1e88721b68ccfb0567eaac87b"
 SRC_URI[dlib.sha256sum] = "ec6374745d24b53568ae4d171b2ad86d102ae238dbdb093b462d5c8ae48b65b9"
+
+# This is failing only in webOS OSE
+DEPENDS += "libnsl2"
