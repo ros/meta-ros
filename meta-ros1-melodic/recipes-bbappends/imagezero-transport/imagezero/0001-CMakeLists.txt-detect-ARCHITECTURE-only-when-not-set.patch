@@ -1,0 +1,25 @@
+From c0dad67dfa956c5a016afd8f6df48962b6b19a9d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 14 May 2020 05:19:23 -0700
+Subject: [PATCH] CMakeLists.txt: detect ARCHITECTURE only when not set already
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 12aaa23..ec65646 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -19,7 +19,9 @@ include_directories(include ${catkin_INCLUDE_DIRS})
+ 
+ add_definitions(-DHAVE_MMAP)
+ 
+-execute_process(COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE)
++if(NOT DEFINED ARCHITECTURE)
++  execute_process(COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE)
++endif()
+ 
+ message(STATUS "Architecture: ${ARCHITECTURE}")
+ 
