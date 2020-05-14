@@ -1,0 +1,10 @@
+DEBUG: Executing shell function do_compile
+NOTE: VERBOSE=1 cmake --build /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/build --target all -- -j 80
+[1/1] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/build && cmake -E chdir /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/build make -f /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/git/Makefile MK_DIR=/opt/ros/melodic/share/mk INSTALL_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/devel PATCH_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/git
+FAILED: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/devel/lib/libassimp_devel.so 
+cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/build && cmake -E chdir /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/build make -f /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/git/Makefile MK_DIR=/opt/ros/melodic/share/mk INSTALL_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/devel PATCH_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/git
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/git/Makefile:21: /opt/ros/melodic/share/mk/download_unpack_build.mk: No such file or directory
+make: *** No rule to make target '/opt/ros/melodic/share/mk/download_unpack_build.mk'.  Stop.
+ninja: build stopped: subcommand failed.
+WARNING: exit code 1 from a shell command.
+ERROR: Function failed: do_compile (log file is located at /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/assimp-devel/2.1.13-1-r0/temp/log.do_compile.47464)
