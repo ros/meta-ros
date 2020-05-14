@@ -1,6 +1,8 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 # The cmake subdirectory isn't under datadir/ROS_BPN.
 FILES_${PN}-dev_prepend = " \
-    ${libdir}/BehaviorTree/cmake \
+    ${ros_libdir}/BehaviorTree/cmake \
 "
+
+ROS_BUILD_DEPENDS += "cppzmq"

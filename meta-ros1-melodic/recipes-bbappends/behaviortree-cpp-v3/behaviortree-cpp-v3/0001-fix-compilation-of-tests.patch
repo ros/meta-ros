@@ -1,0 +1,45 @@
+From e779f5bf6e5e76ff0e65f74681262186b6a559da Mon Sep 17 00:00:00 2001
+From: Davide Faconti <davide.faconti@gmail.com>
+Date: Thu, 31 Oct 2019 08:05:52 +0100
+Subject: [PATCH] fix compilation of tests
+
+the libraries were renamed in:
+https://github.com/BehaviorTree/BehaviorTree.CPP/commit/5e5e631db66b641baf1a792830a36f8a10d83140
+but tests/CMakeLists.txt wasn't updated to match it
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ tests/CMakeLists.txt | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
+index cf83256..1227f31 100644
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -27,7 +27,7 @@ if(ament_cmake_FOUND AND BUILD_TESTING)
+ 
+     ament_add_gtest_executable(${BEHAVIOR_TREE_LIBRARY}_test ${BT_TESTS})
+     target_link_libraries(${BEHAVIOR_TREE_LIBRARY}_test ${BEHAVIOR_TREE_LIBRARY}
+-                                                        crossdoor_nodes dummy_nodes
++                                                        bt_sample_nodes
+                                                         ${ament_LIBRARIES})
+     target_include_directories(${BEHAVIOR_TREE_LIBRARY}_test PRIVATE gtest/include)
+     include_directories($<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/3rdparty>)
+@@ -36,7 +36,7 @@ elseif(catkin_FOUND AND CATKIN_ENABLE_TESTING)
+ 
+     catkin_add_gtest(${BEHAVIOR_TREE_LIBRARY}_test ${BT_TESTS})
+     target_link_libraries(${BEHAVIOR_TREE_LIBRARY}_test ${BEHAVIOR_TREE_LIBRARY}
+-                                                        crossdoor_nodes dummy_nodes
++                                                        bt_sample_nodes
+                                                         ${catkin_LIBRARIES})
+     target_include_directories(${BEHAVIOR_TREE_LIBRARY}_test PRIVATE gtest/include)
+ 
+@@ -46,7 +46,7 @@ elseif(GTEST_FOUND AND BUILD_UNIT_TESTS)
+ 
+     add_executable(${BEHAVIOR_TREE_LIBRARY}_test ${BT_TESTS})
+     target_link_libraries(${PROJECT_NAME}_test ${BEHAVIOR_TREE_LIBRARY}
+-                                                crossdoor_nodes dummy_nodes
++                                                bt_sample_nodes
+                                                 ${GTEST_LIBRARIES}
+                                                 ${GTEST_MAIN_LIBRARIES})
+     target_include_directories(${BEHAVIOR_TREE_LIBRARY}_test PRIVATE gtest/include ${GTEST_INCLUDE_DIRS})
