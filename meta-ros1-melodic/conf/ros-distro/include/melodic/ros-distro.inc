@@ -91,7 +91,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     ffha \
     fmi-adapter \
     hpp-fcl \
-    imagezero-ros \
     julius \
     libcmt \
     libg2o \
