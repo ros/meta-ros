@@ -1,18 +1,18 @@
-From 6004127d343ca8d67537a0f6ff8984464c077188 Mon Sep 17 00:00:00 2001
+From 930190ee6b91a9105d313c072385ba7dfb1c5238 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Sun, 26 Apr 2020 12:29:13 -0700
 Subject: [PATCH] CMakeLists.txt: fetch slic with bitbake fetcher
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- CMakeLists.txt | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ CMakeLists.txt | 20 +++-----------------
+ 1 file changed, 3 insertions(+), 17 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 32b85b88a..77becd01c 100644
+index 32b85b88a..2931e5197 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -5,14 +5,11 @@ include(ExternalProject)
+@@ -5,24 +5,12 @@ include(ExternalProject)
  ## Find catkin macros and libraries
  ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
  ## is used, also find other catkin packages
@@ -24,7 +24,21 @@ index 32b85b88a..77becd01c 100644
    slic
 -  GIT_REPOSITORY https://github.com/garaemon/SLIC-Superpixels
 -  GIT_TAG 78d9a2ba7ae1d3fee8c2ec774a52536c5f08f07c
+-  CMAKE_COMMAND echo "configure"
+-  BUILD_COMMAND echo "build"
+-  INSTALL_COMMAND echo "install"
+-  )
+-
+-
+-install(CODE "execute_process(COMMAND cmake -E make_directory ${CMAKE_INSTALL_PREFIX}/incldue/)")
+-install(CODE "execute_process(COMMAND cmake -E copy slic.h ${CMAKE_INSTALL_PREFIX}/incldue/ WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/slic-prefix/src/slic/)")
+-
+-install(CODE "execute_process(COMMAND cmake -E make_directory ${CMAKE_INSTALL_PREFIX}/lib/)")
+-install(CODE "execute_process(COMMAND gcc -fPIC --shared -o ${CMAKE_INSTALL_PREFIX}/lib/libslic.so ${CMAKE_CURRENT_BINARY_DIR}/slic-prefix/src/slic/slic.cpp)")
+-
+-
 +  SOURCE_DIR ${PROJECT_SOURCE_DIR}/slic-upstream
-   CMAKE_COMMAND echo "configure"
-   BUILD_COMMAND echo "build"
-   INSTALL_COMMAND echo "install"
++  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${PROJECT_BINARY_DIR}/slic-install
++)
++install(DIRECTORY ${PROJECT_BINARY_DIR}/slic-install/include/ DESTINATION include)
++install(DIRECTORY ${PROJECT_BINARY_DIR}/slic-install/lib/ DESTINATION lib)
