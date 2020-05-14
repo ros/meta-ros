@@ -12,7 +12,6 @@ SRC_URI = "git://github.com/PointCloudLibrary/pcl;${ROS_BRANCH};protocol=https"
 
 S = "${WORKDIR}/git"
 
-#SRC_URI += "file://0001-make-the-pcl-library-compile-with-gcc6.patch"
 SRC_URI += "file://0001-Dereference-shared_ptr-fix-for-GCC8.patch"
 
 EXTRA_OECMAKE += "\
