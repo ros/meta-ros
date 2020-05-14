@@ -1,0 +1,61 @@
+From bc81338732fa251702dd60a8e2e7715deb2c38d8 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 14 May 2020 14:46:17 -0700
+Subject: [PATCH] atomic: use static inline for atomic_thread_fence and
+ atomic_signal_fence
+
+* like it already does for e.g. arm, x86, the issue is that
+  there is no detail/gcc-aarch64.hpp or similar included from this:
+  https://github.com/ros/ros_realtime/blob/hydro-devel/rosatomic/include/boost/atomic/platform.hpp
+  which would define
+  #define BOOST_ATOMIC_SIGNAL_FENCE 2
+  static inline void
+  atomic_signal_fence(memory_order)
+  {
+          __asm__ __volatile__ ("" ::: "memory");
+  }
+  and then e.g. rosrt gets multiple atomic_signal_fence definitions when linking librosrt.so
+
+| FAILED: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/devel/lib/librosrt.so
+| : && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot-native/usr/bin/aarch64-oe-linux/aarch64-oe-linux-g++ -fPIC --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0=/usr/src/debug/rosrt/1.0.25-r0 -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot  -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -shared -Wl,-soname,librosrt.so -o /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/devel/lib/librosrt.so CMakeFiles/rosrt.dir/src/malloc.cpp.o CMakeFiles/rosrt.dir/src/simple_gc.cpp.o CMakeFiles/rosrt.dir/src/publisher.cpp.o CMakeFiles/rosrt.dir/src/subscriber.cpp.o CMakeFiles/rosrt.dir/src/init.cpp.o  -Wl,-rpath,/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib: -lboost_thread-mt -lboost_chrono-mt -lboost_system-mt -lboost_date_time-mt -lboost_atomic-mt /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/libroscpp.so -lpthread /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/libxmlrpcpp.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/liblockfree.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/librosconsole.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/librosconsole_log4cxx.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/librosconsole_backend_interface.so -llog4cxx -lboost_regex-mt /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/libroslib.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/librospack.so -lpython2.7 -lboost_filesystem-mt -lboost_program_options-mt -ltinyxml2 /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/libroscpp_serialization.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/librostime.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/libcpp_common.so -lboost_system-mt -lboost_thread-mt -lboost_chrono-mt -lboost_date_time-mt -lboost_atomic-mt /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/usr/lib/libconsole_bridge.so.0.4 /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/libroscpp.so -lpthread /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/libxmlrpcpp.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/liblockfree.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/librosconsole.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/librosconsole_log4cxx.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/librosconsole_backend_interface.so -llog4cxx -lboost_regex-mt /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/libroslib.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/librospack.so -lpython2.7 -lboost_filesystem-mt -lboost_program_options-mt -ltinyxml2 /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/libroscpp_serialization.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/librostime.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/opt/ros/melodic/lib/libcpp_common.so /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot/usr/lib/libconsole_bridge.so.0.4 && :
+| /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot-native/usr/bin/aarch64-oe-linux/../../libexec/aarch64-oe-linux/gcc/aarch64-oe-linux/8.2.0/ld: CMakeFiles/rosrt.dir/src/simple_gc.cpp.o: in function `boost::atomic_signal_fence(boost::memory_order)':
+| /opt/ros/melodic/include/boost/atomic/detail/gcc-cas.hpp:27: multiple definition of `boost::atomic_signal_fence(boost::memory_order)'; CMakeFiles/rosrt.dir/src/malloc.cpp.o:/opt/ros/melodic/include/boost/atomic/detail/gcc-cas.hpp:27: first defined here
+| /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot-native/usr/bin/aarch64-oe-linux/../../libexec/aarch64-oe-linux/gcc/aarch64-oe-linux/8.2.0/ld: CMakeFiles/rosrt.dir/src/publisher.cpp.o: in function `boost::atomic_signal_fence(boost::memory_order)':
+| /opt/ros/melodic/include/boost/atomic/detail/gcc-cas.hpp:27: multiple definition of `boost::atomic_signal_fence(boost::memory_order)'; CMakeFiles/rosrt.dir/src/malloc.cpp.o:/opt/ros/melodic/include/boost/atomic/detail/gcc-cas.hpp:27: first defined here
+| /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot-native/usr/bin/aarch64-oe-linux/../../libexec/aarch64-oe-linux/gcc/aarch64-oe-linux/8.2.0/ld: CMakeFiles/rosrt.dir/src/subscriber.cpp.o: in function `boost::atomic_signal_fence(boost::memory_order)':
+| /usr/include/boost/exception/exception.hpp:491: multiple definition of `boost::atomic_signal_fence(boost::memory_order)'; CMakeFiles/rosrt.dir/src/malloc.cpp.o:/opt/ros/melodic/include/boost/atomic/detail/gcc-cas.hpp:27: first defined here
+| /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/recipe-sysroot-native/usr/bin/aarch64-oe-linux/../../libexec/aarch64-oe-linux/gcc/aarch64-oe-linux/8.2.0/ld: CMakeFiles/rosrt.dir/src/init.cpp.o: in function `boost::atomic_signal_fence(boost::memory_order)':
+| /usr/include/boost/exception/exception.hpp:491: multiple definition of `boost::atomic_signal_fence(boost::memory_order)'; CMakeFiles/rosrt.dir/src/malloc.cpp.o:/opt/ros/melodic/include/boost/atomic/detail/gcc-cas.hpp:27: first defined here
+| collect2: error: ld returned 1 exit status
+| ninja: build stopped: subcommand failed.
+| WARNING: exit code 1 from a shell command.
+| ERROR: Function failed: do_compile (log file is located at /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/temp/log.do_compile.68845)
+NOTE: recipe rosrt-1.0.25-r0: task do_compile: Failed
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/boost/atomic.hpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/boost/atomic.hpp b/include/boost/atomic.hpp
+index 8a18256..f93bc39 100644
+--- a/include/boost/atomic.hpp
++++ b/include/boost/atomic.hpp
+@@ -61,7 +61,7 @@ namespace boost {
+ 
+ #ifndef BOOST_ATOMIC_THREAD_FENCE
+ #define BOOST_ATOMIC_THREAD_FENCE 0
+-void
++static inline void
+ atomic_thread_fence(memory_order)
+ {
+ }
+@@ -69,7 +69,7 @@ atomic_thread_fence(memory_order)
+ 
+ #ifndef BOOST_ATOMIC_SIGNAL_FENCE
+ #define BOOST_ATOMIC_SIGNAL_FENCE 0
+-void
++static inline void
+ atomic_signal_fence(memory_order order)
+ {
+ 	atomic_thread_fence(order);
