@@ -77,7 +77,6 @@ ROS_WORLD_SKIP_GROUPS += " \
 ROS_WORLD_SKIP_GROUPS += " \
     acado \
     assimp-devel \
-    aws-common \
     bayesian-belief-networks \
     behaviortree-cpp \
     behaviortree-cpp-v3 \
