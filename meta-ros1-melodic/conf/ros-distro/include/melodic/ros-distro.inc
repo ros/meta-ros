@@ -78,8 +78,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     acado \
     assimp-devel \
     bayesian-belief-networks \
-    behaviortree-cpp \
-    behaviortree-cpp-v3 \
     canopen-master \
     cob-generic-can \
     costmap-cspace \
