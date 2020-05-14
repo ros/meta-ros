@@ -1204,23 +1204,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ASSIMP_DEVEL = " \
     euscollada \
 "
 
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'aws-common', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_AWS_COMMON}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_AWS_COMMON = " \
-    aws-common \
-    aws-ros1-common \
-    cloudwatch-logger \
-    cloudwatch-logs-common \
-    cloudwatch-metrics-collector \
-    cloudwatch-metrics-common \
-    dataflow-lite \
-    file-management \
-    health-metric-collector \
-    kinesis-manager \
-    kinesis-video-streamer \
-    lex-common \
-    lex-node \
-"
-
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'bayesian-belief-networks', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_BAYESIAN_BELIEF_NETWORKS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_BAYESIAN_BELIEF_NETWORKS = " \
     bayesian-belief-networks \
