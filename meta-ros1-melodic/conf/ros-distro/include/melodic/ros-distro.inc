@@ -75,7 +75,61 @@ ROS_WORLD_SKIP_GROUPS += " \
 
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
+    acado \
+    assimp-devel \
+    aws-common \
+    bayesian-belief-networks \
+    behaviortree-cpp \
+    behaviortree-cpp-v3 \
+    canopen-master \
+    cob-generic-can \
+    costmap-cspace \
+    downward \
+    dynamic-robot-state-publisher \
+    fetch-drivers \
+    ff \
+    ffha \
+    fmi-adapter \
+    hpp-fcl \
+    imagezero-ros \
+    julius \
+    libcmt \
+    libg2o \
+    libphidget21 \
+    libphidgets \
+    libsiftfast \
+    libuvc-camera \
+    map-merge-3d \
+    moveit-ros-planning \
+    multisense-ros \
+    naoqi-libqi \
+    nerian-stereo \
+    nlopt \
+    obj-to-pointcloud \
+    odva-ethernetip \
+    p2os-urdf \
+    pr2-description \
+    pr2-moveit-plugins \
     qt-gui-cpp \
+    rail-mesh-icp \
+    rc-dynamics-api \
+    robot-body-filter \
+    ros-control-boilerplate \
+    ros-reflexxes \
+    rosbag-editor \
+    rosmon-core \
+    sainsmart-relay-usb \
+    sbpl-lattice-planner \
+    schunk-libm5api \
+    schunk-sdh \
+    sick-safetyscanners \
+    sick-scan \
+    soem \
+    stage-ros \
+    usb-cam-controllers \
+    wamv-description \
+    xpp-hyq \
+    xpp-quadrotor \
 "
 
 # recipes depending on various unavailable python modules

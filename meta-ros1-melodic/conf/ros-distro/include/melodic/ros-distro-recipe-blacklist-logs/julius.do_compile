@@ -1,0 +1,23 @@
+DEBUG: Executing shell function do_compile
+NOTE: VERBOSE=1 cmake --build /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/build --target all -- -j 80
+[1/3] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/build && make -f /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/Makefile.julius MD5SUM_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/md5sum INSTALL_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/devel/share/julius
+FAILED: julius_installed 
+cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/build && make -f /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/Makefile.julius MD5SUM_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/md5sum INSTALL_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/devel/share/julius
+make: rospack: Command not found
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/Makefile.julius:14: /download_unpack_build.mk: No such file or directory
+make: *** No rule to make target '/download_unpack_build.mk'.  Stop.
+[2/3] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/build && make -f /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/Makefile.grammar-kit MD5SUM_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/md5sum INSTALL_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/devel/share/julius
+FAILED: grammar_kit_installed 
+cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/build && make -f /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/Makefile.grammar-kit MD5SUM_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/md5sum INSTALL_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/devel/share/julius
+make: rospack: Command not found
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/Makefile.grammar-kit:14: /download_unpack_build.mk: No such file or directory
+make: *** No rule to make target '/download_unpack_build.mk'.  Stop.
+[3/3] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/build && make -f /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/Makefile.dictation-kit MD5SUM_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/md5sum INSTALL_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/devel/share/julius
+FAILED: dictation_kit_installed 
+cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/build && make -f /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/Makefile.dictation-kit MD5SUM_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/md5sum INSTALL_DIR=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/devel/share/julius
+make: rospack: Command not found
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/git/Makefile.dictation-kit:14: /download_unpack_build.mk: No such file or directory
+make: *** No rule to make target '/download_unpack_build.mk'.  Stop.
+ninja: build stopped: subcommand failed.
+WARNING: exit code 1 from a shell command.
+ERROR: Function failed: do_compile (log file is located at /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/julius/2.1.13-1-r0/temp/log.do_compile.52606)
