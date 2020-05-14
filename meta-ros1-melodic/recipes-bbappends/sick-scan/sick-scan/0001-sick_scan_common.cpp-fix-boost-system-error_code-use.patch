@@ -1,0 +1,36 @@
+From d7d3c26e2b5afece2134a5db3d51c3240995bb7b Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 14 May 2020 23:25:24 +0000
+Subject: [PATCH] sick_scan_common.cpp: fix boost::system::error_code use
+
+* fixes:
+sick-scan/1.4.2-1-r0/git/driver/src/sick_scan_common.cpp:1073:14: error: no match for 'operator==' (operand types are 'boost::system::error_code' and 'int')
+sick-scan/1.4.2-1-r0/git/driver/src/sick_scan_common.cpp:1093:14: error: no match for 'operator!=' (operand types are 'boost::system::error_code' and 'int')
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ driver/src/sick_scan_common.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/driver/src/sick_scan_common.cpp b/driver/src/sick_scan_common.cpp
+index 073b32d..9b2d24a 100644
+--- a/driver/src/sick_scan_common.cpp
++++ b/driver/src/sick_scan_common.cpp
+@@ -1070,7 +1070,7 @@ namespace sick_scan
+     {
+       boost::system::error_code ec;
+       ipNewIPAddr = boost::asio::ip::address_v4::from_string(sNewIPAddr, ec);
+-      if (ec == 0)
++      if (ec.value() == 0)
+       {
+         sopasCmdChain.clear();
+         sopasCmdChain.push_back(CMD_SET_ACCESS_MODE_3);
+@@ -1090,7 +1090,7 @@ namespace sick_scan
+     {
+       boost::system::error_code ec;
+       NTPIpAdress = boost::asio::ip::address_v4::from_string(sNTPIpAdress, ec);
+-      if (ec != 0)
++      if (ec.value() != 0)
+       {
+         setUseNTP = false;
+         ROS_ERROR("ERROR: NTP Server IP ADDRESS could not be parsed Boost Error %s:%d", ec.category().name(), ec.value());;
