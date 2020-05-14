@@ -1,0 +1,40 @@
+From baa7168b6c351eb0f11e57833dd13c0939cb385d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 14 May 2020 09:01:00 -0700
+Subject: [PATCH] CMakeLists.txt: fetch dlib with bitbake fetcher
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4beb8af3..d8313117 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,20 +6,17 @@ find_package(catkin REQUIRED)
+ catkin_destinations() # set-up destination variables
+ file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_INCLUDE_DESTINATION})
+ 
+-set(VERSION 19.9)
++set(VERSION 19.9) # Keep in sync with the bbappend
+ 
+ include(ExternalProject)
+ ExternalProject_Add(EP_${PROJECT_NAME}
+-    URL https://github.com/ipa320/thirdparty/raw/master/dlib-${VERSION}.tar.bz2
+-    URL_MD5 4a3868a1e88721b68ccfb0567eaac87b
+-
+-    SOURCE_DIR ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src
++    SOURCE_DIR ${PROJECT_SOURCE_DIR}/dlib-upstream/dlib-${VERSION}
+     BINARY_DIR ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-build
+ 
+-    CONFIGURE_COMMAND ${CMAKE_COMMAND} CFLAGS=-Wno-deprecated-declarations\ -Wno-terminate\ -Wno-pragmas\ -Wno-shift-negative-value CXXFLAGS=-Wno-deprecated-declarations\ -Wno-terminate\ -Wno-pragmas\ -Wno-shift-negative-value ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src/dlib
+-    BUILD_COMMAND ${CMAKE_COMMAND} --build . --config Release -- -Wno-deprecated-declarations -Wno-terminate -Wno-pragmas -Wno-shift-negative-value
++    CONFIGURE_COMMAND ${CMAKE_COMMAND} CFLAGS='-Wno-deprecated-declarations -Wno-terminate -Wno-pragmas -Wno-shift-negative-value' CXXFLAGS='-Wno-deprecated-declarations -Wno-terminate -Wno-pragmas -Wno-shift-negative-value' -DCMAKE_TOOLCHAIN_FILE=${PROJECT_SOURCE_DIR}/../toolchain.cmake -G Ninja -DCMAKE_MAKE_PROGRAM=ninja ${PROJECT_SOURCE_DIR}/dlib-upstream/dlib-${VERSION}/dlib
++    BUILD_COMMAND ${CMAKE_COMMAND} --build . --config Release
+         # copy headers to devel space (catkin does not like headers in source space)
+-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src/dlib ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_INCLUDE_DESTINATION}
++	COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/dlib-upstream/dlib-${VERSION}/dlib ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+         # copy libs, set-up soname chain
+         COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-build/libdlib.a ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_LIB_DESTINATION}
+     INSTALL_COMMAND ""
