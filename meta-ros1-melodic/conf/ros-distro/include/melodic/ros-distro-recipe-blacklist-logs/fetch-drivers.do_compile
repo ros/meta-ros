@@ -1,0 +1,31 @@
+DEBUG: Executing shell function do_compile
+NOTE: VERBOSE=1 cmake --build /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build --target all -- -j 80
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/recipe-sysroot-native/usr/bin/cmake -H/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/git -B/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build --check-build-system CMakeFiles/Makefile.cmake 0
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/recipe-sysroot-native/usr/bin/cmake -E cmake_progress_start /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build/CMakeFiles /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build'
+make -f CMakeFiles/binary_driver.dir/build.make CMakeFiles/binary_driver.dir/depend
+make[2]: Entering directory '/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build'
+cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/recipe-sysroot-native/usr/bin/cmake -E cmake_depends "Unix Makefiles" /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/git /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/git /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build/CMakeFiles/binary_driver.dir/DependInfo.cmake --color=
+Dependee "/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build/CMakeFiles/binary_driver.dir/DependInfo.cmake" is newer than depender "/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build/CMakeFiles/binary_driver.dir/depend.internal".
+Dependee "/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build/CMakeFiles/binary_driver.dir/depend.internal".
+Scanning dependencies of target binary_driver
+make[2]: Leaving directory '/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build'
+make -f CMakeFiles/binary_driver.dir/build.make CMakeFiles/binary_driver.dir/build
+make[2]: Entering directory '/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build'
+cmake -E chdir /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/git make -f Makefile.tarball
+make[3]: Entering directory '/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/git'
+make[3]: rospack: Command not found
+Makefile.tarball:10: /download_unpack_build.mk: No such file or directory
+make[3]: *** No rule to make target '/download_unpack_build.mk'.  Stop.
+make[3]: Leaving directory '/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/git'
+CMakeFiles/binary_driver.dir/build.make:60: recipe for target 'CMakeFiles/binary_driver' failed
+make[2]: *** [CMakeFiles/binary_driver] Error 2
+make[2]: Leaving directory '/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build'
+CMakeFiles/Makefile2:171: recipe for target 'CMakeFiles/binary_driver.dir/all' failed
+make[1]: *** [CMakeFiles/binary_driver.dir/all] Error 2
+make[1]: Leaving directory '/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/build'
+Makefile:132: recipe for target 'all' failed
+make: *** [all] Error 2
+WARNING: exit code 2 from a shell command.
+ERROR: Function failed: do_compile (log file is located at /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/fetch-drivers/0.8.8-1-r0/temp/log.do_compile.49818)

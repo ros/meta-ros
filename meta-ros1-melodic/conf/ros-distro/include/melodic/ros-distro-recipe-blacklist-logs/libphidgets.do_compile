@@ -1,0 +1,96 @@
+DEBUG: Executing shell function do_compile
+NOTE: VERBOSE=1 cmake --build /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build --target all -- -j 80
+[1/8] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E make_directory /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/libphidgets-src && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E make_directory /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/libphidgets-src && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E make_directory /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E make_directory /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/tmp && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E make_directory /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/EP_libphidgets-stamp && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E make_directory /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E touch /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/EP_libphidgets-stamp/EP_libphidgets-mkdir
+[2/8] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -P /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/EP_libphidgets-stamp/download-EP_libphidgets.cmake && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -P /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/EP_libphidgets-stamp/verify-EP_libphidgets.cmake && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -P /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/EP_libphidgets-stamp/extract-EP_libphidgets.cmake && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E touch /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/EP_libphidgets-stamp/EP_libphidgets-download
+-- Downloading...
+   dst='/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/libphidget_2.1.8.20151217.tar.gz'
+   timeout='none'
+-- Using src='https://www.phidgets.com/downloads/phidget21/libraries/linux/libphidget/libphidget_2.1.8.20151217.tar.gz'
+-- [download 2% complete]
+-- [download 4% complete]
+-- [download 6% complete]
+-- [download 8% complete]
+-- [download 10% complete]
+-- [download 12% complete]
+-- [download 14% complete]
+-- [download 16% complete]
+-- [download 18% complete]
+-- [download 20% complete]
+-- [download 22% complete]
+-- [download 24% complete]
+-- [download 26% complete]
+-- [download 28% complete]
+-- [download 30% complete]
+-- [download 32% complete]
+-- [download 34% complete]
+-- [download 35% complete]
+-- [download 37% complete]
+-- [download 39% complete]
+-- [download 41% complete]
+-- [download 43% complete]
+-- [download 45% complete]
+-- [download 47% complete]
+-- [download 49% complete]
+-- [download 51% complete]
+-- [download 53% complete]
+-- [download 55% complete]
+-- [download 57% complete]
+-- [download 59% complete]
+-- [download 61% complete]
+-- [download 63% complete]
+-- [download 65% complete]
+-- [download 67% complete]
+-- [download 69% complete]
+-- [download 71% complete]
+-- [download 73% complete]
+-- [download 75% complete]
+-- [download 77% complete]
+-- [download 79% complete]
+-- [download 81% complete]
+-- [download 83% complete]
+-- [download 85% complete]
+-- [download 87% complete]
+-- [download 89% complete]
+-- [download 91% complete]
+-- [download 93% complete]
+-- [download 95% complete]
+-- [download 97% complete]
+-- [download 99% complete]
+-- [download 100% complete]
+-- verifying file...
+       file='/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/libphidget_2.1.8.20151217.tar.gz'
+-- Downloading... done
+-- extracting...
+     src='/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/libphidget_2.1.8.20151217.tar.gz'
+     dst='/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/libphidgets-src'
+-- extracting... [tar xfz]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+[3/8] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E echo_append && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E touch /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/EP_libphidgets-stamp/EP_libphidgets-update
+[4/8] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E echo_append && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E touch /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/EP_libphidgets-stamp/EP_libphidgets-patch
+[5/8] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/libphidgets-src && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/libphidgets-src/configure "CFLAGS=-Wno-incompatible-pointer-types -Wno-deprecated-declarations -Wno-format-truncation" && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E touch /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/EP_libphidgets-stamp/EP_libphidgets-configure
+FAILED: EP_libphidgets-prefix/src/EP_libphidgets-stamp/EP_libphidgets-configure 
+cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/libphidgets-src && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/libphidgets-src/configure "CFLAGS=-Wno-incompatible-pointer-types -Wno-deprecated-declarations -Wno-format-truncation" && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot-native/usr/bin/cmake -E touch /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/EP_libphidgets-prefix/src/EP_libphidgets-stamp/EP_libphidgets-configure
+checking for a BSD-compatible install... /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/hosttools/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/hosttools/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking how to print strings... printf
+checking for style of include used by make... GNU
+checking for gcc... x86_64-oe-linux-gcc  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/recipe-sysroot
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... configure: error: in `/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/build/libphidgets-src':
+configure: error: cannot run C compiled programs.
+If you meant to cross compile, use `--host'.
+See `config.log' for more details
+ninja: build stopped: subcommand failed.
+WARNING: exit code 1 from a shell command.
+ERROR: Function failed: do_compile (log file is located at /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libphidgets/0.6.15-1-r0/temp/log.do_compile.45042)

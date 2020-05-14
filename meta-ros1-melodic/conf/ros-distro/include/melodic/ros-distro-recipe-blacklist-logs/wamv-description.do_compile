@@ -1,0 +1,10 @@
+DEBUG: Executing shell function do_compile
+NOTE: VERBOSE=1 cmake --build /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/build --target all -- -j 80
+[1/3] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/git && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/build/catkin_generated/env_cached.sh xacro -o /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/build/urdf/wamv_base.urdf urdf/wamv_base.urdf.xacro
+FAILED: urdf/wamv_base.urdf 
+cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/git && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/build/catkin_generated/env_cached.sh xacro -o /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/build/urdf/wamv_base.urdf urdf/wamv_base.urdf.xacro
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/build/catkin_generated/env_cached.sh: 16: exec: xacro: not found
+[2/3] cd /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/build && /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/recipe-sysroot-native/usr/bin/cmake -E make_directory /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/devel/share/wamv_description/urdf
+ninja: build stopped: subcommand failed.
+WARNING: exit code 1 from a shell command.
+ERROR: Function failed: do_compile (log file is located at /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/wamv-description/1.3.0-1-r0/temp/log.do_compile.51375)

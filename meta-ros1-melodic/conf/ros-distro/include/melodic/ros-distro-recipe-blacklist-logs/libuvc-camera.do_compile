@@ -1,0 +1,5 @@
+DEBUG: Executing shell function do_compile
+NOTE: VERBOSE=1 cmake --build /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libuvc-camera/0.0.10-1-r0/build --target all -- -j 80
+ninja: error: '/usr/lib/libuvc.so', needed by '/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libuvc-camera/0.0.10-1-r0/devel/lib/libuvc_camera/camera_node', missing and no known rule to make it
+WARNING: exit code 1 from a shell command.
+ERROR: Function failed: do_compile (log file is located at /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/libuvc-camera/0.0.10-1-r0/temp/log.do_compile.48040)
