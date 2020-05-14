@@ -1,0 +1,24 @@
+From cfe6950acfedfb7b29e90168d704424df7da052b Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 14 May 2020 21:00:07 +0000
+Subject: [PATCH] CMakeLists.txt: add very simple CMake file
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 7 +++++++
+ 1 file changed, 7 insertions(+)
+ create mode 100644 CMakeLists.txt
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+new file mode 100644
+index 0000000..792ce71
+--- /dev/null
++++ b/CMakeLists.txt
+@@ -0,0 +1,7 @@
++cmake_minimum_required(VERSION 2.8.3)
++project(slic)
++
++add_library(slic SHARED slic.cpp)
++
++set_target_properties(slic PROPERTIES PUBLIC_HEADER "slic.h")
++install(TARGETS slic LIBRARY DESTINATION lib PUBLIC_HEADER DESTINATION include)
