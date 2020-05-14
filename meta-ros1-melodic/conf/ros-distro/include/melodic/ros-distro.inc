@@ -116,8 +116,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     sbpl-lattice-planner \
     schunk-libm5api \
     schunk-sdh \
-    sick-safetyscanners \
-    sick-scan \
     soem \
     stage-ros \
     usb-cam-controllers \

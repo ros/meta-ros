@@ -1,0 +1,46 @@
+From deda6acf4eba57e5f63dc198c4c72bcb2237f21f Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 14 May 2020 23:31:44 +0000
+Subject: [PATCH] AsyncTCPClient.cpp: fix boost::system::error_code use
+
+* fixes:
+sick-safetyscanners/1.0.4-1-r0/git/src/communication/AsyncTCPClient.cpp:68:10: error: no match for 'operator!=' (operand types are 'boost::system::error_code' and 'int')
+sick-safetyscanners/1.0.4-1-r0/git/src/communication/AsyncTCPClient.cpp:78:10: error: no match for 'operator!=' (operand types are 'boost::system::error_code' and 'int')
+sick-safetyscanners/1.0.4-1-r0/git/src/communication/AsyncTCPClient.cpp:93:12: error: no match for 'operator!=' (operand types are 'boost::system::error_code' and 'int')
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/communication/AsyncTCPClient.cpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/communication/AsyncTCPClient.cpp b/src/communication/AsyncTCPClient.cpp
+index 9d75bea..36dde77 100644
+--- a/src/communication/AsyncTCPClient.cpp
++++ b/src/communication/AsyncTCPClient.cpp
+@@ -65,7 +65,7 @@ void AsyncTCPClient::doDisconnect()
+   boost::mutex::scoped_lock lock(m_socket_mutex);
+   boost::system::error_code ec;
+   m_socket_ptr->shutdown(boost::asio::ip::tcp::socket::shutdown_both, ec);
+-  if (ec != 0)
++  if (ec.value() != 0)
+   {
+     ROS_ERROR("Error shutting socket down: %i", ec.value());
+   }
+@@ -75,7 +75,7 @@ void AsyncTCPClient::doDisconnect()
+   }
+ 
+   m_socket_ptr->close(ec);
+-  if (ec != 0)
++  if (ec.value() != 0)
+   {
+     ROS_ERROR("Error closing Socket: %i", ec.value());
+   }
+@@ -90,7 +90,7 @@ void AsyncTCPClient::doConnect()
+   boost::mutex::scoped_lock lock(m_socket_mutex);
+   boost::mutex::scoped_lock lock_connect(m_connect_mutex);
+   m_socket_ptr->async_connect(m_remote_endpoint, [this](boost::system::error_code ec) {
+-    if (ec != 0)
++    if (ec.value() != 0)
+     {
+       ROS_ERROR("TCP error code: %i", ec.value());
+     }
