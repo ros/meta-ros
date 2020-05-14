@@ -107,7 +107,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     odva-ethernetip \
     p2os-urdf \
     pr2-description \
-    pr2-moveit-plugins \
     qt-gui-cpp \
     rail-mesh-icp \
     rc-dynamics-api \
