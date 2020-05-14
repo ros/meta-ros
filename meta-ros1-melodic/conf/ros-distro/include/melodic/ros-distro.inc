@@ -92,7 +92,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     fmi-adapter \
     hpp-fcl \
     julius \
-    libcmt \
     libg2o \
     libphidget21 \
     libphidgets \
