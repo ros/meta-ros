@@ -80,7 +80,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     bayesian-belief-networks \
     canopen-master \
     cob-generic-can \
-    costmap-cspace \
     downward \
     fetch-drivers \
     ff \
