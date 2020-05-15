@@ -628,6 +628,8 @@ PNBLACKLIST[lirc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', '
 PNBLACKLIST[perf] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-ros/meta-ros-backports-dunfell/recipes-devtools/python/python-pycryptodomex_3.9.3.bb
 PNBLACKLIST[python-pycryptodomex] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-ros/meta-ros-common/recipes-devtools/python/python-pyassimp_4.1.4.bb
+PNBLACKLIST[python-pyassimp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 
 # The rest depends on something which depends on python:
 # meta-openembedded/meta-oe/recipes-bsp/lm_sensors/lmsensors_3.4.0.bb
