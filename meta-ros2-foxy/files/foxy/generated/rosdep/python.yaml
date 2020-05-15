@@ -4016,6 +4016,16 @@ python-rpi.gpio:
       pip:
         packages: [RPi.GPIO]
     zesty: [python-rpi.gpio]
+python-rpi.gpio-pip:
+  debian:
+    pip:
+      packages: [RPi.GPIO]
+  fedora:
+    pip:
+      packages: [RPi.GPIO]
+  ubuntu:
+    pip:
+      packages: [RPi.GPIO]
 python-rrdtool:
   debian: [python-rrdtool]
   fedora: [rrdtool-python]
@@ -4740,6 +4750,9 @@ python-tk:
   arch: [python2, tk]
   debian: [python-tk]
   fedora: [python2-tkinter]
+  rhel:
+    '*': [python2-tkinter]
+    '7': [tkinter]
   ubuntu:
     '*': [python-tk]
     bionic_python3: [python3-tk]
@@ -4984,6 +4997,7 @@ python-virtualenv:
   fedora: [python-virtualenv]
   gentoo: [dev-python/virtualenv]
   rhel:
+    '*': [python2-virtualenv]
     '7': [python-virtualenv]
   ubuntu: [python-virtualenv]
 python-visual:
@@ -5279,6 +5293,9 @@ python3-boto3:
   debian: [python3-boto3]
   fedora: [python3-boto3]
   opensuse: [python3-boto3]
+  rhel:
+    '*': ['python%{python3_pkgversion}-boto3']
+    '7': null
   ubuntu: [python3-boto3]
 python3-bson:
   debian: [python3-bson]
@@ -5389,6 +5406,11 @@ python3-docker:
   rhel:
     '7': ['python%{python3_pkgversion}-docker']
   ubuntu: [python3-docker]
+python3-docutils:
+  arch: [python-docutils]
+  debian: [python3-docutils]
+  fedora: [python3-docutils]
+  ubuntu: [python3-docutils]
 python3-empy:
   debian:
     buster: [python3-empy]
@@ -5598,8 +5620,7 @@ python3-packaging:
   debian: [python3-packaging]
   fedora: [python3-packaging]
   gentoo: [dev-python/packaging]
-  rhel:
-    '7': ['python%{python3_pkgversion}-packaging']
+  rhel: ['python%{python3_pkgversion}-packaging']
   ubuntu: [python3-packaging]
 python3-pandas:
   debian: [python3-pandas]
@@ -5858,6 +5879,14 @@ python3-rafcon-pip:
   ubuntu:
     pip:
       packages: [rafcon]
+python3-rdflib:
+  arch: [python-rdflib]
+  debian: [python3-rdflib]
+  fedora: [python3-rdflib]
+  gentoo: [dev-python/rdflib]
+  rhel:
+    '8': ['python%{python3_pkgversion}-rdflib']
+  ubuntu: [python3-rdflib]
 python3-requests:
   debian: [python3-requests]
   fedora: [python3-requests]
@@ -6000,6 +6029,7 @@ python3-sip:
 python3-sphinx:
   debian: [python3-sphinx]
   fedora: [python3-sphinx]
+  rhel: ['python%{python3_pkgversion}-sphinx']
   ubuntu: [python3-sphinx]
 python3-sphinx-argparse:
   debian: [python3-sphinx-argparse]
@@ -6008,6 +6038,7 @@ python3-sphinx-argparse:
 python3-sphinx-rtd-theme:
   debian: [python3-sphinx-rtd-theme]
   fedora: [python3-sphinx_rtd_theme]
+  rhel: ['python%{python3_pkgversion}-sphinx_rtd_theme']
   ubuntu: [python3-sphinx-rtd-theme]
 python3-sqlalchemy:
   debian: [python3-sqlalchemy]
@@ -6062,6 +6093,9 @@ python3-twisted:
   debian: [python3-twisted]
   fedora: [python3-twisted]
   gentoo: [dev-python/twisted]
+  rhel:
+    '*': ['python%{python3_pkgversion}-twisted']
+    '7': null
   ubuntu: [python3-twisted]
 python3-vcstool:
   debian:
