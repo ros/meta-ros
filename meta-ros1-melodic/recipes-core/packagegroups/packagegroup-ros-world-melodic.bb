@@ -149,8 +149,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYASSIMP = " \
     fetch-ros \
     moveit-commander \
     moveit-python \
+    pilz-industrial-motion-testutils \
     pilz-industrial-motion \
     pilz-robot-programming \
+    pilz-trajectory-generation \
     simple-grasping \
 "
 
@@ -1144,6 +1146,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     open-manipulator-with-tb3-tools \
     open-manipulator-with-tb3-waffle-moveit \
     open-manipulator-with-tb3-waffle-pi-moveit \
+    pilz-industrial-motion-testutils \
     pilz-industrial-motion \
     pilz-robot-programming \
     pilz-trajectory-generation \
