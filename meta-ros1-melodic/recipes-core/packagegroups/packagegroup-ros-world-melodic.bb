@@ -1315,47 +1315,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MAP_MERGE_3D = " \
     map-merge-3d \
 "
 
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'moveit-ros-planning', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MOVEIT_ROS_PLANNING}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MOVEIT_ROS_PLANNING = " \
-    cob-collision-monitor \
-    cob-obstacle-distance-moveit \
-    exotica-aico-solver \
-    exotica-cartpole-dynamics-solver \
-    exotica-collision-scene-fcl \
-    exotica-collision-scene-fcl-latest \
-    exotica-core \
-    exotica-double-integrator-dynamics-solver \
-    exotica-dynamics-solvers \
-    exotica-ik-solver \
-    exotica-levenberg-marquardt-solver \
-    exotica-ompl-control-solver \
-    exotica-pendulum-dynamics-solver \
-    exotica-pinocchio-dynamics-solver \
-    exotica-quadrotor-dynamics-solver \
-    exotica-time-indexed-rrt-connect-solver \
-    fsrobo-r-trajectory-filters \
-    industrial-core \
-    industrial-trajectory-filters \
-    moveit-fake-controller-manager \
-    moveit-planners \
-    moveit-planners-ompl \
-    moveit-plugins \
-    moveit-pr2 \
-    moveit-ros-benchmarks \
-    moveit-ros-manipulation \
-    moveit-ros-move-group \
-    moveit-ros-planning \
-    moveit-ros-planning-interface \
-    moveit-ros-robot-interaction \
-    moveit-ros-warehouse \
-    moveit-runtime \
-    moveit-sim-controller \
-    open-manipulator-controller \
-    open-manipulator-with-tb3-tools \
-    pilz-trajectory-generation \
-    pr2-moveit-config \
-"
-
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'multisense-ros', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MULTISENSE_ROS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MULTISENSE_ROS = " \
     multisense \
