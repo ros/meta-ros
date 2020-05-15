@@ -107,7 +107,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     rail-mesh-icp \
     rc-dynamics-api \
     robot-body-filter \
-    ros-control-boilerplate \
     ros-reflexxes \
     rosbag-editor \
     rosmon-core \
