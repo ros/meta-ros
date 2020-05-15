@@ -1629,17 +1629,3 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wamv-des
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WAMV_DESCRIPTION = " \
     wamv-description \
 "
-
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'xpp-hyq', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_XPP_HYQ}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_XPP_HYQ = " \
-    xpp \
-    xpp-examples \
-    xpp-hyq \
-"
-
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'xpp-quadrotor', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_XPP_QUADROTOR}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_XPP_QUADROTOR = " \
-    xpp \
-    xpp-examples \
-    xpp-quadrotor \
-"
