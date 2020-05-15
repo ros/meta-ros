@@ -81,6 +81,7 @@ ROS_WORLD_SKIP_GROUPS += " \
     canopen-master \
     cob-generic-can \
     downward \
+    exotica-collision-scene-fcl \
     fetch-drivers \
     ff \
     ffha \
