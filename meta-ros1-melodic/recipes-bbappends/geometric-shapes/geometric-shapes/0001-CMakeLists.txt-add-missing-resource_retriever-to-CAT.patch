@@ -1,0 +1,30 @@
+From 7059a18a83d68fbc8e0be40b50ec9748ec62f0d1 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 14 May 2020 17:00:01 -0700
+Subject: [PATCH] CMakeLists.txt: add missing resource_retriever to
+ CATKIN_DEPENDS
+
+* fixes moveit-ros-perception issue:
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-planning/1.0.2-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: libresource_retriever.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-planning/1.0.2-1-r0/recipe-sysroot/opt/ros/melodic/lib/libgeometric_shapes.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-planning/1.0.2-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-planning/1.0.2-1-r0/recipe-sysroot/opt/ros/melodic/lib/libgeometric_shapes.so: undefined reference to `resource_retriever::Retriever::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-planning/1.0.2-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-planning/1.0.2-1-r0/recipe-sysroot/opt/ros/melodic/lib/libgeometric_shapes.so: undefined reference to `resource_retriever::Retriever::~Retriever()'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-planning/1.0.2-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-planning/1.0.2-1-r0/recipe-sysroot/opt/ros/melodic/lib/libgeometric_shapes.so: undefined reference to `resource_retriever::Retriever::Retriever()'
+collect2: error: ld returned 1 exit status
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 51065b8..c96c4a6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -40,6 +40,7 @@ catkin_package(
+   CATKIN_DEPENDS
+     eigen_stl_containers
+     random_numbers
++    resource_retriever
+     shape_msgs
+     visualization_msgs
+   DEPENDS
