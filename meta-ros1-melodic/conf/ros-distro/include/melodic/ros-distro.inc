@@ -80,6 +80,7 @@ ROS_WORLD_SKIP_GROUPS += " \
     bayesian-belief-networks \
     canopen-master \
     cob-generic-can \
+    cob-obstacle-distance-moveit \
     downward \
     exotica-collision-scene-fcl \
     fetch-drivers \
