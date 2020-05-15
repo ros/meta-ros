@@ -48,6 +48,10 @@ ROS_WORLD_SKIP_GROUPS += "python-scipy"
 ROS_WORLD_SKIP_GROUPS += "clang-tidy"
 # recipes depending on muparser
 ROS_WORLD_SKIP_GROUPS += "muparser"
+# recipes depending on openni (libopenni-dev)
+ROS_WORLD_SKIP_GROUPS += "openni"
+# recipes depending on openni2 (libopenni2-dev)
+ROS_WORLD_SKIP_GROUPS += "openni2"
 # recipes depending on coinor-libipopt
 ROS_WORLD_SKIP_GROUPS += "coinor-libipopt"
 # recipes depending on libvtk-qt
