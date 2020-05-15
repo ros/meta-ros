@@ -101,6 +101,7 @@ PNBLACKLIST[cob-sound] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['m
 PNBLACKLIST[cob-teleop] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['multimedia', 'vlc'], 'Requires cob-sound->vlc which requires meta-multimedia to be included', '', d)}"
 PNBLACKLIST[cob-twist-controller] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['multimedia', 'vlc'], 'Requires cob-script-server->cob-mimic, cob-sound->vlc which requires meta-multimedia to be included', '', d)}"
 PNBLACKLIST[cob-vision-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vc4graphics-without-opengl', 'Depends on gstreamer1.0-plugins-base which is not available for raspberrypi MACHINEs with vc4graphics in MACHINE_FEATURES, but without opengl in DISTRO_FEATURES', '', d)}"
+PNBLACKLIST[cob-voltage-control] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libphidgets', 'libphidgets: depends on cob-phidgets->libphidgets which fails to compile', '', d)}"
 PNBLACKLIST[code-coverage] ?= "Depends on unavailable UNRESOLVED-lcov"
 PNBLACKLIST[codec-image-transport] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', 'Depends on ffmpeg which requires commercial license', '', d)}"
 PNBLACKLIST[collada-urdf-jsk-patch] ?= "Depends on unavailable UNRESOLVED-python-catkin-tools"
