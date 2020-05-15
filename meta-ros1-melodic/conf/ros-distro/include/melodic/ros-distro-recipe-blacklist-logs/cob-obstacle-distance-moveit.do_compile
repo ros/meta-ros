@@ -1,0 +1,457 @@
+DEBUG: Executing shell function do_compile
+NOTE: VERBOSE=1 cmake --build /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/build --target all -- -j 80
+[1/4] /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"cob_obstacle_distance_moveit\" -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/usr/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/usr/include/eigen3 -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0=/usr/src/debug/cob-obstacle-distance-moveit/0.7.3-1-r0 -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot   -std=c++11 -MD -MT CMakeFiles/obstacle_distance_node.dir/src/obstacle_distance_moveit_node.cpp.o -MF CMakeFiles/obstacle_distance_node.dir/src/obstacle_distance_moveit_node.cpp.o.d -o CMakeFiles/obstacle_distance_node.dir/src/obstacle_distance_moveit_node.cpp.o -c /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/obstacle_distance_moveit_node.cpp
+FAILED: CMakeFiles/obstacle_distance_node.dir/src/obstacle_distance_moveit_node.cpp.o 
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"cob_obstacle_distance_moveit\" -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/usr/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/usr/include/eigen3 -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0=/usr/src/debug/cob-obstacle-distance-moveit/0.7.3-1-r0 -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot   -std=c++11 -MD -MT CMakeFiles/obstacle_distance_node.dir/src/obstacle_distance_moveit_node.cpp.o -MF CMakeFiles/obstacle_distance_node.dir/src/obstacle_distance_moveit_node.cpp.o.d -o CMakeFiles/obstacle_distance_node.dir/src/obstacle_distance_moveit_node.cpp.o -c /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/obstacle_distance_moveit_node.cpp
+In file included from /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/obstacle_distance_moveit_node.cpp:18:
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:58:63: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > robot_links_;
+                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:58:63: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:58:65: error: template argument 2 is invalid
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > robot_links_;
+                                                                 ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:58:65: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:59:63: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > collision_objects_;
+                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:59:63: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:59:65: error: template argument 2 is invalid
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > collision_objects_;
+                                                                 ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:59:65: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:75:98: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     cob_control_msgs::ObstacleDistance getDistanceInfo(const std::shared_ptr<fcl::CollisionObject> object_a,
+                                                                                                  ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:75:98: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:76:98: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+                                                        const std::shared_ptr<fcl::CollisionObject> object_b);
+                                                                                                  ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:76:98: note:   expected a type, got 'CollisionObject'
+[2/4] /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"cob_obstacle_distance_moveit\" -Dobstacle_distance_moveit_EXPORTS -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/usr/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/usr/include/eigen3 -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0=/usr/src/debug/cob-obstacle-distance-moveit/0.7.3-1-r0 -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot -fPIC   -std=c++11 -MD -MT CMakeFiles/obstacle_distance_moveit.dir/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp.o -MF CMakeFiles/obstacle_distance_moveit.dir/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp.o.d -o CMakeFiles/obstacle_distance_moveit.dir/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp.o -c /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp
+FAILED: CMakeFiles/obstacle_distance_moveit.dir/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp.o 
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"cob_obstacle_distance_moveit\" -Dobstacle_distance_moveit_EXPORTS -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/usr/include -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/usr/include/eigen3 -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0=/usr/src/debug/cob-obstacle-distance-moveit/0.7.3-1-r0 -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot -fPIC   -std=c++11 -MD -MT CMakeFiles/obstacle_distance_moveit.dir/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp.o -MF CMakeFiles/obstacle_distance_moveit.dir/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp.o.d -o CMakeFiles/obstacle_distance_moveit.dir/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp.o -c /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp
+In file included from /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:25:
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:58:63: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > robot_links_;
+                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:58:63: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:58:65: error: template argument 2 is invalid
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > robot_links_;
+                                                                 ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:58:65: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:59:63: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > collision_objects_;
+                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:59:63: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:59:65: error: template argument 2 is invalid
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > collision_objects_;
+                                                                 ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:59:65: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:75:98: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     cob_control_msgs::ObstacleDistance getDistanceInfo(const std::shared_ptr<fcl::CollisionObject> object_a,
+                                                                                                  ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:75:98: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:76:98: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+                                                        const std::shared_ptr<fcl::CollisionObject> object_b);
+                                                                                                  ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/include/cob_obstacle_distance_moveit/obstacle_distance_moveit.h:76:98: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:34:77: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     void getCollisionObject(std::vector<std::shared_ptr<fcl::CollisionObject> > &obj)
+                                                                             ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:34:77: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:34:79: error: template argument 1 is invalid
+     void getCollisionObject(std::vector<std::shared_ptr<fcl::CollisionObject> > &obj)
+                                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:34:79: error: template argument 2 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp: In member function 'void CreateCollisionWorld::getCollisionObject(int&)':
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:37:13: error: request for member 'reserve' in 'obj', which is of non-class type 'int'
+         obj.reserve(fcl_objs_.size());
+             ^~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:41:17: error: request for member 'push_back' in 'obj', which is of non-class type 'int'
+             obj.push_back(it->second.collision_objects_[0]);
+                 ^~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp: At global scope:
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:54:77: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+                             std::vector<std::shared_ptr<fcl::CollisionObject> > &obj)
+                                                                             ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:54:77: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:54:79: error: template argument 1 is invalid
+                             std::vector<std::shared_ptr<fcl::CollisionObject> > &obj)
+                                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:54:79: error: template argument 2 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp: In member function 'void CreateCollisionRobot::getCollisionObject(const moveit::core::RobotState&, int&)':
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:58:23: error: cannot convert 'std::vector<std::shared_ptr<fcl::CollisionObject<double> > >' to 'int' in assignment
+         obj = fcl_obj.collision_objects_;
+                       ^~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp: In member function 'void ObstacleDistanceMoveit::updatedScene(planning_scene_monitor::PlanningSceneMonitor::SceneUpdateType)':
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:67:53: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     std::vector<std::shared_ptr<fcl::CollisionObject> > robot_obj, world_obj;
+                                                     ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:67:53: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:67:55: error: template argument 1 is invalid
+     std::vector<std::shared_ptr<fcl::CollisionObject> > robot_obj, world_obj;
+                                                       ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:67:55: error: template argument 2 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:76:24: error: request for member 'clear' in '((ObstacleDistanceMoveit*)this)->ObstacleDistanceMoveit::robot_links_', which is of non-class type 'int'
+     this->robot_links_.clear();
+                        ^~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:77:30: error: request for member 'clear' in '((ObstacleDistanceMoveit*)this)->ObstacleDistanceMoveit::collision_objects_', which is of non-class type 'int'
+     this->collision_objects_.clear();
+                              ^~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:79:44: error: request for member 'size' in 'robot_obj', which is of non-class type 'int'
+     for (unsigned int i = 0; i < robot_obj.size(); i++)
+                                            ^~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:82:92: error: invalid types 'int[unsigned int]' for array subscript
+                 static_cast<const collision_detection::CollisionGeometryData *>(robot_obj[i]->collisionGeometry()->getUserData());
+                                                                                            ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:83:27: error: no match for 'operator[]' (operand types are 'int' and 'const string' {aka 'const std::__cxx11::basic_string<char>'})
+         this->robot_links_[robot_link->getID()] = robot_obj[i];
+                           ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:83:62: error: invalid types 'int[unsigned int]' for array subscript
+         this->robot_links_[robot_link->getID()] = robot_obj[i];
+                                                              ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:85:44: error: request for member 'size' in 'world_obj', which is of non-class type 'int'
+     for (unsigned int i = 0; i < world_obj.size(); i++)
+                                            ^~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:88:92: error: invalid types 'int[unsigned int]' for array subscript
+                 static_cast<const collision_detection::CollisionGeometryData *>(world_obj[i]->collisionGeometry()->getUserData());
+                                                                                            ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:89:33: error: no match for 'operator[]' (operand types are 'int' and 'const string' {aka 'const std::__cxx11::basic_string<char>'})
+         this->collision_objects_[collision_object->getID()] = world_obj[i];
+                                 ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:89:74: error: invalid types 'int[unsigned int]' for array subscript
+         this->collision_objects_[collision_object->getID()] = world_obj[i];
+                                                                          ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp: In member function 'void ObstacleDistanceMoveit::calculateDistanceTimerCallback(const ros::TimerEvent&)':
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:138:63: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > robot_links = this->robot_links_;
+                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:138:63: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:138:65: error: template argument 2 is invalid
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > robot_links = this->robot_links_;
+                                                                 ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:138:65: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:139:63: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > collision_objects = this->collision_objects_;
+                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:139:63: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:139:65: error: template argument 2 is invalid
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > collision_objects = this->collision_objects_;
+                                                                 ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:139:65: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:153:51: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+         const std::shared_ptr<fcl::CollisionObject> robot_object = robot_links[robot_link_name];
+                                                   ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:153:51: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:153:79: error: no match for 'operator[]' (operand types are 'int' and 'std::__cxx11::string' {aka 'std::__cxx11::basic_string<char>'})
+         const std::shared_ptr<fcl::CollisionObject> robot_object = robot_links[robot_link_name];
+                                                                               ^
+In file included from /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/ros.h:40,
+                 from /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:17:
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:154:88: error: base operand of '->' is not a pointer
+         ROS_DEBUG_STREAM("RobotLink: " << robot_link_name << ", Type: " << robot_object->getObjectType());
+                                                                                        ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/console.h:358:64: note: in definition of macro 'ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER'
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/console.h:406:7: note: in expansion of macro 'ROSCONSOLE_PRINT_STREAM_AT_LOCATION'
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/console.h:579:43: note: in expansion of macro 'ROS_LOG_STREAM_COND'
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/rosconsole/macros_generated.h:59:32: note: in expansion of macro 'ROS_LOG_STREAM'
+ #define ROS_DEBUG_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Debug, ROSCONSOLE_DEFAULT_NAME, args)
+                                ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:154:9: note: in expansion of macro 'ROS_DEBUG_STREAM'
+         ROS_DEBUG_STREAM("RobotLink: " << robot_link_name << ", Type: " << robot_object->getObjectType());
+         ^~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:156:67: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+         std::map<std::string, std::shared_ptr<fcl::CollisionObject> >::iterator obj_it;
+                                                                   ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:156:67: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:156:69: error: template argument 2 is invalid
+         std::map<std::string, std::shared_ptr<fcl::CollisionObject> >::iterator obj_it;
+                                                                     ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:156:69: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:156:81: error: expected initializer before 'obj_it'
+         std::map<std::string, std::shared_ptr<fcl::CollisionObject> >::iterator obj_it;
+                                                                                 ^~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:157:14: error: 'obj_it' was not declared in this scope
+         for (obj_it = collision_objects.begin(); obj_it != collision_objects.end(); ++obj_it)
+              ^~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:157:14: note: suggested alternative: 'off_t'
+         for (obj_it = collision_objects.begin(); obj_it != collision_objects.end(); ++obj_it)
+              ^~~~~~
+              off_t
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:157:41: error: request for member 'begin' in 'collision_objects', which is of non-class type 'int'
+         for (obj_it = collision_objects.begin(); obj_it != collision_objects.end(); ++obj_it)
+                                         ^~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:157:78: error: request for member 'end' in 'collision_objects', which is of non-class type 'int'
+         for (obj_it = collision_objects.begin(); obj_it != collision_objects.end(); ++obj_it)
+                                                                              ^~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:160:55: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+             const std::shared_ptr<fcl::CollisionObject> collision_object = collision_objects[collision_object_name];
+                                                       ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:160:55: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:160:93: error: no match for 'operator[]' (operand types are 'int' and 'std::__cxx11::string' {aka 'std::__cxx11::basic_string<char>'})
+             const std::shared_ptr<fcl::CollisionObject> collision_object = collision_objects[collision_object_name];
+                                                                                             ^
+In file included from /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/ros.h:40,
+                 from /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:17:
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:161:106: error: base operand of '->' is not a pointer
+             ROS_DEBUG_STREAM("CollisionLink: " << collision_object_name << ", Type: " << collision_object->getObjectType());
+                                                                                                          ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/console.h:358:64: note: in definition of macro 'ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER'
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/console.h:406:7: note: in expansion of macro 'ROSCONSOLE_PRINT_STREAM_AT_LOCATION'
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/console.h:579:43: note: in expansion of macro 'ROS_LOG_STREAM_COND'
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/rosconsole/macros_generated.h:59:32: note: in expansion of macro 'ROS_LOG_STREAM'
+ #define ROS_DEBUG_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Debug, ROSCONSOLE_DEFAULT_NAME, args)
+                                ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:161:13: note: in expansion of macro 'ROS_DEBUG_STREAM'
+             ROS_DEBUG_STREAM("CollisionLink: " << collision_object_name << ", Type: " << collision_object->getObjectType());
+             ^~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:163:32: error: base operand of '->' is not a pointer
+             if(collision_object->getObjectType() == fcl::OT_OCTREE)
+                                ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:180:67: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+         std::map<std::string, std::shared_ptr<fcl::CollisionObject> >::iterator selfcollision_it;
+                                                                   ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:180:67: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:180:69: error: template argument 2 is invalid
+         std::map<std::string, std::shared_ptr<fcl::CollisionObject> >::iterator selfcollision_it;
+                                                                     ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:180:69: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:180:81: error: expected initializer before 'selfcollision_it'
+         std::map<std::string, std::shared_ptr<fcl::CollisionObject> >::iterator selfcollision_it;
+                                                                                 ^~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:181:14: error: 'selfcollision_it' was not declared in this scope
+         for (selfcollision_it = robot_links.begin(); selfcollision_it != robot_links.end(); ++selfcollision_it)
+              ^~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:181:14: note: suggested alternative: 'CreateCollisionRobot'
+         for (selfcollision_it = robot_links.begin(); selfcollision_it != robot_links.end(); ++selfcollision_it)
+              ^~~~~~~~~~~~~~~~
+              CreateCollisionRobot
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:181:45: error: request for member 'begin' in 'robot_links', which is of non-class type 'int'
+         for (selfcollision_it = robot_links.begin(); selfcollision_it != robot_links.end(); ++selfcollision_it)
+                                             ^~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:181:86: error: request for member 'end' in 'robot_links', which is of non-class type 'int'
+         for (selfcollision_it = robot_links.begin(); selfcollision_it != robot_links.end(); ++selfcollision_it)
+                                                                                      ^~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:190:63: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+                     const std::shared_ptr<fcl::CollisionObject> robot_self_object = robot_links[robot_self_name];
+                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:190:63: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:190:96: error: no match for 'operator[]' (operand types are 'int' and 'std::__cxx11::string' {aka 'std::__cxx11::basic_string<char>'})
+                     const std::shared_ptr<fcl::CollisionObject> robot_self_object = robot_links[robot_self_name];
+                                                                                                ^
+In file included from /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/ros.h:40,
+                 from /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:17:
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:191:109: error: base operand of '->' is not a pointer
+                     ROS_DEBUG_STREAM("CollisionLink: " << robot_self_name << ", Type: " << robot_self_object->getObjectType());
+                                                                                                             ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/console.h:358:64: note: in definition of macro 'ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER'
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/console.h:406:7: note: in expansion of macro 'ROSCONSOLE_PRINT_STREAM_AT_LOCATION'
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/ros/console.h:579:43: note: in expansion of macro 'ROS_LOG_STREAM_COND'
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/recipe-sysroot/opt/ros/melodic/include/rosconsole/macros_generated.h:59:32: note: in expansion of macro 'ROS_LOG_STREAM'
+ #define ROS_DEBUG_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Debug, ROSCONSOLE_DEFAULT_NAME, args)
+                                ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:191:21: note: in expansion of macro 'ROS_DEBUG_STREAM'
+                     ROS_DEBUG_STREAM("CollisionLink: " << robot_self_name << ", Type: " << robot_self_object->getObjectType());
+                     ^~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp: In member function 'bool ObstacleDistanceMoveit::calculateDistanceServiceCallback(cob_control_msgs::GetObstacleDistance::Request&, cob_control_msgs::GetObstacleDistance::Response&)':
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:227:63: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > robot_links = this->robot_links_;
+                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:227:63: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:227:65: error: template argument 2 is invalid
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > robot_links = this->robot_links_;
+                                                                 ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:227:65: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:228:63: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > collision_objects = this->collision_objects_;
+                                                               ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:228:63: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:228:65: error: template argument 2 is invalid
+     std::map<std::string, std::shared_ptr<fcl::CollisionObject> > collision_objects = this->collision_objects_;
+                                                                 ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:228:65: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:236:71: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+             std::map<std::string, std::shared_ptr<fcl::CollisionObject> >::iterator it;
+                                                                       ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:236:71: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:236:73: error: template argument 2 is invalid
+             std::map<std::string, std::shared_ptr<fcl::CollisionObject> >::iterator it;
+                                                                         ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:236:73: error: template argument 4 is invalid
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:236:85: error: expected initializer before 'it'
+             std::map<std::string, std::shared_ptr<fcl::CollisionObject> >::iterator it;
+                                                                                     ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:237:18: error: 'it' was not declared in this scope
+             for (it = collision_objects.begin(); it != collision_objects.end(); ++it)
+                  ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:237:18: note: suggested alternative: 'i'
+             for (it = collision_objects.begin(); it != collision_objects.end(); ++it)
+                  ^~
+                  i
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:237:41: error: request for member 'begin' in 'collision_objects', which is of non-class type 'int'
+             for (it = collision_objects.begin(); it != collision_objects.end(); ++it)
+                                         ^~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:237:74: error: request for member 'end' in 'collision_objects', which is of non-class type 'int'
+             for (it = collision_objects.begin(); it != collision_objects.end(); ++it)
+                                                                          ^~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:239:59: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+                 const std::shared_ptr<fcl::CollisionObject> collision_object = collision_objects[it->first];
+                                                           ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:239:59: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:240:36: error: base operand of '->' is not a pointer
+                 if(collision_object->getObjectType() == fcl::OT_OCTREE)
+                                    ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:246:69: error: no match for 'operator[]' (operand types are 'int' and '__gnu_cxx::__alloc_traits<std::allocator<std::__cxx11::basic_string<char> >, std::__cxx11::basic_string<char> >::value_type' {aka 'std::__cxx11::basic_string<char>'})
+                 resp.distances.push_back(getDistanceInfo(robot_links[req.links[i]], collision_object).distance);
+                                                                     ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:254:59: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+                 const std::shared_ptr<fcl::CollisionObject> collision_object = collision_objects[req.objects[y]];
+                                                           ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:254:59: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:254:97: error: no match for 'operator[]' (operand types are 'int' and '__gnu_cxx::__alloc_traits<std::allocator<std::__cxx11::basic_string<char> >, std::__cxx11::basic_string<char> >::value_type' {aka 'std::__cxx11::basic_string<char>'})
+                 const std::shared_ptr<fcl::CollisionObject> collision_object = collision_objects[req.objects[y]];
+                                                                                                 ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:255:36: error: base operand of '->' is not a pointer
+                 if(collision_object->getObjectType() == fcl::OT_OCTREE)
+                                    ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:261:69: error: no match for 'operator[]' (operand types are 'int' and '__gnu_cxx::__alloc_traits<std::allocator<std::__cxx11::basic_string<char> >, std::__cxx11::basic_string<char> >::value_type' {aka 'std::__cxx11::basic_string<char>'})
+                 resp.distances.push_back(getDistanceInfo(robot_links[req.links[i]], collision_object).distance);
+                                                                     ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp: At global scope:
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:268:118: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+ cob_control_msgs::ObstacleDistance ObstacleDistanceMoveit::getDistanceInfo(const std::shared_ptr<fcl::CollisionObject> object_a,
+                                                                                                                      ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:268:118: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:269:118: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+                                                                            const std::shared_ptr<fcl::CollisionObject> object_b)
+                                                                                                                      ^
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:269:118: note:   expected a type, got 'CollisionObject'
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp: In member function 'cob_control_msgs::ObstacleDistance ObstacleDistanceMoveit::getDistanceInfo(int, int)':
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:271:26: error: missing template arguments before 'req'
+     fcl::DistanceRequest req(true);  // enable_nearest_points
+                          ^~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:272:25: error: missing template arguments before 'res'
+     fcl::DistanceResult res;
+                         ^~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:273:5: error: 'res' was not declared in this scope
+     res.update(MAXIMAL_MINIMAL_DISTANCE, NULL, NULL, fcl::DistanceResult::NONE, fcl::DistanceResult::NONE);
+     ^~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:273:5: note: suggested alternative: 'ros'
+     res.update(MAXIMAL_MINIMAL_DISTANCE, NULL, NULL, fcl::DistanceResult::NONE, fcl::DistanceResult::NONE);
+     ^~~
+     ros
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:273:59: error: 'template<class S> struct fcl::DistanceResult' used without template parameters
+     res.update(MAXIMAL_MINIMAL_DISTANCE, NULL, NULL, fcl::DistanceResult::NONE, fcl::DistanceResult::NONE);
+                                                           ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:273:86: error: 'template<class S> struct fcl::DistanceResult' used without template parameters
+     res.update(MAXIMAL_MINIMAL_DISTANCE, NULL, NULL, fcl::DistanceResult::NONE, fcl::DistanceResult::NONE);
+                                                                                      ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:278:42: error: request for member 'get' in 'object_a', which is of non-class type 'const int'
+     double dist = fcl::distance(object_a.get(), object_b.get(), req, res);
+                                          ^~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:278:58: error: request for member 'get' in 'object_b', which is of non-class type 'const int'
+     double dist = fcl::distance(object_a.get(), object_b.get(), req, res);
+                                                          ^~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:278:65: error: 'req' was not declared in this scope
+     double dist = fcl::distance(object_a.get(), object_b.get(), req, res);
+                                                                 ^~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:278:65: note: suggested alternative: 'read'
+     double dist = fcl::distance(object_a.get(), object_b.get(), req, res);
+                                                                 ^~~
+                                                                 read
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:281:16: error: base operand of '->' is not a pointer
+     if(object_a->getObjectType() == fcl::OT_GEOM && object_b->getObjectType() == fcl::OT_BVH)
+                ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:281:61: error: base operand of '->' is not a pointer
+     if(object_a->getObjectType() == fcl::OT_GEOM && object_b->getObjectType() == fcl::OT_BVH)
+                                                             ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:313:51: error: base operand of '->' is not a pointer
+     fcl::Transform3f fcl_trans_object_a = object_a->getTransform();
+                                                   ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:314:10: error: 'Vec3f' is not a member of 'fcl'
+     fcl::Vec3f fcl_vec_object_a = fcl_trans_object_a.getTranslation();
+          ^~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:314:10: note: suggested alternative: 'Vector3f'
+     fcl::Vec3f fcl_vec_object_a = fcl_trans_object_a.getTranslation();
+          ^~~~~
+          Vector3f
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:315:10: error: 'Quaternion3f' is not a member of 'fcl'
+     fcl::Quaternion3f fcl_quat_object_a = fcl_trans_object_a.getQuatRotation();
+          ^~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:315:10: note: suggested alternative: 'Quaternionf'
+     fcl::Quaternion3f fcl_quat_object_a = fcl_trans_object_a.getQuatRotation();
+          ^~~~~~~~~~~~
+          Quaternionf
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:318:52: error: 'fcl_quat_object_a' was not declared in this scope
+     tf::Transform tf_trans_object_a(tf::Quaternion(fcl_quat_object_a.getX(),fcl_quat_object_a.getY(),fcl_quat_object_a.getZ(),fcl_quat_object_a.getW()),
+                                                    ^~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:318:52: note: suggested alternative: 'fcl_trans_object_a'
+     tf::Transform tf_trans_object_a(tf::Quaternion(fcl_quat_object_a.getX(),fcl_quat_object_a.getY(),fcl_quat_object_a.getZ(),fcl_quat_object_a.getW()),
+                                                    ^~~~~~~~~~~~~~~~~
+                                                    fcl_trans_object_a
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:319:49: error: 'fcl_vec_object_a' was not declared in this scope
+                                     tf::Vector3(fcl_vec_object_a[0],fcl_vec_object_a[1],fcl_vec_object_a[2]));
+                                                 ^~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:319:49: note: suggested alternative: 'fcl_trans_object_a'
+                                     tf::Vector3(fcl_vec_object_a[0],fcl_vec_object_a[1],fcl_vec_object_a[2]));
+                                                 ^~~~~~~~~~~~~~~~
+                                                 fcl_trans_object_a
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:327:51: error: base operand of '->' is not a pointer
+     fcl::Transform3f fcl_trans_object_b = object_b->getTransform();
+                                                   ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:328:10: error: 'Vec3f' is not a member of 'fcl'
+     fcl::Vec3f fcl_vec_object_b = fcl_trans_object_b.getTranslation();
+          ^~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:328:10: note: suggested alternative: 'Vector3f'
+     fcl::Vec3f fcl_vec_object_b = fcl_trans_object_b.getTranslation();
+          ^~~~~
+          Vector3f
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:329:10: error: 'Quaternion3f' is not a member of 'fcl'
+     fcl::Quaternion3f fcl_quat_object_b = fcl_trans_object_b.getQuatRotation();
+          ^~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:329:10: note: suggested alternative: 'Quaternionf'
+     fcl::Quaternion3f fcl_quat_object_b = fcl_trans_object_b.getQuatRotation();
+          ^~~~~~~~~~~~
+          Quaternionf
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:332:52: error: 'fcl_quat_object_b' was not declared in this scope
+     tf::Transform tf_trans_object_b(tf::Quaternion(fcl_quat_object_b.getX(),fcl_quat_object_b.getY(),fcl_quat_object_b.getZ(),fcl_quat_object_b.getW()),
+                                                    ^~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:332:52: note: suggested alternative: 'fcl_trans_object_b'
+     tf::Transform tf_trans_object_b(tf::Quaternion(fcl_quat_object_b.getX(),fcl_quat_object_b.getY(),fcl_quat_object_b.getZ(),fcl_quat_object_b.getW()),
+                                                    ^~~~~~~~~~~~~~~~~
+                                                    fcl_trans_object_b
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:333:49: error: 'fcl_vec_object_b' was not declared in this scope
+                                     tf::Vector3(fcl_vec_object_b[0],fcl_vec_object_b[1],fcl_vec_object_b[2]));
+                                                 ^~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:333:49: note: suggested alternative: 'fcl_trans_object_b'
+                                     tf::Vector3(fcl_vec_object_b[0],fcl_vec_object_b[1],fcl_vec_object_b[2]));
+                                                 ^~~~~~~~~~~~~~~~
+                                                 fcl_trans_object_b
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:341:18: error: base operand of '->' is not a pointer
+     if(!(object_a->getObjectType() == fcl::OT_BVH && object_b->getObjectType() == fcl::OT_BVH))
+                  ^~
+/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/git/src/cob_obstacle_distance_moveit/obstacle_distance_moveit.cpp:341:62: error: base operand of '->' is not a pointer
+     if(!(object_a->getObjectType() == fcl::OT_BVH && object_b->getObjectType() == fcl::OT_BVH))
+                                                              ^~
+ninja: build stopped: subcommand failed.
+WARNING: exit code 1 from a shell command.
+ERROR: Function failed: do_compile (log file is located at /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/cob-obstacle-distance-moveit/0.7.3-1-r0/temp/log.do_compile.9423)
