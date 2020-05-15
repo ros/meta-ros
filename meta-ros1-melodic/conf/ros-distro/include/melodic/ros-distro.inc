@@ -82,7 +82,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     cob-generic-can \
     costmap-cspace \
     downward \
-    dynamic-robot-state-publisher \
     fetch-drivers \
     ff \
     ffha \
