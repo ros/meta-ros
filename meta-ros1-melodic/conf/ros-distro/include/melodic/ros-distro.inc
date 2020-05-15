@@ -95,7 +95,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     libsiftfast \
     libuvc-camera \
     map-merge-3d \
-    moveit-ros-planning \
     multisense-ros \
     naoqi-libqi \
     nerian-stereo \
