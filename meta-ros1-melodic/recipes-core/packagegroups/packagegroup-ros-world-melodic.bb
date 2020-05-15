@@ -133,29 +133,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
     realsense2-camera \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-pyassimp' (but generated-recipes/moveit-python/moveit-python_0.3.3-1.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyassimp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYASSIMP}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYASSIMP = " \
-    exotica \
-    exotica-core-task-maps \
-    exotica-ddp-solver \
-    exotica-examples \
-    exotica-ilqg-solver \
-    exotica-ilqr-solver \
-    exotica-ompl-solver \
-    exotica-python \
-    fetch-bringup \
-    fetch-moveit-config \
-    fetch-ros \
-    moveit-commander \
-    moveit-python \
-    pilz-industrial-motion-testutils \
-    pilz-industrial-motion \
-    pilz-robot-programming \
-    pilz-trajectory-generation \
-    simple-grasping \
-"
-
 # recipes depending on various unavailable python modules
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-cairosvg' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-joblib' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)

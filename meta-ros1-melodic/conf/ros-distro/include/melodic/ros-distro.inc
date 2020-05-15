@@ -42,12 +42,6 @@ ROS_WORLD_SKIP_GROUPS += "trac-ik"
 # https://github.com/openembedded/openembedded/blob/master/recipes/ogre/ogre-egl_svn.bb
 # but wasn'te ever ported to new layers
 ROS_WORLD_SKIP_GROUPS += "ogre"
-# recipes depending on python-pyassimp
-# there is assimp recipe in oe-core and older meta-ros:
-# http://cgit.openembedded.org/openembedded-core/commit/meta/recipes-graphics/vulkan/assimp_5.0.1.bb?id=ea43f8af4652d78546fee874606cf4093b11098e
-# https://github.com/ros/meta-ros/commit/5d71cc0abbc827719ffbbcb41db9cb5d71177401
-# but doesn't seem to provide python
-ROS_WORLD_SKIP_GROUPS += "pyassimp"
 # recipes depending on python-scipy
 ROS_WORLD_SKIP_GROUPS += "python-scipy"
 # recipes depending on clang-tidy
@@ -558,6 +552,12 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-autobahn = "python-autobahn"
 # generated-recipes/exotica/exotica-core_5.1.3-3.bb
 ROS_UNRESOLVED_PLATFORM_PKG_msgpack = "msgpack-c"
 
+# Used by:
+# generated-recipes/exotica/exotica-python_5.1.3-3.bb
+# generated-recipes/moveit-python/moveit-python_0.3.3-1.bb
+# generated-recipes/moveit/moveit-commander_1.0.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp = "python-pyassimp"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
@@ -610,7 +610,6 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-bluez = "python-pybluez"
 #ROS_UNRESOLVED_PLATFORM_PKG_python-libpgm-pip = "python-libpgm-pip"
 #ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize = "python-mechanize"
 #ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb = "python-omniorb"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp = "python-pyassimp"
 ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio = "python-pyalsaaudio"
 #ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip = "python-pyusb-pip"
 #ROS_UNRESOLVED_PLATFORM_PKG_python-requests-oauthlib = "python-requests-oauthlib"
