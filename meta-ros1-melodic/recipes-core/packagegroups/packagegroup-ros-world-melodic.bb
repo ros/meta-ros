@@ -1455,6 +1455,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBPHIDGETS = " \
     cob-phidget-em-state \
     cob-phidget-power-state \
     cob-phidgets \
+    cob-voltage-control \
     libphidgets \
 "
 
