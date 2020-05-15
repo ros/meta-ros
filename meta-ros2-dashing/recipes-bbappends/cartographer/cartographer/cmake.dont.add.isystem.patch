@@ -1,3 +1,5 @@
+Work around cmake issue with -isystem being used instead of -I
+
 diff -uNr cartographer-release-release-melodic-cartographer-1.0.0-0/cmake/functions.cmake cartographer-release-release-melodic-cartographer-1.0.0-0.new/cmake/functions.cmake
 --- cartographer-release-release-melodic-cartographer-1.0.0-0/cmake/functions.cmake	2018-06-01 12:10:29.000000000 +0000
 +++ cartographer-release-release-melodic-cartographer-1.0.0-0.new/cmake/functions.cmake	2019-09-07 20:28:53.786899683 +0000
@@ -10,25 +12,9 @@ diff -uNr cartographer-release-release-melodic-cartographer-1.0.0-0/cmake/functi
      "${GMOCK_INCLUDE_DIRS}")
    target_link_libraries("${NAME}" PUBLIC ${GMOCK_LIBRARIES})
  
-@@ -83,7 +83,6 @@
-   google_add_flag(GOOG_CXX_FLAGS "-Werror=reorder")
-   google_add_flag(GOOG_CXX_FLAGS "-Werror=return-type")
-   google_add_flag(GOOG_CXX_FLAGS "-Werror=switch")
--  google_add_flag(GOOG_CXX_FLAGS "-Werror=uninitialized")
- 
-   if(NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
-     set(CMAKE_BUILD_TYPE Release)
 diff -uNr cartographer-release-release-melodic-cartographer-1.0.0-0/CMakeLists.txt cartographer-release-release-melodic-cartographer-1.0.0-0.new/CMakeLists.txt
 --- cartographer-release-release-melodic-cartographer-1.0.0-0/CMakeLists.txt	2018-06-01 12:10:29.000000000 +0000
 +++ cartographer-release-release-melodic-cartographer-1.0.0-0.new/CMakeLists.txt	2019-09-07 20:32:34.487862766 +0000
-@@ -178,6 +178,7 @@
-   SRCS
-     cartographer/ground_truth/compute_relations_metrics_main.cc
- )
-+target_link_libraries(cartographer_compute_relations_metrics PUBLIC -ldl)
-
- google_binary(cartographer_migrate_serialization_format
-   SRCS
 @@ -196,19 +198,19 @@
    endif()
  endif()
@@ -76,12 +62,3 @@ diff -uNr cartographer-release-release-melodic-cartographer-1.0.0-0/CMakeLists.t
    "${GMOCK_INCLUDE_DIRS}")
  target_link_libraries(${TEST_LIB} PUBLIC ${GMOCK_LIBRARY})
  target_link_libraries(${TEST_LIB} PUBLIC ${PROJECT_NAME})
-@@ -264,7 +263,7 @@
-   if(${BUILD_PROMETHEUS})
-     target_link_libraries("${TEST_TARGET_NAME}" PUBLIC prometheus-cpp)
-   endif()
--  target_link_libraries("${TEST_TARGET_NAME}" PUBLIC ${TEST_LIB})
-+  target_link_libraries("${TEST_TARGET_NAME}" PUBLIC ${TEST_LIB} -ldl)
- endforeach()
-
- # Add the binary directory first, so that port.h is included after it has
