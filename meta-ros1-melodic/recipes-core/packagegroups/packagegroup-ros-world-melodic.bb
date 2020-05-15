@@ -458,9 +458,6 @@ RDEPENDS_${PN}_remove = "wge100-driver"
 RDEPENDS_${PN}_remove = "prbt-support"
 RDEPENDS_${PN}_remove = "ros-canopen"
 
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-tk' (but generated-recipes/cob-driver/cob-voltage-control_0.7.1-1.bb RDEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "cob-voltage-control"
-
 # ERROR: Nothing RPROVIDES 'UNRESOLVED-python-pandas' (but generated-recipes/rosbag-pandas/rosbag-pandas_0.5.3.bb RDEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "rosbag-pandas"
 

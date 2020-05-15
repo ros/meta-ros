@@ -566,6 +566,11 @@ ROS_UNRESOLVED_PLATFORM_PKG_msgpack = "msgpack-c"
 # generated-recipes/moveit/moveit-commander_1.0.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp = "python-pyassimp"
 
+# Used by:
+# generated-recipes/exotica/exotica-python_5.1.3-3.bb
+# generated-recipes/cob-driver/cob-voltage-control_0.7.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "python-tkinter"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
