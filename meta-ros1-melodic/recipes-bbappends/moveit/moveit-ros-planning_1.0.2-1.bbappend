@@ -31,3 +31,6 @@
 # ERROR: Logfile of failure stored in: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-planning/1.0.2-1-r0/temp/log.do_package_qa.12621
 # ERROR: Task (/jenkins/mjansa/build/ros/ros1-melodic-thud/meta-ros/meta-ros1-melodic/generated-recipes/moveit/moveit-ros-planning_1.0.2-1.bb:do_package_qa) failed with exit code '1'
 inherit ros_insane_dev_so
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-CMakeLists.txt-add-missing-dynamic_reconfigure-to-CA.patch"
