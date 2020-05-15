@@ -622,6 +622,8 @@ PNBLACKLIST[libhugetlbfs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyt
 PNBLACKLIST[kernel-devsrc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-connectivity/lirc/lirc_0.9.4d.bb
 PNBLACKLIST[lirc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
+# meta-ros/meta-ros-common/recipes-devtools/python/python-pyassimp_4.1.4.bb
+PNBLACKLIST[python-pyassimp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 
 # The rest depends on something which depends on python:
 # meta-openembedded/meta-oe/recipes-bsp/lm_sensors/lmsensors_3.4.0.bb
