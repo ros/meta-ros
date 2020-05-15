@@ -1,0 +1,28 @@
+From 7fa7acc3462b7959e6c64306ee90f993cdd2fe1c Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 14 May 2020 17:26:13 -0700
+Subject: [PATCH] CMakeLists.txt: add missing eigen_conversions to
+ CATKIN_DEPENDS
+
+* fixes ros-control-boilerplate issue:
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/ros-control-boilerplate/0.5.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: libeigen_conversions.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/ros-control-boilerplate/0.5.0-1-r0/recipe-sysroot/opt/ros/melodic/lib/librosparam_shortcuts.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/ros-control-boilerplate/0.5.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/ros-control-boilerplate/0.5.0-1-r0/recipe-sysroot/opt/ros/melodic/lib/librosparam_shortcuts.so: undefined reference to `tf::poseEigenToMsg(Eigen::Transform<double, 3, 1, 0> const&, geometry_msgs::Pose_<std::allocator<void> >&)'
+collect2: error: ld returned 1 exit status
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9bdbf7c..bdf1b11 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -21,6 +21,7 @@ catkin_package(
+     ${PROJECT_NAME}
+   CATKIN_DEPENDS
+     roscpp
++    eigen_conversions # TODO(davetcoleman) remove this dependency, only for build testing
+   DEPENDS
+     EIGEN3
+ )
