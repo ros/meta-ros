@@ -87,6 +87,7 @@ PNBLACKLIST[cob-script-server] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROU
 PNBLACKLIST[cob-sound] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['multimedia', 'vlc'], 'Requires vlc which requires meta-multimedia to be included', '', d)}"
 PNBLACKLIST[cob-teleop] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['multimedia', 'vlc'], 'Requires cob-sound->vlc which requires meta-multimedia to be included', '', d)}"
 PNBLACKLIST[cob-twist-controller] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['multimedia', 'vlc'], 'Requires cob-script-server->cob-mimic, cob-sound->vlc which requires meta-multimedia to be included', '', d)}"
+PNBLACKLIST[cob-voltage-control] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libphidgets', 'libphidgets: depends on cob-phidgets->libphidgets which fails to compile', '', d)}"
 PNBLACKLIST[code-coverage] ?= "Depends on unavailable UNRESOLVED-lcov"
 PNBLACKLIST[codec-image-transport] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', 'Depends on ffmpeg which requires commercial license', '', d)}"
 PNBLACKLIST[collada-urdf-jsk-patch] ?= "Depends on unavailable UNRESOLVED-python-catkin-tools"
