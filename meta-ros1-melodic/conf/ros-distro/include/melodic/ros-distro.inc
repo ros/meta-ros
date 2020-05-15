@@ -118,8 +118,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     stage-ros \
     usb-cam-controllers \
     wamv-description \
-    xpp-hyq \
-    xpp-quadrotor \
 "
 
 # recipes depending on various unavailable python modules
