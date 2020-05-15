@@ -30,6 +30,10 @@ gtk3:
 - gtk+3@openembedded-core
 java:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_java}
+libboost-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev}
+libboost-program-options-dev:
+- boost@openembedded-core
 libconsole-bridge-dev:
 - console-bridge@meta-ros
 libcunit-dev:
@@ -42,6 +46,8 @@ libglfw3-dev:
 - glfw@meta-intel-realsense
 libopencv-dev:
 - opencv@meta-oe
+libpcl-all-dev:
+- pcl@meta-ros
 libqt5-core:
 - qtbase@meta-qt5
 libqt5-gui:
@@ -138,6 +144,8 @@ qtbase5-dev:
 - qtbase@meta-qt5
 rti-connext-dds-5.3.1:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1}
+sdl2:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_sdl2}
 spdlog:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog}
 tango-icon-theme:
