@@ -506,7 +506,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     ainstein-radar-rviz-plugins \
     cartographer-rviz \
     cob-interactive-teleop \
+    cob-manipulation \
     cob-mapping-slam \
+    cob-moveit-bringup \
     cob-navigation \
     cob-navigation-global \
     cob-navigation-local \
@@ -516,6 +518,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     distance-map-rviz \
     fake-joint \
     fake-joint-launch \
+    fetch-moveit-config \
+    fetch-ros \
     fkie-potree-rviz-plugin \
     franka-example-controllers \
     franka-ros \
@@ -598,7 +602,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     distance-map-rviz \
     dynamixel-workbench \
     dynamixel-workbench-single-manager-gui \
+    fetch-bringup \
     fetch-gazebo-demo \
+    fetch-ros \
     fetch-simulation \
     find-object-2d \
     fkie-potree-rviz-plugin \
