@@ -244,6 +244,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     exotica-ddp-solver \
     exotica-double-integrator-dynamics-solver \
     exotica-dynamics-solvers \
+    exotica-examples \
     exotica-ik-solver \
     exotica-ilqg-solver \
     exotica-ilqr-solver \
@@ -479,6 +480,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY = " \
     calibration \
     calibration-estimation \
     eca-a9-control \
+    exotica-examples \
     exotica-scipy-solver \
     husky-bringup \
     husky-robot \
@@ -516,6 +518,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     cob-obstacle-distance \
     distance-map \
     distance-map-rviz \
+    exotica-examples \
     fake-joint \
     fake-joint-launch \
     fetch-moveit-config \
@@ -1391,6 +1394,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_DOWNWARD = " \
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'exotica-collision-scene-fcl', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_EXOTICA_COLLISION_SCENE_FCL}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_EXOTICA_COLLISION_SCENE_FCL = " \
+    exotica-examples \
     exotica-collision-scene-fcl \
 "
 
