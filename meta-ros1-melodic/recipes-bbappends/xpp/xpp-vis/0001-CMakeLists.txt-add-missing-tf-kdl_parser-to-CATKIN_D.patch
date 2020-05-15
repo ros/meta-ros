@@ -1,0 +1,48 @@
+From 87a886a287aa00841723441d4d45299b396ae7b8 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 14 May 2020 17:34:27 -0700
+Subject: [PATCH] CMakeLists.txt: add missing tf, kdl_parser, robot_state_publisher to CATKIN_DEPENDS
+
+* fixes xpp-quadrotor and xpp-hyq issue:
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: libtf.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: librobot_state_publisher_solver.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: libkdl_parser.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: liburdf.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `tf::TransformBroadcaster::TransformBroadcaster()'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `vtable for robot_state_publisher::RobotStatePublisher'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `urdf::Model::initParam(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `tf::TransformBroadcaster::sendTransform(geometry_msgs::TransformStamped_<std::allocator<void> > const&)'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `kdl_parser::treeFromUrdfModel(urdf::ModelInterface const&, KDL::Tree&)'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-quadrotor/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `robot_state_publisher::RobotStatePublisher::RobotStatePublisher(KDL::Tree const&, urdf::Model const&)'
+collect2: error: ld returned 1 exit status
+
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: libtf.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: librobot_state_publisher_solver.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: libkdl_parser.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: liburdf.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `tf::TransformBroadcaster::TransformBroadcaster()'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `vtable for robot_state_publisher::RobotStatePublisher'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `urdf::Model::initParam(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `tf::TransformBroadcaster::sendTransform(geometry_msgs::TransformStamped_<std::allocator<void> > const&)'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `kdl_parser::treeFromUrdfModel(urdf::ModelInterface const&, KDL::Tree&)'
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `robot_state_publisher::RobotStatePublisher::RobotStatePublisher(KDL::Tree const&, urdf::Model const&)'
+collect2: error: ld returned 1 exit status
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f6a49690..3dd7fa5a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -21,7 +21,7 @@ find_package(catkin REQUIRED COMPONENTS
+ catkin_package(
+    INCLUDE_DIRS include
+    LIBRARIES ${PROJECT_NAME}
+-   CATKIN_DEPENDS xpp_states xpp_msgs
++   CATKIN_DEPENDS xpp_states xpp_msgs tf kdl_parser robot_state_publisher
+ )
+ 
+ 
