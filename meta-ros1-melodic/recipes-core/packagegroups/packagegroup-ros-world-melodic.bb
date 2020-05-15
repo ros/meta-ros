@@ -371,9 +371,18 @@ RDEPENDS_${PN}_remove = "spatio-temporal-voxel-layer"
 # ERROR: Nothing PROVIDES 'UNRESOLVED-gfortran' (but generated-recipes/optpp-catkin/optpp-catkin_2.4.0-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "optpp-catkin"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-libopenni-dev' (but generated-recipes/openni-camera/openni-camera_1.11.1.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "openni-camera"
-RDEPENDS_${PN}_remove = "openni-launch"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
+    openni-camera \
+    openni-launch \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni2', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI2}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI2 = " \
+    fetch-bringup \
+    openni2-camera \
+    openni2-launch \
+"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-gforth' (but generated-recipes/wge100-driver/wge100-camera-firmware_1.8.2-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "wge100-camera-firmware"
@@ -430,10 +439,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG_TIDY = " \
     prbt-hardware-support \
     prbt-moveit-config \
 "
-
-# ERROR: Nothing PROVIDES 'UNRESOLVED-libopenni2-dev' (but generated-recipes/openni2-camera/openni2-camera_0.4.2.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "openni2-camera"
-RDEPENDS_${PN}_remove = "openni2-launch"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libspnav-dev' (but generated-recipes/joystick-drivers/spacenav-node_1.13.0-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "spacenav-node"
