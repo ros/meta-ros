@@ -23,3 +23,6 @@
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-ros-perception path '/work/core2-64-oe-linux/moveit-ros-perception/1.0.2-1-r0/packages-split/moveit-ros-perception/opt/ros/melodic/lib/libmoveit_mesh_filter.so'
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-ros-perception path '/work/core2-64-oe-linux/moveit-ros-perception/1.0.2-1-r0/packages-split/moveit-ros-perception/opt/ros/melodic/lib/libmoveit_semantic_world.so' [dev-so]
 inherit ros_insane_dev_so
+
+# mesa is recipe name, shouldn't be used in runtime dependencies
+ROS_EXEC_DEPENDS_remove = "mesa"
