@@ -22,3 +22,6 @@ FILES_${PN} += "${libdir}/Stage-4.3"
 
 # ERROR: stage-4.3.0-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: stage path '/work/core2-64-oe-linux/stage/4.3.0-r0/packages-split/stage/usr/lib/libstage.so' [dev-so]
 inherit ros_insane_dev_so
+
+# mesa is recipe name, shouldn't be used in runtime dependencies
+ROS_EXEC_DEPENDS_remove = "mesa"
