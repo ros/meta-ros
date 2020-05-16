@@ -73,7 +73,6 @@ ROS_WORLD_SKIP_GROUPS += " \
 
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
-    acado \
     assimp-devel \
     bayesian-belief-networks \
     canopen-master \
