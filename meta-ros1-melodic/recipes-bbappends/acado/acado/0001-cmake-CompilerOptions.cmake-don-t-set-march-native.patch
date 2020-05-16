@@ -1,0 +1,37 @@
+From f70ee41ede3b71c8137c8cf27e26cc7149b78edc Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 15 May 2020 18:30:24 -0700
+Subject: [PATCH] cmake/CompilerOptions.cmake: don't set -march=native
+
+* -march=native isn't available when cross-compiling
+* fixes:
+| FAILED: acado/CMakeFiles/acado_toolkit_s.dir/sparse_solver/normal_conjugate_gradient_method.cpp.o
+| /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0/recipe-sysroot-native/usr/bin/aarch64-oe-linux/aarch64-oe-linux-g++  -DACADO_CMAKE_BUILD -Dacado_toolkit_s_EXPORTS -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0/git -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0/git/acado -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0/git/external_packages -I/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0/git/external_packages/qpOASES-3.2.0/include -I. --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0=/usr/src/debug/acado/1.2.3-r0 -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0/recipe-sysroot= -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   --sysroot=/jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0/recipe-sysroot -fPIC -Wall -pedantic -Wfloat-equal -Wshadow -DLINUX -Wno-overloaded-virtual -std=c++11 -DACADO_HAS_CXX11 -DNDEBUG -march=native -fPIC -MD -MT acado/CMakeFiles/acado_toolkit_s.dir/sparse_solver/normal_conjugate_gradient_method.cpp.o -MF acado/CMakeFiles/acado_toolkit_s.dir/sparse_solver/normal_conjugate_gradient_method.cpp.o.d -o acado/CMakeFiles/acado_toolkit_s.dir/sparse_solver/normal_conjugate_gradient_method.cpp.o -c /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/acado/1.2.3-r0/git/acado/sparse_solver/normal_conjugate_gradient_method.cpp
+| Assembler messages:
+| Error: unknown architecture `native'
+|
+| Error: unrecognized option -march=native
+| cc1plus: error: unknown value 'native' for -march
+| cc1plus: note: valid arguments are: armv8-a armv8.1-a armv8.2-a armv8.3-a armv8.4-a
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cmake/CompilerOptions.cmake | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/cmake/CompilerOptions.cmake b/cmake/CompilerOptions.cmake
+index 6f53d75..4c80663 100644
+--- a/cmake/CompilerOptions.cmake
++++ b/cmake/CompilerOptions.cmake
+@@ -96,11 +96,6 @@ IF (    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"
+ 		SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-overloaded-virtual" )
+ 	ENDIF()
+ 
+-	IF (NOT (APPLE AND "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU") AND (NOT MINGW))
+-		SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -march=native")
+-		SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -march=native")
+-	ENDIF()
+-	
+ 	IF ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+ 		SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-comparison -Dregister=''" )
+ 	ENDIF()
