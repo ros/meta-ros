@@ -30,3 +30,6 @@ do_configure_append() {
     # moveit-ros-perception/1.0.2-1-r0/recipe-sysroot/usr/include/c++/8.2.0/cstdlib:75:15: fatal error: stdlib.h: No such file or directory
     sed -i 's/-isystem /-I/g' ${B}/build.ninja
 }
+
+# mesa is recipe name, shouldn't be used in runtime dependencies
+ROS_EXEC_DEPENDS_remove = "mesa"
