@@ -246,6 +246,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     exotica-cartpole-dynamics-solver \
     exotica-collision-scene-fcl \
     exotica-collision-scene-fcl-latest \
+    exotica-core-task-maps \
     exotica-core \
     exotica-ddp-solver \
     exotica-double-integrator-dynamics-solver \
@@ -256,8 +257,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     exotica-ilqr-solver \
     exotica-levenberg-marquardt-solver \
     exotica-ompl-control-solver \
+    exotica-ompl-solver \
     exotica-pendulum-dynamics-solver \
     exotica-pinocchio-dynamics-solver \
+    exotica-python \
     exotica-quadrotor-dynamics-solver \
     exotica-scipy-solver \
     exotica-time-indexed-rrt-connect-solver \
@@ -269,6 +272,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     industrial-trajectory-filters \
     mapviz \
     mapviz-plugins \
+    moveit-commander \
     moveit-fake-controller-manager \
     moveit-planners \
     moveit-planners-ompl \
@@ -291,6 +295,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     open-manipulator-controller \
     open-manipulator-with-tb3-tools \
     perception \
+    pilz-industrial-motion-testutils \
+    pilz-industrial-motion \
+    pilz-robot-programming \
     pilz-trajectory-generation \
     pr2-moveit-config \
     rc-roi-manager-gui \
