@@ -9,3 +9,10 @@
 #                                    ^
 # cc1plus: all warnings being treated as errors
 CXXFLAGS += "-Wno-error=catch-value="
+
+# Ignore this for now
+# file-management/1.1.2-1-r0/git/src/file_upload/file_manager_strategy.cpp:132:33: error: implicitly-declared 'Aws::FileManagement::FileTokenInfo& Aws::FileManagement::FileTokenInfo::operator=(const Aws::FileManagement::FileTokenInfo&)' is deprecated [-Werror=deprecated-copy]
+# file-management/1.1.2-1-r0/git/src/file_upload/file_manager_strategy.cpp:168:19: error: implicitly-declared 'Aws::FileManagement::FileTokenInfo& Aws::FileManagement::FileTokenInfo::operator=(const Aws::FileManagement::FileTokenInfo&)' is deprecated [-Werror=deprecated-copy]
+# file-management/1.1.2-1-r0/git/src/file_upload/file_manager_strategy.cpp:171:47: error: implicitly-declared 'Aws::FileManagement::FileTokenInfo& Aws::FileManagement::FileTokenInfo::operator=(const Aws::FileManagement::FileTokenInfo&)' is deprecated [-Werror=deprecated-copy]
+# file-management/1.1.2-1-r0/git/src/file_upload/file_manager_strategy.cpp:196:45: error: implicitly-declared 'Aws::FileManagement::FileTokenInfo& Aws::FileManagement::FileTokenInfo::operator=(const Aws::FileManagement::FileTokenInfo&)' is deprecated [-Werror=deprecated-copy]
+CXXFLAGS += "-Wno-error=deprecated-copy"
