@@ -3,6 +3,9 @@
 DESCRIPTION = "All non-test packages for the target from files/crystal/cache.yaml"
 LICENSE = "MIT"
 
+# ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_* variables are MACHINE specific
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 inherit packagegroup
 inherit ros_distro_melodic
 
