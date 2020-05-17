@@ -1,7 +1,10 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 DESCRIPTION = "All non-test packages for the target from files/${ROS_DISTRO}/cache.yaml"
 LICENSE = "MIT"
+
+# ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_* variables used in packagegroup-ros-world-melodic are MACHINE specific
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit packagegroup
 
