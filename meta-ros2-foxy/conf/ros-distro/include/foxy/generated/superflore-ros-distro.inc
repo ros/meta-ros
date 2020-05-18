@@ -18,18 +18,11 @@ ROS_PYTHON_VERSION = "3"
 ROS_SUPERFLORE_GENERATION_SKIP_LIST = ""
 
 # Superflore was unable to generate recipes for these packages, eg, because their repositories are not on GitHub.
-ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
-    ros2trace \
-    tracetools \
-    tracetools_launch \
-    tracetools_read \
-    tracetools_test \
-    tracetools_trace \
-"
+ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = ""
 
 # Number of commits that will be returned by "git log meta-ros2-foxy/files/foxy/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "5"
+ROS_NUM_CACHE_YAML_COMMITS = "7"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -105,6 +98,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     composition-interfaces \
     connext-cmake-module \
     console-bridge-vendor \
+    control-msgs \
     cyclonedds \
     demo-nodes-cpp \
     demo-nodes-cpp-rosnative \
@@ -137,6 +131,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     fastrtps \
     fastrtps-cmake-module \
     filters \
+    fmi-adapter \
+    fmi-adapter-examples \
     fmilibrary-vendor \
     foonathan-memory-vendor \
     geometry-msgs \
@@ -195,6 +191,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rcl-logging-noop \
     rcl-logging-spdlog \
     rcl-yaml-param-parser \
+    rclc \
+    rclc-examples \
     rclcpp \
     rclcpp-action \
     rclcpp-components \
@@ -221,6 +219,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ros-environment \
     ros-testing \
     ros-workspace \
+    ros1-bridge \
     ros2action \
     ros2bag \
     ros2cli \
@@ -238,6 +237,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ros2service \
     ros2test \
     ros2topic \
+    ros2trace \
     rosbag2 \
     rosbag2-compression \
     rosbag2-converter-default-plugins \
@@ -331,6 +331,11 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     tlsf \
     tlsf-cpp \
     topic-monitor \
+    tracetools \
+    tracetools-launch \
+    tracetools-read \
+    tracetools-test \
+    tracetools-trace \
     trajectory-msgs \
     turtlesim \
     uncrustify-vendor \
@@ -412,6 +417,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                  rcl-interfaces/composition-interfaces_0.9.0-2 \
      rosidl-typesupport-connext/connext-cmake-module_0.9.0-2 \
           console-bridge-vendor/console-bridge-vendor_1.2.0-1 \
+                   control-msgs/control-msgs_2.3.0-2 \
                      cyclonedds/cyclonedds_0.5.1-2 \
                           demos/demo-nodes-cpp_0.9.1-1 \
                           demos/demo-nodes-cpp-rosnative_0.9.1-1 \
@@ -444,6 +450,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                        fastrtps/fastrtps_2.0.0-2 \
     rosidl-typesupport-fastrtps/fastrtps-cmake-module_0.9.0-1 \
                         filters/filters_2.0.0-1 \
+               fmi-adapter-ros2/fmi-adapter_0.1.8-1 \
+               fmi-adapter-ros2/fmi-adapter-examples_0.1.8-1 \
               fmilibrary-vendor/fmilibrary-vendor_0.2.0-1 \
         foonathan-memory-vendor/foonathan-memory-vendor_0.6.0-1 \
               common-interfaces/geometry-msgs_0.9.0-2 \
@@ -502,6 +510,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                     rcl-logging/rcl-logging-noop_0.4.0-1 \
                     rcl-logging/rcl-logging-spdlog_0.4.0-1 \
                             rcl/rcl-yaml-param-parser_1.0.0-1 \
+                           rclc/rclc_0.1.1-1 \
+                           rclc/rclc-examples_0.1.1-1 \
                          rclcpp/rclcpp_1.0.0-1 \
                          rclcpp/rclcpp-action_1.0.0-1 \
                          rclcpp/rclcpp-components_1.0.0-1 \
@@ -528,6 +538,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                 ros-environment/ros-environment_2.5.0-1 \
                     ros-testing/ros-testing_0.2.1-1 \
                   ros-workspace/ros-workspace_1.0.0-1 \
+                    ros1-bridge/ros1-bridge_0.9.0-3 \
                         ros2cli/ros2action_0.9.3-1 \
                         rosbag2/ros2bag_0.2.7-1 \
                         ros2cli/ros2cli_0.9.3-1 \
@@ -545,6 +556,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                         ros2cli/ros2service_0.9.3-1 \
                     ros-testing/ros2test_0.2.1-1 \
                         ros2cli/ros2topic_0.9.3-1 \
+                   ros2-tracing/ros2trace_1.0.0-2 \
                         rosbag2/rosbag2_0.2.7-1 \
                         rosbag2/rosbag2-compression_0.2.7-1 \
                         rosbag2/rosbag2-converter-default-plugins_0.2.7-1 \
@@ -638,6 +650,11 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                            tlsf/tlsf_0.5.0-1 \
                realtime-support/tlsf-cpp_0.9.0-1 \
                           demos/topic-monitor_0.9.1-1 \
+                   ros2-tracing/tracetools_1.0.0-2 \
+                   ros2-tracing/tracetools-launch_1.0.0-2 \
+                   ros2-tracing/tracetools-read_1.0.0-2 \
+                   ros2-tracing/tracetools-test_1.0.0-2 \
+                   ros2-tracing/tracetools-trace_1.0.0-2 \
               common-interfaces/trajectory-msgs_0.9.0-2 \
                       turtlesim/turtlesim_1.2.0-2 \
               uncrustify-vendor/uncrustify-vendor_1.4.0-1 \
@@ -680,7 +697,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-cmake-include-directories \
     ament-cmake-libraries \
     ament-cmake-lint-cmake \
-    ament-cmake-mypy \
     ament-cmake-nose \
     ament-cmake-pclint \
     ament-cmake-pep257 \
@@ -711,8 +727,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     composition-interfaces \
     connext-cmake-module \
     console-bridge-vendor \
+    control-msgs \
     cyclonedds \
-    demo-nodes-cpp \
     demo-nodes-cpp-rosnative \
     demo-nodes-py \
     diagnostic-msgs \
@@ -743,6 +759,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     fastrtps \
     fastrtps-cmake-module \
     filters \
+    fmi-adapter \
+    fmi-adapter-examples \
     fmilibrary-vendor \
     foonathan-memory-vendor \
     geometry-msgs \
@@ -800,6 +818,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rcl-logging-noop \
     rcl-logging-spdlog \
     rcl-yaml-param-parser \
+    rclc \
+    rclc-examples \
     rclcpp \
     rclcpp-action \
     rclcpp-components \
@@ -825,6 +845,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     robot-state-publisher \
     ros-environment \
     ros-workspace \
+    ros1-bridge \
     ros2action \
     ros2bag \
     ros2cli \
@@ -840,6 +861,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ros2service \
     ros2test \
     ros2topic \
+    ros2trace \
     rosbag2 \
     rosbag2-compression \
     rosbag2-converter-default-plugins \
@@ -927,6 +949,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     tlsf \
     tlsf-cpp \
     topic-monitor \
+    tracetools \
+    tracetools-test \
+    tracetools-trace \
     trajectory-msgs \
     turtlesim \
     uncrustify-vendor \
@@ -1009,6 +1034,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_FOXY = " \
     rosidl-generator-cpp-native \
     rosidl-generator-dds-idl-native \
     rosidl-generator-py-native \
+    rosidl-parser-native \
     rosidl-runtime-c-native \
     rosidl-runtime-cpp-native \
     rosidl-typesupport-c-native \
@@ -1032,11 +1058,14 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libzstd-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_maven-native} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-cov} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
@@ -1106,8 +1135,10 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
 # Packages found only in <test_depend> items. Does not include those found only in the ROS_*_DEPENDS of recipes of tests.
 ROS_SUPERFLORE_GENERATED_TESTS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-cov} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
     ament-cmake-gmock \
+    ament-cmake-mypy \
     ament-cmake-pytest \
     ament-copyright \
     ament-flake8 \
@@ -1118,6 +1149,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     ament-pycodestyle \
     ament-xmllint \
     cppunit \
+    demo-nodes-cpp \
     osrf-testing-tools-cpp \
     python3-pygraphviz \
     python3-pytest \
@@ -1130,6 +1162,8 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     rviz-rendering-tests \
     rviz-visual-testing-framework \
     test-msgs \
+    tracetools-launch \
+    tracetools-read \
 "
 
 ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
@@ -1142,6 +1176,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     class-loader \
     common-interfaces \
     console-bridge-vendor \
+    control-msgs \
     cyclonedds \
     demos \
     eigen3-cmake-module \
@@ -1150,6 +1185,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     fastcdr \
     fastrtps \
     filters \
+    fmi-adapter-ros2 \
     fmilibrary-vendor \
     foonathan-memory-vendor \
     geometry2 \
@@ -1177,6 +1213,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     rcl \
     rcl-interfaces \
     rcl-logging \
+    rclc \
     rclcpp \
     rclpy \
     rcpputils \
@@ -1193,7 +1230,9 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     ros-environment \
     ros-testing \
     ros-workspace \
+    ros1-bridge \
     ros2-intel-realsense \
+    ros2-tracing \
     ros2cli \
     rosbag2 \
     rosidl \
@@ -1247,11 +1286,14 @@ ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "UNRESOLVED-libboost-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev = "UNRESOLVED-libcunit-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libzstd-dev = "UNRESOLVED-libzstd-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_maven-native = "UNRESOLVED-maven-native"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace = "UNRESOLVED-python3-babeltrace"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography = "UNRESOLVED-python3-cryptography"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = "UNRESOLVED-python3-ifcfg"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng = "UNRESOLVED-python3-lttng"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "UNRESOLVED-python3-mypy"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = "UNRESOLVED-python3-netifaces"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle = "UNRESOLVED-python3-pycodestyle"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-cov = "UNRESOLVED-python3-pytest-cov"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock = "UNRESOLVED-python3-pytest-mock"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings = "UNRESOLVED-python3-qt5-bindings"
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = "UNRESOLVED-rti-connext-dds-5.3.1"
@@ -1263,10 +1305,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_uncrustify = "UNRESOLVED-uncrustify"
 
 # From the release announcement or the last field of the "release-ROS_DISTRO-YYYYMMDD" tag for the release in
 # https://github.com/ros2/ros2/releases. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "20200515"
+ROS_DISTRO_RELEASE_DATE = "20200518"
 
 # The commit of ros/rosdistro/foxy/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "3652630bd6542c0fba5c1b333832117e4b4eb6bb"
+ROS_SUPERFLORE_GENERATION_COMMIT = "f126b16d9725d1ba96cc29dcf8fc8e311d99cd35"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
