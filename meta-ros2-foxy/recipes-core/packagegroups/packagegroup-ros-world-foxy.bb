@@ -27,15 +27,54 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
     ament-cmake-clang-format \
     ament-cmake-clang-tidy \
 "
-# There is recipe for glfw in meta-oe in dunfell:
-# http://cgit.openembedded.org/meta-openembedded/commit/meta-oe/recipes-core/glfw/glfw_3.3.bb?id=a7464eaa69a7ee4734001aab2e232102e7135772
-# but we don't have a backports layer from dunfell yet, lets skip it for now
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'glfw', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
-    librealsense2 \
+
+# Needs work to launch qemu to run tests on image on build machine.
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
+    launch-testing-ament-cmake \
 "
+
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
+    rviz-ogre-vendor \
     librealsense2 \
+    realsense-examples \
+    realsense-node \
+    realsense-ros \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
+    desktop \
+    turtlesim \
+    rqt-gui-cpp \
+    rviz-common \
+    rviz-rendering-tests \
+    rqt-py-common \
+    python-qt-binding \
+    qt-gui \
+    rviz-rendering \
+    rviz-visual-testing-framework \
+    qt-gui-cpp \
+    rviz-default-plugins \
+    rviz2 \
+    qt-gui-core \
+    rqt-gui \
+    rqt-gui-py \
+    rqt-topic \
+    rqt-graph \
+    rqt-py-console \
+    rqt-srv \
+    rqt-robot-steering \
+    rqt-service-caller \
+    rqt-shell \
+    rqt-publisher \
+    rqt-plot \
+    rqt \
+    rqt-console \
+    rqt-top \
+    rqt-action \
+    rqt-msg \
+    rqt-reconfigure \
 "
