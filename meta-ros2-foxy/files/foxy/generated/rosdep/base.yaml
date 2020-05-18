@@ -935,6 +935,7 @@ gazebo:
     cosmic: [gazebo9]
     disco: [gazebo9]
     eoan: [gazebo9]
+    focal: [gazebo11]
     precise: [gazebo]
     quantal: [gazebo]
     raring: [gazebo]
@@ -944,6 +945,11 @@ gazebo:
     xenial: [gazebo7]
     yakkety: [gazebo7]
     zesty: [gazebo7]
+gazebo11:
+  debian:
+    buster: [gazebo11]
+  ubuntu:
+    focal: [gazebo11]
 gazebo5:
   arch: [gazebo]
   gentoo: [=sci-electronics/gazebo-5*]
@@ -1152,12 +1158,12 @@ gradle:
   ubuntu: [gradle]
 graphicsmagick:
   arch: [graphicsmagick]
-  debian: [libgraphicsmagick++1-dev]
+  debian: [libgraphicsmagick++1-dev, graphicsmagick-libmagick-dev-compat]
   fedora: [GraphicsMagick-c++-devel]
   gentoo: [virtual/imagemagick-tools]
   macports: [GraphicsMagick]
   rhel: [GraphicsMagick-c++-devel]
-  ubuntu: [libgraphicsmagick++1-dev]
+  ubuntu: [libgraphicsmagick++1-dev, graphicsmagick-libmagick-dev-compat]
 graphviz:
   arch: [graphviz]
   debian: [graphviz]
@@ -1865,6 +1871,16 @@ libcap-dev:
   fedora: [libcap-devel]
   gentoo: [sys-libs/libcap]
   ubuntu: [libcap-dev]
+libcap-ng-dev:
+  debian: [libcap-ng-dev]
+  ubuntu: [libcap-ng-dev]
+libcap-ng0:
+  debian: [libcap-ng0]
+  gentoo: [sys-libs/libcap-ng]
+  ubuntu: [libcap-ng0]
+libcap2:
+  debian: [libcap2]
+  ubuntu: [libcap2]
 libcap2-bin:
   arch: [libcap]
   debian: [libcap2-bin]
@@ -2004,6 +2020,9 @@ libdmtx-dev:
   fedora: [libdmtx-devel]
   gentoo: [media-libs/libdmtx]
   ubuntu: [libdmtx-dev]
+libdpkg-dev:
+  debian: [libdpkg-dev]
+  ubuntu: [libdpkg-dev]
 libdrm-dev:
   arch: [libdrm]
   debian: [libdrm-dev]
@@ -2225,6 +2244,11 @@ libftgl-dev:
   fedora: [ftgl-devel]
   gentoo: [media-libs/ftgl]
   ubuntu: [libftgl-dev]
+libgazebo11-dev:
+  debian:
+    buster: [libgazebo11-dev]
+  ubuntu:
+    focal: [libgazebo11-dev]
 libgazebo5-dev:
   arch: [gazebo]
   gentoo: [=sci-electronics/gazebo-5*]
@@ -2715,6 +2739,13 @@ libmodbus5:
   fedora: [libmodbus]
   gentoo: [dev-libs/libmodbus]
   ubuntu: [libmodbus5]
+libmongoc-1.0-0:
+  debian: [libmongoc-1.0-0]
+  gentoo: [dev-libs/mongo-c-driver]
+  ubuntu: [libmongoc-1.0-0]
+libmongoc-dev:
+  debian: [libmongoc-dev]
+  ubuntu: [libmongoc-dev]
 libmongoclient-dev:
   debian: [libmongoclient-dev]
   fedora: [mongo-cxx-driver]
@@ -3261,6 +3292,14 @@ libpqxx-dev:
     xenial: [libpqxx-dev]
     yakkety: [libpqxx-dev]
     zesty: [libpqxx-dev]
+libprocps-dev:
+  debian: [libprocps-dev]
+  ubuntu: [libprocps-dev]
+libprocps6:
+  debian:
+    stretch: [libprocps6]
+  ubuntu:
+    bionic: [libprocps6]
 libpt-dev:
   debian: [libpt-dev]
   fedora: [ptlib-devel]
@@ -6027,6 +6066,7 @@ wxwidgets:
   ubuntu:
     artful: [libwxgtk3.0-dev]
     bionic: [libwxgtk3.0-dev]
+    focal: [libwxgtk3.0-gtk3-dev]
     lucid: [libwxgtk2.8-dev]
     maverick: [libwxgtk2.8-dev]
     natty: [libwxgtk2.8-dev]
