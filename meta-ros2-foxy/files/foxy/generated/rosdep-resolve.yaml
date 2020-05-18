@@ -88,6 +88,8 @@ pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros
 pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros
+python3-babeltrace:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace}
 python3-catkin-pkg-modules:
 - python3-catkin-pkg@meta-ros
 python3-cryptography:
@@ -102,6 +104,8 @@ python3-ifcfg:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg}
 python3-lark-parser:
 - python3-lark-parser@meta-ros
+python3-lttng:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng}
 python3-lxml:
 - python3-lxml@meta-python
 python3-matplotlib:
@@ -128,6 +132,8 @@ python3-pygraphviz:
 - python3-pygraphviz@meta-ros
 python3-pytest:
 - python3-pytest@meta-python
+python3-pytest-cov:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-cov}
 python3-pytest-mock:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock}
 python3-qt5-bindings:
