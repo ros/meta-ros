@@ -670,6 +670,13 @@ python-bluez:
   gentoo: [dev-python/pybluez]
   rhel: [python-bluez]
   ubuntu: [python-bluez]
+python-bokeh-pip:
+  debian:
+    pip:
+      packages: [bokeh]
+  ubuntu:
+    pip:
+      packages: [bokeh]
 python-boltons:
   debian:
     '*': [python-boltons]
@@ -1227,6 +1234,10 @@ python-cython-pip:
   ubuntu:
     pip:
       packages: [cython]
+python-datadog-pip:
+  ubuntu:
+    pip:
+      packages: [datadog]
 python-dateutil:
   arch: [python2-dateutil]
   debian: [python-dateutil]
@@ -4040,6 +4051,9 @@ python-rrdtool:
     raring: [python-rrdtool]
     saucy: [python-rrdtool]
     trusty: [python-rrdtool]
+python-rtree:
+  debian: [python-rtree]
+  ubuntu: [python-rtree]
 python-ruamel.yaml:
   debian:
     buster: [python-ruamel.yaml]
@@ -5289,6 +5303,13 @@ python3-backoff-pip:
   ubuntu:
     pip:
       packages: [backoff]
+python3-bokeh-pip:
+  debian:
+    pip:
+      packages: [bokeh]
+  ubuntu:
+    pip:
+      packages: [bokeh]
 python3-boto3:
   debian: [python3-boto3]
   fedora: [python3-boto3]
@@ -5360,6 +5381,10 @@ python3-cryptography:
   fedora: [python3-cryptography]
   rhel: ['python%{python3_pkgversion}-cryptography']
   ubuntu: [python3-cryptography]
+python3-datadog-pip:
+  ubuntu:
+    pip:
+      packages: [datadog]
 python3-defusedxml:
   debian: [python3-defusedxml]
   fedora: [python3-defusedxml]
@@ -5485,6 +5510,22 @@ python3-gnupg:
   fedora: [python3-gnupg]
   gentoo: [dev-python/python-gnupg]
   ubuntu: [python3-gnupg]
+python3-grpc-tools:
+  debian:
+    '*': [python3-grpc-tools]
+    stretch: null
+  ubuntu:
+    '*': [python3-grpc-tools]
+    bionic: null
+    xenial: null
+python3-grpcio:
+  debian:
+    '*': [python3-grpcio]
+    stretch: null
+  ubuntu:
+    '*': [python3-grpcio]
+    bionic: null
+    xenial: null
 python3-hypothesis:
   debian: [python3-hypothesis]
   fedora: [python3-hypothesis]
@@ -5688,6 +5729,9 @@ python3-pkg-resources:
   openembedded: [python3-setuptools@openembedded-core]
   rhel: ['python%{python3_pkgversion}-setuptools']
   ubuntu: [python3-pkg-resources]
+python3-prometheus-client:
+  debian: [python3-prometheus-client]
+  ubuntu: [python3-prometheus-client]
 python3-psutil:
   alpine: [py3-psutil]
   arch: [python-psutil]
@@ -5959,17 +6003,15 @@ python3-rospkg-modules:
     pip:
       packages: [rospkg]
   ubuntu: [python3-rospkg-modules]
+python3-rtree:
+  debian: [python3-rtree]
+  ubuntu: [python3-rtree]
 python3-ruamel.yaml:
   debian:
     buster: [python3-ruamel.yaml]
     jessie: [python3-ruamel.yaml]
     stretch: [python3-ruamel.yaml]
-  ubuntu:
-    artful: [python3-ruamel.yaml]
-    bionic: [python3-ruamel.yaml]
-    xenial: [python3-ruamel.yaml]
-    yakkety: [python3-ruamel.yaml]
-    zesty: [python3-ruamel.yaml]
+  ubuntu: [python3-ruamel.yaml]
 python3-schedule:
   debian: [python3-schedule]
   ubuntu: [python3-schedule]
@@ -6026,6 +6068,14 @@ python3-sip:
   fedora: [python3-sip]
   gentoo: [dev-python/sip]
   ubuntu: [python3-sip-dev]
+python3-sklearn:
+  debian: [python3-sklearn]
+  fedora: [python3-scikit-learn]
+  gentoo: [sci-libs/scikits_learn]
+  osx:
+    pip:
+      packages: [scikit-learn]
+  ubuntu: [python3-sklearn]
 python3-sphinx:
   debian: [python3-sphinx]
   fedora: [python3-sphinx]
@@ -6075,6 +6125,16 @@ python3-tornado:
       packages: [tornado]
   rhel: ['python%{python3_pkgversion}-tornado']
   ubuntu: [python3-tornado]
+python3-tqdm:
+  alpine: [py3-tqdm]
+  debian: [python3-tqdm]
+  fedora: [python3-tqdm]
+  osx:
+    pip:
+      packages: [tqdm]
+  ubuntu:
+    '*': [python3-tqdm]
+    xenial: null
 python3-triangle-pip:
   debian:
     pip:
