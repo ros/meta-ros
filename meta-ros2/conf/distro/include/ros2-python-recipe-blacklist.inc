@@ -646,8 +646,6 @@ PNBLACKLIST[python3-m2crypto] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 PNBLACKLIST[packagegroup-rpi-test] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['world-issues', 'python2'], 'world-issues: Depends on blacklisted packages like wiringpi and recipes from meta-multimedia we do not depend on: bigbuckbunny-480p, bigbuckbunny-720p, bigbuckbunny-1080p and wireless-regdb from meta-networking; python2: Depends on blacklisted python2', '', d)}"
 # meta-ros/meta-ros-common/recipes-devtools/python/python-tornado45_git.bb
 PNBLACKLIST[python-tornado45] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-ros/meta-ros-common/recipes-extended/bullet/bullet_2.87.bb
-PNBLACKLIST[bullet] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-bsp/lm_sensors/lmsensors-config_1.0.bb
 PNBLACKLIST[lmsensors-config] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-extended/collectd/collectd_5.8.0.bb
