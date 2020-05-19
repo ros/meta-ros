@@ -68,6 +68,16 @@ ROS_WORLD_SKIP_GROUPS += "mongodb-legacy-cxx-driver"
 # you need to make sure only one of these is included in dependency tree and in our world builds
 # it was always including both, lets blacklist fcl-catkin, because nothing directly depends on it
 ROS_WORLD_SKIP_GROUPS += "fcl-catkin"
+# recipes depending on python-dialogflow-pip
+ROS_WORLD_SKIP_GROUPS += "python-dialogflow-pip"
+# recipes depending on pydrive-pip
+ROS_WORLD_SKIP_GROUPS += "pydrive-pip"
+# recipes depending on pugixml
+ROS_WORLD_SKIP_GROUPS += "pugixml"
+# recipes depending on python-omniorb
+ROS_WORLD_SKIP_GROUPS += "python-omniorb"
+# recipes depending on python-mechanize
+ROS_WORLD_SKIP_GROUPS += "python-mechanize"
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
@@ -544,6 +554,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev = "boost"
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-date-time-dev = "boost"
 
 # Used by:
+# generated-recipes/lanelet2/lanelet2-python_1.0.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev = "boost"
+
+# Used by:
 # generated-recipes/ros-comm/rosbag_1.14.5-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome = "python-pycryptodomex"
 
@@ -569,6 +583,14 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp = "python-pyassimp"
 # generated-recipes/exotica/exotica-python_5.1.3-3.bb
 # generated-recipes/cob-driver/cob-voltage-control_0.7.1-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "python-tkinter"
+
+# Used by:
+# generated-recipes/pointgrey-camera-driver/pointgrey-camera-driver_0.14.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libraw1394-dev = "libraw1394"
+
+# Used by:
+# generated-recipes/jsk-3rdparty/sesame-ros_2.1.17-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libffi-dev = "libffi"
 
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
