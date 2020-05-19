@@ -17,6 +17,7 @@ RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 RDEPENDS_${PN}_remove = "catkin-virtualenv"
 # Depends on blacklisted catkin-virtualenv
 RDEPENDS_${PN}_remove = "haros-catkin"
+RDEPENDS_${PN}_remove = "sesame-ros"
 
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
 RDEPENDS_${PN}_remove = "sophus"
@@ -61,8 +62,20 @@ RDEPENDS_${PN}_remove = "kobuki-ftdi"
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-requests-oauthlib' (but generated-recipes/jsk-3rdparty/rostwitter_2.1.13-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "rostwitter"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-mechanize' (but generated-recipes/wifi-ddwrt/wifi-ddwrt_0.2.0.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "wifi-ddwrt"
+# Depends on unavailable UNRESOLVED-atlas, UNRESOLVED-jython UNRESOLVED-f2c
+RDEPENDS_${PN}_remove = "openhrp3"
+
+# Depends on unavailable UNRESOLVED-libirrlicht-dev, UNRESOLVED-net-tools, UNRESOLVED-procps, UNRESOLVED-ipython, UNRESOLVED-hostname and blacklisted openhrp3
+RDEPENDS_${PN}_remove = "hrpsys-ros-bridge"
+
+# Depends on unavailable UNRESOLVED-libirrlicht-dev, UNRESOLVED-net-tools, UNRESOLVED-procps, UNRESOLVED-ipython, UNRESOLVED-hostname and blacklisted openhrp3 and hrpsys-ros-bridge
+RDEPENDS_${PN}_remove = "rtmros-common"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-mechanize', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_MECHANIZE}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_MECHANIZE = " \
+    pr2-bringup \
+    wifi-ddwrt \
+"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-docker' (but generated-recipes/dockeros/dockeros_1.1.0-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "dockeros"
@@ -71,11 +84,43 @@ RDEPENDS_${PN}_remove = "dockeros"
 RDEPENDS_${PN}_remove = "multi-interface-roam"
 RDEPENDS_${PN}_remove = "linux-networking"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-omniorb' (but generated-recipes/rtctree/rtctree_3.0.1.bb, generated-recipes/rtsprofile/rtsprofile_2.0.0-1.bb, generated-recipes/rtshell/rtshell_3.0.1-2.bb, generated-recipes/openrtm-aist-python/openrtm-aist-python_1.1.0.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "rtctree"
-RDEPENDS_${PN}_remove = "rtsprofile"
-RDEPENDS_${PN}_remove = "rtshell"
-RDEPENDS_${PN}_remove = "openrtm-aist-python"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-omniorb', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_OMNIORB}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_OMNIORB = " \
+    hrpsys \
+    hrpsys-ros-bridge \
+    hrpsys-tools \
+    openhrp3 \
+    openrtm-aist-python \
+    openrtm-aist \
+    openrtm-ros-bridge \
+    openrtm-tools \
+    rosnode-rtc \
+    rtctree \
+    rtmbuild \
+    rtmros-common \
+    rtshell \
+    rtsprofile \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-dialogflow-pip', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_DIALOGFLOW_PIP}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_DIALOGFLOW_PIP = " \
+    dialogflow-task-executive \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pydrive-pip', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYDRIVE_PIP}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYDRIVE_PIP = " \
+    gdrive-ros \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pugixml', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PUGIXML}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PUGIXML = " \
+    lanelet2 \
+    lanelet2-examples \
+    lanelet2-io \
+    lanelet2-projection \
+    lanelet2-python \
+    lanelet2-validation \
+"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libxmlrpc-c++"
 RDEPENDS_${PN}_remove = "ifm3d"
@@ -175,6 +220,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     fmi-adapter-examples \
     gl-dependency \
     gundam-rx78-control \
+    hrpsys-ros-bridge \
     jderobot-drones \
     pilz-status-indicator-rqt \
     python-qt-binding \
@@ -226,6 +272,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-top \
     rqt-topic \
     rqt-web \
+    rtmros-common \
     sick-safetyscanners \
     visualstates \
     webkit-dependency \
@@ -459,8 +506,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG_TIDY = " \
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libspnav-dev' (but generated-recipes/joystick-drivers/spacenav-node_1.13.0-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "spacenav-node"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-omniorb' (but generated-recipes/openrtm-aist/openrtm-aist_1.1.2-3.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "openrtm-aist"
 
 # ERROR: Nothing PROVIDES 'ifopt' (but generated-recipes/towr/towr_1.4.1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "towr"
@@ -649,6 +694,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     grid-map-rviz-plugin \
     gundam-robot \
     gundam-rx78-control \
+    hrpsys-ros-bridge \
     husky-desktop \
     husky-viz \
     imagesift \
@@ -776,6 +822,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-topic \
     rqt-web \
     rtabmap-ros \
+    rtmros-common \
     rviz \
     rviz-imu-plugin \
     rviz-plugin-tutorials \
@@ -888,6 +935,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY =
     jsk-visualization \
     julius-ros \
     multi-map-server \
+    pr2-bringup \
     pr2eus \
     pr2eus-moveit \
     pr2eus-tutorials \
@@ -984,6 +1032,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     ridgeback-gazebo \
     ridgeback-gazebo-plugins \
     ridgeback-simulator \
+    robosense-gazebo-plugins \
+    robosense-simulator \
+    rosflight-pkgs \
+    rosflight-sim \
+    rosflight-utils \
     rotors-gazebo \
     rotors-gazebo-plugins \
     rotors-simulator \
@@ -1050,9 +1103,11 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wxpython
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WXPYTHON = " \
     executive-smach-visualization \
+    jsk-planning \
     seed-r7-ros-pkg \
     seed-r7-samples \
     smach-viewer \
+    task-compiler \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lisp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_LISP}', '', d)}"
@@ -1066,11 +1121,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_LISP = " \
     cl-urdf \
     cl-utils \
     eus-assimp \
+    euslime \
     euslisp \
     geneus \
     genlisp \
     jskeus \
     jsk-model-tools \
+    jsk-planning \
     jsk-roseus \
     ros-emacs-utils \
     rosemacs \
@@ -1084,6 +1141,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_LISP = " \
     roslisp-utilities \
     slime-ros \
     slime-wrapper \
+    task-compiler \
 "
 
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
@@ -1208,6 +1266,8 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'assimp-d
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ASSIMP_DEVEL = " \
     assimp-devel \
     euscollada \
+    hrpsys-ros-bridge \
+    rtmros-common \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'bayesian-belief-networks', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_BAYESIAN_BELIEF_NETWORKS}', '', d)}"
@@ -1238,6 +1298,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COB_OBSTACLE_DISTANCE_MOVEI
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'downward', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_DOWNWARD}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_DOWNWARD = " \
     downward \
+    jsk-planning \
+    pddl-planner \
+    pddl-planner-viewer \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'exotica-collision-scene-fcl', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_EXOTICA_COLLISION_SCENE_FCL}', '', d)}"
@@ -1256,11 +1319,17 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FETCH_DRIVERS = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ff', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FF}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FF = " \
     ff \
+    jsk-planning \
+    pddl-planner \
+    pddl-planner-viewer \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffha', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFHA}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFHA = " \
     ffha \
+    jsk-planning \
+    pddl-planner \
+    pddl-planner-viewer \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fmi-adapter', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FMI_ADAPTER}', '', d)}"
@@ -1367,14 +1436,22 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_P2OS_URDF = " \
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pr2-description', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PR2_DESCRIPTION}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PR2_DESCRIPTION = " \
+    imu-monitor \
     moveit-pr2 \
     pr2-apps \
+    pr2-bringup \
     pr2-calibration-controllers \
     pr2-common \
+    pr2-controller-configuration \
     pr2-controller-manager \
     pr2-controllers \
     pr2-description \
+    pr2-ethercat \
     pr2-gripper-action \
+    pr2-gripper-sensor \
+    pr2-gripper-sensor-action \
+    pr2-gripper-sensor-controller \
+    pr2-robot \
     pr2-mannequin-mode \
     pr2-mechanism \
     pr2-mechanism-controllers \
