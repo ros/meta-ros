@@ -1,4 +1,4 @@
-From d8d48486d2faa1b1f083f18fdafb0d9965512a22 Mon Sep 17 00:00:00 2001
+From e390aa4ffa3dc711b14f1111d98f60f5ce08d966 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 14 May 2020 17:42:28 -0700
 Subject: [PATCH] CMakeLists.txt: add missing tf to DEPENDS
@@ -14,15 +14,15 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e8b55e0..e62c71b 100644
+index fdcdf7a..cccd3a7 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -33,7 +33,7 @@ find_package(urdfdom_headers REQUIRED)
  catkin_package(
-   LIBRARIES ${PROJECT_NAME}_solver
+   LIBRARIES ${PROJECT_NAME}_solver joint_state_listener
    INCLUDE_DIRS include
--  DEPENDS roscpp rosconsole rostime tf2_ros tf2_kdl kdl_parser orocos_kdl urdfdom_headers
-+  DEPENDS roscpp rosconsole rostime tf tf2_ros tf2_kdl kdl_parser orocos_kdl urdfdom_headers
+-  DEPENDS kdl_parser orocos_kdl roscpp rosconsole rostime sensor_msgs tf2_ros tf2_kdl urdfdom_headers
++  DEPENDS kdl_parser orocos_kdl roscpp rosconsole rostime sensor_msgs tf tf2_ros tf2_kdl urdfdom_headers
  )
  
  include_directories(SYSTEM ${EIGEN3_INCLUDE_DIRS})
