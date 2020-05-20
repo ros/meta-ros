@@ -1,0 +1,106 @@
+From a174445bf5f4e4eebcbd6407b4284226d333d834 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 20 May 2020 22:30:05 +0000
+Subject: [PATCH] examples/cpp03: fix build without std::chrono
+
+* e.g. with ubuntu 16.04  __GXX_EXPERIMENTAL_CXX0X__ isn't enabled by
+  default in g++ 5.4.0 and default __cplusplus 199711L, because of
+  that ASIO_HAS_STD_CHRONO doesn't get defined and even when
+  ASIO_HAS_BOOST_CHRONO is defined later, it doesn't add boost_chrono
+  library when linking the icmp and timeouts examples, which results
+  in that linking failure for timeouts/blocking_token_tcp_client:
+
+g++  -I../../../../asio-1.12.1/src/examples/cpp03/../../../include -isystem/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/usr/include -O2 -pipe -pthread -ftemplate-depth-256  -L/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/usr/lib -L/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/lib -Wl,-rpath-link,/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/usr/lib -Wl,-rpath-link,/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/lib -Wl,-rpath,/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/usr/lib -Wl,-rpath,/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/lib -Wl,-O1 -Wl,--allow-shlib-undefined -Wl,--dynamic-linker=/OE/ros1-melodic-thud/tmp-glibc/sysroots-uninative/x86_64-linux/lib/ld-linux-x86-64.so.2 -pthread -o timeouts/blocking_token_tcp_client timeouts/blocking_token_tcp_client.o  -lssl -lcrypto -lrt
+timeouts/blocking_token_tcp_client.o: In function `unsigned long asio::io_context::run_one_until<boost::chrono::steady_clock, boost::chrono::duration<long, boost::ratio<1l, 1000000000l> > >(boost::chrono::time_point<boost::chrono::steady_clock, boost::chrono::duration<long, boost::ratio<1l, 1000000000l> > > const&)':
+blocking_token_tcp_client.cpp:(.text._ZN4asio10io_context13run_one_untilIN5boost6chrono12steady_clockENS3_8durationIlNS2_5ratioILl1ELl1000000000EEEEEEEmRKNS3_10time_pointIT_T0_EE[_ZN4asio10io_context13run_one_untilIN5boost6chrono12steady_clockENS3_8durationIlNS2_5ratioILl1ELl1000000000EEEEEEEmRKNS3_10time_pointIT_T0_EE]+0x2b): undefined reference to `boost::chrono::steady_clock::now()'
+blocking_token_tcp_client.cpp:(.text._ZN4asio10io_context13run_one_untilIN5boost6chrono12steady_clockENS3_8durationIlNS2_5ratioILl1ELl1000000000EEEEEEEmRKNS3_10time_pointIT_T0_EE[_ZN4asio10io_context13run_one_untilIN5boost6chrono12steady_clockENS3_8durationIlNS2_5ratioILl1ELl1000000000EEEEEEEmRKNS3_10time_pointIT_T0_EE]+0x4d1): undefined reference to `boost::chrono::steady_clock::now()'
+timeouts/blocking_token_tcp_client.o: In function `unsigned long asio::io_context::run_for<long, boost::ratio<1l, 1000000000l> >(boost::chrono::duration<long, boost::ratio<1l, 1000000000l> > const&)':
+blocking_token_tcp_client.cpp:(.text._ZN4asio10io_context7run_forIlN5boost5ratioILl1ELl1000000000EEEEEmRKNS2_6chrono8durationIT_T0_EE[_ZN4asio10io_context7run_forIlN5boost5ratioILl1ELl1000000000EEEEEmRKNS2_6chrono8durationIT_T0_EE]+0x1d): undefined reference to `boost::chrono::steady_clock::now()'
+timeouts/blocking_token_tcp_client.o: In function `main':
+blocking_token_tcp_client.cpp:(.text.startup+0x41c): undefined reference to `boost::chrono::steady_clock::now()'
+blocking_token_tcp_client.cpp:(.text.startup+0xb5d): undefined reference to `boost::chrono::steady_clock::now()'
+collect2: error: ld returned 1 exit status
+
+  and similarly for icmp/ping:
+
+g++  -I../../../../asio-1.12.1/src/examples/cpp03/../../../include -isystem/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/usr/include -O2 -pipe -pthread -ftemplate-depth-256  -L/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/usr/lib -L/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/lib -Wl,-rpath-link,/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/usr/lib -Wl,-rpath-link,/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/lib -Wl,-rpath,/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/usr/lib -Wl,-rpath,/OE/ros1-melodic-thud/tmp-glibc/work/x86_64-linux/asio-native/1.12.1-r0/recipe-sysroot-native/lib -Wl,-O1 -Wl,--allow-shlib-undefined -Wl,--dynamic-linker=/OE/ros1-melodic-thud/tmp-glibc/sysroots-uninative/x86_64-linux/lib/ld-linux-x86-64.so.2 -pthread -o icmp/ping icmp/ping.o  -lssl -lcrypto -lrt
+icmp/ping.o: In function `asio::detail::timer_queue<asio::detail::chrono_time_traits<boost::chrono::steady_clock, asio::wait_traits<boost::chrono::steady_clock> > >::wait_duration_msec(long) const':
+ping.cpp:(.text._ZNK4asio6detail11timer_queueINS0_18chrono_time_traitsIN5boost6chrono12steady_clockENS_11wait_traitsIS5_EEEEE18wait_duration_msecEl[_ZNK4asio6detail11timer_queueINS0_18chrono_time_traitsIN5boost6chrono12steady_clockENS_11wait_traitsIS5_EEEEE18wait_duration_msecEl]+0x1b): undefined reference to `boost::chrono::steady_clock::now()'
+icmp/ping.o: In function `asio::detail::timer_queue<asio::detail::chrono_time_traits<boost::chrono::steady_clock, asio::wait_traits<boost::chrono::steady_clock> > >::wait_duration_usec(long) const':
+ping.cpp:(.text._ZNK4asio6detail11timer_queueINS0_18chrono_time_traitsIN5boost6chrono12steady_clockENS_11wait_traitsIS5_EEEEE18wait_duration_usecEl[_ZNK4asio6detail11timer_queueINS0_18chrono_time_traitsIN5boost6chrono12steady_clockENS_11wait_traitsIS5_EEEEE18wait_duration_usecEl]+0x1b): undefined reference to `boost::chrono::steady_clock::now()'
+icmp/ping.o: In function `asio::detail::timer_queue<asio::detail::chrono_time_traits<boost::chrono::steady_clock, asio::wait_traits<boost::chrono::steady_clock> > >::get_ready_timers(asio::detail::op_queue<asio::detail::scheduler_operation>&)':
+ping.cpp:(.text._ZN4asio6detail11timer_queueINS0_18chrono_time_traitsIN5boost6chrono12steady_clockENS_11wait_traitsIS5_EEEEE16get_ready_timersERNS0_8op_queueINS0_19scheduler_operationEEE[_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsIN5boost6chrono12steady_clockENS_11wait_traitsIS5_EEEEE16get_ready_timersERNS0_8op_queueINS0_19scheduler_operationEEE]+0x33): undefined reference to `boost::chrono::steady_clock::now()'
+icmp/ping.o: In function `pinger::handle_receive(unsigned long)':
+ping.cpp:(.text._ZN6pinger14handle_receiveEm[_ZN6pinger14handle_receiveEm]+0x4d8): undefined reference to `boost::chrono::steady_clock::now()'
+icmp/ping.o: In function `pinger::start_send()':
+ping.cpp:(.text._ZN6pinger10start_sendEv[_ZN6pinger10start_sendEv]+0x307): undefined reference to `boost::chrono::steady_clock::now()'
+collect2: error: ld returned 1 exit status
+Makefile:1349: recipe for target 'icmp/ping' failed
+make: *** [icmp/ping] Error 1
+
+Upstream-Status: Submitted [https://github.com/chriskohlhoff/asio/pull/487]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/examples/cpp03/Makefile.am | 25 +++++++++++++++++++++++++
+ src/tests/Makefile.am          |  4 ++++
+ 2 files changed, 29 insertions(+)
+
+diff --git a/src/examples/cpp03/Makefile.am b/src/examples/cpp03/Makefile.am
+index 0e6e0d37..7203d878 100644
+--- a/src/examples/cpp03/Makefile.am
++++ b/src/examples/cpp03/Makefile.am
+@@ -170,6 +170,27 @@ tutorial_daytime4_client_SOURCES = tutorial/daytime4/client.cpp
+ tutorial_daytime5_server_SOURCES = tutorial/daytime5/server.cpp
+ tutorial_daytime6_server_SOURCES = tutorial/daytime6/server.cpp
+ tutorial_daytime7_server_SOURCES = tutorial/daytime7/server.cpp
++if !HAVE_CXX11
++## ASIO_HAS_STD_CHRONO not set and probably using ASIO_HAS_BOOST_CHRONO
++icmp_ping_LDADD = $(LDADD) -lboost_chrono
++invocation_prioritised_handlers_LDADD = $(LDADD) -lboost_chrono
++iostreams_daytime_client_LDADD = $(LDADD) -lboost_chrono
++iostreams_daytime_server_LDADD = $(LDADD) -lboost_chrono
++iostreams_http_client_LDADD = $(LDADD) -lboost_chrono
++multicast_sender_LDADD = $(LDADD) -lboost_chrono
++porthopper_client_LDADD = $(LDADD) -lboost_chrono
++porthopper_server_LDADD = $(LDADD) -lboost_chrono
++timeouts_async_tcp_client_LDADD = $(LDADD) -lboost_chrono
++timeouts_blocking_tcp_client_LDADD = $(LDADD) -lboost_chrono
++timeouts_blocking_token_tcp_client_LDADD = $(LDADD) -lboost_chrono
++timeouts_blocking_udp_client_LDADD = $(LDADD) -lboost_chrono
++timeouts_server_LDADD = $(LDADD) -lboost_chrono
++tutorial_timer1_timer_LDADD = $(LDADD) -lboost_chrono
++tutorial_timer2_timer_LDADD = $(LDADD) -lboost_chrono
++tutorial_timer3_timer_LDADD = $(LDADD) -lboost_chrono
++tutorial_timer4_timer_LDADD = $(LDADD) -lboost_chrono
++tutorial_timer5_timer_LDADD = $(LDADD) -lboost_chrono
++endif
+ 
+ if !WINDOWS_TARGET
+ chat_posix_chat_client_SOURCES = chat/posix_chat_client.cpp
+@@ -177,6 +198,10 @@ fork_daemon_SOURCES = fork/daemon.cpp
+ fork_process_per_connection_SOURCES = fork/process_per_connection.cpp
+ local_connect_pair_SOURCES = local/connect_pair.cpp
+ local_iostream_client_SOURCES = local/iostream_client.cpp
++if !HAVE_CXX11
++## ASIO_HAS_STD_CHRONO not set and probably using ASIO_HAS_BOOST_CHRONO
++local_iostream_client_LDADD = $(LDADD) -lboost_chrono
++endif
+ local_stream_server_SOURCES = local/stream_server.cpp
+ local_stream_client_SOURCES = local/stream_client.cpp
+ endif
+diff --git a/src/tests/Makefile.am b/src/tests/Makefile.am
+index 13878835..17097def 100644
+--- a/src/tests/Makefile.am
++++ b/src/tests/Makefile.am
+@@ -288,6 +288,10 @@ latency_udp_client_SOURCES = latency/udp_client.cpp
+ latency_udp_server_SOURCES = latency/udp_server.cpp
+ performance_client_SOURCES = performance/client.cpp
+ performance_server_SOURCES = performance/server.cpp
++if !HAVE_CXX11
++## ASIO_HAS_STD_CHRONO not set and probably using ASIO_HAS_BOOST_CHRONO
++performance_client_LDADD = $(LDADD) -lboost_chrono
++endif
+ endif
+ 
+ unit_associated_allocator_SOURCES = unit/associated_allocator.cpp
