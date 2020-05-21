@@ -1,0 +1,24 @@
+From 044755e95bac8604da9e38cab9454770b60b158d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 23 Apr 2020 09:29:33 -0700
+Subject: [PATCH] CMakeLists.txt: fetch libyaml with bitbake fetcher
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b467a07..9d5785b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -48,8 +48,7 @@ macro(build_libyaml)
+   endif()
+   include(ExternalProject)
+   externalproject_add(libyaml-10c9078
+-    URL https://github.com/yaml/libyaml/archive/10c907871f1ccd779c7fccf6b81a62762b5c4e7b.zip
+-    URL_MD5 b595f0ab0735c04c7f6ed0a798a3eff7
++    SOURCE_DIR ${CMAKE_SOURCE_DIR}/libyaml-upstream
+     TIMEOUT 60
+     CMAKE_ARGS
+       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/libyaml_install
