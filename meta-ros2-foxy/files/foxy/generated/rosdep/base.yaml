@@ -1701,6 +1701,7 @@ libboost-dev:
   debian: [libboost-dev]
   fedora: [boost-devel]
   gentoo: [dev-libs/boost]
+  rhel: [boost-devel]
   ubuntu: [libboost-dev]
 libboost-filesystem:
   debian:
@@ -2331,21 +2332,7 @@ libglew-dev:
   fedora: [glew-devel]
   gentoo: [media-libs/glew]
   rhel: [glew-devel]
-  ubuntu:
-    artful: [libglew-dev]
-    bionic: [libglew-dev]
-    oneiric: [libglew1.5-dev]
-    precise: [libglew1.6-dev]
-    quantal: [libglew-dev]
-    raring: [libglew-dev]
-    saucy: [libglew-dev]
-    trusty: [libglew-dev]
-    utopic: [libglew-dev]
-    vivid: [libglew-dev]
-    wily: [libglew-dev]
-    xenial: [libglew-dev]
-    yakkety: [libglew-dev]
-    zesty: [libglew-dev]
+  ubuntu: [libglew-dev]
 libglfw3-dev:
   debian: [libglfw3-dev]
   fedora: [glfw-devel]
@@ -2644,6 +2631,7 @@ libjsoncpp:
   debian: [libjsoncpp1]
   fedora: [jsoncpp]
   gentoo: [dev-libs/jsoncpp]
+  rhel: [jsoncpp]
   ubuntu:
     artful: [libjsoncpp1]
     bionic: [libjsoncpp1]
@@ -2661,6 +2649,7 @@ libjsoncpp-dev:
   debian: [libjsoncpp-dev]
   fedora: [jsoncpp-devel]
   gentoo: [dev-libs/jsoncpp]
+  rhel: [jsoncpp-devel]
   ubuntu: [libjsoncpp-dev]
 libkdtree++-dev:
   debian: [libkdtree++-dev]
@@ -2812,6 +2801,7 @@ libncurses-dev:
   fedora: [ncurses-devel]
   gentoo: [sys-libs/ncurses]
   macports: [ncurses]
+  rhel: [nucrses-devel]
   ubuntu: [libncurses5-dev]
 libneon27-gnutls-dev:
   debian: [libneon27-gnutls-dev]
@@ -4249,6 +4239,7 @@ libxi-dev:
   debian: [libxi-dev]
   fedora: [libXi-devel]
   gentoo: [x11-libs/libXi]
+  rhel: [libXi-devel]
   ubuntu: [libxi-dev]
 libxinerama-dev:
   arch: [libxinerama]
@@ -4297,6 +4288,7 @@ libxmu-dev:
   debian: [libxmu-dev]
   fedora: [libXmu-devel]
   gentoo: [x11-libs/libXmu]
+  rhel: [libXmu-devel]
   ubuntu: [libxmu-dev]
 libxrandr:
   arch: [libxrandr]
@@ -5542,8 +5534,7 @@ spdlog:
   debian: [libspdlog-dev]
   fedora: [spdlog-devel]
   gentoo: [dev-libs/spdlog]
-  rhel:
-    '7': [spdlog-devel]
+  rhel: [spdlog-devel]
   ubuntu: [libspdlog-dev]
 speech-dispatcher:
   debian: [speech-dispatcher]
