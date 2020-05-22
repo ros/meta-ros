@@ -28,6 +28,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-native \
     rosidl-adapter-native \
     rosidl-parser-native \
+    rpyutils-native \
     uncrustify-vendor-native \
 "
 
