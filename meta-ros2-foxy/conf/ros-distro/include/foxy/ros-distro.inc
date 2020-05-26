@@ -58,6 +58,11 @@ ROS_WORLD_SKIP_GROUPS += "gazebo"
 # recipes depending on something from meta-qt5 layer
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'qt5', d)}"
 
+# do_compile failures
+ROS_WORLD_SKIP_GROUPS += " \
+    qt-gui-cpp \
+"
+
 # recipes depending on something from meta-qt4 layer
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
