@@ -1,4 +1,8 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-# ERROR: orocos-kdl-3.3.1-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: orocos-kdl path '/work/aarch64-oe-linux/orocos-kdl/3.3.1-1-r0/packages-split/orocos-kdl/usr/lib/liborocos-kdl.so' [dev-so]
+# ERROR: zstd-vendor-0.2.7-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: zstd-vendor path '/work/core2-64-oe-linux/zstd-vendor/0.2.7-1-r0/packages-split/zstd-vendor/usr/lib/libzstd.so' [dev-so]
 inherit ros_insane_dev_so
+
+do_install_append() {
+    sed -i "s@^prefix=${B}/zstd_vendor_install@prefix=/usr@g" ${D}${libdir}/pkgconfig/libzstd.pc
+}
