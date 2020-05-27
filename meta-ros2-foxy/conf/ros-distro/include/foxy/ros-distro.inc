@@ -40,6 +40,8 @@ ROS_WORLD_SKIP_GROUPS += "opensplice"
 ROS_WORLD_SKIP_GROUPS += "clang"
 # recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
 ROS_WORLD_SKIP_GROUPS += "turtlebot3"
+# recipes depending on coinor-libipopt
+ROS_WORLD_SKIP_GROUPS += "coinor-libipopt"
 # Needs work to launch qemu to run tests on image on build machine.
 ROS_WORLD_SKIP_GROUPS += "launch"
 # recipes depending on ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace which cannot be just
