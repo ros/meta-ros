@@ -11,6 +11,8 @@ clang-tidy:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy}
 cmake:
 - cmake@openembedded-core
+coinor-libipopt-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev}
 cppcheck:
 - cppcheck@meta-ros
 cppunit:
