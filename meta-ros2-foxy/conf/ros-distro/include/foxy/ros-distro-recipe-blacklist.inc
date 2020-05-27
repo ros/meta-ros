@@ -12,6 +12,7 @@ PNBLACKLIST[ament-cmake-clang-format] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_G
 PNBLACKLIST[ament-cmake-clang-tidy] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on ament-clang-tidy-native->clang-tidy', '', d)}"
 PNBLACKLIST[connext-cmake-module-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds-native which is not available', '', d)}"
 PNBLACKLIST[connext-cmake-module] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds which is not available', '', d)}"
+PNBLACKLIST[control-box-rst] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'coinor-libipopt', 'Depends on unavailable UNRESOLVED-coinor-libipopt-dev', '', d)}"
 PNBLACKLIST[launch-testing-ament-cmake] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', 'launch: depends on launch-testing-native->launch-native', '', d)}"
 PNBLACKLIST[launch-testing-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', 'launch: depends on launch-native', '', d)}"
 PNBLACKLIST[librealsense2] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', 'opengl: depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES', '', d)}"
