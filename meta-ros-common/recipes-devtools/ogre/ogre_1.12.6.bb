@@ -14,7 +14,7 @@ SRC_URI = "git://github.com/OGRECave/ogre;protocol=https \
 
 S = "${WORKDIR}/git"
 
-inherit cmake features_check
+inherit cmake distro_features_check
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
