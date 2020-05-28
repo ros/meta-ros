@@ -23,7 +23,7 @@ ROS_BUILD_DEPENDS = " \
     geometry-msgs \
     image-geometry \
     image-transport \
-    libjpeq-turbo \
+    libjpeg-turbo \
     message-generation \
     message-runtime \
     multisense-lib \
@@ -48,7 +48,7 @@ ROS_EXPORT_DEPENDS = " \
     geometry-msgs \
     image-geometry \
     image-transport \
-    libjpeq-turbo \
+    libjpeg-turbo \
     message-generation \
     message-runtime \
     multisense-lib \
@@ -70,7 +70,7 @@ ROS_EXEC_DEPENDS = " \
     geometry-msgs \
     image-geometry \
     image-transport \
-    libjpeq-turbo \
+    libjpeg-turbo \
     message-generation \
     message-runtime \
     multisense-lib \
