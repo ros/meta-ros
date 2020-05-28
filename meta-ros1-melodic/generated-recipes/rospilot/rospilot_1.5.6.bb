@@ -21,7 +21,7 @@ ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libnl-3-dev} \
     ffmpeg \
     geometry-msgs \
-    libjpeq-turbo \
+    libjpeg-turbo \
     message-generation \
     opencv \
     roscpp \

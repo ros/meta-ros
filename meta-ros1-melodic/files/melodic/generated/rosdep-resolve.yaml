@@ -100,6 +100,8 @@ git:
 - git@openembedded-core
 glut:
 - freeglut@meta-oe
+gnuplot:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gnuplot}
 google-mock:
 - gtest@meta-oe
 graphviz:
@@ -138,8 +140,6 @@ joystick:
 - joystick@meta-ros
 julius-voxforge:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_julius-voxforge}
-jython:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_jython}
 lcov:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_lcov}
 leveldb:
@@ -337,7 +337,7 @@ libtheora:
 libtool:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libtool}
 libturbojpeg:
-- libjpeq-turbo@openembedded-core
+- libjpeg-turbo@openembedded-core
 libudev-dev:
 - udev@openembedded-core
 liburdfdom-dev:
@@ -416,6 +416,8 @@ ocl-icd-opencl-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev}
 omniorb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb}
+opencl-headers:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_opencl-headers}
 opengl:
 - mesa@openembedded-core
 openssl:
@@ -623,6 +625,8 @@ python-serial:
 - ${PYTHON_PN}-pyserial@meta-python
 python-setuptools:
 - ${PYTHON_PN}-setuptools@openembedded-core
+python-sexpdata:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-sexpdata}
 python-simplejson:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson}
 python-sip:
