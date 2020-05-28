@@ -42,54 +42,85 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
-    rviz-ogre-vendor \
     librealsense2 \
     realsense-examples \
     realsense-node \
     realsense-ros \
+    rviz-common \
+    rviz-default-plugins \
+    rviz-ogre-vendor \
+    rviz-rendering \
+    rviz2 \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop \
-    turtlesim \
-    rqt-gui-cpp \
-    rviz-common \
-    rviz-rendering-tests \
-    rqt-py-common \
     python-qt-binding \
     qt-gui \
-    rviz-rendering \
-    rviz-visual-testing-framework \
-    qt-gui-cpp \
-    rviz-default-plugins \
-    rviz2 \
     qt-gui-core \
+    qt-gui-cpp \
+    rqt-action \
+    rqt-console \
     rqt-gui \
     rqt-gui-py \
-    rqt-topic \
+    rqt-gui-cpp \
     rqt-graph \
+    rqt-msg \
+    rqt-plot \
+    rqt-py-common \
     rqt-py-console \
-    rqt-srv \
+    rqt-publisher \
+    rqt-reconfigure \
     rqt-robot-steering \
     rqt-service-caller \
     rqt-shell \
-    rqt-publisher \
-    rqt-plot \
-    rqt \
-    rqt-console \
+    rqt-srv \
+    rqt-topic \
     rqt-top \
-    rqt-action \
-    rqt-msg \
-    rqt-reconfigure \
+    rqt \
+    rviz-common \
+    rviz-default-plugins \
+    rviz-rendering-tests \
+    rviz-rendering \
+    rviz-visual-testing-framework \
+    rviz2 \
+    turtlesim \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5-widgets', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
+    turtlesim \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
+    python-qt-binding \
+    qt-dotgraph \
+    qt-gui-app \
     qt-gui-core \
     qt-gui-cpp \
+    qt-gui-py-common \
+    qt-gui \
     rosmon \
+    rqt-action \
+    rqt-console \
+    rqt-graph \
     rqt-gui-cpp \
+    rqt-gui-py \
+    rqt-gui \
+    rqt-msg \
+    rqt-plot \
+    rqt-publisher \
+    rqt-py-common \
+    rqt-py-console \
+    rqt-reconfigure \
+    rqt-robot-steering \
+    rqt-service-caller \
+    rqt-shell \
+    rqt-srv \
+    rqt-topic \
+    rqt-top \
     rqt \
 "
 
@@ -101,4 +132,21 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT_GUI_CPP = " \
     rosmon \
     rqt-gui-cpp \
     rqt \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
+    rviz2 \
+    rviz-common \
+    rviz-default-plugins \
+    rviz-ogre-vendor \
+    rviz-rendering \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'glfw', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
+    librealsense2 \
+    realsense-examples \
+    realsense-node \
+    realsense-ros \
 "

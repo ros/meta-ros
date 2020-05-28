@@ -53,6 +53,9 @@ ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
 # recipes depending on 'opengl' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'opengl', d)}"
+# There is recipe for glfw in meta-oe in dunfell, but it still needs x11 in DISTRO_FEATURES
+# use that in dunfell and blacklist explicitly in older releases
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'glfw', d)}"
 
 # recipes depending on gazebo, for which there is no OE recipe
 ROS_WORLD_SKIP_GROUPS += "gazebo"
