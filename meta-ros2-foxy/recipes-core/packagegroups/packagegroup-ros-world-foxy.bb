@@ -57,9 +57,12 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop \
     python-qt-binding \
+    qt-dotgraph \
     qt-gui \
+    qt-gui-app \
     qt-gui-core \
     qt-gui-cpp \
+    qt-gui-py-common \
     rqt-action \
     rqt-console \
     rqt-gui \
