@@ -5,43 +5,38 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Lightweight aggregation utilities to collect statistics and measure message metrics."
-AUTHOR = "ROS Tooling Working Group <ros-tooling@googlegroups.com>"
+DESCRIPTION = "Package containing a C-based lifecycle implementation"
+AUTHOR = "Karsten Knese <karsten@osrfoundation.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "libstatistics_collector"
-ROS_BPN = "libstatistics_collector"
+ROS_CN = "rcl"
+ROS_BPN = "rcl_lifecycle"
 
 ROS_BUILD_DEPENDS = " \
+    lifecycle-msgs \
     rcl \
-    rcpputils \
-    rosidl-default-generators \
-    statistics-msgs \
-    std-msgs \
+    rcutils \
+    rmw \
+    rosidl-runtime-c \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-native \
     ament-cmake-ros-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    rcl \
-    rcpputils \
-    statistics-msgs \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    lifecycle-msgs \
     rcl \
-    rcpputils \
-    rosidl-default-runtime \
-    statistics-msgs \
-    std-msgs \
+    rcutils \
+    rmw \
+    rosidl-runtime-c \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -49,6 +44,7 @@ ROS_TEST_DEPENDS = " \
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
+    osrf-testing-tools-cpp \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -58,10 +54,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-tooling/libstatistics_collector-release/archive/release/foxy/libstatistics_collector/1.0.0-2.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/libstatistics_collector"
-SRC_URI = "git://github.com/ros-tooling/libstatistics_collector-release;${ROS_BRANCH};protocol=https"
-SRCREV = "e11180be247fbf7454d014dfdd33350d4ef26d42"
+# matches with: https://github.com/ros2-gbp/rcl-release/archive/release/foxy/rcl_lifecycle/1.1.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rcl_lifecycle"
+SRC_URI = "git://github.com/ros2-gbp/rcl-release;${ROS_BRANCH};protocol=https"
+SRCREV = "de2bbfa89f7c49a5eaade6035cab5ae0208850c2"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
