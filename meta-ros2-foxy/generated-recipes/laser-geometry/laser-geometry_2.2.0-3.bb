@@ -60,10 +60,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/laser_geometry-release/archive/release/foxy/laser_geometry/2.2.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/laser_geometry-release/archive/release/foxy/laser_geometry/2.2.0-3.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/laser_geometry"
 SRC_URI = "git://github.com/ros2-gbp/laser_geometry-release;${ROS_BRANCH};protocol=https"
-SRCREV = "391fcf1d9a90359cb4d3c58ee4fbf11aa7c11692"
+SRCREV = "4b13a96a6c2fb778afe23699dce86e55a33624d8"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
