@@ -23,6 +23,8 @@ coinor-libclp-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev}
 coinor-libcoinutils-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev}
+coinor-libipopt-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev}
 cppcheck:
 - cppcheck@meta-ros
 cppunit:
@@ -39,6 +41,8 @@ g++-static: []
 gazebo9: []
 git:
 - git@openembedded-core
+glut:
+- freeglut@meta-oe
 google-mock:
 - gtest@meta-oe
 graphicsmagick:
@@ -47,6 +51,8 @@ gtest:
 - gtest@meta-oe
 lcov:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_lcov}
+libboost-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev}
 libboost-program-options:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options}
 libboost-program-options-dev:
@@ -67,12 +73,26 @@ libftdi-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev}
 libgazebo9-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev}
+libgeos++-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev}
 libgflags-dev:
 - gflags@meta-oe
+libglew-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev}
 libgoogle-glog-dev:
 - glog@meta-oe
 libgpgme-dev:
 - gpgme@openembedded-core
+libgps:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgps}
+libjsoncpp:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp}
+libjsoncpp-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev}
+liblapack-dev:
+- lapack@meta-ros
+libncurses-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev}
 libogg:
 - libogg@openembedded-core
 libopencv-dev:
@@ -89,6 +109,8 @@ libpcl-all:
 - pcl@meta-ros
 libpcl-all-dev:
 - pcl@meta-ros
+libpng-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev}
 libpoco-dev:
 - poco@meta-oe
 libqglviewer-qt4:
@@ -107,6 +129,8 @@ libqt5-gui:
 - qtbase@meta-qt5
 libqt5-opengl:
 - qtbase@meta-qt5
+libqt5-opengl-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev}
 libqt5-widgets:
 - qtbase@meta-qt5
 libqtgui4:
@@ -129,8 +153,14 @@ libx11-dev:
 - libx11@openembedded-core
 libxaw:
 - libxaw@meta-oe
+libxi-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev}
 libxml2-utils:
 - libxml2@openembedded-core
+libxmlrpc-c++:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++}
+libxmu-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev}
 libxrandr:
 - libxrandr@openembedded-core
 libzmq3-dev:
@@ -147,6 +177,10 @@ pcre:
 - libpcre@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+proj:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_proj}
+protobuf:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_protobuf}
 protobuf-dev:
 - protobuf@meta-oe
 pydocstyle:
@@ -159,6 +193,8 @@ python-catkin-pkg:
 - ${PYTHON_PN}-catkin-pkg@meta-ros
 python-numpy:
 - ${PYTHON_PN}-numpy@openembedded-core
+python-psutil:
+- ${PYTHON_PN}-psutil@meta-python
 python-pyproj:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj}
 python-sphinx:
@@ -244,8 +280,8 @@ sdl-image:
 spdlog:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog}
 suitesparse:
-- suitesparse-cholmod@meta-ros
 - suitesparse-cxsparse@meta-ros
+- suitesparse-cholmod@meta-ros
 tango-icon-theme:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
 tbb:
