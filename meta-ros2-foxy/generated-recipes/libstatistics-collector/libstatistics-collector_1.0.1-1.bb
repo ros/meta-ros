@@ -5,36 +5,43 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Parse a YAML parameter file and populate the C data structure."
-AUTHOR = "Anup Pemmaiah <anup.pemmaiah@apex.ai>"
+DESCRIPTION = "Lightweight aggregation utilities to collect statistics and measure message metrics."
+AUTHOR = "ROS Tooling Working Group <ros-tooling@googlegroups.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "rcl"
-ROS_BPN = "rcl_yaml_param_parser"
+ROS_CN = "libstatistics_collector"
+ROS_BPN = "libstatistics_collector"
 
 ROS_BUILD_DEPENDS = " \
-    libyaml \
-    libyaml-vendor \
-    rcutils \
+    rcl \
+    rcpputils \
+    rosidl-default-generators \
+    statistics-msgs \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
     ament-cmake-ros-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    libyaml \
-    libyaml-vendor \
+    rcl \
+    rcpputils \
+    statistics-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    libyaml \
-    libyaml-vendor \
+    rcl \
+    rcpputils \
+    rosidl-default-runtime \
+    statistics-msgs \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -42,7 +49,6 @@ ROS_TEST_DEPENDS = " \
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
-    osrf-testing-tools-cpp \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -52,10 +58,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rcl-release/archive/release/foxy/rcl_yaml_param_parser/1.1.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/rcl_yaml_param_parser"
-SRC_URI = "git://github.com/ros2-gbp/rcl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "0f0db5aeccb636fb7471d91145a061c2c8c89b58"
+# matches with: https://github.com/ros-tooling/libstatistics_collector-release/archive/release/foxy/libstatistics_collector/1.0.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/libstatistics_collector"
+SRC_URI = "git://github.com/ros-tooling/libstatistics_collector-release;${ROS_BRANCH};protocol=https"
+SRCREV = "d8f5c24f50a2a0acbf95f56ef976dabcacb7cf50"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

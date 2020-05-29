@@ -5,46 +5,59 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Package containing a C-based lifecycle implementation"
-AUTHOR = "Karsten Knese <karsten@osrfoundation.org>"
+DESCRIPTION = "Model-based distributed configuration handling."
+AUTHOR = "Arne Nordmann <arne.nordmann@bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "rcl"
-ROS_BPN = "rcl_lifecycle"
+ROS_CN = "system_modes"
+ROS_BPN = "system_modes"
 
 ROS_BUILD_DEPENDS = " \
-    lifecycle-msgs \
-    rcl \
-    rcutils \
-    rmw \
-    rosidl-runtime-c \
+    boost \
+    builtin-interfaces \
+    rclcpp \
+    rclcpp-lifecycle \
+    rosidl-default-generators \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-ros-native \
+    ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    boost \
+    builtin-interfaces \
+    rclcpp \
+    rclcpp-lifecycle \
+    rosidl-default-generators \
+    std-msgs \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    lifecycle-msgs \
-    rcl \
-    rcutils \
-    rmw \
-    rosidl-runtime-c \
+    boost \
+    builtin-interfaces \
+    rclcpp \
+    rclcpp-lifecycle \
+    rosidl-default-generators \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ament-cmake-cppcheck \
+    ament-cmake-cpplint \
+    ament-cmake-flake8 \
+    ament-cmake-gmock \
     ament-cmake-gtest \
+    ament-cmake-pep257 \
+    ament-cmake-uncrustify \
     ament-lint-auto \
-    ament-lint-common \
-    osrf-testing-tools-cpp \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -54,10 +67,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rcl-release/archive/release/foxy/rcl_lifecycle/1.1.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/rcl_lifecycle"
-SRC_URI = "git://github.com/ros2-gbp/rcl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ccca5bee7320bf4c635c00edd6e6beff8e8cf438"
+# matches with: https://github.com/microROS/system_modes-release/archive/release/foxy/system_modes/0.2.0-4.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/system_modes"
+SRC_URI = "git://github.com/microROS/system_modes-release;${ROS_BRANCH};protocol=https"
+SRCREV = "15053d8b16c22ecb5cae738dfaa2bf415cf5496f"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

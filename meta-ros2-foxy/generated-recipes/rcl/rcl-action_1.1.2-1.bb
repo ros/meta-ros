@@ -5,24 +5,22 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "The ROS client library common implementation.     This package contains an API which builds on the ROS middleware API and is optionally built upon by the other ROS client libraries."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
+DESCRIPTION = "Package containing a C-based ROS action implementation"
+AUTHOR = "Jacob Perron <jacob@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "rcl"
-ROS_BPN = "rcl"
+ROS_BPN = "rcl_action"
 
 ROS_BUILD_DEPENDS = " \
-    rcl-interfaces \
-    rcl-logging-spdlog \
-    rcl-yaml-param-parser \
+    action-msgs \
+    rcl \
     rcutils \
-    rmw-implementation \
+    rmw \
     rosidl-runtime-c \
-    tracetools \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -30,40 +28,29 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    rcl-interfaces \
-    rcl-logging-spdlog \
-    rcl-yaml-param-parser \
+    action-msgs \
+    rcl \
     rcutils \
     rmw \
-    rmw-implementation \
     rosidl-runtime-c \
-    tracetools \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    rcl-interfaces \
-    rcl-logging-spdlog \
-    rcl-yaml-param-parser \
+    action-msgs \
+    rcl \
     rcutils \
-    rmw-implementation \
+    rmw \
     rosidl-runtime-c \
-    tracetools \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
     ament-cmake-gtest \
-    ament-cmake-pytest \
     ament-lint-auto \
     ament-lint-common \
-    launch \
-    launch-testing \
-    launch-testing-ament-cmake \
     osrf-testing-tools-cpp \
-    rcpputils \
-    rmw \
     rmw-implementation-cmake \
     test-msgs \
 "
@@ -75,10 +62,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rcl-release/archive/release/foxy/rcl/1.1.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/rcl"
+# matches with: https://github.com/ros2-gbp/rcl-release/archive/release/foxy/rcl_action/1.1.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rcl_action"
 SRC_URI = "git://github.com/ros2-gbp/rcl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "5ded9c3d0bf17d79e58fc793f4c05ed2fe9524ab"
+SRCREV = "055add2c26f8184704c43ae48c7f27ab72b76ffe"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

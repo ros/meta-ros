@@ -29,7 +29,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-foxy/files/foxy/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "8"
+ROS_NUM_CACHE_YAML_COMMITS = "9"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -90,6 +90,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ament-lint-cmake \
     ament-lint-common \
     ament-mypy \
+    ament-nodl \
     ament-package \
     ament-pclint \
     ament-pep257 \
@@ -98,19 +99,30 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ament-uncrustify \
     ament-xmllint \
     angles \
+    behaviortree-cpp-v3 \
     builtin-interfaces \
+    camera-calibration \
+    camera-calibration-parsers \
+    camera-info-manager \
+    cartographer \
     class-loader \
     common-interfaces \
     composition \
     composition-interfaces \
+    compressed-depth-image-transport \
+    compressed-image-transport \
     connext-cmake-module \
     console-bridge-vendor \
     control-box-rst \
     control-msgs \
+    cv-bridge \
     cyclonedds \
     demo-nodes-cpp \
     demo-nodes-cpp-rosnative \
     demo-nodes-py \
+    depth-image-proc \
+    depthimage-to-laserscan \
+    desktop \
     diagnostic-msgs \
     domain-coordinator \
     dummy-map-server \
@@ -147,7 +159,16 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     geometry2 \
     gmock-vendor \
     gtest-vendor \
+    image-common \
+    image-geometry \
+    image-pipeline \
+    image-proc \
+    image-publisher \
+    image-rotate \
     image-tools \
+    image-transport \
+    image-transport-plugins \
+    image-view \
     interactive-markers \
     intra-process-demo \
     joy \
@@ -175,6 +196,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     orocos-kdl \
     osrf-pycommon \
     osrf-testing-tools-cpp \
+    ouster-msgs \
     pcl-conversions \
     pcl-msgs \
     pendulum-control \
@@ -224,10 +246,13 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rmw-implementation \
     rmw-implementation-cmake \
     robot-state-publisher \
+    ros-base \
+    ros-core \
     ros-environment \
     ros-testing \
     ros-workspace \
     ros1-bridge \
+    ros2-ouster \
     ros2action \
     ros2bag \
     ros2cli \
@@ -279,11 +304,13 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rpyutils \
     rqt \
     rqt-action \
+    rqt-common-plugins \
     rqt-console \
     rqt-graph \
     rqt-gui \
     rqt-gui-cpp \
     rqt-gui-py \
+    rqt-image-view \
     rqt-msg \
     rqt-plot \
     rqt-publisher \
@@ -316,6 +343,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     statistics-msgs \
     std-msgs \
     std-srvs \
+    stereo-image-proc \
     stereo-msgs \
     system-modes \
     system-modes-examples \
@@ -334,6 +362,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     tf2-ros \
     tf2-sensor-msgs \
     tf2-tools \
+    theora-image-transport \
     tinyxml-vendor \
     tinyxml2-vendor \
     tlsf \
@@ -346,6 +375,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     urdf \
     urdfdom \
     urdfdom-headers \
+    vision-opencv \
     visualization-msgs \
     yaml-cpp-vendor \
     zstd-vendor \
@@ -405,6 +435,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                      ament-lint/ament-lint-cmake_0.9.4-1 \
                      ament-lint/ament-lint-common_0.9.4-1 \
                      ament-lint/ament-mypy_0.9.4-1 \
+                     ament-nodl/ament-nodl_0.1.0-1 \
                   ament-package/ament-package_0.9.1-1 \
                      ament-lint/ament-pclint_0.9.4-1 \
                      ament-lint/ament-pep257_0.9.4-1 \
@@ -413,19 +444,30 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                      ament-lint/ament-uncrustify_0.9.4-1 \
                      ament-lint/ament-xmllint_0.9.4-1 \
                          angles/angles_1.12.3-1 \
+               behaviortree-cpp/behaviortree-cpp-v3_3.5.0-1 \
                  rcl-interfaces/builtin-interfaces_1.0.0-1 \
+                 image-pipeline/camera-calibration_2.1.0-1 \
+                   image-common/camera-calibration-parsers_2.3.0-1 \
+                   image-common/camera-info-manager_2.3.0-1 \
+                   cartographer/cartographer_1.0.9001-1 \
                    class-loader/class-loader_2.0.1-1 \
               common-interfaces/common-interfaces_2.0.1-1 \
                           demos/composition_0.9.2-1 \
                  rcl-interfaces/composition-interfaces_1.0.0-1 \
+        image-transport-plugins/compressed-depth-image-transport_2.3.0-1 \
+        image-transport-plugins/compressed-image-transport_2.3.0-1 \
      rosidl-typesupport-connext/connext-cmake-module_1.0.0-1 \
           console-bridge-vendor/console-bridge-vendor_1.2.1-1 \
                 control-box-rst/control-box-rst_0.0.6-1 \
                    control-msgs/control-msgs_2.3.0-3 \
+                  vision-opencv/cv-bridge_2.2.0-1 \
                      cyclonedds/cyclonedds_0.5.1-2 \
                           demos/demo-nodes-cpp_0.9.2-1 \
                           demos/demo-nodes-cpp-rosnative_0.9.2-1 \
                           demos/demo-nodes-py_0.9.2-1 \
+                 image-pipeline/depth-image-proc_2.1.0-1 \
+        depthimage-to-laserscan/depthimage-to-laserscan_2.3.0-1 \
+                       variants/desktop_0.9.1-1 \
               common-interfaces/diagnostic-msgs_2.0.1-1 \
                 ament-cmake-ros/domain-coordinator_0.9.0-1 \
                           demos/dummy-map-server_0.9.2-1 \
@@ -462,13 +504,22 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                       geometry2/geometry2_0.13.3-1 \
                      googletest/gmock-vendor_1.8.9000-1 \
                      googletest/gtest-vendor_1.8.9000-1 \
+                   image-common/image-common_2.3.0-1 \
+                  vision-opencv/image-geometry_2.2.0-1 \
+                 image-pipeline/image-pipeline_2.1.0-1 \
+                 image-pipeline/image-proc_2.1.0-1 \
+                 image-pipeline/image-publisher_2.1.0-1 \
+                 image-pipeline/image-rotate_2.1.0-1 \
                           demos/image-tools_0.9.2-1 \
+                   image-common/image-transport_2.3.0-1 \
+        image-transport-plugins/image-transport-plugins_2.3.0-1 \
+                 image-pipeline/image-view_2.1.0-1 \
             interactive-markers/interactive-markers_2.1.0-1 \
                           demos/intra-process-demo_0.9.2-1 \
                joystick-drivers/joy_2.4.1-1 \
                joystick-drivers/joy-linux_2.4.1-1 \
                      kdl-parser/kdl-parser_2.4.0-1 \
-                 laser-geometry/laser-geometry_2.2.0-1 \
+                 laser-geometry/laser-geometry_2.2.0-3 \
                          launch/launch_0.10.2-1 \
                      launch-ros/launch-ros_0.10.2-1 \
                          launch/launch-testing_0.10.2-1 \
@@ -478,7 +529,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          launch/launch-yaml_0.10.2-1 \
              resource-retriever/libcurl-vendor_2.3.1-1 \
                    librealsense/librealsense2_2.34.0-1 \
-        libstatistics-collector/libstatistics-collector_1.0.0-2 \
+        libstatistics-collector/libstatistics-collector_1.0.1-1 \
                  libyaml-vendor/libyaml-vendor_1.0.2-1 \
                           demos/lifecycle_0.9.2-1 \
                  rcl-interfaces/lifecycle-msgs_1.0.0-1 \
@@ -490,6 +541,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
      orocos-kinematics-dynamics/orocos-kdl_3.3.1-1 \
                   osrf-pycommon/osrf-pycommon_0.1.10-1 \
          osrf-testing-tools-cpp/osrf-testing-tools-cpp_1.3.2-1 \
+            ros2-ouster-drivers/ouster-msgs_0.2.0-1 \
                  perception-pcl/pcl-conversions_2.2.0-1 \
                        pcl-msgs/pcl-msgs_1.0.0-2 \
                           demos/pendulum-control_0.9.2-1 \
@@ -506,14 +558,14 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                     qt-gui-core/qt-gui-py-common_1.1.0-1 \
                           demos/quality-of-service-demo-cpp_0.9.2-1 \
                           demos/quality-of-service-demo-py_0.9.2-1 \
-                            rcl/rcl_1.1.1-1 \
-                            rcl/rcl-action_1.1.1-1 \
+                            rcl/rcl_1.1.2-1 \
+                            rcl/rcl-action_1.1.2-1 \
                  rcl-interfaces/rcl-interfaces_1.0.0-1 \
-                            rcl/rcl-lifecycle_1.1.1-1 \
+                            rcl/rcl-lifecycle_1.1.2-1 \
                     rcl-logging/rcl-logging-log4cxx_1.0.0-1 \
                     rcl-logging/rcl-logging-noop_1.0.0-1 \
                     rcl-logging/rcl-logging-spdlog_1.0.0-1 \
-                            rcl/rcl-yaml-param-parser_1.1.1-1 \
+                            rcl/rcl-yaml-param-parser_1.1.2-1 \
                            rclc/rclc_0.1.2-1 \
                            rclc/rclc-examples_0.1.2-1 \
                          rclcpp/rclcpp_1.1.0-1 \
@@ -539,10 +591,13 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
              rmw-implementation/rmw-implementation_1.0.0-1 \
                             rmw/rmw-implementation-cmake_1.0.1-1 \
           robot-state-publisher/robot-state-publisher_2.4.0-1 \
+                       variants/ros-base_0.9.1-1 \
+                       variants/ros-core_0.9.1-1 \
                 ros-environment/ros-environment_2.5.0-1 \
                     ros-testing/ros-testing_0.2.1-1 \
                   ros-workspace/ros-workspace_1.0.0-1 \
-                    ros1-bridge/ros1-bridge_0.9.0-4 \
+                    ros1-bridge/ros1-bridge_0.9.1-1 \
+            ros2-ouster-drivers/ros2-ouster_0.2.0-1 \
                         ros2cli/ros2action_0.9.4-1 \
                         rosbag2/ros2bag_0.3.0-1 \
                         ros2cli/ros2cli_0.9.4-1 \
@@ -594,11 +649,13 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                        rpyutils/rpyutils_0.1.0-1 \
                             rqt/rqt_1.0.6-1 \
                      rqt-action/rqt-action_1.0.1-1 \
+             rqt-common-plugins/rqt-common-plugins_1.0.0-1 \
                     rqt-console/rqt-console_1.1.1-1 \
                       rqt-graph/rqt-graph_1.0.4-1 \
                             rqt/rqt-gui_1.0.6-1 \
                             rqt/rqt-gui-cpp_1.0.6-1 \
                             rqt/rqt-gui-py_1.0.6-1 \
+                 rqt-image-view/rqt-image-view_1.0.4-1 \
                         rqt-msg/rqt-msg_1.0.2-1 \
                        rqt-plot/rqt-plot_1.0.7-1 \
                   rqt-publisher/rqt-publisher_1.1.0-1 \
@@ -631,9 +688,10 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                  rcl-interfaces/statistics-msgs_1.0.0-1 \
               common-interfaces/std-msgs_2.0.1-1 \
               common-interfaces/std-srvs_2.0.1-1 \
+                 image-pipeline/stereo-image-proc_2.1.0-1 \
               common-interfaces/stereo-msgs_2.0.1-1 \
-                   system-modes/system-modes_0.2.0-3 \
-                   system-modes/system-modes-examples_0.2.0-3 \
+                   system-modes/system-modes_0.2.0-4 \
+                   system-modes/system-modes-examples_0.2.0-4 \
                teleop-twist-joy/teleop-twist-joy_2.2.2-1 \
           teleop-twist-keyboard/teleop-twist-keyboard_2.3.2-1 \
            test-interface-files/test-interface-files_0.8.0-1 \
@@ -649,6 +707,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                       geometry2/tf2-ros_0.13.3-1 \
                       geometry2/tf2-sensor-msgs_0.13.3-1 \
                       geometry2/tf2-tools_0.13.3-1 \
+        image-transport-plugins/theora-image-transport_2.3.0-1 \
                  tinyxml-vendor/tinyxml-vendor_0.8.0-1 \
                 tinyxml2-vendor/tinyxml2-vendor_0.7.1-1 \
                            tlsf/tlsf_0.5.0-1 \
@@ -661,6 +720,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                            urdf/urdf_2.4.0-1 \
                         urdfdom/urdfdom_2.3.1-2 \
                 urdfdom-headers/urdfdom-headers_1.0.5-1 \
+                  vision-opencv/vision-opencv_2.2.0-1 \
               common-interfaces/visualization-msgs_2.0.1-1 \
                 yaml-cpp-vendor/yaml-cpp-vendor_7.0.2-1 \
                         rosbag2/zstd-vendor_0.3.0-1 \
@@ -692,6 +752,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-cmake-export-link-flags \
     ament-cmake-export-targets \
     ament-cmake-flake8 \
+    ament-cmake-gmock \
     ament-cmake-gtest \
     ament-cmake-include-directories \
     ament-cmake-libraries \
@@ -702,6 +763,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-cmake-pep257 \
     ament-cmake-pycodestyle \
     ament-cmake-pyflakes \
+    ament-cmake-pytest \
     ament-cmake-python \
     ament-cmake-ros \
     ament-cmake-target-dependencies \
@@ -714,24 +776,39 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-index-cpp \
     ament-index-python \
     ament-lint \
+    ament-lint-auto \
     ament-lint-cmake \
+    ament-lint-common \
+    ament-nodl \
     ament-package \
     ament-pclint \
     ament-pyflakes \
     ament-uncrustify \
     angles \
+    behaviortree-cpp-v3 \
     builtin-interfaces \
+    camera-calibration \
+    camera-calibration-parsers \
+    camera-info-manager \
+    cartographer \
     class-loader \
     common-interfaces \
     composition \
     composition-interfaces \
+    compressed-depth-image-transport \
+    compressed-image-transport \
     connext-cmake-module \
     console-bridge-vendor \
     control-box-rst \
     control-msgs \
+    cv-bridge \
     cyclonedds \
+    demo-nodes-cpp \
     demo-nodes-cpp-rosnative \
     demo-nodes-py \
+    depth-image-proc \
+    depthimage-to-laserscan \
+    desktop \
     diagnostic-msgs \
     domain-coordinator \
     dummy-map-server \
@@ -768,7 +845,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     geometry2 \
     gmock-vendor \
     gtest-vendor \
+    image-common \
+    image-geometry \
+    image-pipeline \
+    image-proc \
+    image-publisher \
+    image-rotate \
     image-tools \
+    image-transport \
+    image-transport-plugins \
+    image-view \
     interactive-markers \
     intra-process-demo \
     joy \
@@ -795,6 +881,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     nav-msgs \
     orocos-kdl \
     osrf-pycommon \
+    ouster-msgs \
     pcl-conversions \
     pcl-msgs \
     pendulum-control \
@@ -844,9 +931,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rmw-implementation \
     rmw-implementation-cmake \
     robot-state-publisher \
+    ros-base \
+    ros-core \
     ros-environment \
     ros-workspace \
     ros1-bridge \
+    ros2-ouster \
     ros2action \
     ros2bag \
     ros2cli \
@@ -859,6 +949,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ros2node \
     ros2param \
     ros2pkg \
+    ros2run \
     ros2service \
     ros2test \
     ros2topic \
@@ -893,11 +984,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rpyutils \
     rqt \
     rqt-action \
+    rqt-common-plugins \
     rqt-console \
     rqt-graph \
     rqt-gui \
     rqt-gui-cpp \
     rqt-gui-py \
+    rqt-image-view \
     rqt-msg \
     rqt-plot \
     rqt-publisher \
@@ -928,6 +1021,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     statistics-msgs \
     std-msgs \
     std-srvs \
+    stereo-image-proc \
     stereo-msgs \
     system-modes \
     system-modes-examples \
@@ -945,6 +1039,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     tf2-ros \
     tf2-sensor-msgs \
     tf2-tools \
+    theora-image-transport \
     tinyxml-vendor \
     tinyxml2-vendor \
     tlsf \
@@ -957,6 +1052,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     urdf \
     urdfdom \
     urdfdom-headers \
+    vision-opencv \
     visualization-msgs \
     yaml-cpp-vendor \
     zstd-vendor \
@@ -1054,7 +1150,11 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_java-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libzstd-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_maven-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography} \
@@ -1064,6 +1164,8 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_sdl2} \
@@ -1074,6 +1176,8 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     assimp \
     boost \
     bullet \
+    cairo \
+    ceres-solver \
     cmake \
     cmake-native \
     console-bridge \
@@ -1081,12 +1185,17 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     cppunit \
     curl \
     freetype \
+    gflags \
     git \
     git-native \
     glfw \
+    glog \
+    gtest \
     gtest-native \
     gtk+3 \
     libeigen \
+    libogg \
+    libtheora \
     libtinyxml \
     libtinyxml2 \
     libusb1 \
@@ -1096,12 +1205,14 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     libxrandr \
     libyaml \
     log4cxx \
+    lua \
     mesa \
     opencv \
     openssl \
     pcl \
     pkgconfig \
     pkgconfig-native \
+    protobuf \
     python3-catkin-pkg \
     python3-catkin-pkg-native \
     python3-empy \
@@ -1126,30 +1237,26 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     sqlite3 \
     udev \
     virtual/kernel \
+    zeromq \
 "
 
 # Packages found only in <test_depend> items. Does not include those found only in the ROS_*_DEPENDS of recipes of tests.
 ROS_SUPERFLORE_GENERATED_TESTS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
-    ament-cmake-gmock \
-    ament-cmake-pytest \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests} \
     ament-copyright \
     ament-flake8 \
-    ament-lint-auto \
-    ament-lint-common \
     ament-mypy \
     ament-pep257 \
     ament-pycodestyle \
     ament-xmllint \
     cppunit \
-    demo-nodes-cpp \
     osrf-testing-tools-cpp \
     python3-pygraphviz \
     python3-pytest \
     ros-testing \
     ros2lifecycle-test-fixtures \
-    ros2run \
     rosbag2-test-common \
     rosbag2-tests \
     rosidl-generator-cpp \
@@ -1163,8 +1270,11 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     ament-cmake-ros \
     ament-index \
     ament-lint \
+    ament-nodl \
     ament-package \
     angles \
+    behaviortree-cpp \
+    cartographer \
     class-loader \
     common-interfaces \
     console-bridge-vendor \
@@ -1172,6 +1282,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     control-msgs \
     cyclonedds \
     demos \
+    depthimage-to-laserscan \
     eigen3-cmake-module \
     example-interfaces \
     examples \
@@ -1183,6 +1294,9 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     foonathan-memory-vendor \
     geometry2 \
     googletest \
+    image-common \
+    image-pipeline \
+    image-transport-plugins \
     interactive-markers \
     joystick-drivers \
     kdl-parser \
@@ -1225,6 +1339,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     ros-workspace \
     ros1-bridge \
     ros2-intel-realsense \
+    ros2-ouster-drivers \
     ros2cli \
     rosbag2 \
     rosidl \
@@ -1238,8 +1353,10 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     rpyutils \
     rqt \
     rqt-action \
+    rqt-common-plugins \
     rqt-console \
     rqt-graph \
+    rqt-image-view \
     rqt-msg \
     rqt-plot \
     rqt-publisher \
@@ -1267,6 +1384,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     urdf \
     urdfdom \
     urdfdom-headers \
+    variants \
+    vision-opencv \
     yaml-cpp-vendor \
 "
 
@@ -1277,7 +1396,11 @@ ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "UNRESOLVED-clang-tidy"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev = "UNRESOLVED-coinor-libipopt-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_java-native = "UNRESOLVED-java-native"
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "UNRESOLVED-libboost-dev"
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev = "UNRESOLVED-libboost-iostreams-dev"
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-python = "UNRESOLVED-libboost-python"
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev = "UNRESOLVED-libboost-python-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev = "UNRESOLVED-libcunit-dev"
+ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev = "UNRESOLVED-libncurses-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libzstd-dev = "UNRESOLVED-libzstd-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_maven-native = "UNRESOLVED-maven-native"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography = "UNRESOLVED-python3-cryptography"
@@ -1287,6 +1410,8 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = "UNRESOLVED-python3-netifaces"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle = "UNRESOLVED-python3-pycodestyle"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock = "UNRESOLVED-python3-pytest-mock"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings = "UNRESOLVED-python3-qt5-bindings"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-requests = "UNRESOLVED-python3-requests"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx = "UNRESOLVED-python3-sphinx"
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = "UNRESOLVED-rti-connext-dds-5.3.1"
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = "UNRESOLVED-rti-connext-dds-5.3.1-native"
 ROS_UNRESOLVED_PLATFORM_PKG_sdl2 = "UNRESOLVED-sdl2"
@@ -1296,10 +1421,10 @@ ROS_UNRESOLVED_PLATFORM_PKG_uncrustify = "UNRESOLVED-uncrustify"
 
 # From the release announcement or the last field of the "release-ROS_DISTRO-YYYYMMDD" tag for the release in
 # https://github.com/ros2/ros2/releases. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "20200527"
+ROS_DISTRO_RELEASE_DATE = "20200530"
 
 # The commit of ros/rosdistro/foxy/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "d9897fdec07178dc4611a81777e07c75d8a57caa"
+ROS_SUPERFLORE_GENERATION_COMMIT = "6bad79e1f77f2db3666fc7f214e6d7ebf95a22c6"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
