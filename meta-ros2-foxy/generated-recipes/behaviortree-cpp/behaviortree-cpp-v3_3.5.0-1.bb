@@ -5,21 +5,21 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Simple example system for system_modes package."
-AUTHOR = "Arne Nordmann <arne.nordmann@bosch.com>"
+DESCRIPTION = "This package provides the Behavior Trees core library."
+AUTHOR = "Davide Faconti <davide.faconti@gmail.com>"
+ROS_AUTHOR = "Michele Colledanchise"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=58e54c03ca7f821dd3967e2a2cd1596e"
 
-ROS_CN = "system_modes"
-ROS_BPN = "system_modes_examples"
+ROS_CN = "behaviortree_cpp"
+ROS_BPN = "behaviortree_cpp_v3"
 
 ROS_BUILD_DEPENDS = " \
-    boost \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     rclcpp \
-    rclcpp-lifecycle \
-    system-modes \
+    zeromq \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -27,19 +27,17 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    boost \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     rclcpp \
-    rclcpp-lifecycle \
-    system-modes \
+    zeromq \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    boost \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     rclcpp \
-    rclcpp-lifecycle \
-    system-modes \
+    zeromq \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -52,12 +50,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/microROS/system_modes-release/archive/release/foxy/system_modes_examples/0.2.0-3.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/system_modes_examples"
-SRC_URI = "git://github.com/microROS/system_modes-release;${ROS_BRANCH};protocol=https"
-SRCREV = "3c8996e4a40f5c2bb364af912f618d35a2586350"
+# matches with: https://github.com/BehaviorTree/behaviortree_cpp-release/archive/release/foxy/behaviortree_cpp_v3/3.5.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/behaviortree_cpp_v3"
+SRC_URI = "git://github.com/BehaviorTree/behaviortree_cpp-release;${ROS_BRANCH};protocol=https"
+SRCREV = "cf7bf3b111e4585e47f4cb5de75e6fb333984056"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_cmake"
+ROS_BUILD_TYPE = "catkin"
 
 inherit ros_${ROS_BUILD_TYPE}

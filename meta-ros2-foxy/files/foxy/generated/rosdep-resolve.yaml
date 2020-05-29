@@ -22,6 +22,7 @@ curl:
 dkms: []
 eigen:
 - libeigen@meta-oe
+g++-static: []
 git:
 - git@openembedded-core
 google-mock:
@@ -34,8 +35,18 @@ java:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_java}
 libboost-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev}
+libboost-iostreams-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev}
 libboost-program-options-dev:
 - boost@openembedded-core
+libboost-python:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python}
+libboost-python-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev}
+libcairo2-dev:
+- cairo@openembedded-core
+libceres-dev:
+- ceres-solver@meta-oe
 libconsole-bridge-dev:
 - console-bridge@meta-ros
 libcunit-dev:
@@ -44,10 +55,20 @@ libfreetype6:
 - freetype@openembedded-core
 libfreetype6-dev:
 - freetype@openembedded-core
+libgflags-dev:
+- gflags@meta-oe
 libglfw3-dev:
 - glfw@meta-intel-realsense
+libgoogle-glog-dev:
+- glog@meta-oe
+libncurses-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev}
+libogg:
+- libogg@openembedded-core
 libopencv-dev:
 - opencv@meta-oe
+libpcl-all:
+- pcl@meta-ros
 libpcl-all-dev:
 - pcl@meta-ros
 libqt5-core:
@@ -62,6 +83,8 @@ libsqlite3-dev:
 - sqlite3@openembedded-core
 libssl-dev:
 - openssl@openembedded-core
+libtheora:
+- libtheora@openembedded-core
 libusb-1.0-dev:
 - libusb1@openembedded-core
 libx11-dev:
@@ -72,12 +95,16 @@ libxml2-utils:
 - libxml2@openembedded-core
 libxrandr:
 - libxrandr@openembedded-core
+libzmq3-dev:
+- zeromq@meta-oe
 libzstd-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libzstd-dev}
 linux-headers-generic:
 - virtual/kernel@openembedded-core
 log4cxx:
 - log4cxx@meta-ros
+lua5.2-dev:
+- lua@meta-oe
 maven:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_maven}
 opengl:
@@ -86,6 +113,8 @@ openssl:
 - openssl@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+protobuf-dev:
+- protobuf@meta-oe
 pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros
 pyflakes3:
@@ -118,6 +147,8 @@ python3-nose:
 - python3-nose@openembedded-core
 python3-numpy:
 - python3-numpy@openembedded-core
+python3-opencv:
+- opencv@meta-oe
 python3-pkg-resources:
 - python3-setuptools@openembedded-core
 python3-psutil:
@@ -134,10 +165,14 @@ python3-pytest-mock:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock}
 python3-qt5-bindings:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings}
+python3-requests:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests}
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros
 python3-setuptools:
 - python3-setuptools@openembedded-core
+python3-sphinx:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx}
 python3-yaml:
 - python3-pyyaml@meta-python
 qt5-qmake:

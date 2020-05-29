@@ -5,7 +5,7 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Model-based distributed configuration handling."
+DESCRIPTION = "Simple example system for system_modes package."
 AUTHOR = "Arne Nordmann <arne.nordmann@bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
@@ -13,15 +13,13 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "system_modes"
-ROS_BPN = "system_modes"
+ROS_BPN = "system_modes_examples"
 
 ROS_BUILD_DEPENDS = " \
     boost \
-    builtin-interfaces \
     rclcpp \
     rclcpp-lifecycle \
-    rosidl-default-generators \
-    std-msgs \
+    system-modes \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -30,35 +28,22 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     boost \
-    builtin-interfaces \
     rclcpp \
     rclcpp-lifecycle \
-    rosidl-default-generators \
-    std-msgs \
+    system-modes \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     boost \
-    builtin-interfaces \
     rclcpp \
     rclcpp-lifecycle \
-    rosidl-default-generators \
-    std-msgs \
+    system-modes \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    ament-cmake-cppcheck \
-    ament-cmake-cpplint \
-    ament-cmake-flake8 \
-    ament-cmake-gmock \
-    ament-cmake-gtest \
-    ament-cmake-pep257 \
-    ament-cmake-uncrustify \
-    ament-lint-auto \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -67,10 +52,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/microROS/system_modes-release/archive/release/foxy/system_modes/0.2.0-3.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/system_modes"
+# matches with: https://github.com/microROS/system_modes-release/archive/release/foxy/system_modes_examples/0.2.0-4.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/system_modes_examples"
 SRC_URI = "git://github.com/microROS/system_modes-release;${ROS_BRANCH};protocol=https"
-SRCREV = "9f3a976c5ea7fc6d9135a58733e77efb6adb1c32"
+SRCREV = "891b72216e6c21459f5f47411574fe8f722230ab"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
