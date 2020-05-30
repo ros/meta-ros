@@ -109,6 +109,26 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings = "python3-pyqt5"
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "boost"
 
 # Used by:
+# generated-recipes/cartographer/cartographer_1.0.9001-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev = "boost"
+
+# Used by:
+# generated-recipes/cartographer/cartographer_1.0.9001-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx = "python3-sphinx"
+
+# Used by:
+# generated-recipes/vision-opencv/cv-bridge_2.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev = "boost"
+
+# Used by:
+# generated-recipes/vision-opencv/cv-bridge_2.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-python = "boost"
+
+# Used by:
+# generated-recipes/behaviortree-cpp/behaviortree-cpp-v3_3.5.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev = "ncurses"
+
+# Used by:
 # generated-recipes/cyclonedds/cyclonedds_0.5.1-2.bb
 ROS_UNRESOLVED_PLATFORM_PKG_maven-native = ""
 ROS_UNRESOLVED_PLATFORM_PKG_java-native = ""
