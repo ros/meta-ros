@@ -75,6 +75,8 @@ ROS_WORLD_SKIP_GROUPS += " \
 # and having it in a .bbappend sets it too late.
 ROS_BUILD_TYPE_pn-fmilibrary-vendor = "ament_cmake"
 ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
+# was changed from ament_cmake to catkin between eloquent and foxy
+ROS_BUILD_TYPE_pn-behaviortree-cpp-v3 = "ament_cmake"
 
 # Used by:
 # generated-recipes/spdlog-vendor/spdlog-vendor_1.1.1-1.bb
