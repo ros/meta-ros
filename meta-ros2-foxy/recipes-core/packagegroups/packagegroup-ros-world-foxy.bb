@@ -64,11 +64,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-cpp \
     qt-gui-py-common \
     rqt-action \
+    rqt-common-plugins \
     rqt-console \
     rqt-gui \
     rqt-gui-py \
     rqt-gui-cpp \
     rqt-graph \
+    rqt-image-view \
     rqt-msg \
     rqt-plot \
     rqt-py-common \
@@ -108,10 +110,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rosmon \
     rqt-action \
     rqt-console \
+    rqt-common-plugins \
     rqt-graph \
     rqt-gui-cpp \
     rqt-gui-py \
     rqt-gui \
+    rqt-image-view \
     rqt-msg \
     rqt-plot \
     rqt-publisher \
