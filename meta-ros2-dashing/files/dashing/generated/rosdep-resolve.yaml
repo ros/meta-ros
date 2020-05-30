@@ -32,6 +32,8 @@ g++-static: []
 gazebo9: []
 git:
 - git@openembedded-core
+glut:
+- freeglut@meta-oe
 google-mock:
 - gtest@meta-oe
 graphicsmagick:
@@ -46,6 +48,8 @@ gtest:
 - gtest@meta-oe
 gtk3:
 - gtk+3@openembedded-core
+launch_xml:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_launch_xml}
 lcov:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_lcov}
 libboost-program-options:
@@ -72,6 +76,8 @@ libgeos++-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev}
 libgflags-dev:
 - gflags@meta-oe
+libglew-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev}
 libglfw3-dev:
 - glfw@meta-intel-realsense
 libgoogle-glog-dev:
@@ -80,8 +86,14 @@ libgpgme-dev:
 - gpgme@openembedded-core
 libgps:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgps}
+libjsoncpp:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp}
+libjsoncpp-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev}
 liblapack-dev:
 - lapack@meta-ros
+libncurses-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev}
 libogg:
 - libogg@openembedded-core
 libopencv-dev:
@@ -100,6 +112,8 @@ libpcl-all:
 - pcl@meta-ros
 libpcl-all-dev:
 - pcl@meta-ros
+libpng-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev}
 libpoco-dev:
 - poco@meta-oe
 libqglviewer-qt4:
@@ -118,6 +132,8 @@ libqt5-gui:
 - qtbase@meta-qt5
 libqt5-opengl:
 - qtbase@meta-qt5
+libqt5-opengl-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev}
 libqt5-widgets:
 - qtbase@meta-qt5
 libqtgui4:
@@ -136,8 +152,14 @@ libx11-dev:
 - libx11@openembedded-core
 libxaw:
 - libxaw@meta-oe
+libxi-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev}
 libxml2-utils:
 - libxml2@openembedded-core
+libxmlrpc-c++:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++}
+libxmu-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev}
 libxrandr:
 - libxrandr@openembedded-core
 libzmq3-dev:
@@ -162,6 +184,8 @@ pkg-config:
 - pkgconfig@openembedded-core
 proj:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_proj}
+protobuf:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_protobuf}
 protobuf-dev:
 - protobuf@meta-oe
 pydocstyle:
@@ -259,12 +283,14 @@ sdl:
 sdl-image:
 - libsdl-image@meta-oe
 suitesparse:
-- suitesparse-cholmod@meta-ros
 - suitesparse-cxsparse@meta-ros
+- suitesparse-cholmod@meta-ros
 tango-icon-theme:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
 tbb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tbb}
+tf2_py:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_tf2_py}
 tinyxml:
 - libtinyxml@meta-oe
 tinyxml2:
