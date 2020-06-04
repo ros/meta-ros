@@ -77,6 +77,11 @@ ROS_BUILD_TYPE_pn-fmilibrary-vendor = "ament_cmake"
 ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
 # was changed from ament_cmake to catkin between eloquent and foxy
 ROS_BUILD_TYPE_pn-behaviortree-cpp-v3 = "ament_cmake"
+# superflore doesn't resolve the build_type conditions correctly:
+# https://github.com/lgsvl/lgsvl_msgs-release/blob/release/foxy/lgsvl_msgs/package.xml#L32
+#   <build_type condition="$ROS_VERSION == 1">catkin</build_type>
+#   <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+ROS_BUILD_TYPE_pn-lgsvl-msgs = "ament_cmake"
 
 # Used by:
 # generated-recipes/spdlog-vendor/spdlog-vendor_1.1.1-1.bb
