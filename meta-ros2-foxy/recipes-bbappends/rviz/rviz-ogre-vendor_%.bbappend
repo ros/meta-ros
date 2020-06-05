@@ -6,3 +6,7 @@ DEPENDS += "ogre"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists-remove-all-ExternalProject_Add-calls-and-.patch"
+
+# libxaw is empty, the library is installed in libxaw6 and libxaw7 packages
+# and ogre should get runtime dependency automatically through shlibs
+RDEPENDS_${PN}_remove = "libxaw"
