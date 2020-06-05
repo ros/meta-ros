@@ -3,6 +3,8 @@
 # Need this to launch anything ROS.
 ROS_EXEC_DEPENDS += " \
     ros-workspace \
+    rosidl-generator-cpp \
+    rosidl-typesupport-c \
 "
 
 # core-* OE images do not support development.
