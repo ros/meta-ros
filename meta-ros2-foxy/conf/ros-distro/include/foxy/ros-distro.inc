@@ -159,3 +159,23 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = ""
 # Used by:
 # generated-recipes/ros2-tracing/tracetools-trace_1.0.0-2.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng = "lttng-tools"
+
+# Used by:
+# generated-recipes/geographic-info/geodesy_1.0.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-pyproj = "python3-pyproj"
+
+# Used by:
+# generated-recipes/phidgets-drivers/libphidget22_2.0.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0 = "libusb1"
+
+# Used by:
+# generated-recipes/geographic-info/geodesy_1.0.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-catkin-pkg = "python3-catkin-pkg"
+
+# Used by:
+# generated-recipes/nodl/ros2nodl_0.1.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete = "python3-argcomplete"
+
+# Used by:
+# generated-recipes/ifm3d-core/ifm3d-core_0.18.0-4.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++ = "xmlrpc-c"
