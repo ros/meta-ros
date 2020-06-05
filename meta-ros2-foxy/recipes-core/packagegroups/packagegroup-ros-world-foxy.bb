@@ -10,6 +10,9 @@ PACKAGES = "${PN}"
 
 RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 
+# Contains only dev, dbg and staticdev files, so PN is empty and not created
+RDEPENDS_${PN}_remove = "test-osrf-testing-tools-cpp"
+
 # alternative not yet supported implementation for fastrtps
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
