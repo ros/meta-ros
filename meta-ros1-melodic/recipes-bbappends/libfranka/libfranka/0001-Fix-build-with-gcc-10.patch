@@ -1,0 +1,51 @@
+From 83fa6f6c7f3832934de942ab574d427b8d86a59e Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 7 Jun 2020 16:54:25 -0700
+Subject: [PATCH] Fix build with gcc-10
+
+* now some headers aren't included anymore
+* fixes
+  libfranka/0.7.1-1-r0/git/include/franka/control_tools.h:74:54: error: 'string' is not a member of 'std'
+  libfranka/0.7.1-1-r0/git/include/franka/control_tools.h:74:62: error: 'error_message' was not declared in this scope
+  libfranka/0.7.1-1-r0/git/src/control_tools.cpp:29:75: error: 'bool franka::setCurrentThreadToHighestSchedulerPriority(std::string*)' redeclared as different kind of entity
+  libfranka/0.7.1-1-r0/git/src/control_types.cpp:14:16: error: 'invalid_argument' is not a member of 'std'
+  libfranka/0.7.1-1-r0/git/src/control_types.cpp:25:16: error: 'invalid_argument' is not a member of 'std'
+  libfranka/0.7.1-1-r0/git/src/control_types.cpp:36:16: error: 'invalid_argument' is not a member of 'std'
+  libfranka/0.7.1-1-r0/git/src/control_types.cpp:53:16: error: 'invalid_argument' is not a member of 'std'
+  libfranka/0.7.1-1-r0/git/src/control_types.cpp:61:16: error: 'invalid_argument' is not a member of 'std'
+  libfranka/0.7.1-1-r0/git/src/control_types.cpp:64:16: error: 'invalid_argument' is not a member of 'std'
+  libfranka/0.7.1-1-r0/git/src/control_types.cpp:87:16: error: 'invalid_argument' is not a member of 'std'
+  libfranka/0.7.1-1-r0/git/src/control_types.cpp:95:16: error: 'invalid_argument' is not a member of 'std'
+  libfranka/0.7.1-1-r0/git/src/control_types.cpp:98:16: error: 'invalid_argument' is not a member of 'std'
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/franka/control_tools.h | 2 ++
+ src/control_types.cpp          | 1 +
+ 2 files changed, 3 insertions(+)
+
+diff --git a/include/franka/control_tools.h b/include/franka/control_tools.h
+index dc5017c..ccbd8f8 100644
+--- a/include/franka/control_tools.h
++++ b/include/franka/control_tools.h
+@@ -4,6 +4,8 @@
+ 
+ #include <array>
+ #include <cmath>
++#include <string>
++#include <stdexcept>
+ 
+ /**
+  * @file control_tools.h
+diff --git a/src/control_types.cpp b/src/control_types.cpp
+index 046062e..90a384f 100644
+--- a/src/control_types.cpp
++++ b/src/control_types.cpp
+@@ -2,6 +2,7 @@
+ // Use of this source code is governed by the Apache-2.0 license, see LICENSE
+ #include <type_traits>
+ 
++#include <stdexcept>
+ #include <franka/control_types.h>
+ 
+ namespace franka {
