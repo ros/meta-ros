@@ -64,6 +64,10 @@ ROS_WORLD_SKIP_GROUPS += "osg"
 # aren't even part of current version of mongo-cxx-driver
 # src/mongo/client/dbclient.h and src/mongo/client/dbclientinterface.h are only in the legacy branches
 ROS_WORLD_SKIP_GROUPS += "mongodb-legacy-cxx-driver"
+# provides the same libfcl.so.0.6 as platform fcl recipe, causing conflicts
+# you need to make sure only one of these is included in dependency tree and in our world builds
+# it was always including both, lets blacklist fcl-catkin, because nothing directly depends on it
+ROS_WORLD_SKIP_GROUPS += "fcl-catkin"
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
