@@ -493,6 +493,10 @@ RDEPENDS_${PN}_remove = "json-transport"
 # ERROR: Nothing RPROVIDES 'UNRESOLVED-python-argcomplete' (but generated-recipes/fetch-tools/fetch-tools_0.2.1.bb RDEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "fetch-tools"
 
+# Conflicts with platform fcl, causing
+# ERROR: moveit-core-1.0.2-1-r0 do_package: moveit-core: Multiple shlib providers for libfcl.so.0.6: fcl, fcl-catkin (used by files: /jenkins/home/workspace/jansa/webos-melodic-dunfell/webos-melodic-dunfell/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/moveit-core/1.0.2-1-r0/packages-split/moveit-core/usr/opt/ros/melodic/lib/libmoveit_collision_detection_fcl.so.1.0.2)
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fcl-catkin', 'fcl-catkin', '', d)}"
+
 # ERROR: Nothing RPROVIDES 'UNRESOLVED-network-manager' (but generated-recipes/network-autoconfig/network-autoconfig_0.1.1-2.bb RDEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "network-autoconfig"
 
