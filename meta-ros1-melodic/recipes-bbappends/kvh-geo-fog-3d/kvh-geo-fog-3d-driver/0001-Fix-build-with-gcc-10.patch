@@ -1,0 +1,62 @@
+From 12cd4d0b1977fe4618931fc9c82e84474b8a2db3 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 7 Jun 2020 17:38:42 -0700
+Subject: [PATCH] Fix build with gcc-10
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/geo_fog_sdk/an_packet_protocol.h | 3 ++-
+ include/geo_fog_sdk/spatial_packets.h    | 3 ++-
+ include/kvh_geo_fog_3d_global_vars.hpp   | 1 +
+ 3 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/include/geo_fog_sdk/an_packet_protocol.h b/include/geo_fog_sdk/an_packet_protocol.h
+index fa8b6c2..77bfa05 100644
+--- a/include/geo_fog_sdk/an_packet_protocol.h
++++ b/include/geo_fog_sdk/an_packet_protocol.h
+@@ -30,6 +30,7 @@
+ #ifndef ANPROTOCOL
+ #define ANPROTOCOL
+ 
++#include <stdint.h>
+ #ifdef __cplusplus
+ extern "C"
+ {
+@@ -91,4 +92,4 @@ void an_packet_encode(an_packet_t *an_packet);
+ }
+ #endif
+ 
+-#endif
+\ No newline at end of file
++#endif
+diff --git a/include/geo_fog_sdk/spatial_packets.h b/include/geo_fog_sdk/spatial_packets.h
+index b7bb15c..46ec8de 100644
+--- a/include/geo_fog_sdk/spatial_packets.h
++++ b/include/geo_fog_sdk/spatial_packets.h
+@@ -30,6 +30,7 @@
+ #ifndef SPATIAL 
+ #define SPATIAL
+ 
++#include <stdint.h>
+ #ifdef __cplusplus
+ extern "C"
+ {
+@@ -1070,4 +1071,4 @@ an_packet_t *encode_dual_antenna_configuration_packet(dual_antenna_configuration
+ }
+ #endif
+ 
+-#endif
+\ No newline at end of file
++#endif
+diff --git a/include/kvh_geo_fog_3d_global_vars.hpp b/include/kvh_geo_fog_3d_global_vars.hpp
+index ee6b28f..6497b04 100644
+--- a/include/kvh_geo_fog_3d_global_vars.hpp
++++ b/include/kvh_geo_fog_3d_global_vars.hpp
+@@ -32,6 +32,7 @@
+ 
+ #include <map>
+ #include <set>
++#include <string>
+ 
+ // GEO-FOG
+ #include "an_packet_protocol.h"

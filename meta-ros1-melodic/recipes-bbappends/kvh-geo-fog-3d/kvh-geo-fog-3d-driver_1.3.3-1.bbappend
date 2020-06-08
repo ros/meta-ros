@@ -13,3 +13,6 @@ RDEPENDS_${PN}_remove_class-target_webos = "${@oe.utils.conditional('WEBOS_PREFE
 # Fails with webOS OSE which by default uses -Werror=return-type
 # kvh-geo-fog-3d-driver/1.3.3-1-r0/git/src/kvh_driver/driver_main.cpp:310:3: error: no return statement in function returning non-void [-Werror=return-type]
 CXXFLAGS += "-Wno-error=return-type"
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-Fix-build-with-gcc-10.patch"
