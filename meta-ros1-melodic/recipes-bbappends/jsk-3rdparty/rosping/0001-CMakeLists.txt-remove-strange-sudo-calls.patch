@@ -1,0 +1,64 @@
+From a96c5d3b56ff299c816cbfd37fbbe3bb2bca6811 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 8 Jun 2020 06:48:27 -0700
+Subject: [PATCH] CMakeLists.txt: remove strange sudo calls
+
+* the install target sets SETUID permission, so it should be added automatically without
+  another chown/chmod
+* resolves following issues shown in log.do_install:
+  -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/share/rosping/package.xml
+  -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/lib/rosping/rosping
+  ERROR: ld.so: object 'libpseudo.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+  sudo: a password is required
+  -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/share/rosping/test
+  -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/share/rosping/test/test-rosping.test
+  open: No such file or directory
+  elf_open: Invalid argument
+  WARNING: exit code 1 from a shell command.
+  ERROR: Execution of '/jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/temp/run.do_install.48620' failed with exit code 1:
+  [1/2] cd /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/build && sudo -n sh -c 'cd /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/devel/lib/rosping; chown root.root rosping; chmod 4755 rosping' || ( echo ^[[34m#\ type\ following\ command\ before\ execute\ rosping...\ sudo\ chown\ root.root\ ./bin/rosping\;\ sudo\ chmod\ 4755\ ./bin/rosping^[[0m )
+  ERROR: ld.so: object 'libpseudo.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+  sudo: a password is required
+  # type following command before execute rosping... sudo chown root.root ./bin/rosping; sudo chmod 4755 ./bin/rosping
+  [1/2] cd /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/build && /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/recipe-sysroot-native/usr/bin/cmake -P cmake_install.cmake
+  -- Install configuration: ""
+  -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/lib/pkgconfig/rosping.pc
+  -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/share/rosping/cmake/rospingConfig.cmake
+  -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/share/rosping/cmake/rospingConfig-version.cmake
+  -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/share/rosping/package.xml
+  -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/lib/rosping/rosping
+  ERROR: ld.so: object 'libpseudo.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+  sudo: a password is required
+  -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/share/rosping/test
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 10 ----------
+ 1 file changed, 10 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 33c3af3a1..17c13368f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -24,21 +24,11 @@ include_directories(${Boost_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
+ add_executable(rosping src/rosping.cpp src/ping.cpp)
+ target_link_libraries(rosping ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+ 
+-string(ASCII 27 ESCAPE)
+-add_custom_command(
+-  OUTPUT message
+-  COMMAND sudo -n sh -c 'cd ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_BIN_DESTINATION}\; chown root.root rosping\; chmod 4755 rosping' || (echo "${ESCAPE}[34m#\ type\ following\ command\ before\ execute\ rosping...\ sudo\ chown\ root.root\ ./bin/rosping\;\ sudo\ chmod 4755\ ./bin/rosping${ESCAPE}[0m")
+-  DEPENDS bin/rosping)
+-add_custom_target(message_all ALL DEPENDS message)
+-
+ install(
+   PROGRAMS ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_BIN_DESTINATION}/rosping
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+   PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE SETUID
+ )
+-install(CODE
+-  "execute_process(COMMAND sudo -n sh -c \"cd \$ENV{DESTDIR}/${CMAKE_INSTALL_PREFIX}/${CATKIN_PACKAGE_BIN_DESTINATION} && chown root.root rosping && ls -al rosping && chmod 4755 rosping && ls -al rosping\")
+-")
+ 
+ install(DIRECTORY test
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}

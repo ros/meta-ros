@@ -1,7 +1,9 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-CMakeLists.txt-fix-build-without-catkin-testing-enab.patch"
+SRC_URI += "file://0001-CMakeLists.txt-fix-build-without-catkin-testing-enab.patch \
+    file://0001-CMakeLists.txt-remove-strange-sudo-calls.patch \
+"
 
 DEPENDS_append_class-target = " chrpath-replacement-native"
 # For some reason ends with bad RPATH
