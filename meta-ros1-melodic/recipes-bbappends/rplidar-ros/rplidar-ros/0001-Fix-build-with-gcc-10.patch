@@ -1,0 +1,37 @@
+From a1ca0ba94693bf5b61cfd5126ffa4383625140e2 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 8 Jun 2020 01:12:36 +0000
+Subject: [PATCH] Fix build with gcc-10
+
+* enum in rp::hal::Event is int, wait() returns only this enum values, change it to return int
+* fixes:
+  rplidar-ros/1.7.0-r0/git/sdk/src/rplidar_driver.cpp:1460:26: error: narrowing conversion of 'rp::hal::Event::EVENT_TIMEOUT' from 'int' to 'long unsigned int' [-Wnarrowing]
+  rplidar-ros/1.7.0-r0/git/sdk/src/rplidar_driver.cpp:1489:26: error: narrowing conversion of 'rp::hal::Event::EVENT_TIMEOUT' from 'int' to 'long unsigned int' [-Wnarrowing]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ sdk/src/hal/event.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/sdk/src/hal/event.h b/sdk/src/hal/event.h
+index 27362ee..d290469 100644
+--- a/sdk/src/hal/event.h
++++ b/sdk/src/hal/event.h
+@@ -95,7 +95,7 @@ public:
+         }
+     }
+     
+-    unsigned long wait( unsigned long timeout = 0xFFFFFFFF )
++    int wait( unsigned long timeout = 0xFFFFFFFF )
+     {
+ #ifdef _WIN32
+         switch (WaitForSingleObject(_event, timeout==0xFFFFFFF?INFINITE:(DWORD)timeout))
+@@ -109,7 +109,7 @@ public:
+         }
+         return EVENT_OK;
+ #else
+-        unsigned long ans = EVENT_OK;
++        int ans = EVENT_OK;
+         pthread_mutex_lock( &_cond_locker );
+ 
+         if ( !_is_signalled )
