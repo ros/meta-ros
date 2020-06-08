@@ -1,0 +1,41 @@
+From bff828a74c4dd31e96f360e932edc0a7589603a8 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 7 Jun 2020 17:06:06 -0700
+Subject: [PATCH] Fix build with boost-1.73.0
+
+* fixes:
+  seed-smartactuator-sdk/0.0.4-1-r0/git/src/aero3_command.cpp:86:70: error: '_1' was not declared in this scope
+  seed-smartactuator-sdk/0.0.4-1-r0/git/src/seed3_command.cpp:98:70: error: '_1' was not declared in this scope
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/aero3_command.cpp | 2 +-
+ src/seed3_command.cpp | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/aero3_command.cpp b/src/aero3_command.cpp
+index 4862ace..a6e769e 100644
+--- a/src/aero3_command.cpp
++++ b/src/aero3_command.cpp
+@@ -83,7 +83,7 @@ void SerialCommunication::readBufferAsync(uint8_t _size=1, uint16_t _timeout=10)
+   //transfer_exactly(size_t size) -> read specific size
+   //transfer_at_least(size_t size) -> read at leaset size
+   timer_.expires_from_now(boost::posix_time::milliseconds(_timeout));
+-  timer_.async_wait(boost::bind(&SerialCommunication::onTimer, this, _1));
++  timer_.async_wait(boost::bind(&SerialCommunication::onTimer, this, boost::placeholders::_1));
+   io_.reset();
+   io_.run();
+ }
+diff --git a/src/seed3_command.cpp b/src/seed3_command.cpp
+index 5738efb..f089e2d 100644
+--- a/src/seed3_command.cpp
++++ b/src/seed3_command.cpp
+@@ -95,7 +95,7 @@ void SerialCommunication::readBufferAsync(std::string _delim="\r", uint16_t _tim
+       boost::bind(&SerialCommunication::onReceive, this,
+           boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
+   timer_.expires_from_now(boost::posix_time::milliseconds(_timeout));
+-  timer_.async_wait(boost::bind(&SerialCommunication::onTimer, this, _1));
++  timer_.async_wait(boost::bind(&SerialCommunication::onTimer, this, boost::placeholders::_1));
+   io_.reset();
+   io_.run();
+ }
