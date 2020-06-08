@@ -1,0 +1,75 @@
+From d4471f796cb7ec02c8fce5804e8c365265feaea1 Mon Sep 17 00:00:00 2001
+From: vcarpani <v.carpani@fizyr.com>
+Date: Tue, 22 Jan 2019 20:38:27 +0100
+Subject: [PATCH] Fix deprecated boost endians.
+
+Upstream-Status: Backport [1.10.0 https://github.com/PointCloudLibrary/pcl/commit/dbadf4143bdc503203da0d87a786752a60d29e76]
+---
+ common/include/pcl/PCLPointCloud2.h | 8 ++++----
+ io/include/pcl/io/ply/byte_order.h  | 8 ++++----
+ 2 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/common/include/pcl/PCLPointCloud2.h b/common/include/pcl/PCLPointCloud2.h
+index 6a00c1f2e..09859f109 100644
+--- a/common/include/pcl/PCLPointCloud2.h
++++ b/common/include/pcl/PCLPointCloud2.h
+@@ -3,12 +3,12 @@
+ 
+ #ifdef USE_ROS
+    #error USE_ROS setup requires PCL to compile against ROS message headers, which is now deprecated
+-#endif 
++#endif
+ 
+ #include <string>
+ #include <vector>
+ #include <ostream>
+-#include <boost/detail/endian.hpp>
++#include <boost/predef/other/endian.h>
+ 
+ // Include the correct Header path here
+ #include <pcl/PCLHeader.h>
+@@ -23,9 +23,9 @@ namespace pcl
+                      is_bigendian (false), point_step (0), row_step (0),
+                      data (), is_dense (false)
+     {
+-#if defined(BOOST_BIG_ENDIAN)
++#if BOOST_ENDIAN_BIG_BYTE
+       is_bigendian = true;
+-#elif defined(BOOST_LITTLE_ENDIAN)
++#elif BOOST_ENDIAN_LITTLE_BYTE
+       is_bigendian = false;
+ #else
+ #error "unable to determine system endianness"
+diff --git a/io/include/pcl/io/ply/byte_order.h b/io/include/pcl/io/ply/byte_order.h
+index 2af95d011..7e2830067 100644
+--- a/io/include/pcl/io/ply/byte_order.h
++++ b/io/include/pcl/io/ply/byte_order.h
+@@ -40,7 +40,7 @@
+ #ifndef PCL_IO_PLY_BYTE_ORDER_H
+ #define PCL_IO_PLY_BYTE_ORDER_H
+ 
+-#include <boost/detail/endian.hpp>
++#include <boost/predef/other/endian.h>
+ 
+ namespace pcl
+ {
+@@ -58,16 +58,16 @@ namespace pcl
+       {
+         little_endian_byte_order,
+         big_endian_byte_order,
+-#if defined(BOOST_BIG_ENDIAN)
++#if BOOST_ENDIAN_BIG_BYTE
+         host_byte_order = big_endian_byte_order,
+-#elif defined(BOOST_LITTLE_ENDIAN)
++#elif BOOST_ENDIAN_LITTLE_BYTE
+         host_byte_order = little_endian_byte_order,
+ #else
+ #error "unable to determine system endianness"
+ #endif
+         network_byte_order = big_endian_byte_order
+       };
+-      
++
+       template <std::size_t N>
+       void swap_byte_order (char* bytes);
+ 

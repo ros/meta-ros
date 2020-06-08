@@ -8,11 +8,12 @@ DEPENDS = "boost libflann libeigen qhull"
 SRCREV = "39732f5a7c8455ed51fd0f6278d8b25322a68dd9"
 # pcl-1.8.1 tag isn't in any branch
 ROS_BRANCH ?= "nobranch=1"
-SRC_URI = "git://github.com/PointCloudLibrary/pcl;${ROS_BRANCH};protocol=https"
-
+SRC_URI = "git://github.com/PointCloudLibrary/pcl;${ROS_BRANCH};protocol=https \
+    file://0001-Dereference-shared_ptr-fix-for-GCC8.patch \
+    file://0001-Fix-deprecated-boost-endians.patch \
+"
 S = "${WORKDIR}/git"
 
-SRC_URI += "file://0001-Dereference-shared_ptr-fix-for-GCC8.patch"
 
 EXTRA_OECMAKE += "\
   -DCMAKE_SKIP_RPATH=ON \
