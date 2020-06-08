@@ -1,0 +1,74 @@
+From 45bf9bcc8c4936081c9c4e3aa498fb38b4865300 Mon Sep 17 00:00:00 2001
+From: "P. J. Reed" <preed@swri.org>
+Date: Mon, 25 May 2020 11:34:33 -0500
+Subject: [PATCH] Fix build with gpsd 3.20
+
+Upstream-Status: Backport [https://github.com/swri-robotics/gps_umd/pull/28/commits/e0e9993816fe453b374b4e06b8ab53c5c9f56cb0]
+* fixes:
+  gpsd-client/0.3.1-1-r0/git/src/client.cpp:88:11: error: no match for 'operator!' (operand type is 'timespec_t' {aka 'timespec'})
+  gpsd-client/0.3.1-1-r0/git/src/client.cpp:156:27: error: cannot convert 'timespec_t' {aka 'timespec'} to 'gps_common::GPSFix_<std::allocator<void> >::_time_type' {aka 'double'} in assignment
+  gpsd-client/0.3.1-1-r0/git/src/client.cpp:204:50: error: no matching function for call to 'isnan(timespec_t&)'
+  gpsd-client/0.3.1-1-r0/recipe-sysroot/usr/include/c++/10.1.0/cmath:632:5: error: no type named '__type' in 'struct __gnu_cxx::__enable_if<false, bool>'
+  gpsd-client/0.3.1-1-r0/git/src/client.cpp:205:50: error: no matching function for call to 'ros::Time::Time(timespec_t&)'
+  gpsd-client/0.3.1-1-r0/git/src/client.cpp:88:11: error: no match for 'operator!' (operand type is 'timespec_t' {aka 'timespec'})
+  gpsd-client/0.3.1-1-r0/git/src/client.cpp:156:27: error: cannot convert 'timespec_t' {aka 'timespec'} to 'gps_common::GPSFix_<std::allocator<void> >::_time_type' {aka 'double'} in assignment
+  gpsd-client/0.3.1-1-r0/git/src/client.cpp:204:50: error: no matching function for call to 'isnan(timespec_t&)'
+  gpsd-client/0.3.1-1-r0/recipe-sysroot/usr/include/c++/10.1.0/cmath:632:5: error: no type named '__type' in 'struct __gnu_cxx::__enable_if<false, bool>'
+  gpsd-client/0.3.1-1-r0/git/src/client.cpp:205:50: error: no matching function for call to 'ros::Time::Time(timespec_t&)'
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/client.cpp | 22 +++++++++++++++++++---
+ 1 file changed, 19 insertions(+), 3 deletions(-)
+
+diff --git a/src/client.cpp b/src/client.cpp
+index 3df33db..32fdf7f 100644
+--- a/src/client.cpp
++++ b/src/client.cpp
+@@ -85,8 +85,13 @@ class GPSDClient {
+       if (p == NULL)
+         return;
+ 
+-      if (!p->online)
++#if GPSD_API_MAJOR_VERSION >= 9
++      if (!p->online.tv_sec && !p->online.tv_nsec) {
++#else
++      if (!p->online) {
++#endif
+         return;
++      }
+ 
+       process_data_gps(p);
+       process_data_navsat(p);
+@@ -153,7 +158,11 @@ class GPSDClient {
+           status.status |= 18; // same here
+ #endif
+ 
++#if GPSD_API_MAJOR_VERSION >= 9
++        fix.time = (double)(p->fix.time.tv_sec) + (double)(p->fix.time.tv_nsec) / 1000000.;
++#else
+         fix.time = p->fix.time;
++#endif
+         fix.latitude = p->fix.latitude;
+         fix.longitude = p->fix.longitude;
+         fix.altitude = p->fix.altitude;
+@@ -201,10 +210,17 @@ class GPSDClient {
+ 
+       /* TODO: Support SBAS and other GBAS. */
+ 
+-      if (use_gps_time && !std::isnan(p->fix.time))
++#if GPSD_API_MAJOR_VERSION >= 9
++      if (use_gps_time && (p->online.tv_sec || p->online.tv_nsec)) {
++        fix->header.stamp = ros::Time(p->fix.time.tv_sec, p->fix.time.tv_nsec);
++#else
++      if (use_gps_time && !std::isnan(p->fix.time)) {
+         fix->header.stamp = ros::Time(p->fix.time);
+-      else
++#endif
++      }
++      else {
+         fix->header.stamp = ros::Time::now();
++      }
+ 
+       fix->header.frame_id = frame_id;
+ 
