@@ -1,0 +1,64 @@
+From a6f53bdd013ef076443d6816c9361627485cdc00 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 8 Jun 2020 05:50:18 -0700
+Subject: [PATCH] Fix build with boost-1.73.0
+
+* fixes:
+  libcreate/2.0.0-1-r0/git/src/serial.cpp:166:78: error: '_1' was not declared in this scope
+  libcreate/2.0.0-1-r0/git/src/serial.cpp:166:82: error: '_2' was not declared in this scope
+  libcreate/2.0.0-1-r0/git/src/serial.cpp:43:66: error: '_1' was not declared in this scope
+  libcreate/2.0.0-1-r0/git/src/serial.cpp:43:70: error: '_2' was not declared in this scope
+  libcreate/2.0.0-1-r0/git/src/serial.cpp:93:78: error: '_1' was not declared in this scope
+  libcreate/2.0.0-1-r0/git/src/serial.cpp:93:82: error: '_2' was not declared in this scope
+  libcreate/2.0.0-1-r0/git/src/serial_query.cpp:33:89: error: '_1' was not declared in this scope
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/serial.cpp       | 6 +++---
+ src/serial_query.cpp | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/serial.cpp b/src/serial.cpp
+index ad9f7fc..e8f0fa0 100644
+--- a/src/serial.cpp
++++ b/src/serial.cpp
+@@ -40,7 +40,7 @@ namespace create {
+     port.set_option(serial_port::stop_bits(serial_port::stop_bits::one));
+     port.set_option(serial_port::flow_control(serial_port::flow_control::none));
+ 
+-    signals.async_wait(boost::bind(&Serial::signalHandler, this, _1, _2));
++    signals.async_wait(boost::bind(&Serial::signalHandler, this, boost::placeholders::_1, boost::placeholders::_2));
+ 
+     usleep(1000000);
+ 
+@@ -90,7 +90,7 @@ namespace create {
+     // Start continuously reading one byte at a time
+     boost::asio::async_read(port,
+                             boost::asio::buffer(&byteRead, 1),
+-                            boost::bind(&Serial::onData, shared_from_this(), _1, _2));
++                            boost::bind(&Serial::onData, shared_from_this(), boost::placeholders::_1, boost::placeholders::_2));
+ 
+     ioThread = boost::thread(boost::bind(&boost::asio::io_service::run, &io));
+ 
+@@ -163,7 +163,7 @@ namespace create {
+     // Read the next byte
+     boost::asio::async_read(port,
+                             boost::asio::buffer(&byteRead, 1),
+-                            boost::bind(&Serial::onData, shared_from_this(), _1, _2));
++                            boost::bind(&Serial::onData, shared_from_this(), boost::placeholders::_1, boost::placeholders::_2));
+   }
+ 
+   bool Serial::send(const uint8_t* bytes, unsigned int numBytes) {
+diff --git a/src/serial_query.cpp b/src/serial_query.cpp
+index 987cd26..5573314 100644
+--- a/src/serial_query.cpp
++++ b/src/serial_query.cpp
+@@ -30,7 +30,7 @@ namespace create {
+     send(requestPacket, 2);
+     // Automatically resend request if no response is received
+     streamRecoveryTimer.expires_from_now(boost::posix_time::milliseconds(50));
+-    streamRecoveryTimer.async_wait(boost::bind(&SerialQuery::restartSensorStream, this, _1));
++    streamRecoveryTimer.async_wait(boost::bind(&SerialQuery::restartSensorStream, this, boost::placeholders::_1));
+   }
+ 
+   void SerialQuery::restartSensorStream(const boost::system::error_code& err) {
