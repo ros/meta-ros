@@ -1,0 +1,104 @@
+From 506f5e5231f07d0abb9d6134e06e03f770ff2399 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 9 Jun 2020 10:37:30 -0700
+Subject: [PATCH] Fix build with boost-1.73.0
+
+Upstream-Status: Pending
+---
+ src/libprosilica/prosilica.cpp  | 12 ++++++------
+ src/nodes/prosilica_nodelet.cpp | 12 ++++++------
+ 2 files changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/src/libprosilica/prosilica.cpp b/src/libprosilica/prosilica.cpp
+index 67235d3..b0be871 100644
+--- a/src/libprosilica/prosilica.cpp
++++ b/src/libprosilica/prosilica.cpp
+@@ -175,8 +175,8 @@ static void openCamera(boost::function<tPvErr (tPvCameraInfo*)> info_fn,
+ Camera::Camera(unsigned long guid, size_t bufferSize)
+   : bufferSize_(bufferSize), FSTmode_(None)
+ {
+-  openCamera(boost::bind(PvCameraInfo, guid, _1),
+-             boost::bind(PvCameraOpen, guid, _1, &handle_));
++  openCamera(boost::bind(PvCameraInfo, guid, boost::placeholders::_1),
++             boost::bind(PvCameraOpen, guid, boost::placeholders::_1, &handle_));
+   
+   setup();
+ }
+@@ -186,8 +186,8 @@ Camera::Camera(const char* ip_address, size_t bufferSize)
+ {
+   unsigned long addr = inet_addr(ip_address);
+   tPvIpSettings settings;
+-  openCamera(boost::bind(PvCameraInfoByAddr, addr, _1, &settings),
+-             boost::bind(PvCameraOpenByAddr, addr, _1, &handle_));
++  openCamera(boost::bind(PvCameraInfoByAddr, addr, boost::placeholders::_1, &settings),
++             boost::bind(PvCameraOpenByAddr, addr, boost::placeholders::_1, &handle_));
+   
+   setup();
+ }
+@@ -459,7 +459,7 @@ static void getStringValuedAttribute(std::string &value,
+ void Camera::getAttributeEnum(const std::string &name, std::string &value)
+ {
+   getStringValuedAttribute(value,
+-    boost::bind(PvAttrEnumGet, handle_, name.c_str(), _1, _2, _3));
++    boost::bind(PvAttrEnumGet, handle_, name.c_str(), boost::placeholders::_1, boost::placeholders::_2, boost::placeholders::_3));
+ }
+ 
+ void Camera::getAttribute(const std::string &name, tPvUint32 &value)
+@@ -480,7 +480,7 @@ std::string err_msg = "Couldn't get attribute " + name;
+ void Camera::getAttribute(const std::string &name, std::string &value)
+ {
+   getStringValuedAttribute(value,
+-    boost::bind(PvAttrStringGet, handle_, name.c_str(), _1, _2, _3));
++    boost::bind(PvAttrStringGet, handle_, name.c_str(), boost::placeholders::_1, boost::placeholders::_2, boost::placeholders::_3));
+ }
+ 
+ void Camera::setAttributeEnum(const std::string &name, const std::string &value)
+diff --git a/src/nodes/prosilica_nodelet.cpp b/src/nodes/prosilica_nodelet.cpp
+index 373d0a0..019d512 100644
+--- a/src/nodes/prosilica_nodelet.cpp
++++ b/src/nodes/prosilica_nodelet.cpp
+@@ -230,7 +230,7 @@ private:
+ 
+         // Setup dynamic reconfigure server
+         reconfigure_server_.reset(new ReconfigureServer(config_mutex_, pn));
+-        ReconfigureServer::CallbackType f = boost::bind(&ProsilicaNodelet::reconfigureCallback, this, _1, _2);
++        ReconfigureServer::CallbackType f = boost::bind(&ProsilicaNodelet::reconfigureCallback, this, boost::placeholders::_1, boost::placeholders::_2);
+         reconfigure_server_->setCallback(f);
+     }
+ 
+@@ -331,7 +331,7 @@ private:
+     {
+         try
+         {
+-            camera_->setKillCallback(boost::bind(&ProsilicaNodelet::kill, this, _1));
++            camera_->setKillCallback(boost::bind(&ProsilicaNodelet::kill, this, boost::placeholders::_1));
+ 
+             if(auto_adjust_stream_bytes_per_second_ && camera_->hasAttribute("StreamBytesPerSecond"))
+                 camera_->setAttribute("StreamBytesPerSecond", (tPvUint32)(115000000/num_cameras));
+@@ -383,22 +383,22 @@ private:
+                     break;
+                 case prosilica::Freerun:
+                     NODELET_INFO("starting camera %s in freerun trigger mode", hw_id_.c_str());
+-                    camera_->setFrameCallback(boost::bind(&ProsilicaNodelet::publishImage, this, _1));
++                    camera_->setFrameCallback(boost::bind(&ProsilicaNodelet::publishImage, this, boost::placeholders::_1));
+                     camera_->start(prosilica::Freerun, 1., prosilica::Continuous);
+                     break;
+                 case prosilica::FixedRate:
+                     NODELET_INFO("starting camera %s in fixedrate trigger mode", hw_id_.c_str());
+-                    camera_->setFrameCallback(boost::bind(&ProsilicaNodelet::publishImage, this, _1));
++                    camera_->setFrameCallback(boost::bind(&ProsilicaNodelet::publishImage, this, boost::placeholders::_1));
+                     camera_->start(prosilica::FixedRate, update_rate_, prosilica::Continuous);
+                     break;
+                 case prosilica::SyncIn1:
+                     NODELET_INFO("starting camera %s in sync1 trigger mode", hw_id_.c_str());
+-                    camera_->setFrameCallback(boost::bind(&ProsilicaNodelet::publishImage, this, _1));
++                    camera_->setFrameCallback(boost::bind(&ProsilicaNodelet::publishImage, this, boost::placeholders::_1));
+                     camera_->start(prosilica::SyncIn1, update_rate_, prosilica::Continuous);
+                     break;
+                 case prosilica::SyncIn2:
+                     NODELET_INFO("starting camera %s in sync2 trigger mode", hw_id_.c_str());
+-                    camera_->setFrameCallback(boost::bind(&ProsilicaNodelet::publishImage, this, _1));
++                    camera_->setFrameCallback(boost::bind(&ProsilicaNodelet::publishImage, this, boost::placeholders::_1));
+                     camera_->start(prosilica::SyncIn2, update_rate_, prosilica::Continuous);
+                     break;
+                 default:
