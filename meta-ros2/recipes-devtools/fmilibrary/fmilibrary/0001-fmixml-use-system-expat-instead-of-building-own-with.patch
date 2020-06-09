@@ -1,0 +1,124 @@
+From e0ab696a4d304e99a18669354077872258a9909b Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 9 Jun 2020 12:48:53 +0000
+Subject: [PATCH] fmixml: use system expat instead of building own with
+ ExternalProject
+
+it generates duplicate rules for ExpatEx/libexpat.a and newer ninja-1.9.0 fails because of that:
+NOTE: VERBOSE=1 cmake --build fmilibrary/2.0.3-r0/build --target all -- -j 20
+ninja: error: build.ninja:1652: multiple rules generate ExpatEx/libexpat.a [-w dupbuild=err]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt            |  2 +-
+ Config.cmake/fmixml.cmake | 70 +++------------------------------------
+ 2 files changed, 5 insertions(+), 67 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f7372bf..9da8020 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -231,7 +231,7 @@ configure_file (
+   "${FMILibrary_BINARY_DIR}/fmilib_config.h"
+   ) 
+ 
+-set(FMILIB_SHARED_SUBLIBS ${FMIXML_LIBRARIES} ${FMIZIP_LIBRARIES} ${FMICAPI_LIBRARIES} expat minizip zlib c99snprintf)
++set(FMILIB_SHARED_SUBLIBS ${FMIXML_LIBRARIES} ${FMIZIP_LIBRARIES} ${FMICAPI_LIBRARIES} minizip zlib c99snprintf)
+ set(FMILIB_SUBLIBS ${FMIIMPORT_LIBRARIES} ${JMUTIL_LIBRARIES} ${FMILIB_SHARED_SUBLIBS})
+ set(FMILIB_SHARED_SRC ${FMIIMPORTSOURCE} ${JMUTILSOURCE} ${FMIIMPORTHEADERS})
+ 
+diff --git a/Config.cmake/fmixml.cmake b/Config.cmake/fmixml.cmake
+index 03acb3e..45cb0f7 100644
+--- a/Config.cmake/fmixml.cmake
++++ b/Config.cmake/fmixml.cmake
+@@ -83,7 +83,6 @@ endif()
+ 
+ include_directories("${FMIXMLDIR}/include" "${FMILIB_THIRDPARTYLIBS}/FMI/")
+ set(FMIXML_LIBRARIES fmixml)
+-set(FMIXML_EXPAT_DIR "${FMILIB_THIRDPARTYLIBS}/Expat/expat-2.1.0") 
+ 
+ set(FMIXMLHEADERS
+ 	include/FMI/fmi_xml_context.h
+@@ -139,71 +138,10 @@ set(FMIXMLSOURCE
+ 
+ SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DXML_STATIC -DFMI_XML_QUERY")
+ 
+-include(ExternalProject)
+-
+-set(EXPAT_SETTINGS
+-		-DBUILD_tools:BOOLEAN=OFF
+-		-DBUILD_examples:BOOLEAN=OFF
+-		-DBUILD_tests:BOOLEAN=OFF
+-		-DBUILD_shared:BOOLEAN=OFF
+-		-DXML_DTD:BOOLEAN=OFF
+-		-DXML_NS:BOOLEAN=OFF
+-		-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
+-		-DCMAKE_C_FLAGS:STRING=${CMAKE_C_FLAGS}
+-		-DCMAKE_C_FLAGS_DEBUG:STRING=${CMAKE_C_FLAGS_DEBUG}
+-		-DCMAKE_C_FLAGS_RELEASE:STRING=${CMAKE_C_FLAGS_RELEASE}
+-		-DCMAKE_C_FLAGS_MINSIZEREL:STRING=${CMAKE_C_FLAGS_MINSIZEREL}
+-		-DCMAKE_C_FLAGS_RELWITHDEBINFO:STRING=${CMAKE_C_FLAGS_RELWITHDEBINFO}
+-		-DCMAKE_EXE_LINKER_FLAGS:STRING=${CMAKE_EXE_LINKER_FLAGS}
+-		-DCMAKE_LINK_LIBRARY_FLAG:STRING=${CMAKE_LINK_LIBRARY_FLAG}
+-		-DCMAKE_MODULE_LINKER_FLAGS:STRING=${CMAKE_MODULE_LINKER_FLAGS}
+-		-DCMAKE_SHARED_LINKER_FLAGS:STRING=${CMAKE_SHARED_LINKER_FLAGS}	
+-		-DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_BINARY_DIR}/ExpatEx/install
+-)
+-
+-ExternalProject_Add(
+-	expatex
+-	PREFIX "${FMIXML_EXPAT_DIR}"
+-	SOURCE_DIR "${FMIXML_EXPAT_DIR}"
+-	CMAKE_CACHE_ARGS ${EXPAT_SETTINGS}
+-	BINARY_DIR ${CMAKE_BINARY_DIR}/ExpatEx
+-	INSTALL_DIR ${CMAKE_BINARY_DIR}/ExpatEx/install
+-	TMP_DIR     ${CMAKE_BINARY_DIR}/ExpatEx/tmp
+-    STAMP_DIR   ${CMAKE_BINARY_DIR}/ExpatEx/stamp
+-)
+-
+-ExternalProject_Add_Step(
+-	expatex dependent_reconfigure
+-	DEPENDEES configure
+-	DEPENDERS build
+-	COMMAND ${CMAKE_COMMAND} -E echo "Running:  ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}"  ${EXPAT_SETTINGS} ${FMIXML_EXPAT_DIR}"
+-	COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" ${EXPAT_SETTINGS} "${FMIXML_EXPAT_DIR}"
+-	DEPENDS ${CMAKE_BINARY_DIR}/CMakeCache.txt
+-	WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/ExpatEx
+-)
+-
+-add_dependencies(expatex ${CMAKE_BINARY_DIR}/CMakeCache.txt ${FMILIBRARYHOME}/CMakeLists.txt)
+-  
+-set(expatlib "${CMAKE_BINARY_DIR}/ExpatEx/${CMAKE_CFG_INTDIR}/${CMAKE_STATIC_LIBRARY_PREFIX}expat${CMAKE_STATIC_LIBRARY_SUFFIX}")
+-  
+-add_library(expat STATIC IMPORTED)
+-
+-set_target_properties(
+-	expat PROPERTIES 
+-		IMPORTED_LOCATION "${expatlib}"
+-)
+-
+-add_dependencies(expat expatex)
+-
+-if(FMILIB_INSTALL_SUBLIBS)
+-	install(FILES 
+-	"${CMAKE_BINARY_DIR}/ExpatEx/install/lib/${CMAKE_STATIC_LIBRARY_PREFIX}expat${CMAKE_STATIC_LIBRARY_SUFFIX}"
+-	DESTINATION lib)
+-endif()
+-
+-set(EXPAT_INCLUDE_DIRS ${CMAKE_BINARY_DIR}/ExpatEx/install/include)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(EXPAT REQUIRED expat)
+ 
+-include_directories("${EXPAT_INCLUDE_DIRS}" "${FMILIB_THIRDPARTYLIBS}/FMI/" "${FMIXMLGENDIR}/FMI1" "${FMIXMLGENDIR}/FMI2")
++include_directories("${FMILIB_THIRDPARTYLIBS}/FMI/" "${FMIXMLGENDIR}/FMI1" "${FMIXMLGENDIR}/FMI2")
+ 
+ PREFIXLIST(FMIXMLSOURCE  ${FMIXMLDIR}/)
+ PREFIXLIST(FMIXMLHEADERS ${FMIXMLDIR}/)
+@@ -219,6 +157,6 @@ debug_message(STATUS "adding fmixml")
+ 
+ add_library(fmixml ${FMILIBKIND} ${FMIXMLSOURCE} ${FMIXMLHEADERS})
+ 
+-target_link_libraries(fmixml ${JMUTIL_LIBRARIES} expat)
++target_link_libraries(fmixml ${JMUTIL_LIBRARIES} ${EXPAT_LIBRARIES})
+ 
+ endif(NOT FMIXMLDIR)

@@ -6,9 +6,13 @@ SECTION = "devel"
 LICENSE = "Zlib"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=feb42903281464837bc0c9a861b1e7a1"
 
-# matches with tag 2.1
-SRCREV = "d5ce0b923dd42fbc59b61edb17e837cd148e9501"
-SRC_URI = "git://github.com/modelon-community/fmi-library"
+DEPENDS = "expat"
+
+# matches with tag 2.2
+SRCREV = "0edf0b0387c4b0027b758956e8f1321d89c2fb75"
+SRC_URI = "git://github.com/modelon-community/fmi-library \
+    file://0001-fmixml-use-system-expat-instead-of-building-own-with.patch \
+"
 
 S = "${WORKDIR}/git"
 
@@ -24,6 +28,9 @@ EXTRA_OECMAKE += "-DFMILIB_GENERATE_DOXYGEN_DOC=OFF"
 # The default is in WORKDIR ${FMILibrary_BINARY_DIR}/../install
 EXTRA_OECMAKE += "-DFMILIB_INSTALL_PREFIX=${prefix}"
 
+# We don't want static expat to be included
+EXTRA_OECMAKE += "-DFMILIB_BUILD_STATIC_LIB=OFF"
+
 do_install_append() {
     install -d ${D}${datadir}/${PN}/doc
     mv ${D}${prefix}/doc ${D}${datadir}/${PN}/doc
@@ -34,9 +41,3 @@ FILES_SOLIBSDEV = ""
 FILES_${PN} += " \
     ${libdir}/lib*${SOLIBSDEV} \
 "
-
-# it generates duplicate rules for ExpatEx/libexpat.a and newer ninja-1.9.0 fails because of that
-# NOTE: VERBOSE=1 cmake --build fmilibrary/2.0.3-r0/build --target all -- -j 20
-# ninja: error: build.ninja:1652: multiple rules generate ExpatEx/libexpat.a [-w dupbuild=err]
-EXTRA_OECMAKE_BUILD_append_task-compile = "-w dupbuild=warn"
-EXTRA_OECMAKE_BUILD_append_task-install = "-w dupbuild=warn"
