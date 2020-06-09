@@ -1,0 +1,85 @@
+From 1a7d5c55f14c2a8b6bd0f9b3ebb511bad5b4d744 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 9 Jun 2020 10:37:30 -0700
+Subject: [PATCH] Fix build with boost-1.73.0
+
+---
+ src/libprosilica/prosilica.cpp | 12 ++++++------
+ src/nodes/prosilica_node.cpp   |  6 +++---
+ 2 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/src/libprosilica/prosilica.cpp b/src/libprosilica/prosilica.cpp
+index f635bbf..ec45b28 100644
+--- a/src/libprosilica/prosilica.cpp
++++ b/src/libprosilica/prosilica.cpp
+@@ -138,8 +138,8 @@ static void openCamera(boost::function<tPvErr (tPvCameraInfo*)> info_fn,
+ Camera::Camera(unsigned long guid, size_t bufferSize)
+   : bufferSize_(bufferSize), FSTmode_(None)
+ {
+-  openCamera(boost::bind(PvCameraInfo, guid, _1),
+-             boost::bind(PvCameraOpen, guid, _1, &handle_));
++  openCamera(boost::bind(PvCameraInfo, guid, boost::placeholders::_1),
++             boost::bind(PvCameraOpen, guid, boost::placeholders::_1, &handle_));
+   
+   setup();
+ }
+@@ -149,8 +149,8 @@ Camera::Camera(const char* ip_address, size_t bufferSize)
+ {
+   unsigned long addr = inet_addr(ip_address);
+   tPvIpSettings settings;
+-  openCamera(boost::bind(PvCameraInfoByAddr, addr, _1, &settings),
+-             boost::bind(PvCameraOpenByAddr, addr, _1, &handle_));
++  openCamera(boost::bind(PvCameraInfoByAddr, addr, boost::placeholders::_1, &settings),
++             boost::bind(PvCameraOpenByAddr, addr, boost::placeholders::_1, &handle_));
+   
+   setup();
+ }
+@@ -420,7 +420,7 @@ static void getStringValuedAttribute(std::string &value,
+ void Camera::getAttributeEnum(const std::string &name, std::string &value)
+ {
+   getStringValuedAttribute(value,
+-    boost::bind(PvAttrEnumGet, handle_, name.c_str(), _1, _2, _3));
++    boost::bind(PvAttrEnumGet, handle_, name.c_str(), boost::placeholders::_1, boost::placeholders::_2, boost::placeholders::_3));
+ }
+ 
+ void Camera::getAttribute(const std::string &name, tPvUint32 &value)
+@@ -441,7 +441,7 @@ std::string err_msg = "Couldn't get attribute " + name;
+ void Camera::getAttribute(const std::string &name, std::string &value)
+ {
+   getStringValuedAttribute(value,
+-    boost::bind(PvAttrStringGet, handle_, name.c_str(), _1, _2, _3));
++    boost::bind(PvAttrStringGet, handle_, name.c_str(), boost::placeholders::_1, boost::placeholders::_2, boost::placeholders::_3));
+ }
+ 
+ void Camera::setAttributeEnum(const std::string &name, const std::string &value)
+diff --git a/src/nodes/prosilica_node.cpp b/src/nodes/prosilica_node.cpp
+index 5143795..d8aa970 100644
+--- a/src/nodes/prosilica_node.cpp
++++ b/src/nodes/prosilica_node.cpp
+@@ -189,7 +189,7 @@ public:
+     set_camera_info_srv_ = nh_.advertiseService("set_camera_info", &ProsilicaNode::setCameraInfo, this);
+ 
+     // Start dynamic_reconfigure
+-    reconfigure_server_.setCallback(boost::bind(&ProsilicaNode::configure, this, _1, _2));
++    reconfigure_server_.setCallback(boost::bind(&ProsilicaNode::configure, this, boost::placeholders::_1, boost::placeholders::_2));
+   }
+ 
+   void configure(Config& config, uint32_t level)
+@@ -367,7 +367,7 @@ public:
+       else {
+         assert(trigger_mode_ == prosilica::Freerun);
+       }
+-      cam_->setFrameCallback(boost::bind(&ProsilicaNode::publishImage, this, _1));
++      cam_->setFrameCallback(boost::bind(&ProsilicaNode::publishImage, this, boost::placeholders::_1));
+       streaming_pub_ = it_.advertiseCamera("image_raw", 1);
+     }
+     cam_->start(trigger_mode_, prosilica::Continuous);
+@@ -618,7 +618,7 @@ public:
+ 
+     last_exposure_value_ = 0;
+     consecutive_stable_exposures_ = 0;
+-    cam_->setFrameCallback(boost::bind(&ProsilicaNode::normalizeCallback, this, _1));
++    cam_->setFrameCallback(boost::bind(&ProsilicaNode::normalizeCallback, this, boost::placeholders::_1));
+     cam_->start(prosilica::Freerun);
+ 
+     /// @todo thread safety
