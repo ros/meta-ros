@@ -12,6 +12,7 @@ SRC_URI += " \
     ${SRC_URI_FW}/TM2/FW/target/0.2.0.926/target-0.2.0.926.mvcmd;name=T26X_FW \
     file://0001-common-fw-CMakeLists.txt-respect-_FW_URL-when-set.patch \
     file://0001-CMakeLists.txt-Don-t-include-CMake-install_config.cm.patch \
+    file://0003-Fix-aarch64-arm-detection.patch \
 "
 
 SRC_URI[D4XX_FW.sha256sum] = "da0dea7df616ac4605b70b957288919d4792cd87bcb20d7fd262e2ec09131d8e"
