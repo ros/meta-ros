@@ -25,9 +25,14 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     domain-coordinator-native \
     foonathan-memory-vendor-native \
     rcpputils-native \
+    rmw-dds-common-native \
+    rmw-fastrtps-cpp-native \
+    rmw-fastrtps-shared-cpp-native \
     rmw-native \
     rosidl-adapter-native \
+    rosidl-default-runtime-native \
     rosidl-parser-native \
+    rosidl-typesupport-fastrtps-c-native \
     rpyutils-native \
     uncrustify-vendor-native \
 "
