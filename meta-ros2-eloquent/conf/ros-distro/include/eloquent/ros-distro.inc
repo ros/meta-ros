@@ -103,14 +103,18 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 "
 
 ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography = "python3-cryptography"
-#ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = "python3-ifcfg"
-#ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = "python3-netifaces"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = ""
-ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = ""
 
 ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "python3-mypy"
 
 ROS_UNRESOLVED_PLATFORM_PKG_python3-future = "python3-future"
+
+# Used by:
+# generated-recipes/ros2cli/ros2cli_0.8.7-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = "python3-netifaces"
+
+# Used by:
+# generated-recipes/ros2cli/ros2doctor_0.8.7-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = "python3-ifcfg"
 
 # Used by generated-recipes/geographic-info/geodesy_1.0.1-1.bb
 # use python3 version because python2 is EOL
