@@ -149,11 +149,11 @@ ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "adwaita-icon-theme"
 
 # Used by:
 # generated-recipes/ros2cli/ros2doctor_0.9.3-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = ""
+ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = "python3-ifcfg"
 
 # Used by:
 # generated-recipes/ros2cli/ros2cli_0.9.3-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = ""
+ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = "python3-netifaces"
 
 # python3 bindings are provided by lttng-tools when python PACKAGECONFIG is enabled there
 # Used by:
