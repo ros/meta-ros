@@ -1,0 +1,48 @@
+From 27af6c167662aeb28b2a71b4a7d94e7d3c8aeda7 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 30 Dec 2019 22:00:11 +0000
+Subject: [PATCH] CMakeLists.txt: don't build and install kvssdk
+
+---
+ CMakeLists.txt | 14 +-------------
+ 1 file changed, 1 insertion(+), 13 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2f93b99..430986e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,7 +15,7 @@ find_package(CURL REQUIRED)
+ 
+ ## Add KVS SDK libraries
+ include(FindKVSSDK.cmake)
+-add_subdirectory(kvssdk)
++##add_subdirectory(kvssdk)
+ 
+ 
+ #############
+@@ -27,7 +27,6 @@ add_library(${PROJECT_NAME} SHARED src/stream_definition_provider.cpp
+   src/kinesis_stream_manager.cpp src/default_callbacks.cpp
+   src/kinesis_video_stream_interface.cpp src/kinesis_video_producer_interface.cpp)
+ set(${PROJECT_NAME}_IMPORTED_LIBRARIES producer)
+-add_dependencies(${PROJECT_NAME} KVS_SDK_IMPORT)
+ 
+ foreach(_imported_lib ${${PROJECT_NAME}_IMPORTED_LIBRARIES})
+   if(NOT TARGET ${_imported_lib})
+@@ -122,17 +121,6 @@ install(
+   DESTINATION include
+ )
+ 
+-## Export KVS SDK artifacts
+-install(
+-  DIRECTORY ${KVSSDK_EXTERNAL_LIB_DIR}/
+-  DESTINATION lib/
+-)
+-
+-install(
+-  DIRECTORY ${KVSSDK_EXTERNAL_INCLUDE_DIR}/
+-  DESTINATION include
+-)
+-
+ export(TARGETS ${PROJECT_NAME}
+   FILE "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-targets.cmake")
+ export(PACKAGE ${PROJECT_NAME})
