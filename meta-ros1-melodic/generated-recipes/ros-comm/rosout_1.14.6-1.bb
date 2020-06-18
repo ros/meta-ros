@@ -5,19 +5,20 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "System-wide logging mechanism for messages sent to the /rosout topic."
+AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
+ROS_AUTHOR = "Josh Faust"
+HOMEPAGE = "http://ros.org/wiki/rosout"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "ros_comm"
+ROS_BPN = "rosout"
 
 ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
+    roscpp \
+    rosgraph-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -25,15 +26,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
+    roscpp \
+    rosgraph-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    roscpp \
+    rosgraph-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +47,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/ros-gbp/ros_comm-release/archive/release/melodic/rosout/1.14.6-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/rosout"
+SRC_URI = "git://github.com/ros-gbp/ros_comm-release;${ROS_BRANCH};protocol=https"
+SRCREV = "b45c1232c46de0158d42cead6acd96719a84beff"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

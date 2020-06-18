@@ -5,35 +5,40 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "The lgsvl_msgs package for ground truth data."
+AUTHOR = "David Uhm <david.uhm@lge.com>"
+ROS_AUTHOR = "David Uhm <david.uhm@lge.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "lgsvl_msgs"
+ROS_BPN = "lgsvl_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
+    geometry-msgs \
+    message-generation \
+    ros-environment \
+    sensor-msgs \
+    std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
-    catkin-native \
-"
+ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
+    geometry-msgs \
+    sensor-msgs \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    geometry-msgs \
+    message-runtime \
+    sensor-msgs \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +51,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/lgsvl/lgsvl_msgs-release/archive/release/melodic/lgsvl_msgs/0.0.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/lgsvl_msgs"
+SRC_URI = "git://github.com/lgsvl/lgsvl_msgs-release;${ROS_BRANCH};protocol=https"
+SRCREV = "a53781013315960f4967709d88349f49adb6e556"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

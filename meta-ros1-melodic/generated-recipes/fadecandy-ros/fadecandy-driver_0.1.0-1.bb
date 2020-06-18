@@ -5,35 +5,31 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "ROS driver for fadecandy LED controllers"
+AUTHOR = "Jon Binney <jon.binney@ironox.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "fadecandy_ros"
+ROS_BPN = "fadecandy_driver"
 
-ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_python-usb} \
+    diagnostic-updater \
+    fadecandy-msgs \
+    rospy \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/iron-ox/fadecandy_ros-release/archive/release/melodic/fadecandy_driver/0.1.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/fadecandy_driver"
+SRC_URI = "git://github.com/iron-ox/fadecandy_ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "ee33ad7c667e4c6e5bdfb9144584977330e7d01c"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

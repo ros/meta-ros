@@ -5,36 +5,27 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "The rover_zero_driver package"
+AUTHOR = "nickp <nickp@todo.todo>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "TODO"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "rr_openrover_stack"
+ROS_BPN = "rr_rover_zero_driver"
 
-ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""
@@ -46,10 +37,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/RoverRobotics-release/rr_openrover_stack-release/archive/release/melodic/rr_rover_zero_driver/1.1.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/rr_rover_zero_driver"
+SRC_URI = "git://github.com/RoverRobotics-release/rr_openrover_stack-release;${ROS_BRANCH};protocol=https"
+SRCREV = "f6be916f9697857e4e412909783b67883285c380"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

@@ -5,36 +5,31 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "A ROS package providing access to the HEBI C++ API."
+AUTHOR = "Chris Bollinger <chris@hebirobotics.com>"
+ROS_AUTHOR = "Chris Bollinger <chris@hebirobotics.com>"
+HOMEPAGE = "http://docs.hebi.us/tools.html#cpp-api"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "HEBI-C-Software-License-https-www.hebirobotics.com-softwarelicense-"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=8cc38e87392e4480a4870daca61af5fd"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "hebi_cpp_api_ros"
+ROS_BPN = "hebi_cpp_api"
 
 ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
+    cmake-modules \
+    libeigen \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""
@@ -46,10 +41,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/HebiRobotics/hebi_cpp_api_ros-release/archive/release/melodic/hebi_cpp_api/3.2.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/hebi_cpp_api"
+SRC_URI = "git://github.com/HebiRobotics/hebi_cpp_api_ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "405eeec2c2c8ade67c9bb8169f0ceacd17711a4f"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

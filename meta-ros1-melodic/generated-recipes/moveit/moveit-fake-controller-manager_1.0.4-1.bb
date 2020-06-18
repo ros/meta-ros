@@ -5,19 +5,22 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "A fake controller manager plugin for MoveIt."
+AUTHOR = "Michael Görner <me@v4hn.de>"
+ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
+HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "moveit"
+ROS_BPN = "moveit_fake_controller_manager"
 
 ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
+    moveit-core \
+    moveit-ros-planning \
+    pluginlib \
+    roscpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -25,15 +28,19 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
+    moveit-core \
+    moveit-ros-planning \
+    pluginlib \
+    roscpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    moveit-core \
+    moveit-ros-planning \
+    pluginlib \
+    roscpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +53,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/melodic/moveit_fake_controller_manager/1.0.4-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/moveit_fake_controller_manager"
+SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
+SRCREV = "21a6dc4f9839e927b6b1d0eff42d0750d6e74334"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

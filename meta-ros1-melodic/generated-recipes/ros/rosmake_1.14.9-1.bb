@@ -5,35 +5,31 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "rosmake is a ros dependency aware build tool which can be used to      build all dependencies in the correct order."
+AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
+ROS_AUTHOR = "Tully Foote <tfoote@osrfoundation.org>"
+HOMEPAGE = "http://wiki.ros.org/rosmake"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "ros"
+ROS_BPN = "rosmake"
 
-ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
+    ${PYTHON_PN}-setuptools-native \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    ${PYTHON_PN}-rospkg \
+    catkin \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/ros-gbp/ros-release/archive/release/melodic/rosmake/1.14.9-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/rosmake"
+SRC_URI = "git://github.com/ros-gbp/ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "191eadb0d0c363b548e2a51a7e9fa0e2b6d052d4"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

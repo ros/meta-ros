@@ -5,19 +5,19 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "This package wraps the libphidgets to use it as a ros dependency"
+AUTHOR = "Benjamin Maidel <benjamin.maidel@ipa.fraunhofer.de>"
+ROS_AUTHOR = "Alexander Bubeck"
+HOMEPAGE = "http://ros.org/wiki/libphidgets"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "LGPL-2"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=46ee8693f40a89a31023e97ae17ecf19"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "cob_extern"
+ROS_BPN = "libphidgets"
 
 ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -25,15 +25,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/ipa320/cob_extern-release/archive/release/melodic/libphidgets/0.6.17-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/libphidgets"
+SRC_URI = "git://github.com/ipa320/cob_extern-release;${ROS_BRANCH};protocol=https"
+SRCREV = "396d784874d5bc60d7fed10405e6fd624a10ef05"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

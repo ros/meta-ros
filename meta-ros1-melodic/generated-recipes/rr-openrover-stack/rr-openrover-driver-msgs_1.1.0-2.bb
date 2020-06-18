@@ -5,35 +5,32 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "The rr_openrover_driver_msgs package"
+AUTHOR = "Nick Padilla <nickpadilla@roverrobotics.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "rr_openrover_stack"
+ROS_BPN = "rr_openrover_driver_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
+    message-generation \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    message-runtime \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +43,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/RoverRobotics-release/rr_openrover_stack-release/archive/release/melodic/rr_openrover_driver_msgs/1.1.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/rr_openrover_driver_msgs"
+SRC_URI = "git://github.com/RoverRobotics-release/rr_openrover_stack-release;${ROS_BRANCH};protocol=https"
+SRCREV = "1e57a06da691b27332b4fb12e2d94c1ec22a9d8b"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

@@ -418,6 +418,8 @@ omniorb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb}
 opencl-headers:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_opencl-headers}
+opencv2:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_opencv2}
 opengl:
 - mesa@openembedded-core
 openssl:
@@ -625,8 +627,6 @@ python-serial:
 - ${PYTHON_PN}-pyserial@meta-python
 python-setuptools:
 - ${PYTHON_PN}-setuptools@openembedded-core
-python-sexpdata:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-sexpdata}
 python-simplejson:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson}
 python-sip:
@@ -659,6 +659,8 @@ python-twisted-core:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core}
 python-urlgrabber:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-urlgrabber}
+python-usb:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-usb}
 python-virtualenv:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv}
 python-websocket:

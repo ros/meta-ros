@@ -5,19 +5,19 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "ROS msgs for fadecandy LED controllers"
+AUTHOR = "Jon Binney <jon.binney@ironox.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "fadecandy_ros"
+ROS_BPN = "fadecandy_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
+    message-generation \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -25,15 +25,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    message-runtime \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +45,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/iron-ox/fadecandy_ros-release/archive/release/melodic/fadecandy_msgs/0.1.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/fadecandy_msgs"
+SRC_URI = "git://github.com/iron-ox/fadecandy_ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "cb65c422afde2135ec7dc1918d1c650b9cd09f15"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
