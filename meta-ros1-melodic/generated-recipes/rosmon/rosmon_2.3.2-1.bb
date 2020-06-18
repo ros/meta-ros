@@ -5,19 +5,20 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "Node launcher and monitor for ROS. rosmon is a replacement 		for the roslaunch tool, focused on performance, remote 		monitoring, and usability."
+AUTHOR = "Max Schwarz <max.schwarz@uni-bonn.de>"
+ROS_AUTHOR = "Max Schwarz <max.schwarz@uni-bonn.de>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=75730354549103aaba72b66caf53717b"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "rosmon"
+ROS_BPN = "rosmon"
 
 ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
+    rosmon-core \
+    rqt-rosmon \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -25,15 +26,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
+    rosmon-core \
+    rqt-rosmon \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    rosmon-core \
+    rqt-rosmon \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +47,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/xqms/rosmon-release/archive/release/melodic/rosmon/2.3.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/rosmon"
+SRC_URI = "git://github.com/xqms/rosmon-release;${ROS_BRANCH};protocol=https"
+SRCREV = "f252d13882d4fedf38292e8d236cea393cae354c"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

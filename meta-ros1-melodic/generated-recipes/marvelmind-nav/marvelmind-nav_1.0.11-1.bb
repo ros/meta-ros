@@ -5,19 +5,23 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "Marvelmind local navigation system"
+AUTHOR = "smoker77 <smoker77@gmail.com>"
+ROS_AUTHOR = "smoker77 <smoker77@gmail.com>"
+HOMEPAGE = "http://marvelmind.com"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "marvelmind_nav"
+ROS_BPN = "marvelmind_nav"
 
 ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
+    message-generation \
+    roscpp \
+    rospy \
+    std-msgs \
+    visualization-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -25,15 +29,21 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
+    message-runtime \
+    roscpp \
+    rospy \
+    std-msgs \
+    visualization-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    message-runtime \
+    roscpp \
+    rospy \
+    std-msgs \
+    visualization-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +56,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/MarvelmindRobotics/marvelmind_nav-release/archive/release/melodic/marvelmind_nav/1.0.11-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/marvelmind_nav"
+SRC_URI = "git://github.com/MarvelmindRobotics/marvelmind_nav-release;${ROS_BRANCH};protocol=https"
+SRCREV = "a6a5316b00e6512e0b6144257b6ed4bca61b579c"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

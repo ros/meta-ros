@@ -5,19 +5,19 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "Messages for transmitting audio via ROS"
+AUTHOR = "Austin Hendrix <namniart@gmail.com>"
+ROS_AUTHOR = "Nate Koenig"
+HOMEPAGE = "http://ros.org/wiki/audio_common_msgs"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=a3ae2ba3f0f44e61270955e8cd98afcf"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "audio_common"
+ROS_BPN = "audio_common_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
+    message-generation \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -25,15 +25,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
+    message-runtime \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    message-runtime \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/ros-gbp/audio_common-release/archive/release/melodic/audio_common_msgs/0.3.6-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/audio_common_msgs"
+SRC_URI = "git://github.com/ros-gbp/audio_common-release;${ROS_BRANCH};protocol=https"
+SRCREV = "6b8e90657fdbd90e2917681ff0c6a31d8d85e778"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

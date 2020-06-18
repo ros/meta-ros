@@ -5,35 +5,51 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "EusLisp meets SLIME"
-AUTHOR = "Guilherme de Campos Affonso <affonso@jsk.imi.i.u-tokyo.ac.jp>"
-ROS_AUTHOR = "Yuki Furuta"
-HOMEPAGE = "https://github.com/jsk-ros-pkg/euslime"
+DESCRIPTION = "ROS packaging system"
+AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
+ROS_AUTHOR = "Eric Berger"
+HOMEPAGE = "http://www.ros.org/wiki/ROS"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "euslime"
-ROS_BPN = "euslime"
+ROS_CN = "ros"
+ROS_BPN = "ros"
 
-ROS_BUILD_DEPENDS = " \
-    catkin-virtualenv \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    roseus \
-    slime-ros \
+    catkin \
+    mk \
+    rosbash \
+    rosboost-cfg \
+    rosbuild \
+    rosclean \
+    roscreate \
+    roslang \
+    roslib \
+    rosmake \
+    rosunit \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    roseus \
-    slime-ros \
+    catkin \
+    mk \
+    rosbash \
+    rosboost-cfg \
+    rosbuild \
+    rosclean \
+    roscreate \
+    roslang \
+    roslib \
+    rosmake \
+    rosunit \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +62,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/jsk-ros-pkg/euslime-release/archive/release/melodic/euslime/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/euslime"
-SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c64e504eb0afd45235fe774816318e515aaab548"
+# matches with: https://github.com/ros-gbp/ros-release/archive/release/melodic/ros/1.14.9-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/ros"
+SRC_URI = "git://github.com/ros-gbp/ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "232338202357bae77fddbb7ef71b149395b81fe7"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
