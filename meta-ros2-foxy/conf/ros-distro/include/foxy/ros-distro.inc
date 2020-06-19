@@ -184,3 +184,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete = "python3-argcomplete"
 # Used by:
 # generated-recipes/ifm3d-core/ifm3d-core_0.18.0-4.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++ = "xmlrpc-c"
+
+# Used by:
+# generated-recipes/ament-lint/ament-mypy_0.9.4-1.bb
+# generated-recipes/nodl/nodl-python_0.1.0-1.bb
+# generated-recipes/nodl/ros2nodl_0.1.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock = "python3-pytest-mock"
