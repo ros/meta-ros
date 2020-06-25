@@ -3,10 +3,13 @@
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-parser-native \
     rosidl-adapter-native \
+    rosidl-generator-cpp-native \
+    rosidl-generator-py-native \
+    rosidl-typesupport-cpp-native \
+    rosidl-typesupport-fastrtps-cpp-native \
+    rosidl-typesupport-fastrtps-c-native \
     python3-numpy-native \
     python3-lark-parser-native \
-    python3-empy-native \
-    rosidl-default-generators-native \
 "
 
 # Without the target rosidl-typesupport-{c,cpp}, ament finds the native packages and then fails to link (error: incompatible
