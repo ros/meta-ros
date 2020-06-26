@@ -1,0 +1,38 @@
+From 9aa8a98de71a1aaddc97e22de048cf0fd4806e9d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 26 Jun 2020 11:38:08 -0700
+Subject: [PATCH] CMakeLists.txt: don't install libimage_publisher.so twice in
+ libdir and then bindir
+
+* fixes:
+ERROR: image-publisher-2.1.0-1-r0 do_package: image-publisher: Multiple shlib providers for libimage_publisher.so: image-publisher, image-publisher (used by files: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/packages-split/image-publisher/usr/lib/image_publisher/image_publisher_node)
+WARNING: image-publisher-2.1.0-1-r0 do_package_qa: QA Issue: image-publisher: found library in wrong location: /usr/bin/libimage_publisher.so
+image-publisher-dbg: found library in wrong location: /usr/bin/.debug/libimage_publisher.so [libdir]
+
+* they are really identical:
+$ file /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/image/usr/lib/image_publisher/libimage_publisher.so /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/image/usr/bin/libimage_publisher.so
+/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/image/usr/lib/image_publisher/libimage_publisher.so: ELF 64-bit LSB shared object, x86-64, version 1 (GNU/Linux), dynamically linked, BuildID[sha1]=1c115b709478ba80078faf40b3c13985753078ae, with debug_info, not stripped
+/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/image/usr/bin/libimage_publisher.so:                 ELF 64-bit LSB shared object, x86-64, version 1 (GNU/Linux), dynamically linked, BuildID[sha1]=1c115b709478ba80078faf40b3c13985753078ae, with debug_info, not stripped
+
+$ md5sum /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/image/usr/lib/image_publisher/libimage_publisher.so /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/image/usr/bin/libimage_publisher.so
+f3406ac5de3d5f6f807f79fe9a654876  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/image/usr/lib/image_publisher/libimage_publisher.so
+f3406ac5de3d5f6f807f79fe9a654876  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/image/usr/bin/libimage_publisher.so
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1acf14b..3ced80c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -59,7 +59,7 @@ install(TARGETS image_publisher_node
+ install(TARGETS image_publisher
+         DESTINATION lib/${PROJECT_NAME}
+ )
+-install(TARGETS image_publisher
++install(TARGETS image_publisher_node
+         DESTINATION bin
+ )
+ install(DIRECTORY launch
