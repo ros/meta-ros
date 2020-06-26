@@ -52,19 +52,6 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch',
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
     launch-testing-ament-cmake \
 "
-# | CMake Error at .../cartographer/1.0.0-1-r0/recipe-sysroot/usr/lib/cmake/Ceres/CeresConfig.cmake:88 (message):
-# |   Failed to find Ceres - Missing requested Ceres components: [SuiteSparse]
-# |   (components requested: [SuiteSparse]).  Detected Ceres version: 1.14.0
-# |   installed in:
-# |   .../cartographer/1.0.0-1-r0/recipe-sysroot/usr
-# |   with components: [EigenSparse, SparseLinearAlgebraLibrary,
-# |   SchurSpecializations, OpenMP, Multithreading].
-# Also depends on python2 python-sphinx which isn't available in ROS2 which is python3-only
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cartographer', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CARTOGRAPHER}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CARTOGRAPHER = " \
-    cartographer \
-    cartographer-ros \
-"
 # recipes depending on python3-matplotlib
 # there is python2 version in meta-ros-common/recipes-devtools/python/python-matplotlib_2.1.1.bb
 # but no python3 version yet
