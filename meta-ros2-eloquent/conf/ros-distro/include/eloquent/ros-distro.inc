@@ -27,15 +27,6 @@ ROS_WORLD_SKIP_GROUPS += "clang"
 ROS_WORLD_SKIP_GROUPS += "docker"
 # Needs work to launch qemu to run tests on image on build machine.
 ROS_WORLD_SKIP_GROUPS += "launch"
-# | CMake Error at .../cartographer/1.0.0-1-r0/recipe-sysroot/usr/lib/cmake/Ceres/CeresConfig.cmake:88 (message):
-# |   Failed to find Ceres - Missing requested Ceres components: [SuiteSparse]
-# |   (components requested: [SuiteSparse]).  Detected Ceres version: 1.14.0
-# |   installed in:
-# |   .../cartographer/1.0.0-1-r0/recipe-sysroot/usr
-# |   with components: [EigenSparse, SparseLinearAlgebraLibrary,
-# |   SchurSpecializations, OpenMP, Multithreading].
-# Also depends on python2 python-sphinx which isn't available in ROS2 which is python3-only
-ROS_WORLD_SKIP_GROUPS += "cartographer"
 # recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
 ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 # recipes depending on ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace which cannot be just
