@@ -3,6 +3,8 @@ asio:
 - asio@meta-oe
 assimp:
 - assimp@openembedded-core
+assimp-dev:
+- assimp@openembedded-core
 boost:
 - boost@openembedded-core
 bullet:
@@ -26,9 +28,15 @@ curl:
 dkms: []
 eigen:
 - libeigen@meta-oe
+ffmpeg:
+- ffmpeg@openembedded-core
 g++-static: []
+gazebo11:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo11}
 git:
 - git@openembedded-core
+glut:
+- freeglut@meta-oe
 google-mock:
 - gtest@meta-oe
 gtest:
@@ -59,6 +67,10 @@ libfreetype6:
 - freetype@openembedded-core
 libfreetype6-dev:
 - freetype@openembedded-core
+libgazebo11-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo11-dev}
+libgeos++-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev}
 libgflags-dev:
 - gflags@meta-oe
 libglfw3-dev:
@@ -67,12 +79,18 @@ libgoogle-glog-dev:
 - glog@meta-oe
 libgpgme-dev:
 - gpgme@openembedded-core
+libgps:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgps}
+libjpeg:
+- jpeg@openembedded-core
 libncurses-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev}
 libogg:
 - libogg@openembedded-core
 libopencv-dev:
 - opencv@meta-oe
+libpcap:
+- libpcap@openembedded-core
 libpcl-all:
 - pcl@meta-ros
 libpcl-all-dev:
@@ -91,6 +109,8 @@ libssl-dev:
 - openssl@openembedded-core
 libtheora:
 - libtheora@openembedded-core
+libudev-dev:
+- udev@openembedded-core
 libusb-1.0:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0}
 libusb-1.0-dev:
@@ -105,6 +125,8 @@ libxmlrpc-c++:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++}
 libxrandr:
 - libxrandr@openembedded-core
+libxxf86vm:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libxxf86vm}
 libzmq3-dev:
 - zeromq@meta-oe
 libzstd-dev:
@@ -123,18 +145,24 @@ openssl:
 - openssl@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+proj:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_proj}
 protobuf-dev:
 - protobuf@meta-oe
 pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros
 pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros
+python-transforms3d-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-transforms3d-pip}
 python3-argcomplete:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete}
 python3-catkin-pkg:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-catkin-pkg}
 python3-catkin-pkg-modules:
 - python3-catkin-pkg@meta-ros
+python3-collada-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-collada-pip}
 python3-cryptography:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography}
 python3-dev:
@@ -185,6 +213,8 @@ python3-requests:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests}
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros
+python3-rospkg-modules:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules}
 python3-setuptools:
 - python3-setuptools@openembedded-core
 python3-sphinx:
@@ -201,6 +231,9 @@ sdl2:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_sdl2}
 spdlog:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog}
+suitesparse:
+- suitesparse-cxsparse@meta-ros
+- suitesparse-cholmod@meta-ros
 tango-icon-theme:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
 tinyxml:
@@ -211,7 +244,15 @@ udev:
 - udev@openembedded-core
 uncrustify:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify}
+urdf2webots-pip:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_urdf2webots-pip}
+wx-common:
+- wxwidgets@meta-ros
+wxwidgets:
+- wxwidgets@meta-ros
 yaml:
 - libyaml@openembedded-core
 yaml-cpp:
 - yaml-cpp@meta-ros
+zlib:
+- zlib@openembedded-core
