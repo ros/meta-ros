@@ -1,0 +1,21 @@
+Otherwise it fails with older Yocto with following error (doesn't fail with 3.2 Gatesgarth):
+
+| /jenkins/home/workspace/jansa/ros2-dashing-thud/ros2-dashing-thud/tmp-glibc/work/aarch64-oe-linux/cartographer/1.0.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/DenseStorage.h: In member function 'virtual void cartographer::sensor::{anonymous}::Collator_Ordering_Test::TestBody()':
+| /jenkins/home/workspace/jansa/ros2-dashing-thud/ros2-dashing-thud/tmp-glibc/work/aarch64-oe-linux/cartographer/1.0.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/DenseStorage.h: In member function 'virtual void cartographer::sensor::{anonymous}::Collator_OrderingMultipleTrajectories_Test::TestBody()':
+| /jenkins/home/workspace/jansa/ros2-dashing-thud/ros2-dashing-thud/tmp-glibc/work/aarch64-oe-linux/cartographer/1.0.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/DenseStorage.h:194:66: error: '*((void*)(&<anonymous>)+8).Eigen::DenseStorage<double, 3, 3, 1, 0>::m_data' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+|      DenseStorage(const DenseStorage& other) : m_data(other.m_data) {
+|                                                                   ^
+....
+| cc1plus: some warnings being treated as errors
+
+diff -uNr cartographer-release-release-melodic-cartographer-1.0.0-0/cmake/functions.cmake cartographer-release-release-melodic-cartographer-1.0.0-0.new/cmake/functions.cmake
+--- cartographer-release-release-melodic-cartographer-1.0.0-0/cmake/functions.cmake	2018-06-01 12:10:29.000000000 +0000
++++ cartographer-release-release-melodic-cartographer-1.0.0-0.new/cmake/functions.cmake	2019-09-07 20:28:53.786899683 +0000
+@@ -83,7 +83,6 @@
+   google_add_flag(GOOG_CXX_FLAGS "-Werror=reorder")
+   google_add_flag(GOOG_CXX_FLAGS "-Werror=return-type")
+   google_add_flag(GOOG_CXX_FLAGS "-Werror=switch")
+-  google_add_flag(GOOG_CXX_FLAGS "-Werror=uninitialized")
+ 
+   if(NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
+     set(CMAKE_BUILD_TYPE Release)
