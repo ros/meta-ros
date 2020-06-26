@@ -1,0 +1,110 @@
+From c1bc512b3b024b160d73516f84450a4fc271e2ea Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 26 Jun 2020 15:21:04 +0000
+Subject: [PATCH] CMakeLists.txt: enable C language to fix try_compile test
+ during cross-compile
+
+* works around unwind detection:
+
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for libunwind.h
+CMake Error at /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot-native/usr/share/cmake-3.16/Modules/CheckIncludeFile.cmake:93 (try_compile):
+  Unknown extension ".c" for file
+
+    /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+
+  try_compile() works only for enabled languages.  Currently these are:
+
+    CXX
+
+  See project() command to enable other languages.
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/cmake/glog/FindLibunwind.cmake:9 (check_include_file)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot-native/usr/share/cmake-3.16/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/cmake/glog/glog-config.cmake:32 (find_dependency)
+  modules/camera/src/libifm3d_camera/CMakeLists.txt:13 (find_package)
+
+-- Looking for libunwind.h - not found
+-- Looking for unwind.h
+CMake Error at /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot-native/usr/share/cmake-3.16/Modules/CheckIncludeFile.cmake:93 (try_compile):
+  Unknown extension ".c" for file
+
+    /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+
+  try_compile() works only for enabled languages.  Currently these are:
+
+    CXX
+
+  See project() command to enable other languages.
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/cmake/glog/FindLibunwind.cmake:10 (check_include_file)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot-native/usr/share/cmake-3.16/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/cmake/glog/glog-config.cmake:32 (find_dependency)
+  modules/camera/src/libifm3d_camera/CMakeLists.txt:13 (find_package)
+
+-- Looking for unwind.h - not found
+Can't find libunwind library
+CMake Warning at modules/camera/CMakeLists.txt:20 (message):
+  Skipping libifm3d-camera unit tests!
+
+-- Looking for C++ include pthread.h
+-- Looking for C++ include pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE
+-- Found Boost: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/cmake/Boost-1.72.0/BoostConfig.cmake (found version "1.72.0") found components: system
+Can't find libunwind library
+CMake Warning at modules/framegrabber/CMakeLists.txt:15 (message):
+  Skipping libifm3d-framegrabber unit tests!
+
+Can't find libunwind library
+-- Found CURL: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libcurl.so (found version "7.69.1")
+CMake Warning at modules/swupdater/CMakeLists.txt:16 (message):
+  Skipping libifm3d-swupdater unit tests!
+
+-- Found OpenCV: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr (found version "4.1.0") found components: core
+-- Checking for module 'eigen3'
+--   Found eigen3, version 3.3.7
+-- Found eigen: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/include/eigen3
+-- Found Boost: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/include (found suitable version "1.72.0", minimum required is "1.40.0") found components: system filesystem thread date_time iostreams chrono atomic regex
+-- looking for PCL_COMMON
+-- Found PCL_COMMON: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libpcl_common.so
+-- Found PCL: optimized;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_system.so.1.72.0;debug;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_system-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_filesystem-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_thread-mt.so;-lpthread;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_date_time-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_iostreams-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_chrono-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_atomic-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_regex-mt.so;optimized;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libpcl_common.so;debug;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libpcl_common.so;optimized;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_system.so.1.72.0;debug;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_system-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_filesystem-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_thread-mt.so;-lpthread;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_date_time-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_iostreams-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_chrono-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_atomic-mt.so;/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/libboost_regex-mt.so (Required is at least version "1.7")
+Can't find libunwind library
+CMake Warning at modules/image/CMakeLists.txt:23 (message):
+  Skipping libifm3d-image unit tests!
+
+Can't find libunwind library
+-- Found Boost: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/recipe-sysroot/usr/lib/cmake/Boost-1.72.0/BoostConfig.cmake (found version "1.72.0") found components: program_options
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/build/CMakeFiles/CMakeOutput.log".
+See also "/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/build/CMakeFiles/CMakeError.log".
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 246afa7..3dcc19b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 3.5)
+ cmake_policy(SET CMP0048 NEW)
+ # Manage version number here: Major.Minor.Patch (we don't use "tweak")
+-project(IFM3D VERSION 0.18.0 LANGUAGES CXX)
++project(IFM3D VERSION 0.18.0 LANGUAGES C CXX)
+ set(GIT_PROJECT_NAME "ifm3d")
+ 
+ # Make our cmake functions accessible
