@@ -58,9 +58,17 @@ ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
 # recipes depending on 'opengl' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 'opengl', d)}"
+# recipes depending on 'ffmpeg' which is restricted by 'commercial' LICENSE_FLAG
+ROS_WORLD_SKIP_GROUPS += "${@ 'ffmpeg' if not d.getVar('LICENSE_FLAGS_WHITELIST') or 'commercial' not in d.getVar('LICENSE_FLAGS_WHITELIST').split() else ''}"
 # There is recipe for glfw in meta-oe in dunfell, but it still needs x11 in DISTRO_FEATURES
 # use that in dunfell and blacklist explicitly in older releases
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'glfw', d)}"
+
+# webots recipes depending on unavailable python moules like:
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-transforms3d-pip' (but meta-ros2-foxy/generated-recipes/webots-ros2-desktop/webots-ros2-core_0.0.3-1.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-urdf2webots-pip' (but meta-ros2-foxy/generated-recipes/webots-ros2-desktop/webots-ros2-importer_0.0.3-1.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'UNRESOLVED-python3-collada-pip' (but meta-ros2-foxy/generated-recipes/webots-ros2-desktop/webots-ros2-importer_0.0.3-1.bb RDEPENDS on or otherwise requires it)
+ROS_WORLD_SKIP_GROUPS += "webots-python-modules"
 
 # recipes depending on gazebo, for which there is no OE recipe
 ROS_WORLD_SKIP_GROUPS += "gazebo"
@@ -194,3 +202,24 @@ ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++ = "xmlrpc-c"
 # generated-recipes/nodl/nodl-python_0.1.0-1.bb
 # generated-recipes/nodl/ros2nodl_0.1.0-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock = "python3-pytest-mock"
+
+# Used by:
+# generated-recipes/gps-umd/gpsd-client_1.0.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libgps = "gpsd"
+
+# Used by:
+# generated-recipes/marti-common/swri-transform-util_3.2.1-1.bb
+# generated-recipes/marti-common/swri-geometry-util_3.2.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev = "geos"
+
+# Used by:
+# generated-recipes/marti-common/swri-transform-util_3.2.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_proj = "proj"
+
+# Used by:
+# generated-recipes/mrpt2/mrpt2_2.0.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxxf86vm = "libxxf86vm"
+
+# Used by:
+# generated-recipes/rqt-robot-monitor/rqt-robot-monitor_1.0.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules = "python3-rospkg"
