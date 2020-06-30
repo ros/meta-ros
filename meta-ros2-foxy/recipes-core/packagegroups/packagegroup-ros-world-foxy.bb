@@ -58,11 +58,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rviz-ogre-vendor \
     rviz-rendering \
     rviz2 \
+    webots-ros2-epuck \
+    webots-ros2-tiago \
+    webots-ros2-universal-robot \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop \
+    joint-state-publisher-gui \
     python-qt-binding \
     qt-dotgraph \
     qt-gui \
@@ -84,6 +88,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-py-console \
     rqt-publisher \
     rqt-reconfigure \
+    rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
     rqt-shell \
@@ -98,16 +103,37 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz-visual-testing-framework \
     rviz2 \
     turtlesim \
+    webots-ros2-epuck \
+    webots-ros2-tiago \
+    webots-ros2-universal-robot \
 "
 
+# OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commercial".
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
+    mrpt2 \
+"
+
+# Recipes which need widgets enabled in qtbase PACKAGECONFIG which webOS OSE explicitly disables:
+# meta-webos/recipes-qt/qt5/qtbase_git.bbappend:PACKAGECONFIG_remove = "widgets"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5-widgets', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
     turtlesim \
 "
 
+# NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
+    gazebo-plugins \
+    gazebo-ros-pkgs \
+    gazebo-ros \
+    gazebo-rosdev \
+"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     desktop \
+    joint-state-publisher-gui \
     python-qt-binding \
     qt-dotgraph \
     qt-gui-app \
@@ -130,6 +156,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-py-common \
     rqt-py-console \
     rqt-reconfigure \
+    rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
     rqt-shell \
@@ -157,6 +184,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
+    webots-ros2-epuck \
+    webots-ros2-tiago \
+    webots-ros2-universal-robot \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'glfw', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW}', '', d)}"
@@ -170,4 +200,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ros1', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROS1}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROS1 = " \
     rosbag2-bag-v2-plugins \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'webots-python-modules', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
+    webots-ros2 \
+    webots-ros2-abb \
+    webots-ros2-demos \
+    webots-ros2-desktop \
+    webots-ros2-core \
+    webots-ros2-examples \
+    webots-ros2-importer \
 "
