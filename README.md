@@ -16,9 +16,8 @@ branch.
 The original implementation has been retained in the
 [`legacy`](https://github.com/ros/meta-ros/tree/legacy) branch.
 
-As of 2020-02-09, this branch can be used to build the December 2019 releases of
-ROS 2 **dashing** and **eloquent** and the portion of ROS 1 **melodic**
-required for the TurtleBot 3, using the not yet released OpenEmbedded
-**dunfell** on Ubuntu **bionic**. Multiple sublayers must be used. See
-[here](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions)
+As of 2020-07-01, this branch can be used to build the February and March 2020
+releases of ROS 2 **dashing** and **eloquent** and ROS 1 **melodic**.
+
+See [here](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions)
 for instructions.
