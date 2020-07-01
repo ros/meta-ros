@@ -42,7 +42,7 @@ OpenEmbeddedVersion = '2.6-513.1-thud'
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'thud')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'thud/milestones/10')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'thud/milestones/11')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
