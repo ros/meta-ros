@@ -26,6 +26,7 @@ Machines = ['qemux86', 'raspberrypi3']
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'thud')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'thud/milestones/5')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/webosose/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
@@ -52,7 +53,7 @@ Layers = [
 ('meta-qt5-compat',           19, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'krogoth', 'commit': 'dcfcb58'}, {}),
 
-('meta-ros',                  38, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch}, {}),
+('meta-ros',                  38, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
 
 ('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
 

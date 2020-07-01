@@ -24,6 +24,7 @@ Machines = ['qemux86', 'raspberrypi3']
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'thud')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'thud/milestones/5')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
@@ -39,7 +40,7 @@ Layers = [
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '9b3b907f30'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-ros',                  38, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch}, {}),
+('meta-ros',                  38, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
 
 ('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': 'c71d79e'}, {}),
 ]
