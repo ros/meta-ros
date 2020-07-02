@@ -16,11 +16,11 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'master/milestones/11')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'master')
-MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'master-2020-07-01')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'master-2020-07-02')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
-MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2020-06-30')
+MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2020-07-02')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
@@ -39,8 +39,8 @@ Layers = [
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'master', 'commit': '880788b'}, {}),
-('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'master', 'commit': '4344c3d'}, {}),
+('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'master', 'commit': 'b75914c'}, {}),
+('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'master', 'commit': '87b9e05'}, {}),
 ('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': 'master', 'commit': '2684086'}, {}),
 
 ('meta-qt5-compat',           19, MetaWebos_RepoURL,                                        {}, {}),
