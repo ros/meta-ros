@@ -1,0 +1,45 @@
+From 83a9d579b87d1948ac3cd3401594dc648f09a46e Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 7 Apr 2020 14:17:57 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in:
+  http://wiki.ros.org/roslaunch#Catkin
+* it's not really clear that roslaunch_add_file_check shouldn't
+  be called at all or roslaunch_add_file_check should check CATKIN_ENABLE_TESTING
+  before trying to call catkin_run_tests_target inside
+* see:
+  https://answers.ros.org/question/200359/purpose-of-roslaunch_add_file_check/
+  similar fix for imu_transformer in gentoo:
+  https://github.com/gentoo/gentoo/commit/452c8600bbe989ad3b4f06211cdbdccfe5eb2f52
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3a75a89..80ee89c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -5,12 +5,14 @@ find_package(catkin REQUIRED COMPONENTS roslaunch)
+ 
+ catkin_package()
+ 
+-roslaunch_add_file_check(launch/include/amcl.launch)
+-roslaunch_add_file_check(launch/amcl_demo.launch)
+-roslaunch_add_file_check(launch/include/gmapping.launch)
+-roslaunch_add_file_check(launch/gmapping_demo.launch)
+-roslaunch_add_file_check(launch/include/move_base.launch)
+-roslaunch_add_file_check(launch/odom_navigation_demo.launch)
++if (CATKIN_ENABLE_TESTING)
++  roslaunch_add_file_check(launch/include/amcl.launch)
++  roslaunch_add_file_check(launch/amcl_demo.launch)
++  roslaunch_add_file_check(launch/include/gmapping.launch)
++  roslaunch_add_file_check(launch/gmapping_demo.launch)
++  roslaunch_add_file_check(launch/include/move_base.launch)
++  roslaunch_add_file_check(launch/odom_navigation_demo.launch)
++endif()
+ 
+ install(
+ DIRECTORY launch maps params
