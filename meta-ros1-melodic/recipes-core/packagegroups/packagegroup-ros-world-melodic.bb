@@ -1507,11 +1507,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     default-cfg-fkie \
     derived-object-msgs \
     distance-map \
-    distance-map-deadreck \
-    distance-map-node \
-    distance-map-opencv \
     distance-map-rviz \
-    distance-map-tools \
     dlux-global-planner \
     dlux-plugins \
     driver-common \
@@ -1570,7 +1566,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     flexbe-widget \
     fmi-adapter-examples \
     four-wheel-steering-controller \
-    franka-control \
     freight-bringup \
     fsrobo-r-driver \
     fsrobo-r-trajectory-filters \
