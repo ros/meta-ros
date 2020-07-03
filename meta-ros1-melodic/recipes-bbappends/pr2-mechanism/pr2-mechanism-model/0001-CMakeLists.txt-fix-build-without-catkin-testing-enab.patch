@@ -1,0 +1,67 @@
+From 72425412d7421c4448751172ba126dc8a06062f3 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/gtest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 30 ++++++++++++++++--------------
+ 1 file changed, 16 insertions(+), 14 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8febbe2..3d0e8ce 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -41,23 +41,25 @@ endif()
+ pr2_enable_rpath(pr2_mechanism_model)
+ target_link_libraries(pr2_mechanism_model ${catkin_LIBRARIES} )
+ 
+-catkin_add_gtest(test_chain test/test_chain.cpp)
+-target_link_libraries(test_chain pr2_mechanism_model ${catkin_LIBRARIES})
++if (CATKIN_ENABLE_TESTING)
++  catkin_add_gtest(test_chain test/test_chain.cpp)
++  target_link_libraries(test_chain pr2_mechanism_model ${catkin_LIBRARIES})
+ 
+-catkin_add_gtest(test_wrist_transmission test/test_wrist_transmission.cpp)
+-target_link_libraries(test_wrist_transmission pr2_mechanism_model ${catkin_LIBRARIES})
++  catkin_add_gtest(test_wrist_transmission test/test_wrist_transmission.cpp)
++  target_link_libraries(test_wrist_transmission pr2_mechanism_model ${catkin_LIBRARIES})
+ 
+-# test joint calibration simulator for writing actuator state optical flags
+-#  in propagatePositionBackwards() call
+-add_executable(test_joint_calibration_simulator 
+-   test/test_joint_calibration_simulator.cpp
+-   src/joint_calibration_simulator.cpp)
+-target_link_libraries(test_joint_calibration_simulator pr2_mechanism_model ${catkin_LIBRARIES} ${GTEST_LIBRARIES})
+-add_dependencies(test_joint_calibration_simulator gtest gtest_main)
+-add_dependencies(tests test_joint_calibration_simulator)
+-set_target_properties(test_joint_calibration_simulator PROPERTIES EXCLUDE_FROM_ALL TRUE)
++  # test joint calibration simulator for writing actuator state optical flags
++  #  in propagatePositionBackwards() call
++  add_executable(test_joint_calibration_simulator 
++     test/test_joint_calibration_simulator.cpp
++     src/joint_calibration_simulator.cpp)
++  target_link_libraries(test_joint_calibration_simulator pr2_mechanism_model ${catkin_LIBRARIES} ${GTEST_LIBRARIES})
++  add_dependencies(test_joint_calibration_simulator gtest gtest_main)
++  add_dependencies(tests test_joint_calibration_simulator)
++  set_target_properties(test_joint_calibration_simulator PROPERTIES EXCLUDE_FROM_ALL TRUE)
+ 
+-add_rostest(test/test_joint_calibration_simulator.launch)
++  add_rostest(test/test_joint_calibration_simulator.launch)
++endif()
+ 
+ install(DIRECTORY include/${PROJECT_NAME}/
+    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
