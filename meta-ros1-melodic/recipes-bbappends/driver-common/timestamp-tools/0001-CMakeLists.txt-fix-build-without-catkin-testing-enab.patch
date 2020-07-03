@@ -1,0 +1,38 @@
+From 1b7dcd2da43457cbf7bf56432b3f8dd9f9d49339 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/gtest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7af9555..b64c76f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,5 +17,7 @@ install(DIRECTORY include/${PROJECT_NAME}/
+   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+   FILES_MATCHING PATTERN "*.h")
+ 
+-catkin_add_gtest(test_trigger_matcher test/test_trigger_matcher.cpp)
+-target_link_libraries(test_trigger_matcher ${catkin_LIBRARIES})
+\ No newline at end of file
++if (CATKIN_ENABLE_TESTING)
++  catkin_add_gtest(test_trigger_matcher test/test_trigger_matcher.cpp)
++  target_link_libraries(test_trigger_matcher ${catkin_LIBRARIES})
++endif()
