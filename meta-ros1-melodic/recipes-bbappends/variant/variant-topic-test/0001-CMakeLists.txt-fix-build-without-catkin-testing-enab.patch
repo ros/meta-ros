@@ -1,0 +1,72 @@
+From 9068b810380a482c1c35b102a238d8e77346c8bc Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/gtest_configuration.html
+* otherwise do_configure fails with:
+  recipe-sysroot-native/opt/ros/melodic/share/catkin/cmake/test/tests.cmake:18 (message):
+  () is not available when tests are not enabled.  The CMake code should only
+  use it inside a conditional block which checks that testing is enabled:
+
+  if(CATKIN_ENABLE_TESTING)
+
+    (...)
+
+  endif()
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 40 +++++++++++++++++++++-------------------
+ 1 file changed, 21 insertions(+), 19 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bfa6b79..7e9997a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -54,23 +54,25 @@ include_directories(
+ ## Tests ##
+ ###########
+ 
+-catkin_add_gtest(variant_topic_test
+-  test/variant_topic_test.cpp
+-  test/DataTypeTest.cpp
+-  test/DataTypeRegistryTest.cpp
+-  test/MD5SumTest.cpp
+-  test/MessageDefinitionTest.cpp
+-  test/MessageDefinitionParserTest.cpp
+-  test/MessageFieldCollectionTest.cpp
+-  test/MessageTest.cpp
+-  test/MessageTypeParserTest.cpp
+-  test/MessageTypeTest.cpp
+-  test/PointerTest.cpp
+-  test/SerializerTest.cpp
+-  test/VariantTest.cpp
+-)
++if (CATKIN_ENABLE_TESTING)
++  catkin_add_gtest(variant_topic_test
++    test/variant_topic_test.cpp
++    test/DataTypeTest.cpp
++    test/DataTypeRegistryTest.cpp
++    test/MD5SumTest.cpp
++    test/MessageDefinitionTest.cpp
++    test/MessageDefinitionParserTest.cpp
++    test/MessageFieldCollectionTest.cpp
++    test/MessageTest.cpp
++    test/MessageTypeParserTest.cpp
++    test/MessageTypeTest.cpp
++    test/PointerTest.cpp
++    test/SerializerTest.cpp
++    test/VariantTest.cpp
++  )
+ 
+-target_link_libraries(
+-  variant_topic_test
+-  ${catkin_LIBRARIES}
+-)
++  target_link_libraries(
++    variant_topic_test
++    ${catkin_LIBRARIES}
++  )
++endif()

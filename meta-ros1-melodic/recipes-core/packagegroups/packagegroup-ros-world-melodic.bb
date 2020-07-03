@@ -1097,7 +1097,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     octomap-rviz-plugins \
     open-manipulator-control-gui \
     plotjuggler \
-    pr2-mechanism-model \
     prosilica-gige-sdk \
     ps3joy \
     pyros-utils \
@@ -1113,12 +1112,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     swri-image-util \
     swri-profiler-tools \
     swri-transform-util \
-    timestamp-tools \
     trajectory-tracker-rviz-plugins \
     turtlesim \
     tuw-geometry \
-    um6 \
-    variant-topic-test \
     willow-maps \
     ypspur-ros \
 "
