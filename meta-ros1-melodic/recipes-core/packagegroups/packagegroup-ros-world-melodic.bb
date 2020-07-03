@@ -1364,11 +1364,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_TO_CONFIGURE = "\
     fmi-adapter \
     hebi-cpp-api \
     hpp-fcl \
-    husky-description \
-    husky-navigation \
     rviz-imu-plugin \
-    jackal-description \
-    jackal-navigation \
     ps3joy \
     libcmt \
     rosping \
@@ -1585,7 +1581,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_FAILING_BECAUSE_OF_ITS_DEPS = "\
     industrial-robot-simulator \
     industrial-trajectory-filters \
     ipr-extern \
-    jackal-control \
     jackal-desktop \
     jackal-viz \
     joint-trajectory-action \
