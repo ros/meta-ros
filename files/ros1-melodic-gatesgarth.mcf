@@ -42,7 +42,7 @@ OpenEmbeddedVersion = '3.2~master-gatesgarth'
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'master')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'master/milestones/12')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'master/milestones/13')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
