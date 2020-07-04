@@ -12,15 +12,15 @@ Machines = ['qemux86', 'raspberrypi4']
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'dunfell')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'dunfell/milestones/12')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'dunfell/milestones/13')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'dunfell')
-MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'dunfell/milestones/12')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'dunfell/milestones/13')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'dunfell')
-MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'dunfell/milestones/12')
+MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'dunfell/milestones/13')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
