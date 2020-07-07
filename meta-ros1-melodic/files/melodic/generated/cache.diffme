@@ -1,4 +1,4 @@
-# melodic/cache.yaml 20200612 c66680c83a5a5c5551e52e1ad9d2dead8b407ddd 20200609230125 1.4.0
+# melodic/cache.yaml 20200707 ff2b4d48c9825017c9713b187fd594d59c962f06 20200703212045 1.4.0
 distribution_file:
 - release_platforms:
 -----
@@ -11,7 +11,6 @@ repositories:
 abb: {
 release: {
 packages: [abb,
-abb_driver,
 abb_irb2400_moveit_config,
 abb_irb2400_moveit_plugins,
 abb_irb2400_support,
@@ -35,6 +34,13 @@ doc: {
 type: git,
 url: 'https://github.com/ros-industrial/abb_driver.git',
 version: kinetic-devel
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/ros-industrial-release/abb_driver-release.git',
+version: 1.4.0-1
 },
 source: {
 type: git,
@@ -1129,7 +1135,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/BehaviorTree/behaviortree_cpp_v3-release.git',
-version: 3.5.0-1
+version: 3.5.1-1
 },
 source: {
 type: git,
@@ -2530,6 +2536,28 @@ version: master
 status: developed
 }
 -----
+datmo: {
+doc: {
+type: git,
+url: 'https://github.com/kostaskonkk/datmo.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/kostaskonkk/datmo-release.git',
+version: 0.1.2-2
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/kostaskonkk/datmo.git',
+version: devel
+},
+status: maintained
+}
+-----
 dbw_fca_ros: {
 doc: {
 type: git,
@@ -2779,6 +2807,28 @@ source: {
 type: git,
 url: 'https://github.com/naoki-mizuno/ds4_driver.git',
 version: master
+},
+status: maintained
+}
+-----
+dual_quaternions: {
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/Achllle/dual_quaternions-release.git',
+version: 0.3.2-1
+},
+status: maintained
+}
+-----
+dual_quaternions_ros: {
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/Achllle/dual_quaternions_ros-release.git',
+version: 0.1.3-1
 },
 status: maintained
 }
@@ -3775,7 +3825,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/FlexBE/flexbe_behavior_engine-release.git',
-version: 1.2.4-1
+version: 1.2.5-1
 },
 source: {
 type: git,
@@ -4333,19 +4383,19 @@ status: unmaintained
 graph_msgs: {
 doc: {
 type: git,
-url: 'https://github.com/davetcoleman/graph_msgs.git',
+url: 'https://github.com/PickNikRobotics/graph_msgs.git',
 version: jade-devel
 },
 release: {
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
-url: 'https://github.com/davetcoleman/graph_msgs-release.git',
-version: 0.1.0-0
+url: 'https://github.com/PickNikRobotics/graph_msgs-release.git',
+version: 0.1.0-1
 },
 source: {
 type: git,
-url: 'https://github.com/davetcoleman/graph_msgs.git',
+url: 'https://github.com/PickNikRobotics/graph_msgs.git',
 version: jade-devel
 },
 status: maintained
@@ -5483,12 +5533,12 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/JdeRobot/assets-release.git',
-version: 1.0.2-1
+version: 1.0.4-3
 },
 source: {
 type: git,
 url: 'https://github.com/JdeRobot/assets.git',
-version: kinetic-devel
+version: melodic-devel
 },
 status: developed
 }
@@ -5509,13 +5559,29 @@ version: master
 }
 }
 -----
+jderobot_carviz: {
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/JdeRobot/carViz-release.git',
+version: 0.1.6-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/JdeRobot/carViz.git',
+version: master
+}
+}
+-----
 jderobot_color_tuner: {
 release: {
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/JdeRobot/ColorTuner-release.git',
-version: 0.0.4-2
+version: 0.0.5-2
 },
 source: {
 test_pull_requests: true,
@@ -5535,7 +5601,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/JdeRobot/drones-release.git',
-version: 1.3.2-1
+version: 1.3.2-5
 },
 source: {
 type: git,
@@ -5877,7 +5943,12 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/tork-a/jskeus-release.git',
-version: 1.2.1-1
+version: 1.2.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/euslisp/jskeus.git',
+version: master
 },
 status: developed
 }
@@ -6264,6 +6335,48 @@ status: developed,
 status_description: Slow development
 }
 -----
+leo_description: {
+doc: {
+type: git,
+url: 'https://github.com/LeoRover/leo_description.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/fictionlab-gbp/leo_description-release.git',
+version: 0.3.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/LeoRover/leo_description.git',
+version: master
+},
+status: maintained
+}
+-----
+leo_viz: {
+doc: {
+type: git,
+url: 'https://github.com/LeoRover/leo_viz.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/fictionlab-gbp/leo_viz-release.git',
+version: 0.2.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/LeoRover/leo_viz.git',
+version: master
+},
+status: maintained
+}
+-----
 leuze_ros_drivers: {
 release: {
 packages: [leuze_bringup,
@@ -6378,7 +6491,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/frankaemika/libfranka-release.git',
-version: 0.7.1-1
+version: 0.8.0-1
 },
 source: {
 test_commits: false,
@@ -6410,7 +6523,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/IntelRealSense/librealsense2-release.git',
-version: 2.33.1-2
+version: 2.35.2-2
 },
 source: {
 test_pull_requests: true,
@@ -6704,7 +6817,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/swri-robotics-gbp/marti_common-release.git',
-version: 2.13.1-1
+version: 2.13.7-1
 },
 source: {
 test_pull_requests: true,
@@ -6724,6 +6837,7 @@ version: master
 release: {
 packages: [marti_can_msgs,
 marti_common_msgs,
+marti_dbw_msgs,
 marti_nav_msgs,
 marti_perception_msgs,
 marti_sensor_msgs,
@@ -6733,7 +6847,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/swri-robotics-gbp/marti_messages-release.git',
-version: 0.8.0-0
+version: 0.9.0-1
 },
 source: {
 type: git,
@@ -7125,7 +7239,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/uos-gbp/mir_robot-release.git',
-version: 1.0.5-1
+version: 1.0.6-1
 },
 source: {
 test_pull_requests: true,
@@ -7152,6 +7266,27 @@ version: 1.0.1-1
 source: {
 type: git,
 url: 'https://github.com/astuff/ml_classifiers.git',
+version: master
+},
+status: maintained
+}
+-----
+mobile_robot_simulator: {
+doc: {
+type: git,
+url: 'https://github.com/nobleo/mobile_robot_simulator.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/nobleo/mobile_robot_simulator-release.git',
+version: 1.0.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/nobleo/mobile_robot_simulator.git',
 version: master
 },
 status: maintained
@@ -7490,7 +7625,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mrpt-ros-pkg-release/mrpt2-release.git',
-version: 2.0.3-1
+version: 2.0.4-1
 },
 source: {
 type: git,
@@ -7683,9 +7818,9 @@ status: maintained
 -----
 multisense_ros: {
 doc: {
-type: hg,
-url: 'https://bitbucket.org/crl/multisense_ros',
-version: default
+type: git,
+url: 'https://github.com/carnegierobotics/multisense_ros.git',
+version: master
 },
 release: {
 packages: [multisense,
@@ -7698,12 +7833,12 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/carnegieroboticsllc/multisense_ros-release.git',
-version: 4.0.3-1
+version: 4.0.4-1
 },
 source: {
-type: hg,
-url: 'https://bitbucket.org/crl/multisense_ros',
-version: default
+type: git,
+url: 'https://github.com/carnegierobotics/multisense_ros.git',
+version: master
 },
 status: maintained
 }
@@ -8008,7 +8143,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/neonavigation-release.git',
-version: 0.8.7-1
+version: 0.8.8-1
 },
 source: {
 type: git,
@@ -9455,7 +9590,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/PilzDE/pilz_robots-release.git',
-version: 0.5.16-1
+version: 0.5.18-1
 },
 source: {
 type: git,
@@ -10252,7 +10387,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/python_qt_binding-release.git',
-version: 0.4.2-1
+version: 0.4.3-1
 },
 source: {
 type: git,
@@ -10841,7 +10976,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/IntelRealSense/realsense-ros-release.git',
-version: 2.2.13-1
+version: 2.2.14-1
 },
 source: {
 test_pull_requests: true,
@@ -11955,7 +12090,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/xqms/rosbag_fancy-release.git',
-version: 0.1.1-1
+version: 0.2.0-1
 },
 source: {
 test_pull_requests: true,
@@ -11993,6 +12128,56 @@ version: 0.5.3-0
 source: {
 type: git,
 url: 'https://github.com/eurogroep/rosbag_pandas.git',
+version: master
+},
+status: maintained
+}
+-----
+rosbag_snapshot: {
+doc: {
+type: git,
+url: 'https://github.com/ros/rosbag_snapshot.git',
+version: main
+},
+release: {
+packages: [rosbag_snapshot,
+rosbag_snapshot_msgs],
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/ros-gbp/rosbag_snapshot-release.git',
+version: 1.0.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/ros/rosbag_snapshot.git',
+version: main
+},
+status: maintained
+}
+-----
+rosbag_uploader: {
+doc: {
+type: git,
+url: 'https://github.com/aws-robotics/rosbag-uploader-ros1.git',
+version: master
+},
+release: {
+packages: [file_uploader_msgs,
+recorder_msgs,
+rosbag_cloud_recorders,
+s3_common,
+s3_file_uploader],
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/aws-gbp/rosbag_uploader-release.git',
+version: 1.0.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/aws-robotics/rosbag-uploader-ros1.git',
 version: master
 },
 status: maintained
@@ -12570,7 +12755,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt-release.git',
-version: 0.5.1-1
+version: 0.5.2-1
 },
 source: {
 type: git,
@@ -13046,7 +13231,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_reconfigure-release.git',
-version: 0.5.1-1
+version: 0.5.3-1
 },
 source: {
 test_pull_requests: true,
@@ -13373,7 +13558,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/RoverRobotics-release/rr_openrover_stack-release.git',
-version: 1.1.0-2
+version: 1.1.1-1
 },
 source: {
 test_pull_requests: true,
@@ -13500,6 +13685,34 @@ version: indigo-devel
 status: developed
 }
 -----
+rtmros_nextage: {
+doc: {
+type: git,
+url: 'https://github.com/tork-a/rtmros_nextage.git',
+version: indigo-devel
+},
+release: {
+packages: [nextage_description,
+nextage_gazebo,
+nextage_ik_plugin,
+nextage_moveit_config,
+nextage_ros_bridge,
+rtmros_nextage],
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/tork-a/rtmros_nextage-release.git',
+version: 0.8.6-2
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/tork-a/rtmros_nextage.git',
+version: indigo-devel
+},
+status: maintained
+}
+-----
 rtshell: {
 doc: {
 type: git,
@@ -13553,7 +13766,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rviz-release.git',
-version: 1.13.12-1
+version: 1.13.13-1
 },
 source: {
 test_pull_requests: true,
@@ -13856,7 +14069,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/SICKAG/sick_safetyscanners-release.git',
-version: 1.0.4-1
+version: 1.0.5-1
 },
 source: {
 type: git,
@@ -14021,20 +14234,20 @@ soem: {
 doc: {
 type: git,
 url: 'https://github.com/mgruhler/soem.git',
-version: master
+version: melodic
 },
 release: {
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mgruhler/soem-gbp.git',
-version: 1.4.0-1
+version: 1.4.1002-1
 },
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/mgruhler/soem.git',
-version: master
+version: melodic
 },
 status: maintained
 }
@@ -14105,7 +14318,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/srdfdom-release.git',
-version: 0.5.1-0
+version: 0.5.2-1
 },
 source: {
 type: git,
@@ -14444,7 +14657,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/teleop_twist_keyboard-release.git',
-version: 0.6.2-0
+version: 1.0.0-1
 },
 source: {
 type: git,
@@ -15290,6 +15503,27 @@ version: master
 status: maintained
 }
 -----
+ur_msgs: {
+doc: {
+type: git,
+url: 'https://github.com/ros-industrial/ur_msgs.git',
+version: melodic
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/ros-industrial-release/ur_msgs-release.git',
+version: 1.3.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-industrial/ur_msgs.git',
+version: melodic-devel
+},
+status: developed
+}
+-----
 ur_robot_driver: {
 doc: {
 type: git,
@@ -15442,7 +15676,7 @@ urg_node: {
 doc: {
 type: git,
 url: 'https://github.com/ros-drivers/urg_node.git',
-version: indigo-devel
+version: kinetic-devel
 },
 release: {
 tags: {
@@ -15454,7 +15688,7 @@ version: 0.1.14-1
 source: {
 type: git,
 url: 'https://github.com/ros-drivers/urg_node.git',
-version: indigo-devel
+version: kinetic-devel
 },
 status: maintained
 }
@@ -15470,7 +15704,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/seqsense/urg_stamped-release.git',
-version: 0.0.5-1
+version: 0.0.6-2
 },
 source: {
 type: git,
@@ -16565,10 +16799,11 @@ abb_driver: <?xml version="1.0" ?>
 <author>Shaun Edwards</author>
 <maintainer email="levi.armstrong@swri.org">Levi Armstrong (Southwest Research Institute)</maintainer>
 <license>BSD</license>
-<url type="website">http://ros.org/wiki/abb_driver</url>
-<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
-<url type="repository">https://github.com/ros-industrial/abb</url>
+<url type="website">http://wiki.ros.org/abb_driver</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb_driver/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb_driver</url>
 <buildtool_depend>catkin</buildtool_depend>
+<build_depend>simple_message</build_depend>
 <depend>industrial_robot_client</depend>
 </package>
 -----
@@ -18362,6 +18597,7 @@ behaviortree_cpp_v3: <?xml version="1.0" ?>
 <depend condition="$ROS_VERSION == 2">rclcpp</depend>
 <depend>libzmq3-dev</depend>
 <depend>libncurses-dev</depend>
+<test_depend condition="$ROS_VERSION == 2">ament_cmake_gtest</test_depend>
 <export>
 <build_type condition="$ROS_VERSION == 1">catkin</build_type>
 <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
@@ -22626,6 +22862,33 @@ dataspeed_ulc_msgs: <?xml version="1.0" ?>
 <exec_depend>message_runtime</exec_depend>
 </package>
 -----
+datmo: <?xml version="1.0" ?>
+<package format="2">
+<name>datmo</name>
+<description>The LIDAR Detection and Tracking of Moving Objects package</description>
+<author email="kostaskonkk@gmail.com">Kostas Konstantinidis</author>
+<maintainer email="kostaskonkk@gmail.com">Kostas Konstantinidis</maintainer>
+<license>BSD</license>
+<license>MIT</license>
+<url type="repository">https://github.com/kostaskonkk/datmo</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>tf</build_depend>
+<build_depend>nav_msgs</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<build_depend>tf2_geometry_msgs</build_depend>
+<build_depend>eigen</build_depend>
+<build_depend>visualization_msgs</build_depend>
+<build_depend>cmake_modules</build_depend>
+<build_export_depend>roscpp</build_export_depend>
+<build_export_depend>std_msgs</build_export_depend>
+<exec_depend>roscpp</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<build_depend>message_generation</build_depend>
+<exec_depend>message_runtime</exec_depend>
+</package>
+-----
 dbw_fca: <?xml version="1.0" ?>
 <package format="2">
 <name>dbw_fca</name>
@@ -23811,6 +24074,34 @@ drone_wrapper: <?xml version="1.0" ?>
 <depend>gazebo_ros</depend>
 <depend>mavros</depend>
 <export/>
+</package>
+-----
+dual_quaternions: <?xml version="1.0" ?>
+<package format="2">
+<name>dual_quaternions</name>
+<description>dual quaternion operations</description>
+<maintainer email="achille.verheye@gmail.com">achille</maintainer>
+<license>MIT</license>
+<author email="achille.verheye@gmail.com">achille</author>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>pyquaternion</exec_depend>
+</package>
+-----
+dual_quaternions_ros: <?xml version="1.0" ?>
+<package format="2">
+<name>dual_quaternions_ros</name>
+<description>ROS msgs from and to dual quaternions</description>
+<maintainer email="achille.verheye@gmail.com">achille</maintainer>
+<license>MIT</license>
+<author email="achille.verheye@gmail.com">achille</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>rospy</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_export_depend>rospy</build_export_depend>
+<build_export_depend>geometry_msgs</build_export_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>dual_quaternions</exec_depend>
 </package>
 -----
 dwa_local_planner: <?xml version="1.0" ?>
@@ -26815,6 +27106,20 @@ file_management: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+file_uploader_msgs: <?xml version="1.0" ?>
+<package format="2">
+<name>file_uploader_msgs</name>
+<description>Messages and actions for S3 file uploader.</description>
+<author email="ros-contributions@amazon.com">AWS RoboMaker</author>
+<maintainer email="ros-contributions@amazon.com">AWS RoboMaker</maintainer>
+<license>Apache 2.0</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>actionlib_msgs</build_depend>
+<build_depend>message_generation</build_depend>
+<exec_depend>actionlib_msgs</exec_depend>
+<exec_depend>message_runtime</exec_depend>
+</package>
+-----
 filters: <?xml version="1.0" ?>
 <package>
 <name>filters</name>
@@ -27038,6 +27343,7 @@ flexbe_onboard: <?xml version="1.0" ?>
 <url>http://ros.org/wiki/flexbe_onboard</url>
 <author>Philipp Schillinger</author>
 <buildtool_depend>catkin</buildtool_depend>
+<build_depend>rostest</build_depend>
 <run_depend>smach_ros</run_depend>
 <run_depend>rospy</run_depend>
 <run_depend>flexbe_core</run_depend>
@@ -31741,12 +32047,39 @@ jderobot_camviz: <?xml version="1.0" ?>
 <export/>
 </package>
 -----
+jderobot_carviz: <?xml version="1.0" ?>
+<package format="3">
+<name>jderobot_carviz</name>
+<description>carViz package</description>
+<maintainer email="pankhurivanjani@gmail.com">Your Name</maintainer>
+<license>GPLv3</license>
+<author email="pankhurivanjani@gmail.com">Pankhuri Vanjani</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>pkg-config</build_depend>
+<build_depend>python3-yaml</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>rospy</build_depend>
+<build_depend>cv_bridge</build_depend>
+<build_depend>image_transport</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<exec_depend>python3-yaml</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>roscpp</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>cv_bridge</exec_depend>
+<exec_depend>image_transport</exec_depend>
+<export/>
+</package>
+-----
 jderobot_color_tuner: <?xml version="1.0" ?>
 <package format="1">
 <name>jderobot_color_tuner</name>
 <description>The jderobot_color_tuner tool package</description>
-<maintainer email="pankhurivanjani@gmail.com">Francisco Perez</maintainer>
-<author email="pankhurivanjani@gmail.com">Francisco Perez</author>
+<maintainer email="pankhurivanjani@gmail.com">Pankhuri Vanjani</maintainer>
+<author email="pankhurivanjani@gmail.com">Pankhuri Vanjani</author>
 <author email="f.perez475@gmail.com">Francisco Perez</author>
 <license>GPLv3</license>
 <buildtool_depend>catkin</buildtool_depend>
@@ -31756,7 +32089,6 @@ jderobot_color_tuner: <?xml version="1.0" ?>
 <build_depend>image_transport</build_depend>
 <build_depend>python-rospkg</build_depend>
 <build_depend>roslib</build_depend>
-<build_depend>opencv2</build_depend>
 <build_depend>cv_bridge</build_depend>
 <run_depend>rospy</run_depend>
 <run_depend>sensor_msgs</run_depend>
@@ -31764,7 +32096,6 @@ jderobot_color_tuner: <?xml version="1.0" ?>
 <run_depend>image_transport</run_depend>
 <run_depend>python-rospkg</run_depend>
 <run_depend>roslib</run_depend>
-<run_depend>opencv2</run_depend>
 <run_depend>cv_bridge</run_depend>
 <export/>
 </package>
@@ -34264,6 +34595,33 @@ leg_detector: <?xml version="1.0" ?>
 <exec_depend>map_laser</exec_depend>
 </package>
 -----
+leo_description: <?xml version="1.0" ?>
+<package format="2">
+<name>leo_description</name>
+<description>URDF Description package for Leo Rover</description>
+<author>Błażej Sowa</author>
+<maintainer email="support@fictionlab.pl">fictionlab</maintainer>
+<license>MIT</license>
+<buildtool_depend>catkin</buildtool_depend>
+<export/>
+</package>
+-----
+leo_viz: <?xml version="1.0" ?>
+<package format="2">
+<name>leo_viz</name>
+<description>Visualization launch files and RViz configurations for Leo Rover</description>
+<author>Błażej Sowa</author>
+<maintainer email="support@fictionlab.pl">fictionlab</maintainer>
+<license>MIT</license>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>joint_state_publisher</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>leo_description</exec_depend>
+<export/>
+</package>
+-----
 leuze_bringup: <?xml version="1.0" ?>
 <package format="2">
 <name>leuze_bringup</name>
@@ -34776,7 +35134,6 @@ Version 2.0</license>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>pkg-config</build_depend>
 <depend>libusb-1.0-dev</depend>
-<depend>linux-headers-generic</depend>
 <depend>libssl-dev</depend>
 <depend>dkms</depend>
 <depend>udev</depend>
@@ -35408,6 +35765,19 @@ marti_data_structures: <?xml version="1.0" ?>
 <license>BSD</license>
 <url>https://github.com/swri-robotics/marti_common</url>
 <buildtool_depend>catkin</buildtool_depend>
+</package>
+-----
+marti_dbw_msgs: <?xml version="1.0" ?>
+<package format="2">
+<name>marti_dbw_msgs</name>
+<description>marti_dbw_msgs</description>
+<maintainer email="mbries@swri.org">Matthew Bries</maintainer>
+<url type="repository">https://github.com/swri-robotics/marti_messages</url>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>std_msgs</depend>
+<build_depend>message_generation</build_depend>
+<exec_depend>message_runtime</exec_depend>
 </package>
 -----
 marti_nav_msgs: <?xml version="1.0" ?>
@@ -36530,6 +36900,7 @@ mir_dwb_critics: <?xml version="1.0" ?>
 <depend>pluginlib</depend>
 <depend>roscpp</depend>
 <depend>sensor_msgs</depend>
+<exec_depend>python-matplotlib</exec_depend>
 <export>
 <dwb_local_planner plugin="${prefix}/default_critics.xml"/>
 </export>
@@ -36598,8 +36969,10 @@ localization etc. on the MiR robot.</description>
 <exec_depend>map_server</exec_depend>
 <exec_depend>mir_driver</exec_depend>
 <exec_depend>mir_dwb_critics</exec_depend>
+<exec_depend>mir_gazebo</exec_depend>
 <exec_depend>move_base</exec_depend>
 <exec_depend>nav_core_adapter</exec_depend>
+<exec_depend>python-matplotlib</exec_depend>
 <exec_depend>sbpl_lattice_planner</exec_depend>
 </package>
 -----
@@ -36625,6 +36998,7 @@ message and action descriptions for the MiR100 robot.</description>
 <exec_depend>mir_gazebo</exec_depend>
 <exec_depend>mir_msgs</exec_depend>
 <exec_depend>mir_navigation</exec_depend>
+<exec_depend>sdc21x0</exec_depend>
 <export>
 <metapackage/>
 </export>
@@ -36683,6 +37057,27 @@ ml_classifiers: <?xml version="1.0" ?>
 <build_type condition="$ROS_VERSION == 1">catkin</build_type>
 <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
 </export>
+</package>
+-----
+mobile_robot_simulator: <?xml version="1.0" ?>
+<package>
+<name>mobile_robot_simulator</name>
+<description>The mobile_robot_simulator package</description>
+<maintainer email="tim.clephas@nobleo.nl">Tim Clephas</maintainer>
+<license>BSD</license>
+<author email="mrp@rvmi.aau.dk">Mikkel Rath Pedersen</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>nav_msgs</build_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>tf</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<run_depend>geometry_msgs</run_depend>
+<run_depend>nav_msgs</run_depend>
+<run_depend>roscpp</run_depend>
+<run_depend>tf</run_depend>
+<run_depend>sensor_msgs</run_depend>
+<export/>
 </package>
 -----
 mobileye_560_660_msgs: <?xml version="1.0" ?>
@@ -38026,6 +38421,9 @@ mrpt2: <?xml version="1.0" ?>
 <depend>libpcap</depend>
 <depend>libudev-dev</depend>
 <depend>libusb-1.0-dev</depend>
+<depend>libglfw3-dev</depend>
+<depend>libxrandr</depend>
+<depend>libxxf86vm</depend>
 <depend>suitesparse</depend>
 <depend>wx-common</depend>
 <depend>wxwidgets</depend>
@@ -38629,7 +39027,7 @@ multisense_bringup: <?xml version="1.0" ?>
 <description>multisense_bringup</description>
 <maintainer email="support@carnegierobotics.com">Carnegie Robotics</maintainer>
 <license>BSD</license>
-<url type="website">https://bitbucket.org/crl/multisense_ros</url>
+<url type="website">https://github.com/carnegierobotics/multisense_ros</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>multisense_ros</build_depend>
 <build_depend>multisense_description</build_depend>
@@ -38643,7 +39041,7 @@ multisense_cal_check: <?xml version="1.0" ?>
 <description>multisense_cal_check</description>
 <maintainer email="support@carnegierobotics.com">Carnegie Robotics</maintainer>
 <license>BSD</license>
-<url type="website">https://bitbucket.org/crl/multisense_ros</url>
+<url type="website">https://github.com/carnegierobotics/multisense_ros</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>multisense_ros</build_depend>
 <run_depend>multisense_ros</run_depend>
@@ -38655,7 +39053,7 @@ multisense_description: <?xml version="1.0" ?>
 <description>multisense_description</description>
 <maintainer email="support@carnegierobotics.com">Carnegie Robotics</maintainer>
 <license>BSD</license>
-<url type="website">https://bitbucket.org/crl/multisense_ros</url>
+<url type="website">https://github.com/carnegierobotics/multisense_ros</url>
 <buildtool_depend>catkin</buildtool_depend>
 </package>
 -----
@@ -38679,7 +39077,7 @@ multisense_ros: <?xml version="1.0" ?>
 <description>multisense_ros</description>
 <maintainer email="support@carnegierobotics.com">Carnegie Robotics</maintainer>
 <license>BSD</license>
-<url type="website">https://bitbucket.org/crl/multisense_ros</url>
+<url type="website">https://github.com/carnegierobotics/multisense_ros</url>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend>yaml-cpp</buildtool_depend>
 <build_depend>roscpp</build_depend>
@@ -39686,6 +40084,126 @@ loss and latency for a Linux network interface.</description>
 <build_depend>dynamic_reconfigure</build_depend>
 <run_depend>rospy</run_depend>
 <run_depend>dynamic_reconfigure</run_depend>
+</package>
+-----
+nextage_description: <?xml version="1.0" ?>
+<package>
+<name>nextage_description</name>
+<description>As a part of rtmros_nextage package that is a ROS interface for<a href="http://nextage.kawada.jp/en/">Nextage</a>dual-armed robot from Kawada Robotics Inc,
+this package provides its 3D model that can be used in simulation and<a href="http://ros.org/wiki/moveit">MoveIt!</a>-based motion planning tasks.</description>
+<maintainer email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</maintainer>
+<maintainer email="dev@opensource-robotics.tokyo.jp">TORK</maintainer>
+<author>Kei Okada</author>
+<author>Isaac Isao Saito</author>
+<author email="w.yasuda@opensource-robotics.tokyo.jp">Wataru Yasuda</author>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/nextage_description</url>
+<url type="bugtracker">https://github.com/tork-a/rtmros_nextage/issues</url>
+<url type="repository">https://github.com/tork-a/rtmros_nextage</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>urdf</build_depend>
+<run_depend>urdf</run_depend>
+<export/>
+</package>
+-----
+nextage_gazebo: <?xml version="1.0" ?>
+<package>
+<name>nextage_gazebo</name>
+<description>Gazebo simulation for NEXTAGE Open</description>
+<maintainer email="dev@opensource-robotics.tokyo.jp">TORK</maintainer>
+<license>BSD</license>
+<author email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</author>
+<author email="iiysaito@opensource-robotics.tokyo.jp">Isaac I. Y. Saito</author>
+<url type="website">http://wiki.ros.org/nextage_gazebo</url>
+<buildtool_depend>catkin</buildtool_depend>
+<run_depend>gazebo_plugins</run_depend>
+<run_depend>gazebo_ros</run_depend>
+<run_depend>gazebo_ros_control</run_depend>
+<run_depend>nextage_description</run_depend>
+<run_depend>nextage_moveit_config</run_depend>
+<run_depend>ros_controllers</run_depend>
+<test_depend>rostest</test_depend>
+<export>
+<gazebo_ros gazebo_model_path="${prefix}/models"/>
+</export>
+</package>
+-----
+nextage_ik_plugin: <?xml version="1.0" ?>
+<package>
+<name>nextage_ik_plugin</name>
+<description>IKFast package for NEXTAGE Open</description>
+<maintainer email="support@opensouce-robotics.tokyo.jp">IK Fast Plugin Creater</maintainer>
+<author email="534o@opensouce-robotics.tokyo.jp">TORK Developer 534o</author>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>liblapack-dev</build_depend>
+<build_depend>moveit_core</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>tf_conversions</build_depend>
+<run_depend>liblapack-dev</run_depend>
+<run_depend>moveit_core</run_depend>
+<run_depend>pluginlib</run_depend>
+<run_depend>roscpp</run_depend>
+<run_depend>tf_conversions</run_depend>
+<export>
+<moveit_core plugin="${prefix}/nextage_left_arm_moveit_ikfast_plugin_description.xml"/>
+<moveit_core plugin="${prefix}/nextage_right_arm_moveit_ikfast_plugin_description.xml"/>
+</export>
+</package>
+-----
+nextage_moveit_config: <?xml version="1.0" ?>
+<package>
+<name>nextage_moveit_config</name>
+<description>An automatically generated package with all the configuration and launch files for using the NextageOpen with the MoveIt Motion Planning Framework.</description>
+<maintainer email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</maintainer>
+<maintainer email="dev@opensource-robotics.tokyo.jp">TORK</maintainer>
+<author>Kei Okada</author>
+<author>Isaac Isao Saito</author>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/nextage_moveit_config</url>
+<url type="bugtracker">https://github.com/tork-a/rtmros_nextage/issues</url>
+<url type="repository">https://github.com/tork-a/rtmros_nextage</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>hironx_moveit_config</build_depend>
+<build_depend>nextage_ros_bridge</build_depend>
+<run_depend>hironx_moveit_config</run_depend>
+<run_depend>moveit_planners</run_depend>
+<run_depend>moveit_ros</run_depend>
+<run_depend>moveit_ros_move_group</run_depend>
+<run_depend>moveit_ros_planning_interface</run_depend>
+<run_depend>moveit_ros_visualization</run_depend>
+<run_depend>nextage_ros_bridge</run_depend>
+<run_depend>moveit_simple_controller_manager</run_depend>
+<run_depend>trac_ik_kinematics_plugin</run_depend>
+<test_depend>rostest</test_depend>
+<test_depend>joint_state_publisher</test_depend>
+<test_depend>robot_state_publisher</test_depend>
+</package>
+-----
+nextage_ros_bridge: <?xml version="1.0" ?>
+<package>
+<name>nextage_ros_bridge</name>
+<description>A main ROS interface for developers and users of<a href="http://nextage.kawada.jp/en/">Nextage</a>dual-armed robot from Kawada Robotics Inc. Developers can build their own application that takes control over Nextage via this package. Interface for both ROS and<a href="http://openrtm.org/">OpenRTM</a>is provided.</description>
+<maintainer email="dev@opensource-robotics.tokyo.jp">TORK</maintainer>
+<maintainer email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</maintainer>
+<author email="iisaito@opensource-robotics.tokyo.jp">Isaac Isao Saito</author>
+<author>Akio Ochiai</author>
+<license>BSD</license>
+<license>MIT</license>
+<url type="website">http://ros.org/wiki/nextage_ros_bridge</url>
+<url type="bugtracker">https://github.com/tork-a/rtmros_nextage/issues</url>
+<url type="repository">https://github.com/tork-a/rtmros_nextage</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend version_gte="1.1.13">hironx_ros_bridge</build_depend>
+<build_depend>nextage_description</build_depend>
+<build_depend>roslint</build_depend>
+<run_depend version_gte="1.1.13">hironx_ros_bridge</run_depend>
+<run_depend>nextage_description</run_depend>
+<run_depend>stereo_image_proc</run_depend>
+<run_depend>ar_track_alvar</run_depend>
+<test_depend>rostest</test_depend>
+<export/>
 </package>
 -----
 nlopt: <?xml version="1.0" ?>
@@ -42424,9 +42942,17 @@ pilz_control: <?xml version="1.0" ?>
 <depend>std_srvs</depend>
 <depend>controller_manager</depend>
 <depend>controller_interface</depend>
-<depend>pilz_utils</depend>
+<depend>moveit_core</depend>
+<depend>moveit_ros_planning</depend>
+<depend>pilz_msgs</depend>
 <test_depend>rostest</test_depend>
+<test_depend>rosunit</test_depend>
 <test_depend>code_coverage</test_depend>
+<test_depend>geometry_msgs</test_depend>
+<test_depend>tf2</test_depend>
+<test_depend>tf2_geometry_msgs</test_depend>
+<test_depend>pilz_utils</test_depend>
+<test_depend>pilz_testutils</test_depend>
 <export>
 <controller_interface plugin="${prefix}/pilz_control_plugins.xml"/>
 </export>
@@ -42615,6 +43141,8 @@ pilz_testutils: <?xml version="1.0" ?>
 <url type="repository">https://github.com/PilzDE/pilz_robots</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>roscpp</build_depend>
+<build_depend>pilz_utils</build_depend>
+<build_depend>sensor_msgs</build_depend>
 </package>
 -----
 pilz_trajectory_generation: <?xml version="1.0" ?>
@@ -44864,6 +45392,7 @@ prbt_hardware_support: <?xml version="1.0" ?>
 <run_depend>std_srvs</run_depend>
 <run_depend>sensor_msgs</run_depend>
 <run_depend>pilz_msgs</run_depend>
+<run_depend>rosservice</run_depend>
 <test_depend>rostest</test_depend>
 <test_depend>rosunit</test_depend>
 <test_depend>cmake_modules</test_depend>
@@ -44969,6 +45498,7 @@ kinematic and visual description of the Pilz light weight arm PRBT.</description
 <depend>roscpp</depend>
 <build_depend>canopen_chain_node</build_depend>
 <build_depend>pilz_utils</build_depend>
+<build_depend>roslint</build_depend>
 <build_depend>sensor_msgs</build_depend>
 <exec_depend>canopen_motor_node</exec_depend>
 <exec_depend>joint_state_controller</exec_depend>
@@ -46678,6 +47208,21 @@ without breaking the realtime behavior.</description>
 <test_depend>rosunit</test_depend>
 <test_depend>rostest</test_depend>
 <test_depend>actionlib</test_depend>
+</package>
+-----
+recorder_msgs: <?xml version="1.0" ?>
+<package format="2">
+<name>recorder_msgs</name>
+<description>Messages and actions for rosbag recorders.</description>
+<author email="ros-contributions@amazon.com">AWS RoboMaker</author>
+<maintainer email="ros-contributions@amazon.com">AWS RoboMaker</maintainer>
+<license>Apache 2.0</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>actionlib_msgs</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>message_generation</build_depend>
+<exec_depend>actionlib_msgs</exec_depend>
+<exec_depend>message_runtime</exec_depend>
 </package>
 -----
 remote_rosbag_record: <?xml version="1.0" ?>
@@ -48822,6 +49367,31 @@ rosbag: "<?xml version=\"1.0\" ?>
 </export>
 </package>"
 -----
+rosbag_cloud_recorders: <?xml version="1.0" ?>
+<package format="3">
+<name>rosbag_cloud_recorders</name>
+<description>Package with nodes that facilitate the recording of rosbag files</description>
+<author email="ros-contributions@amazon.com">AWS RoboMaker</author>
+<maintainer email="ros-contributions@amazon.com">AWS RoboMaker</maintainer>
+<license>Apache 2.0</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>actionlib</depend>
+<depend>actionlib_msgs</depend>
+<depend>aws_common</depend>
+<depend>aws_ros1_common</depend>
+<depend>boost</depend>
+<depend>file_uploader_msgs</depend>
+<depend>recorder_msgs</depend>
+<depend>rosbag_storage</depend>
+<depend>roscpp</depend>
+<depend>topic_tools</depend>
+<depend>xmlrpcpp</depend>
+<build_depend>roslint</build_depend>
+<test_depend>rostest</test_depend>
+<test_depend>gtest</test_depend>
+<test_depend>google-mock</test_depend>
+</package>
+-----
 rosbag_editor: <?xml version="1.0" ?>
 <package format="2">
 <name>rosbag_editor</name>
@@ -48863,6 +49433,7 @@ rosbag_fancy: <?xml version="1.0" ?>
 <depend>rosbag_storage</depend>
 <depend>roscpp</depend>
 <depend>rosfmt</depend>
+<depend>tf2_ros</depend>
 <depend>topic_tools</depend>
 </package>
 -----
@@ -48890,6 +49461,41 @@ rosbag_pandas: <?xml version="1.0" ?>
 <exec_depend>rospy_message_converter</exec_depend>
 <exec_depend>roslib</exec_depend>
 <buildtool_depend>catkin</buildtool_depend>
+</package>
+-----
+rosbag_snapshot: <?xml version="1.0" ?>
+<package format="2">
+<name>rosbag_snapshot</name>
+<description>The rosbag_snapshot package</description>
+<author email="kma1660+rsp@gmail.com">Kevin Allen</author>
+<maintainer email="davidvlu@gmail.com">David V. Lu!!</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>rosbag</depend>
+<depend>rosbag_snapshot_msgs</depend>
+<depend>roscpp</depend>
+<depend>rosgraph_msgs</depend>
+<depend>std_srvs</depend>
+<depend>topic_tools</depend>
+<test_depend>roslint</test_depend>
+<test_depend>rospy</test_depend>
+<test_depend>rostest</test_depend>
+<test_depend>rostopic</test_depend>
+<test_depend>std_msgs</test_depend>
+</package>
+-----
+rosbag_snapshot_msgs: <?xml version="1.0" ?>
+<package format="2">
+<name>rosbag_snapshot_msgs</name>
+<description>Service and message definitions for rosbag_snapshot</description>
+<author email="kma1660+rsp@gmail.com">Kevin Allen</author>
+<maintainer email="davidvlu@gmail.com">David V. Lu!!</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>rosgraph_msgs</depend>
+<build_depend>message_generation</build_depend>
+<build_export_depend>message_runtime</build_export_depend>
+<exec_depend>message_runtime</exec_depend>
 </package>
 -----
 rosbag_storage: <?xml version="1.0" ?>
@@ -51450,7 +52056,8 @@ rqt_ground_robot_teleop: <?xml version="1.0" ?>
 </package>
 -----
 rqt_gui: <?xml version="1.0" ?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
 <name>rqt_gui</name>
 <description>rqt_gui provides the main to start an instance of the ROS integrated graphical user interface provided by qt_gui.</description>
 <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
@@ -51461,8 +52068,11 @@ rqt_gui: <?xml version="1.0" ?>
 <author>Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend version_gte="0.3.0">qt_gui</build_depend>
-<run_depend>catkin</run_depend>
-<run_depend version_gte="0.3.0">qt_gui</run_depend>
+<exec_depend>python_qt_binding</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg-modules</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg-modules</exec_depend>
+<exec_depend version_gte="0.3.0">qt_gui</exec_depend>
+<exec_depend>rospy</exec_depend>
 </package>
 -----
 rqt_gui_cpp: <?xml version="1.0" ?>
@@ -51951,7 +52561,7 @@ rqt_py_trees: <?xml version="1.0" ?>
 </package>
 -----
 rqt_reconfigure: <?xml version="1.0" ?>
-<package format="2">
+<package format="3">
 <name>rqt_reconfigure</name>
 <description>This rqt plugin succeeds former dynamic_reconfigure's GUI (reconfigure_gui),
 and provides the way to view and edit the parameters that are accessible via dynamic_reconfigure.<br/>
@@ -51967,10 +52577,13 @@ this pkg solely is dependent on dynamic_reconfigure that allows access to only t
 <author>Isaac Saito</author>
 <author>Ze'ev Klapow</author>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
 <build_depend>roslint</build_depend>
 <exec_depend>dynamic_reconfigure</exec_depend>
 <exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
-<exec_depend>python-yaml</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-yaml</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-yaml</exec_depend>
 <exec_depend>rospy</exec_depend>
 <exec_depend>rqt_console</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
@@ -52427,7 +53040,7 @@ rr_openrover_description: <?xml version="1.0" ?>
 <name>rr_openrover_description</name>
 <description>The rr_openrover_description package</description>
 <maintainer email="nickpadilla@roverrobotics.com">Nick Padilla</maintainer>
-<license>TODO</license>
+<license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>roscpp</build_depend>
 <build_depend>rospy</build_depend>
@@ -52438,6 +53051,11 @@ rr_openrover_description: <?xml version="1.0" ?>
 <exec_depend>roscpp</exec_depend>
 <exec_depend>rospy</exec_depend>
 <exec_depend>std_msgs</exec_depend>
+<exec_depend>gazebo_msgs</exec_depend>
+<exec_depend>gazebo_plugins</exec_depend>
+<exec_depend>gazebo_ros</exec_depend>
+<exec_depend>gazebo_ros_control</exec_depend>
+<exec_depend>gazebo_ros_pkgs</exec_depend>
 <export/>
 </package>
 -----
@@ -52487,7 +53105,7 @@ rr_openrover_simulation: <?xml version="1.0" ?>
 <name>rr_openrover_simulation</name>
 <description>The rr_openrover_simulation package</description>
 <maintainer email="nickpadilla@roverrobotics.com">Nick Padilla</maintainer>
-<license>TODO</license>
+<license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>std_msgs</exec_depend>
 <exec_depend>gazebo_msgs</exec_depend>
@@ -52504,13 +53122,13 @@ rr_openrover_stack: <?xml version="1.0" ?>
 <description>Packages related to the operation of Rover Robotics rover hardware. This includes a client for interfacing with the hardware (rr_openrover_driver) and a tool for filtering time stamped velocity commands (rr_control_input_manager).</description>
 <maintainer email="nickpadilla@roverrobotics.com">Nick Padilla</maintainer>
 <license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
 <exec_depend>rr_openrover_driver</exec_depend>
 <exec_depend>rr_rover_zero_driver</exec_depend>
 <exec_depend>rr_openrover_driver_msgs</exec_depend>
 <exec_depend>rr_control_input_manager</exec_depend>
 <exec_depend>rr_openrover_description</exec_depend>
 <exec_depend>rr_openrover_simulation</exec_depend>
-<buildtool_depend>catkin</buildtool_depend>
 <export>
 <metapackage/>
 </export>
@@ -52521,9 +53139,15 @@ rr_rover_zero_driver: <?xml version="1.0" ?>
 <name>rr_rover_zero_driver</name>
 <description>The rover_zero_driver package</description>
 <maintainer email="nickp@todo.todo">nickp</maintainer>
-<license>TODO</license>
+<license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
-<export/>
+<depend>rospy</depend>
+<depend>geometry_msgs</depend>
+<depend>diagnostic_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>std_msgs</depend>
+<depend>python_orocos_kdl</depend>
+<depend>python-serial</depend>
 </package>
 -----
 rslidar: <?xml version="1.0" ?>
@@ -52874,6 +53498,31 @@ and the steps for it are not shared publicly in order to avoid any possible inco
 </export>
 </package>'
 -----
+rtmros_nextage: <?xml version="1.0" ?>
+<package>
+<name>rtmros_nextage</name>
+<description>The rtmros_nextage package is a ROS interface for<a href="http://nextage.kawada.jp/en/">Nextage</a>dual-armed robot from Kawada Robotics Inc.</description>
+<maintainer email="dev@opensource-robotics.tokyo.jp">TORK</maintainer>
+<maintainer email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</maintainer>
+<author>Kei Okada</author>
+<author>Isaac Isao Saito</author>
+<author email="w.yasuda@opensource-robotics.tokyo.jp">Wataru Yasuda</author>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/rtmros_nextage</url>
+<url type="bugtracker">https://github.com/tork-a/rtmros_nextage/issues</url>
+<url type="repository">https://github.com/tork-a/rtmros_nextage</url>
+<buildtool_depend>catkin</buildtool_depend>
+<run_depend>nextage_calibration</run_depend>
+<run_depend>nextage_description</run_depend>
+<run_depend>nextage_gazebo</run_depend>
+<run_depend>nextage_ik_plugin</run_depend>
+<run_depend>nextage_moveit_config</run_depend>
+<run_depend>nextage_ros_bridge</run_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
 rtshell: <?xml version="1.0" ?>
 <package>
 <name>rtshell</name>
@@ -53180,6 +53829,44 @@ rxros_tf: <?xml version="1.0" ?>
 <build_depend>rxros</build_depend>
 <build_export_depend>rxros</build_export_depend>
 <depend>tf</depend>
+</package>
+-----
+s3_common: <?xml version="1.0" ?>
+<package format="3">
+<name>s3_common</name>
+<description>Common utilities for interacting with AWS S3</description>
+<author email="ros-contributions@amazon.com">AWS RoboMaker</author>
+<maintainer email="ros-contributions@amazon.com">AWS RoboMaker</maintainer>
+<license>Apache 2.0</license>
+<buildtool_depend>cmake</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<depend>aws_common</depend>
+<depend>boost</depend>
+<test_depend condition="$ROS_VERSION == 1">google-mock</test_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+s3_file_uploader: <?xml version="1.0" ?>
+<package format="3">
+<name>s3_file_uploader</name>
+<description>Package with a node that facilitates the uploading of files to Amazon S3</description>
+<author email="ros-contributions@amazon.com">AWS RoboMaker</author>
+<maintainer email="ros-contributions@amazon.com">AWS RoboMaker</maintainer>
+<license>Apache 2.0</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>actionlib</depend>
+<depend>actionlib_msgs</depend>
+<depend>aws_common</depend>
+<depend>aws_ros1_common</depend>
+<depend>boost</depend>
+<depend>file_uploader_msgs</depend>
+<depend>roscpp</depend>
+<depend>s3_common</depend>
+<test_depend>gtest</test_depend>
+<test_depend>google-mock</test_depend>
+<test_depend>rostest</test_depend>
 </package>
 -----
 safe_teleop_base: <?xml version="1.0" ?>
@@ -53953,6 +54640,7 @@ sick_safetyscanners: <?xml version="1.0" ?>
 <maintainer email="puck@fzi.de">Lennart Puck</maintainer>
 <author>Lennart Puck</author>
 <license>ALv2</license>
+<depend>diagnostic_updater</depend>
 <depend>roscpp</depend>
 <depend>sensor_msgs</depend>
 <depend>std_msgs</depend>
@@ -54650,28 +55338,23 @@ speech_recognition_msgs: <?xml version="1.0" ?>
 </package>
 -----
 srdfdom: <?xml version="1.0" ?>
-<package>
+<package format="2">
 <name>srdfdom</name>
 <description>Parser for Semantic Robot Description Format (SRDF).</description>
 <author email="isucan@willowgarage.com">Ioan Sucan</author>
 <author email="gwalck@techfak.uni-bielefeld.de">Guillaume Walck</author>
-<maintainer email="dave@dav.ee">Dave Coleman</maintainer>maintainer&gt;<maintainer email="130s@2000.jukuin.keio.ac.jp">Isaac I. Y. Saito</maintainer>maintainer&gt;<license>BSD</license>
+<maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
+<license>BSD</license>
 <url type="website">http://ros.org/wiki/srdfdom</url>
 <url type="bugtracker">https://github.com/ros-planning/srdfdom/issues</url>
 <url type="repository">https://github.com/ros-planning/srdfdom</url>
 <buildtool_depend>catkin</buildtool_depend>
-<build_depend>boost</build_depend>
+<depend>boost</depend>
+<depend>urdf</depend>
+<depend>tinyxml</depend>
 <build_depend>cmake_modules</build_depend>
 <build_depend>libconsole-bridge-dev</build_depend>
-<build_depend>urdf</build_depend>
-<build_depend>liburdfdom-headers-dev</build_depend>
-<build_depend>urdfdom_py</build_depend>
-<build_depend>tinyxml</build_depend>
-<run_depend>boost</run_depend>
-<run_depend>libconsole-bridge-dev</run_depend>
-<run_depend>liburdfdom-headers-dev</run_depend>
-<run_depend>tinyxml</run_depend>
-<run_depend>urdfdom_py</run_depend>
+<exec_depend>urdfdom_py</exec_depend>
 <test_depend>rostest</test_depend>
 </package>
 -----
@@ -54978,6 +55661,7 @@ swri_image_util: <?xml version="1.0" ?>
 <url>https://github.com/swri-robotics/marti_common</url>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend>pkg-config</buildtool_depend>
+<depend>boost</depend>
 <depend>camera_calibration_parsers</depend>
 <depend>cv_bridge</depend>
 <depend>eigen</depend>
@@ -55011,6 +55695,7 @@ swri_math_util: <?xml version="1.0" ?>
 <license>BSD</license>
 <url>https://github.com/swri-robotics/marti_common</url>
 <buildtool_depend>catkin</buildtool_depend>
+<depend>boost</depend>
 <depend>roscpp</depend>
 <test_depend>rostest</test_depend>
 </package>
@@ -55022,6 +55707,7 @@ swri_nodelet: <?xml version="1.0" ?>
 <maintainer email="preed@swri.org">P. J. Reed</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
+<depend>boost</depend>
 <depend>nodelet</depend>
 <exec_depend>rosbash</exec_depend>
 <test_depend>rosbash</test_depend>
@@ -55042,12 +55728,13 @@ swri_opencv_util: <?xml version="1.0" ?>
 <license>BSD</license>
 <url>https://github.com/swri-robotics/marti_common</url>
 <buildtool_depend>catkin</buildtool_depend>
+<depend>boost</depend>
 <depend>cv_bridge</depend>
 <depend>swri_math_util</depend>
 </package>
 -----
 swri_prefix_tools: <?xml version="1.0" ?>
-<package format="2">
+<package format="3">
 <name>swri_prefix_tools</name>
 <description>Contains scripts that are useful as prefix commands for nodes started by roslaunch.</description>
 <author>Elliot Johnson</author>
@@ -55055,7 +55742,8 @@ swri_prefix_tools: <?xml version="1.0" ?>
 <license>BSD</license>
 <url>https://github.com/swri-robotics/marti_common</url>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend>python-psutil</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-psutil</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-psutil</exec_depend>
 </package>
 -----
 swri_profiler: <?xml version="1.0" ?>
@@ -55132,13 +55820,15 @@ swri_roscpp: <?xml version="1.0" ?>
 </package>
 -----
 swri_rospy: <?xml version="1.0" ?>
-<package format="2">
+<package format="3">
 <name>swri_rospy</name>
-<description>This package provides added functionaliy on top of rospy,
+<description>This package provides added functionality on top of rospy,
 including a single-threaded callback queue.</description>
 <maintainer email="preed@swri.edu">P. J. Reed</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
 <exec_depend>rospy</exec_depend>
 <exec_depend>std_msgs</exec_depend>
 <exec_depend>std_srvs</exec_depend>
@@ -55151,6 +55841,7 @@ swri_route_util: <?xml version="1.0" ?>
 <maintainer email="malban@swri.org">Marc Alban</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
+<depend>boost</depend>
 <depend>marti_common_msgs</depend>
 <depend>marti_nav_msgs</depend>
 <depend>roscpp</depend>
@@ -55194,12 +55885,13 @@ swri_system_util: <?xml version="1.0" ?>
 <license>BSD</license>
 <url>https://github.com/swri-robotics/marti_common</url>
 <buildtool_depend>catkin</buildtool_depend>
+<depend>boost</depend>
 <depend>roscpp</depend>
 <test_depend>rostest</test_depend>
 </package>
 -----
 swri_transform_util: <?xml version="1.0" ?>
-<package format="2">
+<package format="3">
 <name>swri_transform_util</name>
 <description>The swri_transform_util package contains utility functions and classes for transforming between coordinate frames.</description>
 <author>Marc Alban</author>
@@ -55208,6 +55900,8 @@ swri_transform_util: <?xml version="1.0" ?>
 <url>https://github.com/swri-robotics/marti_common</url>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend>pkg-config</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
 <depend>boost</depend>
 <depend>cv_bridge</depend>
 <depend>diagnostic_msgs</depend>
@@ -58046,6 +58740,38 @@ GPL</license>
 <run_depend>uos_maps</run_depend>
 <export>
 <metapackage/>
+</export>
+</package>
+-----
+ur_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ur_msgs</name>
+<description>Message and service definitions for interacting with Universal Robots robot controllers.</description>
+<author>Andrew Glusiec</author>
+<author>Felix Messmer</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn</maintainer>
+<maintainer email="miguel.prada@tecnalia.com">Miguel Prada Sarasola</maintainer>
+<maintainer email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</maintainer>
+<license>BSD-3-Clause</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>message_generation</build_depend>
+<depend>geometry_msgs</depend>
+<depend>std_msgs</depend>
+<exec_depend>message_runtime</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>messages</tag>
+<tag>ros-industrial</tag>
+<tag>services</tag>
+<tag>universal_robot</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
 </export>
 </package>
 -----
