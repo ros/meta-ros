@@ -29,7 +29,7 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'warrior/milestones/13')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.42', 'commit': '7f712621'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.42', 'commit': '417f635f'}, {}),
 
 ('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'warrior', 'commit': 'db3ce703d0'}, {}),
 
@@ -39,7 +39,7 @@ Layers = [
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'warrior', 'commit': 'c960133'}, {}),
+('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'warrior', 'commit': '419879d'}, {}),
 ('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'warrior', 'commit': '343b5e2'}, {}),
 
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': '7d0b17a'}, {}),
