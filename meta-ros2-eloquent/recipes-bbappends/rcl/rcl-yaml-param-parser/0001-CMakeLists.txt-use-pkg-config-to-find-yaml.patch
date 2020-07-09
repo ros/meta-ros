@@ -1,0 +1,63 @@
+From b252a4971d827008bbf877402a8ff3a59a42750f Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 9 Jul 2020 01:44:31 -0700
+Subject: [PATCH] CMakeLists.txt: use pkg-config to find yaml
+
+* yaml-0.1.8 built with CMake in libyaml-vendor ExternalProject_add call
+  provides yamlConfig, but platform yaml-0.2* from oe-core built with
+  autotools provides only pkg-config file yaml-1.0.pc, I've tried to change
+  oe-core recipe from autotools to cmake, but it seems to be broken in
+  upstream libyaml as shown bellow, we should continue to use upstream preferred autotools
+  https://github.com/yaml/libyaml/issues/141
+  https://github.com/yaml/libyaml/issues/138
+
+| CMake Error: File /OE/build/oe-core/tmp-glibc/work/core2-64-oe-linux/libyaml/0.2.5-r0/yaml-0.2.5/cmake/config.h.in does not exist.
+| CMake Error at CMakeLists.txt:51 (configure_file):
+|   configure_file Problem configuring file
+|
+|
+| CMake Error at CMakeLists.txt:103 (add_subdirectory):
+|   The source directory
+|
+|     /OE/build/oe-core/tmp-glibc/work/core2-64-oe-linux/libyaml/0.2.5-r0/yaml-0.2.5/tests
+|
+|   does not contain a CMakeLists.txt file.
+|
+|
+| CMake Error: File /OE/build/oe-core/tmp-glibc/work/core2-64-oe-linux/libyaml/0.2.5-r0/yaml-0.2.5/yamlConfig.cmake.in does not exist.
+| CMake Error at /OE/build/oe-core/tmp-glibc/work/core2-64-oe-linux/libyaml/0.2.5-r0/recipe-sysroot-native/usr/share/cmake-3.17/Modules/CMakePackageConfigHelpers.cmake:330 (configure_file):
+|   configure_file Problem configuring file
+| Call Stack (most recent call first):
+|   CMakeLists.txt:114 (configure_package_config_file)
+|
+|
+| CMake Error: File /OE/build/oe-core/tmp-glibc/work/core2-64-oe-linux/libyaml/0.2.5-r0/yaml-0.2.5/yamlConfig.cmake.in does not exist.
+| CMake Error at /OE/build/oe-core/tmp-glibc/work/core2-64-oe-linux/libyaml/0.2.5-r0/recipe-sysroot-native/usr/share/cmake-3.17/Modules/CMakePackageConfigHelpers.cmake:330 (configure_file):
+|   configure_file Problem configuring file
+| Call Stack (most recent call first):
+|   CMakeLists.txt:130 (configure_package_config_file)
+|
+|
+| -- Configuring incomplete, errors occurred!
+| See also "/OE/build/oe-core/tmp-glibc/work/core2-64-oe-linux/libyaml/0.2.5-r0/build/CMakeFiles/CMakeOutput.log".
+| WARNING: exit code 1 from a shell command.
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 89b089b..dd01e0b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -5,7 +5,8 @@ project(rcl_yaml_param_parser)
+ find_package(ament_cmake_ros REQUIRED)
+ find_package(rcutils REQUIRED)
+ find_package(libyaml_vendor REQUIRED)
+-find_package(yaml REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(yaml REQUIRED yaml-0.1)
+ 
+ # Default to C++14
+ if(NOT CMAKE_CXX_STANDARD)
