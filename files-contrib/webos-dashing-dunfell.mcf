@@ -29,9 +29,9 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'dunfell-2020-07-08b')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.46', 'commit': '1d3892d9'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.46', 'commit': '81cad9b8'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'dunfell', 'commit': 'cabaf5654d'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'dunfell', 'commit': 'c2ad3af9da'}, {}),
 
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'dunfell', 'commit': 'cc6fc6b164'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
@@ -39,7 +39,7 @@ Layers = [
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'dunfell', 'commit': '9831236'}, {}),
+('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'dunfell', 'commit': '4af1ea6'}, {}),
 ('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'dunfell', 'commit': 'ffd787f'}, {}),
 ('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': 'dunfell', 'commit': 'e2ef0dd'}, {}),
 
@@ -52,7 +52,7 @@ Layers = [
 
 ('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'dunfell', 'commit': 'f20ccfa'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'dunfell', 'commit': '93c468d'}, {}),
 ('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-updater',        52, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-virtualization', 53, MetaWebos_RepoURL,                                        {}, {}),
@@ -60,7 +60,7 @@ Layers = [
 ('meta-ros-webos',            60, MetaRosWebos_RepoURL,                                     {'branch': MetaRosWebos_Branch, 'commit': MetaRosWebos_Commit}, {}),
 
 ('meta-webos-smack',          75, MetaWebos_RepoURL,                                        {}, {}),
-('meta-security',             77, 'git://git.yoctoproject.org/meta-security',               {'branch': 'dunfell', 'commit': '217fadb'}, {}),
+('meta-security',             77, 'git://git.yoctoproject.org/meta-security',               {'branch': 'dunfell', 'commit': '982a29b'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
