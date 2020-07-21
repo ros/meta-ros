@@ -17,7 +17,7 @@ McfFileVersion = 2
 # Value for DISTRO
 Distribution = 'webos'
 
-webOSOSEBuildNumber = '197'
+webOSOSEBuildNumber = '218'
 
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
@@ -30,7 +30,7 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'thud/milestones/13')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'thud')
-MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'thud/milestones/13')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   '732e1a8')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/webosose/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
