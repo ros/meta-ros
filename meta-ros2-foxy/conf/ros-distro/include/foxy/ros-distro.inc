@@ -84,6 +84,14 @@ ROS_WORLD_SKIP_GROUPS += " \
     qt-gui-cpp \
 "
 
+# if vc4graphics is enabled without opengl in DISTRO_FEATURES then
+# gstreamer1.0-plugins-base will be unbuildable for rpi MACHINEs, the
+# fix is already included in dunfell and backported to zeus:
+# https://github.com/agherzan/meta-raspberrypi/commit/71e188ecd572a00708805989bae71bf4e3ba0f3b
+# so this is needed only in warrior (and thud if you enabled vc4graphics
+# yourself, because it's included by default only since warrior)
+ROS_WORLD_SKIP_GROUPS_append_rpi = "${@ ' vc4graphics-without-opengl' if bb.utils.contains('MACHINE_FEATURES', 'vc4graphics', True, False, d) and not bb.utils.contains('DISTRO_FEATURES', 'opengl', True, False, d) else ''}"
+
 # recipes depending on something from meta-qt4 layer
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
