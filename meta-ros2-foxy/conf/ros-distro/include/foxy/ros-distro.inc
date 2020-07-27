@@ -92,6 +92,9 @@ ROS_WORLD_SKIP_GROUPS += " \
 # yourself, because it's included by default only since warrior)
 ROS_WORLD_SKIP_GROUPS_append_rpi = "${@ ' vc4graphics-without-opengl' if bb.utils.contains('MACHINE_FEATURES', 'vc4graphics', True, False, d) and not bb.utils.contains('DISTRO_FEATURES', 'opengl', True, False, d) else ''}"
 
+# Requires openCV 4 or newer
+ROS_WORLD_SKIP_GROUPS += "opencv4"
+
 # recipes depending on something from meta-qt4 layer
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
