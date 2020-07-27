@@ -38,3 +38,5 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-generator-cpp \
 "
+
+DEPENDS += "rpyutils-native"

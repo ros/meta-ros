@@ -32,3 +32,5 @@ do_configure_append() {
     # |   #include_next <stdlib.h>
     sed -i 's/-isystem /-I/g' ${B}/build.ninja
 }
+
+DEPENDS += "rpyutils-native"

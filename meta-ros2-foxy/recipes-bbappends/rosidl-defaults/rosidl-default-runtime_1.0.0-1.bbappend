@@ -21,3 +21,8 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-introspection-cpp \
     rmw \
 "
+
+DEPENDS += " \
+    python3-numpy-native \
+    rpyutils-native \
+"

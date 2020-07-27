@@ -13,3 +13,7 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-typesupport-fastrtps-cpp-native \
 "
+
+ROS_BUILD_DEPENDS += " \
+    rpyutils-native \
+"

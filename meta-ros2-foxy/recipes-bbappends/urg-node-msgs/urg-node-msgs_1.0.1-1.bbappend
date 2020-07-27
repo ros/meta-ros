@@ -10,3 +10,10 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp-native \
     rosidl-typesupport-introspection-cpp-native \
 "
+
+ROS_BUILD_DEPENDS += " \
+    python3-lark-parser-native \
+    rosidl-adapter-native \
+    rosidl-parser-native \
+    rpyutils-native \
+"

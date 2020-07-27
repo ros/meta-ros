@@ -18,3 +18,7 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
 "
+
+ROS_BUILD_DEPENDS += " \
+    rpyutils-native \
+"

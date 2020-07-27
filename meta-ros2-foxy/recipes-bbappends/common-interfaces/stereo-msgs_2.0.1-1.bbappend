@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-parser-native \
@@ -14,4 +14,8 @@ ROS_BUILDTOOL_DEPENDS += " \
 ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
+"
+
+ROS_BUILD_DEPENDS += " \
+    rpyutils-native \
 "
