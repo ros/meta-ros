@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-parser-native \
@@ -25,3 +25,10 @@ ROS_BUILD_DEPENDS += " \
 "
 
 #inherit python3native
+
+do_configure_append() {
+    # Fixes this:
+    # | fatal error: stdlib.h: No such file or directory
+    # |   #include_next <stdlib.h>
+    sed -i 's/-isystem /-I/g' ${B}/build.ninja
+}
