@@ -1,0 +1,30 @@
+Upstream-Status: Pending
+
+--- a/CMakeLists.txt	2018-05-31 11:49:33.000000000 -0700
++++ b/CMakeLists.txt	2019-08-16 15:43:11.106602301 -0700
+@@ -26,6 +26,8 @@
+   "1.ros_package_path"
+   "1.ros_version"
+   "1.ros_python_version"
++  "1.ros_os_override"
++  "1.ros_ip"
+ )
+ if(CMAKE_HOST_UNIX)
+   set(shell "sh")
+--- /dev/null	2019-06-20 17:41:34.556355144 -0700
++++ b/env-hooks/1.ros_os_override.sh.in	2019-08-16 15:45:12.266604143 -0700
+@@ -0,0 +1,3 @@
++# generated from ros_environment/env-hooks/1.ros_os_override.sh.in
++
++export ROS_OS_OVERRIDE="openembedded"
+--- /dev/null	2019-06-20 17:41:34.556355144 -0700
++++ b/env-hooks/1.ros_ip.sh.in	2019-08-16 15:45:12.266604143 -0700
+@@ -0,0 +1,8 @@
++# generated from ros_environment/env-hooks/1.ros_ip.sh.in
++
++# If neither ROS_IP nor ROS_HOSTNAME are set, ROS uses what's returned by "hostname". Unfortunately, minimal OE doesn't arrange
++# to resolve this to an IP address, so when this is the case, force ROS to use the loopback and require that users set one of
++# ROS_IP or ROS_HOSTNAME if they want to talk to remote ROS nodes.
++if [ -z "$ROS_IP$ROS_HOSTNAME" ] && ! hostname -i > /dev/null 2>/dev/null; then
++    export ROS_IP="127.0.0.1"
++fi
