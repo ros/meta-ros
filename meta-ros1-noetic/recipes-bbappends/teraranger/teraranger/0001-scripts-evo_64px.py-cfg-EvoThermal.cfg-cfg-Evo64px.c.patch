@@ -1,0 +1,53 @@
+From a5f93905aa23731fbf00310a1d3f8a9813cc407b Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 11 Mar 2020 07:01:09 -0700
+Subject: [PATCH] scripts/evo_64px.py, cfg/EvoThermal.cfg, cfg/Evo64px.cfg: use
+ /usr/bin/env python shebang
+
+* like other scripts and .cfg files do:
+  cfg/TerarangerDuo.cfg:#!/usr/bin/env python
+  cfg/TerarangerOne.cfg:#!/usr/bin/env python
+  scripts/evo_thermal.py:#!/usr/bin/env python2
+
+Upstream-Status: Submitted [https://github.com/Terabee/teraranger/pull/36]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cfg/Evo64px.cfg     | 2 +-
+ cfg/EvoThermal.cfg  | 2 +-
+ scripts/evo_64px.py | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/cfg/Evo64px.cfg b/cfg/Evo64px.cfg
+index 0653dc8..5bd32c5 100755
+--- a/cfg/Evo64px.cfg
++++ b/cfg/Evo64px.cfg
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/env python
+ PACKAGE = "teraranger_evo_64px"
+ from dynamic_reconfigure.parameter_generator_catkin import *
+ 
+diff --git a/cfg/EvoThermal.cfg b/cfg/EvoThermal.cfg
+index dd9bf85..5f94568 100755
+--- a/cfg/EvoThermal.cfg
++++ b/cfg/EvoThermal.cfg
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/env python
+ PACKAGE = "teraranger"
+ 
+ from dynamic_reconfigure.parameter_generator_catkin import *
+diff --git a/scripts/evo_64px.py b/scripts/evo_64px.py
+index 744db2b..9a51e03 100755
+--- a/scripts/evo_64px.py
++++ b/scripts/evo_64px.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/env python
+ # -*- coding: utf-8 -*-
+ import numpy as np
+ import serial
+-- 
+2.17.1
+
