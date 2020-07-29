@@ -1,0 +1,31 @@
+From 40c688e2f36c653d4aa841573e7e77a4c30a6b29 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 24 Apr 2020 09:28:36 -0700
+Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
+
+* use CATKIN_ENABLE_TESTING conditional as suggested in
+  http://docs.ros.org/jade/api/catkin/html/howto/format2/gtest_configuration.html
+* otherwise do_configure fails with:
+  | CMake Error at rt-usb-9axisimu-driver/1.0.0-1-r0/recipe-sysroot/opt/ros/melodic/share/roslint/cmake/roslint-extras.cmake:67 (catkin_run_tests_target):
+  |   Unknown CMake command "catkin_run_tests_target".
+  | Call Stack (most recent call first):
+  |   CMakeLists.txt:81 (roslint_add_test)
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 49609de..6178d80 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -78,4 +78,6 @@ install(FILES
+ # catkin_add_nosetests(test)
+ 
+ roslint_cpp()
++if (CATKIN_ENABLE_TESTING)
+ roslint_add_test()
++endif()

@@ -1,0 +1,167 @@
+From 0a44f3d28f0f800bd7b8c2066e0219e1bea826dd Mon Sep 17 00:00:00 2001
+From: Herb Kuta <herb.kuta@lge.com>
+Date: Wed, 31 Jul 2019 12:00:00 -0700
+Subject: [PATCH] allow proper cross-compilation with catkin
+
+The original patch is:
+
+From: Dominique Hunziker <dominique.hunziker@gmail.com>
+Date: Fri, 2 Jun 2017 12:12:33 +0200
+
+I just re-applied it to the current version 0.7.17 and adjusted
+the context of the patch as reaction to bitbake warning:
+
+Upstream-Status: Pending
+---
+ cmake/all.cmake                    |  1 +
+ cmake/catkin_package.cmake         |  8 ++++++
+ cmake/catkin_strip_root_path.cmake | 32 +++++++++++++++++++++++
+ cmake/templates/pkgConfig.cmake.in | 42 +++++++++++++++++++++++++++---
+ 4 files changed, 79 insertions(+), 4 deletions(-)
+ create mode 100644 cmake/catkin_strip_root_path.cmake
+
+diff --git a/cmake/all.cmake b/cmake/all.cmake
+index 7768f968..dd9271e1 100644
+--- a/cmake/all.cmake
++++ b/cmake/all.cmake
+@@ -133,6 +133,7 @@ foreach(filename
+     catkin_metapackage
+     catkin_package
+     catkin_package_xml
++    catkin_strip_root_path
+     custom_install # required by catkin_symlink_install and test/gtest
+     catkin_symlink_install
+     catkin_workspace
+diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
+index df36e236..995e5e5b 100644
+--- a/cmake/catkin_package.cmake
++++ b/cmake/catkin_package.cmake
+@@ -439,6 +439,14 @@ function(_catkin_package)
+   # package cmake dir is the folder where the generated pkgConfig.cmake is located
+   set(PKG_CMAKE_DIR "\${${PROJECT_NAME}_DIR}")
+ 
++  if(CMAKE_CROSSCOMPILING)
++    catkin_strip_root_path(PROJECT_CMAKE_CONFIG_INCLUDE_DIRS UNIQUE)
++    catkin_strip_root_path(PROJECT_PKG_CONFIG_INCLUDE_DIRS UNIQUE)
++    catkin_strip_root_path(PKG_CONFIG_LIBRARIES)
++    catkin_strip_root_path(PKG_CONFIG_LIBRARIES_WITH_PREFIX)
++    catkin_strip_root_path(PKG_CONFIG_LIB_PATHS UNIQUE)
++  endif()
++
+   if(NOT PROJECT_SKIP_PKG_CONFIG_GENERATION)
+     # ensure that output folder exists
+     file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace)
+diff --git a/cmake/catkin_strip_root_path.cmake b/cmake/catkin_strip_root_path.cmake
+new file mode 100644
+index 00000000..ca5c4532
+--- /dev/null
++++ b/cmake/catkin_strip_root_path.cmake
+@@ -0,0 +1,32 @@
++#
++# Strip CMAKE_FIND_ROOT_PATH prefixes from each path in the list ``var``.
++#
++# .. note:: Used for cross-compilation.
++#
++# :param var: the input / output variable name
++# :type var: string
++# :param UNIQUE: if specified the stripped list will contain unique paths, i.e.,
++#   duplicate paths are not appended a second time
++# :type UNIQUE: option
++#
++function(catkin_strip_root_path var)
++  cmake_parse_arguments(ARG "UNIQUE" "" "" ${ARGN})
++  set(output)
++  foreach(element ${${var}})
++    if(IS_ABSOLUTE ${element})
++      foreach(root_path ${CMAKE_FIND_ROOT_PATH})
++        if(element MATCHES "^${root_path}/")
++          string(LENGTH ${root_path} root_path_length)
++          string(SUBSTRING ${element} ${root_path_length} -1 element)
++          break()
++        endif()
++      endforeach()
++    endif()
++    if(ARG_UNIQUE)
++      list_append_unique(output ${element})
++    else()
++      list(APPEND output ${element})
++    endif()
++  endforeach()
++  set(${var} ${output} PARENT_SCOPE)
++endfunction()
+diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
+index 4e52046d..dcf3b7c2 100644
+--- a/cmake/templates/pkgConfig.cmake.in
++++ b/cmake/templates/pkgConfig.cmake.in
+@@ -78,6 +78,15 @@ else()
+   set(@PROJECT_NAME@_PREFIX ${@PROJECT_NAME@_INSTALL_PREFIX})
+ endif()
+ 
++if(CMAKE_CROSSCOMPILING)
++  if("@DEVELSPACE@" STREQUAL "TRUE")
++    # can not disable host filesystem altogether; otherwise files in src/devel are no longer found
++    set(_find_root_path_both CMAKE_FIND_ROOT_PATH_BOTH)
++  else()
++    set(_find_root_path_both)
++  endif()
++endif()
++
+ # warn when using a deprecated package
+ if(NOT "@PROJECT_DEPRECATED@" STREQUAL "")
+   set(_msg "WARNING: package '@PROJECT_NAME@' is deprecated")
+@@ -102,7 +111,19 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
+     set(_report "Report the problem to the maintainer '@PROJECT_MAINTAINER@' and request to fix the problem.")
+   endif()
+   foreach(idir ${_include_dirs})
+-    if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
++    if(IS_ABSOLUTE ${idir} AND CMAKE_CROSSCOMPILING)
++      get_filename_component(idir_path ${idir} DIRECTORY)
++      get_filename_component(idir_name ${idir} NAME)
++      set(include_dir_path "include_dir_path-NOTFOUND")
++      # use find_path to locate absolute path nested under potential root path
++      find_path(include_dir_path ${idir_name}
++        PATHS ${idir_path}
++        NO_DEFAULT_PATH ${_find_root_path_both})
++      if(NOT include_dir_path)
++        message(FATAL_ERROR "Project '@PROJECT_NAME@' specifies '${idir}' as an include dir, which is not found.  It does not exist in any of the root filesystems.  Ask the maintainer '@PROJECT_MAINTAINER@' to fix it.")
++      endif()
++      set(include "${include_dir_path}/${idir_name}")
++    elseif(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
+       set(include ${idir})
+     elseif("${idir} " STREQUAL "@CATKIN_GLOBAL_INCLUDE_DESTINATION@ ")
+       get_filename_component(include "${@PROJECT_NAME@_DIR}/../../../@CATKIN_GLOBAL_INCLUDE_DESTINATION@" ABSOLUTE)
+@@ -148,18 +169,31 @@ foreach(library ${libraries})
+     list(APPEND @PROJECT_NAME@_LIBRARIES "${interface_target_name}")
+   elseif(TARGET ${library})
+     list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
++  elseif(IS_ABSOLUTE ${library} AND CMAKE_CROSSCOMPILING)
++    get_filename_component(lib_path ${library} DIRECTORY)
++    get_filename_component(lib_name ${library} NAME)
++    set(lib "lib-NOTFOUND")
++    # use find_library to locate library given by absolute path nested under potential root path
++    find_library(lib ${lib_name}
++      PATHS ${lib_path}
++      NO_DEFAULT_PATH ${_find_root_path_both})
++    if(NOT lib)
++      message(FATAL_ERROR "Project '${PROJECT_NAME}' tried to find library '${library}'.  The library is neither a target nor built/installed properly.  Did you compile project '@PROJECT_NAME@'?  Did you find_package() it before the subdirectory containing its code is included?")
++    endif()
++    _list_append_unique(@PROJECT_NAME@_LIBRARY_DIRS ${lib_path})
++    list(APPEND @PROJECT_NAME@_LIBRARIES ${lib})
+   elseif(IS_ABSOLUTE ${library})
+     list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
+   else()
+     set(lib_path "")
+-    set(lib "${library}-NOTFOUND")
++    set(lib "lib-NOTFOUND")
+     # since the path where the library is found is returned we have to iterate over the paths manually
+     foreach(path @PKG_CONFIG_LIB_PATHS@)
+       find_library(lib ${library}
+         PATHS ${path}
+-        NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
++        NO_DEFAULT_PATH ${_find_root_path_both})
+       if(lib)
+-        set(lib_path ${path})
++        get_filename_component(lib_path ${lib} DIRECTORY)
+         break()
+       endif()
+     endforeach()

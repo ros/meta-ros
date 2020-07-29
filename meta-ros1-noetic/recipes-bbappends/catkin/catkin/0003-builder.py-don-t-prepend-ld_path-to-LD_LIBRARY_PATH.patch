@@ -1,0 +1,86 @@
+From ee5d4dfdd20854c9e49f6e0e8c37f91e9dcda7a5 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 17 Jan 2020 04:58:28 -0800
+Subject: [PATCH] builder.py: don't prepend ld_path to LD_LIBRARY_PATH
+
+* when cross-compiling on builder with the same architecture (e.g. x86_64 host building
+  qemux86-64 image, the prepended LD_LIBRARY_PATH will cause native python to use
+  libpython from target sysroot when called from env.sh, e. gl:
+  /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/devel/env.sh /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/python-native/python2 -c 'import os; print(dict(os.environ))'
+  /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/python-native/python2: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28' not found (required by /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot/usr/lib/libpython2.7.so.1.0)
+
+* fixes:
+ERROR: catkin-0.7.19-1-r0 do_configure: Function failed: do_configure (log file is located at /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/temp/log.do_configure.43548)
+ERROR: Logfile of failure stored in: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/temp/log.do_configure.43548
+Log data follows:
+| DEBUG: Executing shell function do_configure
+| -- The C compiler identification is GNU 8.2.0
+| -- The CXX compiler identification is GNU 8.2.0
+| -- Check for working C compiler: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+| -- Check for working C compiler: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+| -- Detecting C compiler ABI info
+| -- Detecting C compiler ABI info - done
+| -- Detecting C compile features
+| -- Detecting C compile features - done
+| -- Check for working CXX compiler: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+| -- Check for working CXX compiler: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+| -- Detecting CXX compiler ABI info
+| -- Detecting CXX compiler ABI info - done
+| -- Detecting CXX compile features
+| -- Detecting CXX compile features - done
+| -- Using CATKIN_DEVEL_PREFIX: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/devel
+| -- Using CMAKE_PREFIX_PATH: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot/opt/ros/melodic;/jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot/usr
+| -- Found PythonInterp: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/python-native/python2 (found suitable version "2.7.16", minimum required is "2")
+| -- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/python-native/python2
+| -- Using default Python package layout
+| -- Found PY_em: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc
+| -- Using empy: /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc
+| -- Using CATKIN_ENABLE_TESTING: 0
+| -- catkin 0.7.19
+| -- BUILD_SHARED_LIBS is on
+| /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/python-native/python2: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28' not found (required by /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot/usr/lib/libpython2.7.so.1.0)
+| Traceback (most recent call last):
+|   File "/jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/build/catkin_generated/generate_cached_setup.py", line 22, in <module>
+|     code = generate_environment_script('/jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/devel/env.sh')
+|   File "/jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/git/cmake/../python/catkin/environment_cache.py", line 61, in generate_environment_script
+|     output = subprocess.check_output([env_script, sys.executable, '-c', python_code])
+|   File "/jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/lib/python2.7/subprocess.py", line 223, in check_output
+|     raise CalledProcessError(retcode, cmd, output=output)
+| subprocess.CalledProcessError: Command '['/jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/devel/env.sh', '/jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/python-native/python2', '-c', 'import os; print(dict(os.environ))']' returned non-zero exit status 1
+| CMake Error at cmake/safe_execute_process.cmake:11 (message):
+|   execute_process(/jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/recipe-sysroot-native/usr/bin/python-native/python2
+|   "/jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/build/catkin_generated/generate_cached_setup.py")
+|   returned error code 1
+| Call Stack (most recent call first):
+|   cmake/all.cmake:209 (safe_execute_process)
+|   CMakeLists.txt:8 (include)
+|
+|
+| -- Configuring incomplete, errors occurred!
+| See also "/jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/build/CMakeFiles/CMakeOutput.log".
+| WARNING: exit code 1 from a shell command.
+| ERROR: Function failed: do_configure (log file is located at /jenkins/mjansa/build-ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/catkin/0.7.19-1-r0/temp/log.do_configure.43548)
+NOTE: recipe catkin-0.7.19-1-r0: task do_configure: Failed
+ERROR: Task (/jenkins/mjansa/build-ros/ros1-melodic-thud/meta-ros/meta-ros1-melodic/generated-recipes/catkin/catkin_0.7.19-1.bb:do_configure) failed with exit code '1'
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cmake/templates/_setup_util.py.in | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/cmake/templates/_setup_util.py.in b/cmake/templates/_setup_util.py.in
+index 1810d81b..2b9172fb 100755
+--- a/cmake/templates/_setup_util.py.in
++++ b/cmake/templates/_setup_util.py.in
+@@ -145,6 +145,9 @@ def prepend_env_variables(environ, env_var_subfolders, workspaces):
+     lines.append(prepend(environ, 'CMAKE_PREFIX_PATH', prefix))
+ 
+     for key in sorted(key for key in env_var_subfolders.keys() if key != 'CMAKE_PREFIX_PATH'):
++        if key == 'LD_LIBRARY_PATH':
++            if 'CATKIN_CROSSCOMPILING' in environ.keys() and environ['CATKIN_CROSSCOMPILING'] == '1':
++                continue
+         subfolder = env_var_subfolders[key]
+         prefix = _prefix_env_variable(environ, key, paths, subfolder)
+         lines.append(prepend(environ, key, prefix))

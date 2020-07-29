@@ -1,0 +1,40 @@
+From 11cd5dcae8032574cab667b3c3724d2a4bc89f2e Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 5 Nov 2020 17:43:34 -0800
+Subject: [PATCH] bytes_parser.h: fix build with gcc-10
+
+* fixes:
+/jenkins/mjansa/build/ros/ros1-melodic-hardknott/tmp-glibc/work/cortexa72-oe-linux/rosmon-core/2.3.2-1-r0/git/src/launch/bytes_parser.h:19:12: error: 'uint64_t' was not declared in this scope
+   19 | std::tuple<uint64_t, bool> parseMemory(const std::string& memory);
+      |            ^~~~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-hardknott/tmp-glibc/work/cortexa72-oe-linux/rosmon-core/2.3.2-1-r0/git/src/launch/bytes_parser.h:19:26: error: template argument 1 is invalid
+   19 | std::tuple<uint64_t, bool> parseMemory(const std::string& memory);
+      |                          ^
+/jenkins/mjansa/build/ros/ros1-melodic-hardknott/tmp-glibc/work/cortexa72-oe-linux/rosmon-core/2.3.2-1-r0/git/src/launch/bytes_parser.h:19:51: error: 'string' in namespace 'std' does not name a type
+   19 | std::tuple<uint64_t, bool> parseMemory(const std::string& memory);
+      |                                                   ^~~~~~
+/jenkins/mjansa/build/ros/ros1-melodic-hardknott/tmp-glibc/work/cortexa72-oe-linux/rosmon-core/2.3.2-1-r0/git/src/launch/bytes_parser.h:8:1: note: 'std::string' is defined in header '<string>'; did you forget to '#include <string>'?
+    7 | #include <tuple>
+  +++ |+#include <string>
+    8 |
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/launch/bytes_parser.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/launch/bytes_parser.h b/src/launch/bytes_parser.h
+index a84e4c3..a615f3d 100644
+--- a/src/launch/bytes_parser.h
++++ b/src/launch/bytes_parser.h
+@@ -5,6 +5,8 @@
+ #define ROSMON_LAUNCH_BYTES_PARSER_H
+ 
+ #include <tuple>
++#include <cstdint>
++#include <string>
+ 
+ namespace rosmon
+ {

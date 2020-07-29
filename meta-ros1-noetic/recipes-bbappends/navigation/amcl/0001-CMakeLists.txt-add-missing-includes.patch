@@ -1,0 +1,36 @@
+From 5a7b83457704ebb6201fbb7d3b8b27390b157586 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 17 Dec 2019 19:40:55 +0000
+Subject: [PATCH] CMakeLists.txt: add missing includes
+
+* fixes:
+  CMake Error at CMakeLists.txt:53 (check_include_file):
+    Unknown CMake command "check_include_file".
+
+  CMake Error at CMakeLists.txt:60 (check_symbol_exists):
+    Unknown CMake command "check_symbol_exists".
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cf6e23f95..033d6436d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -50,6 +50,9 @@ include_directories(include)
+ include_directories(${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+ include_directories(src/include)
+ 
++include(CheckIncludeFile)
++include(CheckSymbolExists)
++
+ check_include_file(unistd.h HAVE_UNISTD_H)
+ if (HAVE_UNISTD_H)
+   add_definitions(-DHAVE_UNISTD_H)
+-- 
+2.17.1
+
