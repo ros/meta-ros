@@ -15,10 +15,10 @@
 # The files from PATH-TO-LOCAL-ROS-ROSDISTRO/rosdep are to rosdep. The script will abort if the entries in
 # /etc/ros/rosdep/sources.list.d/20-default.list do not point to files under PATH-TO-LOCAL-ROS-ROSDISTRO/rosdep .
 #
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-cache"
-readonly SCRIPT_VERSION="1.4.0"
+readonly SCRIPT_VERSION="1.5.0"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-recipes.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -47,12 +47,12 @@ BRANCH_NAME=$5
 # ROS_VERSION and ROS_PYTHON_VERSION must be in the environment as they appear in "conditional" attributes. Keep this block in
 # sync with the one in ros-generate-recipes.sh .
 case $ROS_DISTRO in
-    "melodic")
+    "melodic"|"noetic")
         export ROS_VERSION="1"
         export ROS_PYTHON_VERSION="2"
         ;;
 
-    "dashing"|"eloquent"|"foxy")
+    "dashing"|"eloquent"|"foxy"|"rolling")
         export ROS_VERSION="2"
         export ROS_PYTHON_VERSION="3"
         ;;
