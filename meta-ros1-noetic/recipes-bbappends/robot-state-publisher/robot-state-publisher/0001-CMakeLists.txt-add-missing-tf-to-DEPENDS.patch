@@ -1,0 +1,30 @@
+From e390aa4ffa3dc711b14f1111d98f60f5ce08d966 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 14 May 2020 17:42:28 -0700
+Subject: [PATCH] CMakeLists.txt: add missing tf to DEPENDS
+
+* fixes dynamic-robot-state-publisher issue:
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/dynamic-robot-state-publisher/1.1.1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: warning: libtf.so, needed by ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/dynamic-robot-state-publisher/1.1.1-r0/recipe-sysroot/opt/ros/melodic/lib/librobot_state_publisher_solver.so, not found (try using -rpath or -rpath-link)
+ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/dynamic-robot-state-publisher/1.1.1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/dynamic-robot-state-publisher/1.1.1-r0/recipe-sysroot/opt/ros/melodic/lib/librobot_state_publisher_solver.so: undefined reference to `tf::resolve(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+collect2: error: ld returned 1 exit status
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fdcdf7a..cccd3a7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -33,7 +33,7 @@ find_package(urdfdom_headers REQUIRED)
+ catkin_package(
+   LIBRARIES ${PROJECT_NAME}_solver joint_state_listener
+   INCLUDE_DIRS include
+-  DEPENDS kdl_parser orocos_kdl roscpp rosconsole rostime sensor_msgs tf2_ros tf2_kdl urdfdom_headers
++  DEPENDS kdl_parser orocos_kdl roscpp rosconsole rostime sensor_msgs tf tf2_ros tf2_kdl urdfdom_headers
+ )
+ 
+ include_directories(SYSTEM ${EIGEN3_INCLUDE_DIRS})

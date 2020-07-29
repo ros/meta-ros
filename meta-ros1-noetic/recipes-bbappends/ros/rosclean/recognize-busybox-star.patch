@@ -1,0 +1,12 @@
+# Upstream-Status: Suitable, not yet submittted
+--- a/src/rosclean/__init__.py	2019-08-09 14:55:31.133390719 -0700
++++ b/src/rosclean/__init__.py	2019-08-09 14:56:01.554730763 -0700
+@@ -160,7 +160,7 @@
+             unit = 1024
+         try:
+             # detect BusyBox du command by following symlink
+-            if os.path.basename(os.readlink(du)) == 'busybox':
++            if os.path.basename(os.readlink(du)).startswith('busybox'):
+                 cmd = [du, '-sk', d]
+                 unit = 1024
+         except OSError:

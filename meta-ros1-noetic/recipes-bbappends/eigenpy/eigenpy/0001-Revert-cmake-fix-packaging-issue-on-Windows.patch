@@ -1,0 +1,34 @@
+From 7cf4312f13206aca6047ddb008cd79132f10d74e Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 2 Nov 2020 14:08:17 -0800
+Subject: [PATCH] Revert: cmake: fix packaging issue on Windows
+
+* revert:
+  https://github.com/stack-of-tasks/eigenpy/commit/a1a87e4ca3dfd44f6e2bce5369ff764e0ff9fd77
+  because the full path in exported eigenpy like:
+  eigenpyTargets-release.cmake:list(APPEND _IMPORT_CHECK_FILES_FOR_eigenpy::eigenpy "/usr/lib/libeigenpy.so" )
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d3e7e17..866a747 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -191,11 +191,7 @@ ENDIF()
+ TARGET_LINK_BOOST_PYTHON(${PROJECT_NAME} PUBLIC)
+ INSTALL(TARGETS ${PROJECT_NAME}
+   EXPORT ${TARGETS_EXPORT_NAME}
+-  PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR}
+-  INCLUDES DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR}
+-  LIBRARY DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}
+-  ARCHIVE DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}
+-  RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
++  PUBLIC_HEADER)
+ 
+ ADD_HEADER_GROUP(${PROJECT_NAME}_HEADERS)
+ ADD_SOURCE_GROUP(${PROJECT_NAME}_SOURCES)
