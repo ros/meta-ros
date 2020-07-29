@@ -1,0 +1,57 @@
+From f354089ad28ba13fd623e0815d66d9409bfec668 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 4 Feb 2020 16:36:22 +0000
+Subject: [PATCH] CMakeLists.txt: use pkg-config to find jsoncpp
+
+* the jsoncpp-1.8.4 in meta-oe/warrior doesn't have the cmake support
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt                  | 6 ++++--
+ include/ros2_ouster/OS1/OS1.hpp | 2 +-
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 87351e5..2194304 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -16,11 +16,13 @@ find_package(pcl_conversions REQUIRED)
+ find_package(ouster_msgs REQUIRED)
+ find_package(PCL REQUIRED COMPONENTS common)
+ 
+-find_package(jsoncpp REQUIRED)
++pkg_check_modules(JSONCPP jsoncpp REQUIRED)
++# find_package(jsoncpp REQUIRED)
+ 
+ include_directories(
+   include
+   ${PCL_INCLUDE_DIRS}
++  ${JSONCPP_INCLUDE_DIRS}
+ )
+ 
+ set(executable_name ouster_driver)
+@@ -52,7 +54,7 @@ ament_target_dependencies(${library_name}
+ )
+ 
+ target_link_libraries(${library_name}
+-  jsoncpp
++  ${JSONCPP_LIBRARIES}
+   ${PCL_LIBRARIES}
+ )
+ 
+diff --git a/include/ros2_ouster/OS1/OS1.hpp b/include/ros2_ouster/OS1/OS1.hpp
+index 1b7039f..3a9eb4c 100644
+--- a/include/ros2_ouster/OS1/OS1.hpp
++++ b/include/ros2_ouster/OS1/OS1.hpp
+@@ -37,7 +37,7 @@
+ #include "sys/socket.h"
+ #include "sys/types.h"
+ 
+-#include "jsoncpp/json/json.h"
++#include "json/json.h"
+ #include "ros2_ouster/OS1/OS1_packet.hpp"
+ #include "ros2_ouster/interfaces/metadata.hpp"
+ 
+-- 
+2.17.1
+
