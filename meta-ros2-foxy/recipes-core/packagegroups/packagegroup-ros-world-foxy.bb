@@ -43,6 +43,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'coinor-libipopt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
     control-box-rst \
+    popf \
 "
 
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
@@ -68,6 +69,8 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop \
     joint-state-publisher-gui \
+    nav2-rviz-plugins \
+    octovis \
     python-qt-binding \
     qt-dotgraph \
     qt-gui \
@@ -103,6 +106,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz-rendering \
     rviz-visual-testing-framework \
     rviz2 \
+    slam-toolbox \
     turtlesim \
     webots-ros2-epuck \
     webots-ros2-tiago \
@@ -129,6 +133,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
+    nav2-system-tests \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5}', '', d)}"
@@ -180,11 +185,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT_GUI_CPP = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     desktop \
+    nav2-rviz-plugins \
     rviz2 \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
+    slam-toolbox \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
