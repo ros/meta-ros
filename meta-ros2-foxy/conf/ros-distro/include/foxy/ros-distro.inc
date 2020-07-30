@@ -165,6 +165,39 @@ ROS_UNRESOLVED_PLATFORM_PKG_libzstd-dev = "zstd"
 ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "adwaita-icon-theme"
 
 # Used by:
+# generated-recipes/slam-toolbox/slam-toolbox_2.3.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_tbb = "tbb"
+
+# Used by:
+# generated-recipes/octomap/octovis_1.9.5-2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev = "qtbase"
+ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-dev-qt5 = "qtbase"
+
+# Used by:
+# generated-recipes/navigation2/nav2-map-server_0.4.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick = "graphicsmagick"
+
+# Used by:
+# generated-recipes/navigation2/nav2-system-tests_0.4.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_lcov = "lcov"
+
+# Used by:
+# generated-recipes/popf/popf_0.0.12-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_bison = "bison"
+
+# Used by:
+# generated-recipes/popf/popf_0.0.12-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_flex = "flex"
+
+# Used by:
+# generated-recipes/hls-lfcd-lds-driver/hls-lfcd-lds-driver_2.0.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev = "boost"
+
+# Used by:
+# generated-recipes/navigation2/nav2-util_0.4.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options = "boost"
+
+# Used by:
 # generated-recipes/ros2cli/ros2doctor_0.9.3-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = "python3-ifcfg"
 
