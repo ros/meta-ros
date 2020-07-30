@@ -1,0 +1,37 @@
+From b734018ba25b272fc9e0526f599e8f76e5f4a1bd Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 30 Jul 2020 14:37:02 -0700
+Subject: [PATCH] CMakeLists.txt: prevent building google benchmark with
+ ExternalProject
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3b89edc..fbd8918 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -73,15 +73,16 @@ macro(build_benchmark)
+ endmacro()
+ 
+ if(NOT benchmark_FOUND OR "${benchmark_VERSION}" VERSION_LESS 1.5.0)
+-  build_benchmark()
++  message(FATAL_ERROR "benchmark not found, missing dependency on google-benchmark or version less than 1.5.0, found ${benchmark_VERSION}")
+ elseif(benchmark_FOUND)
+   # Ubuntu Focal has a packaging bug where libbenchmark_main has no symbols,
+   # causing linker failures. I'm pretty sure it shouldn't be a static library.
+   # Details: https://bugs.launchpad.net/ubuntu/+source/benchmark/+bug/1887872
+-  get_target_property(_benchmark_main_type benchmark::benchmark_main TYPE)
+-  if(NOT "${_benchmark_main_type}" STREQUAL "SHARED_LIBRARY")
+-    build_benchmark()
+-  endif()
++  # both libraries are static in OE build
++  # get_target_property(_benchmark_main_type benchmark::benchmark_main TYPE)
++  # if(NOT "${_benchmark_main_type}" STREQUAL "SHARED_LIBRARY")
++  #   message(FATAL_ERROR "libbenchmark_main has no symbols, causing linker failures. Details: https://bugs.launchpad.net/ubuntu/+source/benchmark/+bug/1887872")
++  # endif()
+ endif()
+ 
+ install(
