@@ -37,10 +37,15 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     uncrustify-vendor-native \
 "
 
+# this needs google-benchmark-vendor-native but we probably don't need native version
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS_remove = "ament-cmake-google-benchmark-native"
+
 # alternative not yet supported implementation for fastrtps
 ROS_WORLD_SKIP_GROUPS += "connext"
 # alternative not yet supported implementation for fastrtps
 ROS_WORLD_SKIP_GROUPS += "opensplice"
+# alternative not yet supported implementation for fastrtps, there is no recipe for gurumdds-2.6
+ROS_WORLD_SKIP_GROUPS += "gurumdds"
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
 ROS_WORLD_SKIP_GROUPS += "clang"
 # recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
@@ -223,3 +228,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_libxxf86vm = "libxxf86vm"
 # Used by:
 # generated-recipes/rqt-robot-monitor/rqt-robot-monitor_1.0.1-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules = "python3-rospkg"
+
+# Used by:
+# generated-recipes/google-benchmark-vendor/google-benchmark-vendor_0.0.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_benchmark = "google-benchmark"
