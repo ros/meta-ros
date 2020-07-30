@@ -90,3 +90,19 @@ PNBLACKLIST[webots-ros2-examples] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUP
 PNBLACKLIST[webots-ros2-importer] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'webots-python-modules', 'webots-python-modules: requires python3-collada-pip, urdf2webots-pip which are not available in OE yet', '', d)}"
 PNBLACKLIST[webots-ros2-tiago] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'opengl', 'x11'], 'qt5: rdepends on rviz2 which depends on qtbase; opengl: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; x11: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on libx11,libxrandr,libxaw which require x11 in DISTRO_FEATURES', '', d)}"
 PNBLACKLIST[webots-ros2-universal-robot] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'opengl', 'x11'], 'qt5: rdepends on rviz2 which depends on qtbase; opengl: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; x11: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on libx11,libxrandr,libxaw which require x11 in DISTRO_FEATURES', '', d)}"
+
+# Hopefully short-lived temporary section for recipes
+# included in rolling which weren't adapted to:
+# a1e4b09c6 rclcpp: 4.0.0-1 in 'rolling/distribution.yaml' [bloom] (#25741)
+# which includes
+# https://github.com/ros/rosdistro/pull/25741
+# which removed deprecated set_on_parameters_set_callback function in:
+# deprecated set_on_parameters_set_callback function
+ROS_WORLD_SKIP_GROUPS += "rclcpp-4"
+PNBLACKLIST[image-pipeline] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rclcpp-4', 'rclcpp-4: depends on image-publisher, image-rotate which still uses removed deprecated set_on_parameters_set_callback function', '', d)}"
+PNBLACKLIST[image-publisher] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rclcpp-4', 'rclcpp-4: still uses removed deprecated set_on_parameters_set_callback function', '', d)}"
+PNBLACKLIST[image-rotate] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rclcpp-4', 'rclcpp-4: still uses removed deprecated set_on_parameters_set_callback function', '', d)}"
+PNBLACKLIST[image-view] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rclcpp-4', 'rclcpp-4: still uses removed deprecated set_on_parameters_set_callback function', '', d)}"
+PNBLACKLIST[stereo-image-proc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rclcpp-4', 'rclcpp-4: still uses removed deprecated set_on_parameters_set_callback function', '', d)}"
+PNBLACKLIST[system-modes-examples] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rclcpp-4', 'rclcpp-4: still uses removed deprecated set_on_parameters_set_callback function', '', d)}"
+
