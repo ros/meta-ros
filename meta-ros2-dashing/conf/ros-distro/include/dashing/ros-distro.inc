@@ -183,6 +183,52 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging-native = "python3-packaging-native
 ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv = "python3-virtualenv"
 ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv-native = "python3-virtualenv-native"
 
+# Used by:
+# generated-recipes/mapviz/tile-map_2.0.0-1.bb
+# generated-recipes/mapviz/mapviz_2.0.0-1.bb
+# generated-recipes/swri-console/swri-console_2.0.0-1.bb
+# generated-recipes/mapviz/multires-image_2.0.0-1.bb
+# generated-recipes/mapviz/mapviz-plugins_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev = "qtbase"
+
+# Used by:
+# generated-recipes/mapviz/mapviz_2.0.0-1.bb
+# generated-recipes/mapviz/tile-map_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev = "glew"
+
+# Used by:
+# generated-recipes/mapviz/mapviz_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev = "libxmu"
+
+# Used by:
+# generated-recipes/mapviz/mapviz_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev = "libxi"
+
+# Used by:
+# generated-recipes/mapviz/tile-map_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp = "jsoncpp"
+ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev = "jsoncpp"
+
+# Used by:
+# generated-recipes/ifm3d-core/ifm3d-core_0.17.0-12.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++ = "xmlrpc-c"
+
+# Used by:
+# generated-recipes/rc-genicam-api/rc-genicam-api_2.3.5-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev = "libpng"
+
+# Used by:
+# generated-recipes/marti-common/swri-transform-util_3.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_tf2_py = ""
+
+# Used by:
+# generated-recipes/marti-common/swri-transform-util_3.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_launch_xml = ""
+
+# Used by:
+# generated-recipes/rc-dynamics-api/rc-dynamics-api_0.10.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_protobuf = "protobuf"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
