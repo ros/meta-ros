@@ -126,18 +126,25 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     nav2-rviz-plugins \
+    mapviz \
+    mapviz-plugins \
+    multires-image \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
     rviz2 \
     slam-toolbox \
+    tile-map \
 "
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop \
     joint-state-publisher-gui \
     nav2-rviz-plugins \
+    mapviz \
+    mapviz-plugins \
+    multires-image \
     py-trees-js \
     py-trees-ros-tutorials \
     py-trees-ros-viewer \
@@ -175,6 +182,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz-rendering \
     rviz2 \
     slam-toolbox \
+    swri-console \
+    tile-map \
     turtlesim \
 "
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commercial".
@@ -188,6 +197,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
 # meta-webos/recipes-qt/qt5/qtbase_git.bbappend:PACKAGECONFIG_remove = "widgets"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5-widgets', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
+    swri-console \
     turtlesim \
 "
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
