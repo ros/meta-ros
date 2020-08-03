@@ -11,6 +11,9 @@ PACKAGES = "${PN}"
 RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
+RDEPENDS_${PN}_remove = "sophus"
+
+# Contains only dev, dbg and staticdev files, so PN is empty and not created
 RDEPENDS_${PN}_remove = "test-osrf-testing-tools-cpp"
 
 # It's empty package now, just providing dependency on platform zstd recipe
