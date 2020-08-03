@@ -39,6 +39,8 @@ ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
 ROS_WORLD_SKIP_GROUPS += "python3-matplotlib"
 # recipes depending on coin-or libcbc for which we don't have recipes yet
 ROS_WORLD_SKIP_GROUPS += "coin-or"
+# recipes depending on coinor-libipopt
+ROS_WORLD_SKIP_GROUPS += "coinor-libipopt"
 # Not compatible with newer libftdi included in meta-oe: https://github.com/kobuki-base/kobuki_ftdi/issues/3
 ROS_WORLD_SKIP_GROUPS += "kobuki-ftdi"
 # recipes depending on openvdb and openexr for which we don't have recipes yet
@@ -166,6 +168,65 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine = "python3-pyqt5"
 # Used by:
 # generated-recipes/qt-gui-core/qt-gui_1.0.7-1.bbb
 ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "adwaita-icon-theme"
+
+# Used by:
+# generated-recipes/marti-common/swri-transform-util_3.2.0-1.bb
+# generated-recipes/marti-common/swri-geometry-util_3.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev = "geos"
+
+# Used by:
+# generated-recipes/marti-common/swri-transform-util_3.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_proj = "proj"
+
+# Used by:
+# generated-recipes/filters/filters_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "boost"
+
+# Used by:
+# generated-recipes/mapviz/multires-image_2.0.0-1.bb
+# generated-recipes/mapviz/tile-map_2.0.0-1.bb
+# generated-recipes/mapviz/mapviz_2.0.0-1.bb
+# generated-recipes/swri-console/swri-console_2.0.0-1.bb
+# generated-recipes/mapviz/mapviz-plugins_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev = "qtbase"
+
+# Used by:
+# generated-recipes/behaviortree-cpp-v3/behaviortree-cpp-v3_3.5.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev = "ncurses"
+
+# Used by:
+# generated-recipes/mapviz/tile-map_2.0.0-1.bb
+# generated-recipes/mapviz/mapviz_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev = "glew"
+
+# Used by:
+# generated-recipes/mapviz/tile-map_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp = "jsoncpp"
+ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev = "jsoncpp"
+
+# Used by:
+# generated-recipes/ifm3d-core/ifm3d-core_0.17.0-15.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++ = "xmlrpc-c"
+
+# Used by:
+# generated-recipes/mapviz/mapviz_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev = "libxi"
+
+# Used by:
+# generated-recipes/mapviz/mapviz_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev = "libxmu"
+
+# Used by:
+# generated-recipes/rc-genicam-api/rc-genicam-api_2.3.5-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev = "libpng"
+
+# Used by:
+# generated-recipes/gps-umd/gpsd-client_1.0.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libgps = "gpsd"
+
+# Used by:
+# generated-recipes/mapviz/tile-map_2.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_protobuf = "protobuf"
 
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
