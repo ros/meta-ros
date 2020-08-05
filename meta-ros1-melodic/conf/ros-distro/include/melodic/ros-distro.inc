@@ -595,6 +595,8 @@ ROS_UNRESOLVED_PLATFORM_PKG_libffi-dev = "libffi"
 # Used by:
 # generated-recipes/mrt-cmake-modules/mrt-cmake-modules_1.0.3-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_lcov = "lcov"
+# Needs https://lists.openembedded.org/g/openembedded-devel/message/86162
+ROS_UNRESOLVED_PLATFORM_PKG_lcov-native = "lcov-native"
 
 # Used by:
 # generated-recipes/rtmros-hironx/hironx-ros-bridge_2.2.0-1.bb
