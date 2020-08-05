@@ -62,6 +62,11 @@ ROS_WORLD_SKIP_GROUPS += "${@ 'ffmpeg' if not d.getVar('LICENSE_FLAGS_WHITELIST'
 # incompatible old sip
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'pyqt5', d)}"
 
+# do_compile failures
+ROS_WORLD_SKIP_GROUPS += " \
+    rc-dynamics-api \
+"
+
 # Override settings from generated/superflore-ros-distro.inc here.
 
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
