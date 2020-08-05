@@ -592,6 +592,42 @@ ROS_UNRESOLVED_PLATFORM_PKG_libraw1394-dev = "libraw1394"
 # generated-recipes/jsk-3rdparty/sesame-ros_2.1.17-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libffi-dev = "libffi"
 
+# Used by:
+# generated-recipes/mrt-cmake-modules/mrt-cmake-modules_1.0.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_lcov = "lcov"
+
+# Used by:
+# generated-recipes/rtmros-hironx/hironx-ros-bridge_2.2.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_gnuplot = "gnuplot"
+
+# Used by:
+# generated-recipes/mesh-tools/hdf5-map-io_1.0.0-2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libhdf5-dev = "hdf5"
+
+# Used by:
+# generated-recipes/mrpt2/mrpt2_2.0.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libxxf86vm = "libxxf86vm"
+
+# Used by:
+# generated-recipes/mesh-tools/rviz-map-plugin_1.0.0-2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev = "ocl-icd-opencl"
+
+# Used by:
+# generated-recipes/mesh-tools/rviz-map-plugin_1.0.0-2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_opencl-headers = "opencl-headers"
+
+# Used by:
+# generated-recipes/rtmros-nextage/rtmros-nextage_0.8.6-2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_nextage_calibration = ""
+
+# Used by:
+# generated-recipes/csm/csm_1.0.2-2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libgsl = "gsl"
+
+# Used by:
+# generated-recipes/fadecandy-ros/fadecandy-driver_0.1.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-usb = "python3-pyusb"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
