@@ -60,6 +60,7 @@ PNBLACKLIST[qt-gui-core] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', [
 PNBLACKLIST[qt-gui-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'qt5: depends on qtbase; pyqt5: depends on python-qt-binding->python3-pyqt5 which requires pyqt5', '', d)}"
 PNBLACKLIST[qt-gui-py-common] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'qt5: depends on python-qt-bindings->qtbase; pyqt5: depends on python-qt-binding->python3-pyqt5 which requires pyqt5', '', d)}"
 PNBLACKLIST[qt-gui] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'qt5: depends on qtbase; pyqt5: depends on python3-pyqt5 which requires pyqt5', '', d)}"
+PNBLACKLIST[rc-dynamics-api] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rc-dynamics-api', 'rc-dynamics-api: do_compile task fails: /bin/sh: 1: js_embed: not found', '', d)}"
 PNBLACKLIST[rmw-connext-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds which is not available', '', d)}"
 PNBLACKLIST[rmw-connext-shared-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds which is not available', '', d)}"
 PNBLACKLIST[rmw-opensplice-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opensplice', 'opensplice: depends on libopensplice69 which is not available', '', d)}"
