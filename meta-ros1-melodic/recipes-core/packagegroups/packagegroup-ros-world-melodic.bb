@@ -184,6 +184,7 @@ RDEPENDS_${PN}_remove = "${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'glfw', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
     librealsense2 \
+    mrpt2 \
     realsense2-camera \
 "
 
@@ -222,6 +223,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     gundam-rx78-control \
     hrpsys-ros-bridge \
     jderobot-drones \
+    leo-viz \
+    mesh-tools \
     pilz-status-indicator-rqt \
     python-qt-binding \
     qt-gui \
@@ -271,8 +274,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-tf-tree \
     rqt-top \
     rqt-topic \
+    rqt-virtual-joy \
     rqt-web \
     rtmros-common \
+    rviz-map-plugin \
+    rviz-mesh-plugin \
     sick-safetyscanners \
     visualstates \
     webkit-dependency \
@@ -339,9 +345,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     moveit-runtime \
     moveit-sim-controller \
     mpc-local-planner-examples \
+    mrpt2 \
     multires-image \
     navigation-stage \
     navigation-tutorials \
+    nextage-moveit-config \
     open-manipulator-controller \
     open-manipulator-with-tb3-tools \
     perception \
@@ -443,8 +451,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni2', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI2}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI2 = " \
     fetch-bringup \
+    hironx-calibration \
+    hironx-moveit-config \
+    hironx-ros-bridge \
+    nextage-ros-bridge \
+    nextage-moveit-config \
     openni2-camera \
     openni2-launch \
+    rtmros-hironx \
 "
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-gforth' (but generated-recipes/wge100-driver/wge100-camera-firmware_1.8.2-1.bb DEPENDS on or otherwise requires it)
@@ -561,7 +575,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY = " \
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libnlopt-dev' (but generated-recipes/trac-ik/trac-ik-lib_1.5.1-1.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libnlopt0' (but generated-recipes/trac-ik/trac-ik-lib_1.5.1-1.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'trac-ik', 'trac-ik trac-ik-examples trac-ik-kinematics-plugin trac-ik-lib trac-ik-python', '', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'trac-ik', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_TRAC_IK}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_TRAC_IK = " \
+    nextage-moveit-config \
+    trac-ik \
+    trac-ik-examples \
+    trac-ik-kinematics-plugin \
+    trac-ik-lib \
+    trac-ik-python \
+"
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ogre', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
@@ -607,10 +629,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     jackal-viz \
     kvh-geo-fog-3d \
     kvh-geo-fog-3d-rviz \
+    leo-viz \
     leuze-bringup \
     leuze-description \
     leuze-ros-drivers \
     librviz-tutorial \
+    mesh-tools \
     moveit \   
     moveit-ros \
     moveit-ros-visualization \
@@ -619,6 +643,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     neonavigation \
     neonavigation-launch \
     neonavigation-rviz-plugins \
+    nextage-moveit-config \
     octomap-rviz-plugins \
     open-manipulator \
     open-manipulator-moveit \
@@ -632,6 +657,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     rqt-rviz \
     rviz \
     rviz-imu-plugin \
+    rviz-map-plugin \
+    rviz-mesh-plugin \
     rviz-python-tutorial \
     rviz-plugin-tutorials \
     rviz-visual-tools \
@@ -718,6 +745,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     jsk-visualization \
     kvh-geo-fog-3d \
     kvh-geo-fog-3d-rviz \
+    leo-viz \
     libqt-concurrent \
     libqt-core \
     libqt-gui \
@@ -732,6 +760,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     lvr2 \
     mapviz \
     mapviz-plugins \
+    mesh-tools \
     mir-gazebo \
     mir-robot \
     moveit \
@@ -745,6 +774,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     neonavigation \
     neonavigation-launch \
     neonavigation-rviz-plugins \
+    nextage-moveit-config \
     node-manager-fkie \
     octomap-rviz-plugins \
     open-manipulator \
@@ -820,11 +850,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-tf-tree \
     rqt-top \
     rqt-topic \
+    rqt-virtual-joy \
     rqt-web \
     rtabmap-ros \
     rtmros-common \
     rviz \
     rviz-imu-plugin \
+    rviz-map-plugin \
+    rviz-mesh-plugin \
     rviz-plugin-tutorials \
     rviz-python-tutorial \
     rviz-visual-tools \
@@ -865,6 +898,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
     h264-video-encoder \
     movie-publisher \
     mrpt1 \
+    mrpt2 \
     mrpt-bridge \
     mrpt-ekf-slam-2d \
     mrpt-ekf-slam-3d \
@@ -1015,6 +1049,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     mir-gazebo \
     mir-navigation \
     mir-robot \
+    nextage-gazebo \
     nmea-gps-plugin \
     open-manipulator-gazebo \
     open-manipulator-simulations \
@@ -1040,11 +1075,19 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     rotors-gazebo \
     rotors-gazebo-plugins \
     rotors-simulator \
+    rr-openrover-description \
+    rr-openrover-simulation \
+    rr-openrover-stack \
+    rtmros-nextage \
     sand-island \
     simulators \
     turtlebot3-gazebo \
     turtlebot3-simulations \
     urdf-sim-tutorial \
+    uos-common-urdf \
+    uos-gazebo-tools \
+    uos-gazebo-worlds \
+    uos-tools \
     usv-gazebo-plugins \
     uuv-descriptions \
     uuv-gazebo-plugins \
@@ -1182,6 +1225,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     fetch-bringup \
     fetch-moveit-config \
     fetch-ros \
+    freenect-camera \
+    freenect-launch \
+    freenect-stack \
     fsrobo-r-trajectory-filters \
     industrial-core \
     industrial-trajectory-filters \
@@ -1207,6 +1253,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     mpc-local-planner-examples \
     navigation-stage \
     navigation-tutorials \
+    nextage-moveit-config \
     open-manipulator-controller \
     open-manipulator-moveit \
     open-manipulator-with-tb3-tools \
