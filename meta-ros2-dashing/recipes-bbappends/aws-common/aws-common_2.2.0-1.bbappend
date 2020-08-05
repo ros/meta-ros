@@ -1,6 +1,11 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 DEPENDS += "aws-cpp-sdk curl openssl"
+
+ROS_BUILDTOOL_DEPENDS_remove = " \
+    ament-cmake-gmock-native \
+    ament-cmake-gtest-native \
+"
 
 EXTRA_OECMAKE = "-DEXTERNAL_INSTALL_LOCATION=${STAGING_DIR_HOST}${prefix}"
 
