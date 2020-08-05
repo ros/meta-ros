@@ -1,0 +1,22 @@
+From e1b7396110128e82b98938a055fd59b640786947 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 26 Jun 2020 08:26:32 -0700
+Subject: [PATCH] CMakeLists.txt: drop -s
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9143dbf..abe9b50 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -50,7 +50,7 @@ if(WIN32)
+   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+   add_definitions(-DBOOST_ALL_NO_LIB)
+ else(WIN32)
+-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-literal-suffix -s")
++  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-literal-suffix")
+ endif(WIN32)
+ 
+ # create the cmake-package files
