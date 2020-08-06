@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/ros-infrastructure/rosdep;${ROS_BRANCH};protocol=htt
 
 S = "${WORKDIR}/git"
 
-RDEPENDS_${PN} += "${PYTHON_PN}-catkin-pkg ${PYTHON_PN}-rospkg ${PYTHON_PN}-pyyaml ${PYTHON_PN}-netclient ${PYTHON_PN}-rosdistro"
+RDEPENDS_${PN} += "${PYTHON_PN}-catkin-pkg ${PYTHON_PN}-pyyaml ${PYTHON_PN}-netclient ${PYTHON_PN}-rosdistro"
 RDEPENDS_${PN} += "ca-certificates"
 
 BBCLASSEXTEND += "native"
