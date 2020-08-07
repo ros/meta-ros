@@ -118,6 +118,13 @@ cd - > /dev/null
 # Create $tmpdir/$ROS_DISTRO-cache.yaml.gz .
 cd $tmpdir
 
+# github.com/ros-tooling/cross_compile-release doesn't exist anymore and rosdistro_build_cache fails because of
+# that, use the same cross_compile repo just to get rid of the fatal error until it's resolved in upstream:
+# https://github.com/ros-tooling/cross_compile/issues/248
+if [ "$ROS_DISTRO" = "dashing" -o "$ROS_DISTRO" = "eloquent" ] ; then
+    sed '/^ *cross_compile:/,/^ *status: developed$/d' -i $ROS_DISTRO/distribution.yaml
+fi
+
 rosdistro_build_cache --preclean --ignore-local $tmpdir/index-v4.yaml $ROS_DISTRO
 
 cd - > /dev/null
