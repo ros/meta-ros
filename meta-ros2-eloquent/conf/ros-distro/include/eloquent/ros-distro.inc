@@ -247,3 +247,8 @@ ROS_BUILD_TYPE_pn-gps-umd = "ament_cmake"
 ROS_BUILD_TYPE_pn-ml-classifiers = "ament_cmake"
 ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
 ROS_BUILD_TYPE_pn-sros2-cmake = "ament_cmake"
+# superflore doesn't resolve the build_type conditions correctly:
+# https://github.com/lgsvl/lgsvl_msgs-release/blob/release/foxy/lgsvl_msgs/package.xml#L32
+#   <build_type condition="$ROS_VERSION == 1">catkin</build_type>
+#   <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+ROS_BUILD_TYPE_pn-lgsvl-msgs = "ament_cmake"
