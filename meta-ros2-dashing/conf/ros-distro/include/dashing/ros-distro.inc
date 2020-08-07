@@ -1,7 +1,7 @@
 # dashing/ros-distro.inc
 # General configuration settings that are dependent on ROS_DISTRO.
 #
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 ROS_DISTRO_CODENAME = "Dashing Diademata"
 
@@ -21,6 +21,8 @@ ROS_WORLD_SKIP_GROUPS += "connext"
 # alternative not yet supported implementation for fastrtps
 # https://github.com/ADLINK-IST/opensplice
 ROS_WORLD_SKIP_GROUPS += "opensplice"
+# alternative not yet supported implementation for fastrtps, there is no recipe for gurumdds-2.6
+ROS_WORLD_SKIP_GROUPS += "gurumdds"
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
 ROS_WORLD_SKIP_GROUPS += "clang"
 # Depends on python3-docker which is available in meta-virtualization, but we don't want to add the
@@ -110,6 +112,8 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "python3-tkinter"
 
 # Used by generated-recipes/hls-lfcd-lds-driver/hls-lfcd-lds-driver_2.0.0-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev = "boost"
+# Used by generated-recipes/transport-drivers/udp-driver_0.0.5-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-system = "boost"
 
 # Used by generated-recipes/navigation2/nav2-util_0.2.6-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options = "boost"
@@ -233,6 +237,14 @@ ROS_UNRESOLVED_PLATFORM_PKG_launch_xml = ""
 # Used by:
 # generated-recipes/rc-dynamics-api/rc-dynamics-api_0.10.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_protobuf = "protobuf"
+
+# Used by:
+# enerated-recipes/cartographer/cartographer_1.0.9001-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev = "boost"
+
+# Used by:
+# generated-recipes/cartographer/cartographer_1.0.9001-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx = "python3-sphinx"
 
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
