@@ -3,10 +3,6 @@ asio:
 - asio@meta-oe
 assimp:
 - assimp@openembedded-core
-autoware_auto_cmake:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_autoware_auto_cmake}
-autoware_auto_helper_functions:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_autoware_auto_helper_functions}
 boost:
 - boost@openembedded-core
 bzip2:
@@ -48,14 +44,20 @@ gtest:
 - gtest@meta-oe
 gtk3:
 - gtk+3@openembedded-core
+gurumdds-2.6:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6}
 launch_xml:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_launch_xml}
 lcov:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_lcov}
+libboost-iostreams-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev}
 libboost-program-options:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options}
 libboost-program-options-dev:
 - boost@openembedded-core
+libboost-system:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system}
 libboost-system-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev}
 libcairo2-dev:
@@ -92,8 +94,6 @@ libjsoncpp-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev}
 liblapack-dev:
 - lapack@meta-ros
-libncurses-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev}
 libogg:
 - libogg@openembedded-core
 libopencv-dev:
@@ -200,12 +200,8 @@ python-gst-1.0:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-gst-1.0}
 python-numpy:
 - ${PYTHON_PN}-numpy@openembedded-core
-python-psutil:
-- ${PYTHON_PN}-psutil@meta-python
 python-pyproj:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj}
-python-sphinx:
-- ${PYTHON_PN}-sphinx@meta-ros
 python-tk:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk}
 python-virtualenv:
@@ -260,8 +256,14 @@ python3-pytest:
 - python3-pytest@meta-python
 python3-qt5-bindings:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings}
+python3-requests:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests}
+python3-rospkg-modules:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules}
 python3-setuptools:
 - python3-setuptools@openembedded-core
+python3-sphinx:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx}
 python3-tornado:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-tornado}
 python3-twisted:
@@ -283,8 +285,8 @@ sdl:
 sdl-image:
 - libsdl-image@meta-oe
 suitesparse:
-- suitesparse-cxsparse@meta-ros
 - suitesparse-cholmod@meta-ros
+- suitesparse-cxsparse@meta-ros
 tango-icon-theme:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
 tbb:
