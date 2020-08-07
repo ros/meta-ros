@@ -90,6 +90,11 @@ ROS_WORLD_SKIP_GROUPS += "libspnav"
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
     dccomms-ros \
+    dynamic-graph-python \
+    hdf5-map-io \
+    jderobot-carviz \
+    lanelet2-traffic-rules \
+    novatel-oem7-driver \
     pyros-utils \
 "
 
@@ -106,6 +111,7 @@ ROS_WORLD_SKIP_GROUPS += " \
     ff \
     ffha \
     fmi-adapter \
+    hector-pose-estimation-core \
     hpp-fcl \
     julius \
     libg2o \
@@ -114,6 +120,7 @@ ROS_WORLD_SKIP_GROUPS += " \
     libsiftfast \
     libuvc-camera \
     map-merge-3d \
+    mobile-robot-simulator \
     multisense-ros \
     naoqi-libqi \
     nerian-stereo \
@@ -121,6 +128,7 @@ ROS_WORLD_SKIP_GROUPS += " \
     obj-to-pointcloud \
     odva-ethernetip \
     p2os-urdf \
+    pointgrey-camera-driver \
     pr2-description \
     qt-gui-cpp \
     rail-mesh-icp \
@@ -128,6 +136,7 @@ ROS_WORLD_SKIP_GROUPS += " \
     robot-body-filter \
     ros-reflexxes \
     rosbag-editor \
+    rosflight \
     rosmon-core \
     sainsmart-relay-usb \
     sbpl-lattice-planner \
@@ -137,6 +146,12 @@ ROS_WORLD_SKIP_GROUPS += " \
     stage-ros \
     usb-cam-controllers \
     wamv-description \
+"
+
+# do_compile failures
+ROS_WORLD_SKIP_GROUPS += " \
+    omnibase-description \
+    omnibase-gazebo \
 "
 
 # recipes depending on various unavailable python modules

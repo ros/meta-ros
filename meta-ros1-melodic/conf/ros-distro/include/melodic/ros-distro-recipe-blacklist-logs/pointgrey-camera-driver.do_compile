@@ -1,0 +1,8 @@
+DEBUG: Executing shell function do_compile
+NOTE: VERBOSE=1 cmake --build /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pointgrey-camera-driver/0.14.1-1-r0/build --target all --
+ninja: error: '/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pointgrey-camera-driver/0.14.1-1-r0/devel/lib/libflycapture.so.2', needed by '/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pointgrey-camera-driver/0.14.1-1-r0/devel/lib/libPointGreyCamera.so', missing and no known rule to make it
+WARNING: exit code 1 from a shell command.
+ERROR: Execution of '/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pointgrey-camera-driver/0.14.1-1-r0/temp/run.do_compile.15976' failed with exit code 1:
+ninja: error: '/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pointgrey-camera-driver/0.14.1-1-r0/devel/lib/libflycapture.so.2', needed by '/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pointgrey-camera-driver/0.14.1-1-r0/devel/lib/libPointGreyCamera.so', missing and no known rule to make it
+WARNING: exit code 1 from a shell command.
+

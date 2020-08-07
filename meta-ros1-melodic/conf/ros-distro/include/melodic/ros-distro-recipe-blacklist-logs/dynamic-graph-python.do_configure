@@ -1,0 +1,139 @@
+DEBUG: Executing shell function do_configure
+-- Found PkgConfig: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot-native/usr/bin/pkg-config (found version "0.29.2") 
+-- Package version (ROS package.xml): 3.5.3
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test R-pedantic
+-- Performing Test R-pedantic - Success
+-- Performing Test R-Wno-long-long
+-- Performing Test R-Wno-long-long - Success
+-- Performing Test R-Wall
+-- Performing Test R-Wall - Success
+-- Performing Test R-Wextra
+-- Performing Test R-Wextra - Success
+-- Performing Test R-Wcast-align
+-- Performing Test R-Wcast-align - Success
+-- Performing Test R-Wcast-qual
+-- Performing Test R-Wcast-qual - Success
+-- Performing Test R-Wformat
+-- Performing Test R-Wformat - Success
+-- Performing Test R-Wwrite-strings
+-- Performing Test R-Wwrite-strings - Success
+-- Performing Test R-Wconversion
+-- Performing Test R-Wconversion - Success
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+CMake Warning at cmake/doxygen.cmake:496 (MESSAGE):
+  Failed to find Doxygen, documentation will not be generated.
+Call Stack (most recent call first):
+  cmake/post-project.cmake:58 (_SETUP_PROJECT_DOCUMENTATION)
+  CMakeLists.txt:27 (PROJECT)
+
+
+-- Found Python3: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot-native/usr/bin/python3-native/python3 (found version "3.8.2") found components: Interpreter Development 
+-- PythonLibraryDirs: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib
+-- PythonLibVersionString: 3.8.2
+-- Python site lib: lib/python3.8/site-packages
+-- dynamic-graph searched on  FOUND. dynamic-graph at /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib/libdynamic-graph.so
+-- Found Boost: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib/cmake/Boost-1.72.0/BoostConfig.cmake (found version "1.72.0") found components: serialization system unit_test_framework thread 
+CMake Error at /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib/cmake/dynamic-graph/dynamic-graphTargets.cmake:103 (message):
+  The imported target "dynamic-graph::tracer" references the file
+
+     "/usr/lib/dynamic-graph-plugins/libtracer.so.4.2.2"
+
+  but this file does not exist.  Possible reasons include:
+
+  * The file was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and contained
+
+     "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib/cmake/dynamic-graph/dynamic-graphTargets.cmake"
+
+  but not all the files it references.
+
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib/cmake/dynamic-graph/dynamic-graphConfig.cmake:151 (include)
+  cmake/package-config.cmake:84 (find_package)
+  CMakeLists.txt:32 (ADD_PROJECT_DEPENDENCY)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/build/CMakeFiles/CMakeOutput.log".
+See also "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/build/CMakeFiles/CMakeError.log".
+WARNING: exit code 1 from a shell command.
+ERROR: Execution of '/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/temp/run.do_configure.15507' failed with exit code 1:
+-- Found PkgConfig: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot-native/usr/bin/pkg-config (found version "0.29.2") 
+-- Package version (ROS package.xml): 3.5.3
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test R-pedantic
+-- Performing Test R-pedantic - Success
+-- Performing Test R-Wno-long-long
+-- Performing Test R-Wno-long-long - Success
+-- Performing Test R-Wall
+-- Performing Test R-Wall - Success
+-- Performing Test R-Wextra
+-- Performing Test R-Wextra - Success
+-- Performing Test R-Wcast-align
+-- Performing Test R-Wcast-align - Success
+-- Performing Test R-Wcast-qual
+-- Performing Test R-Wcast-qual - Success
+-- Performing Test R-Wformat
+-- Performing Test R-Wformat - Success
+-- Performing Test R-Wwrite-strings
+-- Performing Test R-Wwrite-strings - Success
+-- Performing Test R-Wconversion
+-- Performing Test R-Wconversion - Success
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+CMake Warning at cmake/doxygen.cmake:496 (MESSAGE):
+  Failed to find Doxygen, documentation will not be generated.
+Call Stack (most recent call first):
+  cmake/post-project.cmake:58 (_SETUP_PROJECT_DOCUMENTATION)
+  CMakeLists.txt:27 (PROJECT)
+
+
+-- Found Python3: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot-native/usr/bin/python3-native/python3 (found version "3.8.2") found components: Interpreter Development 
+-- PythonLibraryDirs: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib
+-- PythonLibVersionString: 3.8.2
+-- Python site lib: lib/python3.8/site-packages
+-- dynamic-graph searched on  FOUND. dynamic-graph at /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib/libdynamic-graph.so
+-- Found Boost: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib/cmake/Boost-1.72.0/BoostConfig.cmake (found version "1.72.0") found components: serialization system unit_test_framework thread 
+CMake Error at /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib/cmake/dynamic-graph/dynamic-graphTargets.cmake:103 (message):
+  The imported target "dynamic-graph::tracer" references the file
+
+     "/usr/lib/dynamic-graph-plugins/libtracer.so.4.2.2"
+
+  but this file does not exist.  Possible reasons include:
+
+  * The file was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and contained
+
+     "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib/cmake/dynamic-graph/dynamic-graphTargets.cmake"
+
+  but not all the files it references.
+
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/recipe-sysroot/usr/lib/cmake/dynamic-graph/dynamic-graphConfig.cmake:151 (include)
+  cmake/package-config.cmake:84 (find_package)
+  CMakeLists.txt:32 (ADD_PROJECT_DEPENDENCY)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/build/CMakeFiles/CMakeOutput.log".
+See also "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/dynamic-graph-python/3.5.3-2-r0/build/CMakeFiles/CMakeError.log".
+WARNING: exit code 1 from a shell command.
+
