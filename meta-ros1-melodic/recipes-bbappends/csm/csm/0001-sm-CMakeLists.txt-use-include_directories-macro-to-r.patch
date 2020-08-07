@@ -1,0 +1,38 @@
+From b66bc741cb65ede5406e660bb656f39112c9483b Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 7 Aug 2020 22:07:03 +0000
+Subject: [PATCH] sm/CMakeLists.txt: use include_directories macro to respect
+ sysroot
+
+* blindly passing the includedir from gsl to cflags causes -Wpoison-system-directories:
+  cc1: warning: include location "/usr/include" is unsafe for cross-compilation [-Wpoison-system-directories]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ sm/CMakeLists.txt | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/sm/CMakeLists.txt b/sm/CMakeLists.txt
+index 2cf939f..903741a 100644
+--- a/sm/CMakeLists.txt
++++ b/sm/CMakeLists.txt
+@@ -17,8 +17,7 @@ IF(GSL_FOUND)
+ 	MESSAGE(STATUS "   CMAKE_GSL_CXX_FLAGS = ${CMAKE_GSL_CXX_FLAGS}")
+ 	MESSAGE(STATUS "   GSL_LINK_DIRECTORIES = '${GSL_LINK_DIRECTORIES}'")
+ 
+- 	
+-	set(csm_c_flags "${csm_c_flags} -I${GSL_INCLUDE_DIR}")
++	INCLUDE_DIRECTORIES(${GSL_INCLUDE_DIR})
+ 	if(GSL_LINK_DIRECTORIES)	
+ #		set(csm_link_flags "${csm_link_flags}
+ 		set(csm_link_flags "${csm_link_flags} -L${GSL_LINK_DIRECTORIES}")
+@@ -39,7 +38,8 @@ IF(CAIRO_FOUND)
+ 	MESSAGE(STATUS "   CAIRO_INCLUDE_DIR = ${CAIRO_INCLUDE_DIR}")
+ 	
+ 	set(csm_link_flags "${csm_link_flags} ${CAIRO_LIBRARY}")
+-	SET(csm_c_flags "${csm_c_flags} ${CAIRO_CFLAGS} -I${CAIRO_INCLUDE_DIR}")
++	INCLUDE_DIRECTORIES(${CAIRO_INCLUDE_DIR})
++	SET(csm_c_flags "${csm_c_flags} ${CAIRO_CFLAGS}")
+ 	
+ ELSE(CAIRO_FOUND)
+ 	MESSAGE(WARNING "* Cairo not found: plotting programs (e.g., 'log2pdf') will not be built.")
