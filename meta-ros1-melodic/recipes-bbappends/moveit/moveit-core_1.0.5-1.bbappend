@@ -1,10 +1,5 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-# angles dependency should be used only when catkin testing
-# is enabled, which in our builds isn't
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-trajectory_processing-remove-unnecessary-angles-angl.patch"
-
 # WARNING: moveit-core-1.0.2-1-r0 do_package: QA Issue: moveit-core: Files/directories were installed but not shipped in any package:
 #   /opt/ros/melodic/lib/libmoveit_collision_detection.so.1.0.2
 #   /opt/ros/melodic/lib/libmoveit_collision_detection_fcl.so.1.0.2
