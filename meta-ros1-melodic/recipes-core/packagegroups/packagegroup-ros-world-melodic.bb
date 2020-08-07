@@ -320,6 +320,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     exotica-quadrotor-dynamics-solver \
     exotica-scipy-solver \
     exotica-time-indexed-rrt-connect-solver \
+    freenect-camera \
+    freenect-launch \
+    freenect-stack \
     fsrobo-r-trajectory-filters \
     image-pipeline \
     image-view \
