@@ -1,0 +1,26 @@
+From 94d2875b687cdbc86e027dd5bc26b6d1cb0684c5 Mon Sep 17 00:00:00 2001
+From: Daniel Stonier <d.stonier@gmail.com>
+Date: Sun, 31 May 2020 14:48:10 -0400
+Subject: [PATCH] fix cmake install rule
+
+Upstream-Status: Backport [1.2.0-3 https://github.com/kobuki-base/kobuki_firmware/commit/ca2c437aa79fbf299a0201e75b06f33ae4138435 imported in https://github.com/stonier/kobuki_firmware-release/commit/4e6eef3e2099d5b86f6bceddd8df67b7ae0aada1]
+---
+ CMakeLists.txt | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d61a010..4589d7f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,11 +26,6 @@ install(
+   DESTINATION share/${PROJECT_NAME}
+ )
+ 
+-install(
+-  DIRECTORY utilities
+-  DESTINATION share/${PROJECT_NAME}
+-)
+-
+ ##############################################################################
+ # Exports
+ ##############################################################################
