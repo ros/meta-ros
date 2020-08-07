@@ -1,8 +1,6 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-# "rosidl-default-generators" belongs in ROS_BUILDTOOL_DEPENDS (as "rosidl-default-generators-native"); it should not be in
-# ROS_BUILD_DEPENDS.
-ROS_BUILDTOOL_DEPENDS += " \
-    rosidl-default-generators-native \
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += " \
+    file://0001-update-for-BT.cpp-master-1714.patch \
 "
-ROS_BUILD_DEPENDS_remove = "rosidl-default-generators"
