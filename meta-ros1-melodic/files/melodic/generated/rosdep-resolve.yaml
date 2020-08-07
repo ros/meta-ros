@@ -158,6 +158,10 @@ libboost-filesystem-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-filesystem-dev}
 libboost-python-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev}
+libboost-regex-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-regex-dev}
+libboost-system-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev}
 libboost-thread-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev}
 libcairo2-dev:
@@ -234,6 +238,10 @@ libjsoncpp-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev}
 liblapack-dev:
 - lapack@meta-ros
+liblcm:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_liblcm}
+liblcm-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_liblcm-dev}
 libmicrohttpd:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libmicrohttpd}
 libmodbus-dev:
@@ -282,6 +290,10 @@ libpoco-dev:
 - poco@meta-oe
 libpq-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libpq-dev}
+libpqxx:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx}
+libpqxx-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx-dev}
 libpulse-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev}
 libqglviewer-qt4:
@@ -408,8 +420,6 @@ netpbm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_netpbm}
 network-manager:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_network-manager}
-nextage_calibration:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_nextage_calibration}
 nkf:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_nkf}
 nodejs:
@@ -436,6 +446,8 @@ phantomjs:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_phantomjs}
 pkg-config:
 - pkgconfig@openembedded-core
+postgresql:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_postgresql}
 postgresql-postgis:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_postgresql-postgis}
 procps:
@@ -497,6 +509,8 @@ python-cwiid:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid}
 python-defusedxml:
 - ${PYTHON_PN}-defusedxml@meta-ros
+python-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-dev}
 python-dialogflow-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-dialogflow-pip}
 python-dlib:
@@ -603,6 +617,8 @@ python-pyproj:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj}
 python-pytest:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pytest}
+python-pytest-cov:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pytest-cov}
 python-pyusb-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip}
 python-qt5-bindings:
@@ -679,6 +695,8 @@ python3-catkin-pkg-modules:
 - python3-catkin-pkg@meta-ros
 python3-dev:
 - python3@openembedded-core
+python3-pil:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pil}
 python3-venv:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-venv}
 python3-yaml:
@@ -710,8 +728,8 @@ sshpass:
 subversion:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_subversion}
 suitesparse:
-- suitesparse-cholmod@meta-ros
 - suitesparse-cxsparse@meta-ros
+- suitesparse-cholmod@meta-ros
 swig:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_swig}
 sysstat:
@@ -756,6 +774,8 @@ xterm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_xterm}
 xvfb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_xvfb}
+yaml:
+- libyaml@openembedded-core
 yaml-cpp:
 - yaml-cpp@meta-ros
 yasm:
