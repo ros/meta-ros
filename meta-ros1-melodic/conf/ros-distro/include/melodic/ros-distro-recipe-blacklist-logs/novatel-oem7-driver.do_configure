@@ -1,0 +1,77 @@
+DEBUG: Executing shell function do_configure
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/devel
+-- Using CMAKE_PREFIX_PATH: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot/opt/ros/melodic;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot/usr
+-- This workspace overlays: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot/opt/ros/melodic
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/python-native/python (found suitable version "2.7.18", minimum required is "2") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/python-native/python
+-- Using default Python package layout
+-- Found PY_em: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc  
+-- Using empy: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc
+-- Using CATKIN_ENABLE_TESTING: 0
+-- catkin 0.7.28
+-- BUILD_SHARED_LIBS is on
+-- Using these message generators: gencpp;gennodejs;genpy
+-- Found Boost: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot/usr/lib/cmake/Boost-1.72.0/BoostConfig.cmake (found version "1.72.0") found components: system thread 
+-- Linking to Oem7 Decoder at: 'OEM7_DECODER_LIB-NOTFOUND'
+CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+Please set them or make sure they are set and tested correctly in the CMake files:
+OEM7_DECODER_LIB
+    linked by target "novatel_oem7_driver" in directory /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/git
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/build/CMakeFiles/CMakeOutput.log".
+See also "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/build/CMakeFiles/CMakeError.log".
+WARNING: exit code 1 from a shell command.
+ERROR: Execution of '/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/temp/run.do_configure.16589' failed with exit code 1:
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/devel
+-- Using CMAKE_PREFIX_PATH: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot/opt/ros/melodic;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot/usr
+-- This workspace overlays: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot/opt/ros/melodic
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/python-native/python (found suitable version "2.7.18", minimum required is "2") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/bin/python-native/python
+-- Using default Python package layout
+-- Found PY_em: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc  
+-- Using empy: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc
+-- Using CATKIN_ENABLE_TESTING: 0
+-- catkin 0.7.28
+-- BUILD_SHARED_LIBS is on
+-- Using these message generators: gencpp;gennodejs;genpy
+-- Found Boost: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/recipe-sysroot/usr/lib/cmake/Boost-1.72.0/BoostConfig.cmake (found version "1.72.0") found components: system thread 
+-- Linking to Oem7 Decoder at: 'OEM7_DECODER_LIB-NOTFOUND'
+CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+Please set them or make sure they are set and tested correctly in the CMake files:
+OEM7_DECODER_LIB
+    linked by target "novatel_oem7_driver" in directory /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/git
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/build/CMakeFiles/CMakeOutput.log".
+See also "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/novatel-oem7-driver/1.1.0-1-r0/build/CMakeFiles/CMakeError.log".
+WARNING: exit code 1 from a shell command.
+

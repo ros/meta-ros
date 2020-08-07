@@ -1,0 +1,103 @@
+DEBUG: Executing shell function do_configure
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/devel
+-- Using CMAKE_PREFIX_PATH: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/opt/ros/melodic;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/usr
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/python-native/python (found suitable version "2.7.18", minimum required is "2") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/python-native/python
+-- Using default Python package layout
+-- Found PY_em: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc  
+-- Using empy: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc
+-- Using CATKIN_ENABLE_TESTING: 0
+-- catkin 0.7.28
+-- BUILD_SHARED_LIBS is on
+CMake Error at /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/usr/share/cmake/hdf5/hdf5-targets.cmake:219 (message):
+  The imported target "hdf5::h5diff" references the file
+
+     "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/usr/bin/h5diff"
+
+  but this file does not exist.  Possible reasons include:
+
+  * The file was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and contained
+
+     "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/usr/share/cmake/hdf5/hdf5-targets.cmake"
+
+  but not all the files it references.
+
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/usr/share/cmake/hdf5/hdf5-config.cmake:127 (include)
+  /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/share/cmake-3.16/Modules/FindHDF5.cmake:473 (find_package)
+  CMakeLists.txt:8 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/build/CMakeFiles/CMakeOutput.log".
+WARNING: exit code 1 from a shell command.
+ERROR: Execution of '/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/temp/run.do_configure.15069' failed with exit code 1:
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/devel
+-- Using CMAKE_PREFIX_PATH: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/opt/ros/melodic;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/usr
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/python-native/python (found suitable version "2.7.18", minimum required is "2") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/bin/python-native/python
+-- Using default Python package layout
+-- Found PY_em: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc  
+-- Using empy: /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/lib/python2.7/site-packages/em.pyc
+-- Using CATKIN_ENABLE_TESTING: 0
+-- catkin 0.7.28
+-- BUILD_SHARED_LIBS is on
+CMake Error at /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/usr/share/cmake/hdf5/hdf5-targets.cmake:219 (message):
+  The imported target "hdf5::h5diff" references the file
+
+     "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/usr/bin/h5diff"
+
+  but this file does not exist.  Possible reasons include:
+
+  * The file was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and contained
+
+     "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/usr/share/cmake/hdf5/hdf5-targets.cmake"
+
+  but not all the files it references.
+
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot/usr/share/cmake/hdf5/hdf5-config.cmake:127 (include)
+  /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/recipe-sysroot-native/usr/share/cmake-3.16/Modules/FindHDF5.cmake:473 (find_package)
+  CMakeLists.txt:8 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/hdf5-map-io/1.0.0-2-r0/build/CMakeFiles/CMakeOutput.log".
+WARNING: exit code 1 from a shell command.
+
