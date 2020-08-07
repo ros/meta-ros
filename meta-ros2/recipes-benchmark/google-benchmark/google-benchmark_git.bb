@@ -21,3 +21,9 @@ EXTRA_OECMAKE += "-DBENCHMARK_ENABLE_GTEST_TESTS=OFF -DBENCHMARK_ENABLE_TESTING=
 EXTRA_OECMAKE += "-DBUILD_SHARED_LIBS=ON"
 
 inherit cmake
+
+# *.cmake files have hardcoded sysroot-s in them.
+# webos-rolling-dunfell/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/performance-test-fixture/0.0.2-1-r0/recipe-sysroot/usr/lib/cmake/benchmark/benchmarkTargets.cmake
+# points to google-benchmark sysroot (which might be already removed by rm_work)
+# INTERFACE_LINK_LIBRARIES "-pthread;/jenkins/home/workspace/jansa/webos-dashing-dunfell/webos-dashing-dunfell/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot/usr/lib/librt.so"
+SSTATE_SCAN_FILES_append = " *.cmake"
