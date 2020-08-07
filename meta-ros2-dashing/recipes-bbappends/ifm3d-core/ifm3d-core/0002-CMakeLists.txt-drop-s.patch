@@ -1,4 +1,4 @@
-From e1b7396110128e82b98938a055fd59b640786947 Mon Sep 17 00:00:00 2001
+From 1e8e9bfea31ee033669509c0b9ca8ac02efeb16a Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Fri, 26 Jun 2020 08:26:32 -0700
 Subject: [PATCH] CMakeLists.txt: drop -s
@@ -8,7 +8,7 @@ Subject: [PATCH] CMakeLists.txt: drop -s
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 9143dbf..abe9b50 100644
+index b51190d..a297269 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -50,7 +50,7 @@ if(WIN32)

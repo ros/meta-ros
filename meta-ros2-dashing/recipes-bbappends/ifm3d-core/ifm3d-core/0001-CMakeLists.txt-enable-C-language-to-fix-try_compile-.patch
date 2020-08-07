@@ -1,4 +1,4 @@
-From 91c1551a7ed08d0b4540a7552d2603392dd386ed Mon Sep 17 00:00:00 2001
+From 3da4f8145f5e40f24e9fee822b950825fbf99003 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Fri, 26 Jun 2020 15:21:04 +0000
 Subject: [PATCH] CMakeLists.txt: enable C language to fix try_compile test
@@ -96,15 +96,15 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 53ef651..9143dbf 100644
+index d464471..b51190d 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,7 +1,7 @@
  cmake_minimum_required(VERSION 3.5)
  cmake_policy(SET CMP0048 NEW)
  # Manage version number here: Major.Minor.Patch (we don't use "tweak")
--project(IFM3D VERSION 0.17.0 LANGUAGES CXX)
-+project(IFM3D VERSION 0.17.0 LANGUAGES C CXX)
+-project(IFM3D VERSION 0.18.0 LANGUAGES CXX)
++project(IFM3D VERSION 0.18.0 LANGUAGES C CXX)
  set(GIT_PROJECT_NAME "ifm3d")
  
  # Make our cmake functions accessible
