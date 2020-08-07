@@ -1,0 +1,41 @@
+From 4521aa1e7738d3e59d8f6f680db2af714b76a518 Mon Sep 17 00:00:00 2001
+From: Timon Engelke <timonegk@users.noreply.github.com>
+Date: Thu, 21 May 2020 16:59:17 +0200
+Subject: [PATCH] adapt to OpenCV4 (#537)
+
+Upstream-Status: Backport [https://github.com/ros-perception/image_pipeline/commit/2f27cd068c0a17c83afaf6d0722002f53a96411b was only partially backported]
+---
+ src/image_publisher.cpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/image_publisher.cpp b/src/image_publisher.cpp
+index d52be2a..458de4b 100644
+--- a/src/image_publisher.cpp
++++ b/src/image_publisher.cpp
+@@ -124,7 +124,7 @@ void ImagePublisher::doWork()
+   try {
+     if (cap_.isOpened()) {
+       if (!cap_.read(image_)) {
+-        cap_.set(CV_CAP_PROP_POS_FRAMES, 0);
++        cap_.set(cv::CAP_PROP_POS_FRAMES, 0);
+       }
+     }
+     if (flip_image_) {
+@@ -149,7 +149,7 @@ void ImagePublisher::onInit()
+ {
+   RCLCPP_INFO(this->get_logger(), "File name for publishing image is : %s", filename_.c_str());
+   try {
+-    image_ = cv::imread(filename_, CV_LOAD_IMAGE_COLOR);
++    image_ = cv::imread(filename_, cv::IMREAD_COLOR);
+     if (image_.empty()) {  // if filename not exist, open video device
+       try {  // if filename is number
+         int num = std::stoi(filename_);  // num is 1234798797
+@@ -159,7 +159,7 @@ void ImagePublisher::onInit()
+       }
+       CV_Assert(cap_.isOpened());
+       cap_.read(image_);
+-      cap_.set(CV_CAP_PROP_POS_FRAMES, 0);
++      cap_.set(cv::CAP_PROP_POS_FRAMES, 0);
+     }
+     CV_Assert(!image_.empty());
+   } catch (cv::Exception & e) {
