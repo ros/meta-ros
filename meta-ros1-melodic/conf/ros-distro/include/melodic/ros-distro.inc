@@ -78,6 +78,14 @@ ROS_WORLD_SKIP_GROUPS += "pugixml"
 ROS_WORLD_SKIP_GROUPS += "python-omniorb"
 # recipes depending on python-mechanize
 ROS_WORLD_SKIP_GROUPS += "python-mechanize"
+# recipes depending on lcm from meta-uav https://layers.openembedded.org/layerindex/recipe/25701/
+ROS_WORLD_SKIP_GROUPS += "lcm"
+# recipes depending on libpqxx (https://packages.debian.org/source/sid/libpqxx)
+ROS_WORLD_SKIP_GROUPS += "libpqxx"
+# recipes depending on UNRESOLVED-python-cwiid
+ROS_WORLD_SKIP_GROUPS += "python-cwiid"
+# recipes depending on UNRESOLVED-libspnav-dev
+ROS_WORLD_SKIP_GROUPS += "libspnav"
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
@@ -629,6 +637,36 @@ ROS_UNRESOLVED_PLATFORM_PKG_libgsl = "gsl"
 # Used by:
 # generated-recipes/fadecandy-ros/fadecandy-driver_0.1.0-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python-usb = "python3-pyusb"
+
+# Used by:
+# generated-recipes/dataspeed-pds/dataspeed-pds-lcm_1.0.5-1.bb
+# in meta-uav https://layers.openembedded.org/layerindex/recipe/25701/
+ROS_UNRESOLVED_PLATFORM_PKG_liblcm-dev = "lcm"
+
+# Used by:
+# generated-recipes/rosconsole/rosconsole_1.13.16-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-regex-dev = "boost"
+
+# Used by:
+# generated-recipes/rosconsole/rosconsole_1.13.16-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev = "boost"
+
+# Used by:
+# generated-recipes/knowledge-representation/knowledge-representation_0.9.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-dev = "python"
+
+# Used by:
+# generated-recipes/knowledge-representation/knowledge-representation_0.9.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libpqxx = "postgresql"
+
+# Used by:
+# generated-recipes/knowledge-representation/knowledge-representation_0.9.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libpqxx-dev = "postgresql"
+
+# Used by:
+# generated-recipes/knowledge-representation/knowledge-representation_0.9.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_postgresql = "postgresql"
+
 
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
