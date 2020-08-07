@@ -42,6 +42,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENSPLICE = " \
     rosidl-typesupport-opensplice-c \
     rosidl-typesupport-opensplice-cpp \
 "
+# alternative not yet supported implementation for fastrtps
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gurumdds', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GURUMDDS}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GURUMDDS = " \
+    gurumdds-cmake-module \
+    rmw-gurumdds-cpp \
+    rmw-gurumdds-shared-cpp \
+"
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
@@ -115,6 +122,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-py-common \
     rqt-py-console \
     rqt-reconfigure \
+    rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
     rqt-shell \
@@ -170,6 +178,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-py-common \
     rqt-py-console \
     rqt-reconfigure \
+    rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
     rqt-shell \
