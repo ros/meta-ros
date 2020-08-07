@@ -231,6 +231,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     qt-gui-app \
     qt-gui-core \
     qt-gui-cpp \
+    radial-menu \
+    radial-menu-example \
+    radial-menu-rviz \
     ros-controllers \
     rosmon \
     rqt \
@@ -346,6 +349,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     moveit-ros-robot-interaction \
     moveit-ros-warehouse \
     moveit-runtime \
+    moveit-servo \
     moveit-sim-controller \
     mpc-local-planner-examples \
     mrpt2 \
@@ -432,10 +436,11 @@ RDEPENDS_${PN}_remove = "cpr-multimaster-tools"
 # ERROR: Nothing PROVIDES 'husky-control' (but generated-recipes/husky/husky-base_0.4.2-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "husky-base"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-cwiid' (but generated-recipes/joystick-drivers/wiimote_1.13.0-1.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "wiimote"
-# ERROR: Nothing RPROVIDES 'wiimote' (but generated-recipes/joystick-drivers/joystick-drivers_1.13.0-1.bb RDEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "joystick-drivers"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-cwiid', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_CWIID}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_CWIID = " \
+    joystick-drivers \
+    wiimote \
+"
 
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libopenvdb' (but generated-recipes/spatio-temporal-voxel-layer/spatio-temporal-voxel-layer_1.3.5-2.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'UNRESOLVED-libopenexr-dev' (but generated-recipes/spatio-temporal-voxel-layer/spatio-temporal-voxel-layer_1.3.5-2.bb DEPENDS on or otherwise requires it)
@@ -520,9 +525,22 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG_TIDY = " \
     prbt-moveit-config \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-libspnav-dev' (but generated-recipes/joystick-drivers/spacenav-node_1.13.0-1.bb DEPENDS on or otherwise requires it)
-RDEPENDS_${PN}_remove = "spacenav-node"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libspnav', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBSPNAV}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBSPNAV = " \
+    moveit-servo \
+    spacenav-node \
+"
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lcm', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LCM}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LCM = " \
+    dataspeed-pds \
+    dataspeed-pds-lcm \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libpqxx', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBPQXX}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBPQXX = " \
+    knowledge-representation \
+"
 
 # ERROR: Nothing PROVIDES 'ifopt' (but generated-recipes/towr/towr_1.4.1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "towr"
@@ -655,6 +673,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     open-manipulator-with-tb3-waffle-pi-moveit \
     panda-moveit-config \
     psen-scan \
+    radial-menu \
+    radial-menu-example \
+    radial-menu-rviz \
     ridgeback-desktop \
     ridgeback-viz \
     rqt-rviz \
@@ -800,6 +821,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-cpp \
     qt-gui-py-common \
     qt-qmake \
+    radial-menu \
+    radial-menu-example \
+    radial-menu-rviz \
     rc-cloud-accumulator \
     ridgeback-desktop \
     ridgeback-viz \
@@ -1251,6 +1275,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     moveit-ros-robot-interaction \
     moveit-ros-warehouse \
     moveit-runtime \
+    moveit-servo \
     moveit-sim-controller \
     moveit-visual-tools \
     mpc-local-planner-examples \
