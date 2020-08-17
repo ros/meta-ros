@@ -51,18 +51,18 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'master/milestones/13')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': '91b809a0'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': 'ae1aa4ea'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '7a76671276'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '686b770af6'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '2cf66ec68f'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': 'e7bf8b6cb2'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
 ('meta-ros-common',           37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
 ('meta-ros2',                 38, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros2-foxy',            39, MetaRos_RepoURL,                                          {}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': 'f046b41'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': 'f5c3971'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
