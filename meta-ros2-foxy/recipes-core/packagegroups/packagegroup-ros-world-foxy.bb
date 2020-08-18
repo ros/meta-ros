@@ -28,6 +28,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
     rosidl-typesupport-connext-c \
     rosidl-typesupport-connext-cpp \
 "
+# alternative not yet supported implementation for fastrtps
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gurumdds', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GURUMDDS}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GURUMDDS = " \
+    gurumdds-cmake-module \
+    rmw-gurumdds-cpp \
+    rmw-gurumdds-shared-cpp \
+"
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
@@ -58,6 +65,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     realsense-examples \
     realsense-node \
     realsense-ros \
+    ros-ign \
+    ros-ign-gazebo-demos \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
@@ -75,12 +84,17 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     nav2-rviz-plugins \
     octovis \
     python-qt-binding \
+    py-trees-js \
+    py-trees-ros-tutorials \
+    py-trees-ros-viewer \
     qt-dotgraph \
     qt-gui \
     qt-gui-app \
     qt-gui-core \
     qt-gui-cpp \
     qt-gui-py-common \
+    ros-ign \
+    ros-ign-gazebo-demos \
     rqt-action \
     rqt-common-plugins \
     rqt-console \
@@ -144,6 +158,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     desktop \
     joint-state-publisher-gui \
     python-qt-binding \
+    py-trees-js \
+    py-trees-ros-tutorials \
+    py-trees-ros-viewer \
     qt-dotgraph \
     qt-gui-app \
     qt-gui-core \
@@ -151,6 +168,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     qt-gui-py-common \
     qt-gui \
     rosmon \
+    ros-ign \
+    ros-ign-gazebo-demos \
     rqt-action \
     rqt-console \
     rqt-common-plugins \
@@ -189,6 +208,8 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     desktop \
     nav2-rviz-plugins \
+    ros-ign \
+    ros-ign-gazebo-demos \
     rviz2 \
     rviz-common \
     rviz-default-plugins \
@@ -227,4 +248,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libqglviewer', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER = " \
     octovis \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
+    ros-ign-bridge \
+    ros-ign-gazebo \
+    ros-ign-image \
 "
