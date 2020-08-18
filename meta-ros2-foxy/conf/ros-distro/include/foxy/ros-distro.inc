@@ -41,6 +41,8 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 ROS_WORLD_SKIP_GROUPS += "connext"
 # alternative not yet supported implementation for fastrtps
 ROS_WORLD_SKIP_GROUPS += "opensplice"
+# alternative not yet supported implementation for fastrtps, there is no recipe for gurumdds-2.6
+ROS_WORLD_SKIP_GROUPS += "gurumdds"
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
 ROS_WORLD_SKIP_GROUPS += "clang"
 # recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
@@ -81,6 +83,9 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer'
 
 # recipes depending on libqglviewer (https://packages.debian.org/source/stretch/libqglviewer https://packages.debian.org/stretch/libqglviewer2-qt5)
 ROS_WORLD_SKIP_GROUPS += "libqglviewer"
+
+# recipes depending on ignition-* (UNRESOLVED-ignition-math6, UNRESOLVED-ignition-msgs5, UNRESOLVED-ignition-transport8)
+ROS_WORLD_SKIP_GROUPS += "ignition"
 
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
@@ -259,3 +264,24 @@ ROS_UNRESOLVED_PLATFORM_PKG_libxxf86vm = "libxxf86vm"
 # Used by:
 # generated-recipes/rqt-robot-monitor/rqt-robot-monitor_1.0.1-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules = "python3-rospkg"
+
+# Used by:
+# generated-recipes/py-trees-ros-tutorials/py-trees-ros-tutorials_2.1.0-1.bb
+# generated-recipes/py-trees-js/py-trees-js_0.6.3-1.bb
+# generated-recipes/py-trees-ros-viewer/py-trees-ros-viewer_0.2.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools = "python3-pyqt5"
+
+# Used by:
+# generated-recipes/py-trees-ros-tutorials/py-trees-ros-tutorials_2.1.0-1.bb
+# generated-recipes/py-trees-js/py-trees-js_0.6.3-1.bb
+# generated-recipes/py-trees-ros-viewer/py-trees-ros-viewer_0.2.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools = "python3-pyqt5"
+
+# Used by:
+# generated-recipes/py-trees-js/py-trees-js_0.6.3-1.bb
+# generated-recipes/py-trees-ros-viewer/py-trees-ros-viewer_0.2.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine = "python3-pyqt5"
+
+# Used by:
+# generated-recipes/dynamic-graph/dynamic-graph_4.2.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_doxygen = "doxygen"
