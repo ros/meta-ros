@@ -35,6 +35,9 @@ cppunit:
 - cppunit@meta-oe
 curl:
 - curl@openembedded-core
+dkms: []
+doxygen:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen}
 eigen:
 - libeigen@meta-oe
 ffmpeg:
@@ -52,10 +55,22 @@ google-mock:
 - gtest@meta-oe
 graphicsmagick:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick}
+graphviz:
+- graphviz@meta-ros
 gtest:
 - gtest@meta-oe
 gtk3:
 - gtk+3@openembedded-core
+gurumdds-2.6:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6}
+ignition-gazebo3:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-gazebo3}
+ignition-math6:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-math6}
+ignition-msgs5:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5}
+ignition-transport8:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-transport8}
 java:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_java}
 lcov:
@@ -158,6 +173,8 @@ libzmq3-dev:
 - zeromq@meta-oe
 libzstd-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libzstd-dev}
+linux-headers-generic:
+- virtual/kernel@openembedded-core
 log4cxx:
 - log4cxx@meta-ros
 lua5.2-dev:
@@ -178,6 +195,8 @@ pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros
 pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros
+pyqt5-dev-tools:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools}
 python3-argcomplete:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete}
 python3-catkin-pkg:
@@ -208,6 +227,8 @@ python3-netifaces:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces}
 python3-nose:
 - python3-nose@openembedded-core
+python3-nose-yanc:
+- python3-nose-yanc@meta-ros
 python3-numpy:
 - python3-numpy@openembedded-core
 python3-opencv:
@@ -224,6 +245,8 @@ python3-pygraphviz:
 - python3-pygraphviz@meta-ros
 python3-pyproj:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyproj}
+python3-pyqt5.qtwebengine:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine}
 python3-pytest:
 - python3-pytest@meta-python
 python3-pytest-mock:
@@ -246,6 +269,8 @@ qt5-qmake:
 - qtbase@meta-qt5
 qtbase5-dev:
 - qtbase@meta-qt5
+qttools5-dev-tools:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools}
 rti-connext-dds-5.3.1:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1}
 sdl2:
@@ -255,14 +280,14 @@ spdlog:
 suitesparse:
 - suitesparse-cholmod@meta-ros
 - suitesparse-cxsparse@meta-ros
-tango-icon-theme:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
 tbb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tbb}
 tinyxml:
 - libtinyxml@meta-oe
 tinyxml2:
 - libtinyxml2@meta-oe
+udev:
+- udev@openembedded-core
 uncrustify:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify}
 wx-common:
