@@ -125,6 +125,15 @@ if [ "$ROS_DISTRO" = "dashing" -o "$ROS_DISTRO" = "eloquent" ] ; then
     sed '/^ *cross_compile:/,/^ *status: developed$/d' -i $ROS_DISTRO/distribution.yaml
 fi
 
+# release/foxy/lgsvl_bridge/0.1.0-1 tag doesn't exist anymore and rosdistro_build_cache fails because of that
+# https://github.com/lgsvl/ros2-lgsvl-bridge-release/issues/1
+# Use never version from
+# https://github.com/ros/rosdistro/commit/1cb56aa22a0e2da24b52e8bc1342f0ea7b228919
+# to work around that
+if [ "$ROS_DISTRO" = "foxy" ] ; then
+    sed '/^ *ros2-lgsvl-bridge:/,/^ *status: developed$/s/0.1.0-1/0.1.2-1/g' -i $ROS_DISTRO/distribution.yaml
+fi
+
 # XXX Fix up a package that's been renamed. Only needed if generating from a commit prior to 2019-09-05.
 false && \
 sed -i -e 's/micro-xrce-dds-agent:/microxrcedds_agent:/' \
