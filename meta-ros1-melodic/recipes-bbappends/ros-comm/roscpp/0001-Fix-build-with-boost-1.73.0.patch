@@ -1,4 +1,4 @@
-From aac978fdca5334806c1890b5cd6f91c1ae0f1301 Mon Sep 17 00:00:00 2001
+From ad5c1ab25999ccc3c5b1246d29be027de2f4bb45 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Sun, 7 Jun 2020 23:00:39 +0000
 Subject: [PATCH] Fix build with boost-1.73.0
@@ -18,16 +18,17 @@ Subject: [PATCH] Fix build with boost-1.73.0
   roscpp/1.14.5-1-r0/recipe-sysroot/usr/include/boost/bind.hpp:36:1: note: '#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.'
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
 ---
  include/ros/timer_manager.h       | 6 +++---
  src/libros/connection_manager.cpp | 6 +++---
  2 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/include/ros/timer_manager.h b/include/ros/timer_manager.h
-index 2d76aba3bf..490c62b97d 100644
+index a938ae6d50..aba67f2af9 100644
 --- a/include/ros/timer_manager.h
 +++ b/include/ros/timer_manager.h
-@@ -349,7 +349,7 @@ int32_t TimerManager<T, D, E>::add(const D& period, const boost::function<void(c
+@@ -341,7 +341,7 @@ int32_t TimerManager<T, D, E>::add(const D& period, const boost::function<void(c
      {
        boost::mutex::scoped_lock lock(waiting_mutex_);
        waiting_.push_back(info->handle);
@@ -36,7 +37,7 @@ index 2d76aba3bf..490c62b97d 100644
      }
  
      new_timer_ = true;
-@@ -416,7 +416,7 @@ void TimerManager<T, D, E>::schedule(const TimerInfoPtr& info)
+@@ -408,7 +408,7 @@ void TimerManager<T, D, E>::schedule(const TimerInfoPtr& info)
  
      waiting_.push_back(info->handle);
      // waitingCompare requires a lock on the timers_mutex_
@@ -45,7 +46,7 @@ index 2d76aba3bf..490c62b97d 100644
    }
  
    new_timer_ = true;
-@@ -490,7 +490,7 @@ void TimerManager<T, D, E>::setPeriod(int32_t handle, const D& period, bool rese
+@@ -482,7 +482,7 @@ void TimerManager<T, D, E>::setPeriod(int32_t handle, const D& period, bool rese
      // In this case, let next_expected be updated only in updateNext
      
      info->period = period;
