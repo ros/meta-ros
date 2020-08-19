@@ -53,16 +53,16 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'master/milestones/13')
 Layers = [
 ('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': 'ae1aa4ea'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '02d55cd35a'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '4d1e93d4bf'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': 'e7bf8b6cb2'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '31ed8acdb5'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
 ('meta-ros-common',           37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
 ('meta-ros2',                 38, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros2-eloquent',        39, MetaRos_RepoURL,                                          {}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': 'f5c3971'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': 'cc6074c'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
