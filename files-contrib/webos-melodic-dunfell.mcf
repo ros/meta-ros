@@ -12,7 +12,7 @@ Machines = ['qemux86', 'raspberrypi4']
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'dunfell')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'dunfell/milestones/13')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '9ee61883026bcd2a88a21683591177fa4674e523')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'dunfell')
@@ -46,6 +46,7 @@ Layers = [
 ('meta-qt5-compat',           19, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': '9248dc7'}, {}),
 
+('meta-ros-backports-gatesgarth' ,36, MetaRos_RepoURL,                                      {}, {}),
 ('meta-ros-common',           37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
 ('meta-ros1',                 38, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros1-melodic',         39, MetaRos_RepoURL,                                          {}, {}),
