@@ -14,7 +14,7 @@ ROS_BPN = "console_bridge"
 ROS_SPN = "${ROS_BPN}"
 ROS_SP = "${ROS_BPN}-${PV}"
 
-SRCREV = "bca7187cb58b41ab996098c6e0fe508bde462204"
+SRCREV = "0a6c16ed68750837c32ed1cedee9fca7d61d4364"
 ROS_BRANCH ?= "branch=master"
 SRC_URI = "git://github.com/ros/console_bridge;${ROS_BRANCH};protocol=https"
 
