@@ -1,0 +1,22 @@
+From 4c32b13e807b75a0a2563cb96570cbf561d7d5b7 Mon Sep 17 00:00:00 2001
+From: lpc921 <lpc921@gmail.com>
+Date: Mon, 23 Dec 2019 14:45:09 +1300
+Subject: [PATCH] Update byte_buffer.h
+
+Include <string> allows build with Visual Studio 2019
+---
+ modules/framegrabber/include/ifm3d/fg/byte_buffer.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/modules/framegrabber/include/ifm3d/fg/byte_buffer.h b/modules/framegrabber/include/ifm3d/fg/byte_buffer.h
+index 084dbf4..8e3c07d 100644
+--- a/modules/framegrabber/include/ifm3d/fg/byte_buffer.h
++++ b/modules/framegrabber/include/ifm3d/fg/byte_buffer.h
+@@ -23,6 +23,7 @@
+ #include <cstddef>
+ #include <cstdint>
+ #include <memory>
++#include <string>
+ #include <vector>
+ #include <ifm3d/fg/frame_grabber_export.h>
+ 
