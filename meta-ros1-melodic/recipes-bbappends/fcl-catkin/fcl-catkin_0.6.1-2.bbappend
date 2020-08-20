@@ -1,13 +1,13 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
 # Instead of fetching
-# https://github.com/flexible-collision-library/fcl/archive/v0.6.0.zip with curl
+# https://github.com/flexible-collision-library/fcl/archive/v0.6.1.zip with curl
 # during do_compile
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-fcl-with-bitbake-fetcher.patch \
     git://github.com/flexible-collision-library/fcl.git;protocol=https;name=fcl-upstream;destsuffix=git/fcl-upstream \
 "
-SRCREV_fcl-upstream = "a13c681e41eb8180cba7d4fd32637511f588cb82"
+SRCREV_fcl-upstream = "97455a46de121fb7c0f749e21a58b1b54cd2c6be"
 
 # WARNING: fcl-catkin-0.6.0-1-r0 do_package: QA Issue: fcl-catkin: Files/directories were installed but not shipped in any package:
 #   /opt/ros/melodic/lib/libfcl.so.0.6

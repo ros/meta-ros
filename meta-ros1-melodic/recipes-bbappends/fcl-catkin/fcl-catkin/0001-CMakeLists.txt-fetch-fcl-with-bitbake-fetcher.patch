@@ -1,4 +1,4 @@
-From 0da049cf28aa466b5d5b005b6548c9512a4ac4b1 Mon Sep 17 00:00:00 2001
+From e33510c72a764cdd6e8092605e397689aef68d74 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Tue, 12 May 2020 11:40:51 -0700
 Subject: [PATCH] CMakeLists.txt: fetch fcl with bitbake fetcher
@@ -9,15 +9,15 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ffc657c..6f426b2 100644
+index f28ee64..60fe160 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -7,10 +7,8 @@ include(ExternalProject)
  set(HOST_OPTIMIZATION OFF)
  
  ExternalProject_Add(fcl_src
--  URL https://github.com/flexible-collision-library/fcl/archive/v0.6.0.zip
--  URL_MD5 41101e4ba71b7159873d019e55af7081
+-  URL https://github.com/flexible-collision-library/fcl/archive/v0.6.1.zip
+-  URL_MD5 def0868c8aa96495a696d9210d557f4c
 -  UPDATE_COMMAND ""
 -  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${PROJECT_BINARY_DIR}/install -DFCL_BUILD_TESTS:BOOL=OFF -DFCL_USE_HOST_NATIVE_ARCH:BOOL=OFF -DFCL_USE_X64_SSE:BOOL=${HOST_OPTIMIZATION} -DCMAKE_INSTALL_LIBDIR=lib
 +  SOURCE_DIR ${PROJECT_SOURCE_DIR}/fcl-upstream
