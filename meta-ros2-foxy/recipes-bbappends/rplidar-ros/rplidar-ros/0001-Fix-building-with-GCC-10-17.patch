@@ -1,0 +1,34 @@
+From 95fd6894755e27504fe74188e8ef2cd287bfa4f5 Mon Sep 17 00:00:00 2001
+From: "Hunter L. Allen" <hunter.allen@ghostrobotics.io>
+Date: Thu, 23 Jul 2020 10:24:21 -0400
+Subject: [PATCH] Fix building with GCC 10 (#17)
+
+Signed-off-by: Hunter L. Allen <hunter.allen@ghostrobotics.io>
+
+Upstream-Status: Backport [https://github.com/allenh1/rplidar_ros/commit/adfef59cd5bfb813427035aa03e43bf45de1b611]
+---
+ sdk/src/rplidar_driver.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/sdk/src/rplidar_driver.cpp b/sdk/src/rplidar_driver.cpp
+index af244f8..ed5d63a 100644
+--- a/sdk/src/rplidar_driver.cpp
++++ b/sdk/src/rplidar_driver.cpp
+@@ -1821,7 +1821,7 @@ u_result RPlidarDriverImplCommon::grabScanData(rplidar_response_measurement_node
+ {
+     DEPRECATED_WARN("grabScanData()", "grabScanDataHq()");
+ 
+-    switch (_dataEvt.wait(timeout))
++    switch (static_cast<int>(_dataEvt.wait(timeout)))
+     {
+     case rp::hal::Event::EVENT_TIMEOUT:
+         count = 0;
+@@ -1850,7 +1850,7 @@ u_result RPlidarDriverImplCommon::grabScanData(rplidar_response_measurement_node
+ 
+ u_result RPlidarDriverImplCommon::grabScanDataHq(rplidar_response_measurement_node_hq_t * nodebuffer, size_t & count, _u32 timeout)
+ {
+-    switch (_dataEvt.wait(timeout))
++    switch (static_cast<int>(_dataEvt.wait(timeout)))
+     {
+     case rp::hal::Event::EVENT_TIMEOUT:
+         count = 0;
