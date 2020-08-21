@@ -1,4 +1,4 @@
-From 6699bc11ec03a185b8661aa3d2da3befed804fb2 Mon Sep 17 00:00:00 2001
+From a1e3a61864ad7e81653c4adcc0360231b7a6238f Mon Sep 17 00:00:00 2001
 From: JeongBong Seo <jb.seo@lge.com>
 Date: Fri, 5 Apr 2019 14:54:08 +0900
 Subject: [PATCH] Don't use CMAKE_INSTALL_PREFIX as sysroot for cross-compile
@@ -8,13 +8,13 @@ Subject: [PATCH] Don't use CMAKE_INSTALL_PREFIX as sysroot for cross-compile
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e7d5ffe..f1699ad 100644
+index 880d8ea..544785c 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -8,7 +8,7 @@ execute_process(COMMAND python3 -c "from distutils import sysconfig; print(sysco
- 
- # Locate ament_package template files.
- set(PYTHON_INSTALL_DIR "lib/python${PYTHON_MAJOR_MINOR}/site-packages")
+@@ -14,7 +14,7 @@ else()
+   set(PYTHON_INSTALL_DIR "lib/python${PYTHON_MAJOR_MINOR}/site-packages")
+   set(SHELL_EXT "sh")
+ endif()
 -set(AMENT_PACKAGE_DIR "${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_DIR}/ament_package")
 +set(AMENT_PACKAGE_DIR "$ENV{STAGING_DIR_NATIVE}/usr/${PYTHON_INSTALL_DIR}/ament_package")
  if(NOT EXISTS "${AMENT_PACKAGE_DIR}")
