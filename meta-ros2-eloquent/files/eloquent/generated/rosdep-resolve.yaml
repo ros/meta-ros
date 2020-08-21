@@ -31,6 +31,8 @@ cppunit:
 - cppunit@meta-oe
 curl:
 - curl@openembedded-core
+doxygen:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen}
 eigen:
 - libeigen@meta-oe
 flex:
@@ -47,16 +49,22 @@ google-mock:
 - gtest@meta-oe
 graphicsmagick:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick}
+graphviz:
+- graphviz@meta-ros
 gtest:
 - gtest@meta-oe
 lcov:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_lcov}
 libboost-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev}
+libboost-iostreams-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev}
 libboost-program-options:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options}
 libboost-program-options-dev:
 - boost@openembedded-core
+libboost-system-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev}
 libcairo2-dev:
 - cairo@openembedded-core
 libceres-dev:
@@ -105,6 +113,8 @@ libopenvdb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb}
 libopenvdb-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev}
+libpcap:
+- libpcap@openembedded-core
 libpcl-all:
 - pcl@meta-ros
 libpcl-all-dev:
@@ -193,12 +203,8 @@ python-catkin-pkg:
 - ${PYTHON_PN}-catkin-pkg@meta-ros
 python-numpy:
 - ${PYTHON_PN}-numpy@openembedded-core
-python-psutil:
-- ${PYTHON_PN}-psutil@meta-python
 python-pyproj:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj}
-python-sphinx:
-- ${PYTHON_PN}-sphinx@meta-ros
 python-tk:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk}
 python-virtualenv:
@@ -209,8 +215,6 @@ python3-cryptography:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography}
 python3-dev:
 - python3@openembedded-core
-python3-docker:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-docker}
 python3-empy:
 - python3-empy@meta-ros
 python3-flake8:
@@ -261,8 +265,12 @@ python3-qt5-bindings:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings}
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros
+python3-rospkg-modules:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules}
 python3-setuptools:
 - python3-setuptools@openembedded-core
+python3-sphinx:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx}
 python3-yaml:
 - python3-pyyaml@meta-python
 qt5-qmake:
@@ -280,8 +288,8 @@ sdl-image:
 spdlog:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog}
 suitesparse:
-- suitesparse-cxsparse@meta-ros
 - suitesparse-cholmod@meta-ros
+- suitesparse-cxsparse@meta-ros
 tango-icon-theme:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
 tbb:
