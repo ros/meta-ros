@@ -233,6 +233,26 @@ ROS_UNRESOLVED_PLATFORM_PKG_libgps = "gpsd"
 # generated-recipes/mapviz/tile-map_2.0.0-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_protobuf = "protobuf"
 
+# Used by:
+# generated-recipes/dynamic-graph/dynamic-graph_4.2.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_doxygen = "doxygen"
+
+# Used by:
+# generated-recipes/hls-lfcd-lds-driver/hls-lfcd-lds-driver_2.0.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev = "boost"
+
+# Used by:
+# generated-recipes/cartographer/cartographer_1.0.9001-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev = "boost"
+
+# Used by:
+# generated-recipes/cartographer/cartographer_1.0.9001-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx = "python3-sphinx"
+
+# Used by:
+# generated-recipes/rqt-robot-monitor/rqt-robot-monitor_1.0.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules = "python3-rospkg"
+
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
