@@ -18,7 +18,7 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-cache"
-readonly SCRIPT_VERSION="1.5.0"
+readonly SCRIPT_VERSION="1.5.1"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-recipes.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -117,28 +117,6 @@ cd - > /dev/null
 
 # Create $tmpdir/$ROS_DISTRO-cache.yaml.gz .
 cd $tmpdir
-
-# github.com/ros-tooling/cross_compile-release doesn't exist anymore and rosdistro_build_cache fails because of
-# that, use the same cross_compile repo just to get rid of the fatal error until it's resolved in upstream:
-# https://github.com/ros-tooling/cross_compile/issues/248
-if [ "$ROS_DISTRO" = "dashing" -o "$ROS_DISTRO" = "eloquent" ] ; then
-    sed '/^ *cross_compile:/,/^ *status: developed$/d' -i $ROS_DISTRO/distribution.yaml
-fi
-
-# release/foxy/lgsvl_bridge/0.1.0-1 tag doesn't exist anymore and rosdistro_build_cache fails because of that
-# https://github.com/lgsvl/ros2-lgsvl-bridge-release/issues/1
-# Use never version from
-# https://github.com/ros/rosdistro/commit/1cb56aa22a0e2da24b52e8bc1342f0ea7b228919
-# to work around that
-if [ "$ROS_DISTRO" = "foxy" ] ; then
-    sed '/^ *ros2-lgsvl-bridge:/,/^ *status: developed$/s/0.1.0-1/0.1.2-1/g' -i $ROS_DISTRO/distribution.yaml
-fi
-
-# XXX Fix up a package that's been renamed. Only needed if generating from a commit prior to 2019-09-05.
-false && \
-sed -i -e 's/micro-xrce-dds-agent:/microxrcedds_agent:/' \
-       -e 's@https://github.com/micro-ROS/Micro-XRCE-DDS-Agent-release.git@https://github.com/micro-ROS/microxrcedds_agent-release.git@' \
-       $ROS_DISTRO/distribution.yaml
 
 rosdistro_build_cache --preclean --ignore-local $tmpdir/index-v4.yaml $ROS_DISTRO
 
