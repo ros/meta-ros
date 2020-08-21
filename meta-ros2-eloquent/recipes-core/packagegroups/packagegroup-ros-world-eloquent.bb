@@ -109,11 +109,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-gui-cpp \
     rqt-gui-py \
     rqt-image-view \
+    rqt-moveit \
     rqt-msg \
     rqt-publisher \
     rqt-py-common \
     rqt-py-console \
     rqt-reconfigure \
+    rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
     rqt-shell \
@@ -163,12 +165,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-gui-cpp \
     rqt-gui-py \
     rqt-image-view \
+    rqt-moveit \
     rqt-msg \
     rqt-plot \
     rqt-publisher \
     rqt-py-common \
     rqt-py-console \
     rqt-reconfigure \
+    rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
     rqt-shell \
