@@ -6,7 +6,6 @@ SRC_URI += " \
     file://0001-FindLuaGoogle.cmake-explicitly-link-with-dl.patch \
     file://cmake.dont.add.Werror.uninitialized.patch \
     file://0001-Fix-build-with-gtest-1.8.1.patch \
-    file://0001-hybrid_grid_test-drop-this-test.patch \
 "
 
 # This is used only to generate documentation so it should
