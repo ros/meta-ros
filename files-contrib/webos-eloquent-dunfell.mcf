@@ -20,7 +20,7 @@ MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'dunfell/milestones
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'dunfell')
-MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'dunfell-2020-08-02')
+MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'dunfell-2020-08-26')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
@@ -53,7 +53,7 @@ Layers = [
 
 ('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'dunfell', 'commit': 'bc7a066'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'dunfell', 'commit': '93305f7'}, {}),
 ('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-updater',        52, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-virtualization', 53, MetaWebos_RepoURL,                                        {}, {}),
@@ -61,7 +61,7 @@ Layers = [
 ('meta-ros-webos',            60, MetaRosWebos_RepoURL,                                     {'branch': MetaRosWebos_Branch, 'commit': MetaRosWebos_Commit}, {}),
 
 ('meta-webos-smack',          75, MetaWebos_RepoURL,                                        {}, {}),
-('meta-security',             77, 'git://git.yoctoproject.org/meta-security',               {'branch': 'dunfell', 'commit': '982a29b'}, {}),
+('meta-security',             77, 'git://git.yoctoproject.org/meta-security',               {'branch': 'dunfell', 'commit': 'ef4bfb5'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
