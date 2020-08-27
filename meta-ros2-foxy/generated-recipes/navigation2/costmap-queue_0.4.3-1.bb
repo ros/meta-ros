@@ -5,30 +5,41 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Ament extension for exporting NoDL .xml files"
-AUTHOR = "Ubuntu Robotics <ubuntu-robotics@lists.launchpad.net>"
+DESCRIPTION = "The costmap_queue package"
+AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=b691248d2f70cdaeeaf13696ada5d47c"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=4633480cdd27d7906aaf3ef4b72014b2"
 
-ROS_CN = "ament_nodl"
-ROS_BPN = "ament_nodl"
+ROS_CN = "navigation2"
+ROS_BPN = "costmap_queue"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    nav2-common \
+    nav2-costmap-2d \
+    rclcpp \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    nav2-costmap-2d \
+    rclcpp \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    nav2-costmap-2d \
+    rclcpp \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
 "
@@ -40,10 +51,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ament_nodl-release/archive/release/foxy/ament_nodl/0.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/ament_nodl"
-SRC_URI = "git://github.com/ros2-gbp/ament_nodl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6aaf56d0aa827ff07cfd26fcb39c052050ca9a57"
+# matches with: https://github.com/SteveMacenski/navigation2-release/archive/release/foxy/costmap_queue/0.4.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/costmap_queue"
+SRC_URI = "git://github.com/SteveMacenski/navigation2-release;${ROS_BRANCH};protocol=https"
+SRCREV = "87dead46e7d1f7456ac1caa2590336b6469461a3"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

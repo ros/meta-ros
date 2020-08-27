@@ -5,17 +5,21 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Ament extension for exporting NoDL .xml files"
-AUTHOR = "Ubuntu Robotics <ubuntu-robotics@lists.launchpad.net>"
+DESCRIPTION = "Bringup scripts and configurations for the navigation2 stack"
+AUTHOR = "Michael Jeronimo <michael.jeronimo@intel.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=b691248d2f70cdaeeaf13696ada5d47c"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=82f0323c08605e5b6f343b05213cf7cc"
 
-ROS_CN = "ament_nodl"
-ROS_BPN = "ament_nodl"
+ROS_CN = "navigation2"
+ROS_BPN = "nav2_bringup"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    launch-ros \
+    nav2-common \
+    navigation2 \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
@@ -25,12 +29,21 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    launch-ros \
+    nav2-common \
+    navigation2 \
+    slam-toolbox \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
+    ament-cmake-pytest \
     ament-lint-auto \
     ament-lint-common \
+    launch \
+    launch-testing \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -40,10 +53,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ament_nodl-release/archive/release/foxy/ament_nodl/0.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/ament_nodl"
-SRC_URI = "git://github.com/ros2-gbp/ament_nodl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6aaf56d0aa827ff07cfd26fcb39c052050ca9a57"
+# matches with: https://github.com/SteveMacenski/navigation2-release/archive/release/foxy/nav2_bringup/0.4.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/nav2_bringup"
+SRC_URI = "git://github.com/SteveMacenski/navigation2-release;${ROS_BRANCH};protocol=https"
+SRCREV = "dfd8efa9ae08dc9c9a6ed923b9802ba9bc1641fe"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

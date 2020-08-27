@@ -5,15 +5,15 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Ament extension for exporting NoDL .xml files"
-AUTHOR = "Ubuntu Robotics <ubuntu-robotics@lists.launchpad.net>"
+DESCRIPTION = "Launch Ignition simulation with Dolly robot."
+AUTHOR = "Louise Poubel <burajiru.no.chapulina@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=b691248d2f70cdaeeaf13696ada5d47c"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
-ROS_CN = "ament_nodl"
-ROS_BPN = "ament_nodl"
+ROS_CN = "dolly"
+ROS_BPN = "dolly_ignition"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -25,7 +25,13 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    dolly-follow \
+    ros-ign-bridge \
+    ros-ign-gazebo \
+    ros2launch \
+    rviz2 \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
@@ -40,10 +46,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ament_nodl-release/archive/release/foxy/ament_nodl/0.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/ament_nodl"
-SRC_URI = "git://github.com/ros2-gbp/ament_nodl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6aaf56d0aa827ff07cfd26fcb39c052050ca9a57"
+# matches with: https://github.com/chapulina/dolly-release/archive/release/foxy/dolly_ignition/0.3.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/dolly_ignition"
+SRC_URI = "git://github.com/chapulina/dolly-release;${ROS_BRANCH};protocol=https"
+SRCREV = "0e6059cc4b706dd9504a555829d1c19be867da41"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

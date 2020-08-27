@@ -1,7 +1,7 @@
 # foxy/newer-platform-components.list
 libopensplice69;6.9.181126+osrf1-1~bionic;cmake,build-essential,debhelper (>= 7.0.50~),gawk,flex,bison,perl
 pyside2;2.0.0+dev-0~201712291010~rev1791~pkg76~ubuntu18.04.1;dpkg-dev (>= 1.15.6),debhelper (>= 9),dh-python,cmake (>= 2.8.4+dfsg.1-3~),llvm,clang,libclang-dev,python-all-dev,python-all-dbg,python3-all-dev,python3-all-dbg,qtbase5-dev | qtbase5-gles-dev,qtbase5-private-dev | qtbase5-private-gles-dev,libqt5charts5-dev,qtmultimedia5-dev,libqt5opengl5-dev | libqt5opengl5-gles-dev,mesa-common-dev [armhf],qtscript5-private-dev | qtscript5-dev,libqt5texttospeech5-dev,qttools5-private-dev | qttools5-dev,qttools5-dev-tools,qtdeclarative5-dev,qtdeclarative5-private-dev,libqt5webchannel5-dev,qtwebengine5-private-dev | qtwebengine5-dev,libqt5websockets5-dev,libqt5svg5-private-dev | libqt5svg5-dev,libqt5xmlpatterns5-private-dev | libqt5xmlpatterns5-dev,libqt5x11extras5-dev,shiboken2,shiboken2-dbg,libshiboken2-dev,libgraphviz-dev,libqt5sql5-sqlite,dbus,xvfb,libgl1-mesa-dri,xauth
-python-bloom;0.9.7-100;python-setuptools (>= 0.6b3),python-all (>= 2.6.6-3),debhelper (>= 7.4.3)
+python-bloom;0.9.8-100;python-setuptools (>= 0.6b3),python-all (>= 2.6.6-3),debhelper (>= 7.4.3)
 python-catkin-pkg;0.4.22-100;python-setuptools (>= 0.6b3),python-all (>= 2.6.6-3),debhelper (>= 7.4.3)
 python-catkin-pkg-modules;0.4.22-1;python-setuptools (>= 0.6b3),python-all (>= 2.6.6-3),debhelper (>= 7)
 python-catkin-sphinx;0.3.1-1;python-setuptools (>= 0.6b3),python-all (>= 2.6.6-3),debhelper (>= 7)
@@ -21,7 +21,7 @@ python-rospkg-modules;1.2.8-1;python-setuptools (>= 0.6b3),python-all (>= 2.6.6-
 python-vcstool;0.2.14-1;python-setuptools (>= 0.6b3),python-all (>= 2.6.6-3),debhelper (>= 7.4.3)
 python-vcstools;0.1.42-1;python-setuptools (>= 0.6b3),python-all (>= 2.6.6-3),debhelper (>= 7)
 python-wstool;0.1.17-1;python-setuptools (>= 0.6b3),python-all (>= 2.6.6-3),debhelper (>= 7.4.3)
-python3-bloom;0.9.7-100;python3-setuptools,python3-all,debhelper (>= 7.4.3)
+python3-bloom;0.9.8-100;python3-setuptools,python3-all,debhelper (>= 7.4.3)
 python3-catkin-pkg;0.4.22-100;python3-setuptools,python3-all,debhelper (>= 7.4.3)
 python3-catkin-pkg-modules;0.4.22-1;python3-setuptools,python3-all,debhelper (>= 7)
 python3-catkin-sphinx;0.3.1-1;python3-setuptools,python3-all,debhelper (>= 7)
@@ -30,7 +30,7 @@ python3-colcon-argcomplete;0.3.3-1;python3-setuptools,python3-all,debhelper (>= 
 python3-colcon-bash;0.4.2-1;python3-setuptools,python3-all,debhelper (>= 7)
 python3-colcon-bazel;0.1.0-1;dh-python,python3-setuptools,python3-all,debhelper (>= 9)
 python3-colcon-cd;0.1.1-1;python3-setuptools,python3-all,debhelper (>= 7)
-python3-colcon-cmake;0.2.24-1;python3-setuptools,python3-all,debhelper (>= 7)
+python3-colcon-cmake;0.2.25-1;python3-setuptools,python3-all,debhelper (>= 7)
 python3-colcon-common-extensions;0.2.1-1;python3-setuptools,python3-all,debhelper (>= 7)
 python3-colcon-core;0.6.0-1;python3-setuptools,python3-all,debhelper (>= 7.4.3)
 python3-colcon-coveragepy-result;0.0.8-1;python3-setuptools,python3-all,debhelper (>= 7)
