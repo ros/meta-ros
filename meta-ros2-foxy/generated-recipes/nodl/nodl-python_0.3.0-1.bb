@@ -5,32 +5,43 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Ament extension for exporting NoDL .xml files"
+DESCRIPTION = "Implementation of the NoDL API in Python."
 AUTHOR = "Ubuntu Robotics <ubuntu-robotics@lists.launchpad.net>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "LGPL-2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
-ROS_CN = "ament_nodl"
-ROS_BPN = "ament_nodl"
+ROS_CN = "nodl"
+ROS_BPN = "nodl_python"
 
-ROS_BUILD_DEPENDS = ""
-
-ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-native \
+ROS_BUILD_DEPENDS = " \
+    ament-index-python \
+    python3-lxml \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = ""
+
+ROS_EXPORT_DEPENDS = " \
+    ament-index-python \
+    python3-lxml \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    ament-index-python \
+    python3-lxml \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
+    ament-flake8 \
     ament-lint-auto \
     ament-lint-common \
+    ament-mypy \
+    python3-pytest \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -40,12 +51,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ament_nodl-release/archive/release/foxy/ament_nodl/0.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/ament_nodl"
-SRC_URI = "git://github.com/ros2-gbp/ament_nodl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6aaf56d0aa827ff07cfd26fcb39c052050ca9a57"
+# matches with: https://github.com/ros2-gbp/nodl-release/archive/release/foxy/nodl_python/0.3.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/nodl_python"
+SRC_URI = "git://github.com/ros2-gbp/nodl-release;${ROS_BRANCH};protocol=https"
+SRCREV = "20a2c4ed6df0b41c5660192a463e475254b35f8d"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_cmake"
+ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

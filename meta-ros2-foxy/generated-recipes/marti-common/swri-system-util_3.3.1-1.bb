@@ -5,32 +5,42 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Ament extension for exporting NoDL .xml files"
-AUTHOR = "Ubuntu Robotics <ubuntu-robotics@lists.launchpad.net>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "swri_system_util"
+AUTHOR = "P. J. Reed <preed@swri.org>"
+ROS_AUTHOR = "Marc Alban"
+HOMEPAGE = "https://github.com/swri-robotics/marti_common"
 SECTION = "devel"
-LICENSE = "LGPL-2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=b691248d2f70cdaeeaf13696ada5d47c"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "ament_nodl"
-ROS_BPN = "ament_nodl"
+ROS_CN = "marti_common"
+ROS_BPN = "swri_system_util"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    boost \
+    rclcpp \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    boost \
+    rclcpp \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    boost \
+    rclcpp \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-lint-auto \
-    ament-lint-common \
+    ament-cmake-gtest \
+    ament-index-cpp \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -40,10 +50,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ament_nodl-release/archive/release/foxy/ament_nodl/0.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/ament_nodl"
-SRC_URI = "git://github.com/ros2-gbp/ament_nodl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6aaf56d0aa827ff07cfd26fcb39c052050ca9a57"
+# matches with: https://github.com/swri-robotics-gbp/marti_common-release/archive/release/foxy/swri_system_util/3.3.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/swri_system_util"
+SRC_URI = "git://github.com/swri-robotics-gbp/marti_common-release;${ROS_BRANCH};protocol=https"
+SRCREV = "078edafe0156c5f2972f9b8cb35a02e5843fc567"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

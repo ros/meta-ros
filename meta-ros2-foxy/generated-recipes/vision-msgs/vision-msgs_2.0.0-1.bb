@@ -5,30 +5,42 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Ament extension for exporting NoDL .xml files"
-AUTHOR = "Ubuntu Robotics <ubuntu-robotics@lists.launchpad.net>"
+DESCRIPTION = "Messages for interfacing with various computer vision pipelines, such as     object detectors."
+AUTHOR = "Adam Allevato <adam.d.allevato@gmail.com>"
+ROS_AUTHOR = "Adam Allevato <adam.d.allevato@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=b691248d2f70cdaeeaf13696ada5d47c"
+LICENSE = "Apache-2.0 & Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "ament_nodl"
-ROS_BPN = "ament_nodl"
+ROS_CN = "vision_msgs"
+ROS_BPN = "vision_msgs"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    geometry-msgs \
+    sensor-msgs \
+    std-msgs \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
+    rosidl-default-generators-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    geometry-msgs \
+    rosidl-default-runtime \
+    sensor-msgs \
+    std-msgs \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
 "
@@ -40,10 +52,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ament_nodl-release/archive/release/foxy/ament_nodl/0.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/ament_nodl"
-SRC_URI = "git://github.com/ros2-gbp/ament_nodl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6aaf56d0aa827ff07cfd26fcb39c052050ca9a57"
+# matches with: https://github.com/Kukanani/vision_msgs-release/archive/release/foxy/vision_msgs/2.0.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/vision_msgs"
+SRC_URI = "git://github.com/Kukanani/vision_msgs-release;${ROS_BRANCH};protocol=https"
+SRCREV = "2df716c5b95f605bf16e12e95f3a335d68db70ac"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

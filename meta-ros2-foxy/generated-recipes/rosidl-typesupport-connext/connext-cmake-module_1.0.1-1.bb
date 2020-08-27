@@ -5,17 +5,19 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Ament extension for exporting NoDL .xml files"
-AUTHOR = "Ubuntu Robotics <ubuntu-robotics@lists.launchpad.net>"
+DESCRIPTION = "Provide CMake module to find RTI Connext."
+AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=b691248d2f70cdaeeaf13696ada5d47c"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "ament_nodl"
-ROS_BPN = "ament_nodl"
+ROS_CN = "rosidl_typesupport_connext"
+ROS_BPN = "connext_cmake_module"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1} \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
@@ -23,7 +25,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = ""
+ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+    ament-cmake-native \
+"
 
 ROS_EXEC_DEPENDS = ""
 
@@ -40,10 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ament_nodl-release/archive/release/foxy/ament_nodl/0.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/ament_nodl"
-SRC_URI = "git://github.com/ros2-gbp/ament_nodl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6aaf56d0aa827ff07cfd26fcb39c052050ca9a57"
+# matches with: https://github.com/ros2-gbp/rosidl_typesupport_connext-release/archive/release/foxy/connext_cmake_module/1.0.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/connext_cmake_module"
+SRC_URI = "git://github.com/ros2-gbp/rosidl_typesupport_connext-release;${ROS_BRANCH};protocol=https"
+SRCREV = "6bd77b618423aeb42237b157cb936c278868e2cb"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
