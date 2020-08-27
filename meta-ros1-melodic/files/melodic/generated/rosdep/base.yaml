@@ -451,30 +451,37 @@ cmake:
   ubuntu: [cmake]
 coinor-libcbc-dev:
   debian: [coinor-libcbc-dev]
+  fedora: [coin-or-Cbc-devel]
   gentoo: [sci-libs/coinor-cbc]
   ubuntu: [coinor-libcbc-dev]
 coinor-libcbc3:
   debian: [coinor-libcbc3]
+  fedora: [coin-or-Cbc]
   ubuntu: [coinor-libcbc3]
 coinor-libcgl-dev:
   debian: [coinor-libcgl-dev]
+  fedora: [coin-or-Cgl-devel]
   gentoo: [sci-libs/coinor-cgl]
   ubuntu: [coinor-libcgl-dev]
 coinor-libclp-dev:
   debian: [coinor-libclp-dev]
+  fedora: [coin-or-Clp-devel]
   gentoo: [sci-libs/coinor-clp]
   ubuntu: [coinor-libclp-dev]
 coinor-libcoinutils-dev:
   debian: [coinor-libcoinutils-dev]
+  fedora: [coin-or-CoinUtils-devel]
   gentoo: [sci-libs/coinor-utils]
+  rhel:
+    '7': [coin-or-CoinUtils-devel]
   ubuntu: [coinor-libcoinutils-dev]
 coinor-libipopt-dev:
   arch: [coinor-all]
   debian: [coinor-libipopt-dev]
-  fedora: [coin-or-CoinUtils-devel]
+  fedora: [coin-or-Ipopt-devel]
   gentoo: [sci-libs/ipopt]
   rhel:
-    '7': [coin-or-CoinUtils-devel]
+    '7': [coin-or-Ipopt-devel]
   ubuntu: [coinor-libipopt-dev]
 coinor-libosi-dev:
   debian: [coinor-libosi-dev]
@@ -1835,6 +1842,24 @@ libboost-iostreams-dev:
   gentoo: [dev-libs/boost]
   rhel: [boost-devel]
   ubuntu: [libboost-iostreams-dev]
+libboost-math:
+  debian:
+    buster: [libboost-math1.67.0]
+    stretch: [libboost-math1.62.0]
+  fedora: [boost-math]
+  gentoo: [dev-libs/boost]
+  rhel: [boost-math]
+  ubuntu:
+    bionic: [libboost-math1.65.1]
+    eoan: [libboost-math1.67.0]
+    focal: [libboost-math1.71.0]
+    xenial: [libboost-math1.58.0]
+libboost-math-dev:
+  debian: [libboost-math-dev]
+  fedora: [boost-devel]
+  gentoo: [dev-libs/boost]
+  rhel: [boost-devel]
+  ubuntu: [libboost-math-dev]
 libboost-program-options:
   debian:
     buster: [libboost-program-options1.67.0]
@@ -1917,6 +1942,24 @@ libboost-regex-dev:
   gentoo: [dev-libs/boost]
   rhel: [boost-devel]
   ubuntu: [libboost-regex-dev]
+libboost-serialization:
+  debian:
+    buster: [libboost-serialization1.67.0]
+    stretch: [libboost-serialization1.62.0]
+  fedora: [boost-serialization]
+  gentoo: [dev-libs/boost]
+  rhel: [boost-serialization]
+  ubuntu:
+    bionic: [libboost-serialization1.65.1]
+    eoan: [libboost-serialization1.67.0]
+    focal: [libboost-serialization1.71.0]
+    xenial: [libboost-serialization1.58.0]
+libboost-serialization-dev:
+  debian: [libboost-serialization-dev]
+  fedora: [boost-devel]
+  gentoo: [dev-libs/boost]
+  rhel: [boost-devel]
+  ubuntu: [libboost-serialization-dev]
 libboost-system:
   debian:
     buster: [libboost-system1.67.0]
@@ -1956,6 +1999,24 @@ libboost-thread-dev:
   gentoo: ['dev-libs/boost[threads]']
   rhel: [boost-devel]
   ubuntu: [libboost-thread-dev]
+libboost-timer:
+  debian:
+    buster: [libboost-timer1.67.0]
+    stretch: [libboost-timer1.62.0]
+  fedora: [boost-timer]
+  gentoo: [dev-libs/boost]
+  rhel: [boost-timer]
+  ubuntu:
+    bionic: [libboost-timer1.65.1]
+    eoan: [libboost-timer1.67.0]
+    focal: [libboost-timer1.71.0]
+    xenial: [libboost-timer1.58.0]
+libboost-timer-dev:
+  debian: [libboost-timer-dev]
+  fedora: [boost-devel]
+  gentoo: [dev-libs/boost]
+  rhel: [boost-devel]
+  ubuntu: [libboost-timer-dev]
 libcairo2-dev:
   arch: [cairo]
   debian: [libcairo2-dev]
@@ -3391,7 +3452,7 @@ libpq-dev:
   ubuntu: [libpq-dev]
 libpqxx:
   debian:
-    buster: [libpqxx-4.0v5]
+    buster: [libpqxx-6.2]
     jessie: [libpqxx-4.0]
     stretch: [libpqxx-4.0v5]
     wheezy: [libpqxx-3.1]
@@ -4490,10 +4551,10 @@ libzip-dev:
 libzmq3-dev:
   arch: [zeromq]
   debian: [libzmq3-dev]
-  fedora: [zeromq-devel]
+  fedora: [cppzmq-devel]
   gentoo: [net-libs/cppzmq]
   openembedded: [zeromq@meta-oe]
-  rhel: [zeromq-devel]
+  rhel: [cppzmq-devel]
   ubuntu: [libzmq3-dev]
 libzmqpp-dev:
   ubuntu: [libzmqpp-dev]
@@ -4812,6 +4873,10 @@ mosquitto-dev:
   debian: [libmosquitto-dev]
   fedora: [mosquitto-devel]
   ubuntu: [libmosquitto-dev]
+mosquittopp-dev:
+  debian: [libmosquittopp-dev]
+  fedora: [mosquitto-devel]
+  ubuntu: [libmosquittopp-dev]
 mpg123:
   arch: [mpg123]
   debian: [mpg123]
