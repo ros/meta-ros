@@ -10,6 +10,7 @@ SNAPSHOT = "${@d.getVar('PV').split('.')[2]}"
 SRC_URI = "http://tts.speech.cs.cmu.edu/awb/${SNAPSHOT}/speech_tools-${SHRT_VER}-current.tar.gz;downloadfilename=speech_tools-${PV}.tar.gz \
     file://remove.siod_fringe_init.patch \
     file://gcc-9.patch \
+    file://gcc-10-fno-common.patch \
 "
 SRC_URI[md5sum] = "1e6878a0ecc5bde6c2f4c91ae0113547"
 SRC_URI[sha256sum] = "26c08519313cd83f9a54daf3a86e6924e2797f3991af222fa6dcb61812815783"
