@@ -34,7 +34,7 @@ do_install() {
 BBCLASSEXTEND = "native"
 
 SRCREV = "f45cecc303d4bd7c0ec82e42d710deaccef8f3ee"
-ROS_BRANCH ?= "branch=master"
+ROS_BRANCH ?= "branch=main"
 SRC_URI = " \
     git://github.com/danmar/cppcheck;${ROS_BRANCH};protocol=https \
     file://0001-makefile.patch \
