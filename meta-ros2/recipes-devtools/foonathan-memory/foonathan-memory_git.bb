@@ -63,13 +63,18 @@ BUILD_CXXFLAGS += "-fPIC"
 #
 SYSROOT_DIRS_append = " ${bindir}"
 
+EXTRA_OECMAKE += "-DFOONATHAN_MEMORY_BUILD_TESTS=OFF"
 # To prevent CMake fetching catch.hpp during do_configure from:
 # test/CMakeLists.txt:         https://raw.githubusercontent.com/catchorg/Catch2/master/single_include/catch2/catch.hpp
 # also the compatibility points to older repo which doesn't enymore:
 # cmake/comp/_test/CMakeLists.txt:        https://raw.githubusercontent.com/philsquared/Catch/master/single_include/catch.hpp
-do_configure_prepend() {
-    cp ${S}/catch-upstream/single_include/catch2/catch.hpp ${B}/
-}
+# Even this doesn't work well
+# do_configure_prepend() {
+#     mkdir ${B}/test
+#     ln -snvf ${S}/catch-upstream/single_include/catch2/catch.hpp ${B}/test/catch.hpp
+# }
+# because ${B}/test (as CMAKE_CURRENT_BINARY_DIR is recreated as empty, I can patch test/CMakeLists.txt to use
+# catch.hpp from ${S}/CMAKE_CURRENT_SOURCE_DIR but we don't need the tests, lets disable them completely
 
 FILES_${PN}-dev += "${datadir}/foonathan_memory/cmake"
 FILES_${PN}-doc += "${datadir}/foonathan_memory"
