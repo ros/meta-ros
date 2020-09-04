@@ -656,7 +656,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     leuze-ros-drivers \
     librviz-tutorial \
     mesh-tools \
-    moveit \   
+    moveit \
     moveit-ros \
     moveit-ros-visualization \
     moveit-setup-assistant \
@@ -687,7 +687,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     rviz-plugin-tutorials \
     rviz-visual-tools \
     seed-r7-bringup \
-    seed-r7-moveit-config \   
+    seed-r7-moveit-config \
     seed-r7-typef-moveit-config \
     slam-toolbox \
     trajectory-tracker-rviz-plugins \
@@ -916,7 +916,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     webkit-dependency \
 "
 
-# OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commercial".
+# OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commercial" or "commercial_ffmpeg" or "ffmpeg".
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG}', '', d)}"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
@@ -947,6 +947,36 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
     web-video-server \
 "
 
+# OE won't let us build x264 (and ffmpeg which depends on it) unless LICENSE_FLAGS_WHITELIST contains "commercial" or "commercial_x264" or "x264".
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x264', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264}', '', d)}"
+
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
+    codec-image-transport \
+    h264-encoder-core \
+    h264-video-encoder \
+    movie-publisher \
+    mrpt1 \
+    mrpt2 \
+    mrpt-bridge \
+    mrpt-ekf-slam-2d \
+    mrpt-ekf-slam-3d \
+    mrpt-graphslam-2d \
+    mrpt-icp-slam-2d \
+    mrpt-local-obstacles \
+    mrpt-localization \
+    mrpt-map \
+    mrpt-navigation \
+    mrpt-rawlog \
+    mrpt-rbpf-slam \
+    mrpt-reactivenav2d \
+    mrpt-slam \
+    mvsim \
+    parrot-arsdk \
+    pose-cov-ops \
+    rospilot \
+    usb-cam \
+    web-video-server \
+"
 # Recipes which need widgets enabled in qtbase PACKAGECONFIG which webOS OSE explicitly disables:
 # meta-webos/recipes-qt/qt5/qtbase_git.bbappend:PACKAGECONFIG_remove = "widgets"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5-widgets', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS}', '', d)}"
