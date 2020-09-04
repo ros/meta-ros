@@ -91,6 +91,7 @@ ROS_WORLD_SKIP_GROUPS += "ignition"
 
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
+    mrpt2 \
     qt-gui-cpp \
 "
 
