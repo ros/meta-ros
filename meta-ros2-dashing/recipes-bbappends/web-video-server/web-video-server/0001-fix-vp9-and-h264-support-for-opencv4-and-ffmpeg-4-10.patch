@@ -1,0 +1,228 @@
+From af81ad622d88c7c09f44ecf21048af6baf4997f4 Mon Sep 17 00:00:00 2001
+From: randoms <randoms@bwbot.org>
+Date: Sat, 20 Jun 2020 11:29:37 +0800
+Subject: [PATCH] fix vp9 and h264, support for opencv4 and ffmpeg 4 (#103)
+
+Upstream-Status: Backport [https://github.com/RobotWebTools/web_video_server/commit/dfc4bf08c7cd0a1623f66fa3be7589e59b82bebc]
+---
+ include/web_video_server/jpeg_streamers.h |  1 +
+ include/web_video_server/png_streamers.h  |  1 +
+ src/image_streamer.cpp                    |  9 ++---
+ src/jpeg_streamers.cpp                    |  8 ++++
+ src/libav_streamer.cpp                    | 48 ++++++++++++++++++-----
+ src/png_streamers.cpp                     |  8 ++++
+ 6 files changed, 61 insertions(+), 14 deletions(-)
+
+diff --git a/include/web_video_server/jpeg_streamers.h b/include/web_video_server/jpeg_streamers.h
+index 30a202b..316da3f 100644
+--- a/include/web_video_server/jpeg_streamers.h
++++ b/include/web_video_server/jpeg_streamers.h
+@@ -2,6 +2,7 @@
+ #define JPEG_STREAMERS_H_
+ 
+ #include <image_transport/image_transport.h>
++#include <opencv2/imgcodecs.hpp>
+ #include "web_video_server/image_streamer.h"
+ #include "async_web_server_cpp/http_request.hpp"
+ #include "async_web_server_cpp/http_connection.hpp"
+diff --git a/include/web_video_server/png_streamers.h b/include/web_video_server/png_streamers.h
+index 197ecc3..3f338d8 100644
+--- a/include/web_video_server/png_streamers.h
++++ b/include/web_video_server/png_streamers.h
+@@ -2,6 +2,7 @@
+ #define PNG_STREAMERS_H_
+ 
+ #include <image_transport/image_transport.h>
++#include <opencv2/imgcodecs.hpp>
+ #include "web_video_server/image_streamer.h"
+ #include "async_web_server_cpp/http_request.hpp"
+ #include "async_web_server_cpp/http_connection.hpp"
+diff --git a/src/image_streamer.cpp b/src/image_streamer.cpp
+index f0a30f1..0c1587f 100644
+--- a/src/image_streamer.cpp
++++ b/src/image_streamer.cpp
+@@ -117,10 +117,9 @@ void ImageTransportImageStreamer::imageCallback(const sensor_msgs::msg::Image::C
+     int input_width = img.cols;
+     int input_height = img.rows;
+ 
+-    if (output_width_ == -1)
+-      output_width_ = input_width;
+-    if (output_height_ == -1)
+-      output_height_ = input_height;
++    
++    output_width_ = input_width;
++    output_height_ = input_height;
+ 
+     if (invert_)
+     {
+@@ -149,7 +148,7 @@ void ImageTransportImageStreamer::imageCallback(const sensor_msgs::msg::Image::C
+     }
+ 
+     last_frame = nh_->now();
+-    sendImage(output_size_image, last_frame );
++    sendImage(output_size_image, msg->header.stamp);
+ 
+   }
+   catch (cv_bridge::Exception &e)
+diff --git a/src/jpeg_streamers.cpp b/src/jpeg_streamers.cpp
+index 029cb96..574ab02 100644
+--- a/src/jpeg_streamers.cpp
++++ b/src/jpeg_streamers.cpp
+@@ -21,7 +21,11 @@ MjpegStreamer::~MjpegStreamer()
+ void MjpegStreamer::sendImage(const cv::Mat &img, const rclcpp::Time &time)
+ {
+   std::vector<int> encode_params;
++#if CV_VERSION_MAJOR >= 3
++  encode_params.push_back(cv::IMWRITE_JPEG_QUALITY);
++#else
+   encode_params.push_back(CV_IMWRITE_JPEG_QUALITY);
++#endif
+   encode_params.push_back(quality_);
+ 
+   std::vector<uchar> encoded_buffer;
+@@ -63,7 +67,11 @@ JpegSnapshotStreamer::~JpegSnapshotStreamer()
+ void JpegSnapshotStreamer::sendImage(const cv::Mat &img, const rclcpp::Time &time)
+ {
+   std::vector<int> encode_params;
++#if CV_VERSION_MAJOR >= 3
++  encode_params.push_back(cv::IMWRITE_JPEG_QUALITY);
++#else
+   encode_params.push_back(CV_IMWRITE_JPEG_QUALITY);
++#endif
+   encode_params.push_back(quality_);
+ 
+   std::vector<uchar> encoded_buffer;
+diff --git a/src/libav_streamer.cpp b/src/libav_streamer.cpp
+index 28d0425..ab094d9 100644
+--- a/src/libav_streamer.cpp
++++ b/src/libav_streamer.cpp
+@@ -60,16 +60,24 @@ LibavStreamer::LibavStreamer(const async_web_server_cpp::HttpRequest &request,
+   bitrate_ = request.get_query_param_value_or_default<int>("bitrate", 100000);
+   qmin_ = request.get_query_param_value_or_default<int>("qmin", 10);
+   qmax_ = request.get_query_param_value_or_default<int>("qmax", 42);
+-  gop_ = request.get_query_param_value_or_default<int>("gop", 250);
++  gop_ = request.get_query_param_value_or_default<int>("gop", 25);
+ 
++#if ( LIBAVCODEC_VERSION_INT  < AV_VERSION_INT(58,9,100) )
+   av_lockmgr_register(&ffmpeg_boost_mutex_lock_manager);
+   av_register_all();
++#endif
+ }
+ 
+ LibavStreamer::~LibavStreamer()
+ {
+   if (codec_context_)
++  {
++    #if ( LIBAVCODEC_VERSION_INT  < AV_VERSION_INT(58,9,100) )
+     avcodec_close(codec_context_);
++    #else
++    avcodec_free_context(&codec_context_);
++    #endif
++  }
+   if (frame_)
+   {
+ #if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(55,28,1)
+@@ -134,6 +142,7 @@ void LibavStreamer::initialize(const cv::Mat &img)
+   }
+   io_ctx->seekable = 0;                       // no seeking, it's a stream
+   format_context_->pb = io_ctx;
++  format_context_->max_interleave_delta = 0;
+   output_format_->flags |= AVFMT_FLAG_CUSTOM_IO;
+   output_format_->flags |= AVFMT_NOFILE;
+ 
+@@ -157,7 +166,11 @@ void LibavStreamer::initialize(const cv::Mat &img)
+                                                                                                          NULL, NULL);
+     throw std::runtime_error("Error creating video stream");
+   }
++  #if ( LIBAVCODEC_VERSION_INT  < AV_VERSION_INT(58,9,100) )
+   codec_context_ = video_stream_->codec;
++  #else
++  codec_context_ = avcodec_alloc_context3(codec_);
++  #endif
+ 
+   // Set options
+   avcodec_get_context_defaults3(codec_context_, codec_);
+@@ -182,11 +195,14 @@ void LibavStreamer::initialize(const cv::Mat &img)
+   codec_context_->qmin = qmin_;
+   codec_context_->qmax = qmax_;
+ 
++  #if ( LIBAVCODEC_VERSION_INT  >= AV_VERSION_INT(58,9,100) )
++  avcodec_parameters_from_context(video_stream_->codecpar, codec_context_);
++  #endif
++
+   initializeEncoder();
+ 
+-  // Some formats want stream headers to be separate
+-  if (format_context_->oformat->flags & AVFMT_GLOBALHEADER)
+-    codec_context_->flags |= CODEC_FLAG_GLOBAL_HEADER;
++  codec_context_->flags |= AV_CODEC_FLAG_LOW_DELAY;
++  codec_context_->max_b_frames = 0;
+ 
+   // Open Codec
+   if (avcodec_open2(codec_context_, codec_, NULL) < 0)
+@@ -306,15 +322,29 @@ void LibavStreamer::sendImage(const cv::Mat &img, const rclcpp::Time &time)
+      throw std::runtime_error("Error encoding video frame");
+   }
+ #else
+-  pkt.data = NULL; // packet data will be allocated by the encoder
+-  pkt.size = 0;
+-  if (avcodec_send_frame(codec_context_, frame_) < 0)
++  ret = avcodec_send_frame(codec_context_, frame_);
++  if (ret == AVERROR_EOF)
++  {
++    RCLCPP_DEBUG(nh_->get_logger(), "avcodec_send_frame() encoder flushed");
++  }
++  else if (ret == AVERROR(EAGAIN))
++  {
++    RCLCPP_DEBUG(nh_->get_logger(), "avcodec_send_frame() need output read out");
++  }
++  if (ret < 0)
+   {
+     throw std::runtime_error("Error encoding video frame");
+   }
+-  if (avcodec_receive_packet(codec_context_, &pkt) < 0)
++  ret = avcodec_receive_packet(codec_context_, &pkt);
++  got_packet = pkt.size > 0;
++  if (ret == AVERROR_EOF)
++  {
++    RCLCPP_DEBUG(nh_->get_logger(), "avcodec_recieve_packet() encoder flushed");
++  }
++  else if (ret == AVERROR(EAGAIN))
+   {
+-    throw std::runtime_error("Error retrieving encoded packet");
++    RCLCPP_DEBUG(nh_->get_logger(), "avcodec_recieve_packet() need more input");
++    got_packet = 0;
+   }
+ #endif
+ 
+diff --git a/src/png_streamers.cpp b/src/png_streamers.cpp
+index 692e48b..be97a2c 100644
+--- a/src/png_streamers.cpp
++++ b/src/png_streamers.cpp
+@@ -21,7 +21,11 @@ PngStreamer::~PngStreamer()
+ void PngStreamer::sendImage(const cv::Mat &img, const rclcpp::Time &time)
+ {
+   std::vector<int> encode_params;
++#if CV_VERSION_MAJOR >= 3
++  encode_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
++#else
+   encode_params.push_back(CV_IMWRITE_PNG_COMPRESSION);
++#endif
+   encode_params.push_back(quality_);
+ 
+   std::vector<uchar> encoded_buffer;
+@@ -63,7 +67,11 @@ PngSnapshotStreamer::~PngSnapshotStreamer()
+ void PngSnapshotStreamer::sendImage(const cv::Mat &img, const rclcpp::Time &time)
+ {
+   std::vector<int> encode_params;
++#if CV_VERSION_MAJOR >= 3
++  encode_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
++#else
+   encode_params.push_back(CV_IMWRITE_PNG_COMPRESSION);
++#endif
+   encode_params.push_back(quality_);
+ 
+   std::vector<uchar> encoded_buffer;
+-- 
+2.17.1
+
