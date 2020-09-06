@@ -1,0 +1,46 @@
+From a214a66521bf1f6baf14c0c767a3b7d8021002c2 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 6 Sep 2020 18:28:07 +0000
+Subject: [PATCH] CMakeLists.txt: fix underlinkage in usb_cam.so
+
+* fixes:
+/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++  -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0=/usr/src/debug/usb-cam/0.3.6-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0=/usr/src/debug/usb-cam/0.3.6-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot  -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0=/usr/src/debug/usb-cam/0.3.6-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0=/usr/src/debug/usb-cam/0.3.6-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -fstack-protector-strong -Wl,-z,relro,-z,now -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -fstack-protector-strong -Wl,-z,relro,-z,now   -rdynamic CMakeFiles/usb_cam_node.dir/nodes/usb_cam_node.cpp.o  -o /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/devel/lib/usb_cam/usb_cam_node  -Wl,-rpath,/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/devel/lib:/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib:  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/devel/lib/libusb_cam.so  -lavcodec  -lswscale  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libimage_transport.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libmessage_filters.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libclass_loader.so  -lPocoFoundation  -ldl  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libroslib.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/librospack.so  -lpython2.7  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/lib/libboost_program_options.so.1.72.0  -ltinyxml2  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libcamera_info_manager.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libcamera_calibration_parsers.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libroscpp.so  -lpthread  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/lib/libboost_chrono.so.1.72.0  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/lib/libboost_filesystem.so.1.72.0  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/librosconsole.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/librosconsole_log4cxx.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/librosconsole_backend_interface.so  -llog4cxx  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/lib/libboost_regex.so.1.72.0  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libxmlrpcpp.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libroscpp_serialization.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/librostime.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/lib/libboost_date_time.so.1.72.0  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libcpp_common.so  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/lib/libboost_system.so.1.72.0  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/lib/libboost_thread.so.1.72.0  /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/recipe-sysroot/usr/lib/libconsole_bridge.so.0.4 && :
+/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/devel/lib/libusb_cam.so: error: undefined reference to 'av_frame_alloc'
+/jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/devel/lib/libusb_cam.so: error: undefined reference to 'av_free'
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index be662c4..46effbc 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS image_transport roscpp std_msgs std_srvs
+ ## pkg-config libraries
+ find_package(PkgConfig REQUIRED)
+ pkg_check_modules(avcodec libavcodec REQUIRED)
++pkg_check_modules(avutil libavutil REQUIRED)
+ pkg_check_modules(swscale libswscale REQUIRED)
+ 
+ ###################################################
+@@ -30,6 +31,7 @@ catkin_package(
+ include_directories(include
+   ${catkin_INCLUDE_DIRS}
+   ${avcodec_INCLUDE_DIRS}
++  ${avutil_INCLUDE_DIRS}
+   ${swscale_INCLUDE_DIRS}
+ )
+ 
+@@ -37,6 +39,7 @@ include_directories(include
+ add_library(${PROJECT_NAME} src/usb_cam.cpp)
+ target_link_libraries(${PROJECT_NAME}
+   ${avcodec_LIBRARIES}
++  ${avutil_LIBRARIES}
+   ${swscale_LIBRARIES}
+   ${catkin_LIBRARIES}
+ )
+-- 
+2.17.1
+
