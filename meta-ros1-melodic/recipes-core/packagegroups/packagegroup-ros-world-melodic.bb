@@ -77,6 +77,39 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_MECHANIZE = " \
     wifi-ddwrt \
 "
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-speechrecognition-pip', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SPEECHRECOGNITION_PIP}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SPEECHRECOGNITION_PIP = " \
+    respeaker-ros \
+    ros-speech-recognition \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-gi', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_GI}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_GI = " \
+    audio-common \
+    sound-play \
+    tts \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-imageio', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_IMAGEIO}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_IMAGEIO = " \
+    movie-publisher \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'nkf', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_NKF}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_NKF = " \
+    voice-text \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rospilot', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROSPILOT}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROSPILOT = " \
+    rospilot \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'parrot-arsdk', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PARROT_ARSDK}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PARROT_ARSDK = " \
+    parrot-arsdk \
+"
+
 # ERROR: Nothing PROVIDES 'UNRESOLVED-python-docker' (but generated-recipes/dockeros/dockeros_1.1.0-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "dockeros"
 
@@ -352,8 +385,23 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     moveit-servo \
     moveit-sim-controller \
     mpc-local-planner-examples \
+    mrpt-bridge \
+    mrpt-ekf-slam-2d \
+    mrpt-ekf-slam-3d \
+    mrpt-graphslam-2d \
+    mrpt-icp-slam-2d \
+    mrpt-local-obstacles \
+    mrpt-localization \
+    mrpt-map \
+    mrpt-navigation \
+    mrpt-rawlog \
+    mrpt-rbpf-slam \
+    mrpt-reactivenav2d \
+    mrpt-slam \
+    mrpt1 \
     mrpt2 \
     multires-image \
+    mvsim \
     navigation-stage \
     navigation-tutorials \
     nextage-moveit-config \
@@ -364,6 +412,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     pilz-industrial-motion \
     pilz-robot-programming \
     pilz-trajectory-generation \
+    pose-cov-ops \
     pr2-moveit-config \
     rc-roi-manager-gui \
     rc-visard \
@@ -584,12 +633,31 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-s
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY = " \
     calibration \
     calibration-estimation \
+    cis-camera \
     eca-a9-control \
     exotica-examples \
     exotica-scipy-solver \
     husky-bringup \
     husky-robot \
+    imagesift \
+    jsk-common \
+    jsk-data \
+    jsk-interactive-marker \
+    jsk-interactive-test \
+    jsk-interactive \
+    jsk-pcl-ros-utils \
+    jsk-pcl-ros \
+    jsk-perception \
+    jsk-recognition-utils \
+    jsk-recognition \
+    jsk-rviz-plugins \
+    jsk-tools \
+    jsk-topic-tools \
+    jsk-visualization \
+    multi-map-server \
     pgm-learner \
+    pr2eus-tutorials \
+    resized-image-transport \
     uuv-control-utils \
     uuv-trajectory-control \
 "
@@ -1027,9 +1095,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY =
     julius-ros \
     multi-map-server \
     pr2-bringup \
-    pr2eus \
     pr2eus-moveit \
     pr2eus-tutorials \
+    pr2eus \
     resized-image-transport \
     ros-speech-recognition \
     sound-play \
@@ -1228,7 +1296,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_LISP = " \
     jskeus \
     jsk-model-tools \
     jsk-planning \
+    jsk-pr2eus \
     jsk-roseus \
+    pr2eus-moveit \
+    pr2eus \
     ros-emacs-utils \
     rosemacs \
     roseus \
@@ -1377,6 +1448,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ASSIMP_DEVEL = " \
     assimp-devel \
     euscollada \
     hrpsys-ros-bridge \
+    pr2eus-moveit \
+    pr2eus \
     rtmros-common \
 "
 
@@ -1455,6 +1528,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HPP_FCL = " \
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'julius', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_JULIUS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_JULIUS = " \
+    jsk-3rdparty \
+    julius-ros \
     julius \
 "
 
@@ -1567,6 +1642,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PR2_DESCRIPTION = " \
     pr2-mechanism-controllers \
     pr2-moveit-config \
     pr2-teleop-general \
+    pr2eus-moveit \
+    pr2eus \
     robot-mechanism-controllers \
 "
 

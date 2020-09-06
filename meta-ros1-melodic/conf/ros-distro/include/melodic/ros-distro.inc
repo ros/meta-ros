@@ -44,6 +44,18 @@ ROS_WORLD_SKIP_GROUPS += "trac-ik"
 ROS_WORLD_SKIP_GROUPS += "ogre"
 # recipes depending on python-scipy
 ROS_WORLD_SKIP_GROUPS += "python-scipy"
+# recipes depending on python-speechrecognition-pip
+ROS_WORLD_SKIP_GROUPS += "python-speechrecognition-pip"
+# recipes depending on python-gi
+ROS_WORLD_SKIP_GROUPS += "python-gi"
+# recipes depending on python-imageio
+ROS_WORLD_SKIP_GROUPS += "python-imageio"
+# recipes depending on nkf - Network Kanji code conversion Filter - https://packages.debian.org/sid/text/nkf
+ROS_WORLD_SKIP_GROUPS += "nkf"
+# recipes depending on rospilot which depends on UNRESOLVED-python-tilestache, UNRESOLVED-python-mapnik, UNRESOLVED-libnl-3, UNRESOLVED-postgresql-postgis, UNRESOLVED-python-cherrypy, UNRESOLVED-osm2pgsql, UNRESOLVED-dnsmasq, UNRESOLVED-mapnik-utils, UNRESOLVED-hostapd, UNRESOLVED-python-colorama, UNRESOLVED-gdal-bin, UNRESOLVED-libmicrohttpd, UNRESOLVED-libnl-3-dev
+ROS_WORLD_SKIP_GROUPS += "rospilot"
+# recipes depending on parrot-arsdk which depends on UNRESOLVED-automake, UNRESOLVED-yasm, UNRESOLVED-libavahi-core-dev, UNRESOLVED-nasm, UNRESOLVED-libavahi-client-dev
+ROS_WORLD_SKIP_GROUPS += "parrot-arsdk"
 # recipes depending on clang-tidy
 ROS_WORLD_SKIP_GROUPS += "clang-tidy"
 # recipes depending on muparser
@@ -684,6 +696,13 @@ ROS_UNRESOLVED_PLATFORM_PKG_libpqxx-dev = "postgresql"
 # generated-recipes/knowledge-representation/knowledge-representation_0.9.1-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_postgresql = "postgresql"
 
+# Used by:
+# generated-recipes/usb-cam/usb-cam_0.3.6.bb
+ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils = "v4l-utils"
+
+# Used by:
+# generated-recipes/tts/tts_1.0.2-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python-boto3 = "python-boto3"
 
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
