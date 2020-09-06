@@ -52,3 +52,6 @@ EXTRA_OECMAKE += "-DARCHITECTURE=${RC_GENICAM_API_ARCHITECTURE}"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-GenicamConfig.cmake-detect-ARCHITECTURE-only-when-no.patch"
+
+# Only aarch64 prebuilt binaries are missing GNU_HASH
+INSANE_SKIP_${PN}_append_aarch64 = " ldflags"
