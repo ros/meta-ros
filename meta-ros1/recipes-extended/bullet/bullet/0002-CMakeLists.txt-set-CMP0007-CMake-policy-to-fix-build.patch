@@ -1,0 +1,29 @@
+From 8d012fe23ed9c7998fab808095b2aa943a923037 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 6 Sep 2020 23:11:58 +0000
+Subject: [PATCH 2/2] CMakeLists.txt: set CMP0007 CMake policy to fix build
+ with cmake-3.18.2
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0eb1fb62e..f3c16fba0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -324,6 +324,10 @@ OPTION(BUILD_CLSOCKET "Set when you want to build apps with enet TCP networking
+ 
+ 
+ IF(BUILD_PYBULLET)
++        IF(COMMAND cmake_policy)
++                cmake_policy(SET CMP0007 NEW)
++        ENDIF(COMMAND cmake_policy)
++
+ 	FIND_PACKAGE(Python2 COMPONENTS Interpreter Development)
+ 
+ 	OPTION(BUILD_PYBULLET_NUMPY "Set when you want to build pybullet with NumPy support" OFF)
+-- 
+2.17.1
+
