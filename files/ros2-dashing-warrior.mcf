@@ -42,7 +42,7 @@ OpenEmbeddedVersion = '2.7-376.1-warrior'
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'warrior')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'warrior/milestones/13')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '5a431bacd')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
