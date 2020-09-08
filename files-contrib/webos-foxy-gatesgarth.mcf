@@ -33,7 +33,7 @@ Layers = [
 
 ('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '141a3c9ce9'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': 'aac74bcb81'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': 'b6ab91b594'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
