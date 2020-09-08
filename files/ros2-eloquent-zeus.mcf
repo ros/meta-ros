@@ -42,7 +42,7 @@ OpenEmbeddedVersion = '3.0-379-zeus'
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'zeus')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'zeus/milestones/13')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '997f0fdca')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
