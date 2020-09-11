@@ -1,4 +1,4 @@
-# foxy/cache.yaml 20200827 2a58154ba4281e78723cf0a3973ecfe0ad3240ef 20200826234612 1.5.1
+# foxy/cache.yaml 20200910 8558eece513324e423adf90473c6e10f73a3c082 20200909175507 1.5.1
 distribution_file:
 - release_platforms:
 -----
@@ -210,6 +210,50 @@ version: ros2
 status: maintained
 }
 -----
+apex_containers: {
+doc: {
+type: git,
+url: 'https://gitlab.com/ApexAI/apex_containers.git',
+version: foxy
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://gitlab.com/ApexAI/apex_containers-release.git',
+version: 0.0.3-1
+},
+source: {
+type: git,
+url: 'https://gitlab.com/ApexAI/apex_containers.git',
+version: foxy
+},
+status: developed
+}
+-----
+apex_test_tools: {
+doc: {
+type: git,
+url: 'https://gitlab.com/ApexAI/apex_test_tools.git',
+version: master
+},
+release: {
+packages: [apex_test_tools,
+test_apex_test_tools],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://gitlab.com/ApexAI/apex_test_tools-release.git',
+version: 0.0.1-1
+},
+source: {
+type: git,
+url: 'https://gitlab.com/ApexAI/apex_test_tools.git',
+version: master
+},
+status: developed
+}
+-----
 apriltag: {
 doc: {
 type: git,
@@ -264,7 +308,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/BehaviorTree/behaviortree_cpp-release.git',
-version: 3.5.0-1
+version: 3.5.2-1
 },
 source: {
 type: git,
@@ -1155,19 +1199,19 @@ grbl_ros: {
 doc: {
 type: git,
 url: 'https://github.com/flynneva/grbl_ros.git',
-version: main
+version: foxy
 },
 release: {
 tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/flynneva/grbl_ros-release.git',
-version: 0.0.2-4
+version: 0.2.1-1
 },
 source: {
 type: git,
 url: 'https://github.com/flynneva/grbl_ros.git',
-version: main
+version: foxy
 },
 status: developed
 }
@@ -1249,7 +1293,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/image_pipeline-release.git',
-version: 2.2.0-2
+version: 2.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -1383,16 +1427,14 @@ kobuki_core: {
 doc: {
 type: git,
 url: 'https://github.com/kobuki-base/kobuki_core.git',
-version: release/1.1.x
+version: release/1.2.x
 },
 release: {
-packages: [kobuki_dock_drive,
-kobuki_driver],
 tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/stonier/kobuki_core-release.git',
-version: 1.1.1-1
+version: 1.2.0-1
 },
 source: {
 test_pull_requests: true,
@@ -1415,6 +1457,27 @@ release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/stonier/kobuki_firmware-release.git',
 version: 1.2.0-1
+},
+status: maintained
+}
+-----
+kobuki_ftdi: {
+doc: {
+type: git,
+url: 'https://github.com/kobuki-base/kobuki_ftdi.git',
+version: release/1.0.x
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/stonier/kobuki_ftdi-release.git',
+version: 1.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/kobuki-base/kobuki_ftdi.git',
+version: release/1.0.x
 },
 status: maintained
 }
@@ -1479,7 +1542,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/launch-release.git',
-version: 0.10.2-1
+version: 0.10.3-1
 },
 source: {
 test_pull_requests: true,
@@ -1715,7 +1778,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/mrpt-ros2-pkg-release/mrpt2-release.git',
-version: 2.0.4-1
+version: 2.1.0-3
 },
 source: {
 type: git,
@@ -1796,6 +1859,27 @@ test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-planning/navigation_msgs.git',
 version: foxy
+},
+status: maintained
+}
+-----
+nmea_msgs: {
+doc: {
+type: git,
+url: 'https://github.com/ros-drivers/nmea_msgs.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/nmea_msgs-release.git',
+version: 2.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-drivers/nmea_msgs.git',
+version: ros2
 },
 status: maintained
 }
@@ -2059,6 +2143,27 @@ url: 'https://github.com/ros-drivers/phidgets_drivers.git',
 version: dashing
 },
 status: maintained
+}
+-----
+plotjuggler: {
+doc: {
+type: git,
+url: 'https://github.com/facontidavide/PlotJuggler.git',
+version: foxy
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/facontidavide/plotjuggler-release.git',
+version: 2.8.4-1
+},
+source: {
+type: git,
+url: 'https://github.com/facontidavide/PlotJuggler.git',
+version: foxy
+},
+status: developed
 }
 -----
 plotjuggler_msgs: {
@@ -2847,7 +2952,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros1_bridge-release.git',
-version: 0.9.3-1
+version: 0.9.3-7
 },
 source: {
 test_commits: false,
@@ -3027,6 +3132,37 @@ version: dashing-devel
 status: developed
 }
 -----
+ros_cb: {
+doc: {
+type: git,
+url: 'https://github.com/jediofgever/ROS_CB.git',
+version: master
+},
+release: {
+packages: [chiconybot,
+chiconybot_bringup,
+chiconybot_cartographer,
+chiconybot_description,
+chiconybot_gazebo,
+chiconybot_msgs,
+chiconybot_navigation2,
+chiconybot_node,
+chiconybot_teleop],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/jediofgever/ROS_CB-release.git',
+version: 0.0.0-2
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/jediofgever/ROS_CB.git',
+version: master
+},
+status: developed
+}
+-----
 ros_environment: {
 doc: {
 type: git,
@@ -3140,7 +3276,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rosbag2-release.git',
-version: 0.3.4-1
+version: 0.3.5-1
 },
 source: {
 test_pull_requests: true,
@@ -3687,7 +3823,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt_robot_monitor-release.git',
-version: 1.0.2-1
+version: 1.0.3-1
 },
 source: {
 type: git,
@@ -3969,7 +4105,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros-tooling/system_metrics_collector-release.git',
-version: 0.1.0-1
+version: 0.1.1-1
 },
 source: {
 type: git,
@@ -4175,6 +4311,29 @@ source: {
 type: git,
 url: 'https://gitlab.com/micro-ROS/ros_tracing/tracetools_analysis.git',
 version: foxy
+},
+status: developed
+}
+-----
+transport_drivers: {
+doc: {
+type: git,
+url: 'https://github.com/ros-drivers/transport_drivers.git',
+version: ros2
+},
+release: {
+packages: [serial_driver,
+udp_driver],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros-drivers-gbp/transport_drivers-release.git',
+version: 0.0.6-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-drivers/transport_drivers.git',
+version: ros2
 },
 status: developed
 }
@@ -4555,7 +4714,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/cyberbotics/webots_ros2-release.git',
-version: 0.0.4-1
+version: 1.0.0-1
 },
 source: {
 test_pull_requests: true,
@@ -5648,6 +5807,45 @@ this package is what you need. The code in this package is stable and well teste
 </export>
 </package>
 -----
+apex_containers: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>apex_containers</name>
+<description>Containers</description>
+<maintainer email="opensource@apex.ai">Apex.AI,
+Inc.</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>foonathan_memory_vendor</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>apex_test_tools</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+apex_test_tools: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>apex_test_tools</name>
+<description>The package Apex.OS Test Tools contains test helpers</description>
+<maintainer email="opensource@apex.ai">Apex.AI,
+Inc.</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>osrf_testing_tools_cpp</depend>
+<depend>ament_cmake_gtest</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_pclint</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 apriltag: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -5701,6 +5899,7 @@ behaviortree_cpp_v3: <?xml version="1.0" ?>
 <depend condition="$ROS_VERSION == 2">rclcpp</depend>
 <depend>libzmq3-dev</depend>
 <depend>libncurses-dev</depend>
+<test_depend condition="$ROS_VERSION == 2">ament_cmake_gtest</test_depend>
 <export>
 <build_type condition="$ROS_VERSION == 1">catkin</build_type>
 <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
@@ -5729,13 +5928,14 @@ camera_calibration: <?xml version="1.0" ?>
 <package format="3">
 <name>camera_calibration</name>
 <description>camera_calibration allows easy calibration of monocular or stereo cameras using a checkerboard calibration target.</description>
+<maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+<maintainer email="whitleysoftwareservices@gmail.com">Joshua Whitley</maintainer>
+<license>BSD</license>
+<url type="website">https://index.ros.org/p/camera_calibration/github-ros-perception-image_pipeline/</url>
+<url type="bugtracker">https://github.com/ros-perception/image_pipeline/issues</url>
+<url type="repository">https://github.com/ros-perception/image_pipeline</url>
 <author>James Bowman</author>
 <author>Patrick Mihelich</author>
-<maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
-<maintainer email="stevenmacenski@gmail.com">Steven Macenski</maintainer>
-<maintainer email="software@autonomoustuff.com">Autonomoustuff team</maintainer>
-<license>BSD</license>
-<url>http://www.ros.org/wiki/camera_calibration</url>
 <depend>cv_bridge</depend>
 <depend>image_geometry</depend>
 <depend>message_filters</depend>
@@ -5946,6 +6146,184 @@ Version 2.0</license>
 <member_of_group>rosidl_interface_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+chiconybot: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>chiconybot</name>
+<description>ROS 2 packages for chiconybot</description>
+<license>Apache 2.0</license>
+<author email="fetulahatas1@gmail.com">Detullah Atas</author>
+<maintainer email="fetulahatas1@gmail.com">Detullah Atas</maintainer>
+<url type="repository">https://github.com/jediofgever/ROS_CB</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>chiconybot_bringup</exec_depend>
+<exec_depend>chiconybot_cartographer</exec_depend>
+<exec_depend>chiconybot_description</exec_depend>
+<exec_depend>chiconybot_example</exec_depend>
+<exec_depend>chiconybot_navigation2</exec_depend>
+<exec_depend>chiconybot_node</exec_depend>
+<exec_depend>chiconybot_teleop</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+chiconybot_bringup: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>chiconybot_bringup</name>
+<description>ROS 2 launch scripts for starting the Chiconybot</description>
+<license>Apache 2.0</license>
+<author email="fetulahatas1@gmail.com">Detullah Atas</author>
+<maintainer email="fetulahatas1@gmail.com">Detullah Atas</maintainer>
+<url type="repository">https://github.com/jediofgever/ROS_CB</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>hls_lfcd_lds_driver</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz2</exec_depend>
+<exec_depend>chiconybot_description</exec_depend>
+<exec_depend>chiconybot_node</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+chiconybot_cartographer: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>chiconybot_cartographer</name>
+<description>ROS 2 launch scripts for cartographer</description>
+<license>Apache 2.0</license>
+<author email="fetulahatas1@gmail.com">Detullah Atas</author>
+<maintainer email="fetulahatas1@gmail.com">Detullah Atas</maintainer>
+<url type="repository">https://github.com/jediofgever/ROS_CB</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>cartographer_ros</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+chiconybot_description: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>chiconybot_description</name>
+<description>3D models of the chiconybot for simulation and visualization</description>
+<license>Apache 2.0</license>
+<author email="fetulahatas1@gmail.com">Detullah Atas</author>
+<maintainer email="fetulahatas1@gmail.com">Detullah Atas</maintainer>
+<url type="repository">https://github.com/jediofgever/ROS_CB</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>urdf</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+chiconybot_gazebo: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>chiconybot_gazebo</name>
+<description>Gazebo simulation package for the Chiconybot</description>
+<license>Apache 2.0</license>
+<author email="fetulahatas1@gmail.com">Detullah Atas</author>
+<maintainer email="fetulahatas1@gmail.com">Detullah Atas</maintainer>
+<url type="repository">https://github.com/jediofgever/ROS_CB</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>gazebo_ros_pkgs</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>rclcpp</depend>
+<depend>sensor_msgs</depend>
+<depend>tf2</depend>
+<depend>chiconybot</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+chiconybot_msgs: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>chiconybot_msgs</name>
+<description>Message and service types: custom messages and services for Chiconybot packages for ROS2</description>
+<license>Apache 2.0</license>
+<author email="fetulahatas1@gmail.com">Detullah Atas</author>
+<maintainer email="fetulahatas1@gmail.com">Detullah Atas</maintainer>
+<url type="repository">https://github.com/jediofgever/ROS_CB</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>action_msgs</depend>
+<depend>builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>'
+-----
+chiconybot_navigation2: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>chiconybot_navigation2</name>
+<description>ROS 2 launch scripts for navigation2</description>
+<license>Apache 2.0</license>
+<author email="fetulahatas1@gmail.com">Detullah Atas</author>
+<maintainer email="fetulahatas1@gmail.com">Detullah Atas</maintainer>
+<url type="repository">https://github.com/jediofgever/ROS_CB</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>nav2_bringup</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+chiconybot_node: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>chiconybot_node</name>
+<description>chiconybot driver node that include diff drive controller,
+odometry and tf node</description>
+<license>Apache 2.0</license>
+<author email="fetulahatas1@gmail.com">Detullah Atas</author>
+<maintainer email="fetulahatas1@gmail.com">Detullah Atas</maintainer>
+<url type="repository">https://github.com/jediofgever/ROS_CB</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>dynamixel_sdk</depend>
+<depend>geometry_msgs</depend>
+<depend>message_filters</depend>
+<depend>nav_msgs</depend>
+<depend>rclcpp</depend>
+<depend>rcutils</depend>
+<depend>sensor_msgs</depend>
+<depend>std_msgs</depend>
+<depend>std_srvs</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>chiconybot_msgs</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+chiconybot_teleop: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>chiconybot_teleop</name>
+<description>Teleoperation node using keyboard for chiconybot.</description>
+<license>Apache 2.0</license>
+<author email="fetulahatas1@gmail.com">Detullah Atas</author>
+<maintainer email="fetulahatas1@gmail.com">Detullah Atas</maintainer>
+<url type="repository">https://github.com/jediofgever/ROS_CB</url>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rclpy</exec_depend>
+<export>
+<build_type>ament_python</build_type>
 </export>
 </package>
 -----
@@ -6360,37 +6738,34 @@ demo_nodes_py: <?xml version="1.0" ?>
 </package>
 -----
 depth_image_proc: <?xml version="1.0" ?>
-<package format="2">
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
 <name>depth_image_proc</name>
 <description>Contains components for processing depth images such as those produced by OpenNI camera. Functions include creating disparity images and point clouds,
 as well as registering (reprojecting) a depth image into another camera frame.</description>
-<author>Patrick Mihelich</author>
 <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
-<maintainer email="stevenmacenski@gmail.com">Steven Macenski</maintainer>
-<maintainer email="software@autonomoustuff.com">Autonomoustuff team</maintainer>
+<maintainer email="whitleysoftwareservices@gmail.com">Joshua Whitley</maintainer>
 <maintainer email="chris.ye@intel.com">Chris Ye</maintainer>
 <license>BSD</license>
-<url>http://ros.org/wiki/depth_image_proc</url>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<test_depend>ament_cmake_gtest</test_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>ament_lint_common</test_depend>
-<build_depend>cv_bridge</build_depend>
-<build_depend>tf2_eigen</build_depend>
-<build_depend>image_geometry</build_depend>
-<build_depend>image_transport</build_depend>
+<url type="website">https://index.ros.org/p/depth_image_proc/github-ros-perception-image_pipeline/</url>
+<url type="bugtracker">https://github.com/ros-perception/image_pipeline/issues</url>
+<url type="repository">https://github.com/ros-perception/image_pipeline</url>
+<author>Patrick Mihelich</author>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
 <build_depend>message_filters</build_depend>
 <build_depend>class_loader</build_depend>
-<build_depend>sensor_msgs</build_depend>
-<build_depend>stereo_msgs</build_depend>
-<build_depend>tf2</build_depend>
-<build_depend>tf2_ros</build_depend>
-<exec_depend>cv_bridge</exec_depend>
-<exec_depend>tf2_eigen</exec_depend>
-<exec_depend>image_geometry</exec_depend>
-<exec_depend>image_transport</exec_depend>
-<exec_depend>tf2</exec_depend>
-<exec_depend>tf2_ros</exec_depend>
+<depend>cv_bridge</depend>
+<depend>image_geometry</depend>
+<depend>image_transport</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>sensor_msgs</depend>
+<depend>stereo_msgs</depend>
+<depend>tf2</depend>
+<depend>tf2_eigen</depend>
+<depend>tf2_ros</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -8806,6 +9181,7 @@ grbl_ros: <?xml version="1.0" ?>
 <description>ROS2 package to interface with a GRBL serial device</description>
 <maintainer email="evanflynn.msu@gmail.com">Evan Flynn</maintainer>
 <license>MIT</license>
+<build_depend>python3-serial</build_depend>
 <test_depend>ament_copyright</test_depend>
 <test_depend>ament_flake8</test_depend>
 <test_depend>ament_pep257</test_depend>
@@ -8949,24 +9325,29 @@ much as cv_bridge interfaces ROS sensor_msgs/Image with OpenCV data types.</desc
 </package>
 -----
 image_pipeline: <?xml version="1.0" ?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
 <name>image_pipeline</name>
 <description>image_pipeline fills the gap between getting raw images from a camera driver and higher-level vision processing.</description>
-<author>Patrick Mihelich</author>
-<author>James Bowman</author>
 <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
-<maintainer email="stevenmacenski@gmail.com">Steven Macenski</maintainer>
-<maintainer email="software@autonomoustuff.com">Autonomoustuff team</maintainer>
+<maintainer email="whitleysoftwareservices@gmail.com">Joshua Whitley</maintainer>
 <license>BSD</license>
-<url type="website">http://www.ros.org/wiki/image_pipeline</url>
+<url type="website">https://index.ros.org/p/image_pipeline/github-ros-perception-image_pipeline/</url>
 <url type="bugtracker">https://github.com/ros-perception/image_pipeline/issues</url>
 <url type="repository">https://github.com/ros-perception/image_pipeline</url>
+<author>Patrick Mihelich</author>
+<author>James Bowman</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<run_depend>camera_calibration</run_depend>
-<run_depend>depth_image_proc</run_depend>
-<run_depend>image_proc</run_depend>
-<run_depend>image_publisher</run_depend>
-<run_depend>image_rotate</run_depend>
+<exec_depend>camera_calibration</exec_depend>
+<exec_depend>depth_image_proc</exec_depend>
+<exec_depend>image_proc</exec_depend>
+<exec_depend>image_publisher</exec_depend>
+<exec_depend>image_rotate</exec_depend>
+<exec_depend>image_view</exec_depend>
+<exec_depend>stereo_image_proc</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<test_depend>ament_cmake_xmllint</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -8978,22 +9359,22 @@ image_proc: <?xml version="1.0" ?>
 <name>image_proc</name>
 <description>Single image rectification and color processing.</description>
 <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
-<maintainer email="stevenmacenski@gmail.com">Steven Macenski</maintainer>
-<maintainer email="software@autonomoustuff.com">Autonomoustuff team</maintainer>
+<maintainer email="whitleysoftwareservices@gmail.com">Joshua Whitley</maintainer>
 <license>BSD</license>
-<url>http://www.ros.org/wiki/image_proc</url>
+<url type="website">https://index.ros.org/p/image_proc/github-ros-perception-image_pipeline/</url>
+<url type="bugtracker">https://github.com/ros-perception/image_pipeline/issues</url>
+<url type="repository">https://github.com/ros-perception/image_pipeline</url>
 <author>Patrick Mihelich</author>
 <author>Kurt Konolige</author>
 <author>Jeremy Leibs</author>
-<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>cv_bridge</depend>
+<depend>image_geometry</depend>
+<depend>image_transport</depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_components</depend>
 <depend>rcutils</depend>
-<depend>cv_bridge</depend>
-<depend>image_transport</depend>
 <depend>sensor_msgs</depend>
-<depend>image_geometry</depend>
-<test_depend>ament_cmake_gtest</test_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <export>
@@ -9002,43 +9383,36 @@ image_proc: <?xml version="1.0" ?>
 </package>
 -----
 image_publisher: <?xml version="1.0" ?>
-<package format="2">
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
 <name>image_publisher</name>
-<description>
-<p>Contains a node publish an image stream from single image file or avi motion file.</p>
-</description>
-<author>Kei Okada</author>
+<description>Contains a node publish an image stream from single image file or avi motion file.</description>
 <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
-<maintainer email="stevenmacenski@gmail.com">Steven Macenski</maintainer>
-<maintainer email="software@autonomoustuff.com">Autonomoustuff team</maintainer>
+<maintainer email="whitleysoftwareservices@gmail.com">Joshua Whitley</maintainer>
 <maintainer email="chris.ye@intel.com">Chris Ye</maintainer>
 <license>BSD</license>
-<url>http://ros.org/wiki/image_publisher</url>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<test_depend>ament_cmake_gtest</test_depend>
+<url type="website">https://index.ros.org/p/image_publisher/github-ros-perception-image_pipeline/</url>
+<url type="bugtracker">https://github.com/ros-perception/image_pipeline/issues</url>
+<url type="repository">https://github.com/ros-perception/image_pipeline</url>
+<author>Kei Okada</author>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>camera_info_manager</depend>
+<depend>class_loader</depend>
+<depend>cv_bridge</depend>
+<depend>image_geometry</depend>
+<depend>image_transport</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
-<build_depend>cv_bridge</build_depend>
-<build_depend>camera_info_manager</build_depend>
-<build_depend>image_transport</build_depend>
-<build_depend>image_geometry</build_depend>
-<build_depend>class_loader</build_depend>
-<build_depend>rclcpp</build_depend>
-<build_depend>rclcpp_components</build_depend>
-<exec_depend>cv_bridge</exec_depend>
-<exec_depend>camera_info_manager</exec_depend>
-<exec_depend>image_transport</exec_depend>
-<exec_depend>image_geometry</exec_depend>
-<exec_depend>class_loader</exec_depend>
-<exec_depend>rclcpp</exec_depend>
-<exec_depend>rclcpp_components</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
 image_rotate: <?xml version="1.0" ?>
-<package format="2">
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
 <name>image_rotate</name>
 <description>
 <p>Contains a node that rotates an image stream in a way that minimizes the angle between a vector in some arbitrary frame and a vector in the camera frame. The frame of the outgoing image is published by the node.</p>
@@ -9051,16 +9425,14 @@ as it interpolates the source image,
 introduces black borders,
 and does not output a camera_info.</p>
 </description>
-<author>Blaise Gassend</author>
 <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
-<maintainer email="stevenmacenski@gmail.com">Steven Macenski</maintainer>
-<maintainer email="software@autonomoustuff.com">Autonomoustuff team</maintainer>
+<maintainer email="whitleysoftwareservices@gmail.com">Joshua Whitley</maintainer>
 <license>BSD</license>
-<url>http://ros.org/wiki/image_rotate</url>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<test_depend>ament_cmake_gtest</test_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>ament_lint_common</test_depend>
+<url type="website">https://index.ros.org/p/image_rotate/github-ros-perception-image_pipeline/</url>
+<url type="bugtracker">https://github.com/ros-perception/image_pipeline/issues</url>
+<url type="repository">https://github.com/ros-perception/image_pipeline</url>
+<author>Blaise Gassend</author>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
 <build_depend>class_loader</build_depend>
 <depend>cv_bridge</depend>
 <depend>image_transport</depend>
@@ -9069,6 +9441,8 @@ and does not output a camera_info.</p>
 <depend>tf2</depend>
 <depend>tf2_geometry_msgs</depend>
 <depend>tf2_ros</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -9158,22 +9532,23 @@ image_view: <?xml version="1.0" ?>
 <name>image_view</name>
 <description>A simple viewer for ROS image topics. Includes a specialized viewer for stereo + disparity images.</description>
 <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
-<maintainer email="stevenmacenski@gmail.com">Steven Macenski</maintainer>
-<maintainer email="software@autonomoustuff.com">Autonomoustuff team</maintainer>
+<maintainer email="whitleysoftwareservices@gmail.com">Joshua Whitley</maintainer>
 <license>BSD</license>
-<url>http://www.ros.org/wiki/image_view</url>
+<url type="website">https://index.ros.org/p/image_view/github-ros-perception-image_pipeline/</url>
+<url type="bugtracker">https://github.com/ros-perception/image_pipeline/issues</url>
+<url type="repository">https://github.com/ros-perception/image_pipeline</url>
 <author>Patrick Mihelich</author>
-<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
 <depend>camera_calibration_parsers</depend>
 <depend>cv_bridge</depend>
 <depend>image_transport</depend>
+<depend>libboost-dev</depend>
 <depend>message_filters</depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_components</depend>
 <depend>sensor_msgs</depend>
 <depend>std_srvs</depend>
 <depend>stereo_msgs</depend>
-<depend>boost</depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <export>
@@ -9366,34 +9741,10 @@ kdl_parser: <?xml version="1.0" ?>
 </export>
 </package>
 -----
-kobuki_dock_drive: <?xml version="1.0" ?>
+kobuki_core: <?xml version="1.0" ?>
 <package format="2">
-<name>kobuki_dock_drive</name>
-<description>Dock driving library for Kobuki. Users owning a docking station for Kobuki can use this tool to develop autonomous docking drive algorithms.</description>
-<author>Daniel Stonier</author>
-<author>Younghun Ju</author>
-<maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
-<license>BSD</license>
-<url type="bugtracker">https://github.com/kobuki-base/kobuki_core/issues</url>
-<url type="repository">https://github.com/kobuki-base/kobuki_core</url>
-<url type="website">https://index.ros.org/p/kobuki_dock_drive/github-kobuki-base-kobuki_core/</url>
-<buildtool_depend>ament_cmake_ros</buildtool_depend>
-<build_depend>ecl_build</build_depend>
-<build_depend>ecl_threads</build_depend>
-<build_depend>ecl_geometry</build_depend>
-<build_depend>ecl_linear_algebra</build_depend>
-<exec_depend>ecl_threads</exec_depend>
-<exec_depend>ecl_geometry</exec_depend>
-<exec_depend>ecl_linear_algebra</exec_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-kobuki_driver: '<?xml version="1.0" ?>
-<package format="2">
-<name>kobuki_driver</name>
-<description>C++ driver library for Kobuki: Pure C++ driver library for Kobuki. This is for those who do not wish to use ROS on their systems.</description>
+<name>kobuki_core</name>
+<description>Pure C++ driver library for Kobuki.</description>
 <author>Daniel Stonier</author>
 <author>Younghun Ju</author>
 <author>Jorge Santos Simon</author>
@@ -9401,7 +9752,7 @@ kobuki_driver: '<?xml version="1.0" ?>
 <license>BSD</license>
 <url type="bugtracker">https://github.com/kobuki-base/kobuki_core/issues</url>
 <url type="repository">https://github.com/kobuki-base/kobuki_core</url>
-<url type="website">https://index.ros.org/p/kobuki_driver/github-kobuki-base-kobuki_core/</url>
+<url type="website">https://kobuki.readthedocs.io/en/release-1.0.x/</url>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <build_depend>ecl_build</build_depend>
 <build_depend>ecl_config</build_depend>
@@ -9425,7 +9776,7 @@ kobuki_driver: '<?xml version="1.0" ?>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
-</package>'
+</package>
 -----
 kobuki_firmware: <?xml version="1.0" ?>
 <package format="2">
@@ -9439,6 +9790,33 @@ kobuki_firmware: <?xml version="1.0" ?>
 <url type="repository">https://github.com/kobuki-base/kobuki_core</url>
 <url type="website">https://index.ros.org/p/kobuki_driver/github-kobuki-base-kobuki_core/</url>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+kobuki_ftdi: <?xml version="1.0" ?>
+<package format="2">
+<name>kobuki_ftdi</name>
+<description>Utilities for flashing and enabling Kobuki's USB connection. This package contains tools for flashing the Kobuki's FTDI chip (usually done at the factory). The special firmware for the FTDI chip (USB to serial converter) enables it to appear as /dev/kobuki on the user's PC.</description>
+<author>Younghun Ju</author>
+<author>Daniel Stonier</author>
+<maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+<license>BSD</license>
+<url type="bugtracker">https://github.com/yujinrobot/kobuki_core/issues</url>
+<url type="repository">https://github.com/yujinrobot/kobuki_core</url>
+<url type="website">http://ros.org/wiki/kobuki_ftdi</url>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<build_depend>ecl_build</build_depend>
+<build_depend>ecl_command_line</build_depend>
+<build_depend>ftdi-eeprom</build_depend>
+<build_depend>libusb-dev</build_depend>
+<build_depend>libftdi-dev</build_depend>
+<build_depend>pkg-config</build_depend>
+<exec_depend>ecl_command_line</exec_depend>
+<exec_depend>ftdi-eeprom</exec_depend>
+<exec_depend>libusb-dev</exec_depend>
+<exec_depend>libftdi-dev</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -10972,6 +11350,28 @@ navigation2: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+nmea_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>nmea_msgs</name>
+<description>The nmea_msgs package contains messages related to data in the NMEA format.</description>
+<maintainer email="evenator@gmail.com">Ed Venator</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/nmea_msgs</url>
+<author email="ankl@kth.se">Andreas Klintberg</author>
+<depend>builtin_interfaces</depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 nodl_python: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -11638,6 +12038,45 @@ phidgets_temperature: <?xml version="1.0" ?>
 <build_type>ament_cmake</build_type>
 </export>
 </package>
+-----
+plotjuggler: '<?xml version="1.0" ?>
+<package format="3">
+<name>plotjuggler</name>
+<description>PlotJuggler: juggle with data</description>
+<maintainer email="davide.faconti@gmail.com">Davide Faconti</maintainer>
+<license>LGPLv3</license>
+<url type="website">https://github.com/facontidavide/PlotJuggler</url>
+<author email="davide.faconti@gmail.com">Davide Faconti</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<depend condition="$ROS_VERSION == 1">rosbag_storage</depend>
+<depend condition="$ROS_VERSION == 1">roscpp</depend>
+<depend condition="$ROS_VERSION == 1">roscpp_serialization</depend>
+<depend condition="$ROS_VERSION == 1">diagnostic_msgs</depend>
+<depend condition="$ROS_VERSION == 1">tf</depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<depend condition="$ROS_VERSION == 2">rclcpp</depend>
+<depend condition="$ROS_VERSION == 2">rcpputils</depend>
+<depend condition="$ROS_VERSION == 2">rosbag2</depend>
+<depend condition="$ROS_VERSION == 2">rosbag2_transport</depend>
+<depend condition="$ROS_VERSION == 2">fastcdr</depend>
+<depend>sensor_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>tf2_ros</depend>
+<depend>tf2_msgs</depend>
+<depend>plotjuggler_msgs</depend>
+<depend>qtbase5-dev</depend>
+<depend>qtdeclarative5-dev</depend>
+<depend>qtmultimedia5-dev</depend>
+<depend>binutils</depend>
+<depend>libqt5-svg-dev</depend>
+<depend>libqt5multimedia5-plugins</depend>
+<depend>boost</depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>'
 -----
 plotjuggler_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -13262,6 +13701,8 @@ ros1_bridge: <?xml version="1.0" ?>
 <exec_depend>diagnostic_msgs</exec_depend>
 <build_depend>example_interfaces</build_depend>
 <exec_depend>example_interfaces</exec_depend>
+<build_depend>gazebo_msgs</build_depend>
+<exec_depend>gazebo_msgs</exec_depend>
 <build_depend>geometry_msgs</build_depend>
 <exec_depend>geometry_msgs</exec_depend>
 <build_depend>nav_msgs</build_depend>
@@ -15869,6 +16310,31 @@ sensor_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+serial_driver: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>serial_driver</name>
+<description>A template class and associated utilities which encapsulate basic reading from serial ports</description>
+<maintainer email="whitleysoftwareservices@gmail.com">Joshua Whitley</maintainer>
+<license>Apache License 2.0</license>
+<url type="repository">https://github.com/ros-drivers/transport_drivers</url>
+<url type="bugtracker">https://github.com/ros-drivers/transport_drivers/issues</url>
+<author email="opensource@apex.ai">Apex.AI,
+Inc.</author>
+<author>Esteve Fernandez</author>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>libboost-dev</depend>
+<depend>libboost-system-dev</depend>
+<depend>rclcpp</depend>
+<depend>std_msgs</depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 shape_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -16137,18 +16603,20 @@ std_srvs: <?xml version="1.0" ?>
 </package>
 -----
 stereo_image_proc: <?xml version="1.0" ?>
-<package format="2">
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
 <name>stereo_image_proc</name>
 <description>Stereo and single image rectification and disparity processing.</description>
+<maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+<maintainer email="whitleysoftwareservices@gmail.com">Joshua Whitley</maintainer>
+<license>BSD</license>
+<url type="website">https://index.ros.org/p/stereo_image_proc/github-ros-perception-image_pipeline/</url>
+<url type="bugtracker">https://github.com/ros-perception/image_pipeline/issues</url>
+<url type="repository">https://github.com/ros-perception/image_pipeline</url>
 <author>Patrick Mihelich</author>
 <author>Kurt Konolige</author>
 <author>Jeremy Leibs</author>
-<maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
-<maintainer email="stevenmacenski@gmail.com">Steven Macenski</maintainer>
-<maintainer email="software@autonomoustuff.com">Autonomoustuff team</maintainer>
-<license>BSD</license>
-<url>http://www.ros.org/wiki/stereo_image_proc</url>
-<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
 <depend>cv_bridge</depend>
 <depend>image_geometry</depend>
 <depend>image_proc</depend>
@@ -16165,8 +16633,8 @@ stereo_image_proc: <?xml version="1.0" ?>
 <test_depend>launch_ros</test_depend>
 <test_depend>launch_testing</test_depend>
 <test_depend>launch_testing_ament_cmake</test_depend>
-<test_depend>python_cmake_module</test_depend>
 <test_depend>python3-opencv</test_depend>
+<test_depend>python_cmake_module</test_depend>
 <test_depend>rclpy</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
@@ -16597,6 +17065,22 @@ teleop_twist_keyboard: <?xml version="1.0" ?>
 <test_depend>ament_pep257</test_depend>
 <export>
 <build_type>ament_python</build_type>
+</export>
+</package>
+-----
+test_apex_test_tools: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>test_apex_test_tools</name>
+<description>Test package,
+which uses things exported by apex_test_tools</description>
+<maintainer email="opensource@apex.ai">Apex.AI,
+Inc.</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>apex_test_tools</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -17237,6 +17721,31 @@ turtlesim: <?xml version="1.0" ?>
 <depend>std_msgs</depend>
 <depend>std_srvs</depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+udp_driver: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>udp_driver</name>
+<description>A template class and associated utilities which encapsulate basic reading from UDP sockets</description>
+<maintainer email="whitleysoftwareservices@gmail.com">Joshua Whitley</maintainer>
+<license>Apache License 2.0</license>
+<url type="repository">https://github.com/ros-drivers/transport_drivers</url>
+<url type="bugtracker">https://github.com/ros-drivers/transport_drivers/issues</url>
+<author email="opensource@apex.ai">Apex.AI,
+Inc.</author>
+<author>Esteve Fernandez</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>libboost-dev</depend>
+<depend>libboost-system-dev</depend>
+<depend>rclcpp</depend>
+<depend>std_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
