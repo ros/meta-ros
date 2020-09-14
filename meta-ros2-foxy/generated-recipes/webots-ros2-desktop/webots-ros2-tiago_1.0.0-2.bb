@@ -5,7 +5,7 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Services and Messages of the webots_ros2 packages."
+DESCRIPTION = "TIAGo robots ROS2 interface for Webots."
 AUTHOR = "Cyberbotics <support@cyberbotics.com>"
 HOMEPAGE = "http://wiki.ros.org/webots_ros2"
 SECTION = "devel"
@@ -13,16 +13,11 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "webots_ros2_desktop"
-ROS_BPN = "webots_ros2_msgs"
+ROS_BPN = "webots_ros2_tiago"
 
-ROS_BUILD_DEPENDS = " \
-    builtin-interfaces \
-"
+ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-native \
-    rosidl-default-generators-native \
-"
+ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = ""
 
@@ -30,13 +25,18 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     builtin-interfaces \
-    rosidl-default-runtime \
+    geometry-msgs \
+    rclpy \
+    rviz2 \
+    webots-ros2-core \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-lint-auto \
-    ament-lint-common \
+    ament-copyright \
+    ament-flake8 \
+    ament-pep257 \
+    python3-pytest \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -46,12 +46,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2_msgs/1.0.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/webots_ros2_msgs"
+# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2_tiago/1.0.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/webots_ros2_tiago"
 SRC_URI = "git://github.com/cyberbotics/webots_ros2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "aec4dae35ba47c351381379b7f4198749768c91b"
+SRCREV = "051a358fc288eda24d799060ed29211f984c2e7d"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_cmake"
+ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

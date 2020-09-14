@@ -5,7 +5,7 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Core interface between Webots and ROS2"
+DESCRIPTION = "Universal Robot description for Webots."
 AUTHOR = "Cyberbotics <support@cyberbotics.com>"
 HOMEPAGE = "http://wiki.ros.org/webots_ros2"
 SECTION = "devel"
@@ -13,7 +13,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "webots_ros2_desktop"
-ROS_BPN = "webots_ros2_core"
+ROS_BPN = "webots_ros2_ur_e_description"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -24,10 +24,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    builtin-interfaces \
-    rclpy \
-    std-msgs \
-    webots-ros2-msgs \
+    urdf \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -45,10 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2_core/1.0.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/webots_ros2_core"
+# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2_ur_e_description/1.0.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/webots_ros2_ur_e_description"
 SRC_URI = "git://github.com/cyberbotics/webots_ros2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c2d53072426828400a272dc023978b62f4d0a1cb"
+SRCREV = "2a143d32f796bcff3731d6ab1857fb3ff61c0481"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"

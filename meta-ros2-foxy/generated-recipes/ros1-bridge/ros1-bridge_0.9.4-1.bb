@@ -93,10 +93,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ros1_bridge-release/archive/release/foxy/ros1_bridge/0.9.3-7.tar.gz
+# matches with: https://github.com/ros2-gbp/ros1_bridge-release/archive/release/foxy/ros1_bridge/0.9.4-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/ros1_bridge"
 SRC_URI = "git://github.com/ros2-gbp/ros1_bridge-release;${ROS_BRANCH};protocol=https"
-SRCREV = "a5407b1207782d2b80a19e05f5c2602c72e29ec8"
+SRCREV = "db1d0da27ecbcdf6bc26c3be16c0f059fc0e03b6"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

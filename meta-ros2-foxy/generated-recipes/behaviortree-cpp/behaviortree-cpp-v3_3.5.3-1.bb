@@ -52,10 +52,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/BehaviorTree/behaviortree_cpp-release/archive/release/foxy/behaviortree_cpp_v3/3.5.2-1.tar.gz
+# matches with: https://github.com/BehaviorTree/behaviortree_cpp-release/archive/release/foxy/behaviortree_cpp_v3/3.5.3-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/behaviortree_cpp_v3"
 SRC_URI = "git://github.com/BehaviorTree/behaviortree_cpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1f4be5a24fec863d51ae6f5c28794d938090a518"
+SRCREV = "fd82250d75da11fa6a56d171b837eb404222ae1c"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

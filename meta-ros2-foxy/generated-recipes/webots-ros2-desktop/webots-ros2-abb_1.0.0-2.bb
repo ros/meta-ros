@@ -5,7 +5,7 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Minimal example showing how to control a robot with ROS2 in Webots."
+DESCRIPTION = "ABB robots ROS2 interface for Webots."
 AUTHOR = "Cyberbotics <support@cyberbotics.com>"
 HOMEPAGE = "http://wiki.ros.org/webots_ros2"
 SECTION = "devel"
@@ -13,7 +13,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "webots_ros2_desktop"
-ROS_BPN = "webots_ros2_examples"
+ROS_BPN = "webots_ros2_abb"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -25,12 +25,13 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     builtin-interfaces \
-    geometry-msgs \
+    control-msgs \
     rclpy \
+    rosgraph-msgs \
     sensor-msgs \
     std-msgs \
+    trajectory-msgs \
     webots-ros2-core \
-    webots-ros2-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -48,10 +49,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2_examples/1.0.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/webots_ros2_examples"
+# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2_abb/1.0.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/webots_ros2_abb"
 SRC_URI = "git://github.com/cyberbotics/webots_ros2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6d54d6718f3872efc6c4321023a314b7a40e4d9b"
+SRCREV = "c149fa6840aef944fcb64ead49b602afa8ba2d37"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
