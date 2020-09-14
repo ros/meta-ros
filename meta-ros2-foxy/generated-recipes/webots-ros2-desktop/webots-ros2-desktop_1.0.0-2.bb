@@ -5,7 +5,7 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "E-puck2 driver for Webots simulated robot"
+DESCRIPTION = "Interface between Webots and ROS2 including the Webots package"
 AUTHOR = "Cyberbotics <support@cyberbotics.com>"
 HOMEPAGE = "http://wiki.ros.org/webots_ros2"
 SECTION = "devel"
@@ -13,7 +13,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "webots_ros2_desktop"
-ROS_BPN = "webots_ros2_epuck"
+ROS_BPN = "webots_ros2_desktop"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -25,24 +25,13 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     builtin-interfaces \
-    geometry-msgs \
-    nav-msgs \
     rclpy \
-    rviz2 \
-    sensor-msgs \
     std-msgs \
-    tf2-ros \
-    webots-ros2-core \
-    webots-ros2-msgs \
+    webots-ros2 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    ament-copyright \
-    ament-flake8 \
-    ament-pep257 \
-    python3-pytest \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -51,10 +40,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2_epuck/1.0.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/webots_ros2_epuck"
+# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2_desktop/1.0.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/webots_ros2_desktop"
 SRC_URI = "git://github.com/cyberbotics/webots_ros2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ba65afee285a386042f95769788298218ed84252"
+SRCREV = "da7e79b03bd9d9ac777d727d7cf8e6d3698bfa5c"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"

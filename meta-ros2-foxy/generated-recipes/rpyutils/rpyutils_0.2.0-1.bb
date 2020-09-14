@@ -42,10 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rpyutils-release/archive/release/foxy/rpyutils/0.1.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/rpyutils-release/archive/release/foxy/rpyutils/0.2.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/rpyutils"
 SRC_URI = "git://github.com/ros2-gbp/rpyutils-release;${ROS_BRANCH};protocol=https"
-SRCREV = "187fb066edb44ccf987ed9370729025d5946ad98"
+SRCREV = "d8111e3daecad2c993be99f51fe4ad43335c2667"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"

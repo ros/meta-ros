@@ -5,7 +5,7 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "This package allows to convert URDF and XACRO files into Webots PROTO files."
+DESCRIPTION = "Core interface between Webots and ROS2"
 AUTHOR = "Cyberbotics <support@cyberbotics.com>"
 HOMEPAGE = "http://wiki.ros.org/webots_ros2"
 SECTION = "devel"
@@ -13,7 +13,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "webots_ros2_desktop"
-ROS_BPN = "webots_ros2_importer"
+ROS_BPN = "webots_ros2_core"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -25,7 +25,9 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     builtin-interfaces \
-    xacro \
+    rclpy \
+    std-msgs \
+    webots-ros2-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -43,10 +45,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2_importer/1.0.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/webots_ros2_importer"
+# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2_core/1.0.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/webots_ros2_core"
 SRC_URI = "git://github.com/cyberbotics/webots_ros2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "c72dff20ca3c0d18534f19fed89162d71619dbac"
+SRCREV = "11fa0cfbc7041d12e3b590f7fd71a775e05c6492"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"

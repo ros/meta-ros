@@ -37,7 +37,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-foxy/files/foxy/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "15"
+ROS_NUM_CACHE_YAML_COMMITS = "16"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -135,6 +135,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     compressed-image-transport \
     connext-cmake-module \
     console-bridge-vendor \
+    contracts-lite-vendor \
     control-box-rst \
     control-msgs \
     control-toolbox \
@@ -673,7 +674,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                      ament-lint/ament-xmllint_0.9.5-1 \
                          angles/angles_1.12.3-1 \
                        apriltag/apriltag_3.1.2-2 \
-               behaviortree-cpp/behaviortree-cpp-v3_3.5.2-1 \
+               behaviortree-cpp/behaviortree-cpp-v3_3.5.3-1 \
                  rcl-interfaces/builtin-interfaces_1.0.0-1 \
                  image-pipeline/camera-calibration_2.2.1-1 \
                    image-common/camera-calibration-parsers_2.3.0-1 \
@@ -700,6 +701,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
         image-transport-plugins/compressed-image-transport_2.3.0-1 \
      rosidl-typesupport-connext/connext-cmake-module_1.0.1-1 \
           console-bridge-vendor/console-bridge-vendor_1.2.2-1 \
+          contracts-lite-vendor/contracts-lite-vendor_0.3.2-1 \
                 control-box-rst/control-box-rst_0.0.7-1 \
                    control-msgs/control-msgs_2.4.1-1 \
                 control-toolbox/control-toolbox_2.0.1-1 \
@@ -864,7 +866,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                  marti-messages/marti-sensor-msgs_1.1.0-1 \
                  marti-messages/marti-status-msgs_1.1.0-1 \
                  marti-messages/marti-visualization-msgs_1.1.0-1 \
-                        mavlink/mavlink_2020.8.8-1 \
+                        mavlink/mavlink_2020.9.10-1 \
                 message-filters/message-filters_3.2.4-1 \
                 navigation-msgs/move-base-msgs_2.0.2-2 \
                           mrpt2/mrpt2_2.1.0-3 \
@@ -994,7 +996,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                         ros-ign/ros-ign-image_0.221.1-1 \
                     ros-testing/ros-testing_0.2.1-1 \
                   ros-workspace/ros-workspace_1.0.1-1 \
-                    ros1-bridge/ros1-bridge_0.9.3-7 \
+                    ros1-bridge/ros1-bridge_0.9.4-1 \
                  rosbag2-bag-v2/ros1-rosbag-storage-vendor_0.0.10-1 \
             ros2-ouster-drivers/ros2-ouster_0.2.0-1 \
                         ros2cli/ros2action_0.9.7-1 \
@@ -1049,7 +1051,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          rosidl/rosidl-typesupport-introspection-c_1.1.0-1 \
                          rosidl/rosidl-typesupport-introspection-cpp_1.1.0-1 \
                     rplidar-ros/rplidar-ros_2.0.0-1 \
-                       rpyutils/rpyutils_0.1.0-1 \
+                       rpyutils/rpyutils_0.2.0-1 \
                             rqt/rqt_1.0.6-1 \
                      rqt-action/rqt-action_1.0.1-1 \
              rqt-common-plugins/rqt-common-plugins_1.0.0-1 \
@@ -1157,18 +1159,18 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                     vision-msgs/vision-msgs_2.0.0-1 \
                   vision-opencv/vision-opencv_2.2.1-1 \
               common-interfaces/visualization-msgs_2.0.3-1 \
-            webots-ros2-desktop/webots-ros2_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-abb_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-core_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-demos_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-desktop_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-epuck_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-examples_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-importer_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-msgs_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-tiago_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-universal-robot_1.0.0-1 \
-            webots-ros2-desktop/webots-ros2-ur-e-description_1.0.0-1 \
+            webots-ros2-desktop/webots-ros2_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-abb_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-core_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-demos_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-desktop_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-epuck_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-examples_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-importer_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-msgs_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-tiago_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-universal-robot_1.0.0-2 \
+            webots-ros2-desktop/webots-ros2-ur-e-description_1.0.0-2 \
                           xacro/xacro_2.0.3-1 \
                 yaml-cpp-vendor/yaml-cpp-vendor_7.0.2-1 \
                         rosbag2/zstd-vendor_0.3.5-1 \
@@ -1261,6 +1263,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     compressed-image-transport \
     connext-cmake-module \
     console-bridge-vendor \
+    contracts-lite-vendor \
     control-box-rst \
     control-msgs \
     control-toolbox \
@@ -2017,6 +2020,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     class-loader \
     common-interfaces \
     console-bridge-vendor \
+    contracts-lite-vendor \
     control-box-rst \
     control-msgs \
     control-toolbox \
@@ -2284,7 +2288,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_uncrustify = "UNRESOLVED-uncrustify"
 ROS_DISTRO_RELEASE_DATE = "20200910"
 
 # The commit of ros/rosdistro/foxy/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "8558eece513324e423adf90473c6e10f73a3c082"
+ROS_SUPERFLORE_GENERATION_COMMIT = "449b1d0c001fd7a46fb5393a0d15c26f04c850cd"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated

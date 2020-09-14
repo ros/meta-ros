@@ -5,43 +5,31 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Interface between Webots and ROS2"
-AUTHOR = "Cyberbotics <support@cyberbotics.com>"
-HOMEPAGE = "http://wiki.ros.org/webots_ros2"
+DESCRIPTION = "ROS 2 wrapper for the Contracts Lite project."
+AUTHOR = "Jeffrey Kane Johnson <jeff@mapless.ai>"
+ROS_AUTHOR = "Jeffrey Kane Johnson <jeff@mapless.ai>"
+HOMEPAGE = "https://github.com/ros-safety/contracts_lite_vendor"
 SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "webots_ros2_desktop"
-ROS_BPN = "webots_ros2"
+ROS_CN = "contracts_lite_vendor"
+ROS_BPN = "contracts_lite_vendor"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    builtin-interfaces \
-    rclpy \
-    std-msgs \
-    webots-ros2-abb \
-    webots-ros2-core \
-    webots-ros2-examples \
-    webots-ros2-importer \
-    webots-ros2-tiago \
-    webots-ros2-universal-robot \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    ament-copyright \
-    ament-flake8 \
-    ament-pep257 \
-    python3-pytest \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -50,12 +38,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/cyberbotics/webots_ros2-release/archive/release/foxy/webots_ros2/1.0.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/webots_ros2"
-SRC_URI = "git://github.com/cyberbotics/webots_ros2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7cf915788d3e56b01c5246c939a42ea4fdbe668b"
+# matches with: https://github.com/ros-safety/contracts_lite_vendor-release/archive/release/foxy/contracts_lite_vendor/0.3.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/contracts_lite_vendor"
+SRC_URI = "git://github.com/ros-safety/contracts_lite_vendor-release;${ROS_BRANCH};protocol=https"
+SRCREV = "c7bfd20b4570d70d390c2f4e2751da48f4101fac"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_python"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
