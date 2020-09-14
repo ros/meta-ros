@@ -1,4 +1,4 @@
-# foxy/cache.yaml 20200910 8558eece513324e423adf90473c6e10f73a3c082 20200909175507 1.5.1
+# foxy/cache.yaml 20200910 449b1d0c001fd7a46fb5393a0d15c26f04c850cd 20200911204655 1.5.1
 distribution_file:
 - release_platforms:
 -----
@@ -308,7 +308,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/BehaviorTree/behaviortree_cpp-release.git',
-version: 3.5.2-1
+version: 3.5.3-1
 },
 source: {
 type: git,
@@ -487,6 +487,27 @@ url: 'https://github.com/ros2/console_bridge_vendor.git',
 version: foxy
 },
 status: maintained
+}
+-----
+contracts_lite_vendor: {
+doc: {
+type: git,
+url: 'https://github.com/ros-safety/contracts_lite.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros-safety/contracts_lite_vendor-release.git',
+version: 0.3.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-safety/contracts_lite_vendor.git',
+version: master
+},
+status: developed
 }
 -----
 control_box_rst: {
@@ -1730,12 +1751,17 @@ status: developed
 }
 -----
 mavlink: {
+doc: {
+type: git,
+url: 'https://github.com/mavlink/mavlink-gbp-release.git',
+version: release/foxy/mavlink
+},
 release: {
 tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavlink-gbp-release.git',
-version: 2020.8.8-1
+version: 2020.9.10-1
 },
 source: {
 type: git,
@@ -2952,7 +2978,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros1_bridge-release.git',
-version: 0.9.3-7
+version: 0.9.4-1
 },
 source: {
 test_commits: false,
@@ -3561,7 +3587,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rpyutils-release.git',
-version: 0.1.0-1
+version: 0.2.0-1
 },
 source: {
 test_pull_requests: true,
@@ -4714,7 +4740,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/cyberbotics/webots_ros2-release.git',
-version: 1.0.0-1
+version: 1.0.0-2
 },
 source: {
 test_pull_requests: true,
@@ -6502,6 +6528,23 @@ it provides an ExternalProject build of console_bridge.</description>
 <build_type>ament_cmake</build_type>
 </export>
 </package>"
+-----
+contracts_lite_vendor: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>contracts_lite_vendor</name>
+<description>ROS 2 wrapper for the Contracts Lite project.</description>
+<author email="jeff@mapless.ai">Jeffrey Kane Johnson</author>
+<maintainer email="jeff@mapless.ai">Jeffrey Kane Johnson</maintainer>
+<license>Apache License 2.0</license>
+<url type="bugtracker">https://github.com/ros-safety/contracts_lite_vendor/issues</url>
+<url type="repository">https://github.com/ros-safety/contracts_lite_vendor.git</url>
+<url type="website">https://github.com/ros-safety/contracts_lite_vendor</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
 -----
 control_box_rst: <?xml version="1.0" ?>
 <package format="2">
