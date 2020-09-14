@@ -16,7 +16,7 @@
 # work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/rcl-logging-spdlog/0.3.3-1-r0/recipe-sysroot-native/usr/bin/arm-oe-linux-gnueabi/../../libexec/arm-oe-linux-gnueabi/gcc/arm-oe-linux-gnueabi/9.3.0/ld: work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/rcl-logging-spdlog/0.3.3-1-r0/recipe-sysroot/usr/lib/libspdlog.a(spdlog.cpp.o)(.text+0x62): unresolvable R_ARM_THM_MOVW_ABS_NC relocation against symbol `__pthread_key_create@@GLIBC_2.4'
 # collect2: error: ld returned 1 exit status
 
-require recipes-support/spdlog/spdlog_1.7.0.bb
+require recipes-support/spdlog/spdlog_1.8.0.bb
 
 SRCREV = "a7148b718ea2fabb8387cb90aee9bf448da63e65"
 
