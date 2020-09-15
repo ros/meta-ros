@@ -1,9 +1,11 @@
 # melodic/ros-distro.inc
 # General configuration settings that are dependent on ROS_DISTRO.
 #
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 ROS_DISTRO_CODENAME = "Melodic Morenia"
+
+ROS1_DISTRO = "melodic"
 
 # The platform release that the metadata for this ROS distro targets. This determines the versions of the platform packages that
 # OE must provide. It must be one of the values of ROS_DISTRO_RELEASE_PLATFORMS (which is set in
