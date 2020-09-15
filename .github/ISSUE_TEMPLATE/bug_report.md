@@ -12,7 +12,7 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 List all the Yocto layers you have included in the build and the revisions you were using.
-What MACHINE you're building for and what host OS you're using.
+What MACHINE you're building for and what host OS you're using. If you're using mcf for build setup, then you should mention what .mcf file you've used and from which build branch revision.
 
 The "Build Configuration:" section shown by bitbake at the beginning of the build is very good start.
 
