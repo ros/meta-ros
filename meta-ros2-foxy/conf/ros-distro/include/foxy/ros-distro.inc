@@ -5,6 +5,8 @@
 
 ROS_DISTRO_CODENAME = "Foxy Fitzroy"
 
+ROS2_DISTRO = "foxy"
+
 # The platform release that the metadata for this ROS distro targets. This determines the versions of the platform packages that
 # OE must provide. It must be one of the values of ROS_DISTRO_RELEASE_PLATFORMS (which is set in
 # generated/superflore-ros-distro.inc).
