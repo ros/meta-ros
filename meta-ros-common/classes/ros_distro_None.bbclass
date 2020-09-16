@@ -7,3 +7,10 @@
 python() {
     raise bb.parse.SkipRecipe('Requires ROS_DISTRO to be set by one of meta-ros[12]-<release-name> layers')
 }
+
+# ROS_DISTRO_TYPE most likely isn't set as well which will result in another
+# parsing error:
+# Could not inherit file classes/${ROS_DISTRO_TYPE}_image.bbclass
+# Set it to "ros", which will cause metadata common to both ROS 1 and ROS 2
+# to be used, eg, classes/ros_image.bbclass will be inherited.
+ROS_DISTRO_TYPE ?= "ros"
