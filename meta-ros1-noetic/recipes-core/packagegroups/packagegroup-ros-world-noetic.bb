@@ -7,7 +7,7 @@ LICENSE = "MIT"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit packagegroup
-inherit ros_distro_melodic
+inherit ros_distro_noetic
 
 PACKAGES = "${PN}"
 

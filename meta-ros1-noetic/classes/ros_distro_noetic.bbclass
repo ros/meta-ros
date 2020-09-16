@@ -1,8 +1,8 @@
 # Every ROS recipe, generated or not, must contain "inherit ros_distro_${ROS_DISTRO}".
 #
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2020 LG Electronics, Inc.
 
-ROS_DISTRO = "melodic"
+ROS_DISTRO = "noetic"
 
 inherit ${ROS_DISTRO_TYPE}_distro
 
