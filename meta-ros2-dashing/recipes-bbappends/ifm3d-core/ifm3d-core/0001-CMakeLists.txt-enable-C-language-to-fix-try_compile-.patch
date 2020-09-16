@@ -90,6 +90,8 @@ Can't find libunwind library
 See also "/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/build/CMakeFiles/CMakeOutput.log".
 See also "/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/ifm3d-core/0.18.0-4-r0/build/CMakeFiles/CMakeError.log".
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 2 +-

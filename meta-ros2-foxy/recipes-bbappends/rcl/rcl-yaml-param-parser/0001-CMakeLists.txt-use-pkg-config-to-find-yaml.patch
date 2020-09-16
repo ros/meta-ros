@@ -42,6 +42,8 @@ Subject: [PATCH] CMakeLists.txt: use pkg-config to find yaml
 | See also "/OE/build/oe-core/tmp-glibc/work/core2-64-oe-linux/libyaml/0.2.5-r0/build/CMakeFiles/CMakeOutput.log".
 | WARNING: exit code 1 from a shell command.
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 2 ++

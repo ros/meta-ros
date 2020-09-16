@@ -6,6 +6,8 @@ Subject: [PATCH] CMakeLists.txt: install the library as well
 * otherwise controller_node binary is linked against unavailable libomnibase_control.so
   ERROR: omnibase-control-0.0.2-1-r0 do_package_qa: QA Issue: /usr/opt/ros/melodic/lib/omnibase_control/controller_node contained in package omnibase-control requires libomnibase_control.so, but no providers found in RDEPENDS_omnibase-control? [file-rdeps]
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 1 +

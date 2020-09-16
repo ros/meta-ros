@@ -63,6 +63,8 @@ Log data follows:
 NOTE: recipe catkin-0.7.19-1-r0: task do_configure: Failed
 ERROR: Task (/jenkins/mjansa/build-ros/ros1-melodic-thud/meta-ros/meta-ros1-melodic/generated-recipes/catkin/catkin_0.7.19-1.bb:do_configure) failed with exit code '1'
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  cmake/templates/_setup_util.py.in | 3 +++

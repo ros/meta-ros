@@ -12,6 +12,8 @@ Subject: [PATCH] Fix build with boost-1.73.0
   libcreate/2.0.0-1-r0/git/src/serial.cpp:93:82: error: '_2' was not declared in this scope
   libcreate/2.0.0-1-r0/git/src/serial_query.cpp:33:89: error: '_1' was not declared in this scope
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  src/serial.cpp       | 6 +++---

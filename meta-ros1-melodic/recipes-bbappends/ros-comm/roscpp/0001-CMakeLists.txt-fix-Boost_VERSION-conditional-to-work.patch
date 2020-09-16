@@ -20,6 +20,8 @@ Subject: [PATCH] CMakeLists.txt: fix Boost_VERSION conditional to work with
   https://github.com/ros/ros_comm/commit/8fde429a4b4dd345067dd94cd72983c8bb3a8e30#diff-af96143090deaa643970030f962c964d
   because we still support Yocto 2.6 Thud with 1.68.0 version
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 
 ---

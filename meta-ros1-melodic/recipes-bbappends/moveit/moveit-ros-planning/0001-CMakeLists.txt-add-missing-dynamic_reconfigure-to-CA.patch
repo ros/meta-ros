@@ -18,6 +18,8 @@ collect2: error: ld returned 1 exit status
 /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-warehouse/1.0.2-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/moveit-ros-warehouse/1.0.2-1-r0/recipe-sysroot/opt/ros/melodic/lib/libmoveit_planning_scene_monitor.so: undefined reference to `dynamic_reconfigure::__init_mutex__'
 collect2: error: ld returned 1 exit status
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 1 +

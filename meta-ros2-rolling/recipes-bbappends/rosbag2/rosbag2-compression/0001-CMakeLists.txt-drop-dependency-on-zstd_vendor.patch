@@ -5,6 +5,8 @@ Subject: [PATCH] CMakeLists.txt: drop dependency on zstd_vendor
 
 * zstd should be good enough
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 10 +++++-----

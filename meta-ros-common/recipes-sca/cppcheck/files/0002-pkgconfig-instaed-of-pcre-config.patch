@@ -3,6 +3,7 @@ From: Herb Kuta <herb.kuta@lge.com>
 Date: Tue, 2 Apr 2019 16:30:36 -0700
  0002-pkgconfig-instaed-of-pcre-config.patch
 
+Upstream-Status: Pending
 ---
  Makefile | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)

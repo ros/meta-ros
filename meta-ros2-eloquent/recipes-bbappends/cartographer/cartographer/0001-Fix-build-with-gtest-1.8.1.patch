@@ -234,6 +234,8 @@ CMakeFiles/cartographer.transform.transform_interpolation_buffer_test.dir/cartog
 CMakeFiles/cartographer.transform.transform_interpolation_buffer_test.dir/cartographer/transform/transform_interpolation_buffer_test.cc.o:transform_interpolation_buffer_test.cc:vtable for cartographer::transform::(anonymous namespace)::TransformInterpolationBufferTest_testLookup_Test: error: undefined reference to 'testing::Test::TearDown()'
 collect2: error: ld returned 1 exit status
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  cmake/modules/FindGMock.cmake | 10 +++++++++-

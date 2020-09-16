@@ -8,6 +8,8 @@ Subject: [PATCH] CMakeLists.txt: fix underlinkage in usb_cam.so
 /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/devel/lib/libusb_cam.so: error: undefined reference to 'av_frame_alloc'
 /jenkins/mjansa/build/ros/webos-melodic-dunfell/tmp-glibc/work/qemux86-webos-linux/usb-cam/0.3.6-r0/devel/lib/libusb_cam.so: error: undefined reference to 'av_free'
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 3 +++

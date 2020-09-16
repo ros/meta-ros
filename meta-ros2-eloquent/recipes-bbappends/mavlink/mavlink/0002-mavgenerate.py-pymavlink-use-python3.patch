@@ -8,6 +8,8 @@ Subject: [PATCH 2/2] mavgenerate.py, pymavlink: use python3
   python3 explicitly (instead of using host's python(2) from
   HOSTTOOLS)
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  mavgenerate.py                                  | 2 +-

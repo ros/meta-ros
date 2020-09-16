@@ -28,6 +28,8 @@ ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysr
 ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/xpp-hyq/1.0.10-r0/recipe-sysroot/opt/ros/melodic/lib/libxpp_vis.so: undefined reference to `robot_state_publisher::RobotStatePublisher::RobotStatePublisher(KDL::Tree const&, urdf::Model const&)'
 collect2: error: ld returned 1 exit status
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 2 +-

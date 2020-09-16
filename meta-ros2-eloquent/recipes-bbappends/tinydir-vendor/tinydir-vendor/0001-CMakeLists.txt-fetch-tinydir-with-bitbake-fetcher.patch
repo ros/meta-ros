@@ -3,6 +3,8 @@ From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 23 Apr 2020 10:02:08 -0700
 Subject: [PATCH] CMakeLists.txt: fetch tinydir with bitbake fetcher
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 4 +---

@@ -6,6 +6,8 @@ Subject: [PATCH] CMakeLists.txt: just depend on system fmilibrary without
 
 * -DFMILIB_BUILD_TESTS=OFF is also needed when cross-compiling
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 32 ++++++++++++++++++++------------

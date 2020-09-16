@@ -5,6 +5,8 @@ Subject: [PATCH] Link libraries only if test targets exist (#36)
 
 * Link libraries only if test targets exist
 
+Upstream-Status: Pending
+
 ---
  CMakeLists.txt | 69 ++++++++++++++++++++++++++------------------------
  2 files changed, 37 insertions(+), 34 deletions(-)

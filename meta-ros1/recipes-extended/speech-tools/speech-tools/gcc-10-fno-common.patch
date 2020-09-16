@@ -1,6 +1,7 @@
 From debian:
 https://sources.debian.org/data/main/s/speech-tools/1:2.5.0-9/debian/patches/no-common
 
+Upstream-Status: Pending
 ---
  siod/editline.c |    1 -
  1 file changed, 1 deletion(-)

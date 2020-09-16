@@ -7,6 +7,8 @@ Subject: [PATCH] hybrid_grid_test: drop this test
 * this is only temporary work around, the real fix is being discussed here:
   https://github.com/googlecartographer/cartographer/issues/1653
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  cartographer/mapping/3d/hybrid_grid_test.cc | 226 --------------------

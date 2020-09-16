@@ -9,6 +9,8 @@ ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/ros-control-boilerplate/0.5.0
 ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/ros-control-boilerplate/0.5.0-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/ros-control-boilerplate/0.5.0-1-r0/recipe-sysroot/opt/ros/melodic/lib/librosparam_shortcuts.so: undefined reference to `tf::poseEigenToMsg(Eigen::Transform<double, 3, 1, 0> const&, geometry_msgs::Pose_<std::allocator<void> >&)'
 collect2: error: ld returned 1 exit status
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 1 +

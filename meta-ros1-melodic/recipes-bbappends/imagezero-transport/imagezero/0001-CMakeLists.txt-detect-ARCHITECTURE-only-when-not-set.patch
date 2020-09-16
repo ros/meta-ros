@@ -3,6 +3,8 @@ From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 14 May 2020 05:19:23 -0700
 Subject: [PATCH] CMakeLists.txt: detect ARCHITECTURE only when not set already
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 8 +++++---

@@ -12,6 +12,8 @@ Signed-off-by: Huang Qiyu <huangqy.fnst@cn.fujitsu.com>
 Also add the visibility changes for certain OpenCL-related functions in
 ts module.
 
+Upstream-Status: Pending
+
 Signed-off-by: Ismo Puustinen <ismo.puustinen@intel.com>
 ---
  modules/ts/include/opencv2/ts.hpp          | 6 +++---

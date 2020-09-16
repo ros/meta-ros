@@ -3,6 +3,8 @@ From: Martin Jansa <martin.jansa@lge.com>
 Date: Fri, 26 Jun 2020 08:26:32 -0700
 Subject: [PATCH] CMakeLists.txt: drop -s
 
+Upstream-Status: Pending
+
 ---
  CMakeLists.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

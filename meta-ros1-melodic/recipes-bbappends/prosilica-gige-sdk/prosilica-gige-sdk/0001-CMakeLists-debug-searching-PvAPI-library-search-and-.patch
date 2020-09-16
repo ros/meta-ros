@@ -4,6 +4,8 @@ Date: Mon, 4 May 2020 10:39:38 +0000
 Subject: [PATCH] CMakeLists: debug searching PvAPI library search and let it
  be set with PVAPILIB variable
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 14 ++++++++++----

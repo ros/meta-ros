@@ -8,6 +8,8 @@ Subject: [PATCH] cmake/swri_nodelet-extras.cmake.in: allow swri_nodelet_SHARE
 * this is usedful when cross-compiling where swri_nodelet_SHARE points to path on target
   but we need to prefix it with path to RSS
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 
 ---

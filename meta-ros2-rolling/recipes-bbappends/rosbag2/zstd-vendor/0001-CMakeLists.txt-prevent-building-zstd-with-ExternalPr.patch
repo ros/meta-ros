@@ -5,6 +5,8 @@ Subject: [PATCH] CMakeLists.txt: prevent building zstd with ExternalProject
 
 * use pkg-config, because zstd doesn't provide cmake find
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 43 ++++---------------------------------------

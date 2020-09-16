@@ -4,6 +4,8 @@ Date: Thu, 19 Dec 2019 19:54:08 +0000
 Subject: [PATCH] CMakeLists: prefix the values from test_interface_files_*
  with recipe-sysroot to make them relative
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 14 +++++++++++---

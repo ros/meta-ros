@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 diff --git a/modules/xfeatures2d/CMakeLists.txt b/modules/xfeatures2d/CMakeLists.txt
 index e1755595..c7009c47 100644
 --- a/modules/xfeatures2d/CMakeLists.txt

@@ -248,6 +248,8 @@ CMake Warning:
 CMake Generate step failed.  Build files cannot be regenerated correctly.
 WARNING: exit code 1 from a shell command.
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 10 ++++++----
