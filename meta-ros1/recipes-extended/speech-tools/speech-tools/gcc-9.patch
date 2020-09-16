@@ -1,5 +1,7 @@
 Imported from https://bugs.gentoo.org/685810
 
+Upstream-Status: Pending
+
 diff -uNr speech_tools.orig/grammar/ngram/EST_Ngrammar.cc speech_tools/grammar/ngram/EST_Ngrammar.cc
 --- speech_tools.orig/grammar/ngram/EST_Ngrammar.cc	2010-11-05 07:12:43.000000000 -0700
 +++ speech_tools/grammar/ngram/EST_Ngrammar.cc	2020-02-25 08:41:23.316379488 -0800

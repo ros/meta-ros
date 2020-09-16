@@ -8,6 +8,8 @@ sick-safetyscanners/1.0.4-1-r0/git/src/communication/AsyncTCPClient.cpp:68:10: e
 sick-safetyscanners/1.0.4-1-r0/git/src/communication/AsyncTCPClient.cpp:78:10: error: no match for 'operator!=' (operand types are 'boost::system::error_code' and 'int')
 sick-safetyscanners/1.0.4-1-r0/git/src/communication/AsyncTCPClient.cpp:93:12: error: no match for 'operator!=' (operand types are 'boost::system::error_code' and 'int')
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  src/communication/AsyncTCPClient.cpp | 6 +++---

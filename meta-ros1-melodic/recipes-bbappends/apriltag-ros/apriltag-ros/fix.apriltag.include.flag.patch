@@ -45,6 +45,8 @@ Notice the -I/apriltag flag above (which is from "${apriltag_INCLUDE_DIRS}/april
 
 Remove this work around now when apriltag is fixed.
 
+Upstream-Status: Pending
+
 diff -uNr apriltag_ros-release-release-melodic-apriltag_ros-3.1.0-1/CMakeLists.txt apriltag_ros-release-release-melodic-apriltag_ros-3.1.0-1.new/CMakeLists.txt
 --- apriltag_ros-release-release-melodic-apriltag_ros-3.1.0-1/CMakeLists.txt	2019-05-25 08:04:31.000000000 +0000
 +++ apriltag_ros-release-release-melodic-apriltag_ros-3.1.0-1.new/CMakeLists.txt	2019-09-19 20:48:10.100422517 +0000

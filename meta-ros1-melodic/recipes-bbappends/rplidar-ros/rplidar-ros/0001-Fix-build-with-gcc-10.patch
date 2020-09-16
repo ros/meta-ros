@@ -8,6 +8,8 @@ Subject: [PATCH] Fix build with gcc-10
   rplidar-ros/1.7.0-r0/git/sdk/src/rplidar_driver.cpp:1460:26: error: narrowing conversion of 'rp::hal::Event::EVENT_TIMEOUT' from 'int' to 'long unsigned int' [-Wnarrowing]
   rplidar-ros/1.7.0-r0/git/sdk/src/rplidar_driver.cpp:1489:26: error: narrowing conversion of 'rp::hal::Event::EVENT_TIMEOUT' from 'int' to 'long unsigned int' [-Wnarrowing]
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  sdk/src/hal/event.h | 4 ++--

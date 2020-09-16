@@ -6,6 +6,8 @@ Subject: [PATCH] rosserial_server: fix build with boost-1.70.0
 taken from:
 https://aur.archlinux.org/cgit/aur.git/plain/io-service.patch?h=ros-melodic-rosserial-server
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  include/rosserial_server/async_read_buffer.h | 8 +++++++-

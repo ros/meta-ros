@@ -4,6 +4,8 @@ Date: Thu, 9 Jul 2020 01:34:26 -0700
 Subject: [PATCH] CMakeLists.txt: use platform libyaml when available instead
  of ExternalProject
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 12 ++++++++++--

@@ -30,6 +30,8 @@ Subject: [PATCH] ftf_frame_convertions.cpp: work around few return-type issues
       | ^
 cc1plus: some warnings being treated as errors
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  src/lib/ftf_frame_conversions.cpp | 18 ++++++++++++++++++

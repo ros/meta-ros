@@ -7,6 +7,8 @@ based on:
 https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=e643269e35dcc9df63a6b042d0fefecbb4c0eb49
 modified to support both old and new boost
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  include/rosserial_server/udp_stream.h | 18 ++++++++++++++++++

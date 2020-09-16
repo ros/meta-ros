@@ -7,6 +7,8 @@ Subject: [PATCH] Fix build with boost-1.73.0
   seed-smartactuator-sdk/0.0.4-1-r0/git/src/aero3_command.cpp:86:70: error: '_1' was not declared in this scope
   seed-smartactuator-sdk/0.0.4-1-r0/git/src/seed3_command.cpp:98:70: error: '_1' was not declared in this scope
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  src/aero3_command.cpp | 2 +-

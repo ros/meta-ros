@@ -7,6 +7,8 @@ Subject: [PATCH] sm/CMakeLists.txt: use include_directories macro to respect
 * blindly passing the includedir from gsl to cflags causes -Wpoison-system-directories:
   cc1: warning: include location "/usr/include" is unsafe for cross-compilation [-Wpoison-system-directories]
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  sm/CMakeLists.txt | 6 +++---

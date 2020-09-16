@@ -6,6 +6,8 @@ Subject: [PATCH] CMakeLists.txt: Use FindPython2 instead of deprecated
 
 * Deprecated since version 3.12: Use FindPython3, FindPython2 or FindPython instead.
 * drop build3/cmake/ files which don't seem to be needed
+
+Upstream-Status: Pending
 ---
  CMakeLists.txt                   | 6 ++----
  examples/pybullet/CMakeLists.txt | 2 +-

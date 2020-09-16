@@ -3,6 +3,8 @@ From: JeongBong Seo <jb.seo@lge.com>
 Date: Fri, 5 Apr 2019 14:54:08 +0900
 Subject: [PATCH] Don't use CMAKE_INSTALL_PREFIX as sysroot for cross-compile
 
+Upstream-Status: Pending
+
 ---
  CMakeLists.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

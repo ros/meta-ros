@@ -20,6 +20,8 @@ In file included from /jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work
           ^~~~~~~~~~
 compilation terminated.
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  kinesis-video-producer/CMakeLists.txt | 4 ++++

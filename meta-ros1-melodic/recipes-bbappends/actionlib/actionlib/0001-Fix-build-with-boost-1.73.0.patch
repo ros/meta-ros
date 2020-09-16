@@ -18,6 +18,8 @@ In file included from /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glib
   216 |     return add(elem, boost::bind(&ManagedList<T>::defaultDeleter, this, _1) );
       |                                                                         ^~
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  include/actionlib/client/action_client.h      | 14 +++++------

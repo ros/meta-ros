@@ -18,6 +18,8 @@ $ md5sum /jenkins/mjansa/build/ros/ros2-dashing-dunfell/tmp-glibc/work/core2-64-
 f3406ac5de3d5f6f807f79fe9a654876  /jenkins/mjansa/build/ros/ros2-dashing-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/image/usr/lib/image_publisher/libimage_publisher.so
 f3406ac5de3d5f6f807f79fe9a654876  /jenkins/mjansa/build/ros/ros2-dashing-dunfell/tmp-glibc/work/core2-64-oe-linux/image-publisher/2.1.0-1-r0/image/usr/bin/libimage_publisher.so
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 2 +-

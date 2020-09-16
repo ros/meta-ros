@@ -9,6 +9,8 @@ compressed-depth-image-transport/2.1.0-1-r0/git/src/codec.cpp:141:49: error: 'CV
   141 |         cv_ptr->image = cv::imdecode(imageData, CV_LOAD_IMAGE_UNCHANGED);
       |                                                 ^~~~~~~~~~~~~~~~~~~~~~~
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  src/codec.cpp | 2 +-

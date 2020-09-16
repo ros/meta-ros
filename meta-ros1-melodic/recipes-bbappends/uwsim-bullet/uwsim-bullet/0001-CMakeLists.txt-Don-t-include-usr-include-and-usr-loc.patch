@@ -13,6 +13,8 @@ Subject: [PATCH] CMakeLists.txt: Don't include /usr/include and
   WARNING: uwsim-bullet-2.82.2-1-r0 do_package_qa: QA Issue: uwsim-bullet: The compile log indicates that host include and/or library paths were used.
          Please check the log 'ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/uwsim-bullet/2.82.2-1-r0/temp/log.do_compile' for more information. [compile-host-path]
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 4 ----

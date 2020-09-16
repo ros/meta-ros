@@ -8,6 +8,8 @@ ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/dynamic-robot-state-publisher
 ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/dynamic-robot-state-publisher/1.1.1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/../../libexec/x86_64-oe-linux/gcc/x86_64-oe-linux/8.2.0/ld: ros1-melodic-thud/tmp-glibc/work/core2-64-oe-linux/dynamic-robot-state-publisher/1.1.1-r0/recipe-sysroot/opt/ros/melodic/lib/librobot_state_publisher_solver.so: undefined reference to `tf::resolve(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
 collect2: error: ld returned 1 exit status
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 2 +-

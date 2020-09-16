@@ -4,6 +4,8 @@ Date: Sun, 6 Sep 2020 23:11:58 +0000
 Subject: [PATCH 2/2] CMakeLists.txt: set CMP0007 CMake policy to fix build
  with cmake-3.18.2
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 4 ++++

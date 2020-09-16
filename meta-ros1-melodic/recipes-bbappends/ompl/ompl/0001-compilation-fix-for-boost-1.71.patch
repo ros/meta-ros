@@ -3,6 +3,8 @@ From: Mark Moll <mmoll@rice.edu>
 Date: Mon, 26 Aug 2019 14:50:11 -0500
 Subject: [PATCH] compilation fix for boost 1.71
 
+Upstream-Status: Pending
+
 ---
  demos/PlannerData.cpp | 4 +++-
  1 file changed, 3 insertions(+), 1 deletion(-)

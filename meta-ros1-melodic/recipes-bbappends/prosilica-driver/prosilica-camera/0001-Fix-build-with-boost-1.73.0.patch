@@ -3,6 +3,8 @@ From: Martin Jansa <martin.jansa@lge.com>
 Date: Tue, 9 Jun 2020 10:37:30 -0700
 Subject: [PATCH] Fix build with boost-1.73.0
 
+Upstream-Status: Pending
+
 ---
  src/libprosilica/prosilica.cpp | 12 ++++++------
  src/nodes/prosilica_node.cpp   |  6 +++---

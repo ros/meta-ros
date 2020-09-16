@@ -31,6 +31,8 @@ Subject: [PATCH] CMakeLists.txt: remove strange sudo calls
   sudo: a password is required
   -- Installing: /jenkins/mjansa/build/ros/ros1-melodic-gatesgarth/tmp-glibc/work/core2-64-oe-linux/rosping/2.1.13-1-r0/image/opt/ros/melodic/share/rosping/test
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 10 ----------

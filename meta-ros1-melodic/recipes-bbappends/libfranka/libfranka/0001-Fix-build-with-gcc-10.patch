@@ -18,6 +18,8 @@ Subject: [PATCH] Fix build with gcc-10
   libfranka/0.7.1-1-r0/git/src/control_types.cpp:95:16: error: 'invalid_argument' is not a member of 'std'
   libfranka/0.7.1-1-r0/git/src/control_types.cpp:98:16: error: 'invalid_argument' is not a member of 'std'
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  include/franka/control_tools.h | 2 ++
