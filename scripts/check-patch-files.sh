@@ -22,7 +22,7 @@
 #
 
 violation_found=no
-for patch_file in $(find $1 -name *.patch)
+for patch_file in $(find $1 -name \*.patch)
 do
     if [ "$(grep 'Upstream-Status: ' $patch_file | wc -l)" -eq "0" ]; then
         echo "$patch_file: missing Upstream-Status line"
