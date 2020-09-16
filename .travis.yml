@@ -1,2 +1,2 @@
 language: minimal
-script: ./scripts/check-patch-files.sh recipes-ros
+script: ./scripts/check-patch-files.sh 'meta-ros*'
