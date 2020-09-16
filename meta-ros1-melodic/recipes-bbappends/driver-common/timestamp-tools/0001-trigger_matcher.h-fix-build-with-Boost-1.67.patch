@@ -32,6 +32,8 @@ webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/wge100-camera
 * introduced in boost 1.67 with:
   https://github.com/boostorg/date_time/commit/f9f2aaf5216c
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  include/timestamp_tools/trigger_matcher.h | 2 +-

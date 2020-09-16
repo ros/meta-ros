@@ -19,6 +19,8 @@ An exported target cannot depend upon another target which is exported multiple 
   this to ros2-gbp/librealsense-release:
   https://github.com/ros2-gbp/librealsense-release/commit/1469d905f04345b4039672dbd501886ba32f5061#diff-af3b638bc2a3e6c650974192a53c7291R130
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 1 -

@@ -6,6 +6,8 @@ Subject: [PATCH] CMakeLists.txt: use pkg-config to find libftdipp1
 * keep in mind that for this to work, the cpp-wrapper PACKAGECONFIG needs
   to be enabled in libftdi recipe, otherwise there is only ftdi.h, not ftdi.hpp
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  src/CMakeLists.txt | 8 +++++---

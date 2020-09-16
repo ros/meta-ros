@@ -3,7 +3,7 @@ From: Ismo Puustinen <ismo.puustinen@intel.com>
 Date: Mon, 27 Feb 2017 13:16:23 +0200
 Subject: [PATCH] build: always disable platform guessing.
 
-Upstream-status: Inappropriate
+Upstream-Status: Inappropriate
 
 Signed-off-by: Ismo Puustinen <ismo.puustinen@intel.com>
 ---

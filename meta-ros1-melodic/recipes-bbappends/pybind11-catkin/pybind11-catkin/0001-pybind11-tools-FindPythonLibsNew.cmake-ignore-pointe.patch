@@ -20,6 +20,8 @@ Call Stack (most recent call first):
   using FindPython2 would work better here, but for now just ignore
   this error to unblock the build
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt                                |  1 +

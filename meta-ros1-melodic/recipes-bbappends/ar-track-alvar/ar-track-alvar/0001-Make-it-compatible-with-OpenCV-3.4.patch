@@ -26,6 +26,8 @@ ar-track-alvar/0.7.1-r0/git/src/MarkerDetector.cpp:202:32: error: 'CV_RGB' was n
 ar-track-alvar/0.7.1-r0/git/src/MultiMarker.cpp:320:120: error: 'CV_RGB' was not declared in this scope
 ar-track-alvar/0.7.1-r0/git/src/MultiMarker.cpp:363:89: error: 'CV_RGB' was not declared in this scope
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  include/ar_track_alvar/Draw.h   | 1 +

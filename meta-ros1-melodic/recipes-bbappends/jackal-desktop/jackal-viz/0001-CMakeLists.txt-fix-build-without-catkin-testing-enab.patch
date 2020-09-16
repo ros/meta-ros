@@ -13,6 +13,8 @@ Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
   similar fix for imu_transformer in gentoo:
   https://github.com/gentoo/gentoo/commit/452c8600bbe989ad3b4f06211cdbdccfe5eb2f52
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 6 ++++--

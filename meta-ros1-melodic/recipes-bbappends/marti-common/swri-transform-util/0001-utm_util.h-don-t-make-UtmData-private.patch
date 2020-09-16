@@ -18,6 +18,8 @@ In file included from /jenkins/mjansa/build-ros/webos-melodic-warrior/tmp-glibc/
    UtmUtil::UtmData::UtmData()
    ^~~~~~~
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  include/swri_transform_util/utm_util.h | 2 +-

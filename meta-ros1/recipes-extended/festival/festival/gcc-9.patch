@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 --- festival.orig/src/modules/Lexicon/complex.cc	2004-09-29 08:56:56.000000000 +0000
 +++ festival/src/modules/Lexicon/complex.cc	2020-02-25 17:26:02.513183325 +0000
 @@ -64,7 +64,7 @@

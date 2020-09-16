@@ -7,6 +7,8 @@ the libraries were renamed in:
 https://github.com/BehaviorTree/BehaviorTree.CPP/commit/5e5e631db66b641baf1a792830a36f8a10d83140
 but tests/CMakeLists.txt wasn't updated to match it
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  tests/CMakeLists.txt | 6 +++---

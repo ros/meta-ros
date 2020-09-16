@@ -32,6 +32,8 @@ Subject: [PATCH] atomic: use static inline for atomic_thread_fence and
 | ERROR: Function failed: do_compile (log file is located at /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/rosrt/1.0.25-r0/temp/log.do_compile.68845)
 NOTE: recipe rosrt-1.0.25-r0: task do_compile: Failed
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  include/boost/atomic.hpp | 4 ++--

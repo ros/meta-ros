@@ -4,6 +4,8 @@ Date: Tue, 4 Feb 2020 08:58:20 -0800
 Subject: [PATCH] CMakeLists: update libusb, libftdi pkg-config names to match
  what OE provides
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 4 ++--

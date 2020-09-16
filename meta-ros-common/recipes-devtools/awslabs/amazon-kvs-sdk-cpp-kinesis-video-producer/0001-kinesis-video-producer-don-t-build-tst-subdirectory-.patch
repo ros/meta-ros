@@ -292,6 +292,9 @@ collect2: error: ld returned 1 exit status
 ninja: build stopped: subcommand failed.
 WARNING: exit code 1 from a shell command.
 ERROR: Function failed: do_compile (log file is located at /jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/amazon-kvs-sdk-cpp-kinesis-video-producer/1.7.8-r0/temp/log.do_compile.21788)
+
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  kinesis-video-producer/CMakeLists.txt | 2 --

@@ -9,6 +9,8 @@ Subject: [PATCH] compressed_publisher.cpp: make it compatible with OpenCV 4
   100 |       params[0] = CV_IMWRITE_JPEG_QUALITY;
       |                   ^~~~~~~~~~~~~~~~~~~~~~~
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  src/compressed_publisher.cpp | 8 ++++++++

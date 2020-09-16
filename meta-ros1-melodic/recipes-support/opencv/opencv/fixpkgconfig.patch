@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 Index: git/cmake/OpenCVGenPkgconfig.cmake
 ===================================================================
 --- git.orig/cmake/OpenCVGenPkgconfig.cmake

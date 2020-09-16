@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 diff -uNr festival.orig/src/arch/festival/festival.cc festival/src/arch/festival/festival.cc
 --- festival.orig/src/arch/festival/festival.cc	2013-04-11 08:07:41.000000000 -0700
 +++ festival/src/arch/festival/festival.cc	2020-02-22 08:34:11.403465120 -0800

@@ -1,5 +1,7 @@
 This fixes the numpy import problem in setupext.py using a hard-coded path.
 
+Upstream-Status: Pending
+
 Index: matplotlib-2.1.1/setupext.py
 ===================================================================
 --- matplotlib-2.1.1.orig/setupext.py	2018-01-17 20:21:34.000000000 -0800

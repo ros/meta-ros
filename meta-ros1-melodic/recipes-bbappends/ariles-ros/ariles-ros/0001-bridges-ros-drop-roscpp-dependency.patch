@@ -5,6 +5,8 @@ Subject: [PATCH] bridges/ros: drop roscpp dependency
 
 * for some reason it doesn't find roscpp even when it's available in RSS
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  ariles/CMakeLists.txt             | 2 +-

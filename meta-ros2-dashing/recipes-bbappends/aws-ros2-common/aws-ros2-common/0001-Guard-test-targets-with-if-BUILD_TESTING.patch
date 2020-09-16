@@ -3,6 +3,8 @@ From: AAlon <avishayalon@gmail.com>
 Date: Sat, 7 Sep 2019 15:56:12 -0700
 Subject: [PATCH] Guard test targets with if(BUILD_TESTING)
 
+Upstream-Status: Pending
+
 ---
  CMakeLists.txt | 45 ++++++++++++++++++++++++---------------------
  1 file changed, 24 insertions(+), 21 deletions(-)
