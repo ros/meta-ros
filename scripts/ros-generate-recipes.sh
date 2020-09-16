@@ -17,7 +17,7 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-recipes"
-readonly SCRIPT_VERSION="1.5.0"
+readonly SCRIPT_VERSION="1.5.3"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-cache.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -102,11 +102,11 @@ fi
 
 # Keep this block in sync with the one in ros-generate-cache.sh .
 case $ROS_DISTRO_RELEASE_DATE in
-    pre-release|[2-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9])
+    pre-release|[2-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9])
         : OK
         ;;
 
-    *)  echo "ABORT: ROS_DISTRO_RELEASE_DATE not YYYYMMDD or 'pre-release': '$ROS_DISTRO_RELEASE_DATE'"
+    *)  echo "ABORT: ROS_DISTRO_RELEASE_DATE not YYYY-MM-DD or 'pre-release': '$ROS_DISTRO_RELEASE_DATE'"
         exit 1
         ;;
 esac
@@ -165,8 +165,8 @@ if [ $after_commit != $before_commit -a -z "$only_option" ]; then
     [ $ROS_DISTRO_RELEASE_DATE = "pre-release" ] && ROS_DISTRO_RELEASE_DATE=""
     cat <<! >> $generated_inc
 
-# From the release announcement or the last field of the "release-ROS_DISTRO-YYYYMMDD" tag for the release in
-# https://github.com/ros2/ros2/releases. Prior to the first release of a ROS_DISTRO, it is set to "".
+# From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
+# https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
 ROS_DISTRO_RELEASE_DATE = "$ROS_DISTRO_RELEASE_DATE"
 
 # The commit of ros/rosdistro/$ROS_DISTRO/distribution.yaml from which the recipes were generated.

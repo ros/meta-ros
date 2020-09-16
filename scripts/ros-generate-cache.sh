@@ -1,13 +1,13 @@
 # /bin/sh (deliberately no !#)
 #
 # Usage: cd meta-ros
-#        sh scripts/ros-generate-cache.sh ROS_DISTRO RELEASE-YYYYMMDD PATH-TO-LOCAL-ROS-ROSDISTRO ROS-ROSDISTRO-COMMIT [BRANCH_NAME]
+#        sh scripts/ros-generate-cache.sh ROS_DISTRO YYYY-MM-DD PATH-TO-LOCAL-ROS-ROSDISTRO ROS-ROSDISTRO-COMMIT [BRANCH_NAME]
 #            or
 #        sh scripts/ros-generate-cache.sh --version
 #
-# Generate and commit a cache.yaml for the YYYYMMDD release of ROS_DISTRO from the specified commit of a local
-# ros/rosdistro.git . RELEASE-YYYYMMDD is taken from the release announcement or the last field of the
-# "release-ROS_DISTRO-YYYYMMDD" tag; if running prior to first release of ROS_DISTRO, specify "pre-release" for RELEASE-YYYYMMDD.
+# Generate and commit a cache.yaml for the YYYY-MM-DD release of ROS_DISTRO from the specified commit of a local
+# ros/rosdistro.git. YYYY-MM-DD is taken from the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD"
+# tag in rosdistro repository; if running prior to first release of ROS_DISTRO, specify "pre-release" for YYYY-MM-DD.
 # Note that the release date generally does not match the commit timestamp of ROS-ROSDISTRO-COMMIT; however, the commit timestamp
 # is used for the DATETIME when forming the name of the created branch. Optionally you can set your own branch name in
 # or use ":nobranch" to prevent the creation of a new branch.
@@ -18,14 +18,14 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-cache"
-readonly SCRIPT_VERSION="1.5.2"
+readonly SCRIPT_VERSION="1.5.3"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-recipes.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
 
 usage() {
     echo "Usage: cd meta-ros"
-    echo "       sh scripts/$SCRIPT_NAME.sh ROS_DISTRO RELEASE-YYYYMMDD PATH-TO-LOCAL-ROS-ROSDISTRO ROS-ROSDISTRO-COMMIT [BRANCH_NAME]"
+    echo "       sh scripts/$SCRIPT_NAME.sh ROS_DISTRO YYYY-MM-DD PATH-TO-LOCAL-ROS-ROSDISTRO ROS-ROSDISTRO-COMMIT [BRANCH_NAME]"
     echo "               or"
     echo "       sh scripts/$SCRIPT_NAME.sh --version"
     exit 1
@@ -64,11 +64,11 @@ esac
 
 # Keep this block in sync with the one in ros-generate-recipes.sh .
 case $ROS_DISTRO_RELEASE_DATE in
-    pre-release|[2-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9])
+    pre-release|[2-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9])
         : OK
         ;;
 
-    *)  echo "ABORT: ROS_DISTRO_RELEASE_DATE not YYYYMMDD or 'pre-release': '$ROS_DISTRO_RELEASE_DATE'"
+    *)  echo "ABORT: ROS_DISTRO_RELEASE_DATE not YYYY-MM-DD or 'pre-release': '$ROS_DISTRO_RELEASE_DATE'"
         exit 1
         ;;
 esac
