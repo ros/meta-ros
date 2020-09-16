@@ -3,6 +3,8 @@ From: Bian Naimeng <biannm@cn.fujitsu.com>
 Date: Wed, 19 Apr 2017 03:11:37 +0900
 Subject: [PATCH 2/3] Make opencv-ts create share library intead of static.
 
+Upstream-Status: Pending
+
 Signed-off-by: Lei Maohui <leimaohui@cn.fujitsu.com>
 ---
  modules/ts/CMakeLists.txt | 2 +-

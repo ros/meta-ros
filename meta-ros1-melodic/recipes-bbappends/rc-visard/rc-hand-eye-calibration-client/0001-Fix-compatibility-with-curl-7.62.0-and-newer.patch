@@ -15,6 +15,8 @@ ros1-melodic-dunfell/tmp-glibc/work/aarch64-oe-linux/rc-hand-eye-calibration-cli
    25 |         case CURLE_PEER_FAILED_VERIFICATION:
       |         ^~~~
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  opt/cpr/cpr/error.cpp | 2 --

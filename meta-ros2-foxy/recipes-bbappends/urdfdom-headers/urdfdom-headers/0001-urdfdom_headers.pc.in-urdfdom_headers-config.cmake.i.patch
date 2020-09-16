@@ -42,6 +42,8 @@ compilation terminated.
   https://gitlab.kitware.com/cmake/cmake/-/commit/d88b38d05d5bc7528667ed4f86842ab8f7ff2ba2
   to process it as such
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  cmake/pkgconfig/urdfdom_headers.pc.in | 1 -

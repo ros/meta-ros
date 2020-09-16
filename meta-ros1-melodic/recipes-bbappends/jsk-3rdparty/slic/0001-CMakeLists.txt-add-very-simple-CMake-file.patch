@@ -3,6 +3,8 @@ From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 14 May 2020 21:00:07 +0000
 Subject: [PATCH] CMakeLists.txt: add very simple CMake file
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 7 +++++++

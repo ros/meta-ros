@@ -17,6 +17,8 @@ This basically means for Boost-1.67 and later, we need to check for the
 python27 component instead of just python, however this feature is only
 supported in cmake-3.11 and newer.
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 2 +-

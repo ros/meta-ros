@@ -7,6 +7,8 @@ Subject: [PATCH] sick_scan_common.cpp: fix boost::system::error_code use
 sick-scan/1.4.2-1-r0/git/driver/src/sick_scan_common.cpp:1073:14: error: no match for 'operator==' (operand types are 'boost::system::error_code' and 'int')
 sick-scan/1.4.2-1-r0/git/driver/src/sick_scan_common.cpp:1093:14: error: no match for 'operator!=' (operand types are 'boost::system::error_code' and 'int')
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  driver/src/sick_scan_common.cpp | 4 ++--

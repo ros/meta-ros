@@ -14,6 +14,8 @@ Subject: [PATCH] trajectory_processing: remove unnecessary angles/angles.h
 
   drop the include as it doesn't seem to be used at all
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  trajectory_processing/src/time_optimal_trajectory_generation.cpp | 1 -

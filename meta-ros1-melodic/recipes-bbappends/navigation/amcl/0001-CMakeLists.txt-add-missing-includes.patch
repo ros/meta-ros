@@ -10,6 +10,8 @@ Subject: [PATCH] CMakeLists.txt: add missing includes
   CMake Error at CMakeLists.txt:60 (check_symbol_exists):
     Unknown CMake command "check_symbol_exists".
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 3 +++

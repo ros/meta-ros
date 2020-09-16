@@ -55,6 +55,8 @@ See also "webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardwar
 WARNING: exit code 1 from a shell command.
 ERROR: Function failed: do_configure (log file is located at webos-melodic-thud/tmp-glibc/work/qemux86-webos-linux/ethercat-hardware/1.8.19-1-r0/temp/log.do_configure.76172)
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt  |  6 ++++++

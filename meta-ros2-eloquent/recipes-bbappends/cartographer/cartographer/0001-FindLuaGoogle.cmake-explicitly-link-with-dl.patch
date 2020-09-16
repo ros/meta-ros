@@ -36,6 +36,8 @@ ninja: build stopped: subcommand failed.
 WARNING: exit code 1 from a shell command.
 ERROR: Function failed: do_compile (log file is located at cartographer-ros/1.0.9001-1-r0/temp/log.do_compile.21940)
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  cmake/modules/FindLuaGoogle.cmake | 2 +-

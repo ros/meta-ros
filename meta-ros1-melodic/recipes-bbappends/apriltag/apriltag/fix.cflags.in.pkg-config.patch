@@ -51,6 +51,8 @@ Which is clearly wrong and will start causing issues now when this fix is applie
 and apriltag_INCLUDE_DIRS will already contain /usr/include/apriltag (another
 patch will be added to apriltag-ros to remove this work around)
 
+Upstream-Status: Pending
+
 diff -uNr apriltag-release-release-melodic-apriltag-3.1.1-1/apriltag.pc.in apriltag-release-release-melodic-apriltag-3.1.1-1-new/apriltag.pc.in
 --- apriltag-release-release-melodic-apriltag-3.1.1-1/apriltag.pc.in	2019-06-14 01:12:44.000000000 +0000
 +++ apriltag-release-release-melodic-apriltag-3.1.1-1-new/apriltag.pc.in	2019-09-19 21:03:24.236179141 +0000

@@ -8,6 +8,8 @@ Otherwise it fails with older Yocto with following error (doesn't fail with 3.2 
 ....
 | cc1plus: some warnings being treated as errors
 
+Upstream-Status: Pending
+
 diff -uNr cartographer-release-release-melodic-cartographer-1.0.0-0/cmake/functions.cmake cartographer-release-release-melodic-cartographer-1.0.0-0.new/cmake/functions.cmake
 --- cartographer-release-release-melodic-cartographer-1.0.0-0/cmake/functions.cmake	2018-06-01 12:10:29.000000000 +0000
 +++ cartographer-release-release-melodic-cartographer-1.0.0-0.new/cmake/functions.cmake	2019-09-07 20:28:53.786899683 +0000

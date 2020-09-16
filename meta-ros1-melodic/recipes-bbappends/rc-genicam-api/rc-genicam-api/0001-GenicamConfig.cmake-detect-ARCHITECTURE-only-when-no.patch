@@ -4,6 +4,8 @@ Date: Tue, 12 May 2020 05:05:43 -0700
 Subject: [PATCH] GenicamConfig.cmake: detect ARCHITECTURE only when not set
  already
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  baumer/CMakeLists.txt        | 2 ++

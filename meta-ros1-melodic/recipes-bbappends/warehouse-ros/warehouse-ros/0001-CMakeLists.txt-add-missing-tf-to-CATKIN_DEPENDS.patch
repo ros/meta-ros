@@ -11,6 +11,8 @@ Subject: [PATCH] CMakeLists.txt: add missing tf to CATKIN_DEPENDS
 /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/moveit-ros-warehouse/1.0.2-1-r0/recipe-sysroot-native/usr/bin/aarch64-oe-linux/../../libexec/aarch64-oe-linux/gcc/aarch64-oe-linux/8.2.0/ld: /jenkins/mjansa/build/ros/ros1-melodic-thud/tmp-glibc/work/aarch64-oe-linux/moveit-ros-warehouse/1.0.2-1-r0/recipe-sysroot/opt/ros/melodic/lib/libwarehouse_ros.so: undefined reference to `tf::Transformer::lookupTransform(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, ros::Time const&, tf::StampedTransform&) const'
 collect2: error: ld returned 1 exit status
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 2 +-

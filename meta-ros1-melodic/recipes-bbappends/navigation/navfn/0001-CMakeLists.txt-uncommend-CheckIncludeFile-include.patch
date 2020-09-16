@@ -10,6 +10,8 @@ Subject: [PATCH] CMakeLists.txt: uncommend CheckIncludeFile include
   | CMake Error at CMakeLists.txt:58 (check_include_file):
   |   Unknown CMake command "check_include_file".
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 1 +

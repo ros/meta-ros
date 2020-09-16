@@ -16,6 +16,8 @@ Subject: [PATCH] CMakeLists.txt: fix build without catkin testing enabled
 
   endif()
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 6 ++++--

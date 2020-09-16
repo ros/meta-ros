@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 --- a/cmake/FindSIP.cmake	2019-08-07 15:35:47.792823300 -0700
 +++ b/cmake/FindSIP.cmake	2019-08-07 15:36:49.304778888 -0700
 @@ -44,8 +44,6 @@

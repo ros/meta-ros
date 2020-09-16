@@ -16,6 +16,8 @@ served its users well and which also inspired Signals2.
 It doesn't use signals library at all, this reference in find_package()
 was useless and more importantly source of error at configure time.
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 2 +-

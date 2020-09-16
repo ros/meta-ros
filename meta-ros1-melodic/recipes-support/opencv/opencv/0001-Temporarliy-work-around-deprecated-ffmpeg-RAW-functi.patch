@@ -4,6 +4,8 @@ Date: Wed, 9 May 2018 13:33:59 -0700
 Subject: [PATCH] Temporarliy work around deprecated ffmpeg RAW function
  compile failure until next uprev
 
+Upstream-Status: Pending
+
 Signed-off-by: Jason Wessel <jason.wessel@windriver.com>
 ---
  modules/videoio/src/cap_ffmpeg_impl.hpp | 8 ++++++++

@@ -13,6 +13,8 @@ loadlib.c:128: error: undefined reference to 'dlerror'
 loadlib.c:122: error: undefined reference to 'dlclose'
 collect2: error: ld returned 1 exit status
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt        | 3 ++-

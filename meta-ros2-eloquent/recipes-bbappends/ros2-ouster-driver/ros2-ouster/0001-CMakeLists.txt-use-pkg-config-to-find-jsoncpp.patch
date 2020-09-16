@@ -5,6 +5,8 @@ Subject: [PATCH] CMakeLists.txt: use pkg-config to find jsoncpp
 
 * the jsoncpp-1.8.4 in meta-oe/warrior doesn't have the cmake support
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt                  | 6 ++++--

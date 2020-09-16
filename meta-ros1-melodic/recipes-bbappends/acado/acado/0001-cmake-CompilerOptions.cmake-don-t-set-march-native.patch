@@ -14,6 +14,8 @@ Subject: [PATCH] cmake/CompilerOptions.cmake: don't set -march=native
 | cc1plus: error: unknown value 'native' for -march
 | cc1plus: note: valid arguments are: armv8-a armv8.1-a armv8.2-a armv8.3-a armv8.4-a
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  cmake/CompilerOptions.cmake | 5 -----

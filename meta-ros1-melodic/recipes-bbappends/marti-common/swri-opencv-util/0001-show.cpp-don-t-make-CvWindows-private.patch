@@ -17,6 +17,8 @@ In file included from /jenkins/mjansa/build-ros/webos-dashing-warrior/tmp-glibc/
      CvWindows() {}
      ^~~~~~~~~
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  src/show.cpp | 2 +-

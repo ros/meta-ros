@@ -12,6 +12,8 @@ FAILED: /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4
 /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/socketcan-interface/0.8.2-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib/libclass_loader.so: error: undefined reference to 'pthread_mutexattr_destroy'
 collect2: error: ld returned 1 exit status
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeLists.txt | 1 +

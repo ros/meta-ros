@@ -3,6 +3,8 @@ From: Herb Kuta <herb.kuta@lge.com>
 Date: Tue, 31 Dec 2019 10:17:22 -0800
 Subject: [PATCH] Use platform yaml-cpp
 
+Upstream-Status: Pending
+
 ---
  CMakeLists.txt | 79 ++++----------------------------------------------
  1 file changed, 6 insertions(+), 73 deletions(-)

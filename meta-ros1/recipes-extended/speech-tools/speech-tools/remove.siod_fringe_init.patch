@@ -7,6 +7,8 @@ Causes festival to fail linking with undefined reference to it:
 | ../../src/lib/libFestival.a(festival.o):festival.cc:function festival_initialize(int, int): error: undefined reference to 'siod_fringe_init()'
 | collect2: error: ld returned 1 exit status
 
+Upstream-Status: Pending
+
 diff -uNr speech_tools.orig/include/siod_est.h speech_tools/include/siod_est.h
 --- speech_tools.orig/include/siod_est.h	2020-02-22 08:19:58.490168578 -0800
 +++ speech_tools/include/siod_est.h	2020-02-22 08:18:59.917255624 -0800
