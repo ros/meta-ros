@@ -1,9 +1,0 @@
-CONTENTS of the repository:
-
-* README                    the README file with all important information
-* COPYING.MIT               MIT license
-* conf/layer.conf           configuration file for this layer
-* classes/catkin.bbclass    class for catkin-based packages
-* recipes-core/images       recipes of images for using ROS
-* recipes-devtools          recipes of system prerequisites of ROS
-* recipes-ros               recipes for cross-compiling ROS packages
