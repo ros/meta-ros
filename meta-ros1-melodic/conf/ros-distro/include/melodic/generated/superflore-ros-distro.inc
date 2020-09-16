@@ -57,7 +57,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros1-melodic/files/melodic/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "14"
+ROS_NUM_CACHE_YAML_COMMITS = "16"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -7504,16 +7504,16 @@ ROS_UNRESOLVED_PLATFORM_PKG_xvfb = "UNRESOLVED-xvfb"
 ROS_UNRESOLVED_PLATFORM_PKG_yasm = "UNRESOLVED-yasm"
 ROS_UNRESOLVED_PLATFORM_PKG_zbar = "UNRESOLVED-zbar"
 
-# From the release announcement or the last field of the "release-ROS_DISTRO-YYYYMMDD" tag for the release in
-# https://github.com/ros2/ros2/releases. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "20200915"
+# From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
+# https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
+ROS_DISTRO_RELEASE_DATE = "2020-09-15"
 
 # The commit of ros/rosdistro/melodic/distribution.yaml from which the recipes were generated.
 ROS_SUPERFLORE_GENERATION_COMMIT = "93b7d67f7c42ec81a5d2f1965fbe0c1b9f013b30"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
-ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.5.1"
+ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.5.3"
 
 # Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
-ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.5.0"
+ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.5.3"
