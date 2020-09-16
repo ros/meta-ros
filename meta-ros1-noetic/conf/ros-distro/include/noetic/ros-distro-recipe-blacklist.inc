@@ -1,6 +1,6 @@
-# melodic/ros-distro-recipe-blacklist.inc
+# noetic/ros-distro-recipe-blacklist.inc
 #
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2020 LG Electronics, Inc.
 
 PNBLACKLIST[abb-irb2400-moveit-config] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre'], 'qt5: Requires moveit-ros-visualization->qtbase which requires meta-qt5 to be included; ogre: depends on moveit-ros-visualization->ogre which is not available', '', d)}"
 PNBLACKLIST[abb-irb2400-support] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'Requires rviz which requires pyqt5 for python-qt-bindings and meta-qt5 to be included; ogre: Requires rviz which depends on unavailable ogre', '', d)}"
