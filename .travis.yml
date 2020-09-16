@@ -1,2 +1,2 @@
-language: ruby
+language: minimal
 script: ./scripts/check-patch-files.sh recipes-ros
