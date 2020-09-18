@@ -8,7 +8,3 @@ FILES_${PN}-dev += "${datadir}/CycloneDDS"
 inherit ros_insane_dev_so
 
 BBCLASSEXTEND = "native"
-
-# Use SPDX name of the license
-_LICENSE := "${LICENSE}"
-LICENSE = "${@'${_LICENSE}'.replace('Eclipse-Public-License-2.0', 'EPL-2.0')}"
