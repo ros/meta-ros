@@ -15,8 +15,6 @@ bullet:
 - bullet@meta-ros
 bzip2:
 - bzip2@openembedded-core
-chiconybot_example:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_chiconybot_example}
 clang-format:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format}
 clang-tidy:
@@ -304,8 +302,8 @@ sdl2:
 spdlog:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog}
 suitesparse:
-- suitesparse-cholmod@meta-ros
 - suitesparse-cxsparse@meta-ros
+- suitesparse-cholmod@meta-ros
 tbb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tbb}
 tinyxml:
