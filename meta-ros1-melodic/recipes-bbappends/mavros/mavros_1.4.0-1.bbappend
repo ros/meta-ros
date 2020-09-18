@@ -16,15 +16,5 @@ VIRTUAL-RUNTIME_bash ?= "bash"
 RDEPENDS_${PN}_append_class-target_webos = " ${VIRTUAL-RUNTIME_bash}"
 RDEPENDS_${PN}_remove_class-target_webos = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"
 
-# package.xml from this release says correctly LGPLv3:
-# but the generated recipe has LGPL-2 which causes this warning:
-# WARNING: mavros-1.0.0-1-r0 do_populate_lic: mavros: No generic license file exists for: LGPL-2 in any provider
-# because superflore regexp for parsing license information is very limited and
-# doesn't support 'v' as license version separator:
-# https://github.com/ros-infrastructure/superflore/blob/master/superflore/utils.py#L152
-# see https://github.com/ros-infrastructure/superflore/issues/271
-_LICENSE := "${LICENSE}"
-LICENSE = "${@'${_LICENSE}'.replace('LGPL-2', 'LGPL-3.0')}"
-
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-ftf_frame_convertions.cpp-work-around-few-return-typ.patch"
