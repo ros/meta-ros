@@ -37,7 +37,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-foxy/files/foxy/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "16"
+ROS_NUM_CACHE_YAML_COMMITS = "18"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -118,15 +118,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     cartographer-ros \
     cartographer-ros-msgs \
     cascade-lifecycle-msgs \
-    chiconybot \
-    chiconybot-bringup \
-    chiconybot-cartographer \
-    chiconybot-description \
-    chiconybot-gazebo \
-    chiconybot-msgs \
-    chiconybot-navigation2 \
-    chiconybot-node \
-    chiconybot-teleop \
     class-loader \
     common-interfaces \
     composition \
@@ -684,15 +675,6 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                cartographer-ros/cartographer-ros_1.0.9001-1 \
                cartographer-ros/cartographer-ros-msgs_1.0.9001-1 \
               cascade-lifecycle/cascade-lifecycle-msgs_0.0.6-1 \
-                         ros-cb/chiconybot_0.0.0-2 \
-                         ros-cb/chiconybot-bringup_0.0.0-2 \
-                         ros-cb/chiconybot-cartographer_0.0.0-2 \
-                         ros-cb/chiconybot-description_0.0.0-2 \
-                         ros-cb/chiconybot-gazebo_0.0.0-2 \
-                         ros-cb/chiconybot-msgs_0.0.0-2 \
-                         ros-cb/chiconybot-navigation2_0.0.0-2 \
-                         ros-cb/chiconybot-node_0.0.0-2 \
-                         ros-cb/chiconybot-teleop_0.0.0-2 \
                    class-loader/class-loader_2.0.1-1 \
               common-interfaces/common-interfaces_2.0.3-1 \
                           demos/composition_0.9.3-1 \
@@ -1246,15 +1228,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     cartographer-ros \
     cartographer-ros-msgs \
     cascade-lifecycle-msgs \
-    chiconybot \
-    chiconybot-bringup \
-    chiconybot-cartographer \
-    chiconybot-description \
-    chiconybot-gazebo \
-    chiconybot-msgs \
-    chiconybot-navigation2 \
-    chiconybot-node \
-    chiconybot-teleop \
     class-loader \
     common-interfaces \
     composition \
@@ -1821,7 +1794,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${PYTHON_PN}-pyflakes \
     ${ROS_UNRESOLVED_PLATFORM_PKG_binutils} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_bison} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_chiconybot_example} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcbc-dev} \
@@ -2128,7 +2100,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     robot-localization \
     robot-state-publisher \
     ros-canopen \
-    ros-cb \
     ros-environment \
     ros-ign \
     ros-testing \
@@ -2210,7 +2181,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
 # the settings in ros-distro.inc .
 ROS_UNRESOLVED_PLATFORM_PKG_binutils = "UNRESOLVED-binutils"
 ROS_UNRESOLVED_PLATFORM_PKG_bison = "UNRESOLVED-bison"
-ROS_UNRESOLVED_PLATFORM_PKG_example = "UNRESOLVED-example"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-format = "UNRESOLVED-clang-format"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "UNRESOLVED-clang-tidy"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcbc-dev = "UNRESOLVED-coinor-libcbc-dev"
@@ -2283,16 +2253,16 @@ ROS_UNRESOLVED_PLATFORM_PKG_spdlog = "UNRESOLVED-spdlog"
 ROS_UNRESOLVED_PLATFORM_PKG_tbb = "UNRESOLVED-tbb"
 ROS_UNRESOLVED_PLATFORM_PKG_uncrustify = "UNRESOLVED-uncrustify"
 
-# From the release announcement or the last field of the "release-ROS_DISTRO-YYYYMMDD" tag for the release in
-# https://github.com/ros2/ros2/releases. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "20200910"
+# From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
+# https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
+ROS_DISTRO_RELEASE_DATE = "2020-09-12"
 
 # The commit of ros/rosdistro/foxy/distribution.yaml from which the recipes were generated.
 ROS_SUPERFLORE_GENERATION_COMMIT = "449b1d0c001fd7a46fb5393a0d15c26f04c850cd"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
-ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.5.1"
+ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.5.3"
 
 # Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
-ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.5.0"
+ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.5.3"
