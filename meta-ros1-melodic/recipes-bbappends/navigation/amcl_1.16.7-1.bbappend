@@ -1,6 +1,6 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
-# Missing license version in package.xml maps it to invalid LGPL-2
+# Missing license version in package.xml
 LICENSE = "LGPL-2.1+"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
