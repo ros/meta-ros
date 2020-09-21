@@ -706,6 +706,15 @@ ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils = "v4l-utils"
 # generated-recipes/tts/tts_1.0.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python-boto3 = "python-boto3"
 
+# Used by:
+# generated-recipes/audio-common/audio-play_0.3.7-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-alsa = "gstreamer1.0-plugins-base"
+
+# Used by:
+# generated-recipes/ixblue-stdbin-decoder/ixblue-stdbin-decoder_0.1.2-1.bb
+# generated-recipes/ixblue-ins-stdbin-driver/ixblue-ins-driver_0.1.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "boost"
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"
