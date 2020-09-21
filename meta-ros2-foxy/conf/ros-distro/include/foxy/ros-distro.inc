@@ -291,3 +291,47 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine = "python3-pyqt5"
 # Used by:
 # generated-recipes/dynamic-graph/dynamic-graph_4.2.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_doxygen = "doxygen"
+
+# Used by:
+# generated-recipes/mavlink/mavlink_2020.9.10-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-future = "python3-future"
+
+# Used by:
+# generated-recipes/kobuki-ftdi/kobuki-ftdi_1.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev = "libusb1"
+
+# Used by:
+# generated-recipes/kobuki-ftdi/kobuki-ftdi_1.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "libftdi"
+
+# Used by:
+# generated-recipes/kobuki-ftdi/kobuki-ftdi_1.0.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev = "libftdi"
+
+# Used by:
+# generated-recipes/plotjuggler/plotjuggler_2.8.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins = "qtmultimedia"
+
+# Used by:
+# generated-recipes/plotjuggler/plotjuggler_2.8.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev = "qtdeclarative"
+
+# Used by:
+# generated-recipes/plotjuggler/plotjuggler_2.8.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_binutils = "binutils"
+
+# Used by:
+# generated-recipes/plotjuggler/plotjuggler_2.8.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev = "qtsvg"
+
+# Used by:
+# generated-recipes/plotjuggler/plotjuggler_2.8.4-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev = "qtmultimedia"
+
+# Used by:
+# generated-recipes/eigenpy/eigenpy_2.5.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3 = "python3"
+
+# Used by:
+# generated-recipes/grbl-ros/grbl-ros_0.2.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-serial = "python3-pyserial"
