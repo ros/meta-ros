@@ -214,6 +214,7 @@ PNBLACKLIST[hector-pose-estimation-core] ?= "${@bb.utils.contains('ROS_WORLD_SKI
 PNBLACKLIST[hector-sensors-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, hector-gazebo-plugins, gazebo-plugins which is not available', '', d)}"
 PNBLACKLIST[hector-slam-launch] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt4', 'Requires libqt4-dev which requires meta-qt4 to be included', '', d)}"
 PNBLACKLIST[hector-slam] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt4', 'Requires libqt4-dev which requires meta-qt4 to be included', '', d)}"
+PNBLACKLIST[heifu-bringup] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', 'x11: Depends on heifu-tools which depends on image-view which depends on gtk+->x11', '', d)}"
 PNBLACKLIST[heifu-tools] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', 'x11: Depends on image-view which depends on gtk+->x11', '', d)}"
 PNBLACKLIST[hironx-calibration] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni2', 'openni2: depends on openni2-launch->openni2-camera->unavailable UNRESOLVED-libopenni2-dev', '', d)}"
 PNBLACKLIST[hironx-moveit-config] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni2', 'openni2: depends on hironx-ros-bridge which depends on openni2-launch->openni2-camera->unavailable UNRESOLVED-libopenni2-dev', '', d)}"
