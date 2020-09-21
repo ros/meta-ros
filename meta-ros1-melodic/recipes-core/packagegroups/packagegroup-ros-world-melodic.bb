@@ -251,6 +251,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     cob-command-tools \
     cob-dashboard \
     dataspeed-pds-rqt \
+    dingo-desktop \
+    dingo-viz \
     fmi-adapter-examples \
     gl-dependency \
     gundam-rx78-control \
@@ -360,6 +362,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     freenect-launch \
     freenect-stack \
     fsrobo-r-trajectory-filters \
+    heifu-tools \
     image-pipeline \
     image-view \
     image-view2 \
@@ -697,6 +700,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     cob-navigation-local \
     cob-navigation-slam \
     cob-obstacle-distance \
+    dingo-desktop \
+    dingo-viz \
     distance-map \
     distance-map-rviz \
     exotica-examples \
@@ -790,6 +795,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     dataspeed-pds-rqt \
     desktop \
     desktop-full \
+    dingo-desktop \
+    dingo-viz \
     distance-map \
     distance-map-rviz \
     dynamixel-workbench \
@@ -1129,6 +1136,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     desistek-saga-description \
     desistek-saga-gazebo \
     desktop-full \
+    dingo-gazebo \
+    dingo-simulator \
     drone-wrapper \
     eca-a9-description \
     eca-a9-gazebo \
@@ -1146,6 +1155,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-ros-control \
     gazebo-ros-pkgs \
     gazebo-rosdev \
+    gazebo-video-monitor-plugins \
     gundam-robot \
     gundam-rx78-gazebo \
     hector-gazebo \
@@ -1194,6 +1204,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     ridgeback-simulator \
     robosense-gazebo-plugins \
     robosense-simulator \
+    roboticsgroup-upatras-gazebo-plugins \
     rosflight-pkgs \
     rosflight-sim \
     rosflight-utils \
@@ -1419,7 +1430,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
 # do_configure failures
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dccomms-ros', 'dccomms-ros' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyros-utils', 'pyros-utils' , '', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dynamic-graph-python', 'dynamic-graph-python' , '', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dynamic-graph-python', 'dynamic-graph-python dynamic-graph-tutorial' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hdf5-map-io', 'hdf5-map-io mesh-msgs-hdf5' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'jderobot-carviz', 'jderobot-carviz' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lanelet2-traffic-rules', 'lanelet2-traffic-rules lanelet2-routing' , '', d)}"
