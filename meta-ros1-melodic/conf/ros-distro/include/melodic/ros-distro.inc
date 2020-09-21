@@ -715,6 +715,13 @@ ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-alsa = "gstreamer1.0-plugins-base"
 # generated-recipes/ixblue-ins-stdbin-driver/ixblue-ins-driver_0.1.3-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "boost"
 
+# Used by:
+# generated-recipes/heifu/heifu-diagnostic_0.7.1-2.bb
+# generated-recipes/heifu/heifu-safety_0.7.1-2.bb
+# generated-recipes/heifu/heifu-simple-waypoint_0.7.1-2.bb
+# generated-recipes/heifu/heifu-mavros_0.7.1-2.bb
+ROS_UNRESOLVED_PLATFORM_PKG_ros_utils = ""
+
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "clang-tidy"

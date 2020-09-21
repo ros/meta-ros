@@ -362,6 +362,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     freenect-launch \
     freenect-stack \
     fsrobo-r-trajectory-filters \
+    heifu-bringup \
     heifu-tools \
     image-pipeline \
     image-view \
