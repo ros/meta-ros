@@ -100,6 +100,11 @@ ROS_WORLD_SKIP_GROUPS += "libpqxx"
 ROS_WORLD_SKIP_GROUPS += "python-cwiid"
 # recipes depending on UNRESOLVED-libspnav-dev
 ROS_WORLD_SKIP_GROUPS += "libspnav"
+# heifu-* recipes depending on ros-utils which seems to be this component:
+# https://gitlab.pdmfc.com/drones/ros1/drone-generic/tree/master/src/ros_utils
+# which isn't public as reported here:
+# https://github.com/ros/rosdistro/pull/26336#issuecomment-696373544
+ROS_WORLD_SKIP_GROUPS += "heifu-ros-utils"
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
@@ -720,7 +725,11 @@ ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "boost"
 # generated-recipes/heifu/heifu-safety_0.7.1-2.bb
 # generated-recipes/heifu/heifu-simple-waypoint_0.7.1-2.bb
 # generated-recipes/heifu/heifu-mavros_0.7.1-2.bb
-ROS_UNRESOLVED_PLATFORM_PKG_ros_utils = ""
+# but it seems to be this component:
+# https://gitlab.pdmfc.com/drones/ros1/drone-generic/tree/master/src/ros_utils
+# which isn't public as reported here:
+# https://github.com/ros/rosdistro/pull/26336#issuecomment-696373544
+ROS_UNRESOLVED_PLATFORM_PKG_ros_utils = "ros-utils"
 
 #ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_bluez = "bluez5"
