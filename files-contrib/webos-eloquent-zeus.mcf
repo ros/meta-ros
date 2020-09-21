@@ -14,9 +14,9 @@ MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'zeus')
 MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '997f0fdca')
 
-MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-ros-webos.git')
+MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'zeus')
-MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'zeus/milestones/13')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   '927f241')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'zeus')
