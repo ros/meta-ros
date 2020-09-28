@@ -10,7 +10,7 @@ AUTHOR = "Francisco Martin <fmrico@gmail.com>"
 ROS_AUTHOR = "Marc Hanheide"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "GPL-2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "popf"
