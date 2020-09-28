@@ -10,7 +10,7 @@ AUTHOR = "Vladimir Ermakov <vooon341@gmail.com>"
 ROS_AUTHOR = "Lorenz Meier"
 HOMEPAGE = "https://mavlink.io/en/"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
 ROS_CN = "mavlink"
