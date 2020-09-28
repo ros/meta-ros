@@ -1,8 +1,10 @@
-# foxy/cache.yaml 2020-09-12 449b1d0c001fd7a46fb5393a0d15c26f04c850cd 20200911204655 1.5.3
+# foxy/cache.yaml 2020-09-25 85e2dd71ac2bdf767d59fa7a00c8cbf7db79a7ca 20200925171532 1.5.3
 distribution_file:
 - release_platforms:
 -----
-ubuntu: [focal]
+ubuntu:
+-----
+- focal
 -----
 repositories:
 -----
@@ -275,6 +277,61 @@ version: master
 status: maintained
 }
 -----
+astuff_sensor_msgs: {
+doc: {
+type: git,
+url: 'https://github.com/astuff/astuff_sensor_msgs.git',
+version: master
+},
+release: {
+packages: [astuff_sensor_msgs,
+delphi_esr_msgs,
+delphi_mrr_msgs,
+delphi_srr_msgs,
+derived_object_msgs,
+ibeo_msgs,
+kartech_linear_actuator_msgs,
+mobileye_560_660_msgs,
+neobotix_usboard_msgs,
+pacmod_msgs],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/astuff/astuff_sensor_msgs-release.git',
+version: 3.1.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/astuff/astuff_sensor_msgs.git',
+version: master
+},
+status: maintained
+}
+-----
+automotive_autonomy_msgs: {
+doc: {
+type: git,
+url: 'https://github.com/astuff/automotive_autonomy_msgs.git',
+version: master
+},
+release: {
+packages: [automotive_autonomy_msgs,
+automotive_navigation_msgs,
+automotive_platform_msgs],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/astuff/automotive_autonomy_msgs-release.git',
+version: 3.0.3-1
+},
+source: {
+type: git,
+url: 'https://github.com/astuff/automotive_autonomy_msgs.git',
+version: master
+},
+status: maintained
+}
+-----
 autoware_auto_msgs: {
 doc: {
 type: git,
@@ -492,7 +549,7 @@ status: maintained
 contracts_lite_vendor: {
 doc: {
 type: git,
-url: 'https://github.com/ros-safety/contracts_lite.git',
+url: 'https://github.com/ros-safety/contracts_lite_vendor.git',
 version: master
 },
 release: {
@@ -500,7 +557,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros-safety/contracts_lite_vendor-release.git',
-version: 0.3.2-1
+version: 0.4.0-1
 },
 source: {
 type: git,
@@ -751,7 +808,7 @@ ecl_core: {
 doc: {
 type: git,
 url: 'https://github.com/stonier/ecl_core.git',
-version: release/1.1.x
+version: release/1.2.x
 },
 release: {
 packages: [ecl_command_line,
@@ -783,7 +840,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/yujinrobot-release/ecl_core-release.git',
-version: 1.1.0-1
+version: 1.2.0-1
 },
 source: {
 test_pull_requests: true,
@@ -911,6 +968,28 @@ url: 'https://github.com/stack-of-tasks/eigenpy.git',
 version: master
 },
 status: developed
+}
+-----
+eiquadprog: {
+doc: {
+type: git,
+url: 'https://github.com/stack-of-tasks/eiquadprog.git',
+version: devel
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/stack-of-tasks/eiquadprog-ros-release.git',
+version: 1.2.2-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/stack-of-tasks/eiquadprog.git',
+version: devel
+},
+status: maintained
 }
 -----
 example_interfaces: {
@@ -1373,6 +1452,15 @@ version: foxy
 status: maintained
 }
 -----
+jlb_pid: {
+doc: {
+type: git,
+url: 'https://gitlab.com/Juulbl/ros2-pid',
+version: ros2
+},
+status: maintained
+}
+-----
 joint_state_publisher: {
 doc: {
 type: git,
@@ -1448,14 +1536,14 @@ kobuki_core: {
 doc: {
 type: git,
 url: 'https://github.com/kobuki-base/kobuki_core.git',
-version: release/1.2.x
+version: release/1.3.x
 },
 release: {
 tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/stonier/kobuki_core-release.git',
-version: 1.2.0-1
+version: 1.3.1-1
 },
 source: {
 test_pull_requests: true,
@@ -2451,7 +2539,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/qt_gui_core-release.git',
-version: 1.1.1-1
+version: 1.1.2-1
 },
 source: {
 test_pull_requests: true,
@@ -2482,6 +2570,50 @@ url: 'https://github.com/ros-planning/random_numbers.git',
 version: ros2
 },
 status: maintained
+}
+-----
+rc_dynamics_api: {
+doc: {
+type: git,
+url: 'https://github.com/roboception/rc_dynamics_api.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/roboception-gbp/rc_dynamics_api-release.git',
+version: 0.10.2-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/roboception/rc_dynamics_api.git',
+version: master
+},
+status: developed
+}
+-----
+rc_genicam_api: {
+doc: {
+type: git,
+url: 'https://github.com/roboception/rc_genicam_api.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/roboception-gbp/rc_genicam_api-release.git',
+version: 2.4.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/roboception/rc_genicam_api.git',
+version: master
+},
+status: developed
 }
 -----
 rcl: {
@@ -3072,7 +3204,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release.git',
-version: 1.0.2-1
+version: 1.0.4-1
 },
 source: {
 test_abi: true,
@@ -3534,7 +3666,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/allenh1/rplidar_ros-release.git',
-version: 2.0.0-1
+version: 2.0.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3661,20 +3793,20 @@ rqt_graph: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_graph.git',
-version: dashing-devel
+version: foxy-devel
 },
 release: {
 tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt_graph-release.git',
-version: 1.0.4-1
+version: 1.1.0-1
 },
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/rqt_graph.git',
-version: dashing-devel
+version: foxy-devel
 },
 status: maintained
 }
@@ -4078,7 +4210,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/sros2-release.git',
-version: 0.9.2-1
+version: 0.9.3-1
 },
 source: {
 test_pull_requests: true,
@@ -4686,7 +4818,7 @@ version: ros2
 status: maintained
 }
 -----
-webots_ros2_desktop: {
+webots_ros2: {
 doc: {
 type: git,
 url: 'https://github.com/cyberbotics/webots_ros2.git',
@@ -4697,7 +4829,6 @@ packages: [webots_ros2,
 webots_ros2_abb,
 webots_ros2_core,
 webots_ros2_demos,
-webots_ros2_desktop,
 webots_ros2_epuck,
 webots_ros2_examples,
 webots_ros2_importer,
@@ -4709,7 +4840,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/cyberbotics/webots_ros2-release.git',
-version: 1.0.0-2
+version: 1.0.1-1
 },
 source: {
 test_pull_requests: true,
@@ -5858,6 +5989,121 @@ apriltag: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+astuff_sensor_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>astuff_sensor_msgs</name>
+<description>Messages specific to AStuff-provided sensors.</description>
+<license>MIT</license>
+<url type="website">http://wiki.ros.org/astuff_sensor_msgs</url>
+<url type="repository">https://github.com/astuff/astuff_sensor_msgs</url>
+<url type="bugtracker">https://github.com/astuff/astuff_sensor_msgs/issues</url>
+<maintainer email="software@autonomoustuff.com">AutonomouStuff Software Development Team</maintainer>
+<author email="jwhitley@autonomoustuff.com">Joshua Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend>ros_environment</build_depend>
+<exec_depend>delphi_esr_msgs</exec_depend>
+<exec_depend>delphi_srr_msgs</exec_depend>
+<exec_depend>derived_object_msgs</exec_depend>
+<exec_depend>ibeo_msgs</exec_depend>
+<exec_depend>kartech_linear_actuator_msgs</exec_depend>
+<exec_depend>mobileye_560_660_msgs</exec_depend>
+<exec_depend>neobotix_usboard_msgs</exec_depend>
+<exec_depend>pacmod_msgs</exec_depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
+automotive_autonomy_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>automotive_autonomy_msgs</name>
+<description>Messages for vehicle automation</description>
+<maintainer email="software@autonomoustuff.com">AutonomouStuff Software Development Team</maintainer>
+<license>MIT</license>
+<url type="website">http://github.com/automotive_autonomy_msgs</url>
+<url type="repository">https://github.com/astuff/automotive_autonomy_msgs</url>
+<url type="bugtracker">https://github.com/astuff/automotive_autonomy_msgs/issues</url>
+<author email="dstanek@autonomoustuff.com">Daniel Stanek</author>
+<author email="jwhitley@autonomoustuff.com">Joshua Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend>ros_environment</build_depend>
+<exec_depend>automotive_navigation_msgs</exec_depend>
+<exec_depend>automotive_platform_msgs</exec_depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
+automotive_navigation_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>automotive_navigation_msgs</name>
+<description>Generic Messages for Navigation Objectives in Automotive Automation Software</description>
+<maintainer email="software@autonomoustuff.com">AutonomouStuff Software Development Team</maintainer>
+<license>MIT</license>
+<url type="website">http://github.com/automotive_navigation_msgs</url>
+<url type="repository">https://github.com/astuff/automotive_autonomy_msgs</url>
+<url type="bugtracker">https://github.com/astuff/automotive_autonomy_msgs/issues</url>
+<author email="dstanek@autonomoustuff.com">Daniel Stanek</author>
+<author email="jwhitley@autonomoustuff.com">Joshua Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 1">rosbag_migration_rule</depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>geometry_msgs</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+<rosbag_migration_rule rule_file="migration/PointOfInterestRequest.bmr"/>
+<rosbag_migration_rule rule_file="migration/PointOfInterestResponse.bmr"/>
+</export>
+</package>
+-----
+automotive_platform_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>automotive_platform_msgs</name>
+<description>Generic Messages for Communication with an Automotive Autonomous Platform</description>
+<maintainer email="software@autonomoustuff.com">AutonomouStuff Software Development Team</maintainer>
+<license>MIT</license>
+<url type="website">http://github.com/automotive_platform_msgs</url>
+<url type="repository">https://github.com/astuff/automotive_autonomy_msgs</url>
+<url type="bugtracker">https://github.com/astuff/automotive_autonomy_msgs/issues</url>
+<author email="dstanek@autonomoustuff.com">Daniel Stanek</author>
+<author email="jwhitley@autonomoustuff.com">Josh Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
 autoware_auto_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -6491,6 +6737,125 @@ Inc.</maintainer>
 </export>
 </package>
 -----
+delphi_esr_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>delphi_esr_msgs</name>
+<description>Message definitions for the Delphi ESR</description>
+<maintainer email="software@autonomoustuff.com">AutonomouStuff Software Team</maintainer>
+<license>MIT</license>
+<url type="website">http://wiki.ros.org/delphi_esr_msgs</url>
+<url type="repository">https://github.com/astuff/astuff_sensor_msgs</url>
+<url type="bugtracker">https://github.com/astuff/astuff_sensor_msgs/issues</url>
+<author email="dstanek@autonomoustuff.com">Daniel Stanek</author>
+<author email="jkale@autonomoustuff.com">Joe Kale</author>
+<author email="jwhitley@autonomoustuff.com">Josh Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 1">rosbag_migration_rule</depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+<rosbag_migration_rule rule_file="migration/EsrStatus1.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrStatus2.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrStatus3.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrStatus4.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrStatus5.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrStatus6.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrStatus7.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrStatus8.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrStatus9.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrTrack.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrTrackMotionPower.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrValid1.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrValid2.bmr"/>
+<rosbag_migration_rule rule_file="migration/EsrVehicle4.bmr"/>
+<rosbag_migration_rule rule_file="migration/TrackMotionPower.bmr"/>
+</export>
+</package>
+-----
+delphi_mrr_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>delphi_mrr_msgs</name>
+<description>Message definitions for the Delphi MRR</description>
+<maintainer email="software@autonomoustuff.com">AutonomouStuff Software Team</maintainer>
+<license>MIT</license>
+<url type="website">http://wiki.ros.org/delphi_mrr_msgs</url>
+<url type="repository">https://github.com/astuff/astuff_sensor_msgs</url>
+<url type="bugtracker">https://github.com/astuff/astuff_sensor_msgs/issues</url>
+<author email="dstanek@autonomoustuff.com">Daniel Stanek</author>
+<author email="jkale@autonomoustuff.com">Joe Kale</author>
+<author email="jwhitley@autonomoustuff.com">Josh Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
+delphi_srr_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>delphi_srr_msgs</name>
+<description>Message definitions for the Delphi SRR</description>
+<maintainer email="support@autonomoustuff.com">AutonomouStuff Software Development Team</maintainer>
+<license>MIT</license>
+<url type="website">http://wiki.ros.org/delphi_srr_msgs</url>
+<url type="repository">https://github.com/astuff/astuff_sensor_msgs</url>
+<url type="bugtracker">https://github.com/astuff/astuff_sensor_msgs/issues</url>
+<author email="jwhitley@autonomoustuff.com">Josh Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 1">rosbag_migration_rule</depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+<rosbag_migration_rule rule_file="migration/SrrDebug3.bmr"/>
+<rosbag_migration_rule rule_file="migration/SrrDebug4.bmr"/>
+<rosbag_migration_rule rule_file="migration/SrrDebug5.bmr"/>
+<rosbag_migration_rule rule_file="migration/SrrFeatureAlert.bmr"/>
+<rosbag_migration_rule rule_file="migration/SrrFeatureSwVersion.bmr"/>
+<rosbag_migration_rule rule_file="migration/SrrStatus1.bmr"/>
+<rosbag_migration_rule rule_file="migration/SrrStatus2.bmr"/>
+<rosbag_migration_rule rule_file="migration/SrrStatus3.bmr"/>
+<rosbag_migration_rule rule_file="migration/SrrStatus4.bmr"/>
+<rosbag_migration_rule rule_file="migration/SrrStatus5.bmr"/>
+<rosbag_migration_rule rule_file="migration/SrrTrack.bmr"/>
+</export>
+</package>
+-----
 demo_nodes_cpp: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -6624,6 +6989,38 @@ depthimage_to_laserscan: <?xml version="1.0" ?>
 <test_depend>ament_cmake_gtest</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+derived_object_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>derived_object_msgs</name>
+<description>Abstracted Messages from Perception Modalities</description>
+<maintainer email="software@autonomoustuff.com">AutonomouStuff Software Development Team</maintainer>
+<license>MIT</license>
+<url type="website">http://wiki.ros.org/derived_object_msgs</url>
+<url type="repository">https://github.com/astuff/astuff_sensor_msgs</url>
+<url type="bugtracker">https://github.com/astuff/astuff_sensor_msgs/issues</url>
+<author email="dstanek@autonomoustuff.com">Daniel Stanek</author>
+<author email="jwhitley@autonomoustuff.com">Josh Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>geometry_msgs</depend>
+<depend>shape_msgs</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -8158,6 +8555,33 @@ eigenpy: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+eiquadprog: <?xml version="1.0" ?>
+<package format="3">
+<name>eiquadprog</name>
+<description>Eiquadprog a QP solver using active sets</description>
+<maintainer email="ostasse@laas.fr">Olivier Stasse</maintainer>
+<license>LGPLv3</license>
+<url>git@github.com:stack-of-tasks/eiquadprog.git</url>
+<author>Gabriele Buondonno</author>
+<author>Andrea Del Prete</author>
+<author>Luca Di Gaspero</author>
+<author>Angelo Furfaro</author>
+<author>Benjamin Stephens</author>
+<author>Gael Guennebaud</author>
+<build_depend>git</build_depend>
+<build_depend>doxygen</build_depend>
+<exec_depend condition="$ROS_VERSION == 1">catkin</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">ament_cmake</exec_depend>
+<depend>boost</depend>
+<depend>eigen</depend>
+<depend>graphviz</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
 example_interfaces: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -9082,6 +9506,35 @@ etc.</description>
 </export>
 </package>
 -----
+ibeo_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>ibeo_msgs</name>
+<description>The ibeo_msgs package</description>
+<maintainer email="support@autonomoustuff.com">AutonomouStuff Software Team</maintainer>
+<license>MIT</license>
+<url type="website">http://wiki.ros.org/kartech_linear_actuator_msgs</url>
+<url type="repository">https://github.com/astuff/astuff_sensor_msgs</url>
+<url type="bugtracker">https://github.com/astuff/astuff_sensor_msgs/issues</url>
+<author email="jwhitley@autonomoustuff.com">Joshua Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
 ifm3d_core: <?xml version="1.0" ?>
 <package format="2">
 <name>ifm3d_core</name>
@@ -9546,6 +9999,35 @@ which contains the current state of each one of the joystick's buttons and axes.
 </export>
 </package>
 -----
+kartech_linear_actuator_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>kartech_linear_actuator_msgs</name>
+<description>The kartech_linear_actuator_msgs package</description>
+<maintainer email="support@autonomoustuff.com">AutonomouStuff Software Team</maintainer>
+<license>MIT</license>
+<url type="website">http://wiki.ros.org/kartech_linear_actuator_msgs</url>
+<url type="repository">https://github.com/astuff/astuff_sensor_msgs</url>
+<url type="bugtracker">https://github.com/astuff/astuff_sensor_msgs/issues</url>
+<author email="jwhitley@autonomoustuff.com">Joshua Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
 kdl_parser: <?xml version="1.0" ?>
 <package format="2">
 <name>kdl_parser</name>
@@ -9589,7 +10071,9 @@ kobuki_core: <?xml version="1.0" ?>
 <url type="website">https://kobuki.readthedocs.io/en/release-1.0.x/</url>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <build_depend>ecl_build</build_depend>
+<build_depend>ecl_command_line</build_depend>
 <build_depend>ecl_config</build_depend>
+<build_depend>ecl_console</build_depend>
 <build_depend>ecl_converters</build_depend>
 <build_depend>ecl_devices</build_depend>
 <build_depend>ecl_geometry</build_depend>
@@ -9597,8 +10081,9 @@ kobuki_core: <?xml version="1.0" ?>
 <build_depend>ecl_sigslots</build_depend>
 <build_depend>ecl_threads</build_depend>
 <build_depend>ecl_time</build_depend>
-<build_depend>ecl_command_line</build_depend>
+<exec_depend>ecl_command_line</exec_depend>
 <exec_depend>ecl_config</exec_depend>
+<exec_depend>ecl_console</exec_depend>
 <exec_depend>ecl_converters</exec_depend>
 <exec_depend>ecl_devices</exec_depend>
 <exec_depend>ecl_geometry</exec_depend>
@@ -9606,7 +10091,6 @@ kobuki_core: <?xml version="1.0" ?>
 <exec_depend>ecl_sigslots</exec_depend>
 <exec_depend>ecl_threads</exec_depend>
 <exec_depend>ecl_time</exec_depend>
-<exec_depend>ecl_command_line</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -10340,6 +10824,35 @@ based on the conditions that filter needs met.</description>
 <test_depend>std_msgs</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mobileye_560_660_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mobileye_560_660_msgs</name>
+<description>Message definitions for the Mobileye 560/660</description>
+<maintainer email="software@autonomoustuff.com">AutonomouStuff Software Team</maintainer>
+<license>MIT</license>
+<url type="website">http://wiki.ros.org/mobileye_560_660_msgs</url>
+<url type="repository">https://github.com/astuff/astuff_sensor_msgs</url>
+<url type="bugtracker">https://github.com/astuff/astuff_sensor_msgs/issues</url>
+<author email="jwhitley@autonomoustuff.com">Josh Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -11184,6 +11697,35 @@ navigation2: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+neobotix_usboard_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>neobotix_usboard_msgs</name>
+<description>neobotix_usboard package</description>
+<maintainer email="software@autonomoustuff.com">AutonomouStuff Software Team</maintainer>
+<license>MIT</license>
+<url type="website">http://wiki.ros.org/neobotix_usboard_msgs</url>
+<url type="repository">https://github.com/astuff/astuff_sensor_msgs</url>
+<url type="bugtracker">https://github.com/astuff/astuff_sensor_msgs/issues</url>
+<author email="srustan@autonomoustuff.com">Sam Rustan</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
 nmea_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -11443,6 +11985,38 @@ ouster_msgs: <?xml version="1.0" ?>
 <test_depend>ament_lint_auto</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+pacmod_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>pacmod_msgs</name>
+<description>Message definition files for the PACMod driver</description>
+<maintainer email="software@autonomoustuff.com">AutonomouStuff Software Team</maintainer>
+<license>MIT</license>
+<url type="website">http://wiki.ros.org/pacmod_msgs</url>
+<url type="repository">https://github.com/astuff/astuff_sensor_msgs</url>
+<url type="bugtracker">https://github.com/astuff/astuff_sensor_msgs/issues</url>
+<author email="jwhitley@autonomoustuff.com">Josh Whitley</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<build_depend>ros_environment</build_depend>
+<depend condition="$ROS_VERSION == 1">rosbag_migration_rule</depend>
+<depend condition="$ROS_VERSION == 2">builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+<rosbag_migration_rule rule_file="migration/SteeringPIDRpt1.bmr"/>
+<rosbag_migration_rule rule_file="migration/SteeringPIDRpt2.bmr"/>
 </export>
 </package>
 -----
@@ -12443,6 +13017,53 @@ quaternions using boost libraries. The constructor of the wrapper is guaranteed 
 <exec_depend>boost</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rc_dynamics_api: <?xml version="1.0" ?>
+<package format="2">
+<name>rc_dynamics_api</name>
+<description>The rc_dynamics_api provides an API for easy handling of the dynamic-state data streams provided by Roboception's stereo camera with self-localization. See http://rc-visard.com Dynamic-state estimates of the rc_visard relate to its self-localization and ego-motion estimation. These states refer to rc_visard's current pose,
+velocity,
+or acceleration and are published on demand via several data streams. For a complete list and descriptions of these dynamics states and the respective data streams please refer to rc_visard's user manual.</description>
+<maintainer email="felix.ruess@roboception.de">Felix Ruess</maintainer>
+<author email="heiko.hirschmueller@roboception.de">Heiko Hirschmueller</author>
+<author email="christian.emmerich@roboception.de">Christian Emmerich</author>
+<author email="felix.endres@roboception.de">Felix Endres</author>
+<license>BSD</license>
+<url type="website">http://rc-visard.com</url>
+<url type="repository">https://github.com/roboception/rc_dynamics_api</url>
+<url type="bugtracker">https://github.com/roboception/rc_dynamics_api/issues</url>
+<buildtool_depend>cmake</buildtool_depend>
+<build_depend>protobuf-dev</build_depend>
+<exec_depend>protobuf</exec_depend>
+<depend>curl</depend>
+<doc_depend>doxygen</doc_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+rc_genicam_api: <?xml version="1.0" ?>
+<package format="2">
+<name>rc_genicam_api</name>
+<description>GenICam/GigE Vision Convenience Layer. This package combines the Roboception convenience layer for images with the GenICam reference implementation and a GigE Vision transport layer. It is a self contained package that permits configuration and image streaming of GenICam / GigE Vision 2.0 compatible cameras like the Roboception rc_visard. This package also provides some tools that can be called from the command line for discovering cameras,
+changing their configuration and streaming images. Although the tools are meant to be useful when working in a shell or in a script,
+their main purpose is to serve as example on how to use the API for reading and setting parameters,
+streaming and synchronizing images. See LICENSE.md for licensing terms of the different parts.</description>
+<maintainer email="felix.ruess@roboception.de">Felix Ruess</maintainer>
+<maintainer email="heiko.hirschmueller@roboception.de">Heiko Hirschmueller</maintainer>
+<author email="heiko.hirschmueller@roboception.de">Heiko Hirschmueller</author>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/rc_genicam_api</url>
+<url type="repository">https://github.com/roboception/rc_genicam_api</url>
+<url type="bugtracker">https://github.com/roboception/rc_genicam_api/issues</url>
+<buildtool_depend>cmake</buildtool_depend>
+<depend>libpng-dev</depend>
+<depend>libusb-1.0</depend>
+<doc_depend>doxygen</doc_depend>
+<export>
+<build_type>cmake</build_type>
 </export>
 </package>
 -----
@@ -15319,7 +15940,7 @@ rqt_graph: <?xml version="1.0" ?>
 <author>Dirk Thomas</author>
 <exec_depend>ament_index_python</exec_depend>
 <exec_depend>python_qt_binding</exec_depend>
-<exec_depend>qt_dotgraph</exec_depend>
+<exec_depend version_gte="1.1.2">qt_dotgraph</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
 <export>
@@ -18041,8 +18662,11 @@ webots_ros2: <?xml version="1.0" ?>
 <exec_depend>builtin_interfaces</exec_depend>
 <exec_depend>webots_ros2_abb</exec_depend>
 <exec_depend>webots_ros2_core</exec_depend>
+<exec_depend>webots_ros2_demos</exec_depend>
+<exec_depend>webots_ros2_epuck</exec_depend>
 <exec_depend>webots_ros2_examples</exec_depend>
 <exec_depend>webots_ros2_importer</exec_depend>
+<exec_depend>webots_ros2_msgs</exec_depend>
 <exec_depend>webots_ros2_tiago</exec_depend>
 <exec_depend>webots_ros2_universal_robot</exec_depend>
 <test_depend>ament_copyright</test_depend>
@@ -18095,6 +18719,7 @@ webots_ros2_core: <?xml version="1.0" ?>
 <exec_depend>std_msgs</exec_depend>
 <exec_depend>builtin_interfaces</exec_depend>
 <exec_depend>webots_ros2_msgs</exec_depend>
+<exec_depend>python3-tk</exec_depend>
 <test_depend>ament_copyright</test_depend>
 <test_depend>ament_flake8</test_depend>
 <test_depend>ament_pep257</test_depend>
@@ -18124,25 +18749,6 @@ webots_ros2_demos: <?xml version="1.0" ?>
 <test_depend>ament_flake8</test_depend>
 <test_depend>ament_pep257</test_depend>
 <test_depend>python3-pytest</test_depend>
-<export>
-<build_type>ament_python</build_type>
-</export>
-</package>
------
-webots_ros2_desktop: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="2">
-<name>webots_ros2_desktop</name>
-<description>Interface between Webots and ROS2 including the Webots package</description>
-<maintainer email="support@cyberbotics.com">Cyberbotics</maintainer>
-<license>Apache License 2.0</license>
-<url type="website">http://wiki.ros.org/webots_ros2</url>
-<url type="bugtracker">https://github.com/cyberbotics/webots_ros2/issues</url>
-<url type="repository">https://github.com/cyberbotics/webots_ros2</url>
-<exec_depend>rclpy</exec_depend>
-<exec_depend>std_msgs</exec_depend>
-<exec_depend>builtin_interfaces</exec_depend>
-<exec_depend>webots_ros2</exec_depend>
 <export>
 <build_type>ament_python</build_type>
 </export>
