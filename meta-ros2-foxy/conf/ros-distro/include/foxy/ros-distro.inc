@@ -348,3 +348,11 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3 = "python3"
 # Used by:
 # generated-recipes/grbl-ros/grbl-ros_0.2.1-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-serial = "python3-pyserial"
+
+# Used by:
+# generated-recipes/rc-genicam-api/rc-genicam-api_2.4.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev = "libpng"
+
+# Used by:
+# generated-recipes/rc-genicam-api/rc-genicam-api_2.4.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_protobuf = "protobuf"
