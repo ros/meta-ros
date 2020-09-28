@@ -79,6 +79,20 @@ apr:
     slackpkg:
       packages: [apr, apr-util]
   ubuntu: [libapr1-dev, libaprutil1-dev]
+aravis:
+  debian: [libaravis-0.6-0]
+  gentoo: [media-video/aravis]
+  ubuntu:
+    '*': [libaravis-0.6-0]
+    bionic: null
+    xenial: null
+aravis-dev:
+  debian: [libaravis-dev]
+  gentoo: [media-video/aravis]
+  ubuntu:
+    '*': [libaravis-dev]
+    bionic: null
+    xenial: null
 arduino-core:
   arch: [arduino]
   debian: [arduino-core]
@@ -1087,6 +1101,12 @@ gfortran:
   fedora: [gcc-gfortran]
   gentoo: ['sys-devel/gcc[fortran]']
   ubuntu: [gfortran]
+ghc:
+  arch: [ghc]
+  debian: [ghc]
+  fedora: [ghc]
+  gentoo: ['dev-lang/ghc']
+  ubuntu: [ghc]
 gifsicle:
   arch: [gifsicle]
   debian: [gifsicle]
@@ -3058,6 +3078,16 @@ libnl-dev:
   fedora: [libnl-devel]
   gentoo: [dev-libs/libnl]
   ubuntu: [libnl-dev]
+libnlopt-cxx-dev:
+  debian:
+    '*': [libnlopt-cxx-dev]
+    stretch: null
+  fedora: [NLopt-devel]
+  gentoo: [sci-libs/nlopt]
+  ubuntu:
+    '*': [libnlopt-cxx-dev]
+    bionic: null
+    xenial: null
 libnlopt-dev:
   debian: [libnlopt-dev]
   fedora: [NLopt-devel]
@@ -4988,10 +5018,17 @@ nkf:
   rhel: [nkf]
   ubuntu: [nkf]
 nlohmann-json-dev:
-  debian: [nlohmann-json-dev]
+  debian:
+    bullseye: [nlohmann-json3-dev]
+    buster: [nlohmann-json3-dev]
+    jessie: null
+    sid: [nlohmann-json3-dev]
+    stretch: [nlohmann-json-dev]
   gentoo: [dev-cpp/nlohmann_json]
   ubuntu:
-    '*': [nlohmann-json-dev]
+    bionic: [nlohmann-json-dev]
+    focal: [nlohmann-json3-dev]
+    groovy: [nlohmann-json3-dev]
     xenial: null
 nmap:
   archlinux: [nmap]
