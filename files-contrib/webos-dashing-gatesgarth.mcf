@@ -66,7 +66,6 @@ Layers = [
 # BblayersConfExtraLines is a list of strings to be appended to the generated
 # conf/bblayers.conf .
 BblayersConfExtraLines = ['MCF_DISTRO ?= "' + Distribution + '"',
-                          'ROS_DISTRO ?= "dashing"',
                           'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
                           'MCF_WEBOS_BUILD_NUMBER = "' + webOSOSEBuildNumber + '"',
                          ]
