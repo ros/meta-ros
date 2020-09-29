@@ -73,5 +73,4 @@ BblayersConfExtraLines = ['MCF_DISTRO ?= "' + Distribution + '"',
                           'ROS_DISTRO ?= "melodic"',
                           'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
                           'MCF_OPENEMBEDDED_VERSION ?= "' + OpenEmbeddedVersion + '"',
-                          'MCF_OE_RELEASE_SERIES ?= "gatesgarth"',
                          ]

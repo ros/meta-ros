@@ -84,5 +84,4 @@ BblayersConfExtraLines = ['MCF_DISTRO ?= "' + Distribution + '"',
                           'ROS_DISTRO ?= "foxy"',
                           'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
                           'MCF_WEBOS_BUILD_NUMBER = "' + webOSOSEBuildNumber + '"',
-                          'MCF_OE_RELEASE_SERIES ?= "dunfell"',
                          ]
