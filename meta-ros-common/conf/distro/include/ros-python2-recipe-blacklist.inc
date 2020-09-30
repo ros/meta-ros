@@ -1,5 +1,5 @@
 # Blacklist python2 and all recipes depending on it
-ROS_WORLD_SKIP_GROUPS += "python2"
+# when ROS_WORLD_SKIP_GROUPS contains "python2"
 
 PNBLACKLIST[python] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'ROS 2 is Python 3 only', '', d)}"
 
