@@ -1,6 +1,6 @@
 # OE DISTRO configuration settings common to both ROS 1 and ROS 2 distros.
 #
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 DISTRO_NAME = "${ROS_OE_DISTRO_NAME} with OpenEmbedded Linux"
 DISTRO_CODENAME = "${ROS_DISTRO}"
@@ -22,3 +22,5 @@ ROS_CONNECTION_MANAGER ??= "connman"
 IMAGE_INSTALL_append = " \
     ${ROS_CONNECTION_MANAGER} \
 "
+
+require conf/distro/include/ros-python2-recipe-blacklist.inc
