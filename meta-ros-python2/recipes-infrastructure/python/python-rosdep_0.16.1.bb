@@ -1,4 +1,4 @@
-require python-netifaces.inc
+require recipes-infrastructure/python/python-rosdep.inc
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 

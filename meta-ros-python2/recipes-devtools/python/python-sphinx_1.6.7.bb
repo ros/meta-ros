@@ -1,6 +1,6 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
-require python-gnupg.inc
+require recipes-devtools/python/python-sphinx.inc
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 

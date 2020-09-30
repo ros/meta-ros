@@ -1,6 +1,6 @@
-require python-empy.inc
+require recipes-infrastructure/python/python-catkin-pkg.inc
 
-inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "distutils", "", d)}
+inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 
 python() {
     if 'meta-python2' not in d.getVar('BBFILE_COLLECTIONS').split():

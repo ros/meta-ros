@@ -1,4 +1,4 @@
-require python-jmespath.inc
+require recipes-imported-iot-cloud/python/python-jmespath.inc
 inherit pypi update-alternatives
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}

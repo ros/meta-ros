@@ -1,4 +1,6 @@
-require python-rospkg.inc
+# Copyright (c) 2019-2020 LG Electronics, Inc.
+
+require recipes-devtools/python/python-gnupg.inc
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 

@@ -1,4 +1,4 @@
-require python-paramiko.inc
+require recipes-imported-iot-cloud/python/python-botocore.inc
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 
