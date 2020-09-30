@@ -1,4 +1,4 @@
-require python-defusedxml.inc
+require recipes-devtools/python/python-netifaces.inc
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 

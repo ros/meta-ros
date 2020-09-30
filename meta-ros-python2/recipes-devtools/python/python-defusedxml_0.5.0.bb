@@ -1,5 +1,4 @@
-inherit pypi
-require python-pydot.inc
+require recipes-devtools/python/python-defusedxml.inc
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 

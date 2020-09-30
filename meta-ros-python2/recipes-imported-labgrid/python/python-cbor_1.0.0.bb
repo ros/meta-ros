@@ -1,4 +1,4 @@
-require python-autobahn.inc
+require recipes-imported-labgrid/python/python-cbor.inc
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 
@@ -7,5 +7,5 @@ python() {
         raise bb.parse.SkipRecipe('Requires meta-python2 to be present.')
 }
 
-SRC_URI[md5sum] = "f8c8d74bf73644719b751e6fb11dc4a3"
-SRC_URI[sha256sum] = "8cf74132a18da149c5ea3dcbb5e055f6f4fe5a0238b33258d29e89bd276a8078"
+SRC_URI[md5sum] = "22b03b59784fd78cb6c27aa498af0db6"
+SRC_URI[sha256sum] = "13225a262ddf5615cbd9fd55a76a0d53069d18b07d2e9f19c39e6acb8609bbb6"

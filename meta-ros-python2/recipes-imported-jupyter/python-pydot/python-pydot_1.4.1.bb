@@ -1,4 +1,5 @@
-require python-botocore.inc
+inherit pypi
+require recipes-imported-jupyter/python-pydot/python-pydot.inc
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 

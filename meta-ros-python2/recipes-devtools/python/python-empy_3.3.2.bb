@@ -1,6 +1,6 @@
-include python-pyproj.inc
+require recipes-devtools/python/python-empy.inc
 
-inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
+inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "distutils", "", d)}
 
 python() {
     if 'meta-python2' not in d.getVar('BBFILE_COLLECTIONS').split():

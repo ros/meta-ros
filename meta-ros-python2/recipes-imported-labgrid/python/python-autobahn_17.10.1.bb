@@ -1,4 +1,4 @@
-require python-py-ubjson.inc
+require recipes-imported-labgrid/python/python-autobahn.inc
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 
@@ -7,5 +7,5 @@ python() {
         raise bb.parse.SkipRecipe('Requires meta-python2 to be present.')
 }
 
-SRC_URI[md5sum] = "ce17e26420f663edcd4962957dbcaa33"
-SRC_URI[sha256sum] = "81784e64936c12e218afc49ff4fb90702f298ac16848971d9570c87595860762"
+SRC_URI[md5sum] = "f8c8d74bf73644719b751e6fb11dc4a3"
+SRC_URI[sha256sum] = "8cf74132a18da149c5ea3dcbb5e055f6f4fe5a0238b33258d29e89bd276a8078"
