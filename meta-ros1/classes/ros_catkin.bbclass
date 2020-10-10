@@ -6,7 +6,7 @@
 inherit cmake
 inherit ros_faulty_solibs
 # ROS_PYTHON_VERSION is set in generated/superflore-ros-distro.inc, ie, it will never be unset here.
-inherit ${@'distutils3-base' if d.getVar('ROS_PYTHON_VERSION', True) == '3' else 'distutils-base'}
+inherit ${@'distutils3-base' if d.getVar('ROS_PYTHON_VERSION') == '3' else 'distutils-base'}
 
 # Used to disable exporting LD_LIBRARY_PATH when building with catkin
 # because on builder with the same architecture as target MACHINE it
