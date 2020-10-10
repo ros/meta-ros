@@ -48,11 +48,11 @@ def map_extra_options(a, d):
 
 do_compile () {
         oe_runmake HOSTCC="${BUILD_CC}"                                         \
-                                CC="${TARGET_PREFIX}gcc ${TOOLCHAIN_OPTIONS} ${@map_extra_options(d.getVar('TARGET_ARCH', True), d)}" \
+                                CC="${TARGET_PREFIX}gcc ${TOOLCHAIN_OPTIONS} ${@map_extra_options(d.getVar('TARGET_ARCH'), d)}" \
                                 PREFIX=${exec_prefix} \
                                 CROSS_SUFFIX=${HOST_PREFIX} \
-                                ONLY_CBLAS=1 BINARY='${@map_bits(d.getVar('TARGET_ARCH', True), d)}' \
-                                TARGET='${@map_arch(d.getVar('TARGET_ARCH', True), d)}'
+                                ONLY_CBLAS=1 BINARY='${@map_bits(d.getVar('TARGET_ARCH'), d)}' \
+                                TARGET='${@map_arch(d.getVar('TARGET_ARCH'), d)}'
 }
 
 do_install() {
@@ -60,8 +60,8 @@ do_install() {
                                 CC="${TARGET_PREFIX}gcc ${TOOLCHAIN_OPTIONS}" \
                                 PREFIX=${exec_prefix} \
                                 CROSS_SUFFIX=${HOST_PREFIX} \
-                                ONLY_CBLAS=1 BINARY='${@map_bits(d.getVar('TARGET_ARCH', True), d)}' \
-                                TARGET='${@map_arch(d.getVar('TARGET_ARCH', True), d)}' \
+                                ONLY_CBLAS=1 BINARY='${@map_bits(d.getVar('TARGET_ARCH'), d)}' \
+                                TARGET='${@map_arch(d.getVar('TARGET_ARCH'), d)}' \
                                 DESTDIR=${D} \
                                 install
         rm -rf ${D}${bindir}

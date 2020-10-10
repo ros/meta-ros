@@ -8,9 +8,9 @@ export ROS_PYTHON_VERSION
 
 # Ensure that PYTHON_PN is always set -- it's used to form dependency names. NB. ROS_PYTHON_VERSION is set
 # in generated/superflore-ros-distro.inc, ie, it will never be unset when we get here.
-PYTHON_PN ??= "${@'python3' if d.getVar('ROS_PYTHON_VERSION', True) == '3' else 'python'}"
+PYTHON_PN ??= "${@'python3' if d.getVar('ROS_PYTHON_VERSION') == '3' else 'python'}"
 
-ROS_BPN ??= "${@d.getVar('BPN', True).replace('-', '_')}"
+ROS_BPN ??= "${@d.getVar('BPN').replace('-', '_')}"
 ROS_CN ??= "${ROS_BPN}"
 ROS_SPN ??= "${ROS_BPN}"
 ROS_SP ??= "${ROS_SPN}-${PV}"
