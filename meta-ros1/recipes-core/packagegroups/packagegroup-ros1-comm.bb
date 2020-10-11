@@ -2,6 +2,7 @@ DESCRIPTION = "ros1-comm package group"
 LICENSE = "MIT"
 
 inherit packagegroup
+inherit ros_distro_${ROS_DISTRO}
 
 PACKAGES = "${PN}"
 
