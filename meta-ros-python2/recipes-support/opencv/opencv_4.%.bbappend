@@ -1,4 +1,6 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
+
+ROS_PYTHON_VERSION ?= "2"
 
 # Fix up PACKAGECONFIG if Python 2 is being used.
 PACKAGECONFIG_prepend = "${@'python2 ' if d.getVar('ROS_PYTHON_VERSION') == '2' else ''}"
