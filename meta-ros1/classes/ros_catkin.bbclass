@@ -1,11 +1,13 @@
 #
 # Copyright (c) 2013 Stefan Herbrechtsmeier, Bielefeld University
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 #
 
 inherit cmake
 inherit ros_faulty_solibs
-# ROS_PYTHON_VERSION is set in generated/superflore-ros-distro.inc, ie, it will never be unset here.
+# ROS_PYTHON_VERSION is usually set in generated/superflore-ros-distro.inc, but
+# in case superflore-ros-distro.inc isn't included default to 3
+ROS_PYTHON_VERSION ?= "3"
 inherit ${@'distutils3-base' if d.getVar('ROS_PYTHON_VERSION') == '3' else 'distutils-base'}
 
 # Used to disable exporting LD_LIBRARY_PATH when building with catkin

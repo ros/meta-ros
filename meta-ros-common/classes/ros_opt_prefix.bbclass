@@ -1,6 +1,6 @@
 #
 # Copyright (c) 2013 Stefan Herbrechtsmeier, Bielefeld University
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 #
 
 ros_prefix ?= "${base_prefix}/opt/ros/${ROS_DISTRO}"
@@ -19,7 +19,9 @@ PREPROCESS_RELOCATE_DIRS += " \
     ${ros_libdir} \
 "
 
-# ROS_PYTHON_VERSION is set in generated/superflore-ros-distro.inc, ie, it will never be unset here.
+# ROS_PYTHON_VERSION is usually set in generated/superflore-ros-distro.inc, but
+# in case superflore-ros-distro.inc isn't included default to 3
+ROS_PYTHON_VERSION ?= "3"
 inherit ${@'python3-dir' if d.getVar('ROS_PYTHON_VERSION') == '3' else 'python-dir'}
 
 PKG_CONFIG_PATH .= ":${PKG_CONFIG_DIR}:${STAGING_DIR_HOST}${ros_libdir}/pkgconfig:${STAGING_DATADIR}/pkgconfig"
