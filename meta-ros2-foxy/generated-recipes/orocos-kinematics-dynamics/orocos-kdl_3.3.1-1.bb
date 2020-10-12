@@ -10,7 +10,7 @@ AUTHOR = "Steven! Ragnarök <steven@openrobotics.org>"
 ROS_AUTHOR = "Ruben Smits"
 HOMEPAGE = "http://wiki.ros.org/orocos_kdl"
 SECTION = "devel"
-LICENSE = "LGPL"
+LICENSE = "LGPL-2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "orocos_kinematics_dynamics"

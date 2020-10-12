@@ -9,7 +9,7 @@ DESCRIPTION = "Message/Service definitions specifically for the dwb_core"
 AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD-3-Clause"
+LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=4633480cdd27d7906aaf3ef4b72014b2"
 
 ROS_CN = "navigation2"

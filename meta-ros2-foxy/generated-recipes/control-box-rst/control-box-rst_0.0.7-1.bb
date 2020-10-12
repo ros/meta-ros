@@ -10,7 +10,7 @@ AUTHOR = "Christoph Rösmann <christoph.roesmann@tu-dortmund.de>"
 ROS_AUTHOR = "Christoph Rösmann <christoph.roesmann@tu-dortmund.de>"
 HOMEPAGE = "http://wiki.ros.org/control_box_rst"
 SECTION = "devel"
-LICENSE = "GPL-3.0-only"
+LICENSE = "GPL-3"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=1e7b3bcc2e271699c77c769685058cbe"
 
 ROS_CN = "control_box_rst"
