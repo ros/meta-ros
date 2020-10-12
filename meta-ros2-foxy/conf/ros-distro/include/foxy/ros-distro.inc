@@ -126,6 +126,16 @@ ROS_BUILD_TYPE_pn-derived-object-msgs = "ament_cmake"
 ROS_BUILD_TYPE_pn-astuff-sensor-msgs = "ament_cmake"
 ROS_BUILD_TYPE_pn-pacmod-msgs = "ament_cmake"
 ROS_BUILD_TYPE_pn-neobotix-usboard-msgs = "ament_cmake"
+ROS_BUILD_TYPE_pn-lanelet2-projection = "ament_cmake"
+ROS_BUILD_TYPE_pn-lanelet2 = "ament_cmake"
+ROS_BUILD_TYPE_pn-lanelet2-maps = "ament_cmake"
+ROS_BUILD_TYPE_pn-lanelet2-validation = "ament_cmake"
+ROS_BUILD_TYPE_pn-lanelet2-io = "ament_cmake"
+ROS_BUILD_TYPE_pn-lanelet2-python = "ament_cmake"
+ROS_BUILD_TYPE_pn-lanelet2-traffic-rules = "ament_cmake"
+ROS_BUILD_TYPE_pn-lanelet2-core = "ament_cmake"
+ROS_BUILD_TYPE_pn-lanelet2-examples = "ament_cmake"
+ROS_BUILD_TYPE_pn-lanelet2-routing = "ament_cmake"
 
 # Used by:
 # generated-recipes/spdlog-vendor/spdlog-vendor_1.1.1-1.bb
