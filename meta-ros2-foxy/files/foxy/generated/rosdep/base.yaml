@@ -225,6 +225,12 @@ avrdude:
   fedora: [avrdude]
   gentoo: [dev-embedded/avrdude]
   ubuntu: [avrdude]
+awscli:
+  arch: [aws-cli]
+  debian: [awscli]
+  fedora: [awscli]
+  gentoo: [dev-python/awscli]
+  ubuntu: [awscli]
 babeltrace:
   debian: [babeltrace]
   fedora: [babeltrace]
@@ -843,6 +849,12 @@ ffmpeg2theora:
   fedora: [ffmpeg2theora]
   gentoo: [media-video/ffmpeg2theora]
   ubuntu: [ffmpeg2theora]
+filezilla:
+  arch: [filezilla]
+  debian: [filezilla]
+  fedora: [filezilla]
+  gentoo: [net-ftp/filezilla]
+  ubuntu: [filezilla]
 flac:
   arch: [flac]
   debian: [flac]
@@ -1193,6 +1205,12 @@ gperftools:
   fedora: [gperftools, gperftools-devel]
   gentoo: [dev-util/gperf]
   ubuntu: [google-perftools, libgoogle-perftools-dev]
+gphoto2:
+  arch: [gphoto2]
+  debian: [gphoto2]
+  fedora: [gphoto2]
+  gentoo: [media-gfx/gphoto2]
+  ubuntu: [gphoto2]
 gpsd:
   debian: [gpsd]
   fedora: [gpsd]
@@ -4083,6 +4101,7 @@ libtiff-dev:
   ubuntu:
     artful: [libtiff5-dev]
     bionic: [libtiff5-dev]
+    focal: [libtiff-dev]
     lucid: [libtiff4-dev]
     maverick: [libtiff4-dev]
     natty: [libtiff4-dev]
@@ -5447,6 +5466,9 @@ qhull-bin:
   fedora: [qhull]
   gentoo: [media-libs/qhull]
   ubuntu: [qhull-bin]
+qml-module-qtgraphicaleffects:
+  debian: [qml-module-qtgraphicaleffects]
+  ubuntu: [qml-module-qtgraphicaleffects]
 qml-module-qtmultimedia:
   debian: [qml-module-qtmultimedia]
   ubuntu: [qml-module-qtmultimedia]
@@ -6290,6 +6312,15 @@ wireless-tools:
   fedora: [wireless-tools]
   gentoo: [net-wireless/wireless-tools]
   ubuntu: [wireless-tools]
+wireshark:
+  debian: [wireshark]
+  fedora: [wireshark]
+  gentoo: [net-analyzer/wireshark]
+  ubuntu: [wireshark]
+wireshark-common:
+  debian: [wireshark-common]
+  fedora: [wireshark-cli]
+  ubuntu: [wireshark-common]
 wkhtmltopdf:
   arch: [wkhtmltopdf]
   debian: [wkhtmltopdf]
@@ -6505,12 +6536,7 @@ yamllint:
     stretch: [yamllint]
   fedora: [yamllint]
   gentoo: [dev-util/yamllint]
-  ubuntu:
-    artful: [yamllint]
-    bionic: [yamllint]
-    xenial: [yamllint]
-    yakkety: [yamllint]
-    zesty: [yamllint]
+  ubuntu: [yamllint]
 yasm:
   arch: [yasm]
   debian: [yasm]
