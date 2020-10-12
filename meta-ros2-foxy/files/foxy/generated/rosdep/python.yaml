@@ -2739,6 +2739,7 @@ python-numpy:
   ubuntu:
     artful: [python-numpy]
     bionic: [python-numpy]
+    focal: [python-numpy]
     lucid: [python-numpy]
     maverick: [python-numpy]
     natty: [python-numpy]
@@ -3203,24 +3204,8 @@ python-psutil:
   rhel: [python2-psutil]
   slackware: [psutil]
   ubuntu:
-    artful: [python-psutil]
-    bionic: [python-psutil]
-    lucid: [python-psutil]
-    maverick: [python-psutil]
-    natty: [python-psutil]
-    oneiric: [python-psutil]
-    precise: [python-psutil]
-    quantal: [python-psutil]
-    raring: [python-psutil]
-    saucy: [python-psutil]
-    trusty: [python-psutil]
+    '*': [python-psutil]
     trusty_python3: [python3-psutil]
-    utopic: [python-psutil]
-    vivid: [python-psutil]
-    wily: [python-psutil]
-    xenial: [python-psutil]
-    yakkety: [python-psutil]
-    zesty: [python-psutil]
 python-psycopg2:
   debian: [python-psycopg2]
   fedora: [python-psycopg2]
@@ -3592,6 +3577,16 @@ python-pyside.qtuitools:
     utopic_python3: [python3-pyside.qtuitools]
     vivid: [python-pyside.qtuitools]
     vivid_python3: [python3-pyside.qtuitools]
+python-pysimplegui27-pip:
+  debian:
+    pip:
+      packages: [pysimplegui27]
+  fedora:
+    pip:
+      packages: [pysimplegui27]
+  ubuntu:
+    pip:
+      packages: [pysimplegui27]
 python-pysnmp:
   debian: [python-pysnmp4]
   fedora: [pysnmp]
@@ -4915,6 +4910,16 @@ python-trimesh-pip:
   ubuntu:
     pip:
       packages: [trimesh]
+python-twilio-pip:
+  debian:
+    pip:
+      packages: [twilio]
+  fedora:
+    pip:
+      packages: [twilio]
+  ubuntu:
+    pip:
+      packages: [twilio]
 python-twisted-bin:
   arch: [python2-twisted]
   debian: [python-twisted-bin]
@@ -5204,6 +5209,9 @@ python-wheel:
   fedora: [python-wheel]
   gentoo: [dev-python/wheel]
   ubuntu: [python-wheel]
+python-whichcraft:
+  debian: [python-whichcraft]
+  ubuntu: [python-whichcraft]
 python-wrapt:
   debian: [python-wrapt]
   fedora: [python2-wrapt]
@@ -5493,7 +5501,6 @@ python3-can:
 python3-catkin-lint:
   debian:
     '*': [python3-catkin-lint]
-    buster: null
     jessie: null
     stretch: null
   fedora: [python3-catkin_lint]
@@ -5637,6 +5644,12 @@ python3-docker:
   rhel:
     '7': ['python%{python3_pkgversion}-docker']
   ubuntu: [python3-docker]
+python3-docopt:
+  arch: [python-docopt]
+  debian: [python3-docopt]
+  fedora: [python3-docopt]
+  gentoo: [dev-python/docopt]
+  ubuntu: [python3-docopt]
 python3-docutils:
   arch: [python-docutils]
   debian: [python3-docutils]
@@ -5664,6 +5677,22 @@ python3-events-pip:
   ubuntu:
     pip:
       packages: [Events]
+python3-fastnumbers-pip:
+  arch:
+    pip:
+      packages: [fastnumbers]
+  debian:
+    pip:
+      packages: [fastnumbers]
+  fedora:
+    pip:
+      packages: [fastnumbers]
+  osx:
+    pip:
+      packages: [fastnumbers]
+  ubuntu:
+    pip:
+      packages: [fastnumbers]
 python3-filterpy-pip:
   debian:
     pip:
@@ -5780,6 +5809,11 @@ python3-grpcio:
     '*': [python3-grpcio]
     bionic: null
     xenial: null
+python3-h5py:
+  debian: [python3-h5py]
+  fedora: [python3-h5py]
+  gentoo: [dev-python/h5py]
+  ubuntu: [python3-h5py]
 python3-httplib2:
   debian: [python3-httplib2]
   fedora: [python3-httplib2]
@@ -6657,6 +6691,10 @@ python3-trimesh-pip:
   ubuntu:
     pip:
       packages: [trimesh]
+python3-twilio:
+  debian: [python3-twilio]
+  fedora: [python3-twilio]
+  ubuntu: [python3-twilio]
 python3-twisted:
   arch: [python-twisted]
   debian: [python3-twisted]
@@ -6721,6 +6759,12 @@ python3-west-pip:
   ubuntu:
     pip:
       packages: [west]
+python3-whichcraft:
+  arch: [python-whichcraft]
+  debian: [python3-whichcraft]
+  fedora: [python3-whichcraft]
+  gentoo: [dev-python/whichcraft]
+  ubuntu: [python3-whichcraft]
 python3-wxgtk4.0:
   debian: [python3-wxgtk4.0]
   fedora: [python3-wxpython4]
