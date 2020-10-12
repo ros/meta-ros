@@ -69,6 +69,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     realsense-ros \
     ros-ign \
     ros-ign-gazebo-demos \
+    rover-navigation \
+    rover-simulation \
+    roverrobotics-ros2 \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
@@ -100,6 +103,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-py-common \
     ros-ign \
     ros-ign-gazebo-demos \
+    rover-navigation \
+    rover-simulation \
+    roverrobotics-ros2 \
     rqt-action \
     rqt-common-plugins \
     rqt-console \
@@ -231,6 +237,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     nav2-rviz-plugins \
     ros-ign \
     ros-ign-gazebo-demos \
+    rover-navigation \
+    rover-simulation \
+    roverrobotics-ros2 \
     rviz2 \
     rviz-common \
     rviz-default-plugins \
@@ -278,4 +287,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     ros-ign-bridge \
     ros-ign-gazebo \
     ros-ign-image \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pugixml', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PUGIXML}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PUGIXML = " \
+    lanelet2 \
+    lanelet2-examples \
+    lanelet2-io \
+    lanelet2-projection \
+    lanelet2-python \
+    lanelet2-validation \
 "

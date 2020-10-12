@@ -39,6 +39,9 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     uncrustify-vendor-native \
 "
 
+# this needs google-benchmark-vendor-native but we probably don't need native version
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS_remove = "ament-cmake-google-benchmark-native"
+
 # alternative not yet supported implementation for fastrtps
 ROS_WORLD_SKIP_GROUPS += "connext"
 # alternative not yet supported implementation for fastrtps
@@ -90,6 +93,9 @@ ROS_WORLD_SKIP_GROUPS += "libqglviewer"
 
 # recipes depending on ignition-* (UNRESOLVED-ignition-math6, UNRESOLVED-ignition-msgs5, UNRESOLVED-ignition-transport8)
 ROS_WORLD_SKIP_GROUPS += "ignition"
+
+# recipes depending on pugixml
+ROS_WORLD_SKIP_GROUPS += "pugixml"
 
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
@@ -367,3 +373,14 @@ ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev = "libpng"
 # Used by:
 # generated-recipes/rc-genicam-api/rc-genicam-api_2.4.1-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_protobuf = "protobuf"
+
+# Used by:
+# generated-recipes/google-benchmark-vendor/google-benchmark-vendor_0.0.3-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_benchmark = "google-benchmark"
+
+# Used by:
+# generated-recipes/mrt-cmake-modules/mrt-cmake-modules_1.0.8-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_lcov = "lcov"
+# Needs https://lists.openembedded.org/g/openembedded-devel/message/86162
+ROS_UNRESOLVED_PLATFORM_PKG_lcov-native = "lcov-native"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-native = "python3-rospkg-native"
