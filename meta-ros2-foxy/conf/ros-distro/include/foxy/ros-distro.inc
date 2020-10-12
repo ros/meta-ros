@@ -136,6 +136,7 @@ ROS_BUILD_TYPE_pn-lanelet2-traffic-rules = "ament_cmake"
 ROS_BUILD_TYPE_pn-lanelet2-core = "ament_cmake"
 ROS_BUILD_TYPE_pn-lanelet2-examples = "ament_cmake"
 ROS_BUILD_TYPE_pn-lanelet2-routing = "ament_cmake"
+ROS_BUILD_TYPE_pn-mrt-cmake-modules = "ament_cmake"
 
 # Used by:
 # generated-recipes/spdlog-vendor/spdlog-vendor_1.1.1-1.bb
