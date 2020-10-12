@@ -74,6 +74,8 @@ RDEPENDS_${PN}_remove = "rtmros-common"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-mechanize', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_MECHANIZE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_MECHANIZE = " \
     pr2-bringup \
+    pr2-bringup-tests \
+    pr2-self-test \
     wifi-ddwrt \
 "
 
@@ -258,9 +260,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     gundam-rx78-control \
     hrpsys-ros-bridge \
     jderobot-drones \
+    leo-desktop \
     leo-viz \
     mesh-tools \
+    moose-desktop \
+    moose-viz \
+    mrp2-desktop \
+    mrp2-viz \
     pilz-status-indicator-rqt \
+    pr2-motor-diagnostic-tool \
     python-qt-binding \
     qt-gui \
     qt-gui-app \
@@ -416,8 +424,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     pilz-industrial-motion \
     pilz-robot-programming \
     pilz-trajectory-generation \
+    play-motion \
     pose-cov-ops \
+    pr2-bringup-tests \
+    pr2-calibration-launch \
+    pr2-calibration \
     pr2-moveit-config \
+    pr2-se-calibration-launch \
+    pr2-self-test \
     rc-roi-manager-gui \
     rc-visard \
     robot-body-filter \
@@ -660,6 +674,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY = " \
     jsk-visualization \
     multi-map-server \
     pgm-learner \
+    pr2-calibration-launch \
+    pr2-calibration \
+    pr2-se-calibration-launch \
     pr2eus-tutorials \
     resized-image-transport \
     uuv-control-utils \
@@ -724,17 +741,22 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     jackal-viz \
     kvh-geo-fog-3d \
     kvh-geo-fog-3d-rviz \
+    leo-desktop \
     leo-viz \
     leuze-bringup \
     leuze-description \
     leuze-ros-drivers \
     librviz-tutorial \
     mesh-tools \
+    moose-desktop \
+    moose-viz \
     moveit \
     moveit-ros \
     moveit-ros-visualization \
     moveit-setup-assistant \
     moveit-visual-tools \
+    mrp2-desktop \
+    mrp2-viz \
     neonavigation \
     neonavigation-launch \
     neonavigation-rviz-plugins \
@@ -845,6 +867,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     jsk-visualization \
     kvh-geo-fog-3d \
     kvh-geo-fog-3d-rviz \
+    leo-desktop \
     leo-viz \
     libqt-concurrent \
     libqt-core \
@@ -863,10 +886,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     mesh-tools \
     mir-gazebo \
     mir-robot \
+    moose-desktop \
+    moose-viz \
     moveit \
     moveit-ros \
     moveit-ros-visualization \
     moveit-setup-assistant \
+    mrp2-desktop \
+    mrp2-viz \
     mrpt-bridge \
     multi-map-server \
     multimaster-fkie \
@@ -884,6 +911,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     pilz-robots \
     pilz-status-indicator-rqt \
     plotjuggler \
+    pr2-motor-diagnostic-tool \
     pr2eus-tutorials \
     prbt-gazebo \
     prbt-grippers \
@@ -1103,6 +1131,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY =
     julius-ros \
     multi-map-server \
     pr2-bringup \
+    pr2-bringup-tests \
+    pr2-self-test \
     pr2eus-moveit \
     pr2eus-tutorials \
     pr2eus \
@@ -1164,6 +1194,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     hector-gazebo-thermal-camera \
     hector-gazebo-worlds \
     hector-sensors-gazebo \
+    heron-gazebo \
     husky-gazebo \
     husky-simulator \
     igvc-self-drive-description \
@@ -1178,6 +1209,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     lauv-control \
     lauv-description \
     lauv-gazebo \
+    leo-gazebo \
+    leo-simulator \
     mcmillan-airfield \
     mecanum-gazebo-plugin \
     mir-description \
@@ -1185,6 +1218,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     mir-gazebo \
     mir-navigation \
     mir-robot \
+    moose-gazebo \
+    moose-simulator \
+    mrp2-gazebo \
+    mrp2-simulator \
     nextage-gazebo \
     nmea-gps-plugin \
     open-manipulator-gazebo \
@@ -1404,6 +1441,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     pilz-industrial-motion \
     pilz-robot-programming \
     pilz-trajectory-generation \
+    play-motion \
     pr2-moveit-config \
     realsense2-camera \
     rc-visard \
@@ -1439,7 +1477,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROS_UTILS = " \
 # do_configure failures
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dccomms-ros', 'dccomms-ros' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyros-utils', 'pyros-utils' , '', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dynamic-graph-python', 'dynamic-graph-python dynamic-graph-tutorial' , '', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dynamic-graph-python', 'dynamic-graph-python dynamic-graph-tutorial sot-core' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hdf5-map-io', 'hdf5-map-io mesh-msgs-hdf5' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'jderobot-carviz', 'jderobot-carviz' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lanelet2-traffic-rules', 'lanelet2-traffic-rules lanelet2-routing' , '', d)}"
@@ -1642,14 +1680,19 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_P2OS_URDF = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pr2-description', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PR2_DESCRIPTION}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PR2_DESCRIPTION = " \
     imu-monitor \
+    joint-qualification-controllers \
     moveit-pr2 \
     pr2-apps \
     pr2-bringup \
+    pr2-bringup-tests \
+    pr2-calibration \
     pr2-calibration-controllers \
+    pr2-calibration-launch \
     pr2-common \
     pr2-controller-configuration \
     pr2-controller-manager \
     pr2-controllers \
+    pr2-counterbalance-check \
     pr2-description \
     pr2-ethercat \
     pr2-gripper-action \
@@ -1661,6 +1704,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PR2_DESCRIPTION = " \
     pr2-mechanism \
     pr2-mechanism-controllers \
     pr2-moveit-config \
+    pr2-se-calibration-launch \
+    pr2-self-test \
     pr2-teleop-general \
     pr2eus-moveit \
     pr2eus \
