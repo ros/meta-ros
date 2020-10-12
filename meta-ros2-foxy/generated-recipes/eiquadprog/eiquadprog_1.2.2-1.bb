@@ -10,7 +10,7 @@ AUTHOR = "Olivier Stasse <ostasse@laas.fr>"
 ROS_AUTHOR = "Gabriele Buondonno"
 HOMEPAGE = "git@github.com:stack-of-tasks/eiquadprog.git"
 SECTION = "devel"
-LICENSE = "LGPL-3.0-only"
+LICENSE = "LGPL-2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
 ROS_CN = "eiquadprog"

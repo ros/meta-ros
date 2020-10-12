@@ -10,7 +10,7 @@ AUTHOR = "Davide Faconti <davide.faconti@gmail.com>"
 ROS_AUTHOR = "Davide Faconti <davide.faconti@gmail.com>"
 HOMEPAGE = "https://github.com/facontidavide/PlotJuggler"
 SECTION = "devel"
-LICENSE = "LGPL-3.0-only"
+LICENSE = "LGPL-2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=406b3609bd6d5a41e48fc30c8875886f"
 
 ROS_CN = "plotjuggler"

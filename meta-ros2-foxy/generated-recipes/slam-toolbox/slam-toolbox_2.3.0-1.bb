@@ -10,7 +10,7 @@ AUTHOR = "Steve Macenski <stevenmacenski@gmail.com>"
 ROS_AUTHOR = "Steve Macenski"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL"
+LICENSE = "LGPL-2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "slam_toolbox"
