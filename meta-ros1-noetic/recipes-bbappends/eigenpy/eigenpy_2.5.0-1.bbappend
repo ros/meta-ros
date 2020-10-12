@@ -5,10 +5,6 @@ SRC_URI += "file://0001-Revert-cmake-fix-packaging-issue-on-Windows.patch \
     file://0001-Revert-cmake-fix-project-packaging.patch \
 "
 
-# in thud it incorrectly detects python dependencies
-inherit pythonnative
-DEPENDS += "python-numpy-native"
-
 do_install_append() {
     # Fix paths in .pc file
     # Libs: -L${libdir}  -leigenpy -L/jenkins/mjansa/build/ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/eigenpy/1.6.9-1-r0/recipe-sysroot/usr/lib -lboost_python37
