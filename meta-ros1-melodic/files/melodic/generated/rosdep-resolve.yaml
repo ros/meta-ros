@@ -721,8 +721,6 @@ qtdeclarative5-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev}
 qtmultimedia5-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev}
-ros_utils:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_ros_utils}
 rsync:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_rsync}
 ruby:
@@ -742,8 +740,8 @@ sshpass:
 subversion:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_subversion}
 suitesparse:
-- suitesparse-cxsparse@meta-ros
 - suitesparse-cholmod@meta-ros
+- suitesparse-cxsparse@meta-ros
 swig:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_swig}
 sysstat:
