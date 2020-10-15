@@ -12,7 +12,7 @@ Machines = ['qemux86', 'raspberrypi4']
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'zeus')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '997f0fdca')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '5707a461e')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'zeus')
@@ -67,7 +67,6 @@ Layers = [
 # BblayersConfExtraLines is a list of strings to be appended to the generated
 # conf/bblayers.conf .
 BblayersConfExtraLines = ['MCF_DISTRO ?= "' + Distribution + '"',
-                          'ROS_DISTRO ?= "melodic"',
                           'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
                           'MCF_WEBOS_BUILD_NUMBER = "' + webOSOSEBuildNumber + '"',
                          ]
