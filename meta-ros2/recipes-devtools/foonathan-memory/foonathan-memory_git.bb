@@ -14,7 +14,7 @@ SRCREV_comp = "cf13bff238397aab0d8c49b7f6263233cf8a2396"
 SRCREV_catch = "89f5f8435176aad44624442b7f1e874a513bee67"
 SRC_URI = "git://github.com/foonathan/memory.git;protocol=https;name=main \
     git://github.com/foonathan/compatibility.git;protocol=https;name=comp;destsuffix=git/cmake/comp \
-    git://github.com/catchorg/Catch2.git;protocol=https;name=catch;destsuffix=git/catch-upstream \
+    git://github.com/catchorg/Catch2.git;branch=v2.x;protocol=https;name=catch;destsuffix=git/catch-upstream \
 "
 S = "${WORKDIR}/git"
 
