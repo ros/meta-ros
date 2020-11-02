@@ -1,0 +1,60 @@
+From e0039e7e49fc0af15e041a0ee43300a8e69dd47c Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 2 Nov 2020 23:49:20 +0000
+Subject: [PATCH] CMakeLists.txt: don't reset CMAKE_CXX_FLAGS
+
+* we need CXX flags from CXX variable for cross-compilation, with --sysroot missing the build fails
+  to find all header files from sysroot:
+
+openzen-sensor/1.0.1-2-r0/git$ grep error: ../temp/log.do_compile | sort -u
+openzen-sensor/1.0.1-2-r0/git/openzen/bindings/OpenZenCSharp/OpenZen_wrap_csharp.cxx:166:10: fatal error: stdlib.h: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/communication/ConnectionNegotiator.h:14:10: fatal error: condition_variable: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/communication/ModbusCommunicator.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/communication/Modbus.h:14:10: fatal error: cstddef: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/communication/SyncedModbusCommunicator.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/components/ComponentFactoryManager.h:14:10: fatal error: memory: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/components/GnssComponent.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/components/IComponentFactory.h:14:10: fatal error: memory: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/components/ImuComponent.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/components/ImuIg1Component.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/io/can/CanManager.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/io/IIoSystem.h:14:10: fatal error: memory: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/io/interfaces/CanInterface.h:14:10: fatal error: cstdint: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/io/interfaces/posix/PosixDeviceInterface.h:14:10: fatal error: array: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/io/interfaces/TestSensorInterface.h:14:10: fatal error: array: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/io/IoManager.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/ISensorProperties.h:14:10: fatal error: cstdint: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/properties/Ig1CoreProperties.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/properties/Ig1GnssProperties.h:14:10: fatal error: unordered_map: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/properties/Ig1ImuProperties.h:14:10: fatal error: unordered_map: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/properties/LegacyCoreProperties.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/properties/LegacyImuProperties.h:14:10: fatal error: unordered_map: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/SensorClient.h:14:10: fatal error: mutex: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/Sensor.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/SensorManager.h:14:10: fatal error: atomic: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/utility/gnss/RTCM3Parser.h:14:10: fatal error: functional: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/utility/posix/PosixDll.h:14:10: fatal error: string: No such file or directory
+openzen-sensor/1.0.1-2-r0/git/openzen/src/utility/StringView.h:14:10: fatal error: algorithm: No such file or directory
+openzen-sensor/1.0.1-2-r0/recipe-sysroot-native/usr/lib/x86_64-oe-linux/gcc/x86_64-oe-linux/9.3.0/include/stdint.h:9:16: fatal error: stdint.h: No such file or directory
+openzen-sensor/1.0.1-2-r0/recipe-sysroot/opt/ros/melodic/include/ros/platform.h:37:10: fatal error: stdlib.h: No such file or directory
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 00fc723..465cbca 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 2.8.3)
+ project(openzen_sensor)
+ 
+-set(CMAKE_CXX_FLAGS "-std=c++11")
++set(CMAKE_CXX_STANDARD 11)
+ 
+ find_package(catkin REQUIRED COMPONENTS
+   roscpp
