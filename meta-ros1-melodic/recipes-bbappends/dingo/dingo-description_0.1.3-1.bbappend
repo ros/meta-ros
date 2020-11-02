@@ -1,9 +1,6 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-CMakeLists.txt-fix-build-without-catkin-testing-enab.patch"
-
-# ERROR: moose-description-0.1.0-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/moose_description/env_run contained in package moose-description requires /bin/bash, but no providers found in RDEPENDS_moose-description? [file-rdeps]
+# ERROR: dingo-description-0.1.3-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/dingo_description/env_run contained in package dingo-description requires /bin/bash, but no providers found in RDEPENDS_dingo-description? [file-rdeps]
 RDEPENDS_${PN} += "bash"
 
 # This is needed only for webOS OSE and it's not in meta-ros-webos, because
