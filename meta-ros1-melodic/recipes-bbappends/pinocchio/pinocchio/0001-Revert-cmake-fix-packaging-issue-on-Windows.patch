@@ -1,0 +1,83 @@
+From b9c394c782131654908ac040cb8cfa2141cc7ab9 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 2 Nov 2020 13:41:10 -0800
+Subject: [PATCH] Revert: cmake: fix packaging issue on Windows
+
+* revert:
+  https://github.com/stack-of-tasks/pinocchio/commit/d2c3ca15645af2db3e72a1e93a0f05a05c43d047
+  because the full path in exported pinocchio like:
+  list(APPEND _IMPORT_CHECK_FILES_FOR_pinocchio::pinocchio "/usr/lib/libpinocchio.so.2.5.0" )
+  causes e.g. tsid build failures when cross-compiling:
+CMake Error at /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/tsid/1.4.1-3-r0/recipe-sysroot/usr/share/pinocchio/cmake/pinocchioTargets.cmake:76 (message):
+  The imported target "pinocchio::pinocchio" references the file
+
+     "/usr/lib/libpinocchio.so.2.5.0"
+
+  but this file does not exist.  Possible reasons include:
+
+  * The file was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and contained
+
+     "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/tsid/1.4.1-3-r0/recipe-sysroot/usr/share/pinocchio/cmake/pinocchioTargets.cmake"
+
+  but not all the files it references.
+
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/tsid/1.4.1-3-r0/recipe-sysroot/usr/share/pinocchio/cmake/pinocchioConfig.cmake:147 (include)
+  cmake/package-config.cmake:84 (find_package)
+  CMakeLists.txt:75 (ADD_PROJECT_DEPENDENCY)
+
+* removing this fixes the paths:
+  pinocchio/2.5.0-2-r0/image/usr/share/pinocchio/cmake/pinocchioTargets-noconfig.cmake  2020-11-02 13:44:57.000000000 -0800
+  @@ -9,12 +9,12 @@
+   set_property(TARGET pinocchio::pinocchio APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
+   set_target_properties(pinocchio::pinocchio PROPERTIES
+     IMPORTED_LINK_INTERFACE_LIBRARIES_NOCONFIG "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/lib/libboost_filesystem-mt.so;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/lib/libboost_system-mt.so;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/lib/libboost_serialization-mt.so;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/lib/liburdfdom_sensor.so;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/lib/liburdfdom_model_state.so;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/lib/liburdfdom_model.so;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/lib/liburdfdom_world.so;console_bridge"
+  -  IMPORTED_LOCATION_NOCONFIG "/usr/lib/libpinocchio.so.2.5.0"
+  +  IMPORTED_LOCATION_NOCONFIG "${_IMPORT_PREFIX}/lib/libpinocchio.so.2.5.0"
+     IMPORTED_SONAME_NOCONFIG "libpinocchio.so.2.5.0"
+     )
+ 
+   list(APPEND _IMPORT_CHECK_TARGETS pinocchio::pinocchio )
+  -list(APPEND _IMPORT_CHECK_FILES_FOR_pinocchio::pinocchio "/usr/lib/libpinocchio.so.2.5.0" )
+  +list(APPEND _IMPORT_CHECK_FILES_FOR_pinocchio::pinocchio "${_IMPORT_PREFIX}/lib/libpinocchio.so.2.5.0" )
+ 
+   # Commands beyond this point should not need to know the version.
+   set(CMAKE_IMPORT_FILE_VERSION)
+  pinocchio/2.5.0-2-r0/image/usr/share/pinocchio/cmake/pinocchioTargets.cmake   2020-11-02 13:44:57.000000000 -0800
+  @@ -55,7 +55,7 @@
+ 
+   set_target_properties(pinocchio::pinocchio PROPERTIES
+     INTERFACE_COMPILE_DEFINITIONS "PINOCCHIO_WITH_URDFDOM;BOOST_MPL_LIMIT_LIST_SIZE=30;BOOST_MPL_LIMIT_VECTOR_SIZE=30"
+  -  INTERFACE_INCLUDE_DIRECTORIES "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/include/eigen3;${_IMPORT_PREFIX}/include;/usr/include;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/include;/usr/include;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/include;/usr/include"
+  +  INTERFACE_INCLUDE_DIRECTORIES "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/include/eigen3;${_IMPORT_PREFIX}/include;/usr/include;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/include;/usr/include;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/include"
+     INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/include/eigen3;/usr/include;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/include;/usr/include;/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.5.0-2-r0/recipe-sysroot/usr/include"
+   )
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/CMakeLists.txt | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 7af1dde..0f4deb0 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -58,10 +58,6 @@ ADD_HEADER_GROUP(HEADERS)
+ ADD_SOURCE_GROUP(${PROJECT_NAME}_SOURCES)
+ 
+ INSTALL(TARGETS ${PROJECT_NAME}
+-  EXPORT ${TARGETS_EXPORT_NAME}
+-  PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR}
+-  INCLUDES DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR}
+-  LIBRARY DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}
+-  ARCHIVE DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}
+-  RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
++    EXPORT ${TARGETS_EXPORT_NAME}
++    DESTINATION lib)
+ 
