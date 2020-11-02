@@ -2,9 +2,6 @@
 
 inherit pythonnative
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-CMakeLists.txt-search-for-boost_python37-instead-of-.patch"
-
 # Fails to build because of eigenpy.pc issues and even with this fixed it later fails with:
 # bindings/python/pinocchio/libpinocchio_pywrap.so: error: undefined reference to 'boost::python::detail::init_module(char const*, void (*)())'
 # that's because boost was built with python37 support, while pinocchio uses python27 and init_module is different, see:
