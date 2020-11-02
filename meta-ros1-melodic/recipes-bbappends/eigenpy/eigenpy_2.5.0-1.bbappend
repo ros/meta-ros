@@ -1,5 +1,10 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-Revert-cmake-fix-packaging-issue-on-Windows.patch \
+    file://0001-Revert-cmake-fix-project-packaging.patch \
+"
+
 # in thud it incorrectly detects python dependencies
 inherit pythonnative
 DEPENDS += "python-numpy-native"
