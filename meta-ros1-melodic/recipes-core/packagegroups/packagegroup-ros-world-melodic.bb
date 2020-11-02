@@ -911,6 +911,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     pilz-robots \
     pilz-status-indicator-rqt \
     plotjuggler \
+    points-preprocessor \
     pr2-motor-diagnostic-tool \
     pr2eus-tutorials \
     prbt-gazebo \
