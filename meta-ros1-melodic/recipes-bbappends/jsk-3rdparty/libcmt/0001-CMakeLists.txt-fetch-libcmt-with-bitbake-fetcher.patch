@@ -1,4 +1,4 @@
-From 21e1fcc0c8ca93579009c96a8a433dcdb3bfb364 Mon Sep 17 00:00:00 2001
+From 47ec5114fe70f25cbf658a7e9d755009c3574024 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Sun, 26 Apr 2020 12:29:13 -0700
 Subject: [PATCH] CMakeLists.txt: fetch libcmt with bitbake fetcher
@@ -7,26 +7,24 @@ Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- CMakeLists.txt | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+ CMakeLists.txt | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7c808d4ad..89cba1898 100644
+index 5c98d37d6..aa4e4c2f3 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -5,16 +5,14 @@ include(ExternalProject)
+@@ -5,15 +5,13 @@ include(ExternalProject)
  ## Find catkin macros and libraries
  ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
  ## is used, also find other catkin packages
--execute_process(COMMAND
--  git config --global http.sslVerify false)
-+
+-# execute_process(COMMAND
+-#   git config --global http.sslVerify false)
  ## System dependencies are found with CMake's conventions
  # find_package(Boost REQUIRED COMPONENTS system)
  ExternalProject_Add(
    libcmt
--  GIT_REPOSITORY https://github.com/delmottea/libCMT.git
--  GIT_TAG e4d7ea42edafe13b1070ef4d595b2d6062d79d1a
+-  URL https://github.com/delmottea/libCMT/archive/e4d7ea42edafe13b1070ef4d595b2d6062d79d1a.zip
 +  SOURCE_DIR ${PROJECT_SOURCE_DIR}/libcmt-upstream
    PATCH_COMMAND patch -p1 < ${PROJECT_SOURCE_DIR}/fix_opencv3.patch
 -  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}
