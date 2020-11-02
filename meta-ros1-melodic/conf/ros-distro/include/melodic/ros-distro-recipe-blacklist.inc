@@ -721,6 +721,7 @@ PNBLACKLIST[turtlesim-dash-tutorial] ?= "${@bb.utils.contains_any('ROS_WORLD_SKI
 PNBLACKLIST[turtlesim] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], 'qt5: depends on qtbase; qt5-widgets: needs widgets enabled in qtbase PACKAGECONFIG', '', d)}"
 PNBLACKLIST[tuw-checkerboard] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', 'depends on image-view->gtk+->x11', '', d)}"
 PNBLACKLIST[tuw-marker-detection] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', 'tuw-checkerboard->image-view->gtk+->x11', '', d)}"
+PNBLACKLIST[ueye-cam] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ueye', 'ueye: expects users to install official IDS uEye drivers (http://en.ids-imaging.com/download-ueye.html)', '', d)}"
 PNBLACKLIST[uos-common-urdf] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo-plugins which depends on gazebo which is not available', '', d)}"
 PNBLACKLIST[uos-gazebo-tools] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on uos-gazebo-worlds which depend on gazebo, gazebo-ros which is not available', '', d)}"
 PNBLACKLIST[uos-gazebo-worlds] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"

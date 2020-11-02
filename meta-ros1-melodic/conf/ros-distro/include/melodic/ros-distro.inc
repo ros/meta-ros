@@ -105,6 +105,8 @@ ROS_WORLD_SKIP_GROUPS += "libspnav"
 # which isn't public as reported here:
 # https://github.com/ros/rosdistro/pull/26336#issuecomment-696373544
 ROS_WORLD_SKIP_GROUPS += "heifu-ros-utils"
+# expects users to install official IDS uEye drivers (http://en.ids-imaging.com/download-ueye.html)
+ROS_WORLD_SKIP_GROUPS += "ueye"
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
