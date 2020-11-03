@@ -12,5 +12,17 @@
 FILES_${PN} += "${ros_libdir}/*${SOLIBS}"
 FILES_${PN}-dev += "${ros_libdir}/cmake"
 
+# Collected errors:
+#  * check_data_file_clashes: Package tuw-aruco wants to install file /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/qemux86_64-oe-linux/ros-image-world/1.0-r0/rootfs/opt/ros/melodic/lib/libaruco.so
+#         But that file is already provided by package  * aruco
+# rename libaruco.so from this recipe to prevent conflict with aruco itself
+# only the symlink normally included in ${PN}-dev is the issue, but because ros_faulty_solibs
+# it gets packaged in ${PN} and conflicts with aruco, where libaruco.so isn't the symlink
+# but the unversioned (faulty) solib
+do_install_append() {
+    mv ${D}${ros_libdir}/libaruco.so ${D}${ros_libdir}/libtuw-aruco.so
+}
+
+
 # ERROR: tuw-aruco-0.1.1-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: tuw-aruco path '/work/aarch64-oe-linux/tuw-aruco/0.1.1-1-r0/packages-split/tuw-aruco/opt/ros/melodic/lib/libaruco.so' [dev-so]
 inherit ros_insane_dev_so
