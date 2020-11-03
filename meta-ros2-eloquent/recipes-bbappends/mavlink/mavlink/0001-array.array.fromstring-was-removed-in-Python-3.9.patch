@@ -1,0 +1,32 @@
+From 82679f10bb6556ce9d2e95540e02d20f6f8dedb2 Mon Sep 17 00:00:00 2001
+From: Christian Clauss <cclauss@me.com>
+Date: Fri, 21 Aug 2020 10:05:52 +0200
+Subject: [PATCH] array.array.fromstring() was removed in Python 3.9
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+https://docs.python.org/3.9/library/array.html#array.array.frombytes
+
+From [What’s New In Python 3.9](https://docs.python.org/3.9/whatsnew/3.9.html#removed))
+> array.array: tostring() and fromstring() methods have been removed. They were aliases to tobytes() and frombytes(), deprecated since Python 3.2.
+
+Upstream-Status: Backport [https://github.com/ArduPilot/pymavlink/commit/b496a204148b3315f034ab754b197a7ff66df918]
+---
+ pymavlink/generator/mavcrc.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/pymavlink/generator/mavcrc.py b/pymavlink/generator/mavcrc.py
+index b687f608..c2782ecb 100644
+--- a/pymavlink/generator/mavcrc.py
++++ b/pymavlink/generator/mavcrc.py
+@@ -31,5 +31,8 @@ class x25crc(object):
+         accum = self.crc
+         import array
+         bytes = array.array('B')
+-        bytes.fromstring(buf)
++        try:
++            bytes.fromstring(buf)
++        except AttributeError:  # Python >= 3.9
++            bytes.frombytes(buf.encode())
+         self.accumulate(bytes)
