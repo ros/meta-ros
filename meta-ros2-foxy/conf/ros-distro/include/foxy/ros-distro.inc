@@ -101,6 +101,7 @@ ROS_WORLD_SKIP_GROUPS += "pugixml"
 ROS_WORLD_SKIP_GROUPS += " \
     mrpt2 \
     qt-gui-cpp \
+    rc-dynamics-api \
 "
 
 # recipes depending on something from meta-qt4 layer
