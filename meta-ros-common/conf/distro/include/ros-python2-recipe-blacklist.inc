@@ -614,8 +614,6 @@ PNBLACKLIST[asciidoc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2
 PNBLACKLIST[fio] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-benchmark/phoronix-test-suite/phoronix-test-suite_8.0.1.bb
 PNBLACKLIST[phoronix-test-suite] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-openembedded/meta-oe/recipes-support/pcsc-lite/pcsc-lite_1.8.22.bb
-PNBLACKLIST[pcsc-lite] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-benchmark/libhugetlbfs/libhugetlbfs_git.bb
 PNBLACKLIST[libhugetlbfs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # openembedded-core/meta/recipes-kernel/linux/kernel-devsrc.bb
@@ -660,8 +658,6 @@ PNBLACKLIST[s-suite] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2'
 PNBLACKLIST[usbmuxd] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-extended/lcdproc/lcdproc_git.bb
 PNBLACKLIST[lcdproc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-openembedded/meta-oe/recipes-support/ccid/ccid_1.4.24.bb
-PNBLACKLIST[ccid] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-support/openct/openct_0.6.20.bb
 PNBLACKLIST[openct] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-support/opensc/opensc_0.18.0.bb
