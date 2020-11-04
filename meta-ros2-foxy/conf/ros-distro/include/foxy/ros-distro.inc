@@ -97,6 +97,9 @@ ROS_WORLD_SKIP_GROUPS += "ignition"
 # recipes depending on pugixml
 ROS_WORLD_SKIP_GROUPS += "pugixml"
 
+# Not compatible with newer libftdi included in meta-oe: https://github.com/kobuki-base/kobuki_ftdi/issues/3
+ROS_WORLD_SKIP_GROUPS += "kobuki-ftdi"
+
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
     mrpt2 \
