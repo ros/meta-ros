@@ -1,0 +1,51 @@
+From 9207a94fbb838aaf0d670f71be2b796dcc1d0f6a Mon Sep 17 00:00:00 2001
+From: congliu0913 <congliu0913@126.com>
+Date: Mon, 28 Sep 2020 08:56:21 +0000
+Subject: [PATCH] update moveit to ros2
+
+---
+ CMakeLists.txt | 6 +++---
+ COLCON_IGNORE  | 0
+ package.xml    | 6 +++---
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+ delete mode 100644 COLCON_IGNORE
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9acc0a9..40070fd 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.1.3)
++cmake_minimum_required(VERSION 3.10.2)
+ project(moveit)
+-find_package(catkin REQUIRED)
+-catkin_metapackage()
++find_package(ament_cmake REQUIRED)
++ament_package()
+diff --git a/COLCON_IGNORE b/COLCON_IGNORE
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/package.xml b/package.xml
+index ac350c8..c0c5068 100644
+--- a/package.xml
++++ b/package.xml
+@@ -19,13 +19,13 @@
+   <author email="isucan@google.com">Ioan Sucan</author>
+   <author email="robot.moveit@gmail.com">Sachin Chitta</author>
+ 
+-  <buildtool_depend>catkin</buildtool_depend>
+-  <exec_depend>moveit_commander</exec_depend>
++  <buildtool_depend>ament_cmake</buildtool_depend>
++  <!--  <exec_depend>moveit_commander</exec_depend> -->
+   <exec_depend>moveit_core</exec_depend>
+   <exec_depend>moveit_planners</exec_depend>
+   <exec_depend>moveit_plugins</exec_depend>
+   <exec_depend>moveit_ros</exec_depend>
+-  <exec_depend>moveit_setup_assistant</exec_depend>
++  <!-- <exec_depend>moveit_setup_assistant</exec_depend> -->
+ 
+   <export>
+     <metapackage/>
+-- 
+2.17.1
+

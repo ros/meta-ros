@@ -1,0 +1,58 @@
+From 87a3bdd08f8de1b8f1881908a328d00999c92596 Mon Sep 17 00:00:00 2001
+From: congliu0913 <congliu0913@126.com>
+Date: Mon, 28 Sep 2020 07:57:07 +0000
+Subject: [PATCH] update moveit_ros to ros2
+
+---
+ CMakeLists.txt |  6 +++---
+ COLCON_IGNORE  |  0
+ package.xml    | 11 ++++++-----
+ 3 files changed, 9 insertions(+), 8 deletions(-)
+ delete mode 100644 COLCON_IGNORE
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5425d0c..4ddf6b1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.1.3)
++cmake_minimum_required(VERSION 3.10.2)
+ project(moveit_ros)
+-find_package(catkin REQUIRED)
+-catkin_metapackage()
++find_package(ament_cmake REQUIRED)
++ament_package()
+diff --git a/COLCON_IGNORE b/COLCON_IGNORE
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/package.xml b/package.xml
+index 3a2337f..a71bd62 100644
+--- a/package.xml
++++ b/package.xml
+@@ -17,17 +17,18 @@
+   <url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
+   <url type="repository">https://github.com/ros-planning/moveit</url>
+ 
+-  <buildtool_depend>catkin</buildtool_depend>
++  <buildtool_depend>ament_cmake</buildtool_depend>
+ 
+-  <exec_depend>moveit_ros_perception</exec_depend>
++  <!-- <exec_depend>moveit_ros_perception</exec_depend> -->
+   <exec_depend>moveit_ros_planning</exec_depend>
+-  <exec_depend>moveit_ros_warehouse</exec_depend>
++  <!-- <exec_depend>moveit_ros_warehouse</exec_depend> -->
+   <exec_depend>moveit_ros_benchmarks</exec_depend>
+   <exec_depend>moveit_ros_robot_interaction</exec_depend>
+   <exec_depend>moveit_ros_planning_interface</exec_depend>
+-  <exec_depend>moveit_ros_visualization</exec_depend>
+-  <exec_depend>moveit_ros_manipulation</exec_depend>
++  <!-- <exec_depend>moveit_ros_visualization</exec_depend> -->
++  <!-- <exec_depend>moveit_ros_manipulation</exec_depend> -->
+   <exec_depend>moveit_ros_move_group</exec_depend>
++  <exec_depend>moveit_ros_occupancy_map_monitor</exec_depend>
+ 
+   <export>
+     <metapackage/>
+-- 
+2.17.1
+

@@ -1,0 +1,48 @@
+From eac15970a42273d41f83fc00d5903a669b3ba54a Mon Sep 17 00:00:00 2001
+From: congliu0913 <congliu0913@126.com>
+Date: Mon, 28 Sep 2020 08:19:55 +0000
+Subject: [PATCH] update moveit_planners to ros2
+
+---
+ CMakeLists.txt | 6 +++---
+ COLCON_IGNORE  | 0
+ package.xml    | 6 +++---
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+ delete mode 100644 COLCON_IGNORE
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 753bb7b..62c13f6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.1.3)
++cmake_minimum_required(VERSION 3.10.2)
+ project(moveit_planners)
+-find_package(catkin REQUIRED)
+-catkin_metapackage()
++find_package(ament_cmake REQUIRED)
++ament_package()
+diff --git a/COLCON_IGNORE b/COLCON_IGNORE
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/package.xml b/package.xml
+index bc7dc31..e2dcbcb 100644
+--- a/package.xml
++++ b/package.xml
+@@ -14,10 +14,10 @@
+   <url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
+   <url type="repository">https://github.com/ros-planning/moveit</url>
+ 
+-  <buildtool_depend>catkin</buildtool_depend>
++  <buildtool_depend>ament_cmake</buildtool_depend>
+ 
+-  <exec_depend>chomp_motion_planner</exec_depend>
+-  <exec_depend>moveit_planners_chomp</exec_depend>
++  <!-- <exec_depend>chomp_motion_planner</exec_depend>
++  <exec_depend>moveit_planners_chomp</exec_depend> -->
+   <exec_depend>moveit_planners_ompl</exec_depend>
+ 
+   <export>
+-- 
+2.17.1
+
