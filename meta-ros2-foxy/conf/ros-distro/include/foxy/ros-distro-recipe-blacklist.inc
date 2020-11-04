@@ -22,6 +22,7 @@ PNBLACKLIST[gazebo-ros] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazeb
 PNBLACKLIST[gazebo-rosdev] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'gazebo: depends on gazebo which is not available', '', d)}"
 PNBLACKLIST[gurumdds-cmake-module] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gurumdds', 'gurumdds: depends on gurumdds-2.6 which is not available', '', d)}"
 PNBLACKLIST[joint-state-publisher-gui] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'qt5: depends on python-qt-binding which depends on qtbase; pyqt5: depends on python-qt-binding which depends on python3-pyqt5 which requires pyqt5', '', d)}"
+PNBLACKLIST[kobuki-ftdi] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'kobuki-ftdi', 'kobuki-ftdi: Not compatible with newer libftdi included in meta-oe: https://github.com/kobuki-base/kobuki_ftdi/issues/3', '', d)}"
 PNBLACKLIST[lanelet2-examples] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pugixml', 'Depends on lanelet2-io which depends on pugixml-dev which is not available', '', d)}"
 PNBLACKLIST[lanelet2-io] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pugixml', 'Depends on pugixml-dev which is not available', '', d)}"
 PNBLACKLIST[lanelet2-projection] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pugixml', 'Depends on lanelet2-io which depends on pugixml-dev which is not available', '', d)}"
