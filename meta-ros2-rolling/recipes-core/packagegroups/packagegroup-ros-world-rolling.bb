@@ -16,6 +16,9 @@ RDEPENDS_${PN}_remove = "test-osrf-testing-tools-cpp"
 # It's empty package now, just providing dependency on platform zstd recipe
 RDEPENDS_${PN}_remove = "zstd-vendor"
 
+# It's empty package now, just providing dependency on platform python3-pybind11 recipe
+RDEPENDS_${PN}_remove = "pybind11-vendor"
+
 # alternative not yet supported implementation for fastrtps
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
