@@ -82,6 +82,9 @@ ROS_WORLD_SKIP_GROUPS += "webots-python-modules"
 # recipes depending on gazebo, for which there is no OE recipe
 ROS_WORLD_SKIP_GROUPS += "gazebo"
 
+# doosan-robot2 recipes depending on ROS_UNRESOLVED_PLATFORM_PKG_controller_manager, ROS_UNRESOLVED_PLATFORM_PKG_hardware_interface, ROS_UNRESOLVED_PLATFORM_PKG_ament_python-native
+ROS_WORLD_SKIP_GROUPS += "doosan-robot2"
+
 # recipes depending on ros1
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'ros1-layer', '', 'ros1', d)}"
 
@@ -393,3 +396,16 @@ ROS_UNRESOLVED_PLATFORM_PKG_lcov = "lcov"
 # Needs https://lists.openembedded.org/g/openembedded-devel/message/86162
 ROS_UNRESOLVED_PLATFORM_PKG_lcov-native = "lcov-native"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-native = "python3-rospkg-native"
+
+# Used by:
+# generated-recipes/mapviz/tile-map_2.1.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev = "jsoncpp"
+
+# Used by:
+# generated-recipes/mapviz/tile-map_2.1.0-1.bb
+# generated-recipes/mapviz/mapviz_2.1.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev = "glew"
+
+# Used by:
+# generated-recipes/teleop-tools/mouse-teleop_1.2.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-tk = "python3-tkinter"

@@ -83,6 +83,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rviz-ogre-vendor \
     rviz-rendering \
     rviz2 \
+    turtlebot3 \
+    turtlebot3-bringup \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
@@ -91,11 +93,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop \
+    dsr-description2 \
     dolly \
     dolly-gazebo \
     joint-state-publisher-gui \
     nav2-bringup \
     nav2-rviz-plugins \
+    mapviz \
+    mapviz-plugins \
+    multires-image \
     octovis \
     plotjuggler \
     python-qt-binding \
@@ -142,6 +148,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz-visual-testing-framework \
     rviz2 \
     slam-toolbox \
+    tile-map \
+    turtlebot3 \
+    turtlebot3-bringup \
+    turtlebot3-navigation2 \
     turtlesim \
     webots-ros2-epuck \
     webots-ros2-tiago \
@@ -171,8 +181,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
+    common2 \
     dolly \
     dolly-gazebo \
+    dsr-launcher2 \
     gazebo-plugins \
     gazebo-ros-pkgs \
     gazebo-ros \
@@ -183,6 +195,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     desktop \
+    dsr-description2 \
     joint-state-publisher-gui \
     python-qt-binding \
     py-trees-js \
@@ -266,6 +279,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     libg2o \
     nav2-bringup \
     nav2-rviz-plugins \
+    mapviz \
+    mapviz-plugins \
+    multires-image \
     ros-ign \
     ros-ign-gazebo-demos \
     rover-navigation \
@@ -277,6 +293,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     rviz-ogre-vendor \
     rviz-rendering \
     slam-toolbox \
+    tile-map \
+    turtlebot3 \
+    turtlebot3-bringup \
+    turtlebot3-navigation2 \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
@@ -328,4 +348,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PUGIXML = " \
     lanelet2-projection \
     lanelet2-python \
     lanelet2-validation \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'doosan-robot2', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_DOOSAN_ROBOT2}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_DOOSAN_ROBOT2 = " \
+    dsr-control2 \
+    dsr-example2-py \
 "
