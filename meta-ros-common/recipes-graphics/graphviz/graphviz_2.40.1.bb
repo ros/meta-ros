@@ -19,20 +19,13 @@ DEPENDS_append_class-target = " ${BPN}-native"
 
 inherit autotools-brokensep pkgconfig gettext
 
-# The source tarball suggested at
-# https://graphviz.gitlab.io/_pages/Download/Download_source.html has no
-# version in its name. So once graphviz is updgraded, only first time users will
-# get checksum errors. Fedora people seem to expect same so they use a versioned
-# source - see https://src.fedoraproject.org/cgit/rpms/graphviz.git/tree/graphviz.spec
+SRC_URI = "git://gitlab.com/graphviz/graphviz.git;protocol=https"
+SRCREV = "67cd2e5121379a38e0801cc05cce5033f8a2a609"
 
-SRC_URI = "https://gitlab.com/graphviz/graphviz/-/archive/stable_release_${PV}/graphviz-stable_release_${PV}.tar.gz \
-"
 # Use native mkdefs
 SRC_URI_append_class-target = " file://0001-Use-native-mkdefs.patch"
-SRC_URI[md5sum] = "2acf30ca8e6cc8b001b0334db65fd072"
-SRC_URI[sha256sum] = "e6c3f8dbfde1c4523055403927bef29f97f9fc12715c1042b5dcf648a2c1c62a"
 
-S = "${WORKDIR}/${BPN}-stable_release_${PV}"
+S = "${WORKDIR}/git"
 
 EXTRA_OECONF_class-target = "\
                 --with-expatincludedir=${STAGING_INCDIR} \
