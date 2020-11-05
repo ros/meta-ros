@@ -47,6 +47,8 @@ ROS_WORLD_SKIP_GROUPS += "glfw"
 ROS_WORLD_SKIP_GROUPS += "gazebo"
 # recipes depending on gst-python
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'gobject-introspection-data', '', 'gst-python', d)}"
+# recipes depending on pugixml
+ROS_WORLD_SKIP_GROUPS += "pugixml"
 
 # recipes depending on something from meta-qt5 layer
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'qt5', d)}"
@@ -249,6 +251,25 @@ ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev = "boost"
 # Used by:
 # generated-recipes/cartographer/cartographer_1.0.9001-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx = "python3-sphinx"
+
+# Used by:
+# generated-recipes/mrt-cmake-modules/mrt-cmake-modules_1.0.8-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_lcov = "lcov"
+# Needs https://lists.openembedded.org/g/openembedded-devel/message/86162
+ROS_UNRESOLVED_PLATFORM_PKG_lcov-native = "lcov-native"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-native = "python3-rospkg-native"
+
+# Used by:
+# generated-recipes/grbl-ros/grbl-ros_0.0.15-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-serial = "python3-pyserial"
+
+# Used by:
+# generated-recipes/lanelet2/lanelet2-python_1.1.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev = "boost"
+
+# Used by:
+# generated-recipes/image-pipeline/image-view_2.1.1-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "boost"
 
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,

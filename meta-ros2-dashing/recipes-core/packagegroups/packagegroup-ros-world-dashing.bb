@@ -264,3 +264,13 @@ ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC = " \
 "
 
 RDEPENDS_${PN}_remove = "${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC}"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pugixml', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PUGIXML}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PUGIXML = " \
+    lanelet2 \
+    lanelet2-examples \
+    lanelet2-io \
+    lanelet2-projection \
+    lanelet2-python \
+    lanelet2-validation \
+"
