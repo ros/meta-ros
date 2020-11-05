@@ -28,14 +28,14 @@ curl:
 eigen:
 - libeigen@meta-oe
 g++-static: []
+gazebo11:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo11}
 git:
 - git@openembedded-core
 google-mock:
 - gtest@meta-oe
 gtest:
 - gtest@meta-oe
-gtk3:
-- gtk+3@openembedded-core
 gurumdds-2.6:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6}
 java:
@@ -46,12 +46,12 @@ libboost-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev}
 libboost-iostreams-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev}
-libboost-program-options-dev:
-- boost@openembedded-core
 libboost-python:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python}
 libboost-python-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev}
+libboost-system-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev}
 libcairo2-dev:
 - cairo@openembedded-core
 libceres-dev:
@@ -64,6 +64,8 @@ libfreetype6:
 - freetype@openembedded-core
 libfreetype6-dev:
 - freetype@openembedded-core
+libgazebo11-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo11-dev}
 libgflags-dev:
 - gflags@meta-oe
 libgoogle-glog-dev:
@@ -134,8 +136,6 @@ pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros
 python3-argcomplete:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete}
-python3-babeltrace:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace}
 python3-catkin-pkg:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-catkin-pkg}
 python3-catkin-pkg-modules:
@@ -150,10 +150,10 @@ python3-flake8:
 - python3-flake8@meta-ros
 python3-ifcfg:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg}
+python3-importlib-metadata:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-importlib-metadata}
 python3-lark-parser:
 - python3-lark-parser@meta-ros
-python3-lttng:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng}
 python3-lxml:
 - python3-lxml@meta-python
 python3-matplotlib:
@@ -186,8 +186,6 @@ python3-pyproj:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyproj}
 python3-pytest:
 - python3-pytest@meta-python
-python3-pytest-cov:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-cov}
 python3-pytest-mock:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock}
 python3-qt5-bindings:
@@ -215,10 +213,8 @@ sdl2:
 spdlog:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog}
 suitesparse:
-- suitesparse-cholmod@meta-ros
 - suitesparse-cxsparse@meta-ros
-tango-icon-theme:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
+- suitesparse-cholmod@meta-ros
 tinyxml:
 - libtinyxml@meta-oe
 tinyxml2:
