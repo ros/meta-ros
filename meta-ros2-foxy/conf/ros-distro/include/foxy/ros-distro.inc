@@ -100,6 +100,11 @@ ROS_WORLD_SKIP_GROUPS += "pugixml"
 # Not compatible with newer libftdi included in meta-oe: https://github.com/kobuki-base/kobuki_ftdi/issues/3
 ROS_WORLD_SKIP_GROUPS += "kobuki-ftdi"
 
+# do_configure failures
+ROS_WORLD_SKIP_GROUPS += " \
+    lanelet2-traffic-rules \
+"
+
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
     mrpt2 \
