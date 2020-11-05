@@ -26,6 +26,8 @@ ffmpeg:
 - ffmpeg@openembedded-core
 g++-static: []
 gazebo9: []
+geographiclib:
+- geographiclib@meta-ros
 git:
 - git@openembedded-core
 glut:
@@ -50,12 +52,16 @@ launch_xml:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_launch_xml}
 lcov:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_lcov}
+libboost-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev}
 libboost-iostreams-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev}
 libboost-program-options:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options}
 libboost-program-options-dev:
 - boost@openembedded-core
+libboost-python-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev}
 libboost-system:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system}
 libboost-system-dev:
@@ -188,6 +194,8 @@ protobuf:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_protobuf}
 protobuf-dev:
 - protobuf@meta-oe
+pugixml-dev:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_pugixml-dev}
 pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros
 pyflakes3:
@@ -258,8 +266,12 @@ python3-qt5-bindings:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings}
 python3-requests:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests}
+python3-rospkg:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg}
 python3-rospkg-modules:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules}
+python3-serial:
+- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-serial}
 python3-setuptools:
 - python3-setuptools@openembedded-core
 python3-sphinx:
