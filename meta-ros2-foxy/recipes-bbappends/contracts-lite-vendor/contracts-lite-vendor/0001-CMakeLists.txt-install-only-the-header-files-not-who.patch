@@ -1,0 +1,50 @@
+From a1126e3be9f86df8bd7eaeb40a787941f64b4b9e Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 4 Nov 2020 16:51:40 -0800
+Subject: [PATCH] CMakeLists.txt: install only the header files, not whole
+ directory
+
+* otherwise the whole long path to build directory is persisted in destination, causing:
+ERROR: contracts-lite-vendor-0.4.0-1-r0 do_package: QA Issue: contracts-lite-vendor: Files/directories were installed but not shipped in any package:
+  /jenkins
+  /jenkins/mjansa
+  /jenkins/mjansa/build
+  /jenkins/mjansa/build/ros
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor/0.4.0-1-r0
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor/0.4.0-1-r0/build
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor/0.4.0-1-r0/build/contracts_lite_install
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor/0.4.0-1-r0/build/contracts_lite_install/include
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor/0.4.0-1-r0/build/contracts_lite_install/include/contracts_lite
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor/0.4.0-1-r0/build/contracts_lite_install/include/contracts_lite/simple_violation_handler.hpp
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor/0.4.0-1-r0/build/contracts_lite_install/include/contracts_lite/range_checks.hpp
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor/0.4.0-1-r0/build/contracts_lite_install/include/contracts_lite/enforcement.hpp
+  /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor/0.4.0-1-r0/build/contracts_lite_install/include/contracts_lite/contract_types.hpp
+Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
+contracts-lite-vendor: 18 installed and not shipped files. [installed-vs-shipped]
+ERROR: contracts-lite-vendor-0.4.0-1-r0 do_package: Fatal QA errors found, failing task.
+ERROR: Logfile of failure stored in: /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/contracts-lite-vendor/0.4.0-1-r0/temp/log.do_package.37449
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b4c99d4..1584540 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -28,6 +28,7 @@ ament_export_include_directories(include)
+ 
+ install(DIRECTORY ${contracts_lite_DESTDIR}/include/
+   DESTINATION include
++  FILES_MATCHING PATTERN "*.hpp*"
+ )
+ 
+ ament_package()
