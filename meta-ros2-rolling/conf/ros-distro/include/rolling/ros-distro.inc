@@ -236,3 +236,12 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules = "python3-rospkg"
 # Used by:
 # generated-recipes/google-benchmark-vendor/google-benchmark-vendor_0.0.2-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_benchmark = "google-benchmark"
+
+# Used by:
+# generated-recipes/transport-drivers/serial-driver_0.0.6-1.bb
+# generated-recipes/transport-drivers/udp-driver_0.0.6-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev = "boost"
+
+# Used by:
+# generated-recipes/launch/launch_0.12.0-1.bb
+ROS_UNRESOLVED_PLATFORM_PKG_python3-importlib-metadata = "python3-importlib-metadata"
