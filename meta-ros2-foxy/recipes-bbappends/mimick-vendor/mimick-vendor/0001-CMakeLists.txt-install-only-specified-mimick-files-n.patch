@@ -1,0 +1,75 @@
+From 1297ffacfeee1ba86be93da4f7a77de9e9eafb5d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 4 Nov 2020 16:51:40 -0800
+Subject: [PATCH] CMakeLists.txt: install only specified mimick files, not
+ whole directory
+
+* otherwise the whole long path to build directory is persisted in destination, causing:
+ERROR: mimick-vendor-0.2.2-1-r0 do_package: QA Issue: mimick-vendor: Files/directories were installed but not shipped in any package:
+  /jenkins
+  /jenkins/mjansa
+  /jenkins/mjansa/build
+  /jenkins/mjansa/build/ros
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/lib
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/lib/libmimick.a
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/lib/cmake
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/lib/cmake/mimick
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/lib/cmake/mimick/mimick-targets.cmake
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/lib/cmake/mimick/mimickConfig.cmake
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/lib/cmake/mimick/mimick-targets-noconfig.cmake
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/va.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/mock.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/string.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/preprocess.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/mimick.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/when.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/alloc.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/assert.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/unmocked.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/matcher.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/verify.h
+  /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/build/mimick_vendor_install/include/mimick/literal.h
+Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
+mimick-vendor: 33 installed and not shipped files. [installed-vs-shipped]
+ERROR: mimick-vendor-0.2.2-1-r0 do_package: Fatal QA errors found, failing task.
+ERROR: Logfile of failure stored in: /jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/tmp-glibc/work/core2-64-oe-linux/mimick-vendor/0.2.2-1-r0/temp/log.do_package.58250
+ERROR: Task (/jenkins/mjansa/build/ros/ros2-foxy-gatesgarth/meta-ros/meta-ros2-foxy/generated-recipes/mimick-vendor/mimick-vendor_0.2.2-1.bb:do_package) failed with exit code '1'
+
+This behavior seem to change between CMake 3.16.5 (in dunfell) and 3.18.2 (in gatesgarth).
+Using absolute path in destination is discouraged, e.g. in:
+https://github.com/Kitware/CMake/commit/79e1d86d2c5662ff5fad50b9fd54e074e4d00d12
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6a50078..4a412b6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -69,10 +69,8 @@ macro(build_mimick)
+ 
+   # The external project will install to the build folder, but we'll install that on make install.
+   install(
+-    DIRECTORY
+-      ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/
+-    DESTINATION
+-      ${CMAKE_INSTALL_PREFIX}
++    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/
++    DESTINATION .
+   )
+ 
+ endmacro()
