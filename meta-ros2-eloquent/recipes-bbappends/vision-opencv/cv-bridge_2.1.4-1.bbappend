@@ -9,5 +9,5 @@ ROS_BUILDTOOL_DEPENDS += " \
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-add-OpenCV4-support-addresses-ros-perception-vision_.patch \
-    file://0002-CMakeLists.txt-search-for-boost_python37-instead-of-.patch \
+    file://0002-CMakeLists.txt-search-for-boost_python-Python3_VERSI.patch \
 "
