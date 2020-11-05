@@ -1,0 +1,80 @@
+From 5cda71d7fcf1c72623d3783b1f7efa60dfbc76b9 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 5 Nov 2020 15:11:30 -0800
+Subject: [PATCH] CMakeLists.txt: user relative destination path
+
+* otherwise the whole long path to build directory is persisted in destination, causing:
+ERROR: QA Issue: osqp-vendor: Files/directories were installed but not shipped in any package:
+  /jenkins
+  /jenkins/mjansa
+  /jenkins/mjansa/build
+  /jenkins/mjansa/build/ros
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/libosqp.a
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/libqdldl.so
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/libosqp.so
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/libqdldl.a
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/cmake
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/cmake/osqp
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/cmake/qdldl
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/cmake/osqp/osqp-config.cmake
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/cmake/osqp/osqp-targets.cmake
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/cmake/osqp/osqp-targets-noconfig.cmake
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/cmake/qdldl/qdldl-targets.cmake
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/cmake/qdldl/qdldl-config.cmake
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/lib/cmake/qdldl/qdldl-targets-noconfig.cmake
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/qdldl
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/osqp_configure.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/cs.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/auxil.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/scaling.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/lin_sys.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/glob_opts.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/ctrlc.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/types.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/lin_alg.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/error.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/polish.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/util.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/osqp.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/constants.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/osqp/proj.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/qdldl/qdldl_types.h
+  /jenkins/mjansa/build/ros/webos-foxy-hardknott/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.0.2-1-r0/build/osqp_install/include/qdldl/qdldl.h
+Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
+osqp-vendor: 46 installed and not shipped files. [installed-vs-shipped]
+
+This behavior seem to change between CMake 3.16.5 (in dunfell) and 3.18.2 (in gatesgarth).
+Using absolute path in destination is discouraged, e.g. in:
+https://github.com/Kitware/CMake/commit/79e1d86d2c5662ff5fad50b9fd54e074e4d00d12
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7ab2360..ddeb7bf 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -28,7 +28,7 @@ macro(build_osqp)
+     DIRECTORY
+       ${CMAKE_CURRENT_BINARY_DIR}/osqp_install/
+     DESTINATION
+-      ${CMAKE_INSTALL_PREFIX}
++      .
+     PATTERN config.h EXCLUDE
+   )
+ endmacro()
