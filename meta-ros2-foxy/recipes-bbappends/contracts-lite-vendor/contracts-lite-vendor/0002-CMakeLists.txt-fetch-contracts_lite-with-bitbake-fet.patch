@@ -1,15 +1,15 @@
-From 1fdeab4413bcd0b365258c17868741cd61e7d368 Mon Sep 17 00:00:00 2001
+From d5f77fb6ea7de4182c87e45feaf01d3780375236 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 4 Nov 2020 16:54:32 -0800
 Subject: [PATCH] CMakeLists.txt: fetch contracts_lite with bitbake fetcher
 
 Upstream-Status: Pending
 ---
- CMakeLists.txt | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ CMakeLists.txt | 3 ---
+ 1 file changed, 3 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 1584540..a5b7a36 100644
+index e531164..a205996 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -16,9 +16,7 @@ set(contracts_lite_DESTDIR ${CMAKE_CURRENT_BINARY_DIR}/contracts_lite_install)
@@ -17,7 +17,7 @@ index 1584540..a5b7a36 100644
  include(ExternalProject)
  ExternalProject_Add(contracts_lite
 -  GIT_REPOSITORY https://github.com/ros-safety/contracts_lite.git
--  GIT_TAG 0.4.0
+-  GIT_TAG 0.4.1
 -  GIT_SHALLOW TRUE
 +  SOURCE_DIR ${CMAKE_SOURCE_DIR}/contracts-lite-upstream
    BUILD_IN_SOURCE TRUE
