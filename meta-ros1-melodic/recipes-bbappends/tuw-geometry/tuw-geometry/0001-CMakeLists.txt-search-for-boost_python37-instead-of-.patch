@@ -1,7 +1,7 @@
 From 10605701d9dcf396549ee17b320f638994948b3c Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Sun, 26 Apr 2020 12:23:02 +0000
-Subject: [PATCH] CMakeLists.txt: search for boost_python38 instead of just
+Subject: [PATCH] CMakeLists.txt: search for boost_python${Python3_VERSION_MAJOR}${Python3_VERSION_MINOR} instead of just
  boost_python
 
 * as described in
@@ -34,12 +34,18 @@ index b4607d9..0d04646 100644
  project(tuw_geometry)
  add_compile_options(-std=c++14) ## for c++ 2014
  
-@@ -14,7 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
+@@ -14,7 +14,13 @@ find_package(catkin REQUIRED COMPONENTS
  ## System dependencies are found with CMake's conventions
  # find_package(Boost REQUIRED COMPONENTS system)
  find_package(OpenCV REQUIRED)
 -find_package(Boost REQUIRED COMPONENTS python)
-+find_package(Boost REQUIRED COMPONENTS python38)
++# Newer boost versions need a specific python version
++if(${PYTHON_VERSION_MAJOR} GREATER_EQUAL 3)
++  set(boost_python_component "python${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}")
++else()
++  set(boost_python_component "python")
++endif()
++find_package(Boost REQUIRED COMPONENTS python REQUIRED)
  find_package(PythonLibs 2.7 REQUIRED)
  find_package(Eigen3 QUIET)
  
