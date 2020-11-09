@@ -9,7 +9,7 @@ DESCRIPTION = "<p>       amcl is a probabilistic localization system for a robot
 AUTHOR = "Mohammad Haghighipanah <mohammad.haghighipanah@intel.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2.1"
+LICENSE = "LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=21;endline=21;md5=d94c5c8f30151b2fe7d07ba53ed6444b"
 
 ROS_CN = "navigation2"
