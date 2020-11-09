@@ -9,7 +9,7 @@ DESCRIPTION = "Wrapper (aka vendor package) around the FMILibrary by Modelon AB 
 AUTHOR = "Ralph Lange <ralph.lange@de.bosch.com>"
 HOMEPAGE = "https://jmodelica.org/"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=1cbcc9f188205529b42b05d5fd747025"
 
 ROS_CN = "fmilibrary_vendor"
