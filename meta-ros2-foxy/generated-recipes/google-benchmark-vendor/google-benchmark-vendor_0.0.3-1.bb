@@ -9,6 +9,8 @@ DESCRIPTION = "This package provides Google Benchmark."
 AUTHOR = "Scott K Logan <scott@openrobotics.org>"
 HOMEPAGE = "https://github.com/google/benchmark"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=a9acc8a0587aa088a1cbd8e35acd271e"
 
