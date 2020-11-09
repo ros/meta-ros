@@ -9,7 +9,7 @@ DESCRIPTION = "Refactored map server for ROS2 Navigation"
 AUTHOR = "Brian Wilcox <brian.wilcox@intel.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & BSD"
+LICENSE = "Apache-2.0 & BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=82f0323c08605e5b6f343b05213cf7cc"
 
 ROS_CN = "navigation2"
