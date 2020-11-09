@@ -10,7 +10,9 @@ AUTHOR = "Denis Štogl <denis.stogl@kit.edu>"
 ROS_AUTHOR = "Denis Štogl <denis.stogl@kit.edu>"
 HOMEPAGE = "http://wiki.ros.org/iirob_filters"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
 ROS_CN = "iirob_filters"

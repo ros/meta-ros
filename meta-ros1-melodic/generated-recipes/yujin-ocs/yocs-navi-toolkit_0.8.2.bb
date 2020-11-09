@@ -10,6 +10,8 @@ AUTHOR = "Daniel Stonier <stonier@yujinrobot.com>"
 ROS_AUTHOR = "Daniel Stonier"
 HOMEPAGE = "https://github.com/yujinrobot/yujin_ocs"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Yujin Robot"
 LICENSE = "Yujin-Robot"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=a9f99b3452a89416bf7474e0b60ab849"
 

@@ -10,7 +10,7 @@ AUTHOR = "Sebastian Pütz <spuetz@uos.de>"
 ROS_AUTHOR = "Martí Morta Garriga <mmorta@iri.upc.edu>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "epos2_motor_controller"

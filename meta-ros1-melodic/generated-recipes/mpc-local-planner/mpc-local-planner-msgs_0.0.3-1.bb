@@ -10,7 +10,9 @@ AUTHOR = "Christoph Rösmann <christoph.roesmann@tu-dortmund.de>"
 ROS_AUTHOR = "Christoph Rösmann <christoph.roesmann@tu-dortmund.de>"
 HOMEPAGE = "http://wiki.ros.org/mpc_local_planner_msgs"
 SECTION = "devel"
-LICENSE = "GPL-3"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=1e7b3bcc2e271699c77c769685058cbe"
 
 ROS_CN = "mpc_local_planner"

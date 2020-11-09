@@ -10,7 +10,9 @@ AUTHOR = "Alexander Tiderko <alexander.tiderko@gmail.com>"
 ROS_AUTHOR = "Alexander Tiderko"
 HOMEPAGE = "http://ros.org/wiki/node_manager_fkie"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD, some icons are licensed under the GNU Lesser General Public License (LGPL) or Creative Commons Attribution-Noncommercial 3.0 License"
+LICENSE = "BSD-&-some-icons-are-licensed-under-LGPL-or-CC-BY-NC-3.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=261b66671071bbaa4ac3e568151c48bc"
 
 ROS_CN = "multimaster_fkie"

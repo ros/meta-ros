@@ -10,7 +10,9 @@ AUTHOR = "Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>"
 ROS_AUTHOR = "Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>"
 HOMEPAGE = "http://ros.org/wiki/hironx_ros_bridge"
 SECTION = "devel"
-LICENSE = "BSD & CC-BY-SA-3.0"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD & CreativeCommons-by-nc-4.0"
+LICENSE = "BSD & CC-BY-NC-4.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=0e0fd756017bccbfdb4e935c7573a4ae"
 
 ROS_CN = "rtmros_hironx"

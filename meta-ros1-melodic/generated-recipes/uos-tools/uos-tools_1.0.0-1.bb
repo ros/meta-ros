@@ -9,7 +9,9 @@ DESCRIPTION = "Various helper utilities not associated with a particular stack"
 AUTHOR = "Sebastian Pütz <spuetz@uos.de>"
 HOMEPAGE = "http://ros.org/wiki/uos_tools"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD, GPL"
+LICENSE = "BSD-&-GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d81febe1baeaed0bfd599be384185f36"
 
 ROS_CN = "uos_tools"

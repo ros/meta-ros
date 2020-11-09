@@ -10,7 +10,9 @@ AUTHOR = "Ralf Kaestner <ralf.kaestner@gmail.com>"
 ROS_AUTHOR = "Ralf Kaestner"
 HOMEPAGE = "http://github.com/ethz-asl/ros-topic-variant"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GNU Lesser General Public License (LGPL)"
+LICENSE = "GNU-Lesser-General-Public-License-LGPL-"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=146ba316845cfe6058c8baebd902a726"
 
 ROS_CN = "variant"

@@ -10,7 +10,9 @@ AUTHOR = "Sebastian Pütz <spuetz@uos.de>"
 ROS_AUTHOR = "Sebastian Pütz <spuetz@uos.de>"
 HOMEPAGE = "http://wiki.ros.org/mbf_abstract_core"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD-3"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=ba717dc718040ac1636f383eca24f11f"
 
 ROS_CN = "move_base_flex"

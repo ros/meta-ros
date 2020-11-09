@@ -10,7 +10,7 @@ AUTHOR = "ROS Orphaned Package Maintainers <ros-orphaned-packages@googlegroups.c
 ROS_AUTHOR = "Klaas Gadeyne, Wim Meeussen, Tinne Delaet and many others. See web page for a full contributor list. ROS package maintained by Wim Meeussen."
 HOMEPAGE = "http://ros.org/wiki/bfl"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=19;endline=19;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "bfl"

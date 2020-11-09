@@ -9,7 +9,9 @@ DESCRIPTION = "The ros_babel_fish_test_msgs package"
 AUTHOR = "Stefan Fabian <ros_babel_fish@stefanfabian.me>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "TODO"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "TODO"
+LICENSE = "TODO-CATKIN-PACKAGE-LICENSE"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "ros_babel_fish"

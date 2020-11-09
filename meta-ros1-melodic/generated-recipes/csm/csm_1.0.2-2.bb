@@ -10,7 +10,7 @@ AUTHOR = "Isaac I.Y. Saito <130s@2000.jukuin.keio.ac.jp>"
 ROS_AUTHOR = "Andrea Censi"
 HOMEPAGE = "http://censi.mit.edu/software/csm"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "csm"

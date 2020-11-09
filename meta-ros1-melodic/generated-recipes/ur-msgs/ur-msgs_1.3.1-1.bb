@@ -10,7 +10,7 @@ AUTHOR = "G.A. vd. Hoorn <g.a.vanderhoorn@tudelft.nl>"
 ROS_AUTHOR = "Andrew Glusiec"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=4633480cdd27d7906aaf3ef4b72014b2"
 
 ROS_CN = "ur_msgs"

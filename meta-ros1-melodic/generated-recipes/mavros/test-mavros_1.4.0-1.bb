@@ -10,7 +10,9 @@ AUTHOR = "Vladimir Ermakov <vooon341@gmail.com>"
 ROS_AUTHOR = "Nuno Marques <n.marques21@hotmail.com>"
 HOMEPAGE = "https://github.com/mavlink/mavros.git"
 SECTION = "devel"
-LICENSE = "BSD & GPL-3 & LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD & GPLv3 & LGPLv3"
+LICENSE = "BSD & GPL-3.0-only & LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mavros"

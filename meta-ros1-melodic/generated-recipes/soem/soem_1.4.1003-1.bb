@@ -10,7 +10,9 @@ AUTHOR = "Matthias Gruhler <matthias.gruhler@gmail.com>"
 ROS_AUTHOR = "Arthur Ketels and M.J.G. van den Molengraft"
 HOMEPAGE = "http://openethercatsociety.github.io/"
 SECTION = "devel"
-LICENSE = "GPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv2 with linking exception"
+LICENSE = "GPLv2-with-linking-exception"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=31;endline=31;md5=321c016bc6284feaf25be31c1c1365e6"
 
 ROS_CN = "soem"

@@ -10,7 +10,7 @@ AUTHOR = "Brian Bingham <briansbingham@gmail.com>"
 ROS_AUTHOR = "Brian Bingham <briansbingham@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/microstrain_3dm_gx5_45"
 SECTION = "devel"
-LICENSE = "GPL-1"
+LICENSE = "GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
 ROS_CN = "microstrain_mips"

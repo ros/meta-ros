@@ -9,7 +9,7 @@ DESCRIPTION = "The sr_hand_detector package"
 AUTHOR = "Shadow Robot's Software Team <software@shadowrobot.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "GPL-1"
+LICENSE = "GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
 ROS_CN = "sr_hand_detector"

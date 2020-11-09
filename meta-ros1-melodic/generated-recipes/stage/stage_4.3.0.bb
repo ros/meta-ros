@@ -10,7 +10,7 @@ AUTHOR = "William Woodall <william@osrfoundation.org>"
 ROS_AUTHOR = "Richard Vaughan <vaughan@sfu.ca>"
 HOMEPAGE = "http://rtv.github.com/Stage"
 SECTION = "devel"
-LICENSE = "GPL-1"
+LICENSE = "GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
 ROS_CN = "stage"

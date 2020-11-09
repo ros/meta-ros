@@ -10,7 +10,9 @@ AUTHOR = "Jose Luis Rivero <jrivero@osrfoundation.org>"
 ROS_AUTHOR = "John Hsu"
 HOMEPAGE = "http://gazebosim.org/tutorials?cat=connect_ros"
 SECTION = "devel"
-LICENSE = "BSD-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD, Apache 2.0"
+LICENSE = "BSD-&-Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=f7d4e3a22e6490b133f4eb99348a8124"
 
 ROS_CN = "gazebo_ros_pkgs"

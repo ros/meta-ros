@@ -10,7 +10,9 @@ AUTHOR = "Austin Hendrix <ahendrix@willowgarage.com>"
 ROS_AUTHOR = "Blaise Gassend, Patrick Mihelich, Eric MacIntosh, David Palchak"
 HOMEPAGE = "http://www.ros.org/wiki/wge100_camera"
 SECTION = "devel"
-LICENSE = "GPL-1"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPL because of list.h; other files released under BSD"
+LICENSE = "GPL-because-of-list.h-&-other-files-released-under-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=984eb2ebe444619cdde9621008ccf4e4"
 
 ROS_CN = "wge100_driver"

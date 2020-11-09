@@ -10,6 +10,8 @@ AUTHOR = "Felix Zeltner <fez@ipa.fraunhofer.de>"
 ROS_AUTHOR = "Matthias Gruhler <mig@ipa.fraunhofer.de>"
 HOMEPAGE = "http://ros.org/wiki/cob_navigation_global"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 

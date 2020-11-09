@@ -10,7 +10,9 @@ AUTHOR = "Blake Anderson <blakeanderson@utexas.edu>"
 ROS_AUTHOR = "Brian O'Neil"
 HOMEPAGE = "https://ros-planning.github.io/moveit_tutorials"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD 3-Clause"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=f5654d47d02d927c4f7a04f0a51abaa1"
 
 ROS_CN = "moveit"

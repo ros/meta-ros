@@ -10,7 +10,9 @@ AUTHOR = "Marc Hanheide <marc@hanheide.net>"
 ROS_AUTHOR = "Tim Niemueller <tim@niemueller.de>"
 HOMEPAGE = "http://ros.org/wiki/mongodb_log"
 SECTION = "devel"
-LICENSE = "GPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=fe8b75cf0aba647401e1038bcd69ee74"
 
 ROS_CN = "mongodb_store"
