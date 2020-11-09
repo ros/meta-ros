@@ -10,7 +10,9 @@ AUTHOR = "AWS RoboMaker <ros-contributions@amazon.com>"
 ROS_AUTHOR = "AWS RoboMaker <ros-contributions@amazon.com>"
 HOMEPAGE = "http://wiki.ros.org/h264_video_encoder"
 SECTION = "devel"
-LICENSE = "LGPL-2.1"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPLv2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e181b18ed9533044a61dea448605dcd5"
 
 ROS_CN = "h264_video_encoder"

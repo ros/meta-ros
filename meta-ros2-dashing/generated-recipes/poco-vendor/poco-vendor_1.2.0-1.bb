@@ -9,7 +9,9 @@ DESCRIPTION = "CMake shim over the poco library."
 AUTHOR = "Steven! Ragnarök <steven@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & Boost-1.0"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0 & Boost Software License 1.0"
+LICENSE = "Apache-2.0 & BSL-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=401a7342a877608092ef332b6948eb03"
 
 ROS_CN = "poco_vendor"
