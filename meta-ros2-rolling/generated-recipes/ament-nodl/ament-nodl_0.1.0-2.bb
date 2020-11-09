@@ -9,7 +9,9 @@ DESCRIPTION = "Ament extension for exporting NoDL .xml files"
 AUTHOR = "Ubuntu Robotics <ubuntu-robotics@lists.launchpad.net>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
 ROS_CN = "ament_nodl"
