@@ -9,6 +9,8 @@ DESCRIPTION = "Messages and service files for the ROS2 Planning System"
 AUTHOR = "Francisco Martin Rico <fmrico@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License, Version 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e8978a5103d23266fc6f8ec03dc9eb16"
 

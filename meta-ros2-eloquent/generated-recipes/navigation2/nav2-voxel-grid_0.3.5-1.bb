@@ -9,7 +9,7 @@ DESCRIPTION = "voxel_grid provides an implementation of an efficient 3D voxel gr
 AUTHOR = "Carl Delsey <carl.r.delsey@intel.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=4633480cdd27d7906aaf3ef4b72014b2"
 
 ROS_CN = "navigation2"

@@ -9,6 +9,8 @@ DESCRIPTION = "Wrapper around spdlog, providing nothing but a dependency on spdl
 AUTHOR = "Chris Lalancette <clalancette@openrobotics.org>"
 HOMEPAGE = "https://github.com/gabime/spdlog"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0 & MIT"
 LICENSE = "Apache-2.0 & MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
