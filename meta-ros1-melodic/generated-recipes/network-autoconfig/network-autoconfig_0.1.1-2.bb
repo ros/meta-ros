@@ -9,7 +9,7 @@ DESCRIPTION = "ROS Networking Autoconfiguration"
 AUTHOR = "HXR <code@hxr.io>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "MIT & Apache-1.0"
+LICENSE = "MIT & Apache"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "network_autoconfig"

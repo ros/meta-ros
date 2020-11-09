@@ -9,7 +9,9 @@ DESCRIPTION = "ROS wrapper for slime"
 AUTHOR = "Gayane Kazhoyan <kazhoyan@cs.uni-bremen.de>"
 HOMEPAGE = "http://common-lisp.net/project/slime"
 SECTION = "devel"
-LICENSE = "public_domain"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Public domain"
+LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=90cf8e14bb501c1f6d3eda81e45e438a"
 
 ROS_CN = "ros_emacs_utils"

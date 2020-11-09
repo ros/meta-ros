@@ -9,7 +9,7 @@ DESCRIPTION = "The OPT++ catkin wrapper package"
 AUTHOR = "Wolfgang Merkt <wolfgang.merkt@ed.ac.uk>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "optpp_catkin"

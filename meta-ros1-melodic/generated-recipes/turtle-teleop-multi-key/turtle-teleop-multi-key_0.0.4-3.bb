@@ -10,6 +10,8 @@ AUTHOR = "EngHyu <roomedia@naver.com>"
 ROS_AUTHOR = "EngHyu <roomedia@naver.com>"
 HOMEPAGE = "https://wiki.ros.org/turtle_teleop_multi_key"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "MIT License"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e093dbacd8b861c0bd410cc6f33e06c4"
 

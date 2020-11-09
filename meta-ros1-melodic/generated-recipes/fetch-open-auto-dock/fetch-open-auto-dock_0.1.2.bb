@@ -10,7 +10,9 @@ AUTHOR = "Russell Toris <rtoris@fetchrobotics.com>"
 ROS_AUTHOR = "Michael Ferguson"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
 ROS_CN = "fetch_open_auto_dock"

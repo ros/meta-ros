@@ -9,7 +9,7 @@ DESCRIPTION = "The OSG Ocean library adapted to UWSim. See https://code.google.c
 AUTHOR = "Mario Prats <marioprats@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "uwsim_osgocean"

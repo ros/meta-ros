@@ -10,7 +10,9 @@ AUTHOR = "Micho Radovnikovich <mtradovn@oakland.edu>"
 ROS_AUTHOR = "Micho Radovnikovich <mtradovn@oakland.edu>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD2"
+LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=6c4b0dfc2c040991f7798d2c24b8fc03"
 
 ROS_CN = "igvc_self_drive_sim"

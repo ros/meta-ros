@@ -9,6 +9,8 @@ DESCRIPTION = "Messages for proprietary (non-NMEA) sentences from Novatel GPS re
 AUTHOR = "P. J. Reed <preed@swri.org>"
 HOMEPAGE = "https://ivs-git.dyn.datasys.swri.edu/uss/novatel_gps.git"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Southwest Research Institute Proprietary"
 LICENSE = "Southwest-Research-Institute-Proprietary"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=0ecd2b809a714729aa61f2072c17e9ad"
 

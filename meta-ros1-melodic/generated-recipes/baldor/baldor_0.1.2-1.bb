@@ -10,7 +10,9 @@ AUTHOR = "Francisco Suarez-Ruiz <fsuarez6@gmail.com>"
 ROS_AUTHOR = "Francisco Suarez-Ruiz <fsuarez6@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/baldor"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD 3-Clause"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=f5654d47d02d927c4f7a04f0a51abaa1"
 
 ROS_CN = "baldor"

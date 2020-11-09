@@ -9,6 +9,8 @@ DESCRIPTION = "This stack holds packages for IPA default environment configurati
 AUTHOR = "Jannik Abbenseth <jba@ipa.fhg.de>"
 HOMEPAGE = "http://ros.org/wiki/cob_environments"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 

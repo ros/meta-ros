@@ -9,6 +9,8 @@ DESCRIPTION = "The nmea_gps_plugin package"
 AUTHOR = "Masaya Kataoka <ms.kataoka@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=fc216ef9336537897fbeafa564601763"
 

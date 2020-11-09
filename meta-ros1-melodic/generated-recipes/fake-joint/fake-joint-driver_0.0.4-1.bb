@@ -10,6 +10,8 @@ AUTHOR = "Tokyo Opensource Robotics Kyokai (TORK) Developer Team <dev@opensource
 ROS_AUTHOR = "Ryosuke Tajima <ryosuke.tajima@opensource-robotics.tokyo.jp>"
 HOMEPAGE = "http://wiki.ros.org/fake_joint_driver"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 

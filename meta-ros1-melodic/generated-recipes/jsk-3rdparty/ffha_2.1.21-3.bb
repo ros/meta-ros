@@ -9,7 +9,7 @@ DESCRIPTION = "ffha: PDDL Planner (http://ipc.informatik.uni-freiburg.de)"
 AUTHOR = "Yohei Kakiuchi <youhei@jsk.t.u-tokyo.ac.jp>"
 HOMEPAGE = "http://ros.org/wiki/ffha"
 SECTION = "devel"
-LICENSE = "GPL-1"
+LICENSE = "GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
 ROS_CN = "jsk_3rdparty"

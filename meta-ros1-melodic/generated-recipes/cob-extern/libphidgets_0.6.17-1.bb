@@ -10,7 +10,7 @@ AUTHOR = "Benjamin Maidel <benjamin.maidel@ipa.fraunhofer.de>"
 ROS_AUTHOR = "Alexander Bubeck"
 HOMEPAGE = "http://ros.org/wiki/libphidgets"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "cob_extern"

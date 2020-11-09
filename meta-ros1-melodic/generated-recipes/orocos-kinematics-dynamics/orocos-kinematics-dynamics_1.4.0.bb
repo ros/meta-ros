@@ -9,7 +9,7 @@ DESCRIPTION = "This package depends on a recent version of the Kinematics and Dy
 AUTHOR = "Orocos Developers <orocos-dev@lists.mech.kuleuven.be>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "orocos_kinematics_dynamics"

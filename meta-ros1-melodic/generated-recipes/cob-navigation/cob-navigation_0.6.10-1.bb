@@ -9,6 +9,8 @@ DESCRIPTION = "The cob_navigation stack provides different navigation packages f
 AUTHOR = "Felix Zeltner <fez@ipa.fraunhofer.de>"
 HOMEPAGE = "http://ros.org/wiki/cob_navigation"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 

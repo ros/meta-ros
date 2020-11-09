@@ -10,6 +10,8 @@ AUTHOR = "ROS Orphaned Package Maintainers <ros-orphaned-packages@googlegroups.c
 ROS_AUTHOR = "Brian Gerkey"
 HOMEPAGE = "http://ros.org/wiki/gmapping"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD & Apache 2.0"
 LICENSE = "BSD & Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 

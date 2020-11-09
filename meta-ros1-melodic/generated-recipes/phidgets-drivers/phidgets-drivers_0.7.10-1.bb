@@ -10,7 +10,9 @@ AUTHOR = "Martin Günther <martin.guenther@dfki.de>"
 ROS_AUTHOR = "Phidgets Inc."
 HOMEPAGE = "http://ros.org/wiki/phidgets_drivers"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD, LGPL"
+LICENSE = "BSD-&-LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=9b8b2c2c843b0cb5803c38944da723d5"
 
 ROS_CN = "phidgets_drivers"

@@ -10,7 +10,9 @@ AUTHOR = "Florian Weisshardt <fmw@ipa.fhg.de>"
 ROS_AUTHOR = "Florian Weisshardt"
 HOMEPAGE = "http://www.esd-electronics.com"
 SECTION = "devel"
-LICENSE = "proprietary"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "proprietary"
+LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=8904d09133e0eadd3d9a60ebfd4e2abe"
 
 ROS_CN = "cob_extern"

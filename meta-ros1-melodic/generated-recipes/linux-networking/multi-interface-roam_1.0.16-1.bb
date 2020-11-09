@@ -10,7 +10,9 @@ AUTHOR = "Devon Ash <dash@clearpathrobotics.com>"
 ROS_AUTHOR = "Blaise Gassend"
 HOMEPAGE = "http://ros.org/wiki/multi_interface_roam"
 SECTION = "devel"
-LICENSE = "BSD & LGPL-2 & GPL-1"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD & LGPL & GPL for sigblock"
+LICENSE = "BSD & LGPL & GPL-for-sigblock"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "linux_networking"

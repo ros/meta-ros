@@ -9,7 +9,9 @@ DESCRIPTION = "Package with ReflexxesTypeII implementation and header files"
 AUTHOR = "stogl <stogl@todo.todo>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "ipr_extern"

@@ -10,7 +10,9 @@ AUTHOR = "Scott Niekum <sniekum@cs.umass.edu>"
 ROS_AUTHOR = "Scott Niekum <sniekum@cs.umass.edu>"
 HOMEPAGE = "http://ros.org/wiki/ar_track_alvar"
 SECTION = "devel"
-LICENSE = "LGPL-2.1"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPL-2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=061abe8dc89f326789675967c8760541"
 
 ROS_CN = "ar_track_alvar"

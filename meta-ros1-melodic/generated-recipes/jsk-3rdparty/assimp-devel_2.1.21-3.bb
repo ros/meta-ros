@@ -9,7 +9,7 @@ DESCRIPTION = "assimp library"
 AUTHOR = "Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=5;endline=5;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "jsk_3rdparty"

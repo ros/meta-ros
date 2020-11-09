@@ -9,7 +9,9 @@ DESCRIPTION = "This package contains the description of the hand-eye calibration
 AUTHOR = "Victor Lopez <victor.lopez@pal-robotics.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "CC-BY-NC-ND-4.0"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Creative Commons BY-NC-ND 3.0"
+LICENSE = "CC-BY-NC-ND-3.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=c34cc4dbd73e2cebfa3f363105f53fd5"
 
 ROS_CN = "talos_robot"

@@ -9,7 +9,7 @@ DESCRIPTION = "The OSG Bullet library adapted to UWSim. See https://code.google.
 AUTHOR = "Mario Prats <marioprats@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "uwsim_osgbullet"

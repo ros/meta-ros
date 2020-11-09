@@ -10,6 +10,8 @@ AUTHOR = "Enrique Fernandez <efernandez@clearpathrobotics.com>"
 ROS_AUTHOR = "Enrique Fernandez <efernandez@clearpathrobotics.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "CC BY-NC-SA 4.0"
 LICENSE = "CC-BY-NC-SA-4.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=6bc0e2b80b41b84c8240cea714dea709"
 

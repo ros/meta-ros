@@ -10,7 +10,9 @@ AUTHOR = "Your Name <pankhurivanjani@gmail.com>"
 ROS_AUTHOR = "Pankhuri Vanjani <pankhurivanjani@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/beginner_tutorials"
 SECTION = "devel"
-LICENSE = "GPL-3"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=1e7b3bcc2e271699c77c769685058cbe"
 
 ROS_CN = "jderobot_camviz"

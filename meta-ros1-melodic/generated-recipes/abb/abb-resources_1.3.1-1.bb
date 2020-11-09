@@ -10,6 +10,8 @@ AUTHOR = "Levi Armstrong (Southwest Research Institute) <levi.armstrong@swri.org
 ROS_AUTHOR = "Levi Armstrong (Southwest Research Institute) <levi.armstrong@swri.org>"
 HOMEPAGE = "http://wiki.ros.org/abb_resources"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=c93e37fc0c6f510db5735eb91dcc1550"
 

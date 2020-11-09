@@ -10,7 +10,7 @@ AUTHOR = "Hitoshi Kamada <h-kamada@jsk.imi.i.u-tokyo.ac.jp>"
 ROS_AUTHOR = "Kei Okada <k-okada@jsk.imi.i.u-tokyo.ac.jp>"
 HOMEPAGE = "http://ros.org/wiki/lpg_planner"
 SECTION = "devel"
-LICENSE = "GPL-1"
+LICENSE = "GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
 ROS_CN = "jsk_3rdparty"

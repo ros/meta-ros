@@ -10,7 +10,9 @@ AUTHOR = "Garren Hendricks <ghendricks@scu.edu>"
 ROS_AUTHOR = "Garren Hendricks <ghendricks@scu.edu>"
 HOMEPAGE = "http://www.ros.org/wiki/radar_omnipresense"
 SECTION = "devel"
-LICENSE = "ECL2.0"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "ECL2.0"
+LICENSE = "EPL-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "radar_omnipresense"
