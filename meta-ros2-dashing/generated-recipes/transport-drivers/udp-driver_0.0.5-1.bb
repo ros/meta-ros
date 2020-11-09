@@ -9,6 +9,8 @@ DESCRIPTION = "A template class and associated utilities which encapsulate basic
 AUTHOR = "Apex.AI, Inc. <opensource@apex.ai>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=bb69307f9a8566360ce04a9b7e6a00b7"
 
