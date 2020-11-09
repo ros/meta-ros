@@ -9,7 +9,9 @@ DESCRIPTION = "The spatio-temporal 3D obstacle costmap package"
 AUTHOR = "Steve Macenski <stevenmacenski@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-2.1"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPL v2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=51cb7c4da723adcc172e438a5d750382"
 
 ROS_CN = "spatio_temporal_voxel_layer"
