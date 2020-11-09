@@ -9,7 +9,9 @@ DESCRIPTION = "Various tools for IMU devices"
 AUTHOR = "Martin Günther <martin.guenther1980@gmail.com>"
 HOMEPAGE = "http://ros.org/wiki/imu_tools"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD, GPL"
+LICENSE = "BSD-&-GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d81febe1baeaed0bfd599be384185f36"
 
 ROS_CN = "imu_tools"

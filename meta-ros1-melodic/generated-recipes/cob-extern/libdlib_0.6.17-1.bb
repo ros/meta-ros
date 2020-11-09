@@ -10,7 +10,9 @@ AUTHOR = "Richard Bormann <richard.bormann@ipa.fraunhofer.de>"
 ROS_AUTHOR = "Florian Jordan <florian.jordan@ipa.fraunhofer.de>"
 HOMEPAGE = "http://dlib.net/"
 SECTION = "devel"
-LICENSE = "Boost-1.0"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Boost Software License"
+LICENSE = "BSL-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=09979e3a2d22cfca05fa582289195959"
 
 ROS_CN = "cob_extern"

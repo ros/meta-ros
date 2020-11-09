@@ -10,7 +10,9 @@ AUTHOR = "Austin Hendrix <ahendrix@willowgarage.com>"
 ROS_AUTHOR = "Patrick Mihelich"
 HOMEPAGE = "http://ros.org/wiki/wge100_driver"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD,GPL because of list.h; other files released under BSD,GPL"
+LICENSE = "BSD-&-GPL-because-of-list.h-&-other-files-released-under-BSD-&-GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=fddb6daa7b67ce9222aeec5070ad609f"
 
 ROS_CN = "wge100_driver"

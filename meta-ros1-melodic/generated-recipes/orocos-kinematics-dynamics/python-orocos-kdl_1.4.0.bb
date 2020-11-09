@@ -9,7 +9,7 @@ DESCRIPTION = "This package contains the python bindings PyKDL for the Kinematic
 AUTHOR = "Ruben Smits <ruben@intermodalics.eu>"
 HOMEPAGE = "http://wiki.ros.org/python_orocos_kdl"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "orocos_kinematics_dynamics"

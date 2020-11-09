@@ -10,6 +10,8 @@ AUTHOR = "Felix Messmer <felixmessmer@gmail.com>"
 ROS_AUTHOR = "Florian Weisshardt, Maximilian Sieber <fmw@ipa.fhg.de>"
 HOMEPAGE = "http://www.ros.org/wiki/cob_teleop"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 

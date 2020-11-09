@@ -10,6 +10,8 @@ AUTHOR = "Florian Weisshardt <florian.weisshardt@mojin-robotics.de>"
 ROS_AUTHOR = "Florian Weisshardt"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 

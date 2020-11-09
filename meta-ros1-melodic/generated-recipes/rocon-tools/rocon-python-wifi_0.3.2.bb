@@ -10,7 +10,9 @@ AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
 ROS_AUTHOR = "Róman Joost"
 HOMEPAGE = "http://pythonwifi.wikispot.org/"
 SECTION = "devel"
-LICENSE = "GPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=fe8b75cf0aba647401e1038bcd69ee74"
 
 ROS_CN = "rocon_tools"

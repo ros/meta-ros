@@ -10,7 +10,9 @@ AUTHOR = "Sebastian Pütz <spuetz@uos.de>"
 ROS_AUTHOR = "Sebastian Pütz <spuetz@uos.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD-3"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=76ea7cd512d17201ff67e2488e8c4ce3"
 
 ROS_CN = "mbf_recovery_behaviors"

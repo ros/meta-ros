@@ -10,7 +10,7 @@ AUTHOR = "Mathias Lüdtke <mathias.luedtke@ipa.fraunhofer.de>"
 ROS_AUTHOR = "Florian Weisshardt <fmw@ipa.fhg.de>"
 HOMEPAGE = "http://ros.org/wiki/ros_canopen"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "ros_canopen"

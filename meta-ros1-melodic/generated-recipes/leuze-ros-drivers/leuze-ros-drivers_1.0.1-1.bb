@@ -10,6 +10,8 @@ AUTHOR = "Ludovic Delval <ludovic.delval@ipa.fraunhofer.de>"
 ROS_AUTHOR = "Ludovic Delval <ludovic.delval@ipa.fraunhofer.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "APACHE2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=740ffa6e787a40b3ec532a5b41b0c385"
 

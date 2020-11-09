@@ -9,7 +9,7 @@ DESCRIPTION = "The abseil_cpp package"
 AUTHOR = "dfaconti <davide.faconti@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache-1.0"
+LICENSE = "Apache"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=211ba54883815de9f52a3dcd9f281523"
 
 ROS_CN = "abseil_cpp"

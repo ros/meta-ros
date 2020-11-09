@@ -10,7 +10,7 @@ AUTHOR = "ROS Orphaned Package Maintainers <ros-orphaned-packages@googlegroups.c
 ROS_AUTHOR = "Derek King"
 HOMEPAGE = "http://ros.org/wiki/pr2_ethercat_drivers"
 SECTION = "devel"
-LICENSE = "BSD & GPL-1"
+LICENSE = "BSD & GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pr2_ethercat_drivers"

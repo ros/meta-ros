@@ -10,6 +10,8 @@ AUTHOR = "Maxime Busy <mbusy@softbankrobotics.com>"
 ROS_AUTHOR = "Vincent Rabaud <vincent.rabaud@gmail.com>"
 HOMEPAGE = "http://github.com/ros-naoqi/nao_meshes/"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License"
 LICENSE = "CC-BY-NC-ND-4.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=cc423ec78844eb7f9a98d5df4d0f6289"
 

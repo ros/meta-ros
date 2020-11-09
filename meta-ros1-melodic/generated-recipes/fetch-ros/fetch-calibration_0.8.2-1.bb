@@ -10,6 +10,8 @@ AUTHOR = "Russell Toris <rtoris@fetchrobotics.com>"
 ROS_AUTHOR = "Michael Ferguson"
 HOMEPAGE = "http://docs.fetchrobotics.com/calibration.html"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=c93e37fc0c6f510db5735eb91dcc1550"
 

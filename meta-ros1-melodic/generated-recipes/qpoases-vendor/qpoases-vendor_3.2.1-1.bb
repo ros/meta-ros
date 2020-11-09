@@ -9,7 +9,9 @@ DESCRIPTION = "Wrapper around qpOASES to make it available to the ROS ecosystem.
 AUTHOR = "Geoffrey Biggs <geoff.biggs@tier4.jp>"
 HOMEPAGE = "https://projects.coin-or.org/qpOASES"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0 & LGPL"
+LICENSE = "Apache-2.0 & LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d160c31cc0b7b3533fd6cf648b07acc7"
 
 ROS_CN = "qpoases_vendor"

@@ -10,6 +10,8 @@ AUTHOR = "Rik Bähnemann <brik@ethz.ch>"
 ROS_AUTHOR = "Simon Lynen"
 HOMEPAGE = "https://github.com/ethz-asl/mav_comm"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "ASL 2.0"
 LICENSE = "ASL-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=19;endline=19;md5=5f4e9e9dcee74b02aa26af144fe2f0af"
 

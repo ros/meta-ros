@@ -10,7 +10,7 @@ AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
 ROS_AUTHOR = "Brian P. Gerkey"
 HOMEPAGE = "http://wiki.ros.org/amcl"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=24;endline=24;md5=58d727014cda5ed405b7fb52666a1f97"
 
 ROS_CN = "navigation"

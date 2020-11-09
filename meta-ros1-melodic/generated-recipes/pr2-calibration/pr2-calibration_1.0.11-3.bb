@@ -9,7 +9,9 @@ DESCRIPTION = "The pr2_calibration package"
 AUTHOR = "Dave Feil-Seifer <dave@cse.unr.edu>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "TODO"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "TODO"
+LICENSE = "TODO-CATKIN-PACKAGE-LICENSE"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=2feaf30a620f46f06a4b016624acf46f"
 
 ROS_CN = "pr2_calibration"

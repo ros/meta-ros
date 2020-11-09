@@ -9,7 +9,9 @@ DESCRIPTION = "The nmea_to_geopose package"
 AUTHOR = "Masaya Kataoka <ms.kataoka@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apachi-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apachi 2"
+LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=a8d2b00a1367c1777b88ce4217935128"
 
 ROS_CN = "nmea_to_geopose"

@@ -10,7 +10,7 @@ AUTHOR = "Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>"
 ROS_AUTHOR = "Rosen Diankov (rdiankov@cs.cmu.edu), Kei Okada"
 HOMEPAGE = "http://jsk-docs.readthedocs.io/en/latest/jsk_recognition/doc/imagesift"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+LICENSE = "LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "jsk_recognition"

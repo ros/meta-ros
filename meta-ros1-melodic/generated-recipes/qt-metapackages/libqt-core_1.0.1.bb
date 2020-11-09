@@ -9,6 +9,8 @@ DESCRIPTION = "libqt-core metapackage supporting qt4 and qt5"
 AUTHOR = "Matthew Bries <mbries@swri.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "United States Government Purpose & SwRI Proprietary"
 LICENSE = "United-States-Government-Purpose & SwRI-Proprietary"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=8e473b26ead33548c945bdaca143a08d"
 

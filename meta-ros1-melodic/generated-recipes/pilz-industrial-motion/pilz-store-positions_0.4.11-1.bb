@@ -9,7 +9,9 @@ DESCRIPTION = "Allows to store poses during teach-in."
 AUTHOR = "Joachim Schleicher <j.schleicher@pilz.de>"
 HOMEPAGE = "https://github.com/PilzDE/pilz_industrial_motion/issues"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
 ROS_CN = "pilz_industrial_motion"

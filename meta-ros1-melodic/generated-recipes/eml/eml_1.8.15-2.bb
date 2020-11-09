@@ -10,6 +10,8 @@ AUTHOR = "David Feil-Seifer <dave@cse.unr.edu>"
 ROS_AUTHOR = "Austin Hendrix"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Binary Only"
 LICENSE = "Binary-Only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=a99890d7e16071ac30156cdebd292056"
 

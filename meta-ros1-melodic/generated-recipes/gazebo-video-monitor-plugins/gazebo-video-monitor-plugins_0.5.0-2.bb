@@ -10,7 +10,9 @@ AUTHOR = "Nick Lamprianidis <nlamprian@gmail.com>"
 ROS_AUTHOR = "Nick Lamprianidis <nlamprian@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "GPL-3"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=1e7b3bcc2e271699c77c769685058cbe"
 
 ROS_CN = "gazebo_video_monitor_plugins"

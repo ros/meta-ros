@@ -10,6 +10,8 @@ AUTHOR = "Michael Carroll <michael@openrobotics.org>"
 ROS_AUTHOR = "Various"
 HOMEPAGE = "http://smc.sourceforge.net/"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Mozilla Public License Version 1.1"
 LICENSE = "MPL-1.1"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=e1b5a50d4dd59d8102e41a7a2254462d"
 

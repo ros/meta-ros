@@ -10,7 +10,9 @@ AUTHOR = "Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>"
 ROS_AUTHOR = "Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>"
 HOMEPAGE = "http://ros.org/wiki/rosping"
 SECTION = "devel"
-LICENSE = "Boost-1.0"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Boost Software License, Version 1.0"
+LICENSE = "BSL-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d98785270c85a483b5697dfd09b5f41a"
 
 ROS_CN = "jsk_3rdparty"

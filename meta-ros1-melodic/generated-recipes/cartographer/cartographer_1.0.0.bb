@@ -10,6 +10,8 @@ AUTHOR = "The Cartographer Authors <cartographer-owners@googlegroups.com>"
 ROS_AUTHOR = "The Cartographer Authors <google-cartographer@googlegroups.com>"
 HOMEPAGE = "https://github.com/googlecartographer/cartographer"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=b73cebba72f83c5afebf178817283e37"
 

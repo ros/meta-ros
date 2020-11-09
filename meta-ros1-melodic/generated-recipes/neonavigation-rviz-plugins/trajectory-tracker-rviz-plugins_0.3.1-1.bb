@@ -10,7 +10,9 @@ AUTHOR = "Atsushi Watanabe <atsushi.w@ieee.org>"
 ROS_AUTHOR = "Atsushi Watanabe <atsushi.w@ieee.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD & CC-BY-SA-3.0"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD & Creative Commons"
+LICENSE = "BSD & Creative-Commons"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "neonavigation_rviz_plugins"

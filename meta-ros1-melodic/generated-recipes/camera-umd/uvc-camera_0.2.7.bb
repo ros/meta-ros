@@ -10,7 +10,9 @@ AUTHOR = "Ken Tossell <ken@tossell.net>"
 ROS_AUTHOR = "Ken Tossell <ken@tossell.net>"
 HOMEPAGE = "http://ros.org/wiki/uvc_camera"
 SECTION = "devel"
-LICENSE = "GPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=21;endline=21;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "camera_umd"

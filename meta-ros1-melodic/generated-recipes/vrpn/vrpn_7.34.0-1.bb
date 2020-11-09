@@ -10,7 +10,9 @@ AUTHOR = "Paul Bovbel <paul@bovbel.com>"
 ROS_AUTHOR = "Russell M. Taylor"
 HOMEPAGE = "https://github.com/vrpn/vrpn/wiki"
 SECTION = "devel"
-LICENSE = "BSL1.0"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSL1.0"
+LICENSE = "BSL-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=1c7945be8716a98e36e855a20dc9b844"
 
 ROS_CN = "vrpn"
