@@ -8,12 +8,12 @@ SRC_URI += " \
     file://0003-builder.py-don-t-prepend-ld_path-to-LD_LIBRARY_PATH.patch \
 "
 
-ROS_BUILD_DEPENDS_remove = "python-catkin-pkg"
-ROS_BUILD_DEPENDS_remove = "python-empy"
+ROS_BUILD_DEPENDS_remove = "${PYTHON_PN}-catkin-pkg"
+ROS_BUILD_DEPENDS_remove = "${PYTHON_PN}-empy"
 
 ROS_BUILDTOOL_DEPENDS += " \
-    python-catkin-pkg-native \
-    python-empy-native \
+    ${PYTHON_PN}-catkin-pkg-native \
+    ${PYTHON_PN}-empy-native \
 "
 
 EXTRA_OECMAKE_prepend = " \
