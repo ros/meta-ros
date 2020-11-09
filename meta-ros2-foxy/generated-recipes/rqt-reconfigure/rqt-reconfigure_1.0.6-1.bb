@@ -10,6 +10,8 @@ AUTHOR = "Scott K Logan <logans@cottsay.net>"
 ROS_AUTHOR = "Isaac Saito"
 HOMEPAGE = "http://wiki.ros.org/rqt_reconfigure"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD & Apache License 2.0"
 LICENSE = "BSD & Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
