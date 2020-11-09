@@ -9,6 +9,8 @@ DESCRIPTION = "The dsr_example2 Python package"
 AUTHOR = "Doosan Robotics <ros.robotics@doosan.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "TODO: License declaration"
 LICENSE = "TODO-License-declaration"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=782925c2d55d09052e1842a0b4886802"
 
