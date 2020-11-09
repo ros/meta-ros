@@ -9,7 +9,9 @@ DESCRIPTION = "CLI tools for NoDL files."
 AUTHOR = "Ubuntu Robotics <ubuntu-robotics@lists.launchpad.net>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "GPL-3"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=1e7b3bcc2e271699c77c769685058cbe"
 
 ROS_CN = "nodl"
