@@ -9,6 +9,8 @@ DESCRIPTION = "The parser for the manifest files in the ament buildsystem."
 AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=9ed539f6175b7e00bfd99b36cfbcbd73"
 

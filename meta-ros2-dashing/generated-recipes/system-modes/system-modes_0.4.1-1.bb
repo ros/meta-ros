@@ -9,6 +9,8 @@ DESCRIPTION = "The system modes concept assumes that a robotics system is built 
 AUTHOR = "Arne Nordmann <arne.nordmann@bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
