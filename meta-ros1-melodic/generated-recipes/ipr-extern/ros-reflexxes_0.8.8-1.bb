@@ -9,7 +9,9 @@ DESCRIPTION = "The ros_reflexxes package"
 AUTHOR = "Daniel Zumkeller <daniel.zumkeller@live.de>"
 HOMEPAGE = "https://gitlab.ira.uka.de/iirob/ros_reflexxes"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
 ROS_CN = "ipr_extern"

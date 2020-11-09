@@ -9,7 +9,7 @@ DESCRIPTION = "julius: Open-Source Large Vocabulary CSR Engine (http://julius.so
 AUTHOR = "Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>"
 HOMEPAGE = "http://ros.org/wiki/julius"
 SECTION = "devel"
-LICENSE = "GPL-1"
+LICENSE = "GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
 ROS_CN = "jsk_3rdparty"

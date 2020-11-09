@@ -10,7 +10,9 @@ AUTHOR = "Gayane Kazhoyan <kazhoyan@cs.uni-bremen.de>"
 ROS_AUTHOR = "Lorenz Moesenlechner"
 HOMEPAGE = "https://github.com/code-iai/ros_emacs_utils"
 SECTION = "devel"
-LICENSE = "public_domain"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Public domain"
+LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=90cf8e14bb501c1f6d3eda81e45e438a"
 
 ROS_CN = "ros_emacs_utils"

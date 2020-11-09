@@ -10,6 +10,8 @@ AUTHOR = "Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>"
 ROS_AUTHOR = "Kei Okada"
 HOMEPAGE = "http://ros.org/wiki/voice_text"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "HOYA License"
 LICENSE = "HOYA-License"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=022ccc6becffa6ec4f05cd7c1f04dcd5"
 

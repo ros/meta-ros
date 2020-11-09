@@ -10,6 +10,8 @@ AUTHOR = "Pavel Vechersky <pvechersky@gmail.com>"
 ROS_AUTHOR = "Pavel Vechersky"
 HOMEPAGE = "https://github.com/ethz-asl/rotors_simulator"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "ASL 2.0"
 LICENSE = "ASL-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=5f4e9e9dcee74b02aa26af144fe2f0af"
 

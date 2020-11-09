@@ -10,7 +10,9 @@ AUTHOR = "Jorge Santos <santos@magazino.eu>"
 ROS_AUTHOR = "Jorge Santos <santos@magazino.eu>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD-3"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=ba717dc718040ac1636f383eca24f11f"
 
 ROS_CN = "move_base_flex"

@@ -10,6 +10,8 @@ AUTHOR = "Sean Kelly <sean.kelly@ifm.com>"
 ROS_AUTHOR = "Tom Panzarella <tom@boxrobotics.ai>"
 HOMEPAGE = "https://github.com/lovepark/ifm3d-ros"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=fc216ef9336537897fbeafa564601763"
 

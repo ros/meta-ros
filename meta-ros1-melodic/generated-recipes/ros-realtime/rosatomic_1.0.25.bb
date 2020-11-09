@@ -10,7 +10,9 @@ AUTHOR = "Devon Ash <dash@clearpathrobotics.com>"
 ROS_AUTHOR = "Josh Faust"
 HOMEPAGE = "http://ros.org/wiki/rosatomic"
 SECTION = "devel"
-LICENSE = "BSD & Boost-1.0"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD & Boost"
+LICENSE = "BSD & BSL-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "ros_realtime"

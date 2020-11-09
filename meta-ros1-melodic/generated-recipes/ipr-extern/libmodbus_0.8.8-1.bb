@@ -9,7 +9,9 @@ DESCRIPTION = "The iirob_filters package implements following filters:       1) 
 AUTHOR = "Denis Štogl <denis.stogl@kit.edu>"
 HOMEPAGE = "http://wiki.ros.org/iirob_controllers"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
 ROS_CN = "ipr_extern"

@@ -9,7 +9,9 @@ DESCRIPTION = "The VisualStates is reactive hierarchical visual robot planning t
 AUTHOR = "Okan Aşık <asik.okan@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "GPL-3"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=1e7b3bcc2e271699c77c769685058cbe"
 
 ROS_CN = "visualstates"

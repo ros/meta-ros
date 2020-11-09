@@ -10,6 +10,8 @@ AUTHOR = "Franka Emika GmbH <support@franka.de>"
 ROS_AUTHOR = "Franka Emika GmbH"
 HOMEPAGE = "http://wiki.ros.org/franka_ros"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 

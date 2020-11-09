@@ -10,7 +10,9 @@ AUTHOR = "Russell Toris <rtoris@fetchrobotics.com>"
 ROS_AUTHOR = "Michael Ferguson"
 HOMEPAGE = "http://docs.fetchrobotics.com/robot_hardware.html"
 SECTION = "devel"
-LICENSE = "CC-BY-SA-3.0"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "CreativeCommons-Attribution-NonCommercial-ShareAlike-4.0-International"
+LICENSE = "CC-BY-NC-SA-4.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=344d4aa5a0db5cd5511f08e5b383f2ec"
 
 ROS_CN = "fetch_ros"

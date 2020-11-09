@@ -10,7 +10,9 @@ AUTHOR = "Armin Hornung <armin@hornung.io>"
 ROS_AUTHOR = "Kai M. Wurm <wurm@informatik.uni-freiburg.de>"
 HOMEPAGE = "http://octomap.github.io"
 SECTION = "devel"
-LICENSE = "GPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=fe8b75cf0aba647401e1038bcd69ee74"
 
 ROS_CN = "octomap"

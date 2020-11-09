@@ -10,7 +10,9 @@ AUTHOR = "Mathias Lüdtke <mathias.luedtke@ipa.fraunhofer.de>"
 ROS_AUTHOR = "Mathias Lüdtke <mathias.luedtke@ipa.fraunhofer.de>"
 HOMEPAGE = "http://wiki.ros.org/canopen_master"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
 ROS_CN = "ros_canopen"

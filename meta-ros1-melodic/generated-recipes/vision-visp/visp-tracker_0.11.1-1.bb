@@ -10,7 +10,9 @@ AUTHOR = "Fabien Spindler <fabien.spindler@inria.fr>"
 ROS_AUTHOR = "Thomas Moulard <thomas.moulard@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/wiki/visp_tracker"
 SECTION = "devel"
-LICENSE = "GPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=fe8b75cf0aba647401e1038bcd69ee74"
 
 ROS_CN = "vision_visp"

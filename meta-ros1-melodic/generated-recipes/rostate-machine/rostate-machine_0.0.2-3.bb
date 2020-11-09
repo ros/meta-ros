@@ -9,6 +9,8 @@ DESCRIPTION = "The rostate_machine package"
 AUTHOR = "masaya kataoka <ms.kataoka@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache v2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=e331ae4007befdc99188ed9053fe2356"
 

@@ -10,6 +10,8 @@ AUTHOR = "Jeroen De Maeyer <jeroen.demaeyer@kuleuven.be>"
 ROS_AUTHOR = "Jeroen De Maeyer"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=25515e36b34c800cf08bed6a88dd7900"
 

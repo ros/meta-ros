@@ -10,6 +10,8 @@ AUTHOR = "Michael Ferguson <mike@vanadiumlabs.com>"
 ROS_AUTHOR = "Michael Ferguson"
 HOMEPAGE = "http://ros.org/wiki/robot_calibration"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=c93e37fc0c6f510db5735eb91dcc1550"
 

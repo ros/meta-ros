@@ -10,7 +10,9 @@ AUTHOR = "Michael Ferguson <mfergs7@gmail.com>"
 ROS_AUTHOR = "contradict@gmail.com"
 HOMEPAGE = "http://wiki.ros.org/navigation"
 SECTION = "devel"
-LICENSE = "BSD"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD,LGPL,LGPL (amcl)"
+LICENSE = "BSD-&-LGPL-&-LGPL-amcl-"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=2988eb2faff9dfbcfa1c72a9efc3fa78"
 
 ROS_CN = "navigation"

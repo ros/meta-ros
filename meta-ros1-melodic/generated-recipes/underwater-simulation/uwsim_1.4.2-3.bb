@@ -10,7 +10,7 @@ AUTHOR = "Mario Prats <marioprats@gmail.com>"
 ROS_AUTHOR = "Mario Prats <marioprats@gmail.com>"
 HOMEPAGE = "http://www.irs.uji.es/uwsim/"
 SECTION = "devel"
-LICENSE = "GPL-1"
+LICENSE = "GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
 ROS_CN = "underwater_simulation"

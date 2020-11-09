@@ -10,6 +10,8 @@ AUTHOR = "Felix Messmer <fxm@ipa.fhg.de>"
 ROS_AUTHOR = "Florian Koehler <koellsch86@googlemail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=80318c4afef111a7690eaf237460856b"
 

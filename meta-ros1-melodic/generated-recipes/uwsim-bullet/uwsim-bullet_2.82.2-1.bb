@@ -9,7 +9,9 @@ DESCRIPTION = "The bullet library. See https://code.google.com/p/bullet"
 AUTHOR = "Mario Prats <marioprats@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Check-author's-website"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Check author's website"
+LICENSE = "Check-authors-website"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=679c9cd200147a32831f0d7c812990b5"
 
 ROS_CN = "uwsim_bullet"

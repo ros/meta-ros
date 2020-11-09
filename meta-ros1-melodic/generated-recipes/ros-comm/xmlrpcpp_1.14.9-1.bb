@@ -10,7 +10,9 @@ AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
 ROS_AUTHOR = "Chris Morley"
 HOMEPAGE = "http://xmlrpcpp.sourceforge.net"
 SECTION = "devel"
-LICENSE = "LGPL-2.1"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPL-2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=184dd1523b9a109aead3fbbe0b4262e0"
 
 ROS_CN = "ros_comm"

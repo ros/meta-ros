@@ -10,6 +10,8 @@ AUTHOR = "Chris Bollinger <chris@hebirobotics.com>"
 ROS_AUTHOR = "Chris Bollinger <chris@hebirobotics.com>"
 HOMEPAGE = "http://docs.hebi.us/tools.html#cpp-api"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "HEBI C++ Software License (https://www.hebirobotics.com/softwarelicense)"
 LICENSE = "HEBI-C-Software-License-https-www.hebirobotics.com-softwarelicense-"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=8cc38e87392e4480a4870daca61af5fd"
 

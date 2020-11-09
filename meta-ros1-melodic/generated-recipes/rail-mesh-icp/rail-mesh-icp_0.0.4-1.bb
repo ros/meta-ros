@@ -9,7 +9,9 @@ DESCRIPTION = "Enables matching a mesh model file (e.g. STL) to a point cloud us
 AUTHOR = "Angel Daruna <adaruna3@gatech.edu>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "BSD 2-Clause License"
+LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=c20eb5c7ef6e64b69da7db2b30cba1c7"
 
 ROS_CN = "rail_mesh_icp"

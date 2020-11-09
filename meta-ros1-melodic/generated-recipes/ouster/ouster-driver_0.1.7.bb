@@ -10,6 +10,8 @@ AUTHOR = "Alexander Carballo <miyamoto.musashi2@gmail.com>"
 ROS_AUTHOR = "ouster developers <oss@ouster.io>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=fc216ef9336537897fbeafa564601763"
 

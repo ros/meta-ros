@@ -10,7 +10,9 @@ AUTHOR = "Denis Štogl <denis.stogl@kit.edu>"
 ROS_AUTHOR = "Denis Štogl <denis.stogl@kit.edu>"
 HOMEPAGE = "https://github.com/KITrobotics/ipr_extern"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
 ROS_CN = "ipr_extern"

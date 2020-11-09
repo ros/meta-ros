@@ -10,7 +10,9 @@ AUTHOR = "Ronald Ensing <r.m.ensing@tudelft.nl>"
 ROS_AUTHOR = "Milan Vukov"
 HOMEPAGE = "http://acado.github.io/"
 SECTION = "devel"
-LICENSE = "LGPL-2"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "LGPL3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=3460237096e94473a838c16f7071063e"
 
 ROS_CN = "acado"
