@@ -9,6 +9,8 @@ DESCRIPTION = "Zstd compression vendor package, providing a dependency for Zstd.
 AUTHOR = "ROS Tooling Working Group <ros-tooling@googlegroups.com>"
 HOMEPAGE = "https://facebook.github.io/zstd/"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0 & BSD"
 LICENSE = "Apache-2.0 & BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
