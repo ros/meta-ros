@@ -23,7 +23,7 @@ index 0b0d6dda..1810d81b 100755
 +++ b/cmake/templates/_setup_util.py.in
 @@ -1,4 +1,4 @@
 -#!@PYTHON_EXECUTABLE@
-+#!/usr/bin/env python
++#!/usr/bin/env python3
  # -*- coding: utf-8 -*-
  
  # Software License Agreement (BSD License)
