@@ -18,7 +18,7 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-cache"
-readonly SCRIPT_VERSION="1.5.3"
+readonly SCRIPT_VERSION="1.6.0"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-recipes.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -44,17 +44,14 @@ ROS_ROSDISTRO_CHECKOUT_PATH=$3
 ROS_ROSDISTRO_COMMIT=$4
 BRANCH_NAME=$5
 
-# ROS_VERSION and ROS_PYTHON_VERSION must be in the environment as they appear in "conditional" attributes. Keep this block in
-# sync with the one in ros-generate-recipes.sh .
+# Keep this block in sync with the one in ros-generate-recipes.sh .
 case $ROS_DISTRO in
     "melodic"|"noetic")
-        export ROS_VERSION="1"
-        export ROS_PYTHON_VERSION="2"
+        ROS_VERSION="1"
         ;;
 
     "dashing"|"eloquent"|"foxy"|"rolling")
-        export ROS_VERSION="2"
-        export ROS_PYTHON_VERSION="3"
+        ROS_VERSION="2"
         ;;
 
     *)  echo "ABORT: Unrecognized ROS_DISTRO: $ROS_DISTRO"
