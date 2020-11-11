@@ -1,0 +1,135 @@
+From adb866fcae6c5c7d555500c5d2d7b2c882df87ac Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 11 Nov 2020 10:41:00 +0000
+Subject: [PATCH] Use @PYTHON_EXECUTABLE_TARGET@ instead of @PYTHON_EXECUTABLE@
+ for target
+
+* when cross-compiling with OE
+  PYTHON_EXECUTABLE is set to something like:
+  /jenkins/mjansa/build/ros/ros1-noetic-hardknott/tmp-glibc/work/core2-64-oe-linux/catkin/0.8.8-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3
+  it's passed through EXTRA_OEMAKE "-DPYTHON_EXECUTABLE:PATH=${PYTHON}" as in:
+  https://git.openembedded.org/openembedded-core/commit/meta/classes/cmake.bbclass?id=a22200a646eaf42cd4902a2fe3358d29717ac129
+  and PYTHON is:
+  meta/classes/python3native.bbclass:PYTHON="${STAGING_BINDIR_NATIVE}/python3-native/python3"
+
+  this is correct when PYTHON_EXECUTABLE is used during build, but unusable
+  when used e.g. in_setup_util.py.in shebang where it would cause:
+  ERROR: catkin-0.8.8-1-r0 do_package_qa: QA Issue:
+  catkin: /work/core2-64-oe-linux/catkin/0.8.8-1-r0/packages-split/catkin/opt/ros/noetic/bin/catkin_make_isolated maximum shebang size exceeded, the maximum size is 128.
+  catkin: /work/core2-64-oe-linux/catkin/0.8.8-1-r0/packages-split/catkin/opt/ros/noetic/bin/catkin_make maximum shebang size exceeded, the maximum size is 128.
+  catkin: /work/core2-64-oe-linux/catkin/0.8.8-1-r0/packages-split/catkin/opt/ros/noetic/bin/catkin_find maximum shebang size exceeded, the maximum size is 128.
+  catkin: /work/core2-64-oe-linux/catkin/0.8.8-1-r0/packages-split/catkin/opt/ros/noetic/bin/catkin_init_workspace maximum shebang size exceeded, the maximum size is 128.
+  catkin: /work/core2-64-oe-linux/catkin/0.8.8-1-r0/packages-split/catkin/opt/ros/noetic/bin/catkin_test_results maximum shebang size exceeded, the maximum size is 128.
+  catkin: /work/core2-64-oe-linux/catkin/0.8.8-1-r0/packages-split/catkin/opt/ros/noetic/bin/catkin_topological_order maximum shebang size exceeded, the maximum size is 128. [shebang-size]
+
+  ERROR: catkin-0.8.8-1-r0 do_package_qa: QA Issue: /opt/ros/noetic/bin/catkin_topological_order contained in package catkin requires /jenkins/mjansa/build/ros/ros1-noetic-dunfell/tmp-glibc/work/core2-64-oe-linux/catkin/0.8.8-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3, but no providers found in RDEPENDS_catkin? [file-rdeps]
+
+  and would be completely unusable on target, there was meta-ros patch
+  changing this shebang to /usr/bin/env python for very long time since:
+  https://github.com/ros/meta-ros/pull/387
+  but now with noetic, this doesn't work well as we want to use
+  python3 (and even with melodic this should respect ROS_PYTHON_VERSION
+  variable).
+
+  in some other catkin scripts the shebang was already updated to
+  use python3 in:
+  https://github.com/ros/catkin/commit/4ba5772f9b7871b208da953fa7c986232d5d0ff9
+  but that doesn't cover these which use PYTHON_EXECUTABLE
+
+  Setting PYTHON_EXECUTABLE (e.g. at the end of cmake/python.cmake) doesn't
+  work well, because then cmake/empy.cmake uses it like this:
+    execute_process(COMMAND "${PYTHON_EXECUTABLE}" "-c" "import re, ${module}; print(re.compile('/__init__.py.*').sub('',${module}.__file__))"
+      RESULT_VARIABLE _${module}_status
+      OUTPUT_VARIABLE _${module}_location
+  and the execute_process will call execvp() on "${PYTHON_EXECUTABLE}"
+  https://github.com/Kitware/CMake/blob/ead4adad758f012c7dddfc27f3b54dcb886202b8/Source/kwsys/ProcessUNIX.c#L1806
+  which for "/usr/bin/env python3" will fail with
+  "No such file or directory" we would need to move python3 to be
+  first argument, not part of the command and catching this in all
+  possible places where PYTHON_EXECUTABLE is used seems more difficult
+  than introducing separate PYTHON_EXECUTABLE_TARGET used in scripts
+  on target (and shebang). If it gets called during build as well, then
+  usually (not from CMake's execute_process) it will work fine as well
+  as the same python3 from ${STAGING_BINDIR_NATIVE}/python3-native will
+  be first in PATH.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cmake/templates/_setup_util.py.in               | 2 +-
+ cmake/templates/env-hook.context.py.in          | 2 +-
+ cmake/templates/python_distutils_install.bat.in | 2 +-
+ cmake/templates/python_distutils_install.sh.in  | 2 +-
+ cmake/templates/script.py.in                    | 2 +-
+ cmake/templates/setup.bat.in                    | 2 +-
+ python/catkin/builder.py                        | 6 ++++--
+ 7 files changed, 10 insertions(+), 8 deletions(-)
+
+diff --git a/cmake/templates/_setup_util.py.in b/cmake/templates/_setup_util.py.in
+index a8589678..48e9df1e 100755
+--- a/cmake/templates/_setup_util.py.in
++++ b/cmake/templates/_setup_util.py.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON_EXECUTABLE@
++#!@PYTHON_EXECUTABLE_TARGET@
+ # -*- coding: utf-8 -*-
+ 
+ # Software License Agreement (BSD License)
+diff --git a/cmake/templates/env-hook.context.py.in b/cmake/templates/env-hook.context.py.in
+index 57cb22de..10a109db 100644
+--- a/cmake/templates/env-hook.context.py.in
++++ b/cmake/templates/env-hook.context.py.in
+@@ -30,4 +30,4 @@ PROJECT_NAME = '@PROJECT_NAME@'
+ PROJECT_BINARY_DIR = '@PROJECT_BINARY_DIR@'
+ PROJECT_SOURCE_DIR = '@PROJECT_SOURCE_DIR@'
+ 
+-PYTHON_EXECUTABLE = '@PYTHON_EXECUTABLE@'
++PYTHON_EXECUTABLE = '@PYTHON_EXECUTABLE_TARGET@'
+diff --git a/cmake/templates/script.py.in b/cmake/templates/script.py.in
+index ca6352fb..8672f422 100755
+--- a/cmake/templates/script.py.in
++++ b/cmake/templates/script.py.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON_EXECUTABLE@
++#!@PYTHON_EXECUTABLE_TARGET@
+ # -*- coding: utf-8 -*-
+ # generated from catkin/cmake/template/script.py.in
+ # creates a relay to a python script source file, acting as that file.
+diff --git a/cmake/templates/setup.bat.in b/cmake/templates/setup.bat.in
+index 47e2121e..bc77de62 100644
+--- a/cmake/templates/setup.bat.in
++++ b/cmake/templates/setup.bat.in
+@@ -15,7 +15,7 @@ if NOT EXIST "%_SETUP_UTIL%" (
+ )
+ 
+ REM set the Python executable
+-set _PYTHON="@PYTHON_EXECUTABLE@"
++set _PYTHON="@PYTHON_EXECUTABLE_TARGET@"
+ 
+ REM compute Python home and normalize Python executable path
+ set PYTHONHOME=
+diff --git a/python/catkin/builder.py b/python/catkin/builder.py
+index c496c363..b3733e78 100644
+--- a/python/catkin/builder.py
++++ b/python/catkin/builder.py
+@@ -1164,7 +1164,8 @@ _CATKIN_SETUP_DIR= . "{0}/setup.sh"
+                     'CATKIN_LIB_ENVIRONMENT_PATHS': "'lib'",
+                     'CATKIN_PKGCONFIG_ENVIRONMENT_PATHS': "os.path.join('lib', 'pkgconfig')",
+                     'CMAKE_PREFIX_PATH_AS_IS': ';'.join(os.environ['CMAKE_PREFIX_PATH'].split(os.pathsep)),
+-                    'PYTHON_EXECUTABLE': sys.executable,
++                    'PYTHON_EXECUTABLE': '/usr/bin/env python3',
++                    'PYTHON_EXECUTABLE_TARGET': '/usr/bin/env python3',
+                     'PYTHON_INSTALL_DIR': get_python_install_dir(),
+                 }
+                 with open(generated_setup_util_py, 'w') as f:
+@@ -1184,7 +1185,8 @@ _CATKIN_SETUP_DIR= . "{0}/setup.sh"
+             os.chmod(generated_env_sh, stat.S_IXUSR | stat.S_IWUSR | stat.S_IRUSR)
+ 
+             variables = {
+-                'PYTHON_EXECUTABLE': sys.executable,
++                'PYTHON_EXECUTABLE': '/usr/bin/env python3',
++                'PYTHON_EXECUTABLE_TARGET': '/usr/bin/env python3',
+                 'SETUP_DIR': develspace,
+             }
+             shells_to_write = ['bat'] if sys.platform == 'win32' else ['sh', 'bash', 'zsh']
