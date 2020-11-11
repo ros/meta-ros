@@ -3,7 +3,7 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 
 SRC_URI += " \
-    file://0001-python.cmake-set-PYTHON_EXECUTABLE-to-usr-bin-env-py.patch \
+    file://0001-Use-PYTHON_EXECUTABLE_TARGET-instead-of-PYTHON_EXECU.patch \
     file://0002-allow-proper-cross-compilation-with-catkin.patch \
     file://0003-builder.py-don-t-prepend-ld_path-to-LD_LIBRARY_PATH.patch \
 "
@@ -41,6 +41,10 @@ do_install_append_class-target() {
 
     mkdir -p ${D}${sysconfdir}/profile.d
     echo ". ${ros_prefix}/setup.sh" > ${D}${sysconfdir}/profile.d/ros.sh
+
+    # because distutils is called with this PYTHON ${STAGING_BINDIR_NATIVE}/python3-native/python3
+    # it also updates the shebang while installing catkin scripts, we need to undo that
+    sed -i 's@#!${STAGING_BINDIR_NATIVE}/python3-native/python3@#!/usr/bin/env python3@g' ${D}${ros_bindir}/catkin_*
 }
 
 # NB. COMPLEMENTARY_GLOB[ros-implicit-workspace] = "*-implicitworkspace"
@@ -55,3 +59,7 @@ FILES_${PN}-implicitworkspace = " \
 # will try to use incompatible libraries (e.g. libpython) from TARGET
 # sysroot instead using the one from host (e.g. for native python)
 export CATKIN_CROSSCOMPILING = "1"
+
+EXTRA_OECMAKE = " -DPYTHON_EXECUTABLE_TARGET='/usr/bin/env python3'"
+
+# inherit python3native
