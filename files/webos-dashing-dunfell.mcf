@@ -17,7 +17,7 @@ McfFileVersion = 2
 # Value for DISTRO
 Distribution = 'webos'
 
-webOSOSEBuildNumber = '250'
+webOSOSEBuildNumber = '263'
 
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
