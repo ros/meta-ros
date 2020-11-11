@@ -17,6 +17,7 @@ inherit ${@'distutils3-base' if d.getVar('ROS_PYTHON_VERSION') == '3' else 'dist
 export CATKIN_CROSSCOMPILING = "1"
 
 EXTRA_OECMAKE_CATKIN = "\
+    -DPYTHON_EXECUTABLE_TARGET='/usr/bin/env python3' \
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}${ros_prefix};${STAGING_DIR_HOST}${prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
     -DCATKIN_DEVEL_PREFIX='${WORKDIR}/devel' \
