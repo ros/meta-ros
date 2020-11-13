@@ -2,5 +2,4 @@
 
 ROS_EXEC_DEPENDS += " \
     ${PYTHON_PN}-asyncio \
-    ${PYTHON_PN}-typing \
 "
