@@ -222,16 +222,16 @@ ROS_BUILD_TYPE_pn-python-orocos-kdl = "catkin"
 ROS_BUILD_TYPE_pn-mavlink = "catkin"
 
 # python-backports-ssl@meta-python
-ROS_UNRESOLVED_PLATFORM_PKG_python-backports.ssl-match-hostname = "python-backports-ssl"
+ROS_UNRESOLVED_PLATFORM_PKG_python-backports.ssl-match-hostname = "${PYTHON_PN}-backports-ssl"
 
 # python-pillow@meta-ros v5.1.0
-ROS_UNRESOLVED_PLATFORM_PKG_python-imaging = "python-pillow"
+ROS_UNRESOLVED_PLATFORM_PKG_python-imaging = "${PYTHON_PN}-pillow"
 
 # python-tornado45@meta-ros v4.5.3
-ROS_UNRESOLVED_PLATFORM_PKG_python-tornado = "python-tornado45"
+ROS_UNRESOLVED_PLATFORM_PKG_python-tornado = "${PYTHON_PN}-tornado45"
 
 # python-twisted-core@meta-python (v18.4.0 instead of  bionic's v17.9.0)
-ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core = "python-twisted-core"
+ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core = "${PYTHON_PN}-twisted-core"
 
 # Used by:
 # generated-recipes/audio-common/audio-play_0.3.3.bb
@@ -355,36 +355,36 @@ ROS_UNRESOLVED_PLATFORM_PKG_proj = "proj"
 
 # Used by:
 # generated-recipes/cpr-multimaster-tools/message-relay_0.0.2-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-cheetah = "python-cheetah"
+ROS_UNRESOLVED_PLATFORM_PKG_python-cheetah = "${PYTHON_PN}-cheetah"
 
 # Used by:
 # generated-recipes/calibration/calibration-estimation_0.10.14.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib = "python-matplotlib"
+ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib = "${PYTHON_PN}-matplotlib"
 
 # Used by:
 # generated-recipes/catkin-pip/catkin-pip_0.2.3-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-pip = "python-pip"
+ROS_UNRESOLVED_PLATFORM_PKG_python-pip = "${PYTHON_PN}-pip"
 
 # Used by:
 # generated-recipes/mongodb-store/mongodb-store_0.5.2-1.bb
 # generated-recipes/mongodb-store/mongodb-log_0.5.2-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-pymongo = "python-pymongo"
+ROS_UNRESOLVED_PLATFORM_PKG_python-pymongo = "${PYTHON_PN}-pymongo"
 
 # Used by:
 # generated-recipes/geographic-info/geodesy_0.5.3.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj = "python-pyproj"
+ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj = "${PYTHON_PN}-pyproj"
 
 # Used by:
 # generated-recipes/ros-pytest/ros-pytest_0.1.2-2.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-pytest = "python-pytest"
+ROS_UNRESOLVED_PLATFORM_PKG_python-pytest = "${PYTHON_PN}-pytest"
 
 # Used by:
 # generated-recipes/jsk-3rdparty/rostwitter_2.1.13-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-requests = "python-requests"
+ROS_UNRESOLVED_PLATFORM_PKG_python-requests = "${PYTHON_PN}-requests"
 
 # Used by:
 # generated-recipes/jsk-3rdparty/rostwitter_2.1.13-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson = "python-simplejson"
+ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson = "${PYTHON_PN}-simplejson"
 
 # Used by:
 # generated-recipes/abseil-cpp/abseil-cpp_0.4.2-1.bb
@@ -498,23 +498,23 @@ ROS_UNRESOLVED_PLATFORM_PKG_liburdfdom-tools = "urdfdom"
 # generated-recipes/python-qt-binding/python-qt-binding_0.3.6-2.bb
 # generated-recipes/qt-gui-core/qt-gui_0.3.16-1.bb
 # generated-recipes/visualstates/visualstates_0.2.3-2.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings = "python-pyqt5"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings = "python3-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings = "${PYTHON_PN}-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings = "${PYTHON_PN}-pyqt5"
 
 # Used by:
 # generated-recipes/webkit-dependency/webkit-dependency_1.1.0.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-webkit = "python-pyqt5"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-webkit = "python3-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-webkit = "${PYTHON_PN}-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-webkit = "${PYTHON_PN}-pyqt5"
 
 # Used by:
 # generated-recipes/visualstates/visualstates_0.2.3-2.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-qsci = "python-pyqt5"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-qsci = "python3-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-qsci = "${PYTHON_PN}-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-qsci = "${PYTHON_PN}-pyqt5"
 
 # Used by:
 # generated-recipes/gl-dependency/gl-dependency_1.1.0.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-gl = "python-pyqt5"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-gl = "python3-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-gl = "${PYTHON_PN}-pyqt5"
+ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings-gl = "${PYTHON_PN}-pyqt5"
 
 # tango-icon-theme isn't available, but adwaita-icon-theme should be compatible
 # Used by:
@@ -589,7 +589,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev = "qwt-qt5"
 
 # Used by:
 # generated-recipes/qt-gui-core/qt-dotgraph_0.3.16-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-pydot = "python-pydot"
+ROS_UNRESOLVED_PLATFORM_PKG_python-pydot = "${PYTHON_PN}-pydot"
 
 # Used by:
 # generated-recipes/ros/roslib_1.14.8-1.bb
@@ -605,15 +605,15 @@ ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev = "boost"
 
 # Used by:
 # generated-recipes/ros-comm/rosbag_1.14.5-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome = "python-pycryptodomex"
+ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome = "${PYTHON_PN}-pycryptodomex"
 
 # Used by:
 # generated-recipes/cob-control/cob-twist-controller_0.8.11-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-six = "python-six"
+ROS_UNRESOLVED_PLATFORM_PKG_python-six = "${PYTHON_PN}-six"
 
 # Used by:
 # generated-recipes/rosbridge-suite/rosbridge-server_0.11.4-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-autobahn = "python-autobahn"
+ROS_UNRESOLVED_PLATFORM_PKG_python-autobahn = "${PYTHON_PN}-autobahn"
 
 # Used by:
 # generated-recipes/exotica/exotica-core_5.1.3-3.bb
@@ -623,12 +623,12 @@ ROS_UNRESOLVED_PLATFORM_PKG_msgpack = "msgpack-c"
 # generated-recipes/exotica/exotica-python_5.1.3-3.bb
 # generated-recipes/moveit-python/moveit-python_0.3.3-1.bb
 # generated-recipes/moveit/moveit-commander_1.0.2-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp = "python-pyassimp"
+ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp = "${PYTHON_PN}-pyassimp"
 
 # Used by:
 # generated-recipes/exotica/exotica-python_5.1.3-3.bb
 # generated-recipes/cob-driver/cob-voltage-control_0.7.1-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "python-tkinter"
+ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "${PYTHON_PN}-tkinter"
 
 # Used by:
 # generated-recipes/pointgrey-camera-driver/pointgrey-camera-driver_0.14.0-1.bb
@@ -674,7 +674,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_libgsl = "gsl"
 
 # Used by:
 # generated-recipes/fadecandy-ros/fadecandy-driver_0.1.0-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-usb = "python3-pyusb"
+ROS_UNRESOLVED_PLATFORM_PKG_python-usb = "${PYTHON_PN}-pyusb"
 
 # Used by:
 # generated-recipes/dataspeed-pds/dataspeed-pds-lcm_1.0.5-1.bb
@@ -711,7 +711,7 @@ ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils = "v4l-utils"
 
 # Used by:
 # generated-recipes/tts/tts_1.0.2-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_python-boto3 = "python-boto3"
+ROS_UNRESOLVED_PLATFORM_PKG_python-boto3 = "${PYTHON_PN}-boto3"
 
 # Used by:
 # generated-recipes/audio-common/audio-play_0.3.7-1.bb
@@ -775,19 +775,22 @@ ROS_UNRESOLVED_PLATFORM_PKG_mongodb = "mongodb"
 #ROS_UNRESOLVED_PLATFORM_PKG_muparser = "muparser"
 #ROS_UNRESOLVED_PLATFORM_PKG_npm-native = "npm-native"
 #ROS_UNRESOLVED_PLATFORM_PKG_omniorb = "omniorb"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-avahi = "python-avahi"
-ROS_UNRESOLVED_PLATFORM_PKG_python-bluez = "python-pybluez"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-cairosvg = "python-cairosvg"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-tools = "python-catkin-tools"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid = "python-cwiid"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-docker = "python-docker"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-joblib = "python-joblib"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-libpgm-pip = "python-libpgm-pip"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize = "python-mechanize"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb = "python-omniorb"
-ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio = "python-pyalsaaudio"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip = "python-pyusb-pip"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-requests-oauthlib = "python-requests-oauthlib"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-scipy = "python-scipy"
-#ROS_UNRESOLVED_PLATFORM_PKG_python-speechrecognition-pip = "python-speechrecognition-pip"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-avahi = "${PYTHON_PN}-avahi"
+ROS_UNRESOLVED_PLATFORM_PKG_python-bluez = "${PYTHON_PN}-pybluez"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-cairosvg = "${PYTHON_PN}-cairosvg"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-tools = "${PYTHON_PN}-catkin-tools"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid = "${PYTHON_PN}-cwiid"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-docker = "${PYTHON_PN}-docker"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-joblib = "${PYTHON_PN}-joblib"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-libpgm-pip = "${PYTHON_PN}-libpgm-pip"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize = "${PYTHON_PN}-mechanize"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb = "${PYTHON_PN}-omniorb"
+ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio = "${PYTHON_PN}-pyalsaaudio"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip = "${PYTHON_PN}-pyusb-pip"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-requests-oauthlib = "${PYTHON_PN}-requests-oauthlib"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-scipy = "${PYTHON_PN}-scipy"
+#ROS_UNRESOLVED_PLATFORM_PKG_python-speechrecognition-pip = "${PYTHON_PN}-speechrecognition-pip"
+# This is an exception, there is no python-websockets recipe available and to keep
+# meta-ros1-melodic/generated-recipes/async-web-server-cpp/async-web-server-cpp_0.0.3.bb
+# buildable lets set python3 version here even when PYTHON_PN is python (version 2)
 ROS_UNRESOLVED_PLATFORM_PKG_python-websocket = "python3-websockets"
