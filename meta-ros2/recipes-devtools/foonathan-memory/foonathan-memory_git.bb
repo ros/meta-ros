@@ -14,7 +14,7 @@ SRCREV_comp = "cf13bff238397aab0d8c49b7f6263233cf8a2396"
 SRCREV_catch = "89f5f8435176aad44624442b7f1e874a513bee67"
 SRC_URI = "git://github.com/foonathan/memory.git;protocol=https;name=main \
     git://github.com/foonathan/compatibility.git;protocol=https;name=comp;destsuffix=git/cmake/comp \
-    git://github.com/catchorg/Catch2.git;protocol=https;name=catch;destsuffix=git/catch-upstream \
+    git://github.com/catchorg/Catch2.git;branch=v2.x;protocol=https;name=catch;destsuffix=git/catch-upstream \
 "
 S = "${WORKDIR}/git"
 
@@ -67,9 +67,11 @@ SYSROOT_DIRS_append = " ${bindir}"
 # test/CMakeLists.txt:         https://raw.githubusercontent.com/catchorg/Catch2/master/single_include/catch2/catch.hpp
 # also the compatibility points to older repo which doesn't enymore:
 # cmake/comp/_test/CMakeLists.txt:        https://raw.githubusercontent.com/philsquared/Catch/master/single_include/catch.hpp
-do_configure_prepend() {
-    cp ${S}/catch-upstream/single_include/catch2/catch.hpp ${B}/
-}
+# do_configure_prepend() {
+#    cp ${S}/catch-upstream/single_include/catch2/catch.hpp ${B}/
+# }
+# The above does not work, disable tests completely:
+EXTRA_OECMAKE += "-DFOONATHAN_MEMORY_BUILD_TESTS=OFF"
 
 FILES_${PN}-dev += "${datadir}/foonathan_memory/cmake"
 FILES_${PN}-doc += "${datadir}/foonathan_memory"
