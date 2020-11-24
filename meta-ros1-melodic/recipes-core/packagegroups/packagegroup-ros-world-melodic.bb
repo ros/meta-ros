@@ -517,6 +517,31 @@ RDEPENDS_${PN}_remove = "spatio-temporal-voxel-layer"
 # ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-gfortran' (but generated-recipes/optpp-catkin/optpp-catkin_2.4.0-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "optpp-catkin"
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FORTRAN}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FORTRAN = " \
+    abb-irb2400-moveit-plugins \
+    cartographer-ros \
+    cartographer \
+    ceres-solver \
+    fetch-calibration \
+    fetch-ikfast-plugin \
+    fetch-navigation \
+    husky-cartographer-navigation \
+    jackal-cartographer-navigation \
+    lapack \
+    mrp2-common \
+    mrp2-navigation \
+    nav2d-karto \
+    nav2d-tutorials \
+    nav2d \
+    nextage-ik-plugin \
+    ridgeback-cartographer-navigation \
+    robot-calibration \
+    slam-karto \
+    sparse-bundle-adjustment \
+    suitesparse-cholmod \
+"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
     openni-camera \
