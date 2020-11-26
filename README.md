@@ -1,4 +1,4 @@
-# Branch `[master]` and `[dunfell]`
+# Branch `[dunfell]`
 
 As of 2020-08-24, this branch can be used to build the mid-August 2020
 releases of ROS 2 **dashing**, **eloquent**, **foxy**, and **rolling** and
