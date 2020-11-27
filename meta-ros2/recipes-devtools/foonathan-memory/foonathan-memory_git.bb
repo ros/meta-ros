@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2020 LG Electronics, Inc.
 
 SUMMARY = "Library to work around various flaws in the C++ STL allocator model"
 HOMEPAGE = "https://github.com/foonathan/memory"
@@ -25,10 +25,11 @@ inherit cmake qemu
 # EXTRA_OECMAKE = '-DCMAKE_CROSSCOMPILING_EMULATOR="${@qemu_wrapper_cmdline(d, '${STAGING_DIR_TARGET}', ['${B}', '${STAGING_DIR_TARGET}/${base_libdir}'])}"'
 # Doesn't work, because
 # src/CMakeLists.txt:            COMMAND ${CMAKE_CROSSCOMPILING_EMULATOR} $<TARGET_FILE:foonathan_memory_node_size_debugger> --code --alignof "FOONATHAN_ALIGNOF(T)" ${CMAKE_CURRENT_BINARY_DIR}/container_node_sizes_impl.hpp
-# wrapps it in extra quotes and then shell fails to start with:
+# wraps it in extra quotes and then shell fails to start with:
 # | cd /jenkins/mjansa/build-ros-thud-dashing/BUILD/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/foonathan-memory/0.6.2+gitAUTOINC+8f6a027d47-r0/build/src && "PSEUDO_UNLOAD=1 qemu-arm -r 3.2.0  -L /jenkins/mjansa/build-ros-thud-dashing/BUILD/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/foonathan-memory/0.6.2+gitAUTOINC+8f6a027d47-r0/recipe-sysroot -E LD_LIBRARY_PATH=/jenkins/mjansa/build-ros-thud-dashing/BUILD/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/foonathan-memory/0.6.2+gitAUTOINC+8f6a027d47-r0/build:/jenkins/mjansa/build-ros-thud-dashing/BUILD/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/foonathan-memory/0.6.2+gitAUTOINC+8f6a027d47-r0/recipe-sysroot//lib" /jenkins/mjansa/build-ros-thud-dashing/BUILD/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/foonathan-memory/0.6.2+gitAUTOINC+8f6a027d47-r0/build/tool/nodesize_dbg --code --alignof "FOONATHAN_ALIGNOF(T)" /jenkins/mjansa/build-ros-thud-dashing/BUILD/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/foonathan-memory/0.6.2+gitAUTOINC+8f6a027d47-r0/build/src/container_node_sizes_impl.hpp
 # | /bin/sh: 1: PSEUDO_UNLOAD=1 qemu-arm -r 3.2.0  -L /jenkins/mjansa/build-ros-thud-dashing/BUILD/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/foonathan-memory/0.6.2+gitAUTOINC+8f6a027d47-r0/recipe-sysroot -E LD_LIBRARY_PATH=/jenkins/mjansa/build-ros-thud-dashing/BUILD/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/foonathan-memory/0.6.2+gitAUTOINC+8f6a027d47-r0/build:/jenkins/mjansa/build-ros-thud-dashing/BUILD/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/foonathan-memory/0.6.2+gitAUTOINC+8f6a027d47-r0/recipe-sysroot//lib: not found
-EXTRA_OECMAKE = '-DCMAKE_CROSSCOMPILING_EMULATOR="${@qemu_target_binary(d)}"'
+EXTRA_OECMAKE_CROSSCOMPILING_EMULATOR = "${@qemu_target_binary(d)};${@d.getVar('QEMU_OPTIONS').replace(' ', ';')}"
+EXTRA_OECMAKE = '-DCMAKE_CROSSCOMPILING_EMULATOR="${EXTRA_OECMAKE_CROSSCOMPILING_EMULATOR}"'
 
 # Otherwise cmake/comp/comp_base.cmake:_comp_fetch_feature function will try to download features
 # from default COMP_REMOTE_URL:
