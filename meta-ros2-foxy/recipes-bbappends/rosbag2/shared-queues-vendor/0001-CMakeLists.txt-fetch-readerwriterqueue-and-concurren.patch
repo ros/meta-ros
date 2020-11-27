@@ -1,0 +1,58 @@
+From 2a2aad3d4611f8605f6b296634869b850661cb25 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 27 Nov 2020 09:12:58 -0800
+Subject: [PATCH] CMakeLists.txt: fetch readerwriterqueue and concurrentqueue
+ with bitbake fetcher
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 20 ++++++--------------
+ 1 file changed, 6 insertions(+), 14 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0daf4672..465367f2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,11 +6,7 @@ find_package(ament_cmake REQUIRED)
+ include(ExternalProject)
+ # Single producer single consumer queue by moodycamel - header only, don't build, install
+ ExternalProject_Add(ext-singleproducerconsumer
+-  PREFIX singleproducerconsumer
+-  DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}/download
+-  URL https://github.com/cameron314/readerwriterqueue/archive/ef7dfbf553288064347d51b8ac335f1ca489032a.zip
+-  URL_MD5 64c673dd381b8fae9254053ad7b2be4d
+-  TIMEOUT 60
++  SOURCE_DIR ${PROJECT_SOURCE_DIR}/singleproducerconsumer-upstream
+   INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}
+   CONFIGURE_COMMAND ""
+   BUILD_COMMAND ""
+@@ -19,11 +15,7 @@ ExternalProject_Add(ext-singleproducerconsumer
+ 
+ # Concurrent and blocking concurrent queue by moodycamel - header only, don't build, install
+ ExternalProject_Add(ext-concurrentqueue
+-  PREFIX concurrentqueue
+-  DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}/download
+-  URL https://github.com/cameron314/concurrentqueue/archive/8f65a8734d77c3cc00d74c0532efca872931d3ce.zip
+-  URL_MD5 71a0d932cc89150c2ade85f0d9cac9dc
+-  TIMEOUT 60
++  SOURCE_DIR ${PROJECT_SOURCE_DIR}/concurrentqueue-upstream
+   INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}
+   CONFIGURE_COMMAND ""
+   BUILD_COMMAND ""
+@@ -45,10 +37,10 @@ install(
+ # Install headers
+ install(
+   FILES
+-  "${CMAKE_CURRENT_BINARY_DIR}/singleproducerconsumer/src/ext-singleproducerconsumer/atomicops.h"
+-  "${CMAKE_CURRENT_BINARY_DIR}/singleproducerconsumer/src/ext-singleproducerconsumer/readerwriterqueue.h"
+-  "${CMAKE_CURRENT_BINARY_DIR}/concurrentqueue/src/ext-concurrentqueue/concurrentqueue.h"
+-  "${CMAKE_CURRENT_BINARY_DIR}/concurrentqueue/src/ext-concurrentqueue/blockingconcurrentqueue.h"
++  "${PROJECT_SOURCE_DIR}/singleproducerconsumer-upstream/atomicops.h"
++  "${PROJECT_SOURCE_DIR}/singleproducerconsumer-upstream/readerwriterqueue.h"
++  "${PROJECT_SOURCE_DIR}/concurrentqueue-upstream/concurrentqueue.h"
++  "${PROJECT_SOURCE_DIR}/concurrentqueue-upstream/blockingconcurrentqueue.h"
+   DESTINATION ${CMAKE_INSTALL_PREFIX}/include/moodycamel
+ )
+ 
