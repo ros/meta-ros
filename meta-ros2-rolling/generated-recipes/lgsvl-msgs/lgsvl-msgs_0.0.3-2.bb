@@ -63,6 +63,6 @@ SRC_URI = "git://github.com/ros2-gbp/lgsvl_msgs-release;${ROS_BRANCH};protocol=h
 SRCREV = "86c6fe5b319a3c674500b42499d074b25a8f20b3"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
