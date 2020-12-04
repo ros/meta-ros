@@ -70,6 +70,6 @@ SRC_URI = "git://github.com/astuff/ml_classifiers-release;${ROS_BRANCH};protocol
 SRCREV = "ce4914237bcb70f1f3d0adb350adff15aa506ad4"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
