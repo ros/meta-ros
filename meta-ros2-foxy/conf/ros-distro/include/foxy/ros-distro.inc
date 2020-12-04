@@ -115,45 +115,18 @@ ROS_WORLD_SKIP_GROUPS += " \
     rc-dynamics-api \
 "
 
-# recipes depending on something from meta-qt4 layer
 # XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
 # and having it in a .bbappend sets it too late.
+# https://raw.github.com/boschresearch/fmilibrary_vendor-release/release/foxy/fmilibrary_vendor/0.2.0-1/package.xml
 ROS_BUILD_TYPE_pn-fmilibrary-vendor = "ament_cmake"
+# https://raw.github.com/ros2-gbp/ros_workspace-release/release/foxy/ros_workspace/1.0.1-1/package.xml
 ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
 # was changed from ament_cmake to catkin between eloquent and foxy
-ROS_BUILD_TYPE_pn-behaviortree-cpp-v3 = "ament_cmake"
-# superflore doesn't resolve the build_type conditions correctly:
-# https://github.com/lgsvl/lgsvl_msgs-release/blob/release/foxy/lgsvl_msgs/package.xml#L32
-#   <build_type condition="$ROS_VERSION == 1">catkin</build_type>
-#   <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
-ROS_BUILD_TYPE_pn-lgsvl-msgs = "ament_cmake"
+# https://raw.github.com/swri-robotics-gbp/gps_umd-release/release/foxy/gps_umd/1.0.4-1/package.xml
 ROS_BUILD_TYPE_pn-gps-umd = "ament_cmake"
-ROS_BUILD_TYPE_pn-plotjuggler = "ament_cmake"
-ROS_BUILD_TYPE_pn-kartech-linear-actuator-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-automotive-autonomy-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-automotive-platform-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-automotive-navigation-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-delphi-srr-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-delphi-esr-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-delphi-mrr-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-ibeo-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-mobileye-560-660-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-derived-object-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-astuff-sensor-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-pacmod-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-neobotix-usboard-msgs = "ament_cmake"
-ROS_BUILD_TYPE_pn-lanelet2-projection = "ament_cmake"
-ROS_BUILD_TYPE_pn-lanelet2 = "ament_cmake"
-ROS_BUILD_TYPE_pn-lanelet2-maps = "ament_cmake"
-ROS_BUILD_TYPE_pn-lanelet2-validation = "ament_cmake"
-ROS_BUILD_TYPE_pn-lanelet2-io = "ament_cmake"
-ROS_BUILD_TYPE_pn-lanelet2-python = "ament_cmake"
-ROS_BUILD_TYPE_pn-lanelet2-traffic-rules = "ament_cmake"
-ROS_BUILD_TYPE_pn-lanelet2-core = "ament_cmake"
-ROS_BUILD_TYPE_pn-lanelet2-examples = "ament_cmake"
-ROS_BUILD_TYPE_pn-lanelet2-routing = "ament_cmake"
+# https://raw.github.com/KIT-MRT/mrt_cmake_modules-release/release/foxy/mrt_cmake_modules/1.0.8-1/package.xml
 ROS_BUILD_TYPE_pn-mrt-cmake-modules = "ament_cmake"
 
 # Used by:
