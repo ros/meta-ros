@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+10.g17c2e11"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros2"
@@ -36,7 +36,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-eloquent/files/eloquent/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "8"
+ROS_NUM_CACHE_YAML_COMMITS = "9"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -2189,16 +2189,16 @@ ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "UNRESOLVED-tango-icon-theme"
 ROS_UNRESOLVED_PLATFORM_PKG_tbb = "UNRESOLVED-tbb"
 ROS_UNRESOLVED_PLATFORM_PKG_uncrustify = "UNRESOLVED-uncrustify"
 
-# From the release announcement or the last field of the "release-ROS_DISTRO-YYYYMMDD" tag for the release in
-# https://github.com/ros2/ros2/releases. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "20200813"
+# From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
+# https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
+ROS_DISTRO_RELEASE_DATE = "2020-08-13"
 
 # The commit of ros/rosdistro/eloquent/distribution.yaml from which the recipes were generated.
 ROS_SUPERFLORE_GENERATION_COMMIT = "6eac7cc3961ea6252e0032a5bc53337143c0be94"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
-ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.5.1"
+ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.6.0"
 
 # Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
-ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.5.0"
+ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.6.0"
