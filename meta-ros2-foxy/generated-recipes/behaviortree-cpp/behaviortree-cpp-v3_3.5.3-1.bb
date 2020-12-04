@@ -58,6 +58,6 @@ SRC_URI = "git://github.com/BehaviorTree/behaviortree_cpp-release;${ROS_BRANCH};
 SRCREV = "fd82250d75da11fa6a56d171b837eb404222ae1c"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
