@@ -213,8 +213,8 @@ sdl2:
 spdlog:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog}
 suitesparse:
-- suitesparse-cxsparse@meta-ros
 - suitesparse-cholmod@meta-ros
+- suitesparse-cxsparse@meta-ros
 tinyxml:
 - libtinyxml@meta-oe
 tinyxml2:
