@@ -59,6 +59,6 @@ SRC_URI = "git://github.com/astuff/astuff_sensor_msgs-release;${ROS_BRANCH};prot
 SRCREV = "1e9ac39059012f63532d3d6eda3564c3c15672b4"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

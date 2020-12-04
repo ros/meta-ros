@@ -61,6 +61,6 @@ SRC_URI = "git://github.com/fzi-forschungszentrum-informatik/lanelet2-release;${
 SRCREV = "2186983054bde54a0b9633c0b63a52de4ea9460f"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

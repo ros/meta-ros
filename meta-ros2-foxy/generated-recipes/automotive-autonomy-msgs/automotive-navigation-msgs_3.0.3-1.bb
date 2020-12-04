@@ -62,6 +62,6 @@ SRC_URI = "git://github.com/astuff/automotive_autonomy_msgs-release;${ROS_BRANCH
 SRCREV = "2a9e99a7fae2bab539d49f5e073df2d428b0477b"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

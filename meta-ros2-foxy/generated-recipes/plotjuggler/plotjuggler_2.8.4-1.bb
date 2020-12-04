@@ -101,6 +101,6 @@ SRC_URI = "git://github.com/facontidavide/plotjuggler-release;${ROS_BRANCH};prot
 SRCREV = "f1f283a838e89297d5636ef442dc45447df71da3"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
