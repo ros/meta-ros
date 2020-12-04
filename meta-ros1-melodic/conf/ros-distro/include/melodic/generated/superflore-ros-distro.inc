@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+1.ge2ab309"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+10.g17c2e11"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros1"
@@ -57,7 +57,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros1-melodic/files/melodic/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "18"
+ROS_NUM_CACHE_YAML_COMMITS = "16"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -7667,4 +7667,4 @@ ROS_SUPERFLORE_GENERATION_COMMIT = "dacf40d33f82113acaaf0be9ca2f4bf5685b4740"
 ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.5.3"
 
 # Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
-ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.5.3"
+ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.6.0"
