@@ -1,14 +1,10 @@
-# melodic/cache.yaml 2020-10-12 dacf40d33f82113acaaf0be9ca2f4bf5685b4740 20201012125146 1.5.3
+# melodic/cache.yaml 2020-10-12 dacf40d33f82113acaaf0be9ca2f4bf5685b4740 20201012125146 1.6.0
 distribution_file:
 - release_platforms:
 -----
-debian:
+debian: [stretch]
 -----
-- stretch
------
-ubuntu:
------
-- bionic
+ubuntu: [bionic]
 -----
 repositories:
 -----
