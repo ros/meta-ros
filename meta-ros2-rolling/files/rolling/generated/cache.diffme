@@ -1,10 +1,8 @@
-# rolling/cache.yaml 2020-10-12 9330a67818c6aed3cc47d6b96ceead914596ba45 20201012185327 1.5.3
+# rolling/cache.yaml 2020-10-12 9330a67818c6aed3cc47d6b96ceead914596ba45 20201012185327 1.6.0
 distribution_file:
 - release_platforms:
 -----
-ubuntu:
------
-- focal
+ubuntu: [focal]
 -----
 repositories:
 -----
