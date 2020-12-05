@@ -16,7 +16,7 @@ ROS_CN = "joystick_drivers"
 ROS_BPN = "sdl2_vendor"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_sdl2} \
+    libsdl2 \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -24,13 +24,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_sdl2} \
+    libsdl2 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_sdl2} \
+    libsdl2 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

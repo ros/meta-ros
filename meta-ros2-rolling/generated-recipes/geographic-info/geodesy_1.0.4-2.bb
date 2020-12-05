@@ -17,11 +17,11 @@ ROS_CN = "geographic_info"
 ROS_BPN = "geodesy"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-catkin-pkg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyproj} \
     angles \
     geographic-msgs \
     geometry-msgs \
+    python3-catkin-pkg \
+    python3-pyproj \
     sensor-msgs \
     unique-identifier-msgs \
 "
@@ -31,10 +31,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyproj} \
     angles \
     geographic-msgs \
     geometry-msgs \
+    python3-pyproj \
     sensor-msgs \
     unique-identifier-msgs \
 "
@@ -42,10 +42,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyproj} \
     angles \
     geographic-msgs \
     geometry-msgs \
+    python3-pyproj \
     sensor-msgs \
     unique-identifier-msgs \
 "

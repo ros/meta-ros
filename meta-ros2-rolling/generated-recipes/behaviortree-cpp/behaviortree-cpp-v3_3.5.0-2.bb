@@ -17,7 +17,7 @@ ROS_CN = "behaviortree_cpp"
 ROS_BPN = "behaviortree_cpp_v3"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
+    ncurses \
     rclcpp \
     zeromq \
 "
@@ -27,7 +27,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
+    ncurses \
     rclcpp \
     zeromq \
 "
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
+    ncurses \
     rclcpp \
     zeromq \
 "

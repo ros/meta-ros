@@ -39,12 +39,12 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
     ament-flake8 \
     ament-lint-auto \
     ament-lint-common \
     ament-mypy \
     python3-pytest \
+    python3-pytest-mock \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
