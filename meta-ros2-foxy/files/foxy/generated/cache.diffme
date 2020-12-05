@@ -1,10 +1,8 @@
-# foxy/cache.yaml 2020-11-05 a13283579aeab5b98195a34feec19e106841cf11 20201105055614 1.5.3
+# foxy/cache.yaml 2020-11-05 a13283579aeab5b98195a34feec19e106841cf11 20201105055614 1.6.0
 distribution_file:
 - release_platforms:
 -----
-ubuntu:
------
-- focal
+ubuntu: [focal]
 -----
 repositories:
 -----
