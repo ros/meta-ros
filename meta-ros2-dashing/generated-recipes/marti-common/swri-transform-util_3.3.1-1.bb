@@ -17,15 +17,15 @@ ROS_CN = "marti_common"
 ROS_BPN = "swri_transform_util"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_proj} \
     boost \
     cv-bridge \
     diagnostic-msgs \
     geographic-msgs \
     geometry-msgs \
+    geos \
     gps-msgs \
     marti-nav-msgs \
+    proj \
     rcl-interfaces \
     rclcpp \
     rclcpp-components \
@@ -46,15 +46,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_proj} \
     boost \
     cv-bridge \
     diagnostic-msgs \
     geographic-msgs \
     geometry-msgs \
+    geos \
     gps-msgs \
     marti-nav-msgs \
+    proj \
     rcl-interfaces \
     rclcpp \
     rclcpp-components \
@@ -71,15 +71,15 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_proj} \
     boost \
     cv-bridge \
     diagnostic-msgs \
     geographic-msgs \
     geometry-msgs \
+    geos \
     gps-msgs \
     marti-nav-msgs \
+    proj \
     python3-numpy \
     rcl-interfaces \
     rclcpp \

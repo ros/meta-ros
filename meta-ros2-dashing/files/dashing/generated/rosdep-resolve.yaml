@@ -14,7 +14,7 @@ clang-tidy:
 cmake:
 - cmake@openembedded-core
 cppcheck:
-- cppcheck@meta-ros
+- cppcheck@meta-ros-common
 cppunit:
 - cppunit@meta-oe
 curl:
@@ -27,7 +27,7 @@ ffmpeg:
 g++-static: []
 gazebo9: []
 geographiclib:
-- geographiclib@meta-ros
+- geographiclib@meta-ros-common
 git:
 - git@openembedded-core
 glut:
@@ -35,13 +35,13 @@ glut:
 google-mock:
 - gtest@meta-oe
 graphicsmagick:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick}
+- graphicsmagick@meta-ros2
 gstreamer1.0:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0}
+- gstreamer1.0@openembedded-core
 gstreamer1.0-alsa:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-alsa}
+- gstreamer1.0-plugins-base@openembedded-core
 gstreamer1.0-plugins-good:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good}
+- gstreamer1.0-plugins-good@openembedded-core
 gtest:
 - gtest@meta-oe
 gtk3:
@@ -49,27 +49,27 @@ gtk3:
 gurumdds-2.6:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6}
 lcov:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_lcov}
+- lcov@meta-oe
 libboost-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev}
+- boost@openembedded-core
 libboost-iostreams-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev}
+- boost@openembedded-core
 libboost-program-options:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options}
+- boost@openembedded-core
 libboost-program-options-dev:
 - boost@openembedded-core
 libboost-python-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev}
+- boost@openembedded-core
 libboost-system:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system}
+- boost@openembedded-core
 libboost-system-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev}
+- boost@openembedded-core
 libcairo2-dev:
 - cairo@openembedded-core
 libceres-dev:
 - ceres-solver@meta-oe
 libconsole-bridge-dev:
-- console-bridge@meta-ros
+- console-bridge@meta-ros-common
 libcunit-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev}
 libfreetype6:
@@ -79,11 +79,11 @@ libfreetype6-dev:
 libgazebo9-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev}
 libgeos++-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev}
+- geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
 libglew-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev}
+- glew@openembedded-core
 libglfw3-dev:
 - glfw@meta-intel-realsense
 libgoogle-glog-dev:
@@ -91,13 +91,13 @@ libgoogle-glog-dev:
 libgpgme-dev:
 - gpgme@openembedded-core
 libgps:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libgps}
+- gpsd@meta-oe
 libjsoncpp:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp}
+- jsoncpp@meta-oe
 libjsoncpp-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev}
+- jsoncpp@meta-oe
 liblapack-dev:
-- lapack@meta-ros
+- lapack@meta-oe
 libogg:
 - libogg@openembedded-core
 libopencv-dev:
@@ -113,11 +113,11 @@ libopenvdb-dev:
 libpcap:
 - libpcap@openembedded-core
 libpcl-all:
-- pcl@meta-ros
+- pcl@meta-ros-common
 libpcl-all-dev:
-- pcl@meta-ros
+- pcl@meta-ros-common
 libpng-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev}
+- libpng@openembedded-core
 libpoco-dev:
 - poco@meta-oe
 libqglviewer-qt4:
@@ -137,7 +137,7 @@ libqt5-gui:
 libqt5-opengl:
 - qtbase@meta-qt5
 libqt5-opengl-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev}
+- qtbase@meta-qt5
 libqt5-widgets:
 - qtbase@meta-qt5
 libqtgui4:
@@ -149,7 +149,7 @@ libssl-dev:
 libtheora:
 - libtheora@openembedded-core
 libusb-1.0:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0}
+- libusb1@openembedded-core
 libusb-1.0-dev:
 - libusb1@openembedded-core
 libx11-dev:
@@ -157,13 +157,13 @@ libx11-dev:
 libxaw:
 - libxaw@meta-oe
 libxi-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev}
+- libxi@openembedded-core
 libxml2-utils:
 - libxml2@openembedded-core
 libxmlrpc-c++:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++}
+- xmlrpc-c@meta-oe
 libxmu-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev}
+- libxmu@openembedded-core
 libxrandr:
 - libxrandr@openembedded-core
 libzmq3-dev:
@@ -171,9 +171,9 @@ libzmq3-dev:
 linux-headers-generic:
 - virtual/kernel@openembedded-core
 log4cplus:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_log4cplus}
+- log4cplus@openembedded-core
 log4cxx:
-- log4cxx@meta-ros
+- log4cxx@meta-ros-common
 lua5.2-dev:
 - lua@meta-oe
 lz4:
@@ -187,99 +187,99 @@ pcre:
 pkg-config:
 - pkgconfig@openembedded-core
 proj:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_proj}
+- proj@meta-oe
 protobuf:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_protobuf}
+- protobuf@meta-oe
 protobuf-dev:
 - protobuf@meta-oe
 pugixml-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_pugixml-dev}
 pydocstyle:
-- ${PYTHON_PN}-pydocstyle@meta-ros
+- ${PYTHON_PN}-pydocstyle@meta-ros-common
 pyflakes3:
-- ${PYTHON_PN}-pyflakes@meta-ros
+- ${PYTHON_PN}-pyflakes@meta-ros-common
 pyqt5-dev-tools:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools}
+- ${PYTHON_PN}-pyqt5@meta-qt5
 python-catkin-pkg:
-- ${PYTHON_PN}-catkin-pkg@meta-ros
+- ${PYTHON_PN}-catkin-pkg@meta-ros-common
 python-gst-1.0:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-gst-1.0}
+- gstreamer1.0-python@openembedded-core'
 python-numpy:
 - ${PYTHON_PN}-numpy@openembedded-core
 python-pyproj:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj}
+- ${PYTHON_PN}-pyproj@meta-ros-common
 python-tk:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk}
+- ${PYTHON_PN}-tkinter@openembedded-core
 python-virtualenv:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv}
+- ${PYTHON_PN}-virtualenv@meta-ros2
 python3-boto3:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-boto3}
+- python3-boto3@meta-ros-common
 python3-bson:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-bson}
+- python3-pymongo@meta-python
 python3-catkin-pkg-modules:
-- python3-catkin-pkg@meta-ros
+- python3-catkin-pkg@meta-ros-common
 python3-dev:
 - python3@openembedded-core
 python3-docker:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-docker}
 python3-empy:
-- python3-empy@meta-ros
+- python3-empy@meta-ros-common
 python3-flake8:
-- python3-flake8@meta-ros
+- python3-flake8@meta-ros-common
 python3-lark-parser:
-- python3-lark-parser@meta-ros
+- python3-lark-parser@meta-ros-common
 python3-lxml:
 - python3-lxml@meta-python
 python3-matplotlib:
 - python3-matplotlib@meta-python
 python3-mock:
-- python3-mock@meta-ros
+- python3-mock@meta-ros-common
 python3-nose:
 - python3-nose@openembedded-core
 python3-nose-yanc:
-- python3-nose-yanc@meta-ros
+- python3-nose-yanc@meta-ros-common
 python3-numpy:
 - python3-numpy@openembedded-core
 python3-opencv:
 - opencv@meta-oe
 python3-packaging:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging}
+- python3-packaging@openembedded-core
 python3-pep8:
-- python3-pep8@meta-ros
+- python3-pep8@meta-ros-common
 python3-pil:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pil}
+- python3-pillow@meta-python
 python3-pkg-resources:
 - python3-setuptools@openembedded-core
 python3-psutil:
 - python3-psutil@meta-python
 python3-pydot:
-- python3-pydot@meta-ros
+- python3-pydot@meta-ros-common
 python3-pygraphviz:
-- python3-pygraphviz@meta-ros
+- python3-pygraphviz@meta-ros-common
 python3-pyqt5.qtwebengine:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine}
+- ${PYTHON_PN}-pyqt5@meta-qt5
 python3-pytest:
 - python3-pytest@meta-python
 python3-qt5-bindings:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings}
+- python3-pyqt5@meta-qt5
 python3-requests:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests}
 python3-rospkg:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg}
+- python3-rospkg@meta-ros-common
 python3-rospkg-modules:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules}
+- python3-rospkg@meta-ros-common
 python3-serial:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-serial}
+- python3-pyserial@meta-python
 python3-setuptools:
 - python3-setuptools@openembedded-core
 python3-sphinx:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx}
+- python3-sphinx@meta-ros-common
 python3-tornado:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-tornado}
+- python3-tornado@meta-python
 python3-twisted:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-twisted}
+- python3-twisted@meta-python
 python3-websocket:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-websocket}
+- python3-websockets@meta-python
 python3-yaml:
 - python3-pyyaml@meta-python
 qt5-qmake:
@@ -295,12 +295,12 @@ sdl:
 sdl-image:
 - libsdl-image@meta-oe
 suitesparse:
-- suitesparse-cholmod@meta-ros
-- suitesparse-cxsparse@meta-ros
+- suitesparse-cholmod@meta-ros-common
+- suitesparse-cxsparse@meta-ros-common
 tango-icon-theme:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
 tbb:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_tbb}
+- tbb@meta-oe
 tinyxml:
 - libtinyxml@meta-oe
 tinyxml2:
@@ -314,6 +314,6 @@ uuid:
 yaml:
 - libyaml@openembedded-core
 yaml-cpp:
-- yaml-cpp@meta-ros
+- yaml-cpp@meta-ros-common
 zlib:
 - zlib@openembedded-core
