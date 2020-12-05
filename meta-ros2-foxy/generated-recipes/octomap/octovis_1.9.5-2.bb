@@ -17,8 +17,6 @@ ROS_CN = "octomap"
 ROS_BPN = "octovis"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-dev-qt5} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
     octomap \
     qtbase \
 "

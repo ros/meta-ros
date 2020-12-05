@@ -16,8 +16,8 @@ ROS_CN = "grbl_ros"
 ROS_BPN = "grbl_ros"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-serial} \
     grbl-msgs \
+    python3-pyserial \
     rclpy \
     std-msgs \
 "

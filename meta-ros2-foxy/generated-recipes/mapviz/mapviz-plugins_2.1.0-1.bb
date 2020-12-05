@@ -17,7 +17,6 @@ ROS_CN = "mapviz"
 ROS_BPN = "mapviz_plugins"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
     ament-index-cpp \
     cv-bridge \
     gps-msgs \

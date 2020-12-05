@@ -17,17 +17,16 @@ ROS_CN = "plotjuggler"
 ROS_BPN = "plotjuggler"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_binutils} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev} \
+    binutils \
     boost \
     fastcdr \
     geometry-msgs \
     nav-msgs \
     plotjuggler-msgs \
     qtbase \
+    qtdeclarative \
+    qtmultimedia \
+    qtsvg \
     rclcpp \
     rcpputils \
     rosbag2 \
@@ -42,17 +41,16 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_binutils} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev} \
+    binutils \
     boost \
     fastcdr \
     geometry-msgs \
     nav-msgs \
     plotjuggler-msgs \
     qtbase \
+    qtdeclarative \
+    qtmultimedia \
+    qtsvg \
     rclcpp \
     rcpputils \
     rosbag2 \
@@ -65,17 +63,16 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_binutils} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev} \
+    binutils \
     boost \
     fastcdr \
     geometry-msgs \
     nav-msgs \
     plotjuggler-msgs \
     qtbase \
+    qtdeclarative \
+    qtmultimedia \
+    qtsvg \
     rclcpp \
     rcpputils \
     rosbag2 \

@@ -17,7 +17,7 @@ ROS_CN = "lanelet2"
 ROS_BPN = "lanelet2_python"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev} \
+    boost \
     lanelet2-core \
     lanelet2-io \
     lanelet2-projection \
@@ -31,7 +31,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev} \
+    boost \
     lanelet2-core \
     lanelet2-io \
     lanelet2-projection \
@@ -44,7 +44,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = " \
 "
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev} \
+    boost \
     lanelet2-core \
     lanelet2-io \
     lanelet2-projection \
