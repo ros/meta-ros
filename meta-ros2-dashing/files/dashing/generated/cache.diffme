@@ -1,10 +1,8 @@
-# dashing/cache.yaml 2020-10-27 f6465779164269dce956d6793b7e514c62824b86 20201028183600 1.5.3
+# dashing/cache.yaml 2020-10-27 f6465779164269dce956d6793b7e514c62824b86 20201028183600 1.6.0
 distribution_file:
 - release_platforms:
 -----
-ubuntu:
------
-- bionic
+ubuntu: [bionic]
 -----
 repositories:
 -----
