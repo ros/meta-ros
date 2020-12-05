@@ -17,12 +17,12 @@ ROS_CN = "popf"
 ROS_BPN = "popf"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bison} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcbc-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcgl-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_flex} \
+    bison \
+    flex \
     rclcpp \
 "
 
@@ -31,24 +31,24 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bison} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcbc-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcgl-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_flex} \
+    bison \
+    flex \
     rclcpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bison} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcbc-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcgl-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_flex} \
+    bison \
+    flex \
     rclcpp \
 "
 

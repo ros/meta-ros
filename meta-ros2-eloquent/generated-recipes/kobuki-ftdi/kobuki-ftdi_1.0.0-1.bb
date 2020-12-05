@@ -17,11 +17,10 @@ ROS_CN = "kobuki_ftdi"
 ROS_BPN = "kobuki_ftdi"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
     ecl-build \
     ecl-command-line \
+    libftdi \
+    libusb1 \
     pkgconfig \
 "
 
@@ -34,10 +33,9 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
     ecl-command-line \
+    libftdi \
+    libusb1 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
