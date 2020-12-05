@@ -17,12 +17,12 @@ ROS_CN = "ifm3d_core"
 ROS_BPN = "ifm3d_core"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++} \
     boost \
     curl \
     cv-bridge \
     glog \
     pcl \
+    xmlrpc-c \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -34,11 +34,11 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++} \
     curl \
     cv-bridge \
     glog \
     pcl \
+    xmlrpc-c \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

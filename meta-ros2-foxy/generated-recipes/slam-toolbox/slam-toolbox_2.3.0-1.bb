@@ -17,7 +17,6 @@ ROS_CN = "slam_toolbox"
 ROS_BPN = "slam_toolbox"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     boost \
     builtin-interfaces \
     ceres-solver \
@@ -38,6 +37,7 @@ ROS_BUILD_DEPENDS = " \
     std-srvs \
     suitesparse-cholmod \
     suitesparse-cxsparse \
+    tbb \
     tf2 \
     tf2-geometry-msgs \
     tf2-ros \
@@ -54,7 +54,6 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     boost \
     builtin-interfaces \
     ceres-solver \
@@ -75,6 +74,7 @@ ROS_EXEC_DEPENDS = " \
     std-srvs \
     suitesparse-cholmod \
     suitesparse-cxsparse \
+    tbb \
     tf2 \
     tf2-geometry-msgs \
     tf2-ros \

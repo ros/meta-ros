@@ -17,7 +17,7 @@ ROS_CN = "py_trees_ros_viewer"
 ROS_BPN = "py_trees_ros_viewer"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools} \
+    ${PYTHON_PN}-pyqt5 \
     ${ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools} \
     python3-setuptools \
 "
@@ -29,10 +29,10 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings} \
+    ${PYTHON_PN}-pyqt5 \
     py-trees-js \
     py-trees-ros-interfaces \
+    python3-pyqt5 \
     rclpy \
     unique-identifier-msgs \
 "

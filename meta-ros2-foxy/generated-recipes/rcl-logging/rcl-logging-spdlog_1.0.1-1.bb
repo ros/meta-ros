@@ -17,8 +17,8 @@ ROS_CN = "rcl_logging"
 ROS_BPN = "rcl_logging_spdlog"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog} \
     rcutils \
+    spdlog \
     spdlog-vendor \
 "
 
@@ -33,8 +33,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog} \
     rcutils \
+    spdlog \
     spdlog-vendor \
 "
 
