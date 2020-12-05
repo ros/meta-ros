@@ -22,7 +22,7 @@ ROS_BUILD_DEPENDS = " \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ament_python-native} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_ament-python-native} \
 "
 
 ROS_EXPORT_DEPENDS = " \

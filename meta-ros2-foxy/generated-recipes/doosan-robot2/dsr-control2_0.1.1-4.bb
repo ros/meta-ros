@@ -17,8 +17,8 @@ ROS_CN = "doosan-robot2"
 ROS_BPN = "dsr_control2"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_controller_manager} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_hardware_interface} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_controller-manager} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_hardware-interface} \
     dsr-msgs2 \
     rclcpp \
     sensor-msgs \
@@ -29,8 +29,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_controller_manager} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_hardware_interface} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_controller-manager} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_hardware-interface} \
     dsr-msgs2 \
     rclcpp \
     sensor-msgs \
@@ -39,8 +39,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_controller_manager} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_hardware_interface} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_controller-manager} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_hardware-interface} \
     dsr-msgs2 \
     rclcpp \
     sensor-msgs \
