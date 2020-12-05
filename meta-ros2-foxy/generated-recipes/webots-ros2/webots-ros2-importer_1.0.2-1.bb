@@ -31,12 +31,12 @@ ROS_EXEC_DEPENDS = " \
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-imaging} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pil} \
+    ${PYTHON_PN}-pillow \
     ament-copyright \
     ament-flake8 \
     ament-pep257 \
     python3-pep8 \
+    python3-pillow \
     python3-pytest \
 "
 

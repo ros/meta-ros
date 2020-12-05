@@ -17,7 +17,7 @@ ROS_CN = "hls_lfcd_lds_driver"
 ROS_BPN = "hls_lfcd_lds_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
     rclcpp \
     sensor-msgs \
 "
@@ -27,7 +27,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
     rclcpp \
     sensor-msgs \
 "
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
     rclcpp \
     sensor-msgs \
 "

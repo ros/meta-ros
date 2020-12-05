@@ -17,8 +17,8 @@ ROS_CN = "marti_common"
 ROS_BPN = "swri_geometry_util"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
     cv-bridge \
+    geos \
     libeigen \
     rclcpp \
     tf2 \
@@ -30,8 +30,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
     cv-bridge \
+    geos \
     libeigen \
     rclcpp \
     tf2 \
@@ -40,8 +40,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
     cv-bridge \
+    geos \
     libeigen \
     rclcpp \
     tf2 \
