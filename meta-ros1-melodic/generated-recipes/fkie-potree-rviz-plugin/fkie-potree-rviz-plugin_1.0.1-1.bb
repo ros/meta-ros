@@ -17,8 +17,8 @@ ROS_CN = "fkie_potree_rviz_plugin"
 ROS_BPN = "fkie_potree_rviz_plugin"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev} \
     boost \
+    jsoncpp \
     qtbase \
     rviz \
 "

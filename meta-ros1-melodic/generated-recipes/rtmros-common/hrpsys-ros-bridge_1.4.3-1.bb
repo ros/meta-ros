@@ -21,7 +21,6 @@ ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_hostname} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_net-tools} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_procps} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_subversion} \
     actionlib \
     angles \
     camera-info-manager \
@@ -55,6 +54,7 @@ ROS_BUILD_DEPENDS = " \
     rqt-robot-monitor \
     rtmbuild \
     sensor-msgs \
+    subversion \
     tf \
     visualization-msgs \
 "

@@ -17,7 +17,6 @@ ROS_CN = "navigation_2d"
 ROS_BPN = "nav2d_karto"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     geometry-msgs \
     libeigen \
     nav-msgs \
@@ -26,6 +25,7 @@ ROS_BUILD_DEPENDS = " \
     roscpp \
     suitesparse-cholmod \
     suitesparse-cxsparse \
+    tbb \
     tf \
     visualization-msgs \
 "
@@ -35,7 +35,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     geometry-msgs \
     libeigen \
     nav-msgs \
@@ -44,6 +43,7 @@ ROS_EXPORT_DEPENDS = " \
     roscpp \
     suitesparse-cholmod \
     suitesparse-cxsparse \
+    tbb \
     tf \
     visualization-msgs \
 "
@@ -51,7 +51,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     geometry-msgs \
     libeigen \
     nav-msgs \
@@ -60,6 +59,7 @@ ROS_EXEC_DEPENDS = " \
     roscpp \
     suitesparse-cholmod \
     suitesparse-cxsparse \
+    tbb \
     tf \
     visualization-msgs \
 "

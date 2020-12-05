@@ -16,10 +16,10 @@ ROS_CN = "grpc"
 ROS_BPN = "grpc"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_autoconf} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rsync} \
+    autoconf \
     git \
+    libtool \
+    rsync \
     zlib \
 "
 

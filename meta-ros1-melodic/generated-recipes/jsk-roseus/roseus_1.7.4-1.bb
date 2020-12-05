@@ -17,11 +17,11 @@ ROS_CN = "jsk_roseus"
 ROS_BPN = "roseus"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_coreutils} \
     actionlib \
     actionlib-msgs \
     actionlib-tutorials \
     angles \
+    coreutils \
     dynamic-reconfigure \
     euslisp \
     geneus \

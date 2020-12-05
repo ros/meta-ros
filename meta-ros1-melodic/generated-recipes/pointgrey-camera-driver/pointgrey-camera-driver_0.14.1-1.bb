@@ -17,14 +17,14 @@ ROS_CN = "pointgrey_camera_driver"
 ROS_BPN = "pointgrey_camera_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_dpkg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libraw1394-dev} \
     camera-info-manager \
     curl \
     diagnostic-updater \
+    dpkg \
     dynamic-reconfigure \
     image-exposure-msgs \
     image-transport \
+    libraw1394 \
     libusb1 \
     nodelet \
     roscpp \
@@ -37,12 +37,12 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libraw1394-dev} \
     camera-info-manager \
     diagnostic-updater \
     dynamic-reconfigure \
     image-exposure-msgs \
     image-transport \
+    libraw1394 \
     libusb1 \
     nodelet \
     roscpp \
@@ -53,13 +53,13 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libraw1394-dev} \
     camera-info-manager \
     diagnostic-updater \
     dynamic-reconfigure \
     image-exposure-msgs \
     image-proc \
     image-transport \
+    libraw1394 \
     libusb1 \
     nodelet \
     roscpp \

@@ -17,7 +17,6 @@ ROS_CN = "exotica"
 ROS_BPN = "exotica_core"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_msgpack} \
     cmake-modules \
     eigen-conversions \
     geometry-msgs \
@@ -26,6 +25,7 @@ ROS_BUILD_DEPENDS = " \
     moveit-core \
     moveit-msgs \
     moveit-ros-planning \
+    msgpack-c \
     pluginlib \
     roscpp \
     std-msgs \
@@ -39,7 +39,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_msgpack} \
     eigen-conversions \
     geometry-msgs \
     kdl-parser \
@@ -47,6 +46,7 @@ ROS_EXPORT_DEPENDS = " \
     moveit-core \
     moveit-msgs \
     moveit-ros-planning \
+    msgpack-c \
     pluginlib \
     roscpp \
     std-msgs \
@@ -58,7 +58,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_msgpack} \
     eigen-conversions \
     geometry-msgs \
     kdl-parser \
@@ -66,6 +65,7 @@ ROS_EXEC_DEPENDS = " \
     moveit-core \
     moveit-msgs \
     moveit-ros-planning \
+    msgpack-c \
     pluginlib \
     roscpp \
     std-msgs \

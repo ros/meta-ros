@@ -17,17 +17,17 @@ ROS_CN = "parrot_arsdk"
 ROS_BPN = "parrot_arsdk"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_autoconf} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_automake} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libavahi-client-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libavahi-core-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_nasm} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_yasm} \
+    autoconf \
+    automake \
     curl \
     ffmpeg \
+    libtool \
+    ncurses \
+    unzip \
     zlib \
 "
 

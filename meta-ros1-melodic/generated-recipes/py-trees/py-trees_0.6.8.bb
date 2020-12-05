@@ -30,7 +30,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-enum34 \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pydot} \
+    ${PYTHON_PN}-pydot \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

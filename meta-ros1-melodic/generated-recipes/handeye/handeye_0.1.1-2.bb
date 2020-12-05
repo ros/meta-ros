@@ -36,8 +36,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-enum34 \
+    ${PYTHON_PN}-matplotlib \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-scipy} \
     baldor \
     criutils \

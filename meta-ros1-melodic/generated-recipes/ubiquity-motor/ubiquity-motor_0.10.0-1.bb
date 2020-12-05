@@ -47,7 +47,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests} \
+    ${PYTHON_PN}-requests \
     controller-manager \
     diagnostic-updater \
     diff-drive-controller \

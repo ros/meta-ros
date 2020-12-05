@@ -27,8 +27,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pillow \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-cairo} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-imaging} \
     geometry-msgs \
     rosbag \
     roslib \

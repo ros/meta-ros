@@ -16,7 +16,7 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "slic"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates} \
+    ca-certificates \
     cmake-modules \
     git \
     opencv \

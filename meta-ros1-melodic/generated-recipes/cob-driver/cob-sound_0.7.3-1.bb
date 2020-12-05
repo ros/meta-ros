@@ -17,8 +17,6 @@ ROS_CN = "cob_driver"
 ROS_BPN = "cob_sound"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_vlc} \
     actionlib \
     actionlib-msgs \
     cob-srvs \
@@ -28,6 +26,7 @@ ROS_BUILD_DEPENDS = " \
     std-msgs \
     std-srvs \
     visualization-msgs \
+    vlc \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -35,8 +34,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_vlc} \
     actionlib \
     actionlib-msgs \
     cob-srvs \
@@ -45,14 +42,13 @@ ROS_EXPORT_DEPENDS = " \
     std-msgs \
     std-srvs \
     visualization-msgs \
+    vlc \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_alsa-oss} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_vlc} \
     actionlib \
     actionlib-msgs \
     cob-srvs \
@@ -63,6 +59,7 @@ ROS_EXEC_DEPENDS = " \
     std-msgs \
     std-srvs \
     visualization-msgs \
+    vlc \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

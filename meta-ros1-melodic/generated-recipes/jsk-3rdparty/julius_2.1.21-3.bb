@@ -16,12 +16,12 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "julius"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rsync} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_wget} \
     mk \
     roslib \
     rospack \
+    rsync \
+    unzip \
+    wget \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -29,17 +29,17 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rsync} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_wget} \
+    rsync \
+    unzip \
+    wget \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rsync} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_wget} \
+    rsync \
+    unzip \
+    wget \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

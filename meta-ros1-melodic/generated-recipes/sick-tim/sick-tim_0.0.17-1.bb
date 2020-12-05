@@ -40,9 +40,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0} \
     diagnostic-updater \
     dynamic-reconfigure \
+    libusb1 \
     robot-state-publisher \
     roscpp \
     sensor-msgs \

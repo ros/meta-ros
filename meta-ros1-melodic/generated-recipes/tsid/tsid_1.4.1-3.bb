@@ -17,8 +17,8 @@ ROS_CN = "tsid"
 ROS_BPN = "tsid"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     boost \
+    doxygen \
     eigenpy \
     eiquadprog \
     git \

@@ -17,10 +17,10 @@ ROS_CN = "image_pipeline"
 ROS_BPN = "image_view"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2} \
     camera-calibration-parsers \
     cv-bridge \
     dynamic-reconfigure \
+    gtk+ \
     image-transport \
     message-filters \
     message-generation \
@@ -37,10 +37,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2} \
     camera-calibration-parsers \
     cv-bridge \
     dynamic-reconfigure \
+    gtk+ \
     image-transport \
     message-filters \
     nodelet \
@@ -52,10 +52,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2} \
     camera-calibration-parsers \
     cv-bridge \
     dynamic-reconfigure \
+    gtk+ \
     image-transport \
     message-filters \
     nodelet \

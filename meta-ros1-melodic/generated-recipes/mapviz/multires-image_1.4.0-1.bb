@@ -17,7 +17,6 @@ ROS_CN = "mapviz"
 ROS_BPN = "multires_image"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
     cv-bridge \
     geometry-msgs \
     gps-common \

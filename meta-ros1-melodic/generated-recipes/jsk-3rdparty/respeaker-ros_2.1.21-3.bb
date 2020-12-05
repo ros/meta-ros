@@ -30,9 +30,9 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-numpy \
+    ${PYTHON_PN}-pyalsaaudio \
     ${ROS_UNRESOLVED_PLATFORM_PKG_flac} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pixel-ring-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-speechrecognition-pip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyaudio} \

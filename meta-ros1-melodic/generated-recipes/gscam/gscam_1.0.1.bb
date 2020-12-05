@@ -17,11 +17,11 @@ ROS_CN = "gscam"
 ROS_BPN = "gscam"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer-plugins-base1.0-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer1.0-dev} \
     camera-calibration-parsers \
     camera-info-manager \
     cv-bridge \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
     image-transport \
     nodelet \
     roscpp \

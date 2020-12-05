@@ -17,7 +17,7 @@ ROS_CN = "ros"
 ROS_BPN = "roslib"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev} \
+    boost \
     rospack \
 "
 
@@ -41,7 +41,7 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-filesystem-dev} \
+    boost \
     rosmake \
 "
 

@@ -17,8 +17,8 @@ ROS_CN = "warehouse_ros_mongo"
 ROS_BPN = "warehouse_ros_mongo"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libmongoclient-dev} \
     class-loader \
+    mongodb \
     roscpp \
     rostime \
     std-msgs \
@@ -49,7 +49,7 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_mongodb} \
+    mongodb \
     rostest \
 "
 

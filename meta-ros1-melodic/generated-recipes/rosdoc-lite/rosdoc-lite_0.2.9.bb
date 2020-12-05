@@ -27,9 +27,9 @@ ROS_EXPORT_DEPENDS = " \
     ${PYTHON_PN}-pyyaml \
     ${PYTHON_PN}-rospkg \
     ${PYTHON_PN}-sphinx \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_epydoc} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-kitchen} \
+    doxygen \
     genmsg \
 "
 
@@ -40,9 +40,9 @@ ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-pyyaml \
     ${PYTHON_PN}-rospkg \
     ${PYTHON_PN}-sphinx \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_epydoc} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-kitchen} \
+    doxygen \
     genmsg \
 "
 

@@ -17,7 +17,7 @@ ROS_CN = "tts"
 ROS_BPN = "tts"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-boto3} \
+    ${PYTHON_PN}-boto3 \
     actionlib-msgs \
     message-generation \
     rospy \
@@ -41,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-boto3} \
+    ${PYTHON_PN}-boto3 \
     actionlib-msgs \
     message-runtime \
     rospy \

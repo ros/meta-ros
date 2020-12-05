@@ -16,8 +16,8 @@ ROS_CN = "uwsim_bullet"
 ROS_BPN = "uwsim_bullet"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxext} \
     freeglut \
+    libxext \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -25,17 +25,17 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxext} \
     catkin \
     freeglut \
+    libxext \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxext} \
     catkin \
     freeglut \
+    libxext \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

@@ -16,13 +16,13 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "downward"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bison} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_flex} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gawk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_time} \
+    bison \
+    ca-certificates \
+    flex \
+    gawk \
     python \
     rostest \
+    time \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -34,8 +34,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gawk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_time} \
+    gawk \
+    time \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

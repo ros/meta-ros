@@ -17,7 +17,6 @@ ROS_CN = "pr2_controllers"
 ROS_BPN = "robot_mechanism_controllers"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool} \
     actionlib \
     angles \
     control-msgs \
@@ -27,6 +26,7 @@ ROS_BUILD_DEPENDS = " \
     filters \
     geometry-msgs \
     kdl-parser \
+    libtool \
     message-filters \
     message-generation \
     pluginlib \
@@ -47,7 +47,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool} \
     actionlib \
     angles \
     control-msgs \
@@ -57,6 +56,7 @@ ROS_EXPORT_DEPENDS = " \
     filters \
     geometry-msgs \
     kdl-parser \
+    libtool \
     message-filters \
     message-runtime \
     pluginlib \
@@ -76,7 +76,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool} \
     actionlib \
     angles \
     control-msgs \
@@ -86,6 +85,7 @@ ROS_EXEC_DEPENDS = " \
     filters \
     geometry-msgs \
     kdl-parser \
+    libtool \
     message-filters \
     message-runtime \
     pluginlib \
