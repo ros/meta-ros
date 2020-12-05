@@ -29,7 +29,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-rolling/files/rolling/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "4"
+ROS_NUM_CACHE_YAML_COMMITS = "5"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -1366,7 +1366,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_append = " ${ROS_SUPERFLORE_GENERATED_BUILDT
 ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${PYTHON_PN}-pydocstyle \
     ${PYTHON_PN}-pyflakes \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_benchmark} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev} \
@@ -1374,38 +1373,14 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_java-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_jupyter-notebook} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo11-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgps} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libzstd-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_maven-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-catkin-pkg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-importlib-metadata} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pandas} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyproj} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_sdl2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify} \
     asio \
     assimp \
@@ -1425,11 +1400,14 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     git \
     git-native \
     glog \
+    google-benchmark \
     gpgme \
+    gpsd \
     gtest \
     gtest-native \
     libeigen \
     libogg \
+    libsdl2 \
     libtheora \
     libtinyxml \
     libtinyxml2 \
@@ -1442,6 +1420,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     log4cxx \
     lua \
     mesa \
+    ncurses \
     opencv \
     openssl \
     pcl \
@@ -1450,36 +1429,49 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     protobuf \
     python3-catkin-pkg \
     python3-catkin-pkg-native \
+    python3-cryptography \
     python3-empy \
     python3-empy-native \
     python3-flake8 \
+    python3-ifcfg \
+    python3-importlib-metadata \
     python3-lark-parser \
     python3-lxml \
     python3-matplotlib \
     python3-mock \
+    python3-mypy \
     python3-native \
+    python3-netifaces \
     python3-nose-native \
     python3-numpy \
     python3-psutil \
+    python3-pycodestyle \
     python3-pydot \
     python3-pygraphviz \
+    python3-pyproj \
+    python3-pyqt5 \
     python3-pytest \
+    python3-pytest-mock \
     python3-pytest-native \
     python3-pyyaml \
     python3-rosdistro \
+    python3-rospkg \
     python3-setuptools \
+    python3-sphinx \
     qtbase \
+    spdlog \
     sqlite3 \
     suitesparse-cholmod \
     suitesparse-cxsparse \
+    xmlrpc-c \
     yaml-cpp \
     zeromq \
+    zstd \
 "
 
 # Packages found only in <test_depend> items. Does not include those found only in the ROS_*_DEPENDS of recipes of tests.
 ROS_SUPERFLORE_GENERATED_TESTS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests} \
     ament-cmake-google-benchmark \
     ament-copyright \
@@ -1493,6 +1485,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     performance-test-fixture \
     python3-pygraphviz \
     python3-pytest \
+    python3-pytest-mock \
     ros-testing \
     ros2lifecycle-test-fixtures \
     rosbag2-test-common \
@@ -1661,7 +1654,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
 
 # Platform packages without a OE-RECIPE@OE-LAYER mapping in base.yaml, python.yaml, or ruby.yaml. Until they are added, override
 # the settings in ros-distro.inc .
-ROS_UNRESOLVED_PLATFORM_PKG_benchmark = "UNRESOLVED-benchmark"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-format = "UNRESOLVED-clang-format"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "UNRESOLVED-clang-tidy"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev = "UNRESOLVED-coinor-libipopt-dev"
@@ -1669,38 +1661,14 @@ ROS_UNRESOLVED_PLATFORM_PKG_gazebo11 = "UNRESOLVED-gazebo11"
 ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6 = "UNRESOLVED-gurumdds-2.6"
 ROS_UNRESOLVED_PLATFORM_PKG_java-native = "UNRESOLVED-java-native"
 ROS_UNRESOLVED_PLATFORM_PKG_jupyter-notebook = "UNRESOLVED-jupyter-notebook"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "UNRESOLVED-libboost-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev = "UNRESOLVED-libboost-iostreams-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-python = "UNRESOLVED-libboost-python"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev = "UNRESOLVED-libboost-python-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev = "UNRESOLVED-libboost-system-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev = "UNRESOLVED-libcunit-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libgazebo11-dev = "UNRESOLVED-libgazebo11-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libgps = "UNRESOLVED-libgps"
-ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev = "UNRESOLVED-libncurses-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0 = "UNRESOLVED-libusb-1.0"
-ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++ = "UNRESOLVED-libxmlrpc-c++"
-ROS_UNRESOLVED_PLATFORM_PKG_libzstd-dev = "UNRESOLVED-libzstd-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_maven-native = "UNRESOLVED-maven-native"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete = "UNRESOLVED-python3-argcomplete"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-catkin-pkg = "UNRESOLVED-python3-catkin-pkg"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography = "UNRESOLVED-python3-cryptography"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = "UNRESOLVED-python3-ifcfg"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-importlib-metadata = "UNRESOLVED-python3-importlib-metadata"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "UNRESOLVED-python3-mypy"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = "UNRESOLVED-python3-netifaces"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-pandas = "UNRESOLVED-python3-pandas"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-pycodestyle = "UNRESOLVED-python3-pycodestyle"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-pyproj = "UNRESOLVED-python3-pyproj"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock = "UNRESOLVED-python3-pytest-mock"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings = "UNRESOLVED-python3-qt5-bindings"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-requests = "UNRESOLVED-python3-requests"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules = "UNRESOLVED-python3-rospkg-modules"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx = "UNRESOLVED-python3-sphinx"
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = "UNRESOLVED-rti-connext-dds-5.3.1"
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = "UNRESOLVED-rti-connext-dds-5.3.1-native"
-ROS_UNRESOLVED_PLATFORM_PKG_sdl2 = "UNRESOLVED-sdl2"
-ROS_UNRESOLVED_PLATFORM_PKG_spdlog = "UNRESOLVED-spdlog"
 ROS_UNRESOLVED_PLATFORM_PKG_uncrustify = "UNRESOLVED-uncrustify"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
@@ -1712,7 +1680,7 @@ ROS_SUPERFLORE_GENERATION_COMMIT = "9330a67818c6aed3cc47d6b96ceead914596ba45"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
-ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.5.3"
+ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.6.0"
 
 # Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
 ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.6.0"
