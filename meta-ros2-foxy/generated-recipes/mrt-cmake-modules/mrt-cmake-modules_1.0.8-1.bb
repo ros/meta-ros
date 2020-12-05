@@ -57,6 +57,6 @@ SRC_URI = "git://github.com/KIT-MRT/mrt_cmake_modules-release;${ROS_BRANCH};prot
 SRCREV = "9a6fca69ada5a1fb57ba99f7228306498f065666"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

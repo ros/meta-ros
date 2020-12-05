@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+10.g17c2e11"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+14.g1995657"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros2"
@@ -1930,7 +1930,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
 # Packages found in the <buildtool_depend> and <buildtool_export_depend> items, ie, ones for which a -native is built. Does not
 # include those found in the ROS_EXEC_DEPENDS values in the recipes of build tools.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_FOXY = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ament_python-native} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_ament-python-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_java-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_lcov-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_maven-native} \
@@ -2025,7 +2025,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${PYTHON_PN}-numpy \
     ${PYTHON_PN}-pydocstyle \
     ${PYTHON_PN}-pyflakes \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ament_python-native} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_ament-python-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_benchmark} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_binutils} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_bison} \
@@ -2036,14 +2036,14 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_controller_manager} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_controller-manager} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_flex} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo11} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_hardware_interface} \
+    ${ROS_UNRESOLVED_PLATFORM_PKG_hardware-interface} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-gazebo3} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-math6} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5} \
@@ -2464,7 +2464,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
 
 # Platform packages without a OE-RECIPE@OE-LAYER mapping in base.yaml, python.yaml, or ruby.yaml. Until they are added, override
 # the settings in ros-distro.inc .
-ROS_UNRESOLVED_PLATFORM_PKG_python-native = "UNRESOLVED-python-native"
+ROS_UNRESOLVED_PLATFORM_PKG_ament-python-native = "UNRESOLVED-ament-python-native"
 ROS_UNRESOLVED_PLATFORM_PKG_benchmark = "UNRESOLVED-benchmark"
 ROS_UNRESOLVED_PLATFORM_PKG_binutils = "UNRESOLVED-binutils"
 ROS_UNRESOLVED_PLATFORM_PKG_bison = "UNRESOLVED-bison"
@@ -2475,14 +2475,14 @@ ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcgl-dev = "UNRESOLVED-coinor-libcgl-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev = "UNRESOLVED-coinor-libclp-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev = "UNRESOLVED-coinor-libcoinutils-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev = "UNRESOLVED-coinor-libipopt-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_manager = "UNRESOLVED-manager"
+ROS_UNRESOLVED_PLATFORM_PKG_controller-manager = "UNRESOLVED-controller-manager"
 ROS_UNRESOLVED_PLATFORM_PKG_doxygen = "UNRESOLVED-doxygen"
 ROS_UNRESOLVED_PLATFORM_PKG_flex = "UNRESOLVED-flex"
 ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "UNRESOLVED-ftdi-eeprom"
 ROS_UNRESOLVED_PLATFORM_PKG_gazebo11 = "UNRESOLVED-gazebo11"
 ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick = "UNRESOLVED-graphicsmagick"
 ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6 = "UNRESOLVED-gurumdds-2.6"
-ROS_UNRESOLVED_PLATFORM_PKG_interface = "UNRESOLVED-interface"
+ROS_UNRESOLVED_PLATFORM_PKG_hardware-interface = "UNRESOLVED-hardware-interface"
 ROS_UNRESOLVED_PLATFORM_PKG_ignition-gazebo3 = "UNRESOLVED-ignition-gazebo3"
 ROS_UNRESOLVED_PLATFORM_PKG_ignition-math6 = "UNRESOLVED-ignition-math6"
 ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5 = "UNRESOLVED-ignition-msgs5"
