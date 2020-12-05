@@ -17,8 +17,7 @@ ROS_CN = "cartographer"
 ROS_BPN = "cartographer"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx} \
+    boost \
     cairo \
     ceres-solver \
     gflags \
@@ -27,6 +26,7 @@ ROS_BUILD_DEPENDS = " \
     libeigen \
     lua \
     protobuf \
+    python3-sphinx \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -34,7 +34,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev} \
+    boost \
     cairo \
     ceres-solver \
     gflags \
@@ -47,7 +47,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev} \
+    boost \
     cairo \
     ceres-solver \
     gflags \

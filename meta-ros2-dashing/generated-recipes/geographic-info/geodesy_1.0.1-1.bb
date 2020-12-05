@@ -18,7 +18,7 @@ ROS_BPN = "geodesy"
 
 ROS_BUILD_DEPENDS = " \
     ${PYTHON_PN}-catkin-pkg \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj} \
+    ${PYTHON_PN}-pyproj \
     angles \
     geographic-msgs \
     geometry-msgs \
@@ -31,7 +31,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj} \
+    ${PYTHON_PN}-pyproj \
     angles \
     geographic-msgs \
     geometry-msgs \
@@ -42,7 +42,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj} \
+    ${PYTHON_PN}-pyproj \
     angles \
     geographic-msgs \
     geometry-msgs \

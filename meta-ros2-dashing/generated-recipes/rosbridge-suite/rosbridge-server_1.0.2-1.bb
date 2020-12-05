@@ -27,8 +27,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-tornado} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-twisted} \
+    python3-tornado \
+    python3-twisted \
     rclpy \
     rosapi \
     rosauth \

@@ -25,13 +25,13 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-alsa} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-gst-1.0} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-boto3} \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-python \
     launch \
     launch-ros \
+    python3-boto3 \
     rclpy \
     std-msgs \
     tts-interfaces \
