@@ -19,10 +19,10 @@ ROS_BPN = "mrt_cmake_modules"
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-native} \
     ament-cmake-core-native \
     python3-catkin-pkg-native \
     python3-pyyaml-native \
+    python3-rospkg-native \
     python3-setuptools-native \
     ros-environment-native \
 "
@@ -30,11 +30,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_lcov-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-native} \
     gtest-vendor-native \
+    lcov-native \
     python3-catkin-pkg-native \
     python3-pyyaml-native \
+    python3-rospkg-native \
     python3-setuptools-native \
     ros-environment-native \
 "

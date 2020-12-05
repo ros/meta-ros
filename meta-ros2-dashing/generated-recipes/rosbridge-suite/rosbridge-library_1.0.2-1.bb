@@ -17,10 +17,10 @@ ROS_CN = "rosbridge_suite"
 ROS_BPN = "rosbridge_library"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-bson} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pil} \
     builtin-interfaces \
     geometry-msgs \
+    python3-pillow \
+    python3-pymongo \
     rosidl-default-generators \
     std-msgs \
 "
@@ -34,10 +34,10 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-bson} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pil} \
     builtin-interfaces \
     geometry-msgs \
+    python3-pillow \
+    python3-pymongo \
     rclpy \
     rosidl-default-runtime \
     std-msgs \

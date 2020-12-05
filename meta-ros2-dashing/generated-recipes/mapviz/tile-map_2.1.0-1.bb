@@ -17,9 +17,8 @@ ROS_CN = "mapviz"
 ROS_BPN = "tile_map"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
+    glew \
+    jsoncpp \
     mapviz \
     pluginlib \
     qtbase \
@@ -36,7 +35,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
+    glew \
     mapviz \
     pluginlib \
     qtbase \
@@ -50,8 +49,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp} \
+    glew \
+    jsoncpp \
     mapviz \
     pluginlib \
     qtbase \

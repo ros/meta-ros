@@ -17,7 +17,7 @@ ROS_CN = "image_pipeline"
 ROS_BPN = "image_view"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
+    boost \
     camera-calibration-parsers \
     cv-bridge \
     image-transport \
@@ -34,7 +34,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
+    boost \
     camera-calibration-parsers \
     cv-bridge \
     image-transport \
@@ -49,7 +49,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
+    boost \
     camera-calibration-parsers \
     cv-bridge \
     image-transport \
