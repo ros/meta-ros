@@ -276,21 +276,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev = "boost"
 # generated-recipes/image-pipeline/image-view_2.1.1-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "boost"
 
-# XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
 # and having it in a .bbappend sets it too late.
-# https://raw.github.com/ros2-gbp/async_web_server_cpp-release/release/dashing/async_web_server_cpp/1.0.0-1/package.xml
-ROS_BUILD_TYPE_pn-async-web-server-cpp = "ament_cmake"
-# https://raw.github.com/boschresearch/fmilibrary_vendor-release/release/dashing/fmilibrary_vendor/0.2.0-1/package.xml
-ROS_BUILD_TYPE_pn-fmilibrary-vendor = "ament_cmake"
-# https://raw.github.com/ros-geographic-info/geographic_info-release/release/dashing/geographic_info/1.0.1-1/package.xml
-ROS_BUILD_TYPE_pn-geographic-info = "ament_cmake"
-# https://raw.github.com/swri-robotics-gbp/gps_umd-release/release/dashing/gps_umd/1.0.4-1/package.xml
-ROS_BUILD_TYPE_pn-gps-umd = "ament_cmake"
+# We want ament_cmake instead of plain cmake for ros-workspace:
 # https://raw.github.com/ros2-gbp/ros_workspace-release/release/dashing/ros_workspace/0.7.2-1/package.xml
 ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
-# https://raw.github.com/ros2-gbp/web_video_server-release/release/dashing/web_video_server/1.0.0-1/package.xml
-ROS_BUILD_TYPE_pn-web-video-server = "ament_cmake"
-# https://raw.github.com/KIT-MRT/mrt_cmake_modules-release/release/dashing/mrt_cmake_modules/1.0.8-1/package.xml
-ROS_BUILD_TYPE_pn-mrt-cmake-modules = "ament_cmake"
