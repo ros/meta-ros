@@ -19,7 +19,6 @@ ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     builtin-interfaces \
     geometry-msgs \
     laser-geometry \
@@ -33,6 +32,7 @@ ROS_BUILD_DEPENDS = " \
     sensor-msgs \
     std-msgs \
     std-srvs \
+    tbb \
     tf2-geometry-msgs \
     tf2-ros \
     visualization-msgs \
@@ -46,7 +46,6 @@ ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     builtin-interfaces \
     geometry-msgs \
     laser-geometry \
@@ -59,6 +58,7 @@ ROS_EXPORT_DEPENDS = " \
     sensor-msgs \
     std-msgs \
     std-srvs \
+    tbb \
     tf2-geometry-msgs \
     tf2-ros \
     visualization-msgs \
@@ -70,7 +70,6 @@ ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     builtin-interfaces \
     geometry-msgs \
     laser-geometry \
@@ -84,6 +83,7 @@ ROS_EXEC_DEPENDS = " \
     sensor-msgs \
     std-msgs \
     std-srvs \
+    tbb \
     tf2-geometry-msgs \
     tf2-ros \
     visualization-msgs \

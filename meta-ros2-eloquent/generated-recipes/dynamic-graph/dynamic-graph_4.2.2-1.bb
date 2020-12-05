@@ -17,8 +17,8 @@ ROS_CN = "dynamic-graph"
 ROS_BPN = "dynamic-graph"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     boost \
+    doxygen \
     git \
     graphviz \
     libeigen \
