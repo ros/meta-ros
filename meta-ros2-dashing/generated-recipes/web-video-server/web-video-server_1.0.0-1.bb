@@ -58,6 +58,6 @@ SRC_URI = "git://github.com/ros2-gbp/web_video_server-release;${ROS_BRANCH};prot
 SRCREV = "e09b55893dbaeac21c6a02d3c79f06d5a851ec4a"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

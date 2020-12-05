@@ -47,6 +47,6 @@ SRC_URI = "git://github.com/swri-robotics-gbp/gps_umd-release;${ROS_BRANCH};prot
 SRCREV = "2c93b744601836d36d8737f099d77486d7d1ee08"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
