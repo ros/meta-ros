@@ -17,7 +17,6 @@ ROS_CN = "swri_console"
 ROS_BPN = "swri_console"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
     boost \
     qtbase \
     rosbag-storage \

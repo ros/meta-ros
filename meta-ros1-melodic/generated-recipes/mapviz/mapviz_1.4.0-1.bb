@@ -17,13 +17,12 @@ ROS_CN = "mapviz"
 ROS_BPN = "mapviz"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
     cv-bridge \
     freeglut \
+    glew \
     image-transport \
+    libxi \
+    libxmu \
     marti-common-msgs \
     message-generation \
     pluginlib \
@@ -45,12 +44,12 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
     cv-bridge \
     freeglut \
+    glew \
     image-transport \
+    libxi \
+    libxmu \
     marti-common-msgs \
     pluginlib \
     rosapi \
@@ -66,12 +65,12 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
     cv-bridge \
     freeglut \
+    glew \
     image-transport \
+    libxi \
+    libxmu \
     marti-common-msgs \
     message-runtime \
     pluginlib \

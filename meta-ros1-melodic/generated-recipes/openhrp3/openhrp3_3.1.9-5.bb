@@ -18,15 +18,15 @@ ROS_BPN = "openhrp3"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_atlas} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_f2c} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
     boost \
     collada-dom \
+    doxygen \
     jpeg \
     libeigen \
+    libpng \
+    libxml2 \
     openrtm-aist \
 "
 
@@ -38,13 +38,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_atlas} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_f2c} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
     boost \
     collada-dom \
     jpeg \
     libeigen \
+    libpng \
+    libxml2 \
     openrtm-aist \
 "
 
@@ -53,13 +53,13 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_atlas} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_f2c} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
     boost \
     collada-dom \
     jpeg \
     libeigen \
+    libpng \
+    libxml2 \
     openrtm-aist \
 "
 

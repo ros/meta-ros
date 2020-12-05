@@ -18,7 +18,6 @@ ROS_BPN = "moveit_ros_visualization"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
     class-loader \
     geometric-shapes \
     interactive-markers \

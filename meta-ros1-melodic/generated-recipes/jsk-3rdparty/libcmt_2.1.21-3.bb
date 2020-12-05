@@ -16,7 +16,7 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "libcmt"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates} \
+    ca-certificates \
     cv-bridge \
     git \
     openssl \

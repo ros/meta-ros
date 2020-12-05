@@ -17,7 +17,7 @@ ROS_CN = "photo"
 ROS_BPN = "photo"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgphoto-dev} \
+    libgphoto2 \
     message-generation \
     opencv \
     roscpp \
@@ -31,7 +31,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgphoto-dev} \
+    libgphoto2 \
     message-runtime \
     opencv \
     roscpp \
@@ -43,7 +43,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgphoto-dev} \
+    libgphoto2 \
     message-runtime \
     opencv \
     roscpp \

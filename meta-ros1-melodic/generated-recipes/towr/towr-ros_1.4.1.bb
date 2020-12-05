@@ -17,9 +17,9 @@ ROS_CN = "towr"
 ROS_BPN = "towr_ros"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     message-generation \
     message-runtime \
+    ncurses \
     rosbag \
     roscpp \
     std-msgs \
@@ -34,9 +34,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     message-generation \
     message-runtime \
+    ncurses \
     rosbag \
     roscpp \
     std-msgs \
@@ -49,10 +49,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_xterm} \
     message-generation \
     message-runtime \
+    ncurses \
     rosbag \
     roscpp \
     rqt-bag \

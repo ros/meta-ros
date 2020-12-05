@@ -17,17 +17,17 @@ ROS_CN = "marti_common"
 ROS_BPN = "swri_transform_util"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_proj} \
     boost \
     cv-bridge \
     diagnostic-msgs \
     genpy \
     geographic-msgs \
     geometry-msgs \
+    geos \
     gps-common \
     marti-nav-msgs \
     nodelet \
+    proj \
     roscpp \
     rospy \
     swri-math-util \
@@ -46,17 +46,17 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_proj} \
     boost \
     cv-bridge \
     diagnostic-msgs \
     genpy \
     geographic-msgs \
     geometry-msgs \
+    geos \
     gps-common \
     marti-nav-msgs \
     nodelet \
+    proj \
     roscpp \
     rospy \
     swri-math-util \
@@ -72,17 +72,17 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_proj} \
     boost \
     cv-bridge \
     diagnostic-msgs \
     genpy \
     geographic-msgs \
     geometry-msgs \
+    geos \
     gps-common \
     marti-nav-msgs \
     nodelet \
+    proj \
     roscpp \
     rospy \
     sensor-msgs \

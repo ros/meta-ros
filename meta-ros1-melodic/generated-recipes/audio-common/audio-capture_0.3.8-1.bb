@@ -17,9 +17,9 @@ ROS_CN = "audio_common"
 ROS_BPN = "audio_capture"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer-plugins-base1.0-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer1.0-dev} \
     audio-common-msgs \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
     roscpp \
 "
 
@@ -28,22 +28,22 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-base} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-ugly} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0} \
     audio-common-msgs \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-ugly \
     roscpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-base} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-ugly} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0} \
     audio-common-msgs \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-ugly \
     roscpp \
 "
 

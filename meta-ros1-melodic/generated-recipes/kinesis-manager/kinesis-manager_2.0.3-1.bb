@@ -17,10 +17,10 @@ ROS_CN = "kinesis_manager"
 ROS_BPN = "kinesis_manager"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_log4cplus} \
     aws-common \
     boost \
     curl \
+    log4cplus \
     openssl \
 "
 
@@ -31,20 +31,20 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_log4cplus} \
     aws-common \
     boost \
     curl \
+    log4cplus \
     openssl \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_log4cplus} \
     aws-common \
     boost \
     curl \
+    log4cplus \
     openssl \
 "
 

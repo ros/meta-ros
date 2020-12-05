@@ -16,8 +16,8 @@ ROS_CN = "multisense_ros"
 ROS_BPN = "multisense_lib"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
     cv-bridge \
+    libpng \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -25,15 +25,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
     cv-bridge \
+    libpng \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
     cv-bridge \
+    libpng \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

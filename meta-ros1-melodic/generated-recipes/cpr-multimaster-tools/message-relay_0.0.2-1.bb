@@ -16,7 +16,7 @@ ROS_CN = "cpr_multimaster_tools"
 ROS_BPN = "message_relay"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-cheetah} \
+    ${PYTHON_PN}-cheetah \
     actionlib-msgs \
     controller-manager-msgs \
     diagnostic-msgs \

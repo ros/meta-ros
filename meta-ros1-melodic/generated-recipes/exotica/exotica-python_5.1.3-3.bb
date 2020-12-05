@@ -16,14 +16,14 @@ ROS_CN = "exotica"
 ROS_BPN = "exotica_python"
 
 ROS_BUILD_DEPENDS = " \
+    ${PYTHON_PN}-matplotlib \
     ${PYTHON_PN}-rospkg \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk} \
+    ${PYTHON_PN}-tkinter \
     exotica-core \
     geometry-msgs \
     moveit-msgs \
     pybind11-catkin \
+    python-pyassimp \
     shape-msgs \
 "
 
@@ -32,28 +32,28 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-matplotlib \
     ${PYTHON_PN}-rospkg \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk} \
+    ${PYTHON_PN}-tkinter \
     exotica-core \
     geometry-msgs \
     moveit-msgs \
     pybind11-catkin \
+    python-pyassimp \
     shape-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-matplotlib \
     ${PYTHON_PN}-rospkg \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk} \
+    ${PYTHON_PN}-tkinter \
     exotica-core \
     geometry-msgs \
     moveit-msgs \
     pybind11-catkin \
+    python-pyassimp \
     shape-msgs \
 "
 

@@ -17,8 +17,8 @@ ROS_CN = "dynamic-graph-tutorial"
 ROS_BPN = "dynamic-graph-tutorial"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     boost \
+    doxygen \
     dynamic-graph \
     dynamic-graph-python \
     git \

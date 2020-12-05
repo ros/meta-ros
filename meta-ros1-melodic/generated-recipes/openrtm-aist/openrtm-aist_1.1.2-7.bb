@@ -17,16 +17,16 @@ ROS_CN = "openrtm_aist"
 ROS_BPN = "openrtm_aist"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb} \
+    doxygen \
     python \
     util-linux \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_automake-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool-native} \
+    automake-native \
     cmake-native \
+    libtool-native \
     pkgconfig-native \
 "
 

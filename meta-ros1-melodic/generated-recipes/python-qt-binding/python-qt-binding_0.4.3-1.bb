@@ -17,7 +17,7 @@ ROS_CN = "python_qt_binding"
 ROS_BPN = "python_qt_binding"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings} \
+    ${PYTHON_PN}-pyqt5 \
     qtbase \
     rosbuild \
 "
@@ -27,7 +27,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings} \
+    ${PYTHON_PN}-pyqt5 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = " \
@@ -35,7 +35,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = " \
 "
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings} \
+    ${PYTHON_PN}-pyqt5 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

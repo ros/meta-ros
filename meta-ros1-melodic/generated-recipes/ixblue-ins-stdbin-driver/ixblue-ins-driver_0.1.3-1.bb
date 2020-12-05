@@ -17,8 +17,7 @@ ROS_CN = "ixblue_ins_stdbin_driver"
 ROS_BPN = "ixblue_ins_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
     ixblue-ins-msgs \
     ixblue-stdbin-decoder \
     nav-msgs \
@@ -31,8 +30,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
     ixblue-ins-msgs \
     ixblue-stdbin-decoder \
     nav-msgs \
@@ -43,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
     ixblue-ins-msgs \
     ixblue-stdbin-decoder \
     nav-msgs \
@@ -53,7 +51,6 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev} \
     boost \
     libpcap \
 "

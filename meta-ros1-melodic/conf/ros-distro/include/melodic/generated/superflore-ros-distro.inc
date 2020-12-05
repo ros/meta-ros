@@ -57,7 +57,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros1-melodic/files/melodic/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "16"
+ROS_NUM_CACHE_YAML_COMMITS = "17"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -6180,93 +6180,92 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_MELODIC = " \
     ${PYTHON_PN}-pyyaml-native \
     ${PYTHON_PN}-rospkg-native \
     ${PYTHON_PN}-setuptools-native \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_automake-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_lcov-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_nodejs-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_npm-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_wget-native} \
+    automake-native \
     catkin-native \
     cmake-native \
     genmsg-native \
     git-native \
+    lcov-native \
+    libtool-native \
     message-generation-native \
     mrt-cmake-modules-native \
+    nodejs-native \
     pkgconfig-native \
     protobuf-native \
     python3-catkin-pkg-native \
     qtbase-native \
     ros-environment-native \
+    wget-native \
     yaml-cpp-native \
 "
 
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_append = " ${ROS_SUPERFLORE_GENERATED_BUILDTOOLS_MELODIC}"
 
 ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
+    ${PYTHON_PN}-autobahn \
+    ${PYTHON_PN}-backports-ssl \
+    ${PYTHON_PN}-boto3 \
     ${PYTHON_PN}-catkin-pkg \
     ${PYTHON_PN}-catkin-pkg-native \
+    ${PYTHON_PN}-cheetah \
     ${PYTHON_PN}-defusedxml \
     ${PYTHON_PN}-empy \
     ${PYTHON_PN}-enum34 \
     ${PYTHON_PN}-future \
     ${PYTHON_PN}-gnupg \
     ${PYTHON_PN}-lxml \
+    ${PYTHON_PN}-matplotlib \
     ${PYTHON_PN}-mock \
     ${PYTHON_PN}-netifaces \
     ${PYTHON_PN}-nose \
     ${PYTHON_PN}-numpy \
     ${PYTHON_PN}-paramiko \
+    ${PYTHON_PN}-pillow \
+    ${PYTHON_PN}-pip \
     ${PYTHON_PN}-psutil \
+    ${PYTHON_PN}-pyalsaaudio \
+    ${PYTHON_PN}-pybluez \
+    ${PYTHON_PN}-pycryptodomex \
+    ${PYTHON_PN}-pydot \
     ${PYTHON_PN}-pymongo \
+    ${PYTHON_PN}-pyproj \
+    ${PYTHON_PN}-pyqt5 \
     ${PYTHON_PN}-pyserial \
+    ${PYTHON_PN}-pytest \
+    ${PYTHON_PN}-pyusb \
     ${PYTHON_PN}-pyyaml \
     ${PYTHON_PN}-pyyaml-native \
+    ${PYTHON_PN}-requests \
     ${PYTHON_PN}-rosdep \
     ${PYTHON_PN}-rospkg \
     ${PYTHON_PN}-rospkg-native \
     ${PYTHON_PN}-setuptools \
     ${PYTHON_PN}-setuptools-native \
+    ${PYTHON_PN}-simplejson \
+    ${PYTHON_PN}-six \
     ${PYTHON_PN}-sphinx \
+    ${PYTHON_PN}-tkinter \
+    ${PYTHON_PN}-twisted-core \
+    ${PYTHON_PN}-websockets \
     ${ROS_UNRESOLVED_PLATFORM_PKG_alsa-oss} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_arduino-core} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_atlas} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_autoconf} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_automake-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_automake} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_binutils} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bison} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bluez} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_cccc} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_coreutils} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_cwiid-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_cwiid} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_cython} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_daemontools} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_dpkg} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_emacs} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_epydoc} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_f2c} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_flac} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_flex} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gawk} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_gdal-bin} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_gforth} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_gfortran} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gnuplot} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-alsa} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-base} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-ugly} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_hostapd} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_hostname} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ifstat} \
@@ -6275,49 +6274,18 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ipython} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_java} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_julius-voxforge} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_lcov-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_lcov} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_leveldb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libasound2-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libavahi-client-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libavahi-core-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-date-time-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-filesystem-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-regex-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcap-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcoin80-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libdc1394-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libffi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libfftw3} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libflann-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libfltk-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libftdipp-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgphoto-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgps} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgsl} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer-plugins-base1.0-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer1.0-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libgts} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libhdf5-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libirrlicht-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_liblcm-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_liblcm} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libmicrohttpd} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libmodbus-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libmongoclient-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libnl-3-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libnl-3} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libnlopt-dev} \
@@ -6330,86 +6298,44 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libpq-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-concurrent} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-network} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libraw1394-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libsensors4-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libspnav-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_liburdfdom-tools} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxext} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libxml++-2.6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxxf86vm} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_linux-kernel-headers} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_log4cplus} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_mapnik-utils} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_mongodb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_msgpack} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_muparser} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_nasm} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_net-tools} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_netpbm} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_network-manager} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_nkf} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_nodejs-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_nodejs} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_npm-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ntpdate} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_opencl-headers} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_osm2pgsql} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_paramiko} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_phantomjs} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_postgresql-postgis} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_postgresql} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_procps} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_proj} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_protobuf} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_pugixml-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_pydrive-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-argcomplete} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-autobahn} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-avahi} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-backports.ssl-match-hostname} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-bluez} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-boto3} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-cairosvg} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-cairo} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-lint} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-tools} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainer-pip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainercv-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-cheetah} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-cherrypy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-click} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-colorama} \
@@ -6429,13 +6355,11 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-gtk2} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-h5py} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-imageio} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-imaging} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-impacket} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-joblib} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-kitchen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-libpgm-pip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-mapnik} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-msgpack} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
@@ -6444,31 +6368,16 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pcapy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pep8} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-percol} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pixel-ring-pip} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-progressbar} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pydot} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygithub3} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygraphviz} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pymongo} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pytest-cov} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pytest} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-gl} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-qsci} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-webkit} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests-oauthlib} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-rospkg-modules} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-scipy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-selenium-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-six} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-skimage} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-sklearn} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-slacker-cli} \
@@ -6477,126 +6386,188 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-termcolor} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-texttable} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-tilestache} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tornado} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-urlgrabber} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-usb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-websocket} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pil} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyaudio} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python3-venv} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rsync} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ruby} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_sbcl} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_screen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_spacenavd} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_sshpass} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_subversion} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_swig} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_sysstat} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_time} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_usbutils} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_virtualenv} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_vlc} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_wget-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_wget} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-100dpi} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-75dpi} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_xterm} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_xvfb} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_yasm} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_zbar} \
+    alsa-lib \
     apr \
     assimp \
+    autoconf \
+    automake \
+    automake-native \
     avahi \
+    binutils \
+    bison \
+    bluez5 \
     boost \
     bullet \
     bzip2 \
+    ca-certificates \
     cairo \
     ceres-solver \
     cmake \
     cmake-native \
     collada-dom \
     console-bridge \
+    coreutils \
     cppcheck \
     cppunit \
     curl \
+    daemontools \
+    doxygen \
+    dpkg \
     elfutils \
     fcl \
     festival \
     ffmpeg \
+    fftw \
+    flex \
+    fltk \
     freeglut \
+    gawk \
     geographiclib \
+    geographiclib-tools \
+    geos \
     gflags \
     git \
     git-native \
+    glew \
     glfw \
+    glib-2.0 \
     glog \
+    gnuplot \
     gpgme \
+    gpsd \
     graphviz \
+    gsl \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-ugly \
     gtest \
+    gtk+ \
     gtk+3 \
     hddtemp \
+    hdf5 \
     joystick \
     jpeg \
+    jsoncpp \
     lapack \
+    lcov \
+    lcov-native \
+    libcap \
     libccd \
+    libdc1394 \
     libeigen \
+    libffi \
     libfreenect \
+    libftdi \
+    libgphoto2 \
     libjpeg-turbo \
+    libmodbus \
     libogg \
     libpcap \
+    libpng \
+    libraw1394 \
     libsdl \
     libsdl-image \
     libtheora \
     libtinyxml \
     libtinyxml2 \
+    libtool \
+    libtool-native \
     libusb1 \
     libx11 \
+    libxext \
+    libxi \
+    libxml2 \
+    libxmu \
     libxrandr \
+    libxxf86vm \
     libyaml \
+    linux-libc-headers \
+    lmsensors \
+    log4cplus \
     log4cxx \
     lua \
     lz4 \
     mesa \
+    mongodb \
+    msgpack-c \
+    ncurses \
+    nodejs \
+    nodejs-native \
     openblas \
+    opencl-headers \
     opencv \
     openssl \
     pcl \
     pkgconfig \
     pkgconfig-native \
     poco \
+    postgresql \
+    proj \
     protobuf \
     protobuf-native \
+    pulseaudio \
     python \
+    python-pyassimp \
+    python-tornado45 \
     python3 \
+    python3-argcomplete \
     python3-catkin-pkg-native \
     python3-nose \
     python3-numpy \
+    python3-pillow \
     python3-pyyaml \
+    python3-rospkg \
     qhull \
     qtbase \
     qtbase-native \
+    qtdeclarative \
+    qtmultimedia \
+    qtsvg \
+    qtx11extras \
+    qwt-qt5 \
+    readline \
+    rsync \
     sip \
     sqlite3 \
+    subversion \
     suitesparse-cholmod \
     suitesparse-cxsparse \
+    swig \
+    tbb \
+    time \
     udev \
+    unzip \
     urdfdom \
     urdfdom-headers \
+    usbutils \
     util-linux \
+    v4l-utils \
+    vlc \
+    wget \
+    wget-native \
     wxpython \
     wxwidgets \
+    xmlrpc-c \
     yaml-cpp \
     yaml-cpp-native \
+    zbar \
     zeromq \
     zlib \
 "
@@ -6604,7 +6575,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
 # Packages found only in <test_depend> items. Does not include those found only in the ROS_*_DEPENDS of recipes of tests.
 ROS_SUPERFLORE_GENERATED_TESTS = " \
     ${PYTHON_PN}-mock \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-filesystem-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_phantomjs} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-docopt} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-freezegun-pip} \
@@ -7370,43 +7340,21 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
 ROS_UNRESOLVED_PLATFORM_PKG_alsa-oss = "UNRESOLVED-alsa-oss"
 ROS_UNRESOLVED_PLATFORM_PKG_arduino-core = "UNRESOLVED-arduino-core"
 ROS_UNRESOLVED_PLATFORM_PKG_atlas = "UNRESOLVED-atlas"
-ROS_UNRESOLVED_PLATFORM_PKG_autoconf = "UNRESOLVED-autoconf"
-ROS_UNRESOLVED_PLATFORM_PKG_automake = "UNRESOLVED-automake"
-ROS_UNRESOLVED_PLATFORM_PKG_automake-native = "UNRESOLVED-automake-native"
-ROS_UNRESOLVED_PLATFORM_PKG_binutils = "UNRESOLVED-binutils"
-ROS_UNRESOLVED_PLATFORM_PKG_bison = "UNRESOLVED-bison"
-ROS_UNRESOLVED_PLATFORM_PKG_bluez = "UNRESOLVED-bluez"
-ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates = "UNRESOLVED-ca-certificates"
 ROS_UNRESOLVED_PLATFORM_PKG_cccc = "UNRESOLVED-cccc"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "UNRESOLVED-clang-tidy"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev = "UNRESOLVED-coinor-libipopt-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_coreutils = "UNRESOLVED-coreutils"
 ROS_UNRESOLVED_PLATFORM_PKG_cwiid = "UNRESOLVED-cwiid"
 ROS_UNRESOLVED_PLATFORM_PKG_cwiid-dev = "UNRESOLVED-cwiid-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_cython = "UNRESOLVED-cython"
-ROS_UNRESOLVED_PLATFORM_PKG_daemontools = "UNRESOLVED-daemontools"
 ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq = "UNRESOLVED-dnsmasq"
-ROS_UNRESOLVED_PLATFORM_PKG_doxygen = "UNRESOLVED-doxygen"
-ROS_UNRESOLVED_PLATFORM_PKG_dpkg = "UNRESOLVED-dpkg"
 ROS_UNRESOLVED_PLATFORM_PKG_emacs = "UNRESOLVED-emacs"
 ROS_UNRESOLVED_PLATFORM_PKG_epydoc = "UNRESOLVED-epydoc"
 ROS_UNRESOLVED_PLATFORM_PKG_f2c = "UNRESOLVED-f2c"
 ROS_UNRESOLVED_PLATFORM_PKG_flac = "UNRESOLVED-flac"
-ROS_UNRESOLVED_PLATFORM_PKG_flex = "UNRESOLVED-flex"
-ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "UNRESOLVED-ftdi-eeprom"
-ROS_UNRESOLVED_PLATFORM_PKG_gawk = "UNRESOLVED-gawk"
 ROS_UNRESOLVED_PLATFORM_PKG_gazebo = "UNRESOLVED-gazebo"
 ROS_UNRESOLVED_PLATFORM_PKG_gdal-bin = "UNRESOLVED-gdal-bin"
-ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools = "UNRESOLVED-geographiclib-tools"
 ROS_UNRESOLVED_PLATFORM_PKG_gforth = "UNRESOLVED-gforth"
 ROS_UNRESOLVED_PLATFORM_PKG_gfortran = "UNRESOLVED-gfortran"
-ROS_UNRESOLVED_PLATFORM_PKG_gnuplot = "UNRESOLVED-gnuplot"
-ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0 = "UNRESOLVED-gstreamer1.0"
-ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-alsa = "UNRESOLVED-gstreamer1.0-alsa"
-ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-base = "UNRESOLVED-gstreamer1.0-plugins-base"
-ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good = "UNRESOLVED-gstreamer1.0-plugins-good"
-ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-ugly = "UNRESOLVED-gstreamer1.0-plugins-ugly"
-ROS_UNRESOLVED_PLATFORM_PKG_gtk2 = "UNRESOLVED-gtk2"
 ROS_UNRESOLVED_PLATFORM_PKG_hostapd = "UNRESOLVED-hostapd"
 ROS_UNRESOLVED_PLATFORM_PKG_hostname = "UNRESOLVED-hostname"
 ROS_UNRESOLVED_PLATFORM_PKG_ifstat = "UNRESOLVED-ifstat"
@@ -7415,49 +7363,18 @@ ROS_UNRESOLVED_PLATFORM_PKG_iproute2 = "UNRESOLVED-iproute2"
 ROS_UNRESOLVED_PLATFORM_PKG_ipython = "UNRESOLVED-ipython"
 ROS_UNRESOLVED_PLATFORM_PKG_java = "UNRESOLVED-java"
 ROS_UNRESOLVED_PLATFORM_PKG_julius-voxforge = "UNRESOLVED-julius-voxforge"
-ROS_UNRESOLVED_PLATFORM_PKG_lcov = "UNRESOLVED-lcov"
-ROS_UNRESOLVED_PLATFORM_PKG_lcov-native = "UNRESOLVED-lcov-native"
 ROS_UNRESOLVED_PLATFORM_PKG_leveldb = "UNRESOLVED-leveldb"
-ROS_UNRESOLVED_PLATFORM_PKG_libasound2-dev = "UNRESOLVED-libasound2-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libavahi-client-dev = "UNRESOLVED-libavahi-client-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libavahi-core-dev = "UNRESOLVED-libavahi-core-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-date-time-dev = "UNRESOLVED-libboost-date-time-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "UNRESOLVED-libboost-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-filesystem-dev = "UNRESOLVED-libboost-filesystem-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev = "UNRESOLVED-libboost-python-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-regex-dev = "UNRESOLVED-libboost-regex-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev = "UNRESOLVED-libboost-system-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev = "UNRESOLVED-libboost-thread-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libcap-dev = "UNRESOLVED-libcap-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libcoin80-dev = "UNRESOLVED-libcoin80-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libdc1394-dev = "UNRESOLVED-libdc1394-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev = "UNRESOLVED-libdmtx-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libffi-dev = "UNRESOLVED-libffi-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libfftw3 = "UNRESOLVED-libfftw3"
 ROS_UNRESOLVED_PLATFORM_PKG_libflann-dev = "UNRESOLVED-libflann-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libfltk-dev = "UNRESOLVED-libfltk-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev = "UNRESOLVED-libftdi-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libftdipp-dev = "UNRESOLVED-libftdipp-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev = "UNRESOLVED-libgazebo9-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev = "UNRESOLVED-libgeos++-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev = "UNRESOLVED-libglew-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev = "UNRESOLVED-libglib-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libgphoto-dev = "UNRESOLVED-libgphoto-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libgps = "UNRESOLVED-libgps"
-ROS_UNRESOLVED_PLATFORM_PKG_libgsl = "UNRESOLVED-libgsl"
-ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer-plugins-base1.0-dev = "UNRESOLVED-libgstreamer-plugins-base1.0-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer1.0-dev = "UNRESOLVED-libgstreamer1.0-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libgts = "UNRESOLVED-libgts"
-ROS_UNRESOLVED_PLATFORM_PKG_libhdf5-dev = "UNRESOLVED-libhdf5-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libirrlicht-dev = "UNRESOLVED-libirrlicht-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp = "UNRESOLVED-libjsoncpp"
-ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev = "UNRESOLVED-libjsoncpp-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_liblcm = "UNRESOLVED-liblcm"
 ROS_UNRESOLVED_PLATFORM_PKG_liblcm-dev = "UNRESOLVED-liblcm-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libmicrohttpd = "UNRESOLVED-libmicrohttpd"
-ROS_UNRESOLVED_PLATFORM_PKG_libmodbus-dev = "UNRESOLVED-libmodbus-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libmongoclient-dev = "UNRESOLVED-libmongoclient-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev = "UNRESOLVED-libncurses-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libnl-3 = "UNRESOLVED-libnl-3"
 ROS_UNRESOLVED_PLATFORM_PKG_libnl-3-dev = "UNRESOLVED-libnl-3-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libnlopt-dev = "UNRESOLVED-libnlopt-dev"
@@ -7470,86 +7387,44 @@ ROS_UNRESOLVED_PLATFORM_PKG_libopenni2-dev = "UNRESOLVED-libopenni2-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph = "UNRESOLVED-libopenscenegraph"
 ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb = "UNRESOLVED-libopenvdb"
 ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev = "UNRESOLVED-libopenvdb-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev = "UNRESOLVED-libpng-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libpq-dev = "UNRESOLVED-libpq-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libpqxx = "UNRESOLVED-libpqxx"
 ROS_UNRESOLVED_PLATFORM_PKG_libpqxx-dev = "UNRESOLVED-libpqxx-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev = "UNRESOLVED-libpulse-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4 = "UNRESOLVED-libqglviewer-qt4"
 ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev = "UNRESOLVED-libqglviewer-qt4-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev = "UNRESOLVED-libqt4-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl = "UNRESOLVED-libqt4-opengl"
 ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev = "UNRESOLVED-libqt4-opengl-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libqt5-concurrent = "UNRESOLVED-libqt5-concurrent"
-ROS_UNRESOLVED_PLATFORM_PKG_libqt5-network = "UNRESOLVED-libqt5-network"
-ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev = "UNRESOLVED-libqt5-opengl-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev = "UNRESOLVED-libqt5-svg-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins = "UNRESOLVED-libqt5multimedia5-plugins"
-ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev = "UNRESOLVED-libqt5x11extras5-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4 = "UNRESOLVED-libqtgui4"
-ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev = "UNRESOLVED-libqwt-qt5-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libraw1394-dev = "UNRESOLVED-libraw1394-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libreadline = "UNRESOLVED-libreadline"
-ROS_UNRESOLVED_PLATFORM_PKG_libreadline-dev = "UNRESOLVED-libreadline-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libsensors4-dev = "UNRESOLVED-libsensors4-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libspnav-dev = "UNRESOLVED-libspnav-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libtool = "UNRESOLVED-libtool"
-ROS_UNRESOLVED_PLATFORM_PKG_libtool-native = "UNRESOLVED-libtool-native"
-ROS_UNRESOLVED_PLATFORM_PKG_liburdfdom-tools = "UNRESOLVED-liburdfdom-tools"
-ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0 = "UNRESOLVED-libusb-1.0"
-ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev = "UNRESOLVED-libusb-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev = "UNRESOLVED-libv4l-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev = "UNRESOLVED-libvlc-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libvtk = "UNRESOLVED-libvtk"
 ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt = "UNRESOLVED-libvtk-qt"
-ROS_UNRESOLVED_PLATFORM_PKG_libxext = "UNRESOLVED-libxext"
-ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev = "UNRESOLVED-libxi-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libxml++-2.6 = "UNRESOLVED-libxml++-2.6"
-ROS_UNRESOLVED_PLATFORM_PKG_libxml2 = "UNRESOLVED-libxml2"
-ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++ = "UNRESOLVED-libxmlrpc-c++"
-ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev = "UNRESOLVED-libxmu-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libxxf86vm = "UNRESOLVED-libxxf86vm"
-ROS_UNRESOLVED_PLATFORM_PKG_linux-kernel-headers = "UNRESOLVED-linux-kernel-headers"
-ROS_UNRESOLVED_PLATFORM_PKG_log4cplus = "UNRESOLVED-log4cplus"
 ROS_UNRESOLVED_PLATFORM_PKG_mapnik-utils = "UNRESOLVED-mapnik-utils"
-ROS_UNRESOLVED_PLATFORM_PKG_mongodb = "UNRESOLVED-mongodb"
-ROS_UNRESOLVED_PLATFORM_PKG_msgpack = "UNRESOLVED-msgpack"
 ROS_UNRESOLVED_PLATFORM_PKG_muparser = "UNRESOLVED-muparser"
 ROS_UNRESOLVED_PLATFORM_PKG_nasm = "UNRESOLVED-nasm"
 ROS_UNRESOLVED_PLATFORM_PKG_net-tools = "UNRESOLVED-net-tools"
 ROS_UNRESOLVED_PLATFORM_PKG_netpbm = "UNRESOLVED-netpbm"
 ROS_UNRESOLVED_PLATFORM_PKG_network-manager = "UNRESOLVED-network-manager"
 ROS_UNRESOLVED_PLATFORM_PKG_nkf = "UNRESOLVED-nkf"
-ROS_UNRESOLVED_PLATFORM_PKG_nodejs = "UNRESOLVED-nodejs"
-ROS_UNRESOLVED_PLATFORM_PKG_nodejs-native = "UNRESOLVED-nodejs-native"
 ROS_UNRESOLVED_PLATFORM_PKG_npm-native = "UNRESOLVED-npm-native"
 ROS_UNRESOLVED_PLATFORM_PKG_ntpdate = "UNRESOLVED-ntpdate"
 ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev = "UNRESOLVED-ocl-icd-opencl-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_omniorb = "UNRESOLVED-omniorb"
-ROS_UNRESOLVED_PLATFORM_PKG_opencl-headers = "UNRESOLVED-opencl-headers"
 ROS_UNRESOLVED_PLATFORM_PKG_osm2pgsql = "UNRESOLVED-osm2pgsql"
 ROS_UNRESOLVED_PLATFORM_PKG_paramiko = "UNRESOLVED-paramiko"
 ROS_UNRESOLVED_PLATFORM_PKG_phantomjs = "UNRESOLVED-phantomjs"
-ROS_UNRESOLVED_PLATFORM_PKG_postgresql = "UNRESOLVED-postgresql"
 ROS_UNRESOLVED_PLATFORM_PKG_postgresql-postgis = "UNRESOLVED-postgresql-postgis"
 ROS_UNRESOLVED_PLATFORM_PKG_procps = "UNRESOLVED-procps"
-ROS_UNRESOLVED_PLATFORM_PKG_proj = "UNRESOLVED-proj"
-ROS_UNRESOLVED_PLATFORM_PKG_protobuf = "UNRESOLVED-protobuf"
 ROS_UNRESOLVED_PLATFORM_PKG_pugixml-dev = "UNRESOLVED-pugixml-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_pydrive-pip = "UNRESOLVED-pydrive-pip"
-ROS_UNRESOLVED_PLATFORM_PKG_python-argcomplete = "UNRESOLVED-python-argcomplete"
-ROS_UNRESOLVED_PLATFORM_PKG_python-autobahn = "UNRESOLVED-python-autobahn"
 ROS_UNRESOLVED_PLATFORM_PKG_python-avahi = "UNRESOLVED-python-avahi"
-ROS_UNRESOLVED_PLATFORM_PKG_python-backports.ssl-match-hostname = "UNRESOLVED-python-backports.ssl-match-hostname"
-ROS_UNRESOLVED_PLATFORM_PKG_python-bluez = "UNRESOLVED-python-bluez"
-ROS_UNRESOLVED_PLATFORM_PKG_python-boto3 = "UNRESOLVED-python-boto3"
 ROS_UNRESOLVED_PLATFORM_PKG_python-cairo = "UNRESOLVED-python-cairo"
 ROS_UNRESOLVED_PLATFORM_PKG_python-cairosvg = "UNRESOLVED-python-cairosvg"
 ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-lint = "UNRESOLVED-python-catkin-lint"
 ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-tools = "UNRESOLVED-python-catkin-tools"
 ROS_UNRESOLVED_PLATFORM_PKG_python-chainer-pip = "UNRESOLVED-python-chainer-pip"
 ROS_UNRESOLVED_PLATFORM_PKG_python-chainercv-pip = "UNRESOLVED-python-chainercv-pip"
-ROS_UNRESOLVED_PLATFORM_PKG_python-cheetah = "UNRESOLVED-python-cheetah"
 ROS_UNRESOLVED_PLATFORM_PKG_python-cherrypy = "UNRESOLVED-python-cherrypy"
 ROS_UNRESOLVED_PLATFORM_PKG_python-click = "UNRESOLVED-python-click"
 ROS_UNRESOLVED_PLATFORM_PKG_python-colorama = "UNRESOLVED-python-colorama"
@@ -7569,13 +7444,11 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-gi-cairo = "UNRESOLVED-python-gi-cairo"
 ROS_UNRESOLVED_PLATFORM_PKG_python-gtk2 = "UNRESOLVED-python-gtk2"
 ROS_UNRESOLVED_PLATFORM_PKG_python-h5py = "UNRESOLVED-python-h5py"
 ROS_UNRESOLVED_PLATFORM_PKG_python-imageio = "UNRESOLVED-python-imageio"
-ROS_UNRESOLVED_PLATFORM_PKG_python-imaging = "UNRESOLVED-python-imaging"
 ROS_UNRESOLVED_PLATFORM_PKG_python-impacket = "UNRESOLVED-python-impacket"
 ROS_UNRESOLVED_PLATFORM_PKG_python-joblib = "UNRESOLVED-python-joblib"
 ROS_UNRESOLVED_PLATFORM_PKG_python-kitchen = "UNRESOLVED-python-kitchen"
 ROS_UNRESOLVED_PLATFORM_PKG_python-libpgm-pip = "UNRESOLVED-python-libpgm-pip"
 ROS_UNRESOLVED_PLATFORM_PKG_python-mapnik = "UNRESOLVED-python-mapnik"
-ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib = "UNRESOLVED-python-matplotlib"
 ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize = "UNRESOLVED-python-mechanize"
 ROS_UNRESOLVED_PLATFORM_PKG_python-msgpack = "UNRESOLVED-python-msgpack"
 ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb = "UNRESOLVED-python-omniorb"
@@ -7584,31 +7457,16 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-pandas = "UNRESOLVED-python-pandas"
 ROS_UNRESOLVED_PLATFORM_PKG_python-pcapy = "UNRESOLVED-python-pcapy"
 ROS_UNRESOLVED_PLATFORM_PKG_python-pep8 = "UNRESOLVED-python-pep8"
 ROS_UNRESOLVED_PLATFORM_PKG_python-percol = "UNRESOLVED-python-percol"
-ROS_UNRESOLVED_PLATFORM_PKG_python-pip = "UNRESOLVED-python-pip"
 ROS_UNRESOLVED_PLATFORM_PKG_python-pixel-ring-pip = "UNRESOLVED-python-pixel-ring-pip"
 ROS_UNRESOLVED_PLATFORM_PKG_python-progressbar = "UNRESOLVED-python-progressbar"
-ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp = "UNRESOLVED-python-pyassimp"
-ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio = "UNRESOLVED-python-pyaudio"
-ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome = "UNRESOLVED-python-pycryptodome"
-ROS_UNRESOLVED_PLATFORM_PKG_python-pydot = "UNRESOLVED-python-pydot"
 ROS_UNRESOLVED_PLATFORM_PKG_python-pygithub3 = "UNRESOLVED-python-pygithub3"
 ROS_UNRESOLVED_PLATFORM_PKG_python-pygraphviz = "UNRESOLVED-python-pygraphviz"
-ROS_UNRESOLVED_PLATFORM_PKG_python-pymongo = "UNRESOLVED-python-pymongo"
-ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj = "UNRESOLVED-python-pyproj"
-ROS_UNRESOLVED_PLATFORM_PKG_python-pytest = "UNRESOLVED-python-pytest"
 ROS_UNRESOLVED_PLATFORM_PKG_python-pytest-cov = "UNRESOLVED-python-pytest-cov"
 ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip = "UNRESOLVED-python-pyusb-pip"
-ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings = "UNRESOLVED-python-qt5-bindings"
-ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-gl = "UNRESOLVED-python-qt5-bindings-gl"
-ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-qsci = "UNRESOLVED-python-qt5-bindings-qsci"
-ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-webkit = "UNRESOLVED-python-qt5-bindings-webkit"
-ROS_UNRESOLVED_PLATFORM_PKG_python-requests = "UNRESOLVED-python-requests"
 ROS_UNRESOLVED_PLATFORM_PKG_python-requests-oauthlib = "UNRESOLVED-python-requests-oauthlib"
 ROS_UNRESOLVED_PLATFORM_PKG_python-rospkg-modules = "UNRESOLVED-python-rospkg-modules"
 ROS_UNRESOLVED_PLATFORM_PKG_python-scipy = "UNRESOLVED-python-scipy"
 ROS_UNRESOLVED_PLATFORM_PKG_python-selenium-pip = "UNRESOLVED-python-selenium-pip"
-ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson = "UNRESOLVED-python-simplejson"
-ROS_UNRESOLVED_PLATFORM_PKG_python-six = "UNRESOLVED-python-six"
 ROS_UNRESOLVED_PLATFORM_PKG_python-skimage = "UNRESOLVED-python-skimage"
 ROS_UNRESOLVED_PLATFORM_PKG_python-sklearn = "UNRESOLVED-python-sklearn"
 ROS_UNRESOLVED_PLATFORM_PKG_python-slacker-cli = "UNRESOLVED-python-slacker-cli"
@@ -7617,43 +7475,22 @@ ROS_UNRESOLVED_PLATFORM_PKG_python-tabulate-pip = "UNRESOLVED-python-tabulate-pi
 ROS_UNRESOLVED_PLATFORM_PKG_python-termcolor = "UNRESOLVED-python-termcolor"
 ROS_UNRESOLVED_PLATFORM_PKG_python-texttable = "UNRESOLVED-python-texttable"
 ROS_UNRESOLVED_PLATFORM_PKG_python-tilestache = "UNRESOLVED-python-tilestache"
-ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "UNRESOLVED-python-tk"
-ROS_UNRESOLVED_PLATFORM_PKG_python-tornado = "UNRESOLVED-python-tornado"
-ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core = "UNRESOLVED-python-twisted-core"
 ROS_UNRESOLVED_PLATFORM_PKG_python-urlgrabber = "UNRESOLVED-python-urlgrabber"
-ROS_UNRESOLVED_PLATFORM_PKG_python-usb = "UNRESOLVED-python-usb"
-ROS_UNRESOLVED_PLATFORM_PKG_python-websocket = "UNRESOLVED-python-websocket"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-pil = "UNRESOLVED-python3-pil"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-pyaudio = "UNRESOLVED-python3-pyaudio"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules = "UNRESOLVED-python3-rospkg-modules"
 ROS_UNRESOLVED_PLATFORM_PKG_python3-venv = "UNRESOLVED-python3-venv"
-ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev = "UNRESOLVED-qtdeclarative5-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev = "UNRESOLVED-qtmultimedia5-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_rsync = "UNRESOLVED-rsync"
 ROS_UNRESOLVED_PLATFORM_PKG_ruby = "UNRESOLVED-ruby"
 ROS_UNRESOLVED_PLATFORM_PKG_sbcl = "UNRESOLVED-sbcl"
 ROS_UNRESOLVED_PLATFORM_PKG_screen = "UNRESOLVED-screen"
 ROS_UNRESOLVED_PLATFORM_PKG_spacenavd = "UNRESOLVED-spacenavd"
 ROS_UNRESOLVED_PLATFORM_PKG_sshpass = "UNRESOLVED-sshpass"
-ROS_UNRESOLVED_PLATFORM_PKG_subversion = "UNRESOLVED-subversion"
-ROS_UNRESOLVED_PLATFORM_PKG_swig = "UNRESOLVED-swig"
 ROS_UNRESOLVED_PLATFORM_PKG_sysstat = "UNRESOLVED-sysstat"
 ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "UNRESOLVED-tango-icon-theme"
-ROS_UNRESOLVED_PLATFORM_PKG_tbb = "UNRESOLVED-tbb"
-ROS_UNRESOLVED_PLATFORM_PKG_time = "UNRESOLVED-time"
-ROS_UNRESOLVED_PLATFORM_PKG_unzip = "UNRESOLVED-unzip"
-ROS_UNRESOLVED_PLATFORM_PKG_usbutils = "UNRESOLVED-usbutils"
-ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils = "UNRESOLVED-v4l-utils"
 ROS_UNRESOLVED_PLATFORM_PKG_virtualenv = "UNRESOLVED-virtualenv"
-ROS_UNRESOLVED_PLATFORM_PKG_vlc = "UNRESOLVED-vlc"
-ROS_UNRESOLVED_PLATFORM_PKG_wget = "UNRESOLVED-wget"
-ROS_UNRESOLVED_PLATFORM_PKG_wget-native = "UNRESOLVED-wget-native"
 ROS_UNRESOLVED_PLATFORM_PKG_xfonts-100dpi = "UNRESOLVED-xfonts-100dpi"
 ROS_UNRESOLVED_PLATFORM_PKG_xfonts-75dpi = "UNRESOLVED-xfonts-75dpi"
 ROS_UNRESOLVED_PLATFORM_PKG_xterm = "UNRESOLVED-xterm"
 ROS_UNRESOLVED_PLATFORM_PKG_xvfb = "UNRESOLVED-xvfb"
 ROS_UNRESOLVED_PLATFORM_PKG_yasm = "UNRESOLVED-yasm"
-ROS_UNRESOLVED_PLATFORM_PKG_zbar = "UNRESOLVED-zbar"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
@@ -7664,7 +7501,7 @@ ROS_SUPERFLORE_GENERATION_COMMIT = "dacf40d33f82113acaaf0be9ca2f4bf5685b4740"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
-ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.5.3"
+ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.6.0"
 
 # Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
 ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.6.0"

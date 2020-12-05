@@ -17,11 +17,11 @@ ROS_CN = "joystick_drivers"
 ROS_BPN = "ps3joy"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bluez} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-bluez} \
+    ${PYTHON_PN}-pybluez \
+    bluez5 \
     diagnostic-msgs \
     joystick \
+    libusb1 \
     rosgraph \
     roslint \
     rospy \
@@ -33,11 +33,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bluez} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-bluez} \
+    ${PYTHON_PN}-pybluez \
+    bluez5 \
     diagnostic-msgs \
     joystick \
+    libusb1 \
     rosgraph \
     rospy \
     sensor-msgs \
@@ -46,11 +46,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bluez} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-bluez} \
+    ${PYTHON_PN}-pybluez \
+    bluez5 \
     diagnostic-msgs \
     joystick \
+    libusb1 \
     rosgraph \
     rospy \
     sensor-msgs \

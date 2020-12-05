@@ -19,7 +19,6 @@ ROS_BPN = "collada_urdf_jsk_patch"
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libgts} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-tools} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
     angles \
     assimp-devel \
     class-loader \
@@ -36,6 +35,7 @@ ROS_BUILD_DEPENDS = " \
     roscpp \
     rostest \
     tf \
+    unzip \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

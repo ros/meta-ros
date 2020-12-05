@@ -31,7 +31,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils} \
     camera-info-manager \
     ffmpeg \
     image-transport \
@@ -39,12 +38,12 @@ ROS_EXPORT_DEPENDS = " \
     sensor-msgs \
     std-msgs \
     std-srvs \
+    v4l-utils \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils} \
     camera-info-manager \
     ffmpeg \
     image-transport \
@@ -52,6 +51,7 @@ ROS_EXEC_DEPENDS = " \
     sensor-msgs \
     std-msgs \
     std-srvs \
+    v4l-utils \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

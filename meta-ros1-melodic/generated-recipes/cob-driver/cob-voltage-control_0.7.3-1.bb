@@ -39,8 +39,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk} \
+    ${PYTHON_PN}-matplotlib \
+    ${PYTHON_PN}-tkinter \
     cob-msgs \
     cob-phidgets \
     dynamic-reconfigure \

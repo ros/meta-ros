@@ -30,11 +30,11 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp} \
     geometry-msgs \
     moveit-msgs \
     moveit-ros-planning-interface \
     python \
+    python-pyassimp \
     rospy \
     sensor-msgs \
     shape-msgs \

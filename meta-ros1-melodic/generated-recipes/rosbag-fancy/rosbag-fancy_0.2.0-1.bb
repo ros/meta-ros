@@ -16,8 +16,8 @@ ROS_CN = "rosbag_fancy"
 ROS_BPN = "rosbag_fancy"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     boost \
+    ncurses \
     rosbag-storage \
     roscpp \
     rosfmt \
@@ -30,8 +30,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     boost \
+    ncurses \
     rosbag-storage \
     roscpp \
     rosfmt \
@@ -42,8 +42,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     boost \
+    ncurses \
     rosbag-storage \
     roscpp \
     rosfmt \

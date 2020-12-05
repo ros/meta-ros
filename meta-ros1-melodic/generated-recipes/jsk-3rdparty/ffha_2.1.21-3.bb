@@ -16,9 +16,9 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "ffha"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bison} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_flex} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gawk} \
+    bison \
+    flex \
+    gawk \
     mk \
     rosbuild \
     roslib \

@@ -17,7 +17,7 @@ ROS_CN = "ethercat_grant"
 ROS_BPN = "ethercat_grant"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcap-dev} \
+    libcap \
     roscpp \
 "
 
@@ -30,7 +30,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcap-dev} \
+    libcap \
     roscpp \
 "
 
