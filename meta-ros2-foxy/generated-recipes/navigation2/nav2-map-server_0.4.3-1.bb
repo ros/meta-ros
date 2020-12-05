@@ -16,7 +16,7 @@ ROS_CN = "navigation2"
 ROS_BPN = "nav2_map_server"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick} \
+    graphicsmagick \
     launch-ros \
     launch-testing \
     nav-msgs \
@@ -35,7 +35,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick} \
+    graphicsmagick \
     launch-ros \
     launch-testing \
     nav-msgs \
@@ -51,7 +51,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick} \
+    graphicsmagick \
     launch-ros \
     launch-testing \
     nav-msgs \

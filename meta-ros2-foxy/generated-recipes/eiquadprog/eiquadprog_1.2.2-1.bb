@@ -17,8 +17,8 @@ ROS_CN = "eiquadprog"
 ROS_BPN = "eiquadprog"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     boost \
+    doxygen \
     git \
     graphviz \
     libeigen \

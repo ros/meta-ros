@@ -24,8 +24,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-tk} \
     builtin-interfaces \
+    python3-tkinter \
     rclpy \
     std-msgs \
     webots-ros2-msgs \
