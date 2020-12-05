@@ -17,7 +17,7 @@ ROS_CN = "qt_gui_core"
 ROS_BPN = "qt_gui"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings} \
+    python3-pyqt5 \
     qtbase \
 "
 

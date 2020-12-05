@@ -1650,9 +1650,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
 # Packages found in the <buildtool_depend> and <buildtool_export_depend> items, ie, ones for which a -native is built. Does not
 # include those found in the ROS_EXEC_DEPENDS values in the recipes of build tools.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_ELOQUENT = " \
+    ${PYTHON_PN}-virtualenv-native \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
     ament-clang-format-native \
     ament-clang-tidy-native \
@@ -1709,6 +1708,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_ELOQUENT = " \
     python3-empy-native \
     python3-native \
     python3-nose-native \
+    python3-packaging-native \
     python3-pytest-native \
     python3-setuptools-native \
     qtbase-native \
@@ -1739,7 +1739,11 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${PYTHON_PN}-numpy \
     ${PYTHON_PN}-pydocstyle \
     ${PYTHON_PN}-pyflakes \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_bison} \
+    ${PYTHON_PN}-pyproj \
+    ${PYTHON_PN}-pyqt5 \
+    ${PYTHON_PN}-tkinter \
+    ${PYTHON_PN}-virtualenv \
+    ${PYTHON_PN}-virtualenv-native \
     ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcbc-dev} \
@@ -1747,71 +1751,27 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_flex} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_lcov} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgps} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_proj} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_protobuf} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-future} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_spdlog} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify} \
     asio \
     assimp \
+    bison \
     boost \
     bzip2 \
     cairo \
@@ -1822,21 +1782,31 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     cppcheck \
     cppunit \
     curl \
+    doxygen \
+    flex \
     freeglut \
     freetype \
+    geos \
     gflags \
     git \
     git-native \
+    glew \
     glog \
     gpgme \
+    gpsd \
+    graphicsmagick \
     graphviz \
     gtest \
     gtest-native \
+    jsoncpp \
     lapack \
+    lcov \
     libeigen \
+    libftdi \
     libogg \
     libpcap \
     libpcre \
+    libpng \
     libsdl \
     libsdl-image \
     libtheora \
@@ -1845,49 +1815,68 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     libusb1 \
     libx11 \
     libxaw \
+    libxi \
     libxml2 \
+    libxmu \
     libxrandr \
     libyaml \
     log4cxx \
     lua \
     mesa \
+    ncurses \
     opencv \
     openssl \
     pcl \
     pkgconfig \
     pkgconfig-native \
     poco \
+    proj \
     protobuf \
     python3 \
     python3-catkin-pkg \
     python3-catkin-pkg-native \
+    python3-cryptography \
     python3-empy \
     python3-empy-native \
     python3-flake8 \
+    python3-future \
+    python3-ifcfg \
     python3-lark-parser \
     python3-lxml \
     python3-matplotlib \
     python3-mock \
+    python3-mypy \
     python3-native \
+    python3-netifaces \
     python3-nose \
     python3-nose-native \
     python3-nose-yanc \
     python3-numpy \
+    python3-packaging \
+    python3-packaging-native \
     python3-pep8 \
     python3-psutil \
     python3-pydot \
     python3-pygraphviz \
+    python3-pyqt5 \
     python3-pytest \
+    python3-pytest-mock \
     python3-pytest-native \
     python3-pyyaml \
     python3-rosdistro \
+    python3-rospkg \
     python3-setuptools \
     python3-setuptools-native \
+    python3-sphinx \
     qtbase \
     qtbase-native \
+    readline \
+    spdlog \
     sqlite3 \
     suitesparse-cholmod \
     suitesparse-cxsparse \
+    tbb \
+    xmlrpc-c \
     yaml-cpp \
     zeromq \
     zlib \
@@ -1896,7 +1885,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
 # Packages found only in <test_depend> items. Does not include those found only in the ROS_*_DEPENDS of recipes of tests.
 ROS_SUPERFLORE_GENERATED_TESTS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock} \
     ament-copyright \
     ament-flake8 \
     ament-mypy \
@@ -1909,6 +1897,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     python3-nose-yanc \
     python3-pygraphviz \
     python3-pytest \
+    python3-pytest-mock \
     ros-testing \
     ros2bag \
     ros2lifecycle-test-fixtures \
@@ -2117,7 +2106,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
 
 # Platform packages without a OE-RECIPE@OE-LAYER mapping in base.yaml, python.yaml, or ruby.yaml. Until they are added, override
 # the settings in ros-distro.inc .
-ROS_UNRESOLVED_PLATFORM_PKG_bison = "UNRESOLVED-bison"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-format = "UNRESOLVED-clang-format"
 ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "UNRESOLVED-clang-tidy"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcbc-dev = "UNRESOLVED-coinor-libcbc-dev"
@@ -2125,68 +2113,23 @@ ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcgl-dev = "UNRESOLVED-coinor-libcgl-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev = "UNRESOLVED-coinor-libclp-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev = "UNRESOLVED-coinor-libcoinutils-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev = "UNRESOLVED-coinor-libipopt-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_doxygen = "UNRESOLVED-doxygen"
-ROS_UNRESOLVED_PLATFORM_PKG_flex = "UNRESOLVED-flex"
-ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom = "UNRESOLVED-ftdi-eeprom"
-ROS_UNRESOLVED_PLATFORM_PKG_graphicsmagick = "UNRESOLVED-graphicsmagick"
-ROS_UNRESOLVED_PLATFORM_PKG_lcov = "UNRESOLVED-lcov"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev = "UNRESOLVED-libboost-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-iostreams-dev = "UNRESOLVED-libboost-iostreams-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-program-options = "UNRESOLVED-libboost-program-options"
-ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev = "UNRESOLVED-libboost-system-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev = "UNRESOLVED-libcunit-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev = "UNRESOLVED-libftdi-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev = "UNRESOLVED-libgazebo9-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev = "UNRESOLVED-libgeos++-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev = "UNRESOLVED-libglew-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libgps = "UNRESOLVED-libgps"
-ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp = "UNRESOLVED-libjsoncpp"
-ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev = "UNRESOLVED-libjsoncpp-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev = "UNRESOLVED-libncurses-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev = "UNRESOLVED-libopenexr-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69 = "UNRESOLVED-libopensplice69"
 ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native = "UNRESOLVED-libopensplice69-native"
 ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb = "UNRESOLVED-libopenvdb"
 ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev = "UNRESOLVED-libopenvdb-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev = "UNRESOLVED-libpng-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4 = "UNRESOLVED-libqglviewer-qt4"
 ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev = "UNRESOLVED-libqglviewer-qt4-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev = "UNRESOLVED-libqt4-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl = "UNRESOLVED-libqt4-opengl"
 ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev = "UNRESOLVED-libqt4-opengl-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev = "UNRESOLVED-libqt5-opengl-dev"
 ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4 = "UNRESOLVED-libqtgui4"
-ROS_UNRESOLVED_PLATFORM_PKG_libreadline = "UNRESOLVED-libreadline"
-ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0 = "UNRESOLVED-libusb-1.0"
-ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev = "UNRESOLVED-libusb-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev = "UNRESOLVED-libxi-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++ = "UNRESOLVED-libxmlrpc-c++"
-ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev = "UNRESOLVED-libxmu-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_proj = "UNRESOLVED-proj"
-ROS_UNRESOLVED_PLATFORM_PKG_protobuf = "UNRESOLVED-protobuf"
-ROS_UNRESOLVED_PLATFORM_PKG_pyqt5-dev-tools = "UNRESOLVED-pyqt5-dev-tools"
-ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj = "UNRESOLVED-python-pyproj"
-ROS_UNRESOLVED_PLATFORM_PKG_python-tk = "UNRESOLVED-python-tk"
-ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv = "UNRESOLVED-python-virtualenv"
-ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv-native = "UNRESOLVED-python-virtualenv-native"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-cryptography = "UNRESOLVED-python3-cryptography"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-future = "UNRESOLVED-python3-future"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg = "UNRESOLVED-python3-ifcfg"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-mypy = "UNRESOLVED-python3-mypy"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-netifaces = "UNRESOLVED-python3-netifaces"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging = "UNRESOLVED-python3-packaging"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging-native = "UNRESOLVED-python3-packaging-native"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-pyqt5.qtwebengine = "UNRESOLVED-python3-pyqt5.qtwebengine"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-pytest-mock = "UNRESOLVED-python3-pytest-mock"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-qt5-bindings = "UNRESOLVED-python3-qt5-bindings"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules = "UNRESOLVED-python3-rospkg-modules"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx = "UNRESOLVED-python3-sphinx"
 ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools = "UNRESOLVED-qttools5-dev-tools"
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = "UNRESOLVED-rti-connext-dds-5.3.1"
 ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = "UNRESOLVED-rti-connext-dds-5.3.1-native"
-ROS_UNRESOLVED_PLATFORM_PKG_spdlog = "UNRESOLVED-spdlog"
 ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "UNRESOLVED-tango-icon-theme"
-ROS_UNRESOLVED_PLATFORM_PKG_tbb = "UNRESOLVED-tbb"
 ROS_UNRESOLVED_PLATFORM_PKG_uncrustify = "UNRESOLVED-uncrustify"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in

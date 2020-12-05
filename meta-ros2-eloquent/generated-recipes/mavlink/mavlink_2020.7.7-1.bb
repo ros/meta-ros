@@ -17,8 +17,8 @@ ROS_CN = "mavlink"
 ROS_BPN = "mavlink"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-future} \
     python3 \
+    python3-future \
     python3-lxml \
 "
 

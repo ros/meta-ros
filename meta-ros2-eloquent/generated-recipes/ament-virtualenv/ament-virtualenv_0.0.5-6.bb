@@ -17,34 +17,34 @@ ROS_CN = "ament_virtualenv"
 ROS_BPN = "ament_virtualenv"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging} \
+    ${PYTHON_PN}-virtualenv \
+    python3-packaging \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging-native} \
+    ${PYTHON_PN}-virtualenv-native \
+    python3-packaging-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging} \
+    ${PYTHON_PN}-virtualenv \
+    python3-packaging \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging} \
+    ${PYTHON_PN}-virtualenv \
+    python3-packaging \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-virtualenv} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-packaging} \
+    ${PYTHON_PN}-virtualenv \
     ament-copyright \
     ament-flake8 \
     ament-pep257 \
+    python3-packaging \
     python3-pytest \
 "
 
