@@ -1,10 +1,8 @@
-# melodic/cache.yaml 2020-10-12 dacf40d33f82113acaaf0be9ca2f4bf5685b4740 20201012125146 1.5.3
+# melodic/cache.yaml 2020-10-12 dacf40d33f82113acaaf0be9ca2f4bf5685b4740 20201012125146 1.6.0
 distribution_file:
 - release_platforms:
-    debian:
-    - stretch
-    ubuntu:
-    - bionic
+    debian: [stretch]
+    ubuntu: [bionic]
   repositories:
     abb: {release: {packages: [abb, abb_irb2400_moveit_config, abb_irb2400_moveit_plugins, abb_irb2400_support, abb_irb4400_support, abb_irb5400_support, abb_irb6600_support, abb_irb6640_moveit_config, abb_irb6640_support, abb_resources], tags: {release: 'release/melodic/{package}/{version}'}, url: 'https://github.com/ros-industrial-release/abb-release.git', version: 1.3.1-1}, status: maintained}
     abb_driver: {doc: {type: git, url: 'https://github.com/ros-industrial/abb_driver.git', version: kinetic-devel}, release: {tags: {release: 'release/melodic/{package}/{version}'}, url: 'https://github.com/ros-industrial-release/abb_driver-release.git', version: 1.4.0-1}, source: {type: git, url: 'https://github.com/ros-industrial/abb_driver.git', version: kinetic-devel}, status: maintained}
