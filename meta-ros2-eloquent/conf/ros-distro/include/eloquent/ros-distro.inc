@@ -255,15 +255,9 @@ ROS_UNRESOLVED_PLATFORM_PKG_python3-sphinx = "python3-sphinx"
 # generated-recipes/rqt-robot-monitor/rqt-robot-monitor_1.0.1-1.bb
 ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules = "python3-rospkg"
 
-# XXX Temp until superflore fixed.
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
 # and having it in a .bbappend sets it too late.
-# https://raw.github.com/boschresearch/fmilibrary_vendor-release/release/eloquent/fmilibrary_vendor/0.2.0-1/package.xml
-ROS_BUILD_TYPE_pn-fmilibrary-vendor = "ament_cmake"
-# https://raw.github.com/ros-geographic-info/geographic_info-release/release/eloquent/geographic_info/1.0.1-1/package.xml
-ROS_BUILD_TYPE_pn-geographic-info = "ament_cmake"
-# https://raw.github.com/swri-robotics-gbp/gps_umd-release/release/eloquent/gps_umd/1.0.2-1/package.xml
-ROS_BUILD_TYPE_pn-gps-umd = "ament_cmake"
+# We want ament_cmake instead of plain cmake for ros-workspace:
 # https://raw.github.com/ros2-gbp/ros_workspace-release/release/eloquent/ros_workspace/1.0.1-1/package.xml
 ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
