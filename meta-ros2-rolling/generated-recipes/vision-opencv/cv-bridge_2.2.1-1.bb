@@ -17,8 +17,7 @@ ROS_CN = "vision_opencv"
 ROS_BPN = "cv_bridge"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev} \
+    boost \
     opencv \
     python3-numpy \
     sensor-msgs \
@@ -38,8 +37,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python} \
     ament-index-python \
+    boost \
     opencv \
     python3-numpy \
     sensor-msgs \

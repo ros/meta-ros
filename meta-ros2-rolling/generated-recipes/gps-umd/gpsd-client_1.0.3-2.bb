@@ -17,8 +17,8 @@ ROS_CN = "gps_umd"
 ROS_BPN = "gpsd_client"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgps} \
     gps-msgs \
+    gpsd \
     pkgconfig \
     rclcpp \
     rclcpp-components \
@@ -30,8 +30,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgps} \
     gps-msgs \
+    gpsd \
     pkgconfig \
     rclcpp \
     rclcpp-components \
@@ -41,8 +41,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgps} \
     gps-msgs \
+    gpsd \
     pkgconfig \
     rclcpp \
     rclcpp-components \
