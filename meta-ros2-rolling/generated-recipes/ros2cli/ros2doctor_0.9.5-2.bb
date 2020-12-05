@@ -28,9 +28,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-ifcfg} \
     ament-index-python \
     python3-catkin-pkg \
+    python3-ifcfg \
     python3-rosdistro \
     rclpy \
     ros2cli \
