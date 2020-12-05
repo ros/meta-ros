@@ -16,7 +16,7 @@ ROS_CN = "transport_drivers"
 ROS_BPN = "udp_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
     rclcpp \
     rclcpp-lifecycle \
     std-msgs \
@@ -27,7 +27,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
     rclcpp \
     rclcpp-lifecycle \
     std-msgs \
@@ -36,7 +36,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system} \
+    boost \
     rclcpp \
     rclcpp-lifecycle \
     std-msgs \
