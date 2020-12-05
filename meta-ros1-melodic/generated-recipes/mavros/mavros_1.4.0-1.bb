@@ -17,7 +17,6 @@ ROS_CN = "mavros"
 ROS_BPN = "mavros"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools} \
     angles \
     boost \
     cmake-modules \
@@ -26,6 +25,7 @@ ROS_BUILD_DEPENDS = " \
     eigen-conversions \
     geographic-msgs \
     geographiclib \
+    geographiclib-tools \
     geometry-msgs \
     libeigen \
     libmavconn \
@@ -48,13 +48,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools} \
     boost \
     diagnostic-msgs \
     diagnostic-updater \
     eigen-conversions \
     geographic-msgs \
     geographiclib \
+    geographiclib-tools \
     geometry-msgs \
     libeigen \
     libmavconn \

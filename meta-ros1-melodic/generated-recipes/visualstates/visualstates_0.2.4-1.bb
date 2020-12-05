@@ -26,9 +26,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-pyqt5 \
     ${PYTHON_PN}-rospkg \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-qsci} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings} \
     roscpp \
     rospy \
     std-msgs \
@@ -37,9 +36,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-pyqt5 \
     ${PYTHON_PN}-rospkg \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-qsci} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings} \
     roscpp \
     rospy \
     std-msgs \

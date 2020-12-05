@@ -19,12 +19,12 @@ ROS_BPN = "rtabmap"
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_proj} \
     cv-bridge \
     libfreenect \
     libg2o \
     octomap \
     pcl \
+    proj \
     qt-gui-cpp \
     sqlite3 \
     zlib \

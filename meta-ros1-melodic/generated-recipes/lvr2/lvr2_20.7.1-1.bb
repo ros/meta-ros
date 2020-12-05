@@ -18,17 +18,16 @@ ROS_BPN = "lvr2"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libflann-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgsl} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libhdf5-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev} \
     boost \
     freeglut \
+    gsl \
+    hdf5 \
     libeigen \
+    libxi \
+    libxmu \
     lz4 \
     opencv \
     qtbase \
@@ -41,17 +40,16 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libflann-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgsl} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libhdf5-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev} \
     boost \
     freeglut \
+    gsl \
+    hdf5 \
     libeigen \
+    libxi \
+    libxmu \
     lz4 \
     opencv \
     qtbase \
@@ -62,17 +60,16 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libflann-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgsl} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libhdf5-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev} \
     boost \
     freeglut \
+    gsl \
+    hdf5 \
     libeigen \
+    libxi \
+    libxmu \
     lz4 \
     opencv \
     qtbase \

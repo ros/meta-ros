@@ -19,9 +19,9 @@ ROS_BPN = "vapor_master"
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_nodejs-native} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_npm-native} \
     catkin-native \
+    nodejs-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
@@ -29,7 +29,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_nodejs} \
+    nodejs \
     rospack \
 "
 

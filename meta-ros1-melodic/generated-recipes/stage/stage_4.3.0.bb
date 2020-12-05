@@ -17,10 +17,10 @@ ROS_CN = "stage"
 ROS_BPN = "stage"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libfltk-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool} \
+    fltk \
+    gtk+ \
     jpeg \
+    libtool \
     mesa \
 "
 
@@ -30,9 +30,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libfltk-dev} \
     catkin \
+    fltk \
+    gtk+ \
     jpeg \
     mesa \
 "
@@ -40,9 +40,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libfltk-dev} \
     catkin \
+    fltk \
+    gtk+ \
     jpeg \
     mesa \
 "

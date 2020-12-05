@@ -17,8 +17,8 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "sesame_ros"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libffi-dev} \
     catkin-virtualenv \
+    libffi \
     message-generation \
     openssl \
 "

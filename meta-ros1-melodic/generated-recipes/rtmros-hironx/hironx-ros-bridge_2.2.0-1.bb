@@ -17,9 +17,8 @@ ROS_CN = "rtmros_hironx"
 ROS_BPN = "hironx_ros_bridge"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gnuplot} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
     control-msgs \
+    gnuplot \
     hrpsys-ros-bridge \
     mk \
     rosbash \
@@ -27,6 +26,7 @@ ROS_BUILD_DEPENDS = " \
     roslang \
     roslib \
     roslint \
+    unzip \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -34,8 +34,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gnuplot} \
     control-msgs \
+    gnuplot \
     hrpsys-ros-bridge \
     moveit-commander \
     openni2-launch \
@@ -49,8 +49,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gnuplot} \
     control-msgs \
+    gnuplot \
     hrpsys-ros-bridge \
     moveit-commander \
     openni2-launch \

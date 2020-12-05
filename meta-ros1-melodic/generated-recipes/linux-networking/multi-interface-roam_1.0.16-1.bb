@@ -32,7 +32,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core} \
+    ${PYTHON_PN}-twisted-core \
     asmach \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -46,7 +46,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core} \
+    ${PYTHON_PN}-twisted-core \
     asmach \
     diagnostic-msgs \
     dynamic-reconfigure \

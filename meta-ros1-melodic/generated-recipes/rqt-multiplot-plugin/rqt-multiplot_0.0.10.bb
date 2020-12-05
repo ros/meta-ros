@@ -17,8 +17,8 @@ ROS_CN = "rqt_multiplot_plugin"
 ROS_BPN = "rqt_multiplot"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev} \
     qtbase \
+    qwt-qt5 \
     rosbag \
     roscpp \
     rqt-gui \
@@ -31,8 +31,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev} \
     qtbase \
+    qwt-qt5 \
     rosbag \
     roscpp \
     rqt-gui \
@@ -43,8 +43,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev} \
     qtbase \
+    qwt-qt5 \
     rosbag \
     roscpp \
     rqt-gui \

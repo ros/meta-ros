@@ -18,7 +18,6 @@ ROS_BPN = "rviz"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev} \
     assimp \
     cmake-modules \
     geometry-msgs \

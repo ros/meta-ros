@@ -17,8 +17,6 @@ ROS_CN = "cob_driver"
 ROS_BPN = "cob_mimic"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_vlc} \
     actionlib \
     actionlib-msgs \
     boost \
@@ -27,6 +25,7 @@ ROS_BUILD_DEPENDS = " \
     message-generation \
     roscpp \
     roslib \
+    vlc \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -34,8 +33,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_vlc} \
     actionlib \
     actionlib-msgs \
     boost \
@@ -43,13 +40,12 @@ ROS_EXPORT_DEPENDS = " \
     diagnostic-updater \
     roscpp \
     roslib \
+    vlc \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_vlc} \
     actionlib \
     actionlib-msgs \
     boost \
@@ -59,6 +55,7 @@ ROS_EXEC_DEPENDS = " \
     roscpp \
     roslib \
     rospy \
+    vlc \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

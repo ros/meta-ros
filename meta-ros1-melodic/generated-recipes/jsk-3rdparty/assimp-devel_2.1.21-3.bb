@@ -16,14 +16,14 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "assimp_devel"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
     boost \
+    ca-certificates \
     git \
     mk \
     openssl \
     rosboost-cfg \
     rosbuild \
+    unzip \
     zlib \
 "
 

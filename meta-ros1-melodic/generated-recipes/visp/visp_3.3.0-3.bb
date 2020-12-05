@@ -17,22 +17,22 @@ ROS_CN = "visp"
 ROS_BPN = "visp"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcoin80-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libdc1394-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libois-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_zbar} \
     bzip2 \
+    doxygen \
     jpeg \
     lapack \
+    libdc1394 \
     libeigen \
+    libpng \
     libx11 \
+    libxml2 \
     opencv \
+    v4l-utils \
+    zbar \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -41,40 +41,40 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcoin80-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libdc1394-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libois-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_zbar} \
     bzip2 \
     jpeg \
     lapack \
+    libdc1394 \
     libeigen \
+    libpng \
     libx11 \
+    libxml2 \
     opencv \
+    v4l-utils \
+    zbar \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libcoin80-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libdc1394-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libois-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_zbar} \
     bzip2 \
     jpeg \
     lapack \
+    libdc1394 \
     libeigen \
+    libpng \
     libx11 \
+    libxml2 \
     opencv \
+    v4l-utils \
+    zbar \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

@@ -17,15 +17,15 @@ ROS_CN = "schunk_modular_robotics"
 ROS_BPN = "schunk_sdh"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_dpkg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
     actionlib \
     boost \
     cob-srvs \
     control-msgs \
     diagnostic-msgs \
+    dpkg \
     libntcan \
     libpcan \
+    libusb1 \
     message-generation \
     roscpp \
     roslint \
@@ -42,15 +42,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_dpkg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
     actionlib \
     boost \
     cob-srvs \
     control-msgs \
     diagnostic-msgs \
+    dpkg \
     libntcan \
     libpcan \
+    libusb1 \
     roscpp \
     sdhlibrary-cpp \
     sensor-msgs \
@@ -63,15 +63,15 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_dpkg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev} \
     actionlib \
     boost \
     cob-srvs \
     control-msgs \
     diagnostic-msgs \
+    dpkg \
     libntcan \
     libpcan \
+    libusb1 \
     message-runtime \
     roscpp \
     sdhlibrary-cpp \

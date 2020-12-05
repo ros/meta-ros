@@ -17,16 +17,16 @@ ROS_CN = "hrpsys"
 ROS_BPN = "hrpsys"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
+    ${PYTHON_PN}-tkinter \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libirrlicht-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk} \
+    doxygen \
     freeglut \
     git \
+    glew \
     graphviz \
     libsdl \
+    libxml2 \
+    libxmu \
     mk \
     opencv \
     openhrp3 \
@@ -39,12 +39,12 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${PYTHON_PN}-tkinter \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libirrlicht-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk} \
     freeglut \
     libsdl \
+    libxml2 \
+    libxmu \
     opencv \
     openhrp3 \
     qhull \
@@ -53,12 +53,12 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-tkinter \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libirrlicht-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk} \
     freeglut \
     libsdl \
+    libxml2 \
+    libxmu \
     opencv \
     openhrp3 \
     qhull \

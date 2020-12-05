@@ -61,7 +61,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_protobuf} \
     curl \
     diagnostic-updater \
     dynamic-reconfigure \
@@ -70,6 +69,7 @@ ROS_EXEC_DEPENDS = " \
     message-runtime \
     nav-msgs \
     nodelet \
+    protobuf \
     rc-common-msgs \
     rc-dynamics-api \
     rc-genicam-api \

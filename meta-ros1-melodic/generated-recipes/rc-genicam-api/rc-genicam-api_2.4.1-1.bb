@@ -17,8 +17,8 @@ ROS_CN = "rc_genicam_api"
 ROS_BPN = "rc_genicam_api"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0} \
+    libpng \
+    libusb1 \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -26,15 +26,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0} \
+    libpng \
+    libusb1 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0} \
+    libpng \
+    libusb1 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

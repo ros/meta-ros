@@ -16,12 +16,12 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "bayesian_belief_networks"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
     git \
     message-generation \
     mk \
     rospy \
     std-msgs \
+    unzip \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

@@ -18,12 +18,12 @@ ROS_BPN = "libsiftfast"
 
 ROS_BUILD_DEPENDS = " \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_subversion} \
     boost \
     mk \
     rosboost-cfg \
     roslib \
     rospack \
+    subversion \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

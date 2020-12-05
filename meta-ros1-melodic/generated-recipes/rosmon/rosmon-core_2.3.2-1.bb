@@ -17,11 +17,11 @@ ROS_CN = "rosmon"
 ROS_BPN = "rosmon_core"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     boost \
     cmake-modules \
     diagnostic-msgs \
     libtinyxml \
+    ncurses \
     python \
     rosbash \
     roscpp \
@@ -38,11 +38,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     boost \
     cmake-modules \
     diagnostic-msgs \
     libtinyxml \
+    ncurses \
     rosbash \
     roscpp \
     rosfmt \
@@ -56,11 +56,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev} \
     boost \
     cmake-modules \
     diagnostic-msgs \
     libtinyxml \
+    ncurses \
     rosbash \
     roscpp \
     rosfmt \

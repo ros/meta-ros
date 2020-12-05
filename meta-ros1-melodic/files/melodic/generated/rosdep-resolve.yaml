@@ -12,25 +12,25 @@ assimp-dev:
 atlas:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_atlas}
 autoconf:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_autoconf}
+- autoconf@openembedded-core
 automake:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_automake}
+- automake@openembedded-core
 avahi-daemon:
 - avahi@openembedded-core
 binutils:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_binutils}
+- binutils@openembedded-core
 bison:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_bison}
+- bison@openembedded-core
 bluez:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_bluez}
+- bluez5@openembedded-core
 boost:
 - boost@openembedded-core
 bullet:
-- bullet@meta-ros
+- bullet@meta-ros-common
 bzip2:
 - bzip2@openembedded-core
 ca-certificates:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_ca-certificates}
+- ca-certificates@openembedded-core
 cccc:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_cccc}
 clang-tidy:
@@ -40,11 +40,11 @@ cmake:
 coinor-libipopt-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev}
 collada-dom:
-- collada-dom@meta-ros
+- collada-dom@meta-ros-common
 coreutils:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_coreutils}
+- coreutils@openembedded-core
 cppcheck:
-- cppcheck@meta-ros
+- cppcheck@meta-ros-common
 cppunit:
 - cppunit@meta-oe
 curl:
@@ -56,14 +56,14 @@ cwiid-dev:
 cython:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_cython}
 daemontools:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_daemontools}
+- daemontools@meta-oe
 dkms: []
 dnsmasq:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq}
 doxygen:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen}
+- doxygen@meta-oe
 dpkg:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_dpkg}
+- dpkg@openembedded-core
 eigen:
 - libeigen@meta-oe
 emacs:
@@ -73,27 +73,27 @@ epydoc:
 f2c:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_f2c}
 festival:
-- festival@meta-ros
+- festival@meta-ros1
 ffmpeg:
 - ffmpeg@openembedded-core
 flac:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_flac}
 flex:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_flex}
+- flex@openembedded-core
 ftdi-eeprom:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_ftdi-eeprom}
+- libftdi@meta-oe
 g++-static: []
 gawk:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gawk}
+- gawk@openembedded-core
 gazebo:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo}
 gazebo9: []
 gdal-bin:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_gdal-bin}
 geographiclib:
-- geographiclib@meta-ros
+- geographiclib@meta-ros-common
 geographiclib-tools:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_geographiclib-tools}
+- geographiclib-tools@meta-ros-common
 gforth:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_gforth}
 gfortran:
@@ -103,25 +103,25 @@ git:
 glut:
 - freeglut@meta-oe
 gnuplot:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gnuplot}
+- gnuplot@meta-oe
 google-mock:
 - gtest@meta-oe
 graphviz:
-- graphviz@meta-ros
+- graphviz@meta-ros-common
 gstreamer1.0:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0}
+- gstreamer1.0@openembedded-core
 gstreamer1.0-alsa:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-alsa}
+- gstreamer1.0-plugins-base@openembedded-core
 gstreamer1.0-plugins-base:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-base}
+- gstreamer1.0-plugins-base@openembedded-core
 gstreamer1.0-plugins-good:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-good}
+- gstreamer1.0-plugins-good@openembedded-core
 gstreamer1.0-plugins-ugly:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gstreamer1.0-plugins-ugly}
+- gstreamer1.0-plugins-ugly@openembedded-core
 gtest:
 - gtest@meta-oe
 gtk2:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2}
+- gtk+@openembedded-core
 gtk3:
 - gtk+3@openembedded-core
 hddtemp:
@@ -141,111 +141,111 @@ ipython:
 java:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_java}
 joystick:
-- joystick@meta-ros
+- joystick@meta-ros-common
 julius-voxforge:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_julius-voxforge}
 lcov:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_lcov}
+- lcov@meta-oe
 leveldb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_leveldb}
 libasound2-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libasound2-dev}
+- alsa-lib@openembedded-core
 libavahi-client-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libavahi-client-dev}
 libavahi-core-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libavahi-core-dev}
 libblas-dev:
-- openblas@meta-ros
+- openblas@meta-ros-common
 libboost-date-time-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-date-time-dev}
+- boost@openembedded-core
 libboost-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev}
+- boost@openembedded-core
 libboost-filesystem-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-filesystem-dev}
+- boost@openembedded-core
 libboost-program-options-dev:
 - boost@openembedded-core
 libboost-python-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-python-dev}
+- boost@openembedded-core
 libboost-regex-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-regex-dev}
+- boost@openembedded-core
 libboost-system-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev}
+- boost@openembedded-core
 libboost-thread-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev}
+- boost@openembedded-core
 libcairo2-dev:
 - cairo@openembedded-core
 libcap-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libcap-dev}
+- libcap@openembedded-core
 libccd-dev:
-- libccd@meta-ros
+- libccd@meta-ros-common
 libceres-dev:
 - ceres-solver@meta-oe
 libcoin80-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libcoin80-dev}
 libconsole-bridge-dev:
-- console-bridge@meta-ros
+- console-bridge@meta-ros-common
 libdc1394-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libdc1394-dev}
+- libdc1394@meta-multimedia
 libdmtx-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev}
 libdw-dev:
 - elfutils@openembedded-core
 libfcl-dev:
-- fcl@meta-ros
+- fcl@meta-ros-common
 libffi-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libffi-dev}
+- libffi@openembedded-core
 libfftw3:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libfftw3}
+- fftw@meta-oe
 libflann-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libflann-dev}
 libfltk-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libfltk-dev}
+- fltk@meta-oe
 libfreenect-dev:
-- libfreenect@meta-ros
+- libfreenect@meta-ros-common
 libftdi-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev}
+- libftdi@meta-oe
 libftdipp-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libftdipp-dev}
+- libftdi@meta-oe
 libgazebo9-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev}
 libgeos++-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libgeos++-dev}
+- geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
 libglew-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev}
+- glew@openembedded-core
 libglfw3-dev:
 - glfw@meta-intel-realsense
 libglib-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev}
+- glib-2.0@openembedded-core
 libgoogle-glog-dev:
 - glog@meta-oe
 libgpgme-dev:
 - gpgme@openembedded-core
 libgphoto-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libgphoto-dev}
+- libgphoto2@meta-oe
 libgps:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libgps}
+- gpsd@meta-oe
 libgsl:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libgsl}
+- gsl@meta-oe
 libgstreamer-plugins-base1.0-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer-plugins-base1.0-dev}
+- gstreamer1.0-plugins-base@openembedded-core
 libgstreamer1.0-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libgstreamer1.0-dev}
+- gstreamer1.0@openembedded-core
 libgts:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libgts}
 libhdf5-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libhdf5-dev}
+- hdf5@meta-oe
 libirrlicht-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libirrlicht-dev}
 libjpeg:
 - jpeg@openembedded-core
 libjsoncpp:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp}
+- jsoncpp@meta-oe
 libjsoncpp-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libjsoncpp-dev}
+- jsoncpp@meta-oe
 liblapack-dev:
-- lapack@meta-ros
+- lapack@meta-oe
 liblcm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_liblcm}
 liblcm-dev:
@@ -253,11 +253,11 @@ liblcm-dev:
 libmicrohttpd:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libmicrohttpd}
 libmodbus-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libmodbus-dev}
+- libmodbus@meta-oe
 libmongoclient-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libmongoclient-dev}
+- mongodb@meta-oe
 libncurses-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libncurses-dev}
+- ncurses@openembedded-core
 libnl-3:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libnl-3}
 libnl-3-dev:
@@ -289,11 +289,11 @@ libopenvdb-dev:
 libpcap:
 - libpcap@openembedded-core
 libpcl-all:
-- pcl@meta-ros
+- pcl@meta-ros-common
 libpcl-all-dev:
-- pcl@meta-ros
+- pcl@meta-ros-common
 libpng-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libpng-dev}
+- libpng@openembedded-core
 libpoco-dev:
 - poco@meta-oe
 libpq-dev:
@@ -303,13 +303,13 @@ libpqxx:
 libpqxx-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx-dev}
 libpulse-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev}
+- pulseaudio@openembedded-core
 libqglviewer-qt4:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4}
 libqglviewer-qt4-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev}
 libqhull:
-- qhull@meta-ros
+- qhull@meta-ros-common
 libqt4-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev}
 libqt4-opengl:
@@ -317,37 +317,37 @@ libqt4-opengl:
 libqt4-opengl-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev}
 libqt5-concurrent:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-concurrent}
+- qtbase@meta-qt5
 libqt5-core:
 - qtbase@meta-qt5
 libqt5-gui:
 - qtbase@meta-qt5
 libqt5-network:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-network}
+- qtbase@meta-qt5
 libqt5-opengl:
 - qtbase@meta-qt5
 libqt5-opengl-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-opengl-dev}
+- qtbase@meta-qt5
 libqt5-svg-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev}
+- qtsvg@meta-qt5
 libqt5-widgets:
 - qtbase@meta-qt5
 libqt5multimedia5-plugins:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins}
+- qtmultimedia@meta-qt5
 libqt5x11extras5-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev}
+- qtx11extras@meta-qt5
 libqtgui4:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4}
 libqwt-qt5-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libqwt-qt5-dev}
+- qwt-qt5@meta-qt5
 libraw1394-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libraw1394-dev}
+- libraw1394@meta-oe
 libreadline:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline}
+- readline@openembedded-core
 libreadline-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libreadline-dev}
+- readline@openembedded-core
 libsensors4-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libsensors4-dev}
+- lmsensors@meta-oe
 libspnav-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libspnav-dev}
 libsqlite3-dev:
@@ -357,27 +357,27 @@ libssl-dev:
 libtheora:
 - libtheora@openembedded-core
 libtool:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libtool}
+- libtool@openembedded-core
 libturbojpeg:
 - libjpeg-turbo@openembedded-core
 libudev-dev:
 - udev@openembedded-core
 liburdfdom-dev:
-- urdfdom@meta-ros
+- urdfdom@meta-ros1
 liburdfdom-headers-dev:
-- urdfdom-headers@meta-ros
+- urdfdom-headers@meta-ros1
 liburdfdom-tools:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_liburdfdom-tools}
+- urdfdom@meta-ros1
 libusb-1.0:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-1.0}
+- libusb1@openembedded-core
 libusb-1.0-dev:
 - libusb1@openembedded-core
 libusb-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libusb-dev}
+- libusb1@openembedded-core
 libv4l-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev}
+- v4l-utils@meta-oe
 libvlc-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libvlc-dev}
+- vlc@meta-multimedia
 libvtk:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk}
 libvtk-qt:
@@ -385,29 +385,29 @@ libvtk-qt:
 libx11-dev:
 - libx11@openembedded-core
 libxext:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libxext}
+- libxext@openembedded-core
 libxi-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libxi-dev}
+- libxi@openembedded-core
 libxml++-2.6:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_libxml++-2.6}
 libxml2:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libxml2}
+- libxml2@openembedded-core
 libxmlrpc-c++:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libxmlrpc-c++}
+- xmlrpc-c@meta-oe
 libxmu-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libxmu-dev}
+- libxmu@openembedded-core
 libxrandr:
 - libxrandr@openembedded-core
 libxxf86vm:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libxxf86vm}
+- libxxf86vm@openembedded-core
 libzmq3-dev:
 - zeromq@meta-oe
 linux-kernel-headers:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_linux-kernel-headers}
+- linux-libc-headers@openembedded-core
 log4cplus:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_log4cplus}
+- log4cplus@openembedded-core
 log4cxx:
-- log4cxx@meta-ros
+- log4cxx@meta-ros-common
 lua5.2-dev:
 - lua@meta-oe
 lz4:
@@ -415,9 +415,9 @@ lz4:
 mapnik-utils:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_mapnik-utils}
 mongodb:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_mongodb}
+- mongodb@meta-oe
 msgpack:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_msgpack}
+- msgpack-c@meta-oe
 muparser:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_muparser}
 nasm:
@@ -431,7 +431,7 @@ network-manager:
 nkf:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_nkf}
 nodejs:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_nodejs}
+- nodejs@meta-oe
 npm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_npm}
 ntpdate:
@@ -441,7 +441,7 @@ ocl-icd-opencl-dev:
 omniorb:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb}
 opencl-headers:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_opencl-headers}
+- opencl-headers@meta-oe
 opengl:
 - mesa@openembedded-core
 openssl:
@@ -455,15 +455,15 @@ phantomjs:
 pkg-config:
 - pkgconfig@openembedded-core
 postgresql:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_postgresql}
+- postgresql@meta-oe
 postgresql-postgis:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_postgresql-postgis}
 procps:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_procps}
 proj:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_proj}
+- proj@meta-oe
 protobuf:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_protobuf}
+- protobuf@meta-oe
 protobuf-dev:
 - protobuf@meta-oe
 pugixml-dev:
@@ -471,20 +471,20 @@ pugixml-dev:
 pydrive-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_pydrive-pip}
 python:
-- python@openembedded-core
+- python@meta-python2
 python-argcomplete:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-argcomplete}
+- python3-argcomplete@meta-python
 python-argparse: []
 python-autobahn:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-autobahn}
+- ${PYTHON_PN}-autobahn@meta-python
 python-avahi:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-avahi}
 python-backports.ssl-match-hostname:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-backports.ssl-match-hostname}
+- ${PYTHON_PN}-backports-ssl@meta-python
 python-bluez:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-bluez}
+- ${PYTHON_PN}-pybluez@meta-python
 python-boto3:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-boto3}
+- ${PYTHON_PN}-boto3@meta-ros-common
 python-bson:
 - ${PYTHON_PN}-pymongo@meta-python
 python-cairo:
@@ -494,9 +494,9 @@ python-cairosvg:
 python-catkin-lint:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-lint}
 python-catkin-pkg:
-- ${PYTHON_PN}-catkin-pkg@meta-ros
+- ${PYTHON_PN}-catkin-pkg@meta-ros-common
 python-catkin-pkg-modules:
-- ${PYTHON_PN}-catkin-pkg@meta-ros
+- ${PYTHON_PN}-catkin-pkg@meta-ros-common
 python-catkin-tools:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-tools}
 python-chainer-pip:
@@ -504,7 +504,7 @@ python-chainer-pip:
 python-chainercv-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainercv-pip}
 python-cheetah:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-cheetah}
+- ${PYTHON_PN}-cheetah@meta-python
 python-cherrypy:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-cherrypy}
 python-click:
@@ -516,7 +516,7 @@ python-coverage:
 python-cwiid:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid}
 python-defusedxml:
-- ${PYTHON_PN}-defusedxml@meta-ros
+- ${PYTHON_PN}-defusedxml@meta-ros-common
 python-dev:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-dev}
 python-dialogflow-pip:
@@ -530,7 +530,7 @@ python-docopt:
 python-docutils:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-docutils}
 python-empy:
-- ${PYTHON_PN}-empy@meta-ros
+- ${PYTHON_PN}-empy@meta-ros-common
 python-enum34:
 - ${PYTHON_PN}-enum34@meta-python
 python-fcn-pip:
@@ -546,7 +546,7 @@ python-gi:
 python-gi-cairo:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-gi-cairo}
 python-gnupg:
-- ${PYTHON_PN}-gnupg@meta-ros
+- ${PYTHON_PN}-gnupg@meta-ros-common
 python-gtk2:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-gtk2}
 python-h5py:
@@ -554,7 +554,7 @@ python-h5py:
 python-imageio:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-imageio}
 python-imaging:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-imaging}
+- ${PYTHON_PN}-pillow@meta-python
 python-impacket:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-impacket}
 python-joblib:
@@ -568,7 +568,7 @@ python-lxml:
 python-mapnik:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-mapnik}
 python-matplotlib:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-matplotlib}
+- ${PYTHON_PN}-matplotlib@meta-python
 python-mechanize:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize}
 python-mock:
@@ -576,7 +576,7 @@ python-mock:
 python-msgpack:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-msgpack}
 python-netifaces:
-- ${PYTHON_PN}-netifaces@meta-ros
+- ${PYTHON_PN}-netifaces@meta-ros-common
 python-nose:
 - ${PYTHON_PN}-nose@openembedded-core
 python-numpy:
@@ -590,7 +590,7 @@ python-opengl:
 python-pandas:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pandas}
 python-paramiko:
-- ${PYTHON_PN}-paramiko@meta-ros
+- ${PYTHON_PN}-paramiko@meta-ros-common
 python-pcapy:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pcapy}
 python-pep8:
@@ -598,7 +598,7 @@ python-pep8:
 python-percol:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-percol}
 python-pip:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pip}
+- ${PYTHON_PN}-pip@meta-python
 python-pixel-ring-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pixel-ring-pip}
 python-progressbar:
@@ -606,45 +606,45 @@ python-progressbar:
 python-psutil:
 - ${PYTHON_PN}-psutil@meta-python
 python-pyassimp:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyassimp}
+- python-pyassimp@meta-ros-python2
 python-pyaudio:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyaudio}
+- ${PYTHON_PN}-pyalsaaudio@meta-python
 python-pycryptodome:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome}
+- ${PYTHON_PN}-pycryptodomex@openembedded-core
 python-pydot:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pydot}
+- ${PYTHON_PN}-pydot@meta-ros-common
 python-pygithub3:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygithub3}
 python-pygraphviz:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygraphviz}
 python-pymongo:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pymongo}
+- ${PYTHON_PN}-pymongo@meta-python
 python-pyproj:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyproj}
+- ${PYTHON_PN}-pyproj@meta-ros-common
 python-pytest:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-pytest}
+- ${PYTHON_PN}-pytest@openembedded-core
 python-pytest-cov:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pytest-cov}
 python-pyusb-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-pyusb-pip}
 python-qt5-bindings:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings}
+- ${PYTHON_PN}-pyqt5@meta-qt5
 python-qt5-bindings-gl:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-gl}
+- ${PYTHON_PN}-pyqt5@meta-qt5
 python-qt5-bindings-qsci:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-qsci}
+- ${PYTHON_PN}-pyqt5@meta-qt5
 python-qt5-bindings-webkit:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-qt5-bindings-webkit}
+- ${PYTHON_PN}-pyqt5@meta-qt5
 python-requests:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests}
+- ${PYTHON_PN}-requests@openembedded-core
 python-requests-oauthlib:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests-oauthlib}
 python-rosdep:
-- ${PYTHON_PN}-rosdep@meta-ros
+- ${PYTHON_PN}-rosdep@meta-ros-common
 python-rosdep-modules:
-- ${PYTHON_PN}-rosdep@meta-ros
+- ${PYTHON_PN}-rosdep@meta-ros-common
 python-rospkg:
-- ${PYTHON_PN}-rospkg@meta-ros
+- ${PYTHON_PN}-rospkg@meta-ros-common
 python-rospkg-modules:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-rospkg-modules}
 python-scipy:
@@ -656,11 +656,11 @@ python-serial:
 python-setuptools:
 - ${PYTHON_PN}-setuptools@openembedded-core
 python-simplejson:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson}
+- ${PYTHON_PN}-simplejson@openembedded-core
 python-sip:
 - sip@meta-oe
 python-six:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-six}
+- ${PYTHON_PN}-six@openembedded-core
 python-skimage:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-skimage}
 python-sklearn:
@@ -670,7 +670,7 @@ python-slacker-cli:
 python-speechrecognition-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-speechrecognition-pip}
 python-sphinx:
-- ${PYTHON_PN}-sphinx@meta-ros
+- ${PYTHON_PN}-sphinx@meta-ros-common
 python-tabulate-pip:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-tabulate-pip}
 python-termcolor:
@@ -680,23 +680,23 @@ python-texttable:
 python-tilestache:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-tilestache}
 python-tk:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-tk}
+- ${PYTHON_PN}-tkinter@openembedded-core
 python-tornado:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-tornado}
+- python-tornado45@meta-ros-python2
 python-twisted-core:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core}
+- ${PYTHON_PN}-twisted-core@meta-python
 python-urlgrabber:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python-urlgrabber}
 python-usb:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-usb}
+- ${PYTHON_PN}-pyusb@meta-python
 python-websocket:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python-websocket}
+- ${PYTHON_PN}-websockets@meta-python
 python-wxtools:
-- wxpython@meta-oe
+- wxpython@meta-ros-python2
 python-yaml:
 - ${PYTHON_PN}-pyyaml@meta-python
 python3-catkin-pkg-modules:
-- python3-catkin-pkg@meta-ros
+- python3-catkin-pkg@meta-ros-common
 python3-dev:
 - python3@openembedded-core
 python3-nose:
@@ -704,11 +704,11 @@ python3-nose:
 python3-numpy:
 - python3-numpy@openembedded-core
 python3-pil:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pil}
+- python3-pillow@meta-python
 python3-pyaudio:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pyaudio}
 python3-rospkg-modules:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-rospkg-modules}
+- python3-rospkg@meta-ros-common
 python3-venv:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_python3-venv}
 python3-yaml:
@@ -718,11 +718,11 @@ qt5-qmake:
 qtbase5-dev:
 - qtbase@meta-qt5
 qtdeclarative5-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev}
+- qtdeclarative@meta-qt5
 qtmultimedia5-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev}
+- qtmultimedia@meta-qt5
 rsync:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_rsync}
+- rsync@openembedded-core
 ruby:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_ruby}
 sbcl:
@@ -738,20 +738,20 @@ spacenavd:
 sshpass:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_sshpass}
 subversion:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_subversion}
+- subversion@openembedded-core
 suitesparse:
-- suitesparse-cholmod@meta-ros
-- suitesparse-cxsparse@meta-ros
+- suitesparse-cholmod@meta-ros-common
+- suitesparse-cxsparse@meta-ros-common
 swig:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_swig}
+- swig@openembedded-core
 sysstat:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_sysstat}
 tango-icon-theme:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme}
 tbb:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_tbb}
+- tbb@meta-oe
 time:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_time}
+- time@openembedded-core
 tinyxml:
 - libtinyxml@meta-oe
 tinyxml2:
@@ -759,25 +759,25 @@ tinyxml2:
 udev:
 - udev@openembedded-core
 unzip:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_unzip}
+- unzip@openembedded-core
 usbutils:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_usbutils}
+- usbutils@openembedded-core
 uuid:
 - util-linux@openembedded-core
 v4l-utils:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_v4l-utils}
+- v4l-utils@meta-oe
 virtualenv:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_virtualenv}
 vlc:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_vlc}
+- vlc@meta-multimedia
 wget:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_wget}
+- wget@openembedded-core
 wx-common:
-- wxwidgets@meta-ros
+- wxwidgets@meta-ros-common
 wxpython:
-- wxpython@meta-ros
+- wxpython@meta-ros-python2
 wxwidgets:
-- wxwidgets@meta-ros
+- wxwidgets@meta-ros-common
 xfonts-100dpi:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-100dpi}
 xfonts-75dpi:
@@ -789,10 +789,10 @@ xvfb:
 yaml:
 - libyaml@openembedded-core
 yaml-cpp:
-- yaml-cpp@meta-ros
+- yaml-cpp@meta-ros-common
 yasm:
 - ${ROS_UNRESOLVED_PLATFORM_PKG_yasm}
 zbar:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_zbar}
+- zbar@meta-oe
 zlib:
 - zlib@openembedded-core

@@ -17,8 +17,8 @@ ROS_CN = "sot-core"
 ROS_BPN = "sot-core"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     boost \
+    doxygen \
     dynamic-graph \
     dynamic-graph-python \
     pinocchio \

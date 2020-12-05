@@ -17,12 +17,12 @@ ROS_CN = "camera_umd"
 ROS_BPN = "uvc_camera"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev} \
     camera-info-manager \
     image-transport \
     nodelet \
     roscpp \
     sensor-msgs \
+    v4l-utils \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -30,23 +30,23 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev} \
     camera-info-manager \
     image-transport \
     nodelet \
     roscpp \
     sensor-msgs \
+    v4l-utils \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libv4l-dev} \
     camera-info-manager \
     image-transport \
     nodelet \
     roscpp \
     sensor-msgs \
+    v4l-utils \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

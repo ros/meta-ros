@@ -18,7 +18,6 @@ ROS_BPN = "visp_auto_tracker"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_zbar} \
     geometry-msgs \
     message-filters \
     resource-retriever \
@@ -28,6 +27,7 @@ ROS_BUILD_DEPENDS = " \
     visp \
     visp-bridge \
     visp-tracker \
+    zbar \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -36,7 +36,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_zbar} \
     geometry-msgs \
     message-filters \
     resource-retriever \
@@ -46,13 +45,13 @@ ROS_EXPORT_DEPENDS = " \
     visp \
     visp-bridge \
     visp-tracker \
+    zbar \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_zbar} \
     geometry-msgs \
     message-filters \
     resource-retriever \
@@ -62,6 +61,7 @@ ROS_EXEC_DEPENDS = " \
     visp \
     visp-bridge \
     visp-tracker \
+    zbar \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

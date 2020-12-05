@@ -18,11 +18,11 @@ ROS_BPN = "rviz_visual_tools"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev} \
     eigen-conversions \
     eigen-stl-containers \
     geometry-msgs \
     graph-msgs \
+    qtx11extras \
     roscpp \
     roslint \
     rviz \
@@ -39,11 +39,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev} \
     eigen-conversions \
     eigen-stl-containers \
     geometry-msgs \
     graph-msgs \
+    qtx11extras \
     roscpp \
     roslint \
     rviz \
@@ -58,11 +58,11 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5x11extras5-dev} \
     eigen-conversions \
     eigen-stl-containers \
     geometry-msgs \
     graph-msgs \
+    qtx11extras \
     roscpp \
     roslint \
     rviz \

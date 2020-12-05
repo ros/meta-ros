@@ -16,11 +16,11 @@ ROS_CN = "rospilot"
 ROS_BPN = "rospilot"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgphoto-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libmicrohttpd} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libnl-3-dev} \
     ffmpeg \
     geometry-msgs \
+    libgphoto2 \
     libjpeg-turbo \
     message-generation \
     opencv \
@@ -49,8 +49,6 @@ ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-colorama} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-mapnik} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-tilestache} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_wget} \
     curl \
     geometry-msgs \
     mavlink \
@@ -62,7 +60,9 @@ ROS_EXPORT_DEPENDS = " \
     sensor-msgs \
     std-msgs \
     std-srvs \
+    unzip \
     vision-opencv \
+    wget \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
@@ -81,8 +81,6 @@ ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-colorama} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-mapnik} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-tilestache} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_unzip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_wget} \
     curl \
     geometry-msgs \
     mavlink \
@@ -94,7 +92,9 @@ ROS_EXEC_DEPENDS = " \
     sensor-msgs \
     std-msgs \
     std-srvs \
+    unzip \
     vision-opencv \
+    wget \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

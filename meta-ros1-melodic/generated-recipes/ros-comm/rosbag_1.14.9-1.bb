@@ -17,7 +17,7 @@ ROS_CN = "ros_comm"
 ROS_BPN = "rosbag"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-imaging} \
+    ${PYTHON_PN}-pillow \
     boost \
     cpp-common \
     rosbag-storage \
@@ -46,8 +46,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-gnupg \
+    ${PYTHON_PN}-pycryptodomex \
     ${PYTHON_PN}-rospkg \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pycryptodome} \
     boost \
     genmsg \
     genpy \

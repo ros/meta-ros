@@ -17,8 +17,7 @@ ROS_CN = "ixblue_stdbin_decoder"
 ROS_BPN = "ixblue_stdbin_decoder"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -26,14 +25,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-system-dev} \
+    boost \
     catkin \
 "
 

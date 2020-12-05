@@ -36,12 +36,12 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-psutil \
+    ${PYTHON_PN}-requests \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ifstat} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ipmitool} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_ntpdate} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_paramiko} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_sysstat} \
     actionlib \
     cob-light \

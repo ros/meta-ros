@@ -18,8 +18,8 @@ ROS_BPN = "eigenpy"
 
 ROS_BUILD_DEPENDS = " \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_doxygen} \
     boost \
+    doxygen \
     git \
     libeigen \
     python \
