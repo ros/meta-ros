@@ -1,8 +1,7 @@
-# rolling/cache.yaml 2020-10-12 9330a67818c6aed3cc47d6b96ceead914596ba45 20201012185327 1.5.3
+# rolling/cache.yaml 2020-10-12 9330a67818c6aed3cc47d6b96ceead914596ba45 20201012185327 1.6.0
 distribution_file:
 - release_platforms:
-    ubuntu:
-    - focal
+    ubuntu: [focal]
   repositories:
     ament_cmake: {doc: {type: git, url: 'https://github.com/ament/ament_cmake.git', version: master}, release: {packages: [ament_cmake, ament_cmake_auto, ament_cmake_core, ament_cmake_export_definitions, ament_cmake_export_dependencies, ament_cmake_export_include_directories, ament_cmake_export_interfaces, ament_cmake_export_libraries, ament_cmake_export_link_flags, ament_cmake_export_targets, ament_cmake_gmock, ament_cmake_google_benchmark, ament_cmake_gtest, ament_cmake_include_directories, ament_cmake_libraries, ament_cmake_nose, ament_cmake_pytest, ament_cmake_python, ament_cmake_target_dependencies, ament_cmake_test, ament_cmake_version], tags: {release: 'release/rolling/{package}/{version}'}, url: 'https://github.com/ros2-gbp/ament_cmake-release.git', version: 1.0.1-1}, source: {test_pull_requests: true, type: git, url: 'https://github.com/ament/ament_cmake.git', version: master}, status: developed}
     ament_cmake_ros: {doc: {type: git, url: 'https://github.com/ros2/ament_cmake_ros.git', version: master}, release: {packages: [ament_cmake_ros, domain_coordinator], tags: {release: 'release/rolling/{package}/{version}'}, url: 'https://github.com/ros2-gbp/ament_cmake_ros-release.git', version: 0.9.0-2}, source: {test_pull_requests: true, type: git, url: 'https://github.com/ros2/ament_cmake_ros.git', version: master}, status: maintained}
