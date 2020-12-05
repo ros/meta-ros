@@ -53,6 +53,6 @@ SRC_URI = "git://github.com/ros2-gbp/async_web_server_cpp-release;${ROS_BRANCH};
 SRCREV = "4771f2a519b5f99426ba886d07131a8842401f77"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -53,6 +53,6 @@ SRC_URI = "git://github.com/ros-geographic-info/geographic_info-release;${ROS_BR
 SRCREV = "273e3136f54c3aaa7cc87b137583c6c7038722cb"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
