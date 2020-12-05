@@ -45,6 +45,6 @@ SRC_URI = "git://github.com/boschresearch/fmilibrary_vendor-release;${ROS_BRANCH
 SRCREV = "5cae0431fe074f64747be7a6a018df91f3b551e3"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
