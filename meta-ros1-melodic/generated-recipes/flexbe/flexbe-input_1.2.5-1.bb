@@ -25,7 +25,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-six} \
+    ${PYTHON_PN}-six \
     actionlib \
     flexbe-msgs \
     rospy \
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-six} \
+    ${PYTHON_PN}-six \
     actionlib \
     flexbe-msgs \
     rospy \

@@ -17,9 +17,9 @@ ROS_CN = "moveit"
 ROS_BPN = "moveit_ros_perception"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
     cv-bridge \
     freeglut \
+    glew \
     image-transport \
     libeigen \
     mesa \
@@ -44,9 +44,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
     cv-bridge \
     freeglut \
+    glew \
     image-transport \
     mesa \
     message-filters \
@@ -68,9 +68,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglew-dev} \
     cv-bridge \
     freeglut \
+    glew \
     image-transport \
     mesa \
     message-filters \

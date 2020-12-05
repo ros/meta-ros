@@ -16,9 +16,9 @@ ROS_CN = "uwsim_osgocean"
 ROS_BPN = "uwsim_osgocean"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libfftw3} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
     boost \
+    fftw \
     mesa \
 "
 
@@ -27,20 +27,20 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libfftw3} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
     boost \
     catkin \
+    fftw \
     mesa \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libfftw3} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
     boost \
     catkin \
+    fftw \
     mesa \
 "
 

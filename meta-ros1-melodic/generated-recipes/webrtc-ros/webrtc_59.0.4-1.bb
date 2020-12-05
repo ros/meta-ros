@@ -17,35 +17,35 @@ ROS_CN = "webrtc_ros"
 ROS_BPN = "webrtc"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libasound2-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev} \
+    alsa-lib \
+    glib-2.0 \
+    gtk+ \
     gtk+3 \
+    pulseaudio \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_wget-native} \
     cmake-native \
     git-native \
+    wget-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libasound2-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev} \
+    alsa-lib \
+    glib-2.0 \
+    gtk+ \
     gtk+3 \
+    pulseaudio \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gtk2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libasound2-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libglib-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpulse-dev} \
+    alsa-lib \
+    glib-2.0 \
+    gtk+ \
     gtk+3 \
+    pulseaudio \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

@@ -27,10 +27,10 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-autobahn} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-backports.ssl-match-hostname} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tornado} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-twisted-core} \
+    ${PYTHON_PN}-autobahn \
+    ${PYTHON_PN}-backports-ssl \
+    ${PYTHON_PN}-twisted-core \
+    python-tornado45 \
     rosapi \
     rosauth \
     rosbridge-library \

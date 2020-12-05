@@ -26,7 +26,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_usbutils} \
     depth-image-proc \
     image-proc \
     nodelet \
@@ -35,12 +34,12 @@ ROS_EXPORT_DEPENDS = " \
     rospy \
     roswtf \
     tf \
+    usbutils \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_usbutils} \
     depth-image-proc \
     image-proc \
     nodelet \
@@ -49,6 +48,7 @@ ROS_EXEC_DEPENDS = " \
     rospy \
     roswtf \
     tf \
+    usbutils \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

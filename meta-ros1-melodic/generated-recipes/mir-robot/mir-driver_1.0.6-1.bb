@@ -17,7 +17,7 @@ ROS_CN = "mir_robot"
 ROS_BPN = "mir_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-websocket} \
+    ${PYTHON_PN}-websockets \
     actionlib-msgs \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -41,7 +41,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-websocket} \
+    ${PYTHON_PN}-websockets \
     actionlib-msgs \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -62,7 +62,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-websocket} \
+    ${PYTHON_PN}-websockets \
     actionlib-msgs \
     diagnostic-msgs \
     dynamic-reconfigure \

@@ -30,9 +30,9 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-requests \
+    ${PYTHON_PN}-simplejson \
     ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests-oauthlib} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-requests} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-simplejson} \
     rospy \
     std-msgs \
 "

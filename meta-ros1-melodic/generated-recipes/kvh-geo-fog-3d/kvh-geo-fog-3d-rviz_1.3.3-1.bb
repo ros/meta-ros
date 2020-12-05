@@ -17,13 +17,12 @@ ROS_CN = "kvh_geo_fog_3d"
 ROS_BPN = "kvh_geo_fog_3d_rviz"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5-svg-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt5multimedia5-plugins} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qtdeclarative5-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qtmultimedia5-dev} \
     diagnostic-msgs \
     kvh-geo-fog-3d-msgs \
     qtbase \
+    qtdeclarative \
+    qtmultimedia \
+    qtsvg \
     roslint \
     rviz \
 "

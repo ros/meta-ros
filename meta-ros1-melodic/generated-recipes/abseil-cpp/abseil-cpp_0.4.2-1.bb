@@ -16,7 +16,7 @@ ROS_CN = "abseil_cpp"
 ROS_BPN = "abseil_cpp"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rsync} \
+    rsync \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

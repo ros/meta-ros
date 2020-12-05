@@ -16,9 +16,9 @@ ROS_CN = "pilz_robots"
 ROS_BPN = "prbt_hardware_support"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libmodbus-dev} \
     canopen-chain-node \
     dynamic-reconfigure \
+    libmodbus \
     message-filters \
     message-generation \
     pilz-msgs \

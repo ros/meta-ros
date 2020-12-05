@@ -17,8 +17,8 @@ ROS_CN = "gps_umd"
 ROS_BPN = "gpsd_client"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgps} \
     gps-common \
+    gpsd \
     pkgconfig \
     roscpp \
     sensor-msgs \

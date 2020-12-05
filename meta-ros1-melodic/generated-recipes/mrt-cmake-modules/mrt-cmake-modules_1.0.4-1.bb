@@ -34,7 +34,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = " \
     ${PYTHON_PN}-pyyaml-native \
     ${PYTHON_PN}-rospkg-native \
     ${PYTHON_PN}-setuptools-native \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_lcov-native} \
+    lcov-native \
     ros-environment-native \
 "
 

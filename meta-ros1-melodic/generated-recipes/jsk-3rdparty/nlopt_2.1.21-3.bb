@@ -16,8 +16,8 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "nlopt"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libtool} \
     cmake-modules \
+    libtool \
     mk \
     rosbuild \
     rospack \

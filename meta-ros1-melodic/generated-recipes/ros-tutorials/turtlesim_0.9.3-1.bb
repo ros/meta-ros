@@ -17,7 +17,7 @@ ROS_CN = "ros_tutorials"
 ROS_BPN = "turtlesim"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev} \
+    boost \
     geometry-msgs \
     message-generation \
     qtbase \
@@ -35,7 +35,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev} \
+    boost \
     geometry-msgs \
     message-runtime \
     qtbase \
@@ -51,7 +51,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libboost-thread-dev} \
+    boost \
     geometry-msgs \
     message-runtime \
     qtbase \

@@ -19,7 +19,6 @@ ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     costmap-2d \
     dynamic-reconfigure \
     geometry-msgs \
@@ -32,6 +31,7 @@ ROS_BUILD_DEPENDS = " \
     roscpp \
     sensor-msgs \
     std-msgs \
+    tbb \
     tf2-geometry-msgs \
     tf2-ros \
     visualization-msgs \
@@ -45,7 +45,6 @@ ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     costmap-2d \
     dynamic-reconfigure \
     geometry-msgs \
@@ -57,6 +56,7 @@ ROS_EXPORT_DEPENDS = " \
     roscpp \
     sensor-msgs \
     std-msgs \
+    tbb \
     tf2-geometry-msgs \
     tf2-ros \
     visualization-msgs \
@@ -68,7 +68,6 @@ ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
     ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tbb} \
     costmap-2d \
     dynamic-reconfigure \
     geometry-msgs \
@@ -80,6 +79,7 @@ ROS_EXEC_DEPENDS = " \
     roscpp \
     sensor-msgs \
     std-msgs \
+    tbb \
     tf2-geometry-msgs \
     tf2-ros \
     visualization-msgs \

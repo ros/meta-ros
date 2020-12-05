@@ -17,7 +17,7 @@ ROS_CN = "sainsmart_relay_usb"
 ROS_BPN = "sainsmart_relay_usb"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev} \
+    libftdi \
     roscpp \
     roslib \
     std-msgs \
@@ -28,7 +28,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev} \
+    libftdi \
     roscpp \
     std-msgs \
 "
@@ -36,7 +36,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libftdi-dev} \
+    libftdi \
     roscpp \
     std-msgs \
 "
