@@ -47,6 +47,6 @@ SRC_URI = "git://github.com/ros2-gbp/gps_umd-release;${ROS_BRANCH};protocol=http
 SRCREV = "d61d5455ca8ca85306fc54a73beb2d0e374c6f7e"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
