@@ -6,37 +6,53 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Tools for setting up tracing sessions."
+DESCRIPTION = "Testing utilities and tests for the tracetools package."
 AUTHOR = "Christophe Bedard <bedard.christophe@gmail.com>"
 ROS_AUTHOR = "Christophe Bedard <fixed-term.christophe.bourquebedard@de.bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "ros2_tracing"
-ROS_BPN = "tracetools_trace"
+ROS_BPN = "tracetools_test"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    rclcpp \
+    std-msgs \
+    std-srvs \
+"
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+    pkgconfig-native \
+"
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-lttng} \
+    rclcpp \
+    std-msgs \
+    std-srvs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-copyright \
-    ament-flake8 \
-    ament-mypy \
-    ament-pep257 \
-    ament-xmllint \
+    ${ROS_UNRESOLVED_DEP-python3-pytest-cov} \
+    ament-cmake-gtest \
+    ament-cmake-mypy \
+    ament-cmake-pytest \
+    ament-lint-auto \
+    ament-lint-common \
+    launch-ros \
     python3-pytest \
+    tracetools \
+    tracetools-launch \
+    tracetools-read \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -46,12 +62,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release/archive/release/foxy/tracetools_trace/1.0.0-2.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/tracetools_trace"
-SRC_URI = "git://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6c0aac92bfb1e23c183c360d7d6ddd90a4b8ce39"
+# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/foxy/tracetools_test/1.0.4-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/tracetools_test"
+SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
+SRCREV = "c1314fc168158e26729796d462d9a69c7c03a01b"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_python"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
