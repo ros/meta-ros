@@ -71,6 +71,9 @@ RDEPENDS_${PN}_remove = "hrpsys-ros-bridge"
 # Depends on unavailable ROS_UNRESOLVED_DEP-libirrlicht-dev, ROS_UNRESOLVED_DEP-net-tools, ROS_UNRESOLVED_DEP-procps, ROS_UNRESOLVED_DEP-ipython, ROS_UNRESOLVED_DEP-hostname and blacklisted openhrp3 and hrpsys-ros-bridge
 RDEPENDS_${PN}_remove = "rtmros-common"
 
+# Depends on unavailable ROS_UNRESOLVED_DEP-python3-wxgtk4.0
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-wxgtk4.0', 'actionlib-tools', '', d)}"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-mechanize', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_MECHANIZE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_MECHANIZE = " \
     pr2-bringup \
@@ -255,6 +258,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     dataspeed-pds-rqt \
     dingo-desktop \
     dingo-viz \
+    fkie-node-manager \
+    fkie-multimaster \
     fmi-adapter-examples \
     gl-dependency \
     gundam-rx78-control \
@@ -722,11 +727,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     dingo-viz \
     distance-map \
     distance-map-rviz \
+    easy-markers \
     exotica-examples \
     fake-joint \
     fake-joint-launch \
     fetch-moveit-config \
     fetch-ros \
+    fkie-node-manager \
+    fkie-multimaster \
     fkie-potree-rviz-plugin \
     franka-example-controllers \
     franka-ros \
@@ -768,6 +776,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     open-manipulator-with-tb3-waffle-moveit \
     open-manipulator-with-tb3-waffle-pi-moveit \
     panda-moveit-config \
+    people \
+    people-velocity-tracker \
     psen-scan \
     radial-menu \
     radial-menu-example \
@@ -786,6 +796,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     seed-r7-moveit-config \
     seed-r7-typef-moveit-config \
     slam-toolbox \
+    slam-toolbox-rviz \
     trajectory-tracker-rviz-plugins \
     turtlebot3-automatic-parking-vision \
     urdf-tutorial \
@@ -799,6 +810,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     visualization-tutorials \
     warthog-desktop \
     warthog-viz \
+    wu-ros-tools \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
@@ -824,11 +836,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     distance-map-rviz \
     dynamixel-workbench \
     dynamixel-workbench-single-manager-gui \
+    easy-markers \
     fetch-bringup \
     fetch-gazebo-demo \
     fetch-ros \
     fetch-simulation \
     find-object-2d \
+    fkie-node-manager \
+    fkie-multimaster \
     fkie-potree-rviz-plugin \
     fmi-adapter-examples \
     franka-example-controllers \
@@ -908,6 +923,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     open-manipulator-control-gui \
     open-manipulator-with-tb3 \
     panda-moveit-config \
+    people \
+    people-velocity-tracker \
     pilz-robots \
     pilz-status-indicator-rqt \
     plotjuggler \
@@ -1001,6 +1018,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     sick-safetyscanners \
     simple-grasping \
     slam-toolbox \
+    slam-toolbox-rviz \
     swri-console \
     swri-profiler-tools \
     tile-map \
@@ -1019,6 +1037,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     warthog-desktop \
     warthog-viz \
     webkit-dependency \
+    wu-ros-tools \
 "
 
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commercial" or "commercial_ffmpeg" or "ffmpeg".
@@ -1111,6 +1130,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY =
     audio-capture \
     audio-common \
     audio-play \
+    audio-to-spectrogram \
     cis-camera \
     imagesift \
     jsk-3rdparty \
@@ -1478,6 +1498,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROS_UTILS = " \
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ueye', 'ueye-cam', '', d)}"
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
+    ros-ign \
+    ros-ign-bridge \
+    ros-ign-gazebo-demos \
+    ros-ign-gazebo \
+    ros-ign-image \
+"
+
 # do_configure failures
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dccomms-ros', 'dccomms-ros' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyros-utils', 'pyros-utils' , '', d)}"
@@ -1606,11 +1635,20 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBG2O = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libphidget21', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBPHIDGET21}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBPHIDGET21 = " \
     libphidget21 \
+    phidgets-accelerometer \
+    phidgets-analog-inputs \
     phidgets-api \
+    phidgets-digital-inputs \
+    phidgets-digital-outputs \
     phidgets-drivers \
+    phidgets-gyroscope \
     phidgets-high-speed-encoder \
     phidgets-ik \
     phidgets-imu \
+    phidgets-magnetometer \
+    phidgets-motors \
+    phidgets-spatial \
+    phidgets-temperature \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libphidgets', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBPHIDGETS}', '', d)}"

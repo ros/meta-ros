@@ -18,7 +18,7 @@ EXTRA_OECMAKE += "-D_cxx_standard_run_status=0 -D_cxx_standard_run_status__TRYRU
 # |   in its INTERFACE_INCLUDE_DIRECTORIES.  Possible reasons include:
 # | 
 # |   * The path was deleted, renamed, or moved to another location.
-DEPENDS += "python-numpy-native"
+DEPENDS += "python3-numpy-native"
 
 # ERROR: tsid-1.4.1-3-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: tsid path '/work/core2-64-oe-linux/tsid/1.4.1-3-r0/packages-split/tsid/usr/lib/libtsid.so' [dev-so]
 inherit ros_insane_dev_so
