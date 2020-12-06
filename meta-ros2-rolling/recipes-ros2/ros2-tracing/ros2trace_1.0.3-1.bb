@@ -11,6 +11,8 @@ AUTHOR = "Christophe Bedard <bedard.christophe@gmail.com>"
 ROS_AUTHOR = "Christophe Bedard <fixed-term.christophe.bourquebedard@de.bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
@@ -53,10 +55,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release/archive/release/foxy/ros2trace/1.0.0-2.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/ros2trace"
-SRC_URI = "git://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "40b3ca91ba18d627ef6998b347b3ab3f3b4a221b"
+# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/rolling/ros2trace/1.0.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/ros2trace"
+SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
+SRCREV = "ef4558499c0a1b25e45227edcefcbccaf7057b8c"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
