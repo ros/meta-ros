@@ -257,8 +257,8 @@ bison:
   debian: [bison]
   fedora: [bison]
   gentoo: [sys-devel/bison]
-  openembedded: [bison@openembedded-core]
   macports: [bison]
+  openembedded: [bison@openembedded-core]
   ubuntu: [bison]
 blender:
   arch: [blender]
@@ -671,6 +671,7 @@ dnsmasq:
   debian: [dnsmasq]
   fedora: [dnsmasq]
   gentoo: [net-dns/dnsmasq]
+  openembedded: [dnsmasq@openembedded-core]
   ubuntu: [dnsmasq]
 docker-compose:
   debian: [docker-compose]
@@ -764,6 +765,7 @@ emacs:
   fedora: [emacs]
   freebsd: [emacs]
   gentoo: [virtual/emacs]
+  openembedded: [emacs@meta-oe]
   ubuntu: [emacs]
 enblend:
   debian: [enblend]
@@ -845,6 +847,7 @@ flac:
   debian: [flac]
   fedora: [flac]
   gentoo: [media-libs/flac]
+  openembedded: [flac@openembedded-core]
   ubuntu: [flac]
 flex:
   arch: [flex]
@@ -1068,7 +1071,7 @@ geographiclib:
 geographiclib-tools:
   debian: [geographiclib-tools]
   fedora: [GeographicLib]
-  openembedded: [geographiclib-tools@meta-ros-common]
+  openembedded: [geographiclib@meta-ros-common]
   ubuntu: [geographiclib-tools]
 geos:
   arch: [geos]
@@ -1410,6 +1413,7 @@ hostapd:
   debian: [hostapd]
   fedora: [hostapd]
   gentoo: [net-wireless/hostapd]
+  openembedded: [hostapd@meta-oe]
   ubuntu: [hostapd]
 hostname:
   arch: [inetutils]
@@ -1543,12 +1547,14 @@ ipmitool:
   debian: [ipmitool]
   fedora: [ipmitool]
   gentoo: [sys-apps/ipmitool]
+  openembedded: [ipmitool@meta-oe]
   ubuntu: [ipmitool]
 iproute2:
   arch: [iproute2]
   debian: [iproute2]
   fedora: [iproute]
   gentoo: [sys-apps/iproute2]
+  openembedded: [iproute2@openembedded-core]
   opensuse: [iproute2]
   ubuntu: [iproute2]
 iputils-ping:
@@ -1669,6 +1675,7 @@ leveldb:
   debian: [libleveldb-dev]
   fedora: [leveldb-devel]
   gentoo: [dev-libs/leveldb]
+  openembedded: [leveldb@meta-oe]
   ubuntu: [libleveldb-dev]
 lib32asound2:
   debian: [lib32asound2]
@@ -2305,6 +2312,7 @@ libflann:
   fedora: [flann]
   gentoo: [sci-libs/flann]
   macports: [flann]
+  openembedded: [libflann@meta-ros-common]
   ubuntu:
     '*': [libflann1.9]
     precise: [libflann1]
@@ -2964,6 +2972,7 @@ libmicrohttpd:
   debian: [libmicrohttpd-dev]
   fedora: [libmicrohttpd-devel]
   gentoo: [net-libs/libmicrohttpd]
+  openembedded: [libmicrohttpd@meta-oe]
   rhel: [libmicrohttpd-devel]
   ubuntu: [libmicrohttpd-dev]
 libmlpack-dev:
@@ -3061,12 +3070,14 @@ libnl-3:
   debian: [libnl-3-200, libnl-genl-3-200]
   fedora: [libnl3]
   gentoo: ['dev-libs/libnl:3']
+  openembedded: [libnl@openembedded-core]
   ubuntu: [libnl-3-200, libnl-genl-3-200]
 libnl-3-dev:
   arch: [libnl]
   debian: [libnl-3-dev, libnl-genl-3-dev]
   fedora: [libnl3-devel]
   gentoo: ['dev-libs/libnl:3']
+  openembedded: [libnl@openembedded-core]
   ubuntu: [libnl-3-dev, libnl-genl-3-dev]
 libnl-dev:
   arch: [libnl1]
@@ -3117,6 +3128,7 @@ libogre:
   freebsd: [ogre3d]
   gentoo: [dev-games/ogre]
   macports: [ogre]
+  openembedded: [ogre@meta-ros-common]
   opensuse: [ogre-devel]
   slackware: [ogre]
   ubuntu:
@@ -3149,6 +3161,7 @@ libogre-dev:
   freebsd: [ogre3d]
   gentoo: [dev-games/ogre]
   macports: [ogre]
+  openembedded: [ogre@meta-ros-common]
   opensuse: [ogre-devel]
   slackware: [ogre]
   ubuntu:
@@ -3318,6 +3331,7 @@ liborocos-kdl:
     'stretch': [liborocos-kdl1.3]
   fedora: [orocos-kdl]
   gentoo: [sci-libs/orocos_kdl]
+  openembedded: [orocos-kdl@meta-ros1-noetic]
   ubuntu:
     '*': [liborocos-kdl1.4]
     'bionic': [liborocos-kdl1.3]
@@ -3326,6 +3340,7 @@ liborocos-kdl-dev:
   debian: [liborocos-kdl-dev]
   fedora: [orocos-kdl-devel]
   gentoo: [sci-libs/orocos_kdl]
+  openembedded: [orocos-kdl@meta-ros1-noetic]
   ubuntu: [liborocos-kdl-dev]
 libosmesa6-dev:
   arch: [mesa]
@@ -5370,6 +5385,7 @@ procps:
   debian: [procps]
   fedora: [procps-ng]
   gentoo: [sys-process/procps]
+  openembedded: [procps@openembedded-core]
   ubuntu: [procps]
 proj:
   arch: [proj]
@@ -5444,6 +5460,7 @@ psutils:
 pugixml-dev:
   debian: [libpugixml-dev]
   fedora: [pugixml]
+  openembedded: [pugixml@meta-oe]
   ubuntu: [libpugixml-dev]
 pybind11-dev:
   arch: [pybind11]
@@ -5672,6 +5689,7 @@ screen:
   debian: [screen]
   fedora: [screen]
   gentoo: [app-misc/screen]
+  openembedded: [screen@openembedded-core]
   ubuntu: [screen]
 sdformat:
   arch: [sdformat-hg]
@@ -5990,6 +6008,7 @@ sysstat:
   debian: [sysstat]
   fedora: [sysstat]
   gentoo: [app-admin/sysstat]
+  openembedded: [sysstat@openembedded-core]
   ubuntu: [sysstat]
 tango-icon-theme:
   alpine: [tango-icon-theme]
@@ -6000,6 +6019,7 @@ tango-icon-theme:
   gentoo: [x11-themes/tango-icon-theme]
   macports: [tango-icon-theme]
   mandrake: [tango-icon-theme]
+  openembedded: [adwaita-icon-theme@openembedded-core]
   opensuse: [tango-icon-theme]
   rhel:
     '7': [tango-icon-theme]
@@ -6441,6 +6461,7 @@ xterm:
   debian: [xterm]
   fedora: [xterm]
   gentoo: [x11-terms/xterm]
+  openembedded: [xterm@meta-oe]
   ubuntu: [xterm]
 xulrunner-1.9.2:
   arch: [xulrunner]

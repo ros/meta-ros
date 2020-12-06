@@ -199,6 +199,7 @@ ipython:
 ipython3:
   debian: [ipython3]
   fedora: [ipython3]
+  openembedded: [python3-ipython@meta-python]
   ubuntu: [ipython3]
 jupyter-notebook:
   debian:
@@ -231,6 +232,7 @@ paramiko:
   freebsd: [py27-paramiko]
   gentoo: [dev-python/paramiko]
   macports: [py27-paramiko]
+  openembedded: ['${PYTHON_PN}-paramiko@meta-ros-common']
   opensuse: [python-paramiko]
   osx:
     pip:
@@ -854,6 +856,7 @@ python-cantools-pip:
       packages: [cantools]
 python-catkin-lint:
   fedora: [python-catkin_lint]
+  openembedded: ['${PYTHON_PN}-catkin-lint@meta-ros-common']
   ubuntu: [python-catkin-lint]
 python-catkin-pkg:
   alpine:
@@ -929,6 +932,7 @@ python-catkin-tools:
   arch: [python2-catkin-tools]
   debian: [python-catkin-tools]
   fedora: [python-catkin_tools]
+  openembedded: ['${PYTHON_PN}-catkin-tools@meta-ros-common']
   osx:
     pip:
       packages: [catkin_tools]
@@ -5141,7 +5145,7 @@ python-websocket:
   debian: [python-websocket]
   fedora: [python-websocket-client]
   gentoo: [dev-python/websocket-client]
-  openembedded: ['${PYTHON_PN}-websockets@meta-python']
+  openembedded: [python3-websockets@meta-python]
   ubuntu:
     artful: [python-websocket]
     artful_python3: [python3-websocket]
@@ -5326,6 +5330,7 @@ python3-argcomplete:
   fedora: [python3-argcomplete]
   freebsd: [py37-argcomplete]
   gentoo: [dev-python/argcomplete]
+  openembedded: [python3-argcomplete@meta-python]
   rhel: ['python%{python3_pkgversion}-argcomplete']
   ubuntu: [python3-argcomplete]
 python3-asyncssh:
@@ -5336,6 +5341,7 @@ python3-autobahn:
   debian: [python3-autobahn]
   fedora: [python3-autobahn]
   gentoo: [dev-python/autobahn]
+  openembedded: [python3-autobahn@meta-python]
   rhel:
     '*': ['python%{python3_pkgversion}-autobahn']
     '7': null
@@ -5397,6 +5403,7 @@ python3-cairo:
   fedora: [python3-cairo]
   freebsd: [py3-cairo]
   gentoo: [dev-python/pycairo]
+  openembedded: [python3-pycairo@openembedded-core]
   opensuse: [python3-cairo]
   slackware:
     slackpkg:
@@ -5415,6 +5422,7 @@ python3-catkin-lint:
     jessie: null
     stretch: null
   fedora: [python3-catkin_lint]
+  openembedded: [python3-catkin-lint@meta-ros-common]
   ubuntu:
     '*': [python3-catkin-lint]
     bionic: null
@@ -5441,6 +5449,7 @@ python3-catkin-pkg-modules:
 python3-catkin-tools:
   debian: [python3-catkin-tools]
   fedora: [python3-catkin_tools]
+  openembedded: [python3-catkin-tools@meta-ros-common]
   ubuntu: [python3-catkin-tools]
 python3-cherrypy3:
   debian: [python3-cherrypy3]
@@ -5449,6 +5458,7 @@ python3-click:
   debian: [python3-click]
   fedora: [python3-click]
   gentoo: [dev-python/click]
+  openembedded: [python3-click@meta-python]
   rhel: ['python%{python3_pkgversion}-click']
   ubuntu: [python3-click]
 python3-collada:
@@ -5475,6 +5485,7 @@ python3-colorama:
   debian: [python3-colorama]
   fedora: [python3-colorama]
   gentoo: [dev-python/colorama]
+  openembedded: [python3-colorama@meta-python]
   rhel: ['python%{python3_pkgversion}-colorama']
   ubuntu: [python3-colorama]
 python3-connexion-pip:
@@ -5491,6 +5502,7 @@ python3-coverage:
   debian: [python3-coverage]
   fedora: [python3-coverage]
   gentoo: [dev-python/coverage]
+  openembedded: [python3-coverage@meta-python]
   rhel: ['python%{python3_pkgversion}-coverage']
   ubuntu: [python3-coverage]
 python3-cryptography:
@@ -5509,6 +5521,7 @@ python3-defusedxml:
   debian: [python3-defusedxml]
   fedora: [python3-defusedxml]
   gentoo: [dev-python/defusedxml]
+  openembedded: [python3-defusedxml@meta-python]
   rhel: ['python%{python3_pkgversion}-defusedxml']
   ubuntu: [python3-defusedxml]
 python3-dev:
@@ -5557,6 +5570,7 @@ python3-docutils:
   debian: [python3-docutils]
   fedora: [python3-docutils]
   gentoo: [dev-python/docutils]
+  openembedded: [python3-docutils@openembedded-core]
   ubuntu: [python3-docutils]
 python3-empy:
   alpine: [py3-empy]
@@ -5610,6 +5624,7 @@ python3-gi:
   debian: [python3-gi]
   fedora: [python3-gobject]
   gentoo: [dev-python/pygobject]
+  openembedded: [python3-pygobject@openembedded-core]
   ubuntu: [python3-gi]
 python3-github:
   debian: [python3-github]
@@ -5642,11 +5657,13 @@ python3-gnupg:
   debian: [python3-gnupg]
   fedora: [python3-gnupg]
   gentoo: [dev-python/python-gnupg]
+  openembedded: [python3-gnupg@meta-python]
   ubuntu: [python3-gnupg]
 python3-grpc-tools:
   debian:
     '*': [python3-grpc-tools]
     stretch: null
+  openembedded: [python3-grpcio-tools@meta-python]
   ubuntu:
     '*': [python3-grpc-tools]
     bionic: null
@@ -5655,6 +5672,7 @@ python3-grpcio:
   debian:
     '*': [python3-grpcio]
     stretch: null
+  openembedded: [python3-grpcio@meta-python]
   ubuntu:
     '*': [python3-grpcio]
     bionic: null
@@ -5682,6 +5700,7 @@ python3-ifcfg:
 python3-imageio:
   debian: [python3-imageio]
   gentoo: [dev-python/imageio]
+  openembedded: [python3-imageio@meta-python]
   ubuntu: [python3-imageio]
 python3-importlib-metadata:
   debian:
@@ -5885,6 +5904,7 @@ python3-pandas:
   debian: [python3-pandas]
   fedora: [python3-pandas]
   gentoo: [dev-python/pandas]
+  openembedded: [python3-pandas@meta-python]
   ubuntu: [python3-pandas]
 python3-parameterized:
   alpine: [py3-parameterized]
@@ -5895,6 +5915,7 @@ python3-paramiko:
   debian: [python3-paramiko]
   fedora: [python3-paramiko]
   gentoo: [dev-python/paramiko]
+  openembedded: [python3-paramiko@meta-ros-common]
   rhel: ['python%{python3_pkgversion}-paramiko']
   ubuntu: [python3-paramiko]
 python3-pcg-gazebo-pip:
@@ -6006,6 +6027,7 @@ python3-pycryptodome:
   debian: [python3-pycryptodome]
   fedora: [python3-pycryptodomex]
   gentoo: [dev-python/pycryptodome]
+  openembedded: [python3-pycryptodome@meta-python]
   osx:
     pip:
       packages: [pycryptodome]
@@ -6059,6 +6081,7 @@ python3-pykdl:
     '*': [python3-pykdl]
     '30': null
     '31': null
+  openembedded: [python3-pykdl@meta-ros1-noetic]
   ubuntu:
     '*': [python3-pykdl]
     'bionic': null
@@ -6192,11 +6215,13 @@ python3-rdflib:
 python3-requests:
   debian: [python3-requests]
   fedora: [python3-requests]
+  openembedded: [python3-requests@meta-python]
   ubuntu: [python3-requests]
 python3-requests-oauthlib:
   debian: [python3-requests-oauthlib]
   fedora: [python3-requests-oauthlib]
   gentoo: [dev-python/requests-oauthlib]
+  openembedded: [python3-requests-oauthlib@meta-python]
   rhel: ['python%{python3_pkgversion}-requests-oauthlib']
   ubuntu: [python3-requests-oauthlib]
 python3-retrying:
@@ -6279,6 +6304,7 @@ python3-ruamel.yaml:
     buster: [python3-ruamel.yaml]
     jessie: [python3-ruamel.yaml]
     stretch: [python3-ruamel.yaml]
+  openembedded: [python3-ruamel-yaml@meta-python]
   ubuntu: [python3-ruamel.yaml]
 python3-schedule:
   debian: [python3-schedule]
@@ -6361,6 +6387,7 @@ python3-simplejson:
   debian: [python3-simplejson]
   fedora: [python3-simplejson]
   gentoo: [dev-python/simplejson]
+  openembedded: [python3-simplejson@meta-python]
   ubuntu: [python3-simplejson]
 python3-sip:
   debian: [python3-sip-dev]
@@ -6418,11 +6445,13 @@ python3-termcolor:
   debian: [python3-termcolor]
   fedora: [python3-termcolor]
   gentoo: [dev-python/termcolor]
+  openembedded: [python3-termcolor@meta-python]
   ubuntu: [python3-termcolor]
 python3-texttable:
   debian: [python3-texttable]
   fedora: [python3-texttable]
   gentoo: [dev-python/texttable]
+  openembedded: [python3-texttable@meta-python]
   rhel: ['python%{python3_pkgversion}-texttable']
   ubuntu: [python3-texttable]
 python3-tilestache-pip:
@@ -6490,6 +6519,7 @@ python3-twisted:
 python3-usb:
   debian: [python3-usb]
   gentoo: [dev-python/pyusb]
+  openembedded: [python3-pyusb@meta-python]
   ubuntu: [python3-usb]
 python3-vcstool:
   alpine: [vcstool]
