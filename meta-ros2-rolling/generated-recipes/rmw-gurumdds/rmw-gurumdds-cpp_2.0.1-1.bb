@@ -16,7 +16,7 @@ ROS_CN = "rmw_gurumdds"
 ROS_BPN = "rmw_gurumdds_cpp"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6} \
+    ${ROS_UNRESOLVED_DEP-gurumdds-2.6} \
     gurumdds-cmake-module \
     rcutils \
     rmw \
@@ -34,7 +34,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6} \
+    ${ROS_UNRESOLVED_DEP-gurumdds-2.6} \
     gurumdds-cmake-module \
     rmw-gurumdds-shared-cpp \
     rosidl-runtime-c \
