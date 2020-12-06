@@ -25,9 +25,6 @@ RDEPENDS_${PN}_remove = "sophus"
 # Depends on unavailable ROS_UNRESOLVED_DEP-libopenvdb, ROS_UNRESOLVED_DEP-libopenexr-dev, ROS_UNRESOLVED_DEP-libopenvdb-dev
 RDEPENDS_${PN}_remove = "spatio-temporal-voxel-layer"
 
-# Depends on unexpanded ROS_UNRESOLVED_PLATFORM_PKG_autoware_auto_cmake-native, ROS_UNRESOLVED_PLATFORM_PKG_autoware_auto_helper_functions which aren't available
-RDEPENDS_${PN}_remove = "serial-driver"
-
 # alternative not yet supported implementation for fastrtps
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
