@@ -64,7 +64,7 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-retrying} \
+    ${ROS_UNRESOLVED_DEP-python3-retrying} \
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

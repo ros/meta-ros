@@ -16,9 +16,9 @@ ROS_CN = "nodl"
 ROS_BPN = "ros2nodl"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete} \
     ament-index-python \
     nodl-python \
+    python3-argcomplete \
     ros2cli \
     ros2pkg \
     ros2run \
@@ -27,9 +27,9 @@ ROS_BUILD_DEPENDS = " \
 ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete} \
     ament-index-python \
     nodl-python \
+    python3-argcomplete \
     ros2cli \
     ros2pkg \
     ros2run \
@@ -38,9 +38,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete} \
     ament-index-python \
     nodl-python \
+    python3-argcomplete \
     ros2cli \
     ros2pkg \
     ros2run \
