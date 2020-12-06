@@ -1,0 +1,626 @@
+# noetic/rosdep-resolve.yaml
+alsa-oss:
+- ${ROS_UNRESOLVED_DEP-alsa-oss}
+apr:
+- apr@openembedded-core
+arduino-core:
+- ${ROS_UNRESOLVED_DEP-arduino-core}
+assimp:
+- assimp@openembedded-core
+assimp-dev:
+- assimp@openembedded-core
+avahi-daemon:
+- avahi@openembedded-core
+binutils:
+- binutils@openembedded-core
+bison:
+- bison@openembedded-core
+bluez:
+- bluez5@openembedded-core
+boost:
+- boost@openembedded-core
+bullet:
+- bullet@meta-ros-common
+bzip2:
+- bzip2@openembedded-core
+ca-certificates:
+- ca-certificates@openembedded-core
+cmake:
+- cmake@openembedded-core
+coinor-libipopt-dev:
+- ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev}
+collada-dom:
+- collada-dom@meta-ros-common
+curl:
+- curl@openembedded-core
+cwiid-dev:
+- ${ROS_UNRESOLVED_DEP-cwiid-dev}
+cython:
+- ${ROS_UNRESOLVED_DEP-cython}
+dnsmasq:
+- dnsmasq@openembedded-core
+doxygen:
+- doxygen@meta-oe
+dpkg:
+- dpkg@openembedded-core
+eigen:
+- libeigen@meta-oe
+emacs:
+- emacs@meta-oe
+festival:
+- festival@meta-ros1
+ffmpeg:
+- ffmpeg@openembedded-core
+flac:
+- flac@openembedded-core
+flex:
+- flex@openembedded-core
+ftdi-eeprom:
+- libftdi@meta-oe
+g++-static: []
+gawk:
+- gawk@openembedded-core
+gazebo:
+- ${ROS_UNRESOLVED_DEP-gazebo}
+gazebo11:
+- ${ROS_UNRESOLVED_DEP-gazebo11}
+gdal-bin:
+- ${ROS_UNRESOLVED_DEP-gdal-bin}
+geographiclib:
+- geographiclib@meta-ros-common
+geographiclib-tools:
+- geographiclib@meta-ros-common
+git:
+- git@openembedded-core
+glut:
+- freeglut@meta-oe
+google-mock:
+- gtest@meta-oe
+graphviz:
+- graphviz@meta-ros-common
+gstreamer1.0:
+- gstreamer1.0@openembedded-core
+gstreamer1.0-alsa:
+- gstreamer1.0-plugins-base@openembedded-core
+gstreamer1.0-plugins-base:
+- gstreamer1.0-plugins-base@openembedded-core
+gstreamer1.0-plugins-good:
+- gstreamer1.0-plugins-good@openembedded-core
+gstreamer1.0-plugins-ugly:
+- gstreamer1.0-plugins-ugly@openembedded-core
+gtest:
+- gtest@meta-oe
+gtk2:
+- gtk+@openembedded-core
+gtk3:
+- gtk+3@openembedded-core
+hddtemp:
+- hddtemp@meta-oe
+hostapd:
+- hostapd@meta-oe
+ifstat:
+- ${ROS_UNRESOLVED_DEP-ifstat}
+ignition-gazebo3:
+- ${ROS_UNRESOLVED_DEP-ignition-gazebo3}
+ignition-msgs5:
+- ${ROS_UNRESOLVED_DEP-ignition-msgs5}
+ignition-transport8:
+- ${ROS_UNRESOLVED_DEP-ignition-transport8}
+ipmitool:
+- ipmitool@meta-oe
+iproute2:
+- iproute2@openembedded-core
+ipython3:
+- python3-ipython@meta-python
+joystick:
+- joystick@meta-ros-common
+julius-voxforge:
+- ${ROS_UNRESOLVED_DEP-julius-voxforge}
+lcov:
+- lcov@meta-oe
+leveldb:
+- leveldb@meta-oe
+libblas-dev:
+- openblas@meta-ros-common
+libboost-chrono-dev:
+- boost@openembedded-core
+libboost-date-time-dev:
+- boost@openembedded-core
+libboost-dev:
+- boost@openembedded-core
+libboost-filesystem-dev:
+- boost@openembedded-core
+libboost-program-options-dev:
+- boost@openembedded-core
+libboost-python-dev:
+- boost@openembedded-core
+libboost-regex-dev:
+- boost@openembedded-core
+libboost-system-dev:
+- boost@openembedded-core
+libboost-thread:
+- boost@openembedded-core
+libboost-thread-dev:
+- boost@openembedded-core
+libccd-dev:
+- libccd@meta-ros-common
+libceres-dev:
+- ceres-solver@meta-oe
+libconsole-bridge-dev:
+- console-bridge@meta-ros-common
+libdw-dev:
+- elfutils@openembedded-core
+libfcl-dev:
+- fcl@meta-ros-common
+libffi-dev:
+- libffi@openembedded-core
+libflann-dev:
+- ${ROS_UNRESOLVED_DEP-libflann-dev}
+libfltk-dev:
+- fltk@meta-oe
+libfreenect-dev:
+- libfreenect@meta-ros-common
+libftdi-dev:
+- libftdi@meta-oe
+libgazebo11-dev:
+- ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
+libgeos++-dev:
+- geos@meta-oe
+libgflags-dev:
+- gflags@meta-oe
+libglew-dev:
+- glew@openembedded-core
+libglfw3-dev:
+- glfw@meta-intel-realsense
+libgoogle-glog-dev:
+- glog@meta-oe
+libgpgme-dev:
+- gpgme@openembedded-core
+libgphoto-dev:
+- libgphoto2@meta-oe
+libgps:
+- gpsd@meta-oe
+libgsl:
+- gsl@meta-oe
+libgstreamer-plugins-base1.0-dev:
+- gstreamer1.0-plugins-base@openembedded-core
+libgstreamer1.0-dev:
+- gstreamer1.0@openembedded-core
+libgts:
+- ${ROS_UNRESOLVED_DEP-libgts}
+libhdf5-dev:
+- hdf5@meta-oe
+libjpeg:
+- jpeg@openembedded-core
+libjsoncpp:
+- jsoncpp@meta-oe
+libjsoncpp-dev:
+- jsoncpp@meta-oe
+liblapack-dev:
+- lapack@meta-oe
+liblcm:
+- ${ROS_UNRESOLVED_DEP-liblcm}
+liblcm-dev:
+- ${ROS_UNRESOLVED_DEP-liblcm-dev}
+libmicrohttpd:
+- libmicrohttpd@meta-oe
+libmongoclient-dev:
+- mongodb@meta-oe
+libncurses-dev:
+- ncurses@openembedded-core
+libnl-3:
+- libnl@openembedded-core
+libnl-3-dev:
+- libnl@openembedded-core
+libogg:
+- libogg@openembedded-core
+libogre:
+- ogre@meta-ros-common
+libogre-dev:
+- ogre@meta-ros-common
+libopencv-dev:
+- opencv@meta-oe
+libopenni-dev:
+- ${ROS_UNRESOLVED_DEP-libopenni-dev}
+libopenni2-dev:
+- ${ROS_UNRESOLVED_DEP-libopenni2-dev}
+liborocos-kdl:
+- orocos-kdl@meta-ros1-noetic
+liborocos-kdl-dev:
+- orocos-kdl@meta-ros1-noetic
+libpcap:
+- libpcap@openembedded-core
+libpcl-all:
+- pcl@meta-ros-common
+libpcl-all-dev:
+- pcl@meta-ros-common
+libpng-dev:
+- libpng@openembedded-core
+libpoco-dev:
+- poco@meta-oe
+libpqxx:
+- ${ROS_UNRESOLVED_DEP-libpqxx}
+libpqxx-dev:
+- ${ROS_UNRESOLVED_DEP-libpqxx-dev}
+libqglviewer-dev-qt5:
+- qtbase@meta-qt5
+libqglviewer2-qt5:
+- ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5}
+libqhull:
+- qhull@meta-ros-common
+libqt5-core:
+- qtbase@meta-qt5
+libqt5-gui:
+- qtbase@meta-qt5
+libqt5-opengl:
+- qtbase@meta-qt5
+libqt5-opengl-dev:
+- qtbase@meta-qt5
+libqt5-svg-dev:
+- qtsvg@meta-qt5
+libqt5-websockets-dev:
+- ${ROS_UNRESOLVED_DEP-libqt5-websockets-dev}
+libqt5-widgets:
+- qtbase@meta-qt5
+libqt5x11extras5-dev:
+- qtx11extras@meta-qt5
+libraw1394-dev:
+- libraw1394@meta-oe
+libreadline:
+- readline@openembedded-core
+libreadline-dev:
+- readline@openembedded-core
+libspnav-dev:
+- ${ROS_UNRESOLVED_DEP-libspnav-dev}
+libsqlite3-dev:
+- sqlite3@openembedded-core
+libssl-dev:
+- openssl@openembedded-core
+libtheora:
+- libtheora@openembedded-core
+libtool:
+- libtool@openembedded-core
+libturbojpeg:
+- libjpeg-turbo@openembedded-core
+libudev-dev:
+- udev@openembedded-core
+liburdfdom-dev:
+- urdfdom@meta-ros1
+liburdfdom-headers-dev:
+- urdfdom-headers@meta-ros1
+liburdfdom-tools:
+- urdfdom@meta-ros1
+libusb-1.0:
+- libusb1@openembedded-core
+libusb-1.0-dev:
+- libusb1@openembedded-core
+libusb-dev:
+- libusb1@openembedded-core
+libvlc-dev:
+- vlc@meta-multimedia
+libvtk:
+- ${ROS_UNRESOLVED_DEP-libvtk}
+libvtk-qt:
+- ${ROS_UNRESOLVED_DEP-libvtk-qt}
+libx11-dev:
+- libx11@openembedded-core
+libxi-dev:
+- libxi@openembedded-core
+libxmlrpc-c++:
+- xmlrpc-c@meta-oe
+libxmu-dev:
+- libxmu@openembedded-core
+libxrandr:
+- libxrandr@openembedded-core
+libxxf86vm:
+- libxxf86vm@openembedded-core
+libzmq3-dev:
+- zeromq@meta-oe
+libzmqpp-dev:
+- ${ROS_UNRESOLVED_DEP-libzmqpp-dev}
+linux-kernel-headers:
+- linux-libc-headers@openembedded-core
+log4cxx:
+- log4cxx@meta-ros-common
+lz4:
+- lz4@openembedded-core
+mapnik-utils:
+- ${ROS_UNRESOLVED_DEP-mapnik-utils}
+ml_classifiers:
+- ${ROS_UNRESOLVED_DEP-ml-classifiers}
+mongodb:
+- mongodb@meta-oe
+msgpack:
+- msgpack-c@meta-oe
+muparser:
+- ${ROS_UNRESOLVED_DEP-muparser}
+netpbm:
+- ${ROS_UNRESOLVED_DEP-netpbm}
+nkf:
+- ${ROS_UNRESOLVED_DEP-nkf}
+nlopt:
+- ${ROS_UNRESOLVED_DEP-nlopt}
+ntpdate:
+- ${ROS_UNRESOLVED_DEP-ntpdate}
+ocl-icd-opencl-dev:
+- ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev}
+opengl:
+- mesa@openembedded-core
+openni_launch:
+- ${ROS_UNRESOLVED_DEP-openni-launch}
+openssl:
+- openssl@openembedded-core
+osm2pgsql:
+- ${ROS_UNRESOLVED_DEP-osm2pgsql}
+pkg-config:
+- pkgconfig@openembedded-core
+postgresql:
+- postgresql@meta-oe
+postgresql-postgis:
+- ${ROS_UNRESOLVED_DEP-postgresql-postgis}
+proj:
+- proj@meta-oe
+protobuf:
+- protobuf@meta-oe
+protobuf-dev:
+- protobuf@meta-oe
+pugixml-dev:
+- pugixml@meta-oe
+pydrive-pip:
+- ${ROS_UNRESOLVED_DEP-pydrive-pip}
+python-argparse: []
+python-bluez:
+- ${PYTHON_PN}-pybluez@meta-python
+python-chainer-pip:
+- ${ROS_UNRESOLVED_DEP-python-chainer-pip}
+python-dev:
+- ${ROS_UNRESOLVED_DEP-python-dev}
+python-dialogflow-pip:
+- ${ROS_UNRESOLVED_DEP-python-dialogflow-pip}
+python-dlib:
+- ${ROS_UNRESOLVED_DEP-python-dlib}
+python-fcn-pip:
+- ${ROS_UNRESOLVED_DEP-python-fcn-pip}
+python-freezegun-pip:
+- ${ROS_UNRESOLVED_DEP-python-freezegun-pip}
+python-gdown-pip:
+- ${ROS_UNRESOLVED_DEP-python-gdown-pip}
+python-gi:
+- ${ROS_UNRESOLVED_DEP-python-gi}
+python-gi-cairo:
+- ${ROS_UNRESOLVED_DEP-python-gi-cairo}
+python-imaging:
+- ${PYTHON_PN}-pillow@meta-python
+python-libpgm-pip:
+- ${ROS_UNRESOLVED_DEP-python-libpgm-pip}
+python-lxml:
+- ${PYTHON_PN}-lxml@meta-python
+python-numpy:
+- ${PYTHON_PN}-numpy@openembedded-core
+python-percol:
+- ${ROS_UNRESOLVED_DEP-python-percol}
+python-pixel-ring-pip:
+- ${ROS_UNRESOLVED_DEP-python-pixel-ring-pip}
+python-pygithub3:
+- ${ROS_UNRESOLVED_DEP-python-pygithub3}
+python-pyusb-pip:
+- ${ROS_UNRESOLVED_DEP-python-pyusb-pip}
+python-six:
+- ${PYTHON_PN}-six@openembedded-core
+python-slacker-cli:
+- ${ROS_UNRESOLVED_DEP-python-slacker-cli}
+python-speechrecognition-pip:
+- ${ROS_UNRESOLVED_DEP-python-speechrecognition-pip}
+python-tabulate-pip:
+- ${ROS_UNRESOLVED_DEP-python-tabulate-pip}
+python-tk:
+- ${PYTHON_PN}-tkinter@openembedded-core
+python3:
+- python3@openembedded-core
+python3-argcomplete:
+- python3-argcomplete@meta-python
+python3-autobahn:
+- python3-autobahn@meta-python
+python3-bson:
+- python3-pymongo@meta-python
+python3-cairo:
+- python3-pycairo@openembedded-core
+python3-catkin-lint:
+- python3-catkin-lint@meta-ros-common
+python3-catkin-pkg:
+- python3-catkin-pkg@meta-ros-common
+python3-catkin-pkg-modules:
+- python3-catkin-pkg@meta-ros-common
+python3-catkin-tools:
+- python3-catkin-tools@meta-ros-common
+python3-cherrypy3:
+- ${ROS_UNRESOLVED_DEP-python3-cherrypy3}
+python3-click:
+- python3-click@meta-python
+python3-colorama:
+- python3-colorama@meta-python
+python3-coverage:
+- python3-coverage@meta-python
+python3-defusedxml:
+- python3-defusedxml@meta-python
+python3-dev:
+- python3@openembedded-core
+python3-docutils:
+- python3-docutils@openembedded-core
+python3-empy:
+- python3-empy@meta-ros-common
+python3-future:
+- python3-future@meta-python
+python3-gi:
+- python3-pygobject@openembedded-core
+python3-github:
+- ${ROS_UNRESOLVED_DEP-python3-github}
+python3-gnupg:
+- python3-gnupg@meta-python
+python3-grpc-tools:
+- python3-grpcio-tools@meta-python
+python3-grpcio:
+- python3-grpcio@meta-python
+python3-h5py:
+- python3-h5py@meta-python
+python3-imageio:
+- python3-imageio@meta-python
+python3-kitchen:
+- ${ROS_UNRESOLVED_DEP-python3-kitchen}
+python3-lxml:
+- python3-lxml@meta-python
+python3-mapnik:
+- ${ROS_UNRESOLVED_DEP-python3-mapnik}
+python3-matplotlib:
+- python3-matplotlib@meta-python
+python3-mechanize:
+- ${ROS_UNRESOLVED_DEP-python3-mechanize}
+python3-mock:
+- python3-mock@meta-ros-common
+python3-netifaces:
+- python3-netifaces@meta-ros-common
+python3-nose:
+- python3-nose@openembedded-core
+python3-numpy:
+- python3-numpy@openembedded-core
+python3-opencv:
+- opencv@meta-oe
+python3-opengl:
+- ${ROS_UNRESOLVED_DEP-python3-opengl}
+python3-pandas:
+- python3-pandas@meta-python
+python3-paramiko:
+- python3-paramiko@meta-ros-common
+python3-pep8:
+- python3-pep8@meta-ros-common
+python3-pil:
+- python3-pillow@meta-python
+python3-psutil:
+- python3-psutil@meta-python
+python3-pyassimp:
+- ${ROS_UNRESOLVED_DEP-python3-pyassimp}
+python3-pycryptodome:
+- python3-pycryptodome@meta-python
+python3-pydot:
+- python3-pydot@meta-ros-common
+python3-pygraphviz:
+- python3-pygraphviz@meta-ros-common
+python3-pykdl:
+- python3-pykdl@meta-ros1-noetic
+python3-pyproj:
+- python3-pyproj@meta-ros-common
+python3-pytest:
+- python3-pytest@meta-python
+python3-qt5-bindings:
+- python3-pyqt5@meta-qt5
+python3-qt5-bindings-gl:
+- python3-pyqt5@meta-qt5
+python3-qt5-bindings-webkit:
+- python3-pyqt5@meta-qt5
+python3-requests:
+- python3-requests@meta-python
+python3-requests-oauthlib:
+- python3-requests-oauthlib@meta-python
+python3-rosdep-modules:
+- python3-rosdep@meta-ros-common
+python3-rospkg:
+- python3-rospkg@meta-ros-common
+python3-rospkg-modules:
+- python3-rospkg@meta-ros-common
+python3-ruamel.yaml:
+- python3-ruamel-yaml@meta-python
+python3-scipy:
+- ${ROS_UNRESOLVED_DEP-python3-scipy}
+python3-serial:
+- python3-pyserial@meta-python
+python3-setuptools:
+- python3-setuptools@openembedded-core
+python3-simplejson:
+- python3-simplejson@meta-python
+python3-skimage:
+- ${ROS_UNRESOLVED_DEP-python3-skimage}
+python3-sklearn:
+- ${ROS_UNRESOLVED_DEP-python3-sklearn}
+python3-sphinx:
+- python3-sphinx@meta-ros-common
+python3-termcolor:
+- python3-termcolor@meta-python
+python3-texttable:
+- python3-texttable@meta-python
+python3-tk:
+- python3-tkinter@openembedded-core
+python3-tornado:
+- python3-tornado@meta-python
+python3-twisted:
+- python3-twisted@meta-python
+python3-usb:
+- python3-pyusb@meta-python
+python3-venv:
+- ${ROS_UNRESOLVED_DEP-python3-venv}
+python3-websocket:
+- python3-websockets@meta-python
+python3-wxgtk4.0:
+- ${ROS_UNRESOLVED_DEP-python3-wxgtk4.0}
+python3-yaml:
+- python3-pyyaml@meta-python
+qt5-qmake:
+- qtbase@meta-qt5
+qtbase5-dev:
+- qtbase@meta-qt5
+roseus:
+- ${ROS_UNRESOLVED_DEP-roseus}
+rsync:
+- rsync@openembedded-core
+sbcl:
+- ${ROS_UNRESOLVED_DEP-sbcl}
+screen:
+- screen@openembedded-core
+sdl:
+- libsdl@openembedded-core
+sdl-image:
+- libsdl-image@meta-oe
+sshpass:
+- ${ROS_UNRESOLVED_DEP-sshpass}
+subversion:
+- subversion@openembedded-core
+suitesparse:
+- suitesparse-cholmod@meta-ros-common
+- suitesparse-cxsparse@meta-ros-common
+sysstat:
+- sysstat@openembedded-core
+tango-icon-theme:
+- adwaita-icon-theme@openembedded-core
+tbb:
+- tbb@meta-oe
+time:
+- time@openembedded-core
+tinyxml:
+- libtinyxml@meta-oe
+tinyxml2:
+- libtinyxml2@meta-oe
+unzip:
+- unzip@openembedded-core
+usbutils:
+- usbutils@openembedded-core
+uuid:
+- util-linux@openembedded-core
+v4l-utils:
+- v4l-utils@meta-oe
+virtualenv:
+- ${ROS_UNRESOLVED_DEP-virtualenv}
+vlc:
+- vlc@meta-multimedia
+wget:
+- wget@openembedded-core
+wx-common:
+- wxwidgets@meta-ros-common
+wxpython:
+- wxpython@meta-ros-python2
+wxwidgets:
+- wxwidgets@meta-ros-common
+xterm:
+- xterm@meta-oe
+yaml-cpp:
+- yaml-cpp@meta-ros-common
+zlib:
+- zlib@openembedded-core
