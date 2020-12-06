@@ -11,6 +11,8 @@ AUTHOR = "Christophe Bedard <bedard.christophe@gmail.com>"
 ROS_AUTHOR = "Christophe Bedard <fixed-term.christophe.bourquebedard@de.bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
@@ -52,9 +54,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/shr-project/ros2_tracing-release/archive/release/eloquent/ros2trace/0.2.12-1.tar.gz
+# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/eloquent/ros2trace/0.2.12-1.tar.gz
 ROS_BRANCH ?= "branch=release/eloquent/ros2trace"
-SRC_URI = "git://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f5c5d4c3674297478ea255eec41cbaaf64b5e3d9"
 S = "${WORKDIR}/git"
 
