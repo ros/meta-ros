@@ -20,8 +20,8 @@ ROS_BUILD_DEPENDS = " \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_java-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_maven-native} \
+    ${ROS_UNRESOLVED_DEP-java-native} \
+    ${ROS_UNRESOLVED_DEP-maven-native} \
     cmake-native \
 "
 
@@ -37,7 +37,7 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
+    ${ROS_UNRESOLVED_DEP-libcunit-dev} \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
