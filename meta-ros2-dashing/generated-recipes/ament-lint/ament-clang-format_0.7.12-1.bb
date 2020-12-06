@@ -24,7 +24,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format} \
+    ${ROS_UNRESOLVED_DEP-clang-format} \
     python3-pyyaml \
 "
 

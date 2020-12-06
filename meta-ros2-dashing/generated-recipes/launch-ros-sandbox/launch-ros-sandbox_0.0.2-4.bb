@@ -16,7 +16,7 @@ ROS_CN = "launch_ros_sandbox"
 ROS_BPN = "launch_ros_sandbox"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-docker} \
+    ${ROS_UNRESOLVED_DEP-python3-docker} \
     launch \
     launch-ros \
 "
@@ -24,7 +24,7 @@ ROS_BUILD_DEPENDS = " \
 ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-docker} \
+    ${ROS_UNRESOLVED_DEP-python3-docker} \
     launch \
     launch-ros \
 "
@@ -32,7 +32,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-docker} \
+    ${ROS_UNRESOLVED_DEP-python3-docker} \
     launch \
     launch-ros \
 "

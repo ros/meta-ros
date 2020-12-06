@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+14.g1995657"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+15.g905b03f"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros2"
@@ -1817,8 +1817,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
 # include those found in the ROS_EXEC_DEPENDS values in the recipes of build tools.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_DASHING = " \
     ${PYTHON_PN}-virtualenv-native \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
+    ${ROS_UNRESOLVED_DEP-libopensplice69-native} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native} \
     ament-clang-format-native \
     ament-clang-tidy-native \
     ament-cmake-auto-native \
@@ -1913,30 +1913,28 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${PYTHON_PN}-tkinter \
     ${PYTHON_PN}-virtualenv \
     ${PYTHON_PN}-virtualenv-native \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_pugixml-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-docker} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify} \
+    ${ROS_UNRESOLVED_DEP-clang-format} \
+    ${ROS_UNRESOLVED_DEP-clang-tidy} \
+    ${ROS_UNRESOLVED_DEP-gurumdds-2.6} \
+    ${ROS_UNRESOLVED_DEP-libcunit-dev} \
+    ${ROS_UNRESOLVED_DEP-libgazebo9-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
+    ${ROS_UNRESOLVED_DEP-libopensplice69-native} \
+    ${ROS_UNRESOLVED_DEP-libopensplice69} \
+    ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenvdb} \
+    ${ROS_UNRESOLVED_DEP-libqglviewer-qt4-dev} \
+    ${ROS_UNRESOLVED_DEP-libqglviewer-qt4} \
+    ${ROS_UNRESOLVED_DEP-libqt4-dev} \
+    ${ROS_UNRESOLVED_DEP-libqt4-opengl-dev} \
+    ${ROS_UNRESOLVED_DEP-libqt4-opengl} \
+    ${ROS_UNRESOLVED_DEP-libqtgui4} \
+    ${ROS_UNRESOLVED_DEP-python3-docker} \
+    ${ROS_UNRESOLVED_DEP-qttools5-dev-tools} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1} \
+    ${ROS_UNRESOLVED_DEP-uncrustify} \
+    adwaita-icon-theme \
     asio \
     assimp \
     boost \
@@ -2005,6 +2003,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     poco \
     proj \
     protobuf \
+    pugixml \
     python3-boto3 \
     python3-catkin-pkg \
     python3-catkin-pkg-native \
@@ -2034,6 +2033,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     python3-pytest-native \
     python3-pyyaml \
     python3-pyyaml-native \
+    python3-requests \
     python3-rospkg \
     python3-rospkg-native \
     python3-setuptools \
@@ -2059,8 +2059,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
 
 # Packages found only in <test_depend> items. Does not include those found only in the ROS_*_DEPENDS of recipes of tests.
 ROS_SUPERFLORE_GENERATED_TESTS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests} \
+    ${ROS_UNRESOLVED_DEP-libcunit-dev} \
     ament-copyright \
     ament-flake8 \
     ament-pep257 \
@@ -2073,6 +2072,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     python3-nose-yanc \
     python3-pygraphviz \
     python3-pytest \
+    python3-requests \
     python3-websockets \
     ros-testing \
     ros2bag \
@@ -2311,30 +2311,27 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
 
 # Platform packages without a OE-RECIPE@OE-LAYER mapping in base.yaml, python.yaml, or ruby.yaml. Until they are added, override
 # the settings in ros-distro.inc .
-ROS_UNRESOLVED_PLATFORM_PKG_clang-format = "UNRESOLVED-clang-format"
-ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "UNRESOLVED-clang-tidy"
-ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6 = "UNRESOLVED-gurumdds-2.6"
-ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev = "UNRESOLVED-libcunit-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libgazebo9-dev = "UNRESOLVED-libgazebo9-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev = "UNRESOLVED-libopenexr-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69 = "UNRESOLVED-libopensplice69"
-ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native = "UNRESOLVED-libopensplice69-native"
-ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb = "UNRESOLVED-libopenvdb"
-ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev = "UNRESOLVED-libopenvdb-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4 = "UNRESOLVED-libqglviewer-qt4"
-ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev = "UNRESOLVED-libqglviewer-qt4-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev = "UNRESOLVED-libqt4-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl = "UNRESOLVED-libqt4-opengl"
-ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev = "UNRESOLVED-libqt4-opengl-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4 = "UNRESOLVED-libqtgui4"
-ROS_UNRESOLVED_PLATFORM_PKG_pugixml-dev = "UNRESOLVED-pugixml-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-docker = "UNRESOLVED-python3-docker"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-requests = "UNRESOLVED-python3-requests"
-ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools = "UNRESOLVED-qttools5-dev-tools"
-ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = "UNRESOLVED-rti-connext-dds-5.3.1"
-ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = "UNRESOLVED-rti-connext-dds-5.3.1-native"
-ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "UNRESOLVED-tango-icon-theme"
-ROS_UNRESOLVED_PLATFORM_PKG_uncrustify = "UNRESOLVED-uncrustify"
+ROS_UNRESOLVED_DEP-clang-format = "ROS_UNRESOLVED_DEP-clang-format"
+ROS_UNRESOLVED_DEP-clang-tidy = "ROS_UNRESOLVED_DEP-clang-tidy"
+ROS_UNRESOLVED_DEP-gurumdds-2.6 = "ROS_UNRESOLVED_DEP-gurumdds-2.6"
+ROS_UNRESOLVED_DEP-libcunit-dev = "ROS_UNRESOLVED_DEP-libcunit-dev"
+ROS_UNRESOLVED_DEP-libgazebo9-dev = "ROS_UNRESOLVED_DEP-libgazebo9-dev"
+ROS_UNRESOLVED_DEP-libopenexr-dev = "ROS_UNRESOLVED_DEP-libopenexr-dev"
+ROS_UNRESOLVED_DEP-libopensplice69 = "ROS_UNRESOLVED_DEP-libopensplice69"
+ROS_UNRESOLVED_DEP-libopensplice69-native = "ROS_UNRESOLVED_DEP-libopensplice69-native"
+ROS_UNRESOLVED_DEP-libopenvdb = "ROS_UNRESOLVED_DEP-libopenvdb"
+ROS_UNRESOLVED_DEP-libopenvdb-dev = "ROS_UNRESOLVED_DEP-libopenvdb-dev"
+ROS_UNRESOLVED_DEP-libqglviewer-qt4 = "ROS_UNRESOLVED_DEP-libqglviewer-qt4"
+ROS_UNRESOLVED_DEP-libqglviewer-qt4-dev = "ROS_UNRESOLVED_DEP-libqglviewer-qt4-dev"
+ROS_UNRESOLVED_DEP-libqt4-dev = "ROS_UNRESOLVED_DEP-libqt4-dev"
+ROS_UNRESOLVED_DEP-libqt4-opengl = "ROS_UNRESOLVED_DEP-libqt4-opengl"
+ROS_UNRESOLVED_DEP-libqt4-opengl-dev = "ROS_UNRESOLVED_DEP-libqt4-opengl-dev"
+ROS_UNRESOLVED_DEP-libqtgui4 = "ROS_UNRESOLVED_DEP-libqtgui4"
+ROS_UNRESOLVED_DEP-python3-docker = "ROS_UNRESOLVED_DEP-python3-docker"
+ROS_UNRESOLVED_DEP-qttools5-dev-tools = "ROS_UNRESOLVED_DEP-qttools5-dev-tools"
+ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1 = "ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1"
+ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native = "ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native"
+ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
