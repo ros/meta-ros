@@ -17,7 +17,7 @@ ROS_CN = "dataspeed_pds"
 ROS_BPN = "dataspeed_pds_lcm"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_liblcm-dev} \
+    ${ROS_UNRESOLVED_DEP-liblcm-dev} \
     dataspeed-pds-msgs \
     message-filters \
     nodelet \
@@ -38,7 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_liblcm} \
+    ${ROS_UNRESOLVED_DEP-liblcm} \
     dataspeed-pds-msgs \
     message-filters \
     nodelet \

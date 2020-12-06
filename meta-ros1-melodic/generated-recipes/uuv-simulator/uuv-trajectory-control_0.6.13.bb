@@ -29,7 +29,7 @@ ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-matplotlib \
     ${PYTHON_PN}-numpy \
     ${PYTHON_PN}-pyyaml \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-scipy} \
+    ${ROS_UNRESOLVED_DEP-python-scipy} \
     geometry-msgs \
     nav-msgs \
     roslib \

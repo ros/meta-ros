@@ -17,7 +17,7 @@ ROS_CN = "cob_gazebo_plugins"
 ROS_BPN = "cob_gazebo_ros_control"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     controller-manager \
     gazebo-ros \
     gazebo-ros-control \
@@ -34,7 +34,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     controller-manager \
     gazebo-ros \
     gazebo-ros-control \
@@ -49,7 +49,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     controller-manager \
     gazebo-ros \
     gazebo-ros-control \

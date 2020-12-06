@@ -39,8 +39,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-six \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ipython} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygraphviz} \
+    ${ROS_UNRESOLVED_DEP-ipython} \
+    ${ROS_UNRESOLVED_DEP-python-pygraphviz} \
     actionlib \
     actionlib-msgs \
     cob-actions \

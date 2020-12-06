@@ -18,9 +18,8 @@ ROS_BPN = "hrpsys_ros_bridge"
 
 ROS_BUILD_DEPENDS = " \
     ${PYTHON_PN}-rosdep \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_hostname} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_net-tools} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_procps} \
+    ${ROS_UNRESOLVED_DEP-hostname} \
+    ${ROS_UNRESOLVED_DEP-net-tools} \
     actionlib \
     angles \
     camera-info-manager \
@@ -41,6 +40,7 @@ ROS_BUILD_DEPENDS = " \
     pkgconfig \
     pr2-controllers-msgs \
     pr2-msgs \
+    procps \
     robot-pose-ekf \
     robot-state-publisher \
     rosbuild \
@@ -65,7 +65,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${PYTHON_PN}-psutil \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ipython} \
+    ${ROS_UNRESOLVED_DEP-ipython} \
     actionlib \
     camera-info-manager \
     collada-urdf \
@@ -99,7 +99,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-psutil \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ipython} \
+    ${ROS_UNRESOLVED_DEP-ipython} \
     actionlib \
     camera-info-manager \
     collada-urdf \

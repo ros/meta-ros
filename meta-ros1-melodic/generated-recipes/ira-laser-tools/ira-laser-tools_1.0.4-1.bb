@@ -16,7 +16,7 @@ ROS_CN = "ira_laser_tools"
 ROS_BPN = "ira_laser_tools"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     laser-geometry \
     pcl \
     pcl-ros \
@@ -31,7 +31,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     laser-geometry \
     pcl \
     pcl-ros \
@@ -44,7 +44,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     laser-geometry \
     pcl \
     pcl-ros \

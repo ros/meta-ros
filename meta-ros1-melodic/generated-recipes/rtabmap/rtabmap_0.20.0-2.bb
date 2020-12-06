@@ -17,8 +17,8 @@ ROS_CN = "rtabmap"
 ROS_BPN = "rtabmap"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libopenni-dev} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     cv-bridge \
     libfreenect \
     libg2o \
@@ -35,8 +35,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libopenni-dev} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     cv-bridge \
     libfreenect \
     libg2o \
@@ -50,8 +50,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libopenni-dev} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     cv-bridge \
     libfreenect \
     libg2o \

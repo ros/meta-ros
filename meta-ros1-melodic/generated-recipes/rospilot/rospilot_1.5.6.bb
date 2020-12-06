@@ -16,12 +16,12 @@ ROS_CN = "rospilot"
 ROS_BPN = "rospilot"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libmicrohttpd} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libnl-3-dev} \
     ffmpeg \
     geometry-msgs \
     libgphoto2 \
     libjpeg-turbo \
+    libmicrohttpd \
+    libnl \
     message-generation \
     opencv \
     roscpp \
@@ -38,19 +38,19 @@ ROS_BUILDTOOL_DEPENDS = " \
 ROS_EXPORT_DEPENDS = " \
     ${PYTHON_PN}-psutil \
     ${PYTHON_PN}-pyserial \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gdal-bin} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_hostapd} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libnl-3} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_mapnik-utils} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_osm2pgsql} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_postgresql-postgis} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-cherrypy} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-colorama} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-mapnik} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tilestache} \
+    ${ROS_UNRESOLVED_DEP-gdal-bin} \
+    ${ROS_UNRESOLVED_DEP-mapnik-utils} \
+    ${ROS_UNRESOLVED_DEP-osm2pgsql} \
+    ${ROS_UNRESOLVED_DEP-postgresql-postgis} \
+    ${ROS_UNRESOLVED_DEP-python-cherrypy} \
+    ${ROS_UNRESOLVED_DEP-python-colorama} \
+    ${ROS_UNRESOLVED_DEP-python-mapnik} \
+    ${ROS_UNRESOLVED_DEP-python-tilestache} \
     curl \
+    dnsmasq \
     geometry-msgs \
+    hostapd \
+    libnl \
     mavlink \
     message-runtime \
     rosbash \
@@ -70,19 +70,19 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-psutil \
     ${PYTHON_PN}-pyserial \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_dnsmasq} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gdal-bin} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_hostapd} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libnl-3} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_mapnik-utils} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_osm2pgsql} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_postgresql-postgis} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-cherrypy} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-colorama} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-mapnik} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tilestache} \
+    ${ROS_UNRESOLVED_DEP-gdal-bin} \
+    ${ROS_UNRESOLVED_DEP-mapnik-utils} \
+    ${ROS_UNRESOLVED_DEP-osm2pgsql} \
+    ${ROS_UNRESOLVED_DEP-postgresql-postgis} \
+    ${ROS_UNRESOLVED_DEP-python-cherrypy} \
+    ${ROS_UNRESOLVED_DEP-python-colorama} \
+    ${ROS_UNRESOLVED_DEP-python-mapnik} \
+    ${ROS_UNRESOLVED_DEP-python-tilestache} \
     curl \
+    dnsmasq \
     geometry-msgs \
+    hostapd \
+    libnl \
     mavlink \
     message-runtime \
     rosbash \

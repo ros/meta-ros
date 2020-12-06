@@ -28,7 +28,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-termcolor} \
+    ${ROS_UNRESOLVED_DEP-python-termcolor} \
     baldor \
     cv-bridge \
     geometry-msgs \

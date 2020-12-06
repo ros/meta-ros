@@ -18,8 +18,8 @@ ROS_BPN = "wiimote"
 
 ROS_BUILD_DEPENDS = " \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_cwiid-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid} \
+    ${ROS_UNRESOLVED_DEP-cwiid-dev} \
+    ${ROS_UNRESOLVED_DEP-python-cwiid} \
     geometry-msgs \
     message-generation \
     roscpp \
@@ -37,7 +37,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid} \
+    ${ROS_UNRESOLVED_DEP-python-cwiid} \
     geometry-msgs \
     roscpp \
     roslib \
@@ -51,8 +51,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_cwiid} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-cwiid} \
+    ${ROS_UNRESOLVED_DEP-cwiid} \
+    ${ROS_UNRESOLVED_DEP-python-cwiid} \
     geometry-msgs \
     message-runtime \
     roscpp \

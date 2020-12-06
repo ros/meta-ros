@@ -26,7 +26,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize} \
+    ${ROS_UNRESOLVED_DEP-python-mechanize} \
     geometry-msgs \
     message-runtime \
     nav-msgs \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize} \
+    ${ROS_UNRESOLVED_DEP-python-mechanize} \
     geometry-msgs \
     message-runtime \
     nav-msgs \

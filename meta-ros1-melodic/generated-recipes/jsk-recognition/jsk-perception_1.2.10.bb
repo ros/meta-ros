@@ -54,13 +54,12 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${PYTHON_PN}-pyyaml \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_leveldb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainer-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainercv-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-dlib} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-fcn-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-h5py} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-sklearn} \
+    ${ROS_UNRESOLVED_DEP-python-chainer-pip} \
+    ${ROS_UNRESOLVED_DEP-python-chainercv-pip} \
+    ${ROS_UNRESOLVED_DEP-python-dlib} \
+    ${ROS_UNRESOLVED_DEP-python-fcn-pip} \
+    ${ROS_UNRESOLVED_DEP-python-h5py} \
+    ${ROS_UNRESOLVED_DEP-python-sklearn} \
     angles \
     cv-bridge \
     dynamic-reconfigure \
@@ -75,6 +74,7 @@ ROS_EXPORT_DEPENDS = " \
     jsk-recognition-msgs \
     jsk-recognition-utils \
     jsk-topic-tools \
+    leveldb \
     libcmt \
     libeigen \
     message-runtime \
@@ -104,13 +104,12 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-pyyaml \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_leveldb} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainer-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainercv-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-dlib} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-fcn-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-h5py} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-sklearn} \
+    ${ROS_UNRESOLVED_DEP-python-chainer-pip} \
+    ${ROS_UNRESOLVED_DEP-python-chainercv-pip} \
+    ${ROS_UNRESOLVED_DEP-python-dlib} \
+    ${ROS_UNRESOLVED_DEP-python-fcn-pip} \
+    ${ROS_UNRESOLVED_DEP-python-h5py} \
+    ${ROS_UNRESOLVED_DEP-python-sklearn} \
     angles \
     cv-bridge \
     dynamic-reconfigure \
@@ -125,6 +124,7 @@ ROS_EXEC_DEPENDS = " \
     jsk-recognition-msgs \
     jsk-recognition-utils \
     jsk-topic-tools \
+    leveldb \
     libcmt \
     libeigen \
     message-runtime \

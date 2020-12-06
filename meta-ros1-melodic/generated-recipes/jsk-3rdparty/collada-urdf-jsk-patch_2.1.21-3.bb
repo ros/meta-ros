@@ -17,8 +17,8 @@ ROS_CN = "jsk_3rdparty"
 ROS_BPN = "collada_urdf_jsk_patch"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgts} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-tools} \
+    ${PYTHON_PN}-catkin-tools \
+    ${ROS_UNRESOLVED_DEP-libgts} \
     angles \
     assimp-devel \
     class-loader \
@@ -47,8 +47,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgts} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-tools} \
+    ${PYTHON_PN}-catkin-tools \
+    ${ROS_UNRESOLVED_DEP-libgts} \
     angles \
     assimp-devel \
     class-loader \

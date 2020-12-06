@@ -27,8 +27,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-gtk2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygraphviz} \
+    ${ROS_UNRESOLVED_DEP-python-gtk2} \
+    ${ROS_UNRESOLVED_DEP-python-pygraphviz} \
     cob-msgs \
     cob-script-server \
     roslib \

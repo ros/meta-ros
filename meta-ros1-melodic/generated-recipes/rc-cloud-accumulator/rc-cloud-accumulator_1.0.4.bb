@@ -17,7 +17,7 @@ ROS_CN = "rc_cloud_accumulator"
 ROS_BPN = "rc_cloud_accumulator"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     geometry-msgs \
     nav-msgs \
     pcl \
@@ -34,7 +34,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     geometry-msgs \
     nav-msgs \
     pcl \
@@ -49,7 +49,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     geometry-msgs \
     nav-msgs \
     pcl \

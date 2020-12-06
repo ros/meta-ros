@@ -23,9 +23,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-venv} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_virtualenv} \
+    ${ROS_UNRESOLVED_DEP-python-dev} \
+    ${ROS_UNRESOLVED_DEP-python3-venv} \
+    ${ROS_UNRESOLVED_DEP-virtualenv} \
     python3 \
     python3-nose \
     python3-rospkg \

@@ -17,7 +17,7 @@ ROS_CN = "rotors_simulator"
 ROS_BPN = "rotors_gazebo_plugins"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     cmake-modules \
     cv-bridge \
     gazebo-plugins \
@@ -44,7 +44,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     cmake-modules \
     cv-bridge \
     gazebo-plugins \
@@ -69,7 +69,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     cmake-modules \
     cv-bridge \
     gazebo-plugins \

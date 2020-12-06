@@ -17,7 +17,7 @@ ROS_CN = "navigation"
 ROS_BPN = "navfn"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_netpbm} \
+    ${ROS_UNRESOLVED_DEP-netpbm} \
     cmake-modules \
     costmap-2d \
     geometry-msgs \

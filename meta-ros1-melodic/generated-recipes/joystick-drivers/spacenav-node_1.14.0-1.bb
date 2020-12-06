@@ -17,7 +17,7 @@ ROS_CN = "joystick_drivers"
 ROS_BPN = "spacenav_node"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libspnav-dev} \
+    ${ROS_UNRESOLVED_DEP-libspnav-dev} \
     geometry-msgs \
     libx11 \
     roscpp \
@@ -30,7 +30,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libspnav-dev} \
+    ${ROS_UNRESOLVED_DEP-libspnav-dev} \
     geometry-msgs \
     libx11 \
     roscpp \
@@ -40,8 +40,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libspnav-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_spacenavd} \
+    ${ROS_UNRESOLVED_DEP-libspnav-dev} \
+    ${ROS_UNRESOLVED_DEP-spacenavd} \
     geometry-msgs \
     libx11 \
     roscpp \

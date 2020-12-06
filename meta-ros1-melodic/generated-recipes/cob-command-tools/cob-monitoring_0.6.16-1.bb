@@ -35,25 +35,25 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-paramiko \
     ${PYTHON_PN}-psutil \
     ${PYTHON_PN}-requests \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ifstat} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ipmitool} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ntpdate} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_paramiko} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-mechanize} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_sysstat} \
+    ${ROS_UNRESOLVED_DEP-ifstat} \
+    ${ROS_UNRESOLVED_DEP-ntpdate} \
+    ${ROS_UNRESOLVED_DEP-python-mechanize} \
     actionlib \
     cob-light \
     cob-msgs \
     cob-script-server \
     diagnostic-msgs \
     diagnostic-updater \
+    ipmitool \
     roscpp \
     rospy \
     rostopic \
     sensor-msgs \
     std-msgs \
+    sysstat \
     topic-tools \
 "
 

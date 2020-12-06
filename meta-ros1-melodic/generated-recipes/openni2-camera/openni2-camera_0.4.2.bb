@@ -17,7 +17,7 @@ ROS_CN = "openni2_camera"
 ROS_BPN = "openni2_camera"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni2-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     camera-info-manager \
     dynamic-reconfigure \
     image-transport \
@@ -32,7 +32,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni2-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     camera-info-manager \
     dynamic-reconfigure \
     image-transport \
@@ -45,7 +45,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenni2-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     camera-info-manager \
     dynamic-reconfigure \
     image-transport \
