@@ -17,9 +17,9 @@ ROS_CN = "octomap"
 ROS_BPN = "octovis"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl-dev} \
+    ${ROS_UNRESOLVED_DEP-libqglviewer-qt4-dev} \
+    ${ROS_UNRESOLVED_DEP-libqt4-dev} \
+    ${ROS_UNRESOLVED_DEP-libqt4-opengl-dev} \
     octomap \
 "
 
@@ -32,9 +32,9 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer-qt4} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-opengl} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqtgui4} \
+    ${ROS_UNRESOLVED_DEP-libqglviewer-qt4} \
+    ${ROS_UNRESOLVED_DEP-libqt4-opengl} \
+    ${ROS_UNRESOLVED_DEP-libqtgui4} \
     octomap \
 "
 

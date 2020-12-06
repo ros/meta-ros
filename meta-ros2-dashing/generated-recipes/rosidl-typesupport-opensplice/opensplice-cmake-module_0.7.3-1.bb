@@ -16,7 +16,7 @@ ROS_CN = "rosidl_typesupport_opensplice"
 ROS_BPN = "opensplice_cmake_module"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69} \
+    ${ROS_UNRESOLVED_DEP-libopensplice69} \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

@@ -16,7 +16,7 @@ ROS_CN = "rmw_opensplice"
 ROS_BPN = "rmw_opensplice_cpp"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69} \
+    ${ROS_UNRESOLVED_DEP-libopensplice69} \
     rcpputils \
     rcutils \
     rmw \
@@ -34,7 +34,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69} \
+    ${ROS_UNRESOLVED_DEP-libopensplice69} \
     rosidl-generator-c \
     rosidl-generator-cpp \
     rosidl-typesupport-opensplice-c \

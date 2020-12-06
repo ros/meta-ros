@@ -16,7 +16,7 @@ ROS_CN = "rosidl_typesupport_connext"
 ROS_BPN = "connext_cmake_module"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1} \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
