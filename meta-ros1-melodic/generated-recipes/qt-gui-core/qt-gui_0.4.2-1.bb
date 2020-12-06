@@ -32,7 +32,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-rospkg \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme} \
+    adwaita-icon-theme \
     python-qt-binding \
 "
 

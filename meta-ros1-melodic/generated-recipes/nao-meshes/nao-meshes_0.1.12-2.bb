@@ -17,7 +17,7 @@ ROS_CN = "nao_meshes"
 ROS_BPN = "nao_meshes"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_java} \
+    ${ROS_UNRESOLVED_DEP-java} \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

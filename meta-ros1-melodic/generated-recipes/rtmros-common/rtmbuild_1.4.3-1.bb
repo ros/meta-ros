@@ -17,7 +17,7 @@ ROS_CN = "rtmros_common"
 ROS_BPN = "rtmbuild"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb} \
+    ${ROS_UNRESOLVED_DEP-omniorb} \
     cmake-modules \
     message-generation \
     openrtm-aist \
@@ -32,7 +32,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb} \
+    ${ROS_UNRESOLVED_DEP-omniorb} \
     cmake-modules \
     lapack \
     message-generation \
@@ -48,7 +48,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb} \
+    ${ROS_UNRESOLVED_DEP-omniorb} \
     cmake-modules \
     lapack \
     message-generation \

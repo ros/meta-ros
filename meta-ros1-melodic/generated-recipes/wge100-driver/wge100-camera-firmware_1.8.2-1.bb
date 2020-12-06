@@ -17,7 +17,7 @@ ROS_CN = "wge100_driver"
 ROS_BPN = "wge100_camera_firmware"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gforth} \
+    ${ROS_UNRESOLVED_DEP-gforth} \
     rospy \
 "
 
@@ -26,14 +26,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gforth} \
+    ${ROS_UNRESOLVED_DEP-gforth} \
     rospy \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gforth} \
+    ${ROS_UNRESOLVED_DEP-gforth} \
     rospy \
 "
 

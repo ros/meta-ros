@@ -17,7 +17,7 @@ ROS_CN = "vision_visp"
 ROS_BPN = "visp_auto_tracker"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
+    ${ROS_UNRESOLVED_DEP-libdmtx-dev} \
     geometry-msgs \
     message-filters \
     resource-retriever \
@@ -35,7 +35,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
+    ${ROS_UNRESOLVED_DEP-libdmtx-dev} \
     geometry-msgs \
     message-filters \
     resource-retriever \
@@ -51,7 +51,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
+    ${ROS_UNRESOLVED_DEP-libdmtx-dev} \
     geometry-msgs \
     message-filters \
     resource-retriever \

@@ -26,7 +26,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-dialogflow-pip} \
+    ${ROS_UNRESOLVED_DEP-python-dialogflow-pip} \
     app-manager \
     message-runtime \
 "
@@ -34,7 +34,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-dialogflow-pip} \
+    ${ROS_UNRESOLVED_DEP-python-dialogflow-pip} \
     app-manager \
     message-runtime \
 "

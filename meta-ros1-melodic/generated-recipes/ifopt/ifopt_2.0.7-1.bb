@@ -17,7 +17,7 @@ ROS_CN = "ifopt"
 ROS_BPN = "ifopt"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev} \
+    ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev} \
     libeigen \
 "
 
@@ -26,14 +26,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev} \
+    ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev} \
     libeigen \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev} \
+    ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev} \
     catkin \
     libeigen \
 "

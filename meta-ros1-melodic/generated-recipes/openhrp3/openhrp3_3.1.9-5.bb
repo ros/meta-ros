@@ -17,9 +17,9 @@ ROS_CN = "openhrp3"
 ROS_BPN = "openhrp3"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_atlas} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_f2c} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
+    ${ROS_UNRESOLVED_DEP-atlas} \
+    ${ROS_UNRESOLVED_DEP-f2c} \
+    ${ROS_UNRESOLVED_DEP-python-omniorb} \
     boost \
     collada-dom \
     doxygen \
@@ -36,9 +36,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_atlas} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_f2c} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
+    ${ROS_UNRESOLVED_DEP-atlas} \
+    ${ROS_UNRESOLVED_DEP-f2c} \
+    ${ROS_UNRESOLVED_DEP-python-omniorb} \
     boost \
     collada-dom \
     jpeg \
@@ -51,9 +51,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_atlas} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_f2c} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
+    ${ROS_UNRESOLVED_DEP-atlas} \
+    ${ROS_UNRESOLVED_DEP-f2c} \
+    ${ROS_UNRESOLVED_DEP-python-omniorb} \
     boost \
     collada-dom \
     jpeg \

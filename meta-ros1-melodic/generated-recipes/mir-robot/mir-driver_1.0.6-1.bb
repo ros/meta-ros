@@ -17,7 +17,6 @@ ROS_CN = "mir_robot"
 ROS_BPN = "mir_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-websockets \
     actionlib-msgs \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -26,6 +25,7 @@ ROS_BUILD_DEPENDS = " \
     mir-msgs \
     move-base-msgs \
     nav-msgs \
+    python3-websockets \
     rosgraph-msgs \
     roslaunch \
     rospy \
@@ -41,7 +41,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-websockets \
     actionlib-msgs \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -50,6 +49,7 @@ ROS_EXPORT_DEPENDS = " \
     mir-msgs \
     move-base-msgs \
     nav-msgs \
+    python3-websockets \
     rosgraph-msgs \
     rospy \
     rospy-message-converter \
@@ -62,7 +62,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-websockets \
     actionlib-msgs \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -72,6 +71,7 @@ ROS_EXEC_DEPENDS = " \
     mir-msgs \
     move-base-msgs \
     nav-msgs \
+    python3-websockets \
     robot-state-publisher \
     rosgraph-msgs \
     rospy \

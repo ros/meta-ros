@@ -17,7 +17,7 @@ ROS_CN = "openrtm_aist"
 ROS_BPN = "openrtm_aist"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb} \
+    ${ROS_UNRESOLVED_DEP-omniorb} \
     doxygen \
     python \
     util-linux \
@@ -31,7 +31,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb} \
+    ${ROS_UNRESOLVED_DEP-omniorb} \
     catkin \
     util-linux \
 "
@@ -39,7 +39,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_omniorb} \
+    ${ROS_UNRESOLVED_DEP-omniorb} \
     catkin \
     util-linux \
 "

@@ -16,7 +16,7 @@ ROS_CN = "pilz_robots"
 ROS_BPN = "pilz_utils"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy} \
+    ${ROS_UNRESOLVED_DEP-clang-tidy} \
     roscpp \
 "
 

@@ -16,7 +16,7 @@ ROS_CN = "optpp_catkin"
 ROS_BPN = "optpp_catkin"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gfortran} \
+    ${ROS_UNRESOLVED_DEP-gfortran} \
     autoconf \
     git \
 "

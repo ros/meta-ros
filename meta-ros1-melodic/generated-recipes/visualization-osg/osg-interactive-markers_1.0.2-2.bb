@@ -17,7 +17,7 @@ ROS_CN = "visualization_osg"
 ROS_BPN = "osg_interactive_markers"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
+    ${ROS_UNRESOLVED_DEP-libopenscenegraph} \
     interactive-markers \
     osg-markers \
     osg-utils \
@@ -31,7 +31,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
+    ${ROS_UNRESOLVED_DEP-libopenscenegraph} \
     interactive-markers \
     osg-markers \
     osg-utils \
@@ -43,7 +43,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
+    ${ROS_UNRESOLVED_DEP-libopenscenegraph} \
     interactive-markers \
     osg-markers \
     osg-utils \

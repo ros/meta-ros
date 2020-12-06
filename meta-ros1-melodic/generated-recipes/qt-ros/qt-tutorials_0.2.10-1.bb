@@ -17,7 +17,7 @@ ROS_CN = "qt_ros"
 ROS_BPN = "qt_tutorials"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
+    ${ROS_UNRESOLVED_DEP-libqt4-dev} \
     message-generation \
     qt-build \
     roscpp \
@@ -29,7 +29,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
+    ${ROS_UNRESOLVED_DEP-libqt4-dev} \
     message-runtime \
     qt-build \
     roscpp \
@@ -39,7 +39,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
+    ${ROS_UNRESOLVED_DEP-libqt4-dev} \
     message-runtime \
     qt-build \
     roscpp \

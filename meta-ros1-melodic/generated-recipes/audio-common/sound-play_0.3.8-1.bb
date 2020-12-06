@@ -36,7 +36,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-gi} \
+    ${ROS_UNRESOLVED_DEP-python-gi} \
     actionlib-msgs \
     audio-common-msgs \
     diagnostic-msgs \

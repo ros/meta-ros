@@ -16,9 +16,9 @@ ROS_CN = "knowledge_representation"
 ROS_BPN = "knowledge_representation"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-dev} \
+    ${ROS_UNRESOLVED_DEP-libpqxx-dev} \
+    ${ROS_UNRESOLVED_DEP-libpqxx} \
+    ${ROS_UNRESOLVED_DEP-python-dev} \
     boost \
     postgresql \
     roslint \
@@ -29,9 +29,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-dev} \
+    ${ROS_UNRESOLVED_DEP-libpqxx-dev} \
+    ${ROS_UNRESOLVED_DEP-libpqxx} \
+    ${ROS_UNRESOLVED_DEP-python-dev} \
     boost \
     postgresql \
 "
@@ -40,9 +40,9 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-pillow \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpqxx} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-dev} \
+    ${ROS_UNRESOLVED_DEP-libpqxx-dev} \
+    ${ROS_UNRESOLVED_DEP-libpqxx} \
+    ${ROS_UNRESOLVED_DEP-python-dev} \
     boost \
     postgresql \
     python3-pillow \

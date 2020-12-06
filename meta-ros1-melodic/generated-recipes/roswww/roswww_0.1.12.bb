@@ -40,8 +40,8 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_phantomjs} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-selenium-pip} \
+    ${ROS_UNRESOLVED_DEP-phantomjs} \
+    ${ROS_UNRESOLVED_DEP-python-selenium-pip} \
     rostest \
 "
 

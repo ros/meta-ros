@@ -43,7 +43,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     gazebo-ros \
     geometry-msgs \
     nav-msgs \

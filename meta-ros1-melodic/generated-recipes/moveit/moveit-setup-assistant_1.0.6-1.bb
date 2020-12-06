@@ -17,10 +17,10 @@ ROS_CN = "moveit"
 ROS_BPN = "moveit_setup_assistant"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
     moveit-core \
     moveit-ros-planning \
     moveit-ros-visualization \
+    ogre \
     qtbase \
     rosconsole \
     roscpp \

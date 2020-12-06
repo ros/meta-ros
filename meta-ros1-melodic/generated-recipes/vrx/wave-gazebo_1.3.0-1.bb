@@ -17,7 +17,7 @@ ROS_CN = "vrx"
 ROS_BPN = "wave_gazebo"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ruby} \
+    ${ROS_UNRESOLVED_DEP-ruby} \
     xacro \
 "
 
