@@ -17,7 +17,7 @@ ROS_CN = "pr2_simulator"
 ROS_BPN = "pr2_gazebo"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     gazebo-plugins \
     pr2-gazebo-plugins \
 "
@@ -27,7 +27,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     diagnostic-aggregator \
     fingertip-pressure \
     gazebo-plugins \
@@ -60,7 +60,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     diagnostic-aggregator \
     fingertip-pressure \
     gazebo-plugins \

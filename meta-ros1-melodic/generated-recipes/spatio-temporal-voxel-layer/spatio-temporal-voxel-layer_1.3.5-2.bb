@@ -16,9 +16,9 @@ ROS_CN = "spatio_temporal_voxel_layer"
 ROS_BPN = "spatio_temporal_voxel_layer"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
+    ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenvdb} \
     costmap-2d \
     dynamic-reconfigure \
     geometry-msgs \
@@ -42,9 +42,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
+    ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenvdb} \
     costmap-2d \
     dynamic-reconfigure \
     geometry-msgs \
@@ -65,9 +65,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenexr-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenvdb} \
+    ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenvdb} \
     costmap-2d \
     dynamic-reconfigure \
     geometry-msgs \

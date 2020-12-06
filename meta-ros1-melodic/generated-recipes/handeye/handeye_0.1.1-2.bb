@@ -38,7 +38,7 @@ ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-enum34 \
     ${PYTHON_PN}-matplotlib \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-scipy} \
+    ${ROS_UNRESOLVED_DEP-python-scipy} \
     baldor \
     criutils \
     geometry-msgs \

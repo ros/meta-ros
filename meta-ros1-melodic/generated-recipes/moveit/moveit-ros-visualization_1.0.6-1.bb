@@ -17,7 +17,6 @@ ROS_CN = "moveit"
 ROS_BPN = "moveit_ros_visualization"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
     class-loader \
     geometric-shapes \
     interactive-markers \
@@ -27,6 +26,7 @@ ROS_BUILD_DEPENDS = " \
     moveit-ros-robot-interaction \
     moveit-ros-warehouse \
     object-recognition-msgs \
+    ogre \
     pluginlib \
     qtbase \
     rosconsole \

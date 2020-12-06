@@ -17,7 +17,7 @@ ROS_CN = "trac_ik"
 ROS_BPN = "trac_ik_lib"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libnlopt-dev} \
+    ${ROS_UNRESOLVED_DEP-libnlopt-dev} \
     boost \
     cmake-modules \
     kdl-parser \
@@ -32,8 +32,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libnlopt-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libnlopt0} \
+    ${ROS_UNRESOLVED_DEP-libnlopt-dev} \
+    ${ROS_UNRESOLVED_DEP-libnlopt0} \
     boost \
     kdl-parser \
     roscpp \
@@ -43,8 +43,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libnlopt-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libnlopt0} \
+    ${ROS_UNRESOLVED_DEP-libnlopt-dev} \
+    ${ROS_UNRESOLVED_DEP-libnlopt0} \
     boost \
     kdl-parser \
     roscpp \

@@ -17,14 +17,13 @@ ROS_CN = "underwater_simulation"
 ROS_BPN = "uwsim"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml++-2.6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_muparser} \
+    ${ROS_UNRESOLVED_DEP-libopenscenegraph} \
+    ${ROS_UNRESOLVED_DEP-libxml++-2.6} \
+    ${ROS_UNRESOLVED_DEP-muparser} \
     boost \
     dccomms-ros \
     fftw \
     geographiclib \
-    geographiclib-tools \
     geometry-msgs \
     image-transport \
     interactive-markers \
@@ -55,14 +54,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml++-2.6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_muparser} \
+    ${ROS_UNRESOLVED_DEP-libopenscenegraph} \
+    ${ROS_UNRESOLVED_DEP-libxml++-2.6} \
+    ${ROS_UNRESOLVED_DEP-muparser} \
     boost \
     dccomms-ros \
     fftw \
     geographiclib \
-    geographiclib-tools \
     geometry-msgs \
     image-transport \
     interactive-markers \
@@ -91,14 +89,13 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libxml++-2.6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_muparser} \
+    ${ROS_UNRESOLVED_DEP-libopenscenegraph} \
+    ${ROS_UNRESOLVED_DEP-libxml++-2.6} \
+    ${ROS_UNRESOLVED_DEP-muparser} \
     boost \
     dccomms-ros \
     fftw \
     geographiclib \
-    geographiclib-tools \
     geometry-msgs \
     image-transport \
     interactive-markers \

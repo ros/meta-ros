@@ -17,9 +17,9 @@ ROS_CN = "euslisp"
 ROS_BPN = "euslisp"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpq-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-100dpi} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-75dpi} \
+    ${ROS_UNRESOLVED_DEP-libpq-dev} \
+    ${ROS_UNRESOLVED_DEP-xfonts-100dpi} \
+    ${ROS_UNRESOLVED_DEP-xfonts-75dpi} \
     cmake-modules \
     jpeg \
     libpng \
@@ -34,9 +34,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpq-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-100dpi} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-75dpi} \
+    ${ROS_UNRESOLVED_DEP-libpq-dev} \
+    ${ROS_UNRESOLVED_DEP-xfonts-100dpi} \
+    ${ROS_UNRESOLVED_DEP-xfonts-75dpi} \
     jpeg \
     libpng \
     libx11 \
@@ -47,9 +47,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libpq-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-100dpi} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_xfonts-75dpi} \
+    ${ROS_UNRESOLVED_DEP-libpq-dev} \
+    ${ROS_UNRESOLVED_DEP-xfonts-100dpi} \
+    ${ROS_UNRESOLVED_DEP-xfonts-75dpi} \
     jpeg \
     libpng \
     libx11 \

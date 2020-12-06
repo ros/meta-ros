@@ -17,10 +17,9 @@ ROS_CN = "visp"
 ROS_BPN = "visp"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcoin80-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libois-dev} \
+    ${ROS_UNRESOLVED_DEP-libcoin80-dev} \
+    ${ROS_UNRESOLVED_DEP-libdmtx-dev} \
+    ${ROS_UNRESOLVED_DEP-libois-dev} \
     bzip2 \
     doxygen \
     jpeg \
@@ -30,6 +29,7 @@ ROS_BUILD_DEPENDS = " \
     libpng \
     libx11 \
     libxml2 \
+    ogre \
     opencv \
     v4l-utils \
     zbar \
@@ -40,10 +40,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcoin80-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libois-dev} \
+    ${ROS_UNRESOLVED_DEP-libcoin80-dev} \
+    ${ROS_UNRESOLVED_DEP-libdmtx-dev} \
+    ${ROS_UNRESOLVED_DEP-libois-dev} \
     bzip2 \
     jpeg \
     lapack \
@@ -52,6 +51,7 @@ ROS_EXPORT_DEPENDS = " \
     libpng \
     libx11 \
     libxml2 \
+    ogre \
     opencv \
     v4l-utils \
     zbar \
@@ -60,10 +60,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcoin80-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libdmtx-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libois-dev} \
+    ${ROS_UNRESOLVED_DEP-libcoin80-dev} \
+    ${ROS_UNRESOLVED_DEP-libdmtx-dev} \
+    ${ROS_UNRESOLVED_DEP-libois-dev} \
     bzip2 \
     jpeg \
     lapack \
@@ -72,6 +71,7 @@ ROS_EXEC_DEPENDS = " \
     libpng \
     libx11 \
     libxml2 \
+    ogre \
     opencv \
     v4l-utils \
     zbar \

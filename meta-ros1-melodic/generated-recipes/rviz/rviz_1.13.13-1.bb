@@ -17,7 +17,6 @@ ROS_CN = "rviz"
 ROS_BPN = "rviz"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
     assimp \
     cmake-modules \
     geometry-msgs \
@@ -31,6 +30,7 @@ ROS_BUILD_DEPENDS = " \
     message-filters \
     message-generation \
     nav-msgs \
+    ogre \
     pluginlib \
     python-qt-binding \
     qtbase \
@@ -56,7 +56,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
     assimp \
     geometry-msgs \
     image-transport \
@@ -67,6 +66,7 @@ ROS_EXPORT_DEPENDS = " \
     mesa \
     message-filters \
     nav-msgs \
+    ogre \
     pluginlib \
     python-qt-binding \
     resource-retriever \
@@ -87,7 +87,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libogre-dev} \
     assimp \
     geometry-msgs \
     image-transport \
@@ -100,6 +99,7 @@ ROS_EXEC_DEPENDS = " \
     message-filters \
     message-runtime \
     nav-msgs \
+    ogre \
     pluginlib \
     python-qt-binding \
     qtbase \

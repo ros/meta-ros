@@ -32,16 +32,16 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-requests \
     ${PYTHON_PN}-rosdep \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_iproute2} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-colorama} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-percol} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-progressbar} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pygithub3} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-slacker-cli} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-tabulate-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-texttable} \
+    ${ROS_UNRESOLVED_DEP-python-colorama} \
+    ${ROS_UNRESOLVED_DEP-python-percol} \
+    ${ROS_UNRESOLVED_DEP-python-progressbar} \
+    ${ROS_UNRESOLVED_DEP-python-pygithub3} \
+    ${ROS_UNRESOLVED_DEP-python-slacker-cli} \
+    ${ROS_UNRESOLVED_DEP-python-tabulate-pip} \
+    ${ROS_UNRESOLVED_DEP-python-texttable} \
     axis-camera \
     cv-bridge \
+    iproute2 \
     jsk-gui-msgs \
     jsk-network-tools \
     jsk-topic-tools \

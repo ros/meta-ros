@@ -28,9 +28,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${PYTHON_PN}-paramiko \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-docutils} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_screen} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_xterm} \
+    ${ROS_UNRESOLVED_DEP-python-docutils} \
     default-cfg-fkie \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -46,15 +44,15 @@ ROS_EXPORT_DEPENDS = " \
     rosservice \
     rqt-gui \
     rqt-reconfigure \
+    screen \
+    xterm \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-paramiko \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-docutils} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_screen} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_xterm} \
+    ${ROS_UNRESOLVED_DEP-python-docutils} \
     default-cfg-fkie \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -70,6 +68,8 @@ ROS_EXEC_DEPENDS = " \
     rosservice \
     rqt-gui \
     rqt-reconfigure \
+    screen \
+    xterm \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

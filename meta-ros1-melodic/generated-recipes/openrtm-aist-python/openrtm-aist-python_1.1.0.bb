@@ -18,7 +18,7 @@ ROS_BPN = "openrtm_aist_python"
 
 ROS_BUILD_DEPENDS = " \
     ${PYTHON_PN}-setuptools \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
+    ${ROS_UNRESOLVED_DEP-python-omniorb} \
     doxygen \
 "
 
@@ -27,13 +27,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
+    ${ROS_UNRESOLVED_DEP-python-omniorb} \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
+    ${ROS_UNRESOLVED_DEP-python-omniorb} \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

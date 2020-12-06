@@ -25,7 +25,6 @@ ROS_BUILD_DEPENDS = " \
     eigen-conversions \
     geographic-msgs \
     geographiclib \
-    geographiclib-tools \
     geometry-msgs \
     libeigen \
     libmavconn \
@@ -54,7 +53,6 @@ ROS_EXPORT_DEPENDS = " \
     eigen-conversions \
     geographic-msgs \
     geographiclib \
-    geographiclib-tools \
     geometry-msgs \
     libeigen \
     libmavconn \

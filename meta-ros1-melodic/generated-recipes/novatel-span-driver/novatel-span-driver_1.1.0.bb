@@ -54,8 +54,8 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-impacket} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pcapy} \
+    ${ROS_UNRESOLVED_DEP-python-impacket} \
+    ${ROS_UNRESOLVED_DEP-python-pcapy} \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"

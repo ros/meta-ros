@@ -25,8 +25,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-gi-cairo} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-gi} \
+    ${ROS_UNRESOLVED_DEP-python-gi-cairo} \
+    ${ROS_UNRESOLVED_DEP-python-gi} \
     graphviz \
     gtk+3 \
     smach-msgs \
@@ -37,8 +37,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-gi-cairo} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-gi} \
+    ${ROS_UNRESOLVED_DEP-python-gi-cairo} \
+    ${ROS_UNRESOLVED_DEP-python-gi} \
     graphviz \
     gtk+3 \
     smach-msgs \

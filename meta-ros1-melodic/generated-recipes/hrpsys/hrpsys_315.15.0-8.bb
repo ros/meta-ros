@@ -18,7 +18,7 @@ ROS_BPN = "hrpsys"
 
 ROS_BUILD_DEPENDS = " \
     ${PYTHON_PN}-tkinter \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libirrlicht-dev} \
+    ${ROS_UNRESOLVED_DEP-libirrlicht-dev} \
     doxygen \
     freeglut \
     git \
@@ -40,7 +40,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${PYTHON_PN}-tkinter \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libirrlicht-dev} \
+    ${ROS_UNRESOLVED_DEP-libirrlicht-dev} \
     freeglut \
     libsdl \
     libxml2 \
@@ -54,7 +54,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-tkinter \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libirrlicht-dev} \
+    ${ROS_UNRESOLVED_DEP-libirrlicht-dev} \
     freeglut \
     libsdl \
     libxml2 \

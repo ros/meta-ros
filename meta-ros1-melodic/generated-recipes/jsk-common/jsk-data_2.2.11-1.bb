@@ -31,8 +31,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-paramiko \
     ${PYTHON_PN}-pyyaml \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-click} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-gdown-pip} \
+    ${ROS_UNRESOLVED_DEP-python-click} \
+    ${ROS_UNRESOLVED_DEP-python-gdown-pip} \
     depth-image-proc \
     dynamic-reconfigure \
     image-transport \
@@ -52,7 +52,7 @@ ROS_EXEC_DEPENDS = " \
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
     ${PYTHON_PN}-nose \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-freezegun-pip} \
+    ${ROS_UNRESOLVED_DEP-python-freezegun-pip} \
     roslaunch \
     roslint \
     rostest \

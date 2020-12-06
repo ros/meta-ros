@@ -23,7 +23,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_sbcl} \
+    ${ROS_UNRESOLVED_DEP-sbcl} \
     rosemacs \
     roslisp \
     slime-wrapper \
@@ -32,7 +32,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_sbcl} \
+    ${ROS_UNRESOLVED_DEP-sbcl} \
     rosemacs \
     roslisp \
     slime-wrapper \

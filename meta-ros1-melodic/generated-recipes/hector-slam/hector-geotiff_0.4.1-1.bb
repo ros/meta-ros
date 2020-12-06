@@ -17,7 +17,7 @@ ROS_CN = "hector_slam"
 ROS_BPN = "hector_geotiff"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
+    ${ROS_UNRESOLVED_DEP-libqt4-dev} \
     hector-map-tools \
     hector-nav-msgs \
     nav-msgs \
@@ -31,7 +31,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
+    ${ROS_UNRESOLVED_DEP-libqt4-dev} \
     hector-map-tools \
     hector-nav-msgs \
     nav-msgs \
@@ -43,7 +43,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqt4-dev} \
+    ${ROS_UNRESOLVED_DEP-libqt4-dev} \
     hector-map-tools \
     hector-nav-msgs \
     nav-msgs \

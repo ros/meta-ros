@@ -29,8 +29,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-catkin-lint} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_sshpass} \
+    ${PYTHON_PN}-catkin-lint \
+    ${ROS_UNRESOLVED_DEP-sshpass} \
     python3-argcomplete \
     roslint \
 "

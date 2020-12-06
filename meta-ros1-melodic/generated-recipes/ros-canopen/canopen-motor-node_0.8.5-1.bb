@@ -17,7 +17,7 @@ ROS_CN = "ros_canopen"
 ROS_BPN = "canopen_motor_node"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_muparser} \
+    ${ROS_UNRESOLVED_DEP-muparser} \
     canopen-402 \
     canopen-chain-node \
     canopen-master \
@@ -35,7 +35,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_muparser} \
+    ${ROS_UNRESOLVED_DEP-muparser} \
     canopen-402 \
     canopen-chain-node \
     canopen-master \
@@ -50,7 +50,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_muparser} \
+    ${ROS_UNRESOLVED_DEP-muparser} \
     canopen-402 \
     canopen-chain-node \
     canopen-master \

@@ -27,7 +27,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-imageio} \
+    ${ROS_UNRESOLVED_DEP-python-imageio} \
     cv-bridge \
     ffmpeg \
     opencv \
