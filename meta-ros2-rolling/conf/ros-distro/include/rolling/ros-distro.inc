@@ -56,7 +56,7 @@ ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 ROS_WORLD_SKIP_GROUPS += "coinor-libipopt"
 # Needs work to launch qemu to run tests on image on build machine.
 ROS_WORLD_SKIP_GROUPS += "launch"
-# recipes depending on ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace which cannot be just
+# recipes depending on ROS_UNRESOLVED_DEP-python3-babeltrace which cannot be just
 # set to babeltrace, because python bindings in babeltrace are not enabled as shown in log.do_configure:
 # configure: You may configure with --enable-python-bindings if you want Python bindings.
 ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
@@ -74,9 +74,9 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains_any('LICENSE_FLAGS_WHITELIST', ['
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'glfw', d)}"
 
 # webots recipes depending on unavailable python moules like:
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-transforms3d-pip' (but meta-ros2-rolling/generated-recipes/webots-ros2-desktop/webots-ros2-core_0.0.3-1.bb RDEPENDS on or otherwise requires it)
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-urdf2webots-pip' (but meta-ros2-rolling/generated-recipes/webots-ros2-desktop/webots-ros2-importer_0.0.3-1.bb RDEPENDS on or otherwise requires it)
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-python3-collada-pip' (but meta-ros2-rolling/generated-recipes/webots-ros2-desktop/webots-ros2-importer_0.0.3-1.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python-transforms3d-pip' (but meta-ros2-rolling/generated-recipes/webots-ros2-desktop/webots-ros2-core_0.0.3-1.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-urdf2webots-pip' (but meta-ros2-rolling/generated-recipes/webots-ros2-desktop/webots-ros2-importer_0.0.3-1.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python3-collada-pip' (but meta-ros2-rolling/generated-recipes/webots-ros2-desktop/webots-ros2-importer_0.0.3-1.bb RDEPENDS on or otherwise requires it)
 ROS_WORLD_SKIP_GROUPS += "webots-python-modules"
 
 # recipes depending on gazebo, for which there is no OE recipe
@@ -100,7 +100,6 @@ ROS_WORLD_SKIP_GROUPS += " \
 # https://raw.github.com/ros2-gbp/ros_workspace-release/release/rolling/ros_workspace/1.0.1-2/package.xml
 ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
 
-# tango-icon-theme isn't available, but adwaita-icon-theme should be compatible
-# Used by:
-# generated-recipes/qt-gui-core/qt-gui_1.0.8-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "adwaita-icon-theme"
+# Used by generated-recipes/cyclonedds/cyclonedds_0.6.0-3.bb
+ROS_UNRESOLVED_DEP-java-native = ""
+ROS_UNRESOLVED_DEP-maven-native = ""
