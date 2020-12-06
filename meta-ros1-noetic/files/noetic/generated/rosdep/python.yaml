@@ -6904,7 +6904,7 @@ python3-urllib3:
 python3-usb:
   debian: [python3-usb]
   gentoo: [dev-python/pyusb]
-  openembedded: [python3-usb@meta-python]
+  openembedded: [python3-pyusb@meta-python]
   ubuntu: [python3-usb]
 python3-vcstool:
   alpine: [vcstool]
