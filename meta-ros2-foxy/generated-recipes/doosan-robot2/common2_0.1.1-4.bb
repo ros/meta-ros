@@ -17,7 +17,7 @@ ROS_CN = "doosan-robot2"
 ROS_BPN = "common2"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rviz} \
+    ${ROS_UNRESOLVED_DEP-rviz} \
     gazebo-ros \
 "
 

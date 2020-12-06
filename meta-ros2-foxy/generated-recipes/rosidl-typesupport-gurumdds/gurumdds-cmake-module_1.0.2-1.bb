@@ -16,7 +16,7 @@ ROS_CN = "rosidl_typesupport_gurumdds"
 ROS_BPN = "gurumdds_cmake_module"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6} \
+    ${ROS_UNRESOLVED_DEP-gurumdds-2.6} \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

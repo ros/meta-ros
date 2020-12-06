@@ -18,7 +18,7 @@ ROS_BPN = "rosidl_typesupport_connext_cpp"
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native} \
     ament-cmake-native \
     connext-cmake-module-native \
     rosidl-cmake-native \
@@ -29,7 +29,7 @@ ROS_EXPORT_DEPENDS = " \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native} \
     ament-cmake-native \
     connext-cmake-module-native \
     rcutils-native \

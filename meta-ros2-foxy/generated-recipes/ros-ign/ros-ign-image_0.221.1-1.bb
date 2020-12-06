@@ -16,8 +16,8 @@ ROS_CN = "ros_ign"
 ROS_BPN = "ros_ign_image"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-transport8} \
+    ${ROS_UNRESOLVED_DEP-ignition-msgs5} \
+    ${ROS_UNRESOLVED_DEP-ignition-transport8} \
     image-transport \
     rclcpp \
     ros-ign-bridge \
@@ -30,8 +30,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-transport8} \
+    ${ROS_UNRESOLVED_DEP-ignition-msgs5} \
+    ${ROS_UNRESOLVED_DEP-ignition-transport8} \
     image-transport \
     rclcpp \
     ros-ign-bridge \
@@ -41,8 +41,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-transport8} \
+    ${ROS_UNRESOLVED_DEP-ignition-msgs5} \
+    ${ROS_UNRESOLVED_DEP-ignition-transport8} \
     image-transport \
     rclcpp \
     ros-ign-bridge \
