@@ -30,7 +30,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme} \
+    adwaita-icon-theme \
     ament-index-python \
     python-qt-binding \
     python3-catkin-pkg \
