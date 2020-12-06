@@ -36,7 +36,7 @@ Machines = ['qemux86', 'raspberrypi4']
 # <YOCTO-VERSION>; instead it is the value in the Yocto Project Version column
 # of https://wiki.yoctoproject.org/wiki/Releases for
 # <OPENEMBEDDED-RELEASE-SERIES> to which a constant "~master" is appended.
-OpenEmbeddedVersion = '3.2~master-gatesgarth'
+OpenEmbeddedVersion = '3.3~master-hardknott'
 
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
 from os import getenv
