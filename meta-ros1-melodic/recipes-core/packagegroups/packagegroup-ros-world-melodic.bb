@@ -59,16 +59,16 @@ RDEPENDS_${PN}_remove = "webrtc-ros"
 # Not compatible with newer libftdi included in meta-oe: https://github.com/kobuki-base/kobuki_ftdi/issues/3
 RDEPENDS_${PN}_remove = "kobuki-ftdi"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-requests-oauthlib' (but generated-recipes/jsk-3rdparty/rostwitter_2.1.13-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-requests-oauthlib' (but generated-recipes/jsk-3rdparty/rostwitter_2.1.13-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "rostwitter"
 
-# Depends on unavailable UNRESOLVED-atlas, UNRESOLVED-jython UNRESOLVED-f2c
+# Depends on unavailable ROS_UNRESOLVED_DEP-atlas, ROS_UNRESOLVED_DEP-jython ROS_UNRESOLVED_DEP-f2c
 RDEPENDS_${PN}_remove = "openhrp3"
 
-# Depends on unavailable UNRESOLVED-libirrlicht-dev, UNRESOLVED-net-tools, UNRESOLVED-procps, UNRESOLVED-ipython, UNRESOLVED-hostname and blacklisted openhrp3
+# Depends on unavailable ROS_UNRESOLVED_DEP-libirrlicht-dev, ROS_UNRESOLVED_DEP-net-tools, ROS_UNRESOLVED_DEP-procps, ROS_UNRESOLVED_DEP-ipython, ROS_UNRESOLVED_DEP-hostname and blacklisted openhrp3
 RDEPENDS_${PN}_remove = "hrpsys-ros-bridge"
 
-# Depends on unavailable UNRESOLVED-libirrlicht-dev, UNRESOLVED-net-tools, UNRESOLVED-procps, UNRESOLVED-ipython, UNRESOLVED-hostname and blacklisted openhrp3 and hrpsys-ros-bridge
+# Depends on unavailable ROS_UNRESOLVED_DEP-libirrlicht-dev, ROS_UNRESOLVED_DEP-net-tools, ROS_UNRESOLVED_DEP-procps, ROS_UNRESOLVED_DEP-ipython, ROS_UNRESOLVED_DEP-hostname and blacklisted openhrp3 and hrpsys-ros-bridge
 RDEPENDS_${PN}_remove = "rtmros-common"
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-mechanize', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_MECHANIZE}', '', d)}"
@@ -112,7 +112,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PARROT_ARSDK = " \
     parrot-arsdk \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-docker' (but generated-recipes/dockeros/dockeros_1.1.0-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-docker' (but generated-recipes/dockeros/dockeros_1.1.0-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "dockeros"
 
 # ERROR: Nothing PROVIDES 'python-twisted-core' (but generated-recipes/linux-networking/multi-interface-roam_1.0.16-1.bb DEPENDS on or otherwise requires it). Close matches:
@@ -157,11 +157,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PUGIXML = " \
     lanelet2-validation \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-libxmlrpc-c++"
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-libxmlrpc-c++"
 RDEPENDS_${PN}_remove = "ifm3d"
 RDEPENDS_${PN}_remove = "ifm3d-core"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-libpgm-pip' (but generated-recipes/jsk-3rdparty/pgm-learner_2.1.13-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-libpgm-pip' (but generated-recipes/jsk-3rdparty/pgm-learner_2.1.13-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "pgm-learner"
 
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_LIBREFLEXXESTYPE2_x86_64 = ""
@@ -224,13 +224,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
 "
 
 # recipes depending on various unavailable python modules
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-cairosvg' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-joblib' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-urlgrabber' (but generated-recipes/jsk-visualization/jsk-rqt-plugins_2.1.5.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-sklearn' (but generated-recipes/jsk-visualization/jsk-rqt-plugins_2.1.5.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-cairo' (but generated-recipes/rqt-bag/rqt-bag-plugins_0.4.12.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-opengl' (but generated-recipes/rqt-pose-view/rqt-pose-view_0.5.8.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-termcolor' (but generated-recipes/criutils/criutils_0.1.3-2.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-cairosvg' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-joblib' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-urlgrabber' (but generated-recipes/jsk-visualization/jsk-rqt-plugins_2.1.5.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-sklearn' (but generated-recipes/jsk-visualization/jsk-rqt-plugins_2.1.5.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-cairo' (but generated-recipes/rqt-bag/rqt-bag-plugins_0.4.12.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-opengl' (but generated-recipes/rqt-pose-view/rqt-pose-view_0.5.8.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python-termcolor' (but generated-recipes/criutils/criutils_0.1.3-2.bb RDEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-deps', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_DEPS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_DEPS = " \
     aruco-detect \
@@ -479,14 +479,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VLC = " \
     cob-twist-controller \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-pyusb-pip' (but generated-recipes/jsk-3rdparty/respeaker-ros_2.1.13-1.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-speechrecognition-pip' (but generated-recipes/jsk-3rdparty/respeaker-ros_2.1.13-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-pyusb-pip' (but generated-recipes/jsk-3rdparty/respeaker-ros_2.1.13-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-speechrecognition-pip' (but generated-recipes/jsk-3rdparty/respeaker-ros_2.1.13-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "respeaker-ros"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-catkin-tools' (but generated-recipes/jsk-3rdparty/collada-urdf-jsk-patch_2.1.13-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-catkin-tools' (but generated-recipes/jsk-3rdparty/collada-urdf-jsk-patch_2.1.13-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "collada-urdf-jsk-patch"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-avahi' (but generated-recipes/multimaster-fkie/master-discovery-fkie_0.8.12.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-avahi' (but generated-recipes/multimaster-fkie/master-discovery-fkie_0.8.12.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "master-discovery-fkie"
 # ERROR: Nothing PROVIDES 'master-discovery-fkie' (but generated-recipes/multimaster-fkie/master-sync-fkie_0.8.12.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing RPROVIDES 'master-discovery-fkie' (but generated-recipes/multimaster-fkie/master-sync-fkie_0.8.12.bb, generated-recipes/cpr-multimaster-tools/multimaster-launch_0.0.2-1.bb RDEPENDS on or otherwise requires it)
@@ -509,12 +509,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_CWIID = " \
     wiimote \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-libopenvdb' (but generated-recipes/spatio-temporal-voxel-layer/spatio-temporal-voxel-layer_1.3.5-2.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-libopenexr-dev' (but generated-recipes/spatio-temporal-voxel-layer/spatio-temporal-voxel-layer_1.3.5-2.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-libopenvdb-dev' (but generated-recipes/spatio-temporal-voxel-layer/spatio-temporal-voxel-layer_1.3.5-2.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-libopenvdb' (but generated-recipes/spatio-temporal-voxel-layer/spatio-temporal-voxel-layer_1.3.5-2.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-libopenexr-dev' (but generated-recipes/spatio-temporal-voxel-layer/spatio-temporal-voxel-layer_1.3.5-2.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-libopenvdb-dev' (but generated-recipes/spatio-temporal-voxel-layer/spatio-temporal-voxel-layer_1.3.5-2.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "spatio-temporal-voxel-layer"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-gfortran' (but generated-recipes/optpp-catkin/optpp-catkin_2.4.0-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-gfortran' (but generated-recipes/optpp-catkin/optpp-catkin_2.4.0-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "optpp-catkin"
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI}', '', d)}"
@@ -536,10 +536,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI2 = " \
     rtmros-hironx \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-gforth' (but generated-recipes/wge100-driver/wge100-camera-firmware_1.8.2-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-gforth' (but generated-recipes/wge100-driver/wge100-camera-firmware_1.8.2-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "wge100-camera-firmware"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-arduino-core' (but generated-recipes/rosserial/rosserial-arduino_0.8.0.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-arduino-core' (but generated-recipes/rosserial/rosserial-arduino_0.8.0.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "rosserial-arduino"
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'coinor-libipopt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT}', '', d)}"
@@ -552,10 +552,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
     towr \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-npm-native' (but generated-recipes/vapor-master/vapor-master_0.3.0.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-npm-native' (but generated-recipes/vapor-master/vapor-master_0.3.0.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "vapor-master"
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-libopenscenegraph' (but generated-recipes/visualization-osg/osg-utils_1.0.2-2.bb, generated-recipes/visualization-osg/osg-interactive-markers_1.0.2-2.bb, generated-recipes/visualization-osg/osg-markers_1.0.2-2.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-libopenscenegraph' (but generated-recipes/visualization-osg/osg-utils_1.0.2-2.bb, generated-recipes/visualization-osg/osg-interactive-markers_1.0.2-2.bb, generated-recipes/visualization-osg/osg-markers_1.0.2-2.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'osg', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OSG}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OSG = " \
     osg-interactive-markers \
@@ -578,7 +578,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MUPARSER = " \
     ros-canopen \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-java' (but generated-recipes/nao-meshes/nao-meshes_0.1.12-2.bb, generated-recipes/pepper-meshes/pepper-meshes_0.2.4-3.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-java' (but generated-recipes/nao-meshes/nao-meshes_0.1.12-2.bb, generated-recipes/pepper-meshes/pepper-meshes_0.2.4-3.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "nao-meshes"
 RDEPENDS_${PN}_remove = "pepper-meshes"
 
@@ -627,24 +627,24 @@ RDEPENDS_${PN}_remove = "wge100-driver"
 RDEPENDS_${PN}_remove = "prbt-support"
 RDEPENDS_${PN}_remove = "ros-canopen"
 
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-pandas' (but generated-recipes/rosbag-pandas/rosbag-pandas_0.5.3.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python-pandas' (but generated-recipes/rosbag-pandas/rosbag-pandas_0.5.3.bb RDEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "rosbag-pandas"
 
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-termcolor' (but generated-recipes/py-trees-ros/py-trees-ros_0.5.18.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python-termcolor' (but generated-recipes/py-trees-ros/py-trees-ros_0.5.18.bb RDEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "py-trees-ros"
 
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-msgpack' (but generated-recipes/json-transport/json-transport_0.0.3.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python-msgpack' (but generated-recipes/json-transport/json-transport_0.0.3.bb RDEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "json-transport"
 
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-catkin-lint' (but generated-recipes/fetch-tools/fetch-tools_0.2.1.bb RDEPENDS on or otherwise requires it)
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-argcomplete' (but generated-recipes/fetch-tools/fetch-tools_0.2.1.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python-catkin-lint' (but generated-recipes/fetch-tools/fetch-tools_0.2.1.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python-argcomplete' (but generated-recipes/fetch-tools/fetch-tools_0.2.1.bb RDEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "fetch-tools"
 
 # Conflicts with platform fcl, causing
 # ERROR: moveit-core-1.0.2-1-r0 do_package: moveit-core: Multiple shlib providers for libfcl.so.0.6: fcl, fcl-catkin (used by files: /jenkins/home/workspace/jansa/webos-melodic-dunfell/webos-melodic-dunfell/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/moveit-core/1.0.2-1-r0/packages-split/moveit-core/usr/opt/ros/melodic/lib/libmoveit_collision_detection_fcl.so.1.0.2)
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fcl-catkin', 'fcl-catkin', '', d)}"
 
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-network-manager' (but generated-recipes/network-autoconfig/network-autoconfig_0.1.1-2.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-network-manager' (but generated-recipes/network-autoconfig/network-autoconfig_0.1.1-2.bb RDEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "network-autoconfig"
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-scipy', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY}', '', d)}"
@@ -683,8 +683,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY = " \
     uuv-trajectory-control \
 "
 
-# ERROR: Nothing PROVIDES 'UNRESOLVED-libnlopt-dev' (but generated-recipes/trac-ik/trac-ik-lib_1.5.1-1.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-libnlopt0' (but generated-recipes/trac-ik/trac-ik-lib_1.5.1-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-libnlopt-dev' (but generated-recipes/trac-ik/trac-ik-lib_1.5.1-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-libnlopt0' (but generated-recipes/trac-ik/trac-ik-lib_1.5.1-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'trac-ik', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_TRAC_IK}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_TRAC_IK = " \
     nextage-moveit-config \
