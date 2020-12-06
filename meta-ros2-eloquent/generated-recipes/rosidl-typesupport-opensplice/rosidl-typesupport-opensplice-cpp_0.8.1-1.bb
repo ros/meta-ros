@@ -18,7 +18,7 @@ ROS_BPN = "rosidl_typesupport_opensplice_cpp"
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native} \
+    ${ROS_UNRESOLVED_DEP-libopensplice69-native} \
     ament-cmake-native \
     opensplice-cmake-module-native \
     rosidl-cmake-native \
@@ -31,7 +31,7 @@ ROS_EXPORT_DEPENDS = " \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopensplice69-native} \
+    ${ROS_UNRESOLVED_DEP-libopensplice69-native} \
     ament-cmake-native \
     opensplice-cmake-module-native \
     rosidl-cmake-native \
