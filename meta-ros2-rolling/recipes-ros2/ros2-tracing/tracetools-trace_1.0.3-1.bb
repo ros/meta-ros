@@ -6,16 +6,18 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "Tools for reading traces."
+DESCRIPTION = "Tools for setting up tracing sessions."
 AUTHOR = "Christophe Bedard <bedard.christophe@gmail.com>"
 ROS_AUTHOR = "Christophe Bedard <fixed-term.christophe.bourquebedard@de.bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "ros2_tracing"
-ROS_BPN = "tracetools_read"
+ROS_BPN = "tracetools_trace"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -26,7 +28,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-babeltrace} \
+    lttng-tools \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +48,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release/archive/release/foxy/tracetools_read/1.0.0-2.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/tracetools_read"
-SRC_URI = "git://gitlab.com/micro-ROS/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "a369d8f9f697ba9f189b73d79116cf789c623218"
+# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/rolling/tracetools_trace/1.0.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/tracetools_trace"
+SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
+SRCREV = "d43b77ae2dcac3a8fb4be7c64a93e0820108689d"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
