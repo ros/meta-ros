@@ -54,9 +54,9 @@ ROS_WORLD_SKIP_GROUPS += "python-gi"
 ROS_WORLD_SKIP_GROUPS += "python-imageio"
 # recipes depending on nkf - Network Kanji code conversion Filter - https://packages.debian.org/sid/text/nkf
 ROS_WORLD_SKIP_GROUPS += "nkf"
-# recipes depending on rospilot which depends on UNRESOLVED-python-tilestache, UNRESOLVED-python-mapnik, UNRESOLVED-libnl-3, UNRESOLVED-postgresql-postgis, UNRESOLVED-python-cherrypy, UNRESOLVED-osm2pgsql, UNRESOLVED-dnsmasq, UNRESOLVED-mapnik-utils, UNRESOLVED-hostapd, UNRESOLVED-python-colorama, UNRESOLVED-gdal-bin, UNRESOLVED-libmicrohttpd, UNRESOLVED-libnl-3-dev
+# recipes depending on rospilot which depends on ROS_UNRESOLVED_DEP-python-tilestache, ROS_UNRESOLVED_DEP-python-mapnik, ROS_UNRESOLVED_DEP-libnl-3, ROS_UNRESOLVED_DEP-postgresql-postgis, ROS_UNRESOLVED_DEP-python-cherrypy, ROS_UNRESOLVED_DEP-osm2pgsql, ROS_UNRESOLVED_DEP-dnsmasq, ROS_UNRESOLVED_DEP-mapnik-utils, ROS_UNRESOLVED_DEP-hostapd, ROS_UNRESOLVED_DEP-python-colorama, ROS_UNRESOLVED_DEP-gdal-bin, ROS_UNRESOLVED_DEP-libmicrohttpd, ROS_UNRESOLVED_DEP-libnl-3-dev
 ROS_WORLD_SKIP_GROUPS += "rospilot"
-# recipes depending on parrot-arsdk which depends on UNRESOLVED-automake, UNRESOLVED-yasm, UNRESOLVED-libavahi-core-dev, UNRESOLVED-nasm, UNRESOLVED-libavahi-client-dev
+# recipes depending on parrot-arsdk which depends on ROS_UNRESOLVED_DEP-automake, ROS_UNRESOLVED_DEP-yasm, ROS_UNRESOLVED_DEP-libavahi-core-dev, ROS_UNRESOLVED_DEP-nasm, ROS_UNRESOLVED_DEP-libavahi-client-dev
 ROS_WORLD_SKIP_GROUPS += "parrot-arsdk"
 # recipes depending on clang-tidy
 ROS_WORLD_SKIP_GROUPS += "clang-tidy"
@@ -96,9 +96,9 @@ ROS_WORLD_SKIP_GROUPS += "python-mechanize"
 ROS_WORLD_SKIP_GROUPS += "lcm"
 # recipes depending on libpqxx (https://packages.debian.org/source/sid/libpqxx)
 ROS_WORLD_SKIP_GROUPS += "libpqxx"
-# recipes depending on UNRESOLVED-python-cwiid
+# recipes depending on ROS_UNRESOLVED_DEP-python-cwiid
 ROS_WORLD_SKIP_GROUPS += "python-cwiid"
-# recipes depending on UNRESOLVED-libspnav-dev
+# recipes depending on ROS_UNRESOLVED_DEP-libspnav-dev
 ROS_WORLD_SKIP_GROUPS += "libspnav"
 # heifu-* recipes depending on ros-utils which seems to be this component:
 # https://gitlab.pdmfc.com/drones/ros1/drone-generic/tree/master/src/ros_utils
@@ -176,13 +176,13 @@ ROS_WORLD_SKIP_GROUPS += " \
 "
 
 # recipes depending on various unavailable python modules
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-cairosvg' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-joblib' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-urlgrabber' (but generated-recipes/jsk-visualization/jsk-rqt-plugins_2.1.5.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-sklearn' (but generated-recipes/jsk-visualization/jsk-rqt-plugins_2.1.5.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-cairo' (but generated-recipes/rqt-bag/rqt-bag-plugins_0.4.12.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'UNRESOLVED-python-opengl' (but generated-recipes/rqt-pose-view/rqt-pose-view_0.5.8.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing RPROVIDES 'UNRESOLVED-python-termcolor' (but generated-recipes/criutils/criutils_0.1.3-2.bb RDEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-cairosvg' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-joblib' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-urlgrabber' (but generated-recipes/jsk-visualization/jsk-rqt-plugins_2.1.5.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-sklearn' (but generated-recipes/jsk-visualization/jsk-rqt-plugins_2.1.5.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-cairo' (but generated-recipes/rqt-bag/rqt-bag-plugins_0.4.12.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-opengl' (but generated-recipes/rqt-pose-view/rqt-pose-view_0.5.8.bb DEPENDS on or otherwise requires it)
+# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python-termcolor' (but generated-recipes/criutils/criutils_0.1.3-2.bb RDEPENDS on or otherwise requires it)
 ROS_WORLD_SKIP_GROUPS += "python-deps"
 
 # recipes depending on something from meta-qt5 layer
@@ -220,25 +220,3 @@ ROS_BUILD_TYPE_pn-python-orocos-kdl = "catkin"
 # https://github.com/mavlink/mavlink-gbp-release/blob/release/melodic/mavlink/2019.11.11-1/package.xml#L29
 # but that doesn't respect the prefix set in meta-ros-common/classes/ros_opt_prefix.bbclass
 ROS_BUILD_TYPE_pn-mavlink = "catkin"
-
-# tango-icon-theme isn't available, but adwaita-icon-theme should be compatible
-# Used by:
-# generated-recipes/qt-gui-core/qt-gui_0.3.16-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "adwaita-icon-theme"
-
-# Used by:
-# generated-recipes/rtmros-nextage/rtmros-nextage_0.8.6-2.bb
-ROS_UNRESOLVED_PLATFORM_PKG_nextage_calibration = ""
-
-# Used by:
-# generated-recipes/dataspeed-pds/dataspeed-pds-lcm_1.0.5-1.bb
-# in meta-uav https://layers.openembedded.org/layerindex/recipe/25701/
-ROS_UNRESOLVED_PLATFORM_PKG_liblcm-dev = "lcm"
-
-# Used by:
-# generated-recipes/knowledge-representation/knowledge-representation_0.9.1-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_libpqxx = "postgresql"
-
-# Used by:
-# generated-recipes/knowledge-representation/knowledge-representation_0.9.1-1.bb
-ROS_UNRESOLVED_PLATFORM_PKG_libpqxx-dev = "postgresql"
