@@ -16,7 +16,7 @@ ROS_CN = "rmw_connext"
 ROS_BPN = "rmw_connext_cpp"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1} \
     connext-cmake-module \
     rcpputils \
     rcutils \
@@ -35,7 +35,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1} \
     connext-cmake-module \
     rosidl-runtime-c \
     rosidl-runtime-cpp \

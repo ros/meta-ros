@@ -17,22 +17,22 @@ ROS_CN = "tracetools_analysis"
 ROS_BPN = "tracetools_analysis"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pandas} \
+    python3-pandas \
     tracetools-read \
 "
 
 ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pandas} \
+    python3-pandas \
     tracetools-read \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_jupyter-notebook} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pandas} \
+    ${ROS_UNRESOLVED_DEP-jupyter-notebook} \
+    python3-pandas \
     tracetools-read \
 "
 
