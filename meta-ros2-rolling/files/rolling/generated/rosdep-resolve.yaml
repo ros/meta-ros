@@ -12,13 +12,13 @@ bullet:
 bzip2:
 - bzip2@openembedded-core
 clang-format:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format}
+- ${ROS_UNRESOLVED_DEP-clang-format}
 clang-tidy:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy}
+- ${ROS_UNRESOLVED_DEP-clang-tidy}
 cmake:
 - cmake@openembedded-core
 coinor-libipopt-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev}
+- ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev}
 cppcheck:
 - cppcheck@meta-ros-common
 cppunit:
@@ -29,7 +29,7 @@ eigen:
 - libeigen@meta-oe
 g++-static: []
 gazebo11:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo11}
+- ${ROS_UNRESOLVED_DEP-gazebo11}
 git:
 - git@openembedded-core
 google-mock:
@@ -37,11 +37,11 @@ google-mock:
 gtest:
 - gtest@meta-oe
 gurumdds-2.6:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6}
+- ${ROS_UNRESOLVED_DEP-gurumdds-2.6}
 java:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_java}
+- ${ROS_UNRESOLVED_DEP-java}
 jupyter-notebook:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_jupyter-notebook}
+- ${ROS_UNRESOLVED_DEP-jupyter-notebook}
 libboost-dev:
 - boost@openembedded-core
 libboost-iostreams-dev:
@@ -59,13 +59,13 @@ libceres-dev:
 libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libcunit-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev}
+- ${ROS_UNRESOLVED_DEP-libcunit-dev}
 libfreetype6:
 - freetype@openembedded-core
 libfreetype6-dev:
 - freetype@openembedded-core
 libgazebo11-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo11-dev}
+- ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
 libgflags-dev:
 - gflags@meta-oe
 libgoogle-glog-dev:
@@ -121,7 +121,7 @@ log4cxx:
 lua5.2-dev:
 - lua@meta-oe
 maven:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_maven}
+- ${ROS_UNRESOLVED_DEP-maven}
 opengl:
 - mesa@openembedded-core
 openssl:
@@ -135,7 +135,7 @@ pydocstyle:
 pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros-common
 python3-argcomplete:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete}
+- python3-argcomplete@meta-python
 python3-catkin-pkg:
 - python3-catkin-pkg@meta-ros-common
 python3-catkin-pkg-modules:
@@ -171,7 +171,7 @@ python3-numpy:
 python3-opencv:
 - opencv@meta-oe
 python3-pandas:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-pandas}
+- python3-pandas@meta-python
 python3-pkg-resources:
 - python3-setuptools@openembedded-core
 python3-psutil:
@@ -191,7 +191,7 @@ python3-pytest-mock:
 python3-qt5-bindings:
 - python3-pyqt5@meta-qt5
 python3-requests:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests}
+- python3-requests@meta-python
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
 python3-rospkg-modules:
@@ -207,7 +207,7 @@ qt5-qmake:
 qtbase5-dev:
 - qtbase@meta-qt5
 rti-connext-dds-5.3.1:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1}
+- ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1}
 sdl2:
 - libsdl2@openembedded-core
 spdlog:
@@ -220,7 +220,7 @@ tinyxml:
 tinyxml2:
 - libtinyxml2@meta-oe
 uncrustify:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify}
+- ${ROS_UNRESOLVED_DEP-uncrustify}
 yaml:
 - libyaml@openembedded-core
 yaml-cpp:
