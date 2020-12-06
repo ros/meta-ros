@@ -22,7 +22,7 @@ RDEPENDS_${PN}_remove = "lex-common"
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
 RDEPENDS_${PN}_remove = "sophus"
 
-# Depends on unavailable UNRESOLVED-libopenvdb, UNRESOLVED-libopenexr-dev, UNRESOLVED-libopenvdb-dev
+# Depends on unavailable ROS_UNRESOLVED_DEP-libopenvdb, ROS_UNRESOLVED_DEP-libopenexr-dev, ROS_UNRESOLVED_DEP-libopenvdb-dev
 RDEPENDS_${PN}_remove = "spatio-temporal-voxel-layer"
 
 # Depends on unexpanded ROS_UNRESOLVED_PLATFORM_PKG_autoware_auto_cmake-native, ROS_UNRESOLVED_PLATFORM_PKG_autoware_auto_helper_functions which aren't available

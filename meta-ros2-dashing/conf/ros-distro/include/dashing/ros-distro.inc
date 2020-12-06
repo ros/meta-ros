@@ -103,11 +103,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     uncrustify-vendor-native \
 "
 
-# tango-icon-theme isn't available, but adwaita-icon-theme should be compatible
-# Used by:
-# generated-recipes/qt-gui-core/qt-gui_1.0.7-1.bbb
-ROS_UNRESOLVED_PLATFORM_PKG_tango-icon-theme = "adwaita-icon-theme"
-
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
 # and having it in a .bbappend sets it too late.
