@@ -29,8 +29,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-lxml \
     ${PYTHON_PN}-rospkg \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_julius-voxforge} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_nkf} \
+    ${ROS_UNRESOLVED_DEP-julius-voxforge} \
+    ${ROS_UNRESOLVED_DEP-nkf} \
     audio-capture \
     audio-common-msgs \
     julius \

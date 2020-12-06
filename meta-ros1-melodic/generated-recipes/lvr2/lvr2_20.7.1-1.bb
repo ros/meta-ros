@@ -17,10 +17,10 @@ ROS_CN = "lvr2"
 ROS_BPN = "lvr2"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libflann-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev} \
+    ${ROS_UNRESOLVED_DEP-libflann-dev} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk} \
+    ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     boost \
     freeglut \
     gsl \
@@ -39,10 +39,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libflann-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev} \
+    ${ROS_UNRESOLVED_DEP-libflann-dev} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk} \
+    ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     boost \
     freeglut \
     gsl \
@@ -59,10 +59,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libflann-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ocl-icd-opencl-dev} \
+    ${ROS_UNRESOLVED_DEP-libflann-dev} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk} \
+    ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     boost \
     freeglut \
     gsl \

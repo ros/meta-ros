@@ -16,7 +16,7 @@ ROS_CN = "jsk_recognition"
 ROS_BPN = "jsk_recognition_utils"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_cython} \
+    ${ROS_UNRESOLVED_DEP-cython} \
     dynamic-reconfigure \
     eigen-conversions \
     geometry-msgs \
@@ -41,8 +41,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainer-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-skimage} \
+    ${ROS_UNRESOLVED_DEP-python-chainer-pip} \
+    ${ROS_UNRESOLVED_DEP-python-skimage} \
     eigen-conversions \
     geometry-msgs \
     image-geometry \
@@ -63,8 +63,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-chainer-pip} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-skimage} \
+    ${ROS_UNRESOLVED_DEP-python-chainer-pip} \
+    ${ROS_UNRESOLVED_DEP-python-skimage} \
     eigen-conversions \
     geometry-msgs \
     image-geometry \

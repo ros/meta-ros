@@ -16,7 +16,7 @@ ROS_CN = "uwsim_osgworks"
 ROS_BPN = "uwsim_osgworks"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
+    ${ROS_UNRESOLVED_DEP-libopenscenegraph} \
     boost \
     mesa \
 "
@@ -26,7 +26,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
+    ${ROS_UNRESOLVED_DEP-libopenscenegraph} \
     boost \
     catkin \
     mesa \
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libopenscenegraph} \
+    ${ROS_UNRESOLVED_DEP-libopenscenegraph} \
     boost \
     catkin \
     mesa \

@@ -18,7 +18,7 @@ ROS_BPN = "rtsprofile"
 
 ROS_BUILD_DEPENDS = " \
     ${PYTHON_PN}-setuptools \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-omniorb} \
+    ${ROS_UNRESOLVED_DEP-python-omniorb} \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

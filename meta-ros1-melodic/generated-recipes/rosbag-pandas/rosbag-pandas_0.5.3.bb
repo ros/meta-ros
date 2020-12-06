@@ -29,7 +29,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-matplotlib \
     ${PYTHON_PN}-numpy \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-pandas} \
+    ${ROS_UNRESOLVED_DEP-python-pandas} \
     rosbag \
     roslib \
     rospy-message-converter \

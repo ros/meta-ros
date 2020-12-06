@@ -17,7 +17,7 @@ ROS_CN = "pepper_meshes"
 ROS_BPN = "pepper_meshes"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_java} \
+    ${ROS_UNRESOLVED_DEP-java} \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

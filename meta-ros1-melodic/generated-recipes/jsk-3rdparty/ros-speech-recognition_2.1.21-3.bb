@@ -27,11 +27,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_flac} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-speechrecognition-pip} \
+    ${ROS_UNRESOLVED_DEP-python-speechrecognition-pip} \
     audio-capture \
     audio-common-msgs \
     dynamic-reconfigure \
+    flac \
     sound-play \
     speech-recognition-msgs \
 "
@@ -39,11 +39,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_flac} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-speechrecognition-pip} \
+    ${ROS_UNRESOLVED_DEP-python-speechrecognition-pip} \
     audio-capture \
     audio-common-msgs \
     dynamic-reconfigure \
+    flac \
     sound-play \
     speech-recognition-msgs \
 "

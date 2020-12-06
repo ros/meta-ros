@@ -17,7 +17,7 @@ ROS_CN = "simple_grasping"
 ROS_BPN = "simple_grasping"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     actionlib \
     cmake-modules \
     geometry-msgs \
@@ -36,7 +36,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     actionlib \
     geometry-msgs \
     grasping-msgs \
@@ -53,7 +53,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libvtk-qt} \
+    ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     actionlib \
     geometry-msgs \
     grasping-msgs \

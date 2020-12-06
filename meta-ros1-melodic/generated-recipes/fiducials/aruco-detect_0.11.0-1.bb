@@ -17,8 +17,8 @@ ROS_CN = "fiducials"
 ROS_BPN = "aruco_detect"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-cairosvg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-joblib} \
+    ${ROS_UNRESOLVED_DEP-python-cairosvg} \
+    ${ROS_UNRESOLVED_DEP-python-joblib} \
     cv-bridge \
     dynamic-reconfigure \
     fiducial-msgs \
@@ -36,8 +36,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-cairosvg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-joblib} \
+    ${ROS_UNRESOLVED_DEP-python-cairosvg} \
+    ${ROS_UNRESOLVED_DEP-python-joblib} \
     cv-bridge \
     dynamic-reconfigure \
     fiducial-msgs \
@@ -53,8 +53,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-cairosvg} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-joblib} \
+    ${ROS_UNRESOLVED_DEP-python-cairosvg} \
+    ${ROS_UNRESOLVED_DEP-python-joblib} \
     cv-bridge \
     dynamic-reconfigure \
     fiducial-msgs \

@@ -48,7 +48,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_alsa-oss} \
+    ${ROS_UNRESOLVED_DEP-alsa-oss} \
     actionlib \
     actionlib-msgs \
     cob-srvs \

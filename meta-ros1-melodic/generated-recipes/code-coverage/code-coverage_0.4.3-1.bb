@@ -17,7 +17,7 @@ ROS_CN = "code_coverage"
 ROS_BPN = "code_coverage"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-coverage} \
+    ${ROS_UNRESOLVED_DEP-python-coverage} \
     lcov \
 "
 
@@ -26,14 +26,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-coverage} \
+    ${ROS_UNRESOLVED_DEP-python-coverage} \
     lcov \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python-coverage} \
+    ${ROS_UNRESOLVED_DEP-python-coverage} \
     lcov \
 "
 

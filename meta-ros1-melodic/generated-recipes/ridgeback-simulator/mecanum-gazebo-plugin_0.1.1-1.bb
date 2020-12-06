@@ -17,7 +17,7 @@ ROS_CN = "ridgeback_simulator"
 ROS_BPN = "mecanum_gazebo_plugin"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     rosconsole \
     roslint \
 "
@@ -27,14 +27,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     rosconsole \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo} \
     rosconsole \
 "
 
