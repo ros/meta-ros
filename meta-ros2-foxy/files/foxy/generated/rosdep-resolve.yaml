@@ -1,6 +1,6 @@
 # foxy/rosdep-resolve.yaml
 ament_python:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_ament-python}
+- ${ROS_UNRESOLVED_DEP-ament-python}
 asio:
 - asio@meta-oe
 assimp:
@@ -20,23 +20,23 @@ bullet:
 bzip2:
 - bzip2@openembedded-core
 clang-format:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format}
+- ${ROS_UNRESOLVED_DEP-clang-format}
 clang-tidy:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy}
+- ${ROS_UNRESOLVED_DEP-clang-tidy}
 cmake:
 - cmake@openembedded-core
 coinor-libcbc-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcbc-dev}
+- ${ROS_UNRESOLVED_DEP-coinor-libcbc-dev}
 coinor-libcgl-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcgl-dev}
+- ${ROS_UNRESOLVED_DEP-coinor-libcgl-dev}
 coinor-libclp-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev}
+- ${ROS_UNRESOLVED_DEP-coinor-libclp-dev}
 coinor-libcoinutils-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev}
+- ${ROS_UNRESOLVED_DEP-coinor-libcoinutils-dev}
 coinor-libipopt-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev}
+- ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev}
 controller_manager:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_controller-manager}
+- ${ROS_UNRESOLVED_DEP-controller-manager}
 cppcheck:
 - cppcheck@meta-ros-common
 cppunit:
@@ -56,7 +56,7 @@ ftdi-eeprom:
 - libftdi@meta-oe
 g++-static: []
 gazebo11:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo11}
+- ${ROS_UNRESOLVED_DEP-gazebo11}
 geographiclib:
 - geographiclib@meta-ros-common
 git:
@@ -74,19 +74,19 @@ gtest:
 gtk3:
 - gtk+3@openembedded-core
 gurumdds-2.6:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6}
+- ${ROS_UNRESOLVED_DEP-gurumdds-2.6}
 hardware_interface:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_hardware-interface}
+- ${ROS_UNRESOLVED_DEP-hardware-interface}
 ignition-gazebo3:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-gazebo3}
+- ${ROS_UNRESOLVED_DEP-ignition-gazebo3}
 ignition-math6:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-math6}
+- ${ROS_UNRESOLVED_DEP-ignition-math6}
 ignition-msgs5:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5}
+- ${ROS_UNRESOLVED_DEP-ignition-msgs5}
 ignition-transport8:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-transport8}
+- ${ROS_UNRESOLVED_DEP-ignition-transport8}
 java:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_java}
+- ${ROS_UNRESOLVED_DEP-java}
 lcov:
 - lcov@meta-oe
 libboost-dev:
@@ -110,7 +110,7 @@ libceres-dev:
 libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libcunit-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev}
+- ${ROS_UNRESOLVED_DEP-libcunit-dev}
 libfreetype6:
 - freetype@openembedded-core
 libfreetype6-dev:
@@ -118,7 +118,7 @@ libfreetype6-dev:
 libftdi-dev:
 - libftdi@meta-oe
 libgazebo11-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo11-dev}
+- ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
 libgeos++-dev:
 - geos@meta-oe
 libgflags-dev:
@@ -158,7 +158,7 @@ libpng-dev:
 libqglviewer-dev-qt5:
 - qtbase@meta-qt5
 libqglviewer2-qt5:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer2-qt5}
+- ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5}
 libqt5-core:
 - qtbase@meta-qt5
 libqt5-gui:
@@ -214,7 +214,7 @@ log4cxx:
 lua5.2-dev:
 - lua@meta-oe
 maven:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_maven}
+- ${ROS_UNRESOLVED_DEP-maven}
 opengl:
 - mesa@openembedded-core
 openssl:
@@ -228,7 +228,7 @@ protobuf:
 protobuf-dev:
 - protobuf@meta-oe
 pugixml-dev:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_pugixml-dev}
+- pugixml@meta-oe
 pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros-common
 pyflakes3:
@@ -242,7 +242,7 @@ python-numpy:
 python3:
 - python3@openembedded-core
 python3-argcomplete:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete}
+- python3-argcomplete@meta-python
 python3-catkin-pkg:
 - python3-catkin-pkg@meta-ros-common
 python3-catkin-pkg-modules:
@@ -304,9 +304,9 @@ python3-pytest-mock:
 python3-qt5-bindings:
 - python3-pyqt5@meta-qt5
 python3-requests:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests}
+- python3-requests@meta-python
 python3-retrying:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_python3-retrying}
+- ${ROS_UNRESOLVED_DEP-python3-retrying}
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
 python3-rospkg:
@@ -332,11 +332,11 @@ qtdeclarative5-dev:
 qtmultimedia5-dev:
 - qtmultimedia@meta-qt5
 qttools5-dev-tools:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools}
+- ${ROS_UNRESOLVED_DEP-qttools5-dev-tools}
 rti-connext-dds-5.3.1:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1}
+- ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1}
 rviz:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_rviz}
+- ${ROS_UNRESOLVED_DEP-rviz}
 sdl2:
 - libsdl2@openembedded-core
 spdlog:
@@ -353,7 +353,7 @@ tinyxml2:
 udev:
 - udev@openembedded-core
 uncrustify:
-- ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify}
+- ${ROS_UNRESOLVED_DEP-uncrustify}
 wx-common:
 - wxwidgets@meta-ros-common
 wxwidgets:

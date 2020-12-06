@@ -17,9 +17,9 @@ ROS_CN = "ros_ign"
 ROS_BPN = "ros_ign_gazebo"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-math6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-transport8} \
+    ${ROS_UNRESOLVED_DEP-ignition-math6} \
+    ${ROS_UNRESOLVED_DEP-ignition-msgs5} \
+    ${ROS_UNRESOLVED_DEP-ignition-transport8} \
     gflags \
     rclcpp \
 "
@@ -30,9 +30,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-math6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-transport8} \
+    ${ROS_UNRESOLVED_DEP-ignition-math6} \
+    ${ROS_UNRESOLVED_DEP-ignition-msgs5} \
+    ${ROS_UNRESOLVED_DEP-ignition-transport8} \
     gflags \
     rclcpp \
 "
@@ -40,9 +40,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-math6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-transport8} \
+    ${ROS_UNRESOLVED_DEP-ignition-math6} \
+    ${ROS_UNRESOLVED_DEP-ignition-msgs5} \
+    ${ROS_UNRESOLVED_DEP-ignition-transport8} \
     gflags \
     rclcpp \
 "

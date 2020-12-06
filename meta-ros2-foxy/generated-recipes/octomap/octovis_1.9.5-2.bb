@@ -30,7 +30,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer2-qt5} \
+    ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5} \
     octomap \
     qtbase \
 "

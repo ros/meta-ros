@@ -16,7 +16,7 @@ ROS_CN = "ros_ign"
 ROS_BPN = "ros_ign_gazebo_demos"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-gazebo3} \
+    ${ROS_UNRESOLVED_DEP-ignition-gazebo3} \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -24,13 +24,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-gazebo3} \
+    ${ROS_UNRESOLVED_DEP-ignition-gazebo3} \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-gazebo3} \
+    ${ROS_UNRESOLVED_DEP-ignition-gazebo3} \
     image-transport-plugins \
     ros-ign-bridge \
     ros-ign-gazebo \

@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+14.g1995657"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+15.g905b03f"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros2"
@@ -1930,10 +1930,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
 # Packages found in the <buildtool_depend> and <buildtool_export_depend> items, ie, ones for which a -native is built. Does not
 # include those found in the ROS_EXEC_DEPENDS values in the recipes of build tools.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_FOXY = " \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ament-python-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_java-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_maven-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
+    ${ROS_UNRESOLVED_DEP-ament-python-native} \
+    ${ROS_UNRESOLVED_DEP-java-native} \
+    ${ROS_UNRESOLVED_DEP-maven-native} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native} \
     ament-clang-format-native \
     ament-clang-tidy-native \
     ament-cmake-auto-native \
@@ -2027,36 +2027,33 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${PYTHON_PN}-pydocstyle \
     ${PYTHON_PN}-pyflakes \
     ${PYTHON_PN}-pyqt5 \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ament-python-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_clang-format} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcbc-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcgl-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_controller-manager} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gazebo11} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_hardware-interface} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-gazebo3} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-math6} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_ignition-transport8} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_java-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libgazebo11-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer2-qt5} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_maven-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_pugixml-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-retrying} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_rviz} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_uncrustify} \
+    ${ROS_UNRESOLVED_DEP-ament-python-native} \
+    ${ROS_UNRESOLVED_DEP-clang-format} \
+    ${ROS_UNRESOLVED_DEP-clang-tidy} \
+    ${ROS_UNRESOLVED_DEP-coinor-libcbc-dev} \
+    ${ROS_UNRESOLVED_DEP-coinor-libcgl-dev} \
+    ${ROS_UNRESOLVED_DEP-coinor-libclp-dev} \
+    ${ROS_UNRESOLVED_DEP-coinor-libcoinutils-dev} \
+    ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev} \
+    ${ROS_UNRESOLVED_DEP-controller-manager} \
+    ${ROS_UNRESOLVED_DEP-gazebo11} \
+    ${ROS_UNRESOLVED_DEP-gurumdds-2.6} \
+    ${ROS_UNRESOLVED_DEP-hardware-interface} \
+    ${ROS_UNRESOLVED_DEP-ignition-gazebo3} \
+    ${ROS_UNRESOLVED_DEP-ignition-math6} \
+    ${ROS_UNRESOLVED_DEP-ignition-msgs5} \
+    ${ROS_UNRESOLVED_DEP-ignition-transport8} \
+    ${ROS_UNRESOLVED_DEP-java-native} \
+    ${ROS_UNRESOLVED_DEP-libcunit-dev} \
+    ${ROS_UNRESOLVED_DEP-libgazebo11-dev} \
+    ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5} \
+    ${ROS_UNRESOLVED_DEP-maven-native} \
+    ${ROS_UNRESOLVED_DEP-python3-retrying} \
+    ${ROS_UNRESOLVED_DEP-qttools5-dev-tools} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native} \
+    ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1} \
+    ${ROS_UNRESOLVED_DEP-rviz} \
+    ${ROS_UNRESOLVED_DEP-uncrustify} \
     asio \
     assimp \
     binutils \
@@ -2127,7 +2124,9 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     pkgconfig-native \
     proj \
     protobuf \
+    pugixml \
     python3 \
+    python3-argcomplete \
     python3-catkin-pkg \
     python3-catkin-pkg-native \
     python3-cryptography \
@@ -2161,6 +2160,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     python3-pytest-native \
     python3-pyyaml \
     python3-pyyaml-native \
+    python3-requests \
     python3-rosdistro \
     python3-rospkg \
     python3-rospkg-native \
@@ -2192,9 +2192,8 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
 ROS_SUPERFLORE_GENERATED_TESTS = " \
     ${PYTHON_PN}-numpy \
     ${PYTHON_PN}-pillow \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-requests} \
-    ${ROS_UNRESOLVED_PLATFORM_PKG_python3-retrying} \
+    ${ROS_UNRESOLVED_DEP-libcunit-dev} \
+    ${ROS_UNRESOLVED_DEP-python3-retrying} \
     ament-copyright \
     ament-flake8 \
     ament-mypy \
@@ -2211,6 +2210,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     python3-pygraphviz \
     python3-pytest \
     python3-pytest-mock \
+    python3-requests \
     ros-testing \
     ros2lifecycle-test-fixtures \
     rosbag2-test-common \
@@ -2447,36 +2447,33 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
 
 # Platform packages without a OE-RECIPE@OE-LAYER mapping in base.yaml, python.yaml, or ruby.yaml. Until they are added, override
 # the settings in ros-distro.inc .
-ROS_UNRESOLVED_PLATFORM_PKG_ament-python-native = "UNRESOLVED-ament-python-native"
-ROS_UNRESOLVED_PLATFORM_PKG_clang-format = "UNRESOLVED-clang-format"
-ROS_UNRESOLVED_PLATFORM_PKG_clang-tidy = "UNRESOLVED-clang-tidy"
-ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcbc-dev = "UNRESOLVED-coinor-libcbc-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcgl-dev = "UNRESOLVED-coinor-libcgl-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_coinor-libclp-dev = "UNRESOLVED-coinor-libclp-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_coinor-libcoinutils-dev = "UNRESOLVED-coinor-libcoinutils-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_coinor-libipopt-dev = "UNRESOLVED-coinor-libipopt-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_controller-manager = "UNRESOLVED-controller-manager"
-ROS_UNRESOLVED_PLATFORM_PKG_gazebo11 = "UNRESOLVED-gazebo11"
-ROS_UNRESOLVED_PLATFORM_PKG_gurumdds-2.6 = "UNRESOLVED-gurumdds-2.6"
-ROS_UNRESOLVED_PLATFORM_PKG_hardware-interface = "UNRESOLVED-hardware-interface"
-ROS_UNRESOLVED_PLATFORM_PKG_ignition-gazebo3 = "UNRESOLVED-ignition-gazebo3"
-ROS_UNRESOLVED_PLATFORM_PKG_ignition-math6 = "UNRESOLVED-ignition-math6"
-ROS_UNRESOLVED_PLATFORM_PKG_ignition-msgs5 = "UNRESOLVED-ignition-msgs5"
-ROS_UNRESOLVED_PLATFORM_PKG_ignition-transport8 = "UNRESOLVED-ignition-transport8"
-ROS_UNRESOLVED_PLATFORM_PKG_java-native = "UNRESOLVED-java-native"
-ROS_UNRESOLVED_PLATFORM_PKG_libcunit-dev = "UNRESOLVED-libcunit-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libgazebo11-dev = "UNRESOLVED-libgazebo11-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_libqglviewer2-qt5 = "UNRESOLVED-libqglviewer2-qt5"
-ROS_UNRESOLVED_PLATFORM_PKG_maven-native = "UNRESOLVED-maven-native"
-ROS_UNRESOLVED_PLATFORM_PKG_pugixml-dev = "UNRESOLVED-pugixml-dev"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-argcomplete = "UNRESOLVED-python3-argcomplete"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-requests = "UNRESOLVED-python3-requests"
-ROS_UNRESOLVED_PLATFORM_PKG_python3-retrying = "UNRESOLVED-python3-retrying"
-ROS_UNRESOLVED_PLATFORM_PKG_qttools5-dev-tools = "UNRESOLVED-qttools5-dev-tools"
-ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1 = "UNRESOLVED-rti-connext-dds-5.3.1"
-ROS_UNRESOLVED_PLATFORM_PKG_rti-connext-dds-5.3.1-native = "UNRESOLVED-rti-connext-dds-5.3.1-native"
-ROS_UNRESOLVED_PLATFORM_PKG_rviz = "UNRESOLVED-rviz"
-ROS_UNRESOLVED_PLATFORM_PKG_uncrustify = "UNRESOLVED-uncrustify"
+ROS_UNRESOLVED_DEP-ament-python-native = "ROS_UNRESOLVED_DEP-ament-python-native"
+ROS_UNRESOLVED_DEP-clang-format = "ROS_UNRESOLVED_DEP-clang-format"
+ROS_UNRESOLVED_DEP-clang-tidy = "ROS_UNRESOLVED_DEP-clang-tidy"
+ROS_UNRESOLVED_DEP-coinor-libcbc-dev = "ROS_UNRESOLVED_DEP-coinor-libcbc-dev"
+ROS_UNRESOLVED_DEP-coinor-libcgl-dev = "ROS_UNRESOLVED_DEP-coinor-libcgl-dev"
+ROS_UNRESOLVED_DEP-coinor-libclp-dev = "ROS_UNRESOLVED_DEP-coinor-libclp-dev"
+ROS_UNRESOLVED_DEP-coinor-libcoinutils-dev = "ROS_UNRESOLVED_DEP-coinor-libcoinutils-dev"
+ROS_UNRESOLVED_DEP-coinor-libipopt-dev = "ROS_UNRESOLVED_DEP-coinor-libipopt-dev"
+ROS_UNRESOLVED_DEP-controller-manager = "ROS_UNRESOLVED_DEP-controller-manager"
+ROS_UNRESOLVED_DEP-gazebo11 = "ROS_UNRESOLVED_DEP-gazebo11"
+ROS_UNRESOLVED_DEP-gurumdds-2.6 = "ROS_UNRESOLVED_DEP-gurumdds-2.6"
+ROS_UNRESOLVED_DEP-hardware-interface = "ROS_UNRESOLVED_DEP-hardware-interface"
+ROS_UNRESOLVED_DEP-ignition-gazebo3 = "ROS_UNRESOLVED_DEP-ignition-gazebo3"
+ROS_UNRESOLVED_DEP-ignition-math6 = "ROS_UNRESOLVED_DEP-ignition-math6"
+ROS_UNRESOLVED_DEP-ignition-msgs5 = "ROS_UNRESOLVED_DEP-ignition-msgs5"
+ROS_UNRESOLVED_DEP-ignition-transport8 = "ROS_UNRESOLVED_DEP-ignition-transport8"
+ROS_UNRESOLVED_DEP-java-native = "ROS_UNRESOLVED_DEP-java-native"
+ROS_UNRESOLVED_DEP-libcunit-dev = "ROS_UNRESOLVED_DEP-libcunit-dev"
+ROS_UNRESOLVED_DEP-libgazebo11-dev = "ROS_UNRESOLVED_DEP-libgazebo11-dev"
+ROS_UNRESOLVED_DEP-libqglviewer2-qt5 = "ROS_UNRESOLVED_DEP-libqglviewer2-qt5"
+ROS_UNRESOLVED_DEP-maven-native = "ROS_UNRESOLVED_DEP-maven-native"
+ROS_UNRESOLVED_DEP-python3-retrying = "ROS_UNRESOLVED_DEP-python3-retrying"
+ROS_UNRESOLVED_DEP-qttools5-dev-tools = "ROS_UNRESOLVED_DEP-qttools5-dev-tools"
+ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1 = "ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1"
+ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native = "ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native"
+ROS_UNRESOLVED_DEP-rviz = "ROS_UNRESOLVED_DEP-rviz"
+ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
