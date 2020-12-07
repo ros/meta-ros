@@ -74,6 +74,17 @@ RDEPENDS_${PN}_remove = "rtmros-common"
 # Depends on unavailable ROS_UNRESOLVED_DEP-python3-wxgtk4.0
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-wxgtk4.0', 'actionlib-tools', '', d)}"
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-protobuf', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_PROTOBUF}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_PROTOBUF = " \
+    fkie-master-discovery \
+    fkie-master-sync \
+    fkie-multimaster-msgs \
+    fkie-node-manager-daemon \
+    python3-protobuf \
+    python3-grpcio \
+    python3-grpcio-tools \
+"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-mechanize', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_MECHANIZE}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_MECHANIZE = " \
     pr2-bringup \
