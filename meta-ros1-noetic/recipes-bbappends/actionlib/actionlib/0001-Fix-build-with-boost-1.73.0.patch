@@ -1,4 +1,4 @@
-From 5e42353657f18ba3abce7a3d8af57374c914b87f Mon Sep 17 00:00:00 2001
+From dd7e661db5dbff07b62d3b80625ccaf6cb280fe7 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 20 Aug 2020 09:43:02 -0700
 Subject: [PATCH] Fix build with boost-1.73.0
@@ -38,7 +38,7 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  13 files changed, 34 insertions(+), 34 deletions(-)
 
 diff --git a/include/actionlib/client/action_client.h b/include/actionlib/client/action_client.h
-index f87f852..4121191 100644
+index cfd64af..cb79ae2 100644
 --- a/include/actionlib/client/action_client.h
 +++ b/include/actionlib/client/action_client.h
 @@ -236,17 +236,17 @@ private:
@@ -88,7 +88,7 @@ index 789ada0..30dbc35 100644
    if (send_goal_func_) {
      send_goal_func_(action_goal);
 diff --git a/include/actionlib/client/simple_action_client.h b/include/actionlib/client/simple_action_client.h
-index cb85154..2d1d29b 100644
+index 52637ed..cfbd206 100644
 --- a/include/actionlib/client/simple_action_client.h
 +++ b/include/actionlib/client/simple_action_client.h
 @@ -330,8 +330,8 @@ void SimpleActionClient<ActionSpec>::sendGoal(const Goal & goal,
@@ -103,10 +103,10 @@ index cb85154..2d1d29b 100644
  
  template<class ActionSpec>
 diff --git a/include/actionlib/managed_list.h b/include/actionlib/managed_list.h
-index fcb42b9..7932a0d 100644
+index 11c4889..b7f9231 100644
 --- a/include/actionlib/managed_list.h
 +++ b/include/actionlib/managed_list.h
-@@ -213,7 +213,7 @@ private:
+@@ -218,7 +218,7 @@ private:
     */
    Handle add(const T & elem)
    {
@@ -276,15 +276,15 @@ index 9e179c7..ed12d2b 100644
  }
  
 diff --git a/test/simple_client_test.cpp b/test/simple_client_test.cpp
-index ca6c144..399a71e 100644
+index 341bbc9..ea40050 100644
 --- a/test/simple_client_test.cpp
 +++ b/test/simple_client_test.cpp
-@@ -109,7 +109,7 @@ TEST(SimpleClient, easy_callback)
+@@ -106,7 +106,7 @@ TEST(SimpleClient, easy_callback)
  
    bool called = false;
    goal.goal = 1;
--  SimpleActionClient<TestAction>::SimpleDoneCallback func = boost::bind(&easyDoneCallback, &called, _1, _2);
-+  SimpleActionClient<TestAction>::SimpleDoneCallback func = boost::bind(&easyDoneCallback, &called, boost::placeholders::_1, _2);
+-  SimpleActionClient<TestAction>::SimpleDoneCallback func = boost::bind(&easyDoneCallback, &called, &client, _1, _2);
++  SimpleActionClient<TestAction>::SimpleDoneCallback func = boost::bind(&easyDoneCallback, &called, &client, boost::placeholders::_1, boost::placeholders::_2);
    client.sendGoal(goal, func);
    finished = client.waitForResult(ros::Duration(10.0));
    ASSERT_TRUE(finished);
