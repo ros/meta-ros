@@ -8,4 +8,4 @@
 # |   tools/pybind11Tools.cmake:16 (find_package)
 # |   CMakeLists.txt:33 (include)
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-pybind11-tools-FindPythonLibsNew.cmake-ignore-pointe.patch"
+SRC_URI += "file://0001-pybind11-catkin-don-t-build-pybind11-use-platform-re.patch"
