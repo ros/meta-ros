@@ -31,7 +31,7 @@ DEPENDS = " \
 DEPENDS += " \
     ${PYTHON_PN}-empy-native \
     camera-info-manager \
-    python-catkin-pkg-native \
+    ${PYTHON_PN}-catkin-pkg-native \
 "
 
 RDEPENDS_${PN} = "message-runtime"
