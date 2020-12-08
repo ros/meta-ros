@@ -60,6 +60,8 @@ ROS_WORLD_SKIP_GROUPS += "rospilot"
 ROS_WORLD_SKIP_GROUPS += "parrot-arsdk"
 # recipes depending on clang-tidy
 ROS_WORLD_SKIP_GROUPS += "clang-tidy"
+# recipes depending on turtlebot3 specific recipes which weren't ported to noetic yet
+ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 # recipes depending on muparser
 ROS_WORLD_SKIP_GROUPS += "muparser"
 # recipes depending on openni (libopenni-dev)
