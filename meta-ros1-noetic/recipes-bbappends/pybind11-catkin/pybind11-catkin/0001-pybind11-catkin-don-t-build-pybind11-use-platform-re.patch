@@ -1,0 +1,40 @@
+From 5380a58f761b707f22a10d649756189533efd2f1 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 5 Nov 2020 12:32:28 -0800
+Subject: [PATCH] pybind11-catkin: don't build pybind11, use platform recipe
+ python3-pybind11
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 16 ----------------
+ 1 file changed, 16 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5c3ce83..2cd60b3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,22 +2,6 @@ cmake_minimum_required(VERSION 3.0.2)
+ project(pybind11_catkin)
+ 
+ find_package(catkin REQUIRED)
+-include(ExternalProject)
+-
+-ExternalProject_Add(pybind11_src
+-  URL "https://github.com/pybind/pybind11/archive/v2.5.0.zip"
+-  UPDATE_COMMAND ""
+-  CMAKE_ARGS -DPYBIND11_PYTHON_VERSION=${PYTHON_VERSION_STRING}
+-             -DPYBIND11_TEST:BOOL=OFF -DPYBIND11_INSTALL:BOOL=ON
+-             -DCMAKE_INSTALL_PREFIX:PATH=${PROJECT_BINARY_DIR}/install
+-)
+-ExternalProject_Add_Step(pybind11_src CopyToDevel
+-  COMMENT "Copying to devel"
+-  COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_BINARY_DIR}/install/share/cmake/pybind11/pybind11Tools.cmake ${CATKIN_DEVEL_PREFIX}/share/${PROJECT_NAME}/cmake
+-  COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_BINARY_DIR}/install/share/cmake/pybind11/FindPythonLibsNew.cmake ${CATKIN_DEVEL_PREFIX}/share/${PROJECT_NAME}/cmake
+-  COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_BINARY_DIR}/install/include/pybind11/ ${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/pybind11/
+-  DEPENDEES install
+-)
+ 
+ file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME})
+ catkin_package(
