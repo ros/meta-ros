@@ -13,6 +13,18 @@ PACKAGES = "${PN}"
 
 RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 
+
+# Use opencv-apps-ros, because there is
+# meta-openembedded/meta-oe/recipes-support/opencv/opencv_4.1.0.bb
+# with package name PN-apps which conflicts with
+# meta-ros/meta-ros1-noetic/generated-recipes/opencv-apps/opencv-apps_2.0.2-1.bb
+# in
+# meta-ros/meta-ros1-noetic/recipes-bbappends/opencv-apps/opencv-apps_2.0.2-1.bbappend
+# we rename the main package from PN (opencv-apps) to PN-ros (opencv-apps-ros)
+# depend on it
+RDEPENDS_${PN} += "opencv-apps-ros"
+
+PACKAGES_remove = "${PN}"
 # Requires Python 3; it is not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "catkin-virtualenv"
 # Depends on blacklisted catkin-virtualenv
@@ -434,6 +446,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     navigation-stage \
     navigation-tutorials \
     nextage-moveit-config \
+    opencv-apps-ros \
     open-manipulator-controller \
     open-manipulator-with-tb3-tools \
     perception \
