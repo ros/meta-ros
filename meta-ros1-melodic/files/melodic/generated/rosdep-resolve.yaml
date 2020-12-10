@@ -272,6 +272,8 @@ libogre-dev:
 - ogre@meta-ros-common
 libois-dev:
 - ${ROS_UNRESOLVED_DEP-libois-dev}
+libopenblas-dev:
+- openblas@meta-ros-common
 libopencv-dev:
 - opencv@meta-oe
 libopenexr-dev:
@@ -286,6 +288,10 @@ libopenvdb:
 - ${ROS_UNRESOLVED_DEP-libopenvdb}
 libopenvdb-dev:
 - ${ROS_UNRESOLVED_DEP-libopenvdb-dev}
+liborocos-kdl:
+- orocos-kdl@meta-ros1-noetic
+liborocos-kdl-dev:
+- orocos-kdl@meta-ros1-noetic
 libpcap:
 - libpcap@openembedded-core
 libpcl-all:
@@ -330,6 +336,8 @@ libqt5-opengl-dev:
 - qtbase@meta-qt5
 libqt5-svg-dev:
 - qtsvg@meta-qt5
+libqt5-websockets-dev:
+- qtwebsockets@meta-qt5
 libqt5-widgets:
 - qtbase@meta-qt5
 libqt5multimedia5-plugins:
@@ -404,6 +412,8 @@ libzmq3-dev:
 - zeromq@meta-oe
 linux-kernel-headers:
 - linux-libc-headers@openembedded-core
+llvm-7-dev:
+- llvm@openembedded-core
 log4cplus:
 - log4cplus@openembedded-core
 log4cxx:
@@ -448,8 +458,6 @@ openssl:
 - openssl@openembedded-core
 osm2pgsql:
 - ${ROS_UNRESOLVED_DEP-osm2pgsql}
-paramiko:
-- ${PYTHON_PN}-paramiko@meta-ros-common
 phantomjs:
 - ${ROS_UNRESOLVED_DEP-phantomjs}
 pkg-config:
@@ -508,7 +516,7 @@ python-cheetah:
 python-cherrypy:
 - ${ROS_UNRESOLVED_DEP-python-cherrypy}
 python-click:
-- ${ROS_UNRESOLVED_DEP-python-click}
+- ${PYTHON_PN}-click@meta-python
 python-colorama:
 - ${ROS_UNRESOLVED_DEP-python-colorama}
 python-coverage:
@@ -547,8 +555,6 @@ python-gi-cairo:
 - ${ROS_UNRESOLVED_DEP-python-gi-cairo}
 python-gnupg:
 - ${PYTHON_PN}-gnupg@meta-ros-common
-python-gtk2:
-- ${ROS_UNRESOLVED_DEP-python-gtk2}
 python-h5py:
 - ${ROS_UNRESOLVED_DEP-python-h5py}
 python-imageio:
@@ -691,6 +697,8 @@ python-usb:
 - ${PYTHON_PN}-pyusb@meta-python
 python-websocket:
 - python3-websockets@meta-python
+python-whichcraft:
+- ${ROS_UNRESOLVED_DEP-python-whichcraft}
 python-wxtools:
 - wxpython@meta-ros-python2
 python-yaml:
@@ -778,6 +786,8 @@ wxpython:
 - wxpython@meta-ros-python2
 wxwidgets:
 - wxwidgets@meta-ros-common
+xclip:
+- ${ROS_UNRESOLVED_DEP-xclip}
 xfonts-100dpi:
 - ${ROS_UNRESOLVED_DEP-xfonts-100dpi}
 xfonts-75dpi:
