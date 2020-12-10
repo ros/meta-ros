@@ -2200,6 +2200,12 @@ libceres-dev:
   rhel:
     '7': [ceres-solver-devel]
   ubuntu: [libceres-dev]
+libcgroup-dev:
+  debian: [libcgroup-dev]
+  fedora: [libcgroup-devel]
+  gentoo: [dev-libs/libcgroup]
+  openembedded: [libcgroup@openembedded-core]
+  ubuntu: [libcgroup-dev]
 libclang-dev:
   arch: [clang]
   debian: [libclang-dev]
@@ -3324,6 +3330,7 @@ libopenal-dev:
 libopenblas-dev:
   debian: [libopenblas-dev]
   fedora: [openblas-devel]
+  openembedded: [openblas@meta-ros-common]
   rhel: [openblas-devel]
   ubuntu: [libopenblas-dev]
 libopencv-contrib-dev:
@@ -3924,6 +3931,7 @@ libqt5-websockets-dev:
   debian: [libqt5websockets5-dev]
   fedora: [qt5-qtwebsockets]
   gentoo: ['dev-qt/qtwebsockets:5']
+  openembedded: [qtwebsockets@meta-qt5]
   ubuntu: [libqt5websockets5-dev]
 libqt5-widgets:
   alpine: [qt5-qtbase-dev]
@@ -4794,7 +4802,7 @@ linux-headers-generic:
     wheezy: [linux-headers-3.2.0-4-all]
   fedora: [kernel-headers, kernel-devel]
   gentoo: [sys-kernel/linux-headers]
-  openembedded: [virtual/kernel@openembedded-core]
+  openembedded: [linux-libc-headers@openembedded-core]
   rhel: [kernel-headers, kernel-devel]
   ubuntu: [linux-headers-generic]
 linux-kernel-headers:
@@ -4804,6 +4812,18 @@ linux-kernel-headers:
   gentoo: [sys-kernel/linux-headers]
   openembedded: [linux-libc-headers@openembedded-core]
   ubuntu: [linux-libc-dev]
+llvm:
+  arch: [llvm]
+  debian: [llvm]
+  gentoo: [sys-devel/llvm]
+  openembedded: [llvm@openembedded-core]
+  ubuntu: [llvm]
+llvm-dev:
+  arch: [llvm]
+  debian: [llvm-dev]
+  gentoo: [sys-devel/llvm]
+  openembedded: [llvm@openembedded-core]
+  ubuntu: [llvm-dev]
 lm-sensors:
   arch: [lm_sensors]
   debian: [lm-sensors]
@@ -6558,6 +6578,15 @@ x11proto-print-dev:
   debian: [x11proto-print-dev]
   fedora: [xorg-x11-proto-devel]
   ubuntu: [x11proto-print-dev]
+xclip:
+  arch: [xclip]
+  debian: [xclip]
+  fedora: [xclip]
+  gentoo: [x11-misc/xclip]
+  osx:
+    homebrew:
+      packages: [xclip]
+  ubuntu: [xclip]
 xdotool:
   arch: [xdotool]
   debian: [xdotool]
