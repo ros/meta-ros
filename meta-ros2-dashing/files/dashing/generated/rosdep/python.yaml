@@ -4624,6 +4624,13 @@ python-sympy:
     wily_python3: [python3-sympy]
     xenial: [python-sympy]
     xenial_python3: [python3-sympy]
+python-systemd:
+  debian:
+    buster: [python-systemd]
+    stretch: [python-systemd]
+  ubuntu:
+    bionic: [python-systemd]
+    xenial: [python-systemd]
 python-sysv-ipc:
   debian: [python-sysv-ipc]
   fedora: [python2-sysv-ipc]
@@ -5553,6 +5560,13 @@ python3-can:
   ubuntu:
     '*': [python3-can]
     xenial: null
+python3-cantools-pip:
+  debian:
+    pip:
+      packages: [cantools]
+  ubuntu:
+    pip:
+      packages: [cantools]
 python3-catkin-lint:
   debian:
     '*': [python3-catkin-lint]
@@ -5625,6 +5639,16 @@ python3-colorama:
   openembedded: [python3-colorama@meta-python]
   rhel: ['python%{python3_pkgversion}-colorama']
   ubuntu: [python3-colorama]
+python3-conan-pip:
+  debian:
+    pip:
+      packages: [conan]
+  fedora:
+    pip:
+      packages: [conan]
+  ubuntu:
+    pip:
+      packages: [conan]
 python3-connexion-pip:
   debian:
     pip:
@@ -6143,6 +6167,16 @@ python3-opengl:
   fedora: [python3-pyopengl]
   gentoo: [dev-python/pyopengl]
   ubuntu: [python3-opengl]
+python3-owlready2-pip:
+  debian:
+    pip:
+      packages: [owlready2]
+  fedora:
+    pip:
+      packages: [owlready2]
+  ubuntu:
+    pip:
+      packages: [owlready2]
 python3-packaging:
   debian: [python3-packaging]
   fedora: [python3-packaging]
@@ -6715,6 +6749,9 @@ python3-siphon-pip:
   ubuntu:
     pip:
       packages: [siphon]
+python3-six:
+  debian: [python3-six]
+  ubuntu: [python3-six]
 python3-skimage:
   debian: [python3-skimage]
   fedora: [python3-scikit-image]
@@ -6749,6 +6786,9 @@ python3-sphinx-rtd-theme:
 python3-sqlalchemy:
   debian: [python3-sqlalchemy]
   ubuntu: [python3-sqlalchemy]
+python3-systemd:
+  debian: [python3-systemd]
+  ubuntu: [python3-systemd]
 python3-tensorboardX-pip:
   debian:
     pip:
