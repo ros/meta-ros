@@ -100,6 +100,8 @@ liblapack-dev:
 - lapack@meta-oe
 libogg:
 - libogg@openembedded-core
+libopenblas-dev:
+- openblas@meta-ros-common
 libopencv-dev:
 - opencv@meta-oe
 libopenexr-dev:
@@ -158,6 +160,8 @@ libxaw:
 - libxaw@meta-oe
 libxi-dev:
 - libxi@openembedded-core
+libxml2:
+- libxml2@openembedded-core
 libxml2-utils:
 - libxml2@openembedded-core
 libxmlrpc-c++:
@@ -169,7 +173,9 @@ libxrandr:
 libzmq3-dev:
 - zeromq@meta-oe
 linux-headers-generic:
-- virtual/kernel@openembedded-core
+- linux-libc-headers@openembedded-core
+llvm-dev:
+- llvm@openembedded-core
 log4cplus:
 - log4cplus@openembedded-core
 log4cxx:
