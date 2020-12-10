@@ -22,11 +22,11 @@ ROS_BUILD_DEPENDS = " \
     glfw \
     gtk+3 \
     libusb1 \
+    linux-libc-headers \
     mesa \
     openssl \
     pkgconfig \
     udev \
-    virtual/kernel \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -37,10 +37,10 @@ ROS_EXPORT_DEPENDS = " \
     glfw \
     gtk+3 \
     libusb1 \
+    linux-libc-headers \
     mesa \
     openssl \
     udev \
-    virtual/kernel \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
@@ -49,10 +49,10 @@ ROS_EXEC_DEPENDS = " \
     glfw \
     gtk+3 \
     libusb1 \
+    linux-libc-headers \
     mesa \
     openssl \
     udev \
-    virtual/kernel \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
