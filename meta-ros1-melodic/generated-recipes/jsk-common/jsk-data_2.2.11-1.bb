@@ -29,9 +29,9 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${PYTHON_PN}-click \
     ${PYTHON_PN}-paramiko \
     ${PYTHON_PN}-pyyaml \
-    ${ROS_UNRESOLVED_DEP-python-click} \
     ${ROS_UNRESOLVED_DEP-python-gdown-pip} \
     depth-image-proc \
     dynamic-reconfigure \
