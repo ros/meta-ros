@@ -117,6 +117,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PARROT_ARSDK = " \
     parrot-arsdk \
 "
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-whichcraft', 'leo-fw leo-robot', '', d)}"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'xclip', 'log-view', '', d)}"
+
 # ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-docker' (but generated-recipes/dockeros/dockeros_1.1.0-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "dockeros"
 
@@ -275,6 +279,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     pilz-status-indicator-rqt \
     pr2-motor-diagnostic-tool \
     python-qt-binding \
+    psen-scan-v2 \
     qt-gui \
     qt-gui-app \
     qt-gui-core \
@@ -282,6 +287,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     radial-menu \
     radial-menu-example \
     radial-menu-rviz \
+    robot-statemachine \
+    robotont-description \
+    robotont-nuc-description \
     ros-controllers \
     rosmon \
     rqt \
@@ -307,6 +315,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-msg \
     rqt-multiplot \
     rqt-nav-view \
+    rqt-play-motion-builder \
     rqt-plot \
     rqt-publisher \
     rqt-py-common \
@@ -327,6 +336,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-topic \
     rqt-virtual-joy \
     rqt-web \
+    rsm-rqt-plugins \
+    rsm-rviz-plugins \
     rtmros-common \
     rviz-map-plugin \
     rviz-mesh-plugin \
@@ -339,6 +350,7 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vtk-qt',
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT = " \
     ira-laser-tools \
     lvr2 \
+    mesh-msgs-conversions \
     rc-cloud-accumulator \
     rtabmap \
     rtabmap-ros \
@@ -347,6 +359,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT = " \
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
+    audio-to-spectrogram \
     cob-collision-monitor \
     cob-obstacle-distance-moveit \
     exotica-aico-solver \
@@ -798,13 +811,18 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     open-manipulator-with-tb3-waffle-moveit \
     open-manipulator-with-tb3-waffle-pi-moveit \
     panda-moveit-config \
+    psen-scan-v2 \
     psen-scan \
     radial-menu \
     radial-menu-example \
     radial-menu-rviz \
     ridgeback-desktop \
     ridgeback-viz \
+    robot-statemachine \
+    robotont-description \
+    robotont-nuc-description \
     rqt-rviz \
+    rsm-rviz-plugins \
     rviz \
     rviz-imu-plugin \
     rviz-map-plugin \
@@ -913,6 +931,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     lvr2 \
     mapviz \
     mapviz-plugins \
+    mesh-msgs-conversions \
     mesh-tools \
     mir-gazebo \
     mir-robot \
@@ -936,10 +955,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     octomap-rviz-plugins \
     open-manipulator \
     open-manipulator-control-gui \
+    open-manipulator-p-control-gui \
+    open-manipulator-p \
     open-manipulator-with-tb3 \
     panda-moveit-config \
     pilz-robots \
     pilz-status-indicator-rqt \
+    plotjuggler-ros \
     plotjuggler \
     points-preprocessor \
     pr2-motor-diagnostic-tool \
@@ -948,6 +970,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     prbt-grippers \
     prbt-moveit-config \
     prbt-pg70-support \
+    psen-scan-v2 \
     python-qt-binding \
     qt-dotgraph \
     qt-gui \
@@ -962,6 +985,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rc-cloud-accumulator \
     ridgeback-desktop \
     ridgeback-viz \
+    robot-statemachine \
+    robotont-description \
+    robotont-nuc-description \
     ros-controllers \
     ros-tutorials \
     rosbag-editor \
@@ -991,6 +1017,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-msg \
     rqt-multiplot \
     rqt-nav-view \
+    rqt-play-motion-builder \
     rqt-plot \
     rqt-pose-view \
     rqt-publisher \
@@ -1014,6 +1041,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-topic \
     rqt-virtual-joy \
     rqt-web \
+    rsm-rqt-plugins \
+    rsm-rviz-plugins \
     rtabmap-ros \
     rtmros-common \
     rviz \
@@ -1058,6 +1087,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
     codec-image-transport \
     h264-encoder-core \
     h264-video-encoder \
+    leo-bringup \
+    leo-robot \
     movie-publisher \
     mrpt1 \
     mrpt2 \
@@ -1089,6 +1120,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
     codec-image-transport \
     h264-encoder-core \
     h264-video-encoder \
+    leo-bringup \
+    leo-robot \
     movie-publisher \
     mrpt1 \
     mrpt2 \
@@ -1123,6 +1156,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
     find-object-2d \
     geometry-tutorials \
     open-manipulator-control-gui \
+    plotjuggler-ros \
     plotjuggler \
     ros-tutorials \
     swri-console \
@@ -1141,6 +1175,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY =
     audio-capture \
     audio-common \
     audio-play \
+    audio-to-spectrogram \
     cis-camera \
     imagesift \
     jsk-3rdparty \
@@ -1256,6 +1291,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     nextage-gazebo \
     nmea-gps-plugin \
     open-manipulator-gazebo \
+    open-manipulator-p-gazebo \
+    open-manipulator-p-simulations \
     open-manipulator-simulations \
     open-manipulator-with-tb3-gazebo \
     open-manipulator-with-tb3-simulations \
@@ -1304,6 +1341,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     uuv-world-ros-plugins \
     velodyne-gazebo-plugins \
     velodyne-simulator \
+    volta-description \
+    volta-simulation \
     vrx-gazebo \
     wamv-gazebo \
     warthog-gazebo \
@@ -1511,7 +1550,7 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ueye', '
 # do_configure failures
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dccomms-ros', 'dccomms-ros' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyros-utils', 'pyros-utils' , '', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dynamic-graph-python', 'dynamic-graph-python dynamic-graph-tutorial sot-core' , '', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dynamic-graph-python', 'dynamic-graph-python dynamic-graph-tutorial sot-core sot-tools' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hdf5-map-io', 'hdf5-map-io mesh-msgs-hdf5' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'jderobot-carviz', 'jderobot-carviz' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lanelet2-traffic-rules', 'lanelet2-traffic-rules lanelet2-routing' , '', d)}"
@@ -1525,13 +1564,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT_GUI_CPP = " \
     multires-image \
     qt-gui-core \
     qt-gui-cpp \
+    robot-statemachine \
     rosmon \
     rqt-gui-cpp \
     rqt-image-view \
     rqt-multiplot \
+    rqt-play-motion-builder \
     rqt-rosmon \
     rqt-rviz \
     rqt \
+    rsm-rqt-plugins \
     tile-map \
 "
 

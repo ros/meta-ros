@@ -92,6 +92,10 @@ ROS_WORLD_SKIP_GROUPS += "pugixml"
 ROS_WORLD_SKIP_GROUPS += "python-omniorb"
 # recipes depending on python-mechanize
 ROS_WORLD_SKIP_GROUPS += "python-mechanize"
+# recipes depending on python-whichcraft
+ROS_WORLD_SKIP_GROUPS += "python-whichcraft"
+# recipes depending on xclip
+ROS_WORLD_SKIP_GROUPS += "xclip"
 # recipes depending on lcm from meta-uav https://layers.openembedded.org/layerindex/recipe/25701/
 ROS_WORLD_SKIP_GROUPS += "lcm"
 # recipes depending on libpqxx (https://packages.debian.org/source/sid/libpqxx)
