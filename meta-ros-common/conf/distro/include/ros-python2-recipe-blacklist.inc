@@ -8,8 +8,6 @@ PNBLACKLIST[python] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2',
 PNBLACKLIST[gammu] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-connectivity/thrift/thrift_0.9.3.bb
 PNBLACKLIST[thrift] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-openembedded/meta-oe/recipes-dbs/mongodb/mongodb_git.bb
-PNBLACKLIST[mongodb] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-dbs/mysql/mysql-python_1.2.5.bb
 PNBLACKLIST[mysql-python] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-dbs/postgresql/postgresql_10.10.bb
