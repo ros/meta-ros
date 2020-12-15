@@ -138,6 +138,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PARROT_ARSDK = " \
     parrot-arsdk \
 "
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'xclip', 'log-view', '', d)}"
+
 # ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-docker' (but generated-recipes/dockeros/dockeros_1.1.0-1.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "dockeros"
 
@@ -617,6 +619,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG_TIDY = " \
     pilz-control \
     pilz-robots \
     pilz-status-indicator-rqt \
+    pilz-testutils \
     pilz-utils \
     prbt-hardware-support \
     prbt-moveit-config \
@@ -953,6 +956,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     pilz-robots \
     pilz-status-indicator-rqt \
     plotjuggler \
+    plotjuggler-ros \
     points-preprocessor \
     pr2-motor-diagnostic-tool \
     pr2eus-tutorials \
@@ -1138,6 +1142,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
     geometry-tutorials \
     open-manipulator-control-gui \
     plotjuggler \
+    plotjuggler-ros \
     ros-tutorials \
     swri-console \
     swri-profiler-tools \
