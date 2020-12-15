@@ -25,6 +25,8 @@ bzip2:
 - bzip2@openembedded-core
 ca-certificates:
 - ca-certificates@openembedded-core
+clang-tidy:
+- ${ROS_UNRESOLVED_DEP-clang-tidy}
 cmake:
 - cmake@openembedded-core
 coinor-libipopt-dev:
@@ -37,8 +39,9 @@ cwiid-dev:
 - ${ROS_UNRESOLVED_DEP-cwiid-dev}
 cython:
 - ${ROS_UNRESOLVED_DEP-cython}
+dkms: []
 dnsmasq:
-- dnsmasq@openembedded-core
+- dnsmasq@meta-networking
 doxygen:
 - doxygen@meta-oe
 dpkg:
@@ -259,7 +262,7 @@ libqt5-opengl-dev:
 libqt5-svg-dev:
 - qtsvg@meta-qt5
 libqt5-websockets-dev:
-- ${ROS_UNRESOLVED_DEP-libqt5-websockets-dev}
+- qtwebsockets@meta-qt5
 libqt5-widgets:
 - qtbase@meta-qt5
 libqt5x11extras5-dev:
@@ -316,8 +319,6 @@ libxxf86vm:
 - libxxf86vm@openembedded-core
 libzmq3-dev:
 - zeromq@meta-oe
-libzmqpp-dev:
-- ${ROS_UNRESOLVED_DEP-libzmqpp-dev}
 linux-kernel-headers:
 - linux-libc-headers@openembedded-core
 log4cxx:
@@ -598,6 +599,8 @@ tinyxml:
 - libtinyxml@meta-oe
 tinyxml2:
 - libtinyxml2@meta-oe
+udev:
+- udev@openembedded-core
 unzip:
 - unzip@openembedded-core
 usbutils:
@@ -618,6 +621,8 @@ wxpython:
 - wxpython@meta-ros-python2
 wxwidgets:
 - wxwidgets@meta-ros-common
+xclip:
+- ${ROS_UNRESOLVED_DEP-xclip}
 xterm:
 - xterm@meta-oe
 yaml-cpp:
