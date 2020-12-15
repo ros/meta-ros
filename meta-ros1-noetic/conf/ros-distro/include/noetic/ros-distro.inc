@@ -115,6 +115,8 @@ ROS_WORLD_SKIP_GROUPS += "python2"
 ROS_WORLD_SKIP_GROUPS += "ignition"
 # recipes depending on python3-wxgtk4.0
 ROS_WORLD_SKIP_GROUPS += "python3-wxgtk4.0"
+# recipes depending on xclip
+ROS_WORLD_SKIP_GROUPS += "xclip"
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
