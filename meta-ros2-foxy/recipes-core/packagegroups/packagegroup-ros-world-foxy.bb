@@ -44,6 +44,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
     ament-cmake-clang-tidy \
 "
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libomp', 'moveit-planners-ompl', '', d)}"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'java', 'vrxperience-bridge', '', d)}"
+
 # Needs work to launch qemu to run tests on image on build machine.
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
@@ -70,6 +74,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     dolly-gazebo \
     libg2o \
     librealsense2 \
+    moveit-ros-visualization \
     realsense-examples \
     realsense-node \
     realsense-ros \
@@ -101,9 +106,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     nav2-rviz-plugins \
     mapviz \
     mapviz-plugins \
+    moveit-resources \
+    moveit-resources-panda-moveit-config \
+    moveit-ros-visualization \
     multires-image \
     octovis \
     plotjuggler \
+    plotjuggler-ros \
     python-qt-binding \
     py-trees-js \
     py-trees-ros-tutorials \
@@ -175,6 +184,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5-widgets', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
     plotjuggler \
+    plotjuggler-ros \
     turtlesim \
 "
 
@@ -197,6 +207,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     desktop \
     dsr-description2 \
     joint-state-publisher-gui \
+    moveit-resources \
+    moveit-resources-panda-moveit-config \
     python-qt-binding \
     py-trees-js \
     py-trees-ros-tutorials \
@@ -276,6 +288,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     nav2-rviz-plugins \
     mapviz \
     mapviz-plugins \
+    moveit-ros-visualization \
     multires-image \
     ros-ign \
     ros-ign-gazebo-demos \
@@ -319,6 +332,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
     webots-ros2-core \
     webots-ros2-examples \
     webots-ros2-importer \
+    webots-ros2-turtlebot \
+    webots-ros2-tutorials \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libqglviewer', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER}', '', d)}"
