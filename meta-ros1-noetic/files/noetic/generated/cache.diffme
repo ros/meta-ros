@@ -1,4 +1,4 @@
-# noetic/cache.yaml 2020-11-30 ee6c28afc4789e94f2f894aa9c44190abd12644c 20201124092054 1.6.0
+# noetic/cache.yaml 2020-12-14 7ce47d9efb0f28d20e852e3cb304876fd3017d59 20201208141208 1.6.0
 distribution_file:
 - release_platforms:
 -----
@@ -506,6 +506,27 @@ version: master
 status: maintained
 }
 -----
+carla_msgs: {
+doc: {
+type: git,
+url: 'https://github.com/carla-simulator/ros-carla-msgs.git',
+version: release
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/carla-simulator/ros-carla-msgs-release.git',
+version: 1.2.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/carla-simulator/ros-carla-msgs.git',
+version: release
+},
+status: developed
+}
+-----
 cartesian_msgs: {
 doc: {
 type: git,
@@ -636,6 +657,27 @@ version: 0.4-devel
 status: maintained
 }
 -----
+cnpy: {
+doc: {
+type: git,
+url: 'https://github.com/PeterMitrano/cnpy.git',
+version: 0.0.1
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/PeterMitrano/cnpy-release.git',
+version: 0.0.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/PeterMitrano/cnpy.git',
+version: 0.0.1
+},
+status: maintained
+}
+-----
 cob_android: {
 doc: {
 type: git,
@@ -690,7 +732,9 @@ url: 'https://github.com/ipa320/cob_command_tools.git',
 version: indigo_release_candidate
 },
 release: {
-packages: [cob_dashboard,
+packages: [cob_command_gui,
+cob_command_tools,
+cob_dashboard,
 cob_helper_tools,
 cob_interactive_teleop,
 cob_monitoring,
@@ -703,7 +747,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ipa320/cob_command_tools-release.git',
-version: 0.6.18-1
+version: 0.6.19-1
 },
 source: {
 type: git,
@@ -970,6 +1014,55 @@ source: {
 type: git,
 url: 'https://github.com/ipa320/cob_perception_common.git',
 version: indigo_dev
+},
+status: maintained
+}
+-----
+cob_robots: {
+doc: {
+type: git,
+url: 'https://github.com/ipa320/cob_robots.git',
+version: kinetic_release_candidate
+},
+release: {
+packages: [cob_default_robot_behavior,
+cob_default_robot_config,
+cob_hardware_config,
+cob_moveit_config],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ipa320/cob_robots-release.git',
+version: 0.7.5-1
+},
+source: {
+type: git,
+url: 'https://github.com/ipa320/cob_robots.git',
+version: kinetic_dev
+},
+status: maintained
+}
+-----
+cob_simulation: {
+doc: {
+type: git,
+url: 'https://github.com/ipa320/cob_simulation.git',
+version: kinetic_release_candidate
+},
+release: {
+packages: [cob_gazebo_objects,
+cob_gazebo_tools,
+cob_gazebo_worlds],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ipa320/cob_simulation-release.git',
+version: 0.7.5-1
+},
+source: {
+type: git,
+url: 'https://github.com/ipa320/cob_simulation.git',
+version: kinetic_dev
 },
 status: maintained
 }
@@ -1574,7 +1667,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/diagnostics-release.git',
-version: 1.10.2-3
+version: 1.10.3-1
 },
 source: {
 test_pull_requests: true,
@@ -2000,7 +2093,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ipab-slmc/exotica-release.git',
-version: 6.0.1-1
+version: 6.0.2-1
 },
 source: {
 type: git,
@@ -2167,7 +2260,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/fkie-release/multimaster_fkie-release.git',
-version: 1.2.3-1
+version: 1.2.5-2
 },
 source: {
 type: git,
@@ -2191,6 +2284,36 @@ url: 'https://github.com/fkie/potree_rviz_plugin.git',
 version: master
 },
 status: maintained
+}
+-----
+flexbe: {
+doc: {
+type: git,
+url: 'https://github.com/team-vigir/flexbe_behavior_engine.git',
+version: master
+},
+release: {
+packages: [flexbe_behavior_engine,
+flexbe_core,
+flexbe_input,
+flexbe_mirror,
+flexbe_msgs,
+flexbe_onboard,
+flexbe_states,
+flexbe_testing,
+flexbe_widget],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/FlexBE/flexbe_behavior_engine-release.git',
+version: 1.3.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/team-vigir/flexbe_behavior_engine.git',
+version: master
+},
+status: developed
 }
 -----
 fmi_adapter: {
@@ -3576,6 +3699,7 @@ url: 'https://github.com/fictionlab-gbp/leo_common-release.git',
 version: 1.1.0-1
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/LeoRover/leo_common.git',
 version: master
@@ -3599,6 +3723,7 @@ url: 'https://github.com/fictionlab-gbp/leo_desktop-release.git',
 version: 0.2.2-1
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/LeoRover/leo_desktop.git',
 version: master
@@ -3619,9 +3744,10 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/fictionlab-gbp/leo_simulator-release.git',
-version: 0.1.2-1
+version: 0.1.3-1
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/LeoRover/leo_simulator.git',
 version: master
@@ -3678,6 +3804,28 @@ version: 2020.5.3-1
 status: maintained
 }
 -----
+librealsense2: {
+doc: {
+type: git,
+url: 'https://github.com/IntelRealSense/librealsense.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/IntelRealSense/librealsense2-release.git',
+version: 2.40.0-2
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/IntelRealSense/librealsense.git',
+version: master
+},
+status: developed
+}
+-----
 libsick_ldmrs: {
 doc: {
 type: git,
@@ -3689,6 +3837,27 @@ type: git,
 url: 'https://github.com/SICKAG/libsick_ldmrs.git',
 version: master
 }
+}
+-----
+log_view: {
+doc: {
+type: git,
+url: 'https://github.com/hatchbed/log_view.git',
+version: devel
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/hatchbed/log_view-release.git',
+version: 0.1.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/hatchbed/log_view.git',
+version: devel
+},
+status: developed
 }
 -----
 lusb: {
@@ -3723,7 +3892,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/uos-gbp/lvr2-release.git',
-version: 20.11.1-1
+version: 20.11.2-1
 },
 source: {
 type: git,
@@ -4140,7 +4309,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/uos-gbp/move_base_flex-release.git',
-version: 0.3.3-1
+version: 0.3.4-1
 },
 source: {
 type: git,
@@ -4821,14 +4990,56 @@ version: melodic-devel
 status: unmaintained
 }
 -----
+odva_ethernetip: {
+doc: {
+type: git,
+url: 'https://github.com/ros-drivers/odva_ethernetip.git',
+version: kinetic-devel
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ros-drivers-gbp/odva_ethernetip-release.git',
+version: 0.1.5-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-drivers/odva_ethernetip.git',
+version: kinetic-devel
+},
+status: maintained
+}
+-----
 ompl: {
 release: {
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ompl-release.git',
-version: 1.5.0-1
+version: 1.5.1-1
 }
+}
+-----
+omron_os32c_driver: {
+doc: {
+type: git,
+url: 'https://github.com/ros-drivers/omron.git',
+version: kinetic-devel
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ros-drivers-gbp/omron-release.git',
+version: 1.1.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-drivers/omron.git',
+version: kinetic-devel
+},
+status: maintained
 }
 -----
 open_karto: {
@@ -5085,6 +5296,31 @@ version: master
 status: maintained
 }
 -----
+pilz_common: {
+doc: {
+type: git,
+url: 'https://github.com/PilzDE/pilz_common.git',
+version: noetic-devel
+},
+release: {
+packages: [pilz_industrial_motion_testutils,
+pilz_msgs,
+pilz_testutils,
+pilz_utils],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/PilzDE/pilz_common-release.git',
+version: 0.7.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/PilzDE/pilz_common.git',
+version: noetic-devel
+},
+status: developed
+}
+-----
 pinocchio: {
 doc: {
 type: git,
@@ -5110,19 +5346,19 @@ plotjuggler: {
 doc: {
 type: git,
 url: 'https://github.com/facontidavide/PlotJuggler.git',
-version: master
+version: main
 },
 release: {
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/facontidavide/plotjuggler-release.git',
-version: 3.0.1-1
+version: 3.0.4-1
 },
 source: {
 type: git,
 url: 'https://github.com/facontidavide/PlotJuggler.git',
-version: master
+version: main
 },
 status: maintained
 }
@@ -5144,6 +5380,27 @@ source: {
 type: git,
 url: 'https://github.com/facontidavide/plotjuggler_msgs.git',
 version: ros1
+},
+status: developed
+}
+-----
+plotjuggler_ros: {
+doc: {
+type: git,
+url: 'https://github.com/PlotJuggler/plotjuggler-ros-plugins.git',
+version: development
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/PlotJuggler/plotjuggler-ros-plugins-release.git',
+version: 1.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/PlotJuggler/plotjuggler-ros-plugins.git',
+version: development
 },
 status: developed
 }
@@ -5262,6 +5519,32 @@ url: 'https://github.com/pr2/pr2_common.git',
 version: melodic-devel
 },
 status: unmaintained
+}
+-----
+pr2_mechanism: {
+doc: {
+type: git,
+url: 'https://github.com/pr2/pr2_mechanism.git',
+version: melodic-devel
+},
+release: {
+packages: [pr2_controller_interface,
+pr2_controller_manager,
+pr2_hardware_interface,
+pr2_mechanism,
+pr2_mechanism_diagnostics,
+pr2_mechanism_model],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/pr2-gbp/pr2_mechanism-release.git',
+version: 1.8.18-1
+},
+source: {
+type: git,
+url: 'https://github.com/pr2/pr2_mechanism.git',
+version: kinetic-devel
+}
 }
 -----
 pr2_mechanism_msgs: {
@@ -5484,7 +5767,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/roboception-gbp/rc_common_msgs-release.git',
-version: 0.5.0-1
+version: 0.5.3-1
 },
 source: {
 test_pull_requests: true,
@@ -5550,7 +5833,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/roboception-gbp/rc_genicam_driver_ros-release.git',
-version: 0.2.0-1
+version: 0.4.0-1
 },
 source: {
 test_pull_requests: true,
@@ -5580,7 +5863,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/roboception-gbp/rc_visard-release.git',
-version: 3.0.5-1
+version: 3.1.0-1
 },
 source: {
 test_pull_requests: true,
@@ -5609,6 +5892,30 @@ test_pull_requests: true,
 type: git,
 url: 'https://github.com/roboception/rcdiscover.git',
 version: master
+},
+status: developed
+}
+-----
+realsense2_camera: {
+doc: {
+type: git,
+url: 'https://github.com/IntelRealSense/realsense-ros.git',
+version: development
+},
+release: {
+packages: [realsense2_camera,
+realsense2_description],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/IntelRealSense/realsense-ros-release.git',
+version: 2.2.20-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/IntelRealSense/realsense-ros.git',
+version: development
 },
 status: developed
 }
@@ -6015,7 +6322,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ros_control-release.git',
-version: 0.19.3-2
+version: 0.19.4-1
 },
 source: {
 type: git,
@@ -6071,7 +6378,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ros_controllers-release.git',
-version: 0.17.0-1
+version: 0.18.1-1
 },
 source: {
 type: git,
@@ -6322,7 +6629,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/RobotWebTools-release/rosbridge_suite-release.git',
-version: 0.11.10-1
+version: 0.11.12-1
 },
 source: {
 type: git,
@@ -7701,6 +8008,13 @@ status: maintained
 }
 -----
 sob_layer: {
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/dorezyuk/sob_layer-release.git',
+version: 0.1.0-1
+},
 source: {
 type: git,
 url: 'https://github.com/dorezyuk/sob_layer.git',
@@ -7762,7 +8076,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/sot-core-ros-release.git',
-version: 4.11.2-3
+version: 4.11.3-2
 },
 source: {
 test_pull_requests: true,
@@ -7813,6 +8127,22 @@ url: 'https://github.com/ros-planning/srdfdom.git',
 version: noetic-devel
 },
 status: maintained
+}
+-----
+stag_ros: {
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/usrl-uofsc/stag_ros-release.git',
+version: 0.3.6-3
+},
+source: {
+type: git,
+url: 'https://github.com/usrl-uofsc/stag_ros.git',
+version: noetic-devel
+},
+status: developed
 }
 -----
 stage: {
@@ -8050,7 +8380,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/tsid-ros-release.git',
-version: 1.4.1-2
+version: 1.4.2-1
 },
 source: {
 test_pull_requests: true,
@@ -8331,7 +8661,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/urdfdom_py-release.git',
-version: 0.4.4-1
+version: 0.4.5-1
 },
 source: {
 type: git,
@@ -8495,6 +8825,27 @@ version: 1.0.10-1
 source: {
 type: git,
 url: 'https://bitbucket.org/DataspeedInc/velodyne_simulator.git',
+version: master
+},
+status: maintained
+}
+-----
+video_stream_opencv: {
+doc: {
+type: git,
+url: 'https://github.com/ros-drivers/video_stream_opencv.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ros-drivers/video_stream_opencv-release.git',
+version: 1.1.6-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-drivers/video_stream_opencv.git',
 version: master
 },
 status: maintained
@@ -8866,18 +9217,18 @@ ackermann_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
-ackermann_steering_controller: <?xml version="1.0" ?>
-<package format="2">
+ackermann_steering_controller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>ackermann_steering_controller</name>
 <description>Controller for a steer drive mobile base.</description>
-<maintainer email="p595201m@mail.kyutech.jp">Masaru Morita</maintainer>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email=\"p595201m@mail.kyutech.jp\">Masaru Morita</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
 <license>BSD</license>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers/ackermann_steering_controller</url>
-<author email="p595201m@mail.kyutech.jp">Masaru Morita</author>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers/ackermann_steering_controller</url>
+<author email=\"p595201m@mail.kyutech.jp\">Masaru Morita</author>
 <buildtool_depend>catkin</buildtool_depend>
-<depend>boost</depend>
 <depend>controller_interface</depend>
 <depend>diff_drive_controller</depend>
 <depend>hardware_interface</depend>
@@ -8885,21 +9236,23 @@ ackermann_steering_controller: <?xml version="1.0" ?>
 <depend>realtime_tools</depend>
 <depend>roscpp</depend>
 <depend>tf</depend>
+<build_depend>boost</build_depend>
 <build_depend>pluginlib</build_depend>
-<build_depend>urdf</build_depend>
+<build_depend>liburdfdom-dev</build_depend>
+<build_export_depend>boost</build_export_depend>
 <exec_depend>pluginlib</exec_depend>
-<exec_depend>urdf</exec_depend>
+<exec_depend>liburdfdom-dev</exec_depend>
 <test_depend>controller_manager</test_depend>
+<test_depend>controller_manager_msgs</test_depend>
 <test_depend>geometry_msgs</test_depend>
-<test_depend>rosunit</test_depend>
 <test_depend>rostest</test_depend>
 <test_depend>std_msgs</test_depend>
 <test_depend>std_srvs</test_depend>
 <test_depend>xacro</test_depend>
 <export>
-<controller_interface plugin="${prefix}/ackermann_steering_controller_plugins.xml"/>
+<controller_interface plugin=\"${prefix}/ackermann_steering_controller_plugins.xml\"/>
 </export>
-</package>
+</package>"
 -----
 actionlib: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -10132,6 +10485,21 @@ and implement the capability server.</description>
 </export>
 </package>
 -----
+carla_msgs: <?xml version="1.0" ?>
+<package>
+<name>carla_msgs</name>
+<description>The carla_msgs package</description>
+<maintainer email="carla.simulator@gmail.com">CARLA Simulator Team</maintainer>
+<license>MIT</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>message_generation</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<run_depend>message_runtime</run_depend>
+<run_depend>std_msgs</run_depend>
+<run_depend>geometry_msgs</run_depend>
+</package>
+-----
 carrot_planner: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -10376,6 +10744,22 @@ cmake_modules: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 <export>
 <architecture_independent/>
+</export>
+</package>
+-----
+cnpy: <?xml version="1.0" ?>
+<package>
+<name>cnpy</name>
+<description>library to read/write .npy and .npz files in C/C++</description>
+<maintainer email="pmitrano@umich.edu">Peter Mitrano</maintainer>
+<license>MIT</license>
+<author>Carl Rogers</author>
+<author>Peter Mitrano</author>
+<buildtool_depend>cmake</buildtool_depend>
+<build_depend>cmake</build_depend>
+<build_depend>zlib</build_depend>
+<export>
+<build_type>cmake</build_type>
 </export>
 </package>
 -----
@@ -10680,6 +11064,49 @@ cob_collision_velocity_filter: <?xml version="1.0" ?>
 <depend>visualization_msgs</depend>
 </package>
 -----
+cob_command_gui: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
+<name>cob_command_gui</name>
+<description>This package provides a simple GUI for operating Care-O-bot.</description>
+<license>Apache 2.0</license>
+<url type=\"website\">http://www.ros.org/wiki/cob_command_gui</url>
+<maintainer email=\"felixmessmer@gmail.com\">Felix Messmer</maintainer>
+<maintainer email=\"fmw@ipa.fhg.de\">Florian Weisshardt</maintainer>
+<author email=\"fmw@ipa.fhg.de\">Florian Weisshardt</author>
+<buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend>cob_msgs</exec_depend>
+<exec_depend>cob_script_server</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-gi</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-gi</exec_depend>
+<exec_depend>roslib</exec_depend>
+<exec_depend>rospy</exec_depend>
+</package>"
+-----
+cob_command_tools: <?xml version="1.0" ?>
+<package format="2">
+<name>cob_command_tools</name>
+<description>The cob_command_tools stack provides tools,
+for operating Care-O-bot.</description>
+<license>Apache 2.0</license>
+<url type="website">http://ros.org/wiki/cob_command_tools</url>
+<maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
+<maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>cob_command_gui</exec_depend>
+<exec_depend>cob_dashboard</exec_depend>
+<exec_depend>cob_helper_tools</exec_depend>
+<exec_depend>cob_interactive_teleop</exec_depend>
+<exec_depend>cob_monitoring</exec_depend>
+<exec_depend>cob_script_server</exec_depend>
+<exec_depend>cob_teleop</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
 cob_common: <?xml version="1.0" ?>
 <package format="2">
 <name>cob_common</name>
@@ -10788,6 +11215,40 @@ cob_default_env_config: <?xml version="1.0" ?>
 <maintainer email="jba@ipa.fhg.de">Jannik Abbenseth</maintainer>
 <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
 <buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+</package>
+-----
+cob_default_robot_behavior: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
+<name>cob_default_robot_behavior</name>
+<description>The cob_default_robot_behavior package provides helper scripts for standard robot behaviors.</description>
+<license>Apache 2.0</license>
+<maintainer email=\"felixmessmer@gmail.com\">Felix Messmer</maintainer>
+<author email=\"fxm@ipa.fhg.de\">Felix Messmer</author>
+<author email=\"nhg@ipa.fhg.de\">Nadia Hammoudeh Garcia</author>
+<buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend>cob_light</exec_depend>
+<exec_depend>cob_script_server</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>std_srvs</exec_depend>
+</package>"
+-----
+cob_default_robot_config: <?xml version="1.0" ?>
+<package format="2">
+<name>cob_default_robot_config</name>
+<description>Default configuration of the different robots supported by the Care-O-bot stacks. Configuration is e.g. preconfigured joint positions.</description>
+<license>Apache 2.0</license>
+<url type="website">http://ros.org/wiki/cob_default_robot_config</url>
+<maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
+<author email="fxm@ipa.fhg.de">Felix Messmer</author>
+<author email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</author>
+<author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>cob_supported_robots</test_depend>
 <test_depend>roslaunch</test_depend>
 </package>
 -----
@@ -10962,6 +11423,22 @@ cob_frame_tracker: "<?xml version=\"1.0\" ?>
 <exec_depend>rospy</exec_depend>
 </package>"
 -----
+cob_gazebo_objects: <?xml version="1.0" ?>
+<package format="2">
+<name>cob_gazebo_objects</name>
+<description>This package provides some objects and furniture for gazebo simulation.</description>
+<license>Apache 2.0</license>
+<url type="website">http://ros.org/wiki/cob_gazebo_objects</url>
+<maintainer email="richard.bormann@ipa.fraunhofer.de">Richard Bormann</maintainer>
+<author email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</author>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>cob_description</exec_depend>
+<exec_depend>gazebo_ros</exec_depend>
+<export>
+<gazebo_ros gazebo_media_path="${prefix}"/>
+</export>
+</package>
+-----
 cob_gazebo_plugins: <?xml version="1.0" ?>
 <package format="2">
 <name>cob_gazebo_plugins</name>
@@ -10999,6 +11476,60 @@ cob_gazebo_ros_control: <?xml version="1.0" ?>
 <depend>urdf</depend>
 <export>
 <gazebo_ros_control plugin="${prefix}/cob_gazebo_ros_control_plugins.xml"/>
+</export>
+</package>
+-----
+cob_gazebo_tools: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
+<name>cob_gazebo_tools</name>
+<description>The cob_gazebo_tools package provides helper tools for the gazebo simulation</description>
+<license>Apache 2.0</license>
+<url type=\"website\">http://ros.org/wiki/cob_gazebo_tools</url>
+<maintainer email=\"felixmessmer@gmail.com\">Felix Messmer</maintainer>
+<author email=\"fxm@ipa.fhg.de\">Felix Messmer</author>
+<author email=\"nhg@ipa.fhg.de\">Nadia Hammoudeh Garcia</author>
+<author email=\"fmw@ipa.fhg.de\">Florian Weisshardt</author>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>gazebo_msgs</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-numpy</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-numpy</exec_depend>
+<exec_depend>roslib</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>tf</exec_depend>
+</package>"
+-----
+cob_gazebo_worlds: <?xml version="1.0" ?>
+<package format="2">
+<name>cob_gazebo_worlds</name>
+<description>This package provides some worlds for gazebo simulation.</description>
+<license>Apache 2.0</license>
+<url type="website">http://ros.org/wiki/cob_gazebo_worlds</url>
+<maintainer email="jba@ipa.fhg.de">Jannik Abbenseth</maintainer>
+<author email="fxm@ipa.fhg.de">Felix Messmer</author>
+<author email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</author>
+<author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>cob_default_env_config</exec_depend>
+<exec_depend>controller_manager</exec_depend>
+<exec_depend>gazebo_msgs</exec_depend>
+<exec_depend>gazebo_ros_control</exec_depend>
+<exec_depend>gazebo_ros</exec_depend>
+<exec_depend>joint_state_controller</exec_depend>
+<exec_depend>joint_state_publisher</exec_depend>
+<exec_depend>position_controllers</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>tf</exec_depend>
+<exec_depend>velocity_controllers</exec_depend>
+<exec_depend>xacro</exec_depend>
+<test_depend>cob_default_env_config</test_depend>
+<test_depend>roslaunch</test_depend>
+<test_depend>rostest</test_depend>
+<export>
+<gazebo_ros gazebo_media_path="${prefix}"/>
 </export>
 </package>
 -----
@@ -11054,6 +11585,39 @@ cob_hand_bridge: <?xml version="1.0" ?>
 <exec_depend>message_runtime</exec_depend>
 <exec_depend>rosserial_python</exec_depend>
 <exec_depend>std_msgs</exec_depend>
+</package>
+-----
+cob_hardware_config: <?xml version="1.0" ?>
+<package format="2">
+<name>cob_hardware_config</name>
+<description>This package contains configuration for each robot instance (e.g. cob4-X,
+raw3-X). There is a directory for each robot with configuration about urdf and hardware/device configurations.</description>
+<license>Apache 2.0</license>
+<url type="website">http://ros.org/wiki/cob_hardware_config</url>
+<maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
+<author email="fxm@ipa.fhg.de">Felix Messmer</author>
+<author email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</author>
+<author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>cob_calibration_data</exec_depend>
+<exec_depend>cob_description</exec_depend>
+<exec_depend>cob_omni_drive_controller</exec_depend>
+<exec_depend>costmap_2d</exec_depend>
+<exec_depend>diagnostic_aggregator</exec_depend>
+<exec_depend>joint_state_controller</exec_depend>
+<exec_depend>joint_state_publisher</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>joint_trajectory_controller</exec_depend>
+<exec_depend>laser_filters</exec_depend>
+<exec_depend>position_controllers</exec_depend>
+<exec_depend>raw_description</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>velocity_controllers</exec_depend>
+<exec_depend>xacro</exec_depend>
+<test_depend>cob_supported_robots</test_depend>
+<test_depend>roslaunch</test_depend>
+<test_depend>rostest</test_depend>
 </package>
 -----
 cob_hardware_emulation: <?xml version="1.0" ?>
@@ -11337,6 +11901,18 @@ cob_monitoring: "<?xml version=\"1.0\" ?>
 <exec_depend>std_msgs</exec_depend>
 <exec_depend>sysstat</exec_depend>
 </package>"
+-----
+cob_moveit_config: <?xml version="1.0" ?>
+<package format="2">
+<name>cob_moveit_config</name>
+<description>MoveIt config files for all cob and raw</description>
+<maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
+<author email="mdl@ipa.fhg.de">Mathias Luedtke</author>
+<author email="fxm@ipa.fhg.de">Felix Messmer</author>
+<license>Apache 2.0</license>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>xacro</exec_depend>
+</package>
 -----
 cob_msgs: <?xml version="1.0" ?>
 <package format="2">
@@ -13706,8 +14282,8 @@ diagnostic_aggregator: <?xml version="1.0" ?>
 <description>diagnostic_aggregator</description>
 <author>Kevin Watts</author>
 <author email="brice.rebsamen@gmail.com">Brice Rebsamen</author>
-<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <maintainer email="guglielmo.gemignani@gmail.com">Guglielmo Gemignani</maintainer>
+<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/diagnostic_aggregator</url>
 <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
@@ -13738,8 +14314,8 @@ diagnostic_analysis: <?xml version="1.0" ?>
 and can be processed offline using the scripts in this package.</description>
 <author>Kevin Watts</author>
 <author email="brice.rebsamen@gmail.com">Brice Rebsamen</author>
-<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <maintainer email="guglielmo.gemignani@gmail.com">Guglielmo Gemignani</maintainer>
+<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/diagnostics_analysis</url>
 <author>Eric Berger</author>
@@ -13762,8 +14338,8 @@ diagnostic_common_diagnostics: <?xml version="1.0" ?>
 <name>diagnostic_common_diagnostics</name>
 <description>diagnostic_common_diagnostics</description>
 <author email="brice.rebsamen@gmail.com">Brice Rebsamen</author>
-<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <maintainer email="guglielmo.gemignani@gmail.com">Guglielmo Gemignani</maintainer>
+<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/diagnostic_common_diagnostics</url>
 <buildtool_depend>catkin</buildtool_depend>
@@ -13808,8 +14384,8 @@ device status,
 etc.</description>
 <author>Kevin Watts</author>
 <author email="brice.rebsamen@gmail.com">Brice Rebsamen</author>
-<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <maintainer email="guglielmo.gemignani@gmail.com">Guglielmo Gemignani</maintainer>
+<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/diagnostic_updater</url>
 <author>Jeremy Leibs</author>
@@ -13833,8 +14409,8 @@ diagnostics: <?xml version="1.0" ?>
 <description>diagnostics</description>
 <author>Kevin Watts</author>
 <author email="brice.rebsamen@gmail.com">Brice Rebsamen</author>
-<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <maintainer email="guglielmo.gemignani@gmail.com">Guglielmo Gemignani</maintainer>
+<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/diagnostics</url>
 <author>Kevin Watts</author>
@@ -13867,35 +14443,43 @@ dialogflow_task_executive: <?xml version="1.0" ?>
 <export/>
 </package>
 -----
-diff_drive_controller: <?xml version="1.0" ?>
-<package format="2">
+diff_drive_controller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>diff_drive_controller</name>
 <description>Controller for a differential drive mobile base.</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">https://github.com/ros-controls/ros_controllers/wiki</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers</url>
-<author email="bence.magyar@pal-robotics.com">Bence Magyar</author>
+<url type=\"website\">https://github.com/ros-controls/ros_controllers/wiki</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers</url>
+<author email=\"bence.magyar@pal-robotics.com\">Bence Magyar</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>controller_interface</depend>
 <depend>control_msgs</depend>
 <depend>dynamic_reconfigure</depend>
+<depend>geometry_msgs</depend>
+<depend>hardware_interface</depend>
 <depend>nav_msgs</depend>
 <depend>realtime_tools</depend>
 <depend>tf</depend>
-<depend>urdf</depend>
-<depend>pluginlib</depend>
+<build_depend>boost</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>urdf</build_depend>
+<build_export_depend>boost</build_export_depend>
+<exec_depend>pluginlib</exec_depend>
+<exec_depend>urdf</exec_depend>
 <test_depend>controller_manager</test_depend>
 <test_depend>rosgraph_msgs</test_depend>
 <test_depend>rostest</test_depend>
+<test_depend>rostopic</test_depend>
 <test_depend>std_srvs</test_depend>
 <test_depend>xacro</test_depend>
 <export>
-<controller_interface plugin="${prefix}/diff_drive_controller_plugins.xml"/>
+<controller_interface plugin=\"${prefix}/diff_drive_controller_plugins.xml\"/>
 </export>
-</package>
+</package>"
 -----
 dlux_global_planner: <?xml version="1.0" ?>
 <package format="2">
@@ -15120,39 +15704,46 @@ ecl_utilities: <?xml version="1.0" ?>
 <run_depend>ecl_concepts</run_depend>
 </package>
 -----
-effort_controllers: <?xml version="1.0" ?>
-<package format="2">
+effort_controllers: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>effort_controllers</name>
 <description>effort_controllers</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"mathias.luedtke@ipa.fraunhofer.de\">Mathias Lüdtke</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">https://github.com/ros-controls/ros_controllers/wiki</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers</url>
+<url type=\"website\">https://github.com/ros-controls/ros_controllers/wiki</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers</url>
 <author>Vijay Pradeep</author>
 <buildtool_depend>catkin</buildtool_depend>
-<depend>angles</depend>
-<depend>controller_interface</depend>
-<depend>control_msgs</depend>
 <depend>control_toolbox</depend>
+<depend>controller_interface</depend>
 <depend>realtime_tools</depend>
+<depend>roscpp</depend>
 <depend>urdf</depend>
-<depend>forward_command_controller</depend>
-<depend>pluginlib</depend>
+<build_depend>angles</build_depend>
+<build_depend>control_msgs</build_depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>forward_command_controller</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_export_depend>control_msgs</build_export_depend>
+<build_export_depend>forward_command_controller</build_export_depend>
+<build_export_depend>hardware_interface</build_export_depend>
+<build_export_depend>std_msgs</build_export_depend>
 <test_depend>rostest</test_depend>
 <test_depend>controller_manager</test_depend>
-<test_depend>hardware_interface</test_depend>
+<test_depend>joint_state_controller</test_depend>
 <test_depend>robot_state_publisher</test_depend>
 <test_depend>rosgraph_msgs</test_depend>
 <test_depend>sensor_msgs</test_depend>
-<test_depend>std_msgs</test_depend>
 <test_depend>xacro</test_depend>
 <export>
-<controller_interface plugin="${prefix}/effort_controllers_plugins.xml"/>
+<controller_interface plugin=\"${prefix}/effort_controllers_plugins.xml\"/>
 </export>
-</package>
+</package>"
 -----
 eigen_conversions: '<?xml version="1.0" ?>
 <package format="2">
@@ -16066,6 +16657,7 @@ some icons are licensed under the GNU Lesser General Public License (LGPL) or Cr
 <url>http://ros.org/wiki/node_manager_fkie</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-pkg</build_depend>
+<build_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-pkg</build_depend>
 <build_depend>fkie_master_discovery</build_depend>
 <build_depend>fkie_multimaster_msgs</build_depend>
 <build_depend>fkie_node_manager_daemon</build_depend>
@@ -16083,13 +16675,15 @@ some icons are licensed under the GNU Lesser General Public License (LGPL) or Cr
 <exec_depend>dynamic_reconfigure</exec_depend>
 <exec_depend>rqt_reconfigure</exec_depend>
 <exec_depend>diagnostic_msgs</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-pycryptodome</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-docutils</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-paramiko</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-pycryptodome</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-qt5-bindings-webkit</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-ruamel.yaml</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-pycryptodome</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-docutils</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-paramiko</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-pycryptodome</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-qt5-bindings-webkit</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-ruamel.yaml</exec_depend>
 <exec_depend>python_qt_binding</exec_depend>
 <exec_depend>screen</exec_depend>
@@ -16159,6 +16753,161 @@ fkie_potree_rviz_plugin: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+flexbe_behavior_engine: <?xml version="1.0" ?>
+<package format="2">
+<name>flexbe_behavior_engine</name>
+<description>A meta-package to aggregate all the FlexBE packages</description>
+<maintainer email="schillin@kth.se">Philipp Schillinger</maintainer>
+<maintainer email="alireza.mixedreality@gmail.com">Alireza Hosseini</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/flexbe</url>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>flexbe_core</exec_depend>
+<exec_depend>flexbe_input</exec_depend>
+<exec_depend>flexbe_mirror</exec_depend>
+<exec_depend>flexbe_msgs</exec_depend>
+<exec_depend>flexbe_onboard</exec_depend>
+<exec_depend>flexbe_states</exec_depend>
+<exec_depend>flexbe_testing</exec_depend>
+<exec_depend>flexbe_widget</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
+flexbe_core: <?xml version="1.0" ?>
+<package>
+<name>flexbe_core</name>
+<description>flexbe_core provides the core components for the FlexBE behavior engine.</description>
+<maintainer email="schillin@kth.se">Philipp Schillinger</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/flexbe_core</url>
+<author>Philipp Schillinger</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>rostest</build_depend>
+<run_depend>rospy</run_depend>
+<run_depend>tf</run_depend>
+<run_depend>diagnostic_msgs</run_depend>
+<run_depend>flexbe_msgs</run_depend>
+</package>
+-----
+flexbe_input: <?xml version="1.0" ?>
+<package>
+<name>flexbe_input</name>
+<description>flexbe_input enables to send data to onboard behavior when required.</description>
+<maintainer email="schillin@kth.se">Philipp Schillinger</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/flexbe_input</url>
+<author>Philipp Schillinger</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>actionlib</build_depend>
+<run_depend>actionlib</run_depend>
+<run_depend>rospy</run_depend>
+<run_depend>flexbe_msgs</run_depend>
+<run_depend>python-six</run_depend>
+</package>
+-----
+flexbe_mirror: <?xml version="1.0" ?>
+<package>
+<name>flexbe_mirror</name>
+<description>flexbe_mirror implements functionality to remotely mirror an executed behavior.</description>
+<maintainer email="schillin@kth.se">Philipp Schillinger</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/flexbe_mirror</url>
+<author>Philipp Schillinger</author>
+<buildtool_depend>catkin</buildtool_depend>
+<run_depend>rospy</run_depend>
+<run_depend>flexbe_core</run_depend>
+<run_depend>flexbe_msgs</run_depend>
+</package>
+-----
+flexbe_msgs: <?xml version="1.0" ?>
+<package>
+<name>flexbe_msgs</name>
+<description>flexbe_msgs provides the messages used by FlexBE.</description>
+<maintainer email="schillin@kth.se">Philipp Schillinger</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/flexbe_msgs</url>
+<author>Philipp Schillinger</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>message_generation</build_depend>
+<build_depend>actionlib</build_depend>
+<build_depend>actionlib_msgs</build_depend>
+<run_depend>actionlib</run_depend>
+<run_depend>actionlib_msgs</run_depend>
+<run_depend>message_runtime</run_depend>
+<run_depend>rospy</run_depend>
+</package>
+-----
+flexbe_onboard: <?xml version="1.0" ?>
+<package>
+<name>flexbe_onboard</name>
+<description>flexbe_onboard implements the robot-side of the behavior engine from where all behaviors are started.</description>
+<maintainer email="schillin@kth.se">Philipp Schillinger</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/flexbe_onboard</url>
+<author>Philipp Schillinger</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>rostest</build_depend>
+<run_depend>rospy</run_depend>
+<run_depend>flexbe_core</run_depend>
+<run_depend>flexbe_msgs</run_depend>
+</package>
+-----
+flexbe_states: <?xml version="1.0" ?>
+<package>
+<name>flexbe_states</name>
+<description>flexbe_states provides a collection of predefined states. Feel free to add new states.</description>
+<maintainer email="schillin@kth.se">Philipp Schillinger</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/flexbe_states</url>
+<author>Philipp Schillinger</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>rostest</build_depend>
+<run_depend>rospy</run_depend>
+<run_depend>rosbag</run_depend>
+<run_depend>flexbe_core</run_depend>
+<run_depend>flexbe_msgs</run_depend>
+<run_depend>flexbe_testing</run_depend>
+<test_depend>geometry_msgs</test_depend>
+<export>
+<flexbe_states/>
+</export>
+</package>
+-----
+flexbe_testing: <?xml version="1.0" ?>
+<package>
+<name>flexbe_testing</name>
+<description>flexbe_testing provides a framework for unit testing states.</description>
+<maintainer email="schillin@kth.se">Philipp Schillinger</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/flexbe_testing</url>
+<author>Philipp Schillinger</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>rostest</build_depend>
+<run_depend>rospy</run_depend>
+<run_depend>flexbe_core</run_depend>
+<run_depend>flexbe_msgs</run_depend>
+<test_depend>rosunit</test_depend>
+<test_depend>std_msgs</test_depend>
+</package>
+-----
+flexbe_widget: <?xml version="1.0" ?>
+<package>
+<name>flexbe_widget</name>
+<description>flexbe_widget implements some smaller scripts for the behavior engine.</description>
+<maintainer email="schillin@kth.se">Philipp Schillinger</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/flexbe_widget</url>
+<author>Philipp Schillinger</author>
+<buildtool_depend>catkin</buildtool_depend>
+<run_depend>rospy</run_depend>
+<run_depend>flexbe_core</run_depend>
+<run_depend>flexbe_msgs</run_depend>
+<run_depend>flexbe_mirror</run_depend>
+<run_depend>flexbe_onboard</run_depend>
+</package>
+-----
 fmi_adapter: <?xml version="1.0" ?>
 <package format="2">
 <name>fmi_adapter</name>
@@ -16192,79 +16941,101 @@ fmi_adapter_examples: <?xml version="1.0" ?>
 <export/>
 </package>
 -----
-force_torque_sensor_controller: <?xml version="1.0" ?>
-<package format="2">
+force_torque_sensor_controller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>force_torque_sensor_controller</name>
 <description>Controller to publish state of force-torque sensors</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"mathias.luedtke@ipa.fraunhofer.de\">Mathias Lüdtke</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">https://github.com/ros-controls/ros_controllers/wiki</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers</url>
+<url type=\"website\">https://github.com/ros-controls/ros_controllers/wiki</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers</url>
 <author>Adolfo Rodriguez Tsouroukdissian</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>controller_interface</depend>
-<depend>geometry_msgs</depend>
-<depend>hardware_interface</depend>
-<depend>pluginlib</depend>
 <depend>realtime_tools</depend>
 <depend>roscpp</depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_export_depend>geometry_msgs</build_export_depend>
+<build_export_depend>hardware_interface</build_export_depend>
+<exec_depend>controller_manager</exec_depend>
 <export>
-<controller_interface plugin="${prefix}/force_torque_sensor_plugin.xml"/>
+<controller_interface plugin=\"${prefix}/force_torque_sensor_plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
-forward_command_controller: <?xml version="1.0" ?>
-<package format="2">
+forward_command_controller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>forward_command_controller</name>
 <description>forward_command_controller</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"mathias.luedtke@ipa.fraunhofer.de\">Mathias Lüdtke</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">https://github.com/ros-controls/ros_controllers/wiki</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers</url>
+<url type=\"website\">https://github.com/ros-controls/ros_controllers/wiki</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers</url>
 <author>Vijay Pradeep</author>
 <author>Adolfo Rodriguez Tsouroukdissian</author>
 <buildtool_depend>catkin</buildtool_depend>
-<depend>controller_interface</depend>
-<depend>hardware_interface</depend>
-<depend>std_msgs</depend>
-<depend>realtime_tools</depend>
+<build_depend>controller_interface</build_depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>realtime_tools</build_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_export_depend>controller_interface</build_export_depend>
+<build_export_depend>hardware_interface</build_export_depend>
+<build_export_depend>realtime_tools</build_export_depend>
+<build_export_depend>roscpp</build_export_depend>
+<build_export_depend>std_msgs</build_export_depend>
 <export>
-<cpp cflags="-I${prefix}/include"/>
+<cpp cflags=\"-I${prefix}/include\"/>
 </export>
-</package>
+</package>"
 -----
-four_wheel_steering_controller: <?xml version="1.0" ?>
-<package format="2">
+four_wheel_steering_controller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>four_wheel_steering_controller</name>
 <description>Controller for a four wheel steering mobile base.</description>
-<maintainer email="vincent.rousseau@irstea.fr">Vincent Rousseau</maintainer>
-<author email="vincent.rousseau@irstea.fr">Vincent Rousseau</author>
+<maintainer email=\"vincent.rousseau@irstea.fr\">Vincent Rousseau</maintainer>
 <license>BSD</license>
-<url type="website">http://ros.org/wiki/four_wheel_steering_controller</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers</url>
+<url type=\"website\">http://ros.org/wiki/four_wheel_steering_controller</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers</url>
+<author email=\"vincent.rousseau@irstea.fr\">Vincent Rousseau</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>controller_interface</depend>
-<depend>nav_msgs</depend>
-<depend>four_wheel_steering_msgs</depend>
 <depend>realtime_tools</depend>
+<depend>roscpp</depend>
 <depend>tf</depend>
-<depend>urdf_geometry_parser</depend>
-<depend>pluginlib</depend>
+<build_depend>four_wheel_steering_msgs</build_depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>libboost-dev</build_depend>
+<build_depend>nav_msgs</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>urdf_geometry_parser</build_depend>
+<build_export_depend>four_wheel_steering_msgs</build_export_depend>
+<build_export_depend>hardware_interface</build_export_depend>
+<build_export_depend>libboost-dev</build_export_depend>
+<build_export_depend>nav_msgs</build_export_depend>
+<test_depend>controller_manager</test_depend>
+<test_depend>geometry_msgs</test_depend>
+<test_depend>std_msgs</test_depend>
+<test_depend>std_srvs</test_depend>
 <test_depend>rosgraph_msgs</test_depend>
 <test_depend>rostest</test_depend>
-<test_depend>std_srvs</test_depend>
-<test_depend>controller_manager</test_depend>
+<test_depend>xacro</test_depend>
 <export>
-<controller_interface plugin="${prefix}/four_wheel_steering_controller_plugins.xml"/>
+<controller_interface plugin=\"${prefix}/four_wheel_steering_controller_plugins.xml\"/>
 </export>
-</package>
+</package>"
 -----
 four_wheel_steering_msgs: <?xml version="1.0" ?>
 <package format="2">
@@ -17197,34 +17968,32 @@ grasping_msgs: <?xml version="1.0" ?>
 <run_depend>shape_msgs</run_depend>
 </package>
 -----
-gripper_action_controller: <?xml version="1.0" ?>
-<package format="2">
+gripper_action_controller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>gripper_action_controller</name>
 <description>The gripper_action_controller package</description>
-<maintainer email="robot.moveit@gmail.com">Sachin Chitta</maintainer>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<author email="robot.moveit@gmail.com">Sachin Chitta</author>
+<maintainer email=\"robot.moveit@gmail.com\">Sachin Chitta</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
+<author email=\"robot.moveit@gmail.com\">Sachin Chitta</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>actionlib</depend>
-<depend>angles</depend>
-<depend>cmake_modules</depend>
-<depend>control_msgs</depend>
-<depend>control_toolbox</depend>
 <depend>controller_interface</depend>
-<depend>controller_manager</depend>
-<depend>hardware_interface</depend>
+<depend>control_toolbox</depend>
 <depend>realtime_tools</depend>
 <depend>roscpp</depend>
-<depend>trajectory_msgs</depend>
 <depend>urdf</depend>
-<depend>xacro</depend>
-<depend>pluginlib</depend>
+<build_depend>control_msgs</build_depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_export_depend>control_msgs</build_export_depend>
+<build_export_depend>hardware_interface</build_export_depend>
 <export>
-<controller_interface plugin="${prefix}/ros_control_plugins.xml"/>
+<controller_interface plugin=\"${prefix}/ros_control_plugins.xml\"/>
 </export>
-</package>
+</package>"
 -----
 handeye: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -17988,29 +18757,33 @@ imu_processors: <?xml version="1.0" ?>
 <depend>tf</depend>
 </package>
 -----
-imu_sensor_controller: <?xml version="1.0" ?>
-<package format="2">
+imu_sensor_controller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>imu_sensor_controller</name>
 <description>Controller to publish state of IMU sensors</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"mathias.luedtke@ipa.fraunhofer.de\">Mathias Lüdtke</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">https://github.com/ros-controls/ros_controllers/wiki</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers</url>
+<url type=\"website\">https://github.com/ros-controls/ros_controllers/wiki</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers</url>
 <author>Adolfo Rodriguez Tsouroukdissian</author>
 <buildtool_depend>catkin</buildtool_depend>
+<depend>controller_interface</depend>
 <depend>realtime_tools</depend>
 <depend>roscpp</depend>
-<depend>hardware_interface</depend>
-<depend>pluginlib</depend>
-<depend>controller_interface</depend>
-<depend>sensor_msgs</depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<build_export_depend>hardware_interface</build_export_depend>
+<build_export_depend>sensor_msgs</build_export_depend>
+<exec_depend>controller_manager</exec_depend>
 <export>
-<controller_interface plugin="${prefix}/imu_sensor_plugin.xml"/>
+<controller_interface plugin=\"${prefix}/imu_sensor_plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 imu_tools: <?xml version="1.0" ?>
 <package>
@@ -18310,30 +19083,33 @@ joint_limits_interface: "<?xml version=\"1.0\" ?>
 <test_depend>rostest</test_depend>
 </package>"
 -----
-joint_state_controller: <?xml version="1.0" ?>
-<package format="2">
+joint_state_controller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>joint_state_controller</name>
 <description>Controller to publish joint state</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"mathias.luedtke@ipa.fraunhofer.de\">Mathias Lüdtke</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">https://github.com/ros-controls/ros_controllers/wiki</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers</url>
+<url type=\"website\">https://github.com/ros-controls/ros_controllers/wiki</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers</url>
 <author>Wim Meeussen</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>controller_interface</depend>
-<depend>hardware_interface</depend>
-<depend>pluginlib</depend>
-<depend>sensor_msgs</depend>
 <depend>realtime_tools</depend>
 <depend>roscpp</depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<build_export_depend>hardware_interface</build_export_depend>
+<build_export_depend>sensor_msgs</build_export_depend>
 <test_depend>rostest</test_depend>
 <export>
-<controller_interface plugin="${prefix}/joint_state_plugin.xml"/>
+<controller_interface plugin=\"${prefix}/joint_state_plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 joint_state_publisher: <?xml version="1.0" ?>
 <package format="2">
@@ -18371,39 +19147,45 @@ joint_state_publisher_gui: <?xml version="1.0" ?>
 <exec_depend>rospy</exec_depend>
 </package>
 -----
-joint_trajectory_controller: <?xml version="1.0" ?>
-<package format="2">
+joint_trajectory_controller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>joint_trajectory_controller</name>
 <description>Controller for executing joint-space trajectories on a group of joints.</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"mathias.luedtke@ipa.fraunhofer.de\">Mathias Lüdtke</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">https://github.com/ros-controls/ros_controllers/wiki</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers</url>
+<url type=\"website\">https://github.com/ros-controls/ros_controllers/wiki</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers</url>
 <author>Adolfo Rodriguez Tsouroukdissian</author>
 <buildtool_depend>catkin</buildtool_depend>
-<build_depend>cmake_modules</build_depend>
 <depend>actionlib</depend>
-<depend>angles</depend>
-<depend>control_msgs</depend>
+<depend>boost</depend>
 <depend>control_toolbox</depend>
 <depend>controller_interface</depend>
-<depend>hardware_interface</depend>
 <depend>realtime_tools</depend>
 <depend>roscpp</depend>
-<depend>trajectory_msgs</depend>
 <depend>urdf</depend>
-<depend>pluginlib</depend>
-<test_depend>rostest</test_depend>
+<build_depend>angles</build_depend>
+<build_depend>control_msgs</build_depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>trajectory_msgs</build_depend>
+<build_export_depend>angles</build_export_depend>
+<build_export_depend>control_msgs</build_export_depend>
+<build_export_depend>hardware_interface</build_export_depend>
+<build_export_depend>trajectory_msgs</build_export_depend>
+<test_depend>code_coverage</test_depend>
 <test_depend>controller_manager</test_depend>
 <test_depend>xacro</test_depend>
-<test_depend>code_coverage</test_depend>
+<test_depend>rostest</test_depend>
+<test_depend>std_msgs</test_depend>
 <export>
-<controller_interface plugin="${prefix}/ros_control_plugins.xml"/>
+<controller_interface plugin=\"${prefix}/ros_control_plugins.xml\"/>
 </export>
-</package>
+</package>"
 -----
 joy: <?xml version="1.0" ?>
 <package format="2">
@@ -20286,7 +21068,7 @@ leo_desktop: <?xml version="1.0" ?>
 leo_gazebo: <?xml version="1.0" ?>
 <package format="2">
 <name>leo_gazebo</name>
-<description>The leo_gazebo package</description>
+<description>Launch files and other resources for simulating Leo Rover in Gazebo.</description>
 <maintainer email="blazej@turtlerover.com">Błażej Sowa</maintainer>
 <author email="blazej@turtlerover.com">Błażej Sowa</author>
 <license>MIT</license>
@@ -20294,7 +21076,7 @@ leo_gazebo: <?xml version="1.0" ?>
 <url type="bugtracker">https://github.com/LeoRover/leo_simulator/issues</url>
 <url type="repository">https://github.com/LeoRover/leo_simulator</url>
 <buildtool_depend>catkin</buildtool_depend>
-<depend>gazebo</depend>
+<depend>gazebo_dev</depend>
 <depend>gazebo_ros</depend>
 <depend>roscpp</depend>
 <exec_depend>gazebo_ros_control</exec_depend>
@@ -20547,6 +21329,36 @@ libphidgets: <?xml version="1.0" ?>
 <depend>libusb-dev</depend>
 </package>
 -----
+librealsense2: <?xml version="1.0" ?>
+<package format="2">
+<name>librealsense2</name>
+<description>Library for capturing data from the Intel(R) RealSense(TM) SR300,
+D400 Depth cameras and T2xx Tracking devices. This effort was initiated to better support researchers,
+creative coders,
+and app developers in domains such as robotics,
+virtual reality,
+and the internet of things. Several often-requested features of RealSense(TM); devices are implemented in this project.</description>
+<maintainer email="sergey.dorodnicov@intel.com">Sergey Dorodnicov</maintainer>
+<maintainer email="doron.hirshberg@intel.com">Doron Hirshberg</maintainer>
+<url type="website">https://github.com/IntelRealSense/librealsense/</url>
+<author email="sergey.dorodnicov@intel.com">Sergey Dorodnicov</author>
+<author email="doron.hirshberg@intel.com">Doron Hirshberg</author>
+<author email="mark.d.horn@intel.com">Mark Horn</author>
+<author email="reagan.lopez@intel.com">Reagan Lopez</author>
+<author email="itay.carpis@intel.com">Itay Carpis</author>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>pkg-config</build_depend>
+<build_depend>libusb-1.0-dev</build_depend>
+<build_depend>libssl-dev</build_depend>
+<build_depend>dkms</build_depend>
+<build_depend>udev</build_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
 librviz_tutorial: <?xml version="1.0" ?>
 <package>
 <name>librviz_tutorial</name>
@@ -20637,6 +21449,19 @@ locomove_base: <?xml version="1.0" ?>
 <depend>nav_core</depend>
 <depend>nav_core_adapter</depend>
 <test_depend>roslint</test_depend>
+</package>
+-----
+log_view: <?xml version="1.0" ?>
+<package format="2">
+<name>log_view</name>
+<description>The log_view package provides a ncurses based terminal GUI for viewing and filtering published ROS log messages. This is an alternative to rqt_console and swri_console that doesn't depend on qt and can be run directly in a terminal.</description>
+<author email="marcalban@hatchbed.com">Marc Alban</author>
+<maintainer email="marcalban@hatchbed.com">Marc Alban</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>libncurses-dev</depend>
+<exec_depend>xclip</exec_depend>
 </package>
 -----
 lpg_planner: '<?xml version="1.0" ?>
@@ -24089,6 +24914,19 @@ octovis: <?xml version="1.0" ?>
 <exec_depend>libqt5-opengl</exec_depend>
 </package>
 -----
+odva_ethernetip: <?xml version="1.0" ?>
+<package format="2">
+<name>odva_ethernetip</name>
+<description>Library implementing ODVA EtherNet/IP (Industrial Protocol).</description>
+<license>BSD</license>
+<maintainer email="reinzor@gmail.com">Rein Appeldoorn</maintainer>
+<author email="kareem@shehata.ca">Kareem Shehata</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>boost</depend>
+<depend>libconsole-bridge-dev</depend>
+<test_depend>rosunit</test_depend>
+</package>
+-----
 ompl: <?xml version="1.0" ?>
 <package format="2">
 <name>ompl</name>
@@ -24109,6 +24947,24 @@ ompl: <?xml version="1.0" ?>
 <export>
 <build_type>cmake</build_type>
 </export>
+</package>
+-----
+omron_os32c_driver: <?xml version="1.0" ?>
+<package format="2">
+<name>omron_os32c_driver</name>
+<description>Interface driver for Omron OS32C Lidar via Ethernet/IP (Industrial Protocol)</description>
+<license>BSD</license>
+<maintainer email="rein@eurogroep.com">Rein Appeldoorn</maintainer>
+<author email="kareem@shehata.ca">Kareem Shehata</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>boost</depend>
+<depend>diagnostic_updater</depend>
+<depend>odva_ethernetip</depend>
+<depend>rosconsole_bridge</depend>
+<depend>roscpp</depend>
+<depend>sensor_msgs</depend>
+<test_depend>rosunit</test_depend>
+<test_depend>roslaunch</test_depend>
 </package>
 -----
 open_karto: <?xml version="1.0" ?>
@@ -25028,6 +25884,82 @@ pid: <?xml version="1.0" ?>
 <depend>dynamic_reconfigure</depend>
 </package>
 -----
+pilz_industrial_motion_testutils: <?xml version="1.0" ?>
+<package>
+<name>pilz_industrial_motion_testutils</name>
+<description>Helper scripts and functionality to test industrial motion generation</description>
+<maintainer email="a.gutenkunst@pilz.de">Alexander Gutenkunst</maintainer>
+<maintainer email="c.doehn@pilz.de">Christian Doehn</maintainer>
+<maintainer email="c.henkel@pilz.de">Christian Henkel</maintainer>
+<maintainer email="i.martini@pilz.de">Immanuel Martini</maintainer>
+<maintainer email="r.feistenauer@pilz.de">Richard Feistenauer</maintainer>
+<license>Apache 2.0</license>
+<url type="website">https://wiki.ros.org/pilz_industrial_motion_testutils</url>
+<url type="bugtracker">https://github.com/PilzDE/pilz_common/issues</url>
+<url type="repository">https://github.com/PilzDE/pilz_common</url>
+<run_depend>moveit_commander</run_depend>
+<buildtool_depend>catkin</buildtool_depend>
+</package>
+-----
+pilz_msgs: <?xml version="1.0" ?>
+<package>
+<name>pilz_msgs</name>
+<description>The pilz_msgs package</description>
+<maintainer email="a.gutenkunst@pilz.de">Alexander Gutenkunst</maintainer>
+<maintainer email="c.doehn@pilz.de">Christian Doehn</maintainer>
+<maintainer email="c.henkel@pilz.de">Christian Henkel</maintainer>
+<maintainer email="i.martini@pilz.de">Immanuel Martini</maintainer>
+<maintainer email="r.feistenauer@pilz.de">Richard Feistenauer</maintainer>
+<license>Apache 2.0</license>
+<url type="website">https://wiki.ros.org/pilz_msgs</url>
+<url type="bugtracker">https://github.com/PilzDE/pilz_common/issues</url>
+<url type="repository">https://github.com/PilzDE/pilz_common</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>message_generation</build_depend>
+<run_depend>message_runtime</run_depend>
+</package>
+-----
+pilz_testutils: <?xml version="1.0" ?>
+<package format="2">
+<name>pilz_testutils</name>
+<description>This package contains testing utilities used by Pilz packages.</description>
+<maintainer email="a.gutenkunst@pilz.de">Alexander Gutenkunst</maintainer>
+<maintainer email="c.doehn@pilz.de">Christian Doehn</maintainer>
+<maintainer email="c.henkel@pilz.de">Christian Henkel</maintainer>
+<maintainer email="i.martini@pilz.de">Immanuel Martini</maintainer>
+<maintainer email="r.feistenauer@pilz.de">Richard Feistenauer</maintainer>
+<license>Apache 2.0</license>
+<url type="website">https://wiki.ros.org/pilz_testutils</url>
+<url type="bugtracker">https://github.com/PilzDE/pilz_common/issues</url>
+<url type="repository">https://github.com/PilzDE/pilz_common</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>pilz_utils</build_depend>
+<build_depend>sensor_msgs</build_depend>
+</package>
+-----
+pilz_utils: <?xml version="1.0" ?>
+<package format="2">
+<name>pilz_utils</name>
+<description>The pilz_utils package contains utilities used by Pilz packages</description>
+<maintainer email="a.gutenkunst@pilz.de">Alexander Gutenkunst</maintainer>
+<maintainer email="c.doehn@pilz.de">Christian Doehn</maintainer>
+<maintainer email="c.henkel@pilz.de">Christian Henkel</maintainer>
+<maintainer email="i.martini@pilz.de">Immanuel Martini</maintainer>
+<maintainer email="r.feistenauer@pilz.de">Richard Feistenauer</maintainer>
+<license>Apache 2.0</license>
+<url type="website">https://wiki.ros.org/pilz_utils</url>
+<url type="bugtracker">https://github.com/PilzDE/pilz_common/issues</url>
+<url type="repository">https://github.com/PilzDE/pilz_common</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>clang-tidy</build_depend>
+<build_depend>roscpp</build_depend>
+<test_depend>rostest</test_depend>
+<test_depend>rosunit</test_depend>
+<test_depend>cmake_modules</test_depend>
+<test_depend>code_coverage</test_depend>
+</package>
+-----
 pinocchio: <?xml version="1.0" ?>
 <package format="3">
 <name>pinocchio</name>
@@ -25119,9 +26051,10 @@ plotjuggler: '<?xml version="1.0" ?>
 <depend>libqt5-svg-dev</depend>
 <depend>libqt5-websockets-dev</depend>
 <depend>libqt5-opengl-dev</depend>
+<depend>libqt5x11extras5-dev</depend>
 <depend>binutils</depend>
 <depend>boost</depend>
-<depend>libzmqpp-dev</depend>
+<depend>libzmq3-dev</depend>
 <export>
 <build_type condition="$ROS_VERSION == 1">catkin</build_type>
 <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
@@ -25140,6 +26073,44 @@ plotjuggler_msgs: <?xml version="1.0" ?>
 <depend>message_runtime</depend>
 <depend>std_msgs</depend>
 <export/>
+</package>
+-----
+plotjuggler_ros: <?xml version="1.0" ?>
+<package format="3">
+<name>plotjuggler_ros</name>
+<description>PlotJuggler plugin for ROS</description>
+<maintainer email="davide.faconti@gmail.com">Davide Faconti</maintainer>
+<license>AGPLv3</license>
+<url type="website">https://github.com/facontidavide/PlotJuggler</url>
+<author email="davide.faconti@gmail.com">Davide Faconti</author>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<depend condition="$ROS_VERSION == 1">rosbag_storage</depend>
+<depend condition="$ROS_VERSION == 1">roscpp</depend>
+<depend condition="$ROS_VERSION == 1">roscpp_serialization</depend>
+<depend condition="$ROS_VERSION == 1">diagnostic_msgs</depend>
+<depend condition="$ROS_VERSION == 1">tf</depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<depend condition="$ROS_VERSION == 2">rclcpp</depend>
+<depend condition="$ROS_VERSION == 2">rcpputils</depend>
+<depend condition="$ROS_VERSION == 2">rosbag2</depend>
+<depend condition="$ROS_VERSION == 2">rosbag2_transport</depend>
+<depend condition="$ROS_VERSION == 2">fastcdr</depend>
+<depend>sensor_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>tf2_ros</depend>
+<depend>tf2_msgs</depend>
+<depend>plotjuggler_msgs</depend>
+<depend>plotjuggler</depend>
+<depend>qtbase5-dev</depend>
+<depend>binutils</depend>
+<depend>libqt5-svg-dev</depend>
+<depend>libqt5-websockets-dev</depend>
+<depend>boost</depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
 </package>
 -----
 pluginlib: <?xml version="1.0" ?>
@@ -25390,26 +26361,32 @@ posedetection_msgs: <?xml version="1.0" ?>
 <run_depend>message_filters</run_depend>
 </package>
 -----
-position_controllers: <?xml version="1.0" ?>
-<package format="2">
+position_controllers: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>position_controllers</name>
 <description>position_controllers</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"mathias.luedtke@ipa.fraunhofer.de\">Mathias Lüdtke</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">https://github.com/ros-controls/ros_controllers/wiki</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers</url>
+<url type=\"website\">https://github.com/ros-controls/ros_controllers/wiki</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers</url>
 <author>Vijay Pradeep</author>
 <buildtool_depend>catkin</buildtool_depend>
-<depend>controller_interface</depend>
-<depend>forward_command_controller</depend>
-<depend>pluginlib</depend>
+<build_depend>forward_command_controller</build_depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>roscpp</build_depend>
+<build_export_depend>forward_command_controller</build_export_depend>
+<build_export_depend>hardware_interface</build_export_depend>
+<exec_depend>controller_interface</exec_depend>
+<exec_depend>roscpp</exec_depend>
 <export>
-<controller_interface plugin="${prefix}/position_controllers_plugins.xml"/>
+<controller_interface plugin=\"${prefix}/position_controllers_plugins.xml\"/>
 </export>
-</package>
+</package>"
 -----
 power_msgs: <?xml version="1.0" ?>
 <package>
@@ -25453,6 +26430,65 @@ and messages specific to the PR2 such as detailed information about its power bo
 </export>
 </package>
 -----
+pr2_controller_interface: <?xml version="1.0" ?>
+<package>
+<name>pr2_controller_interface</name>
+<description>This package specifies the interface to a realtime controller. A controller that implements this interface can be executed by the<a href="http://www.ros.org/wiki/pr2_controller_manager">controller manager</a>in the real time control loop. The package basically contains the C++ controller base class that all controllers need to inherit from.</description>
+<maintainer email="ros-orphaned-packages@googlegroups.com">ROS Orphaned Package Maintainers</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/pr2_controller_interface</url>
+<author>Wim Meeussen</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>pr2_mechanism_model</build_depend>
+<build_depend>controller_interface</build_depend>
+<run_depend>roscpp</run_depend>
+<run_depend>pr2_mechanism_model</run_depend>
+<run_depend>controller_interface</run_depend>
+</package>
+-----
+pr2_controller_manager: <?xml version="1.0" ?>
+<package>
+<name>pr2_controller_manager</name>
+<description>The controller manager (CM) package provides the infrastructure to run controllers in a hard realtime loop.</description>
+<maintainer email="ros-orphaned-packages@googlegroups.com">ROS Orphaned Package Maintainers</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/pr2_controller_manager</url>
+<author>Eric Berger berger@willowgarage.com</author>
+<author>Stuart Glaser</author>
+<author>Wim Meeussen</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>cmake_modules</build_depend>
+<build_depend>pr2_hardware_interface</build_depend>
+<build_depend>pr2_mechanism_model</build_depend>
+<build_depend>pr2_mechanism_diagnostics</build_depend>
+<build_depend>pr2_description</build_depend>
+<build_depend>pr2_controller_interface</build_depend>
+<build_depend>pr2_mechanism_msgs</build_depend>
+<build_depend>diagnostic_msgs</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<build_depend>realtime_tools</build_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>rostest</build_depend>
+<run_depend>pr2_hardware_interface</run_depend>
+<run_depend>pr2_mechanism_model</run_depend>
+<run_depend>pr2_mechanism_diagnostics</run_depend>
+<run_depend>pr2_description</run_depend>
+<run_depend>pr2_controller_interface</run_depend>
+<run_depend>pr2_mechanism_msgs</run_depend>
+<run_depend>diagnostic_msgs</run_depend>
+<run_depend>sensor_msgs</run_depend>
+<run_depend>realtime_tools</run_depend>
+<run_depend>roscpp</run_depend>
+<run_depend>rospy</run_depend>
+<run_depend>rosparam</run_depend>
+<run_depend>pluginlib</run_depend>
+<export>
+<pr2_controller_interface plugin="${prefix}/test/controller_plugin.xml"/>
+</export>
+</package>
+-----
 pr2_dashboard_aggregator: <?xml version="1.0" ?>
 <package>
 <name>pr2_dashboard_aggregator</name>
@@ -25492,6 +26528,24 @@ etc.) of the PR2 robot. The files in this package are parsed and used by a varie
 <test_depend>rosbash</test_depend>
 </package>
 -----
+pr2_hardware_interface: <?xml version="1.0" ?>
+<package>
+<name>pr2_hardware_interface</name>
+<description>This package contains the C++ interfaces to the PR2 hardware components that are controlled over EtherCAT. This includes the motors and encoders needed to control the PR2 mechanism,
+as well as components like the pressure sensors in the fingertips,
+camera triggers,
+etc... All of the hardware components in this interface are directly available to the controllers inside the hard realtime control loop.</description>
+<maintainer email="ros-orphaned-packages@googlegroups.com">ROS Orphaned Package Maintainers</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/pr2_hardware_interface</url>
+<author>Eric Berger berger@willowgarage.com</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<run_depend>roscpp</run_depend>
+<run_depend>geometry_msgs</run_depend>
+</package>
+-----
 pr2_machine: <?xml version="1.0" ?>
 <package>
 <name>pr2_machine</name>
@@ -25505,6 +26559,96 @@ and one for the simulated pr2 robot.</description>
 <author>Austin Hendrix</author>
 <buildtool_depend>catkin</buildtool_depend>
 </package>
+-----
+pr2_mechanism: <?xml version="1.0" ?>
+<package>
+<name>pr2_mechanism</name>
+<description>The pr2_mechanism stack contains the infrastructure to control the PR2 robot in a hard realtime control loop.</description>
+<maintainer email="ros-orphaned-packages@googlegroups.com">ROS Orphaned Package Maintainers</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/pr2_mechanism</url>
+<author>Wim Meeussen</author>
+<buildtool_depend>catkin</buildtool_depend>
+<run_depend>pr2_mechanism_model</run_depend>
+<run_depend>pr2_controller_interface</run_depend>
+<run_depend>pr2_controller_manager</run_depend>
+<run_depend>pr2_mechanism_diagnostics</run_depend>
+<run_depend>pr2_hardware_interface</run_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
+pr2_mechanism_diagnostics: <?xml version="1.0" ?>
+<package>
+<name>pr2_mechanism_diagnostics</name>
+<description>The `pr2_mechanism_diagnostics` node subscribes to `mechanism_statistics` and publishes diagnostics data for joints and controllers on `/diagnostics`.</description>
+<maintainer email="ros-orphaned-packages@googlegroups.com">ROS Orphaned Package Maintainers</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/pr2_mechanism_diagnostics</url>
+<author>Kevin Watts</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>urdf</build_depend>
+<build_depend>diagnostic_updater</build_depend>
+<build_depend>diagnostic_msgs</build_depend>
+<build_depend>pr2_mechanism_msgs</build_depend>
+<build_depend>pr2_mechanism_model</build_depend>
+<build_depend>angles</build_depend>
+<build_depend>std_srvs</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>rostest</build_depend>
+<run_depend>roscpp</run_depend>
+<run_depend>urdf</run_depend>
+<run_depend>rospy</run_depend>
+<run_depend>diagnostic_updater</run_depend>
+<run_depend>diagnostic_msgs</run_depend>
+<run_depend>pr2_mechanism_msgs</run_depend>
+<run_depend>pr2_mechanism_model</run_depend>
+<run_depend>angles</run_depend>
+<run_depend>std_srvs</run_depend>
+<run_depend>std_msgs</run_depend>
+</package>
+-----
+pr2_mechanism_model: '<?xml version="1.0" ?>
+<package>
+<name>pr2_mechanism_model</name>
+<description>
+<p>This package contains the robot model that is used by the realtime controllers inside<a href="http://www.ros.org/wiki/pr2_controller_manager">controller manager</a>. This robot model focuses on controlling the robot mechanism in a realtime control loop,
+and therefore it only contains the components of a robot that are relevant in realtime: the robot joints (with encoders,
+transmisisons and actuators) and the kinematic/dynamic model of the robot.</p>
+<p>The pr2_mechanism_model package is well tested and is released with a stable API.</p>
+</description>
+<maintainer email="ros-orphaned-packages@googlegroups.com">ROS Orphaned Package Maintainers</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/pr2_mechanism_model</url>
+<author>Eric Berger berger@willowgarage.com</author>
+<author>Stuart Glaser</author>
+<author>Wim Meeussen</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>cmake_modules</build_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>pr2_hardware_interface</build_depend>
+<build_depend>urdf</build_depend>
+<build_depend>liburdfdom-dev</build_depend>
+<build_depend>kdl_parser</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>angles</build_depend>
+<build_depend version_gte="0.13.0">hardware_interface</build_depend>
+<build_depend>rostest</build_depend>
+<build_depend>rosunit</build_depend>
+<run_depend>roscpp</run_depend>
+<run_depend>pr2_hardware_interface</run_depend>
+<run_depend>urdf</run_depend>
+<run_depend>liburdfdom-dev</run_depend>
+<run_depend>kdl_parser</run_depend>
+<run_depend>pluginlib</run_depend>
+<run_depend>angles</run_depend>
+<run_depend>hardware_interface</run_depend>
+<export>
+<pr2_mechanism_model plugin="${prefix}/transmission_plugins.xml"/>
+</export>
+</package>'
 -----
 pr2_mechanism_msgs: <?xml version="1.0" ?>
 <package>
@@ -26236,6 +27380,53 @@ rcdiscover: <?xml version="1.0" ?>
 <export>
 <build_type>cmake</build_type>
 </export>
+</package>
+-----
+realsense2_camera: <?xml version="1.0" ?>
+<package format="2">
+<name>realsense2_camera</name>
+<description>RealSense Camera package allowing access to Intel T265 Tracking module and SR300 and D400 3D cameras</description>
+<maintainer email="sergey.dorodnicov@intel.com">Sergey Dorodnicov</maintainer>
+<maintainer email="doron.hirshberg@intel.com">Doron Hirshberg</maintainer>
+<license>Apache 2.0</license>
+<url type="website">http://www.ros.org/wiki/RealSense</url>
+<url type="bugtracker">https://github.com/intel-ros/realsense/issues</url>
+<author email="sergey.dorodnicov@intel.com">Sergey Dorodnicov</author>
+<author email="doron.hirshberg@intel.com">Doron Hirshberg</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>eigen</depend>
+<depend>image_transport</depend>
+<depend>cv_bridge</depend>
+<depend>nav_msgs</depend>
+<depend>nodelet</depend>
+<depend>genmsg</depend>
+<depend>roscpp</depend>
+<depend>sensor_msgs</depend>
+<depend>std_msgs</depend>
+<depend>message_runtime</depend>
+<depend>tf</depend>
+<depend>ddynamic_reconfigure</depend>
+<depend>diagnostic_updater</depend>
+<depend>librealsense2</depend>
+<export>
+<nodelet plugin="${prefix}/nodelet_plugins.xml"/>
+</export>
+</package>
+-----
+realsense2_description: <?xml version="1.0" ?>
+<package format="2">
+<name>realsense2_description</name>
+<description>RealSense Camera description package for Intel 3D D400 cameras</description>
+<maintainer email="sergey.dorodnicov@intel.com">Sergey Dorodnicov</maintainer>
+<maintainer email="doron.hirshberg@intel.com">Doron Hirshberg</maintainer>
+<license>Apache 2.0</license>
+<url type="website">http://www.ros.org/wiki/RealSense</url>
+<url type="bugtracker">https://github.com/intel-ros/realsense/issues</url>
+<author email="sergey.dorodnicov@intel.com">Sergey Dorodnicov</author>
+<author email="doron.hirshberg@intel.com">Doron Hirshberg</author>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>xacro</exec_depend>
+<test_depend>rosunit</test_depend>
 </package>
 -----
 realtime_tools: <?xml version="1.0" ?>
@@ -27003,17 +28194,18 @@ ros_control_boilerplate: <?xml version="1.0" ?>
 <export/>
 </package>
 -----
-ros_controllers: <?xml version="1.0" ?>
-<package format="2">
+ros_controllers: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>ros_controllers</name>
 <description>Library of ros controllers</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"mathias.luedtke@ipa.fraunhofer.de\">Mathias Lüdtke</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">http://ros.org/wiki/ros_controllers</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers/</url>
+<url type=\"website\">http://ros.org/wiki/ros_controllers</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers/</url>
 <author>Wim Meeussen</author>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>ackermann_steering_controller</exec_depend>
@@ -27030,7 +28222,7 @@ ros_controllers: <?xml version="1.0" ?>
 <export>
 <metapackage/>
 </export>
-</package>
+</package>"
 -----
 ros_core: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
@@ -27568,6 +28760,7 @@ and interact with params.</description>
 <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>std_msgs</build_depend>
+<build_depend condition="$ROS_PYTHON_VERSION == 2">python-future</build_depend>
 <build_depend condition="$ROS_PYTHON_VERSION == 2">python-imaging</build_depend>
 <build_depend condition="$ROS_PYTHON_VERSION == 3">python3-pil</build_depend>
 <build_depend>geometry_msgs</build_depend>
@@ -29450,27 +30643,31 @@ rqt_image_view: <?xml version="1.0" ?>
 </export>
 </package>
 -----
-rqt_joint_trajectory_controller: <?xml version="1.0" ?>
-<package format="2">
+rqt_joint_trajectory_controller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_joint_trajectory_controller</name>
 <description>Graphical frontend for interacting with joint_trajectory_controller instances.</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
-<author email="adolfo.rodriguez@pal-robotics.com">Adolfo Rodriguez Tsouroukdissian</author>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"mathias.luedtke@ipa.fraunhofer.de\">Mathias Lüdtke</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_joint_trajectory_controller</url>
+<url type=\"website\">http://wiki.ros.org/rqt_joint_trajectory_controller</url>
+<author email=\"adolfo.rodriguez@pal-robotics.com\">Adolfo Rodriguez Tsouroukdissian</author>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>control_msgs</exec_depend>
 <exec_depend>controller_manager_msgs</exec_depend>
+<exec_depend>python_qt_binding</exec_depend>
+<exec_depend>python3-rospkg</exec_depend>
 <exec_depend>trajectory_msgs</exec_depend>
 <exec_depend>rospy</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
+<exec_depend>qt_gui</exec_depend>
 <export>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_launch: <?xml version="1.0" ?>
 <package>
@@ -30818,8 +32015,8 @@ self_test: <?xml version="1.0" ?>
 <description>self_test</description>
 <author>Kevin Watts</author>
 <author email="brice.rebsamen@gmail.com">Brice Rebsamen</author>
-<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <maintainer email="guglielmo.gemignani@gmail.com">Guglielmo Gemignani</maintainer>
+<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/self_test</url>
 <author>Jeremy Leibs and Blaise Gassend</author>
@@ -31359,6 +32556,21 @@ but it does not contain the compiler itself.</description>
 </export>
 </package>"
 -----
+sob_layer: <?xml version="1.0" ?>
+<package format="2">
+<name>sob_layer</name>
+<description>Plugin-replacement for the default costmap_2d::InflationLayer.</description>
+<maintainer email="dmitrij.dorezyuk@hotmail.de">Dima Dorezyuk</maintainer>
+<license>MIT</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>costmap_2d</depend>
+<depend>dynamic_reconfigure</depend>
+<depend>pluginlib</depend>
+<export>
+<costmap_2d plugin="${prefix}/sob_layer.xml"/>
+</export>
+</package>
+-----
 socketcan_bridge: <?xml version="1.0" ?>
 <package format="2">
 <name>socketcan_bridge</name>
@@ -31572,6 +32784,46 @@ srdfdom: <?xml version="1.0" ?>
 <build_depend>libconsole-bridge-dev</build_depend>
 <exec_depend>urdfdom_py</exec_depend>
 <test_depend>rostest</test_depend>
+</package>
+-----
+stag_ros: <?xml version="1.0" ?>
+<package format="2">
+<name>stag_ros</name>
+<description>The stag_ros package</description>
+<maintainer email="bscain@email.sc.edu">Brennan Cain</maintainer>
+<maintainer email="michailk@email.sc.edu">Michail Kalaitzakis</maintainer>
+<license>MIT</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>camera_info_manager</build_depend>
+<build_depend>cv_bridge</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>image_transport</build_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>tf</build_depend>
+<build_depend>nodelet</build_depend>
+<build_depend>swri_nodelet</build_depend>
+<build_export_depend>camera_info_manager</build_export_depend>
+<build_export_depend>cv_bridge</build_export_depend>
+<build_export_depend>geometry_msgs</build_export_depend>
+<build_export_depend>image_transport</build_export_depend>
+<build_export_depend>roscpp</build_export_depend>
+<build_export_depend>sensor_msgs</build_export_depend>
+<build_export_depend>std_msgs</build_export_depend>
+<build_export_depend>tf</build_export_depend>
+<exec_depend>camera_info_manager</exec_depend>
+<exec_depend>cv_bridge</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>image_transport</exec_depend>
+<exec_depend>roscpp</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>tf</exec_depend>
+<exec_depend>nodelet</exec_depend>
+<export>
+<nodelet plugin="${prefix}/stag_nodelet.xml"/>
+</export>
 </package>
 -----
 stage: <?xml version="1.0" ?>
@@ -32231,8 +33483,8 @@ test_diagnostic_aggregator: <?xml version="1.0" ?>
 <description>Basic diagnostic_aggregator tests are in the</description>
 <author>Kevin Watts</author>
 <author email="brice.rebsamen@gmail.com">Brice Rebsamen</author>
-<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <maintainer email="guglielmo.gemignani@gmail.com">Guglielmo Gemignani</maintainer>
+<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/test_diagnostic_aggregator</url>
 <author>Kevin Watts</author>
@@ -33906,31 +35158,39 @@ vector_map_msgs: <?xml version="1.0" ?>
 <exec_depend>message_runtime</exec_depend>
 </package>
 -----
-velocity_controllers: <?xml version="1.0" ?>
-<package format="2">
+velocity_controllers: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>velocity_controllers</name>
 <description>velocity_controllers</description>
-<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
-<maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
+<maintainer email=\"bence.magyar.robotics@gmail.com\">Bence Magyar</maintainer>
+<maintainer email=\"mathias.luedtke@ipa.fraunhofer.de\">Mathias Lüdtke</maintainer>
+<maintainer email=\"enrique.fernandez.perdomo@gmail.com\">Enrique Fernandez</maintainer>
 <license>BSD</license>
-<url type="website">https://github.com/ros-controls/ros_controllers/wiki</url>
-<url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-<url type="repository">https://github.com/ros-controls/ros_controllers</url>
+<url type=\"website\">https://github.com/ros-controls/ros_controllers/wiki</url>
+<url type=\"bugtracker\">https://github.com/ros-controls/ros_controllers/issues</url>
+<url type=\"repository\">https://github.com/ros-controls/ros_controllers</url>
 <author>Vijay Pradeep</author>
 <buildtool_depend>catkin</buildtool_depend>
-<depend>angles</depend>
-<depend>control_msgs</depend>
 <depend>control_toolbox</depend>
 <depend>controller_interface</depend>
-<depend>forward_command_controller</depend>
 <depend>realtime_tools</depend>
+<depend>roscpp</depend>
 <depend>urdf</depend>
-<depend>pluginlib</depend>
+<build_depend>angles</build_depend>
+<build_depend>control_msgs</build_depend>
+<build_depend>forward_command_controller</build_depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_export_depend>control_msgs</build_export_depend>
+<build_export_depend>forward_command_controller</build_export_depend>
+<build_export_depend>hardware_interface</build_export_depend>
+<build_export_depend>std_msgs</build_export_depend>
 <export>
-<controller_interface plugin="${prefix}/velocity_controllers_plugins.xml"/>
+<controller_interface plugin=\"${prefix}/velocity_controllers_plugins.xml\"/>
 </export>
-</package>
+</package>"
 -----
 velodyne: <?xml version="1.0" ?>
 <package format="2">
@@ -34123,6 +35383,45 @@ velodyne_simulator: <?xml version="1.0" ?>
 <exec_depend>velodyne_gazebo_plugins</exec_depend>
 <export>
 <metapackage/>
+</export>
+</package>
+-----
+video_stream_opencv: <?xml version="1.0" ?>
+<package>
+<name>video_stream_opencv</name>
+<description>The video_stream_opencv package contains a node to publish a video stream (the protocols that opencv supports are supported,
+including rtsp,
+webcams on /dev/video and video files) in ROS image topics,
+it supports camera info and basic image flipping (horizontal,
+vertical or both) capabilities,
+also adjusting publishing rate.</description>
+<maintainer email="Sammy.Pfeiffer@student.uts.edu.au">Sammy Pfeiffer</maintainer>
+<author>Sammy Pfeiffer</author>
+<url type="website">http://www.ros.org/wiki/video_stream_opencv</url>
+<url type="development">https://github.com/ros-drivers/video_stream_opencv</url>
+<url type="bugtracker">https://github.com/ros-drivers/video_stream_opencv/issues</url>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>cv_bridge</build_depend>
+<build_depend>image_transport</build_depend>
+<build_depend>camera_info_manager</build_depend>
+<build_depend>dynamic_reconfigure</build_depend>
+<build_depend>nodelet</build_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>rospy</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<run_depend>cv_bridge</run_depend>
+<run_depend>image_transport</run_depend>
+<run_depend>camera_info_manager</run_depend>
+<run_depend>dynamic_reconfigure</run_depend>
+<run_depend>nodelet</run_depend>
+<run_depend>roscpp</run_depend>
+<run_depend>rospy</run_depend>
+<run_depend>sensor_msgs</run_depend>
+<test_depend>rostest</test_depend>
+<test_depend>rostopic</test_depend>
+<export>
+<nodelet plugin="${prefix}/nodelet_plugins.xml"/>
 </export>
 </package>
 -----

@@ -691,7 +691,7 @@ dnsmasq:
   debian: [dnsmasq]
   fedora: [dnsmasq]
   gentoo: [net-dns/dnsmasq]
-  openembedded: [dnsmasq@openembedded-core]
+  openembedded: [dnsmasq@meta-networking]
   ubuntu: [dnsmasq]
 docker-compose:
   debian: [docker-compose]
@@ -1440,6 +1440,8 @@ gtk3:
   ubuntu: [libgtk-3-dev]
 gurumdds-2.6:
   ubuntu: [gurumdds-2.6]
+gurumdds-2.7:
+  ubuntu: [gurumdds-2.7]
 gv:
   arch: [gv]
   debian: [gv]
@@ -3330,6 +3332,7 @@ libopenal-dev:
 libopenblas-dev:
   debian: [libopenblas-dev]
   fedora: [openblas-devel]
+  openembedded: [openblas@meta-ros-common]
   rhel: [openblas-devel]
   ubuntu: [libopenblas-dev]
 libopencv-contrib-dev:
@@ -3930,6 +3933,7 @@ libqt5-websockets-dev:
   debian: [libqt5websockets5-dev]
   fedora: [qt5-qtwebsockets]
   gentoo: ['dev-qt/qtwebsockets:5']
+  openembedded: [qtwebsockets@meta-qt5]
   ubuntu: [libqt5websockets5-dev]
 libqt5-widgets:
   alpine: [qt5-qtbase-dev]
@@ -4800,7 +4804,7 @@ linux-headers-generic:
     wheezy: [linux-headers-3.2.0-4-all]
   fedora: [kernel-headers, kernel-devel]
   gentoo: [sys-kernel/linux-headers]
-  openembedded: [virtual/kernel@openembedded-core]
+  openembedded: [linux-libc-headers@openembedded-core]
   rhel: [kernel-headers, kernel-devel]
   ubuntu: [linux-headers-generic]
 linux-kernel-headers:
@@ -4814,11 +4818,29 @@ llvm:
   arch: [llvm]
   debian: [llvm]
   gentoo: [sys-devel/llvm]
+  openembedded: [llvm@openembedded-core]
   ubuntu: [llvm]
+llvm-7:
+  debian:
+    buster: [llvm-7]
+    stretch: [llvm-7]
+  openembedded: [llvm@openembedded-core]
+  ubuntu:
+    bionic: [llvm-7]
+    focal: [llvm-7]
+llvm-7-dev:
+  debian:
+    buster: [llvm-7-dev]
+    stretch: [llvm-7-dev]
+  openembedded: [llvm@openembedded-core]
+  ubuntu:
+    bionic: [llvm-7-dev]
+    focal: [llvm-7-dev]
 llvm-dev:
   arch: [llvm]
   debian: [llvm-dev]
   gentoo: [sys-devel/llvm]
+  openembedded: [llvm@openembedded-core]
   ubuntu: [llvm-dev]
 lm-sensors:
   arch: [lm_sensors]
@@ -6310,6 +6332,9 @@ tmux:
   fedora: [tmux]
   gentoo: [app-misc/tmux]
   ubuntu: [tmux]
+touchegg:
+  arch: [touchegg]
+  ubuntu: [touchegg]
 trang:
   debian: [trang]
   fedora: [trang]
