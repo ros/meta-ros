@@ -103,6 +103,12 @@ ROS_WORLD_SKIP_GROUPS += "pugixml"
 # Not compatible with newer libftdi included in meta-oe: https://github.com/kobuki-base/kobuki_ftdi/issues/3
 ROS_WORLD_SKIP_GROUPS += "kobuki-ftdi"
 
+# recipes depending on java from meta-java
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-java', '', 'java', d)}"
+
+# recipes depending on libomp which could be provided by openmp@meta-clang
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-layer', '', 'libomp', d)}"
+
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
     lanelet2-traffic-rules \
