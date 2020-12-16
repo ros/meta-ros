@@ -12,7 +12,7 @@ Machines = ['qemux86', 'raspberrypi4']
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'master')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '4775df0bb')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'aee3e21e6')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'master')
@@ -29,17 +29,17 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2020-11-30')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': '5775d946'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': '71aaac9e'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '20ef6292c3'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': 'c58fcc1379'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '8e7c57bd8f'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': 'f03ad4971e'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'master', 'commit': '14f693f'}, {}),
+('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'master', 'commit': 'e5c4bc3'}, {}),
 ('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'master', 'commit': 'cf5a9a9'}, {}),
 ('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': 'master', 'commit': 'c43c29e'}, {}),
 
@@ -53,7 +53,7 @@ Layers = [
 
 ('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': 'f82376c'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': '361f42e'}, {}),
 ('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-updater',        52, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-virtualization', 53, MetaWebos_RepoURL,                                        {}, {}),
