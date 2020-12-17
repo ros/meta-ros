@@ -140,6 +140,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     rviz2 \
     slam-toolbox \
     tile-map \
+    turtlebot3-bringup \
+    turtlebot3 \
+    webots-ros2-demos \
+    webots-ros2-epuck \
+    webots-ros2-tiago \
+    webots-ros2-universal-robot \
+    webots-ros2 \
 "
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
@@ -190,7 +197,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     slam-toolbox \
     swri-console \
     tile-map \
+    turtlebot3-bringup \
+    turtlebot3 \
     turtlesim \
+    webots-ros2-demos \
+    webots-ros2-epuck \
+    webots-ros2-tiago \
+    webots-ros2-universal-robot \
+    webots-ros2 \
 "
 # Recipes which need widgets enabled in qtbase PACKAGECONFIG which webOS OSE explicitly disables:
 # meta-webos/recipes-qt/qt5/qtbase_git.bbappend:PACKAGECONFIG_remove = "widgets"
