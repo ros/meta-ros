@@ -1,0 +1,69 @@
+DEBUG: Executing shell function do_configure
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found mrt_cmake_modules: 1.0.8 (/jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake)
+-- Found ament_cmake_core: 0.8.3 (/jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/share/ament_cmake_core/cmake)
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 (found suitable version "3.8.2", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+CMake Error at /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake/Modules/FindAutoDeps.cmake:176 (message):
+  Package lanelet2_core was not found.  If it is a catkin package: Make sure
+  it is present.  If it is an external package: Make sure it is listed in
+  mrt_cmake_modules/yaml/cmake.yaml!
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake/Modules/FindAutoDeps.cmake:253 (_find_dep)
+  CMakeLists.txt:21 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/build/CMakeFiles/CMakeOutput.log".
+WARNING: exit code 1 from a shell command.
+ERROR: Execution of '/jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/temp/run.do_configure.30590' failed with exit code 1:
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found mrt_cmake_modules: 1.0.8 (/jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake)
+-- Found ament_cmake_core: 0.8.3 (/jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/share/ament_cmake_core/cmake)
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 (found suitable version "3.8.2", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+CMake Error at /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake/Modules/FindAutoDeps.cmake:176 (message):
+  Package lanelet2_core was not found.  If it is a catkin package: Make sure
+  it is present.  If it is an external package: Make sure it is listed in
+  mrt_cmake_modules/yaml/cmake.yaml!
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake/Modules/FindAutoDeps.cmake:253 (_find_dep)
+  CMakeLists.txt:21 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros2-eloquent-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-traffic-rules/1.1.1-1-r0/build/CMakeFiles/CMakeOutput.log".
+WARNING: exit code 1 from a shell command.
+
