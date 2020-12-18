@@ -1,7 +1,7 @@
-From e567c449c1cdb94a8b8997557116a7b5132fd8ac Mon Sep 17 00:00:00 2001
+From 1127f84c7902d5e65a0d8ef84dcb5902eb2433ac Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Tue, 4 Feb 2020 22:44:56 +0000
-Subject: [PATCH 2/2] mavgenerate.py, pymavlink: use python3
+Subject: [PATCH] mavgenerate.py, pymavlink: use python3
 
 * mavgenerate.py needs future module which we will add only for
   python3native + python3-future-native, so we need it to use
@@ -31,6 +31,7 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  pymavlink/generator/mavgen_cs.py                | 2 +-
  pymavlink/generator/mavgen_java.py              | 2 +-
  pymavlink/generator/mavgen_javascript.py        | 2 +-
+ pymavlink/generator/mavgen_lua.py               | 2 +-
  pymavlink/generator/mavgen_objc.py              | 2 +-
  pymavlink/generator/mavgen_python.py            | 2 +-
  pymavlink/generator/mavgen_swift.py             | 2 +-
@@ -44,7 +45,10 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  pymavlink/mavutil.py                            | 2 +-
  pymavlink/quaternion.py                         | 2 +-
  pymavlink/rotmat.py                             | 2 +-
+ pymavlink/tests/test_fgFDM.py                   | 2 +-
+ pymavlink/tests/test_mavexpression.py           | 2 +-
  pymavlink/tests/test_mavlogdump.py              | 2 +-
+ pymavlink/tests/test_mavparm.py                 | 2 +-
  pymavlink/tests/test_quaternion.py              | 2 +-
  pymavlink/tests/test_rotmat.py                  | 2 +-
  pymavlink/tools/AccelSearch.py                  | 2 +-
@@ -64,6 +68,7 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  pymavlink/tools/mavfft.py                       | 2 +-
  pymavlink/tools/mavfft_int.py                   | 2 +-
  pymavlink/tools/mavfft_isb.py                   | 2 +-
+ pymavlink/tools/mavfft_pid.py                   | 2 +-
  pymavlink/tools/mavflightmodes.py               | 2 +-
  pymavlink/tools/mavflighttime.py                | 2 +-
  pymavlink/tools/mavgen.py                       | 2 +-
@@ -80,12 +85,13 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  pymavlink/tools/mavsearch.py                    | 2 +-
  pymavlink/tools/mavsigloss.py                   | 2 +-
  pymavlink/tools/mavsummarize.py                 | 2 +-
+ pymavlink/tools/mavtelemetry_datarates.py       | 2 +-
  pymavlink/tools/mavtogpx.py                     | 2 +-
  pymavlink/tools/mavtomfile.py                   | 2 +-
  pymavlink/tools/python_array_test_recv.py       | 2 +-
  pymavlink/tools/python_array_test_send.py       | 2 +-
  pymavlink/tools/sertotcp.py                     | 2 +-
- 73 files changed, 73 insertions(+), 73 deletions(-)
+ 79 files changed, 79 insertions(+), 79 deletions(-)
 
 diff --git a/mavgenerate.py b/mavgenerate.py
 index bd3b1cac..9d677329 100755
@@ -98,7 +104,7 @@ index bd3b1cac..9d677329 100755
  mavgenerate.py is a GUI front-end for mavgen, a python based MAVLink
  header generation tool.
 diff --git a/pymavlink/DFReader.py b/pymavlink/DFReader.py
-index b6e237cd..d80cf658 100644
+index 3f9f10b4..95f6d485 100644
 --- a/pymavlink/DFReader.py
 +++ b/pymavlink/DFReader.py
 @@ -1,4 +1,4 @@
@@ -168,7 +174,7 @@ index 8de7ecca..a349ec4a 100755
  '''
  connect as a client to two tcpip ports on localhost with mavlink packets.    pass them both directions, and show packets in human-readable format on-screen.
 diff --git a/pymavlink/examples/mavtest.py b/pymavlink/examples/mavtest.py
-index 908a5c04..af61306b 100755
+index df667b90..bcebb59f 100755
 --- a/pymavlink/examples/mavtest.py
 +++ b/pymavlink/examples/mavtest.py
 @@ -1,4 +1,4 @@
@@ -220,17 +226,17 @@ index be9b4cd0..cc94a009 100755
  import hashlib, sys
  
 diff --git a/pymavlink/generator/mavgen.py b/pymavlink/generator/mavgen.py
-index 52a58bfa..06546054 100755
+index 5c72dd47..ea7a68b6 100755
 --- a/pymavlink/generator/mavgen.py
 +++ b/pymavlink/generator/mavgen.py
 @@ -1,4 +1,4 @@
 -#!/usr/bin/env python
 +#!/usr/bin/env python3
  
- '''
- parse a MAVLink protocol XML file and generate a python implementation
+ '''parse a MAVLink protocol XML file and generate a python implementation
+ 
 diff --git a/pymavlink/generator/mavgen_c.py b/pymavlink/generator/mavgen_c.py
-index 2869f22a..cd8def43 100644
+index 32eb558e..8ce51b5d 100644
 --- a/pymavlink/generator/mavgen_c.py
 +++ b/pymavlink/generator/mavgen_c.py
 @@ -1,4 +1,4 @@
@@ -270,7 +276,7 @@ index 34778ce0..414ba0f9 100644
      Parse a MAVLink protocol XML file and generate a Java implementation
      
 diff --git a/pymavlink/generator/mavgen_javascript.py b/pymavlink/generator/mavgen_javascript.py
-index a5935a8b..a97ba091 100644
+index a84ad7e9..d3f72d05 100644
 --- a/pymavlink/generator/mavgen_javascript.py
 +++ b/pymavlink/generator/mavgen_javascript.py
 @@ -1,4 +1,4 @@
@@ -279,6 +285,16 @@ index a5935a8b..a97ba091 100644
  '''
  parse a MAVLink protocol XML file and generate a Node.js javascript module implementation
  
+diff --git a/pymavlink/generator/mavgen_lua.py b/pymavlink/generator/mavgen_lua.py
+index 83eeec09..22f8a32c 100644
+--- a/pymavlink/generator/mavgen_lua.py
++++ b/pymavlink/generator/mavgen_lua.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ parse a MAVLink protocol XML file and generate a Wireshark LUA dissector
+ '''
 diff --git a/pymavlink/generator/mavgen_objc.py b/pymavlink/generator/mavgen_objc.py
 index d3fe3cc4..86a1022d 100644
 --- a/pymavlink/generator/mavgen_objc.py
@@ -290,7 +306,7 @@ index d3fe3cc4..86a1022d 100644
  parse a MAVLink protocol XML file and generate an Objective-C implementation
  
 diff --git a/pymavlink/generator/mavgen_python.py b/pymavlink/generator/mavgen_python.py
-index ac91e96c..b87b1cfb 100644
+index 5762cecf..673d1ee4 100644
 --- a/pymavlink/generator/mavgen_python.py
 +++ b/pymavlink/generator/mavgen_python.py
 @@ -1,4 +1,4 @@
@@ -330,7 +346,7 @@ index 794268b1..50f70fa5 100644
  parse a MAVLink protocol XML file and generate a Wireshark LUA dissector
  
 diff --git a/pymavlink/generator/mavparse.py b/pymavlink/generator/mavparse.py
-index 85ddaf5e..afbe4299 100644
+index 6281a9c6..d90a870d 100644
 --- a/pymavlink/generator/mavparse.py
 +++ b/pymavlink/generator/mavparse.py
 @@ -1,4 +1,4 @@
@@ -360,7 +376,7 @@ index 6876e654..f8757cf3 100755
  generate a MAVLink test suite
  
 diff --git a/pymavlink/mavexpression.py b/pymavlink/mavexpression.py
-index eec7008d..163e07f8 100644
+index 48a2b483..ed12b94c 100644
 --- a/pymavlink/mavexpression.py
 +++ b/pymavlink/mavexpression.py
 @@ -1,4 +1,4 @@
@@ -370,7 +386,7 @@ index eec7008d..163e07f8 100644
  mavlink expression evaluation functions
  
 diff --git a/pymavlink/mavextra.py b/pymavlink/mavextra.py
-index b438e8c2..410a1e21 100644
+index 115e8af0..a9da0dec 100644
 --- a/pymavlink/mavextra.py
 +++ b/pymavlink/mavextra.py
 @@ -1,4 +1,4 @@
@@ -380,7 +396,7 @@ index b438e8c2..410a1e21 100644
  useful extra functions for use by mavlink clients
  
 diff --git a/pymavlink/mavutil.py b/pymavlink/mavutil.py
-index 37fe98c2..d36efa43 100644
+index b2bc4bb7..9593ade4 100644
 --- a/pymavlink/mavutil.py
 +++ b/pymavlink/mavutil.py
 @@ -1,4 +1,4 @@
@@ -400,7 +416,7 @@ index dfe22fc3..f2002336 100644
  
  """
 diff --git a/pymavlink/rotmat.py b/pymavlink/rotmat.py
-index 2e3637fe..605ac22c 100755
+index 8a56c376..646d77b0 100755
 --- a/pymavlink/rotmat.py
 +++ b/pymavlink/rotmat.py
 @@ -1,4 +1,4 @@
@@ -409,10 +425,40 @@ index 2e3637fe..605ac22c 100755
  #
  # vector3 and rotation matrix classes
  # This follows the conventions in the ArduPilot code,
+diff --git a/pymavlink/tests/test_fgFDM.py b/pymavlink/tests/test_fgFDM.py
+index 34952a4e..07516851 100644
+--- a/pymavlink/tests/test_fgFDM.py
++++ b/pymavlink/tests/test_fgFDM.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ 
+ """
+diff --git a/pymavlink/tests/test_mavexpression.py b/pymavlink/tests/test_mavexpression.py
+index b672c8bc..4e3bf726 100644
+--- a/pymavlink/tests/test_mavexpression.py
++++ b/pymavlink/tests/test_mavexpression.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ 
+ """
 diff --git a/pymavlink/tests/test_mavlogdump.py b/pymavlink/tests/test_mavlogdump.py
 index 368a4ffb..204bb23d 100755
 --- a/pymavlink/tests/test_mavlogdump.py
 +++ b/pymavlink/tests/test_mavlogdump.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ 
+ """
+diff --git a/pymavlink/tests/test_mavparm.py b/pymavlink/tests/test_mavparm.py
+index 627024c7..903955bf 100644
+--- a/pymavlink/tests/test_mavparm.py
++++ b/pymavlink/tests/test_mavparm.py
 @@ -1,4 +1,4 @@
 -#!/usr/bin/env python
 +#!/usr/bin/env python3
@@ -430,7 +476,7 @@ index 27eaa906..1587e63f 100755
  
  """
 diff --git a/pymavlink/tests/test_rotmat.py b/pymavlink/tests/test_rotmat.py
-index 6551ce4c..70aa82c0 100755
+index 05a8f3a6..5c0759d7 100755
 --- a/pymavlink/tests/test_rotmat.py
 +++ b/pymavlink/tests/test_rotmat.py
 @@ -1,4 +1,4 @@
@@ -490,7 +536,7 @@ index 98e45053..5b4dd1ef 100755
  '''
  fit best estimate of magnetometer offsets
 diff --git a/pymavlink/tools/magfit_WMM.py b/pymavlink/tools/magfit_WMM.py
-index c57baabe..12e1acfd 100755
+index 31f9a0dd..dc466742 100755
 --- a/pymavlink/tools/magfit_WMM.py
 +++ b/pymavlink/tools/magfit_WMM.py
 @@ -1,4 +1,4 @@
@@ -570,7 +616,7 @@ index 77fa3ea9..77226005 100755
  '''
  fit best estimate of magnetometer rotation to gyro data
 diff --git a/pymavlink/tools/mavextract.py b/pymavlink/tools/mavextract.py
-index 59ea98d4..5105c320 100755
+index 77d8d32d..a52feeff 100755
 --- a/pymavlink/tools/mavextract.py
 +++ b/pymavlink/tools/mavextract.py
 @@ -1,4 +1,4 @@
@@ -600,7 +646,7 @@ index 75619fb9..888c9f37 100755
  '''
  interactively select accel and gyro data for FFT analysis
 diff --git a/pymavlink/tools/mavfft_isb.py b/pymavlink/tools/mavfft_isb.py
-index 8dc8aa17..76c334b0 100755
+index 8a3f934d..8036350a 100755
 --- a/pymavlink/tools/mavfft_isb.py
 +++ b/pymavlink/tools/mavfft_isb.py
 @@ -1,4 +1,4 @@
@@ -609,6 +655,16 @@ index 8dc8aa17..76c334b0 100755
  
  '''
  extract ISBH and ISBD messages from AP_Logging files and produce FFT plots
+diff --git a/pymavlink/tools/mavfft_pid.py b/pymavlink/tools/mavfft_pid.py
+index e2cc1f74..8b0661af 100755
+--- a/pymavlink/tools/mavfft_pid.py
++++ b/pymavlink/tools/mavfft_pid.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ '''
+ fit estimate of PID oscillations
 diff --git a/pymavlink/tools/mavflightmodes.py b/pymavlink/tools/mavflightmodes.py
 index 9177dc10..1746d22f 100755
 --- a/pymavlink/tools/mavflightmodes.py
@@ -660,7 +716,7 @@ index 7bdd0674..c63c6432 100755
  '''
  show GPS lock events in a MAVLink log
 diff --git a/pymavlink/tools/mavgraph.py b/pymavlink/tools/mavgraph.py
-index 7b8cb530..3b4a2edc 100755
+index 03b60c42..c9c3b8bb 100755
 --- a/pymavlink/tools/mavgraph.py
 +++ b/pymavlink/tools/mavgraph.py
 @@ -1,4 +1,4 @@
@@ -700,7 +756,7 @@ index eec6c9e9..f13337e1 100755
  '''
  show MAVLink packet loss
 diff --git a/pymavlink/tools/mavmission.py b/pymavlink/tools/mavmission.py
-index 1c3f2e16..a3d62576 100755
+index 910e0dc9..1270adf2 100755
 --- a/pymavlink/tools/mavmission.py
 +++ b/pymavlink/tools/mavmission.py
 @@ -1,4 +1,4 @@
@@ -769,6 +825,16 @@ index 8755df2a..821e7569 100644
  
  '''
  Summarize MAVLink logs. Useful for identifying which log is of interest in a large set.
+diff --git a/pymavlink/tools/mavtelemetry_datarates.py b/pymavlink/tools/mavtelemetry_datarates.py
+index 6af9a5c7..6930e9cf 100644
+--- a/pymavlink/tools/mavtelemetry_datarates.py
++++ b/pymavlink/tools/mavtelemetry_datarates.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ '''
+ GUI to calculate telemetry data rate between vehicle and GCS
+ 
 diff --git a/pymavlink/tools/mavtogpx.py b/pymavlink/tools/mavtogpx.py
 index 3cb23a62..8fa350b5 100755
 --- a/pymavlink/tools/mavtogpx.py
@@ -780,7 +846,7 @@ index 3cb23a62..8fa350b5 100755
  '''
  example program to extract GPS data from a mavlink log, and create a GPX
 diff --git a/pymavlink/tools/mavtomfile.py b/pymavlink/tools/mavtomfile.py
-index babce4d4..19a388aa 100755
+index 6f8c34b3..94864de1 100755
 --- a/pymavlink/tools/mavtomfile.py
 +++ b/pymavlink/tools/mavtomfile.py
 @@ -1,4 +1,4 @@
@@ -819,6 +885,3 @@ index 8603c35b..cd590e84 100755
  
  """
  map a serial port to an outgoing TCP connection
--- 
-2.17.1
-
