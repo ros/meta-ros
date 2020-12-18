@@ -70,6 +70,9 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains_any('LICENSE_FLAGS_WHITELIST', ['
 # incompatible old sip
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'pyqt5', d)}"
 
+# bondcpp is currently incompatible with rclcpp currently in dashing, see https://github.com/ros/bond_core/commit/99e8e634178e8ffcfe5d32242f9ff8886526fa06#r45245551
+ROS_WORLD_SKIP_GROUPS += "bondcpp"
+
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
     lanelet2-traffic-rules \
