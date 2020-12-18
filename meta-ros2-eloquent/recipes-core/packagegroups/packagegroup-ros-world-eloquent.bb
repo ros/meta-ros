@@ -255,3 +255,14 @@ ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC = " \
 "
 
 RDEPENDS_${PN}_remove = "${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC}"
+
+# do_configure failures
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lanelet2-traffic-rules', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LANELET2_TRAFFIC_RULES}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LANELET2_TRAFFIC_RULES = " \
+    lanelet2-examples \
+    lanelet2-python \
+    lanelet2-routing \
+    lanelet2-traffic-rules \
+    lanelet2-validation \
+    lanelet2 \
+"
