@@ -66,6 +66,11 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '', 
 # incompatible old sip
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'pyqt5', d)}"
 
+# do_configure failures
+ROS_WORLD_SKIP_GROUPS += " \
+    lanelet2-traffic-rules \
+"
+
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
     rc-dynamics-api \
