@@ -7,6 +7,3 @@ DEPENDS += "ament-cmake-ros-native \
     rosidl-generator-c \
     rosidl-adapter \
 "
-
-# https://github.com/lgsvl/ros2-lgsvl-bridge-release/issues/1
-ROS_BRANCH_append = "-before-rebase"
