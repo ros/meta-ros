@@ -68,6 +68,7 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer'
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
+    lanelet2-io \
     lanelet2-traffic-rules \
 "
 
