@@ -5561,6 +5561,7 @@ python3-cairo:
   gentoo: [dev-python/pycairo]
   openembedded: [python3-pycairo@openembedded-core]
   opensuse: [python3-cairo]
+  rhel: ['python%{python3_pkgversion}-cairo']
   slackware:
     slackpkg:
       packages: [py3cairo]
@@ -5821,6 +5822,10 @@ python3-flake8:
     '*': ['python%{python3_pkgversion}-flake8']
     '7': null
   ubuntu: [python3-flake8]
+python3-flask-restplus-pip:
+  ubuntu:
+    pip:
+      packages: [flask-restplus]
 python3-future:
   debian: [python3-future]
   fedora: [python3-future]
@@ -6282,6 +6287,11 @@ python3-pkg-resources:
   openembedded: [python3-setuptools@openembedded-core]
   rhel: ['python%{python3_pkgversion}-setuptools']
   ubuntu: [python3-pkg-resources]
+python3-prettytable:
+  debian: [python3-prettytable]
+  fedora: [python3-prettytable]
+  gentoo: [dev-python/prettytable]
+  ubuntu: [python3-prettytable]
 python3-progressbar:
   arch: [python-progressbar]
   debian: [python3-progressbar]
@@ -6452,6 +6462,14 @@ python3-pyparsing:
   gentoo: [dev-python/pyparsing]
   openembedded: [python3-pyparsing@meta-python]
   ubuntu: [python3-pyparsing]
+python3-pypng:
+  arch: [python-pypng]
+  debian: [python3-png]
+  fedora: [python3-pypng]
+  gentoo: [dev-python/pypng]
+  ubuntu:
+    '*': [python3-png]
+    xenial: null
 python3-pyproj:
   arch: [python-pyproj]
   debian: [python3-pyproj]
@@ -6757,6 +6775,11 @@ python3-sexpdata:
     xenial:
       pip:
         packages: [sexpdata]
+python3-sh:
+  debian: [python3-sh]
+  fedora: [python3-sh]
+  gentoo: [dev-python/sh]
+  ubuntu: [python3-sh]
 python3-shapely:
   arch: [python-shapely]
   debian: [python3-shapely]
@@ -6795,7 +6818,10 @@ python3-siphon-pip:
     pip:
       packages: [siphon]
 python3-six:
+  arch: [python-six]
   debian: [python3-six]
+  fedora: [python3-six]
+  gentoo: [dev-python/six]
   ubuntu: [python3-six]
 python3-skimage:
   debian: [python3-skimage]
