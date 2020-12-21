@@ -59,7 +59,7 @@ daemontools:
 - daemontools@meta-oe
 dkms: []
 dnsmasq:
-- dnsmasq@openembedded-core
+- dnsmasq@meta-networking
 doxygen:
 - doxygen@meta-oe
 dpkg:
@@ -80,6 +80,8 @@ flac:
 - flac@openembedded-core
 flex:
 - flex@openembedded-core
+fmt:
+- ${ROS_UNRESOLVED_DEP-fmt}
 ftdi-eeprom:
 - libftdi@meta-oe
 g++-static: []
@@ -272,6 +274,8 @@ libogre-dev:
 - ogre@meta-ros-common
 libois-dev:
 - ${ROS_UNRESOLVED_DEP-libois-dev}
+libomp-dev:
+- ${ROS_UNRESOLVED_DEP-libomp-dev}
 libopenblas-dev:
 - openblas@meta-ros-common
 libopencv-dev:
@@ -412,8 +416,6 @@ libzmq3-dev:
 - zeromq@meta-oe
 linux-kernel-headers:
 - linux-libc-headers@openembedded-core
-llvm-7-dev:
-- llvm@openembedded-core
 log4cplus:
 - log4cplus@openembedded-core
 log4cxx:
@@ -619,6 +621,8 @@ python-pycryptodome:
 - ${PYTHON_PN}-pycryptodomex@openembedded-core
 python-pydot:
 - ${PYTHON_PN}-pydot@meta-ros-common
+python-pygame:
+- ${ROS_UNRESOLVED_DEP-python-pygame}
 python-pygithub3:
 - ${ROS_UNRESOLVED_DEP-python-pygithub3}
 python-pygraphviz:
@@ -631,6 +635,8 @@ python-pytest:
 - ${PYTHON_PN}-pytest@openembedded-core
 python-pytest-cov:
 - ${ROS_UNRESOLVED_DEP-python-pytest-cov}
+python-pyudev:
+- ${ROS_UNRESOLVED_DEP-python-pyudev}
 python-pyusb-pip:
 - ${ROS_UNRESOLVED_DEP-python-pyusb-pip}
 python-qt5-bindings:
