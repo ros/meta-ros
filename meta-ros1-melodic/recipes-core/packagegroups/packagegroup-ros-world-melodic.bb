@@ -287,6 +287,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     radial-menu \
     radial-menu-example \
     radial-menu-rviz \
+    robot-nav-rviz-plugins \
+    robot-nav-viz-demos \
+    robot-nav-tools \
     robot-statemachine \
     robotont-description \
     robotont-nuc-description \
@@ -348,13 +351,22 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vtk-qt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT = " \
+    dijkstra-mesh-planner \
     ira-laser-tools \
     lvr2 \
+    mbf-mesh-core \
+    mbf-mesh-nav \
+    mesh-client \
+    mesh-controller \
+    mesh-map \
     mesh-msgs-conversions \
+    mesh-navigation \
+    mesh-layers \
     rc-cloud-accumulator \
     rtabmap \
     rtabmap-ros \
     simple-grasping \
+    wave-front-planner \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
@@ -703,6 +715,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY = " \
     imagesift \
     jsk-common \
     jsk-data \
+    jsk-footstep-controller \
+    jsk-footstep-planner \
     jsk-interactive-marker \
     jsk-interactive-test \
     jsk-interactive \
@@ -712,6 +726,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY = " \
     jsk-recognition-utils \
     jsk-recognition \
     jsk-rviz-plugins \
+    jsk-teleop-joy \
     jsk-tools \
     jsk-topic-tools \
     jsk-visualization \
@@ -818,6 +833,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     radial-menu-rviz \
     ridgeback-desktop \
     ridgeback-viz \
+    robot-nav-rviz-plugins \
+    robot-nav-viz-demos \
+    robot-nav-tools \
     robot-statemachine \
     robotont-description \
     robotont-nuc-description \
@@ -866,6 +884,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     dataspeed-pds-rqt \
     desktop \
     desktop-full \
+    dijkstra-mesh-planner \
     dingo-desktop \
     dingo-viz \
     distance-map \
@@ -901,6 +920,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     jderobot-drones \
     jsk-common \
     jsk-data \
+    jsk-footstep-controller \
+    jsk-footstep-planner \
     jsk-interactive \
     jsk-interactive-marker \
     jsk-interactive-test \
@@ -911,6 +932,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     jsk-recognition-utils \
     jsk-rqt-plugins \
     jsk-rviz-plugins \
+    jsk-teleop-joy \
     jsk-tools \
     jsk-visualization \
     kvh-geo-fog-3d \
@@ -931,7 +953,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     lvr2 \
     mapviz \
     mapviz-plugins \
+    mbf-mesh-core \
+    mbf-mesh-nav \
+    mesh-client \
+    mesh-controller \
+    mesh-layers \
+    mesh-map \
     mesh-msgs-conversions \
+    mesh-navigation \
     mesh-tools \
     mir-gazebo \
     mir-robot \
@@ -985,6 +1014,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rc-cloud-accumulator \
     ridgeback-desktop \
     ridgeback-viz \
+    robot-nav-rviz-plugins \
+    robot-nav-viz-demos \
+    robot-nav-tools \
     robot-statemachine \
     robotont-description \
     robotont-nuc-description \
@@ -1077,6 +1109,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     viz \
     warthog-desktop \
     warthog-viz \
+    wave-front-planner \
     webkit-dependency \
 "
 
@@ -1181,6 +1214,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY =
     jsk-3rdparty \
     jsk-common \
     jsk-data \
+    jsk-footstep-controller \
+    jsk-footstep-planner \
     jsk-interactive \
     jsk-interactive-marker \
     jsk-interactive-test \
@@ -1191,6 +1226,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY =
     jsk-recognition \
     jsk-recognition-utils \
     jsk-rviz-plugins \
+    jsk-teleop-joy \
     jsk-tools \
     jsk-topic-tools \
     jsk-visualization \
@@ -1253,6 +1289,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-ros-pkgs \
     gazebo-rosdev \
     gazebo-video-monitor-plugins \
+    gazebo-video-monitors \
     gundam-robot \
     gundam-rx78-gazebo \
     hector-gazebo \
@@ -1407,12 +1444,20 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_LISP = " \
     cl-transforms-stamped \
     cl-urdf \
     cl-utils \
+    contact-states-observer \
     eus-assimp \
+    eus-nlopt \
+    eus-qp \
+    eus-qpoases \
     euslime \
     euslisp \
     geneus \
     genlisp \
     jskeus \
+    jsk-calibration \
+    jsk-control \
+    jsk-footstep-planner \
+    jsk-ik-server \
     jsk-model-tools \
     jsk-planning \
     jsk-pr2eus \
@@ -1550,7 +1595,7 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ueye', '
 # do_configure failures
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dccomms-ros', 'dccomms-ros' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyros-utils', 'pyros-utils' , '', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dynamic-graph-python', 'dynamic-graph-python dynamic-graph-tutorial sot-core sot-tools' , '', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dynamic-graph-python', 'dynamic-graph-python dynamic-graph-tutorial sot-core sot-tools sot-dynamic-pinocchio' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hdf5-map-io', 'hdf5-map-io mesh-msgs-hdf5' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'jderobot-carviz', 'jderobot-carviz' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lanelet2-traffic-rules', 'lanelet2-traffic-rules lanelet2-routing' , '', d)}"
