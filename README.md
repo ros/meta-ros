@@ -1,12 +1,13 @@
 # Branch `[master]`
 
-As of 2020-08-24, this branch can be used to build the mid-August 2020
-releases of ROS 2 **dashing**, **eloquent**, **foxy**, and **rolling** and
-ROS 1 **melodic** with the **dunfell** and **gatesgarth** OpenEmbedded release
-series.
+As of Milestone 15 (2020-12-23), this branch can be used to build the releases
+current at the beginning of November 2020 of ROS 2 **dashing**, **eloquent**,
+**foxy**, and **rolling** and ROS 1 **melodic** with the **hardknott**
+OpenEmbedded release series.
 
-See [here](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions)
-for instructions.
+Instructions for using `meta-ros` are
+[here](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions).
+
 
 ## History
 
