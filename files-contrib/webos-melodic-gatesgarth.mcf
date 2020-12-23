@@ -12,11 +12,11 @@ Machines = ['qemux86', 'raspberrypi4']
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'gatesgarth')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '0a1f7c3ff')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'gatesgarth/milestones/15')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'gatesgarth')
-MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'e90c7d1')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'gatesgarth/milestones/15')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'gatesgarth')
