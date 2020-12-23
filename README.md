@@ -1,11 +1,15 @@
-# Branch `[warrior]`
+# Branch `[warrior]` (UNSUPPORTED)
 
-As of 2020-07-04, this branch can be used to build the February and March 2020
-releases of ROS 2 **dashing**, ROS 2 **eloquent**, and ROS 1 **melodic**, and
-the 2020-06-25 release of ROS 2 **foxy**.
+The **warrior** OpenEmbedded release series has reached its EOL (see
+https://wiki.yoctoproject.org/wiki/Releases). Support for ROS distro releases
+newer than those of Milestone 13 (2020-07-04) has not been added to this branch,
+and, following the
+[OpenEmbedded Release Series Support Policy](https://github.com/ros/meta-ros/wiki/Policies#openembedded-release-series-support),
+building with **warrior** is no longer supported as of Milestone 15 (2020-12-23).
 
-See [here](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions)
-for instructions.
+Instructions for using `meta-ros` are
+[here](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions).
+
 
 ## History
 
