@@ -38,8 +38,6 @@ PNBLACKLIST[libplist] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2
 PNBLACKLIST[rrdtool] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-extended/sanlock/sanlock_3.6.0.bb
 PNBLACKLIST[sanlock] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-openembedded/meta-oe/recipes-gnome/pyxdg/pyxdg_0.26.bb
-PNBLACKLIST[pyxdg] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-graphics/fontforge/fontforge_20170731.bb
 PNBLACKLIST[fontforge] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-support/libiio/libiio_git.bb
@@ -650,8 +648,6 @@ PNBLACKLIST[lmsensors-config] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 
 PNBLACKLIST[collectd] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-extended/libimobiledevice/libusbmuxd_git.bb
 PNBLACKLIST[libusbmuxd] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-openembedded/meta-oe/recipes-graphics/openbox/openbox_3.6.1.bb
-PNBLACKLIST[openbox] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-benchmark/s-suite/s-suite_git.bb
 PNBLACKLIST[s-suite] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-connectivity/usbmuxd/usbmuxd_git.bb
