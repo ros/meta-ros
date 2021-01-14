@@ -30,7 +30,7 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'dc0712e2e')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'dunfell')
-MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'dunfell/milestones/15')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   '4ad5631')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/webosose/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
@@ -43,18 +43,18 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'builds/webosose/master/' 
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.46', 'commit': 'd171188c'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.46', 'commit': 'a394eeec'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'dunfell', 'commit': 'fcd335e2a7'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'dunfell', 'commit': '897822233f'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'dunfell', 'commit': 'f2d02cb71e'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'dunfell', 'commit': '5bba79488b'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'dunfell', 'commit': 'cc1b383'}, {}),
-('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'dunfell', 'commit': 'ff997b6'}, {}),
+('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'dunfell', 'commit': 'b1bb00f'}, {}),
+('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'dunfell', 'commit': '92cd346'}, {}),
 ('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': 'dunfell', 'commit': '07dca1e'}, {}),
 
 ('meta-qt5-compat',           19, MetaWebos_RepoURL,                                        {}, {}),
