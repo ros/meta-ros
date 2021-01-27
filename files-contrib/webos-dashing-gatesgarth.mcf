@@ -29,9 +29,9 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'gatesgarth-2021-01-22')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.48', 'commit': 'fec2b856'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.48', 'commit': 'cb7277e7'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'gatesgarth', 'commit': 'c7bf9aebd0'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'gatesgarth', 'commit': '4e8022635f'}, {}),
 
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'gatesgarth', 'commit': '6ff4bd4f34'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
