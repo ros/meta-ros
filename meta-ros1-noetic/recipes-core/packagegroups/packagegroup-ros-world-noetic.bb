@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 DESCRIPTION = "All non-test packages for the target from files/crystal/cache.yaml"
 LICENSE = "MIT"
@@ -283,6 +283,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     dataspeed-pds-rqt \
     dingo-desktop \
     dingo-viz \
+    ergodic-exploration \
     fkie-node-manager \
     fkie-multimaster \
     fmi-adapter-examples \
@@ -300,6 +301,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     pilz-status-indicator-rqt \
     pr2-motor-diagnostic-tool \
     python-qt-binding \
+    psen-scan-v2 \
     qt-gui \
     qt-gui-app \
     qt-gui-core \
@@ -309,6 +311,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     radial-menu-rviz \
     ros-controllers \
     rosmon \
+    robot-nav-rviz-plugins \
+    robot-nav-tools \
+    robot-nav-viz-demos \
     rqt \
     rqt-action \
     rqt-bag \
@@ -355,6 +360,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rtmros-common \
     rviz-map-plugin \
     rviz-mesh-plugin \
+    rviz-satellite \
     sick-safetyscanners \
     visualstates \
     webkit-dependency \
@@ -362,12 +368,22 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vtk-qt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT = " \
+    dijkstra-mesh-planner \
     ira-laser-tools \
     lvr2 \
+    mbf-mesh-core \
+    mbf-mesh-nav \
+    mesh-client \
+    mesh-controller \
+    mesh-layers \
+    mesh-map \
+    mesh-msgs-conversions \
+    mesh-navigation \
     rc-cloud-accumulator \
     rtabmap \
     rtabmap-ros \
     simple-grasping \
+    wave-front-planner \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
@@ -756,6 +772,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     distance-map \
     distance-map-rviz \
     easy-markers \
+    ergodic-exploration \
     exotica-examples \
     fake-joint \
     fake-joint-launch \
@@ -807,11 +824,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     people \
     people-velocity-tracker \
     psen-scan \
+    psen-scan-v2 \
     radial-menu \
     radial-menu-example \
     radial-menu-rviz \
     ridgeback-desktop \
     ridgeback-viz \
+    robot-nav-rviz-plugins \
+    robot-nav-tools \
+    robot-nav-viz-demos \
     rqt-rviz \
     rviz \
     rviz-imu-plugin \
@@ -819,6 +840,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     rviz-mesh-plugin \
     rviz-python-tutorial \
     rviz-plugin-tutorials \
+    rviz-satellite \
     rviz-visual-tools \
     seed-r7-bringup \
     seed-r7-moveit-config \
@@ -860,11 +882,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop-full \
     dingo-desktop \
     dingo-viz \
+    dijkstra-mesh-planner \
     distance-map \
     distance-map-rviz \
     dynamixel-workbench \
     dynamixel-workbench-single-manager-gui \
     easy-markers \
+    ergodic-exploration \
     fetch-bringup \
     fetch-gazebo-demo \
     fetch-ros \
@@ -926,6 +950,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     lvr2 \
     mapviz \
     mapviz-plugins \
+    mbf-mesh-core \
+    mbf-mesh-nav \
+    mesh-client \
+    mesh-controller \
+    mesh-layers \
+    mesh-map \
+    mesh-msgs-conversions \
+    mesh-navigation \
     mesh-tools \
     mir-gazebo \
     mir-robot \
@@ -964,6 +996,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     prbt-grippers \
     prbt-moveit-config \
     prbt-pg70-support \
+    psen-scan-v2 \
     python-qt-binding \
     qt-dotgraph \
     qt-gui \
@@ -978,6 +1011,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rc-cloud-accumulator \
     ridgeback-desktop \
     ridgeback-viz \
+    robot-nav-rviz-plugins \
+    robot-nav-tools \
+    robot-nav-viz-demos \
     ros-controllers \
     ros-tutorials \
     rosbag-editor \
@@ -1038,6 +1074,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz-mesh-plugin \
     rviz-plugin-tutorials \
     rviz-python-tutorial \
+    rviz-satellite \
     rviz-visual-tools \
     seed-r7-bringup \
     seed-r7-moveit-config \
@@ -1065,6 +1102,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     viz \
     warthog-desktop \
     warthog-viz \
+    wave-front-planner \
     webkit-dependency \
     wu-ros-tools \
 "
@@ -1235,15 +1273,20 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-plugins \
     gazebo-ros \
     gazebo-ros-control \
+    gazebo-ros-control-select-joints \
     gazebo-ros-pkgs \
     gazebo-rosdev \
     gazebo-video-monitor-plugins \
+    gazebo-video-monitors \
     gundam-robot \
     gundam-rx78-gazebo \
+    hector-components-description \
     hector-gazebo \
     hector-gazebo-plugins \
     hector-gazebo-thermal-camera \
     hector-gazebo-worlds \
+    hector-models \
+    hector-sensors-description \
     hector-sensors-gazebo \
     heron-gazebo \
     husky-gazebo \
@@ -1338,6 +1381,7 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt4', '$
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT4 = " \
     hector-geotiff \
+    hector-geotiff-launch \
     hector-geotiff-plugins \
     hector-slam \
     hector-slam-launch \
