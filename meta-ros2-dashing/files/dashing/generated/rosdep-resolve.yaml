@@ -46,8 +46,8 @@ gtest:
 - gtest@meta-oe
 gtk3:
 - gtk+3@openembedded-core
-gurumdds-2.6:
-- ${ROS_UNRESOLVED_DEP-gurumdds-2.6}
+gurumdds-2.7:
+- ${ROS_UNRESOLVED_DEP-gurumdds-2.7}
 lcov:
 - lcov@meta-oe
 libboost-dev:
@@ -59,8 +59,6 @@ libboost-program-options:
 libboost-program-options-dev:
 - boost@openembedded-core
 libboost-python-dev:
-- boost@openembedded-core
-libboost-system:
 - boost@openembedded-core
 libboost-system-dev:
 - boost@openembedded-core
@@ -174,8 +172,6 @@ libzmq3-dev:
 - zeromq@meta-oe
 linux-headers-generic:
 - linux-libc-headers@openembedded-core
-llvm-dev:
-- llvm@openembedded-core
 log4cplus:
 - log4cplus@openembedded-core
 log4cxx:
@@ -209,7 +205,7 @@ pyqt5-dev-tools:
 python-catkin-pkg:
 - ${PYTHON_PN}-catkin-pkg@meta-ros-common
 python-gst-1.0:
-- gstreamer1.0-python@openembedded-core'
+- gstreamer1.0-python@openembedded-core
 python-numpy:
 - ${PYTHON_PN}-numpy@openembedded-core
 python-pyproj:
@@ -285,7 +281,7 @@ python3-tornado:
 python3-twisted:
 - python3-twisted@meta-python
 python3-websocket:
-- python3-websockets@meta-python
+- python3-websocket-client@meta-python
 python3-yaml:
 - python3-pyyaml@meta-python
 qt5-qmake:

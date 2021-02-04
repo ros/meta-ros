@@ -79,10 +79,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/robotis-ros2-release/turtlebot3-release/archive/release/dashing/turtlebot3_node/2.1.0-1.tar.gz
+# matches with: https://github.com/robotis-ros2-release/turtlebot3-release/archive/release/dashing/turtlebot3_node/2.1.1-2.tar.gz
 ROS_BRANCH ?= "branch=release/dashing/turtlebot3_node"
 SRC_URI = "git://github.com/robotis-ros2-release/turtlebot3-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d8dd20902015b7c8e38b7630607018c94b2cc890"
+SRCREV = "088355a0fda8a3d0c984947ba386194379e1dd48"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

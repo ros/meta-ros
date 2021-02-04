@@ -5,8 +5,8 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "A template class and associated utilities which encapsulate basic reading from serial ports"
-AUTHOR = "Apex.AI, Inc. <opensource@apex.ai>"
+DESCRIPTION = "Implement the ROS middleware interface using GurumNetworks GurumDDS static code generation in C++."
+AUTHOR = "Junho Lee <junho@gurum.cc>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
@@ -14,39 +14,47 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "transport_drivers"
-ROS_BPN = "serial_driver"
+ROS_CN = "rmw_gurumdds"
+ROS_BPN = "rmw_gurumdds_cpp"
 
 ROS_BUILD_DEPENDS = " \
-    boost \
-    rclcpp \
-    rclcpp-lifecycle \
-    std-msgs \
+    ${ROS_UNRESOLVED_DEP-gurumdds-2.7} \
+    gurumdds-cmake-module \
+    rcutils \
+    rmw \
+    rmw-gurumdds-shared-cpp \
+    rosidl-generator-c \
+    rosidl-generator-cpp \
+    rosidl-generator-dds-idl \
+    rosidl-typesupport-introspection-c \
+    rosidl-typesupport-introspection-cpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-auto-native \
+    ament-cmake-ros-native \
+    rosidl-cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    boost \
-    rclcpp \
-    rclcpp-lifecycle \
-    std-msgs \
+    ${ROS_UNRESOLVED_DEP-gurumdds-2.7} \
+    gurumdds-cmake-module \
+    rmw-gurumdds-shared-cpp \
+    rosidl-generator-c \
+    rosidl-generator-cpp \
+    rosidl-typesupport-introspection-c \
+    rosidl-typesupport-introspection-cpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    boost \
-    rclcpp \
-    rclcpp-lifecycle \
-    std-msgs \
+    rcutils \
+    rmw \
+    rmw-gurumdds-shared-cpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
 "
@@ -58,10 +66,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-drivers-gbp/transport_drivers-release/archive/release/dashing/serial_driver/0.0.5-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/serial_driver"
-SRC_URI = "git://github.com/ros-drivers-gbp/transport_drivers-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8e8c506b3f7a9c8b6e30d442f351adf507c79490"
+# matches with: https://github.com/ros2-gbp/rmw_gurumdds-release/archive/release/dashing/rmw_gurumdds_cpp/0.7.9-1.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/rmw_gurumdds_cpp"
+SRC_URI = "git://github.com/ros2-gbp/rmw_gurumdds-release;${ROS_BRANCH};protocol=https"
+SRCREV = "171b4570f425c7aed8a65ff199eb651ebb6a8b7f"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

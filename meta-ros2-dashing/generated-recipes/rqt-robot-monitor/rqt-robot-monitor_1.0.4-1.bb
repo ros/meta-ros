@@ -48,10 +48,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rqt_robot_monitor-release/archive/release/dashing/rqt_robot_monitor/1.0.3-1.tar.gz
+# matches with: https://github.com/ros2-gbp/rqt_robot_monitor-release/archive/release/dashing/rqt_robot_monitor/1.0.4-1.tar.gz
 ROS_BRANCH ?= "branch=release/dashing/rqt_robot_monitor"
 SRC_URI = "git://github.com/ros2-gbp/rqt_robot_monitor-release;${ROS_BRANCH};protocol=https"
-SRCREV = "67612e6938845901072aaf573e351753ef564cd0"
+SRCREV = "e143389c546755e8932a8e12b56ce56afb689dc7"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
