@@ -5,19 +5,23 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The joy_mouse package"
-AUTHOR = "Ryohei Ueda <ueda@jsk.t.u-tokyo.ac.jp>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Display satellite map tiles in RViz"
+AUTHOR = "Tim Clephas <tim.clephas@nobleo.nl>"
+ROS_AUTHOR = "Gareth Cross <gcross.code@icloud.com>"
+HOMEPAGE = "https://github.com/nobleo/rviz_satellite"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=fc216ef9336537897fbeafa564601763"
 
-ROS_CN = "jsk_control"
-ROS_BPN = "joy_mouse"
+ROS_CN = "rviz_satellite"
+ROS_BPN = "rviz_satellite"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
+    qtbase \
+    roscpp \
+    rviz \
     sensor-msgs \
 "
 
@@ -26,17 +30,19 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
+    roscpp \
+    rviz \
     sensor-msgs \
+    tf2-ros \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
+    roscpp \
+    rviz \
     sensor-msgs \
+    tf2-ros \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -49,10 +55,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/tork-a/jsk_control-release/archive/release/melodic/joy_mouse/0.1.15-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/joy_mouse"
-SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d73572879bd52e23321318a16eb5f14c783a1933"
+# matches with: https://github.com/nobleo/rviz_satellite-release/archive/release/melodic/rviz_satellite/3.0.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/rviz_satellite"
+SRC_URI = "git://github.com/nobleo/rviz_satellite-release;${ROS_BRANCH};protocol=https"
+SRCREV = "740438082a24b14964f09a132ffe6ec4fa422461"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

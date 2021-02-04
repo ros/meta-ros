@@ -5,38 +5,38 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The joy_mouse package"
-AUTHOR = "Ryohei Ueda <ueda@jsk.t.u-tokyo.ac.jp>"
+DESCRIPTION = "Heifu is a ROS driver for PDMFC and BEV drone"
+AUTHOR = "Fábio Azevedo <fabio.azevedo@beyond-vision.pt>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
-ROS_CN = "jsk_control"
-ROS_BPN = "joy_mouse"
+ROS_CN = "heifu"
+ROS_BPN = "heifu_bringup"
 
-ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    heifu-description \
+    heifu-mavros \
+    heifu-msgs \
+    heifu-safety \
+    heifu-tools \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    heifu-description \
+    heifu-mavros \
+    heifu-msgs \
+    heifu-safety \
+    heifu-tools \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -49,10 +49,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/tork-a/jsk_control-release/archive/release/melodic/joy_mouse/0.1.15-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/joy_mouse"
-SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d73572879bd52e23321318a16eb5f14c783a1933"
+# matches with: https://github.com/BV-OpenSource/heifu-release/archive/release/melodic/heifu_bringup/0.7.7-2.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/heifu_bringup"
+SRC_URI = "git://github.com/BV-OpenSource/heifu-release;${ROS_BRANCH};protocol=https"
+SRCREV = "528e2daaf1303761363629cb8fd360aa77f711b4"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

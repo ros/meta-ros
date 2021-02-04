@@ -5,19 +5,25 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The joy_mouse package"
-AUTHOR = "Ryohei Ueda <ueda@jsk.t.u-tokyo.ac.jp>"
+DESCRIPTION = "A common drone teleop interface for all drone exercises in the JdeRobot Robotics Academy"
+AUTHOR = "Nikhil Khedekar <nikhilvkhedekar@gmail.com>"
+ROS_AUTHOR = "Nikhil Khedekar <nikhilvkhedekar@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=1a58895467feb5b42724abbf3f0d9612"
 
-ROS_CN = "jsk_control"
-ROS_BPN = "joy_mouse"
+ROS_CN = "jderobot_drones"
+ROS_BPN = "rqt_drone_teleop"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
+    ${PYTHON_PN}-rospkg \
+    drone-wrapper \
+    geometry-msgs \
+    roslib \
     rospy \
+    rqt-gui \
+    rqt-gui-py \
     sensor-msgs \
 "
 
@@ -26,16 +32,26 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
+    ${PYTHON_PN}-rospkg \
+    drone-wrapper \
+    geometry-msgs \
+    roslib \
     rospy \
+    rqt-gui \
+    rqt-gui-py \
     sensor-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
+    ${PYTHON_PN}-rospkg \
+    drone-wrapper \
+    geometry-msgs \
+    roslib \
     rospy \
+    rqt-gui \
+    rqt-gui-py \
     sensor-msgs \
 "
 
@@ -49,10 +65,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/tork-a/jsk_control-release/archive/release/melodic/joy_mouse/0.1.15-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/joy_mouse"
-SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d73572879bd52e23321318a16eb5f14c783a1933"
+# matches with: https://github.com/JdeRobot/drones-release/archive/release/melodic/rqt_drone_teleop/1.3.6-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/rqt_drone_teleop"
+SRC_URI = "git://github.com/JdeRobot/drones-release;${ROS_BRANCH};protocol=https"
+SRCREV = "fe882f60595a175835e8d9ddbe4015b1e1347a68"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

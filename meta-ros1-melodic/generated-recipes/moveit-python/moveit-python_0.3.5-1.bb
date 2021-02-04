@@ -5,38 +5,43 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The joy_mouse package"
-AUTHOR = "Ryohei Ueda <ueda@jsk.t.u-tokyo.ac.jp>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "A pure-python interaface to the MoveIt! ROS API."
+AUTHOR = "Michael Ferguson <fergs@botnuvo.com>"
+ROS_AUTHOR = "Michael Ferguson"
+HOMEPAGE = "http://ros.org/wiki/moveit_python"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "jsk_control"
-ROS_BPN = "joy_mouse"
+ROS_CN = "moveit_python"
+ROS_BPN = "moveit_python"
 
-ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
+    actionlib \
+    geometry-msgs \
+    moveit-msgs \
+    python-pyassimp \
     rospy \
-    sensor-msgs \
+    shape-msgs \
+    tf \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
+    actionlib \
+    geometry-msgs \
+    moveit-msgs \
+    python-pyassimp \
     rospy \
-    sensor-msgs \
+    shape-msgs \
+    tf \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -49,10 +54,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/tork-a/jsk_control-release/archive/release/melodic/joy_mouse/0.1.15-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/joy_mouse"
-SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d73572879bd52e23321318a16eb5f14c783a1933"
+# matches with: https://github.com/mikeferguson/moveit_python-release/archive/release/melodic/moveit_python/0.3.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/moveit_python"
+SRC_URI = "git://github.com/mikeferguson/moveit_python-release;${ROS_BRANCH};protocol=https"
+SRCREV = "c85f670e6019a52895088a73882fac24d41ddcfe"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
