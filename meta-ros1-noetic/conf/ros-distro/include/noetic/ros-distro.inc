@@ -233,3 +233,8 @@ ROS_BUILD_TYPE_pn-mavlink = "catkin"
 
 # Used by meta-ros/meta-ros1-noetic/generated-recipes/moveit-python/moveit-python_0.4.0-1.bb
 ROS_UNRESOLVED_DEP-python3-pyassimp = "python3-pyassimp"
+
+# Used by meta-ros/meta-ros1-noetic/generated-recipes/mqtt-bridge/mqtt-bridge_0.2.1-1.bb
+ROS_UNRESOLVED_DEP-python3-pip = "python3-pip"
+ROS_UNRESOLVED_DEP-python3-msgpack = "python3-msgpack"
+ROS_UNRESOLVED_DEP-python3-pymongo = "python3-pymongo"
