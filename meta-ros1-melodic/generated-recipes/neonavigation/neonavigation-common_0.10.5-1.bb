@@ -5,20 +5,19 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The joy_mouse package"
-AUTHOR = "Ryohei Ueda <ueda@jsk.t.u-tokyo.ac.jp>"
+DESCRIPTION = "Common headers for neonavigation meta-package"
+AUTHOR = "Atsushi Watanabe <atsushi.w@ieee.org>"
+ROS_AUTHOR = "Atsushi Watanabe <atsushi.w@ieee.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "jsk_control"
-ROS_BPN = "joy_mouse"
+ROS_CN = "neonavigation"
+ROS_BPN = "neonavigation_common"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    roscpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -26,21 +25,22 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    roscpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    roscpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    roslint \
+    rostest \
+    std-msgs \
+    std-srvs \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -49,10 +49,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/tork-a/jsk_control-release/archive/release/melodic/joy_mouse/0.1.15-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/joy_mouse"
-SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d73572879bd52e23321318a16eb5f14c783a1933"
+# matches with: https://github.com/at-wat/neonavigation-release/archive/release/melodic/neonavigation_common/0.10.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/neonavigation_common"
+SRC_URI = "git://github.com/at-wat/neonavigation-release;${ROS_BRANCH};protocol=https"
+SRCREV = "07a7d5c154503f3437d8d975702b16b9dd77b7d1"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

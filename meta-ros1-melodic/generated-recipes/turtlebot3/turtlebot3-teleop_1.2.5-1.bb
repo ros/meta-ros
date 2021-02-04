@@ -5,20 +5,20 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The joy_mouse package"
-AUTHOR = "Ryohei Ueda <ueda@jsk.t.u-tokyo.ac.jp>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Provides teleoperation using keyboard for TurtleBot3."
+AUTHOR = "Will Son <willson@robotis.com>"
+ROS_AUTHOR = "Melonee Wise"
+HOMEPAGE = "http://wiki.ros.org/turtlebot3_teleop"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "jsk_control"
-ROS_BPN = "joy_mouse"
+ROS_CN = "turtlebot3"
+ROS_BPN = "turtlebot3_teleop"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
+    geometry-msgs \
     rospy \
-    sensor-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -26,17 +26,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
+    geometry-msgs \
     rospy \
-    sensor-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
+    geometry-msgs \
     rospy \
-    sensor-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -49,10 +47,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/tork-a/jsk_control-release/archive/release/melodic/joy_mouse/0.1.15-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/joy_mouse"
-SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d73572879bd52e23321318a16eb5f14c783a1933"
+# matches with: https://github.com/ROBOTIS-GIT-release/turtlebot3-release/archive/release/melodic/turtlebot3_teleop/1.2.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/turtlebot3_teleop"
+SRC_URI = "git://github.com/ROBOTIS-GIT-release/turtlebot3-release;${ROS_BRANCH};protocol=https"
+SRCREV = "ea34bf612af2451dca882bb7a4a5e5ee07466eac"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
