@@ -79,6 +79,9 @@ apr:
     slackpkg:
       packages: [apr, apr-util]
   ubuntu: [libapr1-dev, libaprutil1-dev]
+apt-transport-https:
+  debian: [apt-transport-https]
+  ubuntu: [apt-transport-https]
 aravis:
   debian: [libaravis-0.6-0]
   gentoo: [media-video/aravis]
@@ -347,8 +350,7 @@ bullet:
   macports: [bullet]
   openembedded: [bullet@meta-ros-common]
   opensuse: [libbullet]
-  rhel:
-    '7': [bullet-devel]
+  rhel: [bullet-devel]
   ubuntu:
     '*': [libbullet-dev]
     trusty_python3: [libbullet-dev]
@@ -875,6 +877,12 @@ flac:
   gentoo: [media-libs/flac]
   openembedded: [flac@openembedded-core]
   ubuntu: [flac]
+flawfinder:
+  arch: [flawfinder]
+  debian: [flawfinder]
+  fedora: [flawfinder]
+  gentoo: [dev-util/flawfinder]
+  ubuntu: [flawfinder]
 flex:
   arch: [flex]
   debian: [flex]
@@ -4333,22 +4341,13 @@ libunittest++:
   ubuntu: [libunittest++-dev]
 libunwind:
   debian:
-    buster: [libunwind8]
-    jessie: [libunwind8]
-    stretch: [libunwind8]
+    '*': [libunwind8]
     wheezy: [libunwind7]
   fedora: [libunwind]
   gentoo: [sys-libs/libunwind]
   ubuntu:
-    bionic: [libunwind8]
-    cosmic: [libunwind8]
-    disco: [libunwind8]
-    eoan: [libunwind8]
+    '*': [libunwind8]
     precise: [libunwind7]
-    quantal: [libunwind8]
-    raring: [libunwind8]
-    saucy: [libunwind8]
-    trusty: [libunwind8]
 libunwind-dev:
   debian:
     buster: [libunwind8-dev]
@@ -5687,6 +5686,14 @@ qt4-dev-tools:
   gentoo: ['dev-qt/assistant:4', 'dev-qt/linguist:4', 'dev-qt/pixeltool:4']
   opensuse: [libqt4-devel-doc]
   ubuntu: [qt4-dev-tools]
+qt4-linguist-tools:
+  debian: [qt4-linguist-tools]
+  fedora: [qt-devel]
+  gentoo: ['dev-qt/linguist-tools']
+  ubuntu:
+    '*': null
+    bionic: [qt4-linguist-tools]
+    xenial: [qt4-linguist-tools]
 qt4-qmake:
   arch: [qt4]
   debian: [qt4-qmake]
