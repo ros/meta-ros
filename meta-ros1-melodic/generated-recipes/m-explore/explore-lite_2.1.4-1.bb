@@ -5,34 +5,26 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "A reverse ROS bridge for the MiR100 robot"
-AUTHOR = "Martin Günther <martin.guenther@dfki.de>"
-ROS_AUTHOR = "Martin Günther <martin.guenther@dfki.de>"
-HOMEPAGE = "https://github.com/dfki-ric/mir_robot"
+DESCRIPTION = "Lightweight frontier-based exploration."
+AUTHOR = "Jiri Horner <laeqten@gmail.com>"
+ROS_AUTHOR = "Jiri Horner <laeqten@gmail.com>"
+HOMEPAGE = "http://wiki.ros.org/explore_lite"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "BSD & Apache 2.0"
-LICENSE = "BSD & Apache-2.0"
+LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "mir_robot"
-ROS_BPN = "mir_driver"
+ROS_CN = "m_explore"
+ROS_BPN = "explore_lite"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-websocket-client \
+    actionlib \
     actionlib-msgs \
-    diagnostic-msgs \
-    dynamic-reconfigure \
+    costmap-2d \
     geometry-msgs \
-    mir-actions \
-    mir-msgs \
+    map-msgs \
     move-base-msgs \
     nav-msgs \
-    rosgraph-msgs \
-    roslaunch \
-    rospy \
-    rospy-message-converter \
-    sensor-msgs \
+    roscpp \
     std-msgs \
     tf \
     visualization-msgs \
@@ -43,19 +35,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-websocket-client \
+    actionlib \
     actionlib-msgs \
-    diagnostic-msgs \
-    dynamic-reconfigure \
+    costmap-2d \
     geometry-msgs \
-    mir-actions \
-    mir-msgs \
+    map-msgs \
     move-base-msgs \
     nav-msgs \
-    rosgraph-msgs \
-    rospy \
-    rospy-message-converter \
-    sensor-msgs \
+    roscpp \
     std-msgs \
     tf \
     visualization-msgs \
@@ -64,28 +51,23 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-websocket-client \
+    actionlib \
     actionlib-msgs \
-    diagnostic-msgs \
-    dynamic-reconfigure \
+    costmap-2d \
     geometry-msgs \
-    mir-actions \
-    mir-description \
-    mir-msgs \
+    map-msgs \
     move-base-msgs \
     nav-msgs \
-    robot-state-publisher \
-    rosgraph-msgs \
-    rospy \
-    rospy-message-converter \
-    sensor-msgs \
+    roscpp \
     std-msgs \
     tf \
     visualization-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    roslaunch \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -94,10 +76,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/uos-gbp/mir_robot-release/archive/release/melodic/mir_driver/1.0.6-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/mir_driver"
-SRC_URI = "git://github.com/uos-gbp/mir_robot-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6969dcff395d2d0ce84e29f186c651c3fce3e3bc"
+# matches with: https://github.com/hrnr/m-explore-release/archive/release/melodic/explore_lite/2.1.4-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/explore_lite"
+SRC_URI = "git://github.com/hrnr/m-explore-release;${ROS_BRANCH};protocol=https"
+SRCREV = "df43409c857682c89930e24099797997a533654d"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

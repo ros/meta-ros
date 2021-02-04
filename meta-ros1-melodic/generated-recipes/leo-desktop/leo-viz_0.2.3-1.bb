@@ -5,38 +5,33 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The joy_mouse package"
-AUTHOR = "Ryohei Ueda <ueda@jsk.t.u-tokyo.ac.jp>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Visualization launch files and RViz configurations for Leo Rover"
+AUTHOR = "Błażej Sowa <blazej@turtlerover.com>"
+ROS_AUTHOR = "Błażej Sowa"
+HOMEPAGE = "http://wiki.ros.org/leo_viz"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=58e54c03ca7f821dd3967e2a2cd1596e"
 
-ROS_CN = "jsk_control"
-ROS_BPN = "joy_mouse"
+ROS_CN = "leo_desktop"
+ROS_BPN = "leo_viz"
 
-ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    joint-state-publisher \
+    joint-state-publisher-gui \
+    leo-description \
+    robot-state-publisher \
+    rviz \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -49,10 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/tork-a/jsk_control-release/archive/release/melodic/joy_mouse/0.1.15-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/joy_mouse"
-SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d73572879bd52e23321318a16eb5f14c783a1933"
+# matches with: https://github.com/fictionlab-gbp/leo_desktop-release/archive/release/melodic/leo_viz/0.2.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/leo_viz"
+SRC_URI = "git://github.com/fictionlab-gbp/leo_desktop-release;${ROS_BRANCH};protocol=https"
+SRCREV = "427cc2992ac813ea62ddfa46564e458f8e93fb19"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
