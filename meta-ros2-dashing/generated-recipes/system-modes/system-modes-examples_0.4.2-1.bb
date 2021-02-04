@@ -5,24 +5,22 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "The system modes concept assumes that a robotics system is built     from components with a lifecycle. It adds a notion of (sub-)systems,     hiararchically grouping these nodes, as well as a notion of modes     that determine the configuration of these nodes and (sub-)systems in     terms of their parameter values."
+DESCRIPTION = "Simple example system and according launch files for the system_modes     package."
 AUTHOR = "Arne Nordmann <arne.nordmann@bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "system_modes"
-ROS_BPN = "system_modes"
+ROS_BPN = "system_modes_examples"
 
 ROS_BUILD_DEPENDS = " \
-    builtin-interfaces \
     rclcpp \
     rclcpp-lifecycle \
-    rosidl-default-generators \
-    std-msgs \
+    system-modes \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -30,22 +28,18 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    builtin-interfaces \
     rclcpp \
     rclcpp-lifecycle \
-    rosidl-default-generators \
-    std-msgs \
+    system-modes \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    builtin-interfaces \
-    launch-ros \
     rclcpp \
     rclcpp-lifecycle \
-    rosidl-default-generators \
-    std-msgs \
+    ros2launch \
+    system-modes \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -67,10 +61,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/microROS/system_modes-release/archive/release/dashing/system_modes/0.4.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/system_modes"
+# matches with: https://github.com/microROS/system_modes-release/archive/release/dashing/system_modes_examples/0.4.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/system_modes_examples"
 SRC_URI = "git://github.com/microROS/system_modes-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6e917376735dc76e0cadd4d3b7f7163779c0975b"
+SRCREV = "9264797dfd679c568ce7ac04a4917ea730f35478"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

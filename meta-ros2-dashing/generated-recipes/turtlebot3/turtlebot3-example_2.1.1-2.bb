@@ -5,9 +5,9 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "ROS 2 launch scripts for navigation2"
+DESCRIPTION = "This package provides four basic examples for TurtleBot3 (i.e., interactive marker, object detection, patrol and position control)."
 AUTHOR = "Will Son <willson@robotis.com>"
-ROS_AUTHOR = "Darby Lim <thlim@robotis.com>"
+ROS_AUTHOR = "Ryan Shim <jhshim@robotis.com>"
 HOMEPAGE = "http://turtlebot3.robotis.com"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
@@ -16,20 +16,36 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "turtlebot3"
-ROS_BPN = "turtlebot3_navigation2"
+ROS_BPN = "turtlebot3_example"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    geometry-msgs \
+    nav-msgs \
+    rclpy \
+    sensor-msgs \
+    turtlebot3-msgs \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    geometry-msgs \
+    nav-msgs \
+    rclpy \
+    sensor-msgs \
+    turtlebot3-msgs \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    nav2-bringup \
+    geometry-msgs \
+    nav-msgs \
+    rclpy \
+    sensor-msgs \
+    turtlebot3-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -42,12 +58,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/robotis-ros2-release/turtlebot3-release/archive/release/dashing/turtlebot3_navigation2/2.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/turtlebot3_navigation2"
+# matches with: https://github.com/robotis-ros2-release/turtlebot3-release/archive/release/dashing/turtlebot3_example/2.1.1-2.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/turtlebot3_example"
 SRC_URI = "git://github.com/robotis-ros2-release/turtlebot3-release;${ROS_BRANCH};protocol=https"
-SRCREV = "0e5a86cf76d93350516a4be5e8b788a89452b4be"
+SRCREV = "5bc16843925448a643a95435323c284e049d0b3a"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_cmake"
+ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

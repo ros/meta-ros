@@ -5,7 +5,7 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "Teleoperation node using keyboard for TurtleBot3."
+DESCRIPTION = "ROS 2 launch scripts for starting the TurtleBot3"
 AUTHOR = "Will Son <willson@robotis.com>"
 ROS_AUTHOR = "Darby Lim <thlim@robotis.com>"
 HOMEPAGE = "http://turtlebot3.robotis.com"
@@ -16,19 +16,24 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "turtlebot3"
-ROS_BPN = "turtlebot3_teleop"
+ROS_BPN = "turtlebot3_bringup"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    geometry-msgs \
-    rclpy \
+    hls-lfcd-lds-driver \
+    robot-state-publisher \
+    rviz2 \
+    turtlebot3-description \
+    turtlebot3-node \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -41,12 +46,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/robotis-ros2-release/turtlebot3-release/archive/release/dashing/turtlebot3_teleop/2.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/turtlebot3_teleop"
+# matches with: https://github.com/robotis-ros2-release/turtlebot3-release/archive/release/dashing/turtlebot3_bringup/2.1.1-2.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/turtlebot3_bringup"
 SRC_URI = "git://github.com/robotis-ros2-release/turtlebot3-release;${ROS_BRANCH};protocol=https"
-SRCREV = "f1117c700230e4a90a6243abaa6caef32c418e7a"
+SRCREV = "41d6bd18cc449655f9d43842031cfa0908590aec"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_python"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

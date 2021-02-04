@@ -5,7 +5,7 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "ROS 2 launch scripts for starting the TurtleBot3"
+DESCRIPTION = "ROS 2 packages for TurtleBot3"
 AUTHOR = "Will Son <willson@robotis.com>"
 ROS_AUTHOR = "Darby Lim <thlim@robotis.com>"
 HOMEPAGE = "http://turtlebot3.robotis.com"
@@ -16,7 +16,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "turtlebot3"
-ROS_BPN = "turtlebot3_bringup"
+ROS_BPN = "turtlebot3"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -29,11 +29,13 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    hls-lfcd-lds-driver \
-    robot-state-publisher \
-    rviz2 \
+    turtlebot3-bringup \
+    turtlebot3-cartographer \
     turtlebot3-description \
+    turtlebot3-example \
+    turtlebot3-navigation2 \
     turtlebot3-node \
+    turtlebot3-teleop \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +48,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/robotis-ros2-release/turtlebot3-release/archive/release/dashing/turtlebot3_bringup/2.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/turtlebot3_bringup"
+# matches with: https://github.com/robotis-ros2-release/turtlebot3-release/archive/release/dashing/turtlebot3/2.1.1-2.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/turtlebot3"
 SRC_URI = "git://github.com/robotis-ros2-release/turtlebot3-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8470edf69ffbecbb8465fb2f50973e0548398b13"
+SRCREV = "b6fdfeaf8d5f49023b925e51a7bb12494c13a9f1"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

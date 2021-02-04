@@ -5,56 +5,46 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "Implement the ROS middleware interface using GurumNetworks GurumDDS static code generation in C++."
-AUTHOR = "Junho Lee <junho@gurum.cc>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "A template class and associated utilities which encapsulate basic reading from UDP sockets"
+AUTHOR = "Joshua Whitley <whitleysoftwareservices@gmail.com>"
+ROS_AUTHOR = "Apex.AI, Inc. <opensource@apex.ai>"
+HOMEPAGE = "https://github.com/ros-drivers/transport_drivers"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "rmw_gurumdds"
-ROS_BPN = "rmw_gurumdds_cpp"
+ROS_CN = "transport_drivers"
+ROS_BPN = "udp_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-gurumdds-2.6} \
-    gurumdds-cmake-module \
-    rcutils \
-    rmw \
-    rmw-gurumdds-shared-cpp \
-    rosidl-generator-c \
-    rosidl-generator-cpp \
-    rosidl-generator-dds-idl \
-    rosidl-typesupport-introspection-c \
-    rosidl-typesupport-introspection-cpp \
+    boost \
+    rclcpp \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-ros-native \
-    rosidl-cmake-native \
+    ament-cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-gurumdds-2.6} \
-    gurumdds-cmake-module \
-    rmw-gurumdds-shared-cpp \
-    rosidl-generator-c \
-    rosidl-generator-cpp \
-    rosidl-typesupport-introspection-c \
-    rosidl-typesupport-introspection-cpp \
+    boost \
+    rclcpp \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    rcutils \
-    rmw \
-    rmw-gurumdds-shared-cpp \
+    boost \
+    rclcpp \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
 "
@@ -66,10 +56,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rmw_gurumdds-release/archive/release/dashing/rmw_gurumdds_cpp/0.7.8-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/rmw_gurumdds_cpp"
-SRC_URI = "git://github.com/ros2-gbp/rmw_gurumdds-release;${ROS_BRANCH};protocol=https"
-SRCREV = "789eca7ae902499d8838f958e48cda7fd94b26d9"
+# matches with: https://github.com/ros-drivers-gbp/transport_drivers-release/archive/release/dashing/udp_driver/0.0.6-4.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/udp_driver"
+SRC_URI = "git://github.com/ros-drivers-gbp/transport_drivers-release;${ROS_BRANCH};protocol=https"
+SRCREV = "938fdcff830ba1100283e5778778cecce61fd0c2"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
