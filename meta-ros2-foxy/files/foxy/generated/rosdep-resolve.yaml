@@ -35,8 +35,6 @@ coinor-libcoinutils-dev:
 - ${ROS_UNRESOLVED_DEP-coinor-libcoinutils-dev}
 coinor-libipopt-dev:
 - ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev}
-controller_manager:
-- ${ROS_UNRESOLVED_DEP-controller-manager}
 cppcheck:
 - cppcheck@meta-ros-common
 cppunit:
@@ -75,8 +73,6 @@ gtk3:
 - gtk+3@openembedded-core
 gurumdds-2.7:
 - ${ROS_UNRESOLVED_DEP-gurumdds-2.7}
-hardware_interface:
-- ${ROS_UNRESOLVED_DEP-hardware-interface}
 ignition-gazebo3:
 - ${ROS_UNRESOLVED_DEP-ignition-gazebo3}
 ignition-math6:
@@ -161,6 +157,8 @@ libogre-dev:
 - ogre@meta-ros-common
 libomp-dev:
 - ${ROS_UNRESOLVED_DEP-libomp-dev}
+libopenblas-dev:
+- openblas@meta-ros-common
 libopencv-dev:
 - opencv@meta-oe
 liborocos-kdl-dev:
@@ -195,6 +193,8 @@ libqt5-widgets:
 - qtbase@meta-qt5
 libqt5x11extras5-dev:
 - qtx11extras@meta-qt5
+libreadline:
+- readline@openembedded-core
 libsqlite3-dev:
 - sqlite3@openembedded-core
 libssl-dev:
@@ -215,6 +215,8 @@ libxaw:
 - libxaw@meta-oe
 libxi-dev:
 - libxi@openembedded-core
+libxml2:
+- libxml2@openembedded-core
 libxml2-utils:
 - libxml2@openembedded-core
 libxmlrpc-c++:

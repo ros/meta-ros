@@ -5,23 +5,21 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "The dsr_control2 package"
-AUTHOR = "Doosan Robotics <ros.robotics@doosan.com>"
-ROS_AUTHOR = "Kab Kyoum Kim <kabkyoum.kim@doosan.com>"
-HOMEPAGE = "http://wiki.ros.org/doosan_robotics"
+DESCRIPTION = "Description of test_robot_hardware"
+AUTHOR = "Karsten Knese <karsten@osrfoundation.org>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "doosan-robot2"
-ROS_BPN = "dsr_control2"
+ROS_CN = "ros2_control"
+ROS_BPN = "test_robot_hardware"
 
 ROS_BUILD_DEPENDS = " \
-    controller-manager \
-    dsr-msgs2 \
     hardware-interface \
     rclcpp \
-    sensor-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -29,25 +27,23 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    controller-manager \
-    dsr-msgs2 \
     hardware-interface \
     rclcpp \
-    sensor-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    controller-manager \
-    dsr-msgs2 \
     hardware-interface \
     rclcpp \
-    sensor-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -56,10 +52,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/doosan-robotics/doosan-robot2-release/archive/release/foxy/dsr_control2/0.1.1-4.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/dsr_control2"
-SRC_URI = "git://github.com/doosan-robotics/doosan-robot2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "807252d236702afa61e267592ef676b0a063ef69"
+# matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/foxy/test_robot_hardware/0.1.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/test_robot_hardware"
+SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
+SRCREV = "d97398bd74344711f690ebbe8174ccf3920dc3b1"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

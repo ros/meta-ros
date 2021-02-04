@@ -5,23 +5,23 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "The dsr_control2 package"
-AUTHOR = "Doosan Robotics <ros.robotics@doosan.com>"
-ROS_AUTHOR = "Kab Kyoum Kim <kabkyoum.kim@doosan.com>"
-HOMEPAGE = "http://wiki.ros.org/doosan_robotics"
+DESCRIPTION = "Messages for describing objects and how to grasp them."
+AUTHOR = "Michael Ferguson <mfergs7@gmail.com>"
+ROS_AUTHOR = "Michael Ferguson"
+HOMEPAGE = "http://ros.org/wiki/grasping_msgs"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "doosan-robot2"
-ROS_BPN = "dsr_control2"
+ROS_CN = "grasping_msgs"
+ROS_BPN = "grasping_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    controller-manager \
-    dsr-msgs2 \
-    hardware-interface \
-    rclcpp \
+    geometry-msgs \
+    moveit-msgs \
+    rosidl-default-generators \
     sensor-msgs \
+    shape-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -29,21 +29,20 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    controller-manager \
-    dsr-msgs2 \
-    hardware-interface \
-    rclcpp \
+    geometry-msgs \
+    moveit-msgs \
     sensor-msgs \
+    shape-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    controller-manager \
-    dsr-msgs2 \
-    hardware-interface \
-    rclcpp \
+    geometry-msgs \
+    moveit-msgs \
+    rosidl-default-runtime \
     sensor-msgs \
+    shape-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -56,10 +55,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/doosan-robotics/doosan-robot2-release/archive/release/foxy/dsr_control2/0.1.1-4.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/dsr_control2"
-SRC_URI = "git://github.com/doosan-robotics/doosan-robot2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "807252d236702afa61e267592ef676b0a063ef69"
+# matches with: https://github.com/mikeferguson/grasping_msgs-ros2-gbp/archive/release/foxy/grasping_msgs/0.4.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/grasping_msgs"
+SRC_URI = "git://github.com/mikeferguson/grasping_msgs-ros2-gbp;${ROS_BRANCH};protocol=https"
+SRCREV = "5ad5c83d189628d4f90e3d45feb484e3979b1d31"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
