@@ -1,4 +1,4 @@
-# foxy/cache.yaml 2020-12-11 21d9155bfb8a86e085e177a7b76fe313ee3598b4 20201211201935 1.6.0
+# foxy/cache.yaml 2021-01-07 93a17f88deecaf70ed1d9178643b69449fda45f7 20210107100555 1.6.0
 distribution_file:
 - release_platforms:
 -----
@@ -386,7 +386,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs-release.git',
-version: 0.1.0-1
+version: 1.0.0-1
 },
 source: {
 type: git,
@@ -1089,6 +1089,23 @@ version: devel
 status: maintained
 }
 -----
+embree_vendor: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/OUXT-Polaris/embree_vendor-release.git',
+version: 0.0.5-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/OUXT-Polaris/embree_vendor.git',
+version: master
+},
+status: developed
+}
+-----
 example_interfaces: {
 doc: {
 type: git,
@@ -1455,6 +1472,27 @@ url: 'https://github.com/swri-robotics/gps_umd.git',
 version: dashing-devel
 },
 status: developed
+}
+-----
+grasping_msgs: {
+doc: {
+type: git,
+url: 'https://github.com/mikeferguson/grasping_msgs.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/mikeferguson/grasping_msgs-ros2-gbp.git',
+version: 0.4.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/mikeferguson/grasping_msgs.git',
+version: ros2
+},
+status: maintained
 }
 -----
 grbl_msgs: {
@@ -2091,7 +2129,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavlink-gbp-release.git',
-version: 2020.11.11-1
+version: 2021.1.4-1
 },
 source: {
 type: git,
@@ -2112,7 +2150,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros2_message_filters-release.git',
-version: 3.2.4-1
+version: 3.2.5-1
 },
 source: {
 test_pull_requests: true,
@@ -2703,7 +2741,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/facontidavide/plotjuggler-release.git',
-version: 3.0.4-1
+version: 3.0.7-1
 },
 source: {
 type: git,
@@ -2734,7 +2772,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/PlotJuggler/plotjuggler-ros-plugins-release.git',
-version: 1.0.0-2
+version: 1.0.2-1
 },
 source: {
 type: git,
@@ -3263,7 +3301,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rclpy-release.git',
-version: 1.0.4-1
+version: 1.0.5-1
 },
 source: {
 test_pull_requests: true,
@@ -3672,9 +3710,52 @@ type: git,
 url: 'https://github.com/ros-controls/ros2_control.git',
 version: master
 },
+release: {
+packages: [controller_interface,
+controller_manager,
+controller_manager_msgs,
+hardware_interface,
+ros2_control,
+ros2controlcli,
+test_robot_hardware],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ros2_control-release.git',
+version: 0.1.2-1
+},
 source: {
 type: git,
 url: 'https://github.com/ros-controls/ros2_control.git',
+version: master
+},
+status: developed
+}
+-----
+ros2_controllers: {
+doc: {
+type: git,
+url: 'https://github.com/ros-controls/ros2_controllers.git',
+version: master
+},
+release: {
+packages: [diff_drive_controller,
+effort_controllers,
+forward_command_controller,
+joint_state_controller,
+joint_trajectory_controller,
+position_controllers,
+ros2_controllers,
+velocity_controllers],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ros2_controllers-release.git',
+version: 0.1.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-controls/ros2_controllers.git',
 version: master
 },
 status: developed
@@ -3729,6 +3810,39 @@ version: foxy-devel
 status: maintained
 }
 -----
+ros2_planning_system: {
+doc: {
+type: git,
+url: 'https://github.com/IntelligentRoboticsLabs/ros2_planning_system.git',
+version: foxy-devel
+},
+release: {
+packages: [plansys2_bringup,
+plansys2_bt_actions,
+plansys2_core,
+plansys2_domain_expert,
+plansys2_executor,
+plansys2_lifecycle_manager,
+plansys2_msgs,
+plansys2_pddl_parser,
+plansys2_planner,
+plansys2_popf_plan_solver,
+plansys2_problem_expert,
+plansys2_terminal],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/IntelligentRoboticsLabs/ros2_planning_system-release.git',
+version: 1.0.7-2
+},
+source: {
+type: git,
+url: 'https://github.com/IntelligentRoboticsLabs/ros2_planning_system.git',
+version: foxy-devel
+},
+status: developed
+}
+-----
 ros2_tracing: {
 doc: {
 type: git,
@@ -3746,7 +3860,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://gitlab.com/ros-tracing/ros2_tracing-release.git',
-version: 1.0.4-1
+version: 1.0.5-2
 },
 source: {
 test_abi: true,
@@ -3921,6 +4035,27 @@ version: latest
 status: maintained
 }
 -----
+rosauth: {
+doc: {
+type: git,
+url: 'https://github.com/GT-RAIL/rosauth.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rosauth-release.git',
+version: 2.0.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/GT-RAIL/rosauth.git',
+version: ros2
+},
+status: maintained
+}
+-----
 rosbag2: {
 doc: {
 type: git,
@@ -3945,7 +4080,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rosbag2-release.git',
-version: 0.3.5-1
+version: 0.3.6-1
 },
 source: {
 test_pull_requests: true,
@@ -4906,7 +5041,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/microROS/system_modes-release.git',
-version: 0.4.1-1
+version: 0.4.2-1
 },
 source: {
 test_pull_requests: true,
@@ -5210,6 +5345,22 @@ test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/ros_tutorials.git',
 version: foxy-devel
+},
+status: maintained
+}
+-----
+tvm_vendor: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/autowarefoundation/tvm_vendor-release.git',
+version: 0.7.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/autowarefoundation/tvm_vendor.git',
+version: main
 },
 status: maintained
 }
@@ -5637,7 +5788,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/cyberbotics/webots_ros2-release.git',
-version: 1.0.3-1
+version: 1.0.5-1
 },
 source: {
 test_pull_requests: true,
@@ -6946,10 +7097,11 @@ autoware_auto_msgs: <?xml version="1.0" ?>
 Inc.</maintainer>
 <license>Apache 2</license>
 <buildtool_depend>ament_cmake_auto</buildtool_depend>
-<depend>std_msgs</depend>
+<build_depend>rosidl_default_generators</build_depend>
+<depend>action_msgs</depend>
 <depend>geometry_msgs</depend>
 <depend>sensor_msgs</depend>
-<build_depend>rosidl_default_generators</build_depend>
+<depend>std_msgs</depend>
 <exec_depend>rosidl_default_runtime</exec_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
@@ -7598,6 +7750,72 @@ control_toolbox: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+controller_interface: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>controller_interface</name>
+<description>Description of controller_interface</description>
+<maintainer email="karsten@osrfoundation.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>rclcpp_lifecycle</build_depend>
+<exec_depend>hardware_interface</exec_depend>
+<exec_depend>rclcpp_lifecycle</exec_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+controller_manager: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>controller_manager</name>
+<description>Description of controller_manager</description>
+<maintainer email="karsten@osrfoundation.org">karsten</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>ament_index_cpp</depend>
+<depend>controller_interface</depend>
+<depend>controller_manager_msgs</depend>
+<depend>hardware_interface</depend>
+<depend>pluginlib</depend>
+<depend>rclcpp</depend>
+<depend>rcpputils</depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+controller_manager_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>controller_manager_msgs</name>
+<description>Messages and services for the controller manager.</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/controller_manager_msgs</url>
+<author email="sglaser@willowgarage.com">Stuart Glaser</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 costmap_queue: <?xml version="1.0" ?>
 <package format="2">
 <name>costmap_queue</name>
@@ -8102,6 +8320,33 @@ etc.</description>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <test_depend>rclcpp_lifecycle</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+diff_drive_controller: <?xml version="1.0" ?>
+<package format="3">
+<name>diff_drive_controller</name>
+<description>Controller for a differential drive mobile base.</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>controller_interface</depend>
+<depend>geometry_msgs</depend>
+<depend>hardware_interface</depend>
+<depend>nav_msgs</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>realtime_tools</depend>
+<depend>tf2</depend>
+<depend>tf2_msgs</depend>
+<build_depend>pluginlib</build_depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>controller_manager</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -9551,6 +9796,27 @@ ecl_utilities: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+effort_controllers: <?xml version="1.0" ?>
+<package format="3">
+<name>effort_controllers</name>
+<description>Generic controller for forwarding commands.</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>forward_command_controller</depend>
+<depend>rclcpp</depend>
+<build_depend>pluginlib</build_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>controller_manager</test_depend>
+<test_depend>test_robot_hardware</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 eigen3_cmake_module: <?xml version="1.0" ?>
 <package format="2">
 <name>eigen3_cmake_module</name>
@@ -9635,6 +9901,22 @@ eiquadprog: <?xml version="1.0" ?>
 <buildtool_depend>cmake</buildtool_depend>
 <export>
 <build_type>cmake</build_type>
+</export>
+</package>
+-----
+embree_vendor: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>embree_vendor</name>
+<description>vendor packages for intel raytracing kernel library</description>
+<maintainer email="ms.kataoka@gmail.com">masaya</maintainer>
+<license>Apache 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>libglfw3-dev</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -10146,6 +10428,30 @@ foonathan_memory_vendor: "<?xml version=\"1.0\" ?>
 </export>
 </package>"
 -----
+forward_command_controller: <?xml version="1.0" ?>
+<package format="3">
+<name>forward_command_controller</name>
+<description>Generic controller for forwarding commands.</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>controller_interface</depend>
+<depend>hardware_interface</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>realtime_tools</depend>
+<depend>std_msgs</depend>
+<build_depend>pluginlib</build_depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>controller_manager</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 four_wheel_steering_msgs: <?xml version="1.0" ?>
 <package format="3">
 <name>four_wheel_steering_msgs</name>
@@ -10588,6 +10894,27 @@ gpsd_client: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+grasping_msgs: <?xml version="1.0" ?>
+<package format="3">
+<name>grasping_msgs</name>
+<description>Messages for describing objects and how to grasp them.</description>
+<author>Michael Ferguson</author>
+<maintainer email="mfergs7@gmail.com">Michael Ferguson</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/grasping_msgs</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<depend>geometry_msgs</depend>
+<depend>moveit_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>shape_msgs</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 grbl_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -10651,6 +10978,28 @@ gurumdds_cmake_module: <?xml version="1.0" ?>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <build_depend>gurumdds-2.7</build_depend>
 <buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+hardware_interface: <?xml version="1.0" ?>
+<package format="2">
+<name>hardware_interface</name>
+<description>ROS2 ros_control hardware interface</description>
+<maintainer email="karsten@osrfoundation.org">Karsten Knese</maintainer>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>control_msgs</depend>
+<depend>pluginlib</depend>
+<depend>rcpputils</depend>
+<depend>tinyxml2_vendor</depend>
+<build_depend>rcutils</build_depend>
+<exec_depend>rcutils</exec_depend>
+<test_depend>ament_cmake_gmock</test_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <export>
@@ -11079,6 +11428,33 @@ intra_process_demo: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+joint_state_controller: <?xml version="1.0" ?>
+<package format="3">
+<name>joint_state_controller</name>
+<description>Controller to publish joint state</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+<maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>rcutils</build_depend>
+<exec_depend>pluginlib</exec_depend>
+<exec_depend>rcutils</exec_depend>
+<depend>control_msgs</depend>
+<depend>controller_interface</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>sensor_msgs</depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>controller_manager</test_depend>
+<test_depend>rclcpp</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 joint_state_publisher: <?xml version="1.0" ?>
 <package format="2">
 <name>joint_state_publisher</name>
@@ -11121,6 +11497,39 @@ joint_state_publisher_gui: <?xml version="1.0" ?>
 <exec_depend>rclpy</exec_depend>
 <export>
 <build_type>ament_python</build_type>
+</export>
+</package>
+-----
+joint_trajectory_controller: <?xml version="1.0" ?>
+<package format="3">
+<name>joint_trajectory_controller</name>
+<description>Controller for executing joint-space trajectories on a group of joints</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+<maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>angles</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>rcutils</build_depend>
+<build_depend>realtime_tools</build_depend>
+<exec_depend>angles</exec_depend>
+<exec_depend>pluginlib</exec_depend>
+<exec_depend>rcutils</exec_depend>
+<exec_depend>realtime_tools</exec_depend>
+<depend>controller_interface</depend>
+<depend>control_msgs</depend>
+<depend>hardware_interface</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>trajectory_msgs</depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>controller_manager</test_depend>
+<test_depend>test_robot_hardware</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -14886,6 +15295,301 @@ phidgets_temperature: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+plansys2_bringup: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_bringup</name>
+<description>Bringup scripts and configurations for the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>plansys2_domain_expert</depend>
+<depend>plansys2_problem_expert</depend>
+<depend>plansys2_planner</depend>
+<depend>plansys2_executor</depend>
+<depend>plansys2_lifecycle_manager</depend>
+<exec_depend>launch_ros</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>launch</test_depend>
+<test_depend>launch_testing</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+plansys2_bt_actions: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_bt_actions</name>
+<description>This package contains the Problem Expert module for the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_action</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>plansys2_executor</depend>
+<depend>behaviortree_cpp_v3</depend>
+<depend>action_msgs</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>plansys2_msgs</test_depend>
+<test_depend>test_msgs</test_depend>
+<test_depend>geometry_msgs</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+plansys2_core: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_core</name>
+<description>This package contains the PDDL-based core for the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>pluginlib</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+plansys2_domain_expert: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_domain_expert</name>
+<description>This package contains the Domain Expert module for the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_action</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>ament_index_cpp</depend>
+<depend>plansys2_pddl_parser</depend>
+<depend>plansys2_msgs</depend>
+<depend>std_msgs</depend>
+<depend>lifecycle_msgs</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+plansys2_executor: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_executor</name>
+<description>This package contains the Executor module for the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_action</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>lifecycle_msgs</depend>
+<depend>rclcpp_cascade_lifecycle</depend>
+<depend>ament_index_cpp</depend>
+<depend>plansys2_pddl_parser</depend>
+<depend>plansys2_msgs</depend>
+<depend>plansys2_domain_expert</depend>
+<depend>plansys2_problem_expert</depend>
+<depend>plansys2_planner</depend>
+<depend>behaviortree_cpp_v3</depend>
+<depend>std_msgs</depend>
+<exec_depend>popf</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+plansys2_lifecycle_manager: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_lifecycle_manager</name>
+<description>A controller/manager for the lifecycle nodes of the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>lifecycle_msgs</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+plansys2_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_msgs</name>
+<description>Messages and service files for the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>std_msgs</depend>
+<depend>action_msgs</depend>
+<depend>builtin_interfaces</depend>
+<depend>rosidl_default_generators</depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+plansys2_pddl_parser: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_pddl_parser</name>
+<description>This package contains a library for parsing PDDL domains and problems. This package derives from the work of Anders Jonsson,
+contained in https://github.com/wisdompoet/universal-pddl-parser.git with many modifications by Francisco Martin: * ROS2 packaging * Source code structure refactor * CMakeLists.txt for cmake compilation * Reading from String instead of files * Licensing</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<author>Anders Jonsson</author>
+<author>Francisco Martin</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>'
+-----
+plansys2_planner: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_planner</name>
+<description>This package contains the PDDL-based Planner module for the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_action</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>ament_index_cpp</depend>
+<depend>plansys2_core</depend>
+<depend>plansys2_pddl_parser</depend>
+<depend>plansys2_msgs</depend>
+<depend>plansys2_domain_expert</depend>
+<depend>plansys2_problem_expert</depend>
+<depend>plansys2_popf_plan_solver</depend>
+<depend>pluginlib</depend>
+<depend>std_msgs</depend>
+<depend>lifecycle_msgs</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ros2run</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+plansys2_popf_plan_solver: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_popf_plan_solver</name>
+<description>This package contains the PDDL-based Planner module for the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>ament_index_cpp</depend>
+<depend>plansys2_core</depend>
+<depend>pluginlib</depend>
+<exec_depend>popf</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ros2run</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+<plansys2_core plugin="${prefix}/plansys2_popf_plan_solver_plugin.xml"/>
+</export>
+</package>
+-----
+plansys2_problem_expert: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_problem_expert</name>
+<description>This package contains the Problem Expert module for the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_action</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>ament_index_cpp</depend>
+<depend>plansys2_pddl_parser</depend>
+<depend>plansys2_msgs</depend>
+<depend>plansys2_domain_expert</depend>
+<depend>std_msgs</depend>
+<depend>lifecycle_msgs</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+plansys2_terminal: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>plansys2_terminal</name>
+<description>A terminal tool for monitor and manage the ROS2 Planning System</description>
+<maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_action</depend>
+<depend>rclcpp_lifecycle</depend>
+<depend>plansys2_msgs</depend>
+<depend>plansys2_domain_expert</depend>
+<depend>plansys2_problem_expert</depend>
+<depend>plansys2_planner</depend>
+<depend>plansys2_executor</depend>
+<depend>libreadline</depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_index_cpp</test_depend>
+<test_depend>lifecycle_msgs</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 plotjuggler: '<?xml version="1.0" ?>
 <package format="3">
 <name>plotjuggler</name>
@@ -14946,7 +15650,6 @@ plotjuggler_ros: <?xml version="1.0" ?>
 <depend condition="$ROS_VERSION == 1">rosbag_storage</depend>
 <depend condition="$ROS_VERSION == 1">roscpp</depend>
 <depend condition="$ROS_VERSION == 1">roscpp_serialization</depend>
-<depend condition="$ROS_VERSION == 1">diagnostic_msgs</depend>
 <depend condition="$ROS_VERSION == 1">tf</depend>
 <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
 <depend condition="$ROS_VERSION == 2">rclcpp</depend>
@@ -14954,6 +15657,7 @@ plotjuggler_ros: <?xml version="1.0" ?>
 <depend condition="$ROS_VERSION == 2">rosbag2</depend>
 <depend condition="$ROS_VERSION == 2">rosbag2_transport</depend>
 <depend condition="$ROS_VERSION == 2">fastcdr</depend>
+<depend>diagnostic_msgs</depend>
 <depend>sensor_msgs</depend>
 <depend>geometry_msgs</depend>
 <depend>nav_msgs</depend>
@@ -15053,6 +15757,27 @@ popf: <?xml version="1.0" ?>
 <depend>coinor-libclp-dev</depend>
 <depend>coinor-libcbc-dev</depend>
 <depend>coinor-libcoinutils-dev</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+position_controllers: <?xml version="1.0" ?>
+<package format="3">
+<name>position_controllers</name>
+<description>Generic controller for forwarding commands.</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>forward_command_controller</depend>
+<depend>rclcpp</depend>
+<build_depend>pluginlib</build_depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>controller_manager</test_depend>
+<test_depend>hardware_interface</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -16891,6 +17616,45 @@ ros1_rosbag_storage_vendor: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+ros2_control: <?xml version="1.0" ?>
+<package format="3">
+<name>ros2_control</name>
+<description>Metapackage for ROS2 control related packages</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+<maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>controller_interface</exec_depend>
+<exec_depend>controller_manager</exec_depend>
+<exec_depend>hardware_interface</exec_depend>
+<exec_depend>ros2controlcli</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ros2_controllers: <?xml version="1.0" ?>
+<package format="3">
+<name>ros2_controllers</name>
+<description>Metapackage for ROS2 controllers related packages</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+<maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>diff_drive_controller</exec_depend>
+<exec_depend>effort_controllers</exec_depend>
+<exec_depend>forward_command_controller</exec_depend>
+<exec_depend>joint_state_controller</exec_depend>
+<exec_depend>joint_trajectory_controller</exec_depend>
+<exec_depend>position_controllers</exec_depend>
+<exec_depend>velocity_controllers</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 ros2_ouster: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -16954,6 +17718,7 @@ ros2bag: <?xml version="1.0" ?>
 <name>ros2bag</name>
 <description>Entry point for rosbag in ROS 2</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <depend>ros2cli</depend>
@@ -17043,6 +17808,28 @@ ros2component: <?xml version="1.0" ?>
 <test_depend>ament_pep257</test_depend>
 <test_depend>ament_xmllint</test_depend>
 <test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ros2controlcli: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ros2controlcli</name>
+<description>The ROS 2 command line tools for ROS2 Control.</description>
+<maintainer email="victor.lopez@pal-robotics.com">Victor Lopez</maintainer>
+<license>Apache License 2.0</license>
+<depend>rclpy</depend>
+<depend>ros2cli</depend>
+<depend>ros2node</depend>
+<depend>ros2param</depend>
+<depend>controller_manager_msgs</depend>
+<exec_depend>rosidl_runtime_py</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
 <export>
 <build_type>ament_python</build_type>
 </export>
@@ -17646,11 +18433,36 @@ ros_workspace: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+rosauth: <?xml version="1.0" ?>
+<package format="3">
+<name>rosauth</name>
+<description>Server Side tools for Authorization and Authentication of ROS Clients</description>
+<maintainer email="rein@eurotec.com">Rein Appeldoorn</maintainer>
+<author email="rctoris@wpi.edu">Russell Toris</author>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/rosauth</url>
+<url type="bugtracker">https://github.com/GT-RAIL/rosauth/issues</url>
+<url type="repository">https://github.com/GT-RAIL/rosauth</url>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<build_depend>libssl-dev</build_depend>
+<build_depend>rclcpp</build_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rclcpp</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>launch_testing</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 rosbag2: <?xml version="1.0" ?>
 <package format="2">
 <name>rosbag2</name>
 <description>Meta package for rosbag2 related packages</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -17701,6 +18513,8 @@ rosbag2_compression: <?xml version="1.0" ?>
 <package format="2">
 <name>rosbag2_compression</name>
 <description>Compression implementations for rosbag2 bags and messages.</description>
+<maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -17724,6 +18538,7 @@ rosbag2_converter_default_plugins: <?xml version="1.0" ?>
 <name>rosbag2_converter_default_plugins</name>
 <description>Package containing default plugins for format converters</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -17752,6 +18567,7 @@ rosbag2_cpp: <?xml version="1.0" ?>
 <name>rosbag2_cpp</name>
 <description>C++ ROSBag2 client library</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -17780,6 +18596,7 @@ rosbag2_storage: <?xml version="1.0" ?>
 <name>rosbag2_storage</name>
 <description>ROS2 independent storage format to store serialized ROS2 messages</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -17802,6 +18619,7 @@ rosbag2_storage_default_plugins: <?xml version="1.0" ?>
 <name>rosbag2_storage_default_plugins</name>
 <description>ROSBag2 SQLite3 storage plugin</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -17825,6 +18643,7 @@ rosbag2_test_common: <?xml version="1.0" ?>
 <name>rosbag2_test_common</name>
 <description>Commonly used test helper classes and fixtures for rosbag2</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -17845,6 +18664,7 @@ rosbag2_tests: <?xml version="1.0" ?>
 <name>rosbag2_tests</name>
 <description>Tests package for rosbag2</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -17874,6 +18694,7 @@ rosbag2_transport: <?xml version="1.0" ?>
 <name>rosbag2_transport</name>
 <description>Layer encapsulating ROS middleware to allow rosbag2 to be used with or without middleware</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
@@ -19750,6 +20571,7 @@ shared_queues_vendor: <?xml version="1.0" ?>
 <name>shared_queues_vendor</name>
 <description>Vendor package for concurrent queues from moodycamel</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -19983,6 +20805,7 @@ sqlite3_vendor: <?xml version="1.0" ?>
 <name>sqlite3_vendor</name>
 <description>SQLite 3 vendor package</description>
 <maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -20726,6 +21549,24 @@ which uses things exported by osrf_testing_tools_cpp.</description>
 <build_type>cmake</build_type>
 </export>
 </package>"
+-----
+test_robot_hardware: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>test_robot_hardware</name>
+<description>Description of test_robot_hardware</description>
+<maintainer email="karsten@osrfoundation.org">Karsten Knese</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>hardware_interface</depend>
+<depend>rclcpp</depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
 -----
 tf2: <?xml version="1.0" ?>
 <package format="2">
@@ -21571,6 +22412,28 @@ turtlesim: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+tvm_vendor: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>tvm_vendor</name>
+<description>Wrapper around Apache TVM to make it available to the ROS ecosystem.</description>
+<maintainer email="josh.whitley@autoware.org">Josh Whitley</maintainer>
+<license>Apache License 2.0</license>
+<url type="bugtracker">https://github.com/apache/incubator-tvm/issues</url>
+<url type="repository">https://github.com/apache/incubator-tvm</url>
+<url type="website">https://tvm.apache.org/</url>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend>ros_environment</build_depend>
+<depend>git</depend>
+<depend>libopenblas-dev</depend>
+<depend>libxml2</depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
 ublox: <?xml version="1.0" ?>
 <package format="2">
 <name>ublox</name>
@@ -21924,6 +22787,27 @@ v4l2_camera: <?xml version="1.0" ?>
 <depend>camera_info_manager</depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+velocity_controllers: <?xml version="1.0" ?>
+<package format="3">
+<name>velocity_controllers</name>
+<description>Generic controller for forwarding commands.</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>forward_command_controller</depend>
+<depend>rclcpp</depend>
+<build_depend>pluginlib</build_depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>controller_manager</test_depend>
+<test_depend>hardware_interface</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -22417,6 +23301,7 @@ webots_ros2_importer: <?xml version="1.0" ?>
 <url type="repository">https://github.com/cyberbotics/webots_ros2</url>
 <exec_depend>builtin_interfaces</exec_depend>
 <exec_depend>python3-collada</exec_depend>
+<exec_depend>python3-lark-parser</exec_depend>
 <exec_depend>xacro</exec_depend>
 <test_depend>ament_copyright</test_depend>
 <test_depend>ament_flake8</test_depend>
@@ -22617,6 +23502,8 @@ zstd_vendor: <?xml version="1.0" ?>
 <name>zstd_vendor</name>
 <description>Zstd compression vendor package,
 providing a dependency for Zstd.</description>
+<maintainer email="karsten@openrobotics.org">Karsten Knese</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
 <license>Apache License 2.0</license>
 <license>BSD</license>

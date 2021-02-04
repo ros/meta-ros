@@ -1786,7 +1786,7 @@ python-gi-cairo:
   gentoo: [dev-python/pygobject]
   ubuntu: [python-gi-cairo]
 python-git:
-  arch: [python2-gobject]
+  arch: [python2-gitpython]
   debian: [python-git]
   fedora: [GitPython]
   gentoo: [dev-python/git-python]
@@ -3710,6 +3710,7 @@ python-pyudev:
   debian: [python-pyudev]
   fedora: [python-pyudev]
   gentoo: [dev-python/pyudev]
+  openembedded: ['${PYTHON_PN}-pyudev@meta-python']
   ubuntu:
     '*': [python-pyudev]
     artful_python3: [python3-pyudev]
@@ -5225,7 +5226,7 @@ python-websocket:
   debian: [python-websocket]
   fedora: [python-websocket-client]
   gentoo: [dev-python/websocket-client]
-  openembedded: [python3-websockets@meta-python]
+  openembedded: ['${PYTHON_PN}-websocket-client@meta-python']
   ubuntu:
     artful: [python-websocket]
     artful_python3: [python3-websocket]
@@ -5561,6 +5562,7 @@ python3-cairo:
   gentoo: [dev-python/pycairo]
   openembedded: [python3-pycairo@openembedded-core]
   opensuse: [python3-cairo]
+  rhel: ['python%{python3_pkgversion}-cairo']
   slackware:
     slackpkg:
       packages: [py3cairo]
@@ -5821,6 +5823,10 @@ python3-flake8:
     '*': ['python%{python3_pkgversion}-flake8']
     '7': null
   ubuntu: [python3-flake8]
+python3-flask-restplus-pip:
+  ubuntu:
+    pip:
+      packages: [flask-restplus]
 python3-future:
   debian: [python3-future]
   fedora: [python3-future]
@@ -5852,6 +5858,12 @@ python3-gi:
   gentoo: [dev-python/pygobject]
   openembedded: [python3-pygobject@openembedded-core]
   ubuntu: [python3-gi]
+python3-git:
+  arch: [python-gitpython]
+  debian: [python3-git]
+  fedora: [python3-GitPython]
+  gentoo: [dev-python/git-python]
+  ubuntu: [python3-git]
 python3-github:
   debian: [python3-github]
   fedora: [python3-github]
@@ -6282,6 +6294,11 @@ python3-pkg-resources:
   openembedded: [python3-setuptools@openembedded-core]
   rhel: ['python%{python3_pkgversion}-setuptools']
   ubuntu: [python3-pkg-resources]
+python3-prettytable:
+  debian: [python3-prettytable]
+  fedora: [python3-prettytable]
+  gentoo: [dev-python/prettytable]
+  ubuntu: [python3-prettytable]
 python3-progressbar:
   arch: [python-progressbar]
   debian: [python3-progressbar]
@@ -6765,6 +6782,11 @@ python3-sexpdata:
     xenial:
       pip:
         packages: [sexpdata]
+python3-sh:
+  debian: [python3-sh]
+  fedora: [python3-sh]
+  gentoo: [dev-python/sh]
+  ubuntu: [python3-sh]
 python3-shapely:
   arch: [python-shapely]
   debian: [python3-shapely]
@@ -7000,9 +7022,16 @@ python3-websocket:
   debian: [python3-websocket]
   fedora: [python3-websocket-client]
   gentoo: [dev-python/websocket-client]
-  openembedded: ['python3-websockets@meta-python']
+  openembedded: [python3-websocket-client@meta-python]
   rhel: ['python%{python3_pkgversion}-websocket-client']
   ubuntu: [python3-websocket]
+python3-websockets:
+  arch: [python-websockets]
+  debian: [python3-websockets]
+  fedora: [python-websockets]
+  gentoo: [dev-python/websockets]
+  openembedded: [python3-websockets@meta-python]
+  ubuntu: [python3-websockets]
 python3-werkzeug:
   arch: [python-werkzeug]
   debian: [python3-werkzeug]
