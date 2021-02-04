@@ -7,7 +7,7 @@
 # resets it to "0").
 ROS_DISTRO_METADATA_VERSION_REVISION = "0"
 
-ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+20.g724098e"
+ROS_SUPERFLORE_PROGRAM_VERSION = "0.3.2+19.g4105ad8"
 ROS_SUPERFLORE_GENERATION_SCHEME = "2"
 
 ROS_DISTRO_TYPE = "ros2"
@@ -37,7 +37,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-dashing/files/dashing/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "10"
+ROS_NUM_CACHE_YAML_COMMITS = "11"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -860,7 +860,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                             grbl-msgs/grbl-msgs_0.0.2-1 \
                              grbl-ros/grbl-ros_0.0.15-1 \
                            googletest/gtest-vendor_1.8.9000-1 \
-          rosidl-typesupport-gurumdds/gurumdds-cmake-module_0.7.7-1 \
+          rosidl-typesupport-gurumdds/gurumdds-cmake-module_0.7.8-1 \
                     h264-encoder-core/h264-encoder-core_2.0.3-1 \
                    h264-video-encoder/h264-video-encoder_2.0.0-1 \
                          ros2-control/hardware-interface_0.0.1-1 \
@@ -1052,8 +1052,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          rmw-fastrtps/rmw-fastrtps-cpp_0.7.8-1 \
                          rmw-fastrtps/rmw-fastrtps-dynamic-cpp_0.7.8-1 \
                          rmw-fastrtps/rmw-fastrtps-shared-cpp_0.7.8-1 \
-                         rmw-gurumdds/rmw-gurumdds-cpp_0.7.8-1 \
-                         rmw-gurumdds/rmw-gurumdds-shared-cpp_0.7.8-1 \
+                         rmw-gurumdds/rmw-gurumdds-cpp_0.7.9-1 \
+                         rmw-gurumdds/rmw-gurumdds-shared-cpp_0.7.9-1 \
                    rmw-implementation/rmw-implementation_0.7.2-1 \
                                   rmw/rmw-implementation-cmake_0.7.2-1 \
                        rmw-opensplice/rmw-opensplice-cpp_0.7.3-1 \
@@ -1067,7 +1067,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                   ros-monitoring-msgs/ros-monitoring-msgs_2.0.0-1 \
                           ros-testing/ros-testing_0.1.1-1 \
                         ros-workspace/ros-workspace_0.7.2-1 \
-                          ros1-bridge/ros1-bridge_0.7.7-1 \
+                          ros1-bridge/ros1-bridge_0.7.8-1 \
                        rosbag2-bag-v2/ros1-rosbag-storage-vendor_0.0.6-2 \
                          ros2-control/ros2-control_0.0.1-1 \
                    ros2-ouster-driver/ros2-ouster_0.0.2-1 \
@@ -1138,7 +1138,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                   rqt/rqt-py-common_1.0.5-1 \
                        rqt-py-console/rqt-py-console_1.0.0-1 \
                       rqt-reconfigure/rqt-reconfigure_1.0.6-1 \
-                    rqt-robot-monitor/rqt-robot-monitor_1.0.3-1 \
+                    rqt-robot-monitor/rqt-robot-monitor_1.0.4-1 \
                    rqt-robot-steering/rqt-robot-steering_1.0.0-1 \
                    rqt-service-caller/rqt-service-caller_1.0.3-1 \
                             rqt-shell/rqt-shell_1.0.0-1 \
@@ -1157,7 +1157,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                  rviz/rviz2_6.1.7-2 \
                           diagnostics/self-test_2.0.0-1 \
                     common-interfaces/sensor-msgs_0.7.0-1 \
-                    transport-drivers/serial-driver_0.0.5-1 \
+                    transport-drivers/serial-driver_0.0.6-4 \
                     common-interfaces/shape-msgs_0.7.0-1 \
                               rosbag2/shared-queues-vendor_0.1.8-1 \
                            sick-scan2/sick-scan2_0.1.4-1 \
@@ -1186,8 +1186,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          marti-common/swri-serial-util_3.3.2-1 \
                          marti-common/swri-system-util_3.3.2-1 \
                          marti-common/swri-transform-util_3.3.2-1 \
-                         system-modes/system-modes_0.4.1-1 \
-                         system-modes/system-modes-examples_0.4.1-1 \
+                         system-modes/system-modes_0.4.2-1 \
+                         system-modes/system-modes-examples_0.4.2-1 \
                          teleop-tools/teleop-tools_1.1.0-1 \
                          teleop-tools/teleop-tools-msgs_1.1.0-1 \
                      teleop-twist-joy/teleop-twist-joy_2.2.1-1 \
@@ -1215,20 +1215,20 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                     common-interfaces/trajectory-msgs_0.7.0-1 \
                                   tts/tts_2.0.2-1 \
                                   tts/tts-interfaces_2.0.2-1 \
-                           turtlebot3/turtlebot3_2.1.0-1 \
-                           turtlebot3/turtlebot3-bringup_2.1.0-1 \
-                           turtlebot3/turtlebot3-cartographer_2.1.0-1 \
-                           turtlebot3/turtlebot3-description_2.1.0-1 \
-                           turtlebot3/turtlebot3-example_2.1.0-1 \
+                           turtlebot3/turtlebot3_2.1.1-2 \
+                           turtlebot3/turtlebot3-bringup_2.1.1-2 \
+                           turtlebot3/turtlebot3-cartographer_2.1.1-2 \
+                           turtlebot3/turtlebot3-description_2.1.1-2 \
+                           turtlebot3/turtlebot3-example_2.1.1-2 \
                turtlebot3-simulations/turtlebot3-gazebo_2.0.1-1 \
                       turtlebot3-msgs/turtlebot3-msgs_2.2.1-2 \
-                           turtlebot3/turtlebot3-navigation2_2.1.0-1 \
-                           turtlebot3/turtlebot3-node_2.1.0-1 \
+                           turtlebot3/turtlebot3-navigation2_2.1.1-2 \
+                           turtlebot3/turtlebot3-node_2.1.1-2 \
                turtlebot3-simulations/turtlebot3-simulations_2.0.1-1 \
-                           turtlebot3/turtlebot3-teleop_2.1.0-1 \
+                           turtlebot3/turtlebot3-teleop_2.1.1-2 \
                             turtlesim/turtlesim_1.0.3-1 \
-                           tvm-vendor/tvm-vendor_0.7.0-1 \
-                    transport-drivers/udp-driver_0.0.5-1 \
+                           tvm-vendor/tvm-vendor_0.7.2-1 \
+                    transport-drivers/udp-driver_0.0.6-4 \
                              udp-msgs/udp-msgs_0.0.2-1 \
                     uncrustify-vendor/uncrustify-vendor_1.2.0-1 \
                unique-identifier-msgs/unique-identifier-msgs_2.1.1-1 \
@@ -1945,7 +1945,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${PYTHON_PN}-virtualenv-native \
     ${ROS_UNRESOLVED_DEP-clang-format} \
     ${ROS_UNRESOLVED_DEP-clang-tidy} \
-    ${ROS_UNRESOLVED_DEP-gurumdds-2.6} \
+    ${ROS_UNRESOLVED_DEP-gurumdds-2.7} \
     ${ROS_UNRESOLVED_DEP-libcunit-dev} \
     ${ROS_UNRESOLVED_DEP-libgazebo9-dev} \
     ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
@@ -2021,7 +2021,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     libxrandr \
     libyaml \
     linux-libc-headers \
-    llvm \
     log4cplus \
     log4cxx \
     lua \
@@ -2074,7 +2073,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     python3-sphinx \
     python3-tornado \
     python3-twisted \
-    python3-websockets \
+    python3-websocket-client \
     qtbase \
     qtbase-native \
     sqlite3 \
@@ -2105,7 +2104,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     python3-pygraphviz \
     python3-pytest \
     python3-requests \
-    python3-websockets \
+    python3-websocket-client \
     ros-testing \
     ros2bag \
     rosbag2-converter-default-plugins \
@@ -2348,7 +2347,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
 # the settings in ros-distro.inc .
 ROS_UNRESOLVED_DEP-clang-format = "ROS_UNRESOLVED_DEP-clang-format"
 ROS_UNRESOLVED_DEP-clang-tidy = "ROS_UNRESOLVED_DEP-clang-tidy"
-ROS_UNRESOLVED_DEP-gurumdds-2.6 = "ROS_UNRESOLVED_DEP-gurumdds-2.6"
+ROS_UNRESOLVED_DEP-gurumdds-2.7 = "ROS_UNRESOLVED_DEP-gurumdds-2.7"
 ROS_UNRESOLVED_DEP-libcunit-dev = "ROS_UNRESOLVED_DEP-libcunit-dev"
 ROS_UNRESOLVED_DEP-libgazebo9-dev = "ROS_UNRESOLVED_DEP-libgazebo9-dev"
 ROS_UNRESOLVED_DEP-libopenexr-dev = "ROS_UNRESOLVED_DEP-libopenexr-dev"
@@ -2370,10 +2369,10 @@ ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "2020-12-02"
+ROS_DISTRO_RELEASE_DATE = "2021-01-14"
 
 # The commit of ros/rosdistro/dashing/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "11b990779e8e3b5e3b31afb1dd72ab1f076e3167"
+ROS_SUPERFLORE_GENERATION_COMMIT = "93a17f88deecaf70ed1d9178643b69449fda45f7"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated

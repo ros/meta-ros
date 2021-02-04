@@ -5,48 +5,43 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "A template class and associated utilities which encapsulate basic reading from UDP sockets"
-AUTHOR = "Apex.AI, Inc. <opensource@apex.ai>"
+DESCRIPTION = "Code shared on static and dynamic type support of rmw_gurumdds_cpp."
+AUTHOR = "Junho Lee <junho@gurum.cc>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=bb69307f9a8566360ce04a9b7e6a00b7"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "transport_drivers"
-ROS_BPN = "udp_driver"
+ROS_CN = "rmw_gurumdds"
+ROS_BPN = "rmw_gurumdds_shared_cpp"
 
 ROS_BUILD_DEPENDS = " \
-    boost \
-    rclcpp \
-    rclcpp-lifecycle \
-    std-msgs \
+    ${ROS_UNRESOLVED_DEP-gurumdds-2.7} \
+    gurumdds-cmake-module \
+    rcutils \
+    rmw \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
+    rosidl-cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    boost \
-    rclcpp \
-    rclcpp-lifecycle \
-    std-msgs \
+    ${ROS_UNRESOLVED_DEP-gurumdds-2.7} \
+    gurumdds-cmake-module \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = ""
-
-ROS_EXEC_DEPENDS = " \
-    boost \
-    rclcpp \
-    rclcpp-lifecycle \
-    std-msgs \
+ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+    ament-cmake-native \
 "
+
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
 "
@@ -58,10 +53,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-drivers-gbp/transport_drivers-release/archive/release/dashing/udp_driver/0.0.5-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/udp_driver"
-SRC_URI = "git://github.com/ros-drivers-gbp/transport_drivers-release;${ROS_BRANCH};protocol=https"
-SRCREV = "f397f0453f499982761d83751ded9903922e3777"
+# matches with: https://github.com/ros2-gbp/rmw_gurumdds-release/archive/release/dashing/rmw_gurumdds_shared_cpp/0.7.9-1.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/rmw_gurumdds_shared_cpp"
+SRC_URI = "git://github.com/ros2-gbp/rmw_gurumdds-release;${ROS_BRANCH};protocol=https"
+SRCREV = "de8cc02c26f945785a651b20dfffe5dc0cfbb8a8"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

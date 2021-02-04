@@ -5,21 +5,20 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "Provide CMake module to find GurumNetworks GurumDDS."
-AUTHOR = "Junho Lee <junho@gurum.cc>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "ROS 2 launch scripts for cartographer"
+AUTHOR = "Will Son <willson@robotis.com>"
+ROS_AUTHOR = "Darby Lim <thlim@robotis.com>"
+HOMEPAGE = "http://turtlebot3.robotis.com"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0"
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
-ROS_CN = "rosidl_typesupport_gurumdds"
-ROS_BPN = "gurumdds_cmake_module"
+ROS_CN = "turtlebot3"
+ROS_BPN = "turtlebot3_cartographer"
 
-ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-gurumdds-2.6} \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
@@ -27,17 +26,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
-    ament-cmake-native \
-"
+ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    cartographer-ros \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    ament-lint-auto \
-    ament-lint-common \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -46,10 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rosidl_typesupport_gurumdds-release/archive/release/dashing/gurumdds_cmake_module/0.7.7-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/gurumdds_cmake_module"
-SRC_URI = "git://github.com/ros2-gbp/rosidl_typesupport_gurumdds-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6c60f19ae96036a6a505a821a02cefb5b4d54ce9"
+# matches with: https://github.com/robotis-ros2-release/turtlebot3-release/archive/release/dashing/turtlebot3_cartographer/2.1.1-2.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/turtlebot3_cartographer"
+SRC_URI = "git://github.com/robotis-ros2-release/turtlebot3-release;${ROS_BRANCH};protocol=https"
+SRCREV = "97f1f01b1dc53a26eef5b43189850c9c401d613d"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
