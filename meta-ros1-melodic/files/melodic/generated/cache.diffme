@@ -1,4 +1,4 @@
-# melodic/cache.yaml 2020-12-21 3bee9e37ae23bed3b62a09ae937f1bcc3bbf3803 20201219024822 1.6.0
+# melodic/cache.yaml 2021-01-26 2bddaa8dcd0100c8a27d0513a1002d33b3cb2dde 20210126130813 1.6.0
 distribution_file:
 - release_platforms:
 -----
@@ -847,14 +847,24 @@ status: developed
 }
 -----
 async_web_server_cpp: {
+doc: {
+type: git,
+url: 'https://github.com/fkie/async_web_server_cpp.git',
+version: master
+},
 release: {
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
-url: 'https://github.com/gt-rail-release/async_web_server_cpp-release.git',
-version: 0.0.3-0
+url: 'https://github.com/fkie-release/async_web_server_cpp-release.git',
+version: 1.0.2-1
 },
-status: unmaintained
+source: {
+type: git,
+url: 'https://github.com/fkie/async_web_server_cpp.git',
+version: develop
+},
+status: maintained
 }
 -----
 ati_force_torque: {
@@ -919,7 +929,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/audio_common-release.git',
-version: 0.3.9-1
+version: 0.3.10-1
 },
 source: {
 type: git,
@@ -1096,7 +1106,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-drivers-gbp/axis_camera-release.git',
-version: 0.3.0-1
+version: 0.3.1-1
 },
 source: {
 type: git,
@@ -2336,7 +2346,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/common_msgs-release.git',
-version: 1.12.7-0
+version: 1.12.8-1
 },
 source: {
 test_pull_requests: true,
@@ -4806,6 +4816,29 @@ version: master
 status: developed
 }
 -----
+graceful_controller: {
+doc: {
+type: git,
+url: 'https://github.com/mikeferguson/graceful_controller.git',
+version: ros1
+},
+release: {
+packages: [graceful_controller,
+graceful_controller_ros],
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/mikeferguson/graceful_controller-gbp.git',
+version: 0.3.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/mikeferguson/graceful_controller.git',
+version: ros1
+},
+status: developed
+}
+-----
 graft: {
 release: {
 tags: {
@@ -4893,7 +4926,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/anybotics/grid_map-release.git',
-version: 1.6.2-1
+version: 1.6.4-2
 },
 source: {
 test_pull_requests: true,
@@ -5234,7 +5267,8 @@ url: 'https://gitlab.pdmfc.com/drones/ros1/heifu.git',
 version: debian
 },
 release: {
-packages: [heifu_bringup,
+packages: [heifu,
+heifu_bringup,
 heifu_description,
 heifu_diagnostic,
 heifu_mavros,
@@ -5245,14 +5279,15 @@ heifu_tools],
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
-url: 'https://github.com/amferreiraBEV/heifu-release.git',
-version: 0.7.2-1
+url: 'https://github.com/BV-OpenSource/heifu-release.git',
+version: 0.7.7-2
 },
 source: {
 type: git,
 url: 'https://gitlab.pdmfc.com/drones/ros1/heifu.git',
 version: debian
-}
+},
+status: maintained
 }
 -----
 heron: {
@@ -6182,7 +6217,8 @@ version: master
 -----
 jderobot_drones: {
 release: {
-packages: [drone_wrapper,
+packages: [drone_assets,
+drone_wrapper,
 jderobot_drones,
 rqt_drone_teleop,
 rqt_ground_robot_teleop],
@@ -6190,7 +6226,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/JdeRobot/drones-release.git',
-version: 1.3.2-5
+version: 1.3.6-1
 },
 source: {
 type: git,
@@ -6856,6 +6892,7 @@ url: 'https://github.com/wu-robotics/laser_filtering_release.git',
 version: 0.0.4-0
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/DLu/laser_filtering.git',
 version: hydro_devel
@@ -7008,7 +7045,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/fictionlab-gbp/leo_common-release.git',
-version: 1.1.0-1
+version: 1.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -7032,7 +7069,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/fictionlab-gbp/leo_desktop-release.git',
-version: 0.2.2-1
+version: 0.2.3-1
 },
 source: {
 test_pull_requests: true,
@@ -7057,7 +7094,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/fictionlab-gbp/leo_robot-release.git',
-version: 1.1.2-1
+version: 1.1.3-1
 },
 source: {
 test_pull_requests: true,
@@ -7081,7 +7118,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/fictionlab-gbp/leo_simulator-release.git',
-version: 0.1.3-1
+version: 0.2.0-1
 },
 source: {
 test_pull_requests: true,
@@ -7238,7 +7275,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/IntelRealSense/librealsense2-release.git',
-version: 2.40.0-1
+version: 2.41.0-1
 },
 source: {
 test_pull_requests: true,
@@ -7448,6 +7485,29 @@ version: master
 status: developed
 }
 -----
+m_explore: {
+doc: {
+type: git,
+url: 'https://github.com/hrnr/m-explore.git',
+version: melodic-devel
+},
+release: {
+packages: [explore_lite,
+multirobot_map_merge],
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/hrnr/m-explore-release.git',
+version: 2.1.4-1
+},
+source: {
+type: git,
+url: 'https://github.com/hrnr/m-explore.git',
+version: melodic-devel
+},
+status: maintained
+}
+-----
 map_merge: {
 doc: {
 type: git,
@@ -7643,7 +7703,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavlink-gbp-release.git',
-version: 2020.12.12-1
+version: 2021.1.4-1
 },
 source: {
 type: git,
@@ -7669,7 +7729,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavros-release.git',
-version: 1.5.0-1
+version: 1.5.1-1
 },
 source: {
 test_pull_requests: true,
@@ -7714,7 +7774,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/mcl_3dl-release.git',
-version: 0.5.1-1
+version: 0.5.2-1
 },
 source: {
 type: git,
@@ -7811,7 +7871,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/uos-gbp/mesh_navigation-release.git',
-version: 1.0.0-1
+version: 1.0.0-3
 },
 source: {
 type: git,
@@ -8301,19 +8361,19 @@ moveit_python: {
 doc: {
 type: git,
 url: 'https://github.com/mikeferguson/moveit_python.git',
-version: master
+version: ros1
 },
 release: {
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mikeferguson/moveit_python-release.git',
-version: 0.3.4-1
+version: 0.3.5-1
 },
 source: {
 type: git,
 url: 'https://github.com/mikeferguson/moveit_python.git',
-version: master
+version: ros1
 },
 status: developed
 }
@@ -8416,6 +8476,15 @@ version: melodic-devel
 status: developed
 }
 -----
+moving_average: {
+doc: {
+type: git,
+url: 'https://gitlab.com/InstitutMaupertuis/moving_average.git',
+version: melodic
+},
+status: maintained
+}
+-----
 mpc_local_planner: {
 doc: {
 type: git,
@@ -8452,7 +8521,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/groove-x/mqtt_bridge-release.git',
-version: 0.1.7-7
+version: 0.1.8-4
 },
 source: {
 type: git,
@@ -9009,7 +9078,7 @@ navigation_layers: {
 doc: {
 type: git,
 url: 'https://github.com/DLu/navigation_layers.git',
-version: indigo
+version: melodic
 },
 release: {
 packages: [navigation_layers,
@@ -9022,9 +9091,10 @@ url: 'https://github.com/wu-robotics/navigation_layers_release.git',
 version: 0.5.0-0
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/DLu/navigation_layers.git',
-version: indigo
+version: melodic
 },
 status: maintained
 }
@@ -9045,6 +9115,7 @@ url: 'https://github.com/ros-gbp/navigation_msgs-release.git',
 version: 1.14.1-1
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-planning/navigation_msgs.git',
 version: jade-devel
@@ -9120,7 +9191,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/neonavigation-release.git',
-version: 0.10.4-1
+version: 0.10.5-1
 },
 source: {
 type: git,
@@ -9460,7 +9531,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/novatel-gbp/novatel_oem7_driver-release.git',
-version: 1.1.0-1
+version: 2.0.0-1
 },
 source: {
 type: git,
@@ -10488,6 +10559,7 @@ url: 'https://github.com/OSUrobotics/people-release.git',
 version: 1.2.0-1
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/wg-perception/people.git',
 version: melodic
@@ -10822,7 +10894,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/facontidavide/plotjuggler-release.git',
-version: 3.0.5-2
+version: 3.0.7-1
 },
 source: {
 type: git,
@@ -11465,7 +11537,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/PilzDE/psen_scan_v2-release.git',
-version: 0.1.3-1
+version: 0.1.4-1
 },
 source: {
 type: git,
@@ -11497,7 +11569,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/stonier/py_trees-release.git',
-version: 0.6.8-0
+version: 0.6.9-1
 },
 source: {
 test_pull_requests: true,
@@ -12065,7 +12137,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/nobleo/raptor-dbw-ros-release.git',
-version: 1.0.0-2
+version: 1.0.0-3
 },
 source: {
 type: git,
@@ -12190,6 +12262,28 @@ version: master
 status: developed
 }
 -----
+rc_genicam_camera: {
+doc: {
+type: git,
+url: 'https://github.com/roboception/rc_genicam_camera.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/roboception-gbp/rc_genicam_camera-release.git',
+version: 1.2.3-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/roboception/rc_genicam_camera.git',
+version: master
+},
+status: developed
+}
+-----
 rc_genicam_driver: {
 doc: {
 type: git,
@@ -12305,7 +12399,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/IntelRealSense/realsense-ros-release.git',
-version: 2.2.20-1
+version: 2.2.21-1
 },
 source: {
 test_pull_requests: true,
@@ -13232,7 +13326,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ros_controllers-release.git',
-version: 0.17.1-1
+version: 0.17.2-1
 },
 source: {
 type: git,
@@ -15233,6 +15327,27 @@ version: melodic-devel
 status: maintained
 }
 -----
+rviz_satellite: {
+doc: {
+type: git,
+url: 'https://github.com/nobleo/rviz_satellite.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/nobleo/rviz_satellite-release.git',
+version: 3.0.3-1
+},
+source: {
+type: git,
+url: 'https://github.com/nobleo/rviz_satellite.git',
+version: master
+},
+status: maintained
+}
+-----
 rviz_visual_tools: {
 doc: {
 type: git,
@@ -16033,6 +16148,7 @@ url: 'https://github.com/wu-robotics/static_tf_release.git',
 version: 0.0.2-0
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/DLu/static_tf.git',
 version: main
@@ -16678,7 +16794,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ROBOTIS-GIT-release/turtlebot3-release.git',
-version: 1.2.4-1
+version: 1.2.5-1
 },
 source: {
 type: git,
@@ -16797,7 +16913,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ROBOTIS-GIT-release/turtlebot3_simulations-release.git',
-version: 1.2.0-0
+version: 1.3.1-1
 },
 source: {
 type: git,
@@ -17363,6 +17479,7 @@ url: 'https://github.com/ros-gbp/urdf_sim_tutorial-release.git',
 version: 0.4.0-0
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/urdf_sim_tutorial.git',
 version: ros1
@@ -17394,6 +17511,7 @@ url: 'https://github.com/ros-gbp/urdf_tutorial-release.git',
 version: 0.4.0-0
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/urdf_tutorial.git',
 version: ros1
@@ -17664,14 +17782,42 @@ variant: {
 release: {
 packages: [variant,
 variant_msgs,
-variant_topic_test,
 variant_topic_tools],
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/anybotics/variant-release.git',
-version: 0.1.5-0
+version: 0.1.6-1
+},
+status: maintained
 }
+-----
+velo2cam_calibration: {
+doc: {
+type: git,
+url: 'https://github.com/beltransen/velo2cam_calibration.git',
+version: master
+},
+source: {
+type: git,
+url: 'https://github.com/beltransen/velo2cam_calibration.git',
+version: master
+},
+status: maintained
+}
+-----
+velo2cam_gazebo: {
+doc: {
+type: git,
+url: 'https://github.com/beltransen/velo2cam_gazebo.git',
+version: master
+},
+source: {
+type: git,
+url: 'https://github.com/beltransen/velo2cam_gazebo.git',
+version: master
+},
+status: maintained
 }
 -----
 velodyne: {
@@ -18382,6 +18528,7 @@ url: 'https://github.com/wu-robotics/wu_ros_tools.git',
 version: 0.2.6-1
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/DLu/wu_ros_tools.git',
 version: kinetic
@@ -18539,7 +18686,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/openspur/ypspur_ros-release.git',
-version: 0.3.1-1
+version: 0.3.4-1
 },
 source: {
 type: git,
@@ -19102,10 +19249,11 @@ actionlib_msgs: <?xml version="1.0" ?>
 <package>
 <name>actionlib_msgs</name>
 <description>actionlib_msgs defines the common messages to interact with an action server and an action client. For full documentation of the actionlib API see the<a href="http://wiki.ros.org/actionlib">actionlib</a>package.</description>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://wiki.ros.org/actionlib_msgs</url>
 <author>Vijay Pradeep</author>
+<author email="tfoote@osrfoundation.org">Tully Foote</author>
 <buildtool_depend version_gte="0.5.78">catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
 <build_depend>std_msgs</build_depend>
@@ -19908,24 +20056,26 @@ async_comm: <?xml version="1.0" ?>
 </package>
 -----
 async_web_server_cpp: <?xml version="1.0" ?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
 <name>async_web_server_cpp</name>
 <description>Asynchronous Web/WebSocket Server in C++</description>
-<maintainer email="rctoris@wpi.edu">Russell Toris</maintainer>
+<maintainer email="timo.roehling@fkie.fraunhofer.de">Timo Röhling</maintainer>
 <author email="mwills@wpi.edu">Mitchell Wills</author>
+<author email="russell.toris@gmail.com">Russel Toris</author>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/async_web_server_cpp</url>
-<url type="bugtracker">https://github.com/WPI-RAIL/async_web_server_cpp/issues</url>
-<url type="repository">https://github.com/WPI-RAIL/async_web_server_cpp</url>
+<url type="bugtracker">https://github.com/fkie/async_web_server_cpp/issues</url>
+<url type="repository">https://github.com/fkie/async_web_server_cpp</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>libssl-dev</build_depend>
 <build_depend>boost</build_depend>
-<run_depend>libssl-dev</run_depend>
-<run_depend>boost</run_depend>
+<exec_depend>boost</exec_depend>
 <test_depend>rostest</test_depend>
 <test_depend>rospy</test_depend>
 <test_depend>roslib</test_depend>
-<run_depend>python-websocket</run_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 2">python-websocket</test_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-websocket</test_depend>
 </package>
 -----
 ati_force_torque: <?xml version="1.0" ?>
@@ -20412,8 +20562,7 @@ axis_camera: <?xml version="1.0" ?>
 <package>
 <name>axis_camera</name>
 <description>Python ROS drivers for accessing an Axis camera's MJPG stream. Also provides control for PTZ cameras.</description>
-<maintainer email="sam.pfeiffer@pal-robotics.com">Sammy Pfeiffer</maintainer>
-<maintainer email="ros-orphaned-packages@googlegroups.com">ROS Orphaned Package Maintainers</maintainer>
+<maintainer email="civerachb@clearpathrobotics.com">Chris Iverach-Brereton</maintainer>
 <author>Ryan Gariepy</author>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/axis_camera</url>
@@ -21075,6 +21224,7 @@ pack values into CAN messages for publishing.</description>
 <maintainer email="jlodi@neweagle.net">New Eagle</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
+<depend>can_msgs</depend>
 <depend>roscpp</depend>
 </package>
 -----
@@ -24152,9 +24302,10 @@ and common sensors (<a href="http://wiki.ros.org/sensor_msgs">sensor_msgs</a>),
 such as laser range finders,
 cameras,
 point clouds.</description>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://wiki.ros.org/common_msgs</url>
+<author email="tfoote@osrfoundation.org">Tully Foote</author>
 <buildtool_depend>catkin</buildtool_depend>
 <run_depend>actionlib_msgs</run_depend>
 <run_depend>diagnostic_msgs</run_depend>
@@ -26086,7 +26237,7 @@ diagnostic_msgs: <?xml version="1.0" ?>
 <description>This package holds the diagnostic messages which provide the standardized interface for the diagnostic and runtime monitoring systems in ROS. These messages are currently used by the<a href="http://wiki.ros.org/diagnostics">diagnostics</a>Stack,
 which provides libraries for simple ways to set and access the messages,
 as well as automated ways to process the diagnostic data. These messages are used for long term logging and will not be changed unless there is a very important reason.</description>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://wiki.ros.org/diagnostic_msgs</url>
 <author email="tfoote@osrfoundation.org">Tully Foote</author>
@@ -26209,7 +26360,9 @@ dijkstra_mesh_planner: <?xml version="1.0" ?>
 <depend>roscpp</depend>
 <depend>mbf_mesh_core</depend>
 <depend>mbf_utility</depend>
+<depend>mbf_msgs</depend>
 <depend>mesh_map</depend>
+<depend>dynamic_reconfigure</depend>
 <export>
 <mbf_mesh_core plugin="${prefix}/dijkstra_mesh_planner.xml"/>
 </export>
@@ -26603,6 +26756,19 @@ etc.) and interface timestamp_tools: Classes to help timestamp hardware events</
 <metapackage/>
 </export>
 </package>'
+-----
+drone_assets: <?xml version="1.0" ?>
+<package format="2">
+<name>drone_assets</name>
+<description>The drone_assets package</description>
+<maintainer email="pedroariasperez96@gmail.com">Pedro Arias</maintainer>
+<author email="pedroariasperez96@gmail.com">Pedro Arias</author>
+<license>MIT</license>
+<buildtool_depend>catkin</buildtool_depend>
+<export>
+<gazebo_ros gazebo_media_path="${prefix}" plugin_path="${prefix}/lib"/>
+</export>
+</package>
 -----
 drone_wrapper: <?xml version="1.0" ?>
 <package format="2">
@@ -28976,6 +29142,29 @@ exotica_val_description: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 </package>
 -----
+explore_lite: <?xml version="1.0" ?>
+<package format="2">
+<name>explore_lite</name>
+<description>Lightweight frontier-based exploration.</description>
+<author email="laeqten@gmail.com">Jiri Horner</author>
+<maintainer email="laeqten@gmail.com">Jiri Horner</maintainer>
+<license>BSD</license>
+<url>http://wiki.ros.org/explore_lite</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>std_msgs</depend>
+<depend>move_base_msgs</depend>
+<depend>visualization_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>map_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>actionlib_msgs</depend>
+<depend>tf</depend>
+<depend>costmap_2d</depend>
+<depend>actionlib</depend>
+<test_depend>roslaunch</test_depend>
+</package>
+-----
 face_detector: <?xml version="1.0" ?>
 <package format="2">
 <name>face_detector</name>
@@ -31244,10 +31433,10 @@ geometry_msgs: <?xml version="1.0" ?>
 <description>geometry_msgs provides messages for common geometric primitives such as points,
 vectors,
 and poses. These primitives are designed to provide a common data type and facilitate interoperability throughout the system.</description>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://wiki.ros.org/geometry_msgs</url>
-<author>Tully Foote</author>
+<author email="tfoote@osrfoundation.org">Tully Foote</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
 <build_depend>std_msgs</build_depend>
@@ -31453,6 +31642,44 @@ gpsd_client: <?xml version="1.0" ?>
 <build_depend>libgps</build_depend>
 </package>
 -----
+graceful_controller: <?xml version="1.0" ?>
+<package format="3">
+<name>graceful_controller</name>
+<description>A controller.</description>
+<author>Michael Ferguson</author>
+<maintainer email="mfergs7@gmail.com">Michael Ferguson</maintainer>
+<license>LGPLv3</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>angles</build_depend>
+<depend>roscpp</depend>
+</package>
+-----
+graceful_controller_ros: <?xml version="1.0" ?>
+<package format="3">
+<name>graceful_controller_ros</name>
+<description>A controller. Some say it might be graceful.</description>
+<author>Michael Ferguson</author>
+<maintainer email="mfergs7@gmail.com">Michael Ferguson</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>angles</depend>
+<depend>base_local_planner</depend>
+<depend>costmap_2d</depend>
+<depend>dynamic_reconfigure</depend>
+<depend>geometry_msgs</depend>
+<depend>graceful_controller</depend>
+<depend>nav_core</depend>
+<depend>nav_msgs</depend>
+<depend>pluginlib</depend>
+<depend>roscpp</depend>
+<depend>std_msgs</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>tf2_ros</depend>
+<export>
+<nav_core plugin="${prefix}/plugins.xml"/>
+</export>
+</package>
+-----
 graft: <?xml version="1.0" ?>
 <package>
 <name>graft</name>
@@ -31534,7 +31761,8 @@ grid_map: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map</name>
 <description>Meta-package for the universal grid map library.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
@@ -31558,20 +31786,23 @@ grid_map_core: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_core</name>
 <description>Universal grid map library to manage two-dimensional grid maps with multiple data layers.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
 <author email="pfankhauser@anybotics.com">Péter Fankhauser</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>eigen</depend>
+<test_depend>gtest</test_depend>
 </package>
 -----
 grid_map_costmap_2d: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_costmap_2d</name>
 <description>Interface for grid maps to the costmap_2d format.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
@@ -31580,21 +31811,25 @@ grid_map_costmap_2d: <?xml version="1.0" ?>
 <depend>grid_map_core</depend>
 <depend>costmap_2d</depend>
 <depend>tf</depend>
+<test_depend>gtest</test_depend>
 </package>
 -----
 grid_map_cv: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_cv</name>
 <description>Conversions between grid maps and OpenCV images.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
 <author email="pfankhauser@anybotics.com">Péter Fankhauser</author>
+<author email="mgaertner@anybotics.com">Magnus Gärtner</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>grid_map_core</depend>
 <depend>cv_bridge</depend>
 <depend>filters</depend>
+<test_depend>gtest</test_depend>
 <export>
 <filters plugin="${prefix}/filter_plugins.xml"/>
 </export>
@@ -31604,7 +31839,8 @@ grid_map_demos: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_demos</name>
 <description>Demo nodes to demonstrate the usage of the grid map library.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
@@ -31624,23 +31860,29 @@ grid_map_demos: <?xml version="1.0" ?>
 <depend>sensor_msgs</depend>
 <depend>cv_bridge</depend>
 <depend>octomap_msgs</depend>
+<test_depend>gtest</test_depend>
 </package>
 -----
 grid_map_filters: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_filters</name>
 <description>Processing grid maps as a sequence of ROS filters.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
 <author email="pfankhauser@anybotics.com">Péter Fankhauser</author>
 <author email="martiwer@student.ethz.ch">Martin Wermelinger</author>
 <buildtool_depend>catkin</buildtool_depend>
+<depend>filters</depend>
 <depend>grid_map_core</depend>
 <depend>grid_map_ros</depend>
 <depend>grid_map_msgs</depend>
-<depend>filters</depend>
+<depend>tbb</depend>
+<depend>libopencv-dev</depend>
+<test_depend>gtest</test_depend>
+<test_depend>google-mock</test_depend>
 <export>
 <filters plugin="${prefix}/filter_plugins.xml"/>
 </export>
@@ -31650,7 +31892,8 @@ grid_map_loader: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_loader</name>
 <description>Loading and publishing grid maps from bag files.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
@@ -31659,13 +31902,15 @@ grid_map_loader: <?xml version="1.0" ?>
 <depend>roscpp</depend>
 <depend>grid_map_ros</depend>
 <depend>grid_map_msgs</depend>
+<test_depend>gtest</test_depend>
 </package>
 -----
 grid_map_msgs: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_msgs</name>
 <description>Definition of the multi-layered grid map message type.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
@@ -31682,7 +31927,8 @@ grid_map_octomap: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_octomap</name>
 <description>Conversions between grid maps and OctoMap types.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
@@ -31691,27 +31937,37 @@ grid_map_octomap: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>grid_map_core</depend>
 <depend>octomap</depend>
+<test_depend>gtest</test_depend>
 </package>
 -----
 grid_map_pcl: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_pcl</name>
 <description>Conversions between grid maps and Point Cloud Library (PCL) types.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
 <author email="djud@ethz.ch">Dominic Jud</author>
+<author email="jelavice@ethz.ch">Edo Jelavic</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>grid_map_core</depend>
+<depend>grid_map_msgs</depend>
+<depend>grid_map_ros</depend>
+<depend>libpcl-all-dev</depend>
 <depend>pcl_ros</depend>
+<depend>roscpp</depend>
+<depend>yaml-cpp</depend>
+<test_depend>gtest</test_depend>
 </package>
 -----
 grid_map_ros: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_ros</name>
 <description>ROS interface for the grid map library to manage two-dimensional grid maps with multiple data layers.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
@@ -31729,15 +31985,17 @@ grid_map_ros: <?xml version="1.0" ?>
 <depend>rosbag</depend>
 <depend>tf</depend>
 <depend>visualization_msgs</depend>
+<test_depend>gtest</test_depend>
 </package>
 -----
 grid_map_rviz_plugin: <?xml version="1.0" ?>
 <package>
 <name>grid_map_rviz_plugin</name>
 <description>RViz plugin for displaying grid map messages.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
-<author>Philipp Krüsi</author>
+<author email="philipp.kruesi@mavt.ethz.ch">Philipp Krüsi</author>
 <author>Péter Fankhauser</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>qtbase5-dev</build_depend>
@@ -31750,6 +32008,7 @@ grid_map_rviz_plugin: <?xml version="1.0" ?>
 <run_depend>rviz</run_depend>
 <run_depend>grid_map_ros</run_depend>
 <run_depend>grid_map_msgs</run_depend>
+<test_depend>gtest</test_depend>
 <export>
 <rviz plugin="${prefix}/plugin_description.xml"/>
 </export>
@@ -31759,7 +32018,8 @@ grid_map_sdf: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_sdf</name>
 <description>Generates signed distance fields from grid maps.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
@@ -31768,13 +32028,15 @@ grid_map_sdf: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>grid_map_core</depend>
 <depend>pcl_ros</depend>
+<test_depend>gtest</test_depend>
 </package>
 -----
 grid_map_visualization: <?xml version="1.0" ?>
 <package format="2">
 <name>grid_map_visualization</name>
 <description>Configurable tool to visualize grid maps in RViz.</description>
-<maintainer email="pfankhauser@anybotics.com">Péter Fankhauser</maintainer>
+<maintainer email="mwulf@anybotics.com">Maximilian Wulf</maintainer>
+<maintainer email="ynava@anybotics.com">Yoshua Nava</maintainer>
 <license>BSD</license>
 <url type="website">http://github.com/anybotics/grid_map</url>
 <url type="bugtracker">http://github.com/anybotics/grid_map/issues</url>
@@ -31788,6 +32050,7 @@ grid_map_visualization: <?xml version="1.0" ?>
 <depend>visualization_msgs</depend>
 <depend>sensor_msgs</depend>
 <depend>nav_msgs</depend>
+<test_depend>gtest</test_depend>
 </package>
 -----
 gripper_action_controller: <?xml version="1.0" ?>
@@ -32656,13 +32919,35 @@ hector_xacro_tools: <?xml version="1.0" ?>
 <run_depend>xacro</run_depend>
 </package>
 -----
+heifu: <?xml version="1.0" ?>
+<package format="2">
+<name>heifu</name>
+<description>The heifu metapackage that installs all heifu related packages.</description>
+<maintainer email="andre.ferreira@beyond-vision.pt">André Ferreira</maintainer>
+<maintainer email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/heifu</url>
+<author email="andre.ferreira@beyond-vision.pt">André Ferreira</author>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>heifu_bringup</exec_depend>
+<exec_depend>heifu_description</exec_depend>
+<exec_depend>heifu_mavros</exec_depend>
+<exec_depend>heifu_msgs</exec_depend>
+<exec_depend>heifu_safety</exec_depend>
+<exec_depend>heifu_simple_waypoint</exec_depend>
+<exec_depend>heifu_tools</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
 heifu_bringup: <?xml version="1.0" ?>
 <package>
 <name>heifu_bringup</name>
 <description>Heifu is a ROS driver for PDMFC and BEV drone</description>
-<maintainer email="joao.m.carvalho@pdmfc.com">João Pedro Carvalho</maintainer>
+<maintainer email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</maintainer>
+<maintainer email="andre.ferreira@beyond-vision.pt">André Ferreira</maintainer>
 <license>BSD</license>
-<author email="joao.m.carvalho@pdmfc.com">João Pedro Carvalho</author>
 <buildtool_depend>catkin</buildtool_depend>
 <run_depend>heifu_mavros</run_depend>
 <run_depend>heifu_tools</run_depend>
@@ -32672,18 +32957,17 @@ heifu_bringup: <?xml version="1.0" ?>
 </package>
 -----
 heifu_description: <?xml version="1.0" ?>
-<package>
+<package format="2">
 <name>heifu_description</name>
 <description>SDF robot description for HEIFU</description>
-<maintainer email="rmartins@pdmfc.com">Ricardo Sacoto Martins</maintainer>
+<maintainer email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</maintainer>
+<maintainer email="andre.ferreira@beyond-vision.pt">André Ferreira</maintainer>
 <license>BSD</license>
-<url type="website">https://www.pdmfc.com/</url>
-<url type="repository">https://gitlab.pdmfc.com/270515429/heifu</url>
-<author email="rmartins@pdmfc.com">Ricardo Sacoto Martins</author>
 <buildtool_depend>catkin</buildtool_depend>
-<build_depend>roslaunch</build_depend>
-<run_depend>urdf</run_depend>
-<run_depend>xacro</run_depend>
+<depend>gazebo_dev</depend>
+<depend>roslaunch</depend>
+<exec_depend>urdf</exec_depend>
+<exec_depend>xacro</exec_depend>
 <export/>
 </package>
 -----
@@ -32691,9 +32975,9 @@ heifu_diagnostic: <?xml version="1.0" ?>
 <package>
 <name>heifu_diagnostic</name>
 <description>Heifu diagnostic to get GPS status</description>
-<maintainer email="falmeida@pdmfc.com">Filipe Almeida</maintainer>
+<maintainer email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</maintainer>
+<maintainer email="andre.ferreira@beyond-vision.pt">André Ferreira</maintainer>
 <license>BSD</license>
-<url>https://gitlab.pdmfc.com/drones/heifu/tree/master/heifu_diagnostic</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>mavros</build_depend>
 <build_depend>roscpp</build_depend>
@@ -32710,10 +32994,9 @@ heifu_mavros: <?xml version="1.0" ?>
 <package>
 <name>heifu_mavros</name>
 <description>Heifu mavros interface</description>
-<maintainer email="joao.m.carvalho@pdmfc.com">João Pedro Carvalho</maintainer>
 <maintainer email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</maintainer>
+<maintainer email="andre.ferreira@beyond-vision.pt">André Ferreira</maintainer>
 <license>BSD</license>
-<url>https://gitlab.pdmfc.com/drones/heifu/tree/master/heifu_mavros</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>mavros</build_depend>
 <build_depend>roscpp</build_depend>
@@ -32735,8 +33018,8 @@ heifu_msgs: <?xml version="1.0" ?>
 <name>heifu_msgs</name>
 <description>Common message definitions for heifu</description>
 <maintainer email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</maintainer>
+<maintainer email="andre.ferreira@beyond-vision.pt">André Ferreira</maintainer>
 <license>BSD</license>
-<url type="repository">https://gitlab.pdmfc.com/drones/heifu</url>
 <author email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
@@ -32755,8 +33038,8 @@ heifu_safety: <?xml version="1.0" ?>
 <name>heifu_safety</name>
 <description>This package enables an allowable safety zone to control the drone with a joystick.</description>
 <maintainer email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</maintainer>
+<maintainer email="andre.ferreira@beyond-vision.pt">André Ferreira</maintainer>
 <license>BSD</license>
-<url type="repository">https://gitlab.pdmfc.com/drones/heifu</url>
 <author email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>roscpp</build_depend>
@@ -32776,10 +33059,9 @@ heifu_simple_waypoint: <?xml version="1.0" ?>
 <package>
 <name>heifu_simple_waypoint</name>
 <description>Heifu mavros interface</description>
-<maintainer email="joao.m.carvalho@pdmfc.com">João Pedro Carvalho</maintainer>
 <maintainer email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</maintainer>
+<maintainer email="andre.ferreira@beyond-vision.pt">André Ferreira</maintainer>
 <license>BSD</license>
-<url>https://gitlab.pdmfc.com/drones/heifu/tree/master/heifu_simple_waypoint</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>mavros</build_depend>
 <build_depend>roscpp</build_depend>
@@ -32800,9 +33082,9 @@ heifu_tools: <?xml version="1.0" ?>
 <package>
 <name>heifu_tools</name>
 <description>Heifu Tools</description>
-<maintainer email="joao.m.carvalho@pdmfc.com">João Pedro Carvalho</maintainer>
-<license>TODO</license>
-<author email="joao.m.carvalho@pdmfc.com">João Pedro Carvalho</author>
+<maintainer email="fabio.azevedo@beyond-vision.pt">Fábio Azevedo</maintainer>
+<maintainer email="andre.ferreira@beyond-vision.pt">André Ferreira</maintainer>
+<license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
 <run_depend>joy</run_depend>
 <run_depend>joy_teleop</run_depend>
@@ -35234,6 +35516,7 @@ jderobot_drones: <?xml version="1.0" ?>
 <exec_depend>drone_wrapper</exec_depend>
 <exec_depend>rqt_drone_teleop</exec_depend>
 <exec_depend>rqt_ground_robot_teleop</exec_depend>
+<exec_depend>drone_assets</exec_depend>
 <export>
 <metapackage/>
 </export>
@@ -38111,6 +38394,7 @@ leo_description: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>xacro</exec_depend>
 <exec_depend>robot_state_publisher</exec_depend>
+<test_depend>rostest</test_depend>
 </package>
 -----
 leo_desktop: <?xml version="1.0" ?>
@@ -38178,7 +38462,7 @@ leo_gazebo: <?xml version="1.0" ?>
 <exec_depend>compressed_image_transport</exec_depend>
 <exec_depend>geometry_msgs</exec_depend>
 <exec_depend>nav_msgs</exec_depend>
-<exec_depend>leo_description</exec_depend>
+<exec_depend version_gte="1.2.0">leo_description</exec_depend>
 <export>
 <gazebo_ros gazebo_model_path="${prefix}/models"/>
 </export>
@@ -38223,7 +38507,7 @@ leo_simulator: <?xml version="1.0" ?>
 leo_teleop: <?xml version="1.0" ?>
 <package format="2">
 <name>leo_teleop</name>
-<description>Teleop package for Leo Rover</description>
+<description>Scripts and launch files for Leo Rover teleoperation</description>
 <maintainer email="blazej@turtlerover.com">Błażej Sowa</maintainer>
 <author email="blazej@turtlerover.com">Błażej Sowa</author>
 <license>MIT</license>
@@ -40199,6 +40483,7 @@ mesh_client: <?xml version="1.0" ?>
 <license>BSD-3</license>
 <author email="spuetz@uos.de">Sebastian Pütz</author>
 <author email="mklpiening@uos.de">Malte kl. Piening</author>
+<build_depend>pkg-config</build_depend>
 <depend>curl</depend>
 <depend>eigen</depend>
 <depend>libjsoncpp-dev</depend>
@@ -40219,8 +40504,10 @@ mesh_controller: <?xml version="1.0" ?>
 <depend>roscpp</depend>
 <depend>mbf_mesh_core</depend>
 <depend>mbf_utility</depend>
+<depend>mbf_msgs</depend>
 <depend>mesh_map</depend>
 <depend>tf2_geometry_msgs</depend>
+<depend>dynamic_reconfigure</depend>
 <export>
 <mbf_mesh_core plugin="${prefix}/mesh_controller.xml"/>
 </export>
@@ -40248,14 +40535,17 @@ mesh_map: <?xml version="1.0" ?>
 <maintainer email="spuetz@uos.de">Sebastian Pütz</maintainer>
 <license>BSD 3-Clause</license>
 <author email="spuetz@uos.de">Sebastian Pütz</author>
-<depend>roscpp</depend>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>dynamic_reconfigure</depend>
 <depend>geometry_msgs</depend>
-<depend>pluginlib</depend>
-<depend>visualization_msgs</depend>
 <depend>mesh_client</depend>
 <depend>mesh_msgs_conversions</depend>
+<depend>pluginlib</depend>
+<depend>roscpp</depend>
+<depend>tf2</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>tf2_ros</depend>
+<depend>visualization_msgs</depend>
 <depend>xmlrpcpp</depend>
 </package>
 -----
@@ -42414,6 +42704,8 @@ mqtt_bridge: <?xml version="1.0" ?>
 <license>MIT</license>
 <url>http://www.ros.org/wiki/mqtt_bridge</url>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend>python-setuptools</buildtool_depend>
+<build_depend>python-pip</build_depend>
 <exec_depend>rospy</exec_depend>
 <exec_depend>rosbridge_library</exec_depend>
 <exec_depend>std_msgs</exec_depend>
@@ -43321,6 +43613,25 @@ multires_image: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+multirobot_map_merge: <?xml version="1.0" ?>
+<package format="2">
+<name>multirobot_map_merge</name>
+<description>Merging multiple maps without knowledge of initial positions of robots.</description>
+<author email="laeqten@gmail.com">Jiri Horner</author>
+<maintainer email="laeqten@gmail.com">Jiri Horner</maintainer>
+<license>BSD</license>
+<url>http://wiki.ros.org/multirobot_map_merge</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>map_msgs</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>image_geometry</depend>
+<test_depend>roslaunch</test_depend>
+<test_depend>rosunit</test_depend>
+</package>
+-----
 multisense: <?xml version="1.0" ?>
 <package>
 <name>multisense</name>
@@ -43983,10 +44294,10 @@ nav_msgs: <?xml version="1.0" ?>
 <package>
 <name>nav_msgs</name>
 <description>nav_msgs defines the common messages used to interact with the<a href="http://wiki.ros.org/navigation">navigation</a>stack.</description>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://wiki.ros.org/nav_msgs</url>
-<author>Tully Foote</author>
+<author email="tfoote@osrfoundation.org">Tully Foote</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>geometry_msgs</build_depend>
 <build_depend>message_generation</build_depend>
@@ -44226,7 +44537,7 @@ neonavigation: <?xml version="1.0" ?>
 <maintainer email="atsushi.w@ieee.org">Atsushi Watanabe</maintainer>
 <license>BSD</license>
 <author email="atsushi.w@ieee.org">Atsushi Watanabe</author>
-<buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend version_gte="0.7.22">catkin</buildtool_depend>
 <exec_depend>costmap_cspace</exec_depend>
 <exec_depend>joystick_interrupt</exec_depend>
 <exec_depend>map_organizer</exec_depend>
@@ -44988,7 +45299,7 @@ novatel_oem7_driver: <?xml version="1.0" ?>
 <package format="2">
 <name>novatel_oem7_driver</name>
 <description>NovAtel Oem7 ROS Driver</description>
-<maintainer email="support@novatel.com">NovAtel Support</maintainer>
+<maintainer email="support.novatel@hexagon.com">NovAtel Support</maintainer>
 <license>MIT</license>
 <url type="website">http://www.novatel.com</url>
 <buildtool_depend>catkin</buildtool_depend>
@@ -44997,9 +45308,12 @@ novatel_oem7_driver: <?xml version="1.0" ?>
 <depend>roscpp</depend>
 <depend>gps_common</depend>
 <depend>sensor_msgs</depend>
+<depend>nmea_msgs</depend>
+<depend>nav_msgs</depend>
 <depend>novatel_oem7_msgs</depend>
-<depend>tf</depend>
+<depend>tf2_geometry_msgs</depend>
 <test_depend>rostest</test_depend>
+<test_depend>rosbag</test_depend>
 <export>
 <nodelet plugin="${prefix}/novatel_oem7_driver_nodelets.xml"/>
 <novatel_oem7_driver plugin="${prefix}/novatel_oem7_driver_plugins.xml"/>
@@ -45010,7 +45324,7 @@ novatel_oem7_msgs: <?xml version="1.0" ?>
 <package format="2">
 <name>novatel_oem7_msgs</name>
 <description>Messages for NovAtel Oem7 family of receivers.</description>
-<maintainer email="support@novatel.com">NovAtel Support</maintainer>
+<maintainer email="support.novatel@hexagon.com">NovAtel Support</maintainer>
 <url type="website">http://www.novatel.com</url>
 <license>MIT</license>
 <url type="repository">https://github.com/novatel/novatel_oem7_driver</url>
@@ -52093,6 +52407,31 @@ streaming and synchronizing images. See LICENSE.md for licensing terms of the di
 </export>
 </package>
 -----
+rc_genicam_camera: <?xml version="1.0" ?>
+<package format="2">
+<name>rc_genicam_camera</name>
+<description>The rc_genicam_camera provides images from a GenICam compatible camera.</description>
+<maintainer email="heiko.hirschmueller@roboception.de">Heiko Hirschmueller</maintainer>
+<license>BSD</license>
+<author email="heiko.hirschmueller@roboception.de">Heiko Hirschmueller</author>
+<depend version_gte="2.0.3">rc_genicam_api</depend>
+<build_depend>message_generation</build_depend>
+<exec_depend>message_runtime</exec_depend>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>nodelet</depend>
+<depend>roscpp</depend>
+<depend>std_srvs</depend>
+<depend>std_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>image_transport</depend>
+<depend>dynamic_reconfigure</depend>
+<depend>diagnostic_updater</depend>
+<doc_depend>doxygen</doc_depend>
+<export>
+<nodelet plugin="${prefix}/rc_genicam_camera_nodelet.xml"/>
+</export>
+</package>
+-----
 rc_genicam_driver: <?xml version="1.0" ?>
 <package format="2">
 <name>rc_genicam_driver</name>
@@ -57658,6 +57997,7 @@ rqt_drone_teleop: <?xml version="1.0" ?>
 <description>A common drone teleop interface for all drone exercises in the JdeRobot Robotics Academy</description>
 <maintainer email="nikhilvkhedekar@gmail.com">Nikhil Khedekar</maintainer>
 <author email="nikhilvkhedekar@gmail.com">Nikhil Khedekar</author>
+<author>Pedro Arias</author>
 <license>MIT</license>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>geometry_msgs</depend>
@@ -57667,9 +58007,12 @@ rqt_drone_teleop: <?xml version="1.0" ?>
 <depend>sensor_msgs</depend>
 <depend>python-rospkg</depend>
 <depend>roslib</depend>
+<depend>drone_wrapper</depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin="${prefix}/plugin_vel_teleop.xml"/>
+<rqt_gui plugin="${prefix}/plugin_cam_viewer.xml"/>
+<rqt_gui plugin="${prefix}/plugin_pos_teleop.xml"/>
 </export>
 </package>
 -----
@@ -59707,6 +60050,29 @@ rviz_python_tutorial: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+rviz_satellite: <?xml version="1.0" ?>
+<package>
+<name>rviz_satellite</name>
+<description>Display satellite map tiles in RViz</description>
+<url>https://github.com/nobleo/rviz_satellite</url>
+<author email="gcross.code@icloud.com">Gareth Cross</author>
+<author email="andre.schroeder@tomtom.com">Andre Schröder</author>
+<maintainer email="tim.clephas@nobleo.nl">Tim Clephas</maintainer>
+<license>Apache 2</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>qtbase5-dev</build_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>rviz</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<run_depend>roscpp</run_depend>
+<run_depend>rviz</run_depend>
+<run_depend>sensor_msgs</run_depend>
+<run_depend>tf2_ros</run_depend>
+<export>
+<rviz plugin="${prefix}/plugin_description.xml"/>
+</export>
+</package>
+-----
 rviz_visual_tools: <?xml version="1.0" ?>
 <package format="2">
 <name>rviz_visual_tools</name>
@@ -60474,28 +60840,32 @@ semantic_point_annotator: <?xml version="1.0" ?>
 <export/>
 </package>
 -----
-sensor_msgs: <?xml version="1.0" ?>
-<package>
+sensor_msgs: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>sensor_msgs</name>
 <description>This package defines messages for commonly used sensors,
 including cameras and scanning laser rangefinders.</description>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<maintainer email=\"michel@ekumenlabs.com\">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/sensor_msgs</url>
+<author email=\"tfoote@osrfoundation.org\">Tully Foote</author>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
 <build_depend>geometry_msgs</build_depend>
 <build_depend>message_generation</build_depend>
 <build_depend>std_msgs</build_depend>
-<run_depend>geometry_msgs</run_depend>
-<run_depend>message_runtime</run_depend>
-<run_depend>std_msgs</run_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>message_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
 <test_depend>rosbag</test_depend>
 <test_depend>rosunit</test_depend>
 <export>
 <architecture_independent/>
-<rosbag migration_rule_file="migration_rules/sensor_msgs.bmr"/>
+<rosbag migration_rule_file=\"migration_rules/sensor_msgs.bmr\"/>
 </export>
-</package>
+</package>"
 -----
 septentrio_gnss_driver: '<?xml version="1.0" ?>
 <package format="2">
@@ -60616,10 +60986,10 @@ sphere,
 etc),
 planes,
 and meshes.</description>
-<maintainer email="isucan@willowgarage.com">Ioan Sucan</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://wiki.ros.org/shape_msgs</url>
-<author>Ioan Sucan</author>
+<author email="isucan@willowgarage.com">Ioan Sucan</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>geometry_msgs</build_depend>
 <build_depend>message_generation</build_depend>
@@ -61720,11 +62090,12 @@ stereo_msgs: <?xml version="1.0" ?>
 <name>stereo_msgs</name>
 <description>stereo_msgs contains messages specific to stereo processing,
 such as disparity images.</description>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://wiki.ros.org/stereo_msgs</url>
 <author>Patrick Mihelich</author>
 <author>Kurt Konolige</author>
+<author email="tfoote@osrfoundation.org">Tully Foote</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
 <build_depend>sensor_msgs</build_depend>
@@ -63314,10 +63685,11 @@ trajectory_msgs: <?xml version="1.0" ?>
 <package>
 <name>trajectory_msgs</name>
 <description>This package defines messages for defining robot trajectories. These messages are also the building blocks of most of the<a href="http://wiki.ros.org/control_msgs">control_msgs</a>actions.</description>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://wiki.ros.org/trajectory_msgs</url>
 <author>Stuart Glaser</author>
+<author email="tfoote@osrfoundation.org">Tully Foote</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
 <build_depend>geometry_msgs</build_depend>
@@ -63910,8 +64282,7 @@ simple tests can be done without a robot. You can do simple tests using this pac
 <license>Apache 2.0</license>
 <author email="pyo@robotis.com">Pyo</author>
 <author email="thlim@robotis.com">Darby Lim</author>
-<maintainer email="pyo@robotis.com">Pyo</maintainer>
-<maintainer email="thlim@robotis.com">Darby Lim</maintainer>
+<maintainer email="willson@robotis.com">Will Son</maintainer>
 <url type="website">http://wiki.ros.org/turtlebot3_fake</url>
 <url type="emanual">http://turtlebot3.robotis.com</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_simulations</url>
@@ -63975,8 +64346,7 @@ turtlebot3_gazebo: <?xml version="1.0" ?>
 <author email="pyo@robotis.com">Pyo</author>
 <author email="thlim@robotis.com">Darby Lim</author>
 <author email="kkjong@robotis.com">Gilbert</author>
-<maintainer email="pyo@robotis.com">Pyo</maintainer>
-<maintainer email="thlim@robotis.com">Darby Lim</maintainer>
+<maintainer email="willson@robotis.com">Will Son</maintainer>
 <url type="website">http://wiki.ros.org/turtlebot3_gazebo</url>
 <url type="emanual">http://turtlebot3.robotis.com</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_simulations</url>
@@ -63990,8 +64360,10 @@ turtlebot3_gazebo: <?xml version="1.0" ?>
 <depend>tf</depend>
 <depend>gazebo_ros</depend>
 <exec_depend>gazebo</exec_depend>
+<exec_depend>turtlebot3_description</exec_depend>
 <export>
-<gazebo_ros gazebo_media_path="${prefix}" gazebo_model_path="${prefix}/models:${prefix}/models/turtlebot3_autorace" plugin_path="${prefix}/lib:${prefix}/models/turtlebot3_autorace/gazebo_traffic_plugin"/>
+<gazebo_ros gazebo_media_path="${prefix}"/>
+<gazebo_ros gazebo_model_path="${prefix}/models"/>
 </export>
 </package>
 -----
@@ -64075,8 +64447,7 @@ turtlebot3_simulations: <?xml version="1.0" ?>
 <author email="pyo@robotis.com">Pyo</author>
 <author email="thlim@robotis.com">Darby Lim</author>
 <author email="kkjong@robotis.com">Gilbert</author>
-<maintainer email="pyo@robotis.com">Pyo</maintainer>
-<maintainer email="thlim@robotis.com">Darby Lim</maintainer>
+<maintainer email="willson@robotis.com">Will Son</maintainer>
 <url type="website">http://wiki.ros.org/turtlebot3_simulations</url>
 <url type="emanual">http://turtlebot3.robotis.com</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_simulations</url>
@@ -66131,15 +66502,14 @@ variant: <?xml version="1.0" ?>
 <package format="2">
 <name>variant</name>
 <description>Meta-package for the universal variant library.</description>
-<author>Ralf Kaestner</author>
-<maintainer email="ralf.kaestner@gmail.com">Ralf Kaestner</maintainer>
-<maintainer email="samuel.bachmann@gmail.com">Samuel Bachmann</maintainer>
+<author email="ralf.kaestner@gmail.com">Ralf Kaestner</author>
+<maintainer email="sbachmann@anybotics.com">Samuel Bachmann</maintainer>
+<maintainer email="rdiethelm@anybotics.com">Remo Diethelm</maintainer>
 <license>GNU Lesser General Public License (LGPL)</license>
-<url type="website">http://github.com/ethz-asl/ros-topic-variant</url>
-<url type="bugtracker">http://github.com/ethz-asl/ros-topic-variant/issues</url>
+<url type="website">http://github.com/anybotics/variant</url>
+<url type="bugtracker">http://github.com/anybotics/variant/issues</url>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>variant_msgs</exec_depend>
-<exec_depend>variant_topic_test</exec_depend>
 <exec_depend>variant_topic_tools</exec_depend>
 <export>
 <metapackage/>
@@ -66150,11 +66520,11 @@ variant_msgs: <?xml version="1.0" ?>
 <package>
 <name>variant_msgs</name>
 <description>Variant messages are designed to accommodate the information content of any invariant message. They are truly generic and can freely be converted to and from specific message objects.</description>
-<author>Ralf Kaestner</author>
-<maintainer email="ralf.kaestner@gmail.com">Ralf Kaestner</maintainer>
-<maintainer email="samuel.bachmann@gmail.com">Samuel Bachmann</maintainer>
+<author email="ralf.kaestner@gmail.com">Ralf Kaestner</author>
+<maintainer email="sbachmann@anybotics.com">Samuel Bachmann</maintainer>
+<maintainer email="rdiethelm@anybotics.com">Remo Diethelm</maintainer>
 <license>GNU Lesser General Public License (LGPL)</license>
-<url>http://github.com/ethz-asl/ros-topic-variant</url>
+<url>http://github.com/anybotics/variant</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
 <build_depend>std_msgs</build_depend>
@@ -66162,37 +66532,15 @@ variant_msgs: <?xml version="1.0" ?>
 <run_depend>std_msgs</run_depend>
 </package>
 -----
-variant_topic_test: <?xml version="1.0" ?>
-<package>
-<name>variant_topic_test</name>
-<description>Variant topic tools testing suites.</description>
-<author>Ralf Kaestner</author>
-<maintainer email="ralf.kaestner@gmail.com">Ralf Kaestner</maintainer>
-<maintainer email="samuel.bachmann@gmail.com">Samuel Bachmann</maintainer>
-<license>GNU Lesser General Public License (LGPL)</license>
-<url>http://github.com/ethz-asl/ros-topic-variant</url>
-<buildtool_depend>catkin</buildtool_depend>
-<build_depend>roscpp</build_depend>
-<build_depend>std_msgs</build_depend>
-<build_depend>geometry_msgs</build_depend>
-<build_depend>variant_msgs</build_depend>
-<build_depend>variant_topic_tools</build_depend>
-<run_depend>roscpp</run_depend>
-<run_depend>std_msgs</run_depend>
-<run_depend>geometry_msgs</run_depend>
-<run_depend>variant_msgs</run_depend>
-<run_depend>variant_topic_tools</run_depend>
-</package>
------
 variant_topic_tools: <?xml version="1.0" ?>
 <package>
 <name>variant_topic_tools</name>
 <description>Topic tools for treating messages as variant types.</description>
-<author>Ralf Kaestner</author>
-<maintainer email="ralf.kaestner@gmail.com">Ralf Kaestner</maintainer>
-<maintainer email="samuel.bachmann@gmail.com">Samuel Bachmann</maintainer>
+<author email="ralf.kaestner@gmail.com">Ralf Kaestner</author>
+<maintainer email="sbachmann@anybotics.com">Samuel Bachmann</maintainer>
+<maintainer email="rdiethelm@anybotics.com">Remo Diethelm</maintainer>
 <license>GNU Lesser General Public License (LGPL)</license>
-<url>http://github.com/ethz-asl/ros-topic-variant</url>
+<url>http://github.com/anybotics/variant</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>roscpp</build_depend>
 <build_depend>roslib</build_depend>
@@ -66200,6 +66548,9 @@ variant_topic_tools: <?xml version="1.0" ?>
 <run_depend>roscpp</run_depend>
 <run_depend>roslib</run_depend>
 <run_depend>variant_msgs</run_depend>
+<test_depend>geometry_msgs</test_depend>
+<test_depend>std_msgs</test_depend>
+<test_depend>gtest</test_depend>
 </package>
 -----
 vector_map_msgs: <?xml version="1.0" ?>
@@ -66879,11 +67230,12 @@ spheres,
 arrows,
 lines,
 etc. to a visualization environment such as<a href="http:///www.ros.org/wiki/rviz">rviz</a>. See the rviz tutorial<a href="http://www.ros.org/wiki/rviz/Tutorials">rviz tutorials</a>for more information.</description>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/visualization_msgs</url>
 <author email="jfaust@willowgarage.com">Josh Faust</author>
 <author email="dgossow@willowgarage.com">Davis Gossow</author>
+<author email="tfoote@osrfoundation.org">Tully Foote</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>geometry_msgs</build_depend>
 <build_depend>message_generation</build_depend>
@@ -67489,7 +67841,9 @@ wave_front_planner: <?xml version="1.0" ?>
 <depend>roscpp</depend>
 <depend>mbf_mesh_core</depend>
 <depend>mbf_utility</depend>
+<depend>mbf_msgs</depend>
 <depend>mesh_map</depend>
+<depend>dynamic_reconfigure</depend>
 <export>
 <mbf_mesh_core plugin="${prefix}/wave_front_planner.xml"/>
 </export>
@@ -68628,6 +68982,9 @@ ypspur_ros: <?xml version="1.0" ?>
 <depend>roscpp</depend>
 <test_depend>roslint</test_depend>
 <test_depend>rostest</test_depend>
+<build_depend>message_generation</build_depend>
+<build_export_depend>message_runtime</build_export_depend>
+<exec_depend>message_runtime</exec_depend>
 <depend>diagnostic_msgs</depend>
 <depend>geometry_msgs</depend>
 <depend>nav_msgs</depend>
@@ -68635,7 +68992,7 @@ ypspur_ros: <?xml version="1.0" ?>
 <depend>std_msgs</depend>
 <depend>tf</depend>
 <depend>trajectory_msgs</depend>
-<depend version_gte="1.17.0">ypspur</depend>
+<depend version_gte="1.20.0">ypspur</depend>
 </package>
 -----
 yujin_ocs: <?xml version="1.0" ?>
