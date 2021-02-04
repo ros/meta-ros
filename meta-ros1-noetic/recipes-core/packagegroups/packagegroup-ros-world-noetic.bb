@@ -83,6 +83,15 @@ RDEPENDS_${PN}_remove = "hrpsys-ros-bridge"
 # Depends on unavailable ROS_UNRESOLVED_DEP-libirrlicht-dev, ROS_UNRESOLVED_DEP-net-tools, ROS_UNRESOLVED_DEP-procps, ROS_UNRESOLVED_DEP-ipython, ROS_UNRESOLVED_DEP-hostname and blacklisted openhrp3 and hrpsys-ros-bridge
 RDEPENDS_${PN}_remove = "rtmros-common"
 
+# Depends on unavailable ROS_UNRESOLVED_DEP-cmake-common-scripts which might be some older version of:
+# https://github.com/ros-industrial/ros_industrial_cmake_boilerplate
+# because now https://github.com/ros-industrial/cmake_common_scripts redirects to this repo
+# another search result https://index.ros.org/p/cmake_common_scripts/ also returns 404
+# tesseract_ros was already updated to new name in:
+# https://github.com/ros-industrial-consortium/tesseract_ros/commit/0fdcb1022e61a256eafb0895e19d932116e1dcd4
+# but there is no ros_industrial_cmake_boilerplate in noetic, so blacklist it now
+RDEPENDS_${PN}_remove = "opw-kinematics"
+
 # Depends on unavailable ROS_UNRESOLVED_DEP-python3-wxgtk4.0
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-wxgtk4.0', 'actionlib-tools', '', d)}"
 
