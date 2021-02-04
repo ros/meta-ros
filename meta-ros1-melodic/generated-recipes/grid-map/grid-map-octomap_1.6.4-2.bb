@@ -5,20 +5,20 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The joy_mouse package"
-AUTHOR = "Ryohei Ueda <ueda@jsk.t.u-tokyo.ac.jp>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Conversions between grid maps and OctoMap types."
+AUTHOR = "Maximilian Wulf <mwulf@anybotics.com>"
+ROS_AUTHOR = "Jeff Delmerico <jeffdelmerico@ifi.uzh.ch>"
+HOMEPAGE = "http://github.com/anybotics/grid_map"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "jsk_control"
-ROS_BPN = "joy_mouse"
+ROS_CN = "grid_map"
+ROS_BPN = "grid_map_octomap"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    grid-map-core \
+    octomap \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -26,21 +26,21 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    grid-map-core \
+    octomap \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    grid-map-core \
+    octomap \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    gtest \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -49,10 +49,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/tork-a/jsk_control-release/archive/release/melodic/joy_mouse/0.1.15-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/joy_mouse"
-SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d73572879bd52e23321318a16eb5f14c783a1933"
+# matches with: https://github.com/anybotics/grid_map-release/archive/release/melodic/grid_map_octomap/1.6.4-2.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/grid_map_octomap"
+SRC_URI = "git://github.com/anybotics/grid_map-release;${ROS_BRANCH};protocol=https"
+SRCREV = "aac4adad56e5a8cd88ac70330d36fdc79a9fbd98"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

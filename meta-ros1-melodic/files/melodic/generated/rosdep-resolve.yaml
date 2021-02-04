@@ -636,7 +636,7 @@ python-pytest:
 python-pytest-cov:
 - ${ROS_UNRESOLVED_DEP-python-pytest-cov}
 python-pyudev:
-- ${ROS_UNRESOLVED_DEP-python-pyudev}
+- ${PYTHON_PN}-pyudev@meta-python
 python-pyusb-pip:
 - ${ROS_UNRESOLVED_DEP-python-pyusb-pip}
 python-qt5-bindings:
@@ -702,7 +702,7 @@ python-urlgrabber:
 python-usb:
 - ${PYTHON_PN}-pyusb@meta-python
 python-websocket:
-- python3-websockets@meta-python
+- ${PYTHON_PN}-websocket-client@meta-python
 python-whichcraft:
 - ${ROS_UNRESOLVED_DEP-python-whichcraft}
 python-wxtools:

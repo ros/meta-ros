@@ -5,38 +5,34 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The joy_mouse package"
-AUTHOR = "Ryohei Ueda <ueda@jsk.t.u-tokyo.ac.jp>"
+DESCRIPTION = "Heifu Tools"
+AUTHOR = "Fábio Azevedo <fabio.azevedo@beyond-vision.pt>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
-ROS_CN = "jsk_control"
-ROS_BPN = "joy_mouse"
+ROS_CN = "heifu"
+ROS_BPN = "heifu_tools"
 
-ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    image-view \
+    joy \
+    joy-teleop \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyudev \
-    rospy \
-    sensor-msgs \
+    image-view \
+    joy \
+    joy-teleop \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -49,10 +45,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/tork-a/jsk_control-release/archive/release/melodic/joy_mouse/0.1.15-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/joy_mouse"
-SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d73572879bd52e23321318a16eb5f14c783a1933"
+# matches with: https://github.com/BV-OpenSource/heifu-release/archive/release/melodic/heifu_tools/0.7.7-2.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/heifu_tools"
+SRC_URI = "git://github.com/BV-OpenSource/heifu-release;${ROS_BRANCH};protocol=https"
+SRCREV = "c56a7494b0f56423c0743877a595d3bf84e99671"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
