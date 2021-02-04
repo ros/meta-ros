@@ -1,7 +1,7 @@
 # noetic/ros-distro.inc
 # General configuration settings that are dependent on ROS_DISTRO.
 #
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 ROS_DISTRO_CODENAME = "Noetic Ninjemys"
 
@@ -230,3 +230,6 @@ ROS_BUILD_TYPE_pn-python-orocos-kdl = "catkin"
 # https://github.com/mavlink/mavlink-gbp-release/blob/release/melodic/mavlink/2019.11.11-1/package.xml#L29
 # but that doesn't respect the prefix set in meta-ros-common/classes/ros_opt_prefix.bbclass
 ROS_BUILD_TYPE_pn-mavlink = "catkin"
+
+# Used by meta-ros/meta-ros1-noetic/generated-recipes/moveit-python/moveit-python_0.4.0-1.bb
+ROS_UNRESOLVED_DEP-python3-pyassimp = "python3-pyassimp"
