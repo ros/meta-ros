@@ -485,6 +485,7 @@ PNBLACKLIST[optpp-catkin] ?= "Depends on unavailable ROS_UNRESOLVED_DEP-gfortran
 PNBLACKLIST[osg-interactive-markers] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'osg', 'depends on unavailable ROS_UNRESOLVED_DEP-libopenscenegraph', '', d)}"
 PNBLACKLIST[osg-markers] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'osg', 'depends on unavailable ROS_UNRESOLVED_DEP-libopenscenegraph', '', d)}"
 PNBLACKLIST[osg-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'osg', 'depends on unavailable ROS_UNRESOLVED_DEP-libopenscenegraph', '', d)}"
+PNBLACKLIST[opw-kinematics] ?= "Depends on unavailable ROS_UNRESOLVED_DEP-cmake-common-scripts"
 PNBLACKLIST[p2os-launch] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'p2os-urdf', 'p2os-urdf: depends on p2os-urdf which fails to compile', '', d)}"
 PNBLACKLIST[p2os-urdf] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'p2os-urdf', 'p2os-urdf: do_compile task fails: p2os-urdf/2.1.1-3-r0/git/src/publisher3at.cc:35:10: fatal error: string: No such file or directory #include <string>', '', d)}"
 PNBLACKLIST[packagegroup-ros-turtlebot3-extended] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'turtlebot3', 'turtlebot3: rdepends on cartographer-ros, depthimage-to-laserscan, turtlebot3-applications, turtlebot3-applications-msgs, turtlebot3-autorace which were not ported to noeticy yet', '', d)}"
