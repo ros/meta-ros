@@ -5,49 +5,46 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "The ROS client library in C."
-AUTHOR = "Jan Staschulat <jan.staschulat@de.bosch.com>"
-ROS_AUTHOR = "Jan Staschulat <jan.staschulat@de.bosch.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "ROS messages for the cartographer_ros package."
+AUTHOR = "Chris Lalancette <clalancette@openrobotics.org>"
+ROS_AUTHOR = "The Cartographer Authors <google-cartographer@googlegroups.com>"
+HOMEPAGE = "https://github.com/ros2/cartographer_ros"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0"
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=b73cebba72f83c5afebf178817283e37"
 
-ROS_CN = "rclc"
-ROS_BPN = "rclc"
+ROS_CN = "cartographer_ros"
+ROS_BPN = "cartographer_ros_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    rcl \
-    rcutils \
-    rosidl-generator-c \
-    rosidl-typesupport-c \
+    geometry-msgs \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-ros-native \
+    ament-cmake-native \
+    rosidl-default-generators-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    geometry-msgs \
+    std-msgs \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    rcl \
-    rcutils \
-    rosidl-generator-c \
+    geometry-msgs \
+    rosidl-default-runtime \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-cmake-gtest \
-    ament-cmake-pytest \
     ament-lint-auto \
     ament-lint-common \
-    launch-testing \
-    osrf-testing-tools-cpp \
-    std-msgs \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -57,10 +54,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/micro-ROS/rclc-release/archive/release/dashing/rclc/0.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/rclc"
-SRC_URI = "git://github.com/micro-ROS/rclc-release;${ROS_BRANCH};protocol=https"
-SRCREV = "cf46585f44732bba02132aefe80c5f3ca0845983"
+# matches with: https://github.com/ros2-gbp/cartographer_ros-release/archive/release/dashing/cartographer_ros_msgs/1.0.9003-1.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/cartographer_ros_msgs"
+SRC_URI = "git://github.com/ros2-gbp/cartographer_ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "75507bc0d12d8d38262297004d7d79f7af135f4d"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
