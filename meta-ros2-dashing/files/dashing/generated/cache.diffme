@@ -1,4 +1,4 @@
-# dashing/cache.yaml 2021-01-14 93a17f88deecaf70ed1d9178643b69449fda45f7 20210107100555 1.6.0
+# dashing/cache.yaml 2021-02-04 f7a5090133d1cc0e94e9102f99bdbb264b285ff0 20210128232836 1.6.0
 distribution_file:
 - release_platforms:
 -----
@@ -573,7 +573,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/cartographer_ros-release.git',
-version: 1.0.9000-1
+version: 1.0.9003-1
 },
 source: {
 test_pull_requests: true,
@@ -1774,7 +1774,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/laser_proc-release.git',
-version: 1.0.1-1
+version: 1.0.2-1
 },
 source: {
 test_pull_requests: true,
@@ -2825,6 +2825,30 @@ version: master
 status: developed
 }
 -----
+rc_reason_clients: {
+doc: {
+type: git,
+url: 'https://github.com/roboception/rc_reason_clients_ros2.git',
+version: master
+},
+release: {
+packages: [rc_reason_clients,
+rc_reason_msgs],
+tags: {
+release: 'release/dashing/{package}/{version}'
+},
+url: 'https://github.com/roboception-gbp/rc_reason_clients-release.git',
+version: 0.2.1-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/roboception/rc_reason_clients_ros2.git',
+version: master
+},
+status: developed
+}
+-----
 rcdiscover: {
 doc: {
 type: git,
@@ -2940,8 +2964,8 @@ rclc_lifecycle],
 tags: {
 release: 'release/dashing/{package}/{version}'
 },
-url: 'https://github.com/micro-ROS/rclc-release.git',
-version: 0.1.4-1
+url: 'https://github.com/ros2-gbp/rclc-release.git',
+version: 0.1.7-1
 },
 source: {
 test_pull_requests: true,
@@ -3348,7 +3372,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/lgsvl/ros2-lgsvl-bridge-release.git',
-version: 0.2.0-1
+version: 0.3.0-1
 },
 source: {
 type: git,
@@ -4740,7 +4764,7 @@ transport_drivers: {
 doc: {
 type: git,
 url: 'https://github.com/ros-drivers/transport_drivers.git',
-version: ros2
+version: main
 },
 release: {
 packages: [serial_driver,
@@ -4754,7 +4778,7 @@ version: 0.0.6-4
 source: {
 type: git,
 url: 'https://github.com/ros-drivers/transport_drivers.git',
-version: ros2
+version: main
 },
 status: developed
 }
@@ -4839,13 +4863,14 @@ url: 'https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git',
 version: dashing-devel
 },
 release: {
-packages: [turtlebot3_gazebo,
+packages: [turtlebot3_fake_node,
+turtlebot3_gazebo,
 turtlebot3_simulations],
 tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/robotis-ros2-release/turtlebot3_simulations-release.git',
-version: 2.0.1-1
+version: 2.2.1-1
 },
 source: {
 type: git,
@@ -14269,6 +14294,51 @@ streaming and synchronizing images. See LICENSE.md for licensing terms of the di
 </export>
 </package>
 -----
+rc_reason_clients: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rc_reason_clients</name>
+<description>Clients for interfacing with Roboception reason modules on rc_visard and rc_cube.</description>
+<maintainer email="felix.ruess@roboception.de">ruess</maintainer>
+<license>BSD</license>
+<depend>rclpy</depend>
+<depend>ros2pkg</depend>
+<depend>python3-requests</depend>
+<depend>geometry_msgs</depend>
+<depend>tf2_msgs</depend>
+<depend>visualization_msgs</depend>
+<depend>rc_reason_msgs</depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+rc_reason_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rc_reason_msgs</name>
+<description>Msg and srv definitions for rc_reason_clients</description>
+<maintainer email="felix.ruess@roboception.de">Felix Ruess</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>shape_msgs</depend>
+<depend>rc_common_msgs</depend>
+<test_depend>ament_lint_common</test_depend>
+<doc_depend>doxygen</doc_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 rcdiscover: <?xml version="1.0" ?>
 <package format="2">
 <name>rcdiscover</name>
@@ -14493,6 +14563,8 @@ rclc: <?xml version="1.0" ?>
 <test_depend>launch_testing</test_depend>
 <test_depend>osrf_testing_tools_cpp</test_depend>
 <test_depend>std_msgs</test_depend>
+<test_depend>test_msgs</test_depend>
+<test_depend>example_interfaces</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -14513,11 +14585,13 @@ rclc_examples: <?xml version="1.0" ?>
 <build_depend>rclc_lifecycle</build_depend>
 <build_depend>std_msgs</build_depend>
 <build_depend>lifecycle_msgs</build_depend>
+<build_depend>example_interfaces</build_depend>
 <exec_depend>rcl</exec_depend>
 <exec_depend>rclc</exec_depend>
 <exec_depend>rclc_lifecycle</exec_depend>
 <exec_depend>std_msgs</exec_depend>
 <exec_depend>lifecycle_msgs</exec_depend>
+<exec_depend>example_interfaces</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -19435,24 +19509,58 @@ patrol and position control).</description>
 </export>
 </package>
 -----
+turtlebot3_fake_node: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>turtlebot3_fake_node</name>
+<description>Package for TurtleBot3 fake node. With this package,
+simple tests can be done without a robot. You can do simple tests using this package on rviz without real robots.</description>
+<maintainer email="willson@robotis.com">Will Son</maintainer>
+<license>Apache 2.0</license>
+<url type="website">http://turtlebot3.robotis.com</url>
+<url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_simulations</url>
+<url type="bugtracker">https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues</url>
+<author email="pyo@robotis.com">Pyo</author>
+<author email="thlim@robotis.com">Darby Lim</author>
+<author email="jhshim@robotis.com">Ryan Shim</author>
+<depend>ament_cmake</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>rclcpp</depend>
+<depend>sensor_msgs</depend>
+<depend>tf2</depend>
+<depend>tf2_msgs</depend>
+<depend>turtlebot3_msgs</depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 turtlebot3_gazebo: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>turtlebot3_gazebo</name>
 <description>Gazebo simulation package for the TurtleBot3</description>
+<maintainer email="willson@robotis.com">Will Son</maintainer>
 <license>Apache 2.0</license>
-<author email="thlim@robotis.com">Darby Lim</author>
-<author email="pyo@robotis.com">Pyo</author>
-<maintainer email="pyo@robotis.com">Pyo</maintainer>
-<url type="website">http://wiki.ros.org/turtlebot3_gazebo</url>
-<url type="emanual">http://turtlebot3.robotis.com</url>
+<url type="website">http://turtlebot3.robotis.com</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_simulations</url>
 <url type="bugtracker">https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues</url>
+<author email="thlim@robotis.com">Darby Lim</author>
+<author email="pyo@robotis.com">Pyo</author>
+<author email="jhshim@robotis.com">Ryan Shim</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<exec_depend>gazebo_ros_pkgs</exec_depend>
-<exec_depend>turtlebot3_description</exec_depend>
+<depend>gazebo_ros_pkgs</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>rclcpp</depend>
+<depend>sensor_msgs</depend>
+<depend>tf2</depend>
+<depend>turtlebot3</depend>
 <export>
 <build_type>ament_cmake</build_type>
+<gazebo_ros gazebo_model_path="${prefix}/models"/>
 </export>
 </package>
 -----
@@ -19540,15 +19648,16 @@ turtlebot3_simulations: <?xml version="1.0" ?>
 <package format="3">
 <name>turtlebot3_simulations</name>
 <description>ROS 2 packages for TurtleBot3 simulations</description>
+<maintainer email="willson@robotis.com">Will Son</maintainer>
 <license>Apache 2.0</license>
-<author email="thlim@robotis.com">Darby Lim</author>
-<author email="pyo@robotis.com">Pyo</author>
-<maintainer email="pyo@robotis.com">Pyo</maintainer>
-<url type="website">http://wiki.ros.org/turtlebot3_simulations</url>
-<url type="emanual">http://turtlebot3.robotis.com</url>
+<url type="website">http://turtlebot3.robotis.com</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_simulations</url>
 <url type="bugtracker">https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues</url>
+<author email="thlim@robotis.com">Darby Lim</author>
+<author email="pyo@robotis.com">Pyo</author>
+<author email="jhshim@robotis.com">Ryan Shim</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>turtlebot3_fake_node</exec_depend>
 <exec_depend>turtlebot3_gazebo</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
