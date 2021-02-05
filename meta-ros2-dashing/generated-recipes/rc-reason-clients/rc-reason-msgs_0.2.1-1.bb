@@ -5,42 +5,47 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "laser_proc"
-AUTHOR = "Chad Rockey <chadrockey@willowgarage.com>"
-ROS_AUTHOR = "Chad Rockey <chadrockey@willowgarage.com>"
-HOMEPAGE = "http://ros.org/wiki/laser_proc"
+DESCRIPTION = "Msg and srv definitions for rc_reason_clients"
+AUTHOR = "Felix Ruess <felix.ruess@roboception.de>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "laser_proc"
-ROS_BPN = "laser_proc"
+ROS_CN = "rc_reason_clients"
+ROS_BPN = "rc_reason_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    class-loader \
-    rclcpp \
-    rclcpp-components \
-    sensor-msgs \
+    geometry-msgs \
+    rc-common-msgs \
+    shape-msgs \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
+    rosidl-default-generators-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    geometry-msgs \
+    rc-common-msgs \
+    shape-msgs \
+    std-msgs \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    class-loader \
-    rclcpp \
-    rclcpp-components \
-    sensor-msgs \
+    geometry-msgs \
+    rc-common-msgs \
+    rosidl-default-runtime \
+    shape-msgs \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-lint-auto \
     ament-lint-common \
 "
 
@@ -51,10 +56,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/laser_proc-release/archive/release/dashing/laser_proc/1.0.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/laser_proc"
-SRC_URI = "git://github.com/ros2-gbp/laser_proc-release;${ROS_BRANCH};protocol=https"
-SRCREV = "e085b927dbdcd4750dfac4ea5b7621f847de14cf"
+# matches with: https://github.com/roboception-gbp/rc_reason_clients-release/archive/release/dashing/rc_reason_msgs/0.2.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/rc_reason_msgs"
+SRC_URI = "git://github.com/roboception-gbp/rc_reason_clients-release;${ROS_BRANCH};protocol=https"
+SRCREV = "4891c739b0d432a9b091b7be7a5945dfa9f7d887"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
