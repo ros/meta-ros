@@ -6,31 +6,52 @@ inherit ros_distro_dashing
 inherit ros_superflore_generated
 
 DESCRIPTION = "Gazebo simulation package for the TurtleBot3"
-AUTHOR = "Pyo <pyo@robotis.com>"
+AUTHOR = "Will Son <willson@robotis.com>"
 ROS_AUTHOR = "Darby Lim <thlim@robotis.com>"
-HOMEPAGE = "http://wiki.ros.org/turtlebot3_gazebo"
+HOMEPAGE = "http://turtlebot3.robotis.com"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "turtlebot3_simulations"
 ROS_BPN = "turtlebot3_gazebo"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    gazebo-ros-pkgs \
+    geometry-msgs \
+    nav-msgs \
+    rclcpp \
+    sensor-msgs \
+    tf2 \
+    turtlebot3 \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    gazebo-ros-pkgs \
+    geometry-msgs \
+    nav-msgs \
+    rclcpp \
+    sensor-msgs \
+    tf2 \
+    turtlebot3 \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     gazebo-ros-pkgs \
-    turtlebot3-description \
+    geometry-msgs \
+    nav-msgs \
+    rclcpp \
+    sensor-msgs \
+    tf2 \
+    turtlebot3 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -43,10 +64,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/robotis-ros2-release/turtlebot3_simulations-release/archive/release/dashing/turtlebot3_gazebo/2.0.1-1.tar.gz
+# matches with: https://github.com/robotis-ros2-release/turtlebot3_simulations-release/archive/release/dashing/turtlebot3_gazebo/2.2.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/dashing/turtlebot3_gazebo"
 SRC_URI = "git://github.com/robotis-ros2-release/turtlebot3_simulations-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ad4619456991f8246e06db1d0af9c27a6fe88278"
+SRCREV = "49e51dc01ae148f6972791ac023ac5c323ca844a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

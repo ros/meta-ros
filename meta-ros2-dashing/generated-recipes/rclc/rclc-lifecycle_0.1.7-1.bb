@@ -57,10 +57,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/micro-ROS/rclc-release/archive/release/dashing/rclc_lifecycle/0.1.4-1.tar.gz
+# matches with: https://github.com/ros2-gbp/rclc-release/archive/release/dashing/rclc_lifecycle/0.1.7-1.tar.gz
 ROS_BRANCH ?= "branch=release/dashing/rclc_lifecycle"
-SRC_URI = "git://github.com/micro-ROS/rclc-release;${ROS_BRANCH};protocol=https"
-SRCREV = "166e9934d0d71f218c097bee28cd82ecb1cd2bef"
+SRC_URI = "git://github.com/ros2-gbp/rclc-release;${ROS_BRANCH};protocol=https"
+SRCREV = "3f077d1ccbc8e891df85be17267bd96b0651b9e2"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
