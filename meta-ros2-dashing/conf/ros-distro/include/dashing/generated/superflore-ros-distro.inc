@@ -37,7 +37,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-dashing/files/dashing/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "11"
+ROS_NUM_CACHE_YAML_COMMITS = "12"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -419,6 +419,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rc-common-msgs \
     rc-dynamics-api \
     rc-genicam-api \
+    rc-reason-clients \
+    rc-reason-msgs \
     rcdiscover \
     rcl \
     rcl-action \
@@ -616,6 +618,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     turtlebot3-cartographer \
     turtlebot3-description \
     turtlebot3-example \
+    turtlebot3-fake-node \
     turtlebot3-gazebo \
     turtlebot3-msgs \
     turtlebot3-navigation2 \
@@ -730,8 +733,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          image-common/camera-info-manager_2.1.1-1 \
                           ros-canopen/can-msgs_2.0.0-1 \
                          cartographer/cartographer_1.0.9001-1 \
-                     cartographer-ros/cartographer-ros_1.0.9000-1 \
-                     cartographer-ros/cartographer-ros-msgs_1.0.9000-1 \
+                     cartographer-ros/cartographer-ros_1.0.9003-1 \
+                     cartographer-ros/cartographer-ros-msgs_1.0.9003-1 \
                          class-loader/class-loader_1.3.3-1 \
                     cloudwatch-logger/cloudwatch-logger_3.0.1-1 \
                     cloudwatch-common/cloudwatch-logs-common_1.1.5-1 \
@@ -899,7 +902,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                              lanelet2/lanelet2-traffic-rules_1.1.1-1 \
                              lanelet2/lanelet2-validation_1.1.1-1 \
                        laser-geometry/laser-geometry_2.0.0 \
-                           laser-proc/laser-proc_1.0.1-1 \
+                           laser-proc/laser-proc_1.0.2-1 \
                                launch/launch_0.8.7-1 \
                            launch-ros/launch-ros_0.8.9-1 \
                    launch-ros-sandbox/launch-ros-sandbox_0.0.2-4 \
@@ -909,7 +912,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                            lex-common/lex-common_1.0.0-1 \
                              lex-node/lex-common-msgs_3.1.0-1 \
                              lex-node/lex-node_3.1.0-1 \
-                    ros2-lgsvl-bridge/lgsvl-bridge_0.2.0-1 \
+                    ros2-lgsvl-bridge/lgsvl-bridge_0.3.0-1 \
                            lgsvl-msgs/lgsvl-msgs_0.0.4-1 \
                    resource-retriever/libcurl-vendor_2.1.3-1 \
                      phidgets-drivers/libphidget22_2.0.2-1 \
@@ -1023,6 +1026,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                        rc-common-msgs/rc-common-msgs_0.5.3-1 \
                       rc-dynamics-api/rc-dynamics-api_0.10.2-1 \
                        rc-genicam-api/rc-genicam-api_2.4.4-1 \
+                    rc-reason-clients/rc-reason-clients_0.2.1-1 \
+                    rc-reason-clients/rc-reason-msgs_0.2.1-1 \
                            rcdiscover/rcdiscover_1.0.4-1 \
                                   rcl/rcl_0.7.9-1 \
                                   rcl/rcl-action_0.7.9-1 \
@@ -1031,9 +1036,9 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                           rcl-logging/rcl-logging-log4cxx_0.2.1-1 \
                           rcl-logging/rcl-logging-noop_0.2.1-1 \
                                   rcl/rcl-yaml-param-parser_0.7.9-1 \
-                                 rclc/rclc_0.1.4-1 \
-                                 rclc/rclc-examples_0.1.4-1 \
-                                 rclc/rclc-lifecycle_0.1.4-1 \
+                                 rclc/rclc_0.1.7-1 \
+                                 rclc/rclc-examples_0.1.7-1 \
+                                 rclc/rclc-lifecycle_0.1.7-1 \
                                rclcpp/rclcpp_0.7.15-1 \
                                rclcpp/rclcpp-action_0.7.15-1 \
                                rclcpp/rclcpp-components_0.7.15-1 \
@@ -1220,11 +1225,12 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                            turtlebot3/turtlebot3-cartographer_2.1.1-2 \
                            turtlebot3/turtlebot3-description_2.1.1-2 \
                            turtlebot3/turtlebot3-example_2.1.1-2 \
-               turtlebot3-simulations/turtlebot3-gazebo_2.0.1-1 \
+               turtlebot3-simulations/turtlebot3-fake-node_2.2.1-1 \
+               turtlebot3-simulations/turtlebot3-gazebo_2.2.1-1 \
                       turtlebot3-msgs/turtlebot3-msgs_2.2.1-2 \
                            turtlebot3/turtlebot3-navigation2_2.1.1-2 \
                            turtlebot3/turtlebot3-node_2.1.1-2 \
-               turtlebot3-simulations/turtlebot3-simulations_2.0.1-1 \
+               turtlebot3-simulations/turtlebot3-simulations_2.2.1-1 \
                            turtlebot3/turtlebot3-teleop_2.1.1-2 \
                             turtlesim/turtlesim_1.0.3-1 \
                            tvm-vendor/tvm-vendor_0.7.2-1 \
@@ -1622,6 +1628,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rc-common-msgs \
     rc-dynamics-api \
     rc-genicam-api \
+    rc-reason-clients \
+    rc-reason-msgs \
     rcdiscover \
     rcl \
     rcl-action \
@@ -1811,6 +1819,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     turtlebot3-cartographer \
     turtlebot3-description \
     turtlebot3-example \
+    turtlebot3-fake-node \
     turtlebot3-gazebo \
     turtlebot3-msgs \
     turtlebot3-navigation2 \
@@ -2103,7 +2112,6 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     python3-nose-yanc \
     python3-pygraphviz \
     python3-pytest \
-    python3-requests \
     python3-websocket-client \
     ros-testing \
     ros2bag \
@@ -2234,6 +2242,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     rc-common-msgs \
     rc-dynamics-api \
     rc-genicam-api \
+    rc-reason-clients \
     rcdiscover \
     rcl \
     rcl-interfaces \
@@ -2369,10 +2378,10 @@ ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "2021-01-14"
+ROS_DISTRO_RELEASE_DATE = "2021-02-04"
 
 # The commit of ros/rosdistro/dashing/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "93a17f88deecaf70ed1d9178643b69449fda45f7"
+ROS_SUPERFLORE_GENERATION_COMMIT = "f7a5090133d1cc0e94e9102f99bdbb264b285ff0"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated

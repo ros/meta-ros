@@ -5,47 +5,43 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "LGSVL Simulator Bridge"
-AUTHOR = "Martins Mozeiko <martins.mozeiko@lge.com>"
+DESCRIPTION = "Example of using rclc_executor"
+AUTHOR = "Jan Staschulat <jan.staschulat@de.bosch.com>"
+ROS_AUTHOR = "Jan Staschulat <jan.staschulat@de.bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "BSD 3-Clause"
-LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=f5654d47d02d927c4f7a04f0a51abaa1"
+#         "Apache License 2.0"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "ros2-lgsvl-bridge"
-ROS_BPN = "lgsvl_bridge"
+ROS_CN = "rclc"
+ROS_BPN = "rclc_examples"
 
 ROS_BUILD_DEPENDS = " \
-    ament-cmake-ros \
-    boost \
+    example-interfaces \
+    lifecycle-msgs \
     rcl \
-    rcutils \
+    rclc \
+    rclc-lifecycle \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-auto-native \
+    ament-cmake-ros-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    ament-cmake-ros \
-    boost \
-    rcl \
-    rcutils \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ament-cmake-ros \
-    boost \
-    lgsvl-msgs \
-    nav-msgs \
+    example-interfaces \
+    lifecycle-msgs \
     rcl \
-    rcutils \
-    rosgraph-msgs \
-    sensor-msgs \
+    rclc \
+    rclc-lifecycle \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -58,10 +54,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/lgsvl/ros2-lgsvl-bridge-release/archive/release/dashing/lgsvl_bridge/0.2.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/lgsvl_bridge"
-SRC_URI = "git://github.com/lgsvl/ros2-lgsvl-bridge-release;${ROS_BRANCH};protocol=https"
-SRCREV = "e0c484b3b47a94705c85b90ecf2c611b1424930c"
+# matches with: https://github.com/ros2-gbp/rclc-release/archive/release/dashing/rclc_examples/0.1.7-1.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/rclc_examples"
+SRC_URI = "git://github.com/ros2-gbp/rclc-release;${ROS_BRANCH};protocol=https"
+SRCREV = "a473c1a80f9b52046a321b1e6b1d80d99104683e"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

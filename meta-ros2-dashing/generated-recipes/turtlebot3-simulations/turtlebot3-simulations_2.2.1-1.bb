@@ -6,14 +6,14 @@ inherit ros_distro_dashing
 inherit ros_superflore_generated
 
 DESCRIPTION = "ROS 2 packages for TurtleBot3 simulations"
-AUTHOR = "Pyo <pyo@robotis.com>"
+AUTHOR = "Will Son <willson@robotis.com>"
 ROS_AUTHOR = "Darby Lim <thlim@robotis.com>"
-HOMEPAGE = "http://wiki.ros.org/turtlebot3_simulations"
+HOMEPAGE = "http://turtlebot3.robotis.com"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "turtlebot3_simulations"
 ROS_BPN = "turtlebot3_simulations"
@@ -29,6 +29,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    turtlebot3-fake-node \
     turtlebot3-gazebo \
 "
 
@@ -42,10 +43,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/robotis-ros2-release/turtlebot3_simulations-release/archive/release/dashing/turtlebot3_simulations/2.0.1-1.tar.gz
+# matches with: https://github.com/robotis-ros2-release/turtlebot3_simulations-release/archive/release/dashing/turtlebot3_simulations/2.2.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/dashing/turtlebot3_simulations"
 SRC_URI = "git://github.com/robotis-ros2-release/turtlebot3_simulations-release;${ROS_BRANCH};protocol=https"
-SRCREV = "747965b8139a7a595364d1c364cbbe0b824b0c13"
+SRCREV = "9b965902fa8a9b85e328932a7e26f7396345fb09"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
