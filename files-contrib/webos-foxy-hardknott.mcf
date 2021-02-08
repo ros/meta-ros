@@ -20,7 +20,7 @@ MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'master/milestones/
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
-MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2021-02-06')
+MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2021-02-08')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
@@ -31,9 +31,9 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2021-02-06')
 Layers = [
 ('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': 'a9451746'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '5c7f963d39'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': 'd26f5601d0'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '326d19c393'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '8cc800b1e9'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
@@ -52,7 +52,7 @@ Layers = [
 
 ('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': '509ff8c'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': 'f5fe02c'}, {}),
 ('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-updater',        52, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-virtualization', 53, MetaWebos_RepoURL,                                        {}, {}),
