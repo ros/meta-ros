@@ -53,7 +53,7 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'da0a17a94')
 Layers = [
 ('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': 'a9451746'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '50f83fb542'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '5c7f963d39'}, {}),
 
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '326d19c393'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
@@ -65,7 +65,7 @@ Layers = [
 ('meta-ros1',                 38, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros1-melodic',         39, MetaRos_RepoURL,                                          {}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': 'b52d47c'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': '509ff8c'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
