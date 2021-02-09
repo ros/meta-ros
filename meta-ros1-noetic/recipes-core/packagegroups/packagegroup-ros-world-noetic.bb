@@ -1425,6 +1425,7 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wxpython
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WXPYTHON = " \
     executive-smach-visualization \
     jsk-planning \
+    rx-service-tools \
     seed-r7-ros-pkg \
     seed-r7-samples \
     smach-viewer \
