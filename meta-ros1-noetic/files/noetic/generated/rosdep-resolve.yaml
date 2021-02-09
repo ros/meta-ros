@@ -37,6 +37,8 @@ coinor-libipopt-dev:
 - ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev}
 collada-dom:
 - collada-dom@meta-ros-common
+cppcheck:
+- cppcheck@meta-ros-common
 curl:
 - curl@openembedded-core
 cwiid-dev:
@@ -121,6 +123,8 @@ iproute2:
 - iproute2@openembedded-core
 ipython3:
 - python3-ipython@meta-python
+iwyu:
+- ${ROS_UNRESOLVED_DEP-iwyu}
 joystick:
 - joystick@meta-ros-common
 julius-voxforge:
@@ -155,6 +159,8 @@ libccd-dev:
 - libccd@meta-ros-common
 libceres-dev:
 - ceres-solver@meta-oe
+libclang-dev:
+- ${ROS_UNRESOLVED_DEP-libclang-dev}
 libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libdw-dev:
@@ -164,7 +170,7 @@ libfcl-dev:
 libffi-dev:
 - libffi@openembedded-core
 libflann-dev:
-- ${ROS_UNRESOLVED_DEP-libflann-dev}
+- libflann@meta-ros-common
 libfltk-dev:
 - fltk@meta-oe
 libfreenect-dev:
@@ -355,6 +361,8 @@ ocl-icd-opencl-dev:
 - ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev}
 opencl-headers:
 - opencl-headers@meta-oe
+opende:
+- ${ROS_UNRESOLVED_DEP-opende}
 opengl:
 - mesa@openembedded-core
 openni_launch:
@@ -484,12 +492,10 @@ python3-mapnik:
 - ${ROS_UNRESOLVED_DEP-python3-mapnik}
 python3-matplotlib:
 - python3-matplotlib@meta-python
-python3-mechanize:
-- ${ROS_UNRESOLVED_DEP-python3-mechanize}
 python3-mock:
 - python3-mock@meta-ros-common
 python3-msgpack:
-- ${ROS_UNRESOLVED_DEP-python3-msgpack}
+- python3-msgpack@meta-python
 python3-netifaces:
 - python3-netifaces@meta-ros-common
 python3-nose:
@@ -509,11 +515,11 @@ python3-pep8:
 python3-pil:
 - python3-pillow@meta-python
 python3-pip:
-- ${ROS_UNRESOLVED_DEP-python3-pip}
+- python3-pip@openembedded-core
 python3-psutil:
 - python3-psutil@meta-python
 python3-pyassimp:
-- ${ROS_UNRESOLVED_DEP-python3-pyassimp}
+- python3-pyassimp@meta-ros-common
 python3-pycryptodome:
 - python3-pycryptodome@meta-python
 python3-pydot:
@@ -523,7 +529,7 @@ python3-pygraphviz:
 python3-pykdl:
 - python3-pykdl@meta-ros1-noetic
 python3-pymongo:
-- ${ROS_UNRESOLVED_DEP-python3-pymongo}
+- python3-pymongo@meta-python
 python3-pyproj:
 - python3-pyproj@meta-ros-common
 python3-pytest:

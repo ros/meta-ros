@@ -5,22 +5,19 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Python bindings for EXOTica"
-AUTHOR = "Wolfgang Merkt <wolfgang@robots.ox.ac.uk>"
+DESCRIPTION = "The magical_ros2_conversion_tool package"
+AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "exotica"
-ROS_BPN = "exotica_python"
+ROS_CN = "roscompile"
+ROS_BPN = "magical_ros2_conversion_tool"
 
 ROS_BUILD_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
+    ros-introspection \
+    roscompile \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -28,29 +25,21 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
+    ros-introspection \
+    roscompile \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    python3-matplotlib \
-    python3-pyassimp \
-    python3-rospkg \
-    python3-tkinter \
-    shape-msgs \
+    ros-introspection \
+    roscompile \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    roslint \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -59,10 +48,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ipab-slmc/exotica-release/archive/release/noetic/exotica_python/6.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/exotica_python"
-SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ab8db40064601e8359857e5fa3a3f6004fc360d2"
+# matches with: https://github.com/wu-robotics/roscompile-release/archive/release/noetic/magical_ros2_conversion_tool/1.2.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/magical_ros2_conversion_tool"
+SRC_URI = "git://github.com/wu-robotics/roscompile-release;${ROS_BRANCH};protocol=https"
+SRCREV = "e8358347dd8fd81f5bd214775d7418c18ec87209"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

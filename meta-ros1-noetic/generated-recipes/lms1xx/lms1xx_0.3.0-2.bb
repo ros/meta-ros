@@ -5,48 +5,49 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Python interfaces to MoveIt"
-AUTHOR = "Michael Görner <me@v4hn.de>"
-ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
-HOMEPAGE = "http://moveit.ros.org"
+DESCRIPTION = "The lms1xx package contains a basic ROS driver for the SICK LMS1xx line of LIDARs."
+AUTHOR = "Mike Purvis <mpurvis@clearpathrobotics.com>"
+ROS_AUTHOR = "Konrad Banachowicz"
+HOMEPAGE = "http://ros.org/wiki/LMS1xx"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "LGPL"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=46ee8693f40a89a31023e97ae17ecf19"
 
-ROS_CN = "moveit"
-ROS_BPN = "moveit_commander"
+ROS_CN = "lms1xx"
+ROS_BPN = "lms1xx"
 
 ROS_BUILD_DEPENDS = " \
-    python3 \
+    rosconsole-bridge \
+    roscpp \
+    roscpp-serialization \
+    sensor-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    python3-catkin-pkg-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    python3 \
+    rosconsole-bridge \
+    roscpp \
+    roscpp-serialization \
+    sensor-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    geometry-msgs \
-    moveit-msgs \
-    moveit-ros-planning-interface \
-    python3 \
-    python3-pyassimp \
-    rospy \
+    rosconsole-bridge \
+    roscpp \
+    roscpp-serialization \
     sensor-msgs \
-    shape-msgs \
-    tf \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    moveit-resources-fanuc-moveit-config \
-    rostest \
+    roslaunch \
+    roslint \
+    rosunit \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -56,10 +57,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_commander/1.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_commander"
-SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "0dcb832438d32ad759ad25bbd40f04560067fc64"
+# matches with: https://github.com/clearpath-gbp/lms1xx-release/archive/release/noetic/lms1xx/0.3.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/lms1xx"
+SRC_URI = "git://github.com/clearpath-gbp/lms1xx-release;${ROS_BRANCH};protocol=https"
+SRCREV = "7d76acebd2d8a32c8cf1a45d7e89c69311519b47"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
