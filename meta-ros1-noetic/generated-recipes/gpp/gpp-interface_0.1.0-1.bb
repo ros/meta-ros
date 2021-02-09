@@ -5,22 +5,19 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Python bindings for EXOTica"
-AUTHOR = "Wolfgang Merkt <wolfgang@robots.ox.ac.uk>"
+DESCRIPTION = "The gpp_interface package defines the interfaces for   pre and post-planning inside the global_planner_pipeline framework"
+AUTHOR = "Dima Dorezyuk <dmitrij.dorezyuk@hotmail.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=58e54c03ca7f821dd3967e2a2cd1596e"
 
-ROS_CN = "exotica"
-ROS_BPN = "exotica_python"
+ROS_CN = "gpp"
+ROS_BPN = "gpp_interface"
 
 ROS_BUILD_DEPENDS = " \
-    exotica-core \
+    costmap-2d \
     geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -28,25 +25,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    exotica-core \
+    costmap-2d \
     geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    exotica-core \
+    costmap-2d \
     geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    python3-matplotlib \
-    python3-pyassimp \
-    python3-rospkg \
-    python3-tkinter \
-    shape-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -59,10 +46,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ipab-slmc/exotica-release/archive/release/noetic/exotica_python/6.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/exotica_python"
-SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ab8db40064601e8359857e5fa3a3f6004fc360d2"
+# matches with: https://github.com/dorezyuk/gpp-release/archive/release/noetic/gpp_interface/0.1.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/gpp_interface"
+SRC_URI = "git://github.com/dorezyuk/gpp-release;${ROS_BRANCH};protocol=https"
+SRCREV = "9ec3844ab70ee13b33cbbc57473dfe40e874e1e8"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

@@ -5,52 +5,50 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Python bindings for EXOTica"
-AUTHOR = "Wolfgang Merkt <wolfgang@robots.ox.ac.uk>"
+DESCRIPTION = "The roscompile package"
+AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "exotica"
-ROS_BPN = "exotica_python"
+ROS_CN = "roscompile"
+ROS_BPN = "roscompile"
 
 ROS_BUILD_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
+    catkin \
+    ros-introspection \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
+    python3-setuptools-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
+    catkin \
+    ros-introspection \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    python3-matplotlib \
-    python3-pyassimp \
+    catkin \
+    python3-click \
+    python3-pyyaml \
     python3-rospkg \
-    python3-tkinter \
-    shape-msgs \
+    ros-introspection \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    geometry-msgs \
+    pluginlib \
+    pluginlib-tutorials \
+    roslint \
+    stereo-msgs \
+    tf \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -59,10 +57,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ipab-slmc/exotica-release/archive/release/noetic/exotica_python/6.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/exotica_python"
-SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ab8db40064601e8359857e5fa3a3f6004fc360d2"
+# matches with: https://github.com/wu-robotics/roscompile-release/archive/release/noetic/roscompile/1.2.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/roscompile"
+SRC_URI = "git://github.com/wu-robotics/roscompile-release;${ROS_BRANCH};protocol=https"
+SRCREV = "5ddd7e1bbec0d58c215b8865d5bb1d959dc5dffe"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

@@ -5,36 +5,28 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "A pure-python interaface to the MoveIt! ROS API."
-AUTHOR = "Michael Ferguson <fergs@botnuvo.com>"
-ROS_AUTHOR = "Michael Ferguson"
-HOMEPAGE = "http://ros.org/wiki/moveit_python"
+DESCRIPTION = "The OctoMap library implements a 3D occupancy grid mapping approach, providing data structures and mapping algorithms in C++. The map implementation is based on an octree. See   http://octomap.github.io for details."
+AUTHOR = "Armin Hornung <armin@hornung.io>"
+ROS_AUTHOR = "Kai M. Wurm <wurm@informatik.uni-freiburg.de>"
+HOMEPAGE = "http://octomap.github.io"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "moveit_python"
-ROS_BPN = "moveit_python"
+ROS_CN = "octomap"
+ROS_BPN = "octomap"
 
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
-    catkin-native \
+    cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    actionlib \
-    geometry-msgs \
-    moveit-msgs \
-    python3-pyassimp \
-    rospy \
-    shape-msgs \
-    tf \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""
@@ -46,12 +38,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/mikeferguson/moveit_python-release/archive/release/noetic/moveit_python/0.4.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_python"
-SRC_URI = "git://github.com/mikeferguson/moveit_python-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6635c8c37d8ff25953473497bfab1810db1c0a3d"
+# matches with: https://github.com/ros-gbp/octomap-release/archive/release/noetic/octomap/1.9.6-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/octomap"
+SRC_URI = "git://github.com/ros-gbp/octomap-release;${ROS_BRANCH};protocol=https"
+SRCREV = "b6d422fba55435a6d25cbe6f3b036c6d84ef3251"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "catkin"
+ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

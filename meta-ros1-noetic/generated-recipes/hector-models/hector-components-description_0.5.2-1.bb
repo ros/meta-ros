@@ -5,48 +5,33 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Python bindings for EXOTica"
-AUTHOR = "Wolfgang Merkt <wolfgang@robots.ox.ac.uk>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "hector_components_description contains URDF xacro macros for robot components, so they are easily attachable to robot models."
+AUTHOR = "Stefan Fabian <fabian@sim.tu-darmstadt.de>"
+ROS_AUTHOR = "Stefan Kohlbrecher <kohlbrecher@sim.tu-darmstadt.de>"
+HOMEPAGE = "http://ros.org/wiki/hector_components_description"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "exotica"
-ROS_BPN = "exotica_python"
+ROS_CN = "hector_models"
+ROS_BPN = "hector_components_description"
 
-ROS_BUILD_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    python3-matplotlib \
-    python3-pyassimp \
-    python3-rospkg \
-    python3-tkinter \
-    shape-msgs \
+    gazebo-ros-control-select-joints \
+    hector-gazebo-thermal-camera \
+    hector-sensors-description \
+    hector-xacro-tools \
+    xacro \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -59,10 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ipab-slmc/exotica-release/archive/release/noetic/exotica_python/6.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/exotica_python"
-SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ab8db40064601e8359857e5fa3a3f6004fc360d2"
+# matches with: https://github.com/tu-darmstadt-ros-pkg-gbp/hector_models-release/archive/release/noetic/hector_components_description/0.5.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/hector_components_description"
+SRC_URI = "git://github.com/tu-darmstadt-ros-pkg-gbp/hector_models-release;${ROS_BRANCH};protocol=https"
+SRCREV = "a6538a1c9be21deb0268b99d6e01e9654789aa8a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

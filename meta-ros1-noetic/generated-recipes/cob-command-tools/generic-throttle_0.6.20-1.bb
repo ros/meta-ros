@@ -5,21 +5,24 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "A pure-python interaface to the MoveIt! ROS API."
-AUTHOR = "Michael Ferguson <fergs@botnuvo.com>"
-ROS_AUTHOR = "Michael Ferguson"
-HOMEPAGE = "http://ros.org/wiki/moveit_python"
+DESCRIPTION = "This package provides a throttle for ROS topics"
+AUTHOR = "Felix Messmer <felixmessmer@gmail.com>"
+ROS_AUTHOR = "Mattia Racca <mattia.rh@gmail.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
-ROS_CN = "moveit_python"
-ROS_BPN = "moveit_python"
+ROS_CN = "cob_command_tools"
+ROS_BPN = "generic_throttle"
 
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
+    python3-setuptools-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
@@ -27,13 +30,9 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    geometry-msgs \
-    moveit-msgs \
-    python3-pyassimp \
+    cv-bridge \
     rospy \
-    shape-msgs \
-    tf \
+    rostopic \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +45,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/mikeferguson/moveit_python-release/archive/release/noetic/moveit_python/0.4.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_python"
-SRC_URI = "git://github.com/mikeferguson/moveit_python-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6635c8c37d8ff25953473497bfab1810db1c0a3d"
+# matches with: https://github.com/ipa320/cob_command_tools-release/archive/release/noetic/generic_throttle/0.6.20-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/generic_throttle"
+SRC_URI = "git://github.com/ipa320/cob_command_tools-release;${ROS_BRANCH};protocol=https"
+SRCREV = "11f4be0d95e966f9efaf28351949f8aad4eaaf95"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

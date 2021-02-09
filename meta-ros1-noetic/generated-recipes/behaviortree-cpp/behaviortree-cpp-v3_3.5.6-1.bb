@@ -5,22 +5,21 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Python bindings for EXOTica"
-AUTHOR = "Wolfgang Merkt <wolfgang@robots.ox.ac.uk>"
+DESCRIPTION = "This package provides the Behavior Trees core library."
+AUTHOR = "Davide Faconti <davide.faconti@gmail.com>"
+ROS_AUTHOR = "Michele Colledanchise"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=58e54c03ca7f821dd3967e2a2cd1596e"
 
-ROS_CN = "exotica"
-ROS_BPN = "exotica_python"
+ROS_CN = "behaviortree_cpp"
+ROS_BPN = "behaviortree_cpp_v3"
 
 ROS_BUILD_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
+    ncurses \
+    roslib \
+    zeromq \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -28,25 +27,17 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
+    ncurses \
+    roslib \
+    zeromq \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    python3-matplotlib \
-    python3-pyassimp \
-    python3-rospkg \
-    python3-tkinter \
-    shape-msgs \
+    ncurses \
+    roslib \
+    zeromq \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -59,10 +50,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ipab-slmc/exotica-release/archive/release/noetic/exotica_python/6.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/exotica_python"
-SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ab8db40064601e8359857e5fa3a3f6004fc360d2"
+# matches with: https://github.com/BehaviorTree/behaviortree_cpp-release/archive/release/noetic/behaviortree_cpp_v3/3.5.6-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/behaviortree_cpp_v3"
+SRC_URI = "git://github.com/BehaviorTree/behaviortree_cpp-release;${ROS_BRANCH};protocol=https"
+SRCREV = "8486cc8ca352575d59b1588dba425a15e5090fe7"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

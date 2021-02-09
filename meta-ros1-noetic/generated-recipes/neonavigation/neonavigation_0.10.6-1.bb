@@ -5,48 +5,38 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Python bindings for EXOTica"
-AUTHOR = "Wolfgang Merkt <wolfgang@robots.ox.ac.uk>"
+DESCRIPTION = "The neonavigation meta-package including 3-dof configuration space planner"
+AUTHOR = "Atsushi Watanabe <atsushi.w@ieee.org>"
+ROS_AUTHOR = "Atsushi Watanabe <atsushi.w@ieee.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "exotica"
-ROS_BPN = "exotica_python"
+ROS_CN = "neonavigation"
+ROS_BPN = "neonavigation"
 
-ROS_BUILD_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    python3-matplotlib \
-    python3-pyassimp \
-    python3-rospkg \
-    python3-tkinter \
-    shape-msgs \
+    costmap-cspace \
+    joystick-interrupt \
+    map-organizer \
+    neonavigation-common \
+    neonavigation-launch \
+    obj-to-pointcloud \
+    planner-cspace \
+    safety-limiter \
+    track-odometry \
+    trajectory-tracker \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -59,10 +49,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ipab-slmc/exotica-release/archive/release/noetic/exotica_python/6.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/exotica_python"
-SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ab8db40064601e8359857e5fa3a3f6004fc360d2"
+# matches with: https://github.com/at-wat/neonavigation-release/archive/release/noetic/neonavigation/0.10.6-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/neonavigation"
+SRC_URI = "git://github.com/at-wat/neonavigation-release;${ROS_BRANCH};protocol=https"
+SRCREV = "4a5236404f68b504f587740215d93339de770088"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
