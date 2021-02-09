@@ -1102,8 +1102,12 @@ python-configparser:
   gentoo: [dev-python/configparser]
   ubuntu: [python-configparser]
 python-construct:
+  arch: [python-construct]
   debian: [python-construct]
-  ubuntu: [python-construct]
+  gentoo: [dev-python/construct]
+  ubuntu:
+    bionic: [python-construct]
+    xenial: [python-construct]
 python-construct-pip:
   debian:
     pip:
@@ -2555,6 +2559,7 @@ python-msgpack:
   debian: [python-msgpack]
   fedora: [python-msgpack]
   gentoo: [dev-python/msgpack]
+  openembedded: ['${PYTHON_PN}-msgpack@meta-python2']
   ubuntu: [python-msgpack]
 python-multicast:
   fedora:
@@ -2725,26 +2730,10 @@ python-nose:
   rhel: [python2-nose]
   slackware: [nose]
   ubuntu:
-    artful: [python-nose]
-    bionic: [python-nose]
-    lucid: [python-nose]
-    maverick: [python-nose]
-    natty: [python-nose]
-    oneiric: [python-nose]
-    precise: [python-nose]
-    quantal: [python-nose]
-    raring: [python-nose]
-    saucy: [python-nose]
-    trusty: [python-nose]
+    '*': [python-nose]
     trusty_python3: [python3-nose]
-    utopic: [python-nose]
-    vivid: [python-nose]
-    wily: [python-nose]
     wily_python3: [python3-nose]
-    xenial: [python-nose]
     xenial_python3: [python3-nose]
-    yakkety: [python-nose]
-    zesty: [python-nose]
 python-ntplib:
   debian: [python-ntplib]
   fedora: [python-ntplib]
@@ -3018,6 +3007,14 @@ python-pathlib:
   debian: [python-pathlib]
   gentoo: [dev-python/pathlib]
   ubuntu: [python-pathlib]
+python-pathlib2:
+  arch: [python2-pathlib2]
+  debian: [python-pathlib2]
+  fedora: [python-pathlib2]
+  gentoo: [dev-python/pathlib2]
+  ubuntu:
+    '*': [python-pathlib2]
+    xenial: null
 python-pathos-pip:
   debian:
     pip:
@@ -3866,6 +3863,11 @@ python-qt5-bindings-webkit:
     xenial: [python-pyqt5.qtwebkit]
     yakkety: [python-pyqt5.qtwebkit]
     zesty: [python-pyqt5.qtwebkit]
+python-qtpy:
+  arch: [python-qtpy]
+  debian: [python-qtpy]
+  fedora: [python-QtPy]
+  ubuntu: [python-qtpy]
 python-qwt5-qt4:
   arch: [pyqwt]
   debian: [python-qwt5-qt4]
@@ -5447,6 +5449,19 @@ python3-adafruit-circuitpython-mcp230xx-pip:
   ubuntu:
     pip:
       packages: [adafruit-circuitpython-mcp230xx]
+python3-ansible-runner-pip:
+  debian:
+    pip:
+      packages: [ansible-runner]
+  fedora:
+    pip:
+      packages: [ansible-runner]
+  gentoo:
+    pip:
+      packages: [ansible-runner]
+  ubuntu:
+    pip:
+      packages: [ansible-runner]
 python3-argcomplete:
   alpine: [py3-argcomplete]
   arch: [python-argcomplete]
@@ -5495,6 +5510,11 @@ python3-backoff-pip:
   ubuntu:
     pip:
       packages: [backoff]
+python3-bitarray:
+  debian: [python3-bitarray]
+  fedora: [python3-bitarray]
+  gentoo: [dev-python/bitarray]
+  ubuntu: [python3-bitarray]
 python3-bokeh-pip:
   debian:
     pip:
@@ -5615,6 +5635,12 @@ python3-catkin-tools:
   fedora: [python3-catkin_tools]
   openembedded: [python3-catkin-tools@meta-ros-common]
   ubuntu: [python3-catkin-tools]
+python3-cffi:
+  debian: [python3-cffi]
+  fedora: [python3-cffi]
+  gentoo: [dev-python/cffi]
+  rhel: ['python%{python3_pkgversion}-cffi']
+  ubuntu: [python3-cffi]
 python3-cherrypy3:
   debian: [python3-cherrypy3]
   ubuntu: [python3-cherrypy3]
@@ -5672,6 +5698,12 @@ python3-connexion-pip:
   ubuntu:
     pip:
       packages: [connexion]
+python3-construct:
+  arch: [python-construct]
+  debian: [python3-construct]
+  fedora: [python3-construct]
+  gentoo: [dev-python/construct]
+  ubuntu: [python3-construct]
 python3-coverage:
   debian: [python3-coverage]
   fedora: [python3-coverage]
@@ -5691,6 +5723,10 @@ python3-datadog-pip:
   ubuntu:
     pip:
       packages: [datadog]
+python3-dbus:
+  debian: [python3-dbus]
+  fedora: [python3-dbus]
+  ubuntu: [python3-dbus]
 python3-defusedxml:
   debian: [python3-defusedxml]
   fedora: [python3-defusedxml]
@@ -5823,6 +5859,11 @@ python3-flake8:
     '*': ['python%{python3_pkgversion}-flake8']
     '7': null
   ubuntu: [python3-flake8]
+python3-flask:
+  debian: [python3-flask]
+  fedora: [python3-flask]
+  gentoo: [dev-python/flask]
+  ubuntu: [python3-flask]
 python3-flask-restplus-pip:
   ubuntu:
     pip:
@@ -6035,6 +6076,11 @@ python3-jsonpickle:
   fedora: [python3-jsonpickle]
   gentoo: [dev-python/jsonpickle]
   ubuntu: [python3-jsonpickle]
+python3-jsonschema:
+  debian: [python3-jsonschema]
+  fedora: [python3-jsonschema]
+  gentoo: [dev-python/jsonschema]
+  ubuntu: [python3-jsonschema]
 python3-kitchen:
   arch: [python-kitchen]
   debian: [python3-kitchen]
@@ -6136,6 +6182,7 @@ python3-msgpack:
   debian:
     '*': [python3-msgpack]
     stretch: null
+  openembedded: [python3-msgpack@meta-python]
   ubuntu: [python3-msgpack]
 python3-mypy:
   alpine: [py3-mypy]
@@ -6196,6 +6243,12 @@ python3-numpy:
   openembedded: [python3-numpy@openembedded-core]
   rhel: ['python%{python3_pkgversion}-numpy']
   ubuntu: [python3-numpy]
+python3-numpy-stl:
+  debian: [python3-numpy-stl]
+  fedora: [python3-numpy-stl]
+  ubuntu:
+    '*': [python3-numpy-stl]
+    xenial: null
 python3-opencv:
   debian:
     buster: [python3-opencv]
@@ -6308,6 +6361,7 @@ python3-pil:
 python3-pip:
   debian: [python3-pip]
   fedora: [python3-pip]
+  openembedded: [python3-pip@openembedded-core]
   ubuntu: [python3-pip]
 python3-pkg-resources:
   alpine: [py3-setuptools]
@@ -6357,6 +6411,7 @@ python3-pyassimp:
     '*': [python3-pyassimp]
     stretch: null
   fedora: [python3-assimp]
+  openembedded: [python3-pyassimp@meta-ros-common]
   ubuntu:
     '*': [python3-pyassimp]
     xenial: null
@@ -6480,6 +6535,7 @@ python3-pymongo:
   debian: [python3-pymongo]
   fedora: [python3-pymongo]
   gentoo: [dev-python/pymongo]
+  openembedded: [python3-pymongo@meta-python]
   ubuntu: [python3-pymongo]
 python3-pyosmium:
   debian: [python3-pyosmium]
@@ -6617,6 +6673,11 @@ python3-qt5-bindings-webkit:
   gentoo: ['dev-python/PyQt5[webkit]']
   openembedded: [python3-pyqt5@meta-qt5]
   ubuntu: [python3-pyqt5.qtwebkit]
+python3-qtpy:
+  arch: [python-qtpy]
+  debian: [python3-qtpy]
+  gentoo: [dev-python/QtPy]
+  ubuntu: [python3-qtpy]
 python3-rafcon-pip:
   debian:
     pip:
@@ -6895,6 +6956,11 @@ python3-sympy:
 python3-systemd:
   debian: [python3-systemd]
   ubuntu: [python3-systemd]
+python3-tabulate:
+  debian: [python3-tabulate]
+  fedora: [python3-tabulate]
+  gentoo: [dev-python/tabulate]
+  ubuntu: [python3-tabulate]
 python3-tensorboardX-pip:
   debian:
     pip:
@@ -7046,6 +7112,11 @@ python3-venv:
   debian: [python3-venv]
   fedora: [python3-libs]
   ubuntu: [python3-venv]
+python3-watchdog:
+  debian: [python3-watchdog]
+  fedora: [python3-watchdog]
+  gentoo: [dev-python/watchdog]
+  ubuntu: [python3-watchdog]
 python3-websocket:
   debian: [python3-websocket]
   fedora: [python3-websocket-client]
