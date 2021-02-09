@@ -5,35 +5,34 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "A pure-python interaface to the MoveIt! ROS API."
-AUTHOR = "Michael Ferguson <fergs@botnuvo.com>"
-ROS_AUTHOR = "Michael Ferguson"
-HOMEPAGE = "http://ros.org/wiki/moveit_python"
+DESCRIPTION = "The pilz_msgs package"
+AUTHOR = "Alexander Gutenkunst <a.gutenkunst@pilz.de>"
+HOMEPAGE = "https://wiki.ros.org/pilz_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
-ROS_CN = "moveit_python"
-ROS_BPN = "moveit_python"
+ROS_CN = "pilz_common"
+ROS_BPN = "pilz_msgs"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    message-generation \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    message-runtime \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    geometry-msgs \
-    moveit-msgs \
-    python3-pyassimp \
-    rospy \
-    shape-msgs \
-    tf \
+    message-runtime \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +45,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/mikeferguson/moveit_python-release/archive/release/noetic/moveit_python/0.4.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_python"
-SRC_URI = "git://github.com/mikeferguson/moveit_python-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6635c8c37d8ff25953473497bfab1810db1c0a3d"
+# matches with: https://github.com/PilzDE/pilz_common-release/archive/release/noetic/pilz_msgs/0.7.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/pilz_msgs"
+SRC_URI = "git://github.com/PilzDE/pilz_common-release;${ROS_BRANCH};protocol=https"
+SRCREV = "ffa329d0b26480f4be25d621a61be990bfbc8ce8"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
