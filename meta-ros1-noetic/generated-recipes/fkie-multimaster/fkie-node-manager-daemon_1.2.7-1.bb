@@ -5,22 +5,24 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Python bindings for EXOTica"
-AUTHOR = "Wolfgang Merkt <wolfgang@robots.ox.ac.uk>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "A daemon node to manage ROS launch files and launch nodes from loaded files."
+AUTHOR = "Alexander Tiderko <alexander.tiderko@gmail.com>"
+ROS_AUTHOR = "Alexander Tiderko"
+HOMEPAGE = "https://github.com/fkie/multimaster_fkie"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "exotica"
-ROS_BPN = "exotica_python"
+ROS_CN = "fkie_multimaster"
+ROS_BPN = "fkie_node_manager_daemon"
 
 ROS_BUILD_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
+    diagnostic-msgs \
+    fkie-multimaster-msgs \
+    python3-catkin-pkg \
+    roslaunch \
+    rospy \
+    screen \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -28,29 +30,28 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    shape-msgs \
+    screen \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    exotica-core \
-    geometry-msgs \
-    moveit-msgs \
-    pybind11-catkin \
-    python3-matplotlib \
-    python3-pyassimp \
+    diagnostic-msgs \
+    fkie-master-discovery \
+    fkie-multimaster-msgs \
+    python3-grpcio \
+    python3-psutil \
     python3-rospkg \
-    python3-tkinter \
-    shape-msgs \
+    python3-ruamel-yaml \
+    roslaunch \
+    rospy \
+    screen \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    rostest \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -59,10 +60,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ipab-slmc/exotica-release/archive/release/noetic/exotica_python/6.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/exotica_python"
-SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ab8db40064601e8359857e5fa3a3f6004fc360d2"
+# matches with: https://github.com/fkie-release/multimaster_fkie-release/archive/release/noetic/fkie_node_manager_daemon/1.2.7-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/fkie_node_manager_daemon"
+SRC_URI = "git://github.com/fkie-release/multimaster_fkie-release;${ROS_BRANCH};protocol=https"
+SRCREV = "d9566f948f108425e47452512617e72a8f8eb3ac"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

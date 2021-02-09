@@ -5,20 +5,20 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The mqtt_bridge package"
-AUTHOR = "Junya Hayashi <junya.hayashi@groove-x.com>"
-ROS_AUTHOR = "Junya Hayashi <junya.hayashi@groove-x.com>"
-HOMEPAGE = "http://www.ros.org/wiki/mqtt_bridge"
+DESCRIPTION = "This package provides a simple GUI for operating Care-O-bot."
+AUTHOR = "Felix Messmer <felixmessmer@gmail.com>"
+ROS_AUTHOR = "Florian Weisshardt <fmw@ipa.fhg.de>"
+HOMEPAGE = "http://www.ros.org/wiki/cob_command_gui"
 SECTION = "devel"
-LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=58e54c03ca7f821dd3967e2a2cd1596e"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache 2.0"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
-ROS_CN = "mqtt_bridge"
-ROS_BPN = "mqtt_bridge"
+ROS_CN = "cob_command_tools"
+ROS_BPN = "cob_command_gui"
 
-ROS_BUILD_DEPENDS = " \
-    python3-pip \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
@@ -30,11 +30,11 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    python3-msgpack \
-    python3-pymongo \
-    rosbridge-library \
+    cob-msgs \
+    cob-script-server \
+    python3-pygobject \
+    roslib \
     rospy \
-    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -47,10 +47,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/groove-x/mqtt_bridge-release/archive/release/noetic/mqtt_bridge/0.2.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/mqtt_bridge"
-SRC_URI = "git://github.com/groove-x/mqtt_bridge-release;${ROS_BRANCH};protocol=https"
-SRCREV = "0279e4aef09df8d774e08a964b6fb0bc831f9599"
+# matches with: https://github.com/ipa320/cob_command_tools-release/archive/release/noetic/cob_command_gui/0.6.20-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/cob_command_gui"
+SRC_URI = "git://github.com/ipa320/cob_command_tools-release;${ROS_BRANCH};protocol=https"
+SRCREV = "365f5bc8e41ecc911f34afd4c6f3d918abc204c6"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

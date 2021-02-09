@@ -5,35 +5,39 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "A pure-python interaface to the MoveIt! ROS API."
-AUTHOR = "Michael Ferguson <fergs@botnuvo.com>"
-ROS_AUTHOR = "Michael Ferguson"
-HOMEPAGE = "http://ros.org/wiki/moveit_python"
+DESCRIPTION = "Synchronize the local ROS master to the remote masters       discovered by fkie_master_discovery node. The registration      of topics and services is only perform by local ROS master."
+AUTHOR = "Alexander Tiderko <alexander.tiderko@gmail.com>"
+ROS_AUTHOR = "Alexander Tiderko"
+HOMEPAGE = "http://ros.org/wiki/master_sync_fkie"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "moveit_python"
-ROS_BPN = "moveit_python"
+ROS_CN = "fkie_multimaster"
+ROS_BPN = "fkie_master_sync"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    fkie-master-discovery \
+    fkie-multimaster-msgs \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    fkie-master-discovery \
+    fkie-multimaster-msgs \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    geometry-msgs \
-    moveit-msgs \
-    python3-pyassimp \
+    fkie-master-discovery \
+    fkie-multimaster-msgs \
+    rosgraph \
+    roslib \
     rospy \
-    shape-msgs \
-    tf \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +50,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/mikeferguson/moveit_python-release/archive/release/noetic/moveit_python/0.4.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_python"
-SRC_URI = "git://github.com/mikeferguson/moveit_python-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6635c8c37d8ff25953473497bfab1810db1c0a3d"
+# matches with: https://github.com/fkie-release/multimaster_fkie-release/archive/release/noetic/fkie_master_sync/1.2.7-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/fkie_master_sync"
+SRC_URI = "git://github.com/fkie-release/multimaster_fkie-release;${ROS_BRANCH};protocol=https"
+SRCREV = "d1f468b10f26d25dbebf4abcec2e65df0568f2a0"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
