@@ -1,0 +1,55 @@
+From fb2decd9bbb9f4ff557637994314699d0328ed56 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 21 May 2020 10:14:23 +0000
+Subject: [PATCH] common/fw/CMakeLists.txt: respect *_FW_URL when set
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ common/fw/CMakeLists.txt | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+
+diff --git a/common/fw/CMakeLists.txt b/common/fw/CMakeLists.txt
+index 1420e85..6c013d6 100644
+--- a/common/fw/CMakeLists.txt
++++ b/common/fw/CMakeLists.txt
+@@ -15,26 +15,34 @@ string(REGEX MATCH "D4XX_RECOMMENDED_FIRMWARE_VERSION \"([0-9]+.[0-9]+.[0-9]+.[0
+ set(D4XX_FW_VERSION ${CMAKE_MATCH_1})
+ message(STATUS "D4XX_FW_VERSION: ${D4XX_FW_VERSION}")
+ set(D4XX_FW_SHA1 dc690d0a6ed113eee8ed41a0c1589c58975bd724)
+-set(D4XX_FW_URL "${REALSENSE_FIRMWARE_URL}/Releases/RS4xx/FW")
++if (NOT DEFINED D4XX_FW_URL)
++  set(D4XX_FW_URL "${REALSENSE_FIRMWARE_URL}/Releases/RS4xx/FW")
++endif()
+ 
+ 
+ string(REGEX MATCH "SR3XX_RECOMMENDED_FIRMWARE_VERSION \"([0-9]+.[0-9]+.[0-9]+.[0-9]+)\"" _ ${ver})
+ set(SR3XX_FW_VERSION ${CMAKE_MATCH_1})
+ message(STATUS "SR3XX_FW_VERSION: ${SR3XX_FW_VERSION}")
+ set(SR3XX_FW_SHA1 55237dba5d7db20e7c218975375d05b4210e9460)
+-set(SR3XX_FW_URL "${REALSENSE_FIRMWARE_URL}/Releases/SR300/FW")
++if (NOT DEFINED SR3XX_FW_URL)
++  set(SR3XX_FW_URL "${REALSENSE_FIRMWARE_URL}/Releases/SR300/FW")
++endif()
+ 
+ string(REGEX MATCH "T26X_FIRMWARE_VERSION \"([0-9]+.[0-9]+.[0-9]+.[0-9]+)\"" _ ${ver})
+ set(T26X_FW_VERSION ${CMAKE_MATCH_1})
+ message(STATUS "T26X_FW_VERSION: ${T26X_FW_VERSION}")
+ set(T26X_FW_SHA1 c3940ccbb0e3045603e4aceaa2d73427f96e24bc)
+-set(T26X_FW_URL "${REALSENSE_FIRMWARE_URL}/Releases/TM2/FW/target/${T26X_FW_VERSION}")
++if (NOT DEFINED T26X_FW_URL)
++  set(T26X_FW_URL "${REALSENSE_FIRMWARE_URL}/Releases/TM2/FW/target/${T26X_FW_VERSION}")
++endif()
+ 
+ string(REGEX MATCH "L5XX_RECOMMENDED_FIRMWARE_VERSION \"([0-9]+.[0-9]+.[0-9]+.[0-9]+)\"" _ ${ver})
+ set(L5XX_FW_VERSION ${CMAKE_MATCH_1})
+ message(STATUS "L5XX_FW_VERSION: ${L5XX_FW_VERSION}")
+ set(L5XX_FW_SHA1 024cc496856db78569edecbbbf681aafd566b41d)
+-set(L5XX_FW_URL "${REALSENSE_FIRMWARE_URL}/Releases/L5xx/FW")
++if (NOT DEFINED L5XX_FW_URL)
++  set(L5XX_FW_URL "${REALSENSE_FIRMWARE_URL}/Releases/L5xx/FW")
++endif()
+ 
+ add_library(${PROJECT_NAME} STATIC empty.c)
+ 
