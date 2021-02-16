@@ -29,11 +29,11 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2021-02-14')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': '9f23fa60'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': 'd9a0a88d'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': 'dfcb1c5eb2'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': 'de9544f465'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': 'de4f32079f'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '7069852c85'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
@@ -41,7 +41,7 @@ Layers = [
 
 ('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'master', 'commit': 'b2970f1'}, {}),
 ('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'master', 'commit': '2a919ae'}, {}),
-('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': 'master', 'commit': 'f753462'}, {}),
+('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': 'master', 'commit': '8dce5b3'}, {}),
 
 ('meta-qt5-compat',           19, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': 'c7ec556'}, {}),
