@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
@@ -6,6 +6,8 @@ SRC_URI += " \
     file://0001-FindLuaGoogle.cmake-explicitly-link-with-dl.patch \
     file://cmake.dont.add.Werror.uninitialized.patch \
     file://0001-Fix-build-with-gtest-1.8.1.patch \
+    file://0002-CmakeLists.txt-set-C-version-to-C-14.patch \
+    file://0003-proto_stream_deserializer_test.cc-fix-build-with-C-1.patch \
 "
 
 # This is used only to generate documentation so it should
