@@ -1,0 +1,39 @@
+From 12d4c2e941d85a085b98a3e19b68d263ff8a5dd5 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 17 Feb 2021 17:30:59 +0000
+Subject: [PATCH] CmakeLists.txt: set C++ version to C++14
+
+* ceres requires a fully C++14-compliant compiler since version 2.0:
+  https://github.com/ceres-solver/ceres-solver/commit/7ef83e07592ead74eeacc227b642df1959d2a246
+
+  without it, cartographer build fails with a lot of errors like:
+  error: 'integer_sequence' is not a member of 'std'
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cf040c6..ce09583 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -29,6 +29,7 @@ google_initialize_cartographer_project()
+ google_enable_testing()
+ 
+ find_package(Boost REQUIRED COMPONENTS iostreams)
++set(CMAKE_CXX_STANDARD 14)
+ find_package(Ceres REQUIRED COMPONENTS SuiteSparse)
+ find_package(Eigen3 REQUIRED)
+ find_package(LuaGoogle REQUIRED)
+@@ -235,7 +236,7 @@ if(${BUILD_PROMETHEUS})
+   target_compile_definitions(${PROJECT_NAME} PUBLIC USE_PROMETHEUS=1)
+ endif()
+ 
+-set(TARGET_COMPILE_FLAGS "${TARGET_COMPILE_FLAGS} ${GOOG_CXX_FLAGS}")
++set(TARGET_COMPILE_FLAGS "${TARGET_COMPILE_FLAGS} ${GOOG_CXX_FLAGS} ${CERES_CXX_FLAGS}")
+ set_target_properties(${PROJECT_NAME} PROPERTIES
+   COMPILE_FLAGS ${TARGET_COMPILE_FLAGS})
+ 
