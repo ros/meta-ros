@@ -1,0 +1,33 @@
+From 493eb99a98ebe2271da00383c0740b866c46f1b9 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 18 Feb 2021 05:37:11 -0800
+Subject: [PATCH] CmakeLists.txt: set C++ version to C++14
+
+* ceres requires a fully C++14-compliant compiler since version 2.0:
+  https://github.com/ceres-solver/ceres-solver/commit/7ef83e07592ead74eeacc227b642df1959d2a246
+
+  without it, cartographer build fails with a lot of errors like:
+  error: 'integer_sequence' is not a member of 'std'
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e8590a4..56e5400 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -35,6 +35,7 @@ set(PACKAGE_DEPENDENCIES
+   visualization_msgs
+ )
+ 
++set(CMAKE_CXX_STANDARD 14)
+ find_package(cartographer REQUIRED)
+ include("${CARTOGRAPHER_CMAKE_DIR}/functions.cmake")
+ set(BUILD_SHARED_LIBS OFF)
+-- 
+2.17.1
+
