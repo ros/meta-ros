@@ -1,0 +1,34 @@
+From 9d5c467d2a7a8b2ba50e5402dd57d2b90738a0cf Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 17 Feb 2021 17:30:59 +0000
+Subject: [PATCH] CmakeLists.txt: set C++ version to C++14
+
+* ceres requires a fully C++14-compliant compiler since version 2.0:
+  https://github.com/ceres-solver/ceres-solver/commit/7ef83e07592ead74eeacc227b642df1959d2a246
+
+  without it, robot_calibration build fails with a lot of errors like:
+  robot-calibration/0.6.3-1-r0/recipe-sysroot/usr/include/ceres/internal/autodiff.h:217:39: error: 'integer_sequence' is not a member of 'std'
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b73bd5b..ea1b825 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
+ project(robot_calibration)
+ 
+ if (CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
+-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
++  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall")
+ endif()
+ 
+ find_package(Boost REQUIRED system thread)
+-- 
+2.17.1
+
