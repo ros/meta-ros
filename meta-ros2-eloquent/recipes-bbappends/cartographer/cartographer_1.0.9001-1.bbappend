@@ -8,6 +8,7 @@ SRC_URI += " \
     file://0001-Fix-build-with-gtest-1.8.1.patch \
     file://0002-CmakeLists.txt-set-C-version-to-C-14.patch \
     file://0003-proto_stream_deserializer_test.cc-fix-build-with-C-1.patch \
+    file://0004-CMakeLists.txt-don-t-include-CERES_INCLUDE_DIRS-if-i.patch \
 "
 
 # This is used only to generate documentation so it should
