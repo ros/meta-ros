@@ -12,7 +12,7 @@ SRCREV_FORMAT = "main"
 SRCREV_main = "8f6a027d473f9b4796509158962d8ddf89fbe086"
 SRCREV_comp = "cf13bff238397aab0d8c49b7f6263233cf8a2396"
 SRCREV_catch = "89f5f8435176aad44624442b7f1e874a513bee67"
-SRC_URI = "git://github.com/foonathan/memory.git;protocol=https;name=main \
+SRC_URI = "git://github.com/foonathan/memory.git;branch=main;protocol=https;name=main \
     git://github.com/foonathan/compatibility.git;protocol=https;name=comp;destsuffix=git/cmake/comp \
     git://github.com/catchorg/Catch2.git;branch=v2.x;protocol=https;name=catch;destsuffix=git/catch-upstream \
 "
