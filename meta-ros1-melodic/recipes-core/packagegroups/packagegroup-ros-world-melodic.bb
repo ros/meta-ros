@@ -38,6 +38,11 @@ RDEPENDS_${PN}_remove = "flatbuffers"
 RDEPENDS_${PN}_remove = "grpc"
 
 # It is a "catkin-ized" edition of the upstream version that is not used by any other ROS 1 package.
+# and meta-oe version is restricted to corei7 and armv8 with crypto enabled until:
+# https://git.openembedded.org/meta-openembedded/commit/?id=7223513f400d63d1fb50d65b123d00ceb94f3695
+RDEPENDS_${PN}_remove = "abseil-cpp"
+
+# It is a "catkin-ized" edition of the upstream version that is not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "nanomsg"
 
 # It has dependencies on Qt4 packages; it is not used by any other ROS 1 package.
