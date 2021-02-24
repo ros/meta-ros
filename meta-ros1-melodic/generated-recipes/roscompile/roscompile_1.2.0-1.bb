@@ -5,44 +5,49 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "JSON transport for ROS"
-AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-ROS_AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
+DESCRIPTION = "The roscompile package"
+AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=37;endline=37;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "json_transport"
-ROS_BPN = "json_transport"
+ROS_CN = "roscompile"
+ROS_BPN = "roscompile"
 
 ROS_BUILD_DEPENDS = " \
-    json-msgs \
-    roscpp \
+    catkin \
+    ros-introspection \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
+    ${PYTHON_PN}-setuptools-native \
     catkin-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    json-msgs \
-    roscpp \
+    catkin \
+    ros-introspection \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-msgpack \
-    json-msgs \
-    roscpp \
+    ${PYTHON_PN}-click \
+    ${PYTHON_PN}-pyyaml \
+    ${PYTHON_PN}-rospkg \
+    catkin \
+    ros-introspection \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    geometry-msgs \
+    pluginlib \
+    pluginlib-tutorials \
     roslint \
-    rostest \
-    rosunit \
+    stereo-msgs \
+    tf \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -52,10 +57,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/locusrobotics/json_transport-release/archive/release/melodic/json_transport/0.0.3-0.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/json_transport"
-SRC_URI = "git://github.com/locusrobotics/json_transport-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8cffe73e4123f4f2b71a34108a1ae39c04653583"
+# matches with: https://github.com/wu-robotics/roscompile-release/archive/release/melodic/roscompile/1.2.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/roscompile"
+SRC_URI = "git://github.com/wu-robotics/roscompile-release;${ROS_BRANCH};protocol=https"
+SRCREV = "8aaa701d314c2a8c41af51d85c5fcdee483f1859"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

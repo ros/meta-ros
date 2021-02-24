@@ -5,45 +5,43 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "JSON transport for ROS"
-AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-ROS_AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "The khi_rs_ikfast_plugin package"
+AUTHOR = "matsui_hiro <matsui_hiro@khi.co.jp>"
+ROS_AUTHOR = "matsui_hiro <matsui_hiro@khi.co.jp>"
+HOMEPAGE = "http://ros.org/wiki/khi_robot"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=37;endline=37;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "json_transport"
-ROS_BPN = "json_transport"
+ROS_CN = "khi_robot"
+ROS_BPN = "khi_rs_ikfast_plugin"
 
 ROS_BUILD_DEPENDS = " \
-    json-msgs \
+    lapack \
+    moveit-core \
+    pluginlib \
     roscpp \
+    tf-conversions \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    json-msgs \
-    roscpp \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-msgpack \
-    json-msgs \
+    lapack \
+    moveit-core \
+    pluginlib \
     roscpp \
+    tf-conversions \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    roslint \
-    rostest \
-    rosunit \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -52,10 +50,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/locusrobotics/json_transport-release/archive/release/melodic/json_transport/0.0.3-0.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/json_transport"
-SRC_URI = "git://github.com/locusrobotics/json_transport-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8cffe73e4123f4f2b71a34108a1ae39c04653583"
+# matches with: https://github.com/Kawasaki-Robotics/khi_robot-release/archive/release/melodic/khi_rs_ikfast_plugin/1.2.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/khi_rs_ikfast_plugin"
+SRC_URI = "git://github.com/Kawasaki-Robotics/khi_robot-release;${ROS_BRANCH};protocol=https"
+SRCREV = "36675e5fc75b2cb259a90c16ae731839f053e40e"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

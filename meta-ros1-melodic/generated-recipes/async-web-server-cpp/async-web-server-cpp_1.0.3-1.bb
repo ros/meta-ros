@@ -5,44 +5,40 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "JSON transport for ROS"
-AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-ROS_AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Asynchronous Web/WebSocket Server in C++"
+AUTHOR = "Timo Röhling <timo.roehling@fkie.fraunhofer.de>"
+ROS_AUTHOR = "Mitchell Wills <mwills@wpi.edu>"
+HOMEPAGE = "http://ros.org/wiki/async_web_server_cpp"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=37;endline=37;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "json_transport"
-ROS_BPN = "json_transport"
+ROS_CN = "async_web_server_cpp"
+ROS_BPN = "async_web_server_cpp"
 
 ROS_BUILD_DEPENDS = " \
-    json-msgs \
-    roscpp \
+    boost \
+    openssl \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    json-msgs \
-    roscpp \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-msgpack \
-    json-msgs \
-    roscpp \
+    boost \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    roslint \
+    ${PYTHON_PN}-websocket-client \
+    roslib \
+    rospy \
     rostest \
-    rosunit \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -52,10 +48,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/locusrobotics/json_transport-release/archive/release/melodic/json_transport/0.0.3-0.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/json_transport"
-SRC_URI = "git://github.com/locusrobotics/json_transport-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8cffe73e4123f4f2b71a34108a1ae39c04653583"
+# matches with: https://github.com/fkie-release/async_web_server_cpp-release/archive/release/melodic/async_web_server_cpp/1.0.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/async_web_server_cpp"
+SRC_URI = "git://github.com/fkie-release/async_web_server_cpp-release;${ROS_BRANCH};protocol=https"
+SRCREV = "ce37597c487479a2ae051e9202a667653706bed0"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

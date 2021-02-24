@@ -17,7 +17,6 @@ ROS_CN = "lvr2"
 ROS_BPN = "lvr2"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libflann-dev} \
     ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     ${ROS_UNRESOLVED_DEP-libvtk} \
     ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
@@ -26,6 +25,7 @@ ROS_BUILD_DEPENDS = " \
     gsl \
     hdf5 \
     libeigen \
+    libflann \
     libxi \
     libxmu \
     lz4 \
@@ -39,7 +39,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libflann-dev} \
     ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     ${ROS_UNRESOLVED_DEP-libvtk} \
     ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
@@ -48,6 +47,7 @@ ROS_EXPORT_DEPENDS = " \
     gsl \
     hdf5 \
     libeigen \
+    libflann \
     libxi \
     libxmu \
     lz4 \
@@ -59,7 +59,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libflann-dev} \
     ${ROS_UNRESOLVED_DEP-libvtk-qt} \
     ${ROS_UNRESOLVED_DEP-libvtk} \
     ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
@@ -68,6 +67,7 @@ ROS_EXEC_DEPENDS = " \
     gsl \
     hdf5 \
     libeigen \
+    libflann \
     libxi \
     libxmu \
     lz4 \

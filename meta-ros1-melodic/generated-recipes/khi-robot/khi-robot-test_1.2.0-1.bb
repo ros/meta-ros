@@ -5,20 +5,19 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "JSON transport for ROS"
-AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-ROS_AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Test package for khi_robot"
+AUTHOR = "nakamichi_d <nakamichi_d@khi.co.jp>"
+ROS_AUTHOR = "nakamichi_d <nakamichi_d@khi.co.jp>"
+HOMEPAGE = "http://ros.org/wiki/khi_robot"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=37;endline=37;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "json_transport"
-ROS_BPN = "json_transport"
+ROS_CN = "khi_robot"
+ROS_BPN = "khi_robot_test"
 
 ROS_BUILD_DEPENDS = " \
-    json-msgs \
-    roscpp \
+    rospy \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -26,23 +25,27 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    json-msgs \
-    roscpp \
+    rospy \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-msgpack \
-    json-msgs \
-    roscpp \
+    khi-robot-msgs \
+    rospy \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    roslint \
+    khi-duaro-moveit-config \
+    khi-robot-bringup \
+    khi-robot-control \
+    khi-robot-msgs \
+    khi-rs007l-moveit-config \
+    khi-rs007n-moveit-config \
+    khi-rs080n-moveit-config \
+    moveit-commander \
     rostest \
-    rosunit \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -52,10 +55,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/locusrobotics/json_transport-release/archive/release/melodic/json_transport/0.0.3-0.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/json_transport"
-SRC_URI = "git://github.com/locusrobotics/json_transport-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8cffe73e4123f4f2b71a34108a1ae39c04653583"
+# matches with: https://github.com/Kawasaki-Robotics/khi_robot-release/archive/release/melodic/khi_robot_test/1.2.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/khi_robot_test"
+SRC_URI = "git://github.com/Kawasaki-Robotics/khi_robot-release;${ROS_BRANCH};protocol=https"
+SRCREV = "6d882669d3bedea0f4258a57e918e6fe1b9eecd5"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
