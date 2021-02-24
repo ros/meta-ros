@@ -3,6 +3,8 @@ asio:
 - asio@meta-oe
 assimp:
 - assimp@openembedded-core
+assimp-dev:
+- assimp@openembedded-core
 benchmark:
 - google-benchmark@meta-ros2
 boost:
@@ -27,21 +29,25 @@ curl:
 - curl@openembedded-core
 eigen:
 - libeigen@meta-oe
+ffmpeg:
+- ffmpeg@openembedded-core
 g++-static: []
 gazebo11:
 - ${ROS_UNRESOLVED_DEP-gazebo11}
 git:
 - git@openembedded-core
+glut:
+- freeglut@meta-oe
 google-mock:
 - gtest@meta-oe
+graphviz:
+- graphviz@meta-ros-common
 gtest:
 - gtest@meta-oe
 gurumdds-2.6:
 - ${ROS_UNRESOLVED_DEP-gurumdds-2.6}
 java:
 - ${ROS_UNRESOLVED_DEP-java}
-jupyter-notebook:
-- ${ROS_UNRESOLVED_DEP-jupyter-notebook}
 libboost-dev:
 - boost@openembedded-core
 libboost-iostreams-dev:
@@ -68,22 +74,30 @@ libgazebo11-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
 libgflags-dev:
 - gflags@meta-oe
+libglfw3-dev:
+- glfw@meta-intel-realsense
 libgoogle-glog-dev:
 - glog@meta-oe
 libgpgme-dev:
 - gpgme@openembedded-core
 libgps:
 - gpsd@meta-oe
+libjpeg:
+- jpeg@openembedded-core
 libncurses-dev:
 - ncurses@openembedded-core
 libogg:
 - libogg@openembedded-core
 libopencv-dev:
 - opencv@meta-oe
+libpcap:
+- libpcap@openembedded-core
 libpcl-all:
 - pcl@meta-ros-common
 libpcl-all-dev:
 - pcl@meta-ros-common
+libpng-dev:
+- libpng@openembedded-core
 libqt5-core:
 - qtbase@meta-qt5
 libqt5-gui:
@@ -98,6 +112,10 @@ libssl-dev:
 - openssl@openembedded-core
 libtheora:
 - libtheora@openembedded-core
+libudev-dev:
+- udev@openembedded-core
+liburdfdom-headers-dev:
+- urdfdom-headers@meta-ros1
 libusb-1.0:
 - libusb1@openembedded-core
 libusb-1.0-dev:
@@ -112,6 +130,8 @@ libxmlrpc-c++:
 - xmlrpc-c@meta-oe
 libxrandr:
 - libxrandr@openembedded-core
+libxxf86vm:
+- libxxf86vm@openembedded-core
 libzmq3-dev:
 - zeromq@meta-oe
 libzstd-dev:
@@ -128,14 +148,24 @@ openssl:
 - openssl@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+protobuf:
+- protobuf@meta-oe
 protobuf-dev:
 - protobuf@meta-oe
 pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros-common
 pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros-common
+python-imaging:
+- ${PYTHON_PN}-pillow@meta-python
+python-numpy:
+- ${PYTHON_PN}-numpy@openembedded-core
+python-tk:
+- ${PYTHON_PN}-tkinter@openembedded-core
 python3-argcomplete:
 - python3-argcomplete@meta-python
+python3-cairo:
+- python3-pycairo@openembedded-core
 python3-catkin-pkg:
 - python3-catkin-pkg@meta-ros-common
 python3-catkin-pkg-modules:
@@ -152,6 +182,8 @@ python3-ifcfg:
 - python3-ifcfg@meta-ros-common
 python3-importlib-metadata:
 - python3-importlib-metadata@openembedded-core
+python3-importlib-resources:
+- python3@openembedded-core
 python3-lark-parser:
 - python3-lark-parser@meta-ros-common
 python3-lxml:
@@ -170,8 +202,12 @@ python3-numpy:
 - python3-numpy@openembedded-core
 python3-opencv:
 - opencv@meta-oe
-python3-pandas:
-- python3-pandas@meta-python
+python3-packaging:
+- python3-packaging@openembedded-core
+python3-pep8:
+- python3-pep8@meta-ros-common
+python3-pil:
+- python3-pillow@meta-python
 python3-pkg-resources:
 - python3-setuptools@openembedded-core
 python3-psutil:
@@ -196,10 +232,16 @@ python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
 python3-rospkg-modules:
 - python3-rospkg@meta-ros-common
+python3-serial:
+- python3-pyserial@meta-python
 python3-setuptools:
 - python3-setuptools@openembedded-core
 python3-sphinx:
 - python3-sphinx@meta-ros-common
+python3-tk:
+- python3-tkinter@openembedded-core
+python3-websocket:
+- python3-websocket-client@meta-python
 python3-yaml:
 - python3-pyyaml@meta-python
 qt5-qmake:
@@ -208,6 +250,8 @@ qtbase5-dev:
 - qtbase@meta-qt5
 rti-connext-dds-5.3.1:
 - ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1}
+sdformat:
+- ${ROS_UNRESOLVED_DEP-sdformat}
 sdl2:
 - libsdl2@openembedded-core
 spdlog:
@@ -221,7 +265,15 @@ tinyxml2:
 - libtinyxml2@meta-oe
 uncrustify:
 - ${ROS_UNRESOLVED_DEP-uncrustify}
+uuid:
+- util-linux@openembedded-core
+wx-common:
+- wxwidgets@meta-ros-common
+wxwidgets:
+- wxwidgets@meta-ros-common
 yaml:
 - libyaml@openembedded-core
 yaml-cpp:
 - yaml-cpp@meta-ros-common
+zlib:
+- zlib@openembedded-core
