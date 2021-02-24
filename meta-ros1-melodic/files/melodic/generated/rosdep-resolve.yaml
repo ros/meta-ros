@@ -199,7 +199,7 @@ libffi-dev:
 libfftw3:
 - fftw@meta-oe
 libflann-dev:
-- ${ROS_UNRESOLVED_DEP-libflann-dev}
+- libflann@meta-ros-common
 libfltk-dev:
 - fltk@meta-oe
 libfreenect-dev:
@@ -582,7 +582,7 @@ python-mechanize:
 python-mock:
 - ${PYTHON_PN}-mock@meta-python
 python-msgpack:
-- ${ROS_UNRESOLVED_DEP-python-msgpack}
+- ${PYTHON_PN}-msgpack@meta-python2
 python-netifaces:
 - ${PYTHON_PN}-netifaces@meta-ros-common
 python-nose:
@@ -717,8 +717,6 @@ python3-nose:
 - python3-nose@openembedded-core
 python3-numpy:
 - python3-numpy@openembedded-core
-python3-pil:
-- python3-pillow@meta-python
 python3-pyaudio:
 - ${ROS_UNRESOLVED_DEP-python3-pyaudio}
 python3-rospkg-modules:
