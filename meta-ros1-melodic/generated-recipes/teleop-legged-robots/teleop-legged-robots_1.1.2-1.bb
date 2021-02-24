@@ -5,45 +5,37 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "JSON transport for ROS"
-AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-ROS_AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Generic keyboard teleop for legged robots."
+AUTHOR = "SoftServe <robotics@softserveinc.com>"
+ROS_AUTHOR = "Taras Borovets"
+HOMEPAGE = "http://wiki.ros.org/teleop_legged_robots"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=37;endline=37;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "json_transport"
-ROS_BPN = "json_transport"
+ROS_CN = "teleop_legged_robots"
+ROS_BPN = "teleop_legged_robots"
 
-ROS_BUILD_DEPENDS = " \
-    json-msgs \
-    roscpp \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    json-msgs \
-    roscpp \
+    geometry-msgs \
+    rospy \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-msgpack \
-    json-msgs \
-    roscpp \
+    geometry-msgs \
+    rospy \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    roslint \
-    rostest \
-    rosunit \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -52,10 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/locusrobotics/json_transport-release/archive/release/melodic/json_transport/0.0.3-0.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/json_transport"
-SRC_URI = "git://github.com/locusrobotics/json_transport-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8cffe73e4123f4f2b71a34108a1ae39c04653583"
+# matches with: https://github.com/SoftServeSAG/teleop_legged_robots-release/archive/release/melodic/teleop_legged_robots/1.1.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/teleop_legged_robots"
+SRC_URI = "git://github.com/SoftServeSAG/teleop_legged_robots-release;${ROS_BRANCH};protocol=https"
+SRCREV = "ad48fd3e216843253b36bfaea4b6c76a51915976"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

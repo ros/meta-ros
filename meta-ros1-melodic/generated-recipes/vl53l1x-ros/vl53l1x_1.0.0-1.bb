@@ -5,20 +5,21 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "JSON transport for ROS"
-AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-ROS_AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "VL53L1X ToF rangefinder driver"
+AUTHOR = "Oleg Kalachev <okalachev@gmail.com>"
+HOMEPAGE = "https://github.com/okalachev/vl53l1x_ros"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=37;endline=37;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "json_transport"
-ROS_BPN = "json_transport"
+ROS_CN = "vl53l1x_ros"
+ROS_BPN = "vl53l1x"
 
 ROS_BUILD_DEPENDS = " \
-    json-msgs \
+    message-generation \
+    message-runtime \
     roscpp \
+    sensor-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -26,24 +27,23 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    json-msgs \
+    message-generation \
+    message-runtime \
     roscpp \
+    sensor-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-msgpack \
-    json-msgs \
+    message-generation \
+    message-runtime \
     roscpp \
+    sensor-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    roslint \
-    rostest \
-    rosunit \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -52,10 +52,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/locusrobotics/json_transport-release/archive/release/melodic/json_transport/0.0.3-0.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/json_transport"
-SRC_URI = "git://github.com/locusrobotics/json_transport-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8cffe73e4123f4f2b71a34108a1ae39c04653583"
+# matches with: https://github.com/okalachev/vl53l1x_ros-release/archive/release/melodic/vl53l1x/1.0.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/vl53l1x"
+SRC_URI = "git://github.com/okalachev/vl53l1x_ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "fc96eeb569d8b3dc22498b8c9ee8e652bb2bfacf"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

@@ -5,20 +5,20 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "JSON transport for ROS"
-AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
-ROS_AUTHOR = "Paul Bovbel <pbovbel@locusrobotics.com>"
+DESCRIPTION = "Launch files to start the openni2_camera drivers using rgbd_launch."
+AUTHOR = "Isaac I. Y. Saito <isaac.saito@plusonerobotics.com>"
+ROS_AUTHOR = "Julius Kammerl <kammerl@willowgarage.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=37;endline=37;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "json_transport"
-ROS_BPN = "json_transport"
+ROS_CN = "openni2_camera"
+ROS_BPN = "openni2_launch"
 
 ROS_BUILD_DEPENDS = " \
-    json-msgs \
-    roscpp \
+    ${PYTHON_PN}-catkin-pkg \
+    roslaunch \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -26,24 +26,26 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    json-msgs \
-    roscpp \
+    ${PYTHON_PN}-catkin-pkg \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-msgpack \
-    json-msgs \
-    roscpp \
+    ${PYTHON_PN}-catkin-pkg \
+    depth-image-proc \
+    image-proc \
+    nodelet \
+    openni2-camera \
+    rgbd-launch \
+    rospy \
+    roswtf \
+    tf \
+    usbutils \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    roslint \
-    rostest \
-    rosunit \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -52,10 +54,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/locusrobotics/json_transport-release/archive/release/melodic/json_transport/0.0.3-0.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/json_transport"
-SRC_URI = "git://github.com/locusrobotics/json_transport-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8cffe73e4123f4f2b71a34108a1ae39c04653583"
+# matches with: https://github.com/ros-gbp/openni2_camera-release/archive/release/melodic/openni2_launch/1.5.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/openni2_launch"
+SRC_URI = "git://github.com/ros-gbp/openni2_camera-release;${ROS_BRANCH};protocol=https"
+SRCREV = "5f5518d4a4b96e314becbe475483c0abc159991e"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
