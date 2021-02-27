@@ -344,6 +344,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rtmros-common \
     rviz-map-plugin \
     rviz-mesh-plugin \
+    rviz-satellite \
     sick-safetyscanners \
     visualstates \
     webkit-dependency \
@@ -402,11 +403,18 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     fsrobo-r-trajectory-filters \
     heifu-bringup \
     heifu-tools \
+    heifu \
     image-pipeline \
     image-view \
     image-view2 \
     industrial-core \
     industrial-trajectory-filters \
+    khi-duaro-moveit-config \
+    khi-robot \
+    khi-robot-bringup \
+    khi-rs007l-moveit-config \
+    khi-rs007n-moveit-config \
+    khi-rs080n-moveit-config \
     mapviz \
     mapviz-plugins \
     moveit-commander \
@@ -847,6 +855,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     rviz-mesh-plugin \
     rviz-python-tutorial \
     rviz-plugin-tutorials \
+    rviz-satellite \
     rviz-visual-tools \
     seed-r7-bringup \
     seed-r7-moveit-config \
@@ -1083,6 +1092,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz-mesh-plugin \
     rviz-plugin-tutorials \
     rviz-python-tutorial \
+    rviz-satellite \
     rviz-visual-tools \
     seed-r7-bringup \
     seed-r7-moveit-config \
@@ -1297,6 +1307,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     hector-gazebo-thermal-camera \
     hector-gazebo-worlds \
     hector-sensors-gazebo \
+    heifu-description \
     heron-gazebo \
     husky-gazebo \
     husky-simulator \
@@ -1308,6 +1319,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     jackal-simulator \
     jderobot-assets \
     jderobot-drones \
+    khi-duaro-gazebo \
+    khi-rs-gazebo \
     ksql-airport \
     lauv-control \
     lauv-description \
@@ -1348,6 +1361,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     robosense-gazebo-plugins \
     robosense-simulator \
     roboticsgroup-upatras-gazebo-plugins \
+    robotont-gazebo \
     rosflight-pkgs \
     rosflight-sim \
     rosflight-utils \
@@ -1428,6 +1442,7 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wxpython
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WXPYTHON = " \
     executive-smach-visualization \
     jsk-planning \
+    rx-service-tools \
     seed-r7-ros-pkg \
     seed-r7-samples \
     smach-viewer \
@@ -1523,6 +1538,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     fsrobo-r-trajectory-filters \
     industrial-core \
     industrial-trajectory-filters \
+    khi-duaro-moveit-config \
+    khi-robot \
+    khi-robot-bringup \
+    khi-rs007l-moveit-config \
+    khi-rs007n-moveit-config \
+    khi-rs080n-moveit-config \
     libg2o \
     librealsense2 \
     moveit-commander \
@@ -1588,6 +1609,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROS_UTILS = " \
     heifu-mavros \
     heifu-safety \
     heifu-simple-waypoint \
+    heifu \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ueye', 'ueye-cam', '', d)}"
