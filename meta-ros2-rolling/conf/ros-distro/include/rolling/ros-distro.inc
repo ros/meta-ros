@@ -79,6 +79,9 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'gl
 # ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python3-collada-pip' (but meta-ros2-rolling/generated-recipes/webots-ros2-desktop/webots-ros2-importer_0.0.3-1.bb RDEPENDS on or otherwise requires it)
 ROS_WORLD_SKIP_GROUPS += "webots-python-modules"
 
+# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-sdformat' (but /jenkins/mjansa/build/ros/webos-rolling-hardknott/meta-ros/meta-ros2-rolling/generated-recipes/sdformat-urdf/sdformat-urdf_0.1.0-1.bb DEPENDS on or otherwise requires it)
+ROS_WORLD_SKIP_GROUPS += "sdformat"
+
 # recipes depending on gazebo, for which there is no OE recipe
 ROS_WORLD_SKIP_GROUPS += "gazebo"
 
