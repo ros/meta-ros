@@ -252,13 +252,3 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
     webots-ros2-importer \
     webots-ros2-tutorials \
 "
-
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rclcpp-4', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OLD_RCLCPP}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OLD_RCLCPP = " \
-    image-pipeline \
-    image-publisher \
-    image-rotate \
-    image-view \
-    stereo-image-proc \
-    system-modes-examples \
-"
