@@ -57,7 +57,18 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'coinor-libipopt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
     control-box-rst \
+    plansys2-bringup \
+    plansys2-bt-actions \
+    plansys2-executor \
+    plansys2-planner \
+    plansys2-popf-plan-solver \
+    plansys2-terminal \
     popf \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB = " \
+    warehouse-ros-mongo \
 "
 
 # Not compatible with newer libftdi included in meta-oe: https://github.com/kobuki-base/kobuki_ftdi/issues/3
@@ -69,6 +80,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_KOBUKI_FTDI = " \
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
+    color-names \
     desktop \
     dolly \
     dolly-gazebo \
@@ -90,6 +102,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rviz2 \
     turtlebot3 \
     turtlebot3-bringup \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
@@ -97,6 +111,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
+    color-names \
     desktop \
     dsr-description2 \
     dolly \
@@ -136,6 +151,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-gui-cpp \
     rqt-graph \
     rqt-image-view \
+    rqt-moveit \
     rqt-msg \
     rqt-plot \
     rqt-py-common \
@@ -160,7 +176,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     tile-map \
     turtlebot3 \
     turtlebot3-bringup \
+    turtlebot3-gazebo \
     turtlebot3-navigation2 \
+    turtlebot3-simulations \
     turtlesim \
     webots-ros2-epuck \
     webots-ros2-tiago \
@@ -196,10 +214,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     dolly-gazebo \
     dsr-launcher2 \
     gazebo-plugins \
+    gazebo-ros2-control-demos \
+    gazebo-ros2-control \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
     nav2-system-tests \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5}', '', d)}"
@@ -230,6 +252,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-gui-py \
     rqt-gui \
     rqt-image-view \
+    rqt-moveit \
     rqt-msg \
     rqt-plot \
     rqt-publisher \
@@ -280,6 +303,7 @@ RDEPENDS_${PN}_remove = "${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC}"
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
+    color-names \
     desktop \
     dolly \
     dolly-gazebo \
@@ -304,6 +328,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     tile-map \
     turtlebot3 \
     turtlebot3-bringup \
+    turtlebot3-gazebo \
     turtlebot3-navigation2 \
     webots-ros2-epuck \
     webots-ros2-tiago \
@@ -312,6 +337,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'glfw', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
+    embree-vendor \
     librealsense2 \
     realsense-examples \
     realsense-node \
