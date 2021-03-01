@@ -1,10 +1,26 @@
-# foxy/cache.yaml 2021-02-18 f6a20f9d38671c35670e956c5d9e17eb8280777e 20210218182448 1.6.0
+# foxy/cache.yaml 2021-03-01 3e0eb46f39f356956e8a328959869a853579ff46 20210301181050 1.6.0
 distribution_file:
 - release_platforms:
 -----
 ubuntu: [focal]
 -----
 repositories:
+-----
+acado_vendor: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://gitlab.com/autowarefoundation/autoware.auto/acado_vendor-release.git',
+version: 1.0.0-1
+},
+source: {
+type: git,
+url: 'https://gitlab.com/autowarefoundation/autoware.auto/acado_vendor.git',
+version: main
+},
+status: maintained
+}
 -----
 ackermann_msgs: {
 doc: {
@@ -1264,7 +1280,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/fastrtps-release.git',
-version: 2.0.2-1
+version: 2.0.2-2
 },
 source: {
 test_commits: false,
@@ -2252,6 +2268,21 @@ version: release/foxy/mavlink
 status: maintained
 }
 -----
+mavros: {
+doc: {
+type: git,
+url: 'https://github.com/mavlink/mavros.git',
+version: ros2
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/mavlink/mavros.git',
+version: ros2
+},
+status: developed
+}
+-----
 message_filters: {
 doc: {
 type: git,
@@ -2587,6 +2618,27 @@ url: 'https://github.com/swri-robotics/novatel_gps_driver.git',
 version: dashing-devel
 },
 status: developed
+}
+-----
+ntpd_driver: {
+doc: {
+type: git,
+url: 'https://github.com/vooon/ntpd_driver.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/vooon/ntpd_driver-release.git',
+version: 2.0.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/vooon/ntpd_driver.git',
+version: ros2
+},
+status: maintained
 }
 -----
 object_recognition_msgs: {
@@ -3570,7 +3622,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/IntelRealSense/realsense-ros-release.git',
-version: 3.1.3-1
+version: 3.1.4-1
 },
 source: {
 test_pull_requests: true,
@@ -4880,7 +4932,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt_reconfigure-release.git',
-version: 1.0.6-1
+version: 1.0.7-1
 },
 source: {
 test_pull_requests: true,
@@ -5650,7 +5702,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/robotis-ros2-release/turtlebot3_simulations-release.git',
-version: 2.2.1-1
+version: 2.2.2-1
 },
 source: {
 type: git,
@@ -6196,6 +6248,22 @@ type: distribution
 version: 2
 name: foxy
 release_package_xmls:
+-----
+acado_vendor: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>acado_vendor</name>
+<description>ament package for ACADO toolkit for MPC code generation</description>
+<maintainer email="christopherj.ho@gmail.com">Christopher Ho</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<test_depend>ament_cmake_xmllint</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
 -----
 ackermann_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -15113,6 +15181,50 @@ novatel_gps_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+ntpd_driver: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>ntpd_driver</name>
+<description>ntpd_driver sends TimeReference message time to ntpd server</description>
+<maintainer email="vooon341@gmail.com">Vladimir Ermakov</maintainer>
+<license file="LICENSE">BSD</license>
+<url type="website">http://wiki.ros.org/ntpd_driver</url>
+<url type="repository">https://github.com/vooon/ntpd_driver.git</url>
+<url type="bugtracker">https://github.com/vooon/ntpd_driver/issues</url>
+<author email="vooon341@gmail.com">Vladimir Ermakov</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>class_loader</depend>
+<depend>sensor_msgs</depend>
+<depend>libpoco-dev</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+<rosindex>
+<tags>
+<tag>ntp</tag>
+<tag>time</tag>
+<tag>ntpd</tag>
+<tag>chrony</tag>
+</tags>
+<nodes>
+<node>
+<name>shm_driver</name>
+<description>This node sends time via SHM interface.</description>
+<ros_api>
+<sub name="~/time_ref" type="sensor_msgs/TimeReference">Time source topic. (default topic name)</sub>
+<param default="2" name="~/shm_unit" type="int">SHM Unit (must be same as in ntp server config).</param>
+<param default="time_ref" name="~/time_ref_topic" type="string">Topic name (may be used instead of remap).</param>
+<param default="false" name="~/fixup_date" type="bool">Enable date fixup.</param>
+</ros_api>
+</node>
+</nodes>
+</rosindex>
+</export>
+</package>
+-----
 object_recognition_msgs: <?xml version="1.0" ?>
 <package format="3">
 <name>object_recognition_msgs</name>
@@ -20633,6 +20745,7 @@ rqt_reconfigure: <?xml version="1.0" ?>
 <name>rqt_reconfigure</name>
 <description>This rqt plugin provides a way to view and edit parameters on nodes.</description>
 <maintainer email="logans@cottsay.net">Scott K Logan</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <license>BSD</license>
 <license>Apache License 2.0</license>
 <url type="website">http://wiki.ros.org/rqt_reconfigure</url>
