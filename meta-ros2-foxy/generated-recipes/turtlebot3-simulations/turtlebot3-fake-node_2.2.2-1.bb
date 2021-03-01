@@ -66,10 +66,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/robotis-ros2-release/turtlebot3_simulations-release/archive/release/foxy/turtlebot3_fake_node/2.2.1-1.tar.gz
+# matches with: https://github.com/robotis-ros2-release/turtlebot3_simulations-release/archive/release/foxy/turtlebot3_fake_node/2.2.2-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/turtlebot3_fake_node"
 SRC_URI = "git://github.com/robotis-ros2-release/turtlebot3_simulations-release;${ROS_BRANCH};protocol=https"
-SRCREV = "90a098d08a7edb2dd3d6cd86634d02b61ad68965"
+SRCREV = "c06fe5d1f43776b3b9987deac02dfbe8a920baeb"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

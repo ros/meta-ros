@@ -169,6 +169,8 @@ libpcl-all-dev:
 - pcl@meta-ros-common
 libpng-dev:
 - libpng@openembedded-core
+libpoco-dev:
+- poco@meta-oe
 libqglviewer-dev-qt5:
 - qtbase@meta-qt5
 libqglviewer2-qt5:
