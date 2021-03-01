@@ -13,7 +13,7 @@ SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "BSD & Apache License 2.0"
 LICENSE = "BSD & Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt_reconfigure"
 ROS_BPN = "rqt_reconfigure"
@@ -52,10 +52,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rqt_reconfigure-release/archive/release/foxy/rqt_reconfigure/1.0.6-1.tar.gz
+# matches with: https://github.com/ros2-gbp/rqt_reconfigure-release/archive/release/foxy/rqt_reconfigure/1.0.7-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/rqt_reconfigure"
 SRC_URI = "git://github.com/ros2-gbp/rqt_reconfigure-release;${ROS_BRANCH};protocol=https"
-SRCREV = "aeedb5cfd4129e33851bba3cc122daecfc6fb92c"
+SRCREV = "54048d12215cd8478391062318f1a6d175584fd0"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
