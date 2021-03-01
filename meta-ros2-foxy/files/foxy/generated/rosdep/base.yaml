@@ -323,9 +323,8 @@ boost:
     stretch: [libboost-all-dev]
     wheezy: [libboost-all-dev]
   fedora:
-    '*': [boost-devel, boost-python3-devel]
-    '30': [boost-devel, boost-python2-devel, boost-python3-devel]
-    '31': [boost-devel, boost-python2-devel, boost-python3-devel]
+    '*': [boost-devel]
+    '32': [boost-devel, boost-python3-devel]
   freebsd: [py27-boost-libs]
   gentoo: ['dev-libs/boost[python]']
   macports: [boost]
@@ -649,14 +648,12 @@ cvs:
 cwiid:
   arch: [cwiid]
   debian: [libcwiid1]
-  fedora: [cwiid]
   gentoo: [app-misc/cwiid]
   opensuse: [libcwiid1]
   ubuntu: [libcwiid1]
 cwiid-dev:
   arch: [cwiid]
   debian: [libcwiid-dev]
-  fedora: [cwiid-devel]
   gentoo: [app-misc/cwiid]
   opensuse: [libcwiid-devel]
   ubuntu: [libcwiid-dev]
@@ -1266,6 +1263,13 @@ gperftools:
   fedora: [gperftools, gperftools-devel]
   gentoo: [dev-util/gperf]
   ubuntu: [google-perftools, libgoogle-perftools-dev]
+gpg-agent:
+  debian:
+    '*': [gpg-agent]
+    jessie: [gnupg-agent]
+  ubuntu:
+    '*': [gpg-agent]
+    xenial: [gnupg-agent]
 gphoto2:
   arch: [gphoto2]
   debian: [gphoto2]
@@ -2039,7 +2043,7 @@ libboost-python:
     buster: [libboost-python1.67.0]
     jessie: [libboost-python1.55.0]
     stretch: [libboost-python1.62.0]
-  fedora: [boost-python2-devel, boost-python3-devel]
+  fedora: [boost-python3]
   gentoo: ['dev-libs/boost[python]']
   openembedded: [boost@openembedded-core]
   rhel:
@@ -2055,7 +2059,9 @@ libboost-python:
 libboost-python-dev:
   alpine: [boost-python2]
   debian: [libboost-python-dev]
-  fedora: [boost-python2-devel]
+  fedora:
+    '*': [boost-devel]
+    '32': [boost-devel, boost-python3-devel]
   gentoo: ['dev-libs/boost[python]']
   openembedded: [boost@openembedded-core]
   rhel:
