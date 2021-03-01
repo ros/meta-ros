@@ -91,10 +91,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/IntelRealSense/realsense-ros-release/archive/release/foxy/realsense2_camera/3.1.3-1.tar.gz
+# matches with: https://github.com/IntelRealSense/realsense-ros-release/archive/release/foxy/realsense2_camera/3.1.4-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/realsense2_camera"
 SRC_URI = "git://github.com/IntelRealSense/realsense-ros-release;${ROS_BRANCH};protocol=https"
-SRCREV = "9836dfc5f0a82ae40cb7ea665bebbcf95e023ad2"
+SRCREV = "f97ffbcf81ab5bcb512e5ae93185375c7e436f91"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
