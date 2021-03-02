@@ -31,7 +31,7 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2021-02-27')
 Layers = [
 ('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': 'd0f5c590'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': 'b4b5e52b5b'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '18299a114c'}, {}),
 
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': 'bb743fc71d'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
@@ -53,7 +53,7 @@ Layers = [
 
 ('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': '5e543bd'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': '6897606'}, {}),
 ('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-updater',        52, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-virtualization', 53, MetaWebos_RepoURL,                                        {}, {}),
