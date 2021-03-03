@@ -600,10 +600,6 @@ PNBLACKLIST[python-nose] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyth
 PNBLACKLIST[python-scons] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # openembedded-core/meta/recipes-devtools/python/python-setuptools_40.0.0.bb
 PNBLACKLIST[python-setuptools] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-raspberrypi/recipes-devtools/python/rpi-gpio_0.6.3.bb
-PNBLACKLIST[rpi-gpio] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-raspberrypi/recipes-devtools/python/rpio_0.10.0.bb
-PNBLACKLIST[rpio] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # openembedded-core/meta/recipes-extended/asciidoc/asciidoc_8.6.9.bb
 PNBLACKLIST[asciidoc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-benchmark/fio/fio_3.12.bb
@@ -616,8 +612,6 @@ PNBLACKLIST[libhugetlbfs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyt
 PNBLACKLIST[kernel-devsrc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 # meta-openembedded/meta-oe/recipes-connectivity/lirc/lirc_0.9.4d.bb
 PNBLACKLIST[lirc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
-# meta-ros/meta-ros-common/recipes-devtools/python/python-pyassimp_4.1.4.bb
-PNBLACKLIST[python-pyassimp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python2', 'Depends on blacklisted python2', '', d)}"
 
 # The rest depends on something which depends on python:
 # meta-openembedded/meta-oe/recipes-bsp/lm_sensors/lmsensors_3.4.0.bb
