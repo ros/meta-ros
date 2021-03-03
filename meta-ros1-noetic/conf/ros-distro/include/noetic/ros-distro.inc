@@ -109,8 +109,6 @@ ROS_WORLD_SKIP_GROUPS += "libspnav"
 ROS_WORLD_SKIP_GROUPS += "heifu-ros-utils"
 # expects users to install official IDS uEye drivers (http://en.ids-imaging.com/download-ueye.html)
 ROS_WORLD_SKIP_GROUPS += "ueye"
-# recipes depending on python2
-ROS_WORLD_SKIP_GROUPS += "python2"
 # recipes depending on ignition-* (ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-msgs5, ROS_UNRESOLVED_DEP-ignition-transport8)
 ROS_WORLD_SKIP_GROUPS += "ignition"
 # recipes depending on python3-wxgtk4.0
