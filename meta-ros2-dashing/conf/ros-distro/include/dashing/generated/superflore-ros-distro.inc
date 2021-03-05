@@ -19,6 +19,7 @@ ROS_SUPERFLORE_GENERATION_SKIP_LIST = ""
 
 # Superflore was unable to generate recipes for these packages, eg, because their repositories are not on GitHub.
 ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
+    acado_vendor \
     apex_containers \
     apex_test_tools \
     autoware_auto_msgs \
@@ -37,7 +38,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-dashing/files/dashing/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "12"
+ROS_NUM_CACHE_YAML_COMMITS = "13"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -839,7 +840,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                              examples/examples-rclpy-minimal-service_0.7.5-1 \
                              examples/examples-rclpy-minimal-subscriber_0.7.5-1 \
                               fastcdr/fastcdr_1.0.13-1 \
-                             fastrtps/fastrtps_1.8.4-1 \
+                             fastrtps/fastrtps_1.8.4-3 \
           rosidl-typesupport-fastrtps/fastrtps-cmake-module_0.7.2-1 \
                     cloudwatch-common/file-management_1.1.5-1 \
                      fmi-adapter-ros2/fmi-adapter_0.1.7-1 \
@@ -1128,21 +1129,21 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                rosidl/rosidl-typesupport-introspection-cpp_0.7.10-1 \
         rosidl-typesupport-opensplice/rosidl-typesupport-opensplice-c_0.7.3-1 \
         rosidl-typesupport-opensplice/rosidl-typesupport-opensplice-cpp_0.7.3-1 \
-                                  rqt/rqt_1.0.5-1 \
+                                  rqt/rqt_1.0.7-1 \
                            rqt-action/rqt-action_1.0.1-1 \
                    rqt-common-plugins/rqt-common-plugins_1.0.0-1 \
                           rqt-console/rqt-console_1.1.1-1 \
                             rqt-graph/rqt-graph_1.0.5-1 \
-                                  rqt/rqt-gui_1.0.5-1 \
-                                  rqt/rqt-gui-cpp_1.0.5-1 \
-                                  rqt/rqt-gui-py_1.0.5-1 \
+                                  rqt/rqt-gui_1.0.7-1 \
+                                  rqt/rqt-gui-cpp_1.0.7-1 \
+                                  rqt/rqt-gui-py_1.0.7-1 \
                        rqt-image-view/rqt-image-view_1.0.5-1 \
                               rqt-msg/rqt-msg_1.0.2-1 \
                              rqt-plot/rqt-plot_1.0.7-1 \
                         rqt-publisher/rqt-publisher_1.1.0-1 \
-                                  rqt/rqt-py-common_1.0.5-1 \
+                                  rqt/rqt-py-common_1.0.7-1 \
                        rqt-py-console/rqt-py-console_1.0.0-1 \
-                      rqt-reconfigure/rqt-reconfigure_1.0.6-1 \
+                      rqt-reconfigure/rqt-reconfigure_1.0.7-1 \
                     rqt-robot-monitor/rqt-robot-monitor_1.0.4-1 \
                    rqt-robot-steering/rqt-robot-steering_1.0.0-1 \
                    rqt-service-caller/rqt-service-caller_1.0.3-1 \
@@ -1225,12 +1226,12 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                            turtlebot3/turtlebot3-cartographer_2.1.1-2 \
                            turtlebot3/turtlebot3-description_2.1.1-2 \
                            turtlebot3/turtlebot3-example_2.1.1-2 \
-               turtlebot3-simulations/turtlebot3-fake-node_2.2.1-1 \
-               turtlebot3-simulations/turtlebot3-gazebo_2.2.1-1 \
+               turtlebot3-simulations/turtlebot3-fake-node_2.2.2-1 \
+               turtlebot3-simulations/turtlebot3-gazebo_2.2.2-1 \
                       turtlebot3-msgs/turtlebot3-msgs_2.2.1-2 \
                            turtlebot3/turtlebot3-navigation2_2.1.1-2 \
                            turtlebot3/turtlebot3-node_2.1.1-2 \
-               turtlebot3-simulations/turtlebot3-simulations_2.2.1-1 \
+               turtlebot3-simulations/turtlebot3-simulations_2.2.2-1 \
                            turtlebot3/turtlebot3-teleop_2.1.1-2 \
                             turtlesim/turtlesim_1.0.3-1 \
                            tvm-vendor/tvm-vendor_0.7.2-1 \
@@ -2378,10 +2379,10 @@ ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "2021-02-04"
+ROS_DISTRO_RELEASE_DATE = "2021-03-04"
 
 # The commit of ros/rosdistro/dashing/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "f7a5090133d1cc0e94e9102f99bdbb264b285ff0"
+ROS_SUPERFLORE_GENERATION_COMMIT = "86dd612b6bbc92b3d38f90d55de0898f3032cdce"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated

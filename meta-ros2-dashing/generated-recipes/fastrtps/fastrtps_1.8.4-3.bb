@@ -51,10 +51,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/fastrtps-release/archive/release/dashing/fastrtps/1.8.4-1.tar.gz
+# matches with: https://github.com/ros2-gbp/fastrtps-release/archive/release/dashing/fastrtps/1.8.4-3.tar.gz
 ROS_BRANCH ?= "branch=release/dashing/fastrtps"
 SRC_URI = "git://github.com/ros2-gbp/fastrtps-release;${ROS_BRANCH};protocol=https"
-SRCREV = "defe0c808149fde4a7f281e646b753ce11ce80bc"
+SRCREV = "e57555e33861f89e01e7c3c7cb26f4251a956615"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
