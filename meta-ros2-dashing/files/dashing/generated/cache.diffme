@@ -1,10 +1,26 @@
-# dashing/cache.yaml 2021-02-04 f7a5090133d1cc0e94e9102f99bdbb264b285ff0 20210128232836 1.6.0
+# dashing/cache.yaml 2021-03-04 86dd612b6bbc92b3d38f90d55de0898f3032cdce 20210303222814 1.6.0
 distribution_file:
 - release_platforms:
 -----
 ubuntu: [bionic]
 -----
 repositories:
+-----
+acado_vendor: {
+release: {
+tags: {
+release: 'release/dashing/{package}/{version}'
+},
+url: 'https://gitlab.com/autowarefoundation/autoware.auto/acado_vendor-release.git',
+version: 1.0.0-2
+},
+source: {
+type: git,
+url: 'https://gitlab.com/autowarefoundation/autoware.auto/acado_vendor.git',
+version: main
+},
+status: maintained
+}
 -----
 ackermann_msgs: {
 doc: {
@@ -1180,7 +1196,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/fastrtps-release.git',
-version: 1.8.4-1
+version: 1.8.4-3
 },
 source: {
 test_commits: false,
@@ -3997,7 +4013,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt-release.git',
-version: 1.0.5-1
+version: 1.0.7-1
 },
 source: {
 test_pull_requests: true,
@@ -4210,7 +4226,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt_reconfigure-release.git',
-version: 1.0.6-1
+version: 1.0.7-1
 },
 source: {
 test_pull_requests: true,
@@ -4764,7 +4780,7 @@ transport_drivers: {
 doc: {
 type: git,
 url: 'https://github.com/ros-drivers/transport_drivers.git',
-version: main
+version: dashing
 },
 release: {
 packages: [serial_driver,
@@ -4778,7 +4794,7 @@ version: 0.0.6-4
 source: {
 type: git,
 url: 'https://github.com/ros-drivers/transport_drivers.git',
-version: main
+version: dashing
 },
 status: developed
 }
@@ -4870,7 +4886,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/robotis-ros2-release/turtlebot3_simulations-release.git',
-version: 2.2.1-1
+version: 2.2.2-1
 },
 source: {
 type: git,
@@ -5312,6 +5328,22 @@ type: distribution
 version: 2
 name: dashing
 release_package_xmls:
+-----
+acado_vendor: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>acado_vendor</name>
+<description>ament package for ACADO toolkit for MPC code generation</description>
+<maintainer email="christopherj.ho@gmail.com">Christopher Ho</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<test_depend>ament_cmake_xmllint</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
 -----
 ackermann_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -16992,7 +17024,7 @@ rqt: <?xml version="1.0" ?>
 <li>
 <a href="http://ros.org/wiki/rqt_robot_plugins">rqt_robot_plugins</a>- Tools for interacting with robots during their runtime.</li>
 </ul>rqt metapackage provides a widget<a href="http://ros.org/wiki/rqt_gui">rqt_gui</a>that enables multiple `rqt` widgets to be docked in a single window.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt</url>
 <url type="repository">https://github.com/ros-visualization/rqt</url>
@@ -17136,7 +17168,7 @@ rqt_gui: <?xml version="1.0" ?>
 <package format="2">
 <name>rqt_gui</name>
 <description>rqt_gui provides the main to start an instance of the ROS integrated graphical user interface provided by qt_gui.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt_gui</url>
 <url type="repository">https://github.com/ros-visualization/rqt</url>
@@ -17159,7 +17191,7 @@ rqt_gui_cpp: <?xml version="1.0" ?>
 <package format="2">
 <name>rqt_gui_cpp</name>
 <description>rqt_gui_cpp enables GUI plugins to use the C++ client library for ROS.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt_gui_cpp</url>
 <url type="repository">https://github.com/ros-visualization/rqt</url>
@@ -17182,7 +17214,7 @@ rqt_gui_py: <?xml version="1.0" ?>
 <package format="2">
 <name>rqt_gui_py</name>
 <description>rqt_gui_py enables GUI plugins to use the Python client library for ROS.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt_gui_py</url>
 <url type="repository">https://github.com/ros-visualization/rqt</url>
@@ -17321,22 +17353,23 @@ rqt_py_common: <?xml version="1.0" ?>
 <description>rqt_py_common provides common functionality for rqt plugins written in Python. Despite no plugin is provided,
 this package is part of the rqt_common_plugins repository to keep refactoring generic functionality from these common plugins into this package as easy as possible. Functionality included in this package should cover generic ROS concepts and should not introduce any special dependencies beside &quot;ros_base&quot;.</description>
 <maintainer email="scholz@sim.tu-darmstadt.de">Dorian Scholz</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt_py_common</url>
 <url type="repository">https://github.com/ros-visualization/rqt_common_plugins</url>
 <url type="bugtracker">https://github.com/ros-visualization/rqt_common_plugins/issues</url>
 <author>Dorian Scholz</author>
 <author>Isaac Saito</author>
+<author>Dirk Thomas</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<buildtool_depend>rosidl_default_generators</buildtool_depend>
 <depend>qtbase5-dev</depend>
 <depend>rclpy</depend>
 <exec_depend version_gte="0.3.4">python_qt_binding</exec_depend>
 <exec_depend>qt_gui</exec_depend>
-<exec_depend>rosidl_default_runtime</exec_depend>
 <test_depend>ament_cmake_pytest</test_depend>
 <test_depend>python_cmake_module</test_depend>
-<member_of_group>rosidl_interface_packages</member_of_group>
+<test_depend>rosidl_default_generators</test_depend>
+<test_depend>rosidl_default_runtime</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 <architecture_independent/>
@@ -17374,6 +17407,7 @@ rqt_reconfigure: <?xml version="1.0" ?>
 <name>rqt_reconfigure</name>
 <description>This rqt plugin provides a way to view and edit parameters on nodes.</description>
 <maintainer email="logans@cottsay.net">Scott K Logan</maintainer>
+<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
 <license>BSD</license>
 <license>Apache License 2.0</license>
 <url type="website">http://wiki.ros.org/rqt_reconfigure</url>
