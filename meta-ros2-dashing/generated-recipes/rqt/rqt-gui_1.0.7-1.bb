@@ -5,42 +5,40 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "rqt_gui_cpp enables GUI plugins to use the C++ client library for ROS."
-AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
+DESCRIPTION = "rqt_gui provides the main to start an instance of the ROS integrated graphical user interface provided by qt_gui."
+AUTHOR = "Michael Jeronimo <michael.jeronimo@openrobotics.org>"
 ROS_AUTHOR = "Dirk Thomas"
-HOMEPAGE = "http://ros.org/wiki/rqt_gui_cpp"
+HOMEPAGE = "http://ros.org/wiki/rqt_gui"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt"
-ROS_BPN = "rqt_gui_cpp"
+ROS_BPN = "rqt_gui"
 
 ROS_BUILD_DEPENDS = " \
     qt-gui \
-    qt-gui-cpp \
-    qtbase \
-    rclcpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-native \
-"
+ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
-    rclcpp \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ament-index-python \
+    python-qt-binding \
+    python3-catkin-pkg \
     qt-gui \
-    qt-gui-cpp \
-    rclcpp \
+    rclpy \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -49,12 +47,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rqt-release/archive/release/dashing/rqt_gui_cpp/1.0.5-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/rqt_gui_cpp"
+# matches with: https://github.com/ros2-gbp/rqt-release/archive/release/dashing/rqt_gui/1.0.7-1.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/rqt_gui"
 SRC_URI = "git://github.com/ros2-gbp/rqt-release;${ROS_BRANCH};protocol=https"
-SRCREV = "12a623bb6068d4677bdb2607ac9069770c6b8682"
+SRCREV = "f3d272604f273c0348c4bd7f62b5b4dcd0dd7aa5"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_cmake"
+ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

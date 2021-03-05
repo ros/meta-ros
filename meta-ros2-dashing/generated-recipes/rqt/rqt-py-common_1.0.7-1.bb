@@ -11,7 +11,7 @@ ROS_AUTHOR = "Dorian Scholz"
 HOMEPAGE = "http://ros.org/wiki/rqt_py_common"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt"
 ROS_BPN = "rqt_py_common"
@@ -23,7 +23,6 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
-    rosidl-default-generators-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
@@ -38,13 +37,14 @@ ROS_EXEC_DEPENDS = " \
     qt-gui \
     qtbase \
     rclpy \
-    rosidl-default-runtime \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
     ament-cmake-pytest \
     python-cmake-module \
+    rosidl-default-generators \
+    rosidl-default-runtime \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -54,10 +54,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rqt-release/archive/release/dashing/rqt_py_common/1.0.5-1.tar.gz
+# matches with: https://github.com/ros2-gbp/rqt-release/archive/release/dashing/rqt_py_common/1.0.7-1.tar.gz
 ROS_BRANCH ?= "branch=release/dashing/rqt_py_common"
 SRC_URI = "git://github.com/ros2-gbp/rqt-release;${ROS_BRANCH};protocol=https"
-SRCREV = "603075d0247df08b513794dc21ead2000dbbfd44"
+SRCREV = "e2ef86bcfb5e7cf3f4f6f98e2c6a8b264a5b5648"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

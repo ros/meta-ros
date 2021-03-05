@@ -5,19 +5,20 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "rqt_gui provides the main to start an instance of the ROS integrated graphical user interface provided by qt_gui."
-AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
+DESCRIPTION = "rqt_gui_py enables GUI plugins to use the Python client library for ROS."
+AUTHOR = "Michael Jeronimo <michael.jeronimo@openrobotics.org>"
 ROS_AUTHOR = "Dirk Thomas"
-HOMEPAGE = "http://ros.org/wiki/rqt_gui"
+HOMEPAGE = "http://ros.org/wiki/rqt_gui_py"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt"
-ROS_BPN = "rqt_gui"
+ROS_BPN = "rqt_gui_py"
 
 ROS_BUILD_DEPENDS = " \
     qt-gui \
+    rqt-gui \
 "
 
 ROS_BUILDTOOL_DEPENDS = ""
@@ -27,11 +28,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ament-index-python \
-    python-qt-binding \
-    python3-catkin-pkg \
     qt-gui \
-    rclpy \
+    rqt-gui \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -47,10 +45,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rqt-release/archive/release/dashing/rqt_gui/1.0.5-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/rqt_gui"
+# matches with: https://github.com/ros2-gbp/rqt-release/archive/release/dashing/rqt_gui_py/1.0.7-1.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/rqt_gui_py"
 SRC_URI = "git://github.com/ros2-gbp/rqt-release;${ROS_BRANCH};protocol=https"
-SRCREV = "81157e86ec36c90c39dbe8d7267bee3a11f2ba70"
+SRCREV = "aa885e82f259efb4a97701f1d409c2349aaff8bf"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
