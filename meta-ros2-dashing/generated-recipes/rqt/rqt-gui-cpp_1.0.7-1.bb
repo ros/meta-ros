@@ -5,38 +5,42 @@
 inherit ros_distro_dashing
 inherit ros_superflore_generated
 
-DESCRIPTION = "rqt_gui_py enables GUI plugins to use the Python client library for ROS."
-AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
+DESCRIPTION = "rqt_gui_cpp enables GUI plugins to use the C++ client library for ROS."
+AUTHOR = "Michael Jeronimo <michael.jeronimo@openrobotics.org>"
 ROS_AUTHOR = "Dirk Thomas"
-HOMEPAGE = "http://ros.org/wiki/rqt_gui_py"
+HOMEPAGE = "http://ros.org/wiki/rqt_gui_cpp"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt"
-ROS_BPN = "rqt_gui_py"
+ROS_BPN = "rqt_gui_cpp"
 
 ROS_BUILD_DEPENDS = " \
     qt-gui \
-    rqt-gui \
+    qt-gui-cpp \
+    qtbase \
+    rclcpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    rclcpp \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     qt-gui \
-    rqt-gui \
+    qt-gui-cpp \
+    rclcpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    ament-lint-auto \
-    ament-lint-common \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -45,12 +49,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rqt-release/archive/release/dashing/rqt_gui_py/1.0.5-1.tar.gz
-ROS_BRANCH ?= "branch=release/dashing/rqt_gui_py"
+# matches with: https://github.com/ros2-gbp/rqt-release/archive/release/dashing/rqt_gui_cpp/1.0.7-1.tar.gz
+ROS_BRANCH ?= "branch=release/dashing/rqt_gui_cpp"
 SRC_URI = "git://github.com/ros2-gbp/rqt-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7187714373c393eae95405d722afca3edb6d202d"
+SRCREV = "c1317daea3d677c430eae4867ec36f2207f97193"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_python"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
