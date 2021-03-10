@@ -53,7 +53,7 @@ Layers = [
 
 ('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': '853ccd7'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master', 'commit': 'fdf02ac'}, {}),
 ('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-updater',        52, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-virtualization', 53, MetaWebos_RepoURL,                                        {}, {}),
@@ -61,7 +61,7 @@ Layers = [
 ('meta-ros-webos',            60, MetaRosWebos_RepoURL,                                     {'branch': MetaRosWebos_Branch, 'commit': MetaRosWebos_Commit}, {}),
 
 ('meta-webos-smack',          75, MetaWebos_RepoURL,                                        {}, {}),
-('meta-security',             77, 'git://git.yoctoproject.org/meta-security',               {'branch': 'master', 'commit': '9504d02'}, {}),
+('meta-security',             77, 'git://git.yoctoproject.org/meta-security',               {'branch': 'master', 'commit': 'fffd85a'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
