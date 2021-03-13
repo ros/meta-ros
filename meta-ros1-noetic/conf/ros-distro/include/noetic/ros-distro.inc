@@ -117,6 +117,10 @@ ROS_WORLD_SKIP_GROUPS += "ignition"
 ROS_WORLD_SKIP_GROUPS += "python3-wxgtk4.0"
 # recipes depending on xclip
 ROS_WORLD_SKIP_GROUPS += "xclip"
+# recipes depending on orocos-bfl (ROS_UNRESOLVED_DEP-liborocos-bfl-dev, ROS_UNRESOLVED_DEP-liborocos-bfl)
+ROS_WORLD_SKIP_GROUPS += "orocos-bfl"
+# recipes depending on net-tools (ROS_UNRESOLVED_DEP-net-tools)
+ROS_WORLD_SKIP_GROUPS += "net-tools"
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
