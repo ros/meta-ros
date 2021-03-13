@@ -31,8 +31,6 @@ clang-tidy:
 - ${ROS_UNRESOLVED_DEP-clang-tidy}
 cmake:
 - cmake@openembedded-core
-cmake_common_scripts:
-- ${ROS_UNRESOLVED_DEP-cmake-common-scripts}
 coinor-libipopt-dev:
 - ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev}
 collada-dom:
@@ -45,6 +43,8 @@ cwiid-dev:
 - ${ROS_UNRESOLVED_DEP-cwiid-dev}
 cython:
 - ${ROS_UNRESOLVED_DEP-cython}
+daemontools:
+- daemontools@meta-oe
 dkms: []
 dnsmasq:
 - dnsmasq@meta-networking
@@ -75,8 +75,6 @@ gazebo:
 - ${ROS_UNRESOLVED_DEP-gazebo}
 gazebo11:
 - ${ROS_UNRESOLVED_DEP-gazebo11}
-gdal-bin:
-- ${ROS_UNRESOLVED_DEP-gdal-bin}
 geographiclib:
 - geographiclib@meta-ros-common
 geographiclib-tools:
@@ -239,6 +237,10 @@ libopenni-dev:
 - ${ROS_UNRESOLVED_DEP-libopenni-dev}
 libopenni2-dev:
 - ${ROS_UNRESOLVED_DEP-libopenni2-dev}
+liborocos-bfl:
+- ${ROS_UNRESOLVED_DEP-liborocos-bfl}
+liborocos-bfl-dev:
+- ${ROS_UNRESOLVED_DEP-liborocos-bfl-dev}
 liborocos-kdl:
 - orocos-kdl@meta-ros1-noetic
 liborocos-kdl-dev:
@@ -313,6 +315,8 @@ libusb-1.0-dev:
 - libusb1@openembedded-core
 libusb-dev:
 - libusb1@openembedded-core
+libuvc-dev:
+- ${ROS_UNRESOLVED_DEP-libuvc-dev}
 libvlc-dev:
 - vlc@meta-multimedia
 libvtk:
@@ -339,8 +343,6 @@ log4cxx:
 - log4cxx@meta-ros-common
 lz4:
 - lz4@openembedded-core
-mapnik-utils:
-- ${ROS_UNRESOLVED_DEP-mapnik-utils}
 ml_classifiers:
 - ${ROS_UNRESOLVED_DEP-ml-classifiers}
 mongodb:
@@ -349,6 +351,8 @@ msgpack:
 - msgpack-c@meta-oe
 muparser:
 - ${ROS_UNRESOLVED_DEP-muparser}
+net-tools:
+- ${ROS_UNRESOLVED_DEP-net-tools}
 netpbm:
 - ${ROS_UNRESOLVED_DEP-netpbm}
 nkf:
@@ -369,14 +373,10 @@ openni_launch:
 - ${ROS_UNRESOLVED_DEP-openni-launch}
 openssl:
 - openssl@openembedded-core
-osm2pgsql:
-- ${ROS_UNRESOLVED_DEP-osm2pgsql}
 pkg-config:
 - pkgconfig@openembedded-core
 postgresql:
 - postgresql@meta-oe
-postgresql-postgis:
-- ${ROS_UNRESOLVED_DEP-postgresql-postgis}
 proj:
 - proj@meta-oe
 protobuf:
@@ -488,8 +488,6 @@ python3-kitchen:
 - ${ROS_UNRESOLVED_DEP-python3-kitchen}
 python3-lxml:
 - python3-lxml@meta-python
-python3-mapnik:
-- ${ROS_UNRESOLVED_DEP-python3-mapnik}
 python3-matplotlib:
 - python3-matplotlib@meta-python
 python3-mock:
