@@ -41,7 +41,9 @@ do_install_append_class-target() {
 
     mkdir -p ${D}${sysconfdir}/profile.d
     echo ". ${ros_prefix}/setup.sh" > ${D}${sysconfdir}/profile.d/ros.sh
+}
 
+do_install_append() {
     # because distutils is called with this PYTHON ${STAGING_BINDIR_NATIVE}/python3-native/python3
     # it also updates the shebang while installing catkin scripts, we need to undo that
     sed -i 's@#!${STAGING_BINDIR_NATIVE}/python3-native/python3@#!/usr/bin/env python3@g' ${D}${ros_bindir}/catkin_*
