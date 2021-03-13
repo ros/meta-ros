@@ -268,9 +268,7 @@ benchmark:
     stretch: null
   fedora: [google-benchmark-devel]
   openembedded: [google-benchmark@meta-ros2]
-  rhel:
-    '*': [google-benchmark-devel]
-    '7': null
+  rhel: [google-benchmark-devel]
   ubuntu:
     '*': [libbenchmark-dev]
     xenial: null
@@ -323,9 +321,8 @@ boost:
     stretch: [libboost-all-dev]
     wheezy: [libboost-all-dev]
   fedora:
-    '*': [boost-devel, boost-python3-devel]
-    '30': [boost-devel, boost-python2-devel, boost-python3-devel]
-    '31': [boost-devel, boost-python2-devel, boost-python3-devel]
+    '*': [boost-devel]
+    '32': [boost-devel, boost-python3-devel]
   freebsd: [py27-boost-libs]
   gentoo: ['dev-libs/boost[python]']
   macports: [boost]
@@ -649,14 +646,12 @@ cvs:
 cwiid:
   arch: [cwiid]
   debian: [libcwiid1]
-  fedora: [cwiid]
   gentoo: [app-misc/cwiid]
   opensuse: [libcwiid1]
   ubuntu: [libcwiid1]
 cwiid-dev:
   arch: [cwiid]
   debian: [libcwiid-dev]
-  fedora: [cwiid-devel]
   gentoo: [app-misc/cwiid]
   opensuse: [libcwiid-devel]
   ubuntu: [libcwiid-dev]
@@ -1266,6 +1261,13 @@ gperftools:
   fedora: [gperftools, gperftools-devel]
   gentoo: [dev-util/gperf]
   ubuntu: [google-perftools, libgoogle-perftools-dev]
+gpg-agent:
+  debian:
+    '*': [gpg-agent]
+    jessie: [gnupg-agent]
+  ubuntu:
+    '*': [gpg-agent]
+    xenial: [gnupg-agent]
 gphoto2:
   arch: [gphoto2]
   debian: [gphoto2]
@@ -2039,9 +2041,12 @@ libboost-python:
     buster: [libboost-python1.67.0]
     jessie: [libboost-python1.55.0]
     stretch: [libboost-python1.62.0]
-  fedora: [boost-python2-devel, boost-python3-devel]
+  fedora: [boost-python3]
   gentoo: ['dev-libs/boost[python]']
   openembedded: [boost@openembedded-core]
+  rhel:
+    '*': [boost-python3]
+    '7': [boost-python, 'boost-python%{python3_pkgversion}']
   ubuntu:
     bionic: [libboost-python1.65.1]
     disco: [libboost-python1.67.0]
@@ -2052,9 +2057,14 @@ libboost-python:
 libboost-python-dev:
   alpine: [boost-python2]
   debian: [libboost-python-dev]
-  fedora: [boost-python2-devel]
+  fedora:
+    '*': [boost-devel]
+    '32': [boost-devel, boost-python3-devel]
   gentoo: ['dev-libs/boost[python]']
   openembedded: [boost@openembedded-core]
+  rhel:
+    '*': [boost-python3-devel]
+    '7': [boost-devel, 'boost-python%{python3_pkgversion}-devel']
   ubuntu: [libboost-python-dev]
 libboost-random:
   debian:
@@ -2999,6 +3009,7 @@ libjpeg:
   macports: [jpeg]
   openembedded: [jpeg@openembedded-core]
   opensuse: [libjpeg62-devel]
+  rhel: [libjpeg-turbo-devel]
   slackware: [libjpeg-turbo]
   ubuntu:
     artful: [libjpeg-dev]
@@ -4383,6 +4394,7 @@ libudev-dev:
   fedora: [libudev-devel]
   gentoo: [virtual/libudev]
   openembedded: [udev@openembedded-core]
+  rhel: [libudev-devel]
   ubuntu: [libudev-dev]
 libunittest++:
   arch: [unittestpp]
@@ -4500,6 +4512,14 @@ libuv-dev:
     xenial: [libuv0.10-dev]
     yakkety: [libuv0.10-dev]
     zesty: [libuv0.10-dev]
+libuvc-dev:
+  debian:
+    '*': [libuvc-dev]
+    stretch: null
+  gentoo: [media-libs/libuvc]
+  ubuntu:
+    '*': [libuvc-dev]
+    xenial: null
 libv4l-dev:
   arch: [v4l-utils]
   debian: [libv4l-dev]
@@ -6630,6 +6650,9 @@ wx-common:
   fedora: [wxGTK3-devel]
   gentoo: [x11-libs/wxGTK]
   openembedded: [wxwidgets@meta-ros-common]
+  rhel:
+    '*': [wxGTK3-devel]
+    '7': [wxGTK-devel]
   ubuntu: [wx-common]
 wxwidgets:
   arch: [wxgtk]
