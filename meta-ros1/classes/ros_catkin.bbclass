@@ -1,6 +1,6 @@
 #
 # Copyright (c) 2013 Stefan Herbrechtsmeier, Bielefeld University
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 #
 
 inherit cmake
@@ -9,6 +9,11 @@ inherit ros_faulty_solibs
 # in case superflore-ros-distro.inc isn't included default to 3
 ROS_PYTHON_VERSION ?= "3"
 inherit ${@'distutils3-base' if d.getVar('ROS_PYTHON_VERSION') == '3' else 'distutils-base'}
+
+# noetic often provides python scripts which use "/usr/bin/env python" or "/usr/bin/python" shebang
+# while we want to install only python3 in the images and no /usr/bin/python symlink (as it cannot
+# work well when some components might expect /usr/bin/python to be python2 and some expecting python3)
+CATKIN_PYTHON = "python${ROS_PYTHON_VERSION}"
 
 # Used to disable exporting LD_LIBRARY_PATH when building with catkin
 # because on builder with the same architecture as target MACHINE it
@@ -36,3 +41,16 @@ EXTRA_OECMAKE_prepend = "\
     -DSETUPTOOLS_DEB_LAYOUT=OFF \
     -DCATKIN_ENABLE_TESTING=0 \
     "
+
+# similar to what distutil3.bbclass does here:
+# https://git.openembedded.org/openembedded-core/tree/meta/classes/distutils3.bbclass?h=hardknott#n46
+# but catkin recipe don't inherit whole distutils3 (only distutils3-base) and also with ros_opt_prefix.bbclass
+# the files we want to modify aren't in ${bindir}/${sbindir}, but ${ros_prefix}
+do_install_append() {
+    for i in ${D}${bindir}/* ${D}${sbindir}/* ${D}${ros_prefix}/bin/* ${D}${ros_prefix}/sbin/*; do
+        if [ -f "$i" ]; then
+            sed -i -e s:${PYTHON}:${USRBINPATH}/env\ ${CATKIN_PYTHON}:g $i
+            sed -i -e s:${STAGING_BINDIR_NATIVE}:${bindir}:g $i
+        fi
+    done
+}
