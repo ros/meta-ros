@@ -36,7 +36,7 @@ Machines = ['qemux86-64', 'raspberrypi4-64']
 # <YOCTO-VERSION>; instead it is the value in the Yocto Project Version column
 # of https://wiki.yoctoproject.org/wiki/Releases for
 # <OPENEMBEDDED-RELEASE-SERIES> to which a constant "~master" is appended.
-OpenEmbeddedVersion = '3.1-920-dunfell'
+OpenEmbeddedVersion = '3.1-941-dunfell'
 
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
 from os import getenv
@@ -51,9 +51,9 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'e0a126b49')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.46', 'commit': 'e0dd20a0'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.46', 'commit': 'da306cd4'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'dunfell', 'commit': '7c88d52eac'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'dunfell', 'commit': '707036d4ec'}, {}),
 
 ('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'dunfell', 'commit': '1ad4455f28'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
