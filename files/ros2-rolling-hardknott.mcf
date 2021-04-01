@@ -41,8 +41,8 @@ OpenEmbeddedVersion = '3.3~master-hardknott'
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
-MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'master')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '9f587d855')
+MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'hardknott')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'd54e14d63')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
