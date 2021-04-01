@@ -11,16 +11,16 @@ Machines = ['qemux86', 'raspberrypi4']
 # Allow the URL and branch for meta-ros, meta-ros-webos and meta-webos to be overridden by settings in the environment.
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
-MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'master')
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '9f587d855')
+MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'hardknott')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'd54e14d63')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
-MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'master')
+MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'hardknott')
 MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   '4ad5631')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
-MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
-MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'hardknott-2021-04-01')
+MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'hardknott')
+MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'hardknott-2021-04-04')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
