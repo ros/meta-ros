@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 require orocos-kdl.inc
 
@@ -11,3 +11,5 @@ S = "${WORKDIR}/git/orocos_kdl"
 DEPENDS = "libeigen"
 
 FILES_${PN}-dev += "${datadir}/orocos_kdl"
+
+SRC_URI += "file://0001-KDLConfig.cmake.in-don-t-include-absolute-patch-to-E.patch;patchdir=.."
