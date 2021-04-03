@@ -18,7 +18,7 @@ inherit cmake features_check
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
-DEPENDS = "zlib libx11 pugixml freetype"
+DEPENDS = "zlib libx11 pugixml freetype virtual/libgl libglu"
 
 # extra flags from rviz-ogre-vendor ExternalProject_Add in:
 # https://github.com/ros2/rviz/blob/16ad728224246ac8361e7073e1c89baec5a0eaf1/rviz_ogre_vendor/CMakeLists.txt#L162
