@@ -1,8 +1,6 @@
-# geographiclib-tools is just a package from geographiclib recipe it should be in
-# RDEPENDS not DEPENDS
-ROS_EXEC_DEPENDS += "geographiclib-tools"
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
-# ERROR: mavros-1.0.0-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/mavros/install_geographiclib_datasets.sh contained in package mavros requires /bin/bash, but no providers found in RDEPENDS_mavros? [file-rdeps]
+# ERROR: mavros-1.6.0-1-r0 do_package_qa: QA Issue: /usr/opt/ros/noetic/lib/mavros/install_geographiclib_datasets.sh contained in package mavros requires /bin/bash, but no providers found in RDEPENDS_mavros? [file-rdeps]
 ROS_EXEC_DEPENDS += " \
     bash \
 "
