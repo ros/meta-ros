@@ -60,6 +60,10 @@ ROS_WORLD_SKIP_GROUPS += "launch"
 # set to babeltrace, because python bindings in babeltrace are not enabled as shown in log.do_configure:
 # configure: You may configure with --enable-python-bindings if you want Python bindings.
 ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
+# recipes depends on cwiid
+ROS_WORLD_SKIP_GROUPS += "cwiid"
+# recipes depends on libspnav
+ROS_WORLD_SKIP_GROUPS += "libspnav"
 
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
