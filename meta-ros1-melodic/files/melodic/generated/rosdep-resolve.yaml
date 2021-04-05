@@ -49,6 +49,8 @@ cppunit:
 - cppunit@meta-oe
 curl:
 - curl@openembedded-core
+curlpp-dev:
+- ${ROS_UNRESOLVED_DEP-curlpp-dev}
 cwiid:
 - ${ROS_UNRESOLVED_DEP-cwiid}
 cwiid-dev:
