@@ -27,6 +27,10 @@ cppunit:
 - cppunit@meta-oe
 curl:
 - curl@openembedded-core
+cwiid:
+- ${ROS_UNRESOLVED_DEP-cwiid}
+cwiid-dev:
+- ${ROS_UNRESOLVED_DEP-cwiid-dev}
 eigen:
 - libeigen@meta-oe
 ffmpeg:
@@ -46,8 +50,14 @@ gtest:
 - gtest@meta-oe
 gurumdds-2.6:
 - ${ROS_UNRESOLVED_DEP-gurumdds-2.6}
+gurumdds-2.7:
+- ${ROS_UNRESOLVED_DEP-gurumdds-2.7}
 java:
 - ${ROS_UNRESOLVED_DEP-java}
+libbluetooth:
+- ${ROS_UNRESOLVED_DEP-libbluetooth}
+libbluetooth-dev:
+- ${ROS_UNRESOLVED_DEP-libbluetooth-dev}
 libboost-dev:
 - boost@openembedded-core
 libboost-iostreams-dev:
@@ -106,6 +116,8 @@ libqt5-opengl:
 - qtbase@meta-qt5
 libqt5-widgets:
 - qtbase@meta-qt5
+libspnav-dev:
+- ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
 - sqlite3@openembedded-core
 libssl-dev:
@@ -254,6 +266,8 @@ sdformat:
 - ${ROS_UNRESOLVED_DEP-sdformat}
 sdl2:
 - libsdl2@openembedded-core
+spacenavd:
+- ${ROS_UNRESOLVED_DEP-spacenavd}
 spdlog:
 - spdlog@meta-oe
 suitesparse:
