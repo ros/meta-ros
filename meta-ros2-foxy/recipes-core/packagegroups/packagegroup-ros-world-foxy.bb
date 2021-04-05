@@ -1,7 +1,10 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 DESCRIPTION = "All non-test packages for the target from files/foxy/cache.yaml"
 LICENSE = "MIT"
+
+# ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_* variables are MACHINE specific
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit packagegroup
 inherit ros_distro_foxy
