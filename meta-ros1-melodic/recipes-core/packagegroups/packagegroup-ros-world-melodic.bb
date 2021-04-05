@@ -206,11 +206,11 @@ ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_PROSILICA_GIGE_SDK = "\
 
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API_x86 = ""
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API_x86-64 = ""
-ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API_armv7a = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'rc-genicam-api rc-visard-driver rc-visard', '', d)}"
-ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API_armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'rc-genicam-api rc-visard-driver rc-visard', '', d)}"
+ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API_armv7a = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'rc-genicam-api rc-genicam-driver rc-genicam-camera rc-visard-driver rc-visard', '', d)}"
+ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API_armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'rc-genicam-api rc-genicam-driver rc-genicam-camera rc-visard-driver rc-visard', '', d)}"
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API_aarch64 = ""
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API = "\
-    rc-genicam-api rc-visard-driver rc-visard \
+    rc-genicam-api rc-genicam-driver rc-genicam-camera rc-visard-driver rc-visard \
 "
 
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC = " \
@@ -267,6 +267,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     fmi-adapter-examples \
     gl-dependency \
     gundam-rx78-control \
+    heron-desktop \
+    heron-viz \
     hrpsys-ros-bridge \
     jderobot-drones \
     leo-desktop \
@@ -276,6 +278,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     moose-viz \
     mrp2-desktop \
     mrp2-viz \
+    pf-driver \
     pilz-status-indicator-rqt \
     pr2-motor-diagnostic-tool \
     python-qt-binding \
@@ -800,6 +803,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     grid-map-demos \
     grid-map-rviz-plugin \
     gundam-rx78-description \
+    heron-desktop \
+    heron-viz \
     husky-desktop \
     husky-viz \
     imu-tools \
@@ -834,6 +839,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     open-manipulator-with-tb3-waffle-moveit \
     open-manipulator-with-tb3-waffle-pi-moveit \
     panda-moveit-config \
+    pf-driver \
     psen-scan-v2 \
     psen-scan \
     radial-menu \
@@ -919,6 +925,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     grid-map-rviz-plugin \
     gundam-robot \
     gundam-rx78-control \
+    heron-desktop \
+    heron-viz \
     hrpsys-ros-bridge \
     husky-desktop \
     husky-viz \
@@ -997,6 +1005,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     open-manipulator-p \
     open-manipulator-with-tb3 \
     panda-moveit-config \
+    pf-driver \
     pilz-robots \
     pilz-status-indicator-rqt \
     plotjuggler-ros \
