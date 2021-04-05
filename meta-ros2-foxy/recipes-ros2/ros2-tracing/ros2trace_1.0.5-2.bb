@@ -55,10 +55,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/foxy/ros2trace/1.0.4-1.tar.gz
+# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/foxy/ros2trace/1.0.5-2.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/ros2trace"
 SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "91a1ff218775a8e4254e4f8ebf6b320f0bfb76db"
+SRCREV = "0f9c02d196ec5fb70ac774857a2e6d586b1b7d15"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
