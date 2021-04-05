@@ -1,4 +1,4 @@
-# melodic/cache.yaml 2021-02-24 6f6b80bfae6128ada12f5eae43fe1449562ec213 20210223211704 1.6.0
+# melodic/cache.yaml 2021-03-18 cbb5bf749f3d9729cb3a26f504909a26939f1c75 20210318174126 1.6.0
 distribution_file:
 - release_platforms:
 -----
@@ -2486,13 +2486,18 @@ status: unmaintained
 }
 -----
 core_perception: {
+doc: {
+type: git,
+url: 'https://github.com/nobleo/core_perception.git',
+version: points_preprocessor_release
+},
 release: {
 packages: [points_preprocessor],
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/nobleo/core_perception-release.git',
-version: 1.14.9-1
+version: 1.14.13-1
 },
 source: {
 type: git,
@@ -2987,7 +2992,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/dingo-release.git',
-version: 0.1.6-2
+version: 0.1.7-1
 },
 source: {
 type: git,
@@ -3153,7 +3158,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/dynamic-graph-ros-release.git',
-version: 4.3.1-3
+version: 4.3.4-1
 },
 source: {
 type: git,
@@ -3174,7 +3179,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/dynamic-graph-python-ros-release.git',
-version: 4.0.1-1
+version: 4.0.3-1
 },
 source: {
 test_pull_requests: true,
@@ -3561,7 +3566,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/eiquadprog-ros-release.git',
-version: 1.2.2-2
+version: 1.2.3-1
 },
 source: {
 test_pull_requests: true,
@@ -3997,7 +4002,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/fetchrobotics-gbp/fetch_robots-release.git',
-version: 0.8.8-1
+version: 0.8.9-1
 },
 source: {
 test_pull_requests: true,
@@ -4028,7 +4033,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/fetchrobotics-gbp/fetch_ros-release.git',
-version: 0.8.2-1
+version: 0.8.3-1
 },
 source: {
 test_pull_requests: true,
@@ -5314,6 +5319,50 @@ version: kinetic-devel
 status: maintained
 }
 -----
+heron_controller: {
+doc: {
+type: git,
+url: 'https://github.com/heron/heron_controller.git',
+version: kinetic-devel
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/clearpath-gbp/heron_controller-release.git',
+version: 0.2.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/heron/heron_controller.git',
+version: kinetic-devel
+},
+status: maintained
+}
+-----
+heron_desktop: {
+doc: {
+type: git,
+url: 'https://github.com/heron/heron_desktop.git',
+version: kinetic-devel
+},
+release: {
+packages: [heron_desktop,
+heron_viz],
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/clearpath-gbp/heron_desktop-release.git',
+version: 0.0.3-2
+},
+source: {
+type: git,
+url: 'https://github.com/heron/heron_desktop.git',
+version: kinetic-devel
+},
+status: maintained
+}
+-----
 heron_simulator: {
 doc: {
 type: git,
@@ -5327,7 +5376,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/heron_simulator-release.git',
-version: 0.3.2-1
+version: 0.3.3-1
 },
 source: {
 type: git,
@@ -5460,7 +5509,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/husky-release.git',
-version: 0.4.5-1
+version: 0.4.6-1
 },
 source: {
 type: git,
@@ -6065,7 +6114,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/jackal-release.git',
-version: 0.7.2-1
+version: 0.7.3-1
 },
 source: {
 type: git,
@@ -6226,7 +6275,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/JdeRobot/drones-release.git',
-version: 1.3.6-1
+version: 1.3.7-3
 },
 source: {
 type: git,
@@ -7512,7 +7561,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/hatchbed/log_view-release.git',
-version: 0.1.2-1
+version: 0.1.3-1
 },
 source: {
 type: git,
@@ -7782,7 +7831,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavlink-gbp-release.git',
-version: 2021.2.15-1
+version: 2021.3.3-1
 },
 source: {
 type: git,
@@ -7853,7 +7902,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/mcl_3dl-release.git',
-version: 0.5.2-1
+version: 0.5.4-1
 },
 source: {
 type: git,
@@ -8198,6 +8247,27 @@ version: master
 status: maintained
 }
 -----
+mocap_optitrack: {
+doc: {
+type: git,
+url: 'https://github.com/ros-drivers/mocap_optitrack.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/ros-drivers-gbp/mocap_optitrack-release.git',
+version: 0.1.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-drivers/mocap_optitrack.git',
+version: master
+},
+status: maintained
+}
+-----
 mongodb_store: {
 doc: {
 type: git,
@@ -8319,6 +8389,28 @@ url: 'https://github.com/magazino/move_base_flex.git',
 version: melodic
 },
 status: developed
+}
+-----
+move_base_sequence: {
+doc: {
+type: git,
+url: 'https://github.com/MarkNaeem/move_base_sequence.git',
+version: main
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/MarkNaeem/move_base_sequence-release.git',
+version: 0.0.1-2
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/MarkNaeem/move_base_sequence.git',
+version: main
+},
+status: maintained
 }
 -----
 moveit: {
@@ -9232,6 +9324,20 @@ version: indigo-devel
 status: maintained
 }
 -----
+nearfield_map: {
+doc: {
+type: git,
+url: 'https://github.com/TUC-ProAut/ros_nearfield_map.git',
+version: master
+},
+source: {
+type: git,
+url: 'https://github.com/TUC-ProAut/ros_nearfield_map.git',
+version: master
+},
+status: maintained
+}
+-----
 neo_local_planner: {
 doc: {
 type: git,
@@ -9270,7 +9376,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/neonavigation-release.git',
-version: 0.10.6-1
+version: 0.10.8-1
 },
 source: {
 type: git,
@@ -10704,6 +10810,28 @@ version: melodic-devel
 status: maintained
 }
 -----
+pf_lidar_ros_driver: {
+doc: {
+type: git,
+url: 'https://github.com/PepperlFuchs/pf_lidar_ros_driver.git',
+version: main
+},
+release: {
+packages: [pf_driver],
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/PepperlFuchs/pf_lidar_ros_driver-release.git',
+version: 1.1.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/PepperlFuchs/pf_lidar_ros_driver.git',
+version: main
+},
+status: developed
+}
+-----
 pheeno_ros_description: {
 doc: {
 type: git,
@@ -11616,7 +11744,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/PilzDE/psen_scan_v2-release.git',
-version: 0.1.4-1
+version: 0.1.5-1
 },
 source: {
 type: git,
@@ -11799,6 +11927,7 @@ url: 'https://github.com/ros-gbp/python_qt_binding-release.git',
 version: 0.4.3-1
 },
 source: {
+test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/python_qt_binding.git',
 version: melodic-devel
@@ -12330,7 +12459,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/roboception-gbp/rc_genicam_api-release.git',
-version: 2.4.4-1
+version: 2.5.0-1
 },
 source: {
 test_pull_requests: true,
@@ -13031,7 +13160,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/robot_upstart-release.git',
-version: 0.3.0-0
+version: 0.3.2-1
 },
 source: {
 test_pull_requests: true,
@@ -13400,7 +13529,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/PickNikRobotics/ros_control_boilerplate-release.git',
-version: 0.5.0-1
+version: 0.5.2-1
 },
 source: {
 type: git,
@@ -13505,6 +13634,29 @@ type: git,
 url: 'https://github.com/shadow-robot/ros_ethercat_eml.git',
 version: melodic-devel
 }
+}
+-----
+ros_led: {
+doc: {
+type: git,
+url: 'https://github.com/CopterExpress/ros_led.git',
+version: master
+},
+release: {
+packages: [led_msgs,
+ws281x],
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/CopterExpress/ros_led-release.git',
+version: 0.0.9-1
+},
+source: {
+type: git,
+url: 'https://github.com/CopterExpress/ros_led.git',
+version: master
+},
+status: maintained
 }
 -----
 ros_monitoring_msgs: {
@@ -14201,7 +14353,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/uos-gbp/rospy_message_converter-release.git',
-version: 0.5.5-1
+version: 0.5.6-1
 },
 source: {
 test_pull_requests: true,
@@ -14764,7 +14916,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_plot-release.git',
-version: 0.4.9-0
+version: 0.4.13-1
 },
 source: {
 type: git,
@@ -15426,7 +15578,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rviz-release.git',
-version: 1.13.15-1
+version: 1.13.16-1
 },
 source: {
 test_pull_requests: true,
@@ -16015,7 +16167,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/sot-core-ros-release.git',
-version: 4.11.2-3
+version: 4.11.5-2
 },
 source: {
 test_pull_requests: true,
@@ -16037,7 +16189,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/sot-dynamic-pinocchio-ros-release.git',
-version: 3.6.1-1
+version: 3.6.3-1
 },
 source: {
 test_pull_requests: true,
@@ -16059,7 +16211,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/sot-tools-ros-release.git',
-version: 2.3.2-1
+version: 2.3.4-1
 },
 source: {
 test_pull_requests: true,
@@ -17746,7 +17898,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/seqsense/urg_stamped-release.git',
-version: 0.0.7-1
+version: 0.0.9-1
 },
 source: {
 type: git,
@@ -18012,7 +18164,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/DataspeedInc-release/velodyne_simulator-release.git',
-version: 1.0.10-1
+version: 1.0.11-1
 },
 source: {
 type: git,
@@ -18146,7 +18298,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/lagadic/vision_visp-release.git',
-version: 0.11.1-1
+version: 0.12.0-1
 },
 source: {
 type: git,
@@ -18162,7 +18314,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/lagadic/visp-release.git',
-version: 3.3.0-3
+version: 3.4.0-4
 },
 status: maintained
 }
@@ -18459,7 +18611,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/warthog-release.git',
-version: 0.1.2-1
+version: 0.1.3-1
 },
 source: {
 type: git,
@@ -18839,7 +18991,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/openspur/yp-spur-release.git',
-version: 1.20.0-1
+version: 1.20.1-1
 },
 source: {
 type: git,
@@ -18927,6 +19079,27 @@ source: {
 type: git,
 url: 'https://github.com/fada-catec/z_laser_projector.git',
 version: melodic
+},
+status: maintained
+}
+-----
+zbar_ros: {
+doc: {
+type: git,
+url: 'https://github.com/ros-drivers/zbar_ros.git',
+version: melodic-devel
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/ros-drivers-gbp/zbar_ros-release.git',
+version: 0.3.0-2
+},
+source: {
+type: git,
+url: 'https://github.com/ros-drivers/zbar_ros.git',
+version: melodic-devel
 },
 status: maintained
 }
@@ -26581,6 +26754,7 @@ dingo_description: <?xml version="1.0" ?>
 <depend>xacro</depend>
 <exec_depend>lms1xx</exec_depend>
 <exec_depend>realsense2_description</exec_depend>
+<exec_depend>velodyne_description</exec_depend>
 <export/>
 </package>
 -----
@@ -27123,7 +27297,7 @@ dynamic-graph: <?xml version="1.0" ?>
 <package format="3">
 <name>dynamic-graph</name>
 <description>Dynamic graph library</description>
-<maintainer email="ostasse@laas.fr">Olivier Stasse</maintainer>
+<maintainer email="guilhem.saurel@laas.fr">Guilhem saurel</maintainer>
 <license>BSD</license>
 <url>http://github.com/stack-of-tasks/dynamic-graph</url>
 <author>Nicolas Mansard</author>
@@ -27145,7 +27319,7 @@ dynamic-graph-python: <?xml version="1.0" ?>
 <package format="3">
 <name>dynamic-graph-python</name>
 <description>Dynamic graph library Python bindings</description>
-<maintainer email="ostasse@laas.fr">Olivier Stasse</maintainer>
+<maintainer email="guilhem.saurel@laas.fr">Guilhem Saurel</maintainer>
 <license>BSD</license>
 <url>http://github.com/stack-of-tasks/dynamic-graph-python</url>
 <author>Nicolas Mansard</author>
@@ -28487,7 +28661,7 @@ eiquadprog: <?xml version="1.0" ?>
 <package format="3">
 <name>eiquadprog</name>
 <description>Eiquadprog a QP solver using active sets</description>
-<maintainer email="ostasse@laas.fr">Olivier Stasse</maintainer>
+<maintainer email="guilhem.saurel@laas.fr">Guilhem Saurel</maintainer>
 <license>LGPLv3</license>
 <url>git@github.com:stack-of-tasks/eiquadprog.git</url>
 <author>Gabriele Buondonno</author>
@@ -29550,6 +29724,7 @@ fetch_bringup: <?xml version="1.0" ?>
 <exec_depend>robot_state_publisher</exec_depend>
 <exec_depend>sensor_msgs</exec_depend>
 <exec_depend version_gte="0.0.4">sick_tim</exec_depend>
+<exec_depend>sound_play</exec_depend>
 </package>
 -----
 fetch_calibration: <?xml version="1.0" ?>
@@ -29557,8 +29732,12 @@ fetch_calibration: <?xml version="1.0" ?>
 <name>fetch_calibration</name>
 <description>Launch and configuration files for calibrating Fetch using the 'robot_calibration' package.</description>
 <author>Michael Ferguson</author>
+<maintainer email="narora@fetchrobotics.com">Niharika Arora</maintainer>
+<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
+<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
+<maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
 <maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="amoriarty@fetchrobotics.com">Alex Moriarty</maintainer>
+<maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>Apache2</license>
 <url type="wiki">http://ros.org/wiki/fetch_calibration</url>
 <url type="website">http://docs.fetchrobotics.com/calibration.html</url>
@@ -29573,8 +29752,12 @@ fetch_depth_layer: <?xml version="1.0" ?>
 <name>fetch_depth_layer</name>
 <description>The fetch_depth_layer package</description>
 <author>Michael Ferguson</author>
+<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
+<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
+<maintainer email="narora@fetchrobotics.com">Niharika Arora</maintainer>
+<maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
 <maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="amoriarty@fetchrobotics.com">Alex Moriarty</maintainer>
+<maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>BSD</license>
 <url type="wiki">http://ros.org/wiki/fetch_depth_layer</url>
 <url type="website">http://docs.fetchrobotics.com/perception.html</url>
@@ -29601,8 +29784,12 @@ fetch_description: <?xml version="1.0" ?>
 <description>URDF for Fetch Robot.</description>
 <author>Michael Ferguson</author>
 <author>Melonee Wise</author>
+<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
+<maintainer email="narora@fetchrobotics.com">Niharika Arora</maintainer>
+<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
+<maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
 <maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="amoriarty@fetchrobotics.com">Alex Moriarty</maintainer>
+<maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>CreativeCommons-Attribution-NonCommercial-ShareAlike-4.0-International</license>
 <url type="wiki">http://ros.org/wiki/fetch_description</url>
 <url type="website">http://docs.fetchrobotics.com/robot_hardware.html</url>
@@ -29639,13 +29826,15 @@ fetch_drivers: <?xml version="1.0" ?>
 <name>fetch_drivers</name>
 <description>The public fetch_drivers package is a binary only release. fetch_drivers contains both the drivers and firmware for the fetch and freight research robots. There should be no reason to use these drivers unless you're running on a fetch or a freight research robot. This package,
 is a cmake/make only package which installs the binaries for the drivers and firmware.</description>
-<maintainer email="amoriarty@fetchrobotics.com">Alexander Moriarty</maintainer>
+<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
+<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
+<maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
 <maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>Proprietary</license>
 <url type="website">https://wiki.ros.org/fetch_drivers</url>
 <url type="docs">https://docs.fetchrobotics.com</url>
 <url type="info">https://fetchrobotics.com/robotics-platforms/</url>
-<author email="amoriarty@fetchrobotics.com">Alexander Moriarty</author>
+<author>Alexander Moriarty</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>mk</build_depend>
 <build_depend>rospack</build_depend>
@@ -29732,8 +29921,12 @@ fetch_ikfast_plugin: <?xml version="1.0" ?>
 <description>Kinematics plugin for Fetch robot,
 generated through IKFast</description>
 <author>Michael Ferguson</author>
+<maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
+<maintainer email="narora@fetchrobotics.com">Niharika Arora</maintainer>
+<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
+<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
 <maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="amoriarty@fetchrobotics.com">Alex Moriarty</maintainer>
+<maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>Apache2</license>
 <url type="wiki">http://ros.org/wiki/fetch_ikfast_plugin</url>
 <url type="website">http://docs.fetchrobotics.com/manipulation.html</url>
@@ -29759,8 +29952,12 @@ fetch_maps: <?xml version="1.0" ?>
 <author>Michael Ferguson</author>
 <author>Michael Gregg</author>
 <author>Aaron Blasdel</author>
+<maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
+<maintainer email="narora@fetchrobotics.com">Niharika Arora</maintainer>
+<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
+<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
 <maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="amoriarty@fetchrobotics.com">Alex Moriarty</maintainer>
+<maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>BSD</license>
 <url type="wiki">http://ros.org/wiki/fetch_maps</url>
 <url type="website">http://docs.fetchrobotics.com/navigation.html</url>
@@ -29774,8 +29971,11 @@ fetch_moveit_config: <?xml version="1.0" ?>
 <name>fetch_moveit_config</name>
 <description>An automatically generated package with all the configuration and launch files for using the fetch_urdf with the MoveIt Motion Planning Framework</description>
 <author email="assistant@moveit.ros.org">MoveIt Setup Assistant</author>
+<maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
+<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
+<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
 <maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="amoriarty@fetchrobotics.com">Alex Moriarty</maintainer>
+<maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>BSD</license>
 <url type="wiki">http://ros.org/wiki/fetch_moveit_config</url>
 <url type="website">http://moveit.ros.org/</url>
@@ -29803,8 +30003,12 @@ fetch_navigation: <?xml version="1.0" ?>
 <name>fetch_navigation</name>
 <description>Configuration and launch files for running ROS navigation on Fetch.</description>
 <author>Michael Ferguson</author>
+<maintainer email="narora@fetchrobotics.com">Niharika Arora</maintainer>
+<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
+<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
+<maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
 <maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="amoriarty@fetchrobotics.com">Alex Moriarty</maintainer>
+<maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>BSD</license>
 <url type="wiki">http://ros.org/wiki/fetch_navigation</url>
 <url type="website">http://docs.fetchrobotics.com/navigation.html</url>
@@ -29858,13 +30062,17 @@ fetch_ros: <?xml version="1.0" ?>
 <name>fetch_ros</name>
 <description>Fetch ROS,
 packages for working with Fetch and Freight</description>
-<maintainer email="amoriarty@fetchrobotics.com">Alex Moriarty</maintainer>
+<maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
+<maintainer email="narora@fetchrobotics.com">Niharika Arora</maintainer>
+<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
+<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
+<maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>BSD</license>
 <url type="website">https://docs.fetchrobotics.com/</url>
 <url type="repository">https://github.com/fetchrobotics/fetch_ros</url>
 <url type="bugtracker">https://github.com/fetchrobotics/fetch_ros/issues</url>
 <url type="wiki">https://wiki.ros.org/fetch_ros</url>
-<author email="amoriarty@fetchrobotics.com">Alex Moriarty</author>
+<author>Alex Moriarty</author>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>fetch_calibration</exec_depend>
 <exec_depend>fetch_depth_layer</exec_depend>
@@ -29937,8 +30145,12 @@ fetch_teleop: <?xml version="1.0" ?>
 <name>fetch_teleop</name>
 <description>Teleoperation for fetch and freight.</description>
 <author>Michael Ferguson</author>
+<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
+<maintainer email="narora@fetchrobotics.com">Niharika Arora</maintainer>
+<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
+<maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
 <maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="amoriarty@fetchrobotics.com">Alex Moriarty</maintainer>
+<maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>BSD</license>
 <url type="wiki">http://ros.org/wiki/fetch_teleop</url>
 <url type="website">http://docs.fetchrobotics.com/teleop.html</url>
@@ -30899,7 +31111,8 @@ freight_bringup: <?xml version="1.0" ?>
 <exec_depend>joy</exec_depend>
 <exec_depend>ps3joy</exec_depend>
 <exec_depend>robot_state_publisher</exec_depend>
-<exec_depend>sick_tim</exec_depend>
+<exec_depend version_gte="0.0.4">sick_tim</exec_depend>
+<exec_depend>sound_play</exec_depend>
 </package>
 -----
 fsrobo_r: <?xml version="1.0" ?>
@@ -33287,6 +33500,23 @@ heron_control: <?xml version="1.0" ?>
 <test_depend>roslaunch</test_depend>
 </package>
 -----
+heron_controller: <?xml version="1.0" ?>
+<package format="2">
+<name>heron_controller</name>
+<description>The heron_controller package</description>
+<maintainer email="mpurvis@clearpathrobotics.com">Mike Purvis</maintainer>
+<author>Prasenjit Mukherjee</author>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>control_toolbox</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>heron_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>tf</depend>
+<export/>
+</package>
+-----
 heron_description: <?xml version="1.0" ?>
 <package format="2">
 <name>heron_description</name>
@@ -33301,6 +33531,21 @@ heron_description: <?xml version="1.0" ?>
 <exec_depend>urdf</exec_depend>
 <exec_depend>xacro</exec_depend>
 <export/>
+</package>
+-----
+heron_desktop: <?xml version="1.0" ?>
+<package>
+<name>heron_desktop</name>
+<description>The heron_desktop metapackage</description>
+<maintainer email="mpurvis@clearpathrobotics.com">Mike Purvis</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/heron_desktop</url>
+<buildtool_depend>catkin</buildtool_depend>
+<run_depend>heron_msgs</run_depend>
+<run_depend>heron_viz</run_depend>
+<export>
+<metapackage/>
+</export>
 </package>
 -----
 heron_gazebo: <?xml version="1.0" ?>
@@ -33352,6 +33597,20 @@ heron_simulator: <?xml version="1.0" ?>
 <run_depend>robot_state_publisher</run_depend>
 <run_depend>urdf</run_depend>
 <run_depend>xacro</run_depend>
+<export/>
+</package>
+-----
+heron_viz: <?xml version="1.0" ?>
+<package>
+<name>heron_viz</name>
+<description>Visualization and rviz helpers for Heron.</description>
+<maintainer email="mpurvis@clearpathrobotics.com">Mike Purvis</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roslaunch</build_depend>
+<run_depend>heron_description</run_depend>
+<run_depend>joint_state_publisher</run_depend>
+<run_depend>rviz</run_depend>
 <export/>
 </package>
 -----
@@ -33818,6 +34077,7 @@ husky_bringup: <?xml version="1.0" ?>
 <run_depend>tf2_ros</run_depend>
 <run_depend>um6</run_depend>
 <run_depend>um7</run_depend>
+<run_depend>velodyne_pointcloud</run_depend>
 <export/>
 </package>
 -----
@@ -33887,6 +34147,7 @@ husky_description: <?xml version="1.0" ?>
 <run_depend>urdf</run_depend>
 <run_depend>xacro</run_depend>
 <run_depend>lms1xx</run_depend>
+<run_depend>velodyne_description</run_depend>
 <export/>
 </package>
 -----
@@ -33932,6 +34193,7 @@ husky_gazebo: <?xml version="1.0" ?>
 <run_depend>multimaster_launch</run_depend>
 <run_depend>pointcloud_to_laserscan</run_depend>
 <run_depend>rostopic</run_depend>
+<run_depend>velodyne_gazebo_plugins</run_depend>
 <export/>
 </package>
 -----
@@ -35472,6 +35734,7 @@ jackal_description: <?xml version="1.0" ?>
 <run_depend>xacro</run_depend>
 <run_depend>lms1xx</run_depend>
 <run_depend>pointgrey_camera_description</run_depend>
+<run_depend>velodyne_description</run_depend>
 <export/>
 </package>
 -----
@@ -38845,6 +39108,23 @@ lauv_gazebo: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 </package>
 -----
+led_msgs: <?xml version="1.0" ?>
+<package format="2">
+<name>led_msgs</name>
+<description>Messages for LEDs and LED strips</description>
+<maintainer email="okalachev@gmail.com">Oleg Kalachev</maintainer>
+<license>MIT</license>
+<url type="website">https://github.com/CopterExpress/ros_led</url>
+<author email="okalachev@gmail.com">Oleg Kalachev</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>message_generation</build_depend>
+<exec_depend>message_runtime</exec_depend>
+<depend>std_msgs</depend>
+<export>
+<architecture_independent/>
+</export>
+</package>
+-----
 leg_detector: <?xml version="1.0" ?>
 <package format="2">
 <name>leg_detector</name>
@@ -41733,6 +42013,39 @@ mobileye_560_660_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+mocap_optitrack: <?xml version="1.0" ?>
+<package format="2">
+<name>mocap_optitrack</name>
+<description>Streaming of OptiTrack mocap data to tf<p>This package contains a node that translates motion capture data from an OptiTrack rig to tf transforms,
+poses and 2D poses. The node receives packets that are streamed by a NatNet compliant source,
+decodes them and broadcasts the poses of configured rigid bodies as tf transforms,
+poses,
+and/or 2D poses.</p>
+<p>Currently,
+this node supports the NatNet streaming protocol v3.0</p>
+<p>Copyright (c) 2013,
+Clearpath Robotics<br/>Copyright (c) 2010,
+University of Bonn,
+Computer Science Institute VI<br/>All rights reserved.</p>
+</description>
+<maintainer email="tony@baltovski.ca">Tony Baltovski</maintainer>
+<author email="graeve@ais.uni-bonn.de">Kathrin Gräve</author>
+<author email="abencz@clearpathrobotics.com">Alex Bencz/</author>
+<author email="tony@baltovski.ca">Tony Baltovski</author>
+<author email="jyamokoski@houstonmechatronics.com">JD Yamokoski</author>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/mocap_optitrack</url>
+<url type="repository">https://github.com/ros-drivers/mocap_optitrack</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>dynamic_reconfigure</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>roscpp</depend>
+<depend>tf</depend>
+<test_depend>roslaunch</test_depend>
+<test_depend>roslint</test_depend>
+</package>
+-----
 mongodb_log: <?xml version="1.0" ?>
 <package>
 <name>mongodb_log</name>
@@ -42065,6 +42378,38 @@ move_base_msgs: <?xml version="1.0" ?>
 <run_depend>actionlib_msgs</run_depend>
 <run_depend>geometry_msgs</run_depend>
 <run_depend>message_runtime</run_depend>
+</package>
+-----
+move_base_sequence: <?xml version="1.0" ?>
+<package format="2">
+<name>move_base_sequence</name>
+<description>The move_base_sequence package</description>
+<maintainer email="marknaeem@yahoo.com">mark</maintainer>
+<license>GPLv3</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>actionlib</build_depend>
+<build_depend>actionlib_msgs</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>move_base_msgs</build_depend>
+<build_depend>rospy</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_export_depend>actionlib</build_export_depend>
+<build_export_depend>actionlib_msgs</build_export_depend>
+<build_export_depend>geometry_msgs</build_export_depend>
+<build_export_depend>move_base_msgs</build_export_depend>
+<build_export_depend>rospy</build_export_depend>
+<build_export_depend>std_msgs</build_export_depend>
+<build_export_depend>nav_msgs</build_export_depend>
+<exec_depend>actionlib</exec_depend>
+<exec_depend>actionlib_msgs</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>move_base_msgs</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>nav_msgs</exec_depend>
+<build_depend>message_generation</build_depend>
+<exec_depend>message_runtime</exec_depend>
+<export/>
 </package>
 -----
 move_slow_and_clear: <?xml version="1.0" ?>
@@ -48311,6 +48656,36 @@ perception_pcl: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+pf_driver: <?xml version="1.0" ?>
+<package format="2">
+<name>pf_driver</name>
+<description>The Pepperl+Fuchs LiDAR package</description>
+<maintainer email="harshavardhan.deshpande@ipa.fraunhofer.de">Harsh Deshpande</maintainer>
+<author email="harshavardhan.deshpande@ipa.fraunhofer.de">Harsh Deshpande</author>
+<license>Apache2.0</license>
+<url type="website">https://github.com/PepperlFuchs/pf_lidar_ros_driver</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>libpcl-all-dev</build_depend>
+<build_depend>message_generation</build_depend>
+<build_depend>roslint</build_depend>
+<exec_depend>libpcl-all</exec_depend>
+<exec_depend>message_runtime</exec_depend>
+<exec_depend>rviz</exec_depend>
+<depend>curlpp-dev</depend>
+<depend>dynamic_reconfigure</depend>
+<depend>laser_geometry</depend>
+<depend>libjsoncpp-dev</depend>
+<depend>pcl_conversions</depend>
+<depend>pcl_ros</depend>
+<depend>roscpp</depend>
+<depend>roscpp_serialization</depend>
+<depend>sensor_msgs</depend>
+<depend>std_msgs</depend>
+<depend>tf</depend>
+<test_depend>rosunit</test_depend>
+<export/>
+</package>
+-----
 pgm_learner: <?xml version="1.0" ?>
 <package format="3">
 <name>pgm_learner</name>
@@ -51613,8 +51988,8 @@ psen_scan_v2: <?xml version="1.0" ?>
 <maintainer email="a.gutenkunst@pilz.de">Alexander Gutenkunst</maintainer>
 <maintainer email="c.doehn@pilz.de">Christian Döhn</maintainer>
 <maintainer email="c.henkel@pilz.de">Christian Henkel</maintainer>
-<maintainer email="h.slusarek@pilz.de">Hagen Slusarek</maintainer>
 <maintainer email="i.martini@pilz.de">Immanuel Martini</maintainer>
+<maintainer email="r.feistenauer@pilz.de">Richard Feistenauer</maintainer>
 <license>LGPLv3</license>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>fmt</depend>
@@ -54541,6 +54916,7 @@ robot_upstart: <?xml version="1.0" ?>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>daemontools</exec_depend>
+<exec_depend>net-tools</exec_depend>
 <exec_depend>roslaunch</exec_depend>
 <exec_depend>xacro</exec_depend>
 <test_depend>roslint</test_depend>
@@ -59060,10 +59436,11 @@ a front-end interface for play_motion_builder</description>
 </package>
 -----
 rqt_plot: <?xml version="1.0" ?>
-<package>
+<package format="3">
 <name>rqt_plot</name>
 <description>rqt_plot provides a GUI plugin visualizing numeric values in a 2D plot using different plotting backends.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
+<maintainer email="logans@cottsay.net">Scott K Logan</maintainer>
 <maintainer email="scholz@sim.tu-darmstadt.de">Dorian Scholz</maintainer>
 <maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
 <license>BSD</license>
@@ -59071,19 +59448,23 @@ rqt_plot: <?xml version="1.0" ?>
 <url type="repository">https://github.com/ros-visualization/rqt_plot</url>
 <url type="bugtracker">https://github.com/ros-visualization/rqt_plot/issues</url>
 <author>Dorian Scholz</author>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
-<run_depend>python-matplotlib</run_depend>
-<run_depend>python-numpy</run_depend>
-<run_depend>python-rospkg</run_depend>
-<run_depend version_gte="0.2.19">python_qt_binding</run_depend>
-<run_depend version_gte="0.2.25">qt_gui_py_common</run_depend>
-<run_depend>qwt_dependency</run_depend>
-<run_depend>rosgraph</run_depend>
-<run_depend>rostopic</run_depend>
-<run_depend>rqt_gui</run_depend>
-<run_depend>rqt_gui_py</run_depend>
-<run_depend>rqt_py_common</run_depend>
-<run_depend>std_msgs</run_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-matplotlib</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-matplotlib</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-numpy</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-numpy</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
+<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
+<exec_depend version_gte="0.2.25">qt_gui_py_common</exec_depend>
+<exec_depend>qwt_dependency</exec_depend>
+<exec_depend>rosgraph</exec_depend>
+<exec_depend>rostopic</exec_depend>
+<exec_depend>rqt_gui</exec_depend>
+<exec_depend>rqt_gui_py</exec_depend>
+<exec_depend>rqt_py_common</exec_depend>
+<exec_depend>std_msgs</exec_depend>
 <export>
 <architecture_independent/>
 <rqt_gui plugin="${prefix}/plugin.xml"/>
@@ -62201,7 +62582,7 @@ sot-core: <?xml version="1.0" ?>
 <package format="3">
 <name>sot-core</name>
 <description>Hierarchical task solver plug-in for dynamic-graph</description>
-<maintainer email="ostasse@laas.fr">Olivier Stasse</maintainer>
+<maintainer email="guilhem.saurel@laas.fr">Guilhem Saurel</maintainer>
 <license>BSD</license>
 <url type="website">http://stack-of-tasks.github.io</url>
 <url type="repository">http://www.github.com/stack-of-tasks/sot-core</url>
@@ -62227,13 +62608,12 @@ sot-dynamic-pinocchio: <?xml version="1.0" ?>
 <package format="3">
 <name>sot-dynamic-pinocchio</name>
 <description>Pinocchio bindings for dynamic-graph</description>
-<maintainer email="ostasse@laas.fr">Olivier Stasse</maintainer>
+<maintainer email="guilhem.saurel@laas.fr">Guilhem Saurel</maintainer>
 <license>BSD</license>
 <url type="website">http://stack-of-tasks.github.io</url>
 <url type="repository">http://www.github.com/stack-of-tasks/sot-dynamic-pinocchio</url>
 <url type="bugtracker">http://www.github.com/stack-of-tasks/sot-dynamic-pinocchio/issues</url>
 <author>Olivier Stasse</author>
-<author email="ostasse@laas.fr">ostasse@laas.fr</author>
 <build_depend>git</build_depend>
 <build_depend>doxygen</build_depend>
 <exec_depend condition="$ROS_VERSION == 1">catkin</exec_depend>
@@ -62242,6 +62622,8 @@ sot-dynamic-pinocchio: <?xml version="1.0" ?>
 <depend>sot-tools</depend>
 <depend>pinocchio</depend>
 <depend>dynamic-graph-python</depend>
+<depend>liblapack-dev</depend>
+<depend>libopenblas-dev</depend>
 <doc_depend>doxygen</doc_depend>
 <doc_depend>dynamic-graph</doc_depend>
 <test_depend>gtest</test_depend>
@@ -62255,7 +62637,7 @@ sot-tools: <?xml version="1.0" ?>
 <package format="3">
 <name>sot-tools</name>
 <description>Miscellanous entities for the stack of tasks</description>
-<maintainer email="ostasse@laas.fr">Olivier Stasse</maintainer>
+<maintainer email="guilhem.saurel@laas.fr">Guilhem Saurel</maintainer>
 <license>BSD</license>
 <url>http://github.com/stack-of-tasks/sot-tools</url>
 <author>Mehdi Benallegue</author>
@@ -67724,6 +68106,7 @@ the object is automaticaly detected. The detection allows then to initialise the
 <run_depend>visp_bridge</run_depend>
 <run_depend>visp_tracker</run_depend>
 <run_depend>zbar</run_depend>
+<run_depend>usb_cam</run_depend>
 </package>
 -----
 visp_bridge: <?xml version="1.0" ?>
@@ -67775,6 +68158,7 @@ visp_camera_calibration: <?xml version="1.0" ?>
 <run_depend>std_msgs</run_depend>
 <run_depend>visp</run_depend>
 <run_depend>visp_bridge</run_depend>
+<run_depend>rqt_console</run_depend>
 </package>
 -----
 visp_hand2eye_calibration: <?xml version="1.0" ?>
@@ -68847,6 +69231,22 @@ wireless_watcher: <?xml version="1.0" ?>
 <exec_depend>wireless_msgs</exec_depend>
 </package>
 -----
+ws281x: <?xml version="1.0" ?>
+<package format="2">
+<name>ws281x</name>
+<description>ROS node for rpi_ws281x LED strip driver</description>
+<maintainer email="sfalexrog@gmail.com">sfalexrog</maintainer>
+<maintainer email="okalachev@gmail.com">Oleg Kalachev</maintainer>
+<license>MIT</license>
+<url type="website">https://github.com/CopterExpress/ros_led</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<build_export_depend>roscpp</build_export_depend>
+<exec_depend>roscpp</exec_depend>
+<depend>led_msgs</depend>
+<depend>message_generation</depend>
+</package>
+-----
 wu_ros_tools: <?xml version="1.0" ?>
 <package format="2">
 <name>wu_ros_tools</name>
@@ -69676,6 +70076,28 @@ yujin_ocs: <?xml version="1.0" ?>
 <run_depend>yocs_waypoints_navi</run_depend>
 <export>
 <metapackage/>
+</export>
+</package>
+-----
+zbar_ros: <?xml version="1.0" ?>
+<package>
+<name>zbar_ros</name>
+<description>Lightweight ROS wrapper for Zbar barcode/qrcode reader library (http://zbar.sourceforge .net/)</description>
+<author email="paul@bovbel.com">Paul Bovbel</author>
+<maintainer email="paul@bovbel.com">Paul Bovbel</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>zbar</build_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>cv_bridge</build_depend>
+<build_depend>nodelet</build_depend>
+<build_depend>roslint</build_depend>
+<run_depend>zbar</run_depend>
+<run_depend>roscpp</run_depend>
+<run_depend>cv_bridge</run_depend>
+<run_depend>nodelet</run_depend>
+<export>
+<nodelet plugin="${prefix}/nodelets.xml"/>
 </export>
 </package>
 -----
