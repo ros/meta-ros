@@ -6,7 +6,7 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Tools for setting up tracing sessions."
+DESCRIPTION = "Launch integration for tracing."
 AUTHOR = "Christophe Bedard <bedard.christophe@gmail.com>"
 ROS_AUTHOR = "Christophe Bedard <fixed-term.christophe.bourquebedard@de.bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
@@ -17,18 +17,28 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "ros2_tracing"
-ROS_BPN = "tracetools_trace"
+ROS_BPN = "tracetools_launch"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    launch \
+    launch-ros \
+    tracetools-trace \
+"
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    launch \
+    launch-ros \
+    tracetools-trace \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    lttng-tools \
+    launch \
+    launch-ros \
+    tracetools-trace \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -48,10 +58,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/foxy/tracetools_trace/1.0.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/tracetools_trace"
+# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/foxy/tracetools_launch/1.0.5-2.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/tracetools_launch"
 SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ef42c5aac6b1456b54ddb8ebd35b9d5c8a57ceb8"
+SRCREV = "41221284fcc24b0cb50ef584726b83396b97c1d4"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
