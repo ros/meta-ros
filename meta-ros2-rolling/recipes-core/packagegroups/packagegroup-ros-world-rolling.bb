@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 DESCRIPTION = "All non-test packages for the target from files/rolling/cache.yaml"
 LICENSE = "MIT"
@@ -19,14 +19,27 @@ RDEPENDS_${PN}_remove = "zstd-vendor"
 # It's empty package now, just providing dependency on platform python3-pybind11 recipe
 RDEPENDS_${PN}_remove = "pybind11-vendor"
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID = " \
+    wiimote \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libspnav', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBSPNAV}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBSPNAV = " \
+    spacenav \
+"
+
 # alternative not yet supported implementation for fastrtps
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
     connext-cmake-module \
     rmw-connext-cpp \
     rmw-connext-shared-cpp \
+    rmw-connextdds-common \
+    rmw-connextdds \
     rosidl-typesupport-connext-c \
     rosidl-typesupport-connext-cpp \
+    rti-connext-dds-cmake-module \
 "
 
 # alternative not yet supported implementation for fastrtps
