@@ -1,7 +1,7 @@
-# melodic/ros-distro-recipe-blacklist.inc
+
 #
 # Copyright (c) 2019-2021 LG Electronics, Inc.
-
+# melodic/ros-distro-recipe-blacklist.inc
 PNBLACKLIST[abb-irb2400-moveit-config] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre'], 'qt5: Requires moveit-ros-visualization->qtbase which requires meta-qt5 to be included; ogre: depends on moveit-ros-visualization->ogre which is not available', '', d)}"
 PNBLACKLIST[abb-irb2400-moveit-plugins] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'Depends on lapack which depends on libgfortran which is available only when fortran is enabled in gcc, see meta-ros-common/conf/ros-distro/include/enable-fortran.inc', '', d)}"
 PNBLACKLIST[abb-irb2400-support] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'Requires rviz which requires pyqt5 for python-qt-bindings and meta-qt5 to be included; ogre: Requires rviz which depends on unavailable ogre', '', d)}"
@@ -236,7 +236,9 @@ PNBLACKLIST[heifu-safety] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hei
 PNBLACKLIST[heifu-simple-waypoint] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'heifu-ros-utils', 'heifu-ros-utils: Depends on unavailable ros-utils from https://gitlab.pdmfc.com/drones/ros1/drone-generic/tree/master/src/ros_utils', '', d)}"
 PNBLACKLIST[heifu-tools] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', 'x11: Depends on image-view which depends on gtk+->x11', '', d)}"
 PNBLACKLIST[heifu] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['x11', 'heifu-ros-utils'], 'x11: Depends on heifu-tools which depends on image-view which depends on gtk+->x11; heifu-ros-utils: depends on heifu-mavros, heifu-safety, heifu-simple-waypoint, heifu-bringup which depend on unavailable ros-utils from https://gitlab.pdmfc.com/drones/ros1/drone-generic/tree/master/src/ros_utils', '', d)}"
+PNBLACKLIST[heron-desktop] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'Requires heron-viz which requires rviz which requires pyqt5 for python-qt-bindings and meta-qt5 to be included; ogre: Requires heron-viz which requires rviz which depends on unavailable ogre', '', d)}"
 PNBLACKLIST[heron-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'gazebo: Depends on uuv-gazebo-worlds and hector-gazebo-plugins which depend on gazebo, gazebo-ros which is not available', '', d)}"
+PNBLACKLIST[heron-viz] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'Requires rviz which requires pyqt5 for python-qt-bindings and meta-qt5 to be included; ogre: Requires rviz which depends on unavailable ogre', '', d)}"
 PNBLACKLIST[hironx-calibration] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni2', 'openni2: depends on openni2-launch->openni2-camera->unavailable ROS_UNRESOLVED_DEP-libopenni2-dev', '', d)}"
 PNBLACKLIST[hironx-moveit-config] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni2', 'openni2: depends on hironx-ros-bridge which depends on openni2-launch->openni2-camera->unavailable ROS_UNRESOLVED_DEP-libopenni2-dev', '', d)}"
 PNBLACKLIST[hironx-ros-bridge] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni2', 'openni2: depends on openni2-launch->openni2-camera->unavailable ROS_UNRESOLVED_DEP-libopenni2-dev', '', d)}"
@@ -523,6 +525,7 @@ PNBLACKLIST[pddl-planner-viewer] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GR
 PNBLACKLIST[pddl-planner] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['ff', 'ffha', 'downward'], 'ff: depends on ff which fails to compile; ffha: depends on ffha which fails to compile; downward: depends on downward which fails to compile', '', d)}"
 PNBLACKLIST[pepper-meshes] ?= "Depends on unavailable ROS_UNRESOLVED_DEP-java"
 PNBLACKLIST[perception] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', 'Depends on image-pipeline->image-view->gtk+->x11', '', d)}"
+PNBLACKLIST[pf-driver] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'Requires rviz which requires pyqt5 for python-qt-bindings and meta-qt5 to be included; ogre: Requires rviz which depends on unavailable ogre', '', d)}"
 PNBLACKLIST[pgm-learner] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-scipy', 'Depends on unavailable ROS_UNRESOLVED_DEP-python-scipy and ROS_UNRESOLVED_DEP-python-libpgm-pip', 'Depends on unavailable ROS_UNRESOLVED_DEP-python-libpgm-pip', d)}"
 PNBLACKLIST[phidgets-api] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libphidget21', 'libphidget21: depends on libphidget21 which fails to compile', '', d)}"
 PNBLACKLIST[phidgets-drivers] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libphidget21', 'libphidget21: depends on libphidget21 which fails to compile', '', d)}"
