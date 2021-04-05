@@ -224,4 +224,7 @@ ROS_BUILD_TYPE_pn-python-orocos-kdl = "catkin"
 # but that doesn't respect the prefix set in meta-ros-common/classes/ros_opt_prefix.bbclass
 ROS_BUILD_TYPE_pn-mavlink = "catkin"
 
-ROS_UNRESOLVED_DEP-python-pyudev = "${PYTHON_PN}-pyudev"
+# included in:
+# https://github.com/ros/rosdistro/pull/28952
+ROS_UNRESOLVED_DEP-curlpp-dev = "curlpp"
+ROS_UNRESOLVED_DEP-net-tools = "net-tools"
