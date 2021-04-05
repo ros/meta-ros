@@ -6,10 +6,10 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "Tools for setting up tracing sessions."
+DESCRIPTION = "Tracing wrapper for ROS 2."
 AUTHOR = "Christophe Bedard <bedard.christophe@gmail.com>"
-ROS_AUTHOR = "Christophe Bedard <fixed-term.christophe.bourquebedard@de.bosch.com>"
-HOMEPAGE = "https://wiki.ros.org"
+ROS_AUTHOR = "Ingo Lütkebohle <ingo.luetkebohle@de.bosch.com>"
+HOMEPAGE = "https://index.ros.org/p/tracetools/"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache 2.0"
@@ -17,28 +17,26 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "ros2_tracing"
-ROS_BPN = "tracetools_trace"
+ROS_BPN = "tracetools"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-ros-native \
+    pkgconfig-native \
+"
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    lttng-tools \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-copyright \
-    ament-flake8 \
-    ament-mypy \
-    ament-pep257 \
-    ament-xmllint \
-    python3-pytest \
+    ament-cmake-gtest \
+    ament-lint-auto \
+    ament-lint-common \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -48,12 +46,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/rolling/tracetools_trace/1.0.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/tracetools_trace"
+# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/rolling/tracetools/2.1.0-3.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/tracetools"
 SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d43b77ae2dcac3a8fb4be7c64a93e0820108689d"
+SRCREV = "5470f354c259714812dba1d7d5554256bbfcf3a3"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_python"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
