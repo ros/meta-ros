@@ -1213,6 +1213,17 @@ python-crccheck-pip:
   ubuntu:
     pip:
       packages: [crccheck]
+python-crcmod:
+  debian: [python-crcmod]
+  fedora:
+    pip:
+      packages: [crcmod]
+  osx:
+    pip:
+      packages: [crcmod]
+  ubuntu:
+    bionic: [python-crcmod]
+    xenial: [python-crcmod]
 python-crypto:
   alpine: [py-crypto]
   arch: [python2-crypto]
@@ -1265,7 +1276,6 @@ python-cvxopt:
 python-cwiid:
   arch: [cwiid]
   debian: [python-cwiid]
-  fedora: [cwiid]
   gentoo: ['app-misc/cwiid[python]']
   ubuntu: [python-cwiid]
 python-cython-pip:
@@ -1325,6 +1335,12 @@ python-debian:
     yakkety_python3: [python3-debian]
     zesty: [python-debian]
     zesty_python3: [python3-debian]
+python-decorator:
+  debian: [python-decorator]
+  gentoo: [dev-python/decorator]
+  osx:
+    pip: [decorator]
+  ubuntu: [python-decorator]
 python-deepdiff-pip:
   debian:
     pip: [deepdiff]
@@ -3572,6 +3588,17 @@ python-pyqrcode:
     xenial:
       pip:
         packages: [PyQRCode]
+python-pyqtgraph:
+  debian: [python-pyqtgraph]
+  fedora:
+    pip:
+      packages: [pyqtgraph]
+  gentoo:
+    pip:
+      packages: [pyqtgraph]
+  ubuntu:
+    bionic: [python-pyqtgraph]
+    xenial: [python-pyqtgraph]
 python-pyquery:
   debian: [python-pyquery]
   fedora: [python-pyquery]
@@ -4265,6 +4292,12 @@ python-selenium-pip:
   ubuntu:
     pip:
       packages: [selenium]
+python-semantic-version:
+  debian: [python-semantic-version]
+  fedora: [python2-semantic_version]
+  ubuntu:
+    bionic: [python-semantic-version]
+    xenial: [python-semantic-version]
 python-semver:
   debian: [python-semver]
   fedora: [python-semver]
@@ -4708,6 +4741,19 @@ python-telegram-bot:
   ubuntu:
     pip:
       packages: [python-telegram-bot]
+python-tensorboard-pip:
+  debian:
+    pip:
+      packages: [tensorboard]
+  fedora:
+    pip:
+      packages: [tensorboard]
+  osx:
+    pip:
+      packages: [tensorboard]
+  ubuntu:
+    pip:
+      packages: [tensorboard]
 python-tensorboardX-pip:
   debian:
     pip:
@@ -5533,6 +5579,14 @@ python3-bitarray:
   fedora: [python3-bitarray]
   gentoo: [dev-python/bitarray]
   ubuntu: [python3-bitarray]
+python3-bluez:
+  debian: [python3-bluez]
+  fedora: [python3-bluez]
+  gentoo: [dev-python/pybluez]
+  ubuntu:
+    '*': [python3-bluez]
+    'bionic': null
+    'xenial': null
 python3-bokeh-pip:
   debian:
     pip:
@@ -5729,6 +5783,15 @@ python3-coverage:
   openembedded: [python3-coverage@meta-python]
   rhel: ['python%{python3_pkgversion}-coverage']
   ubuntu: [python3-coverage]
+python3-crcmod:
+  debian: [python3-crcmod]
+  fedora:
+    pip:
+      packages: [crcmod]
+  osx:
+    pip:
+      packages: [crcmod]
+  ubuntu: [python3-crcmod]
 python3-cryptography:
   alpine: [py3-cryptography]
   debian: [python3-cryptography]
@@ -5745,6 +5808,13 @@ python3-dbus:
   debian: [python3-dbus]
   fedora: [python3-dbus]
   ubuntu: [python3-dbus]
+python3-decorator:
+  debian: [python3-decorator]
+  fedora: [python3-decorator]
+  gentoo: [dev-python/decorator]
+  osx:
+    pip: [decorator]
+  ubuntu: [python3-decorator]
 python3-defusedxml:
   debian: [python3-defusedxml]
   fedora: [python3-defusedxml]
@@ -5832,6 +5902,25 @@ python3-events-pip:
   ubuntu:
     pip:
       packages: [Events]
+python3-ezdxf:
+  debian:
+    '*': [python3-ezdxf]
+    buster:
+      pip:
+        packages: [ezdxf]
+    stretch:
+      pip:
+        packages: [ezdxf]
+  fedora: [python3-ezdxf]
+  freebsd: [py37-ezdxf]
+  ubuntu:
+    '*': [python3-ezdxf]
+    bionic:
+      pip:
+        packages: [ezdxf]
+    focal:
+      pip:
+        packages: [ezdxf]
 python3-fastnumbers-pip:
   arch:
     pip:
@@ -6249,6 +6338,9 @@ python3-nose:
   openembedded: [python3-nose@openembedded-core]
   rhel: ['python%{python3_pkgversion}-nose']
   ubuntu: [python3-nose]
+python3-nose-parameterized:
+  debian: [python3-nose-parameterized]
+  ubuntu: [python3-nose-parameterized]
 python3-nose-yanc:
   debian: [python3-nose-yanc]
   openembedded: [python3-nose-yanc@meta-ros-common]
@@ -6267,6 +6359,16 @@ python3-numpy-stl:
   ubuntu:
     '*': [python3-numpy-stl]
     xenial: null
+python3-open3d-pip:
+  debian:
+    pip:
+      packages: [open3d-python]
+  fedora:
+    pip:
+      packages: [open3d-python]
+  ubuntu:
+    pip:
+      packages: [open3d-python]
 python3-opencv:
   debian:
     buster: [python3-opencv]
@@ -6477,7 +6579,7 @@ python3-pycryptodome:
   debian: [python3-pycryptodome]
   fedora: [python3-pycryptodomex]
   gentoo: [dev-python/pycryptodome]
-  openembedded: [python3-pycryptodome@meta-python]
+  openembedded: [python3-pycryptodomex@meta-python]
   osx:
     pip:
       packages: [pycryptodome]
@@ -6607,6 +6709,16 @@ python3-pyqtgraph:
   fedora: [python3-pyqtgraph]
   gentoo: [dev-python/pyqtgraph]
   ubuntu: [python3-pyqtgraph]
+python3-pyrr-pip:
+  debian:
+    pip:
+      packages: [pyrr]
+  fedora:
+    pip:
+      packages: [pyrr]
+  ubuntu:
+    pip:
+      packages: [pyrr]
 python3-pystemd:
   debian:
     bullseye: [python3-pystemd]
@@ -6683,7 +6795,7 @@ python3-qt5-bindings:
   gentoo: [dev-python/PyQt5]
   openembedded: [python3-pyqt5@meta-qt5]
   opensuse: [python3-qt5]
-  rhel: ['python%{python3_pkgversion}-qt5-devel']
+  rhel: ['python%{python3_pkgversion}-qt5-devel', libXext-devel]
   slackware: [python3-PyQt5]
   ubuntu:
     '*': [libpyside2-dev, libshiboken2-dev, pyqt5-dev, python3-pyqt5, python3-pyqt5.qtsvg, python3-pyside2.qtsvg, python3-sip-dev, shiboken2]
@@ -6856,6 +6968,10 @@ python3-selenium:
     pip:
       packages: [selenium]
   ubuntu: [python3-selenium]
+python3-semantic-version:
+  debian: [python3-semantic-version]
+  fedora: [python3-semantic_version]
+  ubuntu: [python3-semantic-version]
 python3-sense-emu-pip:
   debian:
     pip:
