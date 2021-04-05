@@ -268,9 +268,7 @@ benchmark:
     stretch: null
   fedora: [google-benchmark-devel]
   openembedded: [google-benchmark@meta-ros2]
-  rhel:
-    '*': [google-benchmark-devel]
-    '7': null
+  rhel: [google-benchmark-devel]
   ubuntu:
     '*': [libbenchmark-dev]
     xenial: null
@@ -1216,6 +1214,9 @@ glut:
   openembedded: [freeglut@meta-oe]
   rhel: [freeglut-devel]
   ubuntu: [freeglut3-dev]
+gnat:
+  debian: [gnat]
+  ubuntu: [gnat]
 gnuplot:
   arch: [gnuplot]
   debian: [gnuplot]
@@ -1263,12 +1264,22 @@ gperftools:
   fedora: [gperftools, gperftools-devel]
   gentoo: [dev-util/gperf]
   ubuntu: [google-perftools, libgoogle-perftools-dev]
+gpg-agent:
+  debian:
+    '*': [gpg-agent]
+    jessie: [gnupg-agent]
+  ubuntu:
+    '*': [gpg-agent]
+    xenial: [gnupg-agent]
 gphoto2:
   arch: [gphoto2]
   debian: [gphoto2]
   fedora: [gphoto2]
   gentoo: [media-gfx/gphoto2]
   ubuntu: [gphoto2]
+gprbuild:
+  debian: [gprbuild]
+  ubuntu: [gprbuild]
 gpsd:
   debian: [gpsd]
   fedora: [gpsd]
@@ -1879,6 +1890,7 @@ libbluetooth:
   debian: [libbluetooth3]
   fedora: [bluez-libs]
   gentoo: [net-wireless/bluez-libs]
+  rhel: [bluez-libs]
   ubuntu: [libbluetooth3]
 libbluetooth-dev:
   arch: [bluez]
@@ -4170,10 +4182,11 @@ libspatialite:
     trusty: [libspatialite5]
 libspnav-dev:
   arch: [libspnav]
-  debian: [libspnav-dev]
-  fedora: [libspnav-devel]
+  debian: [libspnav-dev, libx11-dev]
+  fedora: [libspnav-devel, libX11-devel]
   gentoo: [dev-libs/libspnav]
-  ubuntu: [libspnav-dev]
+  rhel: [libspnav-devel, libX11-devel]
+  ubuntu: [libspnav-dev, libx11-dev]
 libsqlite3-dev:
   alpine: [sqlite-dev]
   arch: [sqlite]
@@ -6092,6 +6105,7 @@ spacenavd:
   debian: [spacenavd]
   fedora: [spacenavd]
   gentoo: [app-misc/spacenavd]
+  rhel: [spacenavd]
   ubuntu: [spacenavd]
 sparsehash:
   debian: [libsparsehash-dev]
