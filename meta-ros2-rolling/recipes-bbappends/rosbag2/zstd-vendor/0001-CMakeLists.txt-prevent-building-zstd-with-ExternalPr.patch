@@ -1,4 +1,4 @@
-From eb740a39bcd110753d047c714e6196fb4e0f0b21 Mon Sep 17 00:00:00 2001
+From 41d2f28fe1fca0274150bca42fcd7382f6068e0f Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Fri, 5 Jun 2020 11:35:25 -0700
 Subject: [PATCH] CMakeLists.txt: prevent building zstd with ExternalProject
@@ -9,14 +9,14 @@ Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- CMakeLists.txt | 43 ++++---------------------------------------
- 1 file changed, 4 insertions(+), 39 deletions(-)
+ CMakeLists.txt | 45 ++++-----------------------------------------
+ 1 file changed, 4 insertions(+), 41 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d614cac5..bd46aac5 100644
+index 577f87db..78efbc22 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -9,49 +9,14 @@ option(FORCE_BUILD_VENDOR_PKG
+@@ -9,51 +9,14 @@ option(FORCE_BUILD_VENDOR_PKG
    OFF)
  
  if(NOT FORCE_BUILD_VENDOR_PKG)
@@ -52,7 +52,9 @@ index d614cac5..bd46aac5 100644
 -      -DZSTD_BUILD_STATIC=OFF
 -      -DZSTD_BUILD_SHARED=ON
 -      -DZSTD_BUILD_PROGRAMS=OFF
--      ${extra_cmake_args})
+-      ${extra_cmake_args}
+-    # Note: zstd v1.4.6 will include the following fix. When that is released, upgrade and remove this patch.
+-    PATCH_COMMAND patch -p1 -d . < ${CMAKE_CURRENT_SOURCE_DIR}/cmake_minimum_required_2.8.12.patch)
 -
 -  install(
 -    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/
