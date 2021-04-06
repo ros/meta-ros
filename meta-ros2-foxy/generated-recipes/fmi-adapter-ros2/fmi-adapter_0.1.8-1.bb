@@ -62,11 +62,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/fmi_adapter_ros2-release/archive/release/foxy/fmi_adapter/0.1.8-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/fmi_adapter"
-SRC_URI = "git://github.com/boschresearch/fmi_adapter_ros2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "074ff660c29b2114934f0c93b6f27d2459ad97ae"
-S = "${WORKDIR}/git"
+ROS_BRANCH ?= "branch=foxy"
+SRC_URI = "git://github.com/boschresearch/fmi_adapter;${ROS_BRANCH};protocol=https"
+SRCREV = "7dba74312ae6e582a02bdb307ff0f5be63364459"
+S = "${WORKDIR}/git/fmi_adapter"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
