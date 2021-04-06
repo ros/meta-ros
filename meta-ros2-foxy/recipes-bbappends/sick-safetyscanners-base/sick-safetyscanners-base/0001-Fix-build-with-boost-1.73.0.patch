@@ -1,0 +1,30 @@
+From c3fab888c17a66a2aa3fa3b1259ca7af185d4639 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 20 Aug 2020 09:43:02 -0700
+Subject: [PATCH] Fix build with boost-1.73.0
+
+* fixes:
+  sick-safetyscanners-base/1.0.0-2-r0/git/src/communication/UDPClient.cpp:135:56: error: '_2' was not declared in this scope
+* as pragma says:
+  sick-safetyscanners-base/1.0.0-2-r0/recipe-sysroot/usr/include/boost/bind.hpp:36:1: note: '#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.'
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/communication/UDPClient.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/communication/UDPClient.cpp b/src/communication/UDPClient.cpp
+index 7dd6e89..5c1a67f 100644
+--- a/src/communication/UDPClient.cpp
++++ b/src/communication/UDPClient.cpp
+@@ -132,7 +132,7 @@ sick::datastructure::PacketBuffer UDPClient::receive(sick::types::time_duration_
+   m_socket.async_receive_from(
+     boost::asio::buffer(m_recv_buffer),
+     m_remote_endpoint,
+-    boost::bind(&UDPClient::handleReceiveDeadline, _1, _2, &ec, &bytes_recv));
++    boost::bind(&UDPClient::handleReceiveDeadline, boost::placeholders::_1, boost::placeholders::_2, &ec, &bytes_recv));
+ 
+   // Block until async_receive_from finishes or the deadline_timer exceeds its timeout.
+   do
