@@ -1,4 +1,4 @@
-From a1126e3be9f86df8bd7eaeb40a787941f64b4b9e Mon Sep 17 00:00:00 2001
+From e8a4ab061278d4530917885f523d183f7cb4d4f2 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 4 Nov 2020 16:51:40 -0800
 Subject: [PATCH] CMakeLists.txt: install only the header files, not whole
@@ -37,7 +37,7 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index b4c99d4..1584540 100644
+index e25e1d0..d61dd91 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -28,6 +28,7 @@ ament_export_include_directories(include)
