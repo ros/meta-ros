@@ -1,4 +1,4 @@
-From 084159269e1b0a3efa8539bc4a2fff9535945798 Mon Sep 17 00:00:00 2001
+From 1eb7cb44355b3bbc39a14570d3dc81bd69825c39 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 9 Jul 2020 01:44:31 -0700
 Subject: [PATCH] CMakeLists.txt: use pkg-config to find yaml
@@ -50,12 +50,12 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 2 insertions(+)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e2d09a7..5e460fc 100644
+index 397f662..341aeaf 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -5,6 +5,8 @@ project(rcl_yaml_param_parser)
- find_package(ament_cmake_ros REQUIRED)
+@@ -6,6 +6,8 @@ find_package(ament_cmake_ros REQUIRED)
  find_package(rcutils REQUIRED)
+ find_package(rmw REQUIRED)
  find_package(libyaml_vendor REQUIRED)
 +find_package(PkgConfig REQUIRED)
 +pkg_check_modules(yaml REQUIRED yaml-0.1)
