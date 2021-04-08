@@ -1,4 +1,4 @@
-From 1297ffacfeee1ba86be93da4f7a77de9e9eafb5d Mon Sep 17 00:00:00 2001
+From f101e561112cf85b37de33ce81c311e924e24d9a Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 4 Nov 2020 16:51:40 -0800
 Subject: [PATCH] CMakeLists.txt: install only specified mimick files, not
@@ -57,7 +57,7 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 6a50078..4a412b6 100644
+index 09c20ee..9c19c86 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -69,10 +69,8 @@ macro(build_mimick)
