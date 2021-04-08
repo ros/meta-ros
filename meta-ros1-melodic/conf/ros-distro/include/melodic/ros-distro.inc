@@ -1,7 +1,7 @@
 # melodic/ros-distro.inc
 # General configuration settings that are dependent on ROS_DISTRO.
 #
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 ROS_DISTRO_CODENAME = "Melodic Morenia"
 
@@ -153,7 +153,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     pr2-description \
     qt-gui-cpp \
     rail-mesh-icp \
-    rc-dynamics-api \
     robot-body-filter \
     ros-reflexxes \
     rosbag-editor \
