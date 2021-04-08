@@ -1,16 +1,6 @@
 # eloquent/ros-distro-recipe-blacklist.inc
 #
-# Copyright (c) 2019-2020 LG Electronics, Inc.
-
-# Initially, blacklist any non-platform duplicates found by "bitbake-layers show-overlayed". Remove from the blacklist once a
-# PREFERRED_VERSION_<PN> setting is made in ros-distro-preferred-versions.inc .
-# (none)
-
-# Initially, blacklist any non-platform recipes with multiple versions found by "bitbake-layers show-recipes --multiple". Remove
-# from the blacklist once a PREFERRED_VERSION_<PN> setting is made in ros-distro-preferred-versions.inc .
-# (none)
-
-# Others
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 PNBLACKLIST[ament-clang-format-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-format', '', d)}"
 PNBLACKLIST[ament-clang-format] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-format', '', d)}"
@@ -68,7 +58,6 @@ PNBLACKLIST[qt-gui-core] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', [
 PNBLACKLIST[qt-gui-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'qt5: depends on qtbase; pyqt5: depends on python-qt-binding->python3-pyqt5 which requires pyqt5', '', d)}"
 PNBLACKLIST[qt-gui-py-common] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'qt5: depends on python-qt-bindings->qtbase; pyqt5: depends on python-qt-binding->python3-pyqt5 which requires pyqt5', '', d)}"
 PNBLACKLIST[qt-gui] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'qt5: depends on qtbase; pyqt5: depends on python3-pyqt5 which requires pyqt5', '', d)}"
-PNBLACKLIST[rc-dynamics-api] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rc-dynamics-api', 'rc-dynamics-api: do_compile task fails: /bin/sh: 1: js_embed: not found', '', d)}"
 PNBLACKLIST[rmw-connext-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds which is not available', '', d)}"
 PNBLACKLIST[rmw-connext-shared-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds which is not available', '', d)}"
 PNBLACKLIST[rmw-opensplice-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opensplice', 'opensplice: depends on libopensplice69 which is not available', '', d)}"
