@@ -1,7 +1,7 @@
 # foxy/ros-distro.inc
 # General configuration settings that are dependent on ROS_DISTRO.
 #
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 ROS_DISTRO_CODENAME = "Foxy Fitzroy"
 
@@ -112,7 +112,6 @@ ROS_WORLD_SKIP_GROUPS += " \
 ROS_WORLD_SKIP_GROUPS += " \
     mrpt2 \
     qt-gui-cpp \
-    rc-dynamics-api \
 "
 
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
