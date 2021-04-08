@@ -48,10 +48,37 @@ RC_GENICAM_API_ARCHITECTURE_aarch64 = "aarch64"
 RC_GENICAM_API_ARCHITECTURE_armv7a = "arm"
 RC_GENICAM_API_ARCHITECTURE_armv7ve = "arm"
 
-EXTRA_OECMAKE += "-DARCHITECTURE=${RC_GENICAM_API_ARCHITECTURE}"
+# RC_PROJECT_VERSION is set in cmake/project_version.cmake by git describe checking for 'v?([0-9.]+).*' tag
+# but in roboception-gbp/rc_genicam_api-release repo there are no suitable tags:
+# 2.4.1-1-r0/git$ git describe --all
+# tags/release/melodic/rc_genicam_api/2.4.1-1
+# so it ends 0.0.0 triggering an warning:
+# CMake Warning at cmake/project_version.cmake:124 (message):
+# Version from package.xml (2.5.0) doesn't match RC_PROJECT_VERSION (0.0.0)
+# and then more importantly rc-genicam-driver error:
+# CMake Error at CMakeLists.txt:29 (find_package):
+#  Could not find a configuration file for package "RC_GENICAM_API" that is
+#  compatible with requested version "2.4.4".
+#
+#  The following configuration files were considered but not accepted:
+#
+#    TOPDIR/tmp-glibc/work/qemux86-webos-linux/rc-genicam-driver/0.1.3-1-r0/recipe-sysroot/usr/lib/rc_genicam_api/RC_GENICAM_APIConfig.cmake, version: 0.0.0
+RC_PROJECT_VERSION = "${@'${PV}'.split('-')[0]}"
+
+EXTRA_OECMAKE += "-DARCHITECTURE=${RC_GENICAM_API_ARCHITECTURE} -DRC_PROJECT_VERSION=${RC_PROJECT_VERSION}"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-GenicamConfig.cmake-detect-ARCHITECTURE-only-when-no.patch"
 
 # Only aarch64 prebuilt binaries are missing GNU_HASH
 INSANE_SKIP_${PN}_append_aarch64 = " ldflags"
+
+# rc-genicam-driver/0.1.3-1-r0/recipe-sysroot/usr/lib/rc_genicam_api/RC_GENICAM_APITargets.cmake:110 (message):
+# expects the binary to exist:
+# The imported target "rc_genicam_api::gc_info" references the file
+# "TOPDIR/tmp-glibc/work/core2-64-oe-linux/rc-genicam-driver/0.1.3-1-r0/recipe-sysroot/usr/bin/gc_info"
+# OE doesn't stage ${bindir} for target recipes, but in this case the rc_genicam_api::gc_info isn't
+# being called during the cross-build, so we can include it just to keep CMake happy
+sysroot_stage_all_append() {
+    sysroot_stage_dir ${D}${bindir} ${SYSROOT_DESTDIR}${bindir}
+}
