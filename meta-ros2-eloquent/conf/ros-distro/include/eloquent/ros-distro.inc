@@ -72,11 +72,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     lanelet2-traffic-rules \
 "
 
-# do_compile failures
-ROS_WORLD_SKIP_GROUPS += " \
-    rc-dynamics-api \
-"
-
 # Override settings from generated/superflore-ros-distro.inc here.
 
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
