@@ -1,7 +1,7 @@
-
+# noetic/ros-distro-recipe-blacklist.inc
 #
 # Copyright (c) 2020-2021 LG Electronics, Inc.
-# noetic/ros-distro-recipe-blacklist.inc
+
 PNBLACKLIST[abb-irb2400-moveit-config] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre'], 'qt5: Requires moveit-ros-visualization->qtbase which requires meta-qt5 to be included; ogre: depends on moveit-ros-visualization->ogre which is not available', '', d)}"
 PNBLACKLIST[abb-irb2400-support] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'Requires rviz which requires pyqt5 for python-qt-bindings and meta-qt5 to be included; ogre: Requires rviz which depends on unavailable ogre', '', d)}"
 PNBLACKLIST[abb-irb4400-support] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'Requires rviz which requires pyqt5 for python-qt-bindings and meta-qt5 to be included; ogre: Requires rviz which depends on unavailable ogre', '', d)}"
@@ -590,10 +590,8 @@ PNBLACKLIST[radial-menu] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', [
 PNBLACKLIST[rail-mesh-icp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rail-mesh-icp', 'rail-mesh-icp: do_compile task fails: rail-mesh-icp/0.0.4-1-r0/git/tools/mesh_sampler_node.cpp:2:10: fatal error: pcl/visualization/pcl_visualizer.h: No such file or directory', '', d)}"
 PNBLACKLIST[raw-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
 PNBLACKLIST[rc-cloud-accumulator] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'vtk-qt'], 'Requires libvtk-qt which is not available', '', d)}"
-PNBLACKLIST[rc-dynamics-api] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rc-dynamics-api', 'rc-dynamics-api: do_compile task fails: /bin/sh: 1: js_embed: not found', '', d)}"
 PNBLACKLIST[rc-roi-manager-gui] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11'], 'Depends on wxwidgets->freeglut which is not available because of missing opengl in DISTRO_FEATURES and wxwidgets->x11', '', d)}"
-PNBLACKLIST[rc-visard-driver] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rc-dynamics-api', 'rc-dynamics-api: depends on rc-dynamics-api which fails to compile', '', d)}"
-PNBLACKLIST[rc-visard] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11', 'rc-dynamics-api'], 'Depends on rc-roi-manager-gui->wxwidgets->freeglut which is not available because of missing opengl in DISTRO_FEATURES and rc-roi-manager-gui->wxwidgets->x11; rc-dynamics-api: depends on rc-dynamics-api which fails to compile', '', d)}"
+PNBLACKLIST[rc-visard] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11'], 'Depends on rc-roi-manager-gui->wxwidgets->freeglut which is not available because of missing opengl in DISTRO_FEATURES and rc-roi-manager-gui->wxwidgets->x11', '', d)}"
 PNBLACKLIST[realsense2-camera] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'glfw'], 'opengl: depends on librealsense2->mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; glfw: Depends on librealsense2->glfw which is not available in zeus and older', '', d)}"
 PNBLACKLIST[resized-image-transport] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['gst-ugly', 'python-scipy'], 'gst-ugly: Depends on jsk-topic-tools->sound-play->gstreamer1.0-plugins-ugly which requires commercial license; python-scipy: Depends on jsk-topic-tools which depends on unavailable ROS_UNRESOLVED_DEP-python-scipy', '', d)}"
 PNBLACKLIST[respeaker-ros] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-speechrecognition-pip', 'python-speechrecognition-pip: Depends on unavailable ROS_UNRESOLVED_DEP-python-pyusb-pip, ROS_UNRESOLVED_DEP-python-speechrecognition-pip', 'Depends on unavailable ROS_UNRESOLVED_DEP-python-pyusb-pip', d)}"

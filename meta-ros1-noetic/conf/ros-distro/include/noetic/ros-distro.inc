@@ -165,7 +165,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     pr2-description \
     qt-gui-cpp \
     rail-mesh-icp \
-    rc-dynamics-api \
     robot-body-filter \
     ros-reflexxes \
     rosbag-editor \
