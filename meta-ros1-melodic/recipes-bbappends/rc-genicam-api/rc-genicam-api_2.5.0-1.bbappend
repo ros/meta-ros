@@ -50,8 +50,8 @@ RC_GENICAM_API_ARCHITECTURE_armv7ve = "arm"
 
 # RC_PROJECT_VERSION is set in cmake/project_version.cmake by git describe checking for 'v?([0-9.]+).*' tag
 # but in roboception-gbp/rc_genicam_api-release repo there are no suitable tags:
-# 2.4.1-1-r0/git$ git describe --all
-# tags/release/melodic/rc_genicam_api/2.4.1-1
+# 2.5.0-1-r0/git$ git describe --all
+# tags/release/melodic/rc_genicam_api/2.5.0-1
 # so it ends 0.0.0 triggering an warning:
 # CMake Warning at cmake/project_version.cmake:124 (message):
 # Version from package.xml (2.5.0) doesn't match RC_PROJECT_VERSION (0.0.0)
@@ -70,8 +70,8 @@ EXTRA_OECMAKE += "-DARCHITECTURE=${RC_GENICAM_API_ARCHITECTURE} -DRC_PROJECT_VER
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-GenicamConfig.cmake-detect-ARCHITECTURE-only-when-no.patch"
 
-# Only aarch64 prebuilt binaries are missing GNU_HASH
-INSANE_SKIP_${PN}_append_aarch64 = " ldflags"
+# in version 2.4.1-1 only aarch64 prebuilt binaries ware missing GNU_HASH, but in 2.5.0-1 it's missing for all 4 supported architectures (32_ARMhf, 32_i86, 64_ARM, 64_x64)
+INSANE_SKIP_${PN} += " ldflags"
 
 # rc-genicam-driver/0.1.3-1-r0/recipe-sysroot/usr/lib/rc_genicam_api/RC_GENICAM_APITargets.cmake:110 (message):
 # expects the binary to exist:
