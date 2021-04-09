@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 # depends on rc-genicam-api, use the same restriction
 COMPATIBLE_MACHINE = "(^$)"
@@ -19,3 +19,9 @@ COMPATIBLE_MACHINE_armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvent
 RC_PROJECT_VERSION = "${@'${PV}'.split('-')[0]}"
 
 EXTRA_OECMAKE += "-DRC_PROJECT_VERSION=${RC_PROJECT_VERSION}"
+
+# with security-flags.inc included it fails with:
+# rc-genicam-driver/0.5.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/ros/console.h:351:176: error: format not a string literal and no format arguments [-Werror=format-security]
+#   351 |     ::ros::console::print(filter, __rosconsole_define_location__loc.logger_, __rosconsole_define_location__loc.level_, __FILE__, __LINE__, __ROSCONSOLE_FUNCTION__, __VA_ARGS__)
+# ignore it for now
+CXXFLAGS += "-Wno-error=format-security"
