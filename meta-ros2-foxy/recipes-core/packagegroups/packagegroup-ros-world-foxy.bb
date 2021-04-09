@@ -93,6 +93,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     realsense-examples \
     realsense-node \
     realsense-ros \
+    realsense2-camera \
     ros-ign \
     ros-ign-gazebo-demos \
     rover-navigation \
@@ -346,6 +347,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
     realsense-examples \
     realsense-node \
     realsense-ros \
+    realsense2-camera \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ros1', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROS1}', '', d)}"
