@@ -1,0 +1,106 @@
+From 2bd0e005f1eb21eaeaeb15544e4a9b6ad5bae4bc Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 18 Dec 2020 07:40:04 -0800
+Subject: [PATCH] CMakeLists.txt: use tvm from separate recipe
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 80 --------------------------------------------------
+ 1 file changed, 80 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6b66f95..3c8404a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -30,89 +30,9 @@ elseif(${ROS_VERSION} EQUAL 2)
+   find_package(ament_cmake REQUIRED)
+ endif()
+ 
+-include(ExternalProject)
+-
+-ExternalProject_Add(tvm-build
+-  GIT_REPOSITORY https://github.com/apache/incubator-tvm
+-  GIT_TAG v0.7.0
+-  GIT_SHALLOW TRUE
+-  BUILD_IN_SOURCE TRUE
+-  PATCH_COMMAND git apply ${CMAKE_CURRENT_SOURCE_DIR}/config.cmake.patch
+-  COMMAND cp <SOURCE_DIR>/cmake/config.cmake <SOURCE_DIR>
+-  CONFIGURE_COMMAND ${CMAKE_COMMAND} -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+-  INSTALL_COMMAND ""
+-)
+-
+-# Build DMLC
+-ExternalProject_Add_Step(tvm-build dmlc-build
+-  DEPENDEES patch
+-  WORKING_DIRECTORY <SOURCE_DIR>/3rdparty/dmlc-core
+-  COMMAND ${CMAKE_COMMAND} --configure -DCMAKE_POSITION_INDEPENDENT_CODE=ON .
+-  COMMAND ${CMAKE_MAKE_PROGRAM}
+-  BYPRODUCTS libdmlc.a
+-)
+-
+-ExternalProject_Get_property(tvm-build SOURCE_DIR)
+-
+-add_library(tvm SHARED IMPORTED
+-  IMPORTED_LOCATION ${SOURCE_DIR}/libtvm.so
+-)
+-
+-add_library(tvm_runtime SHARED IMPORTED
+-  IMPORTED_LOCATION ${SOURCE_DIR}/libtvm_runtime.so
+-)
+-
+-add_library(dmlc STATIC IMPORTED
+-  IMPORTED_LOCATION ${SOURCE_DIR}/3rdparty/dmlc-core
+-)
+-
+ if(${ROS_VERSION} EQUAL 1)
+   catkin_package(
+     INCLUDE_DIRS include
+-    LIBRARIES
+-      tvm
+-      tvm_runtime
+-      dmlc
+-    EXPORTED_TARGETS tvm-build
+-  )
+-
+-  add_custom_command(TARGET tvm-build POST_BUILD
+-    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/include/tvm_vendor/tvm
+-    COMMAND ${CMAKE_COMMAND} -E create_symlink ${SOURCE_DIR}/include/tvm/runtime/ ${CMAKE_CURRENT_SOURCE_DIR}/include/tvm_vendor/tvm/runtime
+-    COMMAND ${CMAKE_COMMAND} -E make_directory ${CATKIN_DEVEL_PREFIX}/lib
+-    COMMAND ${CMAKE_COMMAND} -E copy ${SOURCE_DIR}/libtvm.so ${CATKIN_DEVEL_PREFIX}/lib
+-    COMMAND ${CMAKE_COMMAND} -E copy ${SOURCE_DIR}/libtvm_runtime.so ${CATKIN_DEVEL_PREFIX}/lib
+-    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/include/tvm_vendor/dlpack
+-    COMMAND ${CMAKE_COMMAND} -E create_symlink ${SOURCE_DIR}/3rdparty/dlpack/include/dlpack/dlpack.h ${CMAKE_CURRENT_SOURCE_DIR}/include/tvm_vendor/dlpack/dlpack.h
+-    COMMAND ${CMAKE_COMMAND} -E create_symlink ${SOURCE_DIR}/3rdparty/dlpack/contrib/dlpack/dlpackcpp.h ${CMAKE_CURRENT_SOURCE_DIR}/include/tvm_vendor/dlpack/dlpackcpp.h
+-    COMMAND ${CMAKE_COMMAND} -E create_symlink ${SOURCE_DIR}/3rdparty/dmlc-core/include/dmlc/ ${CMAKE_CURRENT_SOURCE_DIR}/include/tvm_vendor/dmlc
+-    COMMAND ${CMAKE_COMMAND} -E create_symlink ${SOURCE_DIR}/3rdparty/dmlc-core/libdmlc.a ${CATKIN_DEVEL_PREFIX}/lib/libdmlc.a
+-  )
+-
+-  install(DIRECTORY ${SOURCE_DIR}/include/tvm/runtime
+-    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}/tvm
+-  )
+-
+-  install(
+-    FILES
+-      ${SOURCE_DIR}/libtvm.so
+-      ${SOURCE_DIR}/libtvm_runtime.so
+-    DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+-  )
+-
+-  install(
+-    FILES
+-      ${SOURCE_DIR}/3rdparty/dlpack/include/dlpack/dlpack.h
+-      ${SOURCE_DIR}/3rdparty/dlpack/contrib/dlpack/dlpackcpp.h
+-    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}/dlpack
+-  )
+-
+-  install(DIRECTORY ${SOURCE_DIR}/3rdparty/dmlc-core/include/dmlc
+-    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+-  )
+-  
+-  install(FILES ${SOURCE_DIR}/3rdparty/dmlc-core/libdmlc.a
+-    DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+   )
+ elseif(${ROS_VERSION} EQUAL 2)
+   ament_export_include_directories(include)
