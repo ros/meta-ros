@@ -1,0 +1,45 @@
+From 47ded25c9af9caf7c70fb88b649f3151b539a414 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 4 Apr 2019 02:15:51 +0000
+Subject: [PATCH] cpr: drop deprecated CURLE_SSL_CACERT
+
+* fix compatibility with curl v7.62.0 and newer
+
+* deprecated since:
+  commit 3f3b26d6feb0667714902e836af608094235fca2
+  Author: Han Han <hhan@thousandeyes.com>
+  Date:   Wed Aug 22 11:13:32 2018 -0700
+
+    ssl: deprecate CURLE_SSL_CACERT in favour of a unified error code
+
+    Long live CURLE_PEER_FAILED_VERIFICATION
+
+* fixes:
+rc-dynamics-api/0.10.0-1-r0/git/rc_dynamics_api/opt/cpr/cpr/error.cpp: In static member function 'static cpr::ErrorCode cpr::Error::getErrorCodeForCurlError(int32_t)':
+rc-dynamics-api/0.10.0-1-r0/git/rc_dynamics_api/opt/cpr/cpr/error.cpp:41:9: error: duplicate case value
+   41 |         case CURLE_SSL_CACERT:
+      |         ^~~~
+rc-dynamics-api/0.10.0-1-r0/git/rc_dynamics_api/opt/cpr/cpr/error.cpp:25:9: note: previously used here
+   25 |         case CURLE_PEER_FAILED_VERIFICATION:
+      |         ^~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ rc_dynamics_api/opt/cpr/cpr/error.cpp | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/rc_dynamics_api/opt/cpr/cpr/error.cpp b/rc_dynamics_api/opt/cpr/cpr/error.cpp
+index 713cb10..4143f93 100644
+--- a/rc_dynamics_api/opt/cpr/cpr/error.cpp
++++ b/rc_dynamics_api/opt/cpr/cpr/error.cpp
+@@ -38,8 +38,6 @@ ErrorCode Error::getErrorCodeForCurlError(std::int32_t curl_code) {
+             return ErrorCode::SSL_LOCAL_CERTIFICATE_ERROR;
+         case CURLE_SSL_CIPHER:
+             return ErrorCode::GENERIC_SSL_ERROR;
+-        case CURLE_SSL_CACERT:
+-            return ErrorCode::SSL_CACERT_ERROR;
+         case CURLE_USE_SSL_FAILED:
+             return ErrorCode::GENERIC_SSL_ERROR;
+         case CURLE_SSL_ENGINE_INITFAILED:
