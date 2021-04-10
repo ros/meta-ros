@@ -92,6 +92,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     desktop \
     dolly \
     dolly-gazebo \
+    embree-vendor \
     libg2o \
     librealsense2 \
     moveit-ros-visualization \
