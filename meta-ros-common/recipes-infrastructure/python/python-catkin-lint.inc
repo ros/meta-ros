@@ -8,4 +8,4 @@ inherit pypi bash-completion
 
 BBCLASSEXTEND = "native nativesdk"
 
-SRC_URI[sha256sum] = "d8a6995e338de94970bcb9d4a9afa7bdf8efbf8bd2a746411778e33bd0eb8274"
+SRC_URI[sha256sum] = "5d5734ef1271ea0866a527622e36402069c665d0adbdc7193b2ba7ea242475c7"
