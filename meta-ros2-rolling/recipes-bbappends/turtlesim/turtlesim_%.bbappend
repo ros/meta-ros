@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 # Make this conditional on meta-qt5, because otherwise builds without
 # meta-qt5 fail to parse, before turtlesim is PNBLACKLISTed based
@@ -8,3 +8,8 @@ inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '',
 
 # Keep in mind that this needs widgets enabled in qtbase PACKAGECONFIG which webOS OSE explicitly disables:
 # meta-webos/recipes-qt/qt5/qtbase_git.bbappend:PACKAGECONFIG_remove = "widgets"
+
+DEPENDS += " \
+    rosidl-typesupport-fastrtps-c-native \
+    rosidl-typesupport-fastrtps-cpp-native \
+"
