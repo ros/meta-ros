@@ -1,0 +1,31 @@
+From 633eef8963a8f1d3a02d4eba4c0b56e5e480ae1e Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 12 Apr 2021 06:08:04 -0700
+Subject: [PATCH] vesc_interface: work around missing return value in
+ VescInterface::Impl::rxThread
+
+* The fix isn't obvious to me after quick look at the source, reported upstream:
+  https://github.com/f1tenth/vesc/issues/6
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/vesc_interface.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/vesc_interface.cpp b/src/vesc_interface.cpp
+index 3febe1a..efb1d4f 100644
+--- a/src/vesc_interface.cpp
++++ b/src/vesc_interface.cpp
+@@ -144,6 +144,7 @@ void* VescInterface::Impl::rxThread(void)
+       error_handler_("Possibly out-of-sync with VESC, read timout in the middle of a frame.");
+     }
+   }
++  return NULL;
+ }
+ 
+ 
+-- 
+2.17.1
+
