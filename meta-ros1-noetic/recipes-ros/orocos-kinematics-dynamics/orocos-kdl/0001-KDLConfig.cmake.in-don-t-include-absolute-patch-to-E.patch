@@ -1,4 +1,4 @@
-From 8b087ac85e9f8edff4dbc7019e17eeed5d193dd4 Mon Sep 17 00:00:00 2001
+From 3b6e61af3454e79c712b94c9fbd623b22b32e44e Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Sat, 3 Apr 2021 14:01:42 +0000
 Subject: [PATCH] KDLConfig.cmake.in: don't include absolute patch to
@@ -27,22 +27,22 @@ Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- orocos_kdl/KDLConfig.cmake.in | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ orocos_kdl/KDLConfig.cmake.in | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/orocos_kdl/KDLConfig.cmake.in b/orocos_kdl/KDLConfig.cmake.in
-index 3c3097c..66d5cab 100644
+index 3c3097c..1dc1cf0 100644
 --- a/orocos_kdl/KDLConfig.cmake.in
 +++ b/orocos_kdl/KDLConfig.cmake.in
-@@ -5,7 +5,7 @@
+@@ -4,8 +4,10 @@
+ #  orocos_kdl_LIBRARIES    - libraries to link against for Orocos KDL
  #  orocos_kdl_PKGCONFIG_DIR - directory containing the .pc pkgconfig files
  
++find_package (Eigen3 3.3 REQUIRED)
++
  # Compute paths
 -set(orocos_kdl_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/../../../include;@Boost_INCLUDE_DIRS@;@Eigen_INCLUDE_DIR@")
-+set(orocos_kdl_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/../../../include")
++set(orocos_kdl_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/../../../include;${EIGEN3_INCLUDE_DIR}")
  
  if(NOT TARGET orocos-kdl)
    include("${CMAKE_CURRENT_LIST_DIR}/OrocosKDLTargets.cmake")
--- 
-2.17.1
-
