@@ -1,7 +1,9 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-CMakeLists.txt-allow-to-set-KRNX_ARCHITECTURE-direct.patch"
+SRC_URI += "file://0001-CMakeLists.txt-allow-to-set-KRNX_ARCHITECTURE-direct.patch \
+    file://0002-khi_robot_krnx_driver.cpp-add-missing-return.patch \
+"
 
 # Uses CMAKE_LIBRARY_ARCHITECTURE check the target architecture:
 # message(STATUS "CMAKE_LIBRARY_ARCHITECTURE : ${CMAKE_LIBRARY_ARCHITECTURE}")
