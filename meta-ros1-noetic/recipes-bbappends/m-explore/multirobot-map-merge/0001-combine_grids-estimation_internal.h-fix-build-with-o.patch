@@ -1,0 +1,35 @@
+From e554f2ffa83c985c033b5956d633fc2927b4e3c6 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 12 Apr 2021 10:05:31 -0700
+Subject: [PATCH] combine_grids/estimation_internal.h: fix build with openCV 4
+
+* fixes:
+FAILED: CMakeFiles/combine_grids.dir/src/combine_grids/merging_pipeline.cpp.o
+TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"multirobot_map_merge\" -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/recipe-sysroot/usr/opt/ros/noetic/include -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/recipe-sysroot/usr/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/recipe-sysroot/usr/include/opencv4 -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/git/include -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0=/usr/src/debug/multirobot-map-merge/2.1.4-1-r0                      -fdebug-prefix-map=TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0=/usr/src/debug/multirobot-map-merge/2.1.4-1-r0                      -fdebug-prefix-map=TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/recipe-sysroot=                      -fdebug-prefix-map=TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/recipe-sysroot -std=c++14 -MD -MT CMakeFiles/combine_grids.dir/src/combine_grids/merging_pipeline.cpp.o -MF CMakeFiles/combine_grids.dir/src/combine_grids/merging_pipeline.cpp.o.d -o CMakeFiles/combine_grids.dir/src/combine_grids/merging_pipeline.cpp.o -c TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/git/src/combine_grids/merging_pipeline.cpp
+In file included from TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/git/src/combine_grids/merging_pipeline.cpp:46:
+TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/git/src/combine_grids/estimation_internal.h: In function 'cv::Ptr<cv::Feature2D> combine_grids::internal::chooseFeatureFinder(combine_grids::FeatureType)':
+TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/multirobot-map-merge/2.1.4-1-r0/git/src/combine_grids/estimation_internal.h:68:14: error: 'xfeatures2d' has not been declared
+   68 |       return xfeatures2d::SURF::create();
+      |              ^~~~~~~~~~~
+ninja: build stopped: subcommand failed.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/combine_grids/estimation_internal.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/combine_grids/estimation_internal.h b/src/combine_grids/estimation_internal.h
+index 98c9428..5cd00fa 100644
+--- a/src/combine_grids/estimation_internal.h
++++ b/src/combine_grids/estimation_internal.h
+@@ -65,7 +65,7 @@ static inline cv::Ptr<cv::Feature2D> chooseFeatureFinder(FeatureType type)
+       return cv::ORB::create();
+     case FeatureType::SURF:
+ #ifdef HAVE_OPENCV_XFEATURES2D
+-      return xfeatures2d::SURF::create();
++      return cv::xfeatures2d::SURF::create();
+ #else
+       return cv::AKAZE::create();
+ #endif
