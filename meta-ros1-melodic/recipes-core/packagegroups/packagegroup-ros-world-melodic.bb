@@ -1208,6 +1208,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
     find-object-2d \
     geometry-tutorials \
     open-manipulator-control-gui \
+    open-manipulator-p-control-gui \
+    open-manipulator-p \
     plotjuggler-ros \
     plotjuggler \
     ros-tutorials \
