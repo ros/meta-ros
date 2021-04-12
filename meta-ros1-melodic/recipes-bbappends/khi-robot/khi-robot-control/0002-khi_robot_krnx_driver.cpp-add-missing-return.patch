@@ -1,0 +1,36 @@
+From 127b276c9511e1f9daee462a3960c4e1c28c1e9c Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 12 Apr 2021 13:00:09 -0700
+Subject: [PATCH] khi_robot_krnx_driver.cpp: add missing return
+
+* fixes:
+khi-robot-control/1.2.0-1-r0/git/src/khi_robot_krnx_driver.cpp: In member function 'bool khi_robot_control::KhiRobotKrnxDriver::setState(const int&, const int&)':
+khi-robot-control/1.2.0-1-r0/git/src/khi_robot_krnx_driver.cpp:78:1: error: no return statement in function returning non-void [-Werror=return-type]
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/khi_robot_krnx_driver.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/khi_robot_krnx_driver.cpp b/src/khi_robot_krnx_driver.cpp
+index 3f77876..e3bc1e4 100644
+--- a/src/khi_robot_krnx_driver.cpp
++++ b/src/khi_robot_krnx_driver.cpp
+@@ -74,7 +74,7 @@ bool KhiRobotKrnxDriver::setState( const int& cont_no, const int& state )
+ {
+     std::lock_guard<std::mutex> lock( mutex_state[cont_no] );
+ 
+-    KhiRobotDriver::setState( cont_no, state );
++    return KhiRobotDriver::setState( cont_no, state );
+ }
+ 
+ int KhiRobotKrnxDriver::execAsMonCmd( const int& cont_no, const char* cmd, char* buffer, int buffer_sz, int* as_err_code )
+@@ -1059,4 +1059,4 @@ bool KhiRobotKrnxDriver::commandHandler( khi_robot_msgs::KhiRobotCmd::Request& r
+     return true;
+ }
+ 
+-} // end of khi_robot_control namespace
+\ No newline at end of file
++} // end of khi_robot_control namespace
