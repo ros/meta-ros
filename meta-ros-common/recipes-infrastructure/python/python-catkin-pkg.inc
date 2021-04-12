@@ -6,8 +6,7 @@ PYPI_PACKAGE = "catkin_pkg"
 
 DEPENDS = "${PYTHON_PN}-pyparsing"
 
-SRC_URI[md5sum] = "10be85558c33e6406bb105becff4e7d0"
-SRC_URI[sha256sum] = "18305748ae2de7ca7b10a560b146a9c0cb566130b6f4a4825f6f38595bf8488c"
+SRC_URI[sha256sum] = "28ee181cca827c0aabf9397351f58a97e1475ca5ac7c106a5916e3ee191cd3d0"
 
 inherit pypi
 
