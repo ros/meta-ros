@@ -1,0 +1,129 @@
+From 10147ea1df04d1ee79342134a1db1bc422b36fa7 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 12 Apr 2021 12:39:11 -0700
+Subject: [PATCH] CMakeLists.txt: allow to set KRNX_ARCHITECTURE directly
+ instead of detection through CMAKE_LIBRARY_ARCHITECTURE
+
+* also fix the path in find_library as ${PROJECT_SOURCE_DIR}/lib in:
+  find_library(krnx_LIBRARIES lib${krnx_lib_name}.so PATHS ${PROJECT_SOURCE_DIR}/lib)
+  is used as relative to CMAKE_FIND_ROOT_PATH:
+
+  find_library considered the following locations:
+
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/opt/ros/melodic//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/lib//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/lib/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/lib//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/lib/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/bin/crossscripts//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/bin/crossscripts/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/opt/ros/melodic//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/lib//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/lib/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/bin/python-native//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/bin/python-native/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/sbin//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/sbin/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/bin//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/bin/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/sbin//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/sbin/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/bin//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/bin/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/lib//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/lib/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib/(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/opt/ros/melodic//(lib)libkrnx-armhf.so(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/(lib)libkrnx-armhf.so(\.so|\.a)
+
+  The item was not found.
+
+* prevent that behavior with NO_DEFAULT_PATH and NO_CMAKE_FIND_ROOT_PATH, now it finds it on first try:
+/jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/git/CMakeLists.txt(59):  find_library(krnx_LIBRARIES libkrnx-armhf.so PATHS /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/git/lib NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH )
+   Called from: [1]     /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/git/CMakeLists.txt
+CMake Debug Log at CMakeLists.txt:59 (find_library):
+  find_library(krnx_LIBRARIES) added replacement path
+  /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/git/lib/
+  to PATH_SUFFIXES for architecture suffix '32'
+
+   Called from: [1]     /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/git/CMakeLists.txt
+CMake Debug Log at CMakeLists.txt:59 (find_library):
+  find_library(krnx_LIBRARIES) removed original suffix
+  /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/git/lib/
+  from PATH_SUFFIXES while adding architecture paths for suffix '32'
+
+   Called from: [1]     /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/git/CMakeLists.txt
+CMake Debug Log at CMakeLists.txt:59 (find_library):
+  find_library called with the following settings:
+
+    VAR: krnx_LIBRARIES
+    NAMES: "libkrnx-armhf.so"
+    Documentation: Path to a library.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 0
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 0
+    NO_DEFAULT_PATH Enabled
+
+  find_library considered the following locations:
+
+  The item was found at
+
+    /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/khi-robot-control/1.2.0-1-r0/git/lib/
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 094fcad..07835c1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -35,7 +35,9 @@ message(STATUS "CMAKE_SYSTEM_NAME : ${CMAKE_SYSTEM_NAME}")
+ message(STATUS "CMAKE_SYSTEM_PROCESSOR : ${CMAKE_SYSTEM_PROCESSOR}")
+ message(STATUS "CMAKE_HOST_SYSTEM_NAME : ${CMAKE_HOST_SYSTEM_NAME}")
+ message(STATUS "CMAKE_HOST_SYSTEM_PROCESSOR : ${CMAKE_HOST_SYSTEM_PROCESSOR}")
+-message(STATUS "CMAKE_LIBRARY_ARCHITECTURE : ${CMAKE_LIBRARY_ARCHITECTURE}")
++message(STATUS "KRNX_ARCHITECTURE : ${KRNX_ARCHITECTURE}")
++if(NOT DEFINED KRNX_ARCHITECTURE)
++message(STATUS "Detecting KRNX_ARCHITECTURE from CMAKE_LIBRARY_ARCHITECTURE : ${CMAKE_LIBRARY_ARCHITECTURE}")
+ if( ${CMAKE_LIBRARY_ARCHITECTURE} MATCHES ".*x86_64.*" )
+   set(krnx_lib_name krnx-x86_64)
+ elseif( ${CMAKE_LIBRARY_ARCHITECTURE} MATCHES ".*aarch64.*" )
+@@ -50,8 +52,11 @@ else()
+   message(WARNING "\nCould not detect system processor architecture: assuming 'x86_64'. This may result in non-working binaries.")
+   set(krnx_lib_name krnx-x86_64)
+ endif()
++else()
++  set(krnx_lib_name krnx-${KRNX_ARCHITECTURE})
++endif()
+ 
+-find_library(krnx_LIBRARIES lib${krnx_lib_name}.so PATHS ${PROJECT_SOURCE_DIR}/lib)
++find_library(krnx_LIBRARIES lib${krnx_lib_name}.so PATHS ${PROJECT_SOURCE_DIR}/lib NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
+ message(STATUS "Found KRNX library at: ${krnx_LIBRARIES}")
+ 
+ ## Specify C++11
