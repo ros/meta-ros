@@ -1,0 +1,47 @@
+From 6cbb35ae3be91acbcd406aa171a206dc4b2c9e7b Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 12 Apr 2021 13:38:46 +0000
+Subject: [PATCH] CMakeLists.txt: append to CMAKE_CXX_FLAGS instead of
+ re-setting what is there
+
+* with OE builds toolchain.cmake sets a lot of flags including the important
+  --sysroot:
+  mocap-optitrack/0.1.1-1-r0/git$ grep CMAKE_CXX_FLAGS ../toolchain.cmake
+  set( CMAKE_CXX_FLAGS " -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-noetic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0=/usr/src/debug/mocap-optitrack/0.1.1-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0=/usr/src/debug/mocap-optitrack/0.1.1-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-noetic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/recipe-sysroot" CACHE STRING "CXXFLAGS" )
+  set( CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG" CACHE STRING "Additional CXXFLAGS for release" )
+
+* fixes:
+NOTE: VERBOSE=1 cmake --build TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/build --target all --
+[1/8] TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"mocap_optitrack\" -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/devel/include -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/git/include -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/recipe-sysroot/usr/opt/ros/noetic/include -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/recipe-sysroot/usr/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -std=c++11 -MD -MT src/CMakeFiles/mocap_optitrack_mocap_node.dir/natnet/natnet_messages.cpp.o -MF src/CMakeFiles/mocap_optitrack_mocap_node.dir/natnet/natnet_messages.cpp.o.d -o src/CMakeFiles/mocap_optitrack_mocap_node.dir/natnet/natnet_messages.cpp.o -c TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/git/src/natnet/natnet_messages.cpp
+FAILED: src/CMakeFiles/mocap_optitrack_mocap_node.dir/natnet/natnet_messages.cpp.o
+TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"mocap_optitrack\" -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/devel/include -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/git/include -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/recipe-sysroot/usr/opt/ros/noetic/include -ITOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/recipe-sysroot/usr/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -std=c++11 -MD -MT src/CMakeFiles/mocap_optitrack_mocap_node.dir/natnet/natnet_messages.cpp.o -MF src/CMakeFiles/mocap_optitrack_mocap_node.dir/natnet/natnet_messages.cpp.o.d -o src/CMakeFiles/mocap_optitrack_mocap_node.dir/natnet/natnet_messages.cpp.o -c TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/git/src/natnet/natnet_messages.cpp
+In file included from TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/git/src/natnet/natnet_messages.cpp:29:
+TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/mocap-optitrack/0.1.1-1-r0/git/src/natnet/natnet_messages.h:32:10: fatal error: vector: No such file or directory
+   32 | #include <vector>
+      |          ^~~~~~~~
+compilation terminated.
+...
+
+Upstream-Status: Pending
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ab19a16..0947138 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -5,7 +5,7 @@ project(mocap_optitrack)
+ include(CheckCXXCompilerFlag)
+ CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+ if(COMPILER_SUPPORTS_CXX11)
+-    set(CMAKE_CXX_FLAGS "-std=c++11")
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+ else()
+     message(FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+ endif()
+-- 
+2.17.1
+
