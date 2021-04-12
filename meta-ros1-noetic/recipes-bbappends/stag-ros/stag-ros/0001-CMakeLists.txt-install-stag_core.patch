@@ -1,0 +1,35 @@
+From 6a02bac1f475fb90d16ee3498fa98024daf2d2eb Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 12 Apr 2021 02:59:07 -0700
+Subject: [PATCH] CMakeLists.txt: install stag_core
+
+* it's used by stag_node and without installing it, QA correctly complains:
+  ERROR: stag-ros-0.2.1-1-r0 do_package_qa: QA Issue: /usr/opt/ros/noetic/lib/stag_ros/stag_node contained in package stag-ros requires libstag_core.so, but no providers found in RDEPENDS_stag-ros? [file-rdeps]
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 18f618c..a44b267 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -115,9 +115,10 @@ install(DIRECTORY cfg launch
+ )
+ 
+ install(TARGETS
++  stag_core
+   stag_node
+   stag_nodelet_runnable
+   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+-)
+\ No newline at end of file
++)
+-- 
+2.17.1
+
