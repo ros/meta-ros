@@ -1,4 +1,4 @@
-From a59b9a0c17ac31b2acfd949cba3ad7a53cdf2d6d Mon Sep 17 00:00:00 2001
+From 2874a7919d68d22dae71c12d3d0dd8d0aff7c2c0 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Sat, 22 Feb 2020 07:58:02 -0800
 Subject: [PATCH] CMakeLists.txt: remove signals from find_package() calls to
@@ -25,7 +25,7 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7a75709..cd1b7f1 100644
+index 5e1f23e..2e097a7 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -22,7 +22,7 @@ find_package(catkin REQUIRED COMPONENTS
@@ -36,4 +36,4 @@ index 7a75709..cd1b7f1 100644
 +find_package(Boost REQUIRED COMPONENTS system thread)
  find_package(OpenCV)
  
- include_directories(
+ add_action_files(
