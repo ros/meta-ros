@@ -3,12 +3,25 @@ ace:
   debian: [libace-dev]
   gentoo: [dev-libs/ace]
   ubuntu: [libace-dev]
+ack:
+  debian: [ack]
+  ubuntu:
+    '*': [ack]
+    xenial: null
 ack-grep:
   arch: [ack]
   debian: [ack-grep]
   fedora: [ack]
   gentoo: [sys-apps/ack]
   ubuntu: [ack-grep]
+acl:
+  arch: [acl]
+  debian: [acl, libacl1-dev]
+  fedora: [acl, libacl-devel]
+  gentoo: [sys-apps/acl]
+  openembedded: [acl@openembedded-core]
+  rhel: [acl, libacl-devel]
+  ubuntu: [acl, libacl1-dev]
 acpi:
   debian: [acpi]
   fedora: [acpi]
@@ -286,6 +299,7 @@ bison:
   gentoo: [sys-devel/bison]
   macports: [bison]
   openembedded: [bison@openembedded-core]
+  rhel: [bison]
   ubuntu: [bison]
 blender:
   arch: [blender]
@@ -447,6 +461,7 @@ clang:
 clang-format:
   alpine: [clang]
   debian:
+    bullseye: [clang-format]
     buster: [clang-format]
     stretch: [clang-format]
   fedora: [clang]
@@ -459,6 +474,7 @@ clang-format:
 clang-tidy:
   alpine: [clang-extra-tools]
   debian:
+    bullseye: [clang-tidy]
     buster: [clang-tidy]
     stretch: [clang-tidy]
   fedora: [clang-tools-extra]
@@ -636,6 +652,7 @@ curl:
 curlpp-dev:
   debian: [libcurlpp-dev]
   fedora: [curlpp-devel]
+  openembedded: [curlpp@meta-networking]
   ubuntu: [libcurlpp-dev]
 cvs:
   arch: [cvs]
@@ -763,6 +780,7 @@ eigen:
   alpine: [eigen-dev]
   arch: [eigen3]
   debian:
+    bullseye: [libeigen3-dev]
     buster: [libeigen3-dev]
     jessie: [libeigen3-dev]
     stretch: [libeigen3-dev]
@@ -1837,6 +1855,13 @@ libasound2-dev:
   gentoo: [media-libs/alsa-lib]
   openembedded: [alsa-lib@openembedded-core]
   ubuntu: [libasound2-dev]
+libatomic:
+  arch: [gcc-libs]
+  debian: [libatomic1]
+  fedora: [libatomic]
+  openembedded: [gcc-runtime@openembedded-core]
+  rhel: [libatomic]
+  ubuntu: [libatomic1]
 libav:
   arch: [libav-git]
   debian: [libav-tools]
@@ -2259,8 +2284,7 @@ libceres-dev:
   fedora: [ceres-solver-devel]
   gentoo: ['sci-libs/ceres-solver[sparse,lapack]']
   openembedded: [ceres-solver@meta-oe]
-  rhel:
-    '7': [ceres-solver-devel]
+  rhel: [ceres-solver-devel]
   ubuntu: [libceres-dev]
 libcgroup-dev:
   debian: [libcgroup-dev]
@@ -2282,11 +2306,14 @@ libcoin60-dev:
   ubuntu: [libcoin60-dev]
 libcoin80-dev:
   debian:
-    buster: [libcoin80-dev]
+    '*': [libcoin-dev]
     jessie: [libcoin80-dev]
     stretch: [libcoin80-dev]
   fedora: [Coin2-devel]
-  ubuntu: [libcoin80-dev]
+  ubuntu:
+    '*': [libcoin-dev]
+    bionic: [libcoin80-dev]
+    xenial: [libcoin80-dev]
 libconfig++-dev:
   debian: [libconfig++-dev]
   gentoo: ['dev-libs/libconfig[cxx]']
@@ -4955,6 +4982,7 @@ log4cxx:
   arch: [log4cxx]
   cygwin: [liblog4cxx-devel]
   debian:
+    bullseye: [liblog4cxx-dev]
     buster: [liblog4cxx-dev]
     jessie: [liblog4cxx10-dev]
     squeeze: [liblog4cxx10-dev]
@@ -5270,6 +5298,7 @@ net-tools:
   debian: [net-tools]
   fedora: [net-tools]
   gentoo: [sys-apps/net-tools]
+  openembedded: [net-tools@openembedded-core]
   ubuntu: [net-tools]
 netcdf:
   debian: [libnetcdf-dev]
@@ -5629,7 +5658,7 @@ postgresql-postgis:
     jessie: [postgresql-9.4-postgis-2.1, postgresql-contrib, postgresql-server-dev-all]
     stretch: [postgresql-9.6-postgis-2.3, postgresql-contrib, postgresql-server-dev-all]
   fedora: [postgis]
-  gentoo: [dev-db/postgis,'=dev-db/postgresql-9*']
+  gentoo: [dev-db/postgis, '=dev-db/postgresql-9*']
   ubuntu:
     artful: [postgresql-9.6-postgis-2.3, postgresql-contrib, postgresql-server-dev-all]
     bionic: [postgresql-10-postgis-2.4, postgresql-contrib, postgresql-server-dev-all]
@@ -5859,6 +5888,9 @@ qtmultimedia5-dev:
   gentoo: ['dev-qt/qtmultimedia:5']
   openembedded: [qtmultimedia@meta-qt5]
   ubuntu: [qtmultimedia5-dev]
+qtpositioning5-dev:
+  debian: [qtpositioning5-dev]
+  ubuntu: [qtpositioning5-dev]
 qttools5-dev:
   debian: [qttools5-dev]
   fedora: [qt5-qttools-devel]
@@ -6557,6 +6589,13 @@ usbutils:
     homebrew:
       packages: [mikhailai/misc/usbutils]
   ubuntu: [usbutils]
+util-linux:
+  arch: [util-linux]
+  debian: [util-linux]
+  fedora: [util-linux]
+  gentoo: [util-linux]
+  macports: [util-linux]
+  ubuntu: [util-linux]
 uuid:
   arch: [util-linux]
   debian: [uuid-dev]
