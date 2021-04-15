@@ -49,7 +49,7 @@ ROS_EXEC_DEPENDS = " \
     genmsg \
     genpy \
     python3-gnupg \
-    python3-pycryptodome \
+    python3-pycryptodomex \
     python3-rospkg \
     rosbag-storage \
     rosconsole \

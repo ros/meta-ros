@@ -44,7 +44,7 @@ ROS_EXEC_DEPENDS = " \
     python-qt-binding \
     python3-docutils \
     python3-paramiko \
-    python3-pycryptodome \
+    python3-pycryptodomex \
     python3-pyqt5 \
     python3-ruamel-yaml \
     rosgraph \
