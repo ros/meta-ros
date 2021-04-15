@@ -223,8 +223,3 @@ ROS_BUILD_TYPE_pn-python-orocos-kdl = "catkin"
 # https://github.com/mavlink/mavlink-gbp-release/blob/release/melodic/mavlink/2019.11.11-1/package.xml#L29
 # but that doesn't respect the prefix set in meta-ros-common/classes/ros_opt_prefix.bbclass
 ROS_BUILD_TYPE_pn-mavlink = "catkin"
-
-# included in:
-# https://github.com/ros/rosdistro/pull/28952
-ROS_UNRESOLVED_DEP-curlpp-dev = "curlpp"
-ROS_UNRESOLVED_DEP-net-tools = "net-tools"
