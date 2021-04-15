@@ -6666,7 +6666,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_DEP-cccc} \
     ${ROS_UNRESOLVED_DEP-clang-tidy} \
     ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev} \
-    ${ROS_UNRESOLVED_DEP-curlpp-dev} \
     ${ROS_UNRESOLVED_DEP-cwiid-dev} \
     ${ROS_UNRESOLVED_DEP-cwiid} \
     ${ROS_UNRESOLVED_DEP-cython} \
@@ -6717,7 +6716,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_DEP-mapnik-utils} \
     ${ROS_UNRESOLVED_DEP-muparser} \
     ${ROS_UNRESOLVED_DEP-nasm} \
-    ${ROS_UNRESOLVED_DEP-net-tools} \
     ${ROS_UNRESOLVED_DEP-netpbm} \
     ${ROS_UNRESOLVED_DEP-network-manager} \
     ${ROS_UNRESOLVED_DEP-nkf} \
@@ -6821,6 +6819,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     cppcheck \
     cppunit \
     curl \
+    curlpp \
     daemontools \
     dnsmasq \
     doxygen \
@@ -6912,6 +6911,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     mongodb \
     msgpack-c \
     ncurses \
+    net-tools \
     nodejs \
     nodejs-native \
     ogre \
@@ -7800,7 +7800,6 @@ ROS_UNRESOLVED_DEP-atlas = "ROS_UNRESOLVED_DEP-atlas"
 ROS_UNRESOLVED_DEP-cccc = "ROS_UNRESOLVED_DEP-cccc"
 ROS_UNRESOLVED_DEP-clang-tidy = "ROS_UNRESOLVED_DEP-clang-tidy"
 ROS_UNRESOLVED_DEP-coinor-libipopt-dev = "ROS_UNRESOLVED_DEP-coinor-libipopt-dev"
-ROS_UNRESOLVED_DEP-curlpp-dev = "ROS_UNRESOLVED_DEP-curlpp-dev"
 ROS_UNRESOLVED_DEP-cwiid = "ROS_UNRESOLVED_DEP-cwiid"
 ROS_UNRESOLVED_DEP-cwiid-dev = "ROS_UNRESOLVED_DEP-cwiid-dev"
 ROS_UNRESOLVED_DEP-cython = "ROS_UNRESOLVED_DEP-cython"
@@ -7851,7 +7850,6 @@ ROS_UNRESOLVED_DEP-libxml++-2.6 = "ROS_UNRESOLVED_DEP-libxml++-2.6"
 ROS_UNRESOLVED_DEP-mapnik-utils = "ROS_UNRESOLVED_DEP-mapnik-utils"
 ROS_UNRESOLVED_DEP-muparser = "ROS_UNRESOLVED_DEP-muparser"
 ROS_UNRESOLVED_DEP-nasm = "ROS_UNRESOLVED_DEP-nasm"
-ROS_UNRESOLVED_DEP-net-tools = "ROS_UNRESOLVED_DEP-net-tools"
 ROS_UNRESOLVED_DEP-netpbm = "ROS_UNRESOLVED_DEP-netpbm"
 ROS_UNRESOLVED_DEP-network-manager = "ROS_UNRESOLVED_DEP-network-manager"
 ROS_UNRESOLVED_DEP-nkf = "ROS_UNRESOLVED_DEP-nkf"
