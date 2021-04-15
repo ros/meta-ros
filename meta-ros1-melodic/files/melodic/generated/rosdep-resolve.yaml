@@ -50,7 +50,7 @@ cppunit:
 curl:
 - curl@openembedded-core
 curlpp-dev:
-- ${ROS_UNRESOLVED_DEP-curlpp-dev}
+- curlpp@meta-networking
 cwiid:
 - ${ROS_UNRESOLVED_DEP-cwiid}
 cwiid-dev:
@@ -437,7 +437,7 @@ muparser:
 nasm:
 - ${ROS_UNRESOLVED_DEP-nasm}
 net-tools:
-- ${ROS_UNRESOLVED_DEP-net-tools}
+- net-tools@openembedded-core
 netpbm:
 - ${ROS_UNRESOLVED_DEP-netpbm}
 network-manager:

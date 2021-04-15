@@ -19,7 +19,7 @@ ROS_CN = "pf_lidar_ros_driver"
 ROS_BPN = "pf_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-curlpp-dev} \
+    curlpp \
     dynamic-reconfigure \
     jsoncpp \
     laser-geometry \
@@ -40,7 +40,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-curlpp-dev} \
+    curlpp \
     dynamic-reconfigure \
     jsoncpp \
     laser-geometry \
@@ -56,7 +56,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-curlpp-dev} \
+    curlpp \
     dynamic-reconfigure \
     jsoncpp \
     laser-geometry \
