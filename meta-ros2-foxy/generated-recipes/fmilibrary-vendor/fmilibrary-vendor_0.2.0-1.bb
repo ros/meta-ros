@@ -39,9 +39,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/fmilibrary_vendor-release/archive/release/foxy/fmilibrary_vendor/0.2.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/fmilibrary_vendor-release/archive/release/foxy/fmilibrary_vendor/0.2.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/fmilibrary_vendor"
-SRC_URI = "git://github.com/boschresearch/fmilibrary_vendor-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/fmilibrary_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "076122567b7b7e710826f8d2d8e5a557a2cd158e"
 S = "${WORKDIR}/git"
 
