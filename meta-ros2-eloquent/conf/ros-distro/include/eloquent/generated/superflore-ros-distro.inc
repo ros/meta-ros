@@ -36,7 +36,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-eloquent/files/eloquent/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "10"
+ROS_NUM_CACHE_YAML_COMMITS = "11"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -812,8 +812,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          fastrtps/fastrtps_1.9.3-2 \
       rosidl-typesupport-fastrtps/fastrtps-cmake-module_0.8.0-1 \
                           filters/filters_2.0.0-1 \
-                 fmi-adapter-ros2/fmi-adapter_0.1.7-2 \
-                 fmi-adapter-ros2/fmi-adapter-examples_0.1.7-2 \
+                      fmi-adapter/fmi-adapter_0.1.7-2 \
+                      fmi-adapter/fmi-adapter-examples_0.1.7-2 \
                 fmilibrary-vendor/fmilibrary-vendor_0.2.0-1 \
           foonathan-memory-vendor/foonathan-memory-vendor_0.3.0-1 \
                   gazebo-ros-pkgs/gazebo-msgs_3.4.4-1 \
@@ -2116,7 +2116,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     fastcdr \
     fastrtps \
     filters \
-    fmi-adapter-ros2 \
+    fmi-adapter \
     fmilibrary-vendor \
     foonathan-memory-vendor \
     gazebo-ros-pkgs \
@@ -2318,11 +2318,11 @@ ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 ROS_DISTRO_RELEASE_DATE = "2020-12-14"
 
 # The commit of ros/rosdistro/eloquent/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "10a086a7e844a86f9418c580e9c032e65995e6d1"
+ROS_SUPERFLORE_GENERATION_COMMIT = "19c3698ea7c129d181569ca03e5da7512678909e"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
-ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.6.0"
+ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.6.1"
 
 # Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
 ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.6.0"

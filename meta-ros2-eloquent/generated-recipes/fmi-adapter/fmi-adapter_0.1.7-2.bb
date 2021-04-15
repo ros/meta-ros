@@ -14,7 +14,7 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "fmi_adapter_ros2"
+ROS_CN = "fmi_adapter"
 ROS_BPN = "fmi_adapter"
 
 ROS_BUILD_DEPENDS = " \
@@ -62,9 +62,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/fmi_adapter_ros2-release/archive/release/eloquent/fmi_adapter/0.1.7-2.tar.gz
+# matches with: https://github.com/ros2-gbp/fmi_adapter-release/archive/release/eloquent/fmi_adapter/0.1.7-2.tar.gz
 ROS_BRANCH ?= "branch=release/eloquent/fmi_adapter"
-SRC_URI = "git://github.com/boschresearch/fmi_adapter_ros2-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/fmi_adapter-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b9196707873818e02b7dc4cc8aeea237218e6882"
 S = "${WORKDIR}/git"
 
