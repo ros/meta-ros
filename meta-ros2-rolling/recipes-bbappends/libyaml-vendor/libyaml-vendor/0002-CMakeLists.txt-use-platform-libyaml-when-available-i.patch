@@ -1,4 +1,4 @@
-From 4d0c78897bbe8eb4f5673241079fbade32f556f5 Mon Sep 17 00:00:00 2001
+From cb4604bb0cbc3eb2c9b65fbe451213ebf624f7e3 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 9 Jul 2020 01:34:26 -0700
 Subject: [PATCH] CMakeLists.txt: use platform libyaml when available instead
@@ -12,15 +12,15 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 10 insertions(+), 3 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 0173510..01a9b52 100644
+index 86446c1..c4d5ec9 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -83,11 +83,18 @@ macro(build_libyaml)
+@@ -82,11 +82,18 @@ macro(build_libyaml)
    set(yaml_LIBRARIES yaml)
  endmacro()
  
 -build_libyaml()
--set(extra_test_dependencies libyaml-10c9078)
+-set(extra_test_dependencies libyaml-0.2.5)
 +find_package(PkgConfig REQUIRED)
 +pkg_check_modules(YAML REQUIRED yaml-0.1)
 +
