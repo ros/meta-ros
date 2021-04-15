@@ -15,10 +15,10 @@
 # The files from PATH-TO-LOCAL-ROS-ROSDISTRO/rosdep are to rosdep. The script will abort if the entries in
 # /etc/ros/rosdep/sources.list.d/20-default.list do not point to files under PATH-TO-LOCAL-ROS-ROSDISTRO/rosdep .
 #
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-cache"
-readonly SCRIPT_VERSION="1.6.0"
+readonly SCRIPT_VERSION="1.6.1"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-recipes.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -115,19 +115,13 @@ cd - > /dev/null
 # Create $tmpdir/$ROS_DISTRO-cache.yaml.gz .
 cd $tmpdir
 
-# https://github.com/ros-tooling/cross_compile-release.git doesn't have the right tags anymore and rosdistro_build_cache fails because of that
-# https://github.com/ros-tooling/cross_compile/issues/248
-if [ "$ROS_DISTRO" = "dashing" -o "$ROS_DISTRO" = "eloquent" ] ; then
-    sed '/^ *cross_compile:/,/^ *status: developed$/d' -i $ROS_DISTRO/distribution.yaml
+if [ "$ROS_DISTRO" = "dashing" -o "$ROS_DISTRO" = "eloquent" -o "$ROS_DISTRO" = "foxy" ] ; then
+    sed 's#boschresearch/fmilibrary_vendor-release#ros2-gbp/fmilibrary_vendor-release#g' -i $ROS_DISTRO/distribution.yaml
+    sed 's#boschresearch/fmi_adapter_ros2-release#ros2-gbp/fmi_adapter-release#g' -i $ROS_DISTRO/distribution.yaml
+    sed 's#fmi_adapter_ros2#fmi_adapter#g' -i $ROS_DISTRO/distribution.yaml
 fi
 
-# https://github.com/jediofgever/ROS_CB-release.git doesn't exist anymore and rosdistro_build_cache fails because of that
-# https://github.com/ros/rosdistro/commit/f0193fb9a26b4260fb853e355198f50e3c2d2a4d
-if [ "$ROS_DISTRO" = "foxy" ] ; then
-    sed '/^ *ros_cb:/,/^ *status: developed$/d' -i $ROS_DISTRO/distribution.yaml
-fi
-
-rosdistro_build_cache --preclean --ignore-local $tmpdir/index-v4.yaml $ROS_DISTRO
+rosdistro_build_cache --debug --preclean --ignore-local $tmpdir/index-v4.yaml $ROS_DISTRO
 
 cd - > /dev/null
 
