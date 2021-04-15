@@ -1,4 +1,4 @@
-From d88fe8fdf2010b02bc2b191fd4bc823eeccaed11 Mon Sep 17 00:00:00 2001
+From 13504e4674150cd305e2a7368fe315654f88c8e0 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 23 Apr 2020 09:29:33 -0700
 Subject: [PATCH] CMakeLists.txt: fetch libyaml with bitbake fetcher
@@ -7,20 +7,21 @@ Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- CMakeLists.txt | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ CMakeLists.txt | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index dcffd6d..0173510 100644
+index 54dae7b..86446c1 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -61,8 +61,7 @@ macro(build_libyaml)
+@@ -61,9 +61,7 @@ macro(build_libyaml)
    endif()
    include(ExternalProject)
-   externalproject_add(libyaml-10c9078
--    URL https://github.com/yaml/libyaml/archive/10c907871f1ccd779c7fccf6b81a62762b5c4e7b.zip
--    URL_MD5 b595f0ab0735c04c7f6ed0a798a3eff7
+   externalproject_add(libyaml-0.2.5
+-    URL https://github.com/yaml/libyaml/archive/refs/tags/0.2.5.zip
+-    URL_MD5 2464078985a73f9d298689d36061143f
+-    TIMEOUT 60
 +    SOURCE_DIR ${CMAKE_SOURCE_DIR}/libyaml-upstream
-     TIMEOUT 60
      CMAKE_ARGS
        -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/libyaml_install
+       ${extra_cmake_args}
