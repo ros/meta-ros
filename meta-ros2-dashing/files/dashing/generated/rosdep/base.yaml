@@ -638,6 +638,7 @@ curl:
 curlpp-dev:
   debian: [libcurlpp-dev]
   fedora: [curlpp-devel]
+  openembedded: [curlpp@meta-networking]
   ubuntu: [libcurlpp-dev]
 cvs:
   arch: [cvs]
@@ -5264,6 +5265,7 @@ net-tools:
   debian: [net-tools]
   fedora: [net-tools]
   gentoo: [sys-apps/net-tools]
+  openembedded: [net-tools@openembedded-core]
   ubuntu: [net-tools]
 netcdf:
   debian: [libnetcdf-dev]
