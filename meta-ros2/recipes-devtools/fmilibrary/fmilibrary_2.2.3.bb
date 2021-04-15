@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 DESCRIPTION = "Extensible Modelica-based platform for optimization, simulation and analysis of complex dynamic systems."
 HOMEPAGE = "https://jmodelica.org/"
@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=feb42903281464837bc0c9a861b1e7a1"
 
 DEPENDS = "expat"
 
-# matches with tag 2.2
-SRCREV = "0edf0b0387c4b0027b758956e8f1321d89c2fb75"
+# matches with tag 2.2.3
+SRCREV = "998768cddacce99727d633d045fa6d25314e1d9a"
 SRC_URI = "git://github.com/modelon-community/fmi-library \
     file://0001-fmixml-use-system-expat-instead-of-building-own-with.patch \
 "
