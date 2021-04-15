@@ -1,4 +1,4 @@
-# eloquent/cache.yaml 2020-12-14 10a086a7e844a86f9418c580e9c032e65995e6d1 20201210212728 1.6.0
+# eloquent/cache.yaml 2020-12-14 19c3698ea7c129d181569ca03e5da7512678909e 20201211201902 1.6.1
 distribution_file:
 - release_platforms:
 -----
@@ -1037,10 +1037,10 @@ version: ros2
 status: maintained
 }
 -----
-fmi_adapter_ros2: {
+fmi_adapter: {
 doc: {
 type: git,
-url: 'https://github.com/boschresearch/fmi_adapter_ros2.git',
+url: 'https://github.com/boschresearch/fmi_adapter.git',
 version: master
 },
 release: {
@@ -1049,12 +1049,12 @@ fmi_adapter_examples],
 tags: {
 release: 'release/eloquent/{package}/{version}'
 },
-url: 'https://github.com/boschresearch/fmi_adapter_ros2-release.git',
+url: 'https://github.com/ros2-gbp/fmi_adapter-release.git',
 version: 0.1.7-2
 },
 source: {
 type: git,
-url: 'https://github.com/boschresearch/fmi_adapter_ros2.git',
+url: 'https://github.com/boschresearch/fmi_adapter.git',
 version: master
 },
 status: developed
@@ -1065,7 +1065,7 @@ release: {
 tags: {
 release: 'release/eloquent/{package}/{version}'
 },
-url: 'https://github.com/boschresearch/fmilibrary_vendor-release.git',
+url: 'https://github.com/ros2-gbp/fmilibrary_vendor-release.git',
 version: 0.2.0-1
 },
 source: {
