@@ -352,7 +352,7 @@ msgpack:
 muparser:
 - ${ROS_UNRESOLVED_DEP-muparser}
 net-tools:
-- ${ROS_UNRESOLVED_DEP-net-tools}
+- net-tools@openembedded-core
 netpbm:
 - ${ROS_UNRESOLVED_DEP-netpbm}
 nkf:
@@ -519,7 +519,7 @@ python3-psutil:
 python3-pyassimp:
 - python3-pyassimp@meta-ros-common
 python3-pycryptodome:
-- python3-pycryptodome@meta-python
+- python3-pycryptodomex@meta-python
 python3-pydot:
 - python3-pydot@meta-ros-common
 python3-pygraphviz:

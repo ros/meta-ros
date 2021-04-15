@@ -3976,7 +3976,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_DEP-libvtk} \
     ${ROS_UNRESOLVED_DEP-ml-classifiers} \
     ${ROS_UNRESOLVED_DEP-muparser} \
-    ${ROS_UNRESOLVED_DEP-net-tools} \
     ${ROS_UNRESOLVED_DEP-netpbm} \
     ${ROS_UNRESOLVED_DEP-nkf} \
     ${ROS_UNRESOLVED_DEP-nlopt} \
@@ -4113,6 +4112,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     mongodb \
     msgpack-c \
     ncurses \
+    net-tools \
     ogre \
     openblas \
     opencl-headers \
@@ -4162,7 +4162,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     python3-psutil \
     python3-pyassimp \
     python3-pycairo \
-    python3-pycryptodome \
+    python3-pycryptodomex \
     python3-pydot \
     python3-pygobject \
     python3-pygraphviz \
@@ -4742,7 +4742,6 @@ ROS_UNRESOLVED_DEP-libvtk = "ROS_UNRESOLVED_DEP-libvtk"
 ROS_UNRESOLVED_DEP-libvtk-qt = "ROS_UNRESOLVED_DEP-libvtk-qt"
 ROS_UNRESOLVED_DEP-ml-classifiers = "ROS_UNRESOLVED_DEP-ml-classifiers"
 ROS_UNRESOLVED_DEP-muparser = "ROS_UNRESOLVED_DEP-muparser"
-ROS_UNRESOLVED_DEP-net-tools = "ROS_UNRESOLVED_DEP-net-tools"
 ROS_UNRESOLVED_DEP-netpbm = "ROS_UNRESOLVED_DEP-netpbm"
 ROS_UNRESOLVED_DEP-nkf = "ROS_UNRESOLVED_DEP-nkf"
 ROS_UNRESOLVED_DEP-nlopt = "ROS_UNRESOLVED_DEP-nlopt"
