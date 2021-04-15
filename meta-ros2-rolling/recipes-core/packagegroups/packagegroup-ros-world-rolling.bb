@@ -282,5 +282,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
     webots-ros2-core \
     webots-ros2-examples \
     webots-ros2-importer \
+    webots-ros2-tesla \
+    webots-ros2-turtlebot \
     webots-ros2-tutorials \
 "
