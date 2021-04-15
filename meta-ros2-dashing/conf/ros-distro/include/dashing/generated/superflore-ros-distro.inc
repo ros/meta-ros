@@ -38,7 +38,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-dashing/files/dashing/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "13"
+ROS_NUM_CACHE_YAML_COMMITS = "14"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -843,8 +843,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                              fastrtps/fastrtps_1.8.4-3 \
           rosidl-typesupport-fastrtps/fastrtps-cmake-module_0.7.2-1 \
                     cloudwatch-common/file-management_1.1.5-1 \
-                     fmi-adapter-ros2/fmi-adapter_0.1.7-1 \
-                     fmi-adapter-ros2/fmi-adapter-examples_0.1.7-1 \
+                          fmi-adapter/fmi-adapter_0.1.7-1 \
+                          fmi-adapter/fmi-adapter-examples_0.1.7-1 \
                     fmilibrary-vendor/fmilibrary-vendor_0.2.0-1 \
               foonathan-memory-vendor/foonathan-memory-vendor_0.3.0-1 \
                       gazebo-ros-pkgs/gazebo-msgs_3.3.5-3 \
@@ -2172,7 +2172,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     examples \
     fastcdr \
     fastrtps \
-    fmi-adapter-ros2 \
+    fmi-adapter \
     fmilibrary-vendor \
     foonathan-memory-vendor \
     gazebo-ros-pkgs \
@@ -2386,7 +2386,7 @@ ROS_SUPERFLORE_GENERATION_COMMIT = "86dd612b6bbc92b3d38f90d55de0898f3032cdce"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
-ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.6.0"
+ROS_GENERATE_CACHE_PROGRAM_VERSION = "1.6.1"
 
 # Version of scripts/ros-generate-recipes.sh which was used to generate recipes and this configuration file
 ROS_GENERATE_RECIPES_PROGRAM_VERSION = "1.6.0"
