@@ -1,4 +1,4 @@
-# dashing/cache.yaml 2021-03-04 86dd612b6bbc92b3d38f90d55de0898f3032cdce 20210303222814 1.6.0
+# dashing/cache.yaml 2021-03-04 86dd612b6bbc92b3d38f90d55de0898f3032cdce 20210303222814 1.6.1
 distribution_file:
 - release_platforms:
 -----
@@ -1208,10 +1208,10 @@ version: 6a6f79c4256a00fc13834a2aaa3c60a0aaac5e76
 status: developed
 }
 -----
-fmi_adapter_ros2: {
+fmi_adapter: {
 doc: {
 type: git,
-url: 'https://github.com/boschresearch/fmi_adapter_ros2.git',
+url: 'https://github.com/boschresearch/fmi_adapter.git',
 version: master
 },
 release: {
@@ -1220,12 +1220,12 @@ fmi_adapter_examples],
 tags: {
 release: 'release/dashing/{package}/{version}'
 },
-url: 'https://github.com/boschresearch/fmi_adapter_ros2-release.git',
+url: 'https://github.com/ros2-gbp/fmi_adapter-release.git',
 version: 0.1.7-1
 },
 source: {
 type: git,
-url: 'https://github.com/boschresearch/fmi_adapter_ros2.git',
+url: 'https://github.com/boschresearch/fmi_adapter.git',
 version: master
 },
 status: developed
@@ -1236,7 +1236,7 @@ release: {
 tags: {
 release: 'release/dashing/{package}/{version}'
 },
-url: 'https://github.com/boschresearch/fmilibrary_vendor-release.git',
+url: 'https://github.com/ros2-gbp/fmilibrary_vendor-release.git',
 version: 0.2.0-1
 },
 source: {
