@@ -1,4 +1,4 @@
-From 122764a72cd8b21d9366f29647050d2cd2517eb0 Mon Sep 17 00:00:00 2001
+From a623afc37b16918e971803978f4c049b3fa4d072 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 18 Dec 2019 11:11:30 -0800
 Subject: [PATCH] Use libphidget22 from libphidget22-upstream and normal prefix
@@ -7,33 +7,34 @@ Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- CMakeLists.txt                                | 36 +-----------
- cmake/libphidget22-extras.cmake.in            |  4 +-
- ...ts22-fix-uninitialized-memory-access.patch | 56 -------------------
- 3 files changed, 3 insertions(+), 93 deletions(-)
- delete mode 100644 patch/libphidgets22-fix-uninitialized-memory-access.patch
+ CMakeLists.txt                                |  37 +--
+ cmake/libphidget22-extras.cmake.in            |   4 +-
+ ...phidgets22-1.6.20200417-fix-warnings.patch | 260 ------------------
+ 3 files changed, 3 insertions(+), 298 deletions(-)
+ delete mode 100644 patch/libphidgets22-1.6.20200417-fix-warnings.patch
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c19ed20..706e59a 100644
+index 462ee7f..706e59a 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -3,40 +3,6 @@ project(libphidget22)
+@@ -3,41 +3,6 @@ project(libphidget22)
  
  find_package(ament_cmake REQUIRED)
  
--set(extra_c_flags "-g -O2 -Wno-incompatible-pointer-types -Wno-deprecated-declarations -Wno-format-truncation")
+-set(extra_c_flags "-g -O2 -Wno-incompatible-pointer-types -Wno-deprecated-declarations -Wno-format-truncation -fPIC")
 -
 -include(ExternalProject)
 -ExternalProject_Add(EP_${PROJECT_NAME}
--    URL https://www.phidgets.com/downloads/phidget22/libraries/linux/libphidget22/libphidget22-1.4.20190605.tar.gz
--    URL_MD5 96e5d64263866d34e1d9a5f4ba78ba65
+-    URL https://www.phidgets.com/downloads/phidget22/libraries/linux/libphidget22/libphidget22-1.6.20200417.tar.gz
+-    URL_MD5 f8c85f8348ddc0fb46146c0d9d8f884e
 -
--    PATCH_COMMAND patch -p1 < ${CMAKE_CURRENT_SOURCE_DIR}/patch/libphidgets22-fix-uninitialized-memory-access.patch
+-    PATCH_COMMAND patch -p1 < ${CMAKE_CURRENT_SOURCE_DIR}/patch/libphidgets22-1.6.20200417-fix-warnings.patch
 -    SOURCE_DIR ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src
 -    CONFIGURE_COMMAND
 -      <SOURCE_DIR>/configure
 -      CFLAGS=${extra_c_flags}
 -      --prefix=${CMAKE_CURRENT_BINARY_DIR}/libphidget22_install
+-      --disable-ldconfig
 -    BUILD_COMMAND $(MAKE)
 -    INSTALL_COMMAND $(MAKE) install
 -)
@@ -69,45 +70,168 @@ index 7a386fa..ccf3d59 100644
 -list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../opt/libphidget22/lib/libphidget22.so")
 +list(APPEND @PROJECT_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/../../../../usr/include")
 +list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../../usr/lib/libphidget22.so")
-diff --git a/patch/libphidgets22-fix-uninitialized-memory-access.patch b/patch/libphidgets22-fix-uninitialized-memory-access.patch
+diff --git a/patch/libphidgets22-1.6.20200417-fix-warnings.patch b/patch/libphidgets22-1.6.20200417-fix-warnings.patch
 deleted file mode 100644
-index 60817ac..0000000
---- a/patch/libphidgets22-fix-uninitialized-memory-access.patch
+index f197d1a..0000000
+--- a/patch/libphidgets22-1.6.20200417-fix-warnings.patch
 +++ /dev/null
-@@ -1,56 +0,0 @@
--diff -urp libphidget22-1.4.20190605.orig/src/plat/linux/usblinux.c libphidget22-1.4.20190605/src/plat/linux/usblinux.c
----- libphidget22-1.4.20190605.orig/src/plat/linux/usblinux.c	2019-06-05 16:06:29.000000000 -0400
--+++ libphidget22-1.4.20190605/src/plat/linux/usblinux.c	2019-07-18 09:35:23.566476582 -0400
--@@ -62,11 +62,12 @@ static libusb_context *libusbContext;
-- static void
-- logBuffer(unsigned char *data, int dataLen, const char *message) {
-- 	Phidget_LogLevel ll;
--+	PhidgetReturnCode ret;
-- 	char str[2000];
-- 	int i, j;
+@@ -1,260 +0,0 @@
+-diff -urp libphidget22-1.6.20200417.orig/configure libphidget22-1.6.20200417/configure
+---- libphidget22-1.6.20200417.orig/configure	2020-04-17 21:51:11.000000000 +0000
+-+++ libphidget22-1.6.20200417/configure	2020-06-02 13:31:26.487312313 +0000
+-@@ -5678,7 +5678,7 @@ esac
+- fi
 - 
---	PhidgetLog_getSourceLevel("phidget22usb", &ll);
---	if (ll != PHIDGET_LOG_VERBOSE)
--+	ret = PhidgetLog_getSourceLevel("phidget22usb", &ll);
--+	if (ret != EPHIDGET_OK || ll != PHIDGET_LOG_VERBOSE)
-- 		return;
+- : ${AR=ar}
+--: ${AR_FLAGS=cru}
+-+: ${AR_FLAGS=cr}
 - 
-- 	str[0]='\0';
--diff -Nurp libphidget22-1.4.20190605.orig/src/vintpackets.c libphidget22-1.4.20190605/src/vintpackets.c
----- libphidget22-1.4.20190605.orig/src/vintpackets.c	2019-06-05 20:06:22.000000000 +0000
--+++ libphidget22-1.4.20190605/src/vintpackets.c	2019-08-06 16:43:45.856531653 +0000
--@@ -2783,7 +2783,7 @@ sendLCD1100_WRITEBITMAP(PhidgetChannelHa
-- 	unsigned char bit;
-- 	uint8_t buf[48];
-- 	const uint8_t *bitmap;
---	int count;
--+	int count = 0;
-- 	int xsize;
-- 	int ysize;
-- 	int x;
--diff -Nurp libphidget22-1.4.20190605.orig/src/class/distancesensor.gen.c libphidget22-1.4.20190605/src/class/distancesensor.gen.c
----- libphidget22-1.4.20190605.orig/src/class/distancesensor.gen.c	2019-06-05 20:06:28.000000000 +0000
--+++ libphidget22-1.4.20190605/src/class/distancesensor.gen.c	2019-08-06 16:51:37.053708754 +0000
+- 
+- 
+-diff -urp libphidget22-1.6.20200417.orig/src/class/dataadapter.gen.c libphidget22-1.6.20200417/src/class/dataadapter.gen.c
+---- libphidget22-1.6.20200417.orig/src/class/dataadapter.gen.c	2020-04-17 21:50:42.000000000 +0000
+-+++ libphidget22-1.6.20200417/src/class/dataadapter.gen.c	2020-06-02 13:26:36.101638546 +0000
+-@@ -46,137 +46,6 @@ struct _PhidgetDataAdapter {
+- };
+- 
+- static PhidgetReturnCode CCONV
+--_setStatus(PhidgetChannelHandle phid, BridgePacket *bp) {
+--	PhidgetDataAdapterHandle ch;
+--	int version;
+--
+--	ch = (PhidgetDataAdapterHandle)phid;
+--
+--	version = getBridgePacketUInt32ByName(bp, "_class_version_");
+--	if (version != 3) {
+--		loginfo("%"PRIphid": server/client class version mismatch: %d != 3 - functionality may be limited.", phid, version);
+--	}
+--
+--	if(version >= 3)
+--		ch->responseReceived = getBridgePacketInt32ByName(bp, "responseReceived");
+--	if(version >= 3)
+--		memcpy(&ch->lastData, getBridgePacketUInt8ArrayByName(bp, "lastData"), sizeof (uint8_t) * 8192);
+--	if(version >= 3)
+--		ch->lastDataIndex = getBridgePacketUInt32ByName(bp, "lastDataIndex");
+--	if(version >= 3)
+--		memcpy(&ch->eventData, getBridgePacketUInt8ArrayByName(bp, "eventData"), sizeof (uint8_t) * 8192);
+--	if(version >= 3)
+--		ch->lastDataLen = getBridgePacketUInt32ByName(bp, "lastDataLen");
+--	if(version >= 3)
+--		ch->lastDataError = getBridgePacketUInt32ByName(bp, "lastDataError");
+--	if(version >= 3)
+--		memcpy(&ch->I2CFormat, getBridgePacketUInt8ArrayByName(bp, "I2CFormat"), sizeof (char) * 2049);
+--	if(version >= 3)
+--		ch->lastDataRead = getBridgePacketInt32ByName(bp, "lastDataRead");
+--	if(version >= 3)
+--		ch->baudRate = getBridgePacketUInt32ByName(bp, "baudRate");
+--	if(version >= 3)
+--		ch->minBaudRate = getBridgePacketUInt32ByName(bp, "minBaudRate");
+--	if(version >= 3)
+--		ch->maxBaudRate = getBridgePacketUInt32ByName(bp, "maxBaudRate");
+--	if(version >= 3)
+--		ch->dataBits = getBridgePacketUInt32ByName(bp, "dataBits");
+--	if(version >= 3)
+--		ch->minDataBits = getBridgePacketUInt32ByName(bp, "minDataBits");
+--	if(version >= 3)
+--		ch->maxDataBits = getBridgePacketUInt32ByName(bp, "maxDataBits");
+--	if(version >= 3)
+--		ch->deviceAddress = getBridgePacketUInt32ByName(bp, "deviceAddress");
+--	if(version >= 3)
+--		ch->handshakeMode = getBridgePacketInt32ByName(bp, "handshakeMode");
+--	if(version >= 3)
+--		ch->endianness = getBridgePacketInt32ByName(bp, "endianness");
+--	if(version >= 3)
+--		ch->IOVoltage = getBridgePacketInt32ByName(bp, "IOVoltage");
+--	if(version >= 3)
+--		ch->maxPacketLength = getBridgePacketUInt32ByName(bp, "maxPacketLength");
+--	if(version >= 3)
+--		ch->parity = getBridgePacketInt32ByName(bp, "parity");
+--	if(version >= 3)
+--		ch->protocol = getBridgePacketInt32ByName(bp, "protocol");
+--	if(version >= 3)
+--		ch->SPIMode = getBridgePacketInt32ByName(bp, "SPIMode");
+--	if(version >= 3)
+--		ch->stopBits = getBridgePacketInt32ByName(bp, "stopBits");
+--	if(version >= 3)
+--		ch->timeout = getBridgePacketUInt32ByName(bp, "timeout");
+--	if(version >= 3)
+--		ch->minTimeout = getBridgePacketUInt32ByName(bp, "minTimeout");
+--	if(version >= 3)
+--		ch->maxTimeout = getBridgePacketUInt32ByName(bp, "maxTimeout");
+--
+--	return (EPHIDGET_OK);
+--}
+--
+--static PhidgetReturnCode CCONV
+--_getStatus(PhidgetChannelHandle phid, BridgePacket **bp) {
+--	PhidgetDataAdapterHandle ch;
+--
+--	ch = (PhidgetDataAdapterHandle)phid;
+--
+--	return (createBridgePacket(bp, 0, "_class_version_=%u"
+--	  ",responseReceived=%d"
+--	  ",lastData=%8192R"
+--	  ",lastDataIndex=%u"
+--	  ",eventData=%8192R"
+--	  ",lastDataLen=%u"
+--	  ",lastDataError=%u"
+--	  ",I2CFormat=%2049R"
+--	  ",lastDataRead=%d"
+--	  ",baudRate=%u"
+--	  ",minBaudRate=%u"
+--	  ",maxBaudRate=%u"
+--	  ",dataBits=%u"
+--	  ",minDataBits=%u"
+--	  ",maxDataBits=%u"
+--	  ",deviceAddress=%u"
+--	  ",handshakeMode=%d"
+--	  ",endianness=%d"
+--	  ",IOVoltage=%d"
+--	  ",maxPacketLength=%u"
+--	  ",parity=%d"
+--	  ",protocol=%d"
+--	  ",SPIMode=%d"
+--	  ",stopBits=%d"
+--	  ",timeout=%u"
+--	  ",minTimeout=%u"
+--	  ",maxTimeout=%u"
+--	  ,3 /* class version */
+--	  ,ch->responseReceived
+--	  ,ch->lastData
+--	  ,ch->lastDataIndex
+--	  ,ch->eventData
+--	  ,ch->lastDataLen
+--	  ,ch->lastDataError
+--	  ,ch->I2CFormat
+--	  ,ch->lastDataRead
+--	  ,ch->baudRate
+--	  ,ch->minBaudRate
+--	  ,ch->maxBaudRate
+--	  ,ch->dataBits
+--	  ,ch->minDataBits
+--	  ,ch->maxDataBits
+--	  ,ch->deviceAddress
+--	  ,ch->handshakeMode
+--	  ,ch->endianness
+--	  ,ch->IOVoltage
+--	  ,ch->maxPacketLength
+--	  ,ch->parity
+--	  ,ch->protocol
+--	  ,ch->SPIMode
+--	  ,ch->stopBits
+--	  ,ch->timeout
+--	  ,ch->minTimeout
+--	  ,ch->maxTimeout
+--	));
+--}
+--
+--static PhidgetReturnCode CCONV
+- _bridgeInput(PhidgetChannelHandle phid, BridgePacket *bp) {
+- 	PhidgetDataAdapterHandle ch;
+- 	PhidgetReturnCode res;
+-diff -urp libphidget22-1.6.20200417.orig/src/class/distancesensor.gen.c libphidget22-1.6.20200417/src/class/distancesensor.gen.c
+---- libphidget22-1.6.20200417.orig/src/class/distancesensor.gen.c	2020-04-17 21:50:46.000000000 +0000
+-+++ libphidget22-1.6.20200417/src/class/distancesensor.gen.c	2020-06-02 13:27:20.497435784 +0000
 -@@ -228,8 +228,8 @@ _initAfterOpen(PhidgetChannelHandle phid
 - 		MOS_PANIC("Unsupported Channel");
 - 	}
@@ -119,15 +243,96 @@ index 60817ac..0000000
 - 	ch->count = 0;
 - 
 - 	return (ret);
--diff -Nurp libphidget22-1.4.20190605.orig/configure libphidget22-1.4.20190605/configure
----- libphidget22-1.4.20190605.orig/configure	2019-06-05 16:06:56.000000000 -0400
--+++ libphidget22-1.4.20190605/configure	2019-09-05 11:50:10.510502872 -0400
--@@ -5676,7 +5676,7 @@ esac
-- fi
+-diff -urp libphidget22-1.6.20200417.orig/src/device/dataadapterdevice.c libphidget22-1.6.20200417/src/device/dataadapterdevice.c
+---- libphidget22-1.6.20200417.orig/src/device/dataadapterdevice.c	2020-04-17 21:50:41.000000000 +0000
+-+++ libphidget22-1.6.20200417/src/device/dataadapterdevice.c	2020-06-02 13:28:12.385198805 +0000
+-@@ -699,25 +699,3 @@ PhidgetReturnCode sendDataBuffer(Phidget
+- 	}
+- 	return ret;
+- }
+--
+--
+--//CRC16 function found from https://ctlsys.com/support/how_to_compute_the_modbus_rtu_message_crc/
+--// Compute the MODBUS RTU CRC
+--uint16_t ModRTU_CRC(uint8_t *buf, uint16_t len)
+--{
+--	uint16_t crc = 0xFFFF;
+--
+--	for (uint16_t pos = 0; pos < len; pos++) {
+--		crc ^= (uint16_t)buf[pos];          // XOR byte into least sig. byte of crc
+--
+--		for (int i = 8; i != 0; i--) {    // Loop over each bit
+--			if ((crc & 0x0001) != 0) {      // If the LSB is set
+--				crc >>= 1;                    // Shift right and XOR 0xA001
+--				crc ^= 0xA001;
+--			} else                            // Else LSB is not set
+--				crc >>= 1;                    // Just shift right
+--		}
+--	}
+--	// Note, this number has low and high bytes swapped, so use it accordingly (or swap bytes)
+--	return crc;
+--}
+-diff -urp libphidget22-1.6.20200417.orig/src/device/genericdevice.c libphidget22-1.6.20200417/src/device/genericdevice.c
+---- libphidget22-1.6.20200417.orig/src/device/genericdevice.c	2020-04-17 21:50:41.000000000 +0000
+-+++ libphidget22-1.6.20200417/src/device/genericdevice.c	2020-06-02 13:28:50.317025565 +0000
+-@@ -104,7 +104,7 @@ PhidgetGenericDevice_bridgeInput(Phidget
+- 		case PHIDUID_GENERIC_PHIDUSB:
+- 			len = getBridgePacketArrayLen(bp, 2);
 - 
-- : ${AR=ar}
---: ${AR_FLAGS=cru}
--+: ${AR_FLAGS=cr}
+--			if (len > (int)phid->OUTPacketLength[0])
+-+			if (len > (size_t)phid->OUTPacketLength[0])
+- 				return (EPHIDGET_INVALIDARG);
 - 
+- 			return (PhidgetDevice_transferpacket(bp->iop, (PhidgetDeviceHandle)phid, PHIDGETUSB_REQ_CHANNEL_WRITE,
+-@@ -120,7 +120,7 @@ PhidgetGenericDevice_bridgeInput(Phidget
+- 		case PHIDUID_GENERIC_PHIDUSB:
+- 			len = getBridgePacketArrayLen(bp, 1);
 - 
+--			if (len > (int)phid->OUTPacketLength[0])
+-+			if (len > (size_t)phid->OUTPacketLength[0])
+- 				return (EPHIDGET_INVALIDARG);
 - 
+- 			return (PhidgetDevice_transferpacket(bp->iop, (PhidgetDeviceHandle)phid, PHIDGETUSB_REQ_DEVICE_WRITE,
+-@@ -136,8 +136,8 @@ PhidgetGenericDevice_bridgeInput(Phidget
+- 		case PHIDUID_GENERIC_PHIDUSB:
+- 			len = getBridgePacketInt32(bp, 2);
+- 
+--			if (len > (int)phid->OUTPacketLength[0])
+--				len = (int)phid->OUTPacketLength[0];
+-+			if (len > (size_t)phid->OUTPacketLength[0])
+-+				len = (size_t)phid->OUTPacketLength[0];
+- 
+- 			ret = PhidgetDevice_transferpacket(bp->iop, (PhidgetDeviceHandle)phid, PHIDGETUSB_REQ_CHANNEL_READ,
+- 				getBridgePacketInt32(bp, 0), getBridgePacketInt32(bp, 1),
+-@@ -170,8 +170,8 @@ PhidgetGenericDevice_bridgeInput(Phidget
+- 		case PHIDUID_GENERIC_PHIDUSB:
+- 			len = getBridgePacketInt32(bp, 1);
+- 
+--			if (len > (int)phid->OUTPacketLength[0])
+--				len = (int)phid->OUTPacketLength[0];
+-+			if (len > (size_t)phid->OUTPacketLength[0])
+-+				len = (size_t)phid->OUTPacketLength[0];
+- 
+- 			ret = PhidgetDevice_transferpacket(bp->iop, (PhidgetDeviceHandle)phid, PHIDGETUSB_REQ_DEVICE_READ,
+- 				getBridgePacketInt32(bp, 0), 0,
+-diff -urp libphidget22-1.6.20200417.orig/src/phidget.c libphidget22-1.6.20200417/src/phidget.c
+---- libphidget22-1.6.20200417.orig/src/phidget.c	2020-04-17 21:50:39.000000000 +0000
+-+++ libphidget22-1.6.20200417/src/phidget.c	2020-06-02 13:30:49.607480749 +0000
+-@@ -2317,7 +2317,7 @@ createPhidgetHIDUSBDevice(const PhidgetU
+- #ifdef _WINDOWS
+- 	wcsncpy(conn->DevicePath, (const wchar_t *)devpath, MAX_PATH);
+- #elif defined(_LINUX) || defined(_FREEBSD) && !defined(_ANDROID)
+--	strncpy(conn->uniqueName, (const char *)devpath, 20);
+-+	strncpy(conn->uniqueName, (const char *)devpath, 19);
+- #endif
+- #if defined(_ANDROID)
+- 	mos_strncpy(conn->dev, (const char *)devpath, sizeof(conn->dev));
+-@@ -2348,7 +2348,7 @@ createPhidgetPHIDUSBDevice(const Phidget
+- #ifdef _WINDOWS
+- 	wcsncpy(conn->DevicePath, (const wchar_t *)devpath, MAX_PATH);
+- #elif defined(_LINUX) || defined(_FREEBSD) && !defined(_ANDROID)
+--	strncpy(conn->uniqueName, (const char *)devpath, 20);
+-+	strncpy(conn->uniqueName, (const char *)devpath, 19);
+- #endif
+- #if defined(_ANDROID)
+- 	mos_strncpy(conn->dev, (const char *)devpath, sizeof(conn->dev));
