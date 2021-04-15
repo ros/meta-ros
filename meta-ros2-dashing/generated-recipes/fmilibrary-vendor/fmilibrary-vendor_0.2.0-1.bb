@@ -39,9 +39,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/boschresearch/fmilibrary_vendor-release/archive/release/dashing/fmilibrary_vendor/0.2.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/fmilibrary_vendor-release/archive/release/dashing/fmilibrary_vendor/0.2.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/dashing/fmilibrary_vendor"
-SRC_URI = "git://github.com/boschresearch/fmilibrary_vendor-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/fmilibrary_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8b8c376f2f5e1d979f521fdd9531f0777747e010"
 S = "${WORKDIR}/git"
 
