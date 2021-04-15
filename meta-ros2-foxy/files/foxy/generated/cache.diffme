@@ -1,4 +1,4 @@
-# foxy/cache.yaml 2021-03-01 3e0eb46f39f356956e8a328959869a853579ff46 20210301181050 1.6.0
+# foxy/cache.yaml 2021-03-01 3e0eb46f39f356956e8a328959869a853579ff46 20210301181050 1.6.1
 distribution_file:
 - release_platforms:
 -----
@@ -1314,10 +1314,10 @@ version: ros2
 status: maintained
 }
 -----
-fmi_adapter_ros2: {
+fmi_adapter: {
 doc: {
 type: git,
-url: 'https://github.com/boschresearch/fmi_adapter_ros2.git',
+url: 'https://github.com/boschresearch/fmi_adapter.git',
 version: master
 },
 release: {
@@ -1326,12 +1326,12 @@ fmi_adapter_examples],
 tags: {
 release: 'release/foxy/{package}/{version}'
 },
-url: 'https://github.com/boschresearch/fmi_adapter_ros2-release.git',
+url: 'https://github.com/ros2-gbp/fmi_adapter-release.git',
 version: 0.1.8-1
 },
 source: {
 type: git,
-url: 'https://github.com/boschresearch/fmi_adapter_ros2.git',
+url: 'https://github.com/boschresearch/fmi_adapter.git',
 version: master
 },
 status: developed
@@ -1342,7 +1342,7 @@ release: {
 tags: {
 release: 'release/foxy/{package}/{version}'
 },
-url: 'https://github.com/boschresearch/fmilibrary_vendor-release.git',
+url: 'https://github.com/ros2-gbp/fmilibrary_vendor-release.git',
 version: 0.2.0-1
 },
 source: {
