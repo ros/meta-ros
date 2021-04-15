@@ -19,7 +19,6 @@ ROS_BPN = "hrpsys_ros_bridge"
 ROS_BUILD_DEPENDS = " \
     ${PYTHON_PN}-rosdep \
     ${ROS_UNRESOLVED_DEP-hostname} \
-    ${ROS_UNRESOLVED_DEP-net-tools} \
     actionlib \
     angles \
     camera-info-manager \
@@ -37,6 +36,7 @@ ROS_BUILD_DEPENDS = " \
     message-generation \
     mk \
     nav-msgs \
+    net-tools \
     pkgconfig \
     pr2-controllers-msgs \
     pr2-msgs \
