@@ -11,7 +11,7 @@ ROS_EXEC_DEPENDS_remove = "gcc-runtime"
 # there is no native support for gcc-runtime, so also no libatomic, add it only for target builds
 ROS_EXEC_DEPENDS_append-class-target = " libatomic"
 # and also remove it from build time depends when buiding native rc-utils
-DEPENDS_remove_class-native = "gcc-runtime-native"
+DEPENDS_remove_class-native = "gcc-runtime-native gcc-runtime"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-IceoryxPackageHelper.cmake-change-DESTINATION_CONFIG.patch"
