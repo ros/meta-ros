@@ -7,4 +7,4 @@ FILES_${PN}-dev += "${datadir}/CycloneDDS"
 
 inherit ros_insane_dev_so
 
-BBCLASSEXTEND = "native"
+DEPENDS += "cyclonedds-native"
