@@ -13,3 +13,6 @@ FILES_${PN} += "${prefix}/tools"
 sysroot_stage_all_append() {
     sysroot_stage_dir ${D}${bindir} ${SYSROOT_DESTDIR}${bindir}
 }
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-Add-missing-operators-to-TypeSupport-1912.patch"
