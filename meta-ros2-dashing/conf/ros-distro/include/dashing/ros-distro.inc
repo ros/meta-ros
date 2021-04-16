@@ -32,6 +32,10 @@ ROS_WORLD_SKIP_GROUPS += "clang"
 ROS_WORLD_SKIP_GROUPS += "docker"
 # Needs work to launch qemu to run tests on image on build machine.
 ROS_WORLD_SKIP_GROUPS += "launch"
+# recipes depending on ROS_UNRESOLVED_DEP-python3-babeltrace which cannot be just
+# set to babeltrace, because python bindings in babeltrace are not enabled as shown in log.do_configure:
+# configure: You may configure with --enable-python-bindings if you want Python bindings.
+ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
 # behaviortree-cpp-v3 and behaviortree-cpp are mutually exclusive because they install files in the same locations. Unlike
 # behaviortree-cpp, nothing depends on behaviortree-cpp-v3, so exclude it.
 ROS_WORLD_SKIP_GROUPS += "behaviortree-cpp-v3"
