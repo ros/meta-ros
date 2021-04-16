@@ -6,10 +6,10 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "Testing utilities and tests for the tracetools package."
+DESCRIPTION = "The trace command for ROS 2 command line tools."
 AUTHOR = "Christophe Bedard <bedard.christophe@gmail.com>"
 ROS_AUTHOR = "Christophe Bedard <fixed-term.christophe.bourquebedard@de.bosch.com>"
-HOMEPAGE = "https://index.ros.org/p/tracetools_test/"
+HOMEPAGE = "https://index.ros.org/p/ros2trace/"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache 2.0"
@@ -17,46 +17,35 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "ros2_tracing"
-ROS_BPN = "tracetools_test"
+ROS_BPN = "ros2trace"
 
 ROS_BUILD_DEPENDS = " \
-    lifecycle-msgs \
-    rclcpp \
-    rclcpp-lifecycle \
-    std-msgs \
-    std-srvs \
+    ros2cli \
+    tracetools-trace \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-native \
-    pkgconfig-native \
-"
+ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    ros2cli \
+    tracetools-trace \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    lifecycle-msgs \
-    rclcpp \
-    rclcpp-lifecycle \
-    std-msgs \
-    std-srvs \
+    ros2cli \
+    tracetools-trace \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-pytest-cov} \
-    ament-cmake-gtest \
-    ament-cmake-mypy \
-    ament-cmake-pytest \
-    ament-lint-auto \
-    ament-lint-common \
-    launch-ros \
+    ament-copyright \
+    ament-flake8 \
+    ament-mypy \
+    ament-pep257 \
+    ament-xmllint \
     python3-pytest \
-    tracetools \
-    tracetools-launch \
-    tracetools-read \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -66,12 +55,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/rolling/tracetools_test/2.1.0-3.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/tracetools_test"
+# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/rolling/ros2trace/2.3.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/ros2trace"
 SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "f5a07cb59fd681b217dac4ee6243d8bd50deee0f"
+SRCREV = "b06cb5888e2b9dded798990d36b32fe54dae853c"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_cmake"
+ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}
