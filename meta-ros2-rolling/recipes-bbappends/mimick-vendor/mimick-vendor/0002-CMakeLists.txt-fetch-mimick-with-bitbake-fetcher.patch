@@ -1,4 +1,4 @@
-From 11fa7b5900fbb2470a689759aadf68a0880d9488 Mon Sep 17 00:00:00 2001
+From 8a77c5d1e028525f17ec8c2ec82dd19c7779d1e5 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 4 Nov 2020 16:54:32 -0800
 Subject: [PATCH] CMakeLists.txt: fetch mimick with bitbake fetcher
@@ -9,7 +9,7 @@ Upstream-Status: Pending
  1 file changed, 2 insertions(+), 7 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ff3097b..c72761f 100644
+index e317b57..a74da9b 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -60,15 +60,10 @@ macro(build_mimick)

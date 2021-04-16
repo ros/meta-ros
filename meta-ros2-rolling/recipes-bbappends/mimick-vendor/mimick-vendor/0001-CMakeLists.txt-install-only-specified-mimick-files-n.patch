@@ -1,4 +1,4 @@
-From 9510fd459751624a5a4f8b05143c5ed4062ea246 Mon Sep 17 00:00:00 2001
+From c75fb6117f274386cb6286875fa3ffe282124536 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 4 Nov 2020 16:51:40 -0800
 Subject: [PATCH] CMakeLists.txt: install only specified mimick files, not
@@ -53,23 +53,19 @@ Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- CMakeLists.txt | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 6384447..ff3097b 100644
+index e4cf591..e317b57 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -73,10 +73,8 @@ macro(build_mimick)
- 
-   # The external project will install to the build folder, but we'll install that on make install.
-   install(
--    DIRECTORY
--      ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/
--    DESTINATION
+@@ -76,7 +76,7 @@ macro(build_mimick)
+     DIRECTORY
+       ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/
+     DESTINATION
 -      ${CMAKE_INSTALL_PREFIX}
-+    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/
-+    DESTINATION .
++      .
+     USE_SOURCE_PERMISSIONS
    )
  
- endmacro()
