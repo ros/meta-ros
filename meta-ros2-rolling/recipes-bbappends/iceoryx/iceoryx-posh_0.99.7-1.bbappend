@@ -10,3 +10,13 @@ do_install_append () {
         mv ${D}${prefix}${sysconfdir} ${D}${sysconfdir}
     fi
 }
+
+# iceoryx-binding-c/0.99.7-1-r0/recipe-sysroot/usr/lib/cmake/iceoryx_posh/iceoryx_poshTargets.cmake:109 (message):
+# expects the binary to exist:
+# The imported target "iceoryx_posh::iox-roudi" references the file
+# "TOPDIR/tmp-glibc/work/qemux86-webos-linux/iceoryx-binding-c/0.99.7-1-r0/recipe-sysroot/usr/bin/iox-roudi"
+# OE doesn't stage ${bindir} for target recipes, but in this case the iceoryx_posh::iox-roudi isn't
+# being called during the cross-build, so we can include it just to keep CMake happy
+sysroot_stage_all_append() {
+    sysroot_stage_dir ${D}${bindir} ${SYSROOT_DESTDIR}${bindir}
+}
