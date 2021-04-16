@@ -15,7 +15,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 9b79b46..5c3fc18 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -4,70 +4,3 @@ project(pybind11_vendor)
+@@ -4,70 +4,5 @@ project(pybind11_vendor)
  
  find_package(ament_cmake REQUIRED)
  
@@ -84,5 +84,5 @@ index 9b79b46..5c3fc18 100644
 -# Currently, always build.
 -# This could be improved with logic to use installed platform packages.
 -build_pybind11()
--
--ament_package()
+ 
+ ament_package()
