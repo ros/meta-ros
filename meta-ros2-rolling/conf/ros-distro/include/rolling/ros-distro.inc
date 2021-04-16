@@ -24,8 +24,12 @@ require conf/ros-distro/include/rolling/ros-distro-preferred-providers.inc
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     ament-lint-native \
+    cyclonedds-native \
     domain-coordinator-native \
     foonathan-memory-vendor-native \
+    iceoryx-binding-c-native \
+    iceoryx-posh-native \
+    iceoryx-utils-native \
     rcutils-native \
     rcpputils-native \
     rmw-dds-common-native \

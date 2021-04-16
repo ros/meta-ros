@@ -8,7 +8,10 @@
 # on do_package shlibs handling to add runtime dependency on actual package
 # with libatomic library)
 ROS_EXEC_DEPENDS_remove = "gcc-runtime"
-ROS_EXEC_DEPENDS += "libatomic"
+# there is no native support for gcc-runtime, so also no libatomic, add it only for target builds
+ROS_EXEC_DEPENDS_append-class-target = " libatomic"
+# and also remove it from build time depends when buiding native rc-utils
+DEPENDS_remove_class-native = "gcc-runtime-native"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-IceoryxPackageHelper.cmake-change-DESTINATION_CONFIG.patch"
