@@ -1,4 +1,4 @@
-From 5cda71d7fcf1c72623d3783b1f7efa60dfbc76b9 Mon Sep 17 00:00:00 2001
+From c44b2321cdf447d919e57562e6114e7bf251e544 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 5 Nov 2020 15:11:30 -0800
 Subject: [PATCH] CMakeLists.txt: user relative destination path
@@ -66,10 +66,10 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7ab2360..ddeb7bf 100644
+index 9ca1f36..d9f4814 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -28,7 +28,7 @@ macro(build_osqp)
+@@ -29,7 +29,7 @@ macro(build_osqp)
      DIRECTORY
        ${CMAKE_CURRENT_BINARY_DIR}/osqp_install/
      DESTINATION
