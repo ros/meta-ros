@@ -22,6 +22,9 @@ RDEPENDS_${PN}_remove = "test-osrf-testing-tools-cpp"
 # It's empty package now, just providing dependency on platform zstd recipe
 RDEPENDS_${PN}_remove = "zstd-vendor"
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rostime', 'nerian-stereo', '', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'message-generation', 'nerian-stereo', '', d)}"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID = " \
     wiimote \

@@ -64,6 +64,10 @@ ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
 ROS_WORLD_SKIP_GROUPS += "cwiid"
 # recipes depends on libspnav
 ROS_WORLD_SKIP_GROUPS += "libspnav"
+# recipes depends on ROS_UNRESOLVED_DEP-rostime (probably the rostime from ROS1 which wasn't added to ROS2 yet)
+ROS_WORLD_SKIP_GROUPS += "rostime"
+# recipes depends on ROS_UNRESOLVED_DEP-message-generation (probably the message-generation from ROS1 which wasn't added to ROS2 yet)
+ROS_WORLD_SKIP_GROUPS += "message-generation"
 # recipes depending on legacy mongo-cxx-driver (https://packages.debian.org/source/stretch/mongo-cxx-driver-legacy)
 # the mongodb recipe in meta-oe installs just the binaries mongoc, mongos, install_compass
 # the header files searched by mongo-store, warehouse-ros-mongo cmake files cmake/FindMongoClient.cmake and cmake/FindMongoDB.cmake
