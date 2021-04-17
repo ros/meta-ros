@@ -60,6 +60,10 @@ ROS_WORLD_SKIP_GROUPS += "launch"
 # set to babeltrace, because python bindings in babeltrace are not enabled as shown in log.do_configure:
 # configure: You may configure with --enable-python-bindings if you want Python bindings.
 ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
+# recipes depends on cwiid
+ROS_WORLD_SKIP_GROUPS += "cwiid"
+# recipes depends on libspnav
+ROS_WORLD_SKIP_GROUPS += "libspnav"
 # recipes depending on legacy mongo-cxx-driver (https://packages.debian.org/source/stretch/mongo-cxx-driver-legacy)
 # the mongodb recipe in meta-oe installs just the binaries mongoc, mongos, install_compass
 # the header files searched by mongo-store, warehouse-ros-mongo cmake files cmake/FindMongoClient.cmake and cmake/FindMongoDB.cmake
