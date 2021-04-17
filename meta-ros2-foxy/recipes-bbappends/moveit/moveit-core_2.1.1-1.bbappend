@@ -1,9 +1,10 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-# tf2-kdl is only in ROS_TEST_DEPENDS but CMake checks for it even with testing disabled
+# tf2-kdl and angles are only in ROS_TEST_DEPENDS but CMake checks for it even with testing disabled
 DEPENDS += "\
     tf2-kdl \
     pluginlib \
+    angles \
 "
 
 # ERROR: moveit-core-2.1.0-1-r0 do_package_qa: QA Issue:
