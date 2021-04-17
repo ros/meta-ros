@@ -41,6 +41,10 @@ cppunit:
 - cppunit@meta-oe
 curl:
 - curl@openembedded-core
+cwiid:
+- ${ROS_UNRESOLVED_DEP-cwiid}
+cwiid-dev:
+- ${ROS_UNRESOLVED_DEP-cwiid-dev}
 dkms: []
 doxygen:
 - doxygen@meta-oe
@@ -83,6 +87,10 @@ java:
 - ${ROS_UNRESOLVED_DEP-java}
 lcov:
 - lcov@meta-oe
+libbluetooth:
+- ${ROS_UNRESOLVED_DEP-libbluetooth}
+libbluetooth-dev:
+- ${ROS_UNRESOLVED_DEP-libbluetooth-dev}
 libboost-date-time:
 - boost@openembedded-core
 libboost-date-time-dev:
@@ -195,6 +203,8 @@ libqt5x11extras5-dev:
 - qtx11extras@meta-qt5
 libreadline:
 - readline@openembedded-core
+libspnav-dev:
+- ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
 - sqlite3@openembedded-core
 libssl-dev:
@@ -237,6 +247,8 @@ lua5.2-dev:
 - lua@meta-oe
 maven:
 - ${ROS_UNRESOLVED_DEP-maven}
+message_generation:
+- ${ROS_UNRESOLVED_DEP-message-generation}
 mongodb:
 - mongodb@meta-oe
 opengl:
@@ -349,22 +361,30 @@ python3-sphinx:
 - python3-sphinx@meta-ros-common
 python3-tk:
 - python3-tkinter@openembedded-core
+python3-watchdog:
+- ${ROS_UNRESOLVED_DEP-python3-watchdog}
 python3-websocket:
 - python3-websocket-client@meta-python
 python3-yaml:
 - python3-pyyaml@meta-python
+python3-zmq:
+- ${ROS_UNRESOLVED_DEP-python3-zmq}
 qt5-qmake:
 - qtbase@meta-qt5
 qtbase5-dev:
 - qtbase@meta-qt5
 qttools5-dev-tools:
 - ${ROS_UNRESOLVED_DEP-qttools5-dev-tools}
+rostime:
+- ${ROS_UNRESOLVED_DEP-rostime}
 rti-connext-dds-5.3.1:
 - ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1}
 rviz:
 - ${ROS_UNRESOLVED_DEP-rviz}
 sdl2:
 - libsdl2@openembedded-core
+spacenavd:
+- ${ROS_UNRESOLVED_DEP-spacenavd}
 spdlog:
 - spdlog@meta-oe
 suitesparse:

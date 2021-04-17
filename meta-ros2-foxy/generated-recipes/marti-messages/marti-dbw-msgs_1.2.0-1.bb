@@ -48,9 +48,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/swri-robotics-gbp/marti_messages-release/archive/release/foxy/marti_dbw_msgs/1.2.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/marti_messages-release/archive/release/foxy/marti_dbw_msgs/1.2.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/marti_dbw_msgs"
-SRC_URI = "git://github.com/swri-robotics-gbp/marti_messages-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/marti_messages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3a55d1b58c97450567574cebdcbc2a8ea94df717"
 S = "${WORKDIR}/git"
 
