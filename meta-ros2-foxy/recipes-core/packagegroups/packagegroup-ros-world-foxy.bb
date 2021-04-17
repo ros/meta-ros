@@ -22,6 +22,16 @@ RDEPENDS_${PN}_remove = "test-osrf-testing-tools-cpp"
 # It's empty package now, just providing dependency on platform zstd recipe
 RDEPENDS_${PN}_remove = "zstd-vendor"
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID = " \
+    wiimote \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libspnav', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBSPNAV}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBSPNAV = " \
+    spacenav \
+"
+
 # alternative not yet supported implementation for fastrtps
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
@@ -47,7 +57,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
     ament-cmake-clang-tidy \
 "
 
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libomp', 'moveit-planners-ompl', '', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libomp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP = " \
+    moveit-planners-ompl \
+    moveit-planners \
+    moveit-ros \
+    moveit-runtime \
+"
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'java', 'vrxperience-bridge', '', d)}"
 
@@ -62,20 +78,24 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
     control-box-rst \
     plansys2-bringup \
     plansys2-bt-actions \
+    plansys2-domain-expert \
     plansys2-executor \
     plansys2-planner \
     plansys2-popf-plan-solver \
+    plansys2-problem-expert \
     plansys2-terminal \
     popf \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB = " \
+    run-ompl-constrained-planning \
     warehouse-ros-mongo \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb-legacy-cxx-driver', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB_LEGACY_CXX_DRIVER}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB_LEGACY_CXX_DRIVER = " \
+    run-ompl-constrained-planning \
     warehouse-ros-mongo \
 "
 
@@ -96,6 +116,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     libg2o \
     librealsense2 \
     moveit-ros-visualization \
+    moveit-ros-perception \
+    moveit-ros \
+    moveit-runtime \
+    moveit \
+    openvslam \
     realsense-examples \
     realsense-node \
     realsense-ros \
@@ -109,6 +134,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
+    rviz-visual-tools \
     rviz2 \
     turtlebot3 \
     turtlebot3-bringup \
@@ -134,8 +160,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     moveit-resources \
     moveit-resources-panda-moveit-config \
     moveit-ros-visualization \
+    moveit-ros \
+    moveit-runtime \
+    moveit \
     multires-image \
     octovis \
+    oroca-rqt-command \
     plotjuggler \
     plotjuggler-ros \
     python-qt-binding \
@@ -193,6 +223,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
+    xacro-live \
 "
 
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commercial" or "commercial_ffmpeg" or "ffmpeg".
@@ -230,6 +261,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-ros \
     gazebo-rosdev \
     nav2-system-tests \
+    pal-gazebo-worlds \
     turtlebot3-gazebo \
     turtlebot3-simulations \
 "
@@ -245,6 +277,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     py-trees-js \
     py-trees-ros-tutorials \
     py-trees-ros-viewer \
+    oroca-rqt-command \
     qt-dotgraph \
     qt-gui-app \
     qt-gui-core \
@@ -323,8 +356,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     nav2-rviz-plugins \
     mapviz \
     mapviz-plugins \
+    moveit-ros-perception \
     moveit-ros-visualization \
+    moveit-ros \
+    moveit-runtime \
+    moveit \
     multires-image \
+    openvslam \
     ros-ign \
     ros-ign-gazebo-demos \
     rover-navigation \
@@ -335,6 +373,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
+    rviz-visual-tools \
     slam-toolbox \
     tile-map \
     turtlebot3 \
@@ -344,6 +383,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
+    xacro-live \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'glfw', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW}', '', d)}"
@@ -370,6 +410,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
     webots-ros2-core \
     webots-ros2-examples \
     webots-ros2-importer \
+    webots-ros2-tesla \
     webots-ros2-turtlebot \
     webots-ros2-tutorials \
 "
