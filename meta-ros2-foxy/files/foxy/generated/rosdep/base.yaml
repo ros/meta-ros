@@ -3,12 +3,25 @@ ace:
   debian: [libace-dev]
   gentoo: [dev-libs/ace]
   ubuntu: [libace-dev]
+ack:
+  debian: [ack]
+  ubuntu:
+    '*': [ack]
+    xenial: null
 ack-grep:
   arch: [ack]
   debian: [ack-grep]
   fedora: [ack]
   gentoo: [sys-apps/ack]
   ubuntu: [ack-grep]
+acl:
+  arch: [acl]
+  debian: [acl, libacl1-dev]
+  fedora: [acl, libacl-devel]
+  gentoo: [sys-apps/acl]
+  openembedded: [acl@openembedded-core]
+  rhel: [acl, libacl-devel]
+  ubuntu: [acl, libacl1-dev]
 acpi:
   debian: [acpi]
   fedora: [acpi]
@@ -268,9 +281,7 @@ benchmark:
     stretch: null
   fedora: [google-benchmark-devel]
   openembedded: [google-benchmark@meta-ros2]
-  rhel:
-    '*': [google-benchmark-devel]
-    '7': null
+  rhel: [google-benchmark-devel]
   ubuntu:
     '*': [libbenchmark-dev]
     xenial: null
@@ -288,6 +299,7 @@ bison:
   gentoo: [sys-devel/bison]
   macports: [bison]
   openembedded: [bison@openembedded-core]
+  rhel: [bison]
   ubuntu: [bison]
 blender:
   arch: [blender]
@@ -449,6 +461,7 @@ clang:
 clang-format:
   alpine: [clang]
   debian:
+    bullseye: [clang-format]
     buster: [clang-format]
     stretch: [clang-format]
   fedora: [clang]
@@ -461,6 +474,7 @@ clang-format:
 clang-tidy:
   alpine: [clang-extra-tools]
   debian:
+    bullseye: [clang-tidy]
     buster: [clang-tidy]
     stretch: [clang-tidy]
   fedora: [clang-tools-extra]
@@ -766,6 +780,7 @@ eigen:
   alpine: [eigen-dev]
   arch: [eigen3]
   debian:
+    bullseye: [libeigen3-dev]
     buster: [libeigen3-dev]
     jessie: [libeigen3-dev]
     stretch: [libeigen3-dev]
@@ -1217,6 +1232,9 @@ glut:
   openembedded: [freeglut@meta-oe]
   rhel: [freeglut-devel]
   ubuntu: [freeglut3-dev]
+gnat:
+  debian: [gnat]
+  ubuntu: [gnat]
 gnuplot:
   arch: [gnuplot]
   debian: [gnuplot]
@@ -1277,6 +1295,9 @@ gphoto2:
   fedora: [gphoto2]
   gentoo: [media-gfx/gphoto2]
   ubuntu: [gphoto2]
+gprbuild:
+  debian: [gprbuild]
+  ubuntu: [gprbuild]
 gpsd:
   debian: [gpsd]
   fedora: [gpsd]
@@ -1567,26 +1588,56 @@ ignition-common3:
     buster: [libignition-common3-dev]
   ubuntu:
     focal: [libignition-common3-dev]
+ignition-common4:
+  debian:
+    buster: [libignition-common4-dev]
+  ubuntu:
+    focal: [libignition-common4-dev]
+ignition-edifice:
+  debian:
+    buster: [ignition-edifice]
+  ubuntu:
+    focal: [ignition-edifice]
 ignition-fuel-tools4:
   debian:
     buster: [libignition-fuel-tools4-dev]
   ubuntu:
     focal: [libignition-fuel-tools4-dev]
+ignition-fuel-tools6:
+  debian:
+    buster: [libignition-fuel-tools6-dev]
+  ubuntu:
+    focal: [libignition-fuel-tools6-dev]
 ignition-gazebo3:
   debian:
     buster: [libignition-gazebo3-dev]
   ubuntu:
     focal: [libignition-gazebo3-dev]
+ignition-gazebo5:
+  debian:
+    buster: [libignition-gazebo5-dev]
+  ubuntu:
+    focal: [libignition-gazebo5-dev]
 ignition-gui3:
   debian:
     buster: [libignition-gui3-dev]
   ubuntu:
     focal: [libignition-gui3-dev]
+ignition-gui5:
+  debian:
+    buster: [libignition-gui5-dev]
+  ubuntu:
+    focal: [libignition-gui5-dev]
 ignition-launch2:
   debian:
     buster: [libignition-launch2-dev]
   ubuntu:
     focal: [libignition-launch2-dev]
+ignition-launch4:
+  debian:
+    buster: [libignition-launch4-dev]
+  ubuntu:
+    focal: [libignition-launch4-dev]
 ignition-math6:
   debian:
     buster: [libignition-math6-dev]
@@ -1602,11 +1653,21 @@ ignition-msgs5:
     buster: [libignition-msgs5-dev]
   ubuntu:
     focal: [libignition-msgs5-dev]
+ignition-msgs7:
+  debian:
+    buster: [libignition-msgs7-dev]
+  ubuntu:
+    focal: [libignition-msgs7-dev]
 ignition-physics2:
   debian:
     buster: [libignition-physics2-dev]
   ubuntu:
     focal: [libignition-physics2-dev]
+ignition-physics4:
+  debian:
+    buster: [libignition-physics4-dev]
+  ubuntu:
+    focal: [libignition-physics4-dev]
 ignition-plugin:
   debian:
     buster: [libignition-plugin-dev]
@@ -1617,21 +1678,46 @@ ignition-rendering3:
     buster: [libignition-rendering3-dev]
   ubuntu:
     focal: [libignition-rendering3-dev]
+ignition-rendering5:
+  debian:
+    buster: [libignition-rendering5-dev]
+  ubuntu:
+    focal: [libignition-rendering5-dev]
 ignition-sensors3:
   debian:
     buster: [libignition-sensors3-dev]
   ubuntu:
     focal: [libignition-sensors3-dev]
+ignition-sensors5:
+  debian:
+    buster: [libignition-sensors5-dev]
+  ubuntu:
+    focal: [libignition-sensors5-dev]
 ignition-tools:
   debian:
     buster: [libignition-tools-dev]
   ubuntu:
     focal: [libignition-tools-dev]
+ignition-transport10:
+  debian:
+    buster: [libignition-transport10-dev]
+  ubuntu:
+    focal: [libignition-transport10-dev]
 ignition-transport8:
   debian:
     buster: [libignition-transport8-dev]
   ubuntu:
     focal: [libignition-transport8-dev]
+ignition-utils1:
+  debian:
+    buster: [libignition-utils1-dev]
+  ubuntu:
+    focal: [libignition-utils1-dev]
+ignition-utils1-cli:
+  debian:
+    buster: [libignition-utils1-cli-dev]
+  ubuntu:
+    focal: [libignition-utils1-cli-dev]
 imagemagick:
   arch: [imagemagick]
   debian: [imagemagick]
@@ -1834,6 +1920,13 @@ libasound2-dev:
   gentoo: [media-libs/alsa-lib]
   openembedded: [alsa-lib@openembedded-core]
   ubuntu: [libasound2-dev]
+libatomic:
+  arch: [gcc-libs]
+  debian: [libatomic1]
+  fedora: [libatomic]
+  openembedded: [gcc-runtime@openembedded-core]
+  rhel: [libatomic]
+  ubuntu: [libatomic1]
 libav:
   arch: [libav-git]
   debian: [libav-tools]
@@ -1887,6 +1980,7 @@ libbluetooth:
   debian: [libbluetooth3]
   fedora: [bluez-libs]
   gentoo: [net-wireless/bluez-libs]
+  rhel: [bluez-libs]
   ubuntu: [libbluetooth3]
 libbluetooth-dev:
   arch: [bluez]
@@ -2255,8 +2349,7 @@ libceres-dev:
   fedora: [ceres-solver-devel]
   gentoo: ['sci-libs/ceres-solver[sparse,lapack]']
   openembedded: [ceres-solver@meta-oe]
-  rhel:
-    '7': [ceres-solver-devel]
+  rhel: [ceres-solver-devel]
   ubuntu: [libceres-dev]
 libcgroup-dev:
   debian: [libcgroup-dev]
@@ -2278,11 +2371,14 @@ libcoin60-dev:
   ubuntu: [libcoin60-dev]
 libcoin80-dev:
   debian:
-    buster: [libcoin80-dev]
+    '*': [libcoin-dev]
     jessie: [libcoin80-dev]
     stretch: [libcoin80-dev]
   fedora: [Coin2-devel]
-  ubuntu: [libcoin80-dev]
+  ubuntu:
+    '*': [libcoin-dev]
+    bionic: [libcoin80-dev]
+    xenial: [libcoin80-dev]
 libconfig++-dev:
   debian: [libconfig++-dev]
   gentoo: ['dev-libs/libconfig[cxx]']
@@ -2913,26 +3009,51 @@ libignition-common3:
     buster: [libignition-common3]
   ubuntu:
     focal: [libignition-common3]
+libignition-common4:
+  debian:
+    buster: [libignition-common4]
+  ubuntu:
+    focal: [libignition-common4]
 libignition-fuel-tools4:
   debian:
     buster: [libignition-fuel-tools4]
   ubuntu:
     focal: [libignition-fuel-tools4]
+libignition-fuel-tools6:
+  debian:
+    buster: [libignition-fuel-tools6]
+  ubuntu:
+    focal: [libignition-fuel-tools6]
 libignition-gazebo3:
   debian:
     buster: [libignition-gazebo3]
   ubuntu:
     focal: [libignition-gazebo3]
+libignition-gazebo5:
+  debian:
+    buster: [libignition-gazebo5]
+  ubuntu:
+    focal: [libignition-gazebo5]
 libignition-gui3:
   debian:
     buster: [libignition-gui3]
   ubuntu:
     focal: [libignition-gui3]
+libignition-gui5:
+  debian:
+    buster: [libignition-gui5]
+  ubuntu:
+    focal: [libignition-gui5]
 libignition-launch2:
   debian:
     buster: [libignition-launch2]
   ubuntu:
     focal: [libignition-launch2]
+libignition-launch4:
+  debian:
+    buster: [libignition-launch4]
+  ubuntu:
+    focal: [libignition-launch4]
 libignition-math6:
   debian:
     buster: [libignition-math6]
@@ -2943,26 +3064,56 @@ libignition-msgs5:
     buster: [libignition-msgs5]
   ubuntu:
     focal: [libignition-msgs5]
+libignition-msgs7:
+  debian:
+    buster: [libignition-msgs7]
+  ubuntu:
+    focal: [libignition-msgs7]
 libignition-physics2:
   debian:
     buster: [libignition-physics2]
   ubuntu:
     focal: [libignition-physics2]
+libignition-physics4:
+  debian:
+    buster: [libignition-physics4]
+  ubuntu:
+    focal: [libignition-physics4]
 libignition-rendering3:
   debian:
     buster: [libignition-rendering3]
   ubuntu:
     focal: [libignition-rendering3]
+libignition-rendering5:
+  debian:
+    buster: [libignition-rendering5]
+  ubuntu:
+    focal: [libignition-rendering5]
 libignition-sensors3:
   debian:
     buster: [libignition-sensors3]
   ubuntu:
     focal: [libignition-sensors3]
+libignition-sensors5:
+  debian:
+    buster: [libignition-sensors5]
+  ubuntu:
+    focal: [libignition-sensors5]
+libignition-transport10:
+  debian:
+    buster: [libignition-transport10]
+  ubuntu:
+    focal: [libignition-transport10]
 libignition-transport8:
   debian:
     buster: [libignition-transport8]
   ubuntu:
     focal: [libignition-transport8]
+libignition-utils1:
+  debian:
+    buster: [libignition-utils1]
+  ubuntu:
+    focal: [libignition-utils1]
 libimage-exiftool-perl:
   arch: [perl-image-exiftool]
   debian: [libimage-exiftool-perl]
@@ -4178,10 +4329,11 @@ libspatialite:
     trusty: [libspatialite5]
 libspnav-dev:
   arch: [libspnav]
-  debian: [libspnav-dev]
-  fedora: [libspnav-devel]
+  debian: [libspnav-dev, libx11-dev]
+  fedora: [libspnav-devel, libX11-devel]
   gentoo: [dev-libs/libspnav]
-  ubuntu: [libspnav-dev]
+  rhel: [libspnav-devel, libX11-devel]
+  ubuntu: [libspnav-dev, libx11-dev]
 libsqlite3-dev:
   alpine: [sqlite-dev]
   arch: [sqlite]
@@ -4499,11 +4651,7 @@ libusb-dev:
   ubuntu: [libusb-dev]
 libuv-dev:
   debian:
-    buster: [libuv1-dev]
     jessie: [libuv0.10-dev]
-    stretch: [libuv1-dev]
-  fedora: [libuv-devel]
-  gentoo: [dev-libs/libuv]
   ubuntu:
     bionic: [libuv0.10-dev]
     precise: [libuv-dev]
@@ -4515,6 +4663,14 @@ libuv-dev:
     xenial: [libuv0.10-dev]
     yakkety: [libuv0.10-dev]
     zesty: [libuv0.10-dev]
+libuv1-dev:
+  arch: [libuv]
+  debian:
+    '*': [libuv1-dev]
+    jessie: null
+  fedora: [libuv-devel]
+  gentoo: [dev-libs/libuv]
+  ubuntu: [libuv1-dev]
 libuvc-dev:
   debian:
     '*': [libuvc-dev]
@@ -4950,6 +5106,7 @@ log4cxx:
   arch: [log4cxx]
   cygwin: [liblog4cxx-devel]
   debian:
+    bullseye: [liblog4cxx-dev]
     buster: [liblog4cxx-dev]
     jessie: [liblog4cxx10-dev]
     squeeze: [liblog4cxx10-dev]
@@ -5625,7 +5782,7 @@ postgresql-postgis:
     jessie: [postgresql-9.4-postgis-2.1, postgresql-contrib, postgresql-server-dev-all]
     stretch: [postgresql-9.6-postgis-2.3, postgresql-contrib, postgresql-server-dev-all]
   fedora: [postgis]
-  gentoo: [dev-db/postgis,'=dev-db/postgresql-9*']
+  gentoo: [dev-db/postgis, '=dev-db/postgresql-9*']
   ubuntu:
     artful: [postgresql-9.6-postgis-2.3, postgresql-contrib, postgresql-server-dev-all]
     bionic: [postgresql-10-postgis-2.4, postgresql-contrib, postgresql-server-dev-all]
@@ -5855,6 +6012,9 @@ qtmultimedia5-dev:
   gentoo: ['dev-qt/qtmultimedia:5']
   openembedded: [qtmultimedia@meta-qt5]
   ubuntu: [qtmultimedia5-dev]
+qtpositioning5-dev:
+  debian: [qtpositioning5-dev]
+  ubuntu: [qtpositioning5-dev]
 qttools5-dev:
   debian: [qttools5-dev]
   fedora: [qt5-qttools-devel]
@@ -5987,6 +6147,11 @@ sdformat:
     saucy: [libsdformat-dev]
     trusty: [libsdformat-dev]
     xenial: [libsdformat4-dev]
+sdformat11:
+  debian:
+    buster: [libsdformat11-dev]
+  ubuntu:
+    focal: [libsdformat11-dev]
 sdl:
   arch: [sdl]
   debian: [libsdl1.2-dev]
@@ -6034,6 +6199,12 @@ sdl2:
   openembedded: [libsdl2@openembedded-core]
   rhel: [SDL2-devel]
   ubuntu: [libsdl2-dev]
+sdl2-image:
+  debian: [libsdl2-image-dev]
+  fedora: [SDL2_image-devel]
+  rhel:
+    '7': [SDL2_image-devel]
+  ubuntu: [libsdl2-image-dev]
 sdl2-mixer:
   debian: [libsdl2-mixer-dev]
   fedora: [SDL2_mixer-devel]
@@ -6101,6 +6272,7 @@ spacenavd:
   debian: [spacenavd]
   fedora: [spacenavd]
   gentoo: [app-misc/spacenavd]
+  rhel: [spacenavd]
   ubuntu: [spacenavd]
 sparsehash:
   debian: [libsparsehash-dev]
@@ -6552,6 +6724,13 @@ usbutils:
     homebrew:
       packages: [mikhailai/misc/usbutils]
   ubuntu: [usbutils]
+util-linux:
+  arch: [util-linux]
+  debian: [util-linux]
+  fedora: [util-linux]
+  gentoo: [util-linux]
+  macports: [util-linux]
+  ubuntu: [util-linux]
 uuid:
   arch: [util-linux]
   debian: [uuid-dev]
