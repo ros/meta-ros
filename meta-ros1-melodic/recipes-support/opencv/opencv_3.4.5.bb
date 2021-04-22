@@ -51,6 +51,7 @@ SRC_URI = "git://github.com/opencv/opencv.git;name=opencv \
     file://0001-Temporarliy-work-around-deprecated-ffmpeg-RAW-functi.patch \
     file://0001-Dont-use-isystem.patch \
     file://0001-carotene-Replace-ipcp-unit-growth-with-ipa-cp-unit-g.patch \
+    file://0001-core-gapi-supported-build-with-oneTBB-2021.patch \
 "
 PV = "3.4.5"
 
