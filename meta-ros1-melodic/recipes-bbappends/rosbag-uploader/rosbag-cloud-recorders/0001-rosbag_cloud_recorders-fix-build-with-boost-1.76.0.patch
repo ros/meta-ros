@@ -1,0 +1,123 @@
+From 1373ec1dcfc78c1bc2a253c959e14fcf2d7fa255 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 26 Apr 2021 16:24:58 +0000
+Subject: [PATCH] rosbag_cloud_recorders: fix build with boost-1.76.0
+
+* it used to be included through /usr/include/boost/math/policies/policy.hpp
+  in boost-1.75.0:
++# 38 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/mpl/aux_/include_preprocessed.hpp" 2 3 4
++# 47 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/mpl/vector.hpp" 2 3 4
++# 15 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/math/policies/policy.hpp" 2 3 4
++
++# 1 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/mpl/at.hpp" 1 3 4
++# 18 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/mpl/at.hpp" 3 4
++# 1 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/mpl/aux_/at_impl.hpp" 1 3 4
++# 18 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/mpl/aux_/at_impl.hpp" 3 4
++# 1 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/mpl/advance.hpp" 1 3 4
++# 19 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/mpl/advance.hpp" 3 4
++# 1 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/mpl/negate.hpp" 1 3 4
++# 25 "rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/mpl/negate.hpp" 3 4
+
+  but that was removed in:
+  https://github.com/boostorg/math/commit/c173a1cb17b5ed27f8ce7153f4a464a2b262aa99
+
+* fixes:
+FAILED: CMakeFiles/rosbag_cloud_recorders_lib.dir/src/utils/s3_client_utils.cpp.o
+rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DPLATFORM_LINUX -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"rosbag_cloud_recorders\" -D_FILE_OFFSET_BITS=64 -Drosbag_cloud_recorders_lib_EXPORTS -Irosbag-cloud-recorders/1.0.1-1-r0/git/include -Irosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/opt/ros/melodic/include -Irosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=rosbag-cloud-recorders/1.0.1-1-r0=/usr/src/debug/rosbag-cloud-recorders/1.0.1-1-r0                      -fdebug-prefix-map=rosbag-cloud-recorders/1.0.1-1-r0=/usr/src/debug/rosbag-cloud-recorders/1.0.1-1-r0                      -fdebug-prefix-map=rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot=                      -fdebug-prefix-map=rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot -Wno-error=deprecated-copy -Werror  -Wno-long-long -Wall -Wextra -Wcast-align -Wformat -Wwrite-strings -Wno-error=unused-result -fPIC -std=gnu++14 -MD -MT CMakeFiles/rosbag_cloud_recorders_lib.dir/src/utils/s3_client_utils.cpp.o -MF CMakeFiles/rosbag_cloud_recorders_lib.dir/src/utils/s3_client_utils.cpp.o.d -o CMakeFiles/rosbag_cloud_recorders_lib.dir/src/utils/s3_client_utils.cpp.o -c rosbag-cloud-recorders/1.0.1-1-r0/git/src/utils/s3_client_utils.cpp
+In file included from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/yield_k.hpp:23,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock.hpp:42,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/shared_ptr.hpp:29,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/shared_ptr.hpp:17,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/date_time/time_clock.hpp:17,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/thread/thread_time.hpp:9,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/thread/detail/platform_time.hpp:11,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/thread/pthread/condition_variable.hpp:9,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/thread/condition_variable.hpp:16,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/thread/condition.hpp:13,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/opt/ros/melodic/include/actionlib/client/simple_action_client.h:38,
+                 from rosbag-cloud-recorders/1.0.1-1-r0/git/src/utils/s3_client_utils.cpp:15:
+rosbag-cloud-recorders/1.0.1-1-r0/recipe-sysroot/usr/include/boost/bind.hpp:36:1: note: '#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.'
+   36 | BOOST_PRAGMA_MESSAGE(
+      | ^~~~~~~~~~~~~~~~~~~~
+In file included from rosbag-cloud-recorders/1.0.1-1-r0/git/src/utils/s3_client_utils.cpp:24:
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h: In function 'bool Aws::Rosbag::Utils::UploadFiles(GoalHandleT&, double, UploadClientT&, std::vector<std::__cxx11::basic_string<char> >&)':
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:62:44: error: 'at_c' in namespace 'boost::mpl' does not name a template type; did you mean 'at'?
+   62 |   using ArgCrefType = typename boost::mpl::at_c<FuncArgsType, 1>::type;
+      |                                            ^~~~
+      |                                            at
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:63:57: error: 'ArgCrefType' was not declared in this scope
+   63 |   using ArgConstType = typename boost::remove_reference<ArgCrefType>::type;
+      |                                                         ^~~~~~~~~~~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:63:68: error: template argument 1 is invalid
+   63 |   using ArgConstType = typename boost::remove_reference<ArgCrefType>::type;
+      |                                                                    ^
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:63:69: error: '<declaration error>' is not a template [-fpermissive]
+   63 |   using ArgConstType = typename boost::remove_reference<ArgCrefType>::type;
+      |                                                                     ^~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:64:48: error: 'ArgConstType' was not declared in this scope
+   64 |   using ArgType = typename boost::remove_const<ArgConstType>::type;
+      |                                                ^~~~~~~~~~~~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:64:60: error: template argument 1 is invalid
+   64 |   using ArgType = typename boost::remove_const<ArgConstType>::type;
+      |                                                            ^
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:64:61: error: '<declaration error>' is not a template [-fpermissive]
+   64 |   using ArgType = typename boost::remove_const<ArgConstType>::type;
+      |                                                             ^~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:65:3: error: 'ArgType' was not declared in this scope
+   65 |   ArgType recorder_feedback;
+      |   ^~~~~~~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:70:5: error: 'recorder_feedback' was not declared in this scope
+   70 |     recorder_feedback,
+      |     ^~~~~~~~~~~~~~~~~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h: In function 'void Aws::Rosbag::Utils::HandleRecorderUploadResult(GoalHandleT&, const SimpleClientGoalStateT&, bool, RecorderResultT&)':
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:101:44: error: 'at_c' in namespace 'boost::mpl' does not name a template type; did you mean 'at'?
+  101 |   using ArgCrefType = typename boost::mpl::at_c<FuncArgsType, 1>::type;
+      |                                            ^~~~
+      |                                            at
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:102:57: error: 'ArgCrefType' was not declared in this scope
+  102 |   using ArgConstType = typename boost::remove_reference<ArgCrefType>::type;
+      |                                                         ^~~~~~~~~~~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:102:68: error: template argument 1 is invalid
+  102 |   using ArgConstType = typename boost::remove_reference<ArgCrefType>::type;
+      |                                                                    ^
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:102:69: error: '<declaration error>' is not a template [-fpermissive]
+  102 |   using ArgConstType = typename boost::remove_reference<ArgCrefType>::type;
+      |                                                                     ^~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:103:48: error: 'ArgConstType' was not declared in this scope
+  103 |   using ArgType = typename boost::remove_const<ArgConstType>::type;
+      |                                                ^~~~~~~~~~~~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:103:60: error: template argument 1 is invalid
+  103 |   using ArgType = typename boost::remove_const<ArgConstType>::type;
+      |                                                            ^
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:103:61: error: '<declaration error>' is not a template [-fpermissive]
+  103 |   using ArgType = typename boost::remove_const<ArgConstType>::type;
+      |                                                             ^~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:104:3: error: 'ArgType' was not declared in this scope
+  104 |   ArgType recorder_feedback;
+      |   ^~~~~~~
+rosbag-cloud-recorders/1.0.1-1-r0/git/include/rosbag_cloud_recorders/utils/s3_client_utils.h:109:5: error: 'recorder_feedback' was not declared in this scope
+  109 |     recorder_feedback,
+      |     ^~~~~~~~~~~~~~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/rosbag_cloud_recorders/utils/s3_client_utils.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/rosbag_cloud_recorders/utils/s3_client_utils.h b/include/rosbag_cloud_recorders/utils/s3_client_utils.h
+index 47f0f6c..b3bd56b 100644
+--- a/include/rosbag_cloud_recorders/utils/s3_client_utils.h
++++ b/include/rosbag_cloud_recorders/utils/s3_client_utils.h
+@@ -16,6 +16,7 @@
+ #include <actionlib/client/simple_action_client.h>
+ #include <boost/function_types/parameter_types.hpp>
+ #include <boost/typeof/std/utility.hpp>
++#include <boost/mpl/at.hpp>
+ 
+ #include <file_uploader_msgs/UploadFilesAction.h>
+ 
