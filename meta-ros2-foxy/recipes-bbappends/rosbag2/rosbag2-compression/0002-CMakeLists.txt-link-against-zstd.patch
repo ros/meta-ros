@@ -1,0 +1,30 @@
+From beb44ee0be81f4dd04083a0c46ddacbac71a73f9 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Erik=20Bot=C3=B6?= <erik.boto@gmail.com>
+Date: Thu, 29 Apr 2021 13:08:49 +0200
+Subject: [PATCH] CMakeLists.txt: link against zstd
+
+Fix so that librosbag2_compression_zstd.so is linking to libzstd, to fix
+issue with unresolved symbol when using zstd compression.
+
+Upstream-Status: Pending
+
+Signed-off-by: Erik Botö <erik.boto@gmail.com>
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5db06ceb..ac2b61f5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -46,6 +46,7 @@ ament_target_dependencies(${PROJECT_NAME}_zstd
+ target_compile_definitions(${PROJECT_NAME}_zstd
+   PRIVATE
+   ROSBAG2_COMPRESSION_BUILDING_DLL)
++target_link_libraries(${PROJECT_NAME}_zstd ${ZSTD_LIBRARIES})
+ 
+ add_library(${PROJECT_NAME}
+   SHARED
+-- 
+2.25.1
+
