@@ -38,6 +38,11 @@ EXTRA_OECMAKE += "\
 #Setting -ffloat-store to alleviate 32bit vs 64bit discrepancies on non-SSE platforms.
 CXXFLAGS += "${@bb.utils.contains("TARGET_CC_ARCH", "-mfpmath=sse", "", "-ffloat-store", d)}"
 
+# pcl/1.8.1-r0/git/recognition/include/pcl/recognition/3rdparty/metslib/abstract-search.hh:137:7: error: ISO C++17 does not allow dynamic exception specifications
+#  137 |       throw(no_moves_error) = 0;
+#      |       ^~~~~
+CXXFLAGS += "-std=gnu++14"
+
 inherit cmake
 
 FILES_${PN}-dev += "${datadir}/${PN}-1.8/*.cmake"
