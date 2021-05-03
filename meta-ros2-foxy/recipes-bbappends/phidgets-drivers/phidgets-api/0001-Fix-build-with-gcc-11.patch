@@ -1,0 +1,89 @@
+From c46477069ecf7273524f10c7fb6dbb53d59633ea Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 3 May 2021 11:06:58 +0000
+Subject: [PATCH] Fix build with gcc-11
+
+* include phidget22.h after other headers to define size_t
+* fixes:
+| FAILED: CMakeFiles/phidgets_api.dir/src/encoder.cpp.o
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -DROS_PACKAGE_NAME=\"phidgets_api\" -Dphidgets_api_EXPORTS -I/jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/git/include -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0=/usr/src/debug/phidgets-api/2.0.2-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0=/usr/src/debug/phidgets-api/2.0.2-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot -fPIC -Wall -Wextra -Wpedantic -std=gnu++14 -MD -MT CMakeFiles/phidgets_api.dir/src/encoder.cpp.o -MF CMakeFiles/phidgets_api.dir/src/encoder.cpp.o.d -o CMakeFiles/phidgets_api.dir/src/encoder.cpp.o -c /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/git/src/encoder.cpp
+| In file included from /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/git/src/encoder.cpp:32:
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot/usr/include/phidget22.h:712:117: error: 'size_t' has not been declared
+|   712 |  PhidgetReturnCode Phidget_getLastError (PhidgetReturnCode *errorCode, const char **errorString, char *errorDetail, size_t *errorDetailLen);
+|       |                                                                                                                     ^~~~~~
+| In file included from /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/git/src/encoder.cpp:32:
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot/usr/include/phidget22.h:722:85: error: 'size_t' has not been declared
+|   722 |  PhidgetReturnCode Phidget_getChildDevices (PhidgetHandle phid, PhidgetHandle *arr, size_t *arrCnt);
+|       |                                                                                     ^~~~~~
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot/usr/include/phidget22.h:723:64: error: 'size_t' has not been declared
+|   723 |  PhidgetReturnCode Phidget_releaseDevices (PhidgetHandle *arr, size_t arrCnt);
+|       |                                                                ^~~~~~
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot/usr/include/phidget22.h:1144:82: error: 'size_t' has not been declared
+|  1144 |  PhidgetReturnCode PhidgetRFID_getLastTag(PhidgetRFIDHandle ch, char *tagString, size_t tagStringLen,
+|       |                                                                                  ^~~~~~
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot/usr/include/phidget22.h:1386:74: error: 'size_t' has not been declared
+|  1386 |  PhidgetReturnCode PhidgetIR_getLastCode(PhidgetIRHandle ch, char *code, size_t codeLen,
+|       |                                                                          ^~~~~~
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot/usr/include/phidget22.h:1388:81: error: 'size_t' has not been declared
+|  1388 |  PhidgetReturnCode PhidgetIR_getLastLearnedCode(PhidgetIRHandle ch, char *code, size_t codeLen,
+|       |                                                                                 ^~~~~~
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot/usr/include/phidget22.h:1391:84: error: 'size_t' has not been declared
+|  1391 |  PhidgetReturnCode PhidgetIR_transmitRaw(PhidgetIRHandle ch, const uint32_t *data, size_t dataLen,
+|       |                                                                                    ^~~~~~
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot/usr/include/phidget22.h:1403:3: error: 'size_t' has not been declared
+|  1403 |   size_t dataLen);
+|       |   ^~~~~~
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot/usr/include/phidget22.h:2013:3: error: 'size_t' has not been declared
+|  2013 |   size_t valueLen);
+|       |   ^~~~~~
+| /jenkins/mjansa/build/ose/honister/BUILD/work/qemux86-webos-linux/phidgets-api/2.0.2-1-r0/recipe-sysroot/usr/include/phidget22.h:2016:3: error: 'size_t' has not been declared
+|  2016 |   size_t keyListLen);
+|       |   ^~~~~~
+
+* this should be fixed in libphidget22-upstream, but phidget22.h is generated with preprocessor there
+  and when I include stddef.h in it, then it fails with stddev.h re-defining max_align_t already
+  defined in preprocessed phidget22.h, so changing the order here is just easier
+
+Upstream-Status: Pending
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/encoder.cpp | 4 ++--
+ src/ir.cpp      | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/encoder.cpp b/src/encoder.cpp
+index 31731a5..0b51810 100644
+--- a/src/encoder.cpp
++++ b/src/encoder.cpp
+@@ -29,11 +29,11 @@
+ 
+ #include <functional>
+ 
+-#include <libphidget22/phidget22.h>
+-
+ #include "phidgets_api/encoder.hpp"
+ #include "phidgets_api/phidget22.hpp"
+ 
++#include <libphidget22/phidget22.h>
++
+ namespace phidgets {
+ 
+ Encoder::Encoder(
+diff --git a/src/ir.cpp b/src/ir.cpp
+index f80c0f3..b1100ab 100644
+--- a/src/ir.cpp
++++ b/src/ir.cpp
+@@ -29,11 +29,11 @@
+ 
+ #include <functional>
+ 
+-#include <libphidget22/phidget22.h>
+-
+ #include "phidgets_api/ir.hpp"
+ #include "phidgets_api/phidget22.hpp"
+ 
++#include <libphidget22/phidget22.h>
++
+ namespace phidgets {
+ 
+ IR::IR(int32_t serial_number,
