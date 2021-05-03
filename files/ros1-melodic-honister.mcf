@@ -53,9 +53,9 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '3c8690d55')
 Layers = [
 ('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': '2db57132'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '97ec10a1d7'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': 'df540a630f'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': 'dfbea62910'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '57baca4bc1'}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
 ('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': 'master', 'commit': '810d6d8'}, {}),
