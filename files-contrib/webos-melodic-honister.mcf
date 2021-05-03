@@ -31,9 +31,9 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'master-2021-05-03')
 Layers = [
 ('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': 'master', 'commit': '2db57132'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': 'df540a630f'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'master', 'commit': '1d9d38eb6b'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': '57baca4bc1'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master', 'commit': 'b8bbcd4dea'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
