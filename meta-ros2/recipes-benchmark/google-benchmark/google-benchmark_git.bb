@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 SUMMARY = "A library to benchmark code snippets, similar to unit tests."
 HOMEPAGE = "https://github.com/google/benchmark"
@@ -27,3 +27,5 @@ inherit cmake
 # points to google-benchmark sysroot (which might be already removed by rm_work)
 # INTERFACE_LINK_LIBRARIES "-pthread;/jenkins/home/workspace/jansa/webos-dashing-dunfell/webos-dashing-dunfell/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot/usr/lib/librt.so"
 SSTATE_SCAN_FILES_append = " *.cmake"
+
+SRC_URI += "file://0001-Fix-build-with-gcc-11.patch"
