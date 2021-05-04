@@ -42,3 +42,5 @@ EXTRA_OECMAKE += "-DGEOGRAPHICLIB_LIB_TYPE=BOTH"
 sysroot_stage_all_append() {
     sysroot_stage_dir ${D}${bindir} ${SYSROOT_DESTDIR}${bindir}
 }
+
+SRC_URI += "file://0001-Fix-build-with-gcc-11.patch"
