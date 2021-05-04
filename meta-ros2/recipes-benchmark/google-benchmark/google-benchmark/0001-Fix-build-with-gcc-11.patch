@@ -1,0 +1,50 @@
+From a23b7827961a2cda4d94c2970bf65b2306c1f207 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 4 May 2021 09:31:11 -0700
+Subject: [PATCH] Fix build with gcc-11
+
+* fixes:
+FAILED: src/CMakeFiles/benchmark.dir/benchmark_register.cc.o
+/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++ -DHAVE_POSIX_REGEX -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -Dbenchmark_EXPORTS -I/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/include -I/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src -I/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/../include -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0=/usr/src/debug/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0=/usr/src/debug/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot  -std=c++11  -Wall  -Wextra  -Wshadow  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing -fPIC -MD -MT src/CMakeFiles/benchmark.dir/benchmark_register.cc.o -MF src/CMakeFiles/benchmark.dir/benchmark_register.cc.o.d -o src/CMakeFiles/benchmark.dir/benchmark_register.cc.o -c /jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/benchmark_register.cc
+In file included from /jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/benchmark_register.cc:15:
+/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/benchmark_register.h: In function 'typename std::vector<T>::iterator benchmark::internal::AddPowers(std::vector<T>*, T, T, int)':
+/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/benchmark_register.h:22:30: error: 'numeric_limits' is not a member of 'std'
+   22 |   static const T kmax = std::numeric_limits<T>::max();
+      |                              ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/benchmark_register.h:22:46: error: expected primary-expression before '>' token
+   22 |   static const T kmax = std::numeric_limits<T>::max();
+      |                                              ^
+/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/benchmark_register.h:22:49: error: '::max' has not been declared; did you mean 'std::max'?
+   22 |   static const T kmax = std::numeric_limits<T>::max();
+      |                                                 ^~~
+      |                                                 std::max
+In file included from /jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot/usr/include/c++/11.1.0/algorithm:62,
+                 from /jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/include/benchmark/benchmark.h:172,
+                 from /jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/internal_macros.h:4,
+                 from /jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/check.h:8,
+                 from /jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/benchmark_register.h:6,
+                 from /jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/git/src/benchmark_register.cc:15:
+/jenkins/mjansa/build/ros/webos-dashing-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot/usr/include/c++/11.1.0/bits/stl_algo.h:3467:5: note: 'std::max' declared here
+ 3467 |     max(initializer_list<_Tp> __l, _Compare __comp)
+      |     ^~~
+
+
+Upstream-Status: Pending
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
+---
+ src/benchmark_register.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/benchmark_register.h b/src/benchmark_register.h
+index 61377d7..8f1bb77 100644
+--- a/src/benchmark_register.h
++++ b/src/benchmark_register.h
+@@ -2,6 +2,7 @@
+ #define BENCHMARK_REGISTER_H
+ 
+ #include <vector>
++#include <limits>
+ 
+ #include "check.h"
+ 
