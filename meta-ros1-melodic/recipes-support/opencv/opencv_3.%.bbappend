@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 # Fix up PACKAGECONFIG if Python 2 is being used.
 PACKAGECONFIG_prepend = "${@'python2 ' if d.getVar('ROS_PYTHON_VERSION') == '2' else ''}"
@@ -22,3 +22,9 @@ inherit ${@bb.utils.contains('PACKAGECONFIG', 'python2', 'distutils-base', '', d
 VIRTUAL-RUNTIME_bash ?= "bash"
 RDEPENDS_${PN}-apps_append_class-target_webos = " ${VIRTUAL-RUNTIME_bash}"
 RDEPENDS_${PN}-apps_remove_class-target_webos = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"
+
+# opencv/3.4.5-r0/git/3rdparty/openexr/Imath/ImathVec.h:227:41: error: ISO C++17 does not allow dynamic exception specifications
+#  227 |     const Vec2 &        normalizeExc () throw (Iex::MathExc);
+#      |                                         ^~~~~
+# ...
+CXXFLAGS += "-std=gnu++14"
