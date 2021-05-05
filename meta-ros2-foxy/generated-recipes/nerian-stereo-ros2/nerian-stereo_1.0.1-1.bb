@@ -17,10 +17,9 @@ ROS_CN = "nerian_stereo_ros2"
 ROS_BPN = "nerian_stereo"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-message-generation} \
-    ${ROS_UNRESOLVED_DEP-rostime} \
-    boost \
+    ament-cmake \
     cv-bridge \
+    rosidl-default-generators \
     sensor-msgs \
     std-msgs \
     stereo-msgs \
@@ -30,13 +29,13 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
+    rosidl-default-generators-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-message-generation} \
-    ${ROS_UNRESOLVED_DEP-rostime} \
-    boost \
+    ament-cmake \
     cv-bridge \
+    rosidl-default-generators \
     sensor-msgs \
     std-msgs \
     stereo-msgs \
@@ -47,10 +46,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-message-generation} \
-    ${ROS_UNRESOLVED_DEP-rostime} \
-    boost \
+    ament-cmake \
     cv-bridge \
+    rosidl-default-generators \
+    rosidl-default-runtime \
     sensor-msgs \
     std-msgs \
     stereo-msgs \
@@ -71,10 +70,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/nerian-vision/nerian_stereo_ros2-release/archive/release/foxy/nerian_stereo/1.0.0-5.tar.gz
+# matches with: https://github.com/nerian-vision/nerian_stereo_ros2-release/archive/release/foxy/nerian_stereo/1.0.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/nerian_stereo"
 SRC_URI = "git://github.com/nerian-vision/nerian_stereo_ros2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ce68ff6850190c8fdc8c829680ce3d9ef58fa827"
+SRCREV = "895a1d5003c5cb7af738eb550cc224eed6528d8a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

@@ -12,7 +12,7 @@ SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "ament_package"
 ROS_BPN = "ament_package"
@@ -46,10 +46,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ament_package-release/archive/release/foxy/ament_package/0.9.4-1.tar.gz
+# matches with: https://github.com/ros2-gbp/ament_package-release/archive/release/foxy/ament_package/0.9.5-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/ament_package"
 SRC_URI = "git://github.com/ros2-gbp/ament_package-release;${ROS_BRANCH};protocol=https"
-SRCREV = "750e5a40a52f646fa0e68ec790916b89ab21828e"
+SRCREV = "45ef63905351c5a8bbb54eb09a4a055125bdeaae"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
