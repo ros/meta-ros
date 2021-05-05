@@ -1,0 +1,78 @@
+From a498b86c609cd579a437799049514e9ee6e84a15 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 5 May 2021 06:11:24 -0700
+Subject: [PATCH] Fix build with gcc-11
+
+* fixes:
+FAILED: CMakeFiles/sml_graph_demo.dir/src/sml_graph_demo.cpp.o
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"boost_sml\" -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/git/include -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/opt/ros/melodic/include -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0=/usr/src/debug/boost-sml/0.1.0-3-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0=/usr/src/debug/boost-sml/0.1.0-3-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot   -W -Wall -Wextra -Wwrite-strings -Wunreachable-code -Wpointer-arith -Winit-self -Wredundant-decls -Wno-unused-parameter -Wno-unused-function -std=gnu++14 -MD -MT CMakeFiles/sml_graph_demo.dir/src/sml_graph_demo.cpp.o -MF CMakeFiles/sml_graph_demo.dir/src/sml_graph_demo.cpp.o.d -o CMakeFiles/sml_graph_demo.dir/src/sml_graph_demo.cpp.o -c /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/git/src/sml_graph_demo.cpp
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/git/include/boost_sml/sml_transition_graph.h:9,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/git/src/sml_graph_demo.cpp:1:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/git/include/boost_sml/sml.hpp:2648:8: warning: undefining "__has_builtin"
+ 2648 | #undef __has_builtin
+      |        ^~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/boost/graph/graph_traits.hpp:15,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/git/include/boost_sml/sml_transition_graph.h:11,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/git/src/sml_graph_demo.cpp:1:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/c++/11.1.0/utility:304:18: error: missing binary operator before token "("
+  304 | #if __has_builtin(__make_integer_seq)
+      |                  ^
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/c++/11.1.0/utility:331:18: error: missing binary operator before token "("
+  331 | #if __has_builtin(__make_integer_seq)
+      |                  ^
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/c++/11.1.0/bits/align.h:35,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/c++/11.1.0/memory:72,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/boost/container_hash/extensions.hpp:34,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/boost/container_hash/hash.hpp:761,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/boost/functional/hash.hpp:6,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/boost/unordered/unordered_set.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/boost/unordered_set.hpp:17,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/boost/graph/adjacency_list.hpp:20,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/git/include/boost_sml/sml_transition_graph.h:12,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/git/src/sml_graph_demo.cpp:1:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/boost-sml/0.1.0-3-r0/recipe-sysroot/usr/include/c++/11.1.0/bit:68:43: error: missing binary operator before token "("
+   68 | #if __cplusplus > 201703l && __has_builtin(__builtin_bit_cast)
+      |                                           ^
+
+see
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66970
+https://gcc.gnu.org/git/?p=gcc.git&a=commit;h=ad1539d5555a161cf6851de8995641d6dfe792d9
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/boost_sml/sml.hpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/boost_sml/sml.hpp b/include/boost_sml/sml.hpp
+index c46b9b4..217c25d 100644
+--- a/include/boost_sml/sml.hpp
++++ b/include/boost_sml/sml.hpp
+@@ -32,7 +32,7 @@
+ #pragma clang diagnostic ignored "-Wgnu-string-literal-operator-template"
+ #pragma clang diagnostic ignored "-Wzero-length-array"
+ #elif defined(__GNUC__)
+-#if !defined(__has_builtin)
++#if !defined(__has_builtin) && __GNUC__ < 11
+ #define __has_builtin(...) 0
+ #endif
+ #define __BOOST_SML_UNUSED __attribute__((unused))
+@@ -215,7 +215,7 @@ template <int...>
+ struct index_sequence {
+   using type = index_sequence;
+ };
+-#if __has_builtin(__make_integer_seq)
++#if __has_builtin (__make_integer_seq)
+ template <class T, T...>
+ struct integer_sequence;
+ template <int... Ns>
+@@ -2644,7 +2644,7 @@ BOOST_SML_NAMESPACE_END
+ #undef __BOOST_SML_TEMPLATE_KEYWORD
+ #if defined(__clang__)
+ #pragma clang diagnostic pop
+-#elif defined(__GNUC__)
++#elif defined(__GNUC__) && __GNUC__ < 11
+ #undef __has_builtin
+ #pragma GCC diagnostic pop
+ #elif defined(COMPILING_WITH_MSVC)
