@@ -13,6 +13,8 @@ assimp-dev:
 - assimp@openembedded-core
 avahi-daemon:
 - avahi@openembedded-core
+benchmark:
+- google-benchmark@meta-ros2
 binutils:
 - binutils@openembedded-core
 bison:
@@ -23,6 +25,8 @@ boost:
 - boost@openembedded-core
 bullet:
 - bullet@meta-ros-common
+bullet-extras:
+- ${ROS_UNRESOLVED_DEP-bullet-extras}
 bzip2:
 - bzip2@openembedded-core
 ca-certificates:
@@ -79,6 +83,8 @@ geographiclib:
 - geographiclib@meta-ros-common
 geographiclib-tools:
 - geographiclib@meta-ros-common
+gforth:
+- ${ROS_UNRESOLVED_DEP-gforth}
 git:
 - git@openembedded-core
 glut:
@@ -139,7 +145,11 @@ libboost-date-time-dev:
 - boost@openembedded-core
 libboost-dev:
 - boost@openembedded-core
+libboost-filesystem:
+- boost@openembedded-core
 libboost-filesystem-dev:
+- boost@openembedded-core
+libboost-program-options:
 - boost@openembedded-core
 libboost-program-options-dev:
 - boost@openembedded-core
@@ -147,20 +157,34 @@ libboost-python-dev:
 - boost@openembedded-core
 libboost-regex-dev:
 - boost@openembedded-core
+libboost-serialization:
+- boost@openembedded-core
+libboost-serialization-dev:
+- boost@openembedded-core
+libboost-system:
+- boost@openembedded-core
 libboost-system-dev:
 - boost@openembedded-core
 libboost-thread:
 - boost@openembedded-core
 libboost-thread-dev:
 - boost@openembedded-core
+libcap-dev:
+- libcap@openembedded-core
 libccd-dev:
 - libccd@meta-ros-common
 libceres-dev:
 - ceres-solver@meta-oe
 libclang-dev:
 - ${ROS_UNRESOLVED_DEP-libclang-dev}
+libcoin80-dev:
+- ${ROS_UNRESOLVED_DEP-libcoin80-dev}
 libconsole-bridge-dev:
 - console-bridge@meta-ros-common
+libdc1394-dev:
+- libdc1394@meta-multimedia
+libdmtx-dev:
+- ${ROS_UNRESOLVED_DEP-libdmtx-dev}
 libdw-dev:
 - elfutils@openembedded-core
 libfcl-dev:
@@ -217,6 +241,8 @@ liblcm-dev:
 - ${ROS_UNRESOLVED_DEP-liblcm-dev}
 libmicrohttpd:
 - libmicrohttpd@meta-oe
+libmodbus-dev:
+- libmodbus@meta-oe
 libmongoclient-dev:
 - mongodb@meta-oe
 libncurses-dev:
@@ -225,12 +251,24 @@ libnl-3:
 - libnl@openembedded-core
 libnl-3-dev:
 - libnl@openembedded-core
+libnlopt-cxx-dev:
+- ${ROS_UNRESOLVED_DEP-libnlopt-cxx-dev}
+libnlopt-dev:
+- ${ROS_UNRESOLVED_DEP-libnlopt-dev}
+libnlopt0:
+- ${ROS_UNRESOLVED_DEP-libnlopt0}
 libogg:
 - libogg@openembedded-core
 libogre:
 - ogre@meta-ros-common
 libogre-dev:
 - ogre@meta-ros-common
+libois-dev:
+- ${ROS_UNRESOLVED_DEP-libois-dev}
+libomp-dev:
+- ${ROS_UNRESOLVED_DEP-libomp-dev}
+libopenblas-dev:
+- openblas@meta-ros-common
 libopencv-dev:
 - opencv@meta-oe
 libopenni-dev:
@@ -289,6 +327,8 @@ libreadline:
 - readline@openembedded-core
 libreadline-dev:
 - readline@openembedded-core
+libsndfile1-dev:
+- ${ROS_UNRESOLVED_DEP-libsndfile1-dev}
 libspnav-dev:
 - ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
@@ -317,6 +357,8 @@ libusb-dev:
 - libusb1@openembedded-core
 libuvc-dev:
 - ${ROS_UNRESOLVED_DEP-libuvc-dev}
+libv4l-dev:
+- v4l-utils@meta-oe
 libvlc-dev:
 - vlc@meta-multimedia
 libvtk:
@@ -327,6 +369,8 @@ libx11-dev:
 - libx11@openembedded-core
 libxi-dev:
 - libxi@openembedded-core
+libxml2:
+- libxml2@openembedded-core
 libxmlrpc-c++:
 - xmlrpc-c@meta-oe
 libxmu-dev:
@@ -375,6 +419,8 @@ openssl:
 - openssl@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+portaudio19-dev:
+- ${ROS_UNRESOLVED_DEP-portaudio19-dev}
 postgresql:
 - postgresql@meta-oe
 proj:
@@ -412,8 +458,6 @@ python-imaging:
 - ${PYTHON_PN}-pillow@meta-python
 python-libpgm-pip:
 - ${ROS_UNRESOLVED_DEP-python-libpgm-pip}
-python-lxml:
-- ${PYTHON_PN}-lxml@meta-python
 python-numpy:
 - ${PYTHON_PN}-numpy@openembedded-core
 python-percol:
@@ -576,8 +620,6 @@ python3-tornado:
 - python3-tornado@meta-python
 python3-twisted:
 - python3-twisted@meta-python
-python3-usb:
-- python3-pyusb@meta-python
 python3-venv:
 - ${ROS_UNRESOLVED_DEP-python3-venv}
 python3-websocket:
@@ -611,6 +653,8 @@ subversion:
 suitesparse:
 - suitesparse-cholmod@meta-ros-common
 - suitesparse-cxsparse@meta-ros-common
+swig:
+- swig@openembedded-core
 sysstat:
 - sysstat@openembedded-core
 tango-icon-theme:
@@ -651,5 +695,7 @@ xterm:
 - xterm@meta-oe
 yaml-cpp:
 - yaml-cpp@meta-ros-common
+zbar:
+- zbar@meta-oe
 zlib:
 - zlib@openembedded-core
