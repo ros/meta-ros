@@ -20,3 +20,11 @@ do_install_append () {
 sysroot_stage_all_append() {
     sysroot_stage_dir ${D}${bindir} ${SYSROOT_DESTDIR}${bindir}
 }
+
+# v0.1.1 tag
+SRCREV_cpptoml = "0bfa56fc8361e1715de05709b349bc44d910c7db"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "git://github.com/skystrife/cpptoml.git;name=cpptoml;destsuffix=git/cpptoml-upstream \
+    file://0001-Fix-build-with-gcc-11.patch;patchdir=cpptoml-upstream \
+    file://0001-cpptoml-fetch-with-bitbake-fetcher-instead-of-Extern.patch \
+"
