@@ -1,4 +1,4 @@
-# foxy/cache.yaml 2021-04-16 78298cdbb1f956485695b98257587a4631dbe266 20210415191652 1.6.2
+# foxy/cache.yaml 2021-04-26 8916fda922fba94107bf01cee956168b19bba1dd 20210426172936 1.6.2
 distribution_file:
 - release_platforms:
 -----
@@ -215,7 +215,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ament_package-release.git',
-version: 0.9.4-1
+version: 0.9.5-1
 },
 source: {
 test_pull_requests: true,
@@ -1428,7 +1428,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gazebo_ros2_control-release.git',
-version: 0.0.1-1
+version: 0.0.2-1
 },
 source: {
 type: git,
@@ -2599,7 +2599,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/nerian-vision/nerian_stereo_ros2-release.git',
-version: 1.0.0-5
+version: 1.0.1-1
 },
 source: {
 type: git,
@@ -2808,6 +2808,27 @@ source: {
 type: git,
 url: 'https://github.com/OpenVSLAM-Community/openvslam.git',
 version: foxy-devel
+},
+status: developed
+}
+-----
+openzen_driver: {
+doc: {
+type: git,
+url: 'https://bitbucket.org/lpresearch/openzenros2.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/lp-research/openzen_sensor_ros2-release.git',
+version: 1.2.0-2
+},
+source: {
+type: git,
+url: 'https://bitbucket.org/lpresearch/openzenros2.git',
+version: master
 },
 status: developed
 }
@@ -3290,7 +3311,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros2/pybind11_vendor.git',
-version: master
+version: foxy
 },
 status: maintained
 }
@@ -5539,7 +5560,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/oKermorgant/simple_launch-release.git',
-version: 1.0.2-1
+version: 1.0.3-2
 },
 source: {
 type: git,
@@ -5567,6 +5588,22 @@ test_pull_requests: true,
 type: git,
 url: 'https://github.com/SteveMacenski/slam_toolbox.git',
 version: foxy-devel
+},
+status: maintained
+}
+-----
+slider_publisher: {
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/oKermorgant/slider_publisher-release.git',
+version: 1.0.2-2
+},
+source: {
+type: git,
+url: 'https://github.com/oKermorgant/slider_publisher.git',
+version: ros2
 },
 status: maintained
 }
@@ -11490,6 +11527,7 @@ gazebo_ros2_control: <?xml version="1.0" ?>
 <description>gazebo_ros2_control</description>
 <maintainer email="ahcorde@osrfoundation.org">Alejandro Hernandez</maintainer>
 <license>BSD</license>
+<license>Apache License 2.0</license>
 <url type="website">http://ros.org/wiki/gazebo_ros_control</url>
 <url type="bugtracker">https://github.com/ros-simulation/gazebo_ros2_control/issues</url>
 <url type="repository">https://github.com/ros-simulation/gazebo_ros2_control/</url>
@@ -11532,6 +11570,7 @@ gazebo_ros2_control_demos: <?xml version="1.0" ?>
 <build_depend>std_msgs</build_depend>
 <exec_depend>ament_index_python</exec_depend>
 <exec_depend>control_msgs</exec_depend>
+<exec_depend>effort_controllers</exec_depend>
 <exec_depend>gazebo_ros2_control</exec_depend>
 <exec_depend>gazebo_ros</exec_depend>
 <exec_depend>hardware_interface</exec_depend>
@@ -11540,6 +11579,7 @@ gazebo_ros2_control_demos: <?xml version="1.0" ?>
 <exec_depend>launch</exec_depend>
 <exec_depend>launch_ros</exec_depend>
 <exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>ros2_controllers</exec_depend>
 <exec_depend>rclcpp</exec_depend>
 <exec_depend>std_msgs</exec_depend>
 <exec_depend>velocity_controllers</exec_depend>
@@ -15708,18 +15748,19 @@ SceneScan and SP1 stereo vision sensors by Nerian Vision GmbH</description>
 <author email="service@nerian.com">Nerian Vision Technologies</author>
 <url type="website">http://wiki.ros.org/nerian_stereo</url>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>ament_lint_common</test_depend>
-<member_of_group>rosidl_interface_packages</member_of_group>
-<depend>message_generation</depend>
-<depend>rostime</depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
 <depend>std_msgs</depend>
 <depend>sensor_msgs</depend>
 <depend>stereo_msgs</depend>
 <depend>cv_bridge</depend>
-<depend>boost</depend>
 <depend>tf2</depend>
 <depend>tf2_ros</depend>
+<depend>ament_cmake</depend>
+<depend>rosidl_default_generators</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -16030,6 +16071,34 @@ openvslam: '<?xml version="1.0" ?>
 <build_type>cmake</build_type>
 </export>
 </package>'
+-----
+openzen_driver: <?xml version="1.0" ?>
+<package format="2">
+<name>openzen_driver</name>
+<description>ROS 2 Driver for LP-Research inertial measurement units and satellite navigation senors</description>
+<maintainer email="thomas@lp-research.com">Thomas Hauth</maintainer>
+<maintainer email="lxf@alubi.cn">Feng</maintainer>
+<maintainer email="yap@lp-research.com">H.E. YAP</maintainer>
+<license>MIT</license>
+<license>Boost Software License</license>
+<license>LGPLv3</license>
+<license>BSD</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>rclcpp</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<build_depend>std_srvs</build_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>rclcpp</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>std_srvs</exec_depend>
+<exec_depend>rqt_plot</exec_depend>
+<test_depend>launch</test_depend>
+<test_depend>launch_testing</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
 -----
 oroca_rqt_command: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -22623,6 +22692,20 @@ slam_toolbox: <?xml version="1.0" ?>
 <build_type>ament_cmake</build_type>
 <slam_toolbox plugin="${prefix}/solver_plugins.xml"/>
 <rviz_common plugin="${prefix}/rviz_plugins.xml"/>
+</export>
+</package>
+-----
+slider_publisher: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>slider_publisher</name>
+<description>This packages proposes a slider-based publisher node similar to the joint_state_publisher,
+but that can publish any type of message.</description>
+<maintainer email="olivier.kermorgant@ec-nantes.fr">Olivier Kermorgant</maintainer>
+<license>MIT</license>
+<exec_depend>rqt_gui_py</exec_depend>
+<export>
+<build_type>ament_python</build_type>
 </export>
 </package>
 -----
