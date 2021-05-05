@@ -47,10 +47,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/oKermorgant/simple_launch-release/archive/release/foxy/simple_launch/1.0.2-1.tar.gz
+# matches with: https://github.com/oKermorgant/simple_launch-release/archive/release/foxy/simple_launch/1.0.3-2.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/simple_launch"
 SRC_URI = "git://github.com/oKermorgant/simple_launch-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8f59da85558157a60a8b3dd30adb411cac42d0a6"
+SRCREV = "a87860405c68e63a4a1279404eb6df94867d37ab"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
