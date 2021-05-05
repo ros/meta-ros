@@ -17,6 +17,10 @@ automake:
 - automake@openembedded-core
 avahi-daemon:
 - avahi@openembedded-core
+avr-libc:
+- ${ROS_UNRESOLVED_DEP-avr-libc}
+avrdude:
+- ${ROS_UNRESOLVED_DEP-avrdude}
 binutils:
 - binutils@openembedded-core
 bison:
@@ -82,8 +86,6 @@ flac:
 - flac@openembedded-core
 flex:
 - flex@openembedded-core
-fmt:
-- ${ROS_UNRESOLVED_DEP-fmt}
 ftdi-eeprom:
 - libftdi@meta-oe
 g++-static: []
@@ -92,6 +94,8 @@ gawk:
 gazebo:
 - ${ROS_UNRESOLVED_DEP-gazebo}
 gazebo9: []
+gcc-avr:
+- ${ROS_UNRESOLVED_DEP-gcc-avr}
 gdal-bin:
 - ${ROS_UNRESOLVED_DEP-gdal-bin}
 geographiclib:
@@ -701,8 +705,6 @@ python-twisted-core:
 - ${PYTHON_PN}-twisted-core@meta-python
 python-urlgrabber:
 - ${ROS_UNRESOLVED_DEP-python-urlgrabber}
-python-usb:
-- ${PYTHON_PN}-pyusb@meta-python
 python-websocket:
 - ${PYTHON_PN}-websocket-client@meta-python
 python-whichcraft:
@@ -762,6 +764,8 @@ sysstat:
 - sysstat@openembedded-core
 tango-icon-theme:
 - adwaita-icon-theme@openembedded-core
+tar:
+- ${ROS_UNRESOLVED_DEP-tar}
 tbb:
 - tbb@meta-oe
 time:
