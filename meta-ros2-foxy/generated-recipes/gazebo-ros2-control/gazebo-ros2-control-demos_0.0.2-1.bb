@@ -5,60 +5,51 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "gazebo_ros2_control"
+DESCRIPTION = "gazebo_ros2_control_demos"
 AUTHOR = "Alejandro Hernandez <ahcorde@osrfoundation.org>"
-ROS_AUTHOR = "Jonathan Bohren"
+ROS_AUTHOR = "Alejandro Hernández"
 HOMEPAGE = "http://ros.org/wiki/gazebo_ros_control"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "gazebo_ros2_control"
-ROS_BPN = "gazebo_ros2_control"
+ROS_BPN = "gazebo_ros2_control_demos"
 
 ROS_BUILD_DEPENDS = " \
-    angles \
-    controller-manager \
-    gazebo-ros \
-    gazebo-rosdev \
-    hardware-interface \
-    pluginlib \
+    control-msgs \
     rclcpp \
+    rclcpp-action \
     std-msgs \
-    urdf \
-    yaml-cpp-vendor \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    angles \
-    controller-manager \
-    gazebo-ros \
-    gazebo-rosdev \
-    hardware-interface \
-    pluginlib \
-    rclcpp \
-    std-msgs \
-    urdf \
-    yaml-cpp-vendor \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    angles \
-    controller-manager \
+    ament-index-python \
+    control-msgs \
+    effort-controllers \
     gazebo-ros \
-    gazebo-rosdev \
+    gazebo-ros2-control \
     hardware-interface \
-    pluginlib \
+    joint-state-controller \
+    joint-trajectory-controller \
+    launch \
+    launch-ros \
     rclcpp \
+    robot-state-publisher \
+    ros2-controllers \
     std-msgs \
-    urdf \
-    yaml-cpp-vendor \
+    velocity-controllers \
+    xacro \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -75,10 +66,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/gazebo_ros2_control-release/archive/release/foxy/gazebo_ros2_control/0.0.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/gazebo_ros2_control"
+# matches with: https://github.com/ros2-gbp/gazebo_ros2_control-release/archive/release/foxy/gazebo_ros2_control_demos/0.0.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/gazebo_ros2_control_demos"
 SRC_URI = "git://github.com/ros2-gbp/gazebo_ros2_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "457afc24ff0210cba34d750009c13d190511b1ef"
+SRCREV = "3250092b9fd8b12e798b76631eab8526a39f927b"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

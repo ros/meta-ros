@@ -37,7 +37,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-foxy/files/foxy/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "27"
+ROS_NUM_CACHE_YAML_COMMITS = "28"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -430,6 +430,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     octovis \
     ompl \
     openvslam \
+    openzen-driver \
     oroca-rqt-command \
     orocos-kdl \
     osqp-vendor \
@@ -687,6 +688,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     sick-scan2 \
     simple-launch \
     slam-toolbox \
+    slider-publisher \
     smac-planner \
     smclib \
     sophus \
@@ -869,7 +871,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          ament-lint/ament-lint-common_0.9.6-1 \
                          ament-lint/ament-mypy_0.9.6-1 \
                          ament-nodl/ament-nodl_0.1.0-1 \
-                      ament-package/ament-package_0.9.4-1 \
+                      ament-package/ament-package_0.9.5-1 \
                          ament-lint/ament-pclint_0.9.6-1 \
                          ament-lint/ament-pep257_0.9.6-1 \
                          ament-lint/ament-pycodestyle_0.9.6-1 \
@@ -1028,8 +1030,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                     gazebo-ros-pkgs/gazebo-plugins_3.5.3-1 \
                     gazebo-ros-pkgs/gazebo-ros_3.5.3-1 \
                     gazebo-ros-pkgs/gazebo-ros-pkgs_3.5.3-1 \
-                gazebo-ros2-control/gazebo-ros2-control_0.0.1-1 \
-                gazebo-ros2-control/gazebo-ros2-control-demos_0.0.1-1 \
+                gazebo-ros2-control/gazebo-ros2-control_0.0.2-1 \
+                gazebo-ros2-control/gazebo-ros2-control-demos_0.0.2-1 \
                     gazebo-ros-pkgs/gazebo-rosdev_3.5.3-1 \
                     geographic-info/geodesy_1.0.4-1 \
                     geographic-info/geographic-info_1.0.4-1 \
@@ -1185,7 +1187,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                         navigation2/nav2-waypoint-follower_0.4.7-1 \
                         navigation2/navigation2_0.4.7-1 \
                  astuff-sensor-msgs/neobotix-usboard-msgs_3.1.0-1 \
-                 nerian-stereo-ros2/nerian-stereo_1.0.0-5 \
+                 nerian-stereo-ros2/nerian-stereo_1.0.1-1 \
                           nmea-msgs/nmea-msgs_2.0.0-1 \
                                nodl/nodl-python_0.3.1-1 \
           nonpersistent-voxel-layer/nonpersistent-voxel-layer_2.2.1-1 \
@@ -1198,6 +1200,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                             octomap/octovis_1.9.5-2 \
                                ompl/ompl_1.5.0-1 \
                           openvslam/openvslam_0.2.1-1 \
+                     openzen-driver/openzen-driver_1.2.0-2 \
                   oroca-rqt-command/oroca-rqt-command_0.6.0-3 \
          orocos-kinematics-dynamics/orocos-kdl_3.3.2-1 \
                         osqp-vendor/osqp-vendor_0.0.3-2 \
@@ -1453,8 +1456,9 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                sick-safetyscanners2/sick-safetyscanners2_1.0.2-1 \
     sick-safetyscanners2-interfaces/sick-safetyscanners2-interfaces_1.0.0-1 \
                          sick-scan2/sick-scan2_0.1.9-1 \
-                      simple-launch/simple-launch_1.0.2-1 \
+                      simple-launch/simple-launch_1.0.3-2 \
                        slam-toolbox/slam-toolbox_2.4.0-1 \
+                   slider-publisher/slider-publisher_1.0.2-2 \
                         navigation2/smac-planner_0.4.7-1 \
                           bond-core/smclib_2.0.0-1 \
                              sophus/sophus_1.2.1-1 \
@@ -1959,6 +1963,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     octovis \
     ompl \
     openvslam \
+    openzen-driver \
     oroca-rqt-command \
     orocos-kdl \
     osqp-vendor \
@@ -2208,6 +2213,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     sick-scan2 \
     simple-launch \
     slam-toolbox \
+    slider-publisher \
     smac-planner \
     smclib \
     sophus \
@@ -2460,13 +2466,11 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5} \
     ${ROS_UNRESOLVED_DEP-libspnav-dev} \
     ${ROS_UNRESOLVED_DEP-maven-native} \
-    ${ROS_UNRESOLVED_DEP-message-generation} \
     ${ROS_UNRESOLVED_DEP-python3-collada} \
     ${ROS_UNRESOLVED_DEP-python3-retrying} \
     ${ROS_UNRESOLVED_DEP-python3-watchdog} \
     ${ROS_UNRESOLVED_DEP-python3-zmq} \
     ${ROS_UNRESOLVED_DEP-qttools5-dev-tools} \
-    ${ROS_UNRESOLVED_DEP-rostime} \
     ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native} \
     ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1} \
     ${ROS_UNRESOLVED_DEP-rviz} \
@@ -2762,6 +2766,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     octomap-msgs \
     ompl \
     openvslam \
+    openzen-driver \
     oroca-rqt-command \
     orocos-kinematics-dynamics \
     osqp-vendor \
@@ -2879,6 +2884,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     sick-scan2 \
     simple-launch \
     slam-toolbox \
+    slider-publisher \
     sophus \
     spdlog-vendor \
     srdfdom \
@@ -2952,13 +2958,11 @@ ROS_UNRESOLVED_DEP-libomp-dev = "ROS_UNRESOLVED_DEP-libomp-dev"
 ROS_UNRESOLVED_DEP-libqglviewer2-qt5 = "ROS_UNRESOLVED_DEP-libqglviewer2-qt5"
 ROS_UNRESOLVED_DEP-libspnav-dev = "ROS_UNRESOLVED_DEP-libspnav-dev"
 ROS_UNRESOLVED_DEP-maven-native = "ROS_UNRESOLVED_DEP-maven-native"
-ROS_UNRESOLVED_DEP-message-generation = "ROS_UNRESOLVED_DEP-message-generation"
 ROS_UNRESOLVED_DEP-python3-collada = "ROS_UNRESOLVED_DEP-python3-collada"
 ROS_UNRESOLVED_DEP-python3-retrying = "ROS_UNRESOLVED_DEP-python3-retrying"
 ROS_UNRESOLVED_DEP-python3-watchdog = "ROS_UNRESOLVED_DEP-python3-watchdog"
 ROS_UNRESOLVED_DEP-python3-zmq = "ROS_UNRESOLVED_DEP-python3-zmq"
 ROS_UNRESOLVED_DEP-qttools5-dev-tools = "ROS_UNRESOLVED_DEP-qttools5-dev-tools"
-ROS_UNRESOLVED_DEP-rostime = "ROS_UNRESOLVED_DEP-rostime"
 ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1 = "ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1"
 ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native = "ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1-native"
 ROS_UNRESOLVED_DEP-rviz = "ROS_UNRESOLVED_DEP-rviz"
@@ -2967,10 +2971,10 @@ ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "2021-04-16"
+ROS_DISTRO_RELEASE_DATE = "2021-04-26"
 
 # The commit of ros/rosdistro/foxy/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "78298cdbb1f956485695b98257587a4631dbe266"
+ROS_SUPERFLORE_GENERATION_COMMIT = "8916fda922fba94107bf01cee956168b19bba1dd"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
