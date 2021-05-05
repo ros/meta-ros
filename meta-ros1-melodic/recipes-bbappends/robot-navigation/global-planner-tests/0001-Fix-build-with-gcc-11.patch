@@ -1,0 +1,72 @@
+From 9b4749e4a31c9a4af30bda98c63de0b592c2f732 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 5 May 2021 06:25:37 -0700
+Subject: [PATCH] Fix build with gcc-11
+
+* fixes:
+FAILED: CMakeFiles/global_planner_tests.dir/src/many_map_test_suite.cpp.o
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"global_planner_tests\" -Dglobal_planner_tests_EXPORTS -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/git/include -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0=/usr/src/debug/global-planner-tests/0.3.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0=/usr/src/debug/global-planner-tests/0.3.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot -fPIC -std=c++11 -Wall -Werror -MD -MT CMakeFiles/global_planner_tests.dir/src/many_map_test_suite.cpp.o -MF CMakeFiles/global_planner_tests.dir/src/many_map_test_suite.cpp.o.d -o CMakeFiles/global_planner_tests.dir/src/many_map_test_suite.cpp.o -c /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/git/src/many_map_test_suite.cpp
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/yield_k.hpp:23,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock.hpp:42,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/shared_ptr.hpp:29,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/include/boost/shared_ptr.hpp:17,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/include/boost/signals2/deconstruct.hpp:28,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/include/boost/signals2.hpp:15,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/tf2/buffer_core.h:37,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/tf2_ros/buffer_interface.h:35,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/tf2_ros/buffer.h:35,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/nav_core2/common.h:37,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/nav_core2/global_planner.h:37,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/git/include/global_planner_tests/many_map_test_suite.h:38,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/git/src/many_map_test_suite.cpp:35:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/recipe-sysroot/usr/include/boost/bind.hpp:36:1: note: '#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.'
+   36 | BOOST_PRAGMA_MESSAGE(
+      | ^~~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/git/src/many_map_test_suite.cpp: In function 'bool global_planner_tests::many_map_test_suite(nav_core2::GlobalPlanner&, TFListenerPtr, const string&, const string&, bool, bool, bool)':
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/git/src/many_map_test_suite.cpp:76:26: error: loop variable 'base_filename' creates a copy from type 'const string' {aka 'const std::__cxx11::basic_string<char>'} [-Werror=range-loop-construct]
+   76 |   for (const std::string base_filename : config["full_coverage_maps"].as<std::vector<std::string> >())
+      |                          ^~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/git/src/many_map_test_suite.cpp:76:26: note: use reference type to prevent copying
+   76 |   for (const std::string base_filename : config["full_coverage_maps"].as<std::vector<std::string> >())
+      |                          ^~~~~~~~~~~~~
+      |                          &
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/git/src/many_map_test_suite.cpp:89:26: error: loop variable 'base_filename' creates a copy from type 'const string' {aka 'const std::__cxx11::basic_string<char>'} [-Werror=range-loop-construct]
+   89 |   for (const std::string base_filename : config["no_coverage_maps"].as<std::vector<std::string> >())
+      |                          ^~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/global-planner-tests/0.3.0-1-r0/git/src/many_map_test_suite.cpp:89:26: note: use reference type to prevent copying
+   89 |   for (const std::string base_filename : config["no_coverage_maps"].as<std::vector<std::string> >())
+      |                          ^~~~~~~~~~~~~
+      |                          &
+cc1plus: all warnings being treated as errors
+
+Upstream-Status: Pending
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/many_map_test_suite.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/many_map_test_suite.cpp b/src/many_map_test_suite.cpp
+index abec9b27..9e6860ac 100644
+--- a/src/many_map_test_suite.cpp
++++ b/src/many_map_test_suite.cpp
+@@ -73,7 +73,7 @@ bool many_map_test_suite(nav_core2::GlobalPlanner& planner, TFListenerPtr tf,
+   bool passes_all = true;
+ 
+   // Check all the Full Coverage Maps
+-  for (const std::string base_filename : config["full_coverage_maps"].as<std::vector<std::string> >())
++  for (const std::string &base_filename : config["full_coverage_maps"].as<std::vector<std::string> >())
+   {
+     std::string map_filename = prefix + base_filename;
+     ROS_INFO("Testing full coverage map \"%s\"", map_filename.c_str());
+@@ -86,7 +86,7 @@ bool many_map_test_suite(nav_core2::GlobalPlanner& planner, TFListenerPtr tf,
+   }
+ 
+   // Check all the No Coverage Maps
+-  for (const std::string base_filename : config["no_coverage_maps"].as<std::vector<std::string> >())
++  for (const std::string &base_filename : config["no_coverage_maps"].as<std::vector<std::string> >())
+   {
+     std::string map_filename = prefix + base_filename;
+     ROS_INFO("Testing no coverage map \"%s\"", map_filename.c_str());
