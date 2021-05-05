@@ -18,7 +18,7 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
 
 readonly SCRIPT_NAME="ros-generate-cache"
-readonly SCRIPT_VERSION="1.6.2"
+readonly SCRIPT_VERSION="1.6.3"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-recipes.sh .
 readonly ROSDEP_YAML_BASENAMES="base python ruby"
@@ -119,6 +119,10 @@ if [ "$ROS_DISTRO" = "dashing" -o "$ROS_DISTRO" = "eloquent" ] ; then
     sed 's#boschresearch/fmilibrary_vendor-release#ros2-gbp/fmilibrary_vendor-release#g' -i $ROS_DISTRO/distribution.yaml
     sed 's#boschresearch/fmi_adapter_ros2-release#ros2-gbp/fmi_adapter-release#g' -i $ROS_DISTRO/distribution.yaml
     sed 's#fmi_adapter_ros2#fmi_adapter#g' -i $ROS_DISTRO/distribution.yaml
+fi
+
+if [ "$ROS_DISTRO" = "melodic" ] ; then
+    sed '/^ *psen_scan_v2:/,/^ *status: developed$/d' -i $ROS_DISTRO/distribution.yaml
 fi
 
 rosdistro_build_cache --debug --preclean --ignore-local $tmpdir/index-v4.yaml $ROS_DISTRO
