@@ -168,6 +168,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     moveit \
     multires-image \
     octovis \
+    openzen-driver \
     oroca-rqt-command \
     plotjuggler \
     plotjuggler-ros \
@@ -216,6 +217,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz-visual-testing-framework \
     rviz2 \
     slam-toolbox \
+    slider-publisher \
     tile-map \
     turtlebot3 \
     turtlebot3-bringup \
@@ -276,6 +278,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     joint-state-publisher-gui \
     moveit-resources \
     moveit-resources-panda-moveit-config \
+    openzen-driver \
     python-qt-binding \
     py-trees-js \
     py-trees-ros-tutorials \
@@ -313,6 +316,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-topic \
     rqt-top \
     rqt \
+    slider-publisher \
 "
 
 # do_configure failures
