@@ -1,0 +1,29 @@
+From e784906507ef7d0fdf5ed74b829c88bf2be8ec97 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 15 May 2021 02:31:20 -0700
+Subject: [PATCH] CMakeLists.txt: fix if-else statement
+
+* with newer CMake-3.20 it fails with:
+  | CMake Error at CMakeLists.txt:410 (else):
+  |   Flow control statements are not properly nested.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index eb57029..d1e40cc 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -405,7 +405,7 @@ if(WITH_LIBDAI)
+   # Add defines for libdai/include/dai/util.h
+   if(WIN32)
+      add_definitions(-DWINDOWS)
+-  else(CYGWIN)
++  elseif(CYGWIN)
+      add_definitions(-DCYGWIN)
+   else(APPLE)
+      add_definitions(-DMACOSX)
