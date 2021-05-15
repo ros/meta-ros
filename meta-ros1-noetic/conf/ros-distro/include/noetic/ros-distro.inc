@@ -231,3 +231,11 @@ ROS_BUILD_TYPE_pn-python-orocos-kdl = "catkin"
 # https://github.com/mavlink/mavlink-gbp-release/blob/release/melodic/mavlink/2019.11.11-1/package.xml#L29
 # but that doesn't respect the prefix set in meta-ros-common/classes/ros_opt_prefix.bbclass
 ROS_BUILD_TYPE_pn-mavlink = "catkin"
+
+# Submitted with https://github.com/ros/rosdistro/pull/29534
+# https://layers.openembedded.org/layerindex/recipe/733/
+ROS_UNRESOLVED_DEP-libsndfile1-dev = "libsndfile1"
+# https://layers.openembedded.org/layerindex/recipe/1080/
+ROS_UNRESOLVED_DEP-portaudio19-dev = "portaudio-v19"
+# https://layers.openembedded.org/layerindex/recipe/71/
+ROS_UNRESOLVED_DEP-tar = "tar"

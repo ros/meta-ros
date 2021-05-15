@@ -90,7 +90,10 @@ RDEPENDS_${PN}_remove = "rtmros-common"
 # tesseract_ros was already updated to new name in:
 # https://github.com/ros-industrial-consortium/tesseract_ros/commit/0fdcb1022e61a256eafb0895e19d932116e1dcd4
 # but there is no ros_industrial_cmake_boilerplate in noetic, so blacklist it now
-RDEPENDS_${PN}_remove = "opw-kinematics"
+RDEPENDS_${PN}_remove = "opw-kinematics tesseract-kinematics tesseract-environment tesseract-visualization"
+
+# Depends on unavailable ROS_UNRESOLVED_DEP-bullet-extras
+RDEPENDS_${PN}_remove = "tesseract-collision tesseract-urdf"
 
 # Depends on unavailable ROS_UNRESOLVED_DEP-python3-wxgtk4.0
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-wxgtk4.0', 'actionlib-tools', '', d)}"
@@ -319,6 +322,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     mesh-tools \
     moose-desktop \
     moose-viz \
+    moveit-resources-prbt-moveit-config \
     mrp2-desktop \
     mrp2-viz \
     pilz-status-indicator-rqt \
@@ -492,9 +496,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     open-manipulator-with-tb3-tools \
     perception \
     pilz-industrial-motion-testutils \
+    pilz-industrial-motion-planner \
     pilz-industrial-motion \
     pilz-robot-programming \
     pilz-trajectory-generation \
+    pincher-arm \
+    pincher-arm-moveit-config \
+    pincher-arm-moveit-demos \
     play-motion \
     pose-cov-ops \
     pr2-bringup-tests \
@@ -641,6 +649,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OSG = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'muparser', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MUPARSER}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MUPARSER = " \
     canopen-motor-node \
+    moveit-resources-prbt-pg70-support \
+    moveit-resources-prbt-support \
     pilz-robots \
     prbt-grippers \
     prbt-moveit-config \
@@ -827,6 +837,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     moose-desktop \
     moose-viz \
     moveit \
+    moveit-resources-prbt-moveit-config \
     moveit-ros \
     moveit-ros-visualization \
     moveit-setup-assistant \
@@ -846,6 +857,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     panda-moveit-config \
     people \
     people-velocity-tracker \
+    pincher-arm \
+    pincher-arm-moveit-config \
+    pincher-arm-moveit-demos \
     psen-scan \
     psen-scan-v2 \
     radial-menu \
@@ -987,6 +1001,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     moose-desktop \
     moose-viz \
     moveit \
+    moveit-resources-prbt-moveit-config \
     moveit-ros \
     moveit-ros-visualization \
     moveit-setup-assistant \
@@ -1010,6 +1025,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     people-velocity-tracker \
     pilz-robots \
     pilz-status-indicator-rqt \
+    pincher-arm \
+    pincher-arm-moveit-config \
+    pincher-arm-moveit-demos \
     plotjuggler \
     plotjuggler-ros \
     points-preprocessor \
@@ -1556,10 +1574,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     open-manipulator-with-tb3-tools \
     open-manipulator-with-tb3-waffle-moveit \
     open-manipulator-with-tb3-waffle-pi-moveit \
+    pilz-industrial-motion-planner \
     pilz-industrial-motion-testutils \
     pilz-industrial-motion \
     pilz-robot-programming \
     pilz-trajectory-generation \
+    pincher-arm \
+    pincher-arm-moveit-config \
+    pincher-arm-moveit-demos \
     play-motion \
     pr2-moveit-config \
     realsense2-camera \
@@ -1608,7 +1630,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
 # do_configure failures
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dccomms-ros', 'dccomms-ros' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyros-utils', 'pyros-utils' , '', d)}"
-RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dynamic-graph-python', 'dynamic-graph-python dynamic-graph-tutorial sot-core sot-tools' , '', d)}"
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'dynamic-graph-python', 'dynamic-graph-python dynamic-graph-tutorial sot-core sot-tools sot-dynamic-pinocchio' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hdf5-map-io', 'hdf5-map-io mesh-msgs-hdf5' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'jderobot-carviz', 'jderobot-carviz' , '', d)}"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lanelet2-traffic-rules', 'lanelet2-traffic-rules lanelet2-routing' , '', d)}"
