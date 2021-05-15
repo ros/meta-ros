@@ -1,0 +1,32 @@
+From 602a4ff51e5a0e10c97b6345178e08558fe9fa9a Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 15 May 2021 02:35:35 -0700
+Subject: [PATCH] CMakeLists.txt: fetch opengm with bitbake fetcher
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index dad447d3..f5f46baf 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -8,13 +8,10 @@ file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+ 
+ include(ExternalProject)
+ ExternalProject_Add(EP_${PROJECT_NAME}
+-    URL https://github.com/ipa320/thirdparty/raw/master/opengm-master.tar.gz
+-    URL_MD5 414951b2772f4ed5683a6cf6bdd6eb0d
+-
+-    SOURCE_DIR ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src
++    SOURCE_DIR ${PROJECT_SOURCE_DIR}/opengm-upstream/opengm-master
+     BUILD_COMMAND ""
+         # copy headers to devel space (catkin does not like headers in source space)
+-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src/include/opengm ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_INCLUDE_DESTINATION}
++        COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/opengm-upstream/opengm-master/include/opengm ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+     INSTALL_COMMAND ""
+ )
+ 
