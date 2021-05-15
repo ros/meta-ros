@@ -1,8 +1,5 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-Added-install-configuration-in-CMakeLists.txt.patch"
-
 # ERROR: volta-rules-1.1.0-1-r0 do_package_qa: QA Issue: /usr/opt/ros/melodic/lib/volta_rules/create_udev_rules contained in package volta-rules requires /bin/bash, but no providers found in RDEPENDS_volta-rules? [file-rdeps]
 RDEPENDS_${PN} += "bash"
 
