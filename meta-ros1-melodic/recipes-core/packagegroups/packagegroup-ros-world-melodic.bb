@@ -264,6 +264,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     dataspeed-pds-rqt \
     dingo-desktop \
     dingo-viz \
+    flir-ptu-viz \
     fmi-adapter-examples \
     gl-dependency \
     gundam-rx78-control \
@@ -276,6 +277,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     mesh-tools \
     moose-desktop \
     moose-viz \
+    moveit-resources-prbt-moveit-config \
     mrp2-desktop \
     mrp2-viz \
     pf-driver \
@@ -378,6 +380,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     audio-to-spectrogram \
     cob-collision-monitor \
     cob-obstacle-distance-moveit \
+    denso-robot-ros \
+    denso-robot-moveit-config \
     exotica-aico-solver \
     exotica-cartpole-dynamics-solver \
     exotica-collision-scene-fcl \
@@ -465,6 +469,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     pilz-industrial-motion \
     pilz-robot-programming \
     pilz-trajectory-generation \
+    pincher-arm \
+    pincher-arm-moveit-config \
+    pincher-arm-moveit-demos \
     play-motion \
     pose-cov-ops \
     pr2-bringup-tests \
@@ -608,6 +615,9 @@ RDEPENDS_${PN}_remove = "wge100-camera-firmware"
 # ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-arduino-core' (but generated-recipes/rosserial/rosserial-arduino_0.8.0.bb DEPENDS on or otherwise requires it)
 RDEPENDS_${PN}_remove = "rosserial-arduino"
 
+# Depends on unavailable ROS_UNRESOLVED_DEP-arduino-core, ROS_UNRESOLVED_DEP-avr-libc, ROS_UNRESOLVED_DEP-avrdude, ROS_UNRESOLVED_DEP-gcc-avr, ROS_UNRESOLVED_DEP-tar
+RDEPENDS_${PN}_remove = "rosserial-leonardo-cmake"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'coinor-libipopt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
     control-box-rst \
@@ -636,6 +646,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OSG = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'muparser', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MUPARSER}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MUPARSER = " \
     canopen-motor-node \
+    moveit-resources-prbt-pg70-support \
+    moveit-resources-prbt-support \
     pilz-robots \
     prbt-grippers \
     prbt-moveit-config \
@@ -787,6 +799,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     cob-navigation-local \
     cob-navigation-slam \
     cob-obstacle-distance \
+    denso-robot-ros \
+    denso-robot-moveit-config \
     dingo-desktop \
     dingo-viz \
     distance-map \
@@ -797,6 +811,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     fetch-moveit-config \
     fetch-ros \
     fkie-potree-rviz-plugin \
+    flir-ptu-viz \
     franka-example-controllers \
     franka-ros \
     grid-map \
@@ -822,6 +837,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     moose-desktop \
     moose-viz \
     moveit \
+    moveit-resources-prbt-moveit-config \
     moveit-ros \
     moveit-ros-visualization \
     moveit-setup-assistant \
@@ -840,6 +856,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     open-manipulator-with-tb3-waffle-pi-moveit \
     panda-moveit-config \
     pf-driver \
+    pincher-arm \
+    pincher-arm-moveit-config \
+    pincher-arm-moveit-demos \
     psen-scan-v2 \
     psen-scan \
     radial-menu \
@@ -897,6 +916,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     cob-manipulation \
     common-tutorials \
     dataspeed-pds-rqt \
+    denso-robot-ros \
+    denso-robot-moveit-config \
     desktop \
     desktop-full \
     dijkstra-mesh-planner \
@@ -912,6 +933,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     fetch-simulation \
     find-object-2d \
     fkie-potree-rviz-plugin \
+    flir-ptu-viz \
     fmi-adapter-examples \
     franka-example-controllers \
     franka-ros \
@@ -984,6 +1006,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     moose-desktop \
     moose-viz \
     moveit \
+    moveit-resources-prbt-moveit-config \
     moveit-ros \
     moveit-ros-visualization \
     moveit-setup-assistant \
@@ -1008,6 +1031,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     pf-driver \
     pilz-robots \
     pilz-status-indicator-rqt \
+    pincher-arm \
+    pincher-arm-moveit-config \
+    pincher-arm-moveit-demos \
     plotjuggler-ros \
     plotjuggler \
     points-preprocessor \
@@ -1286,6 +1312,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     cob-hardware-config \
     cob-manipulation \
     cob-moveit-bringup \
+    denso-robot-gazebo \
+    denso-robot-ros \
+    denso-robot-moveit-config \
     desistek-saga-control \
     desistek-saga-description \
     desistek-saga-gazebo \
@@ -1516,6 +1545,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     cob-obstacle-distance-moveit \
     cob-moveit-bringup \
     cob-moveit-interface \
+    denso-robot-ros \
+    denso-robot-moveit-config \
     desktop-full \
     exotica \
     exotica-aico-solver \
@@ -1588,6 +1619,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     pilz-industrial-motion \
     pilz-robot-programming \
     pilz-trajectory-generation \
+    pincher-arm \
+    pincher-arm-moveit-config \
+    pincher-arm-moveit-demos \
     play-motion \
     pr2-moveit-config \
     realsense2-camera \
