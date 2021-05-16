@@ -24,3 +24,5 @@ inherit cmake
 
 # For some reason, the cmake subdir is under ${libdir} instead of ${datadir} for this component.
 FILES_${PN}-dev += "${libdir}/${ROS_BPN}/cmake"
+
+BBCLASSEXTEND += "native"

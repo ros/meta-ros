@@ -24,7 +24,32 @@ require conf/ros-distro/include/melodic/ros-distro-preferred-providers.inc
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     cmake-modules-native \
+    cpp-common-native \
+    gencpp-native \
+    gennodejs-native \
+    genpy-native \
+    message-runtime-native \
+    rosbuild-native \
+    rosconsole-native \
+    rosgraph-msgs-native \
+    rosgraph-native \
+    rosclean-native \
+    roscpp-native \
+    roscpp-serialization-native \
+    roscpp-traits-native \
+    roslang-native \
+    roslaunch-native \
+    roslib-native \
+    roslint-native \
+    rosmaster-native \
+    rosout-native \
     rospack-native \
+    rosparam-native \
+    rostime-native \
+    rosunit-native \
+    std-msgs-native \
+    xacro-native \
+    xmlrpcpp-native \
 "
 
 # roslisp depends on sbcl, for which there is no OE recipe
