@@ -13,3 +13,5 @@ inherit pypi
 
 # RDEPENDS_default:
 RDEPENDS_${PN} += "${PYTHON_PN}-pbr"
+
+BBCLASSEXTEND += "native"
