@@ -16,7 +16,7 @@ ROS_CN = "rosserial_leonardo_cmake"
 ROS_BPN = "rosserial_leonardo_cmake"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-tar} \
+    tar \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
