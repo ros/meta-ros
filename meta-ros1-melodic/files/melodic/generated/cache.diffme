@@ -1,4 +1,4 @@
-# melodic/cache.yaml 2021-04-27 1de3f7a65599ec4775120dac053d81560873fab8 20210426222605 1.6.3
+# melodic/cache.yaml 2021-05-17 ed0c2a6f02fe8c1f8ef881ef6caff361a2275a8f 20210514192534 1.6.4
 distribution_file:
 - release_platforms:
 -----
@@ -1157,8 +1157,9 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/squarerobot/bagger-release.git',
-version: 0.1.3-0
-}
+version: 0.1.4-1
+},
+status: maintained
 }
 -----
 baldor: {
@@ -4661,6 +4662,27 @@ version: kinetic-devel
 status: maintained
 }
 -----
+genmypy: {
+doc: {
+type: git,
+url: 'https://github.com/rospypi/genmypy.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/rospypi/genmypy-release.git',
+version: 0.3.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/rospypi/genmypy.git',
+version: master
+},
+status: developed
+}
+-----
 gennodejs: {
 doc: {
 type: git,
@@ -4686,20 +4708,20 @@ genpy: {
 doc: {
 type: git,
 url: 'https://github.com/ros/genpy.git',
-version: kinetic-devel
+version: main
 },
 release: {
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/genpy-release.git',
-version: 0.6.15-1
+version: 0.6.16-1
 },
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/genpy.git',
-version: kinetic-devel
+version: main
 },
 status: maintained
 }
@@ -4876,6 +4898,13 @@ doc: {
 type: git,
 url: 'https://github.com/cst0/gpio_control.git',
 version: master
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/cst0/gpio_control-release.git',
+version: 1.0.0-1
 },
 source: {
 type: git,
@@ -7332,7 +7361,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/fictionlab-gbp/leo_robot-release.git',
-version: 1.1.3-1
+version: 1.2.0-1
 },
 source: {
 test_pull_requests: true,
@@ -7513,7 +7542,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/IntelRealSense/librealsense2-release.git',
-version: 2.44.0-1
+version: 2.45.0-1
 },
 source: {
 test_pull_requests: true,
@@ -7941,7 +7970,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavlink-gbp-release.git',
-version: 2021.4.5-1
+version: 2021.5.5-1
 },
 source: {
 type: git,
@@ -7967,7 +7996,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavros-release.git',
-version: 1.7.1-1
+version: 1.8.0-1
 },
 source: {
 test_pull_requests: true,
@@ -8702,7 +8731,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/moveit_resources-release.git',
-version: 0.7.2-1
+version: 0.7.3-1
 },
 source: {
 type: git,
@@ -8773,7 +8802,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/peci1/movie_publisher-release.git',
-version: 1.3.0-1
+version: 1.3.1-1
 },
 source: {
 type: git,
@@ -9936,7 +9965,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/octomap-release.git',
-version: 1.9.0-1
+version: 1.9.7-1
 },
 source: {
 type: git,
@@ -11896,6 +11925,27 @@ status: end-of-life,
 status_description: 'An upgrade is available. See https://github.com/PilzDE/psen_scan_v2/#migration for detailed instruction.'
 }
 -----
+psen_scan_v2: {
+doc: {
+type: git,
+url: 'https://github.com/PilzDE/psen_scan_v2.git',
+version: main
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/PilzDE/psen_scan_v2-release.git',
+version: 0.2.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/PilzDE/psen_scan_v2.git',
+version: main
+},
+status: developed
+}
+-----
 px4_msgs: {
 release: {
 tags: {
@@ -12770,7 +12820,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/IntelRealSense/realsense-ros-release.git',
-version: 2.2.24-1
+version: 2.3.0-1
 },
 source: {
 test_pull_requests: true,
@@ -13615,7 +13665,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ros_comm-release.git',
-version: 1.14.10-1
+version: 1.14.11-1
 },
 source: {
 test_pull_requests: true,
@@ -16577,7 +16627,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/usrl-uofsc/stag_ros-release.git',
-version: 0.2.1-1
+version: 0.2.2-1
 },
 source: {
 type: git,
@@ -17898,7 +17948,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_Client_Library-release.git',
-version: 0.1.1-1
+version: 0.2.0-1
 },
 source: {
 type: git,
@@ -18111,7 +18161,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/seqsense/urg_stamped-release.git',
-version: 0.0.10-1
+version: 0.0.11-1
 },
 source: {
 type: git,
@@ -18680,7 +18730,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/botsync-gbp/volta_simulation-release.git',
-version: 1.1.1-2
+version: 1.1.0-2
 },
 source: {
 type: git,
@@ -27854,17 +27904,18 @@ dynamic-graph-tutorial: <?xml version="1.0" ?>
 </package>
 -----
 dynamic_edt_3d: <?xml version="1.0" ?>
-<package>
+<package format="3">
 <name>dynamic_edt_3d</name>
 <description>The dynamicEDT3D library implements an inrementally updatable Euclidean distance transform (EDT) in 3D. It comes with a wrapper to use the OctoMap 3D representation and hooks into the change detection of the OctoMap library to propagate changes to the EDT.</description>
 <author email="sprunkc@informatik.uni-freiburg.de">Christoph Sprunk</author>
 <maintainer email="sprunkc@informatik.uni-freiburg.de">Christoph Sprunk</maintainer>
+<maintainer email="opensource@wolfgangmerkt.com">Wolfgang Merkt</maintainer>
 <license>BSD</license>
 <url type="website">http://octomap.github.io</url>
 <url type="bugtracker">https://github.com/OctoMap/octomap/issues</url>
-<build_depend>octomap</build_depend>
-<run_depend>octomap</run_depend>
-<run_depend>catkin</run_depend>
+<depend>octomap</depend>
+<exec_depend condition="$ROS_VERSION == 1">catkin</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">ament_cmake</exec_depend>
 <buildtool_depend>cmake</buildtool_depend>
 <export>
 <build_type>cmake</build_type>
@@ -32192,6 +32243,31 @@ genmsg: "<?xml version=\"1.0\" ?>
 </export>
 </package>"
 -----
+genmypy: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
+<name>genmypy</name>
+<description>Python stub generator from genmsg specs</description>
+<maintainer email=\"me@bonprosoft.com\">Yuki Igarashi</maintainer>
+<maintainer email=\"otamachan@gmail.com\">Tamaki Nishino</maintainer>
+<license>Apache License,
+Version 2.0</license>
+<url type=\"website\">https://github.com/rospypi/genmypy</url>
+<url type=\"bugtracker\">https://github.com/rospypi/genmypy/issues</url>
+<url type=\"repository\">https://github.com/rospypi/genmypy</url>
+<author>Yuki Igarashi</author>
+<author>Tamaki Nishino</author>
+<depend>genmsg</depend>
+<depend>genpy</depend>
+<buildtool_depend version_gte=\"0.5.74\">catkin</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<export>
+<message_generator>mypy</message_generator>
+<architecture_independent/>
+</export>
+</package>"
+-----
 gennodejs: <?xml version="1.0" ?>
 <package>
 <name>gennodejs</name>
@@ -32550,6 +32626,27 @@ goal_passer: <?xml version="1.0" ?>
 <export>
 <nav_core plugin="${prefix}/bgp_plugin.xml"/>
 </export>
+</package>
+-----
+gpio_control: <?xml version="1.0" ?>
+<package format="2">
+<name>gpio_control</name>
+<description>Control GPIO pins on Raspberry Pi,
+Nvidia Jetson,
+and other Linux devices with GPIO pins</description>
+<maintainer email="christopher.thierauf@tufts.edu">cst</maintainer>
+<license>Apache 2.0</license>
+<url type="website">https://github.com/cst0/gpio_control</url>
+<build_depend>message_generation</build_depend>
+<build_depend>rospy</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_export_depend>rospy</build_export_depend>
+<build_export_depend>std_msgs</build_export_depend>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>message_runtime</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<export/>
 </package>
 -----
 gps_common: <?xml version="1.0" ?>
@@ -39885,8 +39982,8 @@ leo_bringup: <?xml version="1.0" ?>
 <package format="2">
 <name>leo_bringup</name>
 <description>Scripts and launch files for starting basic Leo Rover functionalities.</description>
-<maintainer email="blazej@turtlerover.com">Błażej Sowa</maintainer>
-<author email="blazej@turtlerover.com">Błażej Sowa</author>
+<maintainer email="support@fictionlab.pl">Fictionlab</maintainer>
+<author email="blazej@fictionlab.pl">Błażej Sowa</author>
 <license>MIT</license>
 <url type="website">http://wiki.ros.org/leo_bringup</url>
 <url type="bugtracker">https://github.com/LeoRover/leo_robot/issues</url>
@@ -39940,8 +40037,8 @@ leo_fw: <?xml version="1.0" ?>
 <package format="3">
 <name>leo_fw</name>
 <description>Firmware binary releases and update script for Leo Rover</description>
-<maintainer email="blazej@turtlerover.com">Błażej Sowa</maintainer>
-<author email="blazej@turtlerover.com">Błażej Sowa</author>
+<maintainer email="support@fictionlab.pl">Fictionlab</maintainer>
+<author email="blazej@fictionlab.pl">Błażej Sowa</author>
 <license>MIT</license>
 <url type="website">http://wiki.ros.org/leo_fw</url>
 <url type="bugtracker">https://github.com/LeoRover/leo_robot/issues</url>
@@ -39993,8 +40090,8 @@ leo_robot: <?xml version="1.0" ?>
 <package format="2">
 <name>leo_robot</name>
 <description>Metapackage of software to install on Leo Rover.</description>
-<maintainer email="blazej@turtlerover.com">Błażej Sowa</maintainer>
-<author email="blazej@turtlerover.com">Błażej Sowa</author>
+<maintainer email="support@fictionlab.pl">Fictionlab</maintainer>
+<author email="blazej@fictionlab.pl">Błażej Sowa</author>
 <license>MIT</license>
 <url type="website">http://wiki.ros.org/leo_robot</url>
 <url type="bugtracker">https://github.com/LeoRover/leo_robot/issues</url>
@@ -44344,7 +44441,8 @@ movie_publisher: <?xml version="1.0" ?>
 <description>Node for using a video file as video topic source.</description>
 <maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
 <license>BSD</license>
-<author>Martin Pecka</author>
+<url type="website">http://www.ros.org/wiki/movie_publisher</url>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>cv_bridge</exec_depend>
 <exec_depend>ffmpeg</exec_depend>
@@ -47227,17 +47325,19 @@ ocean_battery_driver: <?xml version="1.0" ?>
 </package>
 -----
 octomap: <?xml version="1.0" ?>
-<package>
+<package format="3">
 <name>octomap</name>
 <description>The OctoMap library implements a 3D occupancy grid mapping approach,
 providing data structures and mapping algorithms in C++. The map implementation is based on an octree. See http://octomap.github.io for details.</description>
 <author email="wurm@informatik.uni-freiburg.de">Kai M. Wurm</author>
 <author email="armin@hornung.io">Armin Hornung</author>
 <maintainer email="armin@hornung.io">Armin Hornung</maintainer>
+<maintainer email="opensource@wolfgangmerkt.com">Wolfgang Merkt</maintainer>
 <license>BSD</license>
 <url type="website">http://octomap.github.io</url>
 <url type="bugtracker">https://github.com/OctoMap/octomap/issues</url>
-<run_depend>catkin</run_depend>
+<exec_depend condition="$ROS_VERSION == 1">catkin</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">ament_cmake</exec_depend>
 <buildtool_depend>cmake</buildtool_depend>
 <export>
 <build_type>cmake</build_type>
@@ -47379,28 +47479,31 @@ and provides map saving in the node octomap_saver.</description>
 </package>
 -----
 octovis: <?xml version="1.0" ?>
-<package>
+<package format="3">
 <name>octovis</name>
 <description>octovis is visualization tool for the OctoMap library based on Qt and libQGLViewer. See http://octomap.github.io for details.</description>
 <author email="wurm@informatik.uni-freiburg.de">Kai M. Wurm</author>
 <author email="armin@hornung.io">Armin Hornung</author>
 <maintainer email="armin@hornung.io">Armin Hornung</maintainer>
+<maintainer email="opensource@wolfgangmerkt.com">Wolfgang Merkt</maintainer>
 <license>GPLv2</license>
 <url type="website">http://octomap.github.io</url>
 <url type="bugtracker">https://github.com/OctoMap/octomap/issues</url>
-<run_depend>catkin</run_depend>
+<exec_depend condition="$ROS_VERSION == 1">catkin</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">ament_cmake</exec_depend>
 <buildtool_depend>cmake</buildtool_depend>
 <export>
 <build_type>cmake</build_type>
 </export>
 <build_depend>octomap</build_depend>
-<build_depend>libqglviewer-qt4-dev</build_depend>
-<build_depend>libqt4-dev</build_depend>
-<build_depend>libqt4-opengl-dev</build_depend>
-<run_depend>octomap</run_depend>
-<run_depend>libqglviewer-qt4</run_depend>
-<run_depend>libqtgui4</run_depend>
-<run_depend>libqt4-opengl</run_depend>
+<build_depend>libqglviewer-dev-qt5</build_depend>
+<build_depend>libqt5-core</build_depend>
+<build_depend>libqt5-opengl-dev</build_depend>
+<exec_depend>octomap</exec_depend>
+<exec_depend>libqglviewer2-qt5</exec_depend>
+<exec_depend>libqt5-core</exec_depend>
+<exec_depend>libqt5-gui</exec_depend>
+<exec_depend>libqt5-opengl</exec_depend>
 </package>
 -----
 odom_frame_publisher: <?xml version="1.0" ?>
@@ -52984,6 +53087,33 @@ psen_scan: <?xml version="1.0" ?>
 <test_depend>rosunit</test_depend>
 <test_depend>roslaunch</test_depend>
 <test_depend>pilz_testutils</test_depend>
+</package>
+-----
+psen_scan_v2: <?xml version="1.0" ?>
+<package format="2">
+<name>psen_scan_v2</name>
+<description>ROS support for the Pilz laser scanner</description>
+<maintainer email="a.gutenkunst@pilz.de">Alexander Gutenkunst</maintainer>
+<maintainer email="c.doehn@pilz.de">Christian Döhn</maintainer>
+<maintainer email="c.henkel@pilz.de">Christian Henkel</maintainer>
+<maintainer email="i.martini@pilz.de">Immanuel Martini</maintainer>
+<maintainer email="r.feistenauer@pilz.de">Richard Feistenauer</maintainer>
+<license>LGPLv3</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>fmt</depend>
+<depend>roscpp</depend>
+<depend>sensor_msgs</depend>
+<depend>rosconsole_bridge</depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>roslaunch</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<test_depend>code_coverage</test_depend>
+<test_depend>rostest</test_depend>
+<test_depend>rosunit</test_depend>
+<test_depend>roslaunch</test_depend>
+<test_depend>pilz_testutils</test_depend>
+<test_depend>rosbag</test_depend>
 </package>
 -----
 px4_msgs: <?xml version="1.0" ?>
@@ -58608,7 +58738,10 @@ rosmsg: "<?xml version=\"1.0\" ?>
 <exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
 <exec_depend>rosbag</exec_depend>
 <exec_depend>roslib</exec_depend>
+<test_depend>rostest</test_depend>
 <test_depend>std_msgs</test_depend>
+<test_depend>std_srvs</test_depend>
+<test_depend>diagnostic_msgs</test_depend>
 <export>
 <rosdoc config=\"rosdoc.yaml\"/>
 <architecture_independent/>
@@ -63929,15 +64062,17 @@ stag_ros: <?xml version="1.0" ?>
 <build_depend>cv_bridge</build_depend>
 <build_depend>geometry_msgs</build_depend>
 <build_depend>image_transport</build_depend>
+<build_depend>message_generation</build_depend>
+<build_depend>nodelet</build_depend>
 <build_depend>roscpp</build_depend>
 <build_depend>sensor_msgs</build_depend>
 <build_depend>std_msgs</build_depend>
 <build_depend>tf</build_depend>
-<build_depend>nodelet</build_depend>
 <build_export_depend>camera_info_manager</build_export_depend>
 <build_export_depend>cv_bridge</build_export_depend>
 <build_export_depend>geometry_msgs</build_export_depend>
 <build_export_depend>image_transport</build_export_depend>
+<build_export_depend>message_generation</build_export_depend>
 <build_export_depend>roscpp</build_export_depend>
 <build_export_depend>sensor_msgs</build_export_depend>
 <build_export_depend>std_msgs</build_export_depend>
@@ -63946,11 +64081,12 @@ stag_ros: <?xml version="1.0" ?>
 <exec_depend>cv_bridge</exec_depend>
 <exec_depend>geometry_msgs</exec_depend>
 <exec_depend>image_transport</exec_depend>
+<exec_depend>message_runtime</exec_depend>
+<exec_depend>nodelet</exec_depend>
 <exec_depend>roscpp</exec_depend>
 <exec_depend>sensor_msgs</exec_depend>
 <exec_depend>std_msgs</exec_depend>
 <exec_depend>tf</exec_depend>
-<exec_depend>nodelet</exec_depend>
 <export>
 <nodelet plugin="${prefix}/stag_nodelet.xml"/>
 </export>
@@ -69610,9 +69746,8 @@ volta_simulation: <?xml version="1.0" ?>
 <description>The volta_simulation package</description>
 <author email="nikhil@botsync.co">Nikhil Venkatesh</author>
 <author email="mahendra.l@botsync.co">Mahendra L Seervi</author>
-<maintainer email="nikhil@botsync.co">Nikhil Venkatesh</maintainer>
-<maintainer email="toship.s@botsync.co">Toship</maintainer>
-<license>BSD</license>
+<maintainer email="mahendra.l@botsync.co">Mahendra L Seervi</maintainer>
+<license>BSD-3-Clause</license>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>roslaunch</build_depend>
 <exec_depend>controller_manager</exec_depend>
