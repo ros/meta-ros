@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 DEPENDS_append_class-target = " chrpath-replacement-native"
 
@@ -20,3 +20,14 @@ do_install_append() {
 inherit ros_insane_dev_so
 # ERROR: octomap-1.9.0-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: octomap path '/work/aarch64-oe-linux/octomap/1.9.0-1-r0/packages-split/octomap/usr/lib/liboctomath.so'
 # non -dev/-dbg/nativesdk- package contains symlink .so: octomap path '/work/aarch64-oe-linux/octomap/1.9.0-1-r0/packages-split/octomap/usr/lib/liboctomap.so' [dev-so]
+
+# ERROR: octomap-1.9.7-1-r0 do_package: QA Issue: octomap: Files/directories were installed but not shipped in any package:
+#   /usr/share/ament_index
+#   /usr/share/ament_index/resource_index
+#   /usr/share/ament_index/resource_index/packages
+#   /usr/share/ament_index/resource_index/packages/octomap
+# Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
+# octomap: 4 installed and not shipped files. [installed-vs-shipped]
+do_install_append() {
+    rm -rf ${D}${datadir}/ament_index
+}
