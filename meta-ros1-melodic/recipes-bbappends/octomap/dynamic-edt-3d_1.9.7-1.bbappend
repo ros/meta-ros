@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 # WARNING: dynamic-edt-3d-1.9.0-1-r0 do_package: QA Issue: dynamic-edt-3d: Files/directories were installed but not shipped in any package:
 #   /usr/share/dynamicEDT3D
@@ -18,4 +18,15 @@ DEPENDS_append_class-target = " chrpath-replacement-native"
 
 do_install_append() {
     chrpath --delete ${D}${libdir}/*${SOLIBS}
+}
+
+# ERROR: dynamic-edt-3d-1.9.7-1-r0 do_package: QA Issue: dynamic-edt-3d: Files/directories were installed but not shipped in any package:
+#   /usr/share/ament_index
+#   /usr/share/ament_index/resource_index
+#   /usr/share/ament_index/resource_index/packages
+#   /usr/share/ament_index/resource_index/packages/dynamicEDT3D
+# Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
+# dynamic-edt-3d: 4 installed and not shipped files. [installed-vs-shipped]
+do_install_append() {
+    rm -rf ${D}${datadir}/ament_index
 }
