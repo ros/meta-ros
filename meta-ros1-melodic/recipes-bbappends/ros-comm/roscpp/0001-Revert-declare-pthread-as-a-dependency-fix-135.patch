@@ -1,0 +1,342 @@
+From 39537c88ed91af7e3378d84348a7410da3152c2c Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 19 May 2021 01:14:43 -0700
+Subject: [PATCH] Revert "declare pthread as a dependency (fix #135)"
+
+This reverts commit c5dfa6305e883f76dc2aa52d27d2977e3d66ea2e.
+
+Don't explicitly link with libpthread as when building roscpp-native
+it tries to find libphtread in the native sysroot, but there is no
+glibc-native recipe, it doesn't look in the host paths, so the search
+fails as shown when building rosout-native:
+
+because CMAKE_FIND_ROOT_PATH is set in rosout-native/1.14.11-1-r0/toolchain.cmake like this:
+  # only search in the paths provided so cmake doesnt pick
+  # up libraries and tools from the native build machine
+  set( CMAKE_FIND_ROOT_PATH  /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native     /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools)
+so it won't search in the host system libdir in the 2nd find_library call,
+another solution might be to set OECMAKE_EXTRA_ROOT_PATH in rosout-native
+but looks like we don't need to explictly link with pthread, so just drop this.
+
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(143):  if(pthread MATCHES ^(debug|optimized|general)$ )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(145):  elseif(pthread MATCHES ^-l )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(147):  elseif(pthread MATCHES ^- )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(170):  elseif(TARGET pthread )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(172):  elseif(IS_ABSOLUTE pthread AND CMAKE_CROSSCOMPILING )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(185):  elseif(IS_ABSOLUTE pthread )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(187):  else()
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(188):  set(lib_path  )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(189):  set(lib lib-NOTFOUND )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(191):  foreach(path /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib;/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(192):  find_library(lib pthread PATHS /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib NO_DEFAULT_PATH  )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+CMake Debug Log at /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake:192 (find_library):
+  find_library called with the following settings:
+
+    VAR: lib
+    NAMES: "pthread"
+    Documentation: Path to a library.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 0
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 0
+    NO_DEFAULT_PATH Enabled
+
+  find_library considered the following locations:
+
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib/(lib)pthread(\.so|\.a)
+
+  The item was not found.
+
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake:76 (find_package)
+  CMakeLists.txt:8 (find_package)
+
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(195):  if(lib )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(192):  find_library(lib pthread PATHS /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib NO_DEFAULT_PATH  )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+CMake Debug Log at /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake:192 (find_library):
+  find_library called with the following settings:
+
+    VAR: lib
+    NAMES: "pthread"
+    Documentation: Path to a library.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 0
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 0
+    NO_DEFAULT_PATH Enabled
+
+  find_library considered the following locations:
+
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib/(lib)pthread(\.so|\.a)
+
+  The item was not found.
+
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake:76 (find_package)
+  CMakeLists.txt:8 (find_package)
+
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(195):  if(lib )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(200):  if(lib )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(203):  else()
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(205):  find_library(lib pthread )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+CMake Debug Log at /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake:205 (find_library):
+  find_library called with the following settings:
+
+    VAR: lib
+    NAMES: "pthread"
+    Documentation: Path to a library.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 0
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 0
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_library considered the following locations:
+
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/devel/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/devel/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/devel/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/webos-melodic-honister/openembedded-core/scripts/native-intercept/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/sysroots-uninative/x86_64-linux/usr/bin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/bin/python-native/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/webos-melodic-honister/meta-webosose/meta-webos/scripts/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/webos-melodic-honister/openembedded-core/scripts/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/bin/x86_64-linux/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/bin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/sbin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/sbin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/bin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/webos-melodic-honister/bitbake/bin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/local/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/local/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/local/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/X11R6/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/X11R6/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/X11R6/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/pkg/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/pkg/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/pkg/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/opt/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/opt/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/opt/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/lib/X11/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/devel/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/devel/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/devel/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/openembedded-core/scripts/native-intercept/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/sysroots-uninative/x86_64-linux/usr/bin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/bin/python-native/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/meta-webosose/meta-webos/scripts/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/openembedded-core/scripts/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/bin/x86_64-linux/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/bin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/sbin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/sbin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/bin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/bitbake/bin/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/local/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/local/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/local/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/X11R6/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/X11R6/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/X11R6/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/pkg/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/pkg/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/pkg/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/opt/lib/x86_64-linux-gnu/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/opt/lib/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/opt/(lib)pthread(\.so|\.a)
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/hosttools/usr/lib/X11/(lib)pthread(\.so|\.a)
+
+  The item was not found.
+
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake:76 (find_package)
+  CMakeLists.txt:8 (find_package)
+
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(206):  if(NOT lib )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake(207):  message(FATAL_ERROR Project 'rosout' tried to find library 'pthread'.  The library is neither a target nor built/installed properly.  Did you compile project 'roscpp'?  Did you find_package() it before the subdirectory containing its code is included? )
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+CMake Error at /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake:207 (message):
+  Project 'rosout' tried to find library 'pthread'.  The library is neither a
+  target nor built/installed properly.  Did you compile project 'roscpp'? Did
+  you find_package() it before the subdirectory containing its code is
+  included?
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake:76 (find_package)
+  CMakeLists.txt:8 (find_package)
+
+   Called from: [3]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+                [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+CMake Debug Log at /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake:76 (find_package):
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/roscpp/cmake/roscppConfig.cmake
+
+Call Stack (most recent call first):
+  CMakeLists.txt:8 (find_package)
+
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+CMake Debug Log at /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake:76 (find_package):
+Call Stack (most recent call first):
+  CMakeLists.txt:8 (find_package)
+
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+CMake Debug Log at CMakeLists.txt:8 (find_package):
+  find_package considered the following paths for catkin.cmake
+
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/share/cmake/Modules/Findcatkin.cmake
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/share/cmake-3.20/Modules/Findcatkin.cmake
+
+  The file was not found.
+
+    /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/recipe-sysroot-native/usr/opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake
+
+   Called from: [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+CMake Debug Log at CMakeLists.txt:8 (find_package):
+
+   Called from: [1]	/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/git/CMakeLists.txt
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/x86_64-linux/rosout-native/1.14.11-1-r0/build/CMakeFiles/CMakeOutput.log".
+
+Upstream-Status: Pending
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 15 +--------------
+ 1 file changed, 1 insertion(+), 14 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fe506f1ffc..a7c3aa8786 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -40,22 +40,9 @@ add_service_files(
+ 
+ generate_messages()
+ 
+-set(PTHREAD_LIB "")
+-find_package(Threads)
+-if(CMAKE_THREAD_LIBS_INIT)
+-  string(LENGTH ${CMAKE_THREAD_LIBS_INIT} _length)
+-  if(_length GREATER 2)
+-    string(SUBSTRING ${CMAKE_THREAD_LIBS_INIT} 0 2 _prefix)
+-    if(${_prefix} STREQUAL "-l")
+-      math(EXPR _rest_len "${_length} - 2")
+-      string(SUBSTRING ${CMAKE_THREAD_LIBS_INIT} 2 ${_rest_len} PTHREAD_LIB)
+-    endif()
+-  endif()
+-endif()
+-
+ catkin_package(
+   INCLUDE_DIRS include ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros
+-  LIBRARIES roscpp ${PTHREAD_LIB}
++  LIBRARIES roscpp
+   CATKIN_DEPENDS cpp_common message_runtime rosconsole roscpp_serialization roscpp_traits rosgraph_msgs rostime std_msgs xmlrpcpp
+   DEPENDS Boost
+ )
