@@ -1,0 +1,51 @@
+From 512200f854f8733c611c9c2911bce34510908c98 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 20 May 2021 07:25:56 +0000
+Subject: [PATCH] Movebasic.cfg: don't try to load move_basic manifest
+
+* when executed during the build it fails to find itself in the sysroot
+  because it wasn't built and staged yet, I guess in native build
+  it will be found in local workspace but in cross-compile setup it fails with:
+
+ERROR: move-basic-0.4.1-1-r0 do_compile: Execution of '/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/temp/run.do_compile.39052' failed with exit code 1:
+[1/5] cd /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/build && /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/build/catkin_generated/env_cached.sh /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/build/setup_custom_pythonpath.sh /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/git/cfg/Movebasic.cfg /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/recipe-sysroot/usr/opt/ros/melodic/share/dynamic_reconfigure/cmake/.. /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/share/move_basic /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/include/move_basic /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/lib/python2.7/site-packages/move_basic
+FAILED: /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/include/move_basic/MovebasicConfig.h /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/share/move_basic/docs/MovebasicConfig.dox /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/share/move_basic/docs/MovebasicConfig-usage.dox /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/lib/python2.7/site-packages/move_basic/cfg/MovebasicConfig.py /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/share/move_basic/docs/MovebasicConfig.wikidoc
+cd /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/build && /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/build/catkin_generated/env_cached.sh /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/build/setup_custom_pythonpath.sh /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/git/cfg/Movebasic.cfg /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/recipe-sysroot/usr/opt/ros/melodic/share/dynamic_reconfigure/cmake/.. /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/share/move_basic /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/include/move_basic /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/devel/lib/python2.7/site-packages/move_basic
+Traceback (most recent call last):
+  File "/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/git/cfg/Movebasic.cfg", line 4, in <module>
+    import roslib; roslib.load_manifest(PACKAGE)
+  File "/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib/python2.7/site-packages/roslib/launcher.py", line 64, in load_manifest
+    sys.path = _generate_python_path(package_name, _rospack) + sys.path
+  File "/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/recipe-sysroot/usr/opt/ros/melodic/lib/python2.7/site-packages/roslib/launcher.py", line 97, in _generate_python_path
+    m = rospack.get_manifest(pkg)
+  File "/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/recipe-sysroot/usr/lib/python2.7/site-packages/rospkg/rospack.py", line 171, in get_manifest
+    return self._load_manifest(name)
+  File "/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/recipe-sysroot/usr/lib/python2.7/site-packages/rospkg/rospack.py", line 215, in _load_manifest
+    retval = self._manifests[name] = parse_manifest_file(self.get_path(name), self._manifest_name, rospack=self)
+  File "/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/recipe-sysroot/usr/lib/python2.7/site-packages/rospkg/rospack.py", line 207, in get_path
+    raise ResourceNotFound(name, ros_paths=self._ros_paths)
+rospkg.common.ResourceNotFound: move_basic
+ROS path [0]=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/move-basic/0.4.1-1-r0/recipe-sysroot/usr/opt/ros/melodic/share/ros
+ninja: build stopped: subcommand failed.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cfg/Movebasic.cfg | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/cfg/Movebasic.cfg b/cfg/Movebasic.cfg
+index 2af8900..4d87274 100755
+--- a/cfg/Movebasic.cfg
++++ b/cfg/Movebasic.cfg
+@@ -1,7 +1,8 @@
+ #!/usr/bin/env python2
+ PACKAGE = "move_basic"
+ 
+-import roslib; roslib.load_manifest(PACKAGE)
++import roslib
++# roslib.load_manifest(PACKAGE)
+ from dynamic_reconfigure.parameter_generator_catkin import *
+ 
+ gen = ParameterGenerator()
