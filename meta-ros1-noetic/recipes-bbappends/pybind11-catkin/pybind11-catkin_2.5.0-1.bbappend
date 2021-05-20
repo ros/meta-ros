@@ -1,4 +1,14 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
+
+# Instead of fetching
+# https://github.com/pybind/pybind11/archive/v2.4.3.zip with curl
+# during do_compile
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-CMakeLists.txt-fetch-pybind11-with-bitbake-fetcher.patch \
+    git://github.com/pybind/pybind11.git;protocol=https;name=pybind11-upstream;destsuffix=git/pybind11-upstream \
+"
+
+SRCREV_pybind11-upstream = "aa56a0e4a40af9ff27dd5b4d283d29bc64c19088"
 
 # Otherwise picks native python instead of the target one and fails with:
 # | Re-run cmake no build system arguments
@@ -7,5 +17,4 @@
 # | Call Stack (most recent call first):
 # |   tools/pybind11Tools.cmake:16 (find_package)
 # |   CMakeLists.txt:33 (include)
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-pybind11-catkin-don-t-build-pybind11-use-platform-re.patch"
+SRC_URI += "file://0001-pybind11-tools-FindPythonLibsNew.cmake-ignore-pointe.patch;patchdir=pybind11-upstream"
