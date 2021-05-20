@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 DESCRIPTION = "All non-test packages for the target from files/crystal/cache.yaml"
 LICENSE = "MIT"
@@ -12,6 +12,11 @@ inherit ros_distro_melodic
 PACKAGES = "${PN}"
 
 RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
+
+# Provides the same library as prbt-ikfast-manipulator-plugin:
+# webos-image-ros-world/1.0-r3/rootfs/usr/opt/ros/melodic/lib/libprbt_manipulator_moveit_ikfast_plugin.so
+# with some patches applied on top of prbt-ikfast-manipulator-plugin source
+RDEPENDS_${PN}_remove = "moveit-resources-prbt-ikfast-manipulator-plugin"
 
 # Requires Python 3; it is not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "catkin-virtualenv"
