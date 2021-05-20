@@ -1,4 +1,4 @@
-From fdd5fb9e3a34e12c8f3a038d70cbf595214be9c8 Mon Sep 17 00:00:00 2001
+From 3e18076a18576a4e66172afd5ab2174e7a29352d Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 20 May 2021 04:18:33 -0700
 Subject: [PATCH] CMakeLists.txt: fetch pybind11 with bitbake fetcher
@@ -11,14 +11,14 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e06db80..3176799 100644
+index 5c3ce83..4734bae 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -5,11 +5,12 @@ find_package(catkin REQUIRED)
  include(ExternalProject)
  
  ExternalProject_Add(pybind11_src
--  URL "https://github.com/pybind/pybind11/archive/v2.4.3.zip"
+-  URL "https://github.com/pybind/pybind11/archive/v2.5.0.zip"
 +  SOURCE_DIR ${PROJECT_SOURCE_DIR}/pybind11-upstream
    UPDATE_COMMAND ""
    CMAKE_ARGS -DPYBIND11_PYTHON_VERSION=${PYTHON_VERSION_STRING}
