@@ -52,3 +52,11 @@ FILES_${PN} += "${ros_libdir}/*${SOLIBS}"
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/core2-64-oe-linux/moveit-core/1.0.2-1-r0/packages-split/moveit-core/opt/ros/melodic/lib/libmoveit_planning_request_adapter.so'
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/core2-64-oe-linux/moveit-core/1.0.2-1-r0/packages-split/moveit-core/opt/ros/melodic/lib/libmoveit_robot_trajectory.so' [dev-so]
 inherit ros_insane_dev_so
+
+# WARNING: moveit-core-1.1.2-1-r0 do_populate_sysroot: File '/usr/opt/ros/melodic/lib/python3.9/site-packages/pymoveit_core.cpython-39-i386-linux-gnu.so' from moveit-core was already stripped, this will prevent future debugging!
+# ERROR: moveit-core-1.1.2-1-r0 do_package: QA Issue: File '/usr/opt/ros/melodic/lib/python3.9/site-packages/pymoveit_core.cpython-39-i386-linux-gnu.so' from moveit-core was already stripped, this will prevent future debugging! [already-stripped]
+# ERROR: moveit-core-1.1.2-1-r0 do_package: Fatal QA errors found, failing task.
+# ERROR: Logfile of failure stored in: /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/moveit-core/1.1.2-1-r0/temp/log.do_package.76471
+# ERROR: Task (/jenkins/mjansa/build/ros/webos-melodic-honister/meta-ros/meta-ros1-melodic/generated-recipes/moveit/moveit-core_1.1.2-1.bb:do_package) failed with exit code '1'
+# function(pybind11_add_module target_name) in recipe-sysroot/usr/opt/ros/melodic/share/pybind11_catkin/cmake/pybind11Tools.cmake uses CMAKE_STRIP variable
+EXTRA_OECMAKE += "-DCMAKE_STRIP=OFF"
