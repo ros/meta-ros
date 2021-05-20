@@ -24,6 +24,11 @@ RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 # depend on it
 RDEPENDS_${PN} += "opencv-apps-ros"
 
+# Provides the same library as prbt-ikfast-manipulator-plugin:
+# webos-image-ros-world/1.0-r3/rootfs/usr/opt/ros/noetic/lib/libprbt_manipulator_moveit_ikfast_plugin.so
+# with some patches applied on top of prbt-ikfast-manipulator-plugin source
+RDEPENDS_${PN}_remove = "moveit-resources-prbt-ikfast-manipulator-plugin"
+
 # Requires Python 3; it is not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "catkin-virtualenv"
 # Depends on blacklisted catkin-virtualenv
