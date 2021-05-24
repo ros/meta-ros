@@ -16,4 +16,5 @@ DEPENDS_remove_class-native = "gcc-runtime-native gcc-runtime"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-IceoryxPackageHelper.cmake-change-DESTINATION_CONFIG.patch \
     file://0001-Fix-build-with-gcc-11.patch \
+    file://0001-Revert-iox-713-document-the-restrictions-on-size-and.patch \
 "
