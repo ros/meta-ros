@@ -3,13 +3,13 @@
 #
 # Copyright Open Source Robotics Foundation
 
-inherit ros_distro_rolling
+inherit ros_distro_galactic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Tools for setting up tracing sessions."
+DESCRIPTION = "Launch integration for tracing."
 AUTHOR = "Christophe Bedard <bedard.christophe@gmail.com>"
 ROS_AUTHOR = "Christophe Bedard <fixed-term.christophe.bourquebedard@de.bosch.com>"
-HOMEPAGE = "https://index.ros.org/p/tracetools_trace/"
+HOMEPAGE = "https://index.ros.org/p/tracetools_launch/"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache 2.0"
@@ -17,18 +17,28 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "ros2_tracing"
-ROS_BPN = "tracetools_trace"
+ROS_BPN = "tracetools_launch"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    launch \
+    launch-ros \
+    tracetools-trace \
+"
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    launch \
+    launch-ros \
+    tracetools-trace \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    lttng-tools \
+    launch \
+    launch-ros \
+    tracetools-trace \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -48,10 +58,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/rolling/tracetools_trace/2.3.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/tracetools_trace"
-SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "b42f86626813e2a05a363b91acc32d3ac2f12a42"
+# matches with: https://github.com/ros2-gbp/ros2_tracing-release/archive/release/galactic/tracetools_launch/2.3.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/galactic/tracetools_launch"
+SRC_URI = "git://github.com/ros2-gbp/ros2_tracing-release;${ROS_BRANCH};protocol=https"
+SRCREV = "e697d6dbb1d99d750c4c22ab04a051e543910779"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
