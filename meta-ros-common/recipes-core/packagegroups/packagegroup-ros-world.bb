@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 DESCRIPTION = "All non-test packages for the target from files/${ROS_DISTRO}/cache.yaml"
 LICENSE = "MIT"
@@ -14,5 +14,6 @@ RDEPENDS_${PN} += "\
     ${@ 'packagegroup-ros-world-dashing' if 'ros2-dashing-layer' in BBFILE_COLLECTIONS.split() else '' } \
     ${@ 'packagegroup-ros-world-eloquent' if 'ros2-eloquent-layer' in BBFILE_COLLECTIONS.split() else '' } \
     ${@ 'packagegroup-ros-world-foxy' if 'ros2-foxy-layer' in BBFILE_COLLECTIONS.split() else '' } \
+    ${@ 'packagegroup-ros-world-galactic' if 'ros2-galactic-layer' in BBFILE_COLLECTIONS.split() else '' } \
     ${@ 'packagegroup-ros-world-rolling' if 'ros2-rolling-layer' in BBFILE_COLLECTIONS.split() else '' } \
 "
