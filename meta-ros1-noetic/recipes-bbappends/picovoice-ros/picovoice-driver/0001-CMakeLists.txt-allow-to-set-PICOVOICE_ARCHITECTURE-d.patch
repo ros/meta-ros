@@ -1,0 +1,45 @@
+From b82b2158b540a3204e0a43e96f36f6262e2dc79f Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 12 Apr 2021 12:39:11 -0700
+Subject: [PATCH] CMakeLists.txt: allow to set PICOVOICE_ARCHITECTURE directly
+ instead of detection through CMAKE_SYSTEM_PROCESSOR
+
+* there are prebuilt libraries only for 3 architectures:
+  picovoice-driver/0.0.4-1-r0/git$ ls extern/picovoice/lib/
+  aarch64  armv7l  x86_64
+
+* assign the right PICOVOICE_ARCHITECTURE in EXTRA_OECMAKE ando
+  prevent building for other architectures with COMPATIBLE_MACHINE.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cd12483..b175d5d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -29,9 +29,15 @@ find_package(LIBSNDFILE REQUIRED)
+ 
+ set(PICOVOICE_DIR extern/picovoice)
+ set(PICOVOICE_INCLUDE_DIRS ${PICOVOICE_DIR}/include)
++message(STATUS "PICOVOICE_ARCHITECTURE : ${PICOVOICE_ARCHITECTURE}")
++if(NOT DEFINED PICOVOICE_ARCHITECTURE)
++  message(STATUS "Detecting PICOVOICE_ARCHITECTURE from CMAKE_SYSTEM_PROCESSOR : ${CMAKE_SYSTEM_PROCESSOR}")
++  set(PICOVOICE_ARCHITECTURE ${CMAKE_SYSTEM_PROCESSOR})
++endif()
++
+ set(PICOVOICE_LIBRARIES
+-  ${PROJECT_SOURCE_DIR}/${PICOVOICE_DIR}/lib/${CMAKE_SYSTEM_PROCESSOR}/libpv_porcupine.so
+-  ${PROJECT_SOURCE_DIR}/${PICOVOICE_DIR}/lib/${CMAKE_SYSTEM_PROCESSOR}/libpv_rhino.so
++  ${PROJECT_SOURCE_DIR}/${PICOVOICE_DIR}/lib/${PICOVOICE_ARCHITECTURE}/libpv_porcupine.so
++  ${PROJECT_SOURCE_DIR}/${PICOVOICE_DIR}/lib/${PICOVOICE_ARCHITECTURE}/libpv_rhino.so
+ )
+ 
+ include_directories(
+-- 
+2.17.1
+
