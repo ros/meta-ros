@@ -3,7 +3,7 @@
 #
 # Copyright Open Source Robotics Foundation
 
-inherit ros_distro_rolling
+inherit ros_distro_galactic
 inherit ros_superflore_generated
 
 DESCRIPTION = "Tools for reading traces."
@@ -48,10 +48,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/rolling/tracetools_read/2.3.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/tracetools_read"
-SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
-SRCREV = "88b9bb2b4b9016cd139fb1a4106dbed17547b9af"
+# matches with: https://github.com/ros2-gbp/ros2_tracing-release/archive/release/galactic/tracetools_read/2.3.0-2.tar.gz
+ROS_BRANCH ?= "branch=release/galactic/tracetools_read"
+SRC_URI = "git://github.com/ros2-gbp/ros2_tracing-release;${ROS_BRANCH};protocol=https"
+SRCREV = "d7cc0c1e4c81e7931338b9414063ecada415b625"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
