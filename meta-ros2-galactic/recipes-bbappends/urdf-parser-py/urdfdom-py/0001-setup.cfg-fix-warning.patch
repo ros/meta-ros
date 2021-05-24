@@ -1,0 +1,29 @@
+From 6c31fcf8d34f5ffa57f0bffe659ba88d1a3e3407 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 16 Apr 2021 08:15:47 +0000
+Subject: [PATCH] setup.cfg: fix warning
+
+DEBUG: Executing shell function do_install
+/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/urdfdom-py/1.1.0-1-r0/recipe-sysroot-native/usr/lib/python3.9/site-packages/setuptools/dist.py:634: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+  warnings.warn(
+/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/urdfdom-py/1.1.0-1-r0/recipe-sysroot-native/usr/lib/python3.9/site-packages/setuptools/dist.py:634: UserWarning: Usage of dash-separated 'install-scripts' will not be supported in future versions. Please use the underscore name 'install_scripts' instead
+  warnings.warn(
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ setup.cfg | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/setup.cfg b/setup.cfg
+index 2ca3729..e6ab973 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1,4 +1,4 @@
+ [develop]
+-script-dir=$base/share/urdfdom_py/scripts
++script_dir=$base/share/urdfdom_py/scripts
+ [install]
+-install-scripts=$base/share/urdfdom_py/scripts
++install_scripts=$base/share/urdfdom_py/scripts
