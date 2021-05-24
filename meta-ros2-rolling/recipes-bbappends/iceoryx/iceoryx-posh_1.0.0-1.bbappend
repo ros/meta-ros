@@ -27,4 +27,6 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "git://github.com/skystrife/cpptoml.git;name=cpptoml;destsuffix=git/cpptoml-upstream \
     file://0001-Fix-build-with-gcc-11.patch;patchdir=cpptoml-upstream \
     file://0001-cpptoml-fetch-with-bitbake-fetcher-instead-of-Extern.patch \
+    file://0001-Revert-iox-713-document-the-restrictions-on-size-and.patch \
+    file://0002-Revert-iox-14-add-member-to-ChunkHeader-reduce-its-a.patch \
 "
