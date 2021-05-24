@@ -1,4 +1,4 @@
-# foxy/ros-distro-recipe-blacklist.inc
+# galactic/ros-distro-recipe-blacklist.inc
 #
 # Copyright (c) 2020-2021 LG Electronics, Inc.
 
@@ -102,3 +102,22 @@ PNBLACKLIST[webots-ros2-tutorials] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROU
 PNBLACKLIST[webots-ros2-universal-robot] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'opengl', 'x11'], 'qt5: rdepends on rviz2 which depends on qtbase; opengl: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; x11: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on libx11,libxrandr,libxaw which require x11 in DISTRO_FEATURES', '', d)}"
 PNBLACKLIST[webots-ros2] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'opengl', 'x11', 'webots-python-modules'], 'qt5: rdepends on webots-ros2-universal-robot,webots-ros2-tiago which rdepends on rviz2 which depends on qtbase; opengl: rdepends on webots-ros2-universal-robot,webots-ros2-tiago which rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; x11: rdepends on webots-ros2-universal-robot,webots-ros2-tiago which rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on libx11,libxrandr,libxaw which require x11 in DISTRO_FEATURES; webots-python-modules: rdepends on webots-ros2-core which requires python-transforms3d-pip which is not available in OE yet and webots-ros2-importer which requires python3-collada-pip, urdf2webots-pip which are not available in OE yet', '', d)}"
 PNBLACKLIST[wiimote] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', 'Depends on unavailable ROS_UNRESOLVED_DEP-cwiid-dev', '', d)}"
+
+PNBLACKLIST[ros-ign-gazebo-demos] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', 'ignition: depends on unavailable ROS_UNRESOLVED_DEP-ignition-gazebo5', '', d)}"
+PNBLACKLIST[ros-ign-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', 'ignition: depends on unavailable ROS_UNRESOLVED_DEP-ignition-gazebo5, ROS_UNRESOLVED_DEP-ignition-math6', '', d)}"
+PNBLACKLIST[ros-ign-bridge] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', 'ignition: depends on unavailable ROS_UNRESOLVED_DEP-ignition-msgs7, ROS_UNRESOLVED_DEP-ignition-transport10', '', d)}"
+PNBLACKLIST[ros-ign-image] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', 'ignition: depends on unavailable ROS_UNRESOLVED_DEP-ignition-msgs7, ROS_UNRESOLVED_DEP-ignition-transport10', '', d)}"
+PNBLACKLIST[ros-ign] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', 'ignition: rdepends on ros-ign-image, ros-ign-bridge, ros-ign-gazebo which depend on unavailable ROS_UNRESOLVED_DEP-ignition-gazebo5, ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-msgs7, ROS_UNRESOLVED_DEP-ignition-transport10', '', d)}"
+PNBLACKLIST[ign-rviz-plugins] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', 'ignition: depends on unavailable ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-rendering5, ROS_UNRESOLVED_DEP-ignition-common4, ROS_UNRESOLVED_DEP-ignition-gui5', '', d)}"
+PNBLACKLIST[ign-rviz] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', 'ignition: depends on unavailable ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-common4, ROS_UNRESOLVED_DEP-ignition-gui5', '', d)}"
+PNBLACKLIST[ign-rviz-common] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', 'ignition: depends on unavailable ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-gui5', '', d)}"
+
+PNBLACKLIST[nav2-bringup] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'x11'], 'qt5: depends on slam-toolbox which depends on qtbase; x11: depends on slam-toolbox which depends on rviz-common->rviz-ogre-vendor->(libx11,libxrandr,libxaw) which require x11 in DISTRO_FEATURES', '', d)}"
+PNBLACKLIST[slam-toolbox] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'x11'], 'qt5: depends on qtbase; x11: depends on rviz-common->rviz-ogre-vendor->(libx11,libxrandr,libxaw) which require x11 in DISTRO_FEATURES', '', d)}"
+PNBLACKLIST[nav2-system-tests] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'x11'], 'qt5: depends on nav2-bringup which depends on slam-toolbox which depends on qtbase; x11: depends on nav2-bringup which depends on slam-toolbox which depends on rviz-common->rviz-ogre-vendor->(libx11,libxrandr,libxaw) which require x11 in DISTRO_FEATURES', '', d)}"
+
+PNBLACKLIST[nav2-rviz-plugins] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'x11'], 'qt5: depends on qtbase; x11: depends on rviz-ogre-vendor->(libx11,libxrandr,libxaw) which require x11 in DISTRO_FEATURES', '', d)}"
+PNBLACKLIST[navigation2] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'x11'], 'qt5: rdepends on nav2-rviz-plugins which depends on qtbase; x11: rdepends on nav2-rviz-plugins which depends on rviz-ogre-vendor->(libx11,libxrandr,libxaw) which require x11 in DISTRO_FEATURES', '', d)}"
+PNBLACKLIST[octovis] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'libqglviewer'], 'qt5: depends on qtbase which requires meta-qt5 to be included; libqglviewer: depends on libqglviewer2-qt5 which is not available', '', d)}"
+
+PNBLACKLIST[rqt-robot-dashboard] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'qt5: rdepends on rqt-gui-py which depends qt-gui which depends on qtbase; pyqt5: rdepends on rqt-gui-py which depends on qt-gui which depends on python3-pyqt5 which requires pyqt5', '', d)}"
