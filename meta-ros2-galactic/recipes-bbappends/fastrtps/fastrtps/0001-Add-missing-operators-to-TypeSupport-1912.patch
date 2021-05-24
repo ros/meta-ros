@@ -1,0 +1,66 @@
+From c717fe60e862b81a7aa3ed46e17114c36aafcd10 Mon Sep 17 00:00:00 2001
+From: Miguel Company <miguelcompany@eprosima.com>
+Date: Tue, 13 Apr 2021 15:02:54 +0200
+Subject: [PATCH] Add missing operators to TypeSupport (#1912)
+
+Upstream-Status: Backport [v2.3.01 https://github.com/eProsima/Fast-DDS/commit/d05d0cf2a78b8a1588e9f2d712e200fde62554dd]
+
+Signed-off-by: Miguel Company <MiguelCompany@eprosima.com>
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/fastdds/dds/topic/TypeSupport.hpp | 32 ++++++++++++++++-------
+ 1 file changed, 23 insertions(+), 9 deletions(-)
+
+diff --git a/include/fastdds/dds/topic/TypeSupport.hpp b/include/fastdds/dds/topic/TypeSupport.hpp
+index a17c503b..12bfd6cf 100644
+--- a/include/fastdds/dds/topic/TypeSupport.hpp
++++ b/include/fastdds/dds/topic/TypeSupport.hpp
+@@ -57,25 +57,39 @@ public:
+     using Base::operator ->;
+     using Base::operator *;
+     using Base::operator bool;
+-    using Base::operator =;
+ 
+     /**
+      * @brief Constructor
+      */
+-    RTPS_DllAPI TypeSupport()
+-        : std::shared_ptr<fastdds::dds::TopicDataType>(nullptr)
+-    {
+-    }
++    RTPS_DllAPI TypeSupport() noexcept = default;
+ 
+     /**
+      * @brief Copy Constructor
+      * @param type Another instance of TypeSupport
+      */
+     RTPS_DllAPI TypeSupport(
+-            const TypeSupport& type)
+-        : std::shared_ptr<fastdds::dds::TopicDataType>(type)
+-    {
+-    }
++            const TypeSupport& type) noexcept = default;
++
++    /**
++     * @brief Move Constructor
++     * @param type Another instance of TypeSupport
++     */
++    RTPS_DllAPI TypeSupport(
++            TypeSupport&& type) noexcept = default;
++
++    /**
++     * @brief Copy Assignment
++     * @param type Another instance of TypeSupport
++     */
++    RTPS_DllAPI TypeSupport& operator = (
++            const TypeSupport& type) noexcept = default;
++
++    /**
++     * @brief Move Assignment
++     * @param type Another instance of TypeSupport
++     */
++    RTPS_DllAPI TypeSupport& operator = (
++            TypeSupport&& type) noexcept = default;
+ 
+     /*!
+      * \brief TypeSupport constructor that receives a TopicDataType pointer.

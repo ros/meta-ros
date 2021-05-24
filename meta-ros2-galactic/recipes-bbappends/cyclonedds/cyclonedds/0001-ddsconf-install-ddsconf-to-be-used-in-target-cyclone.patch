@@ -1,0 +1,33 @@
+From 742fed824fcea547cabb70fa54dd9344d26c5e80 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 16 Apr 2021 05:14:03 -0700
+Subject: [PATCH] ddsconf: install ddsconf to be used in target cyclonedds
+ build
+
+* it is built by cyclonedds-native, but not installed so target cyclonedds was still failing with:
+  -- Found OpenSSL: /jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cyclonedds/0.8.0-3-r0/recipe-sysroot/usr/lib/libcrypto.so (found version "1.1.1k")
+  -- Building with OpenSSL support
+  CMake Error at src/tools/ddsconf/CMakeLists.txt:13 (find_program):
+    Could not find DDSCONF_EXECUTABLE using the following names: ddsconf
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/tools/ddsconf/CMakeLists.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/src/tools/ddsconf/CMakeLists.txt b/src/tools/ddsconf/CMakeLists.txt
+index b11783a..9be5eb9 100644
+--- a/src/tools/ddsconf/CMakeLists.txt
++++ b/src/tools/ddsconf/CMakeLists.txt
+@@ -37,4 +37,9 @@ else()
+     "${CMAKE_CURRENT_BINARY_DIR}/include"
+     $<BUILD_INTERFACE:$<TARGET_PROPERTY:ddsc,INCLUDE_DIRECTORIES>>
+     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
++  install(
++    TARGETS ddsconf
++    DESTINATION "${CMAKE_INSTALL_BINDIR}"
++    COMPONENT dev
++  )
+ endif()
