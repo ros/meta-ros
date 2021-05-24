@@ -29,6 +29,7 @@ EXTRA_OECMAKE_CATKIN = "\
     "
 
 EXTRA_OECMAKE_CATKIN_class-native = "\
+    -DPYTHON_EXECUTABLE_TARGET='/usr/bin/env python3' \
     -DCMAKE_PREFIX_PATH='${ros_prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
     -DRT_LIBRARY=${libdir_native} \
