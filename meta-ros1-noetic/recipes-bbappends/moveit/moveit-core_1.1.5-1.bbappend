@@ -60,3 +60,6 @@ inherit ros_insane_dev_so
 # ERROR: Task (/jenkins/mjansa/build/ros/webos-noetic-honister/meta-ros/meta-ros1-noetic/generated-recipes/moveit/moveit-core_1.1.2-1.bb:do_package) failed with exit code '1'
 # function(pybind11_add_module target_name) in recipe-sysroot/usr/opt/ros/noetic/share/pybind11_catkin/cmake/pybind11Tools.cmake uses CMAKE_STRIP variable
 EXTRA_OECMAKE += "-DCMAKE_STRIP=OFF"
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-collision_detection_bullet-respect-BULLET_CFLAGS.patch"
