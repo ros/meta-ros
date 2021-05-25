@@ -1,0 +1,35 @@
+From b0cdfa479528031772252ed64db59db453d5d2b7 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 28 May 2021 22:50:50 +0000
+Subject: [PATCH] collision_detection_bullet: respect BULLET_CFLAGS
+
+* otherwise -DBT_USE_DOUBLE_PRECISION is not respected here and then e.g. moveit-ros-occupancy-map-monitor
+  fails with:
+| /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/moveit-ros-occupancy-map-monitor/1.1.5-1-r0/recipe-sysroot/usr/opt/ros/noetic/lib/libmoveit_collision_detection_bullet.so: error: undefined reference to 'btConeShapeZ::btConeShapeZ(float, float)'
+| /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/moveit-ros-occupancy-map-monitor/1.1.5-1-r0/recipe-sysroot/usr/opt/ros/noetic/lib/libmoveit_collision_detection_bullet.so: error: undefined reference to 'btConvexHullComputer::compute(void const*, bool, int, int, float, float)'
+| /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/moveit-ros-occupancy-map-monitor/1.1.5-1-r0/recipe-sysroot/usr/opt/ros/noetic/lib/libmoveit_collision_detection_bullet.so: error: undefined reference to 'btConvexHullShape::btConvexHullShape(float const*, int, int)'
+| /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/moveit-ros-occupancy-map-monitor/1.1.5-1-r0/recipe-sysroot/usr/opt/ros/noetic/lib/libmoveit_collision_detection_bullet.so: error: undefined reference to 'btCollisionShape::getBoundingSphere(btVector3&, float&) const'
+| /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/moveit-ros-occupancy-map-monitor/1.1.5-1-r0/recipe-sysroot/usr/opt/ros/noetic/lib/libmoveit_collision_detection_bullet.so: error: undefined reference to 'btCollisionShape::getContactBreakingThreshold(float) const'
+| /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/moveit-ros-occupancy-map-monitor/1.1.5-1-r0/recipe-sysroot/usr/opt/ros/noetic/lib/libmoveit_collision_detection_bullet.so: error: undefined reference to 'btConvexShape::project(btTransform const&, btVector3 const&, float&, float&, btVector3&, btVector3&) const'
+| collect2: error: ld returned 1 exit status
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ collision_detection_bullet/CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/collision_detection_bullet/CMakeLists.txt b/collision_detection_bullet/CMakeLists.txt
+index 775fba1bd..397b10703 100644
+--- a/collision_detection_bullet/CMakeLists.txt
++++ b/collision_detection_bullet/CMakeLists.txt
+@@ -15,6 +15,8 @@ target_link_libraries(${MOVEIT_LIB_NAME} moveit_collision_detection
+     ${BULLET_LIBRARIES})
+ add_dependencies(${MOVEIT_LIB_NAME} ${catkin_EXPORTED_TARGETS})
+ 
++add_definitions(${BULLET_CFLAGS})
++
+ add_library(collision_detector_bullet_plugin src/collision_detector_bullet_plugin_loader.cpp)
+ set_target_properties(collision_detector_bullet_plugin PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+ target_link_libraries(collision_detector_bullet_plugin ${catkin_LIBRARIES} ${MOVEIT_LIB_NAME})
