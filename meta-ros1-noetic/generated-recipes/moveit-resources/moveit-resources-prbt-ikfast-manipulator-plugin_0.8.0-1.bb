@@ -5,52 +5,41 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "ROS Wrappers for the Picovoice libraries"
-AUTHOR = "Rein Appeldoorn <reinzor@gmail.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "The prbt_ikfast_manipulator_plugin package"
+AUTHOR = "Alexander Gutenkunst <a.gutenkunst@pilz.de>"
+HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
-ROS_CN = "picovoice-ros"
-ROS_BPN = "picovoice_driver"
+ROS_CN = "moveit_resources"
+ROS_BPN = "moveit_resources_prbt_ikfast_manipulator_plugin"
 
 ROS_BUILD_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
+    eigen-conversions \
+    moveit-core \
+    pluginlib \
     roscpp \
-    roslib \
+    tf2-eigen \
+    tf2-kdl \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
-    roscpp \
-    roslib \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
+    eigen-conversions \
+    moveit-core \
+    pluginlib \
     roscpp \
-    roslib \
+    tf2-kdl \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -63,10 +52,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/reinzor/picovoice_ros-release/archive/release/noetic/picovoice_driver/0.0.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/picovoice_driver"
-SRC_URI = "git://github.com/reinzor/picovoice_ros-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1706e6b220a72968aa70cedcb88fb16738c2b69f"
+# matches with: https://github.com/ros-gbp/moveit_resources-release/archive/release/noetic/moveit_resources_prbt_ikfast_manipulator_plugin/0.8.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_resources_prbt_ikfast_manipulator_plugin"
+SRC_URI = "git://github.com/ros-gbp/moveit_resources-release;${ROS_BRANCH};protocol=https"
+SRCREV = "f3fff32874eab9eabe1f639cadd02e06f900594a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
