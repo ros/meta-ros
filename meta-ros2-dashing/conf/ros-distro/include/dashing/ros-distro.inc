@@ -1,7 +1,7 @@
 # dashing/ros-distro.inc
 # General configuration settings that are dependent on ROS_DISTRO.
 #
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 ROS_DISTRO_CODENAME = "Dashing Diademata"
 
@@ -111,3 +111,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 # We want ament_cmake instead of plain cmake for ros-workspace:
 # https://raw.github.com/ros2-gbp/ros_workspace-release/release/dashing/ros_workspace/0.7.2-1/package.xml
 ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
+
+# Submitted with https://github.com/ros/rosdistro/pull/29534
+ROS_UNRESOLVED_DEP-qttools5-dev-tools = "qttools"
