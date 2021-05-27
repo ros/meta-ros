@@ -118,11 +118,17 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     embree-vendor \
     libg2o \
     librealsense2 \
+    mapviz \
+    mapviz-plugins \
     moveit-ros-visualization \
     moveit-ros-perception \
     moveit-ros \
     moveit-runtime \
     moveit \
+    multires-image \
+    navigation2 \
+    nav2-bringup \
+    nav2-rviz-plugins \
     openvslam \
     realsense-examples \
     realsense-node \
@@ -139,13 +145,17 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rviz-rendering \
     rviz-visual-tools \
     rviz2 \
+    slam-toolbox \
+    tile-map \
     turtlebot3 \
     turtlebot3-bringup \
     turtlebot3-gazebo \
+    turtlebot3-navigation2 \
     turtlebot3-simulations \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
+    xacro-live \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
@@ -167,6 +177,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     moveit-runtime \
     moveit \
     multires-image \
+    navigation2 \
     octovis \
     openzen-driver \
     oroca-rqt-command \
@@ -276,8 +287,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     desktop \
     dsr-description2 \
     joint-state-publisher-gui \
+    mapviz \
+    mapviz-plugins \
     moveit-resources \
     moveit-resources-panda-moveit-config \
+    multires-image \
     openzen-driver \
     python-qt-binding \
     py-trees-js \
@@ -327,8 +341,13 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt-gui-c
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT_GUI_CPP = " \
     qt-gui-core \
     qt-gui-cpp \
+    mapviz \
+    mapviz-plugins \
+    multires-image \
     rosmon \
+    rqt-common-plugins \
     rqt-gui-cpp \
+    rqt-image-view \
     rqt \
 "
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mrpt2', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MRPT2}', '', d)}"
@@ -361,6 +380,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     libg2o \
     nav2-bringup \
     nav2-rviz-plugins \
+    navigation2 \
     mapviz \
     mapviz-plugins \
     moveit-ros-perception \
