@@ -431,8 +431,10 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     dolly \
     dolly-ignition \
+    ros-ign \
     ros-ign-bridge \
     ros-ign-gazebo \
+    ros-ign-gazebo-demos \
     ros-ign-image \
 "
 
