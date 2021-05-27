@@ -328,7 +328,7 @@ libreadline:
 libreadline-dev:
 - readline@openembedded-core
 libsndfile1-dev:
-- ${ROS_UNRESOLVED_DEP-libsndfile1-dev}
+- libsndfile1@openembedded-core
 libspnav-dev:
 - ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
@@ -365,8 +365,12 @@ libvtk:
 - ${ROS_UNRESOLVED_DEP-libvtk}
 libvtk-qt:
 - ${ROS_UNRESOLVED_DEP-libvtk-qt}
+libx11:
+- ${ROS_UNRESOLVED_DEP-libx11}
 libx11-dev:
 - libx11@openembedded-core
+libxext:
+- libxext@openembedded-core
 libxi-dev:
 - libxi@openembedded-core
 libxml2:
@@ -377,6 +381,8 @@ libxmu-dev:
 - libxmu@openembedded-core
 libxrandr:
 - libxrandr@openembedded-core
+libxt-dev:
+- ${ROS_UNRESOLVED_DEP-libxt-dev}
 libxxf86vm:
 - libxxf86vm@openembedded-core
 libzmq3-dev:
@@ -420,7 +426,7 @@ openssl:
 pkg-config:
 - pkgconfig@openembedded-core
 portaudio19-dev:
-- ${ROS_UNRESOLVED_DEP-portaudio19-dev}
+- portaudio-v19@meta-oe
 postgresql:
 - postgresql@meta-oe
 proj:
@@ -468,6 +474,8 @@ python-pygithub3:
 - ${ROS_UNRESOLVED_DEP-python-pygithub3}
 python-pyusb-pip:
 - ${ROS_UNRESOLVED_DEP-python-pyusb-pip}
+python-rospkg:
+- ${PYTHON_PN}-rospkg@meta-ros-common
 python-six:
 - ${PYTHON_PN}-six@openembedded-core
 python-slacker-cli:
@@ -508,6 +516,8 @@ python3-defusedxml:
 - python3-defusedxml@meta-python
 python3-dev:
 - python3@openembedded-core
+python3-docopt:
+- ${ROS_UNRESOLVED_DEP-python3-docopt}
 python3-docutils:
 - python3-docutils@openembedded-core
 python3-empy:
@@ -534,6 +544,8 @@ python3-lxml:
 - python3-lxml@meta-python
 python3-matplotlib:
 - python3-matplotlib@meta-python
+python3-mechanize:
+- ${ROS_UNRESOLVED_DEP-python3-mechanize}
 python3-mock:
 - python3-mock@meta-ros-common
 python3-msgpack:
@@ -576,6 +588,8 @@ python3-pyproj:
 - python3-pyproj@meta-ros-common
 python3-pytest:
 - python3-pytest@meta-python
+python3-pytest-cov:
+- ${ROS_UNRESOLVED_DEP-python3-pytest-cov}
 python3-qt5-bindings:
 - python3-pyqt5@meta-qt5
 python3-qt5-bindings-gl:
@@ -673,6 +687,8 @@ unzip:
 - unzip@openembedded-core
 usbutils:
 - usbutils@openembedded-core
+util-linux:
+- ${ROS_UNRESOLVED_DEP-util-linux}
 uuid:
 - util-linux@openembedded-core
 v4l-utils:

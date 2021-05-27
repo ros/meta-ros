@@ -5,52 +5,39 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "ROS Wrappers for the Picovoice libraries"
-AUTHOR = "Rein Appeldoorn <reinzor@gmail.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Python stub generator from genmsg specs"
+AUTHOR = "Yuki Igarashi <me@bonprosoft.com>"
+ROS_AUTHOR = "Yuki Igarashi"
+HOMEPAGE = "https://github.com/rospypi/genmypy"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache 2.0"
+#         "Apache License, Version 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=e8978a5103d23266fc6f8ec03dc9eb16"
 
-ROS_CN = "picovoice-ros"
-ROS_BPN = "picovoice_driver"
+ROS_CN = "genmypy"
+ROS_BPN = "genmypy"
 
 ROS_BUILD_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
-    roscpp \
-    roslib \
+    genmsg \
+    genpy \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
+    python3-setuptools-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
-    roscpp \
-    roslib \
+    genmsg \
+    genpy \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
-    roscpp \
-    roslib \
+    genmsg \
+    genpy \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -63,10 +50,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/reinzor/picovoice_ros-release/archive/release/noetic/picovoice_driver/0.0.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/picovoice_driver"
-SRC_URI = "git://github.com/reinzor/picovoice_ros-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1706e6b220a72968aa70cedcb88fb16738c2b69f"
+# matches with: https://github.com/rospypi/genmypy-release/archive/release/noetic/genmypy/0.3.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/genmypy"
+SRC_URI = "git://github.com/rospypi/genmypy-release;${ROS_BRANCH};protocol=https"
+SRCREV = "9dce7f518ac229c551843b0a31fe8bc475b3605a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
