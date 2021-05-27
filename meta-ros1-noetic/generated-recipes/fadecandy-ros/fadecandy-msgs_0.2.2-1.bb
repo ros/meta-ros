@@ -5,26 +5,21 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "ROS Wrappers for the Picovoice libraries"
+DESCRIPTION = "ROS msgs for fadecandy LED controllers"
 AUTHOR = "Rein Appeldoorn <reinzor@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache 2.0"
+#         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "picovoice-ros"
-ROS_BPN = "picovoice_driver"
+ROS_CN = "fadecandy_ros"
+ROS_BPN = "fadecandy_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
-    roscpp \
-    roslib \
+    message-generation \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -32,25 +27,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
-    roscpp \
-    roslib \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
-    roscpp \
-    roslib \
+    message-runtime \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -63,10 +47,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/reinzor/picovoice_ros-release/archive/release/noetic/picovoice_driver/0.0.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/picovoice_driver"
-SRC_URI = "git://github.com/reinzor/picovoice_ros-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1706e6b220a72968aa70cedcb88fb16738c2b69f"
+# matches with: https://github.com/iron-ox/fadecandy_ros-release/archive/release/noetic/fadecandy_msgs/0.2.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/fadecandy_msgs"
+SRC_URI = "git://github.com/iron-ox/fadecandy_ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "570a7418791015f51a883e0ef1e3041b765eaeb3"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

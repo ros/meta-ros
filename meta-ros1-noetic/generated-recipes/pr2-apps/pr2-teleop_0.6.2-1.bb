@@ -5,26 +5,27 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "ROS Wrappers for the Picovoice libraries"
-AUTHOR = "Rein Appeldoorn <reinzor@gmail.com>"
+DESCRIPTION = "The pr2_teleop package"
+AUTHOR = "ROS Orphaned Package Maintainers <ros-orphaned-packages@googlegroups.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache 2.0"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+#         "TODO"
+LICENSE = "TODO-CATKIN-PACKAGE-LICENSE"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
-ROS_CN = "picovoice-ros"
-ROS_BPN = "picovoice_driver"
+ROS_CN = "pr2_apps"
+ROS_BPN = "pr2_teleop"
 
 ROS_BUILD_DEPENDS = " \
     actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
+    geometry-msgs \
+    pr2-controllers-msgs \
     roscpp \
-    roslib \
+    rospy \
+    std-msgs \
+    tf \
+    topic-tools \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -33,28 +34,33 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
+    geometry-msgs \
+    pr2-controllers-msgs \
     roscpp \
-    roslib \
+    rospy \
+    std-msgs \
+    tf \
+    topic-tools \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
+    geometry-msgs \
+    pr2-controllers-msgs \
     roscpp \
-    roslib \
+    rospy \
+    std-msgs \
+    tf \
+    topic-tools \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    roslaunch \
+    rostest \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -63,10 +69,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/reinzor/picovoice_ros-release/archive/release/noetic/picovoice_driver/0.0.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/picovoice_driver"
-SRC_URI = "git://github.com/reinzor/picovoice_ros-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1706e6b220a72968aa70cedcb88fb16738c2b69f"
+# matches with: https://github.com/pr2-gbp/pr2_apps-release/archive/release/noetic/pr2_teleop/0.6.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/pr2_teleop"
+SRC_URI = "git://github.com/pr2-gbp/pr2_apps-release;${ROS_BRANCH};protocol=https"
+SRCREV = "1e70b8dac95be829bd17d3f062939b4fd09979ad"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
