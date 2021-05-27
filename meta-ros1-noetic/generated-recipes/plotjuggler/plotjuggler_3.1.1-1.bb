@@ -5,26 +5,28 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "ROS Wrappers for the Picovoice libraries"
-AUTHOR = "Rein Appeldoorn <reinzor@gmail.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "PlotJuggler: juggle with data"
+AUTHOR = "Davide Faconti <davide.faconti@gmail.com>"
+ROS_AUTHOR = "Davide Faconti <davide.faconti@gmail.com>"
+HOMEPAGE = "https://github.com/facontidavide/PlotJuggler"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache 2.0"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=406b3609bd6d5a41e48fc30c8875886f"
 
-ROS_CN = "picovoice-ros"
-ROS_BPN = "picovoice_driver"
+ROS_CN = "plotjuggler"
+ROS_BPN = "plotjuggler"
 
 ROS_BUILD_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
-    roscpp \
+    binutils \
+    boost \
+    qtbase \
+    qtsvg \
+    qtwebsockets \
+    qtx11extras \
     roslib \
+    zeromq \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -32,25 +34,27 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
-    roscpp \
+    binutils \
+    boost \
+    qtbase \
+    qtsvg \
+    qtwebsockets \
+    qtx11extras \
     roslib \
+    zeromq \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    ddynamic-reconfigure \
-    libsndfile1 \
-    picovoice-msgs \
-    portaudio-v19 \
-    roscpp \
+    binutils \
+    boost \
+    qtbase \
+    qtsvg \
+    qtwebsockets \
+    qtx11extras \
     roslib \
+    zeromq \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -63,10 +67,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/reinzor/picovoice_ros-release/archive/release/noetic/picovoice_driver/0.0.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/picovoice_driver"
-SRC_URI = "git://github.com/reinzor/picovoice_ros-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1706e6b220a72968aa70cedcb88fb16738c2b69f"
+# matches with: https://github.com/facontidavide/plotjuggler-release/archive/release/noetic/plotjuggler/3.1.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/plotjuggler"
+SRC_URI = "git://github.com/facontidavide/plotjuggler-release;${ROS_BRANCH};protocol=https"
+SRCREV = "a68802f9362e76c4dff3d3d1c77236f8424f7425"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
