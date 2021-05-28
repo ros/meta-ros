@@ -5,35 +5,20 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Planning components of MoveIt that use ROS"
-AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
-ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
+DESCRIPTION = "Helper scripts and functionality to test industrial motion generation"
+AUTHOR = "Alexander Gutenkunst <a.gutenkunst@pilz.de>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_ros_planning"
+ROS_BPN = "pilz_industrial_motion_planner_testutils"
 
 ROS_BUILD_DEPENDS = " \
-    actionlib \
-    dynamic-reconfigure \
-    libeigen \
-    message-filters \
     moveit-core \
     moveit-msgs \
-    moveit-ros-occupancy-map-monitor \
-    pluginlib \
-    rosconsole \
-    roscpp \
-    srdfdom \
-    tf2 \
     tf2-eigen \
-    tf2-geometry-msgs \
-    tf2-msgs \
-    tf2-ros \
-    urdf \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -41,50 +26,21 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    actionlib \
-    dynamic-reconfigure \
-    message-filters \
+    moveit-commander \
     moveit-core \
     moveit-msgs \
-    moveit-ros-occupancy-map-monitor \
-    pluginlib \
-    rosconsole \
-    roscpp \
-    srdfdom \
-    tf2 \
-    tf2-eigen \
-    tf2-geometry-msgs \
-    tf2-msgs \
-    tf2-ros \
-    urdf \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    dynamic-reconfigure \
-    message-filters \
+    moveit-commander \
     moveit-core \
     moveit-msgs \
-    moveit-ros-occupancy-map-monitor \
-    pluginlib \
-    rosconsole \
-    roscpp \
-    srdfdom \
-    tf2 \
-    tf2-eigen \
-    tf2-geometry-msgs \
-    tf2-msgs \
-    tf2-ros \
-    urdf \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    moveit-resources-panda-moveit-config \
-    rostest \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -93,10 +49,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_planning/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_ros_planning"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/pilz_industrial_motion_planner_testutils/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/pilz_industrial_motion_planner_testutils"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "217fe4dc7f07fb7f8a8cf5f6a7194542df7f71b9"
+SRCREV = "afeaecda3458c42ed862f496f649f1ee6492fbe3"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

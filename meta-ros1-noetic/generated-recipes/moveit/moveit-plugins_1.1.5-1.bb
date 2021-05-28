@@ -42,10 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_plugins/1.1.4-1.tar.gz
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_plugins/1.1.5-1.tar.gz
 ROS_BRANCH ?= "branch=release/noetic/moveit_plugins"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1e0bb5cce62fe1d3e338caa3cc562ea854436340"
+SRCREV = "c2b074b58a11554bfdde971fd7696193741c6e36"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

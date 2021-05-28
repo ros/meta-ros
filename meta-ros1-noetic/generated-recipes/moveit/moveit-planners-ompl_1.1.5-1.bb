@@ -5,25 +5,26 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Components of MoveIt connecting to occupancy map"
-AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
+DESCRIPTION = "MoveIt interface to OMPL"
+AUTHOR = "Dave Coleman <dave@picknik.ai>"
 ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_ros_occupancy_map_monitor"
+ROS_BPN = "moveit_planners_ompl"
 
 ROS_BUILD_DEPENDS = " \
-    geometric-shapes \
-    libeigen \
+    dynamic-reconfigure \
     moveit-core \
-    moveit-msgs \
-    octomap \
+    moveit-ros-planning \
+    ompl \
     pluginlib \
-    tf2-ros \
+    rosconsole \
+    roscpp \
+    tf2 \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -31,28 +32,37 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    geometric-shapes \
+    dynamic-reconfigure \
     moveit-core \
-    moveit-msgs \
-    octomap \
+    moveit-ros-planning \
+    ompl \
     pluginlib \
-    tf2-ros \
+    rosconsole \
+    roscpp \
+    tf2 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    geometric-shapes \
+    dynamic-reconfigure \
     moveit-core \
-    moveit-msgs \
-    octomap \
+    moveit-ros-planning \
+    ompl \
     pluginlib \
-    tf2-ros \
+    rosconsole \
+    roscpp \
+    tf2 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    moveit-resources-fanuc-description \
+    moveit-resources-panda-description \
+    moveit-resources-pr2-description \
+    rostest \
     rosunit \
+    tf2-eigen \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -62,10 +72,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_occupancy_map_monitor/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_ros_occupancy_map_monitor"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_planners_ompl/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_planners_ompl"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1d9990bb68d239c2a7353b877fb6c546bad01583"
+SRCREV = "5055b691b55db57f75fb5dea25fc87baa3cf72fd"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

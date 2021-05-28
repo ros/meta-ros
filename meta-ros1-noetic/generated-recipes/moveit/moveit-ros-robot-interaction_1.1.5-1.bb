@@ -5,25 +5,25 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Package for all inverse kinematics solvers in MoveIt"
-AUTHOR = "Dave Coleman <dave@picknik.ai>"
-ROS_AUTHOR = "Dave Coleman <dave@picknik.ai>"
+DESCRIPTION = "Components of MoveIt that offer interaction via interactive markers"
+AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
+ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_kinematics"
+ROS_BPN = "moveit_ros_robot_interaction"
 
 ROS_BUILD_DEPENDS = " \
-    libeigen \
-    moveit-core \
-    orocos-kdl \
-    pluginlib \
+    interactive-markers \
+    moveit-ros-planning \
     roscpp \
     tf2 \
-    tf2-kdl \
+    tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-ros \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -31,39 +31,30 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    libeigen \
-    moveit-core \
-    orocos-kdl \
-    pluginlib \
+    interactive-markers \
+    moveit-ros-planning \
     roscpp \
     tf2 \
-    tf2-kdl \
+    tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-ros \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    libeigen \
-    moveit-core \
-    orocos-kdl \
-    pluginlib \
-    python3-lxml \
-    python3-pyyaml \
+    interactive-markers \
+    moveit-ros-planning \
     roscpp \
     tf2 \
-    tf2-kdl \
-    urdfdom \
+    tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-ros \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    moveit-resources-fanuc-description \
-    moveit-resources-fanuc-moveit-config \
-    moveit-resources-panda-description \
-    moveit-resources-panda-moveit-config \
-    moveit-ros-planning \
-    rostest \
-    xmlrpcpp \
+    rosunit \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -73,10 +64,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_kinematics/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_kinematics"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_robot_interaction/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_ros_robot_interaction"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "57e32c9281b7f836bc97841197968f0d8115cbb1"
+SRCREV = "b5093003f68ce17fdb7aaefe1c8275ae41bb8b9b"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

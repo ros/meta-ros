@@ -53,10 +53,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_fake_controller_manager/1.1.4-1.tar.gz
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_fake_controller_manager/1.1.5-1.tar.gz
 ROS_BRANCH ?= "branch=release/noetic/moveit_fake_controller_manager"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "601b8c99f7e34acf6592d8da94d8f7fcd72c9187"
+SRCREV = "3a8c38f56fffa160a10dba301448310680f21c96"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

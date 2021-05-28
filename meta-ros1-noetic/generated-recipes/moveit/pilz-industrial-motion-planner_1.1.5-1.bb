@@ -5,24 +5,30 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Components of MoveIt that offer interaction via interactive markers"
-AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
-ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
+DESCRIPTION = "MoveIt plugin to generate industrial trajectories PTP, LIN, CIRC and sequences thereof."
+AUTHOR = "Alexander Gutenkunst <a.gutenkunst@pilz.de>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_ros_robot_interaction"
+ROS_BPN = "pilz_industrial_motion_planner"
 
 ROS_BUILD_DEPENDS = " \
-    interactive-markers \
+    joint-limits-interface \
+    moveit-core \
+    moveit-msgs \
+    moveit-ros-move-group \
     moveit-ros-planning \
+    moveit-ros-planning-interface \
+    orocos-kdl \
+    pluginlib \
     roscpp \
     tf2 \
     tf2-eigen \
     tf2-geometry-msgs \
+    tf2-kdl \
     tf2-ros \
 "
 
@@ -31,29 +37,51 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    interactive-markers \
+    joint-limits-interface \
+    moveit-core \
+    moveit-msgs \
+    moveit-ros-move-group \
     moveit-ros-planning \
+    moveit-ros-planning-interface \
+    orocos-kdl \
+    pluginlib \
     roscpp \
     tf2 \
     tf2-eigen \
     tf2-geometry-msgs \
+    tf2-kdl \
     tf2-ros \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    interactive-markers \
+    joint-limits-interface \
+    moveit-core \
+    moveit-msgs \
+    moveit-ros-move-group \
     moveit-ros-planning \
+    moveit-ros-planning-interface \
+    orocos-kdl \
+    pluginlib \
     roscpp \
     tf2 \
     tf2-eigen \
     tf2-geometry-msgs \
+    tf2-kdl \
     tf2-ros \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    cmake-modules \
+    code-coverage \
+    moveit-resources-panda-moveit-config \
+    moveit-resources-prbt-moveit-config \
+    moveit-resources-prbt-pg70-support \
+    moveit-resources-prbt-support \
+    pilz-industrial-motion-planner-testutils \
+    rostest \
     rosunit \
 "
 
@@ -64,10 +92,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_robot_interaction/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_ros_robot_interaction"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/pilz_industrial_motion_planner/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/pilz_industrial_motion_planner"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "4300391e71d58a90194410ff1d24872bd2e33f4f"
+SRCREV = "593f79052d55e566ef3beaeb0a77cd07ebba93b0"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
