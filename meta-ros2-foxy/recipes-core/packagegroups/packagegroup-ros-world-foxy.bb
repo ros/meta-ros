@@ -130,6 +130,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     nav2-bringup \
     nav2-rviz-plugins \
     openvslam \
+    plotjuggler \
+    plotjuggler-ros \
     realsense-examples \
     realsense-node \
     realsense-ros \
