@@ -5,29 +5,25 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Components of MoveIt used for manipulation"
-AUTHOR = "Michael Görner <me@v4hn.de>"
+DESCRIPTION = "Components of MoveIt connecting to occupancy map"
+AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
 ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_ros_manipulation"
+ROS_BPN = "moveit_ros_occupancy_map_monitor"
 
 ROS_BUILD_DEPENDS = " \
-    actionlib \
-    dynamic-reconfigure \
+    geometric-shapes \
     libeigen \
     moveit-core \
     moveit-msgs \
-    moveit-ros-move-group \
-    moveit-ros-planning \
+    octomap \
     pluginlib \
-    rosconsole \
-    roscpp \
-    tf2-eigen \
+    tf2-ros \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -35,35 +31,29 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    actionlib \
-    dynamic-reconfigure \
+    geometric-shapes \
     moveit-core \
     moveit-msgs \
-    moveit-ros-move-group \
-    moveit-ros-planning \
+    octomap \
     pluginlib \
-    rosconsole \
-    roscpp \
-    tf2-eigen \
+    tf2-ros \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    dynamic-reconfigure \
+    geometric-shapes \
     moveit-core \
     moveit-msgs \
-    moveit-ros-move-group \
-    moveit-ros-planning \
+    octomap \
     pluginlib \
-    rosconsole \
-    roscpp \
-    tf2-eigen \
+    tf2-ros \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    rosunit \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -72,10 +62,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_manipulation/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_ros_manipulation"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_occupancy_map_monitor/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_ros_occupancy_map_monitor"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "a3989329beec1a967861e88b1348e569025c285f"
+SRCREV = "7e489078e96a83adc7a92c9008ac8b1a7d352a65"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

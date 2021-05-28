@@ -5,34 +5,39 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Meta package that contains all essential package of MoveIt. Until Summer 2016 MoveIt had been developed over multiple repositories, where developers' usability and maintenance effort was non-trivial. See <a href="http://discourse.ros.org/t/migration-to-one-github-repo-for-moveit/266/34">the detailed discussion for the merge of several repositories</a>."
-AUTHOR = "Dave Coleman <dave@picknik.ai>"
-ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
-HOMEPAGE = "http://moveit.ros.org"
+DESCRIPTION = "MoveIt planning request adapter utilizing chomp for solution optimization"
+AUTHOR = "Raghavender Sahdev <raghavendersahdev@gmail.com>"
+ROS_AUTHOR = "Raghavender Sahdev <raghavendersahdev@gmail.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit"
+ROS_BPN = "moveit_chomp_optimizer_adapter"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    chomp-motion-planner \
+    moveit-core \
+    pluginlib \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    chomp-motion-planner \
+    moveit-core \
+    pluginlib \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    moveit-commander \
+    chomp-motion-planner \
     moveit-core \
-    moveit-planners \
-    moveit-plugins \
-    moveit-ros \
-    moveit-setup-assistant \
+    pluginlib \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -45,10 +50,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_chomp_optimizer_adapter/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_chomp_optimizer_adapter"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d1d3ea55145c3bbf97201b4a6cac0a86d3d32753"
+SRCREV = "70d6f376d317e106ecdc730d38cb3a319acb7592"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

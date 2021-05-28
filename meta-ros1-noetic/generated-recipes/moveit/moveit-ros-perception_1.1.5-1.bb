@@ -5,30 +5,41 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Generates a configuration package that makes it easy to use MoveIt"
-AUTHOR = "Dave Coleman <dave@picknik.ai>"
-ROS_AUTHOR = "Dave Coleman <dave@picknik.ai>"
+DESCRIPTION = "Components of MoveIt connecting to perception"
+AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
+ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_setup_assistant"
+ROS_BPN = "moveit_ros_perception"
 
 ROS_BUILD_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-libomp-dev} \
+    cv-bridge \
+    freeglut \
+    glew \
+    image-transport \
+    libeigen \
+    mesa \
+    message-filters \
     moveit-core \
+    moveit-msgs \
+    moveit-ros-occupancy-map-monitor \
     moveit-ros-planning \
-    moveit-ros-visualization \
-    ogre \
-    ompl \
-    qtbase \
+    nodelet \
+    object-recognition-msgs \
+    pluginlib \
     rosconsole \
     roscpp \
-    rviz \
-    srdfdom \
+    sensor-msgs \
+    tf2 \
+    tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-ros \
     urdf \
-    yaml-cpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -36,34 +47,59 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-libomp-dev} \
+    cv-bridge \
+    freeglut \
+    glew \
+    image-transport \
+    mesa \
+    message-filters \
     moveit-core \
+    moveit-msgs \
+    moveit-ros-occupancy-map-monitor \
     moveit-ros-planning \
-    moveit-ros-visualization \
+    nodelet \
+    object-recognition-msgs \
+    pluginlib \
     rosconsole \
     roscpp \
-    srdfdom \
+    sensor-msgs \
+    tf2 \
+    tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-ros \
     urdf \
-    yaml-cpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-libomp-dev} \
+    cv-bridge \
+    freeglut \
+    glew \
+    image-transport \
+    mesa \
+    message-filters \
     moveit-core \
+    moveit-msgs \
+    moveit-ros-occupancy-map-monitor \
     moveit-ros-planning \
-    moveit-ros-visualization \
+    nodelet \
+    object-recognition-msgs \
+    pluginlib \
     rosconsole \
     roscpp \
-    rviz \
-    srdfdom \
+    sensor-msgs \
+    tf2 \
+    tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-ros \
     urdf \
-    xacro \
-    yaml-cpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    moveit-resources-panda-moveit-config \
     rosunit \
 "
 
@@ -74,10 +110,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_setup_assistant/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_setup_assistant"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_perception/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_ros_perception"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "85748cddcb73fef79edae56317b26cded72ef882"
+SRCREV = "1c48c2e42ceca4a04f9b8ee9a1504a788fbccdd6"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

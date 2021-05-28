@@ -24,6 +24,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
     bota_node \
     bota_signal_handler \
     bota_worker \
+    paho-mqtt-c \
     rokubimini \
     rokubimini_bus_manager \
     rokubimini_description \
@@ -45,7 +46,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros1-noetic/files/noetic/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "8"
+ROS_NUM_CACHE_YAML_COMMITS = "9"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -1559,7 +1560,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                   catkin/catkin_0.8.10-1 \
                        catkin-virtualenv/catkin-virtualenv_0.6.1-2 \
                          jsk-recognition/checkerboard-detector_1.2.15-1 \
-                                  moveit/chomp-motion-planner_1.1.4-1 \
+                                  moveit/chomp-motion-planner_1.1.5-1 \
                             class-loader/class-loader_0.5.0-1 \
                               navigation/clear-costmap-recovery_1.17.1-1 \
                            cmake-modules/cmake-modules_0.5.0-1 \
@@ -2204,19 +2205,19 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          navigation-msgs/move-base-msgs_1.14.1-1 \
                       move-base-sequence/move-base-sequence_0.0.1-1 \
                               navigation/move-slow-and-clear_1.17.1-1 \
-                                  moveit/moveit_1.1.4-1 \
+                                  moveit/moveit_1.1.5-1 \
                       moveit-calibration/moveit-calibration-gui_0.1.0-1 \
                       moveit-calibration/moveit-calibration-plugins_0.1.0-1 \
-                                  moveit/moveit-chomp-optimizer-adapter_1.1.4-1 \
-                                  moveit/moveit-commander_1.1.4-1 \
-                                  moveit/moveit-core_1.1.4-1 \
-                                  moveit/moveit-fake-controller-manager_1.1.4-1 \
-                                  moveit/moveit-kinematics_1.1.4-1 \
+                                  moveit/moveit-chomp-optimizer-adapter_1.1.5-1 \
+                                  moveit/moveit-commander_1.1.5-1 \
+                                  moveit/moveit-core_1.1.5-1 \
+                                  moveit/moveit-fake-controller-manager_1.1.5-1 \
+                                  moveit/moveit-kinematics_1.1.5-1 \
                              moveit-msgs/moveit-msgs_0.11.2-1 \
-                                  moveit/moveit-planners_1.1.4-1 \
-                                  moveit/moveit-planners-chomp_1.1.4-1 \
-                                  moveit/moveit-planners-ompl_1.1.4-1 \
-                                  moveit/moveit-plugins_1.1.4-1 \
+                                  moveit/moveit-planners_1.1.5-1 \
+                                  moveit/moveit-planners-chomp_1.1.5-1 \
+                                  moveit/moveit-planners-ompl_1.1.5-1 \
+                                  moveit/moveit-plugins_1.1.5-1 \
                            moveit-python/moveit-python_0.4.1-1 \
                         moveit-resources/moveit-resources_0.8.0-1 \
                         moveit-resources/moveit-resources-fanuc-description_0.8.0-1 \
@@ -2228,22 +2229,22 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                         moveit-resources/moveit-resources-prbt-moveit-config_0.8.0-1 \
                         moveit-resources/moveit-resources-prbt-pg70-support_0.8.0-1 \
                         moveit-resources/moveit-resources-prbt-support_0.8.0-1 \
-                                  moveit/moveit-ros_1.1.4-1 \
-                                  moveit/moveit-ros-benchmarks_1.1.4-1 \
-                                  moveit/moveit-ros-control-interface_1.1.4-1 \
-                                  moveit/moveit-ros-manipulation_1.1.4-1 \
-                                  moveit/moveit-ros-move-group_1.1.4-1 \
-                                  moveit/moveit-ros-occupancy-map-monitor_1.1.4-1 \
-                                  moveit/moveit-ros-perception_1.1.4-1 \
-                                  moveit/moveit-ros-planning_1.1.4-1 \
-                                  moveit/moveit-ros-planning-interface_1.1.4-1 \
-                                  moveit/moveit-ros-robot-interaction_1.1.4-1 \
-                                  moveit/moveit-ros-visualization_1.1.4-1 \
-                                  moveit/moveit-ros-warehouse_1.1.4-1 \
-                                  moveit/moveit-runtime_1.1.4-1 \
-                                  moveit/moveit-servo_1.1.4-1 \
-                                  moveit/moveit-setup-assistant_1.1.4-1 \
-                                  moveit/moveit-simple-controller-manager_1.1.4-1 \
+                                  moveit/moveit-ros_1.1.5-1 \
+                                  moveit/moveit-ros-benchmarks_1.1.5-1 \
+                                  moveit/moveit-ros-control-interface_1.1.5-1 \
+                                  moveit/moveit-ros-manipulation_1.1.5-1 \
+                                  moveit/moveit-ros-move-group_1.1.5-1 \
+                                  moveit/moveit-ros-occupancy-map-monitor_1.1.5-1 \
+                                  moveit/moveit-ros-perception_1.1.5-1 \
+                                  moveit/moveit-ros-planning_1.1.5-1 \
+                                  moveit/moveit-ros-planning-interface_1.1.5-1 \
+                                  moveit/moveit-ros-robot-interaction_1.1.5-1 \
+                                  moveit/moveit-ros-visualization_1.1.5-1 \
+                                  moveit/moveit-ros-warehouse_1.1.5-1 \
+                                  moveit/moveit-runtime_1.1.5-1 \
+                                  moveit/moveit-servo_1.1.5-1 \
+                                  moveit/moveit-setup-assistant_1.1.5-1 \
+                                  moveit/moveit-simple-controller-manager_1.1.5-1 \
                      moveit-visual-tools/moveit-visual-tools_3.6.0-1 \
                        mpc-local-planner/mpc-local-planner_0.0.3-1 \
                        mpc-local-planner/mpc-local-planner-examples_0.0.3-1 \
@@ -2356,8 +2357,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                      pid/pid_0.0.28-1 \
                              pilz-robots/pilz-control_0.6.0-1 \
                   pilz-industrial-motion/pilz-industrial-motion_0.5.0-4 \
-                                  moveit/pilz-industrial-motion-planner_1.1.4-1 \
-                                  moveit/pilz-industrial-motion-planner-testutils_1.1.4-1 \
+                                  moveit/pilz-industrial-motion-planner_1.1.5-1 \
+                                  moveit/pilz-industrial-motion-planner-testutils_1.1.5-1 \
                              pilz-common/pilz-industrial-motion-testutils_0.7.2-1 \
                              pilz-common/pilz-msgs_0.7.2-1 \
                   pilz-industrial-motion/pilz-robot-programming_0.5.0-4 \
@@ -5266,10 +5267,10 @@ ROS_UNRESOLVED_DEP-xclip = "ROS_UNRESOLVED_DEP-xclip"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "2021-05-24"
+ROS_DISTRO_RELEASE_DATE = "2021-05-28"
 
 # The commit of ros/rosdistro/noetic/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "7b6fecc778980a8ff283e02b1613323ccf25eb5f"
+ROS_SUPERFLORE_GENERATION_COMMIT = "86eaf1ee114c84c0b1c6692db35c4b243d713f48"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
