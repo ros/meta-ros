@@ -1,0 +1,47 @@
+From fd45d77ca4cc0696cd27c37238f5da9fd271dbe8 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 28 May 2021 16:32:17 +0000
+Subject: [PATCH] CMakeLists.txt: adjust to make catkin happy
+
+* fixes:
+| CMake Warning at /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.1.2-1-r0/recipe-sysroot-native/usr/opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:166 (message):
+|   catkin_package() DEPENDS on 'osqp' but neither 'osqp_INCLUDE_DIRS' nor
+|   'osqp_LIBRARIES' is defined.
+| Call Stack (most recent call first):
+|   /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.1.2-1-r0/recipe-sysroot-native/usr/opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+|   CMakeLists.txt:35 (catkin_package)
+|
+|
+| CMake Error at /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.1.2-1-r0/recipe-sysroot-native/usr/opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:367 (message):
+|   catkin_package() could not find CFG_EXTRAS file.  Either
+|   'cmake/osqp_vendor-extras.cmake.develspace.em',
+|   'cmake/osqp_vendor-extras.cmake.em',
+|   'cmake/osqp_vendor-extras.cmake.develspace.in',
+|   'cmake/osqp_vendor-extras.cmake.in', 'cmake/osqp_vendor-extras.cmake' or a
+|   variant specific to the installspace must exist.
+| Call Stack (most recent call first):
+|   /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/osqp-vendor/0.1.2-1-r0/recipe-sysroot-native/usr/opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+|   CMakeLists.txt:35 (catkin_package)
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9fde506..12caffc 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -32,7 +32,9 @@ endmacro()
+ 
+ build_osqp()
+ 
++set(osqp_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/osqp-upstream/include)
++
+ catkin_package(
+   LIBRARIES osqp
+   DEPENDS osqp
+-  CFG_EXTRAS osqp_vendor-extras.cmake)
++  CFG_EXTRAS ${CMAKE_SOURCE_DIR}/osqp_vendor-extras.cmake)
