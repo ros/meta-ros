@@ -17,14 +17,14 @@ ROS_CN = "darknet_ros"
 ROS_BPN = "darknet_ros"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libx11} \
-    ${ROS_UNRESOLVED_DEP-libxt-dev} \
     actionlib \
     boost \
     cv-bridge \
     darknet-ros-msgs \
     image-transport \
+    libx11 \
     libxext \
+    libxt \
     message-generation \
     nodelet \
     opencv \
@@ -39,14 +39,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libx11} \
-    ${ROS_UNRESOLVED_DEP-libxt-dev} \
     actionlib \
     boost \
     cv-bridge \
     darknet-ros-msgs \
     image-transport \
+    libx11 \
     libxext \
+    libxt \
     message-generation \
     nodelet \
     opencv \
@@ -59,14 +59,14 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libx11} \
-    ${ROS_UNRESOLVED_DEP-libxt-dev} \
     actionlib \
     boost \
     cv-bridge \
     darknet-ros-msgs \
     image-transport \
+    libx11 \
     libxext \
+    libxt \
     message-generation \
     nodelet \
     opencv \
