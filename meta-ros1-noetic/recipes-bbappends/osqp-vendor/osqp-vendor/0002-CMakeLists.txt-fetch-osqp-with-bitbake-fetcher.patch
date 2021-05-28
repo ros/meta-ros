@@ -1,0 +1,30 @@
+From 1f741e4f6c33b270a413895650be640266485921 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 5 Nov 2020 15:17:12 -0800
+Subject: [PATCH] CMakeLists.txt: fetch osqp with bitbake fetcher
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 95b6896..9fde506 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -13,11 +13,8 @@ macro(build_osqp)
+   endif()
+ 
+   include(ExternalProject)
+-  externalproject_add(osqp-v0.6.1.dev0
+-    GIT_REPOSITORY https://github.com/oxfordcontrol/osqp.git
+-    GIT_TAG v0.6.1.dev0
+-    GIT_SHALLOW ON
+-    TIMEOUT 60
++  externalproject_add(osqp-upstream
++    SOURCE_DIR ${CMAKE_SOURCE_DIR}/osqp-upstream
+     CMAKE_ARGS
+       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/osqp_install
+       ${extra_cmake_args}
