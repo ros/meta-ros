@@ -1,0 +1,48 @@
+From 2289a8a181964511c9d91f697ff7cc77d4152577 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 28 May 2021 13:25:01 +0000
+Subject: [PATCH] CMakeLists.txt: allow to set PYTHON_EXECUTABLE
+
+* with noetic this was failing with:
+CMake Error at /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/eigenpy/2.6.3-1-r0/recipe-sysroot-native/usr/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find Python3 (missing: Python3_INCLUDE_DIRS Python3_LIBRARIES
+  Development Development.Module Development.Embed) (found version "3.6.9")
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/eigenpy/2.6.3-1-r0/recipe-sysroot-native/usr/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake:594 (_FPHSA_FAILURE_MESSAGE)
+  /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/eigenpy/2.6.3-1-r0/recipe-sysroot-native/usr/share/cmake-3.20/Modules/FindPython/Support.cmake:3165 (find_package_handle_standard_args)
+  /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/eigenpy/2.6.3-1-r0/recipe-sysroot-native/usr/share/cmake-3.20/Modules/FindPython3.cmake:485 (include)
+  cmake/python.cmake:99 (FIND_PACKAGE)
+  CMakeLists.txt:61 (FINDPYTHON)
+
+  in foxy this was working fine, because it was using python3 without a path:
+  set(PYTHON_EXECUTABLE "python3") # specify python3 so that Debian Buster passes
+  and the python3 from PATH was the correct one from python3-native
+
+  but using just python3 is not possible anymore due to this upstream change:
+  https://github.com/jrl-umi3218/jrl-cmakemodules/commit/489833e6d8eb8f3ef4994e27827a02ad1329b110
+
+  so we need to either remove this SET completely or allow it to be set
+  to PYTHON with EXTRA_OECMAKE.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bd88e99..d121ba1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -18,7 +18,9 @@ IF(NOT EXISTS "${CMAKE_SOURCE_DIR}/cmake/base.cmake")
+ ENDIF()
+ 
+ set(CMAKE_BUILD_TYPE "Release")
+-set(PYTHON_EXECUTABLE "/usr/bin/python3") # specify python3 so that Debian Buster passes
++IF(NOT DEFINED PYTHON_EXECUTABLE)
++    set(PYTHON_EXECUTABLE "/usr/bin/python3") # specify python3 so that Debian Buster passes
++endif()
+ set(CMAKE_INSTALL_LIBDIR "lib/")
+ 
+ # Disable -Werror on Unix for now.
