@@ -1,0 +1,36 @@
+From cbe74ff1596241931cbe1f5391e1bb03e764736a Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 28 May 2021 15:08:52 +0000
+Subject: [PATCH] face_detection: fix build with gcc-11
+
+* maybe I'm missing some mysterious side-effect of this construction, but gcc-11 didn't like it as well:
+
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/face-detector/1.4.0-1-r0/git/src/face_detection.cpp: In member function 'void people::FaceDetector::matchAndDisplay(std::vector<people::Box2D3D>, std_msgs::Header)':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/face-detector/1.4.0-1-r0/git/src/face_detection.cpp:719:85: error: taking address of rvalue [-fpermissive]
+  719 |             pos.object_id = static_cast<std::ostringstream*>(&(std::ostringstream() << max_id_))->str();
+      |                                                               ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+ninja: build stopped: subcommand failed.
+
+* mentioned in:
+https://github.com/wg-perception/people/commit/361b9df6468e6e52f47d99a4e91f86ebaa57ac5a#diff-730a0c7002c0cfd5814d3111aa4236e53175ba2b04bc64000d71b2d24cdf61adR672
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/face_detection.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/face_detection.cpp b/src/face_detection.cpp
+index 7cf7f3c..965c439 100644
+--- a/src/face_detection.cpp
++++ b/src/face_detection.cpp
+@@ -716,7 +716,7 @@ private:
+           else
+           {
+             max_id_++;
+-            pos.object_id = static_cast<std::ostringstream*>(&(std::ostringstream() << max_id_))->str();
++            pos.object_id = std::to_string(max_id_);
+             ROS_INFO_STREAM_NAMED("face_detector", "Didn't find face to match, starting new ID " << pos.object_id);
+           }
+           result_.face_positions.push_back(pos);
