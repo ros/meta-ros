@@ -331,6 +331,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     mesh-tools \
     moose-desktop \
     moose-viz \
+    moveit-calibration-gui \
     moveit-resources-prbt-moveit-config \
     mrp2-desktop \
     mrp2-viz \
@@ -398,6 +399,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rviz-mesh-plugin \
     rviz-satellite \
     sick-safetyscanners \
+    slider-publisher \
     visualstates \
     webkit-dependency \
 "
@@ -427,6 +429,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     audio-to-spectrogram \
     cob-collision-monitor \
     cob-obstacle-distance-moveit \
+    darknet-ros \
     exotica-aico-solver \
     exotica-cartpole-dynamics-solver \
     exotica-collision-scene-fcl \
@@ -846,6 +849,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     moose-desktop \
     moose-viz \
     moveit \
+    moveit-calibration-gui \
     moveit-resources-prbt-moveit-config \
     moveit-ros \
     moveit-ros-visualization \
@@ -1010,6 +1014,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     moose-desktop \
     moose-viz \
     moveit \
+    moveit-calibration-gui \
     moveit-resources-prbt-moveit-config \
     moveit-ros \
     moveit-ros-visualization \
@@ -1135,6 +1140,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     simple-grasping \
     slam-toolbox \
     slam-toolbox-rviz \
+    slider-publisher \
     swri-console \
     swri-profiler-tools \
     tile-map \
