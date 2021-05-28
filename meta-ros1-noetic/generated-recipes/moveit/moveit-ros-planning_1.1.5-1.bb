@@ -5,7 +5,7 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Components of MoveIt that offer simpler interfaces to planning and execution"
+DESCRIPTION = "Planning components of MoveIt that use ROS"
 AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
 ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
 HOMEPAGE = "http://moveit.ros.org"
@@ -14,76 +14,74 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_ros_planning_interface"
+ROS_BPN = "moveit_ros_planning"
 
 ROS_BUILD_DEPENDS = " \
     actionlib \
-    eigenpy \
-    geometry-msgs \
+    dynamic-reconfigure \
     libeigen \
+    message-filters \
+    moveit-core \
     moveit-msgs \
-    moveit-ros-manipulation \
-    moveit-ros-move-group \
-    moveit-ros-planning \
-    moveit-ros-warehouse \
-    python3 \
+    moveit-ros-occupancy-map-monitor \
+    pluginlib \
     rosconsole \
     roscpp \
-    rospy \
+    srdfdom \
     tf2 \
     tf2-eigen \
     tf2-geometry-msgs \
+    tf2-msgs \
     tf2-ros \
+    urdf \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    python3-catkin-pkg-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
     actionlib \
-    eigenpy \
-    geometry-msgs \
+    dynamic-reconfigure \
+    message-filters \
+    moveit-core \
     moveit-msgs \
-    moveit-ros-manipulation \
-    moveit-ros-move-group \
-    moveit-ros-planning \
-    moveit-ros-warehouse \
-    python3 \
+    moveit-ros-occupancy-map-monitor \
+    pluginlib \
     rosconsole \
     roscpp \
-    rospy \
+    srdfdom \
     tf2 \
     tf2-eigen \
     tf2-geometry-msgs \
+    tf2-msgs \
     tf2-ros \
+    urdf \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     actionlib \
-    eigenpy \
-    geometry-msgs \
+    dynamic-reconfigure \
+    message-filters \
+    moveit-core \
     moveit-msgs \
-    moveit-ros-manipulation \
-    moveit-ros-move-group \
-    moveit-ros-planning \
-    moveit-ros-warehouse \
-    python3 \
+    moveit-ros-occupancy-map-monitor \
+    pluginlib \
     rosconsole \
     roscpp \
-    rospy \
+    srdfdom \
     tf2 \
     tf2-eigen \
     tf2-geometry-msgs \
+    tf2-msgs \
     tf2-ros \
+    urdf \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    moveit-resources-fanuc-moveit-config \
     moveit-resources-panda-moveit-config \
     rostest \
 "
@@ -95,10 +93,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_planning_interface/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_ros_planning_interface"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_planning/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_ros_planning"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "2a6c184269e5cffb9d7377022db27bf7fd816174"
+SRCREV = "8245cf4729931e8a1d175e1560a9e7f117d5cd64"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

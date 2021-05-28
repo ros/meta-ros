@@ -5,37 +5,48 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "moveit_runtime meta package contains MoveIt packages that are essential for its runtime (e.g. running MoveIt on robots)."
-AUTHOR = "Isaac I. Y. Saito <gm130s@gmail.com>"
-ROS_AUTHOR = "Isaac I. Y. Saito <gm130s@gmail.com>"
+DESCRIPTION = "Components of MoveIt connecting to MongoDB"
+AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
+ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_runtime"
+ROS_BPN = "moveit_ros_warehouse"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    moveit-ros-planning \
+    rosconsole \
+    roscpp \
+    tf2-eigen \
+    tf2-ros \
+    warehouse-ros \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    moveit-ros-planning \
+    rosconsole \
+    roscpp \
+    tf2-eigen \
+    tf2-ros \
+    warehouse-ros \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    moveit-core \
-    moveit-planners \
-    moveit-plugins \
-    moveit-ros-manipulation \
-    moveit-ros-move-group \
-    moveit-ros-perception \
     moveit-ros-planning \
-    moveit-ros-planning-interface \
-    moveit-ros-warehouse \
+    rosconsole \
+    roscpp \
+    tf2-eigen \
+    tf2-ros \
+    warehouse-ros \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -48,10 +59,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_runtime/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_runtime"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_warehouse/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_ros_warehouse"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "4dc41f1a996a688ae1cc37f509b0cdc378f985e9"
+SRCREV = "a57a13aff70ebe1e00278a3eba21b6fa8a0000c2"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

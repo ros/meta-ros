@@ -5,21 +5,18 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "chomp_motion_planner"
-AUTHOR = "Chittaranjan Srinivas Swaminathan <chitt@live.in>"
-ROS_AUTHOR = "Gil Jones <gjones@willowgarage.com>"
-HOMEPAGE = "http://ros.org/wiki/chomp_motion_planner"
+DESCRIPTION = "Meta package that contains all essential package of MoveIt. Until Summer 2016 MoveIt had been developed over multiple repositories, where developers' usability and maintenance effort was non-trivial. See <a href="http://discourse.ros.org/t/migration-to-one-github-repo-for-moveit/266/34">the detailed discussion for the merge of several repositories</a>."
+AUTHOR = "Dave Coleman <dave@picknik.ai>"
+ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
+HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "chomp_motion_planner"
+ROS_BPN = "moveit"
 
-ROS_BUILD_DEPENDS = " \
-    moveit-core \
-    roscpp \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
@@ -29,7 +26,14 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    moveit-commander \
+    moveit-core \
+    moveit-planners \
+    moveit-plugins \
+    moveit-ros \
+    moveit-setup-assistant \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""
@@ -41,10 +45,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/chomp_motion_planner/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/chomp_motion_planner"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "63acc5a94e67503ee06e1f661f44f141bb789924"
+SRCREV = "e820f08d00bcab631628512686822b1677ee032f"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

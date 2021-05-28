@@ -5,49 +5,49 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Python interfaces to MoveIt"
-AUTHOR = "Michael Görner <me@v4hn.de>"
-ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
+DESCRIPTION = "A generic, simple controller manager plugin for MoveIt."
+AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
+ROS_AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_commander"
+ROS_BPN = "moveit_simple_controller_manager"
 
 ROS_BUILD_DEPENDS = " \
-    python3 \
+    actionlib \
+    control-msgs \
+    moveit-core \
+    pluginlib \
+    roscpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    python3-catkin-pkg-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    python3 \
+    actionlib \
+    control-msgs \
+    moveit-core \
+    pluginlib \
+    roscpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    geometry-msgs \
-    moveit-msgs \
-    moveit-ros-planning-interface \
-    python3 \
-    python3-pyassimp \
-    rospy \
-    sensor-msgs \
-    shape-msgs \
-    tf \
+    actionlib \
+    control-msgs \
+    moveit-core \
+    pluginlib \
+    roscpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    moveit-resources-fanuc-moveit-config \
-    rostest \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -56,10 +56,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_commander/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_commander"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_simple_controller_manager/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_simple_controller_manager"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "9ea13f583d7f48865f368a2b124f9d7590f278a0"
+SRCREV = "3fd3c1fd040558495c5d19a074bd33c07e5e76b6"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

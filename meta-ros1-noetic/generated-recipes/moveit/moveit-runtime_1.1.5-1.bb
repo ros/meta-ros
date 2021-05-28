@@ -5,49 +5,41 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The interface for using CHOMP within MoveIt"
-AUTHOR = "Chittaranjan Srinivas Swaminathan <chitt@live.in>"
-ROS_AUTHOR = "Gil Jones <gjones@willowgarage.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "moveit_runtime meta package contains MoveIt packages that are essential for its runtime (e.g. running MoveIt on robots)."
+AUTHOR = "Isaac I. Y. Saito <gm130s@gmail.com>"
+ROS_AUTHOR = "Isaac I. Y. Saito <gm130s@gmail.com>"
+HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_planners_chomp"
+ROS_BPN = "moveit_runtime"
 
-ROS_BUILD_DEPENDS = " \
-    chomp-motion-planner \
-    moveit-core \
-    pluginlib \
-    roscpp \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    chomp-motion-planner \
-    moveit-core \
-    pluginlib \
-    roscpp \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    chomp-motion-planner \
     moveit-core \
-    pluginlib \
-    roscpp \
+    moveit-planners \
+    moveit-plugins \
+    moveit-ros-manipulation \
+    moveit-ros-move-group \
+    moveit-ros-perception \
+    moveit-ros-planning \
+    moveit-ros-planning-interface \
+    moveit-ros-warehouse \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    moveit-ros-planning-interface \
-    rostest \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -56,10 +48,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_planners_chomp/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_planners_chomp"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_runtime/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_runtime"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "b970a946b13145f9bb5beaa47df0579b42d3050d"
+SRCREV = "ec5267de5231c5159aec5f42c7c9eadacd25c10b"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
