@@ -746,6 +746,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY = " \
     eca-a9-control \
     exotica-examples \
     exotica-scipy-solver \
+    handeye \
     husky-bringup \
     husky-robot \
     imagesift \
@@ -763,6 +764,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_SCIPY = " \
     jsk-tools \
     jsk-topic-tools \
     jsk-visualization \
+    moveit-calibration-plugins \
     multi-map-server \
     pgm-learner \
     pr2-calibration-launch \
