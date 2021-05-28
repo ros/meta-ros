@@ -5,23 +5,27 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Enhanced tools for benchmarks in MoveIt"
-AUTHOR = "Dave Coleman <dave@picknik.ai>"
-ROS_AUTHOR = "Ryan Luna <rluna@rice.edu>"
+DESCRIPTION = "The move_group node for MoveIt"
+AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
+ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_ros_benchmarks"
+ROS_BPN = "moveit_ros_move_group"
 
 ROS_BUILD_DEPENDS = " \
+    actionlib \
+    moveit-core \
     moveit-ros-planning \
-    moveit-ros-warehouse \
     pluginlib \
     roscpp \
-    tf2-eigen \
+    std-srvs \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -29,25 +33,37 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    actionlib \
+    moveit-core \
     moveit-ros-planning \
-    moveit-ros-warehouse \
     pluginlib \
     roscpp \
-    tf2-eigen \
+    std-srvs \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    actionlib \
+    moveit-core \
+    moveit-kinematics \
     moveit-ros-planning \
-    moveit-ros-warehouse \
     pluginlib \
     roscpp \
-    tf2-eigen \
+    std-srvs \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    moveit-resources-fanuc-moveit-config \
+    rostest \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -56,10 +72,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_benchmarks/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_ros_benchmarks"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_move_group/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_ros_move_group"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "b362104485c98849f3ead76c9f0fd14ca66340dc"
+SRCREV = "f38d580e5f4e2e9b97ff805cc3e6eb955e568f8c"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

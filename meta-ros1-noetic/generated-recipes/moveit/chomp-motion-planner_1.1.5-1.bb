@@ -5,39 +5,31 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Helper scripts and functionality to test industrial motion generation"
-AUTHOR = "Alexander Gutenkunst <a.gutenkunst@pilz.de>"
-HOMEPAGE = "http://moveit.ros.org"
+DESCRIPTION = "chomp_motion_planner"
+AUTHOR = "Chittaranjan Srinivas Swaminathan <chitt@live.in>"
+ROS_AUTHOR = "Gil Jones <gjones@willowgarage.com>"
+HOMEPAGE = "http://ros.org/wiki/chomp_motion_planner"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "pilz_industrial_motion_planner_testutils"
+ROS_BPN = "chomp_motion_planner"
 
 ROS_BUILD_DEPENDS = " \
     moveit-core \
-    moveit-msgs \
-    tf2-eigen \
+    roscpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    moveit-commander \
-    moveit-core \
-    moveit-msgs \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    moveit-commander \
-    moveit-core \
-    moveit-msgs \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""
@@ -49,10 +41,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/pilz_industrial_motion_planner_testutils/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/pilz_industrial_motion_planner_testutils"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/chomp_motion_planner/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/chomp_motion_planner"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "efa36cb13c282d23cf89d1d0ea2d78c93bc5d802"
+SRCREV = "54e4f4ad5316542a283194fd7ce3f974f8d5d8e2"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

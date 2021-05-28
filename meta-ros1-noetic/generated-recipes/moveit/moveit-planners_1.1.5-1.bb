@@ -5,45 +5,31 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "A generic, simple controller manager plugin for MoveIt."
-AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
-ROS_AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
+DESCRIPTION = "Metapacakge that installs all available planners for MoveIt"
+AUTHOR = "Dave Coleman <dave@picknik.ai>"
+ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_simple_controller_manager"
+ROS_BPN = "moveit_planners"
 
-ROS_BUILD_DEPENDS = " \
-    actionlib \
-    control-msgs \
-    moveit-core \
-    pluginlib \
-    roscpp \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    actionlib \
-    control-msgs \
-    moveit-core \
-    pluginlib \
-    roscpp \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    control-msgs \
-    moveit-core \
-    pluginlib \
-    roscpp \
+    chomp-motion-planner \
+    moveit-planners-chomp \
+    moveit-planners-ompl \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -56,10 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_simple_controller_manager/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_simple_controller_manager"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_planners/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_planners"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "39412ba6c3246f2dc1dcaaf8b46b426ecc49d5fd"
+SRCREV = "6d47ed1e199a4af13369c7f7766b9020c7d09576"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

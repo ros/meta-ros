@@ -5,24 +5,22 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "ros_control controller manager interface for MoveIt"
-AUTHOR = "Mathias Lüdtke <mathias.luedtke@ipa.fraunhofer.de>"
-ROS_AUTHOR = "Mathias Lüdtke <mathias.luedtke@ipa.fraunhofer.de>"
+DESCRIPTION = "The interface for using CHOMP within MoveIt"
+AUTHOR = "Chittaranjan Srinivas Swaminathan <chitt@live.in>"
+ROS_AUTHOR = "Gil Jones <gjones@willowgarage.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_ros_control_interface"
+ROS_BPN = "moveit_planners_chomp"
 
 ROS_BUILD_DEPENDS = " \
-    actionlib \
-    controller-manager-msgs \
+    chomp-motion-planner \
     moveit-core \
-    moveit-simple-controller-manager \
     pluginlib \
-    trajectory-msgs \
+    roscpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -30,27 +28,26 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    actionlib \
-    controller-manager-msgs \
+    chomp-motion-planner \
     moveit-core \
-    moveit-simple-controller-manager \
     pluginlib \
-    trajectory-msgs \
+    roscpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
-    controller-manager-msgs \
+    chomp-motion-planner \
     moveit-core \
-    moveit-simple-controller-manager \
     pluginlib \
-    trajectory-msgs \
+    roscpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    moveit-ros-planning-interface \
+    rostest \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -59,10 +56,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_control_interface/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_ros_control_interface"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_planners_chomp/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_planners_chomp"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "274819d23204b3dd407bd83e8caaec72310afaa8"
+SRCREV = "ae46756e4ba9bf583bb5e98d9db4e77c25f8a097"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

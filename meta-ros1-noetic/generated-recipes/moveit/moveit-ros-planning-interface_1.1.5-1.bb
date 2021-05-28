@@ -5,78 +5,86 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Components of MoveIt that offer visualization"
-AUTHOR = "Jon Binney <jon.binney@gmail.com>"
+DESCRIPTION = "Components of MoveIt that offer simpler interfaces to planning and execution"
+AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
 ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_ros_visualization"
+ROS_BPN = "moveit_ros_planning_interface"
 
 ROS_BUILD_DEPENDS = " \
-    class-loader \
-    geometric-shapes \
-    interactive-markers \
+    actionlib \
+    eigenpy \
+    geometry-msgs \
     libeigen \
-    moveit-ros-perception \
-    moveit-ros-planning-interface \
-    moveit-ros-robot-interaction \
+    moveit-msgs \
+    moveit-ros-manipulation \
+    moveit-ros-move-group \
+    moveit-ros-planning \
     moveit-ros-warehouse \
-    object-recognition-msgs \
-    ogre \
-    pluginlib \
-    qtbase \
+    python3 \
     rosconsole \
     roscpp \
     rospy \
-    rviz \
+    tf2 \
     tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-ros \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
-    pkgconfig-native \
+    python3-catkin-pkg-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    geometric-shapes \
-    interactive-markers \
-    moveit-ros-perception \
-    moveit-ros-planning-interface \
-    moveit-ros-robot-interaction \
+    actionlib \
+    eigenpy \
+    geometry-msgs \
+    moveit-msgs \
+    moveit-ros-manipulation \
+    moveit-ros-move-group \
+    moveit-ros-planning \
     moveit-ros-warehouse \
-    object-recognition-msgs \
-    pluginlib \
+    python3 \
     rosconsole \
     roscpp \
     rospy \
-    rviz \
+    tf2 \
     tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-ros \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    geometric-shapes \
-    interactive-markers \
-    moveit-ros-perception \
-    moveit-ros-planning-interface \
-    moveit-ros-robot-interaction \
+    actionlib \
+    eigenpy \
+    geometry-msgs \
+    moveit-msgs \
+    moveit-ros-manipulation \
+    moveit-ros-move-group \
+    moveit-ros-planning \
     moveit-ros-warehouse \
-    object-recognition-msgs \
-    pluginlib \
+    python3 \
     rosconsole \
     roscpp \
     rospy \
-    rviz \
+    tf2 \
     tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-ros \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    moveit-resources-fanuc-moveit-config \
+    moveit-resources-panda-moveit-config \
     rostest \
 "
 
@@ -87,10 +95,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_visualization/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_ros_visualization"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_planning_interface/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_ros_planning_interface"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1e0d8a495ec71c171ca98a32c8cc934671afe814"
+SRCREV = "c7af0a61e95827dde7d2524580bb2ff626737655"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

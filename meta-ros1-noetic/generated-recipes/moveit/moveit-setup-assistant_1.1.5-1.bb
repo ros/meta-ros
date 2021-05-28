@@ -5,27 +5,30 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The move_group node for MoveIt"
-AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
-ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
+DESCRIPTION = "Generates a configuration package that makes it easy to use MoveIt"
+AUTHOR = "Dave Coleman <dave@picknik.ai>"
+ROS_AUTHOR = "Dave Coleman <dave@picknik.ai>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"
-ROS_BPN = "moveit_ros_move_group"
+ROS_BPN = "moveit_setup_assistant"
 
 ROS_BUILD_DEPENDS = " \
-    actionlib \
     moveit-core \
     moveit-ros-planning \
-    pluginlib \
+    moveit-ros-visualization \
+    ogre \
+    ompl \
+    qtbase \
+    rosconsole \
     roscpp \
-    std-srvs \
-    tf2 \
-    tf2-geometry-msgs \
-    tf2-ros \
+    rviz \
+    srdfdom \
+    urdf \
+    yaml-cpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -33,36 +36,35 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    actionlib \
     moveit-core \
     moveit-ros-planning \
-    pluginlib \
+    moveit-ros-visualization \
+    rosconsole \
     roscpp \
-    std-srvs \
-    tf2 \
-    tf2-geometry-msgs \
-    tf2-ros \
+    srdfdom \
+    urdf \
+    yaml-cpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    actionlib \
     moveit-core \
-    moveit-kinematics \
     moveit-ros-planning \
-    pluginlib \
+    moveit-ros-visualization \
+    rosconsole \
     roscpp \
-    std-srvs \
-    tf2 \
-    tf2-geometry-msgs \
-    tf2-ros \
+    rviz \
+    srdfdom \
+    urdf \
+    xacro \
+    yaml-cpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    moveit-resources-fanuc-moveit-config \
-    rostest \
+    moveit-resources-panda-moveit-config \
+    rosunit \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -72,10 +74,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_ros_move_group/1.1.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/moveit_ros_move_group"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/noetic/moveit_setup_assistant/1.1.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/moveit_setup_assistant"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
-SRCREV = "2d427ed14ef097da0a43728d5705cdedcd653636"
+SRCREV = "668970b46edd3003eb3c7063860de26ab99a910a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
