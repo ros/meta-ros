@@ -1,0 +1,89 @@
+From 49b6d49dc6150d7a858d0d55ffb9ed65d30eb15f Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 28 May 2021 15:39:44 +0000
+Subject: [PATCH] Fix build by explictly including atomic
+
+* fixes:
+
+FAILED: CMakeFiles/gpp_plugin.dir/src/gpp_plugin.cpp.o
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"gpp_plugin\" -Dgpp_plugin_EXPORTS -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/include -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/include/eigen3 -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0=/usr/src/debug/gpp-plugin/0.1.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0=/usr/src/debug/gpp-plugin/0.1.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot -fPIC -MD -MT CMakeFiles/gpp_plugin.dir/src/gpp_plugin.cpp.o -MF CMakeFiles/gpp_plugin.dir/src/gpp_plugin.cpp.o.d -o CMakeFiles/gpp_plugin.dir/src/gpp_plugin.cpp.o -c /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/yield_k.hpp:23,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock.hpp:42,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/shared_ptr.hpp:29,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/shared_array.hpp:24,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/include/boost/shared_array.hpp:17,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/ros/serialized_message.h:33,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/ros/serialization.h:36,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/geometry_msgs/Point.h:14,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/costmap_2d/costmap_2d.h:43,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/costmap_2d/layer.h:40,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/costmap_2d/layered_costmap.h:42,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/costmap_2d/costmap_2d_ros.h:41,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/gpp_interface/post_planning_interface.hpp:27,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin/gpp_plugin.hpp:27,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp:25:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/recipe-sysroot/usr/include/boost/bind.hpp:36:1: note: '#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.'
+   36 | BOOST_PRAGMA_MESSAGE(
+      | ^~~~~~~~~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp:25:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin/gpp_plugin.hpp:192:24: error: 'atomic_bool' in namespace 'std' does not name a type; did you mean 'atomic_load'?
+  192 |             const std::atomic_bool& _cancel) {
+      |                        ^~~~~~~~~~~
+      |                        atomic_load
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin/gpp_plugin.hpp:222:23: error: 'atomic_bool' in namespace 'std' does not name a type; did you mean 'atomic_load'?
+  222 |            const std::atomic_bool& _cancel) {
+      |                       ^~~~~~~~~~~
+      |                       atomic_load
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin/gpp_plugin.hpp:444:8: error: 'atomic_bool' in namespace 'std' does not name a type; did you mean 'atomic_load'?
+  444 |   std::atomic_bool cancel_;
+      |        ^~~~~~~~~~~
+      |        atomic_load
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp: In member function 'bool gpp_plugin::GppPlugin::prePlanning(gpp_plugin::GppPlugin::Pose&, gpp_plugin::GppPlugin::Pose&)':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp:231:50: error: 'cancel_' was not declared in this scope; did you mean 'cancel'?
+  231 |   return runPlugins(pre_planning_, pre_planning, cancel_);
+      |                                                  ^~~~~~~
+      |                                                  cancel
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp: In member function 'bool gpp_plugin::GppPlugin::postPlanning(const Pose&, const Pose&, gpp_plugin::GppPlugin::Path&, double&)':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp:240:52: error: 'cancel_' was not declared in this scope; did you mean 'cancel'?
+  240 |   return runPlugins(post_planning_, post_planning, cancel_);
+      |                                                    ^~~~~~~
+      |                                                    cancel
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp: In member function 'bool gpp_plugin::GppPlugin::globalPlanning(const Pose&, const Pose&, gpp_plugin::GppPlugin::Path&, double&)':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp:249:49: error: 'cancel_' was not declared in this scope; did you mean 'cancel'?
+  249 |   return runPlugins(global_planning_, planning, cancel_);
+      |                                                 ^~~~~~~
+      |                                                 cancel
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp: In member function 'virtual uint32_t gpp_plugin::GppPlugin::makePlan(const Pose&, const Pose&, double, gpp_plugin::GppPlugin::Path&, double&, std::string&)':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp:270:3: error: 'cancel_' was not declared in this scope; did you mean 'cancel'?
+  270 |   cancel_ = false;
+      |   ^~~~~~~
+      |   cancel
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp: In member function 'virtual bool gpp_plugin::GppPlugin::cancel()':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/gpp-plugin/0.1.0-1-r0/git/src/gpp_plugin.cpp:294:3: error: 'cancel_' was not declared in this scope; did you mean 'cancel'?
+  294 |   cancel_ = true;
+      |   ^~~~~~~
+      |   cancel
+ninja: build stopped: subcommand failed.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/gpp_plugin/gpp_plugin.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/gpp_plugin/gpp_plugin.hpp b/src/gpp_plugin/gpp_plugin.hpp
+index 5afe1a0..6022e30 100644
+--- a/src/gpp_plugin/gpp_plugin.hpp
++++ b/src/gpp_plugin/gpp_plugin.hpp
+@@ -33,6 +33,7 @@
+ #include <pluginlib/class_loader.h>
+ #include <ros/ros.h>
+ 
++#include <atomic>
+ #include <memory>
+ #include <string>
+ #include <utility>
