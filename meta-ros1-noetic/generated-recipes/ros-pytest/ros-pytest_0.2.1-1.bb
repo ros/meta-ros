@@ -16,8 +16,8 @@ ROS_CN = "ros_pytest"
 ROS_BPN = "ros_pytest"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-pytest-cov} \
     python3-pytest \
+    python3-pytest-cov \
     rospy \
 "
 
@@ -26,16 +26,16 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-pytest-cov} \
     python3-pytest \
+    python3-pytest-cov \
     rospy \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-pytest-cov} \
     python3-pytest \
+    python3-pytest-cov \
     rospy \
 "
 

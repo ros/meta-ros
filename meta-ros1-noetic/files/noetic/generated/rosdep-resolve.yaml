@@ -366,7 +366,7 @@ libvtk:
 libvtk-qt:
 - ${ROS_UNRESOLVED_DEP-libvtk-qt}
 libx11:
-- ${ROS_UNRESOLVED_DEP-libx11}
+- libx11@openembedded-core
 libx11-dev:
 - libx11@openembedded-core
 libxext:
@@ -382,7 +382,7 @@ libxmu-dev:
 libxrandr:
 - libxrandr@openembedded-core
 libxt-dev:
-- ${ROS_UNRESOLVED_DEP-libxt-dev}
+- libxt@openembedded-core
 libxxf86vm:
 - libxxf86vm@openembedded-core
 libzmq3-dev:
@@ -589,7 +589,7 @@ python3-pyproj:
 python3-pytest:
 - python3-pytest@meta-python
 python3-pytest-cov:
-- ${ROS_UNRESOLVED_DEP-python3-pytest-cov}
+- python3-pytest-cov@meta-ros-common
 python3-qt5-bindings:
 - python3-pyqt5@meta-qt5
 python3-qt5-bindings-gl:
