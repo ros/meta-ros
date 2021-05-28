@@ -5326,6 +5326,7 @@ libx11:
   gentoo: [x11-libs/libX11]
   macports: [xorg-libX11]
   nixos: [xorg.libX11]
+  openembedded: [libx11@openembedded-core]
   ubuntu: [libx11-dev]
 libx11-dev:
   alpine: [libx11-dev]
@@ -5481,6 +5482,7 @@ libxt-dev:
   fedora: [libXt-devel]
   gentoo: [x11-libs/libXt]
   nixos: [xorg.libXtst]
+  openembedded: [libxt@openembedded-core]
   ubuntu: [libxt-dev]
 libxtst-dev:
   arch: [libxtst]
