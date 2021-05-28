@@ -1,9 +1,12 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-Revert-cmake-fix-packaging-issue-on-Windows.patch \
     file://0001-Revert-cmake-fix-project-packaging.patch \
+    file://0002-CMakeLists.txt-allow-to-set-PYTHON_EXECUTABLE.patch \
 "
+
+EXTRA_OECMAKE += "-DPYTHON_EXECUTABLE=${PYTHON}"
 
 # | CMake Error at /jenkins/mjansa/build/ros/ros1-noetic-hardknott/tmp-glibc/work/core2-64-oe-linux/eigenpy/2.5.0-1-r0/recipe-sysroot-native/usr/share/cmake-3.18/Modules/FindPackageHandleStandardArgs.cmake:165 (message):
 # |   Could NOT find Python3 (missing: Python3_INCLUDE_DIRS Python3_LIBRARIES
