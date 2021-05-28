@@ -1,0 +1,38 @@
+From fea596b2f286ac78277f773108cd77fc62088062 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 28 May 2021 14:33:22 +0000
+Subject: [PATCH] Fix build with gcc-11
+
+* fixes:
+FAILED: c-utility/CMakeFiles/aziotsharedutil.dir/src/hmac.c.o
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-gcc -DARCHITECTURE_x86=1 -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/git/deps/azure-macro-utils-c/inc -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/git/deps/umock-c/inc -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/git/c-utility/inc -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/git/c-utility/pal/linux -D_POSIX_C_SOURCE=200112L -fPIC  -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0=/usr/src/debug/azure-iot-sdk-c/1.7.0-4-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0=/usr/src/debug/azure-iot-sdk-c/1.7.0-4-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/recipe-sysroot-native=    -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/recipe-sysroot -Werror -Werror -Werror -Wall -Wextra -Wformat=2 -Wformat-security -DUSE_OPENSSL -Wno-unused-variable -Wno-missing-braces -Wno-missing-field-initializers -Wno-format-nonliteral -fPIC -std=gnu99 -MD -MT c-utility/CMakeFiles/aziotsharedutil.dir/src/hmac.c.o -MF c-utility/CMakeFiles/aziotsharedutil.dir/src/hmac.c.o.d -o c-utility/CMakeFiles/aziotsharedutil.dir/src/hmac.c.o -c /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/git/c-utility/src/hmac.c
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/git/c-utility/src/hmac.c:211:43: error: argument 2 of type 'uint8_t *' {aka 'unsigned char *'} declared as a pointer [-Werror=array-parameter=]
+  211 | int hmacResult(HMACContext *ctx, uint8_t *digest)
+      |                                  ~~~~~~~~~^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/git/c-utility/src/hmac.c:13:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/azure-iot-sdk-c/1.7.0-4-r0/git/c-utility/inc/azure_c_shared_utility/sha.h:252:42: note: previously declared as an array 'uint8_t[64]' {aka 'unsigned char[64]'}
+  252 | int hmacResult(HMACContext *ctx, uint8_t digest[USHAMaxHashSize]);
+      |                                  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+ninja: build stopped: subcommand failed.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ c-utility/src/hmac.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/c-utility/src/hmac.c b/c-utility/src/hmac.c
+index 53f2411..160af9d 100644
+--- a/c-utility/src/hmac.c
++++ b/c-utility/src/hmac.c
+@@ -208,7 +208,7 @@ int hmacFinalBits(HMACContext *ctx,
+ *   sha Error Code.
+ *
+ */
+-int hmacResult(HMACContext *ctx, uint8_t *digest)
++int hmacResult(HMACContext *ctx, uint8_t digest[USHAMaxHashSize])
+ {
+     if (!ctx) return shaNull;
+ 
