@@ -19,3 +19,6 @@ FILES_${PN}_prepend = " \
 "
 
 FILES_${PN}-dev += "${datadir}/dynamicEDT3D"
+
+# ERROR: dynamic-edt-3d-1.9.7-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package dynamic-edt-3d contains symlink .so '/usr/lib/libdynamicedt3d.so' [dev-so]
+inherit ros_insane_dev_so
