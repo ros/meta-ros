@@ -12,3 +12,8 @@
 FILES_${PN}_prepend = " \
     ${datadir}/ament_index \
 "
+
+# ERROR: octomap-1.9.7-1-r0 do_package_qa: QA Issue:
+# non -dev/-dbg/nativesdk- package octomap contains symlink .so '/usr/lib/liboctomath.so'
+# non -dev/-dbg/nativesdk- package octomap contains symlink .so '/usr/lib/liboctomap.so' [dev-so]
+inherit ros_insane_dev_so
