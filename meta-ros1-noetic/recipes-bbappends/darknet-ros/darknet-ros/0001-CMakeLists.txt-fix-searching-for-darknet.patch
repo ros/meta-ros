@@ -1,0 +1,181 @@
+From ec85e17c08c4510d6b7efac26953e97a9653604c Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 29 May 2021 03:29:42 -0700
+Subject: [PATCH] CMakeLists.txt: fix searching for darknet
+
+* use NO_CMAKE_FIND_ROOT_PATH, NO_DEFAULT_PATH to remove the prefix
+  and REQUIRED to make it fail immediately when it isn't found instead of
+  much later when searching for DARKNET_PATH-NOTFOUND/src/activation_layer.c
+
+* otherwise the path from HINTS will be prefixed and won't be found:
+
+/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/git/CMakeLists.txt(10):  find_path(DARKNET_PATH NAMES README.md HINTS /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/git/../darknet/ )
+   Called from: [1]	/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/git/CMakeLists.txt
+CMake Debug Log at CMakeLists.txt:10 (find_path):
+  find_path called with the following settings:
+
+    VAR: DARKNET_PATH
+    NAMES: "README.md"
+    Documentation: Path to a file.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 0
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 0
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_path considered the following locations:
+
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/opt/ros/noetic/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/opt/ros/noetic/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/darknet/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/sysroots-uninative/x86_64-linux/usr/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/bin/python3-native/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/openembedded-core/scripts/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/bin/crossscripts/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/sbin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/sbin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/bitbake/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/local/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/local/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/opt/ros/noetic/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/opt/ros/noetic/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/X11R6/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/X11R6/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/pkg/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/pkg/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/opt/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/opt/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/include/X11/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/opt/ros/noetic/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/opt/ros/noetic/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/darknet/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/sysroots-uninative/x86_64-linux/usr/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/bin/python3-native/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/ros1-noetic-honister/openembedded-core/scripts/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/bin/crossscripts/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/sbin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/sbin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/ros1-noetic-honister/bitbake/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/local/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/local/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/opt/ros/noetic/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/opt/ros/noetic/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/X11R6/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/X11R6/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/pkg/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/pkg/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/opt/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/opt/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/include/X11/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/opt/ros/noetic/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/opt/ros/noetic/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/darknet/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/sysroots-uninative/x86_64-linux/usr/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/bin/python3-native/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/openembedded-core/scripts/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot/usr/bin/crossscripts/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/sbin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/sbin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/bitbake/bin/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/usr/local/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/usr/local/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/usr/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/usr/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/recipe-sysroot-native/usr/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/opt/ros/noetic/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/opt/ros/noetic/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/usr/X11R6/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/usr/X11R6/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/usr/pkg/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/usr/pkg/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/opt/include/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/opt/README.md
+    /jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/hosttools/usr/include/X11/README.md
+
+  The item was not found.
+
+   Called from: [1]	/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/git/CMakeLists.txt(13):  message(STATUS Darknet path dir = DARKNET_PATH-NOTFOUND )
+   Called from: [1]	/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/git/CMakeLists.txt
+-- Darknet path dir = DARKNET_PATH-NOTFOUND
+   Called from: [1]	/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/git/CMakeLists.txt(14):  add_definitions(-DDARKNET_FILE_PATH="DARKNET_PATH-NOTFOUND" )
+   Called from: [1]	/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/git/CMakeLists.txt
+
+and then eventually fail because of this:
+
+   Called from: [1]	/jenkins/mjansa/build/ros/ros1-noetic-honister/tmp-glibc/work/core2-64-oe-linux/darknet-ros/1.1.5-1-r0/git/CMakeLists.txt
+-- Configuring done
+CMake Error at CMakeLists.txt:170 (add_library):
+  Cannot find source file:
+
+    DARKNET_PATH-NOTFOUND/src/activation_layer.c
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .h .hh .h++
+  .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .ispc
+
+CMake Error at CMakeLists.txt:170 (add_library):
+  No SOURCES given to target: darknet_ros_lib
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9a7be7d..5ab32ef 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,7 +9,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+ # Define path of darknet folder here.
+ find_path(DARKNET_PATH
+   NAMES "README.md"
+-  HINTS "${CMAKE_CURRENT_SOURCE_DIR}/../darknet/")
++  HINTS "${CMAKE_CURRENT_SOURCE_DIR}/../darknet/"
++  NO_DEFAULT_PATH
++  NO_CMAKE_FIND_ROOT_PATH
++  REQUIRED)
+ message(STATUS "Darknet path dir = ${DARKNET_PATH}")
+ add_definitions(-DDARKNET_FILE_PATH="${DARKNET_PATH}")
+ 
