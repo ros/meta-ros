@@ -17,3 +17,6 @@ ROS_UNRESOLVED_DEP-opende = ""
 FILES_${PN}_prepend = " \
     ${datadir}/ament_index \
 "
+
+# ERROR: ompl-1.5.2-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package ompl contains symlink .so '/usr/lib/libompl.so' [dev-so]
+inherit ros_insane_dev_so
