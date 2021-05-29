@@ -1,4 +1,4 @@
-From 17d396c0c62180aac5da2e37ab50eeabae6235d1 Mon Sep 17 00:00:00 2001
+From 5415ad18eeaf3cca00bd1b183d35fc9cb4d31918 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Tue, 13 Apr 2021 01:45:12 -0700
 Subject: [PATCH] CMakeLists.txt: don't enable INSTALL_RPATH_USE_LINK_PATH
