@@ -1,0 +1,42 @@
+From d42be6dc75a532549f1f11d74c56f2cfc3a66ad3 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 29 May 2021 02:07:37 -0700
+Subject: [PATCH] tesseract_macros.cmake: don't add -mno-avx based on uname
+ executed on build host
+
+* this cannot work for cross-compilation and breaks e.g. aarch64 builds:
+  | aarch64-oe-linux-g++: error: unrecognized command-line option '-mno-avx'
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cmake/tesseract_macros.cmake | 15 ---------------
+ 1 file changed, 15 deletions(-)
+
+diff --git a/cmake/tesseract_macros.cmake b/cmake/tesseract_macros.cmake
+index 9bcb280..64f9dac 100644
+--- a/cmake/tesseract_macros.cmake
++++ b/cmake/tesseract_macros.cmake
+@@ -88,21 +88,6 @@ macro(tesseract_variables)
+           -Wsign-conversion
+           -Wno-sign-compare
+           -Wnon-virtual-dtor)
+-      exec_program(uname ARGS -p OUTPUT_VARIABLE CMAKE_SYSTEM_NAME2)
+-      if(NOT
+-         CMAKE_SYSTEM_NAME2
+-         MATCHES
+-         "aarch64"
+-         AND NOT
+-             CMAKE_SYSTEM_NAME2
+-             MATCHES
+-             "armv7l"
+-         AND NOT
+-             CMAKE_SYSTEM_NAME2
+-             MATCHES
+-             "unknown")
+-        set(TESSERACT_COMPILE_OPTIONS_PUBLIC -mno-avx)
+-      endif()
+     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+       set(TESSERACT_COMPILE_OPTIONS_PRIVATE
+           -Wall
