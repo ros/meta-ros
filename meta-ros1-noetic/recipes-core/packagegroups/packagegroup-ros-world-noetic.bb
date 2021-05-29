@@ -24,7 +24,6 @@ RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 # depend on it
 RDEPENDS_${PN} += "opencv-apps-ros"
 
-PACKAGES_remove = "${PN}"
 # Requires Python 3; it is not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "catkin-virtualenv"
 # Depends on blacklisted catkin-virtualenv
