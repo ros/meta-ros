@@ -1,4 +1,4 @@
-From e30a74ae32d2bbaeb5ea4968f3b0f3364b4e6d56 Mon Sep 17 00:00:00 2001
+From d45cac68e14b5ad03c503cdcce88852eaa9df48e Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Mon, 12 Apr 2021 07:06:38 -0700
 Subject: [PATCH] version: rename ambiguous version.h to ws281x-version.h
@@ -35,7 +35,7 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  rename vendor/rpi_ws281x/{version.py => ws281x-version.py} (96%)
 
 diff --git a/vendor/rpi_ws281x/CMakeLists.txt b/vendor/rpi_ws281x/CMakeLists.txt
-index 9f1a95a..fd9cb1b 100644
+index b08f82a..d9d93ed 100644
 --- a/vendor/rpi_ws281x/CMakeLists.txt
 +++ b/vendor/rpi_ws281x/CMakeLists.txt
 @@ -1,7 +1,7 @@
@@ -54,8 +54,8 @@ index 9f1a95a..fd9cb1b 100644
 -configure_file(version.h.in version.h)
 +configure_file(ws281x-version.h.in ws281x-version.h)
  
- set(DEST_HEADERS_DIR include/ws2811)
- set(DEST_LIB_DIR lib)
+ configure_file(
+     "${CMAKE_CURRENT_SOURCE_DIR}/pkg-config.pc.in"
 diff --git a/vendor/rpi_ws281x/version b/vendor/rpi_ws281x/ws281x-version
 similarity index 100%
 rename from vendor/rpi_ws281x/version
@@ -96,6 +96,3 @@ index 4ddd3b3..d77b1fb 100644
          f.write('\n')
          f.write('#ifndef __%s__\n' % (headerdef))
          f.write('#define __%s__\n' % (headerdef))
--- 
-2.17.1
-
