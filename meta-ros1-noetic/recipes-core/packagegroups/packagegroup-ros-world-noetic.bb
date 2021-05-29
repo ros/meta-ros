@@ -504,8 +504,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     open-manipulator-controller \
     open-manipulator-with-tb3-tools \
     perception \
-    pilz-industrial-motion-testutils \
     pilz-industrial-motion-planner \
+    pilz-industrial-motion-planner-testutils \
+    pilz-industrial-motion-testutils \
     pilz-industrial-motion \
     pilz-robot-programming \
     pilz-trajectory-generation \
@@ -1589,6 +1590,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     open-manipulator-with-tb3-waffle-moveit \
     open-manipulator-with-tb3-waffle-pi-moveit \
     pilz-industrial-motion-planner \
+    pilz-industrial-motion-planner-testutils \
     pilz-industrial-motion-testutils \
     pilz-industrial-motion \
     pilz-robot-programming \
