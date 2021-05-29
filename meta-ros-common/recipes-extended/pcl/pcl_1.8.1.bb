@@ -11,6 +11,7 @@ ROS_BRANCH ?= "nobranch=1"
 SRC_URI = "git://github.com/PointCloudLibrary/pcl;${ROS_BRANCH};protocol=https \
     file://0001-Dereference-shared_ptr-fix-for-GCC8.patch \
     file://0001-Fix-deprecated-boost-endians.patch \
+    file://0002-pcl_pclconfig.cmake-don-t-pass-SSE_FLAGS-as-DEFINITI.patch \
 "
 S = "${WORKDIR}/git"
 

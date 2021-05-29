@@ -1,0 +1,48 @@
+From 2990f8bc79c31fcf6b67868b4259cd6fefae26d1 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 29 May 2021 09:00:08 -0700
+Subject: [PATCH] pcl_pclconfig.cmake: don't pass SSE_FLAGS as DEFINITIONS
+
+* fix '-D -mssse3 -mfpmath="sse "' appearing as g++ parameter
+
+* with recipe-sysroot-native/usr/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake
+  updated in galactic build of pcl-ros to show the DEFINITIONS:
+  list_append_unique(definitions ${${package_name}_DEFINITIONS})
+  +message(STATUS "ament_target_dependencies adding '${package_name}' definitions '${${package_name}_DEFINITIONS}'")
+
+  it shows that this -mfpmath=sse comes from PCL:
+  -- ament_target_dependencies adding 'PCL' definitions ' -mssse3 -mfpmath=sse ;-DFLANN_STATIC;-DDISABLE_VTK;-DDISABLE_OPENNI;-DDISABLE_OPENNI2;-DDISABLE_ENSENSO;-DDISABLE_DAVIDSDK;-DDISABLE_DSSDK;-DDISABLE_PCAP;-DDISABLE_PNG;-DDISABLE_LIBUSB_1_0;-DDISABLE_QHULL'
+
+* fixes pcl-ros build
+FAILED: CMakeFiles/pcl_ros_tf.dir/src/transforms.cpp.o
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -D -mssse3 -mfpmath="sse " -DDEFAULT_RMW_IMPLEMENTATION=rmw_cyclonedds_cpp -DDISABLE_DAVIDSDK -DDISABLE_DSSDK -DDISABLE_ENSENSO -DDISABLE_LIBUSB_1_0 -DDISABLE_OPENNI -DDISABLE_OPENNI2 -DDISABLE_PCAP -DDISABLE_PNG -DDISABLE_QHULL -DDISABLE_VTK -DFLANN_STATIC -I/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0/git/include -I/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0/recipe-sysroot/usr/include/pcl-1.8 -I/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0/recipe-sysroot/usr/include/eigen3 -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0=/usr/src/debug/pcl-ros/2.3.1-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0=/usr/src/debug/pcl-ros/2.3.1-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0/recipe-sysroot -Wall -Wextra -Wpedantic -std=gnu++17 -MD -MT CMakeFiles/pcl_ros_tf.dir/src/transforms.cpp.o -MF CMakeFiles/pcl_ros_tf.dir/src/transforms.cpp.o.d -o CMakeFiles/pcl_ros_tf.dir/src/transforms.cpp.o -c /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/pcl-ros/2.3.1-1-r0/git/src/transforms.cpp
+i686-webos-linux-g++: error: unrecognized argument in option '-mfpmath=sse '
+i686-webos-linux-g++: note: valid arguments to '-mfpmath=' are: 387 387+sse 387,sse both sse sse+387 sse,387; did you mean 'sse'?
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cmake/pcl_pclconfig.cmake | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/pcl_pclconfig.cmake b/cmake/pcl_pclconfig.cmake
+index 75c75d585..0cb55ab13 100644
+--- a/cmake/pcl_pclconfig.cmake
++++ b/cmake/pcl_pclconfig.cmake
+@@ -7,7 +7,7 @@ set(PCLCONFIG_AVAILABLE_COMPONENTS_LIST)
+ set(PCLCONFIG_INTERNAL_DEPENDENCIES)
+ set(PCLCONFIG_EXTERNAL_DEPENDENCIES)
+ set(PCLCONFIG_OPTIONAL_DEPENDENCIES)
+-set(PCLCONFIG_SSE_DEFINITIONS "${SSE_FLAGS} ${SSE_DEFINITIONS}")
++set(PCLCONFIG_SSE_DEFINITIONS "${SSE_DEFINITIONS}")
+ foreach(_ss ${PCL_SUBSYSTEMS_MODULES})
+     PCL_GET_SUBSYS_STATUS(_status ${_ss})
+     if(_status)
+@@ -78,4 +78,4 @@ install(FILES
+         "${PCL_BINARY_DIR}/PCLConfig.cmake"
+         "${PCL_BINARY_DIR}/PCLConfigVersion.cmake"
+         COMPONENT pclconfig
+-        DESTINATION ${PCLCONFIG_INSTALL_DIR})
+\ No newline at end of file
++        DESTINATION ${PCLCONFIG_INSTALL_DIR})
