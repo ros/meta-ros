@@ -12,3 +12,6 @@ EXTRA_OECMAKE += "-Dros_industrial_cmake_boilerplate_DIR=${STAGING_LIBDIR}/cmake
 do_install_append() {
     rm -rf ${D}${datadir}/ament_index
 }
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-tesseract_macros.cmake-don-t-add-mno-avx-based-on-un.patch"
