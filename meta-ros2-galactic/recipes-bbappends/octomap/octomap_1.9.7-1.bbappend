@@ -17,3 +17,19 @@ FILES_${PN}_prepend = " \
 # non -dev/-dbg/nativesdk- package octomap contains symlink .so '/usr/lib/liboctomath.so'
 # non -dev/-dbg/nativesdk- package octomap contains symlink .so '/usr/lib/liboctomap.so' [dev-so]
 inherit ros_insane_dev_so
+
+# ERROR: octomap-1.9.7-1-r0 do_package_qa: QA Issue:
+# octomap: /usr/lib/liboctomath.so.1.9.7 contains probably-redundant RPATH /usr/lib
+# octomap: /usr/lib/liboctomap.so.1.9.7 contains probably-redundant RPATH /usr/lib
+# octomap: /usr/bin/log2graph contains probably-redundant RPATH /usr/lib
+# octomap: /usr/bin/compare_octrees contains probably-redundant RPATH /usr/lib
+# octomap: /usr/bin/binvox2bt contains probably-redundant RPATH /usr/lib
+# octomap: /usr/bin/bt2vrml contains probably-redundant RPATH /usr/lib
+# octomap: /usr/bin/convert_octree contains probably-redundant RPATH /usr/lib
+# octomap: /usr/bin/graph2tree contains probably-redundant RPATH /usr/lib
+# octomap: /usr/bin/edit_octree contains probably-redundant RPATH /usr/lib
+# octomap: /usr/bin/eval_octree_accuracy contains probably-redundant RPATH /usr/lib [useless-rpaths]
+DEPENDS_append_class-target = " chrpath-replacement-native"
+do_install_append() {
+    chrpath --delete ${D}${bindir}/* ${D}${libdir}/*${SOLIBS}
+}
