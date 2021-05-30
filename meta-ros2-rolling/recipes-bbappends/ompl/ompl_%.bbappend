@@ -20,3 +20,9 @@ FILES_${PN}_prepend = " \
 
 # ERROR: ompl-1.5.2-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package ompl contains symlink .so '/usr/lib/libompl.so' [dev-so]
 inherit ros_insane_dev_so
+
+# ERROR: ompl-1.5.2-1-r0 do_package_qa: QA Issue: ompl: /usr/lib/libompl.so.1.5.2 contains probably-redundant RPATH /usr/lib [useless-rpaths]
+DEPENDS_append_class-target = " chrpath-replacement-native"
+do_install_append() {
+    chrpath --delete ${D}${libdir}/*${SOLIBS}
+}
