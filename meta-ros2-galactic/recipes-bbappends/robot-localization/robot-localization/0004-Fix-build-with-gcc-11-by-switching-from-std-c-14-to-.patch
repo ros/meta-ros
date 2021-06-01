@@ -1,0 +1,61 @@
+From c3b94cb9ef5b81bb751919e12c4bc32a36b7f6dc Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 1 Jun 2021 02:49:26 -0700
+Subject: [PATCH] Fix build with gcc-11 by switching from -std=c++14 to
+ -std=c++17
+
+* fixes:
+
+FAILED: CMakeFiles/rl_lib.dir/src/ros_filter_utilities.cpp.o
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -DDEFAULT_RMW_IMPLEMENTATION=rmw_cyclonedds_cpp -DROS_PACKAGE_NAME=\"robot_localization\" -Drl_lib_EXPORTS -I/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/git/include -I/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/eigen3 -Irosidl_generator_cpp -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0=/usr/src/debug/robot-localization/3.2.1-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0=/usr/src/debug/robot-localization/3.2.1-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot -std=c++14 -O2 -g -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -MD -MT CMakeFiles/rl_lib.dir/src/ros_filter_utilities.cpp.o -MF CMakeFiles/rl_lib.dir/src/ros_filter_utilities.cpp.o.d -o CMakeFiles/rl_lib.dir/src/ros_filter_utilities.cpp.o -c /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/git/src/ros_filter_utilities.cpp
+In file included from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/subscription_base.hpp:29,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/callback_group.hpp:26,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/any_executable.hpp:20,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/memory_strategy.hpp:25,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/memory_strategies.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/executor_options.hpp:20,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/executor.hpp:36,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/executors.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/rclcpp.hpp:156,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/tf2_ros/buffer_interface.h:43,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/tf2_ros/buffer.h:36,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/git/include/robot_localization/ros_filter_utilities.hpp:39,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/git/src/ros_filter_utilities.cpp:36:
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/any_subscription_callback.hpp:81:29: error: 'variant' in namespace 'std' does not name a template type
+   81 |   using variant_type = std::variant<
+      |                             ^~~~~~~
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/any_subscription_callback.hpp:81:24: note: 'std::variant' is only available from C++17 onwards
+   81 |   using variant_type = std::variant<
+      |                        ^~~
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/any_subscription_callback.hpp: In member function 'void rclcpp::AnySubscriptionCallback<MessageT, AllocatorT>::dispatch(std::shared_ptr<_Tp>, const rclcpp::MessageInfo&)':
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/any_subscription_callback.hpp:238:10: error: 'visit' is not a member of 'std'
+  238 |     std::visit(
+      |          ^~~~~
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/any_subscription_callback.hpp:238:10: note: 'std::visit' is only available from C++17 onwards
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/any_subscription_callback.hpp: In lambda function:
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/robot-localization/3.2.1-1-r0/recipe-sysroot/usr/include/rclcpp/any_subscription_callback.hpp:242:28: error: 'is_same_v' is not a member of 'std'; did you mean 'is_same'?
+  242 |         if constexpr (std::is_same_v<T, ConstRefCallback>) {
+      |                            ^~~~~~~~~
+      |                            is_same
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b49b9c8..f90c2af 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
+ project(robot_localization)
+ 
+ if(NOT WIN32)
+-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
++  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+ endif()
+ 
+ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
