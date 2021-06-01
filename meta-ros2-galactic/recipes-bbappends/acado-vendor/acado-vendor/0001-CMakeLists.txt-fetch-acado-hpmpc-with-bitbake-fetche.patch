@@ -14,7 +14,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 10244f2..d29e609 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -16,14 +16,12 @@ message("extra_cmake_args: ${extra_cmake_args} ====")
+@@ -16,14 +16,10 @@ message("extra_cmake_args: ${extra_cmake_args} ====")
  include(ExternalProject)
  
  externalproject_add(acado-1.2.2-cho3
@@ -25,13 +25,13 @@ index 10244f2..d29e609 100644
 +  SOURCE_DIR ${PROJECT_SOURCE_DIR}/acado-upstream
    CMAKE_ARGS
      -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/acado_external_project_install
-     -DCMAKE_C_FLAGS="-w"
-     -DCMAKE_CXX_FLAGS="-w"
+-    -DCMAKE_C_FLAGS="-w"
+-    -DCMAKE_CXX_FLAGS="-w"
 +    -DCMAKE_TOOLCHAIN_FILE=${PROJECT_SOURCE_DIR}/../toolchain.cmake
      ${extra_cmake_args}
      -Wno-dev
  )
-@@ -31,14 +29,12 @@ install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/acado_external_project_install/
+@@ -31,14 +29,10 @@ install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/acado_external_project_install/
    DESTINATION ${CMAKE_INSTALL_PREFIX})
  
  externalproject_add(hpmpc-cho3
@@ -42,8 +42,8 @@ index 10244f2..d29e609 100644
 +  SOURCE_DIR ${PROJECT_SOURCE_DIR}/hpmpc-upstream
    CMAKE_ARGS
      -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/hpmpc_external_project_install
-     -DCMAKE_C_FLAGS="-w"
-     -DCMAKE_CXX_FLAGS="-w"
+-    -DCMAKE_C_FLAGS="-w"
+-    -DCMAKE_CXX_FLAGS="-w"
 +    -DCMAKE_TOOLCHAIN_FILE=${PROJECT_SOURCE_DIR}/../toolchain.cmake
      ${extra_cmake_args}
      -Wno-dev
