@@ -27,3 +27,6 @@ FILES_${PN}-dev += "${prefix}/cmake/hpmpcConfig* \
     ${datadir}/acado/external_packages/qpoases \
     ${datadir}/acado/external_packages/qpoases3 \
 "
+
+# ERROR: acado-vendor-1.0.0-3-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package acado-vendor contains symlink .so '/usr/lib/libacado_toolkit_s.so' [dev-so]
+inherit ros_insane_dev_so
