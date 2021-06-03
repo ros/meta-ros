@@ -5,33 +5,39 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Test package, which uses things exported by osrf_testing_tools_cpp."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Interface package, containing message definitions and service definitions     for the system modes package."
+AUTHOR = "Arne Nordmann <arne.nordmann@bosch.com>"
+HOMEPAGE = "https://micro.ros.org/docs/concepts/client_library/lifecycle_and_system_modes/"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "osrf_testing_tools_cpp"
-ROS_BPN = "test_osrf_testing_tools_cpp"
+ROS_CN = "system_modes"
+ROS_BPN = "system_modes_msgs"
 
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
-    cmake-native \
+    ament-cmake-native \
+    rosidl-default-generators-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    rosidl-default-runtime \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    osrf-testing-tools-cpp \
+    ament-cmake-cppcheck \
+    ament-cmake-cpplint \
+    ament-lint-auto \
+    ament-lint-common \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -41,12 +47,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/osrf_testing_tools_cpp-release/archive/release/foxy/test_osrf_testing_tools_cpp/1.3.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/test_osrf_testing_tools_cpp"
-SRC_URI = "git://github.com/ros2-gbp/osrf_testing_tools_cpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7d27ff83c1f388650a0b4943a654ee51e3ed8f53"
+# matches with: https://github.com/microROS/system_modes-release/archive/release/foxy/system_modes_msgs/0.7.1-4.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/system_modes_msgs"
+SRC_URI = "git://github.com/microROS/system_modes-release;${ROS_BRANCH};protocol=https"
+SRCREV = "01ad12d51c67844d5b5afeb919f80c7a399147cd"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
