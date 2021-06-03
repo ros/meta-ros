@@ -8,53 +8,61 @@ inherit ros_superflore_generated
 DESCRIPTION = "ROS2 extensions and behaviours for py_trees."
 AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
 ROS_AUTHOR = "Daniel Stonier"
-HOMEPAGE = "https://py-trees-ros-tutorials.readthedocs.io/en/release-2.0.x/"
+HOMEPAGE = "https://py-trees-ros.readthedocs.io/en/release-1.2.x/"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "py_trees_ros_tutorials"
-ROS_BPN = "py_trees_ros_tutorials"
+ROS_CN = "py_trees_ros"
+ROS_BPN = "py_trees_ros"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
+    geometry-msgs \
+    py-trees \
+    py-trees-ros-interfaces \
     python3-setuptools \
-    qttools \
+    rcl-interfaces \
+    rclpy \
+    ros2topic \
+    sensor-msgs \
+    std-msgs \
+    tf2-ros \
+    unique-identifier-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    geometry-msgs \
+    py-trees \
+    py-trees-ros-interfaces \
+    rcl-interfaces \
+    rclpy \
+    ros2topic \
+    sensor-msgs \
+    std-msgs \
+    tf2-ros \
+    unique-identifier-msgs \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    action-msgs \
     geometry-msgs \
-    launch \
-    launch-ros \
     py-trees \
-    py-trees-ros \
     py-trees-ros-interfaces \
-    python3-pyqt5 \
     rcl-interfaces \
     rclpy \
-    ros2launch \
-    ros2param \
-    ros2run \
-    ros2service \
     ros2topic \
     sensor-msgs \
     std-msgs \
+    tf2-ros \
+    unique-identifier-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    action-msgs \
-    py-trees \
-    py-trees-ros \
     python3-pytest \
-    rclpy \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -64,10 +72,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/stonier/py_trees_ros_tutorials-release/archive/release/foxy/py_trees_ros_tutorials/2.1.0-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/py_trees_ros_tutorials"
-SRC_URI = "git://github.com/stonier/py_trees_ros_tutorials-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ae3af0350075385a00118d7700f372c9cec2c1d1"
+# matches with: https://github.com/stonier/py_trees_ros-release/archive/release/foxy/py_trees_ros/2.1.1-3.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/py_trees_ros"
+SRC_URI = "git://github.com/stonier/py_trees_ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "6b912914146c3e510e0322fc51f69f793bfdd6bf"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"

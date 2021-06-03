@@ -5,22 +5,18 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Javascript library for visualising behaviour trees."
-AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
-ROS_AUTHOR = "Daniel Stonier"
-HOMEPAGE = "https://github.com/splintered-treality/py_trees_js"
+DESCRIPTION = "A Python GUI plugin for introspecting available ROS message types.   Note that the srvs available through this plugin is the ones that are stored   on your machine, not on the ROS core your rqt instance connects to."
+AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
+ROS_AUTHOR = "Aaron Blasdel"
+HOMEPAGE = "http://wiki.ros.org/rqt_srv"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "py_trees_js"
-ROS_BPN = "py_trees_js"
+ROS_CN = "rqt_srv"
+ROS_BPN = "rqt_srv"
 
-ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    python3-setuptools \
-    qttools \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = ""
 
@@ -29,8 +25,10 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    python3-pyqt5 \
+    rclpy \
+    rqt-gui \
+    rqt-gui-py \
+    rqt-msg \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -43,10 +41,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/stonier/py_trees_js-release/archive/release/foxy/py_trees_js/0.6.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/py_trees_js"
-SRC_URI = "git://github.com/stonier/py_trees_js-release;${ROS_BRANCH};protocol=https"
-SRCREV = "df0e255175c56fcfac549d102625d3e7f0c5fd5e"
+# matches with: https://github.com/ros2-gbp/rqt_srv-release/archive/release/foxy/rqt_srv/1.0.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rqt_srv"
+SRC_URI = "git://github.com/ros2-gbp/rqt_srv-release;${ROS_BRANCH};protocol=https"
+SRCREV = "fef1833fc9bbe8272e2e4867ebe600d2b96d27fa"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"

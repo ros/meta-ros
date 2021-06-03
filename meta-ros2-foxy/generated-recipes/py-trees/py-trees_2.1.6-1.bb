@@ -5,21 +5,19 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "A Qt-JS application for visualisation of executing/log-replayed behaviour trees in a ROS2 ecosystem."
+DESCRIPTION = "Pythonic implementation of behaviour trees."
 AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
 ROS_AUTHOR = "Daniel Stonier"
-HOMEPAGE = "https://github.com/splintered-treality/py_trees_ros_viewer"
+HOMEPAGE = "https://py-trees.readthedocs.io/en/release-1.4.x"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "py_trees_ros_viewer"
-ROS_BPN = "py_trees_ros_viewer"
+ROS_CN = "py_trees"
+ROS_BPN = "py_trees"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
     python3-setuptools \
-    qttools \
 "
 
 ROS_BUILDTOOL_DEPENDS = ""
@@ -29,16 +27,15 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    py-trees-js \
-    py-trees-ros-interfaces \
-    python3-pyqt5 \
-    rclpy \
-    unique-identifier-msgs \
+    python3-pydot \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    python3-mypy \
+    python3-nose \
+    python3-nose-yanc \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -47,10 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/stonier/py_trees_ros_viewer-release/archive/release/foxy/py_trees_ros_viewer/0.2.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/py_trees_ros_viewer"
-SRC_URI = "git://github.com/stonier/py_trees_ros_viewer-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d90c7dc0fc0b81a598c00fdd6ba3bd64718c5d60"
+# matches with: https://github.com/stonier/py_trees-release/archive/release/foxy/py_trees/2.1.6-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/py_trees"
+SRC_URI = "git://github.com/stonier/py_trees-release;${ROS_BRANCH};protocol=https"
+SRCREV = "31e731d623608d5fa50da890e34a0bd46badd77a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
