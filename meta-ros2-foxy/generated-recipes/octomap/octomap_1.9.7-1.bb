@@ -5,17 +5,16 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Testing tools for C++, and is used in various OSRF projects."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "The OctoMap library implements a 3D occupancy grid mapping approach, providing data structures and mapping algorithms in C++. The map implementation is based on an octree. See   http://octomap.github.io for details."
+AUTHOR = "Armin Hornung <armin@hornung.io>"
+ROS_AUTHOR = "Kai M. Wurm <wurm@informatik.uni-freiburg.de>"
+HOMEPAGE = "http://octomap.github.io"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "osrf_testing_tools_cpp"
-ROS_BPN = "osrf_testing_tools_cpp"
+ROS_CN = "octomap"
+ROS_BPN = "octomap"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -27,7 +26,9 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    ament-cmake \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""
@@ -39,10 +40,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/osrf_testing_tools_cpp-release/archive/release/foxy/osrf_testing_tools_cpp/1.3.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/osrf_testing_tools_cpp"
-SRC_URI = "git://github.com/ros2-gbp/osrf_testing_tools_cpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "343ee1608d087886d9e9a9a6188abb8129fdc37c"
+# matches with: https://github.com/ros-gbp/octomap-release/archive/release/foxy/octomap/1.9.7-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/octomap"
+SRC_URI = "git://github.com/ros-gbp/octomap-release;${ROS_BRANCH};protocol=https"
+SRCREV = "3125993f9ec81be51590cdf8364eacc9cf292955"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"

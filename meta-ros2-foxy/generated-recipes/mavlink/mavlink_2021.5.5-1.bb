@@ -5,22 +5,29 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Testing tools for C++, and is used in various OSRF projects."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "MAVLink message marshaling library.   This package provides C-headers and C++11 library   for both 1.0 and 2.0 versions of protocol.    For pymavlink use separate install via rosdep (python-pymavlink)."
+AUTHOR = "Vladimir Ermakov <vooon341@gmail.com>"
+ROS_AUTHOR = "Lorenz Meier"
+HOMEPAGE = "https://mavlink.io/en/"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
-ROS_CN = "osrf_testing_tools_cpp"
-ROS_BPN = "osrf_testing_tools_cpp"
+ROS_CN = "mavlink"
+ROS_BPN = "mavlink"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    python3 \
+    python3-future \
+    python3-lxml \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
     cmake-native \
+    ros-environment-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
@@ -39,10 +46,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/osrf_testing_tools_cpp-release/archive/release/foxy/osrf_testing_tools_cpp/1.3.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/osrf_testing_tools_cpp"
-SRC_URI = "git://github.com/ros2-gbp/osrf_testing_tools_cpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "343ee1608d087886d9e9a9a6188abb8129fdc37c"
+# matches with: https://github.com/mavlink/mavlink-gbp-release/archive/release/foxy/mavlink/2021.5.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/mavlink"
+SRC_URI = "git://github.com/mavlink/mavlink-gbp-release;${ROS_BRANCH};protocol=https"
+SRCREV = "828cd0bfbcd9ebe0013a48766136b42c7d8f53aa"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"

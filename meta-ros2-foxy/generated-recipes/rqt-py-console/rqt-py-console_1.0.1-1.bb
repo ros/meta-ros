@@ -5,22 +5,18 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Javascript library for visualising behaviour trees."
-AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
-ROS_AUTHOR = "Daniel Stonier"
-HOMEPAGE = "https://github.com/splintered-treality/py_trees_js"
+DESCRIPTION = "rqt_py_console is a Python GUI plugin providing an interactive Python console."
+AUTHOR = "Dorian Scholz <scholz@sim.tu-darmstadt.de>"
+ROS_AUTHOR = "Dorian Scholz"
+HOMEPAGE = "http://wiki.ros.org/rqt_py_console"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "py_trees_js"
-ROS_BPN = "py_trees_js"
+ROS_CN = "rqt_py_console"
+ROS_BPN = "rqt_py_console"
 
-ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    python3-setuptools \
-    qttools \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = ""
 
@@ -29,8 +25,13 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    python3-pyqt5 \
+    ament-index-python \
+    python-qt-binding \
+    qt-gui \
+    qt-gui-py-common \
+    rclpy \
+    rqt-gui \
+    rqt-gui-py \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -43,10 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/stonier/py_trees_js-release/archive/release/foxy/py_trees_js/0.6.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/py_trees_js"
-SRC_URI = "git://github.com/stonier/py_trees_js-release;${ROS_BRANCH};protocol=https"
-SRCREV = "df0e255175c56fcfac549d102625d3e7f0c5fd5e"
+# matches with: https://github.com/ros2-gbp/rqt_py_console-release/archive/release/foxy/rqt_py_console/1.0.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rqt_py_console"
+SRC_URI = "git://github.com/ros2-gbp/rqt_py_console-release;${ROS_BRANCH};protocol=https"
+SRCREV = "51cdfc68e2fcc87d83462154df125a1dd80af197"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"

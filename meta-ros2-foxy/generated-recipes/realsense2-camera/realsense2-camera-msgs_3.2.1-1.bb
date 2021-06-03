@@ -5,33 +5,41 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Test package, which uses things exported by osrf_testing_tools_cpp."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
+DESCRIPTION = "A package containing realsense camera messages definitions."
+AUTHOR = "Doron Hirshberg <doron.hirshberg@intel.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "osrf_testing_tools_cpp"
-ROS_BPN = "test_osrf_testing_tools_cpp"
+ROS_CN = "realsense2_camera"
+ROS_BPN = "realsense2_camera_msgs"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    builtin-interfaces \
+    std-msgs \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
-    cmake-native \
+    ament-cmake-native \
+    rosidl-default-generators-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    builtin-interfaces \
+    rosidl-default-runtime \
+    std-msgs \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    osrf-testing-tools-cpp \
+    ament-lint-common \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -41,12 +49,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/osrf_testing_tools_cpp-release/archive/release/foxy/test_osrf_testing_tools_cpp/1.3.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/test_osrf_testing_tools_cpp"
-SRC_URI = "git://github.com/ros2-gbp/osrf_testing_tools_cpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7d27ff83c1f388650a0b4943a654ee51e3ed8f53"
+# matches with: https://github.com/IntelRealSense/realsense-ros-release/archive/release/foxy/realsense2_camera_msgs/3.2.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/realsense2_camera_msgs"
+SRC_URI = "git://github.com/IntelRealSense/realsense-ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "13db8b1a3d85b8e361318718ccb77bb4215e54c1"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

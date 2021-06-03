@@ -5,36 +5,39 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Javascript library for visualising behaviour trees."
-AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
-ROS_AUTHOR = "Daniel Stonier"
-HOMEPAGE = "https://github.com/splintered-treality/py_trees_js"
+DESCRIPTION = "Meta package that contains all essential packages of MoveIt 2"
+AUTHOR = "Dave Coleman <dave@picknik.ai>"
+ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
+HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "py_trees_js"
-ROS_BPN = "py_trees_js"
+ROS_CN = "moveit"
+ROS_BPN = "moveit"
 
-ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    python3-setuptools \
-    qttools \
+ROS_BUILD_DEPENDS = ""
+
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
 "
-
-ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    python3-pyqt5 \
+    moveit-core \
+    moveit-planners \
+    moveit-plugins \
+    moveit-ros \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -43,12 +46,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/stonier/py_trees_js-release/archive/release/foxy/py_trees_js/0.6.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/py_trees_js"
-SRC_URI = "git://github.com/stonier/py_trees_js-release;${ROS_BRANCH};protocol=https"
-SRCREV = "df0e255175c56fcfac549d102625d3e7f0c5fd5e"
+# matches with: https://github.com/moveit/moveit2-release/archive/release/foxy/moveit/2.1.4-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/moveit"
+SRC_URI = "git://github.com/moveit/moveit2-release;${ROS_BRANCH};protocol=https"
+SRCREV = "1224e6314e33405bc20bdb774905f4620cea0aee"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_python"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

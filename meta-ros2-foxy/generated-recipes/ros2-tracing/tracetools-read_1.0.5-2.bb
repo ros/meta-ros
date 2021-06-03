@@ -5,33 +5,39 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Test package, which uses things exported by osrf_testing_tools_cpp."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
+DESCRIPTION = "Tools for reading traces."
+AUTHOR = "Christophe Bedard <bedard.christophe@gmail.com>"
+ROS_AUTHOR = "Christophe Bedard <fixed-term.christophe.bourquebedard@de.bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0"
+#         "Apache 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
-ROS_CN = "osrf_testing_tools_cpp"
-ROS_BPN = "test_osrf_testing_tools_cpp"
+ROS_CN = "ros2_tracing"
+ROS_BPN = "tracetools_read"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
-    cmake-native \
-"
+ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-python3-babeltrace} \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    osrf-testing-tools-cpp \
+    ament-copyright \
+    ament-flake8 \
+    ament-mypy \
+    ament-pep257 \
+    ament-xmllint \
+    python3-pytest \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -41,12 +47,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/osrf_testing_tools_cpp-release/archive/release/foxy/test_osrf_testing_tools_cpp/1.3.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/test_osrf_testing_tools_cpp"
-SRC_URI = "git://github.com/ros2-gbp/osrf_testing_tools_cpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7d27ff83c1f388650a0b4943a654ee51e3ed8f53"
+# matches with: https://github.com/ros2-gbp/ros2_tracing-release/archive/release/foxy/tracetools_read/1.0.5-2.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/tracetools_read"
+SRC_URI = "git://github.com/ros2-gbp/ros2_tracing-release;${ROS_BRANCH};protocol=https"
+SRCREV = "749930260668b676127a47f7220b1b156bd552ae"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

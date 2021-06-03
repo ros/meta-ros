@@ -5,8 +5,8 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Test package, which uses things exported by osrf_testing_tools_cpp."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
+DESCRIPTION = "The package provides shared test resources for ros2_control stack"
+AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
@@ -14,13 +14,13 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "osrf_testing_tools_cpp"
-ROS_BPN = "test_osrf_testing_tools_cpp"
+ROS_CN = "ros2_control"
+ROS_BPN = "ros2_control_test_assets"
 
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
-    cmake-native \
+    ament-cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
@@ -31,7 +31,7 @@ ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    osrf-testing-tools-cpp \
+    ament-lint-auto \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -41,12 +41,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/osrf_testing_tools_cpp-release/archive/release/foxy/test_osrf_testing_tools_cpp/1.3.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/test_osrf_testing_tools_cpp"
-SRC_URI = "git://github.com/ros2-gbp/osrf_testing_tools_cpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7d27ff83c1f388650a0b4943a654ee51e3ed8f53"
+# matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/foxy/ros2_control_test_assets/0.6.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/ros2_control_test_assets"
+SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
+SRCREV = "13349ff223861ee8395bd3a003fb3d3650cda2c2"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
