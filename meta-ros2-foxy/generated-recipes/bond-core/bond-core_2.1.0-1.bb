@@ -5,36 +5,32 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "A Qt-JS application for visualisation of executing/log-replayed behaviour trees in a ROS2 ecosystem."
-AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
-ROS_AUTHOR = "Daniel Stonier"
-HOMEPAGE = "https://github.com/splintered-treality/py_trees_ros_viewer"
+DESCRIPTION = "A bond allows two processes, A and B, to know when the other has     terminated, either cleanly or by crashing. The bond remains     connected until it is either broken explicitly or until a     heartbeat times out."
+AUTHOR = "Michael Carroll <michael@openrobotics.org>"
+ROS_AUTHOR = "Stu Glaser"
+HOMEPAGE = "http://www.ros.org/wiki/bond_core"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "py_trees_ros_viewer"
-ROS_BPN = "py_trees_ros_viewer"
+ROS_CN = "bond_core"
+ROS_BPN = "bond_core"
 
-ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    python3-setuptools \
-    qttools \
+ROS_BUILD_DEPENDS = ""
+
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
 "
-
-ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    py-trees-js \
-    py-trees-ros-interfaces \
-    python3-pyqt5 \
-    rclpy \
-    unique-identifier-msgs \
+    bond \
+    bondcpp \
+    smclib \
+    test-bond \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -47,12 +43,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/stonier/py_trees_ros_viewer-release/archive/release/foxy/py_trees_ros_viewer/0.2.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/py_trees_ros_viewer"
-SRC_URI = "git://github.com/stonier/py_trees_ros_viewer-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d90c7dc0fc0b81a598c00fdd6ba3bd64718c5d60"
+# matches with: https://github.com/ros2-gbp/bond_core-release/archive/release/foxy/bond_core/2.1.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/bond_core"
+SRC_URI = "git://github.com/ros2-gbp/bond_core-release;${ROS_BRANCH};protocol=https"
+SRCREV = "d9b4f2adf9b540ebd5e9312d731f31e13157e3ba"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_python"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

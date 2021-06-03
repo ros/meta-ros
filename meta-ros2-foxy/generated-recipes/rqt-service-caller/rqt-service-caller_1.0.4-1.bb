@@ -5,22 +5,18 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Javascript library for visualising behaviour trees."
-AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
-ROS_AUTHOR = "Daniel Stonier"
-HOMEPAGE = "https://github.com/splintered-treality/py_trees_js"
+DESCRIPTION = "rqt_service_caller provides a GUI plugin for calling arbitrary services."
+AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
+ROS_AUTHOR = "Dorian Scholz"
+HOMEPAGE = "http://wiki.ros.org/rqt_service_caller"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "py_trees_js"
-ROS_BPN = "py_trees_js"
+ROS_CN = "rqt_service_caller"
+ROS_BPN = "rqt_service_caller"
 
-ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    python3-setuptools \
-    qttools \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = ""
 
@@ -29,8 +25,9 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
-    python3-pyqt5 \
+    rqt-gui \
+    rqt-gui-py \
+    rqt-py-common \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -43,10 +40,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/stonier/py_trees_js-release/archive/release/foxy/py_trees_js/0.6.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/py_trees_js"
-SRC_URI = "git://github.com/stonier/py_trees_js-release;${ROS_BRANCH};protocol=https"
-SRCREV = "df0e255175c56fcfac549d102625d3e7f0c5fd5e"
+# matches with: https://github.com/ros2-gbp/rqt_service_caller-release/archive/release/foxy/rqt_service_caller/1.0.4-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rqt_service_caller"
+SRC_URI = "git://github.com/ros2-gbp/rqt_service_caller-release;${ROS_BRANCH};protocol=https"
+SRCREV = "784745f43262dede512284450dd49be19cf2acda"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"

@@ -5,22 +5,21 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Testing tools for C++, and is used in various OSRF projects."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "PR2 Resources used for MoveIt! testing"
+AUTHOR = "Dave Coleman <dave@dav.ee>"
+ROS_AUTHOR = "Ioan Sucan <isucan@willowgarage.edu>"
+HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "osrf_testing_tools_cpp"
-ROS_BPN = "osrf_testing_tools_cpp"
+ROS_CN = "moveit_resources"
+ROS_BPN = "moveit_resources_pr2_description"
 
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
-    cmake-native \
+    ament-cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
@@ -39,12 +38,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/osrf_testing_tools_cpp-release/archive/release/foxy/osrf_testing_tools_cpp/1.3.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/osrf_testing_tools_cpp"
-SRC_URI = "git://github.com/ros2-gbp/osrf_testing_tools_cpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "343ee1608d087886d9e9a9a6188abb8129fdc37c"
+# matches with: https://github.com/moveit/moveit_resources-release/archive/release/foxy/moveit_resources_pr2_description/2.0.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/moveit_resources_pr2_description"
+SRC_URI = "git://github.com/moveit/moveit_resources-release;${ROS_BRANCH};protocol=https"
+SRCREV = "2604b16cd7c28b6346ce968a04b58f6a4aac9b6f"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

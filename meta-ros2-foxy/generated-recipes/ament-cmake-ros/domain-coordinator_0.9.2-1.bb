@@ -5,23 +5,22 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Test package, which uses things exported by osrf_testing_tools_cpp."
-AUTHOR = "William Woodall <william@osrfoundation.org>"
+DESCRIPTION = "A tool to coordinate unique ROS_DOMAIN_IDs across multiple processes"
+AUTHOR = "Michel Hidalgo <michel@ekumenlabs.com>"
+ROS_AUTHOR = "Pete Baughman <pete.baughman@apex.ai>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "osrf_testing_tools_cpp"
-ROS_BPN = "test_osrf_testing_tools_cpp"
+ROS_CN = "ament_cmake_ros"
+ROS_BPN = "domain_coordinator"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
-    cmake-native \
-"
+ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = ""
 
@@ -31,7 +30,10 @@ ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    osrf-testing-tools-cpp \
+    ament-copyright \
+    ament-flake8 \
+    ament-pep257 \
+    python3-pytest \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -41,12 +43,12 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/osrf_testing_tools_cpp-release/archive/release/foxy/test_osrf_testing_tools_cpp/1.3.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/test_osrf_testing_tools_cpp"
-SRC_URI = "git://github.com/ros2-gbp/osrf_testing_tools_cpp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7d27ff83c1f388650a0b4943a654ee51e3ed8f53"
+# matches with: https://github.com/ros2-gbp/ament_cmake_ros-release/archive/release/foxy/domain_coordinator/0.9.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/domain_coordinator"
+SRC_URI = "git://github.com/ros2-gbp/ament_cmake_ros-release;${ROS_BRANCH};protocol=https"
+SRCREV = "27da0d8ad9834c780c3b99fa959a4dbac5b45f18"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}
