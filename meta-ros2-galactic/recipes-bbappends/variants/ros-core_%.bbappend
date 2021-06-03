@@ -1,10 +1,11 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 # Need this to launch anything ROS.
 ROS_EXEC_DEPENDS += " \
     ros-workspace \
     rosidl-generator-cpp \
     rosidl-typesupport-c \
+    rmw-cyclonedds-cpp \
 "
 
 # core-* OE images do not support development.
