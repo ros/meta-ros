@@ -215,6 +215,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-py-console \
     rqt-publisher \
     rqt-reconfigure \
+    rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
@@ -324,6 +325,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-py-common \
     rqt-py-console \
     rqt-reconfigure \
+    rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
