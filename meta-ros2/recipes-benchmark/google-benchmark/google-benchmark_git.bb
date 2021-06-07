@@ -10,7 +10,7 @@ PV = "1.5.1+git${SRCPV}"
 
 # matches with tag 1.5.1
 SRCREV = "8039b4030795b1c9b8cedb78e3a2a6fb89574b6e"
-SRC_URI = "git://github.com/google/benchmark"
+SRC_URI = "git://github.com/google/benchmark;branch=main"
 
 S = "${WORKDIR}/git"
 
