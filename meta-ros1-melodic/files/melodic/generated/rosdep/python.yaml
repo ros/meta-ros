@@ -3816,6 +3816,7 @@ python-pytest-cov:
   fedora: [python-pytest-cov]
   gentoo: [dev-python/pytest-cov]
   nixos: [pythonPackages.pytestcov]
+  openembedded: ['${PYTHON_PN}-pytest-cov@meta-ros-common']
   ubuntu: [python-pytest-cov]
 python-pytest-dependency-pip:
   debian:
@@ -4980,6 +4981,7 @@ python-termcolor:
   fedora: [python-termcolor]
   gentoo: [dev-python/termcolor]
   nixos: [pythonPackages.termcolor]
+  openembedded: ['${PYTHON_PN}-termcolor@openembedded-core']
   osx:
     pip:
       packages: [termcolor]
@@ -6652,6 +6654,20 @@ python3-meshio:
   arch: [python-meshio]
   debian: [python3-meshio]
   ubuntu: [python3-meshio]
+python3-mlflow:
+  debian:
+    pip:
+      packages: [mlflow]
+  fedora:
+    pip:
+      packages: [mlflow]
+  opensuse: [python-mlflow]
+  osx:
+    pip:
+      packages: [mlflow]
+  ubuntu:
+    pip:
+      packages: [mlflow]
 python3-mock:
   alpine: [py3-mock]
   debian: [python3-mock]
@@ -7242,6 +7258,7 @@ python3-pytest-cov:
   fedora: [python3-pytest-cov]
   gentoo: [dev-python/pytest-cov]
   nixos: [python3Packages.pytestcov]
+  openembedded: [python3-pytest-cov@meta-ros-common]
   rhel: ['python%{python3_pkgversion}-pytest-cov']
   ubuntu: [python3-pytest-cov]
 python3-pytest-mock:
@@ -7554,6 +7571,7 @@ python3-shapely:
   osx:
     pip:
       packages: [shapely]
+  rhel: [python3-shapely]
   ubuntu: [python3-shapely]
 python3-simple-pid-pip:
   debian:
@@ -7954,6 +7972,7 @@ python3-zmq:
   fedora: [python3-zmq]
   gentoo: [dev-python/pyzmq]
   nixos: [python3Packages.pyzmq]
+  rhel: [python3-zmq]
   ubuntu: [python3-zmq]
 qdarkstyle-pip:
   debian:
