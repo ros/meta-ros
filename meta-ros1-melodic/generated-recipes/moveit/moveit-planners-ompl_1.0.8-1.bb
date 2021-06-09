@@ -5,54 +5,59 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "Ros extensions and behaviours for py_trees."
-AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
-ROS_AUTHOR = "Daniel Stonier"
-HOMEPAGE = "http://ros.org/wiki/py_trees"
+DESCRIPTION = "MoveIt! interface to OMPL"
+AUTHOR = "Dave Coleman <dave@picknik.ai>"
+ROS_AUTHOR = "Ioan Sucan <isucan@google.com>"
+HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "py_trees_ros"
-ROS_BPN = "py_trees_ros"
+ROS_CN = "moveit"
+ROS_BPN = "moveit_planners_ompl"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-setuptools \
+    dynamic-reconfigure \
+    moveit-core \
+    moveit-ros-planning \
+    ompl \
+    pluginlib \
+    rosconsole \
+    roscpp \
+    tf2-ros \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    dynamic-reconfigure \
+    moveit-core \
+    moveit-ros-planning \
+    ompl \
+    pluginlib \
+    rosconsole \
+    roscpp \
+    tf2-ros \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-rospkg \
-    ${PYTHON_PN}-termcolor \
-    actionlib \
-    actionlib-msgs \
     dynamic-reconfigure \
-    geometry-msgs \
-    move-base-msgs \
-    nav-msgs \
-    py-trees \
-    py-trees-msgs \
-    rosbag \
-    rospy \
-    sensor-msgs \
-    std-msgs \
-    unique-id \
-    uuid-msgs \
+    moveit-core \
+    moveit-ros-planning \
+    ompl \
+    pluginlib \
+    rosconsole \
+    roscpp \
+    tf2-ros \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    geometry-msgs \
-    py-trees \
-    python-qt-binding \
-    rostest \
+    moveit-resources-pr2-description \
     rosunit \
 "
 
@@ -63,10 +68,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/stonier/py_trees_ros-release/archive/release/melodic/py_trees_ros/0.5.21-1.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/py_trees_ros"
-SRC_URI = "git://github.com/stonier/py_trees_ros-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1155c33bb21170e8c17cd09c5ca94e22364e2d8c"
+# matches with: https://github.com/ros-gbp/moveit-release/archive/release/melodic/moveit_planners_ompl/1.0.8-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/moveit_planners_ompl"
+SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
+SRCREV = "6806f1ab3f9e8e21628fd1faf03d7a567658095d"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

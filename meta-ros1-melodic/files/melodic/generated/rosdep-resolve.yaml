@@ -636,7 +636,7 @@ python-pyproj:
 python-pytest:
 - ${PYTHON_PN}-pytest@openembedded-core
 python-pytest-cov:
-- ${ROS_UNRESOLVED_DEP-python-pytest-cov}
+- ${PYTHON_PN}-pytest-cov@meta-ros-common
 python-pyudev:
 - ${PYTHON_PN}-pyudev@meta-python
 python-pyusb-pip:
@@ -688,7 +688,7 @@ python-sphinx:
 python-tabulate-pip:
 - ${ROS_UNRESOLVED_DEP-python-tabulate-pip}
 python-termcolor:
-- ${ROS_UNRESOLVED_DEP-python-termcolor}
+- ${PYTHON_PN}-termcolor@openembedded-core
 python-texttable:
 - ${ROS_UNRESOLVED_DEP-python-texttable}
 python-tilestache:
@@ -776,6 +776,8 @@ unzip:
 - unzip@openembedded-core
 usbutils:
 - usbutils@openembedded-core
+util-linux:
+- util-linux@openembedded-core
 uuid:
 - util-linux@openembedded-core
 v4l-utils:
