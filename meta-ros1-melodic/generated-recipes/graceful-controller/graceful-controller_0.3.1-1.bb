@@ -5,41 +5,36 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The criutils package"
-AUTHOR = "Francisco Suarez-Ruiz <fsuarez6@gmail.com>"
-ROS_AUTHOR = "Francisco Suarez-Ruiz <fsuarez6@gmail.com>"
-HOMEPAGE = "http://wiki.ros.org/criutils"
+DESCRIPTION = "A controller."
+AUTHOR = "Michael Ferguson <mfergs7@gmail.com>"
+ROS_AUTHOR = "Michael Ferguson"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "BSD 3-Clause"
-LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=f5654d47d02d927c4f7a04f0a51abaa1"
+#         "LGPLv3"
+LICENSE = "LGPL-3.0-only"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=b691248d2f70cdaeeaf13696ada5d47c"
 
-ROS_CN = "criutils"
-ROS_BPN = "criutils"
+ROS_CN = "graceful_controller"
+ROS_BPN = "graceful_controller"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+    angles \
+    roscpp \
+"
 
 ROS_BUILDTOOL_DEPENDS = " \
     catkin-native \
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = " \
+    roscpp \
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-numpy \
-    ${PYTHON_PN}-termcolor \
-    baldor \
-    cv-bridge \
-    geometry-msgs \
-    image-geometry \
-    resource-retriever \
-    rostopic \
-    sensor-msgs \
-    std-msgs \
-    visualization-msgs \
+    roscpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -52,10 +47,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/crigroup/criutils-release/archive/release/melodic/criutils/0.1.3-2.tar.gz
-ROS_BRANCH ?= "branch=release/melodic/criutils"
-SRC_URI = "git://github.com/crigroup/criutils-release;${ROS_BRANCH};protocol=https"
-SRCREV = "35757fde4844090bd111403f73179518c44c1382"
+# matches with: https://github.com/mikeferguson/graceful_controller-gbp/archive/release/melodic/graceful_controller/0.3.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/melodic/graceful_controller"
+SRC_URI = "git://github.com/mikeferguson/graceful_controller-gbp;${ROS_BRANCH};protocol=https"
+SRCREV = "0f07bb36e72b7f8020631b4e69b9f32332171ab4"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
