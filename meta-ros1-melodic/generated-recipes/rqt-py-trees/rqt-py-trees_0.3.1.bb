@@ -28,8 +28,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${PYTHON_PN}-rospkg \
+    ${PYTHON_PN}-termcolor \
     ${ROS_UNRESOLVED_DEP-python-pygraphviz} \
-    ${ROS_UNRESOLVED_DEP-python-termcolor} \
     geometry-msgs \
     py-trees \
     py-trees-msgs \
@@ -46,8 +46,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${PYTHON_PN}-rospkg \
+    ${PYTHON_PN}-termcolor \
     ${ROS_UNRESOLVED_DEP-python-pygraphviz} \
-    ${ROS_UNRESOLVED_DEP-python-termcolor} \
     geometry-msgs \
     py-trees \
     py-trees-msgs \
