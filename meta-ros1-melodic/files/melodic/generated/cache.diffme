@@ -1,4 +1,4 @@
-# melodic/cache.yaml 2021-05-17 ed0c2a6f02fe8c1f8ef881ef6caff361a2275a8f 20210514192534 1.6.4
+# melodic/cache.yaml 2021-06-09 a7e6aec9aaca285264df6e082f9e2137b194f654 20210603155733 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -1131,7 +1131,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-drivers-gbp/axis_camera-release.git',
-version: 0.3.1-1
+version: 0.3.2-1
 },
 source: {
 type: git,
@@ -1139,6 +1139,23 @@ url: 'https://github.com/ros-drivers/axis_camera.git',
 version: master
 },
 status: unmaintained
+}
+-----
+azure-iot-sdk-c: {
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/nobleo/azure-iot-sdk-c-release.git',
+version: 1.7.0-2
+},
+source: {
+test_commits: false,
+type: git,
+url: 'https://github.com/Azure/azure-iot-sdk-c.git',
+version: master
+},
+status: maintained
 }
 -----
 backward_ros: {
@@ -1770,6 +1787,33 @@ url: 'https://github.com/aws-robotics/cloudwatchmetrics-ros1.git',
 version: master
 },
 status: maintained
+}
+-----
+clover: {
+doc: {
+type: git,
+url: 'https://github.com/CopterExpress/clover.git',
+version: melodic-devel
+},
+release: {
+packages: [aruco_pose,
+clover,
+clover_blocks,
+clover_description,
+clover_simulation,
+roswww_static],
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/CopterExpress/clover-release.git',
+version: 0.21.3-1
+},
+source: {
+type: git,
+url: 'https://github.com/CopterExpress/clover.git',
+version: melodic-devel
+},
+status: developed
 }
 -----
 cmake_modules: {
@@ -2571,6 +2615,28 @@ version: melodic-devel
 status: developed
 }
 -----
+cpr_common_core: {
+doc: {
+type: git,
+url: 'https://github.com/clearpathrobotics/cpr_common_core.git',
+version: master
+},
+release: {
+packages: [cpr_common_core_msgs],
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/clearpath-gbp/cpr_common_core-release.git',
+version: 0.1.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/clearpathrobotics/cpr_common_core.git',
+version: master
+},
+status: maintained
+}
+-----
 cpr_multimaster_tools: {
 doc: {
 type: git,
@@ -2792,7 +2858,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/DataspeedInc-release/dbw_fca_ros-release.git',
-version: 1.0.10-1
+version: 1.2.0-1
 },
 source: {
 type: git,
@@ -2818,7 +2884,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/DataspeedInc-release/dbw_mkz_ros-release.git',
-version: 1.2.9-1
+version: 1.4.0-1
 },
 source: {
 type: git,
@@ -2844,7 +2910,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/DataspeedInc-release/dbw_polaris_ros-release.git',
-version: 0.0.4-1
+version: 1.0.0-1
 },
 source: {
 type: git,
@@ -3050,7 +3116,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/dingo-release.git',
-version: 0.1.7-1
+version: 0.1.8-1
 },
 source: {
 type: git,
@@ -3605,7 +3671,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ipab-slmc/eigenpy_catkin-release.git',
-version: 2.6.3-1
+version: 2.6.4-1
 },
 source: {
 type: git,
@@ -4761,7 +4827,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/geometric_shapes-release.git',
-version: 0.6.3-1
+version: 0.6.4-1
 },
 source: {
 type: git,
@@ -4951,7 +5017,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mikeferguson/graceful_controller-gbp.git',
-version: 0.3.0-1
+version: 0.3.1-1
 },
 source: {
 type: git,
@@ -8041,7 +8107,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/mcl_3dl-release.git',
-version: 0.5.4-1
+version: 0.6.0-1
 },
 source: {
 type: git,
@@ -8062,7 +8128,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/mcl_3dl_msgs-release.git',
-version: 0.2.0-1
+version: 0.6.0-1
 },
 source: {
 type: git,
@@ -8397,7 +8463,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-drivers-gbp/mocap_optitrack-release.git',
-version: 0.1.2-1
+version: 0.1.3-1
 },
 source: {
 type: git,
@@ -8608,12 +8674,14 @@ moveit_ros_warehouse,
 moveit_runtime,
 moveit_servo,
 moveit_setup_assistant,
-moveit_simple_controller_manager],
+moveit_simple_controller_manager,
+pilz_industrial_motion_planner,
+pilz_industrial_motion_planner_testutils],
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/moveit-release.git',
-version: 1.0.7-1
+version: 1.0.8-1
 },
 source: {
 type: git,
@@ -11293,7 +11361,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/facontidavide/plotjuggler-release.git',
-version: 3.1.0-1
+version: 3.1.2-1
 },
 source: {
 type: git,
@@ -11335,7 +11403,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/PlotJuggler/plotjuggler-ros-plugins-release.git',
-version: 1.1.0-1
+version: 1.2.0-1
 },
 source: {
 type: git,
@@ -13373,7 +13441,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/robot_upstart-release.git',
-version: 0.3.2-1
+version: 0.3.3-1
 },
 source: {
 test_pull_requests: true,
@@ -13862,7 +13930,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/CopterExpress/ros_led-release.git',
-version: 0.0.9-1
+version: 0.0.11-1
 },
 source: {
 type: git,
@@ -14224,7 +14292,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/wu-robotics/roscompile-release.git',
-version: 1.2.0-1
+version: 1.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -15604,7 +15672,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/rt-net-gbp/rt_usb_9axisimu_driver-release.git',
-version: 1.0.0-1
+version: 1.0.1-1
 },
 source: {
 test_pull_requests: true,
@@ -16135,6 +16203,27 @@ type: git,
 url: 'https://github.com/allxone/sensehat_ros.git',
 version: master
 }
+}
+-----
+sensor_filters: {
+doc: {
+type: git,
+url: 'https://github.com/ctu-vras/sensor_filters.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/ctu-vras/sensor_filters-release.git',
+version: 1.0.3-1
+},
+source: {
+type: git,
+url: 'https://github.com/ctu-vras/sensor_filters.git',
+version: master
+},
+status: developed
 }
 -----
 septentrio_gnss_driver: {
@@ -17197,7 +17286,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://gitlab.com/toposens/public/toposens-release.git',
-version: 2.2.0-1
+version: 2.2.1-1
 },
 source: {
 type: git,
@@ -17948,7 +18037,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_Client_Library-release.git',
-version: 0.2.0-1
+version: 0.2.2-1
 },
 source: {
 type: git,
@@ -17969,7 +18058,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-industrial-release/ur_msgs-release.git',
-version: 1.3.2-1
+version: 1.3.4-1
 },
 source: {
 type: git,
@@ -18582,6 +18671,14 @@ version: 3.4.0-4
 status: maintained
 }
 -----
+visp_ros: {
+doc: {
+type: git,
+url: 'https://github.com/lagadic/visp_ros.git',
+version: master
+}
+}
+-----
 visualization_osg: {
 release: {
 packages: [osg_interactive_markers,
@@ -19136,7 +19233,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/xacro-release.git',
-version: 1.13.10-1
+version: 1.13.11-1
 },
 source: {
 type: git,
@@ -20539,6 +20636,37 @@ aruco_msgs: <?xml version="1.0" ?>
 <exec_depend>message_runtime</exec_depend>
 </package>
 -----
+aruco_pose: <?xml version="1.0" ?>
+<package format="2">
+<name>aruco_pose</name>
+<description>Positioning with ArUco markers</description>
+<maintainer email="okalachev@gmail.com">Oleg Kalachev</maintainer>
+<license>MIT</license>
+<author email="okalachev@gmail.com">Oleg Kalachev</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>nodelet</depend>
+<depend>tf</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>cv_bridge</depend>
+<depend>image_transport</depend>
+<depend>message_generation</depend>
+<depend>message_runtime</depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>visualization_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>rostest</depend>
+<depend>dynamic_reconfigure</depend>
+<test_depend>image_publisher</test_depend>
+<test_depend>ros_pytest</test_depend>
+<export>
+<nodelet plugin="${prefix}/nodelet_plugins.xml"/>
+</export>
+</package>
+-----
 aruco_ros: <?xml version="1.0" ?>
 <package format="2">
 <name>aruco_ros</name>
@@ -21254,6 +21382,23 @@ axis_camera: <?xml version="1.0" ?>
 <run_depend>dynamic_reconfigure</run_depend>
 <export>
 <rosdoc config="rosdoc.yaml"/>
+</export>
+</package>
+-----
+azure-iot-sdk-c: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>azure-iot-sdk-c</name>
+<description>Azure IoT C SDKs and Libraries</description>
+<maintainer email="tim.clephas@nobleo.nl">Tim Clephas</maintainer>
+<license>MIT</license>
+<buildtool_depend>cmake</buildtool_depend>
+<depend>curl</depend>
+<depend>libssl-dev</depend>
+<depend>uuid</depend>
+<exec_depend>catkin</exec_depend>
+<export>
+<build_type>cmake</build_type>
 </export>
 </package>
 -----
@@ -22750,6 +22895,110 @@ cloudwatch_metrics_common: <?xml version="1.0" ?>
 <test_depend condition="$ROS_VERSION == 2">ament_cmake_gmock</test_depend>
 <export>
 <build_type>cmake</build_type>
+</export>
+</package>
+-----
+clover: <?xml version="1.0" ?>
+<package format="2">
+<name>clover</name>
+<description>The Clover package</description>
+<maintainer email="okalachev@gmail.com">Oleg Kalachev</maintainer>
+<license>MIT</license>
+<url type="website">https://clover.coex.tech/</url>
+<author email="okalachev@gmail.com">Oleg Kalachev</author>
+<author email="urpylka@gmail.com">Artem Smirnov</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>catkin_virtualenv</build_depend>
+<depend>message_generation</depend>
+<depend>roscpp</depend>
+<depend>rospy</depend>
+<depend>std_srvs</depend>
+<depend>tf</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>visualization_msgs</depend>
+<depend>led_msgs</depend>
+<depend>geographiclib</depend>
+<depend>nodelet</depend>
+<depend>mavros</depend>
+<depend>mavros_extras</depend>
+<depend>cv_camera</depend>
+<depend>cv_bridge</depend>
+<depend>rosbridge_server</depend>
+<depend>web_video_server</depend>
+<depend>tf2_web_republisher</depend>
+<depend>python-lxml</depend>
+<test_depend>ros_pytest</test_depend>
+<export>
+<nodelet plugin="${prefix}/nodelet_plugins.xml"/>
+<pip_requirements>requirements.in</pip_requirements>
+</export>
+</package>
+-----
+clover_blocks: <?xml version="1.0" ?>
+<package format="2">
+<name>clover_blocks</name>
+<description>Blockly programming support for Clover</description>
+<maintainer email="okalachev@gmail.com">Oleg Kalachev</maintainer>
+<license>MIT</license>
+<url type="repository">https://github.com/CopterExpress/clover</url>
+<author email="okalachev@gmail.com">Oleg Kalachev</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>message_generation</depend>
+<depend>message_runtime</depend>
+<depend>rospy</depend>
+<export/>
+</package>
+-----
+clover_description: <?xml version="1.0" ?>
+<package format="2">
+<name>clover_description</name>
+<description>The clover_description package provides URDF models of the Clover series of quadcopters.</description>
+<maintainer email="sfalexrog@gmail.com">Alexey Rogachevskiy</maintainer>
+<author>Alexey Rogachevskiy</author>
+<author>Andrey Ryabov</author>
+<author>Arthur Golubtsov</author>
+<author>Oleg Kalachev</author>
+<author>Svyatoslav Zhuravlev</author>
+<license>MIT</license>
+<url type="website">https://github.com/CopterExpress/clover</url>
+<url type="bugtracker">https://github.com/CopterExpress/clover/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>xacro</depend>
+<exec_depend>gazebo_ros</exec_depend>
+<exec_depend>gazebo_plugins</exec_depend>
+<export>
+<gazebo_ros gazebo_media_path="${prefix}"/>
+</export>
+</package>
+-----
+clover_simulation: <?xml version="1.0" ?>
+<package format="2">
+<name>clover_simulation</name>
+<description>The clover_simulation package provides worlds and launch files for Gazebo.</description>
+<maintainer email="okalachev@gmail.com">Oleg Kalachev</maintainer>
+<author>Alexey Rogachevskiy</author>
+<author>Andrey Ryabov</author>
+<author>Arthur Golubtsov</author>
+<author>Oleg Kalachev</author>
+<author>Svyatoslav Zhuravlev</author>
+<license>MIT</license>
+<url type="website">https://github.com/CopterExpress/clover</url>
+<url type="bugtracker">https://github.com/CopterExpress/clover/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>led_msgs</depend>
+<depend>xacro</depend>
+<depend>gazebo_ros</depend>
+<depend>gazebo_plugins</depend>
+<depend>rospy</depend>
+<export>
+<gazebo_ros gazebo_media_path="${prefix}"/>
+<gazebo_ros gazebo_model_path="${prefix}/models"/>
+<gazebo_ros gazebo_resource_path="${prefix}/resources"/>
 </export>
 </package>
 -----
@@ -25570,6 +25819,20 @@ as well as code for getting backtraces. This package is a component of<a href="h
 <run_depend>libconsole-bridge-dev</run_depend>
 </package>
 -----
+cpr_common_core_msgs: <?xml version="1.0" ?>
+<package format="2">
+<name>cpr_common_core_msgs</name>
+<description>cpr_common_core_msgs</description>
+<author email="tbaltovski@clearpathrobotics.com">Tony Baltovski</author>
+<maintainer email="tbaltovski@clearpathrobotics.com">Tony Baltovski</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>message_generation</build_depend>
+<depend>std_msgs</depend>
+<exec_depend>message_runtime</exec_depend>
+<export/>
+</package>
+-----
 cpr_multimaster_tools: <?xml version="1.0" ?>
 <package format="2">
 <name>cpr_multimaster_tools</name>
@@ -26073,6 +26336,7 @@ dbw_fca_can: <?xml version="1.0" ?>
 <depend>dbw_fca_msgs</depend>
 <build_depend>dataspeed_can_msg_filters</build_depend>
 <exec_depend>roslaunch</exec_depend>
+<exec_depend>socketcan_bridge</exec_depend>
 <exec_depend>dataspeed_can_usb</exec_depend>
 <exec_depend>dbw_fca_description</exec_depend>
 <exec_depend>dataspeed_ulc_can</exec_depend>
@@ -26146,6 +26410,7 @@ dbw_fca_msgs: <?xml version="1.0" ?>
 <rosbag_migration_rule rule_file="bmr/1.0.8-1.0.9/Misc1Report.bmr"/>
 <rosbag_migration_rule rule_file="bmr/1.0.8-1.0.9/TurnSignalCmd.bmr"/>
 <rosbag_migration_rule rule_file="bmr/1.0.9-1.0.10/Misc1Report.bmr"/>
+<rosbag_migration_rule rule_file="bmr/1.1.1-1.1.2/MiscCmd.bmr"/>
 </export>
 </package>
 -----
@@ -26190,6 +26455,7 @@ dbw_mkz_can: <?xml version="1.0" ?>
 <depend>dbw_mkz_msgs</depend>
 <build_depend>dataspeed_can_msg_filters</build_depend>
 <exec_depend>roslaunch</exec_depend>
+<exec_depend>socketcan_bridge</exec_depend>
 <exec_depend>dataspeed_can_usb</exec_depend>
 <exec_depend>dbw_mkz_description</exec_depend>
 <exec_depend>dataspeed_ulc_can</exec_depend>
@@ -26281,6 +26547,8 @@ dbw_mkz_msgs: <?xml version="1.0" ?>
 <rosbag_migration_rule rule_file="bmr/1.2.0-1.2.1/BrakeReport.bmr"/>
 <rosbag_migration_rule rule_file="bmr/1.2.0-1.2.1/ThrottleInfoReport.bmr"/>
 <rosbag_migration_rule rule_file="bmr/1.2.4-1.2.5/Misc1Report.bmr"/>
+<rosbag_migration_rule rule_file="bmr/1.2.11-1.3.0/BrakeReport.bmr"/>
+<rosbag_migration_rule rule_file="bmr/1.2.11-1.3.0/ThrottleInfoReport.bmr"/>
 </export>
 </package>
 -----
@@ -26325,6 +26593,7 @@ dbw_polaris_can: <?xml version="1.0" ?>
 <depend>dbw_polaris_msgs</depend>
 <build_depend>dataspeed_can_msg_filters</build_depend>
 <exec_depend>roslaunch</exec_depend>
+<exec_depend>socketcan_bridge</exec_depend>
 <exec_depend>dataspeed_can_usb</exec_depend>
 <exec_depend>dbw_polaris_description</exec_depend>
 <exec_depend>dataspeed_ulc_can</exec_depend>
@@ -32387,11 +32656,11 @@ geographic_msgs: <?xml version="1.0" ?>
 geometric_shapes: <?xml version="1.0" ?>
 <package>
 <name>geometric_shapes</name>
-<description>This package contains generic definitions of geometric shapes and bodies.</description>
+<description>Generic definitions of geometric shapes and bodies.</description>
 <author email="isucan@google.com">Ioan Sucan</author>
 <author email="gjones@willowgarage.edu">Gil Jones</author>
-<maintainer email="dave@dav.ee">Dave Coleman</maintainer>
-<maintainer email="130s@2000.jukuin.keio.ac.jp">Isaac I. Y. Saito</maintainer>
+<maintainer email="tyler@picknik.ai">Tyler Weaver</maintainer>
+<maintainer email="rhaschke@techfak.uni-bielefeld.de">Robert Haschke</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/geometric_shapes</url>
 <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
@@ -43426,6 +43695,7 @@ moveit_core: <?xml version="1.0" ?>
 <depend>moveit_msgs</depend>
 <depend>octomap</depend>
 <depend>octomap_msgs</depend>
+<depend>pybind11_catkin</depend>
 <depend>random_numbers</depend>
 <depend>roslib</depend>
 <depend>rostime</depend>
@@ -43439,6 +43709,7 @@ moveit_core: <?xml version="1.0" ?>
 <depend>trajectory_msgs</depend>
 <depend>visualization_msgs</depend>
 <depend>xmlrpcpp</depend>
+<doc_depend>python3-sphinx-rtd-theme</doc_depend>
 <test_depend>moveit_resources_panda_moveit_config</test_depend>
 <test_depend>moveit_resources_pr2_description</test_depend>
 <test_depend>angles</test_depend>
@@ -44104,11 +44375,14 @@ moveit_ros_perception: <?xml version="1.0" ?>
 <depend>tf2_geometry_msgs</depend>
 <depend>tf2_ros</depend>
 <depend>moveit_ros_occupancy_map_monitor</depend>
+<depend>moveit_ros_planning</depend>
+<depend>nodelet</depend>
 <build_depend>eigen</build_depend>
 <test_depend>rosunit</test_depend>
 <export>
 <moveit_ros_perception plugin="${prefix}/pointcloud_octomap_updater_plugin_description.xml"/>
 <moveit_ros_perception plugin="${prefix}/depth_image_octomap_updater_plugin_description.xml"/>
+<nodelet plugin="${prefix}/moveit_depth_self_filter.xml"/>
 </export>
 </package>
 -----
@@ -49948,6 +50222,77 @@ pilz_industrial_motion: <?xml version="1.0" ?>
 <metapackage/>
 <architecture_independent/>
 </export>
+</package>
+-----
+pilz_industrial_motion_planner: <?xml version="1.0" ?>
+<package format="3">
+<name>pilz_industrial_motion_planner</name>
+<description>MoveIt plugin to generate industrial trajectories PTP,
+LIN,
+CIRC and sequences thereof.</description>
+<maintainer email="a.gutenkunst@pilz.de">Alexander Gutenkunst</maintainer>
+<maintainer email="c.henkel@pilz.de">Christian Henkel</maintainer>
+<maintainer email="i.martini@pilz.de">Immanuel Martini</maintainer>
+<maintainer email="j.schleicher@pilz.de">Joachim Schleicher</maintainer>
+<maintainer email="h.slusarek@pilz.de">Hagen Slusarek</maintainer>
+<license>BSD</license>
+<url type="website">http://moveit.ros.org</url>
+<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
+<url type="repository">https://github.com/ros-planning/moveit</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>eigen_conversions</depend>
+<depend>joint_limits_interface</depend>
+<depend>kdl_conversions</depend>
+<depend>moveit_ros_planning_interface</depend>
+<depend>moveit_msgs</depend>
+<depend>moveit_core</depend>
+<depend>moveit_ros_planning</depend>
+<depend>moveit_ros_move_group</depend>
+<depend condition="$ROS_DISTRO != noetic">orocos_kdl</depend>
+<depend condition="$ROS_DISTRO == noetic">liborocos-kdl-dev</depend>
+<depend>pluginlib</depend>
+<depend>roscpp</depend>
+<depend>tf2</depend>
+<depend>tf2_eigen</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>tf2_kdl</depend>
+<depend>tf2_ros</depend>
+<test_depend>rostest</test_depend>
+<test_depend>rosunit</test_depend>
+<test_depend>cmake_modules</test_depend>
+<test_depend>moveit_resources_panda_moveit_config</test_depend>
+<test_depend>pilz_industrial_motion_planner_testutils</test_depend>
+<test_depend>moveit_resources_prbt_moveit_config</test_depend>
+<test_depend>moveit_resources_prbt_support</test_depend>
+<test_depend>moveit_resources_prbt_pg70_support</test_depend>
+<test_depend>code_coverage</test_depend>
+<export>
+<moveit_core plugin="${prefix}/plugins/pilz_industrial_motion_planner_plugin_description.xml"/>
+<moveit_ros_move_group plugin="${prefix}/plugins/sequence_capability_plugin_description.xml"/>
+<pilz_industrial_motion_planner plugin="${prefix}/plugins/planning_context_plugin_description.xml"/>
+</export>
+</package>
+-----
+pilz_industrial_motion_planner_testutils: <?xml version="1.0" ?>
+<package>
+<name>pilz_industrial_motion_planner_testutils</name>
+<description>Helper scripts and functionality to test industrial motion generation</description>
+<maintainer email="a.gutenkunst@pilz.de">Alexander Gutenkunst</maintainer>
+<maintainer email="c.henkel@pilz.de">Christian Henkel</maintainer>
+<maintainer email="i.martini@pilz.de">Immanuel Martini</maintainer>
+<maintainer email="j.schleicher@pilz.de">Joachim Schleicher</maintainer>
+<maintainer email="h.slusarek@pilz.de">Hagen Slusarek</maintainer>
+<license>BSD</license>
+<url type="website">http://moveit.ros.org</url>
+<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
+<url type="repository">https://github.com/ros-planning/moveit</url>
+<build_depend>eigen_conversions</build_depend>
+<build_depend>moveit_core</build_depend>
+<build_depend>moveit_msgs</build_depend>
+<run_depend>moveit_core</run_depend>
+<run_depend>moveit_msgs</run_depend>
+<run_depend>moveit_commander</run_depend>
+<buildtool_depend>catkin</buildtool_depend>
 </package>
 -----
 pilz_industrial_motion_testutils: <?xml version="1.0" ?>
@@ -56057,6 +56402,7 @@ robot_upstart: <?xml version="1.0" ?>
 <exec_depend>daemontools</exec_depend>
 <exec_depend>net-tools</exec_depend>
 <exec_depend>roslaunch</exec_depend>
+<exec_depend>util-linux</exec_depend>
 <exec_depend>xacro</exec_depend>
 <test_depend>roslint</test_depend>
 <test_depend>rosunit</test_depend>
@@ -59586,6 +59932,16 @@ that is based on<a href="http://www.tornadoweb.org/en/stable">Tornado</a>web ser
 </export>
 </package>
 -----
+roswww_static: <?xml version="1.0" ?>
+<package format="2">
+<name>roswww_static</name>
+<description>Static web pages for ROS packages</description>
+<maintainer email="okalachev@gmail.com">Oleg Kalachev</maintainer>
+<license>MIT</license>
+<buildtool_depend>catkin</buildtool_depend>
+<export/>
+</package>
+-----
 rotate_recovery: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -63052,6 +63408,24 @@ semantic_point_annotator: <?xml version="1.0" ?>
 <export/>
 </package>
 -----
+sensor_filters: <?xml version="1.0" ?>
+<package format="2">
+<name>sensor_filters</name>
+<description>Simple sensor filter chain nodes and nodelets</description>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<license>BSD</license>
+<url type="website">https://github.com/ctu-vras/sensor_filters</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>filters</depend>
+<depend>nodelet</depend>
+<depend>roscpp</depend>
+<depend>sensor_msgs</depend>
+<export>
+<nodelet plugin="${prefix}/nodelets.xml"/>
+</export>
+</package>
+-----
 sensor_msgs: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
 <package format=\"3\">
@@ -65537,7 +65911,7 @@ toposens: <?xml version="1.0" ?>
 <package format="2">
 <name>toposens</name>
 <description>ROS support for Toposens 3D Ultrasound sensors.</description>
-<maintainer email="roth@toposens.com">Tobias Roth</maintainer>
+<maintainer email="maier@toposens.com">Dennis Maier</maintainer>
 <author>Adi Singh</author>
 <author>Sebastian Dengler</author>
 <author>Christopher Lang</author>
@@ -65564,8 +65938,8 @@ toposens_bringup: <?xml version="1.0" ?>
 <package format="2">
 <name>toposens_bringup</name>
 <description>Launch files for bringup and demos of toposens package.</description>
-<maintainer email="roth@toposens.com">Tobias Roth</maintainer>
-<author>Tobias Roth</author>
+<maintainer email="maier@toposens.com">Dennis Maier</maintainer>
+<author>Dennis Maier</author>
 <license>BSD 3-Clause</license>
 <url type="website">https://toposens.com</url>
 <buildtool_depend>catkin</buildtool_depend>
@@ -65588,7 +65962,7 @@ toposens_description: <?xml version="1.0" ?>
 <package format="2">
 <name>toposens_description</name>
 <description>3D models of the sensor for visualization.</description>
-<maintainer email="roth@toposens.com">Tobias Roth</maintainer>
+<maintainer email="maier@toposens.com">Dennis Maier</maintainer>
 <author>Sebastian Dengler</author>
 <license>BSD 3-Clause</license>
 <url type="website">https://toposens.com</url>
@@ -65606,7 +65980,7 @@ toposens_driver: <?xml version="1.0" ?>
 <package format="2">
 <name>toposens_driver</name>
 <description>ROS device driver for communication with TS sensors.</description>
-<maintainer email="roth@toposens.com">Tobias Roth</maintainer>
+<maintainer email="maier@toposens.com">Dennis Maier</maintainer>
 <author>Adi Singh</author>
 <author>Sebastian Dengler</author>
 <author>Christopher Lang</author>
@@ -65630,7 +66004,7 @@ toposens_markers: <?xml version="1.0" ?>
 <package format="2">
 <name>toposens_markers</name>
 <description>Rviz integration for TS sensor data.</description>
-<maintainer email="roth@toposens.com">Tobias Roth</maintainer>
+<maintainer email="maier@toposens.com">Dennis Maier</maintainer>
 <author>Adi Singh</author>
 <author>Sebastian Dengler</author>
 <author>Christopher Lang</author>
@@ -65656,7 +66030,7 @@ toposens_msgs: <?xml version="1.0" ?>
 <package format="2">
 <name>toposens_msgs</name>
 <description>ROS message definitions for TS sensors.</description>
-<maintainer email="roth@toposens.com">Tobias Roth</maintainer>
+<maintainer email="maier@toposens.com">Dennis Maier</maintainer>
 <author>Adi Singh</author>
 <license>BSD 3-Clause</license>
 <url type="website">https://toposens.com</url>
@@ -65673,7 +66047,7 @@ toposens_pointcloud: <?xml version="1.0" ?>
 <package format="2">
 <name>toposens_pointcloud</name>
 <description>PCL integration for TS sensors mounted on Turtlebot3.</description>
-<maintainer email="roth@toposens.com">Tobias Roth</maintainer>
+<maintainer email="maier@toposens.com">Dennis Maier</maintainer>
 <author>Adi Singh</author>
 <author>Sebastian Dengler</author>
 <author>Christopher Lang</author>
@@ -65698,7 +66072,7 @@ toposens_sync: <?xml version="1.0" ?>
 <package format="2">
 <name>toposens_sync</name>
 <description>Operational sync of multiple TS sensors.</description>
-<maintainer email="roth@toposens.com">Tobias Roth</maintainer>
+<maintainer email="maier@toposens.com">Dennis Maier</maintainer>
 <author>Sebastian Dengler</author>
 <author>Christopher Lang</author>
 <license>BSD 3-Clause</license>
@@ -67640,7 +68014,7 @@ GPL</license>
 -----
 ur_client_library: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="2">
+<package format="3">
 <name>ur_client_library</name>
 <description>Standalone C++ library for accessing Universal Robots interfaces. This has been forked off the ur_robot_driver.</description>
 <author>Thomas Timm Andersen</author>
@@ -67649,17 +68023,18 @@ ur_client_library: <?xml version="1.0" ?>
 <author>Lea Steffen</author>
 <author>Tristan Schnell</author>
 <maintainer email="exner@fzi.de">Felix Exner</maintainer>
-<license>Apache-2.0</license>
-<license>BSD-2-Clause</license>
-<license>Zlib</license>
-<license>MIT</license>
+<license file="LICENSE_apache_2_0">Apache-2.0</license>
+<license file="include/ur_client_library/queue/LICENSE.md">BSD-2-Clause</license>
+<license file="include/ur_client_library/queue/atomicops.h">Zlib</license>
+<license file="tests/resources/dockerursim/Dockerfile">MIT</license>
 <url type="website">http://wiki.ros.org/ur_client_library</url>
 <url type="bugtracker">https://github.com/UniversalRobots/Universal_Robots_Client_Library/issues</url>
 <url type="repository">https://github.com/UniversalRobots/Universal_Robots_Client_Library</url>
 <buildtool_depend>cmake</buildtool_depend>
 <build_depend>boost</build_depend>
 <depend>libconsole-bridge-dev</depend>
-<exec_depend>catkin</exec_depend>
+<exec_depend condition="$ROS_VERSION == 1">catkin</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">ament_cmake</exec_depend>
 <export>
 <build_type>cmake</build_type>
 </export>
@@ -70447,11 +70822,14 @@ ws281x: <?xml version="1.0" ?>
 <package format="2">
 <name>ws281x</name>
 <description>ROS node for rpi_ws281x LED strip driver</description>
-<maintainer email="sfalexrog@gmail.com">sfalexrog</maintainer>
 <maintainer email="okalachev@gmail.com">Oleg Kalachev</maintainer>
 <license>MIT</license>
+<license>BSD</license>
 <url type="website">https://github.com/CopterExpress/ros_led</url>
+<author email="sfalexrog@gmail.com">Alexey Rogachevskiy</author>
+<author email="okalachev@gmail.com">Oleg Kalachev</author>
 <buildtool_depend>catkin</buildtool_depend>
+<build_depend>ros_environment</build_depend>
 <build_depend>roscpp</build_depend>
 <build_export_depend>roscpp</build_export_depend>
 <exec_depend>roscpp</exec_depend>
