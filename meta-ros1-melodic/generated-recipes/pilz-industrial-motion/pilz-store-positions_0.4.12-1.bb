@@ -41,7 +41,7 @@ ROS_EXEC_DEPENDS = " \
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
     ${PYTHON_PN}-mock \
-    ${ROS_UNRESOLVED_DEP-python-pytest-cov} \
+    ${PYTHON_PN}-pytest-cov \
     code-coverage \
     ros-pytest \
     rostest \
