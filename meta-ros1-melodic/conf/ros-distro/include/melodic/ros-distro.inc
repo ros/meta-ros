@@ -138,6 +138,8 @@ ROS_WORLD_SKIP_GROUPS += "heifu-ros-utils"
 ROS_WORLD_SKIP_GROUPS += "ueye"
 # depends on blacklisted catkin-virtualenv
 ROS_WORLD_SKIP_GROUPS += "catkin-virtualenv"
+# depends on opencv-native
+ROS_WORLD_SKIP_GROUPS += "opencv-native"
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
