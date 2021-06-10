@@ -18,11 +18,16 @@ RDEPENDS_${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 # with some patches applied on top of prbt-ikfast-manipulator-plugin source
 RDEPENDS_${PN}_remove = "moveit-resources-prbt-ikfast-manipulator-plugin"
 
-# Requires Python 3; it is not used by any other ROS 1 package.
-RDEPENDS_${PN}_remove = "catkin-virtualenv"
-# Depends on blacklisted catkin-virtualenv
-RDEPENDS_${PN}_remove = "haros-catkin"
-RDEPENDS_${PN}_remove = "sesame-ros"
+# Depends on blacklisted catkin-virtualenv (which requires Python 3)
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'catkin-virtualenv' , '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CATKIN_VIRTUALENV}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CATKIN_VIRTUALENV = " \
+    catkin-virtualenv \
+    clover \
+    euslime \
+    haros-catkin \
+    ros-speech-recognition \
+    sesame-ros \
+"
 
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
 RDEPENDS_${PN}_remove = "sophus"

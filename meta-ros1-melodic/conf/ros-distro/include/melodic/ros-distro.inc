@@ -136,6 +136,8 @@ ROS_WORLD_SKIP_GROUPS += "libspnav"
 ROS_WORLD_SKIP_GROUPS += "heifu-ros-utils"
 # expects users to install official IDS uEye drivers (http://en.ids-imaging.com/download-ueye.html)
 ROS_WORLD_SKIP_GROUPS += "ueye"
+# depends on blacklisted catkin-virtualenv
+ROS_WORLD_SKIP_GROUPS += "catkin-virtualenv"
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
