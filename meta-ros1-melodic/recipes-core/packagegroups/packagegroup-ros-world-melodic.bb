@@ -475,6 +475,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     open-manipulator-controller \
     open-manipulator-with-tb3-tools \
     perception \
+    pilz-industrial-motion-planner \
     pilz-industrial-motion-testutils \
     pilz-industrial-motion \
     pilz-robot-programming \
@@ -1172,6 +1173,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG}', '', d)}"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
+    clover \
     codec-image-transport \
     h264-encoder-core \
     h264-video-encoder \
@@ -1205,6 +1207,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x264', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264}', '', d)}"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
+    clover \
     codec-image-transport \
     h264-encoder-core \
     h264-video-encoder \
@@ -1312,6 +1315,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     audibot \
     audibot-gazebo \
     blender-gazebo \
+    clover-description \
+    clover-simulation \
     cob-common \
     cob-description \
     cob-gazebo-objects \
@@ -1625,6 +1630,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     open-manipulator-with-tb3-tools \
     open-manipulator-with-tb3-waffle-moveit \
     open-manipulator-with-tb3-waffle-pi-moveit \
+    pilz-industrial-motion-planner \
     pilz-industrial-motion-testutils \
     pilz-industrial-motion \
     pilz-robot-programming \
