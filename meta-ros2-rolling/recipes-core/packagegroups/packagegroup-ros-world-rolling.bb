@@ -22,6 +22,9 @@ RDEPENDS_${PN}_remove = "zstd-vendor"
 # It's empty package now, just providing dependency on platform python3-pybind11 recipe
 RDEPENDS_${PN}_remove = "pybind11-vendor"
 
+# Depends on unavailable python3-shapely
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-shapely', 'rmf-building-map-tools rmf-traffic-editor-test-maps', '', d)}"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID = " \
     wiimote \
@@ -78,6 +81,23 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
     control-box-rst \
 "
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libqglviewer', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER = " \
+    octovis \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
+    ign-rviz \
+    ign-rviz-common \
+    ign-rviz-plugins \
+    ros-ign \
+    ros-ign-bridge \
+    ros-ign-gazebo \
+    ros-ign-gazebo-demos \
+    ros-ign-image \
+"
+
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
@@ -101,6 +121,8 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop \
     joint-state-publisher-gui \
+    moveit-resources \
+    moveit-resources-panda-moveit-config \
     python-qt-binding \
     qt-dotgraph \
     qt-gui \
@@ -125,6 +147,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-py-console \
     rqt-publisher \
     rqt-reconfigure \
+    rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
@@ -193,6 +216,8 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     desktop \
     joint-state-publisher-gui \
+    moveit-resources \
+    moveit-resources-panda-moveit-config \
     python-qt-binding \
     qt-dotgraph \
     qt-gui-app \
@@ -218,6 +243,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-py-common \
     rqt-py-console \
     rqt-reconfigure \
+    rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
