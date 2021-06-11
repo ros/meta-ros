@@ -48,9 +48,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/swri-robotics-gbp/marti_messages-release/archive/release/dashing/marti_dbw_msgs/1.2.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/marti_messages-release/archive/release/dashing/marti_dbw_msgs/1.2.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/dashing/marti_dbw_msgs"
-SRC_URI = "git://github.com/swri-robotics-gbp/marti_messages-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/marti_messages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d55d08f78add4d7135e6aea74200bb41b8f298b2"
 S = "${WORKDIR}/git"
 
