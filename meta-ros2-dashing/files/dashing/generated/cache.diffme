@@ -1,4 +1,4 @@
-# dashing/cache.yaml 2021-03-04 86dd612b6bbc92b3d38f90d55de0898f3032cdce 20210303222814 1.6.1
+# dashing/cache.yaml 2021-06-10 1b9328c21c27d3926c002f5ca8d79f6cb316cf45 20210611004236 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -285,8 +285,6 @@ url: 'https://gitlab.com/ApexAI/apex_test_tools.git',
 version: master
 },
 release: {
-packages: [apex_test_tools,
-test_apex_test_tools],
 tags: {
 release: 'release/dashing/{package}/{version}'
 },
@@ -536,10 +534,7 @@ version: dashing-devel
 },
 release: {
 packages: [bond,
-bond_core,
-bondcpp,
-smclib,
-test_bond],
+smclib],
 tags: {
 release: 'release/dashing/{package}/{version}'
 },
@@ -733,7 +728,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/common_interfaces-release.git',
-version: 0.7.0-1
+version: 0.7.1-1
 },
 source: {
 test_pull_requests: true,
@@ -960,7 +955,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/robotis-ros2-release/dynamixel_sdk-release.git',
-version: 3.7.30-1
+version: 3.7.40-10
 },
 source: {
 type: git,
@@ -1095,7 +1090,7 @@ eigen_stl_containers: {
 doc: {
 type: git,
 url: 'https://github.com/ros/eigen_stl_containers.git',
-version: ros2
+version: dashing
 },
 release: {
 tags: {
@@ -1108,7 +1103,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/eigen_stl_containers.git',
-version: ros2
+version: dashing
 },
 status: maintained
 }
@@ -1212,7 +1207,7 @@ fmi_adapter: {
 doc: {
 type: git,
 url: 'https://github.com/boschresearch/fmi_adapter.git',
-version: master
+version: dashing
 },
 release: {
 packages: [fmi_adapter,
@@ -1221,14 +1216,14 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/fmi_adapter-release.git',
-version: 0.1.7-1
+version: 2.0.0-1
 },
 source: {
 type: git,
 url: 'https://github.com/boschresearch/fmi_adapter.git',
-version: master
+version: dashing
 },
-status: developed
+status: maintained
 }
 -----
 fmilibrary_vendor: {
@@ -1237,12 +1232,12 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/fmilibrary_vendor-release.git',
-version: 0.2.0-1
+version: 1.0.1-1
 },
 source: {
 type: git,
 url: 'https://github.com/boschresearch/fmilibrary_vendor.git',
-version: master
+version: dashing
 },
 status: maintained
 }
@@ -1518,7 +1513,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/robotis-ros2-release/hls_lfcd_lds_driver-release.git',
-version: 2.0.1-1
+version: 2.0.3-1
 },
 source: {
 type: git,
@@ -1840,7 +1835,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/launch_ros-release.git',
-version: 0.8.9-1
+version: 0.8.10-1
 },
 source: {
 test_pull_requests: true,
@@ -1855,7 +1850,7 @@ launch_ros_sandbox: {
 doc: {
 type: git,
 url: 'https://github.com/ros-security/launch_ros_sandbox.git',
-version: dashing
+version: dashing-devel
 },
 release: {
 tags: {
@@ -1868,7 +1863,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-security/launch_ros_sandbox.git',
-version: dashing
+version: dashing-devel
 },
 status: developed
 }
@@ -2051,7 +2046,7 @@ marti_visualization_msgs],
 tags: {
 release: 'release/dashing/{package}/{version}'
 },
-url: 'https://github.com/swri-robotics-gbp/marti_messages-release.git',
+url: 'https://github.com/ros2-gbp/marti_messages-release.git',
 version: 1.2.0-1
 },
 source: {
@@ -2386,7 +2381,7 @@ test_osrf_testing_tools_cpp],
 tags: {
 release: 'release/dashing/{package}/{version}'
 },
-url: 'https://github.com/ros2-gbp/osrf_testings_tools_cpp-release.git',
+url: 'https://github.com/ros2-gbp/osrf_testing_tools_cpp-release.git',
 version: 1.2.3-1
 },
 source: {
@@ -2751,6 +2746,28 @@ version: crystal-devel
 status: maintained
 }
 -----
+raptor_dbw_ros2: {
+release: {
+packages: [raptor_can_dbc_parser,
+raptor_dbw_can,
+raptor_dbw_joystick,
+raptor_dbw_msgs,
+raptor_pdu,
+raptor_pdu_msgs],
+tags: {
+release: 'release/dashing/{package}/{version}'
+},
+url: 'https://github.com/NewEagleRaptor/raptor-dbw-ros2-release.git',
+version: 1.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/NewEagleRaptor/raptor-dbw-ros2.git',
+version: dashing
+},
+status: developed
+}
+-----
 raspimouse2: {
 doc: {
 type: git,
@@ -2902,7 +2919,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rcl-release.git',
-version: 0.7.9-1
+version: 0.7.10-1
 },
 source: {
 test_abi: true,
@@ -2971,7 +2988,7 @@ rclc: {
 doc: {
 type: git,
 url: 'https://github.com/ros2/rclc.git',
-version: master
+version: foxy
 },
 release: {
 packages: [rclc,
@@ -2981,13 +2998,13 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rclc-release.git',
-version: 0.1.7-1
+version: 1.0.0-1
 },
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros2/rclc.git',
-version: master
+version: foxy
 },
 status: developed
 }
@@ -3007,7 +3024,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rclcpp-release.git',
-version: 0.7.15-1
+version: 0.7.16-1
 },
 source: {
 test_abi: true,
@@ -3260,7 +3277,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmw_gurumdds-release.git',
-version: 0.7.9-1
+version: 0.7.12-1
 },
 source: {
 type: git,
@@ -3370,7 +3387,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros1_bridge-release.git',
-version: 0.7.8-1
+version: 0.7.9-1
 },
 source: {
 test_commits: false,
@@ -3536,7 +3553,7 @@ tracetools_trace],
 tags: {
 release: 'release/dashing/{package}/{version}'
 },
-url: 'https://gitlab.com/ros-tracing/ros2_tracing-release.git',
+url: 'https://github.com/ros2-gbp/ros2_tracing-release.git',
 version: 0.2.8-1
 },
 source: {
@@ -4425,7 +4442,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rviz-release.git',
-version: 6.1.7-2
+version: 6.1.8-1
 },
 source: {
 test_pull_requests: true,
@@ -4457,7 +4474,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/SteveMacenski/slam_toolbox-release.git',
-version: 2.0.3-1
+version: 2.0.4-1
 },
 source: {
 test_pull_requests: true,
@@ -4576,7 +4593,7 @@ tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/microROS/system_modes-release.git',
-version: 0.4.2-1
+version: 0.6.0-2
 },
 source: {
 type: git,
@@ -5289,20 +5306,20 @@ xacro: {
 doc: {
 type: git,
 url: 'https://github.com/ros/xacro.git',
-version: dashing-devel
+version: ros2
 },
 release: {
 tags: {
 release: 'release/dashing/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/xacro-release.git',
-version: 2.0.4-1
+version: 2.0.6-1
 },
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/xacro.git',
-version: dashing-devel
+version: ros2
 },
 status: maintained
 }
@@ -6706,60 +6723,6 @@ either cleanly or by crashing. The bond remains connected until it is either bro
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-bond_core: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>bond_core</name>
-<description>A bond allows two processes,
-A and B,
-to know when the other has terminated,
-either cleanly or by crashing. The bond remains connected until it is either broken explicitly or until a heartbeat times out.</description>
-<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
-<license>BSD</license>
-<url type="website">http://www.ros.org/wiki/bond_core</url>
-<url type="bugtracker">https://github.com/ros/bond_core/issues</url>
-<url type="repository">https://github.com/ros/bond_core</url>
-<author>Stu Glaser</author>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<exec_depend>bond</exec_depend>
-<exec_depend>bondcpp</exec_depend>
-<exec_depend>smclib</exec_depend>
-<exec_depend>test_bond</exec_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-bondcpp: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>bondcpp</name>
-<description>C++ implementation of bond,
-a mechanism for checking when another process has terminated.</description>
-<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
-<license>BSD</license>
-<url type="website">http://www.ros.org/wiki/bondcpp</url>
-<url type="bugtracker">https://github.com/ros/bond_core/issues</url>
-<url type="repository">https://github.com/ros/bond_core</url>
-<author>Stuart Glaser</author>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<build_depend>bond</build_depend>
-<build_depend>rclcpp</build_depend>
-<build_depend>rclcpp_lifecycle</build_depend>
-<build_depend>smclib</build_depend>
-<build_depend>uuid</build_depend>
-<exec_depend>bond</exec_depend>
-<exec_depend>rclcpp</exec_depend>
-<exec_depend>rclcpp_lifecycle</exec_depend>
-<exec_depend>smclib</exec_depend>
-<exec_depend>uuid</exec_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>ament_lint_common</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -9659,7 +9622,7 @@ fmi_adapter: <?xml version="1.0" ?>
 <maintainer email="ralph.lange@de.bosch.com">Ralph Lange</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">http://wiki.ros.org/fmi_adapter</url>
-<url type="repository">https://github.com/boschresearch/fmi_adapter_ros2</url>
+<url type="repository">https://github.com/boschresearch/fmi_adapter</url>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <build_depend>rcl_interfaces</build_depend>
 <build_depend>rclcpp</build_depend>
@@ -9694,7 +9657,7 @@ fmi_adapter_examples: <?xml version="1.0" ?>
 <maintainer email="ralph.lange@de.bosch.com">Ralph Lange</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">http://wiki.ros.org/fmi_adapter</url>
-<url type="repository">https://github.com/boschresearch/fmi_adapter_ros2</url>
+<url type="repository">https://github.com/boschresearch/fmi_adapter</url>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <build_depend>fmi_adapter</build_depend>
 <exec_depend>fmi_adapter</exec_depend>
@@ -9714,6 +9677,9 @@ fmilibrary_vendor: <?xml version="1.0" ?>
 <url type="website">https://jmodelica.org/</url>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <build_depend>git</build_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
 </package>
 -----
 foonathan_memory_vendor: "<?xml version=\"1.0\" ?>
@@ -14205,6 +14171,123 @@ radar_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+raptor_can_dbc_parser: <?xml version="1.0" ?>
+<package format="3">
+<name>raptor_can_dbc_parser</name>
+<description>DBC file interface. Read a DBC file,
+unpack CAN messages and convert to engineering units,
+pack values into CAN messages for publishing.</description>
+<maintainer email="neweagleraptorgithub@neweagle.net">New Eagle</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>can_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+raptor_dbw_can: <?xml version="1.0" ?>
+<package format="3">
+<name>raptor_dbw_can</name>
+<description>CAN translator for drive-by-wire interface to the New Eagle Raptor DBW kit</description>
+<maintainer email="newagleraptorgithub@neweagle.net">New Eagle</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>raptor_dbw_msgs</depend>
+<depend>can_msgs</depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>raptor_can_dbc_parser</depend>
+<depend>raptor_pdu</depend>
+<depend>raptor_pdu_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+raptor_dbw_joystick: <?xml version="1.0" ?>
+<package format="3">
+<name>raptor_dbw_joystick</name>
+<description>Joystick controller that interfaces with raptor_dbw_can node</description>
+<maintainer email="newagleraptorgithub@neweagle.net">New Eagle</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>raptor_dbw_msgs</depend>
+<depend>std_msgs</depend>
+<depend>sensor_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+raptor_dbw_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>raptor_dbw_msgs</name>
+<description>Messages for drive-by-wire interface to the New Eagle Raptor DBW kit</description>
+<maintainer email="newagleraptorgithub@neweagle.net">neweagle</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+raptor_pdu: <?xml version="1.0" ?>
+<package format="3">
+<name>raptor_pdu</name>
+<description>Interface for the New Eagle Multiplex Power Distribution Module (MPDM) https://store.neweagle.net/product/multiplexed-power-distribution-module-mpdm/</description>
+<maintainer email="neweagleraptorgithub@neweagle.net">New Eagle</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>can_msgs</depend>
+<depend>raptor_pdu_msgs</depend>
+<depend>raptor_can_dbc_parser</depend>
+<depend>std_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+raptor_pdu_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>raptor_pdu_msgs</name>
+<description>Power distribution messages for drive-by-wire interface to the New Eagle Raptor DBW kit</description>
+<maintainer email="newagleraptorgithub@neweagle.net">neweagle</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>std_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 raspimouse: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -15182,7 +15265,7 @@ rmw_gurumdds_cpp: <?xml version="1.0" ?>
 <package format="3">
 <name>rmw_gurumdds_cpp</name>
 <description>Implement the ROS middleware interface using GurumNetworks GurumDDS static code generation in C++.</description>
-<maintainer email="junho@gurum.cc">Junho Lee</maintainer>
+<maintainer email="youngjin@gurum.cc">Youngjin Yun</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <buildtool_depend>rosidl_cmake</buildtool_depend>
@@ -15219,7 +15302,7 @@ rmw_gurumdds_shared_cpp: <?xml version="1.0" ?>
 <package format="3">
 <name>rmw_gurumdds_shared_cpp</name>
 <description>Code shared on static and dynamic type support of rmw_gurumdds_cpp.</description>
-<maintainer email="junho@gurum.cc">Junho Lee</maintainer>
+<maintainer email="youngjin@gurum.cc">Youngjin Yun</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_depend>rosidl_cmake</buildtool_depend>
@@ -18667,11 +18750,11 @@ as well as a notion of modes that determine the configuration of these nodes and
 <maintainer email="arne.nordmann@bosch.com">Arne Nordmann</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
+<depend>builtin_interfaces</depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_lifecycle</depend>
-<depend>std_msgs</depend>
-<depend>builtin_interfaces</depend>
 <depend>rosidl_default_generators</depend>
+<depend>std_msgs</depend>
 <exec_depend>launch_ros</exec_depend>
 <test_depend>ament_cmake_gtest</test_depend>
 <test_depend>ament_cmake_gmock</test_depend>
@@ -18680,6 +18763,7 @@ as well as a notion of modes that determine the configuration of these nodes and
 <test_depend>ament_cmake_cpplint</test_depend>
 <test_depend>ament_cmake_cppcheck</test_depend>
 <test_depend>ament_cmake_uncrustify</test_depend>
+<test_depend>ament_index_python</test_depend>
 <test_depend>ament_lint_auto</test_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
 <export>
@@ -18778,56 +18862,6 @@ teleop_twist_keyboard: <?xml version="1.0" ?>
 <test_depend>ament_pep257</test_depend>
 <export>
 <build_type>ament_python</build_type>
-</export>
-</package>
------
-test_apex_test_tools: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>test_apex_test_tools</name>
-<description>Test package,
-which uses things exported by apex_test_tools</description>
-<maintainer email="opensource@apex.ai">Apex.AI,
-Inc.</maintainer>
-<license>Apache License 2.0</license>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<test_depend>apex_test_tools</test_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-test_bond: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>test_bond</name>
-<description>Contains tests for {bond},
-including tests for {bondcpp}.</description>
-<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
-<license>BSD</license>
-<url type="website">http://www.ros.org/wiki/test_bond</url>
-<url type="bugtracker">https://github.com/ros/bond_core/issues</url>
-<url type="repository">https://github.com/ros/bond_core</url>
-<author>Stuart Glaser</author>
-<build_depend>ament_cmake</build_depend>
-<buildtool_depend>rosidl_default_generators</buildtool_depend>
-<build_depend>builtin_interfaces</build_depend>
-<build_depend>std_msgs</build_depend>
-<build_depend>rclcpp_lifecycle</build_depend>
-<exec_depend>builtin_interfaces</exec_depend>
-<exec_depend>std_msgs</exec_depend>
-<exec_depend>rosidl_default_runtime</exec_depend>
-<test_depend>ament_cmake_gtest</test_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>ament_lint_common</test_depend>
-<test_depend>bond</test_depend>
-<test_depend>bondcpp</test_depend>
-<test_depend>rclcpp</test_depend>
-<test_depend>rclcpp_lifecycle</test_depend>
-<test_depend>uuid</test_depend>
-<member_of_group>rosidl_interface_packages</member_of_group>
-<export>
-<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
