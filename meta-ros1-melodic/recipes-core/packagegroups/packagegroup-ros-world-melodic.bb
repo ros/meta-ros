@@ -33,6 +33,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CATKIN_VIRTUALENV = " \
 RDEPENDS_${PN}_remove = "sophus"
 
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
+# in neotic there was only 1 file in PN:
+# azure-iot-sdk-c/1.7.0-4-r0/packages-split/azure-iot-sdk-c/usr/share/azure-iot-sdk-c/package.xml
+RDEPENDS_${PN}_remove = "azure-iot-sdk-c"
+
+# Contains only dev, dbg and staticdev files, so PN is empty and not created
 RDEPENDS_${PN}_remove = "cloudwatch-metrics-common"
 
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
