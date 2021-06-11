@@ -39,9 +39,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/osrf_testings_tools_cpp-release/archive/release/dashing/osrf_testing_tools_cpp/1.2.3-1.tar.gz
+# matches with: https://github.com/ros2-gbp/osrf_testing_tools_cpp-release/archive/release/dashing/osrf_testing_tools_cpp/1.2.3-1.tar.gz
 ROS_BRANCH ?= "branch=release/dashing/osrf_testing_tools_cpp"
-SRC_URI = "git://github.com/ros2-gbp/osrf_testings_tools_cpp-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/osrf_testing_tools_cpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "90d8f3066aaa9afa4412c271813bbac32a973e0a"
 S = "${WORKDIR}/git"
 
