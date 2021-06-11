@@ -104,6 +104,13 @@ ROS_WORLD_SKIP_GROUPS += "ignition"
 # recipes depending on unavailable python3-shapely
 ROS_WORLD_SKIP_GROUPS += "python3-shapely"
 
+# recipes depending on legacy mongo-cxx-driver (https://packages.debian.org/source/stretch/mongo-cxx-driver-legacy)
+# the mongodb recipe in meta-oe installs just the binaries mongoc, mongos, install_compass
+# the header files searched by mongo-store, warehouse-ros-mongo cmake files cmake/FindMongoClient.cmake and cmake/FindMongoDB.cmake
+# aren't even part of current version of mongo-cxx-driver
+# src/mongo/client/dbclient.h and src/mongo/client/dbclientinterface.h are only in the legacy branches
+ROS_WORLD_SKIP_GROUPS += "mongodb-legacy-cxx-driver"
+
 # recipes depending on ros1
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'ros1-layer', '', 'ros1', d)}"
 
