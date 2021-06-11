@@ -44,3 +44,7 @@
 # prbt-ikfast-manipulator-plugin/0.5.14-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:765:57: error: implicitly-declared 'Eigen::Block<const Eigen::Matrix<double, 4, 4>, 3, 3, false>::Block(const Eigen::Block<const Eigen::Matrix<double, 4, 4>, 3, 3, false>&)' is deprecated [-Werror=deprecated-copy]
 # prbt-ikfast-manipulator-plugin/0.5.14-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/LU/InverseImpl.h:308:19: error: implicitly-declared 'Eigen::Block<const Eigen::Matrix<double, 4, 4>, 3, 3, false>::Block(const Eigen::Block<const Eigen::Matrix<double, 4, 4>, 3, 3, false>&)' is deprecated [-Werror=deprecated-copy]
 CXXFLAGS += "-Wno-error=deprecated-copy"
+
+# prbt-ikfast-manipulator-plugin/0.5.21-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/moveit/robot_state/robot_state.h:687:28: error: comparison of integer expressions of different signedness: 'Eigen::EigenBase<Eigen::Matrix<double, -1, 1> >::Index' {aka 'int'} and 'unsigned int' [-Werror=sign-compare]
+# prbt-ikfast-manipulator-plugin/0.5.21-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/moveit/robot_state/robot_state.h:728:28: error: comparison of integer expressions of different signedness: 'Eigen::EigenBase<Eigen::Matrix<double, -1, 1> >::Index' {aka 'int'} and 'unsigned int' [-Werror=sign-compare]
+CXXFLAGS += "-Wno-error=sign-compare"
