@@ -128,6 +128,8 @@ ROS_WORLD_SKIP_GROUPS += " \
 # We want ament_cmake instead of plain cmake for ros-workspace:
 # https://raw.github.com/ros2-gbp/ros_workspace-release/release/rolling/ros_workspace/1.0.1-2/package.xml
 ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
+# And also for rmf-task, otherwise many dependencies won't be detected
+ROS_BUILD_TYPE_pn-rmf-task = "ament_cmake"
 
 # Used by generated-recipes/cyclonedds/cyclonedds_0.6.0-3.bb
 ROS_UNRESOLVED_DEP-java-native = ""
