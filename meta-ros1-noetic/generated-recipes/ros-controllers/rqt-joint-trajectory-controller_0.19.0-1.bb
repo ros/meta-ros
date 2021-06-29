@@ -5,16 +5,16 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The robot_upstart package provides scripts which may be used to install     and uninstall Ubuntu Linux upstart jobs which launch groups of roslaunch files."
-AUTHOR = "Chris Iverach-Brereton <civerachb@clearpathrobotics.com>"
-ROS_AUTHOR = "Mike Purvis <mpurvis@clearpathrobotics.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Graphical frontend for interacting with joint_trajectory_controller instances."
+AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
+ROS_AUTHOR = "Adolfo Rodriguez Tsouroukdissian <adolfo.rodriguez@pal-robotics.com>"
+HOMEPAGE = "http://wiki.ros.org/rqt_joint_trajectory_controller"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "robot_upstart"
-ROS_BPN = "robot_upstart"
+ROS_CN = "ros_controllers"
+ROS_BPN = "rqt_joint_trajectory_controller"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -27,18 +27,19 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    daemontools \
-    net-tools \
-    roslaunch \
-    util-linux \
-    xacro \
+    control-msgs \
+    controller-manager-msgs \
+    python-qt-binding \
+    python3-rospkg \
+    qt-gui \
+    rospy \
+    rqt-gui \
+    rqt-gui-py \
+    trajectory-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    roslint \
-    rosunit \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -47,10 +48,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/clearpath-gbp/robot_upstart-release/archive/release/noetic/robot_upstart/0.4.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/robot_upstart"
-SRC_URI = "git://github.com/clearpath-gbp/robot_upstart-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7c7f65e9e0fc7484008280b1c245563ab8d343bc"
+# matches with: https://github.com/ros-gbp/ros_controllers-release/archive/release/noetic/rqt_joint_trajectory_controller/0.19.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/rqt_joint_trajectory_controller"
+SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
+SRCREV = "d855398f4e5419675c14ed2912463cf68d8675da"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
