@@ -5,16 +5,16 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The robot_upstart package provides scripts which may be used to install     and uninstall Ubuntu Linux upstart jobs which launch groups of roslaunch files."
-AUTHOR = "Chris Iverach-Brereton <civerachb@clearpathrobotics.com>"
-ROS_AUTHOR = "Mike Purvis <mpurvis@clearpathrobotics.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Visualization package for rc_visard"
+AUTHOR = "Monika Florek-Jasinska <monika.florek-jasinska@roboception.de>"
+ROS_AUTHOR = "Monika Florek-Jasinska <monika.florek-jasinska@roboception.de>"
+HOMEPAGE = "http://wiki.ros.org/rc_visard_description"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "robot_upstart"
-ROS_BPN = "robot_upstart"
+ROS_CN = "rc_visard"
+ROS_BPN = "rc_visard_description"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -27,17 +27,12 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    daemontools \
-    net-tools \
-    roslaunch \
-    util-linux \
     xacro \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    roslint \
-    rosunit \
+    roslaunch \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -47,10 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/clearpath-gbp/robot_upstart-release/archive/release/noetic/robot_upstart/0.4.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/robot_upstart"
-SRC_URI = "git://github.com/clearpath-gbp/robot_upstart-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7c7f65e9e0fc7484008280b1c245563ab8d343bc"
+# matches with: https://github.com/roboception-gbp/rc_visard-release/archive/release/noetic/rc_visard_description/3.2.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/rc_visard_description"
+SRC_URI = "git://github.com/roboception-gbp/rc_visard-release;${ROS_BRANCH};protocol=https"
+SRCREV = "e4387f672aa340977145c603d06c3eec1b6a6b5d"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
