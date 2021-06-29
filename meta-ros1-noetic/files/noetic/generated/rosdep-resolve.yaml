@@ -19,8 +19,6 @@ binutils:
 - binutils@openembedded-core
 bison:
 - bison@openembedded-core
-bluez:
-- bluez5@openembedded-core
 boost:
 - boost@openembedded-core
 bullet:
@@ -43,8 +41,6 @@ cppcheck:
 - cppcheck@meta-ros-common
 curl:
 - curl@openembedded-core
-cwiid-dev:
-- ${ROS_UNRESOLVED_DEP-cwiid-dev}
 cython:
 - ${ROS_UNRESOLVED_DEP-cython}
 daemontools:
@@ -435,13 +431,13 @@ protobuf:
 - protobuf@meta-oe
 protobuf-dev:
 - protobuf@meta-oe
+ps3joy:
+- ${ROS_UNRESOLVED_DEP-ps3joy}
 pugixml-dev:
 - pugixml@meta-oe
 pydrive-pip:
 - ${ROS_UNRESOLVED_DEP-pydrive-pip}
 python-argparse: []
-python-bluez:
-- ${PYTHON_PN}-pybluez@meta-python
 python-chainer-pip:
 - ${ROS_UNRESOLVED_DEP-python-chainer-pip}
 python-dev:
@@ -450,6 +446,8 @@ python-dialogflow-pip:
 - ${ROS_UNRESOLVED_DEP-python-dialogflow-pip}
 python-dlib:
 - ${ROS_UNRESOLVED_DEP-python-dlib}
+python-enum34:
+- ${PYTHON_PN}-enum34@meta-python
 python-fcn-pip:
 - ${ROS_UNRESOLVED_DEP-python-fcn-pip}
 python-freezegun-pip:
@@ -466,6 +464,8 @@ python-libpgm-pip:
 - ${ROS_UNRESOLVED_DEP-python-libpgm-pip}
 python-numpy:
 - ${PYTHON_PN}-numpy@openembedded-core
+python-opencv:
+- opencv@meta-oe
 python-percol:
 - ${ROS_UNRESOLVED_DEP-python-percol}
 python-pixel-ring-pip:
@@ -688,7 +688,7 @@ unzip:
 usbutils:
 - usbutils@openembedded-core
 util-linux:
-- ${ROS_UNRESOLVED_DEP-util-linux}
+- util-linux@openembedded-core
 uuid:
 - util-linux@openembedded-core
 v4l-utils:
@@ -699,6 +699,8 @@ vlc:
 - vlc@meta-multimedia
 wget:
 - wget@openembedded-core
+wiimote:
+- ${ROS_UNRESOLVED_DEP-wiimote}
 wx-common:
 - wxwidgets@meta-ros-common
 wxpython:
