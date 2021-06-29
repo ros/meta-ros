@@ -17,6 +17,7 @@ ROS_CN = "pr2_apps"
 ROS_BPN = "pr2_teleop_general"
 
 ROS_BUILD_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-ps3joy} \
     actionlib \
     actionlib-msgs \
     angles \
@@ -28,7 +29,6 @@ ROS_BUILD_DEPENDS = " \
     pr2-controllers-msgs \
     pr2-mechanism-msgs \
     pr2-msgs \
-    ps3joy \
     roscpp \
     sensor-msgs \
     tf \
@@ -40,6 +40,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-ps3joy} \
     actionlib \
     actionlib-msgs \
     angles \
@@ -54,7 +55,6 @@ ROS_EXPORT_DEPENDS = " \
     pr2-mechanism-msgs \
     pr2-msgs \
     pr2-tuck-arms-action \
-    ps3joy \
     roscpp \
     sensor-msgs \
     tf \
@@ -64,6 +64,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-ps3joy} \
     actionlib \
     actionlib-msgs \
     angles \
@@ -78,7 +79,6 @@ ROS_EXEC_DEPENDS = " \
     pr2-mechanism-msgs \
     pr2-msgs \
     pr2-tuck-arms-action \
-    ps3joy \
     roscpp \
     sensor-msgs \
     tf \

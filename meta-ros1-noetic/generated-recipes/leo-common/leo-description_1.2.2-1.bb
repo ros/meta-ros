@@ -5,16 +5,16 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The robot_upstart package provides scripts which may be used to install     and uninstall Ubuntu Linux upstart jobs which launch groups of roslaunch files."
-AUTHOR = "Chris Iverach-Brereton <civerachb@clearpathrobotics.com>"
-ROS_AUTHOR = "Mike Purvis <mpurvis@clearpathrobotics.com>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "URDF Description package for Leo Rover"
+AUTHOR = "Fictionlab <support@fictionlab.pl>"
+ROS_AUTHOR = "Błażej Sowa <blazej@fictionlab.pl>"
+HOMEPAGE = "http://wiki.ros.org/leo_description"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=58e54c03ca7f821dd3967e2a2cd1596e"
 
-ROS_CN = "robot_upstart"
-ROS_BPN = "robot_upstart"
+ROS_CN = "leo_common"
+ROS_BPN = "leo_description"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -27,17 +27,13 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    daemontools \
-    net-tools \
-    roslaunch \
-    util-linux \
+    robot-state-publisher \
     xacro \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    roslint \
-    rosunit \
+    rostest \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -47,10 +43,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/clearpath-gbp/robot_upstart-release/archive/release/noetic/robot_upstart/0.4.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/robot_upstart"
-SRC_URI = "git://github.com/clearpath-gbp/robot_upstart-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7c7f65e9e0fc7484008280b1c245563ab8d343bc"
+# matches with: https://github.com/fictionlab-gbp/leo_common-release/archive/release/noetic/leo_description/1.2.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/leo_description"
+SRC_URI = "git://github.com/fictionlab-gbp/leo_common-release;${ROS_BRANCH};protocol=https"
+SRCREV = "8c20b62c350f75623567ed1fc61826157cc861a5"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"

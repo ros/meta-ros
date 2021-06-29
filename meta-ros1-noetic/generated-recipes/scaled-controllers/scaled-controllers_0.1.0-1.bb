@@ -5,16 +5,15 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The robot_upstart package provides scripts which may be used to install     and uninstall Ubuntu Linux upstart jobs which launch groups of roslaunch files."
-AUTHOR = "Chris Iverach-Brereton <civerachb@clearpathrobotics.com>"
-ROS_AUTHOR = "Mike Purvis <mpurvis@clearpathrobotics.com>"
+DESCRIPTION = "scaled controllers metapackage"
+AUTHOR = "Felix Exner <exner@fzi.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=82f0323c08605e5b6f343b05213cf7cc"
 
-ROS_CN = "robot_upstart"
-ROS_BPN = "robot_upstart"
+ROS_CN = "scaled_controllers"
+ROS_BPN = "scaled_controllers"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -27,18 +26,13 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    daemontools \
-    net-tools \
-    roslaunch \
-    util-linux \
-    xacro \
+    scaled-joint-trajectory-controller \
+    speed-scaling-interface \
+    speed-scaling-state-controller \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    roslint \
-    rosunit \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -47,10 +41,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/clearpath-gbp/robot_upstart-release/archive/release/noetic/robot_upstart/0.4.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/robot_upstart"
-SRC_URI = "git://github.com/clearpath-gbp/robot_upstart-release;${ROS_BRANCH};protocol=https"
-SRCREV = "7c7f65e9e0fc7484008280b1c245563ab8d343bc"
+# matches with: https://github.com/UniversalRobots/Universal_Robots_ROS_scaled_controllers-release/archive/release/noetic/scaled_controllers/0.1.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/noetic/scaled_controllers"
+SRC_URI = "git://github.com/UniversalRobots/Universal_Robots_ROS_scaled_controllers-release;${ROS_BRANCH};protocol=https"
+SRCREV = "5ed2fbbe8a192a358e29b83a51e7a5a823ba0105"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
