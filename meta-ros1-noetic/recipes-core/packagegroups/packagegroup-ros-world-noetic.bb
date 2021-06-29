@@ -376,6 +376,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-multiplot \
     rqt-nav-view \
     rqt-plot \
+    rqt-pr2-dashboard \
     rqt-publisher \
     rqt-py-common \
     rqt-py-console \
@@ -1104,6 +1105,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-nav-view \
     rqt-plot \
     rqt-pose-view \
+    rqt-pr2-dashboard \
     rqt-publisher \
     rqt-py-common \
     rqt-py-console \
