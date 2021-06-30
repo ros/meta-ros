@@ -229,6 +229,8 @@ libusb-1.0-dev:
 - libusb1@openembedded-core
 libusb-dev:
 - libusb1@openembedded-core
+libvulkan-dev:
+- ${ROS_UNRESOLVED_DEP-libvulkan-dev}
 libx11-dev:
 - libx11@openembedded-core
 libxaw:
@@ -311,6 +313,10 @@ python3-future:
 - python3-future@meta-python
 python3-ifcfg:
 - python3-ifcfg@meta-ros-common
+python3-importlib-metadata:
+- python3-importlib-metadata@openembedded-core
+python3-jsonschema:
+- ${ROS_UNRESOLVED_DEP-python3-jsonschema}
 python3-lark-parser:
 - python3-lark-parser@meta-ros-common
 python3-lttng:
@@ -381,6 +387,8 @@ python3-watchdog:
 - ${ROS_UNRESOLVED_DEP-python3-watchdog}
 python3-websocket:
 - python3-websocket-client@meta-python
+python3-websockets:
+- python3-websockets@meta-python
 python3-yaml:
 - python3-pyyaml@meta-python
 python3-zmq:
@@ -401,6 +409,12 @@ spacenavd:
 - ${ROS_UNRESOLVED_DEP-spacenavd}
 spdlog:
 - spdlog@meta-oe
+spirv-headers:
+- ${ROS_UNRESOLVED_DEP-spirv-headers}
+spirv-tools:
+- ${ROS_UNRESOLVED_DEP-spirv-tools}
+subversion:
+- subversion@openembedded-core
 suitesparse:
 - suitesparse-cholmod@meta-ros-common
 - suitesparse-cxsparse@meta-ros-common
