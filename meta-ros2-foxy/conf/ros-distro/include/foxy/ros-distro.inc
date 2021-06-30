@@ -145,5 +145,6 @@ ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
 ROS_UNRESOLVED_DEP-java-native = ""
 ROS_UNRESOLVED_DEP-maven-native = ""
 
-# Submitted with https://github.com/ros/rosdistro/pull/29534
-ROS_UNRESOLVED_DEP-qttools5-dev-tools = "qttools"
+ROS_UNRESOLVED_DEP-spirv-headers = "spirv-headers"
+ROS_UNRESOLVED_DEP-spirv-tools = "spirv-tools"
+ROS_UNRESOLVED_DEP-libvulkan-dev = "vulkan-headers"
