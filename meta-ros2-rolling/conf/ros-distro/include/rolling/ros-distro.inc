@@ -134,3 +134,7 @@ ROS_BUILD_TYPE_pn-rmf-task = "ament_cmake"
 # Used by generated-recipes/cyclonedds/cyclonedds_0.6.0-3.bb
 ROS_UNRESOLVED_DEP-java-native = ""
 ROS_UNRESOLVED_DEP-maven-native = ""
+
+ROS_UNRESOLVED_DEP-spirv-headers = "spirv-headers"
+ROS_UNRESOLVED_DEP-spirv-tools = "spirv-tools"
+ROS_UNRESOLVED_DEP-libvulkan-dev = "vulkan-headers"
