@@ -40,3 +40,16 @@ FILES_${PN}-lesspipe = "${base_bindir}/spirv-lesspipe.sh"
 RDEPENDS_${PN}-lesspipe += "${PN} bash"
 
 BBCLASSEXTEND = "native nativesdk"
+
+# This is needed only for webOS OSE, which uses busybox to provide
+# bash by default, but with newer OSE this should respect
+# WEBOS_PREFERRED_PROVIDER_FOR_BASH and it's not in meta-webosose dunfell or gatesgarth
+# branch, because meta-webosose doesn't depend on meta-ros-backports-hardknott
+# and it's already included in meta-webosose hardknott and master branches
+# so the assumption that dropping meta-ros-backports-hardknott layer when
+# upgrading to hardknott or newer is still correct
+
+# ERROR: spirv-tools-2020.6-r0 do_package_qa: QA Issue: spirv-tools-lesspipe rdepends on bash, but it isn't a build dependency, missing bash in DEPENDS or PACKAGECONFIG? [build-deps]
+VIRTUAL-RUNTIME_bash ?= "bash"
+RDEPENDS_${PN}-lesspipe_append_class-target = " ${VIRTUAL-RUNTIME_bash}"
+RDEPENDS_${PN}-lesspipe_remove_class-target = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"
