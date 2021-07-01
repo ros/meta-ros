@@ -12,3 +12,6 @@ ALLOW_EMPTY_${PN} = "1"
 
 # openblas PN is empty don't add runtime dependency on it
 ROS_EXEC_DEPENDS_remove = "openblas"
+
+# spirv-headers PN is empty don't add runtime dependency on it
+ROS_EXEC_DEPENDS_remove = "spirv-headers"
