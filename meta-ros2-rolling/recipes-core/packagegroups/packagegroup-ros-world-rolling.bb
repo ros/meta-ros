@@ -109,10 +109,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     desktop \
     libg2o \
     librealsense2 \
+    plotjuggler-ros \
     plotjuggler \
     realsense-examples \
     realsense-node \
     realsense-ros \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
@@ -129,6 +132,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     joint-state-publisher-gui \
     moveit-resources \
     moveit-resources-panda-moveit-config \
+    plotjuggler-ros \
     plotjuggler \
     python-qt-binding \
     qt-dotgraph \
@@ -138,6 +142,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-cpp \
     qt-gui-py-common \
     rmf-traffic-editor \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
     rqt-action \
     rqt-bag \
     rqt-bag-plugins \
@@ -170,6 +176,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz-rendering \
     rviz-visual-testing-framework \
     rviz2 \
+    turtle-tf2-py \
     turtlesim \
     webots-ros2-epuck \
     webots-ros2-tiago \
@@ -192,8 +199,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
 # meta-webos/recipes-qt/qt5/qtbase_git.bbappend:PACKAGECONFIG_remove = "widgets"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5-widgets', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
+    plotjuggler-ros \
     plotjuggler \
     rmf-traffic-editor \
+    turtle-tf2-py \
     turtlesim \
 "
 
@@ -279,6 +288,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     desktop \
     libg2o \
     mrpt2 \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
     rviz2 \
     rviz-common \
     rviz-default-plugins \
