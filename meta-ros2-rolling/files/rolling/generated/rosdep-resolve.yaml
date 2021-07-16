@@ -116,6 +116,8 @@ libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libcunit-dev:
 - ${ROS_UNRESOLVED_DEP-libcunit-dev}
+libdw-dev:
+- elfutils@openembedded-core
 libfcl-dev:
 - fcl@meta-ros-common
 libflann-dev:
@@ -128,6 +130,8 @@ libgazebo11-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
 libgflags-dev:
 - gflags@meta-oe
+libglew-dev:
+- glew@openembedded-core
 libglfw3-dev:
 - glfw@meta-intel-realsense
 libgoogle-glog-dev:
@@ -144,6 +148,10 @@ libncurses-dev:
 - ncurses@openembedded-core
 libogg:
 - libogg@openembedded-core
+libogre-dev:
+- ogre@meta-ros-common
+libomp-dev:
+- ${ROS_UNRESOLVED_DEP-libomp-dev}
 libopenblas-dev:
 - openblas@meta-ros-common
 libopencv-dev:
@@ -199,9 +207,9 @@ libusb-1.0:
 libusb-1.0-dev:
 - libusb1@openembedded-core
 libvulkan-dev:
-- ${ROS_UNRESOLVED_DEP-libvulkan-dev}
+- vulkan-headers@openembedded-core
 libwebsocketpp-dev:
-- ${ROS_UNRESOLVED_DEP-libwebsocketpp-dev}
+- websocketpp@meta-oe
 libx11-dev:
 - libx11@openembedded-core
 libxaw:
@@ -226,8 +234,6 @@ lua5.2-dev:
 - lua@meta-oe
 mongodb:
 - mongodb@meta-oe
-nlohmann-json-dev:
-- ${ROS_UNRESOLVED_DEP-nlohmann-json-dev}
 opende:
 - ${ROS_UNRESOLVED_DEP-opende}
 opengl:
@@ -246,8 +252,12 @@ pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros-common
 python-imaging:
 - ${PYTHON_PN}-pillow@meta-python
+python-lxml:
+- ${PYTHON_PN}-lxml@meta-python
 python-numpy:
 - ${PYTHON_PN}-numpy@openembedded-core
+python3:
+- python3@openembedded-core
 python3-argcomplete:
 - python3-argcomplete@meta-python
 python3-babeltrace:
@@ -357,9 +367,9 @@ spacenavd:
 spdlog:
 - spdlog@meta-oe
 spirv-headers:
-- ${ROS_UNRESOLVED_DEP-spirv-headers}
+- spirv-headers@openembedded-core
 spirv-tools:
-- ${ROS_UNRESOLVED_DEP-spirv-tools}
+- spirv-tools@openembedded-core
 subversion:
 - subversion@openembedded-core
 suitesparse:

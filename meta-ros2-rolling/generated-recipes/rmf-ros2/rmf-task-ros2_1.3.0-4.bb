@@ -5,26 +5,25 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around Apache TVM to make it available to the ROS ecosystem."
-AUTHOR = "Josh Whitley <josh.whitley@autoware.org>"
-HOMEPAGE = "https://tvm.apache.org/"
+DESCRIPTION = "A package managing the dispatching of tasks in RMF system."
+AUTHOR = "youliang <youliang@openrobotics.org>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "tvm_vendor"
-ROS_BPN = "tvm_vendor"
+ROS_CN = "rmf_ros2"
+ROS_BPN = "rmf_task_ros2"
 
 ROS_BUILD_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    ros-environment \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    libeigen \
+    rclcpp \
+    rmf-task-msgs \
+    rmf-traffic \
+    rmf-traffic-ros2 \
+    rmf-utils \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -32,27 +31,28 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    rclcpp \
+    rmf-task-msgs \
+    rmf-traffic \
+    rmf-traffic-ros2 \
+    rmf-utils \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    rclcpp \
+    rmf-task-msgs \
+    rmf-traffic \
+    rmf-traffic-ros2 \
+    rmf-utils \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    ament-cmake-catch2 \
+    rmf-cmake-uncrustify \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -61,10 +61,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/autowarefoundation/tvm_vendor-release/archive/release/rolling/tvm_vendor/0.7.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/tvm_vendor"
-SRC_URI = "git://github.com/autowarefoundation/tvm_vendor-release;${ROS_BRANCH};protocol=https"
-SRCREV = "dba274229fbca8c08351df9425adb4d9af0eca23"
+# matches with: https://github.com/ros2-gbp/rmf_ros2-release/archive/release/rolling/rmf_task_ros2/1.3.0-4.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/rmf_task_ros2"
+SRC_URI = "git://github.com/ros2-gbp/rmf_ros2-release;${ROS_BRANCH};protocol=https"
+SRCREV = "0c0a56385d7416480cc95fb8e100ba7519e92731"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
