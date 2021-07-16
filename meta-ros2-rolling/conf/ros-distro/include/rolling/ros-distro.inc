@@ -137,12 +137,3 @@ ROS_BUILD_TYPE_pn-rmf-task = "ament_cmake"
 # Used by generated-recipes/cyclonedds/cyclonedds_0.6.0-3.bb
 ROS_UNRESOLVED_DEP-java-native = ""
 ROS_UNRESOLVED_DEP-maven-native = ""
-
-# Used by generated-recipes/tvm-vendor/tvm-vendor_0.7.3-1.bb
-ROS_UNRESOLVED_DEP-spirv-headers = "spirv-headers"
-ROS_UNRESOLVED_DEP-spirv-tools = "spirv-tools"
-ROS_UNRESOLVED_DEP-libvulkan-dev = "vulkan-headers"
-
-# Used by generated-recipes/rmf-visualization/rmf-visualization-schedule_1.2.0-2.bb
-ROS_UNRESOLVED_DEP-libwebsocketpp-dev = "websocketpp"
-ROS_UNRESOLVED_DEP-nlohmann-json-dev = "nlohmann-json"
