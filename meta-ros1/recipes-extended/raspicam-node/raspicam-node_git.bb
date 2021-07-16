@@ -34,9 +34,9 @@ DEPENDS += " \
     ${PYTHON_PN}-catkin-pkg-native \
 "
 
-RDEPENDS_${PN} = "message-runtime"
+RDEPENDS:${PN} = "message-runtime"
 
 COMPATIBLE_MACHINE = "^rpi$"
 
 # aarch64 userland doesn't provide mmal needed by raspicam-node
-COMPATIBLE_MACHINE_aarch64 = "^$"
+COMPATIBLE_MACHINE:aarch64 = "^$"

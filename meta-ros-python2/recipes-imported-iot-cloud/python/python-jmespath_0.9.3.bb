@@ -8,12 +8,12 @@ python() {
         raise bb.parse.SkipRecipe('Requires meta-python2 to be present.')
 }
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
     ${PYTHON_PN}-argparse \
     ${PYTHON_PN}-io \
     ${PYTHON_PN}-lang \
 "
 
-ALTERNATIVE_${PN} = "jmespath"
+ALTERNATIVE:${PN} = "jmespath"
 ALTERNATIVE_LINK_NAME[jmespath] = "${bindir}/jp.py"
 ALTERNATIVE_PRIORITY = "20"

@@ -7,13 +7,13 @@
 # gcc-runtime recipe doesn't have PN in PACKAGES (and we would still depend
 # on do_package shlibs handling to add runtime dependency on actual package
 # with libatomic library)
-ROS_EXEC_DEPENDS_remove = "gcc-runtime"
+ROS_EXEC_DEPENDS:remove = "gcc-runtime"
 # there is no native support for gcc-runtime, so also no libatomic, add it only for target builds
-ROS_EXEC_DEPENDS_append-class-target = " libatomic"
+ROS_EXEC_DEPENDS:append-class-target = " libatomic"
 # and also remove it from build time depends when buiding native rc-utils
-DEPENDS_remove_class-native = "gcc-runtime-native gcc-runtime"
+DEPENDS:remove:class-native = "gcc-runtime-native gcc-runtime"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-IceoryxPackageHelper.cmake-change-DESTINATION_CONFIG.patch \
     file://0001-Fix-build-with-gcc-11.patch \
     file://0001-Revert-iox-713-document-the-restrictions-on-size-and.patch \

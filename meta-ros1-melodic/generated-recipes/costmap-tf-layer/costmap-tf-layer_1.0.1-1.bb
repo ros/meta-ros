@@ -59,7 +59,7 @@ DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
+RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 # matches with: https://github.com/igorbanfi/costmap_tf_layer-release/archive/release/melodic/costmap_tf_layer/1.0.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/melodic/costmap_tf_layer"

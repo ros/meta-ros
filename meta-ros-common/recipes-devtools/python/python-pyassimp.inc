@@ -10,5 +10,5 @@ SRC_URI[sha256sum] = "266bd4be170d46065b8c2ad0f5396dad10938a6bbf9a566c4e4d56456e
 inherit pypi
 
 PACKAGES += "${PN}-examples"
-FILES_${PN}-examples += "${datadir}/examples/${PYPI_PACKAGE}/"
-FILES_${PN} += "${datadir}/${PYPI_PACKAGE}/README.rst"
+FILES:${PN}-examples += "${datadir}/examples/${PYPI_PACKAGE}/"
+FILES:${PN} += "${datadir}/${PYPI_PACKAGE}/README.rst"

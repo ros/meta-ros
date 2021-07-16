@@ -7,4 +7,4 @@ ROS_DISTRO = "noetic"
 inherit ${ROS_DISTRO_TYPE}_distro
 
 # HACK until "python-qt-binding" builds
-ROS_EXEC_DEPENDS_remove = "python-qt-binding"
+ROS_EXEC_DEPENDS:remove = "python-qt-binding"

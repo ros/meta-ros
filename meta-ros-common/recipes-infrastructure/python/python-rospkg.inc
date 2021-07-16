@@ -10,6 +10,6 @@ SRC_URI = "git://github.com/ros-infrastructure/rospkg;${ROS_BRANCH};protocol=htt
 
 S = "${WORKDIR}/git"
 
-RDEPENDS_${PN} += "${PYTHON_PN}-xml ${PYTHON_PN}-rosdep ${PYTHON_PN}-distro"
+RDEPENDS:${PN} += "${PYTHON_PN}-xml ${PYTHON_PN}-rosdep ${PYTHON_PN}-distro"
 
 BBCLASSEXTEND = "native"

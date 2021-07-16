@@ -7,7 +7,7 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-typesupport-fastrtps-cpp-native \
 "
-ROS_BUILD_DEPENDS_remove = " \
+ROS_BUILD_DEPENDS:remove = " \
     rosidl-default-generators \
     rosidl-typesupport-fastrtps-c \
     rosidl-typesupport-fastrtps-cpp \

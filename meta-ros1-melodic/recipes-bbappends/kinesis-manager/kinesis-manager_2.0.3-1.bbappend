@@ -5,7 +5,7 @@ DEPENDS += " \
     amazon-kvs-sdk-cpp-kinesis-video-producer \
 "
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://0001-CMakeLists.txt-don-t-build-and-install-kvssdk.patch \
 "

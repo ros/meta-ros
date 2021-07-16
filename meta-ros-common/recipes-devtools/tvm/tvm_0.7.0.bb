@@ -28,6 +28,6 @@ inherit cmake
 # -dev package contains non-symlink .so: tvm-dev path '/work/qemux86-webos-linux/tvm/0.7.0-r0/packages-split/tvm-dev/usr/lib/libtvm.so'
 # -dev package contains non-symlink .so: tvm-dev path '/work/qemux86-webos-linux/tvm/0.7.0-r0/packages-split/tvm-dev/usr/lib/libtvm_runtime.so' [dev-elf]
 FILES_SOLIBSDEV = ""
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/lib*${SOLIBSDEV} \
 "

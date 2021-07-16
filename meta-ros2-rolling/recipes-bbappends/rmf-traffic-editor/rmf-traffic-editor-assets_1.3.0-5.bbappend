@@ -6,4 +6,4 @@
 #   /usr/share/assets/thumbnails/images/cropped/OpenRobotics
 #   /usr/share/assets/thumbnails/images/cropped/OpenRobotics/VisitorKidSit.png
 #   .. a lot of .png files here ..
-FILES_${PN} += "${datadir}/assets"
+FILES:${PN} += "${datadir}/assets"

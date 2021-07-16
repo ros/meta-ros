@@ -7,4 +7,4 @@
 #   /opt/ros/noetic/lib/pincher_arm_bringup/gripper_controller
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # pincher-arm-bringup: 4 installed and not shipped files. [installed-vs-shipped]
-FILES_${PN} += "${ros_libdir}/${ROS_BPN}"
+FILES:${PN} += "${ros_libdir}/${ROS_BPN}"

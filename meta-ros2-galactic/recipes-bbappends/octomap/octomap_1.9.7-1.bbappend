@@ -9,7 +9,7 @@
 # octomap: 4 installed and not shipped files. [installed-vs-shipped]
 #
 # ros_ament_cmake.bbclass does this automatically, but this recipe inherits just ros_cmake.bbclass
-FILES_${PN}_prepend = " \
+FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
 
@@ -29,7 +29,7 @@ inherit ros_insane_dev_so
 # octomap: /usr/bin/graph2tree contains probably-redundant RPATH /usr/lib
 # octomap: /usr/bin/edit_octree contains probably-redundant RPATH /usr/lib
 # octomap: /usr/bin/eval_octree_accuracy contains probably-redundant RPATH /usr/lib [useless-rpaths]
-DEPENDS_append_class-target = " chrpath-replacement-native"
-do_install_append() {
+DEPENDS:append:class-target = " chrpath-replacement-native"
+do_install:append() {
     chrpath --delete ${D}${bindir}/* ${D}${libdir}/*${SOLIBS}
 }

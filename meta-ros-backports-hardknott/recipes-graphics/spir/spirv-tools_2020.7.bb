@@ -25,7 +25,7 @@ EXTRA_OECMAKE += "\
     -DSPIRV_SKIP_TESTS=ON \
 "
 
-do_install_append_class-target() {
+do_install:append:class-target() {
     # reproducibility: remove build host path
     sed -i ${D}${libdir}/cmake/SPIRV-Tools/SPIRV-ToolsTarget.cmake \
         -e 's:${STAGING_DIR_HOST}::g'
@@ -36,8 +36,8 @@ SOLIBS = ".so"
 FILES_SOLIBSDEV = ""
 
 PACKAGES =+ "${PN}-lesspipe"
-FILES_${PN}-lesspipe = "${base_bindir}/spirv-lesspipe.sh"
-RDEPENDS_${PN}-lesspipe += "${PN} bash"
+FILES:${PN}-lesspipe = "${base_bindir}/spirv-lesspipe.sh"
+RDEPENDS:${PN}-lesspipe += "${PN} bash"
 
 BBCLASSEXTEND = "native nativesdk"
 
@@ -51,5 +51,5 @@ BBCLASSEXTEND = "native nativesdk"
 
 # ERROR: spirv-tools-2020.6-r0 do_package_qa: QA Issue: spirv-tools-lesspipe rdepends on bash, but it isn't a build dependency, missing bash in DEPENDS or PACKAGECONFIG? [build-deps]
 VIRTUAL-RUNTIME_bash ?= "bash"
-RDEPENDS_${PN}-lesspipe_append_class-target = " ${VIRTUAL-RUNTIME_bash}"
-RDEPENDS_${PN}-lesspipe_remove_class-target = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"
+RDEPENDS:${PN}-lesspipe:append:class-target = " ${VIRTUAL-RUNTIME_bash}"
+RDEPENDS:${PN}-lesspipe:remove:class-target = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"

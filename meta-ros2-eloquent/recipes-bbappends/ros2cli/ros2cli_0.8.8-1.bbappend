@@ -1,7 +1,7 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
 # Needed to run ros2 commands on the target.
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     ${PYTHON_PN}-codecs \
     ${PYTHON_PN}-debugger \
     ${PYTHON_PN}-json \

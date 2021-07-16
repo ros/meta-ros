@@ -6,7 +6,7 @@
 #
 # Create a ros.sh that sources ros/setup.sh, thereby setting up the ROS workspace for every login. Place it in a separate package
 # which will be added to images when IMAGE_FEATURES contains "ros-implicit-workspace"
-do_install_append() {
+do_install:append() {
     profile_dir=${sysconfdir}/profile.d/ros
     mkdir -p ${D}$profile_dir
     cd ${D}$profile_dir
@@ -45,6 +45,6 @@ do_install_append() {
 
 PACKAGES =+ "${PN}-implicitworkspace"
 
-FILES_${PN}-implicitworkspace = " \
+FILES:${PN}-implicitworkspace = " \
     ${sysconfdir}/profile.d/ros.sh \
 "

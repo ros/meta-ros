@@ -1,9 +1,9 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
 # All ROS2 distros are python3-only and blacklist python2
-DEPENDS_remove = "python"
+DEPENDS:remove = "python"
 
-RDEPENDS_python-pygps_remove = " \
+RDEPENDS:python-pygps:remove = " \
     python-core \
     python-curses \
     python-io \

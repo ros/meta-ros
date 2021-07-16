@@ -14,7 +14,7 @@
 # add_definitions(-DDARKNET_FILE_PATH="${DARKNET_PATH}")
 
 YOLO_RELEASE = "1.1.4"
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     git://github.com/leggedrobotics/darknet.git;protocol=https;name=darknet;destsuffix=darknet \
     https://github.com/leggedrobotics/darknet_ros/releases/download/${YOLO_RELEASE}/yolov2-tiny.weights;downloadfilename=yolo-${YOLO_RELEASE}-yolov2-tiny.weights;name=yolov2-tiny \
@@ -28,7 +28,7 @@ SRC_URI[yolov2-tiny.sha256sum] = "16f4e870f1aed83f0089cb69bfda6b53cb7b2a4a01721b
 SRC_URI[yolov3.sha256sum] = "523e4e69e1d015393a1b0a441cef1d9c7659e3eb2d7e15f793f060a21b32f297"
 SRC_URI[yolov2.sha256sum] = "d9945162ed6f54ce1a901e3ec537bdba4d572ecae7873087bd730e5a7942df3f"
 
-do_configure_prepend() {
+do_configure:prepend() {
     # we have used "yolo-${YOLO_RELEASE}-" as a prefix in downloadfilename
     # to make sure files in DL_DIR contain a version (so that they are properly re-downloaded
     # when the YOLO_RELEASE is changed), but we need to undo this, because CMake expects the

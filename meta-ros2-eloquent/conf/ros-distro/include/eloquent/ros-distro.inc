@@ -100,7 +100,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 # and having it in a .bbappend sets it too late.
 # We want ament_cmake instead of plain cmake for ros-workspace:
 # https://raw.github.com/ros2-gbp/ros_workspace-release/release/eloquent/ros_workspace/1.0.1-1/package.xml
-ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
+ROS_BUILD_TYPE:pn-ros-workspace = "ament_cmake"
 
 # Submitted with https://github.com/ros/rosdistro/pull/29534
 ROS_UNRESOLVED_DEP-qttools5-dev-tools = "qttools"
