@@ -46,7 +46,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 "
 
 # this needs google-benchmark-vendor-native but we probably don't need native version
-ROS_SUPERFLORE_GENERATED_BUILDTOOLS_remove = "ament-cmake-google-benchmark-native"
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS:remove = "ament-cmake-google-benchmark-native"
 
 # alternative not yet supported implementation for fastrtps
 ROS_WORLD_SKIP_GROUPS += "connext"
@@ -126,7 +126,7 @@ ROS_WORLD_SKIP_GROUPS += " \
 # and having it in a .bbappend sets it too late.
 # We want ament_cmake instead of plain cmake for ros-workspace:
 # https://raw.github.com/ros2-gbp/ros_workspace-release/release/galactic/ros_workspace/1.0.1-2/package.xml
-ROS_BUILD_TYPE_pn-ros-workspace = "ament_cmake"
+ROS_BUILD_TYPE:pn-ros-workspace = "ament_cmake"
 
 # Used by generated-recipes/cyclonedds/cyclonedds_0.6.0-3.bb
 ROS_UNRESOLVED_DEP-java-native = ""

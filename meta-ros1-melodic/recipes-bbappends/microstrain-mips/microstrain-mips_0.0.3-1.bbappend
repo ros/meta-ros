@@ -12,7 +12,7 @@ CXXFLAGS += "-Wno-error=return-type"
 # cc1: error: -Wformat-security ignored without -Wformat [-Werror=format-security]
 SECURITY_STRINGFORMAT = ""
 
-do_configure_prepend() {
+do_configure:prepend() {
     # Respect default CMAKE_C_FLAGS (e.g. -mfloat-abi=hard)
     sed 's#set(CMAKE_C_FLAGS "-Wno#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno#g' -i ${S}/CMakeLists.txt
 }

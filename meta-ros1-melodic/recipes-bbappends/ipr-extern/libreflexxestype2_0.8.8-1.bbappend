@@ -15,7 +15,7 @@
 # #     set(SUPPORTED "true")
 
 COMPATIBLE_MACHINE = "(^$)"
-COMPATIBLE_MACHINE_x86-64 = "(.*)"
+COMPATIBLE_MACHINE:x86-64 = "(.*)"
 EXTRA_OECMAKE += "-DSUPPORTED=true"
 
 # ERROR: libreflexxestype2-0.8.8-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: libreflexxestype2 path '/work/core2-64-oe-linux/libreflexxestype2/0.8.8-1-r0/packages-split/libreflexxestype2/opt/ros/melodic/lib/libreflexxestypeII.so' [dev-so]

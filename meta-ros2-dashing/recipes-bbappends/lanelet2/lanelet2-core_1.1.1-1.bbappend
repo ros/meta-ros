@@ -18,7 +18,7 @@
 # |   'tizen', 'opensuse', 'opensuse', 'opensuse', 'openembedded', 'neon', 'mx',
 # |   'mint', 'linaro', 'gentoo', 'funtoo', 'freebsd', 'fedora', 'elementary',
 # |   'elementary', 'debian', 'cygwin', 'centos', 'manjaro', 'arch', 'alpine']
-do_configure_prepend() {
+do_configure:prepend() {
     export ROS_OS_OVERRIDE="openembedded"
 }
 

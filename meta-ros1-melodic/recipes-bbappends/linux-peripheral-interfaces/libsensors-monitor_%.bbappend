@@ -2,4 +2,4 @@
 
 # lmsensors package is empty, so not created, we cannot
 # have runtime dependency on it
-ROS_EXEC_DEPENDS_remove = "lmsensors"
+ROS_EXEC_DEPENDS:remove = "lmsensors"

@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=97c0bda20ad1d845c6369c0e47a1cd98"
 
 inherit pypi
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     ${PYTHON_PN}-twisted \
     ${PYTHON_PN}-zopeinterface \
     ${PYTHON_PN}-py-ubjson \

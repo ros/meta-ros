@@ -11,7 +11,7 @@ DEPENDS += " \
     ${PYTHON_PN}-pbr-native"
 
 # XXX If ever need to make work for Python 2, will need to add python-funcsigs to this list:
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     ${PYTHON_PN}-prettytable \
     ${PYTHON_PN}-cmd2 \
     ${PYTHON_PN}-pyparsing \

@@ -6,5 +6,5 @@
 _LICENSE := "${LICENSE}"
 LICENSE = "${@'${_LICENSE}'.replace('Check-authors-website', 'Zlib')}"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-Don-t-include-usr-include-and-usr-loc.patch"

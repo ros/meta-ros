@@ -7,6 +7,6 @@
 #   /usr/share/ament_index/resource_index/packages/ros_industrial_cmake_boilerplate
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # ros-industrial-cmake-boilerplate: 4 installed and not shipped files. [installed-vs-shipped]
-do_install_append() {
+do_install:append() {
     rm -rf ${D}${datadir}/ament_index
 }

@@ -12,13 +12,13 @@ MAINTAINER = "Herb Kuta <herb.kuta@lge.com>"
 
 # Use systemd execusively with no sysvinit scripts
 # (see https://www.yoctoproject.org/docs/2.6.2/mega-manual/mega-manual.html#selecting-an-initialization-manager).
-DISTRO_FEATURES_append = " systemd"
+DISTRO_FEATURES:append = " systemd"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
 VIRTUAL-RUNTIME_initscripts = ""
 
 # Without this, networking has to be started manually.
 ROS_CONNECTION_MANAGER ??= "connman"
-IMAGE_INSTALL_append = " \
+IMAGE_INSTALL:append = " \
     ${ROS_CONNECTION_MANAGER} \
 "

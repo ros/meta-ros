@@ -2,4 +2,4 @@
 
 # Depends on libreflexxestype2 with this restriction
 COMPATIBLE_MACHINE = "(^$)"
-COMPATIBLE_MACHINE_x86-64 = "(.*)"
+COMPATIBLE_MACHINE:x86-64 = "(.*)"

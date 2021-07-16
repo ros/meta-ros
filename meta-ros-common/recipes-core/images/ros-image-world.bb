@@ -6,6 +6,6 @@ DESCRIPTION = "${SUMMARY}"
 inherit ros_distro_${ROS_DISTRO}
 inherit ${ROS_DISTRO_TYPE}_image
 
-IMAGE_INSTALL_append = " \
+IMAGE_INSTALL:append = " \
     packagegroup-ros-world \
 "

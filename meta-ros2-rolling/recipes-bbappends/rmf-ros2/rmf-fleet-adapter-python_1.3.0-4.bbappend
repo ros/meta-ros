@@ -5,4 +5,4 @@ DEPENDS += " \
     python3-catkin-pkg-native \
 "
 
-FILES_${PN} += "${libdir}/python"
+FILES:${PN} += "${libdir}/python"

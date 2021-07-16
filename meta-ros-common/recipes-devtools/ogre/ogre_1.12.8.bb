@@ -41,5 +41,5 @@ EXTRA_OECMAKE_RVIZ_OGRE_VENDOR = " \
 
 EXTRA_OECMAKE += "${EXTRA_OECMAKE_RVIZ_OGRE_VENDOR}"
 
-FILES_${PN}-dev += "${libdir}/OGRE/cmake ${libdir}/OGRE/*${SOLIBSDEV}"
-FILES_${PN} += "${datadir}/OGRE ${libdir}/OGRE"
+FILES:${PN}-dev += "${libdir}/OGRE/cmake ${libdir}/OGRE/*${SOLIBSDEV}"
+FILES:${PN} += "${datadir}/OGRE ${libdir}/OGRE"

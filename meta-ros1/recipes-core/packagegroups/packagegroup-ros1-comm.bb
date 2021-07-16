@@ -6,7 +6,7 @@ inherit ros_distro_${ROS_DISTRO}
 
 PACKAGES = "${PN}"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     rosconsole \
     rosparam \
     catkin \

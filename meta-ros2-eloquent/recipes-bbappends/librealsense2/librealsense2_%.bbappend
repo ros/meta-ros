@@ -4,7 +4,7 @@
 # non -dev/-dbg/nativesdk- package contains symlink .so: librealsense2 path '/work/core2-64-oe-linux/librealsense2/2.38.1-4-r0/packages-split/librealsense2/usr/lib/librealsense2.so' [dev-so]
 inherit ros_insane_dev_so
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI_FW = "http://realsense-hw-public.s3.amazonaws.com/Releases"
 SRC_URI += " \
     file://0001-common-fw-CMakeLists.txt-respect-_FW_URL-when-set.patch \

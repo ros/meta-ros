@@ -9,8 +9,8 @@
 # package multisense-lib contains bad RPATH multisense-lib/4.0.3-1-r0/devel/lib in file multisense-lib/4.0.3-1-r0/packages-split/multisense-lib/opt/ros/melodic/lib/multisense_lib/FlashUtility
 # package multisense-lib contains bad RPATH multisense-lib/4.0.3-1-r0/devel/lib in file multisense-lib/4.0.3-1-r0/packages-split/multisense-lib/opt/ros/melodic/lib/multisense_lib/ImuConfigUtility
 # package multisense-lib contains bad RPATH multisense-lib/4.0.3-1-r0/devel/lib in file multisense-lib/4.0.3-1-r0/packages-split/multisense-lib/opt/ros/melodic/lib/multisense_lib/SaveImageUtility [rpaths]
-DEPENDS_append_class-target = " chrpath-replacement-native"
-do_install_append() {
+DEPENDS:append:class-target = " chrpath-replacement-native"
+do_install:append() {
     # all except /opt/ros/melodic/lib/multisense_lib/MultiSenseUpdater
     chrpath --delete ${D}${ros_libdir}/${ROS_BPN}/*Utility
 }
@@ -19,7 +19,7 @@ do_install_append() {
 # ERROR: multisense-lib-4.0.3-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: multisense-lib path '/work/core2-64-oe-linux/multisense-lib/4.0.3-1-r0/packages-split/multisense-lib/opt/ros/melodic/lib/libMultiSense.so' [dev-so]
 inherit ros_insane_dev_so
 
-# ERROR: multisense-lib-4.0.3-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/multisense_lib/MultiSenseUpdater contained in package multisense-lib requires /bin/bash, but no providers found in RDEPENDS_multisense-lib? [file-rdeps]
+# ERROR: multisense-lib-4.0.3-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/multisense_lib/MultiSenseUpdater contained in package multisense-lib requires /bin/bash, but no providers found in RDEPENDS:multisense-lib? [file-rdeps]
 ROS_EXEC_DEPENDS += " \
     bash \
 "
@@ -30,5 +30,5 @@ ROS_EXEC_DEPENDS += " \
 # then meta-ros-webos would need to include this .bbappend just when
 # meta-ros1-melodic layer is included
 VIRTUAL-RUNTIME_bash ?= "bash"
-RDEPENDS_${PN}_append_class-target_webos = " ${VIRTUAL-RUNTIME_bash}"
-RDEPENDS_${PN}_remove_class-target_webos = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"
+RDEPENDS:${PN}:append:class-target_webos = " ${VIRTUAL-RUNTIME_bash}"
+RDEPENDS:${PN}:remove:class-target_webos = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"

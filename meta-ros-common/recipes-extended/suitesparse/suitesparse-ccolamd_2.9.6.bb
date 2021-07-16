@@ -22,9 +22,9 @@ do_install() {
     oe_runmake install INSTALL=${D}${prefix}
 }
 
-DEPENDS_append_class-target = " chrpath-replacement-native"
+DEPENDS:append:class-target = " chrpath-replacement-native"
 # For some reason ends with bad RPATH
 # WARNING: suitesparse-ccolamd-2.9.6-r0 do_package_qa: QA Issue: package suitesparse-ccolamd contains bad RPATH /jenkins/mjansa/build-ros/ros2-dashing-master/tmp-glibc/work/core2-32-oe-linux/suitesparse-ccolamd/2.9.6-r0/image/usr/lib in file /jenkins/mjansa/build-ros/ros2-dashing-master/tmp-glibc/work/core2-32-oe-linux/suitesparse-ccolamd/2.9.6-r0/packages-split/suitesparse-ccolamd/usr/lib/libccolamd.so.2.9.6 [rpaths]
-do_install_append() {
+do_install:append() {
     chrpath --delete ${D}${libdir}/*${SOLIBS}
 }

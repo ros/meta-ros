@@ -5,10 +5,10 @@
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-generators-native \
 "
-ROS_BUILD_DEPENDS_remove = "rosidl-default-generators"
+ROS_BUILD_DEPENDS:remove = "rosidl-default-generators"
 
 DEPENDS += "jsoncpp"
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-use-pkg-config-to-find-jsoncpp.patch"
 
 # Fails with webOS OSE which by default uses -Werror=return-type

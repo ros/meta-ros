@@ -9,9 +9,9 @@ EXTRA_OECMAKE += "-Dros_industrial_cmake_boilerplate_DIR=${STAGING_LIBDIR}/cmake
 #   /usr/share/ament_index/resource_index/packages/tesseract_common
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # tesseract-common: 4 installed and not shipped files. [installed-vs-shipped]
-do_install_append() {
+do_install:append() {
     rm -rf ${D}${datadir}/ament_index
 }
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-tesseract_macros.cmake-don-t-add-mno-avx-based-on-un.patch"

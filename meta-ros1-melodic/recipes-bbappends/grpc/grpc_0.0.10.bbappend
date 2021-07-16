@@ -21,7 +21,7 @@ DEPENDS += "rsync-native"
 # newer meta-networking has even newer version since Yocto 3.0 Zeus
 # 1.22.0: https://github.com/openembedded/meta-openembedded/commit/cac734087e3c86a4f788c806bc07417f22bdacb9
 # 1.24.0: https://github.com/openembedded/meta-openembedded/commit/1ede5a0c181c4562795ab7f9e98889c9a6800d3b
-SRC_URI_remove = "file://0001-Don-t-segfault-when-product-name-from-BIOS-is-empty.patch"
+SRC_URI:remove = "file://0001-Don-t-segfault-when-product-name-from-BIOS-is-empty.patch"
 
 # There are still some remaining issues:
 # third_party/cares/cares/ares_init.c:301:17: error: argument to 'sizeof' in 'strncpy' call is the same expression as the source; did you mean to use the size of the destination? [-Werror=sizeof-pointer-memaccess]

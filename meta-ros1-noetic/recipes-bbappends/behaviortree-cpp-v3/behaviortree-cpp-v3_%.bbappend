@@ -1,7 +1,7 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
 # The cmake subdirectory isn't under datadir/ROS_BPN. In fact, there are two.
-FILES_${PN}-dev_prepend = " \
+FILES:${PN}-dev:prepend = " \
     ${ros_libdir}/BehaviorTreeV3/cmake \
 "
 

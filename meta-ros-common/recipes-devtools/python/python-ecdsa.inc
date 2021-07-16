@@ -11,7 +11,7 @@ SRC_URI[sha256sum] = "64cf1ee26d1cde3c73c6d7d107f835fed7c6a2904aef9eac223d57ad80
 
 inherit pypi
 
-# RDEPENDS_default:
-RDEPENDS_${PN} += "${PYTHON_PN}-pbr"
+# RDEPENDS:default:
+RDEPENDS:${PN} += "${PYTHON_PN}-pbr"
 
 BBCLASSEXTEND += "native"
