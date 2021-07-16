@@ -2,4 +2,4 @@
 
 DEPENDS += "xacro-native"
 
-PATH_append = ":${STAGING_DIR_NATIVE}${ros_bindir}"
+PATH:append = ":${STAGING_DIR_NATIVE}${ros_bindir}"

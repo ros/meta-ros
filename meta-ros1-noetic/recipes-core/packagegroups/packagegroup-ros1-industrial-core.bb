@@ -5,7 +5,7 @@ inherit packagegroup
 
 PACKAGES = "${PN}"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
         industrial-trajectory-filters \
         industrial-robot-simulator \
         industrial-robot-client \

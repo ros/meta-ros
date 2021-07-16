@@ -24,7 +24,7 @@ TURTLEBOT3_PACKAGES_REMOTE_PC_DEPENDENCIES = " \
 "
 
 # Anticipate eventual TurtleBot 3 support under ROS 2, when the package names will be different.
-TURTLEBOT3_PACKAGES_REMOTE_PC_DEPENDENCIES_append_ros1-distro = " \
+TURTLEBOT3_PACKAGES_REMOTE_PC_DEPENDENCIES:append:ros1-distro = " \
     amcl \
     gmapping \
     interactive-markers \
@@ -40,7 +40,7 @@ TURTLEBOT3_PACKAGES_REMOTE_PC_DEPENDENCIES_append_ros1-distro = " \
     xacro \
 "
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     turtlebot3 \
     turtlebot3-applications \
     turtlebot3-applications-msgs \

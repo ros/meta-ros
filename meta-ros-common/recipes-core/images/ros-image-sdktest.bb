@@ -10,7 +10,7 @@ IMAGE_ROOTFS_SIZE = "8192"
 
 IMAGE_FEATURES += "ssh-server-openssh"
 
-IMAGE_INSTALL_append_ros1-distro = " roslaunch rostopic roscpp-dev std-msgs-dev"
-IMAGE_INSTALL_append_ros2-distro = " ros-core rclcpp-dev std-msgs-dev"
+IMAGE_INSTALL:append:ros1-distro = " roslaunch rostopic roscpp-dev std-msgs-dev"
+IMAGE_INSTALL:append:ros2-distro = " ros-core rclcpp-dev std-msgs-dev"
 
 TOOLCHAIN_HOST_TASK += "nativesdk-cmake nativesdk-catkin"

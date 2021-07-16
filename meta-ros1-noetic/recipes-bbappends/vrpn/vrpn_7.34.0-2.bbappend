@@ -4,7 +4,7 @@
 #  /usr/etc
 #  /usr/etc/vrpn.cfg
 # ...
-do_install_append () {
+do_install:append () {
     if [ -d ${D}${prefix}${sysconfdir} ] ; then
         mv ${D}${prefix}${sysconfdir} ${D}${sysconfdir}
     fi
@@ -18,7 +18,7 @@ do_install_append () {
 #  /usr/share/quatlib/cmake/quatlibConfig.cmake
 #  /usr/share/vrpn-07.34
 #  /usr/share/vrpn-07.34/vrpn.cfg.sample
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/quatlib \
     ${datadir}/vrpn-07.34 \
 "

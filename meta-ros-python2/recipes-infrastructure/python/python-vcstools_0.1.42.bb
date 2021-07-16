@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "543f452e8c8f1df709d040971669f00317e595fe979505730c29827281
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-RDEPENDS_${PN} += "python-pyyaml python-dateutil"
+RDEPENDS:${PN} += "python-pyyaml python-dateutil"
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 

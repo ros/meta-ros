@@ -1,9 +1,9 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
 # virtual/kernel is only for build time dependencies
-ROS_EXEC_DEPENDS_remove = "virtual/kernel"
+ROS_EXEC_DEPENDS:remove = "virtual/kernel"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI_FW = "http://realsense-hw-public.s3.amazonaws.com/Releases"
 SRC_URI += " \
     ${SRC_URI_FW}/RS4xx/FW/D4XX_FW_Image-5.12.3.0.bin;name=D4XX_FW \

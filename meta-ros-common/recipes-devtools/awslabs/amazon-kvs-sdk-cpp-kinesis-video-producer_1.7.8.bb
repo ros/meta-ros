@@ -13,7 +13,7 @@ SRC_URI += "file://0001-kinesis-video-producer-fix-include-paths.patch;patchdir=
 # kinesis-manager expects kinesis-video-producer header files to be in kinesis-video-producer subdirectory
 # | /jenkins/mjansa/build-ros/ros2-dashing-thud/tmp-glibc/work/i586-oe-linux/kinesis-manager/2.0.1-1-r0/git/src/kinesis_stream_manager.cpp:19:10: fatal error: kinesis-video-producer/ClientCallbackProvider.h: No such file or directory
 # |  #include <kinesis-video-producer/ClientCallbackProvider.h>
-do_install_append() {
+do_install:append() {
     install -d ${D}${includedir}/kinesis-video-producer
     mv ${D}${includedir}/*.h ${D}${includedir}/kinesis-video-producer/
 }

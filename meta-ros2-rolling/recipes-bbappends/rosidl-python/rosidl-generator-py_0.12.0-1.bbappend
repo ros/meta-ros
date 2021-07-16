@@ -5,5 +5,5 @@ ROS_EXPORT_DEPENDS += " \
     rosidl-typesupport-c \
 "
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-Revert-Install-generated-Python-interfaces-in-a-Pyth.patch"

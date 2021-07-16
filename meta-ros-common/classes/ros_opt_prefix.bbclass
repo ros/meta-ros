@@ -27,9 +27,9 @@ inherit ${@'python3-dir' if d.getVar('ROS_PYTHON_VERSION') == '3' else 'python-d
 PKG_CONFIG_PATH .= ":${PKG_CONFIG_DIR}:${STAGING_DIR_HOST}${ros_libdir}/pkgconfig:${STAGING_DATADIR}/pkgconfig"
 PYTHON_SITEPACKAGES_DIR = "${ros_libdir}/${PYTHON_DIR}/site-packages"
 export PYTHONPATH = "${STAGING_DIR_NATIVE}${PYTHON_SITEPACKAGES_DIR}"
-PYTHONPATH_class-native = "${PYTHON_SITEPACKAGES_DIR}"
+PYTHONPATH:class-native = "${PYTHON_SITEPACKAGES_DIR}"
 
-FILES_${PN} += "\
+FILES:${PN} += "\
     ${ros_bindir} ${ros_libexecdir} ${ros_libdir}/lib*.so \
     ${PYTHON_SITEPACKAGES_DIR} \
     ${ros_datadir} \
@@ -37,7 +37,7 @@ FILES_${PN} += "\
     ${ros_stacksdir} \
     "
 
-FILES_${PN}-dev += "\
+FILES:${PN}-dev += "\
     ${ros_includedir} \
     ${ros_libdir}/pkgconfig \
     ${PYTHON_SITEPACKAGES_DIR}/*.la \
@@ -46,7 +46,7 @@ FILES_${PN}-dev += "\
     ${datadir}/${ROS_BPN}/*.template \
     "
 
-FILES_${PN}-dbg += "\
+FILES:${PN}-dbg += "\
     ${ros_bindir}/.debug ${ros_libexecdir}/.debug ${ros_libdir}/.debug \
     ${ros_datadir}/*/bin/.debug \
     ${PYTHON_SITEPACKAGES_DIR}/.debug \
@@ -54,12 +54,12 @@ FILES_${PN}-dbg += "\
     ${PYTHON_SITEPACKAGES_DIR}/*/*/.debug \
     "
 
-FILES_${PN}-staticdev += "\
+FILES:${PN}-staticdev += "\
     ${ros_libdir}/*.a \
     ${ros_libdir}/${BPN}/*.a \
     "
 
-SYSROOT_DIRS_append = " \
+SYSROOT_DIRS:append = " \
     ${ros_includedir} \
     ${ros_libdir} \
     ${ros_datadir} \
@@ -67,7 +67,7 @@ SYSROOT_DIRS_append = " \
     ${ros_sysconfdir} \
     "
 
-SYSROOT_DIRS_NATIVE_append = " \
+SYSROOT_DIRS_NATIVE:append = " \
     ${ros_bindir} \
     ${ros_libexecdir} \
     "
@@ -83,5 +83,5 @@ SYSROOT_DIRS_NATIVE_append = " \
 # filters: found library in wrong location: /usr/opt/ros/melodic/lib/libparams.so
 # filters: found library in wrong location: /usr/opt/ros/melodic/lib/libmedian.so
 # filters: found library in wrong location: /usr/opt/ros/melodic/lib/libincrement.so [libdir]
-INSANE_SKIP_${PN}-dbg += "libdir"
-INSANE_SKIP_${PN} += "libdir"
+INSANE_SKIP:${PN}-dbg += "libdir"
+INSANE_SKIP:${PN} += "libdir"

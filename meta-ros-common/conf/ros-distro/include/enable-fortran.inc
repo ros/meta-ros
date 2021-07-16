@@ -3,5 +3,5 @@
 # FORTRAN support (derived from openembedded-core/meta/conf/local.conf.sample.extended)
 # Enabling FORTRAN
 # Note this is not officially supported by OpenEmbedded.
-FORTRAN_forcevariable = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', '', ',fortran', d)}"
-RUNTIMETARGET_append_pn-gcc-runtime = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', '', ' libquadmath', d)}"
+FORTRAN:forcevariable = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', '', ',fortran', d)}"
+RUNTIMETARGET:append:pn-gcc-runtime = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', '', ' libquadmath', d)}"

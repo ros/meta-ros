@@ -10,4 +10,4 @@ inherit pypi setuptools3
 
 # Doesn't parse interflace flags from busybox's ifconfig
 # and e.g. ros2doctor depends on them being parsed correctly
-RDEPENDS_${PN} += "net-tools"
+RDEPENDS:${PN} += "net-tools"

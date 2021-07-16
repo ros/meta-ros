@@ -14,6 +14,6 @@ inherit ros_insane_dev_so
 # list(APPEND _IMPORT_CHECK_FILES_FOR_ypspur-coordinator "${_IMPORT_PREFIX}/bin/ypspur-coordinator" )
 # list(APPEND _IMPORT_CHECK_FILES_FOR_ypspur-free "${_IMPORT_PREFIX}/bin/ypspur-free" )
 # list(APPEND _IMPORT_CHECK_FILES_FOR_ypspur-interpreter "${_IMPORT_PREFIX}/bin/ypspur-interpreter" )
-SYSROOT_DIRS_append = " \
+SYSROOT_DIRS:append = " \
     ${bindir} \
 "

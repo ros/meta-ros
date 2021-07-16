@@ -22,11 +22,11 @@ SRC_URI = "git://github.com/python-pillow/Pillow;protocol=https \
 
 S = "${WORKDIR}/git"
 
-# Yes, both this and the export in do_compile_prepend are needed :/
-CFLAGS_append = " -I${STAGING_INCDIR}"
-LDFLAGS_append = " -L${STAGING_LIBDIR}"
+# Yes, both this and the export in do_compile:prepend are needed :/
+CFLAGS:append = " -I${STAGING_INCDIR}"
+LDFLAGS:append = " -L${STAGING_LIBDIR}"
 
-do_compile_prepend() {
+do_compile:prepend() {
     export LDFLAGS="$LDFLAGS -L${STAGING_LIBDIR}"
     export CFLAGS="$CFLAGS -I${STAGING_INCDIR}"
 }

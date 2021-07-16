@@ -3,7 +3,7 @@
 # Instead of fetching
 # https://github.com/oxfordcontrol/osqp.git from tag v0.6.2
 # during do_compile
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-user-relative-destination-path.patch \
     file://0002-CMakeLists.txt-fetch-osqp-with-bitbake-fetcher.patch \
     git://github.com/oxfordcontrol/osqp.git;protocol=https;name=osqp;destsuffix=git/osqp-upstream \

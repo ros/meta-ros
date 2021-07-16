@@ -1,6 +1,6 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
 
-DEPENDS_append_class-target = " chrpath-replacement-native"
+DEPENDS:append:class-target = " chrpath-replacement-native"
 
 # WARNING: octomap-1.9.2-1-r0 do_package_qa: QA Issue: octomap: /work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/octomap/1.9.2-1-r0/packages-split/octomap/usr/bin/log2graph contains probably-redundant RPATH /usr/lib
 # octomap: /work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/octomap/1.9.2-1-r0/packages-split/octomap/usr/bin/binvox2bt contains probably-redundant RPATH /usr/lib
@@ -12,7 +12,7 @@ DEPENDS_append_class-target = " chrpath-replacement-native"
 # octomap: /work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/octomap/1.9.2-1-r0/packages-split/octomap/usr/bin/convert_octree contains probably-redundant RPATH /usr/lib
 # octomap: /work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/octomap/1.9.2-1-r0/packages-split/octomap/usr/lib/liboctomath.so.1.9.2 contains probably-redundant RPATH /usr/lib
 # octomap: /work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/octomap/1.9.2-1-r0/packages-split/octomap/usr/lib/liboctomap.so.1.9.2 contains probably-redundant RPATH /usr/lib [useless-rpaths]
-do_install_append() {
+do_install:append() {
     chrpath --delete ${D}${bindir}/* ${D}${libdir}/*${SOLIBS}
 }
 

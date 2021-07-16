@@ -13,8 +13,8 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "pincher_arm"
-ROS_BPN = "pincher_arm_bringup"
+ROS_CN = "pincher:arm"
+ROS_BPN = "pincher:arm_bringup"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -47,7 +47,7 @@ DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
+RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 # matches with: https://github.com/fictionlab-gbp/pincher_arm-release/archive/release/noetic/pincher_arm_bringup/0.2.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/noetic/pincher_arm_bringup"

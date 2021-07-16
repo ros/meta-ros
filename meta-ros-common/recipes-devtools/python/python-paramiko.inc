@@ -9,6 +9,6 @@ SRC_URI[sha256sum] = "3297ebd3cd072f573772f7c7426939a443c62c458d54bb632ff30fd6ec
 
 inherit pypi
 
-RDEPENDS_${PN} += "${PYTHON_PN}-pycrypto ${PYTHON_PN}-ecdsa"
+RDEPENDS:${PN} += "${PYTHON_PN}-pycrypto ${PYTHON_PN}-ecdsa"
 
 BBCLASSEXTEND += "native"

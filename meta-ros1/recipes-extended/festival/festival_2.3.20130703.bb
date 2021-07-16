@@ -33,7 +33,7 @@ inherit autotools-brokensep
 #disable parallel make (make -j), as festival cannot handle that
 PARALLEL_MAKE = ""
 
-do_configure_prepend() { 
+do_configure:prepend() { 
     #point to speech-tools in sysroots
     cp -ra ${STAGING_DIR_TARGET}${datadir}/speech-tools ${WORKDIR}/speech-tools
 
@@ -53,7 +53,7 @@ do_configure_prepend() {
     sed -i 's:audfds = pipe_open("audsp"): audfds = pipe_open("${libdir}/festival/audsp"):g' ${S}/src/arch/festival/audspio.cc
 }
 
-do_configure_append() { 
+do_configure:append() { 
     #suppress building of doc - generates error
     sed -i 's:BUILD_DIRS = src lib examples bin doc:BUILD_DIRS = src lib examples bin:g' ${S}/Makefile 
 

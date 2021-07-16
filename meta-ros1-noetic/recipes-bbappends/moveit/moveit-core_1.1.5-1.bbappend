@@ -26,7 +26,7 @@
 #   /opt/ros/melodic/lib/libcollision_detector_fcl_plugin.so.1.0.2
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # moveit-core: 23 installed and not shipped files. [installed-vs-shipped]
-FILES_${PN} += "${ros_libdir}/*${SOLIBS}"
+FILES:${PN} += "${ros_libdir}/*${SOLIBS}"
 
 # ERROR: moveit-core-1.0.2-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/core2-64-oe-linux/moveit-core/1.0.2-1-r0/packages-split/moveit-core/opt/ros/melodic/lib/libmoveit_background_processing.so'
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/core2-64-oe-linux/moveit-core/1.0.2-1-r0/packages-split/moveit-core/opt/ros/melodic/lib/libmoveit_constraint_samplers.so'
@@ -61,5 +61,5 @@ inherit ros_insane_dev_so
 # function(pybind11_add_module target_name) in recipe-sysroot/usr/opt/ros/noetic/share/pybind11_catkin/cmake/pybind11Tools.cmake uses CMAKE_STRIP variable
 EXTRA_OECMAKE += "-DCMAKE_STRIP=OFF"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-collision_detection_bullet-respect-BULLET_CFLAGS.patch"

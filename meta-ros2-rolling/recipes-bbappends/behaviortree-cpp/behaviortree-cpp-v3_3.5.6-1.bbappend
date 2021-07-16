@@ -5,4 +5,4 @@ ROS_BUILD_DEPENDS += " \
     cppzmq \
 "
 
-FILES_${PN}-dev += "${libdir}/BehaviorTreeV3/cmake"
+FILES:${PN}-dev += "${libdir}/BehaviorTreeV3/cmake"

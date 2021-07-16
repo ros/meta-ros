@@ -8,4 +8,4 @@
 #   /usr/share/QuanergyClient/QuanergyClientTargets.cmake
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # quanergy-client: 5 installed and not shipped files. [installed-vs-shipped]
-FILES_${PN}-dev += "${datadir}/QuanergyClient"
+FILES:${PN}-dev += "${datadir}/QuanergyClient"

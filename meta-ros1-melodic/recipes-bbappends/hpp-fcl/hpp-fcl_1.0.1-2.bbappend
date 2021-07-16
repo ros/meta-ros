@@ -3,7 +3,7 @@
 # Instead of fetching
 # https://github.com/humanoid-path-planner/hpp-fcl.git tag v1.0.1 with git
 # during do_compile
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-hpp-fcl-with-bitbake-fetcher.patch \
     git://github.com/humanoid-path-planner/hpp-fcl.git;protocol=https;name=hpp-fcl-upstream;destsuffix=git/hpp-fcl-upstream \
     git://github.com/jrl-umi3218/jrl-cmakemodules.git;protocol=https;name=hpp-fcl-cmake;destsuffix=git/hpp-fcl-upstream/cmake \

@@ -1,6 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-allow-to-set-PICOVOICE_ARCHITECTURE-d.patch"
 
 # There are prebuilt libraries only for 3 architectures:
@@ -11,14 +11,14 @@ SRC_URI += "file://0001-CMakeLists.txt-allow-to-set-PICOVOICE_ARCHITECTURE-d.pat
 # ARCHITECTURE with EXTRA_OECMAKE
 
 COMPATIBLE_MACHINE = "(^$)"
-COMPATIBLE_MACHINE_x86-64 = "(.*)"
-COMPATIBLE_MACHINE_aarch64 = "(.*)"
-COMPATIBLE_MACHINE_armv7a = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '(.*)', '(^$)', d)}"
-COMPATIBLE_MACHINE_armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '(.*)', '(^$)', d)}"
+COMPATIBLE_MACHINE:x86-64 = "(.*)"
+COMPATIBLE_MACHINE:aarch64 = "(.*)"
+COMPATIBLE_MACHINE:armv7a = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '(.*)', '(^$)', d)}"
+COMPATIBLE_MACHINE:armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '(.*)', '(^$)', d)}"
 
-PICOVOICE_ARCHITECTURE_x86-64 = "x86_64"
-PICOVOICE_ARCHITECTURE_aarch64 = "aarch64"
-PICOVOICE_ARCHITECTURE_armv7a = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'armv7l', 'not-available', d)}"
-PICOVOICE_ARCHITECTURE_armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'armv7l', 'not-available', d)}"
+PICOVOICE_ARCHITECTURE:x86-64 = "x86_64"
+PICOVOICE_ARCHITECTURE:aarch64 = "aarch64"
+PICOVOICE_ARCHITECTURE:armv7a = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'armv7l', 'not-available', d)}"
+PICOVOICE_ARCHITECTURE:armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'armv7l', 'not-available', d)}"
 
 EXTRA_OECMAKE += "-DPICOVOICE_ARCHITECTURE=${PICOVOICE_ARCHITECTURE}"

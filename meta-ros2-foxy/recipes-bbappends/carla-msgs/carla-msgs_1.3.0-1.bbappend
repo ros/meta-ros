@@ -6,7 +6,7 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp-native \
 "
 
-ROS_BUILD_DEPENDS_remove = " \
+ROS_BUILD_DEPENDS:remove = " \
     rosidl-typesupport-fastrtps-c \
     rosidl-typesupport-fastrtps-cpp \
 "

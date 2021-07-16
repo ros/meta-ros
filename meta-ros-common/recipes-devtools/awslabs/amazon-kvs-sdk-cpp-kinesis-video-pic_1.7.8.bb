@@ -16,7 +16,7 @@ DEPENDS += "gtest"
 #   /usr/src
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # amazon-kvs-sdk-cpp-kinesis-video-pic: 1 installed and not shipped files. [installed-vs-shipped]
-do_install_append() {
+do_install:append() {
     rm -rfv ${D}${prefix}/tst
     rm -rfv ${D}${prefix}/src
 }

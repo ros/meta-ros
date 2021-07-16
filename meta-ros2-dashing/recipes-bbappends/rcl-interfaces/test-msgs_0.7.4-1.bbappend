@@ -7,5 +7,5 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-cpp \
 "
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists-prefix-the-values-from-test_interface_fil.patch"

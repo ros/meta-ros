@@ -21,7 +21,7 @@ inherit autotools-brokensep
 
 PARALLEL_MAKE = ""
 
-do_configure_prepend() {
+do_configure:prepend() {
     #force crosscompilation compiler
     sed -i 's:CC=gcc:CC=${CC}:g' ${S}/config/compilers/gcc_defaults.mak
     sed -i 's:CXX=gcc:CXX=${CC} ${LDFLAGS}:g' ${S}/config/compilers/gcc_defaults.mak
@@ -46,10 +46,10 @@ PACKAGE_BEFORE_PN =+ "${PN}-source"
 # ERROR: speech-tools-2.3.20131016-r0 do_package_qa: QA Issue: non -staticdev package contains static .a library: speech-tools-source path '/work/raspberrypi4-webos-linux-gnueabi/speech-tools/2.3.20131016-r0/packages-split/speech-tools-source/usr/share/speech-tools/lib/libestbase.a'
 # non -staticdev package contains static .a library: speech-tools-source path '/work/raspberrypi4-webos-linux-gnueabi/speech-tools/2.3.20131016-r0/packages-split/speech-tools-source/usr/share/speech-tools/lib/libeststring.a'
 # non -staticdev package contains static .a library: speech-tools-source path '/work/raspberrypi4-webos-linux-gnueabi/speech-tools/2.3.20131016-r0/packages-split/speech-tools-source/usr/share/speech-tools/lib/libestools.a' [staticdev]
-INSANE_SKIP_${PN}-source += "staticdev"
+INSANE_SKIP:${PN}-source += "staticdev"
 
-FILES_${PN}-source = "${datadir}/${BPN}"
+FILES:${PN}-source = "${datadir}/${BPN}"
 
-SYSROOT_DIRS_append = " ${datadir}/${BPN}"
+SYSROOT_DIRS:append = " ${datadir}/${BPN}"
 
-RDEPENDS_${PN} += "perl"
+RDEPENDS:${PN} += "perl"
