@@ -1,4 +1,4 @@
-# rolling/cache.yaml 2021-07-15 41aca5b4a6a25eafc8e8fcf8a8ae05096a6e3dfa 20210715144758 1.7.0
+# rolling/cache.yaml 2021-07-15 6634885e083ec6ee678766e09047de32efb07ebc 20210716171420 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -3905,7 +3905,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rosidl_typesupport-release.git',
-version: 1.3.0-1
+version: 1.4.0-1
 },
 source: {
 test_pull_requests: true,
