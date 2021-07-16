@@ -5,50 +5,39 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around Apache TVM to make it available to the ROS ecosystem."
-AUTHOR = "Josh Whitley <josh.whitley@autoware.org>"
-HOMEPAGE = "https://tvm.apache.org/"
+DESCRIPTION = "Metapackage for ROS2 controllers related packages"
+AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "tvm_vendor"
-ROS_BPN = "tvm_vendor"
+ROS_CN = "ros2_controllers"
+ROS_BPN = "ros2_controllers"
 
-ROS_BUILD_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    ros-environment \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    diff-drive-controller \
+    effort-controllers \
+    force-torque-sensor-broadcaster \
+    forward-command-controller \
+    imu-sensor-broadcaster \
+    joint-state-broadcaster \
+    joint-state-controller \
+    joint-trajectory-controller \
+    position-controllers \
+    velocity-controllers \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -61,10 +50,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/autowarefoundation/tvm_vendor-release/archive/release/rolling/tvm_vendor/0.7.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/tvm_vendor"
-SRC_URI = "git://github.com/autowarefoundation/tvm_vendor-release;${ROS_BRANCH};protocol=https"
-SRCREV = "dba274229fbca8c08351df9425adb4d9af0eca23"
+# matches with: https://github.com/ros2-gbp/ros2_controllers-release/archive/release/rolling/ros2_controllers/0.4.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/ros2_controllers"
+SRC_URI = "git://github.com/ros2-gbp/ros2_controllers-release;${ROS_BRANCH};protocol=https"
+SRCREV = "a31ae4993e2ac53e097f86fcb960c82ce0ede445"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
