@@ -18,11 +18,11 @@ DEPENDS = " \
 "
 
 # This component puts its cmake files under libdir instead of datadir.
-FILES_${PN}-dev_prepend = " \
+FILES:${PN}-dev:prepend = " \
     ${libdir}/${ROS_BPN}/cmake \
 "
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
 inherit cmake
 # This recipe is generated for ROS 2 distros.

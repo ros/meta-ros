@@ -10,6 +10,6 @@ SRC_URI = "git://github.com/ros-infrastructure/rosdistro;${ROS_BRANCH};protocol=
 
 S = "${WORKDIR}/git"
 
-RDEPENDS_${PN} += "${PYTHON_PN}-pyyaml"
+RDEPENDS:${PN} += "${PYTHON_PN}-pyyaml"
 
 BBCLASSEXTEND = "native"

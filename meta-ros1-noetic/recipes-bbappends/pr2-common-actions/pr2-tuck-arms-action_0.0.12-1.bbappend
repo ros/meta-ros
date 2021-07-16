@@ -7,4 +7,4 @@
 #   /opt/ros/noetic/lib/pr2_tuck_arms_action/tuck_arms_test.py
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # pr2-tuck-arms-action: 4 installed and not shipped files. [installed-vs-shipped
-FILES_${PN} += "${ros_libdir}/${ROS_BPN}"
+FILES:${PN} += "${ros_libdir}/${ROS_BPN}"

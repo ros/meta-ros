@@ -4,4 +4,4 @@
 #   /opt/ros/noetic/lib/pr2_arm_kinematics/pr2_arm_kinematics_node
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # pr2-arm-kinematics: 1 installed and not shipped files. [installed-vs-shipped]
-FILES_${PN} += "${ros_libdir}/${ROS_BPN}"
+FILES:${PN} += "${ros_libdir}/${ROS_BPN}"

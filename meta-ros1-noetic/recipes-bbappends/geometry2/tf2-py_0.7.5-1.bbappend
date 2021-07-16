@@ -1,6 +1,6 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
-DEPENDS_append_class-target = " chrpath-replacement-native"
+DEPENDS:append:class-target = " chrpath-replacement-native"
 
 # For some reason _tf2.so ends with bad RPATH
 # package tf2-py contains bad RPATH BUILD/work/i586-oe-linux/tf2-py/0.6.5-r0/recipe-sysroot/opt/ros/melodic/lib in file BUILD/work/i586-oe-linux/tf2-py/0.6.5-r0/packages-split/tf2-py/opt/ros/melodic/lib/python2.7/site-packages/tf2_py/_tf2.so [rpaths]
@@ -17,6 +17,6 @@ DEPENDS_append_class-target = " chrpath-replacement-native"
 # It's not set anywhere in CMakeLists.txt and running cmake even with --trace --debug-output doesn't show
 # anything about where this rpath came from to ninja's LINK_LIBRARIES
 
-do_install_append() {
+do_install:append() {
     chrpath --delete ${D}${PYTHON_SITEPACKAGES_DIR}/tf2_py/_tf2.so
 }

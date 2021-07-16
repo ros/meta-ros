@@ -23,12 +23,12 @@ SRC_URI[patch.sha256sum] = "6eb0dff456faa174205ecfd2153a897b26d254071f91cd914b2a
 
 inherit autotools
 
-do_configure_prepend() {
+do_configure:prepend() {
     # configure.ac uses this to define version (1.6 is taken from configure included in tarball, but autotools.bbclass runs autoreconf which fails without layer_version file)
     echo "1.6" > ${S}/library_version
 }
 
-do_install_append() {
+do_install:append() {
     # for compatibility with phidgets-api which assumes libphidget22 directory like the ROS wrapper was installing it
     # phidgets-api/2.0.1-1-r0/git/src/gyroscope.cpp:35:10: fatal error: libphidget22/phidget22.h: No such file or directory
     ln -snf . ${D}${includedir}/libphidget22

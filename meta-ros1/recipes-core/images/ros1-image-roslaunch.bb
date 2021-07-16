@@ -12,4 +12,4 @@ inherit ${ROS_DISTRO_TYPE}_image
 
 IMAGE_ROOTFS_SIZE = "8192"
 
-IMAGE_INSTALL_append = " roslaunch"
+IMAGE_INSTALL:append = " roslaunch"

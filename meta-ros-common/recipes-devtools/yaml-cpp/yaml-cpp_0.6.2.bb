@@ -17,7 +17,7 @@ EXTRA_OECMAKE = "-DBUILD_SHARED_LIBS=ON -DYAML_CPP_BUILD_TESTS=OFF -DYAML_CPP_BU
 inherit cmake
 
 PACKAGES =+ "${PN}-gtest"
-FILES_${PN}-gtest += " \
+FILES:${PN}-gtest += " \
     ${libdir}/libgmock_main.so \
     ${libdir}/libgtest_main.so \
     ${libdir}/libgtest.so \

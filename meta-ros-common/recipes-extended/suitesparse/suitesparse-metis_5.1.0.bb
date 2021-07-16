@@ -13,4 +13,4 @@ EXTRA_OECMAKE += "-DGKLIB_PATH=${S}/GKlib -DSHARED=1"
 
 # the shared library is named just /usr/lib/libmetis.so and it's not symlink to be included in PN-dev
 FILES_SOLIBSDEV = ""
-FILES_${PN} += "${libdir}/*.so"
+FILES:${PN} += "${libdir}/*.so"

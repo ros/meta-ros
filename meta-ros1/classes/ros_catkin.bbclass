@@ -28,7 +28,7 @@ EXTRA_OECMAKE_CATKIN = "\
     -DCATKIN_DEVEL_PREFIX='${WORKDIR}/devel' \
     "
 
-EXTRA_OECMAKE_CATKIN_class-native = "\
+EXTRA_OECMAKE_CATKIN:class-native = "\
     -DPYTHON_EXECUTABLE_TARGET='/usr/bin/env python3' \
     -DCMAKE_PREFIX_PATH='${ros_prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
@@ -36,7 +36,7 @@ EXTRA_OECMAKE_CATKIN_class-native = "\
     -DCATKIN_DEVEL_PREFIX='${WORKDIR}/devel' \
     "
 
-EXTRA_OECMAKE_prepend = "\
+EXTRA_OECMAKE:prepend = "\
     ${EXTRA_OECMAKE_CATKIN} \
     -DCATKIN_BUILD_BINARY_PACKAGE=ON \
     -DSETUPTOOLS_DEB_LAYOUT=OFF \
@@ -47,7 +47,7 @@ EXTRA_OECMAKE_prepend = "\
 # https://git.openembedded.org/openembedded-core/tree/meta/classes/distutils3.bbclass?h=hardknott#n46
 # but catkin recipe don't inherit whole distutils3 (only distutils3-base) and also with ros_opt_prefix.bbclass
 # the files we want to modify aren't in ${bindir}/${sbindir}, but ${ros_prefix}
-do_install_append() {
+do_install:append() {
     for i in ${D}${bindir}/* ${D}${sbindir}/* ${D}${ros_prefix}/bin/* ${D}${ros_prefix}/sbin/*; do
         if [ -f "$i" ]; then
             sed -i -e s:${PYTHON}:${USRBINPATH}/env\ ${CATKIN_PYTHON}:g $i

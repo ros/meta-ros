@@ -4,13 +4,13 @@
 # https://github.com/orocos/orocos-kdl-release/issues/4
 LICENSE = "LGPL-2.1"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://fix-findsip-cmake.patch \
 "
 
 # "sip" is a build tool.
-DEPENDS_append = " sip-native"
-DEPENDS_remove = "sip"
+DEPENDS:append = " sip-native"
+DEPENDS:remove = "sip"
 
-RDEPENDS_${PN}_remove = "sip"
+RDEPENDS:${PN}:remove = "sip"

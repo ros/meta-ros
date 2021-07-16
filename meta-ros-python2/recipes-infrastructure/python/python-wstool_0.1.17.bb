@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "c79b4f110ef17004c24972d742d2c5f606b0f6b424295e7ed029a48e85
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-RDEPENDS_${PN} += "python-vcstools python-pyyaml python-rosinstall"
+RDEPENDS:${PN} += "python-vcstools python-pyyaml python-rosinstall"
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 
@@ -19,4 +19,4 @@ python() {
         raise bb.parse.SkipRecipe('Requires meta-python2 to be present.')
 }
 
-FILES_${PN} += "${datadir}/zsh"
+FILES:${PN} += "${datadir}/zsh"

@@ -18,11 +18,11 @@ python() {
 
 DEPENDS = "python-certifi"
 
-RDEPENDS_${PN} = "python-certifi"
-RDEPENDS_${PN} += "python-backports-abc"
-RDEPENDS_${PN} += "python-singledispatch"
+RDEPENDS:${PN} = "python-certifi"
+RDEPENDS:${PN} += "python-backports-abc"
+RDEPENDS:${PN} += "python-singledispatch"
 
-RCONFLICTS_${PN} = "python-tornado"
-RCONFLICTS_${PN} += "python-tornado40"
-RCONFLICTS_${PN} += "python-tornado50"
+RCONFLICTS:${PN} = "python-tornado"
+RCONFLICTS:${PN} += "python-tornado40"
+RCONFLICTS:${PN} += "python-tornado50"
 

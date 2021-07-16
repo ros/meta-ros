@@ -39,7 +39,7 @@ do_configure() {
 # isn't included in the sysroot (because it contains wxrc, a cross-compiled executable). So instead, place it under
 # ${libdir}/wx/config and require that users of wxwidgets cause it to be invoked by adding passing
 # "WX_CONFIG=${RECIPE_SYSROOT}${libdir}/wx/config/wx-config" when configuring.
-do_install_append() {
+do_install:append() {
     rm -f ${D}${bindir}/wx-config
     # There's only one file under ${libdir}/wx/config/, and its name starts with ${TARGET_PREFIX}
     if [ -d ${D}${libdir}/wx/config/ ]; then
@@ -61,8 +61,8 @@ wxwidgets_sysroot_preprocess () {
     sed -i -e 's,bindir="/usr/bin",bindir="${STAGING_BINDIR}",g' ${SYSROOT_DESTDIR}${libdir}/wx/config/${TARGET_PREFIX}*
 }
 
-FILES_${PN} += "${bindir} ${libdir}/wx/config"
-FILES_${PN}-dev += "${libdir}/wx/include ${datadir}/bakefile"
+FILES:${PN} += "${bindir} ${libdir}/wx/config"
+FILES:${PN}-dev += "${libdir}/wx/include ${datadir}/bakefile"
 
 inherit features_check
 # Depends on freeglut with this restriction:

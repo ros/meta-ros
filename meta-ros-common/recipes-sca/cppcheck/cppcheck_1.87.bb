@@ -19,7 +19,7 @@ do_compile() {
 	oe_runmake
 }
 
-FILES_${PN} = "${bindir}/** ${datadir}"
+FILES:${PN} = "${bindir}/** ${datadir}"
 
 do_install() {
     install -d ${D}${bindir}

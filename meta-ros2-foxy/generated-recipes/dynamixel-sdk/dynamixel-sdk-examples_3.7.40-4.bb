@@ -53,7 +53,7 @@ DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
+RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 # matches with: https://github.com/robotis-ros2-release/dynamixel_sdk-release/archive/release/foxy/dynamixel_sdk_examples/3.7.40-4.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/dynamixel_sdk_examples"
