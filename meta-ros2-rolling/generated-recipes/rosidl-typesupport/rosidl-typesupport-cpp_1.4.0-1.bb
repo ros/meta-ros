@@ -61,10 +61,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rosidl_typesupport-release/archive/release/rolling/rosidl_typesupport_cpp/1.3.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/rosidl_typesupport-release/archive/release/rolling/rosidl_typesupport_cpp/1.4.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/rolling/rosidl_typesupport_cpp"
 SRC_URI = "git://github.com/ros2-gbp/rosidl_typesupport-release;${ROS_BRANCH};protocol=https"
-SRCREV = "0ed39825b1d0c0b067adaa77aab691686303f4a7"
+SRCREV = "1a80e89b3729159624f4166a8955372b9a845718"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
