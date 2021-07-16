@@ -26,7 +26,7 @@
 #   /opt/ros/melodic/lib/libcollision_detector_fcl_plugin.so.1.0.2
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # moveit-core: 23 installed and not shipped files. [installed-vs-shipped]
-FILES_${PN} += "${ros_libdir}/*${SOLIBS}"
+FILES:${PN} += "${ros_libdir}/*${SOLIBS}"
 
 # ERROR: moveit-core-1.0.2-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/core2-64-oe-linux/moveit-core/1.0.2-1-r0/packages-split/moveit-core/opt/ros/melodic/lib/libmoveit_background_processing.so'
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/core2-64-oe-linux/moveit-core/1.0.2-1-r0/packages-split/moveit-core/opt/ros/melodic/lib/libmoveit_constraint_samplers.so'

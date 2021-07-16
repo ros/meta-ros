@@ -6,7 +6,7 @@ ROS_EXPORT_DEPENDS += " \
 
 # NB. RECIPE_SYSROOT_NATIVE doesn't exist in [morty].
 export RECIPE_SYSROOT_NATIVE
-do_install_append() {
+do_install:append() {
     # - Add <NATIVE-SYSROOT>/<PYTHON-SITE-PACKAGES>/numpy/core/include to the include file search path. XXX Why doesn't this need
     #   to be done under Ubuntu bionic?
     # - HACK: Why can't I find a CMake variable containing the native sysroot that could be used instead of ${CMAKE_ROOT}/../..?

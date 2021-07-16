@@ -2,5 +2,5 @@
 
 BBCLASSEXTEND = "native"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-examples-cpp03-fix-build-without-std-chrono.patch"

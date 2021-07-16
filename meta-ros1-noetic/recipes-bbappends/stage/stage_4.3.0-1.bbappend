@@ -18,10 +18,10 @@ ROS_BUILD_DEPENDS += " \
 #  /usr/lib/Stage-4.3/sink.so
 #Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 #stage: 11 installed and not shipped files. [installed-vs-shipped]
-FILES_${PN} += "${libdir}/Stage-4.3"
+FILES:${PN} += "${libdir}/Stage-4.3"
 
 # ERROR: stage-4.3.0-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: stage path '/work/core2-64-oe-linux/stage/4.3.0-r0/packages-split/stage/usr/lib/libstage.so' [dev-so]
 inherit ros_insane_dev_so
 
 # mesa is recipe name, shouldn't be used in runtime dependencies
-ROS_EXEC_DEPENDS_remove = "mesa"
+ROS_EXEC_DEPENDS:remove = "mesa"

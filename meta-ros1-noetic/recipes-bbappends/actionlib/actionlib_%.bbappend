@@ -3,11 +3,11 @@
 # Currently, wxpython doesn't build, but it's only needed by the GUI debug tools ax*.py => don't install them and remove the
 # RDEPENDS on "wxpython" until it builds.
 
-do_install_append() {
+do_install:append() {
     rm -f ${D}${ros_libdir}/${BPN}/axclient.py ${D}${ros_libdir}/${BPN}/axserver.py
 }
 
-RDEPENDS_${PN}_remove = "wxpython"
+RDEPENDS:${PN}:remove = "wxpython"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-Fix-build-with-boost-1.73.0.patch"

@@ -6,4 +6,4 @@ inherit ros_distro
 inherit ros_opt_prefix
 
 # *.cmake files have hardcoded sysroot-s in them.
-SSTATE_SCAN_FILES_append = " *.cmake"
+SSTATE_SCAN_FILES:append = " *.cmake"

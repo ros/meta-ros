@@ -2,4 +2,4 @@
 
 DEPENDS += "eigen3-cmake-module"
 
-FILES_${PN} += "${datadir}/costmap_plugins.xml"
+FILES:${PN} += "${datadir}/costmap_plugins.xml"

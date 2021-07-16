@@ -15,14 +15,14 @@ inherit cmake
 #force libs always into /usr/lib, even when compiling on 64bit arch
 EXTRA_OECMAKE += " -DLIB_SUFFIX=''"
 
-FILES_${PN} += "\
+FILES:${PN} += "\
     ${libdir}/fakenect/${BPN}.so.* \
     ${datadir}/fwfetcher.py \
 "
-FILES_${PN}-dev += "${libdir}/fakenect/${BPN}.so" 
-FILES_${PN}-dbg += "${libdir}/fakenect/.debug"
+FILES:${PN}-dev += "${libdir}/fakenect/${BPN}.so" 
+FILES:${PN}-dbg += "${libdir}/fakenect/.debug"
 
-RDEPENDS_${PN} += "bash"
+RDEPENDS:${PN} += "bash"
 
 inherit features_check
 # Depends on freeglut with this restriction:

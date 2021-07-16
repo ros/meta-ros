@@ -2,7 +2,7 @@
 
 inherit setuptools3
 
-do_install_append() {
+do_install:append() {
     mkdir -p ${D}/usr/share/ament_index/resource_index/packages
     touch ${D}/usr/share/ament_index/resource_index/packages/${ROS_BPN}
     if test -e ${D}/usr/lib/${ROS_BPN}; then
@@ -12,6 +12,6 @@ do_install_append() {
     fi
 }
 
-FILES_${PN}_prepend = " \
+FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "

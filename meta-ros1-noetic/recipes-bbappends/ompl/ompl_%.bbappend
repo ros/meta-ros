@@ -7,10 +7,10 @@ inherit ros_insane_dev_so
 # https://github.com/ompl/ompl/commit/bb0a03c6fe4fbba0282c9a58881c3f499e7564d0 says it's optional
 ROS_UNRESOLVED_DEP-opende = ""
 
-DEPENDS_append_class-target = " chrpath-replacement-native"
+DEPENDS:append:class-target = " chrpath-replacement-native"
 # For some reason ends with bad RPATH
 # WARNING: ompl-1.4.2-5-r0 do_package_qa: QA Issue: ompl: /work/core2-64-oe-linux/ompl/1.4.2-5-r0/packages-split/ompl/usr/lib/libompl.so.1.4.2 contains probably-redundant RPATH /usr/lib [useless-rpaths]
-do_install_append() {
+do_install:append() {
     chrpath --delete ${D}${libdir}/*${SOLIBS}
 }
 
@@ -21,6 +21,6 @@ do_install_append() {
 #   /usr/share/ament_index/resource_index/packages/ompl
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # ompl: 4 installed and not shipped files. [installed-vs-shipped]
-do_install_append() {
+do_install:append() {
     rm -rf ${D}${datadir}/ament_index
 }

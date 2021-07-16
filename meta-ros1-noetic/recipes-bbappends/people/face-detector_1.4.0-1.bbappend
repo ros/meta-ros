@@ -2,7 +2,7 @@
 
 DEPENDS += "yaml-cpp"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://0001-face_detection-fix-build-with-gcc-11.patch \
 "

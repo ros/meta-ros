@@ -2,7 +2,7 @@
 
 DEPENDS += "libyaml"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-libyaml-with-bitbake-fetcher.patch \
     file://0002-CMakeLists.txt-use-platform-libyaml-when-available-i.patch \
 "

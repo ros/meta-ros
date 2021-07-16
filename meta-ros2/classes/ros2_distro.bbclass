@@ -9,11 +9,11 @@ inherit ros_distro
 export LANG ??= "en_US.UTF-8"
 
 # *.cmake files have hardcoded sysroot-s in them.
-SSTATE_SCAN_FILES_append = " *.cmake"
+SSTATE_SCAN_FILES:append = " *.cmake"
 
 # The parent_prefix_path files are used on the target => remove the build tree from the paths. We assume this is only an issue
 # with ROS 2.
-do_install_append_class-target() {
+do_install:append:class-target() {
     if [ -d ${D}${datadir}/ament_index/resource_index/parent_prefix_path ]; then
         find ${D}${datadir}/ament_index/resource_index/parent_prefix_path -type f \
             | xargs --no-run-if-empty sed -i -e 's@${STAGING_DIR_HOST}/@/@g' -e 's@${STAGING_DIR_NATIVE}/@/@g'

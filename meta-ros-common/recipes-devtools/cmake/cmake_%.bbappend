@@ -1,1 +1,1 @@
-FILES_${PN}-dev_class-nativesdk = ""
+FILES:${PN}-dev:class-nativesdk = ""

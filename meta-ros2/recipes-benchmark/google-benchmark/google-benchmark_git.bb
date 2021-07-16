@@ -26,6 +26,6 @@ inherit cmake
 # webos-rolling-dunfell/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/performance-test-fixture/0.0.2-1-r0/recipe-sysroot/usr/lib/cmake/benchmark/benchmarkTargets.cmake
 # points to google-benchmark sysroot (which might be already removed by rm_work)
 # INTERFACE_LINK_LIBRARIES "-pthread;/jenkins/home/workspace/jansa/webos-dashing-dunfell/webos-dashing-dunfell/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot/usr/lib/librt.so"
-SSTATE_SCAN_FILES_append = " *.cmake"
+SSTATE_SCAN_FILES:append = " *.cmake"
 
 SRC_URI += "file://0001-Fix-build-with-gcc-11.patch"

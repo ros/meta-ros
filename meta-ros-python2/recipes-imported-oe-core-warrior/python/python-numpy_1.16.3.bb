@@ -28,59 +28,59 @@ python() {
 
 CONFIGFILESURI ?= ""
 
-CONFIGFILESURI_aarch64 = " \
+CONFIGFILESURI:aarch64 = " \
     file://config.h \
     file://_numpyconfig.h \
 "
-CONFIGFILESURI_arm = " \
+CONFIGFILESURI:arm = " \
     file://config.h \
     file://numpyconfig.h \
 "
-CONFIGFILESURI_armeb = " \
+CONFIGFILESURI:armeb = " \
     file://config.h \
     file://numpyconfig.h \
 "
-CONFIGFILESURI_mipsarcho32el = " \
+CONFIGFILESURI:mipsarcho32el = " \
     file://config.h \
     file://numpyconfig.h \
 "
-CONFIGFILESURI_x86 = " \
+CONFIGFILESURI:x86 = " \
     file://config.h \
     file://numpyconfig.h \
 "
-CONFIGFILESURI_x86-64 = " \
+CONFIGFILESURI:x86-64 = " \
     file://config.h \
     file://_numpyconfig.h \
 "
-CONFIGFILESURI_mipsarcho32eb = " \
+CONFIGFILESURI:mipsarcho32eb = " \
     file://config.h \
     file://_numpyconfig.h \
 "
-CONFIGFILESURI_powerpc = " \
+CONFIGFILESURI:powerpc = " \
     file://config.h \
     file://_numpyconfig.h \
 "
-CONFIGFILESURI_powerpc64 = " \
+CONFIGFILESURI:powerpc64 = " \
     file://config.h \
     file://_numpyconfig.h \
 "
-CONFIGFILESURI_mipsarchn64eb = " \
+CONFIGFILESURI:mipsarchn64eb = " \
     file://config.h \
     file://_numpyconfig.h \
 "
-CONFIGFILESURI_mipsarchn64el = " \
+CONFIGFILESURI:mipsarchn64el = " \
     file://config.h \
     file://_numpyconfig.h \
 "
-CONFIGFILESURI_mipsarchn32eb = " \
+CONFIGFILESURI:mipsarchn32eb = " \
     file://config.h \
     file://_numpyconfig.h \
 "
-CONFIGFILESURI_mipsarchn32el = " \
+CONFIGFILESURI:mipsarchn32el = " \
     file://config.h \
     file://_numpyconfig.h \
 "
-CONFIGFILESURI_riscv64 = " \
+CONFIGFILESURI:riscv64 = " \
     file://config.h \
     file://_numpyconfig.h \
 "
@@ -91,16 +91,16 @@ CLEANBROKEN = "1"
 
 # Make the build fail and replace *config.h with proper one
 # This is a ugly, ugly hack - Koen
-do_compile_prepend_class-target() {
+do_compile:prepend:class-target() {
     ${STAGING_BINDIR_NATIVE}/${PYTHON_PN}-native/${PYTHON_PN} setup.py build ${DISTUTILS_BUILD_ARGS} || \
     true
     cp ${WORKDIR}/*config.h ${S}/build/$(ls ${S}/build | grep src)/numpy/core/include/numpy/
 }
 
-FILES_${PN}-staticdev += "${PYTHON_SITEPACKAGES_DIR}/numpy/core/lib/*.a"
+FILES:${PN}-staticdev += "${PYTHON_SITEPACKAGES_DIR}/numpy/core/lib/*.a"
 
 # install what is needed for numpy.test()
-RDEPENDS_${PN} = "${PYTHON_PN}-unittest \
+RDEPENDS:${PN} = "${PYTHON_PN}-unittest \
                   ${PYTHON_PN}-difflib \
                   ${PYTHON_PN}-pprint \
                   ${PYTHON_PN}-pickle \
@@ -121,14 +121,14 @@ RDEPENDS_${PN} = "${PYTHON_PN}-unittest \
                   ${PYTHON_PN}-threading \
 "
 
-RDEPENDS_${PN}_class-native = ""
+RDEPENDS:${PN}:class-native = ""
 
 BBCLASSEXTEND = "native nativesdk"
 
-RDEPENDS_${PN}_class-target_append = " \
+RDEPENDS:${PN}:class-target:append = " \
     ${PYTHON_PN}-subprocess \
 "
 
-do_install_append(){
+do_install:append(){
     rm ${D}/${bindir}/f2py
 }

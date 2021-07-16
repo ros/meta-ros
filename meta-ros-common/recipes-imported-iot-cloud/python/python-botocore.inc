@@ -9,13 +9,13 @@ SRC_URI[sha256sum] = "ee55ce128056c5120680d25c8e8dfa3a08dbe7ac3445dc16997daaa68a
 
 inherit pypi
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/python-botocore:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/python-botocore:"
 
 SRC_URI += "\
     file://Allow-python-dateutil-2.8.1.patch \
 "
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     ${PYTHON_PN}-jmespath \
     ${PYTHON_PN}-dateutil \
     ${PYTHON_PN}-docutils \

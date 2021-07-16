@@ -12,7 +12,7 @@ inherit ros_insane_dev_so
 #   /usr/share/franka/cmake/FrankaTargets-noconfig.cmake
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # libfranka: 6 installed and not shipped files. [installed-vs-shipped]
-FILES_${PN} += "${datadir}/franka"
+FILES:${PN} += "${datadir}/franka"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-Fix-build-with-gcc-10.patch"

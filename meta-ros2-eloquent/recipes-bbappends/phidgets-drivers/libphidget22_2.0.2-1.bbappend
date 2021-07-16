@@ -7,5 +7,5 @@ LICENSE = "LGPL-3.0+"
 
 DEPENDS += "${PN}-upstream"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-Use-libphidget22-from-libphidget22-upstream-and-norm.patch"

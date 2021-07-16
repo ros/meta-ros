@@ -75,4 +75,4 @@ do_install() {
         ln -s libopenblas.a libblas.a
 }
 
-FILES_${PN}-dev = "${includedir} ${libdir}/lib${PN}.a ${libdir}/libblas.a"
+FILES:${PN}-dev = "${includedir} ${libdir}/lib${PN}.a ${libdir}/libblas.a"

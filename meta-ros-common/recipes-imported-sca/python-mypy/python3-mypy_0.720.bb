@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/python/mypy"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8d438618dacdddfdf08836bfe5e4b8a7"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     ${PYTHON_PN}-mypy-extensions \
     ${PYTHON_PN}-typed-ast \
     ${PYTHON_PN}-typing-extensions \

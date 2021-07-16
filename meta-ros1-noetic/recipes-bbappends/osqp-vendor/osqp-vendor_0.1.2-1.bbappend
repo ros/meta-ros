@@ -3,7 +3,7 @@
 # Instead of fetching
 # https://github.com/oxfordcontrol/osqp.git from tag v0.6.1-dev0
 # during do_compile fetch v0.6.2, because v0.6.1-dev0 tag was deleted in osqp repo
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-user-relative-destination-path.patch \
     file://0002-CMakeLists.txt-fetch-osqp-with-bitbake-fetcher.patch \
     file://0003-CMakeLists.txt-adjust-to-make-catkin-happy.patch \
@@ -25,4 +25,4 @@ SRCREV_qdldl = "7d16b70a10a152682204d745d814b6eb63dc5cd2"
 #   /usr/opt/ros/noetic/lib/cmake/qdldl/qdldl-targets-noconfig.cmake
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # osqp-vendor: 9 installed and not shipped files. [installed-vs-shipped]
-FILES_${PN}-dev += "${ros_libdir}/cmake"
+FILES:${PN}-dev += "${ros_libdir}/cmake"

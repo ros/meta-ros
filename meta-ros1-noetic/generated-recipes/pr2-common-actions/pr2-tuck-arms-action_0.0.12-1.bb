@@ -5,7 +5,7 @@
 inherit ros_distro_noetic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The pr2_tuck_arms_action package"
+DESCRIPTION = "The pr2_tuck:arms_action package"
 AUTHOR = "ROS Orphaned Package Maintainers <ros-orphaned-packages@googlegroups.com>"
 ROS_AUTHOR = "Wim Meeussen"
 HOMEPAGE = "http://wiki.ros.org/pr2_tuck_arms_action"
@@ -14,7 +14,7 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pr2_common_actions"
-ROS_BPN = "pr2_tuck_arms_action"
+ROS_BPN = "pr2_tuck:arms_action"
 
 ROS_BUILD_DEPENDS = " \
     actionlib \
@@ -57,7 +57,7 @@ DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
+RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 # matches with: https://github.com/pr2-gbp/pr2_common_actions-release/archive/release/noetic/pr2_tuck_arms_action/0.0.12-1.tar.gz
 ROS_BRANCH ?= "branch=release/noetic/pr2_tuck_arms_action"

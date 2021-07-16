@@ -1,6 +1,6 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-Revert-cmake-fix-packaging-issue-on-Windows.patch"
 
 inherit pythonnative
