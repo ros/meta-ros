@@ -31,7 +31,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-rolling/files/rolling/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "11"
+ROS_NUM_CACHE_YAML_COMMITS = "12"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -1116,8 +1116,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          rosidl/rosidl-runtime-c_2.4.0-1 \
                          rosidl/rosidl-runtime-cpp_2.4.0-1 \
               rosidl-runtime-py/rosidl-runtime-py_0.9.1-1 \
-             rosidl-typesupport/rosidl-typesupport-c_1.3.0-1 \
-             rosidl-typesupport/rosidl-typesupport-cpp_1.3.0-1 \
+             rosidl-typesupport/rosidl-typesupport-c_1.4.0-1 \
+             rosidl-typesupport/rosidl-typesupport-cpp_1.4.0-1 \
     rosidl-typesupport-fastrtps/rosidl-typesupport-fastrtps-c_1.2.1-1 \
     rosidl-typesupport-fastrtps/rosidl-typesupport-fastrtps-cpp_1.2.1-1 \
                          rosidl/rosidl-typesupport-interface_2.4.0-1 \
@@ -2431,7 +2431,7 @@ ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 ROS_DISTRO_RELEASE_DATE = "2021-07-15"
 
 # The commit of ros/rosdistro/rolling/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "41aca5b4a6a25eafc8e8fcf8a8ae05096a6e3dfa"
+ROS_SUPERFLORE_GENERATION_COMMIT = "6634885e083ec6ee678766e09047de32efb07ebc"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
