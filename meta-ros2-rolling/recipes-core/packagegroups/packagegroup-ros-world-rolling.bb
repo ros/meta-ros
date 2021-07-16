@@ -25,8 +25,14 @@ RDEPENDS_${PN}_remove = "pybind11-vendor"
 # Depends on unavailable python3-shapely
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-shapely', 'rmf-building-map-tools rmf-traffic-editor-test-maps', '', d)}"
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB = " \
+    run-ompl-constrained-planning \
+"
+
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb-legacy-cxx-driver', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB_LEGACY_CXX_DRIVER}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB_LEGACY_CXX_DRIVER = " \
+    run-ompl-constrained-planning \
     warehouse-ros-mongo \
 "
 
@@ -59,6 +65,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GURUMDDS = " \
     gurumdds-cmake-module \
     rmw-gurumdds-cpp \
     rmw-gurumdds-shared-cpp \
+"
+
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libomp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP = " \
+    moveit-planners-ompl \
+    moveit-planners \
+    moveit-ros \
+    moveit-runtime \
 "
 
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
@@ -109,6 +123,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     desktop \
     libg2o \
     librealsense2 \
+    moveit-ros \
+    moveit-ros-perception \
+    moveit-ros-visualization \
+    moveit-runtime \
+    moveit \
     plotjuggler-ros \
     plotjuggler \
     realsense-examples \
@@ -132,6 +151,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     joint-state-publisher-gui \
     moveit-resources \
     moveit-resources-panda-moveit-config \
+    moveit-ros \
+    moveit-ros-visualization \
+    moveit-runtime \
+    moveit \
     plotjuggler-ros \
     plotjuggler \
     python-qt-binding \
@@ -287,6 +310,11 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     desktop \
     libg2o \
+    moveit-ros \
+    moveit-ros-perception \
+    moveit-ros-visualization \
+    moveit-runtime \
+    moveit \
     mrpt2 \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
