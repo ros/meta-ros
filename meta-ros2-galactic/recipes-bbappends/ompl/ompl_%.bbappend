@@ -14,7 +14,7 @@ ROS_UNRESOLVED_DEP-opende = ""
 # ompl: 4 installed and not shipped files. [installed-vs-shipped]
 #
 # ros_ament_cmake.bbclass does this automatically, but this recipe inherits just ros_cmake.bbclass
-FILES_${PN}_prepend = " \
+FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
 
@@ -22,7 +22,7 @@ FILES_${PN}_prepend = " \
 inherit ros_insane_dev_so
 
 # ERROR: ompl-1.5.2-1-r0 do_package_qa: QA Issue: ompl: /usr/lib/libompl.so.1.5.2 contains probably-redundant RPATH /usr/lib [useless-rpaths]
-DEPENDS_append_class-target = " chrpath-replacement-native"
-do_install_append() {
+DEPENDS:append:class-target = " chrpath-replacement-native"
+do_install:append() {
     chrpath --delete ${D}${libdir}/*${SOLIBS}
 }

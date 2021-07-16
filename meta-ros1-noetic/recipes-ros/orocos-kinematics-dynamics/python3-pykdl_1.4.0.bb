@@ -37,7 +37,7 @@ EXTRA_OECMAKE += "-DSIP_INCLUDE_DIR=${STAGING_INCDIR}/eigen3"
 # https://github.com/orocos/orocos_kinematics_dynamics/commit/aa395abf95726ca3f81e99b6599ba7de26413588
 
 # /usr/share/python_orocos_kdl/package.xml
-FILES_${PN}-dev += "${datadir}/python_orocos_kdl"
+FILES:${PN}-dev += "${datadir}/python_orocos_kdl"
 
 # /usr/lib/python3.9/site-packages/PyKDL.so
-FILES_${PN} += "${PYTHON_SITEPACKAGES_DIR}"
+FILES:${PN} += "${PYTHON_SITEPACKAGES_DIR}"

@@ -7,8 +7,8 @@
 # gcc-runtime recipe doesn't have PN in PACKAGES (and we would still depend
 # on do_package shlibs handling to add runtime dependency on actual package
 # with libatomic library)
-ROS_EXEC_DEPENDS_remove = "gcc-runtime"
+ROS_EXEC_DEPENDS:remove = "gcc-runtime"
 # there is no native support for gcc-runtime, so also no libatomic, add it only for target builds
-ROS_EXEC_DEPENDS_append-class-target = " libatomic"
+ROS_EXEC_DEPENDS:append-class-target = " libatomic"
 # and also remove it from build time depends when buiding native rc-utils
-DEPENDS_remove_class-native = "gcc-runtime-native gcc-runtime"
+DEPENDS:remove:class-native = "gcc-runtime-native gcc-runtime"

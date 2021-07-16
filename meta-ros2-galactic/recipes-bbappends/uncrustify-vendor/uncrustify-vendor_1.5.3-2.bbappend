@@ -1,13 +1,13 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
 # uncrustify appears in both ROS_BUILD_DEPENDS and ROS_EXPORT_DEPENDS, so it's easier to remove it from DEPENDS.
-DEPENDS_remove = "${ROS_UNRESOLVED_DEP-uncrustify}"
-ROS_EXEC_DEPENDS_remove = "${ROS_UNRESOLVED_DEP-uncrustify}"
+DEPENDS:remove = "${ROS_UNRESOLVED_DEP-uncrustify}"
+ROS_EXEC_DEPENDS:remove = "${ROS_UNRESOLVED_DEP-uncrustify}"
 
 # Instead of fetching
 # https://github.com/uncrustify/uncrustify/archive/45b836cff040594994d364ad6fd3f04adc890a26.tar.gz
 # during do_compile
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-uncrustify-with-bitbake-fetcher.patch \
     git://github.com/uncrustify/uncrustify.git;protocol=https;name=uncrustify;destsuffix=git/uncrustify-upstream \
     https://raw.githubusercontent.com/ros2-gbp/uncrustify_vendor-release/release/foxy/uncrustify_vendor/1.4.0-1/install-patch.diff;name=patch;patchdir=uncrustify-upstream \

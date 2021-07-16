@@ -12,7 +12,7 @@ SRC_URI[sha256sum] = "2ba808bf8bac2cc3f13af9745184b9714c1426e11d09eb96468611b2ad
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-RDEPENDS_${PN} = "python-vcstools"
+RDEPENDS:${PN} = "python-vcstools"
 
 inherit ${@bb.utils.contains("BBFILE_COLLECTIONS", "meta-python2", "setuptools", "", d)}
 

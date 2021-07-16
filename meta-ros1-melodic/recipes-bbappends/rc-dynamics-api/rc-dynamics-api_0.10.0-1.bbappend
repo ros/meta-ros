@@ -9,7 +9,7 @@ DEPENDS += "protobuf-native"
 # non -dev/-dbg/nativesdk- package contains symlink .so: rc-dynamics-api path '/work/core2-64-oe-linux/rc-dynamics-api/0.10.3-1-r0/packages-split/rc-dynamics-api/usr/lib/librc_dynamics_api.so' [dev-so]
 inherit ros_insane_dev_so
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-cpr-drop-deprecated-CURLE_SSL_CACERT.patch"
 
 # RC_PROJECT_VERSION is set in cmake/project_version.cmake by git describe checking for 'v?([0-9.]+).*' tag

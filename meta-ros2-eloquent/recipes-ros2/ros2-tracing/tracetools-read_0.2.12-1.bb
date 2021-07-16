@@ -45,7 +45,7 @@ DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
+RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 # matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/eloquent/tracetools_read/0.2.12-1.tar.gz
 ROS_BRANCH ?= "branch=release/eloquent/tracetools_read"

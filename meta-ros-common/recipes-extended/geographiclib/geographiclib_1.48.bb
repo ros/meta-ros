@@ -13,15 +13,15 @@ S = "${WORKDIR}/GeographicLib-${PV}"
 
 PACKAGE_BEFORE_PN += "${PN}-tools"
 
-FILES_${PN}-tools = " \
+FILES:${PN}-tools = " \
     ${bindir} \
     ${sbindir} \
 "
 
 PACKAGES += "${PN}-matlab ${PN}-node ${PN}-python"
-FILES_${PN}-matlab = "${datadir}/matlab"
-FILES_${PN}-node = "${libdir}/node_modules"
-FILES_${PN}-python = "${libdir}/python"
+FILES:${PN}-matlab = "${datadir}/matlab"
+FILES:${PN}-node = "${libdir}/node_modules"
+FILES:${PN}-python = "${libdir}/python"
 
 inherit cmake
 
@@ -39,7 +39,7 @@ EXTRA_OECMAKE += "-DGEOGRAPHICLIB_LIB_TYPE=BOTH"
 # |   but this file does not exist.  Possible reasons include:
 # OE doesn't stage ${bindir} for target recipes, but in this case the CartConvert isn't
 # being called during the cross-build, so we can include it just to keep CMake happy
-sysroot_stage_all_append() {
+sysroot_stage_all:append() {
     sysroot_stage_dir ${D}${bindir} ${SYSROOT_DESTDIR}${bindir}
 }
 

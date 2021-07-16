@@ -26,7 +26,7 @@ DEPENDS = " \
 inherit python3-dir
 
 # This component puts its cmake files under libdir instead of datadir.
-FILES_${PN}-dev_prepend = " \
+FILES:${PN}-dev:prepend = " \
     ${libdir}/${ROS_BPN}/cmake \
 "
 
@@ -35,4 +35,4 @@ inherit cmake
 inherit ros_recipe_now_generated
 
 # *.cmake files have hardcoded sysroot-s in them.
-SSTATE_SCAN_FILES_append = " *.cmake"
+SSTATE_SCAN_FILES:append = " *.cmake"

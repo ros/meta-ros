@@ -16,12 +16,12 @@ ROS_SPN ??= "${ROS_BPN}"
 ROS_SP ??= "${ROS_SPN}-${PV}"
 
 inherit ros_faulty_solibs
-FILES_${PN}_prepend = " \
+FILES:${PN}:prepend = " \
     ${datadir}/${ROS_BPN} \
     ${libdir}/${PYTHON_DIR} \
     ${libdir}/${ROS_BPN} \
 "
 
-FILES_${PN}-dev_prepend = " \
+FILES:${PN}-dev:prepend = " \
     ${datadir}/${ROS_BPN}/cmake \
 "

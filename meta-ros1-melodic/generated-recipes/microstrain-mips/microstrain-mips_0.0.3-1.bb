@@ -5,7 +5,7 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The microstrain_mips package provides a driver for the LORD/Microstrain 3DM_GX5_XX GPS-aided IMU sensor."
+DESCRIPTION = "The microstrain:mips package provides a driver for the LORD/Microstrain 3DM_GX5_XX GPS-aided IMU sensor."
 AUTHOR = "Brian Bingham <briansbingham@gmail.com>"
 ROS_AUTHOR = "Brian Bingham <briansbingham@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/microstrain_3dm_gx5_45"
@@ -13,8 +13,8 @@ SECTION = "devel"
 LICENSE = "GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
-ROS_CN = "microstrain_mips"
-ROS_BPN = "microstrain_mips"
+ROS_CN = "microstrain:mips"
+ROS_BPN = "microstrain:mips"
 
 ROS_BUILD_DEPENDS = " \
     cmake-modules \
@@ -73,7 +73,7 @@ DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
+RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 # matches with: https://github.com/ros-drivers-gbp/microstrain_mips-release/archive/release/melodic/microstrain_mips/0.0.3-1.tar.gz
 ROS_BRANCH ?= "branch=release/melodic/microstrain_mips"

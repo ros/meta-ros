@@ -31,13 +31,13 @@ DISTUTILS_BUILD_ARGS = "WX_CONFIG=${RECIPE_SYSROOT}${libdir}/wx/config/wx-config
 DISTUTILS_BUILD_ARGS += "WXPORT=gtk3"
 
 # remove -L/usr/X11R6/lib hardcodes
-do_configure_prepend() {
+do_configure:prepend() {
 	sed -i -e s:/usr/X11R6/lib::g ${S}/config.py
 }
 
 # e.g. ${D}/build/v2013.06/build/tmp-angstrom_v2013_06-eglibc/sysroots/beaglebone/usr/include/wx-2.9/wx/wxPython/pytree.h
 
-do_iinstall_append() {
+do_iinstall:append() {
     cp -a ${D}${STAGING_DIR_HOST}/* ${D}
     rm -rf ${D}${STAGING_DIR}
 }

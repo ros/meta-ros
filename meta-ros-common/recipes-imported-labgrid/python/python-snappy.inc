@@ -11,4 +11,4 @@ inherit pypi
 PYPI_PACKAGE = "python-snappy"
 
 DEPENDS += "snappy"
-RDEPENDS_${PN} += "snappy"
+RDEPENDS:${PN} += "snappy"

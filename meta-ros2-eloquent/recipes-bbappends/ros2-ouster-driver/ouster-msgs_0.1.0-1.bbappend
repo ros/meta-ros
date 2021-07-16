@@ -5,4 +5,4 @@
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-generators-native \
 "
-ROS_BUILD_DEPENDS_remove = "rosidl-default-generators"
+ROS_BUILD_DEPENDS:remove = "rosidl-default-generators"

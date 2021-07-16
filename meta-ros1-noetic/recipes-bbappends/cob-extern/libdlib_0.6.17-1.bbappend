@@ -3,7 +3,7 @@
 # Instead of fetching
 # https://github.com/ipa320/thirdparty/raw/master/dlib-${VERSION}.tar.bz2 with curl
 # during do_compile
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-dlib-with-bitbake-fetcher.patch \
     http://dlib.net/files/dlib-19.9.tar.bz2;name=dlib;subdir=git/dlib-upstream \ 
 "

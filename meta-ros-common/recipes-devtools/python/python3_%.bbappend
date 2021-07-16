@@ -1,7 +1,7 @@
 inherit update-alternatives
 
 ALTERNATIVE_PRIORITY = "80"
-ALTERNATIVE_${PN}-core = "python python_config"
+ALTERNATIVE:${PN}-core = "python python_config"
 ALTERNATIVE_LINK_NAME[python] = "${bindir}/python"
 ALTERNATIVE_LINK_NAME[python_config] = "${bindir}/python-config"
 ALTERNATIVE_TARGET[python] = "${bindir}/python3"

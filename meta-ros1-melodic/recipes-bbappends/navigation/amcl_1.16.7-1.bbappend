@@ -3,5 +3,5 @@
 # Missing license version in package.xml
 LICENSE = "LGPL-2.1+"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-add-missing-includes.patch"

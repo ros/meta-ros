@@ -14,17 +14,17 @@
 # dynamic-edt-3d: 9 installed and not shipped files. [installed-vs-shipped]
 #
 # ros_ament_cmake.bbclass does this automatically, but this recipe inherits just ros_cmake.bbclass
-FILES_${PN}_prepend = " \
+FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
 
-FILES_${PN}-dev += "${datadir}/dynamicEDT3D"
+FILES:${PN}-dev += "${datadir}/dynamicEDT3D"
 
 # ERROR: dynamic-edt-3d-1.9.7-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package dynamic-edt-3d contains symlink .so '/usr/lib/libdynamicedt3d.so' [dev-so]
 inherit ros_insane_dev_so
 
 # ERROR: dynamic-edt-3d-1.9.7-1-r0 do_package_qa: QA Issue: dynamic-edt-3d: /usr/lib/libdynamicedt3d.so.1.9.7 contains probably-redundant RPATH /usr/lib [useless-rpaths]
-DEPENDS_append_class-target = " chrpath-replacement-native"
-do_install_append() {
+DEPENDS:append:class-target = " chrpath-replacement-native"
+do_install:append() {
     chrpath --delete ${D}${libdir}/*${SOLIBS}
 }

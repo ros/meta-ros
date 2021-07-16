@@ -1,6 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-allow-to-set-KRNX_ARCHITECTURE-direct.patch \
     file://0002-khi_robot_krnx_driver.cpp-add-missing-return.patch \
 "
@@ -28,16 +28,16 @@ SRC_URI += "file://0001-CMakeLists.txt-allow-to-set-KRNX_ARCHITECTURE-direct.pat
 # ARCHITECTURE with EXTRA_OECMAKE
 
 COMPATIBLE_MACHINE = "(^$)"
-COMPATIBLE_MACHINE_x86-64 = "(.*)"
-COMPATIBLE_MACHINE_x86 = "(.*)"
-COMPATIBLE_MACHINE_aarch64 = "(.*)"
-COMPATIBLE_MACHINE_armv7a = "(.*)"
-COMPATIBLE_MACHINE_armv7ve = "(.*)"
+COMPATIBLE_MACHINE:x86-64 = "(.*)"
+COMPATIBLE_MACHINE:x86 = "(.*)"
+COMPATIBLE_MACHINE:aarch64 = "(.*)"
+COMPATIBLE_MACHINE:armv7a = "(.*)"
+COMPATIBLE_MACHINE:armv7ve = "(.*)"
 
-KRNX_ARCHITECTURE_x86-64 = "x86_64"
-KRNX_ARCHITECTURE_x86 = "i386"
-KRNX_ARCHITECTURE_aarch64 = "aarch64"
-KRNX_ARCHITECTURE_armv7a = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'armhf', 'armel', d)}"
-KRNX_ARCHITECTURE_armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'armhf', 'armel', d)}"
+KRNX_ARCHITECTURE:x86-64 = "x86_64"
+KRNX_ARCHITECTURE:x86 = "i386"
+KRNX_ARCHITECTURE:aarch64 = "aarch64"
+KRNX_ARCHITECTURE:armv7a = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'armhf', 'armel', d)}"
+KRNX_ARCHITECTURE:armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'armhf', 'armel', d)}"
 
 EXTRA_OECMAKE += "-DKRNX_ARCHITECTURE=${KRNX_ARCHITECTURE}"

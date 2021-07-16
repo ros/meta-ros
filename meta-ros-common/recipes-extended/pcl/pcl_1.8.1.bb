@@ -46,14 +46,14 @@ CXXFLAGS += "-std=gnu++14"
 
 inherit cmake
 
-FILES_${PN}-dev += "${datadir}/${PN}-1.8/*.cmake"
+FILES:${PN}-dev += "${datadir}/${PN}-1.8/*.cmake"
 
 # The build is really memory hungry (at least with gcc8), even with just -j 8 it triggers OOMK on system with 32GB ram
 # High memory needs mentioned in: https://github.com/PointCloudLibrary/pcl/issues/2284
 # Setting just empty doesn't work, ninja will by default use number of cores available
 # However, quick experiments have shown that it's possible to use up to CEIL(<RAM-in-GB>/5) as the argument to -j without running
 # out of memory as long as the machine has a few GB of swap space. If this fails, override it by setting
-# PARALLEL_MAKE_pn-pcl = "-j <A-SMALLER-N>" in conf/local.conf .
+# PARALLEL_MAKE:pn-pcl = "-j <A-SMALLER-N>" in conf/local.conf .
 
 # Tried this, but psutil fails to import:
 #   inherit python3native

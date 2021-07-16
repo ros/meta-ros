@@ -1,6 +1,6 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://0001-CMakeLists.txt-link-with-dl.patch \
     file://cmake.dont.add.Werror.uninitialized.patch \
@@ -13,7 +13,7 @@ SRC_URI += " \
 
 # This is used only to generate documentation so it should
 # be native and needs quite a lot of native python dependencies
-ROS_BUILD_DEPENDS_remove = "${PYTHON_PN}-sphinx python-sphinx"
+ROS_BUILD_DEPENDS:remove = "${PYTHON_PN}-sphinx python-sphinx"
 
 DEPENDS += " \
     protobuf-native \
@@ -23,4 +23,4 @@ DEPENDS += " \
 CXXFLAGS += "-fuse-ld=gold"
 
 # Doesn't need runtime dependency on ceres-solver
-ROS_EXEC_DEPENDS_remove = "ceres-solver"
+ROS_EXEC_DEPENDS:remove = "ceres-solver"

@@ -11,4 +11,4 @@ BBCLASSEXTEND = "native nativesdk"
 SRC_URI[sha256sum] = "8a8e9482b5b03dcfe87a9e3cf9fd6d5937564b49ab71ebc99f71061faf72605b"
 
 # /usr/share/zsh/site-functions/_catkin
-FILES_${PN} += "${datadir}/zsh"
+FILES:${PN} += "${datadir}/zsh"

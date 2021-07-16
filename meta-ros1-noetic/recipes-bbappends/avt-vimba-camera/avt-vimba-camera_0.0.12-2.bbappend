@@ -11,4 +11,4 @@
 # ./lib/32bit/libVimbaCPP.so
 # causing:
 # ERROR: avt-vimba-camera-0.0.11-1-r0 do_package_qa: QA Issue: No GNU_HASH in the ELF binary /jenkins/mjansa/build-ros/webos-melodic-thud/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/avt-vimba-camera/0.0.11-1-r0/packages-split/avt-vimba-camera/usr/opt/ros/melodic/lib/libVimbaC.so, didn't pass LDFLAGS? [ldflags]
-INSANE_SKIP_${PN} += "ldflags"
+INSANE_SKIP:${PN} += "ldflags"

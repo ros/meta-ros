@@ -4,7 +4,7 @@ LICENSE = "PSF"
 LIC_FILES_CHKSUM = "file://LICENSE/LICENSE;md5=afec61498aa5f0c45936687da9a53d74"
 
 DEPENDS += "python-numpy freetype libpng python-dateutil python-pytz"
-RDEPENDS_${PN} = "python-core python-distutils python-numpy freetype libpng python-dateutil python-pytz"
+RDEPENDS:${PN} = "python-core python-distutils python-numpy freetype libpng python-dateutil python-pytz"
 
 SRCREV = "ebaff585e43b128055e9164ae5fce1efe8a01ef4"
 ROS_BRANCH ?= "branch=master"

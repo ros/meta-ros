@@ -3,6 +3,6 @@
 # IDLC depends on maven and we don't want meta-ros to depend on meta-java just for that
 EXTRA_OECMAKE += "-DBUILD_IDLC=OFF"
 
-FILES_${PN}-dev += "${datadir}/CycloneDDS"
+FILES:${PN}-dev += "${datadir}/CycloneDDS"
 
 inherit ros_insane_dev_so

@@ -1,6 +1,6 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fix-build-without-catkin-testing-enab.patch"
 
 # It's using catkin_download_test_data to fetch the
@@ -33,6 +33,6 @@ SRC_URI[willow-sans-whitelab-0.025.pgm.sha256sum] = "65fa7a94b68d46a18577a0761f5
 SRC_URI[willow.tmap.md5sum] = "48864073990c66173dade2bfcae5669d"
 SRC_URI[willow.tmap.sha256sum] = "f3dcc1c37e98c4227fb9296501bbe7a79fe64a6bea1f2f05168aa8d7d38f9706"
 
-do_install_prepend() {
+do_install:prepend() {
     install -m0644 ${WORKDIR}/*.pgm ${WORKDIR}/*.tmap ${B}
 }

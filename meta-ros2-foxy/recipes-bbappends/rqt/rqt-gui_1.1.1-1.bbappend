@@ -6,4 +6,4 @@
 #  /usr/share/lib/rqt_gui/rqt_gui
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # rqt-gui: 3 installed and not shipped files. [installed-vs-shipped]
-FILES_${PN} += "${datadir}/lib/${ROS_BPN}"
+FILES:${PN} += "${datadir}/lib/${ROS_BPN}"
