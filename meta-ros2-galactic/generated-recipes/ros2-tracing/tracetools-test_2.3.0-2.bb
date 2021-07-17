@@ -45,7 +45,6 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-pytest-cov} \
     ament-cmake-gtest \
     ament-cmake-mypy \
     ament-cmake-pytest \
@@ -53,6 +52,7 @@ ROS_TEST_DEPENDS = " \
     ament-lint-common \
     launch-ros \
     python3-pytest \
+    python3-pytest-cov \
     tracetools \
     tracetools-launch \
     tracetools-read \
