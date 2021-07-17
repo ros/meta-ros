@@ -101,6 +101,9 @@ ROS_WORLD_SKIP_GROUPS += "libqglviewer"
 # recipes depending on ignition-* (ROS_UNRESOLVED_DEP-ignition-gazebo5, ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-msgs7, ROS_UNRESOLVED_DEP-ignition-transport10, ROS_UNRESOLVED_DEP-ignition-rendering5, ROS_UNRESOLVED_DEP-ignition-common4, ROS_UNRESOLVED_DEP-ignition-gui5)
 ROS_WORLD_SKIP_GROUPS += "ignition"
 
+# recipes depending on libomp which could be provided by openmp@meta-clang
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-layer', '', 'libomp', d)}"
+
 # recipes depending on ros1
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'ros1-layer', '', 'ros1', d)}"
 

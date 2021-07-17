@@ -62,6 +62,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
     ament-cmake-clang-tidy \
 "
 
+RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libomp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP = " \
+    moveit-planners-ompl \
+    moveit-planners \
+    moveit-runtime \
+    moveit \
+"
+
 # Needs work to launch qemu to run tests on image on build machine.
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
@@ -76,6 +84,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SDFORMAT = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'coinor-libipopt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
     control-box-rst \
+    plansys2-bringup \
+    plansys2-bt-actions \
+    plansys2-domain-expert \
+    plansys2-executor \
+    plansys2-planner \
+    plansys2-popf-plan-solver \
+    plansys2-problem-expert \
+    plansys2-terminal \
+    popf \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libqglviewer', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER}', '', d)}"
@@ -101,14 +118,25 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     desktop \
     libg2o \
     librealsense2 \
+    moveit-ros-perception \
+    moveit-ros-visualization \
+    moveit-ros \
+    moveit-runtime \
+    moveit \
+    openvslam \
+    plotjuggler-ros \
+    plotjuggler \
     realsense-examples \
     realsense-node \
     realsense-ros \
+    realsense2-camera \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
     rviz2 \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
@@ -118,11 +146,20 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop \
     joint-state-publisher-gui \
+    moveit-resources-panda-moveit-config \
+    moveit-resources \
+    moveit-ros-perception \
+    moveit-ros-visualization \
+    moveit-ros \
+    moveit-runtime \
+    moveit \
     navigation2 \
     nav2-bringup \
     nav2-rviz-plugins \
     nav2-system-tests \
     octovis \
+    plotjuggler-ros \
+    plotjuggler \
     python-qt-binding \
     qt-dotgraph \
     qt-gui \
@@ -163,6 +200,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz-visual-testing-framework \
     rviz2 \
     slam-toolbox \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
     turtlesim \
     webots-ros2-epuck \
     webots-ros2-tiago \
@@ -185,6 +224,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
 # meta-webos/recipes-qt/qt5/qtbase_git.bbappend:PACKAGECONFIG_remove = "widgets"
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5-widgets', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
+    plotjuggler-ros \
+    plotjuggler \
     turtlesim \
 "
 
@@ -195,6 +236,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
 "
 
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API_x86 = ""
@@ -217,6 +260,8 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     desktop \
     joint-state-publisher-gui \
+    moveit-resources-panda-moveit-config \
+    moveit-resources \
     python-qt-binding \
     qt-dotgraph \
     qt-gui-app \
@@ -267,17 +312,24 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     desktop \
     libg2o \
+    moveit-ros-visualization \
+    moveit-ros \
+    moveit-runtime \
+    moveit \
     mrpt2 \
     navigation2 \
     nav2-bringup \
     nav2-rviz-plugins \
     nav2-system-tests \
+    openvslam \
     rviz2 \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
     slam-toolbox \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
@@ -289,6 +341,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
     realsense-examples \
     realsense-node \
     realsense-ros \
+    realsense2-camera \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ros1', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROS1}', '', d)}"
