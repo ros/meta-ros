@@ -1,0 +1,51 @@
+From c7ab75e1915a6c89a52d8f7cded68084a7b7e818 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 5 May 2021 01:18:18 -0700
+Subject: [PATCH] Fix build with gcc-11
+
+* fixes:
+FAILED: CMakeFiles/plansys2_pddl_parser.dir/src/plansys2_pddl_parser/Utils.cpp.o
+/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -DDEFAULT_RMW_IMPLEMENTATION=rmw_cyclonedds_cpp -Dplansys2_pddl_parser_EXPORTS -I/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/include -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0=/usr/src/debug/plansys2-pddl-parser/2.0.0-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0=/usr/src/debug/plansys2-pddl-parser/2.0.0-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/recipe-sysroot -fPIC -std=gnu++17 -MD -MT CMakeFiles/plansys2_pddl_parser.dir/src/plansys2_pddl_parser/Utils.cpp.o -MF CMakeFiles/plansys2_pddl_parser.dir/src/plansys2_pddl_parser/Utils.cpp.o.d -o CMakeFiles/plansys2_pddl_parser.dir/src/plansys2_pddl_parser/Utils.cpp.o -c /jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/src/plansys2_pddl_parser/Utils.cpp
+/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/src/plansys2_pddl_parser/Utils.cpp: In function 'uint8_t parser::pddl::getNodeType(const string&, uint8_t)':
+/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/src/plansys2_pddl_parser/Utils.cpp:41:20: error: 'numeric_limits' is not a member of 'std'
+   41 |   int first = std::numeric_limits<int>::max();
+      |                    ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/src/plansys2_pddl_parser/Utils.cpp:41:35: error: expected primary-expression before 'int'
+   41 |   int first = std::numeric_limits<int>::max();
+      |                                   ^~~
+/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/src/plansys2_pddl_parser/Utils.cpp: In function 'std::tuple<unsigned char, int> parser::pddl::getExpr(const string&)':
+/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/src/plansys2_pddl_parser/Utils.cpp:122:20: error: 'numeric_limits' is not a member of 'std'
+  122 |   int first = std::numeric_limits<int>::max();
+      |                    ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/src/plansys2_pddl_parser/Utils.cpp:122:35: error: expected primary-expression before 'int'
+  122 |   int first = std::numeric_limits<int>::max();
+      |                                   ^~~
+/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/src/plansys2_pddl_parser/Utils.cpp: In function 'std::tuple<unsigned char, int> parser::pddl::getFunMod(const string&)':
+/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/src/plansys2_pddl_parser/Utils.cpp:194:20: error: 'numeric_limits' is not a member of 'std'
+  194 |   int first = std::numeric_limits<int>::max();
+      |                    ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros2-galactic-honister/tmp-glibc/work/core2-64-oe-linux/plansys2-pddl-parser/2.0.0-2-r0/git/src/plansys2_pddl_parser/Utils.cpp:194:35: error: expected primary-expression before 'int'
+  194 |   int first = std::numeric_limits<int>::max();
+      |                                   ^~~
+
+Upstream-Status: Pending
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/plansys2_pddl_parser/Utils.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plansys2_pddl_parser/Utils.cpp b/src/plansys2_pddl_parser/Utils.cpp
+index 8966d385..f0096299 100644
+--- a/src/plansys2_pddl_parser/Utils.cpp
++++ b/src/plansys2_pddl_parser/Utils.cpp
+@@ -15,6 +15,7 @@
+ #include <regex>
+ #include <iostream>
+ #include <functional> 
++#include <limits>
+ #include "plansys2_pddl_parser/Utils.h"
+ 
+ namespace parser
+-- 
+2.17.1
+
