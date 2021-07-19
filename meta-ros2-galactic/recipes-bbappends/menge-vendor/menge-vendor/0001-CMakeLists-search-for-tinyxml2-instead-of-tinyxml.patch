@@ -1,0 +1,27 @@
+From be9a3828d3ce82e53434a9185159b4373ebc8b7c Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 12 Jun 2021 07:26:37 -0700
+Subject: [PATCH] CMakeLists: search for tinyxml2 instead of tinyxml
+
+* libtinyxml from meta-oe doesn't provide .pc file
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6eaedad..47a2dee 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -22,7 +22,7 @@ endif()
+ # find dependencies
+ find_package(ament_cmake REQUIRED)
+ find_package(PkgConfig REQUIRED)
+-pkg_check_modules(tinyxml REQUIRED tinyxml)
++pkg_check_modules(tinyxml REQUIRED tinyxml2)
+ 
+ set(MENGE_SRC_DIR ${CMAKE_SOURCE_DIR}/src/Menge)
+ message("menge_source_dir " ${MENGE_SRC_DIR})
