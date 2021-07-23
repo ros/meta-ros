@@ -56,22 +56,22 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'a2126a3e8')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': Bitbake_Branch, 'commit': 'a1987f24'}, {}),
+('bitbake',                            -1, 'git://github.com/openembedded/bitbake.git',              {'branch': Bitbake_Branch,       'commit': 'a1987f24'},          {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch, 'commit': 'd47b7cdc35'}, {}),
+('meta',                                5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch,            'commit': 'd47b7cdc35'},        {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': OE_Branch, 'commit': 'f3f7a5f1a4'}, {}),
-('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
+('meta-oe',                            10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': OE_Branch,            'commit': 'f3f7a5f1a4'},        {}),
+('meta-python',                        13, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
 
-('meta-python2',              17, 'git://git.openembedded.org/meta-python2',                {'branch': OE_Branch, 'commit': '3fae17a'}, {}),
+('meta-python2',                       17, 'git://git.openembedded.org/meta-python2',                {'branch': OE_Branch,            'commit': '3fae17a'},           {}),
 
-('meta-ros-python2',          35, MetaRos_RepoURL,                                          {}, {}),
-('meta-ros-backports-hardknott', 36, MetaRos_RepoURL,                                       {}, {}),
-('meta-ros-common',           37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
-('meta-ros1',                 38, MetaRos_RepoURL,                                          {}, {}),
-('meta-ros1-' + ROS_Distribution,         39, MetaRos_RepoURL,                                          {}, {}),
+('meta-ros-python2',                   35, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros-backports-hardknott',       36, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
+('meta-ros1',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros1-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': OE_Branch, 'commit': 'e5e976d'}, {}),
+('meta-raspberrypi',                   50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': OE_Branch,            'commit': 'e5e976d'},           {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
