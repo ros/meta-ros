@@ -22,6 +22,9 @@ OE_Branch = 'dunfell'
 
 ROS_Distribution = 'dashing'
 
+# One of 'full', 'best-effort', 'contrib', 'unsupported'
+SupportLevel = 'best-effort' # ROS2 Dashing is EOL (final sync on 2021-06-10)
+
 # Supported MACHINE-s
 Machines = ['qemux86-64', 'raspberrypi4-64']
 

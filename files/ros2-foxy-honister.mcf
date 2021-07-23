@@ -22,6 +22,9 @@ OE_Branch = 'master'
 
 ROS_Distribution = 'foxy'
 
+# One of 'full', 'best-effort', 'contrib', 'unsupported'
+SupportLevel = 'full'
+
 # Supported MACHINE-s
 Machines = ['qemux86-64', 'raspberrypi4-64']
 
