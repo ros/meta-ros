@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,17 +19,22 @@ Distribution = 'webos'
 
 webOSOSEBuildNumber = '218'
 
+Bitbake_Branch = '1.40'
+OE_Branch = 'thud'
+
+ROS_Distribution = 'foxy'
+
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
 
 # Allow the URL and branch for meta-ros, meta-ros-webos and meta-webos to be overridden by settings in the environment.
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'git://github.com/ros/meta-ros.git')
-MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   'thud')
+MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   OE_Branch)
 MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '47b8e32b1')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
-MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   'thud')
+MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   OE_Branch)
 MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   '927f241')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/webosose/meta-webosose.git')
@@ -43,18 +48,18 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'builds/webosose/master/' 
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': '1.40', 'commit': 'b690030e'}, {}),
+('bitbake',                   -1, 'git://github.com/openembedded/bitbake.git',              {'branch': Bitbake_Branch, 'commit': 'b690030e'}, {}),
 
-('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': 'thud', 'commit': 'e68991ceb5'}, {}),
+('meta',                       5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch, 'commit': 'e68991ceb5'}, {}),
 
-('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'thud', 'commit': '446bd615fd'}, {}),
+('meta-oe',                   10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': OE_Branch, 'commit': '446bd615fd'}, {}),
 ('meta-multimedia',           11, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-networking',           12, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-python',               13, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 ('meta-filesystems',          14, 'git://github.com/openembedded/meta-openembedded.git',    {}, {}),
 
-('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': 'thud', 'commit': '24a560c'}, {}),
-('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'thud', 'commit': '7685c7d'}, {}),
+('meta-updater',              15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': OE_Branch, 'commit': '24a560c'}, {}),
+('meta-virtualization',       16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': OE_Branch, 'commit': '7685c7d'}, {}),
 
 ('meta-qt5',                  20, 'git://github.com/meta-qt5/meta-qt5.git',                 {'branch': 'warrior', 'commit': '7d0b17a'}, {}),
 
@@ -67,11 +72,11 @@ Layers = [
 ('meta-ros-backports-dunfell',36, MetaRos_RepoURL,                                          {}, {}),
 ('meta-ros-common',           37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch, 'commit': MetaRos_Commit}, {}),
 ('meta-ros2',                 38, MetaRos_RepoURL,                                          {}, {}),
-('meta-ros2-foxy',            39, MetaRos_RepoURL,                                          {}, {}),
+('meta-ros2-' + ROS_Distribution,            39, MetaRos_RepoURL,                                          {}, {}),
 
 ('meta-webos',                40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch, 'commit': MetaWebos_Commit}, {}),
 
-('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'thud', 'commit': '4e5be97'}, {}),
+('meta-raspberrypi',          50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': OE_Branch, 'commit': '4e5be97'}, {}),
 ('meta-webos-raspberrypi',    51, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-updater',        52, MetaWebos_RepoURL,                                        {}, {}),
 ('meta-webos-virtualization', 53, MetaWebos_RepoURL,                                        {}, {}),
@@ -79,7 +84,7 @@ Layers = [
 ('meta-ros-webos',            60, MetaRosWebos_RepoURL,                                     {'branch': MetaRosWebos_Branch, 'commit': MetaRosWebos_Commit}, {}),
 
 ('meta-webos-smack',          75, MetaWebos_RepoURL,                                        {}, {}),
-('meta-security',             77, 'git://git.yoctoproject.org/meta-security',               {'branch': 'thud', 'commit': '31dc4e7'}, {}),
+('meta-security',             77, 'git://git.yoctoproject.org/meta-security',               {'branch': OE_Branch, 'commit': '31dc4e7'}, {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
