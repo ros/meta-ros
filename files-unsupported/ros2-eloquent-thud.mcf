@@ -22,6 +22,9 @@ OE_Branch = 'thud'
 
 ROS_Distribution = 'eloquent'
 
+# One of 'full', 'best-effort', 'contrib', 'unsupported'
+SupportLevel = 'unsupported' # not updated since September 2020; OE Thud is EOL
+
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi3']
 
