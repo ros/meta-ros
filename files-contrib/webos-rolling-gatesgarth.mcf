@@ -10,6 +10,9 @@ OE_Branch = 'gatesgarth'
 
 ROS_Distribution = 'rolling'
 
+# One of 'full', 'best-effort', 'contrib', 'unsupported'
+SupportLevel = 'contrib' # OE Gatesgarth is EOL (since 2021-06-08 in https://wiki.yoctoproject.org/wiki/index.php?title=Releases&diff=84746&oldid=84745)
+
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
 

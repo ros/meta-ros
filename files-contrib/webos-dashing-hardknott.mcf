@@ -10,6 +10,9 @@ OE_Branch = 'hardknott'
 
 ROS_Distribution = 'dashing'
 
+# One of 'full', 'best-effort', 'contrib', 'unsupported'
+SupportLevel = 'contrib' # ROS2 Dashing is EOL (final sync on 2021-06-10)
+
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
 

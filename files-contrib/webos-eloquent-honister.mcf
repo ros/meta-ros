@@ -10,6 +10,9 @@ OE_Branch = 'master'
 
 ROS_Distribution = 'eloquent'
 
+# One of 'full', 'best-effort', 'contrib', 'unsupported'
+SupportLevel = 'contrib' # ROS2 Eloquent is EOL (final sync on 2020-12-14)
+
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
 

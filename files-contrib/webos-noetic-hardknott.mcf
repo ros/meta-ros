@@ -10,6 +10,9 @@ OE_Branch = 'hardknott'
 
 ROS_Distribution = 'noetic'
 
+# One of 'full', 'best-effort', 'contrib', 'unsupported'
+SupportLevel = 'contrib'
+
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
 
