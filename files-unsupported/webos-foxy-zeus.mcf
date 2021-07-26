@@ -10,6 +10,9 @@ OE_Branch = 'zeus'
 
 ROS_Distribution = 'foxy'
 
+# One of 'full', 'best-effort', 'contrib', 'unsupported'
+SupportLevel = 'unsupported' # not updated since September 2020; OE Zeus is EOL
+
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
 
