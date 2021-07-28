@@ -17,9 +17,9 @@
 # The configuration file that "mcf" reads specifies the name of the distribution, the supported MACHINE-s, the layers used in the
 # build, and optionally, additional lines to be appended to the generated conf/bblayers.conf . It has this format:
 #
-# McfFileVersion = 2  (If this setting is absent, version 1 is assumed.)
+# McfFileVersion = 3  (If this setting is absent, version 1 is assumed.)
 #
-# Distribution = 'DISTRO'
+# OE_Distribution = 'DISTRO'
 #
 # Machines = ['MACHINE1', 'MACHINE2', ...]
 #
@@ -71,7 +71,7 @@ import glob
 import importlib.util
 import importlib.machinery
 
-__version__ = "7.2.2"
+__version__ = "7.2.3"
 
 logger = logging.getLogger(__name__)
 
@@ -368,9 +368,15 @@ def read_mcfconfigfile(configfile, bblayers_only):
         if not layer["location"]:
             layer["location"] = location_to_dirname(layer["url"])
 
-    from mcfconfigfile import Distribution
     global DISTRO
-    DISTRO = Distribution
+    try:
+        from mcfconfigfile import OE_Distribution
+        DISTRO = OE_Distribution
+    except ImportError:
+        from mcfconfigfile import Distribution
+        DISTRO = Distribution
+        if MCFFILEVERSION >= 3:
+            raise Exception("McfFileVersion 3 should be using OE_Distribution variable not Distribution")
 
     from mcfconfigfile import Machines
     global SUPPORTED_MACHINES
