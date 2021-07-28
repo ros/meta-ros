@@ -41,6 +41,9 @@ vars = vars + ["toolchain-clang", "mydistro", "nios2", "sdkmingw32", "overrideon
 vars = vars + ["linux-gnux32", "linux-muslx32", "linux-gnun32", "mingw32", "poky", "darwin", "linuxstdbase"]
 vars = vars + ["virtclass-multilib", "virtclass-mcextend"]
 
+# meta-ros
+vars = vars + ["ros1-distro", "ros2-distro", "rpi"]
+
 # List of strings to treat as overrides but only with whitespace following or another override (more restricted matching).
 # Handles issues with arc matching arch.
 shortvars = ["arc", "mips", "mipsel", "sh4"]
@@ -62,6 +65,8 @@ skips = skips + ["run_loaddata_poky", "determine_if_poky_env", "do_populate_poky
 skips = skips + ["get_appends_for_files", "test_doubleref_remove", "test_bitbakelayers_add_remove", "elf32_x86_64", "colour_remove", "revmap_remove"]
 skips = skips + ["test_rpm_remove", "test_bitbakelayers_add_remove", "recipe_append_file", "log_data_removed", "recipe_append", "systemd_machine_unit_append"]
 skips = skips + ["recipetool_append", "changetype_remove", "try_appendfile_wc", "test_qemux86_directdisk", "test_layer_appends", "tgz_removed"]
+# meta-ros
+skips = skips + ["microstrain-mips"]
 
 imagevars = ["IMAGE_CMD", "EXTRA_IMAGECMD"]
 packagevars = packagevars + imagevars
@@ -132,7 +137,7 @@ for targetdir in sys.argv[1:]:
             fn = os.path.join(root, name)
             if os.path.islink(fn):
                 continue
-            if "/.git/" in fn or fn.endswith(".html") or fn.endswith(".patch") or fn.endswith(".m4") or fn.endswith(".diff"):
+            if "/.git/" in fn or fn.endswith(".html") or fn.endswith(".patch") or fn.endswith(".m4") or fn.endswith(".diff") or fn.endswith(".do_compile") or fn.endswith(".do_configure") or fn.endswith(".diffme") or fn.endswith(".yaml"):
                 continue
             processfile(fn)
 
