@@ -313,6 +313,8 @@ libqt5-websockets-dev:
 - qtwebsockets@meta-qt5
 libqt5-widgets:
 - qtbase@meta-qt5
+libqt5multimedia5-plugins:
+- qtmultimedia@meta-qt5
 libqt5x11extras5-dev:
 - qtx11extras@meta-qt5
 libqwt-qt5-dev:
@@ -470,6 +472,8 @@ python-percol:
 - ${ROS_UNRESOLVED_DEP-python-percol}
 python-pixel-ring-pip:
 - ${ROS_UNRESOLVED_DEP-python-pixel-ring-pip}
+python-pygame:
+- ${ROS_UNRESOLVED_DEP-python-pygame}
 python-pygithub3:
 - ${ROS_UNRESOLVED_DEP-python-pygithub3}
 python-pyusb-pip:
@@ -634,6 +638,8 @@ python3-tornado:
 - python3-tornado@meta-python
 python3-twisted:
 - python3-twisted@meta-python
+python3-usb:
+- python3-pyusb@meta-python
 python3-venv:
 - ${ROS_UNRESOLVED_DEP-python3-venv}
 python3-websocket:
@@ -648,6 +654,10 @@ qt5-qmake:
 - qtbase@meta-qt5
 qtbase5-dev:
 - qtbase@meta-qt5
+qtdeclarative5-dev:
+- qtdeclarative@meta-qt5
+qtmultimedia5-dev:
+- qtmultimedia@meta-qt5
 roseus:
 - ${ROS_UNRESOLVED_DEP-roseus}
 rsync:
