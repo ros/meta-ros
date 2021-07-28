@@ -323,6 +323,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     fkie-node-manager \
     fkie-multimaster \
     fmi-adapter-examples \
+    fuse-viz \
+    fuse \
     gl-dependency \
     gundam-rx78-control \
     hrpsys-ros-bridge \
@@ -404,6 +406,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     slider-publisher \
     visualstates \
     webkit-dependency \
+    webots-ros \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vtk-qt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT}', '', d)}"
@@ -538,6 +541,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     tuw-checkerboard \
     tuw-marker-detection \
     uwsim-bullet \
+    webots-ros \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB}', '', d)}"
@@ -833,6 +837,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     fkie-potree-rviz-plugin \
     franka-example-controllers \
     franka-ros \
+    fuse-viz \
+    fuse \
     grid-map \
     grid-map-demos \
     grid-map-rviz-plugin \
@@ -958,6 +964,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     fsrobo-r \
     fsrobo-r-bringup \
     fsrobo-r-moveit-config \
+    fuse-viz \
+    fuse \
     geometry-tutorials \
     gl-dependency \
     grid-map \
@@ -1166,6 +1174,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     warthog-viz \
     wave-front-planner \
     webkit-dependency \
+    webots-ros \
     wu-ros-tools \
 "
 
@@ -1381,6 +1390,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     nextage-gazebo \
     nmea-gps-plugin \
     open-manipulator-gazebo \
+    open-manipulator-p-gazebo \
+    open-manipulator-p-simulations \
     open-manipulator-simulations \
     open-manipulator-with-tb3-gazebo \
     open-manipulator-with-tb3-simulations \
@@ -1411,6 +1422,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     rtmros-nextage \
     sand-island \
     simulators \
+    thunder-line-follower-pmr3100 \
     turtlebot3-gazebo \
     turtlebot3-simulations \
     urdf-sim-tutorial \
@@ -1624,6 +1636,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     uwsim-osgbullet \
     uwsim-osgocean \
     uwsim-osgworks \
+    webots-ros \
     wxwidgets \
     rc-roi-manager-gui \
     rqt-pose-view \
