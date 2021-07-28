@@ -1,7 +1,7 @@
-McfFileVersion = 2
+McfFileVersion = 3
 
 # Value for DISTRO
-Distribution = 'webos'
+OE_Distribution = 'webos'
 
 webOSOSEBuildNumber = 'XXX'
 
@@ -73,7 +73,7 @@ Layers = [
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
 # conf/bblayers.conf .
-BblayersConfExtraLines = ['MCF_DISTRO ?= "' + Distribution + '"',
+BblayersConfExtraLines = ['MCF_DISTRO ?= "' + OE_Distribution + '"',
                           'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
                           'MCF_WEBOS_BUILD_NUMBER = "' + webOSOSEBuildNumber + '"',
                          ]
