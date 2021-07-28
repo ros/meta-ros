@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-McfFileVersion = 2
+McfFileVersion = 3
 
 # Value for DISTRO
-Distribution = 'webos'
+OE_Distribution = 'webos'
 
 webOSOSEBuildNumber = '218'
 
@@ -92,7 +92,7 @@ Layers = [
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
 # conf/bblayers.conf .
-BblayersConfExtraLines = ['MCF_DISTRO ?= "' + Distribution + '"',
+BblayersConfExtraLines = ['MCF_DISTRO ?= "' + OE_Distribution + '"',
                           'ROS_DISTRO ?= "foxy"',
                           'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
                           'MCF_WEBOS_BUILD_NUMBER = "' + webOSOSEBuildNumber + '"',
