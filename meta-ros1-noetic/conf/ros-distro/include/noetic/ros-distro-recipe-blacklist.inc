@@ -864,7 +864,7 @@ PNBLACKLIST[wiimote] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-c
 PNBLACKLIST[wu-ros-tools] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'qt5: pyqt5: Depends on easy-markers which depend on rviz which requires python-qt-binding which requires meta-qt5 to be included; ogre: depends on easy-markers whcih depends on rviz which depends on ogre which is not available', '', d)}"
 PNBLACKLIST[yosemite-valley] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
 
-# Renamed to fuse-ros by symlink in recipes-bbappends/fuse to avoid conflict with
+# Renamed to fuse-ros in recipes-bbappends/fuse to avoid conflict with
 # meta-filesystems/recipes-support/fuse/fuse_2.9.9.bb
 BBMASK +=  "generated-recipes/fuse/fuse_0.4.2-1.bb"
 # And renamed fuse-doc to fuse-ros-doc to avoid conflict with PN-doc package created by fuse recipe
