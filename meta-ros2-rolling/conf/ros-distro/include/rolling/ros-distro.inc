@@ -127,6 +127,12 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer'
 # recipes depending on libomp which could be provided by openmp@meta-clang
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-layer', '', 'libomp', d)}"
 
+# do_configure failures
+ROS_WORLD_SKIP_GROUPS += " \
+    lanelet2-traffic-rules \
+    lanelet2-io \
+"
+
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
     qt-gui-cpp \
