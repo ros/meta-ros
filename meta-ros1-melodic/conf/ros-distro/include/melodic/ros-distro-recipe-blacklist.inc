@@ -200,6 +200,7 @@ PNBLACKLIST[fsrobo-r-description] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUP
 PNBLACKLIST[fsrobo-r-moveit-config] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre', 'gazebo'], 'qt5: Requires moveit-ros-visualization->qtbase which requires meta-qt5 to be included; ogre: Requires moveit-ros-visualization which requires ogre which is not available; gazebo: depends on fsrobo-r-description->gazebo which is not available', '', d)}"
 PNBLACKLIST[fsrobo-r-trajectory-filters] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['opengl', 'x11'], 'Depends on moveit-ros-planning->moveit-ros-perception->mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES and moveit-ros-planning->moveit-ros-perception->freeglut which requires x11', '', d)}"
 PNBLACKLIST[fsrobo-r] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'ogre', 'gazebo'], 'qt5: Requires fsrobo-r-moveit-config->moveit-ros-visualization->qtbase which requires meta-qt5 to be included; ogre: Requires fsrobo-r-moveit-config->moveit-ros-visualization which requires ogre which is not available; gazebo: depends on fsrobo-r-description->gazebo which is not available', '', d)}"
+PNBLACKLIST[fuse-ros] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'ogre'], 'qt5: pyqt5: Depends on fuse-viz which depends on rviz which requires python-qt-binding which requires meta-qt5 to be included; ogre: Depends on fuse-viz which depends on rviz which depends on ogre which is not available', '', d)}"
 PNBLACKLIST[gazebo-plugins] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-rosdev which is not available', '', d)}"
 PNBLACKLIST[gazebo-ros-control] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
 PNBLACKLIST[gazebo-ros-pkgs] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
@@ -878,3 +879,9 @@ PNBLACKLIST[wge100-driver] ?= "Depends on wge100-camera-firmware->unavailable RO
 PNBLACKLIST[wifi-ddwrt] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-mechanize', 'Depends on unavailable ROS_UNRESOLVED_DEP-python-mechanize', '', d)}"
 PNBLACKLIST[wiimote] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-cwiid', 'Depends on unavailable ROS_UNRESOLVED_DEP-python-cwiid', '', d)}"
 PNBLACKLIST[yosemite-valley] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
+
+# Renamed to fuse-ros in recipes-bbappends/fuse to avoid conflict with
+# meta-filesystems/recipes-support/fuse/fuse_2.9.9.bb
+BBMASK +=  "generated-recipes/fuse/fuse_0.4.2-1.bb"
+# And renamed fuse-doc to fuse-ros-doc to avoid conflict with PN-doc package created by fuse recipe
+BBMASK +=  "generated-recipes/fuse/fuse-doc_0.4.2-1.bb"

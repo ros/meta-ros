@@ -18,6 +18,10 @@ RDEPENDS:${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 # with some patches applied on top of prbt-ikfast-manipulator-plugin source
 RDEPENDS:${PN}:remove = "moveit-resources-prbt-ikfast-manipulator-plugin"
 
+# Renamed to fuse-ros and fuse-ros-doc in recipes-bbappends/fuse to avoid conflict with
+# meta-filesystems/recipes-support/fuse/fuse_2.9.9.bb
+RDEPENDS:${PN}:remove = "fuse fuse-doc"
+
 # Depends on blacklisted catkin-virtualenv (which requires Python 3)
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'catkin-virtualenv' , '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CATKIN_VIRTUALENV}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CATKIN_VIRTUALENV = " \
@@ -283,6 +287,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     dingo-viz \
     flir-ptu-viz \
     fmi-adapter-examples \
+    fuse-ros \
     gl-dependency \
     gundam-rx78-control \
     heron-desktop \
@@ -833,6 +838,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     flir-ptu-viz \
     franka-example-controllers \
     franka-ros \
+    fuse-ros \
     grid-map \
     grid-map-demos \
     grid-map-rviz-plugin \
@@ -959,6 +965,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     fsrobo-r \
     fsrobo-r-bringup \
     fsrobo-r-moveit-config \
+    fuse-ros \
     geometry-tutorials \
     gl-dependency \
     grid-map \
