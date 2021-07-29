@@ -29,6 +29,10 @@ RDEPENDS_${PN} += "opencv-apps-ros"
 # with some patches applied on top of prbt-ikfast-manipulator-plugin source
 RDEPENDS_${PN}_remove = "moveit-resources-prbt-ikfast-manipulator-plugin"
 
+# Renamed to fuse-ros and fuse-ros-doc in recipes-bbappends/fuse to avoid conflict with
+# meta-filesystems/recipes-support/fuse/fuse_2.9.9.bb
+RDEPENDS_${PN}_remove = "fuse fuse-doc"
+
 # Requires Python 3; it is not used by any other ROS 1 package.
 RDEPENDS_${PN}_remove = "catkin-virtualenv"
 # Depends on blacklisted catkin-virtualenv

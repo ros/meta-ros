@@ -1,1 +1,1 @@
-../../generated-recipes/fuse/fuse-doc_0.4.2-1.bb
+require ../../generated-recipes/fuse/fuse-doc_${PV}.bb
