@@ -1,0 +1,5 @@
+*.bb       whitespace=tab-in-indent,trailing-space
+*.bbappend whitespace=tab-in-indent,trailing-space
+*.bbclass  whitespace=tab-in-indent,trailing-space
+*.inc      whitespace=tab-in-indent,trailing-space
+*.sh       whitespace=tab-in-indent,trailing-space
