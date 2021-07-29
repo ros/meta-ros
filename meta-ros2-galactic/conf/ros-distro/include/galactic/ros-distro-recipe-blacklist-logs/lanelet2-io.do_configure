@@ -1,0 +1,73 @@
+DEBUG: Executing shell function do_configure
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found mrt_cmake_modules: 1.0.8 (/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake)
+-- Found ament_cmake_core: 1.1.4 (/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/share/ament_cmake_core/cmake)
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 (found suitable version "3.8.11", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+-- Found Boost: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot/usr/lib/cmake/Boost-1.72.0/BoostConfig.cmake (found version "1.72.0") found components: wserialization thread random serialization log_setup prg_exec_monitor wave system chrono filesystem locale timer date_time regex graph program_options unit_test_framework log atomic 
+CMake Error at /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake/Modules/FindAutoDeps.cmake:176 (message):
+  Package lanelet2_core was not found.  If it is a catkin package: Make sure
+  it is present.  If it is an external package: Make sure it is listed in
+  mrt_cmake_modules/yaml/cmake.yaml!
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake/Modules/FindAutoDeps.cmake:253 (_find_dep)
+  CMakeLists.txt:21 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/build/CMakeFiles/CMakeOutput.log".
+See also "/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/build/CMakeFiles/CMakeError.log".
+WARNING: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/temp/run.do_configure.75983:1 exit 1 from 'cmake -G 'Ninja' -DCMAKE_MAKE_PROGRAM=ninja $oecmake_sitefile /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/git -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_BINDIR:PATH=bin -DCMAKE_INSTALL_SBINDIR:PATH=sbin -DCMAKE_INSTALL_LIBEXECDIR:PATH=libexec -DCMAKE_INSTALL_SYSCONFDIR:PATH=/etc -DCMAKE_INSTALL_SHAREDSTATEDIR:PATH=../com -DCMAKE_INSTALL_LOCALSTATEDIR:PATH=/var -DCMAKE_INSTALL_LIBDIR:PATH=lib -DCMAKE_INSTALL_INCLUDEDIR:PATH=include -DCMAKE_INSTALL_DATAROOTDIR:PATH=share -DPYTHON_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DPython_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DPython3_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DLIB_SUFFIX= -DCMAKE_INSTALL_SO_NO_EXE=0 -DCMAKE_TOOLCHAIN_FILE=/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/toolchain.cmake -DCMAKE_NO_SYSTEM_FROM_IMPORTED=1 -DBUILD_TESTING=OFF -DPYTHON_SOABI=cpython-38-x86_64-linux-gnu -Wno-dev'
+ERROR: Execution of '/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/temp/run.do_configure.75983' failed with exit code 1:
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found mrt_cmake_modules: 1.0.8 (/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake)
+-- Found ament_cmake_core: 1.1.4 (/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/share/ament_cmake_core/cmake)
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 (found suitable version "3.8.11", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+-- Found Boost: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot/usr/lib/cmake/Boost-1.72.0/BoostConfig.cmake (found version "1.72.0") found components: wserialization thread random serialization log_setup prg_exec_monitor wave system chrono filesystem locale timer date_time regex graph program_options unit_test_framework log atomic 
+CMake Error at /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake/Modules/FindAutoDeps.cmake:176 (message):
+  Package lanelet2_core was not found.  If it is a catkin package: Make sure
+  it is present.  If it is an external package: Make sure it is listed in
+  mrt_cmake_modules/yaml/cmake.yaml!
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake/Modules/FindAutoDeps.cmake:253 (_find_dep)
+  CMakeLists.txt:21 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/build/CMakeFiles/CMakeOutput.log".
+See also "/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/build/CMakeFiles/CMakeError.log".
+WARNING: /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/temp/run.do_configure.75983:1 exit 1 from 'cmake -G 'Ninja' -DCMAKE_MAKE_PROGRAM=ninja $oecmake_sitefile /jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/git -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_BINDIR:PATH=bin -DCMAKE_INSTALL_SBINDIR:PATH=sbin -DCMAKE_INSTALL_LIBEXECDIR:PATH=libexec -DCMAKE_INSTALL_SYSCONFDIR:PATH=/etc -DCMAKE_INSTALL_SHAREDSTATEDIR:PATH=../com -DCMAKE_INSTALL_LOCALSTATEDIR:PATH=/var -DCMAKE_INSTALL_LIBDIR:PATH=lib -DCMAKE_INSTALL_INCLUDEDIR:PATH=include -DCMAKE_INSTALL_DATAROOTDIR:PATH=share -DPYTHON_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DPython_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DPython3_EXECUTABLE:PATH=/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 -DLIB_SUFFIX= -DCMAKE_INSTALL_SO_NO_EXE=0 -DCMAKE_TOOLCHAIN_FILE=/jenkins/mjansa/build/ros/ros2-galactic-dunfell/tmp-glibc/work/core2-64-oe-linux/lanelet2-io/1.1.1-1-r0/toolchain.cmake -DCMAKE_NO_SYSTEM_FROM_IMPORTED=1 -DBUILD_TESTING=OFF -DPYTHON_SOABI=cpython-38-x86_64-linux-gnu -Wno-dev'
+
