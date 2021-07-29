@@ -867,3 +867,5 @@ PNBLACKLIST[yosemite-valley] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', '
 # Renamed to fuse-ros by symlink in recipes-bbappends/fuse to avoid conflict with
 # meta-filesystems/recipes-support/fuse/fuse_2.9.9.bb
 BBMASK +=  "generated-recipes/fuse/fuse_0.4.2-1.bb"
+# And renamed fuse-doc to fuse-ros-doc to avoid conflict with PN-doc package created by fuse recipe
+BBMASK +=  "generated-recipes/fuse/fuse-doc_0.4.2-1.bb"
