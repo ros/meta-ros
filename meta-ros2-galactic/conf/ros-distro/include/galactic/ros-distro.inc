@@ -121,6 +121,12 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'ros1-layer
 # recipes depending on something from meta-qt5 layer
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'qt5', d)}"
 
+# do_configure failures
+ROS_WORLD_SKIP_GROUPS += " \
+    lanelet2-traffic-rules \
+    lanelet2-io \
+"
+
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
     qt-gui-cpp \
