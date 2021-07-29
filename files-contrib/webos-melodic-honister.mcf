@@ -39,7 +39,7 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   OE_Branch + '-2021-07-13')
 Layers = [
 ('bitbake',                            -1, 'git://github.com/openembedded/bitbake.git',              {'branch': Bitbake_Branch,       'commit': 'aba88f40'},          {}),
 
-('meta',                                5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch,            'commit': '581bebac87'},        {}),
+('meta',                                5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch,            'commit': 'd7776a23cb'},        {}),
 
 ('meta-oe',                            10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': OE_Branch,            'commit': '93045c3db7'},        {}),
 ('meta-multimedia',                    11, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
@@ -68,7 +68,7 @@ Layers = [
 ('meta-ros-webos',                     60, MetaRosWebos_RepoURL,                                     {'branch': MetaRosWebos_Branch,  'commit': MetaRosWebos_Commit}, {}),
 
 ('meta-webos-smack',                   75, MetaWebos_RepoURL,                                        {},                                                              {}),
-('meta-security',                      77, 'git://git.yoctoproject.org/meta-security',               {'branch': OE_Branch,            'commit': '152cdb5'},           {}),
+('meta-security',                      77, 'git://git.yoctoproject.org/meta-security',               {'branch': OE_Branch,            'commit': 'd3a484a'},           {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
