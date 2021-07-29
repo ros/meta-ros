@@ -5,7 +5,7 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "The microstrain:mips package provides a driver for the LORD/Microstrain 3DM_GX5_XX GPS-aided IMU sensor."
+DESCRIPTION = "The microstrain_mips package provides a driver for the LORD/Microstrain 3DM_GX5_XX GPS-aided IMU sensor."
 AUTHOR = "Brian Bingham <briansbingham@gmail.com>"
 ROS_AUTHOR = "Brian Bingham <briansbingham@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/microstrain_3dm_gx5_45"
@@ -13,8 +13,8 @@ SECTION = "devel"
 LICENSE = "GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
-ROS_CN = "microstrain:mips"
-ROS_BPN = "microstrain:mips"
+ROS_CN = "microstrain_mips"
+ROS_BPN = "microstrain_mips"
 
 ROS_BUILD_DEPENDS = " \
     cmake-modules \
