@@ -323,8 +323,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     fkie-node-manager \
     fkie-multimaster \
     fmi-adapter-examples \
+    fuse-ros \
     fuse-viz \
-    fuse \
     gl-dependency \
     gundam-rx78-control \
     hrpsys-ros-bridge \
@@ -837,8 +837,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     fkie-potree-rviz-plugin \
     franka-example-controllers \
     franka-ros \
+    fuse-ros \
     fuse-viz \
-    fuse \
     grid-map \
     grid-map-demos \
     grid-map-rviz-plugin \
@@ -964,8 +964,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     fsrobo-r \
     fsrobo-r-bringup \
     fsrobo-r-moveit-config \
+    fuse-ros \
     fuse-viz \
-    fuse \
     geometry-tutorials \
     gl-dependency \
     grid-map \

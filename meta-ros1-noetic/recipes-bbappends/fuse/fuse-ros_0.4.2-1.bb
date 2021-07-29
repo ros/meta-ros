@@ -1,0 +1,1 @@
+../../generated-recipes/fuse/fuse_0.4.2-1.bb
