@@ -14,7 +14,7 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pr2_common_actions"
-ROS_BPN = "pr2:arm_move_ik"
+ROS_BPN = "pr2_arm_move_ik"
 
 ROS_BUILD_DEPENDS = " \
     actionlib \
