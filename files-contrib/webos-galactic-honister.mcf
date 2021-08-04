@@ -48,7 +48,7 @@ Layers = [
 ('meta-filesystems',                   14, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
 
 ('meta-updater',                       15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': OE_Branch,            'commit': 'a0d9835'},           {}),
-('meta-virtualization',                16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': OE_Branch,            'commit': '5fdf66c'},           {}),
+('meta-virtualization',                16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': 'master-next',        'commit': '96712be'},           {}),
 ('meta-python2',                       17, 'git://git.openembedded.org/meta-python2',                {'branch': OE_Branch,            'commit': 'f522fa7'},           {}),
 
 ('meta-qt6',                           20, 'git://github.com/shr-project/meta-qt6.git',              {'branch': 'jansa/6.2-9a4453a-overrides-syntax', 'commit': 'c9e58d2'},           {}),
