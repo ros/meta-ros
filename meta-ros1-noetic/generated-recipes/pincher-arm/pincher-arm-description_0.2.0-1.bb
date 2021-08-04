@@ -15,8 +15,8 @@ SECTION = "devel"
 LICENSE = "BSD & CC-BY-NC-SA-4.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "pincher:arm"
-ROS_BPN = "pincher:arm_description"
+ROS_CN = "pincher_arm"
+ROS_BPN = "pincher_arm_description"
 
 ROS_BUILD_DEPENDS = ""
 
