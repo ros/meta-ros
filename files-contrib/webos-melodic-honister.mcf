@@ -37,9 +37,9 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   OE_Branch + '-2021-08-05-o
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                            -1, 'git://github.com/openembedded/bitbake.git',              {'branch': Bitbake_Branch,       'commit': '699e36c2'},          {}),
+('bitbake',                            -1, 'git://github.com/openembedded/bitbake.git',              {'branch': Bitbake_Branch,       'commit': '01a63223'},          {}),
 
-('meta',                                5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch,            'commit': 'bc744bad1e'},        {}),
+('meta',                                5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch,            'commit': '17bab13b0f'},        {}),
 
 ('meta-oe',                            10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': OE_Branch,            'commit': '566049b4f1'},        {}),
 ('meta-multimedia',                    11, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
@@ -60,7 +60,7 @@ Layers = [
 
 ('meta-webos',                         40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch,     'commit': MetaWebos_Commit},    {}),
 
-('meta-raspberrypi',                   50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': OE_Branch,            'commit': '5689280'},           {}),
+('meta-raspberrypi',                   50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': OE_Branch,            'commit': '7fb784a'},           {}),
 ('meta-webos-raspberrypi',             51, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-updater',                 52, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-virtualization',          53, MetaWebos_RepoURL,                                        {},                                                              {}),
