@@ -5,7 +5,7 @@
 inherit ros_distro_melodic
 inherit ros_superflore_generated
 
-DESCRIPTION = "An automatically generated package with all the configuration and launch files for using the pincher:arm with the MoveIt! Motion Planning Framework"
+DESCRIPTION = "An automatically generated package with all the configuration and launch files for using the pincher_arm with the MoveIt! Motion Planning Framework"
 AUTHOR = "Fictionlab <support@fictionlab.pl>"
 ROS_AUTHOR = "Błażej Sowa <blazej@turtlerover.com>"
 HOMEPAGE = "http://moveit.ros.org/"
@@ -13,8 +13,8 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "pincher:arm"
-ROS_BPN = "pincher:arm_moveit_config"
+ROS_CN = "pincher_arm"
+ROS_BPN = "pincher_arm_moveit_config"
 
 ROS_BUILD_DEPENDS = ""
 
