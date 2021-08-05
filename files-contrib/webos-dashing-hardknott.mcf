@@ -24,11 +24,11 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '0e1490e03')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   OE_Branch)
-MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   '4ffb8d0')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'ca28a26')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/shr-project/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   OE_Branch)
-MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   OE_Branch + '-2021-08-05-ose-2.12')
+MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   OE_Branch + '-2021-08-05')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
@@ -51,7 +51,7 @@ Layers = [
 ('meta-virtualization',                16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': OE_Branch,            'commit': '679a22e'},           {}),
 ('meta-python2',                       17, 'git://git.openembedded.org/meta-python2',                {'branch': OE_Branch,            'commit': '8db9e4f'},           {}),
 
-('meta-qt6',                           20, 'git://code.qt.io/yocto/meta-qt6.git',                    {'branch': '6.2',                'commit': '9a4453a'},           {}),
+('meta-qt6',                           20, 'git://code.qt.io/yocto/meta-qt6.git',                    {'branch': '6.2',                'commit': 'b394095'},           {}),
 
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
 ('meta-ros2',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
