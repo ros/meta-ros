@@ -17,7 +17,7 @@ McfFileVersion = 3
 # Value for DISTRO
 OE_Distribution = 'webos'
 
-webOSOSEBuildNumber = '366'
+webOSOSEBuildNumber = '373'
 
 Bitbake_Branch = '1.46'
 OE_Branch = 'dunfell'
@@ -38,7 +38,7 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'accf5d320')
 
 MetaRosWebos_RepoURL = getenv('MCF_META_ROS_WEBOS_REPO_URL', 'git://github.com/ros/meta-ros-webos.git')
 MetaRosWebos_Branch  = getenv('MCF_META_ROS_WEBOS_BRANCH',   OE_Branch)
-MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   '4ffb8d0')
+MetaRosWebos_Commit  = getenv('MCF_META_ROS_WEBOS_COMMIT',   'ca28a26')
 
 MetaWebos_RepoURL = getenv('MCF_META_WEBOS_REPO_URL', 'git://github.com/webosose/meta-webosose.git')
 MetaWebos_Branch  = getenv('MCF_META_WEBOS_BRANCH',   'master')
@@ -65,7 +65,7 @@ Layers = [
 ('meta-virtualization',                16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': OE_Branch,            'commit': 'dbd1a73'},           {}),
 ('meta-python2',                       17, 'git://git.openembedded.org/meta-python2',                {'branch': OE_Branch,            'commit': 'b901080'},           {}),
 
-('meta-qt6',                           20, 'git://code.qt.io/yocto/meta-qt6.git',                    {'branch': '6.2',                'commit': '9a4453a'},           {}),
+('meta-qt6',                           20, 'git://code.qt.io/yocto/meta-qt6.git',                    {'branch': '6.2',                'commit': 'b394095'},           {}),
 
 ('meta-webos-backports-3.2',           33, MetaWebos_RepoURL,                                        {},                                                              {}),
 
