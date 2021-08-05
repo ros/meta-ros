@@ -1,0 +1,29 @@
+From 97b0b776a3b692877c19cc6a61501b78f3ee0108 Mon Sep 17 00:00:00 2001
+From: Lauri Nurmi <lanurmi@iki.fi>
+Date: Wed, 4 Aug 2021 08:45:50 +0300
+Subject: [PATCH] Fix compilation with recent glibc where SIGSTKSZ is not
+ constant. (#3378)
+
+Upstream-Status: Backport [https://github.com/danmar/cppcheck/commit/8869ee3554f19ce63892891a697378d8b745414b]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cli/cppcheckexecutor.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/cli/cppcheckexecutor.cpp b/cli/cppcheckexecutor.cpp
+index 82cc960cb..2bb4029ec 100644
+--- a/cli/cppcheckexecutor.cpp
++++ b/cli/cppcheckexecutor.cpp
+@@ -293,7 +293,11 @@ static void print_stacktrace(FILE* output, bool demangling, int maxdepth, bool l
+ #endif
+ }
+ 
++#ifdef __USE_DYNAMIC_STACK_SIZE
++static const size_t MYSTACKSIZE = 16*1024+32768; // wild guess about a reasonable buffer
++#else
+ static const size_t MYSTACKSIZE = 16*1024+SIGSTKSZ; // wild guess about a reasonable buffer
++#endif
+ static char mytstack[MYSTACKSIZE]= {0}; // alternative stack for signal handler
+ static bool bStackBelowHeap=false; // lame attempt to locate heap vs. stack address space. See CppCheckExecutor::check_wrapper()
+ 
