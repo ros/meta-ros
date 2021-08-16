@@ -21,6 +21,8 @@ avr-libc:
 - ${ROS_UNRESOLVED_DEP-avr-libc}
 avrdude:
 - ${ROS_UNRESOLVED_DEP-avrdude}
+benchmark:
+- google-benchmark@meta-ros2
 binutils:
 - binutils@openembedded-core
 bison:
@@ -37,6 +39,8 @@ ca-certificates:
 - ca-certificates@openembedded-core
 cccc:
 - ${ROS_UNRESOLVED_DEP-cccc}
+clang:
+- ${ROS_UNRESOLVED_DEP-clang}
 clang-tidy:
 - ${ROS_UNRESOLVED_DEP-clang-tidy}
 cmake:
@@ -154,6 +158,8 @@ joystick:
 - joystick@meta-ros-common
 julius-voxforge:
 - ${ROS_UNRESOLVED_DEP-julius-voxforge}
+kakasi:
+- ${ROS_UNRESOLVED_DEP-kakasi}
 lcov:
 - lcov@meta-oe
 leveldb:
@@ -559,6 +565,8 @@ python-gi-cairo:
 - ${ROS_UNRESOLVED_DEP-python-gi-cairo}
 python-gnupg:
 - ${PYTHON_PN}-gnupg@meta-ros-common
+python-google-cloud-texttospeech-pip:
+- ${ROS_UNRESOLVED_DEP-python-google-cloud-texttospeech-pip}
 python-h5py:
 - ${ROS_UNRESOLVED_DEP-python-h5py}
 python-imageio:
@@ -701,6 +709,8 @@ python-twisted-core:
 - ${PYTHON_PN}-twisted-core@meta-python
 python-urlgrabber:
 - ${ROS_UNRESOLVED_DEP-python-urlgrabber}
+python-usb:
+- ${PYTHON_PN}-pyusb@meta-python
 python-websocket:
 - ${PYTHON_PN}-websocket-client@meta-python
 python-whichcraft:
@@ -715,10 +725,6 @@ python3-dev:
 - python3@openembedded-core
 python3-nose:
 - python3-nose@openembedded-core
-python3-numpy:
-- python3-numpy@openembedded-core
-python3-pyaudio:
-- ${ROS_UNRESOLVED_DEP-python3-pyaudio}
 python3-rospkg-modules:
 - python3-rospkg@meta-ros-common
 python3-venv:
