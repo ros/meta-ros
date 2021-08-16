@@ -5,26 +5,22 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around Apache TVM to make it available to the ROS ecosystem."
-AUTHOR = "Josh Whitley <josh.whitley@autoware.org>"
-HOMEPAGE = "https://tvm.apache.org/"
+DESCRIPTION = "Generic controller for forwarding commands."
+AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "tvm_vendor"
-ROS_BPN = "tvm_vendor"
+ROS_CN = "ros2_controllers"
+ROS_BPN = "velocity_controllers"
 
 ROS_BUILD_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    ros-environment \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    forward-command-controller \
+    pluginlib \
+    rclcpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -32,27 +28,26 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    forward-command-controller \
+    rclcpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    forward-command-controller \
+    rclcpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    ament-cmake-gmock \
+    ament-lint-auto \
+    ament-lint-common \
+    controller-manager \
+    hardware-interface \
+    ros2-control-test-assets \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -61,10 +56,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/autowarefoundation/tvm_vendor-release/archive/release/foxy/tvm_vendor/0.7.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/tvm_vendor"
-SRC_URI = "git://github.com/autowarefoundation/tvm_vendor-release;${ROS_BRANCH};protocol=https"
-SRCREV = "3dbc8391c3bf22c3d1fbed825d9e549303485d87"
+# matches with: https://github.com/ros2-gbp/ros2_controllers-release/archive/release/foxy/velocity_controllers/0.4.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/velocity_controllers"
+SRC_URI = "git://github.com/ros2-gbp/ros2_controllers-release;${ROS_BRANCH};protocol=https"
+SRCREV = "8611c7b086fcd80fbc8b1dd613fd9071eb830541"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
