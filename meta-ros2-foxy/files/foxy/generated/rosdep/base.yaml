@@ -327,6 +327,7 @@ binutils:
   rhel: [binutils-devel]
   ubuntu: [binutils-dev]
 bison:
+  alpine: [bison]
   arch: [bison]
   debian: [bison]
   fedora: [bison]
@@ -1027,6 +1028,7 @@ flex:
   nixos: [flex]
   openembedded: [flex@openembedded-core]
   opensuse: [flex]
+  rhel: [flex]
   ubuntu: [flex]
 fltk:  # Consider using the libfltk-dev and fluid (fltk runtime) keys instead.
   arch: [fltk]
@@ -1485,6 +1487,7 @@ graphicsmagick:
   rhel: [GraphicsMagick-c++-devel]
   ubuntu: [libgraphicsmagick++1-dev, graphicsmagick-libmagick-dev-compat]
 graphviz:
+  alpine: [graphviz]
   arch: [graphviz]
   debian: [graphviz]
   fedora: [graphviz]
@@ -2150,6 +2153,7 @@ libasound2-dev:
   openembedded: [alsa-lib@openembedded-core]
   ubuntu: [libasound2-dev]
 libatomic:
+  alpine: [libatomic]
   arch: [gcc-libs]
   debian: [libatomic1]
   fedora: [libatomic]
@@ -2805,6 +2809,7 @@ libdw-dev:
   nixos: [elfutils]
   openembedded: [elfutils@openembedded-core]
   opensuse: [libdw-devel]
+  rhel: [elfutils-devel]
   ubuntu: [libdw-dev]
 libdxflib-dev:
   debian: [libdxflib-dev]
@@ -2884,6 +2889,9 @@ libfcl-dev:
   gentoo: [sci-libs/fcl]
   nixos: [fcl]
   openembedded: [fcl@meta-ros-common]
+  rhel:
+    '*': [fcl-devel]
+    '7': null
   ubuntu:
     '*': [libfcl-dev]
     wily: [libfcl-0.5-dev]
@@ -3990,6 +3998,9 @@ libomp-dev:
   debian: [libomp-dev]
   fedora: [libomp-devel]
   nixos: [llvmPackages.openmp]
+  rhel:
+    '*': [libomp-devel]
+    '7': null
   ubuntu: [libomp-dev]
 libopal-dev:
   debian: [libopal-dev]
@@ -4629,10 +4640,12 @@ libqt5-printsupport:
 libqt5-qml:
   debian: [libqt5qml5]
   nixos: [qt5.qtdeclarative]
+  rhel: [qt5-qtdeclarative]
   ubuntu: [libqt5qml5]
 libqt5-quick:
   debian: [libqt5quick5]
   nixos: [qt5.qtdeclarative]
+  rhel: [qt5-qtdeclarative]
   ubuntu: [libqt5quick5]
 libqt5-serialport:
   arch: [qt5-serialport]
@@ -5262,7 +5275,7 @@ libvlc:
   gentoo: [media-video/vlc]
   nixos: [vlc]
   openembedded: [vlc@meta-multimedia]
-  opensuse: [libvlc5,vlc-noX]
+  opensuse: [libvlc5, vlc-noX]
   ubuntu:
     '*': [libvlc5, vlc-bin]
     precise: [libvlc5, vlc-nox]
@@ -5389,6 +5402,7 @@ libvulkan-dev:
   debian: [libvulkan-dev]
   fedora: [vulkan-devel]
   gentoo: [media-libs/vulkan-loader]
+  openembedded: [vulkan-headers@openembedded-core]
   rhel:
     '7': [vulkan-devel]
     '8': [vulkan-loader-devel, vulkan-headers]
@@ -5409,6 +5423,7 @@ libwebsocketpp-dev:
   fedora: [websocketpp-devel]
   gentoo: [websocketpp]
   nixos: [websocketpp]
+  openembedded: [websocketpp@meta-oe]
   rhel: [websocketpp-devel]
   ubuntu: [libwebsocketpp-dev]
 libx11:
@@ -6115,6 +6130,7 @@ nlohmann-json-dev:
     stretch: [nlohmann-json-dev]
   gentoo: [dev-cpp/nlohmann_json]
   nixos: [nlohmann_json]
+  openembedded: [nlohmann-json@meta-oe]
   ubuntu:
     bionic: [nlohmann-json-dev]
     focal: [nlohmann-json3-dev]
@@ -6198,6 +6214,15 @@ omniorb:
   macports: [omniORB]
   nixos: [omniorb]
   ubuntu: [omniorb, omniidl, omniorb-idl, omniorb-nameserver, libomniorb4-dev]
+opencascade:
+  debian:
+    buster: [libocct-data-exchange-dev, libocct-draw-dev]
+    stretch: [liboce-visualization-dev]
+  fedora: [opencascade-devel]
+  gentoo: [sci-libs/opencascade]
+  ubuntu:
+    bionic: [liboce-visualization-dev]
+    focal: [libocct-data-exchange-dev, libocct-draw-dev]
 opencl-headers:
   arch: [opencl-headers]
   debian: [opencl-headers]
@@ -6564,8 +6589,9 @@ psutils:
   ubuntu: [psutils]
 pugixml-dev:
   debian: [libpugixml-dev]
-  fedora: [pugixml]
+  fedora: [pugixml-devel]
   openembedded: [pugixml@meta-oe]
+  rhel: [pugixml-devel]
   ubuntu: [libpugixml-dev]
 pybind11-dev:
   arch: [pybind11]
@@ -7057,6 +7083,7 @@ spirv-headers:
   debian: [spirv-headers]
   fedora: [spirv-headers-devel]
   gentoo: [dev-util/spirv-headers]
+  openembedded: [spirv-headers@openembedded-core]
   rhel: [spirv-headers-devel]
   ubuntu:
     '*': [spirv-headers]
@@ -7067,6 +7094,7 @@ spirv-tools:
   debian: [spirv-tools]
   fedora: [spirv-tools, spirv-tools-devel, spirv-tools-libs]
   gentoo: [dev-util/spirv-tools]
+  openembedded: [spirv-tools@openembedded-core]
   rhel: [spirv-tools, spirv-tools-devel, spirv-tools-libs]
   ubuntu:
     '*': [spirv-tools]
