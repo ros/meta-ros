@@ -74,6 +74,8 @@ ignition-rendering5:
 - ${ROS_UNRESOLVED_DEP-ignition-rendering5}
 ignition-transport10:
 - ${ROS_UNRESOLVED_DEP-ignition-transport10}
+lcov:
+- lcov@meta-oe
 libatomic:
 - gcc-runtime@openembedded-core
 libbluetooth:
@@ -122,6 +124,8 @@ libfcl-dev:
 - fcl@meta-ros-common
 libflann-dev:
 - libflann@meta-ros-common
+libfreenect-dev:
+- libfreenect@meta-ros-common
 libfreetype6:
 - freetype@openembedded-core
 libfreetype6-dev:
@@ -156,6 +160,8 @@ libopenblas-dev:
 - openblas@meta-ros-common
 libopencv-dev:
 - opencv@meta-oe
+libopenni-dev:
+- ${ROS_UNRESOLVED_DEP-libopenni-dev}
 libpcap:
 - libpcap@openembedded-core
 libpcl-all:
@@ -182,6 +188,10 @@ libqt5-opengl:
 - qtbase@meta-qt5
 libqt5-opengl-dev:
 - qtbase@meta-qt5
+libqt5-qml:
+- ${ROS_UNRESOLVED_DEP-libqt5-qml}
+libqt5-quick:
+- ${ROS_UNRESOLVED_DEP-libqt5-quick}
 libqt5-svg-dev:
 - qtsvg@meta-qt5
 libqt5-websockets-dev:
@@ -242,10 +252,14 @@ openssl:
 - openssl@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+proj:
+- proj@meta-oe
 protobuf:
 - protobuf@meta-oe
 protobuf-dev:
 - protobuf@meta-oe
+pugixml-dev:
+- pugixml@meta-oe
 pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros-common
 pyflakes3:
@@ -280,6 +294,10 @@ python3-empy:
 - python3-empy@meta-ros-common
 python3-flake8:
 - python3-flake8@meta-ros-common
+python3-flask:
+- ${ROS_UNRESOLVED_DEP-python3-flask}
+python3-flask-cors:
+- ${ROS_UNRESOLVED_DEP-python3-flask-cors}
 python3-future:
 - python3-future@meta-python
 python3-ifcfg:
@@ -336,6 +354,8 @@ python3-requests:
 - python3-requests@meta-python
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
+python3-rospkg:
+- python3-rospkg@meta-ros-common
 python3-rospkg-modules:
 - python3-rospkg@meta-ros-common
 python3-serial:
@@ -385,6 +405,8 @@ uncrustify:
 - ${ROS_UNRESOLVED_DEP-uncrustify}
 uuid:
 - util-linux@openembedded-core
+v4l-utils:
+- v4l-utils@meta-oe
 wx-common:
 - wxwidgets@meta-ros-common
 wxwidgets:
