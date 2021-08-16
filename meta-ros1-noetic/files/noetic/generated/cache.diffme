@@ -1,4 +1,4 @@
-# noetic/cache.yaml 2021-07-26 90af2f9e130027cbbf01f45ba382b800eefb0fbb 20210721224551 1.7.0
+# noetic/cache.yaml 2021-08-13 e5e24fa51c25a2029ad189c8264621f4711ea9e4 20210812145132 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -2089,6 +2089,31 @@ version: noetic-devel
 status: maintained
 }
 -----
+dynamixel-workbench: {
+doc: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/dynamixel-workbench.git',
+version: noetic-devel
+},
+release: {
+packages: [dynamixel_workbench,
+dynamixel_workbench_controllers,
+dynamixel_workbench_operators,
+dynamixel_workbench_toolbox],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ROBOTIS-GIT-release/dynamixel-workbench-release.git',
+version: 2.2.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/dynamixel-workbench.git',
+version: noetic-devel
+},
+status: maintained
+}
+-----
 dynamixel-workbench-msgs: {
 doc: {
 type: git,
@@ -2455,7 +2480,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ipab-slmc/exotica-release.git',
-version: 6.1.1-1
+version: 6.2.0-1
 },
 source: {
 type: git,
@@ -2622,6 +2647,26 @@ source: {
 type: git,
 url: 'https://github.com/fetchrobotics/fetch_tools.git',
 version: ros1
+},
+status: maintained
+}
+-----
+fiducials: {
+release: {
+packages: [aruco_detect,
+fiducial_msgs,
+fiducial_slam,
+fiducials],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/UbiquityRobotics-release/fiducials-release.git',
+version: 0.12.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/UbiquityRobotics/fiducials.git',
+version: noetic-devel
 },
 status: maintained
 }
@@ -2838,6 +2883,7 @@ release: {
 packages: [franka_control,
 franka_description,
 franka_example_controllers,
+franka_gazebo,
 franka_gripper,
 franka_hw,
 franka_msgs,
@@ -2847,7 +2893,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/frankaemika/franka_ros-release.git',
-version: 0.7.1-2
+version: 0.8.0-1
 },
 source: {
 type: git,
@@ -3946,6 +3992,27 @@ version: noetic-devel
 status: maintained
 }
 -----
+ira_laser_tools: {
+doc: {
+type: git,
+url: 'https://github.com/iralabdisco/ira_laser_tools.git',
+version: noetic
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/iralabdisco/ira_laser_tools-release.git',
+version: 1.0.6-1
+},
+source: {
+type: git,
+url: 'https://github.com/iralabdisco/ira_laser_tools.git',
+version: noetic
+},
+status: developed
+}
+-----
 iris_lama: {
 release: {
 tags: {
@@ -4765,7 +4832,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/locator_ros_bridge-release.git',
-version: 1.0.1-2
+version: 1.0.2-1
 },
 source: {
 type: git,
@@ -5003,7 +5070,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavlink-gbp-release.git',
-version: 2021.7.7-1
+version: 2021.8.8-1
 },
 source: {
 type: git,
@@ -5379,6 +5446,16 @@ url: 'https://github.com/MarkNaeem/move_base_sequence.git',
 version: main
 },
 status: maintained
+}
+-----
+move_basic: {
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/UbiquityRobotics-release/move_basic-release.git',
+version: 0.4.2-1
+}
 }
 -----
 moveit: {
@@ -6268,6 +6345,22 @@ version: kinetic-devel
 status: maintained
 }
 -----
+oled_display_node: {
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/UbiquityRobotics-release/oled_display_node-release.git',
+version: 1.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/UbiquityRobotics/oled_display_node.git',
+version: master
+},
+status: maintained
+}
+-----
 ompl: {
 release: {
 tags: {
@@ -6942,7 +7035,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ipab-slmc/pinocchio_catkin-release.git',
-version: 2.6.1-1
+version: 2.6.3-1
 },
 source: {
 type: git,
@@ -7842,7 +7935,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/roboception-gbp/rc_genicam_api-release.git',
-version: 2.5.0-1
+version: 2.5.6-1
 },
 source: {
 test_pull_requests: true,
@@ -7886,7 +7979,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/roboception-gbp/rc_genicam_driver_ros-release.git',
-version: 0.5.2-1
+version: 0.6.1-1
 },
 source: {
 test_pull_requests: true,
@@ -7940,7 +8033,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/roboception-gbp/rc_visard-release.git',
-version: 3.2.1-1
+version: 3.2.3-1
 },
 source: {
 test_pull_requests: true,
@@ -8102,7 +8195,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/peci1/robot_body_filter-release.git',
-version: 1.1.9-1
+version: 1.2.1-1
 },
 source: {
 type: git,
@@ -8167,7 +8260,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/cra-ros-pkg/robot_localization-release.git',
-version: 2.7.2-1
+version: 2.7.3-1
 },
 source: {
 test_pull_requests: true,
@@ -8373,7 +8466,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ros-release.git',
-version: 1.15.7-1
+version: 1.15.8-1
 },
 source: {
 test_pull_requests: true,
@@ -8600,7 +8693,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_ROS_controllers_cartesian-release.git',
-version: 0.1.3-1
+version: 0.1.4-1
 },
 source: {
 type: git,
@@ -9144,7 +9237,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/xqms/rosmon-release.git',
-version: 2.3.2-1
+version: 2.4.0-1
 },
 source: {
 test_pull_requests: true,
@@ -10078,6 +10171,38 @@ version: noetic-devel
 status: maintained
 }
 -----
+rtcm_msgs: {
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/nobleo/rtcm_msgs-release.git',
+version: 1.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/tilk/rtcm_msgs.git',
+version: master
+},
+status: maintained
+}
+-----
+ruckig: {
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/pantor/ruckig-release.git',
+version: 0.3.3-1
+},
+source: {
+type: git,
+url: 'https://github.com/pantor/ruckig.git',
+version: master
+},
+status: developed
+}
+-----
 rviz: {
 doc: {
 type: git,
@@ -10670,6 +10795,27 @@ source: {
 type: git,
 url: 'https://github.com/ros-perception/sparse_bundle_adjustment.git',
 version: melodic-devel
+},
+status: maintained
+}
+-----
+sr_hand_detector: {
+doc: {
+type: git,
+url: 'https://github.com/shadow-robot/sr_hand_detector.git',
+version: noetic-devel
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/shadow-robot/sr_hand_detector-release.git',
+version: 0.0.6-1
+},
+source: {
+type: git,
+url: 'https://github.com/shadow-robot/sr_hand_detector.git',
+version: noetic-devel
 },
 status: maintained
 }
@@ -11312,6 +11458,22 @@ version: melodic-devel
 status: maintained
 }
 -----
+ubiquity_motor: {
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/UbiquityRobotics-release/ubiquity_motor-release.git',
+version: 0.13.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/UbiquityRobotics/ubiquity_motor.git',
+version: noetic-devel
+},
+status: maintained
+}
+-----
 ublox: {
 doc: {
 type: git,
@@ -11597,7 +11759,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/seqsense/urg_stamped-release.git',
-version: 0.0.12-1
+version: 0.0.13-1
 },
 source: {
 type: git,
@@ -11770,21 +11932,21 @@ view_controller_msgs: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/view_controller_msgs.git',
-version: lunar-devel
+version: noetic-devel
 },
 release: {
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/view_controller_msgs-release.git',
-version: 0.1.3-1
+version: 0.2.0-1
 },
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/view_controller_msgs.git',
-version: lunar-devel
+version: noetic-devel
 },
-status: unmaintained
+status: maintained
 }
 -----
 vision_msgs: {
@@ -12052,6 +12214,27 @@ url: 'https://github.com/ros-planning/warehouse_ros_mongo.git',
 version: noetic-devel
 },
 status: maintained
+}
+-----
+web_video_server: {
+doc: {
+type: git,
+url: 'https://github.com/RobotWebTools/web_video_server.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/RobotWebTools-release/web_video_server-release.git',
+version: 0.2.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/RobotWebTools/web_video_server.git',
+version: master
+},
+status: unmaintained
 }
 -----
 webkit_dependency: {
@@ -12839,6 +13022,33 @@ arbotix_sensors: <?xml version="1.0" ?>
 <run_depend>arbotix_python</run_depend>
 </package>
 -----
+aruco_detect: <?xml version="1.0" ?>
+<package format="2">
+<name>aruco_detect</name>
+<description>Fiducial detection based on the aruco library</description>
+<maintainer email="jimv@mrjim.com">Jim Vaughan</maintainer>
+<maintainer email="send2arohan@gmail.com">Rohan Agrawal</maintainer>
+<license>BSD</license>
+<author email="jimv@mrjim.com">Jim Vaughan</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>compressed_depth_image_transport</depend>
+<depend>compressed_image_transport</depend>
+<depend>theora_image_transport</depend>
+<depend>roscpp</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>tf2_ros</depend>
+<depend>tf2</depend>
+<depend>visualization_msgs</depend>
+<depend>vision_msgs</depend>
+<depend>image_transport</depend>
+<depend>sensor_msgs</depend>
+<depend>cv_bridge</depend>
+<depend>fiducial_msgs</depend>
+<depend>dynamic_reconfigure</depend>
+<depend>python3-cairosvg</depend>
+<depend>python3-joblib</depend>
+</package>
+-----
 assimp_devel: <?xml version="1.0" ?>
 <package>
 <name>assimp_devel</name>
@@ -13591,7 +13801,7 @@ boost_sml: <?xml version="1.0" ?>
 bosch_locator_bridge: <?xml version="1.0" ?>
 <package format="2">
 <name>bosch_locator_bridge</name>
-<description>The bosch_locator_bridge package</description>
+<description>ROS interface to Rexroth ROKIT Locator</description>
 <maintainer email="stefan.laible@de.bosch.com">Stefan Laible</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>catkin</buildtool_depend>
@@ -14106,6 +14316,7 @@ cartesian_interface: <?xml version="1.0" ?>
 <maintainer email="mauch@fzi.de">Felix Exner</maintainer>
 <maintainer email="scherzin@fzi.de">Stefan Scherzinger</maintainer>
 <license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/cartesian_interface</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>roscpp</depend>
 <depend>hardware_interface</depend>
@@ -14140,6 +14351,7 @@ cartesian_trajectory_controller: <?xml version="1.0" ?>
 <maintainer email="scherzin@fzi.de">Stefan Scherzinger</maintainer>
 <maintainer email="exner@fzi.de">Felix Exner</maintainer>
 <license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/cartesian_trajectory_controller</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>cartesian_interface</build_depend>
 <build_depend>cartesian_trajectory_interpolation</build_depend>
@@ -14190,6 +14402,7 @@ cartesian_trajectory_interpolation: <?xml version="1.0" ?>
 <maintainer email="scherzin@fzi.de">Stefan Scherzinger</maintainer>
 <maintainer email="exner@fzi.de">Felix Exner</maintainer>
 <license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/cartesian_trajectory_interpolation</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>rospy</build_depend>
 <build_depend>roscpp</build_depend>
@@ -18869,6 +19082,53 @@ dynamixel_sdk_examples: <?xml version="1.0" ?>
 <exec_depend>message_runtime</exec_depend>
 </package>
 -----
+dynamixel_workbench: <?xml version="1.0" ?>
+<package format="2">
+<name>dynamixel_workbench</name>
+<description>Dynamixel-Workbench is dynamixel solution for ROS. This metapackage allows you to easily change the ID,
+baudrate and operating mode of the Dynamixel. Furthermore,
+it supports various controllers based on operating mode and Dynamixel SDK. These controllers are commanded by operators.</description>
+<license>Apache 2.0</license>
+<author email="thlim@robotis.com">Darby Lim</author>
+<author email="jhshim@robotis.com">Ryan Shim</author>
+<maintainer email="willson@robotis.com">Will Son</maintainer>
+<url type="website">http://wiki.ros.org/dynamixel_workbench</url>
+<url type="emanual">http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/</url>
+<url type="repository">https://github.com/ROBOTIS-GIT/dynamixel-workbench</url>
+<url type="bugtracker">https://github.com/ROBOTIS-GIT/dynamixel-workbench/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>dynamixel_workbench_controllers</exec_depend>
+<exec_depend>dynamixel_workbench_operators</exec_depend>
+<exec_depend>dynamixel_workbench_toolbox</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
+dynamixel_workbench_controllers: <?xml version="1.0" ?>
+<package format="2">
+<name>dynamixel_workbench_controllers</name>
+<description>This package contains examples of applying the 'dynamixel_workbench_toolbox' library developed on the basis of dynamixel_sdk to various operating modes of Dynamixel.</description>
+<license>Apache 2.0</license>
+<author email="thlim@robotis.com">Darby Lim</author>
+<author email="jhshim@robotis.com">Ryan Shim</author>
+<maintainer email="willson@robotis.com">Will Son</maintainer>
+<url type="website">http://wiki.ros.org/dynamixel_workbench_controllers</url>
+<url type="emanual">http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/</url>
+<url type="repository">https://github.com/ROBOTIS-GIT/dynamixel-workbench</url>
+<url type="bugtracker">https://github.com/ROBOTIS-GIT/dynamixel-workbench/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>sensor_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>trajectory_msgs</depend>
+<depend>dynamixel_workbench_msgs</depend>
+<depend>dynamixel_workbench_toolbox</depend>
+<depend>cmake_modules</depend>
+<depend>yaml-cpp</depend>
+<depend>eigen</depend>
+</package>
+-----
 dynamixel_workbench_msgs: <?xml version="1.0" ?>
 <package format="2">
 <name>dynamixel_workbench_msgs</name>
@@ -18885,6 +19145,47 @@ dynamixel_workbench_msgs: <?xml version="1.0" ?>
 <build_depend>message_generation</build_depend>
 <build_export_depend>message_runtime</build_export_depend>
 <exec_depend>message_runtime</exec_depend>
+</package>
+-----
+dynamixel_workbench_operators: <?xml version="1.0" ?>
+<package format="2">
+<name>dynamixel_workbench_operators</name>
+<description>This package contains nodes that control the Dynamixel by communicating with the server registered in the 'dynamixel_workbench_controllers' package</description>
+<license>Apache 2.0</license>
+<author email="thlim@robotis.com">Darby Lim</author>
+<author email="jhshim@robotis.com">Ryan Shim</author>
+<maintainer email="willson@robotis.com">Will Son</maintainer>
+<url type="website">http://wiki.ros.org/dynamixel_workbench_operators</url>
+<url type="emanual">http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/</url>
+<url type="repository">https://github.com/ROBOTIS-GIT/dynamixel-workbench</url>
+<url type="bugtracker">https://github.com/ROBOTIS-GIT/dynamixel-workbench/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>std_srvs</depend>
+<depend>geometry_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>trajectory_msgs</depend>
+<depend>cmake_modules</depend>
+<depend>yaml-cpp</depend>
+</package>
+-----
+dynamixel_workbench_toolbox: <?xml version="1.0" ?>
+<package format="2">
+<name>dynamixel_workbench_toolbox</name>
+<description>This package is composed of 'dynamixel_item',
+'dynamixel_tool',
+'dynamixel_driver' and 'dynamixel_workbench' class. The 'dynamixel_item' is saved as control table item and information of Dynamixels. The 'dynamixel_tool' class loads its by model number of Dynamixels. The 'dynamixel_driver' class includes wraped function used in DYNAMIXEL SDK. The 'dynamixel_workbench' class make simple to use Dynamixels</description>
+<license>Apache 2.0</license>
+<author email="thlim@robotis.com">Darby Lim</author>
+<author email="jhshim@robotis.com">Ryan Shim</author>
+<maintainer email="willson@robotis.com">Will Son</maintainer>
+<url type="website">http://wiki.ros.org/dynamixel_workbench_toolbox</url>
+<url type="emanual">http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/</url>
+<url type="repository">https://github.com/ROBOTIS-GIT/dynamixel-workbench</url>
+<url type="bugtracker">https://github.com/ROBOTIS-GIT/dynamixel-workbench/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>dynamixel_sdk</depend>
 </package>
 -----
 easy_markers: <?xml version="1.0" ?>
@@ -20087,7 +20388,7 @@ exotica_cartpole_dynamics_solver: <?xml version="1.0" ?>
 </package>
 -----
 exotica_collision_scene_fcl_latest: <?xml version="1.0" ?>
-<package format="2">
+<package format="3">
 <name>exotica_collision_scene_fcl_latest</name>
 <description>Collision checking and distance computation using the latest version of the FCL library.</description>
 <maintainer email="wolfgang@robots.ox.ac.uk">Wolfgang Merkt</maintainer>
@@ -20096,7 +20397,8 @@ exotica_collision_scene_fcl_latest: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>exotica_core</depend>
 <depend>geometric_shapes</depend>
-<depend>fcl_catkin</depend>
+<depend condition="$ROS_DISTRO != 'noetic'">fcl_catkin</depend>
+<depend condition="$ROS_DISTRO == 'noetic'">fcl</depend>
 <export>
 <exotica_core plugin="${prefix}/exotica_plugins.xml"/>
 </export>
@@ -20388,6 +20690,7 @@ exotica_pinocchio_dynamics_solver: <?xml version="1.0" ?>
 <exec_depend>exotica_core</exec_depend>
 <exec_depend>roscpp</exec_depend>
 <exec_depend>pinocchio</exec_depend>
+<depend>clang</depend>
 <export>
 <exotica_core plugin="${prefix}/exotica_plugins.xml"/>
 </export>
@@ -21058,6 +21361,63 @@ ffha: '<?xml version="1.0" ?>
 <build_depend>rosbuild</build_depend>
 </package>'
 -----
+fiducial_msgs: <?xml version="1.0" ?>
+<package format="2">
+<name>fiducial_msgs</name>
+<description>Package containing message definitions for fiducials</description>
+<maintainer email="jimv@mrjim.com">Jim Vaughan</maintainer>
+<maintainer email="send2arohan@gmail.com">Rohan Agrawal</maintainer>
+<license>BSD</license>
+<author email="jimv@mrjim.com">Jim Vaughan</author>
+<depend>geometry_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>std_msgs</depend>
+<depend>tf</depend>
+<build_depend>message_generation</build_depend>
+<build_export_depend>message_runtime</build_export_depend>
+<exec_depend>message_runtime</exec_depend>
+<buildtool_depend>catkin</buildtool_depend>
+</package>
+-----
+fiducial_slam: <?xml version="1.0" ?>
+<package format="2">
+<name>fiducial_slam</name>
+<description>ROS node to build a 3D map of fiducials and estimate robot pose from fiducial transforms</description>
+<maintainer email="jimv@mrjim.com">Jim Vaughan</maintainer>
+<maintainer email="send2arohan@gmail.com">Rohan Agrawal</maintainer>
+<license>BSD</license>
+<author email="jimv@mrjim.com">Jim Vaughan</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>tf2_ros</depend>
+<depend>tf2</depend>
+<depend>visualization_msgs</depend>
+<depend>image_transport</depend>
+<depend>sensor_msgs</depend>
+<depend>cv_bridge</depend>
+<depend>fiducial_msgs</depend>
+<depend>dynamic_reconfigure</depend>
+</package>
+-----
+fiducials: <?xml version="1.0" ?>
+<package format="2">
+<name>fiducials</name>
+<description>Localization using fiducial markers</description>
+<author email="jimv@mrjim.com">Jim Vaughan</author>
+<maintainer email="jimv@mrjim.com">Jim Vaughan</maintainer>
+<maintainer email="send2arohan@gmail.com">Rohan Agrawal</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fiducials</url>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>aruco_detect</exec_depend>
+<exec_depend>fiducial_slam</exec_depend>
+<exec_depend>fiducial_msgs</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
 filters: <?xml version="1.0" ?>
 <package>
 <name>filters</name>
@@ -21702,6 +22062,7 @@ franka_control: <?xml version="1.0" ?>
 <depend>sensor_msgs</depend>
 <depend>tf2_msgs</depend>
 <depend>tf</depend>
+<depend>std_srvs</depend>
 <exec_depend>franka_description</exec_depend>
 <exec_depend>franka_gripper</exec_depend>
 <exec_depend>joint_state_publisher</exec_depend>
@@ -21762,6 +22123,46 @@ franka_example_controllers: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+franka_gazebo: <?xml version="1.0" ?>
+<package format="2">
+<name>franka_gazebo</name>
+<description>This package offers the FrankaHWSim Class to simulate a Franka Robot in Gazebo</description>
+<maintainer email="support@franka.de">Franka Emika GmbH</maintainer>
+<license>Apache 2.0</license>
+<url type="website">http://wiki.ros.org/franka_gazebo</url>
+<url type="repository">https://github.com/frankaemika/franka_ros</url>
+<url type="bugtracker">https://github.com/frankaemika/franka_ros/issues</url>
+<author>Franka Emika GmbH</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>gazebo_dev</build_depend>
+<exec_depend>gazebo_ros</exec_depend>
+<depend>gazebo_ros_control</depend>
+<depend>roscpp</depend>
+<depend>std_msgs</depend>
+<depend>control_msgs</depend>
+<depend>control_toolbox</depend>
+<depend>controller_manager</depend>
+<depend>controller_interface</depend>
+<depend>pluginlib</depend>
+<depend>kdl_parser</depend>
+<depend>hardware_interface</depend>
+<depend>transmission_interface</depend>
+<depend>joint_limits_interface</depend>
+<depend>eigen_conversions</depend>
+<depend>franka_hw</depend>
+<depend>franka_msgs</depend>
+<depend>franka_gripper</depend>
+<depend>franka_example_controllers</depend>
+<depend>urdf</depend>
+<depend>angles</depend>
+<test_depend>gtest</test_depend>
+<test_depend>rostest</test_depend>
+<export>
+<controller_interface plugin="${prefix}/franka_gripper_sim_plugin.xml"/>
+<gazebo_ros_control plugin="${prefix}/franka_hw_sim_plugin.xml"/>
+</export>
+</package>
+-----
 franka_gripper: <?xml version="1.0" ?>
 <package format="2">
 <name>franka_gripper</name>
@@ -21805,6 +22206,7 @@ franka_hw: <?xml version="1.0" ?>
 <depend>joint_limits_interface</depend>
 <depend>libfranka</depend>
 <depend>roscpp</depend>
+<depend>std_srvs</depend>
 <depend>urdf</depend>
 <depend>pluginlib</depend>
 <depend>franka_msgs</depend>
@@ -25313,6 +25715,35 @@ ipa_3d_fov_visualization: <?xml version="1.0" ?>
 <depend>roscpp</depend>
 <depend>sensor_msgs</depend>
 <depend>visualization_msgs</depend>
+</package>
+-----
+ira_laser_tools: <?xml version="1.0" ?>
+<package>
+<name>ira_laser_tools</name>
+<description>The ira_laser_tools package. These nodes are meant to provide some utils for lasers,
+like listen to different laser scan sources and merge them in a single scan or generate virtual laser scans from a pointcloud.</description>
+<url>http://www.ros.org/wiki/ira_laser_tools</url>
+<maintainer email="augusto.ballardini@unimib.it">Augusto</maintainer>
+<maintainer email="p.colombo45@campus.unimib.it">Pietro</maintainer>
+<maintainer email="f.delia2@campus.unimib.it">Fabio</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>sensor_msgs</build_depend>
+<build_depend>libpcl-all-dev</build_depend>
+<build_depend>pcl_ros</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>tf</build_depend>
+<build_depend>laser_geometry</build_depend>
+<build_depend>roscpp</build_depend>
+<run_depend>sensor_msgs</run_depend>
+<run_depend>libpcl-all-dev</run_depend>
+<run_depend>pcl_ros</run_depend>
+<run_depend>std_msgs</run_depend>
+<run_depend>tf</run_depend>
+<run_depend>laser_geometry</run_depend>
+<run_depend>roscpp</run_depend>
+<build_depend>libvtk-qt</build_depend>
+<run_depend>libvtk-qt</run_depend>
 </package>
 -----
 iris_lama: <?xml version="1.0" ?>
@@ -29859,11 +30290,13 @@ mk: <?xml version="1.0" ?>
 <name>mk</name>
 <description>A collection of .mk include files for building ROS architectural elements. Most package authors should use cmake .mk,
 which calls CMake for the build of the package. The other files in this package are intended for use in exotic situations that mostly arise when importing 3rdparty code.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
+<maintainer email="jacob@openrobotics.org">Jacob Perron</maintainer>
 <license>BSD</license>
 <url>http://www.ros.org/wiki/ROS</url>
-<author>Morgan Quigley</author>
 <author>Brian Gerkey</author>
+<author>Morgan Quigley</author>
+<author email="dthomas@openrobotics.org">Dirk Thomas</author>
 <buildtool_depend version_gte="0.5.69">catkin</buildtool_depend>
 <run_depend>rosbuild</run_depend>
 <run_depend>rospack</run_depend>
@@ -30109,6 +30542,35 @@ move_base_sequence: <?xml version="1.0" ?>
 <build_depend>message_generation</build_depend>
 <exec_depend>message_runtime</exec_depend>
 <export/>
+</package>
+-----
+move_basic: <?xml version="1.0" ?>
+<package format="2">
+<name>move_basic</name>
+<description>Simple navigation package</description>
+<maintainer email="jimv@mrjim.com">Jim Vaughan</maintainer>
+<maintainer email="send2arohan@gmail.com">Rohan Agrawal</maintainer>
+<maintainer email="tp@ubiquityrobotics.com">Teodor Janez Podobnik</maintainer>
+<license>BSD</license>
+<author email="jimv@mrjim.com">Jim Vaughan</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>tf2_ros</depend>
+<depend>tf2</depend>
+<depend>geometry_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>visualization_msgs</depend>
+<depend>dynamic_reconfigure</depend>
+<depend>std_msgs</depend>
+<depend>nav_core</depend>
+<depend>actionlib</depend>
+<depend>actionlib_msgs</depend>
+<depend>move_base_msgs</depend>
+<depend>message_generation</depend>
+<depend>message_runtime</depend>
+<depend>rostest</depend>
+<depend>proj</depend>
 </package>
 -----
 move_slow_and_clear: <?xml version="1.0" ?>
@@ -32726,6 +33188,22 @@ odva_ethernetip: <?xml version="1.0" ?>
 <depend>boost</depend>
 <depend>libconsole-bridge-dev</depend>
 <test_depend>rosunit</test_depend>
+</package>
+-----
+oled_display_node: <?xml version="1.0" ?>
+<package format="2">
+<name>oled_display_node</name>
+<description>OLED I2C display node package</description>
+<maintainer email="mj@ubiquityrobotics.com">Mark Johnston</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>rospy</depend>
+<depend>std_msgs</depend>
+<build_depend>message_generation</build_depend>
+<build_export_depend>message_runtime</build_export_depend>
+<exec_depend>message_runtime</exec_depend>
+<export/>
 </package>
 -----
 ompl: <?xml version="1.0" ?>
@@ -37678,6 +38156,7 @@ robot_localization: <?xml version="1.0" ?>
 <depend>diagnostic_updater</depend>
 <depend>eigen</depend>
 <depend>eigen_conversions</depend>
+<depend>geographiclib</depend>
 <depend>geographic_msgs</depend>
 <depend>geometry_msgs</depend>
 <depend>message_filters</depend>
@@ -37691,7 +38170,6 @@ robot_localization: <?xml version="1.0" ?>
 <depend>tf2_geometry_msgs</depend>
 <depend>tf2_ros</depend>
 <depend>yaml-cpp</depend>
-<build_depend>geographiclib</build_depend>
 <build_depend>message_generation</build_depend>
 <build_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-pkg</build_depend>
 <build_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-pkg</build_depend>
@@ -38128,7 +38606,8 @@ ros: <?xml version="1.0" ?>
 <package>
 <name>ros</name>
 <description>ROS packaging system</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
+<maintainer email="jacob@openrobotics.org">Jacob Perron</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/ROS</url>
 <url type="bugtracker">https://github.com/ros/ros/issues</url>
@@ -38140,6 +38619,7 @@ ros: <?xml version="1.0" ?>
 <author>Brian Gerkey</author>
 <author>Jeremy Leibs</author>
 <author>Morgan Quigley</author>
+<author email="dthomas@openrobotics.org">Dirk Thomas</author>
 <author>Rob Wheeler</author>
 <buildtool_depend>catkin</buildtool_depend>
 <run_depend>catkin</run_depend>
@@ -38407,6 +38887,7 @@ ros_controllers_cartesian: <?xml version="1.0" ?>
 <maintainer email="exner@fzi.de">Felix Exner</maintainer>
 <maintainer email="scherzin@fzi.de">Stefan Scherzinger</maintainer>
 <license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/ros_controllers_cartesian</url>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>cartesian_interface</exec_depend>
 <exec_depend>cartesian_trajectory_controller</exec_depend>
@@ -38991,11 +39472,13 @@ rosbash: <?xml version="1.0" ?>
 <package>
 <name>rosbash</name>
 <description>Assorted shell commands for using ros with bash.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
+<maintainer email="jacob@openrobotics.org">Jacob Perron</maintainer>
 <license>BSD</license>
 <url>http://www.ros.org/wiki/rosbash</url>
 <author>Jeremy Leibs</author>
 <author>Thibault Kruse</author>
+<author email="dthomas@openrobotics.org">Dirk Thomas</author>
 <buildtool_depend version_gte="0.7.15">catkin</buildtool_depend>
 <run_depend>catkin</run_depend>
 <run_depend>rospack</run_depend>
@@ -39006,10 +39489,12 @@ rosboost_cfg: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>rosboost_cfg</name>
 <description>Contains scripts used by the rosboost-cfg tool for determining cflags/lflags/etc. of boost on your system</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"michel@ekumenlabs.com\">Michel Hidalgo</maintainer>
+<maintainer email=\"jacob@openrobotics.org\">Jacob Perron</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/rosboost_cfg</url>
 <author>Josh Faust</author>
+<author email=\"dthomas@openrobotics.org\">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
@@ -39134,12 +39619,14 @@ rosbuild: <?xml version="1.0" ?>
 <package>
 <name>rosbuild</name>
 <description>rosbuild contains scripts for managing the CMake-based build system for ROS.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
+<maintainer email="jacob@openrobotics.org">Jacob Perron</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/rosbuild</url>
 <author>Brian Gerkey</author>
 <author>Troy Straszheim</author>
 <author>Morgan Quigley</author>
+<author email="dthomas@openrobotics.org">Dirk Thomas</author>
 <buildtool_depend version_gte="0.5.78">catkin</buildtool_depend>
 <build_depend>pkg-config</build_depend>
 <run_depend>catkin</run_depend>
@@ -39152,12 +39639,14 @@ rosclean: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>rosclean</name>
 <description>rosclean: cleanup filesystem resources (e.g. log files).</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"michel@ekumenlabs.com\">Michel Hidalgo</maintainer>
+<maintainer email=\"jacob@openrobotics.org\">Jacob Perron</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://wiki.ros.org/rosclean</url>
 <url type=\"bugtracker\">https://github.com/ros/ros/issues</url>
 <url type=\"repository\">https://github.com/ros/ros</url>
 <author>Ken Conley</author>
+<author email=\"dthomas@openrobotics.org\">Dirk Thomas</author>
 <buildtool_depend version_gte=\"0.5.68\">catkin</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
@@ -39372,12 +39861,14 @@ roscreate: "<?xml version=\"1.0\" ?>
 <description>roscreate contains a tool that assists in the creation of ROS filesystem resources. It provides:<tt>roscreate-pkg</tt>,
 which creates a new package directory,
 including the appropriate build and manifest files.</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"michel@ekumenlabs.com\">Michel Hidalgo</maintainer>
+<maintainer email=\"jacob@openrobotics.org\">Jacob Perron</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://wiki.ros.org/roscreate</url>
 <url type=\"bugtracker\">https://github.com/ros/ros/issues</url>
 <url type=\"repository\">https://github.com/ros/ros</url>
 <author email=\"kwc@willowgarage.com\">Ken Conley</author>
+<author email=\"dthomas@osrfoundation.org\">Dirk Thomas</author>
 <buildtool_depend version_gte=\"0.5.68\">catkin</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
@@ -39505,10 +39996,12 @@ roslang: <?xml version="1.0" ?>
 <package>
 <name>roslang</name>
 <description>roslang is a common package that all<a href="http://www.ros.org/wiki/Client%20Libraries">ROS client libraries</a>depend on. This is mainly used to find client libraries (via 'rospack depends-on1 roslang').</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
+<maintainer email="jacob@openrobotics.org">Jacob Perron</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/roslang</url>
 <author email="gerkey@willowgarage.com">Brian Gerkey</author>
+<author email="dthomas@openrobotics.org">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <run_depend>catkin</run_depend>
 <run_depend>genmsg</run_depend>
@@ -39556,14 +40049,16 @@ roslib: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>roslib</name>
 <description>Base dependencies and support libraries for ROS. roslib contains many of the common data structures and tools that are shared across ROS client library implementations.</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"michel@ekumenlabs.com\">Michel Hidalgo</maintainer>
+<maintainer email=\"jacob@openrobotics.org\">Jacob Perron</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://wiki.ros.org/roslib</url>
 <url type=\"bugtracker\">https://github.com/ros/ros/issues</url>
 <url type=\"repository\">https://github.com/ros/ros</url>
 <author email=\"kwc@willowgarage.com\">Ken Conley</author>
-<author email=\"mquigley@cs.stanford.edu\">Morgan Quigley</author>
 <author email=\"jfaust@willowgarage.com\">Josh Faust</author>
+<author email=\"mquigley@cs.stanford.edu\">Morgan Quigley</author>
+<author email=\"dthomas@openrobotics.org\">Dirk Thomas</author>
 <depend>rospack</depend>
 <buildtool_depend version_gte=\"0.6.7\">catkin</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
@@ -39656,12 +40151,14 @@ rosmake: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>rosmake</name>
 <description>rosmake is a ros dependency aware build tool which can be used to build all dependencies in the correct order.</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"michel@ekumenlabs.com\">Michel Hidalgo</maintainer>
+<maintainer email=\"jacob@openrobotics.org\">Jacob Perron</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://wiki.ros.org/rosmake</url>
 <url type=\"bugtracker\">https://github.com/ros/ros/issues</url>
 <url type=\"repository\">https://github.com/ros/ros</url>
 <author email=\"tfoote@osrfoundation.org\">Tully Foote</author>
+<author email=\"dthomas@openrobotics.org\">Dirk Thomas</author>
 <buildtool_depend version_gte=\"0.5.68\">catkin</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
@@ -39724,6 +40221,7 @@ and usability.</description>
 <maintainer email="max.schwarz@uni-bonn.de">Max Schwarz</maintainer>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>boost</depend>
+<depend>libboost-python-dev</depend>
 <depend>cmake_modules</depend>
 <depend>libncurses-dev</depend>
 <depend>rosfmt</depend>
@@ -40452,12 +40950,14 @@ rosunit: "<?xml version=\"1.0\" ?>
 <name>rosunit</name>
 <description>Unit-testing package for ROS. This is a lower-level library for rostest and handles unit tests,
 whereas rostest handles integration tests.</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"michel@ekumenlabs.com\">Michel Hidalgo</maintainer>
+<maintainer email=\"jacob@openrobotics.org\">Jacob Perron</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://wiki.ros.org/rosunit</url>
 <url type=\"bugtracker\">https://github.com/ros/ros/issues</url>
 <url type=\"repository\">https://github.com/ros/ros</url>
 <author>Ken Conley</author>
+<author email=\"dthomas@openrobotics.org\">Dirk Thomas</author>
 <buildtool_depend version_gte=\"0.5.78\">catkin</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
@@ -41983,6 +42483,35 @@ rtabmap_ros: <?xml version="1.0" ?>
 <nodelet plugin="${prefix}/nodelet_plugins.xml"/>
 <rviz plugin="${prefix}/rviz_plugins.xml"/>
 <costmap_2d plugin="${prefix}/costmap_plugins.xml"/>
+</export>
+</package>
+-----
+rtcm_msgs: <?xml version="1.0" ?>
+<package>
+<name>rtcm_msgs</name>
+<description>The rtcm_msgs package contains messages related to data in the RTCM format.</description>
+<maintainer email="tilk@tilk.eu">Marek Materzok</maintainer>
+<license>BSD</license>
+<author email="tilk@tilk.eu">Marek Materzok</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>message_generation</build_depend>
+<run_depend>std_msgs</run_depend>
+<run_depend>message_runtime</run_depend>
+<export/>
+</package>
+-----
+ruckig: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ruckig</name>
+<description>Online Trajectory Generation. Real-time. Time-optimal. Jerk-constrained.</description>
+<author>Lars Berscheid</author>
+<maintainer email="lars.berscheid@kit.edu">Lars Berscheid</maintainer>
+<license>MIT</license>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
 </export>
 </package>
 -----
@@ -43605,6 +44134,23 @@ speed_scaling_state_controller: <?xml version="1.0" ?>
 <export>
 <controller_interface plugin="${prefix}/controller_plugins.xml"/>
 </export>
+</package>
+-----
+sr_hand_detector: <?xml version="1.0" ?>
+<package format="2">
+<name>sr_hand_detector</name>
+<description>The sr_hand_detector package</description>
+<maintainer email="software@shadowrobot.com">Shadow Robot's Software Team</maintainer>
+<license>GPL</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<exec_depend>roscpp</exec_depend>
+<build_depend>roslib</build_depend>
+<exec_depend>roslib</exec_depend>
+<build_depend>yaml-cpp</build_depend>
+<exec_depend>yaml-cpp</exec_depend>
+<test_depend>rostest</test_depend>
+<export/>
 </package>
 -----
 srdfdom: <?xml version="1.0" ?>
@@ -46189,6 +46735,7 @@ so that the robot hardware takes care about doing the inverse kinematics. This c
 <maintainer email="scherzin@fzi.de">Stefan Scherzinger</maintainer>
 <maintainer email="exner@fzi.de">Felix Exner</maintainer>
 <license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/twist_controller</url>
 <author email="exner@fzi.de">Felix Exner</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>cartesian_interface</depend>
@@ -46280,6 +46827,28 @@ twist_recovery: <?xml version="1.0" ?>
 <export>
 <nav_core plugin="${prefix}/twist_plugin.xml"/>
 </export>
+</package>
+-----
+ubiquity_motor: <?xml version="1.0" ?>
+<package format="2">
+<name>ubiquity_motor</name>
+<description>Provides a ROS interface to Ubiquity Robotics Magni motor controllers</description>
+<maintainer email="rohan@aleopile.com">Rohan Agrawal</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<test_depend>rostest</test_depend>
+<depend>geometry_msgs</depend>
+<depend>std_msgs</depend>
+<depend>tf</depend>
+<depend>nav_msgs</depend>
+<depend>hardware_interface</depend>
+<depend>controller_manager</depend>
+<depend>dynamic_reconfigure</depend>
+<depend>diagnostic_updater</depend>
+<exec_depend>diff_drive_controller</exec_depend>
+<exec_depend>joint_state_controller</exec_depend>
+<exec_depend>python3-requests</exec_depend>
 </package>
 -----
 ublox: <?xml version="1.0" ?>
@@ -47181,7 +47750,7 @@ view_controller_msgs: <?xml version="1.0" ?>
 <name>view_controller_msgs</name>
 <description>Messages for (camera) view controllers</description>
 <author email="adamleeper@gmail.com">Adam Leeper</author>
-<maintainer email="ros-orphaned-packages@googlegroups.com">ROS Orphaned Package Maintainers</maintainer>
+<maintainer email="evanflynn.msu@gmail.com">Evan Flynn</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/view_controller_msgs</url>
 <url type="bugtracker">https://github.com/ros-visualization/view_controller_msgs/issues</url>
@@ -47871,6 +48440,33 @@ wave_front_planner: <?xml version="1.0" ?>
 <export>
 <mbf_mesh_core plugin="${prefix}/wave_front_planner.xml"/>
 </export>
+</package>
+-----
+web_video_server: <?xml version="1.0" ?>
+<package format="2">
+<name>web_video_server</name>
+<description>HTTP Streaming of ROS Image Topics in Multiple Formats</description>
+<maintainer email="rctoris@wpi.edu">Russell Toris</maintainer>
+<author email="mwills@wpi.edu">Mitchell Wills</author>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/web_video_server</url>
+<url type="bugtracker">https://github.com/RobotWebTools/web_video_server/issues</url>
+<url type="repository">https://github.com/RobotWebTools/web_video_server</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>roslib</build_depend>
+<build_depend>cv_bridge</build_depend>
+<build_depend>image_transport</build_depend>
+<build_depend>async_web_server_cpp</build_depend>
+<build_depend>ffmpeg</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<exec_depend>roscpp</exec_depend>
+<exec_depend>roslib</exec_depend>
+<exec_depend>cv_bridge</exec_depend>
+<exec_depend>image_transport</exec_depend>
+<exec_depend>async_web_server_cpp</exec_depend>
+<exec_depend>ffmpeg</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
 </package>
 -----
 webkit_dependency: <?xml version="1.0" ?>
