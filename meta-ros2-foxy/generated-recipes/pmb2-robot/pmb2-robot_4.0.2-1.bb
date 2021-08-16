@@ -5,50 +5,33 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around Apache TVM to make it available to the ROS ecosystem."
-AUTHOR = "Josh Whitley <josh.whitley@autoware.org>"
-HOMEPAGE = "https://tvm.apache.org/"
+DESCRIPTION = "PMB2 robot description and launch files"
+AUTHOR = "Victor Lopez <victor.lopez@pal-robotics.com>"
+ROS_AUTHOR = "Enrique Fernandez <enrique.fernandez@pal-robotics.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "tvm_vendor"
-ROS_BPN = "tvm_vendor"
+ROS_CN = "pmb2_robot"
+ROS_BPN = "pmb2_robot"
 
-ROS_BUILD_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    ros-environment \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
-"
+ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    pmb2-bringup \
+    pmb2-controller-configuration \
+    pmb2-description \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -61,10 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/autowarefoundation/tvm_vendor-release/archive/release/foxy/tvm_vendor/0.7.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/tvm_vendor"
-SRC_URI = "git://github.com/autowarefoundation/tvm_vendor-release;${ROS_BRANCH};protocol=https"
-SRCREV = "3dbc8391c3bf22c3d1fbed825d9e549303485d87"
+# matches with: https://github.com/pal-gbp/pmb2_robot-gbp/archive/release/foxy/pmb2_robot/4.0.2-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/pmb2_robot"
+SRC_URI = "git://github.com/pal-gbp/pmb2_robot-gbp;${ROS_BRANCH};protocol=https"
+SRCREV = "14b746e3cf9f4ec2e6242a3cfbede55d92dd622c"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

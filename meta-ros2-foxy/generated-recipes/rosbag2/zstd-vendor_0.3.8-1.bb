@@ -5,26 +5,20 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around Apache TVM to make it available to the ROS ecosystem."
-AUTHOR = "Josh Whitley <josh.whitley@autoware.org>"
-HOMEPAGE = "https://tvm.apache.org/"
+DESCRIPTION = "Zstd compression vendor package, providing a dependency for Zstd."
+AUTHOR = "Karsten Knese <karsten@openrobotics.org>"
+HOMEPAGE = "https://facebook.github.io/zstd/"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+#         "Apache License 2.0 & BSD"
+LICENSE = "Apache-2.0 & BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
-ROS_CN = "tvm_vendor"
-ROS_BPN = "tvm_vendor"
+ROS_CN = "rosbag2"
+ROS_BPN = "zstd_vendor"
 
 ROS_BUILD_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    ros-environment \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    zstd \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -32,23 +26,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    zstd \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    zstd \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -61,10 +45,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/autowarefoundation/tvm_vendor-release/archive/release/foxy/tvm_vendor/0.7.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/tvm_vendor"
-SRC_URI = "git://github.com/autowarefoundation/tvm_vendor-release;${ROS_BRANCH};protocol=https"
-SRCREV = "3dbc8391c3bf22c3d1fbed825d9e549303485d87"
+# matches with: https://github.com/ros2-gbp/rosbag2-release/archive/release/foxy/zstd_vendor/0.3.8-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/zstd_vendor"
+SRC_URI = "git://github.com/ros2-gbp/rosbag2-release;${ROS_BRANCH};protocol=https"
+SRCREV = "d5af4dfb1c7b35f7dae8369f66a4ff9bc5619b0a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

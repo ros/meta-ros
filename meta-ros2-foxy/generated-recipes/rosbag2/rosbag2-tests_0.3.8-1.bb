@@ -5,26 +5,20 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around Apache TVM to make it available to the ROS ecosystem."
-AUTHOR = "Josh Whitley <josh.whitley@autoware.org>"
-HOMEPAGE = "https://tvm.apache.org/"
+DESCRIPTION = "Tests package for rosbag2"
+AUTHOR = "Karsten Knese <karsten@openrobotics.org>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "tvm_vendor"
-ROS_BPN = "tvm_vendor"
+ROS_CN = "rosbag2"
+ROS_BPN = "rosbag2_tests"
 
 ROS_BUILD_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    ros-environment \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    ament-index-cpp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -32,27 +26,32 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    ament-index-cpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    ament-index-cpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    ament-cmake-gmock \
+    ament-lint-auto \
+    ament-lint-common \
+    rclcpp \
+    rcpputils \
+    ros2bag \
+    rosbag2-compression \
+    rosbag2-converter-default-plugins \
+    rosbag2-cpp \
+    rosbag2-storage \
+    rosbag2-storage-default-plugins \
+    rosbag2-test-common \
+    std-msgs \
+    test-msgs \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -61,10 +60,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/autowarefoundation/tvm_vendor-release/archive/release/foxy/tvm_vendor/0.7.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/tvm_vendor"
-SRC_URI = "git://github.com/autowarefoundation/tvm_vendor-release;${ROS_BRANCH};protocol=https"
-SRCREV = "3dbc8391c3bf22c3d1fbed825d9e549303485d87"
+# matches with: https://github.com/ros2-gbp/rosbag2-release/archive/release/foxy/rosbag2_tests/0.3.8-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rosbag2_tests"
+SRC_URI = "git://github.com/ros2-gbp/rosbag2-release;${ROS_BRANCH};protocol=https"
+SRCREV = "4a9b284a602b7d8e158103d073272d60a29ebd30"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
