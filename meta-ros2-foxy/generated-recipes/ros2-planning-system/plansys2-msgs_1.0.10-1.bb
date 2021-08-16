@@ -5,26 +5,24 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around Apache TVM to make it available to the ROS ecosystem."
-AUTHOR = "Josh Whitley <josh.whitley@autoware.org>"
-HOMEPAGE = "https://tvm.apache.org/"
+DESCRIPTION = "Messages and service files for the ROS2 Planning System"
+AUTHOR = "Francisco Martin Rico <fmrico@gmail.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0"
+#         "Apache License, Version 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e8978a5103d23266fc6f8ec03dc9eb16"
 
-ROS_CN = "tvm_vendor"
-ROS_BPN = "tvm_vendor"
+ROS_CN = "ros2_planning_system"
+ROS_BPN = "plansys2_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    ros-environment \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    action-msgs \
+    builtin-interfaces \
+    rclcpp \
+    rosidl-default-generators \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -32,23 +30,21 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    action-msgs \
+    builtin-interfaces \
+    rclcpp \
+    rosidl-default-generators \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    git \
-    libxml2 \
-    openblas \
-    spirv-headers \
-    spirv-tools \
-    vulkan-headers \
+    action-msgs \
+    builtin-interfaces \
+    rclcpp \
+    rosidl-default-generators \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -61,10 +57,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/autowarefoundation/tvm_vendor-release/archive/release/foxy/tvm_vendor/0.7.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/tvm_vendor"
-SRC_URI = "git://github.com/autowarefoundation/tvm_vendor-release;${ROS_BRANCH};protocol=https"
-SRCREV = "3dbc8391c3bf22c3d1fbed825d9e549303485d87"
+# matches with: https://github.com/IntelligentRoboticsLabs/ros2_planning_system-release/archive/release/foxy/plansys2_msgs/1.0.10-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/plansys2_msgs"
+SRC_URI = "git://github.com/IntelligentRoboticsLabs/ros2_planning_system-release;${ROS_BRANCH};protocol=https"
+SRCREV = "62f1b36cb91c65fc606529ca63391d484e711dad"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

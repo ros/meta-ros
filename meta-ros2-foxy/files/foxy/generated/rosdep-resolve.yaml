@@ -131,8 +131,12 @@ libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libcunit-dev:
 - ${ROS_UNRESOLVED_DEP-libcunit-dev}
+libdw-dev:
+- elfutils@openembedded-core
 libfcl-dev:
 - fcl@meta-ros-common
+libfreenect-dev:
+- libfreenect@meta-ros-common
 libfreetype6:
 - freetype@openembedded-core
 libfreetype6-dev:
@@ -177,6 +181,8 @@ libopenblas-dev:
 - openblas@meta-ros-common
 libopencv-dev:
 - opencv@meta-oe
+libopenni-dev:
+- ${ROS_UNRESOLVED_DEP-libopenni-dev}
 liborocos-kdl-dev:
 - orocos-kdl@meta-ros1-noetic
 libpcap:
@@ -230,7 +236,7 @@ libusb-1.0-dev:
 libusb-dev:
 - libusb1@openembedded-core
 libvulkan-dev:
-- ${ROS_UNRESOLVED_DEP-libvulkan-dev}
+- vulkan-headers@openembedded-core
 libx11-dev:
 - libx11@openembedded-core
 libxaw:
@@ -410,9 +416,9 @@ spacenavd:
 spdlog:
 - spdlog@meta-oe
 spirv-headers:
-- ${ROS_UNRESOLVED_DEP-spirv-headers}
+- spirv-headers@openembedded-core
 spirv-tools:
-- ${ROS_UNRESOLVED_DEP-spirv-tools}
+- spirv-tools@openembedded-core
 subversion:
 - subversion@openembedded-core
 suitesparse:
@@ -430,6 +436,8 @@ uncrustify:
 - ${ROS_UNRESOLVED_DEP-uncrustify}
 uuid:
 - util-linux@openembedded-core
+v4l-utils:
+- v4l-utils@meta-oe
 wx-common:
 - wxwidgets@meta-ros-common
 wxwidgets:
