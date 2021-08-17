@@ -79,6 +79,10 @@ ROS_WORLD_SKIP_GROUPS += "python-gi"
 ROS_WORLD_SKIP_GROUPS += "python-imageio"
 # recipes depending on nkf - Network Kanji code conversion Filter - https://packages.debian.org/sid/text/nkf
 ROS_WORLD_SKIP_GROUPS += "nkf"
+# recipes depending on kakasi - anji kana simple inverter (between Kanji, both Kana and Romaji) - https://packages.debian.org/buster/kakasi
+ROS_WORLD_SKIP_GROUPS += "kakasi"
+# recipes depending on python-google-cloud-texttospeech-pip - https://pypi.org/project/google-cloud-texttospeech/
+ROS_WORLD_SKIP_GROUPS += "python-google-cloud-texttospeech-pip"
 # recipes depending on rospilot which depends on ROS_UNRESOLVED_DEP-python-tilestache, ROS_UNRESOLVED_DEP-python-mapnik, ROS_UNRESOLVED_DEP-libnl-3, ROS_UNRESOLVED_DEP-postgresql-postgis, ROS_UNRESOLVED_DEP-python-cherrypy, ROS_UNRESOLVED_DEP-osm2pgsql, ROS_UNRESOLVED_DEP-dnsmasq, ROS_UNRESOLVED_DEP-mapnik-utils, ROS_UNRESOLVED_DEP-hostapd, ROS_UNRESOLVED_DEP-python-colorama, ROS_UNRESOLVED_DEP-gdal-bin, ROS_UNRESOLVED_DEP-libmicrohttpd, ROS_UNRESOLVED_DEP-libnl-3-dev
 ROS_WORLD_SKIP_GROUPS += "rospilot"
 # recipes depending on parrot-arsdk which depends on ROS_UNRESOLVED_DEP-automake, ROS_UNRESOLVED_DEP-yasm, ROS_UNRESOLVED_DEP-libavahi-core-dev, ROS_UNRESOLVED_DEP-nasm, ROS_UNRESOLVED_DEP-libavahi-client-dev
