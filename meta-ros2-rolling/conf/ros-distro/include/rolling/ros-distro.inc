@@ -56,6 +56,8 @@ ROS_WORLD_SKIP_GROUPS += "opensplice"
 ROS_WORLD_SKIP_GROUPS += "gurumdds"
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
 ROS_WORLD_SKIP_GROUPS += "clang"
+# recipes depending on openni (libopenni-dev)
+ROS_WORLD_SKIP_GROUPS += "openni"
 # recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
 ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 # recipes depending on coinor-libipopt
@@ -103,6 +105,8 @@ ROS_WORLD_SKIP_GROUPS += "ignition"
 
 # recipes depending on unavailable python3-shapely
 ROS_WORLD_SKIP_GROUPS += "python3-shapely"
+# recipes depending on unavailable python3-flask-cors
+ROS_WORLD_SKIP_GROUPS += "python3-flask-cors"
 
 # recipes depending on legacy mongo-cxx-driver (https://packages.debian.org/source/stretch/mongo-cxx-driver-legacy)
 # the mongodb recipe in meta-oe installs just the binaries mongoc, mongos, install_compass
