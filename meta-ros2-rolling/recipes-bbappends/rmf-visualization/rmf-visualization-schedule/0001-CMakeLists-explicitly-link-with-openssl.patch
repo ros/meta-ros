@@ -1,4 +1,4 @@
-From c4976859fe63e14d5274aecf27164a7e6d5c7670 Mon Sep 17 00:00:00 2001
+From 5821ab62f12a472964509619ec609c7cdb86965b Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 7 Jul 2021 09:47:33 -0700
 Subject: [PATCH] CMakeLists: explicitly link with openssl
@@ -38,12 +38,13 @@ ERROR: Execution of '/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/w
 Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
 ---
  CMakeLists.txt | 2 ++
  1 file changed, 2 insertions(+)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 8699462..fa86882 100644
+index 1483816..8961526 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -19,6 +19,7 @@ find_package(rmf_traffic REQUIRED)
@@ -52,11 +53,11 @@ index 8699462..fa86882 100644
  find_package(OpenCV REQUIRED )
 +find_package(OpenSSL REQUIRED )
  find_package(websocketpp REQUIRED)
+ find_package(OpenSSL REQUIRED)
  find_package(geometry_msgs REQUIRED)
- find_package(nav_msgs REQUIRED)
-@@ -54,6 +55,7 @@ target_link_libraries(rmf_visualization_schedule
-     ${rclcpp_LIBRARIES}
-     ${websocketpp_LIBRARIES}
+@@ -57,6 +58,7 @@ target_link_libraries(rmf_visualization_schedule
+     OpenSSL::SSL
+     OpenSSL::Crypto
      ${rmf_traffic_msgs_LIBRARIES}
 +    OpenSSL::SSL
  )
