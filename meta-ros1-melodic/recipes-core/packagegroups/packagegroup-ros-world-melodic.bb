@@ -125,7 +125,18 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_IMAGEIO = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'nkf', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_NKF}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_NKF = " \
+    aques-talk \
     voice-text \
+"
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'kakasi', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_KAKASI}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_KAKASI = " \
+    aques-talk \
+"
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-google-cloud-texttospeech-pip', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_GOOGLE_CLOUD_TEXTTOSPEECH_PIP}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON_GOOGLE_CLOUD_TEXTTOSPEECH_PIP = " \
+    google-cloud-texttospeech \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rospilot', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROSPILOT}', '', d)}"
@@ -288,6 +299,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     flir-ptu-viz \
     fmi-adapter-examples \
     fuse-ros \
+    fuse-viz \
     gl-dependency \
     gundam-rx78-control \
     heron-desktop \
@@ -375,6 +387,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     sick-safetyscanners \
     visualstates \
     webkit-dependency \
+    webots-ros \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vtk-qt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT}', '', d)}"
@@ -516,6 +529,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     tuw-checkerboard \
     tuw-marker-detection \
     uwsim-bullet \
+    webots-ros \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB}', '', d)}"
@@ -839,6 +853,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     franka-example-controllers \
     franka-ros \
     fuse-ros \
+    fuse-viz \
     grid-map \
     grid-map-demos \
     grid-map-rviz-plugin \
@@ -966,6 +981,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     fsrobo-r-bringup \
     fsrobo-r-moveit-config \
     fuse-ros \
+    fuse-viz \
     geometry-tutorials \
     gl-dependency \
     grid-map \
@@ -1182,6 +1198,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     warthog-viz \
     wave-front-planner \
     webkit-dependency \
+    webots-ros \
 "
 
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commercial" or "commercial_ffmpeg" or "ffmpeg".
@@ -1280,11 +1297,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gst-ugly', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY}', '', d)}"
 
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GSTREAMER1.0_PLUGINS_UGLY = " \
+    aques-talk \
     audio-capture \
     audio-common \
     audio-play \
     audio-to-spectrogram \
     cis-camera \
+    python-google-cloud-texttospeech-pip \
     imagesift \
     jsk-3rdparty \
     jsk-common \
@@ -1342,6 +1361,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     cob-hardware-config \
     cob-manipulation \
     cob-moveit-bringup \
+    copernicus-control \
     denso-robot-gazebo \
     denso-robot-ros \
     denso-robot-moveit-config \
@@ -1674,6 +1694,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     uwsim-osgbullet \
     uwsim-osgocean \
     uwsim-osgworks \
+    webots-ros \
     wxwidgets \
     rc-roi-manager-gui \
     rqt-pose-view \
