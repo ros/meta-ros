@@ -4,7 +4,7 @@ ROS_PYTHON_VERSION ?= "2"
 
 # Fix up PACKAGECONFIG if Python 2 is being used.
 PACKAGECONFIG:prepend = "${@'python2 ' if d.getVar('ROS_PYTHON_VERSION') == '2' else ''}"
-# _remove happens after _prepend.
+# :remove happens after :prepend.
 PACKAGECONFIG:remove = "${@'python3' if d.getVar('ROS_PYTHON_VERSION') == '2' else ''}"
 
 # Python variables are set to their values for Python 3 even though
