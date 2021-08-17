@@ -29,6 +29,8 @@ bzip2:
 - bzip2@openembedded-core
 ca-certificates:
 - ca-certificates@openembedded-core
+clang:
+- ${ROS_UNRESOLVED_DEP-clang}
 clang-tidy:
 - ${ROS_UNRESOLVED_DEP-clang-tidy}
 cmake:
@@ -500,6 +502,8 @@ python3-bson:
 - python3-pymongo@meta-python
 python3-cairo:
 - python3-pycairo@openembedded-core
+python3-cairosvg:
+- ${ROS_UNRESOLVED_DEP-python3-cairosvg}
 python3-catkin-lint:
 - python3-catkin-lint@meta-ros-common
 python3-catkin-pkg:
@@ -542,6 +546,8 @@ python3-h5py:
 - python3-h5py@meta-python
 python3-imageio:
 - python3-imageio@meta-python
+python3-joblib:
+- ${ROS_UNRESOLVED_DEP-python3-joblib}
 python3-kitchen:
 - ${ROS_UNRESOLVED_DEP-python3-kitchen}
 python3-lxml:
