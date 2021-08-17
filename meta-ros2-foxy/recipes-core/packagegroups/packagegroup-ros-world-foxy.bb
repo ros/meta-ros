@@ -60,6 +60,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
     ament-cmake-clang-tidy \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
+    rtabmap \
+"
+
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libomp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP = " \
     moveit-planners-ompl \
@@ -140,6 +145,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     plotjuggler \
     plotjuggler-ros \
     realsense-examples \
+    realsense-hardware-interface \
     realsense-node \
     realsense-ros \
     realsense2-camera \
@@ -148,6 +154,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rover-navigation \
     rover-simulation \
     roverrobotics-ros2 \
+    rtabmap \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
@@ -192,6 +199,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     oroca-rqt-command \
     plotjuggler \
     plotjuggler-ros \
+    pmb2-bringup \
+    pmb2-description \
+    pmb2-robot \
     python-qt-binding \
     py-trees-js \
     py-trees-ros-tutorials \
@@ -256,12 +266,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
     mrpt2 \
+    usb-cam \
 "
 
 # OE won't let us build x264 unless LICENSE_FLAGS_WHITELIST contains "commercial" or "commercial_x264" or "x264".
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x264', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
     mrpt2 \
+    usb-cam \
 "
 
 # Recipes which need widgets enabled in qtbase PACKAGECONFIG which webOS OSE explicitly disables:
@@ -288,6 +300,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-rosdev \
     nav2-system-tests \
     pal-gazebo-worlds \
+    pmb2-2dnav-gazebo \
+    pmb2-gazebo \
+    pmb2-simulation \
     turtlebot3-gazebo \
     turtlebot3-simulations \
 "
@@ -303,6 +318,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     moveit-resources-panda-moveit-config \
     multires-image \
     openzen-driver \
+    pmb2-bringup \
+    pmb2-description \
+    pmb2-robot \
     python-qt-binding \
     py-trees-js \
     py-trees-ros-tutorials \
@@ -406,6 +424,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     rover-navigation \
     rover-simulation \
     roverrobotics-ros2 \
+    rtabmap \
     rviz2 \
     rviz-common \
     rviz-default-plugins \
@@ -429,6 +448,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
     embree-vendor \
     librealsense2 \
     realsense-examples \
+    realsense-hardware-interface \
     realsense-node \
     realsense-ros \
     realsense2-camera \
@@ -448,6 +468,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
     webots-ros2-core \
     webots-ros2-examples \
     webots-ros2-importer \
+    webots-ros2-mavic \
     webots-ros2-tesla \
     webots-ros2-turtlebot \
     webots-ros2-tutorials \

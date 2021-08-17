@@ -50,6 +50,8 @@ ROS_WORLD_SKIP_GROUPS += "opensplice"
 ROS_WORLD_SKIP_GROUPS += "gurumdds"
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
 ROS_WORLD_SKIP_GROUPS += "clang"
+# recipes depending on openni (libopenni-dev)
+ROS_WORLD_SKIP_GROUPS += "openni"
 # recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
 ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 # recipes depending on coinor-libipopt
