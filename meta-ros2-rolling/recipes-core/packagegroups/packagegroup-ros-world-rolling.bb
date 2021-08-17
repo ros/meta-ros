@@ -23,7 +23,17 @@ RDEPENDS:${PN}:remove = "zstd-vendor"
 RDEPENDS:${PN}:remove = "pybind11-vendor"
 
 # Depends on unavailable python3-shapely
-RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-shapely', 'rmf-building-map-tools rmf-traffic-editor-test-maps', '', d)}"
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-shapely', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_SHAPELY}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_SHAPELY = " \
+    rmf-demos-maps \
+    rmf-building-map-tools \
+    rmf-traffic-editor-test-maps \
+"
+# Depends on unavailable python3-flask-cors
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-flask-cors', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_FLASK_CORS}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_FLASK_CORS = " \
+    rmf-demos-panel \
+"
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB = " \
@@ -84,6 +94,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
     ament-cmake-clang-tidy \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
+    rtabmap \
+"
+
 # Needs work to launch qemu to run tests on image on build machine.
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
@@ -135,6 +150,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     realsense-ros \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
+    rtabmap \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
@@ -164,6 +180,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-core \
     qt-gui-cpp \
     qt-gui-py-common \
+    rmf-demos \
+    rmf-demos-assets \
+    rmf-building-sim-gazebo-plugins \
+    rmf-building-sim-ignition-plugins \
+    rmf-robot-sim-gazebo-plugins \
+    rmf-robot-sim-ignition-plugins \
     rmf-traffic-editor \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
@@ -210,12 +232,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
     mrpt2 \
+    usb-cam \
 "
 
 # OE won't let us build x264 unless LICENSE_FLAGS_WHITELIST contains "commercial" or "commercial_x264" or "x264".
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x264', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
     mrpt2 \
+    usb-cam \
 "
 
 # Recipes which need widgets enabled in qtbase PACKAGECONFIG which webOS OSE explicitly disables:
@@ -236,6 +260,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
+    rmf-demos \
+    rmf-demos-assets \
+    rmf-building-sim-gazebo-plugins \
+    rmf-robot-sim-gazebo-plugins \
 "
 
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API:x86 = ""
@@ -318,6 +346,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     mrpt2 \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
+    rtabmap \
     rviz2 \
     rviz-common \
     rviz-default-plugins \
