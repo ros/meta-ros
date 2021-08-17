@@ -95,6 +95,9 @@ ROS_WORLD_SKIP_GROUPS += "sdformat"
 # recipes depending on gazebo, for which there is no OE recipe
 ROS_WORLD_SKIP_GROUPS += "gazebo"
 
+# not compatible with glibc-2.34 without easy fix as reported in https://github.com/ros2/demos/issues/530
+ROS_WORLD_SKIP_GROUPS += "pendulum-control"
+
 # recipes depending on libqglviewer (https://packages.debian.org/source/stretch/libqglviewer https://packages.debian.org/stretch/libqglviewer2-qt5)
 ROS_WORLD_SKIP_GROUPS += "libqglviewer"
 
