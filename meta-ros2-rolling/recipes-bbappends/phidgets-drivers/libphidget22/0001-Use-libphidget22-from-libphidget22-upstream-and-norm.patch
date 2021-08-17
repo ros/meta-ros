@@ -1,4 +1,4 @@
-From a623afc37b16918e971803978f4c049b3fa4d072 Mon Sep 17 00:00:00 2001
+From f2d9c4b896ba0508b8def8522f83217cd40641da Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 18 Dec 2019 11:11:30 -0800
 Subject: [PATCH] Use libphidget22 from libphidget22-upstream and normal prefix
@@ -14,7 +14,7 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  delete mode 100644 patch/libphidgets22-1.6.20200417-fix-warnings.patch
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 462ee7f..706e59a 100644
+index addd69f..706e59a 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -3,41 +3,6 @@ project(libphidget22)
@@ -25,10 +25,10 @@ index 462ee7f..706e59a 100644
 -
 -include(ExternalProject)
 -ExternalProject_Add(EP_${PROJECT_NAME}
--    URL https://www.phidgets.com/downloads/phidget22/libraries/linux/libphidget22/libphidget22-1.6.20200417.tar.gz
--    URL_MD5 f8c85f8348ddc0fb46146c0d9d8f884e
+-    URL https://www.phidgets.com/downloads/phidget22/libraries/linux/libphidget22/libphidget22-1.6.20210312.tar.gz
+-    URL_MD5 5cd2049b8f7ee0c72f88ff1f7fe3c70b
 -
--    PATCH_COMMAND patch -p1 < ${CMAKE_CURRENT_SOURCE_DIR}/patch/libphidgets22-1.6.20200417-fix-warnings.patch
+-    PATCH_COMMAND patch -p1 < ${CMAKE_CURRENT_SOURCE_DIR}/patch/libphidgets22-1.6.20210312-fix-warnings.patch
 -    SOURCE_DIR ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src
 -    CONFIGURE_COMMAND
 -      <SOURCE_DIR>/configure
