@@ -14,12 +14,12 @@ DEPENDS = "libusb1"
 SRCNAME = "libphidget22"
 
 SRC_URI = "https://www.phidgets.com/downloads/phidget22/libraries/linux/${SRCNAME}/${SRCNAME}-${PV}.tar.gz \
-    https://raw.githubusercontent.com/ros2-gbp/phidgets_drivers-release/release/rolling/libphidget22/2.1.0-1/patch/libphidgets22-1.6.20200417-fix-warnings.patch;name=patch \
+    https://raw.githubusercontent.com/ros2-gbp/phidgets_drivers-release/release/rolling/libphidget22/2.2.1-1/patch/libphidgets22-1.6.20210312-fix-warnings.patch;name=patch \
 "
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-SRC_URI[sha256sum] = "add8dee691e4bdcb19147cea34630ce0f387d24fe7548900ca98d2b70e60ae9f"
-SRC_URI[patch.sha256sum] = "6eb0dff456faa174205ecfd2153a897b26d254071f91cd914b2aee46285b6449"
+SRC_URI[sha256sum] = "9e17adc704a4cc923f1e75af74897af65da36d863df0f069a2c912cd63d47070"
+SRC_URI[patch.sha256sum] = "00aa71a94773cfd9ca4db0741415699b5c11de1e803ad973130d0b14f298f141"
 
 inherit autotools
 
