@@ -1,0 +1,111 @@
+From b5c2250aeb078b28eac525187e319f2d2015dbe5 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 18 Aug 2021 04:05:17 -0700
+Subject: [PATCH] CMakeLists.txt: don't make INSTALL_*_DIR variables to be
+ absolute paths and don't set CMAKE_INSTALL_RPATH
+
+* removes absolute path to /usr/lib/libquanergy_client.so which breaks users like quanergy-client-ros
+
+  QuanergyClientTargets-noconfig.cmake:
+
+  @@ -8,12 +8,12 @@
+   # Import target "quanergy_client" for configuration ""
+   set_property(TARGET quanergy_client APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
+   set_target_properties(quanergy_client PROPERTIES
+  -  IMPORTED_LOCATION_NOCONFIG "/usr/lib/libquanergy_client.so"
+  +  IMPORTED_LOCATION_NOCONFIG "${_IMPORT_PREFIX}/lib/libquanergy_client.so"
+     IMPORTED_SONAME_NOCONFIG "libquanergy_client.so"
+     )
+
+   list(APPEND _IMPORT_CHECK_TARGETS quanergy_client )
+  -list(APPEND _IMPORT_CHECK_FILES_FOR_quanergy_client "/usr/lib/libquanergy_client.so" )
+  +list(APPEND _IMPORT_CHECK_FILES_FOR_quanergy_client "${_IMPORT_PREFIX}/lib/libquanergy_client.so" )
+
+   # Commands beyond this point should not need to know the version.
+   set(CMAKE_IMPORT_FILE_VERSION)
+
+* fixes quanergy-client-ros build which was failing with:
+
+-- Using these message generators: gencpp;gennodejs;genpy
+CMake Error at /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/quanergy-client-ros/4.0.0-1-r0/recipe-sysroot/usr/share/QuanergyClient/QuanergyClientTargets.cmake:74 (message):
+  The imported target "quanergy_client" references the file
+
+     "/usr/lib/libquanergy_client.so"
+
+  but this file does not exist.  Possible reasons include:
+
+  * The file was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and contained
+
+     "/jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/quanergy-client-ros/4.0.0-1-r0/recipe-sysroot/usr/share/QuanergyClient/QuanergyClientTargets.cmake"
+
+  but not all the files it references.
+
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/quanergy-client-ros/4.0.0-1-r0/recipe-sysroot/usr/share/QuanergyClient/QuanergyClientConfig.cmake:12 (include)
+  CMakeLists.txt:16 (find_package)
+
+* and remove CMAKE_INSTALL_RPATH to fix:
+  ERROR: quanergy-client-5.0.0-1-r0 do_package_qa: QA Issue: quanergy-client-dev: /usr/share/QuanergyClient/libquanergy_client.so contains probably-redundant RPATH /usr/lib [useless-rpaths]
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 27 +--------------------------
+ 1 file changed, 1 insertion(+), 26 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4d8f84e..586e811 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,27 +26,6 @@ set(INSTALL_CMAKE_DIR share/${PROJECT_NAME} CACHE PATH "Installation directory f
+ option(PACKAGE_FOR_DEV "Create -dev package" ON)
+ option(BUILD_APPS "Build applications" OFF)
+ 
+-
+-# Make relative paths absolute (needed later on)
+-foreach(p LIB BIN INCLUDE CMAKE)
+-  set(var INSTALL_${p}_DIR)
+-  if(NOT IS_ABSOLUTE "${${var}}")
+-    set(${var} "${CMAKE_INSTALL_PREFIX}/${${var}}")
+-  endif()
+-endforeach()
+-
+-
+-SET(CMAKE_SKIP_BUILD_RPATH  FALSE)
+-SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+-SET(CMAKE_INSTALL_RPATH "${INSTALL_LIB_DIR}")
+-SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+-LIST(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${INSTALL_LIB_DIR}" is_system_dir)
+-IF("${is_system_dir}" STREQUAL "-1")
+-  SET(CMAKE_INSTALL_RPATH "${INSTALL_LIB_DIR}")
+-ENDIF("${is_system_dir}" STREQUAL "-1")
+-
+-
+-
+ if (NoViz OR CMAKE_CROSSCOMPILING)
+   find_package(PCL REQUIRED common io)
+ else()
+@@ -190,17 +169,13 @@ export(TARGETS quanergy_client FILE "${PROJECT_BINARY_DIR}/QuanergyClientTargets
+ # export(PACKAGE QuanergyClient)
+ export(PACKAGE quanergy_client)
+ 
+-# Create the QuanergyClientConfig.cmake and QuanergyClientConfigVersion files
+-file(RELATIVE_PATH REL_INCLUDE_DIR "${INSTALL_CMAKE_DIR}" ${INSTALL_INCLUDE_DIR})
+-
+-
+ # ... for the build tree
+ set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/include")
+ configure_file(cmake/QuanergyClientConfig.cmake.in
+   "${PROJECT_BINARY_DIR}/QuanergyClientConfig.cmake" @ONLY)
+ 
+ # ... for the install tree
+-set(CONF_INCLUDE_DIRS "\${QUANERGY_CLIENT_CMAKE_DIR}/${REL_INCLUDE_DIR}" "${PCL_INCLUDE_DIRS}")
++set(CONF_INCLUDE_DIRS "\${QUANERGY_CLIENT_CMAKE_DIR}/${CMAKE_INCLUDE_DIR}" "${PCL_INCLUDE_DIRS}")
+ configure_file(cmake/QuanergyClientConfig.cmake.in
+   "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/QuanergyClientConfig.cmake" @ONLY)
+ 
