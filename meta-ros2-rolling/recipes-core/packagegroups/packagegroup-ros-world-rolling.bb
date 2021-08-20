@@ -132,6 +132,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     ign-rviz \
     ign-rviz-common \
     ign-rviz-plugins \
+    ignition-cmake2-vendor \
+    ignition-math6-vendor \
     ros-ign \
     ros-ign-bridge \
     ros-ign-gazebo \
@@ -229,6 +231,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz-visual-testing-framework \
     rviz2 \
     turtle-tf2-py \
+    turtle-tf2-cpp \
     turtlesim \
     webots-ros2-epuck \
     webots-ros2-tiago \
@@ -257,6 +260,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
     plotjuggler \
     rmf-traffic-editor \
     turtle-tf2-py \
+    turtle-tf2-cpp \
     turtlesim \
 "
 
