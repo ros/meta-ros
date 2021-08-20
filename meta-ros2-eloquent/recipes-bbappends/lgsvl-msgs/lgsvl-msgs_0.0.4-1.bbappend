@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 ROS_BUILD_DEPENDS += " \
     ament-cmake \
@@ -23,12 +23,4 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-cpp-native \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-generator-py-native \
-"
-ROS_BUILDTOOL_DEPENDSS += " \
-    ament-cmake-export-targets \
-    ament-cmake-gmock \
-    ament-cmake-gtest \
-    ament-cmake-pytest \
-    ament-cmake-ros \
-    ament-cmake-version \
 "
