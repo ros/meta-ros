@@ -750,6 +750,13 @@ daemontools:
   nixos: [daemontools]
   openembedded: [daemontools@meta-oe]
   ubuntu: [daemontools]
+dcraw:
+  arch: [dcraw]
+  debian: [dcraw]
+  fedora: [dcraw]
+  gentoo: [media-gfx/dcraw]
+  opensuse: [dcraw]
+  ubuntu: [dcraw]
 debhelper:
   debian: [debhelper]
   fedora: [debhelper]
@@ -1946,6 +1953,16 @@ intltool:
   nixos: [intltool]
   opensuse: [intltool]
   ubuntu: [intltool]
+inxi:
+  debian: [inxi]
+  fedora: [inxi]
+  gentoo: [sys-apps/inxi]
+  opensuse: [inxi]
+  osx:
+    homebrew:
+      packages: [inxi]
+  rhel: [inxi]
+  ubuntu: [inxi]
 iperf:
   debian: [iperf]
   fedora: [iperf]
@@ -7584,6 +7601,8 @@ v4l-utils:
   gentoo: [media-tv/v4l-utils]
   nixos: [v4l-utils]
   openembedded: [v4l-utils@meta-oe]
+  rhel:
+    '7': [v4l-utils]
   ubuntu: [v4l-utils]
 valgrind:
   debian: [valgrind]
