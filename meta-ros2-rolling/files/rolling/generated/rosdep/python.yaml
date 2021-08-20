@@ -4776,7 +4776,7 @@ python-sphinx-rtd-theme:
     yakkety_python3: [python3-sphinx-rtd-theme]
     zesty: [python-sphinx-rtd-theme]
     zesty_python3: [python3-sphinx-rtd-theme]
-python-spidev-pip:
+python-spidev-pip: &migrate_eol_2025_04_30_python3_spidev_pip
   debian:
     pip:
       packages: [spidev]
@@ -6460,6 +6460,12 @@ python3-gnupg:
   opensuse: [python3-python-gnupg]
   ubuntu: [python3-gnupg]
 python3-google-cloud-texttospeech-pip: *migrate_eol_2025_04_30_python3_google_cloud_texttospeech_pip
+python3-gpiozero:
+  debian: [python3-gpiozero]
+  fedora: [python3-gpiozero]
+  ubuntu:
+    '*': [python3-gpiozero]
+    bionic: null
 python3-gpxpy:
   debian: [python3-gpxpy]
   fedora: [python3-gpxpy]
@@ -7730,6 +7736,16 @@ python3-simple-pid-pip:
   ubuntu:
     pip:
       packages: [simple-pid]
+python3-simplejpeg-pip:
+  debian:
+    pip:
+      packages: [simplejpeg]
+  fedora:
+    pip:
+      packages: [simplejpeg]
+  ubuntu:
+    pip:
+      packages: [simplejpeg]
 python3-simplejson:
   arch: [python-simplejson]
   debian: [python3-simplejson]
@@ -7834,6 +7850,7 @@ python3-sphinx-rtd-theme:
   nixos: [python3Packages.sphinx_rtd_theme]
   rhel: ['python%{python3_pkgversion}-sphinx_rtd_theme']
   ubuntu: [python3-sphinx-rtd-theme]
+python3-spidev-pip: *migrate_eol_2025_04_30_python3_spidev_pip
 python3-sqlalchemy:
   arch: [python-sqlalchemy]
   debian: [python3-sqlalchemy]
@@ -8056,6 +8073,15 @@ python3-virtualserialports-pip:
   ubuntu:
     pip:
       packages: [PyVirtualSerialPorts]
+python3-voluptuous:
+  debian: [python3-voluptuous]
+  fedora: [python3-voluptuous]
+  gentoo: [dev-python/voluptuous]
+  opensuse: [python-voluptuous]
+  rhel:
+    '*': [python3-voluptuous]
+    '7': null
+  ubuntu: [python3-voluptuous]
 python3-watchdog:
   debian: [python3-watchdog]
   fedora: [python3-watchdog]
