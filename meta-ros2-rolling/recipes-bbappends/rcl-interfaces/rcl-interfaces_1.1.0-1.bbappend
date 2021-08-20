@@ -22,6 +22,4 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-typesupport-fastrtps-cpp-native \
-    rmw-fastrtps-cpp-native \
-    rmw-fastrtps-shared-cpp-native \
 "
