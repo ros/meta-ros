@@ -1,0 +1,26 @@
+From 738b7718b53b3e9a2c61926137d76c20eafa5f16 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 25 Aug 2021 09:04:58 +0000
+Subject: [PATCH] Fix build with boost-1.77.0
+
+map is no longer included through other includes
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ .../sick_safetyscanners_base/data_processing/UDPPacketMerger.h   | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h b/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h
+index b14d925..6d50a6e 100644
+--- a/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h
++++ b/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h
+@@ -42,6 +42,7 @@
+ 
+ #include <algorithm>
+ #include <mutex>
++#include <map>
+ 
+ namespace sick {
+ namespace data_processing {
