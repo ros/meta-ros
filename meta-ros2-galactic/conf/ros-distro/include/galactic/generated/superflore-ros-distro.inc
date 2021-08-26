@@ -24,7 +24,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-galactic/files/galactic/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "3"
+ROS_NUM_CACHE_YAML_COMMITS = "4"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -34,6 +34,7 @@ ROS_DISTRO_RELEASE_PLATFORMS = " \
 
 ROS_SUPERFLORE_GENERATED_RECIPES = " \
     acado-vendor \
+    ackermann-msgs \
     action-msgs \
     action-tutorials-cpp \
     action-tutorials-interfaces \
@@ -103,6 +104,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     apriltag \
     async-web-server-cpp \
     autoware-auto-msgs \
+    backward-ros \
     behaviortree-cpp-v3 \
     bno055 \
     bond \
@@ -118,6 +120,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     cartographer-ros-msgs \
     cascade-lifecycle-msgs \
     class-loader \
+    color-names \
     common-interfaces \
     composition \
     composition-interfaces \
@@ -183,6 +186,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     fmi-adapter-examples \
     fmilibrary-vendor \
     foonathan-memory-vendor \
+    four-wheel-steering-msgs \
     gazebo-msgs \
     gazebo-plugins \
     gazebo-ros \
@@ -193,6 +197,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     geographic-msgs \
     geometric-shapes \
     geometry-msgs \
+    geometry-tutorials \
     geometry2 \
     gmock-vendor \
     google-benchmark-vendor \
@@ -204,6 +209,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     grbl-ros \
     gtest-vendor \
     gurumdds-cmake-module \
+    hls-lfcd-lds-driver \
     iceoryx-binding-c \
     iceoryx-posh \
     iceoryx-utils \
@@ -230,6 +236,16 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     joy-teleop \
     kdl-parser \
     key-teleop \
+    lanelet2 \
+    lanelet2-core \
+    lanelet2-examples \
+    lanelet2-io \
+    lanelet2-maps \
+    lanelet2-projection \
+    lanelet2-python \
+    lanelet2-routing \
+    lanelet2-traffic-rules \
+    lanelet2-validation \
     laser-geometry \
     laser-proc \
     launch \
@@ -295,7 +311,11 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     moveit-servo \
     moveit-simple-controller-manager \
     mrpt2 \
-    nao-interfaces \
+    mrt-cmake-modules \
+    nao-button-sim \
+    nao-command-msgs \
+    nao-lola \
+    nao-sensor-msgs \
     nav-2d-msgs \
     nav-2d-utils \
     nav-msgs \
@@ -325,6 +345,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     navigation2 \
     nmea-msgs \
     nodl-python \
+    nodl-to-policy \
     ntpd-driver \
     object-recognition-msgs \
     octomap \
@@ -358,6 +379,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     phidgets-msgs \
     phidgets-spatial \
     phidgets-temperature \
+    picknik-ament-copyright \
     plansys2-bringup \
     plansys2-bt-actions \
     plansys2-core \
@@ -387,6 +409,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     qt-gui-py-common \
     quality-of-service-demo-cpp \
     quality-of-service-demo-py \
+    quaternion-operation \
     radar-msgs \
     random-numbers \
     rc-common-msgs \
@@ -408,6 +431,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rclc \
     rclc-examples \
     rclc-lifecycle \
+    rclc-parameter \
     rclcpp \
     rclcpp-action \
     rclcpp-cascade-lifecycle \
@@ -415,13 +439,16 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rclcpp-lifecycle \
     rclpy \
     rcpputils \
+    rcss3d-agent \
     rcutils \
     realsense2-camera \
     realsense2-camera-msgs \
     realsense2-description \
     realtime-tools \
     resource-retriever \
+    rmf-battery \
     rmf-building-map-msgs \
+    rmf-building-map-tools \
     rmf-charger-msgs \
     rmf-cmake-uncrustify \
     rmf-dispenser-msgs \
@@ -431,6 +458,9 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rmf-lift-msgs \
     rmf-task-msgs \
     rmf-traffic \
+    rmf-traffic-editor \
+    rmf-traffic-editor-assets \
+    rmf-traffic-editor-test-maps \
     rmf-traffic-msgs \
     rmf-utils \
     rmf-visualization-msgs \
@@ -457,6 +487,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ros-ign-gazebo \
     ros-ign-gazebo-demos \
     ros-ign-image \
+    ros-ign-interfaces \
     ros-testing \
     ros-workspace \
     ros1-bridge \
@@ -472,6 +503,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ros2doctor \
     ros2interface \
     ros2launch \
+    ros2launch-security \
+    ros2launch-security-examples \
     ros2lifecycle \
     ros2lifecycle-test-fixtures \
     ros2multicast \
@@ -485,6 +518,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ros2topic \
     ros2trace \
     ros2trace-analysis \
+    rosapi \
     rosbag2 \
     rosbag2-bag-v2-plugins \
     rosbag2-compression \
@@ -498,6 +532,10 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rosbag2-test-common \
     rosbag2-tests \
     rosbag2-transport \
+    rosbridge-library \
+    rosbridge-msgs \
+    rosbridge-server \
+    rosbridge-suite \
     rosgraph-msgs \
     rosidl-adapter \
     rosidl-cli \
@@ -547,8 +585,10 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rqt-srv \
     rqt-top \
     rqt-topic \
+    rtabmap \
     rti-connext-dds-cmake-module \
     rttest \
+    ruckig \
     run-move-group \
     run-moveit-cpp \
     run-ompl-constrained-planning \
@@ -571,6 +611,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     shared-queues-vendor \
     slam-toolbox \
     smclib \
+    soccer-marker-generation \
     soccer-vision-msgs \
     spacenav \
     spdlog-vendor \
@@ -625,6 +666,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     tracetools-test \
     tracetools-trace \
     trajectory-msgs \
+    turtle-tf2-cpp \
+    turtle-tf2-py \
     turtlebot3-fake-node \
     turtlebot3-gazebo \
     turtlebot3-msgs \
@@ -632,9 +675,13 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     turtlesim \
     tvm-vendor \
     ublox \
+    ublox-dgnss \
+    ublox-dgnss-node \
     ublox-gps \
     ublox-msgs \
     ublox-serialization \
+    ublox-ubx-interfaces \
+    ublox-ubx-msgs \
     udp-driver \
     udp-msgs \
     uncrustify-vendor \
@@ -647,7 +694,9 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     urg-c \
     urg-node \
     urg-node-msgs \
+    usb-cam \
     v4l2-camera \
+    vision-msgs \
     vision-opencv \
     visualization-msgs \
     warehouse-ros \
@@ -675,6 +724,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
 
 ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                    acado-vendor/acado-vendor_1.0.0-3 \
+                 ackermann-msgs/ackermann-msgs_2.0.2-1 \
                  rcl-interfaces/action-msgs_1.0.3-2 \
                           demos/action-tutorials-cpp_0.14.3-1 \
                           demos/action-tutorials-interfaces_0.14.3-1 \
@@ -741,9 +791,10 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          angles/angles_1.12.4-2 \
                 apex-containers/apex-containers_0.0.4-2 \
                 apex-test-tools/apex-test-tools_0.0.2-5 \
-                       apriltag/apriltag_3.1.2-4 \
+                       apriltag/apriltag_3.1.5-1 \
            async-web-server-cpp/async-web-server-cpp_2.0.0-2 \
              autoware-auto-msgs/autoware-auto-msgs_1.0.0-2 \
+                   backward-ros/backward-ros_1.0.1-2 \
                behaviortree-cpp/behaviortree-cpp-v3_3.5.6-2 \
                          bno055/bno055_0.1.1-2 \
                       bond-core/bond_3.0.1-4 \
@@ -759,11 +810,12 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                cartographer-ros/cartographer-ros-msgs_1.0.9003-4 \
               cascade-lifecycle/cascade-lifecycle-msgs_1.0.0-2 \
                    class-loader/class-loader_2.1.2-2 \
+                    color-names/color-names_0.0.2-1 \
               common-interfaces/common-interfaces_2.2.3-1 \
                           demos/composition_0.14.3-1 \
                  rcl-interfaces/composition-interfaces_1.0.3-2 \
-        image-transport-plugins/compressed-depth-image-transport_2.3.0-5 \
-        image-transport-plugins/compressed-image-transport_2.3.0-5 \
+        image-transport-plugins/compressed-depth-image-transport_2.3.1-1 \
+        image-transport-plugins/compressed-image-transport_2.3.1-1 \
           console-bridge-vendor/console-bridge-vendor_1.3.2-2 \
                 control-box-rst/control-box-rst_0.0.7-3 \
                    control-msgs/control-msgs_3.0.0-2 \
@@ -777,9 +829,9 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                  image-pipeline/depth-image-proc_2.2.1-3 \
         depthimage-to-laserscan/depthimage-to-laserscan_2.3.1-2 \
                        variants/desktop_0.9.3-2 \
-                    diagnostics/diagnostic-aggregator_2.1.2-2 \
+                    diagnostics/diagnostic-aggregator_2.1.3-1 \
               common-interfaces/diagnostic-msgs_2.2.3-1 \
-                    diagnostics/diagnostic-updater_2.1.2-2 \
+                    diagnostics/diagnostic-updater_2.1.3-1 \
                   domain-bridge/domain-bridge_0.3.0-1 \
                 ament-cmake-ros/domain-coordinator_0.9.2-1 \
                           demos/dummy-map-server_0.14.3-1 \
@@ -817,13 +869,14 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                        examples/examples-rclpy-pointcloud-publisher_0.11.2-1 \
                       geometry2/examples-tf2-py_0.17.2-1 \
                         fastcdr/fastcdr_1.0.20-3 \
-                       fastrtps/fastrtps_2.3.1-1 \
+                       fastrtps/fastrtps_2.3.4-1 \
     rosidl-typesupport-fastrtps/fastrtps-cmake-module_1.2.1-2 \
-                        filters/filters_2.0.0-3 \
+                        filters/filters_2.1.0-1 \
                     fmi-adapter/fmi-adapter_2.1.1-1 \
                     fmi-adapter/fmi-adapter-examples_2.1.1-1 \
               fmilibrary-vendor/fmilibrary-vendor_1.0.1-2 \
         foonathan-memory-vendor/foonathan-memory-vendor_1.0.0-3 \
+       four-wheel-steering-msgs/four-wheel-steering-msgs_2.0.1-1 \
                 gazebo-ros-pkgs/gazebo-msgs_3.5.2-5 \
                 gazebo-ros-pkgs/gazebo-plugins_3.5.2-5 \
                 gazebo-ros-pkgs/gazebo-ros_3.5.2-5 \
@@ -834,6 +887,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                 geographic-info/geographic-msgs_1.0.4-5 \
                geometric-shapes/geometric-shapes_2.1.0-2 \
               common-interfaces/geometry-msgs_2.2.3-1 \
+             geometry-tutorials/geometry-tutorials_0.3.2-1 \
                       geometry2/geometry2_0.17.2-1 \
                      googletest/gmock-vendor_1.10.9003-2 \
         google-benchmark-vendor/google-benchmark-vendor_0.0.6-2 \
@@ -844,7 +898,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                       grbl-msgs/grbl-msgs_0.0.2-5 \
                        grbl-ros/grbl-ros_0.0.15-2 \
                      googletest/gtest-vendor_1.10.9003-2 \
-    rosidl-typesupport-gurumdds/gurumdds-cmake-module_2.0.0-3 \
+    rosidl-typesupport-gurumdds/gurumdds-cmake-module_2.0.1-1 \
+            hls-lfcd-lds-driver/hls-lfcd-lds-driver_2.0.4-1 \
                         iceoryx/iceoryx-binding-c_1.0.0-2 \
                         iceoryx/iceoryx-posh_1.0.0-2 \
                         iceoryx/iceoryx-utils_1.0.0-2 \
@@ -860,7 +915,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                  image-pipeline/image-rotate_2.2.1-3 \
                           demos/image-tools_0.14.3-1 \
                    image-common/image-transport_2.3.0-3 \
-        image-transport-plugins/image-transport-plugins_2.3.0-5 \
+        image-transport-plugins/image-transport-plugins_2.3.1-1 \
                  image-pipeline/image-view_2.2.1-3 \
             interactive-markers/interactive-markers_2.2.0-2 \
                           demos/intra-process-demo_0.14.3-1 \
@@ -871,11 +926,21 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                    teleop-tools/joy-teleop_1.2.1-2 \
                      kdl-parser/kdl-parser_2.5.0-2 \
                    teleop-tools/key-teleop_1.2.1-2 \
+                       lanelet2/lanelet2_1.1.1-2 \
+                       lanelet2/lanelet2-core_1.1.1-2 \
+                       lanelet2/lanelet2-examples_1.1.1-2 \
+                       lanelet2/lanelet2-io_1.1.1-2 \
+                       lanelet2/lanelet2-maps_1.1.1-2 \
+                       lanelet2/lanelet2-projection_1.1.1-2 \
+                       lanelet2/lanelet2-python_1.1.1-2 \
+                       lanelet2/lanelet2-routing_1.1.1-2 \
+                       lanelet2/lanelet2-traffic-rules_1.1.1-2 \
+                       lanelet2/lanelet2-validation_1.1.1-2 \
                  laser-geometry/laser-geometry_2.2.1-2 \
                      laser-proc/laser-proc_1.0.2-4 \
                          launch/launch_0.17.0-2 \
                      launch-ros/launch-ros_0.14.2-1 \
-                   system-modes/launch-system-modes_0.8.0-1 \
+                   system-modes/launch-system-modes_0.9.0-1 \
                          launch/launch-testing_0.17.0-2 \
                          launch/launch-testing-ament-cmake_0.17.0-2 \
                      launch-ros/launch-testing-ros_0.14.2-1 \
@@ -885,9 +950,9 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
              resource-retriever/libcurl-vendor_2.5.0-2 \
                          libg2o/libg2o_2020.5.29-3 \
                          mavros/libmavconn_2.0.3-1 \
-               phidgets-drivers/libphidget22_2.2.0-1 \
-                  librealsense2/librealsense2_2.48.0-1 \
-        libstatistics-collector/libstatistics-collector_1.1.0-3 \
+               phidgets-drivers/libphidget22_2.2.1-1 \
+                  librealsense2/librealsense2_2.48.0-2 \
+        libstatistics-collector/libstatistics-collector_1.1.1-1 \
                  libyaml-vendor/libyaml-vendor_1.2.0-2 \
                           demos/lifecycle_0.14.3-1 \
                  rcl-interfaces/lifecycle-msgs_1.0.3-2 \
@@ -901,42 +966,46 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                  marti-messages/marti-sensor-msgs_1.1.0-3 \
                  marti-messages/marti-status-msgs_1.1.0-3 \
                  marti-messages/marti-visualization-msgs_1.1.0-3 \
-                        mavlink/mavlink_2021.7.7-1 \
+                        mavlink/mavlink_2021.8.8-1 \
                          mavros/mavros_2.0.3-1 \
                          mavros/mavros-msgs_2.0.3-1 \
                    menge-vendor/menge-vendor_1.0.0-1 \
                 message-filters/message-filters_3.2.6-1 \
                   mimick-vendor/mimick-vendor_0.2.6-2 \
                    teleop-tools/mouse-teleop_1.2.1-2 \
-                         moveit/moveit_2.2.0-1 \
-                         moveit/moveit-common_2.2.0-1 \
-                         moveit/moveit-core_2.2.0-1 \
-                         moveit/moveit-kinematics_2.2.0-1 \
+                         moveit/moveit_2.2.1-1 \
+                         moveit/moveit-common_2.2.1-1 \
+                         moveit/moveit-core_2.2.1-1 \
+                         moveit/moveit-kinematics_2.2.1-1 \
                     moveit-msgs/moveit-msgs_2.1.0-1 \
-                         moveit/moveit-planners_2.2.0-1 \
-                         moveit/moveit-planners-ompl_2.2.0-1 \
-                         moveit/moveit-plugins_2.2.0-1 \
+                         moveit/moveit-planners_2.2.1-1 \
+                         moveit/moveit-planners-ompl_2.2.1-1 \
+                         moveit/moveit-plugins_2.2.1-1 \
                moveit-resources/moveit-resources_2.0.2-1 \
                moveit-resources/moveit-resources-fanuc-description_2.0.2-1 \
                moveit-resources/moveit-resources-fanuc-moveit-config_2.0.2-1 \
                moveit-resources/moveit-resources-panda-description_2.0.2-1 \
                moveit-resources/moveit-resources-panda-moveit-config_2.0.2-1 \
                moveit-resources/moveit-resources-pr2-description_2.0.2-1 \
-                         moveit/moveit-ros_2.2.0-1 \
-                         moveit/moveit-ros-benchmarks_2.2.0-1 \
-                         moveit/moveit-ros-move-group_2.2.0-1 \
-                         moveit/moveit-ros-occupancy-map-monitor_2.2.0-1 \
-                         moveit/moveit-ros-perception_2.2.0-1 \
-                         moveit/moveit-ros-planning_2.2.0-1 \
-                         moveit/moveit-ros-planning-interface_2.2.0-1 \
-                         moveit/moveit-ros-robot-interaction_2.2.0-1 \
-                         moveit/moveit-ros-visualization_2.2.0-1 \
-                         moveit/moveit-ros-warehouse_2.2.0-1 \
-                         moveit/moveit-runtime_2.2.0-1 \
-                         moveit/moveit-servo_2.2.0-1 \
-                         moveit/moveit-simple-controller-manager_2.2.0-1 \
+                         moveit/moveit-ros_2.2.1-1 \
+                         moveit/moveit-ros-benchmarks_2.2.1-1 \
+                         moveit/moveit-ros-move-group_2.2.1-1 \
+                         moveit/moveit-ros-occupancy-map-monitor_2.2.1-1 \
+                         moveit/moveit-ros-perception_2.2.1-1 \
+                         moveit/moveit-ros-planning_2.2.1-1 \
+                         moveit/moveit-ros-planning-interface_2.2.1-1 \
+                         moveit/moveit-ros-robot-interaction_2.2.1-1 \
+                         moveit/moveit-ros-visualization_2.2.1-1 \
+                         moveit/moveit-ros-warehouse_2.2.1-1 \
+                         moveit/moveit-runtime_2.2.1-1 \
+                         moveit/moveit-servo_2.2.1-1 \
+                         moveit/moveit-simple-controller-manager_2.2.1-1 \
                           mrpt2/mrpt2_2.1.3-3 \
-                 nao-interfaces/nao-interfaces_0.0.2-1 \
+              mrt-cmake-modules/mrt-cmake-modules_1.0.8-3 \
+                  naosoccer-sim/nao-button-sim_0.0.2-1 \
+                 nao-interfaces/nao-command-msgs_0.0.3-1 \
+                       nao-lola/nao-lola_0.0.3-1 \
+                 nao-interfaces/nao-sensor-msgs_0.0.3-1 \
                     navigation2/nav-2d-msgs_1.0.6-1 \
                     navigation2/nav-2d-utils_1.0.6-1 \
               common-interfaces/nav-msgs_2.2.3-1 \
@@ -966,6 +1035,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                     navigation2/navigation2_1.0.6-1 \
                       nmea-msgs/nmea-msgs_2.0.0-3 \
                            nodl/nodl-python_0.3.1-2 \
+                 nodl-to-policy/nodl-to-policy_1.0.0-1 \
                     ntpd-driver/ntpd-driver_2.1.0-1 \
         object-recognition-msgs/object-recognition-msgs_2.0.0-1 \
                         octomap/octomap_1.9.7-1 \
@@ -985,35 +1055,36 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                           demos/pendulum-msgs_0.14.3-1 \
                  perception-pcl/perception-pcl_2.3.1-1 \
        performance-test-fixture/performance-test-fixture_0.0.7-2 \
-               phidgets-drivers/phidgets-accelerometer_2.2.0-1 \
-               phidgets-drivers/phidgets-analog-inputs_2.2.0-1 \
-               phidgets-drivers/phidgets-api_2.2.0-1 \
-               phidgets-drivers/phidgets-digital-inputs_2.2.0-1 \
-               phidgets-drivers/phidgets-digital-outputs_2.2.0-1 \
-               phidgets-drivers/phidgets-drivers_2.2.0-1 \
-               phidgets-drivers/phidgets-gyroscope_2.2.0-1 \
-               phidgets-drivers/phidgets-high-speed-encoder_2.2.0-1 \
-               phidgets-drivers/phidgets-ik_2.2.0-1 \
-               phidgets-drivers/phidgets-magnetometer_2.2.0-1 \
-               phidgets-drivers/phidgets-motors_2.2.0-1 \
-               phidgets-drivers/phidgets-msgs_2.2.0-1 \
-               phidgets-drivers/phidgets-spatial_2.2.0-1 \
-               phidgets-drivers/phidgets-temperature_2.2.0-1 \
-           ros2-planning-system/plansys2-bringup_2.0.0-2 \
-           ros2-planning-system/plansys2-bt-actions_2.0.0-2 \
-           ros2-planning-system/plansys2-core_2.0.0-2 \
-           ros2-planning-system/plansys2-domain-expert_2.0.0-2 \
-           ros2-planning-system/plansys2-executor_2.0.0-2 \
-           ros2-planning-system/plansys2-lifecycle-manager_2.0.0-2 \
-           ros2-planning-system/plansys2-msgs_2.0.0-2 \
-           ros2-planning-system/plansys2-pddl-parser_2.0.0-2 \
-           ros2-planning-system/plansys2-planner_2.0.0-2 \
-           ros2-planning-system/plansys2-popf-plan-solver_2.0.0-2 \
-           ros2-planning-system/plansys2-problem-expert_2.0.0-2 \
-           ros2-planning-system/plansys2-terminal_2.0.0-2 \
+               phidgets-drivers/phidgets-accelerometer_2.2.1-1 \
+               phidgets-drivers/phidgets-analog-inputs_2.2.1-1 \
+               phidgets-drivers/phidgets-api_2.2.1-1 \
+               phidgets-drivers/phidgets-digital-inputs_2.2.1-1 \
+               phidgets-drivers/phidgets-digital-outputs_2.2.1-1 \
+               phidgets-drivers/phidgets-drivers_2.2.1-1 \
+               phidgets-drivers/phidgets-gyroscope_2.2.1-1 \
+               phidgets-drivers/phidgets-high-speed-encoder_2.2.1-1 \
+               phidgets-drivers/phidgets-ik_2.2.1-1 \
+               phidgets-drivers/phidgets-magnetometer_2.2.1-1 \
+               phidgets-drivers/phidgets-motors_2.2.1-1 \
+               phidgets-drivers/phidgets-msgs_2.2.1-1 \
+               phidgets-drivers/phidgets-spatial_2.2.1-1 \
+               phidgets-drivers/phidgets-temperature_2.2.1-1 \
+        picknik-ament-copyright/picknik-ament-copyright_0.0.1-1 \
+           ros2-planning-system/plansys2-bringup_2.0.0-3 \
+           ros2-planning-system/plansys2-bt-actions_2.0.0-3 \
+           ros2-planning-system/plansys2-core_2.0.0-3 \
+           ros2-planning-system/plansys2-domain-expert_2.0.0-3 \
+           ros2-planning-system/plansys2-executor_2.0.0-3 \
+           ros2-planning-system/plansys2-lifecycle-manager_2.0.0-3 \
+           ros2-planning-system/plansys2-msgs_2.0.0-3 \
+           ros2-planning-system/plansys2-pddl-parser_2.0.0-3 \
+           ros2-planning-system/plansys2-planner_2.0.0-3 \
+           ros2-planning-system/plansys2-popf-plan-solver_2.0.0-3 \
+           ros2-planning-system/plansys2-problem-expert_2.0.0-3 \
+           ros2-planning-system/plansys2-terminal_2.0.0-3 \
                     plotjuggler/plotjuggler_3.2.1-2 \
                plotjuggler-msgs/plotjuggler-msgs_0.1.2-1 \
-                plotjuggler-ros/plotjuggler-ros_1.5.0-1 \
+                plotjuggler-ros/plotjuggler-ros_1.5.1-1 \
                       pluginlib/pluginlib_5.0.0-2 \
                            popf/popf_0.0.13-1 \
                 pybind11-vendor/pybind11-vendor_2.2.6-2 \
@@ -1028,15 +1099,16 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                     qt-gui-core/qt-gui-py-common_2.0.1-1 \
                           demos/quality-of-service-demo-cpp_0.14.3-1 \
                           demos/quality-of-service-demo-py_0.14.3-1 \
+           quaternion-operation/quaternion-operation_0.0.6-1 \
                      radar-msgs/radar-msgs_0.2.1-1 \
                  random-numbers/random-numbers_2.0.1-1 \
                  rc-common-msgs/rc-common-msgs_0.5.3-3 \
                 rc-dynamics-api/rc-dynamics-api_0.10.3-2 \
-                 rc-genicam-api/rc-genicam-api_2.5.0-2 \
-              rc-genicam-driver/rc-genicam-driver_0.1.3-2 \
+                 rc-genicam-api/rc-genicam-api_2.5.6-1 \
+              rc-genicam-driver/rc-genicam-driver_0.2.0-1 \
               rc-reason-clients/rc-reason-clients_0.2.1-1 \
               rc-reason-clients/rc-reason-msgs_0.2.1-1 \
-                     rcdiscover/rcdiscover_1.1.2-1 \
+                     rcdiscover/rcdiscover_1.1.4-1 \
                             rcl/rcl_3.1.2-1 \
                             rcl/rcl-action_3.1.2-1 \
                  rcl-interfaces/rcl-interfaces_1.0.3-2 \
@@ -1046,9 +1118,10 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                     rcl-logging/rcl-logging-noop_2.1.2-2 \
                     rcl-logging/rcl-logging-spdlog_2.1.2-2 \
                             rcl/rcl-yaml-param-parser_3.1.2-1 \
-                           rclc/rclc_2.0.1-1 \
-                           rclc/rclc-examples_2.0.1-1 \
-                           rclc/rclc-lifecycle_2.0.1-1 \
+                           rclc/rclc_2.0.4-1 \
+                           rclc/rclc-examples_2.0.4-1 \
+                           rclc/rclc-lifecycle_2.0.4-1 \
+                           rclc/rclc-parameter_2.0.4-1 \
                          rclcpp/rclcpp_9.1.0-1 \
                          rclcpp/rclcpp-action_9.1.0-1 \
               cascade-lifecycle/rclcpp-cascade-lifecycle_1.0.0-2 \
@@ -1056,13 +1129,16 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          rclcpp/rclcpp-lifecycle_9.1.0-1 \
                           rclpy/rclpy_1.9.0-1 \
                       rcpputils/rcpputils_2.2.0-2 \
+                  naosoccer-sim/rcss3d-agent_0.0.2-1 \
                         rcutils/rcutils_4.0.2-2 \
-              realsense2-camera/realsense2-camera_3.2.2-1 \
-              realsense2-camera/realsense2-camera-msgs_3.2.2-1 \
-              realsense2-camera/realsense2-description_3.2.2-1 \
+              realsense2-camera/realsense2-camera_3.2.2-2 \
+              realsense2-camera/realsense2-camera-msgs_3.2.2-2 \
+              realsense2-camera/realsense2-description_3.2.2-2 \
                  realtime-tools/realtime-tools_2.1.1-1 \
              resource-retriever/resource-retriever_2.5.0-2 \
+                    rmf-battery/rmf-battery_0.1.0-1 \
           rmf-building-map-msgs/rmf-building-map-msgs_1.2.0-1 \
+             rmf-traffic-editor/rmf-building-map-tools_1.3.0-1 \
               rmf-internal-msgs/rmf-charger-msgs_1.3.0-1 \
            rmf-cmake-uncrustify/rmf-cmake-uncrustify_1.2.0-1 \
               rmf-internal-msgs/rmf-dispenser-msgs_1.3.0-1 \
@@ -1072,6 +1148,9 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
               rmf-internal-msgs/rmf-lift-msgs_1.3.0-1 \
               rmf-internal-msgs/rmf-task-msgs_1.3.0-1 \
                     rmf-traffic/rmf-traffic_1.3.0-1 \
+             rmf-traffic-editor/rmf-traffic-editor_1.3.0-1 \
+             rmf-traffic-editor/rmf-traffic-editor-assets_1.3.0-1 \
+             rmf-traffic-editor/rmf-traffic-editor-test-maps_1.3.0-1 \
               rmf-internal-msgs/rmf-traffic-msgs_1.3.0-1 \
                       rmf-utils/rmf-utils_1.3.0-1 \
          rmf-visualization-msgs/rmf-visualization-msgs_1.2.0-1 \
@@ -1081,23 +1160,24 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                  rmw-connextdds/rmw-connextdds-common_0.6.2-1 \
                  rmw-cyclonedds/rmw-cyclonedds-cpp_0.22.3-1 \
                  rmw-dds-common/rmw-dds-common_1.2.1-2 \
-                   rmw-fastrtps/rmw-fastrtps-cpp_5.0.0-2 \
-                   rmw-fastrtps/rmw-fastrtps-dynamic-cpp_5.0.0-2 \
-                   rmw-fastrtps/rmw-fastrtps-shared-cpp_5.0.0-2 \
-                   rmw-gurumdds/rmw-gurumdds-cpp_2.1.7-1 \
-                   rmw-gurumdds/rmw-gurumdds-shared-cpp_2.1.7-1 \
+                   rmw-fastrtps/rmw-fastrtps-cpp_5.0.1-1 \
+                   rmw-fastrtps/rmw-fastrtps-dynamic-cpp_5.0.1-1 \
+                   rmw-fastrtps/rmw-fastrtps-shared-cpp_5.0.1-1 \
+                   rmw-gurumdds/rmw-gurumdds-cpp_2.1.8-1 \
+                   rmw-gurumdds/rmw-gurumdds-shared-cpp_2.1.8-1 \
              rmw-implementation/rmw-implementation_2.4.1-3 \
                             rmw/rmw-implementation-cmake_3.3.1-1 \
              robot-localization/robot-localization_3.2.3-1 \
-          robot-state-publisher/robot-state-publisher_2.4.3-2 \
+          robot-state-publisher/robot-state-publisher_2.5.1-1 \
                        variants/ros-base_0.9.3-2 \
                        variants/ros-core_0.9.3-2 \
                 ros-environment/ros-environment_3.1.0-1 \
-                        ros-ign/ros-ign_0.233.1-5 \
-                        ros-ign/ros-ign-bridge_0.233.1-5 \
-                        ros-ign/ros-ign-gazebo_0.233.1-5 \
-                        ros-ign/ros-ign-gazebo-demos_0.233.1-5 \
-                        ros-ign/ros-ign-image_0.233.1-5 \
+                        ros-ign/ros-ign_0.233.2-1 \
+                        ros-ign/ros-ign-bridge_0.233.2-1 \
+                        ros-ign/ros-ign-gazebo_0.233.2-1 \
+                        ros-ign/ros-ign-gazebo-demos_0.233.2-1 \
+                        ros-ign/ros-ign-image_0.233.2-1 \
+                        ros-ign/ros-ign-interfaces_0.233.2-1 \
                     ros-testing/ros-testing_0.3.0-2 \
                   ros-workspace/ros-workspace_1.0.2-2 \
                     ros1-bridge/ros1-bridge_0.10.1-2 \
@@ -1105,7 +1185,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
             ros2-ouster-drivers/ros2-ouster_0.3.0-1 \
                  ros2-socketcan/ros2-socketcan_1.0.0-2 \
                         ros2cli/ros2action_0.13.2-1 \
-                        rosbag2/ros2bag_0.9.0-1 \
+                        rosbag2/ros2bag_0.9.1-3 \
                         ros2cli/ros2cli_0.13.2-1 \
       ros2cli-common-extensions/ros2cli-common-extensions_0.1.1-2 \
                         ros2cli/ros2cli-test-interfaces_0.13.2-1 \
@@ -1113,6 +1193,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                         ros2cli/ros2doctor_0.13.2-1 \
                         ros2cli/ros2interface_0.13.2-1 \
                      launch-ros/ros2launch_0.14.2-1 \
+            ros2launch-security/ros2launch-security_1.0.0-1 \
+            ros2launch-security/ros2launch-security-examples_1.0.0-1 \
                         ros2cli/ros2lifecycle_0.13.2-1 \
                         ros2cli/ros2lifecycle-test-fixtures_0.13.2-1 \
                         ros2cli/ros2multicast_0.13.2-1 \
@@ -1126,19 +1208,24 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                         ros2cli/ros2topic_0.13.2-1 \
                    ros2-tracing/ros2trace_2.3.0-2 \
             tracetools-analysis/ros2trace-analysis_2.0.3-4 \
-                        rosbag2/rosbag2_0.9.0-1 \
+                rosbridge-suite/rosapi_1.0.7-1 \
+                        rosbag2/rosbag2_0.9.1-3 \
                  rosbag2-bag-v2/rosbag2-bag-v2-plugins_0.2.0-1 \
-                        rosbag2/rosbag2-compression_0.9.0-1 \
-                        rosbag2/rosbag2-compression-zstd_0.9.0-1 \
-                        rosbag2/rosbag2-cpp_0.9.0-1 \
-                        rosbag2/rosbag2-interfaces_0.9.0-1 \
-                        rosbag2/rosbag2-performance-benchmarking_0.9.0-1 \
-                        rosbag2/rosbag2-py_0.9.0-1 \
-                        rosbag2/rosbag2-storage_0.9.0-1 \
-                        rosbag2/rosbag2-storage-default-plugins_0.9.0-1 \
-                        rosbag2/rosbag2-test-common_0.9.0-1 \
-                        rosbag2/rosbag2-tests_0.9.0-1 \
-                        rosbag2/rosbag2-transport_0.9.0-1 \
+                        rosbag2/rosbag2-compression_0.9.1-3 \
+                        rosbag2/rosbag2-compression-zstd_0.9.1-3 \
+                        rosbag2/rosbag2-cpp_0.9.1-3 \
+                        rosbag2/rosbag2-interfaces_0.9.1-3 \
+                        rosbag2/rosbag2-performance-benchmarking_0.9.1-3 \
+                        rosbag2/rosbag2-py_0.9.1-3 \
+                        rosbag2/rosbag2-storage_0.9.1-3 \
+                        rosbag2/rosbag2-storage-default-plugins_0.9.1-3 \
+                        rosbag2/rosbag2-test-common_0.9.1-3 \
+                        rosbag2/rosbag2-tests_0.9.1-3 \
+                        rosbag2/rosbag2-transport_0.9.1-3 \
+                rosbridge-suite/rosbridge-library_1.0.7-1 \
+                rosbridge-suite/rosbridge-msgs_1.0.7-1 \
+                rosbridge-suite/rosbridge-server_1.0.7-1 \
+                rosbridge-suite/rosbridge-suite_1.0.7-1 \
                  rcl-interfaces/rosgraph-msgs_1.0.3-2 \
                          rosidl/rosidl-adapter_2.2.1-2 \
                          rosidl/rosidl-cli_2.2.1-2 \
@@ -1188,11 +1275,13 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                         rqt-srv/rqt-srv_1.0.2-1 \
                         rqt-top/rqt-top_1.0.1-1 \
                       rqt-topic/rqt-topic_1.2.1-2 \
+                        rtabmap/rtabmap_0.20.13-1 \
                  rmw-connextdds/rti-connext-dds-cmake-module_0.6.2-1 \
                realtime-support/rttest_0.11.0-2 \
-                         moveit/run-move-group_2.2.0-1 \
-                         moveit/run-moveit-cpp_2.2.0-1 \
-                         moveit/run-ompl-constrained-planning_2.2.0-1 \
+                         ruckig/ruckig_0.3.3-3 \
+                         moveit/run-move-group_2.2.1-1 \
+                         moveit/run-moveit-cpp_2.2.1-1 \
+                         moveit/run-ompl-constrained-planning_2.2.1-1 \
                            rviz/rviz-assimp-vendor_8.5.0-3 \
                            rviz/rviz-common_8.5.0-3 \
                            rviz/rviz-default-plugins_8.5.0-3 \
@@ -1204,18 +1293,19 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                   sdformat-urdf/sdformat-test-files_0.1.0-2 \
                   sdformat-urdf/sdformat-urdf_0.1.0-2 \
                joystick-drivers/sdl2-vendor_3.0.0-5 \
-                    diagnostics/self-test_2.1.2-2 \
+                    diagnostics/self-test_2.1.3-1 \
               common-interfaces/sensor-msgs_2.2.3-1 \
               common-interfaces/sensor-msgs-py_2.2.3-1 \
               transport-drivers/serial-driver_0.0.6-2 \
               common-interfaces/shape-msgs_2.2.3-1 \
-                        rosbag2/shared-queues-vendor_0.9.0-1 \
+                        rosbag2/shared-queues-vendor_0.9.1-3 \
                    slam-toolbox/slam-toolbox_2.5.0-2 \
                       bond-core/smclib_3.0.1-4 \
-              soccer-interfaces/soccer-vision-msgs_0.0.1-1 \
+           soccer-visualization/soccer-marker-generation_0.0.1-1 \
+              soccer-interfaces/soccer-vision-msgs_1.0.0-1 \
                joystick-drivers/spacenav_3.0.0-5 \
                   spdlog-vendor/spdlog-vendor_1.3.0-2 \
-                        rosbag2/sqlite3-vendor_0.9.0-1 \
+                        rosbag2/sqlite3-vendor_0.9.1-3 \
                         srdfdom/srdfdom_2.0.2-1 \
                           sros2/sros2_0.10.2-2 \
                           sros2/sros2-cmake_0.10.2-2 \
@@ -1226,18 +1316,18 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
               common-interfaces/stereo-msgs_2.2.3-1 \
                stubborn-buddies/stubborn-buddies_1.0.0-1 \
                stubborn-buddies/stubborn-buddies-msgs_1.0.0-1 \
-                   system-modes/system-modes_0.8.0-1 \
-                   system-modes/system-modes-examples_0.8.0-1 \
-                   system-modes/system-modes-msgs_0.8.0-1 \
+                   system-modes/system-modes_0.9.0-1 \
+                   system-modes/system-modes-examples_0.9.0-1 \
+                   system-modes/system-modes-msgs_0.9.0-1 \
              tango-icons-vendor/tango-icons-vendor_0.1.0-2 \
                    teleop-tools/teleop-tools_1.2.1-2 \
                    teleop-tools/teleop-tools-msgs_1.2.1-2 \
-               teleop-twist-joy/teleop-twist-joy_2.4.2-2 \
+               teleop-twist-joy/teleop-twist-joy_2.4.3-1 \
           teleop-twist-keyboard/teleop-twist-keyboard_2.3.2-3 \
                 apex-test-tools/test-apex-test-tools_0.0.2-5 \
                       bond-core/test-bond_3.0.1-4 \
            test-interface-files/test-interface-files_0.8.1-2 \
-                   system-modes/test-launch-system-modes_0.8.0-1 \
+                   system-modes/test-launch-system-modes_0.9.0-1 \
                  rcl-interfaces/test-msgs_1.0.3-2 \
              tf-transformations/tf-transformations_1.0.2-1 \
                       geometry2/tf2_0.17.2-1 \
@@ -1252,7 +1342,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                       geometry2/tf2-ros-py_0.17.2-1 \
                       geometry2/tf2-sensor-msgs_0.17.2-1 \
                       geometry2/tf2-tools_0.17.2-1 \
-        image-transport-plugins/theora-image-transport_2.3.0-5 \
+        image-transport-plugins/theora-image-transport_2.3.1-1 \
                  tinyxml-vendor/tinyxml-vendor_0.8.2-2 \
                 tinyxml2-vendor/tinyxml2-vendor_0.7.4-2 \
                            tlsf/tlsf_0.5.2-2 \
@@ -1266,16 +1356,22 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                    ros2-tracing/tracetools-test_2.3.0-2 \
                    ros2-tracing/tracetools-trace_2.3.0-2 \
               common-interfaces/trajectory-msgs_2.2.3-1 \
-         turtlebot3-simulations/turtlebot3-fake-node_2.2.4-1 \
-         turtlebot3-simulations/turtlebot3-gazebo_2.2.4-1 \
+             geometry-tutorials/turtle-tf2-cpp_0.3.2-1 \
+             geometry-tutorials/turtle-tf2-py_0.3.2-1 \
+         turtlebot3-simulations/turtlebot3-fake-node_2.2.4-2 \
+         turtlebot3-simulations/turtlebot3-gazebo_2.2.4-2 \
                 turtlebot3-msgs/turtlebot3-msgs_2.2.2-3 \
-         turtlebot3-simulations/turtlebot3-simulations_2.2.4-1 \
+         turtlebot3-simulations/turtlebot3-simulations_2.2.4-2 \
                       turtlesim/turtlesim_1.3.3-1 \
                      tvm-vendor/tvm-vendor_0.7.3-1 \
                           ublox/ublox_2.0.0-3 \
+                    ublox-dgnss/ublox-dgnss_0.2.3-4 \
+                    ublox-dgnss/ublox-dgnss-node_0.2.3-4 \
                           ublox/ublox-gps_2.0.0-3 \
                           ublox/ublox-msgs_2.0.0-3 \
                           ublox/ublox-serialization_2.0.0-3 \
+                    ublox-dgnss/ublox-ubx-interfaces_0.2.3-4 \
+                    ublox-dgnss/ublox-ubx-msgs_0.2.3-4 \
               transport-drivers/udp-driver_0.0.6-2 \
                        udp-msgs/udp-msgs_0.0.3-3 \
               uncrustify-vendor/uncrustify-vendor_1.5.3-2 \
@@ -1288,7 +1384,9 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                           urg-c/urg-c_1.0.4001-3 \
                        urg-node/urg-node_1.1.0-2 \
                   urg-node-msgs/urg-node-msgs_1.0.1-5 \
+                        usb-cam/usb-cam_0.4.0-1 \
                     v4l2-camera/v4l2-camera_0.4.0-2 \
+                    vision-msgs/vision-msgs_3.0.1-1 \
                   vision-opencv/vision-opencv_2.2.1-2 \
               common-interfaces/visualization-msgs_2.2.3-1 \
                   warehouse-ros/warehouse-ros_2.0.3-1 \
@@ -1311,13 +1409,14 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                joystick-drivers/wiimote-msgs_3.0.0-5 \
                           xacro/xacro_2.0.6-1 \
                 yaml-cpp-vendor/yaml-cpp-vendor_7.1.0-2 \
-                        rosbag2/zstd-vendor_0.9.0-1 \
+                        rosbag2/zstd-vendor_0.9.1-3 \
 "
 
 # What's built by packagegroup-ros-world. Does not include packages that appear solely in ROS_SUPERFLORE_GENERATED_BUILDTOOLS
 # (with a -native suffix) or ROS_SUPERFLORE_GENERATED_TESTS.
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     acado-vendor \
+    ackermann-msgs \
     action-msgs \
     action-tutorials-cpp \
     action-tutorials-interfaces \
@@ -1346,7 +1445,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-cmake-include-directories \
     ament-cmake-libraries \
     ament-cmake-lint-cmake \
-    ament-cmake-nose \
     ament-cmake-pep257 \
     ament-cmake-pycodestyle \
     ament-cmake-pyflakes \
@@ -1358,6 +1456,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-cmake-uncrustify \
     ament-cmake-version \
     ament-cmake-xmllint \
+    ament-copyright \
     ament-cppcheck \
     ament-cpplint \
     ament-index-cpp \
@@ -1375,6 +1474,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     apriltag \
     async-web-server-cpp \
     autoware-auto-msgs \
+    backward-ros \
     behaviortree-cpp-v3 \
     bno055 \
     bond \
@@ -1390,6 +1490,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     cartographer-ros-msgs \
     cascade-lifecycle-msgs \
     class-loader \
+    color-names \
     common-interfaces \
     composition \
     composition-interfaces \
@@ -1455,6 +1556,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     fmi-adapter-examples \
     fmilibrary-vendor \
     foonathan-memory-vendor \
+    four-wheel-steering-msgs \
     gazebo-msgs \
     gazebo-plugins \
     gazebo-ros \
@@ -1465,6 +1567,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     geographic-msgs \
     geometric-shapes \
     geometry-msgs \
+    geometry-tutorials \
     geometry2 \
     gmock-vendor \
     google-benchmark-vendor \
@@ -1476,6 +1579,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     grbl-ros \
     gtest-vendor \
     gurumdds-cmake-module \
+    hls-lfcd-lds-driver \
     iceoryx-binding-c \
     iceoryx-posh \
     iceoryx-utils \
@@ -1502,6 +1606,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     joy-teleop \
     kdl-parser \
     key-teleop \
+    lanelet2 \
+    lanelet2-core \
+    lanelet2-examples \
+    lanelet2-io \
+    lanelet2-maps \
+    lanelet2-projection \
+    lanelet2-python \
+    lanelet2-routing \
+    lanelet2-traffic-rules \
+    lanelet2-validation \
     laser-geometry \
     laser-proc \
     launch \
@@ -1566,7 +1680,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     moveit-servo \
     moveit-simple-controller-manager \
     mrpt2 \
-    nao-interfaces \
+    mrt-cmake-modules \
+    nao-button-sim \
+    nao-command-msgs \
+    nao-lola \
+    nao-sensor-msgs \
     nav-2d-msgs \
     nav-2d-utils \
     nav-msgs \
@@ -1628,6 +1746,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     phidgets-msgs \
     phidgets-spatial \
     phidgets-temperature \
+    picknik-ament-copyright \
     plansys2-bringup \
     plansys2-bt-actions \
     plansys2-core \
@@ -1656,6 +1775,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     qt-gui-py-common \
     quality-of-service-demo-cpp \
     quality-of-service-demo-py \
+    quaternion-operation \
     radar-msgs \
     random-numbers \
     rc-common-msgs \
@@ -1677,6 +1797,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rclc \
     rclc-examples \
     rclc-lifecycle \
+    rclc-parameter \
     rclcpp \
     rclcpp-action \
     rclcpp-cascade-lifecycle \
@@ -1684,13 +1805,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rclcpp-lifecycle \
     rclpy \
     rcpputils \
+    rcss3d-agent \
     rcutils \
     realsense2-camera \
     realsense2-camera-msgs \
     realsense2-description \
     realtime-tools \
     resource-retriever \
+    rmf-battery \
     rmf-building-map-msgs \
+    rmf-building-map-tools \
     rmf-charger-msgs \
     rmf-dispenser-msgs \
     rmf-door-msgs \
@@ -1699,6 +1823,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rmf-lift-msgs \
     rmf-task-msgs \
     rmf-traffic \
+    rmf-traffic-editor \
+    rmf-traffic-editor-assets \
+    rmf-traffic-editor-test-maps \
     rmf-traffic-msgs \
     rmf-utils \
     rmf-visualization-msgs \
@@ -1725,6 +1852,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ros-ign-gazebo \
     ros-ign-gazebo-demos \
     ros-ign-image \
+    ros-ign-interfaces \
     ros-workspace \
     ros1-bridge \
     ros1-rosbag-storage-vendor \
@@ -1738,6 +1866,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ros2doctor \
     ros2interface \
     ros2launch \
+    ros2launch-security \
+    ros2launch-security-examples \
     ros2lifecycle \
     ros2multicast \
     ros2node \
@@ -1750,6 +1880,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ros2topic \
     ros2trace \
     ros2trace-analysis \
+    rosapi \
     rosbag2 \
     rosbag2-bag-v2-plugins \
     rosbag2-compression \
@@ -1761,6 +1892,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rosbag2-storage \
     rosbag2-storage-default-plugins \
     rosbag2-transport \
+    rosbridge-library \
+    rosbridge-msgs \
+    rosbridge-server \
+    rosbridge-suite \
     rosgraph-msgs \
     rosidl-adapter \
     rosidl-cli \
@@ -1809,8 +1944,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rqt-srv \
     rqt-top \
     rqt-topic \
+    rtabmap \
     rti-connext-dds-cmake-module \
     rttest \
+    ruckig \
     run-move-group \
     run-moveit-cpp \
     run-ompl-constrained-planning \
@@ -1830,6 +1967,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     shared-queues-vendor \
     slam-toolbox \
     smclib \
+    soccer-marker-generation \
     soccer-vision-msgs \
     spacenav \
     spdlog-vendor \
@@ -1883,6 +2021,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     tracetools-test \
     tracetools-trace \
     trajectory-msgs \
+    turtle-tf2-cpp \
+    turtle-tf2-py \
     turtlebot3-fake-node \
     turtlebot3-gazebo \
     turtlebot3-msgs \
@@ -1890,9 +2030,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     turtlesim \
     tvm-vendor \
     ublox \
+    ublox-dgnss \
+    ublox-dgnss-node \
     ublox-gps \
     ublox-msgs \
     ublox-serialization \
+    ublox-ubx-interfaces \
+    ublox-ubx-msgs \
     udp-driver \
     udp-msgs \
     uncrustify-vendor \
@@ -1905,7 +2049,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     urg-c \
     urg-node \
     urg-node-msgs \
+    usb-cam \
     v4l2-camera \
+    vision-msgs \
     vision-opencv \
     visualization-msgs \
     warehouse-ros \
@@ -1983,6 +2129,8 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_GALACTIC = " \
     gtest-vendor-native \
     launch-testing-ament-cmake-native \
     launch-testing-native \
+    lcov-native \
+    mrt-cmake-modules-native \
     pkgconfig-native \
     python-cmake-module-native \
     python3-catkin-pkg-native \
@@ -1990,9 +2138,13 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_GALACTIC = " \
     python3-native \
     python3-nose-native \
     python3-pytest-native \
+    python3-pyyaml-native \
+    python3-rospkg-native \
     python3-setuptools-native \
+    rmf-building-map-tools-native \
     rmw-implementation-cmake-native \
     ros-environment-native \
+    ros2run-native \
     ros2test-native \
     rosidl-cmake-native \
     rosidl-default-generators-native \
@@ -2042,11 +2194,13 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_DEP-libcunit-dev} \
     ${ROS_UNRESOLVED_DEP-libgazebo11-dev} \
     ${ROS_UNRESOLVED_DEP-libomp-dev} \
+    ${ROS_UNRESOLVED_DEP-libopenni-dev} \
     ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5} \
     ${ROS_UNRESOLVED_DEP-libspnav-dev} \
     ${ROS_UNRESOLVED_DEP-opende} \
     ${ROS_UNRESOLVED_DEP-python3-babeltrace} \
     ${ROS_UNRESOLVED_DEP-python3-collada} \
+    ${ROS_UNRESOLVED_DEP-python3-shapely} \
     ${ROS_UNRESOLVED_DEP-python3-zmq} \
     ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1} \
     ${ROS_UNRESOLVED_DEP-sdformat} \
@@ -2069,6 +2223,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     cppcheck \
     cppunit \
     curl \
+    elfutils \
     fcl \
     ffmpeg \
     flex \
@@ -2092,9 +2247,11 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     jpeg \
     lapack \
     lcov \
+    lcov-native \
     libccd \
     libeigen \
     libflann \
+    libfreenect \
     libogg \
     libpcap \
     libpng \
@@ -2123,9 +2280,12 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     pkgconfig \
     pkgconfig-native \
     poco \
+    proj \
     protobuf \
+    pugixml \
     python3 \
     python3-argcomplete \
+    python3-autobahn \
     python3-catkin-pkg \
     python3-catkin-pkg-native \
     python3-click \
@@ -2153,6 +2313,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     python3-pycodestyle \
     python3-pydot \
     python3-pygraphviz \
+    python3-pymongo \
     python3-pyproj \
     python3-pyqt5 \
     python3-pyserial \
@@ -2161,13 +2322,17 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     python3-pytest-mock \
     python3-pytest-native \
     python3-pyyaml \
+    python3-pyyaml-native \
     python3-requests \
     python3-rosdistro \
     python3-rospkg \
+    python3-rospkg-native \
     python3-setuptools \
     python3-setuptools-native \
     python3-sphinx \
     python3-tkinter \
+    python3-tornado \
+    python3-twisted \
     python3-websocket-client \
     qhull \
     qtbase \
@@ -2186,6 +2351,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     udev \
     urdfdom-headers \
     util-linux \
+    v4l-utils \
     vulkan-headers \
     wxwidgets \
     xmlrpc-c \
@@ -2203,8 +2369,8 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     ament-cmake-catch2 \
     ament-cmake-google-benchmark \
     ament-cmake-mypy \
+    ament-cmake-nose \
     ament-cmake-pclint \
-    ament-copyright \
     ament-flake8 \
     ament-lint-cmake \
     ament-mypy \
@@ -2214,8 +2380,10 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     apex-test-tools \
     cppunit \
     mimick-vendor \
+    nodl-to-policy \
     performance-test-fixture \
     python-cmake-module \
+    python3-autobahn \
     python3-pygraphviz \
     python3-pytest \
     python3-pytest-cov \
@@ -2236,6 +2404,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
 
 ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     acado-vendor \
+    ackermann-msgs \
     ament-cmake \
     ament-cmake-catch2 \
     ament-cmake-ros \
@@ -2249,6 +2418,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     apriltag \
     async-web-server-cpp \
     autoware-auto-msgs \
+    backward-ros \
     behaviortree-cpp \
     bno055 \
     bond-core \
@@ -2256,6 +2426,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     cartographer-ros \
     cascade-lifecycle \
     class-loader \
+    color-names \
     common-interfaces \
     console-bridge-vendor \
     control-box-rst \
@@ -2277,15 +2448,18 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     fmi-adapter \
     fmilibrary-vendor \
     foonathan-memory-vendor \
+    four-wheel-steering-msgs \
     gazebo-ros-pkgs \
     geographic-info \
     geometric-shapes \
+    geometry-tutorials \
     geometry2 \
     google-benchmark-vendor \
     googletest \
     gps-umd \
     grbl-msgs \
     grbl-ros \
+    hls-lfcd-lds-driver \
     iceoryx \
     ifm3d-core \
     ign-rviz \
@@ -2296,6 +2470,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     joint-state-publisher \
     joystick-drivers \
     kdl-parser \
+    lanelet2 \
     laser-geometry \
     laser-proc \
     launch \
@@ -2315,11 +2490,15 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     moveit-msgs \
     moveit-resources \
     mrpt2 \
+    mrt-cmake-modules \
     nao-interfaces \
+    nao-lola \
+    naosoccer-sim \
     navigation-msgs \
     navigation2 \
     nmea-msgs \
     nodl \
+    nodl-to-policy \
     ntpd-driver \
     object-recognition-msgs \
     octomap \
@@ -2334,6 +2513,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     perception-pcl \
     performance-test-fixture \
     phidgets-drivers \
+    picknik-ament-copyright \
     plotjuggler \
     plotjuggler-msgs \
     plotjuggler-ros \
@@ -2344,6 +2524,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     python-qt-binding \
     qpoases-vendor \
     qt-gui-core \
+    quaternion-operation \
     radar-msgs \
     random-numbers \
     rc-common-msgs \
@@ -2364,10 +2545,12 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     realtime-support \
     realtime-tools \
     resource-retriever \
+    rmf-battery \
     rmf-building-map-msgs \
     rmf-cmake-uncrustify \
     rmf-internal-msgs \
     rmf-traffic \
+    rmf-traffic-editor \
     rmf-utils \
     rmf-visualization-msgs \
     rmw \
@@ -2391,8 +2574,10 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     ros2-tracing \
     ros2cli \
     ros2cli-common-extensions \
+    ros2launch-security \
     rosbag2 \
     rosbag2-bag-v2 \
+    rosbridge-suite \
     rosidl \
     rosidl-dds \
     rosidl-defaults \
@@ -2424,10 +2609,13 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     rqt-srv \
     rqt-top \
     rqt-topic \
+    rtabmap \
+    ruckig \
     rviz \
     sdformat-urdf \
     slam-toolbox \
     soccer-interfaces \
+    soccer-visualization \
     spdlog-vendor \
     srdfdom \
     sros2 \
@@ -2449,6 +2637,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     turtlesim \
     tvm-vendor \
     ublox \
+    ublox-dgnss \
     udp-msgs \
     uncrustify-vendor \
     unique-identifier-msgs \
@@ -2459,8 +2648,10 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     urg-c \
     urg-node \
     urg-node-msgs \
+    usb-cam \
     v4l2-camera \
     variants \
+    vision-msgs \
     vision-opencv \
     warehouse-ros \
     warehouse-ros-mongo \
@@ -2495,11 +2686,13 @@ ROS_UNRESOLVED_DEP-libbluetooth-dev = "ROS_UNRESOLVED_DEP-libbluetooth-dev"
 ROS_UNRESOLVED_DEP-libcunit-dev = "ROS_UNRESOLVED_DEP-libcunit-dev"
 ROS_UNRESOLVED_DEP-libgazebo11-dev = "ROS_UNRESOLVED_DEP-libgazebo11-dev"
 ROS_UNRESOLVED_DEP-libomp-dev = "ROS_UNRESOLVED_DEP-libomp-dev"
+ROS_UNRESOLVED_DEP-libopenni-dev = "ROS_UNRESOLVED_DEP-libopenni-dev"
 ROS_UNRESOLVED_DEP-libqglviewer2-qt5 = "ROS_UNRESOLVED_DEP-libqglviewer2-qt5"
 ROS_UNRESOLVED_DEP-libspnav-dev = "ROS_UNRESOLVED_DEP-libspnav-dev"
 ROS_UNRESOLVED_DEP-opende = "ROS_UNRESOLVED_DEP-opende"
 ROS_UNRESOLVED_DEP-python3-babeltrace = "ROS_UNRESOLVED_DEP-python3-babeltrace"
 ROS_UNRESOLVED_DEP-python3-collada = "ROS_UNRESOLVED_DEP-python3-collada"
+ROS_UNRESOLVED_DEP-python3-shapely = "ROS_UNRESOLVED_DEP-python3-shapely"
 ROS_UNRESOLVED_DEP-python3-zmq = "ROS_UNRESOLVED_DEP-python3-zmq"
 ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1 = "ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1"
 ROS_UNRESOLVED_DEP-sdformat = "ROS_UNRESOLVED_DEP-sdformat"
@@ -2508,10 +2701,10 @@ ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "2021-07-16"
+ROS_DISTRO_RELEASE_DATE = "2021-08-25"
 
 # The commit of ros/rosdistro/galactic/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "22d28ed74fd65ac6f1cf67651891260f9aa5d7a9"
+ROS_SUPERFLORE_GENERATION_COMMIT = "cb9a97220ceb196de206fab675309a6cb2138572"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
