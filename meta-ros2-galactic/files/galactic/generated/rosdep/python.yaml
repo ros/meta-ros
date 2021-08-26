@@ -2668,6 +2668,13 @@ python-mock:
     xenial_python3: [python3-mock]
     yakkety: [python-mock]
     zesty: [python-mock]
+python-monotonic:
+  arch: [python-monotonic]
+  debian: [python-monotonic]
+  fedora: [python-monotonic]
+  nixos: [pythonPackages.monotonic]
+  opensuse: [python2-monotonic]
+  ubuntu: [python-monotonic]
 python-more-itertools:
   arch: [python-more-itertools]
   debian: [python-more-itertools]
@@ -4776,7 +4783,7 @@ python-sphinx-rtd-theme:
     yakkety_python3: [python3-sphinx-rtd-theme]
     zesty: [python-sphinx-rtd-theme]
     zesty_python3: [python3-sphinx-rtd-theme]
-python-spidev-pip:
+python-spidev-pip: &migrate_eol_2025_04_30_python3_spidev_pip
   debian:
     pip:
       packages: [spidev]
@@ -5710,6 +5717,7 @@ python-zmq:
     '*': [python-zmq]
     trusty_python3: [python3-zmq]
 python3:
+  alpine: [python3]
   debian: [python3-dev]
   fedora: [python3-devel]
   gentoo: [dev-lang/python]
@@ -5940,6 +5948,13 @@ python3-cairo:
     slackpkg:
       packages: [py3cairo]
   ubuntu: [python3-cairo]
+python3-cairosvg:
+  arch: [python-cairosvg]
+  debian: [python3-cairosvg]
+  fedora: [python3-cairosvg]
+  gentoo: [media-gfx/cairosvg]
+  opensuse: [python3-CairoSVG]
+  ubuntu: [python3-cairosvg]
 python3-can:
   debian: [python3-can]
   fedora: [python3-can]
@@ -6126,6 +6141,7 @@ python3-defusedxml:
   rhel: ['python%{python3_pkgversion}-defusedxml']
   ubuntu: [python3-defusedxml]
 python3-dev:
+  alpine: [python3-dev]
   debian: [python3-dev]
   fedora: [python3-devel]
   gentoo: [=dev-lang/python-3*]
@@ -6357,9 +6373,14 @@ python3-flask:
   fedora: [python3-flask]
   gentoo: [dev-python/flask]
   nixos: [python3Packages.flask]
+  rhel: [python3-flask]
   ubuntu: [python3-flask]
 python3-flask-cors:
   debian: [python3-flask-cors]
+  fedora: [python3-flask-cors]
+  rhel:
+    '*': [python3-flask-cors]
+    '7': null
   ubuntu: [python3-flask-cors]
 python3-flask-restplus-pip:
   ubuntu:
@@ -6446,6 +6467,17 @@ python3-gnupg:
   opensuse: [python3-python-gnupg]
   ubuntu: [python3-gnupg]
 python3-google-cloud-texttospeech-pip: *migrate_eol_2025_04_30_python3_google_cloud_texttospeech_pip
+python3-gpiozero:
+  debian: [python3-gpiozero]
+  fedora: [python3-gpiozero]
+  ubuntu:
+    '*': [python3-gpiozero]
+    bionic: null
+python3-gpxpy:
+  debian: [python3-gpxpy]
+  fedora: [python3-gpxpy]
+  opensuse: [python3-gpxpy]
+  ubuntu: [python3-gpxpy]
 python3-gql-pip:
   debian:
     pip:
@@ -6510,6 +6542,7 @@ python3-imageio:
   openembedded: [python3-imageio@meta-python]
   ubuntu: [python3-imageio]
 python3-importlib-metadata:
+  alpine: [py3-importlib-metadata]
   debian:
     '*': [python3-importlib-metadata]
     buster:
@@ -6890,6 +6923,7 @@ python3-owlready2-pip:
     pip:
       packages: [owlready2]
 python3-packaging:
+  alpine: [py3-packaging]
   debian: [python3-packaging]
   fedora: [python3-packaging]
   gentoo: [dev-python/packaging]
@@ -7255,6 +7289,12 @@ python3-pymongo:
   nixos: [python3Packages.pymongo]
   openembedded: [python3-pymongo@meta-python]
   ubuntu: [python3-pymongo]
+python3-pynmea2:
+  debian: [python3-nmea2]
+  fedora:
+    pip:
+      packages: [pynmea2]
+  ubuntu: [python3-nmea2]
 python3-pyosmium:
   debian: [python3-pyosmium]
   fedora: [python3-osmium]
@@ -7709,6 +7749,16 @@ python3-simple-pid-pip:
   ubuntu:
     pip:
       packages: [simple-pid]
+python3-simplejpeg-pip:
+  debian:
+    pip:
+      packages: [simplejpeg]
+  fedora:
+    pip:
+      packages: [simplejpeg]
+  ubuntu:
+    pip:
+      packages: [simplejpeg]
 python3-simplejson:
   arch: [python-simplejson]
   debian: [python3-simplejson]
@@ -7762,6 +7812,12 @@ python3-sklearn:
     pip:
       packages: [scikit-learn]
   ubuntu: [python3-sklearn]
+python3-smbus:
+  arch: [i2c-tools]
+  debian: [python3-smbus]
+  fedora: [python3-i2c-tools]
+  opensuse: [python3-smbus]
+  ubuntu: [python3-smbus]
 python3-smbus2-pip:
   debian:
     pip:
@@ -7807,6 +7863,7 @@ python3-sphinx-rtd-theme:
   nixos: [python3Packages.sphinx_rtd_theme]
   rhel: ['python%{python3_pkgversion}-sphinx_rtd_theme']
   ubuntu: [python3-sphinx-rtd-theme]
+python3-spidev-pip: *migrate_eol_2025_04_30_python3_spidev_pip
 python3-sqlalchemy:
   arch: [python-sqlalchemy]
   debian: [python3-sqlalchemy]
@@ -7973,6 +8030,13 @@ python3-ubjson:
   ubuntu:
     '*': [python3-ubjson]
     xenial: null
+python3-urdfpy-pip:
+  debian:
+    pip:
+      packages: [urdfpy]
+  ubuntu:
+    pip:
+      packages: [urdfpy]
 python3-urllib3:
   debian: [python3-urllib3]
   fedora: [python3-urllib3]
@@ -8022,6 +8086,15 @@ python3-virtualserialports-pip:
   ubuntu:
     pip:
       packages: [PyVirtualSerialPorts]
+python3-voluptuous:
+  debian: [python3-voluptuous]
+  fedora: [python3-voluptuous]
+  gentoo: [dev-python/voluptuous]
+  opensuse: [python-voluptuous]
+  rhel:
+    '*': [python3-voluptuous]
+    '7': null
+  ubuntu: [python3-voluptuous]
 python3-watchdog:
   debian: [python3-watchdog]
   fedora: [python3-watchdog]
@@ -8114,6 +8187,19 @@ python3-yappi:
     '*': [python3-yappi]
     bionic: null
     xenial: null
+python3-yolov5:
+  debian:
+    pip:
+      packages: [yolov5]
+  fedora:
+    pip:
+      packages: [yolov5]
+  osx:
+    pip:
+      packages: [yolov5]
+  ubuntu:
+    pip:
+      packages: [yolov5]
 python3-zmq:
   arch: [python-pyzmq]
   debian: [python3-zmq]
@@ -8150,6 +8236,16 @@ rosbag-metadata-pip:
   ubuntu:
     pip:
       packages: [rosbag-metadata]
+roslibpy-pip:
+  debian:
+    pip:
+      packages: [roslibpy]
+  fedora:
+    pip:
+      packages: [roslibpy]
+  ubuntu:
+    pip:
+      packages: [roslibpy]
 rpy2:
   arch: [python-rpy2]
   debian: [python-rpy2]

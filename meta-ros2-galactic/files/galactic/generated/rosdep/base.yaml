@@ -327,6 +327,7 @@ binutils:
   rhel: [binutils-devel]
   ubuntu: [binutils-dev]
 bison:
+  alpine: [bison]
   arch: [bison]
   debian: [bison]
   fedora: [bison]
@@ -749,6 +750,13 @@ daemontools:
   nixos: [daemontools]
   openembedded: [daemontools@meta-oe]
   ubuntu: [daemontools]
+dcraw:
+  arch: [dcraw]
+  debian: [dcraw]
+  fedora: [dcraw]
+  gentoo: [media-gfx/dcraw]
+  opensuse: [dcraw]
+  ubuntu: [dcraw]
 debhelper:
   debian: [debhelper]
   fedora: [debhelper]
@@ -1027,6 +1035,7 @@ flex:
   nixos: [flex]
   openembedded: [flex@openembedded-core]
   opensuse: [flex]
+  rhel: [flex]
   ubuntu: [flex]
 fltk:  # Consider using the libfltk-dev and fluid (fltk runtime) keys instead.
   arch: [fltk]
@@ -1485,6 +1494,7 @@ graphicsmagick:
   rhel: [GraphicsMagick-c++-devel]
   ubuntu: [libgraphicsmagick++1-dev, graphicsmagick-libmagick-dev-compat]
 graphviz:
+  alpine: [graphviz]
   arch: [graphviz]
   debian: [graphviz]
   fedora: [graphviz]
@@ -1943,6 +1953,16 @@ intltool:
   nixos: [intltool]
   opensuse: [intltool]
   ubuntu: [intltool]
+inxi:
+  debian: [inxi]
+  fedora: [inxi]
+  gentoo: [sys-apps/inxi]
+  opensuse: [inxi]
+  osx:
+    homebrew:
+      packages: [inxi]
+  rhel: [inxi]
+  ubuntu: [inxi]
 iperf:
   debian: [iperf]
   fedora: [iperf]
@@ -2150,6 +2170,7 @@ libasound2-dev:
   openembedded: [alsa-lib@openembedded-core]
   ubuntu: [libasound2-dev]
 libatomic:
+  alpine: [libatomic]
   arch: [gcc-libs]
   debian: [libatomic1]
   fedora: [libatomic]
@@ -2805,6 +2826,7 @@ libdw-dev:
   nixos: [elfutils]
   openembedded: [elfutils@openembedded-core]
   opensuse: [libdw-devel]
+  rhel: [elfutils-devel]
   ubuntu: [libdw-dev]
 libdxflib-dev:
   debian: [libdxflib-dev]
@@ -2884,6 +2906,9 @@ libfcl-dev:
   gentoo: [sci-libs/fcl]
   nixos: [fcl]
   openembedded: [fcl@meta-ros-common]
+  rhel:
+    '*': [fcl-devel]
+    '7': null
   ubuntu:
     '*': [libfcl-dev]
     wily: [libfcl-0.5-dev]
@@ -3990,6 +4015,9 @@ libomp-dev:
   debian: [libomp-dev]
   fedora: [libomp-devel]
   nixos: [llvmPackages.openmp]
+  rhel:
+    '*': [libomp-devel]
+    '7': null
   ubuntu: [libomp-dev]
 libopal-dev:
   debian: [libopal-dev]
@@ -6578,8 +6606,9 @@ psutils:
   ubuntu: [psutils]
 pugixml-dev:
   debian: [libpugixml-dev]
-  fedora: [pugixml]
+  fedora: [pugixml-devel]
   openembedded: [pugixml@meta-oe]
+  rhel: [pugixml-devel]
   ubuntu: [libpugixml-dev]
 pybind11-dev:
   arch: [pybind11]
@@ -7572,6 +7601,8 @@ v4l-utils:
   gentoo: [media-tv/v4l-utils]
   nixos: [v4l-utils]
   openembedded: [v4l-utils@meta-oe]
+  rhel:
+    '7': [v4l-utils]
   ubuntu: [v4l-utils]
 valgrind:
   debian: [valgrind]
