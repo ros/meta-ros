@@ -137,10 +137,14 @@ libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libcunit-dev:
 - ${ROS_UNRESOLVED_DEP-libcunit-dev}
+libdw-dev:
+- elfutils@openembedded-core
 libfcl-dev:
 - fcl@meta-ros-common
 libflann-dev:
 - libflann@meta-ros-common
+libfreenect-dev:
+- libfreenect@meta-ros-common
 libfreetype6:
 - freetype@openembedded-core
 libfreetype6-dev:
@@ -177,6 +181,8 @@ libopenblas-dev:
 - openblas@meta-ros-common
 libopencv-dev:
 - opencv@meta-oe
+libopenni-dev:
+- ${ROS_UNRESOLVED_DEP-libopenni-dev}
 libpcap:
 - libpcap@openembedded-core
 libpcl-all:
@@ -193,6 +199,8 @@ libqglviewer2-qt5:
 - ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5}
 libqhull:
 - qhull@meta-ros-common
+libqt5-concurrent:
+- qtbase@meta-qt5
 libqt5-core:
 - qtbase@meta-qt5
 libqt5-gui:
@@ -261,10 +269,14 @@ openssl:
 - openssl@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+proj:
+- proj@meta-oe
 protobuf:
 - protobuf@meta-oe
 protobuf-dev:
 - protobuf@meta-oe
+pugixml-dev:
+- pugixml@meta-oe
 pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros-common
 pyflakes3:
@@ -279,8 +291,12 @@ python3:
 - python3@openembedded-core
 python3-argcomplete:
 - python3-argcomplete@meta-python
+python3-autobahn:
+- python3-autobahn@meta-python
 python3-babeltrace:
 - ${ROS_UNRESOLVED_DEP-python3-babeltrace}
+python3-bson:
+- python3-pymongo@meta-python
 python3-cairo:
 - python3-pycairo@openembedded-core
 python3-catkin-pkg:
@@ -357,16 +373,24 @@ python3-requests:
 - python3-requests@meta-python
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
+python3-rospkg:
+- python3-rospkg@meta-ros-common
 python3-rospkg-modules:
 - python3-rospkg@meta-ros-common
 python3-serial:
 - python3-pyserial@meta-python
 python3-setuptools:
 - python3-setuptools@openembedded-core
+python3-shapely:
+- ${ROS_UNRESOLVED_DEP-python3-shapely}
 python3-sphinx:
 - python3-sphinx@meta-ros-common
 python3-tk:
 - python3-tkinter@openembedded-core
+python3-tornado:
+- python3-tornado@meta-python
+python3-twisted:
+- python3-twisted@meta-python
 python3-websocket:
 - python3-websocket-client@meta-python
 python3-yaml:
@@ -410,6 +434,8 @@ uncrustify:
 - ${ROS_UNRESOLVED_DEP-uncrustify}
 uuid:
 - util-linux@openembedded-core
+v4l-utils:
+- v4l-utils@meta-oe
 wx-common:
 - wxwidgets@meta-ros-common
 wxwidgets:
