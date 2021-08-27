@@ -73,6 +73,14 @@ ROS_WORLD_SKIP_GROUPS += " \
     lanelet2-traffic-rules \
 "
 
+# do_compile failures
+ROS_WORLD_SKIP_GROUPS += " \
+    lanelet2-core \
+"
+
+# Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
+# because we need to set this variable before the "inherit" line in the recipe is parsed,
+
 # Override settings from generated/superflore-ros-distro.inc here.
 
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in

@@ -1,7 +1,7 @@
 # rolling/ros-distro.inc
 # General configuration settings that are dependent on ROS_DISTRO.
 #
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 ROS_DISTRO_CODENAME = "Rolling Ridley"
 
@@ -135,6 +135,7 @@ ROS_WORLD_SKIP_GROUPS += " \
 
 # do_compile failures
 ROS_WORLD_SKIP_GROUPS += " \
+    lanelet2-core \
     qt-gui-cpp \
 "
 
