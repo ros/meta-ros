@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 # Otherwise fails to find python3
 # | CMake Error at /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/eigenpy/2.5.0-1-r0/recipe-sysroot-native/usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake:146 (message):
@@ -15,3 +15,9 @@ inherit python3native
 # | CMake Error at cmake/python.cmake:482 (MESSAGE):
 # |   Failed to detect numpy
 DEPENDS += "python3-numpy-native"
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-core-fix-typedef.patch \
+    file://0002-core-fix-compatibility-with-Boost.Python-1.77.patch \
+    file://0003-core-fix-typedef.patch \
+"
