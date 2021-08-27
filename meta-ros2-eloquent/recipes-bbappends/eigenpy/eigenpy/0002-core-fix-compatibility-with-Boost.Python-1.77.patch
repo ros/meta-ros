@@ -1,0 +1,55 @@
+From 2b59c2516fdee19250fe37cb6a464238f1eaaced Mon Sep 17 00:00:00 2001
+From: Justin Carpentier <justin.carpentier@inria.fr>
+Date: Fri, 27 Aug 2021 11:58:17 +0200
+Subject: [PATCH] core: fix compatibility with Boost.Python >= 1.77
+
+Upstream-Status: Submitted [https://github.com/stack-of-tasks/eigenpy/pull/256]
+---
+ include/eigenpy/eigen-from-python.hpp | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/include/eigenpy/eigen-from-python.hpp b/include/eigenpy/eigen-from-python.hpp
+index 611afb6..eb45cb2 100644
+--- a/include/eigenpy/eigen-from-python.hpp
++++ b/include/eigenpy/eigen-from-python.hpp
+@@ -41,10 +41,16 @@ namespace eigenpy
+     struct referent_storage_eigen_ref
+     {
+       typedef Eigen::Ref<MatType,Options,Stride> RefType;
+-      
++#if BOOST_VERSION / 100 % 1000 >= 77
++      typedef typename aligned_storage<
++          ::boost::python::detail::referent_size<RefType&>::value,
++          ::boost::alignment_of<RefType&>::value
++      >::type type;
++#else
+       typedef ::boost::python::detail::aligned_storage<
+           ::boost::python::detail::referent_size<RefType&>::value
+       > AlignedStorage;
++#endif
+       
+       referent_storage_eigen_ref()
+       : pyArray(NULL)
+@@ -93,14 +99,22 @@ namespace boost { namespace python { namespace detail {
+   struct referent_storage<Eigen::Ref<MatType,Options,Stride> &>
+   {
+     typedef ::eigenpy::details::referent_storage_eigen_ref<MatType,Options,Stride> StorageType;
++#if BOOST_VERSION / 100 % 1000 >= 77
++    typedef typename aligned_storage<referent_size<StorageType&>::value>::type type;
++#else
+     typedef aligned_storage<referent_size<StorageType&>::value> type;
++#endif
+   };
+ 
+   template<typename MatType, int Options, typename Stride>
+   struct referent_storage<const Eigen::Ref<const MatType,Options,Stride> &>
+   {
+     typedef ::eigenpy::details::referent_storage_eigen_ref<const MatType,Options,Stride> StorageType;
++#if BOOST_VERSION / 100 % 1000 >= 77
++    typedef typename aligned_storage<referent_size<StorageType&>::value, alignment_of<StorageType&>::value>::type type;
++#else
+     typedef aligned_storage<referent_size<StorageType&>::value> type;
++#endif
+   };
+ #endif
+ }}}
