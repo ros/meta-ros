@@ -15,3 +15,9 @@ inherit python3native
 # | CMake Error at cmake/python.cmake:482 (MESSAGE):
 # |   Failed to detect numpy
 DEPENDS += "python3-numpy-native"
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-core-fix-typedef.patch \
+    file://0002-core-fix-compatibility-with-Boost.Python-1.77.patch \
+    file://0003-core-fix-typedef.patch \
+"
