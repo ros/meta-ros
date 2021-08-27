@@ -1,0 +1,27 @@
+From e12150890347604a60391637e202a44ea3d4350a Mon Sep 17 00:00:00 2001
+From: Justin Carpentier <justin.carpentier@inria.fr>
+Date: Fri, 27 Aug 2021 13:21:09 +0200
+Subject: [PATCH] core: fix typedef
+
+Upstream-Status: Submitted [https://github.com/stack-of-tasks/eigenpy/pull/256]
+---
+ include/eigenpy/eigen-from-python.hpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/eigenpy/eigen-from-python.hpp b/include/eigenpy/eigen-from-python.hpp
+index eb45cb2..bc0ab8f 100644
+--- a/include/eigenpy/eigen-from-python.hpp
++++ b/include/eigenpy/eigen-from-python.hpp
+@@ -42,10 +42,10 @@ namespace eigenpy
+     {
+       typedef Eigen::Ref<MatType,Options,Stride> RefType;
+ #if BOOST_VERSION / 100 % 1000 >= 77
+-      typedef typename aligned_storage<
++      typedef typename ::boost::python::detail::aligned_storage<
+           ::boost::python::detail::referent_size<RefType&>::value,
+           ::boost::alignment_of<RefType&>::value
+-      >::type type;
++      >::type AlignedStorage;
+ #else
+       typedef ::boost::python::detail::aligned_storage<
+           ::boost::python::detail::referent_size<RefType&>::value
