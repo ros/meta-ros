@@ -147,6 +147,7 @@ ROS_WORLD_SKIP_GROUPS += " \
     hector-pose-estimation-core \
     hpp-fcl \
     julius \
+    lanelet2-core \
     libg2o \
     libphidget21 \
     libphidgets \
