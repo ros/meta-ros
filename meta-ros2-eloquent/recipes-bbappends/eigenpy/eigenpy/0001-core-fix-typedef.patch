@@ -1,0 +1,35 @@
+From baf3ef807b512f4a18f4e5fe6cf350bac57d86a8 Mon Sep 17 00:00:00 2001
+From: Justin Carpentier <justin.carpentier@inria.fr>
+Date: Fri, 27 Aug 2021 11:43:58 +0200
+Subject: [PATCH] core: fix typedef
+
+Upstream-Status: Submitted [https://github.com/stack-of-tasks/eigenpy/pull/256]
+---
+ include/eigenpy/eigen-from-python.hpp | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/include/eigenpy/eigen-from-python.hpp b/include/eigenpy/eigen-from-python.hpp
+index 1a55bcb..611afb6 100644
+--- a/include/eigenpy/eigen-from-python.hpp
++++ b/include/eigenpy/eigen-from-python.hpp
+@@ -93,18 +93,14 @@ namespace boost { namespace python { namespace detail {
+   struct referent_storage<Eigen::Ref<MatType,Options,Stride> &>
+   {
+     typedef ::eigenpy::details::referent_storage_eigen_ref<MatType,Options,Stride> StorageType;
+-    typedef aligned_storage<
+-        ::boost::python::detail::referent_size<StorageType&>::value
+-    > type;
++    typedef aligned_storage<referent_size<StorageType&>::value> type;
+   };
+ 
+   template<typename MatType, int Options, typename Stride>
+   struct referent_storage<const Eigen::Ref<const MatType,Options,Stride> &>
+   {
+     typedef ::eigenpy::details::referent_storage_eigen_ref<const MatType,Options,Stride> StorageType;
+-    typedef aligned_storage<
+-        ::boost::python::detail::referent_size<StorageType&>::value
+-    > type;
++    typedef aligned_storage<referent_size<StorageType&>::value> type;
+   };
+ #endif
+ }}}
