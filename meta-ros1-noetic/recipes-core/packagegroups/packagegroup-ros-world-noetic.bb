@@ -1423,6 +1423,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     rotors-gazebo \
     rotors-gazebo-plugins \
     rotors-simulator \
+    rqt-drone-teleop \
     rr-openrover-description \
     rr-openrover-simulation \
     rr-openrover-stack \
