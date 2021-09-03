@@ -750,6 +750,13 @@ daemontools:
   nixos: [daemontools]
   openembedded: [daemontools@meta-oe]
   ubuntu: [daemontools]
+dcraw:
+  arch: [dcraw]
+  debian: [dcraw]
+  fedora: [dcraw]
+  gentoo: [media-gfx/dcraw]
+  opensuse: [dcraw]
+  ubuntu: [dcraw]
 debhelper:
   debian: [debhelper]
   fedora: [debhelper]
@@ -1946,6 +1953,16 @@ intltool:
   nixos: [intltool]
   opensuse: [intltool]
   ubuntu: [intltool]
+inxi:
+  debian: [inxi]
+  fedora: [inxi]
+  gentoo: [sys-apps/inxi]
+  opensuse: [inxi]
+  osx:
+    homebrew:
+      packages: [inxi]
+  rhel: [inxi]
+  ubuntu: [inxi]
 iperf:
   debian: [iperf]
   fedora: [iperf]
@@ -4648,6 +4665,7 @@ libqt5-quick:
   rhel: [qt5-qtdeclarative]
   ubuntu: [libqt5quick5]
 libqt5-serialport:
+  alpine: [qt5-qtserialport]
   arch: [qt5-serialport]
   debian: [libqt5serialport5]
   fedora: [qt5-qtserialport]
@@ -4655,6 +4673,13 @@ libqt5-serialport:
   gentoo: ['dev-qt/qtserialport:5']
   nixos: [qt5.qtserialport]
   ubuntu: [libqt5serialport5]
+libqt5-serialport-dev:
+  alpine: [qt5-qtserialport-dev]
+  arch: [qt5-serialport]
+  debian: [libqt5serialport5-dev]
+  fedora: [qt5-qtserialport]
+  gentoo: ['dev-qt/qtserialport:5']
+  ubuntu: [libqt5serialport5-dev]
 libqt5-sql:
   arch: [qt5-base]
   debian:
@@ -5548,6 +5573,7 @@ libxmlrpc-c++:
   debian: [libxmlrpc-c++8-dev]
   fedora: [xmlrpc-c-devel]
   gentoo: [dev-libs/xmlrpc-c]
+  nixos: [xmlrpc_c]
   openembedded: [xmlrpc-c@meta-oe]
   rhel: [xmlrpc-c-devel]
   ubuntu: [libxmlrpc-c++8-dev]
@@ -6590,6 +6616,7 @@ psutils:
 pugixml-dev:
   debian: [libpugixml-dev]
   fedora: [pugixml-devel]
+  nixos: [pugixml]
   openembedded: [pugixml@meta-oe]
   rhel: [pugixml-devel]
   ubuntu: [libpugixml-dev]
@@ -7083,6 +7110,7 @@ spirv-headers:
   debian: [spirv-headers]
   fedora: [spirv-headers-devel]
   gentoo: [dev-util/spirv-headers]
+  nixos: [spirv-headers]
   openembedded: [spirv-headers@openembedded-core]
   rhel: [spirv-headers-devel]
   ubuntu:
@@ -7094,6 +7122,7 @@ spirv-tools:
   debian: [spirv-tools]
   fedora: [spirv-tools, spirv-tools-devel, spirv-tools-libs]
   gentoo: [dev-util/spirv-tools]
+  nixos: [spirv-tools]
   openembedded: [spirv-tools@openembedded-core]
   rhel: [spirv-tools, spirv-tools-devel, spirv-tools-libs]
   ubuntu:
@@ -7584,6 +7613,8 @@ v4l-utils:
   gentoo: [media-tv/v4l-utils]
   nixos: [v4l-utils]
   openembedded: [v4l-utils@meta-oe]
+  rhel:
+    '7': [v4l-utils]
   ubuntu: [v4l-utils]
 valgrind:
   debian: [valgrind]
