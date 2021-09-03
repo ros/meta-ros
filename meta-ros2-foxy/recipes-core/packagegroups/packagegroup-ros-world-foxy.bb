@@ -256,6 +256,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     turtlebot3-navigation2 \
     turtlebot3-simulations \
     turtlesim \
+    turtle-tf2-cpp \
+    turtle-tf2-py \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
@@ -283,6 +285,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
     plotjuggler \
     plotjuggler-ros \
     turtlesim \
+    turtle-tf2-cpp \
+    turtle-tf2-py \
 "
 
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
