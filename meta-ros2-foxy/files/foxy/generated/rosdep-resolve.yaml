@@ -297,8 +297,12 @@ python3:
 - python3@openembedded-core
 python3-argcomplete:
 - python3-argcomplete@meta-python
+python3-autobahn:
+- python3-autobahn@meta-python
 python3-babeltrace:
 - ${ROS_UNRESOLVED_DEP-python3-babeltrace}
+python3-bson:
+- python3-pymongo@meta-python
 python3-catkin-pkg:
 - python3-catkin-pkg@meta-ros-common
 python3-catkin-pkg-modules:
@@ -389,6 +393,10 @@ python3-sphinx:
 - python3-sphinx@meta-ros-common
 python3-tk:
 - python3-tkinter@openembedded-core
+python3-tornado:
+- python3-tornado@meta-python
+python3-twisted:
+- python3-twisted@meta-python
 python3-watchdog:
 - ${ROS_UNRESOLVED_DEP-python3-watchdog}
 python3-websocket:
