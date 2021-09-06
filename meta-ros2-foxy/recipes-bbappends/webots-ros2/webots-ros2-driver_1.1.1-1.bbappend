@@ -54,3 +54,6 @@ COMPATIBLE_MACHINE:x86-64 = "(.*)"
 # WARNING: webots-ros2-driver-1.1.0-1-r0 do_package: QA Issue: File '/usr/lib/libdriver.so' from webots-ros2-driver was already stripped, this will prevent future debugging! [already-stripped]
 # WARNING: webots-ros2-driver-1.1.0-1-r0 do_populate_sysroot: File '/usr/lib/libdriver.so' from webots-ros2-driver was already stripped, this will prevent future debugging!
 INSANE_SKIP:${PN} += "already-stripped"
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-CMakeLists.txt-don-t-require-python-exact-version-to.patch"
