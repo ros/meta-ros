@@ -41,7 +41,7 @@ Layers = [
 
 ('meta',                                5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch,            'commit': '70de1dbb66'},        {}),
 
-('meta-oe',                            10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': OE_Branch,            'commit': '1d42de61fa'},        {}),
+('meta-oe',                            10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': OE_Branch,            'commit': 'c2a8057647'},        {}),
 ('meta-multimedia',                    11, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
 ('meta-networking',                    12, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
 ('meta-python',                        13, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
@@ -68,7 +68,7 @@ Layers = [
 ('meta-ros-webos',                     60, MetaRosWebos_RepoURL,                                     {'branch': MetaRosWebos_Branch,  'commit': MetaRosWebos_Commit}, {}),
 
 ('meta-webos-smack',                   75, MetaWebos_RepoURL,                                        {},                                                              {}),
-('meta-security',                      77, 'git://git.yoctoproject.org/meta-security',               {'branch': OE_Branch,            'commit': '1f18c62'},           {}),
+('meta-security',                      77, 'git://git.yoctoproject.org/meta-security',               {'branch': OE_Branch,            'commit': 'e0fca90'},           {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
