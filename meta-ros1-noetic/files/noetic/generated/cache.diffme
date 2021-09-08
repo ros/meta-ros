@@ -1,4 +1,4 @@
-# noetic/cache.yaml 2021-08-13 e5e24fa51c25a2029ad189c8264621f4711ea9e4 20210812145132 1.7.0
+# noetic/cache.yaml 2021-09-08 2a12630b20059f10ebc1f98f800463ef1cbf03c7 20210908174114 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -164,7 +164,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/AprilRobotics/apriltag-release.git',
-version: 3.1.2-2
+version: 3.1.5-1
 },
 source: {
 type: git,
@@ -760,7 +760,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/AIS-Bonn/catch_ros-release.git',
-version: 0.4.0-1
+version: 0.5.0-2
 },
 source: {
 test_pull_requests: true,
@@ -835,6 +835,34 @@ url: 'https://github.com/ros/class_loader.git',
 version: noetic-devel
 },
 status: maintained
+}
+-----
+clober: {
+doc: {
+type: git,
+url: 'https://github.com/CLOBOT-Co-Ltd/clober.git',
+version: noetic-devel
+},
+source: {
+type: git,
+url: 'https://github.com/CLOBOT-Co-Ltd/clober.git',
+version: noetic-devel
+},
+status: developed
+}
+-----
+clober_msgs: {
+doc: {
+type: git,
+url: 'https://github.com/CLOBOT-Co-Ltd/clober_msgs.git',
+version: noetic-devel
+},
+source: {
+type: git,
+url: 'https://github.com/CLOBOT-Co-Ltd/clober_msgs.git',
+version: noetic-devel
+},
+status: developed
 }
 -----
 cmake_modules: {
@@ -2012,7 +2040,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/dynamic-graph-ros-release.git',
-version: 4.3.4-1
+version: 4.4.0-1
 },
 source: {
 test_pull_requests: true,
@@ -2034,7 +2062,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/dynamic-graph-python-ros-release.git',
-version: 4.0.3-1
+version: 4.0.4-1
 },
 source: {
 test_pull_requests: true,
@@ -2313,7 +2341,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ipab-slmc/eigenpy_catkin-release.git',
-version: 2.6.4-1
+version: 2.6.7-1
 },
 source: {
 type: git,
@@ -2808,6 +2836,27 @@ version: master
 status: developed
 }
 -----
+floam: {
+doc: {
+type: git,
+url: 'https://github.com/flynneva/floam.git',
+version: main
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/flynneva/floam-release.git',
+version: 0.1.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/flynneva/floam.git',
+version: main
+},
+status: developed
+}
+-----
 fmi_adapter: {
 doc: {
 type: git,
@@ -2990,12 +3039,13 @@ version: master
 release: {
 packages: [gazebo_video_monitor_msgs,
 gazebo_video_monitor_plugins,
+gazebo_video_monitor_utils,
 gazebo_video_monitors],
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/nlamprian/gazebo_video_monitors-release.git',
-version: 0.6.0-1
+version: 0.7.0-1
 },
 source: {
 type: git,
@@ -3992,6 +4042,20 @@ version: noetic-devel
 status: maintained
 }
 -----
+iotbot: {
+doc: {
+type: git,
+url: 'https://github.com/EduArt-Robotik/iotbot.git',
+version: main
+},
+source: {
+type: git,
+url: 'https://github.com/EduArt-Robotik/iotbot.git',
+version: main
+},
+status: maintained
+}
+-----
 ira_laser_tools: {
 doc: {
 type: git,
@@ -4003,7 +4067,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/iralabdisco/ira_laser_tools-release.git',
-version: 1.0.6-1
+version: 1.0.6-2
 },
 source: {
 type: git,
@@ -4376,7 +4440,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/utexas-bwi-gbp/knowledge_representation-release.git',
-version: 0.9.3-1
+version: 0.9.5-1
 },
 source: {
 test_commits: false,
@@ -5324,6 +5388,26 @@ version: indigo-devel
 status: maintained
 }
 -----
+microstrain_inertial: {
+release: {
+packages: [microstrain_inertial_driver,
+microstrain_inertial_examples,
+microstrain_inertial_msgs],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/LORD-MicroStrain/microstrain_inertial-release.git',
+version: 2.0.2-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/LORD-MicroStrain/microstrain_inertial.git',
+version: ros
+},
+status: developed
+}
+-----
 mir_robot: {
 doc: {
 type: git,
@@ -5740,7 +5824,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/praveen-palanisamy/multi_object_tracking_lidar-release.git',
-version: 1.0.3-1
+version: 1.0.4-1
 },
 source: {
 test_pull_requests: true,
@@ -5922,7 +6006,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/neonavigation-release.git',
-version: 0.10.11-1
+version: 0.11.0-1
 },
 source: {
 type: git,
@@ -6139,7 +6223,7 @@ novatel_oem7_driver: {
 doc: {
 type: git,
 url: 'https://github.com/novatel/novatel_oem7_driver.git',
-version: master
+version: ros1
 },
 release: {
 packages: [novatel_oem7_driver,
@@ -6153,9 +6237,9 @@ version: 2.2.0-1
 source: {
 type: git,
 url: 'https://github.com/novatel/novatel_oem7_driver.git',
-version: master
+version: ros1
 },
-status: developed
+status: maintained
 }
 -----
 ntpd_driver: {
@@ -6681,12 +6765,28 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/nobleo/paho.mqtt.c-release.git',
-version: 1.3.8-8
+version: 1.3.9-1
 },
 source: {
 test_commits: false,
 type: git,
 url: 'https://github.com/eclipse/paho.mqtt.c.git',
+version: master
+},
+status: maintained
+}
+-----
+paho-mqtt-cpp: {
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/nobleo/paho.mqtt.cpp-release.git',
+version: 1.2.0-2
+},
+source: {
+type: git,
+url: 'https://github.com/eclipse/paho.mqtt.cpp.git',
 version: master
 },
 status: maintained
@@ -7689,6 +7789,37 @@ version: melodic-devel
 status: maintained
 }
 -----
+qb_device: {
+doc: {
+type: git,
+url: 'https://bitbucket.org/qbrobotics/qbdevice-ros.git',
+version: production-noetic
+},
+release: {
+packages: [qb_device,
+qb_device_bringup,
+qb_device_control,
+qb_device_description,
+qb_device_driver,
+qb_device_gazebo,
+qb_device_hardware_interface,
+qb_device_msgs,
+qb_device_srvs,
+qb_device_utils],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://bitbucket.org/qbrobotics/qbdevice-ros-release.git',
+version: 2.2.1-1
+},
+source: {
+type: git,
+url: 'https://bitbucket.org/qbrobotics/qbdevice-ros.git',
+version: production-noetic
+},
+status: maintained
+}
+-----
 qpoases_vendor: {
 doc: {
 type: git,
@@ -7749,13 +7880,24 @@ version: 5.0.0-1
 }
 -----
 quanergy_client_ros: {
+doc: {
+type: git,
+url: 'https://github.com/QuanergySystems/quanergy_client_ros.git',
+version: master
+},
 release: {
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/QuanergySystems/quanergy_client_ros-release.git',
-version: 4.0.0-1
-}
+version: 4.0.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/QuanergySystems/quanergy_client_ros.git',
+version: master
+},
+status: developed
 }
 -----
 qwt_dependency: {
@@ -8184,6 +8326,59 @@ version: dev
 status: maintained
 }
 -----
+rm_control: {
+doc: {
+type: git,
+url: 'https://github.com/rm-controls/rm_control.git',
+version: master
+},
+release: {
+packages: [rm_base,
+rm_common,
+rm_control,
+rm_description,
+rm_gazebo,
+rm_msgs],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/rm-controls/rm_control-release.git',
+version: 0.1.1-5
+},
+source: {
+type: git,
+url: 'https://github.com/rm-controls/rm_control.git',
+version: master
+}
+}
+-----
+rm_controllers: {
+doc: {
+type: git,
+url: 'https://github.com/rm-controls/rm_controllers.git',
+version: master
+},
+release: {
+packages: [rm_calibration_controllers,
+rm_chassis_controllers,
+rm_controllers,
+rm_gimbal_controllers,
+rm_shooter_controllers,
+robot_state_controller],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/rm-controls/rm_controllers-release.git',
+version: 0.1.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/rm-controls/rm_controllers.git',
+version: master
+},
+status: developed
+}
+-----
 robot_body_filter: {
 doc: {
 type: git,
@@ -8195,7 +8390,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/peci1/robot_body_filter-release.git',
-version: 1.2.1-1
+version: 1.2.2-1
 },
 source: {
 type: git,
@@ -10193,7 +10388,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/pantor/ruckig-release.git',
-version: 0.3.3-1
+version: 0.4.0-1
 },
 source: {
 type: git,
@@ -10214,12 +10409,33 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rviz-release.git',
-version: 1.14.8-1
+version: 1.14.9-2
 },
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/rviz.git',
+version: noetic-devel
+},
+status: maintained
+}
+-----
+rviz_animated_view_controller: {
+doc: {
+type: git,
+url: 'https://github.com/ros-visualization/rviz_animated_view_controller.git',
+version: noetic-devel
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ros-gbp/rviz_animated_view_controller-release.git',
+version: 0.2.0-2
+},
+source: {
+type: git,
+url: 'https://github.com/ros-visualization/rviz_animated_view_controller.git',
 version: noetic-devel
 },
 status: maintained
@@ -10641,12 +10857,17 @@ status: maintained
 }
 -----
 slider_publisher: {
+doc: {
+type: git,
+url: 'https://github.com/oKermorgant/slider_publisher.git',
+version: ros1
+},
 release: {
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/oKermorgant/slider_publisher-release.git',
-version: 1.0.0-1
+version: 1.1.1-1
 },
 source: {
 type: git,
@@ -11759,7 +11980,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/seqsense/urg_stamped-release.git',
-version: 0.0.13-1
+version: 0.0.14-1
 },
 source: {
 type: git,
@@ -12869,16 +13090,17 @@ app_manager: <?xml version="1.0" ?>
 -----
 apriltag: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="2">
+<package format="3">
 <name>apriltag</name>
 <description>AprilTag detector library</description>
 <maintainer email="mkrogius@umich.edu">Max Krogius</maintainer>
-<maintainer email="w.merkt+oss@gmail.com">Wolfgang Merkt</maintainer>
+<maintainer email="opensource@wolfgangmerkt.com">Wolfgang Merkt</maintainer>
 <author email="ebolson@umich.edu">Edwin Olson</author>
 <author email="mkrogius@umich.edu">Max Krogius</author>
 <license>BSD</license>
 <url>https://april.eecs.umich.edu/software/apriltag.html</url>
 <buildtool_depend>cmake</buildtool_depend>
+<build_depend condition="$ROS_PYTHON_VERSION == 3">python3-numpy</build_depend>
 <export>
 <build_type>cmake</build_type>
 </export>
@@ -21868,6 +22090,37 @@ flexbe_widget: <?xml version="1.0" ?>
 <run_depend>flexbe_onboard</run_depend>
 </package>
 -----
+floam: <?xml version="1.0" ?>
+<package format="2">
+<name>floam</name>
+<description>A generic Lidar SLAM package based on FLOAM which was based on ALOAM by HKUST and LOAM by CMU</description>
+<author email="wh200720041@gmail.com">Han Wang</author>
+<maintainer email="evanflynn.msu@gmail.com">Evan Flynn</maintainer>
+<license>BSD</license>
+<url>https://wanghan.pro</url>
+<url>https://www.flynnlabs.dev</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>libpcl-all-dev</depend>
+<depend>eigen</depend>
+<depend>libceres-dev</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>roscpp</depend>
+<depend>nodelet</depend>
+<depend>rospy</depend>
+<depend>std_msgs</depend>
+<depend>rosbag</depend>
+<depend>sensor_msgs</depend>
+<depend>tf2</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>eigen_conversions</depend>
+<depend>hector_trajectory_server</depend>
+<depend>pcl_ros</depend>
+<export>
+<nodelet plugin="${prefix}/nodelets.xml"/>
+</export>
+</package>
+-----
 fmi_adapter: <?xml version="1.0" ?>
 <package format="2">
 <name>fmi_adapter</name>
@@ -22795,6 +23048,7 @@ gazebo_video_monitor_msgs: <?xml version="1.0" ?>
 <license>GPLv3</license>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
+<build_export_depend>std_srvs</build_export_depend>
 <exec_depend>message_runtime</exec_depend>
 <exec_depend>std_srvs</exec_depend>
 </package>
@@ -22817,8 +23071,10 @@ to fit arbitrary use cases.</description>
 <build_depend>std_srvs</build_depend>
 <build_depend>yaml-cpp</build_depend>
 <build_export_depend>gazebo_ros</build_export_depend>
+<build_export_depend>gazebo_video_monitor_msgs</build_export_depend>
 <build_export_depend>libopencv-dev</build_export_depend>
 <build_export_depend>roscpp</build_export_depend>
+<build_export_depend>std_srvs</build_export_depend>
 <exec_depend>gazebo_ros</exec_depend>
 <exec_depend>gazebo_video_monitor_msgs</exec_depend>
 <exec_depend>libopencv-dev</exec_depend>
@@ -22827,6 +23083,19 @@ to fit arbitrary use cases.</description>
 <export>
 <gazebo_ros plugin_path="${prefix}/lib"/>
 </export>
+</package>
+-----
+gazebo_video_monitor_utils: <?xml version="1.0" ?>
+<package format="2">
+<name>gazebo_video_monitor_utils</name>
+<description>gazebo_video_monitor_utils contains utility scripts that are meant to interact with the gazebo video monitor plugins.</description>
+<author email="nlamprian@gmail.com">Nick Lamprianidis</author>
+<maintainer email="nlamprian@gmail.com">Nick Lamprianidis</maintainer>
+<license>GPLv3</license>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>gazebo_msgs</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>std_srvs</exec_depend>
 </package>
 -----
 gazebo_video_monitors: <?xml version="1.0" ?>
@@ -30067,6 +30336,85 @@ and a ROS node.</description>
 <run_depend>std_msgs</run_depend>
 </package>
 -----
+microstrain_inertial_driver: <?xml version="1.0" ?>
+<package format="2">
+<name>microstrain_inertial_driver</name>
+<description>The ros_mscl package provides a driver for the LORD/Microstrain inertial products.</description>
+<author>Brian Bingham</author>
+<author>Parker Hannifin Corp</author>
+<maintainer email="rob.fisher@parker.com">Rob Fisher</maintainer>
+<maintainer email="melissa.gill@parker.com">Melissa Gill</maintainer>
+<license>MIT</license>
+<url type="website">https://github.com/LORD-MicroStrain/microstrain_inertial</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>cmake_modules</depend>
+<depend>diagnostic_updater</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>std_msgs</depend>
+<depend>std_srvs</depend>
+<depend>geometry_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>microstrain_inertial_msgs</depend>
+<build_depend>jq</build_depend>
+<build_depend>curl</build_depend>
+<build_depend>message_generation</build_depend>
+<build_depend>roslint</build_depend>
+<exec_depend>message_runtime</exec_depend>
+<exec_depend>diagnostic_aggregator</exec_depend>
+<export>
+<rosdoc config="rosdoc.yaml"/>
+</export>
+</package>
+-----
+microstrain_inertial_examples: <?xml version="1.0" ?>
+<package format="2">
+<name>microstrain_inertial_examples</name>
+<description>Example listener for Parker LORD Sensing inertial device driver ros_mscl (C++).</description>
+<maintainer email="rob.fisher@parker.com">Rob Fisher</maintainer>
+<maintainer email="melissa.gill@parker.com">Melissa Gill</maintainer>
+<license>MIT</license>
+<url type="website">https://github.com/LORD-MicroStrain/microstrain_inertial</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>rospy</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>roslint</build_depend>
+<build_export_depend>roscpp</build_export_depend>
+<build_export_depend>rospy</build_export_depend>
+<build_export_depend>std_msgs</build_export_depend>
+<exec_depend>roscpp</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<depend>cmake_modules</depend>
+<depend>microstrain_inertial_msgs</depend>
+<export/>
+</package>
+-----
+microstrain_inertial_msgs: <?xml version="1.0" ?>
+<package>
+<name>microstrain_inertial_msgs</name>
+<description>A package that contains ROS message corresponding to microstrain message types.</description>
+<author>Dr. Kristopher Krasnosky</author>
+<maintainer email="rob.fisher@parker.com">Rob Fisher</maintainer>
+<maintainer email="melissa.gill@parker.com">Melissa Gill</maintainer>
+<license>MIT</license>
+<url type="website">https://github.com/LORD-MicroStrain/microstrain_inertial</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>message_generation</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<run_depend>message_runtime</run_depend>
+<run_depend>std_msgs</run_depend>
+<run_depend>geometry_msgs</run_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>
+-----
 mini_maxwell: <?xml version="1.0" ?>
 <package>
 <name>mini_maxwell</name>
@@ -33858,7 +34206,22 @@ paho-mqtt-c: <?xml version="1.0" ?>
 <license>Eclipse Public License 2.0</license>
 <buildtool_depend>cmake</buildtool_depend>
 <depend>libssl-dev</depend>
-<exec_depend>catkin</exec_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+paho-mqtt-cpp: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>paho-mqtt-cpp</name>
+<description>Eclipse Paho MQTT C++ Client Library</description>
+<maintainer email="paho-success@eclipse.org"/>
+<license>Eclipse Public License - v 1.0</license>
+<url>https://github.com/eclipse/paho.mqtt.cpp.git</url>
+<buildtool_depend>cmake</buildtool_depend>
+<depend>libssl-dev</depend>
+<depend>paho-mqtt-c</depend>
 <export>
 <build_type>cmake</build_type>
 </export>
@@ -37082,6 +37445,199 @@ this is called &quot;SIP&quot;. Also provided is adapter code to make the user''
 </export>
 </package>'
 -----
+qb_device: <?xml version="1.0" ?>
+<package format="2">
+<name>qb_device</name>
+<description>This package contains a device-independent ROS interface for qbrobotics® devices.</description>
+<author>qbrobotics®</author>
+<maintainer email="alessandro.tondo@qbrobotics.com">Alessandro Tondo</maintainer>
+<license>BSD 3-Clause</license>
+<url type="bugtracker">https://bitbucket.org/qbrobotics/qbdevice-ros/issues</url>
+<url type="repository">https://bitbucket.org/qbrobotics/qbdevice-ros</url>
+<url type="website">http://wiki.ros.org/qb_device</url>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>qb_device_bringup</exec_depend>
+<exec_depend>qb_device_control</exec_depend>
+<exec_depend>qb_device_description</exec_depend>
+<exec_depend>qb_device_driver</exec_depend>
+<exec_depend>qb_device_gazebo</exec_depend>
+<exec_depend>qb_device_hardware_interface</exec_depend>
+<exec_depend>qb_device_msgs</exec_depend>
+<exec_depend>qb_device_srvs</exec_depend>
+<exec_depend>qb_device_utils</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
+qb_device_bringup: <?xml version="1.0" ?>
+<package format="2">
+<name>qb_device_bringup</name>
+<description>This package contains a device-independent bringup utilities for qbrobotics® devices.</description>
+<author>qbrobotics®</author>
+<maintainer email="alessandro.tondo@qbrobotics.com">Alessandro Tondo</maintainer>
+<license>BSD 3-Clause</license>
+<url type="bugtracker">https://bitbucket.org/qbrobotics/qbdevice-ros/issues</url>
+<url type="repository">https://bitbucket.org/qbrobotics/qbdevice-ros</url>
+<url type="website">http://wiki.ros.org/qb_device_bringup</url>
+<buildtool_depend>catkin</buildtool_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>
+-----
+qb_device_control: <?xml version="1.0" ?>
+<package format="2">
+<name>qb_device_control</name>
+<description>This package contains a device-independent control library for qbrobotics® devices.</description>
+<author>qbrobotics®</author>
+<maintainer email="alessandro.tondo@qbrobotics.com">Alessandro Tondo</maintainer>
+<license>BSD 3-Clause</license>
+<url type="bugtracker">https://bitbucket.org/qbrobotics/qbdevice-ros/issues</url>
+<url type="repository">https://bitbucket.org/qbrobotics/qbdevice-ros</url>
+<url type="website">http://wiki.ros.org/qb_device_control</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>actionlib</depend>
+<depend>combined_robot_hw</depend>
+<depend>control_msgs</depend>
+<depend>controller_manager</depend>
+<depend>qb_device_hardware_interface</depend>
+<depend>qb_device_utils</depend>
+<doc_depend>doxygen</doc_depend>
+</package>
+-----
+qb_device_description: <?xml version="1.0" ?>
+<package format="2">
+<name>qb_device_description</name>
+<description>This package contains a device-independent description utilities for qbrobotics® devices.</description>
+<author>qbrobotics®</author>
+<maintainer email="alessandro.tondo@qbrobotics.com">Alessandro Tondo</maintainer>
+<license>BSD 3-Clause</license>
+<url type="bugtracker">https://bitbucket.org/qbrobotics/qbdevice-ros/issues</url>
+<url type="repository">https://bitbucket.org/qbrobotics/qbdevice-ros</url>
+<url type="website">http://wiki.ros.org/qb_device_description</url>
+<buildtool_depend>catkin</buildtool_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>
+-----
+qb_device_driver: <?xml version="1.0" ?>
+<package format="2">
+<name>qb_device_driver</name>
+<description>This package contains a device-independent API wrapper for qbrobotics® devices.</description>
+<author>qbrobotics®</author>
+<maintainer email="alessandro.tondo@qbrobotics.com">Alessandro Tondo</maintainer>
+<license>BSD 3-Clause</license>
+<url type="bugtracker">https://bitbucket.org/qbrobotics/qbdevice-ros/issues</url>
+<url type="repository">https://bitbucket.org/qbrobotics/qbdevice-ros</url>
+<url type="website">http://wiki.ros.org/qb_device_driver</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>qb_device_srvs</depend>
+<depend>qb_device_utils</depend>
+<doc_depend>doxygen</doc_depend>
+</package>
+-----
+qb_device_gazebo: <?xml version="1.0" ?>
+<package format="2">
+<name>qb_device_gazebo</name>
+<description>This package contains the Gazebo ROS control custom dependencies for qbrobotics® devices.</description>
+<author>qbrobotics®</author>
+<maintainer email="alessandro.tondo@qbrobotics.com">Alessandro Tondo</maintainer>
+<license>BSD 3-Clause</license>
+<url type="bugtracker">https://bitbucket.org/qbrobotics/qbdevice-ros/issues</url>
+<url type="repository">https://bitbucket.org/qbrobotics/qbdevice-ros</url>
+<url type="website">http://wiki.ros.org/qb_device_gazebo</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>gazebo_ros_control</depend>
+<depend>controller_manager</depend>
+<export>
+<gazebo_ros_control plugin="${prefix}/plugin.xml"/>
+</export>
+<doc_depend>doxygen</doc_depend>
+</package>
+-----
+qb_device_hardware_interface: <?xml version="1.0" ?>
+<package format="2">
+<name>qb_device_hardware_interface</name>
+<description>This package contains a device-independent hardware interface for qbrobotics® devices.</description>
+<author>qbrobotics®</author>
+<maintainer email="alessandro.tondo@qbrobotics.com">Alessandro Tondo</maintainer>
+<license>BSD 3-Clause</license>
+<url type="bugtracker">https://bitbucket.org/qbrobotics/qbdevice-ros/issues</url>
+<url type="repository">https://bitbucket.org/qbrobotics/qbdevice-ros</url>
+<url type="website">http://wiki.ros.org/qb_device_hardware_interface</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>hardware_interface</depend>
+<depend>joint_limits_interface</depend>
+<depend>transmission_interface</depend>
+<depend>urdf</depend>
+<depend>qb_device_msgs</depend>
+<depend>qb_device_srvs</depend>
+<test_depend>rostest</test_depend>
+<doc_depend>doxygen</doc_depend>
+</package>
+-----
+qb_device_msgs: <?xml version="1.0" ?>
+<package format="2">
+<name>qb_device_msgs</name>
+<description>This package contains the device-independent custom ROS messages for qbrobotics® devices.</description>
+<author>qbrobotics®</author>
+<maintainer email="alessandro.tondo@qbrobotics.com">Alessandro Tondo</maintainer>
+<license>BSD 3-Clause</license>
+<url type="bugtracker">https://bitbucket.org/qbrobotics/qbdevice-ros/issues</url>
+<url type="repository">https://bitbucket.org/qbrobotics/qbdevice-ros</url>
+<url type="website">http://wiki.ros.org/qb_device_msgs</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>std_msgs</depend>
+<build_depend>message_generation</build_depend>
+<build_export_depend>message_runtime</build_export_depend>
+<exec_depend>message_runtime</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>
+-----
+qb_device_srvs: <?xml version="1.0" ?>
+<package format="2">
+<name>qb_device_srvs</name>
+<description>This package contains the device-independent custom ROS services for qbrobotics® devices.</description>
+<author>qbrobotics®</author>
+<maintainer email="alessandro.tondo@qbrobotics.com">Alessandro Tondo</maintainer>
+<license>BSD 3-Clause</license>
+<url type="bugtracker">https://bitbucket.org/qbrobotics/qbdevice-ros/issues</url>
+<url type="repository">https://bitbucket.org/qbrobotics/qbdevice-ros</url>
+<url type="website">http://wiki.ros.org/qb_device_srvs</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>std_srvs</depend>
+<depend>qb_device_msgs</depend>
+<build_depend>message_generation</build_depend>
+<build_export_depend>message_runtime</build_export_depend>
+<exec_depend>message_runtime</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>
+-----
+qb_device_utils: <?xml version="1.0" ?>
+<package format="2">
+<name>qb_device_utils</name>
+<description>This package contains a device-independent utility functions for qbrobotics® devices.</description>
+<author>qbrobotics®</author>
+<maintainer email="alessandro.tondo@qbrobotics.com">Alessandro Tondo</maintainer>
+<license>BSD 3-Clause</license>
+<url type="bugtracker">https://bitbucket.org/qbrobotics/qbdevice-ros/issues</url>
+<url type="repository">https://bitbucket.org/qbrobotics/qbdevice-ros</url>
+<url type="website">http://wiki.ros.org/qb_device_utils</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<doc_depend>doxygen</doc_depend>
+</package>
+-----
 qpoases_vendor: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
 <package format=\"3\">
@@ -37940,6 +38496,244 @@ and (registered) point clouds.</description>
 <run_depend>tf2_ros</run_depend>
 <test_depend>rostest</test_depend>test_depend&gt;</package>
 -----
+rm_base: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_base</name>
+<description>ROS control warped interface for RoboMaster motor and some robot hardware</description>
+<maintainer email="liaoqiayuan@gmail.com">Qiayuan Liao</maintainer>
+<license>BSD</license>
+<author email="liaoqiayuan@gmail.com">Qiayuan Liao</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>roslint</depend>
+<depend>rm_common</depend>
+<depend>rm_msgs</depend>
+<depend>hardware_interface</depend>
+<depend>controller_interface</depend>
+<depend>transmission_interface</depend>
+<depend>joint_limits_interface</depend>
+<depend>controller_manager</depend>
+<depend>urdf</depend>
+<depend>realtime_tools</depend>
+<export>
+<transmission_interface plugin="${prefix}/rm_base_loader_plugins.xml"/>
+</export>
+</package>
+-----
+rm_calibration_controllers: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_calibration_controllers</name>
+<description>RoboMaster standard robot Gimbal controller</description>
+<maintainer email="liaoqiayuan@gmail.com">Qiayuan Liao</maintainer>
+<license>BSD</license>
+<author email="liaoqiayuan@gmail.com">Qiayuan Liao</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>roslint</depend>
+<depend>rm_msgs</depend>
+<depend>rm_common</depend>
+<depend>pluginlib</depend>
+<depend>hardware_interface</depend>
+<depend>controller_interface</depend>
+<depend>realtime_tools</depend>
+<depend>effort_controllers</depend>
+<depend>control_msgs</depend>
+<export>
+<controller_interface plugin="${prefix}/rm_calibration_controllers_plugins.xml"/>
+</export>
+</package>
+-----
+rm_chassis_controllers: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_chassis_controllers</name>
+<description>RoboMaster standard robot Chassis controller</description>
+<maintainer email="liaoqiayuan@gmail.com">Qiayuan Liao</maintainer>
+<license>BSD</license>
+<author email="liaoqiayuan@gmail.com">Qiayuan Liao</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>roslint</depend>
+<depend>rm_msgs</depend>
+<depend>rm_common</depend>
+<depend>pluginlib</depend>
+<depend>hardware_interface</depend>
+<depend>controller_interface</depend>
+<depend>forward_command_controller</depend>
+<depend>realtime_tools</depend>
+<depend>control_toolbox</depend>
+<depend>effort_controllers</depend>
+<depend>tf2</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>angles</depend>
+<exec_depend>imu_sensor_controller</exec_depend>
+<exec_depend>robot_localization</exec_depend>
+<export>
+<controller_interface plugin="${prefix}/rm_chassis_controllers_plugins.xml"/>
+</export>
+</package>
+-----
+rm_common: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_common</name>
+<description>The rm_common package</description>
+<maintainer email="liaoqiayuan@gmail.com">qiayuan</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>roslint</depend>
+<depend>tf</depend>
+<depend>geometry_msgs</depend>
+<depend>realtime_tools</depend>
+<depend>rm_msgs</depend>
+<depend>dynamic_reconfigure</depend>
+<depend>eigen</depend>
+<depend>control_msgs</depend>
+<depend>controller_manager_msgs</depend>
+<export/>
+</package>
+-----
+rm_control: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_control</name>
+<description>Meta package that contains package of rm_control.</description>
+<maintainer email="liaoqiayuan@gmail.com">Qiayuan Liao</maintainer>
+<license>BSD</license>
+<url type="repository">https://github.com/rm-controls/rm_control</url>
+<url type="bugtracker">https://github.com/rm-controls/rm_control/issues</url>
+<author email="liaoqiayuan@gmail.com">Qiayuan Liao</author>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>rm_msgs</exec_depend>
+<exec_depend>rm_common</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
+rm_controllers: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_controllers</name>
+<description>Meta package that contains package for RoboMaster.</description>
+<maintainer email="liaoqiayuan@gmail.com">Qiayuan Liao</maintainer>
+<license>BSD</license>
+<url type="repository">https://github.com/rm-controls/rm_controllers</url>
+<url type="bugtracker">https://github.com/rm-controls/rm_controllers/issues</url>
+<author email="liaoqiayuan@gmail.com">Qiayuan Liao</author>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>robot_state_controller</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
+rm_description: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_description</name>
+<description>RoboMaster robot description files</description>
+<maintainer email="liaoqiayuan@gmail.com">Qiayuan Liao</maintainer>
+<license>BSD</license>
+<author email="liaoqiayuan@gmail.com">Qiayuan Liao</author>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>xacro</exec_depend>
+</package>
+-----
+rm_gazebo: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_gazebo</name>
+<description>A template for ROS packages.</description>
+<maintainer email="liaoqiayuan@gmail.com">Qiayuan Liao</maintainer>
+<license>BSD</license>
+<author email="liaoqiayuan@gmail.com">Qiayuan Liao</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>roslint</depend>
+<depend>rm_common</depend>
+<depend>gazebo</depend>
+<depend>gazebo_ros</depend>
+<depend>gazebo_ros_control</depend>
+<exec_depend>rm_description</exec_depend>
+<exec_depend>roboticsgroup_upatras_gazebo_plugins</exec_depend>
+<export>
+<gazebo_ros_control plugin="${prefix}/rm_robot_hw_sim_plugins.xml"/>
+<gazebo_ros gazebo_model_path="${prefix}/.."/>
+</export>
+</package>
+-----
+rm_gimbal_controllers: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_gimbal_controllers</name>
+<description>RoboMaster standard robot Gimbal controller</description>
+<maintainer email="liaoqiayuan@gmail.com">Qiayuan Liao</maintainer>
+<license>BSD</license>
+<author email="liaoqiayuan@gmail.com">Qiayuan Liao</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>roslint</depend>
+<depend>rm_msgs</depend>
+<depend>rm_common</depend>
+<depend>pluginlib</depend>
+<depend>hardware_interface</depend>
+<depend>controller_interface</depend>
+<depend>forward_command_controller</depend>
+<depend>realtime_tools</depend>
+<depend>control_toolbox</depend>
+<depend>effort_controllers</depend>
+<depend>tf2</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>visualization_msgs</depend>
+<depend>dynamic_reconfigure</depend>
+<depend>angles</depend>
+<export>
+<controller_interface plugin="${prefix}/rm_gimbal_controllers_plugins.xml"/>
+</export>
+</package>
+-----
+rm_msgs: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_msgs</name>
+<description>The rm_msgs package provides all the messages for all kind of robot</description>
+<maintainer email="liaoqiayuan@gmail.com">qiayuan</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>message_generation</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_export_depend>std_msgs</build_export_depend>
+<build_export_depend>geometry_msgs</build_export_depend>
+<build_depend>actionlib</build_depend>
+<build_depend>actionlib_msgs</build_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>message_runtime</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>actionlib</exec_depend>
+<exec_depend>actionlib_msgs</exec_depend>
+<export/>
+</package>
+-----
+rm_shooter_controllers: <?xml version="1.0" ?>
+<package format="2">
+<name>rm_shooter_controllers</name>
+<description>RoboMaster standard robot Shooter controller</description>
+<maintainer email="liaoqiayuan@gmail.com">Qiayuan Liao</maintainer>
+<license>BSD</license>
+<author email="liaoqiayuan@gmail.com">Qiayuan Liao</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>roslint</depend>
+<depend>rm_msgs</depend>
+<depend>rm_common</depend>
+<depend>pluginlib</depend>
+<depend>hardware_interface</depend>
+<depend>controller_interface</depend>
+<depend>forward_command_controller</depend>
+<depend>realtime_tools</depend>
+<depend>control_toolbox</depend>
+<depend>effort_controllers</depend>
+<depend>dynamic_reconfigure</depend>
+<export>
+<controller_interface plugin="${prefix}/rm_shooter_controllers_plugins.xml"/>
+</export>
+</package>
+-----
 robot: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
 <package format=\"2\">
@@ -38418,6 +39212,30 @@ robot_self_filter: <?xml version="1.0" ?>
 <run_depend>assimp</run_depend>
 <run_depend>tinyxml</run_depend>
 <export/>
+</package>
+-----
+robot_state_controller: <?xml version="1.0" ?>
+<package format="2">
+<name>robot_state_controller</name>
+<description>A template for ROS packages.</description>
+<maintainer email="liaoqiayuan@gmail.com">Qiayuan Liao</maintainer>
+<license>BSD</license>
+<author email="liaoqiayuan@gmail.com">Qiayuan Liao</author>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>roscpp</depend>
+<depend>roslint</depend>
+<depend>rm_common</depend>
+<depend>controller_interface</depend>
+<depend>hardware_interface</depend>
+<depend>urdf</depend>
+<depend>kdl_parser</depend>
+<depend>tf2_ros</depend>
+<depend>tf2_kdl</depend>
+<depend>realtime_tools</depend>
+<depend>pluginlib</depend>
+<export>
+<controller_interface plugin="${prefix}/robot_state_controller_plugin.xml"/>
+</export>
 </package>
 -----
 robot_state_publisher: <?xml version="1.0" ?>
@@ -42505,7 +43323,7 @@ ruckig: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
 <name>ruckig</name>
-<description>Online Trajectory Generation. Real-time. Time-optimal. Jerk-constrained.</description>
+<description>Online Trajectory Generation. Real-time. Jerk-constrained. Time-optimal.</description>
 <author>Lars Berscheid</author>
 <maintainer email="lars.berscheid@kit.edu">Lars Berscheid</maintainer>
 <license>MIT</license>
@@ -42563,6 +43381,7 @@ rviz: <?xml version="1.0" ?>
 <depend>std_srvs</depend>
 <depend>tf2_ros</depend>
 <depend>tf2_geometry_msgs</depend>
+<depend>tf2_eigen</depend>
 <depend>tinyxml2</depend>
 <depend>urdf</depend>
 <depend>visualization_msgs</depend>
@@ -42579,6 +43398,35 @@ rviz: <?xml version="1.0" ?>
 <export>
 <rviz plugin="${prefix}/plugin_description.xml"/>
 <rosdoc config="rosdoc.yaml"/>
+</export>
+</package>
+-----
+rviz_animated_view_controller: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rviz_animated_view_controller</name>
+<description>A rviz view controller featuring smooth transitions.</description>
+<author email="adamleeper@gmail.com">Adam Leeper</author>
+<maintainer email="evanflynn.msu@gmail.com">Evan Flynn</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/rviz_animated_view_controller</url>
+<url type="repository">https://github.com/ros-visualization/rviz_animated_view_controller</url>
+<url type="bugtracker">https://github.com/ros-visualization/rviz_animated_view_controller/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend condition="$ROS_DISTRO != noetic and $ROS_DISTRO != melodic and $ROS_DISTRO != kinetic">libqt4-dev</depend>
+<depend condition="$ROS_DISTRO == noetic or $ROS_DISTRO == melodic or $ROS_DISTRO == kinetic">qtbase5-dev</depend>
+<depend>opengl</depend>
+<depend>eigen</depend>
+<depend>cv_bridge</depend>
+<depend>image_transport</depend>
+<depend>cmake_modules</depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>view_controller_msgs</depend>
+<depend>rviz</depend>
+<depend>pluginlib</depend>
+<export>
+<rviz plugin="${prefix}/plugin_description.xml"/>
 </export>
 </package>
 -----
