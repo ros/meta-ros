@@ -1,4 +1,4 @@
-From b95911a0a52fd7f2e0b0f9cf1bb15fbf834bd5d1 Mon Sep 17 00:00:00 2001
+From 19b538db412adb87bb68f26cb0b6c4749245ec7d Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Mon, 2 Nov 2020 14:24:31 -0800
 Subject: [PATCH] Revert: cmake: fix project packaging
@@ -11,10 +11,10 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d3e7e17..26b3075 100644
+index 84b221c..bdec948 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -175,8 +175,7 @@ TARGET_INCLUDE_DIRECTORIES(${PROJECT_NAME}
+@@ -190,8 +190,7 @@ TARGET_INCLUDE_DIRECTORIES(${PROJECT_NAME}
    ${EIGEN3_INCLUDE_DIR}
    ${PYTHON_INCLUDE_DIRS} 
    ${NUMPY_INCLUDE_DIRS}
@@ -24,7 +24,7 @@ index d3e7e17..26b3075 100644
  
  IF(SUFFIX_SO_VERSION)
    SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES SOVERSION ${PROJECT_VERSION})
-@@ -200,6 +199,9 @@ INSTALL(TARGETS ${PROJECT_NAME}
+@@ -211,6 +210,9 @@ INSTALL(TARGETS ${PROJECT_NAME}
  ADD_HEADER_GROUP(${PROJECT_NAME}_HEADERS)
  ADD_SOURCE_GROUP(${PROJECT_NAME}_SOURCES)
  
