@@ -129,6 +129,8 @@ iwyu:
 - ${ROS_UNRESOLVED_DEP-iwyu}
 joystick:
 - joystick@meta-ros-common
+jq:
+- jq@meta-oe
 julius-voxforge:
 - ${ROS_UNRESOLVED_DEP-julius-voxforge}
 lcov:
