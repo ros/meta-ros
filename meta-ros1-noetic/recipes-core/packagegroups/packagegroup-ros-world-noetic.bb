@@ -403,6 +403,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-virtual-joy \
     rqt-web \
     rtmros-common \
+    rviz-animated-view-controller \
     rviz-map-plugin \
     rviz-mesh-plugin \
     rviz-satellite \
@@ -901,6 +902,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     robot-nav-viz-demos \
     rqt-rviz \
     rviz \
+    rviz-animated-view-controller \
     rviz-imu-plugin \
     rviz-map-plugin \
     rviz-mesh-plugin \
@@ -1144,6 +1146,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rtabmap-ros \
     rtmros-common \
     rviz \
+    rviz-animated-view-controller \
     rviz-imu-plugin \
     rviz-map-plugin \
     rviz-mesh-plugin \
@@ -1414,6 +1417,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     ridgeback-gazebo \
     ridgeback-gazebo-plugins \
     ridgeback-simulator \
+    rm-gazebo \
     robosense-gazebo-plugins \
     robosense-simulator \
     roboticsgroup-upatras-gazebo-plugins \
