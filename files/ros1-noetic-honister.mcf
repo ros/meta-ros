@@ -17,8 +17,8 @@ McfFileVersion = 3
 # Value for DISTRO
 OE_Distribution = 'ros1'
 
-Bitbake_Branch = 'master'
-OE_Branch = 'master'
+Bitbake_Branch = '1.52'
+OE_Branch = 'honister'
 
 ROS_Distribution = 'noetic'
 
@@ -63,14 +63,14 @@ Layers = [
 
 ('meta',                                5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch,            'commit': 'ec20e1a0e0'},        {}),
 
-('meta-oe',                            10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': OE_Branch,            'commit': 'c2a8057647'},        {}),
+('meta-oe',                            10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': 'master',             'commit': 'c2a8057647'},        {}),
 ('meta-python',                        13, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
 
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
 ('meta-ros1',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros1-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
 
-('meta-raspberrypi',                   50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': OE_Branch,            'commit': 'a6fa6b3'},           {}),
+('meta-raspberrypi',                   50, 'git://git.yoctoproject.org/meta-raspberrypi',            {'branch': 'master',             'commit': 'a6fa6b3'},           {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
