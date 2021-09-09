@@ -2,11 +2,8 @@
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-Revert-cmake-fix-packaging-issue-on-Windows.patch \
-    file://0001-Revert-cmake-fix-project-packaging.patch \
-    file://0002-CMakeLists.txt-allow-to-set-PYTHON_EXECUTABLE.patch \
-    file://0001-core-fix-typedef.patch \
-    file://0002-core-fix-compatibility-with-Boost.Python-1.77.patch \
-    file://0003-core-fix-typedef.patch \
+    file://0002-Revert-cmake-fix-project-packaging.patch \
+    file://0003-core-fix-compatibility-with-Boost.Python-1.77.patch \
 "
 
 EXTRA_OECMAKE += "-DPYTHON_EXECUTABLE=${PYTHON}"
