@@ -62,7 +62,7 @@ Layers = [
 ('meta-filesystems',                   14, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
 
 ('meta-updater',                       15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': OE_Branch,            'commit': '5d49b28'},           {}),
-('meta-virtualization',                16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': OE_Branch,            'commit': 'dbd1a73'},           {}),
+('meta-virtualization',                16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': OE_Branch,            'commit': 'edf1998'},           {}),
 ('meta-python2',                       17, 'git://git.openembedded.org/meta-python2',                {'branch': OE_Branch,            'commit': 'b901080'},           {}),
 
 ('meta-qt6',                           20, 'git://code.qt.io/yocto/meta-qt6.git',                    {'branch': '6.2',                'commit': '3b3572a'},           {}),
@@ -87,7 +87,7 @@ Layers = [
 ('meta-ros-webos',                     60, MetaRosWebos_RepoURL,                                     {'branch': MetaRosWebos_Branch,  'commit': MetaRosWebos_Commit}, {}),
 
 ('meta-webos-smack',                   75, MetaWebos_RepoURL,                                        {},                                                              {}),
-('meta-security',                      77, 'git://git.yoctoproject.org/meta-security',               {'branch': OE_Branch,            'commit': '6466c6f'},           {}),
+('meta-security',                      77, 'git://git.yoctoproject.org/meta-security',               {'branch': OE_Branch,            'commit': 'b76698c'},           {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
