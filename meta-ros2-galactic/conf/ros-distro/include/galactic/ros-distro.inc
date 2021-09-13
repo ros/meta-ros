@@ -115,6 +115,9 @@ ROS_WORLD_SKIP_GROUPS += "python3-shapely"
 # recipes depending on libomp which could be provided by openmp@meta-clang
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-layer', '', 'libomp', d)}"
 
+# Still depends on catkin-native, missing the update to ROS2 like dashing version got in https://github.com/ros-visualization/rqt_runtime_monitor/pull/5
+ROS_WORLD_SKIP_GROUPS += "rqt-runtime-monitor"
+
 # recipes depending on ros1
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'ros1-layer', '', 'ros1', d)}"
 
