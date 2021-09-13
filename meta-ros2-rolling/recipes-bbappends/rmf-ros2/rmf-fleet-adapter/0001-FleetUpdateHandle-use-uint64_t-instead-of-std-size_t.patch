@@ -1,4 +1,4 @@
-From b108a6144c2720938006ded8a86a813c7a0deca5 Mon Sep 17 00:00:00 2001
+From 616b206f4c9701652b76f361013fe92839639080 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 7 Jul 2021 17:21:28 +0000
 Subject: [PATCH] FleetUpdateHandle: use uint64_t instead of std::size_t to
@@ -49,11 +49,11 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  2 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp b/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
-index 4ff5e23..6a93c8a 100644
+index 9740163..de07931 100644
 --- a/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
 +++ b/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
-@@ -69,10 +69,10 @@ public:
-       std::function<void(std::shared_ptr<RobotUpdateHandle> handle)> handle_cb);
+@@ -71,10 +71,10 @@ public:
+     std::function<void(std::shared_ptr<RobotUpdateHandle> handle)> handle_cb);
  
    /// Specify a set of lanes that should be closed.
 -  void close_lanes(std::vector<std::size_t> lane_indices);
@@ -66,10 +66,10 @@ index 4ff5e23..6a93c8a 100644
    /// Set the parameters required for task planning. Without calling this
    /// function, this fleet will not bid for and accept tasks.
 diff --git a/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp b/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
-index 4708941..d918e6f 100644
+index 67a0864..c341141 100644
 --- a/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
 +++ b/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
-@@ -1076,7 +1076,7 @@ void FleetUpdateHandle::add_robot(
+@@ -1101,7 +1101,7 @@ void FleetUpdateHandle::add_robot(
  }
  
  //==============================================================================
@@ -78,7 +78,7 @@ index 4708941..d918e6f 100644
  {
    _pimpl->worker.schedule(
      [w = weak_from_this(), lane_indices = std::move(lane_indices)](const auto&)
-@@ -1116,7 +1116,7 @@ void FleetUpdateHandle::close_lanes(std::vector<std::size_t> lane_indices)
+@@ -1141,7 +1141,7 @@ void FleetUpdateHandle::close_lanes(std::vector<std::size_t> lane_indices)
  }
  
  //==============================================================================
