@@ -163,6 +163,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rviz-ogre-vendor \
     rviz-rendering \
     rviz2 \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
@@ -189,6 +191,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-py-common \
     rmf-demos \
     rmf-demos-assets \
+    rmf-demos-gz \
+    rmf-demos-ign \
     rmf-building-sim-gazebo-plugins \
     rmf-building-sim-ignition-plugins \
     rmf-robot-sim-gazebo-plugins \
@@ -230,6 +234,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rviz2 \
     turtle-tf2-py \
     turtle-tf2-cpp \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
     turtlesim \
     webots-ros2-epuck \
     webots-ros2-tiago \
@@ -271,8 +277,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-rosdev \
     rmf-demos \
     rmf-demos-assets \
+    rmf-demos-gz \
+    rmf-demos-ign \
     rmf-building-sim-gazebo-plugins \
     rmf-robot-sim-gazebo-plugins \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
 "
 
 ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC_RC_GENICAM_API:x86 = ""
@@ -361,6 +371,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
+    turtlebot3-gazebo \
+    turtlebot3-simulations \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
@@ -395,6 +407,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
     webots-ros2-core \
     webots-ros2-examples \
     webots-ros2-importer \
+    webots-ros2-mavic \
     webots-ros2-tesla \
     webots-ros2-turtlebot \
     webots-ros2-tutorials \
