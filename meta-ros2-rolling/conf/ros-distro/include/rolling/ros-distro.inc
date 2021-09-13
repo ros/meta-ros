@@ -115,6 +115,9 @@ ROS_WORLD_SKIP_GROUPS += "python3-flask-cors"
 # src/mongo/client/dbclient.h and src/mongo/client/dbclientinterface.h are only in the legacy branches
 ROS_WORLD_SKIP_GROUPS += "mongodb-legacy-cxx-driver"
 
+# Still depends on catkin-native, missing the update to ROS2 like dashing version got in https://github.com/ros-visualization/rqt_runtime_monitor/pull/5
+ROS_WORLD_SKIP_GROUPS += "rqt-runtime-monitor"
+
 # recipes depending on ros1
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'ros1-layer', '', 'ros1', d)}"
 
