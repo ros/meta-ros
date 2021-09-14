@@ -1,6 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-# copernicus-rules-1.1.0-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/copernicus_rules/create_udev_rules contained in package copernicus-rules requires /bin/bash, but no providers found in RDEPENDS_copernicus-rules? [file-rdeps]
+# copernicus-rules-1.1.0-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/copernicus_rules/create_udev_rules contained in package copernicus-rules requires /bin/bash, but no providers found in RDEPENDS:copernicus-rules? [file-rdeps]
 RDEPENDS:${PN} += "bash"
 
 # This is needed only for webOS OSE, which uses busybox to provide
