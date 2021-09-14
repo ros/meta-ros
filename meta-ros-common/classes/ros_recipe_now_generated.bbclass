@@ -4,7 +4,7 @@
 # between multiple recipes.
 
 def ros_recipe_now_generated__get_suffix(d):
-    pn = bb.parse.BBHandler.vars_from_file(d.getVar('FILE', False),d)[0] or 'defaultpkgname'
+    pn = bb.parse.vars_from_file(d.getVar('FILE', False),d)[0] or 'defaultpkgname'
     return bb.utils.contains('ROS_SUPERFLORE_GENERATED_RECIPES', pn, '-notgenerated', '', d)
 
 PN:append = "${@ros_recipe_now_generated__get_suffix(d)}"
