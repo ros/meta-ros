@@ -33,3 +33,7 @@ DEPENDS:append:class-target = " chrpath-replacement-native"
 do_install:append() {
     chrpath --delete ${D}${bindir}/* ${D}${libdir}/*${SOLIBS}
 }
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+
+SRC_URI += "file://revert_libdir.patch"
