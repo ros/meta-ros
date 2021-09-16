@@ -23,6 +23,10 @@ SRC_URI[patch.sha256sum] = "00aa71a94773cfd9ca4db0741415699b5c11de1e803ad973130d
 
 inherit autotools
 
+# Resulting package can conflict with generated ROS recipe libphidget22, disable debian naming to
+# keep libphidget22-upstream PN package name
+AUTO_LIBNAME_PKGS = ""
+
 do_configure:prepend() {
     # configure.ac uses this to define version (1.6 is taken from configure included in tarball, but autotools.bbclass runs autoreconf which fails without layer_version file)
     echo "1.6" > ${S}/library_version
