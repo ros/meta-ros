@@ -9,3 +9,6 @@ DEPENDS += "${PN}-upstream"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-Use-libphidget22-from-libphidget22-upstream-and-norm.patch"
+SRC_URI += "file://fix_libdir.patch"
+
+EXTRA_OECMAKE = "-DLIB_SUFFIX=${@d.getVar('baselib', True).replace('lib', '')}"
