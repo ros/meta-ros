@@ -33,3 +33,6 @@ DEPENDS:append:class-target = " chrpath-replacement-native"
 do_install:append() {
     chrpath --delete ${D}${bindir}/* ${D}${libdir}/*${SOLIBS}
 }
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-Revert-Add-LIBDIR-workaround-for-GNUInstallDirs.patch"
