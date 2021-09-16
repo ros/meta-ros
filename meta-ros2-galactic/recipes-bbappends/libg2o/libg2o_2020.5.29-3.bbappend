@@ -11,3 +11,15 @@ EXTRA_OECMAKE += " \
     ${@bb.utils.contains("TARGET_CC_ARCH", "-msse4.2", "", "-DDISABLE_SSE4_2=ON", d)} \
     ${@bb.utils.contains("TARGET_CC_ARCH", "-msse4.A", "", "-DDISABLE_SSE4_A=ON", d)} \
 "
+
+# stage bindir as well, because g2oTargets-release.cmake checks for g2o,
+# g2o_simulator2d, g2o_simulator3d, g2o_anonymize_observations even when it's not
+# called during the build (so we don't need to use libg2o-native to provide them)
+#
+# list(APPEND _IMPORT_CHECK_FILES_FOR_g2o::g2o_cli_application "${_IMPORT_PREFIX}/bin/g2o" )
+# list(APPEND _IMPORT_CHECK_FILES_FOR_g2o::g2o_simulator2d_application "${_IMPORT_PREFIX}/bin/g2o_simulator2d" )
+# list(APPEND _IMPORT_CHECK_FILES_FOR_g2o::g2o_simulator3d_application "${_IMPORT_PREFIX}/bin/g2o_simulator3d" )
+# list(APPEND _IMPORT_CHECK_FILES_FOR_g2o::g2o_anonymize_observations_application "${_IMPORT_PREFIX}/bin/g2o_anonymize_observations" )
+SYSROOT_DIRS:append = " \
+    ${bindir} \
+"
