@@ -1,0 +1,26 @@
+From e2428732eef743d8727b0b2e5c881dbd8247dbd5 Mon Sep 17 00:00:00 2001
+From: Rob Woolley <rob.woolley@windriver.com>
+Date: Thu, 16 Sep 2021 13:48:39 -0400
+Subject: [PATCH] Fix libdir
+
+The libphidget22 shared library is hardcoded to install to /usr/lib.
+
+We modify the recipe and CMake files to use the arch-specific libdir.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cmake/libphidget22-extras.cmake.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/libphidget22-extras.cmake.in b/cmake/libphidget22-extras.cmake.in
+index ccf3d59..5b880f5 100644
+--- a/cmake/libphidget22-extras.cmake.in
++++ b/cmake/libphidget22-extras.cmake.in
+@@ -1,3 +1,3 @@
+ # TODO(clalancette): Does this work in general?
+ list(APPEND @PROJECT_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/../../../../usr/include")
+-list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../../usr/lib/libphidget22.so")
++list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../../usr/lib@LIB_SUFFIX@/libphidget22.so")
