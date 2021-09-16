@@ -1,0 +1,30 @@
+From 34081c7771da869ab3104c72e5853f688d0b0d56 Mon Sep 17 00:00:00 2001
+From: Rob Woolley <rob.woolley@windriver.com>
+Date: Tue, 14 Sep 2021 02:07:24 +0000
+Subject: [PATCH] Revert "Add LIBDIR workaround for GNUInstallDirs"
+
+This reverts commit 066b88de7ef6b8deafa1dce5db0f83186263fc61.
+
+This reverts a change in the octomap build system that manually sets libdir.
+
+Removing this line allows CMake to use the default setting.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 38499022..f091ea13 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,6 +1,5 @@
+ CMAKE_MINIMUM_REQUIRED(VERSION 3.0.2)
+ PROJECT( octomap )
+-set(CMAKE_INSTALL_LIBDIR "lib") # workaround for GNUInstallDirs
+ 
+ include(CTest)
+ include(GNUInstallDirs)
