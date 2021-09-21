@@ -19,6 +19,8 @@ bullet:
 - bullet@meta-ros-common
 bzip2:
 - bzip2@openembedded-core
+catkin:
+- ${ROS_UNRESOLVED_DEP-catkin}
 clang-format:
 - ${ROS_UNRESOLVED_DEP-clang-format}
 clang-tidy:
@@ -75,6 +77,8 @@ gurumdds-2.7:
 - ${ROS_UNRESOLVED_DEP-gurumdds-2.7}
 ignition-common4:
 - ${ROS_UNRESOLVED_DEP-ignition-common4}
+ignition-edifice:
+- ${ROS_UNRESOLVED_DEP-ignition-edifice}
 ignition-gazebo5:
 - ${ROS_UNRESOLVED_DEP-ignition-gazebo5}
 ignition-gui5:
@@ -151,6 +155,8 @@ libfreetype6-dev:
 - freetype@openembedded-core
 libgazebo11-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
+libgeos++-dev:
+- geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
 libglew-dev:
@@ -167,6 +173,8 @@ libjpeg:
 - jpeg@openembedded-core
 liblapack-dev:
 - lapack@meta-oe
+liblttng-ust-dev:
+- lttng-ust@openembedded-core
 libmongoclient-dev:
 - mongodb@meta-oe
 libncurses-dev:
@@ -209,6 +217,10 @@ libqt5-opengl:
 - qtbase@meta-qt5
 libqt5-opengl-dev:
 - qtbase@meta-qt5
+libqt5-qml:
+- ${ROS_UNRESOLVED_DEP-libqt5-qml}
+libqt5-quick:
+- ${ROS_UNRESOLVED_DEP-libqt5-quick}
 libqt5-svg-dev:
 - qtsvg@meta-qt5
 libqt5-websockets-dev:
@@ -237,6 +249,8 @@ libusb-1.0-dev:
 - libusb1@openembedded-core
 libvulkan-dev:
 - vulkan-headers@openembedded-core
+libwebsocketpp-dev:
+- websocketpp@meta-oe
 libx11-dev:
 - libx11@openembedded-core
 libxaw:
@@ -315,6 +329,10 @@ python3-empy:
 - python3-empy@meta-ros-common
 python3-flake8:
 - python3-flake8@meta-ros-common
+python3-flask:
+- ${ROS_UNRESOLVED_DEP-python3-flask}
+python3-flask-cors:
+- ${ROS_UNRESOLVED_DEP-python3-flask-cors}
 python3-future:
 - python3-future@meta-python
 python3-ifcfg:
@@ -401,6 +419,8 @@ qt5-qmake:
 - qtbase@meta-qt5
 qtbase5-dev:
 - qtbase@meta-qt5
+rospy:
+- ${ROS_UNRESOLVED_DEP-rospy}
 rti-connext-dds-5.3.1:
 - ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1}
 sdformat:
