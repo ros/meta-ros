@@ -26,7 +26,13 @@ RDEPENDS:${PN}:remove = "pybind11-vendor"
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-shapely', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_SHAPELY}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_SHAPELY = " \
     rmf-building-map-tools \
+    rmf-demos-maps \
     rmf-traffic-editor-test-maps \
+"
+# Depends on unavailable python3-flask-cors
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-flask-cors', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_FLASK_CORS}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_FLASK_CORS = " \
+    rmf-demos-panel \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID}', '', d)}"
@@ -167,6 +173,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     realsense-node \
     realsense-ros \
     realsense2-camera \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
     rtabmap \
     rviz-common \
     rviz-default-plugins \
@@ -232,6 +240,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-topic \
     rqt-top \
     rqt \
+    rmf-building-sim-gazebo-plugins \
+    rmf-building-sim-ignition-plugins \
+    rmf-demos \
+    rmf-demos-gz \
+    rmf-demos-ign \
+    rmf-robot-sim-gazebo-plugins \
+    rmf-robot-sim-ignition-plugins \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
     rmf-traffic-editor \
     rviz-common \
     rviz-default-plugins \
@@ -283,6 +300,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
+    rmf-building-sim-gazebo-plugins \
+    rmf-demos \
+    rmf-demos-gz \
+    rmf-demos-ign \
+    rmf-robot-sim-gazebo-plugins \
     turtlebot3-gazebo \
     turtlebot3-simulations \
 "
@@ -370,6 +392,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     nav2-rviz-plugins \
     nav2-system-tests \
     openvslam \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
     rtabmap \
     rviz2 \
     rviz-common \
