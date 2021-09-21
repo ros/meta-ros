@@ -269,6 +269,7 @@ avr-libc:
   debian: [avr-libc]
   fedora: [avr-libc]
   gentoo: [dev-embedded/avr-libc]
+  nixos: [avrlibc]
   ubuntu: [avr-libc]
 avrdude:
   arch: [avrdude]
@@ -312,6 +313,7 @@ benchmark:
     '*': [libbenchmark-dev]
     stretch: null
   fedora: [google-benchmark-devel]
+  nixos: [gbenchmark]
   openembedded: [google-benchmark@meta-ros2]
   rhel: [google-benchmark-devel]
   ubuntu:
@@ -517,6 +519,9 @@ clang:
   fedora: [clang]
   gentoo: [sys-devel/clang]
   nixos: [clang]
+  rhel:
+    '*': [clang]
+    '7': null
   ubuntu: [clang]
 clang-format:
   alpine: [clang]
@@ -720,6 +725,7 @@ curl:
 curlpp-dev:
   debian: [libcurlpp-dev]
   fedora: [curlpp-devel]
+  nixos: [curlpp]
   openembedded: [curlpp@meta-networking]
   ubuntu: [libcurlpp-dev]
 cvs:
@@ -2060,6 +2066,7 @@ jq:
   fedora: [jq]
   gentoo: [app-misc/jq]
   nixos: [jq]
+  openembedded: [jq@meta-oe]
   ubuntu: [jq]
 julius-voxforge:
   arch: [voxforge-am-julius]
@@ -3726,6 +3733,7 @@ liblttng-ust-dev:
   fedora: [lttng-ust-devel]
   gentoo: [dev-util/lttng-ust]
   nixos: [lttng-ust]
+  openembedded: [lttng-ust@openembedded-core]
   rhel: [lttng-ust-devel]
   ubuntu: [liblttng-ust-dev]
 liblzma-dev:
@@ -3758,6 +3766,13 @@ libmlpack-dev:
   debian: [libmlpack-dev]
   fedora: [mlpack-devel]
   ubuntu: [libmlpack-dev]
+libmnl-dev:
+  alpine: [libmnl-dev]
+  debian: [libmnl-dev]
+  fedora: [libmnl-devel]
+  opensuse: [libmnl-devel]
+  rhel: [libmnl-devel]
+  ubuntu: [libmnl-dev]
 libmockito-java:
   arch: [mockito]
   debian: [libmockito-java]
@@ -4665,6 +4680,7 @@ libqt5-quick:
   rhel: [qt5-qtdeclarative]
   ubuntu: [libqt5quick5]
 libqt5-serialport:
+  alpine: [qt5-qtserialport]
   arch: [qt5-serialport]
   debian: [libqt5serialport5]
   fedora: [qt5-qtserialport]
@@ -4672,6 +4688,13 @@ libqt5-serialport:
   gentoo: ['dev-qt/qtserialport:5']
   nixos: [qt5.qtserialport]
   ubuntu: [libqt5serialport5]
+libqt5-serialport-dev:
+  alpine: [qt5-qtserialport-dev]
+  arch: [qt5-serialport]
+  debian: [libqt5serialport5-dev]
+  fedora: [qt5-qtserialport]
+  gentoo: ['dev-qt/qtserialport:5']
+  ubuntu: [libqt5serialport5-dev]
 libqt5-sql:
   arch: [qt5-base]
   debian:
@@ -4893,6 +4916,7 @@ libspnav-dev:
   debian: [libspnav-dev, libx11-dev]
   fedora: [libspnav-devel, libX11-devel]
   gentoo: [dev-libs/libspnav]
+  nixos: [libspnav]
   rhel: [libspnav-devel, libX11-devel]
   ubuntu: [libspnav-dev, libx11-dev]
 libsqlite3-dev:
@@ -5267,6 +5291,7 @@ libuvc-dev:
     '*': [libuvc-dev]
     stretch: null
   gentoo: [media-libs/libuvc]
+  nixos: [libuvc]
   ubuntu:
     '*': [libuvc-dev]
     xenial: null
@@ -5419,6 +5444,7 @@ libvulkan-dev:
   debian: [libvulkan-dev]
   fedora: [vulkan-devel]
   gentoo: [media-libs/vulkan-loader]
+  nixos: [vulkan-loader]
   openembedded: [vulkan-headers@openembedded-core]
   rhel:
     '7': [vulkan-devel]
@@ -5565,6 +5591,7 @@ libxmlrpc-c++:
   debian: [libxmlrpc-c++8-dev]
   fedora: [xmlrpc-c-devel]
   gentoo: [dev-libs/xmlrpc-c]
+  nixos: [xmlrpc_c]
   openembedded: [xmlrpc-c@meta-oe]
   rhel: [xmlrpc-c-devel]
   ubuntu: [libxmlrpc-c++8-dev]
@@ -6607,6 +6634,7 @@ psutils:
 pugixml-dev:
   debian: [libpugixml-dev]
   fedora: [pugixml-devel]
+  nixos: [pugixml]
   openembedded: [pugixml@meta-oe]
   rhel: [pugixml-devel]
   ubuntu: [libpugixml-dev]
@@ -6767,6 +6795,7 @@ qttools5-dev:
 qttools5-dev-tools:
   debian: [qttools5-dev-tools]
   fedora: [qt5-qttools-devel]
+  nixos: [qt5.qttools.dev]
   openembedded: [qttools@meta-qt5]
   rhel: [qt5-qttools-devel]
   ubuntu: [qttools5-dev-tools]
@@ -7100,6 +7129,7 @@ spirv-headers:
   debian: [spirv-headers]
   fedora: [spirv-headers-devel]
   gentoo: [dev-util/spirv-headers]
+  nixos: [spirv-headers]
   openembedded: [spirv-headers@openembedded-core]
   rhel: [spirv-headers-devel]
   ubuntu:
@@ -7111,6 +7141,7 @@ spirv-tools:
   debian: [spirv-tools]
   fedora: [spirv-tools, spirv-tools-devel, spirv-tools-libs]
   gentoo: [dev-util/spirv-tools]
+  nixos: [spirv-tools]
   openembedded: [spirv-tools@openembedded-core]
   rhel: [spirv-tools, spirv-tools-devel, spirv-tools-libs]
   ubuntu:
