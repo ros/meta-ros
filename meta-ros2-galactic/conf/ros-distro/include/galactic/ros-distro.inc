@@ -111,6 +111,8 @@ ROS_WORLD_SKIP_GROUPS += "ignition"
 
 # recipes depending on unavailable python3-shapely
 ROS_WORLD_SKIP_GROUPS += "python3-shapely"
+# recipes depending on unavailable python3-flask-cors
+ROS_WORLD_SKIP_GROUPS += "python3-flask-cors"
 
 # recipes depending on libomp which could be provided by openmp@meta-clang
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-layer', '', 'libomp', d)}"
