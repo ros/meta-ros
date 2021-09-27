@@ -6,3 +6,6 @@ ROS_BUILD_DEPENDS += " \
 "
 
 inherit pythonnative
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-CMakeLists.txt-remove-ardupilotmega-message-definiti.patch"
