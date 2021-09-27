@@ -1,8 +1,10 @@
-# melodic/cache.yaml 2021-08-04 0ba1ea165cd216e75024f5be2cdbf61b81605c90 20210804141628 1.7.0
+# melodic/cache.yaml 2021-09-27 c995b5a2e355f0685aa5e40084c50c44cf379615 20210924171641 1.7.0
 distribution_file:
 - release_platforms:
 -----
-ubuntu: [bionic]
+ubuntu:
+-----
+- bionic
 -----
 repositories:
 -----
@@ -266,12 +268,17 @@ status: unmaintained
 }
 -----
 apriltag: {
+doc: {
+type: git,
+url: 'https://github.com/AprilRobotics/apriltag.git',
+version: master
+},
 release: {
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/AprilRobotics/apriltag-release.git',
-version: 3.1.2-1
+version: 3.1.6-1
 },
 source: {
 type: git,
@@ -954,7 +961,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/audio_common-release.git',
-version: 0.3.11-1
+version: 0.3.12-1
 },
 source: {
 type: git,
@@ -2478,10 +2485,10 @@ version: master
 },
 release: {
 tags: {
-release: 'release/kinetic/{package}/{version}'
+release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/130s/computer_status_msgs-release.git',
-version: 2.0.0-2
+version: 2.1.0-2
 },
 source: {
 test_pull_requests: true,
@@ -2706,6 +2713,20 @@ source: {
 type: git,
 url: 'https://github.com/clearpathrobotics/cpr_multimaster_tools.git',
 version: kinetic-devel
+},
+status: maintained
+}
+-----
+cpu_temperature_diagnostics: {
+doc: {
+type: git,
+url: 'https://github.com/yotabits/cpu_temperature_diagnostics.git',
+version: melodic-release
+},
+source: {
+type: git,
+url: 'https://github.com/yotabits/cpu_temperature_diagnostics.git',
+version: melodic-release
 },
 status: maintained
 }
@@ -3328,7 +3349,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/dynamic-graph-ros-release.git',
-version: 4.3.4-1
+version: 4.4.0-1
 },
 source: {
 type: git,
@@ -3349,7 +3370,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/dynamic-graph-python-ros-release.git',
-version: 4.0.3-1
+version: 4.0.4-1
 },
 source: {
 test_pull_requests: true,
@@ -3717,7 +3738,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ipab-slmc/eigenpy_catkin-release.git',
-version: 2.6.4-1
+version: 2.6.8-1
 },
 source: {
 type: git,
@@ -3801,7 +3822,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/enabled-robotics/er_public_msgs-release.git',
-version: 1.0.0-1
+version: 1.1.0-1
 },
 status: maintained
 }
@@ -4486,6 +4507,27 @@ version: master
 status: maintained
 }
 -----
+floam: {
+doc: {
+type: git,
+url: 'https://github.com/flynneva/floam.git',
+version: main
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/flynneva/floam-release.git',
+version: 0.1.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/flynneva/floam.git',
+version: main
+},
+status: developed
+}
+-----
 fmi_adapter: {
 doc: {
 type: git,
@@ -4562,6 +4604,7 @@ release: {
 packages: [franka_control,
 franka_description,
 franka_example_controllers,
+franka_gazebo,
 franka_gripper,
 franka_hw,
 franka_msgs,
@@ -4571,7 +4614,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/frankaemika/franka_ros-release.git',
-version: 0.7.1-1
+version: 0.8.1-2
 },
 source: {
 type: git,
@@ -6275,19 +6318,19 @@ ira_laser_tools: {
 doc: {
 type: git,
 url: 'https://github.com/iralabdisco/ira_laser_tools.git',
-version: kinetic
+version: melodic
 },
 release: {
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/iralabdisco/ira_laser_tools-release.git',
-version: 1.0.4-1
+version: 1.0.6-1
 },
 source: {
 type: git,
 url: 'https://github.com/iralabdisco/ira_laser_tools.git',
-version: kinetic
+version: melodic
 },
 status: developed
 }
@@ -7097,7 +7140,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/utexas-bwi-gbp/knowledge_representation-release.git',
-version: 0.9.3-1
+version: 0.9.4-1
 },
 source: {
 test_commits: false,
@@ -8125,6 +8168,20 @@ version: master
 status: developed
 }
 -----
+mav_teleop_twist_keyboard: {
+doc: {
+type: git,
+url: 'https://github.com/dobots/mav_teleop_twist_keyboard.git',
+version: main
+},
+source: {
+type: git,
+url: 'https://github.com/dobots/mav_teleop_twist_keyboard.git',
+version: main
+},
+status: maintained
+}
+-----
 mavlink: {
 doc: {
 type: git,
@@ -8136,7 +8193,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavlink-gbp-release.git',
-version: 2021.7.7-1
+version: 2021.9.9-1
 },
 source: {
 type: git,
@@ -8162,7 +8219,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavros-release.git',
-version: 1.8.0-1
+version: 1.9.0-1
 },
 source: {
 test_pull_requests: true,
@@ -9307,7 +9364,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/praveen-palanisamy/multi_object_tracking_lidar-release.git',
-version: 1.0.2-1
+version: 1.0.4-2
 },
 source: {
 test_pull_requests: true,
@@ -9709,7 +9766,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/neonavigation-release.git',
-version: 0.10.11-1
+version: 0.11.0-1
 },
 source: {
 type: git,
@@ -10040,7 +10097,7 @@ novatel_oem7_driver: {
 doc: {
 type: git,
 url: 'https://github.com/novatel/novatel_oem7_driver.git',
-version: master
+version: ros1
 },
 release: {
 packages: [novatel_oem7_driver,
@@ -10054,9 +10111,9 @@ version: 2.1.0-1
 source: {
 type: git,
 url: 'https://github.com/novatel/novatel_oem7_driver.git',
-version: master
+version: ros1
 },
-status: developed
+status: maintained
 }
 -----
 novatel_span_driver: {
@@ -11160,7 +11217,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/perception_pcl-release.git',
-version: 1.7.1-1
+version: 1.7.3-1
 },
 source: {
 test_pull_requests: true,
@@ -11490,7 +11547,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/facontidavide/plotjuggler-release.git',
-version: 3.2.1-1
+version: 3.3.0-1
 },
 source: {
 type: git,
@@ -12133,7 +12190,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/PilzDE/psen_scan_v2-release.git',
-version: 0.3.1-1
+version: 0.3.2-1
 },
 source: {
 type: git,
@@ -12545,13 +12602,24 @@ version: 5.0.0-2
 }
 -----
 quanergy_client_ros: {
+doc: {
+type: git,
+url: 'https://github.com/QuanergySystems/quanergy_client_ros.git',
+version: master
+},
 release: {
 tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/QuanergySystems/quanergy_client_ros-release.git',
-version: 4.0.0-1
-}
+version: 4.0.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/QuanergySystems/quanergy_client_ros.git',
+version: master
+},
+status: developed
 }
 -----
 quaternion_operation: {
@@ -12889,7 +12957,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/roboception-gbp/rc_genicam_api-release.git',
-version: 2.5.0-1
+version: 2.5.6-1
 },
 source: {
 test_pull_requests: true,
@@ -12933,7 +13001,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/roboception-gbp/rc_genicam_driver_ros-release.git',
-version: 0.5.2-1
+version: 0.6.1-1
 },
 source: {
 test_pull_requests: true,
@@ -12987,7 +13055,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/roboception-gbp/rc_visard-release.git',
-version: 3.2.1-1
+version: 3.2.3-1
 },
 source: {
 test_pull_requests: true,
@@ -13374,7 +13442,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/peci1/robot_body_filter-release.git',
-version: 1.2.0-2
+version: 1.2.2-1
 },
 source: {
 type: git,
@@ -13906,7 +13974,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ros_comm-release.git',
-version: 1.14.11-1
+version: 1.14.12-1
 },
 source: {
 test_pull_requests: true,
@@ -14044,7 +14112,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_ROS_controllers_cartesian-release.git',
-version: 0.1.3-1
+version: 0.1.4-1
 },
 source: {
 type: git,
@@ -14833,7 +14901,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/uos-gbp/rospy_message_converter-release.git',
-version: 0.5.6-1
+version: 0.5.7-1
 },
 source: {
 test_pull_requests: true,
@@ -15402,6 +15470,20 @@ source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_nav_view.git',
 version: master
+},
+status: maintained
+}
+-----
+rqt_paramedit: {
+doc: {
+type: git,
+url: 'https://github.com/dornhege/rqt_paramedit.git',
+version: melodic-devel
+},
+source: {
+type: git,
+url: 'https://github.com/dornhege/rqt_paramedit.git',
+version: melodic-devel
 },
 status: maintained
 }
@@ -16084,6 +16166,22 @@ version: master
 status: maintained
 }
 -----
+ruckig: {
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/pantor/ruckig-release.git',
+version: 0.4.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/pantor/ruckig.git',
+version: master
+},
+status: developed
+}
+-----
 rviz: {
 doc: {
 type: git,
@@ -16095,13 +16193,34 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rviz-release.git',
-version: 1.13.18-1
+version: 1.13.19-1
 },
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/rviz.git',
 version: melodic-devel
+},
+status: maintained
+}
+-----
+rviz_animated_view_controller: {
+doc: {
+type: git,
+url: 'https://github.com/ros-visualization/rviz_animated_view_controller.git',
+version: noetic-devel
+},
+release: {
+tags: {
+release: 'release/melodic/{package}/{version}'
+},
+url: 'https://github.com/ros-gbp/rviz_animated_view_controller-release.git',
+version: 0.2.0-2
+},
+source: {
+type: git,
+url: 'https://github.com/ros-visualization/rviz_animated_view_controller.git',
+version: noetic-devel
 },
 status: maintained
 }
@@ -16244,7 +16363,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/SBG-Systems/sbg_ros_driver-release.git',
-version: 2.0.2-1
+version: 3.0.0-1
 },
 source: {
 type: git,
@@ -18315,7 +18434,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_Client_Library-release.git',
-version: 0.3.1-1
+version: 0.3.2-1
 },
 source: {
 type: git,
@@ -18528,7 +18647,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/seqsense/urg_stamped-release.git',
-version: 0.0.12-2
+version: 0.0.14-2
 },
 source: {
 type: git,
@@ -19516,7 +19635,7 @@ tags: {
 release: 'release/melodic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/xacro-release.git',
-version: 1.13.12-1
+version: 1.13.13-2
 },
 source: {
 type: git,
@@ -20631,16 +20750,17 @@ app_manager: <?xml version="1.0" ?>
 -----
 apriltag: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="2">
+<package format="3">
 <name>apriltag</name>
 <description>AprilTag detector library</description>
 <maintainer email="mkrogius@umich.edu">Max Krogius</maintainer>
-<maintainer email="w.merkt+oss@gmail.com">Wolfgang Merkt</maintainer>
+<maintainer email="opensource@wolfgangmerkt.com">Wolfgang Merkt</maintainer>
 <author email="ebolson@umich.edu">Edwin Olson</author>
 <author email="mkrogius@umich.edu">Max Krogius</author>
 <license>BSD</license>
 <url>https://april.eecs.umich.edu/software/apriltag.html</url>
 <buildtool_depend>cmake</buildtool_depend>
+<build_depend condition="$ROS_PYTHON_VERSION == 3">python3-numpy</build_depend>
 <export>
 <build_type>cmake</build_type>
 </export>
@@ -22600,6 +22720,7 @@ cartesian_interface: <?xml version="1.0" ?>
 <maintainer email="mauch@fzi.de">Felix Exner</maintainer>
 <maintainer email="scherzin@fzi.de">Stefan Scherzinger</maintainer>
 <license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/cartesian_interface</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>roscpp</depend>
 <depend>hardware_interface</depend>
@@ -22634,6 +22755,7 @@ cartesian_trajectory_controller: <?xml version="1.0" ?>
 <maintainer email="scherzin@fzi.de">Stefan Scherzinger</maintainer>
 <maintainer email="exner@fzi.de">Felix Exner</maintainer>
 <license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/cartesian_trajectory_controller</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>cartesian_interface</build_depend>
 <build_depend>cartesian_trajectory_interpolation</build_depend>
@@ -22684,6 +22806,7 @@ cartesian_trajectory_interpolation: <?xml version="1.0" ?>
 <maintainer email="scherzin@fzi.de">Stefan Scherzinger</maintainer>
 <maintainer email="exner@fzi.de">Felix Exner</maintainer>
 <license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/cartesian_trajectory_interpolation</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>rospy</build_depend>
 <build_depend>roscpp</build_depend>
@@ -32097,6 +32220,37 @@ flir_ptu_viz: <?xml version="1.0" ?>
 <export/>
 </package>
 -----
+floam: <?xml version="1.0" ?>
+<package format="2">
+<name>floam</name>
+<description>A generic Lidar SLAM package based on FLOAM which was based on ALOAM by HKUST and LOAM by CMU</description>
+<author email="wh200720041@gmail.com">Han Wang</author>
+<maintainer email="evanflynn.msu@gmail.com">Evan Flynn</maintainer>
+<license>BSD</license>
+<url>https://wanghan.pro</url>
+<url>https://www.flynnlabs.dev</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>libpcl-all-dev</depend>
+<depend>eigen</depend>
+<depend>libceres-dev</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>roscpp</depend>
+<depend>nodelet</depend>
+<depend>rospy</depend>
+<depend>std_msgs</depend>
+<depend>rosbag</depend>
+<depend>sensor_msgs</depend>
+<depend>tf2</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>eigen_conversions</depend>
+<depend>hector_trajectory_server</depend>
+<depend>pcl_ros</depend>
+<export>
+<nodelet plugin="${prefix}/nodelets.xml"/>
+</export>
+</package>
+-----
 fmi_adapter: <?xml version="1.0" ?>
 <package format="2">
 <name>fmi_adapter</name>
@@ -32277,6 +32431,7 @@ franka_control: <?xml version="1.0" ?>
 <depend>sensor_msgs</depend>
 <depend>tf2_msgs</depend>
 <depend>tf</depend>
+<depend>std_srvs</depend>
 <exec_depend>franka_description</exec_depend>
 <exec_depend>franka_gripper</exec_depend>
 <exec_depend>joint_state_publisher</exec_depend>
@@ -32337,6 +32492,46 @@ franka_example_controllers: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+franka_gazebo: <?xml version="1.0" ?>
+<package format="2">
+<name>franka_gazebo</name>
+<description>This package offers the FrankaHWSim Class to simulate a Franka Robot in Gazebo</description>
+<maintainer email="support@franka.de">Franka Emika GmbH</maintainer>
+<license>Apache 2.0</license>
+<url type="website">http://wiki.ros.org/franka_gazebo</url>
+<url type="repository">https://github.com/frankaemika/franka_ros</url>
+<url type="bugtracker">https://github.com/frankaemika/franka_ros/issues</url>
+<author>Franka Emika GmbH</author>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>gazebo_dev</build_depend>
+<exec_depend>gazebo_ros</exec_depend>
+<depend>gazebo_ros_control</depend>
+<depend>roscpp</depend>
+<depend>std_msgs</depend>
+<depend>control_msgs</depend>
+<depend>control_toolbox</depend>
+<depend>controller_manager</depend>
+<depend>controller_interface</depend>
+<depend>pluginlib</depend>
+<depend>kdl_parser</depend>
+<depend>hardware_interface</depend>
+<depend>transmission_interface</depend>
+<depend>joint_limits_interface</depend>
+<depend>eigen_conversions</depend>
+<depend>franka_hw</depend>
+<depend>franka_msgs</depend>
+<depend>franka_gripper</depend>
+<depend>franka_example_controllers</depend>
+<depend>urdf</depend>
+<depend>angles</depend>
+<test_depend>gtest</test_depend>
+<test_depend>rostest</test_depend>
+<export>
+<controller_interface plugin="${prefix}/franka_gripper_sim_plugin.xml"/>
+<gazebo_ros_control plugin="${prefix}/franka_hw_sim_plugin.xml"/>
+</export>
+</package>
+-----
 franka_gripper: <?xml version="1.0" ?>
 <package format="2">
 <name>franka_gripper</name>
@@ -32380,6 +32575,7 @@ franka_hw: <?xml version="1.0" ?>
 <depend>joint_limits_interface</depend>
 <depend>libfranka</depend>
 <depend>roscpp</depend>
+<depend>std_srvs</depend>
 <depend>urdf</depend>
 <depend>pluginlib</depend>
 <depend>franka_msgs</depend>
@@ -37317,6 +37513,7 @@ like listen to different laser scan sources and merge them in a single scan or g
 <url>http://www.ros.org/wiki/ira_laser_tools</url>
 <maintainer email="augusto.ballardini@unimib.it">Augusto</maintainer>
 <maintainer email="p.colombo45@campus.unimib.it">Pietro</maintainer>
+<maintainer email="f.delia2@campus.unimib.it">Fabio</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>sensor_msgs</build_depend>
@@ -58397,6 +58594,7 @@ ros_controllers_cartesian: <?xml version="1.0" ?>
 <maintainer email="exner@fzi.de">Felix Exner</maintainer>
 <maintainer email="scherzin@fzi.de">Stefan Scherzinger</maintainer>
 <license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/ros_controllers_cartesian</url>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>cartesian_interface</exec_depend>
 <exec_depend>cartesian_trajectory_controller</exec_depend>
@@ -63367,6 +63565,20 @@ manipulate and write RT system profiles using the RTSProfile XML schema.</p>
 </export>
 </package>
 -----
+ruckig: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ruckig</name>
+<description>Online Trajectory Generation. Real-time. Jerk-constrained. Time-optimal.</description>
+<author>Lars Berscheid</author>
+<maintainer email="lars.berscheid@kit.edu">Lars Berscheid</maintainer>
+<license>MIT</license>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
 rviz: <?xml version="1.0" ?>
 <package format="2">
 <name>rviz</name>
@@ -63426,6 +63638,35 @@ rviz: <?xml version="1.0" ?>
 <export>
 <rviz plugin="${prefix}/plugin_description.xml"/>
 <rosdoc config="rosdoc.yaml"/>
+</export>
+</package>
+-----
+rviz_animated_view_controller: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rviz_animated_view_controller</name>
+<description>A rviz view controller featuring smooth transitions.</description>
+<author email="adamleeper@gmail.com">Adam Leeper</author>
+<maintainer email="evanflynn.msu@gmail.com">Evan Flynn</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/rviz_animated_view_controller</url>
+<url type="repository">https://github.com/ros-visualization/rviz_animated_view_controller</url>
+<url type="bugtracker">https://github.com/ros-visualization/rviz_animated_view_controller/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend condition="$ROS_DISTRO != noetic and $ROS_DISTRO != melodic and $ROS_DISTRO != kinetic">libqt4-dev</depend>
+<depend condition="$ROS_DISTRO == noetic or $ROS_DISTRO == melodic or $ROS_DISTRO == kinetic">qtbase5-dev</depend>
+<depend>opengl</depend>
+<depend>eigen</depend>
+<depend>cv_bridge</depend>
+<depend>image_transport</depend>
+<depend>cmake_modules</depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>view_controller_msgs</depend>
+<depend>rviz</depend>
+<depend>pluginlib</depend>
+<export>
+<rviz plugin="${prefix}/plugin_description.xml"/>
 </export>
 </package>
 -----
@@ -63831,10 +64072,11 @@ sand_island: <?xml version="1.0" ?>
 sbg_driver: <?xml version="1.0" ?>
 <package>
 <name>sbg_driver</name>
-<description>The SBG ROS Driver package</description>
-<maintainer email="erwan.cabon@sbg-systems.com">Erwan Cabon</maintainer>
-<url>http://wiki.ros.org/sbg_driver</url>
+<description>ROS driver package for communication with the SBG navigation systems.</description>
+<author>SBG Systems</author>
+<maintainer email="support@sbg-systems.com">SBG Systems</maintainer>
 <license>MIT</license>
+<url type="website">http://wiki.ros.org/sbg_driver</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>roscpp</build_depend>
 <build_depend>sensor_msgs</build_depend>
@@ -68661,6 +68903,7 @@ so that the robot hardware takes care about doing the inverse kinematics. This c
 <maintainer email="scherzin@fzi.de">Stefan Scherzinger</maintainer>
 <maintainer email="exner@fzi.de">Felix Exner</maintainer>
 <license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/twist_controller</url>
 <author email="exner@fzi.de">Felix Exner</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>cartesian_interface</depend>
@@ -69180,7 +69423,6 @@ ur_client_library: <?xml version="1.0" ?>
 <url type="repository">https://github.com/UniversalRobots/Universal_Robots_Client_Library</url>
 <buildtool_depend>cmake</buildtool_depend>
 <build_depend>boost</build_depend>
-<depend>libconsole-bridge-dev</depend>
 <exec_depend condition="$ROS_VERSION == 1">catkin</exec_depend>
 <exec_depend condition="$ROS_VERSION == 2">ament_cmake</exec_depend>
 <export>
