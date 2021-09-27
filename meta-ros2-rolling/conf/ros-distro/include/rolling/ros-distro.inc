@@ -140,6 +140,7 @@ ROS_WORLD_SKIP_GROUPS += " \
 ROS_WORLD_SKIP_GROUPS += " \
     lanelet2-core \
     qt-gui-cpp \
+    self-test \
 "
 
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
