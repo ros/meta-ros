@@ -1,6 +1,6 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
-DEPENDS += "python3-future-native"
+DEPENDS += "python3-future-native python3-lxml-native"
 
 inherit python3native
 
