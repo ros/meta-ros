@@ -164,3 +164,9 @@
 do_install:append() {
     rm -rfv ${D}${prefix}/src ${D}${prefix}/tmp
 }
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "http://www.lua.org/ftp/lua-5.3.2.tar.gz;name=lua;subdir=git/lua-upstream \
+    file://0001-lua-fetch-with-bitbake-fetcher-instead-of-ExternalPr.patch \
+"
+SRC_URI[lua.sha256sum] = "c740c7bb23a936944e1cc63b7c3c5351a8976d7867c5252c8854f7b2af9da68f"
