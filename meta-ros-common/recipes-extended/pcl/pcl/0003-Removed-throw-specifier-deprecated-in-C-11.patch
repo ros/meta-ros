@@ -1,0 +1,98 @@
+From fcba10923feb8feaee5f8388d17532f14f28bade Mon Sep 17 00:00:00 2001
+From: Kunal Tyagi <tyagi.kunal@live.com>
+Date: Sat, 28 Sep 2019 00:23:41 +0900
+Subject: [PATCH 3/3] Removed 'throw' specifier deprecated in C++11
+
+Upstream-Status: Backport [1.10.0]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ .../pcl/recognition/3rdparty/metslib/abstract-search.hh       | 3 +--
+ .../include/pcl/recognition/3rdparty/metslib/local-search.hh  | 4 +---
+ .../pcl/recognition/3rdparty/metslib/simulated-annealing.hh   | 4 +---
+ .../include/pcl/recognition/3rdparty/metslib/tabu-search.hh   | 4 +---
+ 4 files changed, 4 insertions(+), 11 deletions(-)
+
+diff --git a/recognition/include/pcl/recognition/3rdparty/metslib/abstract-search.hh b/recognition/include/pcl/recognition/3rdparty/metslib/abstract-search.hh
+index a6c832ebb..7ad862bba 100644
+--- a/recognition/include/pcl/recognition/3rdparty/metslib/abstract-search.hh
++++ b/recognition/include/pcl/recognition/3rdparty/metslib/abstract-search.hh
+@@ -133,8 +133,7 @@ namespace mets {
+     /// An exception mets::no_moves_error can be risen when no move is
+     /// possible.
+     virtual void
+-    search() 
+-      throw(no_moves_error) = 0;
++    search() = 0;
+ 
+     /// @brief The solution recorder instance.
+     const solution_recorder&
+diff --git a/recognition/include/pcl/recognition/3rdparty/metslib/local-search.hh b/recognition/include/pcl/recognition/3rdparty/metslib/local-search.hh
+index 122b30266..f67a8ae7d 100644
+--- a/recognition/include/pcl/recognition/3rdparty/metslib/local-search.hh
++++ b/recognition/include/pcl/recognition/3rdparty/metslib/local-search.hh
+@@ -79,8 +79,7 @@ namespace mets {
+     /// moves.
+     ///
+     virtual void
+-    search()
+-      throw(no_moves_error);
++    search();
+ 
+   protected:
+     bool short_circuit_m;
+@@ -107,7 +106,6 @@ mets::local_search<move_manager_t>::local_search(evaluable_solution& working,
+ template<typename move_manager_t>
+ void
+ mets::local_search<move_manager_t>::search()
+-  throw(no_moves_error)
+ {
+   typedef abstract_search<move_manager_t> base_t;
+   typename move_manager_t::iterator best_movit;
+diff --git a/recognition/include/pcl/recognition/3rdparty/metslib/simulated-annealing.hh b/recognition/include/pcl/recognition/3rdparty/metslib/simulated-annealing.hh
+index 18a2c6c59..3128412fa 100644
+--- a/recognition/include/pcl/recognition/3rdparty/metslib/simulated-annealing.hh
++++ b/recognition/include/pcl/recognition/3rdparty/metslib/simulated-annealing.hh
+@@ -121,8 +121,7 @@ namespace mets {
+     /// Remember that this is a minimization process.
+     ///
+     virtual void
+-    search()
+-      throw(no_moves_error);
++    search();
+ 
+     void setApplyAndEvaluate(bool b) {
+       apply_and_evaluate = b;
+@@ -221,7 +220,6 @@ simulated_annealing(evaluable_solution& working,
+ template<typename move_manager_t>
+ void
+ mets::simulated_annealing<move_manager_t>::search()
+-  throw(no_moves_error)
+ {
+   typedef abstract_search<move_manager_t> base_t;
+ 
+diff --git a/recognition/include/pcl/recognition/3rdparty/metslib/tabu-search.hh b/recognition/include/pcl/recognition/3rdparty/metslib/tabu-search.hh
+index a32524783..24d6b18d2 100644
+--- a/recognition/include/pcl/recognition/3rdparty/metslib/tabu-search.hh
++++ b/recognition/include/pcl/recognition/3rdparty/metslib/tabu-search.hh
+@@ -241,8 +241,7 @@ namespace mets {
+     /// An exception mets::no_moves_error is risen when no move
+     /// is possible.
+     void 
+-    search() 
+-      throw(no_moves_error);
++    search();
+     
+     enum {
+       ASPIRATION_CRITERIA_MET = abstract_search<move_manager_type>::LAST,
+@@ -401,7 +400,6 @@ tabu_search (feasible_solution& starting_solution,
+ 
+ template<typename move_manager_t>
+ void mets::tabu_search<move_manager_t>::search()
+-  throw(no_moves_error)
+ {
+   typedef abstract_search<move_manager_t> base_t;
+   while(!termination_criteria_m(base_t::working_solution_m))
+-- 
+2.17.1
+
