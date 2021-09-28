@@ -851,6 +851,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     fkie-potree-rviz-plugin \
     flir-ptu-viz \
     franka-example-controllers \
+    franka-gazebo \
     franka-ros \
     fuse-ros \
     fuse-viz \
@@ -915,6 +916,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OGRE = " \
     rqt-rviz \
     rsm-rviz-plugins \
     rviz \
+    rviz-animated-view-controller \
     rviz-imu-plugin \
     rviz-map-plugin \
     rviz-mesh-plugin \
@@ -976,6 +978,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     flir-ptu-viz \
     fmi-adapter-examples \
     franka-example-controllers \
+    franka-gazebo \
     franka-ros \
     fsrobo-r \
     fsrobo-r-bringup \
@@ -1164,6 +1167,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rtabmap-ros \
     rtmros-common \
     rviz \
+    rviz-animated-view-controller \
     rviz-imu-plugin \
     rviz-map-plugin \
     rviz-mesh-plugin \
@@ -1379,6 +1383,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     fetch-gazebo-demo \
     fetch-simulation \
     fetchit-challenge \
+    franka-gazebo \
     fsrobo-r \
     fsrobo-r-bringup \
     fsrobo-r-description \
@@ -1683,6 +1688,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     roomba-stage \
     rtabmap \
     rtabmap-ros \
+    rviz-animated-view-controller \
     safe-teleop-stage \
     seed-r7-navigation \
     simulators \
