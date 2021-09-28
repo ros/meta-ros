@@ -3,7 +3,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-Revert-cmake-fix-packaging-issue-on-Windows.patch \
     file://0002-Revert-cmake-fix-project-packaging.patch \
-    file://0003-core-fix-compatibility-with-Boost.Python-1.77.patch \
 "
 
 EXTRA_OECMAKE += "-DPYTHON_EXECUTABLE=${PYTHON}"
