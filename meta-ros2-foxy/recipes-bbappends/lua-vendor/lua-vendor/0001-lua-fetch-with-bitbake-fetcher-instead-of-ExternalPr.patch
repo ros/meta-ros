@@ -1,0 +1,40 @@
+From a2e288c7cf5d0b79a5acc769f880674035f505e2 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 28 Sep 2021 08:01:22 -0700
+Subject: [PATCH] lua: fetch with bitbake fetcher instead of
+ ExternalProject_add
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 230ca0f..a01a3e1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -18,13 +18,12 @@ macro(build_lua)
+   set(cmake_commands)
+   set(cmake_configure_args -Wno-dev;-DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install)
+   include(ExternalProject)
+-  set(lua_source_path ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/src/lua-ext)
++  set(lua_source_path ${CMAKE_SOURCE_DIR}/lua-upstream/lua-5.3.2)
+   set(lua_cmake_file_path ${lua_source_path}/CMakeLists.txt)
+   externalproject_add(lua-ext
+     PREFIX            ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
+     INSTALL_DIR       ${CMAKE_INSTALL_PREFIX}
+-    URL               http://www.lua.org/ftp/lua-5.3.2.tar.gz
+-    URL_HASH          SHA1=7a47adef554fdca7d0c5536148de34579134a973
++    SOURCE_DIR        ${lua_source_path}
+     PATCH_COMMAND
+       COMMAND echo cmake_minimum_required( VERSION 3.2 ) > ${lua_cmake_file_path}
+       COMMAND echo file( GLOB_RECURSE lua_sources src/*.c ) >> ${lua_cmake_file_path}
+@@ -54,4 +53,4 @@ if(BUILD_TESTING)
+   ament_lint_auto_find_test_dependencies()
+ endif()
+ 
+-ament_package()
+\ No newline at end of file
++ament_package()
