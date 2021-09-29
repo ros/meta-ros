@@ -1,0 +1,35 @@
+From dc22290125a6e8d540bfbf243698b59002b22efe Mon Sep 17 00:00:00 2001
+From: Rob Woolley <rob.woolley@windriver.com>
+Date: Wed, 29 Sep 2021 10:21:32 -0400
+Subject: [PATCH] CMakeLists.txt: don't probe compiler
+
+The CMakeLists.txt for FBoW tries to automatically set the compiler
+options by setting CMAKE_CXX_FLAGS.  This interferes with the compiler
+options set by the build system.  It causes FBoW to fail to find
+iostream because --sysroot is not set.
+
+We patch this part of FBoW CMakeLists.txt to prepend the existing
+value when setting the variable.  This allows openvslam to build
+for both qemux86-64 and raspberrypi4-64.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
+Upstream-Status: Pending
+---
+ 3rd/FBoW/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/3rd/FBoW/CMakeLists.txt b/3rd/FBoW/CMakeLists.txt
+index 0a2b3d4..8f1d64c 100644
+--- a/3rd/FBoW/CMakeLists.txt
++++ b/3rd/FBoW/CMakeLists.txt
+@@ -249,7 +249,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang"
+         set(EXTRA_C_FLAGS_RELEASE "${EXTRA_C_FLAGS_RELEASE}")
+     endif()
+ 
+-    set(CMAKE_CXX_FLAGS "${VECTORIAL_INSTRUCTIONS} ${EXTRA_C_FLAGS} -std=c++11 ")
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${VECTORIAL_INSTRUCTIONS} ${EXTRA_C_FLAGS} -std=c++11 ")
+     set(CMAKE_CXX_FLAGS_RELEASE "${EXTRA_C_FLAGS_RELEASE} -DNDEBUG -D_NDEBUG")
+     set(CMAKE_CXX_FLAGS_DEBUG "-g3 -DDEBUG -D_DEBUG")
+     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g3 -DDEBUG -D_DEBUG")
