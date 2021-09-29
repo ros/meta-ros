@@ -1,7 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
-
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-CMakeLists.txt-fix-build-without-catkin-testing-enab.patch"
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 # ERROR: jackal-description-0.6.4-1-r0 do_package_qa: QA Issue: /usr/opt/ros/melodic/lib/jackal_description/env_run contained in package jackal-description requires /bin/bash, but no providers found in RDEPENDS:jackal-description? [file-rdeps]
 RDEPENDS:${PN} += "bash"
