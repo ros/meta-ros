@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 # |   /jenkins/mjansa/build/ros/ros1-melodic-dunfell/tmp-glibc/work/core2-64-oe-linux/tsid/1.4.1-3-r0/recipe-sysroot-native/usr/share/cmake-3.16/Modules/FindPython3.cmake:300 (include)
 # |   cmake/python.cmake:92 (FIND_PACKAGE)
@@ -22,3 +22,6 @@ DEPENDS += "python-numpy-native"
 
 # ERROR: tsid-1.4.1-3-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package contains symlink .so: tsid path '/work/core2-64-oe-linux/tsid/1.4.1-3-r0/packages-split/tsid/usr/lib/libtsid.so' [dev-so]
 inherit ros_insane_dev_so
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-tests-tasks.cpp-use-more-specific-types-or-namespace.patch"
