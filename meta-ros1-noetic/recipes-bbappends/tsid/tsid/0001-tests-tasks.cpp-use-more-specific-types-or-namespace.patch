@@ -1,0 +1,202 @@
+From c7d67946e1423b0e00264f25e3db4685f6be4ce4 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 29 Sep 2021 10:19:45 +0000
+Subject: [PATCH] tests/tasks.cpp: use more specific types or namespace to
+ avoid conflicts from libeigen-3.4.0
+
+* generic Vector type was added to libeigen-3.4.0 with:
+  https://gitlab.com/libeigen/eigen/-/commit/2a39659d793fcde656593bbf01948bc0bd568181
+
+* fixes:
+FAILED: tests/CMakeFiles/tasks.dir/tasks.cpp.o
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -DBOOST_MPL_LIMIT_LIST_SIZE=30 -DBOOST_MPL_LIMIT_VECTOR_SIZE=30 -DEIGEN_RUNTIME_NO_MALLOC -DPINOCCHIO_WITH_URDFDOM -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/build -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/build/include -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include -isystem /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3 -pedantic -Wno-long-long -Wall -Wextra -Wcast-align -Wcast-qual -Wformat -Wwrite-strings -Wconversion  -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0=/usr/src/debug/tsid/1.6.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0=/usr/src/debug/tsid/1.6.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot  -DBOOST_TEST_DYN_LINK -DBOOST_TEST_MODULE=tasksTest '-DTSID_SOURCE_DIR="/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git"' -MD -MT tests/CMakeFiles/tasks.dir/tasks.cpp.o -MF tests/CMakeFiles/tasks.dir/tasks.cpp.o.d -o tests/CMakeFiles/tasks.dir/tasks.cpp.o -c /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp: In member function 'void tasksTest::test_task_se3_equality::test_method()':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:103:5: error: reference to 'Vector' is ambiguous
+  103 |     Vector dv = Jpinv * constraint.vector();
+      |     ^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/Core:295,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/fwd.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/utils.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:23:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/Matrix.h:551:7: note: candidates are: 'template<class Type, int Size> using Vector = Eigen::Matrix<Type, Size, 1>'
+  551 | using Vector = Matrix<Type, Size, 1>;
+      |       ^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/utils.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:23:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/fwd.hpp:37:52: note:                 'typedef class Eigen::Matrix<double, -1, 1> tsid::math::Vector'
+   37 |     typedef Eigen::Matrix<Scalar,Eigen::Dynamic,1> Vector;
+      |                                                    ^~~~~~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:106:18: error: 'dv' was not declared in this scope; did you mean 'div'?
+  106 |     if(!isFinite(dv))
+      |                  ^~
+      |                  div
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/boost/test/test_tools.hpp:45,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/boost/test/unit_test.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:20:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:111:20: error: 'dv' was not declared in this scope; did you mean 'div'?
+  111 |     REQUIRE_FINITE(dv.transpose());
+      |                    ^~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:111:5: note: in expansion of macro 'REQUIRE_FINITE'
+  111 |     REQUIRE_FINITE(dv.transpose());
+      |     ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:113:13: error: 'dv' was not declared in this scope; did you mean 'div'?
+  113 |     v += dt*dv;
+      |             ^~
+      |             div
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp: In member function 'void tasksTest::test_task_com_equality::test_method()':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:162:3: error: reference to 'Vector3' is ambiguous
+  162 |   Vector3 com_ref = data.com[0] + pinocchio::SE3::Vector3(0.02,0.02,0.02);
+      |   ^~~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/Core:295,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/fwd.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/utils.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:23:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/Matrix.h:541:1: note: candidates are: 'template<class Type> using Vector3 = Eigen::Matrix<Type, 3, 1>'
+  541 | EIGEN_MAKE_TYPEDEFS(3, 3)
+      | ^~~~~~~~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/utils.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:23:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/fwd.hpp:42:39: note:                 'typedef class Eigen::Matrix<double, 3, 1> tsid::math::Vector3'
+   42 |     typedef Eigen::Matrix<Scalar,3,1> Vector3;
+      |                                       ^~~~~~~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:163:70: error: 'com_ref' was not declared in this scope
+  163 |   TrajectoryBase *traj = new TrajectoryEuclidianConstant("traj_com", com_ref);
+      |                                                                      ^~~~~~~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:183:5: error: reference to 'Vector' is ambiguous
+  183 |     Vector dv = Jpinv * constraint.vector();
+      |     ^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/Core:295,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/fwd.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/utils.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:23:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/Matrix.h:551:7: note: candidates are: 'template<class Type, int Size> using Vector = Eigen::Matrix<Type, Size, 1>'
+  551 | using Vector = Matrix<Type, Size, 1>;
+      |       ^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/utils.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:23:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/fwd.hpp:37:52: note:                 'typedef class Eigen::Matrix<double, -1, 1> tsid::math::Vector'
+   37 |     typedef Eigen::Matrix<Scalar,Eigen::Dynamic,1> Vector;
+      |                                                    ^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/boost/test/test_tools.hpp:45,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/boost/test/unit_test.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:20:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:186:28: error: 'dv' was not declared in this scope; did you mean 'div'?
+  186 |     BOOST_REQUIRE(isFinite(dv));
+      |                            ^~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:188:13: error: 'dv' was not declared in this scope; did you mean 'div'?
+  188 |     v += dt*dv;
+      |             ^~
+      |             div
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp: In member function 'void tasksTest::test_task_joint_posture::test_method()':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:231:3: error: reference to 'Vector' is ambiguous
+  231 |   Vector q_ref = Vector::Random(na);
+      |   ^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/Core:295,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/fwd.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/utils.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:23:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/Matrix.h:551:7: note: candidates are: 'template<class Type, int Size> using Vector = Eigen::Matrix<Type, Size, 1>'
+  551 | using Vector = Matrix<Type, Size, 1>;
+      |       ^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/utils.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:23:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/fwd.hpp:37:52: note:                 'typedef class Eigen::Matrix<double, -1, 1> tsid::math::Vector'
+   37 |     typedef Eigen::Matrix<Scalar,Eigen::Dynamic,1> Vector;
+      |                                                    ^~~~~~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:232:72: error: 'q_ref' was not declared in this scope
+  232 |   TrajectoryBase *traj = new TrajectoryEuclidianConstant("traj_joint", q_ref);
+      |                                                                        ^~~~~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:255:5: error: reference to 'Vector' is ambiguous
+  255 |     Vector dv = Jpinv * constraint.vector();
+      |     ^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/Core:295,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/fwd.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/utils.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:23:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/Matrix.h:551:7: note: candidates are: 'template<class Type, int Size> using Vector = Eigen::Matrix<Type, Size, 1>'
+  551 | using Vector = Matrix<Type, Size, 1>;
+      |       ^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/utils.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:23:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/include/tsid/math/fwd.hpp:37:52: note:                 'typedef class Eigen::Matrix<double, -1, 1> tsid::math::Vector'
+   37 |     typedef Eigen::Matrix<Scalar,Eigen::Dynamic,1> Vector;
+      |                                                    ^~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/boost/test/test_tools.hpp:45,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/boost/test/unit_test.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:20:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:258:28: error: 'dv' was not declared in this scope; did you mean 'div'?
+  258 |     BOOST_REQUIRE(isFinite(dv));
+      |                            ^~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:260:13: error: 'dv' was not declared in this scope; did you mean 'div'?
+  260 |     v += dt*dv;
+      |             ^~
+      |             div
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/boost/test/test_tools.hpp:45,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/recipe-sysroot/usr/include/boost/test/unit_test.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:20:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp: In member function 'void tasksTest::test_task_joint_bounds::test_method()':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:312:34: warning: comparison of integer expressions of different signedness: 'unsigned int' and 'Eigen::Index' {aka 'int'} [-Wsign-compare]
+  312 |     BOOST_CHECK(constraint.rows()==(Eigen::Index)robot.nv());
+      |                 ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp: In member function 'void tasksTest::test_task_joint_posVelAcc_bounds::test_method()':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/tsid/1.6.0-1-r0/git/tests/tasks.cpp:364:34: warning: comparison of integer expressions of different signedness: 'unsigned int' and 'Eigen::Index' {aka 'int'} [-Wsign-compare]
+  364 |     BOOST_CHECK(constraint.rows()==(Eigen::Index)robot.na());
+      |                 ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+ninja: build stopped: subcommand failed.
+
+Upstream-Status: Submitted [https://github.com/stack-of-tasks/tsid/pull/144]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ tests/tasks.cpp | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/tests/tasks.cpp b/tests/tasks.cpp
+index ace6587..456ee9e 100644
+--- a/tests/tasks.cpp
++++ b/tests/tasks.cpp
+@@ -100,7 +100,7 @@ BOOST_AUTO_TEST_CASE ( test_task_se3_equality )
+     BOOST_REQUIRE(isFinite(constraint.vector()));
+ 
+     pseudoInverse(constraint.matrix(), Jpinv, 1e-4);
+-    Vector dv = Jpinv * constraint.vector();
++    ConstRefVector dv = Jpinv * constraint.vector();
+     BOOST_REQUIRE(isFinite(Jpinv));
+     BOOST_CHECK(MatrixXd::Identity(6,6).isApprox(constraint.matrix()*Jpinv));
+     if(!isFinite(dv))
+@@ -159,7 +159,7 @@ BOOST_AUTO_TEST_CASE ( test_task_com_equality )
+   BOOST_CHECK(task.Kp().isApprox(Kp));
+   BOOST_CHECK(task.Kd().isApprox(Kd));
+ 
+-  Vector3 com_ref = data.com[0] + pinocchio::SE3::Vector3(0.02,0.02,0.02);
++  math::Vector3 com_ref = data.com[0] + pinocchio::SE3::Vector3(0.02,0.02,0.02);
+   TrajectoryBase *traj = new TrajectoryEuclidianConstant("traj_com", com_ref);
+   TrajectorySample sample;
+ 
+@@ -180,7 +180,7 @@ BOOST_AUTO_TEST_CASE ( test_task_com_equality )
+     BOOST_REQUIRE(isFinite(constraint.vector()));
+ 
+     pseudoInverse(constraint.matrix(), Jpinv, 1e-5);
+-    Vector dv = Jpinv * constraint.vector();
++    ConstRefVector dv = Jpinv * constraint.vector();
+     BOOST_REQUIRE(isFinite(Jpinv));
+     BOOST_CHECK(MatrixXd::Identity(constraint.rows(),constraint.rows()).isApprox(constraint.matrix()*Jpinv));
+     BOOST_REQUIRE(isFinite(dv));
+@@ -228,7 +228,7 @@ BOOST_AUTO_TEST_CASE ( test_task_joint_posture )
+   BOOST_CHECK(task.Kd().isApprox(Kd));
+ 
+   cout<<"Gonna create reference trajectory\n";
+-  Vector q_ref = Vector::Random(na);
++  ConstRefVector q_ref = math::Vector::Random(na);
+   TrajectoryBase *traj = new TrajectoryEuclidianConstant("traj_joint", q_ref);
+   TrajectorySample sample;
+ 
+@@ -252,7 +252,7 @@ BOOST_AUTO_TEST_CASE ( test_task_joint_posture )
+     BOOST_REQUIRE(isFinite(constraint.vector()));
+ 
+     pseudoInverse(constraint.matrix(), Jpinv, 1e-5);
+-    Vector dv = Jpinv * constraint.vector();
++    ConstRefVector dv = Jpinv * constraint.vector();
+     BOOST_REQUIRE(isFinite(Jpinv));
+     BOOST_CHECK(MatrixXd::Identity(na,na).isApprox(constraint.matrix()*Jpinv));
+     BOOST_REQUIRE(isFinite(dv));
