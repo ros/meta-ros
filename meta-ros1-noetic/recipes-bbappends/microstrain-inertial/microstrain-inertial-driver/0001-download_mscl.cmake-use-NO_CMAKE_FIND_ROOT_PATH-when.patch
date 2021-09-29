@@ -1,0 +1,104 @@
+From 928bac311ec03f96c2da40f9661e9c893550ce65 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 29 Sep 2021 05:50:13 -0700
+Subject: [PATCH] download_mscl.cmake: use NO_CMAKE_FIND_ROOT_PATH, when
+ searching for libs in MSCL_DIR
+
+* MSCL_DIR is set to absolute path, e.g.:
+  /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/MSCL/usr/share/c++-mscl
+  prefixing it with NO_CMAKE_FIND_ROOT_PATH ends with searching in:
+  /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/MSCL/usr/share/c++-mscl/
+  which doesn't exist and find_library fails as shown bellow:
+
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake(12):  if(MSCL_DIR STREQUAL  )
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/CMakeLists.txt(64):  else()
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake(65):  message(STATUS Skipping download of MSCL and looking in /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/MSCL/usr/share/c++-mscl instead )
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/CMakeLists.txt
+-- Skipping download of MSCL and looking in /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/MSCL/usr/share/c++-mscl instead
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake(69):  set(MSCL_DIR /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/MSCL/usr/share/c++-mscl PARENT_SCOPE )
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/CMakeLists.txt
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake(72):  find_library(MSCL_LIB_PATH NAMES libmscl.so PATHS /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/MSCL/usr/share/c++-mscl DOC MSCL Library NO_DEFAULT_PATH )
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/CMakeLists.txt
+CMake Debug Log at microstrain_inertial_driver_common/cmake/download_mscl.cmake:72 (find_library):
+  find_library(MSCL_LIB_PATH) removed original suffix
+  /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/recipe-sysroot/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/MSCL/usr/share/c++-mscl/
+  from PATH_SUFFIXES while adding architecture paths for suffix '32'
+Call Stack (most recent call first):
+  CMakeLists.txt:33 (download_mscl)
+
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/CMakeLists.txt
+CMake Debug Log at microstrain_inertial_driver_common/cmake/download_mscl.cmake:72 (find_library):
+  find_library(MSCL_LIB_PATH) removed original suffix
+  /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/recipe-sysroot-native/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/MSCL/usr/share/c++-mscl/
+  from PATH_SUFFIXES while adding architecture paths for suffix '32'
+Call Stack (most recent call first):
+  CMakeLists.txt:33 (download_mscl)
+
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/CMakeLists.txt
+CMake Debug Log at microstrain_inertial_driver_common/cmake/download_mscl.cmake:72 (find_library):
+  find_library(MSCL_LIB_PATH) removed original suffix
+  /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/hosttools/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/MSCL/usr/share/c++-mscl/
+  from PATH_SUFFIXES while adding architecture paths for suffix '32'
+Call Stack (most recent call first):
+  CMakeLists.txt:33 (download_mscl)
+
+   Called from: [2]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+                [1]	/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.4-1-r0/git/CMakeLists.txt
+CMake Debug Log at microstrain_inertial_driver_common/cmake/download_mscl.cmake:72 (find_library):
+  find_library called with the following settings:
+
+    VAR: MSCL_LIB_PATH
+    NAMES: "libmscl.so"
+    Documentation: MSCL Library
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 0
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 0
+    NO_DEFAULT_PATH Enabled
+
+  find_library considered the following locations:
+
+  The item was not found.
+
+Call Stack (most recent call first):
+  CMakeLists.txt:33 (download_mscl)
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ .../cmake/download_mscl.cmake                               | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/microstrain_inertial_driver_common/cmake/download_mscl.cmake b/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+index 6665168..b140f15 100644
+--- a/microstrain_inertial_driver_common/cmake/download_mscl.cmake
++++ b/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+@@ -69,8 +69,8 @@ function(download_mscl)
+   set(MSCL_DIR "${MSCL_DIR}" PARENT_SCOPE)
+ 
+   # Locate MSCL and the Boost install it was distributed with
+-  find_library(MSCL_LIB_PATH NAMES libmscl.so PATHS "${MSCL_DIR}" DOC "MSCL Library" NO_DEFAULT_PATH)
+-  find_library(BOOST_LIB_PATH NAMES libboost_chrono.so PATHS "${MSCL_DIR}/Boost/lib" NO_DEFAULT_PATH)
++  find_library(MSCL_LIB_PATH NAMES libmscl.so PATHS "${MSCL_DIR}" DOC "MSCL Library" NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
++  find_library(BOOST_LIB_PATH NAMES libboost_chrono.so PATHS "${MSCL_DIR}/Boost/lib" NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
+   set(MSCL_INC_PATH "${MSCL_DIR}/source" PARENT_SCOPE)
+   set(BOOST_INC_PATH "${MSCL_DIR}/Boost/include" PARENT_SCOPE)
+-endfunction()
+\ No newline at end of file
++endfunction()
