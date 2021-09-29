@@ -1,4 +1,4 @@
-From 7cf4312f13206aca6047ddb008cd79132f10d74e Mon Sep 17 00:00:00 2001
+From 898392de66ce086d56fd9da85b94dc54237d1487 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Mon, 2 Nov 2020 14:08:17 -0800
 Subject: [PATCH] Revert: cmake: fix packaging issue on Windows
@@ -11,15 +11,16 @@ Subject: [PATCH] Revert: cmake: fix packaging issue on Windows
 Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
 ---
- CMakeLists.txt | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ CMakeLists.txt | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d3e7e17..866a747 100644
+index f4d45bb..513d685 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -191,11 +191,7 @@ ENDIF()
+@@ -211,11 +211,7 @@ ENDIF()
  TARGET_LINK_BOOST_PYTHON(${PROJECT_NAME} PUBLIC)
  INSTALL(TARGETS ${PROJECT_NAME}
    EXPORT ${TARGETS_EXPORT_NAME}
