@@ -10,3 +10,6 @@
 do_install:append() {
     rm -rf ${D}${datadir}/ament_index
 }
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-Fix-build-with-newer-glibc.patch"
