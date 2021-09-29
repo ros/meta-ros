@@ -1,0 +1,163 @@
+From 582274efd186b5325f8eddae570540819f0b6d24 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 29 Sep 2021 10:35:44 +0000
+Subject: [PATCH] src/odom_estimation_node.cpp: include chrono
+
+* fixes:
+FAILED: CMakeFiles/floam_odom_node.dir/src/odom_estimation_node.cpp.o
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -DCERES_EXPORT_INTERNAL_SYMBOLS -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"floam\" -Dfloam_odom_node_EXPORTS -Dqh_QHpointer -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/include -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/eigen3 -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10 -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0=/usr/src/debug/floam/0.1.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0=/usr/src/debug/floam/0.1.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot -std=c++14 -D_FILE_OFFSET_BITS=64 -DNDEBUG -O3 -Wall -g -fPIC -MD -MT CMakeFiles/floam_odom_node.dir/src/odom_estimation_node.cpp.o -MF CMakeFiles/floam_odom_node.dir/src/odom_estimation_node.cpp.o.d -o CMakeFiles/floam_odom_node.dir/src/odom_estimation_node.cpp.o -c /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/yield_k.hpp:23,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock.hpp:42,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/shared_ptr.hpp:29,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/shared_ptr.hpp:17,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/forwards.h:37,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/common.h:37,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/ros.h:43,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:9:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/bind.hpp:36:1: note: '#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.'
+   36 | BOOST_PRAGMA_MESSAGE(
+      | ^~~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp: In member function 'void floam::odom::OdomEstimationNode::handleClouds(const PointCloud2ConstPtr&, const PointCloud2ConstPtr&)':
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:102:10: error: 'std::chrono' has not been declared
+  102 |     std::chrono::time_point<std::chrono::system_clock> start, end;
+      |          ^~~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:102:34: error: 'std::chrono' has not been declared
+  102 |     std::chrono::time_point<std::chrono::system_clock> start, end;
+      |                                  ^~~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:102:56: error: 'start' was not declared in this scope; did you mean 'ros::start'?
+  102 |     std::chrono::time_point<std::chrono::system_clock> start, end;
+      |                                                        ^~~~~
+      |                                                        ros::start
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/node_handle.h:47,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/ros.h:45,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:9:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/init.h:184:18: note: 'ros::start' declared here
+  184 | ROSCPP_DECL void start();
+      |                  ^~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:102:63: error: 'end' was not declared in this scope
+  102 |     std::chrono::time_point<std::chrono::system_clock> start, end;
+      |                                                               ^~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:102:63: note: suggested alternatives:
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/c++/11.2.0/string:54,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/platform.h:38,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/time.h:53,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/ros.h:38,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:9:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/range_access.h:110:37: note:   'std::end'
+  110 |   template<typename _Tp> const _Tp* end(const valarray<_Tp>&);
+      |                                     ^~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/mpl/begin_end.hpp:17,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/mpl/iter_fold.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/mpl/distance.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/variant/detail/apply_visitor_unary.hpp:20,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/variant/apply_visitor.hpp:16,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/signals2/slot_base.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/signals2/detail/tracked_objects_visitor.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/signals2/slot.hpp:22,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/signals2/connection.hpp:25,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/message_filters/connection.h:39,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/message_filters/subscriber.h:42,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:11:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/mpl/begin_end_fwd.hpp:23:38: note:   'boost::mpl::end'
+   23 | template< typename Sequence > struct end;
+      |                                      ^~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/range/functions.hpp:19,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/range/iterator_range_core.hpp:38,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/lexical_cast.hpp:30,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/transport_hints.h:34,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/subscribe_options.h:33,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/node_handle.h:42,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/ros/ros.h:45,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:9:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/range/end.hpp:104:61: note:   'boost::range_adl_barrier::end'
+  104 | inline BOOST_DEDUCED_TYPENAME range_iterator<const T>::type end( const T& r )
+      |                                                             ^~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/conversions.h:55,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/pcl_conversions/pcl_conversions.h:44,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:17:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/foreach.hpp:736:1: note:   'boost::foreach_detail_::end'
+  736 | end(auto_any_t, type2type<T *, C> *, boost::mpl::true_ *) // null-terminated C-style strings
+      | ^~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/filesystem.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/io/boost.h:48,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/io/file_io.h:42,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/io/pcd_io.h:44,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/pcl_conversions/pcl_conversions.h:70,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:17:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/filesystem/directory.hpp:685:37: note:   'boost::filesystem::end'
+  685 | inline recursive_directory_iterator end(recursive_directory_iterator const&) BOOST_NOEXCEPT
+      |                                     ^~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/container/list/cons.hpp:17,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/iterator/segmented_iterator.hpp:14,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/sequence/intrinsic/detail/segmented_begin.hpp:12,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/sequence/intrinsic/begin.hpp:18,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/algorithm/query/detail/find_if.hpp:22,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/algorithm/query/find.hpp:13,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/sequence/intrinsic/has_key.hpp:14,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/sequence/intrinsic/at_key.hpp:14,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/filters/boost.h:54,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/filters/filter.h:45,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/include/floam/odom_estimation.hpp:19,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/include/floam/odom_estimation_node.hpp:23,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:22:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/sequence/intrinsic/end.hpp:92:5: note:   'boost::fusion::end'
+   92 |     end(Sequence const& seq)
+      |     ^~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/Core:265,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/pcl_macros.h:75,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/PCLPointField.h:6,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/conversions.h:46,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/opt/ros/melodic/include/pcl_conversions/pcl_conversions.h:44,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:17:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/util/IndexedViewHelper.h:181:40: note:   'Eigen::placeholders::end'
+  181 |   EIGEN_DEPRECATED static const end_t  end  = Eigen::lastp1; // PLEASE use Eigen::lastp1 instead of Eigen::placeholders::end
+      |                                        ^~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/sequence/intrinsic/at_key.hpp:13,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/filters/boost.h:54,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/pcl-1.10/pcl/filters/filter.h:45,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/include/floam/odom_estimation.hpp:19,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/include/floam/odom_estimation_node.hpp:23,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:22:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/recipe-sysroot/usr/include/boost/fusion/sequence/intrinsic_fwd.hpp:68:16: note:   'boost::fusion::result_of::end'
+   68 |         struct end;
+      |                ^~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:103:18: error: 'std::chrono' has not been declared
+  103 |     start = std::chrono::system_clock::now();
+      |                  ^~~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:105:16: error: 'std::chrono' has not been declared
+  105 |     end = std::chrono::system_clock::now();
+      |                ^~~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:107:10: error: 'std::chrono' has not been declared
+  107 |     std::chrono::duration<float> elapsed_seconds = end - start;
+      |          ^~~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:107:27: error: expected primary-expression before 'float'
+  107 |     std::chrono::duration<float> elapsed_seconds = end - start;
+      |                           ^~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/floam/0.1.0-1-r0/git/src/odom_estimation_node.cpp:109:23: error: 'elapsed_seconds' was not declared in this scope
+  109 |     float time_temp = elapsed_seconds.count() * 1000;
+      |                       ^~~~~~~~~~~~~~~
+ninja: build stopped: subcommand failed.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/odom_estimation_node.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/odom_estimation_node.cpp b/src/odom_estimation_node.cpp
+index 8549b73..7039004 100755
+--- a/src/odom_estimation_node.cpp
++++ b/src/odom_estimation_node.cpp
+@@ -13,6 +13,8 @@
+ #include "tf2_geometry_msgs/tf2_geometry_msgs.h"
+ #include "tf2_ros/transform_broadcaster.h"
+ 
++#include <chrono>
++
+ //pcl lib
+ #include <pcl_conversions/pcl_conversions.h>
+ #include <pcl/point_cloud.h>
