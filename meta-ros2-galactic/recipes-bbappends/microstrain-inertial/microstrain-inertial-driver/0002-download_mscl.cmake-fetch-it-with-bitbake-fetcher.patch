@@ -1,0 +1,69 @@
+From d7999692a74af24c9d46d484d93927791697b127 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 8 Nov 2021 05:19:33 -0800
+Subject: [PATCH] download_mscl.cmake: fetch it with bitbake fetcher
+
+* and show an error if it doesn't exist during configure
+
+* fixes:
+| -- Looking for MSCL tag v62.1.2 on github
+| /bin/bash: jq: command not found
+| curl: (77) error setting certificate verify locations:  CAfile: /jenkins/home/anaconda/webos-melodic-honister/tmp-glibc/work/x86_64-linux/curl-native/7.78.0-r0/recipe-sysroot-native/etc/ssl/certs/ca-certificates.crt CApath: none
+| -- Downloading c++-mscl_62.1.2_armhf.deb to /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.6-1-r0/build/c++-mscl_62.1.2_armhf.deb
+| curl: no URL specified!
+| curl: try 'curl --help' for more information
+| /bin/bash: dpkg-deb: command not found
+...
+| -- Configuring done
+| CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+| Please set them or make sure they are set and tested correctly in the CMake files:
+| MSCL_LIB_PATH
+|     linked by target "microstrain_inertial_driver" in directory /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/microstrain-inertial-driver/2.0.6-1-r0/git
+|
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt                                     |  2 +-
+ .../cmake/download_mscl.cmake                      | 14 +-------------
+ 2 files changed, 2 insertions(+), 14 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 87e2782..d9f5cdc 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,7 +26,7 @@ endif()
+ 
+ # Download and install MSCL
+ include(${COMMON_DIR}/cmake/download_mscl.cmake)
+-download_mscl(VERSION "62.1.2")
++download_mscl(VERSION "62.1.2") # nothing is downloaded when MSCL_DIR is set to existing directory
+ 
+ # Default to C++14
+ if(NOT CMAKE_CXX_STANDARD)
+diff --git a/microstrain_inertial_driver_common/cmake/download_mscl.cmake b/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+index b140f15..450d204 100644
+--- a/microstrain_inertial_driver_common/cmake/download_mscl.cmake
++++ b/microstrain_inertial_driver_common/cmake/download_mscl.cmake
+@@ -39,19 +39,7 @@ function(download_mscl)
+ 
+     # If the artifact already exists, no need to download it again
+     if(NOT EXISTS "${MSCL_DEB_ARTIFACT}")
+-      # Get the release ID for the version we are trying to download
+-      message(STATUS "Looking for MSCL tag ${MSCL_GITHUB_TAG} on github")
+-      set(MSCL_LIST_REPO_URL "https://api.github.com/repos/${MSCL_GITHUB_ORG}/${MSCL_GITHUB_REPO}/releases/tags/${MSCL_GITHUB_TAG}")
+-      execute_process(
+-        COMMAND ${CMAKE_COMMAND} -E env /bin/bash -c "curl -fsSl '${MSCL_LIST_REPO_URL}' | jq '.assets[] | select(.name==\"${MSCL_GITHUB_ARTIFACT}\") | .url' | sed 's/\"// g'"
+-        OUTPUT_VARIABLE MSCL_DOWNLOAD_LINK
+-      )
+-
+-      # Download the deb file
+-      message(STATUS "Downloading ${MSCL_GITHUB_ARTIFACT} to ${MSCL_DEB_ARTIFACT}")
+-      execute_process(
+-        COMMAND ${CMAKE_COMMAND} -E env /bin/bash -c "curl -fsSLJo ${MSCL_DEB_ARTIFACT} -H 'Accept: application/octet-stream' ${MSCL_DOWNLOAD_LINK}"
+-      )
++      message(FATAL "${MSCL_DEB_ARTIFACT}" doesn't exist, fetch it with bitbake fetcher first)
+     endif()
+ 
+     # Extract the deb file into the workspace
