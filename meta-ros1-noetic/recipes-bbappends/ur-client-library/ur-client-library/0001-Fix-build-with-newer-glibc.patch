@@ -1,0 +1,92 @@
+From 06c8c44c896fbdb0ecaa1a250ea9e8b9c3fa5531 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 29 Sep 2021 10:48:20 +0000
+Subject: [PATCH] Fix build with newer glibc
+
+* fixes:
+FAILED: CMakeFiles/urcl.dir/src/log.cpp.o
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -Durcl_EXPORTS -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/include -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0=/usr/src/debug/ur-client-library/0.3.2-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0=/usr/src/debug/ur-client-library/0.3.2-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot -Wall -pedantic -O2 -g -DNDEBUG -fPIC -Wall -Wextra -Wno-unused-parameter -std=c++11 -MD -MT CMakeFiles/urcl.dir/src/log.cpp.o -MF CMakeFiles/urcl.dir/src/log.cpp.o.d -o CMakeFiles/urcl.dir/src/log.cpp.o -c /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/log.cpp
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/log.cpp: In function 'void urcl::log(const char*, int, urcl::LogLevel, const char*, ...)':
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/log.cpp:118:34: error: 'vsnprintf' is not a member of 'std'; did you mean 'vswprintf'?
+  118 |     size_t characters = 1 + std::vsnprintf(buffer.get(), buffer_size, fmt, args);
+      |                                  ^~~~~~~~~
+      |                                  vswprintf
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/log.cpp:124:12: error: 'vsnprintf' is not a member of 'std'; did you mean 'vswprintf'?
+  124 |       std::vsnprintf(buffer.get(), buffer_size, fmt, args_copy);
+      |            ^~~~~~~~~
+      |            vswprintf
+
+and
+
+FAILED: CMakeFiles/urcl.dir/src/control/script_sender.cpp.o
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -Durcl_EXPORTS -I/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/include -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0=/usr/src/debug/ur-client-library/0.3.2-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0=/usr/src/debug/ur-client-library/0.3.2-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot -Wall -pedantic -O2 -g -DNDEBUG -fPIC -Wall -Wextra -Wno-unused-parameter -std=c++11 -MD -MT CMakeFiles/urcl.dir/src/control/script_sender.cpp.o -MF CMakeFiles/urcl.dir/src/control/script_sender.cpp.o.d -o CMakeFiles/urcl.dir/src/control/script_sender.cpp.o -c /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/control/script_sender.cpp
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/control/script_sender.cpp:28:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/include/ur_client_library/control/script_sender.h:61:15: error: field 'program_' has incomplete type 'std::string' {aka 'std::__cxx11::basic_string<char>'}
+   61 |   std::string program_;
+      |               ^~~~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/iosfwd:39,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/std_thread.h:39,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/thread:43,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/include/ur_client_library/control/script_sender.h:33,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/control/script_sender.cpp:28:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stringfwd.h:74:11: note: declaration of 'std::string' {aka 'class std::__cxx11::basic_string<char>'}
+   74 |     class basic_string;
+      |           ^~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/control/script_sender.cpp:28:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/include/ur_client_library/control/script_sender.h:63:21: error: field 'PROGRAM_REQUEST_' has incomplete type 'const string' {aka 'const std::__cxx11::basic_string<char>'}
+   63 |   const std::string PROGRAM_REQUEST_ = std::string("request_program\n");
+      |                     ^~~~~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/iosfwd:39,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/std_thread.h:39,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/thread:43,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/include/ur_client_library/control/script_sender.h:33,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/control/script_sender.cpp:28:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stringfwd.h:74:11: note: declaration of 'std::string' {aka 'class std::__cxx11::basic_string<char>'}
+   74 |     class basic_string;
+      |           ^~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/control/script_sender.cpp: In member function 'void urcl::control::ScriptSender::messageCallback(int, char*)':
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/control/script_sender.cpp:56:25: error: invalid use of incomplete type 'std::string' {aka 'class std::__cxx11::basic_string<char>'}
+   56 |   if (std::string(buffer) == PROGRAM_REQUEST_)
+      |                         ^
+In file included from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/iosfwd:39,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/std_thread.h:39,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/thread:43,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/include/ur_client_library/control/script_sender.h:33,
+                 from /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/git/src/control/script_sender.cpp:28:
+/jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/ur-client-library/0.3.2-1-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stringfwd.h:74:11: note: declaration of 'std::string' {aka 'class std::__cxx11::basic_string<char>'}
+   74 |     class basic_string;
+      |           ^~~~~~~~~~~~
+ninja: build stopped: subcommand failed.
+
+Upstream-Status: Submitted [https://github.com/UniversalRobots/Universal_Robots_Client_Library/pull/88]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/ur_client_library/control/script_sender.h | 1 +
+ src/log.cpp                                       | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/include/ur_client_library/control/script_sender.h b/include/ur_client_library/control/script_sender.h
+index 301f5b9..95db332 100644
+--- a/include/ur_client_library/control/script_sender.h
++++ b/include/ur_client_library/control/script_sender.h
+@@ -31,6 +31,7 @@
+ #define UR_CLIENT_LIBRARY_SCRIPT_SENDER_H_INCLUDED
+ 
+ #include <thread>
++#include <string>
+ 
+ #include "ur_client_library/comm/tcp_server.h"
+ #include "ur_client_library/log.h"
+diff --git a/src/log.cpp b/src/log.cpp
+index 3507c59..658a198 100644
+--- a/src/log.cpp
++++ b/src/log.cpp
+@@ -31,6 +31,7 @@
+ #include "ur_client_library/log.h"
+ #include "ur_client_library/default_log_handler.h"
+ #include <cstdarg>
++#include <cstdio>
+ 
+ namespace urcl
+ {
