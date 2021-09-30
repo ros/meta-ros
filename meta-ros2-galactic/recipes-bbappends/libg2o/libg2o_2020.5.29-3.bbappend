@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 DEPENDS += "libglu"
 
@@ -23,3 +23,6 @@ EXTRA_OECMAKE += " \
 SYSROOT_DIRS:append = " \
     ${bindir} \
 "
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-Rainer-issues508-512.patch"
