@@ -16,6 +16,6 @@ EXTRA_OECMAKE += "\
   -DCMAKE_SKIP_RPATH=ON \
 "
 
-inherit cmake
+inherit cmake pkgconfig
 
 FILES:${PN}-dev += "${libdir}/cmake/collada_dom-2.4/*.cmake"
