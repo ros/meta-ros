@@ -10,6 +10,6 @@ SRC_URI[sha256sum] = "50a829a305dc5a0fd1f9590748b19fece756093b581ac91e00c2c27c65
 DEPENDS = "${PYTHON_PN} graphviz"
 
 PYPI_PACKAGE_EXT = "zip"
-inherit pypi
+inherit pypi pkgconfig
 
 BBCLASSEXTEND = "native"
