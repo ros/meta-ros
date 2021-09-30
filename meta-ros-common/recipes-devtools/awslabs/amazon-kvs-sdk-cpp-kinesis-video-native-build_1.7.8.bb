@@ -6,6 +6,8 @@ KVSSDK_PROJECT = "kinesis-video-native-build"
 
 DEPENDS = "log4cplus openssl curl"
 
+inherit pkgconfig
+
 # There is no install target in CMake, only scripts like install-script, install-script-ami, install-script-common.sh, min-install-script
 # kinesis-manager uses ExternalProject with min-install-script call, but needs only the libproducer.so, lets install just that
 do_install() {
