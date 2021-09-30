@@ -11,6 +11,8 @@ SRC_URI += " \
     file://0004-CMakeLists.txt-don-t-include-CERES_INCLUDE_DIRS-if-i.patch \
 "
 
+inherit pkgconfig
+
 # This is used only to generate documentation so it should
 # be native and needs quite a lot of native python dependencies
 ROS_BUILD_DEPENDS:remove = "${PYTHON_PN}-sphinx python-sphinx"
