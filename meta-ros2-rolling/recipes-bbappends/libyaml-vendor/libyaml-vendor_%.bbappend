@@ -7,6 +7,8 @@ SRC_URI += "file://0001-CMakeLists.txt-fetch-libyaml-with-bitbake-fetcher.patch 
     file://0002-CMakeLists.txt-use-platform-libyaml-when-available-i.patch \
 "
 
+inherit pkgconfig
+
 # Instead of fetching
 # https://github.com/yaml/libyaml/archive/refs/tags/0.2.5.zip
 # during do_compile
