@@ -4,3 +4,5 @@ ROS_BUILDTOOL_DEPENDS += " \
     python3-numpy-native \
     python3-lark-parser-native \
 "
+
+inherit pkgconfig
