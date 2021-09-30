@@ -16,7 +16,7 @@ SRC_URI = "git://github.com/modelon-community/fmi-library \
 
 S = "${WORKDIR}/git"
 
-inherit cmake
+inherit cmake pkgconfig
 
 # cannot run runtime tests on host while cross-compiling
 # /bin/sh: 1: /jenkins/mjansa/build-ros-thud-mcf-herb/artifacts/BUILD-webos-eloquent-thud.mcf/work/raspberrypi3-webos-linux-gnueabi/fmilibrary-vendor/0.1.1-1-r0/build/FMILibraryProject-prefix/src/FMILibraryProject-build/compress_test_fmu_zip: Exec format error
