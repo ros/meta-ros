@@ -1,4 +1,4 @@
-From f27a6a87e252666fdbdd8c51eab2432a097a0772 Mon Sep 17 00:00:00 2001
+From 5ca854acfedf9cb19ba6bdf189ce77968e083edb Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Wed, 25 Aug 2021 02:50:00 -0700
 Subject: [PATCH] Fix build with gpsd-3.21
@@ -6,8 +6,7 @@ Subject: [PATCH] Fix build with gpsd-3.21
 Adapt to changes from this commit:
 https://gitlab.com/gpsd/gpsd/-/commit/29991d6ffeb41ecfc8297db68bb68be0128c8514
 
-Upstream-Status: Submitted [https://github.com/swri-robotics/gps_umd/pull/39]
-
+Upstream-Status: Submitted [https://github.com/swri-robotics/gps_umd/pull/39 https://github.com/swri-robotics/gps_umd/pull/40 https://github.com/swri-robotics/gps_umd/pull/41]
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  src/client.cpp | 12 ++++++++++++
