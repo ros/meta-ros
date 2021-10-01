@@ -19,8 +19,10 @@ bullet:
 - bullet@meta-ros-common
 bzip2:
 - bzip2@openembedded-core
-catkin:
-- ${ROS_UNRESOLVED_DEP-catkin}
+cargo:
+- ${ROS_UNRESOLVED_DEP-cargo}
+clang:
+- ${ROS_UNRESOLVED_DEP-clang}
 clang-format:
 - ${ROS_UNRESOLVED_DEP-clang-format}
 clang-tidy:
@@ -46,6 +48,8 @@ eigen:
 ffmpeg:
 - ffmpeg@openembedded-core
 g++-static: []
+gazebo:
+- ${ROS_UNRESOLVED_DEP-gazebo}
 gazebo11:
 - ${ROS_UNRESOLVED_DEP-gazebo11}
 geographiclib:
@@ -138,6 +142,8 @@ libfreetype6-dev:
 - freetype@openembedded-core
 libgazebo11-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
+libgeos++-dev:
+- geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
 libglew-dev:
@@ -246,10 +252,12 @@ libzmq3-dev:
 - zeromq@meta-oe
 libzstd-dev:
 - zstd@meta-oe
-log4cxx:
-- log4cxx@meta-ros-common
 lua5.2-dev:
 - lua@meta-oe
+marti_common_msgs:
+- ${ROS_UNRESOLVED_DEP-marti-common-msgs}
+marti_nav_msgs:
+- ${ROS_UNRESOLVED_DEP-marti-nav-msgs}
 mongodb:
 - mongodb@meta-oe
 opende:
@@ -392,8 +400,6 @@ qt5-qmake:
 - qtbase@meta-qt5
 qtbase5-dev:
 - qtbase@meta-qt5
-rospy:
-- ${ROS_UNRESOLVED_DEP-rospy}
 rti-connext-dds-5.3.1:
 - ${ROS_UNRESOLVED_DEP-rti-connext-dds-5.3.1}
 sdformat:
