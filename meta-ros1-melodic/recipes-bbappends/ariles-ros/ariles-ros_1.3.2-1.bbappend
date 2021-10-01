@@ -9,3 +9,5 @@ FILES:${PN} += " \
     ${datadir}/ariles-octave \
     ${datadir}/ariles-yaml-cpp \
 "
+
+inherit pkgconfig
