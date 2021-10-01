@@ -7,3 +7,5 @@
 # photo/1.0.3-1-r0/devel/lib/libphoto2.so: error: undefined reference to 'gp_abilities_list_lookup_model'
 # ....
 CXXFLAGS += "-fuse-ld=bfd"
+
+inherit pkgconfig
