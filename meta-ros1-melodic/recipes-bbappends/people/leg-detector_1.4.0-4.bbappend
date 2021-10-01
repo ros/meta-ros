@@ -17,3 +17,5 @@
 # | /jenkins/mjansa/build/ros/webos-melodic-honister/tmp-glibc/work/qemux86-webos-linux/leg-detector/1.4.0-4-r0/recipe-sysroot/usr/include/c++/11.1.0/bits/stl_tree.h:770:15: note: 'std::is_invocable_v<const laser_processor::CompareSample&, laser_processor::Sample* const&, laser_processor::Sample* const&>' evaluates to false
 # | ninja: build stopped: subcommand failed.
 CXXFLAGS += "-std=gnu++14"
+
+inherit pkgconfig
