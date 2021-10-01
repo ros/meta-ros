@@ -1953,6 +1953,16 @@ python-google-cloud-speech-pip:
   ubuntu:
     pip:
       packages: [google-cloud-speech]
+python-google-cloud-storage-pip: &migrate_eol_2025_04_30_python3_google_cloud_storage_pip
+  debian:
+    pip:
+      packages: [google-cloud-storage]
+  fedora:
+    pip:
+      packages: [google-cloud-storage]
+  ubuntu:
+    pip:
+      packages: [google-cloud-storage]
 python-google-cloud-texttospeech-pip: &migrate_eol_2025_04_30_python3_google_cloud_texttospeech_pip
   debian:
     pip:
@@ -2340,7 +2350,22 @@ python-itsdangerous:
     stretch: [python-itsdangerous]
   fedora: [python-itsdangerous]
   gentoo: [dev-python/itsdangerous]
-  ubuntu: [python-itsdangerous]
+  ubuntu:
+    '*': null
+    bionic: [python-itsdangerous]
+python-j1939-pip: &migrate_eol_2025_04_30_python3_j1939_pip
+  debian:
+    pip:
+      packages: [j1939]
+  fedora:
+    pip:
+      packages: [j1939]
+  gentoo:
+    pip:
+      packages: [j1939]
+  ubuntu:
+    pip:
+      packages: [j1939]
 python-jasmine-pip:
   ubuntu:
     pip:
@@ -6307,6 +6332,12 @@ python3-ezdxf:
     focal:
       pip:
         packages: [ezdxf]
+python3-falcon:
+  arch: [python-falcon]
+  debian: [python3-falcon]
+  fedora: [python3-falcon]
+  opensuse: [python3-falcon]
+  ubuntu: [python3-falcon]
 python3-fastnumbers-pip:
   arch:
     pip:
@@ -6501,6 +6532,7 @@ python3-gnupg:
   openembedded: [python3-gnupg@meta-python]
   opensuse: [python3-python-gnupg]
   ubuntu: [python3-gnupg]
+python3-google-cloud-storage-pip: *migrate_eol_2025_04_30_python3_google_cloud_storage_pip
 python3-google-cloud-texttospeech-pip: *migrate_eol_2025_04_30_python3_google_cloud_texttospeech_pip
 python3-gpiozero:
   debian: [python3-gpiozero]
@@ -6647,6 +6679,7 @@ python3-interpreter:
   rhel: [python3]
   slackware: [python3]
   ubuntu: [python3-minimal]
+python3-j1939-pip: *migrate_eol_2025_04_30_python3_j1939_pip
 python3-jinja2:
   alpine: [py3-jinja2]
   debian: [python3-jinja2]
