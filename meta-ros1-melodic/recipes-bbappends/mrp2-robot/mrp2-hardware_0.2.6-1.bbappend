@@ -10,3 +10,5 @@
 # mrp2-hardware/0.2.6-1-r0/git/src/serial_comm.cpp:257:1: error: no return statement in function returning non-void [-Werror=return-type]
 # mrp2-hardware/0.2.6-1-r0/git/src/usb_comm.cpp:115:1: error: no return statement in function returning non-void [-Werror=return-type]
 CXXFLAGS += "-Wno-error=return-type"
+
+inherit pkgconfig
