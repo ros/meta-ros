@@ -1,0 +1,218 @@
+From 3e57dc3ec87b9aed86ae6f762acc46213ded717b Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 1 Oct 2021 22:41:51 +0000
+Subject: [PATCH] organized_multi_plane_segmenter.cpp: use newer
+ setExcludeLabels (const ExcludeLabelSetConstPtr &)
+
+* setExcludeLabels (const std::vector<bool>& exclude_labels) is deprecated since:
+  https://github.com/PointCloudLibrary/pcl/commit/06111caed38410491b11bb53adbd0d688891f244
+
+  and while it was working with pcl-1.8, in pcl-1.9 and newer it causes build failure:
+
+FAILED: CMakeFiles/segmenter_component.dir/src/segmenter/organized_multi_plane_segmenter.cpp.o
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -DOBJECT_ANALYTICS_NODE_BUILDING_DLL -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DPOCO_UNBUNDLED -DTINYXML2_IMPORT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -Dsegmenter_component_EXPORTS -I/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/include -I/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/eigen3 -I/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9 -I/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/opencv4 -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0=/usr/src/debug/object-analytics-node/0.5.4-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0=/usr/src/debug/object-analytics-node/0.5.4-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot -Wall -Wextra -Wpedantic -Wno-unused-function -fPIE -fstack-protector-strong -fPIC -fno-operator-names -Wformat -Wformat-security     -Wall -fopenmp -std=c++11 -DNDEBUG -D_FORTIFY_SOURCE=2 -fPIC -std=gnu++14 -MD -MT CMakeFiles/segmenter_component.dir/src/segmenter/organized_multi_plane_segmenter.cpp.o -MF CMakeFiles/segmenter_component.dir/src/segmenter/organized_multi_plane_segmenter.cpp.o.d -o CMakeFiles/segmenter_component.dir/src/segmenter/organized_multi_plane_segmenter.cpp.o -c /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/yield_k.hpp:23,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock.hpp:42,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/smart_ptr/shared_ptr.hpp:29,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/shared_ptr.hpp:17,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/date_time/time_clock.hpp:17,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/date_time/posix_time/time_formatters.hpp:16,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/date_time/posix_time/posix_time.hpp:24,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/common/time.h:50,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:15:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/bind.hpp:36:1: note: '#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.'
+   36 | BOOST_PRAGMA_MESSAGE(
+      | ^~~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp: In constructor 'object_analytics_node::segmenter::OrganizedMultiPlaneSegmenter::OrganizedMultiPlaneSegmenter()':
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:41:42: warning: 'pcl::EuclideanClusterComparator<PointT, PointNT, PointLT>::EuclideanClusterComparator() [with PointT = pcl::PointXYZ; PointNT = pcl::Normal; PointLT = pcl::Label]' is deprecated: Remove PointNT from template parameters. [-Wdeprecated-declarations]
+   41 |   euclidean_cluster_comparator_(new pcl::EuclideanClusterComparator<PointT, Normal, Label>)
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/include/object_analytics_node/segmenter/organized_multi_plane_segmenter.hpp:24,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:24:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/segmentation/euclidean_cluster_comparator.h:216:7: note: declared here
+  216 |       EuclideanClusterComparator ()
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:19:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp: In member function 'virtual void object_analytics_node::segmenter::OrganizedMultiPlaneSegmenter::segment(const ConstPtr&, std::vector<pcl::PointIndices>&)':
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:50:21: warning: format '%d' expects argument of type 'int', but argument 5 has type 'size_t' {aka 'long unsigned int'} [-Wformat=]
+   50 |   RCUTILS_LOG_DEBUG("Total original point size = %d", cloud->size());
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~
+      |                                                                  |
+      |                                                                  size_t {aka long unsigned int}
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:50:51: note: format string is defined here
+   50 |   RCUTILS_LOG_DEBUG("Total original point size = %d", cloud->size());
+      |                                                  ~^
+      |                                                   |
+      |                                                   int
+      |                                                  %ld
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp: In member function 'void object_analytics_node::segmenter::OrganizedMultiPlaneSegmenter::segmentObjects(const ConstPtr&, std::vector<pcl::PointIndices>&)':
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:100:50: warning: 'void pcl::EuclideanClusterComparator<PointT, PointNT, PointLT>::setExcludeLabels(const std::vector<bool>&) [with PointT = pcl::PointXYZ; PointNT = pcl::Normal; PointLT = pcl::Label]' is deprecated: Use setExcludeLabels (const ExcludeLabelSetConstPtr &) instead [-Wdeprecated-declarations]
+  100 |   euclidean_cluster_comparator_->setExcludeLabels(plane_labels);
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/include/object_analytics_node/segmenter/organized_multi_plane_segmenter.hpp:24,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:24:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/segmentation/euclidean_cluster_comparator.h:261:7: note: declared here
+  261 |       setExcludeLabels (const std::vector<bool>& exclude_labels)
+      |       ^~~~~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/common/io.h:534,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/impl/conditional_removal.hpp:41,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:16:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/common/impl/io.hpp: In instantiation of 'void pcl::copyPointCloud(const pcl::PointCloud<PointT>&, pcl::PointCloud<PointOutT>&) [with PointInT = pcl::PointXYZ; PointOutT = pcl::Normal]':
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:61:22:   required from here
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/common/impl/io.hpp:128:12: warning: 'void* memcpy(void*, const void*, size_t)' copying an object of non-trivial type '__gnu_cxx::__alloc_traits<Eigen::aligned_allocator<pcl::Normal>, pcl::Normal>::value_type' {aka 'struct pcl::Normal'} from an array of 'const value_type' {aka 'const struct pcl::PointXYZ'} [-Wclass-memaccess]
+  128 |     memcpy (&cloud_out.points[0], &cloud_in.points[0], cloud_in.points.size () * sizeof (PointInT));
+      |     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/point_types.h:359,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/common/impl/copy_point.hpp:41,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/common/copy_point.h:59,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/common/impl/io.hpp:45,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/common/io.h:534,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/impl/conditional_removal.hpp:41,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:16:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/impl/point_types.hpp:791:10: note: '__gnu_cxx::__alloc_traits<Eigen::aligned_allocator<pcl::Normal>, pcl::Normal>::value_type' {aka 'struct pcl::Normal'} declared here
+  791 |   struct Normal : public _Normal
+      |          ^~~~~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/include/object_analytics_node/segmenter/organized_multi_plane_segmenter.hpp:24,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:24:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/segmentation/euclidean_cluster_comparator.h: In instantiation of 'void pcl::EuclideanClusterComparator<PointT, PointNT, PointLT>::setExcludeLabels(const std::vector<bool>&) [with PointT = pcl::PointXYZ; PointNT = pcl::Normal; PointLT = pcl::Label]':
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:100:50:   required from here
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/segmentation/euclidean_cluster_comparator.h:266:37: error: no matching function for call to 'std::set<unsigned int>::insert(uint32_t&) const'
+  266 |             exclude_labels_->insert (i);
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~^~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/set:61,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/detail/container_fwd.hpp:95,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/container_hash/extensions.hpp:22,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/container_hash/hash.hpp:761,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/functional/hash/hash.hpp:6,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/dynamic_bitset/dynamic_bitset.hpp:53,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/dynamic_bitset.hpp:15,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/boost.h:53,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/filter.h:46,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/conditional_removal.h:41,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/impl/conditional_removal.hpp:43,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:16:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:566:9: note: candidate: 'template<class _InputIterator> void std::set<_Key, _Compare, _Alloc>::insert(_InputIterator, _InputIterator) [with _InputIterator = _InputIterator; _Key = unsigned int; _Compare = std::less<unsigned int>; _Alloc = std::allocator<unsigned int>]'
+  566 |         insert(_InputIterator __first, _InputIterator __last)
+      |         ^~~~~~
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:566:9: note:   template argument deduction/substitution failed:
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/include/object_analytics_node/segmenter/organized_multi_plane_segmenter.hpp:24,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:24:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/segmentation/euclidean_cluster_comparator.h:266:37: note:   candidate expects 2 arguments, 1 provided
+  266 |             exclude_labels_->insert (i);
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~^~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/set:61,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/detail/container_fwd.hpp:95,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/container_hash/extensions.hpp:22,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/container_hash/hash.hpp:761,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/functional/hash/hash.hpp:6,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/dynamic_bitset/dynamic_bitset.hpp:53,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/dynamic_bitset.hpp:15,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/boost.h:53,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/filter.h:46,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/conditional_removal.h:41,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/impl/conditional_removal.hpp:43,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:16:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:509:7: note: candidate: 'std::pair<typename std::_Rb_tree<_Key, _Key, std::_Identity<_Tp>, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key>::other>::const_iterator, bool> std::set<_Key, _Compare, _Alloc>::insert(const value_type&) [with _Key = unsigned int; _Compare = std::less<unsigned int>; _Alloc = std::allocator<unsigned int>; typename std::_Rb_tree<_Key, _Key, std::_Identity<_Tp>, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key>::other>::const_iterator = std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>, std::allocator<unsigned int> >::const_iterator; typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key>::other = std::allocator<unsigned int>; typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key> = __gnu_cxx::__alloc_traits<std::allocator<unsigned int>, unsigned int>::rebind<unsigned int>; typename _Allocator::value_type = unsigned int; std::set<_Key, _Compare, _Alloc>::value_type = unsigned int]' (near match)
+  509 |       insert(const value_type& __x)
+      |       ^~~~~~
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:509:7: note:   passing 'const std::set<unsigned int>*' as 'this' argument discards qualifiers
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:518:7: note: candidate: 'std::pair<typename std::_Rb_tree<_Key, _Key, std::_Identity<_Tp>, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key>::other>::const_iterator, bool> std::set<_Key, _Compare, _Alloc>::insert(std::set<_Key, _Compare, _Alloc>::value_type&&) [with _Key = unsigned int; _Compare = std::less<unsigned int>; _Alloc = std::allocator<unsigned int>; typename std::_Rb_tree<_Key, _Key, std::_Identity<_Tp>, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key>::other>::const_iterator = std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>, std::allocator<unsigned int> >::const_iterator; typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key>::other = std::allocator<unsigned int>; typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key> = __gnu_cxx::__alloc_traits<std::allocator<unsigned int>, unsigned int>::rebind<unsigned int>; typename _Allocator::value_type = unsigned int; std::set<_Key, _Compare, _Alloc>::value_type = unsigned int]' (near match)
+  518 |       insert(value_type&& __x)
+      |       ^~~~~~
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:518:7: note:   conversion of argument 1 would be ill-formed:
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/include/object_analytics_node/segmenter/organized_multi_plane_segmenter.hpp:24,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:24:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/segmentation/euclidean_cluster_comparator.h:266:38: error: cannot bind rvalue reference of type 'std::set<unsigned int>::value_type&&' {aka 'unsigned int&&'} to lvalue of type 'uint32_t' {aka 'unsigned int'}
+  266 |             exclude_labels_->insert (i);
+      |                                      ^
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/set:61,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/detail/container_fwd.hpp:95,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/container_hash/extensions.hpp:22,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/container_hash/hash.hpp:761,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/functional/hash/hash.hpp:6,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/dynamic_bitset/dynamic_bitset.hpp:53,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/boost/dynamic_bitset.hpp:15,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/boost.h:53,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/filter.h:46,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/conditional_removal.h:41,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/impl/conditional_removal.hpp:43,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:16:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:546:7: note: candidate: 'std::set<_Key, _Compare, _Alloc>::iterator std::set<_Key, _Compare, _Alloc>::insert(std::set<_Key, _Compare, _Alloc>::const_iterator, const value_type&) [with _Key = unsigned int; _Compare = std::less<unsigned int>; _Alloc = std::allocator<unsigned int>; std::set<_Key, _Compare, _Alloc>::iterator = std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>, std::allocator<unsigned int> >::const_iterator; std::set<_Key, _Compare, _Alloc>::const_iterator = std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>, std::allocator<unsigned int> >::const_iterator; std::set<_Key, _Compare, _Alloc>::value_type = unsigned int]'
+  546 |       insert(const_iterator __position, const value_type& __x)
+      |       ^~~~~~
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:546:7: note:   candidate expects 2 arguments, 1 provided
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:551:7: note: candidate: 'std::set<_Key, _Compare, _Alloc>::iterator std::set<_Key, _Compare, _Alloc>::insert(std::set<_Key, _Compare, _Alloc>::const_iterator, std::set<_Key, _Compare, _Alloc>::value_type&&) [with _Key = unsigned int; _Compare = std::less<unsigned int>; _Alloc = std::allocator<unsigned int>; std::set<_Key, _Compare, _Alloc>::iterator = std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>, std::allocator<unsigned int> >::const_iterator; std::set<_Key, _Compare, _Alloc>::const_iterator = std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>, std::allocator<unsigned int> >::const_iterator; std::set<_Key, _Compare, _Alloc>::value_type = unsigned int]'
+  551 |       insert(const_iterator __position, value_type&& __x)
+      |       ^~~~~~
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:551:7: note:   candidate expects 2 arguments, 1 provided
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:578:7: note: candidate: 'void std::set<_Key, _Compare, _Alloc>::insert(std::initializer_list<_Tp>) [with _Key = unsigned int; _Compare = std::less<unsigned int>; _Alloc = std::allocator<unsigned int>]'
+  578 |       insert(initializer_list<value_type> __l)
+      |       ^~~~~~
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/c++/11.2.0/bits/stl_set.h:578:43: note:   no known conversion for argument 1 from 'uint32_t' {aka 'unsigned int'} to 'std::initializer_list<unsigned int>'
+  578 |       insert(initializer_list<value_type> __l)
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/integral_image2D.h:343,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/integral_image_normal.h:45,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/impl/integral_image_normal.hpp:42,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/include/object_analytics_node/segmenter/organized_multi_plane_segmenter.hpp:26,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:24:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/impl/integral_image2D.hpp: In instantiation of 'void pcl::IntegralImage2D<DataType, Dimension>::computeIntegralImages(const DataType*, unsigned int, unsigned int) [with DataType = float; unsigned int Dimension = 3]':
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/impl/integral_image2D.hpp:65:3:   required from 'void pcl::IntegralImage2D<DataType, Dimension>::setInput(const DataType*, unsigned int, unsigned int, unsigned int, unsigned int) [with DataType = float; unsigned int Dimension = 3]'
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/impl/integral_image_normal.hpp:133:23:   required from 'void pcl::IntegralImageNormalEstimation<PointInT, PointOutT>::initCovarianceMatrixMethod() [with PointInT = pcl::PointXYZ; PointOutT = pcl::Normal]'
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/impl/integral_image_normal.hpp:81:5:   required from 'void pcl::IntegralImageNormalEstimation<PointInT, PointOutT>::initData() [with PointInT = pcl::PointXYZ; PointOutT = pcl::Normal]'
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/integral_image_normal.h:254:9:   required from 'void pcl::IntegralImageNormalEstimation<PointInT, PointOutT>::setInputCloud(const typename pcl::Feature<PointInT, PointRFT>::PointCloudIn::ConstPtr&) [with PointInT = pcl::PointXYZ; PointOutT = pcl::Normal; typename pcl::Feature<PointInT, PointRFT>::PointCloudIn::ConstPtr = boost::shared_ptr<const pcl::PointCloud<pcl::PointXYZ> >; pcl::IntegralImageNormalEstimation<PointInT, PointOutT>::PointCloudIn = pcl::PointCloud<pcl::PointXYZ>]'
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/integral_image_normal.h:235:7:   required from here
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/impl/integral_image2D.hpp:159:10: warning: 'void* memset(void*, int, size_t)' clearing an object of type 'pcl::IntegralImage2D<float, 3>::ElementType' {aka 'class Eigen::Matrix<double, 3, 1>'} with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+  159 |   memset (previous_row, 0, sizeof (ElementType) * (width_ + 1));
+      |   ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/eigen3/Eigen/Core:295,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/eigen3/Eigen/StdVector:14,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/pcl_base.h:49,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/common/io.h:45,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/impl/conditional_removal.hpp:41,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:16:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/Matrix.h:178:7: note: 'pcl::IntegralImage2D<float, 3>::ElementType' {aka 'class Eigen::Matrix<double, 3, 1>'} declared here
+  178 | class Matrix
+      |       ^~~~~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/integral_image2D.h:343,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/integral_image_normal.h:45,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/impl/integral_image_normal.hpp:42,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/include/object_analytics_node/segmenter/organized_multi_plane_segmenter.hpp:26,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:24:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/features/impl/integral_image2D.hpp:190:12: warning: 'void* memset(void*, int, size_t)' clearing an object of type 'pcl::IntegralImage2D<float, 3>::SecondOrderType' {aka 'class Eigen::Matrix<double, 6, 1, 0, 6, 1>'} with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+  190 |     memset (so_previous_row, 0, sizeof (SecondOrderType) * (width_ + 1));
+      |     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/eigen3/Eigen/Core:295,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/eigen3/Eigen/StdVector:14,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/pcl_base.h:49,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/common/io.h:45,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/pcl-1.9/pcl/filters/impl/conditional_removal.hpp:41,
+                 from /jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/git/src/segmenter/organized_multi_plane_segmenter.cpp:16:
+/jenkins/mjansa/build/ros/ros2-dashing-honister/tmp-glibc/work/core2-64-oe-linux/object-analytics-node/0.5.4-2-r0/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/Matrix.h:178:7: note: 'pcl::IntegralImage2D<float, 3>::SecondOrderType' {aka 'class Eigen::Matrix<double, 6, 1, 0, 6, 1>'} declared here
+  178 | class Matrix
+      |       ^~~~~~
+
+Upstream-Status: Pending
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/segmenter/organized_multi_plane_segmenter.cpp | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/src/segmenter/organized_multi_plane_segmenter.cpp b/src/segmenter/organized_multi_plane_segmenter.cpp
+index 201b9dd..c5e39ec 100644
+--- a/src/segmenter/organized_multi_plane_segmenter.cpp
++++ b/src/segmenter/organized_multi_plane_segmenter.cpp
+@@ -93,8 +93,7 @@ void OrganizedMultiPlaneSegmenter::segmentObjects(
+     label.label = i;
+     labels->points.push_back(label);
+   }
+-  std::vector<bool> plane_labels;
+-  plane_labels.resize(cloud->size(), false);
++  pcl::EuclideanClusterComparator<PointT, pcl::Label>::ExcludeLabelSetPtr plane_labels (new pcl::EuclideanClusterComparator<PointT, pcl::Label>::ExcludeLabelSet);
+   euclidean_cluster_comparator_->setInputCloud(cloud);
+   euclidean_cluster_comparator_->setLabels(labels);
+   euclidean_cluster_comparator_->setExcludeLabels(plane_labels);
