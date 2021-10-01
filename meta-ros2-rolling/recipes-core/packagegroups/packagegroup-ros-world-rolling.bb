@@ -61,6 +61,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBSPNAV = " \
     spacenav \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cargo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CARGO}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CARGO = " \
+    zenoh-bridge-dds \
+"
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
+    zenoh-bridge-dds \
+"
+
 # alternative not yet supported implementation for fastrtps
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
@@ -162,6 +172,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
+    rviz-visual-tools \
     rviz2 \
     turtlebot3-gazebo \
     turtlebot3-simulations \
@@ -271,6 +282,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
+    aws-robomaker-small-warehouse-world \
     gazebo-plugins \
     gazebo-ros-pkgs \
     gazebo-ros \
@@ -384,6 +396,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
+    rviz-visual-tools \
     turtlebot3-gazebo \
     turtlebot3-simulations \
     webots-ros2-epuck \
