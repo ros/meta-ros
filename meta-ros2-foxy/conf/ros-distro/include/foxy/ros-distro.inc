@@ -77,6 +77,9 @@ ROS_WORLD_SKIP_GROUPS += "message-generation"
 # src/mongo/client/dbclient.h and src/mongo/client/dbclientinterface.h are only in the legacy branches
 ROS_WORLD_SKIP_GROUPS += "mongodb-legacy-cxx-driver"
 
+# Still depends on catkin-native, missing the update to ROS2 like dashing version got in https://github.com/ros-visualization/rqt_runtime_monitor/pull/5
+ROS_WORLD_SKIP_GROUPS += "rqt-runtime-monitor"
+
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
 # recipes depending on 'opengl' in DISTRO_FEATURES
@@ -115,6 +118,11 @@ ROS_WORLD_SKIP_GROUPS += "libqglviewer"
 
 # recipes depending on ignition-* (ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-msgs5, ROS_UNRESOLVED_DEP-ignition-transport8)
 ROS_WORLD_SKIP_GROUPS += "ignition"
+
+# recipes depending on unavailable python3-shapely
+ROS_WORLD_SKIP_GROUPS += "python3-shapely"
+# recipes depending on unavailable python3-flask-cors
+ROS_WORLD_SKIP_GROUPS += "python3-flask-cors"
 
 # recipes depending on pugixml
 ROS_WORLD_SKIP_GROUPS += "pugixml"
