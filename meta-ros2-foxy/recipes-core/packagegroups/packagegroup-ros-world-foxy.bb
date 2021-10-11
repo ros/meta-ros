@@ -232,6 +232,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rmf-demos-ign \
     rmf-robot-sim-gazebo-plugins \
     rmf-robot-sim-ignition-plugins \
+    rmf-traffic-editor \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     ros-ign \
@@ -306,6 +307,7 @@ RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5-widg
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
     plotjuggler \
     plotjuggler-ros \
+    rmf-traffic-editor \
     turtlesim \
     turtle-tf2-cpp \
     turtle-tf2-py \
