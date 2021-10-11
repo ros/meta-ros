@@ -57,6 +57,8 @@ flex:
 ftdi-eeprom:
 - libftdi@meta-oe
 g++-static: []
+gazebo:
+- ${ROS_UNRESOLVED_DEP-gazebo}
 gazebo11:
 - ${ROS_UNRESOLVED_DEP-gazebo11}
 geographiclib:
@@ -77,6 +79,8 @@ gtest:
 - gtest@meta-oe
 gurumdds-2.7:
 - ${ROS_UNRESOLVED_DEP-gurumdds-2.7}
+ignition-edifice:
+- ${ROS_UNRESOLVED_DEP-ignition-edifice}
 ignition-gazebo3:
 - ${ROS_UNRESOLVED_DEP-ignition-gazebo3}
 ignition-math6:
@@ -125,6 +129,8 @@ libboost-thread-dev:
 - boost@openembedded-core
 libcairo2-dev:
 - cairo@openembedded-core
+libccd-dev:
+- libccd@meta-ros-common
 libceres-dev:
 - ceres-solver@meta-oe
 libconsole-bridge-dev:
@@ -201,6 +207,8 @@ libqglviewer2-qt5:
 - ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5}
 libqhull:
 - qhull@meta-ros-common
+libqt5-concurrent:
+- qtbase@meta-qt5
 libqt5-core:
 - qtbase@meta-qt5
 libqt5-gui:
@@ -209,6 +217,10 @@ libqt5-opengl:
 - qtbase@meta-qt5
 libqt5-opengl-dev:
 - qtbase@meta-qt5
+libqt5-qml:
+- ${ROS_UNRESOLVED_DEP-libqt5-qml}
+libqt5-quick:
+- ${ROS_UNRESOLVED_DEP-libqt5-quick}
 libqt5-svg-dev:
 - qtsvg@meta-qt5
 libqt5-websockets-dev:
@@ -237,6 +249,8 @@ libusb-dev:
 - libusb1@openembedded-core
 libvulkan-dev:
 - vulkan-headers@openembedded-core
+libwebsocketpp-dev:
+- websocketpp@meta-oe
 libx11-dev:
 - libx11@openembedded-core
 libxaw:
@@ -319,6 +333,10 @@ python3-empy:
 - python3-empy@meta-ros-common
 python3-flake8:
 - python3-flake8@meta-ros-common
+python3-flask:
+- ${ROS_UNRESOLVED_DEP-python3-flask}
+python3-flask-cors:
+- ${ROS_UNRESOLVED_DEP-python3-flask-cors}
 python3-future:
 - python3-future@meta-python
 python3-ifcfg:
@@ -389,6 +407,8 @@ python3-serial:
 - python3-pyserial@meta-python
 python3-setuptools:
 - python3-setuptools@openembedded-core
+python3-shapely:
+- ${ROS_UNRESOLVED_DEP-python3-shapely}
 python3-sphinx:
 - python3-sphinx@meta-ros-common
 python3-tk:
