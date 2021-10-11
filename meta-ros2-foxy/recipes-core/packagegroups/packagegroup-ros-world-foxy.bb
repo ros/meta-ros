@@ -25,6 +25,24 @@ RDEPENDS:${PN}:remove = "zstd-vendor"
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rostime', 'nerian-stereo', '', d)}"
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'message-generation', 'nerian-stereo', '', d)}"
 
+# Depends on unavailable python3-shapely
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-shapely', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_SHAPELY}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_SHAPELY = " \
+    rmf-demos-maps \
+    rmf-building-map-tools \
+    rmf-traffic-editor-test-maps \
+"
+# Depends on unavailable python3-flask-cors
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-flask-cors', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_FLASK_CORS}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_FLASK_CORS = " \
+    rmf-demos-panel \
+"
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rqt-runtime-monitor', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_RQT_RUNTIME_MONITOR}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_RQT_RUNTIME_MONITOR = " \
+    rqt-runtime-monitor \
+"
+
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CWIID = " \
     wiimote \
@@ -142,6 +160,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     realsense-node \
     realsense-ros \
     realsense2-camera \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
     ros-ign \
     ros-ign-gazebo-demos \
     rover-navigation \
@@ -205,6 +225,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-core \
     qt-gui-cpp \
     qt-gui-py-common \
+    rmf-building-sim-gazebo-plugins \
+    rmf-building-sim-ignition-plugins \
+    rmf-demos \
+    rmf-demos-gz \
+    rmf-demos-ign \
+    rmf-robot-sim-gazebo-plugins \
+    rmf-robot-sim-ignition-plugins \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
     ros-ign \
     ros-ign-gazebo-demos \
     rover-navigation \
@@ -285,6 +314,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
+    aws-robomaker-small-warehouse-world \
     common2 \
     dolly \
     dolly-gazebo \
@@ -300,6 +330,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     pmb2-2dnav-gazebo \
     pmb2-gazebo \
     pmb2-simulation \
+    rmf-building-sim-gazebo-plugins \
+    rmf-demos \
+    rmf-demos-gz \
+    rmf-demos-ign \
+    rmf-robot-sim-gazebo-plugins \
     turtlebot3-gazebo \
     turtlebot3-simulations \
 "
@@ -424,6 +459,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     moveit \
     multires-image \
     openvslam \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
     ros-ign \
     ros-ign-gazebo-demos \
     rover-navigation \
