@@ -148,6 +148,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     moveit-ros \
     moveit-runtime \
     moveit \
+    mppic \
     multires-image \
     navigation2 \
     nav2-bringup \
@@ -195,6 +196,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     dolly \
     dolly-gazebo \
     joint-state-publisher-gui \
+    mppic \
     nav2-bringup \
     nav2-rviz-plugins \
     mapviz \
@@ -449,6 +451,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     dolly \
     dolly-gazebo \
     libg2o \
+    mppic \
     nav2-bringup \
     nav2-rviz-plugins \
     navigation2 \
