@@ -5,21 +5,27 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around assimp, providing nothing but a dependency on assimp, on some systems.     On others, it provides a fixed CMake module or even an ExternalProject build of assimp."
+DESCRIPTION = "Wrapper around ogre3d, it provides a fixed CMake module and an ExternalProject build of ogre."
 AUTHOR = "Jacob Perron <jacob@openrobotics.org>"
 ROS_AUTHOR = "William Woodall <william@osrfoundation.org>"
-HOMEPAGE = "http://assimp.sourceforge.net/index.html"
+HOMEPAGE = "https://www.ogre3d.org/"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & BSD"
-LICENSE = "Apache-2.0 & BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
+#         "Apache License 2.0 & MIT"
+LICENSE = "Apache-2.0 & MIT"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "rviz"
-ROS_BPN = "rviz_assimp_vendor"
+ROS_BPN = "rviz_ogre_vendor"
 
 ROS_BUILD_DEPENDS = " \
-    assimp \
+    freetype \
+    git \
+    libx11 \
+    libxaw \
+    libxrandr \
+    mesa \
+    pkgconfig \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -27,13 +33,21 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    assimp \
+    freetype \
+    libx11 \
+    libxaw \
+    libxrandr \
+    mesa \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    assimp \
+    freetype \
+    libx11 \
+    libxaw \
+    libxrandr \
+    mesa \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,10 +60,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz_assimp_vendor/8.2.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/rviz_assimp_vendor"
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz_ogre_vendor/8.2.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rviz_ogre_vendor"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "0b6d77430a6d891ff7ba2121b9e5fe174d0cfebd"
+SRCREV = "11990ed6fb914b5a8190b6f12ce05d2707faf625"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
