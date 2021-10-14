@@ -35,3 +35,7 @@ DEPENDS += " \
 "
 
 inherit python3native
+
+DEPENDS += " \
+    pybind11-vendor \
+"
