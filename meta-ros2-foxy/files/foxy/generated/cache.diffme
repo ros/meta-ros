@@ -1,4 +1,4 @@
-# foxy/cache.yaml 2021-10-07 80b64955f3e66b058e288359e807da0f94cc581d 20211007232358 1.7.0
+# foxy/cache.yaml 2021-10-13 0cc5f30da1c12ff088239a813b862ef10a3c998e 20211013142752 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -1665,7 +1665,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/geometry_tutorials-release.git',
-version: 0.3.3-1
+version: 0.3.4-1
 },
 source: {
 type: git,
@@ -2500,7 +2500,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavlink-gbp-release.git',
-version: 2021.9.9-1
+version: 2021.10.10-1
 },
 source: {
 type: git,
@@ -2726,6 +2726,27 @@ source: {
 type: git,
 url: 'https://github.com/ros-planning/moveit_resources.git',
 version: ros2
+},
+status: developed
+}
+-----
+mppic: {
+doc: {
+type: git,
+url: 'https://github.com/FastSense/mppic.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/artofnothingness/mppic-release.git',
+version: 0.2.1-2
+},
+source: {
+type: git,
+url: 'https://github.com/FastSense/mppic.git',
+version: master
 },
 status: developed
 }
@@ -6340,7 +6361,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rviz-release.git',
-version: 8.2.4-1
+version: 8.2.5-1
 },
 source: {
 test_pull_requests: true,
@@ -6362,7 +6383,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/PickNikRobotics/rviz_visual_tools-release.git',
-version: 4.0.1-1
+version: 4.0.2-2
 },
 source: {
 type: git,
@@ -16478,6 +16499,31 @@ simple controller manager plugin for MoveIt.</description>
 </export>
 </package>
 -----
+mppic: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mppic</name>
+<description>mppic</description>
+<maintainer email="budyakov.aleksei@gmail.com">Aleksei Budyakov</maintainer>
+<license>MIT</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>nav2_common</depend>
+<depend>nav2_core</depend>
+<depend>nav2_util</depend>
+<depend>nav2_costmap_2d</depend>
+<depend>rclcpp</depend>
+<depend>geometry_msgs</depend>
+<depend>visualization_msgs</depend>
+<depend>nav2_msgs</depend>
+<depend>pluginlib</depend>
+<depend>tf2</depend>
+<exec_depend>nav2_bringup</exec_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 mrpt2: <?xml version="1.0" ?>
 <package format="2">
 <name>mrpt2</name>
@@ -25599,6 +25645,7 @@ rviz_visual_tools: <?xml version="1.0" ?>
 <depend>rclcpp</depend>
 <depend>rclcpp_components</depend>
 <depend>rviz_ogre_vendor</depend>
+<depend>pluginlib</depend>
 <depend>tf2</depend>
 <depend>tf2_eigen</depend>
 <depend>eigen_stl_containers</depend>
@@ -27662,8 +27709,10 @@ Version 2.0</license>
 <depend>geometry_msgs</depend>
 <depend>launch</depend>
 <depend>launch_ros</depend>
+<depend>message_filters</depend>
 <depend>rclcpp</depend>
 <depend>tf2</depend>
+<depend>tf2_geometry_msgs</depend>
 <depend>tf2_ros</depend>
 <depend>turtlesim</depend>
 <test_depend>ament_lint_auto</test_depend>
