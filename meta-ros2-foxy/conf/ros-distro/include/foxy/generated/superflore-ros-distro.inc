@@ -35,7 +35,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = " \
 
 # Number of commits that will be returned by "git log meta-ros2-foxy/files/foxy/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "33"
+ROS_NUM_CACHE_YAML_COMMITS = "34"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -407,6 +407,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     moveit-runtime \
     moveit-servo \
     moveit-simple-controller-manager \
+    mppic \
     mrpt2 \
     mrt-cmake-modules \
     multires-image \
@@ -1155,7 +1156,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                         geographic-info/geographic-msgs_1.0.4-1 \
                        geometric-shapes/geometric-shapes_2.1.0-1 \
                       common-interfaces/geometry-msgs_2.0.4-1 \
-                     geometry-tutorials/geometry-tutorials_0.3.3-1 \
+                     geometry-tutorials/geometry-tutorials_0.3.4-1 \
                               geometry2/geometry2_0.13.12-1 \
                              googletest/gmock-vendor_1.8.9001-1 \
                 google-benchmark-vendor/google-benchmark-vendor_0.0.3-1 \
@@ -1250,7 +1251,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          marti-messages/marti-status-msgs_1.2.0-1 \
                          marti-messages/marti-visualization-msgs_1.2.0-1 \
                         ros-amr-interop/massrobotics-amr-sender_1.0.0-2 \
-                                mavlink/mavlink_2021.9.9-1 \
+                                mavlink/mavlink_2021.10.10-1 \
                                  mavros/mavros_2.0.3-1 \
                                  mavros/mavros-msgs_2.0.3-1 \
                            menge-vendor/menge-vendor_1.0.0-1 \
@@ -1288,6 +1289,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                  moveit/moveit-runtime_2.2.1-1 \
                                  moveit/moveit-servo_2.2.1-1 \
                                  moveit/moveit-simple-controller-manager_2.2.1-1 \
+                                  mppic/mppic_0.2.1-2 \
                                   mrpt2/mrpt2_2.1.3-1 \
                       mrt-cmake-modules/mrt-cmake-modules_1.0.8-1 \
                                  mapviz/multires-image_2.1.0-1 \
@@ -1635,15 +1637,15 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                  moveit/run-move-group_2.2.1-1 \
                                  moveit/run-moveit-cpp_2.2.1-1 \
                                  moveit/run-ompl-constrained-planning_2.2.1-1 \
-                                   rviz/rviz-assimp-vendor_8.2.4-1 \
-                                   rviz/rviz-common_8.2.4-1 \
-                                   rviz/rviz-default-plugins_8.2.4-1 \
-                                   rviz/rviz-ogre-vendor_8.2.4-1 \
-                                   rviz/rviz-rendering_8.2.4-1 \
-                                   rviz/rviz-rendering-tests_8.2.4-1 \
-                                   rviz/rviz-visual-testing-framework_8.2.4-1 \
-                      rviz-visual-tools/rviz-visual-tools_4.0.1-1 \
-                                   rviz/rviz2_8.2.4-1 \
+                                   rviz/rviz-assimp-vendor_8.2.5-1 \
+                                   rviz/rviz-common_8.2.5-1 \
+                                   rviz/rviz-default-plugins_8.2.5-1 \
+                                   rviz/rviz-ogre-vendor_8.2.5-1 \
+                                   rviz/rviz-rendering_8.2.5-1 \
+                                   rviz/rviz-rendering-tests_8.2.5-1 \
+                                   rviz/rviz-visual-testing-framework_8.2.5-1 \
+                      rviz-visual-tools/rviz-visual-tools_4.0.2-2 \
+                                   rviz/rviz2_8.2.5-1 \
                              sbg-driver/sbg-driver_1.0.1-1 \
                        joystick-drivers/sdl2-vendor_3.0.0-2 \
                             diagnostics/self-test_2.0.8-2 \
@@ -1728,8 +1730,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                            ros2-tracing/tracetools-trace_1.0.5-2 \
                       common-interfaces/trajectory-msgs_2.0.4-1 \
                            ros2-control/transmission-interface_0.8.0-1 \
-                     geometry-tutorials/turtle-tf2-cpp_0.3.3-1 \
-                     geometry-tutorials/turtle-tf2-py_0.3.3-1 \
+                     geometry-tutorials/turtle-tf2-cpp_0.3.4-1 \
+                     geometry-tutorials/turtle-tf2-py_0.3.4-1 \
                              turtlebot3/turtlebot3_2.1.1-1 \
                              turtlebot3/turtlebot3-bringup_2.1.1-1 \
                              turtlebot3/turtlebot3-cartographer_2.1.1-1 \
@@ -2159,6 +2161,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     moveit-runtime \
     moveit-servo \
     moveit-simple-controller-manager \
+    mppic \
     mrpt2 \
     mrt-cmake-modules \
     multires-image \
@@ -3126,6 +3129,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     moveit \
     moveit-msgs \
     moveit-resources \
+    mppic \
     mrpt2 \
     mrt-cmake-modules \
     navigation-msgs \
@@ -3390,10 +3394,10 @@ ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "2021-10-07"
+ROS_DISTRO_RELEASE_DATE = "2021-10-13"
 
 # The commit of ros/rosdistro/foxy/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "80b64955f3e66b058e288359e807da0f94cc581d"
+ROS_SUPERFLORE_GENERATION_COMMIT = "0cc5f30da1c12ff088239a813b862ef10a3c998e"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated

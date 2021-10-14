@@ -5,35 +5,21 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Common rviz API, used by rviz plugins and applications."
+DESCRIPTION = "3D testing framework for RViz."
 AUTHOR = "Jacob Perron <jacob@openrobotics.org>"
-ROS_AUTHOR = "Dave Hershberger"
-HOMEPAGE = "https://github.com/ros2/rviz/blob/ros2/README.md"
+ROS_AUTHOR = "Alessandro Bottero"
+HOMEPAGE = "http://ros.org/wiki/rviz2"
 SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rviz"
-ROS_BPN = "rviz_common"
+ROS_BPN = "rviz_visual_testing_framework"
 
 ROS_BUILD_DEPENDS = " \
-    geometry-msgs \
-    message-filters \
-    pluginlib \
+    ament-cmake-gtest \
     qtbase \
-    rclcpp \
-    resource-retriever \
-    rviz-assimp-vendor \
-    rviz-ogre-vendor \
-    rviz-rendering \
-    sensor-msgs \
-    std-msgs \
-    tf2 \
-    tf2-geometry-msgs \
-    tf2-ros \
-    tinyxml-vendor \
-    urdf \
-    yaml-cpp-vendor \
+    rviz-common \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -41,44 +27,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    geometry-msgs \
-    message-filters \
-    pluginlib \
-    qtbase \
-    rclcpp \
-    resource-retriever \
-    rviz-assimp-vendor \
-    rviz-ogre-vendor \
-    rviz-rendering \
-    sensor-msgs \
-    std-msgs \
-    tf2 \
-    tf2-geometry-msgs \
-    tf2-ros \
-    tinyxml-vendor \
-    urdf \
-    yaml-cpp-vendor \
+    ament-cmake-gtest \
+    rviz-common \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    geometry-msgs \
-    message-filters \
-    pluginlib \
-    qtbase \
-    rclcpp \
-    resource-retriever \
-    rviz-ogre-vendor \
-    rviz-rendering \
-    sensor-msgs \
-    std-msgs \
-    tf2 \
-    tf2-geometry-msgs \
-    tf2-ros \
-    tinyxml-vendor \
-    urdf \
-    yaml-cpp-vendor \
+    ament-cmake-gtest \
+    rviz-common \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -86,7 +43,6 @@ ROS_TEST_DEPENDS = " \
     ament-cmake-cppcheck \
     ament-cmake-cpplint \
     ament-cmake-gmock \
-    ament-cmake-gtest \
     ament-cmake-lint-cmake \
     ament-cmake-uncrustify \
 "
@@ -98,10 +54,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz_common/8.2.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/rviz_common"
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz_visual_testing_framework/8.2.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rviz_visual_testing_framework"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "a45cb46f6cc5a23058ce7baf0fc6084a1301af3e"
+SRCREV = "ffda97aafbf4656933a1aff2f5a7a9d48cdcba1f"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
