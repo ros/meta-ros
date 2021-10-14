@@ -5,7 +5,7 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Library which provides the 3D rendering functionality in rviz."
+DESCRIPTION = "3D visualization tool for ROS."
 AUTHOR = "Jacob Perron <jacob@openrobotics.org>"
 ROS_AUTHOR = "Dave Hershberger"
 HOMEPAGE = "https://github.com/ros2/rviz/blob/ros2/README.md"
@@ -14,37 +14,28 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rviz"
-ROS_BPN = "rviz_rendering"
+ROS_BPN = "rviz2"
 
 ROS_BUILD_DEPENDS = " \
-    ament-index-cpp \
-    libeigen \
     qtbase \
-    resource-retriever \
-    rviz-assimp-vendor \
+    rviz-common \
     rviz-ogre-vendor \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
-    eigen3-cmake-module-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    libeigen \
-    qtbase \
+    rviz-common \
     rviz-ogre-vendor \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
-    eigen3-cmake-module-native \
-"
+ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ament-index-cpp \
-    qtbase \
-    resource-retriever \
-    rviz-assimp-vendor \
+    rviz-common \
+    rviz-default-plugins \
     rviz-ogre-vendor \
 "
 
@@ -52,11 +43,11 @@ ROS_EXEC_DEPENDS = " \
 ROS_TEST_DEPENDS = " \
     ament-cmake-cppcheck \
     ament-cmake-cpplint \
-    ament-cmake-gmock \
-    ament-cmake-gtest \
     ament-cmake-lint-cmake \
     ament-cmake-uncrustify \
-    rviz-assimp-vendor \
+    geometry-msgs \
+    rclcpp \
+    sensor-msgs \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -66,10 +57,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz_rendering/8.2.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/rviz_rendering"
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz2/8.2.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rviz2"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "14a8da8dcc4379fa036e25bc9279c560d3a76f54"
+SRCREV = "8ae9181567e692aaa5a97cabd7097dcae68e6c14"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

@@ -5,21 +5,21 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "3D visualization tool for ROS."
+DESCRIPTION = "Wrapper around assimp, providing nothing but a dependency on assimp, on some systems.     On others, it provides a fixed CMake module or even an ExternalProject build of assimp."
 AUTHOR = "Jacob Perron <jacob@openrobotics.org>"
-ROS_AUTHOR = "Dave Hershberger"
-HOMEPAGE = "https://github.com/ros2/rviz/blob/ros2/README.md"
+ROS_AUTHOR = "William Woodall <william@osrfoundation.org>"
+HOMEPAGE = "http://assimp.sourceforge.net/index.html"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License 2.0 & BSD"
+LICENSE = "Apache-2.0 & BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "rviz"
-ROS_BPN = "rviz2"
+ROS_BPN = "rviz_assimp_vendor"
 
 ROS_BUILD_DEPENDS = " \
-    qtbase \
-    rviz-common \
-    rviz-ogre-vendor \
+    assimp \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -27,28 +27,17 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    rviz-common \
-    rviz-ogre-vendor \
+    assimp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    rviz-common \
-    rviz-default-plugins \
-    rviz-ogre-vendor \
+    assimp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-    ament-cmake-cppcheck \
-    ament-cmake-cpplint \
-    ament-cmake-lint-cmake \
-    ament-cmake-uncrustify \
-    geometry-msgs \
-    rclcpp \
-    sensor-msgs \
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -57,10 +46,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz2/8.2.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/rviz2"
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz_assimp_vendor/8.2.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rviz_assimp_vendor"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "b9697d5b5ba61b611ad6254ab93e5059c25b9848"
+SRCREV = "872ec5bca3008640bb62a7363895dedc5b3402bb"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

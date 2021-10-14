@@ -5,21 +5,36 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Example plugin for RViz - documents and tests RViz plugin development"
+DESCRIPTION = "Several default plugins for rviz to cover the basic functionality."
 AUTHOR = "Jacob Perron <jacob@openrobotics.org>"
-ROS_AUTHOR = "William Woodall <william@osrfoundation.org>"
-HOMEPAGE = "https://github.com/ros2/rviz"
+ROS_AUTHOR = "Dave Hershberger"
+HOMEPAGE = "https://github.com/ros2/rviz/blob/ros2/README.md"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=01c2bc31767ccb3a68e12f02612b2a97"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rviz"
-ROS_BPN = "rviz_rendering_tests"
+ROS_BPN = "rviz_default_plugins"
 
 ROS_BUILD_DEPENDS = " \
+    geometry-msgs \
+    interactive-markers \
+    laser-geometry \
+    map-msgs \
+    nav-msgs \
+    pluginlib \
     qtbase \
+    rclcpp \
     resource-retriever \
+    rviz-common \
+    rviz-ogre-vendor \
     rviz-rendering \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
+    tinyxml-vendor \
+    urdf \
+    visualization-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -27,15 +42,46 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    geometry-msgs \
+    interactive-markers \
+    laser-geometry \
+    map-msgs \
+    nav-msgs \
+    pluginlib \
+    rclcpp \
     resource-retriever \
+    rviz-common \
+    rviz-ogre-vendor \
     rviz-rendering \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
+    tinyxml-vendor \
+    urdf \
+    visualization-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    geometry-msgs \
+    interactive-markers \
+    laser-geometry \
+    map-msgs \
+    nav-msgs \
+    pluginlib \
+    qtbase \
+    rclcpp \
     resource-retriever \
+    rviz-common \
+    rviz-ogre-vendor \
     rviz-rendering \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
+    tinyxml-vendor \
+    urdf \
+    visualization-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -47,6 +93,8 @@ ROS_TEST_DEPENDS = " \
     ament-cmake-lint-cmake \
     ament-cmake-uncrustify \
     ament-index-cpp \
+    rviz-rendering-tests \
+    rviz-visual-testing-framework \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -56,10 +104,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz_rendering_tests/8.2.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/rviz_rendering_tests"
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz_default_plugins/8.2.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rviz_default_plugins"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8423aade3cb0c636b0447b052073e10fe691c48d"
+SRCREV = "4e047316f93e5d430c6b9cd187c8e0c41d5e20de"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

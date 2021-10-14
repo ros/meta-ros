@@ -46,10 +46,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/mavlink/mavlink-gbp-release/archive/release/foxy/mavlink/2021.9.9-1.tar.gz
+# matches with: https://github.com/mavlink/mavlink-gbp-release/archive/release/foxy/mavlink/2021.10.10-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/mavlink"
 SRC_URI = "git://github.com/mavlink/mavlink-gbp-release;${ROS_BRANCH};protocol=https"
-SRCREV = "9d57ed7f809abc5b1be9c870abff23a5f6d9f348"
+SRCREV = "1eee2618b6f2b7098256f464a8aca4c24df38a32"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
