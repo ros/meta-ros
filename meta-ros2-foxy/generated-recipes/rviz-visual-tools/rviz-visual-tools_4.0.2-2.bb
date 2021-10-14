@@ -21,6 +21,7 @@ ROS_BUILD_DEPENDS = " \
     geometry-msgs \
     interactive-markers \
     libeigen \
+    pluginlib \
     qtbase \
     qtx11extras \
     rclcpp \
@@ -46,6 +47,7 @@ ROS_EXPORT_DEPENDS = " \
     geometry-msgs \
     interactive-markers \
     libeigen \
+    pluginlib \
     qtx11extras \
     rclcpp \
     rclcpp-components \
@@ -71,6 +73,7 @@ ROS_EXEC_DEPENDS = " \
     interactive-markers \
     launch \
     launch-ros \
+    pluginlib \
     qtbase \
     qtx11extras \
     rclcpp \
@@ -101,10 +104,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/PickNikRobotics/rviz_visual_tools-release/archive/release/foxy/rviz_visual_tools/4.0.1-1.tar.gz
+# matches with: https://github.com/PickNikRobotics/rviz_visual_tools-release/archive/release/foxy/rviz_visual_tools/4.0.2-2.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/rviz_visual_tools"
 SRC_URI = "git://github.com/PickNikRobotics/rviz_visual_tools-release;${ROS_BRANCH};protocol=https"
-SRCREV = "4eda781536719deb816e349842557ea47dee8c1a"
+SRCREV = "f060c16314c535218ab409a8362db30675792633"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
