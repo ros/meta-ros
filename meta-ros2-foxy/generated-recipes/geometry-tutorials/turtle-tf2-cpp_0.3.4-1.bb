@@ -22,8 +22,10 @@ ROS_BUILD_DEPENDS = " \
     geometry-msgs \
     launch \
     launch-ros \
+    message-filters \
     rclcpp \
     tf2 \
+    tf2-geometry-msgs \
     tf2-ros \
     turtlesim \
 "
@@ -36,8 +38,10 @@ ROS_EXPORT_DEPENDS = " \
     geometry-msgs \
     launch \
     launch-ros \
+    message-filters \
     rclcpp \
     tf2 \
+    tf2-geometry-msgs \
     tf2-ros \
     turtlesim \
 "
@@ -48,8 +52,10 @@ ROS_EXEC_DEPENDS = " \
     geometry-msgs \
     launch \
     launch-ros \
+    message-filters \
     rclcpp \
     tf2 \
+    tf2-geometry-msgs \
     tf2-ros \
     turtlesim \
 "
@@ -67,10 +73,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-gbp/geometry_tutorials-release/archive/release/foxy/turtle_tf2_cpp/0.3.3-1.tar.gz
+# matches with: https://github.com/ros-gbp/geometry_tutorials-release/archive/release/foxy/turtle_tf2_cpp/0.3.4-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/turtle_tf2_cpp"
 SRC_URI = "git://github.com/ros-gbp/geometry_tutorials-release;${ROS_BRANCH};protocol=https"
-SRCREV = "647017feaa76796e27a74265a1c2b8c39b80a6b8"
+SRCREV = "d7d6212bdd05db39481a1c9806bf699e983842df"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

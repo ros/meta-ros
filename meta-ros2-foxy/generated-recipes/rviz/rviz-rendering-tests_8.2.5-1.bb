@@ -5,27 +5,21 @@
 inherit ros_distro_foxy
 inherit ros_superflore_generated
 
-DESCRIPTION = "Wrapper around ogre3d, it provides a fixed CMake module and an ExternalProject build of ogre."
+DESCRIPTION = "Example plugin for RViz - documents and tests RViz plugin development"
 AUTHOR = "Jacob Perron <jacob@openrobotics.org>"
 ROS_AUTHOR = "William Woodall <william@osrfoundation.org>"
-HOMEPAGE = "https://www.ogre3d.org/"
+HOMEPAGE = "https://github.com/ros2/rviz"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & MIT"
-LICENSE = "Apache-2.0 & MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "rviz"
-ROS_BPN = "rviz_ogre_vendor"
+ROS_BPN = "rviz_rendering_tests"
 
 ROS_BUILD_DEPENDS = " \
-    freetype \
-    git \
-    libx11 \
-    libxaw \
-    libxrandr \
-    mesa \
-    pkgconfig \
+    qtbase \
+    resource-retriever \
+    rviz-rendering \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -33,25 +27,27 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    freetype \
-    libx11 \
-    libxaw \
-    libxrandr \
-    mesa \
+    resource-retriever \
+    rviz-rendering \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    freetype \
-    libx11 \
-    libxaw \
-    libxrandr \
-    mesa \
+    resource-retriever \
+    rviz-rendering \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+    ament-cmake-cppcheck \
+    ament-cmake-cpplint \
+    ament-cmake-gmock \
+    ament-cmake-gtest \
+    ament-cmake-lint-cmake \
+    ament-cmake-uncrustify \
+    ament-index-cpp \
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
@@ -60,10 +56,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz_ogre_vendor/8.2.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/foxy/rviz_ogre_vendor"
+# matches with: https://github.com/ros2-gbp/rviz-release/archive/release/foxy/rviz_rendering_tests/8.2.5-1.tar.gz
+ROS_BRANCH ?= "branch=release/foxy/rviz_rendering_tests"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release;${ROS_BRANCH};protocol=https"
-SRCREV = "90082c4f66290a85a9746f24383f31d274906fd2"
+SRCREV = "506f110c2c52219e706f567f8727cfafdb5560f1"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
