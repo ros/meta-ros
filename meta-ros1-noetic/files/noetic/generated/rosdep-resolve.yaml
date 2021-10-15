@@ -66,6 +66,8 @@ flac:
 - flac@openembedded-core
 flex:
 - flex@openembedded-core
+fltk:
+- fltk@meta-oe
 fmt:
 - ${ROS_UNRESOLVED_DEP-fmt}
 ftdi-eeprom:
@@ -482,8 +484,6 @@ python-pygithub3:
 - ${ROS_UNRESOLVED_DEP-python-pygithub3}
 python-pyusb-pip:
 - ${ROS_UNRESOLVED_DEP-python-pyusb-pip}
-python-rospkg:
-- ${PYTHON_PN}-rospkg@meta-ros-common
 python-six:
 - ${PYTHON_PN}-six@openembedded-core
 python-slacker-cli:
@@ -652,6 +652,8 @@ python3-venv:
 - ${ROS_UNRESOLVED_DEP-python3-venv}
 python3-websocket:
 - python3-websocket-client@meta-python
+python3-whichcraft:
+- ${ROS_UNRESOLVED_DEP-python3-whichcraft}
 python3-wxgtk4.0:
 - ${ROS_UNRESOLVED_DEP-python3-wxgtk4.0}
 python3-yaml:
