@@ -1,3 +1,8 @@
+From e38c8f8c6427ecf52c2e1aea56588af52a682fbb Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 15 Oct 2021 05:48:14 -0700
+Subject: [PATCH] python-3.9 compatibility
+
 tp_print was removed from python-3.9:
 https://bugs.python.org/issue36974
 
@@ -8,10 +13,16 @@ so just remove it without ifdefs on PY_MINOR_VERSION
 
 Upstream-Status: Pending
 
-diff -uNr pyproj-1.9.6.orig/_proj.c pyproj-1.9.6/_proj.c
---- pyproj-1.9.6.orig/_proj.c	2018-12-29 06:54:20.000000000 -0800
-+++ pyproj-1.9.6/_proj.c	2020-11-03 14:44:10.036712854 -0800
-@@ -8599,14 +8599,12 @@
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ _proj.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/_proj.c b/_proj.c
+index 9de34a3..e3c7423 100644
+--- a/_proj.c
++++ b/_proj.c
+@@ -8599,14 +8599,12 @@ static int __Pyx_modinit_type_init_code(void) {
    __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
    /*--- Type init code ---*/
    if (PyType_Ready(&__pyx_type_5_proj_Proj) < 0) __PYX_ERR(0, 111, __pyx_L1_error)
