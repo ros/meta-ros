@@ -21,3 +21,12 @@ SRC_URI += "file://0001-core-fix-typedef.patch \
     file://0002-core-fix-compatibility-with-Boost.Python-1.77.patch \
     file://0003-core-fix-typedef.patch \
 "
+
+# otherwise eigen's FINDPYTHON function will find hosttools/python3 first
+# (due to python3 in PYTHON_EXECUTABLE from https://github.com/wxmerkt/eigenpy-ros-release/commit/7329412c27acd6f09929ecc0bd7914d37153954a)
+# instead of respecting PYTHON_EXECUTABLE/Python_EXECUTABLE variables from
+# EXTRA_OECMAKE (set to ${PYTHON} by meta/classes/cmake.bbclass)
+# causing python3-numpy search to fail (unless it's installed on host OS) and
+# installing the files in wrong location (lib/python3/dist-packages
+# instead of lib/python3.8/dist-packages which is included in FILES:${PN})
+SRC_URI += "file://0002-Only-set-CMake-variables-if-not-set-cf.-2.patch"
