@@ -1,0 +1,33 @@
+From 054a320cd8b22c1c6ce9f502aa7647f345e9ff81 Mon Sep 17 00:00:00 2001
+From: Wolfgang Merkt <w.merkt@gmail.com>
+Date: Tue, 24 Aug 2021 19:17:07 +0100
+Subject: [PATCH] Only set CMake variables if not set, cf. #2
+
+Upstream-Status: Backport [2.6.8 4218b37c7a6ab18e37deb5fb03a6a3d94ae181b0]
+---
+ CMakeLists.txt | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f207a9c..00d7e77 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,9 +17,15 @@ IF(NOT EXISTS "${CMAKE_SOURCE_DIR}/cmake/base.cmake")
+   MESSAGE(FATAL_ERROR "\nPlease run the following command first:\ngit submodule update --init\n")
+ ENDIF()
+ 
+-set(CMAKE_BUILD_TYPE "Release")
+-set(PYTHON_EXECUTABLE "python3") # specify python3 so that Debian Buster passes
+-set(CMAKE_INSTALL_LIBDIR "lib/")
++IF(NOT DEFINED CMAKE_BUILD_TYPE)
++  SET(CMAKE_BUILD_TYPE "Release")
++ENDIF()
++IF(NOT DEFINED PYTHON_EXECUTABLE)
++  SET(PYTHON_EXECUTABLE "/usr/bin/python3") # specify python3 so that Debian Buster passes
++ENDIF()
++IF(NOT DEFINED CMAKE_INSTALL_LIBDIR)
++  SET(CMAKE_INSTALL_LIBDIR "lib/")
++ENDIF()
+ 
+ # Disable -Werror on Unix for now.
+ SET(CXX_DISABLE_WERROR True)
