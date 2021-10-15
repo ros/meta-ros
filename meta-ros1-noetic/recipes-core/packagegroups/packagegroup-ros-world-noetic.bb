@@ -98,7 +98,7 @@ RDEPENDS:${PN}:remove = "rtmros-common"
 # tesseract_ros was already updated to new name in:
 # https://github.com/ros-industrial-consortium/tesseract_ros/commit/0fdcb1022e61a256eafb0895e19d932116e1dcd4
 # but there is no ros_industrial_cmake_boilerplate in noetic, so blacklist it now
-RDEPENDS:${PN}:remove = "opw-kinematics tesseract-kinematics tesseract-environment tesseract-visualization"
+RDEPENDS:${PN}:remove = "opw-kinematics moveit-opw-kinematics-plugin tesseract-kinematics tesseract-environment tesseract-visualization"
 
 # Depends on unavailable ROS_UNRESOLVED_DEP-bullet-extras
 RDEPENDS:${PN}:remove = "tesseract-collision tesseract-urdf"
@@ -157,6 +157,8 @@ RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'parrot-a
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PARROT_ARSDK = " \
     parrot-arsdk \
 "
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-whichcraft', 'leo-fw leo-robot', '', d)}"
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'xclip', 'log-view', '', d)}"
 
@@ -1203,6 +1205,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
     codec-image-transport \
     h264-encoder-core \
     h264-video-encoder \
+    leo-bringup \
     movie-publisher \
     mrpt1 \
     mrpt2 \
@@ -1234,6 +1237,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
     codec-image-transport \
     h264-encoder-core \
     h264-video-encoder \
+    leo-bringup \
     movie-publisher \
     mrpt1 \
     mrpt2 \
@@ -1347,6 +1351,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     desktop-full \
     dingo-gazebo \
     dingo-simulator \
+    drone-assets \
     drone-wrapper \
     eca-a9-description \
     eca-a9-gazebo \
@@ -1426,6 +1431,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     ridgeback-gazebo \
     ridgeback-gazebo-plugins \
     ridgeback-simulator \
+    rm-control \
     rm-gazebo \
     robosense-gazebo-plugins \
     robosense-simulator \
@@ -1813,6 +1819,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBPHIDGET21 = " \
     libphidget21 \
     phidgets-accelerometer \
     phidgets-analog-inputs \
+    phidgets-analog-outputs \
     phidgets-api \
     phidgets-digital-inputs \
     phidgets-digital-outputs \
