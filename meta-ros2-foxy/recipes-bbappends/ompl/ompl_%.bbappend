@@ -1,4 +1,4 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2020-2021 LG Electronics, Inc.
 
 inherit ros_insane_dev_so
 
@@ -8,3 +8,8 @@ DEPENDS:append:class-target = " chrpath-replacement-native"
 do_install:append() {
     chrpath --delete ${D}${libdir}/*${SOLIBS}
 }
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-FindPython.cmake-install_python-Allow-to-set-differe.patch"
+
+EXTRA_OECMAKE += "-DINSTALL_PYTHON_SHEBANG='/usr/bin/env python3'"
