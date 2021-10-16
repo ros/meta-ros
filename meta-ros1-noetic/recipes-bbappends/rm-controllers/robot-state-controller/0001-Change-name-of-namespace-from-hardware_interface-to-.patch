@@ -1,0 +1,45 @@
+From 0b8810db9bdda964da9f9be096e22a75342dad0d Mon Sep 17 00:00:00 2001
+From: yezi <1536117624@qq.com>
+Date: Tue, 7 Sep 2021 22:25:59 +0800
+Subject: [PATCH] Change name of namespace:from hardware_interface to
+ rm_control.
+
+Upstream-Status: Backport [https://github.com/rm-controls/rm_controllers/commit/281ff41a894380cbda7d839fd57dc5ced7e88299]
+
+Unfortunately rm-common was updated in last Noetic release to include API change from:
+https://github.com/rm-controls/rm_control/commit/7fe74d1d412b6eb2cdab0e948569a82e5a111ac5
+but this corresponding change from rm_controllers isn't included in this Noetic upgrade
+https://github.com/rm-controls/rm_controllers/commit/281ff41a894380cbda7d839fd57dc5ced7e88299
+---
+ include/robot_state_controller/robot_state_controller.h | 2 +-
+ src/robot_state_controller.cpp                          | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/robot_state_controller/robot_state_controller.h b/include/robot_state_controller/robot_state_controller.h
+index 0c22a4d..8aed425 100644
+--- a/include/robot_state_controller/robot_state_controller.h
++++ b/include/robot_state_controller/robot_state_controller.h
+@@ -61,7 +61,7 @@ class SegmentPair {
+ };
+ 
+ class RobotStateController : public controller_interface::MultiInterfaceController<
+-    hardware_interface::JointStateInterface, hardware_interface::RobotStateInterface> {
++    hardware_interface::JointStateInterface, rm_control::RobotStateInterface> {
+  public:
+   RobotStateController() = default;
+   bool init(hardware_interface::RobotHW *robot_hw,
+diff --git a/src/robot_state_controller.cpp b/src/robot_state_controller.cpp
+index 7c46b41..88b2c39 100644
+--- a/src/robot_state_controller.cpp
++++ b/src/robot_state_controller.cpp
+@@ -79,8 +79,8 @@ bool RobotStateController::init(hardware_interface::RobotHW *robot_hw,
+   static_tf_broadcaster_.init(root_nh);
+   tf_buffer_ = new tf2_ros::Buffer(ros::Duration(duration));
+   tf_listener_ = new tf2_ros::TransformListener(*tf_buffer_);
+-  hardware_interface::RobotStateHandle robot_state_handle("robot_state", tf_buffer_);
+-  robot_hw->get<hardware_interface::RobotStateInterface>()->registerHandle(robot_state_handle);
++  rm_control::RobotStateHandle robot_state_handle("robot_state", tf_buffer_);
++  robot_hw->get<rm_control::RobotStateInterface>()->registerHandle(robot_state_handle);
+ 
+   return true;
+ }
