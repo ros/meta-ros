@@ -1,0 +1,52 @@
+From cc9fd9fffebf202d37a283d6dd21f491707cac84 Mon Sep 17 00:00:00 2001
+From: yezi <1536117624@qq.com>
+Date: Tue, 7 Sep 2021 22:25:59 +0800
+Subject: [PATCH] Change name of namespace:from hardware_interface to
+ rm_control.
+
+Upstream-Status: Backport [https://github.com/rm-controls/rm_controllers/commit/281ff41a894380cbda7d839fd57dc5ced7e88299]
+
+Unfortunately rm-common was updated in last Noetic release to include API change from:
+https://github.com/rm-controls/rm_control/commit/7fe74d1d412b6eb2cdab0e948569a82e5a111ac5
+but this corresponding change from rm_controllers isn't included in this Noetic upgrade
+https://github.com/rm-controls/rm_controllers/commit/281ff41a894380cbda7d839fd57dc5ced7e88299
+---
+ .../rm_calibration_controllers/joint_calibration_controller.h | 4 ++--
+ src/joint_calibration_controller.cpp                          | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/rm_calibration_controllers/joint_calibration_controller.h b/include/rm_calibration_controllers/joint_calibration_controller.h
+index e274ee8..24717f7 100644
+--- a/include/rm_calibration_controllers/joint_calibration_controller.h
++++ b/include/rm_calibration_controllers/joint_calibration_controller.h
+@@ -47,7 +47,7 @@
+ namespace rm_calibration_controllers {
+ 
+ class JointCalibrationController : public controller_interface::MultiInterfaceController
+-    <hardware_interface::EffortJointInterface, hardware_interface::ActuatorExtraInterface> {
++    <hardware_interface::EffortJointInterface, rm_control::ActuatorExtraInterface> {
+  public:
+   JointCalibrationController() = default;
+   bool init(hardware_interface::RobotHW *robot_hw,
+@@ -64,7 +64,7 @@ class JointCalibrationController : public controller_interface::MultiInterfaceCo
+   enum { INITIALIZED, MOVING, CALIBRATED };
+   int state_{}, countdown_{};
+   double vel_search_{}, threshold_{};
+-  std::vector<hardware_interface::ActuatorExtraHandle> actuators_;
++  std::vector<rm_control::ActuatorExtraHandle> actuators_;
+   effort_controllers::JointVelocityController velocity_ctrl_;
+ };
+ 
+diff --git a/src/joint_calibration_controller.cpp b/src/joint_calibration_controller.cpp
+index e2dca0f..48707f9 100644
+--- a/src/joint_calibration_controller.cpp
++++ b/src/joint_calibration_controller.cpp
+@@ -52,7 +52,7 @@ bool JointCalibrationController::init(hardware_interface::RobotHW *robot_hw,
+     return false;
+   }
+   for (int i = 0; i < actuators.size(); ++i)
+-    actuators_.push_back(robot_hw->get<hardware_interface::ActuatorExtraInterface>()->getHandle(actuators[i]));
++    actuators_.push_back(robot_hw->get<rm_control::ActuatorExtraInterface>()->getHandle(actuators[i]));
+   if (!controller_nh.getParam("search_velocity", vel_search_)) {
+     ROS_ERROR("Velocity value was not specified (namespace: %s)", controller_nh.getNamespace().c_str());
+     return false;
