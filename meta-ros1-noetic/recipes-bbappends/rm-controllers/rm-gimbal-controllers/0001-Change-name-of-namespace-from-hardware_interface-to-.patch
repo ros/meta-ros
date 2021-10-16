@@ -1,0 +1,89 @@
+From 8a52dab9b0487671f8df1237ce0b925eb4879f33 Mon Sep 17 00:00:00 2001
+From: yezi <1536117624@qq.com>
+Date: Tue, 7 Sep 2021 22:25:59 +0800
+Subject: [PATCH] Change name of namespace:from hardware_interface to
+ rm_control.
+
+Upstream-Status: Backport [https://github.com/rm-controls/rm_controllers/commit/281ff41a894380cbda7d839fd57dc5ced7e88299]
+
+Unfortunately rm-common was updated in last Noetic release to include API change from:
+https://github.com/rm-controls/rm_control/commit/7fe74d1d412b6eb2cdab0e948569a82e5a111ac5
+but this corresponding change from rm_controllers isn't included in this Noetic upgrade
+https://github.com/rm-controls/rm_controllers/commit/281ff41a894380cbda7d839fd57dc5ced7e88299
+---
+ include/rm_gimbal_controller/moving_average_filter.h | 4 ++--
+ include/rm_gimbal_controller/standard.h              | 4 ++--
+ src/moving_average_filter.cpp                        | 2 +-
+ src/standard.cpp                                     | 2 +-
+ 4 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/include/rm_gimbal_controller/moving_average_filter.h b/include/rm_gimbal_controller/moving_average_filter.h
+index 7ff445e..c70d764 100644
+--- a/include/rm_gimbal_controller/moving_average_filter.h
++++ b/include/rm_gimbal_controller/moving_average_filter.h
+@@ -54,7 +54,7 @@ class MovingAverageFilterTrack {
+  public:
+   explicit MovingAverageFilterTrack(ros::NodeHandle &nh,
+                                     int id,
+-                                    hardware_interface::RobotStateHandle robot_state_handle);
++                                    rm_control::RobotStateHandle robot_state_handle);
+   void input(const geometry_msgs::TransformStamped &map2detection, const std::string pitch_frame);
+   geometry_msgs::TransformStamped getTransform() const { return output_map2detection_; }
+   geometry_msgs::Vector3 getVel() const { return output_vel_; }
+@@ -81,7 +81,7 @@ class MovingAverageFilterTrack {
+   MovingAverageFilter<double> *ma_filter_gyro_vel_;
+ 
+   std::shared_ptr<realtime_tools::RealtimePublisher<rm_msgs::MovingAverageData>> realtime_pub_;
+-  hardware_interface::RobotStateHandle robot_state_handle_;
++  rm_control::RobotStateHandle robot_state_handle_;
+ 
+   bool is_debug_{};
+   bool is_gyro_{};
+diff --git a/include/rm_gimbal_controller/standard.h b/include/rm_gimbal_controller/standard.h
+index c742f02..a4676e7 100644
+--- a/include/rm_gimbal_controller/standard.h
++++ b/include/rm_gimbal_controller/standard.h
+@@ -61,7 +61,7 @@ struct Config {
+ };
+ 
+ class Controller : public controller_interface::MultiInterfaceController<hardware_interface::EffortJointInterface,
+-                                                                         hardware_interface::RobotStateInterface> {
++                                                                         rm_control::RobotStateInterface> {
+  public:
+   Controller() = default;
+   bool init(hardware_interface::RobotHW *robot_hw,
+@@ -88,7 +88,7 @@ class Controller : public controller_interface::MultiInterfaceController<hardwar
+   ros::NodeHandle nh_moving_average_filter_;
+ 
+   hardware_interface::EffortJointInterface *effort_joint_interface_{};
+-  hardware_interface::RobotStateHandle robot_state_handle_;
++  rm_control::RobotStateHandle robot_state_handle_;
+   effort_controllers::JointPositionController ctrl_yaw_, ctrl_pitch_;
+ 
+   bullet_solver::BulletSolver *bullet_solver_{};
+diff --git a/src/moving_average_filter.cpp b/src/moving_average_filter.cpp
+index 0181666..d43b415 100644
+--- a/src/moving_average_filter.cpp
++++ b/src/moving_average_filter.cpp
+@@ -43,7 +43,7 @@
+ namespace moving_average_filter {
+ MovingAverageFilterTrack::MovingAverageFilterTrack(ros::NodeHandle &nh,
+                                                    int id,
+-                                                   hardware_interface::RobotStateHandle robot_state_handle) {
++                                                   rm_control::RobotStateHandle robot_state_handle) {
+   robot_state_handle_ = std::move(robot_state_handle);
+   if (!nh.getParam("is_debug", is_debug_) ||
+       !nh.getParam("pos_data_num", pos_data_num_) ||
+diff --git a/src/standard.cpp b/src/standard.cpp
+index 1e17bc1..3effae2 100644
+--- a/src/standard.cpp
++++ b/src/standard.cpp
+@@ -54,7 +54,7 @@ bool Controller::init(hardware_interface::RobotHW *robot_hw,
+   nh_moving_average_filter_ = ros::NodeHandle(controller_nh, "moving_average_filter");
+ 
+   effort_joint_interface_ = robot_hw->get<hardware_interface::EffortJointInterface>();
+-  robot_state_handle_ = robot_hw->get<hardware_interface::RobotStateInterface>()->getHandle("robot_state");
++  robot_state_handle_ = robot_hw->get<rm_control::RobotStateInterface>()->getHandle("robot_state");
+ 
+   int chassis_angular_data_num{};
+   std::string detection_topic{}, camera_topic{};
