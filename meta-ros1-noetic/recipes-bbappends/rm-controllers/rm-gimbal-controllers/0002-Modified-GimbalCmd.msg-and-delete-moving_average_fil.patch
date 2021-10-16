@@ -1,0 +1,167 @@
+From a2f772b1d63da3866114008d14130005bb323896 Mon Sep 17 00:00:00 2001
+From: qiayuan <liaoqiayuan@gmail.com>
+Date: Wed, 8 Sep 2021 12:25:11 +0800
+Subject: [PATCH] Modified GimbalCmd.msg, and delete moving_average_filter
+
+* partially backport
+  https://github.com/rm-controls/rm_controllers/commit/67d77d32348ccffc0714cddf00cbfd89c4fede3b
+  to fix:
+
+FAILED: CMakeFiles/rm_gimbal_controllers.dir/src/standard.cpp.o
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"rm_gimbal_controllers\" -Drm_gimbal_controllers_EXPORTS -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/include -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/opt/ros/noetic/include -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/include/eigen3 -isystem /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/BEFORE -isystem /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/devel/include -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0=/usr/src/debug/rm-gimbal-controllers/0.1.1-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0=/usr/src/debug/rm-gimbal-controllers/0.1.1-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot -fPIC   -Wall -Werror -std=gnu++14 -MD -MT CMakeFiles/rm_gimbal_controllers.dir/src/standard.cpp.o -MF CMakeFiles/rm_gimbal_controllers.dir/src/standard.cpp.o.d -o CMakeFiles/rm_gimbal_controllers.dir/src/standard.cpp.o -c /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/src/standard.cpp
+In file included from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/yield_k.hpp:23,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock.hpp:42,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/shared_ptr.hpp:29,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/include/boost/smart_ptr/shared_array.hpp:24,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/include/boost/shared_array.hpp:17,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/ros/serialized_message.h:33,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/ros/serialization.h:36,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/control_msgs/JointControllerState.h:14,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/opt/ros/noetic/include/effort_controllers/joint_position_controller.h:62,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/include/rm_gimbal_controller/standard.h:41,
+                 from /jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/src/standard.cpp:37:
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/recipe-sysroot/usr/include/boost/bind.hpp:36:1: note: '#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.'
+   36 | BOOST_PRAGMA_MESSAGE(
+      | ^~~~~~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/src/standard.cpp: In member function 'void rm_gimbal_controllers::Controller::track(const ros::Time&)':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/src/standard.cpp:159:31: error: 'rm_msgs::GimbalCmd' {aka 'struct rm_msgs::GimbalCmd_<std::allocator<void> >'} has no member named 'target_id'; did you mean 'target_pos'?
+  159 |   int target_id = cmd_gimbal_.target_id;
+      |                               ^~~~~~~~~
+      |                               target_pos
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/src/standard.cpp: In member function 'void rm_gimbal_controllers::Controller::direct(const ros::Time&)':
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/src/standard.cpp:223:34: error: 'rm_msgs::GimbalCmd' {aka 'struct rm_msgs::GimbalCmd_<std::allocator<void> >'} has no member named 'aim_point'
+  223 |     tf2::doTransform(cmd_gimbal_.aim_point.point, aim_point_map,
+      |                                  ^~~~~~~~~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/src/standard.cpp:225:70: error: 'rm_msgs::GimbalCmd' {aka 'struct rm_msgs::GimbalCmd_<std::allocator<void> >'} has no member named 'aim_point'
+  225 |                                                          cmd_gimbal_.aim_point.header.frame_id,
+      |                                                                      ^~~~~~~~~
+/jenkins/mjansa/build/ros/webos-noetic-honister/tmp-glibc/work/qemux86-webos-linux/rm-gimbal-controllers/0.1.1-1-r0/git/src/standard.cpp:226:70: error: 'rm_msgs::GimbalCmd' {aka 'struct rm_msgs::GimbalCmd_<std::allocator<void> >'} has no member named 'aim_point'
+  226 |                                                          cmd_gimbal_.aim_point.header.stamp));
+      |                                                                      ^~~~~~~~~
+
+Upstream-Status: Backport [https://github.com/rm-controls/rm_controllers/commit/67d77d32348ccffc0714cddf00cbfd89c4fede3b]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/standard.cpp | 81 +++++++++++++++++++-----------------------------
+ 1 file changed, 32 insertions(+), 49 deletions(-)
+
+diff --git a/src/standard.cpp b/src/standard.cpp
+index 3effae2..2bb3a5d 100644
+--- a/src/standard.cpp
++++ b/src/standard.cpp
+@@ -151,50 +151,35 @@ void Controller::track(const ros::Time &time) {
+     state_changed_ = false;
+     ROS_INFO("[Gimbal] Enter TRACK");
+   }
+-  bool solve_success = false;
+-  double yaw_compute{}, pitch_compute;
+   double roll_real, pitch_real, yaw_real;
+   quatToRPY(map2pitch_.transform.rotation, roll_real, pitch_real, yaw_real);
+ 
+-  int target_id = cmd_gimbal_.target_id;
+-  if (moving_average_filters_track_.find(target_id) != moving_average_filters_track_.end()) {
+-    geometry_msgs::Point target_pos_solve{}, target_pos_compute{};
+-    geometry_msgs::Vector3 target_vel_solve{}, target_vel_compute{};
+-
+-    if (moving_average_filters_track_.find(target_id)->second->isGyro()) {
+-      target_pos_solve.x = center_pos_.find(target_id)->second.x - map2pitch_.transform.translation.x;
+-      target_pos_solve.y = center_pos_.find(target_id)->second.y - map2pitch_.transform.translation.y;
+-      target_pos_solve.z = center_pos_.find(target_id)->second.z - map2pitch_.transform.translation.z;
+-
+-      target_pos_compute.x = center_pos_observation_.find(target_id)->second.x;
+-      target_pos_compute.y = detection_pos_observation_.find(target_id)->second.y;
+-      target_pos_compute.z = center_pos_observation_.find(target_id)->second.z;
+-      target_vel_compute.y = gyro_vel_.find(target_id)->second;
+-      pitch_compute = -pitch_real;
+-    } else {
+-      target_pos_solve.x = detection_pos_.find(target_id)->second.x - map2pitch_.transform.translation.x;
+-      target_pos_solve.y = detection_pos_.find(target_id)->second.y - map2pitch_.transform.translation.y;
+-      target_pos_solve.z = detection_pos_.find(target_id)->second.z - map2pitch_.transform.translation.z;
+-      target_vel_solve.x = detection_vel_.find(target_id)->second.x - chassis_vel_.linear.x;
+-      target_vel_solve.y = detection_vel_.find(target_id)->second.y - chassis_vel_.linear.y;
+-
+-      target_pos_compute = target_pos_solve;
+-      target_vel_compute = target_vel_solve;
+-      yaw_compute = yaw_real;
+-      pitch_compute = -pitch_real;
+-    }
++  double yaw_compute = yaw_real;
++  double pitch_compute = -pitch_real;
++  geometry_msgs::Point target_pos = cmd_gimbal_.target_pos.point;
++  geometry_msgs::Vector3 target_vel = cmd_gimbal_.target_vel.vector;
++  try
++  {
++    if (!cmd_gimbal_.target_pos.header.frame_id.empty())
++      tf2::doTransform(target_pos, target_pos,
++                       robot_state_handle_.lookupTransform("map", cmd_gimbal_.target_pos.header.frame_id,
++                                                           cmd_gimbal_.target_pos.header.stamp));
++    if (!cmd_gimbal_.target_vel.header.frame_id.empty())
++      tf2::doTransform(target_vel, target_vel,
++                       robot_state_handle_.lookupTransform("map", cmd_gimbal_.target_vel.header.frame_id,
++                                                           cmd_gimbal_.target_vel.header.stamp));
++  }
++  catch (tf2::TransformException& ex)
++  {
++    ROS_WARN("%s", ex.what());
++  }
+ 
+-    solve_success = bullet_solver_->solve(target_pos_solve, target_vel_solve, cmd_gimbal_.bullet_speed);
++  bool solve_success = bullet_solver_->solve(target_pos, target_vel, cmd_gimbal_.bullet_speed);
+ 
+     if (publish_rate_ > 0.0 && last_publish_time_ + ros::Duration(1.0 / publish_rate_) < time) {
+       if (error_pub_->trylock()) {
+-        double error, error_delta;
+-        error = bullet_solver_->getGimbalError(
+-            target_pos_compute, target_vel_compute, yaw_compute, pitch_compute, cmd_gimbal_.bullet_speed);
+-        target_pos_compute.y += moving_average_filters_track_.find(target_id)->second->getDelta();
+-        error_delta = bullet_solver_->getGimbalError(
+-            target_pos_compute, target_vel_compute, yaw_compute, pitch_compute, cmd_gimbal_.bullet_speed);
+-        error = error < error_delta ? error : error_delta;
++        double error = bullet_solver_->getGimbalError(
++            target_pos, target_vel, yaw_compute, pitch_compute, cmd_gimbal_.bullet_speed);
+ 
+         error_pub_->msg_.stamp = time;
+         error_pub_->msg_.error = solve_success ? error : 1.0;
+@@ -203,7 +188,6 @@ void Controller::track(const ros::Time &time) {
+       bullet_solver_->bulletModelPub(map2pitch_, time);
+       last_publish_time_ = time;
+     }
+-  }
+   if (solve_success)
+     setDes(time, bullet_solver_->getYaw(), bullet_solver_->getPitch());
+   else {
+@@ -217,20 +201,19 @@ void Controller::direct(const ros::Time &time) {
+     state_changed_ = false;
+     ROS_INFO("[Gimbal] Enter DIRECT");
+   }
+-  geometry_msgs::Point aim_point_map{};
+-  double yaw{}, pitch{};
++  geometry_msgs::Point aim_point_map = cmd_gimbal_.target_pos.point;
+   try {
+-    tf2::doTransform(cmd_gimbal_.aim_point.point, aim_point_map,
+-                     robot_state_handle_.lookupTransform("map",
+-                                                         cmd_gimbal_.aim_point.header.frame_id,
+-                                                         cmd_gimbal_.aim_point.header.stamp));
+-    yaw = std::atan2(aim_point_map.y - map2pitch_.transform.translation.y,
+-                     aim_point_map.x - map2pitch_.transform.translation.x);
+-    pitch = -std::atan2(aim_point_map.z - map2pitch_.transform.translation.z,
+-                        std::sqrt(std::pow(aim_point_map.x - map2pitch_.transform.translation.x, 2)
+-                                      + std::pow(aim_point_map.y - map2pitch_.transform.translation.y, 2)));
++    if (!cmd_gimbal_.target_pos.header.frame_id.empty())
++      tf2::doTransform(aim_point_map, aim_point_map,
++                       robot_state_handle_.lookupTransform("map", cmd_gimbal_.target_pos.header.frame_id,
++                                                           cmd_gimbal_.target_pos.header.stamp));
+   }
+   catch (tf2::TransformException &ex) { ROS_WARN("%s", ex.what()); }
++  double yaw = std::atan2(aim_point_map.y - map2pitch_.transform.translation.y,
++                          aim_point_map.x - map2pitch_.transform.translation.x);
++  double pitch = -std::atan2(aim_point_map.z - map2pitch_.transform.translation.z,
++                             std::sqrt(std::pow(aim_point_map.x - map2pitch_.transform.translation.x, 2) +
++                                       std::pow(aim_point_map.y - map2pitch_.transform.translation.y, 2)));
+   setDes(time, yaw, pitch);
+ }
+ 
