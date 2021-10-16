@@ -44,6 +44,7 @@ PNBLACKLIST[cl-transforms-stamped] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROU
 PNBLACKLIST[cl-transforms] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lisp', 'depends on sbcl for which there is no OE recipe', '', d)}"
 PNBLACKLIST[cl-urdf] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lisp', 'depends on sbcl for which there is no OE recipe', '', d)}"
 PNBLACKLIST[cl-utils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lisp', 'depends on sbcl for which there is no OE recipe', '', d)}"
+PNBLACKLIST[cmvision] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', 'x11: Depends on wxwidgets and fltk which require x11 in DISTRO_FEATURES', '', d)}"
 PNBLACKLIST[cob-android-script-server] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['multimedia', 'vlc'], 'Requires cob-script-server->cob-mimic, cob-sound->vlc which requires meta-multimedia to be included', '', d)}"
 PNBLACKLIST[cob-android] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['multimedia', 'vlc'], 'Requires cob-android-script-server->cob-script-server->cob-mimic, cob-sound->vlc which requires meta-multimedia to be included', '', d)}"
 PNBLACKLIST[cob-base-drive-chain] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cob-generic-can', 'cob-generic-can: depends on cob-generic-can which fails to compile', '', d)}"
