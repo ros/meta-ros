@@ -1,0 +1,54 @@
+From a89a70c8c8580382647d7953e4488effe6662fa3 Mon Sep 17 00:00:00 2001
+From: yezi <1536117624@qq.com>
+Date: Tue, 7 Sep 2021 22:25:59 +0800
+Subject: [PATCH] Change name of namespace:from hardware_interface to
+ rm_control.
+
+Upstream-Status: Backport [https://github.com/rm-controls/rm_controllers/commit/281ff41a894380cbda7d839fd57dc5ced7e88299]
+
+Unfortunately rm-common was updated in last Noetic release to include API change from:
+https://github.com/rm-controls/rm_control/commit/7fe74d1d412b6eb2cdab0e948569a82e5a111ac5
+but this corresponding change from rm_controllers isn't included in this Noetic upgrade
+https://github.com/rm-controls/rm_controllers/commit/281ff41a894380cbda7d839fd57dc5ced7e88299
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/rm_chassis_controllers/chassis_base.h | 4 ++--
+ src/chassis_base.cpp                          | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/rm_chassis_controllers/chassis_base.h b/include/rm_chassis_controllers/chassis_base.h
+index cb63843..b85283a 100644
+--- a/include/rm_chassis_controllers/chassis_base.h
++++ b/include/rm_chassis_controllers/chassis_base.h
+@@ -58,7 +58,7 @@ struct Command {
+ };
+ 
+ class ChassisBase : public controller_interface::MultiInterfaceController
+-    <hardware_interface::EffortJointInterface, hardware_interface::RobotStateInterface> {
++    <hardware_interface::EffortJointInterface, rm_control::RobotStateInterface> {
+  public:
+   ChassisBase() = default;
+   bool init(hardware_interface::RobotHW *robot_hw,
+@@ -81,7 +81,7 @@ class ChassisBase : public controller_interface::MultiInterfaceController
+ 
+   hardware_interface::EffortJointInterface *effort_joint_interface_{};
+   std::vector<hardware_interface::JointHandle> joint_handles_{};
+-  hardware_interface::RobotStateHandle robot_state_handle_{};
++  rm_control::RobotStateHandle robot_state_handle_{};
+ 
+   double wheel_base_{}, wheel_track_{}, wheel_radius_{}, publish_rate_{}, twist_angular_{},
+       power_coeff_{}, power_min_vel_{}, timeout_{};
+diff --git a/src/chassis_base.cpp b/src/chassis_base.cpp
+index ad60933..6584d6b 100644
+--- a/src/chassis_base.cpp
++++ b/src/chassis_base.cpp
+@@ -67,7 +67,7 @@ bool ChassisBase::init(hardware_interface::RobotHW *robot_hw,
+     ROS_ASSERT(twist_cov_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+ 
+   effort_joint_interface_ = robot_hw->get<hardware_interface::EffortJointInterface>();
+-  robot_state_handle_ = robot_hw->get<hardware_interface::RobotStateInterface>()->getHandle("robot_state");
++  robot_state_handle_ = robot_hw->get<rm_control::RobotStateInterface>()->getHandle("robot_state");
+ 
+   // Setup odometry realtime publisher + odom message constant fields
+   odom_pub_.reset(new realtime_tools::RealtimePublisher<nav_msgs::Odometry>(root_nh, "odom", 100));
