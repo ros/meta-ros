@@ -1,0 +1,29 @@
+From 9243cf1b39fe10de00761ea32a879e0779900133 Mon Sep 17 00:00:00 2001
+From: yezi <1536117624@qq.com>
+Date: Tue, 7 Sep 2021 22:25:59 +0800
+Subject: [PATCH] Change name of namespace:from hardware_interface to
+ rm_control.
+
+Upstream-Status: Backport [https://github.com/rm-controls/rm_controllers/commit/281ff41a894380cbda7d839fd57dc5ced7e88299]
+
+Unfortunately rm-common was updated in last Noetic release to include API change from:
+https://github.com/rm-controls/rm_control/commit/7fe74d1d412b6eb2cdab0e948569a82e5a111ac5
+but this corresponding change from rm_controllers isn't included in this Noetic upgrade
+https://github.com/rm-controls/rm_controllers/commit/281ff41a894380cbda7d839fd57dc5ced7e88299
+---
+ include/rm_shooter_controller/standard.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/rm_shooter_controller/standard.h b/include/rm_shooter_controller/standard.h
+index 03eefc7..741ad55 100644
+--- a/include/rm_shooter_controller/standard.h
++++ b/include/rm_shooter_controller/standard.h
+@@ -60,7 +60,7 @@ struct Config {
+ 
+ class Controller
+     : public controller_interface::MultiInterfaceController<hardware_interface::EffortJointInterface,
+-                                                            hardware_interface::RobotStateInterface> {
++                                                            rm_control::RobotStateInterface> {
+  public:
+   Controller() = default;
+   bool init(hardware_interface::RobotHW *robot_hw,
