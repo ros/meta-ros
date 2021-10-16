@@ -2,9 +2,11 @@
 
 # ERROR: mavros-2.0.0-1-r0 do_package_qa: QA Issue: /usr/lib/mavros/install_geographiclib_datasets.sh contained in package mavros requires /bin/bash, but no providers found in RDEPENDS:mavros? [file-rdeps]
 # ERROR: mavros-2.0.0-1-r0 do_package_qa: QA Issue: /usr/lib/mavros/mav contained in package mavros requires /usr/bin/python3, but no providers found in RDEPENDS:mavros? [file-rdeps]
+# Ensure that the geographiclib data files are in place, by depending upon our geographiclib-data package.
 ROS_EXEC_DEPENDS += " \
     bash \
     python3-core \
+    geographiclib-data \
 "
 
 # This is needed only for webOS OSE, which uses busybox to provide

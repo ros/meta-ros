@@ -26,7 +26,8 @@ FILES:${PN}-python = "${libdir}/python"
 inherit cmake
 
 # enable both shared and static libraries (static is required by robot-localization-2.6.9-1 in melodic)
-EXTRA_OECMAKE += "-DGEOGRAPHICLIB_LIB_TYPE=BOTH"
+# Ensure geographiclib is configured to the proper folder to look for data files.
+EXTRA_OECMAKE += "-DGEOGRAPHICLIB_LIB_TYPE=BOTH -DGEOGRAPHICLIB_DATA=/usr/share/GeographicLib"
 
 # stage bindir to keep CMake happy
 # | -- Reading /jenkins/mjansa/build/ros/webos-melodic-hardknott/tmp-glibc/work/qemux86-webos-linux/robot-localization/2.6.9-1-r0/recipe-sysroot/usr/lib/cmake/GeographicLib/geographiclib-config.cmake
