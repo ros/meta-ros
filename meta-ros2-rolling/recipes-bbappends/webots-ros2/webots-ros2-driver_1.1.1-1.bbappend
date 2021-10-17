@@ -56,4 +56,6 @@ COMPATIBLE_MACHINE:x86-64 = "(.*)"
 INSANE_SKIP:${PN} += "already-stripped"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-CMakeLists.txt-don-t-require-python-exact-version-to.patch"
+SRC_URI += "file://0001-CMakeLists.txt-don-t-require-python-exact-version-to.patch \
+    file://0002-CMakeLists.txt-use-prebuilt-libraries-from-python39-.patch \
+"
