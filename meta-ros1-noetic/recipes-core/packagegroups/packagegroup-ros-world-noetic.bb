@@ -1207,6 +1207,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
     h264-encoder-core \
     h264-video-encoder \
     leo-bringup \
+    leo-robot \
     movie-publisher \
     mrpt1 \
     mrpt2 \
@@ -1239,6 +1240,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
     h264-encoder-core \
     h264-video-encoder \
     leo-bringup \
+    leo-robot \
     movie-publisher \
     mrpt1 \
     mrpt2 \
@@ -1400,6 +1402,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     lauv-description \
     lauv-gazebo \
     leo-gazebo \
+    leo-robot \
     leo-simulator \
     mcmillan-airfield \
     mecanum-gazebo-plugin \
