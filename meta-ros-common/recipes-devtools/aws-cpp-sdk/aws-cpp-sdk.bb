@@ -46,3 +46,13 @@ EXTRA_OECMAKE += "-DCURL_HAS_H2_EXITCODE=0 -DCURL_HAS_H2_EXITCODE__TRYRUN_OUTPUT
 # aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core-tests/aws/client/AWSErrorMashallerTest.cpp:116:21: error: redundant move in return statement [-Werror=redundant-move]
 # aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core-tests/aws/client/AWSErrorMashallerTest.cpp:77:21: error: redundant move in return statement [-Werror=redundant-move]
 CXXFLAGS += "-Wno-error=deprecated-copy -Wno-error=redundant-move"
+
+# Fails to build with openssl-3 with:
+# aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp:256:41: error: 'HMAC_CTX* HMAC_CTX_new()' is deprecated: Since OpenSSL 3.0 [-Werror=deprecated-declarations]
+# aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp:265:34: error: 'void HMAC_CTX_free(HMAC_CTX*)' is deprecated: Since OpenSSL 3.0 [-Werror=deprecated-declarations]
+# aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp:290:29: error: 'int HMAC_Init_ex(HMAC_CTX*, const void*, int, const EVP_MD*, ENGINE*)' is deprecated: Since OpenSSL 3.0 [-Werror=deprecated-declarations]
+# aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp:292:28: error: 'int HMAC_Update(HMAC_CTX*, const unsigned char*, size_t)' is deprecated: Since OpenSSL 3.0 [-Werror=deprecated-declarations]
+# aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp:293:27: error: 'int HMAC_Final(HMAC_CTX*, unsigned char*, unsigned int*)' is deprecated: Since OpenSSL 3.0 [-Werror=deprecated-declarations]
+# aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp:298:31: error: 'int HMAC_CTX_reset(HMAC_CTX*)' is deprecated: Since OpenSSL 3.0 [-Werror=deprecated-declarations]
+# aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp:59:44: error: 'int ERR_load_CRYPTO_strings()' is deprecated: Since OpenSSL 3.0 [-Werror=deprecated-declarations]
+CXXFLAGS += "-Wno-error=deprecated-declarations"
