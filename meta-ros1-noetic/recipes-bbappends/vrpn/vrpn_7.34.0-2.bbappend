@@ -22,3 +22,6 @@ FILES:${PN} += " \
     ${datadir}/quatlib \
     ${datadir}/vrpn-07.34 \
 "
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-python-CMakeLists.txt-fix-matching-for-python-3.10.patch"
