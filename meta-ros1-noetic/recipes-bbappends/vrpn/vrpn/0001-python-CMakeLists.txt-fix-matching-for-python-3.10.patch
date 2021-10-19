@@ -1,0 +1,31 @@
+From 5a3d9c545f78c34d586c5592fea8601571293857 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 19 Oct 2021 06:28:07 -0700
+Subject: [PATCH] python/CMakeLists.txt: fix matching for python-3.10
+
+* otherwise it gets installed into /usr/lib/python3.1 instead of /usr/lib/python3.10 directory
+  and causes QA issue:
+
+ERROR: QA Issue: vrpn: Files/directories were installed but not shipped in any package:
+  /usr/lib/python3.1/dist-packages/vrpn.so
+Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
+vrpn: 1 installed and not shipped files. [installed-vs-shipped]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ python/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
+index 8c3870f..87ba911 100644
+--- a/python/CMakeLists.txt
++++ b/python/CMakeLists.txt
+@@ -3,7 +3,7 @@ if(PYTHONLIBS_FOUND AND (VRPN_BUILD_PYTHON_HANDCODED_2X OR VRPN_BUILD_PYTHON_HAN
+ 	include_directories(${PYTHON_INCLUDE_DIRS} "${CMAKE_CURRENT_SOURCE_DIR}")
+ 
+ 	set(PYTHONVERSIONDIR python)
+-	if(PYTHON_LIBRARY MATCHES "python([23].[0-9])")
++	if(PYTHON_LIBRARY MATCHES "python([23].[0-9][0-9]?)")
+ 		set(PYTHONVERSIONDIR "python${CMAKE_MATCH_1}/")
+ 	endif()
+ 
