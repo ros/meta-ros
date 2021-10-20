@@ -47,7 +47,7 @@ Layers = [
 ('meta-python',                        13, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
 ('meta-filesystems',                   14, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
 
-('meta-updater',                       15, 'git://github.com/advancedtelematic/meta-updater.git',    {'branch': OE_Branch,            'commit': 'f2e740c'},           {}),
+('meta-updater',                       15, 'git://github.com/uptane/meta-updater.git',               {'branch': OE_Branch,            'commit': '25642b4'},           {}),
 ('meta-virtualization',                16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': OE_Branch,            'commit': '36cdef7'},           {}),
 ('meta-python2',                       17, 'git://git.openembedded.org/meta-python2',                {'branch': OE_Branch,            'commit': '4ab3b5a'},           {}),
 
