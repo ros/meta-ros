@@ -17,7 +17,7 @@ McfFileVersion = 3
 # Value for DISTRO
 OE_Distribution = 'webos'
 
-webOSOSEBuildNumber = '386'
+webOSOSEBuildNumber = '396'
 
 Bitbake_Branch = '1.46'
 OE_Branch = 'dunfell'
@@ -65,7 +65,7 @@ Layers = [
 ('meta-virtualization',                16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': OE_Branch,            'commit': 'b556bc7'},           {}),
 ('meta-python2',                       17, 'git://git.openembedded.org/meta-python2',                {'branch': OE_Branch,            'commit': 'b901080'},           {}),
 
-('meta-qt6',                           20, 'git://code.qt.io/yocto/meta-qt6.git',                    {'branch': '6.2',                'commit': '3b3572a'},           {}),
+('meta-qt6',                           20, 'git://code.qt.io/yocto/meta-qt6.git',                    {'branch': '6.2',                'commit': 'caaf2ea'},           {}),
 
 ('meta-webos-backports-3.2',           33, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-backports-3.4',           35, MetaWebos_RepoURL,                                        {},                                                              {}),
