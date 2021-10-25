@@ -15,7 +15,7 @@ python() {
 }
 
 SRCREV = "fda33d5c09142c4bb0e99964919d01c2cc5f5995"
-SRC_URI = "git://github.com/python-pillow/Pillow;protocol=https \
+SRC_URI = "git://github.com/python-pillow/Pillow;protocol=https;branch=main \
            file://0001-build-always-disable-platform-guessing.patch \
           "
 
