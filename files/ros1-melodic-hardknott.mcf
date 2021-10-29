@@ -44,7 +44,7 @@ Machines = ['qemux86', 'raspberrypi4']
 # <YOCTO-VERSION>; instead it is the value in the Yocto Project Version column
 # of https://wiki.yoctoproject.org/wiki/Releases for
 # <OPENEMBEDDED-RELEASE-SERIES> to which a constant "~master" is appended.
-OpenEmbeddedVersion = '3.3.3-41.1-hardknott'
+OpenEmbeddedVersion = '3.3.3-77-hardknott'
 
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
 from os import getenv
@@ -61,7 +61,7 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '244e068a8')
 Layers = [
 ('bitbake',                            -1, 'git://github.com/openembedded/bitbake.git',              {'branch': Bitbake_Branch,       'commit': '7f3fd1f4'},          {}),
 
-('meta',                                5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch,            'commit': '366070c476'},        {}),
+('meta',                                5, 'git://github.com/openembedded/openembedded-core.git',    {'branch': OE_Branch,            'commit': '47e638ada9'},        {}),
 
 ('meta-oe',                            10, 'git://github.com/openembedded/meta-openembedded.git',    {'branch': OE_Branch,            'commit': 'd378e4293d'},        {}),
 ('meta-python',                        13, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
