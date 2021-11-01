@@ -47,11 +47,11 @@ Layers = [
 ('meta-python',                        13, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
 ('meta-filesystems',                   14, 'git://github.com/openembedded/meta-openembedded.git',    {},                                                              {}),
 
-('meta-updater',                       15, 'git://github.com/uptane/meta-updater.git',               {'branch': OE_Branch,            'commit': '8a55565'},           {}),
+('meta-updater',                       15, 'git://github.com/uptane/meta-updater.git',               {'branch': OE_Branch,            'commit': 'd9343af'},           {}),
 ('meta-virtualization',                16, 'git://git.yoctoproject.org/meta-virtualization',         {'branch': OE_Branch,            'commit': 'fa09322'},           {}),
 ('meta-python2',                       17, 'git://git.openembedded.org/meta-python2',                {'branch': OE_Branch,            'commit': '3fae17a'},           {}),
 
-('meta-qt6',                           20, 'git://code.qt.io/yocto/meta-qt6.git',                    {'branch': '6.2',                'commit': '071f45d'},           {}),
+('meta-qt6',                           20, 'git://code.qt.io/yocto/meta-qt6.git',                    {'branch': '6.2',                'commit': 'bf9fdb2'},           {}),
 
 ('meta-webos-backports-3.4',           35, MetaWebos_RepoURL,                                        {},                                                              {}),
 
