@@ -54,9 +54,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://gitlab.com/ros_tracing/ros2_tracing-release/archive/release/eloquent/ros2trace/0.2.12-1.tar.gz
+# matches with: https://github.com/ros2-gbp/ros2_tracing-release/archive/release/eloquent/ros2trace/0.2.12-1.tar.gz
 ROS_BRANCH ?= "branch=release/eloquent/ros2trace"
-SRC_URI = "git://gitlab.com/ros_tracing/ros2_tracing-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/ros2_tracing-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f5c5d4c3674297478ea255eec41cbaaf64b5e3d9"
 S = "${WORKDIR}/git"
 
