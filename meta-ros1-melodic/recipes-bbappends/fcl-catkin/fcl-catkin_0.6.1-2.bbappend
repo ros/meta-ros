@@ -5,7 +5,7 @@
 # during do_compile
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-fcl-with-bitbake-fetcher.patch \
-    git://github.com/flexible-collision-library/fcl.git;protocol=https;name=fcl-upstream;destsuffix=git/fcl-upstream \
+    git://github.com/flexible-collision-library/fcl.git;protocol=https;name=fcl-upstream;destsuffix=git/fcl-upstream;branch=master \
 "
 SRCREV_fcl-upstream = "97455a46de121fb7c0f749e21a58b1b54cd2c6be"
 

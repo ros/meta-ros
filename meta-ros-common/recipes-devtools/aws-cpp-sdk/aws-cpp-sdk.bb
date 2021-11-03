@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e \
 PV = "1.6.53+git${SRCPV}"
 
 SRCREV = "59337ec3dd6a998bddb41e4bad39e783cad34b6b"
-SRC_URI = "git://github.com/aws/aws-sdk-cpp.git;protocol=https"
+SRC_URI = "git://github.com/aws/aws-sdk-cpp.git;protocol=https;branch=master"
 S = "${WORKDIR}/git"
 
 inherit cmake ros_faulty_solibs

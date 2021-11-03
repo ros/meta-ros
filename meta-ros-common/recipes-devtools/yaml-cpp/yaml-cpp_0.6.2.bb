@@ -8,7 +8,7 @@ PR = "r0"
 
 S = "${WORKDIR}/git"
 
-SRC_URI = "git://github.com/jbeder/${BPN}.git;branch=master;protocol=git"
+SRC_URI = "git://github.com/jbeder/${BPN}.git;branch=master;protocol=https"
 SRCREV = "562aefc114938e388457e6a531ed7b54d9dc1b62"
 
 

@@ -10,7 +10,7 @@ DEPENDS = "expat"
 
 # matches with tag 2.2.3
 SRCREV = "998768cddacce99727d633d045fa6d25314e1d9a"
-SRC_URI = "git://github.com/modelon-community/fmi-library \
+SRC_URI = "git://github.com/modelon-community/fmi-library;branch=master;protocol=https \
     file://0001-fmixml-use-system-expat-instead-of-building-own-with.patch \
 "
 
