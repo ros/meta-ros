@@ -5,7 +5,7 @@
 # during do_compile
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-pybind11-with-bitbake-fetcher.patch \
-    git://github.com/pybind/pybind11.git;protocol=https;name=pybind11-upstream;destsuffix=git/pybind11-upstream \
+    git://github.com/pybind/pybind11.git;protocol=https;name=pybind11-upstream;destsuffix=git/pybind11-upstream;branch=master \
 "
 
 SRCREV_pybind11-upstream = "014cd12ec1a3258f3bfc6597f371ed46c8e89ccd"

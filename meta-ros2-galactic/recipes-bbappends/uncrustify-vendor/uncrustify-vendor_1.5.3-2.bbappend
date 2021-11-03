@@ -9,7 +9,7 @@ ROS_EXEC_DEPENDS:remove = "${ROS_UNRESOLVED_DEP-uncrustify}"
 # during do_compile
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-uncrustify-with-bitbake-fetcher.patch \
-    git://github.com/uncrustify/uncrustify.git;protocol=https;name=uncrustify;destsuffix=git/uncrustify-upstream \
+    git://github.com/uncrustify/uncrustify.git;protocol=https;name=uncrustify;destsuffix=git/uncrustify-upstream;branch=master \
     https://raw.githubusercontent.com/ros2-gbp/uncrustify_vendor-release/release/foxy/uncrustify_vendor/1.4.0-1/install-patch.diff;name=patch;patchdir=uncrustify-upstream \
 "
 # It's called 0.68.1 in uncrustify_vendor, but it's actually 26 commits after uncrustify-0.69.0 tag

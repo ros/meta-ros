@@ -16,7 +16,7 @@
 YOLO_RELEASE = "1.1.4"
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
-    git://github.com/leggedrobotics/darknet.git;protocol=https;name=darknet;destsuffix=darknet \
+    git://github.com/leggedrobotics/darknet.git;protocol=https;name=darknet;destsuffix=darknet;branch=master \
     https://github.com/leggedrobotics/darknet_ros/releases/download/${YOLO_RELEASE}/yolov2-tiny.weights;downloadfilename=yolo-${YOLO_RELEASE}-yolov2-tiny.weights;name=yolov2-tiny \
     https://github.com/leggedrobotics/darknet_ros/releases/download/${YOLO_RELEASE}/yolov3.weights;downloadfilename=yolo-${YOLO_RELEASE}-yolov3.weights;name=yolov3 \
     https://github.com/leggedrobotics/darknet_ros/releases/download/${YOLO_RELEASE}/yolov2.weights;downloadfilename=yolo-${YOLO_RELEASE}-yolov2.weights;name=yolov2 \
