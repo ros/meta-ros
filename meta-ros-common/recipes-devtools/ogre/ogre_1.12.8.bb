@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=41bb7e40692720ea7d7b034dc4afd191"
 
 # matches with tag v1.12.8
 SRCREV = "e984c17fc95e8e641e07d6b2f17567854ede543d"
-SRC_URI = "git://github.com/OGRECave/ogre;protocol=https \
+SRC_URI = "git://github.com/OGRECave/ogre;protocol=https;branch=master \
     file://0001-CMakeLists.txt-don-t-set-RPATH.patch \
 "
 

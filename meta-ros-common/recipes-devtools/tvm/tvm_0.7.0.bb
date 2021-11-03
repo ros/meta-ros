@@ -13,11 +13,11 @@ SRCREV_dlpack = "3ec04430e89a6834e5a1b99471f415fa939bf642"
 SRCREV_rang = "cabe04d6d6b05356fa8f9741704924788f0dd762"
 SRCREV_vta-hw = "87ce9acfae550d1a487746e9d06c2e250076e54c"
 
-SRC_URI = "git://github.com/apache/tvm;branch=main \
-    git://github.com/dmlc/dmlc-core;name=dlmc-core;destsuffix=git/3rdparty/dmlc-core \
-    git://github.com/dmlc/dlpack;name=dlpack;destsuffix=git/3rdparty/dlpack \
-    git://github.com/agauniyal/rang;name=rang;destsuffix=git/3rdparty/rang \
-    git://github.com/apache/incubator-tvm-vta;name=vta-hw;destsuffix=git/3rdparty/vta-hw \
+SRC_URI = "git://github.com/apache/tvm;branch=main;protocol=https \
+    git://github.com/dmlc/dmlc-core;name=dlmc-core;destsuffix=git/3rdparty/dmlc-core;branch=master;protocol=https \
+    git://github.com/dmlc/dlpack;name=dlpack;destsuffix=git/3rdparty/dlpack;branch=master;protocol=https \
+    git://github.com/agauniyal/rang;name=rang;destsuffix=git/3rdparty/rang;branch=master;protocol=https \
+    git://github.com/apache/incubator-tvm-vta;name=vta-hw;destsuffix=git/3rdparty/vta-hw;branch=master;protocol=https \
 "
 
 S = "${WORKDIR}/git"
