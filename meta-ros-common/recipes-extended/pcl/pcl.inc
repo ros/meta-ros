@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5b8a2a1aa14e6de44b4273134946a34c"
 
 DEPENDS = "boost libflann libeigen qhull"
 
-SRC_URI = "git://github.com/PointCloudLibrary/pcl.git"
+SRC_URI = "git://github.com/PointCloudLibrary/pcl.git;branch=master;protocol=https"
 
 S = "${WORKDIR}/git"
 
