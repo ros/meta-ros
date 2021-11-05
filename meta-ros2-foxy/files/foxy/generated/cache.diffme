@@ -1,4 +1,4 @@
-# foxy/cache.yaml 2021-10-13 0cc5f30da1c12ff088239a813b862ef10a3c998e 20211013142752 1.7.0
+# foxy/cache.yaml 2021-11-04 573e300689ee98e52b4b408ab4e456b09e4ec78d 20211104080532 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -468,7 +468,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/aws-gbp/aws_robomaker_small_warehouse_world-release.git',
-version: 1.0.1-1
+version: 1.0.4-1
 },
 source: {
 type: git,
@@ -1410,7 +1410,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/fastrtps-release.git',
-version: 2.0.2-2
+version: 2.1.1-1
 },
 source: {
 test_commits: true,
@@ -1524,7 +1524,7 @@ gazebo_ros2_control: {
 doc: {
 type: git,
 url: 'https://github.com/ros-simulation/gazebo_ros2_control.git',
-version: master
+version: foxy
 },
 release: {
 packages: [gazebo_ros2_control,
@@ -1533,12 +1533,12 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gazebo_ros2_control-release.git',
-version: 0.0.3-1
+version: 0.0.5-1
 },
 source: {
 type: git,
 url: 'https://github.com/ros-simulation/gazebo_ros2_control.git',
-version: master
+version: foxy
 },
 status: maintained
 }
@@ -2578,6 +2578,29 @@ version: foxy
 status: maintained
 }
 -----
+micro_ros_diagnostics: {
+doc: {
+type: git,
+url: 'https://github.com/micro-ROS/micro_ros_diagnostics.git',
+version: master
+},
+release: {
+packages: [micro_ros_diagnostic_bridge,
+micro_ros_diagnostic_msgs],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/micro_ros_diagnostics-release.git',
+version: 0.2.0-3
+},
+source: {
+type: git,
+url: 'https://github.com/micro-ROS/micro_ros_diagnostics.git',
+version: master
+},
+status: developed
+}
+-----
 micro_ros_msgs: {
 doc: {
 type: git,
@@ -2597,6 +2620,26 @@ url: 'https://github.com/micro-ROS/micro_ros_msgs.git',
 version: foxy
 },
 status: maintained
+}
+-----
+microstrain_inertial: {
+release: {
+packages: [microstrain_inertial_driver,
+microstrain_inertial_examples,
+microstrain_inertial_msgs],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/LORD-MicroStrain/microstrain_inertial-ros2-release.git',
+version: 2.0.6-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/LORD-MicroStrain/microstrain_inertial.git',
+version: ros2
+},
+status: developed
 }
 -----
 mimick_vendor: {
@@ -3276,6 +3319,29 @@ version: foxy-devel
 status: developed
 }
 -----
+pal_statistics: {
+doc: {
+type: git,
+url: 'https://github.com/pal-robotics/pal_statistics.git',
+version: foxy-devel
+},
+release: {
+packages: [pal_statistics,
+pal_statistics_msgs],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/pal-gbp/pal_statistics-release.git',
+version: 2.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/pal-robotics/pal_statistics.git',
+version: foxy-devel
+},
+status: maintained
+}
+-----
 pcl_msgs: {
 release: {
 tags: {
@@ -3392,7 +3458,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/facontidavide/plotjuggler-release.git',
-version: 3.3.1-2
+version: 3.3.2-1
 },
 source: {
 type: git,
@@ -3434,7 +3500,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/PlotJuggler/plotjuggler-ros-plugins-release.git',
-version: 1.6.1-1
+version: 1.6.2-1
 },
 source: {
 type: git,
@@ -3505,7 +3571,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/pal-gbp/pmb2_robot-gbp.git',
-version: 4.0.2-1
+version: 4.0.4-1
 },
 source: {
 type: git,
@@ -3529,7 +3595,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/pal-gbp/pmb2_simulation-gbp.git',
-version: 3.0.1-1
+version: 3.0.2-1
 },
 source: {
 type: git,
@@ -4876,7 +4942,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmw_gurumdds-release.git',
-version: 1.0.10-1
+version: 1.0.12-1
 },
 source: {
 type: git,
@@ -5038,7 +5104,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros2_control-release.git',
-version: 0.8.0-1
+version: 0.8.1-1
 },
 source: {
 type: git,
@@ -5071,7 +5137,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros2_controllers-release.git',
-version: 0.5.0-1
+version: 0.5.1-1
 },
 source: {
 type: git,
@@ -5488,15 +5554,17 @@ version: ros2
 },
 release: {
 packages: [rosapi,
+rosapi_msgs,
 rosbridge_library,
 rosbridge_msgs,
 rosbridge_server,
-rosbridge_suite],
+rosbridge_suite,
+rosbridge_test_msgs],
 tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rosbridge_suite-release.git',
-version: 1.0.7-1
+version: 1.1.0-1
 },
 source: {
 type: git,
@@ -6504,7 +6572,7 @@ tags: {
 release: 'release/foxy/{package}/{version}'
 },
 url: 'https://github.com/oKermorgant/simple_launch-release.git',
-version: 1.1.0-1
+version: 1.2.0-1
 },
 source: {
 type: git,
@@ -7510,6 +7578,30 @@ version: ros2
 status: developed
 }
 -----
+velodyne_simulator: {
+doc: {
+type: git,
+url: 'https://bitbucket.org/DataspeedInc/velodyne_simulator.git',
+version: foxy-devel
+},
+release: {
+packages: [velodyne_description,
+velodyne_gazebo_plugins,
+velodyne_simulator],
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/DataspeedInc-release/velodyne_simulator-release.git',
+version: 2.0.1-1
+},
+source: {
+type: git,
+url: 'https://bitbucket.org/DataspeedInc/velodyne_simulator.git',
+version: foxy-devel
+},
+status: maintained
+}
+-----
 vision_msgs: {
 doc: {
 type: git,
@@ -7593,6 +7685,27 @@ version: 2.0.2-1
 source: {
 type: git,
 url: 'https://github.com/ros-planning/warehouse_ros_mongo.git',
+version: ros2
+},
+status: maintained
+}
+-----
+warehouse_ros_sqlite: {
+doc: {
+type: git,
+url: 'https://github.com/ros-planning/warehouse_ros_sqlite.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/foxy/{package}/{version}'
+},
+url: 'https://github.com/moveit/warehouse_ros_sqlite-release.git',
+version: 1.0.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-planning/warehouse_ros_sqlite.git',
 version: ros2
 },
 status: maintained
@@ -9051,7 +9164,7 @@ aws_robomaker_small_warehouse_world: <?xml version="1.0" ?>
 <author email="ros-contributions@amazon.com">AWS RoboMaker</author>
 <maintainer email="ros-contributions@amazon.com">AWS RoboMaker</maintainer>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<exec_depend>gazebo_ros</exec_depend>
+<depend>gazebo_ros</depend>
 <exec_depend>gazebo</exec_depend>
 <exec_depend>gazebo_plugins</exec_depend>
 <export>
@@ -12841,7 +12954,7 @@ gazebo_ros2_control: <?xml version="1.0" ?>
 <package format="2">
 <name>gazebo_ros2_control</name>
 <description>gazebo_ros2_control</description>
-<maintainer email="ahcorde@osrfoundation.org">Alejandro Hernandez</maintainer>
+<maintainer email="alejandro@osrfoundation.org">Alejandro Hernandez</maintainer>
 <license>BSD</license>
 <license>Apache License 2.0</license>
 <url type="website">http://ros.org/wiki/gazebo_ros_control</url>
@@ -12873,7 +12986,7 @@ gazebo_ros2_control_demos: <?xml version="1.0" ?>
 <package format="2">
 <name>gazebo_ros2_control_demos</name>
 <description>gazebo_ros2_control_demos</description>
-<maintainer email="ahcorde@osrfoundation.org">Alejandro Hernandez</maintainer>
+<maintainer email="alejandro@osrfoundation.org">Alejandro Hernandez</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">http://ros.org/wiki/gazebo_ros_control</url>
 <url type="bugtracker">https://github.com/ros-simulation/gazebo_ros2_control/issues</url>
@@ -15523,6 +15636,52 @@ based on the conditions that filter needs met.</description>
 </export>
 </package>
 -----
+micro_ros_diagnostic_bridge: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>micro_ros_diagnostic_bridge</name>
+<description>Bridges micro-ROS diagnostic messages and vanilla ROS 2 diagnostic messages.</description>
+<maintainer email="arne.nordmann@de.bosch.com">Arne Nordmann</maintainer>
+<license>Apache License 2.0</license>
+<author email="arne.nordmann@de.bosch.com">Arne Nordmann</author>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<depend>diagnostic_msgs</depend>
+<depend>micro_ros_diagnostic_msgs</depend>
+<depend>rclcpp</depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>diagnostic_msgs</test_depend>
+<test_depend>micro_ros_diagnostic_msgs</test_depend>
+<test_depend>osrf_testing_tools_cpp</test_depend>
+<test_depend>ros_environment</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+micro_ros_diagnostic_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>micro_ros_diagnostic_msgs</name>
+<description>A package containing diagnostics related messages and service definitions for micro-ROS.</description>
+<maintainer email="arne.nordmann@de.bosch.com">Arne Nordmann</maintainer>
+<license>Apache License 2.0</license>
+<author email="arne.nordmann@de.bosch.com">Arne Nordmann</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 micro_ros_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -15539,6 +15698,89 @@ by means of a dedicated graph manager</description>
 <member_of_group>rosidl_interface_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+microstrain_inertial_driver: <?xml version="1.0" ?>
+<package format="3">
+<name>microstrain_inertial_driver</name>
+<description>The ros_mscl package provides a driver for the LORD/Microstrain inertial products.</description>
+<author>Brian Bingham</author>
+<author>Parker Hannifin Corp</author>
+<maintainer email="rob.fisher@parker.com">Rob Fisher</maintainer>
+<maintainer email="melissa.gill@parker.com">Melissa Gill</maintainer>
+<license>MIT</license>
+<url type="website">https://github.com/LORD-MicroStrain/microstrain_inertial</url>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>ros_environment</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<exec_depend>rclcpp_lifecycle</exec_depend>
+<exec_depend>diagnostic_aggregator</exec_depend>
+<depend>diagnostic_updater</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>std_msgs</depend>
+<depend>std_srvs</depend>
+<depend>geometry_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>microstrain_inertial_msgs</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>lifecycle_msgs</depend>
+<build_depend>rclcpp_lifecycle</build_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<build_depend>jq</build_depend>
+<build_depend>curl</build_depend>
+<test_depend>ament_cpplint</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<rosdoc config="rosdoc.yaml"/>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+microstrain_inertial_examples: <?xml version="1.0" ?>
+<package format="3">
+<name>microstrain_inertial_examples</name>
+<description>Example listener for Parker LORD Sensing inertial device driver ros_mscl (C++).</description>
+<maintainer email="rob.fisher@parker.com">Rob Fisher</maintainer>
+<maintainer email="melissa.gill@parker.com">Melissa Gill</maintainer>
+<license>MIT</license>
+<url type="website">https://github.com/LORD-MicroStrain/microstrain_inertial</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>rclcpp</build_depend>
+<build_depend>rclcpp_components</build_depend>
+<build_depend>microstrain_inertial_msgs</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<exec_depend>rclcpp</exec_depend>
+<exec_depend>rclcpp_components</exec_depend>
+<exec_depend>rclpy</exec_depend>
+<exec_depend>microstrain_inertial_msgs</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+microstrain_inertial_msgs: <?xml version="1.0" ?>
+<package format="3">
+<name>microstrain_inertial_msgs</name>
+<description>A package that contains ROS message corresponding to microstrain message types.</description>
+<author>Dr. Kristopher Krasnosky</author>
+<author>Parker Hannifin Corp</author>
+<maintainer email="rob.fisher@parker.com">Rob Fisher</maintainer>
+<maintainer email="melissa.gill@parker.com">Melissa Gill</maintainer>
+<license>MIT</license>
+<url type="website">https://github.com/LORD-MicroStrain/microstrain_inertial</url>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+<architecture_independent/>
 </export>
 </package>
 -----
@@ -18015,6 +18257,42 @@ pal_gazebo_worlds: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+pal_statistics: <?xml version="1.0" ?>
+<package format="3">
+<name>pal_statistics</name>
+<description>The pal_statistics package</description>
+<maintainer email="victor.lopez@pal-robotics.com">victor</maintainer>
+<license>MIT</license>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>boost</depend>
+<depend>pal_statistics_msgs</depend>
+<depend>rclcpp</depend>
+<depend>rclpy</depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+pal_statistics_msgs: <?xml version="1.0" ?>
+<package format="3">
+<name>pal_statistics_msgs</name>
+<description>Statistics msgs package</description>
+<maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+<license>MIT</license>
+<author email="jordan.palacios@pal-robotics.com">Jordan Palacios</author>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<depend>std_msgs</depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 pcl_conversions: <?xml version="1.0" ?>
 <package format="2">
 <name>pcl_conversions</name>
@@ -19032,6 +19310,7 @@ etc. description of the PMB2 robot. The files in this package are parsed and use
 <exec_depend>launch_ros</exec_depend>
 <exec_depend>launch_pal</exec_depend>
 <exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>pmb2_controller_configuration</exec_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <test_depend>launch_testing_ament_cmake</test_depend>
@@ -19056,6 +19335,7 @@ pmb2_gazebo: <?xml version="1.0" ?>
 <exec_depend>pmb2_bringup</exec_depend>
 <exec_depend>gazebo_ros</exec_depend>
 <exec_depend>gazebo_plugins</exec_depend>
+<exec_depend>gazebo_ros2_control</exec_depend>
 <exec_depend>pal_gazebo_worlds</exec_depend>
 <exec_depend>pmb2_controller_configuration</exec_depend>
 <test_depend>ament_lint_auto</test_depend>
@@ -23314,11 +23594,10 @@ etc.</description>
 <url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
 <url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
 <author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
-<maintainer email="rctoris@wpi.edu">Russell Toris</maintainer>
 <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+<maintainer email="jacob@foxglove.dev">Jacob Bandes-Storch</maintainer>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
-<buildtool_depend>rosidl_default_generators</buildtool_depend>
-<build_depend>builtin_interfaces</build_depend>
+<exec_depend>rosapi_msgs</exec_depend>
 <exec_depend>builtin_interfaces</exec_depend>
 <exec_depend>rclpy</exec_depend>
 <exec_depend>rcl_interfaces</exec_depend>
@@ -23328,12 +23607,41 @@ etc.</description>
 <exec_depend>ros2pkg</exec_depend>
 <exec_depend>ros2service</exec_depend>
 <exec_depend>ros2topic</exec_depend>
-<exec_depend>rosidl_default_runtime</exec_depend>
-<test_depend>ament_cmake_nose</test_depend>
-<member_of_group>rosidl_interface_packages</member_of_group>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>sensor_msgs</test_depend>
+<test_depend>shape_msgs</test_depend>
+<test_depend>geometry_msgs</test_depend>
+<test_depend>rmw_dds_common</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 <ros1_bridge mapping_rules="mapping_rules.yaml"/>
+</export>
+</package>
+-----
+rosapi_msgs: <?xml version="1.0" ?>
+<package format="3">
+<name>rosapi_msgs</name>
+<description>Provides service calls for getting ros meta-information,
+like list of topics,
+services,
+params,
+etc.</description>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/rosapi</url>
+<url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
+<url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
+<author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
+<maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+<maintainer email="jacob@foxglove.dev">Jacob Bandes-Storch</maintainer>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>rcl_interfaces</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -23624,7 +23932,7 @@ rosbag2_transport: <?xml version="1.0" ?>
 </package>
 -----
 rosbridge_library: <?xml version="1.0" ?>
-<package format="2">
+<package format="3">
 <name>rosbridge_library</name>
 <description>The core rosbridge package,
 responsible for interpreting JSON andperforming the appropriate ROS action,
@@ -23637,22 +23945,30 @@ and interact with params.</description>
 <url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
 <url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
 <author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
-<maintainer email="rctoris@wpi.edu">Russell Toris</maintainer>
 <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+<maintainer email="jacob@foxglove.dev">Jacob Bandes-Storch</maintainer>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<build_depend>builtin_interfaces</build_depend>
-<build_depend>std_msgs</build_depend>
 <build_depend>python3-pil</build_depend>
-<build_depend>geometry_msgs</build_depend>
-<build_depend>rosidl_default_generators</build_depend>
 <build_depend>python3-bson</build_depend>
-<exec_depend>builtin_interfaces</exec_depend>
 <exec_depend>rclpy</exec_depend>
-<exec_depend>std_msgs</exec_depend>
 <exec_depend>python3-pil</exec_depend>
-<exec_depend>geometry_msgs</exec_depend>
 <exec_depend>rosidl_default_runtime</exec_depend>
 <exec_depend>python3-bson</exec_depend>
+<test_depend>rosbridge_test_msgs</test_depend>
+<test_depend>actionlib_msgs</test_depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>builtin_interfaces</test_depend>
+<test_depend>diagnostic_msgs</test_depend>
+<test_depend>example_interfaces</test_depend>
+<test_depend>geometry_msgs</test_depend>
+<test_depend>nav_msgs</test_depend>
+<test_depend>sensor_msgs</test_depend>
+<test_depend>std_msgs</test_depend>
+<test_depend>std_srvs</test_depend>
+<test_depend>stereo_msgs</test_depend>
+<test_depend>tf2_msgs</test_depend>
+<test_depend>trajectory_msgs</test_depend>
+<test_depend>visualization_msgs</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -23662,8 +23978,9 @@ rosbridge_msgs: <?xml version="1.0" ?>
 <package format="3">
 <name>rosbridge_msgs</name>
 <description>Package containing message files</description>
-<maintainer email="achim@intermodalics.eu">Hans-Joachim Krauch</maintainer>
 <author email="achim@intermodalics.eu">Hans-Joachim Krauch</author>
+<maintainer email="achim@intermodalics.eu">Hans-Joachim Krauch</maintainer>
+<maintainer email="jacob@foxglove.dev">Jacob Bandes-Storch</maintainer>
 <license>BSD</license>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <buildtool_depend>rosidl_default_generators</buildtool_depend>
@@ -23684,9 +24001,10 @@ rosbridge_server: <?xml version="1.0" ?>
 <url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
 <url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
 <author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
-<maintainer email="rctoris@wpi.edu">Russell Toris</maintainer>
 <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+<maintainer email="jacob@foxglove.dev">Jacob Bandes-Storch</maintainer>
 <buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <exec_depend>python3-tornado</exec_depend>
 <exec_depend>python3-twisted</exec_depend>
 <exec_depend>rclpy</exec_depend>
@@ -23716,12 +24034,53 @@ and helper packages.</description>
 <url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
 <url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
 <author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
-<maintainer email="rctoris@wpi.edu">Russell Toris</maintainer>
 <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+<maintainer email="jacob@foxglove.dev">Jacob Bandes-Storch</maintainer>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <exec_depend>rosbridge_library</exec_depend>
 <exec_depend>rosbridge_server</exec_depend>
 <exec_depend>rosapi</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rosbridge_test_msgs: <?xml version="1.0" ?>
+<package format="3">
+<name>rosbridge_test_msgs</name>
+<description>Message and service definitions used in internal tests for rosbridge packages.</description>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/rosbridge_library</url>
+<url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
+<url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
+<author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
+<maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+<maintainer email="jacob@foxglove.dev">Jacob Bandes-Storch</maintainer>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>rclpy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>actionlib_msgs</test_depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>builtin_interfaces</test_depend>
+<test_depend>diagnostic_msgs</test_depend>
+<test_depend>example_interfaces</test_depend>
+<test_depend>geometry_msgs</test_depend>
+<test_depend>nav_msgs</test_depend>
+<test_depend>sensor_msgs</test_depend>
+<test_depend>std_msgs</test_depend>
+<test_depend>std_srvs</test_depend>
+<test_depend>stereo_msgs</test_depend>
+<test_depend>tf2_msgs</test_depend>
+<test_depend>trajectory_msgs</test_depend>
+<test_depend>visualization_msgs</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -28619,6 +28978,25 @@ velodyne: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+velodyne_description: <?xml version="1.0" ?>
+<package format="3">
+<name>velodyne_description</name>
+<description>URDF and meshes describing Velodyne laser scanners.</description>
+<license>BSD</license>
+<author>Kevin Hallenbeck</author>
+<maintainer email="khallenbeck@dataspeedinc.com">Kevin Hallenbeck</maintainer>
+<url type="website">http://wiki.ros.org/velodyne_description</url>
+<url type="repository">https://bitbucket.org/dataspeedinc/velodyne_simulator</url>
+<url type="bugtracker">https://bitbucket.org/dataspeedinc/velodyne_simulator/issues</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>urdf</exec_depend>
+<exec_depend>xacro</exec_depend>
+<exec_depend>gazebo_ros</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 velodyne_driver: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -28646,6 +29024,28 @@ velodyne_driver: <?xml version="1.0" ?>
 <test_depend>ament_cmake_gtest</test_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+velodyne_gazebo_plugins: <?xml version="1.0" ?>
+<package format="3">
+<name>velodyne_gazebo_plugins</name>
+<description>Gazebo plugin to provide simulated data from Velodyne laser scanners.</description>
+<license>BSD</license>
+<author>Kevin Hallenbeck</author>
+<maintainer email="khallenbeck@dataspeedinc.com">Kevin Hallenbeck</maintainer>
+<url type="website">http://wiki.ros.org/velodyne_gazebo_plugins</url>
+<url type="repository">https://bitbucket.org/dataspeedinc/velodyne_simulator</url>
+<url type="bugtracker">https://bitbucket.org/dataspeedinc/velodyne_simulator/issues</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>sensor_msgs</depend>
+<depend>tf2</depend>
+<depend>gazebo_msgs</depend>
+<depend>gazebo_dev</depend>
+<depend>gazebo_ros</depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -28728,6 +29128,24 @@ velodyne_pointcloud: <?xml version="1.0" ?>
 <test_depend>ament_cmake_gtest</test_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+velodyne_simulator: <?xml version="1.0" ?>
+<package format="3">
+<name>velodyne_simulator</name>
+<description>Metapackage allowing easy installation of Velodyne simulation components.</description>
+<license>BSD</license>
+<author>Kevin Hallenbeck</author>
+<maintainer email="khallenbeck@dataspeedinc.com">Kevin Hallenbeck</maintainer>
+<url type="website">http://wiki.ros.org/velodyne_simulator</url>
+<url type="repository">https://bitbucket.org/dataspeedinc/velodyne_simulator</url>
+<url type="bugtracker">https://bitbucket.org/dataspeedinc/velodyne_simulator/issues</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>velodyne_description</exec_depend>
+<exec_depend>velodyne_gazebo_plugins</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -28908,6 +29326,33 @@ warehouse_ros_mongo: <?xml version="1.0" ?>
 <export>
 <build_type>ament_cmake</build_type>
 <warehouse_ros plugin="${prefix}/mongo_database_connection_plugin_description.xml"/>
+</export>
+</package>
+-----
+warehouse_ros_sqlite: <?xml version="1.0" ?>
+<package format="3">
+<name>warehouse_ros_sqlite</name>
+<description>Implementation of warehouse_ros for sqlite</description>
+<author>Bjarne von Horn</author>
+<maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
+<license>BSD</license>
+<url>http://ros.org/wiki/warehouse_ros</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>sqlite3_vendor</build_depend>
+<build_depend>boost</build_depend>
+<build_depend>libsqlite3-dev</build_depend>
+<depend>warehouse_ros</depend>
+<depend>class_loader</depend>
+<depend>rclcpp</depend>
+<exec_depend>sqlite3</exec_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>geometry_msgs</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+<warehouse_ros plugin="${prefix}/sqlite_database_connection_plugin_description.xml"/>
 </export>
 </package>
 -----
