@@ -37,9 +37,9 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   OE_Branch + '-2021-11-05')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': '69b4f9a0'},          {}),
+('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': 'be45aeb9'},          {}),
 
-('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': 'a454fda9c3'},        {}),
+('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': '446972600e'},        {}),
 
 ('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '026721d834'},        {}),
 ('meta-multimedia',                    11, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
@@ -47,8 +47,8 @@ Layers = [
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 ('meta-filesystems',                   14, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
-('meta-updater',                       15, 'https://github.com/uptane/meta-updater.git',             {'branch': OE_Branch,            'commit': '7a36ee1'},           {}),
-('meta-virtualization',                16, 'https://git.yoctoproject.org/git/meta-virtualization',   {'branch': OE_Branch,            'commit': 'baf9e1a'},           {}),
+('meta-updater',                       15, 'https://github.com/uptane/meta-updater.git',             {'branch': OE_Branch,            'commit': '851c5b7'},           {}),
+('meta-virtualization',                16, 'https://git.yoctoproject.org/git/meta-virtualization',   {'branch': OE_Branch,            'commit': '3fea81e'},           {}),
 ('meta-python2',                       17, 'https://git.openembedded.org/meta-python2',              {'branch': OE_Branch,            'commit': '7535086'},           {}),
 
 ('meta-qt6',                           20, 'https://code.qt.io/yocto/meta-qt6.git',                  {'branch': '6.2',                'commit': '181cbf3'},           {}),
