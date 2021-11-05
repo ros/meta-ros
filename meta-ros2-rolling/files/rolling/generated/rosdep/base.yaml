@@ -110,11 +110,11 @@ apt-transport-https:
   debian: [apt-transport-https]
   ubuntu: [apt-transport-https]
 aravis:
-  debian: [libaravis-0.6-0]
+  debian: [libaravis-0.6-0, aravis-tools]
   gentoo: [media-video/aravis]
   nixos: [aravis]
   ubuntu:
-    '*': [libaravis-0.6-0]
+    '*': [libaravis-0.6-0, aravis-tools]
     bionic: null
     xenial: null
 aravis-dev:
@@ -382,7 +382,7 @@ boost:
   macports: [boost]
   nixos: [boost]
   openembedded: [boost@openembedded-core]
-  opensuse: [libboost_headers1_66_0-devel, libboost_system1_66_0-devel, libboost_thread1_66_0-devel, libboost_chrono1_66_0-devel, libboost_date_time1_66_0-devel, libboost_serialization1_66_0-devel, libboost_filesystem1_66_0-devel, libboost_program_options1_66_0-devel, libboost_signals1_66_0-devel, libboost_regex1_66_0-devel]
+  opensuse: [libboost_atomic1_66_0-devel, libboost_headers1_66_0-devel, libboost_system1_66_0-devel, libboost_thread1_66_0-devel, libboost_chrono1_66_0-devel, libboost_date_time1_66_0-devel, libboost_serialization1_66_0-devel, libboost_filesystem1_66_0-devel, libboost_program_options1_66_0-devel, libboost_python-py2_7-1_66_0-devel, libboost_python-py3-1_66_0-devel, libboost_signals1_66_0-devel, libboost_regex1_66_0-devel, libboost_iostreams1_66_0-devel]
   rhel: [boost-devel, 'boost-python%{python3_pkgversion}-devel']
   slackware:
     slackpkg:
@@ -854,6 +854,17 @@ dvipng:
   gentoo: [app-text/dvipng]
   opensuse: [texlive-dvipng-bin]
   ubuntu: [dvipng]
+e2fsprogs:
+  alpine: [e2fsprogs]
+  arch: [e2fsprogs]
+  debian: [e2fsprogs]
+  fedora: [e2fsprogs]
+  gentoo: [sys-fs/e2fsprogs]
+  macports: [e2fsprogs]
+  nixos: [e2fsprogs]
+  opensuse: [e2fsprogs]
+  rhel: [e2fsprogs]
+  ubuntu: [e2fsprogs]
 eclipse:
   arch: [eclipse, eclipse-rcp, eclipse-emf, eclipse-pde]
   debian: [eclipse, eclipse-rcp, eclipse-xsd, eclipse-pde]
@@ -1051,6 +1062,7 @@ fltk:  # Consider using the libfltk-dev and fluid (fltk runtime) keys instead.
   gentoo: [=x11-libs/fltk-1*]
   macports: [fltk]
   nixos: [fltk]
+  openembedded: [fltk@meta-oe]
   opensuse: [fltk-devel]
   slackware: [fltk]
   ubuntu:
@@ -1078,6 +1090,7 @@ fluid:
   gentoo: [=x11-libs/fltk-1*]
   macports: [fltk]
   nixos: [fltk]
+  openembedded: [fltk@meta-oe]
   opensuse: [fltk-devel]
   ubuntu: [fluid]
 fmt:
@@ -2408,6 +2421,14 @@ libboost-math-dev:
   opensuse: [libboost_math1_66_0-devel]
   rhel: [boost-devel]
   ubuntu: [libboost-math-dev]
+libboost-numpy-dev:
+  debian: [libboost-numpy-dev]
+  fedora: [boost-devel]
+  gentoo: [dev-libs/boost]
+  nixos: [boost]
+  opensuse: [libboost_numpy-py2_7-1_66_0, libboost_numpy-py3-1_66_0]
+  rhel: [boost-devel]
+  ubuntu: [libboost-numpy-dev]
 libboost-program-options:
   debian:
     buster: [libboost-program-options1.67.0]
@@ -3837,6 +3858,12 @@ libmpich2-dev:
   gentoo: [sys-cluster/mpich2]
   nixos: [mpich]
   ubuntu: [libmpich2-dev]
+libmsgsl-dev:
+  arch: [microsoft-gsl]
+  debian: [libmsgsl-dev]
+  fedora: [guidelines-support-library-devel]
+  gentoo: [dev-cpp/ms-gsl]
+  ubuntu: [libmsgsl-dev]
 libmysqlclient-dev:
   arch: [mariadb]
   debian: [libmysqlclient-dev]
@@ -7316,6 +7343,17 @@ sysstat:
   nixos: [sysstat]
   openembedded: [sysstat@openembedded-core]
   ubuntu: [sysstat]
+systemd:
+  arch: [systemd]
+  debian: [systemd]
+  fedora: [systemd]
+  gentoo: [sys-apps/systemd]
+  opensuse: [systemd]
+  osx:
+    homebrew:
+      packages: [systemd]
+  rhel: [systemd]
+  ubuntu: [systemd]
 tango-icon-theme:
   alpine: [tango-icon-theme]
   arch: [tango-icon-theme]
