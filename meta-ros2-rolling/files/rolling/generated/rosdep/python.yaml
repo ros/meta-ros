@@ -2927,7 +2927,7 @@ python-numpy:
   macports: [py27-numpy]
   nixos: [pythonPackages.numpy]
   openembedded: ['${PYTHON_PN}-numpy@openembedded-core']
-  opensuse: [python2-numpy]
+  opensuse: [python2-numpy-devel]
   osx:
     pip:
       packages: [numpy]
@@ -4033,7 +4033,7 @@ python-qt5-bindings:
   gentoo: ['dev-python/PyQt5[gui,widgets]']
   nixos: [pythonPackages.pyqt5]
   openembedded: ['${PYTHON_PN}-pyqt5@meta-qt5']
-  opensuse: [python2-qt5]
+  opensuse: [python2-qt5-devel, python2-sip-devel]
   slackware: [PyQt5]
   ubuntu:
     artful: [pyqt5-dev, python-pyqt5, python-pyqt5.qtsvg, python-sip-dev]
@@ -6382,6 +6382,15 @@ python3-filterpy-pip:
   ubuntu:
     pip:
       packages: [filterpy]
+python3-fiona:
+  arch: [python-fiona]
+  debian: [python3-fiona]
+  fedora: [python3-fiona]
+  nixos: [python3Packages.fiona]
+  rhel:
+    '*': [python3-fiona]
+    '7': null
+  ubuntu: [python3-fiona]
 python3-flake8:
   alpine: [py3-flake8]
   debian:
@@ -6454,6 +6463,10 @@ python3-flask-restplus-pip:
 python3-flask-socketio:
   debian: [python3-flask-socketio]
   ubuntu: [python3-flask-socketio]
+python3-funcsigs:
+  debian: [python3-funcsigs]
+  fedora: [python3-funcsigs]
+  ubuntu: [python3-funcsigs]
 python3-future:
   debian: [python3-future]
   fedora: [python3-future]
@@ -6462,6 +6475,16 @@ python3-future:
   openembedded: [python3-future@meta-python]
   rhel: ['python%{python3_pkgversion}-future']
   ubuntu: [python3-future]
+python3-gdal:
+  arch: [python-gdal]
+  debian: [python3-gdal]
+  fedora: [python3-gdal]
+  gentoo: [sci-libs/gdal]
+  opensuse: [python3-GDAL]
+  rhel:
+    '*': [python3-gdal]
+    '7': null
+  ubuntu: [python3-gdal]
 python3-gdown-pip: *migrate_eol_2025_04_30_python3_gdown_pip
 python3-geomag-pip:
   debian:
@@ -7329,6 +7352,18 @@ python3-pygit2:
       packages: [pygit2]
   rhel: ['python%{python3_pkgversion}-pygit2']
   ubuntu: [python3-pygit2]
+python3-pygments:
+  alpine: [py3-pygments]
+  arch: [python-pygments]
+  debian: [python3-pygments]
+  fedora: [python3-pygments]
+  gentoo: [dev-python/pygments]
+  openembedded: [python3-pygments@openembedded-core]
+  opensuse: [python3-Pygments]
+  rhel:
+    '*': [python3-pygments]
+    '7': null
+  ubuntu: [python3-pygments]
 python3-pygraphviz:
   alpine: [py3-graphviz]
   arch: [python2-pygraphviz]
