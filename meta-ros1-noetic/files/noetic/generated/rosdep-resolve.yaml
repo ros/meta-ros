@@ -3,6 +3,10 @@ alsa-oss:
 - ${ROS_UNRESOLVED_DEP-alsa-oss}
 apr:
 - apr@openembedded-core
+aravis:
+- ${ROS_UNRESOLVED_DEP-aravis}
+aravis-dev:
+- ${ROS_UNRESOLVED_DEP-aravis-dev}
 arduino-core:
 - ${ROS_UNRESOLVED_DEP-arduino-core}
 armadillo:
@@ -203,6 +207,8 @@ libftdi-dev:
 - libftdi@meta-oe
 libgazebo11-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
+libgdal-dev:
+- ${ROS_UNRESOLVED_DEP-libgdal-dev}
 libgeos++-dev:
 - geos@meta-oe
 libgflags-dev:
@@ -211,6 +217,8 @@ libglew-dev:
 - glew@openembedded-core
 libglfw3-dev:
 - glfw@meta-intel-realsense
+libglib-dev:
+- glib-2.0@openembedded-core
 libgoogle-glog-dev:
 - glog@meta-oe
 libgpgme-dev:
@@ -622,6 +630,8 @@ python3-ruamel.yaml:
 - python3-ruamel-yaml@meta-python
 python3-scipy:
 - ${ROS_UNRESOLVED_DEP-python3-scipy}
+python3-selenium:
+- ${ROS_UNRESOLVED_DEP-python3-selenium}
 python3-serial:
 - python3-pyserial@meta-python
 python3-setuptools:
@@ -672,6 +682,8 @@ roseus:
 - ${ROS_UNRESOLVED_DEP-roseus}
 rsync:
 - rsync@openembedded-core
+rviz_mesh_plugin:
+- ${ROS_UNRESOLVED_DEP-rviz-mesh-plugin}
 sbcl:
 - ${ROS_UNRESOLVED_DEP-sbcl}
 screen:
