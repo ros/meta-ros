@@ -414,6 +414,8 @@ spirv-headers:
 - spirv-headers@openembedded-core
 spirv-tools:
 - spirv-tools@openembedded-core
+sqlite3:
+- ${ROS_UNRESOLVED_DEP-sqlite3}
 subversion:
 - subversion@openembedded-core
 suitesparse:
