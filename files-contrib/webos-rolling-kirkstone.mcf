@@ -39,7 +39,7 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   OE_Branch + '-2021-11-07')
 Layers = [
 ('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': 'be45aeb9'},          {}),
 
-('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': '81ba0ba3e8'},        {}),
+('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': 'd1635d80c2'},        {}),
 
 ('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '1c1670a8c4'},        {}),
 ('meta-multimedia',                    11, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
