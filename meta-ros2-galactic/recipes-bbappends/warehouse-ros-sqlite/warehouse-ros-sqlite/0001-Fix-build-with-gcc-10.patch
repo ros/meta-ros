@@ -1,0 +1,42 @@
+From 4ca8579d6bc5d912abb7d12ed17e11451df31f51 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 8 Nov 2021 05:39:15 -0800
+Subject: [PATCH] Fix build with gcc-10
+
+* now some headers aren't included anymore
+* fixes
+FAILED: CMakeFiles/warehouse_ros_sqlite.dir/src/metadata.cpp.o
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++ -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -DTINYXML2_IMPORT -Dwarehouse_ros_sqlite_EXPORTS -I/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/git/include -I/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/build -I/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/recipe-sysroot/usr/include/eigen3 -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0=/usr/src/debug/warehouse-ros-sqlite/1.0.2-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0=/usr/src/debug/warehouse-ros-sqlite/1.0.2-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/recipe-sysroot -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wall -Wextra -Wpedantic -std=gnu++14 -MD -MT CMakeFiles/warehouse_ros_sqlite.dir/src/metadata.cpp.o -MF CMakeFiles/warehouse_ros_sqlite.dir/src/metadata.cpp.o.d -o CMakeFiles/warehouse_ros_sqlite.dir/src/metadata.cpp.o -c /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/git/src/metadata.cpp
+In file included from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/git/include/warehouse_ros_sqlite/metadata.hpp:34,
+                 from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/git/src/metadata.cpp:31:
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/git/include/warehouse_ros_sqlite/utils.hpp: In function 'std::array<unsigned char, 16> warehouse_ros_sqlite::parse_md5_hexstring(const string&)':
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/git/include/warehouse_ros_sqlite/utils.hpp:146:16: error: 'invalid_argument' is not a member of 'std'
+  146 |     throw std::invalid_argument("md5.size() must equal 32");
+      |                ^~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/git/include/warehouse_ros_sqlite/utils.hpp:154:18: error: 'invalid_argument' is not a member of 'std'
+  154 |       throw std::invalid_argument("md5 is not hex string");
+      |                  ^~~~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/git/include/warehouse_ros_sqlite/utils.hpp: In function 'std::string warehouse_ros_sqlite::verify_md5_string(const string&)':
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/warehouse-ros-sqlite/1.0.2-1-r0/git/include/warehouse_ros_sqlite/utils.hpp:168:16: error: 'invalid_argument' is not a member of 'std'
+  168 |     throw std::invalid_argument("not a valid md5 string");
+      |                ^~~~~~~~~~~~~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/warehouse_ros_sqlite/utils.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/warehouse_ros_sqlite/utils.hpp b/include/warehouse_ros_sqlite/utils.hpp
+index 379b1ff..e5c1d9c 100644
+--- a/include/warehouse_ros_sqlite/utils.hpp
++++ b/include/warehouse_ros_sqlite/utils.hpp
+@@ -39,6 +39,7 @@
+ #include <cstdlib>
+ #include <memory>
+ #include <string>
++#include <stdexcept>
+ 
+ extern "C" {
+ struct sqlite3_stmt;
