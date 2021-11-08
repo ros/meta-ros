@@ -341,6 +341,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     rmf-robot-sim-gazebo-plugins \
     turtlebot3-gazebo \
     turtlebot3-simulations \
+    velodyne-description \
+    velodyne-gazebo-plugins \
+    velodyne-simulator \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5}', '', d)}"
