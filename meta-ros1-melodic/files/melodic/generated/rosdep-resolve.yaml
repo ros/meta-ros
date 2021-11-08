@@ -156,6 +156,8 @@ java:
 - ${ROS_UNRESOLVED_DEP-java}
 joystick:
 - joystick@meta-ros-common
+jq:
+- jq@meta-oe
 julius-voxforge:
 - ${ROS_UNRESOLVED_DEP-julius-voxforge}
 kakasi:
@@ -224,6 +226,8 @@ libftdipp-dev:
 - libftdi@meta-oe
 libgazebo9-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo9-dev}
+libgdal-dev:
+- ${ROS_UNRESOLVED_DEP-libgdal-dev}
 libgeos++-dev:
 - geos@meta-oe
 libgflags-dev:
@@ -354,6 +358,8 @@ libqt5-websockets-dev:
 - qtwebsockets@meta-qt5
 libqt5-widgets:
 - qtbase@meta-qt5
+libqt5-xml:
+- ${ROS_UNRESOLVED_DEP-libqt5-xml}
 libqt5multimedia5-plugins:
 - qtmultimedia@meta-qt5
 libqt5x11extras5-dev:
@@ -468,8 +474,6 @@ openssl:
 - openssl@openembedded-core
 osm2pgsql:
 - ${ROS_UNRESOLVED_DEP-osm2pgsql}
-phantomjs:
-- ${ROS_UNRESOLVED_DEP-phantomjs}
 pkg-config:
 - pkgconfig@openembedded-core
 postgresql:
@@ -743,6 +747,8 @@ rsync:
 - rsync@openembedded-core
 ruby:
 - ${ROS_UNRESOLVED_DEP-ruby}
+rviz_mesh_plugin:
+- ${ROS_UNRESOLVED_DEP-rviz-mesh-plugin}
 sbcl:
 - ${ROS_UNRESOLVED_DEP-sbcl}
 screen:
