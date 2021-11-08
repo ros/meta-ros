@@ -392,6 +392,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'vtk-qt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_VTK_QT = " \
+    cvp-mesh-planner \
     dijkstra-mesh-planner \
     ira-laser-tools \
     lvr2 \
@@ -684,6 +685,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OSG = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'muparser', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MUPARSER}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MUPARSER = " \
     canopen-motor-node \
+    end-effector \
     moveit-resources-prbt-pg70-support \
     moveit-resources-prbt-support \
     pilz-robots \
@@ -957,6 +959,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     cob-dashboard \
     cob-manipulation \
     common-tutorials \
+    cvp-mesh-planner \
     dataspeed-pds-rqt \
     denso-robot-ros \
     denso-robot-moveit-config \
@@ -1138,6 +1141,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-msg \
     rqt-multiplot \
     rqt-nav-view \
+    rqt-paramedit \
     rqt-play-motion-builder \
     rqt-plot \
     rqt-pose-view \
