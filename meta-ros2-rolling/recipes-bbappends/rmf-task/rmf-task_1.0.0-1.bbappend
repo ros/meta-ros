@@ -16,6 +16,7 @@ DEPENDS += " \
     ament-cmake-test \
     ament-cmake-version \
     ament-package-native \
+    eigen3-cmake-module \
     python3-catkin-pkg-native \
     rosidl-typesupport-introspection-c \
     rosidl-typesupport-introspection-cpp \
