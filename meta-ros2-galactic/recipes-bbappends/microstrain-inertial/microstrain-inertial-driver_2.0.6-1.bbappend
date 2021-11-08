@@ -56,7 +56,7 @@ SRC_URI += "file://0001-download_mscl.cmake-use-NO_CMAKE_FIND_ROOT_PATH-when.pat
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # microstrain-inertial-driver: 6 installed and not shipped files. [installed-vs-shipped]
 PACKAGES += "${PN}-prebuilt-boost"
-FILES:${PN}-prebuilt-boost = "${ros_libdir}/libboost_*"
+FILES:${PN}-prebuilt-boost = "${libdir}/libboost_*"
 
 # ERROR: microstrain-inertial-driver-2.0.4-1-r0 do_package_qa: QA Issue:
 # non -dev/-dbg/nativesdk- package microstrain-inertial-driver contains symlink .so '/usr/opt/ros/galactic/lib/libboost_chrono.so'
@@ -75,3 +75,6 @@ INSANE_SKIP:${PN} += "dev-so"
 # microstrain-inertial-driver-prebuilt-boost: found library in wrong location: /usr/opt/ros/galactic/lib/libboost_prg_exec_monitor.so.1.68.0
 # microstrain-inertial-driver-prebuilt-boost: found library in wrong location: /usr/opt/ros/galactic/lib/libboost_filesystem.so.1.68.0 [libdir]
 INSANE_SKIP:${PN}-prebuilt-boost += "libdir"
+
+# ERROR: microstrain-inertial-driver-2.0.6-1-r0 do_package_qa: QA Issue: non -staticdev package contains static .a library: microstrain-inertial-driver path '/usr/share/microstrain_inertial_driver/libmicrostrain_inertial_driver.a' [staticdev]
+FILES:${PN}-staticdev += "${datadir}/${ROS_BPN}/lib${ROS_BPN}.a"
