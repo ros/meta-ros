@@ -1108,6 +1108,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-core \
     qt-gui-cpp \
     qt-gui-py-common \
+    qt-paramedit \
     qt-qmake \
     radial-menu \
     radial-menu-example \

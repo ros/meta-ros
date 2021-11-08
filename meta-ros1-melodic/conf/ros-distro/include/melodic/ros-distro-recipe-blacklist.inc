@@ -621,6 +621,7 @@ PNBLACKLIST[qt-gui-core] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', [
 PNBLACKLIST[qt-gui-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5', 'qt-gui-cpp'], 'Requires qtbase which requires meta-qt5 to be included and python-qt-binding which requires pyqt5; qt-gui-cpp: requires pyqt5-native for sip', '', d)}"
 PNBLACKLIST[qt-gui-py-common] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires python-qt-binding which requires meta-qt5 to be included', '', d)}"
 PNBLACKLIST[qt-gui] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'Requires qtbase which requires meta-qt5 to be included and python-pyqt5 which requires pyqt5', '', d)}"
+PNBLACKLIST[qt-paramedit] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'qt5: depends on qtbase and it has to be qtbase-5 to provide Qt5Config.cmake, not qtbase-6 from meta-qt6 with Qt6Config.cmake', '', d)}"
 PNBLACKLIST[qt-qmake-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires qtbase which requires meta-qt5 to be included', '', d)}"
 PNBLACKLIST[qt-qmake] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'Requires qtbase which requires meta-qt5 to be included', '', d)}"
 PNBLACKLIST[qt-ros] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt4', 'Requires qt-tutorials which requires libqt4-dev which requires meta-qt4 to be included', '', d)}"
