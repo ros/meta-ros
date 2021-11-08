@@ -155,6 +155,5 @@ ROS_BUILD_TYPE:pn-ros-workspace = "ament_cmake"
 ROS_UNRESOLVED_DEP-java-native = ""
 ROS_UNRESOLVED_DEP-maven-native = ""
 
-ROS_UNRESOLVED_DEP-spirv-headers = "spirv-headers"
-ROS_UNRESOLVED_DEP-spirv-tools = "spirv-tools"
-ROS_UNRESOLVED_DEP-libvulkan-dev = "vulkan-headers"
+# https://layers.openembedded.org/layerindex/recipe/45261/
+ROS_UNRESOLVED_DEP-sqlite3 = "sqlite3"
