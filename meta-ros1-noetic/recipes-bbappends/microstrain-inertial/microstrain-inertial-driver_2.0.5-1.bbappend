@@ -8,15 +8,15 @@ COMPATIBLE_MACHINE:aarch64 = "(.*)"
 COMPATIBLE_MACHINE:armv7a = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '(.*)', '(^$)', d)}"
 COMPATIBLE_MACHINE:armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '(.*)', '(^$)', d)}"
 
-MSCL_VERSION = "62.0.0"
+MSCL_VERSION = "62.1.2"
 MSCL_ARCH:x86-64 = "amd64"
 MSCL_ARCH:aarch64 = "arm64"
 MSCL_ARCH:armv7a = "armhf"
 MSCL_ARCH:armv7ve = "armhf"
-MSCL_CHECKSUM:x86-64 = "b82eaf675ddf83beab122ccf6c4d7dfc3c7d915f5d164ff483ee956fbb5b5062"
-MSCL_CHECKSUM:aarch64 = "5a46df1d9f389fb25c65a85849b61161399140b6be9b07f307e8e9ac36de344b"
-MSCL_CHECKSUM:armv7a = "5877d596f3cadeaf25241a0a417a53ea2ff665cce58f55d7a4075772d43701a1"
-MSCL_CHECKSUM:armv7ve = "5877d596f3cadeaf25241a0a417a53ea2ff665cce58f55d7a4075772d43701a1"
+MSCL_CHECKSUM:x86-64 = "d2963f46f14b12d56598244a51808c3b5387554ff1158ad40fe79c4d1995ae4d"
+MSCL_CHECKSUM:aarch64 = "2222b8e512e33df707c10d10dee367b194a8f7802fdab4487b9476d8febebce2"
+MSCL_CHECKSUM:armv7a = "c1ac0772744b5895e4193867d14737ff0a6a5d0671e7d80b642f6b7786c4ad8e"
+MSCL_CHECKSUM:armv7ve = "c1ac0772744b5895e4193867d14737ff0a6a5d0671e7d80b642f6b7786c4ad8e"
 
 # Fetch this with bitbake fetcher instead of
 # microstrain_inertial_driver_common/cmake/download_mscl.cmake
@@ -32,7 +32,9 @@ SRC_URI[sha256sum] = "${MSCL_CHECKSUM}"
 EXTRA_OECMAKE += "-DMSCL_DIR=${S}/MSCL/usr/share/c++-mscl"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-download_mscl.cmake-use-NO_CMAKE_FIND_ROOT_PATH-when.patch"
+SRC_URI += "file://0001-download_mscl.cmake-use-NO_CMAKE_FIND_ROOT_PATH-when.patch \
+    file://0002-download_mscl.cmake-fetch-it-with-bitbake-fetcher.patch \
+"
 
 # MSCL includes bundled prebuilt boost-1.68.0, but libmscl doesn't link with any libboost library:
 # microstrain-inertial-driver/2.0.4-1-r0/git$ objdump -x MSCL/usr/share/c++-mscl/libmscl.so | grep NEEDED
