@@ -14,18 +14,18 @@ DEPENDS = "libusb1"
 SRCNAME = "libphidget22"
 
 SRC_URI = "https://www.phidgets.com/downloads/phidget22/libraries/linux/${SRCNAME}/${SRCNAME}-${PV}.tar.gz \
-    https://raw.githubusercontent.com/ros2-gbp/phidgets_drivers-release/release/rolling/libphidget22/2.1.0-1/patch/libphidgets22-1.6.20200417-fix-warnings.patch;name=patch \
+    https://raw.githubusercontent.com/ros-drivers-gbp/phidgets_drivers-release/release/noetic/libphidget22/1.0.4-1/patch/libphidgets22-1.7.20210816-fix-warnings.patch;name=patch \
 "
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-SRC_URI[sha256sum] = "add8dee691e4bdcb19147cea34630ce0f387d24fe7548900ca98d2b70e60ae9f"
-SRC_URI[patch.sha256sum] = "6eb0dff456faa174205ecfd2153a897b26d254071f91cd914b2aee46285b6449"
+SRC_URI[sha256sum] = "d34172cd6769e218ba69850d727d77dba75d0dfb58a3007cd3770c208ee1de7a"
+SRC_URI[patch.sha256sum] = "9148f91fcbc2a2a123f178c47c3eea1435e6b5926b8e7447cc36ceee82aa3e77"
 
 inherit autotools
 
 do_configure:prepend() {
-    # configure.ac uses this to define version (1.6 is taken from configure included in tarball, but autotools.bbclass runs autoreconf which fails without layer_version file)
-    echo "1.6" > ${S}/library_version
+    # configure.ac uses this to define version (1.7 is taken from configure included in tarball, but autotools.bbclass runs autoreconf which fails without layer_version file)
+    echo "1.7" > ${S}/library_version
 }
 
 do_install:append() {
