@@ -106,6 +106,9 @@ RDEPENDS:${PN}:remove = "tesseract-collision tesseract-urdf"
 # Depends on unavailable ROS_UNRESOLVED_DEP-python3-wxgtk4.0
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-wxgtk4.0', 'actionlib-tools', '', d)}"
 
+# Depends on unavailable ROS_UNRESOLVED_DEP-aravis
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'aravis', 'camera-aravis', '', d)}"
+
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-protobuf', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_PROTOBUF}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_PROTOBUF = " \
     fkie-master-discovery \
