@@ -32,6 +32,7 @@ PNBLACKLIST[bayesian-belief-networks] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_G
 PNBLACKLIST[blender-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', 'Depends on gazebo, gazebo-ros which is not available', '', d)}"
 PNBLACKLIST[calibration-estimation] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-scipy', 'Depends on unavailable ROS_UNRESOLVED_DEP-python-scipy', '', d)}"
 PNBLACKLIST[calibration] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python-scipy', 'Depends on calibration-estimation->unavailable ROS_UNRESOLVED_DEP-python-scipy', '', d)}"
+PNBLACKLIST[camera-aravis] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'aravis', 'aravis: depends on unavailable ROS_UNRESOLVED_DEP-aravis', '', d)}"
 PNBLACKLIST[canopen-402] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'canopen-master', 'canopen-master: depends on canopen-master which fails to compile', '', d)}"
 PNBLACKLIST[canopen-chain-node] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'canopen-master', 'canopen-master: depends on canopen-master which fails to compile', '', d)}"
 PNBLACKLIST[canopen-master] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'canopen-master', 'canopen-master: do_compile task fails: CMakeFiles/canopen_bcm_sync.dir/src/bcm_sync.cpp.o: undefined reference to symbol pthread_join@@GLIBC_2.2.5, libpthread.so.0: error adding symbols: DSO missing from command line', '', d)}"
