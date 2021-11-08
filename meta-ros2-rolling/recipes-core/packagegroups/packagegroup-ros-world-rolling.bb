@@ -144,6 +144,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
+    dolly-ignition \
+    dolly \
     ign-rviz \
     ign-rviz-common \
     ign-rviz-plugins \
@@ -160,12 +162,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     desktop \
+    dolly-gazebo \
+    dolly \
     libg2o \
     librealsense2 \
     moveit-ros \
     moveit-ros-perception \
     moveit-ros-visualization \
     moveit-runtime \
+    moveit-visual-tools \
     moveit \
     plotjuggler-ros \
     plotjuggler \
@@ -175,6 +180,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rtabmap \
+    run-move-group \
+    run-moveit-cpp \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
@@ -191,6 +198,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop \
+    dolly-gazebo \
+    dolly \
     joint-state-publisher-gui \
     moveit-resources \
     moveit-resources-panda-moveit-config \
@@ -244,6 +253,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-topic \
     rqt-top \
     rqt \
+    run-move-group \
+    run-moveit-cpp \
     rviz-common \
     rviz-default-plugins \
     rviz-rendering-tests \
@@ -290,6 +301,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     aws-robomaker-small-warehouse-world \
+    dolly-gazebo \
+    dolly \
     gazebo-plugins \
     gazebo-ros-pkgs \
     gazebo-ros \
@@ -368,6 +381,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-topic \
     rqt-top \
     rqt \
+    run-move-group \
+    run-moveit-cpp \
 "
 
 # do_compile failures
@@ -388,16 +403,21 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SELF_TEST = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     desktop \
+    dolly-gazebo \
+    dolly \
     libg2o \
     moveit-ros \
     moveit-ros-perception \
     moveit-ros-visualization \
     moveit-runtime \
+    moveit-visual-tools \
     moveit \
     mrpt2 \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rtabmap \
+    run-move-group \
+    run-moveit-cpp \
     rviz2 \
     rviz-common \
     rviz-default-plugins \

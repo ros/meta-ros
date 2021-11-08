@@ -2,7 +2,6 @@
 
 ROS_BUILD_DEPENDS += " \
     fastcdr \
-    fastrtps \
 "
 
 # usr/share/builtin_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake contains:

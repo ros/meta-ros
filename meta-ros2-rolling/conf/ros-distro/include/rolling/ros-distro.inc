@@ -164,3 +164,6 @@ ROS_BUILD_TYPE:pn-rmf-task = "ament_cmake"
 # Used by generated-recipes/cyclonedds/cyclonedds_0.6.0-3.bb
 ROS_UNRESOLVED_DEP-java-native = ""
 ROS_UNRESOLVED_DEP-maven-native = ""
+
+# https://layers.openembedded.org/layerindex/recipe/45261/
+ROS_UNRESOLVED_DEP-sqlite3 = "sqlite3"
