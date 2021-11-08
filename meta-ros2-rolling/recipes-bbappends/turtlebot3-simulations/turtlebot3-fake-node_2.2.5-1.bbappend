@@ -9,6 +9,7 @@ DEPENDS += " \
     ament-cmake-export-libraries \
     ament-cmake-export-link-flags \
     ament-cmake-export-targets \
+    ament-cmake-gen-version-h \
     ament-cmake-python \
     ament-cmake-target-dependencies \
     ament-cmake-include-directories \
