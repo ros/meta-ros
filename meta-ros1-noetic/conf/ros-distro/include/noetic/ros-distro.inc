@@ -121,6 +121,8 @@ ROS_WORLD_SKIP_GROUPS += "python-whichcraft"
 ROS_WORLD_SKIP_GROUPS += "orocos-bfl"
 # recipes depending on net-tools (ROS_UNRESOLVED_DEP-net-tools)
 ROS_WORLD_SKIP_GROUPS += "net-tools"
+# recipes depending on aravis
+ROS_WORLD_SKIP_GROUPS += "aravis"
 
 # do_configure failures
 ROS_WORLD_SKIP_GROUPS += " \
