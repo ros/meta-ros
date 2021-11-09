@@ -51,17 +51,17 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   'builds/webosose/master/' 
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': 'c222eddc'},          {}),
+('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': 'c0348de8'},          {}),
 
-('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': '6cd21ddc6f'},        {}),
+('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': '38fc0807ee'},        {}),
 
-('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '814eec96c2'},        {}),
+('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '7889158dcd'},        {}),
 ('meta-multimedia',                    11, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 ('meta-networking',                    12, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 ('meta-filesystems',                   14, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
-('meta-updater',                       15, 'https://github.com/uptane/meta-updater.git',             {'branch': OE_Branch,            'commit': 'a3b8398'},           {}),
+('meta-updater',                       15, 'https://github.com/uptane/meta-updater.git',             {'branch': OE_Branch,            'commit': '5546c92'},           {}),
 ('meta-virtualization',                16, 'https://git.yoctoproject.org/git/meta-virtualization',   {'branch': OE_Branch,            'commit': '180241e'},           {}),
 ('meta-python2',                       17, 'https://git.openembedded.org/meta-python2',              {'branch': OE_Branch,            'commit': 'b901080'},           {}),
 
@@ -79,7 +79,7 @@ Layers = [
 
 ('meta-webos',                         40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch,     'commit': MetaWebos_Commit},    {}),
 
-('meta-raspberrypi',                   50, 'https://git.yoctoproject.org/git/meta-raspberrypi',      {'branch': OE_Branch,            'commit': '59c2d6f'},           {}),
+('meta-raspberrypi',                   50, 'https://git.yoctoproject.org/git/meta-raspberrypi',      {'branch': OE_Branch,            'commit': '2e704f5'},           {}),
 ('meta-webos-raspberrypi',             51, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-updater',                 52, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-virtualization',          53, MetaWebos_RepoURL,                                        {},                                                              {}),
