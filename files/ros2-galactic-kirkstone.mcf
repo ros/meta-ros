@@ -59,11 +59,11 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '8d7d4768e')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': '6230ca71'},          {}),
+('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': '19291665'},          {}),
 
-('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': 'b0f30792fd'},        {}),
+('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': 'afad2f09eb'},        {}),
 
-('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': 'd6b4f9b460'},        {}),
+('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '19de3586be'},        {}),
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
