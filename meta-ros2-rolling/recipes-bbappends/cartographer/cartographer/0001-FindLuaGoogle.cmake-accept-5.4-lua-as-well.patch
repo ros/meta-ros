@@ -6,6 +6,8 @@ Subject: [PATCH] FindLuaGoogle.cmake: accept 5.4 lua as well
 * upgraded in Yocto 3.5 Kirkstone with:
   https://git.openembedded.org/openembedded-core/commit/?id=c2cad5ecfbbcee99b3cbe71efeeac9a875b6e5ff
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  cmake/modules/FindLuaGoogle.cmake | 2 +-
