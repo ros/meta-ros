@@ -37,18 +37,18 @@ MetaWebos_Commit  = getenv('MCF_META_WEBOS_COMMIT',   OE_Branch + '-2021-11-09')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': '19291665'},          {}),
+('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': '8e7f2b65'},          {}),
 
-('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': 'afad2f09eb'},        {}),
+('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': '365dc1471a'},        {}),
 
-('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '19de3586be'},        {}),
+('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': 'c1968ea88c'},        {}),
 ('meta-multimedia',                    11, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 ('meta-networking',                    12, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 ('meta-filesystems',                   14, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
 ('meta-updater',                       15, 'https://github.com/uptane/meta-updater.git',             {'branch': OE_Branch,            'commit': '851c5b7'},           {}),
-('meta-virtualization',                16, 'https://git.yoctoproject.org/git/meta-virtualization',   {'branch': OE_Branch,            'commit': 'ecd241f'},           {}),
+('meta-virtualization',                16, 'https://git.yoctoproject.org/git/meta-virtualization',   {'branch': OE_Branch,            'commit': 'e13d364'},           {}),
 ('meta-python2',                       17, 'https://git.openembedded.org/meta-python2',              {'branch': OE_Branch,            'commit': 'bb9e1ac'},           {}),
 
 ('meta-qt6',                           20, 'https://code.qt.io/yocto/meta-qt6.git',                  {'branch': '6.2',                'commit': 'fb8e8e8'},           {}),
