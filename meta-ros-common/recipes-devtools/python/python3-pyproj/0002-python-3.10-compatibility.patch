@@ -26,6 +26,8 @@ _proj.c:7993:5: error: lvalue required as decrement operand
  7993 |     --Py_REFCNT(o);
       |     ^~
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  _proj.c | 10 ++++++++--
