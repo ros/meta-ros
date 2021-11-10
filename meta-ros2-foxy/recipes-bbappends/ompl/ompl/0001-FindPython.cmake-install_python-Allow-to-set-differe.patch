@@ -13,6 +13,8 @@ Subject: [PATCH] FindPython.cmake: install_python(): Allow to set different
 * allow to set INSTALL_PYTHON_SHEBANG to change it to e.g. '/usr/bin/env python3'
   which will be available on target
 
+Upstream-Status: Pending
+
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
  CMakeModules/FindPython.cmake | 8 +++++++-
