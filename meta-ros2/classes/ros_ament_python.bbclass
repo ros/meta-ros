@@ -3,10 +3,10 @@
 inherit setuptools3
 
 do_install:append() {
-    mkdir -p ${D}/usr/share/ament_index/resource_index/packages
-    touch ${D}/usr/share/ament_index/resource_index/packages/${ROS_BPN}
-    if test -e ${D}/usr/lib/${ROS_BPN}; then
-        for i in ${D}/usr/lib/${ROS_BPN}/* ; do \
+    mkdir -p ${D}${datadir}/ament_index/resource_index/packages
+    touch ${D}${datadir}/ament_index/resource_index/packages/${ROS_BPN}
+    if test -e ${D}${libdir}/${ROS_BPN}; then
+        for i in ${D}${libdir}/${ROS_BPN}/* ; do
             sed -i '1c#!/usr/bin/python3' $i
         done
     fi
