@@ -15,7 +15,7 @@ DEPENDS = " \
 
 S = "${WORKDIR}/SuiteSparse/SPQR"
 
-EXTRA_OEMAKE = "CC='${CC}' BLAS='-lopenblas -lblas'"
+EXTRA_OEMAKE = "CC='${CC}' BLAS='-lblas'"
 
 do_compile() {
     # build only the library, not the demo
