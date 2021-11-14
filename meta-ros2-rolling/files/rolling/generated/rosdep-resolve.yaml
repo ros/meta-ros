@@ -280,12 +280,8 @@ pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros-common
 pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros-common
-python-imaging:
-- ${PYTHON_PN}-pillow@meta-python
 python-lxml:
 - ${PYTHON_PN}-lxml@meta-python
-python-numpy:
-- ${PYTHON_PN}-numpy@openembedded-core
 python3:
 - python3@openembedded-core
 python3-argcomplete:
@@ -415,7 +411,7 @@ spirv-headers:
 spirv-tools:
 - spirv-tools@openembedded-core
 sqlite3:
-- ${ROS_UNRESOLVED_DEP-sqlite3}
+- sqlite3@openembedded-core
 subversion:
 - subversion@openembedded-core
 suitesparse:
