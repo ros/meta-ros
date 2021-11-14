@@ -5,52 +5,41 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "Implementation of warehouse_ros for sqlite"
-AUTHOR = "MoveIt Release Team <moveit_releasers@googlegroups.com>"
-ROS_AUTHOR = "Bjarne von Horn"
-HOMEPAGE = "http://ros.org/wiki/warehouse_ros"
+DESCRIPTION = "Special Messages for PlotJuggler"
+AUTHOR = "daf <davide.faconti@gmail.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=92566b45c3390e5178465bcaade208b7"
 
-ROS_CN = "warehouse_ros_sqlite"
-ROS_BPN = "warehouse_ros_sqlite"
+ROS_CN = "plotjuggler_msgs"
+ROS_BPN = "plotjuggler_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    boost \
-    class-loader \
-    rclcpp \
-    sqlite3 \
-    sqlite3-vendor \
-    warehouse-ros \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
+    rosidl-default-generators-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    class-loader \
-    rclcpp \
-    warehouse-ros \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    class-loader \
-    rclcpp \
-    sqlite3 \
-    warehouse-ros \
+    rosidl-default-runtime \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-cmake-copyright \
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
-    geometry-msgs \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -60,10 +49,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/moveit/warehouse_ros_sqlite-release/archive/release/rolling/warehouse_ros_sqlite/1.0.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/warehouse_ros_sqlite"
-SRC_URI = "git://github.com/moveit/warehouse_ros_sqlite-release;${ROS_BRANCH};protocol=https"
-SRCREV = "a3074062131a18a769d7b1882c995ddc871ab085"
+# matches with: https://github.com/facontidavide/plotjuggler_msgs-release/archive/release/rolling/plotjuggler_msgs/0.2.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/plotjuggler_msgs"
+SRC_URI = "git://github.com/facontidavide/plotjuggler_msgs-release;${ROS_BRANCH};protocol=https"
+SRCREV = "c61481c0e70bab7f1f68ca86894d08ca7fd31863"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
