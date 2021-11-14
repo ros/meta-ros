@@ -137,6 +137,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
+    dolly-ignition \
+    dolly \
     ign-rviz \
     ign-rviz-common \
     ign-rviz-plugins \
@@ -152,12 +154,15 @@ RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl',
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     color-names \
     desktop \
+    dolly-gazebo \
+    dolly \
     libg2o \
     librealsense2 \
     moveit-ros-perception \
     moveit-ros-visualization \
     moveit-ros \
     moveit-runtime \
+    moveit-visual-tools \
     moveit \
     openvslam \
     plotjuggler-ros \
@@ -169,10 +174,13 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rtabmap \
+    run-move-group \
+    run-moveit-cpp \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
+    rviz-visual-tools \
     rviz2 \
     turtlebot3-gazebo \
     turtlebot3-simulations \
@@ -185,6 +193,8 @@ RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     color-names \
     desktop \
+    dolly-gazebo \
+    dolly \
     joint-state-publisher-gui \
     moveit-resources-panda-moveit-config \
     moveit-resources \
@@ -243,6 +253,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rmf-traffic-editor \
+    run-move-group \
+    run-moveit-cpp \
     rviz-common \
     rviz-default-plugins \
     rviz-rendering-tests \
@@ -289,10 +301,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
+    aws-robomaker-small-warehouse-world \
+    dolly-gazebo \
+    dolly \
     gazebo-plugins \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
+    gazebo-ros2-control-demos \
+    gazebo-ros2-control \
     rmf-building-sim-gazebo-plugins \
     rmf-demos \
     rmf-demos-gz \
@@ -358,6 +375,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-topic \
     rqt-top \
     rqt \
+    run-move-group \
+    run-moveit-cpp \
 "
 
 # do_compile failures
@@ -374,10 +393,13 @@ RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     color-names \
     desktop \
+    dolly-gazebo \
+    dolly \
     libg2o \
     moveit-ros-visualization \
     moveit-ros \
     moveit-runtime \
+    moveit-visual-tools \
     moveit \
     mrpt2 \
     navigation2 \
@@ -388,11 +410,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rtabmap \
+    run-move-group \
+    run-moveit-cpp \
     rviz2 \
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
+    rviz-visual-tools \
     slam-toolbox \
     turtlebot3-gazebo \
     turtlebot3-simulations \
