@@ -4768,6 +4768,7 @@ libqt5-widgets:
 libqt5-xml:
   debian: [libqt5xml5]
   nixos: [qt5.qtbase]
+  openembedded: [qtbase@meta-qt5]
   ubuntu: [libqt5xml5]
 libqt5multimedia5-plugins:
   arch: [qt5-multimedia]
@@ -7191,6 +7192,7 @@ sqlite3:
   fedora: [sqlite]
   gentoo: [=dev-db/sqlite-3*]
   nixos: [sqlite]
+  openembedded: [sqlite3@openembedded-core]
   ubuntu: [sqlite3]
 ssh-askpass:
   debian: [ssh-askpass]
