@@ -1,0 +1,28 @@
+From fbb400271f9a9358e4d4678271a6ab28f77c54b9 Mon Sep 17 00:00:00 2001
+From: Petter Nilsson <pettni@umich.edu>
+Date: Wed, 26 May 2021 22:40:45 -0400
+Subject: [PATCH] Remove use of std::allocator<>::rebind (#1678)
+
+rebind is deprecated in c++17 and removed in c++20
+
+Upstream-Status: Backport [https://github.com/ros2/rclcpp/commit/39bfb30eb0eea70a5863de1aeaa8eb43177ff0f3]
+
+Signed-off-by: Petter Nilsson <pettni@umich.edu>
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/rclcpp/allocator/allocator_deleter.hpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/rclcpp/allocator/allocator_deleter.hpp b/include/rclcpp/allocator/allocator_deleter.hpp
+index 8e44ea89..cfc1e159 100644
+--- a/include/rclcpp/allocator/allocator_deleter.hpp
++++ b/include/rclcpp/allocator/allocator_deleter.hpp
+@@ -95,7 +95,7 @@ void set_allocator_for_deleter(AllocatorDeleter<T> * deleter, Alloc * alloc)
+ template<typename Alloc, typename T>
+ using Deleter = typename std::conditional<
+   std::is_same<typename std::allocator_traits<Alloc>::template rebind_alloc<T>,
+-  typename std::allocator<void>::template rebind<T>::other>::value,
++  std::allocator<T>>::value,
+   std::default_delete<T>,
+   AllocatorDeleter<Alloc>
+   >::type;
