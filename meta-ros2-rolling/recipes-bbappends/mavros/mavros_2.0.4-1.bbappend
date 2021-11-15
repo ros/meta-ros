@@ -15,3 +15,5 @@ ROS_EXEC_DEPENDS += " \
 VIRTUAL-RUNTIME_bash ?= "bash"
 RDEPENDS:${PN}:append:class-target:webos = " ${VIRTUAL-RUNTIME_bash}"
 RDEPENDS:${PN}:remove:class-target:webos = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"
+
+EXTRA_OECMAKE += "-DCMAKE_CXX_STANDARD=14"
