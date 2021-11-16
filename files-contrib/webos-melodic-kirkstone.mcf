@@ -41,7 +41,7 @@ Layers = [
 
 ('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': '8e8b24e7c5'},        {}),
 
-('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': 'e0ab236378'},        {}),
+('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '2f27988b83'},        {}),
 ('meta-multimedia',                    11, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 ('meta-networking',                    12, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
@@ -49,7 +49,7 @@ Layers = [
 
 ('meta-updater',                       15, 'https://github.com/uptane/meta-updater.git',             {'branch': OE_Branch,            'commit': '851c5b7'},           {}),
 ('meta-virtualization',                16, 'https://git.yoctoproject.org/git/meta-virtualization',   {'branch': OE_Branch,            'commit': '7bc99cd'},           {}),
-('meta-python2',                       17, 'https://git.openembedded.org/meta-python2',              {'branch': OE_Branch,            'commit': 'bb9e1ac'},           {}),
+('meta-python2',                       17, 'https://git.openembedded.org/meta-python2',              {'branch': OE_Branch,            'commit': '914c298'},           {}),
 
 ('meta-qt6',                           20, 'https://code.qt.io/yocto/meta-qt6.git',                  {'branch': '6.2',                'commit': 'fb8e8e8'},           {}),
 
