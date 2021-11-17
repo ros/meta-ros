@@ -61,9 +61,9 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '8d7d4768e')
 Layers = [
 ('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': 'add5d488'},          {}),
 
-('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': '8e8b24e7c5'},        {}),
+('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': '0d15632f3d'},        {}),
 
-('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '2f27988b83'},        {}),
+('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '8ff9bc40ef'},        {}),
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
 ('meta-python2',                       17, 'https://git.openembedded.org/meta-python2',              {'branch': OE_Branch,            'commit': '914c298'},           {}),
@@ -73,7 +73,7 @@ Layers = [
 ('meta-ros1',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros1-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
 
-('meta-raspberrypi',                   50, 'https://git.yoctoproject.org/git/meta-raspberrypi',      {'branch': OE_Branch,            'commit': 'c0dd1c9'},           {}),
+('meta-raspberrypi',                   50, 'https://git.yoctoproject.org/git/meta-raspberrypi',      {'branch': OE_Branch,            'commit': '4c76dab'},           {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
