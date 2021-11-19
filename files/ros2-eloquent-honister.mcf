@@ -50,7 +50,7 @@ OpenEmbeddedVersion = '3.4-89-honister'
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'https://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   OE_Branch)
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '8d7d4768e')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '6773e3d32')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
