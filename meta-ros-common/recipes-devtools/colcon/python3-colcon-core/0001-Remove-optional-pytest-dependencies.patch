@@ -1,0 +1,24 @@
+From 0971a8325ed0c69d7dd365b954a05366d4895e84 Mon Sep 17 00:00:00 2001
+From: Windel Bouwman <windel@windel.nl>
+Date: Thu, 11 Nov 2021 16:45:13 +0100
+Subject: [PATCH] Remove optional pytest dependencies.
+
+---
+ setup.cfg | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/setup.cfg b/setup.cfg
+index 64b4562..09afd3c 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -30,10 +30,6 @@ install_requires =
+ 	coloredlogs; sys_platform == 'win32'
+ 	distlib
+ 	EmPy
+-	pytest
+-	pytest-cov
+-	pytest-repeat
+-	pytest-rerunfailures
+ 	setuptools>=30.3.0
+ packages = find:
+ tests_require = 
