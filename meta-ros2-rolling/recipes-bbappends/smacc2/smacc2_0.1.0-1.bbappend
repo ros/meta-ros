@@ -1,6 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-# smacc2-0.1.0-1-r0 do_package_qa: QA Issue: /usr/lib/smacc2/trace.sh contained in package smacc2 requires /bin/bash, but no providers found in RDEPENDS_smacc2? [file-rdeps]
+# smacc2-0.1.0-1-r0 do_package_qa: QA Issue: /usr/lib/smacc2/trace.sh contained in package smacc2 requires /bin/bash, but no providers found in RDEPENDS:smacc2? [file-rdeps]
 RDEPENDS:${PN} += "bash"
 
 # This is needed only for webOS OSE, which uses busybox to provide
