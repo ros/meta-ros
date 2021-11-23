@@ -14,3 +14,5 @@ RDEPENDS:${PN} += "\
 "
 
 BBCLASSEXTEND += "nativesdk"
+
+FILES:${PN} += "${datadir}/colcon_notification"
