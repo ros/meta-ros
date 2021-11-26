@@ -26,7 +26,7 @@ ROS_Distribution = 'galactic'
 SupportLevel = 'full'
 
 # Supported MACHINE-s
-Machines = ['qemux86-64', 'raspberrypi4-64']
+Machines = ['qemux86', 'raspberrypi4']
 
 # The format of OpenEmbeddedVersion is:
 #   <YOCTO-VERSION>[.<N>]-<OPENEMBEDDED-RELEASE-SERIES>
