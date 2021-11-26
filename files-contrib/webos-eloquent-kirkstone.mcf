@@ -14,7 +14,7 @@ ROS_Distribution = 'eloquent'
 SupportLevel = 'contrib' # ROS2 Eloquent is EOL (final sync on 2020-12-14)
 
 # Supported MACHINE-s
-Machines = ['qemux86', 'raspberrypi4']
+Machines = ['qemux86-64', 'raspberrypi4-64']
 
 # Allow the URL and branch for meta-ros, meta-ros-webos and meta-webos to be overridden by settings in the environment.
 from os import getenv
