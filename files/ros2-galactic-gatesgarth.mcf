@@ -26,7 +26,7 @@ ROS_Distribution = 'galactic'
 SupportLevel = 'best-effort' # OE Gatesgarth is EOL (since 2021-06-08 in https://wiki.yoctoproject.org/wiki/index.php?title=Releases&diff=84746&oldid=84745)
 
 # Supported MACHINE-s
-Machines = ['qemux86-64', 'raspberrypi4-64']
+Machines = ['qemux86', 'raspberrypi4']
 
 # The format of OpenEmbeddedVersion is:
 #   <YOCTO-VERSION>[.<N>]-<OPENEMBEDDED-RELEASE-SERIES>
