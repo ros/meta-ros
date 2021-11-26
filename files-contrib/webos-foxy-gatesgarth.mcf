@@ -14,7 +14,7 @@ ROS_Distribution = 'foxy'
 SupportLevel = 'contrib' # OE Gatesgarth is EOL (since 2021-06-08 in https://wiki.yoctoproject.org/wiki/index.php?title=Releases&diff=84746&oldid=84745)
 
 # Supported MACHINE-s
-Machines = ['qemux86', 'raspberrypi4']
+Machines = ['qemux86-64', 'raspberrypi4-64']
 
 # Allow the URL and branch for meta-ros, meta-ros-webos and meta-webos to be overridden by settings in the environment.
 from os import getenv
