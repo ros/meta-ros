@@ -48,7 +48,7 @@ Layers = [
 ('meta-filesystems',                   14, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
 ('meta-updater',                       15, 'https://github.com/uptane/meta-updater.git',             {'branch': OE_Branch,            'commit': '3c5e1c5'},           {}),
-('meta-virtualization',                16, 'https://git.yoctoproject.org/git/meta-virtualization',   {'branch': OE_Branch,            'commit': 'be2c9d6'},           {}),
+('meta-virtualization',                16, 'https://git.yoctoproject.org/git/meta-virtualization',   {'branch': OE_Branch,            'commit': '811a59d'},           {}),
 ('meta-python2',                       17, 'https://git.openembedded.org/meta-python2',              {'branch': OE_Branch,            'commit': '8db9e4f'},           {}),
 
 ('meta-qt6',                           20, 'https://code.qt.io/yocto/meta-qt6.git',                  {'branch': '6.2',                'commit': 'v6.2.1'},            {}),
@@ -62,7 +62,7 @@ Layers = [
 
 ('meta-webos',                         40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch,     'commit': MetaWebos_Commit},    {}),
 
-('meta-raspberrypi',                   50, 'https://git.yoctoproject.org/git/meta-raspberrypi',      {'branch': OE_Branch,            'commit': '0dc08f9'},           {}),
+('meta-raspberrypi',                   50, 'https://git.yoctoproject.org/git/meta-raspberrypi',      {'branch': OE_Branch,            'commit': 'b4ec97e'},           {}),
 ('meta-webos-raspberrypi',             51, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-updater',                 52, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-virtualization',          53, MetaWebos_RepoURL,                                        {},                                                              {}),
