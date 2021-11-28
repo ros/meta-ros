@@ -1,0 +1,45 @@
+From 984b77acc6b2445d80cf3280755b9effc33564c2 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 28 Nov 2021 08:17:03 -0800
+Subject: [PATCH] cmake/AWSSDKConfig.cmake: add missing quotes to fix build
+ with CMake-3.22
+
+* with CMake-3.22 all users of AWSSDKConfig.cmake fail like e.g. dataflow-lite:
+  | -- Building project version: 1.6.53
+  | CMake Error at /jenkins/mjansa/build/ros/webos-melodic-kirkstone/tmp-glibc/work/raspberrypi4_64-webos-linux/dataflow-lite/1.1.5-1-r0/recipe-sysroot/usr/share/aws_common/cmake/AWSSDKConfig.cmake:135 (while):
+  |   had incorrect arguments:
+  |
+  |     "NOT" "TEMP_NAME" "STREQUAL"
+  |
+  |   Unknown arguments specified
+  | Call Stack (most recent call first):
+  |   /jenkins/mjansa/build/ros/webos-melodic-kirkstone/tmp-glibc/work/raspberrypi4_64-webos-linux/dataflow-lite/1.1.5-1-r0/recipe-sysroot/usr/share/aws_common/cmake/aws_commonConfig.cmake:4 (include)
+  |   CMakeLists.txt:30 (find_package)
+
+* other components in melodic failing with the same issue:
+  | CMake Error at /jenkins/mjansa/build/ros/webos-melodic-kirkstone/tmp-glibc/work/raspberrypi4_64-webos-linux/aws-ros1-common/2.0.1-2-r0/recipe-sysroot/usr/share/aws_common/cmake/AWSSDKConfig.cmake:135 (while):
+  | CMake Error at /jenkins/mjansa/build/ros/webos-melodic-kirkstone/tmp-glibc/work/raspberrypi4_64-webos-linux/s3-common/1.0.1-1-r0/recipe-sysroot/usr/share/aws_common/cmake/AWSSDKConfig.cmake:135 (while):
+  | CMake Error at /jenkins/mjansa/build/ros/webos-melodic-kirkstone/tmp-glibc/work/raspberrypi4_64-webos-linux/kinesis-manager/2.0.3-1-r0/recipe-sysroot/usr/share/aws_common/cmake/AWSSDKConfig.cmake:135 (while):
+  | CMake Error at /jenkins/mjansa/build/ros/webos-melodic-kirkstone/tmp-glibc/work/raspberrypi4_64-webos-linux/h264-encoder-core/2.0.3-1-r0/recipe-sysroot/usr/share/aws_common/cmake/AWSSDKConfig.cmake:135 (while):
+  | CMake Error at /jenkins/mjansa/build/ros/webos-melodic-kirkstone/tmp-glibc/work/raspberrypi4_64-webos-linux/lex-common/1.0.0-1-r0/recipe-sysroot/usr/share/aws_common/cmake/AWSSDKConfig.cmake:135 (while):
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cmake/AWSSDKConfig.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/AWSSDKConfig.cmake b/cmake/AWSSDKConfig.cmake
+index 9e0d1e0017..2a02a05306 100644
+--- a/cmake/AWSSDKConfig.cmake
++++ b/cmake/AWSSDKConfig.cmake
+@@ -132,7 +132,7 @@ endif()
+ get_filename_component(TEMP_PATH "${AWSSDK_CORE_LIB_FILE}" PATH)
+ get_filename_component(TEMP_NAME "${TEMP_PATH}" NAME)
+ 
+-while (NOT TEMP_NAME STREQUAL ${LIB_SEARCH_PREFIX})
++while (NOT TEMP_NAME STREQUAL "${LIB_SEARCH_PREFIX}")
+     set(TEMP_PLATFORM_PREFIX "${TEMP_NAME}/${TEMP_PLATFORM_PREFIX}")
+     get_filename_component(TEMP_PATH "${TEMP_PATH}" PATH) 
+     get_filename_component(TEMP_NAME "${TEMP_PATH}" NAME)
