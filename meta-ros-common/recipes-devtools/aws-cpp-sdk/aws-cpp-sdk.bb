@@ -1,4 +1,4 @@
-# Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 
 SUMMARY = "aws-cpp-sdk component - ${BPN}"
 SECTION = "devel"
@@ -10,7 +10,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e \
 PV = "1.6.53+git${SRCPV}"
 
 SRCREV = "59337ec3dd6a998bddb41e4bad39e783cad34b6b"
-SRC_URI = "git://github.com/aws/aws-sdk-cpp.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/aws/aws-sdk-cpp.git;protocol=https;branch=master \
+    file://0001-cmake-AWSSDKConfig.cmake-add-missing-quotes-to-fix-b.patch \
+"
 S = "${WORKDIR}/git"
 
 inherit cmake ros_faulty_solibs
