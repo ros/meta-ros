@@ -3,7 +3,7 @@ From: Windel Bouwman <windel@windel.nl>
 Date: Fri, 12 Nov 2021 15:21:02 +0100
 Subject: [PATCH] Fix regression when enitre workspace is symlinked
 
-https://github.com/colcon/colcon-core/pull/412/files
+Upstream-Status: Backport [https://github.com/colcon/colcon-core/pull/412]
 
 ---
  colcon_core/task/python/build.py | 3 ++-
