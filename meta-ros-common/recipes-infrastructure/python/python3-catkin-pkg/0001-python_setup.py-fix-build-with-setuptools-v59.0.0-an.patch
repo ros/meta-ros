@@ -1,0 +1,127 @@
+From b63ea23aa9bdc4f39aea7c79ffae725d802c7cbc Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 29 Nov 2021 13:46:17 +0000
+Subject: [PATCH] python_setup.py: fix build with setuptools v59.0.0 and newer
+
+* https://github.com/pypa/setuptools/pull/2870 doesn't allow newlines
+  in description anymore
+
+* e.g. rosmake currently in Noetic has:
+  rosmake is a ros dependency aware build tool which can be used to
+       build all dependencies in the correct order.
+
+* causing build to fail with:
++ cd /jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/git
++ mkdir -p /jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/image/usr/opt/ros/noetic/lib/python3.10/site-packages
++ /usr/bin/env PYTHONPATH=/usr/opt/ros/noetic/lib/python3.10/site-packages:/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/build/lib/python3.10/site-packages:/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/opt/ros/noetic/lib/python3.10/site-packages CATKIN_BINARY_DIR=/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/build /jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 /jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/git/setup.py egg_info --egg-base /jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/build build --build-base /jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/build install --root=/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/image --prefix=/usr/opt/ros/noetic --install-scripts=/usr/opt/ros/noetic/bin
+running egg_info
+writing /jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/build/rosmake.egg-info/PKG-INFO
+Traceback (most recent call last):
+  File "/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/git/setup.py", line 11, in <module>
+    setup(**d)
+  File "/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/lib/python3.10/site-packages/setuptools/__init__.py", line 153, in setup
+    return distutils.core.setup(**attrs)
+  File "/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/lib/python3.10/distutils/core.py", line 148, in setup
+    dist.run_commands()
+  File "/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/lib/python3.10/distutils/dist.py", line 966, in run_commands
+    self.run_command(cmd)
+  File "/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/lib/python3.10/distutils/dist.py", line 985, in run_command
+    cmd_obj.run()
+  File "/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/lib/python3.10/site-packages/setuptools/command/egg_info.py", line 292, in run
+    writer(self, ep.name, os.path.join(self.egg_info, ep.name))
+  File "/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/lib/python3.10/site-packages/setuptools/command/egg_info.py", line 656, in write_pkg_info
+    metadata.write_pkg_info(cmd.egg_info)
+  File "/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/lib/python3.10/distutils/dist.py", line 1117, in write_pkg_info
+    self.write_pkg_file(pkg_info)
+  File "/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/lib/python3.10/site-packages/setuptools/dist.py", line 167, in write_pkg_file
+    write_field('Summary', single_line(self.get_description()))
+  File "/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/recipe-sysroot-native/usr/lib/python3.10/site-packages/setuptools/dist.py", line 151, in single_line
+    raise ValueError('Newlines are not allowed')
+ValueError: Newlines are not allowed
+CMake Error at catkin_generated/safe_execute_install.cmake:4 (message):
+
+  execute_process(/jenkins/mjansa/build/ros/webos-noetic-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/rosmake/1.15.8-1-r0/build/catkin_generated/python_distutils_install.sh)
+  returned error code
+Call Stack (most recent call first):
+  cmake_install.cmake:61 (include)
+
+* there are many ROS packages with newlines, automatically remove newlines here
+  and issue a warning for package maintainers to adjust description and
+  long_description accordingly
+
+* few examples from current Noetic:
+  Summary: 14 tasks failed:
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/ros-comm/rosgraph_1.15.13-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/ros-comm/roslaunch_1.15.13-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/ros/roslib_1.15.8-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/common-msgs/sensor-msgs_1.13.1-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/bond-core/smclib_1.8.6-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/ros-comm/roslz4_1.15.13-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/ros-comm/rosmsg_1.15.13-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/ros/rosmake_1.15.8-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/ros/roscreate_1.15.8-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/ros-comm/rosparam_1.15.13-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/executive-smach/smach_2.5.0-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/marti-common/swri-rospy_2.14.2-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/kdl-parser/kdl-parser-py_1.14.1-1.bb:do_install
+  /jenkins/mjansa/build/ros/webos-noetic-kirkstone/meta-ros/meta-ros1-noetic/generated-recipes/cob-command-tools/scenario-test-tools_0.6.21-1.bb:do_install
+
+  but there are probably many more which aren't shown, because the do_install task wasn't executed due to some dependency already failing
+
+Upstream-Status: Submitted [https://github.com/ros-infrastructure/catkin_pkg/pull/316]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/catkin_pkg/package.py      |  3 +++
+ src/catkin_pkg/python_setup.py | 16 +++++++++++++---
+ 2 files changed, 16 insertions(+), 3 deletions(-)
+
+diff --git a/src/catkin_pkg/package.py b/src/catkin_pkg/package.py
+index e2c8f2d..8805afd 100644
+--- a/src/catkin_pkg/package.py
++++ b/src/catkin_pkg/package.py
+@@ -253,6 +253,9 @@ class Package(object):
+ 
+         if not self.description:
+             errors.append('Package description must not be empty')
++        else:
++            if '\n' in self.description:
++                new_warnings.append('Package "%s" has newlines in the description')
+ 
+         if not self.maintainers:
+             errors.append("Package '{0}' must declare at least one maintainer".format(self.name))
+diff --git a/src/catkin_pkg/python_setup.py b/src/catkin_pkg/python_setup.py
+index c18ded8..46b624b 100644
+--- a/src/catkin_pkg/python_setup.py
++++ b/src/catkin_pkg/python_setup.py
+@@ -58,7 +58,10 @@ def generate_distutils_setup(package_xml_path=os.path.curdir, **kwargs):
+ 
+     The "description" is taken from the eponymous tag if it does not
+     exceed 200 characters. If it does "description" contains the
+-    truncated text while "description_long" contains the complete.
++    truncated text while "long_description" contains the complete.
++
++    The description shouldn't contain newlines, remove them automatically
++    here (with a warning in validate()) and leave them in long_description.
+ 
+     All licenses are merged into the "license" field.
+ 
+@@ -99,9 +102,16 @@ def generate_distutils_setup(package_xml_path=os.path.curdir, **kwargs):
+         data['url'] = package.urls[0].url
+ 
+     if len(package.description) <= 200:
+-        data['description'] = package.description
++        if '\n' in package.description:
++            data['description'] = package.description.replace('\n', ' ')
++            data['long_description'] = package.description
++        else:
++            data['description'] = package.description
+     else:
+-        data['description'] = package.description[:197] + '...'
++        if '\n' in package.description:
++            data['description'] = package.description[:197].replace('\n', ' ') + '...'
++        else:
++            data['description'] = package.description[:197] + '...'
+         data['long_description'] = package.description
+ 
+     data['license'] = ', '.join(package.licenses)
