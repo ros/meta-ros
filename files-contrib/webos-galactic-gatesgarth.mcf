@@ -62,7 +62,7 @@ Layers = [
 
 ('meta-webos',                         40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch,     'commit': MetaWebos_Commit},    {}),
 
-('meta-raspberrypi',                   50, 'https://git.yoctoproject.org/git/meta-raspberrypi',      {'branch': OE_Branch,            'commit': 'e5e976d'},           {}),
+('meta-raspberrypi',                   50, 'https://github.com/agherzan/meta-raspberrypi.git',       {'branch': OE_Branch,            'commit': 'e5e976d'},           {}),
 ('meta-webos-raspberrypi',             51, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-updater',                 52, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-virtualization',          53, MetaWebos_RepoURL,                                        {},                                                              {}),
