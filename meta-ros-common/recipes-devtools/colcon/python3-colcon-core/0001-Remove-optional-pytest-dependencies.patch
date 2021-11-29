@@ -3,6 +3,8 @@ From: Windel Bouwman <windel@windel.nl>
 Date: Thu, 11 Nov 2021 16:45:13 +0100
 Subject: [PATCH] Remove optional pytest dependencies.
 
+Upstream-Status: Pending
+
 ---
  setup.cfg | 4 ----
  1 file changed, 4 deletions(-)
