@@ -15,15 +15,14 @@ TURTLEBOT3_PACKAGES_LIDAR:qemux86 = ""
 
 # From just above here http://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_raspi_cam/#run-raspicam-node (also see
 # http://emanual.robotis.com/docs/en/platform/turtlebot3/applications/#turtlebot-panorama-demo):
-TURTLEBOT3_PACKAGES_CAMERA:rpi ??= " \
+TURTLEBOT3_PACKAGES_CAMERA:append:rpi ??= " \
     camera-info-manager \
     compressed-image-transport \
 "
-TURTLEBOT3_PACKAGES_CAMERA:rpi:append:ros1-distro = " \
-    raspicam-node \
-"
 # raspicam-node depends on userland to provide mmal, but for aarch64 it doesn't provide it.
-TURTLEBOT3_PACKAGES_CAMERA:remove:aarch64 = "raspicam-node"
+TURTLEBOT3_PACKAGES_CAMERA:append:rpi:ros1-distro:arm = " \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'raspicam-node', '', d)} \
+"
 
 TURTLEBOT3_PACKAGES_CAMERA ??= ""
 
