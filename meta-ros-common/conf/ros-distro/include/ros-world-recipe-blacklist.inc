@@ -47,3 +47,4 @@ PNBLACKLIST[python-networkmanager] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROU
 PNBLACKLIST[packagegroup-meta-oe] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['world-issues'], 'world-issues: Depends on blacklisted packages like libvncserver,x11vnc', '', d)}"
 
 PNBLACKLIST[userland] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', 'depends on libegl-mesa from mesa-gl which is not available without opengl in DISTRO_FEATURES', '', d)}"
+PNBLACKLIST[raspicam-node] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', 'depends on userland which is not available without opengl in DISTRO_FEATURES', '', d)}"
