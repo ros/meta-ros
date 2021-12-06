@@ -61,16 +61,16 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '6773e3d32')
 Layers = [
 ('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': '7e1ca7ab'},          {}),
 
-('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': 'ec2131070c'},        {}),
+('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': 'ece8f1471d'},        {}),
 
-('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': 'ac67765cb0'},        {}),
+('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '67df2ce4c9'},        {}),
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
 ('meta-ros1',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros1-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
 
-('meta-raspberrypi',                   50, 'https://github.com/agherzan/meta-raspberrypi.git',       {'branch': OE_Branch,            'commit': 'de1007b'},           {}),
+('meta-raspberrypi',                   50, 'https://github.com/agherzan/meta-raspberrypi.git',       {'branch': OE_Branch,            'commit': '8367553'},           {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
