@@ -9,7 +9,7 @@ PYTHON_SOABI_ARCH_SUFFIX = "-gnu"
 PYTHON_SOABI_ARCH_SUFFIX:arm = ""
 # Another exception is i686 TUNE_ARCH in dunfell and newer with this change:
 # https://git.openembedded.org/openembedded-core/commit/?h=dunfell&id=6beab388e73b3ac6157650855a6c1fb1d71e8015
-PYTHON_SOABI_ARCH_i686 = "i386-${TARGET_OS}"
+PYTHON_SOABI_ARCH:i686 = "i386-${TARGET_OS}"
 PYTHON_SOABI = "cpython-${@d.getVar('PYTHON_BASEVERSION').replace('.', '')}${PYTHON_ABI}-${PYTHON_SOABI_ARCH}${PYTHON_SOABI_ARCH_SUFFIX}"
 
 EXTRA_OECMAKE:append = " -DBUILD_TESTING=OFF"
