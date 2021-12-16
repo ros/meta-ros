@@ -50,6 +50,9 @@ CXXFLAGS += "-fPIC"
 # and similarly for native
 # fastrtps-native/1.9.3-1-r0/recipe-sysroot-native/usr/lib/libfoonathan_memory-0.6.2.a(virtual_memory.cpp.o): relocation R_X86_64_PC32 against symbol `_ZN9foonathan6memory24virtual_memory_page_sizeE' can not be used when making a shared object; recompile with -fPIC
 BUILD_CXXFLAGS += "-fPIC"
+# Next to CXXFLAGS and BUILD_CXXFLAGS
+# we require this for the nativesdk target:
+BUILDSDK_CXXFLAGS += "-fPIC"
 
 # We need to stage nodesize_dbg binary, because foonathan_memory-config.cmake references it and without this foonathan-memory-vendor fails with:
 # | CMake Error at /jenkins/mjansa/build-ros-thud-dashing/BUILD/work/cortexa7t2hf-neon-vfpv4-oe-linux-gnueabi/foonathan-memory-vendor/0.3.0-1-r0/recipe-sysroot/usr/share/foonathan_memory/cmake/foonathan_memory-config.cmake:83 (message):
@@ -80,4 +83,4 @@ EXTRA_OECMAKE += "-DFOONATHAN_MEMORY_BUILD_TESTS=OFF"
 FILES:${PN}-dev += "${datadir}/foonathan_memory/cmake"
 FILES:${PN}-doc += "${datadir}/foonathan_memory"
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
