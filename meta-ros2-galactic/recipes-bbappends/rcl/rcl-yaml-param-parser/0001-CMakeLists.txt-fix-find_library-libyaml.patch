@@ -1,0 +1,14 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 397f662a..1a0ce113 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,6 +6,9 @@ find_package(ament_cmake_ros REQUIRED)
+ find_package(rcutils REQUIRED)
+ find_package(rmw REQUIRED)
+ find_package(libyaml_vendor REQUIRED)
++find_library(LIBYAML_LIBRARIES NAMES yaml libyaml)
++add_library(yaml SHARED IMPORTED)
++set_property(TARGET yaml APPEND PROPERTY IMPORTED_LOCATION "${LIBYAML_LIBRARIES}")
+ 
+ # Default to C++14
+ if(NOT CMAKE_CXX_STANDARD)
