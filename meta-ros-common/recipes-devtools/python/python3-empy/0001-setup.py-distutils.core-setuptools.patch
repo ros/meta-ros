@@ -1,0 +1,29 @@
+From 6fd19144afea9b8a616f1baa2c6650cd64984430 Mon Sep 17 00:00:00 2001
+From: Tim Orling <tim.orling@konsulko.com>
+Date: Mon, 21 Mar 2022 22:44:01 -0700
+Subject: [PATCH] setup.py: distutils.core -> setuptools
+
+Also change #!/usr/bin/env python to python3
+
+Upstream-Status: Inactive Upstream
+
+Signed-off-by: Tim Orling <tim.orling@konsulko.com>
+---
+ setup.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 522e5ab..04d1af2 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,8 +1,8 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ #
+ # $Id: setup.py.pre 3116 2004-01-14 02:53:02Z max $ $Date: 2004-01-13 18:53:02 -0800 (Tue, 13 Jan 2004) $
+
+-from distutils.core import setup
++from setuptools import setup
+
+ DESCRIPTION = "A templating system for Python."
+
