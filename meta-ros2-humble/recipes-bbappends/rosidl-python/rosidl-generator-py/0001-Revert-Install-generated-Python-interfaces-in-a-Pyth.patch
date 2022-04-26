@@ -1,0 +1,40 @@
+From f6957833ec3f1fc4216e5b77a0e5e3d420c32580 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 14 Jul 2021 08:50:57 -0700
+Subject: [PATCH] Revert "Install generated Python interfaces in a Python
+ package (#131)"
+
+This reverts commit d68c385678b6ad13c89bc7afe92b096eedbe15f1.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ .../rosidl_generator_py_generate_interfaces.cmake  | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/cmake/rosidl_generator_py_generate_interfaces.cmake b/cmake/rosidl_generator_py_generate_interfaces.cmake
+index 4af35d6..18f8378 100644
+--- a/cmake/rosidl_generator_py_generate_interfaces.cmake
++++ b/cmake/rosidl_generator_py_generate_interfaces.cmake
+@@ -121,7 +121,19 @@ rosidl_write_generator_arguments(
+ )
+ 
+ if(NOT rosidl_generate_interfaces_SKIP_INSTALL)
+-  ament_python_install_package(${PROJECT_NAME} PACKAGE_DIR "${_output_path}")
++  ament_python_install_module("${_output_path}/__init__.py"
++    DESTINATION_SUFFIX "${PROJECT_NAME}"
++  )
++
++  # TODO(esteve): replace this with ament_python_install_module and allow a list
++  # of modules to be passed instead of iterating over _generated_py_files
++  # See https://github.com/ros2/rosidl/issues/89
++  foreach(_generated_py_dir ${_generated_py_dirs})
++    install(DIRECTORY "${_output_path}/${_generated_py_dir}/"
++      DESTINATION "${PYTHON_INSTALL_DIR}/${PROJECT_NAME}/${_generated_py_dir}"
++      PATTERN "*.py"
++    )
++  endforeach()
+ endif()
+ 
+ set(_target_suffix "__py")

@@ -1,0 +1,65 @@
+From 5821ab62f12a472964509619ec609c7cdb86965b Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 7 Jul 2021 09:47:33 -0700
+Subject: [PATCH] CMakeLists: explicitly link with openssl
+
+* it's being used through jwt includes:
+
+FAILED: schedule_visualizer
+: && /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++  -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0=/usr/src/debug/rmf-visualization-schedule/1.2.0-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0=/usr/src/debug/rmf-visualization-schedule/1.2.0-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/recipe-sysroot  -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0=/usr/src/debug/rmf-visualization-schedule/1.2.0-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0=/usr/src/debug/rmf-visualization-schedule/1.2.0-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/recipe-sysroot -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -fstack-protector-strong -Wl,-z,relro,-z,now -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -fstack-protector-strong -Wl,-z,relro,-z,now @CMakeFiles/schedule_visualizer.rsp  -o schedule_visualizer  && :
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_sha512'
+librmf_visualization_schedule.so: error: undefined reference to 'HMAC'
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_sha384'
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_sha256'
+librmf_visualization_schedule.so: error: undefined reference to 'BIO_free_all'
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_MD_CTX_free'
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_PKEY_free'
+librmf_visualization_schedule.so: error: undefined reference to 'BIO_new_mem_buf'
+librmf_visualization_schedule.so: error: undefined reference to 'PEM_read_bio_PUBKEY'
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_PKEY_id'
+librmf_visualization_schedule.so: error: undefined reference to 'ECDSA_SIG_new'
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_PKEY_get1_EC_KEY'
+librmf_visualization_schedule.so: error: undefined reference to 'EC_KEY_get0_group'
+librmf_visualization_schedule.so: error: undefined reference to 'EC_GROUP_get_degree'
+librmf_visualization_schedule.so: error: undefined reference to 'EC_KEY_free'
+librmf_visualization_schedule.so: error: undefined reference to 'ECDSA_SIG_free'
+librmf_visualization_schedule.so: error: undefined reference to 'BN_bin2bn'
+librmf_visualization_schedule.so: error: undefined reference to 'ECDSA_SIG_set0'
+librmf_visualization_schedule.so: error: undefined reference to 'i2d_ECDSA_SIG'
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_MD_CTX_new'
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_DigestVerifyInit'
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_DigestUpdate'
+librmf_visualization_schedule.so: error: undefined reference to 'EVP_DigestVerifyFinal'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+WARNING: /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/temp/run.do_compile.55653:1 exit 1 from 'eval ${DESTDIR:+DESTDIR=${DESTDIR} }VERBOSE=1 cmake --build '/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/build' "$@" -- ${EXTRA_OECMAKE_BUILD}'
+ERROR: Execution of '/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-visualization-schedule/1.2.0-2-r0/temp/run.do_compile.55653' failed with exit code 1:
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
+---
+ CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1483816..8961526 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -19,6 +19,7 @@ find_package(rmf_traffic REQUIRED)
+ find_package(rmf_traffic_ros2 REQUIRED)
+ find_package(rclcpp REQUIRED)
+ find_package(OpenCV REQUIRED )
++find_package(OpenSSL REQUIRED )
+ find_package(websocketpp REQUIRED)
+ find_package(OpenSSL REQUIRED)
+ find_package(geometry_msgs REQUIRED)
+@@ -57,6 +58,7 @@ target_link_libraries(rmf_visualization_schedule
+     OpenSSL::SSL
+     OpenSSL::Crypto
+     ${rmf_traffic_msgs_LIBRARIES}
++    OpenSSL::SSL
+ )
+ 
+ target_include_directories(rmf_visualization_schedule
