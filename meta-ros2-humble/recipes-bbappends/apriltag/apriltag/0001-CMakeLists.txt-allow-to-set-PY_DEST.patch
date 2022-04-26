@@ -1,0 +1,55 @@
+From 7ae39b993cdff4f5bca374cea8c44383a2d15de5 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 6 Sep 2021 12:02:27 +0000
+Subject: [PATCH] CMakeLists.txt: allow to set PY_DEST
+
+* with OE we want to set it to PYTHON_SITEPACKAGES_DIR, because even with
+  python3targetconfig the site module returns paths to native sysroot:
+
+  apriltag/3.1.5-1-r0/git$ python3 -m site
+  sys.path = [
+      '/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/cortexa72-oe-linux/apriltag/3.1.5-1-r0/git',
+      '/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/cortexa72-oe-linux/apriltag/3.1.5-1-r0/recipe-sysroot-native/usr/lib/python39.zip',
+      '/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/cortexa72-oe-linux/apriltag/3.1.5-1-r0/recipe-sysroot-native/usr/lib/python3.9',
+      '/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/cortexa72-oe-linux/apriltag/3.1.5-1-r0/recipe-sysroot-native/usr/lib/python3.9/lib-dynload',
+      '/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/cortexa72-oe-linux/apriltag/3.1.5-1-r0/recipe-sysroot-native/usr/lib/python3.9/site-packages',
+  ]
+  USER_BASE: '/home/mjansa/.local' (exists)
+  USER_SITE: '/home/mjansa/.local/lib/python3.9/site-packages' (exists)
+  ENABLE_USER_SITE: False
+
+  apriltag/3.1.5-1-r0/git$ python3 -c "import site; print(site.getsitepackages()[0])"
+  /jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/cortexa72-oe-linux/apriltag/3.1.5-1-r0/recipe-sysroot-native/usr/lib/python3.9/site-packages
+
+  apriltag/3.1.5-1-r0/git$ export _PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata
+
+  apriltag/3.1.5-1-r0/git$ python3 -c "import site; print(site.getsitepackages()[0])"
+  /jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/cortexa72-oe-linux/apriltag/3.1.5-1-r0/recipe-sysroot-native/usr/lib/python3.9/site-packages
+
+* and currently used --user-site is even worse:
+  apriltag/3.1.5-1-r0/git$ python3 -m site --user-site
+  /home/mjansa/.local/lib/python3.6/site-packages
+
+Upstream-Status: Pending
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index edde563..0d6c5ef 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -134,8 +134,10 @@ if (NOT Python3_NOT_FOUND AND NOT Numpy_NOT_FOUND AND PYTHONLIBS_FOUND AND BUILD
+     add_custom_target(apriltag_python ALL
+         DEPENDS apriltag${PY_EXT_SUFFIX})
+ 
+-execute_process(COMMAND python3 -m site --user-site OUTPUT_VARIABLE PY_DEST)
+-string(STRIP ${PY_DEST} PY_DEST)
++if (NOT PY_DEST)
++  execute_process(COMMAND python3 -m site --user-site OUTPUT_VARIABLE PY_DEST)
++  string(STRIP ${PY_DEST} PY_DEST)
++endif (NOT PY_DEST)
+ install(FILES ${PROJECT_BINARY_DIR}/apriltag${PY_EXT_SUFFIX} DESTINATION ${PY_DEST})
+ endif (NOT Python3_NOT_FOUND AND NOT Numpy_NOT_FOUND AND PYTHONLIBS_FOUND AND BUILD_PYTHON_WRAPPER)
+ 

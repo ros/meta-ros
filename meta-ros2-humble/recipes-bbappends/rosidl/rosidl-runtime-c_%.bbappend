@@ -1,4 +1,3 @@
-# Copyright (c) 2022 Acceleration Robotics S.L. <contact@accelerationrobotics.com>
+# Copyright (c) 2022 Víctor Mayoral-Vilches
 
-# for rosidl-generator-py-native
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND =+ "native"
