@@ -157,6 +157,7 @@ ROS_WORLD_SKIP_GROUPS += " \
 ROS_WORLD_SKIP_GROUPS += " \
     cyclonedds \
     rmw-cyclonedds-cpp \
+    iceoryx-posh \
 "
 
 
