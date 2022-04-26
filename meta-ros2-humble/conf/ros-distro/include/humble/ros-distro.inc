@@ -152,6 +152,8 @@ ROS_WORLD_SKIP_GROUPS += " \
     self-test \
 "
 
+# issues with iceoryx-posh
+#  TODO: have a closer look at this when possible
 ROS_WORLD_SKIP_GROUPS += " \
     cyclonedds \
     rmw-cyclonedds-cpp \
