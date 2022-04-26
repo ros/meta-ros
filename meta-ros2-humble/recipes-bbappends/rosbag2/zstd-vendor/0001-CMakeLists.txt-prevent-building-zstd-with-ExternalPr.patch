@@ -1,0 +1,155 @@
+From d7015b84fbf81615f4efa96ef8cf81461c133bd0 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 5 Jun 2020 11:35:25 -0700
+Subject: [PATCH] CMakeLists.txt: prevent building zstd with ExternalProject
+
+* use pkg-config, because zstd doesn't provide cmake find
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt                      | 56 +++--------------------------
+ cmake_minimum_required_2.8.12.patch | 26 --------------
+ no_internal_headers.patch           | 28 ---------------
+ 3 files changed, 4 insertions(+), 106 deletions(-)
+ delete mode 100644 cmake_minimum_required_2.8.12.patch
+ delete mode 100644 no_internal_headers.patch
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0819c337..78efbc22 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,62 +9,14 @@ option(FORCE_BUILD_VENDOR_PKG
+   OFF)
+ 
+ if(NOT FORCE_BUILD_VENDOR_PKG)
+-  find_package(zstd QUIET)
++  find_package(PkgConfig REQUIRED)
++  pkg_check_modules(ZSTD REQUIRED libzstd>=1.4.4)
+ endif()
+ 
+-macro(build_zstd)
+-  set(extra_cmake_args)
+-
+-  if(DEFINED CMAKE_BUILD_TYPE)
+-    list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
+-  endif()
+-
+-  if(DEFINED CMAKE_TOOLCHAIN_FILE)
+-    list(APPEND extra_cmake_args "-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
+-  else()
+-    list(APPEND extra_cmake_args "-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
+-  endif()
+-  list(APPEND extra_cmake_args "-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}")
+-
+-  set(zstd_version 1.4.4)
+-  include(ExternalProject)
+-  # The CMakeLists.txt file for zstd is in a subdirectory.
+-  # We need to configure the CMake command to build from there instead.
+-  ExternalProject_Add(zstd-${zstd_version}
+-    GIT_REPOSITORY https://github.com/facebook/zstd.git
+-    GIT_TAG v${zstd_version}
+-    GIT_CONFIG advice.detachedHead=false
+-    # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
+-    # See https://github.com/ament/uncrustify_vendor/pull/22 for details
+-    UPDATE_COMMAND ""
+-    TIMEOUT 60
+-    SOURCE_SUBDIR build/cmake
+-    CMAKE_ARGS
+-      -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
+-      -DZSTD_BUILD_STATIC=OFF
+-      -DZSTD_BUILD_SHARED=ON
+-      -DZSTD_BUILD_PROGRAMS=OFF
+-      ${extra_cmake_args}
+-    # Note: zstd v1.4.6 will include the following fix. When that is released, upgrade and remove this patch.
+-    PATCH_COMMAND
+-      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn
+-        ${CMAKE_CURRENT_SOURCE_DIR}/cmake_minimum_required_2.8.12.patch &&
+-      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn
+-        ${CMAKE_CURRENT_SOURCE_DIR}/no_internal_headers.patch
+-  )
+-
+-  install(
+-    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/
+-    DESTINATION ${CMAKE_INSTALL_PREFIX}
+-    USE_SOURCE_PERMISSIONS)
+-endmacro()
+-
+-if (NOT zstd_FOUND OR "${zstd_VERSION}" VERSION_LESS 1.4.4)
+-  build_zstd()
++if (NOT ZSTD_FOUND OR "${ZSTD_VERSION}" VERSION_LESS 1.4.4)
++  message(STATUS "Zstd not found, missing dependency or version less than 1.4.4, found ${ZSTD_VERSION}")
+ else()
+   message(STATUS "Found Zstd, skipping build.")
+ endif()
+ 
+ install(DIRECTORY cmake DESTINATION share/${PROJECT_NAME})
+-
+-ament_package(CONFIG_EXTRAS zstd_vendor-extras.cmake)
+diff --git a/cmake_minimum_required_2.8.12.patch b/cmake_minimum_required_2.8.12.patch
+deleted file mode 100644
+index 939252df..00000000
+--- a/cmake_minimum_required_2.8.12.patch
++++ /dev/null
+@@ -1,26 +0,0 @@
+-From eca046fb11a29fa9ace41844f7797bc4e21540ac Mon Sep 17 00:00:00 2001
+-From: Emerson Knapp <eknapp@amazon.com>
+-Date: Fri, 4 Dec 2020 17:07:23 -0800
+-Subject: [PATCH] Update cmake_minimum_required to 2.8.12
+-
+-Signed-off-by: Emerson Knapp <eknapp@amazon.com>
+----
+- build/cmake/CMakeLists.txt | 2 +-
+- 1 file changed, 1 insertion(+), 1 deletion(-)
+-
+-diff --git a/build/cmake/CMakeLists.txt b/build/cmake/CMakeLists.txt
+-index 9d0e7fb0..20df1dcf 100644
+---- a/build/cmake/CMakeLists.txt
+-+++ b/build/cmake/CMakeLists.txt
+-@@ -7,7 +7,7 @@
+- # in the COPYING file in the root directory of this source tree).
+- # ################################################################
+- 
+--cmake_minimum_required(VERSION 2.8.9 FATAL_ERROR)
+-+cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+-   
+- # As of 2018-12-26 ZSTD has been validated to build with cmake version 3.13.2 new policies. 
+- # Set and use the newest cmake policies that are validated to work 
+--- 
+-2.17.1
+-
+diff --git a/no_internal_headers.patch b/no_internal_headers.patch
+deleted file mode 100644
+index 10793892..00000000
+--- a/no_internal_headers.patch
++++ /dev/null
+@@ -1,28 +0,0 @@
+-From f1153100884e580dce331e8dd56b260ffb2f04d5 Mon Sep 17 00:00:00 2001
+-From: Emerson Knapp <eknapp@amazon.com>
+-Date: Tue, 2 Feb 2021 17:47:46 -0800
+-Subject: [PATCH] Don't install internal headers
+-
+-Signed-off-by: Emerson Knapp <eknapp@amazon.com>
+----
+- build/cmake/lib/CMakeLists.txt | 4 ----
+- 1 file changed, 4 deletions(-)
+-
+-diff --git a/build/cmake/lib/CMakeLists.txt b/build/cmake/lib/CMakeLists.txt
+-index 7adca875..0c2d777e 100644
+---- a/build/cmake/lib/CMakeLists.txt
+-+++ b/build/cmake/lib/CMakeLists.txt
+-@@ -147,10 +147,6 @@ endif ()
+- # install target
+- install(FILES
+-     ${LIBRARY_DIR}/zstd.h
+--    ${LIBRARY_DIR}/deprecated/zbuff.h
+--    ${LIBRARY_DIR}/dictBuilder/zdict.h
+--    ${LIBRARY_DIR}/dictBuilder/cover.h
+--    ${LIBRARY_DIR}/common/zstd_errors.h
+-     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+- 
+- if (ZSTD_BUILD_SHARED)
+--- 
+-2.17.1
+-
