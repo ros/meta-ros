@@ -10,7 +10,7 @@ DEPENDS += "rosidl-cmake"
 
 # QA Issue: rcutils: Files/directories were installed but not shipped in any package
 PNQAFIX = "rosidl_generator_cpp"
-FILES:${PN}:prepend = " \
+FILES:${PN} = " \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-3.1.3-py3.9.egg-info \
 "
