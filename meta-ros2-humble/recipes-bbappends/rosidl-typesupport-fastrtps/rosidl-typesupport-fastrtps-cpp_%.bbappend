@@ -9,7 +9,7 @@ ROS_BUILD_DEPENDS += " \
 #
 # NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)
 #
-FILES:${PN}:prepend = " \
+FILES:${PN} = " \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rosidl_typesupport_fastrtps_cpp \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rosidl_typesupport_fastrtps_cpp-2.2.0-py3.9.egg-info \
 "

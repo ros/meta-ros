@@ -13,8 +13,7 @@ DEPENDS += "rosidl-cmake"
 # NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)
 #
 PNQAFIX = "rosidl_generator_c"
-
-FILES:${PN}:prepend = " \
+FILES:${PN} += " \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-3.1.3-py3.9.egg-info \
 "

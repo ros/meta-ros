@@ -12,7 +12,7 @@ DEPENDS += "rosidl-cmake"
 #
 PNQAFIX = "rosidl_typesupport_cpp"
 
-FILES:${PN}:prepend = " \
+FILES:${PN} = " \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-2.0.0-py3.9.egg-info \
 "

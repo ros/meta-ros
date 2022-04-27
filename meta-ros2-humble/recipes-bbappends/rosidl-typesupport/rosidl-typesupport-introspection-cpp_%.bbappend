@@ -6,7 +6,7 @@
 #
 PNQAFIX = "rosidl_typesupport_introspection_cpp"
 
-FILES:${PN}:prepend = " \
+FILES:${PN} = " \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-3.1.3-py3.9.egg-info \
 "
