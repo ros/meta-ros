@@ -14,3 +14,7 @@ FILES:${PN} = " \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-2.0.0-py3.9.egg-info \
 "
+
+# rosidl-typesupport-c: Files/directories were installed but not shipped in any package:
+#   /usr/lib/librosidl_typesupport_c.so
+FILES:${PN} += "${libdir}/lib*${SOLIBSDEV}"

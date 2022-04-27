@@ -10,3 +10,7 @@ FILES:${PN} = " \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-3.1.3-py3.9.egg-info \
 "
+
+# QA Issue: rosidl-typesupport-introspection-cpp: Files/directories were installed but not shipped in any package:
+#   /usr/lib/librosidl_typesupport_introspection_cpp.so
+FILES:${PN} += "${libdir}/lib*${SOLIBSDEV}"
