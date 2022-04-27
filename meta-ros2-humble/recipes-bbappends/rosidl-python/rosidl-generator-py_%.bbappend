@@ -16,6 +16,6 @@ SRC_URI += "file://0001-Revert-Install-generated-Python-interfaces-in-a-Pyth.pat
 PNQAFIX = "rosidl_generator_py"
 
 FILES:${PN}:prepend = " \
-    ${WORKDIR}/recipe-sysroot-native/usr/lib/python3.9/site-packages/${PNQAFIX} \
-    ${WORKDIR}/recipe-sysroot-native/usr/lib/python3.9/site-packages/${PNQAFIX}-0.14.2-py3.9.egg-info \
+    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
+    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-0.14.2-py3.9.egg-info \
 "
