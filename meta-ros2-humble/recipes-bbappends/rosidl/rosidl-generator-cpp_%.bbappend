@@ -8,6 +8,7 @@ DEPENDS += "rosidl-runtime-c"
 # exported in rosidl_generator_c/cmake/ament_cmake_export_dependencies-extras.cmake
 DEPENDS += "rosidl-cmake"
 
+# QA Issue: rcutils: Files/directories were installed but not shipped in any package
 PNQAFIX = "rosidl_generator_cpp"
 FILES:${PN}:prepend = " \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \

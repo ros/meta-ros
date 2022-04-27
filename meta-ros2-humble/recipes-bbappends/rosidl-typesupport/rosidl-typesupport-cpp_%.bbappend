@@ -13,6 +13,6 @@ DEPENDS += "rosidl-cmake"
 PNQAFIX = "rosidl_typesupport_cpp"
 
 FILES:${PN}:prepend = " \
-    ${WORKDIR}/recipe-sysroot-native/usr/lib/python3.9/site-packages/${PNQAFIX} \
-    ${WORKDIR}/recipe-sysroot-native/usr/lib/python3.9/site-packages/${PNQAFIX}-2.0.0-py3.9.egg-info \
+    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
+    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-2.0.0-py3.9.egg-info \
 "

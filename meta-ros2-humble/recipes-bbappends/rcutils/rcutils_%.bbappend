@@ -16,6 +16,6 @@ DEPENDS:remove:class-native = "gcc-runtime-native gcc-runtime"
 
 # ERROR: rcutils-5.1.1-1-r0 do_package: QA Issue: rcutils: Files/directories were installed but not shipped in any package
 FILES:${PN}:prepend = " \
-    ${WORKDIR}/recipe-sysroot-native/usr/lib/python3.9/site-packages/rcutils \
-    ${WORKDIR}/recipe-sysroot-native/usr/lib/python3.9/site-packages/rcutils-5.1.1-py3.9.egg-info \
+    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rcutils \
+    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rcutils-5.1.1-py3.9.egg-info \
 "
