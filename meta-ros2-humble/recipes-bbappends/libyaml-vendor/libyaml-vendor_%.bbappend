@@ -1,4 +1,5 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
+# Copyright (c) 2022 Acceleration Robotics S.L. <contact@accelerationrobotics.com>
 
 DEPENDS += "libyaml"
 
@@ -8,6 +9,15 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 # "
 
 inherit pkgconfig
+
+# QA Issue: libyaml-vendor: Files/directories were installed but not shipped in any package:
+#   /usr/cmake
+#   /usr/cmake/yamlConfig.cmake
+#   /usr/cmake/yamlTargets.cmake
+#   /usr/cmake/yamlConfigVersion.cmake
+#   /usr/cmake/yamlTargets-noconfig.cmake
+#
+FILES:${PN}-dev += "${prefix}/cmake"
 
 # Instead of fetching
 # https://github.com/yaml/libyaml/archive/refs/tags/0.2.5.zip
