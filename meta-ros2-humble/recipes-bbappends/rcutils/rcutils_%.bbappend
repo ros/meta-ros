@@ -19,3 +19,9 @@ FILES:${PN} = " \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rcutils \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rcutils-5.1.1-py3.9.egg-info \
 "
+
+# QA Issue: rcutils: Files/directories were installed but not shipped in any package:
+#   /usr/lib/librcutils.so
+FILES:${PN} += "${libdir}/lib*${SOLIBSDEV}"
+# FILES:${PN} += "${libdir}/lib*${SOLIBS}"
+# FILES:${PN}-dev += "${libdir}/lib*${SOLIBSDEV}"
