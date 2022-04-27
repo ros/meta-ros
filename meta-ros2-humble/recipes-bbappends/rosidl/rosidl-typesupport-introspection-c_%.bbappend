@@ -8,3 +8,7 @@ FILES:${PN} = " \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rosidl_typesupport_introspection_c \
     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rosidl_typesupport_introspection_c-3.1.3-py3.9.egg-info \
 "
+
+# QA Issue: rosidl-typesupport-introspection-c: Files/directories were installed but not shipped in any package:
+#   /usr/lib/librosidl_typesupport_introspection_c.so
+FILES:${PN} += "${libdir}/lib*${SOLIBSDEV}"
