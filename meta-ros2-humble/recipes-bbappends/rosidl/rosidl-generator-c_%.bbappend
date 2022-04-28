@@ -18,4 +18,4 @@ DEPENDS += "rosidl-cmake"
 #     ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-3.1.3-py3.9.egg-info \
 # "
 
-INSANE_SKIP += "installed-vs-shipped"
+INSANE_SKIP:${PN} += " installed-vs-shipped"
