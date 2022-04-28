@@ -1,4 +1,5 @@
 # Copyright (c) 2021 LG Electronics, Inc.
+# Copyright (c) 2022 Acceleration Robotics S.L. <contact@accelerationrobotics.com>
 
 # ERROR: iceoryx-posh-0.99.7-1-r0 do_package: QA Issue: iceoryx-posh: Files/directories were installed but not shipped in any package:
 #  /usr/etc
