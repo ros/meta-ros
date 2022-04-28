@@ -1,0 +1,37 @@
+From 4cfd4f3ffc70e834668076906d580a1a9b4350ef Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?V=C3=ADctor=20Mayoral=20Vilches?= <v.mayoralv@gmail.com>
+Date: Thu, 28 Apr 2022 08:50:40 +0200
+Subject: [PATCH] [PATCH] CMakeLists.txt: fetch libyaml with bitbake fetcher
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Inspired by Martin Jansa's original patch
+
+Signed-off-by: Víctor Mayoral Vilches <v.mayoralv@gmail.com>
+---
+ CMakeLists.txt | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 05f5ff1..3de3940 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -61,13 +61,7 @@ macro(build_libyaml)
+   endif()
+   include(ExternalProject)
+   externalproject_add(libyaml-0.2.5
+-    GIT_REPOSITORY https://github.com/yaml/libyaml.git
+-    GIT_TAG 2c891fc7a770e8ba2fec34fc6b545c672beb37e6  # 0.2.5
+-    GIT_CONFIG advice.detachedHead=false
+-    # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
+-    # See https://github.com/ament/uncrustify_vendor/pull/22 for details
+-    UPDATE_COMMAND ""
+-    TIMEOUT 600
++    SOURCE_DIR ${CMAKE_SOURCE_DIR}/libyaml-upstream
+     CMAKE_ARGS
+       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/libyaml_install
+       -DINSTALL_INCLUDE_DIR:STRING=include/${PROJECT_NAME}
+-- 
+2.34.1
+
