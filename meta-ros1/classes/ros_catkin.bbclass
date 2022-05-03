@@ -8,7 +8,7 @@ inherit ros_faulty_solibs
 # ROS_PYTHON_VERSION is usually set in generated/superflore-ros-distro.inc, but
 # in case superflore-ros-distro.inc isn't included default to 3
 ROS_PYTHON_VERSION ?= "3"
-inherit ${@'distutils3-base' if d.getVar('ROS_PYTHON_VERSION') == '3' else 'distutils-base'}
+inherit ${@'setuptools3-base' if d.getVar('ROS_PYTHON_VERSION') == '3' else 'distutils-base'}
 
 # noetic often provides python scripts which use "/usr/bin/env python" or "/usr/bin/python" shebang
 # while we want to install only python3 in the images and no /usr/bin/python symlink (as it cannot
