@@ -78,4 +78,6 @@ Layers = [
 BblayersConfExtraLines = ['MCF_DISTRO ?= "' + OE_Distribution + '"',
                           'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
                           'MCF_OPENEMBEDDED_VERSION ?= "' + OpenEmbeddedVersion + '"',
+                          # Remove once the pin of [meta-oe] includes commit a750888a40a7e2f967dfd32ce7a6953dc6bf10f2:
+                          'SRC_URI:pn-snappy = "gitsm://github.com/google/snappy.git;protocol=https;branch=main file://0001-Add-inline-with-SNAPPY_ATTRIBUTE_ALWAYS_INLINE.patch"',
                          ]
