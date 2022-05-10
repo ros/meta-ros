@@ -4,6 +4,12 @@
 ROS_BUILD_DEPENDS:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'rosidl-typesupport-connext-c', '', d)}"
 ROS_BUILD_DEPENDS:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opensplice', 'rosidl-typesupport-opensplice-c', '', d)}"
 
+# Deal with CMake Error while building recipe
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += " \
+    file://0001-Deal-with-downstream-recipe-build-errors.patch \
+"
+
 # ERROR: do_package: Files/directories were installed but not shipped in any package
 #
 # NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)

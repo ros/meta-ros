@@ -8,6 +8,12 @@ DEPENDS += "rosidl-runtime-c"
 # exported in rosidl_generator_c/cmake/ament_cmake_export_dependencies-extras.cmake
 DEPENDS += "rosidl-cmake"
 
+# Deal with CMake Error while building recipe
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += " \
+    file://0001-Deal-with-errors-downstream.patch \
+"
+
 # QA Issue: rcutils: Files/directories were installed but not shipped in any package
 PNQAFIX = "rosidl_generator_cpp"
 FILES:${PN} = " \
