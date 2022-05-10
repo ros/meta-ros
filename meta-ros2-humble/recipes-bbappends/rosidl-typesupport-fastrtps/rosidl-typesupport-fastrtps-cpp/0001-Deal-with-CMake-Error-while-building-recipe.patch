@@ -1,0 +1,28 @@
+From 3752c09bf9f8d4f94939d5733c345729ed411461 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?V=C3=ADctor=20Mayoral=20Vilches?= <v.mayoralv@gmail.com>
+Date: Tue, 10 May 2022 18:20:23 +0200
+Subject: [PATCH] Deal with CMake Error while building recipe
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Víctor Mayoral Vilches <v.mayoralv@gmail.com>
+---
+ cmake/rosidl_typesupport_fastrtps_cpp_generate_interfaces.cmake | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/cmake/rosidl_typesupport_fastrtps_cpp_generate_interfaces.cmake b/cmake/rosidl_typesupport_fastrtps_cpp_generate_interfaces.cmake
+index 46c2e2a..dbd8fbf 100644
+--- a/cmake/rosidl_typesupport_fastrtps_cpp_generate_interfaces.cmake
++++ b/cmake/rosidl_typesupport_fastrtps_cpp_generate_interfaces.cmake
+@@ -60,7 +60,6 @@ endforeach()
+ # Create a list of templates and source files this generator uses, and check that they exist
+ set(target_dependencies
+   "${rosidl_typesupport_fastrtps_cpp_BIN}"
+-  ${rosidl_typesupport_fastrtps_cpp_GENERATOR_FILES}
+   "${rosidl_typesupport_fastrtps_cpp_TEMPLATE_DIR}/idl__rosidl_typesupport_fastrtps_cpp.hpp.em"
+   "${rosidl_typesupport_fastrtps_cpp_TEMPLATE_DIR}/idl__type_support.cpp.em"
+   "${rosidl_typesupport_fastrtps_cpp_TEMPLATE_DIR}/msg__rosidl_typesupport_fastrtps_cpp.hpp.em"
+-- 
+2.34.1
+
