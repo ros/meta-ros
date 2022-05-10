@@ -1,0 +1,33 @@
+From 2991784a891290ee35f8e1fe1580636d55e19c3e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?V=C3=ADctor=20Mayoral=20Vilches?= <v.mayoralv@gmail.com>
+Date: Tue, 10 May 2022 15:39:38 +0200
+Subject: [PATCH] honister, dependency error
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+| CMake Error at /home/xilinx/xilinx-k26-som-2022.1/build/tmp/work/cortexa72-cortexa53-xilinx-linux/builtin-interfaces/1.2.0-2-r0/recipe-sysroot/usr/share/rosidl_generator_c/cmake/rosidl_generator_c_generate_interfaces.cmake:69 (message):
+|   Target dependency
+|   '/home/xilinx/xilinx-k26-som-2022.1/build/tmp/work/cortexa72-cortexa53-xilinx-linux/builtin-interfaces/1.2.0-2-r0/recipe-sysroot/usr/share/rosidl_generator_c/cmake/../../../../home/xilinx/xilinx-k26-som-2022.1/build/tmp/work/cortexa72-cortexa53-xilinx-linux/builtin-interfaces/1.2.0-2-r0/recipe-sysroot-native/usr/lib/python3.9/site-packages/rosidl_generator_c/__init__.py'
+|   does not exist
+
+Signed-off-by: Víctor Mayoral Vilches <v.mayoralv@gmail.com>
+---
+ cmake/rosidl_generator_c_generate_interfaces.cmake | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/cmake/rosidl_generator_c_generate_interfaces.cmake b/cmake/rosidl_generator_c_generate_interfaces.cmake
+index 27d518b6..7e3425da 100644
+--- a/cmake/rosidl_generator_c_generate_interfaces.cmake
++++ b/cmake/rosidl_generator_c_generate_interfaces.cmake
+@@ -50,7 +50,6 @@ endforeach()
+ 
+ set(target_dependencies
+   "${rosidl_generator_c_BIN}"
+-  ${rosidl_generator_c_GENERATOR_FILES}
+   "${rosidl_generator_c_TEMPLATE_DIR}/action__type_support.h.em"
+   "${rosidl_generator_c_TEMPLATE_DIR}/idl.h.em"
+   "${rosidl_generator_c_TEMPLATE_DIR}/idl__functions.c.em"
+-- 
+2.34.1
+

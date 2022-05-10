@@ -8,8 +8,13 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp \
 "
 
-# NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)
+# Deal with CMake Error while building recipe
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += " \
+    file://0001-Deal-with-CMake-Error-while-building-recipe.patch \
+"
 
+# NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)
 PNQAFIX = "rosidl_typesupport_fastrtps_c"
 FILES:${PN} = " \
    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \

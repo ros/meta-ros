@@ -5,6 +5,12 @@ ROS_BUILD_DEPENDS += " \
     fastcdr \
 "
 
+# Deal with CMake Error while building recipe
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += " \
+    file://0001-Deal-with-CMake-Error-while-building-recipe.patch \
+"
+
 # ERROR: do_package: QA Issue: rosidl-adapter: Files/directories were installed but not shipped in any package
 #
 # NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)
