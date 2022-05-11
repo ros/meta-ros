@@ -10,5 +10,5 @@ inherit ros_insane_dev_so
 
 DEPENDS += "cyclonedds-native"
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+# FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 # SRC_URI += "file://0001-ddsconf-install-ddsconf-to-be-used-in-target-cyclone.patch"
