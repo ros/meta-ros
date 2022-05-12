@@ -17,5 +17,5 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = ""
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-rolling-pybind11-vendor-don-t-build-pybind11-use-pla.patch"
+# FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+# SRC_URI += "file://0001-rolling-pybind11-vendor-don-t-build-pybind11-use-pla.patch"
