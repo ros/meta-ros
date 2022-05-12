@@ -1,4 +1,5 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) 2022 Acceleration Robotics S.L. <contact@accelerationrobotics.com>
 
 DESCRIPTION = "Wrapper around yaml-cpp, it provides a fixed CMake module."
 
@@ -6,5 +7,5 @@ DESCRIPTION = "Wrapper around yaml-cpp, it provides a fixed CMake module."
 # commit changes, the patch will not apply cleanly and we'll know we need to update the .bbappend for yaml-cpp.
 DEPENDS += "yaml-cpp"
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-Use-platform-yaml-cpp.patch"
+# FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+# SRC_URI += "file://0001-Use-platform-yaml-cpp.patch"
