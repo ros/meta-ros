@@ -1,4 +1,5 @@
 # Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2022 Acceleration Robotics S.L. <contact@accelerationrobotics.com>
 
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-parser-native \
@@ -25,3 +26,10 @@ ROS_BUILD_DEPENDS += " \
 "
 
 #inherit python3native
+
+# ERROR: do_package: Files/directories were installed but not shipped in any package
+#
+PNQAFIX = "rmw_dds_common"
+FILES:${PN} += " \
+    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
+"
