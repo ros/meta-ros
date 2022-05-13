@@ -1,0 +1,50 @@
+From 3c219390cf625a8c838c42151f86098559030dfb Mon Sep 17 00:00:00 2001
+From: Windel Bouwman <windel@windel.nl>
+Date: Fri, 13 May 2022 13:44:09 +0200
+Subject: [PATCH] Use cmake Thread package to find proper threading library.
+
+---
+ utilite/CMakeLists.txt     | 2 +-
+ utilite/src/CMakeLists.txt | 5 ++---
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/utilite/CMakeLists.txt b/utilite/CMakeLists.txt
+index 39caf123..fdc8f8cb 100644
+--- a/utilite/CMakeLists.txt
++++ b/utilite/CMakeLists.txt
+@@ -2,7 +2,7 @@ SET(UTILITE_VERSION "0.3.0")
+ ADD_DEFINITIONS(-DUTILITE_VERSION="${UTILITE_VERSION}")
+ 
+ if(UNIX AND NOT ANDROID)
+-   FIND_PACKAGE(Pthreads REQUIRED)
++   FIND_PACKAGE(Threads REQUIRED)
+ ENDIF(UNIX AND NOT ANDROID)
+ 
+ ADD_SUBDIRECTORY( src )
+diff --git a/utilite/src/CMakeLists.txt b/utilite/src/CMakeLists.txt
+index f174fc2a..351bfd1a 100644
+--- a/utilite/src/CMakeLists.txt
++++ b/utilite/src/CMakeLists.txt
+@@ -15,7 +15,6 @@ SET(SRC_FILES
+ 
+ SET(INCLUDE_DIRS
+ 	${CMAKE_CURRENT_SOURCE_DIR}/../include
+-	${PTHREADS_INCLUDE_DIR}
+ )
+ 
+ # Make sure the compiler can find include files from our library.
+@@ -23,12 +22,12 @@ INCLUDE_DIRECTORIES(${INCLUDE_DIRS})
+ 
+ ADD_LIBRARY(rtabmap_utilite ${SRC_FILES})
+ IF(MINGW)
+-    TARGET_LINK_LIBRARIES(rtabmap_utilite ${PTHREADS_LIBRARY} "-lpsapi")
++    TARGET_LINK_LIBRARIES(rtabmap_utilite Threads::Threads "-lpsapi")
+ ELSEIF(WIN32 OR MSVC)
+ 	FIND_LIBRARY(PSAPI_LIBRARIES NAMES psapi libpsapi.dll.a libpsapi.a libpsapi.lib )
+ 	TARGET_LINK_LIBRARIES(rtabmap_utilite ${PSAPI_LIBRARIES})
+ ELSE()
+-    TARGET_LINK_LIBRARIES(rtabmap_utilite ${PTHREADS_LIBRARY})
++    TARGET_LINK_LIBRARIES(rtabmap_utilite Threads::Threads)
+ ENDIF()
+ 
+ 

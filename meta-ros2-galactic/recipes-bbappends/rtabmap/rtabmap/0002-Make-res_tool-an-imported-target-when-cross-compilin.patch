@@ -1,0 +1,103 @@
+From 7beffec460c59d51911114180b6291a606ff5ac1 Mon Sep 17 00:00:00 2001
+From: Windel Bouwman <windel@windel.nl>
+Date: Fri, 13 May 2022 15:10:52 +0200
+Subject: [PATCH] Make res_tool an imported target when cross compiling.
+
+---
+ corelib/src/CMakeLists.txt                | 30 ++++++-----------------
+ utilite/CMakeLists.txt                    |  4 +--
+ utilite/resource_generator/CMakeLists.txt | 25 ++++++++++++++++++-
+ 3 files changed, 32 insertions(+), 27 deletions(-)
+
+diff --git a/corelib/src/CMakeLists.txt b/corelib/src/CMakeLists.txt
+index 25d5e2d2..8c624c0e 100644
+--- a/corelib/src/CMakeLists.txt
++++ b/corelib/src/CMakeLists.txt
+@@ -697,29 +697,13 @@ endforeach(arg ${RESOURCES})
+ #MESSAGE(STATUS "RESOURCES = ${RESOURCES}")
+ #MESSAGE(STATUS "RESOURCES_HEADERS = ${RESOURCES_HEADERS}")
+ 
+-IF(ANDROID)
+-
+-   IF(NOT RTABMAP_RES_TOOL)
+-      find_host_program(RTABMAP_RES_TOOL rtabmap-res_tool PATHS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+-      IF(NOT RTABMAP_RES_TOOL)
+-         MESSAGE( FATAL_ERROR "RTABMAP_RES_TOOL is not defined (it is the path to \"rtabmap-res_tool\" application created by a non-Android build)." )
+-      ENDIF(NOT RTABMAP_RES_TOOL)
+-   ENDIF(NOT RTABMAP_RES_TOOL)
+-
+-   ADD_CUSTOM_COMMAND(
+-      OUTPUT ${RESOURCES_HEADERS}
+-      COMMAND ${RTABMAP_RES_TOOL} -n rtabmap -p ${CMAKE_CURRENT_BINARY_DIR} ${RESOURCES}
+-      COMMENT "[Creating resources]"
+-      DEPENDS ${RESOURCES}
+-   )
+-ELSE()
+-   ADD_CUSTOM_COMMAND(
+-      OUTPUT ${RESOURCES_HEADERS}
+-      COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/rtabmap-res_tool -n rtabmap -p ${CMAKE_CURRENT_BINARY_DIR} ${RESOURCES}
+-      COMMENT "[Creating resources]"
+-      DEPENDS ${RESOURCES} res_tool
+-   )
+-ENDIF()
++ADD_CUSTOM_COMMAND(
++	OUTPUT ${RESOURCES_HEADERS}
++	COMMAND res_tool -n rtabmap -p ${CMAKE_CURRENT_BINARY_DIR} ${RESOURCES}
++	COMMENT "[Creating resources]"
++	DEPENDS ${RESOURCES}
++)
++
+ 
+ ####################################
+ # Generate resources files END
+diff --git a/utilite/CMakeLists.txt b/utilite/CMakeLists.txt
+index fdc8f8cb..7cd22ef5 100644
+--- a/utilite/CMakeLists.txt
++++ b/utilite/CMakeLists.txt
+@@ -7,6 +7,4 @@ ENDIF(UNIX AND NOT ANDROID)
+ 
+ ADD_SUBDIRECTORY( src )
+ 
+-IF(NOT MOBILE_BUILD)
+-   ADD_SUBDIRECTORY( resource_generator )
+-ENDIF(NOT MOBILE_BUILD)
++ADD_SUBDIRECTORY( resource_generator )
+diff --git a/utilite/resource_generator/CMakeLists.txt b/utilite/resource_generator/CMakeLists.txt
+index 40489b14..b27fedd6 100644
+--- a/utilite/resource_generator/CMakeLists.txt
++++ b/utilite/resource_generator/CMakeLists.txt
+@@ -1,4 +1,25 @@
+ 
++if (CMAKE_CROSSCOMPILING OR ANDROID OR IOS)
++    # See this page about tools being required in the build:
++    # https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/CrossCompiling#using-executables-in-the-build-created-during-the-build
++
++    # Some ideas there were used, not all.
++    # The target named 'res_tool' can be used elsewhere in all cases, when cross compiling or not.
++
++    IF(NOT RTABMAP_RES_TOOL)
++        FIND_PROGRAM(RTABMAP_RES_TOOL  ${PROJECT_PREFIX}-res_tool)
++        IF(NOT RTABMAP_RES_TOOL)
++            MESSAGE( FATAL_ERROR "RTABMAP_RES_TOOL is not defined (it is the path to \"rtabmap-res_tool\" application created by a non-Android build)." )
++        ENDIF(NOT RTABMAP_RES_TOOL)
++    ENDIF()
++
++    MESSAGE(STATUS "Using res_tool at ${RTABMAP_RES_TOOL}")
++
++    ADD_EXECUTABLE(res_tool IMPORTED GLOBAL)
++    SET_TARGET_PROPERTIES(res_tool PROPERTIES IMPORTED_LOCATION "${RTABMAP_RES_TOOL}")
++
++else()
++
+ SET(SRC_FILES
+     main.cpp
+ )
+@@ -25,4 +46,6 @@ PROPERTIES
+ 
+ INSTALL(TARGETS res_tool
+ 		RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT runtime
+-		BUNDLE DESTINATION "${CMAKE_BUNDLE_LOCATION}" COMPONENT runtime)
+\ No newline at end of file
++		BUNDLE DESTINATION "${CMAKE_BUNDLE_LOCATION}" COMPONENT runtime)
++
++endif()

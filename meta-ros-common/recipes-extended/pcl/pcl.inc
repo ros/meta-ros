@@ -29,10 +29,14 @@ EXTRA_OECMAKE += "\
   -DWITH_VTK=FALSE \
   -DWITH_PCAP=FALSE \
   -DWITH_OPENGL=FALSE \
+  -DCMAKE_BUILD_TYPE=Release \
 "
 
 #Setting -ffloat-store to alleviate 32bit vs 64bit discrepancies on non-SSE platforms.
 CXXFLAGS += "${@bb.utils.contains("TARGET_CC_ARCH", "-mfpmath=sse", "", "-ffloat-store", d)}"
+
+# Reduce the amount of warnings:
+CXXFLAGS += "-DBOOST_BIND_GLOBAL_PLACEHOLDERS"
 
 inherit cmake
 
