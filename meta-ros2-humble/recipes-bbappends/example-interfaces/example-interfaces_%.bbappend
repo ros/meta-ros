@@ -15,3 +15,10 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
 "
+
+# ERROR: do_package: Files/directories were installed but not shipped in any package
+#
+PNQAFIX = "example_interfaces"
+FILES:${PN} += " \
+    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
+"
