@@ -22,9 +22,10 @@ SRC_URI += " \
 # NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)
 #
 PNQAFIX = "rosidl_generator_c"
-FILES:${PN} += " \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-3.1.3-py3.9.egg-info \
-"
+do_install:append() {
+    mkdir -p ${D}${libdir}/python3.9/site-packages/
+    mv ${D}${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}* ${D}${libdir}/python3.9/site-packages/
+    rm -r ${D}/home
+}
 
 # # INSANE_SKIP:${PN} += " installed-vs-shipped"
