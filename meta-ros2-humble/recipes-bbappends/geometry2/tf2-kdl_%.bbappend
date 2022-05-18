@@ -3,7 +3,8 @@
 # ERROR: do_package: Files/directories were installed but not shipped in any package
 #
 PNQAFIX = "tf2_kdl"
-FILES:${PN} += " \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-0.25.0-py3.9.egg-info \    
-"
+do_install:append() {
+    mkdir -p ${D}${libdir}/python3.9/site-packages/
+    mv ${D}${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}* ${D}${libdir}/python3.9/site-packages/
+    rm -r ${D}/home
+}

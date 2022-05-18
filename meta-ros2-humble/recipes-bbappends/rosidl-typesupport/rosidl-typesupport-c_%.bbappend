@@ -15,11 +15,11 @@ SRC_URI += " \
 # NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)
 #
 PNQAFIX = "rosidl_typesupport_c"
-
-FILES:${PN} = " \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-2.0.0-py3.9.egg-info \
-"
+do_install:append() {
+    mkdir -p ${D}${libdir}/python3.9/site-packages/
+    mv ${D}${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}* ${D}${libdir}/python3.9/site-packages/
+    rm -r ${D}/home
+}
 
 # rosidl-typesupport-c: Files/directories were installed but not shipped in any package:
 #   /usr/lib/librosidl_typesupport_c.so
