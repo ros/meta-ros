@@ -3,7 +3,8 @@
 # ERROR: do_package: Files/directories were installed but not shipped in any package
 #
 PNQAFIX = "rosidl_generator_dds_idl"
-FILES:${PN} += " \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX} \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}-0.8.1-py3.9.egg-info \    
-"
+do_install:append() {
+    mkdir -p ${D}${libdir}/python3.9/site-packages/
+    mv ${D}${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}* ${D}${libdir}/python3.9/site-packages/
+    rm -r ${D}/home
+}
