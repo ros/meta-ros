@@ -15,10 +15,11 @@ ROS_EXEC_DEPENDS:append-class-target = " libatomic"
 DEPENDS:remove:class-native = "gcc-runtime-native gcc-runtime"
 
 # ERROR: rcutils-5.1.1-1-r0 do_package: QA Issue: rcutils: Files/directories were installed but not shipped in any package
-FILES:${PN} = " \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rcutils \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rcutils-5.1.1-py3.9.egg-info \
-"
+do_install:append:class-target() {
+    mkdir -p ${D}/usr/lib/python3.9/site-packages/
+    mv ${D}${STAGING_DIR_NATIVE}/usr/lib/python3.9/site-packages/${ROS_BPN}* ${D}/usr/lib/python3.9/site-packages/
+    rm -r ${D}/home
+}
 
 # QA Issue: rcutils: Files/directories were installed but not shipped in any package:
 #   /usr/lib/librcutils.so
