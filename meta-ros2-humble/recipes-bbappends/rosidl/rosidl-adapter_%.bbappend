@@ -4,8 +4,13 @@
 ROS_BUILD_DEPENDS:remove = "ament-cmake"
 ROS_BUILDTOOL_DEPENDS += "ament-cmake-native"
 
-# ERROR: rosidl-adapter-3.1.3-1-r0 do_package: QA Issue: rosidl-adapter: Files/directories were installed but not shipped in any package
-FILES:${PN} = " \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rosidl_adapter-3.1.3-py3.9.egg-info \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rosidl_adapter \
+ROS_BUILD_DEPENDS += " \
+    ament-cmake-test \
 "
+
+# ERROR: rosidl-adapter-3.1.3-1-r0 do_package: QA Issue: rosidl-adapter: Files/directories were installed but not shipped in any package
+do_install:append:class-target() {
+    mkdir -p ${D}/usr/lib/python3.9/site-packages/
+    mv ${D}${STAGING_DIR_NATIVE}/usr/lib/python3.9/site-packages/${ROS_BPN}* ${D}/usr/lib/python3.9/site-packages/
+    rm -r ${D}/home
+}

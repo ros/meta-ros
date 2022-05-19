@@ -14,10 +14,9 @@ SRC_URI += " \
 #
 # NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)
 #
-PNQAFIX = "rosidl_typesupport_c"
-do_install:append() {
-    mkdir -p ${D}${libdir}/python3.9/site-packages/
-    mv ${D}${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}* ${D}${libdir}/python3.9/site-packages/
+do_install:append:class-target() {
+    mkdir -p ${D}/usr/lib/python3.9/site-packages/
+    mv ${D}${STAGING_DIR_NATIVE}/usr/lib/python3.9/site-packages/${ROS_BPN}* ${D}/usr/lib/python3.9/site-packages/
     rm -r ${D}/home
 }
 
