@@ -15,9 +15,8 @@ SRC_URI += " \
 "
 
 # QA Issue: rcutils: Files/directories were installed but not shipped in any package
-PNQAFIX = "rosidl_generator_cpp"
-do_install:append() {
-    mkdir -p ${D}${libdir}/python3.9/site-packages/
-    mv ${D}${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/${PNQAFIX}* ${D}${libdir}/python3.9/site-packages/
+do_install:append:class-target() {
+    mkdir -p ${D}/usr/lib/python3.9/site-packages/
+    mv ${D}${STAGING_DIR_NATIVE}/usr/lib/python3.9/site-packages/${ROS_BPN}* ${D}/usr/lib/python3.9/site-packages/
     rm -r ${D}/home
 }

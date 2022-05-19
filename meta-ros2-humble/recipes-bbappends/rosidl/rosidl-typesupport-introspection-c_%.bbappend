@@ -10,10 +10,11 @@ SRC_URI += " \
 #
 # NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)
 #
-FILES:${PN} = " \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rosidl_typesupport_introspection_c \
-    ${STAGING_DIR_NATIVE}${libdir}/python3.9/site-packages/rosidl_typesupport_introspection_c-3.1.3-py3.9.egg-info \
-"
+do_install:append:class-target() {
+    mkdir -p ${D}/usr/lib/python3.9/site-packages/
+    mv ${D}${STAGING_DIR_NATIVE}/usr/lib/python3.9/site-packages/${ROS_BPN}* ${D}/usr/lib/python3.9/site-packages/
+    rm -r ${D}/home
+}
 
 # QA Issue: rosidl-typesupport-introspection-c: Files/directories were installed but not shipped in any package:
 #   /usr/lib/librosidl_typesupport_introspection_c.so
