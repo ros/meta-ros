@@ -17,10 +17,6 @@ ROS_BUILD_DEPENDS += " \
 # ERROR: image-geometry-3.0.3-2-r0 do_package: QA Issue: image-geometry: Files/directories were installed but not shipped in any package:
 #
 do_install:append:class-target() {
-    # echo "D=${D}"
-    # echo "WORKDIR=${WORKDIR}"
-    # echo "libdir=${libdir}"
-    # echo "STAGING_DIR_NATIVE=${STAGING_DIR_NATIVE}"
     mkdir -p ${D}/usr/lib/python3.9/site-packages/
     mv ${D}${STAGING_DIR_NATIVE}/usr/lib/python3.9/site-packages/${ROS_BPN}* ${D}/usr/lib/python3.9/site-packages/
     rm -r ${D}/home
