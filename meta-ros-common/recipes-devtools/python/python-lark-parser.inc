@@ -9,4 +9,4 @@ SRC_URI[sha256sum] = "f2d5ee2f90aa28d3f4034c30af7a0561a7e9860e911dba4f35faa440a3
 
 inherit pypi
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
