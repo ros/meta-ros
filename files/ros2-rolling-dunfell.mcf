@@ -50,7 +50,7 @@ OpenEmbeddedVersion = '3.1.12-25.1-dunfell'
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'https://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   OE_Branch)
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'ea3596dbc')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'dunfell/milestones/17')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
