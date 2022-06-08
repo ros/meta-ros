@@ -1,6 +1,9 @@
 # Copyright (c) 2020-2021 LG Electronics, Inc.
 # Copyright (c) 2022 Acceleration Robotics, S.L.
 
+# Fix for Honister release only:
+inherit distutils3-base
+
 ROS_EXPORT_DEPENDS += " \
     rosidl-generator-c \
     rosidl-typesupport-c \
@@ -13,13 +16,3 @@ SRC_URI += " \
 "
 # previous patch
 # file://0001-Revert-Install-generated-Python-interfaces-in-a-Pyth.patch
-
-# ERROR: do_package: Files/directories were installed but not shipped in any package
-#
-# NOTE: Can't use ${PN} in the additions below because of the "-" and "_" conflict (recipes and package names differ in this regard)
-#
-do_install:append:class-target() {
-    mkdir -p ${D}/usr/lib/python3.9/site-packages/
-    mv ${D}${STAGING_DIR_NATIVE}/usr/lib/python3.9/site-packages/${ROS_BPN}* ${D}/usr/lib/python3.9/site-packages/
-    rm -r ${D}/home
-}
