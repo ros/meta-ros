@@ -1,6 +1,8 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
 # Copyright (c) 2022 Acceleration Robotics S.L. <contact@accelerationrobotics.com>
 
+LICENSE = "EPL-2.0 & EDL-1.0"
+
 # IDLC depends on maven and we don't want meta-ros to depend on meta-java just for that
 inherit ros_insane_dev_so
 
