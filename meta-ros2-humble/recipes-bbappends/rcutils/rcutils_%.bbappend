@@ -1,6 +1,9 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2022 Acceleration Robotics, S.L.
 
+# Fix for Honister release only:
+inherit distutils3-base
+
 # libatomic is just one of the packages provided by gcc-runtime recipe
 # but gcc-runtime recipe doesn't have libatomic in PROVIDES, so we cannot map
 # libatomic in rosdep to libatomic (without adding libatomic to PROVIDES in gcc-runtime
@@ -13,13 +16,6 @@ ROS_EXEC_DEPENDS:remove = "gcc-runtime"
 ROS_EXEC_DEPENDS:append-class-target = " libatomic"
 # and also remove it from build time depends when buiding native rc-utils
 DEPENDS:remove:class-native = "gcc-runtime-native gcc-runtime"
-
-# ERROR: rcutils-5.1.1-1-r0 do_package: QA Issue: rcutils: Files/directories were installed but not shipped in any package
-do_install:append:class-target() {
-    mkdir -p ${D}/usr/lib/python3.9/site-packages/
-    mv ${D}${STAGING_DIR_NATIVE}/usr/lib/python3.9/site-packages/${ROS_BPN}* ${D}/usr/lib/python3.9/site-packages/
-    rm -r ${D}/home
-}
 
 # QA Issue: rcutils: Files/directories were installed but not shipped in any package:
 #   /usr/lib/librcutils.so
