@@ -6837,6 +6837,7 @@ pybind11-dev:
     '*': [pybind11-devel]
     '7': null
   ubuntu: [pybind11-dev]
+  openembedded: [python3-pybind11@meta-python]
 python-dev:
   debian: [python-dev]
   fedora: [python2-devel]
