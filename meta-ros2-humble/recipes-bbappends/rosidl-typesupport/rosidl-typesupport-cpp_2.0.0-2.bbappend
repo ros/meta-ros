@@ -1,0 +1,3 @@
+DEPENDS:append = " \
+    rosidl-cmake \
+"

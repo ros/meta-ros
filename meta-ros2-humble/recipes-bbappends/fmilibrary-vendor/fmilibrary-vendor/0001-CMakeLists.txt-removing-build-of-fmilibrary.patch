@@ -1,0 +1,44 @@
+From 8656681bdfe1f0c50d8b5f3493cfd35efe64082d Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Fri, 30 Sep 2022 12:07:22 +0200
+Subject: [PATCH] CMakeLists.txt: removing build of fmilibrary
+
+We are going to use the system package fmilibrary. Instead of
+writing a FindFMILibrary.cmake, we just DEPENDS on it an save some
+lines of code and implementation.
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeLists.txt | 20 +-------------------
+ 1 file changed, 1 insertion(+), 19 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index df8d628..c1b3f05 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,24 +3,6 @@ project(fmilibrary_vendor)
+ 
+ find_package(ament_cmake REQUIRED)
+ 
+-include(ExternalProject)
+-set(fmilibrary_version 2.2.3)
+-externalproject_add(FMILibraryProject-${fmilibrary_version}
+-  GIT_REPOSITORY https://github.com/modelon-community/fmi-library.git
+-  GIT_TAG ${fmilibrary_version}
+-  GIT_CONFIG advice.detachedHead=false
+-  # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
+-  UPDATE_COMMAND ""
+-  TIMEOUT 60
+-)
+-externalproject_get_property(FMILibraryProject-${fmilibrary_version} INSTALL_DIR)
+-set(FMILibraryProject_INCLUDE_DIR "${INSTALL_DIR}/src/install/include")
+-set(FMILibraryProject_LIB_DIR "${INSTALL_DIR}/src/install/lib")
+-
+-install(DIRECTORY ${FMILibraryProject_INCLUDE_DIR}/ DESTINATION include)
+-install(FILES ${FMILibraryProject_LIB_DIR}/libfmilib.a DESTINATION lib)
+-install(FILES ${FMILibraryProject_LIB_DIR}/libfmilib_shared.so DESTINATION lib)
+-
+ ament_export_include_directories(include)
+-ament_export_libraries(libfmilib.a libfmilib_shared.so)
++ament_export_libraries(libfmilib_shared.so)
+ ament_package()

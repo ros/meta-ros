@@ -1,0 +1,30 @@
+From 864e3c535f78342611642e7a3c9047cf01ac1cba Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Thu, 6 Oct 2022 19:48:51 +0200
+Subject: [PATCH] progress_bar.cpp: fix init of rclcpp::Duration
+
+Seems like the contructor has changed. Init is now done
+with the signature
+
+rclcpp::Duration::Duration(int32_t seconds, uint32_t nanoseconds)
+
+needed to compile with humble
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ src/progress_bar.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/progress_bar.cpp b/src/progress_bar.cpp
+index ece4ba2e4..c579c1aed 100644
+--- a/src/progress_bar.cpp
++++ b/src/progress_bar.cpp
+@@ -39,7 +39,7 @@ namespace swri_console_util
+       paused_(false),
+       percent_complete_(0),
+       start_time_(clock_.now()),
+-      paused_time_(0)
++      paused_time_(0,0)
+   {
+     SetupTerminal();
+   }

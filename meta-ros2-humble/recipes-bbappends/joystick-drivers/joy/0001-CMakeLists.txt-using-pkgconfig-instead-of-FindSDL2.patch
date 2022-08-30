@@ -1,0 +1,55 @@
+From 9eaa8ae8f52f5756474d565e40a617f963b80366 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Wed, 5 Oct 2022 17:16:16 +0200
+Subject: [PATCH] CMakeLists.txt: using pkgconfig instead of FindSDL2
+
+FindSDL2 relies on sdl2-config.cmake, which seems to be broken
+on honister (targets to /usr/lib). Therefore using pkgconfig
+to create a propper IMPORTED_TARGET.
+
+Upstreaming therefore not applicable, yocto specific :-(
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeLists.txt | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6170867..8eda87e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.16)
+ 
+ project(joy)
+ 
+@@ -13,8 +13,8 @@ endif()
+ find_package(ament_cmake_ros REQUIRED)
+ find_package(rclcpp REQUIRED)
+ find_package(rclcpp_components REQUIRED)
+-find_package(sdl2_vendor REQUIRED)
+-find_package(sdl2_custom REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(SDL2 REQUIRED IMPORTED_TARGET sdl2)
+ find_package(sensor_msgs REQUIRED)
+ 
+ add_library(joy SHARED src/joy.cpp)
+@@ -24,7 +24,7 @@ target_include_directories(joy PUBLIC
+ target_link_libraries(joy PUBLIC
+   rclcpp::rclcpp
+   ${sensor_msgs_TARGETS}
+-  SDL2::SDL2)
++  PkgConfig::SDL2)
+ target_link_libraries(joy PRIVATE
+   rclcpp_components::component)
+ 
+@@ -41,7 +41,7 @@ rclcpp_components_register_node(joy
+ add_executable(joy_enumerate_devices
+   src/joy_enumerate_devices.cpp)
+ target_link_libraries(joy_enumerate_devices
+-  SDL2::SDL2)
++  PkgConfig::SDL2)
+ 
+ install(TARGETS joy_enumerate_devices
+   DESTINATION lib/${PROJECT_NAME})

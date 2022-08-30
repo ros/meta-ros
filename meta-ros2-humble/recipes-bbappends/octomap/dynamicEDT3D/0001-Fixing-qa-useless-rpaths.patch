@@ -1,0 +1,26 @@
+From 2849088735ece81a3c04e7b5d61d0e63c4514f7b Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Fri, 7 Oct 2022 14:15:28 +0200
+Subject: [PATCH] Fixing qa: [useless-rpaths]
+
+Remove the setting of the rpath in cmake to avoid yocto qa:
+
+/usr/lib/libdynamicedt3d.so.1.9.8 contains probably-redundant RPATH /usr/lib [useless-rpaths]
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeModules/CompilerSettings.cmake | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeModules/CompilerSettings.cmake b/CMakeModules/CompilerSettings.cmake
+index 51f1ebee..cf14dd2a 100644
+--- a/CMakeModules/CompilerSettings.cmake
++++ b/CMakeModules/CompilerSettings.cmake
+@@ -33,7 +33,6 @@ ENDIF()
+ # (good to have and required with ROS)
+ set(CMAKE_SKIP_BUILD_RPATH  FALSE)
+ set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+-set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+ 
+ # no prefix needed for python modules

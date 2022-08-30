@@ -1,0 +1,183 @@
+From f817102a0bfe24706c62c774549914ff9ef3bd47 Mon Sep 17 00:00:00 2001
+From: Alberto Soragna <alberto.soragna@gmail.com>
+Date: Wed, 15 Sep 2021 11:03:07 +0200
+Subject: [PATCH] check if libyaml is already present before building it
+
+Signed-off-by: Alberto Soragna <alberto.soragna@gmail.com>
+Signed-off-by: Silvio <silvio@traversaro.it>
+---
+ CMakeLists.txt               | 37 +++++++++++++++++++++++++++++++++---
+ README.md                    | 21 +++++++++++++++++++-
+ cmake/Modules/Findyaml.cmake | 36 +++++++++++++++++++++++++++++++++++
+ libyaml_vendor-extras.cmake  |  2 ++
+ package.xml                  |  3 +++
+ 5 files changed, 95 insertions(+), 4 deletions(-)
+ create mode 100644 cmake/Modules/Findyaml.cmake
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 05f5ff1..d449d46 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,7 +14,16 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+   add_compile_options(-Wall -Wextra -Wconversion -Wno-sign-conversion -Wpedantic -Wnon-virtual-dtor -Woverloaded-virtual)
+ endif()
+ 
++option(FORCE_BUILD_VENDOR_PKG
++  "Build libyaml from source, even if system-installed package is available"
++  OFF)
++
+ find_package(ament_cmake REQUIRED)
++list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
++
++if(NOT FORCE_BUILD_VENDOR_PKG)
++  find_package(yaml QUIET)
++endif()
+ 
+ macro(build_libyaml)
+   set(extra_cmake_args)
+@@ -92,15 +101,35 @@ macro(build_libyaml)
+   set(yaml_LIBRARIES yaml)
+ endmacro()
+ 
+-build_libyaml()
+-set(extra_test_dependencies libyaml-0.2.5)
++# Skip building yaml if the expected version is already present in the system
++if(yaml_FOUND)
++  if("${yaml_VERSION}" VERSION_EQUAL 0.2.5)
++    set(_SKIP_YAML_BUILD 1)
++  else()
++    message(WARNING
++      "A wrong version of libyaml is already present in the system: ${yaml_VERSION}."
++      "It will be ignored and the 0.2.5 version will be built.")
++  endif()
++endif()
++
++if(NOT _SKIP_YAML_BUILD)
++  build_libyaml()
++  set(extra_test_dependencies libyaml-0.2.5)
++endif()
+ 
+-ament_export_libraries(yaml)
+ ament_export_dependencies(yaml)
+ 
+ if(BUILD_TESTING)
++  # We need to install a Findyaml.cmake file that does not respect
++  # ament_cmake_lint_cmake's convention/filename and package/stdargs rules
++  # See https://github.com/ros2/libyaml_vendor/pull/45#issuecomment-1087559657
++  list(APPEND AMENT_LINT_AUTO_EXCLUDE
++    ament_cmake_lint_cmake
++  )
+   find_package(ament_lint_auto REQUIRED)
+   ament_lint_auto_find_test_dependencies()
++  find_package(ament_cmake_lint_cmake REQUIRED)
++  ament_lint_cmake("--filter=-convention/filename,-package/stdargs")
+ 
+   find_package(ament_cmake_gtest REQUIRED)
+   find_package(rcpputils REQUIRED)
+@@ -142,4 +171,6 @@ if(BUILD_TESTING)
+   endif()
+ endif()
+ 
++install(DIRECTORY cmake DESTINATION share/${PROJECT_NAME})
++
+ ament_package(CONFIG_EXTRAS libyaml_vendor-extras.cmake)
+diff --git a/README.md b/README.md
+index f8dc9e8..63c2fb8 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,24 @@
+ # libyaml_vendor
+-CMake wrapper downloading and building libyaml
++CMake wrapper downloading and building libyaml.
++
++This package CMake script check if a `libyaml` that has exactly the version required by ROS2 is available in the system. 
++
++If such `libyaml` is available in the system, it only installs a [`Findyaml.cmake`](cmake/Modules/Findyaml.cmake) CMake find module, 
++to ensure that the library can be always found via:
++~~~cmake
++find_package(yaml REQUIRED)
++~~~
++and linked via:
++~~~cmake
++target_link_libraries(<target> PRIVATE yaml)
++~~~
++even if no CMake config file for `yaml` is installed in the system.
++
++If a `libyaml` that has exactly the version required by ROS2 is not available in the system, then it downloads and installs the 
++`libyaml` as part of this package thanks to [CMake's ExternalProject module](https://cmake.org/cmake/help/latest/module/ExternalProject.html).
++
++The `FORCE_BUILD_VENDOR_PKG` CMake option (that by default is `OFF`) is provided to permit to force the building of `libyaml`, regardless
++of what can be found in the system.
+ 
+ ## Quality Declaration files
+ 
+diff --git a/cmake/Modules/Findyaml.cmake b/cmake/Modules/Findyaml.cmake
+new file mode 100644
+index 0000000..2f2f7e3
+--- /dev/null
++++ b/cmake/Modules/Findyaml.cmake
+@@ -0,0 +1,36 @@
++# Copyright 2022 Open Source Robotics Foundation, Inc.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#     http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++
++include(FindPackageHandleStandardArgs)
++find_package(yaml CONFIG QUIET)
++if(yaml_FOUND)
++  find_package_handle_standard_args(yaml FOUND_VAR yaml_FOUND CONFIG_MODE)
++else()
++  # Otherwise, rely on pkg-config
++  find_package(PkgConfig QUIET)
++
++  if(PKG_CONFIG_FOUND)
++    pkg_check_modules(YAML_PKG_CONFIG IMPORTED_TARGET yaml-0.1)
++    find_package_handle_standard_args(yaml DEFAULT_MSG YAML_PKG_CONFIG_FOUND)
++
++    if(yaml_FOUND)
++      if(NOT TARGET yaml)
++        add_library(yaml INTERFACE IMPORTED)
++        set_property(TARGET yaml PROPERTY INTERFACE_LINK_LIBRARIES PkgConfig::YAML_PKG_CONFIG)
++      endif()
++      set(yaml_LIBRARIES yaml)
++      set(yaml_VERSION ${YAML_PKG_CONFIG_VERSION})
++    endif()
++  endif()
++endif()
+diff --git a/libyaml_vendor-extras.cmake b/libyaml_vendor-extras.cmake
+index 45e1c9c..d2e52c4 100644
+--- a/libyaml_vendor-extras.cmake
++++ b/libyaml_vendor-extras.cmake
+@@ -14,4 +14,6 @@
+ 
+ # copied from libyaml_vendor/libyaml_vendor-extras.cmake
+ 
++list(INSERT CMAKE_MODULE_PATH 0 "${libyaml_vendor_DIR}/Modules")
++
+ list(APPEND libyaml_vendor_TARGETS yaml)
+diff --git a/package.xml b/package.xml
+index 9140b63..061cd55 100644
+--- a/package.xml
++++ b/package.xml
+@@ -19,6 +19,9 @@
+ 
+   <buildtool_depend>ament_cmake</buildtool_depend>
+   <buildtool_depend>git</buildtool_depend>
++  <buildtool_depend>pkg-config</buildtool_depend>
++
++  <buildtool_export_depend>pkg-config</buildtool_export_depend>
+ 
+   <test_depend>ament_cmake_gtest</test_depend>
+   <test_depend>ament_lint_auto</test_depend>
+-- 
+2.35.1
+

@@ -1,0 +1,25 @@
+From 772e2fd949eb42287d0190720160e53eb53bad87 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Thu, 6 Oct 2022 13:27:47 +0200
+Subject: [PATCH] CMakeLists.txt: relaxing cmake minimum version
+
+Yocto honister specific:
+
+The cmake required minimum version is set from 3.22 to
+3.21.1 since this one is shipped with honister.
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2a0e1a3..73e2058 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.22)
++cmake_minimum_required(VERSION 3.21.1)
+ project(generate_parameter_library NONE)
+ 
+ # find dependencies

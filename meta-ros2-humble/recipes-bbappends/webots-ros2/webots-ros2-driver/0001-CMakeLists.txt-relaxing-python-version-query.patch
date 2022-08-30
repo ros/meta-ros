@@ -1,0 +1,29 @@
+From b4255493e09ea114ac9a6bb62e39ed0d5911c694 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Wed, 5 Oct 2022 14:16:29 +0200
+Subject: [PATCH] CMakeLists.txt: relaxing python version query
+
+Instead of either only using EXAT 3.8 or 3.10 python, allow to use 3.9
+or better for building with honister
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1bc42479..07c2c25c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -34,9 +34,9 @@ find_package(webots_ros2_msgs REQUIRED)
+ find_package(tinyxml2_vendor REQUIRED)
+ find_package(TinyXML2 REQUIRED)
+ if($ENV{ROS_DISTRO} MATCHES "foxy" OR $ENV{ROS_DISTRO} MATCHES "galactic")
+-  find_package(PythonLibs 3.8 EXACT REQUIRED)
++  find_package(PythonLibs 3.8 REQUIRED)
+ else()
+-  find_package(PythonLibs 3.10 EXACT REQUIRED)
++  find_package(PythonLibs 3.9 REQUIRED)
+ endif()
+ 
+ if (UNIX AND NOT APPLE)

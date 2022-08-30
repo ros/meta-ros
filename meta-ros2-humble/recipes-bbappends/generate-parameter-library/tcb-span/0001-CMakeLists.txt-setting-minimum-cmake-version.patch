@@ -1,0 +1,23 @@
+From d3b981fade8c91d916b0180bb41982f25646f9f5 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Thu, 29 Sep 2022 15:21:29 +0200
+Subject: [PATCH] CMakeLists.txt: setting minimum cmake version
+
+Minimum cmake version required is 3.22, but yocto honister ships with
+cmake 3.21.1, which I hope should not be a dealbreaker.
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a8aeecc..266a997 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.22)
++cmake_minimum_required(VERSION 3.21.1)
+ project(tcb_span)
+ 
+ find_package(ament_cmake REQUIRED)

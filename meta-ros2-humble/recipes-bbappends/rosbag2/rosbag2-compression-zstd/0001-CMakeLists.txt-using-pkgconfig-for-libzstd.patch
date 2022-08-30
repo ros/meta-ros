@@ -1,0 +1,59 @@
+From 98a3bca843a49a2fdc522e673749fa06cb846c13 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Thu, 6 Oct 2022 15:51:14 +0200
+Subject: [PATCH] CMakeLists.txt: using pkgconfig for libzstd
+
+Instead of using zstd_vendors Findzstd.cmake, we replace it
+with pkgconfig magic here. Seems to be the smaller change to
+solve:
+
+| -- Found zstd_vendor: 0.15.2 (/home/mschoepf/yocto/sf-build/BUILD-ros2-humble-honister/work/core2-64-oe-linux/rosbag2-compression-zstd/0.15.2-1-r0/recipe-sysroot/usr/share/zstd_vendor/cmake)
+| CMake Error at CMakeLists.txt:28 (find_package):
+|   By not providing "Findzstd.cmake" in CMAKE_MODULE_PATH this project has
+|   asked CMake to find a package configuration file provided by "zstd", but
+|   CMake did not find one.
+|
+|   Could not find a package configuration file provided by "zstd" with any of
+|   the following names:
+|
+|     zstdConfig.cmake
+|     zstd-config.cmake
+|
+|   Add the installation prefix of "zstd" to CMAKE_PREFIX_PATH or set
+|   "zstd_DIR" to a directory containing one of the above files.  If "zstd"
+|   provides a separate development package or SDK, be sure it has been
+|   installed.
+|
+|
+| -- Configuring incomplete, errors occurred!
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeLists.txt | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0c0402f8..cf79cfc2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -24,9 +24,8 @@ find_package(ament_cmake REQUIRED)
+ find_package(pluginlib REQUIRED)
+ find_package(rcpputils REQUIRED)
+ find_package(rosbag2_compression REQUIRED)
+-find_package(zstd_vendor REQUIRED)
+-find_package(zstd REQUIRED)
+-
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(zstd REQUIRED IMPORTED_TARGET libzstd)
+ add_library(${PROJECT_NAME} SHARED
+   src/rosbag2_compression_zstd/compression_utils.cpp
+   src/rosbag2_compression_zstd/zstd_compressor.cpp
+@@ -61,7 +60,7 @@ ament_export_libraries(${PROJECT_NAME})
+ ament_export_targets(export_${PROJECT_NAME})
+ 
+ # order matters here, first vendor, then zstd
+-ament_export_dependencies(rcpputils rosbag2_compression zstd_vendor zstd)
++ament_export_dependencies(rcpputils rosbag2_compression zstd_vendor PkgConfig::zstd)
+ 
+ 
+ if(BUILD_TESTING)

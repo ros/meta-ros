@@ -1,0 +1,28 @@
+From cc93ce1175dcc760b2ac2a3b3ac3d0efcf93baa5 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Fri, 30 Sep 2022 21:26:48 +0200
+Subject: [PATCH] CMakeLists.txt: Setting CXX std to C++14
+
+Without setting CXX Standard to C++14, undefined references happen
+with abseil:
+
+/usr/include/absl/strings/str_cat.h:346: undefined reference to `absl::lts_20210324::strings_internal::CatPieces[abi:cxx11](std::initializer_list<std::basic_string_view<char, std::char_traits<char> > >)'
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f93b343..56a391b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -16,6 +16,8 @@ cmake_minimum_required(VERSION 3.2)
+ 
+ project(cartographer)
+ 
++set(CMAKE_CXX_STANDARD 14)
++
+ set(CARTOGRAPHER_MAJOR_VERSION 1)
+ set(CARTOGRAPHER_MINOR_VERSION 0)
+ set(CARTOGRAPHER_PATCH_VERSION 0)

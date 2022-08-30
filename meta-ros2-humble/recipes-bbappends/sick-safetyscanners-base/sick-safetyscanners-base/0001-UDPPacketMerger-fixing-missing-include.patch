@@ -1,0 +1,34 @@
+From 9fcdd532f39e533a1246727c5306e0b36ec1e2ea Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Mon, 3 Oct 2022 12:02:08 +0200
+Subject: [PATCH] UDPPacketMerger: fixing missing include
+
+While std::map is used, it is not included in this header. This leads to
+this error with gcc 11.2:
+
+| In file included from /yocto/sf-build/BUILD-ros2-humble-honister/work/core2-64-oe-linux/sick-safetyscanners-base/1.0.2-1-r0/git/src/data_processing/UDPPacketMerger.cpp:35:
+| /yocto/sf-build/BUILD-ros2-humble-honister/work/core2-64-oe-linux/sick-safetyscanners-base/1.0.2-1-r0/git/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h:87:8: error: 'map' in namespace 'std' does not name a template type
+|    87 |   std::map<uint32_t, sick::datastructure::ParsedPacketBuffer::ParsedPacketBufferVector>
+|       |        ^~~
+| /yocto/sf-build/BUILD-ros2-humble-honister/work/core2-64-oe-linux/sick-safetyscanners-base/1.0.2-1-r0/git/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h:42:1: note: 'std::map' is defined in header '<map>'; did you forget to '#include <map>'?
+|    41 | #include "sick_safetyscanners_base/data_processing/ParseDatagramHeader.h"
+|   +++ |+#include <map>
+|    42 |
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ .../sick_safetyscanners_base/data_processing/UDPPacketMerger.h   | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h b/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h
+index b14d925..6d50a6e 100644
+--- a/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h
++++ b/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h
+@@ -42,6 +42,7 @@
+ 
+ #include <algorithm>
+ #include <mutex>
++#include <map>
+ 
+ namespace sick {
+ namespace data_processing {

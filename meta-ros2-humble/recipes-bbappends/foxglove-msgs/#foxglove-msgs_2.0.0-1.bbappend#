@@ -1,0 +1,8 @@
+ROS_BUILDTOOLS_DEPENDS:append = " \
+    rosidl-default-generators-native \
+    fastrtps-cmake-module \
+"
+
+EXTRA_OECMAKE += " \
+    -Dfastrtps_cmake_module_DIR=${STAGING_DIR_NATIVE}/usam		r/share/fastrtps_cmake_module/cmake/ \
+"

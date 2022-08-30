@@ -1,0 +1,28 @@
+From c36bf202081e4ba94f65fc0218df800723bbf11e Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Mon, 12 Sep 2022 18:28:05 +0200
+Subject: [PATCH] CMakeLists.txt: changed version matching schema
+
+Well, we know we get 0.75.0, the version schema that
+uncrustify --version reports seems to have changed between 0.72 and
+0.75. This patch adapts to the new schema so that uncrustify rebuild
+is avioded
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ca0f133..1f6be13 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -83,7 +83,7 @@ if(NOT res EQUAL 0)
+   set(need_local_build TRUE)
+ else()
+   # Before 0.65 uncrustify used a different versioning scheme so the regex won't match
+-  string(REGEX REPLACE "^Uncrustify-(.*)_f$" "\\1" version_prefix_match "${out}")
++  string(REGEX REPLACE "^Uncrustify_d-(.*)$" "\\1" version_prefix_match "${out}")
+   if(version_prefix_match STREQUAL "" OR version_prefix_match VERSION_LESS 0.72)
+     set(need_local_build TRUE)
+   endif()
