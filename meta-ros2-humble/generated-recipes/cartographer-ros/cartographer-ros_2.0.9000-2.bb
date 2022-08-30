@@ -19,7 +19,7 @@ ROS_CN = "cartographer_ros"
 ROS_BPN = "cartographer_ros"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libabsl-dev} \
+    abseil-cpp \
     builtin-interfaces \
     cartographer \
     cartographer-ros-msgs \
@@ -50,7 +50,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libabsl-dev} \
+    abseil-cpp \
     builtin-interfaces \
     cartographer \
     cartographer-ros-msgs \
@@ -77,7 +77,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libabsl-dev} \
+    abseil-cpp \
     builtin-interfaces \
     cartographer \
     cartographer-ros-msgs \

@@ -316,7 +316,7 @@ protobuf-dev:
 pugixml-dev:
 - pugixml@meta-oe
 pybind11-dev:
-- ${ROS_UNRESOLVED_DEP-pybind11-dev}
+- python3-pybind11@meta-python
 pydocstyle:
 - ${PYTHON_PN}-pydocstyle@meta-ros-common
 pyflakes3:
@@ -489,7 +489,7 @@ tinyxml:
 tinyxml2:
 - libtinyxml2@meta-oe
 uncrustify:
-- ${ROS_UNRESOLVED_DEP-uncrustify}
+- uncrustify@meta-ros-common
 uuid:
 - util-linux@openembedded-core
 v4l-utils:

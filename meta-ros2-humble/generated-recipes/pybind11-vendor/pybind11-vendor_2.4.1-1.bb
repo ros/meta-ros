@@ -19,7 +19,7 @@ ROS_CN = "pybind11_vendor"
 ROS_BPN = "pybind11_vendor"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-pybind11-dev} \
+    python3-pybind11 \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -27,13 +27,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-pybind11-dev} \
+    python3-pybind11 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-pybind11-dev} \
+    python3-pybind11 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

@@ -20,7 +20,7 @@ ROS_BPN = "tvm_vendor"
 ROS_BUILD_DEPENDS = " \
     git \
     libxml2 \
-    openblas \
+    lapack \
     ros-environment \
     spirv-headers \
     spirv-tools \
@@ -34,7 +34,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 ROS_EXPORT_DEPENDS = " \
     git \
     libxml2 \
-    openblas \
+    lapack \
     spirv-headers \
     spirv-tools \
     vulkan-headers \
@@ -45,7 +45,6 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     git \
     libxml2 \
-    openblas \
     spirv-headers \
     spirv-tools \
     vulkan-headers \

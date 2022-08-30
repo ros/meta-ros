@@ -28,7 +28,7 @@ ROS_BUILD_DEPENDS = " \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-clang-native} \
+    clang-native \
     cmake-native \
 "
 

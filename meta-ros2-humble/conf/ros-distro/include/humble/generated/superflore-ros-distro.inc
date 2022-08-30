@@ -2967,7 +2967,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_DEP-libtins-dev} \
     ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     ${ROS_UNRESOLVED_DEP-opende} \
-    ${ROS_UNRESOLVED_DEP-pybind11-dev} \
     ${ROS_UNRESOLVED_DEP-python3-babeltrace} \
     ${ROS_UNRESOLVED_DEP-python3-collada} \
     ${ROS_UNRESOLVED_DEP-python3-construct} \
@@ -2987,7 +2986,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_DEP-sdformat12} \
     ${ROS_UNRESOLVED_DEP-spacenavd} \
     ${ROS_UNRESOLVED_DEP-sqlite3} \
-    ${ROS_UNRESOLVED_DEP-uncrustify} \
     ${ROS_UNRESOLVED_DEP-wireguard} \
     acl \
     adwaita-icon-theme \
@@ -3098,6 +3096,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     python3-paramiko \
     python3-pillow \
     python3-psutil \
+    python3-pybind11 \
     python3-pycairo \
     python3-pycodestyle \
     python3-pydot \
@@ -3138,6 +3137,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     suitesparse-cxsparse \
     tbb \
     udev \
+    uncrustify \
     urdfdom \
     urdfdom-headers \
     util-linux \
@@ -3604,7 +3604,6 @@ ROS_UNRESOLVED_DEP-libspnav-dev = "ROS_UNRESOLVED_DEP-libspnav-dev"
 ROS_UNRESOLVED_DEP-libtins-dev = "ROS_UNRESOLVED_DEP-libtins-dev"
 ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev = "ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev"
 ROS_UNRESOLVED_DEP-opende = "ROS_UNRESOLVED_DEP-opende"
-ROS_UNRESOLVED_DEP-pybind11-dev = "ROS_UNRESOLVED_DEP-pybind11-dev"
 ROS_UNRESOLVED_DEP-python3-babeltrace = "ROS_UNRESOLVED_DEP-python3-babeltrace"
 ROS_UNRESOLVED_DEP-python3-collada = "ROS_UNRESOLVED_DEP-python3-collada"
 ROS_UNRESOLVED_DEP-python3-construct = "ROS_UNRESOLVED_DEP-python3-construct"
@@ -3624,7 +3623,6 @@ ROS_UNRESOLVED_DEP-rti-connext-dds-6.0.1 = "ROS_UNRESOLVED_DEP-rti-connext-dds-6
 ROS_UNRESOLVED_DEP-sdformat12 = "ROS_UNRESOLVED_DEP-sdformat12"
 ROS_UNRESOLVED_DEP-spacenavd = "ROS_UNRESOLVED_DEP-spacenavd"
 ROS_UNRESOLVED_DEP-sqlite3 = "ROS_UNRESOLVED_DEP-sqlite3"
-ROS_UNRESOLVED_DEP-uncrustify = "ROS_UNRESOLVED_DEP-uncrustify"
 ROS_UNRESOLVED_DEP-wireguard = "ROS_UNRESOLVED_DEP-wireguard"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in

@@ -25,8 +25,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-jinja2} \
-    ${ROS_UNRESOLVED_DEP-python3-typeguard} \
+    python3-jinja2 \
+    python3-typeguard \
     python3 \
 "
 

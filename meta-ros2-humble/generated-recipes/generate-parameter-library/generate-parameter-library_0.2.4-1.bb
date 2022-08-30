@@ -17,7 +17,7 @@ ROS_CN = "generate_parameter_library"
 ROS_BPN = "generate_parameter_library"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-fmt} \
+    fmt \
     parameter-traits \
     rclcpp \
     rclcpp-lifecycle \
@@ -29,7 +29,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-fmt} \
+    fmt \
     parameter-traits \
     rclcpp \
     rclcpp-lifecycle \
@@ -39,7 +39,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-fmt} \
+    fmt \
     generate-parameter-library-py \
     parameter-traits \
     rclcpp \

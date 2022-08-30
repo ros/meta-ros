@@ -19,7 +19,7 @@ ROS_CN = "uncrustify_vendor"
 ROS_BPN = "uncrustify_vendor"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-uncrustify} \
+    uncrustify \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -28,13 +28,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-uncrustify} \
+    uncrustify \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-uncrustify} \
+    uncrustify \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

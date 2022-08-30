@@ -41,7 +41,8 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 # matches with: https://github.com/ros2-gbp/fmilibrary_vendor-release/archive/release/humble/fmilibrary_vendor/1.0.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/fmilibrary_vendor"
-SRC_URI = "git://github.com/ros2-gbp/fmilibrary_vendor-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/fmilibrary_vendor-release;${ROS_BRANCH};protocol=https \
+           "
 SRCREV = "aa8804ceff0977290213b54db05c70a797c6ff67"
 S = "${WORKDIR}/git"
 

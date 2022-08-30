@@ -16,7 +16,7 @@ ROS_CN = "ros2_ouster_drivers"
 ROS_BPN = "ros2_ouster"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libtins-dev} \
+    libtins \
     builtin-interfaces \
     geometry-msgs \
     launch \
@@ -39,7 +39,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libtins-dev} \
+    libtins \
     builtin-interfaces \
     geometry-msgs \
     launch \
@@ -60,7 +60,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libtins-dev} \
+    libtins \
     builtin-interfaces \
     geometry-msgs \
     launch \

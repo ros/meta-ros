@@ -16,7 +16,7 @@ ROS_CN = "generate_parameter_library"
 ROS_BPN = "parameter_traits"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-fmt} \
+    fmt \
     rclcpp \
 "
 
@@ -25,14 +25,14 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-fmt} \
+    fmt \
     rclcpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-fmt} \
+    fmt \
     rclcpp \
 "
 

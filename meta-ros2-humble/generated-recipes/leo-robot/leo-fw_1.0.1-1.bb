@@ -34,8 +34,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-dbus} \
-    ${ROS_UNRESOLVED_DEP-python3-whichcraft} \
+    python3-dbus \
+    python3-whichcraft \
     ament-index-python \
     geometry-msgs \
     leo-msgs \

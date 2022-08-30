@@ -17,7 +17,7 @@ ROS_CN = "image_transport_plugins"
 ROS_BPN = "theora_image_transport"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopencv-imgproc-dev} \
+    opencv \
     cv-bridge \
     image-transport \
     libogg \
@@ -36,7 +36,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopencv-imgproc-dev} \
+    opencv \
     cv-bridge \
     image-transport \
     libogg \
@@ -51,7 +51,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopencv-imgproc-dev} \
+    opencv \
     cv-bridge \
     image-transport \
     libogg \

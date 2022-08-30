@@ -7775,6 +7775,7 @@ uncrustify:
       packages: [uncrustify]
   rhel: [uncrustify]
   ubuntu: [uncrustify]
+  openembedded: [uncrustify@meta-ros-common]
 unison:
   arch: [unison]
   debian: [unison]

@@ -17,7 +17,7 @@ ROS_CN = "microstrain_inertial"
 ROS_BPN = "microstrain_inertial_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-jq} \
+    jq \
     curl \
     diagnostic-updater \
     geometry-msgs \
