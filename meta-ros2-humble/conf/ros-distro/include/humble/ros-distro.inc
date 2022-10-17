@@ -30,7 +30,11 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     foonathan-memory-vendor-native \
     iceoryx-binding-c-native \
     iceoryx-posh-native \
-    iceoryx-utils-native \
+    iceoryx-hoofs-native \
+    launch-native \
+    launch-yaml-native \
+    launch-xml-native \
+    osrf-pycommon-native \
     rcutils-native \
     rcpputils-native \
     rmw-dds-common-native \
@@ -44,6 +48,14 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-typesupport-fastrtps-c-native \
     rpyutils-native \
     uncrustify-vendor-native \
+    rosidl-parser-native \
+    rosidl-runtime-c-native \
+    rosidl-runtime-cpp-native \
+    rosidl-typesupport-c-native \
+    rosidl-typesupport-cpp-native \
+    rosidl-typesupport-fastrtps-c-native \
+    fastcdr-native \
+    fastrtps-native \
 "
 
 # this needs google-benchmark-vendor-native but we probably don't need native version
@@ -73,6 +85,8 @@ ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
 ROS_WORLD_SKIP_GROUPS += "cwiid"
 # recipes depends on libspnav
 ROS_WORLD_SKIP_GROUPS += "libspnav"
+# recipes depends on libopen3d
+ROS_WORLD_SKIP_GROUPS += "libopen3d"
 
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
@@ -136,6 +150,9 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-laye
 
 # recipes depending on cargo which could be provided by cargo@meta-rust or oe-core[honister] and newer release (where it was imported from meta-rust)
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'rust-layer', '', 'cargo', d)}"
+
+# recipes depending on scipy which could be provided by python3-scipy@meta-scipy
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-scipy', '', 'scipy', d)}"
 
 # swri recipes depending on marti-*-msgs, currently broken after to https://github.com/ros/rosdistro/commit/e019cc8729e7ff2ba2ed51e63886734936254111
 ROS_WORLD_SKIP_GROUPS += "swri"
@@ -203,3 +220,10 @@ ROS_UNRESOLVED_DEP-python3-jinja2 = "python3-jinja2"
 ROS_UNRESOLVED_DEP-python3-typeguard = "python3-typeguard"
 
 ROS_UNRESOLVED_DEP-libtins-dev = "libtins"
+
+ROS_UNRESOLVED_DEP-python3-whichcraft = "python3-whichcraft"
+
+# https://layers.openembedded.org/layerindex/recipe/27305/
+ROS_UNRESOLVED_DEP-jq = "jq"
+
+ROS_UNRESOLVED_DEP-python3-construct = "python3-construct"
