@@ -11,11 +11,11 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=46ee8693f40a8
 SRC_URI += "file://0001-Declare-assignment-operator-private-for-SIP-Closes-2.patch;patchdir=.. \
     file://0002-CMakeLists.txt-use-python3.patch;patchdir=.. \
 "
-S = "${WORKDIR}/git/python_orocos_kdl"
+S = "${WORKDIR}/git/orocos-kdl/python_orocos_kdl"
 
 inherit cmake python3native python3-dir
 
-DEPENDS += "orocos-kdl sip3-native sip3 libeigen"
+DEPENDS += "orocos-kdl-vendor sip3-native sip3 libeigen"
 
 # sip3-native from meta-oe, doesn't provide sipconfig/sipbuild used by FindSIP.cmake/FindSIP.py
 # https://riverbankcomputing.com/pipermail/pyqt/2019-November/042312.html

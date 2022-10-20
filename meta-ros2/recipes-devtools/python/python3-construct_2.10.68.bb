@@ -10,9 +10,12 @@ SRC_URI = "git://github.com/construct/construct.git;protocol=https;branch=master
 SRCREV = "a6603d7821480fb5a4e6665c6fd8028ce574c4bd"
 
 # inherit pypi
+inherit setuptools3
 
 #RDEPENDS:${PN} = "\
 #  ${PYTHON_PN}-unittest \
 #  "
+
+S = "${WORKDIR}/git"
 
 BBCLASSEXTEND = "native nativesdk"
