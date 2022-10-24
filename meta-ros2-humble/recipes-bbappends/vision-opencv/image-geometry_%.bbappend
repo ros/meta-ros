@@ -1,7 +1,6 @@
 # Copyright (c) 2022 Acceleration Robotics S.L. <contact@accelerationrobotics.com>
 
-# Fix for Honister release only:
-inherit distutils3-base
+inherit setuptools3-base
 
 # |   Could not find a package configuration file provided by "rosidl_adapter"
 # |   with any of the following names:

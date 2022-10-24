@@ -2,4 +2,4 @@
 
 require python-pydot.inc
 
-inherit distutils3
+inherit setuptools3
