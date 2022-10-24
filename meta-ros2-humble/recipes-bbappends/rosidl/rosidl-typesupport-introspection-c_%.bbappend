@@ -6,8 +6,7 @@ SRC_URI += " \
     file://0001-Deal-with-CMake-error-while-building-recipe.patch \
 "
 
-# Fix for Honister release only:
-inherit distutils3-base
+inherit setuptools3-base
 
 # QA Issue: rosidl-typesupport-introspection-c: Files/directories were installed but not shipped in any package:
 #   /usr/lib/librosidl_typesupport_introspection_c.so

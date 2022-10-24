@@ -1,8 +1,7 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2022 Acceleration Robotics, S.L.
 
-# Fix for Honister release only:
-inherit distutils3-base
+inherit setuptools3-base
 
 # libatomic is just one of the packages provided by gcc-runtime recipe
 # but gcc-runtime recipe doesn't have libatomic in PROVIDES, so we cannot map

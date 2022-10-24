@@ -9,8 +9,8 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://0001-Deal-with-downstream-recipe-build-errors.patch \
 "
-# Fix for Honister release only:
-inherit distutils3-base
+
+inherit setuptools3-base
 
 # rosidl-typesupport-c: Files/directories were installed but not shipped in any package:
 #   /usr/lib/librosidl_typesupport_c.so

@@ -1,8 +1,7 @@
 # Copyright (c) 2020-2021 LG Electronics, Inc.
 # Copyright (c) 2022 Acceleration Robotics, S.L.
 
-# Fix for Honister release only:
-inherit distutils3-base
+inherit setuptools3-base
 
 ROS_EXPORT_DEPENDS += " \
     rosidl-generator-c \

@@ -1,7 +1,6 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
-# Fix for Honister release only:
-inherit distutils3-base
+inherit setuptools3-base
 
 ROS_BUILD_DEPENDS += " \
     fastcdr \

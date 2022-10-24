@@ -14,8 +14,7 @@ SRC_URI += " \
     file://0001-Deal-with-CMake-Error-while-building-recipe.patch \
 "
 
-# Fix for Honister release only:
-inherit distutils3-base
+inherit setuptools3-base
 
 # QA Issue: rosidl-typesupport-fastrtps-c: Files/directories were installed but not shipped in any package:
 #   /usr/lib/librosidl_typesupport_fastrtps_c.so
