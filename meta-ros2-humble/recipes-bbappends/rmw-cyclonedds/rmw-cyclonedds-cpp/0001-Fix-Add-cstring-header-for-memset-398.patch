@@ -1,0 +1,25 @@
+From 6bc618534e6230f0c6db102c8a7b0706e902c763 Mon Sep 17 00:00:00 2001
+From: Homalozoa X <21300069+homalozoa@users.noreply.github.com>
+Date: Thu, 14 Jul 2022 04:01:08 +0800
+Subject: [PATCH] [Fix] Add cstring header for memset (#398)
+
+Signed-off-by: Homalozoa <nx.tardis@gmail.com>
+---
+ rmw_cyclonedds_cpp/src/Serialization.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/rmw_cyclonedds_cpp/src/Serialization.cpp b/rmw_cyclonedds_cpp/src/Serialization.cpp
+index 4d1a015..15d3891 100644
+--- a/rmw_cyclonedds_cpp/src/Serialization.cpp
++++ b/rmw_cyclonedds_cpp/src/Serialization.cpp
+@@ -21,6 +21,7 @@
+ #include "Serialization.hpp"
+ 
+ #include <array>
++#include <cstring>
+ #include <limits>
+ #include <memory>
+ #include <unordered_map>
+-- 
+2.17.1
+
