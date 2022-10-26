@@ -3,7 +3,7 @@ DESCRIPTION = " Static code analyzer for C/C++."
 
 HOMEPAGE = " http://cppcheck.sourceforge.net/"
 BUGTRACKER = " https://trac.cppcheck.net/"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit pkgconfig
