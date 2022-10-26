@@ -1,6 +1,6 @@
 SUMMARY = "Distribution utilities"
 HOMEPAGE = "https://bitbucket.org/pypa/distlib"
-LICENSE = "PSF"
+LICENSE = "PSF-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f6a11430d5cd6e2cd3832ee94f22ddfc"
 
 PYPI_PACKAGE = "distlib"
