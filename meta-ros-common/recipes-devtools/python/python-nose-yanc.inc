@@ -3,7 +3,7 @@
 DESCRIPTION = "YANC is color output plugin for nose that plays nicely with others"
 HOMEPAGE = "https://github.com/0compute/yanc"
 SECTION = "devel/python"
-LICENSE = "GPL-3.0"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d32239bcb673463ab874e80d47fae504"
 
 SRC_URI[md5sum] = "e1c6630d9c7e1210975c8d23ca50700f"
