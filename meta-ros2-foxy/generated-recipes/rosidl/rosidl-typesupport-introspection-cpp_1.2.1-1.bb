@@ -59,7 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 # matches with: https://github.com/ros2-gbp/rosidl-release/archive/release/foxy/rosidl_typesupport_introspection_cpp/1.2.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/foxy/rosidl_typesupport_introspection_cpp"
 SRC_URI = "git://github.com/ros2-gbp/rosidl-release;${ROS_BRANCH};protocol=https"
-SRCREV = "30961eda09c2c06f12cdffbbad4de60dc7d2997a"
+SRCREV = "a073de864ef8a5ab4d981bcc1b8b92c3039c627e"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
