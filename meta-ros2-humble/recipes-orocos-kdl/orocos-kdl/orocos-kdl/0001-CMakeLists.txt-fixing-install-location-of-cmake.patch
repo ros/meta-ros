@@ -1,0 +1,39 @@
+From af27d91ece571b2a92e72d78a48a94803514bddf Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Fri, 23 Sep 2022 18:36:53 +0200
+Subject: [PATCH] CMakeLists.txt: fixing install location of cmake
+
+The install location of the .cmake files is moved from
+
+/usr/share/orocos_kdl/cmake
+
+to
+
+/usr/lib/cmake/orocos_kdl
+
+as it is more common on linux.
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeLists.txt | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a15bd15..3fcd633 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -122,10 +122,10 @@ CONFIGURE_FILE(orocos_kdl-config.cmake.in
+ CONFIGURE_FILE(orocos_kdl-config-version.cmake.in
+   ${PROJECT_BINARY_DIR}/orocos_kdl-config-version.cmake @ONLY)
+ 
+-INSTALL(FILES cmake/FindEigen3.cmake DESTINATION share/orocos_kdl/cmake)
+-INSTALL(FILES ${PROJECT_BINARY_DIR}/orocos_kdl-config.cmake DESTINATION share/orocos_kdl/cmake)
+-INSTALL(FILES ${PROJECT_BINARY_DIR}/orocos_kdl-config-version.cmake DESTINATION share/orocos_kdl/cmake)
+-INSTALL(EXPORT OrocosKDLTargets DESTINATION share/orocos_kdl/cmake)
++INSTALL(FILES cmake/FindEigen3.cmake DESTINATION lib/cmake/orocos_kdl)
++INSTALL(FILES ${PROJECT_BINARY_DIR}/orocos_kdl-config.cmake DESTINATION lib/cmake/orocos_kdl)
++INSTALL(FILES ${PROJECT_BINARY_DIR}/orocos_kdl-config-version.cmake DESTINATION lib/cmake/orocos_kdl)
++INSTALL(EXPORT OrocosKDLTargets DESTINATION lib/cmake/orocos_kdl)
+ 
+ # Generate pkg-config package configuration
+ CONFIGURE_FILE(orocos_kdl.pc.in ${CMAKE_CURRENT_BINARY_DIR}/orocos-kdl.pc @ONLY)
