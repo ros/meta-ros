@@ -2,6 +2,7 @@
 #
 # Copyright (c) 2020-2021 LG Electronics, Inc.
 
+PNBLACKLIST[depthai] = "broken cmake, hell to cross compile"
 PNBLACKLIST[ament-clang-format] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-format', '', d)}"
 PNBLACKLIST[ament-clang-format-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-format', '', d)}"
 PNBLACKLIST[ament-clang-tidy] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', 'clang: depends on clang-tidy', '', d)}"
@@ -54,6 +55,7 @@ PNBLACKLIST[octovis] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5
 PNBLACKLIST[packagegroup-ros-turtlebot3-core] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'turtlebot3', 'turtlebot3: rdepends on turtlebot3-bringup,hls-lfcd-lds-driver,turtlebot3-msgs,ros-base which were not ported to foxy yet', '', d)}"
 PNBLACKLIST[packagegroup-ros-turtlebot3-extended] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'turtlebot3', 'turtlebot3: rdepends on slam-karto, compressed-image-transport, depthimage-to-laserscan turtlebot3-applications-msgs, turtlebot3-autorace, cartographer-ros, turtlebot3, turtlebot3-applications which were not ported to foxy yet', '', d)}"
 PNBLACKLIST[pendulum-control] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pendulum-control', 'pendulum-control: not compatible with glibc-2.34 without easy fix as reported in https://github.com/ros2/demos/issues/530', '', d)}"
+PNBLACKLIST[pinocchio] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['clang'], 'clang: depends on clang which requires meta-clang layer', '', d)}"
 PNBLACKLIST[plotjuggler] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets', 'opengl'], 'qt5: Requires qtbase which requires meta-qt5 to be included; qt5-widgets: needs widgets enabled in qtbase PACKAGECONFIG; opengl: requires opengl to be enabled in qtbase', '', d)}"
 PNBLACKLIST[plotjuggler-ros] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets', 'opengl'], 'qt5: Requires qtsvg, qtwebsockets, qtbase which require meta-qt5 to be included; qt5-widgets: depends on plotjuggler which needs widgets enabled in qtbase PACKAGECONFIG; opengl: depends on plotjuggler which requires opengl to be enabled in qtbase', '', d)}"
 PNBLACKLIST[python-qt-binding] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], 'qt5: depends on qtbase; pyqt5: depends on python3-pyqt5 which requires pyqt5', '', d)}"
@@ -78,6 +80,7 @@ PNBLACKLIST[rmf-demos-maps] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'p
 PNBLACKLIST[rmf-demos-panel] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-flask-cors', 'python3-flask-cors: rdepends on unavailable python3-flask-cors', '', d)}"
 PNBLACKLIST[rmf-robot-sim-gazebo-plugins] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['gazebo', 'qt5'], 'gazebo: depends on gazebo-ros,gazebo-rosdev->gazebo which is not available; qt5: depends on qtbase', '', d)}"
 PNBLACKLIST[rmf-robot-sim-ignition-plugins] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', 'qt5: depends on qtbase, libqt5-qml, libqt5-quick', '', d)}"
+PNBLACKLIST[rmf-traffic-ros2] = "has version 1.4.0 and uses messages that are 2.0.0 and incompatible"
 PNBLACKLIST[rmf-traffic-editor] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], 'qt5: Requires qtbase which requires meta-qt5 to be included; qt5-widgets: needs widgets enabled in qtbase PACKAGECONFIG', '', d)}"
 PNBLACKLIST[rmf-traffic-editor-test-maps] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-shapely', 'python3-shapely: depends on rmf-building-map-tools-native which depends on unavailable python3-shapely', '', d)}"
 PNBLACKLIST[rmf-visualization] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'opengl', 'x11'], 'qt5: depends on rmf-visualization-rviz2-plugins which depends rviz-rendering, rviz-common, rviz-default-plugins which depend on qtbase; opengl: depends on rmf-visualization-rviz2-plugins which depends on rviz-rendering, rviz-common, rviz-default-plugins which depend on rviz-ogre-vendor which depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; x11: depends on rmf-visualization-rviz2-plugins which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on libx11,libxrandr,libxaw which require x11 in DISTRO_FEATURES', '', d)}"
@@ -174,3 +177,4 @@ PNBLACKLIST[webots-ros2-tutorials] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROU
 PNBLACKLIST[webots-ros2-universal-robot] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'opengl', 'x11'], 'qt5: rdepends on rviz2 which depends on qtbase; opengl: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; x11: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on libx11,libxrandr,libxaw which require x11 in DISTRO_FEATURES', '', d)}"
 PNBLACKLIST[wiimote] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', 'Depends on unavailable ROS_UNRESOLVED_DEP-cwiid-dev', '', d)}"
 PNBLACKLIST[zenoh-bridge-dds] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['clang', 'cargo'], 'clang: depends on clang which requires meta-clang layer; cargo: depends on cargo which requires meta-rust layer (or oe-core[honister] or newer)', '', d)}"
+
