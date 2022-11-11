@@ -1,5 +1,4 @@
 # Copyright (c) 2021 LG Electronics, Inc.
-# Copyright (c) 2022 Wind River Systems, Inc.
 
 # Without the target dependencies, ament finds the native packages and then fails to link (error: incompatible target).
 ROS_BUILD_DEPENDS += " \
@@ -15,6 +14,3 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-cpp-native \
     rosidl-generator-py-native \
 "
-
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-setuptools-fix-executable.patch"

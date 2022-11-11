@@ -1,0 +1,24 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 80a8751..2ec7898 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,16 +15,16 @@ endif()
+ 
+ if(NOT nlohmann_json_schema_validator_FOUND)
+ 
+-  set(setup_install_dir "${CMAKE_CURRENT_BINARY_DIR}/nlohmann_json_schema_validator")
++  set(setup_install_dir "${CMAKE_CURRENT_BINARY_DIR}/staging")
+ 
+   include(ExternalProject)
+   ExternalProject_Add(nlohmann_json_schema_validator
+     PREFIX nlohmann_json_schema_validator
+-    URL https://github.com/pboettch/json-schema-validator/archive/refs/tags/2.1.0.zip
+-    URL_MD5 9542b03326e5a7ed8fdd6548192f9474
++    SOURCE_DIR ${CMAKE_SOURCE_DIR}/nlohmann_json_schema_validator
+     CMAKE_ARGS
+       -DCMAKE_INSTALL_PREFIX=${setup_install_dir}
+       -DBUILD_SHARED_LIBS=true
++      -Dnlohmann_json_DIR=${nlohmann_json_DIR}
+     INSTALL_DIR ${setup_install_dir}
+   )
+ 

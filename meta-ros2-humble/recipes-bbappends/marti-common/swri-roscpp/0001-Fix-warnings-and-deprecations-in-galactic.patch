@@ -1,0 +1,137 @@
+From 88a37fe8cb5e2da60ff0ca50908d19f1bd3a0349 Mon Sep 17 00:00:00 2001
+From: AdamGoertz <adambgoertz@gmail.com>
+Date: Thu, 10 Jun 2021 19:41:31 +0000
+Subject: [PATCH] Fix warnings and deprecations in galactic
+
+Reduced patch to just swri_roscpp.
+---
+ include/swri_roscpp/subscriber_impl.h |   14 +++++++++-----
+ include/swri_roscpp/timer_impl.h      |    2 +-
+ src/nodes/storing_subscriber_test.cpp |    3 ++-
+ src/nodes/subscriber_test.cpp         |    5 ++++-
+ src/nodes/timer_test.cpp              |    2 +-
+ 5 files changed, 17 insertions(+), 9 deletions(-)
+
+Reviewed-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/swri_roscpp/include/swri_roscpp/subscriber_impl.h b/swri_roscpp/include/swri_roscpp/subscriber_impl.h
+index 12ec9e0..a4b50b7 100644
+--- a/include/swri_roscpp/subscriber_impl.h
++++ b/include/swri_roscpp/subscriber_impl.h
+@@ -34,6 +34,10 @@
+ 
+ #include <boost/utility/enable_if.hpp>
+ 
++#include <chrono>
++
++using namespace std::chrono_literals;
++
+ namespace swri
+ {
+ 
+@@ -52,13 +56,13 @@ namespace swri
+     rclcpp::Time last_header_stamp_ = rclcpp::Time(0, 0, RCL_ROS_TIME);
+     rclcpp::Time last_receive_time_ = rclcpp::Time(0, 0, RCL_ROS_TIME);
+ 
+-    rclcpp::Duration total_latency_ = rclcpp::Duration(0);
++    rclcpp::Duration total_latency_ = rclcpp::Duration(0ns);
+     rclcpp::Duration min_latency_ = rclcpp::Duration::max();
+-    rclcpp::Duration max_latency_ = rclcpp::Duration(0);
++    rclcpp::Duration max_latency_ = rclcpp::Duration(0ns);
+ 
+     rclcpp::Duration total_periods_ = rclcpp::Duration::max();
+     rclcpp::Duration min_period_ = rclcpp::Duration::max();
+-    rclcpp::Duration max_period_ = rclcpp::Duration(0);
++    rclcpp::Duration max_period_ = rclcpp::Duration(0ns);
+ 
+     rclcpp::Duration timeout_ = rclcpp::Duration(0, 0);
+     bool in_timeout_;
+@@ -181,7 +185,7 @@ namespace swri
+       if (message_count_ < 1) {
+         return rclcpp::Duration::max();
+       } else {
+-        return rclcpp::Duration(total_latency_.seconds() / message_count_);
++        return rclcpp::Duration::from_nanoseconds(total_latency_.seconds() / message_count_);
+       }
+     }
+ 
+@@ -217,7 +221,7 @@ namespace swri
+       if (message_count_ < 2) {
+         return rclcpp::Duration::max();
+       } else {
+-        return rclcpp::Duration(total_periods_.seconds() / (message_count_ -1));
++        return rclcpp::Duration::from_nanoseconds(total_periods_.seconds() / (message_count_ -1));
+       }
+     }
+ 
+diff --git a/swri_roscpp/include/swri_roscpp/timer_impl.h b/swri_roscpp/include/swri_roscpp/timer_impl.h
+index d38b242..f6e072c 100644
+--- a/include/swri_roscpp/timer_impl.h
++++ b/include/swri_roscpp/timer_impl.h
+@@ -129,7 +129,7 @@ class TimerImpl
+     if (ticks_ < 2) {
+       return rclcpp::Duration::max();
+     } else {
+-      return rclcpp::Duration(total_periods_.seconds() / (ticks_ - 1));
++      return rclcpp::Duration::from_nanoseconds(total_periods_.seconds() / (ticks_ - 1));
+     }
+   }
+   
+diff --git a/swri_roscpp/src/nodes/storing_subscriber_test.cpp b/swri_roscpp/src/nodes/storing_subscriber_test.cpp
+index 495ea92..5b2f68b 100644
+--- a/src/nodes/storing_subscriber_test.cpp
++++ b/src/nodes/storing_subscriber_test.cpp
+@@ -36,6 +36,7 @@
+ #include <nav_msgs/msg/odometry.hpp>
+ 
+ namespace du = diagnostic_updater;
++using namespace std::chrono_literals;
+ 
+ // Alias type for easier access to DiagnosticStatus enumerations.
+ typedef diagnostic_msgs::msg::DiagnosticStatus DS;
+@@ -66,7 +67,7 @@ class StoringSubscriberTest : public rclcpp::Node
+ 
+   void initialize()
+   {
+-    sub_.setTimeout(rclcpp::Duration(1.0));
++    sub_.setTimeout(rclcpp::Duration(1ns));
+     sub_ = swri::Subscriber(*this, "odom", &msg_);
+ 
+     diagnostic_updater_.setHardwareID("none");
+diff --git a/swri_roscpp/src/nodes/subscriber_test.cpp b/swri_roscpp/src/nodes/subscriber_test.cpp
+index c478827..9d12602 100644
+--- a/src/nodes/subscriber_test.cpp
++++ b/src/nodes/subscriber_test.cpp
+@@ -36,7 +36,10 @@
+ #include <std_msgs/msg/float32.hpp>
+ #include <nav_msgs/msg/odometry.hpp>
+ 
++#include <chrono>
++
+ namespace du = diagnostic_updater;
++using namespace std::chrono_literals;
+ 
+ // Alias type for easier access to DiagnosticStatus enumerations.
+ typedef diagnostic_msgs::msg::DiagnosticStatus DS;
+@@ -74,7 +77,7 @@ class SubscriberTest : public rclcpp::Node
+     std::function<void(const std::shared_ptr< nav_msgs::msg::Odometry const> &)> callback = boost::bind(&SubscriberTest::handleMessage, this, _1);
+     sub_ = swri::Subscriber(*this, "odom", 100, callback);
+ 
+-    sub_.setTimeout(rclcpp::Duration(1.0));
++    sub_.setTimeout(rclcpp::Duration(1ns));
+ 
+     diagnostic_updater_.setHardwareID("none");
+     diagnostic_updater_.add(
+diff --git a/swri_roscpp/src/nodes/timer_test.cpp b/swri_roscpp/src/nodes/timer_test.cpp
+index 3a0961c..402d60f 100644
+--- a/src/nodes/timer_test.cpp
++++ b/src/nodes/timer_test.cpp
+@@ -81,7 +81,7 @@ class TimerTest : public rclcpp::Node
+     // Do some work to give us a measurable time.
+     int64_t fibonacci_index = this->get_parameter("fibonacci_index").as_int();
+     size_t number = super_slow_fibonacci(fibonacci_index);
+-    RCLCPP_INFO(this->get_logger(), "The %d-th number of the fibonacci sequence is %lu",
++    RCLCPP_INFO(this->get_logger(), "The %ld-th number of the fibonacci sequence is %ld",
+              fibonacci_index, number);
+   }
+ 

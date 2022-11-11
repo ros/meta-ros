@@ -1,0 +1,35 @@
+From 88a37fe8cb5e2da60ff0ca50908d19f1bd3a0349 Mon Sep 17 00:00:00 2001
+From: AdamGoertz <adambgoertz@gmail.com>
+Date: Thu, 10 Jun 2021 19:41:31 +0000
+Subject: [PATCH] Fix warnings and deprecations in galactic
+
+Reduced patch to just swri_roscpp.
+---
+ swri_console_util/src/progress_bar.cpp |    5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+Reviewed-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/swri_console_util/src/progress_bar.cpp b/swri_console_util/src/progress_bar.cpp
+index ece4ba2..f39d459 100644
+--- a/src/progress_bar.cpp
++++ b/src/progress_bar.cpp
+@@ -32,6 +32,9 @@
+ #include <ctime>
+ #include <iomanip>
+ #include <sstream>
++#include <chrono>
++
++using namespace std::chrono_literals;
+ 
+ namespace swri_console_util
+ {
+@@ -39,7 +42,7 @@ namespace swri_console_util
+       paused_(false),
+       percent_complete_(0),
+       start_time_(clock_.now()),
+-      paused_time_(0)
++      paused_time_(0ns)
+   {
+     SetupTerminal();
+   }

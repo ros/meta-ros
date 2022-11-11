@@ -1,0 +1,87 @@
+From fce7e0ab93922ae26f2ab2bc5eb88f4aecfebe93 Mon Sep 17 00:00:00 2001
+From: AdamGoertz <adambgoertz@gmail.com>
+Date: Thu, 10 Jun 2021 21:01:55 +0000
+Subject: [PATCH] Revert "Fix backwards compatibility"
+
+This reverts commit fad7898704d999af38f2f34e5d10ecc1b2b7c1eb.
+---
+ swri_roscpp/include/swri_roscpp/subscriber_impl.h        | 9 ++-------
+ swri_roscpp/include/swri_roscpp/timer_impl.h             | 6 +-----
+ .../src/nodes/dynamic_transform_publisher.cpp            | 2 +-
+ 3 files changed, 4 insertions(+), 13 deletions(-)
+
+diff --git a/swri_roscpp/include/swri_roscpp/subscriber_impl.h b/swri_roscpp/include/swri_roscpp/subscriber_impl.h
+index e731aec..a4b50b7 100644
+--- a/include/swri_roscpp/subscriber_impl.h
++++ b/include/swri_roscpp/subscriber_impl.h
+@@ -35,7 +35,6 @@
+ #include <boost/utility/enable_if.hpp>
+ 
+ #include <chrono>
+-#include <cmath>
+ 
+ using namespace std::chrono_literals;
+ 
+@@ -186,9 +185,7 @@ namespace swri
+       if (message_count_ < 1) {
+         return rclcpp::Duration::max();
+       } else {
+-        return rclcpp::Duration(
+-          std::chrono::nanoseconds(
+-            std::lround(total_latency_.seconds() / message_count_)));
++        return rclcpp::Duration::from_nanoseconds(total_latency_.seconds() / message_count_);
+       }
+     }
+ 
+@@ -224,9 +221,7 @@ namespace swri
+       if (message_count_ < 2) {
+         return rclcpp::Duration::max();
+       } else {
+-        return rclcpp::Duration(
+-          std::chrono::nanoseconds(
+-            std::lround(total_periods_.seconds() / (message_count_ -1))));
++        return rclcpp::Duration::from_nanoseconds(total_periods_.seconds() / (message_count_ -1));
+       }
+     }
+ 
+diff --git a/swri_roscpp/include/swri_roscpp/timer_impl.h b/swri_roscpp/include/swri_roscpp/timer_impl.h
+index 86ae82e..f6e072c 100644
+--- a/include/swri_roscpp/timer_impl.h
++++ b/include/swri_roscpp/timer_impl.h
+@@ -31,9 +31,7 @@
+ 
+ #include <rclcpp/rclcpp.hpp>
+ #include <rclcpp/time.hpp>
+-
+ #include <chrono>
+-#include <cmath>
+ 
+ namespace swri
+ {
+@@ -131,9 +129,7 @@ class TimerImpl
+     if (ticks_ < 2) {
+       return rclcpp::Duration::max();
+     } else {
+-      return rclcpp::Duration(
+-        std::chrono::nanoseconds(
+-          std::lround(total_periods_.seconds() / (ticks_ - 1))));
++      return rclcpp::Duration::from_nanoseconds(total_periods_.seconds() / (ticks_ - 1));
+     }
+   }
+   
+diff --git a/swri_transform_util/src/nodes/dynamic_transform_publisher.cpp b/swri_transform_util/src/nodes/dynamic_transform_publisher.cpp
+index f23c9b5..1febaea 100644
+--- a/src/nodes/dynamic_transform_publisher.cpp
++++ b/src/nodes/dynamic_transform_publisher.cpp
+@@ -112,7 +112,7 @@ namespace swri_transform_util
+       geometry_msgs::msg::TransformStamped stamped_transform;
+       stamped_transform.transform = tf2::toMsg(transform);
+       stamped_transform.header.stamp = rclcpp::Clock().now() +
+-          rclcpp::Duration(std::chrono::nanoseconds(std::lround(this->get_parameter("stamp_offset").as_double())));
++          rclcpp::Duration::from_nanoseconds(this->get_parameter("stamp_offset").as_double());
+       stamped_transform.child_frame_id = this->get_parameter("child_frame").as_string();
+       stamped_transform.header.frame_id = this->get_parameter("parent_frame").as_string();
+ 
+-- 
+2.35.1
+
