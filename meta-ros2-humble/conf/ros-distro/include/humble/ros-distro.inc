@@ -28,6 +28,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     cyclonedds-native \
     domain-coordinator-native \
     foonathan-memory-vendor-native \
+    generate-parameter-library-py-native \
     iceoryx-binding-c-native \
     iceoryx-posh-native \
     iceoryx-hoofs-native \
