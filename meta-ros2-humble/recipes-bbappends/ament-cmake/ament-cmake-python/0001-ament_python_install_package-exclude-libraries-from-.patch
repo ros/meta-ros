@@ -1,0 +1,30 @@
+From 0f16a1395c4cc868de4b25493c76841c80887e5d Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Mon, 14 Nov 2022 19:50:53 +0100
+Subject: [PATCH] ament_python_install_package: exclude libraries from install
+
+When rosidl_python is run to generate messages, the
+lib<msgname>__rosidl_generator_py.so (in case of linux) is installed
+into PYTHON_INSTALL_DIR and lib. This is a regression from foxy to humble.
+In the past, only .py files were copied, now we copy over the complete
+directory, which happens to also have the above library in it.
+
+Since I do not know better, I exclude libraries from being copied.
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ cmake/ament_python_install_package.cmake | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/cmake/ament_python_install_package.cmake b/cmake/ament_python_install_package.cmake
+index d035ff9ab..47f79bfa5 100644
+--- a/cmake/ament_python_install_package.cmake
++++ b/cmake/ament_python_install_package.cmake
+@@ -183,6 +183,7 @@ setup(
+     DESTINATION "${ARG_DESTINATION}/${package_name}"
+     PATTERN "*.pyc" EXCLUDE
+     PATTERN "__pycache__" EXCLUDE
++    PATTERN "*${CMAKE_SHARED_LIBRARY_SUFFIX}" EXCLUDE
+   )
+ 
+   if(NOT ARG_SKIP_COMPILE)
