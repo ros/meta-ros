@@ -111,16 +111,17 @@ if [ -n "$(git status --porcelain=v1)" ]; then
 fi
 
 abort=false
+[ -z "$ROSDEP_SOURCE_PATH" ] && ROSDEP_SOURCE_PATH="/etc/ros/rosdep/sources.list.d"
 for f in $ROSDEP_YAML_BASENAMES; do
-    ff=$(sed -n "\@^yaml file:/.*/$f.yaml\$@ s@.*file://@@p" /etc/ros/rosdep/sources.list.d/20-default.list)
+    ff=$(sed -n "\@^yaml file:/.*/$f.yaml\$@ s@.*file://@@p" $ROSDEP_SOURCE_PATH/20-default.list)
     if [ -z "$ff" ] ; then
         abort=true
-        echo "ERROR: /etc/ros/rosdep/sources.list.d/20-default.list doesn't have file://.*/$f.yaml, maybe it's using, the default URL over http:// (yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/$f.yaml)?"
+        echo "ERROR: $ROSDEP_SOURCE_PATH/20-default.list doesn't have file://.*/$f.yaml, maybe it's using, the default URL over http:// (yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/$f.yaml)?"
         continue
     fi
     if [ ! -e "$ff" ] ; then
         abort=true
-        echo "ERROR: /etc/ros/rosdep/sources.list.d/20-default.list points to $ff file, which doesn't exist"
+        echo "ERROR: $ROSDEP_SOURCE_PATH/20-default.list points to $ff file, which doesn't exist"
         continue
     fi
     # -q reports when they differ.
@@ -128,7 +129,7 @@ for f in $ROSDEP_YAML_BASENAMES; do
 done
 unset f ff
 if $abort; then
-    echo "ABORT: The yaml files pointed to by /etc/ros/rosdep/sources.list.d/20-default.list must be local (with file:// URL) and must match those under $generated/rosdep"
+    echo "ABORT: The yaml files pointed to by $ROSDEP_SOURCE_PATH/20-default.list must be local (with file:// URL) and must match those under $generated/rosdep"
     exit 1
 fi
 unset abort
