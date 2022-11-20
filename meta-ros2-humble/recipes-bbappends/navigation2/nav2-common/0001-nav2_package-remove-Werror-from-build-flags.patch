@@ -1,0 +1,32 @@
+From d6a68694e21ca4e6e206f9b50d02be491cc9ab7b Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Sun, 20 Nov 2022 18:52:38 +0100
+Subject: [PATCH] nav2_package: remove -Werror from build flags
+
+Using Werror is a bad idea because some new compilers or the like
+might throw some warnings at you that make the build fail in the end.
+It is really only interesting to developers.
+
+Since it breaks nav2-util later down the road, removed here.
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ cmake/nav2_package.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/nav2_package.cmake b/cmake/nav2_package.cmake
+index b00d30c17..a627bd3dc 100644
+--- a/cmake/nav2_package.cmake
++++ b/cmake/nav2_package.cmake
+@@ -33,7 +33,7 @@ macro(nav2_package)
+   endif()
+ 
+   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-    add_compile_options(-Wall -Wextra -Wpedantic -Werror -Wdeprecated -fPIC)
++    add_compile_options(-Wall -Wextra -Wpedantic -Wdeprecated -fPIC)
+   endif()
+ 
+   option(COVERAGE_ENABLED "Enable code coverage" FALSE)
+-- 
+2.37.4
+

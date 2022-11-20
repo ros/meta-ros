@@ -92,6 +92,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP = " \
     moveit-planners-ompl \
     moveit-planners \
     moveit-ros \
+    moveit-ros-perception \
     moveit-runtime \
     moveit-setup-core-plugins \
     moveit-hybrid-planning \
@@ -224,19 +225,17 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
+    cartographer-rviz \
     color-names \
     desktop \
-    dolly-gazebo \
     dolly \
-    leo-desktop \
-    leo-viz \
+    dolly-gazebo \
     imu-tools \
     joint-state-publisher-gui \
-    nmea-hardware-interface \
-    nav2-bringup \
-    navigation2 \
-    nav2-rviz-plugins \
+    leo-desktop \
+    leo-viz \
     microstrain-inertial-rqt \
+    moveit \
     moveit-resources \
     moveit-resources-panda-moveit-config \
     moveit-resources-prbt-moveit-config \
@@ -244,20 +243,25 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     moveit-ros-visualization \
     moveit-runtime \
     moveit-setup-app-plugins \
-    moveit-setup-framework \
+    moveit-setup-assistant \
     moveit-setup-controllers \
+    moveit-setup-framework \
     moveit-setup-srdf-plugins \
-    moveit \
+    moveit-visual-tools \
+    nav2-bringup \
+    nav2-rviz-plugins \
+    navigation2 \
+    nmea-hardware-interface \
     octomap-rviz-plugins \
     plansys2-bringup \
     plansys2-bt-actions \
     plansys2-executor \
-    plansys2-terminal \
-    plansys2-tools \
     plansys2-planner \
     plansys2-problem-expert \
-    plotjuggler-ros \
+    plansys2-terminal \
+    plansys2-tools \
     plotjuggler \
+    plotjuggler-ros \
     python-qt-binding \
     qt-dotgraph \
     qt-gui \
@@ -265,27 +269,28 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-core \
     qt-gui-cpp \
     qt-gui-py-common \
+    rmf-building-sim-gazebo-plugins \
+    rmf-building-sim-ignition-plugins \
     rmf-demos \
     rmf-demos-assets \
     rmf-demos-gz \
     rmf-demos-ign \
-    rmf-building-sim-gazebo-plugins \
-    rmf-building-sim-ignition-plugins \
     rmf-robot-sim-gazebo-plugins \
     rmf-robot-sim-ignition-plugins \
     rmf-traffic-editor \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     ros-image-to-qimage \
+    rqt \
     rqt-action \
     rqt-bag \
     rqt-bag-plugins \
     rqt-common-plugins \
     rqt-console \
-    rqt-gui \
-    rqt-gui-py \
-    rqt-gui-cpp \
     rqt-graph \
+    rqt-gui \
+    rqt-gui-cpp \
+    rqt-gui-py \
     rqt-image-overlay \
     rqt-image-overlay-layer \
     rqt-image-view \
@@ -293,38 +298,42 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-moveit \
     rqt-msg \
     rqt-plot \
+    rqt-publisher \
     rqt-py-common \
     rqt-py-console \
-    rqt-publisher \
     rqt-reconfigure \
     rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
+    rqt-runtime-monitor \
     rqt-service-caller \
     rqt-shell \
     rqt-srv \
     rqt-tf-tree \
-    rqt-topic \
     rqt-top \
-    rqt \
+    rqt-topic \
     run-move-group \
     run-moveit-cpp \
     rviz-common \
     rviz-default-plugins \
     rviz-imu-plugin \
-    rviz-rendering-tests \
     rviz-rendering \
+    rviz-rendering-tests \
     rviz-visual-testing-framework \
+    rviz-visual-tools \
     rviz2 \
     slam-toolbox \
     slider-publisher \
-    turtlebot3 \
-    turtle-tf2-py \
+    snowbot-operating-system \
     turtle-tf2-cpp \
+    turtle-tf2-py \
+    turtlebot3 \
     turtlebot3-bringup \
     turtlebot3-gazebo \
+    turtlebot3-navigation2 \
     turtlebot3-simulations \
     turtlesim \
+    ur \
     ur-bringup \
     ur-calibration \
     ur-description \
@@ -453,6 +462,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
+    rqt-runtime-monitor \
     rqt-service-caller \
     rqt-shell \
     rqt-srv \

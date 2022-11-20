@@ -2949,7 +2949,6 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${ROS_UNRESOLVED_DEP-ignition-transport11} \
     ${ROS_UNRESOLVED_DEP-jq} \
     ${ROS_UNRESOLVED_DEP-jupyter-notebook} \
-    ${ROS_UNRESOLVED_DEP-libabsl-dev} \
     ${ROS_UNRESOLVED_DEP-libbluetooth-dev} \
     ${ROS_UNRESOLVED_DEP-libbluetooth} \
     ${ROS_UNRESOLVED_DEP-libcunit-dev} \
@@ -3586,7 +3585,6 @@ ROS_UNRESOLVED_DEP-ignition-msgs8 = "ROS_UNRESOLVED_DEP-ignition-msgs8"
 ROS_UNRESOLVED_DEP-ignition-transport11 = "ROS_UNRESOLVED_DEP-ignition-transport11"
 ROS_UNRESOLVED_DEP-jq = "ROS_UNRESOLVED_DEP-jq"
 ROS_UNRESOLVED_DEP-jupyter-notebook = "ROS_UNRESOLVED_DEP-jupyter-notebook"
-ROS_UNRESOLVED_DEP-libabsl-dev = "ROS_UNRESOLVED_DEP-libabsl-dev"
 ROS_UNRESOLVED_DEP-libbluetooth = "ROS_UNRESOLVED_DEP-libbluetooth"
 ROS_UNRESOLVED_DEP-libbluetooth-dev = "ROS_UNRESOLVED_DEP-libbluetooth-dev"
 ROS_UNRESOLVED_DEP-libcunit-dev = "ROS_UNRESOLVED_DEP-libcunit-dev"

@@ -19,7 +19,7 @@ ROS_CN = "cartographer_ros"
 ROS_BPN = "cartographer_rviz"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libabsl-dev} \
+    abseil-cpp \
     boost \
     cartographer \
     cartographer-ros \
@@ -37,7 +37,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libabsl-dev} \
+    abseil-cpp \
     boost \
     cartographer \
     cartographer-ros \
@@ -53,7 +53,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libabsl-dev} \
+    abseil-cpp \
     boost \
     cartographer \
     cartographer-ros \
