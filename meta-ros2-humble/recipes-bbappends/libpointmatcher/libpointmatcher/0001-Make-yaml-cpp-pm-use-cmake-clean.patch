@@ -1,0 +1,18 @@
+diff --git a/contrib/yaml-cpp-pm/CMakeLists.txt b/contrib/yaml-cpp-pm/CMakeLists.txt
+index 2689856..9274e14 100644
+--- a/contrib/yaml-cpp-pm/CMakeLists.txt
++++ b/contrib/yaml-cpp-pm/CMakeLists.txt
+@@ -91,11 +91,11 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_C
+ 	#
+ 	set(CMAKE_CXX_FLAGS "-Wall ${GCC_EXTRA_OPTIONS} -fPIC -pedantic -Wno-long-long ${CMAKE_CXX_FLAGS}")
+ 	#
+-	add_custom_target(debuggable $(MAKE) clean
++	add_custom_target(debuggable ${CMAKE_PROGRAM} --target clean
+ 		COMMAND ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE=Debug ${CMAKE_SOURCE_DIR}
+ 		COMMENT "Adjusting settings for debug compilation"
+ 		VERBATIM)
+-	add_custom_target(releasable $(MAKE) clean
++	add_custom_target(releasable ${CMAKE_PROGRAM} --target clean
+ 		COMMAND ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE=Release ${CMAKE_SOURCE_DIR}
+ 		COMMENT "Adjusting settings for release compilation"
+ 		VERBATIM)

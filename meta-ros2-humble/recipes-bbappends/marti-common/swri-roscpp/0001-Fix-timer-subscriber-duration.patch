@@ -1,0 +1,66 @@
+Remove usage of deprecated rclcpp::Duration constructor
+
+See https://github.com/ros2/geometry2/pull/340 for details
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+diff --git a/include/swri_roscpp/subscriber_impl.h b/include/swri_roscpp/subscriber_impl.h
+index 12ec9e03c..eaeb1069d 100644
+--- a/include/swri_roscpp/subscriber_impl.h
++++ b/include/swri_roscpp/subscriber_impl.h
+@@ -34,6 +34,8 @@
+ 
+ #include <boost/utility/enable_if.hpp>
+ 
++using namespace std::chrono_literals;
++
+ namespace swri
+ {
+ 
+@@ -52,13 +54,13 @@ namespace swri
+     rclcpp::Time last_header_stamp_ = rclcpp::Time(0, 0, RCL_ROS_TIME);
+     rclcpp::Time last_receive_time_ = rclcpp::Time(0, 0, RCL_ROS_TIME);
+ 
+-    rclcpp::Duration total_latency_ = rclcpp::Duration(0);
++    rclcpp::Duration total_latency_ = rclcpp::Duration(0ns);
+     rclcpp::Duration min_latency_ = rclcpp::Duration::max();
+-    rclcpp::Duration max_latency_ = rclcpp::Duration(0);
++    rclcpp::Duration max_latency_ = rclcpp::Duration(0ns);
+ 
+     rclcpp::Duration total_periods_ = rclcpp::Duration::max();
+     rclcpp::Duration min_period_ = rclcpp::Duration::max();
+-    rclcpp::Duration max_period_ = rclcpp::Duration(0);
++    rclcpp::Duration max_period_ = rclcpp::Duration(0ns);
+ 
+     rclcpp::Duration timeout_ = rclcpp::Duration(0, 0);
+     bool in_timeout_;
+@@ -181,7 +183,7 @@ namespace swri
+       if (message_count_ < 1) {
+         return rclcpp::Duration::max();
+       } else {
+-        return rclcpp::Duration(total_latency_.seconds() / message_count_);
++        return rclcpp::Duration::from_nanoseconds(total_latency_.seconds() / message_count_);
+       }
+     }
+ 
+@@ -217,7 +219,7 @@ namespace swri
+       if (message_count_ < 2) {
+         return rclcpp::Duration::max();
+       } else {
+-        return rclcpp::Duration(total_periods_.seconds() / (message_count_ -1));
++        return rclcpp::Duration::from_nanoseconds(total_periods_.seconds() / (message_count_ -1));
+       }
+     }
+ 
+diff --git a/include/swri_roscpp/timer_impl.h b/include/swri_roscpp/timer_impl.h
+index d38b2428d..f6e072c1f 100644
+--- a/include/swri_roscpp/timer_impl.h
++++ b/include/swri_roscpp/timer_impl.h
+@@ -129,7 +129,7 @@ class TimerImpl
+     if (ticks_ < 2) {
+       return rclcpp::Duration::max();
+     } else {
+-      return rclcpp::Duration(total_periods_.seconds() / (ticks_ - 1));
++      return rclcpp::Duration::from_nanoseconds(total_periods_.seconds() / (ticks_ - 1));
+     }
+   }
+   

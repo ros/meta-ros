@@ -1,0 +1,47 @@
+From e052e746c400a16753a65dabd83f8da9c98edff1 Mon Sep 17 00:00:00 2001
+From: David Anthony <djanthony@gmail.com>
+Date: Mon, 10 Oct 2022 11:17:57 -0500
+Subject: [PATCH 31/39] Add Humble Support (#691)
+
+* Adding Humble support based on @shrijitsingh99 PR in https://github.com/swri-robotics/marti_common/pull/685
+---
+ CMakeLists.txt                               |    6 ++++++
+ include/swri_route_util/route_point_inline.h |    4 ++++
+ 2 files changed, 10 insertions(+)
+
+Filtered down to swri_route_util parts.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f2561e7..a182f46 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -28,6 +28,12 @@ target_include_directories(${PROJECT_NAME}
+   $<INSTALL_INTERFACE:include>
+ )
+ set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
++
++if ("$ENV{ROS_DISTRO}" STRLESS_EQUAL "galactic")
++  target_compile_definitions(${PROJECT_NAME}
++    PRIVATE "-DUSE_TF2_H_FILES")
++endif()
++
+ ament_target_dependencies(${PROJECT_NAME}
+   ament_cmake
+   marti_common_msgs
+diff --git a/include/swri_route_util/route_point_inline.h b/include/swri_route_util/route_point_inline.h
+index 3a7a841..623c512 100644
+--- a/include/swri_route_util/route_point_inline.h
++++ b/include/swri_route_util/route_point_inline.h
+@@ -31,7 +31,11 @@
+ 
+ #include <boost/lexical_cast.hpp>
+ 
++#ifdef USE_TF2_H_FILES
+ #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
++#else
++#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
++#endif
+ 
+ namespace swri_route_util
+ {

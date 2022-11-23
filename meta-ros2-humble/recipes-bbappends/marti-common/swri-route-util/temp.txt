@@ -1,0 +1,7 @@
+ CMakeLists.txt                               |    6 ++++++
+ include/swri_route_util/route_point_inline.h |    4 ++++
+ 2 files changed, 10 insertions(+)
+ CMakeLists.txt |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+ visualization.cpp |    5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)

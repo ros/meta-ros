@@ -1,0 +1,6 @@
+# Copyright (c) 2022 Wind River Systems, Inc.
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-Add-Humble-Support-691.patch \
+            file://0002-Fix-ament-exports-693.patch \
+            file://0003-Cleaning-up-build-warnings-related-to-durations-para.patch"

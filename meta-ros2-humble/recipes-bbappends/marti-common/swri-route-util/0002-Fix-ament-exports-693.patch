@@ -1,0 +1,35 @@
+From 028b0501b34bfa62e99708d3417c47d7310d9c08 Mon Sep 17 00:00:00 2001
+From: "P. J. Reed" <pjreed@users.noreply.github.com>
+Date: Mon, 10 Oct 2022 16:49:31 -0500
+Subject: [PATCH 37/39] Fix ament exports (#693)
+
+* Fix ament exports
+
+Signed-off-by: P. J. Reed <phillipreed@hatchbed.com>
+---
+ CMakeLists.txt |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Filtered down to swri_route_util parts.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a182f46..0831758 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -35,6 +35,7 @@ if ("$ENV{ROS_DISTRO}" STRLESS_EQUAL "galactic")
+ endif()
+ 
+ ament_target_dependencies(${PROJECT_NAME}
++  PUBLIC
+   ament_cmake
+   marti_common_msgs
+   marti_nav_msgs
+@@ -62,5 +63,5 @@ install(DIRECTORY include/
+ ament_export_dependencies(ament_cmake)
+ ament_export_include_directories(include)
+ ament_export_libraries(${PROJECT_NAME})
+-
+ ament_package()
++

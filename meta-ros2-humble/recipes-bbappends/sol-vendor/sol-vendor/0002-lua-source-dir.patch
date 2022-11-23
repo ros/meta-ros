@@ -1,0 +1,27 @@
+diff --git a/cmake/Packages/FindLuaBuild/LuaVanilla.cmake b/cmake/Packages/FindLuaBuild/LuaVanilla.cmake
+index b95e5a67..8247b8ba 100644
+--- a/cmake/Packages/FindLuaBuild/LuaVanilla.cmake
++++ b/cmake/Packages/FindLuaBuild/LuaVanilla.cmake
+@@ -157,7 +157,7 @@ endif()
+ 	set(LUA_VANILLA_GENERATE_LUA_HPP false)
+ endif()
+ 
+-set(LUA_VANILLA_SOURCE_DIR "${LUA_BUILD_TOPLEVEL}/src")
++set(LUA_VANILLA_SOURCE_DIR "${LUA_SOURCE_DIR}")
+ prepend(LUA_VANILLA_LIB_SOURCES "${LUA_VANILLA_SOURCE_DIR}/" ${LUA_VANILLA_LIB_SOURCES})
+ prepend(LUA_VANILLA_LUA_SOURCES "${LUA_VANILLA_SOURCE_DIR}/" ${LUA_VANILLA_LUA_SOURCES})
+ 
+@@ -177,12 +177,10 @@ else()
+ 		BUILD_ALWAYS FALSE
+ 		TLS_VERIFY TRUE
+ 		PREFIX ${LUA_BUILD_TOPLEVEL}
+-		SOURCE_DIR ${LUA_BUILD_TOPLEVEL}
+-		DOWNLOAD_DIR ${LUA_BUILD_TOPLEVEL}
++		SOURCE_DIR ${LUA_SOURCE_DIR}
+ 		TMP_DIR "${LUA_BUILD_TOPLEVEL}-tmp"
+ 		STAMP_DIR "${LUA_BUILD_TOPLEVEL}-stamp"
+ 		INSTALL_DIR "${LUA_BUILD_INSTALL_DIR}"
+-		URL ${LUA_VANILLA_DOWNLOAD_URL}
+ 		CONFIGURE_COMMAND ""
+ 		BUILD_COMMAND ""
+ 		INSTALL_COMMAND ""

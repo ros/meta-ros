@@ -1,0 +1,100 @@
+From 4a05a2d1750fb3ec22f2c68c0bb5901297a17170 Mon Sep 17 00:00:00 2001
+From: james-rms <james@foxglove.dev>
+Date: Fri, 28 Oct 2022 13:19:29 +1100
+Subject: [PATCH] rosbag2_storage_mcap: add storage preset profiles (#57)
+
+* rosbag2_storage_mcap: add storage preset profiles
+
+Signed-off-by: James Smith <james@foxglove.dev>
+
+---
+ mcap_storage.cpp |   43 +++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 37 insertions(+), 6 deletions(-)
+
+diff --git a/src/mcap_storage.cpp b/src/mcap_storage.cpp
+index 2306923..ba8a924 100644
+--- a/src/mcap_storage.cpp
++++ b/src/mcap_storage.cpp
+@@ -113,7 +113,10 @@ template <>
+ struct convert<McapWriterOptions> {
+   // NOTE: when updating this struct, also update documentation in README.md
+   static bool decode(const Node& node, McapWriterOptions& o) {
+-    optional_assign<bool>(node, "noCRC", o.noCRC);
++    optional_assign<bool>(node, "noChunkCRC", o.noChunkCRC);
++    optional_assign<bool>(node, "noAttachmentCRC", o.noAttachmentCRC);
++    optional_assign<bool>(node, "enableDataCRC", o.enableDataCRC);
++    optional_assign<bool>(node, "noSummaryCRC", o.noSummaryCRC);
+     optional_assign<bool>(node, "noChunking", o.noChunking);
+     optional_assign<bool>(node, "noMessageIndex", o.noMessageIndex);
+     optional_assign<bool>(node, "noSummary", o.noSummary);
+@@ -201,7 +204,8 @@ public:
+   void remove_topic(const rosbag2_storage::TopicMetadata& topic) override;
+ 
+ private:
+-  void open_impl(const std::string& uri, rosbag2_storage::storage_interfaces::IOFlag io_flag,
++  void open_impl(const std::string& uri, const std::string& preset_profile,
++                 rosbag2_storage::storage_interfaces::IOFlag io_flag,
+                  const std::string& storage_config_uri);
+ 
+   void reset_iterator(rcutils_time_point_value_t start_time = 0);
+@@ -254,16 +258,37 @@ MCAPStorage::~MCAPStorage() {
+ #ifdef ROSBAG2_STORAGE_MCAP_HAS_STORAGE_OPTIONS
+ void MCAPStorage::open(const rosbag2_storage::StorageOptions& storage_options,
+                        rosbag2_storage::storage_interfaces::IOFlag io_flag) {
+-  open_impl(storage_options.uri, io_flag, storage_options.storage_config_uri);
++  open_impl(storage_options.uri, storage_options.storage_preset_profile, io_flag,
++            storage_options.storage_config_uri);
+ }
+ #endif
+ 
+ void MCAPStorage::open(const std::string& uri,
+                        rosbag2_storage::storage_interfaces::IOFlag io_flag) {
+-  open_impl(uri, io_flag, "");
++  open_impl(uri, "", io_flag, "");
+ }
+ 
+-void MCAPStorage::open_impl(const std::string& uri,
++static void SetOptionsForPreset(const std::string& preset_profile, McapWriterOptions& options) {
++  if (preset_profile == "fastwrite") {
++    options.noChunking = true;
++    options.noSummaryCRC = true;
++  } else if (preset_profile == "zstd_fast") {
++    options.compression = mcap::Compression::Zstd;
++    options.compressionLevel = mcap::CompressionLevel::Fastest;
++    options.noChunkCRC = true;
++  } else if (preset_profile == "zstd_small") {
++    options.compression = mcap::Compression::Zstd;
++    options.compressionLevel = mcap::CompressionLevel::Slowest;
++    options.chunkSize = 4 * 1024 * 1024;
++  } else {
++    throw std::runtime_error(
++      "unknown MCAP storage preset profile "
++      "(valid options are 'fastwrite', 'zstd_fast', 'zstd_small'): " +
++      preset_profile);
++  }
++}
++
++void MCAPStorage::open_impl(const std::string& uri, const std::string& preset_profile,
+                             rosbag2_storage::storage_interfaces::IOFlag io_flag,
+                             const std::string& storage_config_uri) {
+   switch (io_flag) {
+@@ -287,9 +312,15 @@ void MCAPStorage::open_impl(const std::string& uri,
+ 
+       mcap_writer_ = std::make_unique<mcap::McapWriter>();
+       McapWriterOptions options;
++      // Set options from preset profile first
++      if (!preset_profile.empty()) {
++        SetOptionsForPreset(preset_profile, options);
++      }
++      // If both preset profile and storage config are specified,
++      // options from the storage config are overlaid on the options from the preset profile.
+       if (!storage_config_uri.empty()) {
+         YAML::Node yaml_node = YAML::LoadFile(storage_config_uri);
+-        options = yaml_node.as<McapWriterOptions>();
++        YAML::convert<McapWriterOptions>::decode(yaml_node, options);
+       }
+ 
+       auto status = mcap_writer_->open(relative_path_, options);
+-- 
+2.35.1
+

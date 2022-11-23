@@ -1,0 +1,73 @@
+From 10cc2716bc4c1f43b27f0aab551b0ad4de0efed6 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 30 May 2021 16:11:35 +0000
+Subject: [PATCH] to_string.hpp: remove inline version of apex::to_string(long
+ long unsigned int) and apex::to_string(long long int)
+
+* long long unsigned int is identical with uint64_t and
+  long long int with int64_t for gcc-11 causing:
+
+FAILED: CMakeFiles/apex_containers.dir/src/string/to_string.cpp.o
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -Dapex_containers_EXPORTS -I/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/git/include -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0=/usr/src/debug/apex-containers/0.0.4-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0=/usr/src/debug/apex-containers/0.0.4-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/recipe-sysroot -Wno-error=conversion -fPIC -Wall -Werror -Wextra -pedantic -Wcast-align -Wunused -Wconversion -Wsign-conversion -Wdouble-promotion -fvisibility=hidden -Woverloaded-virtual -Wold-style-cast -MD -MT CMakeFiles/apex_containers.dir/src/string/to_string.cpp.o -MF CMakeFiles/apex_containers.dir/src/string/to_string.cpp.o.d -o CMakeFiles/apex_containers.dir/src/string/to_string.cpp.o -c /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/git/src/string/to_string.cpp
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/git/src/string/to_string.cpp:341:18: error: redefinition of 'apex::string32_t apex::to_string(uint64_t)'
+  341 | apex::string32_t apex::to_string(const uint64_t value) noexcept
+      |                  ^~~~
+In file included from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/git/src/string/to_string.cpp:16:
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/git/include/string/to_string.hpp:75:25: note: 'apex::string32_t apex::to_string(long long unsigned int)' previously defined here
+   75 | inline apex::string32_t to_string(const long long unsigned int value) noexcept  // NOLINT
+      |                         ^~~~~~~~~
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/git/src/string/to_string.cpp:399:18: error: redefinition of 'apex::string32_t apex::to_string(int64_t)'
+  399 | apex::string32_t apex::to_string(const int64_t value) noexcept
+      |                  ^~~~
+In file included from /jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/git/src/string/to_string.cpp:16:
+/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/apex-containers/0.0.4-2-r0/git/include/string/to_string.hpp:106:25: note: 'apex::string32_t apex::to_string(long long int)' previously defined here
+  106 | inline apex::string32_t to_string(const long long int value) noexcept  // NOLINT
+      |                         ^~~~~~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/string/to_string.hpp | 22 ----------------------
+ 1 file changed, 22 deletions(-)
+
+diff --git a/include/string/to_string.hpp b/include/string/to_string.hpp
+index 9235720..2117f4d 100644
+--- a/include/string/to_string.hpp
++++ b/include/string/to_string.hpp
+@@ -67,17 +67,6 @@ APEX_CONTAINERS_PUBLIC apex::string16_t to_string(const ::uint32_t value) noexce
+ /// \return return Apex.OS string that contains text representation of the input value in base 10.
+ APEX_CONTAINERS_PUBLIC apex::string32_t to_string(const uint64_t value) noexcept;
+ 
+-#ifndef APEX_WINDOWS
+-/// \brief Convert 64-bit unsigned integer into an Apex.OS string.
+-/// GCC can't automatically translate `long long unsigned int` into uint64_t.
+-/// \param[in] value is input 64-bit signed integer value to convert
+-/// \return return Apex.OS string that contains text representation of the input value in base 10.
+-inline apex::string32_t to_string(const long long unsigned int value) noexcept  // NOLINT
+-{
+-  return apex::to_string(static_cast<uint64_t>(value));
+-}
+-#endif  // APEX_WINDOWS
+-
+ /// \brief Convert 8-bit signed integer into an Apex.OS string.
+ /// \param[in] value is input 8-bit signed integer value to convert
+ /// \return return Apex.OS string that contains text representation of the input value in base 10.
+@@ -98,17 +87,6 @@ APEX_CONTAINERS_PUBLIC apex::string16_t to_string(const ::int32_t value) noexcep
+ /// \return return Apex.OS string that contains text representation of the input value in base 10.
+ APEX_CONTAINERS_PUBLIC apex::string32_t to_string(const ::int64_t value) noexcept;
+ 
+-#ifndef APEX_WINDOWS
+-/// \brief Convert 64-bit signed integer into an Apex.OS string.
+-/// GCC can't automatically translate `long long int` into int64_t.
+-/// \param[in] value is input 64-bit signed integer value to convert
+-/// \return return Apex.OS string that contains text representation of the input value in base 10.
+-inline apex::string32_t to_string(const long long int value) noexcept  // NOLINT
+-{
+-  return apex::to_string(static_cast<int64_t>(value));
+-}
+-#endif  // APEX_WINDOWS
+-
+ /// \brief Convert an input 32-bit float to a string in scientific notation
+ /// using up to 7 digits after the decimal point
+ /// \param[in] value is input 32-bit float value to convert

@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7cba0b1..336e743 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -13,7 +13,7 @@ find_package(pluginlib REQUIRED)
+ ## System dependencies are found with CMake's conventions
+ find_package(PkgConfig REQUIRED)
+ 
+-pkg_check_modules(TBB "tbb")
++find_package(TBB REQUIRED)
+ if(TBB_FOUND)
+ add_definitions(
+   ${TBB_CFLAGS}

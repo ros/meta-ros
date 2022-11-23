@@ -1,0 +1,32 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ff59e9d..5e3c482 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,24 +17,9 @@ find_package(ament_cmake REQUIRED)
+ 
+ ## Define vendor macro
+ macro(build_mcap_vendor)
+-  include(FetchContent)
+-  fetchcontent_declare(mcap
+-    GIT_REPOSITORY https://github.com/foxglove/mcap.git
+-    GIT_TAG 24b679553674de7b04e87501abdfcde33756260f # releases/cpp/v0.2.0
+-  )
+-  fetchcontent_makeavailable(mcap)
+-
+-  fetchcontent_declare(lz4
+-    GIT_REPOSITORY https://github.com/lz4/lz4.git
+-    GIT_TAG d44371841a2f1728a3f36839fd4b7e872d0927d3 # v1.9.3
+-  )
+-  fetchcontent_makeavailable(lz4)
+-
+-  fetchcontent_declare(zstd
+-    GIT_REPOSITORY https://github.com/facebook/zstd.git
+-    GIT_TAG e47e674cd09583ff0503f0f6defd6d23d8b718d3 # v1.5.2
+-  )
+-  fetchcontent_makeavailable(zstd)
++  set(lz4_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lz4)
++  set(mcap_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/mcap)
++  set(zstd_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/zstd)
+ 
+   file(GLOB _zstd_srcs
+     ${zstd_SOURCE_DIR}/lib/common/*.c

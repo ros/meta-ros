@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 489f2ad..51896c3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -18,7 +18,9 @@ if(OpenMP_FOUND)
+ endif()
+ 
+ # Add links to PCL definitons and directories
+-include_directories(${PCL_INCLUDE_DIRS})
++include_directories(SYSTEM
++  ${PCL_INCLUDE_DIRS}
++)
+ link_directories(${PCL_LIBRARY_DIRS})
+ add_definitions(${PCL_DEFINITIONS})
+ 

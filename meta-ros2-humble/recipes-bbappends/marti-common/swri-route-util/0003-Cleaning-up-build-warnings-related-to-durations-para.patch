@@ -1,0 +1,38 @@
+From cbf6fbec760ef0a744437b284e4635dbe97c4c2e Mon Sep 17 00:00:00 2001
+From: David Anthony <david.anthony@swri.org>
+Date: Fri, 13 May 2022 17:19:48 -0500
+Subject: [PATCH 07/39] Cleaning up build warnings related to durations,
+ parameter types, and string formatting
+
+---
+ visualization.cpp |    5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+Filtered down to swri_route_util parts.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/src/visualization.cpp b/src/visualization.cpp
+index f89fdf7..4c866f9 100644
+--- a/src/visualization.cpp
++++ b/src/visualization.cpp
+@@ -26,8 +26,9 @@
+ // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ //
+ // *****************************************************************************
+-#include <swri_route_util/visualization.h>
++#include <chrono>
+ 
++#include <swri_route_util/visualization.h>
+ #include <swri_route_util/util.h>
+ 
+ namespace swri_route_util
+@@ -67,7 +68,7 @@ void markerForRouteSpeeds(
+   m.color.g = 0.0;
+   m.color.b = 0.0;
+   m.color.a = 1.0;
+-  m.lifetime = rclcpp::Duration(0);
++  m.lifetime = rclcpp::Duration(std::chrono::nanoseconds::zero());
+   m.frame_locked = false;
+ 
+   m.points.reserve(speeds.speeds.size()*2);

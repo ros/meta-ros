@@ -1,0 +1,34 @@
+From c50af5e6fb8f20850e94d9e0f2883fb6379dfdae Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 9 Nov 2021 13:49:23 +0000
+Subject: [PATCH] CMakeLists: search for Python3 Development
+
+* fixes:
+  -- Found pybind11: /usr/include (found version "2.7.0" )
+  CMake Error at /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-fleet-adapter-python/1.4.0-1-r0/recipe-sysroot/usr/share/cmake/pybind11/pybind11NewTools.cmake:196 (python3_add_library):
+    Unknown CMake command "python3_add_library".
+  Call Stack (most recent call first):
+    CMakeLists.txt:35 (pybind11_add_module)
+
+  python3_add_library isn't defined when searching only for Interpreter:
+  https://cmake.org/cmake/help/latest/module/FindPython3.html#commands
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b201f69..ab70e03 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -29,6 +29,7 @@ include_directories(
+   ${rmf_fleet_adapter_INCLUDE_DIRS}
+ )
+ 
++find_package(Python3 COMPONENTS Development Interpreter REQUIRED)
+ find_package(pybind11_vendor REQUIRED)
+ find_package(pybind11 REQUIRED)
+ 
