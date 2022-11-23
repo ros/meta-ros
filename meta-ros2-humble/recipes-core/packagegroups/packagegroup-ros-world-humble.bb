@@ -91,6 +91,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
     rtabmap \
+    rtabmap-ros \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'libomp', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP}', '', d)}"
@@ -203,10 +204,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rtabmap \
+    rtabmap-ros \
     run-move-group \
     run-moveit-cpp \
     rviz-common \
     rviz-default-plugins \
+    rviz-2d-overlay-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
     rviz-visual-tools \
@@ -260,6 +263,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     plansys2-tools \
     plotjuggler-ros \
     plotjuggler \
+    pmb2-2dnav \
+    pmb2-bringup \
+    pmb2-description \
+    pmb2-navigation \
+    pmb2-robot \
     python-qt-binding \
     qt-dotgraph \
     qt-gui \
@@ -299,6 +307,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-top \
     rqt \
     rmf-building-sim-gazebo-plugins \
+    rmf-building-sim-gz-plugins \
     rmf-building-sim-ignition-plugins \
     rmf-demos \
     rmf-demos-gz \
@@ -312,6 +321,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     run-moveit-cpp \
     rviz-common \
     rviz-default-plugins \
+    rviz-2d-overlay-plugins \
     rviz-imu-plugin \
     rviz-rendering-tests \
     rviz-rendering \
@@ -342,6 +352,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_WHITELIST contains "commercial" or "commercial_ffmpeg" or "ffmpeg".
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
+    mvsim \
     mrpt2 \
     usb-cam \
 "
@@ -349,6 +360,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
 # OE won't let us build x264 unless LICENSE_FLAGS_WHITELIST contains "commercial" or "commercial_x264" or "x264".
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x264', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
+    mvsim \
     mrpt2 \
     usb-cam \
 "
@@ -378,10 +390,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-ros2-control-demos \
     gazebo-ros2-control \
     rmf-building-sim-gazebo-plugins \
+    rmf-building-sim-gz-plugins \
+    rmf-building-sim-gz-classic-plugins \
     rmf-demos \
     rmf-demos-gz \
     rmf-demos-ign \
     rmf-robot-sim-gazebo-plugins \
+    rmf-robot-sim-gz-plugins \
+    rmf-robot-sim-gz-classic-plugins \
     turtlebot3-gazebo \
     turtlebot3-simulations \
     velodyne-description \
@@ -421,6 +437,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     microstrain-inertial-rqt \
     moveit-resources-panda-moveit-config \
     moveit-resources \
+    pmb2-2dnav \
+    pmb2-bringup \
+    pmb2-description \
+    pmb2-navigation \
+    pmb2-robot \
     python-qt-binding \
     qt-dotgraph \
     qt-gui-app \
@@ -484,19 +505,23 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     moveit-visual-tools \
     moveit \
     mrpt2 \
+    mvsim \
     navigation2 \
     nav2-bringup \
     nav2-rviz-plugins \
     nav2-system-tests \
     openvslam \
+    pmb2-2dnav \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rtabmap \
+    rtabmap-ros \
     run-move-group \
     run-moveit-cpp \
     rviz2 \
     rviz-common \
     rviz-default-plugins \
+    rviz-2d-overlay-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
     rviz-visual-tools \
@@ -576,18 +601,35 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOPEN3D = " \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'scipy', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOPEN3D = " \
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY = " \
     slider-publisher \
 "
 
-RDEPENDS:${PN}:remove = "open3d-conversions"
-RDEPENDS:${PN}:remove = "theora-image-transport"
-RDEPENDS:${PN}:remove = "image-transport-plugins"
-RDEPENDS:${PN}:remove = "perception"
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hunter', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HUNTER}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HUNTER = " \
+    depthai \
+    depthai-bridge \
+    depthai-examples \
+    depthai-ros \
+    depthai-ros-msgs \
+"
 
-RDEPENDS:${PN}:remove = " \
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'jupyter', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_JUPYTER}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_JUPYTER = " \
+    ros2trace-analysis \
+    tracetools-analysis \
+"
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wireguard', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WIREGUARD}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WIREGUARD = " \
     fogros2 \
     fogros2-examples \
 "
 
 RDEPENDS:${PN}:remove = "vitis-common"
+
+# sophus does not directly provide any runtime components
+RDEPENDS:${PN}:remove = "sophus"
+
+# websocketpp does not directly provide any runtime components
+RDEPENDS:${PN}:remove = "websocketpp"
