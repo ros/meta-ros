@@ -24,6 +24,7 @@ require conf/ros-distro/include/humble/ros-distro-preferred-providers.inc
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
+    ament-acceleration-native \
     ament-lint-native \
     cyclonedds-native \
     domain-coordinator-native \
@@ -78,10 +79,6 @@ ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 ROS_WORLD_SKIP_GROUPS += "coinor-libipopt"
 # Needs work to launch qemu to run tests on image on build machine.
 ROS_WORLD_SKIP_GROUPS += "launch"
-# recipes depending on ROS_UNRESOLVED_DEP-python3-babeltrace which cannot be just
-# set to babeltrace, because python bindings in babeltrace are not enabled as shown in log.do_configure:
-# configure: You may configure with --enable-python-bindings if you want Python bindings.
-ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
 # recipes depends on cwiid
 ROS_WORLD_SKIP_GROUPS += "cwiid"
 # recipes depends on libspnav
@@ -174,6 +171,15 @@ ROS_WORLD_SKIP_GROUPS += " \
 # packages (like depthai) that use hunter
 ROS_WORLD_SKIP_GROUPS += "hunter"
 
+# packages (like tracetools-analysis) that use jupyter
+ROS_WORLD_SKIP_GROUPS += "jupyter"
+
+# packages (like open3d-conversion) that use libopen3d
+ROS_WORLD_SKIP_GROUPS += "libopen3d"
+
+# packages (like fogros2) that use wireguard
+ROS_WORLD_SKIP_GROUPS += "wireguard"
+
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
 # and having it in a .bbappend sets it too late.
@@ -208,9 +214,6 @@ ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev = "ocl-icd"
 # https://layers.openembedded.org/layerindex/recipe/56447/
 ROS_UNRESOLVED_DEP-pybind11-dev = "python3-pybind11"
 
-# https://layers.openembedded.org/layerindex/recipe/5259/
-ROS_UNRESOLVED_DEP-python3-babeltrace = "babeltrace"
-
 # https://layers.openembedded.org/layerindex/recipe/51342/
 ROS_UNRESOLVED_DEP-python3-dbus = "python3-dbus"
 
@@ -231,3 +234,15 @@ ROS_UNRESOLVED_DEP-python3-whichcraft = "python3-whichcraft"
 ROS_UNRESOLVED_DEP-jq = "jq"
 
 ROS_UNRESOLVED_DEP-python3-construct = "python3-construct"
+
+ROS_UNRESOLVED_DEP-python3-jsonschema = "python3-jsonschema"
+
+ROS_UNRESOLVED_DEP-box2d = "box2d"
+
+ROS_UNRESOLVED_DEP-python3-babeltrace = "python3-babeltrace"
+
+ROS_UNRESOLVED_DEP-geos = "geos"
+
+ROS_UNRESOLVED_DEP-python3-venv = "python3-venv"
+
+ROS_UNRESOLVED_DEP-libopencv-imgproc-dev = "opencv"
