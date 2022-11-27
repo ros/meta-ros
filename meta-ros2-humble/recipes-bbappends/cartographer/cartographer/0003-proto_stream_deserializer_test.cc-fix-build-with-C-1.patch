@@ -1,0 +1,34 @@
+From 9085619d285f328e1929113e442c9a1b5bdb0f19 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 17 Feb 2021 17:49:35 +0000
+Subject: [PATCH] proto_stream_deserializer_test.cc: fix build with C++14
+
+* fixes:
+  cartographer/1.0.9001-1-r0/git/cartographer/io/proto_stream_deserializer_test.cc: In member function 'void cartographer::io::{anonymous}::ProtoStreamDeserializerTest::InitializeProtoReader(const string&, const std::initializer_list<std::__cxx11::basic_string<char> >&)':
+  cartographer/1.0.9001-1-r0/git/cartographer/io/proto_stream_deserializer_test.cc:72:76: error: call of overloaded 'make_unique<cartographer::io::InMemoryProtoStreamReader>(std::remove_reference<std::queue<std::unique_ptr<google::protobuf::Message> >&>::type)' is ambiguous
+   72 |     reader_ = make_unique<InMemoryProtoStreamReader>(std::move(proto_queue));
+      |                                                                            ^
+* it's changed from common to absl in newer cartographer with:
+  https://github.com/cartographer-project/cartographer/commit/5b44305ea30e6af0d1b1edb50e758881f3330c07
+  but before that we can use this simple work around
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cartographer/io/proto_stream_deserializer_test.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cartographer/io/proto_stream_deserializer_test.cc b/cartographer/io/proto_stream_deserializer_test.cc
+index 6ba5c43..b851533 100644
+--- a/cartographer/io/proto_stream_deserializer_test.cc
++++ b/cartographer/io/proto_stream_deserializer_test.cc
+@@ -69,7 +69,7 @@ class ProtoStreamDeserializerTest : public ::testing::Test {
+       proto_queue.emplace(make_unique<SerializedData>(
+           ProtoFromStringOrDie<SerializedData>(data_textpb)));
+     }
+-    reader_ = make_unique<InMemoryProtoStreamReader>(std::move(proto_queue));
++    reader_ = common::make_unique<InMemoryProtoStreamReader>(std::move(proto_queue));
+   }
+ 
+   std::unique_ptr<InMemoryProtoStreamReader> reader_;
