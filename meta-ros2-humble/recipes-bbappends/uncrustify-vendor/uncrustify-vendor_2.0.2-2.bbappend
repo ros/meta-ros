@@ -1,8 +1,8 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
 # uncrustify appears in both ROS_BUILD_DEPENDS and ROS_EXPORT_DEPENDS, so it's easier to remove it from DEPENDS.
-DEPENDS_remove = "${ROS_UNRESOLVED_DEP-uncrustify}"
-ROS_EXEC_DEPENDS_remove = "${ROS_UNRESOLVED_DEP-uncrustify}"
+DEPENDS:remove = "uncrustify"
+ROS_EXEC_DEPENDS:remove = "uncrustify"
 
 # Instead of fetching
 # https://github.com/uncrustify/uncrustify/archive/45b836cff040594994d364ad6fd3f04adc890a26.tar.gz
