@@ -14,13 +14,19 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index b467a07..9d5785b 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -48,8 +48,7 @@ macro(build_libyaml)
+@@ -61,13 +61,7 @@ macro(build_libyaml)
    endif()
    include(ExternalProject)
-   externalproject_add(libyaml-10c9078
--    URL https://github.com/yaml/libyaml/archive/10c907871f1ccd779c7fccf6b81a62762b5c4e7b.zip
--    URL_MD5 b595f0ab0735c04c7f6ed0a798a3eff7
+   externalproject_add(libyaml-0.2.5
+-    GIT_REPOSITORY https://github.com/yaml/libyaml.git
+-    GIT_TAG 2c891fc7a770e8ba2fec34fc6b545c672beb37e6  # 0.2.5
+-    GIT_CONFIG advice.detachedHead=false
+-    # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
+-    # See https://github.com/ament/uncrustify_vendor/pull/22 for details
+-    UPDATE_COMMAND ""
+-    TIMEOUT 600
 +    SOURCE_DIR ${CMAKE_SOURCE_DIR}/libyaml-upstream
      TIMEOUT 60
      CMAKE_ARGS
        -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/libyaml_install
+       -DINSTALL_INCLUDE_DIR:STRING=include/${PROJECT_NAME}
