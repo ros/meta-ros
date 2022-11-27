@@ -1,0 +1,26 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 655e562..66642c2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -54,20 +54,11 @@ macro(build_orocos_kdl)
+ 
+   # Build orocos_kdl
+   externalproject_add(orocos_kdl-507de66
+-    GIT_REPOSITORY https://github.com/orocos/orocos_kinematics_dynamics.git
+-    GIT_TAG 507de66205e14b12c8c65f25eafc05c4dc66e21e  # 1.5.1 + yet-to-be-released commits
+-    GIT_CONFIG advice.detachedHead=false
+-    # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
+-    # See https://github.com/ament/uncrustify_vendor/pull/22 for details
+-    UPDATE_COMMAND ""
+-    TIMEOUT 600
++    SOURCE_DIR ${CMAKE_SOURCE_DIR}/orocos-kdl
+     SOURCE_SUBDIR orocos_kdl
+     CMAKE_ARGS
+       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
+       ${extra_cmake_args}
+-    PATCH_COMMAND
+-      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn
+-        ${CMAKE_CURRENT_SOURCE_DIR}/0001-include_project_name.patch
+   )
+ 
+   # The external project will install to the build folder, but we'll install that on make install.
