@@ -1,0 +1,108 @@
+Use CMake to build libyaml
+
+The CMake files are present in the libyaml repository but not packaged in
+releases.
+
+Using CMake instead of autotools makes it possible for libyaml-vendor to
+export dependencies instead of exporting libraries.  This prevents host
+contamination from the absolute paths to libyaml being included in the
+libyaml-vendor CMake files.
+
+Ubuntu is still using autotools, but there are projects that use the
+CMake build system for libyaml.  This includes the CI/CD build system for
+the  C Client Library for Kubernetes.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -61,6 +61,11 @@
+   )
+ endif()
+ 
++# Set the version property.
++set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${YAML_VERSION_STRING})
++# Set the shared object version property to the project's major version.
++set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION "${YAML_VERSION_MAJOR}.${YAML_VERSION_MINOR}")
++
+ set_target_properties(yaml
+   PROPERTIES DEFINE_SYMBOL YAML_DECLARE_EXPORT
+   )
+@@ -163,3 +163,21 @@ install(
+   FILES ${config_version_file}
+   DESTINATION ${INSTALL_CMAKE_DIR} COMPONENT Development
+   )
++
++set(prefix ${CMAKE_INSTALL_PREFIX})
++set(exec_prefix \${prefix})
++set(includedir \${prefix}/${INSTALL_INCLUDE_DIR})
++set(libdir \${prefix}/${INSTALL_LIB_DIR})
++set(PACKAGE_VERSION ${YAML_VERSION_STRING})
++
++# Configure 'yaml-0.1.pc' for pkgconfig
++configure_file(
++  yaml-0.1.pc.in
++  yaml-0.1.pc
++  @ONLY
++  )
++
++install(
++  FILES ${PROJECT_BINARY_DIR}/yaml-0.1.pc
++  DESTINATION ${INSTALL_LIB_DIR}/pkgconfig COMPONENT Development
++  )
+--- a/yamlConfig.cmake.in
++++ b/yamlConfig.cmake.in
+@@ -0,0 +1,16 @@
++# Config file for the yaml library.
++#
++# It defines the following variables:
++#   yaml_LIBRARIES    - libraries to link against
++
++@PACKAGE_INIT@
++
++set_and_check(yaml_TARGETS "@PACKAGE_CONFIG_DIR_CONFIG@/yamlTargets.cmake")
++
++if(NOT yaml_TARGETS_IMPORTED)
++  set(yaml_TARGETS_IMPORTED 1)
++  include(${yaml_TARGETS})
++endif()
++
++set(yaml_LIBRARIES yaml)
++
+--- a/cmake/config.h.in
++++ b/cmake/config.h.in
+@@ -0,0 +1,4 @@
++#define YAML_VERSION_MAJOR @YAML_VERSION_MAJOR@
++#define YAML_VERSION_MINOR @YAML_VERSION_MINOR@
++#define YAML_VERSION_PATCH @YAML_VERSION_PATCH@
++#define YAML_VERSION_STRING "@YAML_VERSION_STRING@"
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -0,0 +1,27 @@
++
++function(add_yaml_executable name)
++  add_executable(${name} ${name}.c)
++  target_link_libraries(${name} yaml)
++endfunction()
++
++foreach(name IN ITEMS
++  example-deconstructor
++  example-deconstructor-alt
++  example-reformatter
++  example-reformatter-alt
++  run-dumper
++  run-emitter
++  run-emitter-test-suite
++  run-loader
++  run-parser
++  run-parser-test-suite
++  run-scanner
++  test-reader
++  test-version
++  )
++  add_yaml_executable(${name})
++endforeach()
++
++add_test(NAME version COMMAND test-version)
++add_test(NAME reader COMMAND test-reader)
++
