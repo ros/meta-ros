@@ -23,6 +23,7 @@ require conf/ros-distro/include/rolling/ros-distro-preferred-providers.inc
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
+    ament-acceleration-native \
     ament-lint-native \
     ament-cmake-cpplint-native \
     ament-cmake-uncrustify-native \
@@ -31,9 +32,14 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     fastcdr-native \
     fastrtps-native \
     foonathan-memory-vendor-native \
+    generate-parameter-library-py-native \
     iceoryx-binding-c-native \
     iceoryx-hoofs-native \
     iceoryx-posh-native \
+    launch-native \
+    launch-yaml-native \
+    launch-xml-native \
+    osrf-pycommon-native \
     rcutils-native \
     rcpputils-native \
     rmw-dds-common-native \
@@ -49,6 +55,8 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-parser-native \
     rosidl-runtime-c-native \
     rosidl-runtime-cpp-native \
+    rosidl-typesupport-c-native \
+    rosidl-typesupport-cpp-native \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-runtime-c-native \
     rosidl-runtime-cpp-native \
@@ -76,14 +84,12 @@ ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 ROS_WORLD_SKIP_GROUPS += "coinor-libipopt"
 # Needs work to launch qemu to run tests on image on build machine.
 ROS_WORLD_SKIP_GROUPS += "launch"
-# recipes depending on ROS_UNRESOLVED_DEP-python3-babeltrace which cannot be just
-# set to babeltrace, because python bindings in babeltrace are not enabled as shown in log.do_configure:
-# configure: You may configure with --enable-python-bindings if you want Python bindings.
-ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
 # recipes depends on cwiid
 ROS_WORLD_SKIP_GROUPS += "cwiid"
 # recipes depends on libspnav
 ROS_WORLD_SKIP_GROUPS += "libspnav"
+# recipes depends on libopen3d
+ROS_WORLD_SKIP_GROUPS += "libopen3d"
 
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
@@ -148,6 +154,9 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-laye
 # recipes depending on cargo which could be provided by cargo@meta-rust or oe-core[honister] and newer release (where it was imported from meta-rust)
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'rust-layer', '', 'cargo', d)}"
 
+# recipes depending on scipy which could be provided by python3-scipy@meta-scipy
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-scipy', '', 'scipy', d)}"
+
 # swri recipes depending on marti-*-msgs, currently broken after to https://github.com/ros/rosdistro/commit/e019cc8729e7ff2ba2ed51e63886734936254111
 ROS_WORLD_SKIP_GROUPS += "swri"
 
@@ -163,6 +172,18 @@ ROS_WORLD_SKIP_GROUPS += " \
     qt-gui-cpp \
     self-test \
 "
+
+# packages (like depthai) that use hunter
+ROS_WORLD_SKIP_GROUPS += "hunter"
+
+# packages (like tracetools-analysis) that use jupyter
+ROS_WORLD_SKIP_GROUPS += "jupyter"
+
+# packages (like open3d-conversion) that use libopen3d
+ROS_WORLD_SKIP_GROUPS += "libopen3d"
+
+# packages (like fogros2) that use wireguard
+ROS_WORLD_SKIP_GROUPS += "wireguard"
 
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
@@ -208,3 +229,54 @@ ROS_UNRESOLVED_DEP-python3-flake8-quotes = "python3-flake8-quotes"
 ROS_UNRESOLVED_DEP-meson-native = "meson-native"
 ROS_UNRESOLVED_DEP-python3-ply = "python3-ply"
 ROS_UNRESOLVED_DEP-python3-jinja2 = "python3-jinja2"
+
+# https://layers.openembedded.org/layerindex/recipe/4681/
+ROS_UNRESOLVED_DEP-file = "file"
+
+# https://layers.openembedded.org/layerindex/recipe/104406/
+ROS_UNRESOLVED_DEP-fmt = "fmt"
+
+# https://layers.openembedded.org/layerindex/recipe/120200/
+ROS_UNRESOLVED_DEP-libabsl-dev = "abseil-cpp"
+
+# https://layers.openembedded.org/layerindex/recipe/6147/
+ROS_UNRESOLVED_DEP-liblttng-ust-dev = "lttng-ust"
+
+# https://layers.openembedded.org/layerindex/recipe/132113/
+ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev = "ocl-icd"
+
+# https://layers.openembedded.org/layerindex/recipe/56447/
+ROS_UNRESOLVED_DEP-pybind11-dev = "python3-pybind11"
+
+# https://layers.openembedded.org/layerindex/recipe/51342/
+ROS_UNRESOLVED_DEP-python3-dbus = "python3-dbus"
+
+# https://layers.openembedded.org/layerindex/recipe/51298/
+ROS_UNRESOLVED_DEP-python3-git = "python3-git"
+
+# https://layers.openembedded.org/layerindex/recipe/148975/
+ROS_UNRESOLVED_DEP-python3-jinja2 = "python3-jinja2"
+
+# https://layers.openembedded.org/layerindex/recipe/120600/
+ROS_UNRESOLVED_DEP-python3-typeguard = "python3-typeguard"
+
+ROS_UNRESOLVED_DEP-libtins-dev = "libtins"
+
+ROS_UNRESOLVED_DEP-python3-whichcraft = "python3-whichcraft"
+
+# https://layers.openembedded.org/layerindex/recipe/27305/
+ROS_UNRESOLVED_DEP-jq = "jq"
+
+ROS_UNRESOLVED_DEP-python3-construct = "python3-construct"
+
+ROS_UNRESOLVED_DEP-python3-jsonschema = "python3-jsonschema"
+
+ROS_UNRESOLVED_DEP-box2d = "box2d"
+
+ROS_UNRESOLVED_DEP-python3-babeltrace = "python3-babeltrace"
+
+ROS_UNRESOLVED_DEP-geos = "geos"
+
+ROS_UNRESOLVED_DEP-python3-venv = "python3-venv"
+
+ROS_UNRESOLVED_DEP-libopencv-imgproc-dev = "opencv"
