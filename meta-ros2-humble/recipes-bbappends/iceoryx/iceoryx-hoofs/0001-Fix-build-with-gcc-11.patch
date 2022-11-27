@@ -46,10 +46,10 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  .../internal/relocatable_pointer/pointer_repository.hpp          | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/include/iceoryx_utils/internal/relocatable_pointer/base_relative_pointer.hpp b/include/iceoryx_utils/internal/relocatable_pointer/base_relative_pointer.hpp
+diff --git a/include/iceoryx_hoofs/internal/relocatable_pointer/base_relative_pointer.hpp b/include/iceoryx_hoofs/internal/relocatable_pointer/base_relative_pointer.hpp
 index 9ad88e5..dd6711b 100644
---- a/include/iceoryx_utils/internal/relocatable_pointer/base_relative_pointer.hpp
-+++ b/include/iceoryx_utils/internal/relocatable_pointer/base_relative_pointer.hpp
+--- a/include/iceoryx_hoofs/internal/relocatable_pointer/base_relative_pointer.hpp
++++ b/include/iceoryx_hoofs/internal/relocatable_pointer/base_relative_pointer.hpp
 @@ -20,6 +20,7 @@
  
  #include "pointer_repository.hpp"
@@ -58,18 +58,3 @@ index 9ad88e5..dd6711b 100644
  #include <cstdint>
  
  namespace iox
-diff --git a/include/iceoryx_utils/internal/relocatable_pointer/pointer_repository.hpp b/include/iceoryx_utils/internal/relocatable_pointer/pointer_repository.hpp
-index 1f9f57d..927af4e 100644
---- a/include/iceoryx_utils/internal/relocatable_pointer/pointer_repository.hpp
-+++ b/include/iceoryx_utils/internal/relocatable_pointer/pointer_repository.hpp
-@@ -20,6 +20,7 @@
- 
- #include "iceoryx_utils/cxx/vector.hpp"
- #include <iostream>
-+#include <limits>
- 
- #include <assert.h>
- 
--- 
-2.17.1
-
