@@ -9,11 +9,11 @@ ROS_EXEC_DEPENDS:remove = "uncrustify"
 # during do_compile
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-uncrustify-with-bitbake-fetcher.patch \
-    git://github.com/uncrustify/uncrustify.git;protocol=https;name=uncrustify;destsuffix=git/uncrustify-upstream \
-    https://raw.githubusercontent.com/ros2-gbp/uncrustify_vendor-release/release/foxy/uncrustify_vendor/1.4.0-1/install-patch.diff;name=patch;patchdir=uncrustify-upstream \
+    git://github.com/uncrustify/uncrustify.git;protocol=https;name=uncrustify;destsuffix=git/uncrustify-upstream;branch=master \
+    https://raw.githubusercontent.com/ros2-gbp/uncrustify_vendor-release/e2bddd9df7abe1099ea9788e5b3811adabe9481e/install-patch.diff;name=patch;patchdir=uncrustify-upstream \
 "
-# It's called 0.68.1 in uncrustify_vendor, but it's actually 26 commits after uncrustify-0.69.0 tag
-SRCREV_uncrustify = "45b836cff040594994d364ad6fd3f04adc890a26"
+# Using uncrustify-0.72.0 tag
+SRCREV_uncrustify = "1d3d8fa5e81bece0fac4b81316b0844f7cc35926"
 
-SRC_URI[patch.md5sum] = "7561aaffb9d311c50199ec2a8d36ae94"
-SRC_URI[patch.sha256sum] = "14a8f11f8e7c68d4363ccf88cc5edb59d4cd6d35086cfdddd98763f596db601e"
+SRC_URI[patch.md5sum] = "43fb113fc0ce0e8a70df7c3d3e15db2c"
+SRC_URI[patch.sha256sum] = "3625786526f2d03252d94cd9b2ae4620d93f586938f28dde28d3094c36c2aa48"
