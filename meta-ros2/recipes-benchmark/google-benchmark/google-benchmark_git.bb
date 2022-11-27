@@ -6,10 +6,10 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-PV = "1.5.1+git${SRCPV}"
+PV = "1.7.0+git${SRCPV}"
 
-# matches with tag 1.5.1
-SRCREV = "8039b4030795b1c9b8cedb78e3a2a6fb89574b6e"
+# matches with tag 1.7.0
+SRCREV = "361e8d1cfe0c6c36d30b39f1b61302ece5507320"
 SRC_URI = "git://github.com/google/benchmark;branch=main;protocol=https"
 
 S = "${WORKDIR}/git"
@@ -27,5 +27,3 @@ inherit cmake
 # points to google-benchmark sysroot (which might be already removed by rm_work)
 # INTERFACE_LINK_LIBRARIES "-pthread;/jenkins/home/workspace/jansa/webos-dashing-dunfell/webos-dashing-dunfell/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/google-benchmark/1.5.1+gitAUTOINC+8039b40307-r0/recipe-sysroot/usr/lib/librt.so"
 SSTATE_SCAN_FILES:append = " *.cmake"
-
-SRC_URI += "file://0001-Fix-build-with-gcc-11.patch"
