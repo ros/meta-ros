@@ -55,7 +55,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index d8b56dd..c4f21bc 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -283,7 +283,7 @@ install(
+@@ -251,7 +251,7 @@ install(
          cmake/IceoryxPackageHelper.cmake
          cmake/IceoryxPlatform.cmake
          cmake/IceoryxVersion.cmake
@@ -79,10 +79,10 @@ diff --git a/cmake/IceoryxPackageHelper.cmake b/cmake/IceoryxPackageHelper.cmake
 index f3aabf5..f222b13 100644
 --- a/cmake/IceoryxPackageHelper.cmake
 +++ b/cmake/IceoryxPackageHelper.cmake
-@@ -34,6 +34,7 @@ Macro(setup_package_name_and_create_files)
-     set(DESTINATION_LIBDIR lib )
-     set(DESTINATION_INCLUDEDIR include/${PARAMS_PROJECT_PREFIX})
-     set(DESTINATION_CONFIGDIR lib/cmake/${PARAMS_NAME} )
+@@ -37,6 +37,7 @@ Macro(setup_package_name_and_create_files)
+     set(DESTINATION_LIBDIR ${CMAKE_INSTALL_LIBDIR})
+     set(DESTINATION_INCLUDEDIR ${CMAKE_INSTALL_INCLUDEDIR}/${PARAMS_PROJECT_PREFIX})
+     set(DESTINATION_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${PARAMS_NAME})
 +    set(DESTINATION_MODULEDIR share/cmake/Modules )
  
      # create package files
