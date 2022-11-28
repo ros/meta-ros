@@ -252,11 +252,11 @@ Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- CMakeLists.txt | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ CMakeLists.txt |   14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 946a5ba..7780685 100644
+index 6170867..3350452 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -13,8 +13,10 @@ endif()
@@ -271,15 +271,19 @@ index 946a5ba..7780685 100644
 +
  find_package(sensor_msgs REQUIRED)
  
- include_directories(include)
-@@ -26,7 +28,7 @@ ament_target_dependencies(joy
- # Need this since sdl2 doesn't properly export its
- # libraries so ament_target_dependencies can find them
- target_link_libraries(joy
+ add_library(joy SHARED src/joy.cpp)
+@@ -24,9 +26,11 @@ target_include_directories(joy PUBLIC
+ target_link_libraries(joy PUBLIC
+   rclcpp::rclcpp
+   ${sensor_msgs_TARGETS}
 -  SDL2::SDL2)
 +  ${SDL2_LIBRARIES})
+ target_link_libraries(joy PRIVATE
+   rclcpp_components::component)
++target_include_directories(joy SYSTEM PUBLIC
++  ${SDL2_INCLUDE_DIRS})
  
- install(TARGETS joy
+ install(TARGETS joy EXPORT export_joy
    LIBRARY DESTINATION lib
 @@ -41,7 +43,7 @@ rclcpp_components_register_node(joy
  add_executable(joy_enumerate_devices
