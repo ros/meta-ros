@@ -1,4 +1,17 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2021 LG Electronics, Inc.
+
+ROS_BUILDTOOL_DEPENDS += " \
+    ament-cmake-ros-native \
+    python3-numpy-native \
+    rosidl-adapter-native \
+    rosidl-generator-c-native \
+    rosidl-generator-cpp-native \
+    rosidl-generator-py-native \
+    rosidl-typesupport-cpp-native \
+    rosidl-typesupport-fastrtps-c-native \
+    rosidl-typesupport-fastrtps-cpp-native \
+    rosidl-typesupport-introspection-cpp-native \
+"
 
 # ROS2 is python3-only and python2 is blacklisted here
 ROS_BUILD_DEPENDS_remove = "python-catkin-pkg"
