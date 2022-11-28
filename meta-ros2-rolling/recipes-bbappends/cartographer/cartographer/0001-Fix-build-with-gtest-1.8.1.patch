@@ -241,11 +241,11 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  cmake/modules/FindGMock.cmake | 10 +++++++++-
  1 file changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/cmake/modules/FindGMock.cmake b/cmake/modules/FindGMock.cmake
-index c663e98..9afa068 100644
---- a/cmake/modules/FindGMock.cmake
-+++ b/cmake/modules/FindGMock.cmake
-@@ -30,6 +30,14 @@ if(NOT GMock_FOUND)
+Index: git/cmake/modules/FindGMock.cmake
+===================================================================
+--- git.orig/cmake/modules/FindGMock.cmake
++++ git/cmake/modules/FindGMock.cmake
+@@ -20,6 +20,14 @@ if(NOT GMock_FOUND)
      PATHS
        /usr
    )
@@ -258,9 +258,9 @@ index c663e98..9afa068 100644
 +    PATH_SUFFIXES lib
 +  )
  
-   # Find system-wide gtest header.
-   find_path(GTEST_INCLUDE_DIRS gtest/gtest.h
-@@ -65,7 +73,7 @@ if(NOT GMock_FOUND)
+   # Find system-wide installed gmock.
+   find_library(GMOCK_LIBRARIES
+@@ -83,7 +91,7 @@ if(NOT GMock_FOUND)
  
    # System-wide installed gmock library might require pthreads.
    find_package(Threads REQUIRED)
