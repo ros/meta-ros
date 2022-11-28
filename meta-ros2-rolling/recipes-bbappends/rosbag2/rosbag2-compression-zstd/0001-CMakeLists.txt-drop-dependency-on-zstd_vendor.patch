@@ -28,7 +28,7 @@ index d985c201..352970e3 100644
  add_library(${PROJECT_NAME} SHARED
    src/rosbag2_compression_zstd/compression_utils.cpp
 @@ -37,8 +37,7 @@ target_include_directories(${PROJECT_NAME}
-   $<INSTALL_INTERFACE:include>)
+   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
  ament_target_dependencies(${PROJECT_NAME}
    rcpputils
 -  rosbag2_compression
@@ -37,10 +37,11 @@ index d985c201..352970e3 100644
  target_compile_definitions(${PROJECT_NAME} PRIVATE ROSBAG2_COMPRESSION_ZSTD_BUILDING_DLL)
  pluginlib_export_plugin_description_file(rosbag2_compression plugin_description.xml)
  
-@@ -56,9 +55,26 @@ install(
+@@ -56,10 +55,26 @@ install(
  ament_export_include_directories(include)
  ament_export_libraries(${PROJECT_NAME})
  ament_export_targets(export_${PROJECT_NAME})
+-
 -# order matters here, first vendor, then zstd
 -ament_export_dependencies(rcpputils rosbag2_compression zstd_vendor zstd)
 -
@@ -65,5 +66,5 @@ index d985c201..352970e3 100644
 +#   CMakeLists.txt:21 (find_package)
 +ament_export_dependencies(pluginlib rcpputils rcutils rosbag2_cpp rosbag2_storage)
  
- if(BUILD_TESTING)
-   find_package(ament_cmake_gmock REQUIRED)
+ # Export modern CMake targets
+ ament_export_targets(export_${PROJECT_NAME})
