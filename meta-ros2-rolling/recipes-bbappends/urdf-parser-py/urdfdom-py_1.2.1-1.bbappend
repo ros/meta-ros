@@ -1,9 +1,9 @@
 # Copyright (c) 2021 LG Electronics, Inc.
+# Copyright (c) 2022 Wind River Systems, Inc.
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "\
-    file://0001-setup.cfg-fix-warning.patch \
-    file://0002-setup.py-install-data_files-without-share-prefix.patch \
+FILES:${PN}:prepend = " \
+    ${datadir}/ament_index \
+    ${datadir}/urdfdom_py \
 "
 
 # similar to what distutil3.bbclass does here:
