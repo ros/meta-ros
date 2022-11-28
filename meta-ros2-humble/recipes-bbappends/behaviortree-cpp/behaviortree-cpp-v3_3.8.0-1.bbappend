@@ -2,6 +2,7 @@
 
 ROS_BUILD_DEPENDS += " \
     ament-cmake-gtest \
+    googletest \
     cppzmq \
 "
 
