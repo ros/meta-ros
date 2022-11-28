@@ -1,0 +1,58 @@
+From 326d3df1efec97117caba8e22341c553c8dd1956 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 18 Feb 2021 05:37:11 -0800
+Subject: [PATCH] CmakeLists.txt: set C++ version to C++14
+
+* ceres requires a fully C++14-compliant compiler since version 2.0:
+  https://github.com/ceres-solver/ceres-solver/commit/7ef83e07592ead74eeacc227b642df1959d2a246
+
+  without it, cartographer build fails with a lot of errors like:
+  error: 'integer_sequence' is not a member of 'std'
+
+* set CMAKE_CXX_EXTENSIONS as well, because with CMake-3.22.0:
+  https://github.com/Kitware/CMake/commit/fc3a1cbdd81f350b897c6cd06d75e8e228514773
+  -std=gnu++17 gets added to FLAGS in build/build.ninja causing
+  various build failures like:
+
+FAILED: CMakeFiles/cartographer_ros.dir/cartographer_ros/time_conversion.cc.o
+/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot-native/usr/bin/x86_64-webos-linux/x86_64-webos-linux-g++ -DCERES_EXPORT_INTERNAL_SYMBOLS -DDEFAULT_RMW_IMPLEMENTATION=rmw_cyclonedds_cpp -DURDFDOM_HEADERS_HAS_SHARED_PTR_DEFS -I/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/git/include -I/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/git/. -I/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/build -I/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/git -isystem /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/pcl-1.10 -isystem /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/eigen3 -isystem /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/cairo -isystem /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/glib-2.0 -isystem /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/lib/glib-2.0/include -isystem /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/pixman-1 -isystem /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/uuid -isystem /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/freetype2 -isystem /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/libpng16 -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0=/usr/src/debug/cartographer-ros/1.0.9003-4-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0=/usr/src/debug/cartographer-ros/1.0.9003-4-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot -DNDEBUG  -pthread -std=c++11 -fPIC  -Wall -Wpedantic -Werror=format-security -Werror=missing-braces -Werror=reorder -Werror=return-type -Werror=switch -O3 -DNDEBUG -Wall -Wextra -MD -MT CMakeFiles/cartographer_ros.dir/cartographer_ros/time_conversion.cc.o -MF CMakeFiles/cartographer_ros.dir/cartographer_ros/time_conversion.cc.o.d -o CMakeFiles/cartographer_ros.dir/cartographer_ros/time_conversion.cc.o -c /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/git/cartographer_ros/time_conversion.cc
+In file included from /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/builtin_interfaces/msg/detail/time__struct.hpp:8,
+                 from /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/builtin_interfaces/msg/time.hpp:7,
+                 from /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/git/./cartographer_ros/time_conversion.h:21,
+                 from /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/git/cartographer_ros/time_conversion.cc:17:
+/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/rosidl_runtime_cpp/bounded_vector.hpp:477:3: error: 'emplace_back' function uses 'auto' type specifier without trailing return type
+  477 |   auto
+      |   ^~~~
+/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/rosidl_runtime_cpp/bounded_vector.hpp:477:3: note: deduced return type only available with '-std=c++14' or '-std=gnu++14'
+In file included from /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/builtin_interfaces/msg/time.hpp:8,
+                 from /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/git/./cartographer_ros/time_conversion.h:21,
+                 from /jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/git/cartographer_ros/time_conversion.cc:17:
+/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/builtin_interfaces/msg/detail/time__builder.hpp:60:1: error: 'build' function uses 'auto' type specifier without trailing return type
+   60 | auto build();
+      | ^~~~
+/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/builtin_interfaces/msg/detail/time__builder.hpp:60:1: note: deduced return type only available with '-std=c++14' or '-std=gnu++14'
+/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/builtin_interfaces/msg/detail/time__builder.hpp:64:1: error: 'build' function uses 'auto' type specifier without trailing return type
+   64 | auto build<::builtin_interfaces::msg::Time>()
+      | ^~~~
+/jenkins/mjansa/build/ros/webos-rolling-kirkstone/tmp-glibc/work/qemux86_64-webos-linux/cartographer-ros/1.0.9003-4-r0/recipe-sysroot/usr/include/builtin_interfaces/msg/detail/time__builder.hpp:64:1: note: deduced return type only available with '-std=c++14' or '-std=gnu++14'
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ae3c115..2680800 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,6 +26,8 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+   add_compile_options(-Wall -Wextra)
+ endif()
+ 
++set(CMAKE_CXX_STANDARD 14)
++set(CMAKE_CXX_EXTENSIONS 14)
+ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ 
+ find_package(builtin_interfaces REQUIRED)
