@@ -9,11 +9,15 @@ Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- CMakeLists.txt | 43 ++++---------------------------------------
- 1 file changed, 4 insertions(+), 39 deletions(-)
+ CMakeLists.txt                      |   56 ++----------------------------------
+ cmake_minimum_required_2.8.12.patch |   26 ----------------
+ no_internal_headers.patch           |   28 ------------------
+ 3 files changed, 4 insertions(+), 106 deletions(-)
+ delete mode 100644 cmake_minimum_required_2.8.12.patch
+ delete mode 100644 no_internal_headers.patch
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d614cac5..bd46aac5 100644
+index e3d4a22a..78efbc22 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -9,49 +9,14 @@ option(FORCE_BUILD_VENDOR_PKG
@@ -42,9 +46,13 @@ index d614cac5..bd46aac5 100644
 -  include(ExternalProject)
 -  # The CMakeLists.txt file for zstd is in a subdirectory.
 -  # We need to configure the CMake command to build from there instead.
--  ExternalProject_Add(zstd-1.4.4
--    URL https://github.com/facebook/zstd/archive/v1.4.4.zip
--    URL_MD5 3a5c3a535280b7f4dfdbd739fcc7173f
+-  ExternalProject_Add(zstd-${zstd_version}
+-    GIT_REPOSITORY https://github.com/facebook/zstd.git
+-    GIT_TAG 10f0e6993f9d2f682da6d04aa2385b7d53cbb4ee  # v${zstd_version}
+-    GIT_CONFIG advice.detachedHead=false
+-    # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
+-    # See https://github.com/ament/uncrustify_vendor/pull/22 for details
+-    UPDATE_COMMAND ""
 -    TIMEOUT 60
 -    SOURCE_SUBDIR build/cmake
 -    CMAKE_ARGS
