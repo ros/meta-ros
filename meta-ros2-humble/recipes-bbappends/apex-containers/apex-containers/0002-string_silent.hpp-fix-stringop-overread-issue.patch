@@ -1,0 +1,31 @@
+From 6d14ac78f82e9de5176a168646c855dbdbf2caf7 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 1 Jun 2021 06:37:40 +0000
+Subject: [PATCH] string_silent.hpp: fix stringop-overread issue
+
+* reported with gcc-11,
+  similar to https://gcc.gnu.org/bugzilla/show_bug.cgi?id=99578#c6)
+
+* apex-containers/0.0.4-2-r0/git/include/string/string_silent.hpp:76:50: error: 'size_t strnlen(const char*, size_t)' specified bound 31 exceeds source size 16 [-Werror=stringop-overread]
+  apex-containers/0.0.4-2-r0/git/include/string/string_silent.hpp:76:50: error: 'size_t strnlen(const char*, size_t)' specified bound 7 may exceed source size 6 [-Werror=stringop-overread]
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/string/string_silent.hpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/string/string_silent.hpp b/include/string/string_silent.hpp
+index 7d93bae..d641706 100644
+--- a/include/string/string_silent.hpp
++++ b/include/string/string_silent.hpp
+@@ -73,7 +73,7 @@ public:
+     if (src != nullptr) {
+       const ::size64_t my_length = this->length();
+       if (my_length < this->capacity()) {
+-        const ::size64_t their_length = ::strnlen(src, this->capacity());
++        const ::size64_t their_length = ::strnlen(src, (my_length < this->capacity() ? my_length : this->capacity()));
+         if (their_length > 0U) {
+           const ::size64_t max_copy_size = this->capacity() - my_length;
+           const ::size64_t copy_size =
