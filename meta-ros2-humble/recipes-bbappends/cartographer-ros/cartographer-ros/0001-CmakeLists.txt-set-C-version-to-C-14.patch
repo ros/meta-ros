@@ -47,12 +47,12 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index ae3c115..2680800 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -27,6 +27,8 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+@@ -26,6 +26,8 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
    add_compile_options(-Wall -Wextra)
  endif()
  
 +set(CMAKE_CXX_STANDARD 14)
 +set(CMAKE_CXX_EXTENSIONS 14)
- find_package(cartographer REQUIRED)
- include("${CARTOGRAPHER_CMAKE_DIR}/functions.cmake")
- set(BUILD_SHARED_LIBS OFF)
+ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ 
+ find_package(builtin_interfaces REQUIRED)
