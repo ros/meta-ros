@@ -1,0 +1,50 @@
+From abe3f769b1b8e1a40bcd30aba43028bec6301b1e Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 30 May 2021 05:28:25 -0700
+Subject: [PATCH] CMakeLists.txt: fetch acado, hpmpc with bitbake fetcher
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 10244f2..d29e609 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -16,14 +16,10 @@ message("extra_cmake_args: ${extra_cmake_args} ====")
+ include(ExternalProject)
+ 
+ externalproject_add(acado-1.2.2-cho3
+-  GIT_REPOSITORY https://github.com/cho3/acado.git
+-  GIT_TAG 8366e22cd5d815078e8d24f78dbced28b48d7e32
+-  GIT_SHALLOW 1
+-  TIMEOUT 600
++  SOURCE_DIR ${PROJECT_SOURCE_DIR}/acado-upstream
+   CMAKE_ARGS
+     -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/acado_external_project_install
+-    -DCMAKE_C_FLAGS="-w"
+-    -DCMAKE_CXX_FLAGS="-w"
++    -DCMAKE_TOOLCHAIN_FILE=${PROJECT_SOURCE_DIR}/../toolchain.cmake
+     ${extra_cmake_args}
+     -Wno-dev
+ )
+@@ -31,14 +29,10 @@ install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/acado_external_project_install/
+   DESTINATION ${CMAKE_INSTALL_PREFIX})
+ 
+ externalproject_add(hpmpc-cho3
+-  GIT_REPOSITORY https://github.com/cho3/hpmpc.git
+-  GIT_TAG abbcf0806e4c8763ab2129a90efd827d194c1b00
+-  GIT_SHALLOW 1
+-  TIMEOUT 600
++  SOURCE_DIR ${PROJECT_SOURCE_DIR}/hpmpc-upstream
+   CMAKE_ARGS
+     -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/hpmpc_external_project_install
+-    -DCMAKE_C_FLAGS="-w"
+-    -DCMAKE_CXX_FLAGS="-w"
++    -DCMAKE_TOOLCHAIN_FILE=${PROJECT_SOURCE_DIR}/../toolchain.cmake
+     ${extra_cmake_args}
+     -Wno-dev
+ )
