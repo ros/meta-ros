@@ -20,21 +20,21 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  CMakeLists.txt        | 3 ++-
  1 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 2e3a686..cf040c6 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -178,6 +178,7 @@ google_binary(cartographer_compute_relations_metrics
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -199,6 +199,7 @@ google_binary(cartographer_compute_relat
    SRCS
      cartographer/ground_truth/compute_relations_metrics_main.cc
  )
 +target_link_libraries(cartographer_compute_relations_metrics PUBLIC -ldl)
  
- google_binary(cartographer_migrate_serialization_format
+ google_binary(cartographer_pbstream
    SRCS
-@@ -263,7 +264,7 @@ foreach(ABS_FIL ${ALL_TESTS})
-   if(${BUILD_PROMETHEUS})
-     target_link_libraries("${TEST_TARGET_NAME}" PUBLIC prometheus-cpp)
+@@ -329,7 +330,7 @@ foreach(ABS_FIL ${ALL_TESTS})
+     target_link_libraries("${TEST_TARGET_NAME}" PUBLIC prometheus-cpp-core)
+     target_link_libraries("${TEST_TARGET_NAME}" PUBLIC prometheus-cpp-pull)
    endif()
 -  target_link_libraries("${TEST_TARGET_NAME}" PUBLIC ${TEST_LIB})
 +  target_link_libraries("${TEST_TARGET_NAME}" PUBLIC ${TEST_LIB} -ldl)
