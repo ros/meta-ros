@@ -15,14 +15,14 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 3b89edc..fbd8918 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -73,15 +73,16 @@ macro(build_benchmark)
+@@ -80,15 +80,16 @@ macro(build_benchmark)
  endmacro()
  
- if(NOT benchmark_FOUND OR "${benchmark_VERSION}" VERSION_LESS 1.5.0)
+ if(NOT benchmark_FOUND OR "${benchmark_VERSION}" VERSION_LESS 1.6.1)
 -  build_benchmark()
 +  message(FATAL_ERROR "benchmark not found, missing dependency on google-benchmark or version less than 1.5.0, found ${benchmark_VERSION}")
  elseif(benchmark_FOUND)
-   # Ubuntu Focal has a packaging bug where libbenchmark_main has no symbols,
+   # Ubuntu Focal and Jammy have a packaging bug where libbenchmark_main has no symbols,
    # causing linker failures. I'm pretty sure it shouldn't be a static library.
    # Details: https://bugs.launchpad.net/ubuntu/+source/benchmark/+bug/1887872
 -  get_target_property(_benchmark_main_type benchmark::benchmark_main TYPE)
