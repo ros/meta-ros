@@ -1,4 +1,4 @@
-From 568b39820a63e4de4e08cb382a51a11b4e9001ef Mon Sep 17 00:00:00 2001
+From 8c3f055a2c4dc6d89e7dceead607d4c16a1917db Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Sat, 12 Jun 2021 19:54:33 +0000
 Subject: [PATCH] schedule: fix get_participant() declaration to match Viewer
@@ -20,6 +20,7 @@ In file included from /jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glib
 Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
 ---
  include/rmf_traffic/schedule/Database.hpp | 2 +-
  include/rmf_traffic/schedule/Mirror.hpp   | 2 +-
@@ -28,10 +29,10 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  4 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/include/rmf_traffic/schedule/Database.hpp b/include/rmf_traffic/schedule/Database.hpp
-index 052239b..a18a5e0 100644
+index 6318012..3923787 100644
 --- a/include/rmf_traffic/schedule/Database.hpp
 +++ b/include/rmf_traffic/schedule/Database.hpp
-@@ -114,7 +114,7 @@ public:
+@@ -113,7 +113,7 @@ public:
  
    // Documentation inherited from Viewer
    std::shared_ptr<const ParticipantDescription> get_participant(
@@ -39,9 +40,9 @@ index 052239b..a18a5e0 100644
 +    ParticipantId participant_id) const final;
  
    // Documentation inherited from Viewer
-   rmf_utils::optional<Itinerary> get_itinerary(
+   Version latest_version() const;
 diff --git a/include/rmf_traffic/schedule/Mirror.hpp b/include/rmf_traffic/schedule/Mirror.hpp
-index d8746b5..8fdbe3f 100644
+index 14c3c9e..aa3e151 100644
 --- a/include/rmf_traffic/schedule/Mirror.hpp
 +++ b/include/rmf_traffic/schedule/Mirror.hpp
 @@ -51,7 +51,7 @@ public:
@@ -52,12 +53,12 @@ index d8746b5..8fdbe3f 100644
 +    ParticipantId participant_id) const final;
  
    // Documentation inherited from Viewer
-   std::optional<Itinerary> get_itinerary(
+   std::optional<ItineraryView> get_itinerary(
 diff --git a/src/rmf_traffic/schedule/Database.cpp b/src/rmf_traffic/schedule/Database.cpp
-index fd26912..e3af83b 100644
+index 35db744..f023cf7 100644
 --- a/src/rmf_traffic/schedule/Database.cpp
 +++ b/src/rmf_traffic/schedule/Database.cpp
-@@ -1208,7 +1208,7 @@ const std::unordered_set<ParticipantId>& Database::participant_ids() const
+@@ -1303,7 +1303,7 @@ const std::unordered_set<ParticipantId>& Database::participant_ids() const
  
  //==============================================================================
  std::shared_ptr<const ParticipantDescription> Database::get_participant(
@@ -67,10 +68,10 @@ index fd26912..e3af83b 100644
    const auto state_it = _pimpl->descriptions.find(participant_id);
    if (state_it == _pimpl->descriptions.end())
 diff --git a/src/rmf_traffic/schedule/Mirror.cpp b/src/rmf_traffic/schedule/Mirror.cpp
-index 35a33ac..de67a41 100644
+index 4c1d710..73762e9 100644
 --- a/src/rmf_traffic/schedule/Mirror.cpp
 +++ b/src/rmf_traffic/schedule/Mirror.cpp
-@@ -239,7 +239,7 @@ const std::unordered_set<ParticipantId>& Mirror::participant_ids() const
+@@ -255,7 +255,7 @@ const std::unordered_set<ParticipantId>& Mirror::participant_ids() const
  
  //==============================================================================
  std::shared_ptr<const ParticipantDescription> Mirror::get_participant(
