@@ -5,6 +5,8 @@ SRC_URI += " \
     file://0001-CMakeLists.txt-link-with-dl.patch \
     file://cmake.dont.add.Werror.uninitialized.patch \
     file://0001-Fix-build-with-gtest-1.8.1.patch \
+    file://0002-CmakeLists.txt-set-C-version-to-C-14.patch \
+    file://0001-FindLuaGoogle.cmake-accept-5.4-lua-as-well.patch \
 "
 
 # This is used only to generate documentation so it should

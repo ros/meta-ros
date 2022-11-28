@@ -10,14 +10,15 @@ Otherwise it fails with older Yocto with following error (doesn't fail with 3.2 
 
 Upstream-Status: Pending
 
-diff -uNr cartographer-release-release-melodic-cartographer-1.0.0-0/cmake/functions.cmake cartographer-release-release-melodic-cartographer-1.0.0-0.new/cmake/functions.cmake
---- cartographer-release-release-melodic-cartographer-1.0.0-0/cmake/functions.cmake	2018-06-01 12:10:29.000000000 +0000
-+++ cartographer-release-release-melodic-cartographer-1.0.0-0.new/cmake/functions.cmake	2019-09-07 20:28:53.786899683 +0000
-@@ -83,7 +83,6 @@
-   google_add_flag(GOOG_CXX_FLAGS "-Werror=reorder")
-   google_add_flag(GOOG_CXX_FLAGS "-Werror=return-type")
-   google_add_flag(GOOG_CXX_FLAGS "-Werror=switch")
--  google_add_flag(GOOG_CXX_FLAGS "-Werror=uninitialized")
+diff --git a/cmake/functions.cmake b/cmake/functions.cmake
+index cdbd896..fa265ca 100644
+--- a/cmake/functions.cmake
++++ b/cmake/functions.cmake
+@@ -91,7 +91,6 @@ macro(google_initialize_cartographer_project)
+     google_add_flag(GOOG_CXX_FLAGS "-Werror=reorder")
+     google_add_flag(GOOG_CXX_FLAGS "-Werror=return-type")
+     google_add_flag(GOOG_CXX_FLAGS "-Werror=switch")
+-    google_add_flag(GOOG_CXX_FLAGS "-Werror=uninitialized")
  
-   if(NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
-     set(CMAKE_BUILD_TYPE Release)
+     if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "AppleClang")
+       google_add_flag(GOOG_CXX_FLAGS "-Wthread-safety")
