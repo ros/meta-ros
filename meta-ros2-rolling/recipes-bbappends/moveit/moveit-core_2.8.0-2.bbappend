@@ -1,4 +1,10 @@
 # Copyright (c) 2021 LG Electronics, Inc.
+# Copyright (c) 2022 Wind River Systems, Inc.
+
+ROS_BUILDTOOL_DEPENDS = " \
+    rosidl-adapter-native \
+    python3-numpy-native \
+"
 
 # tf2-kdl and angles are only in ROS_TEST_DEPENDS but CMake checks for it even with testing disabled
 DEPENDS += "\
@@ -32,3 +38,4 @@ DEPENDS += "\
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/raspberrypi4-webos-linux-gnueabi/moveit-core/2.1.0-1-r0/packages-split/moveit-core/usr/lib/libmoveit_robot_trajectory.so'
 # [dev-so]
 inherit ros_insane_dev_so
+inherit pkgconfig
