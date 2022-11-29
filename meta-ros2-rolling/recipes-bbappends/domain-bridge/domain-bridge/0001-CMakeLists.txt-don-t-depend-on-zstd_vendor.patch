@@ -1,0 +1,73 @@
+From a77805129125bef9fa8efe33dfeb31df2b61c2e1 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 15 Nov 2021 00:10:12 -0800
+Subject: [PATCH] CMakeLists.txt: don't depend on zstd_vendor
+
+* in meta-ros we use regular zstd and zstd-vendor doesn't install much:
+  tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/zstd-vendor/0.9.1-3-r0/image/usr/
+  tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/zstd-vendor/0.9.1-3-r0/image/usr/share
+  tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/zstd-vendor/0.9.1-3-r0/image/usr/share/zstd_vendor
+  tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/zstd-vendor/0.9.1-3-r0/image/usr/share/zstd_vendor/cmake
+  tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/zstd-vendor/0.9.1-3-r0/image/usr/share/zstd_vendor/cmake/Modules
+  tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/zstd-vendor/0.9.1-3-r0/image/usr/share/zstd_vendor/cmake/Modules/Findzstd.cmake
+
+  causing domain-bridge to fail with:
+
+| -- Found rosbag2_cpp: 0.9.1 (/jenkins/mjansa/build/ros/webos-galactic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/domain-bridge/0.4.0-1-r0/recipe-sysroot/usr/share/rosbag2_cpp/cmake)
+| -- Found rosidl_default_generators: 1.1.1 (/jenkins/mjansa/build/ros/webos-galactic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/domain-bridge/0.4.0-1-r0/recipe-sysroot/usr/share/rosidl_default_generators/cmake)
+| CMake Error at CMakeLists.txt:26 (find_package):
+|   By not providing "Findzstd_vendor.cmake" in CMAKE_MODULE_PATH this project
+|   has asked CMake to find a package configuration file provided by
+|   "zstd_vendor", but CMake did not find one.
+|
+|   Could not find a package configuration file provided by "zstd_vendor" with
+|   any of the following names:
+|
+|     zstd_vendorConfig.cmake
+|     zstd_vendor-config.cmake
+|
+|   Add the installation prefix of "zstd_vendor" to CMAKE_PREFIX_PATH or set
+|   "zstd_vendor_DIR" to a directory containing one of the above files.  If
+|   "zstd_vendor" provides a separate development package or SDK, be sure it
+|   has been installed.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d6f850b..98d0ef3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -24,8 +24,8 @@ find_package(rosbag2_cpp REQUIRED)
+ find_package(rosidl_typesupport_cpp REQUIRED)
+ find_package(rosidl_default_generators REQUIRED)
+ find_package(yaml_cpp_vendor REQUIRED)
+-find_package(zstd_vendor REQUIRED)
+-find_package(zstd REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(ZSTD libzstd REQUIRED)
+ 
+ rosidl_generate_interfaces(${PROJECT_NAME}
+   msg/CompressedMsg.msg
+@@ -58,7 +58,7 @@ ament_target_dependencies(${PROJECT_NAME}_lib
+   rosbag2_cpp
+   rosidl_typesupport_cpp
+   yaml_cpp_vendor
+-  zstd
++  ZSTD
+ )
+ 
+ rosidl_get_typesupport_target(cpp_typesupport_target
+@@ -134,8 +134,6 @@ ament_export_dependencies(
+   rosbag2_cpp
+   rcutils
+   yaml_cpp_vendor
+-  zstd_vendor
+-  zstd
+ )
+ 
+ if(BUILD_TESTING)
