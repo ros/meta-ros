@@ -1,0 +1,59 @@
+From d6d79f31319ff828f517d21ac54c548a0f4b36a3 Mon Sep 17 00:00:00 2001
+From: "Koenig Fabian (DC/PAR)" <fabian.koenig@boschrexroth.de>
+Date: Wed, 18 May 2022 10:30:07 +0200
+Subject: [PATCH] Add missing dependencies
+
+Signed-off-by: Koenig Fabian (DC/PAR) <fabian.koenig@boschrexroth.de>
+---
+ bosch_locator_bridge/CMakeLists.txt | 6 ++++++
+ bosch_locator_bridge/package.xml    | 1 +
+ 2 files changed, 7 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f500d69..aaf8003 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -25,6 +25,7 @@ find_package(message_filters REQUIRED)
+ find_package(nav_msgs REQUIRED)
+ find_package(pcl_conversions REQUIRED)
+ find_package(rclcpp REQUIRED)
++find_package(sensor_msgs REQUIRED)
+ find_package(std_srvs REQUIRED)
+ find_package(tf2_geometry_msgs REQUIRED)
+ find_package(tf2_ros REQUIRED)
+@@ -83,6 +84,7 @@ ament_target_dependencies(${PROJECT_NAME}_node
+   rclcpp
+   geometry_msgs
+   nav_msgs
++  sensor_msgs
+   std_srvs
+   tf2_geometry_msgs
+   tf2_ros
+@@ -109,8 +111,12 @@ target_include_directories(${PROJECT_NAME}_server_node PUBLIC
+   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+ target_link_libraries(${PROJECT_NAME}_server_node  ${Boost_LIBRARIES})
+ ament_target_dependencies(${PROJECT_NAME}_server_node
++  tf2_geometry_msgs
++  tf2_ros
+   rclcpp
++  sensor_msgs
+   std_srvs
++  pcl_conversions
+   Poco
+ )
+ 
+diff --git a/package.xml b/package.xml
+index 14921f5..4a1e541 100644
+--- a/package.xml
++++ b/package.xml
+@@ -14,6 +14,7 @@
+   <depend>nav_msgs</depend>
+   <depend>pcl_conversions</depend>
+   <depend>rclcpp</depend>
++  <depend>sensor_msgs</depend>
+   <depend>std_srvs</depend>
+   <depend>tf2_geometry_msgs</depend>
+   <depend>tf2_ros</depend>
+-- 
+2.35.1
+
