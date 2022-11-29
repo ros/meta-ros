@@ -1,7 +1,7 @@
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ff59e9d..5e3c482 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
 @@ -3,8 +3,8 @@ project(mcap_vendor LANGUAGES C CXX ASM)
  
  ## Dependencies
@@ -13,7 +13,7 @@ index ff59e9d..5e3c482 100644
  
  ## Compile options
  if(NOT CMAKE_CXX_STANDARD)
-@@ -18,18 +18,8 @@ find_package(ament_cmake REQUIRED)
+@@ -18,18 +18,8 @@ endif()
  
  ## Define vendor macro
  macro(build_mcap_vendor)
@@ -40,6 +40,15 @@ index ff59e9d..5e3c482 100644
    )
 -  ament_target_dependencies(mcap zstd)
 +  ament_target_dependencies(mcap)
-
+ 
    install(
      DIRECTORY ${_mcap_include_dir}/mcap
+@@ -69,7 +59,7 @@ build_mcap_vendor()
+ 
+ ament_export_include_directories(include/${PROJECT_NAME})
+ ament_export_targets(mcap HAS_LIBRARY_TARGET)
+-ament_export_dependencies(zstd_vendor zstd)
++ament_export_dependencies()
+ 
+ ## Package
+ ament_package()
