@@ -6,6 +6,8 @@
 
 # inherit pkgconfig
 
+LICENSE = "BSD-3-Clause"
+
 INSANE_SKIP += "pkgconfig"
 
 do_install:append() {

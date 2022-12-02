@@ -1,6 +1,8 @@
 # Copyright (c) 2020-2021 LG Electronics, Inc.
 # Copyright (c) 2022 Acceleration Robotics, S.L.
 
+LICENSE = "Apache-2.0 & BSD-3-Clause"
+
 DEPENDS += "python3-pybind11"
 RDEPENDS:${PN} += "python3-pybind11"
 ALLOW_EMPTY:${PN} = "1"
