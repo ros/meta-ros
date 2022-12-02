@@ -1,0 +1,29 @@
+From ceae6f4bd731d949b3fa03e684ef3ea4db7e7772 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 4 Nov 2020 16:54:32 -0800
+Subject: [PATCH] CMakeLists.txt: fetch mimick with bitbake fetcher
+
+Upstream-Status: Pending
+---
+ CMakeLists.txt | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d8d7382..da4a9f4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -59,12 +59,10 @@ macro(build_mimick)
+ 
+   include(ExternalProject)
+   externalproject_add(mimick-ext
+-    GIT_REPOSITORY https://github.com/ros2/Mimick.git
+-    GIT_TAG feb30f7520d80f99344978901a4c8496e698004c
+-    TIMEOUT 6000
++    SOURCE_DIR ${CMAKE_SOURCE_DIR}/mimick-upstream
+     ${cmake_commands}
+     CMAKE_ARGS
+-      ${cmake_configure_args}
++      ${cmake_configure_args} -DCMAKE_TOOLCHAIN_FILE=${PROJECT_SOURCE_DIR}/../toolchain.cmake
+   )
+ 
+   # The external project will install to the build folder, but we'll install that on make install.

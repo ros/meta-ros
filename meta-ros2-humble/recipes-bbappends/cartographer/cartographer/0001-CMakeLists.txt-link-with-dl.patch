@@ -1,0 +1,43 @@
+From 60167d74d788f308ba3c23fa8b72ea7028d840bc Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 15 May 2020 05:55:56 -0700
+Subject: [PATCH] CMakeLists.txt: link with dl
+
+* fixes:
+FAILED: cartographer.mapping.internal.motion_filter_test
+: && /jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0=/usr/src/debug/cartographer/1.0.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0=/usr/src/debug/cartographer/1.0.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot -fuse-ld=gold -DNDEBUG  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0=/usr/src/debug/cartographer/1.0.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0=/usr/src/debug/cartographer/1.0.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot -fuse-ld=gold -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -fstack-protector-strong -Wl,-z,relro,-z,now -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -fstack-protector-strong -Wl,-z,relro,-z,now   -rdynamic CMakeFiles/cartographer.mapping.internal.motion_filter_test.dir/cartographer/mapping/internal/motion_filter_test.cc.o  -o cartographer.mapping.internal.motion_filter_test  libcartographer.a  -Wl,-Bstatic  -lgmock_main  -lgmock  -lgtest  -Wl,-Bdynamic  -lpthread  libcartographer_test_library.a  libcartographer.a  /jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot/usr/lib/libceres.a  /jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot/usr/lib/libglog.so.0.3.5  -lunwind  -lunwind-arm  -lspqr  -lcholmod  -lccolamd  -lcamd  -lcolamd  -lamd  -llapack  -lblas  -lsuitesparseconfig  -lrt  -lmetis  -lcxsparse  -llapack  -lblas  -lsuitesparseconfig  -lrt  -lmetis  -lcxsparse  -lgomp  -lpthread  -Wl,-Bstatic  -llua  -Wl,-Bdynamic  -lm  /jenkins/mjansa/build/ros/webos-dashing-gatesgarth/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cartographer/1.0.0-1-r0/recipe-sysroot/usr/lib/libboost_iostreams.so.1.72.0  -lglog  -lgflags  -lcairo  -lprotobuf  -lpthread && :
+loadlib.c:134: error: undefined reference to 'dlsym'
+loadlib.c:127: error: undefined reference to 'dlopen'
+loadlib.c:135: error: undefined reference to 'dlerror'
+loadlib.c:128: error: undefined reference to 'dlerror'
+loadlib.c:122: error: undefined reference to 'dlclose'
+collect2: error: ld returned 1 exit status
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt        | 3 ++-
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2e3a686..cf040c6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -178,6 +178,7 @@ google_binary(cartographer_compute_relations_metrics
+   SRCS
+     cartographer/ground_truth/compute_relations_metrics_main.cc
+ )
++target_link_libraries(cartographer_compute_relations_metrics PUBLIC -ldl)
+ 
+ google_binary(cartographer_migrate_serialization_format
+   SRCS
+@@ -263,7 +264,7 @@ foreach(ABS_FIL ${ALL_TESTS})
+   if(${BUILD_PROMETHEUS})
+     target_link_libraries("${TEST_TARGET_NAME}" PUBLIC prometheus-cpp)
+   endif()
+-  target_link_libraries("${TEST_TARGET_NAME}" PUBLIC ${TEST_LIB})
++  target_link_libraries("${TEST_TARGET_NAME}" PUBLIC ${TEST_LIB} -ldl)
+ endforeach()
+ 
+ # Add the binary directory first, so that port.h is included after it has

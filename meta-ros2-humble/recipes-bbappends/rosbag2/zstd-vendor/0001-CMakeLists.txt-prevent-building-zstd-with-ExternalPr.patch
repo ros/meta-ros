@@ -1,0 +1,72 @@
+From eb740a39bcd110753d047c714e6196fb4e0f0b21 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 5 Jun 2020 11:35:25 -0700
+Subject: [PATCH] CMakeLists.txt: prevent building zstd with ExternalProject
+
+* use pkg-config, because zstd doesn't provide cmake find
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 43 ++++---------------------------------------
+ 1 file changed, 4 insertions(+), 39 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d614cac5..bd46aac5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,49 +9,14 @@ option(FORCE_BUILD_VENDOR_PKG
+   OFF)
+ 
+ if(NOT FORCE_BUILD_VENDOR_PKG)
+-  find_package(zstd QUIET)
++  find_package(PkgConfig REQUIRED)
++  pkg_check_modules(ZSTD REQUIRED libzstd>=1.4.4)
+ endif()
+ 
+-macro(build_zstd)
+-  set(extra_cmake_args)
+-
+-  if(DEFINED CMAKE_BUILD_TYPE)
+-    list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
+-  endif()
+-
+-  if(DEFINED CMAKE_TOOLCHAIN_FILE)
+-    list(APPEND extra_cmake_args "-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
+-  else()
+-    list(APPEND extra_cmake_args "-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
+-  endif()
+-  list(APPEND extra_cmake_args "-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}")
+-
+-  include(ExternalProject)
+-  # The CMakeLists.txt file for zstd is in a subdirectory.
+-  # We need to configure the CMake command to build from there instead.
+-  ExternalProject_Add(zstd-1.4.4
+-    URL https://github.com/facebook/zstd/archive/v1.4.4.zip
+-    URL_MD5 3a5c3a535280b7f4dfdbd739fcc7173f
+-    TIMEOUT 60
+-    SOURCE_SUBDIR build/cmake
+-    CMAKE_ARGS
+-      -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
+-      -DZSTD_BUILD_STATIC=OFF
+-      -DZSTD_BUILD_SHARED=ON
+-      -DZSTD_BUILD_PROGRAMS=OFF
+-      ${extra_cmake_args})
+-
+-  install(
+-    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/
+-    DESTINATION ${CMAKE_INSTALL_PREFIX})
+-endmacro()
+-
+-if (NOT zstd_FOUND OR "${zstd_VERSION}" VERSION_LESS 1.4.4)
+-  build_zstd()
++if (NOT ZSTD_FOUND OR "${ZSTD_VERSION}" VERSION_LESS 1.4.4)
++  message(STATUS "Zstd not found, missing dependency or version less than 1.4.4, found ${ZSTD_VERSION}")
+ else()
+   message(STATUS "Found Zstd, skipping build.")
+ endif()
+ 
+ install(DIRECTORY cmake DESTINATION share/${PROJECT_NAME})
+-
+-ament_package(CONFIG_EXTRAS zstd_vendor-extras.cmake)

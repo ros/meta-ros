@@ -1,0 +1,292 @@
+From c9b6edafa1aee11f49ab796b80e01776cd5b8202 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 26 Jun 2020 15:05:27 +0000
+Subject: [PATCH] CMakeLists.txt: use pkg-config to find sdl2
+
+* fixes missing sysroot prefix:
+
+DEBUG: Executing shell function do_configure
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake_ros: 0.9.0 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/share/ament_cmake_ros/cmake)
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 (found suitable version "3.8.2", minimum required is "3")
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3
+-- Found rclcpp: 2.0.0 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+CMake Warning at /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_cmake/cmake/rosidl_cmake-extras.cmake:30 (find_package):
+  By not providing "Findrosidl_adapter.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "rosidl_adapter", but CMake did not find one.
+
+  Could not find a package configuration file provided by "rosidl_adapter"
+  with any of the following names:
+
+    rosidl_adapterConfig.cmake
+    rosidl_adapter-config.cmake
+
+  Add the installation prefix of "rosidl_adapter" to CMAKE_PREFIX_PATH or set
+  "rosidl_adapter_DIR" to a directory containing one of the above files.  If
+  "rosidl_adapter" provides a separate development package or SDK, be sure it
+  has been installed.
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_cmake/cmake/rosidl_cmakeConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_generator_c/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_generator_c/cmake/rosidl_generator_cConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_typesupport_c/cmake/rosidl_typesupport_c-extras.cmake:11 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_typesupport_c/cmake/rosidl_typesupport_cConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_default_runtime/cmake/rosidl_default_runtime-extras.cmake:12 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_default_runtime/cmake/rosidl_default_runtimeConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/builtin_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/builtin_interfaces/cmake/builtin_interfacesConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rcl_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rcl_interfaces/cmake/rcl_interfacesConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rcl/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rcl/cmake/rclConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/libstatistics_collector/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/libstatistics_collector/cmake/libstatistics_collectorConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rclcpp/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rclcpp/cmake/rclcppConfig.cmake:41 (include)
+  CMakeLists.txt:14 (find_package)
+
+-- Found OpenSSL: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/lib/libcrypto.so (found version "1.1.1g")
+-- Found FastRTPS: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/include
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.1 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE
+-- Found rclcpp_components: 2.0.0 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rclcpp_components/cmake)
+-- Found sdl2_vendor: 2.4.1 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/sdl2_vendor/cmake)
+-- Found sensor_msgs: 2.0.1 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/sensor_msgs/cmake)
+-- Configuring done
+CMake Error in CMakeLists.txt:
+  Imported target "SDL2::SDL2" includes non-existent path
+
+    "/usr/include/SDL2"
+
+  in its INTERFACE_INCLUDE_DIRECTORIES.  Possible reasons include:
+
+  * The path was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and references files it does not
+  provide.
+
+CMake Error in CMakeLists.txt:
+  Imported target "SDL2::SDL2" includes non-existent path
+
+    "/usr/include/SDL2"
+
+  in its INTERFACE_INCLUDE_DIRECTORIES.  Possible reasons include:
+
+  * The path was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and references files it does not
+  provide.
+
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_DATAROOTDIR
+    CMAKE_INSTALL_INCLUDEDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    CMAKE_INSTALL_LOCALSTATEDIR
+    CMAKE_INSTALL_SBINDIR
+    CMAKE_INSTALL_SHAREDSTATEDIR
+    CMAKE_INSTALL_SYSCONFDIR
+    LIB_SUFFIX
+    PYTHON_SOABI
+    Python3_EXECUTABLE
+    Python_EXECUTABLE
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+WARNING: exit code 1 from a shell command.
+ERROR: Execution of '/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/temp/run.do_configure.63504' failed with exit code 1:
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc
+-- Check for working C compiler: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++
+-- Check for working CXX compiler: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake_ros: 0.9.0 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/share/ament_cmake_ros/cmake)
+-- Found PythonInterp: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3 (found suitable version "3.8.2", minimum required is "3")
+-- Using PYTHON_EXECUTABLE: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot-native/usr/bin/python3-native/python3
+-- Found rclcpp: 2.0.0 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+CMake Warning at /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_cmake/cmake/rosidl_cmake-extras.cmake:30 (find_package):
+  By not providing "Findrosidl_adapter.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "rosidl_adapter", but CMake did not find one.
+
+  Could not find a package configuration file provided by "rosidl_adapter"
+  with any of the following names:
+
+    rosidl_adapterConfig.cmake
+    rosidl_adapter-config.cmake
+
+  Add the installation prefix of "rosidl_adapter" to CMAKE_PREFIX_PATH or set
+  "rosidl_adapter_DIR" to a directory containing one of the above files.  If
+  "rosidl_adapter" provides a separate development package or SDK, be sure it
+  has been installed.
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_cmake/cmake/rosidl_cmakeConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_generator_c/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_generator_c/cmake/rosidl_generator_cConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_typesupport_c/cmake/rosidl_typesupport_c-extras.cmake:11 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_typesupport_c/cmake/rosidl_typesupport_cConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_default_runtime/cmake/rosidl_default_runtime-extras.cmake:12 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rosidl_default_runtime/cmake/rosidl_default_runtimeConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/builtin_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/builtin_interfaces/cmake/builtin_interfacesConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rcl_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rcl_interfaces/cmake/rcl_interfacesConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rcl/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rcl/cmake/rclConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/libstatistics_collector/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/libstatistics_collector/cmake/libstatistics_collectorConfig.cmake:41 (include)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rclcpp/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rclcpp/cmake/rclcppConfig.cmake:41 (include)
+  CMakeLists.txt:14 (find_package)
+
+-- Found OpenSSL: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/lib/libcrypto.so (found version "1.1.1g")
+-- Found FastRTPS: /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/include
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.1 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE
+-- Found rclcpp_components: 2.0.0 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/rclcpp_components/cmake)
+-- Found sdl2_vendor: 2.4.1 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/sdl2_vendor/cmake)
+-- Found sensor_msgs: 2.0.1 (/jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/joy/2.4.1-1-r0/recipe-sysroot/usr/share/sensor_msgs/cmake)
+-- Configuring done
+CMake Error in CMakeLists.txt:
+  Imported target "SDL2::SDL2" includes non-existent path
+
+    "/usr/include/SDL2"
+
+  in its INTERFACE_INCLUDE_DIRECTORIES.  Possible reasons include:
+
+  * The path was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and references files it does not
+  provide.
+
+CMake Error in CMakeLists.txt:
+  Imported target "SDL2::SDL2" includes non-existent path
+
+    "/usr/include/SDL2"
+
+  in its INTERFACE_INCLUDE_DIRECTORIES.  Possible reasons include:
+
+  * The path was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and references files it does not
+  provide.
+
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_DATAROOTDIR
+    CMAKE_INSTALL_INCLUDEDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    CMAKE_INSTALL_LOCALSTATEDIR
+    CMAKE_INSTALL_SBINDIR
+    CMAKE_INSTALL_SHAREDSTATEDIR
+    CMAKE_INSTALL_SYSCONFDIR
+    LIB_SUFFIX
+    PYTHON_SOABI
+    Python3_EXECUTABLE
+    Python_EXECUTABLE
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+WARNING: exit code 1 from a shell command.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 946a5ba..7780685 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -13,8 +13,10 @@ endif()
+ find_package(ament_cmake_ros REQUIRED)
+ find_package(rclcpp REQUIRED)
+ find_package(rclcpp_components REQUIRED)
+-find_package(sdl2_vendor REQUIRED)
+-find_package(sdl2_custom REQUIRED)
++#find_package(sdl2 REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(SDL2 REQUIRED sdl2)
++
+ find_package(sensor_msgs REQUIRED)
+ 
+ include_directories(include)
+@@ -26,7 +28,7 @@ ament_target_dependencies(joy
+ # Need this since sdl2 doesn't properly export its
+ # libraries so ament_target_dependencies can find them
+ target_link_libraries(joy
+-  SDL2::SDL2)
++  ${SDL2_LIBRARIES})
+ 
+ install(TARGETS joy
+   LIBRARY DESTINATION lib
+@@ -41,7 +43,7 @@ rclcpp_components_register_node(joy
+ add_executable(joy_enumerate_devices
+   src/joy_enumerate_devices.cpp)
+ target_link_libraries(joy_enumerate_devices
+-  SDL2::SDL2)
++  ${SDL2_LIBRARIES})
+ 
+ install(TARGETS joy_enumerate_devices
+   DESTINATION lib/${PROJECT_NAME})

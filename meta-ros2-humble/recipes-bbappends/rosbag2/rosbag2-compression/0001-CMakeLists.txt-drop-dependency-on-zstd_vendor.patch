@@ -1,0 +1,49 @@
+From 89cae8f1795dd7d1346fc65036ced05cad50c52d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 26 Jun 2020 07:30:46 -0700
+Subject: [PATCH] CMakeLists.txt: drop dependency on zstd_vendor
+
+* zstd should be good enough
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a52f97b5..5db06ceb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -25,8 +25,9 @@ find_package(rcpputils REQUIRED)
+ find_package(rcutils REQUIRED)
+ find_package(rosbag2_cpp)
+ find_package(rosbag2_storage REQUIRED)
+-find_package(zstd_vendor REQUIRED)
+-find_package(zstd REQUIRED)
++#find_package(zstd REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(ZSTD libzstd REQUIRED)
+ 
+ add_library(${PROJECT_NAME}_zstd
+   SHARED
+@@ -39,8 +40,7 @@ target_include_directories(${PROJECT_NAME}_zstd
+ ament_target_dependencies(${PROJECT_NAME}_zstd
+   rcpputils
+   rcutils
+-  rosbag2_storage
+-  zstd)
++  rosbag2_storage)
+ # Causes the visibility macros to use dllexport rather than dllimport.
+ # This is appropriate when building the dll but not consuming it.
+ target_compile_definitions(${PROJECT_NAME}_zstd
+@@ -80,7 +80,7 @@ ament_export_include_directories(include)
+ ament_export_libraries(${PROJECT_NAME} ${PROJECT_NAME}_zstd)
+ ament_export_targets(export_${PROJECT_NAME})
+ # order matters here, first vendor, then zstd
+-ament_export_dependencies(rcpputils rcutils rosbag2_cpp rosbag2_storage zstd_vendor zstd)
++ament_export_dependencies(rcpputils rcutils rosbag2_cpp rosbag2_storage)
+ 
+ if(BUILD_TESTING)
+   find_package(ament_cmake_gmock REQUIRED)

@@ -1,0 +1,133 @@
+From 122764a72cd8b21d9366f29647050d2cd2517eb0 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 18 Dec 2019 11:11:30 -0800
+Subject: [PATCH] Use libphidget22 from libphidget22-upstream and normal prefix
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt                                | 36 +-----------
+ cmake/libphidget22-extras.cmake.in            |  4 +-
+ ...ts22-fix-uninitialized-memory-access.patch | 56 -------------------
+ 3 files changed, 3 insertions(+), 93 deletions(-)
+ delete mode 100644 patch/libphidgets22-fix-uninitialized-memory-access.patch
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c19ed20..706e59a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,40 +3,6 @@ project(libphidget22)
+ 
+ find_package(ament_cmake REQUIRED)
+ 
+-set(extra_c_flags "-g -O2 -Wno-incompatible-pointer-types -Wno-deprecated-declarations -Wno-format-truncation")
+-
+-include(ExternalProject)
+-ExternalProject_Add(EP_${PROJECT_NAME}
+-    URL https://www.phidgets.com/downloads/phidget22/libraries/linux/libphidget22/libphidget22-1.4.20190605.tar.gz
+-    URL_MD5 96e5d64263866d34e1d9a5f4ba78ba65
+-
+-    PATCH_COMMAND patch -p1 < ${CMAKE_CURRENT_SOURCE_DIR}/patch/libphidgets22-fix-uninitialized-memory-access.patch
+-    SOURCE_DIR ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src
+-    CONFIGURE_COMMAND
+-      <SOURCE_DIR>/configure
+-      CFLAGS=${extra_c_flags}
+-      --prefix=${CMAKE_CURRENT_BINARY_DIR}/libphidget22_install
+-    BUILD_COMMAND $(MAKE)
+-    INSTALL_COMMAND $(MAKE) install
+-)
+-
+-# The external project will install to the build folder, but we'll install that on make install.
+-# Note that we install lib and include separately so we can add the extra level of indirection
+-# to the include directory.
+-install(
+-  DIRECTORY
+-    ${CMAKE_CURRENT_BINARY_DIR}/libphidget22_install/lib/
+-  DESTINATION
+-    ${CMAKE_INSTALL_PREFIX}/opt/libphidget22/lib/
+-)
+-
+-install(
+-  DIRECTORY
+-    ${CMAKE_CURRENT_BINARY_DIR}/libphidget22_install/include/
+-  DESTINATION
+-    ${CMAKE_INSTALL_PREFIX}/opt/libphidget22/include/libphidget22/
+-)
+-
+-ament_environment_hooks(env_hook/libphidget22_library_path.sh)
++find_package(libphidget22)
+ 
+ ament_package(CONFIG_EXTRAS "cmake/libphidget22-extras.cmake.in")
+diff --git a/cmake/libphidget22-extras.cmake.in b/cmake/libphidget22-extras.cmake.in
+index 7a386fa..ccf3d59 100644
+--- a/cmake/libphidget22-extras.cmake.in
++++ b/cmake/libphidget22-extras.cmake.in
+@@ -1,3 +1,3 @@
+ # TODO(clalancette): Does this work in general?
+-list(APPEND @PROJECT_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/../../../opt/libphidget22/include")
+-list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../opt/libphidget22/lib/libphidget22.so")
++list(APPEND @PROJECT_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/../../../../usr/include")
++list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../../usr/lib/libphidget22.so")
+diff --git a/patch/libphidgets22-fix-uninitialized-memory-access.patch b/patch/libphidgets22-fix-uninitialized-memory-access.patch
+deleted file mode 100644
+index 60817ac..0000000
+--- a/patch/libphidgets22-fix-uninitialized-memory-access.patch
++++ /dev/null
+@@ -1,56 +0,0 @@
+-diff -urp libphidget22-1.4.20190605.orig/src/plat/linux/usblinux.c libphidget22-1.4.20190605/src/plat/linux/usblinux.c
+---- libphidget22-1.4.20190605.orig/src/plat/linux/usblinux.c	2019-06-05 16:06:29.000000000 -0400
+-+++ libphidget22-1.4.20190605/src/plat/linux/usblinux.c	2019-07-18 09:35:23.566476582 -0400
+-@@ -62,11 +62,12 @@ static libusb_context *libusbContext;
+- static void
+- logBuffer(unsigned char *data, int dataLen, const char *message) {
+- 	Phidget_LogLevel ll;
+-+	PhidgetReturnCode ret;
+- 	char str[2000];
+- 	int i, j;
+- 
+--	PhidgetLog_getSourceLevel("phidget22usb", &ll);
+--	if (ll != PHIDGET_LOG_VERBOSE)
+-+	ret = PhidgetLog_getSourceLevel("phidget22usb", &ll);
+-+	if (ret != EPHIDGET_OK || ll != PHIDGET_LOG_VERBOSE)
+- 		return;
+- 
+- 	str[0]='\0';
+-diff -Nurp libphidget22-1.4.20190605.orig/src/vintpackets.c libphidget22-1.4.20190605/src/vintpackets.c
+---- libphidget22-1.4.20190605.orig/src/vintpackets.c	2019-06-05 20:06:22.000000000 +0000
+-+++ libphidget22-1.4.20190605/src/vintpackets.c	2019-08-06 16:43:45.856531653 +0000
+-@@ -2783,7 +2783,7 @@ sendLCD1100_WRITEBITMAP(PhidgetChannelHa
+- 	unsigned char bit;
+- 	uint8_t buf[48];
+- 	const uint8_t *bitmap;
+--	int count;
+-+	int count = 0;
+- 	int xsize;
+- 	int ysize;
+- 	int x;
+-diff -Nurp libphidget22-1.4.20190605.orig/src/class/distancesensor.gen.c libphidget22-1.4.20190605/src/class/distancesensor.gen.c
+---- libphidget22-1.4.20190605.orig/src/class/distancesensor.gen.c	2019-06-05 20:06:28.000000000 +0000
+-+++ libphidget22-1.4.20190605/src/class/distancesensor.gen.c	2019-08-06 16:51:37.053708754 +0000
+-@@ -228,8 +228,8 @@ _initAfterOpen(PhidgetChannelHandle phid
+- 		MOS_PANIC("Unsupported Channel");
+- 	}
+- 
+--	memset(ch->amplitudes, '\0', 8);
+--	memset(ch->distances, '\0', 8);
+-+	memset(ch->amplitudes, '\0', sizeof(uint32_t) * 8);
+-+	memset(ch->distances, '\0', sizeof(uint32_t) * 8);
+- 	ch->count = 0;
+- 
+- 	return (ret);
+-diff -Nurp libphidget22-1.4.20190605.orig/configure libphidget22-1.4.20190605/configure
+---- libphidget22-1.4.20190605.orig/configure	2019-06-05 16:06:56.000000000 -0400
+-+++ libphidget22-1.4.20190605/configure	2019-09-05 11:50:10.510502872 -0400
+-@@ -5676,7 +5676,7 @@ esac
+- fi
+- 
+- : ${AR=ar}
+--: ${AR_FLAGS=cru}
+-+: ${AR_FLAGS=cr}
+- 
+- 
+- 
