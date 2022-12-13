@@ -3,7 +3,7 @@
 #
 # Copyright Open Source Robotics Foundation
 
-inherit ros_distro_rolling
+inherit ros_distro_humble
 inherit ros_superflore_generated
 
 DESCRIPTION = "Tools for reading traces."
