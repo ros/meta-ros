@@ -1,0 +1,27 @@
+From 0066eae615725796d7c2037a67c4d7a20bef80bc Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Tue, 13 Dec 2022 12:54:35 +0100
+Subject: [PATCH] python.cmake: experimental: added COMPONENTS Development
+
+While trying to remove the host contamination and depending on
+a Target (Python3::Python) rather than a library from the host, some
+packages do not recognize Python3::Python then. When we include it
+here, everybody should know. But not sure if it is the right place or
+right approach
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ cmake/core/python.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/core/python.cmake b/cmake/core/python.cmake
+index 5820821dc..c917b65e9 100644
+--- a/cmake/core/python.cmake
++++ b/cmake/core/python.cmake
+@@ -18,5 +18,5 @@
+ #   find_package(Python3 3.8 REQUIRED)
+ #   find_package(ament_cmake REQUIRED)
+ if(NOT TARGET Python3::Interpreter)
+-  find_package(Python3 REQUIRED COMPONENTS Interpreter)
++  find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+ endif()
