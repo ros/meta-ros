@@ -76,8 +76,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
     connext-cmake-module \
     rmw-connext-cpp \
     rmw-connext-shared-cpp \
+    rmw-connextdds-common \
+    rmw-connextdds \
     rosidl-typesupport-connext-c \
     rosidl-typesupport-connext-cpp \
+    rti-connext-dds-cmake-module \
 "
 
 # alternative not yet supported implementation for fastrtps
@@ -118,6 +121,18 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
     launch-testing-ament-cmake \
+"
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'sdformat', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SDFORMAT}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SDFORMAT = " \
+    sdformat-urdf \
+"
+
+# not compatible with glibc-2.34 without easy fix as reported in https://github.com/ros2/demos/issues/530
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pendulum-control', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PENDULUM_CONTROL}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PENDULUM_CONTROL = " \
+    desktop \
+    pendulum-control \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'coinor-libipopt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT}', '', d)}"
@@ -194,6 +209,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rviz-2d-overlay-plugins \
     rviz-ogre-vendor \
     rviz-rendering \
+    rviz-visual-tools \
     rviz2 \
     tiago-bringup \
     tiago-robot \
@@ -273,6 +289,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rqt-action \
+    rqt-bag \
+    rqt-bag-plugins \
     rqt-common-plugins \
     rqt-console \
     rqt-gui \
@@ -290,6 +308,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-py-console \
     rqt-publisher \
     rqt-reconfigure \
+    rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
@@ -354,6 +373,7 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg',
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
     mvsim \
     mrpt2 \
+    usb-cam \
 "
 
 # OE won't let us build x264 unless LICENSE_FLAGS_WHITELIST contains "commercial" or "commercial_x264" or "x264".
@@ -361,6 +381,7 @@ RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x264', '
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X264 = " \
     mvsim \
     mrpt2 \
+    usb-cam \
 "
 
 # Recipes which need widgets enabled in qtbase PACKAGECONFIG which webOS OSE explicitly disables:
@@ -373,6 +394,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
+    aws-robomaker-small-warehouse-world \
+    dolly-gazebo \
+    dolly \
     gazebo-plugins \
     gazebo-ros-pkgs \
     gazebo-ros \
@@ -452,6 +476,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     qt-gui \
     rosmon \
     rqt-action \
+    rqt-bag \
+    rqt-bag-plugins \
     rqt-console \
     rqt-common-plugins \
     rqt-graph \
@@ -467,6 +493,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-py-common \
     rqt-py-console \
     rqt-reconfigure \
+    rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
     rqt-service-caller \
@@ -567,6 +594,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
     webots-ros2-core \
     webots-ros2-examples \
     webots-ros2-importer \
+    webots-ros2-mavic \
+    webots-ros2-tesla \
+    webots-ros2-turtlebot \
+    webots-ros2-tutorials \
 "
 
 RDEPENDS_${PN}_remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'rclcpp-4', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OLD_RCLCPP}', '', d)}"
@@ -577,6 +608,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OLD_RCLCPP = " \
     image-view \
     stereo-image-proc \
     system-modes-examples \
+"
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'swri', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SWRI}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SWRI = " \
