@@ -21,3 +21,13 @@
 # error: use of old-style cast to 'unsigned int' [-Werror=old-style-cast]
 CFLAGS += "-Wno-error=sign-conversion -Wno-error=old-style-cast"
 CXXFLAGS += "-Wno-error=sign-conversion -Wno-error=old-style-cast"
+
+# error: conversion from 'long unsigned int' to 'int' may change value [-Werror=conversion]
+# error: conversion from 'Eigen::Hyperplane<_Scalar, _AmbientDim, Options>::Index' {aka 'long int'} to 'int' may change value [-Werror=conversion]
+CFLAGS += " -Wno-error=conversion "
+CXXFLAGS += " -Wno-error=conversion "
+
+# error: implicitly-declared 'constexpr Eigen::MatrixBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 4, 1> > >::MatrixBase(const Eigen::MatrixBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 4, 1> > >&)' is deprecated [-Werror=deprecated-copy]
+# error: implicitly-declared 'constexpr Eigen::internal::no_assignment_operator::no_assignment_operator(const Eigen::internal::no_assignment_operator&)' is deprecated [-Werror=deprecated-copy]
+CFLAGS += " -Wno-error=deprecated-copy "
+CXXFLAGS += " -Wno-error=deprecated-copy "
