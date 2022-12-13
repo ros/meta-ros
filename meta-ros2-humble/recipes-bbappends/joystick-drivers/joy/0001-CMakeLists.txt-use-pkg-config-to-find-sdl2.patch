@@ -1,4 +1,4 @@
-From c9b6edafa1aee11f49ab796b80e01776cd5b8202 Mon Sep 17 00:00:00 2001
+From 34429522dda7f695e14853a709ec3d2692ecbaee Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Fri, 26 Jun 2020 15:05:27 +0000
 Subject: [PATCH] CMakeLists.txt: use pkg-config to find sdl2
@@ -285,12 +285,14 @@ index 6170867..3350452 100644
  
  install(TARGETS joy EXPORT export_joy
    LIBRARY DESTINATION lib
-@@ -41,7 +43,7 @@ rclcpp_components_register_node(joy
+@@ -41,7 +45,9 @@ rclcpp_components_register_node(joy
  add_executable(joy_enumerate_devices
    src/joy_enumerate_devices.cpp)
  target_link_libraries(joy_enumerate_devices
 -  SDL2::SDL2)
 +  ${SDL2_LIBRARIES})
++target_include_directories(joy_enumerate_devices SYSTEM PUBLIC
++  ${SDL2_INCLUDE_DIRS})
  
  install(TARGETS joy_enumerate_devices
    DESTINATION lib/${PROJECT_NAME})
