@@ -13,6 +13,12 @@ DEPENDS += "\
     angles \
 "
 
+# moveit-core/2.5.3-1-r0/git/collision_detection_fcl/src/collision_common.cpp:527:40: error: ISO C++ forbids declaration of 'type name' with no type [-fpermissive]
+# moveit-core/2.5.3-1-r0/git/collision_detection_fcl/src/collision_common.cpp:850:29: warning: unused variable 'g' [-Wunused-variable]
+# moveit-core/2.5.3-1-r0/git/collision_detection_fcl/src/collision_common.cpp:850:29: warning: unused variable 'g' [-Wunused-variable]
+# moveit-core/2.5.3-1-r0/git/collision_detection_fcl/src/collision_common.cpp:850:29: warning: unused variable 'g' [-Wunused-variable]
+# CXXFLAGS += "-Wno-error=unused-variable"
+
 # ERROR: moveit-core-2.1.0-1-r0 do_package_qa: QA Issue:
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/raspberrypi4-webos-linux-gnueabi/moveit-core/2.1.0-1-r0/packages-split/moveit-core/usr/lib/libmoveit_background_processing.so'
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-core path '/work/raspberrypi4-webos-linux-gnueabi/moveit-core/2.1.0-1-r0/packages-split/moveit-core/usr/lib/libmoveit_constraint_samplers.so'
