@@ -6,14 +6,14 @@ Subject: [PATCH] Use platform yaml-cpp
 Upstream-Status: Pending
 
 ---
- CMakeLists.txt |   79 ++++-----------------------------------------------------
- 1 file changed, 6 insertions(+), 73 deletions(-)
+ CMakeLists.txt |   80 ++++-----------------------------------------------------
+ 1 file changed, 6 insertions(+), 74 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 1d8d85e..064db30 100644
+index 1d8d85e..1480836 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -8,80 +8,13 @@ option(FORCE_BUILD_VENDOR_PKG
+@@ -8,82 +8,15 @@ option(FORCE_BUILD_VENDOR_PKG
  
  find_package(ament_cmake REQUIRED)
  
@@ -64,6 +64,7 @@ index 1d8d85e..064db30 100644
 -      ${CMAKE_CURRENT_BINARY_DIR}/yaml_cpp_install/
 -    DESTINATION
 -      ${CMAKE_INSTALL_PREFIX}/opt/yaml_cpp_vendor
+-    USE_SOURCE_PERMISSIONS
 -  )
 -endmacro()
 -
@@ -74,26 +75,30 @@ index 1d8d85e..064db30 100644
 -if(FORCE_BUILD_VENDOR_PKG OR NOT yaml-cpp_FOUND)
 -  build_yaml_cpp()
 -
--if(WIN32)
--  ament_environment_hooks(env_hook/yaml_cpp_vendor_library_path.bat)
--  set(ENV_VAR_NAME "PATH")
--  set(ENV_VAR_VALUE "opt\\yaml_cpp_vendor\\bin")
+-  if(WIN32)
+-    ament_environment_hooks(env_hook/yaml_cpp_vendor_library_path.bat)
+-    set(ENV_VAR_NAME "PATH")
+-    set(ENV_VAR_VALUE "opt\\yaml_cpp_vendor\\bin")
+-  else()
+-    ament_environment_hooks(env_hook/yaml_cpp_vendor_library_path.sh)
+-    if(APPLE)
+-      set(ENV_VAR_NAME "DYLD_LIBRARY_PATH")
+-    else()
+-      set(ENV_VAR_NAME "LD_LIBRARY_PATH")
+-    endif()
+-    set(ENV_VAR_VALUE "opt/yaml_cpp_vendor/lib")
+-  endif()
+-  ament_environment_hooks(env_hook/yaml_cpp_vendor_library_path.dsv.in)
 +# We arrange for the platform yaml-cpp to be built from the same commit as that from which the ExternalProject is built => no
 +# invocation of ament_environment_hooks().
 +find_package(yaml-cpp)
 +if(yaml-cpp_FOUND)
 +  message(STATUS "Found yaml-cpp ${yaml-cpp_VERSION}")
  else()
--  ament_environment_hooks(env_hook/yaml_cpp_vendor_library_path.sh)
--  if(APPLE)
--    set(ENV_VAR_NAME "DYLD_LIBRARY_PATH")
--  else()
--    set(ENV_VAR_NAME "LD_LIBRARY_PATH")
--  endif()
--  set(ENV_VAR_VALUE "opt/yaml_cpp_vendor/lib")
+-  message(STATUS "Found yaml-cpp ${yaml-cpp_VERSION} in path ${yaml-cpp_CONFIG}")
 +  message(FATAL_ERROR "yaml-cpp not found -- missing from DEPENDS?")
  endif()
--ament_environment_hooks(env_hook/yaml_cpp_vendor_library_path.dsv.in)
  
  ament_package(
    CONFIG_EXTRAS "yaml_cpp_vendor-extras.cmake.in"
+ )
