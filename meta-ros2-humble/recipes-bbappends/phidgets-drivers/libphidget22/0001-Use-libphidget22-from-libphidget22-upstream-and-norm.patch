@@ -5,19 +5,18 @@ Upstream-Status: Pending
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 ---
- CMakeLists.txt                     |   40 -------------------------------------
- cmake/libphidget22-extras.cmake.in |    4 +--
- 2 files changed, 3 insertions(+), 41 deletions(-)
-
+ CMakeLists.txt |   41 +----------------------------------------
+ 1 file changed, 1 insertion(+), 40 deletions(-)
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index b99d7d00..706e59ae 100644
+index b99d7d00..d77499b7 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -3,44 +3,6 @@ project(libphidget22)
+@@ -2,45 +2,6 @@ cmake_minimum_required(VERSION 3.5)
+ project(libphidget22)
  
  find_package(ament_cmake REQUIRED)
- 
--set(extra_c_flags "-g -O2 -Wno-incompatible-pointer-types -Wno-deprecated-declarations -Wno-format-truncation")
+-
+-set(extra_c_flags "-g -O2 -Wno-incompatible-pointer-types -Wno-deprecated-declarations -Wno-format-truncation -fPIC")
 -
 -include(ExternalProject)
 -ExternalProject_Add(EP_${PROJECT_NAME}
@@ -30,6 +29,7 @@ index b99d7d00..706e59ae 100644
 -      <SOURCE_DIR>/configure
 -      CFLAGS=${extra_c_flags}
 -      --prefix=${CMAKE_CURRENT_BINARY_DIR}/libphidget22_install
+-      --disable-ldconfig
 -    BUILD_COMMAND $(MAKE)
 -    INSTALL_COMMAND $(MAKE) install
 -)
