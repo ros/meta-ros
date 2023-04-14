@@ -1,4 +1,7 @@
 # Copyright (c) 2020-2021 LG Electronics, Inc.
+# Copyright (C) 2023 Advanced Micro Devices, Inc.  All rights reserved.
+
+LICENSE = "BSD-3-Clause"
 
 # Make this conditional on meta-qt5, because otherwise builds without
 # meta-qt5 fail to parse, before turtlesim is SKIP_RECIPEed based
