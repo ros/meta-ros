@@ -15,8 +15,8 @@ LICENSE = "LGPL-2.1-only"
 # ERROR: do_package: Files/directories were installed but not shipped in any package
 #
 # FILES:${PN} += " ${datadir}/orocos_kdl/cmake"
-do_install:append() {
-    rm -r ${D}${datadir}/orocos_kdl
-    rm -r ${D}${libdir}/*${SOLIBSDEV}
-    rm -r ${D}${libdir}/pkgconfig
-}
+#do_install:append() {
+#    rm -r ${D}${datadir}/orocos_kdl
+#    rm -r ${D}${libdir}/*${SOLIBSDEV}
+#    rm -r ${D}${libdir}/pkgconfig
+#}
