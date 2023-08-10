@@ -1,0 +1,30 @@
+From 92564f936e97eecf94dfc4600241fa94b7ca1872 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?V=C3=ADctor=20Mayoral=20Vilches?= <v.mayoralv@gmail.com>
+Date: Thu, 10 Aug 2023 14:22:43 +0000
+Subject: [PATCH] Yocto langdale, change how zstd is found
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Víctor Mayoral Vilches <v.mayoralv@gmail.com>
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0c0402f88..e604c6a35 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -25,7 +25,8 @@ find_package(pluginlib REQUIRED)
+ find_package(rcpputils REQUIRED)
+ find_package(rosbag2_compression REQUIRED)
+ find_package(zstd_vendor REQUIRED)
+-find_package(zstd REQUIRED)
++# find_package(zstd REQUIRED)
++pkg_check_modules(ZSTD REQUIRED libzstd>=1.4.4)
+ 
+ add_library(${PROJECT_NAME} SHARED
+   src/rosbag2_compression_zstd/compression_utils.cpp
+-- 
+2.34.1
+
