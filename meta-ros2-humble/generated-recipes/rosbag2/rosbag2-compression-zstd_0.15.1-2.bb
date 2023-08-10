@@ -24,6 +24,7 @@ ROS_BUILD_DEPENDS = " \
     rcutils \
     rosbag2-compression \
     zstd-vendor \
+    zstd \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
