@@ -20,7 +20,6 @@ ROS_BUILD_DEPENDS = " \
     builtin-interfaces \
     geometry-msgs \
     kdl-parser \
-    orocos-kdl-vendor \
     rcl-interfaces \
     rclcpp \
     rclcpp-components \
@@ -38,7 +37,6 @@ ROS_EXPORT_DEPENDS = " \
     builtin-interfaces \
     geometry-msgs \
     kdl-parser \
-    orocos-kdl-vendor \
     rcl-interfaces \
     rclcpp \
     rclcpp-components \
@@ -54,7 +52,6 @@ ROS_EXEC_DEPENDS = " \
     builtin-interfaces \
     geometry-msgs \
     kdl-parser \
-    orocos-kdl-vendor \
     rcl-interfaces \
     rclcpp \
     rclcpp-components \

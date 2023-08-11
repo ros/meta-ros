@@ -30,7 +30,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     geometry-msgs \
-    orocos-kdl-vendor \
     tf2 \
     tf2-ros \
 "
@@ -39,7 +38,6 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     geometry-msgs \
-    orocos-kdl-vendor \
     python3-numpy \
     tf2 \
     tf2-ros \

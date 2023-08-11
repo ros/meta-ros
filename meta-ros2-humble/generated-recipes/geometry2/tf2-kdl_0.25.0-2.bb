@@ -31,7 +31,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 ROS_EXPORT_DEPENDS = " \
     builtin-interfaces \
     geometry-msgs \
-    orocos-kdl-vendor \
     tf2 \
     tf2-ros \
 "
@@ -41,7 +40,6 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     builtin-interfaces \
     geometry-msgs \
-    orocos-kdl-vendor \
     tf2 \
     tf2-ros \
     tf2-ros-py \
