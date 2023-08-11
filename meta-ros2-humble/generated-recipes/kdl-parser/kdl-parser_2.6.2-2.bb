@@ -27,14 +27,12 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    orocos-kdl-vendor \
     urdfdom-headers \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    orocos-kdl-vendor \
     urdf \
 "
 
