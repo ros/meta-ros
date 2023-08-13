@@ -28,7 +28,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = " \
     ament-cmake-test-native \
-    launch-testing-native \
+    launch-testing \
     python-cmake-module-native \
 "
 
