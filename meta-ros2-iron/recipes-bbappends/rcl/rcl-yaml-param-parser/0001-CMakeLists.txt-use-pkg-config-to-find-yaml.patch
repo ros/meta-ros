@@ -4,7 +4,7 @@ Date: Thu, 9 Jul 2020 01:44:31 -0700
 Subject: [PATCH] CMakeLists.txt: use pkg-config to find yaml
 
 * yaml-0.1.8 built with CMake in libyaml-vendor ExternalProject_add call
-  provides yamlConfig, but platform yaml-0.2* from oe-core built with
+  provides yamlConfig, but platform yaml-0.2* from oe-core built with 
   autotools provides only pkg-config file yaml-1.0.pc, I've tried to change
   oe-core recipe from autotools to cmake, but it seems to be broken in
   upstream libyaml as shown bellow, we should continue to use upstream preferred autotools
@@ -53,12 +53,13 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 397f662..341aeaf 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -6,6 +6,8 @@ find_package(ament_cmake_ros REQUIRED)
+@@ -6,7 +6,8 @@ find_package(ament_cmake_ros REQUIRED)
  find_package(rcutils REQUIRED)
  find_package(rmw REQUIRED)
  find_package(libyaml_vendor REQUIRED)
+-find_package(yaml REQUIRED)
 +find_package(PkgConfig REQUIRED)
 +pkg_check_modules(yaml REQUIRED yaml-0.1)
  
- # Default to C++14
+ # Default to C++17
  if(NOT CMAKE_CXX_STANDARD)

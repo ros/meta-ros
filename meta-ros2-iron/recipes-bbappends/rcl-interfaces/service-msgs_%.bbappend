@@ -1,9 +1,10 @@
-# Copyright (c) 2019 LG Electronics, Inc.
-# Copyright (c) 2022 Acceleration Robotics S.L. <contact@accelerationrobotics.com>
-# Copyright (c) 2023 Mission Robotics
-
-# Fix for Honister release only:
 inherit setuptools3-base
+
+# |   Could not find a package configuration file provided by "rosidl_adapter"
+# |   with any of the following names:
+# |
+# |     rosidl_adapterConfig.cmake
+# |     rosidl_adapter-config.cmake
 
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-parser-native \
@@ -15,9 +16,9 @@ ROS_BUILDTOOL_DEPENDS += " \
     rpyutils-native \
 "
 
-# Without the target rosidl-typesupport-{c,cpp}, ament finds the native packages and then fails to link (error: incompatible
-# target).
 ROS_BUILD_DEPENDS += " \
+    rosidl-generator-c \
+    rosidl-generator-cpp \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
 "

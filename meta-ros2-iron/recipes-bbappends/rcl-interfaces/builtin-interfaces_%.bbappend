@@ -1,9 +1,12 @@
 # Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2023 Mission Robotics
 
-inherit setuptools3-base
+# Fix for Honister release only:
+inherit distutils3-base
 
 ROS_BUILD_DEPENDS += " \
     fastcdr \
+    rpyutils-native \
 "
 
 # usr/share/builtin_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake contains:

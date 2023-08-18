@@ -1,13 +1,16 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
 # Copyright (c) 2022 Acceleration Robotics S.L. <contact@accelerationrobotics.com>
 
-DEPENDS += "libyaml"
+ROS_BUILD_DEPENDS:append = "libyaml"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://0001-PATCH-CMakeLists.txt-fetch-libyaml-with-bitbake-fetc.patch \
-    file://0002-CMakeLists.txt-use-platform-libyaml-when-available-i.patch \
 "
+
+#  This file used to be included, but I could not get it to work on the latest version.
+#   file://0002-CMakeLists.txt-use-platform-libyaml-when-available-i.patch
+
 # SRC_URI += " \
 #     file://0001-CMakeLists.txt-fetch-libyaml-with-bitbake-fetcher.patch \
 #     file://0002-CMakeLists.txt-use-platform-libyaml-when-available-i.patch \
