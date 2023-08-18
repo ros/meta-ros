@@ -1,0 +1,391 @@
+From 5487445ba2b8513c39ab0ebd4dda6c5808a1d165 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?V=C3=ADctor=20Mayoral=20Vilches?= <v.mayoralv@gmail.com>
+Date: Thu, 28 Apr 2022 10:09:47 +0200
+Subject: [PATCH] Manually add CMake macros from hoofs and posh
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Víctor Mayoral Vilches <v.mayoralv@gmail.com>
+---
+ CMakeLists.txt                    |   6 +-
+ cmake/IceoryxPackageHelper.cmake  | 112 ++++++++++++++++++++++
+ cmake/IceoryxPlatform.cmake       | 150 ++++++++++++++++++++++++++++++
+ cmake/IceoryxPoshDeployment.cmake |  72 ++++++++++++++
+ 4 files changed, 337 insertions(+), 3 deletions(-)
+ create mode 100644 cmake/IceoryxPackageHelper.cmake
+ create mode 100644 cmake/IceoryxPlatform.cmake
+ create mode 100644 cmake/IceoryxPoshDeployment.cmake
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 774d424..a7eabbe 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,9 +26,9 @@ find_package(iceoryx_hoofs REQUIRED)
+ find_package(iceoryx_posh REQUIRED)
+ 
+ 
+-include(IceoryxPackageHelper)
+-include(IceoryxPlatform)
+-include(IceoryxPoshDeployment)
++include(cmake/IceoryxPackageHelper.cmake)
++include(cmake/IceoryxPlatform.cmake)
++include(cmake/IceoryxPoshDeployment.cmake)
+ 
+ if(CMAKE_SYSTEM_NAME MATCHES Linux OR CMAKE_SYSTEM_NAME MATCHES Darwin)
+     option(BUILD_SHARED_LIBS "Create shared libraries by default" ON)
+diff --git a/cmake/IceoryxPackageHelper.cmake b/cmake/IceoryxPackageHelper.cmake
+new file mode 100644
+index 0000000..8d071c6
+--- /dev/null
++++ b/cmake/IceoryxPackageHelper.cmake
+@@ -0,0 +1,112 @@
++# Copyright (c) 2020 by Robert Bosch GmbH. All rights reserved.
++# Copyright (c) 2021 by Apex.AI Inc. All rights reserved.
++# Copyright (c) 2021 by Timo Röhling. All rights reserved.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#     http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++#
++# SPDX-License-Identifier: Apache-2.0
++
++# setup_package_name_and_create_files : this macro which is called from other modules which use iceoryx_hoofs
++# sets the variables for package version file,config file used for configuration
++# this also creates the config files
++include(GNUInstallDirs)
++
++Macro(setup_package_name_and_create_files)
++    set(options )
++    set(oneValueArgs NAME NAMESPACE PROJECT_PREFIX)
++    set(multiValueArgs)
++    cmake_parse_arguments(PARAMS "${options}" "${oneValueArgs}"
++                          "${multiValueArgs}" ${ARGN} )
++    # set variables for library export
++    set(PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/${PARAMS_NAME}ConfigVersion.cmake" )
++    set(PACKAGE_CONFIG_FILE "${CMAKE_CURRENT_BINARY_DIR}/${PARAMS_NAME}Config.cmake" )
++    set(TARGETS_EXPORT_NAME "${PARAMS_NAME}Targets" )
++    set(PROJECT_NAMESPACE ${PARAMS_NAMESPACE} )
++
++    set(DESTINATION_BINDIR ${CMAKE_INSTALL_BINDIR})
++    set(DESTINATION_LIBDIR ${CMAKE_INSTALL_LIBDIR})
++    set(DESTINATION_INCLUDEDIR ${CMAKE_INSTALL_INCLUDEDIR}/${PARAMS_PROJECT_PREFIX})
++    set(DESTINATION_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${PARAMS_NAME})
++
++    # create package files
++    include(CMakePackageConfigHelpers)
++    write_basic_package_version_file(
++        ${PACKAGE_VERSION_FILE}
++        COMPATIBILITY AnyNewerVersion
++    )
++    configure_package_config_file(
++    "cmake/Config.cmake.in"
++    ${PACKAGE_CONFIG_FILE}
++    INSTALL_DESTINATION ${DESTINATION_CONFIGDIR}
++    )
++endMacro()
++
++# setup_install_directories_and_export_package : this macro route the call for installation
++# of target and include directory, package version file , config file
++
++Macro(setup_install_directories_and_export_package)
++    set(options)
++    set(oneValueArgs INCLUDE_DIRECTORY )
++    set(multiValueArgs TARGETS)
++    cmake_parse_arguments(INSTALL "${options}" "${oneValueArgs}"
++                          "${multiValueArgs}" ${ARGN} )
++    install_target_directories_and_header(
++    TARGETS ${INSTALL_TARGETS}
++    INCLUDE_DIRECTORY ${INSTALL_INCLUDE_DIRECTORY}
++    )
++    install_package_files_and_export()
++endMacro()
++
++# install_target_directories_and_header : this macro does the installation
++# of target and include directory
++
++Macro(install_target_directories_and_header)
++    set(options)
++    set(oneValueArgs INCLUDE_DIRECTORY )
++    set(multiValueArgs TARGETS)
++    cmake_parse_arguments(INSTALL "${options}" "${oneValueArgs}"
++                          "${multiValueArgs}" ${ARGN})
++    # target directories
++    install(
++    TARGETS ${INSTALL_TARGETS}
++    EXPORT ${TARGETS_EXPORT_NAME}
++    RUNTIME DESTINATION ${DESTINATION_BINDIR} COMPONENT bin
++    LIBRARY DESTINATION ${DESTINATION_LIBDIR} COMPONENT bin
++    ARCHIVE DESTINATION ${DESTINATION_LIBDIR} COMPONENT bin
++    )
++
++    # header
++    install(
++    DIRECTORY ${INSTALL_INCLUDE_DIRECTORY}
++    DESTINATION ${DESTINATION_INCLUDEDIR}
++    COMPONENT dev
++    )
++endMacro()
++
++# install_package_files_and_export : this macro does the installation
++# of package version and config file and also export the package
++
++Macro(install_package_files_and_export)
++   # package files
++    install(
++    FILES ${PACKAGE_VERSION_FILE} ${PACKAGE_CONFIG_FILE}
++    DESTINATION ${DESTINATION_CONFIGDIR}
++    )
++
++    # package export
++    install(
++    EXPORT ${TARGETS_EXPORT_NAME}
++    NAMESPACE ${PROJECT_NAMESPACE}::
++    DESTINATION ${DESTINATION_CONFIGDIR}
++    )
++endMacro()
+diff --git a/cmake/IceoryxPlatform.cmake b/cmake/IceoryxPlatform.cmake
+new file mode 100644
+index 0000000..0a3b0e8
+--- /dev/null
++++ b/cmake/IceoryxPlatform.cmake
+@@ -0,0 +1,150 @@
++# Copyright (c) 2020 by Robert Bosch GmbH. All rights reserved.
++# Copyright (c) 2020 - 2021 by Apex.AI Inc. All rights reserved.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#     http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++#
++# SPDX-License-Identifier: Apache-2.0
++
++if(UNIX AND NOT APPLE)
++    if(CMAKE_SYSTEM_NAME MATCHES Linux)
++        set(LINUX true)
++    elseif(CMAKE_SYSTEM_NAME MATCHES QNX)
++        set(QNX true)
++    endif()
++endif()
++
++if(LINUX)
++    set(ICEORYX_CXX_STANDARD 14)
++elseif(QNX)
++    set(ICEORYX_CXX_STANDARD 14)
++elseif(WIN32)
++    set(ICEORYX_CXX_STANDARD 17)
++elseif(APPLE)
++    set(ICEORYX_CXX_STANDARD 17)
++elseif(UNIX)
++   set(ICEORYX_CXX_STANDARD 17)
++else()
++   set(ICEORYX_CXX_STANDARD 17)
++endif()
++
++if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
++    set(ICEORYX_WARNINGS PRIVATE ${ICEORYX_WARNINGS} /W0) # TODO iox-#33 set to /W1
++    # todo: '/O2' and '/RTC1' (set by default) options are incompatible,
++elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
++    set(ICEORYX_WARNINGS PRIVATE ${ICEORYX_WARNINGS} -W -Wall -Wextra -Wuninitialized -Wpedantic -Wstrict-aliasing -Wcast-align -Wno-noexcept-type -Wconversion)
++endif()
++
++if(BUILD_STRICT)
++    if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
++        set(ICEORYX_WARNINGS ${ICEORYX_WARNINGS} /W0) # TODO iox-#33 set to /WX
++    elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
++        set(ICEORYX_WARNINGS ${ICEORYX_WARNINGS} -Werror)
++    elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
++        set(ICEORYX_WARNINGS ${ICEORYX_WARNINGS} -Werror)
++    endif()
++endif()
++
++function(iox_create_asan_compile_time_blacklist BLACKLIST_FILE_PATH)
++    # Suppressing Errors in Recompiled Code (Blacklist)
++    # (https://clang.llvm.org/docs/AddressSanitizer.html#suppressing-errors-in-recompiled-code-blacklist)
++    # More details about the syntax can be found here (https://clang.llvm.org/docs/SanitizerSpecialCaseList.html)
++    if(NOT EXISTS ${BLACKLIST_FILE_PATH})
++        file(WRITE  ${BLACKLIST_FILE_PATH} "# This file is auto-generated from iceoryx_hoofs/cmake/IceoryxPlatform.cmake\n")
++        file(APPEND ${BLACKLIST_FILE_PATH} "# src:*file_name.cpp*\n")
++        file(APPEND ${BLACKLIST_FILE_PATH} "# fun:*Test_Name*\n")
++        file(APPEND ${BLACKLIST_FILE_PATH} "# End of file\n")
++    endif()
++endfunction()
++
++function(iox_create_asan_runtime_blacklist BLACKLIST_FILE_PATH)
++    # Suppress errors in external libraries (https://clang.llvm.org/docs/AddressSanitizer.html#suppressing-reports-in-external-libraries)
++    # List of errors generated in .inl files. These cannot be suppressed with -fsanitize-blacklist!
++    # We enable sanitizer flags for core components, not in tests (mainly to avoid catching errors in test cases, at least for now)
++    # NOTE : AddressSanitizer won't generate any report for the suppressed errors.
++    #        Only way to see detailed errors is to disable the entries here  & run
++    if(NOT EXISTS ${BLACKLIST_FILE_PATH})
++        file(WRITE  ${BLACKLIST_FILE_PATH} "# This file is auto-generated from iceoryx_hoofs/cmake/IceoryxPlatform.cmake\n")
++        file(APPEND ${BLACKLIST_FILE_PATH} "#interceptor_via_fun:-[ClassName objCMethodToSuppress:]\n")
++        file(APPEND ${BLACKLIST_FILE_PATH} "#interceptor_via_lib:NameOfTheLibraryToSuppress\n")
++        file(APPEND ${BLACKLIST_FILE_PATH} "# End of file\n")
++    endif()
++endfunction()
++
++function(iox_create_lsan_runtime_blacklist BLACKLIST_FILE_PATH)
++    # Suppress known memory leaks (https://github.com/google/sanitizers/wiki/AddressSanitizerLeakSanitizer)
++    # Below function/files contains memory leaks!
++    # LeakSanitizer wont report the problem for the entries here , however you can find the suppression report in the log
++    #
++    # e.g.
++    # Suppressions used:
++    # count      bytes template
++    #     8        642 libacl.so.1
++    #     1         24 iox::posix::UnixDomainSocket::timedReceive
++    #     1         24 iox::posix::MessageQueue::receive
++    if(NOT EXISTS ${BLACKLIST_FILE_PATH})
++        file(WRITE  ${BLACKLIST_FILE_PATH} "# This file is auto-generated from iceoryx_hoofs/cmake/IceoryxPlatform.cmake\n")
++        file(APPEND ${BLACKLIST_FILE_PATH} "#leak:libacl.so.1\n")
++        file(APPEND ${BLACKLIST_FILE_PATH} "#leak:iox::posix::UnixDomainSocket::timedReceive\n")
++        file(APPEND ${BLACKLIST_FILE_PATH} "# End of file\n")
++    endif()
++endfunction()
++
++if(SANITIZE)
++    if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
++        set(ICEORYX_SANITIZER_BLACKLIST_FILE ${CMAKE_BINARY_DIR}/sanitizer_blacklist/sanitizer_compile_time.txt)
++        iox_create_asan_compile_time_blacklist(${ICEORYX_SANITIZER_BLACKLIST_FILE})
++
++        set(ICEORYX_SANITIZER_BLACKLIST -fsanitize-blacklist=${ICEORYX_SANITIZER_BLACKLIST_FILE})
++
++        # unset local variables , to avoid polluting global space
++        unset(ICEORYX_SANITIZER_BLACKLIST_FILE )
++    endif()
++
++    iox_create_asan_runtime_blacklist(${CMAKE_BINARY_DIR}/sanitizer_blacklist/asan_runtime.txt)
++    iox_create_lsan_runtime_blacklist(${CMAKE_BINARY_DIR}/sanitizer_blacklist/lsan_runtime.txt)
++
++    if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
++        set(ICEORYX_SANITIZER_COMMON_FLAGS -fno-omit-frame-pointer -fno-optimize-sibling-calls)
++
++        # For using LeakSanitizer in standalone mode
++        # https://github.com/google/sanitizers/wiki/AddressSanitizerLeakSanitizer#stand-alone-mode
++        # Using this mode was a bit unstable
++        set(ICEORYX_LEAK_SANITIZER_FLAGS -fsanitize=leak)
++
++        set(ICEORYX_ADDRESS_SANITIZER_FLAGS -fsanitize=address -fsanitize-address-use-after-scope ${ICEORYX_SANITIZER_BLACKLIST})
++
++        # UndefinedBehaviorSanitizer
++        # -fno-sanitize-recover=... print a verbose error report and exit the program
++        set(ICEORYX_UB_SANITIZER_FLAGS -fsanitize=undefined -fno-sanitize-recover=undefined)
++
++        # Combine different sanitizer flags to define overall sanitization
++        set(ICEORYX_SANITIZER_FLAGS ${ICEORYX_SANITIZER_COMMON_FLAGS} ${ICEORYX_ADDRESS_SANITIZER_FLAGS} ${ICEORYX_UB_SANITIZER_FLAGS} CACHE INTERNAL "")
++
++        # unset local variables , to avoid polluting global space
++        unset(ICEORYX_SANITIZER_BLACKLIST)
++        unset(ICEORYX_SANITIZER_COMMON_FLAGS)
++        unset(ICEORYX_ADDRESS_SANITIZER_FLAGS)
++        unset(ICEORYX_UB_SANITIZER_FLAGS)
++    else()
++        message( FATAL_ERROR "You need to run sanitize with gcc/clang compiler." )
++    endif()
++endif()
++
++if(COVERAGE)
++    set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE 1)
++    if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
++        set(ICEORYX_SANITIZER_FLAGS -g -O0 -fprofile-arcs -ftest-coverage CACHE INTERNAL "")
++    else(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
++        message( FATAL_ERROR "You need to run gcov with gcc compiler." )
++    endif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
++endif()
+diff --git a/cmake/IceoryxPoshDeployment.cmake b/cmake/IceoryxPoshDeployment.cmake
+new file mode 100644
+index 0000000..5554872
+--- /dev/null
++++ b/cmake/IceoryxPoshDeployment.cmake
+@@ -0,0 +1,72 @@
++# Copyright (c) 2020 by Robert Bosch GmbH. All rights reserved.
++# Copyright (c) 2021 by Apex.AI Inc. All rights reserved.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#     http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++#
++# SPDX-License-Identifier: Apache-2.0
++
++# configure deployment
++message(STATUS "[i] <<<<<<<<<<<<< Start iceoryx_posh configuration: >>>>>>>>>>>>>")
++if(ONE_TO_MANY_ONLY)
++     message(STATUS "[i] Using 1:n communication only!")
++     set(IOX_COMMUNICATION_POLICY OneToManyPolicy)
++endif()
++
++if(NOT IOX_COMMUNICATION_POLICY)
++    message(STATUS "[i] Using m:n communication!")
++    set(IOX_COMMUNICATION_POLICY ManyToManyPolicy)
++endif()
++
++if(NOT IOX_MAX_PUBLISHERS)
++    set(IOX_MAX_PUBLISHERS 512)
++endif()
++message(STATUS "[i] IOX_MAX_PUBLISHERS:" ${IOX_MAX_PUBLISHERS})
++
++if(NOT IOX_MAX_SUBSCRIBERS)
++    set(IOX_MAX_SUBSCRIBERS 1024)
++endif()
++message(STATUS "[i] IOX_MAX_SUBSCRIBERS:" ${IOX_MAX_SUBSCRIBERS})
++
++if(NOT IOX_MAX_INTERFACE_NUMBER)
++    set(IOX_MAX_INTERFACE_NUMBER 4)
++endif()
++message(STATUS "[i] IOX_MAX_INTERFACE_NUMBER:" ${IOX_MAX_INTERFACE_NUMBER})
++
++if(NOT IOX_MAX_SUBSCRIBERS_PER_PUBLISHER)
++    set(IOX_MAX_SUBSCRIBERS_PER_PUBLISHER 256)
++endif()
++message(STATUS "[i] IOX_MAX_SUBSCRIBERS_PER_PUBLISHER:" ${IOX_MAX_SUBSCRIBERS_PER_PUBLISHER})
++
++if(NOT IOX_MAX_CHUNKS_ALLOCATED_PER_PUBLISHER_SIMULTANEOUSLY)
++    set(IOX_MAX_CHUNKS_ALLOCATED_PER_PUBLISHER_SIMULTANEOUSLY 8)
++endif()
++message(STATUS "[i] IOX_MAX_CHUNKS_ALLOCATED_PER_PUBLISHER_SIMULTANEOUSLY:" ${IOX_MAX_CHUNKS_ALLOCATED_PER_PUBLISHER_SIMULTANEOUSLY})
++
++if(NOT IOX_MAX_PUBLISHER_HISTORY)
++    set(IOX_MAX_PUBLISHER_HISTORY 16)
++endif()
++message(STATUS "[i] IOX_MAX_PUBLISHER_HISTORY:" ${IOX_MAX_PUBLISHER_HISTORY})
++
++if(NOT IOX_MAX_CHUNKS_HELD_PER_SUBSCRIBER_SIMULTANEOUSLY)
++    set(IOX_MAX_CHUNKS_HELD_PER_SUBSCRIBER_SIMULTANEOUSLY 256)
++endif()
++message(STATUS "[i] IOX_MAX_CHUNKS_HELD_PER_SUBSCRIBER_SIMULTANEOUSLY:" ${IOX_MAX_CHUNKS_HELD_PER_SUBSCRIBER_SIMULTANEOUSLY})
++
++# note: don't change IOX_INTERNAL_MAX_NUMBER_OF_NOTIFIERS value because it could break the C-Binding
++#if(NOT IOX_MAX_NUMBER_OF_NOTIFIERS)
++set(IOX_INTERNAL_MAX_NUMBER_OF_NOTIFIERS 256)
++#endif()
++#message(STATUS "[i] IOX_MAX_NUMBER_OF_NOTIFIERS:" ${IOX_MAX_NUMBER_OF_NOTIFIERS})
++
++message(STATUS "[i] <<<<<<<<<<<<<< End iceoryx_posh configuration: >>>>>>>>>>>>>>")
++
+-- 
+2.34.1
+

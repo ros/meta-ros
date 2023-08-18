@@ -1,0 +1,42 @@
+From 8050b39fe960e0b6d12c4611ff2b258456138bbb Mon Sep 17 00:00:00 2001
+From: "mergify[bot]" <37929162+mergify[bot]@users.noreply.github.com>
+Date: Fri, 12 Aug 2022 09:19:46 -0400
+Subject: [PATCH 1/2] Support new target export template introduced with CMake
+ 3.24 (#395) (#397)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Timo Röhling <timo.roehling@fkie.fraunhofer.de>
+(cherry picked from commit ca8c26ea3c89e69c0c636b7cd0c088674c689f5f)
+
+Co-authored-by: Timo Röhling <timo@gaussglocke.de>
+---
+ .../cmake/ament_cmake_export_targets-extras.cmake.in          | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/ament_cmake_export_targets/cmake/ament_cmake_export_targets-extras.cmake.in b/ament_cmake_export_targets/cmake/ament_cmake_export_targets-extras.cmake.in
+index 8d86e94..a7402a6 100644
+--- a/ament_cmake_export_targets/cmake/ament_cmake_export_targets-extras.cmake.in
++++ b/ament_cmake_export_targets/cmake/ament_cmake_export_targets-extras.cmake.in
+@@ -9,7 +9,7 @@ if(NOT _exported_targets STREQUAL "")
+     include("${_export_file}")
+ 
+     # extract the target names associated with the export
+-    set(_regex "foreach\\(_expectedTarget (.+)\\)")
++    set(_regex "foreach\\((_cmake)?_expected_?[Tt]arget (IN ITEMS )?(.+)\\)")
+     file(
+       STRINGS "${_export_file}" _foreach_targets
+       REGEX "${_regex}")
+@@ -18,7 +18,7 @@ if(NOT _exported_targets STREQUAL "")
+       message(FATAL_ERROR
+         "Failed to find exported target names in '${_export_file}'")
+     endif()
+-    string(REGEX REPLACE "${_regex}" "\\1" _targets "${_foreach_targets}")
++    string(REGEX REPLACE "${_regex}" "\\3" _targets "${_foreach_targets}")
+     string(REPLACE " " ";" _targets "${_targets}")
+     list(LENGTH _targets _length)
+ 
+-- 
+2.17.1
+

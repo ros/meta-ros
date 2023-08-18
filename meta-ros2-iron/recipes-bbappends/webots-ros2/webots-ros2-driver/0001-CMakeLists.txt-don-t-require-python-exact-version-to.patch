@@ -1,0 +1,47 @@
+From 193647f162c38629dfd03f78f14807050e34ee9d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 6 Sep 2021 06:56:33 -0700
+Subject: [PATCH] CMakeLists.txt: don't require python exact version to be 3.8
+
+* there are prebuilt binaries for multiple versions:
+
+webots-ros2-driver/1.1.1-1-r0/git$ ls webots/lib/linux-gnu/python39
+controller.py  _controller.so  __init__.py  vehicle.py  _vehicle.so
+webots-ros2-driver/1.1.1-1-r0/git$ ls webots/lib/linux-gnu/python38
+controller.py  _controller.so  __init__.py  vehicle.py  _vehicle.so
+webots-ros2-driver/1.1.1-1-r0/git$ ls webots/lib/linux-gnu/python37
+controller.py  _controller.so  __init__.py  vehicle.py  _vehicle.so
+webots-ros2-driver/1.1.1-1-r0/git$ ls webots/lib/linux-gnu/python36
+controller.py  _controller.so  __init__.py  vehicle.py  _vehicle.so
+
+  install whatever version is detected
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 79de20b8..fa821155 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -18,7 +18,7 @@ find_package(vision_msgs REQUIRED)
+ find_package(webots_ros2_msgs REQUIRED)
+ find_package(tinyxml2_vendor REQUIRED)
+ find_package(TinyXML2 REQUIRED)
+-find_package(PythonLibs 3.8 EXACT REQUIRED)
++find_package(PythonLibs REQUIRED)
+ 
+ if (UNIX AND NOT APPLE)
+   set(WEBOTS_LIB_BASE webots/lib/linux-gnu)
+@@ -68,7 +68,7 @@ else()
+ endif()
+ 
+ ament_python_install_package(${PROJECT_NAME}_webots
+-  PACKAGE_DIR ${WEBOTS_LIB_BASE}/python38)
++  PACKAGE_DIR ${WEBOTS_LIB_BASE}/python${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR})
+ 
+ ament_python_install_package(${PROJECT_NAME}
+   PACKAGE_DIR ${PROJECT_NAME})

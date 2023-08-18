@@ -1,0 +1,29 @@
+From 46b728b5ae1c935365280ea59d85fd084b37f3ce Mon Sep 17 00:00:00 2001
+From: Sandeep Gundlupet Raju <sandeep.gundlupet-raju@xilinx.com>
+Date: Wed, 6 Jul 2022 09:05:59 -0600
+Subject: [PATCH] CMakeLists: Update ROS_DISTRO version to humble
+
+Sourcing /usr/bin/ros_setup.sh script the ROS2 distro release is set to
+rolling, So updated ROS_DISTRO variable to humble.
+
+Signed-off-by: Sandeep Gundlupet Raju <sandeep.gundlupet-raju@xilinx.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7628274..dabcd7d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -10,7 +10,7 @@ set(ROS_PYTHON_VERSION "3")
+ if(DEFINED ENV{ROS_DISTRO_OVERRIDE})
+   set(ROS_DISTRO $ENV{ROS_DISTRO_OVERRIDE})
+ else()
+-  set(ROS_DISTRO "rolling")
++  set(ROS_DISTRO "humble")
+ endif()
+ 
+ set(
+-- 
+2.17.1
+
