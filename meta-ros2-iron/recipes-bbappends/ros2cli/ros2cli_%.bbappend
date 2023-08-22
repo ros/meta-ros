@@ -11,5 +11,6 @@ RDEPENDS:${PN} += " \
     ${PYTHON_PN}-pyparsing \
     ${PYTHON_PN}-pyyaml \
     ${PYTHON_PN}-xmlrpc \
+    ${PYTHON_PN}-logging \
     rosidl-generator-py \
 "
