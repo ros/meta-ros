@@ -2,6 +2,8 @@
 
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-adapter \
+    rclcpp \
+    python3-numpy-native \
 "
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"

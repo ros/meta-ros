@@ -259,31 +259,46 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 946a5ba..56e7bf0 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -13,8 +13,10 @@ endif()
+@@ -8,25 +8,33 @@
+ endif()
+ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+   add_compile_options(-Wall -Wextra -Wpedantic)
+ endif()
+
++
  find_package(ament_cmake_ros REQUIRED)
  find_package(rclcpp REQUIRED)
  find_package(rclcpp_components REQUIRED)
 -find_package(sdl2_vendor REQUIRED)
 -find_package(sdl2_custom REQUIRED)
++
 +#find_package(sdl2 REQUIRED)
 +find_package(PkgConfig REQUIRED)
++
 +pkg_check_modules(SDL2 REQUIRED sdl2)
 +
  find_package(sensor_msgs REQUIRED)
- 
- include_directories(include)
-@@ -26,7 +28,9 @@ ament_target_dependencies(joy
- # Need this since sdl2 doesn't properly export its
- # libraries so ament_target_dependencies can find them
- target_link_libraries(joy
+
+ add_library(joy SHARED src/joy.cpp)
+ target_include_directories(joy PUBLIC
+   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+ target_link_libraries(joy PUBLIC
+   rclcpp::rclcpp
+   ${sensor_msgs_TARGETS}
 -  SDL2::SDL2)
 +  ${SDL2_LIBRARIES})
 +target_include_directories(joy SYSTEM PUBLIC
 +  ${SDL2_INCLUDE_DIRS})
- 
- install(TARGETS joy
++
+ target_link_libraries(joy PRIVATE
+   rclcpp_components::component)
+
+ install(TARGETS joy EXPORT export_joy
    LIBRARY DESTINATION lib
-@@ -41,7 +45,9 @@ rclcpp_components_register_node(joy
+@@ -39,11 +47,14 @@
+   EXECUTABLE joy_node)
+
  add_executable(joy_enumerate_devices
    src/joy_enumerate_devices.cpp)
  target_link_libraries(joy_enumerate_devices
@@ -291,6 +306,9 @@ index 946a5ba..56e7bf0 100644
 +  ${SDL2_LIBRARIES})
 +target_include_directories(joy_enumerate_devices SYSTEM PUBLIC
 +  ${SDL2_INCLUDE_DIRS})
- 
++
+
  install(TARGETS joy_enumerate_devices
    DESTINATION lib/${PROJECT_NAME})
+
+ install(DIRECTORY include/ DESTINATION include/${PROJECT_NAME})
