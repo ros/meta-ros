@@ -1,0 +1,16 @@
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+--- a/setup.py
++++ b/setup.py
+@@ -2,7 +2,7 @@
+ #
+ # $Id: setup.py.pre 3116 2004-01-14 02:53:02Z max $ $Date: 2004-01-13 18:53:02 -0800 (Tue, 13 Jan 2004) $
+
+-from distutils.core import setup
++from setuptools import setup
+
+ DESCRIPTION = "A templating system for Python."
