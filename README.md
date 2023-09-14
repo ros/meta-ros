@@ -23,4 +23,4 @@ The `master` branch serves as a general overview and reference point. To find su
 
 ## Contributing
 
-Contributions to `meta-ros`` are always welcome! Whether it's submitting patches, reporting issues, or updating documentation, your efforts help improve the project.
+Contributions to `meta-ros` are always welcome! Whether it's submitting patches, reporting issues, or updating documentation, your efforts help improve the project.
