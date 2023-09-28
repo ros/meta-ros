@@ -9,7 +9,7 @@ DESCRIPTION = "C++ library about sensor model, geometrical modeling and percepti
 AUTHOR = "Ryohei Ueda <ueda@jsk.t.u-tokyo.ac.jp>"
 HOMEPAGE = "https://jsk-docs.readthedocs.io/projects/jsk_recognition/en/latest/jsk_recognition_utils"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "jsk_recognition"

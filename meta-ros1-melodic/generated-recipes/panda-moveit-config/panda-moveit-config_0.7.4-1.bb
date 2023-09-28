@@ -10,7 +10,7 @@ AUTHOR = "Mike Lautman <mike@picknik.ai>"
 ROS_AUTHOR = "Mike Lautman <mike@picknik.ai>"
 HOMEPAGE = "http://moveit.ros.org/"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "panda_moveit_config"

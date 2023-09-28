@@ -10,7 +10,7 @@ AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
 ROS_AUTHOR = "Dirk Thomas"
 HOMEPAGE = "http://ros.org/wiki/qt_gui_app"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "qt_gui_core"

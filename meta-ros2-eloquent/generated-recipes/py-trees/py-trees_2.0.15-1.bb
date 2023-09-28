@@ -10,7 +10,7 @@ AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
 ROS_AUTHOR = "Daniel Stonier"
 HOMEPAGE = "https://py-trees.readthedocs.io/en/release-1.4.x"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "py_trees"

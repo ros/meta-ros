@@ -10,7 +10,7 @@ AUTHOR = "Jack O'Quin <jack.oquin@gmail.com>"
 ROS_AUTHOR = "Patrick Mihelich (original openni_launch package)"
 HOMEPAGE = "http://ros.org/wiki/freenect_launch"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "freenect_stack"

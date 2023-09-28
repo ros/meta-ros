@@ -10,7 +10,7 @@ AUTHOR = "Mike Purvis <mpurvis@clearpathrobotics.com>"
 ROS_AUTHOR = "Shokoofeh Pourmehr <spourmehr@clearpathrobotics.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "jackal"

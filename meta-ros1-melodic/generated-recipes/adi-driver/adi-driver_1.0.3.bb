@@ -10,7 +10,7 @@ AUTHOR = "Tokyo Opensource Robotics Kyokai (TORK) Developer Team <dev@opensource
 ROS_AUTHOR = "Ryosuke Tajima <ryosuke.tajima@opensource-robotics.tokyo.jp>"
 HOMEPAGE = "http://wiki.ros.org/adi_driver"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "adi_driver"

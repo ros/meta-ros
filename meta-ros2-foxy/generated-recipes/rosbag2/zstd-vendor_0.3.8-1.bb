@@ -10,8 +10,8 @@ AUTHOR = "Karsten Knese <karsten@openrobotics.org>"
 HOMEPAGE = "https://facebook.github.io/zstd/"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & BSD"
-LICENSE = "Apache-2.0 & BSD"
+#         "Apache License 2.0 & 0BSD"
+LICENSE = "Apache-2.0 & 0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "rosbag2"

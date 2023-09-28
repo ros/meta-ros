@@ -9,7 +9,7 @@ DESCRIPTION = "Common msg and srv definitions used by Roboception's ROS packages
 AUTHOR = "Felix Ruess <felix.ruess@roboception.de>"
 HOMEPAGE = "https://wiki.ros.org/rc_common_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rc_common_msgs"

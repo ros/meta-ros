@@ -10,7 +10,7 @@ AUTHOR = "Mike Lautman <mike@picknik.ai>"
 ROS_AUTHOR = "Mike Lautman <mike@picknik.ai>"
 HOMEPAGE = "https://github.com/PickNikRobotics/rviz_visual_tools"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rviz_visual_tools"

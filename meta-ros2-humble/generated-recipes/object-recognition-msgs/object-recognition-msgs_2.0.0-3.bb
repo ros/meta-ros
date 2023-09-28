@@ -10,7 +10,7 @@ AUTHOR = "Vincent Rabaud <vincent.rabaud@gmail.com>"
 ROS_AUTHOR = "Vincent Rabaud <vincent.rabaud@gmail.com>"
 HOMEPAGE = "http://www.ros.org/wiki/object_recognition"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "object_recognition_msgs"

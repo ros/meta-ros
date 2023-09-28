@@ -9,7 +9,7 @@ DESCRIPTION = "The rover_zero_driver package"
 AUTHOR = "nickp <nickp@todo.todo>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "rr_openrover_stack"

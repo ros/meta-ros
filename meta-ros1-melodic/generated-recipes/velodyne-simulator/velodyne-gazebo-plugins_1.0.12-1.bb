@@ -10,7 +10,7 @@ AUTHOR = "Kevin Hallenbeck <khallenbeck@dataspeedinc.com>"
 ROS_AUTHOR = "Kevin Hallenbeck"
 HOMEPAGE = "http://wiki.ros.org/velodyne_gazebo_plugins"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "velodyne_simulator"

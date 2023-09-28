@@ -10,7 +10,7 @@ AUTHOR = "Kevin Rösch <kevin.roesch@kit.edu>"
 ROS_AUTHOR = "Fabian Poggenhans <fabian.poggenhans@partner.kit.edu>"
 HOMEPAGE = "http://wiki.ros.org/mrt_cmake_modules"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mrt_cmake_modules"

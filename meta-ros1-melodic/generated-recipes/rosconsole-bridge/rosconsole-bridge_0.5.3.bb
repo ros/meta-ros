@@ -10,7 +10,7 @@ AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
 ROS_AUTHOR = "Ioan Sucan"
 HOMEPAGE = "http://www.ros.org/wiki/rosconsole_bridge"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rosconsole_bridge"

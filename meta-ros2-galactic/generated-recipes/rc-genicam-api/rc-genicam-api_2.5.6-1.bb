@@ -10,7 +10,7 @@ AUTHOR = "Felix Ruess <felix.ruess@roboception.de>"
 ROS_AUTHOR = "Heiko Hirschmueller <heiko.hirschmueller@roboception.de>"
 HOMEPAGE = "http://wiki.ros.org/rc_genicam_api"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=27;endline=27;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "rc_genicam_api"

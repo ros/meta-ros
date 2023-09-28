@@ -10,7 +10,7 @@ AUTHOR = "Austin Hendrix <namniart@gmail.com>"
 ROS_AUTHOR = "Maintained by William Woodall - wwoodall@willowgarage.com"
 HOMEPAGE = "http://www.ros.org/wiki/prosilica_camera"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "prosilica_driver"

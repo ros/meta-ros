@@ -9,7 +9,7 @@ DESCRIPTION = "fmt is an open-source formatting library for C++. 		It can be use
 AUTHOR = "Max Schwarz <max.schwarz@ais.uni-bonn.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=75730354549103aaba72b66caf53717b"
 
 ROS_CN = "rosfmt"

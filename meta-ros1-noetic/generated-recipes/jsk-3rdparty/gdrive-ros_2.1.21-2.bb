@@ -10,7 +10,7 @@ AUTHOR = "Shingo Kitagawa <shingogo.5511@gmail.com>"
 ROS_AUTHOR = "Shingo Kitagawa <shingogo.5511@gmail.com>"
 HOMEPAGE = "http://ros.org/wiki/gdrive_ros"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "jsk_3rdparty"

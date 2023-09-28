@@ -10,7 +10,7 @@ AUTHOR = "Harshal Deshpande <hardesh1deshpande@gmail.com>"
 ROS_AUTHOR = "Harshal Deshpande <hardesh1deshpande@gmail.com>"
 HOMEPAGE = "https://erc-bpgc.github.io/omnibase/"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=75730354549103aaba72b66caf53717b"
 
 ROS_CN = "omnibase"

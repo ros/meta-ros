@@ -9,7 +9,7 @@ DESCRIPTION = "Provides a toolchain running through the robot calibration proces
 AUTHOR = "David Feil-Seifer <david.feilseifer@gmail.com>"
 HOMEPAGE = "http://www.ros.org/wiki/ros_comm"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "calibration"

@@ -11,8 +11,8 @@ ROS_AUTHOR = "Association GUNDAM GLOBAL CHALLENGE"
 HOMEPAGE = "http://wiki.ros.org/gundam_rx78_description"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "TERMS OF USE FOR GUNDAM RESEARCH OPEN SIMULATOR Attribution-NonCommercial-ShareAlike & BSD"
-LICENSE = "TERMS-OF-USE-FOR-GUNDAM-RESEARCH-OPEN-SIMULATOR-Attribution-NonCommercial-ShareAlike & BSD"
+#         "TERMS OF USE FOR GUNDAM RESEARCH OPEN SIMULATOR Attribution-NonCommercial-ShareAlike & 0BSD"
+LICENSE = "TERMS-OF-USE-FOR-GUNDAM-RESEARCH-OPEN-SIMULATOR-Attribution-NonCommercial-ShareAlike & 0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=f5e61087bff3fb766fa70953b6de4c9f"
 
 ROS_CN = "gundam_robot"

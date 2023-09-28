@@ -10,7 +10,7 @@ AUTHOR = "Devon Ash <dash@clearpathrobotics.com>"
 ROS_AUTHOR = "Catalin Drula"
 HOMEPAGE = "http://ros.org/wiki/linksys_access_point"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "linux_networking"

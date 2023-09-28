@@ -10,7 +10,7 @@ AUTHOR = "ROS Orphaned Package Maintainers <ros-orphaned-packages@googlegroups.c
 ROS_AUTHOR = "Melonee Wise"
 HOMEPAGE = "http://ros.org/wiki/joint_trajectory_action_tools"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pr2_common_actions"

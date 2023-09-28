@@ -10,7 +10,7 @@ AUTHOR = "ROS Orphaned Package Maintainers <ros-orphaned-packages@googlegroups.c
 ROS_AUTHOR = "Vijay Pradeep"
 HOMEPAGE = "http://wiki.ros.org/pr2_mannequin_mode"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "pr2_apps"

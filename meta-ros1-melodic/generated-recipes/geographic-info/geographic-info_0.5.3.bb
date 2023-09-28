@@ -10,7 +10,7 @@ AUTHOR = "Jack O'Quin <jack.oquin@gmail.com>"
 ROS_AUTHOR = "Jack O'Quin"
 HOMEPAGE = "http://wiki.ros.org/geographic_info"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "geographic_info"

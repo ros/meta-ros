@@ -10,7 +10,7 @@ AUTHOR = "Alexander W. Winkler <alexander.w.winkler@gmail.com>"
 ROS_AUTHOR = "Alexander W. Winkler"
 HOMEPAGE = "http://github.com/leggedrobotics/xpp"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "xpp"

@@ -10,7 +10,7 @@ AUTHOR = "P. J. Reed <preed@swri.org>"
 ROS_AUTHOR = "Ken Tossell <ken@tossell.net>"
 HOMEPAGE = "http://ros.org/wiki/gpsd_client"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "gps_umd"

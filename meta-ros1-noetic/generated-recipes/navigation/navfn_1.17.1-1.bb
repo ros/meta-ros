@@ -10,7 +10,7 @@ AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
 ROS_AUTHOR = "Kurt Konolige"
 HOMEPAGE = "http://wiki.ros.org/navfn"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=22;endline=22;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "navigation"

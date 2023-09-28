@@ -10,7 +10,7 @@ AUTHOR = "Jack O'Quin <jack.oquin@gmail.com>"
 ROS_AUTHOR = "Jack O'Quin"
 HOMEPAGE = "http://ros.org/wiki/uuid_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "unique_identifier"

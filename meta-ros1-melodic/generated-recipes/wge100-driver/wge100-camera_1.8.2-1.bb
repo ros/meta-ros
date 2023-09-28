@@ -11,7 +11,7 @@ ROS_AUTHOR = "Blaise Gassend, Patrick Mihelich, Eric MacIntosh, David Palchak"
 HOMEPAGE = "http://www.ros.org/wiki/wge100_camera"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "GPL because of list.h; other files released under BSD"
+#         "GPL because of list.h; other files released under 0BSD"
 LICENSE = "GPL-because-of-list.h-&-other-files-released-under-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=984eb2ebe444619cdde9621008ccf4e4"
 

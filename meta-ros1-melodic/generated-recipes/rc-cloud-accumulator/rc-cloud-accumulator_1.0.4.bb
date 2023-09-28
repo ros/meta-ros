@@ -10,7 +10,7 @@ AUTHOR = "Felix Endres <felix.endres@roboception.de>"
 ROS_AUTHOR = "Felix Endres <felix.endres@roboception.de>"
 HOMEPAGE = "https://wiki.ros.org/rc_cloud_accumulator"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rc_cloud_accumulator"

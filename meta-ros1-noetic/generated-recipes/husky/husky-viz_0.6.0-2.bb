@@ -10,7 +10,7 @@ AUTHOR = "Tony Baltovski <tbaltovski@clearpathrobotics.com>"
 ROS_AUTHOR = "Ryan Gariepy <rgariepy@clearpathrobotics.com>"
 HOMEPAGE = "http://ros.org/wiki/husky_viz"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "husky"

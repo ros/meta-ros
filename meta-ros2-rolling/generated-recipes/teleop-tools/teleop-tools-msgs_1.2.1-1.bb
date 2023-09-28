@@ -9,7 +9,7 @@ DESCRIPTION = "The teleop_tools_msgs package"
 AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "teleop_tools"

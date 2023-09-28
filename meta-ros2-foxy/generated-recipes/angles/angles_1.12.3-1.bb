@@ -10,7 +10,7 @@ AUTHOR = "Tully Foote <tfoote@osrfoundation.org>"
 ROS_AUTHOR = "John Hsu <hsu@osrfoundation.org>"
 HOMEPAGE = "http://wiki.ros.org/angles"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "angles"

@@ -10,7 +10,7 @@ AUTHOR = "Stéphane Magnenat <stephane.magnenat@mavt.ethz.ch>"
 ROS_AUTHOR = "Stéphane Magnenat <stephane.magnenat@mavt.ethz.ch>"
 HOMEPAGE = "https://github.com/ethz-asl/libnabo"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=75730354549103aaba72b66caf53717b"
 
 ROS_CN = "libnabo"

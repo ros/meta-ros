@@ -10,7 +10,7 @@ AUTHOR = "Martin Pecka <peckama2@fel.cvut.cz>"
 ROS_AUTHOR = "Eitan Marder-Eppstein"
 HOMEPAGE = "https://github.com/peci1/robot_body_filter"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "robot_body_filter"

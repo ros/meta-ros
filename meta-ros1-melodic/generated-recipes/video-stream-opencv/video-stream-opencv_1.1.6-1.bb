@@ -10,7 +10,7 @@ AUTHOR = "Sammy Pfeiffer <Sammy.Pfeiffer@student.uts.edu.au>"
 ROS_AUTHOR = "Sammy Pfeiffer"
 HOMEPAGE = "http://www.ros.org/wiki/video_stream_opencv"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "video_stream_opencv"

@@ -10,7 +10,7 @@ AUTHOR = "Chris Lalancette <clalancette@osrfoundation.org>"
 ROS_AUTHOR = "Josh Faust <jfaust@willowgarage.com>"
 HOMEPAGE = "http://ros.org/wiki/resource_retriever"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=22;endline=22;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "resource_retriever"

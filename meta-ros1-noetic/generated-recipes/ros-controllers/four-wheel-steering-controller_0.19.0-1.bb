@@ -10,7 +10,7 @@ AUTHOR = "Vincent Rousseau <vincent.rousseau@irstea.fr>"
 ROS_AUTHOR = "Vincent Rousseau <vincent.rousseau@irstea.fr>"
 HOMEPAGE = "http://ros.org/wiki/four_wheel_steering_controller"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "ros_controllers"

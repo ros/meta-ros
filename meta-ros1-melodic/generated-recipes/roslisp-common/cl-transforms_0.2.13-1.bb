@@ -10,7 +10,7 @@ AUTHOR = "Gayane Kazhoyan <kazhoyan@cs.uni-bremen.de>"
 ROS_AUTHOR = "Bhaskara Marthi"
 HOMEPAGE = "http://ros.org/wiki/cl_transforms"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "roslisp_common"

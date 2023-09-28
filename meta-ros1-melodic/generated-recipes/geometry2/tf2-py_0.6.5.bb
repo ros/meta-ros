@@ -9,7 +9,7 @@ DESCRIPTION = "The tf2_py package"
 AUTHOR = "Tully Foote <tfoote@osrfoundation.org>"
 HOMEPAGE = "http://ros.org/wiki/tf2_py"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "geometry2"

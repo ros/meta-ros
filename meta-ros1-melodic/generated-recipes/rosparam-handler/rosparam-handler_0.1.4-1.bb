@@ -10,7 +10,7 @@ AUTHOR = "Jeremie Deray <jeremie.deray@pal-robotics.com>"
 ROS_AUTHOR = "Claudio Bandera <cbandera@posteo.de>"
 HOMEPAGE = "https://github.com/cbandera/rosparam_handler.git"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rosparam_handler"

@@ -10,7 +10,7 @@ AUTHOR = "Martin Pecka <peckama2@fel.cvut.cz>"
 ROS_AUTHOR = "Martin Pecka <peckama2@fel.cvut.cz>"
 HOMEPAGE = "http://www.ros.org/wiki/movie_publisher"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "movie_publisher"

@@ -10,7 +10,7 @@ AUTHOR = "Michael Ferguson <mferguson@fetchrobotics.com>"
 ROS_AUTHOR = "Michael Ferguson"
 HOMEPAGE = "http://wiki.ros.org/fetch_auto_dock_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "fetch_msgs"

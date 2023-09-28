@@ -9,7 +9,7 @@ DESCRIPTION = "Package modeling the build-time dependencies for generating langu
 AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
 HOMEPAGE = "http://ros.org/wiki/message_generation"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "message_generation"

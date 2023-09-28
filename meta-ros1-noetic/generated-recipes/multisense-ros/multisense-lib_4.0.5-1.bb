@@ -9,7 +9,7 @@ DESCRIPTION = "multisense_lib"
 AUTHOR = "Carnegie Robotics <support@carnegierobotics.com>"
 HOMEPAGE = "https://bitbucket.org/crl/multisense_ros"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "multisense_ros"

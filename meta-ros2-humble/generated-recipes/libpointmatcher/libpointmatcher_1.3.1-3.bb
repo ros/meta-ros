@@ -9,7 +9,7 @@ DESCRIPTION = "libpointmatcher is a modular ICP library, useful for robotics and
 AUTHOR = "Francois Pomerleau <f.pomerleau@gmail.com>"
 HOMEPAGE = "https://github.com/ethz-asl/libpointmatcher"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=75730354549103aaba72b66caf53717b"
 
 ROS_CN = "libpointmatcher"

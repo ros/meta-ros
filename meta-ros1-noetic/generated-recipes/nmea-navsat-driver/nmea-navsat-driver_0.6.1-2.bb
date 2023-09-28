@@ -10,7 +10,7 @@ AUTHOR = "Ed Venator <evenator@gmail.com>"
 ROS_AUTHOR = "Eric Perko <eric@ericperko.com>"
 HOMEPAGE = "http://ros.org/wiki/nmea_navsat_driver"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "nmea_navsat_driver"

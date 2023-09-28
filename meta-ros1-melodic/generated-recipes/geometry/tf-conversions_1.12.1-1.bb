@@ -10,7 +10,7 @@ AUTHOR = "Tully Foote <tfoote@osrfoundation.org>"
 ROS_AUTHOR = "Tully Foote"
 HOMEPAGE = "http://www.ros.org/wiki/tf_conversions"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=19;endline=19;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "geometry"

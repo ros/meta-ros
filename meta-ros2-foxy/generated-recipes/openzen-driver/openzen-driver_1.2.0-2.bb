@@ -10,8 +10,8 @@ AUTHOR = "Thomas Hauth <thomas@lp-research.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "MIT & Boost Software License & LGPLv3 & BSD"
-LICENSE = "MIT & BSL-1.0 & LGPL-3.0-only & BSD"
+#         "MIT & Boost Software License & LGPLv3 & 0BSD"
+LICENSE = "MIT & BSL-1.0 & LGPL-3.0-only & 0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=17aa8a6fb4ebd2ec377bc14aaa9ab8d7"
 
 ROS_CN = "openzen_driver"

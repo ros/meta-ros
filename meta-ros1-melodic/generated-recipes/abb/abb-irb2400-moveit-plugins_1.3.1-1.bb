@@ -10,7 +10,7 @@ AUTHOR = "Levi Armstrong (Southwest Research Institute) <levi.armstrong@swri.org
 ROS_AUTHOR = "G.A. vd. Hoorn (TU Delft Robotics Institute)"
 HOMEPAGE = "http://ros.org/wiki/abb_irb2400_moveit_plugins"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=23;endline=23;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "abb"

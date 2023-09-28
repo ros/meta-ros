@@ -10,7 +10,7 @@ AUTHOR = "Paul Bovbel <paul@bovbel.com>"
 ROS_AUTHOR = "Paul Bovbel <paul@bovbel.com>"
 HOMEPAGE = "http://ros.org/wiki/perception_pcl"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "pointcloud_to_laserscan"

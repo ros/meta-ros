@@ -9,7 +9,7 @@ DESCRIPTION = "ROS messages for MRPT classes and objects"
 AUTHOR = "Jose-Luis Blanco-Claraco <jlblanco@ual.es>"
 HOMEPAGE = "http://wiki.ros.org/mrpt_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mrpt_msgs"

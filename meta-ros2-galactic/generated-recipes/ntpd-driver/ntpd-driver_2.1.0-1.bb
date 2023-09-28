@@ -10,7 +10,7 @@ AUTHOR = "Vladimir Ermakov <vooon341@gmail.com>"
 ROS_AUTHOR = "Vladimir Ermakov <vooon341@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/ntpd_driver"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=c1feec27682903a4270dbb401e443f91"
 
 ROS_CN = "ntpd_driver"

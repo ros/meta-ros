@@ -10,7 +10,7 @@ AUTHOR = "Austin Hendrix <ahendrix@willowgarage.com>"
 ROS_AUTHOR = "James Bowman"
 HOMEPAGE = "http://ros.org/wiki/wge100_camera_firmware"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "wge100_driver"

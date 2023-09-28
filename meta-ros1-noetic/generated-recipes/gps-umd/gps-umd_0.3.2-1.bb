@@ -9,7 +9,7 @@ DESCRIPTION = "gps_umd metapackage"
 AUTHOR = "Ken Tossell <ken@tossell.net>"
 HOMEPAGE = "http://ros.org/wiki/gps_umd"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "gps_umd"

@@ -10,7 +10,7 @@ AUTHOR = "Hunter L. Allen <hallen@kns.com>"
 ROS_AUTHOR = "Hunter L. Allen <hallen@kns.com>"
 HOMEPAGE = "http://ros.org/wiki/p2os-purdue"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "p2os"

@@ -10,7 +10,7 @@ AUTHOR = "Eric Relson <erelson@fetchrobotics.com>"
 ROS_AUTHOR = "Alex Henning"
 HOMEPAGE = "https://github.com/fetchrobotics/fetch_tools/blob/master/README.md"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "fetch_tools"

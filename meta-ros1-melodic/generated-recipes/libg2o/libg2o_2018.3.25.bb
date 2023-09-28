@@ -10,7 +10,7 @@ AUTHOR = "Vincent Rabaud <vincent.rabaud@gmail.com>"
 ROS_AUTHOR = "Rainer Kuemmerle"
 HOMEPAGE = "https://github.com/RainerKuemmerle/g2o"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "libg2o"

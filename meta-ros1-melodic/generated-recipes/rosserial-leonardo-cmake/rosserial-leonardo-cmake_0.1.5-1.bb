@@ -9,7 +9,7 @@ DESCRIPTION = "CMake scripts for building Arduino Leonardo (atmega32u4) Firmware
 AUTHOR = "Mike Purvis <mpurvis@clearpathrobotics.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "MPL & BSD"
+LICENSE = "MPL & 0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=1e6edcdce62cccda22710dc9415f3477"
 
 ROS_CN = "rosserial_leonardo_cmake"

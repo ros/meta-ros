@@ -10,7 +10,7 @@ AUTHOR = "Dave Feil-Seifer <dave@cse.unr.edu>"
 ROS_AUTHOR = "Vijay Pradeep"
 HOMEPAGE = "http://www.ros.org/wiki/laser_joint_projector"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pr2_calibration"

@@ -10,7 +10,7 @@ AUTHOR = "Chad Rockey <chadrockey@gmail.com>"
 ROS_AUTHOR = "Satofumi Kamimura <satofumi@users.sourceforge.net>"
 HOMEPAGE = "http://sourceforge.net/projects/urgwidget/"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "urg_c"

@@ -10,7 +10,7 @@ AUTHOR = "Michel Hidalgo <michel@ekumenlabs.com>"
 ROS_AUTHOR = "Tully Foote <tfoote@osrfoundation.org>"
 HOMEPAGE = "http://wiki.ros.org/geometry_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "common_msgs"

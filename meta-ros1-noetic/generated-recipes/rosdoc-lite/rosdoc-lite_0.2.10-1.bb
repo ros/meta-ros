@@ -10,7 +10,7 @@ AUTHOR = "Jack O'Quin <jack.oquin@gmail.com>"
 ROS_AUTHOR = "Ken Conley"
 HOMEPAGE = "http://wiki.ros.org/rosdoc_lite"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rosdoc_lite"

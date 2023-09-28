@@ -10,7 +10,7 @@ AUTHOR = "Marco Steinbrink <marco.stb1993@gmail.com>"
 ROS_AUTHOR = "Marco Steinbrink <marco.stb1993@gmail.com>"
 HOMEPAGE = "https://github.com/MarcoStb1993/robot_statemachine"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=75730354549103aaba72b66caf53717b"
 
 ROS_CN = "robot_statemachine"

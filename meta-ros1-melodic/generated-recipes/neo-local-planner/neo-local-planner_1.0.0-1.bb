@@ -10,7 +10,7 @@ AUTHOR = "Neobotix GmbH <ros@neobotix.de>"
 ROS_AUTHOR = "Max Wittal"
 HOMEPAGE = "http://wiki.ros.org/base_local_planner"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "neo_local_planner"

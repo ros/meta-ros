@@ -10,7 +10,7 @@ AUTHOR = "Fábio Azevedo <fabio.azevedo@beyond-vision.pt>"
 ROS_AUTHOR = "Fábio Azevedo <fabio.azevedo@beyond-vision.pt>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "heifu"

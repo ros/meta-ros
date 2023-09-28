@@ -10,7 +10,7 @@ AUTHOR = "Tony Baltovski <tony@baltovski.ca>"
 ROS_AUTHOR = "Kathrin Gräve <graeve@ais.uni-bonn.de>"
 HOMEPAGE = "http://ros.org/wiki/mocap_optitrack"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=28;endline=28;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mocap_optitrack"

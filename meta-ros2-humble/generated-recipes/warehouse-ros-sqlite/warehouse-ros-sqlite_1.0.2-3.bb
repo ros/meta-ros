@@ -10,7 +10,7 @@ AUTHOR = "MoveIt Release Team <moveit_releasers@googlegroups.com>"
 ROS_AUTHOR = "Bjarne von Horn"
 HOMEPAGE = "http://ros.org/wiki/warehouse_ros"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "warehouse_ros_sqlite"

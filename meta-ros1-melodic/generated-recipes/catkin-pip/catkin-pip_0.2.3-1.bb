@@ -9,7 +9,7 @@ DESCRIPTION = "Catkin macros to allow using pure python packages in usual catkin
 AUTHOR = "AlexV <asmodehn@gmail.com>"
 HOMEPAGE = "http://github.com/asmodehn/catkin_pip"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "catkin_pip"

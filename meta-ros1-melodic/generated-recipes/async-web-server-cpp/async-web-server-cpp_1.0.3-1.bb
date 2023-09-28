@@ -10,7 +10,7 @@ AUTHOR = "Timo Röhling <timo.roehling@fkie.fraunhofer.de>"
 ROS_AUTHOR = "Mitchell Wills <mwills@wpi.edu>"
 HOMEPAGE = "http://ros.org/wiki/async_web_server_cpp"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "async_web_server_cpp"

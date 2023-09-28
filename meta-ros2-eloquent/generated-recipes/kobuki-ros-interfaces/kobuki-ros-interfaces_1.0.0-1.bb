@@ -10,7 +10,7 @@ AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
 ROS_AUTHOR = "Daniel Stonier"
 HOMEPAGE = "https://index.ros.org/k/kobuki_ros_interfaces/github-kobuki-base-kobuki_ros_interfaces"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "kobuki_ros_interfaces"

@@ -9,7 +9,7 @@ DESCRIPTION = "This metapackage depends on packages for interfacing common     j
 AUTHOR = "Jonathan Bohren <jbo@jhu.edu>"
 HOMEPAGE = "http://www.ros.org/wiki/joystick_drivers"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=4;endline=4;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "joystick_drivers"

@@ -10,7 +10,7 @@ AUTHOR = "ROS Orphaned Package Maintainers <ros-orphaned-packages@googlegroups.c
 ROS_AUTHOR = "Mitchell Wills <mwills@wpi.edu>"
 HOMEPAGE = "http://ros.org/wiki/libsensors_monitor"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "linux_peripheral_interfaces"

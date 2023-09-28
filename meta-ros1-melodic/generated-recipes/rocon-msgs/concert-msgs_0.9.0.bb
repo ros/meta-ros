@@ -10,7 +10,7 @@ AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
 ROS_AUTHOR = "Jihoon Lee"
 HOMEPAGE = "http://www.ros.org/wiki/concert_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=5ee5b8b046ae48ad94a2037ca953a67b"
 
 ROS_CN = "rocon_msgs"

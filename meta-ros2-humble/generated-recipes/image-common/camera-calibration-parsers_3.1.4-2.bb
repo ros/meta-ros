@@ -10,7 +10,7 @@ AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"
 ROS_AUTHOR = "Michael Carroll <michael@openrobotics.org>"
 HOMEPAGE = "http://ros.org/wiki/camera_calibration_parsers"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "image_common"

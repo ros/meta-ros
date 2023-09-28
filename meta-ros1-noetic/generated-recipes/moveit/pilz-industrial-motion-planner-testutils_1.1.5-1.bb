@@ -9,7 +9,7 @@ DESCRIPTION = "Helper scripts and functionality to test industrial motion genera
 AUTHOR = "Alexander Gutenkunst <a.gutenkunst@pilz.de>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"

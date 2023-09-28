@@ -10,7 +10,7 @@ AUTHOR = "Jack O'Quin <jack.oquin@gmail.com>"
 ROS_AUTHOR = "Piyush Khandelwal"
 HOMEPAGE = "http://ros.org/wiki/freenect_stack"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=5ee5b8b046ae48ad94a2037ca953a67b"
 
 ROS_CN = "freenect_stack"

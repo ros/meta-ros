@@ -10,7 +10,7 @@ AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
 ROS_AUTHOR = "Rafael Muñoz Salinas <rmsalinas@uco.es>"
 HOMEPAGE = "http://www.uco.es/investiga/grupos/ava/node/26"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "aruco_ros"

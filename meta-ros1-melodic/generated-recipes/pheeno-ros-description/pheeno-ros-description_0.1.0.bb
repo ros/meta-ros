@@ -10,7 +10,7 @@ AUTHOR = "Zahi Kakish <zkakish@gmail.edu>"
 ROS_AUTHOR = "Zahi Kakish <zkakish@gmail.com>"
 HOMEPAGE = "https://acslaboratory.github.io"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "pheeno_ros_description"

@@ -10,7 +10,7 @@ AUTHOR = "Daniel Stonier <d.stonier@gmail.com>"
 ROS_AUTHOR = "Daniel Stonier"
 HOMEPAGE = "https://kobuki.readthedocs.io/en/release-1.0.x/"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "kobuki_core"

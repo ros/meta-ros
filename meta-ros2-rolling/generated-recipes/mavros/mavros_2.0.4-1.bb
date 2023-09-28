@@ -11,8 +11,8 @@ ROS_AUTHOR = "Vladimir Ermakov <vooon341@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/mavros"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "GPLv3 & LGPLv3 & BSD"
-LICENSE = "GPL-3.0-only & LGPL-3.0-only & BSD"
+#         "GPLv3 & LGPLv3 & 0BSD"
+LICENSE = "GPL-3.0-only & LGPL-3.0-only & 0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=1e7b3bcc2e271699c77c769685058cbe"
 
 ROS_CN = "mavros"

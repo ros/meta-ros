@@ -10,7 +10,7 @@ AUTHOR = "Isaac I.Y. Saito <iisaito@kinugarage.com>"
 ROS_AUTHOR = "Isaac Saito"
 HOMEPAGE = "http://wiki.ros.org/rqt_moveit"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=29;endline=29;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt_moveit"

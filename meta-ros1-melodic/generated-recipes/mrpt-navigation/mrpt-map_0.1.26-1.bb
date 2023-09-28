@@ -9,7 +9,7 @@ DESCRIPTION = "The mrpt_map is able to publish a mrpt map as ros occupancy grid 
 AUTHOR = "Markus Bader <markus.bader@tuwien.ac.at>"
 HOMEPAGE = "http://wiki.ros.org/mrpt_map"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mrpt_navigation"

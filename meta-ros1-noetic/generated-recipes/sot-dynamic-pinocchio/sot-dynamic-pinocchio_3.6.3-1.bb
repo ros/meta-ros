@@ -10,7 +10,7 @@ AUTHOR = "Guilhem Saurel <guilhem.saurel@laas.fr>"
 ROS_AUTHOR = "Olivier Stasse"
 HOMEPAGE = "http://stack-of-tasks.github.io"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "sot-dynamic-pinocchio"

@@ -10,7 +10,7 @@ AUTHOR = "Michel Hidalgo <michel@ekumenlabs.com>"
 ROS_AUTHOR = "Tully Foote <tfoote@osrfoundation.org>"
 HOMEPAGE = "http://ros.org/wiki/sensor_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "common_msgs"

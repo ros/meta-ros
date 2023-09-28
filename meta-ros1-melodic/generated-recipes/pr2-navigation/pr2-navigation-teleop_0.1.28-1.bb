@@ -10,7 +10,7 @@ AUTHOR = "David Feil-Seifer <dave@cse.unr.edu>"
 ROS_AUTHOR = "Eitan Marder-Eppstein"
 HOMEPAGE = "http://ros.org/wiki/pr2_navigation_teleop"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pr2_navigation"

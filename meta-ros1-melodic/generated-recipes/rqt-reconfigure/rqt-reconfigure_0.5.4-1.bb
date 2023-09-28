@@ -10,7 +10,7 @@ AUTHOR = "Scott K Logan <logans@cottsay.net>"
 ROS_AUTHOR = "Isaac Saito"
 HOMEPAGE = "http://wiki.ros.org/rqt_reconfigure"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt_reconfigure"

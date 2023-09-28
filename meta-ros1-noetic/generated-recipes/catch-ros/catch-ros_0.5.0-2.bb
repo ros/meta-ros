@@ -10,7 +10,7 @@ AUTHOR = "Max Schwarz <max.schwarz@ais.uni-bonn.de>"
 ROS_AUTHOR = "Max Schwarz <max.schwarz@ais.uni-bonn.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=5;endline=5;md5=75730354549103aaba72b66caf53717b"
 
 ROS_CN = "catch_ros"

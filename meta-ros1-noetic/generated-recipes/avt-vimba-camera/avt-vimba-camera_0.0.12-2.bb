@@ -10,7 +10,7 @@ AUTHOR = "Miquel Massot <miquel.massot@uib.cat>"
 ROS_AUTHOR = "Miquel Massot <miquel.massot@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/avt_vimba_ros"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "avt_vimba_camera"

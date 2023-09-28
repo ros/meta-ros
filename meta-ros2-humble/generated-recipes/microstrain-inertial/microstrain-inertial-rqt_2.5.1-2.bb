@@ -9,7 +9,7 @@ DESCRIPTION = "The microstrain_inertial_rqt package provides several RQT widgets
 AUTHOR = "Rob Fisher <rob.fisher@parker.com>"
 HOMEPAGE = "https://github.com/LORD-MicroStrain/microstrain_inertial"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "microstrain_inertial"

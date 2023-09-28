@@ -10,7 +10,7 @@ AUTHOR = "Nick Rotella <nick.rotella@ainstein.ai>"
 ROS_AUTHOR = "Nick Rotella"
 HOMEPAGE = "https://ainstein.ai/"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "ainstein_radar"

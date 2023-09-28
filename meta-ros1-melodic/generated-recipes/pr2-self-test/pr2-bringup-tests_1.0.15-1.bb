@@ -10,7 +10,7 @@ AUTHOR = "David Feil-Seifer <dave@cse.unr.edu>"
 ROS_AUTHOR = "Kevin Watts"
 HOMEPAGE = "http://ros.org/wiki/pr2_bringup_tests"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pr2_self_test"

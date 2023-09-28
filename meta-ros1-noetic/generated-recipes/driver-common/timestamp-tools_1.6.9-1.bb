@@ -10,7 +10,7 @@ AUTHOR = "Chad Rockey <chadrockey@gmail.com>"
 ROS_AUTHOR = "Blaise Gassend"
 HOMEPAGE = "http://www.ros.org/wiki/timestamp_tools"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "driver_common"

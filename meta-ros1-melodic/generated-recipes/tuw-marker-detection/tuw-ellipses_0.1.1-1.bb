@@ -10,7 +10,7 @@ AUTHOR = "Markus Bader <markus.bader@tuwien.ac.at>"
 ROS_AUTHOR = "Markus Bader"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "tuw_marker_detection"

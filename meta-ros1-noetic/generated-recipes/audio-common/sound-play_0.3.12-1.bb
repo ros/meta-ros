@@ -10,7 +10,7 @@ AUTHOR = "Austin Hendrix <namniart@gmail.com>"
 ROS_AUTHOR = "Blaise Gassend"
 HOMEPAGE = "http://ros.org/wiki/sound_play"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=a3ae2ba3f0f44e61270955e8cd98afcf"
 
 ROS_CN = "audio_common"

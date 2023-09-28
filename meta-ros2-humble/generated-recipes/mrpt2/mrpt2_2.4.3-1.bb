@@ -10,7 +10,7 @@ AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 ROS_AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 HOMEPAGE = "https://www.mrpt.org/"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mrpt2"

@@ -9,7 +9,7 @@ DESCRIPTION = "The seed_r7_bringup package"
 AUTHOR = "hi.kondo <hi.kondo@thk.co.jp>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "seed_r7_ros_pkg"

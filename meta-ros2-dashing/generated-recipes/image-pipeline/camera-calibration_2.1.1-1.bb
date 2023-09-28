@@ -10,7 +10,7 @@ AUTHOR = "Vincent Rabaud <vincent.rabaud@gmail.com>"
 ROS_AUTHOR = "James Bowman"
 HOMEPAGE = "https://index.ros.org/p/camera_calibration/github-ros-perception-image_pipeline/"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "image_pipeline"

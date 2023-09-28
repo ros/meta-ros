@@ -10,7 +10,7 @@ AUTHOR = "Markus Bader <markus.bader@tuwien.ac.at>"
 ROS_AUTHOR = "Markus Bader"
 HOMEPAGE = "http://wiki.ros.org/marker_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "marker_msgs"

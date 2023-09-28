@@ -10,7 +10,7 @@ AUTHOR = "Guilhem Saurel <guilhem.saurel@laas.fr>"
 ROS_AUTHOR = "Nicolas Mansard"
 HOMEPAGE = "http://github.com/stack-of-tasks/dynamic-graph-python"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "dynamic-graph-python"

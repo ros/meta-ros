@@ -10,7 +10,7 @@ AUTHOR = "Steven Macenski <stevenmacenski@gmail.com>"
 ROS_AUTHOR = "Steven Macenski"
 HOMEPAGE = "http://wiki.ros.org/non-persisent-voxel-layer"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "nonpersistent_voxel_layer"

@@ -10,7 +10,7 @@ AUTHOR = "Levi Armstrong (Southwest Research Institute) <levi.armstrong@swri.org
 ROS_AUTHOR = "MoveIt Setup Assistant <assistant@moveit.ros.org>"
 HOMEPAGE = "http://ros.org/wiki/abb_irb6640_moveit_config"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "abb"

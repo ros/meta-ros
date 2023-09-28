@@ -10,7 +10,7 @@ AUTHOR = "Markus Bader <markus.bader@tuwien.ac.at>"
 ROS_AUTHOR = "Markus Bader"
 HOMEPAGE = "http://www.mrpt.org/"
 SECTION = "devel"
-LICENSE = "BSD & BSD"
+LICENSE = "BSD & 0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mrpt_navigation"

@@ -10,7 +10,7 @@ AUTHOR = "Dorian Scholz <scholz@sim.tu-darmstadt.de>"
 ROS_AUTHOR = "Dorian Scholz"
 HOMEPAGE = "http://ros.org/wiki/rqt_py_common"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt"

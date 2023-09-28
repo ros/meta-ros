@@ -10,7 +10,7 @@ AUTHOR = "smoker77 <smoker77@gmail.com>"
 ROS_AUTHOR = "smoker77 <smoker77@gmail.com>"
 HOMEPAGE = "http://marvelmind.com"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "marvelmind_nav"

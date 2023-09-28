@@ -9,7 +9,7 @@ DESCRIPTION = "USB Video Class camera driver"
 AUTHOR = "Ken Tossell <ken@tossell.net>"
 HOMEPAGE = "http://ros.org/wiki/libuvc_camera"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "libuvc_ros"

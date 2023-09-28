@@ -10,7 +10,7 @@ AUTHOR = "Meißner Pascal <asr-ros@lists.kit.edu>"
 ROS_AUTHOR = "Kleinert Daniel, Meißner Pascal, Yi Xie"
 HOMEPAGE = "http://ros.org/wiki/asr_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=248753b20efa0fba3453f8269027e68c"
 
 ROS_CN = "asr_msgs"

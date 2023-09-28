@@ -3,7 +3,7 @@
 
 SUMMARY = "A sophisticated Numeric Processing Package for Python"
 SECTION = "devel/python"
-LICENSE = "BSD-3-Clause & BSD-2-Clause & PSF & Apache-2.0 & BSD"
+LICENSE = "BSD-3-Clause & BSD-2-Clause & PSF & Apache-2.0 & 0BSD"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d26bde5432613cce2334b93985576231"
 
 SRCNAME = "numpy"

@@ -10,7 +10,7 @@ AUTHOR = "Russell Toris <rctoris@wpi.edu>"
 ROS_AUTHOR = "Benjamin Pitzer <benjamin.pitzer@bosch.com>"
 HOMEPAGE = "http://wiki.ros.org/usb_cam"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "usb_cam"

@@ -10,7 +10,7 @@ AUTHOR = "Oleg Kalachev <okalachev@gmail.com>"
 ROS_AUTHOR = "Alexey Rogachevskiy <sfalexrog@gmail.com>"
 HOMEPAGE = "https://github.com/CopterExpress/ros_led"
 SECTION = "devel"
-LICENSE = "MIT & BSD"
+LICENSE = "MIT & 0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=58e54c03ca7f821dd3967e2a2cd1596e"
 
 ROS_CN = "ros_led"

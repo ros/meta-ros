@@ -10,7 +10,7 @@ AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
 ROS_AUTHOR = "Eitan Marder-Eppstein"
 HOMEPAGE = "http://wiki.ros.org/move_base_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "navigation_msgs"

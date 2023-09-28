@@ -11,8 +11,8 @@ ROS_AUTHOR = "Levi Armstrong"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache 2.0 & BSD"
-LICENSE = "Apache-2.0 & BSD"
+#         "Apache 2.0 & 0BSD"
+LICENSE = "Apache-2.0 & 0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "tesseract"

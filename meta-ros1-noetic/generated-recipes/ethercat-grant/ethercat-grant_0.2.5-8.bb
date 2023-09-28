@@ -10,7 +10,7 @@ AUTHOR = "Shadow Robot's software team <software@shadowrobot.com>"
 ROS_AUTHOR = "Ugo Cupcic <software@shadowrobot.com>"
 HOMEPAGE = "http://www.shadowrobot.com/"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "ethercat_grant"

@@ -11,7 +11,7 @@ ROS_AUTHOR = "Shinya Sumikura"
 HOMEPAGE = "https://openvslam-community.readthedocs.io/"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "2-clause BSD"
+#         "2-clause 0BSD"
 LICENSE = "2-clause-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=bb3f7c490e9f9c6a35bf0ea64011b779"
 
