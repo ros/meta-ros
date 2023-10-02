@@ -9,7 +9,7 @@ DESCRIPTION = "Demo of safe_teleop in stage"
 AUTHOR = "Charles DuHadway (maintained by Benjamin Pitzer) <foo@foo.com>"
 HOMEPAGE = "http://ros.org/wiki/safe_teleop_stage"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "shared_autonomy_manipulation"

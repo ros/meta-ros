@@ -10,7 +10,7 @@ AUTHOR = "David Feil-Seifer <dave@cse.unr.edu>"
 ROS_AUTHOR = "Eitan Marder-Eppstein"
 HOMEPAGE = "http://ros.org/wiki/pr2_navigation_perception"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pr2_navigation"

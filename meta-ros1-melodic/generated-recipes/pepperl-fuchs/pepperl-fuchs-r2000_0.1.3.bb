@@ -10,7 +10,7 @@ AUTHOR = "Denis Dillenberger <denis.dillenberger@gmail.com>"
 ROS_AUTHOR = "Denis Dillenberger <denis.dillenberger@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/pepperl_fuchs_r2000"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pepperl_fuchs"

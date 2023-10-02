@@ -10,7 +10,7 @@ AUTHOR = "Jon Binney <jon.binney@gmail.com>"
 ROS_AUTHOR = "Tully Foote"
 HOMEPAGE = "http://ros.org/wiki/laser_filters"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "laser_filters"

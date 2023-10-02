@@ -10,7 +10,7 @@ AUTHOR = "Timo Röhling <timo.roehling@fkie.fraunhofer.de>"
 ROS_AUTHOR = "Mitchell Wills <mwills@wpi.edu>"
 HOMEPAGE = "http://wiki.ros.org/webrtc"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "webrtc_ros"

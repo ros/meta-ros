@@ -10,7 +10,7 @@ AUTHOR = "Paul Bovbel <paul@bovbel.com>"
 ROS_AUTHOR = "William Woodall <william@osrfoundation.org>"
 HOMEPAGE = "http://wiki.ros.org/pcl_conversions"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "perception_pcl"

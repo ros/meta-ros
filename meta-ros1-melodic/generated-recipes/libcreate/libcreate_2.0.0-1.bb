@@ -10,7 +10,7 @@ AUTHOR = "Jacob Perron <jacobmperron@gmail.com>"
 ROS_AUTHOR = "Jacob Perron <jacobmperron@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/libcreate"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "libcreate"

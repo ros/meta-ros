@@ -10,7 +10,7 @@ AUTHOR = "nakamichi_d <nakamichi_d@khi.co.jp>"
 ROS_AUTHOR = "nakamichi_d <nakamichi_d@khi.co.jp>"
 HOMEPAGE = "http://ros.org/wiki/khi_robot"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "khi_robot"

@@ -10,7 +10,7 @@ AUTHOR = "Chittaranjan Srinivas Swaminathan <chitt@live.in>"
 ROS_AUTHOR = "Gil Jones <gjones@willowgarage.com>"
 HOMEPAGE = "http://ros.org/wiki/chomp_motion_planner"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit"

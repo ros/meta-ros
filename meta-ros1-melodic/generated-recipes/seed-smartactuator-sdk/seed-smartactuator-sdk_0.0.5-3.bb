@@ -9,7 +9,7 @@ DESCRIPTION = "The seed_smartactuator_sdk package"
 AUTHOR = "Yasuto Shiigi <y.shiigi@thk.co.jp>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "seed_smartactuator_sdk"

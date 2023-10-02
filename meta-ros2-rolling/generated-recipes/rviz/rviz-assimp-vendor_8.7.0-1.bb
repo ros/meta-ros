@@ -11,8 +11,8 @@ ROS_AUTHOR = "William Woodall <william@openrobotics.org>"
 HOMEPAGE = "http://assimp.sourceforge.net/index.html"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & 0BSD"
-LICENSE = "Apache-2.0 & 0BSD"
+#         "Apache License 2.0 & BSD-3-Clause"
+LICENSE = "Apache-2.0 & BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "rviz"

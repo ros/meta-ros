@@ -10,7 +10,7 @@ AUTHOR = "Armin Hornung <armin@hornung.io>"
 ROS_AUTHOR = "Armin Hornung <armin@hornung.io>"
 HOMEPAGE = "http://ros.org/wiki/octomap_msgs"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=5ee5b8b046ae48ad94a2037ca953a67b"
 
 ROS_CN = "octomap_msgs"

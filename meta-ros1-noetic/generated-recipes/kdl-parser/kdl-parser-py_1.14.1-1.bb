@@ -10,7 +10,7 @@ AUTHOR = "Chris Lalancette <clalancette@osrfoundation.org>"
 ROS_AUTHOR = "Jonathan Bohren <jonathan.bohren@gmail.com>"
 HOMEPAGE = "http://ros.org/wiki/kdl_parser_py"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "kdl_parser"

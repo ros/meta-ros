@@ -10,7 +10,7 @@ AUTHOR = "Chris Lalancette <clalancette@osrfoundation.org>"
 ROS_AUTHOR = "Rosen Diankov"
 HOMEPAGE = "http://ros.org/wiki/collada_parser"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=19;endline=19;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "collada_urdf"

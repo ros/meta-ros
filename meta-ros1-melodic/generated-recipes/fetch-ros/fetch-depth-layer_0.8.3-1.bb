@@ -10,7 +10,7 @@ AUTHOR = "Carl Saldanha <csaldanha@fetchrobotics.com>"
 ROS_AUTHOR = "Michael Ferguson"
 HOMEPAGE = "http://docs.fetchrobotics.com/perception.html"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "fetch_ros"

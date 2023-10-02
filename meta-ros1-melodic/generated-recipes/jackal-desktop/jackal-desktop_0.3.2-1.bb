@@ -9,7 +9,7 @@ DESCRIPTION = "Packages for working with Jackal from a ROS desktop."
 AUTHOR = "Mike Purvis <mpurvis@clearpathrobotics.com>"
 HOMEPAGE = "http://wiki.ros.org/jackal_desktop"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "jackal_desktop"

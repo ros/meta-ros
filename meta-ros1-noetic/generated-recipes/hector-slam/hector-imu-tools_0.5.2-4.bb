@@ -10,7 +10,7 @@ AUTHOR = "Johannes Meyer <meyer@fsr.tu-darmstadt.de>"
 ROS_AUTHOR = "Stefan Kohlbrecher <kohlbrecher@sim.tu-darmstadt.de>"
 HOMEPAGE = "http://ros.org/wiki/hector_imu_attitude_to_tf"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "hector_slam"

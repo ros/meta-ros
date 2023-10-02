@@ -11,7 +11,7 @@ ROS_AUTHOR = "Victor Lopez <victor.lopez@pal-robotics.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Modified 0BSD"
+#         "Modified BSD-3-Clause"
 LICENSE = "Modified-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=9fe507396161b9e47d2b1e01c422787a"
 

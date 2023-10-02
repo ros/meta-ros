@@ -10,7 +10,7 @@ AUTHOR = "Patrick Beeson <pbeeson@traclabs.com>"
 ROS_AUTHOR = "Patrick Beeson"
 HOMEPAGE = "http://wiki.ros.org/trac_ik"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "trac_ik"

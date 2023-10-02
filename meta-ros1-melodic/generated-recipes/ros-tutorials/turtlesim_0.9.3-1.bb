@@ -10,7 +10,7 @@ AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
 ROS_AUTHOR = "Josh Faust"
 HOMEPAGE = "http://www.ros.org/wiki/turtlesim"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "ros_tutorials"

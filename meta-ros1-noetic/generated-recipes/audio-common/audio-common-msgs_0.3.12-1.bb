@@ -10,7 +10,7 @@ AUTHOR = "Austin Hendrix <namniart@gmail.com>"
 ROS_AUTHOR = "Nate Koenig"
 HOMEPAGE = "http://ros.org/wiki/audio_common_msgs"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=a3ae2ba3f0f44e61270955e8cd98afcf"
 
 ROS_CN = "audio_common"

@@ -9,7 +9,7 @@ DESCRIPTION = "<p>       MoveIt Resources for testing: Pilz PRBT 6     </p>     
 AUTHOR = "Alexander Gutenkunst <a.gutenkunst@pilz.de>"
 HOMEPAGE = "http://moveit.ros.org"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "moveit_resources"

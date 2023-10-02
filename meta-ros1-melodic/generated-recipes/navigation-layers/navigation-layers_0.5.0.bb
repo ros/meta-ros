@@ -10,7 +10,7 @@ AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
 ROS_AUTHOR = "David V. Lu!!"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=3451ac68c96ad046452aa1310ca3a903"
 
 ROS_CN = "navigation_layers"

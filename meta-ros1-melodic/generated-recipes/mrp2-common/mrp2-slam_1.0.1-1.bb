@@ -10,7 +10,7 @@ AUTHOR = "Emir Cem Gezer <emircem.g@milvusrobotics.com>"
 ROS_AUTHOR = "Onur Demirezen <onrdemirezen@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mrp2_common"

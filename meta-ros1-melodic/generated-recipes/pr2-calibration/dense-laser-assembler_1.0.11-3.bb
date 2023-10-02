@@ -10,7 +10,7 @@ AUTHOR = "Dave Feil-Seifer <dave@cse.unr.edu>"
 ROS_AUTHOR = "Vijay Pradeep"
 HOMEPAGE = "http://www.ros.org/wiki/dense_laser_assembler"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pr2_calibration"

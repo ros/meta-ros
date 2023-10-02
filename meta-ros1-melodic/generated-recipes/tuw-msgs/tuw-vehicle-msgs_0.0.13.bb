@@ -10,7 +10,7 @@ AUTHOR = "Raphael Hauk <raphael.hauk@racing.tuwien.ac.at>"
 ROS_AUTHOR = "Marcel Zeilinger <marcel.zeilinger@racing.tuwien.ac.at>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "tuw_msgs"

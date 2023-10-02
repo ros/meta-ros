@@ -10,7 +10,7 @@ AUTHOR = "Marc Alban <marcalban@hatchbed.com>"
 ROS_AUTHOR = "Marc Alban <marcalban@hatchbed.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "log_view"

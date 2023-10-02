@@ -10,7 +10,7 @@ AUTHOR = "Maintained by Carnegie Robotics LLC <support@carnegierobotics.com>"
 ROS_AUTHOR = "Maintained by CarnegieRobotics LLC"
 HOMEPAGE = "http://ros.org/wiki/multisense"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "multisense_ros"

@@ -10,7 +10,7 @@ AUTHOR = "Alexander Tiderko <alexander.tiderko@gmail.com>"
 ROS_AUTHOR = "Alexander Tiderko"
 HOMEPAGE = "http://ros.org/wiki/master_sync_fkie"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "fkie_multimaster"

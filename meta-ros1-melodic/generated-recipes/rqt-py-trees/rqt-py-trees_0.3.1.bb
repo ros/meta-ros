@@ -10,7 +10,7 @@ AUTHOR = "Michal Staniaszek <m.staniaszek@gmail.com>"
 ROS_AUTHOR = "Thibault Kruse"
 HOMEPAGE = "http://ros.org/wiki/rqt_py_trees"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=5ee5b8b046ae48ad94a2037ca953a67b"
 
 ROS_CN = "rqt_py_trees"

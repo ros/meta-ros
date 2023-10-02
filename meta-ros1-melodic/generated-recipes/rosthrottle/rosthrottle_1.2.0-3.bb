@@ -10,7 +10,7 @@ AUTHOR = "Carson Schubert <carson.schubert14@gmail.com>"
 ROS_AUTHOR = "Carson Schubert <carson.schubert14@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/rosthrottle"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=6f91c9c2152084419f27a1b670c005fa"
 
 ROS_CN = "rosthrottle"

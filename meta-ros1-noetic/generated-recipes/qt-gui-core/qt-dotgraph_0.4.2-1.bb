@@ -10,7 +10,7 @@ AUTHOR = "Dirk Thomas <dthomas@osrfoundation.org>"
 ROS_AUTHOR = "Thibault Kruse"
 HOMEPAGE = "http://ros.org/wiki/qt_dotgraph"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "qt_gui_core"

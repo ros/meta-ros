@@ -10,7 +10,7 @@ AUTHOR = "Chris Lalancette <clalancette@osrfoundation.org>"
 ROS_AUTHOR = "Ioan Sucan <isucan@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/robot_state_publisher"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=23;endline=23;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "robot_state_publisher"

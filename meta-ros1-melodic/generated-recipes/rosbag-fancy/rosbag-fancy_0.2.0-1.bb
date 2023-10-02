@@ -9,7 +9,7 @@ DESCRIPTION = "rosbag with terminal UI"
 AUTHOR = "Max Schwarz <max.schwarz@uni-bonn.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=5;endline=5;md5=75730354549103aaba72b66caf53717b"
 
 ROS_CN = "rosbag_fancy"

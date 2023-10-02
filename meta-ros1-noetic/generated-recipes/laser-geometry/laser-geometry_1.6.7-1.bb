@@ -10,7 +10,7 @@ AUTHOR = "Dave Hershberger <dave.hershberger@sri.com>"
 ROS_AUTHOR = "Tully Foote"
 HOMEPAGE = "http://ros.org/wiki/laser_geometry"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "laser_geometry"

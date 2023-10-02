@@ -10,7 +10,7 @@ AUTHOR = "Jacob Perron <jacob@openrobotics.org>"
 ROS_AUTHOR = "Ken Conley"
 HOMEPAGE = "http://wiki.ros.org/rosmaster"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "ros_comm"

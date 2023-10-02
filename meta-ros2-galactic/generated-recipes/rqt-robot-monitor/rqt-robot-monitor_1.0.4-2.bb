@@ -10,7 +10,7 @@ AUTHOR = "Aaron Blasdel <ablasdel@gmail.com>"
 ROS_AUTHOR = "Austin Hendrix"
 HOMEPAGE = "http://wiki.ros.org/rqt_robot_monitor"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=27;endline=27;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt_robot_monitor"

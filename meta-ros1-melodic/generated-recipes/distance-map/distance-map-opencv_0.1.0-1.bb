@@ -10,7 +10,7 @@ AUTHOR = "Jeremie Deray <deray.jeremie@gmail.com>"
 ROS_AUTHOR = "Sai Kishor Kothakota <sai.kishor@pal-robotics.com>"
 HOMEPAGE = "https://github.com/opencv/opencv"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & 0BSD"
+LICENSE = "Apache-2.0 & BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=e6ea7b8e0b94c2fb650aa51f54494b24"
 
 ROS_CN = "distance_map"

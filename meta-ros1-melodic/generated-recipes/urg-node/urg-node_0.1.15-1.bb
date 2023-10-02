@@ -10,7 +10,7 @@ AUTHOR = "Tony Baltovski <tony.baltovski@gmail.com>"
 ROS_AUTHOR = "Chad Rockey <chadrockey@gmail.com>"
 HOMEPAGE = "http://ros.org/wiki/urg_node"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "urg_node"

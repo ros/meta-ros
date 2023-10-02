@@ -9,7 +9,7 @@ DESCRIPTION = "Universal Robot description for Webots."
 AUTHOR = "Cyberbotics <support@cyberbotics.com>"
 HOMEPAGE = "http://wiki.ros.org/webots_ros2"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "webots_ros2"

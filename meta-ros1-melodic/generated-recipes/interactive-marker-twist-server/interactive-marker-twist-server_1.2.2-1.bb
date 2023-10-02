@@ -9,7 +9,7 @@ DESCRIPTION = "Interactive control for generic Twist-based robots using interact
 AUTHOR = "Mike Purvis <mpurvis@clearpathrobotics.com>"
 HOMEPAGE = "https://github.com/ros-visualization/interactive_marker_twist_server"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "interactive_marker_twist_server"

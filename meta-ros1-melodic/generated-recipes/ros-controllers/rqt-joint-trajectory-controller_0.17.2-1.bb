@@ -10,7 +10,7 @@ AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
 ROS_AUTHOR = "Adolfo Rodriguez Tsouroukdissian <adolfo.rodriguez@pal-robotics.com>"
 HOMEPAGE = "http://wiki.ros.org/rqt_joint_trajectory_controller"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "ros_controllers"

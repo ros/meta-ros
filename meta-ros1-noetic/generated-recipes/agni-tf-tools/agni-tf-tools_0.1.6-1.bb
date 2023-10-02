@@ -10,7 +10,7 @@ AUTHOR = "Robert Haschke <rhaschke@techfak.uni-bielefeld.de>"
 ROS_AUTHOR = "Robert Haschke <rhaschke@techfak.uni-bielefeld.de>"
 HOMEPAGE = "http://wiki.ros.org/agni_tf_tools"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "agni_tf_tools"

@@ -10,8 +10,8 @@ AUTHOR = "Steven! Ragnarök <steven@osrfoundation.org>"
 HOMEPAGE = "https://github.com/ros/console_bridge"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & 0BSD"
-LICENSE = "Apache-2.0 & 0BSD"
+#         "Apache License 2.0 & BSD-3-Clause"
+LICENSE = "Apache-2.0 & BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "console_bridge_vendor"

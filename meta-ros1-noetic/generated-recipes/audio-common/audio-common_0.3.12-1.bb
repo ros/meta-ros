@@ -10,7 +10,7 @@ AUTHOR = "Austin Hendrix <namniart@gmail.com>"
 ROS_AUTHOR = "Blaise Gassend"
 HOMEPAGE = "http://ros.org/wiki/audio_common"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=e412bfc9312ba25bfbb7ea55d4c4409c"
 
 ROS_CN = "audio_common"

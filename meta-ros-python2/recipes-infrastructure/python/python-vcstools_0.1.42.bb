@@ -1,6 +1,6 @@
 DESCRIPTION = "VCS/SCM source control library for svn, git, hg, and bzr"
 SECTION = "devel/python"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c0ba73b6d93c2bd054ceec3f117c461c"
 SRCNAME = "ros-vcstools-upstream"
 

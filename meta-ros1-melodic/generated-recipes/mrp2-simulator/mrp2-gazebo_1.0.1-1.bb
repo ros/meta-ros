@@ -10,7 +10,7 @@ AUTHOR = "Emir Cem Gezer <emircem.g@milvusrobotics.com>"
 ROS_AUTHOR = "Akif Hacinecipoglu <akifhno@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/mrp2_gazebo"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mrp2_simulator"

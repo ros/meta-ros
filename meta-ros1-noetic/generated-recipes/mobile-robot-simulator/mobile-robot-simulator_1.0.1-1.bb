@@ -10,7 +10,7 @@ AUTHOR = "Tim Clephas <tim.clephas@nobleo.nl>"
 ROS_AUTHOR = "Mikkel Rath Pedersen <mrp@rvmi.aau.dk>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "mobile_robot_simulator"

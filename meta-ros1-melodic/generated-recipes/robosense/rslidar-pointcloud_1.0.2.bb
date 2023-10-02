@@ -10,7 +10,7 @@ AUTHOR = "Abraham Monrroy <abrahammonrroy@yahoo.com>"
 ROS_AUTHOR = "Tony Zhang <tony.zhang@robosense.cn>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "robosense"

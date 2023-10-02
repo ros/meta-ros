@@ -10,7 +10,7 @@ AUTHOR = "Aaron Blasdel <ablasdel@gmail.com>"
 ROS_AUTHOR = "Dirk Thomas"
 HOMEPAGE = "http://ros.org/wiki/rqt_common_plugins"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=21;endline=21;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt_common_plugins"

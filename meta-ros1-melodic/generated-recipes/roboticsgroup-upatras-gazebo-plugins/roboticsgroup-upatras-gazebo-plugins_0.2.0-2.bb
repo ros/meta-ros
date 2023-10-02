@@ -10,7 +10,7 @@ AUTHOR = "Konstantinos Chatzilygeroudis <costashatz@gmail.com>"
 ROS_AUTHOR = "Konstantinos Chatzilygeroudis <costashatz@gmail.com>"
 HOMEPAGE = "https://github.com/roboticsgroup/roboticsgroup_upatras_gazebo_plugins"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=30;endline=30;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "roboticsgroup_upatras_gazebo_plugins"

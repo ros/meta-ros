@@ -10,7 +10,7 @@ AUTHOR = "rohan <send2arohan@gmail.com>"
 ROS_AUTHOR = "Eric Perko"
 HOMEPAGE = "http://ros.org/wiki/xv_11_laser_driver"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=2c00b8d2854109dbebef7818b4dae1e2"
 
 ROS_CN = "xv_11_laser_driver"

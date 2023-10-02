@@ -10,7 +10,7 @@ AUTHOR = "William Woodall <william@osrfoundation.org>"
 ROS_AUTHOR = "Dave Hershberger"
 HOMEPAGE = "http://ros.org/wiki/visualization_tutorials"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "visualization_tutorials"

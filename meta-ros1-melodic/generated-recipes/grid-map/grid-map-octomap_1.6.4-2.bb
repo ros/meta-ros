@@ -10,7 +10,7 @@ AUTHOR = "Maximilian Wulf <mwulf@anybotics.com>"
 ROS_AUTHOR = "Jeff Delmerico <jeffdelmerico@ifi.uzh.ch>"
 HOMEPAGE = "http://github.com/anybotics/grid_map"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "grid_map"

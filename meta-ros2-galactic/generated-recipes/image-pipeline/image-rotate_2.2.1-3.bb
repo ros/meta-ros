@@ -10,7 +10,7 @@ AUTHOR = "Vincent Rabaud <vincent.rabaud@gmail.com>"
 ROS_AUTHOR = "Blaise Gassend"
 HOMEPAGE = "https://index.ros.org/p/image_rotate/github-ros-perception-image_pipeline/"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=29;endline=29;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "image_pipeline"

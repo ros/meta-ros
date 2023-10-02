@@ -10,7 +10,7 @@ AUTHOR = "Daniel D'Souza <daniel.dsouza@swri.org>"
 ROS_AUTHOR = "Mateusz Loskot <mateusz@loskot.net>"
 HOMEPAGE = "https://github.com/swri-robotics/geos-cmake-module"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "geos_cmake_module"

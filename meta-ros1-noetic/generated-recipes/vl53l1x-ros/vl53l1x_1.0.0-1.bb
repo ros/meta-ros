@@ -9,7 +9,7 @@ DESCRIPTION = "VL53L1X ToF rangefinder driver"
 AUTHOR = "Oleg Kalachev <okalachev@gmail.com>"
 HOMEPAGE = "https://github.com/okalachev/vl53l1x_ros"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "vl53l1x_ros"

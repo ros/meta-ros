@@ -10,7 +10,7 @@ AUTHOR = "Felix Ruess <felix.ruess@roboception.de>"
 ROS_AUTHOR = "Heiko Hirschmueller <heiko.hirschmueller@roboception.de>"
 HOMEPAGE = "http://rc-visard.com"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=23;endline=23;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "rc_dynamics_api"

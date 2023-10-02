@@ -10,7 +10,7 @@ AUTHOR = "Johannes Betz <joebetz@seas.upenn.edu>"
 ROS_AUTHOR = "Michael T. Boulet <boulet@ll.mit.edu>"
 HOMEPAGE = "http://www.ros.org/wiki/vesc_ackermann"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "vesc"

@@ -10,7 +10,7 @@ AUTHOR = "William Woodall <william@osrfoundation.org>"
 ROS_AUTHOR = "David Gossow"
 HOMEPAGE = "http://ros.org/wiki/interactive_markers"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=5ee5b8b046ae48ad94a2037ca953a67b"
 
 ROS_CN = "interactive_markers"

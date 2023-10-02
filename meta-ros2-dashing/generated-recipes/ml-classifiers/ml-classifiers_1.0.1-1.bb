@@ -10,7 +10,7 @@ AUTHOR = "AutonomouStuff Software Development Team <software@autonomoustuff.com>
 ROS_AUTHOR = "Scott Niekum <sniekum@cs.utexas.edu>"
 HOMEPAGE = "http://wiki.ros.org/ml_classifiers"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "ml_classifiers"

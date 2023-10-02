@@ -10,7 +10,7 @@ AUTHOR = "David Feil-Seifer <dave@cse.unr.edu>"
 ROS_AUTHOR = "Kevin Watts"
 HOMEPAGE = "http://ros.org/wiki/pr2_self_test_msgs"
 SECTION = "devel"
-LICENSE = "0BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "pr2_self_test"
