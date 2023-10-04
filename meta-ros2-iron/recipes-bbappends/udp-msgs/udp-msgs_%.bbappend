@@ -2,6 +2,7 @@
 
 # Without the target dependencies, ament finds the native packages and then fails to link (error: incompatible target).
 ROS_BUILD_DEPENDS += " \
+    service-msgs \
     rosidl-default-runtime \
     rosidl-adapter-native \
     ament-cmake-ros-native \

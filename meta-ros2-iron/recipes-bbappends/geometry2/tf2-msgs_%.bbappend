@@ -17,6 +17,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 # Without the target rosidl-typesupport-{c,cpp}, ament finds the native packages and then fails to link (error: incompatible
 # target).
 ROS_BUILD_DEPENDS += " \
+    action-msgs \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
 "
