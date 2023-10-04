@@ -1,0 +1,28 @@
+From 18c7e301b5dcaf7854236a6408c25ac08524b504 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?V=C3=ADctor=20Mayoral=20Vilches?= <v.mayoralv@gmail.com>
+Date: Tue, 10 May 2022 18:06:38 +0200
+Subject: [PATCH] Deal with errors downstream
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Víctor Mayoral Vilches <v.mayoralv@gmail.com>
+---
+ cmake/rosidl_generator_cpp_generate_interfaces.cmake | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/cmake/rosidl_generator_cpp_generate_interfaces.cmake b/cmake/rosidl_generator_cpp_generate_interfaces.cmake
+index 7fe41a68..3e7c2aff 100644
+--- a/cmake/rosidl_generator_cpp_generate_interfaces.cmake
++++ b/cmake/rosidl_generator_cpp_generate_interfaces.cmake
+@@ -44,7 +44,6 @@ endforeach()
+ 
+ set(target_dependencies
+   "${rosidl_generator_cpp_BIN}"
+-  ${rosidl_generator_cpp_GENERATOR_FILES}
+   "${rosidl_generator_cpp_TEMPLATE_DIR}/action__builder.hpp.em"
+   "${rosidl_generator_cpp_TEMPLATE_DIR}/action__struct.hpp.em"
+   "${rosidl_generator_cpp_TEMPLATE_DIR}/action__traits.hpp.em"
+-- 
+2.34.1
+

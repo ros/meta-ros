@@ -1,0 +1,89 @@
+From 616b206f4c9701652b76f361013fe92839639080 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 7 Jul 2021 17:21:28 +0000
+Subject: [PATCH] FleetUpdateHandle: use uint64_t instead of std::size_t to
+ match type in LaneRequest.msg
+
+* fixes:
+[2/3] /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_cyclonedds_cpp -I/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/include -I/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot/usr/include/eigen3 -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0=/usr/src/debug/rmf-fleet-adapter/1.3.0-3-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0=/usr/src/debug/rmf-fleet-adapter/1.3.0-3-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot   -Wall -Wextra -Wpedantic -std=gnu++17 -MD -MT CMakeFiles/full_control.dir/src/full_control/main.cpp.o -MF CMakeFiles/full_control.dir/src/full_control/main.cpp.o.d -o CMakeFiles/full_control.dir/src/full_control/main.cpp.o -c /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/src/full_control/main.cpp
+FAILED: CMakeFiles/full_control.dir/src/full_control/main.cpp.o
+/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_cyclonedds_cpp -I/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/include -I/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot/usr/include/eigen3 -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0=/usr/src/debug/rmf-fleet-adapter/1.3.0-3-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0=/usr/src/debug/rmf-fleet-adapter/1.3.0-3-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/recipe-sysroot   -Wall -Wextra -Wpedantic -std=gnu++17 -MD -MT CMakeFiles/full_control.dir/src/full_control/main.cpp.o -MF CMakeFiles/full_control.dir/src/full_control/main.cpp.o.d -o CMakeFiles/full_control.dir/src/full_control/main.cpp.o -c /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/src/full_control/main.cpp
+/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/src/full_control/main.cpp: In lambda function:
+/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/src/full_control/main.cpp:826:49: error: cannot convert 'vector<long long unsigned int>' to 'vector<unsigned int>'
+  826 |     connections->fleet->open_lanes(request_msg->open_lanes);
+      |                                    ~~~~~~~~~~~~~^~~~~~~~~~
+      |                                                 |
+      |                                                 vector<long long unsigned int>
+In file included from /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/include/rmf_fleet_adapter/agv/Adapter.hpp:20,
+                 from /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/src/full_control/main.cpp:23:
+/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp:75:44: note:   initializing argument 1 of 'void rmf_fleet_adapter::agv::FleetUpdateHandle::open_lanes(std::vector<unsigned int>)'
+   75 |   void open_lanes(std::vector<std::size_t> lane_indices);
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/src/full_control/main.cpp:827:50: error: cannot convert 'vector<long long unsigned int>' to 'vector<unsigned int>'
+  827 |     connections->fleet->close_lanes(request_msg->close_lanes);
+      |                                     ~~~~~~~~~~~~~^~~~~~~~~~~
+      |                                                  |
+      |                                                  vector<long long unsigned int>
+In file included from /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/include/rmf_fleet_adapter/agv/Adapter.hpp:20,
+                 from /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/src/full_control/main.cpp:23:
+/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp:72:45: note:   initializing argument 1 of 'void rmf_fleet_adapter::agv::FleetUpdateHandle::close_lanes(std::vector<unsigned int>)'
+   72 |   void close_lanes(std::vector<std::size_t> lane_indices);
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/src/full_control/main.cpp: In function 'std::shared_ptr<Connections> make_fleet(const AdapterPtr&)':
+/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/src/full_control/main.cpp:959:66: warning: 'rmf_fleet_adapter::agv::FleetUpdateHandle& rmf_fleet_adapter::agv::FleetUpdateHandle::accept_delivery_requests(rmf_fleet_adapter::agv::FleetUpdateHandle::AcceptDeliveryRequest)' is deprecated: Use accept_task_requests() instead [-Wdeprecated-declarations]
+  959 |           [](const rmf_task_msgs::msg::Delivery&){ return true; });
+      |                                                                  ^
+In file included from /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/include/rmf_fleet_adapter/agv/Adapter.hpp:20,
+                 from /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/src/full_control/main.cpp:23:
+/jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/work/qemux86-webos-linux/rmf-fleet-adapter/1.3.0-3-r0/git/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp:161:22: note: declared here
+  161 |   FleetUpdateHandle& accept_delivery_requests(AcceptDeliveryRequest check);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~
+ninja: build stopped: subcommand failed.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp | 4 ++--
+ src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp     | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp b/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
+index 9740163..de07931 100644
+--- a/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
++++ b/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
+@@ -71,10 +71,10 @@ public:
+     std::function<void(std::shared_ptr<RobotUpdateHandle> handle)> handle_cb);
+ 
+   /// Specify a set of lanes that should be closed.
+-  void close_lanes(std::vector<std::size_t> lane_indices);
++  void close_lanes(std::vector<uint64_t> lane_indices);
+ 
+   /// Specify a set of lanes that should be open.
+-  void open_lanes(std::vector<std::size_t> lane_indices);
++  void open_lanes(std::vector<uint64_t> lane_indices);
+ 
+   /// Set the parameters required for task planning. Without calling this
+   /// function, this fleet will not bid for and accept tasks.
+diff --git a/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp b/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
+index 67a0864..c341141 100644
+--- a/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
++++ b/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
+@@ -1101,7 +1101,7 @@ void FleetUpdateHandle::add_robot(
+ }
+ 
+ //==============================================================================
+-void FleetUpdateHandle::close_lanes(std::vector<std::size_t> lane_indices)
++void FleetUpdateHandle::close_lanes(std::vector<uint64_t> lane_indices)
+ {
+   _pimpl->worker.schedule(
+     [w = weak_from_this(), lane_indices = std::move(lane_indices)](const auto&)
+@@ -1141,7 +1141,7 @@ void FleetUpdateHandle::close_lanes(std::vector<std::size_t> lane_indices)
+ }
+ 
+ //==============================================================================
+-void FleetUpdateHandle::open_lanes(std::vector<std::size_t> lane_indices)
++void FleetUpdateHandle::open_lanes(std::vector<uint64_t> lane_indices)
+ {
+   _pimpl->worker.schedule(
+     [w = weak_from_this(), lane_indices = std::move(lane_indices)](const auto&)

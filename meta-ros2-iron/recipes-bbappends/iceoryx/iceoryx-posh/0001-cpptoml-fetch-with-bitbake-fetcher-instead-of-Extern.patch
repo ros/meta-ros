@@ -1,0 +1,42 @@
+From b89195dac989ad0df780e6d40411323360fa8cf7 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 4 May 2021 23:57:52 -0700
+Subject: [PATCH] cpptoml: fetch with bitbake fetcher instead of
+ ExternalProject_add
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cmake/cpptoml/CMakeLists.txt   | 2 +-
+ cmake/cpptoml/cpptoml.cmake.in | 4 +---
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/cmake/cpptoml/CMakeLists.txt b/cmake/cpptoml/CMakeLists.txt
+index 2e950a8..91ed378 100644
+--- a/cmake/cpptoml/CMakeLists.txt
++++ b/cmake/cpptoml/CMakeLists.txt
+@@ -41,7 +41,7 @@ endif()
+ 
+ # set download config, source and build paths
+ set(DOWNLOAD_CONFIG_DIR ${CMAKE_BINARY_DIR}/dependencies/cpptoml/download)
+-set(SOURCE_DIR ${CMAKE_BINARY_DIR}/dependencies/cpptoml/src)
++set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/cpptoml-upstream)
+ set(BUILD_DIR ${CMAKE_BINARY_DIR}/dependencies/cpptoml/build)
+ set(INSTALL_DIR ${CMAKE_BINARY_DIR}/dependencies/install)
+ 
+diff --git a/cmake/cpptoml/cpptoml.cmake.in b/cmake/cpptoml/cpptoml.cmake.in
+index be4fdf1..8bcfa11 100644
+--- a/cmake/cpptoml/cpptoml.cmake.in
++++ b/cmake/cpptoml/cpptoml.cmake.in
+@@ -20,9 +20,7 @@ project(cpptoml-download NONE)
+ 
+ include(ExternalProject)
+ ExternalProject_Add(ext_cpptoml
+-  GIT_REPOSITORY    https://github.com/skystrife/cpptoml.git
+-  GIT_TAG           v0.1.1
+-  SOURCE_DIR        "${CMAKE_BINARY_DIR}/dependencies/cpptoml/src"
++  SOURCE_DIR        "${CMAKE_SOURCE_DIR}/cpptoml-upstream"
+   BINARY_DIR        "${CMAKE_BINARY_DIR}/dependencies/cpptoml/build"
+   CONFIGURE_COMMAND ""
+   BUILD_COMMAND     ""

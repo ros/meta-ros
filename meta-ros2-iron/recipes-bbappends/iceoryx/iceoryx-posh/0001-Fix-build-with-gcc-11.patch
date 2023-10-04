@@ -1,0 +1,43 @@
+From b946306384520f98d35b407f3735261770beff90 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 4 May 2021 23:59:17 -0700
+Subject: [PATCH] Fix build with gcc-11
+
+* fixes:
+| [1/9] Building CXX object examples/CMakeFiles/cpptoml-conversions.dir/conversions.cpp.o
+| FAILED: examples/CMakeFiles/cpptoml-conversions.dir/conversions.cpp.o
+| /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++  -I/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/build/dependencies/cpptoml/src/include -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0=/usr/src/debug/iceoryx-posh/0.99.7-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0=/usr/src/debug/iceoryx-posh/0.99.7-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/recipe-sysroot -Wall -pedantic -std=c++11 -MD -MT examples/CMakeFiles/cpptoml-conversions.dir/conversions.cpp.o -MF examples/CMakeFiles/cpptoml-conversions.dir/conversions.cpp.o.d -o examples/CMakeFiles/cpptoml-conversions.dir/conversions.cpp.o -c /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/build/dependencies/cpptoml/src/examples/conversions.cpp
+| In file included from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/build/dependencies/cpptoml/src/examples/conversions.cpp:4:
+| /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/build/dependencies/cpptoml/src/include/cpptoml.h: In static member function 'static cpptoml::value_traits<T, typename std::enable_if<(((! cpptoml::valid_value_or_string_convertible<T>::value) && (! std::is_floating_point<typename std::decay<_Tp>::type>::value)) && std::is_signed<typename std::decay<_Tp>::type>::value)>::type>::value_type cpptoml::value_traits<T, typename std::enable_if<(((! cpptoml::valid_value_or_string_convertible<T>::value) && (! std::is_floating_point<typename std::decay<_Tp>::type>::value)) && std::is_signed<typename std::decay<_Tp>::type>::value)>::type>::construct(T&&)':
+| /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/build/dependencies/cpptoml/src/include/cpptoml.h:344:25: error: 'numeric_limits' is not a member of 'std'
+|   344 |         if (val < (std::numeric_limits<int64_t>::min)())
+|       |                         ^~~~~~~~~~~~~~
+| /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/build/dependencies/cpptoml/src/include/cpptoml.h:344:47: error: expected primary-expression before '>' token
+|   344 |         if (val < (std::numeric_limits<int64_t>::min)())
+|       |                                               ^
+| /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/0.99.7-1-r0/build/dependencies/cpptoml/src/include/cpptoml.h:344:50: error: '::min' has not been declared; did you mean 'std::min'?
+|   344 |         if (val < (std::numeric_limits<int64_t>::min)())
+|       |                                                  ^~~
+|       |                                                  std::min
+
+Upstream-Status: Pending
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/cpptoml.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/cpptoml.h b/include/cpptoml.h
+index 5a00da3..9ed2314 100644
+--- a/include/cpptoml.h
++++ b/include/cpptoml.h
+@@ -21,6 +21,7 @@
+ #include <string>
+ #include <unordered_map>
+ #include <vector>
++#include <limits>
+ 
+ #if __cplusplus > 201103L
+ #define CPPTOML_DEPRECATED(reason) [[deprecated(reason)]]
+-- 
+2.17.1
+

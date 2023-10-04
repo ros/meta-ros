@@ -1,0 +1,44 @@
+From 3f50d3a14faea6a334a2d87893debf8253a3a26b Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 9 Nov 2021 13:49:23 +0000
+Subject: [PATCH] CMakeLists: fix python version in WEBOTS_PREBUILT_PYTHON_LIB_DIR
+  
+* ament_core python.cmake is now using:
+  find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  instead of:
+  find_package(PythonInterp ${PYTHON_VERSION} REQUIRED)
+
+  which causes PYTHON_VERSION_MAJOR, PYTHON_VERSION_MINOR to
+  be undefined and we need to use Python3_VERSION_MAJOR ,
+  Python3_VERSION_MINOR instead.
+
+* fixes:
+-- Found PythonLibs: /jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.1-1-r0/recipe-sysroot/usr/lib/libpython3.8.so (found version "3.8.11")
+CMake Error at /jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.1-1-r0/recipe-sysroot-native/usr/share/ament_cmake_python/cmake/ament_python_install_package.cmake:66 (message):
+  ament_python_install_package() the Python package folder
+  '/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.1-1-r0/git/webots/lib/linux-gnu/python'
+  doesn't contain an '__init__.py' file
+Call Stack (most recent call first):
+  /jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.1-1-r0/recipe-sysroot-native/usr/share/ament_cmake_python/cmake/ament_python_install_package.cmake:39 (_ament_cmake_python_install_package)
+  CMakeLists.txt:75 (ament_python_install_package)
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d5920e95..5cb94903 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -67,7 +67,7 @@ else()
+   )
+ endif()
+ 
+-set(WEBOTS_PREBUILT_PYTHON_LIB_DIR python${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR})
++set(WEBOTS_PREBUILT_PYTHON_LIB_DIR python${Python3_VERSION_MAJOR}${Python3_VERSION_MINOR})
+ if (WEBOTS_PREBUILT_PYTHON_LIB_DIR STREQUAL python310)
+   message(WARNING "Prebuilt library for python-3.10 isn't available in webots-1.1.1, use the library for python-3.9, check updates in https://github.com/cyberbotics/webots/tree/master/scripts/packaging e.g. python-3.9 support was added in https://github.com/cyberbotics/webots/commit/dd7a16bb078c63c1ea55d9ee7866c3b35a28f893 and ubuntu-20.04 in https://github.com/cyberbotics/webots/commit/de7c29391e1893341191e949c8abded1411d7e5a")
+   set(WEBOTS_PREBUILT_PYTHON_LIB_DIR python39)

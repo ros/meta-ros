@@ -1,0 +1,28 @@
+From 9a9d58a50c95b6b84de60d4630901722dc08a5b8 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 18 Oct 2021 14:10:54 -0700
+Subject: [PATCH] FindLuaGoogle.cmake: accept 5.4 lua as well
+
+* upgraded in Yocto 3.5 Kirkstone with:
+  https://git.openembedded.org/openembedded-core/commit/?id=c2cad5ecfbbcee99b3cbe71efeeac9a875b6e5ff
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ cmake/modules/FindLuaGoogle.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/modules/FindLuaGoogle.cmake b/cmake/modules/FindLuaGoogle.cmake
+index c76b8cc..4c817f8 100644
+--- a/cmake/modules/FindLuaGoogle.cmake
++++ b/cmake/modules/FindLuaGoogle.cmake
+@@ -70,7 +70,7 @@ unset(_lua_append_versions)
+ 
+ # this is a function only to have all the variables inside go away automatically
+ function(_lua_set_version_vars)
+-    set(LUA_VERSIONS5 5.3 5.2)
++    set(LUA_VERSIONS5 5.4 5.3 5.2)
+ 
+     if (Lua_FIND_VERSION_EXACT)
+         if (Lua_FIND_VERSION_COUNT GREATER 1)

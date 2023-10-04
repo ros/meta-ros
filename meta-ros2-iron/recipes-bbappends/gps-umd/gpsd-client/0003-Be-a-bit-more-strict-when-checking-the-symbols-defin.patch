@@ -1,0 +1,74 @@
+From 85b152bc5694b9124949661aa07f75e083609f6d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 1 Oct 2021 06:13:53 -0700
+Subject: [PATCH] Be a bit more strict when checking the symbols defined in
+ GPSD_API_MAJOR_VERSION 12
+
+Upstream-Status: Submitted [https://github.com/swri-robotics/gps_umd/pull/39 https://github.com/swri-robotics/gps_umd/pull/40 https://github.com/swri-robotics/gps_umd/pull/41]
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/client.cpp | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
+
+diff --git a/src/client.cpp b/src/client.cpp
+index b4347b5..9f2ceb7 100644
+--- a/src/client.cpp
++++ b/src/client.cpp
+@@ -155,8 +155,10 @@ namespace gpsd_client
+ #if GPSD_API_MAJOR_VERSION >= 10
+ #ifdef STATUS_FIX
+       if ((p->fix.status & STATUS_FIX) && !(check_fix_by_variance_ && std::isnan(p->fix.epx)))
+-#else
++#elif defined STATUS_GPS
+       if ((p->fix.status & STATUS_GPS) && !(check_fix_by_variance_ && std::isnan(p->fix.epx)))
++#else
++#error "Either STATUS_FIX or STATUS_GPS should be defined"
+ #endif
+ #else
+       if ((p->status & STATUS_FIX) && !(check_fix_by_variance_ && std::isnan(p->fix.epx)))
+@@ -170,8 +172,10 @@ namespace gpsd_client
+ #if GPSD_API_MAJOR_VERSION >= 10
+ #ifdef STATUS_DGPS_FIX
+         if (p->fix.status & STATUS_DGPS_FIX)
+-#else
++#elif defined STATUS_DGPS
+         if (p->fix.status & STATUS_DGPS)
++#else
++#error "Either STATUS_DGPS_FIX or STATUS_DGPS should be defined"
+ #endif
+ #else
+         if (p->status & STATUS_DGPS_FIX)
+@@ -258,15 +262,19 @@ namespace gpsd_client
+       {
+ #ifdef STATUS_NO_FIX
+         case STATUS_NO_FIX:
+-#else
++#elif defined STATUS_UNK
+         case STATUS_UNK:
++#else
++#error "Either STATUS_NO_FIX or STATUS_UNK should be defined"
+ #endif
+           fix->status.status = -1; // NavSatStatus::STATUS_NO_FIX;
+           break;
+ #ifdef STATUS_FIX
+         case STATUS_FIX:
+-#else
++#elif defined STATUS_GPS
+         case STATUS_GPS:
++#else
++#error "Either STATUS_FIX or STATUS_GPS should be defined"
+ #endif
+           fix->status.status = 0; // NavSatStatus::STATUS_FIX;
+           break;
+@@ -274,8 +282,10 @@ namespace gpsd_client
+ #if GPSD_API_MAJOR_VERSION != 6
+ #ifdef STATUS_DGPS_FIX
+         case STATUS_DGPS_FIX:
+-#else
++#elif defined STATUS_DGPS
+         case STATUS_DGPS:
++#else
++#error "Either STATUS_DGPS_FIX or STATUS_DGPS should be defined"
+ #endif
+           fix->status.status = 2; // NavSatStatus::STATUS_GBAS_FIX;
+           break;

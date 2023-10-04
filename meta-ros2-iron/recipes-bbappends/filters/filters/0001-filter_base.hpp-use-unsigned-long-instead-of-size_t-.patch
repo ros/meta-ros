@@ -1,0 +1,43 @@
+From b5ec49990f0063748284987bfbf87b7cdeec0d33 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 2 Jul 2020 14:21:01 +0000
+Subject: [PATCH] filter_base.hpp: use unsigned long instead of size_t in
+ getParam 2nd parameter
+
+* it was added in:
+  https://github.com/ros/filters/commit/25c7d309576d049e95e2087608bfd8138b7f36d8
+  but unfortunately on 32bit systems size_t could be the same as unsigned int already
+  defined above and then the build fails with:
+
+| filters/2.0.0-1-r0/git/include/filters/filter_base.hpp:219:8: error: 'bool filters::FilterBase<T>::getParam(const string&, size_t&)' cannot be overloaded with 'bool filters::FilterBase<T>::getParam(const string&, unsigned int&)'
+|   219 |   bool getParam(const std::string & name, size_t & value)
+|       |        ^~~~~~~~
+| filters/2.0.0-1-r0/git/include/filters/filter_base.hpp:201:8: note: previous declaration 'bool filters::FilterBase<T>::getParam(const string&, unsigned int&)'
+|   201 |   bool getParam(const std::string & name, unsigned int & value)
+|       |        ^~~~~~
+
+Upstream-Status: Submitted [https://github.com/ros/filters/pull/39]
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/filters/filter_base.hpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/filters/filter_base.hpp b/include/filters/filter_base.hpp
+index a31739d..a2b0827 100644
+--- a/include/filters/filter_base.hpp
++++ b/include/filters/filter_base.hpp
+@@ -212,11 +212,11 @@ protected:
+   }
+ 
+   /**
+-   * \brief Get a filter parameter as a size_t
++   * \brief Get a filter parameter as an unsigned long
+    * \param name The name of the parameter
+    * \param value The int to set with the value
+    * \return Whether or not the parameter of name/type was set */
+-  bool getParam(const std::string & name, size_t & value)
++  bool getParam(const std::string & name, unsigned long & value)
+   {
+     int signed_value;
+     if (!getParam(name, signed_value)) {

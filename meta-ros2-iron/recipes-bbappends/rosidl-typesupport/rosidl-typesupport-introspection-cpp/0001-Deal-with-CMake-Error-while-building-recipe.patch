@@ -1,0 +1,28 @@
+From e65b3039708df4dcfae98be78379630534f56dac Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?V=C3=ADctor=20Mayoral=20Vilches?= <v.mayoralv@gmail.com>
+Date: Tue, 10 May 2022 18:38:22 +0200
+Subject: [PATCH] Deal with CMake Error while building recipe
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Víctor Mayoral Vilches <v.mayoralv@gmail.com>
+---
+ ...osidl_typesupport_introspection_cpp_generate_interfaces.cmake | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/cmake/rosidl_typesupport_introspection_cpp_generate_interfaces.cmake b/cmake/rosidl_typesupport_introspection_cpp_generate_interfaces.cmake
+index caaa64c6..45515124 100644
+--- a/cmake/rosidl_typesupport_introspection_cpp_generate_interfaces.cmake
++++ b/cmake/rosidl_typesupport_introspection_cpp_generate_interfaces.cmake
+@@ -50,7 +50,6 @@ endforeach()
+ 
+ set(target_dependencies
+   "${rosidl_typesupport_introspection_cpp_BIN}"
+-  ${rosidl_typesupport_introspection_cpp_GENERATOR_FILES}
+   "${rosidl_typesupport_introspection_cpp_TEMPLATE_DIR}/idl__rosidl_typesupport_introspection_cpp.hpp.em"
+   "${rosidl_typesupport_introspection_cpp_TEMPLATE_DIR}/idl__type_support.cpp.em"
+   "${rosidl_typesupport_introspection_cpp_TEMPLATE_DIR}/msg__rosidl_typesupport_introspection_cpp.hpp.em"
+-- 
+2.34.1
+

@@ -1,0 +1,44 @@
+From 760272661c826258166e7e97545baee29f70b195 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 16 Apr 2021 08:18:53 +0000
+Subject: [PATCH] setup.py: install data_files without share/ prefix
+
+* distutils3.bbclass has a bandaid against python recipes installing files
+  into /usr/share/share directory since 2009:
+  https://git.openembedded.org/openembedded/commit/classes/distutils.bbclass?id=5a0fecab4a7a17ab7218e522c2750f0fb8c9aa45
+  imported into oe-core in 2009 with:
+  https://git.openembedded.org/openembedded-core/commit/meta/classes/distutils.bbclass?id=288e62a22115a32effc65efa7c2d6ef2867d0b91
+
+  but here it doesn't work, because urdfdom-py has both
+  /usr/share/share/urdfdom_py as well as /usr/share/urdfdom_py:
+
+image/usr/share/urdfdom_py
+image/usr/share/urdfdom_py/scripts
+image/usr/share/urdfdom_py/scripts/display_urdf
+image/usr/share/share
+image/usr/share/share/urdfdom_py
+image/usr/share/share/urdfdom_py/package.xml
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ setup.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index c3986e1..a3a0a5c 100644
+--- a/setup.py
++++ b/setup.py
+@@ -9,9 +9,9 @@ setup(
+     package_dir={'': 'src'},
+     packages=['urdf_parser_py', 'urdf_parser_py.xml_reflection'],
+     data_files=[
+-        ('share/ament_index/resource_index/packages',
++        ('ament_index/resource_index/packages',
+             ['resource/' + package_name]),
+-        ('share/' + package_name, ['package.xml']),
++        (package_name, ['package.xml']),
+     ],
+     install_requires=['setuptools'],
+     zip_safe=True,

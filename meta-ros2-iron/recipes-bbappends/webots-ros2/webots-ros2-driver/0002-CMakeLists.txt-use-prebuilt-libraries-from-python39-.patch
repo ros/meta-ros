@@ -1,0 +1,39 @@
+From 02ea92824a1e9120b30f4e8883ed90244eee84ab Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 17 Oct 2021 05:34:14 -0700
+Subject: [PATCH] CMakeLists.txt: use prebuilt libraries from python39
+ directory until python310 is available
+
+* Prebuilt library for python-3.10 isn't available in webots-1.1.1, use the library
+  for python-3.9, check updates in
+  https://github.com/cyberbotics/webots/tree/master/scripts/packaging
+  e.g. python-3.9 support was added in
+  https://github.com/cyberbotics/webots/commit/dd7a16bb078c63c1ea55d9ee7866c3b35a28f893
+  and ubuntu-20.04 in https://github.com/cyberbotics/webots/commit/de7c29391e1893341191e949c8abded1411d7e5a
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fa821155..d5920e95 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -67,8 +67,13 @@ else()
+   )
+ endif()
+ 
++set(WEBOTS_PREBUILT_PYTHON_LIB_DIR python${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR})
++if (WEBOTS_PREBUILT_PYTHON_LIB_DIR STREQUAL python310)
++  message(WARNING "Prebuilt library for python-3.10 isn't available in webots-1.1.1, use the library for python-3.9, check updates in https://github.com/cyberbotics/webots/tree/master/scripts/packaging e.g. python-3.9 support was added in https://github.com/cyberbotics/webots/commit/dd7a16bb078c63c1ea55d9ee7866c3b35a28f893 and ubuntu-20.04 in https://github.com/cyberbotics/webots/commit/de7c29391e1893341191e949c8abded1411d7e5a")
++  set(WEBOTS_PREBUILT_PYTHON_LIB_DIR python39)
++endif()
+ ament_python_install_package(${PROJECT_NAME}_webots
+-  PACKAGE_DIR ${WEBOTS_LIB_BASE}/python${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR})
++  PACKAGE_DIR ${WEBOTS_LIB_BASE}/${WEBOTS_PREBUILT_PYTHON_LIB_DIR})
+ 
+ ament_python_install_package(${PROJECT_NAME}
+   PACKAGE_DIR ${PROJECT_NAME})
