@@ -23,7 +23,7 @@ OE_Branch = 'master'
 ROS_Distribution = 'melodic'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'full'
+SupportLevel = 'best-effort' # ROS Melodic is EOL (since 2023-06-27)
 
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']

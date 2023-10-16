@@ -23,7 +23,7 @@ OE_Branch = 'hardknott'
 ROS_Distribution = 'melodic'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'full'
+SupportLevel = 'best-effort' # OE Hardknott is EOL (since 2022-04-27)
 
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']

@@ -23,7 +23,7 @@ OE_Branch = 'honister'
 ROS_Distribution = 'melodic'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'full'
+SupportLevel = 'best-effort' # OE Honister is EOL (since 2022-05-12)
 
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
