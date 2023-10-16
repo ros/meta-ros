@@ -22,10 +22,10 @@ webOSOSEBuildNumber = '411'
 Bitbake_Branch = '1.46'
 OE_Branch = 'dunfell'
 
-ROS_Distribution = 'melodic'
+ROS_Distribution = 'dashing'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'full'
+SupportLevel = 'unsupported' # ROS2 Dashing is EOL (final sync on 2021-06-10)
 
 # Supported MACHINE-s
 Machines = ['qemux86-64', 'raspberrypi4-64']
@@ -70,12 +70,11 @@ Layers = [
 ('meta-webos-backports-3.2',           33, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-backports-3.4',           35, MetaWebos_RepoURL,                                        {},                                                              {}),
 
-('meta-ros-python2',                   34, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros-backports-gatesgarth',      35, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros-backports-hardknott',       36, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
-('meta-ros1',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
-('meta-ros1-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros2',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros2-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
 
 ('meta-webos',                         40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch,     'commit': MetaWebos_Commit},    {}),
 

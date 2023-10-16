@@ -22,10 +22,10 @@ webOSOSEBuildNumber = '411'
 Bitbake_Branch = '1.46'
 OE_Branch = 'dunfell'
 
-ROS_Distribution = 'dashing'
+ROS_Distribution = 'galactic'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'best-effort' # ROS2 Dashing is EOL (final sync on 2021-06-10)
+SupportLevel = 'unsupported'
 
 # Supported MACHINE-s
 Machines = ['qemux86-64', 'raspberrypi4-64']

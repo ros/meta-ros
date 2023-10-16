@@ -22,10 +22,10 @@ webOSOSEBuildNumber = '411'
 Bitbake_Branch = '1.46'
 OE_Branch = 'dunfell'
 
-ROS_Distribution = 'noetic'
+ROS_Distribution = 'melodic'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'full'
+SupportLevel = 'unsupported'
 
 # Supported MACHINE-s
 Machines = ['qemux86-64', 'raspberrypi4-64']
@@ -70,6 +70,7 @@ Layers = [
 ('meta-webos-backports-3.2',           33, MetaWebos_RepoURL,                                        {},                                                              {}),
 ('meta-webos-backports-3.4',           35, MetaWebos_RepoURL,                                        {},                                                              {}),
 
+('meta-ros-python2',                   34, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros-backports-gatesgarth',      35, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros-backports-hardknott',       36, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
