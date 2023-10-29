@@ -1,33 +1,107 @@
-# Branch `[master]`
+# meta-ros
 
-As of Milestone 17 (2022-06-05), this branch can be used to build the releases
-current in mid-November 2021 of ROS 2 **foxy** and **galactic** and ROS 1
-**melodic** and **noetic** with the **kirkstone** OpenEmbedded release series as
-of the beginning of December 2021.
+This is a series of OpenEmbedded layers designed to add support for the Robot 
+Operating System (ROS) for embedded Linux releases by the Yocto Project.
 
-The mid-November 2021 release (and earlier releases) of ROS 2 **rolling** can no
-longer be built because the commits referenced by its recipes have been removed
-rom the `[release/rolling/*]`branches of the release repositories.
+It enables developers to create custom, Linux-based robotic systems, taking 
+advantage of capabilities of ROS and the flexibility of the Yocto Project.
 
-A "best effort" has been made to keep the EOL-ed ROS 2 **dashing** and
-**eloquent** distros buildable, but some of the packages that are used to create
-the `ros-image-world` image do not build. However, the `ros-image-core` image
-does successfully build.
+# Supported Combinations
 
-Instructions for using `meta-ros` are
-[here](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions).
+The following table shows the end-of-life dates for combinations of Yocto
+Releases and ROS Distros.  Releases and distros not shown in the table above
+can be presumed unsupported.
 
-## Status
 
-With the exception of the commits added to complete Milestone 17, this repository
-has not been maintained since December 2021. Its future maintenance was
-discussed in the
-[OSRF TSC January 2022 meeting post](https://discourse.ros.org/t/os-2-tsc-meeting-january-20th-2022/23986/2).
+| Yocto Release       |              | ROS1 Distros | ROS 2 Distros    |              |
+| ---                 | ---          | ---          | ---              | ---          |
+|                     | *(Rolling)*  | **Noetic**   | **Humble (LTS)** | **Iron**     |
+|                     |              | May 2025     | May 2027         | Nov 2024     |
+| **Scarthgap (Dev)** | Apr 2028     | **May 2025** | **May 2027**     | **Nov 2024** |
+| **Nanbield**        | Apr 2024     | **May 2025** | **Apr 2024**     | **Apr 2024** |
+| **Mickledore**      | Nov 2023     | Nov 2023     | **Nov 2023**     | **Nov 2023** |
+| Langdale            | ~~May 2023~~ | ~~May 2023~~ | May 2023 <sup>2</sup>     | ~~May 2023~~ |
+| **Kirkstone (LTS)** | Apr 2026     | **Apr 2024** | **Apr 2026**     | **Nov 2024** |
+| Honister            | ~~May 2022~~ | ~~May 2022~~ | ~~May 2022~~     | ~~May 2022~~ |
+| Hardknott           | ~~Apr 2022~~ | ~~Apr 2022~~ | Apr 2022 <sup>1</sup>     | ~~Apr 2022~~ |
+| Gatesgarth          | ~~May 2021~~ | ~~May 2021~~ | ~~May 2021~~     | ~~May 2021~~ |
+| **Dunfell (LTS)**   | Apr 2024     | **Apr 2024** | **Apr 2024**     | **Apr 2024** |
 
-## History
+
+
+## Support Levels
+| Value            | Definition |
+| ---              | --- |
+| **full**         | the configuration is fully supported |
+| ~~unsupported~~    | the configuration is never built and only updated to fix breaking changes introduced upstream, eg [master] of a component’s repository being renamed to [main] or git:// needing to be replaced by https:// |
+| <sup>1</sup> best-effort  | the configuration has an EOL-ed ROS distro or OpenEmbedded release series, which means only a “best effort” will be made to have all its packages build |
+| <sup>2</sup> contrib        | the configuration has been contributed and is not built |
+
+
+# Getting Started
+
+```
+git clone -b build --single-branch https://github.com/ros/meta-ros.git build
+
+mkdir conf
+ln -snf ../conf build/.
+cp build/files/ros2-humble-kirkstone.mcf  conf/.
+
+build/scripts/mcf -f conf/ros2-humble-kirkstone.mcf
+
+source openembedded-core/oe-init-build-env
+
+bitbake ros-image-core
+```
+
+# Repository Layout
+
+## Branches
+
+The `master` branch is intended to follow the Yocto Project release series
+currently under development. It is presently on Kirkstone and needs to be moved
+forward to Scarthgap which is the Yocto Project development release.
+
+The `-next` branches  contain commits that are pending being merged into their
+corresponding unsuffixed branches.
+
+The `build` branch contains the mcf tool which can be used for creating an 
+environment using the .mcf configuration files.  These files may be found in the
+files, files-contrib, and files-unsupported directories in the `build` branch.
+
+## Tags
+
+Information on past meta-ros milestone releases can be found on the meta-ros 
+GitHub wiki: https://github.com/ros/meta-ros/wiki/Superflore-OE-Recipe-Generation-Scheme#milestones 
+
+The last official milestone was Milestone 17 on 2022-06-05.
+
+Milestones provide updates for all supported combinations of OpenEmbedded 
+releases and ROS Distributions. They follow the format `<BRANCH>/milestones/<N>`.
+
+## ROS Layers
+
+The `meta-ros-common` layer provides recipes that are common to all ROS 
+distributions.  This typically includes 3rd party libraries and tools needed by 
+ROS as well as ROS-specific image and package group recipes.
+
+The ROS distros each have their own sub-directory containing a layer inside each
+branch.  This contains bitbake configuration files that describe the ROS distro
+including which packages from ROS may be built.  The recipes generated by the 
+superflore tool may be found in the `recipes-*` directories.  When changes are 
+required against the generated recipes, the bbappend files are created in 
+`recipes-bbappends`.
+
+# History
 
 The original implementation of `meta-ros` for ROS 1 Indigo Igloo
-(<https://github.com/bmwcarit/meta-ros>) was transferred here on 2019-06-25. It
+(<https://github.com/bmwcarit/meta-ros>) was transferred here on 2019-06-25. 
+
+The initial port of ROS 2 port was undertaken by Erle Robotics.  Their work was
+shared at [this repository](https://github.com/erlerobot/meta-ros2/) and 
+integrated upstream into `meta-ros`.
+
+It
 has been converted to use recipes generated by
 [superflore](https://github.com/ros-infrastructure/superflore/). Please see this
 [wiki page](https://github.com/ros/meta-ros/wiki/Superflore-OE-Recipe-Generation-Scheme)
@@ -35,3 +109,30 @@ for details of what was done and the current development milestones.
 
 The original implementation has been retained in the
 [`legacy`](https://github.com/ros/meta-ros/tree/legacy) branch.
+
+
+# Contributing
+
+There are many ways to contribute back to meta-ros.  This includes helping 
+report build errors, writing documentation, adding support for ROS packages that
+are currently skipped, and adding build-time and run-time tests for ROS
+packages.
+
+* To find details of how `meta-ros` is being developed, you may find detailed 
+  information at the [meta-ros wiki](https://github.com/ros/meta-ros/wiki).
+
+* To report a bug with `meta-ros`, we encourage you to file an 
+ [issue](https://github.com/ros/meta-ros/issues).  We also welcome 
+ [pull requests](https://github.com/ros/meta-ros/pulls).
+
+* See [CONTRIBUTING.md](CONTRIBUTING.md) for additional information about ROS
+  contribution policies.
+
+# Join the meta-ros Community
+
+To join the conversation about meta-ros you may find us on the forum or at our
+bi-weekly working group meeting:
+
+* [OpenEmbedded category on the ROS Discourse forum](https://discourse.ros.org/c/openembedded/26)
+* ROS OpenEmbedded Working Group ([minutes](https://docs.google.com/document/d/1LqUjcu6vdlqVJO62SreCyjzddNDZhfO2n-7qYghY_cQ/edit#heading=h.3vrwbu9vio04), [meeting invites](https://groups.google.com/g/ros-openembedded-working-group-invites))
+
