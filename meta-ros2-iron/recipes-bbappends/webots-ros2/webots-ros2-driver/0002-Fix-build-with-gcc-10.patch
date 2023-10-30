@@ -1,0 +1,37 @@
+From 1b6c8aeee373591683218fc7f1365d3d26f63f04 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sun, 14 Nov 2021 10:53:56 -0800
+Subject: [PATCH] Fix build with gcc-10
+
+* fixes:
+FAILED: CMakeFiles/driver.dir/src/PythonPlugin.cpp.o
+/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++ -DDEFAULT_RMW_IMPLEMENTATION=rmw_cyclonedds_cpp -DPLUGINLIB__DISABLE_BOOST_FUNCTIONS -I/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/git/include -I/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/git/webots/include/c -I/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/git/webots/include/cpp -I/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/recipe-sysroot/usr/include/python3.9 -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0=/usr/src/debug/webots-ros2-driver/1.1.2-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0=/usr/src/debug/webots-ros2-driver/1.1.2-2-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/recipe-sysroot -std=gnu++17 -MD -MT CMakeFiles/driver.dir/src/PythonPlugin.cpp.o -MF CMakeFiles/driver.dir/src/PythonPlugin.cpp.o.d -o CMakeFiles/driver.dir/src/PythonPlugin.cpp.o -c /jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/git/src/PythonPlugin.cpp
+In file included from /jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/git/include/webots_ros2_driver/PythonPlugin.hpp:21,
+                 from /jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/git/src/PythonPlugin.cpp:1:
+/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/git/include/webots_ros2_driver/PluginInterface.hpp:34:69: error: 'string' is not a member of 'std'
+   34 |         virtual void init(WebotsNode *node, std::unordered_map<std::string, std::string> &parameters) = 0;
+      |                                                                     ^~~~~~
+In file included from /jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/git/include/webots_ros2_driver/PythonPlugin.hpp:21,
+                 from /jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/git/src/PythonPlugin.cpp:1:
+/jenkins/mjansa/build/ros/ros2-rolling-hardknott/tmp-glibc/work/core2-64-oe-linux/webots-ros2-driver/1.1.2-2-r0/git/include/webots_ros2_driver/PluginInterface.hpp:1:1: note: 'std::string' is defined in header '<string>'; did you forget to '#include <string>'?
+  +++ |+#include <string>
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/webots_ros2_driver/PluginInterface.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/webots_ros2_driver/PluginInterface.hpp b/include/webots_ros2_driver/PluginInterface.hpp
+index 5cc030fa..55c3f92f 100644
+--- a/include/webots_ros2_driver/PluginInterface.hpp
++++ b/include/webots_ros2_driver/PluginInterface.hpp
+@@ -16,6 +16,7 @@
+ #define PLUGIN_INTERFACE
+ 
+ #include <unordered_map>
++#include <string>
+ 
+ namespace webots_ros2_driver
+ {

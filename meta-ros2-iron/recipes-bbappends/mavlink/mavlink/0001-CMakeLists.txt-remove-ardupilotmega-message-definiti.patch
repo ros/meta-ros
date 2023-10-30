@@ -1,0 +1,348 @@
+From cff8ca50b788cabec0bca57dff67e8550bf75a85 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 27 Sep 2021 17:38:03 +0000
+Subject: [PATCH] CMakeLists.txt: remove ardupilotmega message definitions
+
+* the same ardupilotmega.xml is included through all.xml file and depending which of
+  them is generated later, they produce different ardupilotmega/ardupilotmega.hpp
+  file and in some cases even corrupted file when the mavgen races on creating the file
+  badly
+
+* regenerating just ardupilotmega.xml 100 times with:
+  for i in `seq -w 1 100`; do rm -f ./build/ardupilotmega-v2.0-cxx-stamp; . temp/run.do_compile 2>&1 | tee log.comp.$i; cp -ra build/include/v2.0/ build/include/v2.0-$i; md5sum build/include/v2.0/ardupilotmega/ardupilotmega.hpp ; done
+  always produces the same ardupilotmega.hpp file, but if I regenerate all.xml as well with:
+  for i in `seq -w 200 300`; do rm -f ./build/all-v2.0-cxx-stamp ./build/ardupilotmega-v2.0-cxx-stamp; . temp/run.do_compile 2>&1 | tee log.comp.$i; cp -ra build/include/v2.0/ build/include/v2.0-$i; md5sum build/include/v2.0/ardupilotmega/ardupilotmega.hpp ; done
+  it produces one of 2 versions of this file:
+
+  mavlink/2021.6.6-1-r0$ diff -uNr build/include/v2.0-300/ardupilotmega/ardupilotmega.hpp build/include/v2.0-001/ardupilotmega/ardupilotmega.hpp
+
+  - build/include/v2.0-300/ardupilotmega/ardupilotmega.hpp	2021-09-27 17:33:39.305310068 +0000
+  + build/include/v2.0-001/ardupilotmega/ardupilotmega.hpp	2021-09-27 17:14:31.627821004 +0000
+  @@ -176,7 +176,6 @@
+       SET_CAMERA_FOCUS=532, /* Set camera focus. Camera must respond with a CAMERA_SETTINGS message (on success). |Focus type| Focus value| Reserved (default:NaN)| Reserved (default:NaN)| Reserved (default:0)| Reserved (default:0)| Reserved (default:NaN)|  */
+       JUMP_TAG=600, /* Tagged jump target. Can be jumped to with MAV_CMD_DO_JUMP_TAG. |Tag.| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)|  */
+       DO_JUMP_TAG=601, /* Jump to the matching tag in the mission list. Repeat this action for the specified number of times. A mission should contain a single matching tag for each jump. If this is not the case then a jump to a missing tag should complete the mission, and a jump where there are multiple matching tags should always select the one with the lowest mission sequence number. |Target tag to jump to.| Repeat count.| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)|  */
+  -    PARAM_TRANSACTION=900, /* Request to start or end a parameter transaction. Multiple kinds of transport layers can be used to exchange parameters in the transaction (param, param_ext and mavftp). The command response can either be a success/failure or an in progress in case the receiving side takes some time to apply the parameters. |Action to be performed (start, commit, cancel, etc.)| Possible transport layers to set and get parameters via mavlink during a parameter transaction.| Identifier for a specific transaction.| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)|  */
+       DO_GIMBAL_MANAGER_PITCHYAW=1000, /* High level setpoint to be sent to a gimbal manager to set a gimbal attitude. It is possible to set combinations of the values below. E.g. an angle as well as a desired angular rate can be used to get to this angle at a certain angular rate, or an angular rate only will result in continuous turning. NaN is to be used to signal unset. Note: a gimbal is never to react to this command but only the gimbal manager. |Pitch angle (positive to pitch up, relative to vehicle for FOLLOW mode, relative to world horizon for LOCK mode).| Yaw angle (positive to yaw to the right, relative to vehicle for FOLLOW mode, absolute to North for LOCK mode).| Pitch rate (positive to pitch up).| Yaw rate (positive to yaw to the right).| Gimbal manager flags to use.| Reserved (default:0)| Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals).|  */
+       DO_GIMBAL_MANAGER_CONFIGURE=1001, /* Gimbal configuration to set which sysid/compid is in primary and secondary control. |Sysid for primary control (0: no one in control, -1: leave unchanged, -2: set itself in control (for missions where the own sysid is still unknown), -3: remove control if currently in control).| Compid for primary control (0: no one in control, -1: leave unchanged, -2: set itself in control (for missions where the own sysid is still unknown), -3: remove control if currently in control).| Sysid for secondary control (0: no one in control, -1: leave unchanged, -2: set itself in control (for missions where the own sysid is still unknown), -3: remove control if currently in control).| Compid for secondary control (0: no one in control, -1: leave unchanged, -2: set itself in control (for missions where the own sysid is still unknown), -3: remove control if currently in control).| Reserved (default:0)| Reserved (default:0)| Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals).|  */
+       IMAGE_START_CAPTURE=2000, /* Start image capture sequence. Sends CAMERA_IMAGE_CAPTURED after each capture. Use NaN for reserved values. |Reserved (Set to 0)| Desired elapsed time between two consecutive pictures (in seconds). Minimum values depend on hardware (typically greater than 2 seconds).| Total number of images to capture. 0 to capture forever/until MAV_CMD_IMAGE_STOP_CAPTURE.| Capture sequence number starting from 1. This is only valid for single-capture (param3 == 1), otherwise set to 0. Increment the capture ID for each capture command to prevent double captures when a command is re-transmitted.| Reserved (default:NaN)| Reserved (default:NaN)| Reserved (default:NaN)|  */
+  @@ -214,13 +213,6 @@
+            |Radius.| Vehicle must be inside ALL inclusion zones in a single group, vehicle must be inside at least one group| Reserved| Reserved| Latitude| Longitude| Reserved|  */
+       NAV_FENCE_CIRCLE_EXCLUSION=5004, /* Circular fence area. The vehicle must stay outside this area.
+            |Radius.| Reserved| Reserved| Reserved| Latitude| Longitude| Reserved|  */
+  -    SET_FENCE_BREACH_ACTION=5010, /* Sets the action on geofence breach.
+  -          If sent using the command protocol this sets the system-default geofence action.
+  -          As part of a mission protocol plan it sets the fence action for the next complete geofence definition *after* the command.
+  -          Note: A fence action defined in a plan will override the default system setting (even if the system-default is `FENCE_ACTION_NONE`).
+  -          Note: Every geofence in a plan can have its own action; if no fence action is defined for a particular fence the system-default will be used.
+  -          Note: The flight stack should reject a plan or command that uses a geofence action that it does not support and send a STATUSTEXT with the reason.
+  -         |Fence action on breach.| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)|  */
+       NAV_RALLY_POINT=5100, /* Rally point. You can have multiple rally points defined.
+            |Reserved| Reserved| Reserved| Reserved| Latitude| Longitude| Altitude|  */
+       UAVCAN_GET_NODE_INFO=5200, /* Commands the vehicle to respond with a sequence of messages UAVCAN_NODE_INFO, one message per every UAVCAN node that is online. Note that some of the response messages can be lost, which the receiver can detect easily by checking whether every received UAVCAN_NODE_STATUS has a matching message UAVCAN_NODE_INFO received earlier; if not, this command should be sent again in order to request re-transmission of the node information messages. |Reserved (set to 0)| Reserved (set to 0)| Reserved (set to 0)| Reserved (set to 0)| Reserved (set to 0)| Reserved (set to 0)| Reserved (set to 0)|  */
+  @@ -268,27 +260,10 @@
+       GUIDED_CHANGE_SPEED=43000, /* Change flight speed at a given rate. This slews the vehicle at a controllable rate between it's previous speed and the new one. (affects GUIDED only. Outside GUIDED, aircraft ignores these commands. Designed for onboard companion-computer command-and-control, not normally operator/GCS control.) |Airspeed or groundspeed.| Target Speed| Acceleration rate, 0 to take effect instantly| Empty| Empty| Empty| Empty|  */
+       GUIDED_CHANGE_ALTITUDE=43001, /* Change target altitude at a given rate. This slews the vehicle at a controllable rate between it's previous altitude and the new one. (affects GUIDED only. Outside GUIDED, aircraft ignores these commands. Designed for onboard companion-computer command-and-control, not normally operator/GCS control.) |Empty| Empty| Rate of change, toward new altitude. 0 for maximum rate change. Positive numbers only, as negative numbers will not converge on the new target alt.| Empty| Empty| Empty| Target Altitude|  */
+       GUIDED_CHANGE_HEADING=43002, /* Change to target heading at a given rate, overriding previous heading/s. This slews the vehicle at a controllable rate between it's previous heading and the new one. (affects GUIDED only. Exiting GUIDED returns aircraft to normal behaviour defined elsewhere. Designed for onboard companion-computer command-and-control, not normally operator/GCS control.) |course-over-ground or raw vehicle heading.| Target heading.| Maximum centripetal accelearation, ie rate of change,  toward new heading.| Empty| Empty| Empty| Empty|  */
+  -    STORM32_DO_GIMBAL_MANAGER_CONTROL_PITCHYAW=60002, /* Command to a gimbal manager to control the gimbal tilt and pan angles. It is possible to set combinations of the values below. E.g. an angle as well as a desired angular rate can be used to get to this angle at a certain angular rate, or an angular rate only will result in continuous turning. NaN is to be used to signal unset. A gimbal device is never to react to this command. |Pitch/tilt angle (positive: tilt up, NaN to be ignored).| Yaw/pan angle (positive: pan to the right, the frame is determined by the STORM32_GIMBAL_DEVICE_FLAGS_YAW_ABSOLUTE flag, NaN to be ignored).| Pitch/tilt rate (positive: tilt up, NaN to be ignored).| Yaw/pan rate (positive: pan to the right, the frame is determined by the STORM32_GIMBAL_DEVICE_FLAGS_YAW_ABSOLUTE flag, NaN to be ignored).| Gimbal device flags.| Gimbal manager flags.| Gimbal ID of the gimbal manager to address (component ID or 1-6 for non-MAVLink gimbal, 0 for all gimbals, send command multiple times for more than one but not all gimbals). The client is copied into bits 8-15.|  */
+  -    STORM32_DO_GIMBAL_MANAGER_SETUP=60010, /* Command to configure a gimbal manager. A gimbal device is never to react to this command. The selected profile is reported in the STORM32_GIMBAL_MANAGER_STATUS message. |Gimbal manager profile (0 = default).| Gimbal manager setup flags (0 = none).| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Gimbal ID of the gimbal manager to address (component ID or 1-6 for non-MAVLink gimbal, 0 for all gimbals). Send command multiple times for more than one but not all gimbals.|  */
+  -    STORM32_DO_GIMBAL_ACTION=60011, /* Command to initiate gimbal actions. Usually performed by the gimbal device, but some can also be done by the gimbal manager. It is hence best to broadcast this command. |Gimbal action to initiate (0 = none).| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Gimbal ID of the gimbal to address (component ID or 1-6 for non-MAVLink gimbal, 0 for all gimbals). Send command multiple times for more than one but not all gimbals.|  */
+  -    QSHOT_DO_CONFIGURE=60020, /* Command to set the shot manager mode. |Set shot mode.| Set shot state or command. The allowed values are specific to the selected shot mode.| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)|  */
+  -    PRS_SET_ARM=60050, /* AVSS defined command. Set PRS arm statuses. |PRS arm statuses| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_GET_ARM=60051, /* AVSS defined command. Gets PRS arm statuses |User defined| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_GET_BATTERY=60052, /* AVSS defined command.  Get the PRS battery voltage in millivolts |User defined| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_GET_ERR=60053, /* AVSS defined command. Get the PRS error statuses. |User defined| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_SET_ARM_ALTI=60070, /* AVSS defined command. Set the ATS arming altitude in meters. |ATS arming altitude| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_GET_ARM_ALTI=60071, /* AVSS defined command. Get the ATS arming altitude in meters. |User defined| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_SHUTDOWN=60072, /* AVSS defined command. Shuts down the PRS system. |User defined| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_SET_CHARGE_MV=60073, /* AVSS defined command. Set the threshold to charge from outside in millivolts |Charge Threshold| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_GET_CHARGE_MV=60074, /* AVSS defined command. Get the threshold to charge from outside in millivolts. |User defined| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_SET_TIMEOUT=60075, /* AVSS defined command. Set the timeout between FTS request and deploying the chute. |User defined| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_GET_TIMEOUT=60076, /* AVSS defined command. Get the timeout between FTS request and deploying the chute. |User defined| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_SET_FTS_CONNECT=60077, /* AVSS defined command. Set up the PRS to connect to the drone.. |User defined| User defined| User defined| User defined| User defined| User defined| User defined|  */
+  -    PRS_GET_FTS_CONNECT=60078, /* AVSS defined command. Get the connection status of PRS and drone. |User defined| User defined| User defined| User defined| User defined| User defined| User defined|  */
+   };
+
+   //! MAV_CMD ENUM_END
+  -constexpr auto MAV_CMD_ENUM_END = 60079;
+  +constexpr auto MAV_CMD_ENUM_END = 43003;
+
+   /** @brief  */
+   enum class SCRIPTING_CMD
+
+* and sometimes only first part of this file is being overwritten and than continuing in
+  the middle of some comment, producing invalid code which causes libmavconn recipe to fail
+  when it tries to use it:
+
+[2/6] /jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++  -Dmavconn_EXPORTS -I/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/git/include -Igenerated/include -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0=/usr/src/debug/libmavconn/2.0.3-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0=/usr/src/debug/libmavconn/2.0.3-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot -Wall -Wextra -Wpedantic -fPIC   -std=gnu++14 -MD -MT CMakeFiles/mavconn.dir/src/serial.cpp.o -MF CMakeFiles/mavconn.dir/src/serial.cpp.o.d -o CMakeFiles/mavconn.dir/src/serial.cpp.o -c /jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/git/src/serial.cpp
+FAILED: CMakeFiles/mavconn.dir/src/serial.cpp.o
+/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot-native/usr/bin/x86_64-oe-linux/x86_64-oe-linux-g++  -Dmavconn_EXPORTS -I/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/git/include -Igenerated/include -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0=/usr/src/debug/libmavconn/2.0.3-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0=/usr/src/debug/libmavconn/2.0.3-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden  -m64 -march=core2 -mtune=core2 -msse3 -mfpmath=sse  --sysroot=/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot -Wall -Wextra -Wpedantic -fPIC   -std=gnu++14 -MD -MT CMakeFiles/mavconn.dir/src/serial.cpp.o -MF CMakeFiles/mavconn.dir/src/serial.cpp.o.d -o CMakeFiles/mavconn.dir/src/serial.cpp.o -c /jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/git/src/serial.cpp
+In file included from /jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/git/include/mavconn/mavlink_dialect.hpp:40,
+                 from /jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/git/include/mavconn/interface.hpp:26,
+                 from /jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/git/include/mavconn/serial.hpp:22,
+                 from /jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/git/src/serial.cpp:23:
+/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot/usr/include/mavlink/v2.0/ardupilotmega/ardupilotmega.hpp:960:1: error: 'ing' does not name a type; did you mean 'int'?
+  960 | ing and steering towards the land point. | */
+      | ^~~
+      | int
+/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot/usr/include/mavlink/v2.0/ardupilotmega/ardupilotmega.hpp:961:1: error: expected declaration before '}' token
+  961 | };
+      | ^
+/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot/usr/include/mavlink/v2.0/ardupilotmega/ardupilotmega.hpp:1111:1: error: expected declaration before '}' token
+ 1111 | } // namespace ardupilotmega
+      | ^
+/jenkins/mjansa/build/ros/ros2-rolling-dunfell/tmp-glibc/work/core2-64-oe-linux/libmavconn/2.0.3-1-r0/recipe-sysroot/usr/include/mavlink/v2.0/ardupilotmega/ardupilotmega.hpp:1112:1: error: expected declaration before '}' token
+ 1112 | } // namespace mavlink
+      | ^
+
+
+  - build/include/v2.0-001/ardupilotmega/ardupilotmega.hpp	2021-09-27 17:14:31.627821004 +0000
+  + sysroot-destdir/usr/include/mavlink/v2.0/ardupilotmega/ardupilotmega.hpp	2021-09-24 15:37:02.000000000 +0000
+  @@ -957,3 +957,226 @@
+   #include "../common/common.hpp"
+   #include "../uAvionix/uAvionix.hpp"
+   #include "../icarous/icarous.hpp"
+  +ing and steering towards the land point. | */
+  +};
+  +
+  +//! DEEPSTALL_STAGE ENUM_END
+  +constexpr auto DEEPSTALL_STAGE_ENUM_END = 7;
+  +
+  +/** @brief A mapping of plane flight modes for custom_mode field of heartbeat. */
+  +enum class PLANE_MODE
+  +{
+  +    MANUAL=0, /*  | */
+  +    CIRCLE=1, /*  | */
+  +    STABILIZE=2, /*  | */
+  +    TRAINING=3, /*  | */
+  +    ACRO=4, /*  | */
+  +    FLY_BY_WIRE_A=5, /*  | */
+  +    FLY_BY_WIRE_B=6, /*  | */
+  +    CRUISE=7, /*  | */
+  +    AUTOTUNE=8, /*  | */
+  +    AUTO=10, /*  | */
+  +    RTL=11, /*  | */
+  +    LOITER=12, /*  | */
+  +    TAKEOFF=13, /*  | */
+  +    AVOID_ADSB=14, /*  | */
+  +    GUIDED=15, /*  | */
+  +    INITIALIZING=16, /*  | */
+  +    QSTABILIZE=17, /*  | */
+  +    QHOVER=18, /*  | */
+  +    QLOITER=19, /*  | */
+  +    QLAND=20, /*  | */
+  +    QRTL=21, /*  | */
+  +    QAUTOTUNE=22, /*  | */
+  +    QACRO=23, /*  | */
+  +    THERMAL=24, /*  | */
+  +};
+  +
+  +//! PLANE_MODE ENUM_END
+  +constexpr auto PLANE_MODE_ENUM_END = 25;
+  +
+  +/** @brief A mapping of copter flight modes for custom_mode field of heartbeat. */
+  +enum class COPTER_MODE
+  +{
+  +    STABILIZE=0, /*  | */
+  +    ACRO=1, /*  | */
+  +    ALT_HOLD=2, /*  | */
+  +    AUTO=3, /*  | */
+  +    GUIDED=4, /*  | */
+  +    LOITER=5, /*  | */
+  +    RTL=6, /*  | */
+  +    CIRCLE=7, /*  | */
+  +    LAND=9, /*  | */
+  +    DRIFT=11, /*  | */
+  +    SPORT=13, /*  | */
+  +    FLIP=14, /*  | */
+  +    AUTOTUNE=15, /*  | */
+  +    POSHOLD=16, /*  | */
+  +    BRAKE=17, /*  | */
+  +    THROW=18, /*  | */
+  +    AVOID_ADSB=19, /*  | */
+  +    GUIDED_NOGPS=20, /*  | */
+  +    SMART_RTL=21, /*  | */
+  +    FLOWHOLD=22, /*  | */
+  +    FOLLOW=23, /*  | */
+  +    ZIGZAG=24, /*  | */
+  +    SYSTEMID=25, /*  | */
+  +    AUTOROTATE=26, /*  | */
+  +};
+  +
+  +//! COPTER_MODE ENUM_END
+  +constexpr auto COPTER_MODE_ENUM_END = 27;
+  +
+  +/** @brief A mapping of sub flight modes for custom_mode field of heartbeat. */
+  +enum class SUB_MODE
+  +{
+  +    STABILIZE=0, /*  | */
+  +    ACRO=1, /*  | */
+  +    ALT_HOLD=2, /*  | */
+  +    AUTO=3, /*  | */
+  +    GUIDED=4, /*  | */
+  +    CIRCLE=7, /*  | */
+  +    SURFACE=9, /*  | */
+  +    POSHOLD=16, /*  | */
+  +    MANUAL=19, /*  | */
+  +};
+  +
+  +//! SUB_MODE ENUM_END
+  +constexpr auto SUB_MODE_ENUM_END = 20;
+  +
+  +/** @brief A mapping of rover flight modes for custom_mode field of heartbeat. */
+  +enum class ROVER_MODE
+  +{
+  +    MANUAL=0, /*  | */
+  +    ACRO=1, /*  | */
+  +    STEERING=3, /*  | */
+  +    HOLD=4, /*  | */
+  +    LOITER=5, /*  | */
+  +    FOLLOW=6, /*  | */
+  +    SIMPLE=7, /*  | */
+  +    AUTO=10, /*  | */
+  +    RTL=11, /*  | */
+  +    SMART_RTL=12, /*  | */
+  +    GUIDED=15, /*  | */
+  +    INITIALIZING=16, /*  | */
+  +};
+  +
+  +//! ROVER_MODE ENUM_END
+  +constexpr auto ROVER_MODE_ENUM_END = 17;
+  +
+  +/** @brief A mapping of antenna tracker flight modes for custom_mode field of heartbeat. */
+  +enum class TRACKER_MODE
+  +{
+  +    MANUAL=0, /*  | */
+  +    STOP=1, /*  | */
+  +    SCAN=2, /*  | */
+  +    SERVO_TEST=3, /*  | */
+  +    AUTO=10, /*  | */
+  +    INITIALIZING=16, /*  | */
+  +};
+  +
+  +//! TRACKER_MODE ENUM_END
+  +constexpr auto TRACKER_MODE_ENUM_END = 17;
+  +
+  +/** @brief The type of parameter for the OSD parameter editor. */
+  +enum class OSD_PARAM_CONFIG_TYPE : uint8_t
+  +{
+  +    NONE=0, /*  | */
+  +    SERIAL_PROTOCOL=1, /*  | */
+  +    SERVO_FUNCTION=2, /*  | */
+  +    AUX_FUNCTION=3, /*  | */
+  +    FLIGHT_MODE=4, /*  | */
+  +    FAILSAFE_ACTION=5, /*  | */
+  +    FAILSAFE_ACTION_1=6, /*  | */
+  +    FAILSAFE_ACTION_2=7, /*  | */
+  +    NUM_TYPES=8, /*  | */
+  +};
+  +
+  +//! OSD_PARAM_CONFIG_TYPE ENUM_END
+  +constexpr auto OSD_PARAM_CONFIG_TYPE_ENUM_END = 9;
+  +
+  +/** @brief The error type for the OSD parameter editor. */
+  +enum class OSD_PARAM_CONFIG_ERROR : uint8_t
+  +{
+  +    SUCCESS=0, /*  | */
+  +    INVALID_SCREEN=1, /*  | */
+  +    INVALID_PARAMETER_INDEX=2, /*  | */
+  +    INVALID_PARAMETER=3, /*  | */
+  +};
+  +
+  +//! OSD_PARAM_CONFIG_ERROR ENUM_END
+  +constexpr auto OSD_PARAM_CONFIG_ERROR_ENUM_END = 4;
+  +
+  +
+  +} // namespace ardupilotmega
+  +} // namespace mavlink
+  +
+  +// MESSAGE DEFINITIONS
+  +#include "./mavlink_msg_sensor_offsets.hpp"
+  +#include "./mavlink_msg_set_mag_offsets.hpp"
+  +#include "./mavlink_msg_meminfo.hpp"
+  +#include "./mavlink_msg_ap_adc.hpp"
+  +#include "./mavlink_msg_digicam_configure.hpp"
+  +#include "./mavlink_msg_digicam_control.hpp"
+  +#include "./mavlink_msg_mount_configure.hpp"
+  +#include "./mavlink_msg_mount_control.hpp"
+  +#include "./mavlink_msg_mount_status.hpp"
+  +#include "./mavlink_msg_fence_point.hpp"
+  +#include "./mavlink_msg_fence_fetch_point.hpp"
+  +#include "./mavlink_msg_ahrs.hpp"
+  +#include "./mavlink_msg_simstate.hpp"
+  +#include "./mavlink_msg_hwstatus.hpp"
+  +#include "./mavlink_msg_radio.hpp"
+  +#include "./mavlink_msg_limits_status.hpp"
+  +#include "./mavlink_msg_wind.hpp"
+  +#include "./mavlink_msg_data16.hpp"
+  +#include "./mavlink_msg_data32.hpp"
+  +#include "./mavlink_msg_data64.hpp"
+  +#include "./mavlink_msg_data96.hpp"
+  +#include "./mavlink_msg_rangefinder.hpp"
+  +#include "./mavlink_msg_airspeed_autocal.hpp"
+  +#include "./mavlink_msg_rally_point.hpp"
+  +#include "./mavlink_msg_rally_fetch_point.hpp"
+  +#include "./mavlink_msg_compassmot_status.hpp"
+  +#include "./mavlink_msg_ahrs2.hpp"
+  +#include "./mavlink_msg_camera_status.hpp"
+  +#include "./mavlink_msg_camera_feedback.hpp"
+  +#include "./mavlink_msg_battery2.hpp"
+  +#include "./mavlink_msg_ahrs3.hpp"
+  +#include "./mavlink_msg_autopilot_version_request.hpp"
+  +#include "./mavlink_msg_remote_log_data_block.hpp"
+  +#include "./mavlink_msg_remote_log_block_status.hpp"
+  +#include "./mavlink_msg_led_control.hpp"
+  +#include "./mavlink_msg_mag_cal_progress.hpp"
+  +#include "./mavlink_msg_ekf_status_report.hpp"
+  +#include "./mavlink_msg_pid_tuning.hpp"
+  +#include "./mavlink_msg_deepstall.hpp"
+  +#include "./mavlink_msg_gimbal_report.hpp"
+  +#include "./mavlink_msg_gimbal_control.hpp"
+  +#include "./mavlink_msg_gimbal_torque_cmd_report.hpp"
+  +#include "./mavlink_msg_gopro_heartbeat.hpp"
+  +#include "./mavlink_msg_gopro_get_request.hpp"
+  +#include "./mavlink_msg_gopro_get_response.hpp"
+  +#include "./mavlink_msg_gopro_set_request.hpp"
+  +#include "./mavlink_msg_gopro_set_response.hpp"
+  +#include "./mavlink_msg_rpm.hpp"
+  +#include "./mavlink_msg_device_op_read.hpp"
+  +#include "./mavlink_msg_device_op_read_reply.hpp"
+  +#include "./mavlink_msg_device_op_write.hpp"
+  +#include "./mavlink_msg_device_op_write_reply.hpp"
+  +#include "./mavlink_msg_adap_tuning.hpp"
+  +#include "./mavlink_msg_vision_position_delta.hpp"
+  +#include "./mavlink_msg_aoa_ssa.hpp"
+  +#include "./mavlink_msg_esc_telemetry_1_to_4.hpp"
+  +#include "./mavlink_msg_esc_telemetry_5_to_8.hpp"
+  +#include "./mavlink_msg_esc_telemetry_9_to_12.hpp"
+  +#include "./mavlink_msg_osd_param_config.hpp"
+  +#include "./mavlink_msg_osd_param_config_reply.hpp"
+  +#include "./mavlink_msg_osd_param_show_config.hpp"
+  +#include "./mavlink_msg_osd_param_show_config_reply.hpp"
+  +#include "./mavlink_msg_obstacle_distance_3d.hpp"
+  +
+  +// base include
+  +#include "../common/common.hpp"
+  +#include "../uAvionix/uAvionix.hpp"
+  +#include "../icarous/icarous.hpp"
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bd600b66..942b7141 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -124,7 +124,7 @@ endmacro()
+ file(GLOB V10DEFINITIONS ${CMAKE_SOURCE_DIR}/message_definitions/v1.0/*.xml)
+ 
+ # do not generate testing dialects
+-foreach(definition minimal test python_array_test)
++foreach(definition minimal test python_array_test ardupilotmega)
+     list(REMOVE_ITEM V10DEFINITIONS "${CMAKE_SOURCE_DIR}/message_definitions/v1.0/${definition}.xml")
+ endforeach()
+ list(SORT V10DEFINITIONS)

@@ -1,0 +1,12 @@
+diff --git a/topic_tools/setup.cfg b/topic_tools/setup.cfg
+index 7c0fef2..90b577f 100644
+--- a/topic_tools/setup.cfg
++++ b/topic_tools/setup.cfg
+@@ -1,5 +1,7 @@
+ [develop]
+ script-dir=$base/lib/topic_tools
++[build]
++executable=/usr/bin/env python
+ [install]
+ install-scripts=$base/lib/topic_tools
+ [options.entry_points]

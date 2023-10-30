@@ -1,0 +1,19 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1f41f7a..6373224 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -20,12 +20,11 @@ macro(build_sol)
+ 
+   include(ExternalProject)
+   externalproject_add(sol-ext
+-    GIT_REPOSITORY https://github.com/ThePhD/sol2.git
+-    GIT_TAG main
+-    TIMEOUT 6000
+     ${cmake_commands}
++    SOURCE_DIR ${PROJECT_SOURCE_DIR}/sol2
+     CMAKE_ARGS
+       ${cmake_configure_args}
++      -DLUA_SOURCE_DIR=${LUA_SOURCE_DIR}
+   )
+   install(
+     DIRECTORY

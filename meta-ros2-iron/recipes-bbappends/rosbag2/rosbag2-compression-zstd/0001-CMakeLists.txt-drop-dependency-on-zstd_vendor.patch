@@ -1,0 +1,70 @@
+From a8d6d068fbb098ed6f9bbae66c6724abb39af36a Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 26 Jun 2020 07:30:46 -0700
+Subject: [PATCH] CMakeLists.txt: drop dependency on zstd_vendor
+
+* zstd should be good enough
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 30 +++++++++++++++++++++++-------
+ 1 file changed, 23 insertions(+), 7 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d985c201..352970e3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -24,8 +24,8 @@ find_package(ament_cmake REQUIRED)
+ find_package(pluginlib REQUIRED)
+ find_package(rcpputils REQUIRED)
+ find_package(rosbag2_compression REQUIRED)
+-find_package(zstd_vendor REQUIRED)
+-find_package(zstd REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(ZSTD libzstd REQUIRED)
+ 
+ add_library(${PROJECT_NAME} SHARED
+   src/rosbag2_compression_zstd/compression_utils.cpp
+@@ -37,8 +37,7 @@ target_include_directories(${PROJECT_NAME}
+   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+ ament_target_dependencies(${PROJECT_NAME}
+   rcpputils
+-  rosbag2_compression
+-  zstd)
++  rosbag2_compression)
+ target_compile_definitions(${PROJECT_NAME} PRIVATE ROSBAG2_COMPRESSION_ZSTD_BUILDING_DLL)
+ pluginlib_export_plugin_description_file(rosbag2_compression plugin_description.xml)
+ 
+@@ -56,10 +55,26 @@ install(
+ ament_export_include_directories(include)
+ ament_export_libraries(${PROJECT_NAME})
+ ament_export_targets(export_${PROJECT_NAME})
+-
+-# order matters here, first vendor, then zstd
+-ament_export_dependencies(rcpputils rosbag2_compression zstd_vendor zstd)
+-
++# don't export zstd as we don't provide zstd from zstd-vendor and rosbag2-{py,transport} would fail with:
++# CMake Error at TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rosbag2-py/0.6.0-1-r0/recipe-sysroot/usr/share/rosbag2_compression/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package):
++#   By not providing "Findzstd.cmake" in CMAKE_MODULE_PATH this project has
++#   asked CMake to find a package configuration file provided by "zstd", but
++#   CMake did not find one.
++#
++#   Could not find a package configuration file provided by "zstd" with any of
++#   the following names:
++#
++#     zstdConfig.cmake
++#     zstd-config.cmake
++#
++#   Add the installation prefix of "zstd" to CMAKE_PREFIX_PATH or set
++#   "zstd_DIR" to a directory containing one of the above files.  If "zstd"
++#   provides a separate development package or SDK, be sure it has been
++#   installed.
++# Call Stack (most recent call first):
++#   TOPDIR/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rosbag2-py/0.6.0-1-r0/recipe-sysroot/usr/share/rosbag2_compression/cmake/rosbag2_compressionConfig.cmake:41 (include)
++#   CMakeLists.txt:21 (find_package)
++ament_export_dependencies(pluginlib rcpputils rcutils rosbag2_cpp rosbag2_storage)
+ 
+ # Export modern CMake targets
+ ament_export_targets(export_${PROJECT_NAME})
