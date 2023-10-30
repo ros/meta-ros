@@ -4,6 +4,12 @@ inherit ros_insane_dev_so
 
 FILES:${PN} += "${prefix}/tools"
 
+# CMake Error: TRY_RUN() invoked in cross-compiling mode, please set the
+# following cache variables appropriately:
+#    SM_RUN_RESULT (advanced)
+#    SM_RUN_RESULT__TRYRUN_OUTPUT (advanced)
+EXTRA_OECMAKE += " -DSM_RUN_RESULT=0 -DSM_RUN_RESULT__TRYRUN_OUTPUT=PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP "
+
 # rosidl-typesupport-fastrtps-cpp/1.0.2-1-r0/recipe-sysroot/usr/share/fastrtps/cmake/fast-discovery-server-targets.cmake:70
 # expects the binary to exist:
 # The imported target "fastdds::fast-discovery-server" references the file
