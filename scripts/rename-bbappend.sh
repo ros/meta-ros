@@ -34,7 +34,7 @@ if [ ! -d ${ROS_DISTRO_LAYER} ]; then
     exit 1
 fi
 
-echo "${GIT_SYNC_LIST}" | head -n1 | grep "Sync to files/humble/generated/cache.yaml as of" 2>&1 > /dev/null
+echo "${GIT_SYNC_LIST}" | head -n1 | grep "Sync to files/[a-z]*/generated/cache.yaml as of" 2>&1 > /dev/null
 if [ $? -ne 0 ]; then
     echo "ERROR: Commit ${SYNC_COMMIT_ID} was not a sync commit"
     exit 1
