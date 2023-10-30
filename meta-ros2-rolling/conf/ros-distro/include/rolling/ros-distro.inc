@@ -201,3 +201,7 @@ ROS_UNRESOLVED_DEP-python3-flake8-docstrings = "python3-flake8-docstrings"
 
 # Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
 ROS_UNRESOLVED_DEP-python3-flake8-quotes = "python3-flake8-quotes"
+
+ROS_UNRESOLVED_DEP-meson-native = "meson-native"
+ROS_UNRESOLVED_DEP-python3-ply = "python3-ply"
+ROS_UNRESOLVED_DEP-python3-jinja2 = "python3-jinja2"
