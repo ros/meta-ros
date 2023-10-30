@@ -167,3 +167,7 @@ ROS_UNRESOLVED_DEP-maven-native = ""
 
 # https://layers.openembedded.org/layerindex/recipe/45261/
 ROS_UNRESOLVED_DEP-sqlite3 = "sqlite3"
+
+ROS_UNRESOLVED_DEP-meson-native = "meson-native"
+ROS_UNRESOLVED_DEP-python3-ply = "python3-ply"
+ROS_UNRESOLVED_DEP-python3-jinja2 = "python3-jinja2"
