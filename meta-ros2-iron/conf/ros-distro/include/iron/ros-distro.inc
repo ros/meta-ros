@@ -259,3 +259,8 @@ ROS_UNRESOLVED_DEP-geos = "geos"
 ROS_UNRESOLVED_DEP-python3-venv = "python3-venv"
 
 ROS_UNRESOLVED_DEP-libopencv-imgproc-dev = "opencv"
+
+ROS_UNRESOLVED_DEP-lttng-tools = "lttng-tools"
+
+ROS_UNRESOLVED_DEP-libyaml = "libyaml"
+ROS_UNRESOLVED_DEP-libyaml-dev = "libyaml"
