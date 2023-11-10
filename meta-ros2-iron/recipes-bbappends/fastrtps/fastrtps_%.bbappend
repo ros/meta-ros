@@ -1,8 +1,11 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
+# Copyright (c) 2023 Wind River Systems, Inc.
 
 inherit ros_insane_dev_so
 
 FILES:${PN} += "${prefix}/tools"
+# ERROR: fastrtps-2.10.2-1-r0 do_package: QA Issue: fastrtps: Files/directories were installed but not shipped in any package:
+FILES:${PN} += "${datadir}/fastRTPS_profiles.xsd"
 
 # CMake Error: TRY_RUN() invoked in cross-compiling mode, please set the
 # following cache variables appropriately:
