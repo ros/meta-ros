@@ -1,6 +1,13 @@
-# Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2023 Wind River Systems, Inc.
 
-# Without the target dependencies, ament finds the native packages and then fails to link (error: incompatible target).
 ROS_BUILD_DEPENDS += " \
-    rosidl-default-runtime \
+    fastcdr \
+    rcutils \
+    rosidl-runtime-c \
+    rosidl-typesupport-c \
+    rosidl-typesupport-cpp \
+    rosidl-typesupport-fastrtps-c \
+    rosidl-typesupport-fastrtps-cpp \
+    rosidl-typesupport-introspection-c \
+    rosidl-typesupport-introspection-cpp \
 "

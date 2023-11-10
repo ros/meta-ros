@@ -8,8 +8,6 @@ ROS_BUILD_DEPENDS += " \
 #
 #     set(_exported_dependencies "rosidl_default_runtime")
 
-ROS_EXPORT_DEPENDS += "rosidl-default-runtime"
-
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-parser-native \
     rosidl-adapter-native \
