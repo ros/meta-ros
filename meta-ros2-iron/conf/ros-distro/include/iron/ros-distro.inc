@@ -48,7 +48,10 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-native \
     rosidl-adapter-native \
     rosidl-cli-native \
+    rosidl-core-runtime-native \
     rosidl-default-runtime-native \
+    rosidl-dynamic-typesupport-native \
+    rosidl-generator-type-description-native \
     rosidl-parser-native \
     rosidl-runtime-c-native \
     rosidl-runtime-cpp-native \
@@ -63,6 +66,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-typesupport-fastrtps-c-native \
     fastcdr-native \
     fastrtps-native \
+    unique-identifier-msgs-native \
 "
 
 # this needs google-benchmark-vendor-native but we probably don't need native version
