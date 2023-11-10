@@ -4,3 +4,8 @@
 ROS_BUILD_DEPENDS += " \
     rosidl-default-runtime \
 "
+
+ROS_EXEC_DEPENDS += " \
+    builtin-interfaces \
+    service-msgs \
+"
