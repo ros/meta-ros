@@ -1,6 +1,6 @@
 DESCRIPTION = "FCL is a library for performing three types of proximity queries on a pair of geometric models composed of triangles and octrees."
 HOMEPAGE = "https://github.com/flexible-collision-library/fcl"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7de20b14c33be61ee0c714b41e286d0b"
 
 # Octomap dependency not included as it is optional.

@@ -2,7 +2,7 @@
 
 DESCRIPTION = "The Point Cloud Library (or PCL) for point cloud processing."
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5b8a2a1aa14e6de44b4273134946a34c"
 
 DEPENDS = "boost libflann libeigen qhull"
