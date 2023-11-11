@@ -51,9 +51,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/130s/computer_status_msgs-release/archive/release/noetic/computer_status_msgs/2.1.0-1.tar.gz
+# matches with: https://github.com/kinu-garage/computer_status_msgs-release/archive/release/noetic/computer_status_msgs/2.1.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/noetic/computer_status_msgs"
-SRC_URI = "git://github.com/130s/computer_status_msgs-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/kinu-garage/computer_status_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ab2645d138a04808ced8416e1fddf3c29bcd0c0e"
 S = "${WORKDIR}/git"
 

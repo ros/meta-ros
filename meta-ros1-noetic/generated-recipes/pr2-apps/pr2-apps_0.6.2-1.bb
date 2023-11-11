@@ -23,22 +23,22 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-pr2-teleop-general} \
     pr2-app-manager \
     pr2-kinematics \
     pr2-mannequin-mode \
     pr2-position-scripts \
-    pr2-teleop-general \
     pr2-tuckarm \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-pr2-teleop-general} \
     pr2-app-manager \
     pr2-kinematics \
     pr2-mannequin-mode \
     pr2-position-scripts \
-    pr2-teleop-general \
     pr2-tuckarm \
 "
 

@@ -17,7 +17,6 @@ ROS_CN = "jsk_recognition"
 ROS_BPN = "jsk_perception"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-roseus} \
     angles \
     cmake-modules \
     cv-bridge \
@@ -41,6 +40,7 @@ ROS_BUILD_DEPENDS = " \
     posedetection-msgs \
     robot-self-filter \
     roscpp \
+    roseus \
     rospack \
     sensor-msgs \
     std-msgs \
@@ -62,7 +62,6 @@ ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-python-dlib} \
     ${ROS_UNRESOLVED_DEP-python-fcn-pip} \
     ${ROS_UNRESOLVED_DEP-python3-sklearn} \
-    ${ROS_UNRESOLVED_DEP-roseus} \
     angles \
     checkerboard-detector \
     cv-bridge \
@@ -94,6 +93,7 @@ ROS_EXEC_DEPENDS = " \
     robot-self-filter \
     rosbag \
     roscpp \
+    roseus \
     rospack \
     rospy \
     rostopic \

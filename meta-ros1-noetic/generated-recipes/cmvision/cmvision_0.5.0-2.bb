@@ -17,8 +17,8 @@ ROS_CN = "cmvision"
 ROS_BPN = "cmvision"
 
 ROS_BUILD_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-fltk} \
     cv-bridge \
-    fltk \
     message-generation \
     roscpp \
     sensor-msgs \
@@ -31,8 +31,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-fltk} \
     cv-bridge \
-    fltk \
     message-runtime \
     roscpp \
     sensor-msgs \
@@ -43,8 +43,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-fltk} \
     cv-bridge \
-    fltk \
     message-runtime \
     roscpp \
     sensor-msgs \

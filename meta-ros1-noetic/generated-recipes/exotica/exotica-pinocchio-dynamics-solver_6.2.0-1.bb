@@ -16,7 +16,7 @@ ROS_CN = "exotica"
 ROS_BPN = "exotica_pinocchio_dynamics_solver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-clang} \
+    clang-native \
     exotica-core \
     pinocchio \
     roscpp \
@@ -27,7 +27,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-clang} \
+    clang-native \
     exotica-core \
     pinocchio \
     roscpp \
@@ -36,7 +36,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-clang} \
+    clang-native \
     exotica-core \
     pinocchio \
     roscpp \

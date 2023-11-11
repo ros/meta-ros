@@ -46,7 +46,6 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-ml-classifiers} \
-    ${ROS_UNRESOLVED_DEP-openni-launch} \
     ${ROS_UNRESOLVED_DEP-python3-sklearn} \
     boost \
     checkerboard-detector \
@@ -76,6 +75,7 @@ ROS_EXEC_DEPENDS = " \
     nodelet \
     octomap \
     octomap-server \
+    openni-launch \
     openni2-launch \
     pcl-conversions \
     pcl-msgs \
