@@ -1,0 +1,19 @@
+python3-nose: Fix manpage install directory
+
+Upstream-Status: Inactive Upstream
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+ setup.py |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+--- a/setup.py
++++ b/setup.py
+@@ -106,7 +106,7 @@ setup(
+     license = 'GNU LGPL',
+     keywords = 'test unittest doctest automatic discovery',
+     url = 'http://readthedocs.org/docs/nose/',
+-    data_files = [('man/man1', ['nosetests.1'])],
++    data_files = [('share/man/man1', ['nosetests.1'])],
+     package_data = {'': ['*.txt',
+                          'examples/*.py',
+                          'examples/*/*.py']},
