@@ -181,3 +181,18 @@ ROS_UNRESOLVED_DEP-libyaml-dev = "libyaml"
 
 # Used by generated-recipes/ament-cmake/ament-cmake-vendor-package_2.3.0-1.bb
 ROS_UNRESOLVED_DEP-python3-vcstool-native = "python3-vcstools-native"
+
+# Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
+ROS_UNRESOLVED_DEP-python3-flake8-import-order = "python3-flake8-import-order"
+
+# Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
+ROS_UNRESOLVED_DEP-python3-flake8-builtins = "python3-flake8-builtins"
+
+# Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
+ROS_UNRESOLVED_DEP-python3-flake8-comprehensions = "python3-flake8-comprehensions"
+
+# Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
+ROS_UNRESOLVED_DEP-python3-flake8-docstrings = "python3-flake8-docstrings"
+
+# Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
+ROS_UNRESOLVED_DEP-python3-flake8-quotes = "python3-flake8-quotes"
