@@ -41,8 +41,14 @@ if [ $? -ne 0 ]; then
 fi
 
 while IFS= read -r line; do
-    RECIPE_NAME=$(echo "${line}" | cut -d' ' -f2)
-    RECIPE_VERSION=$(echo "${line}" | cut -d' ' -f3)
+    RECIPE_ARROW=$(echo "${line}" | cut -d' ' -f4)
+    if [ "$RECIPE_ARROW" = "-->" ]; then
+        RECIPE_NAME=$(echo "${line}" | cut -d' ' -f2)
+        RECIPE_VERSION=$(echo "${line}" | cut -d' ' -f5)
+    else
+        RECIPE_NAME=$(echo "${line}" | cut -d' ' -f2)
+        RECIPE_VERSION=$(echo "${line}" | cut -d' ' -f3)
+    fi
     BBAPPEND_FILES=$(find ${ROS_DISTRO_LAYER}/recipes-* -name "${RECIPE_NAME}_*.bbappend")
     if [ -n "${BBAPPEND_FILES}" ]; then
         while IFS= read -r OLD_FILENAME; do
