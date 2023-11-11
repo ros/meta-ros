@@ -167,3 +167,6 @@ ROS_UNRESOLVED_DEP-maven-native = ""
 
 # https://layers.openembedded.org/layerindex/recipe/45261/
 ROS_UNRESOLVED_DEP-sqlite3 = "sqlite3"
+
+# Used by generated-recipes/ros2-tracing/tracetools_7.1.0-1.bb
+ROS_UNRESOLVED_DEP-lttng-tools = "lttng-tools"
