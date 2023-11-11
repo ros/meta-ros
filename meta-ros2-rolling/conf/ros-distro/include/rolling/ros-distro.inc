@@ -178,3 +178,6 @@ ROS_UNRESOLVED_DEP-lttng-tools = "lttng-tools"
 # Used by generated-recipes/libyaml-vendor/libyaml-vendor_1.6.2-1.bb
 ROS_UNRESOLVED_DEP-libyaml = "libyaml"
 ROS_UNRESOLVED_DEP-libyaml-dev = "libyaml"
+
+# Used by generated-recipes/ament-cmake/ament-cmake-vendor-package_2.3.0-1.bb
+ROS_UNRESOLVED_DEP-python3-vcstool-native = "python3-vcstools-native"
