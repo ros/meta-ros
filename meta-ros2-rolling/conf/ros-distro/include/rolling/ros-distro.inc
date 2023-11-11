@@ -26,6 +26,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     ament-lint-native \
     cyclonedds-native \
     domain-coordinator-native \
+    fastcdr-native \
     foonathan-memory-vendor-native \
     iceoryx-binding-c-native \
     iceoryx-posh-native \
@@ -39,8 +40,11 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-adapter-native \
     rosidl-cli-native \
     rosidl-default-runtime-native \
+    rosidl-generator-type-description-native \
     rosidl-parser-native \
     rosidl-typesupport-fastrtps-c-native \
+    rosidl-runtime-c-native \
+    rosidl-runtime-cpp-native \
     rpyutils-native \
     uncrustify-vendor-native \
 "
