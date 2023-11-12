@@ -24,13 +24,15 @@ require conf/ros-distro/include/rolling/ros-distro-preferred-providers.inc
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     ament-lint-native \
+    ament-cmake-cpplint-native \
+    ament-cmake-uncrustify-native \
     cyclonedds-native \
     domain-coordinator-native \
     fastcdr-native \
     foonathan-memory-vendor-native \
     iceoryx-binding-c-native \
+    iceoryx-hoofs-native \
     iceoryx-posh-native \
-    iceoryx-utils-native \
     rcutils-native \
     rcpputils-native \
     rmw-dds-common-native \
@@ -39,7 +41,9 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-native \
     rosidl-adapter-native \
     rosidl-cli-native \
+    rosidl-core-runtime-native \
     rosidl-default-runtime-native \
+    rosidl-dynamic-typesupport-native \
     rosidl-generator-type-description-native \
     rosidl-parser-native \
     rosidl-typesupport-fastrtps-c-native \
@@ -47,6 +51,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-runtime-cpp-native \
     rpyutils-native \
     uncrustify-vendor-native \
+    unique-identifier-msgs-native \
 "
 
 # this needs google-benchmark-vendor-native but we probably don't need native version
