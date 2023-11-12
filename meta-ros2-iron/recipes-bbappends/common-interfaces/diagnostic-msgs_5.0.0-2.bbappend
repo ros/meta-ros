@@ -1,4 +1,5 @@
 # Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2023 Wind River Systems, Inc.
 
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-parser-native \
@@ -14,4 +15,9 @@ ROS_BUILDTOOL_DEPENDS += " \
 ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
+"
+
+# Fix QA Issue with missing dependency, "but no providers found in RDEPENDS:diagnostic-msgs? [file-rdeps]"
+ROS_EXEC_DEPENDS += " \
+    service-msgs \
 "
