@@ -1,0 +1,22 @@
+From f96811a9047fa6a084a885219c88b415bc544487 Mon Sep 17 00:00:00 2001
+From: Chris Lalancette <clalancette@gmail.com>
+Date: Sat, 6 May 2023 10:34:21 -0400
+Subject: [PATCH] Add in a missing cstdint. (#178)
+
+Signed-off-by: Chris Lalancette <clalancette@gmail.com>
+---
+ include/rcpputils/filesystem_helper.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/rcpputils/filesystem_helper.hpp b/include/rcpputils/filesystem_helper.hpp
+index 9fd1090..872b0d0 100644
+--- a/include/rcpputils/filesystem_helper.hpp
++++ b/include/rcpputils/filesystem_helper.hpp
+@@ -39,6 +39,7 @@
+ #ifndef RCPPUTILS__FILESYSTEM_HELPER_HPP_
+ #define RCPPUTILS__FILESYSTEM_HELPER_HPP_
+ 
++#include <cstdint>
+ #include <string>
+ #include <vector>
+ 
