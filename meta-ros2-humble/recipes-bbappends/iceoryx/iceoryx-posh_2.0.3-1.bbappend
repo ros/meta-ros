@@ -31,3 +31,5 @@ SRC_URI += "git://github.com/skystrife/cpptoml.git;name=cpptoml;destsuffix=git/c
     file://0002-Revert-iox-14-add-member-to-ChunkHeader-reduce-its-a.patch \
     file://0001-IceoryxPoshDeployment.cmake-change-DESTINATION_CONFIG.patch \
 "
+
+SRCREV_FORMAT += "_cpptoml"
