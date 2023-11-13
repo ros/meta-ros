@@ -13,6 +13,7 @@ SRC_URI += "file://0001-CMakeLists.txt-fetch-acado-hpmpc-with-bitbake-fetche.pat
 "
 SRCREV_acado-upstream = "8366e22cd5d815078e8d24f78dbced28b48d7e32"
 SRCREV_hpmpc-upstream = "abbcf0806e4c8763ab2129a90efd827d194c1b00"
+SRCREV_FORMAT += "_acado-upstream_hpmpc-upstream"
 
 # ERROR: acado-vendor-1.0.0-3-r0 do_package: QA Issue: acado-vendor: Files/directories were installed but not shipped in any package:
 #   /usr/cmake
