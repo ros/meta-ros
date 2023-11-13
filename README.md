@@ -19,7 +19,7 @@ can be presumed unsupported.
 |                     |              | May 2025     | May 2027         | Nov 2024     |
 | **Scarthgap (Dev)** | Apr 2028     | **May 2025** | **May 2027**     | **Nov 2024** |
 | **Nanbield**        | Apr 2024     | **May 2025** | **Apr 2024**     | **Apr 2024** |
-| Mickledore          | Nov 2023     | Nov 2023     | Nov 2023 <sup>1</sup>     | Nov 2023     |
+| Mickledore          | ~~Nov 2023~~ | ~~Nov 2023~~ | Nov 2023 <sup>1</sup>     | ~~Nov 2023~~ |
 | Langdale            | ~~May 2023~~ | ~~May 2023~~ | May 2023 <sup>2</sup>     | ~~May 2023~~ |
 | **Kirkstone (LTS)** | Apr 2026     | **Apr 2024** | **Apr 2026**     | **Nov 2024** |
 | Honister            | ~~May 2022~~ | ~~May 2022~~ | ~~May 2022~~     | ~~May 2022~~ |
