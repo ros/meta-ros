@@ -1,0 +1,62 @@
+From 7f411371b367ea402e2066c2af1ccbac6b4eb5bc Mon Sep 17 00:00:00 2001
+From: Chris Lalancette <clalancette@gmail.com>
+Date: Sun, 5 Nov 2023 14:27:40 -0500
+Subject: [PATCH] Updates to not use std::move in some places. (#2353)
+
+gcc 13.1.1 complains that these uses inhibit copy elision.
+
+Signed-off-by: Chris Lalancette <clalancette@gmail.com>
+---
+ rclcpp/include/rclcpp/experimental/intra_process_manager.hpp | 4 ++--
+ rclcpp/include/rclcpp/publisher.hpp                          | 2 +-
+ rclcpp/test/rclcpp/test_publisher.cpp                        | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/include/rclcpp/experimental/intra_process_manager.hpp b/include/rclcpp/experimental/intra_process_manager.hpp
+index f5e00fa4f8..54ff0c0dee 100644
+--- a/include/rclcpp/experimental/intra_process_manager.hpp
++++ b/include/rclcpp/experimental/intra_process_manager.hpp
+@@ -467,7 +467,7 @@ class IntraProcessManager
+           auto ptr = MessageAllocTraits::allocate(allocator, 1);
+           MessageAllocTraits::construct(allocator, ptr, *message);
+ 
+-          subscription->provide_intra_process_data(std::move(MessageUniquePtr(ptr, deleter)));
++          subscription->provide_intra_process_data(MessageUniquePtr(ptr, deleter));
+         }
+ 
+         continue;
+@@ -510,7 +510,7 @@ class IntraProcessManager
+             MessageAllocTraits::construct(allocator, ptr, *message);
+ 
+             ros_message_subscription->provide_intra_process_message(
+-              std::move(MessageUniquePtr(ptr, deleter)));
++              MessageUniquePtr(ptr, deleter));
+           }
+         }
+       }
+diff --git a/include/rclcpp/publisher.hpp b/include/rclcpp/publisher.hpp
+index 18229c7a4e..c03220f38b 100644
+--- a/include/rclcpp/publisher.hpp
++++ b/include/rclcpp/publisher.hpp
+@@ -390,7 +390,7 @@ class Publisher : public PublisherBase
+     if (this->can_loan_messages()) {
+       // we release the ownership from the rclpp::LoanedMessage instance
+       // and let the middleware clean up the memory.
+-      this->do_loaned_message_publish(std::move(loaned_msg.release()));
++      this->do_loaned_message_publish(loaned_msg.release());
+     } else {
+       // we don't release the ownership, let the middleware copy the ros message
+       // and thus the destructor of rclcpp::LoanedMessage cleans up the memory.
+diff --git a/test/rclcpp/test_publisher.cpp b/test/rclcpp/test_publisher.cpp
+index a0c3ec8b75..3edb24c0dd 100644
+--- a/test/rclcpp/test_publisher.cpp
++++ b/test/rclcpp/test_publisher.cpp
+@@ -482,7 +482,7 @@ class TestPublisherProtectedMethods : public rclcpp::Publisher<MessageT, Allocat
+ 
+   void publish_loaned_message(rclcpp::LoanedMessage<MessageT, AllocatorT> && loaned_msg)
+   {
+-    this->do_loaned_message_publish(std::move(loaned_msg.release()));
++    this->do_loaned_message_publish(loaned_msg.release());
+   }
+ 
+   void call_default_incompatible_qos_callback(rclcpp::QOSOfferedIncompatibleQoSInfo & event) const
