@@ -1,0 +1,38 @@
+From c67720e95c26397cacaf1b4d7fd04cf3785de78a Mon Sep 17 00:00:00 2001
+From: Chris Lalancette <clalancette@gmail.com>
+Date: Tue, 10 Oct 2023 15:26:10 -0400
+Subject: [PATCH] Add missing stdexcept include (#2186) (#2333)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Øystein Sture <os@skarvtech.com>
+Co-authored-by: Øystein Sture <oysstu@users.noreply.github.com>
+---
+ rclcpp/include/rclcpp/context.hpp   | 1 +
+ rclcpp/src/rclcpp/logging_mutex.cpp | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/include/rclcpp/context.hpp b/include/rclcpp/context.hpp
+index 45c70b9af2..4417f4d675 100644
+--- a/include/rclcpp/context.hpp
++++ b/include/rclcpp/context.hpp
+@@ -26,6 +26,7 @@
+ #include <unordered_set>
+ #include <utility>
+ #include <vector>
++#include <stdexcept>
+
+ #include "rcl/context.h"
+ #include "rcl/guard_condition.h"
+diff --git a/src/rclcpp/logging_mutex.cpp b/src/rclcpp/logging_mutex.cpp
+index 308a21fe73..bbbe9bbeed 100644
+--- a/src/rclcpp/logging_mutex.cpp
++++ b/src/rclcpp/logging_mutex.cpp
+@@ -14,6 +14,7 @@
+
+ #include <memory>
+ #include <mutex>
++#include <stdexcept>
+
+ #include "rcutils/macros.h"
