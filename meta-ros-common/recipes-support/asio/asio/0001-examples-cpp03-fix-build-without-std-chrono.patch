@@ -46,11 +46,11 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  src/tests/Makefile.am          |  4 ++++
  2 files changed, 29 insertions(+)
 
-diff --git a/src/examples/cpp03/Makefile.am b/src/examples/cpp03/Makefile.am
-index 0e6e0d37..7203d878 100644
---- a/src/examples/cpp03/Makefile.am
-+++ b/src/examples/cpp03/Makefile.am
-@@ -170,6 +170,27 @@ tutorial_daytime4_client_SOURCES = tutorial/daytime4/client.cpp
+Index: asio-1.28.0/src/examples/cpp03/Makefile.am
+===================================================================
+--- asio-1.28.0.orig/src/examples/cpp03/Makefile.am
++++ asio-1.28.0/src/examples/cpp03/Makefile.am
+@@ -170,6 +170,27 @@ tutorial_daytime4_client_SOURCES = tutor
  tutorial_daytime5_server_SOURCES = tutorial/daytime5/server.cpp
  tutorial_daytime6_server_SOURCES = tutorial/daytime6/server.cpp
  tutorial_daytime7_server_SOURCES = tutorial/daytime7/server.cpp
@@ -89,11 +89,11 @@ index 0e6e0d37..7203d878 100644
  local_stream_server_SOURCES = local/stream_server.cpp
  local_stream_client_SOURCES = local/stream_client.cpp
  endif
-diff --git a/src/tests/Makefile.am b/src/tests/Makefile.am
-index 13878835..17097def 100644
---- a/src/tests/Makefile.am
-+++ b/src/tests/Makefile.am
-@@ -288,6 +288,10 @@ latency_udp_client_SOURCES = latency/udp_client.cpp
+Index: asio-1.28.0/src/tests/Makefile.am
+===================================================================
+--- asio-1.28.0.orig/src/tests/Makefile.am
++++ asio-1.28.0/src/tests/Makefile.am
+@@ -460,6 +460,10 @@ latency_udp_client_SOURCES = latency/udp
  latency_udp_server_SOURCES = latency/udp_server.cpp
  performance_client_SOURCES = performance/client.cpp
  performance_server_SOURCES = performance/server.cpp
@@ -103,4 +103,4 @@ index 13878835..17097def 100644
 +endif
  endif
  
- unit_associated_allocator_SOURCES = unit/associated_allocator.cpp
+ unit_append_SOURCES = unit/append.cpp
