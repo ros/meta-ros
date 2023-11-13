@@ -10,3 +10,4 @@ SRC_URI += "file://0002-CMakeLists.txt-fetch-osqp-with-bitbake-fetcher.patch \
 "
 SRCREV_osqp = "f9fc23d3436e4b17dd2cb95f70cfa1f37d122c24"
 SRCREV_qdldl = "7d16b70a10a152682204d745d814b6eb63dc5cd2"
+SRCREV_FORMAT += "_osqp_qdldl"

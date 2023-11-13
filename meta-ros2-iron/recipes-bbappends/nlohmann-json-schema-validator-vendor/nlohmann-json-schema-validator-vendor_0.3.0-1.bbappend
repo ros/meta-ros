@@ -7,6 +7,8 @@ SRC_URI += " \
 "
 
 SRCREV_upstream = "1063c9adbafc25f5a14bae15c3babdb039de86c6"
+SRCREV_FORMAT += "_upstream"
+
 EXTRA_OECMAKE += "-Dnlohmann_json_DIR=${STAGING_INCDIR}"
 
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package nlohmann-json-schema-validator-vendor contains symlink .so '/usr/lib/libnlohmann_json_schema_validator.so' [dev-so]
