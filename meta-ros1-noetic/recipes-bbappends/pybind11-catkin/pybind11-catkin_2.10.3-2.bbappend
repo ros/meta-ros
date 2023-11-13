@@ -4,11 +4,14 @@
 # https://github.com/pybind/pybind11/archive/v2.5.0.zip with curl
 # during do_compile
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI = "git://github.com/wxmerkt/pybind11_catkin-release;${ROS_BRANCH};protocol=https;name=pybind11-release"
+SRCREV_pybind11-release = "58a6edca6420889dbcb1ac86938e7daf58d9f0e5"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-pybind11-with-bitbake-fetcher.patch \
     git://github.com/pybind/pybind11.git;protocol=https;name=pybind11-upstream;destsuffix=git/pybind11-upstream;branch=master \
 "
 
 SRCREV_pybind11-upstream = "014cd12ec1a3258f3bfc6597f371ed46c8e89ccd"
+SRCREV_FORMAT = "pybind11-release_pybind11-upstream"
 
 # Otherwise picks native python instead of the target one and fails with:
 # | Re-run cmake no build system arguments

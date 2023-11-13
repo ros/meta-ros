@@ -4,6 +4,8 @@
 # https://github.com/oxfordcontrol/osqp.git from tag v0.6.1-dev0
 # during do_compile fetch v0.6.2, because v0.6.1-dev0 tag was deleted in osqp repo
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI = "git://github.com/tier4/osqp_vendor-release;${ROS_BRANCH};protocol=https;name=osqp-release"
+SRCREV_osqp-release = "9fcdf01fa12e5ee9f1a843f1fe3ba553d3258acd"
 SRC_URI += "file://0001-CMakeLists.txt-user-relative-destination-path.patch \
     file://0002-CMakeLists.txt-fetch-osqp-with-bitbake-fetcher.patch \
     file://0003-CMakeLists.txt-adjust-to-make-catkin-happy.patch \
@@ -12,6 +14,7 @@ SRC_URI += "file://0001-CMakeLists.txt-user-relative-destination-path.patch \
 "
 SRCREV_osqp = "f9fc23d3436e4b17dd2cb95f70cfa1f37d122c24"
 SRCREV_qdldl = "7d16b70a10a152682204d745d814b6eb63dc5cd2"
+SRCREV_FORMAT = "osqp-release_osqp_qdldl"
 
 # ERROR: osqp-vendor-0.1.2-1-r0 do_package: QA Issue: osqp-vendor: Files/directories were installed but not shipped in any package:
 #   /usr/opt/ros/noetic/lib/cmake
