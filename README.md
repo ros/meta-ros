@@ -58,12 +58,15 @@ bitbake ros-image-core
 
 ## Branches
 
-The `master` branch is intended to follow the Yocto Project release series
-currently under development. It is presently on Kirkstone and needs to be moved
-forward to Scarthgap which is the Yocto Project development release.
+The `master` branch follows the Yocto Project release series currently under
+development.
+
+The branches named after Yocto releases track updates during their support
+lifecycle.  The commit history on these branches is linear.
 
 The `-next` branches  contain commits that are pending being merged into their
-corresponding unsuffixed branches.
+corresponding unsuffixed branches.  The commit history on these branches may
+get rewritten as patches are tested and revised.
 
 The `build` branch contains the mcf tool which can be used for creating an 
 environment using the .mcf configuration files.  These files may be found in the
