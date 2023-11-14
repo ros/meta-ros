@@ -48,7 +48,7 @@ OpenEmbeddedVersion = '3.1.21-dunfell'
 
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
 from os import getenv
-MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'https://github.com/robwoolley/meta-ros.git')
+MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'https://github.com/ros/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   OE_Branch)
 MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'dunfell-next')
 
