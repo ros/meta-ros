@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a2a8a02..7c5abfa 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -134,8 +134,8 @@ ament_package()
+ install(
+   TARGETS rmw_cyclonedds_cpp
+   EXPORT export_rmw_cyclonedds_cpp
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin
+ )
+ 

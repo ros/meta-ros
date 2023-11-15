@@ -1,0 +1,13 @@
+diff --git a/cmake/ament_cmake_export_libraries-extras.cmake.in b/cmake/ament_cmake_export_libraries-extras.cmake.in
+index bd47853f8..5010d91c4 100644
+--- a/cmake/ament_cmake_export_libraries-extras.cmake.in
++++ b/cmake/ament_cmake_export_libraries-extras.cmake.in
+@@ -39,7 +39,7 @@ if(NOT _exported_libraries STREQUAL "")
+       set(_lib "NOTFOUND")
+       find_library(
+         _lib NAMES "${_library}"
+-        PATHS "${@PROJECT_NAME@_DIR}/../../../lib"
++        PATHS "${@PROJECT_NAME@_DIR}/../../../${CMAKE_INSTALL_LIBDIR}"
+         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH
+       )
+ 

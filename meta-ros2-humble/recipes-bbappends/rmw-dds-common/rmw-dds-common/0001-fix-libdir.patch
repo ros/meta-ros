@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fc68a93..a6e764a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -64,8 +64,8 @@ target_compile_definitions(${PROJECT_NAME}_library
+ 
+ install(
+   TARGETS ${PROJECT_NAME}_library EXPORT ${PROJECT_NAME}_library
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin
+ )
+ 

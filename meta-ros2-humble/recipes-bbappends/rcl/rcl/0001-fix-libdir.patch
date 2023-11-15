@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 11462f11..9848dd1e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -94,8 +94,8 @@ endif()
+ 
+ install(
+   TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin)
+ 
+ # rcl_lib_dir is passed as APPEND_LIBRARY_DIRS for each ament_add_gtest call so
