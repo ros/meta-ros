@@ -1,0 +1,10 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2bea2759..4199b4a3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,4 +26,4 @@ install(
+ install(PROGRAMS
+   scripts/msg2idl.py
+   scripts/srv2idl.py
+-  DESTINATION lib/${PROJECT_NAME})
++  DESTINATION ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME})

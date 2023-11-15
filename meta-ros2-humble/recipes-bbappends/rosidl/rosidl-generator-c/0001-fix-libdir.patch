@@ -1,0 +1,42 @@
+index 7b9b93be..7abe9ff7 100644
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -102,7 +102,7 @@ ament_package(
+ 
+ install(
+   PROGRAMS bin/rosidl_generator_c
+-  DESTINATION lib/rosidl_generator_c
++  DESTINATION ${CMAKE_INSTALL_LIBDIR}/rosidl_generator_c
+ )
+ install(
+   DIRECTORY cmake resource
+Index: git/rosidl_generator_c-extras.cmake.in
+===================================================================
+--- git.orig/rosidl_generator_c-extras.cmake.in
++++ git/rosidl_generator_c-extras.cmake.in
+@@ -5,7 +5,7 @@ set(rosidl_generator_c_LIBRARY_TYPE "@ro
+ 
+ include("${CMAKE_CURRENT_LIST_DIR}/register_c.cmake")
+ rosidl_generator_c_extras(
+-  "${rosidl_generator_c_DIR}/../../../lib/rosidl_generator_c/rosidl_generator_c"
++  "${rosidl_generator_c_DIR}/../../../@CMAKE_INSTALL_LIBDIR@/rosidl_generator_c/rosidl_generator_c"
+   "${rosidl_generator_c_DIR}/../../../@PYTHON_INSTALL_DIR@/rosidl_generator_c/__init__.py"
+   "${rosidl_generator_c_DIR}/../resource"
+ )
+Index: git/cmake/rosidl_generator_c_generate_interfaces.cmake
+===================================================================
+--- git.orig/cmake/rosidl_generator_c_generate_interfaces.cmake
++++ git/cmake/rosidl_generator_c_generate_interfaces.cmake
+@@ -164,8 +164,8 @@ if(NOT rosidl_generate_interfaces_SKIP_I
+   install(
+     TARGETS ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+     EXPORT export_${rosidl_generate_interfaces_TARGET}${_target_suffix}
+-    ARCHIVE DESTINATION lib
+-    LIBRARY DESTINATION lib
++    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+     RUNTIME DESTINATION bin
+   )
+ 

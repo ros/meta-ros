@@ -1,0 +1,13 @@
+diff --git a/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake.in b/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake.in
+index 13bc3038..9dbc7f34 100644
+--- a/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake.in
++++ b/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake.in
+@@ -17,7 +17,7 @@ if(NOT _exported_typesupport_libraries STREQUAL "")
+       set(_lib "NOTFOUND")
+       find_library(
+         _lib NAMES "${_library}"
+-        PATHS "${@PROJECT_NAME@_DIR}/../../../lib"
++	PATHS "${@PROJECT_NAME@_DIR}/../../../${CMAKE_INSTALL_LIBDIR}"
+         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH
+       )
+ 

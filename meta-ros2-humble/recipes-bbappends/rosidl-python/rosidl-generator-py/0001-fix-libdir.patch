@@ -1,0 +1,26 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9685445..4c71ced 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -100,7 +100,7 @@ ament_package(
+ 
+ install(
+   PROGRAMS bin/rosidl_generator_py
+-  DESTINATION lib/rosidl_generator_py
++  DESTINATION ${CMAKE_INSTALL_LIBDIR}/rosidl_generator_py
+ )
+ install(
+   DIRECTORY cmake resource
+diff --git a/rosidl_generator_py-extras.cmake.in b/rosidl_generator_py-extras.cmake.in
+index 80bed29..30a7980 100644
+--- a/rosidl_generator_py-extras.cmake.in
++++ b/rosidl_generator_py-extras.cmake.in
+@@ -1,7 +1,7 @@
+ # generated from rosidl_generator_py/rosidl_generator_py-extras.cmake
+ include("${CMAKE_CURRENT_LIST_DIR}/register_py.cmake")
+ rosidl_generator_py_extras(
+-  "${rosidl_generator_py_DIR}/../../../lib/rosidl_generator_py/rosidl_generator_py"
++  "${rosidl_generator_py_DIR}/../../../@CMAKE_INSTALL_LIBDIR@/rosidl_generator_py/rosidl_generator_py"
+   "${rosidl_generator_py_DIR}/../../../@PYTHON_INSTALL_DIR@/rosidl_generator_py/__init__.py;${rosidl_generator_py_DIR}/../../../@PYTHON_INSTALL_DIR@/rosidl_generator_py/generate_py_impl.py"
+   "${rosidl_generator_py_DIR}/../resource"
+ )

@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1f852ade..694a8adc 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -44,8 +44,8 @@ target_compile_definitions(rclcpp_lifecycle PRIVATE "RCLCPP_LIFECYCLE_BUILDING_D
+ 
+ install(TARGETS
+   rclcpp_lifecycle EXPORT rclcpp_lifecycle
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin)
+ 
+ if(BUILD_TESTING)

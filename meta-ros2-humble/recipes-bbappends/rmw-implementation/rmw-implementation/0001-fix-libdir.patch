@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2926c71..757c44b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -112,8 +112,8 @@ else()
+ 
+   install(
+     TARGETS ${PROJECT_NAME} EXPORT export_${PROJECT_NAME}
+-    ARCHIVE DESTINATION lib
+-    LIBRARY DESTINATION lib
++    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+     RUNTIME DESTINATION bin
+   )
+ endif()

@@ -1,0 +1,10 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9c282bca..ed92f810 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -21,4 +21,4 @@ endif()
+ 
+ install(
+   PROGRAMS bin/idl2png
+-  DESTINATION lib/${PROJECT_NAME})
++  DESTINATION ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME})
