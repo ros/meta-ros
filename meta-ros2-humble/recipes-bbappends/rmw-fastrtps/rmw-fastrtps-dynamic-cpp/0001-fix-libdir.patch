@@ -1,0 +1,14 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 802e4058..6759fc82 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -176,7 +176,7 @@ install(
+ 
+ install(
+   TARGETS rmw_fastrtps_dynamic_cpp
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin
+ )

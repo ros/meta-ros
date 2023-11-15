@@ -1,0 +1,51 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -58,7 +58,7 @@ ament_package(
+ 
+ install(
+   PROGRAMS bin/rosidl_typesupport_introspection_c
+-  DESTINATION lib/rosidl_typesupport_introspection_c
++  DESTINATION ${CMAKE_INSTALL_LIBDIR}/rosidl_typesupport_introspection_c
+ )
+ install(
+   DIRECTORY cmake resource
+@@ -70,7 +70,7 @@ install(
+ )
+ install(
+   TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin
+ )
+Index: git/rosidl_typesupport_introspection_c-extras.cmake.in
+===================================================================
+--- git.orig/rosidl_typesupport_introspection_c-extras.cmake.in
++++ git/rosidl_typesupport_introspection_c-extras.cmake.in
+@@ -16,7 +16,7 @@ ament_register_extension(
+   "rosidl_typesupport_introspection_c_generate_interfaces.cmake")
+ 
+ set(rosidl_typesupport_introspection_c_BIN
+-  "${rosidl_typesupport_introspection_c_DIR}/../../../lib/rosidl_typesupport_introspection_c/rosidl_typesupport_introspection_c")
++  "${rosidl_typesupport_introspection_c_DIR}/../../../@CMAKE_INSTALL_LIBDIR@/rosidl_typesupport_introspection_c/rosidl_typesupport_introspection_c")
+ normalize_path(rosidl_typesupport_introspection_c_BIN
+   "${rosidl_typesupport_introspection_c_BIN}")
+ 
+Index: git/cmake/rosidl_typesupport_introspection_c_generate_interfaces.cmake
+===================================================================
+--- git.orig/cmake/rosidl_typesupport_introspection_c_generate_interfaces.cmake
++++ git/cmake/rosidl_typesupport_introspection_c_generate_interfaces.cmake
+@@ -146,8 +146,8 @@ if(NOT rosidl_generate_interfaces_SKIP_I
+   install(
+     TARGETS ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+     EXPORT ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+-    ARCHIVE DESTINATION lib
+-    LIBRARY DESTINATION lib
++    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+     RUNTIME DESTINATION bin
+   )
+   rosidl_export_typesupport_targets(${_target_suffix}

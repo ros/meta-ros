@@ -1,0 +1,51 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -141,7 +141,7 @@ ament_package(
+ 
+ install(
+   PROGRAMS bin/rosidl_typesupport_cpp
+-  DESTINATION lib/rosidl_typesupport_cpp
++  DESTINATION ${CMAKE_INSTALL_LIBDIR}/rosidl_typesupport_cpp
+ )
+ install(
+   DIRECTORY cmake resource
+@@ -153,7 +153,7 @@ install(
+ )
+ install(
+   TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin
+ )
+Index: git/rosidl_typesupport_cpp-extras.cmake.in
+===================================================================
+--- git.orig/rosidl_typesupport_cpp-extras.cmake.in
++++ git/rosidl_typesupport_cpp-extras.cmake.in
+@@ -20,7 +20,7 @@ ament_register_extension(
+   "rosidl_typesupport_cpp_generate_interfaces.cmake")
+ 
+ set(rosidl_typesupport_cpp_BIN
+-  "${rosidl_typesupport_cpp_DIR}/../../../lib/rosidl_typesupport_cpp/rosidl_typesupport_cpp")
++  "${rosidl_typesupport_cpp_DIR}/../../../@CMAKE_INSTALL_LIBDIR@/rosidl_typesupport_cpp/rosidl_typesupport_cpp")
+ normalize_path(rosidl_typesupport_cpp_BIN
+   "${rosidl_typesupport_cpp_BIN}")
+ 
+Index: git/cmake/rosidl_typesupport_cpp_generate_interfaces.cmake
+===================================================================
+--- git.orig/cmake/rosidl_typesupport_cpp_generate_interfaces.cmake
++++ git/cmake/rosidl_typesupport_cpp_generate_interfaces.cmake
+@@ -140,8 +140,8 @@ if(NOT rosidl_generate_interfaces_SKIP_I
+   install(
+     TARGETS ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+     EXPORT ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+-    ARCHIVE DESTINATION lib
+-    LIBRARY DESTINATION lib
++    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+     RUNTIME DESTINATION bin
+   )
+ 

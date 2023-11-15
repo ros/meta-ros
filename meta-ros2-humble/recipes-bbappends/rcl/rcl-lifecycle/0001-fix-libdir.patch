@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1df5c512..1a7742c5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -66,8 +66,8 @@ if(BUILD_TESTING AND NOT RCUTILS_DISABLE_FAULT_INJECTION)
+ endif()
+ 
+ install(TARGETS rcl_lifecycle EXPORT rcl_lifecycle
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin)
+ 
+ if(BUILD_TESTING)

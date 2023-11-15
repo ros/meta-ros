@@ -1,4 +1,7 @@
 # Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2023 Wind River Systems, Inc.
+
+EXTRA_OECMAKE += " -DPYTHON_INSTALL_DIR=${baselib}/${PYTHON_DIR}/site-packages"
 
 ROS_BUILD_DEPENDS += " \
     fastcdr \
