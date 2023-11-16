@@ -21,3 +21,14 @@
 # error: use of old-style cast to 'unsigned int' [-Werror=old-style-cast]
 CFLAGS += "-Wno-error=sign-conversion -Wno-error=old-style-cast"
 CXXFLAGS += "-Wno-error=sign-conversion -Wno-error=old-style-cast"
+
+# error declaration of 'error_msg' shadows a member of 'rclcpp::exceptions::InvalidNodeNameError' [-Werror=shadow]
+# error declaration of 'invalid_index' shadows a member of 'rclcpp::exceptions::InvalidNodeNameError' [-Werror=shadow]
+# error declaration of 'error_msg' shadows a member of 'rclcpp::exceptions::InvalidNamespaceError' [-Werror=shadow]
+# error declaration of 'invalid_index' shadows a member of 'rclcpp::exceptions::InvalidNamespaceError' [-Werror=shadow]
+# error declaration of 'error_msg' shadows a member of 'rclcpp::exceptions::InvalidTopicNameError' [-Werror=shadow]
+# error declaration of 'invalid_index' shadows a member of 'rclcpp::exceptions::InvalidTopicNameError' [-Werror=shadow]
+# error declaration of 'error_msg' shadows a member of 'rclcpp::exceptions::InvalidServiceNameError' [-Werror=shadow]
+# error declaration of 'invalid_index' shadows a member of 'rclcpp::exceptions::InvalidServiceNameError' [-Werror=shadow]
+CFLAGS += "-Wno-error=shadow"
+CXXFLAGS += "-Wno-error=shadow"
