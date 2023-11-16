@@ -42,7 +42,7 @@ do_iinstall:append() {
     rm -rf ${D}${STAGING_DIR}
 }
 
-PNBLACKLIST[wxpython] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wxpython', 'Does not build: ld: cannot find -lwx_gtk3u_xrc-3.0', '', d)}"
+SKIP_RECIPE[wxpython] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wxpython', 'Does not build: ld: cannot find -lwx_gtk3u_xrc-3.0', '', d)}"
 
 inherit features_check
 # Depends on wxwidgets with this restriction:
