@@ -1,0 +1,51 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -113,7 +113,7 @@ ament_package(
+ 
+ install(
+   PROGRAMS bin/rosidl_typesupport_fastrtps_c
+-  DESTINATION lib/rosidl_typesupport_fastrtps_c
++  DESTINATION ${CMAKE_INSTALL_LIBDIR}/rosidl_typesupport_fastrtps_c
+ )
+ 
+ install(
+@@ -128,7 +128,7 @@ install(
+ 
+ install(
+   TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin
+ )
+Index: git/rosidl_typesupport_fastrtps_c-extras.cmake.in
+===================================================================
+--- git.orig/rosidl_typesupport_fastrtps_c-extras.cmake.in
++++ git/rosidl_typesupport_fastrtps_c-extras.cmake.in
+@@ -21,7 +21,7 @@ else()
+     "rosidl_typesupport_fastrtps_c_generate_interfaces.cmake")
+ 
+   set(rosidl_typesupport_fastrtps_c_BIN
+-    "${rosidl_typesupport_fastrtps_c_DIR}/../../../lib/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c")
++  "${rosidl_typesupport_fastrtps_c_DIR}/../../../@CMAKE_INSTALL_LIBDIR@/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c")
+   normalize_path(rosidl_typesupport_fastrtps_c_BIN
+     "${rosidl_typesupport_fastrtps_c_BIN}")
+ 
+Index: git/cmake/rosidl_typesupport_fastrtps_c_generate_interfaces.cmake
+===================================================================
+--- git.orig/cmake/rosidl_typesupport_fastrtps_c_generate_interfaces.cmake
++++ git/cmake/rosidl_typesupport_fastrtps_c_generate_interfaces.cmake
+@@ -167,8 +167,8 @@ if(NOT rosidl_generate_interfaces_SKIP_I
+   install(
+     TARGETS ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+     EXPORT export_${rosidl_generate_interfaces_TARGET}${_target_suffix}
+-    ARCHIVE DESTINATION lib
+-    LIBRARY DESTINATION lib
++    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+     RUNTIME DESTINATION bin
+   )
+ 

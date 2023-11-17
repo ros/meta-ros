@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 96ef1b3e..09200bf7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -51,8 +53,8 @@ endif()
+ target_compile_definitions(${PROJECT_NAME} PRIVATE "RCL_YAML_PARAM_PARSER_BUILDING_DLL")
+ 
+ install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin)
+ 
+ if(BUILD_TESTING)

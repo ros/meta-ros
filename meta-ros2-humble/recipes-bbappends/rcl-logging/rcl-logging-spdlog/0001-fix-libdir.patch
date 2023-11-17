@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 611d016..281b5c8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -39,8 +39,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
+ target_compile_definitions(${PROJECT_NAME} PRIVATE "RCL_LOGGING_INTERFACE_BUILDING_DLL")
+ 
+ install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin)
+ 
+ if(BUILD_TESTING)

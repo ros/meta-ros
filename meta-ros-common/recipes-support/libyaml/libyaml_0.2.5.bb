@@ -17,7 +17,8 @@ S = "${WORKDIR}/yaml-${PV}"
 
 inherit cmake
 
-EXTRA_OECMAKE += "-DINSTALL_CMAKE_DIR=lib/cmake/yaml \
+EXTRA_OECMAKE += "-DINSTALL_CMAKE_DIR=${baselib}/cmake/yaml \
+                  -DINSTALL_LIB_DIR=${baselib} \
                   -DBUILD_TESTING=OFF \
                   -DBUILD_SHARED_LIBS=ON"
 

@@ -1,0 +1,14 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c30caa0e..61819252 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -169,7 +169,7 @@ install(
+ 
+ install(
+   TARGETS rmw_fastrtps_cpp
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin
+ )

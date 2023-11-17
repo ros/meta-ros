@@ -1,0 +1,33 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a0ec5a2b..a091ba4b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -110,7 +110,7 @@ if(TRACETOOLS_STATUS_CHECKING_TOOL)
+   )
+   install(TARGETS
+     ${PROJECT_NAME}_status
+-    DESTINATION lib
++    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   )
+   list(APPEND HEADERS
+     include/${PROJECT_NAME}/status.h
+@@ -125,7 +125,7 @@ if(TRACETOOLS_STATUS_CHECKING_TOOL)
+   )
+   install(TARGETS
+     status
+-    DESTINATION lib/${PROJECT_NAME}
++    DESTINATION ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME}
+   )
+ endif()
+ 
+@@ -145,8 +145,8 @@ install(
+ install(
+   TARGETS ${PROJECT_NAME}
+   EXPORT ${PROJECT_NAME}_export
+-  LIBRARY DESTINATION lib
+-  ARCHIVE DESTINATION lib
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin
+ )
+ 

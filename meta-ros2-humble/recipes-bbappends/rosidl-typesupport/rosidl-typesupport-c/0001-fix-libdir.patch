@@ -1,0 +1,51 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -143,7 +143,7 @@ ament_package(
+ 
+ install(
+   PROGRAMS bin/rosidl_typesupport_c
+-  DESTINATION lib/rosidl_typesupport_c
++  DESTINATION ${CMAKE_INSTALL_LIBDIR}/rosidl_typesupport_c
+ )
+ install(
+   DIRECTORY cmake resource
+@@ -155,7 +155,7 @@ install(
+ )
+ install(
+   TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+   RUNTIME DESTINATION bin
+ )
+Index: git/rosidl_typesupport_c-extras.cmake.in
+===================================================================
+--- git.orig/rosidl_typesupport_c-extras.cmake.in
++++ git/rosidl_typesupport_c-extras.cmake.in
+@@ -20,7 +20,7 @@ ament_register_extension(
+   "rosidl_typesupport_c_generate_interfaces.cmake")
+ 
+ set(rosidl_typesupport_c_BIN
+-  "${rosidl_typesupport_c_DIR}/../../../lib/rosidl_typesupport_c/rosidl_typesupport_c")
++  "${rosidl_typesupport_c_DIR}/../../../@CMAKE_INSTALL_LIBDIR@/rosidl_typesupport_c/rosidl_typesupport_c")
+ normalize_path(rosidl_typesupport_c_BIN
+   "${rosidl_typesupport_c_BIN}")
+ 
+Index: git/cmake/rosidl_typesupport_c_generate_interfaces.cmake
+===================================================================
+--- git.orig/cmake/rosidl_typesupport_c_generate_interfaces.cmake
++++ git/cmake/rosidl_typesupport_c_generate_interfaces.cmake
+@@ -141,8 +141,8 @@ if(NOT rosidl_generate_interfaces_SKIP_I
+   install(
+     TARGETS ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+     EXPORT ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+-    ARCHIVE DESTINATION lib
+-    LIBRARY DESTINATION lib
++    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+     RUNTIME DESTINATION bin
+   )
+ 

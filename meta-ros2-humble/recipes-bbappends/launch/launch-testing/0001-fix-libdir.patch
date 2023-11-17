@@ -1,0 +1,19 @@
+diff --git a/setup.py b/setup.py
+index eadf3f08..c55914f3 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,4 +1,5 @@
+ import glob
++import sysconfig
+ 
+ from setuptools import find_packages
+ from setuptools import setup
+@@ -10,7 +11,7 @@ setup(
+     packages=find_packages(exclude=['test']),
+     data_files=[
+         ('share/ament_index/resource_index/packages', ['resource/launch_testing']),
+-        ('lib/launch_testing', glob.glob('example_processes/**')),
++        ( sysconfig.get_config_var('platlibdir')+'/launch_testing', glob.glob('example_processes/**')),
+         ('share/launch_testing', ['package.xml']),
+         ('share/launch_testing/examples', glob.glob('test/launch_testing/examples/[!_]**')),
+     ],
