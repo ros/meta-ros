@@ -36,15 +36,20 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     iceoryx-posh-native \
     iceoryx-hoofs-native \
     launch-native \
+    launch-ros-native \
     launch-yaml-native \
     launch-xml-native \
+    launch-testing-ros-native \
+    lifecycle-msgs-native \
     osrf-pycommon-native \
     rcutils-native \
+    rclpy-native \
     rcpputils-native \
     rmw-dds-common-native \
     rmw-fastrtps-cpp-native \
     rmw-fastrtps-shared-cpp-native \
     rmw-native \
+    ros2cli-native \
     rosidl-adapter-native \
     rosidl-cli-native \
     rosidl-default-runtime-native \
@@ -62,6 +67,27 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-typesupport-fastrtps-c-native \
     fastcdr-native \
     fastrtps-native \
+    composition-interfaces-native \
+    pybind11-vendor-native \
+    rcl-yaml-param-parser-native \
+    rcl-action-native \
+    rcl-interfaces-native \
+    rcl-lifecycle-native \
+    rcl-logging-interface-native \
+    rcl-native \
+    rcl-yaml-param-parser-native \
+    rmw-implementation-native \
+    rosgraph-msgs-native \
+    unique-identifier-msgs-native \
+    rmw-fastrtps-shared-cpp-native \
+    action-msgs-native \
+    rcl-logging-spdlog-native \
+    tracetools-native \
+    libyaml-vendor-native \
+    rmw-fastrtps-cpp-native \
+    rmw-cyclonedds-cpp-native \
+    rmw-fastrtps-dynamic-cpp-native \
+    spdlog-vendor-native \
 "
 
 # this needs google-benchmark-vendor-native but we probably don't need native version
