@@ -11,14 +11,14 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  CMakeLists.txt | 11 ++++++-----
  1 file changed, 6 insertions(+), 5 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 3b89edc..fbd8918 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -80,15 +80,16 @@ macro(build_benchmark)
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -81,15 +81,16 @@ macro(build_benchmark)
  endmacro()
  
- if(NOT benchmark_FOUND OR "${benchmark_VERSION}" VERSION_LESS 1.6.1)
+ if(NOT benchmark_FOUND OR "${benchmark_VERSION}" VERSION_LESS 1.5.3)
 -  build_benchmark()
 +  message(FATAL_ERROR "benchmark not found, missing dependency on google-benchmark or version less than 1.5.0, found ${benchmark_VERSION}")
  elseif(benchmark_FOUND)
