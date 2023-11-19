@@ -23,10 +23,12 @@ require conf/ros-distro/include/rolling/ros-distro-preferred-providers.inc
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
+    action-msgs-native \
     ament-acceleration-native \
     ament-lint-native \
     ament-cmake-cpplint-native \
     ament-cmake-uncrustify-native \
+    composition-interfaces-native \
     cyclonedds-native \
     domain-coordinator-native \
     fastcdr-native \
@@ -37,15 +39,33 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     iceoryx-hoofs-native \
     iceoryx-posh-native \
     launch-native \
+    launch-ros-native \
     launch-yaml-native \
     launch-xml-native \
+    launch-testing-ros-native \
+    libyaml-vendor-native \
+    lifecycle-msgs-native \
     osrf-pycommon-native \
+    pybind11-vendor-native \
     rcutils-native \
+    rcl-action-native \
+    rcl-interfaces-native \
+    rcl-lifecycle-native \
+    rcl-logging-interface-native \
+    rcl-logging-spdlog-native \
+    rcl-native \
+    rcl-yaml-param-parser-native \
+    rclpy-native \
     rcpputils-native \
+    rmw-cyclonedds-cpp-native \
     rmw-dds-common-native \
     rmw-fastrtps-cpp-native \
+    rmw-fastrtps-dynamic-cpp-native \
     rmw-fastrtps-shared-cpp-native \
+    rmw-implementation-native \
     rmw-native \
+    ros2cli-native \
+    rosgraph-msgs-native \
     rosidl-adapter-native \
     rosidl-cli-native \
     rosidl-core-runtime-native \
@@ -61,6 +81,8 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-runtime-c-native \
     rosidl-runtime-cpp-native \
     rpyutils-native \
+    spdlog-vendor-native \
+    tracetools-native \
     uncrustify-vendor-native \
     unique-identifier-msgs-native \
 "
