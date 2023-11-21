@@ -1,4 +1,4 @@
-From a8d6d068fbb098ed6f9bbae66c6724abb39af36a Mon Sep 17 00:00:00 2001
+From 60d575bc2f4bc060fb0dfcadb1ffdc55cd293d3b Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Fri, 26 Jun 2020 07:30:46 -0700
 Subject: [PATCH] CMakeLists.txt: drop dependency on zstd_vendor
@@ -8,12 +8,13 @@ Subject: [PATCH] CMakeLists.txt: drop dependency on zstd_vendor
 Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
 ---
- CMakeLists.txt | 30 +++++++++++++++++++++++-------
- 1 file changed, 23 insertions(+), 7 deletions(-)
+ CMakeLists.txt | 31 +++++++++++++++++++++++--------
+ 1 file changed, 23 insertions(+), 8 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d985c201..352970e3 100644
+index 0c0402f88..b4f135bf0 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -24,8 +24,8 @@ find_package(ament_cmake REQUIRED)
@@ -37,9 +38,9 @@ index d985c201..352970e3 100644
  target_compile_definitions(${PROJECT_NAME} PRIVATE ROSBAG2_COMPRESSION_ZSTD_BUILDING_DLL)
  pluginlib_export_plugin_description_file(rosbag2_compression plugin_description.xml)
  
-@@ -56,10 +55,26 @@ install(
- ament_export_include_directories(include)
- ament_export_libraries(${PROJECT_NAME})
+@@ -59,10 +58,26 @@ ament_export_libraries(${PROJECT_NAME})
+
+ # Export modern CMake targets
  ament_export_targets(export_${PROJECT_NAME})
 -
 -# order matters here, first vendor, then zstd
@@ -66,5 +67,5 @@ index d985c201..352970e3 100644
 +#   CMakeLists.txt:21 (find_package)
 +ament_export_dependencies(pluginlib rcpputils rcutils rosbag2_cpp rosbag2_storage)
  
- # Export modern CMake targets
- ament_export_targets(export_${PROJECT_NAME})
+ if(BUILD_TESTING)
+   find_package(ament_cmake_gmock REQUIRED)
