@@ -1,0 +1,32 @@
+From fb3930405da6245747d80af82d750558aa7da86e Mon Sep 17 00:00:00 2001
+From: "mergify[bot]" <37929162+mergify[bot]@users.noreply.github.com>
+Date: Mon, 15 May 2023 09:28:58 -0700
+Subject: [PATCH] Add in a missing cstdint include. (#1321) (#1322)
+
+Signed-off-by: Chris Lalancette <clalancette@gmail.com>
+(cherry picked from commit 65c889e1fa55dd85a148b27b8c27dadc73238e67)
+
+Co-authored-by: Chris Lalancette <clalancette@gmail.com>
+
+Rebase patch on humble release.
+
+Signed-off-by: Sandeep Gundlupet Raju <sandeep.gundlupet-raju@amd.com>
+---
+ include/rosbag2_compression/compression_options.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/rosbag2_compression/compression_options.hpp b/include/rosbag2_compression/compression_options.hpp
+index 37fe5007e..3028f2a49 100644
+--- a/include/rosbag2_compression/compression_options.hpp
++++ b/include/rosbag2_compression/compression_options.hpp
+@@ -15,6 +15,7 @@
+ #ifndef ROSBAG2_COMPRESSION__COMPRESSION_OPTIONS_HPP_
+ #define ROSBAG2_COMPRESSION__COMPRESSION_OPTIONS_HPP_
+ 
++#include <cstdint>
+ #include <string>
+ 
+ #include "visibility_control.hpp"
+-- 
+2.34.1
+
