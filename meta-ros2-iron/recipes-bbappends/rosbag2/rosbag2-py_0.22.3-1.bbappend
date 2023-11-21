@@ -4,3 +4,5 @@ ROS_BUILDTOOL_DEPENDS += " \
     python3-numpy-native \
     rosidl-adapter \
 "
+
+INSANE_SKIP:${PN} += "already-stripped"
