@@ -1,4 +1,4 @@
-From d7015b84fbf81615f4efa96ef8cf81461c133bd0 Mon Sep 17 00:00:00 2001
+From 1e0b46a476c1c950e22403a2d8950f5c97a1a0fe Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Fri, 5 Jun 2020 11:35:25 -0700
 Subject: [PATCH] CMakeLists.txt: prevent building zstd with ExternalProject
@@ -8,19 +8,23 @@ Subject: [PATCH] CMakeLists.txt: prevent building zstd with ExternalProject
 Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
+Rebase patch on rolling release.
+
+Signed-off-by: Sandeep Gundlupet Raju <sandeep.gundlupet-raju@amd.com>
 ---
- CMakeLists.txt                      |   56 ++----------------------------------
- cmake_minimum_required_2.8.12.patch |   26 ----------------
- no_internal_headers.patch           |   28 ------------------
- 3 files changed, 4 insertions(+), 106 deletions(-)
+ CMakeLists.txt                      | 54 +++--------------------------
+ cmake_minimum_required_2.8.12.patch | 26 --------------
+ no_internal_headers.patch           | 27 ---------------
+ 3 files changed, 4 insertions(+), 103 deletions(-)
  delete mode 100644 cmake_minimum_required_2.8.12.patch
  delete mode 100644 no_internal_headers.patch
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e3d4a22a..78efbc22 100644
+index e3d4a22a0..fb0adec42 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -9,62 +9,14 @@ option(FORCE_BUILD_VENDOR_PKG
+@@ -9,58 +9,12 @@ option(FORCE_BUILD_VENDOR_PKG
    OFF)
  
  if(NOT FORCE_BUILD_VENDOR_PKG)
@@ -83,13 +87,9 @@ index e3d4a22a..78efbc22 100644
  else()
    message(STATUS "Found Zstd, skipping build.")
  endif()
- 
- install(DIRECTORY cmake DESTINATION share/${PROJECT_NAME})
--
--ament_package(CONFIG_EXTRAS zstd_vendor-extras.cmake)
 diff --git a/cmake_minimum_required_2.8.12.patch b/cmake_minimum_required_2.8.12.patch
 deleted file mode 100644
-index 939252df..00000000
+index 939252dfa..000000000
 --- a/cmake_minimum_required_2.8.12.patch
 +++ /dev/null
 @@ -1,26 +0,0 @@
@@ -121,35 +121,37 @@ index 939252df..00000000
 -
 diff --git a/no_internal_headers.patch b/no_internal_headers.patch
 deleted file mode 100644
-index 10793892..00000000
+index e091fb4b1..000000000
 --- a/no_internal_headers.patch
 +++ /dev/null
-@@ -1,28 +0,0 @@
--From f1153100884e580dce331e8dd56b260ffb2f04d5 Mon Sep 17 00:00:00 2001
--From: Emerson Knapp <eknapp@amazon.com>
--Date: Tue, 2 Feb 2021 17:47:46 -0800
+@@ -1,27 +0,0 @@
+-From e85114a0200c06dc5bb523a6b5764e938b0e8047 Mon Sep 17 00:00:00 2001
+-From: James Smith <james@foxglove.dev>
+-Date: Thu, 1 Dec 2022 09:57:11 +1100
 -Subject: [PATCH] Don't install internal headers
 -
--Signed-off-by: Emerson Knapp <eknapp@amazon.com>
+-Signed-off-by: James Smith <james@foxglove.dev>
 ----
-- build/cmake/lib/CMakeLists.txt | 4 ----
-- 1 file changed, 4 deletions(-)
+- build/cmake/lib/CMakeLists.txt | 3 ---
+- 1 file changed, 3 deletions(-)
 -
 -diff --git a/build/cmake/lib/CMakeLists.txt b/build/cmake/lib/CMakeLists.txt
--index 7adca875..0c2d777e 100644
+-index 7adca875..c66380b9 100644
 ---- a/build/cmake/lib/CMakeLists.txt
 -+++ b/build/cmake/lib/CMakeLists.txt
--@@ -147,10 +147,6 @@ endif ()
+-@@ -147,9 +147,6 @@ endif ()
 - # install target
 - install(FILES
 -     ${LIBRARY_DIR}/zstd.h
 --    ${LIBRARY_DIR}/deprecated/zbuff.h
 --    ${LIBRARY_DIR}/dictBuilder/zdict.h
 --    ${LIBRARY_DIR}/dictBuilder/cover.h
---    ${LIBRARY_DIR}/common/zstd_errors.h
+-     ${LIBRARY_DIR}/common/zstd_errors.h
 -     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
 - 
-- if (ZSTD_BUILD_SHARED)
 --- 
--2.17.1
+-2.34.1
 -
+-- 
+2.34.1
+
