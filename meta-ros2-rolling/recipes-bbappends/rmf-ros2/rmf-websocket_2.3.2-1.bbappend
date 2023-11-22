@@ -4,4 +4,4 @@
 ROS_EXEC_DEPENDS:remove = "nlohmann-json"
 
 # websocketpp does not provide runtime components
-ROS_EXEC_DEPENDS:remove += "websocketpp"
+ROS_EXEC_DEPENDS:remove = "websocketpp"
