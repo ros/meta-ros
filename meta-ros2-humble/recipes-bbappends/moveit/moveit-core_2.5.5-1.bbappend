@@ -1,9 +1,10 @@
 # Copyright (c) 2021 LG Electronics, Inc.
-# Copyright (c) 2022 Wind River Systems, Inc.
+# Copyright (c) 2022-2023 Wind River Systems, Inc.
 
 ROS_BUILDTOOL_DEPENDS = " \
     rosidl-adapter-native \
     python3-numpy-native \
+    generate-parameter-library-py-native \
 "
 
 # tf2-kdl and angles are only in ROS_TEST_DEPENDS but CMake checks for it even with testing disabled
