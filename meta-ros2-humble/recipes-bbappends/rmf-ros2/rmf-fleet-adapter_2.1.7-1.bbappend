@@ -1,5 +1,5 @@
 # Copyright (c) 2021 LG Electronics, Inc.
-# Copyright (c) 2022 Wind River Systems, Inc.
+# Copyright (c) 2022-2023 Wind River Systems, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
@@ -8,3 +8,7 @@ SRC_URI += " \
 
 # Doesn't need runtime dependency on nlohmann-json
 ROS_EXEC_DEPENDS:remove = "nlohmann-json"
+
+ROS_BUILDTOOL_DEPENDS += " \
+    rosidl-default-generators-native \
+"
