@@ -1,0 +1,22 @@
+From: Adrian Bunk <bunk@debian.org>
+Date: Sat, 9 Sep 2017 15:02:51 +0200
+Subject: Use the generic platform for armel+armhf NEON is not part of the
+ armel and armhf baselines.
+
+---
+ ThirdParty/PSCommon/BuildSystem/CommonDefs.mak | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/ThirdParty/PSCommon/BuildSystem/CommonDefs.mak b/ThirdParty/PSCommon/BuildSystem/CommonDefs.mak
+index c29d9bd..6384ef8 100644
+--- a/ThirdParty/PSCommon/BuildSystem/CommonDefs.mak
++++ b/ThirdParty/PSCommon/BuildSystem/CommonDefs.mak
+@@ -18,8 +18,6 @@ else ifneq (,$(findstring i386,$(MACHINE)))
+ 	HOST_PLATFORM = x86
+ else ifneq (,$(findstring armv6l,$(MACHINE)))
+ 	HOST_PLATFORM = Armv6l
+-else ifneq (,$(findstring arm,$(MACHINE)))
+-	HOST_PLATFORM = Arm
+ else
+ 	HOST_PLATFORM = generic
+ endif

@@ -1,0 +1,21 @@
+From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
+Date: Sat, 14 Sep 2019 10:02:15 +0200
+Subject: Port to Python 3
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index a436a84..2621d9a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -24,7 +24,7 @@ ifeq ("$(OSTYPE)","Darwin")
+ else
+ 	OS_NAME = Linux
+ endif
+-PRODUCT_STRING = OpenNI-$(OS_NAME)-$(PLATFORM)-$(shell cd Packaging && python -c "import UpdateVersion; print UpdateVersion.getVersionName()" && cd ..)
++PRODUCT_STRING = OpenNI-$(OS_NAME)-$(PLATFORM)-$(shell cd Packaging && python3 -c "import UpdateVersion; print UpdateVersion.getVersionName()" && cd ..)
+ FINAL_DIR = Packaging/Final
+ 
+ OPENNI = Source/Core

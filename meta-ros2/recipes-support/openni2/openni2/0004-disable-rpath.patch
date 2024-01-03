@@ -1,0 +1,29 @@
+From: Hauke Wintjen <hwintjen@rimpl-consulting.de>
+Date: Tue, 2 Apr 2013 21:09:09 +0200
+Subject: disable rpath
+
+This has the advance that we dont get any lintian warnings but the drawback that afterwards
+the drivers.so are no longer found. 
+
+So this patch is DISABLED in series currently.
+
+This is caused by the fact that dlopen does not consider the current dir if not told so 
+(XnLinuxSharedLibs.cpp should be fixed for that).
+
+---
+ ThirdParty/PSCommon/BuildSystem/CommonCppMakefile |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ThirdParty/PSCommon/BuildSystem/CommonCppMakefile b/ThirdParty/PSCommon/BuildSystem/CommonCppMakefile
+index 4d53302..c442865 100644
+--- a/ThirdParty/PSCommon/BuildSystem/CommonCppMakefile
++++ b/ThirdParty/PSCommon/BuildSystem/CommonCppMakefile
+@@ -88,7 +88,7 @@ endif
+ ifneq "$(EXE_NAME)" ""
+ 	OUTPUT_NAME = $(EXE_NAME)
+ 	# We want the executables to look for the .so's locally first:
+-	LDFLAGS += -Wl,-rpath ./
++	#	LDFLAGS += -Wl,-rpath ./
+ 	OUTPUT_COMMAND = $(CXX) -o $(OUTPUT_FILE) $(OBJ_FILES) $(LDFLAGS)
+ endif
+ ifneq "$(SLIB_NAME)" ""
