@@ -1,0 +1,52 @@
+From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
+Date: Fri, 5 Feb 2021 20:10:05 +0100
+Subject: Fix javadoc with Java 17
+
+---
+ .../java/OpenNI.java/src/org/openni/CoordinateConverter.java   | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/Wrappers/java/OpenNI.java/src/org/openni/CoordinateConverter.java b/Wrappers/java/OpenNI.java/src/org/openni/CoordinateConverter.java
+index 8d90f37..861fc8e 100644
+--- a/Wrappers/java/OpenNI.java/src/org/openni/CoordinateConverter.java
++++ b/Wrappers/java/OpenNI.java/src/org/openni/CoordinateConverter.java
+@@ -54,7 +54,7 @@ public class CoordinateConverter {
+    *        coordinates
+    * @param worldZ The Z coordinate of the point to be converted, measured in millimeters in World
+    *        coordinates
+-   * @return Point3D<Integer> Coordinate of the output value, and depth measured in the
++   * @return Point3D Coordinate of the output value, and depth measured in the
+    *         {@link PixelFormat} of depthStream
+    */
+   public static Point3D<Integer> convertWorldToDepthInt(final VideoStream depthStream,
+@@ -85,10 +85,10 @@ public class CoordinateConverter {
+    * @return Point3DPoint to a place to store: the X coordinate of the output value, measured in
+    *         pixels with 0.0 at far left of the image
+    *         <p>
+-   *         <t> the Y coordinate of the output value, measured in pixels with 0.0 at the top of the
++   *         the Y coordinate of the output value, measured in pixels with 0.0 at the top of the
+    *         image
+    *         <p>
+-   *         <t> the Z(depth) coordinate of the output value, measured in millimeters with 0.0 at
++   *         the Z(depth) coordinate of the output value, measured in millimeters with 0.0 at
+    *         the camera lens
+    */
+   public static Point3D<Float> convertWorldToDepthFloat(final VideoStream depthStream,
+@@ -115,7 +115,7 @@ public class CoordinateConverter {
+    *        top of the image
+    * @param depthZ the Z(depth) coordinate of the point to be converted, measured in the
+    *        {@link PixelFormat} of depthStream
+-   * @return Point3D<Float> to a place to store the X,Y,Z coordinate of the output value, measured
++   * @return Point3D to a place to store the X,Y,Z coordinate of the output value, measured
+    *         in millimeters in World coordinates
+    */
+   public static Point3D<Float> convertDepthToWorld(final VideoStream depthStream, int depthX,
+@@ -143,7 +143,7 @@ public class CoordinateConverter {
+    *        top of the image
+    * @param depthZ Z(depth) coordinate of the point to be converted, measured in the
+    *        {@link PixelFormat}of depthStream
+-   * @return Point3D<Float> to a place to store the X coordinate of the output value, measured in
++   * @return Point3D to a place to store the X coordinate of the output value, measured in
+    *         millimeters in World coordinates
+    */
+   public static Point3D<Float> convertDepthToWorld(final VideoStream depthStream, float depthX,
