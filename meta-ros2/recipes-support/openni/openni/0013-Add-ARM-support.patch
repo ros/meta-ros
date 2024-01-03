@@ -1,0 +1,58 @@
+From 6a78444abbe7ae138c1eb80df0df476d9d142e7f Mon Sep 17 00:00:00 2001
+From: Joe Burmeister <joe@SuaveAirApps.co.uk>
+Date: Wed, 22 Oct 2014 17:43:03 +0100
+Subject: [PATCH] Quick changes to support armhf.
+
+---
+ Externals/PSCommon/Linux/Build/Platform.Arm  | 2 +-
+ Platform/Linux/Build/Common/Platform.Arm     | 8 +++++++-
+ Platform/Linux/CreateRedist/Redist_OpenNi.py | 1 -
+ 3 files changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/Externals/PSCommon/Linux/Build/Platform.Arm b/Externals/PSCommon/Linux/Build/Platform.Arm
+index c85cfb7..2341ed0 100644
+--- a/Externals/PSCommon/Linux/Build/Platform.Arm
++++ b/Externals/PSCommon/Linux/Build/Platform.Arm
+@@ -1,7 +1,7 @@
+ ifeq "$(CFG)" "Release"
+ 
+     # Hardware specifying flags
+-    CFLAGS += -march=armv7-a -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp #-mcpu=cortex-a8
++    CFLAGS += -march=armv7-a -mtune=cortex-a8 -mfpu=neon #-mcpu=cortex-a8
+ 
+     # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
+     CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
+diff --git a/Platform/Linux/Build/Common/Platform.Arm b/Platform/Linux/Build/Common/Platform.Arm
+index c85cfb7..07144a3 100644
+--- a/Platform/Linux/Build/Common/Platform.Arm
++++ b/Platform/Linux/Build/Common/Platform.Arm
+@@ -1,7 +1,13 @@
++# take this file's dir
++COMMON_MAK_DIR = $(dir $(lastword $(MAKEFILE_LIST)))
++
++export GLUT_SUPPORTED=1
++
++
+ ifeq "$(CFG)" "Release"
+ 
+     # Hardware specifying flags
+-    CFLAGS += -march=armv7-a -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp #-mcpu=cortex-a8
++    CFLAGS += -march=armv7-a -mtune=cortex-a8 -mfpu=neon #-mcpu=cortex-a8
+ 
+     # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
+     CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
+diff --git a/Platform/Linux/CreateRedist/Redist_OpenNi.py b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+index 0d667cf..548b87f 100755
+--- a/Platform/Linux/CreateRedist/Redist_OpenNi.py
++++ b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+@@ -349,7 +349,6 @@ if PLATFORM == 'CE4100':
+ 
+ if PLATFORM == 'Arm':
+     samples_list.remove('NiUserTracker')
+-    samples_list.remove('NiViewer')
+     samples_list.remove('NiSimpleViewer')
+     samples_list.remove('NiHandTracker')
+     samples_list.remove('NiUserSelection')
+-- 
+1.9.1
+

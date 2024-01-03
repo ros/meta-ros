@@ -1,0 +1,22 @@
+Description: do not compile the Windows .chm help file
+ CHM aka Compiled HTML is the native help format for Windows. While it is
+ possible to view .chm files on Debian, the content is already included in
+ better formats for Debian (HTML, PDF).
+Author: Hans-Christoph Steiner <hans@eds.org>
+Forwarded: not-needed
+Reviewed-By: Hans-Christoph Steiner <hans@eds.org>
+Last-Update: <2013-10-01>
+
+diff --git a/Source/DoxyGen/Doxyfile b/Source/DoxyGen/Doxyfile
+index 373e5ce..8597e41 100644
+--- a/Source/DoxyGen/Doxyfile
++++ b/Source/DoxyGen/Doxyfile
+@@ -1013,7 +1013,7 @@ DOCSET_PUBLISHER_NAME  = OpenNI
+ # Microsoft HTML help workshop to generate a compiled HTML help file (.chm) 
+ # of the generated HTML documentation.
+ 
+-GENERATE_HTMLHELP      = YES
++GENERATE_HTMLHELP      = NO
+ 
+ # If the GENERATE_HTMLHELP tag is set to YES, the CHM_FILE tag can 
+ # be used to specify the file name of the resulting .chm file. You 

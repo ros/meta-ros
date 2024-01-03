@@ -1,0 +1,180 @@
+Index: new.openni-1.5.4.0/Include/XnPlatform.h
+===================================================================
+--- new.openni-1.5.4.0.orig/Include/XnPlatform.h
++++ new.openni-1.5.4.0/Include/XnPlatform.h
+@@ -37,6 +37,7 @@
+ #define XN_PLATFORM_ANDROID_ARM 9
+ #define XN_PLATFORM_LINUX_POWERPC 10
+ #define XN_PLATFORM_LINUX_AARCH64 11
++#define XN_PLATFORM_LINUX_MIPS 12
+ 
+ #define XN_PLATFORM_IS_LITTLE_ENDIAN 1
+ #define XN_PLATFORM_IS_BIG_ENDIAN    2
+@@ -72,6 +73,8 @@
+ 	#include "Linux-AArch64/XnPlatformLinux-AArch64.h"
+ #elif (__linux__ && __powerpc__)
+ 	#include "Linux-Powerpc/XnPlatformLinux-Powerpc.h"
++#elif (__linux__ && __mips__)
++	#include "Linux-Mips/XnPlatformLinux-Mips.h"
+ #elif _ARC
+ 	#include "ARC/XnPlatformARC.h"
+ #elif (__APPLE__)
+Index: new.openni-1.5.4.0/Platform/Linux/Build/Common/CommonDefs.mak
+===================================================================
+--- new.openni-1.5.4.0.orig/Platform/Linux/Build/Common/CommonDefs.mak
++++ new.openni-1.5.4.0/Platform/Linux/Build/Common/CommonDefs.mak
+@@ -22,6 +22,8 @@ else ifneq (,$(findstring aarch64,$(MACH
+ 	HOST_PLATFORM = AArch64
+ else ifneq (,$(findstring ppc,$(MACHINE)))
+ 	HOST_PLATFORM = Powerpc
++else ifneq (,$(findstring mips,$(MACHINE)))
++	HOST_PLATFORM = Mips
+ else
+ 	DUMMY:=$(error Can't determine host platform)
+ endif
+Index: new.openni-1.5.4.0/Platform/Linux/Build/Common/Platform.Mips
+===================================================================
+--- /dev/null
++++ new.openni-1.5.4.0/Platform/Linux/Build/Common/Platform.Mips
+@@ -0,0 +1,11 @@
++export GLUT_SUPPORTED=1
++
++ifeq "$(CFG)" "Release"
++
++    # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
++    CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
++
++    # More optimization flags
++    CFLAGS += -ftree-vectorize -ffast-math -funsafe-math-optimizations -fsingle-precision-constant
++
++endif
+Index: new.openni-1.5.4.0/Samples/NiViewer/NiViewer.cpp
+===================================================================
+--- new.openni-1.5.4.0.orig/Samples/NiViewer/NiViewer.cpp
++++ new.openni-1.5.4.0/Samples/NiViewer/NiViewer.cpp
+@@ -49,7 +49,7 @@
+ // --------------------------------
+ #include <XnCppWrapper.h>
+ 
+-#if (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
++#if (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS)
+ 	#define UNIX
+ 	#define GLX_GLXEXT_LEGACY
+ #endif
+@@ -79,7 +79,7 @@ using namespace glh;
+ #if (XN_PLATFORM == XN_PLATFORM_WIN32)
+ 	#include <conio.h>
+ 	#include <direct.h>	
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM_LINUX_POWERPC)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS)
+ 	#define _getch() getchar()
+ #endif
+ 
+Index: new.openni-1.5.4.0/Source/OpenNI/XnOpenNI.cpp
+===================================================================
+--- new.openni-1.5.4.0.orig/Source/OpenNI/XnOpenNI.cpp
++++ new.openni-1.5.4.0/Source/OpenNI/XnOpenNI.cpp
+@@ -7062,7 +7062,7 @@ XN_C_API XnStatus xnScriptNodeRun(XnNode
+ 	#define XN_OPEN_NI_FILES_LOCATION "\\Data\\"
+ #elif (CE4100)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/usr/etc/ni/"
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/var/lib/ni/"
+ #elif (XN_PLATFORM == XN_PLATFORM_ANDROID_ARM)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/data/ni/"
+Index: new.openni-1.5.4.0/Include/Linux-Mips/XnPlatformLinux-Mips.h
+===================================================================
+--- /dev/null
++++ new.openni-1.5.4.0/Include/Linux-Mips/XnPlatformLinux-Mips.h
+@@ -0,0 +1,43 @@
++/****************************************************************************
++*                                                                           *
++*  OpenNI 1.x Alpha                                                         *
++*  Copyright (C) 2011 PrimeSense Ltd.                                       *
++*                                                                           *
++*  This file is part of OpenNI.                                             *
++*                                                                           *
++*  OpenNI is free software: you can redistribute it and/or modify           *
++*  it under the terms of the GNU Lesser General Public License as published *
++*  by the Free Software Foundation, either version 3 of the License, or     *
++*  (at your option) any later version.                                      *
++*                                                                           *
++*  OpenNI is distributed in the hope that it will be useful,                *
++*  but WITHOUT ANY WARRANTY; without even the implied warranty of           *
++*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the             *
++*  GNU Lesser General Public License for more details.                      *
++*                                                                           *
++*  You should have received a copy of the GNU Lesser General Public License *
++*  along with OpenNI. If not, see <http://www.gnu.org/licenses/>.           *
++*                                                                           *
++****************************************************************************/
++#ifndef _XN_PLATFORM_LINUX_MIPS_H_
++#define _XN_PLATFORM_LINUX_MIPS_H_
++
++// Start with Linux-x86, and override what's different
++#include "../Linux-x86/XnPlatformLinux-x86.h"
++
++//---------------------------------------------------------------------------
++// Platform Basic Definition
++//---------------------------------------------------------------------------
++#undef XN_PLATFORM
++#undef XN_PLATFORM_STRING
++#undef XN_PLATFORM_ENDIAN_TYPE
++#define XN_PLATFORM XN_PLATFORM_LINUX_MIPS
++#define XN_PLATFORM_STRING "Linux-Mips"
++
++#ifdef __MIPSEB__
++#define XN_PLATFORM_ENDIAN_TYPE XN_PLATFORM_IS_BIG_ENDIAN
++#else
++#define XN_PLATFORM_ENDIAN_TYPE XN_PLATFORM_IS_LITTLE_ENDIAN
++#endif // __MIPSEB__
++#endif //_XN_PLATFORM_LINUX_MIPS_H_
++
+Index: new.openni-1.5.4.0/Include/XnOS.h
+===================================================================
+--- new.openni-1.5.4.0.orig/Include/XnOS.h
++++ new.openni-1.5.4.0/Include/XnOS.h
+@@ -44,7 +44,7 @@
+ //---------------------------------------------------------------------------
+ #if (XN_PLATFORM == XN_PLATFORM_WIN32)
+ 	#include "Win32/XnOSWin32.h"
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_ANDROID_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_ANDROID_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS)
+ 	#include "Linux-x86/XnOSLinux-x86.h"
+ #elif defined(_ARC)
+ 	#include "ARC/XnOSARC.h"
+Index: new.openni-1.5.4.0/Include/XnUSBDevice.h
+===================================================================
+--- new.openni-1.5.4.0.orig/Include/XnUSBDevice.h
++++ new.openni-1.5.4.0/Include/XnUSBDevice.h
+@@ -48,7 +48,7 @@
+ 	#define USB_DT_DEVICE_SIZE 0
+ 	#define USB_DT_DEVICE 0
+ 
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS)
+ 	#include <linux/usb/ch9.h>
+ 	typedef struct usb_endpoint_descriptor XnUSBEndpointDescriptor;
+ 	typedef struct usb_interface_descriptor XnUSBInterfaceDescriptor;
+Index: new.openni-1.5.4.0/Platform/Linux/CreateRedist/Redist_OpenNi.py
+===================================================================
+--- new.openni-1.5.4.0.orig/Platform/Linux/CreateRedist/Redist_OpenNi.py
++++ new.openni-1.5.4.0/Platform/Linux/CreateRedist/Redist_OpenNi.py
+@@ -190,6 +190,8 @@ else:
+         PLATFORM = "AArch64"
+     elif machinetype[:3] == "ppc":
+         PLATFORM = "Powerpc"
++    elif machinetype[:4] == "mips":
++        PLATFORM = "Mips"
+     else:
+         print "Unknown platform:", machinetype
+         finish_script(1)
+@@ -339,6 +341,7 @@ shutil.copytree("../../Include/Linux-x86
+ shutil.copytree("../../Include/Linux-Arm", REDIST_DIR + "/Include/Linux-Arm")
+ shutil.copytree("../../Include/Linux-AArch64", REDIST_DIR + "/Include/Linux-AArch64")
+ shutil.copytree("../../Include/Linux-Powerpc", REDIST_DIR + "/Include/Linux-Powerpc")
++shutil.copytree("../../Include/Linux-Mips", REDIST_DIR + "/Include/Linux-Mips")
+ shutil.copytree("../../Include/MacOSX", REDIST_DIR + "/Include/MacOSX")
+ shutil.copytree("Build/Common", REDIST_DIR + "/Samples/Build/Common")
+ 
