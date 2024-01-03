@@ -1,0 +1,36 @@
+From: Peter Green <plugwash@debian.org>
+Date: Fri, 19 Oct 2018 23:56:23 +0200
+Subject: Remove wrong compiler flags for arm.
+
+---
+ Externals/PSCommon/Linux/Build/Platform.Arm | 3 ---
+ Platform/Linux/Build/Common/Platform.Arm    | 3 ---
+ 2 files changed, 6 deletions(-)
+
+diff --git a/Externals/PSCommon/Linux/Build/Platform.Arm b/Externals/PSCommon/Linux/Build/Platform.Arm
+index 2341ed0..7a1f193 100644
+--- a/Externals/PSCommon/Linux/Build/Platform.Arm
++++ b/Externals/PSCommon/Linux/Build/Platform.Arm
+@@ -1,8 +1,5 @@
+ ifeq "$(CFG)" "Release"
+ 
+-    # Hardware specifying flags
+-    CFLAGS += -march=armv7-a -mtune=cortex-a8 -mfpu=neon #-mcpu=cortex-a8
+-
+     # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
+     CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
+ 
+diff --git a/Platform/Linux/Build/Common/Platform.Arm b/Platform/Linux/Build/Common/Platform.Arm
+index 07144a3..4d15881 100644
+--- a/Platform/Linux/Build/Common/Platform.Arm
++++ b/Platform/Linux/Build/Common/Platform.Arm
+@@ -6,9 +6,6 @@ export GLUT_SUPPORTED=1
+ 
+ ifeq "$(CFG)" "Release"
+ 
+-    # Hardware specifying flags
+-    CFLAGS += -march=armv7-a -mtune=cortex-a8 -mfpu=neon #-mcpu=cortex-a8
+-
+     # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
+     CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
+ 

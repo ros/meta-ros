@@ -1,0 +1,22 @@
+From: Jochen Sprickerhof <jochen@sprickerhof.de>
+Date: Mon, 7 Jan 2013 17:34:14 +0100
+Subject: Remove superfluous printf
+
+taken from
+https://github.com/rbrusu/OpenNI/commit/d80f5dcd7ef2f320af0346fa12537c0af22b4977
+---
+ Source/OpenNI/Linux/XnUSBLinux.cpp |    1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Source/OpenNI/Linux/XnUSBLinux.cpp b/Source/OpenNI/Linux/XnUSBLinux.cpp
+index bc04061..c8529f8 100644
+--- a/Source/OpenNI/Linux/XnUSBLinux.cpp
++++ b/Source/OpenNI/Linux/XnUSBLinux.cpp
+@@ -151,7 +151,6 @@ XnStatus xnUSBAsynchThreadAddRef()
+ 		if (nRetVal != 0)
+ 		{
+ 			xnLogWarning(XN_MASK_USB, "USB events thread: Failed to set thread priority to critical. This might cause loss of data...");
+-			printf("Warning: USB events thread - failed to set priority. This might cause loss of data...\n");
+ 		}
+ 	}
+ 	
