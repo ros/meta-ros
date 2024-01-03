@@ -1,0 +1,197 @@
+From: yalingfang <fangyaling@loongson.cn>
+Date: Wed, 15 Nov 2023 11:02:27 +0100
+Subject: Add loongarch64 support
+
+---
+ .../XnPlatformLinux-Loongarch64.h                  | 39 ++++++++++++++++++++++
+ Include/XnOS.h                                     |  2 +-
+ Include/XnPlatform.h                               |  3 ++
+ Include/XnUSBDevice.h                              |  2 +-
+ Platform/Linux/Build/Common/CommonDefs.mak         |  2 ++
+ Platform/Linux/Build/Common/Platform.Loongarch64   | 12 +++++++
+ Platform/Linux/CreateRedist/Redist_OpenNi.py       |  3 ++
+ Samples/NiViewer/NiViewer.cpp                      |  4 +--
+ Source/OpenNI/XnOpenNI.cpp                         |  2 +-
+ 9 files changed, 64 insertions(+), 5 deletions(-)
+ create mode 100644 Include/Linux-Loongarch64/XnPlatformLinux-Loongarch64.h
+ create mode 100644 Platform/Linux/Build/Common/Platform.Loongarch64
+
+diff --git a/Include/Linux-Loongarch64/XnPlatformLinux-Loongarch64.h b/Include/Linux-Loongarch64/XnPlatformLinux-Loongarch64.h
+new file mode 100644
+index 0000000..d51e006
+--- /dev/null
++++ b/Include/Linux-Loongarch64/XnPlatformLinux-Loongarch64.h
+@@ -0,0 +1,39 @@
++/****************************************************************************
++*                                                                           *
++*  OpenNI 1.x Alpha                                                         *
++*  Copyright (C) 2011 PrimeSense Ltd.                                       *
++*                                                                           *
++*  This file is part of OpenNI.                                             *
++*                                                                           *
++*  OpenNI is free software: you can redistribute it and/or modify           *
++*  it under the terms of the GNU Lesser General Public License as published *
++*  by the Free Software Foundation, either version 3 of the License, or     *
++*  (at your option) any later version.                                      *
++*                                                                           *
++*  OpenNI is distributed in the hope that it will be useful,                *
++*  but WITHOUT ANY WARRANTY; without even the implied warranty of           *
++*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the             *
++*  GNU Lesser General Public License for more details.                      *
++*                                                                           *
++*  You should have received a copy of the GNU Lesser General Public License *
++*  along with OpenNI. If not, see <http://www.gnu.org/licenses/>.           *
++*                                                                           *
++****************************************************************************/
++#ifndef _XN_PLATFORM_LINUX_LOONGARCH64_H_
++#define _XN_PLATFORM_LINUX_LOONGARCH64_H_
++
++// Start with Linux-x86, and override what's different
++#include "../Linux-x86/XnPlatformLinux-x86.h"
++
++//---------------------------------------------------------------------------
++// Platform Basic Definition
++//---------------------------------------------------------------------------
++#undef XN_PLATFORM
++#undef XN_PLATFORM_STRING
++#undef XN_PLATFORM_ENDIAN_TYPE
++#define XN_PLATFORM XN_PLATFORM_LINUX_LOONGARCH64
++#define XN_PLATFORM_STRING "Linux-Loongarch64"
++
++#define XN_PLATFORM_ENDIAN_TYPE XN_PLATFORM_IS_LITTLE_ENDIAN
++
++#endif //_XN_PLATFORM_LINUX_LOONGARCH64_H_
+diff --git a/Include/XnOS.h b/Include/XnOS.h
+index d090552..d35120c 100644
+--- a/Include/XnOS.h
++++ b/Include/XnOS.h
+@@ -44,7 +44,7 @@
+ //---------------------------------------------------------------------------
+ #if (XN_PLATFORM == XN_PLATFORM_WIN32)
+ 	#include "Win32/XnOSWin32.h"
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_ANDROID_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS || XN_PLATFORM == XN_PLATFORM_LINUX_RISCV64)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_ANDROID_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS || XN_PLATFORM == XN_PLATFORM_LINUX_RISCV64 || XN_PLATFORM == XN_PLATFORM_LINUX_LOONGARCH64)
+ 	#include "Linux-x86/XnOSLinux-x86.h"
+ #elif defined(_ARC)
+ 	#include "ARC/XnOSARC.h"
+diff --git a/Include/XnPlatform.h b/Include/XnPlatform.h
+index 7259592..38cdecf 100644
+--- a/Include/XnPlatform.h
++++ b/Include/XnPlatform.h
+@@ -39,6 +39,7 @@
+ #define XN_PLATFORM_LINUX_AARCH64 11
+ #define XN_PLATFORM_LINUX_MIPS 12
+ #define XN_PLATFORM_LINUX_RISCV64 13
++#define XN_PLATFORM_LINUX_LOONGARCH64 14
+ 
+ #define XN_PLATFORM_IS_LITTLE_ENDIAN 1
+ #define XN_PLATFORM_IS_BIG_ENDIAN    2
+@@ -78,6 +79,8 @@
+ 	#include "Linux-Mips/XnPlatformLinux-Mips.h"
+ #elif (__linux__ && (__riscv && __riscv_xlen == 64))
+ 	#include "Linux-Riscv64/XnPlatformLinux-Riscv64.h"
++#elif (__linux__ && __loongarch__)
++	#include "Linux-Loongarch64/XnPlatformLinux-Loongarch64.h"
+ #elif _ARC
+ 	#include "ARC/XnPlatformARC.h"
+ #elif (__APPLE__)
+diff --git a/Include/XnUSBDevice.h b/Include/XnUSBDevice.h
+index fe1934a..bed2b39 100644
+--- a/Include/XnUSBDevice.h
++++ b/Include/XnUSBDevice.h
+@@ -48,7 +48,7 @@
+ 	#define USB_DT_DEVICE_SIZE 0
+ 	#define USB_DT_DEVICE 0
+ 
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS || XN_PLATFORM == XN_PLATFORM_LINUX_RISCV64)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS || XN_PLATFORM == XN_PLATFORM_LINUX_RISCV64 || XN_PLATFORM == XN_PLATFORM_LINUX_LOONGARCH64)
+ 	#include <linux/usb/ch9.h>
+ 	typedef struct usb_endpoint_descriptor XnUSBEndpointDescriptor;
+ 	typedef struct usb_interface_descriptor XnUSBInterfaceDescriptor;
+diff --git a/Platform/Linux/Build/Common/CommonDefs.mak b/Platform/Linux/Build/Common/CommonDefs.mak
+index 206f52a..1b3b5b6 100644
+--- a/Platform/Linux/Build/Common/CommonDefs.mak
++++ b/Platform/Linux/Build/Common/CommonDefs.mak
+@@ -26,6 +26,8 @@ else ifneq (,$(findstring mips,$(MACHINE)))
+ 	HOST_PLATFORM = Mips
+ else ifneq (,$(findstring riscv64,$(MACHINE)))
+ 	HOST_PLATFORM = Riscv64
++else ifneq (,$(findstring loongarch64,$(MACHINE)))
++        HOST_PLATFORM = Loongarch64
+ else
+ 	DUMMY:=$(error Can't determine host platform)
+ endif
+diff --git a/Platform/Linux/Build/Common/Platform.Loongarch64 b/Platform/Linux/Build/Common/Platform.Loongarch64
+new file mode 100644
+index 0000000..58c4fc1
+--- /dev/null
++++ b/Platform/Linux/Build/Common/Platform.Loongarch64
+@@ -0,0 +1,12 @@
++export GLUT_SUPPORTED=1
++
++ifeq "$(CFG)" "Release"
++
++    # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
++    CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
++
++    # More optimization flags
++    CFLAGS += -ftree-vectorize -ffast-math -funsafe-math-optimizations -fsingle-precision-constant
++
++endif
++
+diff --git a/Platform/Linux/CreateRedist/Redist_OpenNi.py b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+index c22dbc3..388f74d 100755
+--- a/Platform/Linux/CreateRedist/Redist_OpenNi.py
++++ b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+@@ -194,6 +194,8 @@ else:
+         PLATFORM = "Mips"
+     elif machinetype == "riscv64":
+         PLATFORM = "Riscv64"
++    elif machinetype == "loongarch64":
++        PLATFORM = "Loongarch64"
+     else:
+         print("Unknown platform:", machinetype)
+         finish_script(1)
+@@ -339,6 +341,7 @@ shutil.copytree("../../Include/Linux-AArch64", REDIST_DIR + "/Include/Linux-AArc
+ shutil.copytree("../../Include/Linux-Powerpc", REDIST_DIR + "/Include/Linux-Powerpc")
+ shutil.copytree("../../Include/Linux-Mips", REDIST_DIR + "/Include/Linux-Mips")
+ shutil.copytree("../../Include/Linux-Riscv64", REDIST_DIR + "/Include/Linux-Riscv64")
++shutil.copytree("../../Include/Linux-Loongarch64", REDIST_DIR + "/Include/Linux-Loongarch64")
+ shutil.copytree("../../Include/MacOSX", REDIST_DIR + "/Include/MacOSX")
+ shutil.copytree("Build/Common", REDIST_DIR + "/Samples/Build/Common")
+ 
+diff --git a/Samples/NiViewer/NiViewer.cpp b/Samples/NiViewer/NiViewer.cpp
+index f11aa7e..edfde89 100644
+--- a/Samples/NiViewer/NiViewer.cpp
++++ b/Samples/NiViewer/NiViewer.cpp
+@@ -49,7 +49,7 @@
+ // --------------------------------
+ #include <XnCppWrapper.h>
+ 
+-#if (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS || XN_PLATFORM == XN_PLATFORM_LINUX_RISCV64)
++#if (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS || XN_PLATFORM == XN_PLATFORM_LINUX_RISCV64 || XN_PLATFORM == XN_PLATFORM_LINUX_LOONGARCH64)
+ 	#define UNIX
+ 	#define GLX_GLXEXT_LEGACY
+ #endif
+@@ -79,7 +79,7 @@ using namespace glh;
+ #if (XN_PLATFORM == XN_PLATFORM_WIN32)
+ 	#include <conio.h>
+ 	#include <direct.h>	
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS || XN_PLATFORM == XN_PLATFORM_LINUX_RISCV64)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS || XN_PLATFORM == XN_PLATFORM_LINUX_RISCV64 || XN_PLATFORM == XN_PLATFORM_LINUX_LOONGARCH64)
+ 	#define _getch() getchar()
+ #endif
+ 
+diff --git a/Source/OpenNI/XnOpenNI.cpp b/Source/OpenNI/XnOpenNI.cpp
+index 8ebca52..fbcf1e2 100644
+--- a/Source/OpenNI/XnOpenNI.cpp
++++ b/Source/OpenNI/XnOpenNI.cpp
+@@ -7062,7 +7062,7 @@ XN_C_API XnStatus xnScriptNodeRun(XnNodeHandle hScript, XnEnumerationErrors* pEr
+ 	#define XN_OPEN_NI_FILES_LOCATION "\\Data\\"
+ #elif (CE4100)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/usr/etc/ni/"
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS || XN_PLATFORM == XN_PLATFORM_LINUX_RISCV64)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC || XN_PLATFORM == XN_PLATFORM_LINUX_MIPS || XN_PLATFORM == XN_PLATFORM_LINUX_RISCV64 || XN_PLATFORM == XN_PLATFORM_LINUX_LOONGARCH64)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/var/lib/ni/"
+ #elif (XN_PLATFORM == XN_PLATFORM_ANDROID_ARM)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/data/ni/"

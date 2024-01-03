@@ -1,0 +1,26 @@
+From: Jochen Sprickerhof <jochen@sprickerhof.de>
+Date: Fri, 17 Aug 2012 17:02:38 +0200
+Subject: Fix preprocessor macro to be C++11 compatible
+
+g++-4.7 -std=c++11 doesn't export the symbol linux anymore because it's
+obsolete.
+---
+ Include/XnPlatform.h |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Include/XnPlatform.h b/Include/XnPlatform.h
+index b40497b..3af7ef5 100644
+--- a/Include/XnPlatform.h
++++ b/Include/XnPlatform.h
+@@ -62,9 +62,9 @@
+ 	#include "Win32/XnPlatformWin32.h"
+ #elif defined(ANDROID) && defined(__arm__)
+ 	#include "Android-Arm/XnPlatformAndroid-Arm.h"
+-#elif (linux && (i386 || __x86_64__))
++#elif (__linux__ && (i386 || __x86_64__))
+ 	#include "Linux-x86/XnPlatformLinux-x86.h"
+-#elif (linux && __arm__)
++#elif (__linux__ && __arm__)
+ 	#include "Linux-Arm/XnPlatformLinux-Arm.h"
+ #elif _ARC
+ 	#include "ARC/XnPlatformARC.h"
