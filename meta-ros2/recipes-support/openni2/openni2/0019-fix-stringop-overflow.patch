@@ -1,0 +1,262 @@
+  Linux/XnLinuxINI.cpp: In function 'XnStatus FindEntry(const XnChar*, const XnChar*, const XnChar*, XnChar*)':
+  Linux/XnLinuxINI.cpp:51:32: error: writing 1 byte into a region of size 0 [-Werror=stringop-overflow=]
+    51 |                 dest[destSize] = '\0';                                                          \
+                                            ^
+  Linux/XnLinuxINI.cpp:110:25: note: in expansion of macro 'XN_READ_TILL'
+    110 |                         XN_READ_TILL(pCurPos, *pCurPos == ']' || XN_IS_NEWLINE(pCurPos), csTempString, nTempStringLength);
+        |                         ^~~~~~~~~~~~
+  Linux/XnLinuxINI.cpp:84:16: note: at offset 256 into destination object 'csTempString' of size 256
+     84 |         XnChar csTempString[XN_INI_MAX_LEN];
+        |                ^~~~~~~~~~~~
+  XnProfiling.cpp: In function 'XnStatus xnProfilingSectionStart(const char*, XnBool, XnProfilingHandle*)':
+  XnProfiling.cpp:220:32: error: 'char* strncpy(char*, const char*, size_t)' specified bound 256 equals destination size [-Werror=stringop-truncation]
+    220 |                         strncpy(pSection->csName + nChar, csSectionName, MAX_SECTION_NAME);
+        |                         ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  XnProfiling.cpp: In function 'XnStatus xnProfilingSectionStart(const char*, XnBool, XnProfilingHandle*)':
+  XnProfiling.cpp:220:32: error: 'char* strncpy(char*, const char*, size_t)' specified bound 256 equals destination size [-Werror=stringop-truncation]
+    220 |                         strncpy(pSection->csName + nChar, csSectionName, MAX_SECTION_NAME);
+        |                         ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  In file included from OniRecorder.h:26,
+                   from OniRecorder.cpp:21:
+  In member function 'void xnl::String::Initialize(const XnChar*, XnUInt32)',
+      inlined from 'xnl::String::String(const XnChar*)' at ../../ThirdParty/PSCommon/XnLib/Include/XnString.h:44:13,
+      inlined from 'OniStatus oni::implementation::Recorder::initialize(const char*)' at OniRecorder.cpp:210:18:
+  ../../ThirdParty/PSCommon/XnLib/Include/XnString.h:144:24: error: 'char* strncpy(char*, const char*, size_t)' destination unchanged after copying no bytes [-Werror=stringop-truncation]
+    144 |                 strncpy(m_str, str, maxCapacity);
+        |                 ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+
+  DDK/XnActualPropertiesHash.cpp: In constructor 'XnActualPropertiesHash::XnActualPropertiesHash(const XnChar*)':
+  DDK/XnActualPropertiesHash.cpp:31:16: error: 'char* strncpy(char*, const char*, size_t)' specified bound 200 equals destination size [-Werror=stringop-truncation]
+    31 |         strncpy(m_strName, strName, XN_DEVICE_MAX_STRING_LENGTH);
+       |         ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                                                                                                       
+
+  DDK/XnDeviceModule.cpp: In constructor 'XnDeviceModule::XnDeviceModule(const XnChar*)':
+  DDK/XnDeviceModule.cpp:40:16: error: 'char* strncpy(char*, const char*, size_t)' specified bound 200 equals destination size [-Werror=stringop-truncation]
+     40 |         strncpy(m_strName, strName, XN_DEVICE_MAX_STRING_LENGTH);
+        |         ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cc1plus: all warnings being treated as errors                                                                                                              
+
+  Viewer.cpp: In constructor 'SampleViewer::SampleViewer(const char*, openni::VideoStream&, openni::VideoStream&)':
+  Viewer.cpp:70:16: error: 'char* strncpy(char*, const char*, size_t)' specified bound 256 equals destination size [-Werror=stringop-truncation]
+     70 |         strncpy(m_strSampleName, strSampleName, ONI_MAX_STR);
+        |         ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Upstream-Status: Not applicable
+
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/ThirdParty/PSCommon/XnLib/Source/Linux/XnLinuxINI.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/ThirdParty/PSCommon/XnLib/Source/Linux/XnLinuxINI.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/ThirdParty/PSCommon/XnLib/Source/Linux/XnLinuxINI.cpp
+@@ -42,7 +42,7 @@
+ 		destSize = 0;										\
+ 		while (*p && !(endCond))							\
+ 		{													\
+-			if (destSize + 1 > XN_INI_MAX_LEN)				\
++			if (destSize + 1 >= XN_INI_MAX_LEN)				\
+ 				break;										\
+ 															\
+ 			dest[destSize++] = *p;							\
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/ThirdParty/PSCommon/XnLib/Source/XnProfiling.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/ThirdParty/PSCommon/XnLib/Source/XnProfiling.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/ThirdParty/PSCommon/XnLib/Source/XnProfiling.cpp
+@@ -217,7 +217,8 @@ XN_C_API XnStatus xnProfilingSectionStar
+ 			for (nChar = 0; nChar < gt_nStackDepth*2; ++nChar)
+ 				pSection->csName[nChar] = ' ';
+ 
+-			strncpy(pSection->csName + nChar, csSectionName, MAX_SECTION_NAME);
++			strncpy(pSection->csName + nChar, csSectionName, MAX_SECTION_NAME - nChar);
++			pSection->csName[MAX_SECTION_NAME - 1] = '\0';
+ 
+ 			if (strlen(pSection->csName) > g_ProfilingData.nMaxSectionName)
+ 				g_ProfilingData.nMaxSectionName = strlen(pSection->csName);
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/ThirdParty/PSCommon/XnLib/Include/XnString.h
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/ThirdParty/PSCommon/XnLib/Include/XnString.h
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/ThirdParty/PSCommon/XnLib/Include/XnString.h
+@@ -113,7 +113,7 @@ public:
+ 		}
+ 
+ 		XnChar* newData = XN_NEW_ARR(XnChar, newSize);
+-		if (m_str != NULL)
++		if ((m_str != NULL) && (m_capacity != 0))
+ 		{
+ 			strncpy(newData, m_str, m_capacity);
+ 			XN_DELETE_ARR(m_str);
+@@ -140,9 +140,11 @@ private:
+ 	void Initialize(const XnChar* str, XnUInt32 maxCapacity)
+ 	{
+ 
+-		Resize(maxCapacity);
+-		strncpy(m_str, str, maxCapacity);
+-
++		if (maxCapacity != 0)
++		{
++			Resize(maxCapacity);
++			strncpy(m_str, str, maxCapacity);
++		}
+ 	}
+ 	void Destroy()
+ 	{
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnActualPropertiesHash.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/Source/Drivers/PS1080/DDK/XnActualPropertiesHash.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnActualPropertiesHash.cpp
+@@ -28,7 +28,7 @@
+ 
+ XnActualPropertiesHash::XnActualPropertiesHash(const XnChar* strName)
+ {
+-	strncpy(m_strName, strName, XN_DEVICE_MAX_STRING_LENGTH);
++	strncpy(m_strName, strName, XN_DEVICE_MAX_STRING_LENGTH - 1);
+ }
+ 
+ XnActualPropertiesHash::~XnActualPropertiesHash()
+@@ -190,7 +190,7 @@ XnStatus XnActualPropertiesHash::CopyFro
+ 	XnStatus nRetVal = XN_STATUS_OK;
+ 
+ 	Clear();
+-	strncpy(m_strName, other.m_strName, XN_DEVICE_MAX_STRING_LENGTH);
++	memcpy(m_strName, other.m_strName, XN_DEVICE_MAX_STRING_LENGTH);
+ 
+ 	for (ConstIterator it = other.Begin(); it != other.End(); ++it)
+ 	{
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnDeviceBase.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/Source/Drivers/PS1080/DDK/XnDeviceBase.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnDeviceBase.cpp
+@@ -1025,7 +1025,7 @@ XnStatus XnDeviceBase::DestroyStream(con
+ 
+ 	// keep the stream name (we now delete the module, so the name will be lost)
+ 	XnChar strStreamName[XN_DEVICE_MAX_STRING_LENGTH];
+-	strncpy(strStreamName, StreamName, XN_DEVICE_MAX_STRING_LENGTH);
++	strncpy(strStreamName, StreamName, XN_DEVICE_MAX_STRING_LENGTH - 1);
+ 
+ 	xnl::AutoCSLocker lock(m_hLock);
+ 
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnDeviceModule.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/Source/Drivers/PS1080/DDK/XnDeviceModule.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnDeviceModule.cpp
+@@ -37,7 +37,7 @@ XnDeviceModule::XnDeviceModule(const XnC
+ 	m_Lock(XN_MODULE_PROPERTY_LOCK, "Lock", FALSE, strName),
+ 	m_hLockCS(NULL)
+ {
+-	strncpy(m_strName, strName, XN_DEVICE_MAX_STRING_LENGTH);
++	strncpy(m_strName, strName, XN_DEVICE_MAX_STRING_LENGTH - 1);
+ 	m_Lock.UpdateSetCallback(SetLockStateCallback, this);
+ }
+ 
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnActualStringProperty.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/Source/Drivers/PS1080/DDK/XnActualStringProperty.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnActualStringProperty.cpp
+@@ -29,7 +29,7 @@
+ XnActualStringProperty::XnActualStringProperty(XnUInt32 propertyId, const XnChar* strName, const XnChar* strInitialValue /* = "" */, const XnChar* strModule /* = "" */ ) :
+ 	XnStringProperty(propertyId, strName, m_strValue, strModule)
+ {
+-	strncpy(m_strValue, strInitialValue, XN_DEVICE_MAX_STRING_LENGTH);
++	strncpy(m_strValue, strInitialValue, XN_DEVICE_MAX_STRING_LENGTH - 1);
+ 	// set a callback for get operations
+ 	UpdateGetCallback(GetCallback, this);
+ }
+@@ -41,6 +41,6 @@ XnStatus XnActualStringProperty::SetCall
+ 
+ XnStatus XnActualStringProperty::GetCallback(const XnActualStringProperty* pSender, XnChar* csValue, void* /*pCookie*/)
+ {
+-	strncpy(csValue, pSender->GetValue(), XN_DEVICE_MAX_STRING_LENGTH);
++	memcpy(csValue, pSender->GetValue(), XN_DEVICE_MAX_STRING_LENGTH);
+ 	return XN_STATUS_OK;
+ }
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnProperty.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/Source/Drivers/PS1080/DDK/XnProperty.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnProperty.cpp
+@@ -50,9 +50,9 @@ XnProperty::~XnProperty()
+ 
+ void XnProperty::UpdateName(const XnChar* strModule, const XnChar* strName)
+ {
+-	strncpy(m_strModule, strModule, XN_DEVICE_MAX_STRING_LENGTH);
++	strncpy(m_strModule, strModule, XN_DEVICE_MAX_STRING_LENGTH - 1);
+ 	if (m_strName != strName) {
+-		strncpy(m_strName, strName, XN_DEVICE_MAX_STRING_LENGTH);
++		strncpy(m_strName, strName, XN_DEVICE_MAX_STRING_LENGTH - 1);
+ 	}
+ }
+ 
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnPropertySet.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/Source/Drivers/PS1080/DDK/XnPropertySet.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnPropertySet.cpp
+@@ -336,7 +336,7 @@ XnStatus XnPropertySetGetEnumerator(cons
+ 	pEnumer->pModules = pSet->pData;
+ 	if (strModule != NULL)
+ 	{
+-		strncpy(pEnumer->strModule, strModule, XN_DEVICE_MAX_STRING_LENGTH);
++		strncpy(pEnumer->strModule, strModule, XN_DEVICE_MAX_STRING_LENGTH - 1);
+ 	}
+ 	else
+ 	{
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnStringProperty.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/Source/Drivers/PS1080/DDK/XnStringProperty.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Source/Drivers/PS1080/DDK/XnStringProperty.cpp
+@@ -49,7 +49,7 @@ XnStatus XnStringProperty::ReadValueFrom
+ 
+ XnStatus XnStringProperty::CopyValueImpl(void* pDest, const void* pSource) const
+ {
+-	strncpy((char*)pDest, (const char*)pSource, XN_DEVICE_MAX_STRING_LENGTH);
++	strncpy((char*)pDest, (const char*)pSource, XN_DEVICE_MAX_STRING_LENGTH - 1);
+ 	return XN_STATUS_OK;
+ }
+ 
+@@ -72,7 +72,7 @@ XnStatus XnStringProperty::CallGetCallba
+ 
+ XnBool XnStringProperty::ConvertValueToString(XnChar* csValue, const void* pValue) const
+ {
+-	strncpy(csValue, (const XnChar*)pValue, XN_DEVICE_MAX_STRING_LENGTH);
++	strncpy(csValue, (const XnChar*)pValue, XN_DEVICE_MAX_STRING_LENGTH - 1);
+ 	return TRUE;
+ }
+ 
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Samples/ClosestPointViewer/Viewer.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/Samples/ClosestPointViewer/Viewer.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Samples/ClosestPointViewer/Viewer.cpp
+@@ -57,7 +57,7 @@ SampleViewer::SampleViewer(const char* s
+ 
+ {
+ 	ms_self = this;
+-	strncpy(m_strSampleName, strSampleName, ONI_MAX_STR);
++	strncpy(m_strSampleName, strSampleName, ONI_MAX_STR - 1);
+ 
+ 	m_pClosestPoint = new closest_point::ClosestPoint(deviceUri);
+ }
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Samples/MultiDepthViewer/Viewer.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/Samples/MultiDepthViewer/Viewer.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Samples/MultiDepthViewer/Viewer.cpp
+@@ -67,7 +67,7 @@ SampleViewer::SampleViewer(const char* s
+ 
+ {
+ 	ms_self = this;
+-	strncpy(m_strSampleName, strSampleName, ONI_MAX_STR);
++	strncpy(m_strSampleName, strSampleName, ONI_MAX_STR - 1);
+ }
+ SampleViewer::~SampleViewer()
+ {
+Index: OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Samples/SimpleViewer/Viewer.cpp
+===================================================================
+--- OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e.orig/Samples/SimpleViewer/Viewer.cpp
++++ OpenNI2-7bef8f639e4d64a85a794e85fe3049dbb2acd32e/Samples/SimpleViewer/Viewer.cpp
+@@ -67,7 +67,7 @@ SampleViewer::SampleViewer(const char* s
+ 
+ {
+ 	ms_self = this;
+-	strncpy(m_strSampleName, strSampleName, ONI_MAX_STR);
++	strncpy(m_strSampleName, strSampleName, ONI_MAX_STR - 1);
+ }
+ SampleViewer::~SampleViewer()
+ {
