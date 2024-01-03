@@ -2,5 +2,4 @@
 
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-generators-native \
-    generate-parameter-library-py-native \
 "
