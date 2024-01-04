@@ -21,3 +21,5 @@
 do_configure:prepend() {
     export ROS_OS_OVERRIDE="openembedded"
 }
+
+FILES:${PN}-dev += "${libdir}/liblanelet2_traffic_rules.so"
