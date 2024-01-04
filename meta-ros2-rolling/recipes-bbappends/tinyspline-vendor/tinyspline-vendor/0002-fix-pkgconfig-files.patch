@@ -1,0 +1,20 @@
+Index: git/tinyspline/src/pkg/tinysplinecxx.pc.in
+===================================================================
+--- git.orig/tinyspline/src/pkg/tinysplinecxx.pc.in
++++ git/tinyspline/src/pkg/tinysplinecxx.pc.in
+@@ -1,4 +1,4 @@
+-prefix=@CMAKE_INSTALL_PREFIX@
++prefix=/usr
+ exec_prefix=${prefix}
+ libdir=${prefix}/@TINYSPLINE_INSTALL_LIBRARY_DIR@
+ includedir=${prefix}/@TINYSPLINE_INSTALL_INCLUDE_DIR@
+Index: git/tinyspline/src/pkg/tinyspline.pc.in
+===================================================================
+--- git.orig/tinyspline/src/pkg/tinyspline.pc.in
++++ git/tinyspline/src/pkg/tinyspline.pc.in
+@@ -1,4 +1,4 @@
+-prefix=@CMAKE_INSTALL_PREFIX@
++prefix=/usr
+ exec_prefix=${prefix}
+ libdir=${prefix}/@TINYSPLINE_INSTALL_LIBRARY_DIR@
+ includedir=${prefix}/@TINYSPLINE_INSTALL_INCLUDE_DIR@
