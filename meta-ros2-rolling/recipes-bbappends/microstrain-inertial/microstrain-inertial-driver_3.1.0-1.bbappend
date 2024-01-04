@@ -31,11 +31,6 @@ SRC_URI[sha256sum] = "${MSCL_CHECKSUM}"
 # we can just point MSCL_DIR to already extracted package
 EXTRA_OECMAKE += "-DMSCL_DIR=${S}/MSCL/usr/share/c++-mscl"
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-download_mscl.cmake-use-NO_CMAKE_FIND_ROOT_PATH-when.patch \
-    file://0002-download_mscl.cmake-fetch-it-with-bitbake-fetcher.patch \
-"
-
 # MSCL includes bundled prebuilt boost-1.68.0, but libmscl doesn't link with any libboost library:
 # microstrain-inertial-driver/2.0.4-1-r0/git$ objdump -x MSCL/usr/share/c++-mscl/libmscl.so | grep NEEDED
 #  NEEDED               libstdc++.so.6
