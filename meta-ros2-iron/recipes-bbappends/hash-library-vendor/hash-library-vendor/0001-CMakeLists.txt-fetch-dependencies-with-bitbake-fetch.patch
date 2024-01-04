@@ -1,0 +1,27 @@
+Use Bitbake to fetch the hash-library git repository
+
+Upstream-Status: Not applicable
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,16 +17,8 @@ ament_auto_find_build_dependencies()
+ 
+ ## Define vendor macro
+ macro(build_vendor_package)
+-  set(git_tag "hash_library_v8")
+-  include(FetchContent)
+-  fetchcontent_declare(hash_library_vendor
+-    GIT_REPOSITORY https://github.com/stbrumme/hash-library.git
+-    GIT_TAG ${git_tag}
+-  )
+-  fetchcontent_makeavailable(hash_library_vendor)
+-
+-  file(GLOB HASH_LIBRARY_SOURCE "${CMAKE_CURRENT_BINARY_DIR}/_deps/${PROJECT_NAME}-src/*.cpp")
+-  file(GLOB HASH_LIBRARY_INCLUDE "${CMAKE_CURRENT_BINARY_DIR}/_deps/${PROJECT_NAME}-src/*.h")
++  file(GLOB HASH_LIBRARY_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/_deps/${PROJECT_NAME}-src/*.cpp")
++  file(GLOB HASH_LIBRARY_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/_deps/${PROJECT_NAME}-src/*.h")
+ 
+   ament_auto_add_library(hash_library_vendor SHARED
+     ${HASH_LIBRARY_SOURCE}
