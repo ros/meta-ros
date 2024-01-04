@@ -1,0 +1,18 @@
+Install the Kortex API static libraries for use by other kortex recipes.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -27,5 +27,8 @@ install(DIRECTORY ${kinova_binary_api_SO
+ install(DIRECTORY ${kinova_binary_api_SOURCE_DIR}/include/messages/ DESTINATION include/kortex_api)
+ install(DIRECTORY ${kinova_binary_api_SOURCE_DIR}/include/client_stubs/ DESTINATION include/kortex_api)
+ install(DIRECTORY ${kinova_binary_api_SOURCE_DIR}/include/google/protobuf DESTINATION include/kortex_api/google)
+-
++install(FILES
++  ${kinova_binary_api_SOURCE_DIR}/lib/release/libKortexApiCpp_without_protobuf.a 
++  ${kinova_binary_api_SOURCE_DIR}/lib/release/libKortexApiCpp.a 
++DESTINATION lib)
+ ament_package()
