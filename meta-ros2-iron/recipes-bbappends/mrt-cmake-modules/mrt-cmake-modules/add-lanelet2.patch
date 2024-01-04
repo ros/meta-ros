@@ -1,0 +1,29 @@
+Index: git/yaml/cmake.yaml
+===================================================================
+--- git.orig/yaml/cmake.yaml
++++ git/yaml/cmake.yaml
+@@ -79,6 +79,24 @@ gtest:
+   include_dirs: [gtest_INCLUDE_DIRS]
+   libraries: [gtest_LIBRARIES]
+   name: gtest
++lanelet2_core:
++  components: []
++  include_dirs: [lanelet2_core_INCLUDE_DIRS]
++  libraries: [lanelet2_core_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_core
++lanelet2_io:
++  components: []
++  include_dirs: [lanelet2_io_INCLUDE_DIRS]
++  libraries: [lanelet2_io_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_io
++lanelet2_traffic_rules:
++  components: []
++  include_dirs: [lanelet2_traffic_rules_INCLUDE_DIRS]
++  libraries: [lanelet2_traffic_rules_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_traffic_rules
+ libann-dev:
+   components: []
+   include_dirs: [ANN_INCLUDE_DIR]
