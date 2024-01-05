@@ -12,3 +12,6 @@ ROS_EXEC_DEPENDS:remove = "nlohmann-json"
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-generators-native \
 "
+
+# Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE)
+inherit pkgconfig
