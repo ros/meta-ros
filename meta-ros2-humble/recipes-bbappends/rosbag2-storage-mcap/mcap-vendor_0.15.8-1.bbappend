@@ -10,8 +10,8 @@ SRC_URI += " \
     file://0001-CMakeLists.txt-fetch-dependencies-with-bitbake-fetch.patch\
 "
 
-# releases/cpp/v0.6.0
-SRCREV_mcap = "066f03b9b8444ffc1134e852e3419e4a4c0bef85"
+# releases/cpp/v0.8.0
+SRCREV_mcap = "801c4ae3f34b23e9a27eb34b88ab7a0180d4b40f"
 # v1.9.3
 SRCREV_lz4 = "d44371841a2f1728a3f36839fd4b7e872d0927d3"
 # v1.5.2
@@ -22,3 +22,4 @@ SRCREV_FORMAT += "_mcap_lz4_zstd"
 # PN package in zstd-vendor is empty and not created, remove runtime dependency on it
 ROS_EXEC_DEPENDS:remove = "zstd-vendor"
 
+inherit pkgconfig
