@@ -1,0 +1,12 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -27,6 +27,7 @@ set(PROJECT_DEPENDENCIES
+   eigen3_cmake_module
+   Eigen3
+   OpenCV
++  GeographicLib
+ )
+ 
+ foreach(DEPENDENCY ${PROJECT_DEPENDENCIES})
