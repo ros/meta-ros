@@ -1,0 +1,16 @@
+Add GeographicLib as an explicit dependency.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -25,6 +25,7 @@ set(PROJECT_DEPENDENCIES
+   as2_msgs
+   as2_behavior
+   as2_motion_reference_handlers
++  GeographicLib
+ )
+ 
+ # Find dependencies
