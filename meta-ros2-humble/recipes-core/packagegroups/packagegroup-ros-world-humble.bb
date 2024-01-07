@@ -22,20 +22,6 @@ RDEPENDS:${PN}:remove = "zstd-vendor"
 # It's empty package now, just providing dependency on platform python3-pybind11 recipe
 RDEPENDS:${PN}:remove = "pybind11-vendor"
 
-# Depends on unavailable python3-shapely
-RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-shapely', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_SHAPELY}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_SHAPELY = " \
-    rmf-building-map-tools \
-    rmf-demos-maps \
-    rmf-building-map-tools \
-    rmf-traffic-editor-test-maps \
-"
-# Depends on unavailable python3-flask-cors
-RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-flask-cors', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_FLASK_CORS}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_FLASK_CORS = " \
-    rmf-demos-panel \
-"
-
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB = " \
     run-ompl-constrained-planning \
@@ -118,11 +104,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
     launch-testing-ament-cmake \
-"
-
-RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'sdformat', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SDFORMAT}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SDFORMAT = " \
-    sdformat-urdf \
 "
 
 # not compatible with glibc-2.34 without easy fix as reported in https://github.com/ros2/demos/issues/530
@@ -671,6 +652,47 @@ RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'wireguar
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WIREGUARD = " \
     fogros2 \
     fogros2-examples \
+"
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'aws', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_AWS}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_AWS = " \
+    aws-robomaker-small-warehouse-world \
+    aws-sdk-cpp-vendor \
+"
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mrpt2', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MRPT2}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MRPT2 = " \
+    mola-imu-preintegration \
+    mola-input-euroc-dataset \
+    mola-input-kitti-dataset \
+    mola-input-rawlog \
+    mola-input-ros2 \
+    mola-kernel \
+    mola-launcher \
+    mola-viz \
+    mola-yaml \
+    mp2p-icp \
+    mrpt-path-planning \
+    mrpt2 \
+    mvsim \
+    pose-cov-ops \
+"
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'g2o', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_G2O}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_G2O = " \
+    rtabmap \
+    rtabmap-conversions \
+    rtabmap-demos \
+    rtabmap-examples \
+    rtabmap-launch \
+    rtabmap-msgs \
+    rtabmap-odom \
+    rtabmap-python \
+    rtabmap-ros \
+    rtabmap-rviz-plugins \
+    rtabmap-slam \
+    rtabmap-sync \
+    rtabmap-util \
+    rtabmap-viz \
 "
 
 RDEPENDS:${PN}:remove = "vitis-common"

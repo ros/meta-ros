@@ -103,10 +103,6 @@ ROS_WORLD_SKIP_GROUPS += "connext"
 ROS_WORLD_SKIP_GROUPS += "opensplice"
 # alternative not yet supported implementation for fastrtps, there is no recipe for gurumdds-2.6
 ROS_WORLD_SKIP_GROUPS += "gurumdds"
-# Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
-ROS_WORLD_SKIP_GROUPS += "clang"
-# recipes depending on openni (libopenni-dev)
-ROS_WORLD_SKIP_GROUPS += "openni"
 # recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
 ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 # recipes depending on coinor-libipopt
@@ -119,6 +115,10 @@ ROS_WORLD_SKIP_GROUPS += "cwiid"
 ROS_WORLD_SKIP_GROUPS += "libspnav"
 # recipes depends on libopen3d
 ROS_WORLD_SKIP_GROUPS += "libopen3d"
+# recipes depends on aws
+ROS_WORLD_SKIP_GROUPS += "aws"
+# recipes depends on mrpt2
+ROS_WORLD_SKIP_GROUPS += "mrpt2"
 
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
@@ -138,10 +138,7 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'gl
 # ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python3-collada-pip' (but meta-ros2-rolling/generated-recipes/webots-ros2-desktop/webots-ros2-importer_0.0.3-1.bb RDEPENDS on or otherwise requires it)
 ROS_WORLD_SKIP_GROUPS += "webots-python-modules"
 
-# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-sdformat' (but /jenkins/mjansa/build/ros/webos-rolling-hardknott/meta-ros/meta-ros2-rolling/generated-recipes/sdformat-urdf/sdformat-urdf_0.1.0-1.bb DEPENDS on or otherwise requires it)
-ROS_WORLD_SKIP_GROUPS += "sdformat"
-
-# recipes depending on gazebo, for which there is no OE recipe
+# recipes depending on gazebo-rosdev
 ROS_WORLD_SKIP_GROUPS += "gazebo"
 
 # not compatible with glibc-2.34 without easy fix as reported in https://github.com/ros2/demos/issues/530
@@ -152,11 +149,6 @@ ROS_WORLD_SKIP_GROUPS += "libqglviewer"
 
 # recipes depending on ignition-* (ROS_UNRESOLVED_DEP-ignition-gazebo5, ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-msgs7, ROS_UNRESOLVED_DEP-ignition-transport10, ROS_UNRESOLVED_DEP-ignition-rendering5, ROS_UNRESOLVED_DEP-ignition-common4, ROS_UNRESOLVED_DEP-ignition-gui5)
 ROS_WORLD_SKIP_GROUPS += "ignition"
-
-# recipes depending on unavailable python3-shapely
-ROS_WORLD_SKIP_GROUPS += "python3-shapely"
-# recipes depending on unavailable python3-flask-cors
-ROS_WORLD_SKIP_GROUPS += "python3-flask-cors"
 
 # recipes depending on legacy mongo-cxx-driver (https://packages.debian.org/source/stretch/mongo-cxx-driver-legacy)
 # the mongodb recipe in meta-oe installs just the binaries mongoc, mongos, install_compass
@@ -186,19 +178,6 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-scipy
 # swri recipes depending on marti-*-msgs, currently broken after to https://github.com/ros/rosdistro/commit/e019cc8729e7ff2ba2ed51e63886734936254111
 ROS_WORLD_SKIP_GROUPS += "swri"
 
-# do_configure failures
-ROS_WORLD_SKIP_GROUPS += " \
-    lanelet2-traffic-rules \
-    lanelet2-io \
-"
-
-# do_compile failures
-ROS_WORLD_SKIP_GROUPS += " \
-    lanelet2-core \
-    qt-gui-cpp \
-    self-test \
-"
-
 # packages (like depthai) that use hunter
 ROS_WORLD_SKIP_GROUPS += "hunter"
 
@@ -210,6 +189,9 @@ ROS_WORLD_SKIP_GROUPS += "libopen3d"
 
 # packages (like fogros2) that use wireguard
 ROS_WORLD_SKIP_GROUPS += "wireguard"
+
+# packages (like rtabmap) that use g2o
+ROS_WORLD_SKIP_GROUPS += "g2o"
 
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
