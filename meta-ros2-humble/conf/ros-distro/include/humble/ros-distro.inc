@@ -50,6 +50,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-fastrtps-shared-cpp-native \
     rmw-native \
     ros2cli-native \
+    ros2pkg-native \
     rosidl-adapter-native \
     rosidl-cli-native \
     rosidl-default-runtime-native \
@@ -88,6 +89,9 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-cyclonedds-cpp-native \
     rmw-fastrtps-dynamic-cpp-native \
     spdlog-vendor-native \
+    rmf-building-map-msgs-native \
+    std-msgs-native \
+    rmf-site-map-msgs-native \
 "
 
 # this needs google-benchmark-vendor-native but we probably don't need native version
