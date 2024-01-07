@@ -1,0 +1,12 @@
+Index: git/setup.py
+===================================================================
+--- git.orig/setup.py
++++ git/setup.py
+@@ -31,7 +31,6 @@ setup(
+     tests_require=['pytest'],
+     entry_points={
+         'console_scripts': [
+-            'flexbe_onboard = flexbe_onboard.flexbe_onboard',
+             'start_behavior = flexbe_onboard.start_behavior:main',
+         ],
+     },
