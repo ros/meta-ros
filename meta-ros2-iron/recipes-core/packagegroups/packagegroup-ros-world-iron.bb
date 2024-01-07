@@ -97,6 +97,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
+    mrpt2 \
+    mrpt-path-planning \
+    mola-launcher \
+    mola-input-ros2 \
+    mola-input-rawlog \
+    mola-viz \
+    mp2p-icp \
+    mvsim \
+    pose-cov-ops \
     rtabmap \
     rtabmap-ros \
 "
