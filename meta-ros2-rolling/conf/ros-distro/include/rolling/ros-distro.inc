@@ -57,6 +57,8 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rcl-yaml-param-parser-native \
     rclpy-native \
     rcpputils-native \
+    rmf-building-map-msgs-native \
+    rmf-site-map-msgs-native \
     rmw-cyclonedds-cpp-native \
     rmw-dds-common-native \
     rmw-fastrtps-cpp-native \
@@ -65,6 +67,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-implementation-native \
     rmw-native \
     ros2cli-native \
+    ros2pkg-native \
     rosgraph-msgs-native \
     rosidl-adapter-native \
     rosidl-cli-native \
@@ -82,6 +85,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-runtime-cpp-native \
     rpyutils-native \
     spdlog-vendor-native \
+    std-msgs-native \
     tracetools-native \
     uncrustify-vendor-native \
     unique-identifier-msgs-native \
