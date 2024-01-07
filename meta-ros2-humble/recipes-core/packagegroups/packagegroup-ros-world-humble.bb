@@ -189,6 +189,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     irobot-create-ignition-bringup \
     irobot-create-ignition-sim \
     irobot-create-ignition-plugins \
+    irobot-create-ignition-toolbox \
+    irobot-create-nodes \
+    irobot-create-toolbox \
     kinova-gen3-6dof-robotiq-2f-85-moveit-config \
     kinova-gen3-7dof-robotiq-2f-85-moveit-config \
     kortex-description \
@@ -224,10 +227,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     raspimouse-ros2-examples \
     raspimouse-slam \
     raspimouse-slam-navigation \
-    rmf-traffic-editor-test-maps \
+    rmf-building-map-tools \
     rmf-building-sim-gz-plugins \
     rmf-robot-sim-gz-plugins \
     rmf-rosdev \
+    rmf-traffic-editor-test-maps \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     robotiq-description \
@@ -250,6 +254,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     rviz-default-plugins \
     rviz-satellite \
     rviz-visual-tools \
+    sdformat \
+    sdformat-urdf \
     simulation \
     slam-toolbox \
     tiago-2dnav \
