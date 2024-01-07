@@ -1,11 +1,11 @@
-Index: git/tests/CMakeLists.txt
+Index: git/CMakeLists.txt
 ===================================================================
---- git.orig/tests/CMakeLists.txt
-+++ git/tests/CMakeLists.txt
-@@ -40,13 +40,7 @@ endif()
- file(GLOB_RECURSE GTEST_SOURCE "*_gtest.cpp")
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -67,13 +67,7 @@ if(BUILD_TESTING)
+     target_link_libraries(${PROJECT_NAME}_${TEST_NAME} ${PROJECT_NAME})
+   endforeach()
  
- if(GTEST_SOURCE)
 -  include(FetchContent)
 -  FetchContent_Declare(
 -    googletest
@@ -15,12 +15,5 @@ Index: git/tests/CMakeLists.txt
 -  include(GoogleTest)
 +  find_package(GTest REQUIRED)
  
-   foreach(TEST_FILE ${GTEST_SOURCE})
-     get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
-@@ -93,4 +87,4 @@ if(BTEST_SOURCE)
-     add_executable(${PROJECT_NAME}_${TEST_NAME} ${TEST_FILE})
-     target_link_libraries(${PROJECT_NAME}_${TEST_NAME} benchmark::benchmark ${PROJECT_NAME})
-   endforeach()
--endif()
-\ No newline at end of file
-+endif()
+   file(GLOB_RECURSE TEST_SOURCE "tests/**/*_gtest.cpp")
+   MESSAGE(STATUS "TEST_SOURCE: ${TEST_SOURCE}")
