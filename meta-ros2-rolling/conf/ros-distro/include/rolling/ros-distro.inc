@@ -300,6 +300,100 @@ ROS_UNRESOLVED_DEP-python3-babeltrace = "python3-babeltrace"
 
 ROS_UNRESOLVED_DEP-geos = "geos"
 
-ROS_UNRESOLVED_DEP-python3-venv = "python3-venv"
+ROS_UNRESOLVED_DEP-python3-venv = "python3"
 
 ROS_UNRESOLVED_DEP-libopencv-imgproc-dev = "opencv"
+
+ROS_UNRESOLVED_DEP-libomp-dev = "openmp"
+
+ROS_UNRESOLVED_DEP-libqt5-svg = "qtsvg"
+
+ROS_UNRESOLVED_DEP-python3-vcstool-native = "python3-vcstool-native"
+
+ROS_UNRESOLVED_DEP-libbluetooth = "bluez5"
+ROS_UNRESOLVED_DEP-libbluetooth-dev = "bluez5"
+
+ROS_UNRESOLVED_DEP-libdbus-dev = "dbus"
+
+ROS_UNRESOLVED_DEP-python3-distro = "python3-distro"
+
+ROS_UNRESOLVED_DEP-python3-img2pdf = "python3-img2pdf"
+
+ROS_UNRESOLVED_DEP-python3-ntplib = " python3-ntplib"
+
+ROS_UNRESOLVED_DEP-python3-ntplib = " python3-pydantic"
+
+ROS_UNRESOLVED_DEP-python3-watchdog = "python3-watchdog"
+
+ROS_UNRESOLVED_DEP-python3-protobuf = "python3-protobuf"
+
+ROS_UNRESOLVED_DEP-socat = "socat"
+
+ROS_UNRESOLVED_DEP-python3-scipy = "python3-scipy"
+
+ROS_UNRESOLVED_DEP-libgpiod-dev = "libgpiod"
+
+ROS_UNRESOLVED_DEP-python3-natsort = "python3-natsort"
+
+ROS_UNRESOLVED_DEP-libfyaml-dev = "libfyaml"
+
+ROS_UNRESOLVED_DEP-ignition-math6 = "ignition-math6"
+
+ROS_UNRESOLVED_DEP-ignition-cmake2 = "ignition-cmake2"
+
+ROS_UNRESOLVED_DEP-libpaho-mqtt-dev = "paho-mqtt-c"
+
+ROS_UNRESOLVED_DEP-libpaho-mqttpp-dev = "paho-mqtt-cpp"
+
+ROS_UNRESOLVED_DEP-ignition-transport11 = "ignition-transport11"
+
+ROS_UNRESOLVED_DEP-ignition-msgs8 = "ignition-msgs8"
+
+ROS_UNRESOLVED_DEP-ignition-plugin = "ignition-plugin"
+
+ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ignition-gazebo6"
+
+ROS_UNRESOLVED_DEP-ignition-common4 = "ignition-common4"
+
+ROS_UNRESOLVED_DEP-gazebo = "gazebo"
+ROS_UNRESOLVED_DEP-gazebo11 = "gazebo-rosdev"
+ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ignition-gazebo6"
+ROS_UNRESOLVED_DEP-libgazebo11 = "gazebo11"
+ROS_UNRESOLVED_DEP-libgazebo11-dev = "gazebo11"
+ROS_UNRESOLVED_DEP-ignition-fortress = "ignition-fortress"
+ROS_UNRESOLVED_DEP-ignition-gui6-native = "ignition-gui6-native"
+
+ROS_UNRESOLVED_DEP-libqt5-qml = "qtbase"
+ROS_UNRESOLVED_DEP-libqt5-quick = "qtbase"
+ROS_UNRESOLVED_DEP-qml-module-qtquick-extras = "qtquickcontrols2"
+
+ROS_UNRESOLVED_DEP-range-v3 = "range-v3"
+ROS_UNRESOLVED_DEP-simde = "simde"
+ROS_UNRESOLVED_DEP-xsimd = "xsimd"
+ROS_UNRESOLVED_DEP-xtensor = "xtensor"
+
+ROS_UNRESOLVED_DEP-libopenni-dev = "openni"
+ROS_UNRESOLVED_DEP-libopenni2-dev = "openni2"
+
+ROS_UNRESOLVED_DEP-python3-pydantic = "python3-pydantic"
+ROS_UNRESOLVED_DEP-python3-pymap3d = "python3-pymap3d"
+ROS_UNRESOLVED_DEP-python3-unidiff = "python3-unidiff"
+ROS_UNRESOLVED_DEP-black = "python3-black"
+ROS_UNRESOLVED_DEP-black-native = "python3-black-native"
+
+ROS_UNRESOLVED_DEP-libdraco-dev = "draco"
+ROS_UNRESOLVED_DEP-sdformat12 = "sdformat"
+
+ROS_UNRESOLVED_DEP-hdf5-tools-native = "hdf5-native"
+ROS_UNRESOLVED_DEP-libopenscenegraph = "openscenegraph"
+ROS_UNRESOLVED_DEP-wireless-tools = "wireless-tools"
+ROS_UNRESOLVED_DEP-warehouse-ros-mongo = "warehouse-ros-mongo"
+ROS_UNRESOLVED_DEP-clang-format = "clang"
+ROS_UNRESOLVED_DEP-clang-format-native = "clang-native"
+ROS_UNRESOLVED_DEP-clang-tidy = "clang"
+ROS_UNRESOLVED_DEP-clang-tidy-native = "clang-native"
+
+ROS_UNRESOLVED_DEP-python3-rtree = "python3-rtree"
+ROS_UNRESOLVED_DEP-python3-fiona = "python3-fiona"
+ROS_UNRESOLVED_DEP-python3-shapely = "python3-shapely"
+ROS_UNRESOLVED_DEP-ignition-fuel-tools7 = "ignition-fuel-tools7"
