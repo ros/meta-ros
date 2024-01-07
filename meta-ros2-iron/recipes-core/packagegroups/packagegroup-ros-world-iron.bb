@@ -703,3 +703,28 @@ RDEPENDS:${PN}:remove = "sophus"
 
 # websocketpp does not directly provide any runtime components
 RDEPENDS:${PN}:remove = "websocketpp"
+
+# Remove desktop
+RDEPENDS:${PN}:remove = "desktop"
+RDEPENDS:${PN}:remove = "desktop-full"
+
+RDEPENDS:${PN}:remove = "wireless-watcher"
+
+# metavision-driver depends ont he Metavision SDK by Prophesee
+RDEPENDS:${PN}:remove = "metavision-driver"
+
+# novatel-oem7-driver needs libCommon.a from an SDK
+RDEPENDS:${PN}:remove = "novatel-oem7-driver"
+
+# usb-cam needs updating to the latest ffmpeg APIs
+RDEPENDS:${PN}:remove = "usb-cam"
+
+# spinnaker-camera-driver requires the spinnaker SDK
+RDEPENDS:${PN}:remove = "spinnaker-camera-driver"
+
+# septentrio-gnss-driver
+RDEPENDS:${PN}:remove = "septentrio-gnss-driver"
+
+# behaviortree-cpp conflicts with behaviortree-cpp-v3
+# but it has no dependencies
+RDEPENDS:${PN}:remove = "behaviortree-cpp"
