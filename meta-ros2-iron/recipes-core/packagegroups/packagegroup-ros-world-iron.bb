@@ -781,8 +781,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HUNTER = " \
     depthai \
     depthai-bridge \
     depthai-examples \
+    depthai-filters \
     depthai-ros \
+    depthai-ros-driver \
     depthai-ros-msgs \
+    turtlebot4-bringup \
+    turtlebot4-robot \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'jupyter', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_JUPYTER}', '', d)}"
