@@ -147,13 +147,88 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
+    as2-platform-ign-gazebo \
+    as2-ign-gazebo-assets \
+    clearpath-desktop \
+    clearpath-gz \
+    clearpath-nav2-demos \
+    clearpath-simulator \
+    clearpath-viz \
+    crane-plus-moveit-config \
+    color-names \
     dolly-ignition \
     dolly \
+    grid-map \
+    grid-map-demos \
+    ign-ros2-control \
+    ign-ros2-control-demos \
     ign-rviz \
     ign-rviz-common \
     ign-rviz-plugins \
     ignition-cmake2-vendor \
     ignition-math6-vendor \
+    ignition-cmake2 \
+    ignition-common4 \
+    ignition-fortress \
+    ignition-fuel-tools7 \
+    ignition-gazebo6 \
+    ignition-gui6 \
+    ignition-launch5 \
+    ignition-math6 \
+    ignition-msgs8 \
+    ignition-physics5 \
+    ignition-plugin \
+    ignition-rendering6 \
+    ignition-sensors6 \
+    ignition-tools1 \
+    ignition-transport11 \
+    ignition-utils1 \
+    irobot-create-common-bringup \
+    irobot-create-ignition-bringup \
+    irobot-create-ignition-sim \
+    irobot-create-ignition-plugins \
+    kinova-gen3-6dof-robotiq-2f-85-moveit-config \
+    kinova-gen3-7dof-robotiq-2f-85-moveit-config \
+    kortex-description \
+    leo-desktop \
+    leo-viz \
+    moveit \
+    moveit-hybrid-planning \
+    moveit-resources-prbt-moveit-config \
+    moveit-ros \
+    moveit-ros-visualization \
+    moveit-setup-app-plugins \
+    moveit-setup-assistant \
+    moveit-setup-controllers \
+    moveit-setup-core-plugins \
+    moveit-setup-framework \
+    moveit-setup-srdf-plugins \
+    moveit-visual-tools \
+    nav2-bringup \
+    nav2-rviz-plugins \
+    navigation2 \
+    nmea-hardware-interface \
+    octomap-rviz-plugins \
+    pal-navigation-cfg \
+    pal-navigation-cfg-bringup \
+    pmb2-2dnav \
+    pmb2-bringup \
+    pmb2-description \
+    pmb2-navigation \
+    pmb2-robot \
+    polygon-demos \
+    raspimouse-description \
+    raspimouse-navigation \
+    raspimouse-ros2-examples \
+    raspimouse-slam \
+    raspimouse-slam-navigation \
+    rmf-traffic-editor-test-maps \
+    rmf-building-sim-gz-plugins \
+    rmf-robot-sim-gz-plugins \
+    rmf-rosdev \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
+    robotiq-description \
     ros-gz-bridge \
     ros-gz-image \
     ros-gz-sim \
@@ -164,7 +239,46 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     ros-ign-gazebo \
     ros-ign-gazebo-demos \
     ros-ign-image \
+    rtabmap-demos \
+    rtabmap-examples \
+    rtabmap-launch \
+    rtabmap-ros \
+    rtabmap-rviz-plugins \
+    rviz2 \
+    rviz-default-plugins \
+    rviz-satellite \
+    rviz-visual-tools \
     simulation \
+    slam-toolbox \
+    tiago-2dnav \
+    tiago-bringup \
+    tiago-description \
+    tiago-moveit-config \
+    tiago-navigation \
+    tiago-robot \
+    turtlebot3 \
+    turtlebot3-bringup \
+    turtlebot3-manipulation-cartographer \
+    turtlebot3-manipulation-description \
+    turtlebot3-manipulation-navigation2 \
+    turtlebot3-navigation2 \
+    turtlebot4-navigation \
+    turtlebot4-desktop \
+    turtlebot4-ignition-bringup \
+    turtlebot4-ignition-gui-plugins \
+    turtlebot4-python-tutorials \
+    turtlebot4-simulator \
+    turtlebot4-tutorials \
+    turtlebot4-viz \
+    ur \
+    ur-bringup \
+    ur-calibration \
+    ur-description \
+    ur-moveit-config \
+    ur-robot-driver \
+    urdf-launch \
+    urdf-tutorial \
+    vision-msgs-rviz-plugins \
 "
 
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
@@ -393,14 +507,26 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     aws-robomaker-small-warehouse-world \
-    dolly-gazebo \
+    crane-plus \
+    crane-plus-control \
+    crane-plus-description \
+    crane-plus-examples \
+    crane-plus-gazebo \
     dolly \
+    dolly-gazebo \
     gazebo-plugins \
+    gazebo11 \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
     gazebo-ros2-control-demos \
     gazebo-ros2-control \
+    irobot-create-gazebo-bringup \
+    irobot-create-gazebo-plugins \
+    irobot-create-gazebo-sim \
+    kortex-bringup \
+    nav2-system-tests \
+    pal-gazebo-plugins \
     pmb2-gazebo \
     pmb2-simulation \
     rmf-building-sim-gazebo-plugins \
@@ -410,12 +536,18 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     rmf-demos-assets \
     rmf-demos-gz \
     rmf-demos-ign \
-    rmf-building-sim-gazebo-plugins \
     rmf-robot-sim-gazebo-plugins \
     rmf-robot-sim-gz-plugins \
     rmf-robot-sim-gz-classic-plugins \
+    rmf-rosdev \
+    tiago-gazebo \
+    tiago-simulation \
     turtlebot3-gazebo \
+    turtlebot3-manipulation \
+    turtlebot3-manipulation-bringup \
+    turtlebot3-manipulation-teleop \
     turtlebot3-simulations \
+    urdf-sim-tutorial \
     velodyne-description \
     velodyne-simulator \
     velodyne-gazebo-plugins \
