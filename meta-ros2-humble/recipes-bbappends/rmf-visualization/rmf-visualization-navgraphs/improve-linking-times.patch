@@ -1,0 +1,61 @@
+# https://github.com/open-rmf/rmf_visualization/commit/4ef9549472a2dfef0eed6581644700d3aa859e4a.patch
+From 4ef9549472a2dfef0eed6581644700d3aa859e4a Mon Sep 17 00:00:00 2001
+From: Grey <grey@openrobotics.org>
+Date: Tue, 22 Aug 2023 12:53:26 +0800
+Subject: [PATCH] Improve linking times (#61)
+
+Signed-off-by: Luca Della Vedova <lucadv@intrinsic.ai>
+Signed-off-by: Michael X. Grey <grey@openrobotics.org>
+Co-authored-by: Luca Della Vedova <lucadv@intrinsic.ai>
+---
+ rmf_visualization_navgraphs/CMakeLists.txt    | 31 +++++---------
+ 6 files changed, 64 insertions(+), 115 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8148d67..2c95643 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,33 +26,22 @@ endforeach()
+ #===============================================================================
+ add_library(navgraph_visualizer SHARED src/NavGraphVisualizer.cpp)
+ 
+-target_link_libraries(navgraph_visualizer
+-  PRIVATE
+-    rclcpp::rclcpp
+-    ${rclcpp_components_LIBRARIES}
+-    ${rmf_fleet_msgs_LIBRARIES}
+-    ${rmf_building_map_msgs_LIBRARIES}
+-    ${rmf_visualization_msgs_LIBRARIES}
+-    ${visualization_msgs_LIBRARIES}
+-    ${geometry_msgs_LIBRARIES}
+-    rmf_traffic::rmf_traffic
+-    rmf_traffic_ros2::rmf_traffic_ros2
+-
++ament_target_dependencies(navgraph_visualizer
++  PUBLIC
++    rclcpp
++    rclcpp_components
++    rmf_fleet_msgs
++    rmf_building_map_msgs
++    rmf_visualization_msgs
++    visualization_msgs
++    geometry_msgs
++    rmf_traffic_ros2
+ )
+ 
+ target_include_directories(navgraph_visualizer
+   PRIVATE
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+-    ${rclcpp_INCLUDE_DIRS}
+-    ${rclcpp_components_INCLUDE_DIRS}
+-    ${rmf_fleet_msgs_INCLUDE_DIRS}
+-    ${rmf_building_map_msgs_INCLUDE_DIRS}
+-    ${rmf_visualization_msgs_INCLUDE_DIRS}
+-    ${visualization_msgs_INCLUDE_DIRS}
+-    ${geometry_msgs_INCLUDE_DIRS}
+-    ${rmf_traffic_INCLUDE_DIRS}
+-    ${rmf_traffic_ros2_INCLUDE_DIRS}
+ )
+ 
+ target_compile_features(navgraph_visualizer INTERFACE cxx_std_17)
