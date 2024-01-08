@@ -4,18 +4,14 @@ HOMEPAGE = "http://www.assimp.org/"
 SECTION = "devel"
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=2119edef0916b0bd511cb3c731076271"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=d9d5275cab4fb13ae624d42ce64865de"
 
 DEPENDS = "zlib"
 
-SRC_URI = "git://github.com/assimp/assimp.git;branch=assimp_5.0_release;protocol=https \
-           file://0001-closes-https-github.com-assimp-assimp-issues-2733-up.patch \
-           file://use-GNUInstallDirs-where-possible.patch \
-           file://0001-assimp-remove-shared-lib-from-_IMPORT_CHECK_TARGETS.patch \
-           "
+SRC_URI = "git://github.com/assimp/assimp.git;protocol=https"
 UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>(\d+(\.\d+)+))"
 
-SRCREV = "8f0c6b04b2257a520aaab38421b2e090204b69df"
+SRCREV = "9519a62dd20799c5493c638d1ef5a6f484e5faf1"
 
 S = "${WORKDIR}/git"
 
