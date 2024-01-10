@@ -1,0 +1,200 @@
+From: Edmund Grimley Evans <edmund.grimley.evans@gmail.com>
+Date: Sat, 6 Jun 2015 23:28:59 +0200
+Subject: Add arm64 support
+
+---
+ Include/Linux-AArch64/XnPlatformLinux-AArch64.h | 43 +++++++++++++++++++++++++
+ Include/XnOS.h                                  |  2 +-
+ Include/XnPlatform.h                            |  3 ++
+ Include/XnUSBDevice.h                           |  2 +-
+ Platform/Linux/Build/Common/CommonDefs.mak      |  2 ++
+ Platform/Linux/Build/Common/Platform.AArch64    | 11 +++++++
+ Platform/Linux/CreateRedist/Redist_OpenNi.py    |  3 ++
+ Samples/NiViewer/NiViewer.cpp                   |  4 +--
+ Source/OpenNI/XnOpenNI.cpp                      |  2 +-
+ 9 files changed, 67 insertions(+), 5 deletions(-)
+ create mode 100644 Include/Linux-AArch64/XnPlatformLinux-AArch64.h
+ create mode 100644 Platform/Linux/Build/Common/Platform.AArch64
+
+diff --git a/Include/Linux-AArch64/XnPlatformLinux-AArch64.h b/Include/Linux-AArch64/XnPlatformLinux-AArch64.h
+new file mode 100644
+index 0000000..9948635
+--- /dev/null
++++ b/Include/Linux-AArch64/XnPlatformLinux-AArch64.h
+@@ -0,0 +1,43 @@
++/****************************************************************************
++*                                                                           *
++*  OpenNI 1.x Alpha                                                         *
++*  Copyright (C) 2011 PrimeSense Ltd.                                       *
++*                                                                           *
++*  This file is part of OpenNI.                                             *
++*                                                                           *
++*  OpenNI is free software: you can redistribute it and/or modify           *
++*  it under the terms of the GNU Lesser General Public License as published *
++*  by the Free Software Foundation, either version 3 of the License, or     *
++*  (at your option) any later version.                                      *
++*                                                                           *
++*  OpenNI is distributed in the hope that it will be useful,                *
++*  but WITHOUT ANY WARRANTY; without even the implied warranty of           *
++*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the             *
++*  GNU Lesser General Public License for more details.                      *
++*                                                                           *
++*  You should have received a copy of the GNU Lesser General Public License *
++*  along with OpenNI. If not, see <http://www.gnu.org/licenses/>.           *
++*                                                                           *
++****************************************************************************/
++#ifndef _XN_PLATFORM_LINUX_AARCH64_H_
++#define _XN_PLATFORM_LINUX_AARCH64_H_
++
++// Start with Linux-x86, and override what's different
++#include "../Linux-x86/XnPlatformLinux-x86.h"
++
++//---------------------------------------------------------------------------
++// Platform Basic Definition
++//---------------------------------------------------------------------------
++#undef XN_PLATFORM
++#undef XN_PLATFORM_STRING
++#undef XN_PLATFORM_ENDIAN_TYPE
++#define XN_PLATFORM XN_PLATFORM_LINUX_AARCH64
++#define XN_PLATFORM_STRING "Linux-AArch64"
++
++#ifdef __AARCH64EB__
++#define XN_PLATFORM_ENDIAN_TYPE XN_PLATFORM_IS_BIG_ENDIAN
++#else
++#define XN_PLATFORM_ENDIAN_TYPE XN_PLATFORM_IS_LITTLE_ENDIAN
++#endif // __AARCH64EB__
++
++#endif //_XN_PLATFORM_LINUX_AARCH64_H_
+diff --git a/Include/XnOS.h b/Include/XnOS.h
+index 5abf0da..15469db 100644
+--- a/Include/XnOS.h
++++ b/Include/XnOS.h
+@@ -44,7 +44,7 @@
+ //---------------------------------------------------------------------------
+ #if (XN_PLATFORM == XN_PLATFORM_WIN32)
+ 	#include "Win32/XnOSWin32.h"
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_ANDROID_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_ANDROID_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
+ 	#include "Linux-x86/XnOSLinux-x86.h"
+ #elif defined(_ARC)
+ 	#include "ARC/XnOSARC.h"
+diff --git a/Include/XnPlatform.h b/Include/XnPlatform.h
+index dad39d0..247c278 100644
+--- a/Include/XnPlatform.h
++++ b/Include/XnPlatform.h
+@@ -36,6 +36,7 @@
+ #define XN_PLATFORM_MACOSX 8
+ #define XN_PLATFORM_ANDROID_ARM 9
+ #define XN_PLATFORM_LINUX_POWERPC 10
++#define XN_PLATFORM_LINUX_AARCH64 11
+ 
+ #define XN_PLATFORM_IS_LITTLE_ENDIAN 1
+ #define XN_PLATFORM_IS_BIG_ENDIAN    2
+@@ -67,6 +68,8 @@
+ 	#include "Linux-x86/XnPlatformLinux-x86.h"
+ #elif (__linux__ && __arm__)
+ 	#include "Linux-Arm/XnPlatformLinux-Arm.h"
++#elif (__linux__ && __aarch64__)
++	#include "Linux-AArch64/XnPlatformLinux-AArch64.h"
+ #elif (__linux__ && __powerpc__)
+ 	#include "Linux-Powerpc/XnPlatformLinux-Powerpc.h"
+ #elif _ARC
+diff --git a/Include/XnUSBDevice.h b/Include/XnUSBDevice.h
+index f0066dc..2833208 100644
+--- a/Include/XnUSBDevice.h
++++ b/Include/XnUSBDevice.h
+@@ -48,7 +48,7 @@
+ 	#define USB_DT_DEVICE_SIZE 0
+ 	#define USB_DT_DEVICE 0
+ 
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
+ 	#include <linux/usb/ch9.h>
+ 	typedef struct usb_endpoint_descriptor XnUSBEndpointDescriptor;
+ 	typedef struct usb_interface_descriptor XnUSBInterfaceDescriptor;
+diff --git a/Platform/Linux/Build/Common/CommonDefs.mak b/Platform/Linux/Build/Common/CommonDefs.mak
+index 26544f7..c5d897e 100644
+--- a/Platform/Linux/Build/Common/CommonDefs.mak
++++ b/Platform/Linux/Build/Common/CommonDefs.mak
+@@ -18,6 +18,8 @@ else ifneq (,$(findstring i386,$(MACHINE)))
+ 	HOST_PLATFORM = x86
+ else ifneq (,$(findstring arm,$(MACHINE)))
+ 	HOST_PLATFORM = Arm
++else ifneq (,$(findstring aarch64,$(MACHINE)))
++	HOST_PLATFORM = AArch64
+ else ifneq (,$(findstring ppc,$(MACHINE)))
+ 	HOST_PLATFORM = Powerpc
+ else
+diff --git a/Platform/Linux/Build/Common/Platform.AArch64 b/Platform/Linux/Build/Common/Platform.AArch64
+new file mode 100644
+index 0000000..232bed6
+--- /dev/null
++++ b/Platform/Linux/Build/Common/Platform.AArch64
+@@ -0,0 +1,11 @@
++export GLUT_SUPPORTED=1
++
++ifeq "$(CFG)" "Release"
++
++    # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
++    CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
++
++    # More optimization flags
++    CFLAGS += -ftree-vectorize -ffast-math -funsafe-math-optimizations -fsingle-precision-constant
++
++endif
+diff --git a/Platform/Linux/CreateRedist/Redist_OpenNi.py b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+index d966d25..d543ecf 100755
+--- a/Platform/Linux/CreateRedist/Redist_OpenNi.py
++++ b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+@@ -186,6 +186,8 @@ else:
+         PLATFORM = "x86"
+     elif machinetype[:3] == "arm":
+         PLATFORM = "Arm"
++    elif machinetype == "aarch64":
++        PLATFORM = "AArch64"
+     elif machinetype[:3] == "ppc":
+         PLATFORM = "Powerpc"
+     else:
+@@ -335,6 +337,7 @@ for includeFile in os.listdir("../../Include"):
+ 
+ shutil.copytree("../../Include/Linux-x86", REDIST_DIR + "/Include/Linux-x86")
+ shutil.copytree("../../Include/Linux-Arm", REDIST_DIR + "/Include/Linux-Arm")
++shutil.copytree("../../Include/Linux-AArch64", REDIST_DIR + "/Include/Linux-AArch64")
+ shutil.copytree("../../Include/Linux-Powerpc", REDIST_DIR + "/Include/Linux-Powerpc")
+ shutil.copytree("../../Include/MacOSX", REDIST_DIR + "/Include/MacOSX")
+ shutil.copytree("Build/Common", REDIST_DIR + "/Samples/Build/Common")
+diff --git a/Samples/NiViewer/NiViewer.cpp b/Samples/NiViewer/NiViewer.cpp
+index ab4e6f7..74e5cfe 100644
+--- a/Samples/NiViewer/NiViewer.cpp
++++ b/Samples/NiViewer/NiViewer.cpp
+@@ -49,7 +49,7 @@
+ // --------------------------------
+ #include <XnCppWrapper.h>
+ 
+-#if (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
++#if (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
+ 	#define UNIX
+ 	#define GLX_GLXEXT_LEGACY
+ #endif
+@@ -79,7 +79,7 @@ using namespace glh;
+ #if (XN_PLATFORM == XN_PLATFORM_WIN32)
+ 	#include <conio.h>
+ 	#include <direct.h>	
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM_LINUX_POWERPC)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM_LINUX_POWERPC)
+ 	#define _getch() getchar()
+ #endif
+ 
+diff --git a/Source/OpenNI/XnOpenNI.cpp b/Source/OpenNI/XnOpenNI.cpp
+index 8dd8d00..9e46c93 100644
+--- a/Source/OpenNI/XnOpenNI.cpp
++++ b/Source/OpenNI/XnOpenNI.cpp
+@@ -7062,7 +7062,7 @@ XN_C_API XnStatus xnScriptNodeRun(XnNodeHandle hScript, XnEnumerationErrors* pEr
+ 	#define XN_OPEN_NI_FILES_LOCATION "\\Data\\"
+ #elif (CE4100)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/usr/etc/ni/"
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_AARCH64 || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/var/lib/ni/"
+ #elif (XN_PLATFORM == XN_PLATFORM_ANDROID_ARM)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/data/ni/"

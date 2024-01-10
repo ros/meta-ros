@@ -1,0 +1,42 @@
+It is necessary for the install() macro to receive absolute paths.  This
+ensures that _IMPORT_PREFIX is used instead of /usr.
+
+Otherwise packages using hpp-fcl will complain that the provided libraries
+aren't present on the build host.
+
+See also "TOPDIR/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.6.17-1-r0/build/CMakeFiles/CMakeOutput.log".
+CMake Error at TOPDIR/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.6.17-1-r0/recipe-sysroot/usr/lib/cmake/hpp-fcl/hpp-fclTargets.cmake:89 (message):
+  The imported target "hpp-fcl::hpp-fcl" references the file
+
+     "/usr/lib/libhpp-fcl.so"
+
+  but this file does not exist.  Possible reasons include:
+
+  * The file was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+
+  * The installation package was faulty and contained
+
+     "TOPDIR/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.6.17-1-r0/recipe-sysroot/usr/lib/cmake/hpp-fcl/hpp-fclTargets.cmake"
+
+  but not all the files it references.
+
+Index: git/src/CMakeLists.txt
+===================================================================
+--- git.orig/src/CMakeLists.txt
++++ git/src/CMakeLists.txt
+@@ -233,8 +233,8 @@ ENDIF(octomap_FOUND)
+ 
+ install(TARGETS ${LIBRARY_NAME}
+   EXPORT ${TARGETS_EXPORT_NAME}
+-  PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR}
+-  INCLUDES DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR}
+-  LIBRARY DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}
+-  ARCHIVE DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}
+-  RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
++  PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
++  INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
++  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

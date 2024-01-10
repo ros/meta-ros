@@ -1,0 +1,53 @@
+Index: git/yaml/cmake.yaml
+===================================================================
+--- git.orig/yaml/cmake.yaml
++++ git/yaml/cmake.yaml
+@@ -79,6 +79,48 @@ gtest:
+   include_dirs: [gtest_INCLUDE_DIRS]
+   libraries: [gtest_LIBRARIES]
+   name: gtest
++lanelet2_core:
++  components: []
++  include_dirs: [lanelet2_core_INCLUDE_DIRS]
++  libraries: [lanelet2_core_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_core
++lanelet2_io:
++  components: []
++  include_dirs: [lanelet2_io_INCLUDE_DIRS]
++  libraries: [lanelet2_io_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_io
++lanelet2_matching:
++  components: []
++  include_dirs: [lanelet2_matching_INCLUDE_DIRS]
++  libraries: [lanelet2_matching_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_matching
++lanelet2_projection:
++  components: []
++  include_dirs: [lanelet2_projection_INCLUDE_DIRS]
++  libraries: [lanelet2_projection_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_projection
++lanelet2_python:
++  components: []
++  include_dirs: [lanelet2_python_INCLUDE_DIRS]
++  libraries: [lanelet2_python_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_python
++lanelet2_routing:
++  components: []
++  include_dirs: [lanelet2_routing_INCLUDE_DIRS]
++  libraries: [lanelet2_routing_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_routing
++lanelet2_traffic_rules:
++  components: []
++  include_dirs: [lanelet2_traffic_rules_INCLUDE_DIRS]
++  libraries: [lanelet2_traffic_rules_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_traffic_rules
+ libann-dev:
+   components: []
+   include_dirs: [ANN_INCLUDE_DIR]

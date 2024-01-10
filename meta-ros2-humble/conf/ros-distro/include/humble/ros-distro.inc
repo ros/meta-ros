@@ -50,6 +50,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-fastrtps-shared-cpp-native \
     rmw-native \
     ros2cli-native \
+    ros2pkg-native \
     rosidl-adapter-native \
     rosidl-cli-native \
     rosidl-default-runtime-native \
@@ -88,6 +89,9 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-cyclonedds-cpp-native \
     rmw-fastrtps-dynamic-cpp-native \
     spdlog-vendor-native \
+    rmf-building-map-msgs-native \
+    std-msgs-native \
+    rmf-site-map-msgs-native \
 "
 
 # this needs google-benchmark-vendor-native but we probably don't need native version
@@ -99,10 +103,6 @@ ROS_WORLD_SKIP_GROUPS += "connext"
 ROS_WORLD_SKIP_GROUPS += "opensplice"
 # alternative not yet supported implementation for fastrtps, there is no recipe for gurumdds-2.6
 ROS_WORLD_SKIP_GROUPS += "gurumdds"
-# Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
-ROS_WORLD_SKIP_GROUPS += "clang"
-# recipes depending on openni (libopenni-dev)
-ROS_WORLD_SKIP_GROUPS += "openni"
 # recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
 ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 # recipes depending on coinor-libipopt
@@ -115,6 +115,10 @@ ROS_WORLD_SKIP_GROUPS += "cwiid"
 ROS_WORLD_SKIP_GROUPS += "libspnav"
 # recipes depends on libopen3d
 ROS_WORLD_SKIP_GROUPS += "libopen3d"
+# recipes depends on aws
+ROS_WORLD_SKIP_GROUPS += "aws"
+# recipes depends on mrpt2
+ROS_WORLD_SKIP_GROUPS += "mrpt2"
 
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
@@ -134,10 +138,7 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'gl
 # ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python3-collada-pip' (but meta-ros2-rolling/generated-recipes/webots-ros2-desktop/webots-ros2-importer_0.0.3-1.bb RDEPENDS on or otherwise requires it)
 ROS_WORLD_SKIP_GROUPS += "webots-python-modules"
 
-# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-sdformat' (but /jenkins/mjansa/build/ros/webos-rolling-hardknott/meta-ros/meta-ros2-rolling/generated-recipes/sdformat-urdf/sdformat-urdf_0.1.0-1.bb DEPENDS on or otherwise requires it)
-ROS_WORLD_SKIP_GROUPS += "sdformat"
-
-# recipes depending on gazebo, for which there is no OE recipe
+# recipes depending on gazebo-rosdev
 ROS_WORLD_SKIP_GROUPS += "gazebo"
 
 # not compatible with glibc-2.34 without easy fix as reported in https://github.com/ros2/demos/issues/530
@@ -148,11 +149,6 @@ ROS_WORLD_SKIP_GROUPS += "libqglviewer"
 
 # recipes depending on ignition-* (ROS_UNRESOLVED_DEP-ignition-gazebo5, ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-msgs7, ROS_UNRESOLVED_DEP-ignition-transport10, ROS_UNRESOLVED_DEP-ignition-rendering5, ROS_UNRESOLVED_DEP-ignition-common4, ROS_UNRESOLVED_DEP-ignition-gui5)
 ROS_WORLD_SKIP_GROUPS += "ignition"
-
-# recipes depending on unavailable python3-shapely
-ROS_WORLD_SKIP_GROUPS += "python3-shapely"
-# recipes depending on unavailable python3-flask-cors
-ROS_WORLD_SKIP_GROUPS += "python3-flask-cors"
 
 # recipes depending on legacy mongo-cxx-driver (https://packages.debian.org/source/stretch/mongo-cxx-driver-legacy)
 # the mongodb recipe in meta-oe installs just the binaries mongoc, mongos, install_compass
@@ -182,19 +178,6 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-scipy
 # swri recipes depending on marti-*-msgs, currently broken after to https://github.com/ros/rosdistro/commit/e019cc8729e7ff2ba2ed51e63886734936254111
 ROS_WORLD_SKIP_GROUPS += "swri"
 
-# do_configure failures
-ROS_WORLD_SKIP_GROUPS += " \
-    lanelet2-traffic-rules \
-    lanelet2-io \
-"
-
-# do_compile failures
-ROS_WORLD_SKIP_GROUPS += " \
-    lanelet2-core \
-    qt-gui-cpp \
-    self-test \
-"
-
 # packages (like depthai) that use hunter
 ROS_WORLD_SKIP_GROUPS += "hunter"
 
@@ -206,6 +189,9 @@ ROS_WORLD_SKIP_GROUPS += "libopen3d"
 
 # packages (like fogros2) that use wireguard
 ROS_WORLD_SKIP_GROUPS += "wireguard"
+
+# packages (like rtabmap) that use g2o
+ROS_WORLD_SKIP_GROUPS += "g2o"
 
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
@@ -274,6 +260,100 @@ ROS_UNRESOLVED_DEP-python3-babeltrace = "python3-babeltrace"
 
 ROS_UNRESOLVED_DEP-geos = "geos"
 
-ROS_UNRESOLVED_DEP-python3-venv = "python3-venv"
+ROS_UNRESOLVED_DEP-python3-venv = "python3"
 
 ROS_UNRESOLVED_DEP-libopencv-imgproc-dev = "opencv"
+
+ROS_UNRESOLVED_DEP-libomp-dev = "openmp"
+
+ROS_UNRESOLVED_DEP-libqt5-svg = "qtsvg"
+
+ROS_UNRESOLVED_DEP-python3-vcstool-native = "python3-vcstool-native"
+
+ROS_UNRESOLVED_DEP-libbluetooth = "bluez5"
+ROS_UNRESOLVED_DEP-libbluetooth-dev = "bluez5"
+
+ROS_UNRESOLVED_DEP-libdbus-dev = "dbus"
+
+ROS_UNRESOLVED_DEP-python3-distro = "python3-distro"
+
+ROS_UNRESOLVED_DEP-python3-img2pdf = "python3-img2pdf"
+
+ROS_UNRESOLVED_DEP-python3-ntplib = " python3-ntplib"
+
+ROS_UNRESOLVED_DEP-python3-ntplib = " python3-pydantic"
+
+ROS_UNRESOLVED_DEP-python3-watchdog = "python3-watchdog"
+
+ROS_UNRESOLVED_DEP-python3-protobuf = "python3-protobuf"
+
+ROS_UNRESOLVED_DEP-socat = "socat"
+
+ROS_UNRESOLVED_DEP-python3-scipy = "python3-scipy"
+
+ROS_UNRESOLVED_DEP-libgpiod-dev = "libgpiod"
+
+ROS_UNRESOLVED_DEP-python3-natsort = "python3-natsort"
+
+ROS_UNRESOLVED_DEP-libfyaml-dev = "libfyaml"
+
+ROS_UNRESOLVED_DEP-ignition-math6 = "ignition-math6"
+
+ROS_UNRESOLVED_DEP-ignition-cmake2 = "ignition-cmake2"
+
+ROS_UNRESOLVED_DEP-libpaho-mqtt-dev = "paho-mqtt-c"
+
+ROS_UNRESOLVED_DEP-libpaho-mqttpp-dev = "paho-mqtt-cpp"
+
+ROS_UNRESOLVED_DEP-ignition-transport11 = "ignition-transport11"
+
+ROS_UNRESOLVED_DEP-ignition-msgs8 = "ignition-msgs8"
+
+ROS_UNRESOLVED_DEP-ignition-plugin = "ignition-plugin"
+
+ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ignition-gazebo6"
+
+ROS_UNRESOLVED_DEP-ignition-common4 = "ignition-common4"
+
+ROS_UNRESOLVED_DEP-gazebo = "gazebo"
+ROS_UNRESOLVED_DEP-gazebo11 = "gazebo-rosdev"
+ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ignition-gazebo6"
+ROS_UNRESOLVED_DEP-libgazebo11 = "gazebo11"
+ROS_UNRESOLVED_DEP-libgazebo11-dev = "gazebo11"
+ROS_UNRESOLVED_DEP-ignition-fortress = "ignition-fortress"
+ROS_UNRESOLVED_DEP-ignition-gui6-native = "ignition-gui6-native"
+
+ROS_UNRESOLVED_DEP-libqt5-qml = "qtbase"
+ROS_UNRESOLVED_DEP-libqt5-quick = "qtbase"
+ROS_UNRESOLVED_DEP-qml-module-qtquick-extras = "qtquickcontrols2"
+
+ROS_UNRESOLVED_DEP-range-v3 = "range-v3"
+ROS_UNRESOLVED_DEP-simde = "simde"
+ROS_UNRESOLVED_DEP-xsimd = "xsimd"
+ROS_UNRESOLVED_DEP-xtensor = "xtensor"
+
+ROS_UNRESOLVED_DEP-libopenni-dev = "openni"
+ROS_UNRESOLVED_DEP-libopenni2-dev = "openni2"
+
+ROS_UNRESOLVED_DEP-python3-pydantic = "python3-pydantic"
+ROS_UNRESOLVED_DEP-python3-pymap3d = "python3-pymap3d"
+ROS_UNRESOLVED_DEP-python3-unidiff = "python3-unidiff"
+ROS_UNRESOLVED_DEP-black = "python3-black"
+ROS_UNRESOLVED_DEP-black-native = "python3-black-native"
+
+ROS_UNRESOLVED_DEP-libdraco-dev = "draco"
+ROS_UNRESOLVED_DEP-sdformat12 = "sdformat"
+
+ROS_UNRESOLVED_DEP-hdf5-tools-native = "hdf5-native"
+ROS_UNRESOLVED_DEP-libopenscenegraph = "openscenegraph"
+ROS_UNRESOLVED_DEP-wireless-tools = "wireless-tools"
+ROS_UNRESOLVED_DEP-warehouse-ros-mongo = "warehouse-ros-mongo"
+ROS_UNRESOLVED_DEP-clang-format = "clang"
+ROS_UNRESOLVED_DEP-clang-format-native = "clang-native"
+ROS_UNRESOLVED_DEP-clang-tidy = "clang"
+ROS_UNRESOLVED_DEP-clang-tidy-native = "clang-native"
+
+ROS_UNRESOLVED_DEP-python3-rtree = "python3-rtree"
+ROS_UNRESOLVED_DEP-python3-fiona = "python3-fiona"
+ROS_UNRESOLVED_DEP-python3-shapely = "python3-shapely"
+ROS_UNRESOLVED_DEP-ignition-fuel-tools7 = "ignition-fuel-tools7"

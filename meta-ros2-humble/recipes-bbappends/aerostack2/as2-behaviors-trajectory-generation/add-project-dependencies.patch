@@ -1,0 +1,27 @@
+Add glog and NLopt as dependencies to satisfy unresolved symbols
+in the dynamic_trajectory_generator library.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/generate_polynomial_trajectory_behavior/CMakeLists.txt
+===================================================================
+--- git.orig/generate_polynomial_trajectory_behavior/CMakeLists.txt
++++ git/generate_polynomial_trajectory_behavior/CMakeLists.txt
+@@ -18,6 +18,8 @@ set(EXECUTABLE_DEPENDENCIES
+   geometry_msgs
+   visualization_msgs
+   Eigen3
++  glog
++  NLopt
+ )
+ 
+ foreach(DEPENDENCY ${EXECUTABLE_DEPENDENCIES})
+@@ -38,7 +39,7 @@ set(SOURCE_CPP_FILES
+ )
+ 
+ add_executable(${EXECUTABLE_NAME}_node ${SOURCE_CPP_FILES})
+-target_link_libraries(${EXECUTABLE_NAME}_node dynamic_trajectory_generator mav_trajectory_generation)
++target_link_libraries(${EXECUTABLE_NAME}_node dynamic_trajectory_generator mav_trajectory_generation glog::glog NLopt::nlopt)
+ ament_target_dependencies(${EXECUTABLE_NAME}_node ${PROJECT_DEPENDENCIES} ${EXECUTABLE_DEPENDENCIES})
+ 
+ install(DIRECTORY

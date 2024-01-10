@@ -13,6 +13,10 @@ PACKAGES = "${PN}"
 
 RDEPENDS:${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 
+# Remove desktop
+RDEPENDS:${PN}:remove = "desktop"
+RDEPENDS:${PN}:remove = "desktop-full"
+
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
 RDEPENDS:${PN}:remove = "test-osrf-testing-tools-cpp"
 
@@ -22,20 +26,6 @@ RDEPENDS:${PN}:remove = "zstd-vendor"
 # It's empty package now, just providing dependency on platform python3-pybind11 recipe
 RDEPENDS:${PN}:remove = "pybind11-vendor"
 
-# Depends on unavailable python3-shapely
-RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-shapely', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_SHAPELY}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_SHAPELY = " \
-    rmf-building-map-tools \
-    rmf-demos-maps \
-    rmf-building-map-tools \
-    rmf-traffic-editor-test-maps \
-"
-# Depends on unavailable python3-flask-cors
-RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'python3-flask-cors', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_FLASK_CORS}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYTHON3_FLASK_CORS = " \
-    rmf-demos-panel \
-"
-
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB = " \
     run-ompl-constrained-planning \
@@ -44,6 +34,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mongodb-legacy-cxx-driver', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB_LEGACY_CXX_DRIVER}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MONGODB_LEGACY_CXX_DRIVER = " \
     run-ompl-constrained-planning \
+    turtlebot3-manipulation-moveit-config \
     warehouse-ros-mongo \
 "
 
@@ -110,6 +101,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
+    mrpt2 \
+    mrpt-path-planning \
+    mola-launcher \
+    mola-input-ros2 \
+    mola-input-rawlog \
+    mola-viz \
+    mp2p-icp \
+    mvsim \
+    pose-cov-ops \
     rtabmap \
     rtabmap-ros \
 "
@@ -118,11 +118,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
     launch-testing-ament-cmake \
-"
-
-RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'sdformat', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SDFORMAT}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SDFORMAT = " \
-    sdformat-urdf \
 "
 
 # not compatible with glibc-2.34 without easy fix as reported in https://github.com/ros2/demos/issues/530
@@ -143,6 +138,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
     plansys2-popf-plan-solver \
     plansys2-problem-expert \
     plansys2-terminal \
+    plansys2-tools \
     popf \
 "
 
@@ -153,13 +149,92 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
+    as2-platform-ign-gazebo \
+    as2-ign-gazebo-assets \
+    clearpath-desktop \
+    clearpath-gz \
+    clearpath-nav2-demos \
+    clearpath-simulator \
+    clearpath-viz \
+    crane-plus-moveit-config \
+    color-names \
     dolly-ignition \
     dolly \
+    grid-map \
+    grid-map-demos \
+    ign-ros2-control \
+    ign-ros2-control-demos \
     ign-rviz \
     ign-rviz-common \
     ign-rviz-plugins \
     ignition-cmake2-vendor \
     ignition-math6-vendor \
+    ignition-cmake2 \
+    ignition-common4 \
+    ignition-fortress \
+    ignition-fuel-tools7 \
+    ignition-gazebo6 \
+    ignition-gui6 \
+    ignition-launch5 \
+    ignition-math6 \
+    ignition-msgs8 \
+    ignition-physics5 \
+    ignition-plugin \
+    ignition-rendering6 \
+    ignition-sensors6 \
+    ignition-tools1 \
+    ignition-transport11 \
+    ignition-utils1 \
+    irobot-create-common-bringup \
+    irobot-create-ignition-bringup \
+    irobot-create-ignition-sim \
+    irobot-create-ignition-plugins \
+    irobot-create-ignition-toolbox \
+    irobot-create-nodes \
+    irobot-create-toolbox \
+    kinova-gen3-6dof-robotiq-2f-85-moveit-config \
+    kinova-gen3-7dof-robotiq-2f-85-moveit-config \
+    kortex-description \
+    leo-desktop \
+    leo-viz \
+    moveit \
+    moveit-hybrid-planning \
+    moveit-resources-prbt-moveit-config \
+    moveit-ros \
+    moveit-ros-visualization \
+    moveit-setup-app-plugins \
+    moveit-setup-assistant \
+    moveit-setup-controllers \
+    moveit-setup-core-plugins \
+    moveit-setup-framework \
+    moveit-setup-srdf-plugins \
+    moveit-visual-tools \
+    nav2-bringup \
+    nav2-rviz-plugins \
+    navigation2 \
+    nmea-hardware-interface \
+    octomap-rviz-plugins \
+    pal-navigation-cfg \
+    pal-navigation-cfg-bringup \
+    pmb2-2dnav \
+    pmb2-bringup \
+    pmb2-description \
+    pmb2-navigation \
+    pmb2-robot \
+    polygon-demos \
+    raspimouse-description \
+    raspimouse-navigation \
+    raspimouse-ros2-examples \
+    raspimouse-slam \
+    raspimouse-slam-navigation \
+    rmf-building-map-tools \
+    rmf-building-sim-gz-plugins \
+    rmf-robot-sim-gz-plugins \
+    rmf-rosdev \
+    rmf-traffic-editor-test-maps \
+    rmf-visualization \
+    rmf-visualization-rviz2-plugins \
+    robotiq-description \
     ros-gz-bridge \
     ros-gz-image \
     ros-gz-sim \
@@ -170,7 +245,48 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     ros-ign-gazebo \
     ros-ign-gazebo-demos \
     ros-ign-image \
+    rtabmap-demos \
+    rtabmap-examples \
+    rtabmap-launch \
+    rtabmap-ros \
+    rtabmap-rviz-plugins \
+    rviz2 \
+    rviz-default-plugins \
+    rviz-satellite \
+    rviz-visual-tools \
+    sdformat \
+    sdformat-urdf \
     simulation \
+    slam-toolbox \
+    tiago-2dnav \
+    tiago-bringup \
+    tiago-description \
+    tiago-moveit-config \
+    tiago-navigation \
+    tiago-robot \
+    turtlebot3 \
+    turtlebot3-bringup \
+    turtlebot3-manipulation-cartographer \
+    turtlebot3-manipulation-description \
+    turtlebot3-manipulation-navigation2 \
+    turtlebot3-navigation2 \
+    turtlebot4-navigation \
+    turtlebot4-desktop \
+    turtlebot4-ignition-bringup \
+    turtlebot4-ignition-gui-plugins \
+    turtlebot4-python-tutorials \
+    turtlebot4-simulator \
+    turtlebot4-tutorials \
+    turtlebot4-viz \
+    ur \
+    ur-bringup \
+    ur-calibration \
+    ur-description \
+    ur-moveit-config \
+    ur-robot-driver \
+    urdf-launch \
+    urdf-tutorial \
+    vision-msgs-rviz-plugins \
 "
 
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
@@ -399,14 +515,26 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     aws-robomaker-small-warehouse-world \
-    dolly-gazebo \
+    crane-plus \
+    crane-plus-control \
+    crane-plus-description \
+    crane-plus-examples \
+    crane-plus-gazebo \
     dolly \
+    dolly-gazebo \
     gazebo-plugins \
+    gazebo11 \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
     gazebo-ros2-control-demos \
     gazebo-ros2-control \
+    irobot-create-gazebo-bringup \
+    irobot-create-gazebo-plugins \
+    irobot-create-gazebo-sim \
+    kortex-bringup \
+    nav2-system-tests \
+    pal-gazebo-plugins \
     pmb2-gazebo \
     pmb2-simulation \
     rmf-building-sim-gazebo-plugins \
@@ -416,12 +544,18 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     rmf-demos-assets \
     rmf-demos-gz \
     rmf-demos-ign \
-    rmf-building-sim-gazebo-plugins \
     rmf-robot-sim-gazebo-plugins \
     rmf-robot-sim-gz-plugins \
     rmf-robot-sim-gz-classic-plugins \
+    rmf-rosdev \
+    tiago-gazebo \
+    tiago-simulation \
     turtlebot3-gazebo \
+    turtlebot3-manipulation \
+    turtlebot3-manipulation-bringup \
+    turtlebot3-manipulation-teleop \
     turtlebot3-simulations \
+    urdf-sim-tutorial \
     velodyne-description \
     velodyne-simulator \
     velodyne-gazebo-plugins \
@@ -599,16 +733,19 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
     webots-ros2 \
     webots-ros2-abb \
     webots-ros2-control \
+    webots-ros2-core \
     webots-ros2-demos \
     webots-ros2-desktop \
     webots-ros2-driver \
-    webots-ros2-core \
+    webots-ros2-epuck \
     webots-ros2-examples \
     webots-ros2-importer \
     webots-ros2-mavic \
     webots-ros2-tesla \
+    webots-ros2-tiago \
     webots-ros2-turtlebot \
     webots-ros2-tutorials \
+    webots-ros2-universal-robot \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'swri', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SWRI}', '', d)}"
@@ -657,8 +794,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HUNTER = " \
     depthai \
     depthai-bridge \
     depthai-examples \
+    depthai-filters \
     depthai-ros \
+    depthai-ros-driver \
     depthai-ros-msgs \
+    turtlebot4-bringup \
+    turtlebot4-robot \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'jupyter', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_JUPYTER}', '', d)}"
@@ -673,6 +814,47 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WIREGUARD = " \
     fogros2-examples \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'aws', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_AWS}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_AWS = " \
+    aws-robomaker-small-warehouse-world \
+    aws-sdk-cpp-vendor \
+"
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mrpt2', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MRPT2}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MRPT2 = " \
+    mola-imu-preintegration \
+    mola-input-euroc-dataset \
+    mola-input-kitti-dataset \
+    mola-input-rawlog \
+    mola-input-ros2 \
+    mola-kernel \
+    mola-launcher \
+    mola-viz \
+    mola-yaml \
+    mp2p-icp \
+    mrpt-path-planning \
+    mrpt2 \
+    mvsim \
+    pose-cov-ops \
+"
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'g2o', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_G2O}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_G2O = " \
+    rtabmap \
+    rtabmap-conversions \
+    rtabmap-demos \
+    rtabmap-examples \
+    rtabmap-launch \
+    rtabmap-msgs \
+    rtabmap-odom \
+    rtabmap-python \
+    rtabmap-ros \
+    rtabmap-rviz-plugins \
+    rtabmap-slam \
+    rtabmap-sync \
+    rtabmap-util \
+    rtabmap-viz \
+"
+
 RDEPENDS:${PN}:remove = "vitis-common"
 
 # sophus does not directly provide any runtime components
@@ -680,3 +862,28 @@ RDEPENDS:${PN}:remove = "sophus"
 
 # websocketpp does not directly provide any runtime components
 RDEPENDS:${PN}:remove = "websocketpp"
+
+RDEPENDS:${PN}:remove = "wireless-watcher"
+
+# metavision-driver depends ont he Metavision SDK by Prophesee
+RDEPENDS:${PN}:remove = "metavision-driver"
+
+# as2-platform-dji-osdk hasn't been updated in 2 years
+# it uses deprecated APIs and fails to build against the latest ffmpeg
+RDEPENDS:${PN}:remove = "as2-platform-dji-osdk"
+
+# novatel-oem7-driver needs libCommon.a from an SDK
+RDEPENDS:${PN}:remove = "novatel-oem7-driver"
+
+# usb-cam needs updating to the latest ffmpeg APIs
+RDEPENDS:${PN}:remove = "usb-cam"
+
+# spinnaker-camera-driver requires the spinnaker SDK
+RDEPENDS:${PN}:remove = "spinnaker-camera-driver"
+
+# septentrio-gnss-driver
+RDEPENDS:${PN}:remove = "septentrio-gnss-driver"
+
+# behaviortree-cpp conflicts with behaviortree-cpp-v3
+# but it has no dependencies
+RDEPENDS:${PN}:remove = "behaviortree-cpp"

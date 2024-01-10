@@ -1,0 +1,52 @@
+--- a/Packaging/Harvest.py
++++ b/Packaging/Harvest.py
+@@ -98,9 +98,7 @@ class Harvest:
+             self.copySharedObject(binDriversDir, 'Kinect', targetDriversDir)
+         
+     def copySample(self, samplesDir, name, isLibrary = False, isGL = False, isJava = False):
+-        if self.arch == 'Arm' and isGL:
+-            return
+-            
++
+         sampleTargetDir = os.path.join(samplesDir, name)
+         sampleSourceDir = os.path.join(self.rootDir, 'Samples', name)
+ 
+@@ -262,9 +260,7 @@ $(OUTPUT_FILE): copy-redist
+             self.copyExecutable(self.binDir, name, os.path.join(samplesDir, 'Bin'))
+         
+     def copyTool(self, toolsDir, name, isGL = False):
+-        if self.arch == 'Arm' and isGL:
+-            return
+-            
++
+         self.copyExecutable(self.binDir, name, toolsDir)
+ 
+     def copyDocumentation(self, docDir):
+--- a/Source/Tools/NiViewer/Makefile
++++ b/Source/Tools/NiViewer/Makefile
+@@ -26,7 +26,7 @@ else
+ endif
+ 
+ LIB_DIRS  += ../../../ThirdParty/PSCommon/XnLib/Bin/$(PLATFORM)-$(CFG)
+-USED_LIBS += OpenNI2 XnLib
++USED_LIBS += OpenNI2 XnLib pthread
+ 
+ EXE_NAME = NiViewer
+ 
+--- a/ThirdParty/PSCommon/BuildSystem/Platform.Arm
++++ b/ThirdParty/PSCommon/BuildSystem/Platform.Arm
+@@ -1,7 +1,10 @@
++# some defaults
++export GLUT_SUPPORTED=1
++
+ ifeq "$(CFG)" "Release"
+ 
+     # Hardware specifying flags
+-    CFLAGS += -march=armv7-a -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp #-mcpu=cortex-a8
++    CFLAGS += -Wno-unused-local-typedefs -march=armv7-a -mtune=cortex-a9 -mfpu=neon #-mfloat-abi=softfp #-mcpu=cortex-a8
+ 
+     # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
+     CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
+-- 
+1.9.1
+

@@ -1,0 +1,29 @@
+From: Jochen Sprickerhof <jochen@sprickerhof.de>
+Date: Tue, 3 Jul 2012 16:21:11 +0200
+Subject: Disable SSE
+
+---
+ Platform/Linux/Build/Common/Platform.x86 |    4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/Platform/Linux/Build/Common/Platform.x86 b/Platform/Linux/Build/Common/Platform.x86
+index 04dd480..0dcf3c9 100644
+--- a/Platform/Linux/Build/Common/Platform.x86
++++ b/Platform/Linux/Build/Common/Platform.x86
+@@ -2,7 +2,7 @@
+ export GLUT_SUPPORTED=1
+ 
+ ifndef SSE_GENERATION
+-	SSE_GENERATION = 3
++	SSE_GENERATION = 0
+ endif
+ 
+ ifeq ("$(OSTYPE)","Darwin")
+@@ -19,7 +19,5 @@ else
+ 		ifeq ($(SSSE3_ENABLED), 1)
+ 			CFLAGS += -mssse3
+ 		endif
+-	else
+-		DUMMY:=($error "Only SSE2 and SSE3 are supported")
+ 	endif
+ endif

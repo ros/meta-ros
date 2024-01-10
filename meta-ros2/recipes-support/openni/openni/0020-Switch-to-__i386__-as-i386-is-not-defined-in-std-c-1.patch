@@ -1,0 +1,21 @@
+From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
+Date: Tue, 28 Jan 2020 20:40:23 +0100
+Subject: Switch to __i386__ as i386 is not defined in -std=c++14
+
+---
+ Include/XnPlatform.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Include/XnPlatform.h b/Include/XnPlatform.h
+index 7179d1c..f6e519e 100644
+--- a/Include/XnPlatform.h
++++ b/Include/XnPlatform.h
+@@ -65,7 +65,7 @@
+ 	#include "Win32/XnPlatformWin32.h"
+ #elif defined(ANDROID) && defined(__arm__)
+ 	#include "Android-Arm/XnPlatformAndroid-Arm.h"
+-#elif (__linux__ && (i386 || __x86_64__))
++#elif (__linux__ && (__i386__ || __x86_64__))
+ 	#include "Linux-x86/XnPlatformLinux-x86.h"
+ #elif (__linux__ && __arm__)
+ 	#include "Linux-Arm/XnPlatformLinux-Arm.h"

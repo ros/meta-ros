@@ -1,0 +1,19 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -67,13 +67,7 @@ if(BUILD_TESTING)
+     target_link_libraries(${PROJECT_NAME}_${TEST_NAME} ${PROJECT_NAME})
+   endforeach()
+ 
+-  include(FetchContent)
+-  FetchContent_Declare(
+-    googletest
+-    URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+-  )
+-  FetchContent_MakeAvailable(googletest)
+-  include(GoogleTest)
++  find_package(GTest REQUIRED)
+ 
+   file(GLOB_RECURSE TEST_SOURCE "tests/**/*_gtest.cpp")
+   MESSAGE(STATUS "TEST_SOURCE: ${TEST_SOURCE}")

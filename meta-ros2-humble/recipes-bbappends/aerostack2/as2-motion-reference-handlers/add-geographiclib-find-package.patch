@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 31277fe..203f603 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -28,6 +28,7 @@ set(PROJECT_DEPENDENCIES
+   geometry_msgs
+   trajectory_msgs
+   Eigen3
++  GeographicLib
+ )
+ 
+ foreach(DEPENDENCY ${PROJECT_DEPENDENCIES})

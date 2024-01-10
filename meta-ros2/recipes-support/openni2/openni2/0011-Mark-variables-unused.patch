@@ -1,0 +1,74 @@
+From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
+Date: Sun, 16 Aug 2015 09:33:27 +0200
+Subject: Mark variables unused
+
+---
+ ThirdParty/PSCommon/XnLib/Include/XnMath.h             | 8 ++++----
+ ThirdParty/PSCommon/XnLib/Include/XnStatusRegister.h   | 2 +-
+ ThirdParty/PSCommon/XnLib/Source/Linux/XnLinuxTime.cpp | 2 +-
+ ThirdParty/PSCommon/XnLib/Source/XnStatus.cpp          | 2 +-
+ 4 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/ThirdParty/PSCommon/XnLib/Include/XnMath.h b/ThirdParty/PSCommon/XnLib/Include/XnMath.h
+index df6044d..c52ea7e 100644
+--- a/ThirdParty/PSCommon/XnLib/Include/XnMath.h
++++ b/ThirdParty/PSCommon/XnLib/Include/XnMath.h
+@@ -155,15 +155,15 @@ namespace xnl
+ #endif
+ 		static const XnFloat ONE_THIRD = (XnFloat)(1.0f/3.0f);
+ 		static const XnFloat ONE_SIXTH = (XnFloat)(1.0f/6.0f);
+-		static const XnFloat ROOT_TWO = (XnFloat)Sqrt(2.0f);
+-		static const XnFloat ROOT_THREE = (XnFloat)Sqrt(3.0f);
++		static const XnFloat ROOT_TWO __attribute__ ((unused)) = (XnFloat)Sqrt(2.0f);
++		static const XnFloat ROOT_THREE __attribute__ ((unused)) = (XnFloat)Sqrt(3.0f);
+ 		static const XnFloat PI = (XnFloat)M_PI;
+ 		static const XnFloat HALF_PI = (XnFloat)(0.5f*M_PI);
+ 		static const XnFloat TWO_PI = (XnFloat)(2.0f*M_PI);
+-		static const XnFloat ROOT_TWO_PI = (XnFloat)Sqrt(2.0f*M_PI);
++		static const XnFloat ROOT_TWO_PI __attribute__ ((unused)) = (XnFloat)Sqrt(2.0f*M_PI);
+ 		static const XnFloat DTR = (XnFloat)(M_PI / 180.0f);
+ 		static const XnFloat RTD = (XnFloat)(180.0f / M_PI);
+-		static const XnFloat PHI = (XnFloat)((-1.0f + Sqrt(5.0f)) / 2.0f);
++		static const XnFloat PHI __attribute__ ((unused)) = (XnFloat)((-1.0f + Sqrt(5.0f)) / 2.0f);
+ 
+ 	} // Math
+ } // xnl
+diff --git a/ThirdParty/PSCommon/XnLib/Include/XnStatusRegister.h b/ThirdParty/PSCommon/XnLib/Include/XnStatusRegister.h
+index bdca0df..cc1ae77 100644
+--- a/ThirdParty/PSCommon/XnLib/Include/XnStatusRegister.h
++++ b/ThirdParty/PSCommon/XnLib/Include/XnStatusRegister.h
+@@ -73,7 +73,7 @@ XN_C_API XnStatus XN_C_DECL xnRegisterErrorCodeMessages(XnUInt16 nGroup, XnUInt1
+ /** Marks the end of a message map. */
+ #define XN_STATUS_MESSAGE_MAP_END_FROM(group, first)	\
+ 	};													\
+-	static XnStatus s_##group##first##_result = xnRegisterErrorCodeMessages(group, first, sizeof(_XN_ERROR_GROUP_NAME(group, first)) / sizeof(XnErrorCodeData), _XN_ERROR_GROUP_NAME(group, first));
++	static XnStatus s_##group##first##_result __attribute__ ((unused)) = xnRegisterErrorCodeMessages(group, first, sizeof(_XN_ERROR_GROUP_NAME(group, first)) / sizeof(XnErrorCodeData), _XN_ERROR_GROUP_NAME(group, first));
+ 
+ #define XN_STATUS_REGISTER
+ 
+diff --git a/ThirdParty/PSCommon/XnLib/Source/Linux/XnLinuxTime.cpp b/ThirdParty/PSCommon/XnLib/Source/Linux/XnLinuxTime.cpp
+index 75f5b8d..1f8b8ae 100644
+--- a/ThirdParty/PSCommon/XnLib/Source/Linux/XnLinuxTime.cpp
++++ b/ThirdParty/PSCommon/XnLib/Source/Linux/XnLinuxTime.cpp
+@@ -30,7 +30,7 @@ XnOSTimer g_xnOSHighResGlobalTimer;
+ bool g_xnOSInitialized = false;
+ 
+ XnStatus xnOSTimeInit();
+-static XnStatus g_initalizeStatus = xnOSTimeInit();
++static XnStatus g_initalizeStatus __attribute__ ((unused)) = xnOSTimeInit();
+ 
+ //---------------------------------------------------------------------------
+ // Macros
+diff --git a/ThirdParty/PSCommon/XnLib/Source/XnStatus.cpp b/ThirdParty/PSCommon/XnLib/Source/XnStatus.cpp
+index 1659649..9c19e6b 100644
+--- a/ThirdParty/PSCommon/XnLib/Source/XnStatus.cpp
++++ b/ThirdParty/PSCommon/XnLib/Source/XnStatus.cpp
+@@ -44,7 +44,7 @@ typedef xnl::Hash<XnUInt16, XnStatusHash*> XnGroupsHash;
+ static XnGroupsHash* g_pErrorGroups = NULL;
+ 
+ static XnErrorCodeData s_OK_Data = { XN_STATUS_OK, XN_STRINGIFY(XN_STATUS_OK), "OK" };
+-static XnStatus s_XN_OK_result = xnRegisterErrorCodeMessages(0, 0, 1, &s_OK_Data);
++static XnStatus s_XN_OK_result __attribute__ ((unused)) = xnRegisterErrorCodeMessages(0, 0, 1, &s_OK_Data);
+ 
+ //---------------------------------------------------------------------------
+ // Code

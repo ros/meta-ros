@@ -1,0 +1,290 @@
+From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
+Date: Sat, 14 Sep 2019 07:30:18 +0200
+Subject: Port to Python 3
+
+---
+ Platform/Linux/Build/Res/AssemblyInfo-OpenNI.cs |  2 +-
+ Platform/Linux/CreateRedist/RedistMaker         |  2 +-
+ Platform/Linux/CreateRedist/Redist_OpenNi.py    | 85 +++++++++++++------------
+ 3 files changed, 45 insertions(+), 44 deletions(-)
+
+diff --git a/Platform/Linux/Build/Res/AssemblyInfo-OpenNI.cs b/Platform/Linux/Build/Res/AssemblyInfo-OpenNI.cs
+index f904386..3f2b672 100644
+--- a/Platform/Linux/Build/Res/AssemblyInfo-OpenNI.cs
++++ b/Platform/Linux/Build/Res/AssemblyInfo-OpenNI.cs
+@@ -29,7 +29,7 @@ using System.Runtime.InteropServices;
+ [assembly: AssemblyConfiguration("")]
+ [assembly: AssemblyCompany("PrimeSense Ltd.")]
+ [assembly: AssemblyProduct("OpenNI")]
+-[assembly: AssemblyCopyright("Copyright © PrimeSense 2010")]
++[assembly: AssemblyCopyright("Copyright Â© PrimeSense 2010")]
+ [assembly: AssemblyTrademark("")]
+ [assembly: AssemblyCulture("")]
+ 
+diff --git a/Platform/Linux/CreateRedist/RedistMaker b/Platform/Linux/CreateRedist/RedistMaker
+index d4820b1..2be8ab4 100755
+--- a/Platform/Linux/CreateRedist/RedistMaker
++++ b/Platform/Linux/CreateRedist/RedistMaker
+@@ -1,3 +1,3 @@
+ #!/bin/bash -e
+-python Redist_OpenNi.py $*
++python3 Redist_OpenNi.py $*
+ 
+diff --git a/Platform/Linux/CreateRedist/Redist_OpenNi.py b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+index f188745..13bdec0 100755
+--- a/Platform/Linux/CreateRedist/Redist_OpenNi.py
++++ b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+@@ -32,7 +32,7 @@ import re
+ import sys
+ import shutil
+ import stat
+-from commands import getoutput as gop
++from subprocess import getoutput as gop
+ 
+ #-------------Functions--------------------------------------------------------#
+ 
+@@ -58,12 +58,12 @@ def finish_script(exit_code):
+ def replace_string_in_file(findStr,repStr,filePath):
+     "replaces all findStr by repStr in file filePath"
+     tempName=filePath+'~~~'
+-    input = open(filePath)
++    infile = open(filePath)
+     output = open(tempName,'w')
+-    for s in input:
++    for s in infile:
+         output.write(s.replace(findStr,repStr))
+     output.close()
+-    input.close()
++    infile.close()
+     os.remove(filePath)
+     os.rename(tempName,filePath)
+ 
+@@ -71,12 +71,12 @@ def regx_replace(findStr,repStr,filePath):
+     "replaces all findStr by repStr in file filePath using regualr expression"
+     findStrRegx = re.compile(findStr)
+     tempName=filePath+'~~~'
+-    input = open(filePath)
++    infile = open(filePath)
+     output = open(tempName,'w')
+-    for s in input:
++    for s in infile:
+         output.write(findStrRegx.sub(repStr,s))
+     output.close()
+-    input.close()
++    infile.close()
+     os.remove(filePath)
+     os.rename(tempName,filePath)
+ 
+@@ -89,8 +89,8 @@ def check_sample(sample_dir):
+         rc=0
+         return rc
+     redist_lines =redistFile.readlines()
+-    skip_re = re.compile("^SKIP=([^\|]*\|)*(" + PLATFORM + "|ALL)(\|[^\|]*)*$")
+-    tool_re = re.compile("^TOOL=([^\|]*\|)*(" + PLATFORM + "|ALL)(\|[^\|]*)*$")
++    skip_re = re.compile(r"^SKIP=([^|]*\|)*(" + PLATFORM + "|ALL)(|[^|]*)*$")
++    tool_re = re.compile(r"^TOOL=([^|]*\|)*(" + PLATFORM + "|ALL)(|[^|]*)*$")
+     for line in redist_lines:
+         if skip_re.search(line):
+             rc = 1
+@@ -114,9 +114,9 @@ def fix_file(arg,dirname,fname):
+         if filename == "Makefile" or filename.partition(".")[2] in ext:
+             #print "Fixing: " + filePath
+             tempName=filePath+'~~~'
+-            input = open(filePath)
++            infile = open(filePath)
+             output = open(tempName,'w')
+-            for s in input:
++            for s in infile:
+                 olds = s
+                 s = re.sub(r"../../../Bin",r"../Bin",s)
+                 s = re.sub(r"../../../../../Include",r"../../Include =/usr/include/ni",s)
+@@ -135,23 +135,23 @@ def fix_file(arg,dirname,fname):
+                     #print "To      : " + s.strip("\n")
+ 
+             output.close()
+-            input.close()
++            infile.close()
+             os.remove(filePath)
+             os.rename(tempName,filePath)
+ 
+ def copy_install_script(platform, filePath, dest):
+     "Copies the install script and fixing it if needed"
+-    input = open(filePath)
++    infile = open(filePath)
+     dest_name = os.path.join(dest, os.path.basename(filePath))
+     output = open(dest_name, 'w')
+     
+-    for line in input:
++    for line in infile:
+         if platform == 'CE4100':
+             line = re.sub(r"/var/lib/ni", r"/usr/etc/ni", line)
+             
+         output.write(line)
+         
+-    input.close()
++    infile.close()
+     output.close()
+     os.chmod(dest_name, stat.S_IRUSR | stat.S_IXUSR | stat.S_IRGRP | stat.S_IXGRP | stat.S_IROTH | stat.S_IXOTH)
+     
+@@ -159,8 +159,8 @@ def execute_check(cmd, name):
+     "Executes command and checks the return code. If it's not 0, stops redist."
+     ret = os.system(cmd)
+     if ret != 0:
+-        print "failed to execute: " + cmd
+-        print name + " Failed!"
++        print("failed to execute: " + cmd)
++        print(name + " Failed!")
+         logger.critical(name + " Failed!")
+         finish_script(1)
+         
+@@ -193,7 +193,7 @@ else:
+     elif machinetype[:4] == "mips":
+         PLATFORM = "Mips"
+     else:
+-        print "Unknown platform:", machinetype
++        print("Unknown platform:", machinetype)
+         finish_script(1)
+ 
+     MAKE_ARGS = ''
+@@ -219,15 +219,15 @@ logger.addHandler(hdlr)
+ logger.setLevel(logging.INFO)
+ 
+ #------------Welcome Messege--------=------------------------------------------#
+-print "\n";
+-print "*********************************"
+-print "*   PrimeSense OpenNI Redist    *"
+-print "*     " + DateTimeSTR + "       *"
+-print "*********************************"
+-print
++print("\n");
++print("*********************************")
++print("*   PrimeSense OpenNI Redist    *")
++print("*     " + DateTimeSTR + "       *")
++print("*********************************")
++print()
+ logger.info("PrimeSense OpenNI Redist Started")
+ 
+-print "Target:", TARGET
++print("Target:", TARGET)
+ 
+ #--------------Take Version----------------------------------------------------#
+ version_file = open("../../../Include/XnVersion.h").read()
+@@ -237,14 +237,14 @@ maintenance = re.search(r"define XN_MAINTENANCE_VERSION (\d+)", version_file).gr
+ build = re.search(r"define XN_BUILD_VERSION (\d+)", version_file).groups()[0]
+ 
+ version = major + "." + minor + "." + maintenance + "." + build
+-print "Version:", version
++print("Version:", version)
+ 
+-print "Num of compile jobs:", calc_jobs_number()
++print("Num of compile jobs:", calc_jobs_number())
+ 
+-print
++print()
+ 
+ #--------------Build Project---------------------------------------------------#
+-print "* Building OpenNI..."
++print("* Building OpenNI...")
+ logger.info("Building OpenNI...")
+ 
+ # Build
+@@ -253,7 +253,7 @@ execute_check('make ' + MAKE_ARGS + ' -C ' + SCRIPT_DIR + '/../Build clean > ' +
+ execute_check('make ' + MAKE_ARGS + ' -C ' + SCRIPT_DIR + '/../Build > ' + SCRIPT_DIR + '/Output/Build' + PROJECT_NAME + '.txt', 'Building')
+ 
+ #--------------Doxygen---------------------------------------------------------#
+-print "* Creating Doxygen..."
++print("* Creating Doxygen...")
+ logger.info("Creating DoxyGen...")
+ os.chdir("../../../Source/DoxyGen");
+ if os.path.exists("html"):
+@@ -266,7 +266,7 @@ execute_check("doxygen Doxyfile > "+ SCRIPT_DIR + "/Output/EngineDoxy.txt", "Cre
+ os.system("rm -rf html/*.map html/*.md5 html/*.hhc html/*.hhk html/*.hhp")
+ 
+ #-------------Create Redist Dir------------------------------------------------#
+-print "* Creating Redist Dir..."
++print("* Creating Redist Dir...")
+ logger.info("Creating Redist Dir...")
+ os.chdir(SCRIPT_DIR + "/..")
+ 
+@@ -294,7 +294,7 @@ os.makedirs(REDIST_DIR + "/Samples/Config")
+ os.makedirs(REDIST_DIR + "/Samples/Res")
+ 
+ #-------------Copy files to redist---------------------------------------------#
+-print "* Copying files to redist dir..."
++print("* Copying files to redist dir...")
+ logger.info("Copying files to redist dir...")
+ 
+ #license
+@@ -359,7 +359,7 @@ if (MonoDetected == 0):
+     samples_list.remove("SimpleViewer.net")
+     samples_list.remove("UserTracker.net")
+ 
+-print "Samples:", samples_list
++print("Samples:", samples_list)
+ 
+ for sample in samples_list:
+     shutil.copytree("../../Samples/" + sample, REDIST_DIR + "/Samples/" + sample)
+@@ -382,17 +382,18 @@ os.system("find " + REDIST_DIR + "/. | grep .svn | xargs rm -rf")
+ os.system("find " + REDIST_DIR + "/Samples/. | grep .svn | xargs rm -rf")
+ 
+ #-----Remove Read Only Attrib--------------------------------------------------#
+-print "* Removing Read Only Attributes..."
++print("* Removing Read Only Attributes...")
+ logger.info("Removing Read Only Attributes...")
+ os.system ("chmod -R +r " + REDIST_DIR + "/*")
+ 
+ #--------Fixing Files----------------------------------------------------------#
+-print "* Fixing Files..."
++print("* Fixing Files...")
+ logger.info("Fixing Files...")
+-os.path.walk(REDIST_DIR + "/Samples",fix_file,'')
++for root, dirs, files in os.walk(REDIST_DIR + "/Samples"):
++    fix_file('', root, files)
+ 
+ #-------Creating project and solutions-----------------------------------------#
+-print "* Creating Makefile..."
++print("* Creating Makefile...")
+ logger.info("Creating Makefile...")
+ 
+ MAKEFILE = open(REDIST_DIR + "/Samples/Build/Makefile", 'w')
+@@ -422,19 +423,19 @@ for sample in samples_list:
+ MAKEFILE.close()
+ 
+ #-------Copy install script---------------------------------------------------#
+-print "* Copying install script..."
++print("* Copying install script...")
+ logger.info("Copying install script...")
+ 
+ copy_install_script(PLATFORM, "CreateRedist/install.sh", REDIST_DIR)
+ 
+ #-------------Build Samples---------------------------------------------------#
+-print "* Building Samples in release configuration......"
++print("* Building Samples in release configuration......")
+ logger.info("Building Samples in release configuration...")
+ 
+ # Build project solution
+ execute_check("make " + MAKE_ARGS + " -C " + REDIST_DIR + "/Samples/Build " + " > "+SCRIPT_DIR+"/Output/BuildSmpRelease.txt", "Build samples in release")
+ 
+-print "* Building Samples in debug configuration......"
++print("* Building Samples in debug configuration......")
+ logger.info("Building Samples in debug configuration...")
+ 
+ # Build project solution
+@@ -446,7 +447,7 @@ for sample in samples_list:
+    os.system("rm -rf " + REDIST_DIR + "/Samples/"+sample+"/" + PLATFORM + "/Release")
+ 
+ #-------------Create TAR-------------------------------------------------------#
+-print "* Creating tar......"
++print("* Creating tar......")
+ logger.info("Creating tar...")
+ 
+ os.makedirs(SCRIPT_DIR+"/Final")
+@@ -457,7 +458,7 @@ execute_check("tar -cjf " +SCRIPT_DIR+"/Final/" + REDIST_NAME + ".tar.bz2 " + RE
+ os.chdir(SCRIPT_DIR)
+ 
+ #-------------CleanUP----------------------------------------------------------#
+-print "* Redist OpenNi Ended.   !!"
++print("* Redist OpenNi Ended.   !!")
+ logger.info("Redist OpenNi Ended.")
+ finish_script(0)
+ 
