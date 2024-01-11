@@ -11,3 +11,8 @@ EXTRA_OECMAKE += " \
     ${@bb.utils.contains("TARGET_CC_ARCH", "-msse4.2", "", "-DDISABLE_SSE4_2=ON", d)} \
     ${@bb.utils.contains("TARGET_CC_ARCH", "-msse4.A", "", "-DDISABLE_SSE4_A=ON", d)} \
 "
+
+# non -dev/-dbg/nativesdk- package libg2o contains symlink .so '/usr/lib/libg2o_stuff.so'
+FILES:${PN}-dev += " \
+    ${libdir}/libg2o*.so \
+"
