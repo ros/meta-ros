@@ -1,0 +1,1270 @@
+From f038b16d77ade36c620fdb46849c1e81a039afca Mon Sep 17 00:00:00 2001
+From: Fabian Poggenhans <fabian.poggenhans@partner.kit.edu>
+Date: Tue, 2 May 2023 22:51:03 +0200
+Subject: [PATCH] Rework projectedPoint implementation
+
+Replace boost::geometry hack with our own implementation to ensure-long term boost::geometry compability, added extensive unit tests for verification.
+---
+
+From f038b16d77ade36c620fdb46849c1e81a039afca Mon Sep 17 00:00:00 2001
+From: Fabian Poggenhans <fabian.poggenhans@partner.kit.edu>
+Date: Tue, 2 May 2023 22:51:03 +0200
+Subject: [PATCH] Rework projectedPoint implementation
+
+Replace boost::geometry hack with our own implementation to ensure-long term boost::geometry compability, added extensive unit tests for verification.
+---
+ .../geometry/GeometryHelper.h   | 139 +------
+ .../geometry/LineString.h       |  41 +-
+ .../geometry/impl/Lanelet.h     |   4 +-
+ .../geometry/impl/LineString.h  | 107 ++---
+ .../geometry/impl/Polygon.h     |   4 +-
+ .../primitives/LineString.h     |  10 +
+ .../include/primitives/Point.h  |   4 +-
+ .../primitives/Polygon.h        |  31 ++
+ src/LaneletMap.cpp              |   2 +
+ src/LineStringGeometry.cpp      | 379 +++++++++++++++---
+ test/test_linestring.cpp        | 148 ++++++-
+ 12 files changed, 600 insertions(+), 271 deletions(-)
+
+diff --git a/include/lanelet2_core/geometry/GeometryHelper.h b/include/lanelet2_core/geometry/GeometryHelper.h
+index 144a6343..3306f435 100644
+--- a/include/lanelet2_core/geometry/GeometryHelper.h
++++ b/include/lanelet2_core/geometry/GeometryHelper.h
+@@ -1,5 +1,4 @@
+ #pragma once
+-#include <boost/geometry/strategies/cartesian/distance_projected_point.hpp>
+ #include <memory>
+ 
+ namespace lanelet {
+@@ -49,141 +48,5 @@ FwIter forEachPairUntil(FwIter first, FwIter end, Func f) {
+   }
+   return end;
+ }
+-
+-template <typename InPointT, typename OutPointT>
+-std::enable_if_t<std::is_same<InPointT, OutPointT>::value> convertOrAssign(const InPointT& pIn, OutPointT& pOut) {
+-  pOut = pIn;
+-}
+-
+-template <typename InPointT, typename OutPointT>
+-std::enable_if_t<!std::is_same<InPointT, OutPointT>::value> convertOrAssign(const InPointT& pIn, OutPointT& pOut) {
+-  boost::geometry::convert(pIn, pOut);
+-}
+-
+-/**
+- * @brief A strategy for boost::distance.
+- *
+- * Works just like the default strategy for boost::distance on linestrings, but
+- * additionally stores some information on the closest segment.
+- */
+-template <typename ProjPoint>
+-class ProjectedPoint : public boost::geometry::strategy::distance::projected_point<> {
+- public:
+-  using Strategy = boost::geometry::strategy::distance::pythagoras<void>;
+-  template <typename Point1T, typename Point2T, typename CalculationResult>
+-  auto updateClosestPoint(const Point1T& pSeg1, const Point1T& pSeg2, Point2T& pProj, CalculationResult d) const {
+-    using namespace boost::geometry;
+-    if (result->dMin < 0 || d < result->dMin) {
+-      convert(pProj, result->projectedPoint);
+-      convertOrAssign(pSeg1, result->segmentPoint1);
+-      convertOrAssign(pSeg2, result->segmentPoint2);
+-      result->dMin = d;
+-    }
+-    return d;
+-  }
+-  template <typename Point, typename PointOfSegment>
+-  inline typename calculation_type<Point, PointOfSegment>::type apply(Point const& p, PointOfSegment const& p1,
+-                                                                      PointOfSegment const& p2) const {
+-    using namespace boost::geometry;
+-    assert_dimension_equal<Point, PointOfSegment>();
+-
+-    using CalculationResult = typename calculation_type<Point, PointOfSegment>::type;
+-
+-    // A projected point of points in Integer coordinates must be able to be
+-    // represented in FP.
+-    using FpVector =  // NOLINT
+-        model::point<CalculationResult, dimension<PointOfSegment>::value,
+-                     typename coordinate_system<PointOfSegment>::type>;
+-
+-    FpVector v;
+-    FpVector w;
+-    FpVector projected;
+-
+-    convert(p2, v);
+-    convert(p, w);
+-    convert(p1, projected);
+-    subtract_point(v, projected);
+-    subtract_point(w, projected);
+-
+-    Strategy strategy;
+-    boost::ignore_unused_variable_warning(strategy);
+-
+-    auto zero = CalculationResult{};
+-    CalculationResult const c1 = dot_product(w, v);
+-    if (c1 <= zero) {
+-      return updateClosestPoint(p1, p2, p1, strategy.apply(p, p1));
+-    }
+-    CalculationResult const c2 = dot_product(v, v);
+-    if (c2 <= c1) {
+-      return updateClosestPoint(p1, p2, p2, strategy.apply(p, p2));
+-    }
+-
+-    // See above, c1 > 0 AND c2 > c1 so: c2 != 0
+-    CalculationResult const b = c1 / c2;
+-
+-    multiply_value(v, b);
+-    add_point(projected, v);
+-    return updateClosestPoint(p1, p2, projected, strategy.apply(p, projected));
+-  }
+-  struct Result {
+-    ProjPoint projectedPoint, segmentPoint1, segmentPoint2;
+-    double dMin{-1.};
+-  };
+-  mutable std::shared_ptr<Result> result{std::make_shared<Result>()};
+-};
+ }  // namespace helper
+-}  // namespace lanelet
+-
+-// Helper function definitions for our strategy.
+-namespace boost {
+-namespace geometry {
+-namespace strategy {
+-namespace distance {
+-namespace services {
+-
+-template <typename ProjPoint>
+-struct tag<lanelet::helper::ProjectedPoint<ProjPoint>> {
+-  typedef strategy_tag_distance_point_segment type;  // NOLINT
+-};
+-
+-template <typename ProjPoint, typename P, typename PS>
+-struct return_type<lanelet::helper::ProjectedPoint<ProjPoint>, P, PS>
+-    : lanelet::helper::ProjectedPoint<ProjPoint>::template calculation_type<P, PS> {};
+-
+-template <typename ProjPoint>
+-struct comparable_type<lanelet::helper::ProjectedPoint<ProjPoint>> {
+-  // Define a projected_point strategy with its underlying point-point-strategy
+-  // being comparable
+-  typedef lanelet::helper::ProjectedPoint<ProjPoint> type;  // NOLINT
+-};
+-
+-template <typename ProjPoint>
+-struct get_comparable<lanelet::helper::ProjectedPoint<ProjPoint>> {
+-  using comparable_type =  // NOLINT
+-      typename comparable_type<lanelet::helper::ProjectedPoint<ProjPoint>>::type;
+-
+- public:
+-  static inline comparable_type apply(lanelet::helper::ProjectedPoint<ProjPoint> const& p) {  // NOLINT
+-    return p;
+-  }
+-};
+-
+-template <typename ProjPoint, typename P, typename PS>
+-struct result_from_distance<lanelet::helper::ProjectedPoint<ProjPoint>, P, PS> {
+- private:
+-  using return_type =  // NOLINT
+-      typename return_type<lanelet::helper::ProjectedPoint<ProjPoint>, P, PS>::type;
+-
+- public:
+-  template <typename T>
+-  static inline return_type apply(lanelet::helper::ProjectedPoint<ProjPoint> const&,  // NOLINT
+-                                  T const& value) {
+-    typename lanelet::helper::ProjectedPoint<ProjPoint>::Strategy s;
+-    return result_from_distance<typename lanelet::helper::ProjectedPoint<ProjPoint>::Strategy, P, PS>::apply(s, value);
+-  }
+-};
+-}  // namespace services
+-}  // namespace distance
+-}  // namespace strategy
+-}  // namespace geometry
+-}  // namespace boost
++}  // namespace lanelet
+\ No newline at end of file
+diff --git a/include/lanelet2_core/geometry/LineString.h b/include/lanelet2_core/geometry/LineString.h
+index c805b7ff..8bc7e656 100644
+--- a/include/lanelet2_core/geometry/LineString.h
++++ b/include/lanelet2_core/geometry/LineString.h
+@@ -172,6 +172,20 @@ BasicPoint3d project(const LineString3dT& lineString, const BasicPoint3d& pointT
+ //! Projects the given point in 2d to the LineString.
+ template <typename LineString2dT, typename = std::enable_if_t<traits::is2D<LineString2dT>()>>
+ BasicPoint2d project(const LineString2dT& lineString, const BasicPoint2d& pointToProject);
++
++BasicPoint2d project(const BasicSegment2d& segment, const BasicPoint2d& pointToProject);
++BasicPoint3d project(const BasicSegment3d& segment, const BasicPoint3d& pointToProject);
++
++/**
++ * @brief Computes the projected points on the two linestrings for the shortest
++ * distance
++ *
++ * First element of the pair is located on l1, second on l2
++ */
++template <typename LineString2dT>
++IfLS<LineString2dT, std::pair<BasicPoint2d, BasicPoint2d>> projectedPoint2d(const LineString2dT& l1,
++                                                                            const LineString2dT& l2);
++
+ /**
+  * @brief Computes the projected points on the two linestrings for the shortest
+  * distance
+@@ -252,25 +266,6 @@ BasicLineString2d offset(const LineString2dT& lineString, double distance);
+ template <typename LineString2dT>
+ BasicLineString2d offsetNoThrow(const LineString2dT& lineString, double distance);
+ 
+-/**
+- * @brief find the segment on a 3d line string that is closest to a given point, determined by boost::geometry::distance
+- * @param lineString the line string the distance function is evaluated on
+- * @param pointToProject 3d point that is projected on to the linestring
+- * @returns a new segment that is identical to the closest one on the line string
+- */
+-template <typename LineString3dT, typename = std::enable_if_t<traits::is3D<LineString3dT>()>>
+-Segment<traits::PointType<LineString3dT>> closestSegment(const LineString3dT& lineString,
+-                                                         const BasicPoint3d& pointToProject);
+-/**
+- * @brief find the segment on a 2d line string that is closest to a given point, determined by boost::geometry::distance
+- * @param lineString the line string the distance function is evaluated on
+- * @param pointToProject 2d point that is projected on to the linestring
+- * @returns a new segment that is identical to the closest one on the line string
+- */
+-template <typename LineString2dT, typename = std::enable_if_t<traits::is2D<LineString2dT>()>>
+-Segment<traits::PointType<LineString2dT>> closestSegment(const LineString2dT& lineString,
+-                                                         const BasicPoint2d& pointToProject);
+-
+ /**
+  * @brief find the segment on a 2d line string that is closest to a given point, determined by boost::geometry::distance
+  * @param lineString the line string the distance function is evaluated on
+@@ -286,6 +281,14 @@ Segment<BasicPoint2d> closestSegment(const BasicLineString2d& lineString, const
+  * @returns a new segment that is identical to the closest one on the line string
+  */
+ Segment<BasicPoint3d> closestSegment(const BasicLineString3d& lineString, const BasicPoint3d& pointToProject);
++Segment<ConstPoint2d> closestSegment(const ConstLineString2d& lineString, const BasicPoint2d& pointToProject);
++Segment<ConstPoint3d> closestSegment(const ConstLineString3d& lineString, const BasicPoint3d& pointToProject);
++Segment<BasicPoint2d> closestSegment(const ConstHybridLineString2d& lineString, const BasicPoint2d& pointToProject);
++Segment<BasicPoint3d> closestSegment(const ConstHybridLineString3d& lineString, const BasicPoint3d& pointToProject);
++Segment<ConstPoint2d> closestSegment(const CompoundLineString2d& lineString, const BasicPoint2d& pointToProject);
++Segment<ConstPoint3d> closestSegment(const CompoundLineString3d& lineString, const BasicPoint3d& pointToProject);
++Segment<BasicPoint2d> closestSegment(const CompoundHybridLineString2d& lineString, const BasicPoint2d& pointToProject);
++Segment<BasicPoint3d> closestSegment(const CompoundHybridLineString3d& lineString, const BasicPoint3d& pointToProject);
+ }  // namespace geometry
+ }  // namespace lanelet
+ 
+diff --git a/include/lanelet2_core/geometry/impl/Lanelet.h b/include/lanelet2_core/geometry/impl/Lanelet.h
+index 568be95b..39a82a04 100644
+--- a/include/lanelet2_core/geometry/impl/Lanelet.h
++++ b/include/lanelet2_core/geometry/impl/Lanelet.h
+@@ -16,8 +16,8 @@ namespace geometry {
+ namespace internal {
+ template <typename T>
+ struct GetGeometry<T, IfLL<T, void>> {
+-  static inline auto twoD(const T& geometry) { return traits::toHybrid(geometry.polygon2d()); }
+-  static inline auto threeD(const T& geometry) { return traits::toHybrid(geometry.polygon3d()); }
++  static inline auto twoD(const T& geometry) { return geometry.polygon2d().basicPolygon(); }
++  static inline auto threeD(const T& geometry) { return geometry.polygon3d().basicPolygon(); }
+ };
+ }  // namespace internal
+ 
+diff --git a/include/lanelet2_core/geometry/impl/LineString.h b/include/lanelet2_core/geometry/impl/LineString.h
+index 7086781a..47e0abf0 100644
+--- a/include/lanelet2_core/geometry/impl/LineString.h
++++ b/include/lanelet2_core/geometry/impl/LineString.h
+@@ -1,4 +1,5 @@
+ #pragma once
++#include <boost/geometry/algorithms/equals.hpp>
+ #include <boost/geometry/algorithms/intersection.hpp>
+ 
+ #include "lanelet2_core/geometry/GeometryHelper.h"
+@@ -67,13 +68,18 @@ inline BasicLineString3d invert(const BasicLineString3d& ls) {
+   return BasicLineString3d{ls.rbegin(), ls.rend()};
+ }
+ 
++template <typename PointT>
++struct ProjectedPointInfo {
++  Segment<PointT> closestSegment;
++  PointT projectedPoint;
++};
++
+ template <typename LineStringT, typename BasicPointT>
+-bool isLeftOf(const LineStringT& ls, const BasicPointT& p, const helper::ProjectedPoint<BasicPointT>& projectedPoint) {
+-  BasicPointT pSeg1 = projectedPoint.result->segmentPoint1;
+-  BasicPointT pSeg2 = projectedPoint.result->segmentPoint2;
+-  BasicPointT projPoint = projectedPoint.result->projectedPoint;
++bool isLeftOf(const LineStringT& ls, const BasicPointT& p, const ProjectedPointInfo<BasicPointT>& ppInfo) {
++  BasicPointT pSeg1 = ppInfo.closestSegment.first;
++  BasicPointT pSeg2 = ppInfo.closestSegment.second;
+   bool isLeft = pointIsLeftOf(pSeg1, pSeg2, p);
+-  if (pSeg2 == projPoint) {
++  if (pSeg2 == ppInfo.projectedPoint) {
+     auto nextSegPointIt = std::next(findPoint(ls, pSeg2));
+     if (nextSegPointIt != ls.end()) {
+       // see stackoverflow.com/questions/10583212
+@@ -87,35 +93,53 @@ bool isLeftOf(const LineStringT& ls, const BasicPointT& p, const helper::Project
+   return isLeft;
+ }
+ 
+-template <typename LineStringT, typename PointT>
+-std::pair<double, helper::ProjectedPoint<PointT>> signedDistanceImpl(const LineStringT lineString, const PointT& p) {
+-  using BasicPoint = PointT;
+-  helper::ProjectedPoint<BasicPoint> projectedPoint;
+-  const auto d = distance(lineString, p, projectedPoint);
+-  auto isLeft = isLeftOf(lineString, p, projectedPoint);
+-  return {isLeft ? d : -d, projectedPoint};
+-}
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const ConstHybridLineString2d& l1,
++                                                       const ConstHybridLineString2d& l2);
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const CompoundHybridLineString2d& l1,
++                                                       const CompoundHybridLineString2d& l2);
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const ConstHybridLineString2d& l1,
++                                                       const CompoundHybridLineString2d& l2);
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const CompoundHybridLineString2d& l1,
++                                                       const ConstHybridLineString2d& l2);
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const ConstHybridLineString2d& l1, const BasicLineString2d& l2);
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const BasicLineString2d& l1, const ConstHybridLineString2d& l2);
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const BasicLineString2d& l1, const BasicLineString2d& l2);
+ 
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const ConstHybridLineString3d& l1,
+                                                        const ConstHybridLineString3d& l2);
+-
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const CompoundHybridLineString3d& l1,
+                                                        const CompoundHybridLineString3d& l2);
+-
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const ConstHybridLineString3d& l1,
+                                                        const CompoundHybridLineString3d& l2);
+-
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const CompoundHybridLineString3d& l1,
+                                                        const ConstHybridLineString3d& l2);
+-
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const ConstHybridLineString3d& l1, const BasicLineString3d& l2);
+-
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const BasicLineString3d& l1, const ConstHybridLineString3d& l2);
+-
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const BasicLineString3d& l1, const BasicLineString3d& l2);
+ 
++BasicPoint2d project(const BasicLineString2d& lineString, const BasicPoint2d& pointToProject);
++BasicPoint3d project(const BasicLineString3d& lineString, const BasicPoint3d& pointToProject);
++BasicPoint2d project(const ConstHybridLineString2d& lineString, const BasicPoint2d& pointToProject);
++BasicPoint3d project(const ConstHybridLineString3d& lineString, const BasicPoint3d& pointToProject);
++BasicPoint2d project(const CompoundHybridLineString2d& lineString, const BasicPoint2d& pointToProject);
++BasicPoint3d project(const CompoundHybridLineString3d& lineString, const BasicPoint3d& pointToProject);
++
++template <typename LineStringT, typename PointT>
++std::pair<double, ProjectedPointInfo<traits::BasicPointT<PointT>>> signedDistanceImpl(const LineStringT lineString,
++                                                                                      const PointT& p) {
++  using BasicPoint = PointT;
++  const auto basicP = utils::toBasicPoint(p);
++  const auto nextSegment = closestSegment(lineString, basicP);
++  const auto projPoint = lanelet::geometry::project(utils::toBasicSegment(nextSegment), basicP);
++  const auto d = distance(projPoint, p);
++  ProjectedPointInfo<traits::BasicPointT<PointT>> ppInfo{nextSegment, projPoint};
++  const auto isLeft = isLeftOf(lineString, p, ppInfo);
++  return {isLeft ? d : -d, ppInfo};
++}
++
+ template <typename HybridLineStringT>
+-BasicPoint2d fromArcCoords(const HybridLineStringT& hLineString, const BasicPoint2d& projStart, const size_t startIdx,
++BasicPoint2d fromArcCoords(const HybridLineStringT& hLineString, const BasicPoint2d& projStart,
++                           const size_t startIdx,  // NOLINTNEXTLINE(bugprone-easily-swappable-parameters)
+                            const size_t endIdx, const double distance) {
+   if (hLineString.size() < startIdx) {
+     throw InvalidInputError(std::string("Linestring point out of bounds. Linestring size ") +
+@@ -699,16 +723,15 @@ ArcCoordinates toArcCoordinates(const LineString2dT& lineString, const BasicPoin
+   const auto& projectedPoint = res.second;
+   // find first point in segment in linestring
+   double length = 0.;
+-  auto accumulateLength = [&length, &point = projectedPoint.result->segmentPoint1](const auto& first,
+-                                                                                   const auto& second) {
+-    if (boost::geometry::equals(first, point)) {
++  auto accumulateLength = [&](const auto& first, const auto& second) {
++    if (boost::geometry::equals(first, projectedPoint.closestSegment.first)) {
+       return true;
+     }
+     length += distance(first, second);
+     return false;
+   };
+   helper::forEachPairUntil(lineString.begin(), lineString.end(), accumulateLength);
+-  length += distance(projectedPoint.result->segmentPoint1, projectedPoint.result->projectedPoint);
++  length += distance(projectedPoint.closestSegment.first, projectedPoint.projectedPoint);
+   return {length, dist};
+ }
+ 
+@@ -734,17 +757,13 @@ IfLS<LineString2dT, BoundingBox2d> boundingBox2d(const LineString2dT& lineString
+ template <typename LineString3dT, typename>
+ BasicPoint3d project(const LineString3dT& lineString, const BasicPoint3d& pointToProject) {
+   static_assert(traits::is3D<LineString3dT>(), "Please call this function with a 3D type!");
+-  helper::ProjectedPoint<BasicPoint3d> projectedPoint;
+-  distance(lineString, pointToProject, projectedPoint);
+-  return projectedPoint.result->projectedPoint;
++  return internal::project(utils::toHybrid(lineString), pointToProject);
+ }
+ 
+ template <typename LineString2dT, typename>
+ BasicPoint2d project(const LineString2dT& lineString, const BasicPoint2d& pointToProject) {
+   static_assert(traits::is2D<LineString2dT>(), "Please call this function with a 2D type!");
+-  helper::ProjectedPoint<BasicPoint2d> projectedPoint;
+-  distance(lineString, pointToProject, projectedPoint);
+-  return projectedPoint.result->projectedPoint;
++  return internal::project(utils::toHybrid(lineString), pointToProject);
+ }
+ 
+ template <typename LineString3dT>
+@@ -762,6 +781,13 @@ IfLS<LineString3dT, bool> intersects3d(const LineString3dT& linestring, const Li
+   return std::any_of(intersections.begin(), intersections.end(), distanceSmallerTolerance);
+ }
+ 
++template <typename LineString2dT>
++IfLS<LineString2dT, std::pair<BasicPoint2d, BasicPoint2d>> projectedPoint2d(const LineString2dT& l1,
++                                                                            const LineString2dT& l2) {
++  static_assert(traits::is2D<LineString2dT>(), "Please call this function with a 2D type!");
++  return internal::projectedPoint2d(traits::toHybrid(l1), traits::toHybrid(l2));
++}
++
+ template <typename LineString3dT>
+ IfLS<LineString3dT, std::pair<BasicPoint3d, BasicPoint3d>> projectedPoint3d(const LineString3dT& l1,
+                                                                             const LineString3dT& l2) {
+@@ -837,26 +863,5 @@ BasicLineString2d offset(const LineString2dT& lineString, const double distance)
+   internal::checkForInversion(lineString, newLS, distance);
+   return newLS;
+ }
+-
+-template <typename LineString3dT, typename>
+-Segment<traits::PointType<LineString3dT>> closestSegment(const LineString3dT& lineString,
+-                                                         const BasicPoint3d& pointToProject) {
+-  static_assert(traits::is3D<LineString3dT>(), "Please call this function with a 3D type!");
+-  helper::ProjectedPoint<traits::PointType<LineString3dT>> projectedPoint;
+-  distance(utils::toHybrid(lineString), pointToProject, projectedPoint);
+-  return Segment<traits::PointType<LineString3dT>>(projectedPoint.result->segmentPoint1,
+-                                                   projectedPoint.result->segmentPoint2);
+-}
+-
+-//! Projects the given point in 2d to the LineString.
+-template <typename LineString2dT, typename>
+-Segment<traits::PointType<LineString2dT>> closestSegment(const LineString2dT& lineString,
+-                                                         const BasicPoint2d& pointToProject) {
+-  static_assert(traits::is2D<LineString2dT>(), "Please call this function with a 2D type!");
+-  helper::ProjectedPoint<traits::PointType<LineString2dT>> projectedPoint;
+-  distance(utils::toHybrid(lineString), pointToProject, projectedPoint);
+-  return Segment<traits::PointType<LineString2dT>>(projectedPoint.result->segmentPoint1,
+-                                                   projectedPoint.result->segmentPoint2);
+-}
+ }  // namespace geometry
+ }  // namespace lanelet
+diff --git a/include/lanelet2_core/geometry/impl/Polygon.h b/include/lanelet2_core/geometry/impl/Polygon.h
+index 8a6bfe50..dbe32f0f 100644
+--- a/include/lanelet2_core/geometry/impl/Polygon.h
++++ b/include/lanelet2_core/geometry/impl/Polygon.h
+@@ -13,8 +13,8 @@ namespace geometry {
+ namespace internal {
+ template <typename T>
+ struct GetGeometry<T, IfPoly<T, void>> {
+-  static inline auto twoD(const T& geometry) { return traits::toHybrid(traits::to2D(geometry)); }
+-  static inline auto threeD(const T& geometry) { return traits::toHybrid(traits::to3D(geometry)); }
++  static inline auto twoD(const T& geometry) { return traits::toBasicPolygon2d(geometry); }
++  static inline auto threeD(const T& geometry) { return traits::toBasicPolygon3d(geometry); }
+ };
+ 
+ std::pair<BasicPoint3d, BasicPoint3d> projectedBorderPoint3d(const ConstHybridPolygon3d& l1,
+diff --git a/include/lanelet2_core/primitives/LineString.h b/include/lanelet2_core/primitives/LineString.h
+index 2f5e0baa..5416d99c 100644
+--- a/include/lanelet2_core/primitives/LineString.h
++++ b/include/lanelet2_core/primitives/LineString.h
+@@ -70,8 +70,18 @@ inline BasicLineString2d to2D<BasicLineString3d>(const BasicLineString3d& primit
+   std::transform(primitive.begin(), primitive.end(), ls2d.begin(), utils::to2D<BasicPoint3d>);
+   return ls2d;
+ }
++
++template <typename PointT>
++auto toBasicSegment(const Segment<PointT>& s) {
++  return std::make_pair(toBasicPoint(s.first), toBasicPoint(s.second));
++}
++
+ }  // namespace traits
+ 
++namespace utils {
++using traits::toBasicSegment;
++}
++
+ namespace internal {
+ template <typename PointT>
+ struct SelectLsIterator {
+diff --git a/include/lanelet2_core/primitives/Point.h b/include/lanelet2_core/primitives/Point.h
+index be46c4c3..f5199203 100644
+--- a/include/lanelet2_core/primitives/Point.h
++++ b/include/lanelet2_core/primitives/Point.h
+@@ -73,7 +73,7 @@ struct PointTraits<BasicPoint2d> : PrimitiveTraits<BasicPoint2d> {
+   using ConstPoint = typename PrimitiveTraits<BasicPoint2d>::ConstType;
+   using MutablePoint = typename PrimitiveTraits<BasicPoint2d>::MutableType;
+   static constexpr bool IsPrimitive = false;
+-  static constexpr Dimensions Dimension = Dimensions::Three;
++  static constexpr Dimensions Dimension = Dimensions::Two;
+ };
+ template <>
+ struct PointTraits<Eigen::Vector2d> : PrimitiveTraits<Eigen::Vector2d> {
+@@ -81,7 +81,7 @@ struct PointTraits<Eigen::Vector2d> : PrimitiveTraits<Eigen::Vector2d> {
+   using ConstPoint = typename PrimitiveTraits<BasicPoint2d>::ConstType;
+   using MutablePoint = typename PrimitiveTraits<BasicPoint2d>::MutableType;
+   static constexpr bool IsPrimitive = false;
+-  static constexpr Dimensions Dimension = Dimensions::Three;
++  static constexpr Dimensions Dimension = Dimensions::Two;
+ };
+ 
+ template <>
+diff --git a/include/lanelet2_core/primitives/Polygon.h b/include/lanelet2_core/primitives/Polygon.h
+index 7208c98f..a458cb49 100644
+--- a/include/lanelet2_core/primitives/Polygon.h
++++ b/include/lanelet2_core/primitives/Polygon.h
+@@ -2,6 +2,7 @@
+ 
+ #include "lanelet2_core/Forward.h"
+ #include "lanelet2_core/primitives/LineString.h"
++#include "lanelet2_core/primitives/Traits.h"
+ 
+ namespace lanelet {
+ 
+@@ -392,6 +393,36 @@ inline BasicPolygon2d to2D<BasicPolygon3d>(const BasicPolygon3d& primitive) {
+   std::transform(primitive.begin(), primitive.end(), p2d.begin(), utils::to2D<BasicPoint3d>);
+   return p2d;
+ }
++
++template <typename PolygonT>
++std::enable_if_t<traits::isPolygonT<PolygonT>(), BasicPolygon2d> toBasicPolygon2d(const PolygonT& t) {
++  return traits::to2D(t).basicPolygon();
++}
++
++template <>
++inline BasicPolygon2d toBasicPolygon2d<BasicPolygon2d>(const BasicPolygon2d& t) {
++  return t;
++}
++
++template <>
++inline BasicPolygon2d toBasicPolygon2d<BasicPolygon3d>(const BasicPolygon3d& t) {
++  return traits::to2D(t);
++}
++
++inline BasicPolygon2d toBasicPolygon2d(BasicPolygon2d&& t) { return std::move(t); }
++
++template <typename PolygonT>
++std::enable_if_t<traits::isPolygonT<PolygonT>(), BasicPolygon3d> toBasicPolygon3d(const PolygonT& t) {
++  return traits::to3D(t).basicPolygon();
++}
++
++template <>
++inline BasicPolygon3d toBasicPolygon3d<BasicPolygon3d>(const BasicPolygon3d& t) {
++  return t;
++}
++
++inline BasicPolygon3d toBasicPolygon3d(BasicPolygon3d&& t) { return std::move(t); }
++
+ }  // namespace traits
+ template <typename T, typename RetT>
+ using IfPoly = std::enable_if_t<traits::isPolygonT<T>(), RetT>;
+diff --git a/src/LaneletMap.cpp b/src/LaneletMap.cpp
+index f48cd349..ad53b2f2 100644
+--- a/src/LaneletMap.cpp
++++ b/src/LaneletMap.cpp
+@@ -2,6 +2,8 @@
+ #include "lanelet2_core/LaneletMap.h"
+ 
+ #include <atomic>
++#include <boost/geometry/algorithms/disjoint.hpp>  //used but not included by rtree
++#include <boost/geometry/algorithms/equals.hpp>    //used but not included by rtree
+ #include <boost/geometry/index/rtree.hpp>
+ #include <chrono>
+ #include <random>
+diff --git a/src/LineStringGeometry.cpp b/src/LineStringGeometry.cpp
+index 1da26b95..5cf07b6d 100644
+--- a/src/LineStringGeometry.cpp
++++ b/src/LineStringGeometry.cpp
+@@ -1,20 +1,23 @@
+ #include <boost/version.hpp>
++#include <cstddef>
++#include <utility>
++
+ #if BOOST_VERSION < 106300 && BOOST_VERSION >= 106200
+ // Boost 1.62 is missing an iostream include...
+ #include <iostream>
+ #endif
++#include <boost/geometry/algorithms/disjoint.hpp>
+ #include <boost/geometry/geometries/box.hpp>
+ #include <boost/geometry/geometries/pointing_segment.hpp>
+ #include <boost/geometry/index/rtree.hpp>
+ 
++#include "lanelet2_core/Exceptions.h"
+ #include "lanelet2_core/geometry/LineString.h"
+ #include "lanelet2_core/geometry/Polygon.h"
+ 
+ namespace lanelet {
+ namespace geometry {
+ namespace {
+-using V3d = BasicPoint3d;
+-
+ struct LineParams {
+   double sN;
+   double sD;
+@@ -23,7 +26,9 @@ struct LineParams {
+ };
+ 
+ constexpr double SmallNum = 1.e-10;
++constexpr std::size_t RtreeThres = 50;
+ 
++// NOLINTNEXTLINE(bugprone-easily-swappable-parameters)
+ inline LineParams calculateLineParams(double a, double b, double c, double d, double e, double den) {
+   // compute the line parameters of the two closest points
+   if (den < SmallNum) {  // the lines are almost parallel
+@@ -50,12 +55,13 @@ inline LineParams calculateLineParams(double a, double b, double c, double d, do
+   return lp;
+ }
+ 
+-std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const BasicPoint3d& p1, const BasicPoint3d& p2,
+-                                                       const BasicPoint3d& q1, const BasicPoint3d& q2) {
++template <typename PointT>
++// NOLINTNEXTLINE(bugprone-easily-swappable-parameters)
++std::pair<PointT, PointT> projectedPoint(PointT p1, PointT p2, PointT q1, PointT q2) {
+   // see http://geomalgorithms.com/a07-_distance.html
+-  V3d w = p1 - q1;
+-  V3d u = p2 - p1;
+-  V3d v = q2 - q1;
++  PointT w = p1 - q1;
++  PointT u = p2 - p1;
++  PointT v = q2 - q1;
+   double a = u.dot(u);
+   double b = u.dot(v);
+   double c = v.dot(v);
+@@ -95,119 +101,384 @@ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const BasicPoint3d& p1, c
+   return {p1 + (sc * u), q1 + (tc * v)};  // return the closest distance
+ }
+ 
++template <typename PointT>
++// NOLINTNEXTLINE(bugprone-easily-swappable-parameters)
++PointT projectedPoint(PointT l1, PointT l2, PointT p) {
++  PointT v = l2 - l1;
++  PointT w = p - l1;
++
++  const auto c1 = w.dot(v);
++  if (c1 <= 0) {
++    return l1;
++  }
++  const auto c2 = v.dot(v);
++  if (c2 <= c1) {
++    return l2;
++  }
++  const auto b = c1 / c2;
++  return v * b + l1;
++}
++
++template <typename RangeT, typename Func>
++void distForAllSegments(const RangeT& r, Func f) {
++  if (r.size() == 1) {
++    f(r.front(), r.front());
++  }
++  for (auto first = r.begin(), second = r.begin() + 1; second != r.end(); ++first, ++second) {
++    if (f(*first, *second) == 0.) {
++      break;
++    }
++  }
++}
++
+ namespace bg = boost::geometry;
+ namespace bgi = bg::index;
+ namespace bgm = boost::geometry::model;
+-using BasicSegment = bgm::pointing_segment<const BasicPoint3d>;
+-using Box = bgm::box<bgm::point<double, 3, boost::geometry::cs::cartesian>>;
+-using Node = std::pair<Box, BasicSegment>;
+-using RTree = bgi::rtree<Node, bgi::linear<8>>;
++
++template <typename Point1T, typename Point2T, typename BasicPointT>
++struct ProjectedPoint2L2Result {
++  using Point1 = Point1T;
++  using Point2 = Point2T;
++  using Segm1 = Segment<Point1T>;
++  using Segm2 = Segment<Point2T>;
++  using BasicPoint = BasicPointT;
++
++  bool valid() const { return !!distance; }
++  double update(Segm1 segm1, Segm2 segm2) {
++    auto projPair = projectedPoint(utils::toBasicPoint(segm1.first), utils::toBasicPoint(segm1.second),
++                                   utils::toBasicPoint(segm2.first), utils::toBasicPoint(segm2.second));
++    const auto dNew = (projPair.first - projPair.second).norm();
++    if (!distance || *distance > dNew) {
++      distance = dNew;
++      this->segm1 = segm1;
++      this->segm2 = segm2;
++      this->p1 = projPair.first;
++      this->p2 = projPair.second;
++    }
++    return *distance;
++  }
++  std::pair<BasicPoint, BasicPoint> projectedPoints() const { return std::make_pair(p1, p2); }
++
++  ProjectedPoint2L2Result swap() const { return {segm2, segm1, p2, p1, distance}; }
++
++  Segm1 segm1;
++  Segm2 segm2;
++  BasicPoint p1;
++  BasicPoint p2;
++  Optional<double> distance;
++};
+ 
+ template <typename LineString1T, typename LineString2T>
+-std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3dOrdered(const LineString1T& smallerRange,
+-                                                              const LineString2T& greaterRange) {
+-  // catch some degerated cases
+-  ConstHybridLineString3d duplicate;
+-  if (smallerRange.size() == 1 && greaterRange.size() == 1) {
+-    std::pair<BasicPoint3d, BasicPoint3d> ret(greaterRange.front(), smallerRange.front());
+-    return ret;
++using ProjectedPointL2LOnLinestring = ProjectedPoint2L2Result<traits::ConstPointT<traits::PointType<LineString1T>>,
++                                                              traits::ConstPointT<traits::PointType<LineString2T>>,
++                                                              traits::BasicPointT<traits::PointType<LineString1T>>>;
++
++template <typename PointT, typename BasicPointT>
++struct ProjectedPointL2PResult {
++  using Point = PointT;
++  using Segm = Segment<PointT>;
++  using BasicPoint = BasicPointT;
++
++  bool valid() const { return !!distance; }
++  double update(Segm segm, BasicPoint p) {
++    auto projP = projectedPoint(utils::toBasicPoint(segm.first), utils::toBasicPoint(segm.second), p);
++    const auto dNew = (projP - p).norm();
++    if (!distance || *distance > dNew) {
++      distance = dNew;
++      this->segm = segm;
++      this->p = projP;
++    }
++    return *distance;
+   }
+-  auto values =
++  Segment<Point> segment() const { return segm; }
++
++  Segm segm{};
++  BasicPoint p{};
++  Optional<double> distance;
++};
++
++template <typename LineStringT>
++using ProjectedPointL2POnLinestring = ProjectedPointL2PResult<traits::ConstPointT<traits::PointType<LineStringT>>,
++                                                              traits::BasicPointT<traits::PointType<LineStringT>>>;
++
++template <typename PointT>
++auto toSegment(const bgm::pointing_segment<const PointT>& s) {
++  return std::make_pair(*s.first, *s.second);
++}
++
++template <typename PointT>
++auto toBasicSegment(const bgm::pointing_segment<const PointT>& s) {
++  return std::make_pair(utils::toBasicPoint(*s.first), utils::toBasicPoint(*s.second));
++}
++
++template <typename LineString1T, typename LineString2T>
++ProjectedPointL2LOnLinestring<LineString1T, LineString2T> projectedPointL2LWithTree(const LineString1T& smallerRange,
++                                                                                    const LineString2T& greaterRange) {
++  using TreePointT = traits::ConstPointT<traits::PointType<LineString2T>>;
++  using TreeSegmT = Segment<TreePointT>;
++  constexpr auto Dim = traits::PointTraits<TreePointT>::Dimension;
++  using Box = bgm::box<bgm::point<double, static_cast<int>(Dim), boost::geometry::cs::cartesian>>;
++  using Node = std::pair<Box, TreeSegmT>;
++  using RTree = bgi::rtree<Node, bgi::linear<8>>;
++  const auto values =
+       utils::transform(bg::segments_begin(greaterRange), bg::segments_end(greaterRange), [](const auto& segm) {
+         Box box;
+         boost::geometry::envelope(segm, box);
+-        return Node(box, segm);
++        return Node(box, toSegment(segm));
+       });
+   RTree tree(values.begin(), values.end());
+ 
+-  bool first = true;
+-  double dMin{};
+-  std::pair<BasicPoint3d, BasicPoint3d> closestPair;
+-  for (auto it = bg::segments_begin(smallerRange); it != bg::segments_end(smallerRange); ++it) {
++  using PointT = traits::ConstPointT<traits::PointType<LineString1T>>;
++  auto result = ProjectedPointL2LOnLinestring<LineString1T, LineString2T>{};
++  distForAllSegments(smallerRange, [&](auto&& psmall1, auto&& psmall2) {
+     Box queryBox;
+-    bg::envelope(*it, queryBox);
+-    for (auto qIt = tree.qbegin(bgi::nearest(queryBox, unsigned(greaterRange.size()))); qIt != tree.qend();
+-         ++qIt, first = false) {
++    auto segsmall = utils::toBasicSegment(std::make_pair(psmall1, psmall2));
++    bg::envelope(segsmall, queryBox);
++    for (auto qIt = tree.qbegin(bgi::nearest(queryBox, unsigned(tree.size()))); qIt != tree.qend(); ++qIt) {
+       const auto& nearest = *qIt;
+       auto dBox = boost::geometry::distance(nearest.first, queryBox);
+-      if (!first && dBox > dMin) {
++      if (!!result.distance && *(result.distance) < dBox) {
+         break;
+       }
+-      auto projPair = projectedPoint3d(*nearest.second.first, *nearest.second.second, *it->first, *it->second);
+-      auto d = (projPair.first - projPair.second).norm();
+-      if (first || d < dMin) {
+-        closestPair = projPair;
+-        dMin = d;
+-      }
++      result.update(std::make_pair(psmall1, psmall2), nearest.second);
+     }
++    return *result.distance;
++  });
++  return result;
++}
++
++template <typename LineString1T, typename LineString2T>
++ProjectedPointL2LOnLinestring<LineString1T, LineString2T> projectedPointL2LBruteForce(
++    const LineString1T& smallerRange, const LineString2T& greaterRange) {
++  auto result = ProjectedPointL2LOnLinestring<LineString1T, LineString2T>{};
++  distForAllSegments(smallerRange, [&](auto&& psmall1, auto&& psmall2) {
++    distForAllSegments(greaterRange, [&](auto&& pgreat1, auto&& pgreat2) {
++      return result.update(std::make_pair(psmall1, psmall2), std::make_pair(pgreat1, pgreat2));
++    });
++    return *result.distance;
++  });
++  return result;
++}
++
++template <typename LineStringT>
++ProjectedPointL2POnLinestring<LineStringT> projectedPointL2PBruteForce(
++    const LineStringT& ls, const traits::BasicPointT<traits::PointType<LineStringT>>& point) {
++  auto result = ProjectedPointL2POnLinestring<LineStringT>{};
++  distForAllSegments(ls, [&](auto&& pl1, auto&& pl2) { return result.update(std::make_pair(pl1, pl2), point); });
++  return result;
++}
++
++template <typename LineStringT>
++ProjectedPointL2POnLinestring<LineStringT> projectedPointL2PWithTree(
++    const LineStringT& ls, const traits::BasicPointT<traits::PointType<LineStringT>>& p) {
++  using TreePointT = traits::ConstPointT<traits::PointType<LineStringT>>;
++  using TreeSegmT = Segment<TreePointT>;
++  constexpr auto Dim = traits::PointTraits<TreePointT>::Dimension;
++  using Box = bgm::box<bgm::point<double, static_cast<int>(Dim), boost::geometry::cs::cartesian>>;
++  using Node = std::pair<Box, TreeSegmT>;
++  using RTree = bgi::rtree<Node, bgi::linear<8>>;
++
++  const auto values = utils::transform(bg::segments_begin(ls), bg::segments_end(ls), [](const auto& segm) {
++    Box box;
++    boost::geometry::envelope(toBasicSegment(segm), box);
++    return Node(box, toSegment(segm));
++  });
++  RTree tree(values.begin(), values.end());
++
++  auto result = ProjectedPointL2POnLinestring<LineStringT>{};
++  for (auto qIt = tree.qbegin(bgi::nearest(p, unsigned(tree.size()))); qIt != tree.qend(); ++qIt) {
++    const auto& nearest = *qIt;
++    auto dBox = boost::geometry::distance(nearest.first, p);
++    if (!!result.distance && *(result.distance) < dBox) {
++      break;
++    }
++    if (result.update(nearest.second, p) == 0.) {
++      break;
++    }
++  }
++  return result;
++}
++
++template <typename LineString1T, typename LineString2T>
++auto projectedPointOrdered(const LineString1T& smallerRange, const LineString2T& greaterRange) {
++  if (smallerRange.size() == 0) {
++    throw InvalidInputError("ProjectedPoint called with empty linestring as input!");
++  }
++  if (greaterRange.size() < RtreeThres) {
++    return projectedPointL2LBruteForce(smallerRange, greaterRange);
+   }
+-  return closestPair;
++  return projectedPointL2LWithTree(smallerRange, greaterRange);
+ }
+ 
+ template <typename LineString1T, typename LineString2T>
+-std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3dImpl(const LineString1T& l1, const LineString2T& l2) {
++auto projectedPointL2LImpl(const LineString1T& l1, const LineString2T& l2) {
+   if (l1.size() < l2.size()) {
+-    return projectedPoint3dOrdered(l1, l2);
++    return projectedPointOrdered(l1, l2);
++  }
++  return projectedPointOrdered(l2, l1).swap();
++}
++
++template <typename LineStringT>
++auto projectedPointL2PImpl(const LineStringT& ls, const traits::BasicPointT<traits::PointType<LineStringT>>& p) {
++  if (ls.size() < RtreeThres) {
++    return projectedPointL2PBruteForce(ls, p);
+   }
+-  auto res = projectedPoint3dOrdered(l2, l1);
+-  return {res.second, res.first};
++  return projectedPointL2PWithTree(ls, p);
+ }
+ }  // namespace
+ 
+ namespace internal {
++// 2d
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const CompoundHybridLineString2d& l1,
++                                                       const CompoundHybridLineString2d& l2) {
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
++}
++
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const ConstHybridLineString2d& l1,
++                                                       const CompoundHybridLineString2d& l2) {
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
++}
++
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const CompoundHybridLineString2d& l1,
++                                                       const ConstHybridLineString2d& l2) {
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
++}
++
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const ConstHybridLineString2d& l1,
++                                                       const ConstHybridLineString2d& l2) {
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
++}
++
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const ConstHybridLineString2d& l1, const BasicLineString2d& l2) {
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
++}
++
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const BasicLineString2d& l1, const ConstHybridLineString2d& l2) {
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
++}
++
++std::pair<BasicPoint2d, BasicPoint2d> projectedPoint2d(const BasicLineString2d& l1, const BasicLineString2d& l2) {
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
++}
++
++std::pair<BasicPoint2d, BasicPoint2d> projectedBorderPoint2d(const ConstHybridPolygon2d& l1,
++                                                             const ConstHybridPolygon2d& l2) {
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
++}
++
++std::pair<BasicPoint2d, BasicPoint2d> projectedBorderPoint2d(const CompoundHybridPolygon2d& l1,
++                                                             const CompoundHybridPolygon2d& l2) {
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
++}
++
++// 3d
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const CompoundHybridLineString3d& l1,
+                                                        const CompoundHybridLineString3d& l2) {
+-  return projectedPoint3dImpl(l1, l2);
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
+ }
+ 
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const ConstHybridLineString3d& l1,
+                                                        const CompoundHybridLineString3d& l2) {
+-  return projectedPoint3dImpl(l1, l2);
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
+ }
+ 
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const CompoundHybridLineString3d& l1,
+                                                        const ConstHybridLineString3d& l2) {
+-  return projectedPoint3dImpl(l1, l2);
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
+ }
+ 
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const ConstHybridLineString3d& l1,
+                                                        const ConstHybridLineString3d& l2) {
+-  return projectedPoint3dImpl(l1, l2);
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
+ }
+ 
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const ConstHybridLineString3d& l1, const BasicLineString3d& l2) {
+-  return projectedPoint3dImpl(l1, l2);
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
+ }
+ 
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const BasicLineString3d& l1, const ConstHybridLineString3d& l2) {
+-  return projectedPoint3dImpl(l1, l2);
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
+ }
+ 
+ std::pair<BasicPoint3d, BasicPoint3d> projectedPoint3d(const BasicLineString3d& l1, const BasicLineString3d& l2) {
+-  return projectedPoint3dImpl(l1, l2);
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
+ }
+ 
+ std::pair<BasicPoint3d, BasicPoint3d> projectedBorderPoint3d(const ConstHybridPolygon3d& l1,
+                                                              const ConstHybridPolygon3d& l2) {
+-  return projectedPoint3dImpl(l1, l2);
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
+ }
+ 
+ std::pair<BasicPoint3d, BasicPoint3d> projectedBorderPoint3d(const CompoundHybridPolygon3d& l1,
+                                                              const CompoundHybridPolygon3d& l2) {
+-  return projectedPoint3dImpl(l1, l2);  // NOLINT
++  return projectedPointL2LImpl(l1, l2).projectedPoints();
++}
++
++// project
++BasicPoint2d project(const BasicLineString2d& lineString, const BasicPoint2d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).p;
++}
++BasicPoint3d project(const BasicLineString3d& lineString, const BasicPoint3d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).p;
++}
++
++BasicPoint2d project(const ConstHybridLineString2d& lineString, const BasicPoint2d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).p;
++}
++BasicPoint3d project(const ConstHybridLineString3d& lineString, const BasicPoint3d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).p;
++}
++
++BasicPoint2d project(const CompoundHybridLineString2d& lineString, const BasicPoint2d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).p;
++}
++BasicPoint3d project(const CompoundHybridLineString3d& lineString, const BasicPoint3d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).p;
+ }
+ 
+ }  // namespace internal
+ 
++// closestsegment
+ Segment<BasicPoint2d> closestSegment(const BasicLineString2d& lineString, const BasicPoint2d& pointToProject) {
+-  helper::ProjectedPoint<BasicPoint2d> projectedPoint;
+-  distance(lineString, pointToProject, projectedPoint);
+-  return Segment<BasicPoint2d>(projectedPoint.result->segmentPoint1, projectedPoint.result->segmentPoint2);
++  return projectedPointL2PImpl(lineString, pointToProject).segment();
+ }
+ Segment<BasicPoint3d> closestSegment(const BasicLineString3d& lineString, const BasicPoint3d& pointToProject) {
+-  helper::ProjectedPoint<BasicPoint3d> projectedPoint;
+-  distance(lineString, pointToProject, projectedPoint);
+-  return Segment<BasicPoint3d>(projectedPoint.result->segmentPoint1, projectedPoint.result->segmentPoint2);
++  return projectedPointL2PImpl(lineString, pointToProject).segment();
++}
++
++Segment<ConstPoint2d> closestSegment(const ConstLineString2d& lineString, const BasicPoint2d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).segment();
++}
++Segment<ConstPoint3d> closestSegment(const ConstLineString3d& lineString, const BasicPoint3d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).segment();
++}
++
++Segment<BasicPoint2d> closestSegment(const ConstHybridLineString2d& lineString, const BasicPoint2d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).segment();
++}
++Segment<BasicPoint3d> closestSegment(const ConstHybridLineString3d& lineString, const BasicPoint3d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).segment();
++}
++
++Segment<ConstPoint2d> closestSegment(const CompoundLineString2d& lineString, const BasicPoint2d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).segment();
++}
++Segment<ConstPoint3d> closestSegment(const CompoundLineString3d& lineString, const BasicPoint3d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).segment();
++}
++
++Segment<BasicPoint2d> closestSegment(const CompoundHybridLineString2d& lineString, const BasicPoint2d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).segment();
++}
++Segment<BasicPoint3d> closestSegment(const CompoundHybridLineString3d& lineString, const BasicPoint3d& pointToProject) {
++  return projectedPointL2PImpl(lineString, pointToProject).segment();
++}
++
++BasicPoint2d project(const BasicSegment2d& segment, const BasicPoint2d& pointToProject) {
++  return projectedPoint(segment.first, segment.second, pointToProject);
++}
++BasicPoint3d project(const BasicSegment3d& segment, const BasicPoint3d& pointToProject) {
++  return projectedPoint(segment.first, segment.second, pointToProject);
+ }
+ }  // namespace geometry
+ }  // namespace lanelet
+diff --git a/test/test_linestring.cpp b/test/test_linestring.cpp
+index 05bef0cd..b8242ee2 100644
+--- a/test/test_linestring.cpp
++++ b/test/test_linestring.cpp
+@@ -1,7 +1,11 @@
+ #include <gtest/gtest.h>
+ 
++#include <boost/geometry/algorithms/equals.hpp>
++#include <vector>
++
+ #include "lanelet2_core/geometry/LineString.h"
+ #include "lanelet2_core/primitives/LineString.h"
++#include "primitives/Traits.h"
+ using namespace lanelet;
+ 
+ class LineStringPoints : public ::testing::Test {
+@@ -58,6 +62,42 @@ class LineStringTypeTest : public LineStringPoints {
+   }
+ 
+  public:
++  static LineStringT getLinestringAt(double y, size_t n = 100) {
++    Id id{10};
++    std::vector<Point3d> points;
++    for (auto i = 0; i < n; i++) {
++      points.push_back(Point3d(++id, i, y, 0));
++    }
++    return LineStringT(++id, points);
++  }
++  LineStringT ls1, ls2, ls3, ls4;
++};
++
++template <typename T>
++class BasicLineStringTypeTest : public LineStringPoints {
++ protected:
++  using BaseLinestringT = T;
++  using LineStringT = typename T::BasicLineString;
++  void SetUp() override {
++    LineStringPoints::SetUp();
++    Id id{10};
++    ls1 = BaseLinestringT(++id, {p11, p12, p13},
++                          AttributeMap{{AttributeNamesString::Type, AttributeValueString::Curbstone}})
++              .basicLineString();
++    ls2 = BaseLinestringT(++id, {p21, p22, p23}).basicLineString();
++    ls3 = BaseLinestringT(++id, {p31, p32, p33}).basicLineString();
++    ls4 = BaseLinestringT(++id, {p11, p12, p43}).basicLineString();
++  }
++
++ public:
++  static LineStringT getLinestringAt(double y, size_t n = 100) {
++    Id id{10};
++    std::vector<Point3d> points;
++    for (auto i = 0; i < n; i++) {
++      points.push_back(Point3d(++id, i, y, 0));
++    }
++    return BaseLinestringT(++id, points).basicLineString();
++  }
+   LineStringT ls1, ls2, ls3, ls4;
+ };
+ 
+@@ -80,6 +120,10 @@ class CompoundLineStringTypeTest : public LineStringPoints {
+   }
+ 
+  public:
++  static LineStringT getLinestringAt(double y, size_t n = 100) {
++    return LineStringT{{LineStringTypeTest<LineString3d>::getLinestringAt(y, n)}};
++  }
++
+   LineStringT ls1, ls2, ls3, ls4;
+ };
+ 
+@@ -88,7 +132,7 @@ auto getZ(const T& p) -> std::enable_if_t<!traits::is2D<T>(), double> {
+   return p.z();
+ }
+ template <typename T>
+-auto getZ(const T & /*p*/) -> std::enable_if_t<traits::is2D<T>(), double> {
++auto getZ(const T& /*p*/) -> std::enable_if_t<traits::is2D<T>(), double> {
+   return 0.;
+ }
+ 
+@@ -104,6 +148,11 @@ class LineStringTypeTest<CompoundHybridLineString2d> : public CompoundLineString
+ template <>
+ class LineStringTypeTest<CompoundHybridLineString3d> : public CompoundLineStringTypeTest<CompoundHybridLineString3d> {};
+ 
++template <>
++class LineStringTypeTest<BasicLineString2d> : public BasicLineStringTypeTest<LineString2d> {};
++template <>
++class LineStringTypeTest<BasicLineString3d> : public BasicLineStringTypeTest<LineString3d> {};
++
+ template <typename T>
+ class AllLineStringsTest : public LineStringTypeTest<T> {};
+ 
+@@ -139,9 +188,9 @@ using AllLineStrings = testing::Types<LineString2d, LineString3d, ConstLineStrin
+                                       CompoundLineString3d, CompoundHybridLineString2d, CompoundHybridLineString3d>;
+ using NormalLineStrings = testing::Types<LineString2d, LineString3d, ConstLineString2d, ConstLineString3d>;
+ using ThreeDLineStrings = testing::Types<LineString3d, ConstLineString3d, ConstHybridLineString3d, CompoundLineString3d,
+-                                         CompoundHybridLineString3d>;
++                                         CompoundHybridLineString3d, BasicLineString3d>;
+ using TwoDLineStrings = testing::Types<LineString2d, ConstLineString2d, ConstHybridLineString2d, CompoundLineString2d,
+-                                       CompoundHybridLineString2d>;
++                                       CompoundHybridLineString2d, BasicLineString2d>;
+ using MutableLineStrings = testing::Types<LineString2d, LineString3d>;
+ using PrimitiveLineStrings = testing::Types<LineString2d, LineString3d, ConstLineString2d, ConstLineString3d,
+                                             ConstHybridLineString2d, ConstHybridLineString3d>;
+@@ -264,6 +317,12 @@ TYPED_TEST(ThreeDLineStringsTest, distance3d) {  // NOLINT
+   EXPECT_DOUBLE_EQ(geometry::distance3d(this->ls2, this->ls3), 2.);
+ }
+ 
++TYPED_TEST(ThreeDLineStringsTest, distance3dLongLinestring) {  // NOLINT
++  auto ls2 = this->getLinestringAt(0, 100);
++  auto ls1 = this->getLinestringAt(5, 100);
++  EXPECT_DOUBLE_EQ(geometry::distance3d(ls1, ls2), 5.);
++}
++
+ TYPED_TEST(AllLineStringsTest, length) {  // NOLINT
+   auto l = geometry::length(this->ls1);
+   auto lSeg1 = geometry::rangedLength(std::begin(this->ls1), std::prev(std::end(this->ls1)));
+@@ -404,6 +463,93 @@ TYPED_TEST(TwoDLineStringsTest, projectedPoint) {  // NOLINT
+   EXPECT_DOUBLE_EQ(1.5, projectedPoint.y());
+ }
+ 
++TYPED_TEST(ThreeDLineStringsTest, projectedPoint) {  // NOLINT
++  auto p = BasicPoint3d(0, 1.5, 0.5);
++  auto projectedPoint = geometry::project(this->ls1, p);
++  EXPECT_DOUBLE_EQ(0, projectedPoint.x());
++  EXPECT_DOUBLE_EQ(1.5, projectedPoint.y());
++  EXPECT_DOUBLE_EQ(0.5, projectedPoint.z());
++}
++
++TYPED_TEST(TwoDLineStringsTest, projectedPointLongLinestring) {  // NOLINT
++  auto p = BasicPoint2d(0, 0);
++  auto ls = this->getLinestringAt(5, 100);
++  auto projectedPoint = geometry::project(ls, p);
++  EXPECT_DOUBLE_EQ(0, projectedPoint.x());
++  EXPECT_DOUBLE_EQ(5, projectedPoint.y());
++}
++
++TYPED_TEST(ThreeDLineStringsTest, projectedPointLongLinestring) {  // NOLINT
++  auto p = BasicPoint3d(0, 0, -1);
++  auto ls = this->getLinestringAt(5, 100);
++  auto projectedPoint = geometry::project(ls, p);
++  EXPECT_DOUBLE_EQ(0, projectedPoint.x());
++  EXPECT_DOUBLE_EQ(5, projectedPoint.y());
++  EXPECT_DOUBLE_EQ(0, projectedPoint.z());
++}
++
++TYPED_TEST(TwoDLineStringsTest, closestSegment) {  // NOLINT
++  auto p = BasicPoint2d(0, 0);
++  auto segm = geometry::closestSegment(this->ls1, p);
++  EXPECT_DOUBLE_EQ(boost::geometry::distance(utils::toBasicPoint(segm.first), this->ls1), 0.);
++  EXPECT_DOUBLE_EQ(boost::geometry::distance(utils::toBasicPoint(segm.second), this->ls1), 0.);
++  EXPECT_DOUBLE_EQ(boost::geometry::distance(utils::toBasicSegment(segm), p), geometry::distance2d(this->ls1, p));
++}
++
++TYPED_TEST(ThreeDLineStringsTest, closestSegment) {  // NOLINT
++  auto p = BasicPoint3d(0, 1, 2);
++  auto segm = geometry::closestSegment(this->ls1, p);
++  EXPECT_DOUBLE_EQ(boost::geometry::distance(utils::toBasicPoint(segm.first), this->ls1), 0.);
++  EXPECT_DOUBLE_EQ(boost::geometry::distance(utils::toBasicPoint(segm.second), this->ls1), 0.);
++  EXPECT_DOUBLE_EQ(boost::geometry::distance(utils::toBasicSegment(segm), p), geometry::distance3d(this->ls1, p));
++}
++
++TYPED_TEST(TwoDLineStringsTest, closestSegmentLongLinestring) {  // NOLINT
++  auto p = BasicPoint2d(0, 0);
++  auto ls = this->getLinestringAt(5, 100);
++  auto segm = geometry::closestSegment(ls, p);
++  EXPECT_DOUBLE_EQ(boost::geometry::distance(utils::toBasicSegment(segm), p), geometry::distance2d(ls, p));
++}
++
++TYPED_TEST(ThreeDLineStringsTest, closestSegmentLongLinestring) {  // NOLINT
++  auto p = BasicPoint3d(0, 1, 2);
++  auto ls = this->getLinestringAt(5, 100);
++  auto segm = geometry::closestSegment(ls, p);
++  EXPECT_DOUBLE_EQ(boost::geometry::distance(utils::toBasicSegment(segm), p), geometry::distance3d(ls, p));
++}
++
++TYPED_TEST(TwoDLineStringsTest, projectedPointL2L) {  // NOLINT
++  auto points = geometry::projectedPoint2d(this->ls1, this->ls2);
++  EXPECT_DOUBLE_EQ((points.first - points.second).norm(), geometry::distance2d(this->ls1, this->ls2));
++  EXPECT_NEAR(geometry::distance2d(points.first, this->ls1), 0., 1e-10);
++  EXPECT_NEAR(geometry::distance2d(points.second, this->ls2), 0., 1e-10);
++}
++
++TYPED_TEST(ThreeDLineStringsTest, projectedPointL2L) {  // NOLINT
++  auto points = geometry::projectedPoint3d(this->ls1, this->ls2);
++  EXPECT_DOUBLE_EQ((points.first - points.second).norm(), geometry::distance3d(this->ls1, this->ls2));
++  EXPECT_NEAR(geometry::distance3d(points.first, this->ls1), 0., 1e-10);
++  EXPECT_NEAR(geometry::distance3d(points.second, this->ls2), 0., 1e-10);
++}
++
++TYPED_TEST(TwoDLineStringsTest, projectedPointL2LLongLinestring) {  // NOLINT
++  auto ls1 = this->getLinestringAt(0, 100);
++  auto ls2 = this->getLinestringAt(5, 100);
++  auto points = geometry::projectedPoint2d(ls1, ls2);
++  EXPECT_DOUBLE_EQ((points.first - points.second).norm(), 5);
++  EXPECT_DOUBLE_EQ(geometry::distance2d(points.first, ls1), 0.);
++  EXPECT_DOUBLE_EQ(geometry::distance2d(points.second, ls2), 0.);
++}
++
++TYPED_TEST(ThreeDLineStringsTest, projectedPointL2LLongLinestring) {  // NOLINT
++  auto ls1 = this->getLinestringAt(0, 100);
++  auto ls2 = this->getLinestringAt(5, 100);
++  auto points = geometry::projectedPoint3d(ls1, ls2);
++  EXPECT_DOUBLE_EQ((points.first - points.second).norm(), 5);
++  EXPECT_DOUBLE_EQ(geometry::distance3d(points.first, ls1), 0.);
++  EXPECT_DOUBLE_EQ(geometry::distance3d(points.second, ls2), 0.);
++}
++
+ TYPED_TEST(PrimitiveLineStringsTest, align) {  // NOLINT
+   TypeParam ls3(20, {Point3d(21, 2., 0., 0.), Point3d(22, 1.5, 0.5, 0.)});
+   auto aligned = geometry::align(this->ls1, ls3);
