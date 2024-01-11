@@ -15,7 +15,7 @@ Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -11,234 +11,13 @@ if(POLICY CMP0135)
+@@ -11,243 +11,13 @@ if(POLICY CMP0135)
    cmake_policy(SET CMP0135 NEW)
  endif()
  
@@ -138,7 +138,11 @@ Index: git/CMakeLists.txt
 -    set(OGRE_CXX_FLAGS "${OGRE_CXX_FLAGS} /w /EHsc")
 -  elseif(APPLE)
 -    set(OGRE_CXX_FLAGS "${OGRE_CXX_FLAGS} -std=c++14 -stdlib=libc++ -w")
--    list(APPEND extra_cmake_args "-DCMAKE_OSX_ARCHITECTURES='x86_64'")
+-    if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "arm64")
+-      list(APPEND extra_cmake_args "-DCMAKE_OSX_ARCHITECTURES='arm64'")
+-    else()
+-      list(APPEND extra_cmake_args "-DCMAKE_OSX_ARCHITECTURES='x86_64'")
+-    endif()
 -  else()  # Linux
 -    set(OGRE_C_FLAGS "${OGRE_C_FLAGS} -w")
 -    # include Clang -Wno-everything to disable warnings in that build. GCC doesn't mind it
@@ -174,9 +178,9 @@ Index: git/CMakeLists.txt
 -
 -  find_package(Patch REQUIRED)
 -  include(ExternalProject)
--  ExternalProject_Add(ogre-v1.12.1
--    URL https://github.com/OGRECave/ogre/archive/v1.12.1.zip
--    URL_MD5 cdbea4006d223c173e0a93864111b936
+-  ExternalProject_Add(ogre-v1.12.10
+-    URL https://github.com/OGRECave/ogre/archive/v1.12.10.zip
+-    URL_MD5 c1b870955efddf539385094e9034e7f7
 -    TIMEOUT 1200
 -    LOG_CONFIGURE ${should_log}
 -    LOG_BUILD ${should_log}
@@ -192,27 +196,32 @@ Index: git/CMakeLists.txt
 -      -DOGRE_CONFIG_THREADS:STRING=0
 -      -DOGRE_RESOURCEMANAGER_STRICT:STRING=2
 -      -DCMAKE_SKIP_INSTALL_RPATH:BOOL=ON
--      -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/ogre_install
+-      -DCMAKE_STAGING_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/ogre_install
+-      -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/opt/rviz_ogre_vendor
 -      -DOGRE_BUILD_LIBS_AS_FRAMEWORKS:BOOL=OFF
 -      -DOGRE_BUILD_COMPONENT_PYTHON:BOOL=FALSE
 -      -DOGRE_BUILD_COMPONENT_JAVA:BOOL=FALSE
 -      -DOGRE_BUILD_COMPONENT_CSHARP:BOOL=FALSE
 -      -DOGRE_BUILD_COMPONENT_BITES:BOOL=FALSE
+-      -DOGRE_BUILD_PLUGIN_DOT_SCENE:BOOL=FALSE
+-      -DOGRE_BUILD_TOOLS:BOOL=FALSE
 -      ${extra_cmake_args}
 -      -Wno-dev
 -    PATCH_COMMAND
--      ${Patch_EXECUTABLE} -p1 -N < ${CMAKE_CURRENT_SOURCE_DIR}/pragma-patch.diff &&
--      ${Patch_EXECUTABLE} -p1 -N < ${CMAKE_CURRENT_SOURCE_DIR}/fix-arm64.diff &&
--      ${Patch_EXECUTABLE} -p1 -N < ${CMAKE_CURRENT_SOURCE_DIR}/relocatable.patch
+-      ${Patch_EXECUTABLE} -p1 -N -l < ${CMAKE_CURRENT_SOURCE_DIR}/pragma-patch.diff &&
+-      ${Patch_EXECUTABLE} -p1 -N < ${CMAKE_CURRENT_SOURCE_DIR}/relocatable.patch &&
+-      ${Patch_EXECUTABLE} -p1 -N < ${CMAKE_CURRENT_SOURCE_DIR}/featuresummary-rename.patch &&
+-      ${CMAKE_COMMAND} -E rename CMake/FeatureSummary.cmake CMake/OgreFeatureSummary.cmake &&
+-      ${Patch_EXECUTABLE} -p1 -N < ${CMAKE_CURRENT_SOURCE_DIR}/C4267.patch
 -    COMMAND
--      ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/FindFreetype.cmake ${CMAKE_CURRENT_BINARY_DIR}/ogre-v1.12.1-prefix/src/ogre-v1.12.1/CMake/Packages/FindFreetype.cmake
+-      ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/FindFreetype.cmake ${CMAKE_CURRENT_BINARY_DIR}/ogre-v1.12.10-prefix/src/ogre-v1.12.10/CMake/Packages/FindFreetype.cmake
 -  )
 -
 -  if(BUILDING_FREETYPE_LOCALLY)
--    add_dependencies(ogre-v1.12.1 freetype-2.8.1)
+-    add_dependencies(ogre-v1.12.10 freetype-2.8.1)
 -  endif()
 -  if(BUILDING_ZLIB_LOCALLY)
--    add_dependencies(ogre-v1.12.1 zlib-1.2.11)
+-    add_dependencies(ogre-v1.12.10 zlib-1.2.11)
 -  endif()
 -
 -  # The external project will install to the build folder, but we'll install that on make install.
@@ -220,7 +229,7 @@ Index: git/CMakeLists.txt
 -    DIRECTORY
 -      ${CMAKE_CURRENT_BINARY_DIR}/ogre_install/
 -    DESTINATION
--      ${CMAKE_INSTALL_PREFIX}/opt/rviz_ogre_vendor
+-      opt/rviz_ogre_vendor
 -    USE_SOURCE_PERMISSIONS
 -  )
 -endmacro()
