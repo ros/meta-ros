@@ -1,5 +1,8 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://remove_stomp_example.patch"
+
 ROS_BUILD_DEPENDS = " \
     ros-industrial-cmake-boilerplate-native \
 "
