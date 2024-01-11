@@ -1,10 +1,5 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
-
-# mapviz_main.cpp:46: undefined reference to `glutInit'
-SRC_URI += "file://find-freeglut.patch"
-
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-generators-native \
 "
