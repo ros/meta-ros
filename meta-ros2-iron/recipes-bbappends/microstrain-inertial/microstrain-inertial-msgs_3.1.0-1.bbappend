@@ -12,3 +12,7 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp-native \
     rosidl-typesupport-introspection-cpp-native \
 "
+
+ROS_EXEC_DEPENDS += " \
+    service-msgs \
+"
