@@ -1,4 +1,5 @@
 # Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2023 Wind River Systems, Inc.
 
 # Without the target dependencies, ament finds the native packages and then fails to link (error: incompatible target).
 ROS_BUILD_DEPENDS += " \
@@ -13,4 +14,8 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-introspection-cpp-native \
     rosidl-typesupport-cpp-native \
     rosidl-generator-py-native \
+"
+
+ROS_EXEC_DEPENDS += " \
+    service-msgs \
 "
