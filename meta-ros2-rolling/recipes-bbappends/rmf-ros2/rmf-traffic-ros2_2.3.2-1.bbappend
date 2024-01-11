@@ -1,8 +1,5 @@
 # Copyright (c) 2022-2023 Wind River Systems, Inc.
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://improve-linking-time.patch"
-
 ROS_BUILD_DEPENDS += "eigen3-cmake-module"
 
 ROS_BUILDTOOL_DEPENDS += " \
