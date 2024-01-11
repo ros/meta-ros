@@ -1,0 +1,13 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -41,7 +41,7 @@ target_cxx_version(${PROJECT_NAME}_examp
+ target_include_directories(${PROJECT_NAME}_example PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/examples>"
+                                                           "$<INSTALL_INTERFACE:examples>")
+ 
+-configure_package(NAMESPACE stomp TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_example)
++configure_package(NAMESPACE stomp TARGETS ${PROJECT_NAME}) 
+ 
+ # Mark cpp header files for installation
+ install(
