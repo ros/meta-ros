@@ -9,12 +9,12 @@ Upstream-Status: Pending
  CMakeLists.txt | 79 ++++----------------------------------------------
  1 file changed, 6 insertions(+), 73 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index badc1b4..7f15871 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -13,80 +13,13 @@ if (POLICY CMP0135)
-   cmake_policy(SET CMP0135 OLD)
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -14,82 +14,13 @@ if (POLICY CMP0135)
+   cmake_policy(SET CMP0135 NEW)
  endif()
  
 -macro(build_yaml_cpp)
@@ -31,7 +31,9 @@ index badc1b4..7f15871 100644
 -  list(APPEND extra_cmake_args "-DYAML_CPP_BUILD_TESTS=OFF")
 -  list(APPEND extra_cmake_args "-DYAML_CPP_BUILD_TOOLS=OFF")
 -  list(APPEND extra_cmake_args "-DYAML_CPP_BUILD_CONTRIB=OFF")
--  list(APPEND extra_cmake_args "-DYAML_BUILD_SHARED_LIBS=ON")
+-  if(BUILD_SHARED_LIBS)
+-    list(APPEND extra_cmake_args "-DYAML_BUILD_SHARED_LIBS=ON")
+-  endif()
 -  list(APPEND extra_cmake_args "-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
 -  list(APPEND extra_cmake_args "-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}")
 -
