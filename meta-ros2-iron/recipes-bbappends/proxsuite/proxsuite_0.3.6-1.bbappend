@@ -1,8 +1,6 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
-ROS_BUILD_DEPENDS += "matio"
-
-ROS_EXEC_DEPENDS:remove = "${ROS_UNRESOLVED_DEP-simde}"
+ROS_BUILD_DEPENDS += "matio simde"
 
 inherit python3native
 
