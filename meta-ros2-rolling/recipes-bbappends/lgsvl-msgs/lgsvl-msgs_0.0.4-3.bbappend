@@ -1,5 +1,9 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
+ROS_BUILD_DEPENDS += " \
+    service-msgs \
+"
+
 ROS_BUILDTOOL_DEPENDS += " \
     ament-cmake \
     ament-cmake-export-definitions \
@@ -20,6 +24,7 @@ ROS_BUILDTOOL_DEPENDS += " \
     ament-cmake-version \
     ament-package-native \
     python3-numpy-native \
+    rosidl-core-generators-native \
     rosidl-generator-c-native \
     rosidl-generator-cpp-native \
     rosidl-generator-py-native \
