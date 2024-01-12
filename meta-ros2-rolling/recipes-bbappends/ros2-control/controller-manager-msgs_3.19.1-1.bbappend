@@ -1,5 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (C) 2023 Advanced Micro Devices, Inc.  All rights reserved.
+# Copyright (c) 2024 Wind River Systems, Inc.
 
 LICENSE = "BSD-3-Clause"
 
@@ -14,4 +15,8 @@ ROS_BUILD_DEPENDS:remove = " \
     rosidl-default-generators \
     rosidl-typesupport-fastrtps-c \
     rosidl-typesupport-fastrtps-cpp \
+"
+
+ROS_EXEC_DEPENDS += " \
+    service-msgs \
 "
