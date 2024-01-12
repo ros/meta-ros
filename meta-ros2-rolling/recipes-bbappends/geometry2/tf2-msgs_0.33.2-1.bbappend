@@ -17,7 +17,9 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-cpp \
 "
 
-# Fix QA Issue with missing dependency, "but no providers found in RDEPENDS:diagnostic-msgs? [file-rdeps]"
+# Fix QA Issue with missing dependency, "but no providers found in RDEPENDS:action-msgs? [file-rdeps]"
 ROS_EXEC_DEPENDS += " \
+    action-msgs \
     service-msgs \
+    unique-identifier-msgs \
 "
