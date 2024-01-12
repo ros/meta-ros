@@ -4,3 +4,6 @@
 FILES:${PN}-dev += " \
     ${libdir}/libecl_linear_algebra.so \
 "
+
+# sophus provides headers and does not have a runtime package
+ROS_EXEC_DEPENDS:remove = "sophus"
