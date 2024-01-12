@@ -17,6 +17,10 @@ RDEPENDS:${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 RDEPENDS:${PN}:remove = "desktop"
 RDEPENDS:${PN}:remove = "desktop-full"
 
+# Renamed to fuse-ros and fuse-ros-doc in recipes-bbappends/fuse to avoid conflict with
+# meta-filesystems/recipes-support/fuse/fuse_2.9.9.bb
+RDEPENDS:${PN}:remove = "fuse fuse-doc"
+
 # Contains only dev, dbg and staticdev files, so PN is empty and not created
 RDEPENDS:${PN}:remove = "test-osrf-testing-tools-cpp"
 
