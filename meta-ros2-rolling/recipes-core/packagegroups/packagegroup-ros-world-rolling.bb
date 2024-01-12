@@ -142,6 +142,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT = " \
     plansys2-popf-plan-solver \
     plansys2-problem-expert \
     plansys2-terminal \
+    plansys2-tests \
     plansys2-tools \
     popf \
 "
@@ -164,8 +165,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     color-names \
     dolly-ignition \
     dolly \
+    fuse-tutorials \
     grid-map \
     grid-map-demos \
+    gz-ros2-control \
+    gz-ros2-control-demos \
     ign-ros2-control \
     ign-ros2-control-demos \
     ign-rviz \
@@ -300,6 +304,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     desktop \
     dolly-gazebo \
     dolly \
+    fuse \
     libg2o \
     librealsense2 \
     moveit-ros \
@@ -347,6 +352,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop-full \
     dolly-gazebo \
     dolly \
+    fuse-ros \
+    fuse-viz \
     grid-map \
     grid-map-demos \
     grid-map-rviz-plugin \
@@ -533,6 +540,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-rosdev \
     gazebo-ros2-control-demos \
     gazebo-ros2-control \
+    gz-ros2-control \
+    gz-ros2-contro-demosl \
     irobot-create-gazebo-bringup \
     irobot-create-gazebo-plugins \
     irobot-create-gazebo-sim \
@@ -599,6 +608,8 @@ RDEPENDS:${PN}:remove = "${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC}"
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     desktop \
+    fuse-ros \
+    fuse-viz \
     joint-state-publisher-gui \
     microstrain-inertial-rqt \
     moveit-resources-panda-moveit-config \
@@ -671,6 +682,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     desktop \
     dolly-gazebo \
     dolly \
+    fuse \
     libg2o \
     moveit-ros-visualization \
     moveit-ros \
