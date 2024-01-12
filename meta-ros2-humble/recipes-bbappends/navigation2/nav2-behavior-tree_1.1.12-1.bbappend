@@ -5,3 +5,6 @@ CXXFLAGS += "-Wno-error=deprecated"
 
 # nav2-behavior-tree/1.1.2-1-r0/temp/log.do_compile:/ala-lpggp31/rwoolley/meta-ros-update/tmp-glibc/work/core2-64-oe-linux/nav2-behavior-tree/1.1.2-1-r0/recipe-sysroot/usr/include/rclcpp/rclcpp/any_subscription_callback.hpp:391:21: error: 'void rclcpp::AnySubscriptionCallback<MessageT, AllocatorT>::set_deprecated(std::function<void(std::shared_ptr<_Yp>)>) [with SetT = nav_msgs::msg::Odometry_<std::allocator<void> >; MessageT = nav_msgs::msg::Odometry_<std::allocator<void> >; AllocatorT = std::allocator<void>]' is deprecated: use 'void(std::shared_ptr<const MessageT>)' instead [-Werror=deprecated-declarations]
 CXXFLAGS += "-Wno-error=deprecated-declarations"
+
+# nav2-behavior-tree/1.1.12-1-r0/recipe-sysroot/usr/include/rcutils/rcutils/logging_macros.h:72:18: error: format not a string literal and no format arguments [-Werror=format-security]
+CXXFLAGS += "-Wno-error=format-security"
