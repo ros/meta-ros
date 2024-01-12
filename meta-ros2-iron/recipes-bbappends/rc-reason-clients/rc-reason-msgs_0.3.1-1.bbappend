@@ -1,4 +1,5 @@
 # Copyright (c) 2021 LG Electronics, Inc.
+# Copyright (c) 2023 Wind River Systems, Inc.
 
 # "rosidl-default-generators" belongs in ROS_BUILDTOOL_DEPENDS (as "rosidl-default-generators-native"); it should not be in
 # ROS_BUILD_DEPENDS.
@@ -11,4 +12,8 @@ ROS_BUILD_DEPENDS:remove = " \
     rosidl-default-generators \
     rosidl-typesupport-fastrtps-c \
     rosidl-typesupport-fastrtps-cpp \
+"
+
+ROS_EXEC_DEPENDS += " \
+    service-msgs \
 "
