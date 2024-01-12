@@ -22,15 +22,15 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  CMakeLists.txt | 3 ---
  1 file changed, 3 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 28982db1e..f6707f67e 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -449,9 +449,6 @@ mark_as_advanced(
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -437,9 +437,6 @@ mark_as_advanced(
  ###################################################################
  include(ConfigureBuild)
  
--set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}")
+-set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH};${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}")
 -set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 -
  ###################################################################
