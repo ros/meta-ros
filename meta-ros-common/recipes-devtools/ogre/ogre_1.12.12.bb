@@ -1,4 +1,5 @@
 # Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2024 Wind River Systems, Inc.
 
 DESCRIPTION = "Extensible Modelica-based platform for optimization, simulation and analysis of complex dynamic systems."
 HOMEPAGE = "https://ogrecave.github.io/"
@@ -6,8 +7,8 @@ SECTION = "devel"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=41bb7e40692720ea7d7b034dc4afd191"
 
-# matches with tag v1.12.8
-SRCREV = "e984c17fc95e8e641e07d6b2f17567854ede543d"
+# matches with tag v1.12.12
+SRCREV = "be8c2a225ecae636c8e669a12129b603db6b0e3c"
 SRC_URI = "git://github.com/OGRECave/ogre;protocol=https;branch=master \
     file://0001-CMakeLists.txt-don-t-set-RPATH.patch \
 "
