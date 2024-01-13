@@ -180,26 +180,54 @@ while IFS= read -r COMMIT_ID; do
                 case "${EXTENSION}" in
                     bb)
                         NEW_FILEPATH=$(rename_bitbake_recipe "${OLD_DISTRO_LAYER}" "${NEW_DISTRO_LAYER}" "${OLD_FILEPATH}")
-                        ;;    
+                        ;;
                     bbappend)
                         NEW_FILEPATH=$(rename_bitbake_recipe "${OLD_DISTRO_LAYER}" "${NEW_DISTRO_LAYER}" "${OLD_FILEPATH}")
-                        ;;    
+                        ;;
+                    bbclass)
+                        NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/^${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
+                        NEW_FILEPATH=$(echo "${NEW_FILEPATH}" | sed "s/${OLD_DISTRO_NAME}/${NEW_DISTRO_NAME}/g")
+                        ;;
+                    cmake)
+                        NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/^${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
+                        NEW_FILEPATH=$(echo "${NEW_FILEPATH}" | sed "s/${OLD_DISTRO_NAME}/${NEW_DISTRO_NAME}/g")
+                        ;;
+                    conf)
+                        NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/^${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
+                        NEW_FILEPATH=$(echo "${NEW_FILEPATH}" | sed "s/${OLD_DISTRO_NAME}/${NEW_DISTRO_NAME}/g")
+                        ;;
+                    diffme)
+                        NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/^${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
+                        NEW_FILEPATH=$(echo "${NEW_FILEPATH}" | sed "s/${OLD_DISTRO_NAME}/${NEW_DISTRO_NAME}/g")
+                        ;;
+                    do_configure)
+                        NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/^${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
+                        NEW_FILEPATH=$(echo "${NEW_FILEPATH}" | sed "s/${OLD_DISTRO_NAME}/${NEW_DISTRO_NAME}/g")
+                        ;;
                     inc)
+                        NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/^${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
+                        NEW_FILEPATH=$(echo "${NEW_FILEPATH}" | sed "s/${OLD_DISTRO_NAME}/${NEW_DISTRO_NAME}/g")
+                        ;;
+                    list)
                         NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/^${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
                         NEW_FILEPATH=$(echo "${NEW_FILEPATH}" | sed "s/${OLD_DISTRO_NAME}/${NEW_DISTRO_NAME}/g")
                         ;;
                     patch)
                         NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/^${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
-                        ;;    
+                        ;;
                     pc)
                         NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/&${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
-                        ;;    
-                    do_configure)
+                        ;;
+                    sh)
                         NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/^${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
                         NEW_FILEPATH=$(echo "${NEW_FILEPATH}" | sed "s/${OLD_DISTRO_NAME}/${NEW_DISTRO_NAME}/g")
-                        ;;    
+                        ;;
+                    yaml)
+                        NEW_FILEPATH=$(echo "${OLD_FILEPATH}" | sed "s/^${OLD_DISTRO_LAYER}/${NEW_DISTRO_LAYER}/g")
+                        NEW_FILEPATH=$(echo "${NEW_FILEPATH}" | sed "s/${OLD_DISTRO_NAME}/${NEW_DISTRO_NAME}/g")
+                        ;;
                     *)
-                        echoerr "ERROR: Found unexpected extension: ${OLD_EXTENSION} on ${OLD_FILEPATH}"
+                        echoerr "ERROR: Found unexpected extension: ${EXTENSION} on ${OLD_FILEPATH}"
                         exit 1
                         ;;    
                 esac
