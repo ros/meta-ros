@@ -10,9 +10,7 @@ ROS_EXEC_DEPENDS:remove = "orocos-kdl"
 # Instead of fetching a tarball
 # during do_compile
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-CMakeLists.txt-fetch-orocos-kdl-with-bitbake-fetcher.patch \
-    https://raw.githubusercontent.com/ros2/orocos_kdl_vendor/rolling/orocos_kdl_vendor/0001-include_project_name.patch;name=patch;patchdir=orocos-kdl \
-"
+SRC_URI += "file://0001-CMakeLists.txt-fetch-orocos-kdl-with-bitbake-fetcher.patch"
 
 SRC_URI[patch.md5sum] = "0208162d10526b13e62a6cdef2dadc84"
 SRC_URI[patch.sha256sum] = "bed98c6c2a0261488d522b80fc792fd3ad817b01d7344342f28a470bd140c481"
