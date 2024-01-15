@@ -10,8 +10,8 @@ SRC_URI += " \
     file://0001-CMakeLists.txt-fetch-dependencies-with-bitbake-fetch.patch\
 "
 
-# releases/cpp/v0.8.0
-SRCREV_mcap = "801c4ae3f34b23e9a27eb34b88ab7a0180d4b40f"
+# releases/cpp/v1.1.0
+SRCREV_mcap = "95b0c957463de7a56ec113f9b80c85f0d6a02d11"
 # v1.9.3
 SRCREV_lz4 = "d44371841a2f1728a3f36839fd4b7e872d0927d3"
 # v1.5.2
