@@ -15,12 +15,12 @@ Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -81,15 +81,16 @@ macro(build_benchmark)
+@@ -81,15 +81,15 @@ macro(build_benchmark)
  endmacro()
  
  if(NOT benchmark_FOUND OR "${benchmark_VERSION}" VERSION_LESS 1.6.1)
 -  build_benchmark()
-+  message(FATAL_ERROR "benchmark not found, missing dependency on google-benchmark or version less than 1.5.0, found ${benchmark_VERSION}")
++  message(FATAL_ERROR "benchmark not found, missing dependency on google-benchmark or version less than 1.6.1, found ${benchmark_VERSION}")
  elseif(benchmark_FOUND)
    # Ubuntu Focal and Jammy have a packaging bug where libbenchmark_main has no symbols,
    # causing linker failures. I'm pretty sure it shouldn't be a static library.
@@ -29,10 +29,9 @@ Index: git/CMakeLists.txt
 -  if(NOT "${_benchmark_main_type}" STREQUAL "SHARED_LIBRARY")
 -    build_benchmark()
 -  endif()
-+  # both libraries are static in OE build
 +  # get_target_property(_benchmark_main_type benchmark::benchmark_main TYPE)
 +  # if(NOT "${_benchmark_main_type}" STREQUAL "SHARED_LIBRARY")
-+  #   message(FATAL_ERROR "libbenchmark_main has no symbols, causing linker failures. Details: https://bugs.launchpad.net/ubuntu/+source/benchmark/+bug/1887872")
++  #   build_benchmark()
 +  # endif()
  endif()
  
