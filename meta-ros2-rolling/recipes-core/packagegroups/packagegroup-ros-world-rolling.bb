@@ -305,6 +305,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     dolly-gazebo \
     dolly \
     fuse \
+    fuse-tutorials \
     libg2o \
     librealsense2 \
     moveit-ros \
@@ -353,6 +354,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     dolly-gazebo \
     dolly \
     fuse-ros \
+    fuse-tutorials \
     fuse-viz \
     grid-map \
     grid-map-demos \
@@ -538,10 +540,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
+    gazebo-ros2-control \
     gazebo-ros2-control-demos \
     gazebo-ros2-control \
     gz-ros2-control \
-    gz-ros2-contro-demosl \
+    gz-ros2-control-demos \
     irobot-create-gazebo-bringup \
     irobot-create-gazebo-plugins \
     irobot-create-gazebo-sim \
@@ -742,6 +745,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_BABELTRACE_PYTHON = " \
     ros2trace-analysis \
     tracetools-analysis \
     tracetools-read \
+    tracetools-test \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'webots-python-modules', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES}', '', d)}"
