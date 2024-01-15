@@ -1,8 +1,4 @@
 # Copyright (c) 2020 LG Electronics, Inc.
-# Copyright (c) 2023 Wind River Systems, Inc.
-
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://rework-projectedpoint.patch"
 
 # Uses rospkg/os_detect.py at build time resulting in:
 # | CMake Error at /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/lanelet2-maps/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake/Modules/GatherDeps.cmake:24 (message):
