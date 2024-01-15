@@ -106,6 +106,10 @@ ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 ROS_WORLD_SKIP_GROUPS += "coinor-libipopt"
 # Needs work to launch qemu to run tests on image on build machine.
 ROS_WORLD_SKIP_GROUPS += "launch"
+# recipes depending on ROS_UNRESOLVED_DEP-python3-babeltrace which cannot be just
+# set to babeltrace, because python bindings in babeltrace are not enabled as shown in log.do_configure:
+# configure: You may configure with --enable-python-bindings if you want Python bindings.
+ROS_WORLD_SKIP_GROUPS += "babeltrace-python"
 # recipes depends on cwiid
 ROS_WORLD_SKIP_GROUPS += "cwiid"
 # recipes depends on libspnav
