@@ -92,6 +92,10 @@ gtk3:
 - gtk+3@openembedded-core
 gurumdds-3.0:
 - ${ROS_UNRESOLVED_DEP-gurumdds-3.0}
+gz-plugin:
+- ${ROS_UNRESOLVED_DEP-gz-plugin}
+gz-sim6:
+- ${ROS_UNRESOLVED_DEP-gz-sim6}
 hdf5-tools:
 - ${ROS_UNRESOLVED_DEP-hdf5-tools}
 ignition-cmake2:
@@ -116,6 +120,8 @@ ignition-transport11:
 - ${ROS_UNRESOLVED_DEP-ignition-transport11}
 iwyu:
 - ${ROS_UNRESOLVED_DEP-iwyu}
+java:
+- ${ROS_UNRESOLVED_DEP-java}
 jq:
 - jq@meta-oe
 jupyter-notebook:
@@ -194,6 +200,8 @@ libfyaml-dev:
 - ${ROS_UNRESOLVED_DEP-libfyaml-dev}
 libgazebo11-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
+libgdal-dev:
+- ${ROS_UNRESOLVED_DEP-libgdal-dev}
 libgflags-dev:
 - gflags@meta-oe
 libglew-dev:
@@ -236,8 +244,6 @@ libopencv-dev:
 - opencv@meta-oe
 libopencv-imgproc-dev:
 - opencv@meta-oe
-libopenni-dev:
-- ${ROS_UNRESOLVED_DEP-libopenni-dev}
 libopenni2-dev:
 - ${ROS_UNRESOLVED_DEP-libopenni2-dev}
 libopenscenegraph:
@@ -290,6 +296,8 @@ libqt5x11extras5-dev:
 - qtx11extras@meta-qt5
 libreadline:
 - readline@openembedded-core
+libserial-dev:
+- ${ROS_UNRESOLVED_DEP-libserial-dev}
 libspnav-dev:
 - ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
@@ -530,6 +538,8 @@ python3-typeguard:
 - ${ROS_UNRESOLVED_DEP-python3-typeguard}
 python3-unidiff:
 - ${ROS_UNRESOLVED_DEP-python3-unidiff}
+python3-uvloop:
+- ${ROS_UNRESOLVED_DEP-python3-uvloop}
 python3-vcstool:
 - ${ROS_UNRESOLVED_DEP-python3-vcstool}
 python3-venv:
