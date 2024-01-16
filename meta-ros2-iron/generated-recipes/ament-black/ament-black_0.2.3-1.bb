@@ -47,9 +47,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/botsandus/ament_black-release/archive/release/iron/ament_black/0.2.3-1.tar.gz
+# matches with: https://github.com/ros2-gbp/ament_black-release/archive/release/iron/ament_black/0.2.3-1.tar.gz
 ROS_BRANCH ?= "branch=release/iron/ament_black"
-SRC_URI = "git://github.com/botsandus/ament_black-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/ament_black-release;${ROS_BRANCH};protocol=https"
 SRCREV = "03f4861fc1d225da1bfc30ac280283e28b318de2"
 S = "${WORKDIR}/git"
 
