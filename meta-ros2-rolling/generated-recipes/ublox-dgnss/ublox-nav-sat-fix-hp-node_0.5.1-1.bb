@@ -66,10 +66,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/rolling/ublox_nav_sat_fix_hp_node/0.4.4-1.tar.gz
+# matches with: https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/rolling/ublox_nav_sat_fix_hp_node/0.5.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/rolling/ublox_nav_sat_fix_hp_node"
 SRC_URI = "git://github.com/ros2-gbp/ublox_dgnss-release;${ROS_BRANCH};protocol=https"
-SRCREV = "f3bf406df5ba1a9f1e3db904e10f0d3d825ae138"
+SRCREV = "7fb11012498b9df5e1ec9cb6720081202b1651ad"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

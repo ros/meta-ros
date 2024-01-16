@@ -5,46 +5,58 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "UBLOX UBX ROS2 Msgs"
-AUTHOR = "Nick Hortovanyi <nick@aussierobots.com.au>"
-HOMEPAGE = "https://github.com/aussierobots/ublox_dgnss"
+DESCRIPTION = "Lightweight aggregation utilities to collect statistics and measure message metrics."
+AUTHOR = "ROS Tooling Working Group <ros-tooling@googlegroups.com>"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License, Version 2.0"
+#         "Apache License 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e8978a5103d23266fc6f8ec03dc9eb16"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "ublox_dgnss"
-ROS_BPN = "ublox_ubx_msgs"
+ROS_CN = "libstatistics_collector"
+ROS_BPN = "libstatistics_collector"
 
 ROS_BUILD_DEPENDS = " \
     builtin-interfaces \
-    rosidl-default-generators \
-    std-msgs \
+    rcl \
+    rcpputils \
+    rmw \
+    statistics-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-native \
+    ament-cmake-ros-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
     builtin-interfaces \
-    rosidl-default-generators \
-    std-msgs \
+    rcl \
+    rcpputils \
+    rmw \
+    statistics-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     builtin-interfaces \
-    rosidl-default-generators \
-    std-msgs \
+    rcl \
+    rcpputils \
+    rmw \
+    statistics-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
+    performance-test-fixture \
+    rcutils \
+    rosidl-default-generators \
+    rosidl-default-runtime \
+    std-msgs \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -54,10 +66,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/rolling/ublox_ubx_msgs/0.4.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/ublox_ubx_msgs"
-SRC_URI = "git://github.com/ros2-gbp/ublox_dgnss-release;${ROS_BRANCH};protocol=https"
-SRCREV = "ec6401ca8b54b717e112fa73fd14c367df65b6f3"
+# matches with: https://github.com/ros2-gbp/libstatistics_collector-release/archive/release/rolling/libstatistics_collector/1.6.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/libstatistics_collector"
+SRC_URI = "git://github.com/ros2-gbp/libstatistics_collector-release;${ROS_BRANCH};protocol=https"
+SRCREV = "ecd74d7604952eadc81703b76d57ddfff0c906ff"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

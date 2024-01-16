@@ -5,41 +5,41 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "The joy package contains joy_node, a node that interfaces a     generic joystick to ROS 2. This node publishes a &quot;Joy&quot;     message, which contains the current state of each one of the     joystick's buttons and axes."
+DESCRIPTION = "ROS2 driver for a generic Linux joystick.     Will contain a MacOS and Windows version later.     The joy package contains joy_node, a node that interfaces a     generic Linux joystick to ROS2. This node publishes a &quot;Joy&quot;     message, which contains the current state of each one of the     joystick's buttons and axes."
 AUTHOR = "Chris Lalancette <clalancette@openrobotics.org>"
 ROS_AUTHOR = "Mikael Arguedas"
-HOMEPAGE = "https://github.com/ros2/joystick_drivers"
+HOMEPAGE = "https://github.com/ros/joystick_drivers"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "joystick_drivers"
-ROS_BPN = "joy"
+ROS_BPN = "joy_linux"
 
 ROS_BUILD_DEPENDS = " \
+    diagnostic-msgs \
+    diagnostic-updater \
     rclcpp \
-    rclcpp-components \
-    sdl2-vendor \
     sensor-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-ros-native \
+    ament-cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    diagnostic-msgs \
+    diagnostic-updater \
     rclcpp \
-    rclcpp-components \
-    sdl2-vendor \
     sensor-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    diagnostic-msgs \
+    diagnostic-updater \
     rclcpp \
-    rclcpp-components \
-    sdl2-vendor \
     sensor-msgs \
 "
 
@@ -56,10 +56,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/joystick_drivers-release/archive/release/rolling/joy/3.1.0-3.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/joy"
+# matches with: https://github.com/ros2-gbp/joystick_drivers-release/archive/release/rolling/joy_linux/3.3.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/joy_linux"
 SRC_URI = "git://github.com/ros2-gbp/joystick_drivers-release;${ROS_BRANCH};protocol=https"
-SRCREV = "46b57778239a9ffbefae8254e734a43a3e4419be"
+SRCREV = "79487c84b56d9a1739100655363f093df6640bcc"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

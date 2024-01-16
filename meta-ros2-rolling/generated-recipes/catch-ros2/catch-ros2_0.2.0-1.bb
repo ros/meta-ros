@@ -55,10 +55,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/catch_ros2-release/archive/release/rolling/catch_ros2/0.1.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/catch_ros2-release/archive/release/rolling/catch_ros2/0.2.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/rolling/catch_ros2"
 SRC_URI = "git://github.com/ros2-gbp/catch_ros2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "4a3173c3aa56cec4c83bf8052f66228861d5f6e1"
+SRCREV = "7d57ddcff020afde8a0935d2dab64c0e8ddecab4"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

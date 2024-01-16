@@ -22,7 +22,7 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = ""
 
 # Number of commits that will be returned by "git log meta-ros2-rolling/files/rolling/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "19"
+ROS_NUM_CACHE_YAML_COMMITS = "20"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
@@ -106,7 +106,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ament-vitis \
     ament-xmllint \
     angles \
-    apex-containers \
     apex-test-tools \
     apriltag \
     apriltag-msgs \
@@ -370,6 +369,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     imu-filter-madgwick \
     imu-sensor-broadcaster \
     imu-tools \
+    interactive-marker-twist-server \
     interactive-markers \
     intra-process-demo \
     io-context \
@@ -620,6 +620,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     point-cloud-transport \
     point-cloud-transport-plugins \
     point-cloud-transport-py \
+    point-cloud-transport-tutorial \
     pointcloud-to-laserscan \
     polygon-demos \
     polygon-msgs \
@@ -1196,7 +1197,6 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                               ament-vitis/ament-vitis_0.10.1-3 \
                                ament-lint/ament-xmllint_0.16.0-1 \
                                    angles/angles_1.16.0-3 \
-                          apex-containers/apex-containers_0.0.4-4 \
                           apex-test-tools/apex-test-tools_0.0.2-7 \
                                  apriltag/apriltag_3.2.0-4 \
                             apriltag-msgs/apriltag-msgs_2.0.1-3 \
@@ -1214,7 +1214,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                        aws-sdk-cpp-vendor/aws-sdk-cpp-vendor_0.2.1-1 \
                              backward-ros/backward-ros_1.0.2-4 \
                             bag2-to-image/bag2-to-image_0.1.0-3 \
-                      behaviortree-cpp-v4/behaviortree-cpp_4.3.8-1 \
+                      behaviortree-cpp-v4/behaviortree-cpp_4.4.0-1 \
                       behaviortree-cpp-v3/behaviortree-cpp-v3_3.8.4-1 \
                          ros2-controllers/bicycle-steering-controller_3.16.0-1 \
                                    bno055/bno055_0.4.1-3 \
@@ -1245,7 +1245,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          cartographer-ros/cartographer-ros-msgs_2.0.9001-1 \
                          cartographer-ros/cartographer-rviz_2.0.9001-1 \
                         cascade-lifecycle/cascade-lifecycle-msgs_1.0.3-4 \
-                               catch-ros2/catch-ros2_0.1.0-1 \
+                               catch-ros2/catch-ros2_0.2.0-1 \
                                    moveit/chomp-motion-planner_2.8.0-2 \
                              class-loader/class-loader_2.6.0-1 \
                              classic-bags/classic-bags_0.1.0-1 \
@@ -1384,7 +1384,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                          ros2-controllers/force-torque-sensor-broadcaster_3.16.0-1 \
                          ros2-controllers/forward-command-controller_3.16.0-1 \
                  four-wheel-steering-msgs/four-wheel-steering-msgs_2.0.1-4 \
-                          foxglove-bridge/foxglove-bridge_0.7.2-1 \
+                          foxglove-bridge/foxglove-bridge_0.7.3-1 \
                             foxglove-msgs/foxglove-msgs_2.2.0-1 \
                                      fuse/fuse_1.0.1-2 \
                                      fuse/fuse-constraints_1.0.1-2 \
@@ -1460,6 +1460,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                 imu-tools/imu-filter-madgwick_2.1.3-2 \
                          ros2-controllers/imu-sensor-broadcaster_3.16.0-1 \
                                 imu-tools/imu-tools_2.1.3-2 \
+          interactive-marker-twist-server/interactive-marker-twist-server_2.1.0-1 \
                       interactive-markers/interactive-markers_2.5.2-1 \
                                     demos/intra-process-demo_0.31.1-1 \
                         transport-drivers/io-context_1.2.0-2 \
@@ -1469,8 +1470,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                     joint-state-publisher/joint-state-publisher_2.4.0-1 \
                     joint-state-publisher/joint-state-publisher-gui_2.4.0-1 \
                          ros2-controllers/joint-trajectory-controller_3.16.0-1 \
-                         joystick-drivers/joy_3.1.0-3 \
-                         joystick-drivers/joy-linux_3.1.0-3 \
+                         joystick-drivers/joy_3.3.0-1 \
+                         joystick-drivers/joy-linux_3.3.0-1 \
                              teleop-tools/joy-teleop_1.4.0-1 \
                                joy-tester/joy-tester_0.0.2-2 \
                        astuff-sensor-msgs/kartech-linear-actuator-msgs_4.0.0-2 \
@@ -1521,7 +1522,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                   libnabo/libnabo_1.0.7-3 \
                          phidgets-drivers/libphidget22_2.3.1-2 \
                           libpointmatcher/libpointmatcher_1.3.1-4 \
-                  libstatistics-collector/libstatistics-collector_1.6.2-1 \
+                  libstatistics-collector/libstatistics-collector_1.6.3-1 \
                            libyaml-vendor/libyaml-vendor_1.6.2-1 \
                                     demos/lifecycle_0.31.1-1 \
                            rcl-interfaces/lifecycle-msgs_2.0.1-1 \
@@ -1622,7 +1623,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                               mqtt-client/mqtt-client-interfaces_2.1.0-1 \
                                 mrpt-msgs/mrpt-msgs_0.4.7-1 \
                        mrpt-path-planning/mrpt-path-planning_0.1.0-1 \
-                                    mrpt2/mrpt2_2.10.2-1 \
+                                    mrpt2/mrpt2_2.11.2-1 \
                         mrt-cmake-modules/mrt-cmake-modules_1.0.9-3 \
                                    mapviz/multires-image_2.3.0-1 \
                                     mvsim/mvsim_0.8.2-1 \
@@ -1647,7 +1648,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                        novatel-gps-driver/novatel-gps-msgs_4.1.0-3 \
                               ntpd-driver/ntpd-driver_2.2.0-2 \
                              ntrip-client/ntrip-client_1.2.0-2 \
-                              ublox-dgnss/ntrip-client-node_0.4.4-1 \
+                              ublox-dgnss/ntrip-client-node_0.5.1-1 \
                   object-recognition-msgs/object-recognition-msgs_2.0.0-3 \
                                   octomap/octomap_1.9.8-2 \
                           octomap-mapping/octomap-mapping_2.0.0-3 \
@@ -1710,6 +1711,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                     point-cloud-transport/point-cloud-transport_3.0.1-1 \
             point-cloud-transport-plugins/point-cloud-transport-plugins_3.0.1-1 \
                     point-cloud-transport/point-cloud-transport-py_3.0.1-1 \
+           point-cloud-transport-tutorial/point-cloud-transport-tutorial_0.0.1-1 \
                   pointcloud-to-laserscan/pointcloud-to-laserscan_2.0.1-3 \
                               polygon-ros/polygon-demos_1.0.2-1 \
                               polygon-ros/polygon-msgs_1.0.2-1 \
@@ -2005,7 +2007,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                      rviz/rviz2_13.1.2-1 \
                             sdformat-urdf/sdformat-test-files_1.0.1-2 \
                             sdformat-urdf/sdformat-urdf_1.0.1-2 \
-                         joystick-drivers/sdl2-vendor_3.1.0-3 \
+                         joystick-drivers/sdl2-vendor_3.3.0-1 \
                               diagnostics/self-test_3.1.2-1 \
                         common-interfaces/sensor-msgs_5.2.0-1 \
                         common-interfaces/sensor-msgs-py_5.2.0-1 \
@@ -2034,7 +2036,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                         soccer-interfaces/soccer-vision-attribute-msgs_0.2.0-2 \
                                sol-vendor/sol-vendor_0.0.3-3 \
                                    sophus/sophus_1.3.1-2 \
-                         joystick-drivers/spacenav_3.1.0-3 \
+                         joystick-drivers/spacenav_3.3.0-1 \
                             spdlog-vendor/spdlog-vendor_1.5.1-1 \
                                   r2r-spl/splsm-7_3.0.1-2 \
                                   r2r-spl/splsm-7-conversion_3.0.1-2 \
@@ -2134,14 +2136,14 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                             twist-stamper/twist-stamper_0.0.3-2 \
                            rcl-interfaces/type-description-interfaces_2.0.1-1 \
                                     ublox/ublox_2.3.0-2 \
-                              ublox-dgnss/ublox-dgnss_0.4.4-1 \
-                              ublox-dgnss/ublox-dgnss-node_0.4.4-1 \
+                              ublox-dgnss/ublox-dgnss_0.5.1-1 \
+                              ublox-dgnss/ublox-dgnss-node_0.5.1-1 \
                                     ublox/ublox-gps_2.3.0-2 \
                                     ublox/ublox-msgs_2.3.0-2 \
-                              ublox-dgnss/ublox-nav-sat-fix-hp-node_0.4.4-1 \
+                              ublox-dgnss/ublox-nav-sat-fix-hp-node_0.5.1-1 \
                                     ublox/ublox-serialization_2.3.0-2 \
-                              ublox-dgnss/ublox-ubx-interfaces_0.4.4-1 \
-                              ublox-dgnss/ublox-ubx-msgs_0.4.4-1 \
+                              ublox-dgnss/ublox-ubx-interfaces_0.5.1-1 \
+                              ublox-dgnss/ublox-ubx-msgs_0.5.1-1 \
                         transport-drivers/udp-driver_1.2.0-2 \
                                  udp-msgs/udp-msgs_0.0.3-5 \
                         uncrustify-vendor/uncrustify-vendor_2.2.1-1 \
@@ -2199,8 +2201,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                               webots-ros2/webots-ros2-tiago_2023.1.1-2 \
                               webots-ros2/webots-ros2-turtlebot_2023.1.1-2 \
                               webots-ros2/webots-ros2-universal-robot_2023.1.1-2 \
-                         joystick-drivers/wiimote_3.1.0-3 \
-                         joystick-drivers/wiimote-msgs_3.1.0-3 \
+                         joystick-drivers/wiimote_3.3.0-1 \
+                         joystick-drivers/wiimote-msgs_3.3.0-1 \
                                     xacro/xacro_2.0.9-2 \
                           yaml-cpp-vendor/yaml-cpp-vendor_8.3.0-1 \
                                  zbar-ros/zbar-ros_0.4.0-2 \
@@ -2277,7 +2279,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-uncrustify \
     ament-vitis \
     angles \
-    apex-containers \
     apriltag \
     apriltag-msgs \
     apriltag-ros \
@@ -2540,6 +2541,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     imu-filter-madgwick \
     imu-sensor-broadcaster \
     imu-tools \
+    interactive-marker-twist-server \
     interactive-markers \
     intra-process-demo \
     io-context \
@@ -2781,6 +2783,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     point-cloud-transport \
     point-cloud-transport-plugins \
     point-cloud-transport-py \
+    point-cloud-transport-tutorial \
     pointcloud-to-laserscan \
     polygon-demos \
     polygon-msgs \
@@ -3702,7 +3705,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     ament-package \
     ament-vitis \
     angles \
-    apex-containers \
     apex-test-tools \
     apriltag \
     apriltag-msgs \
@@ -3801,6 +3803,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     image-pipeline \
     image-transport-plugins \
     imu-tools \
+    interactive-marker-twist-server \
     interactive-markers \
     irobot-create-msgs \
     joint-state-publisher \
@@ -3897,6 +3900,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     point-cloud-msg-wrapper \
     point-cloud-transport \
     point-cloud-transport-plugins \
+    point-cloud-transport-tutorial \
     pointcloud-to-laserscan \
     polygon-ros \
     pose-cov-ops \
@@ -4196,10 +4200,10 @@ ROS_UNRESOLVED_DEP-sqlite3 = "ROS_UNRESOLVED_DEP-sqlite3"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "2023-10-14"
+ROS_DISTRO_RELEASE_DATE = "2023-11-02"
 
 # The commit of ros/rosdistro/rolling/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "c7b06a0e897fb392d023a6dcdd31be151fbdca74"
+ROS_SUPERFLORE_GENERATION_COMMIT = "d89f7dd99ef863940a62d6227104d657487742a9"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
