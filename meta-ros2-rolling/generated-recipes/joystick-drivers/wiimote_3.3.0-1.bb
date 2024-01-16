@@ -74,10 +74,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/joystick_drivers-release/archive/release/rolling/wiimote/3.1.0-3.tar.gz
+# matches with: https://github.com/ros2-gbp/joystick_drivers-release/archive/release/rolling/wiimote/3.3.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/rolling/wiimote"
 SRC_URI = "git://github.com/ros2-gbp/joystick_drivers-release;${ROS_BRANCH};protocol=https"
-SRCREV = "5463c3b110a518c28e8fba3d173a65b9be739835"
+SRCREV = "9a92be3912e6709a6cdc962128e8a81bc702d8f3"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

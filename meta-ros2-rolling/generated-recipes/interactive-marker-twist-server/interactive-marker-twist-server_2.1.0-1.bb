@@ -5,23 +5,22 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "ROS interface to the 3Dconnexion SpaceNavigator 6DOF joystick."
-AUTHOR = "Jonathan Bohren <jbo@jhu.edu>"
-ROS_AUTHOR = "Stuart Glaser"
-HOMEPAGE = "http://www.ros.org/wiki/spacenav_node"
+DESCRIPTION = "Interactive control for generic Twist-based robots using interactive markers"
+AUTHOR = "Mike Purvis <mpurvis@clearpathrobotics.com>"
+HOMEPAGE = "https://github.com/ros-visualization/interactive_marker_twist_server"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=4;endline=4;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "joystick_drivers"
-ROS_BPN = "spacenav"
+ROS_CN = "interactive_marker_twist_server"
+ROS_BPN = "interactive_marker_twist_server"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libspnav-dev} \
     geometry-msgs \
+    interactive-markers \
     rclcpp \
-    rclcpp-components \
-    sensor-msgs \
+    tf2 \
+    visualization-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -29,22 +28,21 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libspnav-dev} \
     geometry-msgs \
+    interactive-markers \
     rclcpp \
-    rclcpp-components \
-    sensor-msgs \
+    tf2 \
+    visualization-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libspnav-dev} \
-    ${ROS_UNRESOLVED_DEP-spacenavd} \
     geometry-msgs \
+    interactive-markers \
     rclcpp \
-    rclcpp-components \
-    sensor-msgs \
+    tf2 \
+    visualization-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -60,10 +58,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/joystick_drivers-release/archive/release/rolling/spacenav/3.1.0-3.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/spacenav"
-SRC_URI = "git://github.com/ros2-gbp/joystick_drivers-release;${ROS_BRANCH};protocol=https"
-SRCREV = "571bbdfb86cae9d989e2cc896e2bdaa073a988a6"
+# matches with: https://github.com/ros-gbp/interactive_marker_twist_server-release/archive/release/rolling/interactive_marker_twist_server/2.1.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/interactive_marker_twist_server"
+SRC_URI = "git://github.com/ros-gbp/interactive_marker_twist_server-release;${ROS_BRANCH};protocol=https"
+SRCREV = "4c72d1214fe8512d0b767043015f904b9f8e79cd"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

@@ -5,20 +5,23 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "UBLOX UBX Interfaces"
-AUTHOR = "Nick Hortovanyi <nick@aussierobots.com.au>"
-HOMEPAGE = "https://github.com/aussierobots/ublox_dgnss"
+DESCRIPTION = "This package provides the Behavior Trees core library."
+AUTHOR = "Davide Faconti <davide.faconti@gmail.com>"
+ROS_AUTHOR = "Davide Faconti"
+HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License, Version 2.0"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e8978a5103d23266fc6f8ec03dc9eb16"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=58e54c03ca7f821dd3967e2a2cd1596e"
 
-ROS_CN = "ublox_dgnss"
-ROS_BPN = "ublox_ubx_interfaces"
+ROS_CN = "behaviortree_cpp_v4"
+ROS_BPN = "behaviortree_cpp"
 
 ROS_BUILD_DEPENDS = " \
-    rosidl-default-generators \
+    ament-index-cpp \
+    rclcpp \
+    ros-environment \
+    sqlite3 \
+    zeromq \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -26,19 +29,24 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    rosidl-default-generators \
+    ament-index-cpp \
+    rclcpp \
+    sqlite3 \
+    zeromq \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    rosidl-default-generators \
+    ament-index-cpp \
+    rclcpp \
+    sqlite3 \
+    zeromq \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-lint-auto \
-    ament-lint-common \
+    ament-cmake-gtest \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -48,10 +56,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/rolling/ublox_ubx_interfaces/0.4.4-1.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/ublox_ubx_interfaces"
-SRC_URI = "git://github.com/ros2-gbp/ublox_dgnss-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8de7dc5a6c74d878101afdb49d37ec49906f48c1"
+# matches with: https://github.com/ros2-gbp/behaviortree_cpp_v4-release/archive/release/rolling/behaviortree_cpp/4.4.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/behaviortree_cpp"
+SRC_URI = "git://github.com/ros2-gbp/behaviortree_cpp_v4-release;${ROS_BRANCH};protocol=https"
+SRCREV = "02330fdc948f1c2913c55534bafa5c498decbda8"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

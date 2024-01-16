@@ -5,29 +5,23 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "ROS Foxglove Bridge"
-AUTHOR = "John Hurliman <john@foxglove.dev>"
-ROS_AUTHOR = "Foxglove <ros-tooling+foxglove_bridge@foxglove.dev>"
-HOMEPAGE = "https://github.com/foxglove/ros-foxglove-bridge"
+DESCRIPTION = "ROS interface to the 3Dconnexion SpaceNavigator 6DOF joystick."
+AUTHOR = "Jonathan Bohren <jbo@jhu.edu>"
+ROS_AUTHOR = "Stuart Glaser"
+HOMEPAGE = "http://www.ros.org/wiki/spacenav_node"
 SECTION = "devel"
-LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=92566b45c3390e5178465bcaade208b7"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=4;endline=4;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "foxglove_bridge"
-ROS_BPN = "foxglove_bridge"
+ROS_CN = "joystick_drivers"
+ROS_BPN = "spacenav"
 
 ROS_BUILD_DEPENDS = " \
-    ament-index-cpp \
-    asio \
-    nlohmann-json \
-    openssl \
+    ${ROS_UNRESOLVED_DEP-libspnav-dev} \
+    geometry-msgs \
     rclcpp \
     rclcpp-components \
-    resource-retriever \
-    ros-environment \
-    rosgraph-msgs \
-    websocketpp \
-    zlib \
+    sensor-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -35,31 +29,28 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ament-index-cpp \
+    ${ROS_UNRESOLVED_DEP-libspnav-dev} \
+    geometry-msgs \
     rclcpp \
     rclcpp-components \
-    resource-retriever \
-    rosgraph-msgs \
+    sensor-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ament-index-cpp \
-    openssl \
+    ${ROS_UNRESOLVED_DEP-libspnav-dev} \
+    ${ROS_UNRESOLVED_DEP-spacenavd} \
+    geometry-msgs \
     rclcpp \
     rclcpp-components \
-    resource-retriever \
-    rosgraph-msgs \
-    zlib \
+    sensor-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ament-cmake-gtest \
     ament-lint-auto \
-    std-msgs \
-    std-srvs \
+    ament-lint-common \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -69,10 +60,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/foxglove_bridge-release/archive/release/rolling/foxglove_bridge/0.7.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/foxglove_bridge"
-SRC_URI = "git://github.com/ros2-gbp/foxglove_bridge-release;${ROS_BRANCH};protocol=https"
-SRCREV = "accb5a60bd4a86732cd780936dfcfe29489ada1a"
+# matches with: https://github.com/ros2-gbp/joystick_drivers-release/archive/release/rolling/spacenav/3.3.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/spacenav"
+SRC_URI = "git://github.com/ros2-gbp/joystick_drivers-release;${ROS_BRANCH};protocol=https"
+SRCREV = "681942eb116bb81e57c88fe37f131503026354f5"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

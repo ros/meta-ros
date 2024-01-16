@@ -5,32 +5,31 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "Messages used by wiimote package."
-AUTHOR = "Jonathan Bohren <jbo@jhu.edu>"
-ROS_AUTHOR = "Andreas Paepcke"
-HOMEPAGE = "http://www.ros.org/wiki/wiimote"
+DESCRIPTION = "UBLOX UBX ROS2 Msgs"
+AUTHOR = "Nick Hortovanyi <nick@aussierobots.com.au>"
+HOMEPAGE = "https://github.com/aussierobots/ublox_dgnss"
 SECTION = "devel"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
+# Original license in package.xml, joined with "&" when multiple license tags were used:
+#         "Apache License, Version 2.0"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e8978a5103d23266fc6f8ec03dc9eb16"
 
-ROS_CN = "joystick_drivers"
-ROS_BPN = "wiimote_msgs"
+ROS_CN = "ublox_dgnss"
+ROS_BPN = "ublox_ubx_msgs"
 
 ROS_BUILD_DEPENDS = " \
     builtin-interfaces \
-    geometry-msgs \
+    rosidl-default-generators \
     std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-auto-native \
     ament-cmake-native \
-    rosidl-default-generators-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
     builtin-interfaces \
-    geometry-msgs \
+    rosidl-default-generators \
     std-msgs \
 "
 
@@ -38,8 +37,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     builtin-interfaces \
-    geometry-msgs \
-    rosidl-default-runtime \
+    rosidl-default-generators \
     std-msgs \
 "
 
@@ -56,10 +54,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/joystick_drivers-release/archive/release/rolling/wiimote_msgs/3.1.0-3.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/wiimote_msgs"
-SRC_URI = "git://github.com/ros2-gbp/joystick_drivers-release;${ROS_BRANCH};protocol=https"
-SRCREV = "58bdbe17c3fe2f9265c207bc1cb9531a767bcc05"
+# matches with: https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/rolling/ublox_ubx_msgs/0.5.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/ublox_ubx_msgs"
+SRC_URI = "git://github.com/ros2-gbp/ublox_dgnss-release;${ROS_BRANCH};protocol=https"
+SRCREV = "0ecba97c72abb5f8d05ee7aa62a5edfeff2548b2"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

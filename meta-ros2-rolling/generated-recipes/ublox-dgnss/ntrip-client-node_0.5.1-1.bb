@@ -5,42 +5,54 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "Containers"
-AUTHOR = "Apex.AI, Inc. <opensource@apex.ai>"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "Publishes RTCM ntrip messages from an external mountpoint"
+AUTHOR = "Nick Hortovanyi <nick@aussierobots.com.au>"
+HOMEPAGE = "https://github.com/aussierobots/ublox_dgnss"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0"
+#         "Apache License, Version 2.0"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e8978a5103d23266fc6f8ec03dc9eb16"
 
-ROS_CN = "apex_containers"
-ROS_BPN = "apex_containers"
+ROS_CN = "ublox_dgnss"
+ROS_BPN = "ntrip_client_node"
 
 ROS_BUILD_DEPENDS = " \
-    foonathan-memory-vendor \
+    libcurl-vendor \
+    pkgconfig \
+    rclcpp \
+    rclcpp-components \
+    rtcm-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ament-cmake-auto-native \
     ament-cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    foonathan-memory-vendor \
+    libcurl-vendor \
+    rclcpp \
+    rclcpp-components \
+    rtcm-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    foonathan-memory-vendor \
+    libcurl-vendor \
+    rclcpp \
+    rclcpp-components \
+    rtcm-msgs \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
+    ament-cmake-copyright \
+    ament-cmake-cppcheck \
+    ament-cmake-uncrustify \
     ament-lint-auto \
     ament-lint-common \
-    apex-test-tools \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -50,10 +62,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/apex_containers-release/archive/release/rolling/apex_containers/0.0.4-4.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/apex_containers"
-SRC_URI = "git://github.com/ros2-gbp/apex_containers-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d3caceb00dff508cd7e6402bd0e412e2828de862"
+# matches with: https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/rolling/ntrip_client_node/0.5.1-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/ntrip_client_node"
+SRC_URI = "git://github.com/ros2-gbp/ublox_dgnss-release;${ROS_BRANCH};protocol=https"
+SRCREV = "bc60254323c6c968fef6df52bdf738e415f4e055"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

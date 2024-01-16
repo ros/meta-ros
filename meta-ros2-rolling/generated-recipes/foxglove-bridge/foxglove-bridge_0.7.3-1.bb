@@ -5,23 +5,29 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "This package provides the Behavior Trees core library."
-AUTHOR = "Davide Faconti <davide.faconti@gmail.com>"
-ROS_AUTHOR = "Davide Faconti"
-HOMEPAGE = "https://wiki.ros.org"
+DESCRIPTION = "ROS Foxglove Bridge"
+AUTHOR = "John Hurliman <john@foxglove.dev>"
+ROS_AUTHOR = "Foxglove <ros-tooling+foxglove_bridge@foxglove.dev>"
+HOMEPAGE = "https://github.com/foxglove/ros-foxglove-bridge"
 SECTION = "devel"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=58e54c03ca7f821dd3967e2a2cd1596e"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=92566b45c3390e5178465bcaade208b7"
 
-ROS_CN = "behaviortree_cpp_v4"
-ROS_BPN = "behaviortree_cpp"
+ROS_CN = "foxglove_bridge"
+ROS_BPN = "foxglove_bridge"
 
 ROS_BUILD_DEPENDS = " \
     ament-index-cpp \
+    asio \
+    nlohmann-json \
+    openssl \
     rclcpp \
+    rclcpp-components \
+    resource-retriever \
     ros-environment \
-    sqlite3 \
-    zeromq \
+    rosgraph-msgs \
+    websocketpp \
+    zlib \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -31,22 +37,29 @@ ROS_BUILDTOOL_DEPENDS = " \
 ROS_EXPORT_DEPENDS = " \
     ament-index-cpp \
     rclcpp \
-    sqlite3 \
-    zeromq \
+    rclcpp-components \
+    resource-retriever \
+    rosgraph-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ament-index-cpp \
+    openssl \
     rclcpp \
-    sqlite3 \
-    zeromq \
+    rclcpp-components \
+    resource-retriever \
+    rosgraph-msgs \
+    zlib \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
     ament-cmake-gtest \
+    ament-lint-auto \
+    std-msgs \
+    std-srvs \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -56,10 +69,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/behaviortree_cpp_v4-release/archive/release/rolling/behaviortree_cpp/4.3.8-1.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/behaviortree_cpp"
-SRC_URI = "git://github.com/ros2-gbp/behaviortree_cpp_v4-release;${ROS_BRANCH};protocol=https"
-SRCREV = "dd504a26a3c393d6e83e57bee43e2b756824c640"
+# matches with: https://github.com/ros2-gbp/foxglove_bridge-release/archive/release/rolling/foxglove_bridge/0.7.3-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/foxglove_bridge"
+SRC_URI = "git://github.com/ros2-gbp/foxglove_bridge-release;${ROS_BRANCH};protocol=https"
+SRCREV = "f6402cb0f4bb7b07f7a0ffa29699c0330f94ba65"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
