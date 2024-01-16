@@ -1,4 +1,4 @@
-# rolling/cache.yaml 2023-10-14 c7b06a0e897fb392d023a6dcdd31be151fbdca74 20231009171733 1.7.0
+# rolling/cache.yaml 2023-11-02 d89f7dd99ef863940a62d6227104d657487742a9 20231031203537 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -405,27 +405,6 @@ version: ros2
 status: maintained
 }
 -----
-apex_containers: {
-doc: {
-type: git,
-url: 'https://gitlab.com/ApexAI/apex_containers.git',
-version: rolling
-},
-release: {
-tags: {
-release: 'release/rolling/{package}/{version}'
-},
-url: 'https://github.com/ros2-gbp/apex_containers-release.git',
-version: 0.0.4-4
-},
-source: {
-type: git,
-url: 'https://gitlab.com/ApexAI/apex_containers.git',
-version: rolling
-},
-status: developed
-}
------
 apex_test_tools: {
 doc: {
 type: git,
@@ -773,7 +752,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/behaviortree_cpp_v4-release.git',
-version: 4.3.8-1
+version: 4.4.0-1
 },
 source: {
 type: git,
@@ -941,7 +920,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/catch_ros2-release.git',
-version: 0.1.0-1
+version: 0.2.0-1
 },
 source: {
 type: git,
@@ -1980,7 +1959,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/foxglove_bridge-release.git',
-version: 0.7.2-1
+version: 0.7.3-1
 },
 source: {
 type: git,
@@ -2753,6 +2732,27 @@ version: rolling
 status: maintained
 }
 -----
+interactive_marker_twist_server: {
+doc: {
+type: git,
+url: 'https://github.com/ros-visualization/interactive_marker_twist_server.git',
+version: humble-devel
+},
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros-gbp/interactive_marker_twist_server-release.git',
+version: 2.1.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-visualization/interactive_marker_twist_server.git',
+version: humble-devel
+},
+status: maintained
+}
+-----
 interactive_markers: {
 doc: {
 type: git,
@@ -2853,7 +2853,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/joystick_drivers-release.git',
-version: 3.1.0-3
+version: 3.3.0-1
 },
 source: {
 test_pull_requests: true,
@@ -3242,7 +3242,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/libstatistics_collector-release.git',
-version: 1.6.2-1
+version: 1.6.3-1
 },
 source: {
 type: git,
@@ -3856,7 +3856,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mrpt2-release.git',
-version: 2.10.2-1
+version: 2.11.2-1
 },
 source: {
 type: git,
@@ -4436,6 +4436,21 @@ version: master
 status: maintained
 }
 -----
+odri_master_board_sdk: {
+doc: {
+type: git,
+url: 'https://github.com/stack-of-tasks/odri_master_board_sdk_release.git',
+version: master
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/stack-of-tasks/odri_master_board_sdk_release.git',
+version: master
+},
+status: developed
+}
+-----
 ompl: {
 release: {
 tags: {
@@ -4991,12 +5006,25 @@ status: maintained
 }
 -----
 point_cloud_transport_tutorial: {
+doc: {
+type: git,
+url: 'https://github.com/ros-perception/point_cloud_transport_tutorial.git',
+version: rolling
+},
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/point_cloud_transport_tutorial-release.git',
+version: 0.0.1-1
+},
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-perception/point_cloud_transport_tutorial.git',
 version: rolling
-}
+},
+status: maintained
 }
 -----
 pointcloud_to_laserscan: {
@@ -9116,7 +9144,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ublox_dgnss-release.git',
-version: 0.4.4-1
+version: 0.5.1-1
 },
 source: {
 type: git,
@@ -11475,25 +11503,6 @@ this package is what you need. The code in this package is stable and well teste
 <build_type>ament_cmake</build_type>
 </export>
 </package>"
------
-apex_containers: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>apex_containers</name>
-<description>Containers</description>
-<maintainer email="opensource@apex.ai">Apex.AI,
-Inc.</maintainer>
-<license>Apache License 2.0</license>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<buildtool_depend>ament_cmake_auto</buildtool_depend>
-<depend>foonathan_memory_vendor</depend>
-<test_depend>ament_lint_common</test_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>apex_test_tools</test_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
 -----
 apex_test_tools: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -18225,6 +18234,27 @@ GPL</license>
 </export>
 </package>
 -----
+interactive_marker_twist_server: <?xml version="1.0" ?>
+<package format="2">
+<name>interactive_marker_twist_server</name>
+<description>Interactive control for generic Twist-based robots using interactive markers</description>
+<maintainer email="mpurvis@clearpathrobotics.com">Mike Purvis</maintainer>
+<license>BSD</license>
+<url type="repository">https://github.com/ros-visualization/interactive_marker_twist_server</url>
+<url type="bugtracker">https://github.com/ros-visualization/interactive_marker_twist_server/issues</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>geometry_msgs</depend>
+<depend>interactive_markers</depend>
+<depend>rclcpp</depend>
+<depend>tf2</depend>
+<depend>visualization_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 interactive_markers: <?xml version="1.0" ?>
 <package format="2">
 <name>interactive_markers</name>
@@ -18488,6 +18518,7 @@ which contains the current state of each one of the joystick's buttons and axes.
 <author>Kevin Watts</author>
 <author>Blaise Gassend</author>
 <author>Jonathan Bohren</author>
+<author>Rod Taylor</author>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_components</depend>
@@ -19836,6 +19867,7 @@ libstatistics_collector: <?xml version="1.0" ?>
 <depend>builtin_interfaces</depend>
 <depend>rcl</depend>
 <depend>rcpputils</depend>
+<depend>rmw</depend>
 <depend>statistics_msgs</depend>
 <test_depend>ament_cmake_gtest</test_depend>
 <test_depend>ament_lint_auto</test_depend>
@@ -24805,6 +24837,36 @@ point_cloud_transport_py: <?xml version="1.0" ?>
 <depend>rclcpp</depend>
 <depend>sensor_msgs</depend>
 <exec_depend>rpyutils</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+point_cloud_transport_tutorial: <?xml version="1.0" ?>
+<package format="3">
+<name>point_cloud_transport_tutorial</name>
+<description>Tutorial for point_cloud_transport.</description>
+<author>Jakub Paplham</author>
+<maintainer email="john.dangelo@tailos.com">John D'Angelo</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<build_depend>point_cloud_transport</build_depend>
+<build_depend>rclcpp</build_depend>
+<build_depend>rcpputils</build_depend>
+<build_depend>rosbag2_cpp</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<exec_depend>point_cloud_transport_plugins</exec_depend>
+<exec_depend>point_cloud_transport</exec_depend>
+<exec_depend>rclcpp</exec_depend>
+<exec_depend>rcpputils</exec_depend>
+<exec_depend>rosbag2_cpp</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_cppcheck</test_depend>
+<test_depend>ament_cmake_cpplint</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<test_depend>ament_cmake_uncrustify</test_depend>
+<test_depend>ament_cmake_xmllint</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
