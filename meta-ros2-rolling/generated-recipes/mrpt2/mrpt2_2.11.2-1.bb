@@ -120,10 +120,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/mrpt2-release/archive/release/rolling/mrpt2/2.10.2-1.tar.gz
+# matches with: https://github.com/ros2-gbp/mrpt2-release/archive/release/rolling/mrpt2/2.11.2-1.tar.gz
 ROS_BRANCH ?= "branch=release/rolling/mrpt2"
 SRC_URI = "git://github.com/ros2-gbp/mrpt2-release;${ROS_BRANCH};protocol=https"
-SRCREV = "8892b47533765c829fb9392348de605357b4f2ec"
+SRCREV = "a750424a45bffef3221c40d23d53d09606f1e1f1"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"

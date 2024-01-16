@@ -5,42 +5,42 @@
 inherit ros_distro_rolling
 inherit ros_superflore_generated
 
-DESCRIPTION = "ROS2 driver for a generic Linux joystick.     Will contain a MacOS and Windows version later.     The joy package contains joy_node, a node that interfaces a     generic Linux joystick to ROS2. This node publishes a &quot;Joy&quot;     message, which contains the current state of each one of the     joystick's buttons and axes."
-AUTHOR = "Chris Lalancette <clalancette@openrobotics.org>"
-ROS_AUTHOR = "Mikael Arguedas"
-HOMEPAGE = "https://github.com/ros/joystick_drivers"
+DESCRIPTION = "Messages used by wiimote package."
+AUTHOR = "Jonathan Bohren <jbo@jhu.edu>"
+ROS_AUTHOR = "Andreas Paepcke"
+HOMEPAGE = "http://www.ros.org/wiki/wiimote"
 SECTION = "devel"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9dedc494f5f793a6690ba5"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "joystick_drivers"
-ROS_BPN = "joy_linux"
+ROS_BPN = "wiimote_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    diagnostic-msgs \
-    diagnostic-updater \
-    rclcpp \
-    sensor-msgs \
+    builtin-interfaces \
+    geometry-msgs \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-auto-native \
     ament-cmake-native \
+    rosidl-default-generators-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    diagnostic-msgs \
-    diagnostic-updater \
-    rclcpp \
-    sensor-msgs \
+    builtin-interfaces \
+    geometry-msgs \
+    std-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    diagnostic-msgs \
-    diagnostic-updater \
-    rclcpp \
-    sensor-msgs \
+    builtin-interfaces \
+    geometry-msgs \
+    rosidl-default-runtime \
+    std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -56,10 +56,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/joystick_drivers-release/archive/release/rolling/joy_linux/3.1.0-3.tar.gz
-ROS_BRANCH ?= "branch=release/rolling/joy_linux"
+# matches with: https://github.com/ros2-gbp/joystick_drivers-release/archive/release/rolling/wiimote_msgs/3.3.0-1.tar.gz
+ROS_BRANCH ?= "branch=release/rolling/wiimote_msgs"
 SRC_URI = "git://github.com/ros2-gbp/joystick_drivers-release;${ROS_BRANCH};protocol=https"
-SRCREV = "fb624bfb8570e6ecd3dc0e4411cc92e558a7f834"
+SRCREV = "3b56215b9a79aecd341b15bad0dfbcce03ff482e"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
