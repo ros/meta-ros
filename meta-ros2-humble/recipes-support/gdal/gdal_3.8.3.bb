@@ -22,7 +22,10 @@ LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=c50ab31669698143abc7d61e9404b940 \
                     file://third_party/LercLib/LICENSE;md5=06209abe95b90904e809b2e6f3ba4ea7 \
                     file://third_party/fast_float/LICENSE-MIT;md5=32b11d50c7d9788d4270f6a83f3e68eb"
 
-SRC_URI = "git://github.com/OSGeo/GDAL;protocol=https;branch=release/3.8"
+SRC_URI = " \
+    git://github.com/OSGeo/GDAL;protocol=https;branch=release/3.8 \
+    file://install-headers-to-gdal-subdir.patch \
+"
 
 PV = "3.8.3+git${SRCPV}"
 SRCREV = "654f4907abbbf6bf4226d58a8c067d134eaf3ce9"
