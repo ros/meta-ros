@@ -936,3 +936,11 @@ RDEPENDS:${PN}:remove = "septentrio-gnss-driver"
 # behaviortree-cpp conflicts with behaviortree-cpp-v3
 # but it has no dependencies
 RDEPENDS:${PN}:remove = "behaviortree-cpp"
+
+# nao-meshes requires Java and confirmation to a non-commercial license
+# developers using the NAO robot may build it separately
+RDEPENDS:${PN}:remove = "nao-meshes"
+
+# pepper-meshes requires Java and confirmation to a non-commercial license
+# developers using the Pepper robot may build it separately
+RDEPENDS:${PN}:remove = "pepper-meshes"
