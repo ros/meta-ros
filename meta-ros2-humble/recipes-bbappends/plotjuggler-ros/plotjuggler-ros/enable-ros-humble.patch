@@ -1,0 +1,17 @@
+Index: git/src/CMakeLists.txt
+===================================================================
+--- git.orig/src/CMakeLists.txt
++++ git/src/CMakeLists.txt
+@@ -96,10 +96,8 @@ elseif(COMPILING_WITH_AMENT)
+     target_link_libraries( TopicPublisherROS2 commonROS)
+     ament_target_dependencies( TopicPublisherROS2 ${AMENT_DEPENDENCIES})
+ 
+-    if("$ENV{AMENT_PREFIX_PATH}" MATCHES ".*/opt/ros/humble")
+-        message(STATUS "Detected Humble")
+-        target_compile_definitions(TopicPublisherROS2 PUBLIC ROS_HUMBLE)
+-    endif()
++    message(STATUS "Detected Humble")
++    target_compile_definitions(TopicPublisherROS2 PUBLIC ROS_HUMBLE)
+ endif()
+ 
+ 
