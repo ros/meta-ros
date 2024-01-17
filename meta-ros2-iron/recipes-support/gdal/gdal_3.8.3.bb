@@ -29,6 +29,52 @@ SRCREV = "654f4907abbbf6bf4226d58a8c067d134eaf3ce9"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "swig-native gtest libxml2 proj expat zlib"
+DEPENDS = " \
+    expat \
+    gtest \
+    libxml2 \
+    pcre \
+    python3-setuptools-native \
+    proj \
+    swig-native \
+    zlib \
+    zstd \
+"
 
-inherit cmake python3-dir python3native
+inherit cmake python3-dir python3native python3targetconfig
+
+PACKAGES += "python3-${PN}"
+
+FILES:${PN} += " \
+    ${datadir}/bash-completion/completions/ \
+    ${libdir}/gdalplugins/drivers.ini \
+"
+
+FILES:python3-${PN} = " \
+    /usr/lib/python3.10/site-packages/GDAL-3.8.3-py3.10.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/osgeo \
+    ${PYTHON_SITEPACKAGES_DIR}/osgeo_utils \
+"
+
+# ERROR: gdal-3.8.3-r0 do_package_qa: QA Issue: gdal: ... maximum shebang size exceeded, the maximum size is 128.
+do_install:append() {
+    # Modify the Python scripts to use the runtime path to Python
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal2tiles.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/ogr_layer_algebra.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdalattachpct.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_sieve.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal2xyz.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/pct2rgb.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/rgb2pct.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdalmove.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_calc.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_pansharpen.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdalcompare.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/ogrmerge.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_merge.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_polygonize.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_proximity.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_fillnodata.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_edit.py
+    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_retile.py
+}
