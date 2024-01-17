@@ -149,8 +149,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
-    as2-platform-ign-gazebo \
+    andino-bringup \
+    andino-control \
+    andino-description \
+    andino-navigation \
+    andino-gz-classic \
+    andino-slam \
+    aerostack2 \
+    as2-gazebo-classic-assets \
     as2-ign-gazebo-assets \
+    as2-platform-ign-gazebo \
     clearpath-desktop \
     clearpath-gz \
     clearpath-nav2-demos \
@@ -160,6 +168,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     color-names \
     dolly-ignition \
     dolly \
+    etsi-its-rviz-plugins \
+    gazebo-ros2-control \
     grid-map \
     grid-map-demos \
     ign-ros2-control \
@@ -196,6 +206,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     kinova-gen3-7dof-robotiq-2f-85-moveit-config \
     kortex-description \
     leo-desktop \
+    leo-gz-bringup \
+    leo-gz-plugins \
+    leo-simulator \
     leo-viz \
     moveit \
     moveit-hybrid-planning \
@@ -223,8 +236,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     pmb2-robot \
     polygon-demos \
     raspimouse-description \
+    raspimouse-gazebo \
     raspimouse-navigation \
     raspimouse-ros2-examples \
+    raspimouse-sim \
     raspimouse-slam \
     raspimouse-slam-navigation \
     rmf-building-map-tools \
@@ -266,6 +281,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     tiago-robot \
     turtlebot3 \
     turtlebot3-bringup \
+    turtlebot3-gazebo \
     turtlebot3-manipulation-cartographer \
     turtlebot3-manipulation-description \
     turtlebot3-manipulation-navigation2 \
@@ -292,10 +308,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
 # Depends on mesa or libglu which requires opengl or vulkan DISTRO_FEATURE
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'opengl', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
+    andino-bringup \
+    andino-control \
+    andino-description \
+    andino-navigation \
+    andino-slam \
     color-names \
     desktop \
     dolly-gazebo \
     dolly \
+    etsi-its-rviz-plugins \
     libg2o \
     librealsense2 \
     moveit-ros \
@@ -337,19 +359,28 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
+    andino-bringup \
+    andino-control \
+    andino-description \
+    andino-navigation \
+    andino-slam \
     cartographer-rviz \
     color-names \
     desktop \
     desktop-full \
     dolly-gazebo \
     dolly \
+    etsi-its-rviz-plugins \
     grid-map \
     grid-map-demos \
     grid-map-rviz-plugin \
     imu-tools \
     joint-state-publisher-gui \
-    leo-viz \
     leo-desktop \
+    leo-gz-bringup \
+    leo-gz-plugins \
+    leo-simulator \
+    leo-viz \
     microstrain-inertial-rqt \
     moveit-hybrid-planning \
     moveit-resources-panda-moveit-config \
@@ -467,8 +498,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     turtlebot3-simulations \
     turtle-tf2-py \
     turtle-tf2-cpp \
-    turtlebot3-gazebo \
-    turtlebot3-simulations \
     turtlesim \
     ur \
     ur-bringup \
@@ -514,6 +543,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
+    andino-bringup \
+    andino-control \
+    andino-description \
+    andino-navigation \
+    andino-gz-classic \
+    andino-slam \
     aws-robomaker-small-warehouse-world \
     crane-plus \
     crane-plus-control \
@@ -524,11 +559,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     dolly-gazebo \
     gazebo-plugins \
     gazebo11 \
+    gazebo-model-attachment-plugin \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
     gazebo-ros2-control-demos \
     gazebo-ros2-control \
+    gazebo-video-monitors \
+    gazebo-video-monitor-plugins \
     irobot-create-gazebo-bringup \
     irobot-create-gazebo-plugins \
     irobot-create-gazebo-sim \
@@ -663,10 +701,16 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SELF_TEST = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
+    andino-bringup \
+    andino-control \
+    andino-description \
+    andino-navigation \
+    andino-slam \
     color-names \
     desktop \
     dolly-gazebo \
     dolly \
+    etsi-its-rviz-plugins \
     libg2o \
     moveit-ros-visualization \
     moveit-ros \
@@ -818,6 +862,11 @@ RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'aws', '$
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_AWS = " \
     aws-robomaker-small-warehouse-world \
     aws-sdk-cpp-vendor \
+"
+
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'java', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_JAVA}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_JAVA = " \
+    nao-meshes \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mrpt2', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MRPT2}', '', d)}"
