@@ -1,5 +1,8 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://enable-ros-humble.patch"
+
 LICENSE = "GPL-3.0-or-later"
 
 # CMake Warning at TOPDIR/tmp-glibc/work/core2-64-oe-linux/plotjuggler-ros/1.7.3-1-r0/recipe-sysroot/usr/lib/cmake/Qt5/Qt5Config.cmake:7 (message):
