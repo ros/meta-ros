@@ -156,7 +156,7 @@ while IFS= read -r COMMIT_ID; do
     fi
 
     # Create a list of files from the commit
-    COMMIT_FILE_LIST=$(git show --no-renames $COMMIT_ID | lsdiff --strip=1)
+    COMMIT_FILE_LIST=$(git show --no-renames $COMMIT_ID | diffstat -p1 -l)
     FILTER_LIST=""
     REPLACE_LIST=""
 
