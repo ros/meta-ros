@@ -33,13 +33,24 @@ SRCREV = "654f4907abbbf6bf4226d58a8c067d134eaf3ce9"
 S = "${WORKDIR}/git"
 
 DEPENDS = " \
+    curl \
     expat \
     gtest \
+    libarchive \
+    libdeflate \
+    libjpeg-turbo \
+    libpng \
+    libwebp \
     libxml2 \
+    lz4 \
+    openjpeg \
     pcre \
+    postgresql \
+    python3-numpy \
     python3-setuptools-native \
     proj \
     swig-native \
+    tiff \
     zlib \
     zstd \
 "
