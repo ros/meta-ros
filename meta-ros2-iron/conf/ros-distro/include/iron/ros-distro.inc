@@ -204,6 +204,7 @@ ROS_BUILD_TYPE:pn-ros-workspace = "ament_cmake"
 ROS_BUILD_TYPE:pn-rmf-task = "ament_cmake"
 
 # Used by generated-recipes/cyclonedds/cyclonedds_0.6.0-3.bb
+ROS_UNRESOLVED_DEP-java = ""
 ROS_UNRESOLVED_DEP-java-native = ""
 ROS_UNRESOLVED_DEP-maven-native = ""
 
@@ -364,3 +365,7 @@ ROS_UNRESOLVED_DEP-python3-fiona = "python3-fiona"
 ROS_UNRESOLVED_DEP-python3-shapely = "python3-shapely"
 ROS_UNRESOLVED_DEP-ignition-fuel-tools7 = "ignition-fuel-tools7"
 ROS_UNRESOLVED_DEP-python3-uvloop = "python3-uvloop"
+ROS_UNRESOLVED_DEP-libserial = "libserial"
+ROS_UNRESOLVED_DEP-libserial-dev = "libserial"
+ROS_UNRESOLVED_DEP-gz-plugin = "gz-plugin"
+ROS_UNRESOLVED_DEP-libgdal-dev = "gdal"
