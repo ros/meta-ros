@@ -1,0 +1,79 @@
+Use the GTest library provided by the system instead of including
+a private copy.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -17,8 +17,6 @@ PROJECT(LibSerial LANGUAGES C CXX VERSIO
+ OPTION(INSTALL_STATIC "Install static library." ON)
+ OPTION(INSTALL_SHARED "Install shared object library." ON)
+ 
+-INCLUDE(ExternalProject)
+-
+ ENABLE_TESTING()
+ SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+ 
+@@ -102,43 +100,16 @@ macro(USE_CXX14)
+ endmacro(USE_CXX14)
+ USE_CXX14()
+ 
+-SET(GTEST_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/gtest")
+-
+-EXTERNALPROJECT_ADD(GTestExternal
+-  PREFIX             "${GTEST_PREFIX}"
+-  URL https://github.com/google/googletest/archive/release-1.8.1.tar.gz
+-  URL_HASH SHA1=152b849610d91a9dfa1401293f43230c2e0c33f8
+-  INSTALL_COMMAND ""
+-  )
++find_package(GTest REQUIRED)
+ 
+ SET(LIBPREFIX "${CMAKE_STATIC_LIBRARY_PREFIX}")
+ SET(LIBSUFFIX "${CMAKE_STATIC_LIBRARY_SUFFIX}")
+ 
+-SET(GTEST_LOCATION "${GTEST_PREFIX}/src/GTestExternal-build/googlemock/gtest/")
+-SET(GTEST_LIBRARY  "${GTEST_LOCATION}/${LIBPREFIX}gtest${LIBSUFFIX}")
+-SET(GTEST_MAINLIB  "${GTEST_LOCATION}/${LIBPREFIX}gtest_main${LIBSUFFIX}")
+-
+-ADD_LIBRARY(GTest IMPORTED STATIC GLOBAL)
+-SET_TARGET_PROPERTIES(GTest
+-  PROPERTIES
+-  IMPORTED_LOCATION "${GTEST_LIBRARY}"
+-  IMPORTED_LINK_INTERFACE_LIBRARIES "${CMAKE_THREAD_LIBS_INIT}"
+-  )
+-
+-ADD_LIBRARY(GTestMain IMPORTED STATIC GLOBAL)
+-SET_TARGET_PROPERTIES(GTestMain
+-  PROPERTIES
+-  IMPORTED_LOCATION "${GTEST_MAINLIB}"
+-  IMPORTED_LINK_INTERFACE_LIBRARIES "${GTEST_LIBRARY};${CMAKE_THREAD_LIBS_INIT}"
+-  )
+-
+-ADD_DEPENDENCIES(GTest GTestExternal)
+-ADD_DEPENDENCIES(GTestMain GTestExternal)
+-
+-EXTERNALPROJECT_GET_PROPERTY(GTestExternal source_dir)
++ADD_LIBRARY(GTEST_LIBRARIES IMPORTED STATIC GLOBAL)
++ADD_LIBRARY(GTEST_MAIN_LIBRARIES  IMPORTED STATIC GLOBAL)
+ 
+ INCLUDE_DIRECTORIES(
+-  BEFORE ${GTEST_PREFIX}/src/GTestExternal/googletest/include
++  BEFORE ${GTEST_INCLUDE_DIRS}
+   ${Boost_INCLUDE_DIRS}
+   )
+ 
+Index: git/test/CMakeLists.txt
+===================================================================
+--- git.orig/test/CMakeLists.txt
++++ git/test/CMakeLists.txt
+@@ -7,7 +7,7 @@ ADD_EXECUTABLE(UnitTests
+ 
+ TARGET_LINK_LIBRARIES(UnitTests
+   libserial_static
+-  GTestMain
++  GTest::gtest_main
+ )
+ 
+ ADD_EXECUTABLE(unit_tests
