@@ -2,15 +2,16 @@ Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -77,12 +77,10 @@ if(${CMAKE_VERSION} VERSION_LESS 3.14)
+@@ -80,13 +80,10 @@ if(${CMAKE_VERSION} VERSION_LESS 3.14)
  endif(${CMAKE_VERSION} VERSION_LESS 3.14)
-
+ 
  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 -FetchContent_Declare(json FETCHCONTENT_UPDATES_DISCONNECTED
 -  URL https://github.com/nlohmann/json/releases/download/v3.10.5/json.tar.xz
 -)
 -FetchContent_Declare(tinyxml2 FETCHCONTENT_UPDATES_DISCONNECTED
--  URL https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz
+-  GIT_REPOSITORY https://github.com/leethomason/tinyxml2.git
+-  GIT_TAG c2d30872e20621955ca7feb9168bad996d591a19
 -)
 +
 +find_package(nlohmann_json REQUIRED)
@@ -18,17 +19,17 @@ Index: git/CMakeLists.txt
 +
  FetchContent_Declare(steering_functions FETCHCONTENT_UPDATES_DISCONNECTED
    GIT_REPOSITORY https://github.com/Fields2Cover/steering_functions.git
+   GIT_TAG 33fc010017efa1ef2c8a2d4779fcda94b4b30d20
+@@ -101,8 +98,6 @@ FetchContent_Declare(matplotlib_cpp FETC
  )
-@@ -94,8 +92,6 @@ FetchContent_Declare(matplotlib_cpp FETC
- )
-
+ 
  FetchContent_MakeAvailable(
 -  json
 -  tinyxml2
    steering_functions
    spline
    matplotlib_cpp
-@@ -214,9 +210,7 @@ set_target_properties(Fields2Cover
+@@ -221,9 +216,7 @@ set_target_properties(Fields2Cover
  install(
    TARGETS
      Fields2Cover
@@ -38,7 +39,7 @@ Index: git/CMakeLists.txt
    EXPORT Fields2Cover-targets
    LIBRARY DESTINATION ${INSTALL_LIB_DIR}
    ARCHIVE DESTINATION ${INSTALL_LIB_DIR}
-@@ -265,9 +259,7 @@ install(
+@@ -272,9 +265,7 @@ install(
  export(
    TARGETS
      Fields2Cover
