@@ -30,6 +30,8 @@ FILES:python3-cogen = " \
 # QA Issue: /usr/bin/cogen contained in package lely-core-libraries requires .../python3, but no providers found in RDEPENDS:lely-core-libraries? [file-rdeps]
 do_install:append() {
     # Modify the Python scripts to use the runtime path to Python 
-    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/cogen
-    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${libdir}/cogen/cogen
+    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/cogen
+    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${libdir}/cogen/cogen
 }
+
+BBCLASSEXTEND = "native nativesdk"
