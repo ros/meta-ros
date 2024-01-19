@@ -226,7 +226,7 @@ ROS_UNRESOLVED_DEP-libabsl-dev = "abseil-cpp"
 ROS_UNRESOLVED_DEP-liblttng-ust-dev = "lttng-ust"
 
 # https://layers.openembedded.org/layerindex/recipe/132113/
-ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev = "ocl-icd"
+ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev = "virtual/opencl-icd"
 
 # https://layers.openembedded.org/layerindex/recipe/56447/
 ROS_UNRESOLVED_DEP-pybind11-dev = "python3-pybind11"
