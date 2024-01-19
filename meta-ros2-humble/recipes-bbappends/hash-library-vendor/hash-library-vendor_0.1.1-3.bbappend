@@ -7,9 +7,13 @@
 #   CMakeLists.txt:23 (ament_auto_add_library)
 #   CMakeLists.txt:37 (build_vendor_package)                                                                                                                                                                     
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += " \
+SRC_URI = " \
+  git://github.com/ros2-gbp/hash_library_vendor-release;name=release;${ROS_BRANCH};protocol=https \
   git://github.com/stbrumme/hash-library.git;name=upstream;destsuffix=git/_deps/hash_library_vendor-src;branch=master;protocol=https \
   file://0001-CMakeLists.txt-fetch-dependencies-with-bitbake-fetch.patch \
 "
 
+SRCREV_release = "e31045b72d50216a20845e9bd76f689bff2f00f0"
 SRCREV_upstream = "70cc93763d49a24c4536c7f0a23248f9b40e30f5"
+
+SRCREV_FORMAT = "release_upstream"
