@@ -308,6 +308,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     openvslam \
     plotjuggler-ros \
     plotjuggler \
+    polygon-rviz-plugins \
     pose-cov-ops \
     realsense-examples \
     realsense-node \
@@ -343,6 +344,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop-full \
     dolly-gazebo \
     dolly \
+    find-object-2d \
     grid-map \
     grid-map-demos \
     grid-map-rviz-plugin \
@@ -350,6 +352,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     joint-state-publisher-gui \
     leo-viz \
     leo-desktop \
+    mapviz \
+    mapviz-plugins \
     microstrain-inertial-rqt \
     moveit-hybrid-planning \
     moveit-resources-panda-moveit-config \
@@ -368,6 +372,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     moveit-setup-app-plugins \
     moveit-setup-srdf-plugins \
     moveit \
+    multires-image \
     navigation2 \
     nav2-bringup \
     nav2-rviz-plugins \
@@ -384,6 +389,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     pmb2-description \
     pmb2-navigation \
     pmb2-robot \
+    polygon-rviz-plugins \
+    py-trees-js \
     python-qt-binding \
     qt-dotgraph \
     qt-gui \
@@ -391,6 +398,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     qt-gui-core \
     qt-gui-cpp \
     qt-gui-py-common \
+    qtbase \
     ros-image-to-qimage \
     rmf-demos \
     rmf-demos-assets \
@@ -408,6 +416,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-bag-plugins \
     rqt-common-plugins \
     rqt-console \
+    rqt-controller-manager \
     rqt-gui \
     rqt-gui-py \
     rqt-gui-cpp \
@@ -426,6 +435,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
+    rqt-runtime-monitor \
     rqt-service-caller \
     rqt-shell \
     rqt-srv \
@@ -460,6 +470,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     tiago-bringup \
     tiago-description \
     tiago-robot \
+    tile-map \
     turtlebot3 \
     turtlebot3-bringup \
     turtlebot3-gazebo \
@@ -606,6 +617,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     pmb2-navigation \
     pmb2-robot \
     python-qt-binding \
+    python3-pyqt5 \
+    py-trees-js \
     qt-dotgraph \
     qt-gui-app \
     qt-gui-core \
@@ -683,6 +696,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     nav2-system-tests \
     openvslam \
     pmb2-2dnav \
+    polygon-rviz-plugins \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rtabmap \
