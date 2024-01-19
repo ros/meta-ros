@@ -21,7 +21,7 @@ inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], '', 
 
 # | CMake Warning at ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/qt-gui-cpp/1.0.8-1-r0/recipe-sysroot/usr/share/python_qt_binding/cmake/sip_helper.cmake:27 (message):
 # |   SIP binding generator NOT available.
-DEPENDS += "python3-pyqt5-native sip3-native"
+DEPENDS += "python3-pyqt5-native sip-native"
 
 # | CMake Error:
 # |   Running
