@@ -907,3 +907,17 @@ RDEPENDS:${PN}:remove = "septentrio-gnss-driver"
 # behaviortree-cpp conflicts with behaviortree-cpp-v3
 # but it has no dependencies
 RDEPENDS:${PN}:remove = "behaviortree-cpp"
+
+# smacc2 builds on ROS 2 Buildfarm fail for Rolling
+RDEPENDS:${PN}:remove = "smacc2"
+RDEPENDS:${PN}:remove = "smacc2-msgs"
+
+# novatel-gps-driver
+RDEPENDS:${PN}:remove = "novatel-gps-driver"
+
+# canopen-tests
+RDEPENDS:${PN}:remove = "canopen-tests"
+
+# nao-lola
+# "Please use nao_lola_client. nao_lola will be removed in K-turtle."
+RDEPENDS:${PN}:remove = "nao-lola"
