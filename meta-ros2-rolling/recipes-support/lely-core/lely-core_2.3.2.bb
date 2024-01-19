@@ -188,9 +188,9 @@ FILES:python3-lely-io = " \
 #           lely-core: .../dcfgen maximum shebang size exceeded, the maximum size is 128. [shebang-size]
 do_install:append() {
     # Modify the Python scripts to use the runtime path to Python 
-    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/dcf2dev
-    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/dcfchk
-    sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/dcfgen
+    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/dcf2dev
+    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/dcfchk
+    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/dcfgen
 }
 
 BBCLASSEXTEND = "native nativesdk"
