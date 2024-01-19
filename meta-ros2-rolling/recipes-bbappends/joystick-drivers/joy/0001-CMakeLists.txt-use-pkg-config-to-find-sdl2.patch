@@ -282,17 +282,30 @@ Index: git/CMakeLists.txt
    rclcpp_components::component)
 +target_include_directories(joy SYSTEM PUBLIC
 +  ${SDL2_INCLUDE_DIRS})
- 
  install(TARGETS joy EXPORT export_joy
    LIBRARY DESTINATION lib
-@@ -41,7 +45,9 @@ rclcpp_components_register_node(joy
+   ARCHIVE DESTINATION lib
+@@ -43,9 +47,11 @@ target_include_directories(game_controll
+ target_link_libraries(game_controller PUBLIC
+   rclcpp::rclcpp
+   ${sensor_msgs_TARGETS}
+-  SDL2::SDL2)
++  ${SDL2_LIBRARIES})
+ target_link_libraries(game_controller PRIVATE
+   rclcpp_components::component)
++target_include_directories(game_controller SYSTEM PUBLIC
++  ${SDL2_INCLUDE_DIRS})
+ install(TARGETS game_controller EXPORT export_game_controller
+   LIBRARY DESTINATION lib
+   ARCHIVE DESTINATION lib
+@@ -58,7 +64,9 @@ rclcpp_components_register_node(game_con
  add_executable(joy_enumerate_devices
    src/joy_enumerate_devices.cpp)
- target_link_libraries(joy_enumerate_devices
+ target_link_libraries(joy_enumerate_devices PRIVATE
 -  SDL2::SDL2)
 +  ${SDL2_LIBRARIES})
 +target_include_directories(joy_enumerate_devices SYSTEM PUBLIC
 +  ${SDL2_INCLUDE_DIRS})
- 
  install(TARGETS joy_enumerate_devices
    DESTINATION lib/${PROJECT_NAME})
+ 
