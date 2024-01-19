@@ -1,0 +1,18 @@
+In file included from /ala-lpggp31/rwoolley/updaterolling/tmp-glibc/work/core2-64-oe-linux/v4l2-camera/0.7.0-1-r0/git/src/v4l2_camera.cpp:17:
+/ala-lpggp31/rwoolley/updaterolling/tmp-glibc/work/core2-64-oe-linux/v4l2-camera/0.7.0-1-r0/recipe-sysroot/usr/include/cv_bridge/cv_bridge/cv_bridge.h:42:2: error: #warning is a GCC extension [-Werror]
+   42 | #warning This header is obsolete, please include cv_bridge/cv_bridge.hpp instead
+      |  ^~~~~~~
+
+Index: git/src/v4l2_camera.cpp
+===================================================================
+--- git.orig/src/v4l2_camera.cpp
++++ git/src/v4l2_camera.cpp
+@@ -14,7 +14,7 @@
+ 
+ #include "v4l2_camera/v4l2_camera.hpp"
+ 
+-#include <cv_bridge/cv_bridge.h>
++#include <cv_bridge/cv_bridge.hpp>
+ 
+ #include <algorithm>
+ #include <memory>

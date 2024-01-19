@@ -1,5 +1,8 @@
 # Copyright (C) 2023 Avnet, Inc.  All rights reserved.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://fix_warning.patch"
+
 # | CMake Error in CMakeLists.txt:
 # |   Imported target "rclcpp::rclcpp" includes non-existent path
 # |
@@ -43,3 +46,6 @@ ROS_BUILDTOOL_DEPENDS += " \
     python3-numpy-native \
 "
 
+
+# v4l2-camera/0.7.0-1-r0/recipe-sysroot/usr/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/received_message_period.hpp:174:32: error: unused parameter 'message_info' [-Werror=unused-parameter]
+CXXFLAGS += "-Wno-error=unused-parameter"
