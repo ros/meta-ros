@@ -20,15 +20,15 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  CMakeLists.txt | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index b201f69..ab70e03 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -29,6 +29,7 @@ include_directories(
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -30,6 +30,7 @@ include_directories(
    ${rmf_fleet_adapter_INCLUDE_DIRS}
  )
  
 +find_package(Python3 COMPONENTS Development Interpreter REQUIRED)
  find_package(pybind11_vendor REQUIRED)
  find_package(pybind11 REQUIRED)
- 
+ find_package(nlohmann_json REQUIRED)
