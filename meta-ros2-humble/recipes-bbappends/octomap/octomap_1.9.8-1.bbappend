@@ -1,4 +1,8 @@
 # Copyright (c) 2021 LG Electronics, Inc.
+# Copyright (c) 2024 Wind River Systems, Inc.
+
+# error: 'template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator' is deprecated [-Werror=deprecated-declarations]
+CXXFLAGS += "-Wno-error=deprecated-declarations"
 
 # ERROR: octomap-1.9.7-1-r0 do_package: QA Issue: octomap: Files/directories were installed but not shipped in any package:
 #   /usr/share/ament_index
