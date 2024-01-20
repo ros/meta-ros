@@ -46,16 +46,16 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  include/smacc2/impl/smacc_state_machine_impl.hpp | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/smacc2/impl/smacc_state_machine_impl.hpp b/include/smacc2/impl/smacc_state_machine_impl.hpp
-index c2d7b3c..f3e29ed 100644
---- a/include/smacc2/impl/smacc_state_machine_impl.hpp
-+++ b/include/smacc2/impl/smacc_state_machine_impl.hpp
-@@ -640,7 +640,7 @@ void ISmaccStateMachine::buildStateMachineInfo()
+Index: git/include/smacc2/impl/smacc_state_machine_impl.hpp
+===================================================================
+--- git.orig/include/smacc2/impl/smacc_state_machine_impl.hpp
++++ git/include/smacc2/impl/smacc_state_machine_impl.hpp
+@@ -752,7 +752,7 @@ void ISmaccStateMachine::buildStateMachi
    this->checkStateMachineConsistence();
  }
  
 -uint64_t ISmaccStateMachine::getCurrentStateCounter() const { return this->stateSeqCounter_; }
 +unsigned long ISmaccStateMachine::getCurrentStateCounter() const { return this->stateSeqCounter_; }
  
- ISmaccState * ISmaccStateMachine::getCurrentState() const { return this->currentState_; }
+ ISmaccState * ISmaccStateMachine::getCurrentState() const { return this->currentState_.back(); }
  
