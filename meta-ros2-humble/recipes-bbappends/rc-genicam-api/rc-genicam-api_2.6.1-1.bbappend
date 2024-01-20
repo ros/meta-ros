@@ -68,7 +68,10 @@ RC_PROJECT_VERSION = "${@'${PV}'.split('-')[0]}"
 EXTRA_OECMAKE += "-DARCHITECTURE=${RC_GENICAM_API_ARCHITECTURE} -DRC_PROJECT_VERSION=${RC_PROJECT_VERSION}"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-GenicamConfig.cmake-detect-ARCHITECTURE-only-when-no.patch"
+SRC_URI += " \
+    file://0001-GenicamConfig.cmake-detect-ARCHITECTURE-only-when-no.patch \
+    file://add-cstdint.patch \
+"
 
 # in version 2.4.1-1 only aarch64 prebuilt binaries ware missing GNU_HASH, but in 2.5.0-1 it's missing for all 4 supported architectures (32_ARMhf, 32_i86, 64_ARM, 64_x64)
 INSANE_SKIP:${PN} += " ldflags"
