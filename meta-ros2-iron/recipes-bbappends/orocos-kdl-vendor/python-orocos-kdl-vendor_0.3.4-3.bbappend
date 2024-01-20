@@ -17,4 +17,7 @@ SRC_URI[patch.sha256sum] = "bed98c6c2a0261488d522b80fc792fd3ad817b01d7344342f28a
 
 FILES:${PN}-dev += "${datadir}/orocos_kdl/cmake/*.cmake"
 
+# QA Issue:File was already stripped, this will prevent future debugging! [already-stripped]
+INSANE_SKIP:${PN} += "already-stripped"
+
 inherit ros_insane_dev_so
