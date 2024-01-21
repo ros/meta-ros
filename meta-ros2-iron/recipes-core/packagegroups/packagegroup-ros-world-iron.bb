@@ -614,13 +614,17 @@ RDEPENDS:${PN}:remove = "${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC}"
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     desktop \
+    dual-arm-panda-moveit-config \
     fuse-ros \
     fuse-viz \
     joint-state-publisher-gui \
+    mapviz \
+    mapviz-plugins \
     microstrain-inertial-rqt \
     moveit-resources-panda-moveit-config \
     moveit-resources \
     moveit-resources-panda-moveit-config \
+    multires-image \
     pmb2-2dnav \
     pmb2-bringup \
     pmb2-description \
@@ -641,10 +645,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-bag-plugins \
     rqt-console \
     rqt-common-plugins \
+    rqt-controller-manager \
     rqt-graph \
     rqt-gui-cpp \
     rqt-gui-py \
     rqt-gui \
+    rqt-image-overlay \
     rqt-image-view \
     rqt-joint-trajectory-controller \
     rqt-moveit \
@@ -657,15 +663,19 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
+    rqt-runtime-monitor \
     rqt-service-caller \
     rqt-shell \
     rqt-srv \
     rqt-topic \
     rqt-top \
+    rqt-tf-tree \
     rqt \
     run-move-group \
     run-moveit-cpp \
+    python-qt-binding \
     tiago-description \
+    tile-map \
 "
 
 # do_compile failures
@@ -812,6 +822,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOPEN3D = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'scipy', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY = " \
     slider-publisher \
+    proxsuite \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hunter', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HUNTER}', '', d)}"
