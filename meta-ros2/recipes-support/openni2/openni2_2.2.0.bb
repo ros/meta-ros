@@ -71,6 +71,10 @@ CFLAGS += "-Wno-error=tautological-compare"
 #       |                        ^~~~~
 CFLAGS += "-Wno-error=maybe-uninitialized"
 
+# OniDevice.cpp:223:44: error: dangling pointer 'data' to 'seek' may be used [-Werror=dangling-pointer=]
+# OniDriverHandler.h:167:54: error: dangling pointer 'data' to 'seek' may be used [-Werror=dangling-pointer=]
+CFLAGS += "-Wno-error=dangling-pointer"
+
 do_install () {
   install -d ${D}${libdir}
   install -m 0755 Bin/*-Release/libOpenNI2.so.* ${D}${libdir}
