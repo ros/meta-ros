@@ -1,0 +1,151 @@
+Explicitly include cstdint as required by gcc13.  This is a temporary measure while
+upstream makes a long-term fix.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/src/data_processing/ParseApplicationNameData.cpp
+===================================================================
+--- git.orig/src/data_processing/ParseApplicationNameData.cpp
++++ git/src/data_processing/ParseApplicationNameData.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/data_processing/ParseApplicationNameData.h"
+ 
+ #include "sick_safetyscanners_base/cola2/Command.h"
+Index: git/src/data_processing/ParseConfigMetadata.cpp
+===================================================================
+--- git.orig/src/data_processing/ParseConfigMetadata.cpp
++++ git/src/data_processing/ParseConfigMetadata.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/data_processing/ParseConfigMetadata.h"
+ 
+ #include "sick_safetyscanners_base/cola2/Command.h"
+Index: git/src/datastructure/ApplicationName.cpp
+===================================================================
+--- git.orig/src/datastructure/ApplicationName.cpp
++++ git/src/datastructure/ApplicationName.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/datastructure/ApplicationName.h"
+ 
+ namespace sick {
+Index: git/src/datastructure/ConfigMetadata.cpp
+===================================================================
+--- git.orig/src/datastructure/ConfigMetadata.cpp
++++ git/src/datastructure/ConfigMetadata.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/datastructure/ConfigMetadata.h"
+ 
+ namespace sick {
+Index: git/src/datastructure/DeviceStatus.cpp
+===================================================================
+--- git.orig/src/datastructure/DeviceStatus.cpp
++++ git/src/datastructure/DeviceStatus.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/datastructure/DeviceStatus.h"
+ 
+ namespace sick {
+Index: git/src/datastructure/FieldData.cpp
+===================================================================
+--- git.orig/src/datastructure/FieldData.cpp
++++ git/src/datastructure/FieldData.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/datastructure/FieldData.h"
+ 
+ namespace sick {
+Index: git/src/datastructure/FieldSets.cpp
+===================================================================
+--- git.orig/src/datastructure/FieldSets.cpp
++++ git/src/datastructure/FieldSets.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/datastructure/FieldSets.h"
+ 
+ namespace sick {
+Index: git/src/datastructure/MonitoringCaseData.cpp
+===================================================================
+--- git.orig/src/datastructure/MonitoringCaseData.cpp
++++ git/src/datastructure/MonitoringCaseData.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/datastructure/MonitoringCaseData.h"
+ 
+ namespace sick {
+Index: git/src/datastructure/StatusOverview.cpp
+===================================================================
+--- git.orig/src/datastructure/StatusOverview.cpp
++++ git/src/datastructure/StatusOverview.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/datastructure/StatusOverview.h"
+ 
+ namespace sick {
+Index: git/src/datastructure/TypeCode.cpp
+===================================================================
+--- git.orig/src/datastructure/TypeCode.cpp
++++ git/src/datastructure/TypeCode.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/datastructure/TypeCode.h"
+ 
+ namespace sick {
+Index: git/src/datastructure/UserName.cpp
+===================================================================
+--- git.orig/src/datastructure/UserName.cpp
++++ git/src/datastructure/UserName.cpp
+@@ -32,6 +32,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/datastructure/UserName.h"
+ 
+ namespace sick {
+Index: git/src/SickSafetyscanners.cpp
+===================================================================
+--- git.orig/src/SickSafetyscanners.cpp
++++ git/src/SickSafetyscanners.cpp
+@@ -34,6 +34,7 @@
+  */
+ //----------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include "sick_safetyscanners_base/SickSafetyscanners.h"
+ #include "sick_safetyscanners_base/cola2/Cola2.h"
+ #include <chrono>
