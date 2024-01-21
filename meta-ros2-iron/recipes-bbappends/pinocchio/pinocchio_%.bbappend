@@ -22,5 +22,5 @@ FILES:${PN} += "${datadir}/ament_index/resource_index/packages/pinocchio"
 # non -dev/-dbg/nativesdk- package pinocchio contains symlink .so '/usr/lib/python3.10/site-packages/pinocchio/pinocchio_pywrap.cpython-310-x86_64-linux-gnu.so' [dev-so]
 FILES:${PN}-dev += " \
     ${libdir}/libpinocchio.so \
-    ${PYTHON_SITEPACKAGES_DIR}/pinocchio/pinocchio_pywrap.cpython-310-x86_64-linux-gnu.so \
+    ${PYTHON_SITEPACKAGES_DIR}/pinocchio/pinocchio_pywrap.cpython-311-x86_64-linux-gnu.so \
 "
