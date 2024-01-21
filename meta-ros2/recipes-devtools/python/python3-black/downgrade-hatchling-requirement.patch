@@ -1,0 +1,22 @@
+The version requirement for hatchling is higher than is available in oe-core 
+for Nanbield.
+
+However, the package builds successfully with python3-hatchling 1.18.
+
+Upstream-Status: Inappropriate (temporary workaround)
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: black-23.12.1/pyproject.toml
+===================================================================
+--- black-23.12.1.orig/pyproject.toml
++++ black-23.12.1/pyproject.toml
+@@ -25,7 +25,7 @@ preview = true
+ # NOTE: You don't need this in your own Black configuration.
+ 
+ [build-system]
+-requires = ["hatchling>=1.20.0", "hatch-vcs", "hatch-fancy-pypi-readme"]
++requires = ["hatchling>=1.18.0", "hatch-vcs", "hatch-fancy-pypi-readme"]
+ build-backend = "hatchling.build"
+ 
+ [project]
