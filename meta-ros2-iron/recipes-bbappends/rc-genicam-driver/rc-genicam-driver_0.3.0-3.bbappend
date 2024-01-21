@@ -1,4 +1,5 @@
 # Copyright (c) 2021 LG Electronics, Inc.
+# Copyright (c) 2024 Wind River Systems, Inc.
 
 # depends on rc-genicam-api, use the same restriction
 COMPATIBLE_MACHINE = "(^$)"
@@ -19,3 +20,6 @@ COMPATIBLE_MACHINE:armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvent
 RC_PROJECT_VERSION = "${@'${PV}'.split('-')[0]}"
 
 EXTRA_OECMAKE += "-DRC_PROJECT_VERSION=${RC_PROJECT_VERSION}"
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://add-cstdint.patch"
