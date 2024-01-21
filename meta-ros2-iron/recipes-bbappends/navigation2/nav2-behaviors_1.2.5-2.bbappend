@@ -10,3 +10,12 @@ CXXFLAGS += "-Wno-error=deprecated-declarations"
 CXXFLAGS += "-Wno-error=shadow"
 
 CXXFLAGS += "-Wno-error=non-virtual-dtor"
+
+# nav2-behaviors/1.1.12-1/recipe-sysroot/usr/include/c++/13.2.0/bits/stl_algobase.h:437:30: error: 'void* __builtin_memmove(void*, const void*, long unsigned int)' forming offset 8 is out of the bounds [0, 8] [-Werror=array-bounds=]
+CXXFLAGS += "-Wno-error=array-bounds"
+
+# nav2-behaviors/1.1.12-1/recipe-sysroot/usr/include/c++/13.2.0/bits/stl_algobase.h:437:30: error: 'void* __builtin_memmove(void*, const void*, long unsigned int)' writing between 9 and 9223372036854775807 bytes into a region of size 8 overflows the destination [-Werror=stringop-overflow=]
+CXXFLAGS += "-Wno-error=stringop-overflow"
+
+# nav2-behaviors/1.1.12-1/recipe-sysroot/usr/include/rclcpp/rclcpp/parameter.hpp:70:21: error: 'transform_tolerance' may be used uninitialized [-Werror=maybe-uninitialized]
+CXXFLAGS += "-Wno-error=maybe-uninitialized"
