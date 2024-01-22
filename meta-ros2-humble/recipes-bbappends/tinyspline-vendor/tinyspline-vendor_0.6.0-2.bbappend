@@ -10,7 +10,7 @@ SRC_URI = " \
   file://0002-fix-pkgconfig-files.patch \
 "
 
-SRCREV_name = "cc7ea40f22a3076f6491b73b12a406a123ebd023"
+SRCREV_release = "cc7ea40f22a3076f6491b73b12a406a123ebd023"
 SRCREV_upstream = "5f0e8fad34e86771cfae3dac4beef5f1858d5610"
 SRCREV_FORMAT = "release_upstream"
 
