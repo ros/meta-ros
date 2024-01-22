@@ -33,3 +33,6 @@ DEPENDS:append:class-target = " chrpath-replacement-native"
 do_install:append() {
     chrpath --delete ${D}${bindir}/* ${D}${libdir}/*${SOLIBS}
 }
+
+# OcTreeIterator.hxx:42:39: error: 'template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator' is deprecated [-Werror=deprecated-declarations]
+CXXFLAGS += "-Wno-error=deprecated-declarations"
