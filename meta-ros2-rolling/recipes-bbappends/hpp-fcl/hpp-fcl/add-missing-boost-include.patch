@@ -1,0 +1,21 @@
+From 2313893292844742b9e915dbd2373fe236106e89 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?St=C3=A9phane=20Caron?= <stephane.caron@normalesup.org>
+Date: Thu, 20 Apr 2023 16:18:57 +0200
+Subject: [PATCH] Add missing boost include
+
+---
+ python/broadphase/broadphase_collision_manager.hh | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/python/broadphase/broadphase_collision_manager.hh b/python/broadphase/broadphase_collision_manager.hh
+index 045c2d567..45a0743e2 100644
+--- a/python/broadphase/broadphase_collision_manager.hh
++++ b/python/broadphase/broadphase_collision_manager.hh
+@@ -49,6 +49,7 @@
+ #endif
+ 
+ #include <boost/algorithm/string/replace.hpp>
++#include <boost/type_index.hpp>
+ 
+ namespace hpp {
+ namespace fcl {
