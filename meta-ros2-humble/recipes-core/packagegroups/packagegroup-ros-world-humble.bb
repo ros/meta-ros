@@ -86,6 +86,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP = " \
     moveit-ros \
     moveit-runtime \
     moveit \
+    nav2-mppi-controller \
+    reach \
+    reach-ros \
 "
 
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
@@ -313,11 +316,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     andino-description \
     andino-navigation \
     andino-slam \
+    as2-realsense-interface \
     color-names \
     desktop \
     dolly-gazebo \
     dolly \
     etsi-its-rviz-plugins \
+    freglut \
+    glfw \
     libg2o \
     librealsense2 \
     moveit-ros \
@@ -327,6 +333,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     moveit-runtime \
     moveit-visual-tools \
     moveit \
+    openni2 \
+    openni2-camera \
     openvslam \
     plotjuggler-ros \
     plotjuggler \
@@ -336,6 +344,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     realsense-node \
     realsense-ros \
     realsense2-camera \
+    rig-reconfigure \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rtabmap \
@@ -351,6 +360,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rviz2 \
     tiago-bringup \
     tiago-robot \
+    tinyspline-vendor \
     turtlebot3-gazebo \
     turtlebot3-simulations \
     webots-ros2-epuck \
@@ -766,12 +776,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'glfw', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
+    as2-realsense-interface \
     librealsense2 \
     pose-cov-ops \
     realsense-examples \
     realsense-node \
     realsense-ros \
     realsense2-camera \
+    rig-reconfigure \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ros1', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROS1}', '', d)}"
@@ -844,6 +856,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOPEN3D = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'scipy', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY = " \
+    proxsuite \
     slider-publisher \
 "
 
