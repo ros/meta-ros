@@ -366,6 +366,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop-full \
     dolly-gazebo \
     dolly \
+    dual-arm-panda-moveit-config \
     etsi-its-rviz-plugins \
     fuse-ros \
     fuse-viz \
@@ -434,6 +435,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-bag-plugins \
     rqt-common-plugins \
     rqt-console \
+    rqt-controller-manager \
+    rqt-gauges \
     rqt-gui \
     rqt-gui-py \
     rqt-gui-cpp \
