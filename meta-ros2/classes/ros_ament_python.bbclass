@@ -1,6 +1,6 @@
 # Copyright (c) 2018-2019 LG Electronics, Inc.
 
-inherit setuptools3
+inherit setuptools3_legacy
 
 do_install:append() {
     mkdir -p ${D}${datadir}/ament_index/resource_index/packages
