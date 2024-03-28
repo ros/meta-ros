@@ -1,0 +1,37 @@
+From: Hauke Wintjen <hwintjen@rimpl-consulting.de>
+Date: Fri, 29 Mar 2013 21:04:33 +0100
+Subject: Add SONAME to libraries
+
+---
+ ThirdParty/PSCommon/BuildSystem/CommonCppMakefile           |    4 ++--
+ ThirdParty/PSCommon/XnLib/Include/Linux-x86/XnOSLinux-x86.h |    2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/ThirdParty/PSCommon/BuildSystem/CommonCppMakefile b/ThirdParty/PSCommon/BuildSystem/CommonCppMakefile
+index ffdc236..6d0d0b4 100644
+--- a/ThirdParty/PSCommon/BuildSystem/CommonCppMakefile
++++ b/ThirdParty/PSCommon/BuildSystem/CommonCppMakefile
+@@ -77,8 +77,8 @@ ifneq "$(LIB_NAME)" ""
+ 	OUTPUT_NAME = lib$(LIB_NAME).so
+ 	ifneq ("$(OSTYPE)","Darwin")
+ 		LDFLAGS += -Wl,--no-undefined
+-		OUTPUT_NAME = lib$(LIB_NAME).so
+-		OUTPUT_COMMAND = $(CXX) -o $(OUTPUT_FILE) $(OBJ_FILES) $(LDFLAGS) -shared
++		OUTPUT_NAME = lib$(LIB_NAME).so.0
++		OUTPUT_COMMAND = $(CXX) -o $(OUTPUT_FILE) $(OBJ_FILES) $(LDFLAGS) -shared -Wl,-soname,${OUTPUT_NAME} && cd ${OUT_DIR} && ln -fs ${OUTPUT_NAME} lib$(LIB_NAME).so
+ 	else
+ 		LDFLAGS += -undefined error
+ 		OUTPUT_NAME = lib$(LIB_NAME).dylib
+diff --git a/ThirdParty/PSCommon/XnLib/Include/Linux-x86/XnOSLinux-x86.h b/ThirdParty/PSCommon/XnLib/Include/Linux-x86/XnOSLinux-x86.h
+index f8d1ecd..7262b00 100644
+--- a/ThirdParty/PSCommon/XnLib/Include/Linux-x86/XnOSLinux-x86.h
++++ b/ThirdParty/PSCommon/XnLib/Include/Linux-x86/XnOSLinux-x86.h
+@@ -78,7 +78,7 @@ typedef	void* XN_LIB_HANDLE;
+ #define XN_SHARED_LIBRARY_PREFIX "lib"
+ 
+ /** A string that specifies the postfix of shared library files. */ 
+-#define XN_SHARED_LIBRARY_POSTFIX ".so"
++#define XN_SHARED_LIBRARY_POSTFIX ".so.0"
+ 
+ //---------------------------------------------------------------------------
+ // Threads

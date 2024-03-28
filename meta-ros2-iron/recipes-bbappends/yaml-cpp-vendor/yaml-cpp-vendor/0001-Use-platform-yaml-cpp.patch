@@ -1,20 +1,21 @@
-From 180387c415a4880427bc22d559915faf6b44931d Mon Sep 17 00:00:00 2001
+From da4fad4eca3ecd54d3cf02e47168791651df439f Mon Sep 17 00:00:00 2001
 From: Herb Kuta <herb.kuta@lge.com>
 Date: Tue, 31 Dec 2019 10:17:22 -0800
 Subject: [PATCH] Use platform yaml-cpp
 
 Upstream-Status: Pending
+
 ---
- CMakeLists.txt |   79 ++++-----------------------------------------------------
+ CMakeLists.txt | 79 ++++----------------------------------------------
  1 file changed, 6 insertions(+), 73 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 1d8d85e..064db30 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -8,80 +8,13 @@ option(FORCE_BUILD_VENDOR_PKG
- 
- find_package(ament_cmake REQUIRED)
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -14,82 +14,13 @@ if (POLICY CMP0135)
+   cmake_policy(SET CMP0135 NEW)
+ endif()
  
 -macro(build_yaml_cpp)
 -  set(extra_cmake_args)
@@ -30,7 +31,9 @@ index 1d8d85e..064db30 100644
 -  list(APPEND extra_cmake_args "-DYAML_CPP_BUILD_TESTS=OFF")
 -  list(APPEND extra_cmake_args "-DYAML_CPP_BUILD_TOOLS=OFF")
 -  list(APPEND extra_cmake_args "-DYAML_CPP_BUILD_CONTRIB=OFF")
--  list(APPEND extra_cmake_args "-DYAML_BUILD_SHARED_LIBS=ON")
+-  if(BUILD_SHARED_LIBS)
+-    list(APPEND extra_cmake_args "-DYAML_BUILD_SHARED_LIBS=ON")
+-  endif()
 -  list(APPEND extra_cmake_args "-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
 -  list(APPEND extra_cmake_args "-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}")
 -

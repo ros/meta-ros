@@ -7,8 +7,6 @@ SRC_URI += " \
     file://cmake.dont.add.Werror.uninitialized.patch \
     file://0001-Fix-build-with-gtest-1.8.1.patch \
     file://0002-CmakeLists.txt-set-C-version-to-C-14.patch \
-    file://0003-proto_stream_deserializer_test.cc-fix-build-with-C-1.patch \
-    file://0004-CMakeLists.txt-don-t-include-CERES_INCLUDE_DIRS-if-i.patch \
     file://0001-FindLuaGoogle.cmake-accept-5.4-lua-as-well.patch \
 "
 

@@ -1,0 +1,18 @@
+From: Jochen Sprickerhof <jochen@sprickerhof.de>
+Date: Sat, 25 May 2013 10:28:22 +0200
+Subject: Link NiViewer against ptherad (DSO on Ubuntu raring)
+
+---
+ Source/Tools/NiViewer/Makefile |    1 +
+ 1 file changed, 1 insertion(+)
+
+--- a/Source/Tools/NiViewer/Makefile
++++ b/Source/Tools/NiViewer/Makefile
+@@ -23,6 +23,7 @@
+ else
+ 	CFLAGS += -DUNIX -DGLX_GLXEXT_LEGACY
+ 	USED_LIBS += glut GL
++	LDFLAGS += -pthread
+ endif
+ 
+ LIB_DIRS  += ../../../ThirdParty/PSCommon/XnLib/Bin/$(PLATFORM)-$(CFG)

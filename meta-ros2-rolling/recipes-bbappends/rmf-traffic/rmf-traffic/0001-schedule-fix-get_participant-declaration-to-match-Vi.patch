@@ -1,4 +1,4 @@
-From 568b39820a63e4de4e08cb382a51a11b4e9001ef Mon Sep 17 00:00:00 2001
+From 8c3f055a2c4dc6d89e7dceead607d4c16a1917db Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Sat, 12 Jun 2021 19:54:33 +0000
 Subject: [PATCH] schedule: fix get_participant() declaration to match Viewer
@@ -20,6 +20,7 @@ In file included from /jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glib
 Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
 ---
  include/rmf_traffic/schedule/Database.hpp | 2 +-
  include/rmf_traffic/schedule/Mirror.hpp   | 2 +-
@@ -27,11 +28,11 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  src/rmf_traffic/schedule/Mirror.cpp       | 2 +-
  4 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/include/rmf_traffic/schedule/Database.hpp b/include/rmf_traffic/schedule/Database.hpp
-index 052239b..a18a5e0 100644
---- a/include/rmf_traffic/schedule/Database.hpp
-+++ b/include/rmf_traffic/schedule/Database.hpp
-@@ -114,7 +114,7 @@ public:
+Index: git/include/rmf_traffic/schedule/Database.hpp
+===================================================================
+--- git.orig/include/rmf_traffic/schedule/Database.hpp
++++ git/include/rmf_traffic/schedule/Database.hpp
+@@ -113,7 +113,7 @@ public:
  
    // Documentation inherited from Viewer
    std::shared_ptr<const ParticipantDescription> get_participant(
@@ -39,12 +40,26 @@ index 052239b..a18a5e0 100644
 +    ParticipantId participant_id) const final;
  
    // Documentation inherited from Viewer
-   rmf_utils::optional<Itinerary> get_itinerary(
-diff --git a/include/rmf_traffic/schedule/Mirror.hpp b/include/rmf_traffic/schedule/Mirror.hpp
-index d8746b5..8fdbe3f 100644
---- a/include/rmf_traffic/schedule/Mirror.hpp
-+++ b/include/rmf_traffic/schedule/Mirror.hpp
-@@ -51,7 +51,7 @@ public:
+   Version latest_version() const;
+@@ -125,11 +125,11 @@ public:
+ 
+   // Documentation inherited from ItineraryViewer
+   std::optional<ItineraryView> get_itinerary(
+-    std::size_t participant_id) const final;
++    ParticipantId participant_id) const;
+ 
+   // Documentation inherited from ItineraryViewer
+   std::optional<PlanId> get_current_plan_id(
+-    std::size_t participant_id) const final;
++    ParticipantId participant_id) const;
+ 
+   // Documentation inherited from ItineraryViewer
+   const std::vector<CheckpointId>* get_current_progress(
+Index: git/include/rmf_traffic/schedule/Mirror.hpp
+===================================================================
+--- git.orig/include/rmf_traffic/schedule/Mirror.hpp
++++ git/include/rmf_traffic/schedule/Mirror.hpp
+@@ -51,11 +51,11 @@ public:
  
    // Documentation inherited from Viewer
    std::shared_ptr<const ParticipantDescription> get_participant(
@@ -52,12 +67,17 @@ index d8746b5..8fdbe3f 100644
 +    ParticipantId participant_id) const final;
  
    // Documentation inherited from Viewer
-   std::optional<Itinerary> get_itinerary(
-diff --git a/src/rmf_traffic/schedule/Database.cpp b/src/rmf_traffic/schedule/Database.cpp
-index fd26912..e3af83b 100644
---- a/src/rmf_traffic/schedule/Database.cpp
-+++ b/src/rmf_traffic/schedule/Database.cpp
-@@ -1208,7 +1208,7 @@ const std::unordered_set<ParticipantId>& Database::participant_ids() const
+   std::optional<ItineraryView> get_itinerary(
+-    std::size_t participant_id) const final;
++    ParticipantId participant_id) const;
+ 
+   // Documentation inherited from Viewer
+   std::optional<Version> latest_version() const;
+Index: git/src/rmf_traffic/schedule/Database.cpp
+===================================================================
+--- git.orig/src/rmf_traffic/schedule/Database.cpp
++++ git/src/rmf_traffic/schedule/Database.cpp
+@@ -1303,7 +1303,7 @@ const std::unordered_set<ParticipantId>&
  
  //==============================================================================
  std::shared_ptr<const ParticipantDescription> Database::get_participant(
@@ -66,11 +86,29 @@ index fd26912..e3af83b 100644
  {
    const auto state_it = _pimpl->descriptions.find(participant_id);
    if (state_it == _pimpl->descriptions.end())
-diff --git a/src/rmf_traffic/schedule/Mirror.cpp b/src/rmf_traffic/schedule/Mirror.cpp
-index 35a33ac..de67a41 100644
---- a/src/rmf_traffic/schedule/Mirror.cpp
-+++ b/src/rmf_traffic/schedule/Mirror.cpp
-@@ -239,7 +239,7 @@ const std::unordered_set<ParticipantId>& Mirror::participant_ids() const
+@@ -1320,7 +1320,7 @@ Version Database::latest_version() const
+ 
+ //==============================================================================
+ std::optional<ItineraryView> Database::get_itinerary(
+-  const std::size_t participant_id) const
++  const ParticipantId participant_id) const
+ {
+   const auto state_it = _pimpl->states.find(participant_id);
+   if (state_it == _pimpl->states.end())
+@@ -1345,7 +1345,7 @@ std::optional<ItineraryView> Database::g
+ 
+ //==============================================================================
+ std::optional<PlanId> Database::get_current_plan_id(
+-  const std::size_t participant_id) const
++  ParticipantId participant_id) const
+ {
+   const auto state_it = _pimpl->states.find(participant_id);
+   if (state_it == _pimpl->states.end())
+Index: git/src/rmf_traffic/schedule/Mirror.cpp
+===================================================================
+--- git.orig/src/rmf_traffic/schedule/Mirror.cpp
++++ git/src/rmf_traffic/schedule/Mirror.cpp
+@@ -255,7 +255,7 @@ const std::unordered_set<ParticipantId>&
  
  //==============================================================================
  std::shared_ptr<const ParticipantDescription> Mirror::get_participant(
@@ -79,3 +117,21 @@ index 35a33ac..de67a41 100644
  {
    const auto p = _pimpl->descriptions.find(participant_id);
    if (p == _pimpl->descriptions.end())
+@@ -272,7 +272,7 @@ std::optional<Version> Mirror::latest_ve
+ 
+ //==============================================================================
+ std::optional<ItineraryView> Mirror::get_itinerary(
+-  const std::size_t participant_id) const
++  ParticipantId participant_id) const
+ {
+   const auto p = _pimpl->states.find(participant_id);
+   if (p == _pimpl->states.end())
+@@ -297,7 +297,7 @@ std::optional<ItineraryView> Mirror::get
+ 
+ //==============================================================================
+ std::optional<PlanId> Mirror::get_current_plan_id(
+-  const std::size_t participant_id) const
++  ParticipantId participant_id) const
+ {
+   const auto p = _pimpl->states.find(participant_id);
+   if (p == _pimpl->states.end())

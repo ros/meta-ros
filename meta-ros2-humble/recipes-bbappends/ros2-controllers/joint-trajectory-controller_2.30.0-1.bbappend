@@ -1,6 +1,7 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
 ROS_BUILDTOOL_DEPENDS += " \
+<<<<<<< HEAD
     ament-cmake-ros-native \
     python3-numpy-native \
     rosidl-adapter-native \
@@ -11,4 +12,7 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-typesupport-fastrtps-cpp-native \
     rosidl-typesupport-introspection-cpp-native \
+=======
+    generate-parameter-library-py-native \
+>>>>>>> upstream/kirkstone
 "

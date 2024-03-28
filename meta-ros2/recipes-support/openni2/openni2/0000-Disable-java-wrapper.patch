@@ -1,0 +1,23 @@
+Disable Java
+
+Upstream-Status: Not applicable
+
+--- a/Makefile
++++ b/Makefile
+@@ -54,7 +54,6 @@
+ 	$(OPENNI) \
+ 	$(DEPTH_UTILS) \
+ 	$(ALL_DRIVERS) \
+-	$(ALL_WRAPPERS) \
+ 	$(ALL_TOOLS)
+ 
+ # list all samples
+@@ -90,7 +89,7 @@
+ # list all projects that are build
+ ALL_BUILD_PROJS = \
+ 	$(ALL_CORE_PROJS) \
+-	$(ALL_SAMPLES)
++	$(CORE_SAMPLES)
+ 
+ ALL_PROJS = \
+ 	$(ALL_BUILD_PROJS)

@@ -1,0 +1,21 @@
+From: Jochen Sprickerhof <jochen@sprickerhof.de>
+Date: Wed, 4 Jul 2012 17:42:08 +0200
+Subject: Silence asserts
+
+---
+ Include/Linux-x86/XnPlatformLinux-x86.h |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Include/Linux-x86/XnPlatformLinux-x86.h b/Include/Linux-x86/XnPlatformLinux-x86.h
+index 6edecb0..4b4c73e 100644
+--- a/Include/Linux-x86/XnPlatformLinux-x86.h
++++ b/Include/Linux-x86/XnPlatformLinux-x86.h
+@@ -164,7 +164,7 @@ typedef size_t				XnSizeT;
+ #define XN_STRINGIFY_HELPER(n) #n
+ 
+ /** Asserts an expression, only on Debug build. */
+-#define XN_ASSERT(x)
++#define XN_ASSERT(x) ((void)(x))
+ 
+ //---------------------------------------------------------------------------
+ // API Export/Import Macros

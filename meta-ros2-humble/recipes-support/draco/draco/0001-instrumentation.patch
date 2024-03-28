@@ -1,0 +1,29 @@
+# -- Install configuration: "Release"
+# CMake Error at cmake_install.cmake:46 (file):
+#   file INSTALL cannot find
+#   "/OE/tmp-glibc/work/core2-64-oe-linux/draco/1.5.6+gitAUTOINC+9f856abaaf-r0/git/src/draco//OE/tmp-glibc/work/core2-64-oe-linux/draco/1.5.6+gitAUTOINC+9f856abaaf-r0/git/src/draco/attributes/attribute_octahedron_transform.h":
+#   No such file or directory.
+
+This replaces the list(TRANSFORM ) function with string(REPLACE ).  This
+ensures that regex operators like '+' don't cause the substitution to fail.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/cmake/draco_install.cmake
+===================================================================
+--- git.orig/cmake/draco_install.cmake
++++ git/cmake/draco_install.cmake
+@@ -37,9 +37,9 @@ macro(draco_setup_install_target)
+ 
+   # Strip $draco_src_root from the file paths: we need to install relative to
+   # $include_directory.
+-  list(TRANSFORM draco_api_includes REPLACE "${draco_src_root}/" "")
+ 
+-  foreach(draco_api_include ${draco_api_includes})
++  foreach(includefile ${draco_api_includes})
++    string(REPLACE "${draco_src_root}/" "" draco_api_include ${includefile})
+     get_filename_component(file_directory ${draco_api_include} DIRECTORY)
+     set(target_directory "${includes_path}/draco/${file_directory}")
+     install(FILES ${draco_src_root}/${draco_api_include}

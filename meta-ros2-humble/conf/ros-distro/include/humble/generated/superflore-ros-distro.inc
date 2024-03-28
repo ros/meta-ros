@@ -1178,7 +1178,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     sick-safevisionary-driver \
     sick-safevisionary-interfaces \
     sick-safevisionary-tests \
-    sick-scan-xd \
     simple-actions \
     simple-launch \
     simple-term-menu-vendor \
@@ -1447,7 +1446,6 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                         common-interfaces/actionlib-msgs_4.2.3-1 \
                             actuator-msgs/actuator-msgs_0.0.1-1 \
                        adaptive-component/adaptive-component_0.2.1-2 \
-                                 adi-tmcl/adi-tmcl_2.0.0-1 \
                          ros2-controllers/admittance-controller_2.30.0-1 \
                                aerostack2/aerostack2_1.0.6-1 \
                     affordance-primitives/affordance-primitives_0.1.0-3 \
@@ -1598,22 +1596,22 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                    moveit/chomp-motion-planner_2.5.5-1 \
                              class-loader/class-loader_2.2.0-3 \
                              classic-bags/classic-bags_0.1.0-1 \
-                         clearpath-common/clearpath-common_0.2.3-1 \
-                         clearpath-config/clearpath-config_0.2.2-1 \
+                         clearpath-common/clearpath-common_0.2.2-1 \
+                         clearpath-config/clearpath-config_0.2.1-1 \
                         clearpath-desktop/clearpath-config-live_0.1.2-1 \
-                         clearpath-common/clearpath-control_0.2.3-1 \
-                         clearpath-common/clearpath-description_0.2.3-1 \
+                         clearpath-common/clearpath-control_0.2.2-1 \
+                         clearpath-common/clearpath-description_0.2.2-1 \
                         clearpath-desktop/clearpath-desktop_0.1.2-1 \
-                         clearpath-common/clearpath-generator-common_0.2.3-1 \
+                         clearpath-common/clearpath-generator-common_0.2.2-1 \
                       clearpath-simulator/clearpath-generator-gz_0.2.1-1 \
                       clearpath-simulator/clearpath-gz_0.2.1-1 \
-                         clearpath-common/clearpath-mounts-description_0.2.3-1 \
+                         clearpath-common/clearpath-mounts-description_0.2.2-1 \
                            clearpath-msgs/clearpath-msgs_0.2.0-1 \
                      clearpath-nav2-demos/clearpath-nav2-demos_0.1.0-1 \
-                         clearpath-common/clearpath-platform_0.2.3-1 \
-                         clearpath-common/clearpath-platform-description_0.2.3-1 \
+                         clearpath-common/clearpath-platform_0.2.2-1 \
+                         clearpath-common/clearpath-platform-description_0.2.2-1 \
                            clearpath-msgs/clearpath-platform-msgs_0.2.0-1 \
-                         clearpath-common/clearpath-sensors-description_0.2.3-1 \
+                         clearpath-common/clearpath-sensors-description_0.2.2-1 \
                       clearpath-simulator/clearpath-simulator_0.2.1-1 \
                         clearpath-desktop/clearpath-viz_0.1.2-1 \
                                cob-common/cob-actions_2.7.9-1 \
@@ -1631,9 +1629,9 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                           control-box-rst/control-box-rst_0.0.7-1 \
                              control-msgs/control-msgs_4.4.0-1 \
                           control-toolbox/control-toolbox_3.2.0-1 \
-                             ros2-control/controller-interface_2.36.1-1 \
-                             ros2-control/controller-manager_2.36.1-1 \
-                             ros2-control/controller-manager-msgs_2.36.1-1 \
+                             ros2-control/controller-interface_2.36.0-1 \
+                             ros2-control/controller-manager_2.36.0-1 \
+                             ros2-control/controller-manager-msgs_2.36.0-1 \
                               navigation2/costmap-queue_1.1.12-1 \
                                crane-plus/crane-plus_2.0.1-1 \
                                crane-plus/crane-plus-control_2.0.1-1 \
@@ -1859,7 +1857,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                googletest/gtest-vendor_1.10.9004-4 \
                                     gtsam/gtsam_4.2.0-2 \
                              rmw-gurumdds/gurumdds-cmake-module_3.4.2-1 \
-                             ros2-control/hardware-interface_2.36.1-1 \
+                             ros2-control/hardware-interface_2.36.0-1 \
                       hash-library-vendor/hash-library-vendor_0.1.1-3 \
                                  heaphook/heaphook_0.1.1-1 \
                          hey5-description/hey5-description_3.0.3-1 \
@@ -1909,7 +1907,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                        irobot-create-msgs/irobot-create-msgs_2.1.0-1 \
                               create3-sim/irobot-create-nodes_2.1.0-1 \
                               create3-sim/irobot-create-toolbox_2.1.0-1 \
-                             ros2-control/joint-limits_2.36.1-1 \
+                             ros2-control/joint-limits_2.36.0-1 \
                          ros2-controllers/joint-state-broadcaster_2.30.0-1 \
                     joint-state-publisher/joint-state-publisher_2.4.0-1 \
                     joint-state-publisher/joint-state-publisher-gui_2.4.0-1 \
@@ -1972,8 +1970,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                leo-common/leo-teleop_1.2.0-1 \
                               leo-desktop/leo-viz_1.1.0-1 \
                                lgsvl-msgs/lgsvl-msgs_0.0.4-3 \
-                                  libcaer/libcaer_1.1.2-1 \
-                                libcamera/libcamera_0.2.0-1 \
+                                  libcaer/libcaer_1.1.1-1 \
+                                libcamera/libcamera_0.1.0-1 \
                                 libcreate/libcreate_3.1.0-1 \
                        resource-retriever/libcurl-vendor_3.1.1-1 \
                                    libg2o/libg2o_2020.5.29-4 \
@@ -2225,7 +2223,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                      ros2-planning-system/plansys2-tools_2.0.9-1 \
                              play-motion2/play-motion2_0.0.13-1 \
                              play-motion2/play-motion2-msgs_0.0.13-1 \
-                              plotjuggler/plotjuggler_3.8.6-3 \
+                              plotjuggler/plotjuggler_3.8.5-1 \
                          plotjuggler-msgs/plotjuggler-msgs_0.2.3-3 \
                           plotjuggler-ros/plotjuggler-ros_2.0.0-3 \
                                 pluginlib/pluginlib_5.1.0-3 \
@@ -2417,8 +2415,8 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
          ros-industrial-cmake-boilerplate/ros-industrial-cmake-boilerplate_0.4.0-1 \
                               ros-testing/ros-testing_0.4.0-3 \
                             ros-workspace/ros-workspace_1.0.2-2 \
-                             ros2-control/ros2-control_2.36.1-1 \
-                             ros2-control/ros2-control-test-assets_2.36.1-1 \
+                             ros2-control/ros2-control_2.36.0-1 \
+                             ros2-control/ros2-control-test-assets_2.36.0-1 \
                          ros2-controllers/ros2-controllers_2.30.0-1 \
                          ros2-controllers/ros2-controllers-test-nodes_2.30.0-1 \
                       ros2-ouster-drivers/ros2-ouster_0.4.2-1 \
@@ -2430,7 +2428,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                 ros2cli-common-extensions/ros2cli-common-extensions_0.1.1-4 \
                                   ros2cli/ros2cli-test-interfaces_0.18.7-1 \
                                   ros2cli/ros2component_0.18.7-1 \
-                             ros2-control/ros2controlcli_2.36.1-1 \
+                             ros2-control/ros2controlcli_2.36.0-1 \
                                   ros2cli/ros2doctor_0.18.7-1 \
                                   ros2cli/ros2interface_0.18.7-1 \
                                launch-ros/ros2launch_0.19.6-1 \
@@ -2500,8 +2498,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                                   rqt-bag/rqt-bag-plugins_1.1.4-1 \
                        rqt-common-plugins/rqt-common-plugins_1.2.0-1 \
                               rqt-console/rqt-console_2.0.2-3 \
-                             ros2-control/rqt-controller-manager_2.36.1-1 \
-                               rqt-gauges/rqt-gauges_0.0.1-1 \
+                             ros2-control/rqt-controller-manager_2.36.0-1 \
                                 rqt-graph/rqt-graph_1.3.0-1 \
                                       rqt/rqt-gui_1.1.5-2 \
                                       rqt/rqt-gui-cpp_1.1.5-2 \
@@ -2582,7 +2579,6 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                   sick-safevisionary-ros2/sick-safevisionary-driver_1.0.3-1 \
                   sick-safevisionary-ros2/sick-safevisionary-interfaces_1.0.3-1 \
                   sick-safevisionary-ros2/sick-safevisionary-tests_1.0.3-1 \
-                             sick-scan-xd/sick-scan-xd_3.1.6-1 \
                            simple-actions/simple-actions_0.3.0-1 \
                             simple-launch/simple-launch_1.9.0-1 \
                   simple-term-menu-vendor/simple-term-menu-vendor_1.5.7-1 \
@@ -2697,7 +2693,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                              ros2-tracing/tracetools-test_4.1.1-1 \
                              ros2-tracing/tracetools-trace_4.1.1-1 \
                         common-interfaces/trajectory-msgs_4.2.3-1 \
-                             ros2-control/transmission-interface_2.36.1-1 \
+                             ros2-control/transmission-interface_2.36.0-1 \
                          ros2-controllers/tricycle-controller_2.30.0-1 \
                          ros2-controllers/tricycle-steering-controller_2.30.0-1 \
      turbojpeg-compressed-image-transport/turbojpeg-compressed-image-transport_0.1.3-1 \
@@ -3950,7 +3946,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     sick-safevisionary-base \
     sick-safevisionary-interfaces \
     sick-safevisionary-tests \
-    sick-scan-xd \
     simple-actions \
     simple-launch \
     simple-term-menu-vendor \
@@ -5090,7 +5085,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     sick-safetyscanners2-interfaces \
     sick-safevisionary-base \
     sick-safevisionary-ros2 \
-    sick-scan-xd \
     simple-actions \
     simple-launch \
     simple-term-menu-vendor \
@@ -5302,7 +5296,7 @@ ROS_UNRESOLVED_DEP-xtensor = "ROS_UNRESOLVED_DEP-xtensor"
 ROS_DISTRO_RELEASE_DATE = "2024-01-09"
 
 # The commit of ros/rosdistro/humble/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "be1eb4be33a620057dd18ccade80f7aa8a300fd4"
+ROS_SUPERFLORE_GENERATION_COMMIT = "350e90eeabeb7b568c080b50f17b2f98dc25902d"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated

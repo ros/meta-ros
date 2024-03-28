@@ -1,0 +1,13 @@
+Index: git/setup.py
+===================================================================
+--- git.orig/setup.py
++++ git/setup.py
+@@ -22,8 +22,6 @@ setup(
+     tests_require=['pytest'],
+     entry_points={
+         'console_scripts': [
+-            'flexbe_mirror = flexbe_mirror.flexbe_mirror',
+-            'mirror_state = flexbe_mirror.mirror_state',
+             'behavior_mirror_sm = flexbe_mirror.behavior_mirror_sm:main'
+         ],
+     },

@@ -1,0 +1,25 @@
+From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
+Date: Sat, 20 Oct 2018 00:02:32 +0200
+Subject: Disable mono build
+
+---
+ Platform/Linux/CreateRedist/Redist_OpenNi.py | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/Platform/Linux/CreateRedist/Redist_OpenNi.py b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+index 8dede7a..f188745 100755
+--- a/Platform/Linux/CreateRedist/Redist_OpenNi.py
++++ b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+@@ -317,12 +317,6 @@ shutil.copy("Bin/" + PLATFORM + "-Release/libOpenNI.jni"+LIBS_TYPE, REDIST_DIR +
+ MonoDetected = 0
+ shutil.copy("Bin/" + PLATFORM + "-Release/niReg", REDIST_DIR + "/Bin")
+ shutil.copy("Bin/" + PLATFORM + "-Release/niLicense", REDIST_DIR + "/Bin")
+-if PLATFORM == 'x86' or PLATFORM == 'x64':
+-    if (os.path.exists("/usr/bin/gmcs")):
+-        shutil.copy("Bin/" + PLATFORM + "-Release/OpenNI.net.dll", REDIST_DIR + "/Bin")
+-        shutil.copy("Bin/" + PLATFORM + "-Release/OpenNI.net.dll", REDIST_DIR + "/Samples/Bin/" + PLATFORM + "-Debug")
+-        shutil.copy("Bin/" + PLATFORM + "-Release/OpenNI.net.dll", REDIST_DIR + "/Samples/Bin/" + PLATFORM + "-Release")
+-        MonoDetected = 1
+         
+ # java wrapper
+ shutil.copy("Bin/" + PLATFORM + "-Release/org.OpenNI.jar", REDIST_DIR + "/Jar")

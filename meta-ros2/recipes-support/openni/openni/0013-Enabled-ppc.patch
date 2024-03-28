@@ -1,0 +1,189 @@
+From ccc8187b172049ff28ce14b322574f058529a5d5 Mon Sep 17 00:00:00 2001
+From: Roland Stigge <stigge@antcom.de>
+Date: Sun, 17 May 2015 22:23:08 +0200
+Subject: [PATCH] Enabled ppc
+
+---
+ Include/Linux-Powerpc/XnPlatformLinux-Powerpc.h | 44 +++++++++++++++++++++++++
+ Include/XnOS.h                                  |  2 +-
+ Include/XnPlatform.h                            |  3 ++
+ Include/XnUSBDevice.h                           |  2 +-
+ Platform/Linux/Build/Common/CommonDefs.mak      |  4 ++-
+ Platform/Linux/Build/Common/Platform.Powerpc    | 11 +++++++
+ Platform/Linux/CreateRedist/Redist_OpenNi.py    |  3 ++
+ Samples/NiViewer/NiViewer.cpp                   |  4 +--
+ Source/OpenNI/XnOpenNI.cpp                      |  2 +-
+ 9 files changed, 69 insertions(+), 6 deletions(-)
+ create mode 100644 Include/Linux-Powerpc/XnPlatformLinux-Powerpc.h
+ create mode 100644 Platform/Linux/Build/Common/Platform.Powerpc
+
+--- /dev/null
++++ b/Include/Linux-Powerpc/XnPlatformLinux-Powerpc.h
+@@ -0,0 +1,44 @@
++/****************************************************************************
++*                                                                           *
++*  OpenNI 1.x Alpha                                                         *
++*  Copyright (C) 2011 PrimeSense Ltd.                                       *
++*                                                                           *
++*  This file is part of OpenNI.                                             *
++*                                                                           *
++*  OpenNI is free software: you can redistribute it and/or modify           *
++*  it under the terms of the GNU Lesser General Public License as published *
++*  by the Free Software Foundation, either version 3 of the License, or     *
++*  (at your option) any later version.                                      *
++*                                                                           *
++*  OpenNI is distributed in the hope that it will be useful,                *
++*  but WITHOUT ANY WARRANTY; without even the implied warranty of           *
++*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the             *
++*  GNU Lesser General Public License for more details.                      *
++*                                                                           *
++*  You should have received a copy of the GNU Lesser General Public License *
++*  along with OpenNI. If not, see <http://www.gnu.org/licenses/>.           *
++*                                                                           *
++****************************************************************************/
++#ifndef _XN_PLATFORM_LINUX_POWERPC_H_
++#define _XN_PLATFORM_LINUX_POWERPC_H_
++
++// Start with Linux-x86, and override what's different
++#include "../Linux-x86/XnPlatformLinux-x86.h"
++
++//---------------------------------------------------------------------------
++// Platform Basic Definition
++//---------------------------------------------------------------------------
++#undef XN_PLATFORM
++#undef XN_PLATFORM_STRING
++#undef XN_PLATFORM_ENDIAN_TYPE
++#define XN_PLATFORM XN_PLATFORM_LINUX_POWERPC
++#define XN_PLATFORM_STRING "Linux-Powerpc"
++
++#ifdef __BIG_ENDIAN__
++#define XN_PLATFORM_ENDIAN_TYPE XN_PLATFORM_IS_BIG_ENDIAN
++#else
++#define XN_PLATFORM_ENDIAN_TYPE XN_PLATFORM_IS_LITTLE_ENDIAN
++
++#endif // __BIG_ENDIAN__
++#endif //_XN_PLATFORM_LINUX_POWERPC_H_
++
+--- a/Include/XnOS.h
++++ b/Include/XnOS.h
+@@ -44,7 +44,7 @@
+ //---------------------------------------------------------------------------
+ #if (XN_PLATFORM == XN_PLATFORM_WIN32)
+ 	#include "Win32/XnOSWin32.h"
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_ANDROID_ARM)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_ANDROID_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
+ 	#include "Linux-x86/XnOSLinux-x86.h"
+ #elif defined(_ARC)
+ 	#include "ARC/XnOSARC.h"
+--- a/Include/XnPlatform.h
++++ b/Include/XnPlatform.h
+@@ -35,6 +35,7 @@
+ #define XN_PLATFORM_LINUX_ARM 7
+ #define XN_PLATFORM_MACOSX 8
+ #define XN_PLATFORM_ANDROID_ARM 9
++#define XN_PLATFORM_LINUX_POWERPC 10
+ 
+ #define XN_PLATFORM_IS_LITTLE_ENDIAN 1
+ #define XN_PLATFORM_IS_BIG_ENDIAN    2
+@@ -66,6 +67,8 @@
+ 	#include "Linux-x86/XnPlatformLinux-x86.h"
+ #elif (__linux__ && __arm__)
+ 	#include "Linux-Arm/XnPlatformLinux-Arm.h"
++#elif (__linux__ && __powerpc__)
++	#include "Linux-Powerpc/XnPlatformLinux-Powerpc.h"
+ #elif _ARC
+ 	#include "ARC/XnPlatformARC.h"
+ #elif (__APPLE__)
+--- a/Include/XnUSBDevice.h
++++ b/Include/XnUSBDevice.h
+@@ -48,7 +48,7 @@
+ 	#define USB_DT_DEVICE_SIZE 0
+ 	#define USB_DT_DEVICE 0
+ 
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
+ 	#include <linux/usb/ch9.h>
+ 	typedef struct usb_endpoint_descriptor XnUSBEndpointDescriptor;
+ 	typedef struct usb_interface_descriptor XnUSBInterfaceDescriptor;
+--- a/Platform/Linux/Build/Common/CommonDefs.mak
++++ b/Platform/Linux/Build/Common/CommonDefs.mak
+@@ -18,6 +18,8 @@
+ 	HOST_PLATFORM = x86
+ else ifneq (,$(findstring arm,$(MACHINE)))
+ 	HOST_PLATFORM = Arm
++else ifneq (,$(findstring ppc,$(MACHINE)))
++	HOST_PLATFORM = Powerpc
+ else
+ 	DUMMY:=$(error Can't determine host platform)
+ endif
+@@ -59,4 +61,4 @@
+ # platform specific args
+ include $(COMMON_MAK_DIR)Platform.$(PLATFORM)
+ 
+-endif # _COMMON_DEFS_MAKE_
+\ No newline at end of file
++endif # _COMMON_DEFS_MAKE_
+--- /dev/null
++++ b/Platform/Linux/Build/Common/Platform.Powerpc
+@@ -0,0 +1,11 @@
++export GLUT_SUPPORTED=1
++
++ifeq "$(CFG)" "Release"
++
++    # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
++    CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
++
++    # More optimization flags
++    CFLAGS += -ftree-vectorize -ffast-math -funsafe-math-optimizations -fsingle-precision-constant
++
++endif
+--- a/Platform/Linux/CreateRedist/Redist_OpenNi.py
++++ b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+@@ -186,6 +186,8 @@
+         PLATFORM = "x86"
+     elif machinetype[:3] == "arm":
+         PLATFORM = "Arm"
++    elif machinetype[:3] == "ppc":
++        PLATFORM = "Powerpc"
+     else:
+         print "Unknown platform:", machinetype
+         finish_script(1)
+@@ -333,6 +335,7 @@
+ 
+ shutil.copytree("../../Include/Linux-x86", REDIST_DIR + "/Include/Linux-x86")
+ shutil.copytree("../../Include/Linux-Arm", REDIST_DIR + "/Include/Linux-Arm")
++shutil.copytree("../../Include/Linux-Powerpc", REDIST_DIR + "/Include/Linux-Powerpc")
+ shutil.copytree("../../Include/MacOSX", REDIST_DIR + "/Include/MacOSX")
+ shutil.copytree("Build/Common", REDIST_DIR + "/Samples/Build/Common")
+ 
+--- a/Samples/NiViewer/NiViewer.cpp
++++ b/Samples/NiViewer/NiViewer.cpp
+@@ -49,7 +49,7 @@
+ // --------------------------------
+ #include <XnCppWrapper.h>
+ 
+-#if (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM)
++#if (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
+ 	#define UNIX
+ 	#define GLX_GLXEXT_LEGACY
+ #endif
+@@ -79,7 +79,7 @@
+ #if (XN_PLATFORM == XN_PLATFORM_WIN32)
+ 	#include <conio.h>
+ 	#include <direct.h>	
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_MACOSX)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM_LINUX_POWERPC)
+ 	#define _getch() getchar()
+ #endif
+ 
+--- a/Source/OpenNI/XnOpenNI.cpp
++++ b/Source/OpenNI/XnOpenNI.cpp
+@@ -7062,7 +7062,7 @@
+ 	#define XN_OPEN_NI_FILES_LOCATION "\\Data\\"
+ #elif (CE4100)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/usr/etc/ni/"
+-#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_MACOSX)
++#elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_MACOSX || XN_PLATFORM == XN_PLATFORM_LINUX_POWERPC)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/var/lib/ni/"
+ #elif (XN_PLATFORM == XN_PLATFORM_ANDROID_ARM)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/data/ni/"

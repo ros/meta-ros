@@ -1,0 +1,54 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -3,8 +3,8 @@ project(mcap_vendor LANGUAGES C CXX ASM)
+ 
+ ## Dependencies
+ find_package(ament_cmake REQUIRED)
+-find_package(zstd_vendor REQUIRED)
+-find_package(zstd REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(ZSTD libzstd REQUIRED)
+ 
+ # Avoid DOWNLOAD_EXTRACT_TIMESTAMP warning for CMake >= 3.24
+ if (POLICY CMP0135)
+@@ -30,18 +30,8 @@ endif()
+ 
+ ## Define vendor macro
+ macro(build_mcap_vendor)
+-  include(FetchContent)
+-  fetchcontent_declare(mcap
+-    URL https://github.com/foxglove/mcap/archive/refs/tags/releases/cpp/v1.1.0.tar.gz
+-    URL_HASH SHA1=3220ddd900d987575ae1066254dd97cdec877a26 # v1.1.0
+-  )
+-  fetchcontent_makeavailable(mcap)
+-
+-  fetchcontent_declare(lz4
+-    GIT_REPOSITORY https://github.com/lz4/lz4.git
+-    GIT_TAG d44371841a2f1728a3f36839fd4b7e872d0927d3 # v1.9.3
+-  )
+-  fetchcontent_makeavailable(lz4)
++  set(lz4_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lz4)
++  set(mcap_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/mcap)
+ 
+   file(GLOB _lz4_srcs
+     ${lz4_SOURCE_DIR}/lib/*.c)
+@@ -61,7 +51,7 @@ macro(build_mcap_vendor)
+     "$<BUILD_INTERFACE:${_mcap_include_dir}>"
+     "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+   )
+-  ament_target_dependencies(mcap zstd)
++  ament_target_dependencies(mcap)
+ 
+   install(
+     FILES ${_mcap_installed_headers}
+@@ -82,7 +72,7 @@ build_mcap_vendor()
+ 
+ ament_export_include_directories(include/${PROJECT_NAME})
+ ament_export_targets(mcap HAS_LIBRARY_TARGET)
+-ament_export_dependencies(zstd_vendor zstd)
++ament_export_dependencies()
+ 
+ ## Package
+ ament_package()

@@ -1,0 +1,26 @@
+Index: git/Platform/Linux/Build/Modules/nimCodecs/Makefile
+===================================================================
+--- git.orig/Platform/Linux/Build/Modules/nimCodecs/Makefile
++++ git/Platform/Linux/Build/Modules/nimCodecs/Makefile
+@@ -10,7 +10,7 @@ SRC_FILES = \
+ LIB_NAME = nimCodecs
+ USED_LIBS = OpenNI
+ 
+-ifeq ($(shell ld -ljpeg -o /dev/null 1>&2 2> /dev/null; echo $$?), 0)
++ifeq ($(shell test -f `$(CC) --print-file-name=libjpeg.so` 1>&2 2> /dev/null; echo $$?), 0)
+   USED_LIBS += jpeg
+ else
+   INC_DIRS  += ../../../../../Source/External/LibJPEG
+Index: git/Platform/Linux/Build/OpenNI/Makefile
+===================================================================
+--- git.orig/Platform/Linux/Build/OpenNI/Makefile
++++ git/Platform/Linux/Build/OpenNI/Makefile
+@@ -23,7 +23,7 @@ ifneq ("$(OSTYPE)","Darwin")
+ endif
+ DEFINES = XN_EXPORTS
+ 
+-ifeq ($(shell ld -ltinyxml -o /dev/null 1>&2 2> /dev/null; echo $$?), 0)
++ifeq ($(shell test -f `$(CC) --print-file-name=libtinyxml.so` 1>&2 2> /dev/null; echo $$?), 0)
+   USED_LIBS += tinyxml
+ else
+   INC_DIRS  += ../../../../Source/External/TinyXml

@@ -252,13 +252,13 @@ Upstream-Status: Pending
 
 Signed-off-by: Martin Jansa <martin.jansa@lge.com>
 ---
- CMakeLists.txt | 14 ++++++++++----
+ CMakeLists.txt |   14 ++++++++++----
  1 file changed, 10 insertions(+), 4 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 946a5ba..56e7bf0 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
 @@ -13,8 +13,10 @@ endif()
  find_package(ament_cmake_ros REQUIRED)
  find_package(rclcpp REQUIRED)
@@ -271,26 +271,41 @@ index 946a5ba..56e7bf0 100644
 +
  find_package(sensor_msgs REQUIRED)
  
- include_directories(include)
-@@ -26,7 +28,9 @@ ament_target_dependencies(joy
- # Need this since sdl2 doesn't properly export its
- # libraries so ament_target_dependencies can find them
- target_link_libraries(joy
+ add_library(joy SHARED src/joy.cpp)
+@@ -24,9 +26,11 @@ target_include_directories(joy PUBLIC
+ target_link_libraries(joy PUBLIC
+   rclcpp::rclcpp
+   ${sensor_msgs_TARGETS}
 -  SDL2::SDL2)
 +  ${SDL2_LIBRARIES})
+ target_link_libraries(joy PRIVATE
+   rclcpp_components::component)
 +target_include_directories(joy SYSTEM PUBLIC
 +  ${SDL2_INCLUDE_DIRS})
- 
- install(TARGETS joy
+ install(TARGETS joy EXPORT export_joy
    LIBRARY DESTINATION lib
-@@ -41,7 +45,9 @@ rclcpp_components_register_node(joy
+   ARCHIVE DESTINATION lib
+@@ -43,9 +47,11 @@ target_include_directories(game_controll
+ target_link_libraries(game_controller PUBLIC
+   rclcpp::rclcpp
+   ${sensor_msgs_TARGETS}
+-  SDL2::SDL2)
++  ${SDL2_LIBRARIES})
+ target_link_libraries(game_controller PRIVATE
+   rclcpp_components::component)
++target_include_directories(game_controller SYSTEM PUBLIC
++  ${SDL2_INCLUDE_DIRS})
+ install(TARGETS game_controller EXPORT export_game_controller
+   LIBRARY DESTINATION lib
+   ARCHIVE DESTINATION lib
+@@ -58,7 +64,9 @@ rclcpp_components_register_node(game_con
  add_executable(joy_enumerate_devices
    src/joy_enumerate_devices.cpp)
- target_link_libraries(joy_enumerate_devices
+ target_link_libraries(joy_enumerate_devices PRIVATE
 -  SDL2::SDL2)
 +  ${SDL2_LIBRARIES})
 +target_include_directories(joy_enumerate_devices SYSTEM PUBLIC
 +  ${SDL2_INCLUDE_DIRS})
- 
  install(TARGETS joy_enumerate_devices
    DESTINATION lib/${PROJECT_NAME})
+ 

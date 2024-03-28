@@ -1,0 +1,21 @@
+From: Jochen Sprickerhof <jochen@sprickerhof.de>
+Date: Wed, 8 Jan 2014 15:04:11 +0100
+Subject: Remove -j from make flags (fixes bug on arm)
+
+---
+ Platform/Linux/CreateRedist/Redist_OpenNi.py | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Platform/Linux/CreateRedist/Redist_OpenNi.py b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+index 0d667cf..060e7a5 100755
+--- a/Platform/Linux/CreateRedist/Redist_OpenNi.py
++++ b/Platform/Linux/CreateRedist/Redist_OpenNi.py
+@@ -192,8 +192,6 @@ else:
+ 
+     MAKE_ARGS = ''
+ 
+-MAKE_ARGS += ' -j' + calc_jobs_number()
+-
+ if ostype == "Darwin":
+     TARGET = "MacOSX"
+ else:

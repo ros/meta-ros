@@ -768,6 +768,9 @@ daemontools:
   nixos: [daemontools]
   openembedded: [daemontools@meta-oe]
   ubuntu: [daemontools]
+darknet:
+  debian: [darknet]
+  ubuntu: [darknet]
 dcraw:
   arch: [dcraw]
   debian: [dcraw]
@@ -949,6 +952,16 @@ espeak:
   gentoo: [app-accessibility/espeak]
   nixos: [espeak]
   ubuntu: [espeak]
+ethtool:
+  alpine: [ethtool]
+  arch: [ethtool]
+  debian: [ethtool]
+  fedora: [ethtool]
+  gentoo: [ethtool]
+  nixos: [ethtool]
+  opensuse: [ethtool]
+  rhel: [ethtool]
+  ubuntu: [ethtool]
 exfat-fuse:
   debian: [exfat-fuse]
   gentoo: [sys-fs/fuse-exfat]
@@ -1137,6 +1150,11 @@ fonts-noto:
   fedora: [google-noto-sans-mono-fonts, google-noto-serif-fonts]
   gentoo: [media-fonts/noto]
   ubuntu: [fonts-noto]
+fonts-roboto:
+  arch: [ttf-roboto]
+  debian: [fonts-roboto-hinted, fonts-roboto-unhinted]
+  fedora: [google-roboto-fonts, google-roboto-condensed-fonts]
+  ubuntu: [fonts-roboto-hinted, fonts-roboto-unhinted]
 fping:
   arch: [fping]
   debian: [fping]
@@ -1185,6 +1203,12 @@ fxload:
   debian: [fxload]
   fedora: [fxload]
   ubuntu: [fxload]
+g++-10:
+  debian:
+    bullseye: [g++-10]
+  ubuntu:
+    focal: [g++-10]
+    jammy: [g++-10]
 g++-5-arm-linux-gnueabihf:
   ubuntu: [g++-5-arm-linux-gnueabihf]
 g++-5-multilib:
@@ -4439,7 +4463,7 @@ libopencv-dev:
   freebsd: [opencv-core]
   gentoo: [media-libs/opencv]
   macports: [opencv]
-  nixos: [opencv]
+  nixos: [opencv, opencv.cxxdev]
   openembedded: [opencv@meta-oe]
   opensuse: [opencv-devel]
   rhel: [opencv-devel]
@@ -4449,7 +4473,7 @@ libopencv-imgproc-dev:
   debian: [libopencv-imgproc-dev]
   fedora: [opencv-devel]
   gentoo: [media-libs/opencv]
-  nixos: [opencv]
+  nixos: [opencv, opencv.cxxdev]
   openembedded: [opencv@meta-oe]
   rhel: [opencv-devel]
   ubuntu: [libopencv-imgproc-dev]
@@ -5589,6 +5613,15 @@ libsndfile1-dev:
   openembedded: [libsndfile1@openembedded-core]
   rhel: [libsndfile-devel]
   ubuntu: [libsndfile1-dev]
+libsodium-dev:
+  alpine: [libsodium-dev]
+  arch: [libsodium]
+  debian: [libsodium-dev]
+  fedora: [libsodium-devel]
+  gentoo: [libsodium]
+  opensuse: [libsodium-devel]
+  rhel: [libsodium-devel]
+  ubuntu: [libsodium-dev]
 libsoqt4-dev:
   arch: [soqt]
   debian: [libsoqt4-dev]
@@ -6815,6 +6848,11 @@ nvidia-cuda-dev:
   debian: [nvidia-cuda-dev]
   gentoo: [dev-util/nvidia-cuda-sdk, dev-util/nvidia-cuda-gdk]
   ubuntu: [nvidia-cuda-dev]
+nvidia-cudnn:
+  debian: [nvidia-cudnn]
+  ubuntu:
+    '*': [nvidia-cudnn]
+    focal: null
 ocl-icd-opencl-dev:
   debian: [ocl-icd-opencl-dev]
   fedora: [ocl-icd-devel]
@@ -6966,6 +7004,23 @@ pandoc:
   nixos: [pandoc]
   rhel: [pandoc]
   ubuntu: [pandoc]
+patchelf:
+  alpine: [patchelf]
+  arch: [patchelf]
+  debian: [patchelf]
+  fedora: [patchelf]
+  freebsd: [sysutils/patchelf]
+  gentoo: [dev-util/patchelf]
+  macports: [patchelf]
+  nixos: [patchelf]
+  openembedded: [patchelf@openembedded-core]
+  opensuse: [patchelf]
+  osx:
+    homebrew:
+      packages: [patchelf]
+  rhel: [patchelf]
+  slackware: [patchelf]
+  ubuntu: [patchelf]
 pcre:
   alpine: [pcre-dev]
   arch: [pcre]
@@ -7169,6 +7224,13 @@ protobuf:
     bionic: [libprotobuf10]
     focal: [libprotobuf17]
     jammy: [libprotobuf23]
+protobuf-compiler-grpc:
+  debian: [protobuf-compiler-grpc]
+  fedora: [grpc-plugins]
+  rhel:
+    '8': null
+    '9': [grpc-plugins]
+  ubuntu: [protobuf-compiler-grpc]
 protobuf-dev:
   arch: [protobuf]
   debian: [libprotobuf-dev, protobuf-compiler, libprotoc-dev]
@@ -7388,6 +7450,13 @@ qttools5-dev-tools:
   openembedded: [qttools@meta-qt5]
   rhel: [qt5-qttools-devel]
   ubuntu: [qttools5-dev-tools]
+qtwebengine5-dev:
+  debian: [qtwebengine5-dev]
+  fedora: [qt5-qtwebengine-devel]
+  gentoo: [dev-qt/qtwebengine]
+  nixos: [libsForQt5.qt5.qtwebengine]
+  rhel: [qt5-qtwebengine-devel]
+  ubuntu: [qtwebengine5-dev]
 r-base:
   debian: [r-base]
   fedora: [R]
@@ -8025,6 +8094,14 @@ texmaker:
   gentoo: [app-office/texmaker]
   nixos: [texmaker]
   ubuntu: [texmaker]
+tiled:
+  alpine: [tiled]
+  arch: [tiled]
+  debian: [tiled]
+  fedora: [tiled]
+  nixos: [tiled]
+  opensuse: [tiled]
+  ubuntu: [tiled]
 time:
   arch: [time]
   debian: [time]
@@ -8273,6 +8350,18 @@ vorbis-tools:
   gentoo: [media-sound/vorbis-tools]
   nixos: [vorbis-tools]
   ubuntu: [vorbis-tools]
+wayland:
+  arch: [wayland]
+  debian: [libwayland-client0, libwayland-cursor0, libwayland-egl1]
+  fedora: [libwayland-client, libwayland-cursor, libwayland-egl]
+  rhel: [libwayland-client, libwayland-cursor, libwayland-egl]
+  ubuntu: [libwayland-client0, libwayland-cursor0, libwayland-egl1]
+wayland-dev:
+  arch: [wayland, wayland-protocols]
+  debian: [libwayland-dev, wayland-protocols]
+  fedora: [wayland-devel, wayland-protocols-devel]
+  rhel: [wayland-devel, wayland-protocols-devel]
+  ubuntu: [libwayland-dev, wayland-protocols]
 wget:
   arch: [wget]
   debian: [wget]
@@ -8461,8 +8550,11 @@ xsltproc:
   ubuntu: [xsltproc]
 xtensor:
   arch: [xtensor]
-  fedora: [xtensor]
+  fedora: [xtensor-devel]
   nixos: [xtensor]
+  rhel:
+    '*': [xtensor-devel]
+    '8': null
   ubuntu:
     bionic: [xtensor-dev]
     jammy: [libxtensor-dev]

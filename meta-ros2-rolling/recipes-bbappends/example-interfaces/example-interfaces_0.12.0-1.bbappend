@@ -15,3 +15,13 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
 "
+
+ROS_EXEC_DEPENDS += " \
+    action-msgs \
+    builtin-interfaces \
+    fastcdr \
+    rosidl-typesupport-fastrtps-c \
+    rosidl-typesupport-fastrtps-cpp \
+    service-msgs \
+    unique-identifier-msgs \
+"

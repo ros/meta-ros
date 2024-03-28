@@ -1,4 +1,4 @@
-# humble/cache.yaml 2024-01-09 be1eb4be33a620057dd18ccade80f7aa8a300fd4 20240110002827 1.7.0
+# humble/cache.yaml 2024-01-09 350e90eeabeb7b568c080b50f17b2f98dc25902d 20240109134636 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -118,13 +118,6 @@ doc: {
 type: git,
 url: 'https://github.com/analogdevicesinc/tmcl_ros2.git',
 version: humble
-},
-release: {
-tags: {
-release: 'release/humble/{package}/{version}'
-},
-url: 'https://github.com/ros2-gbp/adi_tmcl-release.git',
-version: 2.0.0-1
 },
 source: {
 type: git,
@@ -992,12 +985,12 @@ status: maintained
 boeing_gazebo_set_joint_positions_plugin: {
 doc: {
 type: git,
-url: 'https://github.com/Boeing/boeing_gazebo_set_joint_positions_plugin.git',
+url: 'https://github.com/Boeing/gazebo_set_joint_positions_plugin.git',
 version: humble
 },
 source: {
 type: git,
-url: 'https://github.com/Boeing/boeing_gazebo_set_joint_positions_plugin.git',
+url: 'https://github.com/Boeing/gazebo_set_joint_positions_plugin.git',
 version: humble
 }
 }
@@ -1277,7 +1270,7 @@ tags: {
 release: 'release/humble/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/clearpath_common-release.git',
-version: 0.2.3-1
+version: 0.2.2-1
 },
 source: {
 type: git,
@@ -1298,7 +1291,7 @@ tags: {
 release: 'release/humble/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/clearpath_config-release.git',
-version: 0.2.2-1
+version: 0.2.1-1
 },
 source: {
 type: git,
@@ -4173,7 +4166,7 @@ tags: {
 release: 'release/humble/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/libcaer-release.git',
-version: 1.1.2-1
+version: 1.1.1-1
 },
 source: {
 type: git,
@@ -6530,7 +6523,7 @@ tags: {
 release: 'release/humble/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/plotjuggler-release.git',
-version: 3.8.6-3
+version: 3.8.5-1
 },
 source: {
 type: git,
@@ -8471,7 +8464,7 @@ tags: {
 release: 'release/humble/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros2_control-release.git',
-version: 2.36.1-1
+version: 2.36.0-1
 },
 source: {
 type: git,
@@ -9427,25 +9420,12 @@ status: maintained
 }
 -----
 rqt_gauges: {
-doc: {
-type: git,
-url: 'https://github.com/ToyotaResearchInstitute/gauges2.git',
-version: main
-},
-release: {
-tags: {
-release: 'release/humble/{package}/{version}'
-},
-url: 'https://github.com/ros2-gbp/rqt_gauges-release.git',
-version: 0.0.1-1
-},
 source: {
 test_pull_requests: false,
 type: git,
 url: 'https://github.com/ToyotaResearchInstitute/gauges2.git',
 version: main
-},
-status: maintained
+}
 }
 -----
 rqt_graph: {
@@ -10286,18 +10266,6 @@ status: developed
 -----
 sick_scan_xd: {
 doc: {
-type: git,
-url: 'https://github.com/SICKAG/sick_scan_xd.git',
-version: master
-},
-release: {
-tags: {
-release: 'release/humble/{package}/{version}'
-},
-url: 'https://github.com/ros2-gbp/sick_scan_xd-release.git',
-version: 3.1.6-1
-},
-source: {
 type: git,
 url: 'https://github.com/SICKAG/sick_scan_xd.git',
 version: master
@@ -25410,8 +25378,7 @@ libcaer: <?xml version="1.0" ?>
 <maintainer email="bernd.pfrommer@gmail.com">Bernd Pfrommer</maintainer>
 <license>BSD-2</license>
 <depend>libusb-1.0-dev</depend>
-<build_depend>pkg-config</build_depend>
-<build_depend>cmake</build_depend>
+<depend>pkg-config</depend>
 <export>
 <build_type>cmake</build_type>
 </export>
@@ -41420,52 +41387,6 @@ sick_safevisionary_tests: <?xml version="1.0" ?>
 <test_depend>launch_ros</test_depend>
 <test_depend>launch_testing_ament_cmake</test_depend>
 <test_depend>sick_safevisionary_driver</test_depend>
-</package>
------
-sick_scan_xd: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>sick_scan_xd</name>
-<description>ROS 1 and 2 driver for SICK scanner</description>
-<maintainer email="ros.test@lehning.de">rostest</maintainer>
-<author email="michael.lehning@lehning.de">Michael Lehning</author>
-<author email="ros@jochen.sprickerhof.de">Jochen Sprickerhof</author>
-<author email="martin.guenther@dfki.de">Martin Günther</author>
-<license>Apache License,
-Version 2.0,
-see &quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</license>
-<url type="repository">https://github.com/SICKAG/sick_scan_xd</url>
-<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
-<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
-<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
-<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
-<depend condition="$ROS_VERSION == 1">dynamic_reconfigure</depend>
-<depend condition="$BUILD_WITH_LDMRS_SUPPORT == True">libsick_ldmrs</depend>
-<depend condition="$ROS_VERSION == 1">roscpp</depend>
-<depend condition="$ROS_VERSION == 1">roslib</depend>
-<depend condition="$ROS_VERSION == 1">tf</depend>
-<depend>diagnostic_msgs</depend>
-<depend>diagnostic_updater</depend>
-<depend>geometry_msgs</depend>
-<depend>nav_msgs</depend>
-<depend>sensor_msgs</depend>
-<depend>std_msgs</depend>
-<depend>tf2</depend>
-<depend>tf2_ros</depend>
-<depend>visualization_msgs</depend>
-<depend condition="$ROS_VERSION == 2">rcl_interfaces</depend>
-<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
-<exec_depend condition="$ROS_VERSION == 1">rospy</exec_depend>
-<exec_depend condition="$ROS_VERSION == 1">rviz</exec_depend>
-<exec_depend condition="$ROS_VERSION == 1">xacro</exec_depend>
-<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
-<test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
-<test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
-<export>
-<build_type condition="$ROS_VERSION == 1">catkin</build_type>
-<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
-</export>
-<member_of_group condition="$ROS_VERSION == 2">rosidl_interface_packages</member_of_group>
 </package>
 -----
 simple_actions: <?xml version="1.0" ?>

@@ -1,0 +1,35 @@
+Index: git/subpackages/mav_trajectory_generation/cmake_dependencies/nlopt_dependencies.cmake
+===================================================================
+--- git.orig/subpackages/mav_trajectory_generation/cmake_dependencies/nlopt_dependencies.cmake
++++ git/subpackages/mav_trajectory_generation/cmake_dependencies/nlopt_dependencies.cmake
+@@ -1,5 +1,5 @@
+ 
+-find_package(nlopt QUIET)
++find_package(NLopt QUIET)
+ if (${NLopt_FOUND})
+   MESSAGE(STATUS "Found NLopt.")
+ else (${NLopt_FOUND})
+Index: git/subpackages/mav_trajectory_generation/CMakeLists.txt
+===================================================================
+--- git.orig/subpackages/mav_trajectory_generation/CMakeLists.txt
++++ git/subpackages/mav_trajectory_generation/CMakeLists.txt
+@@ -67,16 +67,16 @@ target_include_directories(${PROJECT_NAM
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+     $<INSTALL_INTERFACE:include>)
+ 
+-add_dependencies(${PROJECT_NAME} glog::glog nlopt yaml-cpp )
++add_dependencies(${PROJECT_NAME} glog::glog NLopt::nlopt yaml-cpp )
+ target_link_libraries(${PROJECT_NAME}
+   glog::glog
+-  nlopt
++  NLopt::nlopt
+   yaml-cpp
+   ${EIGEN3_LIBRARIES}
+   ${geometry_msgs_LIBRARIES}
+ )
+ 
+ add_executable(test_polynomial test/test_polynomial.cpp)
+-target_link_libraries(test_polynomial ${PROJECT_NAME} nlopt glog::glog yaml-cpp)
++target_link_libraries(test_polynomial ${PROJECT_NAME} NLopt::nlopt glog::glog yaml-cpp)
+ 
+ add_test(TRAJ_TEST test_polynomial)

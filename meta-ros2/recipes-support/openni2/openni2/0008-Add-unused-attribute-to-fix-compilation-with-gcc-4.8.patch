@@ -1,0 +1,21 @@
+From: Jochen Sprickerhof <jochen@sprickerhof.de>
+Date: Fri, 28 Feb 2014 11:23:06 +0100
+Subject: Add unused attribute to fix compilation with gcc-4.8
+
+---
+ Source/Drivers/PSLink/LinkProtoLib/XnLinkProtoUtils.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Source/Drivers/PSLink/LinkProtoLib/XnLinkProtoUtils.h b/Source/Drivers/PSLink/LinkProtoLib/XnLinkProtoUtils.h
+index d3f16b7..0657b7a 100644
+--- a/Source/Drivers/PSLink/LinkProtoLib/XnLinkProtoUtils.h
++++ b/Source/Drivers/PSLink/LinkProtoLib/XnLinkProtoUtils.h
+@@ -15,7 +15,7 @@
+ #define XN_MASK_LINK "xnLink"
+ 
+ #ifndef XN_COMPILER_ASSERT
+-#define XN_COMPILER_ASSERT(x) typedef int compileAssert[x ? 1 : -1]
++#define XN_COMPILER_ASSERT(x) typedef int compileAssert[x ? 1 : -1] __attribute__((unused))
+ #endif
+ 
+ template <typename T>
