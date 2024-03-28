@@ -65,17 +65,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-<<<<<<<< HEAD:meta-ros2-humble/generated-recipes/ros2-control/hardware-interface_2.36.1-1.bb
-# matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/hardware_interface/2.36.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/humble/hardware_interface"
-SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "a8c688a2284beb0fdea583dc75b9e6a5d69906e7"
-========
 # matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/hardware_interface/2.36.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/hardware_interface"
 SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5d6b4e41e191fb73d9e9b776df2cb9a084acc7cf"
->>>>>>>> upstream/kirkstone:meta-ros2-humble/generated-recipes/ros2-control/hardware-interface_2.36.0-1.bb
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

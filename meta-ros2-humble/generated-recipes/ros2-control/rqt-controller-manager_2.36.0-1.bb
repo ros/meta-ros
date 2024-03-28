@@ -43,17 +43,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-<<<<<<<< HEAD:meta-ros2-humble/generated-recipes/ros2-control/rqt-controller-manager_2.36.1-1.bb
-# matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/rqt_controller_manager/2.36.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/humble/rqt_controller_manager"
-SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "9fecf37666067172b914fbabbcd936ea6ec01f35"
-========
 # matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/rqt_controller_manager/2.36.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/rqt_controller_manager"
 SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f19fc82094de4a54f6c4995a9efc0d72ce66b4b7"
->>>>>>>> upstream/kirkstone:meta-ros2-humble/generated-recipes/ros2-control/rqt-controller-manager_2.36.0-1.bb
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"

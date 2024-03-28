@@ -51,17 +51,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-<<<<<<<< HEAD:meta-ros2-humble/generated-recipes/ros2-control/joint-limits_2.36.1-1.bb
-# matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/joint_limits/2.36.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/humble/joint_limits"
-SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "eba72d93e45b93aa25dd55a0d3c0df4f2d41ccdc"
-========
 # matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/joint_limits/2.36.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/joint_limits"
 SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8408c218963e6f3f4480e43856230928c7ea1e0a"
->>>>>>>> upstream/kirkstone:meta-ros2-humble/generated-recipes/ros2-control/joint-limits_2.36.0-1.bb
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

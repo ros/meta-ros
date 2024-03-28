@@ -52,17 +52,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-<<<<<<<< HEAD:meta-ros2-humble/generated-recipes/ros2-control/controller-interface_2.36.1-1.bb
-# matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/controller_interface/2.36.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/humble/controller_interface"
-SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d3a26a2f4fb1c84df713c4d01b9a2cceda76e369"
-========
 # matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/controller_interface/2.36.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/controller_interface"
 SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "184cb1ec3fbb226493b773b304770440baa59b9f"
->>>>>>>> upstream/kirkstone:meta-ros2-humble/generated-recipes/ros2-control/controller-interface_2.36.0-1.bb
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

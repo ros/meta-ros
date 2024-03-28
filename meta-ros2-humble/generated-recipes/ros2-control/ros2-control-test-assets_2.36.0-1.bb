@@ -39,17 +39,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-<<<<<<<< HEAD:meta-ros2-humble/generated-recipes/ros2-control/ros2-control-test-assets_2.36.1-1.bb
-# matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/ros2_control_test_assets/2.36.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/humble/ros2_control_test_assets"
-SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "1748bfc3c7cf3c38c16580974fe037c1a72de196"
-========
 # matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/ros2_control_test_assets/2.36.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/ros2_control_test_assets"
 SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ec1e2ff726e7d3905b8939621ca11ec83515b9ad"
->>>>>>>> upstream/kirkstone:meta-ros2-humble/generated-recipes/ros2-control/ros2-control-test-assets_2.36.0-1.bb
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

@@ -90,17 +90,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-<<<<<<<< HEAD:meta-ros2-humble/generated-recipes/ros2-control/controller-manager_2.36.1-1.bb
-# matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/controller_manager/2.36.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/humble/controller_manager"
-SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "d3c1570506c80929fe5bab51be822e56e16d8380"
-========
 # matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/controller_manager/2.36.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/controller_manager"
 SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eda69864370b9872e22dff3f576a04fc2451a5fc"
->>>>>>>> upstream/kirkstone:meta-ros2-humble/generated-recipes/ros2-control/controller-manager_2.36.0-1.bb
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

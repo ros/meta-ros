@@ -80,17 +80,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-<<<<<<<< HEAD:meta-ros2-humble/generated-recipes/plotjuggler/plotjuggler_3.8.6-3.bb
-# matches with: https://github.com/ros2-gbp/plotjuggler-release/archive/release/humble/plotjuggler/3.8.6-3.tar.gz
-ROS_BRANCH ?= "branch=release/humble/plotjuggler"
-SRC_URI = "git://github.com/ros2-gbp/plotjuggler-release;${ROS_BRANCH};protocol=https"
-SRCREV = "571c5ce5ca4c88b83d4b646ba5b03fd54a33af7c"
-========
 # matches with: https://github.com/ros2-gbp/plotjuggler-release/archive/release/humble/plotjuggler/3.8.5-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/plotjuggler"
 SRC_URI = "git://github.com/ros2-gbp/plotjuggler-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f98353995eeb521db869cc3a4862c9186314056e"
->>>>>>>> upstream/kirkstone:meta-ros2-humble/generated-recipes/plotjuggler/plotjuggler_3.8.5-1.bb
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

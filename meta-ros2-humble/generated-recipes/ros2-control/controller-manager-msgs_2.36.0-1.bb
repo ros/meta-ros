@@ -48,17 +48,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-<<<<<<<< HEAD:meta-ros2-humble/generated-recipes/ros2-control/controller-manager-msgs_2.36.1-1.bb
-# matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/controller_manager_msgs/2.36.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/humble/controller_manager_msgs"
-SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
-SRCREV = "4430b758e33944e6d7a52304364b8fa7b9897387"
-========
 # matches with: https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/controller_manager_msgs/2.36.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/controller_manager_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "64f370e684aa556ef0dfcd71d34db5027a4fa172"
->>>>>>>> upstream/kirkstone:meta-ros2-humble/generated-recipes/ros2-control/controller-manager-msgs_2.36.0-1.bb
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

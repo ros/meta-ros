@@ -44,17 +44,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-<<<<<<<< HEAD:meta-ros2-humble/generated-recipes/clearpath-config/clearpath-config_0.2.2-1.bb
-# matches with: https://github.com/clearpath-gbp/clearpath_config-release/archive/release/humble/clearpath_config/0.2.2-1.tar.gz
-ROS_BRANCH ?= "branch=release/humble/clearpath_config"
-SRC_URI = "git://github.com/clearpath-gbp/clearpath_config-release;${ROS_BRANCH};protocol=https"
-SRCREV = "384bf8e33dc77e023ce9a2f0738b8180592856ae"
-========
 # matches with: https://github.com/clearpath-gbp/clearpath_config-release/archive/release/humble/clearpath_config/0.2.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/clearpath_config"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_config-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8d258e2bb5fb710756a3253f81ef0c9836de8e7d"
->>>>>>>> upstream/kirkstone:meta-ros2-humble/generated-recipes/clearpath-config/clearpath-config_0.2.1-1.bb
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"

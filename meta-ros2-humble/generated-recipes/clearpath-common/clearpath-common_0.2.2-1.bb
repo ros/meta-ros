@@ -42,17 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-<<<<<<<< HEAD:meta-ros2-humble/generated-recipes/clearpath-common/clearpath-common_0.2.3-1.bb
-# matches with: https://github.com/clearpath-gbp/clearpath_common-release/archive/release/humble/clearpath_common/0.2.3-1.tar.gz
-ROS_BRANCH ?= "branch=release/humble/clearpath_common"
-SRC_URI = "git://github.com/clearpath-gbp/clearpath_common-release;${ROS_BRANCH};protocol=https"
-SRCREV = "6d5717f9acdac58912b6ab86a3aac77be23d6ea8"
-========
 # matches with: https://github.com/clearpath-gbp/clearpath_common-release/archive/release/humble/clearpath_common/0.2.2-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/clearpath_common"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3e0e19294a060d5c02b71c48d305d5edf8b7afc7"
->>>>>>>> upstream/kirkstone:meta-ros2-humble/generated-recipes/clearpath-common/clearpath-common_0.2.2-1.bb
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
