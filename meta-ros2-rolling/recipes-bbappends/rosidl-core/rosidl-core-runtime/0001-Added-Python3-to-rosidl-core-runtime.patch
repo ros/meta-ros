@@ -1,0 +1,38 @@
+From 96ffb8710b91c41504e7a2fe459e2abc4435d427 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+Date: Fri, 5 Apr 2024 14:07:08 +0200
+Subject: [PATCH] Added Python3 to rosidl-core-runtime
+
+This is a bit awkward, but basically later down the road, packages
+that depend on packages that have used rosidl-generator-py to create
+their bindings will need python to link against. It has been "solved"
+previously with cmake python modules which basically copy the path of
+the python library into the cmake skript. But this will cause a host
+injection on the target. Therefore, we changed rosidl-generator-py to
+use proper cmake targets. Unfortunately, that means, you need to have
+done find_package(Python3...) at some place.
+
+Adding it here will magically solve this.
+
+Upstream-Status: inappropriate [embedded specific]
+
+Signed-off-by: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+---
+ rosidl_core_runtime-extras.cmake.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/rosidl_core_runtime-extras.cmake.in b/rosidl_core_runtime-extras.cmake.in
+index c7d1537..085d259 100644
+--- a/rosidl_core_runtime-extras.cmake.in
++++ b/rosidl_core_runtime-extras.cmake.in
+@@ -2,6 +2,7 @@
+ # rosidl_core_runtime/rosidl_core_runtime-extras.cmake.in
+ 
+ find_package(ament_cmake_core REQUIRED)
++find_package(Python3 QUIET REQUIRED COMPONENTS Development NumPy)
+ ament_index_get_resources(rosidl_runtime_packages "rosidl_runtime_packages")
+ 
+ # find_package() all dependencies (if available)
+-- 
+2.43.2
+

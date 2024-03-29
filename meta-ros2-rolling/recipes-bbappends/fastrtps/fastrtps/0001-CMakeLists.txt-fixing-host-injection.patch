@@ -1,0 +1,79 @@
+From be9d0da07dc7449801b33857452f904677ee4beb Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Sun, 24 Sep 2023 17:43:46 +0200
+Subject: [PATCH] CMakeLists.txt: fixing host injection
+
+There is a host injection happening through inproper
+inclusion of libtinyxml2. It is replaced here with a proper
+cmake target through PkgConfig.
+
+Upstream-Status: Inappropriate embedded specific
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+
+%% original patch: 0001-CMakeLists.txt-fixing-host-injection.patch
+---
+ CMakeLists.txt                  |  3 ++-
+ cmake/packaging/Config.cmake.in |  3 ++-
+ src/cpp/CMakeLists.txt          | 10 +---------
+ 3 files changed, 5 insertions(+), 11 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8a9d818e..219de95b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -162,7 +162,8 @@ endif()
+ 
+ eprosima_find_package(fastcdr REQUIRED)
+ eprosima_find_thirdparty(Asio asio VERSION 1.10.8)
+-eprosima_find_thirdparty(TinyXML2 tinyxml2)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(libtinyxml2 REQUIRED IMPORTED_TARGET tinyxml2)
+ 
+ find_package(foonathan_memory REQUIRED)
+ message(STATUS "Found foonathan_memory: ${foonathan_memory_DIR}")
+diff --git a/cmake/packaging/Config.cmake.in b/cmake/packaging/Config.cmake.in
+index 3d5e3886..878a557f 100644
+--- a/cmake/packaging/Config.cmake.in
++++ b/cmake/packaging/Config.cmake.in
+@@ -24,7 +24,8 @@ set_and_check(@PROJECT_NAME@_LIB_DIR "@PACKAGE_LIB_INSTALL_DIR@")
+ 
+ find_package(fastcdr REQUIRED)
+ find_package(foonathan_memory REQUIRED)
+-find_package(TinyXML2 QUIET)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(libtinyxml2 REQUIRED IMPORTED_TARGET tinyxml2)
+ @FASTRTPS_INSTALLER_DEPS_ANCILLARY@
+ @FASTRTPS_PACKAGE_UNIX_OPT_DEPS@
+ 
+diff --git a/src/cpp/CMakeLists.txt b/src/cpp/CMakeLists.txt
+index a5213c25..ac48419c 100644
+--- a/src/cpp/CMakeLists.txt
++++ b/src/cpp/CMakeLists.txt
+@@ -337,14 +337,6 @@ else()
+ endif()
+ 
+ 
+-# External sources
+-if(TINYXML2_SOURCE_DIR)
+-    set(TINYXML2_SOURCE_DIR_ ${TINYXML2_SOURCE_DIR})
+-    list(APPEND ${PROJECT_NAME}_source_files
+-        ${TINYXML2_SOURCE_DIR_}/tinyxml2.cpp
+-        )
+-endif()
+-
+ if(ANDROID)
+     if((ANDROID_PLATFORM LESS_EQUAL 23) OR (ANDROID_NATIVE_API_LEVEL LESS_EQUAL 23))
+         list(APPEND ${PROJECT_NAME}_source_files
+@@ -478,7 +470,7 @@ endif()
+ # Link library to external libraries.
+ target_link_libraries(${PROJECT_NAME} ${PRIVACY} fastcdr foonathan_memory
+     ${CMAKE_THREAD_LIBS_INIT} ${CMAKE_DL_LIBS}
+-    ${TINYXML2_LIBRARY}
++    PkgConfig::libtinyxml2
+     $<$<BOOL:${LINK_SSL}>:OpenSSL::SSL$<SEMICOLON>OpenSSL::Crypto$<$<BOOL:${WIN32}>:$<SEMICOLON>crypt32.lib>>
+     $<$<BOOL:${WIN32}>:iphlpapi$<SEMICOLON>Shlwapi>
+     ${THIRDPARTY_BOOST_LINK_LIBS}
+-- 
+2.41.0
+

@@ -1,0 +1,32 @@
+From 4cd6abd8bcc2b83535cf20bd2707fdb77a07bfcb Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Mon, 23 Oct 2023 14:13:01 +0200
+Subject: [PATCH] CMakeLists.txt: remove "optimizations"
+
+The root of all evil in CMakeLists.txt is ppl that overwrite settings
+for build flags. Removing it here. Solves an issue with host contamination
+where the library would be GNU/Linux, not SYSV as we need it for yocto.
+
+Upstream-Status: inappropriate [embedded specific]
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c16702ac..6926251f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -21,7 +21,7 @@ endif(COMMAND cmake_policy)
+ SET (CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMakeModules")
+ 
+ # COMPILER SETTINGS (default: Release) and flags
+-INCLUDE(CompilerSettings)
++# INCLUDE(CompilerSettings)
+ 
+ # OCTOMAP_OMP = enable OpenMP parallelization (experimental, defaults to OFF)
+ SET(OCTOMAP_OMP FALSE CACHE BOOL "Enable/disable OpenMP parallelization")
+-- 
+2.41.0
+

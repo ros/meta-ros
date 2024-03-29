@@ -1,0 +1,31 @@
+From 630a03017e2d397b5f03751ca6dc69102501bff0 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Thu, 21 Sep 2023 13:51:53 +0200
+Subject: [PATCH] CompilerSettings.cmake: remove Werror
+
+Some stuff got deprecation warning, and octomap now throws up on
+this because some morron set Werror (thanks pal!)
+
+Upstream-Status: inappropriate [embedded specific]
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+---
+ CMakeModules/CompilerSettings.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeModules/CompilerSettings.cmake b/CMakeModules/CompilerSettings.cmake
+index f4bab3e9..4b2b7a1c 100644
+--- a/CMakeModules/CompilerSettings.cmake
++++ b/CMakeModules/CompilerSettings.cmake
+@@ -10,7 +10,7 @@ MESSAGE (STATUS "${PROJECT_NAME} building as ${CMAKE_BUILD_TYPE}")
+ # COMPILER FLAGS
+ IF (CMAKE_COMPILER_IS_GNUCC)
+   SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wno-error ")
+-  SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wextra -Wpedantic")
++  SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic")
+   SET (CMAKE_CXX_FLAGS_RELEASE "-O3 -funroll-loops -DNDEBUG")
+   SET (CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
+   # Shared object compilation under 64bit (vtable)
+-- 
+2.41.0
+

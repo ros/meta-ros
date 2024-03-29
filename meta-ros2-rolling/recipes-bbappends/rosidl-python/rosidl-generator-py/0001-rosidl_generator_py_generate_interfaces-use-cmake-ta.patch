@@ -1,0 +1,151 @@
+From 838aa6a901ae87395ff5520c71ec031410748b3b Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+Date: Fri, 16 Feb 2024 10:02:36 +0100
+Subject: [PATCH] rosidl_generator_py_generate_interfaces: use cmake targets
+
+Another approach to use cmake targets instead of old stlye variables
+that will leak host path into target.
+
+Tricky parts is the bug in cmake:
+https://gitlab.kitware.com/cmake/cmake/-/issues/25145
+which will let the Python3_SOABI variable be empty in certain cases.
+Fixing this with with a second find_package to Python 3 (mind the
+space).
+
+Signed-off-by: Matthias Schoepfer <m.schoepfer@rethinkrobotics.com>
+
+Upstream-Status: Inappropriate [OE-Specific]
+---
+ ...idl_generator_py_generate_interfaces.cmake | 46 ++++---------------
+ package.xml                                   |  2 -
+ rosidl_generator_py-extras.cmake.in           |  1 +
+ 3 files changed, 11 insertions(+), 38 deletions(-)
+
+diff --git a/cmake/rosidl_generator_py_generate_interfaces.cmake b/cmake/rosidl_generator_py_generate_interfaces.cmake
+index 0a72e41..a2d03d8 100644
+--- a/cmake/rosidl_generator_py_generate_interfaces.cmake
++++ b/cmake/rosidl_generator_py_generate_interfaces.cmake
+@@ -17,10 +17,10 @@ find_package(rosidl_runtime_c REQUIRED)
+ find_package(rosidl_typesupport_c REQUIRED)
+ find_package(rosidl_typesupport_interface REQUIRED)
+ 
+-find_package(PythonInterp 3.6 REQUIRED)
+-
+-find_package(python_cmake_module REQUIRED)
+-find_package(PythonExtra MODULE REQUIRED)
++find_package(Python3 REQUIRED COMPONENTS Development NumPy)
++# This looks awkward, but is necessary due to cmake / kitware not wanting
++# to fix their Python_SOABI behavior. See https://gitlab.kitware.com/cmake/cmake/-/issues/25145
++find_package(Python 3 REQUIRED COMPONENTS Development)
+ 
+ # Get a list of typesupport implementations from valid rmw implementations.
+ rosidl_generator_py_get_typesupports(_typesupport_impls)
+@@ -126,7 +126,7 @@ endif()
+ 
+ set(_target_suffix "__py")
+ 
+-set(_PYTHON_EXECUTABLE ${PYTHON_EXECUTABLE})
++set(PYTHON_EXECUTABLE ${Python3_EXECUTABLE})
+ if(WIN32 AND "${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+   set(PYTHON_EXECUTABLE ${PYTHON_EXECUTABLE_DEBUG})
+ endif()
+@@ -157,40 +157,15 @@ add_dependencies(
+ 
+ target_link_libraries(
+   ${_target_name_lib}
+-  ${PythonExtra_LIBRARIES}
++  Python3::Python
++  Python3::NumPy
+ )
+ target_include_directories(${_target_name_lib}
+   PRIVATE
+   ${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_c
+   ${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_py
+-  ${PythonExtra_INCLUDE_DIRS}
+-)
+-
+-# Check if numpy is in the include path
+-find_file(_numpy_h numpy/numpyconfig.h
+-  PATHS ${PythonExtra_INCLUDE_DIRS}
+ )
+ 
+-if(APPLE OR WIN32 OR NOT _numpy_h)
+-  # add include directory for numpy headers
+-  set(_python_code
+-    "import numpy"
+-    "print(numpy.get_include())"
+-  )
+-  execute_process(
+-    COMMAND "${PYTHON_EXECUTABLE}" "-c" "${_python_code}"
+-    OUTPUT_VARIABLE _output
+-    RESULT_VARIABLE _result
+-    OUTPUT_STRIP_TRAILING_WHITESPACE
+-  )
+-  if(NOT _result EQUAL 0)
+-    message(FATAL_ERROR
+-      "execute_process(${PYTHON_EXECUTABLE} -c '${_python_code}') returned "
+-      "error code ${_result}")
+-  endif()
+-  message(STATUS "Using numpy include directory: ${_output}")
+-  target_include_directories(${_target_name_lib} PUBLIC "${_output}")
+-endif()
+ 
+ rosidl_get_typesupport_target(c_typesupport_target "${rosidl_generate_interfaces_TARGET}" "rosidl_typesupport_c")
+ target_link_libraries(${_target_name_lib} ${c_typesupport_target})
+@@ -222,12 +196,12 @@ foreach(_typesupport_impl ${_typesupport_impls})
+   set_target_properties(${_target_name} PROPERTIES
+     COMPILE_OPTIONS "${_extension_compile_flags}"
+     PREFIX ""
+-    OUTPUT_NAME "${PROJECT_NAME}_s__${_typesupport_impl}${PythonExtra_EXTENSION_SUFFIX}"
+-    SUFFIX "${PythonExtra_EXTENSION_EXTENSION}")
++    OUTPUT_NAME "${PROJECT_NAME}_s__${_typesupport_impl}.${Python_SOABI}"
++    SUFFIX "${CMAKE_SHARED_LIBRARY_SUFFIX}")
+   target_link_libraries(
+     ${_target_name}
+     ${_target_name_lib}
+-    ${PythonExtra_LIBRARIES}
++    Python3::Python
+     ${rosidl_generate_interfaces_TARGET}__${_typesupport_impl}
+   )
+ 
+@@ -235,7 +210,6 @@ foreach(_typesupport_impl ${_typesupport_impls})
+     PUBLIC
+     ${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_c
+     ${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_py
+-    ${PythonExtra_INCLUDE_DIRS}
+   )
+ 
+   target_link_libraries(${_target_name} ${c_typesupport_target})
+diff --git a/package.xml b/package.xml
+index 0fdbf85..232dae6 100644
+--- a/package.xml
++++ b/package.xml
+@@ -23,7 +23,6 @@
+ 
+   <buildtool_export_depend>ament_cmake</buildtool_export_depend>
+   <buildtool_export_depend>ament_index_python</buildtool_export_depend>
+-  <buildtool_export_depend>python_cmake_module</buildtool_export_depend>
+   <buildtool_export_depend>rosidl_generator_c</buildtool_export_depend>
+   <buildtool_export_depend>rosidl_pycommon</buildtool_export_depend>
+   <buildtool_export_depend>rosidl_typesupport_c</buildtool_export_depend>
+@@ -53,7 +52,6 @@
+   <test_depend>ament_lint_common</test_depend>
+   <test_depend>python3-numpy</test_depend>
+   <test_depend>python3-pytest</test_depend>
+-  <test_depend>python_cmake_module</test_depend>
+   <test_depend>rmw</test_depend>
+   <test_depend>rosidl_cmake</test_depend>
+ 
+diff --git a/rosidl_generator_py-extras.cmake.in b/rosidl_generator_py-extras.cmake.in
+index 80bed29..d80ac15 100644
+--- a/rosidl_generator_py-extras.cmake.in
++++ b/rosidl_generator_py-extras.cmake.in
+@@ -1,4 +1,5 @@
+ # generated from rosidl_generator_py/rosidl_generator_py-extras.cmake
++find_package(Python3 REQUIRED COMPONENTS Development NumPy)
+ include("${CMAKE_CURRENT_LIST_DIR}/register_py.cmake")
+ rosidl_generator_py_extras(
+   "${rosidl_generator_py_DIR}/../../../lib/rosidl_generator_py/rosidl_generator_py"
+-- 
+2.43.0
+

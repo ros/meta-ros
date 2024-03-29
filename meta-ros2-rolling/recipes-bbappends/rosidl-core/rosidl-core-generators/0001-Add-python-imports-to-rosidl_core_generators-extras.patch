@@ -1,0 +1,33 @@
+From 0a84f3cae3b36238e3c7ed878ede56749bda5e45 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+Date: Thu, 4 Apr 2024 15:46:38 +0200
+Subject: [PATCH] Add python imports to rosidl_core_generators-extras
+
+When using rosidl-generators-py, host path are included because
+python-cmake-module is broken as sh*t. We inject Python3::Python and
+Python3::NumPy in rosidl-generator-py. But we also make sure,
+find_package(Python3 COMPONENTS Development NumPy) gets called at
+some point. Unfortunately, this is the point we need to do so.
+
+Upstream-Status: inappropriate [embedded specific]
+
+Signed-off-by: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+---
+ rosidl_core_generators-extras.cmake.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/rosidl_core_generators-extras.cmake.in b/rosidl_core_generators-extras.cmake.in
+index bb31e7a..794fcef 100644
+--- a/rosidl_core_generators-extras.cmake.in
++++ b/rosidl_core_generators-extras.cmake.in
+@@ -2,6 +2,7 @@
+ # rosidl_core_generators/rosidl_core_generators-extras.cmake.in
+ 
+ find_package(ament_cmake_core REQUIRED)
++find_package(Python3 REQUIRED COMPONENTS Development NumPy)
+ ament_index_get_resources(rosidl_typesupport_c_packages "rosidl_typesupport_c")
+ ament_index_get_resources(rosidl_typesupport_cpp_packages "rosidl_typesupport_cpp")
+ ament_index_get_resources(rosidl_generator_packages "rosidl_generator_packages")
+-- 
+2.43.2
+
