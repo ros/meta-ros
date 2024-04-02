@@ -29,17 +29,17 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-ignition-fuel-tools7} \
-    ${ROS_UNRESOLVED_DEP-python3-fiona} \
-    ${ROS_UNRESOLVED_DEP-python3-rtree} \
-    ${ROS_UNRESOLVED_DEP-python3-shapely} \
-    ${ROS_UNRESOLVED_DEP-sqlite3} \
     ament-index-python \
+    python3-fiona \
     python3-pyproj \
     python3-pyyaml \
     python3-requests \
+    python3-rtree \
+    python3-shapely \
     rclpy \
     rmf-building-map-msgs \
     rmf-site-map-msgs \
+    sqlite3 \
     std-msgs \
     yaml-cpp \
 "

@@ -38,9 +38,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-sqlite3} \
     class-loader \
     rclcpp \
+    sqlite3 \
     warehouse-ros \
 "
 

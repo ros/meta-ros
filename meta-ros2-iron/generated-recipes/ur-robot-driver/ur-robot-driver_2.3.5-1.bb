@@ -64,7 +64,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-socat} \
     backward-ros \
     controller-manager \
     controller-manager-msgs \
@@ -84,6 +83,7 @@ ROS_EXEC_DEPENDS = " \
     robot-state-publisher \
     ros2-controllers-test-nodes \
     rviz2 \
+    socat \
     std-msgs \
     std-srvs \
     tf2-geometry-msgs \

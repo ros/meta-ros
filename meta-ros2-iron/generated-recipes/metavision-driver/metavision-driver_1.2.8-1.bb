@@ -31,13 +31,13 @@ ROS_BUILD_DEPENDS = " \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-hdf5-tools-native} \
     ament-cmake-auto-native \
     ament-cmake-native \
     ament-cmake-ros-native \
     cmake-native \
     curl-native \
     git-native \
+    hdf5-native \
     ros-environment-native \
     unzip-native \
     wget-native \

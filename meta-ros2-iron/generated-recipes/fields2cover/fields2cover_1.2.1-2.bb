@@ -65,9 +65,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/Fields2Cover/fields2cover-release/archive/release/iron/fields2cover/1.2.1-2.tar.gz
+# matches with: https://github.com/ros2-gbp/fields2cover-release/archive/release/iron/fields2cover/1.2.1-2.tar.gz
 ROS_BRANCH ?= "branch=release/iron/fields2cover"
-SRC_URI = "git://github.com/Fields2Cover/fields2cover-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/fields2cover-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e6e635ce7ba4cbabb76e0abcd3fb9394714b8d8b"
 S = "${WORKDIR}/git"
 

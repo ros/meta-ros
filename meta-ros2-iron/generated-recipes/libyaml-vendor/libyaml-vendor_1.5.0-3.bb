@@ -19,7 +19,7 @@ ROS_CN = "libyaml_vendor"
 ROS_BPN = "libyaml_vendor"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libyaml-dev} \
+    libyaml \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -29,7 +29,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libyaml-dev} \
+    libyaml \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = " \
@@ -37,7 +37,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = " \
 "
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libyaml} \
+    libyaml \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
