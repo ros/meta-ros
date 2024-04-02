@@ -37,11 +37,11 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-img2pdf} \
     aruco-opencv-msgs \
     cv-bridge \
     image-transport \
     opencv \
+    python3-img2pdf \
     python3-numpy \
     rclcpp \
     rclcpp-components \

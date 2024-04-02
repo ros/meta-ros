@@ -18,9 +18,9 @@ ROS_CN = "rmf_api_msgs"
 ROS_BPN = "rmf_api_msgs"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-jinja2} \
-    ${ROS_UNRESOLVED_DEP-python3-jsonschema} \
     nlohmann-json \
+    python3-jinja2 \
+    python3-jsonschema \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -28,17 +28,17 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-jinja2} \
-    ${ROS_UNRESOLVED_DEP-python3-jsonschema} \
     nlohmann-json \
+    python3-jinja2 \
+    python3-jsonschema \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-jinja2} \
-    ${ROS_UNRESOLVED_DEP-python3-jsonschema} \
     nlohmann-json \
+    python3-jinja2 \
+    python3-jsonschema \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
