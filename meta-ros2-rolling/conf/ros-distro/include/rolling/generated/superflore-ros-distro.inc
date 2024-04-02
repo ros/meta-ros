@@ -22,13 +22,13 @@ ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = ""
 
 # Number of commits that will be returned by "git log meta-ros2-rolling/files/rolling/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "20"
+ROS_NUM_CACHE_YAML_COMMITS = "3"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = " \
-    debian-bullseye \
+    debian-bookworm \
     rhel-9 \
-    ubuntu-jammy \
+    ubuntu-noble \
 "
 
 ROS_SUPERFLORE_GENERATED_RECIPES = " \
@@ -44,10 +44,12 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     adaptive-component \
     admittance-controller \
     ament-acceleration \
+    ament-black \
     ament-clang-format \
     ament-clang-tidy \
     ament-cmake \
     ament-cmake-auto \
+    ament-cmake-black \
     ament-cmake-catch2 \
     ament-cmake-clang-format \
     ament-cmake-clang-tidy \
@@ -108,6 +110,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     angles \
     apex-test-tools \
     apriltag \
+    apriltag-detector \
     apriltag-msgs \
     apriltag-ros \
     aruco-opencv \
@@ -119,7 +122,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     automotive-platform-msgs \
     autoware-auto-msgs \
     avt-vimba-camera \
-    aws-robomaker-small-warehouse-world \
     aws-sdk-cpp-vendor \
     backward-ros \
     bag2-to-image \
@@ -131,7 +133,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     bond-core \
     bondcpp \
     boost-geometry-util \
-    bosch-locator-bridge \
     builtin-interfaces \
     camera-calibration \
     camera-calibration-parsers \
@@ -175,6 +176,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     cudnn-cmake-module \
     cv-bridge \
     cyclonedds \
+    data-tamer-cpp \
+    data-tamer-msgs \
     delphi-esr-msgs \
     delphi-mrr-msgs \
     delphi-srr-msgs \
@@ -283,6 +286,9 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     fastcdr \
     fastrtps \
     fastrtps-cmake-module \
+    ffmpeg-image-transport \
+    ffmpeg-image-transport-msgs \
+    fields2cover \
     filters \
     find-object-2d \
     fluent-rviz \
@@ -308,18 +314,15 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     fuse-tutorials \
     fuse-variables \
     fuse-viz \
-    gazebo-msgs \
-    gazebo-plugins \
-    gazebo-ros \
-    gazebo-ros-pkgs \
+    game-controller-spl \
+    game-controller-spl-interfaces \
     gazebo-ros2-control \
     gazebo-ros2-control-demos \
-    gazebo-rosdev \
+    gc-spl \
     gc-spl-2022 \
+    gc-spl-interfaces \
     generate-parameter-library \
-    generate-parameter-library-example \
     generate-parameter-library-py \
-    generate-parameter-module-example \
     geodesy \
     geographic-info \
     geographic-msgs \
@@ -340,10 +343,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     gscam \
     gtest-vendor \
     gtsam \
-    gurumdds-cmake-module \
-    gz-ros2-control \
-    gz-ros2-control-demos \
     hardware-interface \
+    hardware-interface-testing \
     hash-library-vendor \
     heaphook \
     hls-lfcd-lds-driver \
@@ -351,6 +352,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ibeo-msgs \
     iceoryx-binding-c \
     iceoryx-hoofs \
+    iceoryx-introspection \
     iceoryx-posh \
     ifm3d-core \
     ignition-cmake2-vendor \
@@ -367,8 +369,11 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     image-view \
     imu-complementary-filter \
     imu-filter-madgwick \
+    imu-pipeline \
+    imu-processors \
     imu-sensor-broadcaster \
     imu-tools \
+    imu-transformer \
     interactive-marker-twist-server \
     interactive-markers \
     intra-process-demo \
@@ -424,7 +429,18 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     launch-xml \
     launch-yaml \
     lely-core-libraries \
+    leo \
+    leo-bringup \
+    leo-description \
+    leo-desktop \
+    leo-fw \
+    leo-msgs \
+    leo-robot \
+    leo-teleop \
+    leo-viz \
     lgsvl-msgs \
+    libcaer \
+    libcaer-driver \
     libcurl-vendor \
     libg2o \
     libmavconn \
@@ -436,7 +452,9 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     lifecycle \
     lifecycle-msgs \
     lifecycle-py \
+    linux-isolate-process \
     logging-demo \
+    lttngpy \
     magic-enum \
     map-msgs \
     mapviz \
@@ -470,20 +488,11 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     mimick-vendor \
     mobileye-560-660-msgs \
     mola-common \
-    mola-demos \
-    mola-imu-preintegration \
-    mola-input-euroc-dataset \
-    mola-input-kitti-dataset \
-    mola-input-rawlog \
-    mola-input-ros2 \
-    mola-kernel \
-    mola-launcher \
     mola-test-datasets \
-    mola-viz \
-    mola-yaml \
+    motion-capture-tracking \
+    motion-capture-tracking-interfaces \
     mouse-teleop \
     moveit \
-    moveit-chomp-optimizer-adapter \
     moveit-common \
     moveit-configs-utils \
     moveit-core \
@@ -528,8 +537,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     moveit-simple-controller-manager \
     moveit-visual-tools \
     mp2p-icp \
-    mqtt-client \
-    mqtt-client-interfaces \
     mrpt-msgs \
     mrpt-path-planning \
     mrpt2 \
@@ -541,7 +548,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     nao-lola \
     nao-lola-client \
     nao-lola-command-msgs \
-    nao-lola-conversion \
     nao-lola-sensor-msgs \
     nao-sensor-msgs \
     nav-msgs \
@@ -567,6 +573,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     octomap-server \
     octovis \
     odom-to-tf-ros2 \
+    odri-master-board-sdk \
     ompl \
     open3d-conversions \
     openni2-camera \
@@ -575,10 +582,13 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     osrf-pycommon \
     osrf-testing-tools-cpp \
     ouster-msgs \
+    ouster-ros \
+    ouster-sensor-msgs \
     ouxt-common \
     ouxt-lint-common \
     pal-statistics \
     pal-statistics-msgs \
+    pangolin \
     parameter-traits \
     pcl-conversions \
     pcl-msgs \
@@ -608,6 +618,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     picknik-ament-copyright \
     picknik-reset-fault-controller \
     picknik-twist-controller \
+    pid-controller \
     pilz-industrial-motion-planner \
     pilz-industrial-motion-planner-testutils \
     pinocchio \
@@ -653,7 +664,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     random-numbers \
     range-sensor-broadcaster \
     rc-common-msgs \
-    rc-dynamics-api \
     rc-genicam-api \
     rc-genicam-driver \
     rc-reason-clients \
@@ -696,11 +706,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rmf-api-msgs \
     rmf-battery \
     rmf-building-map-msgs \
-    rmf-building-map-tools \
-    rmf-building-sim-common \
-    rmf-building-sim-gz-classic-plugins \
-    rmf-building-sim-gz-plugins \
     rmf-charger-msgs \
+    rmf-charging-schedule \
     rmf-cmake-uncrustify \
     rmf-dispenser-msgs \
     rmf-door-msgs \
@@ -710,9 +717,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rmf-ingestor-msgs \
     rmf-lift-msgs \
     rmf-obstacle-msgs \
-    rmf-robot-sim-common \
-    rmf-robot-sim-gz-classic-plugins \
-    rmf-robot-sim-gz-plugins \
     rmf-rosdev \
     rmf-scheduler-msgs \
     rmf-site-map-msgs \
@@ -721,9 +725,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rmf-task-ros2 \
     rmf-task-sequence \
     rmf-traffic \
-    rmf-traffic-editor \
-    rmf-traffic-editor-assets \
-    rmf-traffic-editor-test-maps \
     rmf-traffic-examples \
     rmf-traffic-msgs \
     rmf-traffic-ros2 \
@@ -747,7 +748,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rmw-fastrtps-cpp \
     rmw-fastrtps-dynamic-cpp \
     rmw-fastrtps-shared-cpp \
-    rmw-gurumdds-cpp \
     rmw-implementation \
     rmw-implementation-cmake \
     robot-calibration \
@@ -759,18 +759,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     ros-base \
     ros-core \
     ros-environment \
-    ros-gz \
-    ros-gz-bridge \
-    ros-gz-image \
-    ros-gz-interfaces \
-    ros-gz-sim \
-    ros-gz-sim-demos \
-    ros-ign \
-    ros-ign-bridge \
-    ros-ign-gazebo \
-    ros-ign-gazebo-demos \
-    ros-ign-image \
-    ros-ign-interfaces \
     ros-image-to-qimage \
     ros-industrial-cmake-boilerplate \
     ros-testing \
@@ -870,6 +858,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rqt-common-plugins \
     rqt-console \
     rqt-controller-manager \
+    rqt-gauges \
     rqt-graph \
     rqt-gui \
     rqt-gui-cpp \
@@ -914,23 +903,22 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     rviz-visual-testing-framework \
     rviz-visual-tools \
     rviz2 \
-    sdformat-test-files \
-    sdformat-urdf \
     sdl2-vendor \
     self-test \
     sensor-msgs \
     sensor-msgs-py \
-    septentrio-gnss-driver \
     serial-driver \
     service-msgs \
     shape-msgs \
     shared-queues-vendor \
+    sick-safevisionary-base \
+    sick-safevisionary-driver \
+    sick-safevisionary-interfaces \
+    sick-safevisionary-tests \
     simple-actions \
     simple-launch \
     simulation \
     slider-publisher \
-    smacc2 \
-    smacc2-msgs \
     smach \
     smach-msgs \
     smach-ros \
@@ -1123,1094 +1111,1082 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
 "
 
 ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
-                             acado-vendor/acado-vendor_1.0.0-5 \
-                           ackermann-msgs/ackermann-msgs_2.0.2-4 \
-                         ros2-controllers/ackermann-steering-controller_3.16.0-1 \
-                           rcl-interfaces/action-msgs_2.0.1-1 \
-                                    demos/action-tutorials-cpp_0.31.1-1 \
-                                    demos/action-tutorials-interfaces_0.31.1-1 \
-                                    demos/action-tutorials-py_0.31.1-1 \
-                        common-interfaces/actionlib-msgs_5.2.0-1 \
-                            actuator-msgs/actuator-msgs_0.0.1-2 \
-                       adaptive-component/adaptive-component_0.2.1-3 \
-                         ros2-controllers/admittance-controller_3.16.0-1 \
-                       ament-acceleration/ament-acceleration_0.2.0-3 \
-                               ament-lint/ament-clang-format_0.16.0-1 \
-                               ament-lint/ament-clang-tidy_0.16.0-1 \
-                              ament-cmake/ament-cmake_2.3.0-1 \
-                              ament-cmake/ament-cmake-auto_2.3.0-1 \
-                       ament-cmake-catch2/ament-cmake-catch2_1.4.0-1 \
-                               ament-lint/ament-cmake-clang-format_0.16.0-1 \
-                               ament-lint/ament-cmake-clang-tidy_0.16.0-1 \
-                               ament-lint/ament-cmake-copyright_0.16.0-1 \
-                              ament-cmake/ament-cmake-core_2.3.0-1 \
-                               ament-lint/ament-cmake-cppcheck_0.16.0-1 \
-                               ament-lint/ament-cmake-cpplint_0.16.0-1 \
-                              ament-cmake/ament-cmake-export-definitions_2.3.0-1 \
-                              ament-cmake/ament-cmake-export-dependencies_2.3.0-1 \
-                              ament-cmake/ament-cmake-export-include-directories_2.3.0-1 \
-                              ament-cmake/ament-cmake-export-interfaces_2.3.0-1 \
-                              ament-cmake/ament-cmake-export-libraries_2.3.0-1 \
-                              ament-cmake/ament-cmake-export-link-flags_2.3.0-1 \
-                              ament-cmake/ament-cmake-export-targets_2.3.0-1 \
-                               ament-lint/ament-cmake-flake8_0.16.0-1 \
-                              ament-cmake/ament-cmake-gen-version-h_2.3.0-1 \
-                              ament-cmake/ament-cmake-gmock_2.3.0-1 \
-                              ament-cmake/ament-cmake-google-benchmark_2.3.0-1 \
-                              ament-cmake/ament-cmake-gtest_2.3.0-1 \
-                              ament-cmake/ament-cmake-include-directories_2.3.0-1 \
-                              ament-cmake/ament-cmake-libraries_2.3.0-1 \
-                               ament-lint/ament-cmake-lint-cmake_0.16.0-1 \
-                               ament-lint/ament-cmake-mypy_0.16.0-1 \
-                               ament-lint/ament-cmake-pclint_0.16.0-1 \
-                               ament-lint/ament-cmake-pep257_0.16.0-1 \
-                               ament-lint/ament-cmake-pycodestyle_0.16.0-1 \
-                               ament-lint/ament-cmake-pyflakes_0.16.0-1 \
-                              ament-cmake/ament-cmake-pytest_2.3.0-1 \
-                              ament-cmake/ament-cmake-python_2.3.0-1 \
-                          ament-cmake-ros/ament-cmake-ros_0.12.0-1 \
-                              ament-cmake/ament-cmake-target-dependencies_2.3.0-1 \
-                              ament-cmake/ament-cmake-test_2.3.0-1 \
-                               ament-lint/ament-cmake-uncrustify_0.16.0-1 \
-                              ament-cmake/ament-cmake-vendor-package_2.3.0-1 \
-                              ament-cmake/ament-cmake-version_2.3.0-1 \
-                               ament-lint/ament-cmake-xmllint_0.16.0-1 \
-                               ament-lint/ament-copyright_0.16.0-1 \
-                               ament-lint/ament-cppcheck_0.16.0-1 \
-                               ament-lint/ament-cpplint_0.16.0-1 \
-                           ament-download/ament-download_0.0.5-4 \
-                               ament-lint/ament-flake8_0.16.0-1 \
-                              ament-index/ament-index-cpp_1.7.0-1 \
-                              ament-index/ament-index-python_1.7.0-1 \
-                               ament-lint/ament-lint_0.16.0-1 \
-                               ament-lint/ament-lint-auto_0.16.0-1 \
-                               ament-lint/ament-lint-cmake_0.16.0-1 \
-                               ament-lint/ament-lint-common_0.16.0-1 \
-                               ament-lint/ament-mypy_0.16.0-1 \
-                               ament-nodl/ament-nodl_0.1.0-5 \
-                            ament-package/ament-package_0.16.2-1 \
-                               ament-lint/ament-pclint_0.16.0-1 \
-                               ament-lint/ament-pep257_0.16.0-1 \
-                               ament-lint/ament-pycodestyle_0.16.0-1 \
-                               ament-lint/ament-pyflakes_0.16.0-1 \
-                               ament-lint/ament-uncrustify_0.16.0-1 \
-                              ament-vitis/ament-vitis_0.10.1-3 \
-                               ament-lint/ament-xmllint_0.16.0-1 \
-                                   angles/angles_1.16.0-3 \
-                          apex-test-tools/apex-test-tools_0.0.2-7 \
-                                 apriltag/apriltag_3.2.0-4 \
-                            apriltag-msgs/apriltag-msgs_2.0.1-3 \
-                             apriltag-ros/apriltag-ros_3.1.1-3 \
-                             aruco-opencv/aruco-opencv_4.1.1-1 \
-                             aruco-opencv/aruco-opencv-msgs_4.1.1-1 \
-                        transport-drivers/asio-cmake-module_1.2.0-2 \
-                     async-web-server-cpp/async-web-server-cpp_2.0.0-4 \
-                 automotive-autonomy-msgs/automotive-autonomy-msgs_3.0.4-4 \
-                 automotive-autonomy-msgs/automotive-navigation-msgs_3.0.4-4 \
-                 automotive-autonomy-msgs/automotive-platform-msgs_3.0.4-4 \
-                       autoware-auto-msgs/autoware-auto-msgs_1.0.0-5 \
-                         avt-vimba-camera/avt-vimba-camera_2001.1.0-4 \
-      aws-robomaker-small-warehouse-world/aws-robomaker-small-warehouse-world_1.0.5-3 \
-                       aws-sdk-cpp-vendor/aws-sdk-cpp-vendor_0.2.1-1 \
-                             backward-ros/backward-ros_1.0.2-4 \
-                            bag2-to-image/bag2-to-image_0.1.0-3 \
-                      behaviortree-cpp-v4/behaviortree-cpp_4.4.0-1 \
-                      behaviortree-cpp-v3/behaviortree-cpp-v3_3.8.4-1 \
-                         ros2-controllers/bicycle-steering-controller_3.16.0-1 \
-                                   bno055/bno055_0.4.1-3 \
-                                bond-core/bond_4.0.0-3 \
-                                bond-core/bond-core_4.0.0-3 \
-                                bond-core/bondcpp_4.0.0-3 \
-                      boost-geometry-util/boost-geometry-util_0.0.1-3 \
-                       locator-ros-bridge/bosch-locator-bridge_2.1.9-2 \
-                           rcl-interfaces/builtin-interfaces_2.0.1-1 \
-                           image-pipeline/camera-calibration_3.0.1-2 \
-                             image-common/camera-calibration-parsers_4.5.1-1 \
-                             image-common/camera-info-manager_4.5.1-1 \
-                              ros-canopen/can-msgs_2.0.0-4 \
-                             ros2-canopen/canopen_0.2.7-1 \
-                             ros2-canopen/canopen-402-driver_0.2.7-1 \
-                             ros2-canopen/canopen-base-driver_0.2.7-1 \
-                             ros2-canopen/canopen-core_0.2.7-1 \
-                             ros2-canopen/canopen-fake-slaves_0.2.7-1 \
-                             ros2-canopen/canopen-interfaces_0.2.7-1 \
-                             ros2-canopen/canopen-master-driver_0.2.7-1 \
-                             ros2-canopen/canopen-proxy-driver_0.2.7-1 \
-                             ros2-canopen/canopen-ros2-control_0.2.7-1 \
-                             ros2-canopen/canopen-ros2-controllers_0.2.7-1 \
-                             ros2-canopen/canopen-tests_0.2.7-1 \
-                             ros2-canopen/canopen-utils_0.2.7-1 \
-                             cartographer/cartographer_2.0.9002-4 \
-                         cartographer-ros/cartographer-ros_2.0.9001-1 \
-                         cartographer-ros/cartographer-ros-msgs_2.0.9001-1 \
-                         cartographer-ros/cartographer-rviz_2.0.9001-1 \
-                        cascade-lifecycle/cascade-lifecycle-msgs_1.0.3-4 \
-                               catch-ros2/catch-ros2_0.2.0-1 \
-                                   moveit/chomp-motion-planner_2.8.0-2 \
-                             class-loader/class-loader_2.6.0-1 \
-                             classic-bags/classic-bags_0.1.0-1 \
-                              color-names/color-names_0.0.3-4 \
-                               color-util/color-util_1.0.0-2 \
-                        common-interfaces/common-interfaces_5.2.0-1 \
-                                    demos/composition_0.31.1-1 \
-                           rcl-interfaces/composition-interfaces_2.0.1-1 \
-                  image-transport-plugins/compressed-depth-image-transport_3.2.0-1 \
-                  image-transport-plugins/compressed-image-transport_3.2.0-1 \
-                    console-bridge-vendor/console-bridge-vendor_1.7.1-1 \
-                          control-box-rst/control-box-rst_0.0.7-4 \
-                             control-msgs/control-msgs_5.0.0-1 \
-                          control-toolbox/control-toolbox_3.1.0-1 \
-                             ros2-control/controller-interface_3.19.1-1 \
-                             ros2-control/controller-manager_3.19.1-1 \
-                             ros2-control/controller-manager-msgs_3.19.1-1 \
-                       cudnn-cmake-module/cudnn-cmake-module_0.0.1-4 \
-                            vision-opencv/cv-bridge_3.4.0-2 \
-                               cyclonedds/cyclonedds_0.10.3-1 \
-                       astuff-sensor-msgs/delphi-esr-msgs_4.0.0-2 \
-                       astuff-sensor-msgs/delphi-mrr-msgs_4.0.0-2 \
-                       astuff-sensor-msgs/delphi-srr-msgs_4.0.0-2 \
-                                    demos/demo-nodes-cpp_0.31.1-1 \
-                                    demos/demo-nodes-cpp-rosnative_0.31.1-1 \
-                                    demos/demo-nodes-py_0.31.1-1 \
-                           image-pipeline/depth-image-proc_3.0.1-2 \
-                  depthimage-to-laserscan/depthimage-to-laserscan_2.5.1-1 \
-                       astuff-sensor-msgs/derived-object-msgs_4.0.0-2 \
-                                 variants/desktop_0.10.0-2 \
-                                 variants/desktop-full_0.10.0-2 \
-                              diagnostics/diagnostic-aggregator_3.1.2-1 \
-                              diagnostics/diagnostic-common-diagnostics_3.1.2-1 \
-                        common-interfaces/diagnostic-msgs_5.2.0-1 \
-                              diagnostics/diagnostic-updater_3.1.2-1 \
-                              diagnostics/diagnostics_3.1.2-1 \
-                         ros2-controllers/diff-drive-controller_3.16.0-1 \
-                                    dolly/dolly_0.4.0-4 \
-                                    dolly/dolly-follow_0.4.0-4 \
-                                    dolly/dolly-gazebo_0.4.0-4 \
-                                    dolly/dolly-ignition_0.4.0-4 \
-                            domain-bridge/domain-bridge_0.5.0-3 \
-                          ament-cmake-ros/domain-coordinator_0.12.0-1 \
-            point-cloud-transport-plugins/draco-point-cloud-transport_3.0.1-1 \
-                         moveit-resources/dual-arm-panda-moveit-config_2.1.1-1 \
-                                    demos/dummy-map-server_0.31.1-1 \
-                                    demos/dummy-robot-bringup_0.31.1-1 \
-                                    demos/dummy-sensors_0.31.1-1 \
-                                  octomap/dynamic-edt-3d_1.9.8-2 \
-                       dynamixel-hardware/dynamixel-hardware_0.3.1-3 \
-                            dynamixel-sdk/dynamixel-sdk_3.7.40-4 \
-                            dynamixel-sdk/dynamixel-sdk-custom-interfaces_3.7.40-4 \
-                            dynamixel-sdk/dynamixel-sdk-examples_3.7.40-4 \
-                      dynamixel-workbench/dynamixel-workbench_2.2.3-3 \
-                 dynamixel-workbench-msgs/dynamixel-workbench-msgs_2.0.3-3 \
-                      dynamixel-workbench/dynamixel-workbench-toolbox_2.2.3-3 \
-                                     ecal/ecal_5.12.0-3 \
-                                ecl-tools/ecl-build_1.0.3-3 \
-                                 ecl-core/ecl-command-line_1.2.1-3 \
-                                 ecl-core/ecl-concepts_1.2.1-3 \
-                                 ecl-lite/ecl-config_1.2.0-3 \
-                                 ecl-lite/ecl-console_1.2.0-3 \
-                                 ecl-core/ecl-containers_1.2.1-3 \
-                                 ecl-core/ecl-converters_1.2.1-3 \
-                                 ecl-lite/ecl-converters-lite_1.2.0-3 \
-                                 ecl-core/ecl-core_1.2.1-3 \
-                                 ecl-core/ecl-core-apps_1.2.1-3 \
-                                 ecl-core/ecl-devices_1.2.1-3 \
-                                 ecl-core/ecl-eigen_1.2.1-3 \
-                                 ecl-lite/ecl-errors_1.2.0-3 \
-                                 ecl-core/ecl-exceptions_1.2.1-3 \
-                                 ecl-core/ecl-filesystem_1.2.1-3 \
-                                 ecl-core/ecl-formatters_1.2.1-3 \
-                                 ecl-core/ecl-geometry_1.2.1-3 \
-                                 ecl-lite/ecl-io_1.2.0-3 \
-                                 ecl-core/ecl-ipc_1.2.1-3 \
-                                ecl-tools/ecl-license_1.0.3-3 \
-                                 ecl-core/ecl-linear-algebra_1.2.1-3 \
-                                 ecl-lite/ecl-lite_1.2.0-3 \
-                                 ecl-core/ecl-manipulators_1.2.1-3 \
-                                 ecl-core/ecl-math_1.2.1-3 \
-                                 ecl-core/ecl-mobile-robot_1.2.1-3 \
-                                 ecl-core/ecl-mpl_1.2.1-3 \
-                                 ecl-core/ecl-sigslots_1.2.1-3 \
-                                 ecl-lite/ecl-sigslots-lite_1.2.0-3 \
-                                 ecl-core/ecl-statistics_1.2.1-3 \
-                                 ecl-core/ecl-streams_1.2.1-3 \
-                                 ecl-core/ecl-threads_1.2.1-3 \
-                                 ecl-core/ecl-time_1.2.1-3 \
-                                 ecl-lite/ecl-time-lite_1.2.0-3 \
-                                ecl-tools/ecl-tools_1.0.3-3 \
-                                 ecl-core/ecl-type-traits_1.2.1-3 \
-                                 ecl-core/ecl-utilities_1.2.1-3 \
-                         ros2-controllers/effort-controllers_3.16.0-1 \
-                     eigen-stl-containers/eigen-stl-containers_1.0.0-5 \
-                      eigen3-cmake-module/eigen3-cmake-module_0.3.0-1 \
-                                  eigenpy/eigenpy_2.9.2-4 \
-                      event-camera-codecs/event-camera-codecs_1.0.2-1 \
-                        event-camera-msgs/event-camera-msgs_1.1.4-1 \
-                          event-camera-py/event-camera-py_1.0.3-1 \
-                    event-camera-renderer/event-camera-renderer_1.0.2-1 \
-                       example-interfaces/example-interfaces_0.12.0-1 \
-                                 examples/examples-rclcpp-async-client_0.19.1-1 \
-                                 examples/examples-rclcpp-cbg-executor_0.19.1-1 \
-                                 examples/examples-rclcpp-minimal-action-client_0.19.1-1 \
-                                 examples/examples-rclcpp-minimal-action-server_0.19.1-1 \
-                                 examples/examples-rclcpp-minimal-client_0.19.1-1 \
-                                 examples/examples-rclcpp-minimal-composition_0.19.1-1 \
-                                 examples/examples-rclcpp-minimal-publisher_0.19.1-1 \
-                                 examples/examples-rclcpp-minimal-service_0.19.1-1 \
-                                 examples/examples-rclcpp-minimal-subscriber_0.19.1-1 \
-                                 examples/examples-rclcpp-minimal-timer_0.19.1-1 \
-                                 examples/examples-rclcpp-multithreaded-executor_0.19.1-1 \
-                                 examples/examples-rclcpp-wait-set_0.19.1-1 \
-                                 examples/examples-rclpy-executors_0.19.1-1 \
-                                 examples/examples-rclpy-guard-conditions_0.19.1-1 \
-                                 examples/examples-rclpy-minimal-action-client_0.19.1-1 \
-                                 examples/examples-rclpy-minimal-action-server_0.19.1-1 \
-                                 examples/examples-rclpy-minimal-client_0.19.1-1 \
-                                 examples/examples-rclpy-minimal-publisher_0.19.1-1 \
-                                 examples/examples-rclpy-minimal-service_0.19.1-1 \
-                                 examples/examples-rclpy-minimal-subscriber_0.19.1-1 \
-                                 examples/examples-rclpy-pointcloud-publisher_0.19.1-1 \
-                                geometry2/examples-tf2-py_0.33.2-1 \
-                                    smach/executive-smach_3.0.3-1 \
-                                  fastcdr/fastcdr_1.1.0-1 \
-                                 fastrtps/fastrtps_2.11.2-1 \
-              rosidl-typesupport-fastrtps/fastrtps-cmake-module_3.3.0-1 \
-                                  filters/filters_2.1.0-4 \
-                           find-object-2d/find-object-2d_0.7.0-4 \
-                              fluent-rviz/fluent-rviz_0.0.3-3 \
-                              fmi-adapter/fmi-adapter_2.1.2-1 \
-                              fmi-adapter/fmi-adapter-examples_2.1.2-1 \
-                        fmilibrary-vendor/fmilibrary-vendor_1.0.1-3 \
-                  foonathan-memory-vendor/foonathan-memory-vendor_1.3.1-1 \
-                         ros2-controllers/force-torque-sensor-broadcaster_3.16.0-1 \
-                         ros2-controllers/forward-command-controller_3.16.0-1 \
-                 four-wheel-steering-msgs/four-wheel-steering-msgs_2.0.1-4 \
-                          foxglove-bridge/foxglove-bridge_0.7.3-1 \
-                            foxglove-msgs/foxglove-msgs_2.2.0-1 \
-                                     fuse/fuse_1.0.1-2 \
-                                     fuse/fuse-constraints_1.0.1-2 \
-                                     fuse/fuse-core_1.0.1-2 \
-                                     fuse/fuse-doc_1.0.1-2 \
-                                     fuse/fuse-graphs_1.0.1-2 \
-                                     fuse/fuse-loss_1.0.1-2 \
-                                     fuse/fuse-models_1.0.1-2 \
-                                     fuse/fuse-msgs_1.0.1-2 \
-                                     fuse/fuse-optimizers_1.0.1-2 \
-                                     fuse/fuse-publishers_1.0.1-2 \
-                                     fuse/fuse-tutorials_1.0.1-2 \
-                                     fuse/fuse-variables_1.0.1-2 \
-                                     fuse/fuse-viz_1.0.1-2 \
-                          gazebo-ros-pkgs/gazebo-msgs_3.7.0-2 \
-                          gazebo-ros-pkgs/gazebo-plugins_3.7.0-2 \
-                          gazebo-ros-pkgs/gazebo-ros_3.7.0-2 \
-                          gazebo-ros-pkgs/gazebo-ros-pkgs_3.7.0-2 \
-                      gazebo-ros2-control/gazebo-ros2-control_0.6.2-1 \
-                      gazebo-ros2-control/gazebo-ros2-control-demos_0.6.2-1 \
-                          gazebo-ros-pkgs/gazebo-rosdev_3.7.0-2 \
-                                   gc-spl/gc-spl-2022_3.0.0-3 \
-               generate-parameter-library/generate-parameter-library_0.3.6-1 \
-               generate-parameter-library/generate-parameter-library-example_0.3.6-1 \
-               generate-parameter-library/generate-parameter-library-py_0.3.6-1 \
-               generate-parameter-library/generate-parameter-module-example_0.3.6-1 \
-                          geographic-info/geodesy_1.0.5-1 \
-                          geographic-info/geographic-info_1.0.5-1 \
-                          geographic-info/geographic-msgs_1.0.5-1 \
-                         geometric-shapes/geometric-shapes_2.1.3-3 \
-                        common-interfaces/geometry-msgs_5.2.0-1 \
-                       geometry-tutorials/geometry-tutorials_0.3.6-3 \
-                                geometry2/geometry2_0.33.2-1 \
-                               googletest/gmock-vendor_1.11.9000-1 \
-                  google-benchmark-vendor/google-benchmark-vendor_0.4.0-1 \
-                                  gps-umd/gps-msgs_1.0.4-4 \
-                                  gps-umd/gps-tools_1.0.4-4 \
-                                  gps-umd/gps-umd_1.0.4-4 \
-                                  gps-umd/gpsd-client_1.0.4-4 \
-                               graph-msgs/graph-msgs_0.2.0-4 \
-                                grbl-msgs/grbl-msgs_0.0.2-7 \
-                                 grbl-ros/grbl-ros_0.0.16-5 \
-                         ros2-controllers/gripper-controllers_3.16.0-1 \
-                                    gscam/gscam_2.0.2-3 \
-                               googletest/gtest-vendor_1.11.9000-1 \
-                                    gtsam/gtsam_4.2.0-4 \
-                             rmw-gurumdds/gurumdds-cmake-module_4.2.0-2 \
-                          gz-ros2-control/gz-ros2-control_1.1.2-1 \
-                          gz-ros2-control/gz-ros2-control-demos_1.1.2-1 \
-                             ros2-control/hardware-interface_3.19.1-1 \
-                      hash-library-vendor/hash-library-vendor_0.1.1-4 \
-                                 heaphook/heaphook_0.1.1-1 \
-                      hls-lfcd-lds-driver/hls-lfcd-lds-driver_2.0.4-4 \
-                                  hpp-fcl/hpp-fcl_2.3.0-4 \
-                       astuff-sensor-msgs/ibeo-msgs_4.0.0-2 \
-                                  iceoryx/iceoryx-binding-c_2.0.3-3 \
-                                  iceoryx/iceoryx-hoofs_2.0.3-3 \
-                                  iceoryx/iceoryx-posh_2.0.3-3 \
-                               ifm3d-core/ifm3d-core_0.18.0-8 \
-                   ignition-cmake2-vendor/ignition-cmake2-vendor_0.2.1-1 \
-                    ignition-math6-vendor/ignition-math6-vendor_0.2.1-1 \
-                             image-common/image-common_4.5.1-1 \
-                            vision-opencv/image-geometry_3.4.0-2 \
-                           image-pipeline/image-pipeline_3.0.1-2 \
-                           image-pipeline/image-proc_3.0.1-2 \
-                           image-pipeline/image-publisher_3.0.1-2 \
-                           image-pipeline/image-rotate_3.0.1-2 \
-                                    demos/image-tools_0.31.1-1 \
-                             image-common/image-transport_4.5.1-1 \
-                  image-transport-plugins/image-transport-plugins_3.2.0-1 \
-                           image-pipeline/image-view_3.0.1-2 \
-                                imu-tools/imu-complementary-filter_2.1.3-2 \
-                                imu-tools/imu-filter-madgwick_2.1.3-2 \
-                         ros2-controllers/imu-sensor-broadcaster_3.16.0-1 \
-                                imu-tools/imu-tools_2.1.3-2 \
-          interactive-marker-twist-server/interactive-marker-twist-server_2.1.0-1 \
-                      interactive-markers/interactive-markers_2.5.2-1 \
-                                    demos/intra-process-demo_0.31.1-1 \
-                        transport-drivers/io-context_1.2.0-2 \
-                       irobot-create-msgs/irobot-create-msgs_2.1.0-2 \
-                             ros2-control/joint-limits_3.19.1-1 \
-                         ros2-controllers/joint-state-broadcaster_3.16.0-1 \
-                    joint-state-publisher/joint-state-publisher_2.4.0-1 \
-                    joint-state-publisher/joint-state-publisher-gui_2.4.0-1 \
-                         ros2-controllers/joint-trajectory-controller_3.16.0-1 \
-                         joystick-drivers/joy_3.3.0-1 \
-                         joystick-drivers/joy-linux_3.3.0-1 \
-                             teleop-tools/joy-teleop_1.4.0-1 \
-                               joy-tester/joy-tester_0.0.2-2 \
-                       astuff-sensor-msgs/kartech-linear-actuator-msgs_4.0.0-2 \
-                               kdl-parser/kdl-parser_2.10.0-1 \
-                             teleop-tools/key-teleop_1.4.0-1 \
-                         keyboard-handler/keyboard-handler_0.2.0-1 \
-                     kinematics-interface/kinematics-interface_0.1.0-2 \
-                     kinematics-interface/kinematics-interface-kdl_0.1.0-2 \
-                              ros2-kortex/kinova-gen3-6dof-robotiq-2f-85-moveit-config_0.2.2-1 \
-                              ros2-kortex/kinova-gen3-7dof-robotiq-2f-85-moveit-config_0.2.2-1 \
-                              kobuki-core/kobuki-core_1.4.0-2 \
-                    kobuki-ros-interfaces/kobuki-ros-interfaces_1.0.0-3 \
-                 kobuki-velocity-smoother/kobuki-velocity-smoother_0.15.0-2 \
-                              ros2-kortex/kortex-api_0.2.2-1 \
-                              ros2-kortex/kortex-bringup_0.2.2-1 \
-                              ros2-kortex/kortex-description_0.2.2-1 \
-                              ros2-kortex/kortex-driver_0.2.2-1 \
-                                 lanelet2/lanelet2_1.2.1-4 \
-                                 lanelet2/lanelet2-core_1.2.1-4 \
-                                 lanelet2/lanelet2-examples_1.2.1-4 \
-                                 lanelet2/lanelet2-io_1.2.1-4 \
-                                 lanelet2/lanelet2-maps_1.2.1-4 \
-                                 lanelet2/lanelet2-matching_1.2.1-4 \
-                                 lanelet2/lanelet2-projection_1.2.1-4 \
-                                 lanelet2/lanelet2-python_1.2.1-4 \
-                                 lanelet2/lanelet2-routing_1.2.1-4 \
-                                 lanelet2/lanelet2-traffic-rules_1.2.1-4 \
-                                 lanelet2/lanelet2-validation_1.2.1-4 \
-                            laser-filters/laser-filters_2.0.7-1 \
-                           laser-geometry/laser-geometry_2.6.0-1 \
-                               laser-proc/laser-proc_1.0.2-5 \
-                                   launch/launch_3.2.0-1 \
-                     launch-param-builder/launch-param-builder_0.1.1-2 \
-                                   launch/launch-pytest_3.2.0-1 \
-                               launch-ros/launch-ros_0.26.2-1 \
-                             system-modes/launch-system-modes_0.9.0-4 \
-                                   launch/launch-testing_3.2.0-1 \
-                                   launch/launch-testing-ament-cmake_3.2.0-1 \
-                                 examples/launch-testing-examples_0.19.1-1 \
-                               launch-ros/launch-testing-ros_0.26.2-1 \
-                                   launch/launch-xml_3.2.0-1 \
-                                   launch/launch-yaml_3.2.0-1 \
-                             ros2-canopen/lely-core-libraries_0.2.7-1 \
-                               lgsvl-msgs/lgsvl-msgs_0.0.4-3 \
-                       resource-retriever/libcurl-vendor_3.3.1-1 \
-                                   libg2o/libg2o_2020.5.29-4 \
-                                   mavros/libmavconn_2.6.0-1 \
-                                  libnabo/libnabo_1.0.7-3 \
-                         phidgets-drivers/libphidget22_2.3.1-2 \
-                          libpointmatcher/libpointmatcher_1.3.1-4 \
-                  libstatistics-collector/libstatistics-collector_1.6.3-1 \
-                           libyaml-vendor/libyaml-vendor_1.6.2-1 \
-                                    demos/lifecycle_0.31.1-1 \
-                           rcl-interfaces/lifecycle-msgs_2.0.1-1 \
-                                    demos/lifecycle-py_0.31.1-1 \
-                                    demos/logging-demo_0.31.1-1 \
-                               magic-enum/magic-enum_0.9.3-1 \
-                          navigation-msgs/map-msgs_2.3.0-1 \
-                                   mapviz/mapviz_2.3.0-1 \
-                                   mapviz/mapviz-interfaces_2.3.0-1 \
-                                   mapviz/mapviz-plugins_2.3.0-1 \
-                           marti-messages/marti-can-msgs_1.5.1-1 \
-                           marti-messages/marti-common-msgs_1.5.1-1 \
-                           marti-messages/marti-dbw-msgs_1.5.1-1 \
-                           marti-messages/marti-introspection-msgs_1.5.1-1 \
-                           marti-messages/marti-nav-msgs_1.5.1-1 \
-                           marti-messages/marti-perception-msgs_1.5.1-1 \
-                           marti-messages/marti-sensor-msgs_1.5.1-1 \
-                           marti-messages/marti-status-msgs_1.5.1-1 \
-                           marti-messages/marti-visualization-msgs_1.5.1-1 \
-                                  mavlink/mavlink_2023.9.9-1 \
-                                   mavros/mavros_2.6.0-1 \
-                                   mavros/mavros-extras_2.6.0-1 \
-                                   mavros/mavros-msgs_2.6.0-1 \
-                                  rosbag2/mcap-vendor_0.24.0-1 \
-                             menge-vendor/menge-vendor_1.2.0-1 \
-                          message-filters/message-filters_4.10.0-1 \
-             message-tf-frame-transformer/message-tf-frame-transformer_1.1.0-1 \
-                        metavision-driver/metavision-driver_1.0.6-1 \
-                    micro-ros-diagnostics/micro-ros-diagnostic-bridge_0.3.0-4 \
-                    micro-ros-diagnostics/micro-ros-diagnostic-msgs_0.3.0-4 \
-                           micro-ros-msgs/micro-ros-msgs_1.0.0-3 \
-                     microstrain-inertial/microstrain-inertial-driver_3.1.0-1 \
-                     microstrain-inertial/microstrain-inertial-examples_3.1.0-1 \
-                     microstrain-inertial/microstrain-inertial-msgs_3.1.0-1 \
-                     microstrain-inertial/microstrain-inertial-rqt_3.1.0-1 \
-                            mimick-vendor/mimick-vendor_0.5.0-1 \
-                       astuff-sensor-msgs/mobileye-560-660-msgs_4.0.0-2 \
-                                     mola/mola-common_0.2.2-1 \
-                                     mola/mola-demos_0.2.2-1 \
-                                     mola/mola-imu-preintegration_0.2.2-1 \
-                                     mola/mola-input-euroc-dataset_0.2.2-1 \
-                                     mola/mola-input-kitti-dataset_0.2.2-1 \
-                                     mola/mola-input-rawlog_0.2.2-1 \
-                                     mola/mola-input-ros2_0.2.2-1 \
-                                     mola/mola-kernel_0.2.2-1 \
-                                     mola/mola-launcher_0.2.2-1 \
-                                     mola/mola-test-datasets_0.2.2-1 \
-                                     mola/mola-viz_0.2.2-1 \
-                                     mola/mola-yaml_0.2.2-1 \
-                             teleop-tools/mouse-teleop_1.4.0-1 \
-                                   moveit/moveit_2.8.0-2 \
-                                   moveit/moveit-chomp-optimizer-adapter_2.8.0-2 \
-                                   moveit/moveit-common_2.8.0-2 \
-                                   moveit/moveit-configs-utils_2.8.0-2 \
-                                   moveit/moveit-core_2.8.0-2 \
-                                   moveit/moveit-hybrid-planning_2.8.0-2 \
-                                   moveit/moveit-kinematics_2.8.0-2 \
-                              moveit-msgs/moveit-msgs_2.3.0-1 \
-                                   moveit/moveit-planners_2.8.0-2 \
-                                   moveit/moveit-planners-chomp_2.8.0-2 \
-                                   moveit/moveit-planners-ompl_2.8.0-2 \
-                                   moveit/moveit-planners-stomp_2.8.0-2 \
-                                   moveit/moveit-plugins_2.8.0-2 \
-                                   moveit/moveit-py_2.8.0-2 \
-                         moveit-resources/moveit-resources_2.1.1-1 \
-                         moveit-resources/moveit-resources-fanuc-description_2.1.1-1 \
-                         moveit-resources/moveit-resources-fanuc-moveit-config_2.1.1-1 \
-                         moveit-resources/moveit-resources-panda-description_2.1.1-1 \
-                         moveit-resources/moveit-resources-panda-moveit-config_2.1.1-1 \
-                         moveit-resources/moveit-resources-pr2-description_2.1.1-1 \
-                                   moveit/moveit-resources-prbt-ikfast-manipulator-plugin_2.8.0-2 \
-                                   moveit/moveit-resources-prbt-moveit-config_2.8.0-2 \
-                                   moveit/moveit-resources-prbt-pg70-support_2.8.0-2 \
-                                   moveit/moveit-resources-prbt-support_2.8.0-2 \
-                                   moveit/moveit-ros_2.8.0-2 \
-                                   moveit/moveit-ros-benchmarks_2.8.0-2 \
-                                   moveit/moveit-ros-control-interface_2.8.0-2 \
-                                   moveit/moveit-ros-move-group_2.8.0-2 \
-                                   moveit/moveit-ros-occupancy-map-monitor_2.8.0-2 \
-                                   moveit/moveit-ros-perception_2.8.0-2 \
-                                   moveit/moveit-ros-planning_2.8.0-2 \
-                                   moveit/moveit-ros-planning-interface_2.8.0-2 \
-                                   moveit/moveit-ros-robot-interaction_2.8.0-2 \
-                                   moveit/moveit-ros-visualization_2.8.0-2 \
-                                   moveit/moveit-ros-warehouse_2.8.0-2 \
-                                   moveit/moveit-runtime_2.8.0-2 \
-                                   moveit/moveit-servo_2.8.0-2 \
-                                   moveit/moveit-setup-app-plugins_2.8.0-2 \
-                                   moveit/moveit-setup-assistant_2.8.0-2 \
-                                   moveit/moveit-setup-controllers_2.8.0-2 \
-                                   moveit/moveit-setup-core-plugins_2.8.0-2 \
-                                   moveit/moveit-setup-framework_2.8.0-2 \
-                                   moveit/moveit-setup-srdf-plugins_2.8.0-2 \
-                                   moveit/moveit-simple-controller-manager_2.8.0-2 \
-                      moveit-visual-tools/moveit-visual-tools_4.1.0-2 \
-                                     mola/mp2p-icp_0.2.2-1 \
-                              mqtt-client/mqtt-client_2.1.0-1 \
-                              mqtt-client/mqtt-client-interfaces_2.1.0-1 \
-                                mrpt-msgs/mrpt-msgs_0.4.7-1 \
-                       mrpt-path-planning/mrpt-path-planning_0.1.0-1 \
-                                    mrpt2/mrpt2_2.11.2-1 \
-                        mrt-cmake-modules/mrt-cmake-modules_1.0.9-3 \
-                                   mapviz/multires-image_2.3.0-1 \
-                                    mvsim/mvsim_0.8.2-1 \
-                           nao-button-sim/nao-button-sim_1.0.0-1 \
-                           nao-interfaces/nao-command-msgs_1.0.0-1 \
-                                 nao-lola/nao-lola_1.1.1-1 \
-                                 nao-lola/nao-lola-client_1.1.1-1 \
-                                 nao-lola/nao-lola-command-msgs_1.1.1-1 \
-                                 nao-lola/nao-lola-conversion_1.1.1-1 \
-                                 nao-lola/nao-lola-sensor-msgs_1.1.1-1 \
-                           nao-interfaces/nao-sensor-msgs_1.0.0-1 \
-                        common-interfaces/nav-msgs_5.2.0-1 \
-                          neo-simulation2/neo-simulation2_1.0.0-3 \
-                       astuff-sensor-msgs/neobotix-usboard-msgs_4.0.0-2 \
-    nlohmann-json-schema-validator-vendor/nlohmann-json-schema-validator-vendor_0.4.0-1 \
-                  nmea-hardware-interface/nmea-hardware-interface_0.0.1-3 \
-                                nmea-msgs/nmea-msgs_2.1.0-1 \
-                       nmea-navsat-driver/nmea-navsat-driver_2.0.1-1 \
-                                     nodl/nodl-python_0.3.1-3 \
-                           nodl-to-policy/nodl-to-policy_1.0.0-3 \
-                       novatel-gps-driver/novatel-gps-driver_4.1.0-3 \
-                       novatel-gps-driver/novatel-gps-msgs_4.1.0-3 \
-                              ntpd-driver/ntpd-driver_2.2.0-2 \
-                             ntrip-client/ntrip-client_1.2.0-2 \
-                              ublox-dgnss/ntrip-client-node_0.5.1-1 \
-                  object-recognition-msgs/object-recognition-msgs_2.0.0-3 \
-                                  octomap/octomap_1.9.8-2 \
-                          octomap-mapping/octomap-mapping_2.0.0-3 \
-                             octomap-msgs/octomap-msgs_2.0.0-3 \
-                              octomap-ros/octomap-ros_0.4.3-2 \
-                     octomap-rviz-plugins/octomap-rviz-plugins_2.0.0-3 \
-                          octomap-mapping/octomap-server_2.0.0-3 \
-                                  octomap/octovis_1.9.8-2 \
-                          odom-to-tf-ros2/odom-to-tf-ros2_1.0.2-2 \
-                                     ompl/ompl_1.5.2-3 \
-                        perception-open3d/open3d-conversions_0.1.2-2 \
-                           openni2-camera/openni2-camera_2.0.2-1 \
-                        orocos-kdl-vendor/orocos-kdl-vendor_0.4.1-1 \
-                              osqp-vendor/osqp-vendor_0.2.0-2 \
-                            osrf-pycommon/osrf-pycommon_2.1.4-1 \
-                   osrf-testing-tools-cpp/osrf-testing-tools-cpp_1.7.0-1 \
-                      ros2-ouster-drivers/ouster-msgs_0.5.0-2 \
-                              ouxt-common/ouxt-common_0.0.8-3 \
-                              ouxt-common/ouxt-lint-common_0.0.8-3 \
-                           pal-statistics/pal-statistics_2.1.5-1 \
-                           pal-statistics/pal-statistics-msgs_2.1.5-1 \
-               generate-parameter-library/parameter-traits_0.3.6-1 \
-                           perception-pcl/pcl-conversions_2.4.0-4 \
-                                 pcl-msgs/pcl-msgs_1.0.0-7 \
-                           perception-pcl/pcl-ros_2.4.0-4 \
-                                    demos/pendulum-control_0.31.1-1 \
-                                    demos/pendulum-msgs_0.31.1-1 \
-                                 variants/perception_0.10.0-2 \
-                           perception-pcl/perception-pcl_2.4.0-4 \
-                         performance-test/performance-test_1.2.1-3 \
-                 performance-test-fixture/performance-test-fixture_0.2.0-1 \
-                         phidgets-drivers/phidgets-accelerometer_2.3.1-2 \
-                         phidgets-drivers/phidgets-analog-inputs_2.3.1-2 \
-                         phidgets-drivers/phidgets-analog-outputs_2.3.1-2 \
-                         phidgets-drivers/phidgets-api_2.3.1-2 \
-                         phidgets-drivers/phidgets-digital-inputs_2.3.1-2 \
-                         phidgets-drivers/phidgets-digital-outputs_2.3.1-2 \
-                         phidgets-drivers/phidgets-drivers_2.3.1-2 \
-                         phidgets-drivers/phidgets-gyroscope_2.3.1-2 \
-                         phidgets-drivers/phidgets-high-speed-encoder_2.3.1-2 \
-                         phidgets-drivers/phidgets-ik_2.3.1-2 \
-                         phidgets-drivers/phidgets-magnetometer_2.3.1-2 \
-                         phidgets-drivers/phidgets-motors_2.3.1-2 \
-                         phidgets-drivers/phidgets-msgs_2.3.1-2 \
-                         phidgets-drivers/phidgets-spatial_2.3.1-2 \
-                         phidgets-drivers/phidgets-temperature_2.3.1-2 \
-                                  pick-ik/pick-ik_1.0.1-1 \
-                  picknik-ament-copyright/picknik-ament-copyright_0.0.2-3 \
-                      picknik-controllers/picknik-reset-fault-controller_0.0.3-1 \
-                      picknik-controllers/picknik-twist-controller_0.0.3-1 \
-                                   moveit/pilz-industrial-motion-planner_2.8.0-2 \
-                                   moveit/pilz-industrial-motion-planner-testutils_2.8.0-2 \
-                                pinocchio/pinocchio_2.6.17-4 \
-                              plotjuggler/plotjuggler_3.7.1-1 \
-                         plotjuggler-msgs/plotjuggler-msgs_0.2.3-3 \
-                          plotjuggler-ros/plotjuggler-ros_1.7.3-5 \
-                                pluginlib/pluginlib_5.3.0-1 \
-            point-cloud-transport-plugins/point-cloud-interfaces_3.0.1-1 \
-                  point-cloud-msg-wrapper/point-cloud-msg-wrapper_1.0.7-3 \
-                    point-cloud-transport/point-cloud-transport_3.0.1-1 \
-            point-cloud-transport-plugins/point-cloud-transport-plugins_3.0.1-1 \
-                    point-cloud-transport/point-cloud-transport-py_3.0.1-1 \
-           point-cloud-transport-tutorial/point-cloud-transport-tutorial_0.0.1-1 \
-                  pointcloud-to-laserscan/pointcloud-to-laserscan_2.0.1-3 \
-                              polygon-ros/polygon-demos_1.0.2-1 \
-                              polygon-ros/polygon-msgs_1.0.2-1 \
-                              polygon-ros/polygon-rviz-plugins_1.0.2-1 \
-                              polygon-ros/polygon-utils_1.0.2-1 \
-                             pose-cov-ops/pose-cov-ops_0.3.11-1 \
-                         ros2-controllers/position-controllers_3.16.0-1 \
-                                proxsuite/proxsuite_0.3.6-1 \
-                                 py-trees/py-trees_2.2.1-2 \
-                              py-trees-js/py-trees-js_0.6.4-2 \
-                             py-trees-ros/py-trees-ros_2.2.2-2 \
-                  py-trees-ros-interfaces/py-trees-ros-interfaces_2.1.0-2 \
-                     pybind11-json-vendor/pybind11-json-vendor_0.4.1-1 \
-                          pybind11-vendor/pybind11-vendor_3.1.1-1 \
-                      python-cmake-module/python-cmake-module_0.11.0-1 \
-                        orocos-kdl-vendor/python-orocos-kdl-vendor_0.4.1-1 \
-                        python-qt-binding/python-qt-binding_1.3.0-1 \
-                           qpoases-vendor/qpoases-vendor_3.2.3-3 \
-                              qt-gui-core/qt-dotgraph_2.7.0-1 \
-                              qt-gui-core/qt-gui_2.7.0-1 \
-                              qt-gui-core/qt-gui-app_2.7.0-1 \
-                              qt-gui-core/qt-gui-core_2.7.0-1 \
-                              qt-gui-core/qt-gui-cpp_2.7.0-1 \
-                              qt-gui-core/qt-gui-py-common_2.7.0-1 \
-                                    demos/quality-of-service-demo-cpp_0.31.1-1 \
-                                    demos/quality-of-service-demo-py_0.31.1-1 \
-                     quaternion-operation/quaternion-operation_0.0.7-3 \
-                                  r2r-spl/r2r-spl-7_3.0.1-2 \
-                               radar-msgs/radar-msgs_0.2.2-2 \
-                           random-numbers/random-numbers_2.0.1-3 \
-                         ros2-controllers/range-sensor-broadcaster_3.16.0-1 \
-                           rc-common-msgs/rc-common-msgs_0.5.3-4 \
-                          rc-dynamics-api/rc-dynamics-api_0.10.3-3 \
-                           rc-genicam-api/rc-genicam-api_2.6.1-2 \
-                        rc-genicam-driver/rc-genicam-driver_0.3.0-2 \
-                        rc-reason-clients/rc-reason-clients_0.3.1-1 \
-                        rc-reason-clients/rc-reason-msgs_0.3.1-1 \
-                               rcdiscover/rcdiscover_1.1.6-2 \
-                                   gc-spl/rcgcd-spl-14_3.0.0-3 \
-                                   gc-spl/rcgcd-spl-14-conversion_3.0.0-3 \
-                                   gc-spl/rcgcrd-spl-4_3.0.0-3 \
-                                   gc-spl/rcgcrd-spl-4-conversion_3.0.0-3 \
-                                      rcl/rcl_7.3.0-1 \
-                                      rcl/rcl-action_7.3.0-1 \
-                           rcl-interfaces/rcl-interfaces_2.0.1-1 \
-                                      rcl/rcl-lifecycle_7.3.0-1 \
-                              rcl-logging/rcl-logging-interface_2.7.0-1 \
-                              rcl-logging/rcl-logging-noop_2.7.0-1 \
-                              rcl-logging/rcl-logging-spdlog_2.7.0-1 \
-                                      rcl/rcl-yaml-param-parser_7.3.0-1 \
-                                     rclc/rclc_6.1.0-1 \
-                                     rclc/rclc-examples_6.1.0-1 \
-                                     rclc/rclc-lifecycle_6.1.0-1 \
-                                     rclc/rclc-parameter_6.1.0-1 \
-                                   rclcpp/rclcpp_23.2.0-1 \
-                                   rclcpp/rclcpp-action_23.2.0-1 \
-                        cascade-lifecycle/rclcpp-cascade-lifecycle_1.0.3-4 \
-                                   rclcpp/rclcpp-components_23.2.0-1 \
-                                   rclcpp/rclcpp-lifecycle_23.2.0-1 \
-                                    rclpy/rclpy_5.4.0-1 \
-                  rospy-message-converter/rclpy-message-converter_2.0.1-2 \
-                  rospy-message-converter/rclpy-message-converter-msgs_2.0.1-2 \
-                                rcpputils/rcpputils_2.8.0-1 \
-                             rcss3d-agent/rcss3d-agent_0.4.1-2 \
-                             rcss3d-agent/rcss3d-agent-basic_0.4.1-2 \
-                             rcss3d-agent/rcss3d-agent-msgs_0.4.1-2 \
-                             rcss3d-agent/rcss3d-agent-msgs-to-soccer-interfaces_0.4.1-2 \
-                               rcss3d-nao/rcss3d-nao_1.1.0-1 \
-                                  rcutils/rcutils_6.4.0-1 \
-                           realtime-tools/realtime-tools_2.5.0-2 \
-                       resource-retriever/resource-retriever_3.3.1-1 \
-                          rig-reconfigure/rig-reconfigure_1.3.2-1 \
-                             rmf-api-msgs/rmf-api-msgs_0.2.1-1 \
-                              rmf-battery/rmf-battery_0.3.0-1 \
-                    rmf-building-map-msgs/rmf-building-map-msgs_1.4.0-1 \
-                       rmf-traffic-editor/rmf-building-map-tools_1.8.1-1 \
-                           rmf-simulation/rmf-building-sim-common_2.2.1-1 \
-                           rmf-simulation/rmf-building-sim-gz-classic-plugins_2.2.1-1 \
-                           rmf-simulation/rmf-building-sim-gz-plugins_2.2.1-1 \
-                        rmf-internal-msgs/rmf-charger-msgs_3.2.0-1 \
-                     rmf-cmake-uncrustify/rmf-cmake-uncrustify_1.2.0-4 \
-                        rmf-internal-msgs/rmf-dispenser-msgs_3.2.0-1 \
-                        rmf-internal-msgs/rmf-door-msgs_3.2.0-1 \
-                                 rmf-ros2/rmf-fleet-adapter_2.3.2-1 \
-                                 rmf-ros2/rmf-fleet-adapter-python_2.3.2-1 \
-                        rmf-internal-msgs/rmf-fleet-msgs_3.2.0-1 \
-                        rmf-internal-msgs/rmf-ingestor-msgs_3.2.0-1 \
-                        rmf-internal-msgs/rmf-lift-msgs_3.2.0-1 \
-                        rmf-internal-msgs/rmf-obstacle-msgs_3.2.0-1 \
-                           rmf-simulation/rmf-robot-sim-common_2.2.1-1 \
-                           rmf-simulation/rmf-robot-sim-gz-classic-plugins_2.2.1-1 \
-                           rmf-simulation/rmf-robot-sim-gz-plugins_2.2.1-1 \
-                             rmf-variants/rmf-rosdev_0.0.1-1 \
-                        rmf-internal-msgs/rmf-scheduler-msgs_3.2.0-1 \
-                        rmf-internal-msgs/rmf-site-map-msgs_3.2.0-1 \
-                                 rmf-task/rmf-task_2.3.2-1 \
-                        rmf-internal-msgs/rmf-task-msgs_3.2.0-1 \
-                                 rmf-ros2/rmf-task-ros2_2.3.2-1 \
-                                 rmf-task/rmf-task-sequence_2.3.2-1 \
-                              rmf-traffic/rmf-traffic_3.2.0-1 \
-                       rmf-traffic-editor/rmf-traffic-editor_1.8.1-1 \
-                       rmf-traffic-editor/rmf-traffic-editor-assets_1.8.1-1 \
-                       rmf-traffic-editor/rmf-traffic-editor-test-maps_1.8.1-1 \
-                              rmf-traffic/rmf-traffic-examples_3.2.0-1 \
-                        rmf-internal-msgs/rmf-traffic-msgs_3.2.0-1 \
-                                 rmf-ros2/rmf-traffic-ros2_2.3.2-1 \
-                                rmf-utils/rmf-utils_1.6.0-1 \
-                        rmf-visualization/rmf-visualization_2.2.1-1 \
-                        rmf-visualization/rmf-visualization-building-systems_2.2.1-1 \
-                        rmf-visualization/rmf-visualization-fleet-states_2.2.1-1 \
-                        rmf-visualization/rmf-visualization-floorplans_2.2.1-1 \
-                   rmf-visualization-msgs/rmf-visualization-msgs_1.4.0-1 \
-                        rmf-visualization/rmf-visualization-navgraphs_2.2.1-1 \
-                        rmf-visualization/rmf-visualization-obstacles_2.2.1-1 \
-                        rmf-visualization/rmf-visualization-rviz2-plugins_2.2.1-1 \
-                        rmf-visualization/rmf-visualization-schedule_2.2.1-1 \
-                                 rmf-ros2/rmf-websocket_2.3.2-1 \
-                        rmf-internal-msgs/rmf-workcell-msgs_3.2.0-1 \
-                                      rmw/rmw_7.2.1-1 \
-                           rmw-connextdds/rmw-connextdds_0.18.0-1 \
-                           rmw-connextdds/rmw-connextdds-common_0.18.0-1 \
-                           rmw-cyclonedds/rmw-cyclonedds-cpp_1.10.0-1 \
-                           rmw-dds-common/rmw-dds-common_2.1.1-1 \
-                             rmw-fastrtps/rmw-fastrtps-cpp_7.6.0-1 \
-                             rmw-fastrtps/rmw-fastrtps-dynamic-cpp_7.6.0-1 \
-                             rmw-fastrtps/rmw-fastrtps-shared-cpp_7.6.0-1 \
-                             rmw-gurumdds/rmw-gurumdds-cpp_4.2.0-2 \
-                       rmw-implementation/rmw-implementation_2.14.0-1 \
-                                      rmw/rmw-implementation-cmake_7.2.1-1 \
-                        robot-calibration/robot-calibration_0.8.0-2 \
-                        robot-calibration/robot-calibration-msgs_0.8.0-2 \
-                       robot-localization/robot-localization_3.6.0-1 \
-                    robot-state-publisher/robot-state-publisher_3.3.1-1 \
-                     ros2-robotiq-gripper/robotiq-controllers_0.0.1-1 \
-                     ros2-robotiq-gripper/robotiq-description_0.0.1-1 \
-                                 variants/ros-base_0.10.0-2 \
-                                 variants/ros-core_0.10.0-2 \
-                          ros-environment/ros-environment_4.2.0-1 \
-                                   ros-gz/ros-gz_0.245.0-1 \
-                                   ros-gz/ros-gz-bridge_0.245.0-1 \
-                                   ros-gz/ros-gz-image_0.245.0-1 \
-                                   ros-gz/ros-gz-interfaces_0.245.0-1 \
-                                   ros-gz/ros-gz-sim_0.245.0-1 \
-                                   ros-gz/ros-gz-sim-demos_0.245.0-1 \
-                                   ros-gz/ros-ign_0.245.0-1 \
-                                   ros-gz/ros-ign-bridge_0.245.0-1 \
-                                   ros-gz/ros-ign-gazebo_0.245.0-1 \
-                                   ros-gz/ros-ign-gazebo-demos_0.245.0-1 \
-                                   ros-gz/ros-ign-image_0.245.0-1 \
-                                   ros-gz/ros-ign-interfaces_0.245.0-1 \
-                      ros-image-to-qimage/ros-image-to-qimage_0.4.1-2 \
-         ros-industrial-cmake-boilerplate/ros-industrial-cmake-boilerplate_0.4.0-2 \
-                              ros-testing/ros-testing_0.6.0-1 \
-                            ros-workspace/ros-workspace_1.0.3-3 \
-                             ros2-control/ros2-control_3.19.1-1 \
-                             ros2-control/ros2-control-test-assets_3.19.1-1 \
-                         ros2-controllers/ros2-controllers_3.16.0-1 \
-                         ros2-controllers/ros2-controllers-test-nodes_3.16.0-1 \
-                      ros2-ouster-drivers/ros2-ouster_0.5.0-2 \
-                           ros2-socketcan/ros2-socketcan_1.2.0-1 \
-                           ros2-socketcan/ros2-socketcan-msgs_1.2.0-1 \
-                         ros2acceleration/ros2acceleration_0.5.1-2 \
-                                  ros2cli/ros2action_0.29.1-1 \
-                                  rosbag2/ros2bag_0.24.0-1 \
-                                  ros2cli/ros2cli_0.29.1-1 \
-                ros2cli-common-extensions/ros2cli-common-extensions_0.3.0-1 \
-                                  ros2cli/ros2cli-test-interfaces_0.29.1-1 \
-                                  ros2cli/ros2component_0.29.1-1 \
-                             ros2-control/ros2controlcli_3.19.1-1 \
-                                  ros2cli/ros2doctor_0.29.1-1 \
-                                  ros2cli/ros2interface_0.29.1-1 \
-                               launch-ros/ros2launch_0.26.2-1 \
-                      ros2launch-security/ros2launch-security_1.0.0-3 \
-                      ros2launch-security/ros2launch-security-examples_1.0.0-3 \
-                                  ros2cli/ros2lifecycle_0.29.1-1 \
-                                  ros2cli/ros2lifecycle-test-fixtures_0.29.1-1 \
-                                  ros2cli/ros2multicast_0.29.1-1 \
-                                  ros2cli/ros2node_0.29.1-1 \
-                                     nodl/ros2nodl_0.3.1-3 \
-                                  ros2cli/ros2param_0.29.1-1 \
-                                  ros2cli/ros2pkg_0.29.1-1 \
-                                  ros2cli/ros2run_0.29.1-1 \
-                                  ros2cli/ros2service_0.29.1-1 \
-                              ros-testing/ros2test_0.6.0-1 \
-                                  ros2cli/ros2topic_0.29.1-1 \
-                             ros2-tracing/ros2trace_7.1.0-1 \
-                      tracetools-analysis/ros2trace-analysis_3.0.0-4 \
-                          rosbridge-suite/rosapi_1.3.2-1 \
-                          rosbridge-suite/rosapi-msgs_1.3.2-1 \
-                                  rosbag2/rosbag2_0.24.0-1 \
-                                  rosbag2/rosbag2-compression_0.24.0-1 \
-                                  rosbag2/rosbag2-compression-zstd_0.24.0-1 \
-                                  rosbag2/rosbag2-cpp_0.24.0-1 \
-                                  rosbag2/rosbag2-examples-cpp_0.24.0-1 \
-                                  rosbag2/rosbag2-examples-py_0.24.0-1 \
-                                  rosbag2/rosbag2-interfaces_0.24.0-1 \
-                                  rosbag2/rosbag2-performance-benchmarking_0.24.0-1 \
-                                  rosbag2/rosbag2-performance-benchmarking-msgs_0.24.0-1 \
-                                  rosbag2/rosbag2-py_0.24.0-1 \
-                                  rosbag2/rosbag2-storage_0.24.0-1 \
-                                  rosbag2/rosbag2-storage-default-plugins_0.24.0-1 \
-                                  rosbag2/rosbag2-storage-mcap_0.24.0-1 \
-                                  rosbag2/rosbag2-storage-sqlite3_0.24.0-1 \
-                                  rosbag2/rosbag2-test-common_0.24.0-1 \
-                                  rosbag2/rosbag2-test-msgdefs_0.24.0-1 \
-                                  rosbag2/rosbag2-tests_0.24.0-1 \
-                                  rosbag2/rosbag2-transport_0.24.0-1 \
-                          rosbridge-suite/rosbridge-library_1.3.2-1 \
-                          rosbridge-suite/rosbridge-msgs_1.3.2-1 \
-                          rosbridge-suite/rosbridge-server_1.3.2-1 \
-                          rosbridge-suite/rosbridge-suite_1.3.2-1 \
-                          rosbridge-suite/rosbridge-test-msgs_1.3.2-1 \
-                           rcl-interfaces/rosgraph-msgs_2.0.1-1 \
-                                   rosidl/rosidl-adapter_4.4.1-1 \
-                                   rosidl/rosidl-cli_4.4.1-1 \
-                                   rosidl/rosidl-cmake_4.4.1-1 \
-                              rosidl-core/rosidl-core-generators_0.2.0-1 \
-                              rosidl-core/rosidl-core-runtime_0.2.0-1 \
-                          rosidl-defaults/rosidl-default-generators_1.6.0-1 \
-                          rosidl-defaults/rosidl-default-runtime_1.6.0-1 \
-               rosidl-dynamic-typesupport/rosidl-dynamic-typesupport_0.1.2-1 \
-      rosidl-dynamic-typesupport-fastrtps/rosidl-dynamic-typesupport-fastrtps_0.1.0-1 \
-                                   rosidl/rosidl-generator-c_4.4.1-1 \
-                                   rosidl/rosidl-generator-cpp_4.4.1-1 \
-                               rosidl-dds/rosidl-generator-dds-idl_0.11.0-1 \
-                            rosidl-python/rosidl-generator-py_0.20.0-1 \
-                                   rosidl/rosidl-generator-type-description_4.4.1-1 \
-                                   rosidl/rosidl-parser_4.4.1-1 \
-                                   rosidl/rosidl-pycommon_4.4.1-1 \
-                                   rosidl/rosidl-runtime-c_4.4.1-1 \
-                                   rosidl/rosidl-runtime-cpp_4.4.1-1 \
-                        rosidl-runtime-py/rosidl-runtime-py_0.13.0-1 \
-                       rosidl-typesupport/rosidl-typesupport-c_3.2.0-1 \
-                       rosidl-typesupport/rosidl-typesupport-cpp_3.2.0-1 \
-              rosidl-typesupport-fastrtps/rosidl-typesupport-fastrtps-c_3.3.0-1 \
-              rosidl-typesupport-fastrtps/rosidl-typesupport-fastrtps-cpp_3.3.0-1 \
-                                   rosidl/rosidl-typesupport-interface_4.4.1-1 \
-                                   rosidl/rosidl-typesupport-introspection-c_4.4.1-1 \
-                                   rosidl/rosidl-typesupport-introspection-cpp_4.4.1-1 \
-                             rot-conv-lib/rot-conv_1.1.0-1 \
-                              rplidar-ros/rplidar-ros_2.1.0-2 \
-                                 rpyutils/rpyutils_0.4.1-1 \
-                                      rqt/rqt_1.4.1-1 \
-                               rqt-action/rqt-action_2.2.0-1 \
-                                  rqt-bag/rqt-bag_1.5.0-1 \
-                                  rqt-bag/rqt-bag-plugins_1.5.0-1 \
-                       rqt-common-plugins/rqt-common-plugins_1.2.0-2 \
-                              rqt-console/rqt-console_2.2.0-1 \
-                             ros2-control/rqt-controller-manager_3.19.1-1 \
-                                rqt-graph/rqt-graph_1.5.1-1 \
-                                      rqt/rqt-gui_1.4.1-1 \
-                                      rqt/rqt-gui-cpp_1.4.1-1 \
-                                      rqt/rqt-gui-py_1.4.1-1 \
-                        rqt-image-overlay/rqt-image-overlay_0.3.1-2 \
-                        rqt-image-overlay/rqt-image-overlay-layer_0.3.1-2 \
-                           rqt-image-view/rqt-image-view_1.2.0-2 \
-                         ros2-controllers/rqt-joint-trajectory-controller_3.16.0-1 \
-                               rqt-moveit/rqt-moveit_1.0.1-3 \
-                                  rqt-msg/rqt-msg_1.5.0-1 \
-                                 rqt-plot/rqt-plot_1.3.1-1 \
-                            rqt-publisher/rqt-publisher_1.7.0-1 \
-                                      rqt/rqt-py-common_1.4.1-1 \
-                           rqt-py-console/rqt-py-console_1.2.1-1 \
-                          rqt-reconfigure/rqt-reconfigure_1.6.1-1 \
-                      rqt-robot-dashboard/rqt-robot-dashboard_0.6.1-3 \
-                        rqt-robot-monitor/rqt-robot-monitor_1.0.5-2 \
-                       rqt-robot-steering/rqt-robot-steering_1.0.0-4 \
-                      rqt-runtime-monitor/rqt-runtime-monitor_1.0.0-3 \
-                       rqt-service-caller/rqt-service-caller_1.2.0-1 \
-                                rqt-shell/rqt-shell_1.2.0-1 \
-                                  rqt-srv/rqt-srv_1.2.1-1 \
-                              rqt-tf-tree/rqt-tf-tree_1.0.4-2 \
-                                rqt-topic/rqt-topic_1.7.0-1 \
-                                      rsl/rsl_0.2.2-1 \
-                      rt-manipulators-cpp/rt-manipulators-cpp_1.0.0-2 \
-                      rt-manipulators-cpp/rt-manipulators-examples_1.0.0-2 \
-                                  rtabmap/rtabmap_0.21.1-2 \
-                                rtcm-msgs/rtcm-msgs_1.1.6-2 \
-                           rmw-connextdds/rti-connext-dds-cmake-module_0.18.0-1 \
-                         realtime-support/rttest_0.16.0-1 \
-                                   ruckig/ruckig_0.9.2-3 \
-                  rviz-2d-overlay-plugins/rviz-2d-overlay-msgs_1.3.0-1 \
-                  rviz-2d-overlay-plugins/rviz-2d-overlay-plugins_1.3.0-1 \
-                                     rviz/rviz-assimp-vendor_13.1.2-1 \
-                                     rviz/rviz-common_13.1.2-1 \
-                                     rviz/rviz-default-plugins_13.1.2-1 \
-                                imu-tools/rviz-imu-plugin_2.1.3-2 \
-                                     rviz/rviz-ogre-vendor_13.1.2-1 \
-                                     rviz/rviz-rendering_13.1.2-1 \
-                                     rviz/rviz-rendering-tests_13.1.2-1 \
-                                     rviz/rviz-visual-testing-framework_13.1.2-1 \
-                        rviz-visual-tools/rviz-visual-tools_4.1.4-2 \
-                                     rviz/rviz2_13.1.2-1 \
-                            sdformat-urdf/sdformat-test-files_1.0.1-2 \
-                            sdformat-urdf/sdformat-urdf_1.0.1-2 \
-                         joystick-drivers/sdl2-vendor_3.3.0-1 \
-                              diagnostics/self-test_3.1.2-1 \
-                        common-interfaces/sensor-msgs_5.2.0-1 \
-                        common-interfaces/sensor-msgs-py_5.2.0-1 \
-                   septentrio-gnss-driver/septentrio-gnss-driver_1.3.1-2 \
-                        transport-drivers/serial-driver_1.2.0-2 \
-                           rcl-interfaces/service-msgs_2.0.1-1 \
-                        common-interfaces/shape-msgs_5.2.0-1 \
-                                  rosbag2/shared-queues-vendor_0.24.0-1 \
-                           simple-actions/simple-actions_0.3.0-1 \
-                            simple-launch/simple-launch_1.7.2-1 \
-                                 variants/simulation_0.10.0-2 \
-                         slider-publisher/slider-publisher_2.2.1-2 \
-                                   smacc2/smacc2_0.4.0-2 \
-                                   smacc2/smacc2-msgs_0.4.0-2 \
-                                    smach/smach_3.0.3-1 \
-                                    smach/smach-msgs_3.0.3-1 \
-                                    smach/smach-ros_3.0.3-1 \
-                                bond-core/smclib_4.0.0-3 \
-                 snowbot-operating-system/snowbot-operating-system_0.1.2-3 \
-                        soccer-interfaces/soccer-interfaces_0.2.0-2 \
-                     soccer-visualization/soccer-marker-generation_0.1.0-2 \
-                       soccer-object-msgs/soccer-object-msgs_1.1.0-2 \
-                        soccer-interfaces/soccer-vision-2d-msgs_0.2.0-2 \
-                        soccer-interfaces/soccer-vision-3d-msgs_0.2.0-2 \
-            soccer-vision-3d-rviz-markers/soccer-vision-3d-rviz-markers_0.0.1-2 \
-                        soccer-interfaces/soccer-vision-attribute-msgs_0.2.0-2 \
-                               sol-vendor/sol-vendor_0.0.3-3 \
-                                   sophus/sophus_1.3.1-2 \
-                         joystick-drivers/spacenav_3.3.0-1 \
-                            spdlog-vendor/spdlog-vendor_1.5.1-1 \
-                                  r2r-spl/splsm-7_3.0.1-2 \
-                                  r2r-spl/splsm-7-conversion_3.0.1-2 \
-                                  rosbag2/sqlite3-vendor_0.24.0-1 \
-                                  srdfdom/srdfdom_2.0.4-2 \
-                                    sros2/sros2_0.12.1-1 \
-                                    sros2/sros2-cmake_0.12.1-1 \
-                           rcl-interfaces/statistics-msgs_2.0.1-1 \
-                        common-interfaces/std-msgs_5.2.0-1 \
-                        common-interfaces/std-srvs_5.2.0-1 \
-                         ros2-controllers/steering-controllers-library_3.16.0-1 \
-                           image-pipeline/stereo-image-proc_3.0.1-2 \
-                        common-interfaces/stereo-msgs_5.2.0-1 \
-                                    stomp/stomp_0.1.2-2 \
-                         stubborn-buddies/stubborn-buddies_1.0.0-5 \
-                         stubborn-buddies/stubborn-buddies-msgs_1.0.0-5 \
-                             marti-common/swri-cli-tools_3.6.1-1 \
-                             swri-console/swri-console_2.0.4-1 \
-                             marti-common/swri-console-util_3.6.1-1 \
-                             marti-common/swri-dbw-interface_3.6.1-1 \
-                             marti-common/swri-geometry-util_3.6.1-1 \
-                             marti-common/swri-image-util_3.6.1-1 \
-                             marti-common/swri-math-util_3.6.1-1 \
-                             marti-common/swri-opencv-util_3.6.1-1 \
-                             marti-common/swri-prefix-tools_3.6.1-1 \
-                             marti-common/swri-roscpp_3.6.1-1 \
-                             marti-common/swri-route-util_3.6.1-1 \
-                             marti-common/swri-serial-util_3.6.1-1 \
-                             marti-common/swri-system-util_3.6.1-1 \
-                             marti-common/swri-transform-util_3.6.1-1 \
-                       system-fingerprint/system-fingerprint_0.7.0-2 \
-                             system-modes/system-modes_0.9.0-4 \
-                             system-modes/system-modes-examples_0.9.0-4 \
-                             system-modes/system-modes-msgs_0.9.0-4 \
-                       tango-icons-vendor/tango-icons-vendor_0.3.0-1 \
-                            cpp-polyfills/tcb-span_1.0.2-3 \
-                             teleop-tools/teleop-tools_1.4.0-1 \
-                             teleop-tools/teleop-tools-msgs_1.4.0-1 \
-                         teleop-twist-joy/teleop-twist-joy_2.6.0-1 \
-                    teleop-twist-keyboard/teleop-twist-keyboard_2.3.2-4 \
-                    tensorrt-cmake-module/tensorrt-cmake-module_0.0.3-2 \
-                          apex-test-tools/test-apex-test-tools_0.0.2-7 \
-                                bond-core/test-bond_4.0.0-3 \
-                     test-interface-files/test-interface-files_0.11.0-1 \
-                           rcl-interfaces/test-msgs_2.0.1-1 \
-                       tf-transformations/tf-transformations_1.0.1-3 \
-                                geometry2/tf2_0.33.2-1 \
-                                   tf2-2d/tf2-2d_1.0.1-2 \
-                                geometry2/tf2-bullet_0.33.2-1 \
-                                geometry2/tf2-eigen_0.33.2-1 \
-                                geometry2/tf2-eigen-kdl_0.33.2-1 \
-                                geometry2/tf2-geometry-msgs_0.33.2-1 \
-                                geometry2/tf2-kdl_0.33.2-1 \
-                                geometry2/tf2-msgs_0.33.2-1 \
-                                geometry2/tf2-py_0.33.2-1 \
-                                geometry2/tf2-ros_0.33.2-1 \
-                                geometry2/tf2-ros-py_0.33.2-1 \
-                                geometry2/tf2-sensor-msgs_0.33.2-1 \
-                                geometry2/tf2-tools_0.33.2-1 \
-                  image-transport-plugins/theora-image-transport_3.2.0-1 \
-                                   mapviz/tile-map_2.3.0-1 \
-                        tinyspline-vendor/tinyspline-vendor_0.6.0-3 \
-                           tinyxml-vendor/tinyxml-vendor_0.10.0-1 \
-                          tinyxml2-vendor/tinyxml2-vendor_0.9.1-1 \
-                            cpp-polyfills/tl-expected_1.0.2-3 \
-                                     tlsf/tlsf_0.9.0-1 \
-                         realtime-support/tlsf-cpp_0.16.0-1 \
-                 topic-based-ros2-control/topic-based-ros2-control_0.2.0-1 \
-                                    demos/topic-monitor_0.31.1-1 \
-                                    demos/topic-statistics-demo_0.31.1-1 \
-                              topic-tools/topic-tools_1.0.0-2 \
-                              topic-tools/topic-tools-interfaces_1.0.0-2 \
-                             ros2-tracing/tracetools_7.1.0-1 \
-                  tracetools-acceleration/tracetools-acceleration_0.4.1-2 \
-                      tracetools-analysis/tracetools-analysis_3.0.0-4 \
-                           image-pipeline/tracetools-image-pipeline_3.0.1-2 \
-                             ros2-tracing/tracetools-launch_7.1.0-1 \
-                             ros2-tracing/tracetools-read_7.1.0-1 \
-                             ros2-tracing/tracetools-test_7.1.0-1 \
-                             ros2-tracing/tracetools-trace_7.1.0-1 \
-                        common-interfaces/trajectory-msgs_5.2.0-1 \
-                             ros2-control/transmission-interface_3.19.1-1 \
-                         ros2-controllers/tricycle-controller_3.16.0-1 \
-                         ros2-controllers/tricycle-steering-controller_3.16.0-1 \
-     turbojpeg-compressed-image-transport/turbojpeg-compressed-image-transport_0.2.1-3 \
-                       geometry-tutorials/turtle-tf2-cpp_0.3.6-3 \
-                       geometry-tutorials/turtle-tf2-py_0.3.6-3 \
-                   turtlebot3-simulations/turtlebot3-fake-node_2.2.5-3 \
-                   turtlebot3-simulations/turtlebot3-gazebo_2.2.5-3 \
-                          turtlebot3-msgs/turtlebot3-msgs_2.2.1-3 \
-                   turtlebot3-simulations/turtlebot3-simulations_2.2.5-3 \
-                            ros-tutorials/turtlesim_1.7.4-1 \
-                             tuw-geometry/tuw-geometry_0.0.7-2 \
-                               tvm-vendor/tvm-vendor_0.9.1-2 \
-                                twist-mux/twist-mux_4.2.0-1 \
-                           twist-mux-msgs/twist-mux-msgs_3.0.1-1 \
-                            twist-stamper/twist-stamper_0.0.3-2 \
-                           rcl-interfaces/type-description-interfaces_2.0.1-1 \
-                                    ublox/ublox_2.3.0-2 \
-                              ublox-dgnss/ublox-dgnss_0.5.1-1 \
-                              ublox-dgnss/ublox-dgnss-node_0.5.1-1 \
-                                    ublox/ublox-gps_2.3.0-2 \
-                                    ublox/ublox-msgs_2.3.0-2 \
-                              ublox-dgnss/ublox-nav-sat-fix-hp-node_0.5.1-1 \
-                                    ublox/ublox-serialization_2.3.0-2 \
-                              ublox-dgnss/ublox-ubx-interfaces_0.5.1-1 \
-                              ublox-dgnss/ublox-ubx-msgs_0.5.1-1 \
-                        transport-drivers/udp-driver_1.2.0-2 \
-                                 udp-msgs/udp-msgs_0.0.3-5 \
-                        uncrustify-vendor/uncrustify-vendor_2.2.1-1 \
-                   unique-identifier-msgs/unique-identifier-msgs_2.5.0-1 \
-                          ur-robot-driver/ur_2.4.1-1 \
-                          ur-robot-driver/ur-calibration_2.4.1-1 \
-                        ur-client-library/ur-client-library_1.3.4-1 \
-                          ur-robot-driver/ur-controllers_2.4.1-1 \
-                          ur-robot-driver/ur-dashboard-msgs_2.4.1-1 \
-                           ur-description/ur-description_2.2.1-1 \
-                          ur-robot-driver/ur-moveit-config_2.4.1-1 \
-                                  ur-msgs/ur-msgs_2.0.0-2 \
-                          ur-robot-driver/ur-robot-driver_2.4.1-1 \
-                                     urdf/urdf_2.9.0-1 \
-                              urdf-launch/urdf-launch_0.1.1-1 \
-                                     urdf/urdf-parser-plugin_2.9.0-1 \
-                            urdf-tutorial/urdf-tutorial_1.1.0-1 \
-                                  urdfdom/urdfdom_3.1.1-1 \
-                          urdfdom-headers/urdfdom-headers_1.1.0-2 \
-                           urdf-parser-py/urdfdom-py_1.2.1-1 \
-                                    urg-c/urg-c_1.0.4001-4 \
-                                 urg-node/urg-node_1.1.1-2 \
-                            urg-node-msgs/urg-node-msgs_1.0.1-7 \
-                                  usb-cam/usb-cam_0.7.0-1 \
-                              v4l2-camera/v4l2-camera_0.7.0-1 \
-                         ros2-controllers/velocity-controllers_3.16.0-1 \
-                                 velodyne/velodyne_2.3.0-2 \
-                       velodyne-simulator/velodyne-description_2.0.3-2 \
-                                 velodyne/velodyne-driver_2.3.0-2 \
-                       velodyne-simulator/velodyne-gazebo-plugins_2.0.3-2 \
-                                 velodyne/velodyne-laserscan_2.3.0-2 \
-                                 velodyne/velodyne-msgs_2.3.0-2 \
-                                 velodyne/velodyne-pointcloud_2.3.0-2 \
-                       velodyne-simulator/velodyne-simulator_2.0.3-2 \
-                              vision-msgs/vision-msgs_4.1.0-2 \
-                       vision-msgs-layers/vision-msgs-layers_0.2.0-2 \
-                              vision-msgs/vision-msgs-rviz-plugins_4.1.0-2 \
-                            vision-opencv/vision-opencv_3.4.0-2 \
-                                     visp/visp_3.5.0-2 \
-                        common-interfaces/visualization-msgs_5.2.0-1 \
-                             vitis-common/vitis-common_0.4.2-2 \
-                                     vrpn/vrpn_7.35.0-13 \
-                               vrpn-mocap/vrpn-mocap_1.0.4-1 \
-                            warehouse-ros/warehouse-ros_2.0.4-3 \
-                     warehouse-ros-sqlite/warehouse-ros-sqlite_1.0.3-2 \
-                              webots-ros2/webots-ros2_2023.1.1-2 \
-                              webots-ros2/webots-ros2-control_2023.1.1-2 \
-                              webots-ros2/webots-ros2-driver_2023.1.1-2 \
-                              webots-ros2/webots-ros2-epuck_2023.1.1-2 \
-                              webots-ros2/webots-ros2-importer_2023.1.1-2 \
-                              webots-ros2/webots-ros2-mavic_2023.1.1-2 \
-                              webots-ros2/webots-ros2-msgs_2023.1.1-2 \
-                              webots-ros2/webots-ros2-tesla_2023.1.1-2 \
-                              webots-ros2/webots-ros2-tests_2023.1.1-2 \
-                              webots-ros2/webots-ros2-tiago_2023.1.1-2 \
-                              webots-ros2/webots-ros2-turtlebot_2023.1.1-2 \
-                              webots-ros2/webots-ros2-universal-robot_2023.1.1-2 \
-                         joystick-drivers/wiimote_3.3.0-1 \
-                         joystick-drivers/wiimote-msgs_3.3.0-1 \
-                                    xacro/xacro_2.0.9-2 \
-                          yaml-cpp-vendor/yaml-cpp-vendor_8.3.0-1 \
-                                 zbar-ros/zbar-ros_0.4.0-2 \
-                         zenoh-bridge-dds/zenoh-bridge-dds_0.5.0-3 \
-            point-cloud-transport-plugins/zlib-point-cloud-transport_3.0.1-1 \
-                             zmqpp-vendor/zmqpp-vendor_0.0.2-2 \
-            point-cloud-transport-plugins/zstd-point-cloud-transport_3.0.1-1 \
-                                  rosbag2/zstd-vendor_0.24.0-1 \
+                             acado-vendor/acado-vendor_1.0.0-6 \
+                           ackermann-msgs/ackermann-msgs_2.0.2-5 \
+                         ros2-controllers/ackermann-steering-controller_4.6.0-2 \
+                           rcl-interfaces/action-msgs_2.0.1-2 \
+                                    demos/action-tutorials-cpp_0.33.1-2 \
+                                    demos/action-tutorials-interfaces_0.33.1-2 \
+                                    demos/action-tutorials-py_0.33.1-2 \
+                        common-interfaces/actionlib-msgs_5.3.0-2 \
+                            actuator-msgs/actuator-msgs_0.0.1-3 \
+                       adaptive-component/adaptive-component_0.2.1-4 \
+                         ros2-controllers/admittance-controller_4.6.0-2 \
+                       ament-acceleration/ament-acceleration_0.2.0-4 \
+                              ament-black/ament-black_0.2.4-2 \
+                               ament-lint/ament-clang-format_0.16.3-2 \
+                               ament-lint/ament-clang-tidy_0.16.3-2 \
+                              ament-cmake/ament-cmake_2.3.2-3 \
+                              ament-cmake/ament-cmake-auto_2.3.2-3 \
+                              ament-black/ament-cmake-black_0.2.4-2 \
+                       ament-cmake-catch2/ament-cmake-catch2_1.4.0-2 \
+                               ament-lint/ament-cmake-clang-format_0.16.3-2 \
+                               ament-lint/ament-cmake-clang-tidy_0.16.3-2 \
+                               ament-lint/ament-cmake-copyright_0.16.3-2 \
+                              ament-cmake/ament-cmake-core_2.3.2-3 \
+                               ament-lint/ament-cmake-cppcheck_0.16.3-2 \
+                               ament-lint/ament-cmake-cpplint_0.16.3-2 \
+                              ament-cmake/ament-cmake-export-definitions_2.3.2-3 \
+                              ament-cmake/ament-cmake-export-dependencies_2.3.2-3 \
+                              ament-cmake/ament-cmake-export-include-directories_2.3.2-3 \
+                              ament-cmake/ament-cmake-export-interfaces_2.3.2-3 \
+                              ament-cmake/ament-cmake-export-libraries_2.3.2-3 \
+                              ament-cmake/ament-cmake-export-link-flags_2.3.2-3 \
+                              ament-cmake/ament-cmake-export-targets_2.3.2-3 \
+                               ament-lint/ament-cmake-flake8_0.16.3-2 \
+                              ament-cmake/ament-cmake-gen-version-h_2.3.2-3 \
+                              ament-cmake/ament-cmake-gmock_2.3.2-3 \
+                              ament-cmake/ament-cmake-google-benchmark_2.3.2-3 \
+                              ament-cmake/ament-cmake-gtest_2.3.2-3 \
+                              ament-cmake/ament-cmake-include-directories_2.3.2-3 \
+                              ament-cmake/ament-cmake-libraries_2.3.2-3 \
+                               ament-lint/ament-cmake-lint-cmake_0.16.3-2 \
+                               ament-lint/ament-cmake-mypy_0.16.3-2 \
+                               ament-lint/ament-cmake-pclint_0.16.3-2 \
+                               ament-lint/ament-cmake-pep257_0.16.3-2 \
+                               ament-lint/ament-cmake-pycodestyle_0.16.3-2 \
+                               ament-lint/ament-cmake-pyflakes_0.16.3-2 \
+                              ament-cmake/ament-cmake-pytest_2.3.2-3 \
+                              ament-cmake/ament-cmake-python_2.3.2-3 \
+                          ament-cmake-ros/ament-cmake-ros_0.12.0-2 \
+                              ament-cmake/ament-cmake-target-dependencies_2.3.2-3 \
+                              ament-cmake/ament-cmake-test_2.3.2-3 \
+                               ament-lint/ament-cmake-uncrustify_0.16.3-2 \
+                              ament-cmake/ament-cmake-vendor-package_2.3.2-3 \
+                              ament-cmake/ament-cmake-version_2.3.2-3 \
+                               ament-lint/ament-cmake-xmllint_0.16.3-2 \
+                               ament-lint/ament-copyright_0.16.3-2 \
+                               ament-lint/ament-cppcheck_0.16.3-2 \
+                               ament-lint/ament-cpplint_0.16.3-2 \
+                           ament-download/ament-download_0.0.5-5 \
+                               ament-lint/ament-flake8_0.16.3-2 \
+                              ament-index/ament-index-cpp_1.7.0-2 \
+                              ament-index/ament-index-python_1.7.0-2 \
+                               ament-lint/ament-lint_0.16.3-2 \
+                               ament-lint/ament-lint-auto_0.16.3-2 \
+                               ament-lint/ament-lint-cmake_0.16.3-2 \
+                               ament-lint/ament-lint-common_0.16.3-2 \
+                               ament-lint/ament-mypy_0.16.3-2 \
+                               ament-nodl/ament-nodl_0.1.0-6 \
+                            ament-package/ament-package_0.16.3-2 \
+                               ament-lint/ament-pclint_0.16.3-2 \
+                               ament-lint/ament-pep257_0.16.3-2 \
+                               ament-lint/ament-pycodestyle_0.16.3-2 \
+                               ament-lint/ament-pyflakes_0.16.3-2 \
+                               ament-lint/ament-uncrustify_0.16.3-2 \
+                              ament-vitis/ament-vitis_0.10.1-4 \
+                               ament-lint/ament-xmllint_0.16.3-2 \
+                                   angles/angles_1.16.0-4 \
+                          apex-test-tools/apex-test-tools_0.0.2-8 \
+                                 apriltag/apriltag_3.2.0-6 \
+                        apriltag-detector/apriltag-detector_1.0.0-2 \
+                            apriltag-msgs/apriltag-msgs_2.0.1-4 \
+                             apriltag-ros/apriltag-ros_3.1.1-4 \
+                             aruco-opencv/aruco-opencv_4.1.1-2 \
+                             aruco-opencv/aruco-opencv-msgs_4.1.1-2 \
+                        transport-drivers/asio-cmake-module_1.2.0-3 \
+                     async-web-server-cpp/async-web-server-cpp_2.0.0-5 \
+                 automotive-autonomy-msgs/automotive-autonomy-msgs_3.0.4-5 \
+                 automotive-autonomy-msgs/automotive-navigation-msgs_3.0.4-5 \
+                 automotive-autonomy-msgs/automotive-platform-msgs_3.0.4-5 \
+                       autoware-auto-msgs/autoware-auto-msgs_1.0.0-6 \
+                         avt-vimba-camera/avt-vimba-camera_2001.1.0-5 \
+                       aws-sdk-cpp-vendor/aws-sdk-cpp-vendor_0.2.1-2 \
+                             backward-ros/backward-ros_1.0.2-5 \
+                            bag2-to-image/bag2-to-image_0.1.0-4 \
+                      behaviortree-cpp-v4/behaviortree-cpp_4.5.1-2 \
+                      behaviortree-cpp-v3/behaviortree-cpp-v3_3.8.6-2 \
+                         ros2-controllers/bicycle-steering-controller_4.6.0-2 \
+                                   bno055/bno055_0.5.0-2 \
+                                bond-core/bond_4.0.0-4 \
+                                bond-core/bond-core_4.0.0-4 \
+                                bond-core/bondcpp_4.0.0-4 \
+                      boost-geometry-util/boost-geometry-util_0.0.1-4 \
+                           rcl-interfaces/builtin-interfaces_2.0.1-2 \
+                           image-pipeline/camera-calibration_5.0.0-2 \
+                             image-common/camera-calibration-parsers_5.1.0-2 \
+                             image-common/camera-info-manager_5.1.0-2 \
+                              ros-canopen/can-msgs_2.0.0-5 \
+                             ros2-canopen/canopen_0.2.8-2 \
+                             ros2-canopen/canopen-402-driver_0.2.8-2 \
+                             ros2-canopen/canopen-base-driver_0.2.8-2 \
+                             ros2-canopen/canopen-core_0.2.8-2 \
+                             ros2-canopen/canopen-fake-slaves_0.2.8-2 \
+                             ros2-canopen/canopen-interfaces_0.2.8-2 \
+                             ros2-canopen/canopen-master-driver_0.2.8-2 \
+                             ros2-canopen/canopen-proxy-driver_0.2.8-2 \
+                             ros2-canopen/canopen-ros2-control_0.2.8-2 \
+                             ros2-canopen/canopen-ros2-controllers_0.2.8-2 \
+                             ros2-canopen/canopen-tests_0.2.8-2 \
+                             ros2-canopen/canopen-utils_0.2.8-2 \
+                             cartographer/cartographer_2.0.9002-5 \
+                         cartographer-ros/cartographer-ros_2.0.9001-2 \
+                         cartographer-ros/cartographer-ros-msgs_2.0.9001-2 \
+                         cartographer-ros/cartographer-rviz_2.0.9001-2 \
+                        cascade-lifecycle/cascade-lifecycle-msgs_1.0.3-5 \
+                               catch-ros2/catch-ros2_0.2.0-2 \
+                                   moveit/chomp-motion-planner_2.9.0-2 \
+                             class-loader/class-loader_2.7.0-2 \
+                             classic-bags/classic-bags_0.1.0-2 \
+                              color-names/color-names_0.0.3-5 \
+                               color-util/color-util_1.0.0-3 \
+                        common-interfaces/common-interfaces_5.3.0-2 \
+                                    demos/composition_0.33.1-2 \
+                           rcl-interfaces/composition-interfaces_2.0.1-2 \
+                  image-transport-plugins/compressed-depth-image-transport_3.2.0-2 \
+                  image-transport-plugins/compressed-image-transport_3.2.0-2 \
+                    console-bridge-vendor/console-bridge-vendor_1.7.1-2 \
+                          control-box-rst/control-box-rst_0.0.7-5 \
+                             control-msgs/control-msgs_5.0.0-2 \
+                          control-toolbox/control-toolbox_3.2.0-2 \
+                             ros2-control/controller-interface_4.5.0-2 \
+                             ros2-control/controller-manager_4.5.0-2 \
+                             ros2-control/controller-manager-msgs_4.5.0-2 \
+                       cudnn-cmake-module/cudnn-cmake-module_0.0.1-5 \
+                            vision-opencv/cv-bridge_3.4.0-3 \
+                               cyclonedds/cyclonedds_0.10.4-3 \
+                               data-tamer/data-tamer-cpp_0.9.4-3 \
+                               data-tamer/data-tamer-msgs_0.9.4-3 \
+                       astuff-sensor-msgs/delphi-esr-msgs_4.0.0-3 \
+                       astuff-sensor-msgs/delphi-mrr-msgs_4.0.0-3 \
+                       astuff-sensor-msgs/delphi-srr-msgs_4.0.0-3 \
+                                    demos/demo-nodes-cpp_0.33.1-2 \
+                                    demos/demo-nodes-cpp-rosnative_0.33.1-2 \
+                                    demos/demo-nodes-py_0.33.1-2 \
+                           image-pipeline/depth-image-proc_5.0.0-2 \
+                  depthimage-to-laserscan/depthimage-to-laserscan_2.5.1-2 \
+                       astuff-sensor-msgs/derived-object-msgs_4.0.0-3 \
+                                 variants/desktop_0.10.0-3 \
+                                 variants/desktop-full_0.10.0-3 \
+                              diagnostics/diagnostic-aggregator_3.1.2-2 \
+                              diagnostics/diagnostic-common-diagnostics_3.1.2-2 \
+                        common-interfaces/diagnostic-msgs_5.3.0-2 \
+                              diagnostics/diagnostic-updater_3.1.2-2 \
+                              diagnostics/diagnostics_3.1.2-2 \
+                         ros2-controllers/diff-drive-controller_4.6.0-2 \
+                                    dolly/dolly_0.4.0-5 \
+                                    dolly/dolly-follow_0.4.0-5 \
+                                    dolly/dolly-gazebo_0.4.0-5 \
+                                    dolly/dolly-ignition_0.4.0-5 \
+                            domain-bridge/domain-bridge_0.5.0-4 \
+                          ament-cmake-ros/domain-coordinator_0.12.0-2 \
+            point-cloud-transport-plugins/draco-point-cloud-transport_3.0.3-2 \
+                         moveit-resources/dual-arm-panda-moveit-config_3.0.0-2 \
+                                    demos/dummy-map-server_0.33.1-2 \
+                                    demos/dummy-robot-bringup_0.33.1-2 \
+                                    demos/dummy-sensors_0.33.1-2 \
+                                  octomap/dynamic-edt-3d_1.9.8-3 \
+                       dynamixel-hardware/dynamixel-hardware_0.3.1-4 \
+                            dynamixel-sdk/dynamixel-sdk_3.7.40-5 \
+                            dynamixel-sdk/dynamixel-sdk-custom-interfaces_3.7.40-5 \
+                            dynamixel-sdk/dynamixel-sdk-examples_3.7.40-5 \
+                      dynamixel-workbench/dynamixel-workbench_2.2.3-4 \
+                 dynamixel-workbench-msgs/dynamixel-workbench-msgs_2.0.3-4 \
+                      dynamixel-workbench/dynamixel-workbench-toolbox_2.2.3-4 \
+                                     ecal/ecal_5.12.0-4 \
+                                ecl-tools/ecl-build_1.0.3-4 \
+                                 ecl-core/ecl-command-line_1.2.1-4 \
+                                 ecl-core/ecl-concepts_1.2.1-4 \
+                                 ecl-lite/ecl-config_1.2.0-4 \
+                                 ecl-lite/ecl-console_1.2.0-4 \
+                                 ecl-core/ecl-containers_1.2.1-4 \
+                                 ecl-core/ecl-converters_1.2.1-4 \
+                                 ecl-lite/ecl-converters-lite_1.2.0-4 \
+                                 ecl-core/ecl-core_1.2.1-4 \
+                                 ecl-core/ecl-core-apps_1.2.1-4 \
+                                 ecl-core/ecl-devices_1.2.1-4 \
+                                 ecl-core/ecl-eigen_1.2.1-4 \
+                                 ecl-lite/ecl-errors_1.2.0-4 \
+                                 ecl-core/ecl-exceptions_1.2.1-4 \
+                                 ecl-core/ecl-filesystem_1.2.1-4 \
+                                 ecl-core/ecl-formatters_1.2.1-4 \
+                                 ecl-core/ecl-geometry_1.2.1-4 \
+                                 ecl-lite/ecl-io_1.2.0-4 \
+                                 ecl-core/ecl-ipc_1.2.1-4 \
+                                ecl-tools/ecl-license_1.0.3-4 \
+                                 ecl-core/ecl-linear-algebra_1.2.1-4 \
+                                 ecl-lite/ecl-lite_1.2.0-4 \
+                                 ecl-core/ecl-manipulators_1.2.1-4 \
+                                 ecl-core/ecl-math_1.2.1-4 \
+                                 ecl-core/ecl-mobile-robot_1.2.1-4 \
+                                 ecl-core/ecl-mpl_1.2.1-4 \
+                                 ecl-core/ecl-sigslots_1.2.1-4 \
+                                 ecl-lite/ecl-sigslots-lite_1.2.0-4 \
+                                 ecl-core/ecl-statistics_1.2.1-4 \
+                                 ecl-core/ecl-streams_1.2.1-4 \
+                                 ecl-core/ecl-threads_1.2.1-4 \
+                                 ecl-core/ecl-time_1.2.1-4 \
+                                 ecl-lite/ecl-time-lite_1.2.0-4 \
+                                ecl-tools/ecl-tools_1.0.3-4 \
+                                 ecl-core/ecl-type-traits_1.2.1-4 \
+                                 ecl-core/ecl-utilities_1.2.1-4 \
+                         ros2-controllers/effort-controllers_4.6.0-2 \
+                     eigen-stl-containers/eigen-stl-containers_1.0.0-6 \
+                      eigen3-cmake-module/eigen3-cmake-module_0.3.0-2 \
+                                  eigenpy/eigenpy_3.1.4-2 \
+                      event-camera-codecs/event-camera-codecs_1.0.4-2 \
+                        event-camera-msgs/event-camera-msgs_1.0.5-2 \
+                          event-camera-py/event-camera-py_1.0.4-2 \
+                    event-camera-renderer/event-camera-renderer_1.0.3-2 \
+                       example-interfaces/example-interfaces_0.12.0-2 \
+                                 examples/examples-rclcpp-async-client_0.19.1-2 \
+                                 examples/examples-rclcpp-cbg-executor_0.19.1-2 \
+                                 examples/examples-rclcpp-minimal-action-client_0.19.1-2 \
+                                 examples/examples-rclcpp-minimal-action-server_0.19.1-2 \
+                                 examples/examples-rclcpp-minimal-client_0.19.1-2 \
+                                 examples/examples-rclcpp-minimal-composition_0.19.1-2 \
+                                 examples/examples-rclcpp-minimal-publisher_0.19.1-2 \
+                                 examples/examples-rclcpp-minimal-service_0.19.1-2 \
+                                 examples/examples-rclcpp-minimal-subscriber_0.19.1-2 \
+                                 examples/examples-rclcpp-minimal-timer_0.19.1-2 \
+                                 examples/examples-rclcpp-multithreaded-executor_0.19.1-2 \
+                                 examples/examples-rclcpp-wait-set_0.19.1-2 \
+                                 examples/examples-rclpy-executors_0.19.1-2 \
+                                 examples/examples-rclpy-guard-conditions_0.19.1-2 \
+                                 examples/examples-rclpy-minimal-action-client_0.19.1-2 \
+                                 examples/examples-rclpy-minimal-action-server_0.19.1-2 \
+                                 examples/examples-rclpy-minimal-client_0.19.1-2 \
+                                 examples/examples-rclpy-minimal-publisher_0.19.1-2 \
+                                 examples/examples-rclpy-minimal-service_0.19.1-2 \
+                                 examples/examples-rclpy-minimal-subscriber_0.19.1-2 \
+                                 examples/examples-rclpy-pointcloud-publisher_0.19.1-2 \
+                                geometry2/examples-tf2-py_0.36.0-2 \
+                                    smach/executive-smach_3.0.3-2 \
+                                  fastcdr/fastcdr_1.1.0-3 \
+                                 fastrtps/fastrtps_2.13.2-3 \
+              rosidl-typesupport-fastrtps/fastrtps-cmake-module_3.4.0-2 \
+                   ffmpeg-image-transport/ffmpeg-image-transport_1.0.0-2 \
+              ffmpeg-image-transport-msgs/ffmpeg-image-transport-msgs_1.0.2-2 \
+                             fields2cover/fields2cover_1.2.1-3 \
+                                  filters/filters_2.1.0-5 \
+                           find-object-2d/find-object-2d_0.7.0-5 \
+                              fluent-rviz/fluent-rviz_0.0.3-4 \
+                              fmi-adapter/fmi-adapter_2.1.2-2 \
+                              fmi-adapter/fmi-adapter-examples_2.1.2-2 \
+                        fmilibrary-vendor/fmilibrary-vendor_1.0.1-4 \
+                  foonathan-memory-vendor/foonathan-memory-vendor_1.3.1-2 \
+                         ros2-controllers/force-torque-sensor-broadcaster_4.6.0-2 \
+                         ros2-controllers/forward-command-controller_4.6.0-2 \
+                 four-wheel-steering-msgs/four-wheel-steering-msgs_2.0.1-5 \
+                          foxglove-bridge/foxglove-bridge_0.7.6-2 \
+                            foxglove-msgs/foxglove-msgs_3.0.0-2 \
+                                     fuse/fuse_1.0.1-3 \
+                                     fuse/fuse-constraints_1.0.1-3 \
+                                     fuse/fuse-core_1.0.1-3 \
+                                     fuse/fuse-doc_1.0.1-3 \
+                                     fuse/fuse-graphs_1.0.1-3 \
+                                     fuse/fuse-loss_1.0.1-3 \
+                                     fuse/fuse-models_1.0.1-3 \
+                                     fuse/fuse-msgs_1.0.1-3 \
+                                     fuse/fuse-optimizers_1.0.1-3 \
+                                     fuse/fuse-publishers_1.0.1-3 \
+                                     fuse/fuse-tutorials_1.0.1-3 \
+                                     fuse/fuse-variables_1.0.1-3 \
+                                     fuse/fuse-viz_1.0.1-3 \
+                                   gc-spl/game-controller-spl_4.0.0-2 \
+                                   gc-spl/game-controller-spl-interfaces_4.0.0-2 \
+                      gazebo-ros2-control/gazebo-ros2-control_0.7.1-2 \
+                      gazebo-ros2-control/gazebo-ros2-control-demos_0.7.1-2 \
+                                   gc-spl/gc-spl_4.0.0-2 \
+                                   gc-spl/gc-spl-2022_4.0.0-2 \
+                                   gc-spl/gc-spl-interfaces_4.0.0-2 \
+               generate-parameter-library/generate-parameter-library_0.3.7-3 \
+               generate-parameter-library/generate-parameter-library-py_0.3.7-3 \
+                          geographic-info/geodesy_1.0.5-2 \
+                          geographic-info/geographic-info_1.0.5-2 \
+                          geographic-info/geographic-msgs_1.0.5-2 \
+                         geometric-shapes/geometric-shapes_2.1.3-4 \
+                        common-interfaces/geometry-msgs_5.3.0-2 \
+                       geometry-tutorials/geometry-tutorials_0.3.6-4 \
+                                geometry2/geometry2_0.36.0-2 \
+                               googletest/gmock-vendor_1.11.9000-2 \
+                  google-benchmark-vendor/google-benchmark-vendor_0.4.0-2 \
+                                  gps-umd/gps-msgs_1.0.4-5 \
+                                  gps-umd/gps-tools_1.0.4-5 \
+                                  gps-umd/gps-umd_1.0.4-5 \
+                                  gps-umd/gpsd-client_1.0.4-5 \
+                               graph-msgs/graph-msgs_0.2.0-5 \
+                                grbl-msgs/grbl-msgs_0.0.2-8 \
+                                 grbl-ros/grbl-ros_0.0.16-6 \
+                         ros2-controllers/gripper-controllers_4.6.0-2 \
+                                    gscam/gscam_2.0.2-4 \
+                               googletest/gtest-vendor_1.11.9000-2 \
+                                    gtsam/gtsam_4.2.0-5 \
+                             ros2-control/hardware-interface_4.5.0-2 \
+                             ros2-control/hardware-interface-testing_4.5.0-2 \
+                      hash-library-vendor/hash-library-vendor_0.1.1-5 \
+                                 heaphook/heaphook_0.1.1-2 \
+                      hls-lfcd-lds-driver/hls-lfcd-lds-driver_2.0.4-5 \
+                                  hpp-fcl/hpp-fcl_2.4.0-2 \
+                       astuff-sensor-msgs/ibeo-msgs_4.0.0-3 \
+                                  iceoryx/iceoryx-binding-c_2.0.5-5 \
+                                  iceoryx/iceoryx-hoofs_2.0.5-5 \
+                                  iceoryx/iceoryx-introspection_2.0.5-5 \
+                                  iceoryx/iceoryx-posh_2.0.5-5 \
+                               ifm3d-core/ifm3d-core_0.18.0-9 \
+                   ignition-cmake2-vendor/ignition-cmake2-vendor_0.3.0-1 \
+                    ignition-math6-vendor/ignition-math6-vendor_0.3.0-1 \
+                             image-common/image-common_5.1.0-2 \
+                            vision-opencv/image-geometry_3.4.0-3 \
+                           image-pipeline/image-pipeline_5.0.0-2 \
+                           image-pipeline/image-proc_5.0.0-2 \
+                           image-pipeline/image-publisher_5.0.0-2 \
+                           image-pipeline/image-rotate_5.0.0-2 \
+                                    demos/image-tools_0.33.1-2 \
+                             image-common/image-transport_5.1.0-2 \
+                  image-transport-plugins/image-transport-plugins_3.2.0-2 \
+                           image-pipeline/image-view_5.0.0-2 \
+                                imu-tools/imu-complementary-filter_2.1.3-3 \
+                                imu-tools/imu-filter-madgwick_2.1.3-3 \
+                             imu-pipeline/imu-pipeline_0.5.0-2 \
+                             imu-pipeline/imu-processors_0.5.0-2 \
+                         ros2-controllers/imu-sensor-broadcaster_4.6.0-2 \
+                                imu-tools/imu-tools_2.1.3-3 \
+                             imu-pipeline/imu-transformer_0.5.0-2 \
+          interactive-marker-twist-server/interactive-marker-twist-server_2.1.0-2 \
+                      interactive-markers/interactive-markers_2.5.3-2 \
+                                    demos/intra-process-demo_0.33.1-2 \
+                        transport-drivers/io-context_1.2.0-3 \
+                       irobot-create-msgs/irobot-create-msgs_2.1.0-3 \
+                             ros2-control/joint-limits_4.5.0-2 \
+                         ros2-controllers/joint-state-broadcaster_4.6.0-2 \
+                    joint-state-publisher/joint-state-publisher_2.4.0-2 \
+                    joint-state-publisher/joint-state-publisher-gui_2.4.0-2 \
+                         ros2-controllers/joint-trajectory-controller_4.6.0-2 \
+                         joystick-drivers/joy_3.3.0-2 \
+                         joystick-drivers/joy-linux_3.3.0-2 \
+                             teleop-tools/joy-teleop_1.5.0-2 \
+                               joy-tester/joy-tester_0.0.2-3 \
+                       astuff-sensor-msgs/kartech-linear-actuator-msgs_4.0.0-3 \
+                               kdl-parser/kdl-parser_2.11.0-2 \
+                             teleop-tools/key-teleop_1.5.0-2 \
+                         keyboard-handler/keyboard-handler_0.3.0-2 \
+                     kinematics-interface/kinematics-interface_1.0.0-2 \
+                     kinematics-interface/kinematics-interface-kdl_1.0.0-2 \
+                              ros2-kortex/kinova-gen3-6dof-robotiq-2f-85-moveit-config_0.2.2-2 \
+                              ros2-kortex/kinova-gen3-7dof-robotiq-2f-85-moveit-config_0.2.2-2 \
+                              kobuki-core/kobuki-core_1.4.0-3 \
+                    kobuki-ros-interfaces/kobuki-ros-interfaces_1.0.0-4 \
+                 kobuki-velocity-smoother/kobuki-velocity-smoother_0.15.0-3 \
+                              ros2-kortex/kortex-api_0.2.2-2 \
+                              ros2-kortex/kortex-bringup_0.2.2-2 \
+                              ros2-kortex/kortex-description_0.2.2-2 \
+                              ros2-kortex/kortex-driver_0.2.2-2 \
+                                 lanelet2/lanelet2_1.2.1-5 \
+                                 lanelet2/lanelet2-core_1.2.1-5 \
+                                 lanelet2/lanelet2-examples_1.2.1-5 \
+                                 lanelet2/lanelet2-io_1.2.1-5 \
+                                 lanelet2/lanelet2-maps_1.2.1-5 \
+                                 lanelet2/lanelet2-matching_1.2.1-5 \
+                                 lanelet2/lanelet2-projection_1.2.1-5 \
+                                 lanelet2/lanelet2-python_1.2.1-5 \
+                                 lanelet2/lanelet2-routing_1.2.1-5 \
+                                 lanelet2/lanelet2-traffic-rules_1.2.1-5 \
+                                 lanelet2/lanelet2-validation_1.2.1-5 \
+                            laser-filters/laser-filters_2.0.7-2 \
+                           laser-geometry/laser-geometry_2.7.0-2 \
+                               laser-proc/laser-proc_1.0.2-6 \
+                                   launch/launch_3.4.0-2 \
+                     launch-param-builder/launch-param-builder_0.1.1-3 \
+                                   launch/launch-pytest_3.4.0-2 \
+                               launch-ros/launch-ros_0.26.4-2 \
+                             system-modes/launch-system-modes_0.9.0-5 \
+                                   launch/launch-testing_3.4.0-2 \
+                                   launch/launch-testing-ament-cmake_3.4.0-2 \
+                                 examples/launch-testing-examples_0.19.1-2 \
+                               launch-ros/launch-testing-ros_0.26.4-2 \
+                                   launch/launch-xml_3.4.0-2 \
+                                   launch/launch-yaml_3.4.0-2 \
+                             ros2-canopen/lely-core-libraries_0.2.8-2 \
+                               leo-common/leo_3.0.1-2 \
+                                leo-robot/leo-bringup_1.4.0-2 \
+                               leo-common/leo-description_3.0.1-2 \
+                              leo-desktop/leo-desktop_3.0.0-2 \
+                                leo-robot/leo-fw_1.4.0-2 \
+                               leo-common/leo-msgs_3.0.1-2 \
+                                leo-robot/leo-robot_1.4.0-2 \
+                               leo-common/leo-teleop_3.0.1-2 \
+                              leo-desktop/leo-viz_3.0.0-2 \
+                               lgsvl-msgs/lgsvl-msgs_0.0.4-4 \
+                                  libcaer/libcaer_1.0.2-2 \
+                           libcaer-driver/libcaer-driver_1.0.0-2 \
+                       resource-retriever/libcurl-vendor_3.4.0-2 \
+                                   libg2o/libg2o_2020.5.29-5 \
+                                   mavros/libmavconn_2.6.0-2 \
+                                  libnabo/libnabo_1.0.7-4 \
+                         phidgets-drivers/libphidget22_2.3.2-2 \
+                          libpointmatcher/libpointmatcher_1.3.1-5 \
+                  libstatistics-collector/libstatistics-collector_1.7.0-2 \
+                           libyaml-vendor/libyaml-vendor_1.6.2-2 \
+                                    demos/lifecycle_0.33.1-2 \
+                           rcl-interfaces/lifecycle-msgs_2.0.1-2 \
+                                    demos/lifecycle-py_0.33.1-2 \
+                    linux-isolate-process/linux-isolate-process_0.0.2-2 \
+                                    demos/logging-demo_0.33.1-2 \
+                             ros2-tracing/lttngpy_8.0.0-2 \
+                               magic-enum/magic-enum_0.9.5-2 \
+                          navigation-msgs/map-msgs_2.4.0-2 \
+                                   mapviz/mapviz_2.3.0-2 \
+                                   mapviz/mapviz-interfaces_2.3.0-2 \
+                                   mapviz/mapviz-plugins_2.3.0-2 \
+                           marti-messages/marti-can-msgs_1.5.2-2 \
+                           marti-messages/marti-common-msgs_1.5.2-2 \
+                           marti-messages/marti-dbw-msgs_1.5.2-2 \
+                           marti-messages/marti-introspection-msgs_1.5.2-2 \
+                           marti-messages/marti-nav-msgs_1.5.2-2 \
+                           marti-messages/marti-perception-msgs_1.5.2-2 \
+                           marti-messages/marti-sensor-msgs_1.5.2-2 \
+                           marti-messages/marti-status-msgs_1.5.2-2 \
+                           marti-messages/marti-visualization-msgs_1.5.2-2 \
+                                  mavlink/mavlink_2023.9.9-2 \
+                                   mavros/mavros_2.6.0-2 \
+                                   mavros/mavros-extras_2.6.0-2 \
+                                   mavros/mavros-msgs_2.6.0-2 \
+                                  rosbag2/mcap-vendor_0.24.0-3 \
+                             menge-vendor/menge-vendor_1.2.0-2 \
+                          message-filters/message-filters_4.11.0-2 \
+             message-tf-frame-transformer/message-tf-frame-transformer_1.1.0-2 \
+                        metavision-driver/metavision-driver_1.0.8-2 \
+                    micro-ros-diagnostics/micro-ros-diagnostic-bridge_0.3.0-5 \
+                    micro-ros-diagnostics/micro-ros-diagnostic-msgs_0.3.0-5 \
+                           micro-ros-msgs/micro-ros-msgs_1.0.0-4 \
+                     microstrain-inertial/microstrain-inertial-driver_3.2.1-2 \
+                     microstrain-inertial/microstrain-inertial-examples_3.2.1-2 \
+                     microstrain-inertial/microstrain-inertial-msgs_3.2.1-2 \
+                     microstrain-inertial/microstrain-inertial-rqt_3.2.1-2 \
+                            mimick-vendor/mimick-vendor_0.6.0-3 \
+                       astuff-sensor-msgs/mobileye-560-660-msgs_4.0.0-3 \
+                              mola-common/mola-common_0.3.0-2 \
+                       mola-test-datasets/mola-test-datasets_0.3.0-2 \
+                  motion-capture-tracking/motion-capture-tracking_1.0.3-2 \
+                  motion-capture-tracking/motion-capture-tracking-interfaces_1.0.3-2 \
+                             teleop-tools/mouse-teleop_1.5.0-2 \
+                                   moveit/moveit_2.9.0-2 \
+                                   moveit/moveit-common_2.9.0-2 \
+                                   moveit/moveit-configs-utils_2.9.0-2 \
+                                   moveit/moveit-core_2.9.0-2 \
+                                   moveit/moveit-hybrid-planning_2.9.0-2 \
+                                   moveit/moveit-kinematics_2.9.0-2 \
+                              moveit-msgs/moveit-msgs_2.4.0-2 \
+                                   moveit/moveit-planners_2.9.0-2 \
+                                   moveit/moveit-planners-chomp_2.9.0-2 \
+                                   moveit/moveit-planners-ompl_2.9.0-2 \
+                                   moveit/moveit-planners-stomp_2.9.0-2 \
+                                   moveit/moveit-plugins_2.9.0-2 \
+                                   moveit/moveit-py_2.9.0-2 \
+                         moveit-resources/moveit-resources_3.0.0-2 \
+                         moveit-resources/moveit-resources-fanuc-description_3.0.0-2 \
+                         moveit-resources/moveit-resources-fanuc-moveit-config_3.0.0-2 \
+                         moveit-resources/moveit-resources-panda-description_3.0.0-2 \
+                         moveit-resources/moveit-resources-panda-moveit-config_3.0.0-2 \
+                         moveit-resources/moveit-resources-pr2-description_3.0.0-2 \
+                                   moveit/moveit-resources-prbt-ikfast-manipulator-plugin_2.9.0-2 \
+                                   moveit/moveit-resources-prbt-moveit-config_2.9.0-2 \
+                                   moveit/moveit-resources-prbt-pg70-support_2.9.0-2 \
+                                   moveit/moveit-resources-prbt-support_2.9.0-2 \
+                                   moveit/moveit-ros_2.9.0-2 \
+                                   moveit/moveit-ros-benchmarks_2.9.0-2 \
+                                   moveit/moveit-ros-control-interface_2.9.0-2 \
+                                   moveit/moveit-ros-move-group_2.9.0-2 \
+                                   moveit/moveit-ros-occupancy-map-monitor_2.9.0-2 \
+                                   moveit/moveit-ros-perception_2.9.0-2 \
+                                   moveit/moveit-ros-planning_2.9.0-2 \
+                                   moveit/moveit-ros-planning-interface_2.9.0-2 \
+                                   moveit/moveit-ros-robot-interaction_2.9.0-2 \
+                                   moveit/moveit-ros-visualization_2.9.0-2 \
+                                   moveit/moveit-ros-warehouse_2.9.0-2 \
+                                   moveit/moveit-runtime_2.9.0-2 \
+                                   moveit/moveit-servo_2.9.0-2 \
+                                   moveit/moveit-setup-app-plugins_2.9.0-2 \
+                                   moveit/moveit-setup-assistant_2.9.0-2 \
+                                   moveit/moveit-setup-controllers_2.9.0-2 \
+                                   moveit/moveit-setup-core-plugins_2.9.0-2 \
+                                   moveit/moveit-setup-framework_2.9.0-2 \
+                                   moveit/moveit-setup-srdf-plugins_2.9.0-2 \
+                                   moveit/moveit-simple-controller-manager_2.9.0-2 \
+                      moveit-visual-tools/moveit-visual-tools_4.1.0-3 \
+                                 mp2p-icp/mp2p-icp_1.2.0-2 \
+                                mrpt-msgs/mrpt-msgs_0.4.7-2 \
+                       mrpt-path-planning/mrpt-path-planning_0.1.0-2 \
+                                    mrpt2/mrpt2_2.11.11-1 \
+                        mrt-cmake-modules/mrt-cmake-modules_1.0.9-4 \
+                                   mapviz/multires-image_2.3.0-2 \
+                                    mvsim/mvsim_0.8.3-2 \
+                           nao-button-sim/nao-button-sim_1.0.0-2 \
+                           nao-interfaces/nao-command-msgs_1.0.0-2 \
+                                 nao-lola/nao-lola_1.2.0-2 \
+                                 nao-lola/nao-lola-client_1.2.0-2 \
+                                 nao-lola/nao-lola-command-msgs_1.2.0-2 \
+                                 nao-lola/nao-lola-sensor-msgs_1.2.0-2 \
+                           nao-interfaces/nao-sensor-msgs_1.0.0-2 \
+                        common-interfaces/nav-msgs_5.3.0-2 \
+                          neo-simulation2/neo-simulation2_1.0.0-4 \
+                       astuff-sensor-msgs/neobotix-usboard-msgs_4.0.0-3 \
+    nlohmann-json-schema-validator-vendor/nlohmann-json-schema-validator-vendor_0.4.0-2 \
+                  nmea-hardware-interface/nmea-hardware-interface_0.0.1-4 \
+                                nmea-msgs/nmea-msgs_2.1.0-2 \
+                       nmea-navsat-driver/nmea-navsat-driver_2.0.1-2 \
+                                     nodl/nodl-python_0.3.1-4 \
+                           nodl-to-policy/nodl-to-policy_1.0.0-4 \
+                       novatel-gps-driver/novatel-gps-driver_4.1.0-4 \
+                       novatel-gps-driver/novatel-gps-msgs_4.1.0-4 \
+                              ntpd-driver/ntpd-driver_2.2.0-3 \
+                             ntrip-client/ntrip-client_1.3.0-2 \
+                              ublox-dgnss/ntrip-client-node_0.5.2-2 \
+                  object-recognition-msgs/object-recognition-msgs_2.0.0-4 \
+                                  octomap/octomap_1.9.8-3 \
+                          octomap-mapping/octomap-mapping_2.1.0-2 \
+                             octomap-msgs/octomap-msgs_2.0.0-4 \
+                              octomap-ros/octomap-ros_0.4.3-3 \
+                     octomap-rviz-plugins/octomap-rviz-plugins_2.0.0-4 \
+                          octomap-mapping/octomap-server_2.1.0-2 \
+                                  octomap/octovis_1.9.8-3 \
+                          odom-to-tf-ros2/odom-to-tf-ros2_1.0.2-3 \
+                        odri-master-board/odri-master-board-sdk_1.0.6-4 \
+                                     ompl/ompl_1.5.2-4 \
+                        perception-open3d/open3d-conversions_0.1.2-3 \
+                           openni2-camera/openni2-camera_2.1.0-2 \
+                        orocos-kdl-vendor/orocos-kdl-vendor_0.5.0-2 \
+                              osqp-vendor/osqp-vendor_0.2.0-3 \
+                            osrf-pycommon/osrf-pycommon_2.1.4-2 \
+                   osrf-testing-tools-cpp/osrf-testing-tools-cpp_2.0.0-2 \
+                      ros2-ouster-drivers/ouster-msgs_0.5.1-2 \
+                               ouster-ros/ouster-ros_0.11.1-5 \
+                               ouster-ros/ouster-sensor-msgs_0.11.1-5 \
+                              ouxt-common/ouxt-common_0.0.8-4 \
+                              ouxt-common/ouxt-lint-common_0.0.8-4 \
+                           pal-statistics/pal-statistics_2.1.5-2 \
+                           pal-statistics/pal-statistics-msgs_2.1.5-2 \
+                                 pangolin/pangolin_0.9.1-2 \
+               generate-parameter-library/parameter-traits_0.3.7-3 \
+                           perception-pcl/pcl-conversions_2.4.0-5 \
+                                 pcl-msgs/pcl-msgs_1.0.0-8 \
+                           perception-pcl/pcl-ros_2.4.0-5 \
+                                    demos/pendulum-control_0.33.1-2 \
+                                    demos/pendulum-msgs_0.33.1-2 \
+                                 variants/perception_0.10.0-3 \
+                           perception-pcl/perception-pcl_2.4.0-5 \
+                         performance-test/performance-test_1.2.1-4 \
+                 performance-test-fixture/performance-test-fixture_0.2.0-2 \
+                         phidgets-drivers/phidgets-accelerometer_2.3.2-2 \
+                         phidgets-drivers/phidgets-analog-inputs_2.3.2-2 \
+                         phidgets-drivers/phidgets-analog-outputs_2.3.2-2 \
+                         phidgets-drivers/phidgets-api_2.3.2-2 \
+                         phidgets-drivers/phidgets-digital-inputs_2.3.2-2 \
+                         phidgets-drivers/phidgets-digital-outputs_2.3.2-2 \
+                         phidgets-drivers/phidgets-drivers_2.3.2-2 \
+                         phidgets-drivers/phidgets-gyroscope_2.3.2-2 \
+                         phidgets-drivers/phidgets-high-speed-encoder_2.3.2-2 \
+                         phidgets-drivers/phidgets-ik_2.3.2-2 \
+                         phidgets-drivers/phidgets-magnetometer_2.3.2-2 \
+                         phidgets-drivers/phidgets-motors_2.3.2-2 \
+                         phidgets-drivers/phidgets-msgs_2.3.2-2 \
+                         phidgets-drivers/phidgets-spatial_2.3.2-2 \
+                         phidgets-drivers/phidgets-temperature_2.3.2-2 \
+                                  pick-ik/pick-ik_1.1.0-3 \
+                  picknik-ament-copyright/picknik-ament-copyright_0.0.2-4 \
+                      picknik-controllers/picknik-reset-fault-controller_0.0.3-2 \
+                      picknik-controllers/picknik-twist-controller_0.0.3-2 \
+                         ros2-controllers/pid-controller_4.6.0-2 \
+                                   moveit/pilz-industrial-motion-planner_2.9.0-2 \
+                                   moveit/pilz-industrial-motion-planner-testutils_2.9.0-2 \
+                                pinocchio/pinocchio_2.6.21-2 \
+                              plotjuggler/plotjuggler_3.9.0-2 \
+                         plotjuggler-msgs/plotjuggler-msgs_0.2.3-4 \
+                          plotjuggler-ros/plotjuggler-ros_2.1.0-2 \
+                                pluginlib/pluginlib_5.4.1-2 \
+            point-cloud-transport-plugins/point-cloud-interfaces_3.0.3-2 \
+                  point-cloud-msg-wrapper/point-cloud-msg-wrapper_1.0.7-4 \
+                    point-cloud-transport/point-cloud-transport_3.0.4-2 \
+            point-cloud-transport-plugins/point-cloud-transport-plugins_3.0.3-2 \
+                    point-cloud-transport/point-cloud-transport-py_3.0.4-2 \
+           point-cloud-transport-tutorial/point-cloud-transport-tutorial_0.0.1-2 \
+                  pointcloud-to-laserscan/pointcloud-to-laserscan_2.0.2-2 \
+                              polygon-ros/polygon-demos_1.0.2-2 \
+                              polygon-ros/polygon-msgs_1.0.2-2 \
+                              polygon-ros/polygon-rviz-plugins_1.0.2-2 \
+                              polygon-ros/polygon-utils_1.0.2-2 \
+                             pose-cov-ops/pose-cov-ops_0.3.11-2 \
+                         ros2-controllers/position-controllers_4.6.0-2 \
+                                proxsuite/proxsuite_0.6.1-1 \
+                                 py-trees/py-trees_2.2.1-3 \
+                              py-trees-js/py-trees-js_0.6.4-3 \
+                             py-trees-ros/py-trees-ros_2.2.2-3 \
+                  py-trees-ros-interfaces/py-trees-ros-interfaces_2.1.0-3 \
+                     pybind11-json-vendor/pybind11-json-vendor_0.4.1-2 \
+                          pybind11-vendor/pybind11-vendor_3.1.1-2 \
+                      python-cmake-module/python-cmake-module_0.11.0-2 \
+                        orocos-kdl-vendor/python-orocos-kdl-vendor_0.5.0-2 \
+                        python-qt-binding/python-qt-binding_2.1.1-2 \
+                           qpoases-vendor/qpoases-vendor_3.2.3-4 \
+                              qt-gui-core/qt-dotgraph_2.7.2-2 \
+                              qt-gui-core/qt-gui_2.7.2-2 \
+                              qt-gui-core/qt-gui-app_2.7.2-2 \
+                              qt-gui-core/qt-gui-core_2.7.2-2 \
+                              qt-gui-core/qt-gui-cpp_2.7.2-2 \
+                              qt-gui-core/qt-gui-py-common_2.7.2-2 \
+                                    demos/quality-of-service-demo-cpp_0.33.1-2 \
+                                    demos/quality-of-service-demo-py_0.33.1-2 \
+                     quaternion-operation/quaternion-operation_0.0.7-4 \
+                                  r2r-spl/r2r-spl-7_3.0.1-3 \
+                               radar-msgs/radar-msgs_0.2.2-3 \
+                           random-numbers/random-numbers_2.0.1-4 \
+                         ros2-controllers/range-sensor-broadcaster_4.6.0-2 \
+                           rc-common-msgs/rc-common-msgs_0.5.3-5 \
+                           rc-genicam-api/rc-genicam-api_2.6.1-3 \
+                        rc-genicam-driver/rc-genicam-driver_0.3.0-3 \
+                        rc-reason-clients/rc-reason-clients_0.3.1-2 \
+                        rc-reason-clients/rc-reason-msgs_0.3.1-2 \
+                               rcdiscover/rcdiscover_1.1.6-3 \
+                                   gc-spl/rcgcd-spl-14_4.0.0-2 \
+                                   gc-spl/rcgcd-spl-14-conversion_4.0.0-2 \
+                                   gc-spl/rcgcrd-spl-4_4.0.0-2 \
+                                   gc-spl/rcgcrd-spl-4-conversion_4.0.0-2 \
+                                      rcl/rcl_9.1.0-2 \
+                                      rcl/rcl-action_9.1.0-2 \
+                           rcl-interfaces/rcl-interfaces_2.0.1-2 \
+                                      rcl/rcl-lifecycle_9.1.0-2 \
+                              rcl-logging/rcl-logging-interface_3.0.0-2 \
+                              rcl-logging/rcl-logging-noop_3.0.0-2 \
+                              rcl-logging/rcl-logging-spdlog_3.0.0-2 \
+                                      rcl/rcl-yaml-param-parser_9.1.0-2 \
+                                     rclc/rclc_6.1.0-2 \
+                                     rclc/rclc-examples_6.1.0-2 \
+                                     rclc/rclc-lifecycle_6.1.0-2 \
+                                     rclc/rclc-parameter_6.1.0-2 \
+                                   rclcpp/rclcpp_27.0.0-2 \
+                                   rclcpp/rclcpp-action_27.0.0-2 \
+                        cascade-lifecycle/rclcpp-cascade-lifecycle_1.0.3-5 \
+                                   rclcpp/rclcpp-components_27.0.0-2 \
+                                   rclcpp/rclcpp-lifecycle_27.0.0-2 \
+                                    rclpy/rclpy_7.0.1-2 \
+                  rospy-message-converter/rclpy-message-converter_2.0.1-3 \
+                  rospy-message-converter/rclpy-message-converter-msgs_2.0.1-3 \
+                                rcpputils/rcpputils_2.10.0-2 \
+                             rcss3d-agent/rcss3d-agent_0.4.1-3 \
+                             rcss3d-agent/rcss3d-agent-basic_0.4.1-3 \
+                             rcss3d-agent/rcss3d-agent-msgs_0.4.1-3 \
+                             rcss3d-agent/rcss3d-agent-msgs-to-soccer-interfaces_0.4.1-3 \
+                               rcss3d-nao/rcss3d-nao_1.1.0-2 \
+                                  rcutils/rcutils_6.5.2-2 \
+                           realtime-tools/realtime-tools_2.5.0-3 \
+                       resource-retriever/resource-retriever_3.4.0-2 \
+                          rig-reconfigure/rig-reconfigure_1.4.0-2 \
+                             rmf-api-msgs/rmf-api-msgs_0.2.1-2 \
+                              rmf-battery/rmf-battery_0.3.0-2 \
+                    rmf-building-map-msgs/rmf-building-map-msgs_1.4.0-2 \
+                        rmf-internal-msgs/rmf-charger-msgs_3.2.1-2 \
+                                 rmf-ros2/rmf-charging-schedule_2.5.0-2 \
+                     rmf-cmake-uncrustify/rmf-cmake-uncrustify_1.2.0-5 \
+                        rmf-internal-msgs/rmf-dispenser-msgs_3.2.1-2 \
+                        rmf-internal-msgs/rmf-door-msgs_3.2.1-2 \
+                                 rmf-ros2/rmf-fleet-adapter_2.5.0-2 \
+                                 rmf-ros2/rmf-fleet-adapter-python_2.5.0-2 \
+                        rmf-internal-msgs/rmf-fleet-msgs_3.2.1-2 \
+                        rmf-internal-msgs/rmf-ingestor-msgs_3.2.1-2 \
+                        rmf-internal-msgs/rmf-lift-msgs_3.2.1-2 \
+                        rmf-internal-msgs/rmf-obstacle-msgs_3.2.1-2 \
+                             rmf-variants/rmf-rosdev_0.0.1-2 \
+                        rmf-internal-msgs/rmf-scheduler-msgs_3.2.1-2 \
+                        rmf-internal-msgs/rmf-site-map-msgs_3.2.1-2 \
+                                 rmf-task/rmf-task_2.4.0-2 \
+                        rmf-internal-msgs/rmf-task-msgs_3.2.1-2 \
+                                 rmf-ros2/rmf-task-ros2_2.5.0-2 \
+                                 rmf-task/rmf-task-sequence_2.4.0-2 \
+                              rmf-traffic/rmf-traffic_3.3.1-2 \
+                              rmf-traffic/rmf-traffic-examples_3.3.1-2 \
+                        rmf-internal-msgs/rmf-traffic-msgs_3.2.1-2 \
+                                 rmf-ros2/rmf-traffic-ros2_2.5.0-2 \
+                                rmf-utils/rmf-utils_1.6.0-2 \
+                        rmf-visualization/rmf-visualization_2.2.1-2 \
+                        rmf-visualization/rmf-visualization-building-systems_2.2.1-2 \
+                        rmf-visualization/rmf-visualization-fleet-states_2.2.1-2 \
+                        rmf-visualization/rmf-visualization-floorplans_2.2.1-2 \
+                   rmf-visualization-msgs/rmf-visualization-msgs_1.4.0-2 \
+                        rmf-visualization/rmf-visualization-navgraphs_2.2.1-2 \
+                        rmf-visualization/rmf-visualization-obstacles_2.2.1-2 \
+                        rmf-visualization/rmf-visualization-rviz2-plugins_2.2.1-2 \
+                        rmf-visualization/rmf-visualization-schedule_2.2.1-2 \
+                                 rmf-ros2/rmf-websocket_2.5.0-2 \
+                        rmf-internal-msgs/rmf-workcell-msgs_3.2.1-2 \
+                                      rmw/rmw_7.3.0-2 \
+                           rmw-connextdds/rmw-connextdds_0.20.1-1 \
+                           rmw-connextdds/rmw-connextdds-common_0.20.1-1 \
+                           rmw-cyclonedds/rmw-cyclonedds-cpp_2.1.0-2 \
+                           rmw-dds-common/rmw-dds-common_3.0.0-2 \
+                             rmw-fastrtps/rmw-fastrtps-cpp_8.2.0-2 \
+                             rmw-fastrtps/rmw-fastrtps-dynamic-cpp_8.2.0-2 \
+                             rmw-fastrtps/rmw-fastrtps-shared-cpp_8.2.0-2 \
+                       rmw-implementation/rmw-implementation_2.15.0-3 \
+                                      rmw/rmw-implementation-cmake_7.3.0-2 \
+                        robot-calibration/robot-calibration_0.8.1-2 \
+                        robot-calibration/robot-calibration-msgs_0.8.1-2 \
+                       robot-localization/robot-localization_3.6.0-2 \
+                    robot-state-publisher/robot-state-publisher_3.3.3-2 \
+                     ros2-robotiq-gripper/robotiq-controllers_0.0.1-2 \
+                     ros2-robotiq-gripper/robotiq-description_0.0.1-2 \
+                                 variants/ros-base_0.10.0-3 \
+                                 variants/ros-core_0.10.0-3 \
+                          ros-environment/ros-environment_4.2.0-2 \
+                      ros-image-to-qimage/ros-image-to-qimage_0.4.1-3 \
+         ros-industrial-cmake-boilerplate/ros-industrial-cmake-boilerplate_0.5.4-1 \
+                              ros-testing/ros-testing_0.6.0-2 \
+                            ros-workspace/ros-workspace_1.0.3-5 \
+                             ros2-control/ros2-control_4.5.0-2 \
+                             ros2-control/ros2-control-test-assets_4.5.0-2 \
+                         ros2-controllers/ros2-controllers_4.6.0-2 \
+                         ros2-controllers/ros2-controllers-test-nodes_4.6.0-2 \
+                      ros2-ouster-drivers/ros2-ouster_0.5.1-2 \
+                           ros2-socketcan/ros2-socketcan_1.2.0-2 \
+                           ros2-socketcan/ros2-socketcan-msgs_1.2.0-2 \
+                         ros2acceleration/ros2acceleration_0.5.1-3 \
+                                  ros2cli/ros2action_0.31.1-2 \
+                                  rosbag2/ros2bag_0.24.0-3 \
+                                  ros2cli/ros2cli_0.31.1-2 \
+                ros2cli-common-extensions/ros2cli-common-extensions_0.3.0-2 \
+                                  ros2cli/ros2cli-test-interfaces_0.31.1-2 \
+                                  ros2cli/ros2component_0.31.1-2 \
+                             ros2-control/ros2controlcli_4.5.0-2 \
+                                  ros2cli/ros2doctor_0.31.1-2 \
+                                  ros2cli/ros2interface_0.31.1-2 \
+                               launch-ros/ros2launch_0.26.4-2 \
+                      ros2launch-security/ros2launch-security_1.0.0-4 \
+                      ros2launch-security/ros2launch-security-examples_1.0.0-4 \
+                                  ros2cli/ros2lifecycle_0.31.1-2 \
+                                  ros2cli/ros2lifecycle-test-fixtures_0.31.1-2 \
+                                  ros2cli/ros2multicast_0.31.1-2 \
+                                  ros2cli/ros2node_0.31.1-2 \
+                                     nodl/ros2nodl_0.3.1-4 \
+                                  ros2cli/ros2param_0.31.1-2 \
+                                  ros2cli/ros2pkg_0.31.1-2 \
+                                  ros2cli/ros2run_0.31.1-2 \
+                                  ros2cli/ros2service_0.31.1-2 \
+                              ros-testing/ros2test_0.6.0-2 \
+                                  ros2cli/ros2topic_0.31.1-2 \
+                             ros2-tracing/ros2trace_8.0.0-2 \
+                      tracetools-analysis/ros2trace-analysis_3.0.0-5 \
+                          rosbridge-suite/rosapi_1.3.2-2 \
+                          rosbridge-suite/rosapi-msgs_1.3.2-2 \
+                                  rosbag2/rosbag2_0.24.0-3 \
+                                  rosbag2/rosbag2-compression_0.24.0-3 \
+                                  rosbag2/rosbag2-compression-zstd_0.24.0-3 \
+                                  rosbag2/rosbag2-cpp_0.24.0-3 \
+                                  rosbag2/rosbag2-examples-cpp_0.24.0-3 \
+                                  rosbag2/rosbag2-examples-py_0.24.0-3 \
+                                  rosbag2/rosbag2-interfaces_0.24.0-3 \
+                                  rosbag2/rosbag2-performance-benchmarking_0.24.0-3 \
+                                  rosbag2/rosbag2-performance-benchmarking-msgs_0.24.0-3 \
+                                  rosbag2/rosbag2-py_0.24.0-3 \
+                                  rosbag2/rosbag2-storage_0.24.0-3 \
+                                  rosbag2/rosbag2-storage-default-plugins_0.24.0-3 \
+                                  rosbag2/rosbag2-storage-mcap_0.24.0-3 \
+                                  rosbag2/rosbag2-storage-sqlite3_0.24.0-3 \
+                                  rosbag2/rosbag2-test-common_0.24.0-3 \
+                                  rosbag2/rosbag2-test-msgdefs_0.24.0-3 \
+                                  rosbag2/rosbag2-tests_0.24.0-3 \
+                                  rosbag2/rosbag2-transport_0.24.0-3 \
+                          rosbridge-suite/rosbridge-library_1.3.2-2 \
+                          rosbridge-suite/rosbridge-msgs_1.3.2-2 \
+                          rosbridge-suite/rosbridge-server_1.3.2-2 \
+                          rosbridge-suite/rosbridge-suite_1.3.2-2 \
+                          rosbridge-suite/rosbridge-test-msgs_1.3.2-2 \
+                           rcl-interfaces/rosgraph-msgs_2.0.1-2 \
+                                   rosidl/rosidl-adapter_4.5.1-2 \
+                                   rosidl/rosidl-cli_4.5.1-2 \
+                                   rosidl/rosidl-cmake_4.5.1-2 \
+                              rosidl-core/rosidl-core-generators_0.2.0-2 \
+                              rosidl-core/rosidl-core-runtime_0.2.0-2 \
+                          rosidl-defaults/rosidl-default-generators_1.6.0-2 \
+                          rosidl-defaults/rosidl-default-runtime_1.6.0-2 \
+               rosidl-dynamic-typesupport/rosidl-dynamic-typesupport_0.1.2-2 \
+      rosidl-dynamic-typesupport-fastrtps/rosidl-dynamic-typesupport-fastrtps_0.1.0-2 \
+                                   rosidl/rosidl-generator-c_4.5.1-2 \
+                                   rosidl/rosidl-generator-cpp_4.5.1-2 \
+                               rosidl-dds/rosidl-generator-dds-idl_0.11.1-2 \
+                            rosidl-python/rosidl-generator-py_0.21.1-2 \
+                                   rosidl/rosidl-generator-type-description_4.5.1-2 \
+                                   rosidl/rosidl-parser_4.5.1-2 \
+                                   rosidl/rosidl-pycommon_4.5.1-2 \
+                                   rosidl/rosidl-runtime-c_4.5.1-2 \
+                                   rosidl/rosidl-runtime-cpp_4.5.1-2 \
+                        rosidl-runtime-py/rosidl-runtime-py_0.13.0-2 \
+                       rosidl-typesupport/rosidl-typesupport-c_3.2.0-2 \
+                       rosidl-typesupport/rosidl-typesupport-cpp_3.2.0-2 \
+              rosidl-typesupport-fastrtps/rosidl-typesupport-fastrtps-c_3.4.0-2 \
+              rosidl-typesupport-fastrtps/rosidl-typesupport-fastrtps-cpp_3.4.0-2 \
+                                   rosidl/rosidl-typesupport-interface_4.5.1-2 \
+                                   rosidl/rosidl-typesupport-introspection-c_4.5.1-2 \
+                                   rosidl/rosidl-typesupport-introspection-cpp_4.5.1-2 \
+                             rot-conv-lib/rot-conv_1.1.0-3 \
+                              rplidar-ros/rplidar-ros_2.1.0-3 \
+                                 rpyutils/rpyutils_0.4.1-2 \
+                                      rqt/rqt_1.5.0-2 \
+                               rqt-action/rqt-action_2.2.0-2 \
+                                  rqt-bag/rqt-bag_1.5.1-2 \
+                                  rqt-bag/rqt-bag-plugins_1.5.1-2 \
+                       rqt-common-plugins/rqt-common-plugins_1.2.0-3 \
+                              rqt-console/rqt-console_2.2.1-2 \
+                             ros2-control/rqt-controller-manager_4.5.0-2 \
+                               rqt-gauges/rqt-gauges_0.0.2-2 \
+                                rqt-graph/rqt-graph_1.5.2-2 \
+                                      rqt/rqt-gui_1.5.0-2 \
+                                      rqt/rqt-gui-cpp_1.5.0-2 \
+                                      rqt/rqt-gui-py_1.5.0-2 \
+                        rqt-image-overlay/rqt-image-overlay_0.3.1-3 \
+                        rqt-image-overlay/rqt-image-overlay-layer_0.3.1-3 \
+                           rqt-image-view/rqt-image-view_1.2.0-3 \
+                         ros2-controllers/rqt-joint-trajectory-controller_4.6.0-2 \
+                               rqt-moveit/rqt-moveit_1.0.1-4 \
+                                  rqt-msg/rqt-msg_1.5.1-2 \
+                                 rqt-plot/rqt-plot_1.3.2-2 \
+                            rqt-publisher/rqt-publisher_1.7.1-2 \
+                                      rqt/rqt-py-common_1.5.0-2 \
+                           rqt-py-console/rqt-py-console_1.2.2-2 \
+                          rqt-reconfigure/rqt-reconfigure_1.6.2-2 \
+                      rqt-robot-dashboard/rqt-robot-dashboard_0.6.1-4 \
+                        rqt-robot-monitor/rqt-robot-monitor_1.0.5-3 \
+                       rqt-robot-steering/rqt-robot-steering_1.0.0-5 \
+                      rqt-runtime-monitor/rqt-runtime-monitor_1.0.0-4 \
+                       rqt-service-caller/rqt-service-caller_1.2.1-2 \
+                                rqt-shell/rqt-shell_1.2.1-2 \
+                                  rqt-srv/rqt-srv_1.2.2-2 \
+                              rqt-tf-tree/rqt-tf-tree_1.0.4-3 \
+                                rqt-topic/rqt-topic_1.7.1-2 \
+                                      rsl/rsl_1.1.0-2 \
+                      rt-manipulators-cpp/rt-manipulators-cpp_1.0.0-3 \
+                      rt-manipulators-cpp/rt-manipulators-examples_1.0.0-3 \
+                                  rtabmap/rtabmap_0.21.1-3 \
+                                rtcm-msgs/rtcm-msgs_1.1.6-3 \
+                           rmw-connextdds/rti-connext-dds-cmake-module_0.20.1-1 \
+                         realtime-support/rttest_0.17.0-2 \
+                                   ruckig/ruckig_0.9.2-4 \
+                  rviz-2d-overlay-plugins/rviz-2d-overlay-msgs_1.3.0-2 \
+                  rviz-2d-overlay-plugins/rviz-2d-overlay-plugins_1.3.0-2 \
+                                     rviz/rviz-assimp-vendor_13.4.0-2 \
+                                     rviz/rviz-common_13.4.0-2 \
+                                     rviz/rviz-default-plugins_13.4.0-2 \
+                                imu-tools/rviz-imu-plugin_2.1.3-3 \
+                                     rviz/rviz-ogre-vendor_13.4.0-2 \
+                                     rviz/rviz-rendering_13.4.0-2 \
+                                     rviz/rviz-rendering-tests_13.4.0-2 \
+                                     rviz/rviz-visual-testing-framework_13.4.0-2 \
+                        rviz-visual-tools/rviz-visual-tools_4.1.4-3 \
+                                     rviz/rviz2_13.4.0-2 \
+                         joystick-drivers/sdl2-vendor_3.3.0-2 \
+                              diagnostics/self-test_3.1.2-2 \
+                        common-interfaces/sensor-msgs_5.3.0-2 \
+                        common-interfaces/sensor-msgs-py_5.3.0-2 \
+                        transport-drivers/serial-driver_1.2.0-3 \
+                           rcl-interfaces/service-msgs_2.0.1-2 \
+                        common-interfaces/shape-msgs_5.3.0-2 \
+                                  rosbag2/shared-queues-vendor_0.24.0-3 \
+                  sick-safevisionary-base/sick-safevisionary-base_1.0.1-2 \
+                  sick-safevisionary-ros2/sick-safevisionary-driver_1.0.3-2 \
+                  sick-safevisionary-ros2/sick-safevisionary-interfaces_1.0.3-2 \
+                  sick-safevisionary-ros2/sick-safevisionary-tests_1.0.3-2 \
+                           simple-actions/simple-actions_0.3.0-2 \
+                            simple-launch/simple-launch_1.9.1-2 \
+                                 variants/simulation_0.10.0-3 \
+                         slider-publisher/slider-publisher_2.3.1-2 \
+                                    smach/smach_3.0.3-2 \
+                                    smach/smach-msgs_3.0.3-2 \
+                                    smach/smach-ros_3.0.3-2 \
+                                bond-core/smclib_4.0.0-4 \
+                 snowbot-operating-system/snowbot-operating-system_0.1.2-4 \
+                        soccer-interfaces/soccer-interfaces_0.2.0-3 \
+                     soccer-visualization/soccer-marker-generation_0.1.0-3 \
+                       soccer-object-msgs/soccer-object-msgs_1.1.0-3 \
+                        soccer-interfaces/soccer-vision-2d-msgs_0.2.0-3 \
+                        soccer-interfaces/soccer-vision-3d-msgs_0.2.0-3 \
+            soccer-vision-3d-rviz-markers/soccer-vision-3d-rviz-markers_0.0.1-3 \
+                        soccer-interfaces/soccer-vision-attribute-msgs_0.2.0-3 \
+                               sol-vendor/sol-vendor_0.0.3-4 \
+                                   sophus/sophus_1.3.1-3 \
+                         joystick-drivers/spacenav_3.3.0-2 \
+                            spdlog-vendor/spdlog-vendor_1.5.1-2 \
+                                  r2r-spl/splsm-7_3.0.1-3 \
+                                  r2r-spl/splsm-7-conversion_3.0.1-3 \
+                                  rosbag2/sqlite3-vendor_0.24.0-3 \
+                                  srdfdom/srdfdom_2.0.4-3 \
+                                    sros2/sros2_0.13.0-2 \
+                                    sros2/sros2-cmake_0.13.0-2 \
+                           rcl-interfaces/statistics-msgs_2.0.1-2 \
+                        common-interfaces/std-msgs_5.3.0-2 \
+                        common-interfaces/std-srvs_5.3.0-2 \
+                         ros2-controllers/steering-controllers-library_4.6.0-2 \
+                           image-pipeline/stereo-image-proc_5.0.0-2 \
+                        common-interfaces/stereo-msgs_5.3.0-2 \
+                                    stomp/stomp_0.1.2-3 \
+                         stubborn-buddies/stubborn-buddies_1.0.0-6 \
+                         stubborn-buddies/stubborn-buddies-msgs_1.0.0-6 \
+                             marti-common/swri-cli-tools_3.6.1-2 \
+                             swri-console/swri-console_2.0.4-6 \
+                             marti-common/swri-console-util_3.6.1-2 \
+                             marti-common/swri-dbw-interface_3.6.1-2 \
+                             marti-common/swri-geometry-util_3.6.1-2 \
+                             marti-common/swri-image-util_3.6.1-2 \
+                             marti-common/swri-math-util_3.6.1-2 \
+                             marti-common/swri-opencv-util_3.6.1-2 \
+                             marti-common/swri-prefix-tools_3.6.1-2 \
+                             marti-common/swri-roscpp_3.6.1-2 \
+                             marti-common/swri-route-util_3.6.1-2 \
+                             marti-common/swri-serial-util_3.6.1-2 \
+                             marti-common/swri-system-util_3.6.1-2 \
+                             marti-common/swri-transform-util_3.6.1-2 \
+                       system-fingerprint/system-fingerprint_0.7.0-3 \
+                             system-modes/system-modes_0.9.0-5 \
+                             system-modes/system-modes-examples_0.9.0-5 \
+                             system-modes/system-modes-msgs_0.9.0-5 \
+                       tango-icons-vendor/tango-icons-vendor_0.3.0-2 \
+                            cpp-polyfills/tcb-span_1.0.2-4 \
+                             teleop-tools/teleop-tools_1.5.0-2 \
+                             teleop-tools/teleop-tools-msgs_1.5.0-2 \
+                         teleop-twist-joy/teleop-twist-joy_2.6.0-2 \
+                    teleop-twist-keyboard/teleop-twist-keyboard_2.4.0-1 \
+                    tensorrt-cmake-module/tensorrt-cmake-module_0.0.3-3 \
+                          apex-test-tools/test-apex-test-tools_0.0.2-8 \
+                                bond-core/test-bond_4.0.0-4 \
+                     test-interface-files/test-interface-files_0.11.0-2 \
+                           rcl-interfaces/test-msgs_2.0.1-2 \
+                       tf-transformations/tf-transformations_1.0.1-4 \
+                                geometry2/tf2_0.36.0-2 \
+                                   tf2-2d/tf2-2d_1.0.1-3 \
+                                geometry2/tf2-bullet_0.36.0-2 \
+                                geometry2/tf2-eigen_0.36.0-2 \
+                                geometry2/tf2-eigen-kdl_0.36.0-2 \
+                                geometry2/tf2-geometry-msgs_0.36.0-2 \
+                                geometry2/tf2-kdl_0.36.0-2 \
+                                geometry2/tf2-msgs_0.36.0-2 \
+                                geometry2/tf2-py_0.36.0-2 \
+                                geometry2/tf2-ros_0.36.0-2 \
+                                geometry2/tf2-ros-py_0.36.0-2 \
+                                geometry2/tf2-sensor-msgs_0.36.0-2 \
+                                geometry2/tf2-tools_0.36.0-2 \
+                  image-transport-plugins/theora-image-transport_3.2.0-2 \
+                                   mapviz/tile-map_2.3.0-2 \
+                        tinyspline-vendor/tinyspline-vendor_0.6.0-4 \
+                           tinyxml-vendor/tinyxml-vendor_0.10.0-2 \
+                          tinyxml2-vendor/tinyxml2-vendor_0.9.1-2 \
+                            cpp-polyfills/tl-expected_1.0.2-4 \
+                                     tlsf/tlsf_0.9.0-2 \
+                         realtime-support/tlsf-cpp_0.17.0-2 \
+                 topic-based-ros2-control/topic-based-ros2-control_0.2.0-2 \
+                                    demos/topic-monitor_0.33.1-2 \
+                                    demos/topic-statistics-demo_0.33.1-2 \
+                              topic-tools/topic-tools_1.3.0-2 \
+                              topic-tools/topic-tools-interfaces_1.3.0-2 \
+                             ros2-tracing/tracetools_8.0.0-2 \
+                  tracetools-acceleration/tracetools-acceleration_0.4.1-3 \
+                      tracetools-analysis/tracetools-analysis_3.0.0-5 \
+                           image-pipeline/tracetools-image-pipeline_5.0.0-2 \
+                             ros2-tracing/tracetools-launch_8.0.0-2 \
+                             ros2-tracing/tracetools-read_8.0.0-2 \
+                             ros2-tracing/tracetools-test_8.0.0-2 \
+                             ros2-tracing/tracetools-trace_8.0.0-2 \
+                        common-interfaces/trajectory-msgs_5.3.0-2 \
+                             ros2-control/transmission-interface_4.5.0-2 \
+                         ros2-controllers/tricycle-controller_4.6.0-2 \
+                         ros2-controllers/tricycle-steering-controller_4.6.0-2 \
+     turbojpeg-compressed-image-transport/turbojpeg-compressed-image-transport_0.2.1-4 \
+                       geometry-tutorials/turtle-tf2-cpp_0.3.6-4 \
+                       geometry-tutorials/turtle-tf2-py_0.3.6-4 \
+                   turtlebot3-simulations/turtlebot3-fake-node_2.2.5-4 \
+                   turtlebot3-simulations/turtlebot3-gazebo_2.2.5-4 \
+                          turtlebot3-msgs/turtlebot3-msgs_2.2.1-4 \
+                   turtlebot3-simulations/turtlebot3-simulations_2.2.5-4 \
+                            ros-tutorials/turtlesim_1.8.1-2 \
+                             tuw-geometry/tuw-geometry_0.0.7-3 \
+                               tvm-vendor/tvm-vendor_0.9.1-3 \
+                                twist-mux/twist-mux_4.3.0-2 \
+                           twist-mux-msgs/twist-mux-msgs_3.0.1-2 \
+                            twist-stamper/twist-stamper_0.0.3-3 \
+                           rcl-interfaces/type-description-interfaces_2.0.1-2 \
+                                    ublox/ublox_2.3.0-3 \
+                              ublox-dgnss/ublox-dgnss_0.5.2-2 \
+                              ublox-dgnss/ublox-dgnss-node_0.5.2-2 \
+                                    ublox/ublox-gps_2.3.0-3 \
+                                    ublox/ublox-msgs_2.3.0-3 \
+                              ublox-dgnss/ublox-nav-sat-fix-hp-node_0.5.2-2 \
+                                    ublox/ublox-serialization_2.3.0-3 \
+                              ublox-dgnss/ublox-ubx-interfaces_0.5.2-2 \
+                              ublox-dgnss/ublox-ubx-msgs_0.5.2-2 \
+                        transport-drivers/udp-driver_1.2.0-3 \
+                                 udp-msgs/udp-msgs_0.0.3-6 \
+                        uncrustify-vendor/uncrustify-vendor_2.2.1-2 \
+                   unique-identifier-msgs/unique-identifier-msgs_2.5.0-2 \
+                          ur-robot-driver/ur_2.4.3-2 \
+                          ur-robot-driver/ur-calibration_2.4.3-2 \
+                        ur-client-library/ur-client-library_1.3.5-2 \
+                          ur-robot-driver/ur-controllers_2.4.3-2 \
+                          ur-robot-driver/ur-dashboard-msgs_2.4.3-2 \
+                           ur-description/ur-description_2.2.4-2 \
+                          ur-robot-driver/ur-moveit-config_2.4.3-2 \
+                                  ur-msgs/ur-msgs_2.0.0-3 \
+                          ur-robot-driver/ur-robot-driver_2.4.3-2 \
+                                     urdf/urdf_2.10.0-2 \
+                              urdf-launch/urdf-launch_0.1.1-2 \
+                                     urdf/urdf-parser-plugin_2.10.0-2 \
+                            urdf-tutorial/urdf-tutorial_1.1.0-2 \
+                                  urdfdom/urdfdom_4.0.0-2 \
+                          urdfdom-headers/urdfdom-headers_1.1.1-2 \
+                           urdf-parser-py/urdfdom-py_1.2.1-2 \
+                                    urg-c/urg-c_1.0.4001-5 \
+                                 urg-node/urg-node_1.1.1-3 \
+                            urg-node-msgs/urg-node-msgs_1.0.1-8 \
+                                  usb-cam/usb-cam_0.8.0-2 \
+                              v4l2-camera/v4l2-camera_0.7.0-2 \
+                         ros2-controllers/velocity-controllers_4.6.0-2 \
+                                 velodyne/velodyne_2.3.0-3 \
+                       velodyne-simulator/velodyne-description_2.0.3-3 \
+                                 velodyne/velodyne-driver_2.3.0-3 \
+                       velodyne-simulator/velodyne-gazebo-plugins_2.0.3-3 \
+                                 velodyne/velodyne-laserscan_2.3.0-3 \
+                                 velodyne/velodyne-msgs_2.3.0-3 \
+                                 velodyne/velodyne-pointcloud_2.3.0-3 \
+                       velodyne-simulator/velodyne-simulator_2.0.3-3 \
+                              vision-msgs/vision-msgs_4.1.1-2 \
+                       vision-msgs-layers/vision-msgs-layers_0.2.0-3 \
+                              vision-msgs/vision-msgs-rviz-plugins_4.1.1-2 \
+                            vision-opencv/vision-opencv_3.4.0-3 \
+                                     visp/visp_3.5.0-3 \
+                        common-interfaces/visualization-msgs_5.3.0-2 \
+                             vitis-common/vitis-common_0.4.2-3 \
+                                     vrpn/vrpn_7.35.0-14 \
+                               vrpn-mocap/vrpn-mocap_1.1.0-2 \
+                            warehouse-ros/warehouse-ros_2.0.4-4 \
+                     warehouse-ros-sqlite/warehouse-ros-sqlite_1.0.3-3 \
+                              webots-ros2/webots-ros2_2023.1.1-3 \
+                              webots-ros2/webots-ros2-control_2023.1.1-3 \
+                              webots-ros2/webots-ros2-driver_2023.1.1-3 \
+                              webots-ros2/webots-ros2-epuck_2023.1.1-3 \
+                              webots-ros2/webots-ros2-importer_2023.1.1-3 \
+                              webots-ros2/webots-ros2-mavic_2023.1.1-3 \
+                              webots-ros2/webots-ros2-msgs_2023.1.1-3 \
+                              webots-ros2/webots-ros2-tesla_2023.1.1-3 \
+                              webots-ros2/webots-ros2-tests_2023.1.1-3 \
+                              webots-ros2/webots-ros2-tiago_2023.1.1-3 \
+                              webots-ros2/webots-ros2-turtlebot_2023.1.1-3 \
+                              webots-ros2/webots-ros2-universal-robot_2023.1.1-3 \
+                         joystick-drivers/wiimote_3.3.0-2 \
+                         joystick-drivers/wiimote-msgs_3.3.0-2 \
+                                    xacro/xacro_2.0.10-2 \
+                          yaml-cpp-vendor/yaml-cpp-vendor_8.3.1-2 \
+                                 zbar-ros/zbar-ros_0.4.0-3 \
+                         zenoh-bridge-dds/zenoh-bridge-dds_0.5.0-4 \
+            point-cloud-transport-plugins/zlib-point-cloud-transport_3.0.3-2 \
+                             zmqpp-vendor/zmqpp-vendor_0.0.2-3 \
+            point-cloud-transport-plugins/zstd-point-cloud-transport_3.0.3-2 \
+                                  rosbag2/zstd-vendor_0.24.0-3 \
 "
 
 # What's built by packagegroup-ros-world. Does not include packages that appear solely in ROS_SUPERFLORE_GENERATED_BUILDTOOLS
@@ -2228,6 +2204,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     adaptive-component \
     admittance-controller \
     ament-acceleration \
+    ament-black \
     ament-clang-tidy \
     ament-cmake \
     ament-cmake-auto \
@@ -2252,7 +2229,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-cmake-include-directories \
     ament-cmake-libraries \
     ament-cmake-lint-cmake \
-    ament-cmake-mypy \
     ament-cmake-pep257 \
     ament-cmake-pycodestyle \
     ament-cmake-pyflakes \
@@ -2280,6 +2256,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ament-vitis \
     angles \
     apriltag \
+    apriltag-detector \
     apriltag-msgs \
     apriltag-ros \
     aruco-opencv \
@@ -2291,7 +2268,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     automotive-platform-msgs \
     autoware-auto-msgs \
     avt-vimba-camera \
-    aws-robomaker-small-warehouse-world \
     aws-sdk-cpp-vendor \
     backward-ros \
     bag2-to-image \
@@ -2303,7 +2279,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     bond-core \
     bondcpp \
     boost-geometry-util \
-    bosch-locator-bridge \
     builtin-interfaces \
     camera-calibration \
     camera-calibration-parsers \
@@ -2347,6 +2322,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     cudnn-cmake-module \
     cv-bridge \
     cyclonedds \
+    data-tamer-cpp \
+    data-tamer-msgs \
     delphi-esr-msgs \
     delphi-mrr-msgs \
     delphi-srr-msgs \
@@ -2455,6 +2432,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     fastcdr \
     fastrtps \
     fastrtps-cmake-module \
+    ffmpeg-image-transport \
+    ffmpeg-image-transport-msgs \
+    fields2cover \
     filters \
     find-object-2d \
     fluent-rviz \
@@ -2480,18 +2460,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     fuse-tutorials \
     fuse-variables \
     fuse-viz \
-    gazebo-msgs \
-    gazebo-plugins \
-    gazebo-ros \
-    gazebo-ros-pkgs \
+    game-controller-spl \
+    game-controller-spl-interfaces \
     gazebo-ros2-control \
     gazebo-ros2-control-demos \
-    gazebo-rosdev \
+    gc-spl \
     gc-spl-2022 \
+    gc-spl-interfaces \
     generate-parameter-library \
-    generate-parameter-library-example \
     generate-parameter-library-py \
-    generate-parameter-module-example \
     geodesy \
     geographic-info \
     geographic-msgs \
@@ -2512,9 +2489,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     gscam \
     gtest-vendor \
     gtsam \
-    gurumdds-cmake-module \
-    gz-ros2-control \
-    gz-ros2-control-demos \
     hardware-interface \
     hash-library-vendor \
     heaphook \
@@ -2523,6 +2497,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ibeo-msgs \
     iceoryx-binding-c \
     iceoryx-hoofs \
+    iceoryx-introspection \
     iceoryx-posh \
     ifm3d-core \
     ignition-cmake2-vendor \
@@ -2539,8 +2514,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     image-view \
     imu-complementary-filter \
     imu-filter-madgwick \
+    imu-pipeline \
+    imu-processors \
     imu-sensor-broadcaster \
     imu-tools \
+    imu-transformer \
     interactive-marker-twist-server \
     interactive-markers \
     intra-process-demo \
@@ -2594,7 +2572,18 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     launch-xml \
     launch-yaml \
     lely-core-libraries \
+    leo \
+    leo-bringup \
+    leo-description \
+    leo-desktop \
+    leo-fw \
+    leo-msgs \
+    leo-robot \
+    leo-teleop \
+    leo-viz \
     lgsvl-msgs \
+    libcaer \
+    libcaer-driver \
     libcurl-vendor \
     libg2o \
     libmavconn \
@@ -2606,7 +2595,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     lifecycle \
     lifecycle-msgs \
     lifecycle-py \
+    linux-isolate-process \
     logging-demo \
+    lttngpy \
     magic-enum \
     map-msgs \
     mapviz \
@@ -2639,20 +2630,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     microstrain-inertial-rqt \
     mobileye-560-660-msgs \
     mola-common \
-    mola-demos \
-    mola-imu-preintegration \
-    mola-input-euroc-dataset \
-    mola-input-kitti-dataset \
-    mola-input-rawlog \
-    mola-input-ros2 \
-    mola-kernel \
-    mola-launcher \
     mola-test-datasets \
-    mola-viz \
-    mola-yaml \
+    motion-capture-tracking \
+    motion-capture-tracking-interfaces \
     mouse-teleop \
     moveit \
-    moveit-chomp-optimizer-adapter \
     moveit-common \
     moveit-configs-utils \
     moveit-core \
@@ -2696,8 +2678,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     moveit-simple-controller-manager \
     moveit-visual-tools \
     mp2p-icp \
-    mqtt-client \
-    mqtt-client-interfaces \
     mrpt-msgs \
     mrpt-path-planning \
     mrpt2 \
@@ -2709,7 +2689,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     nao-lola \
     nao-lola-client \
     nao-lola-command-msgs \
-    nao-lola-conversion \
     nao-lola-sensor-msgs \
     nao-sensor-msgs \
     nav-msgs \
@@ -2734,6 +2713,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     octomap-server \
     octovis \
     odom-to-tf-ros2 \
+    odri-master-board-sdk \
     ompl \
     open3d-conversions \
     openni2-camera \
@@ -2742,9 +2722,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     osrf-pycommon \
     osrf-testing-tools-cpp \
     ouster-msgs \
+    ouster-ros \
+    ouster-sensor-msgs \
     ouxt-lint-common \
     pal-statistics \
     pal-statistics-msgs \
+    pangolin \
     parameter-traits \
     pcl-conversions \
     pcl-msgs \
@@ -2772,6 +2755,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     pick-ik \
     picknik-reset-fault-controller \
     picknik-twist-controller \
+    pid-controller \
     pilz-industrial-motion-planner \
     pinocchio \
     plotjuggler \
@@ -2815,7 +2799,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     random-numbers \
     range-sensor-broadcaster \
     rc-common-msgs \
-    rc-dynamics-api \
     rc-genicam-api \
     rc-genicam-driver \
     rc-reason-clients \
@@ -2857,11 +2840,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rmf-api-msgs \
     rmf-battery \
     rmf-building-map-msgs \
-    rmf-building-map-tools \
-    rmf-building-sim-common \
-    rmf-building-sim-gz-classic-plugins \
-    rmf-building-sim-gz-plugins \
     rmf-charger-msgs \
+    rmf-charging-schedule \
     rmf-cmake-uncrustify \
     rmf-dispenser-msgs \
     rmf-door-msgs \
@@ -2871,9 +2851,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rmf-ingestor-msgs \
     rmf-lift-msgs \
     rmf-obstacle-msgs \
-    rmf-robot-sim-common \
-    rmf-robot-sim-gz-classic-plugins \
-    rmf-robot-sim-gz-plugins \
     rmf-rosdev \
     rmf-scheduler-msgs \
     rmf-site-map-msgs \
@@ -2882,9 +2859,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rmf-task-ros2 \
     rmf-task-sequence \
     rmf-traffic \
-    rmf-traffic-editor \
-    rmf-traffic-editor-assets \
-    rmf-traffic-editor-test-maps \
     rmf-traffic-examples \
     rmf-traffic-msgs \
     rmf-traffic-ros2 \
@@ -2908,7 +2882,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rmw-fastrtps-cpp \
     rmw-fastrtps-dynamic-cpp \
     rmw-fastrtps-shared-cpp \
-    rmw-gurumdds-cpp \
     rmw-implementation \
     rmw-implementation-cmake \
     robot-calibration \
@@ -2920,18 +2893,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     ros-base \
     ros-core \
     ros-environment \
-    ros-gz \
-    ros-gz-bridge \
-    ros-gz-image \
-    ros-gz-interfaces \
-    ros-gz-sim \
-    ros-gz-sim-demos \
-    ros-ign \
-    ros-ign-bridge \
-    ros-ign-gazebo \
-    ros-ign-gazebo-demos \
-    ros-ign-image \
-    ros-ign-interfaces \
     ros-image-to-qimage \
     ros-industrial-cmake-boilerplate \
     ros-workspace \
@@ -3024,6 +2985,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rqt-common-plugins \
     rqt-console \
     rqt-controller-manager \
+    rqt-gauges \
     rqt-graph \
     rqt-gui \
     rqt-gui-cpp \
@@ -3066,22 +3028,21 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     rviz-rendering \
     rviz-visual-tools \
     rviz2 \
-    sdformat-urdf \
     sdl2-vendor \
     self-test \
     sensor-msgs \
     sensor-msgs-py \
-    septentrio-gnss-driver \
     serial-driver \
     service-msgs \
     shape-msgs \
     shared-queues-vendor \
+    sick-safevisionary-base \
+    sick-safevisionary-interfaces \
+    sick-safevisionary-tests \
     simple-actions \
     simple-launch \
     simulation \
     slider-publisher \
-    smacc2 \
-    smacc2-msgs \
     smach \
     smach-msgs \
     smach-ros \
@@ -3274,12 +3235,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
 # Packages found in the <buildtool_depend> and <buildtool_export_depend> items, ie, ones for which a -native is built. Does not
 # include those found in the ROS_EXEC_DEPENDS values in the recipes of build tools.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS_ROLLING = " \
-    ${ROS_UNRESOLVED_DEP-hdf5-tools-native} \
-    ${ROS_UNRESOLVED_DEP-python3-vcstool-native} \
     action-msgs-native \
+    ament-black-native \
     ament-clang-format-native \
     ament-clang-tidy-native \
     ament-cmake-auto-native \
+    ament-cmake-clang-format-native \
     ament-cmake-core-native \
     ament-cmake-cppcheck-native \
     ament-cmake-export-definitions-native \
@@ -3309,7 +3270,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_ROLLING = " \
     ament-cppcheck-native \
     ament-cpplint-native \
     ament-flake8-native \
-    ament-index-cpp-native \
     ament-index-python-native \
     ament-lint-cmake-native \
     ament-mypy-native \
@@ -3334,6 +3294,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_ROLLING = " \
     gmock-vendor-native \
     gtest-native \
     gtest-vendor-native \
+    hdf5-native \
     launch-testing-ament-cmake-native \
     launch-testing-native \
     lcov-native \
@@ -3347,11 +3308,10 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS_ROLLING = " \
     python3-pyyaml-native \
     python3-rospkg-native \
     python3-setuptools-native \
+    python3-vcstool-native \
     qtbase-native \
-    rmf-building-map-tools-native \
     rmw-implementation-cmake-native \
     ros-environment-native \
-    ros2run-native \
     ros2test-native \
     rosidl-cmake-native \
     rosidl-core-generators-native \
@@ -3378,84 +3338,62 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     ${PYTHON_PN}-pydocstyle \
     ${PYTHON_PN}-pyflakes \
     ${PYTHON_PN}-pyqt5 \
-    ${ROS_UNRESOLVED_DEP-cargo} \
     ${ROS_UNRESOLVED_DEP-clang-format} \
     ${ROS_UNRESOLVED_DEP-clang-tidy} \
     ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev} \
     ${ROS_UNRESOLVED_DEP-cwiid-dev} \
     ${ROS_UNRESOLVED_DEP-cwiid} \
     ${ROS_UNRESOLVED_DEP-docker.io} \
-    ${ROS_UNRESOLVED_DEP-gazebo11} \
-    ${ROS_UNRESOLVED_DEP-gazebo} \
+    ${ROS_UNRESOLVED_DEP-gazebo-msgs} \
+    ${ROS_UNRESOLVED_DEP-gazebo-ros-pkgs} \
+    ${ROS_UNRESOLVED_DEP-gazebo-rosdev} \
+    ${ROS_UNRESOLVED_DEP-gazebo-ros} \
     ${ROS_UNRESOLVED_DEP-geos} \
-    ${ROS_UNRESOLVED_DEP-gurumdds-2.8} \
-    ${ROS_UNRESOLVED_DEP-hdf5-tools-native} \
-    ${ROS_UNRESOLVED_DEP-ignition-cmake2} \
-    ${ROS_UNRESOLVED_DEP-ignition-fortress} \
-    ${ROS_UNRESOLVED_DEP-ignition-fuel-tools7} \
-    ${ROS_UNRESOLVED_DEP-ignition-gazebo6} \
-    ${ROS_UNRESOLVED_DEP-ignition-math6} \
-    ${ROS_UNRESOLVED_DEP-ignition-msgs8} \
-    ${ROS_UNRESOLVED_DEP-ignition-plugin} \
-    ${ROS_UNRESOLVED_DEP-ignition-transport11} \
     ${ROS_UNRESOLVED_DEP-iwyu} \
     ${ROS_UNRESOLVED_DEP-jupyter-notebook} \
+    ${ROS_UNRESOLVED_DEP-libavdevice-dev} \
     ${ROS_UNRESOLVED_DEP-libbluetooth-dev} \
     ${ROS_UNRESOLVED_DEP-libbluetooth} \
     ${ROS_UNRESOLVED_DEP-libclang-dev} \
-    ${ROS_UNRESOLVED_DEP-libcunit-dev} \
     ${ROS_UNRESOLVED_DEP-libdraco-dev} \
     ${ROS_UNRESOLVED_DEP-libfyaml-dev} \
-    ${ROS_UNRESOLVED_DEP-libgazebo11-dev} \
+    ${ROS_UNRESOLVED_DEP-libgdal-dev} \
     ${ROS_UNRESOLVED_DEP-libomp-dev} \
     ${ROS_UNRESOLVED_DEP-libopen3d-dev} \
     ${ROS_UNRESOLVED_DEP-libopenni-dev} \
     ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     ${ROS_UNRESOLVED_DEP-libopenscenegraph} \
-    ${ROS_UNRESOLVED_DEP-libpaho-mqtt-dev} \
-    ${ROS_UNRESOLVED_DEP-libpaho-mqttpp-dev} \
     ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5} \
-    ${ROS_UNRESOLVED_DEP-libqt5-qml} \
-    ${ROS_UNRESOLVED_DEP-libqt5-quick} \
-    ${ROS_UNRESOLVED_DEP-libqt5-svg} \
     ${ROS_UNRESOLVED_DEP-libspnav-dev} \
     ${ROS_UNRESOLVED_DEP-libtins-dev} \
-    ${ROS_UNRESOLVED_DEP-libyaml-dev} \
-    ${ROS_UNRESOLVED_DEP-libyaml} \
-    ${ROS_UNRESOLVED_DEP-lttng-tools} \
+    ${ROS_UNRESOLVED_DEP-libxkbcommon-dev} \
     ${ROS_UNRESOLVED_DEP-matio} \
     ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
-    ${ROS_UNRESOLVED_DEP-opende} \
     ${ROS_UNRESOLVED_DEP-python3-babeltrace} \
     ${ROS_UNRESOLVED_DEP-python3-collada} \
     ${ROS_UNRESOLVED_DEP-python3-construct} \
-    ${ROS_UNRESOLVED_DEP-python3-fiona} \
-    ${ROS_UNRESOLVED_DEP-python3-flake8-builtins} \
-    ${ROS_UNRESOLVED_DEP-python3-flake8-comprehensions} \
-    ${ROS_UNRESOLVED_DEP-python3-flake8-docstrings} \
-    ${ROS_UNRESOLVED_DEP-python3-flake8-import-order} \
-    ${ROS_UNRESOLVED_DEP-python3-flake8-quotes} \
-    ${ROS_UNRESOLVED_DEP-python3-git} \
-    ${ROS_UNRESOLVED_DEP-python3-img2pdf} \
-    ${ROS_UNRESOLVED_DEP-python3-jinja2} \
-    ${ROS_UNRESOLVED_DEP-python3-jsonschema} \
-    ${ROS_UNRESOLVED_DEP-python3-natsort} \
-    ${ROS_UNRESOLVED_DEP-python3-ntplib} \
-    ${ROS_UNRESOLVED_DEP-python3-protobuf} \
-    ${ROS_UNRESOLVED_DEP-python3-pytest-timeout} \
-    ${ROS_UNRESOLVED_DEP-python3-rtree} \
     ${ROS_UNRESOLVED_DEP-python3-scipy} \
-    ${ROS_UNRESOLVED_DEP-python3-shapely} \
-    ${ROS_UNRESOLVED_DEP-python3-typeguard} \
-    ${ROS_UNRESOLVED_DEP-python3-vcstool-native} \
+    ${ROS_UNRESOLVED_DEP-python3-smbus} \
     ${ROS_UNRESOLVED_DEP-python3-venv} \
     ${ROS_UNRESOLVED_DEP-range-v3} \
+    ${ROS_UNRESOLVED_DEP-rmf-building-map-tools} \
+    ${ROS_UNRESOLVED_DEP-rmf-building-sim-common} \
+    ${ROS_UNRESOLVED_DEP-rmf-building-sim-gz-classic-plugins} \
+    ${ROS_UNRESOLVED_DEP-rmf-building-sim-gz-plugins} \
+    ${ROS_UNRESOLVED_DEP-rmf-robot-sim-common} \
+    ${ROS_UNRESOLVED_DEP-rmf-robot-sim-gz-classic-plugins} \
+    ${ROS_UNRESOLVED_DEP-rmf-robot-sim-gz-plugins} \
+    ${ROS_UNRESOLVED_DEP-rmf-traffic-editor-assets} \
+    ${ROS_UNRESOLVED_DEP-rmf-traffic-editor-test-maps} \
+    ${ROS_UNRESOLVED_DEP-rmf-traffic-editor} \
+    ${ROS_UNRESOLVED_DEP-ros-ign-bridge} \
+    ${ROS_UNRESOLVED_DEP-ros-ign-gazebo-demos} \
+    ${ROS_UNRESOLVED_DEP-ros-ign-gazebo} \
+    ${ROS_UNRESOLVED_DEP-ros-ign-image} \
+    ${ROS_UNRESOLVED_DEP-ros-ign-interfaces} \
     ${ROS_UNRESOLVED_DEP-rti-connext-dds-6.0.1} \
-    ${ROS_UNRESOLVED_DEP-sdformat12} \
     ${ROS_UNRESOLVED_DEP-simde} \
-    ${ROS_UNRESOLVED_DEP-socat} \
     ${ROS_UNRESOLVED_DEP-spacenavd} \
-    ${ROS_UNRESOLVED_DEP-sqlite3} \
     abseil-cpp \
     acl \
     adwaita-icon-theme \
@@ -3468,6 +3406,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     bullet \
     bzip2 \
     cairo \
+    cargo \
     ceres-solver \
     clang-native \
     clang-native-native \
@@ -3503,6 +3442,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     gtest-native \
     gtk+3 \
     hdf5 \
+    hdf5-native \
     jpeg \
     jq \
     jsoncpp \
@@ -3538,6 +3478,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     mesa \
     ncurses \
     nlohmann-json \
+    ode \
     openblas \
     opencl-headers \
     opencv \
@@ -3553,27 +3494,40 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     python3 \
     python3-argcomplete \
     python3-autobahn \
+    python3-black \
     python3-catkin-pkg \
     python3-catkin-pkg-native \
     python3-click \
     python3-cryptography \
+    python3-dbus \
     python3-empy \
     python3-empy-native \
     python3-flake8 \
+    python3-flake8-builtins \
+    python3-flake8-comprehensions \
+    python3-flake8-docstrings \
+    python3-flake8-import-order \
+    python3-flake8-quotes \
     python3-future \
+    python3-git \
+    python3-img2pdf \
     python3-importlib-metadata \
+    python3-jinja2 \
+    python3-jsonschema \
     python3-lark-parser \
     python3-lxml \
     python3-matplotlib \
     python3-mock \
     python3-mypy \
     python3-native \
-    python3-netifaces \
+    python3-natsort \
+    python3-ntplib \
     python3-numpy \
     python3-packaging \
     python3-pandas \
     python3-pillow \
     python3-pip \
+    python3-protobuf \
     python3-psutil \
     python3-pybind11 \
     python3-pycairo \
@@ -3588,6 +3542,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     python3-pytest \
     python3-pytest-mock \
     python3-pytest-native \
+    python3-pytest-timeout \
     python3-pyyaml \
     python3-pyyaml-native \
     python3-requests \
@@ -3600,7 +3555,12 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     python3-tkinter \
     python3-tornado \
     python3-twisted \
+    python3-typeguard \
+    python3-unidiff \
+    python3-uvloop \
+    python3-vcstool-native \
     python3-websocket-client \
+    python3-whichcraft \
     qhull \
     qtbase \
     qtbase-native \
@@ -3609,6 +3569,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     qtwebsockets \
     qtx11extras \
     qwt-qt5 \
+    socat \
     spdlog \
     spirv-headers \
     spirv-tools \
@@ -3622,10 +3583,10 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = " \
     unzip \
     unzip-native \
     urdfdom \
-    urdfdom-headers \
     util-linux \
     v4l-utils \
     vulkan-headers \
+    wayland \
     websocketpp \
     wget \
     wget-native \
@@ -3643,11 +3604,11 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     ${ROS_UNRESOLVED_DEP-docker.io} \
     ${ROS_UNRESOLVED_DEP-iwyu} \
     ${ROS_UNRESOLVED_DEP-libclang-dev} \
-    ${ROS_UNRESOLVED_DEP-libcunit-dev} \
     ${ROS_UNRESOLVED_DEP-matio} \
-    ${ROS_UNRESOLVED_DEP-python3-pytest-timeout} \
     ament-clang-format \
+    ament-cmake-black \
     ament-cmake-google-benchmark \
+    ament-cmake-mypy \
     ament-cmake-pclint \
     ament-cppcheck \
     ament-cpplint \
@@ -3658,6 +3619,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     ament-pycodestyle \
     ament-xmllint \
     apex-test-tools \
+    hardware-interface-testing \
     kinematics-interface-kdl \
     launch-pytest \
     lcov \
@@ -3672,6 +3634,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     python3-autobahn \
     python3-mock \
     python3-pytest-mock \
+    python3-pytest-timeout \
     python3-websocket-client \
     qwt-qt5 \
     rclpy-message-converter-msgs \
@@ -3684,7 +3647,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = " \
     rosbridge-test-msgs \
     rviz-rendering-tests \
     rviz-visual-testing-framework \
-    sdformat-test-files \
+    sick-safevisionary-driver \
     test-msgs \
     webots-ros2-tests \
 "
@@ -3695,6 +3658,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     actuator-msgs \
     adaptive-component \
     ament-acceleration \
+    ament-black \
     ament-cmake \
     ament-cmake-catch2 \
     ament-cmake-ros \
@@ -3707,6 +3671,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     angles \
     apex-test-tools \
     apriltag \
+    apriltag-detector \
     apriltag-msgs \
     apriltag-ros \
     aruco-opencv \
@@ -3715,7 +3680,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     automotive-autonomy-msgs \
     autoware-auto-msgs \
     avt-vimba-camera \
-    aws-robomaker-small-warehouse-world \
     aws-sdk-cpp-vendor \
     backward-ros \
     bag2-to-image \
@@ -3740,6 +3704,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     cpp-polyfills \
     cudnn-cmake-module \
     cyclonedds \
+    data-tamer \
     demos \
     depthimage-to-laserscan \
     diagnostics \
@@ -3764,6 +3729,9 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     examples \
     fastcdr \
     fastrtps \
+    ffmpeg-image-transport \
+    ffmpeg-image-transport-msgs \
+    fields2cover \
     filters \
     find-object-2d \
     fluent-rviz \
@@ -3774,7 +3742,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     foxglove-bridge \
     foxglove-msgs \
     fuse \
-    gazebo-ros-pkgs \
     gazebo-ros2-control \
     gc-spl \
     generate-parameter-library \
@@ -3790,7 +3757,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     grbl-ros \
     gscam \
     gtsam \
-    gz-ros2-control \
     hash-library-vendor \
     heaphook \
     hls-lfcd-lds-driver \
@@ -3802,6 +3768,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     image-common \
     image-pipeline \
     image-transport-plugins \
+    imu-pipeline \
     imu-tools \
     interactive-marker-twist-server \
     interactive-markers \
@@ -3822,13 +3789,18 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     launch \
     launch-param-builder \
     launch-ros \
+    leo-common \
+    leo-desktop \
+    leo-robot \
     lgsvl-msgs \
+    libcaer \
+    libcaer-driver \
     libg2o \
     libnabo \
     libpointmatcher \
     libstatistics-collector \
     libyaml-vendor \
-    locator-ros-bridge \
+    linux-isolate-process \
     magic-enum \
     mapviz \
     marti-common \
@@ -3843,12 +3815,14 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     micro-ros-msgs \
     microstrain-inertial \
     mimick-vendor \
-    mola \
+    mola-common \
+    mola-test-datasets \
+    motion-capture-tracking \
     moveit \
     moveit-msgs \
     moveit-resources \
     moveit-visual-tools \
-    mqtt-client \
+    mp2p-icp \
     mrpt-msgs \
     mrpt-path-planning \
     mrpt2 \
@@ -3875,14 +3849,17 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     octomap-ros \
     octomap-rviz-plugins \
     odom-to-tf-ros2 \
+    odri-master-board \
     ompl \
     openni2-camera \
     orocos-kdl-vendor \
     osqp-vendor \
     osrf-pycommon \
     osrf-testing-tools-cpp \
+    ouster-ros \
     ouxt-common \
     pal-statistics \
+    pangolin \
     pcl-msgs \
     perception-open3d \
     perception-pcl \
@@ -3920,7 +3897,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     radar-msgs \
     random-numbers \
     rc-common-msgs \
-    rc-dynamics-api \
     rc-genicam-api \
     rc-genicam-driver \
     rc-reason-clients \
@@ -3945,10 +3921,8 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     rmf-cmake-uncrustify \
     rmf-internal-msgs \
     rmf-ros2 \
-    rmf-simulation \
     rmf-task \
     rmf-traffic \
-    rmf-traffic-editor \
     rmf-utils \
     rmf-variants \
     rmf-visualization \
@@ -3958,14 +3932,12 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     rmw-cyclonedds \
     rmw-dds-common \
     rmw-fastrtps \
-    rmw-gurumdds \
     rmw-implementation \
     robot-calibration \
     robot-localization \
     robot-state-publisher \
     ros-canopen \
     ros-environment \
-    ros-gz \
     ros-image-to-qimage \
     ros-industrial-cmake-boilerplate \
     ros-testing \
@@ -4004,6 +3976,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     rqt-bag \
     rqt-common-plugins \
     rqt-console \
+    rqt-gauges \
     rqt-graph \
     rqt-image-overlay \
     rqt-image-view \
@@ -4030,12 +4003,11 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     rviz \
     rviz-2d-overlay-plugins \
     rviz-visual-tools \
-    sdformat-urdf \
-    septentrio-gnss-driver \
+    sick-safevisionary-base \
+    sick-safevisionary-ros2 \
     simple-actions \
     simple-launch \
     slider-publisher \
-    smacc2 \
     smach \
     snowbot-operating-system \
     soccer-interfaces \
@@ -4119,91 +4091,69 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
 
 # Platform packages without a OE-RECIPE@OE-LAYER mapping in base.yaml, python.yaml, or ruby.yaml. Until they are added, override
 # the settings in ros-distro.inc .
-ROS_UNRESOLVED_DEP-cargo = "ROS_UNRESOLVED_DEP-cargo"
 ROS_UNRESOLVED_DEP-clang-format = "ROS_UNRESOLVED_DEP-clang-format"
 ROS_UNRESOLVED_DEP-clang-tidy = "ROS_UNRESOLVED_DEP-clang-tidy"
 ROS_UNRESOLVED_DEP-coinor-libipopt-dev = "ROS_UNRESOLVED_DEP-coinor-libipopt-dev"
 ROS_UNRESOLVED_DEP-cwiid = "ROS_UNRESOLVED_DEP-cwiid"
 ROS_UNRESOLVED_DEP-cwiid-dev = "ROS_UNRESOLVED_DEP-cwiid-dev"
 ROS_UNRESOLVED_DEP-docker.io = "ROS_UNRESOLVED_DEP-docker.io"
-ROS_UNRESOLVED_DEP-gazebo = "ROS_UNRESOLVED_DEP-gazebo"
-ROS_UNRESOLVED_DEP-gazebo11 = "ROS_UNRESOLVED_DEP-gazebo11"
+ROS_UNRESOLVED_DEP-gazebo-msgs = "ROS_UNRESOLVED_DEP-gazebo-msgs"
+ROS_UNRESOLVED_DEP-gazebo-ros = "ROS_UNRESOLVED_DEP-gazebo-ros"
+ROS_UNRESOLVED_DEP-gazebo-ros-pkgs = "ROS_UNRESOLVED_DEP-gazebo-ros-pkgs"
+ROS_UNRESOLVED_DEP-gazebo-rosdev = "ROS_UNRESOLVED_DEP-gazebo-rosdev"
 ROS_UNRESOLVED_DEP-geos = "ROS_UNRESOLVED_DEP-geos"
-ROS_UNRESOLVED_DEP-gurumdds-2.8 = "ROS_UNRESOLVED_DEP-gurumdds-2.8"
-ROS_UNRESOLVED_DEP-hdf5-tools-native = "ROS_UNRESOLVED_DEP-hdf5-tools-native"
-ROS_UNRESOLVED_DEP-ignition-cmake2 = "ROS_UNRESOLVED_DEP-ignition-cmake2"
-ROS_UNRESOLVED_DEP-ignition-fortress = "ROS_UNRESOLVED_DEP-ignition-fortress"
-ROS_UNRESOLVED_DEP-ignition-fuel-tools7 = "ROS_UNRESOLVED_DEP-ignition-fuel-tools7"
-ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ROS_UNRESOLVED_DEP-ignition-gazebo6"
-ROS_UNRESOLVED_DEP-ignition-math6 = "ROS_UNRESOLVED_DEP-ignition-math6"
-ROS_UNRESOLVED_DEP-ignition-msgs8 = "ROS_UNRESOLVED_DEP-ignition-msgs8"
-ROS_UNRESOLVED_DEP-ignition-plugin = "ROS_UNRESOLVED_DEP-ignition-plugin"
-ROS_UNRESOLVED_DEP-ignition-transport11 = "ROS_UNRESOLVED_DEP-ignition-transport11"
 ROS_UNRESOLVED_DEP-iwyu = "ROS_UNRESOLVED_DEP-iwyu"
 ROS_UNRESOLVED_DEP-jupyter-notebook = "ROS_UNRESOLVED_DEP-jupyter-notebook"
+ROS_UNRESOLVED_DEP-libavdevice-dev = "ROS_UNRESOLVED_DEP-libavdevice-dev"
 ROS_UNRESOLVED_DEP-libbluetooth = "ROS_UNRESOLVED_DEP-libbluetooth"
 ROS_UNRESOLVED_DEP-libbluetooth-dev = "ROS_UNRESOLVED_DEP-libbluetooth-dev"
 ROS_UNRESOLVED_DEP-libclang-dev = "ROS_UNRESOLVED_DEP-libclang-dev"
-ROS_UNRESOLVED_DEP-libcunit-dev = "ROS_UNRESOLVED_DEP-libcunit-dev"
 ROS_UNRESOLVED_DEP-libdraco-dev = "ROS_UNRESOLVED_DEP-libdraco-dev"
 ROS_UNRESOLVED_DEP-libfyaml-dev = "ROS_UNRESOLVED_DEP-libfyaml-dev"
-ROS_UNRESOLVED_DEP-libgazebo11-dev = "ROS_UNRESOLVED_DEP-libgazebo11-dev"
+ROS_UNRESOLVED_DEP-libgdal-dev = "ROS_UNRESOLVED_DEP-libgdal-dev"
 ROS_UNRESOLVED_DEP-libomp-dev = "ROS_UNRESOLVED_DEP-libomp-dev"
 ROS_UNRESOLVED_DEP-libopen3d-dev = "ROS_UNRESOLVED_DEP-libopen3d-dev"
 ROS_UNRESOLVED_DEP-libopenni-dev = "ROS_UNRESOLVED_DEP-libopenni-dev"
 ROS_UNRESOLVED_DEP-libopenni2-dev = "ROS_UNRESOLVED_DEP-libopenni2-dev"
 ROS_UNRESOLVED_DEP-libopenscenegraph = "ROS_UNRESOLVED_DEP-libopenscenegraph"
-ROS_UNRESOLVED_DEP-libpaho-mqtt-dev = "ROS_UNRESOLVED_DEP-libpaho-mqtt-dev"
-ROS_UNRESOLVED_DEP-libpaho-mqttpp-dev = "ROS_UNRESOLVED_DEP-libpaho-mqttpp-dev"
 ROS_UNRESOLVED_DEP-libqglviewer2-qt5 = "ROS_UNRESOLVED_DEP-libqglviewer2-qt5"
-ROS_UNRESOLVED_DEP-libqt5-qml = "ROS_UNRESOLVED_DEP-libqt5-qml"
-ROS_UNRESOLVED_DEP-libqt5-quick = "ROS_UNRESOLVED_DEP-libqt5-quick"
-ROS_UNRESOLVED_DEP-libqt5-svg = "ROS_UNRESOLVED_DEP-libqt5-svg"
 ROS_UNRESOLVED_DEP-libspnav-dev = "ROS_UNRESOLVED_DEP-libspnav-dev"
 ROS_UNRESOLVED_DEP-libtins-dev = "ROS_UNRESOLVED_DEP-libtins-dev"
-ROS_UNRESOLVED_DEP-libyaml = "ROS_UNRESOLVED_DEP-libyaml"
-ROS_UNRESOLVED_DEP-libyaml-dev = "ROS_UNRESOLVED_DEP-libyaml-dev"
-ROS_UNRESOLVED_DEP-lttng-tools = "ROS_UNRESOLVED_DEP-lttng-tools"
+ROS_UNRESOLVED_DEP-libxkbcommon-dev = "ROS_UNRESOLVED_DEP-libxkbcommon-dev"
 ROS_UNRESOLVED_DEP-matio = "ROS_UNRESOLVED_DEP-matio"
 ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev = "ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev"
-ROS_UNRESOLVED_DEP-opende = "ROS_UNRESOLVED_DEP-opende"
 ROS_UNRESOLVED_DEP-python3-babeltrace = "ROS_UNRESOLVED_DEP-python3-babeltrace"
 ROS_UNRESOLVED_DEP-python3-collada = "ROS_UNRESOLVED_DEP-python3-collada"
 ROS_UNRESOLVED_DEP-python3-construct = "ROS_UNRESOLVED_DEP-python3-construct"
-ROS_UNRESOLVED_DEP-python3-fiona = "ROS_UNRESOLVED_DEP-python3-fiona"
-ROS_UNRESOLVED_DEP-python3-flake8-builtins = "ROS_UNRESOLVED_DEP-python3-flake8-builtins"
-ROS_UNRESOLVED_DEP-python3-flake8-comprehensions = "ROS_UNRESOLVED_DEP-python3-flake8-comprehensions"
-ROS_UNRESOLVED_DEP-python3-flake8-docstrings = "ROS_UNRESOLVED_DEP-python3-flake8-docstrings"
-ROS_UNRESOLVED_DEP-python3-flake8-import-order = "ROS_UNRESOLVED_DEP-python3-flake8-import-order"
-ROS_UNRESOLVED_DEP-python3-flake8-quotes = "ROS_UNRESOLVED_DEP-python3-flake8-quotes"
-ROS_UNRESOLVED_DEP-python3-git = "ROS_UNRESOLVED_DEP-python3-git"
-ROS_UNRESOLVED_DEP-python3-img2pdf = "ROS_UNRESOLVED_DEP-python3-img2pdf"
-ROS_UNRESOLVED_DEP-python3-jinja2 = "ROS_UNRESOLVED_DEP-python3-jinja2"
-ROS_UNRESOLVED_DEP-python3-jsonschema = "ROS_UNRESOLVED_DEP-python3-jsonschema"
-ROS_UNRESOLVED_DEP-python3-natsort = "ROS_UNRESOLVED_DEP-python3-natsort"
-ROS_UNRESOLVED_DEP-python3-ntplib = "ROS_UNRESOLVED_DEP-python3-ntplib"
-ROS_UNRESOLVED_DEP-python3-protobuf = "ROS_UNRESOLVED_DEP-python3-protobuf"
-ROS_UNRESOLVED_DEP-python3-pytest-timeout = "ROS_UNRESOLVED_DEP-python3-pytest-timeout"
-ROS_UNRESOLVED_DEP-python3-rtree = "ROS_UNRESOLVED_DEP-python3-rtree"
 ROS_UNRESOLVED_DEP-python3-scipy = "ROS_UNRESOLVED_DEP-python3-scipy"
-ROS_UNRESOLVED_DEP-python3-shapely = "ROS_UNRESOLVED_DEP-python3-shapely"
-ROS_UNRESOLVED_DEP-python3-typeguard = "ROS_UNRESOLVED_DEP-python3-typeguard"
-ROS_UNRESOLVED_DEP-python3-vcstool-native = "ROS_UNRESOLVED_DEP-python3-vcstool-native"
+ROS_UNRESOLVED_DEP-python3-smbus = "ROS_UNRESOLVED_DEP-python3-smbus"
 ROS_UNRESOLVED_DEP-python3-venv = "ROS_UNRESOLVED_DEP-python3-venv"
 ROS_UNRESOLVED_DEP-range-v3 = "ROS_UNRESOLVED_DEP-range-v3"
+ROS_UNRESOLVED_DEP-rmf-building-map-tools = "ROS_UNRESOLVED_DEP-rmf-building-map-tools"
+ROS_UNRESOLVED_DEP-rmf-building-sim-common = "ROS_UNRESOLVED_DEP-rmf-building-sim-common"
+ROS_UNRESOLVED_DEP-rmf-building-sim-gz-classic-plugins = "ROS_UNRESOLVED_DEP-rmf-building-sim-gz-classic-plugins"
+ROS_UNRESOLVED_DEP-rmf-building-sim-gz-plugins = "ROS_UNRESOLVED_DEP-rmf-building-sim-gz-plugins"
+ROS_UNRESOLVED_DEP-rmf-robot-sim-common = "ROS_UNRESOLVED_DEP-rmf-robot-sim-common"
+ROS_UNRESOLVED_DEP-rmf-robot-sim-gz-classic-plugins = "ROS_UNRESOLVED_DEP-rmf-robot-sim-gz-classic-plugins"
+ROS_UNRESOLVED_DEP-rmf-robot-sim-gz-plugins = "ROS_UNRESOLVED_DEP-rmf-robot-sim-gz-plugins"
+ROS_UNRESOLVED_DEP-rmf-traffic-editor = "ROS_UNRESOLVED_DEP-rmf-traffic-editor"
+ROS_UNRESOLVED_DEP-rmf-traffic-editor-assets = "ROS_UNRESOLVED_DEP-rmf-traffic-editor-assets"
+ROS_UNRESOLVED_DEP-rmf-traffic-editor-test-maps = "ROS_UNRESOLVED_DEP-rmf-traffic-editor-test-maps"
+ROS_UNRESOLVED_DEP-ros-ign-bridge = "ROS_UNRESOLVED_DEP-ros-ign-bridge"
+ROS_UNRESOLVED_DEP-ros-ign-gazebo = "ROS_UNRESOLVED_DEP-ros-ign-gazebo"
+ROS_UNRESOLVED_DEP-ros-ign-gazebo-demos = "ROS_UNRESOLVED_DEP-ros-ign-gazebo-demos"
+ROS_UNRESOLVED_DEP-ros-ign-image = "ROS_UNRESOLVED_DEP-ros-ign-image"
+ROS_UNRESOLVED_DEP-ros-ign-interfaces = "ROS_UNRESOLVED_DEP-ros-ign-interfaces"
 ROS_UNRESOLVED_DEP-rti-connext-dds-6.0.1 = "ROS_UNRESOLVED_DEP-rti-connext-dds-6.0.1"
-ROS_UNRESOLVED_DEP-sdformat12 = "ROS_UNRESOLVED_DEP-sdformat12"
 ROS_UNRESOLVED_DEP-simde = "ROS_UNRESOLVED_DEP-simde"
-ROS_UNRESOLVED_DEP-socat = "ROS_UNRESOLVED_DEP-socat"
 ROS_UNRESOLVED_DEP-spacenavd = "ROS_UNRESOLVED_DEP-spacenavd"
-ROS_UNRESOLVED_DEP-sqlite3 = "ROS_UNRESOLVED_DEP-sqlite3"
 
 # From the release announcement or the last field of the "<ROS_DISTRO>/YYYY-MM-DD" tag for the release in
 # https://github.com/ros/rosdistro/tags. Prior to the first release of a ROS_DISTRO, it is set to "".
-ROS_DISTRO_RELEASE_DATE = "2023-11-02"
+ROS_DISTRO_RELEASE_DATE = "2024-03-13"
 
 # The commit of ros/rosdistro/rolling/distribution.yaml from which the recipes were generated.
-ROS_SUPERFLORE_GENERATION_COMMIT = "d89f7dd99ef863940a62d6227104d657487742a9"
+ROS_SUPERFLORE_GENERATION_COMMIT = "998a0560dd60cfa3431997e565a9e05c3d8b6a87"
 
 # Version of scripts/ros-generate-cache.sh which was used to generate cache from which the recipes and this configuration
 # file were last generated
