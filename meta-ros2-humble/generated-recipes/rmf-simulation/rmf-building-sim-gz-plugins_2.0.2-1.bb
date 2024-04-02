@@ -20,10 +20,9 @@ ROS_BPN = "rmf_building_sim_gz_plugins"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-ignition-fortress} \
-    ${ROS_UNRESOLVED_DEP-libqt5-qml} \
-    ${ROS_UNRESOLVED_DEP-libqt5-quick} \
     menge-vendor \
     qtbase \
+    qtdeclarative \
     rclcpp \
     rmf-building-sim-common \
     rmf-fleet-msgs \
@@ -35,10 +34,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-ignition-fortress} \
-    ${ROS_UNRESOLVED_DEP-libqt5-qml} \
-    ${ROS_UNRESOLVED_DEP-libqt5-quick} \
     menge-vendor \
     qtbase \
+    qtdeclarative \
     rclcpp \
     rmf-building-sim-common \
     rmf-fleet-msgs \
@@ -48,10 +46,9 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-ignition-fortress} \
-    ${ROS_UNRESOLVED_DEP-libqt5-qml} \
-    ${ROS_UNRESOLVED_DEP-libqt5-quick} \
     menge-vendor \
     qtbase \
+    qtdeclarative \
     rclcpp \
     rmf-building-sim-common \
     rmf-fleet-msgs \
