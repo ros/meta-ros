@@ -52,7 +52,7 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-jsonschema} \
+    python3-jsonschema \
     python3-mock \
     python3-pep8 \
     python3-pytest \

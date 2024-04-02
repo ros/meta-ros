@@ -67,8 +67,8 @@ curl:
 - curl@openembedded-core
 curlpp-dev:
 - curlpp@meta-networking
-cython:
-- ${ROS_UNRESOLVED_DEP-cython}
+cython3:
+- ${ROS_UNRESOLVED_DEP-cython3}
 daemontools:
 - daemontools@meta-oe
 dkms: []
@@ -473,8 +473,6 @@ lz4:
 - lz4@openembedded-core
 meld:
 - ${ROS_UNRESOLVED_DEP-meld}
-ml_classifiers:
-- ${ROS_UNRESOLVED_DEP-ml-classifiers}
 mongodb:
 - mongodb@meta-oe
 msgpack:
@@ -500,7 +498,7 @@ omniorb:
 opencl-headers:
 - opencl-headers@meta-oe
 opende:
-- ${ROS_UNRESOLVED_DEP-opende}
+- ode@meta-ros-common
 opengl:
 - mesa@openembedded-core
 openssh-server:
@@ -558,6 +556,8 @@ python-pygame:
 - ${ROS_UNRESOLVED_DEP-python-pygame}
 python-pygithub3:
 - ${ROS_UNRESOLVED_DEP-python-pygithub3}
+python-pytesseract-pip:
+- ${ROS_UNRESOLVED_DEP-python-pytesseract-pip}
 python-slacker-cli:
 - ${ROS_UNRESOLVED_DEP-python-slacker-cli}
 python-tabulate-pip:
@@ -570,6 +570,8 @@ python3-argcomplete:
 - python3-argcomplete@meta-python
 python3-autobahn:
 - python3-autobahn@meta-python
+python3-boto3:
+- python3-boto3@meta-ros-common
 python3-bson:
 - python3-pymongo@meta-python
 python3-cairo:
@@ -609,7 +611,7 @@ python3-gi:
 python3-gi-cairo:
 - ${ROS_UNRESOLVED_DEP-python3-gi-cairo}
 python3-git:
-- ${ROS_UNRESOLVED_DEP-python3-git}
+- python3-git@openembedded-core
 python3-github:
 - ${ROS_UNRESOLVED_DEP-python3-github}
 python3-gnupg:
@@ -623,13 +625,13 @@ python3-h5py:
 python3-imageio:
 - python3-imageio@meta-python
 python3-img2pdf:
-- ${ROS_UNRESOLVED_DEP-python3-img2pdf}
+- python3-img2pdf@meta-ros-common
 python3-influxdb:
 - ${ROS_UNRESOLVED_DEP-python3-influxdb}
 python3-joblib:
 - ${ROS_UNRESOLVED_DEP-python3-joblib}
 python3-jsonschema:
-- ${ROS_UNRESOLVED_DEP-python3-jsonschema}
+- python3-jsonschema@openembedded-core
 python3-kitchen:
 - ${ROS_UNRESOLVED_DEP-python3-kitchen}
 python3-lxml:
@@ -667,7 +669,7 @@ python3-pip:
 python3-progressbar:
 - ${ROS_UNRESOLVED_DEP-python3-progressbar}
 python3-protobuf:
-- ${ROS_UNRESOLVED_DEP-python3-protobuf}
+- python3-protobuf@meta-python
 python3-psutil:
 - python3-psutil@meta-python
 python3-pyassimp:
@@ -724,6 +726,8 @@ python3-serial:
 - python3-pyserial@meta-python
 python3-setuptools:
 - python3-setuptools@openembedded-core
+python3-shapely:
+- python3-shapely@meta-ros2
 python3-simplejson:
 - python3-simplejson@meta-python
 python3-six:
@@ -789,11 +793,11 @@ sdl:
 sdl-image:
 - libsdl-image@meta-oe
 socat:
-- ${ROS_UNRESOLVED_DEP-socat}
+- socat@openembedded-core
 sound-theme-freedesktop:
 - ${ROS_UNRESOLVED_DEP-sound-theme-freedesktop}
 sqlite3:
-- ${ROS_UNRESOLVED_DEP-sqlite3}
+- sqlite3@openembedded-core
 sshpass:
 - ${ROS_UNRESOLVED_DEP-sshpass}
 subversion:
@@ -811,6 +815,10 @@ tbb:
 - tbb@meta-oe
 terminator:
 - ${ROS_UNRESOLVED_DEP-terminator}
+tesseract-ocr:
+- ${ROS_UNRESOLVED_DEP-tesseract-ocr}
+tesseract-ocr-jpn:
+- ${ROS_UNRESOLVED_DEP-tesseract-ocr-jpn}
 texlive-fonts-recommended:
 - ${ROS_UNRESOLVED_DEP-texlive-fonts-recommended}
 texmaker:
