@@ -16,12 +16,12 @@
 McfFileVersion = 3
 
 # Value for DISTRO
-OE_Distribution = 'ros2'
+OE_Distribution = 'ros1'
 
 Bitbake_Branch = 'master'
 OE_Branch = 'scarthgap'
 
-ROS_Distribution = 'rolling'
+ROS_Distribution = 'noetic'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
 SupportLevel = 'full'
@@ -68,8 +68,8 @@ Layers = [
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
-('meta-ros2',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
-('meta-ros2-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros1',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros1-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
 
 ('meta-raspberrypi',                   50, 'https://github.com/agherzan/meta-raspberrypi.git',       {'branch': OE_Branch,            'commit': 'd072cc8a'},           {}),
 ]

@@ -19,7 +19,7 @@ McfFileVersion = 3
 OE_Distribution = 'ros2'
 
 Bitbake_Branch = 'master'
-OE_Branch = 'master'
+OE_Branch = 'scarthgap'
 
 ROS_Distribution = 'iron'
 
@@ -60,18 +60,18 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'master')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': 'd9239f2d'},          {}),
+('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': '6366ea8d'},          {}),
 
-('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': 'cedd211d'},        {}),
+('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': '486ed699'},        {}),
 
-('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': 'f1109887'},        {}),
+('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '167d9f39'},        {}),
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
 ('meta-ros2',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros2-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
 
-('meta-raspberrypi',                   50, 'https://github.com/agherzan/meta-raspberrypi.git',       {'branch': OE_Branch,            'commit': '6ef8b576'},           {}),
+('meta-raspberrypi',                   50, 'https://github.com/agherzan/meta-raspberrypi.git',       {'branch': OE_Branch,            'commit': 'd072cc8a'},           {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
