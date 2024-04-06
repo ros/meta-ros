@@ -1,0 +1,28 @@
+name: GitHub Actions Run ros-image-core for scarthgap/rolling
+run-name: ${{ github.actor }} lets to the build from scratch 🚀
+on: [push]
+jobs:
+  Build-Ros-Image-Core:
+    runs-on: self-hosted
+    runs:
+       using: 'docker'
+       image: 'ubuntu-latest'       
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: Build ros-image-core
+        run: |
+          sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev python3-subunit mesa-common-dev zstd liblz4-tool file locales libacl1
+          sudo locale-gen en_US.UTF-8
+          pip3 install kas
+          cd ${{ github.workspace }}
+          export KAS_WORK_DIR=${{ github.workspace }}/kas-build
+          echo "KAS_WORK_DIR = ${KAS_WORK_DIR}"
+          mkdir -p ${KAS_WORK_DIR}
+          kas build kas-configs/scarthgap-rolling.yml:kas-configs/limit-pressure.yml
+      - run: echo "🍏 This job's status is ${{ job.status }}."
