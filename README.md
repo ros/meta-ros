@@ -54,6 +54,21 @@ source openembedded-core/oe-init-build-env
 bitbake ros-image-core
 ```
 
+## Alternative approach
+
+After cloning this repository, install [kas](https://github.com/siemens/kas),
+which can be done in the simplest case by issuing
+```
+pip3 install kas
+```
+Your millage may vary depending on your distribution. With that, you may
+build scarthgap/rolling combination simply by calling
+```
+export KAS_WORK_DIR=/path/to/where/you/want/the/yocto/stuff/to/go
+kas build kas-configs/scarthgap-rolling.yml
+```
+Then, watch the build or go for lunch.
+
 # Repository Layout
 
 ## Branches
