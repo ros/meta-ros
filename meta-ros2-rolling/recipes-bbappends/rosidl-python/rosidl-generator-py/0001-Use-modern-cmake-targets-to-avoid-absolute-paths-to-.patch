@@ -19,10 +19,10 @@ Signed-off-by: Ivan Santiago Paunovic <ivanpauno@ekumenlabs.com>
  ...idl_generator_py_generate_interfaces.cmake | 49 +++++--------------
  1 file changed, 11 insertions(+), 38 deletions(-)
 
-diff --git a/cmake/rosidl_generator_py_generate_interfaces.cmake b/cmake/rosidl_generator_py_generate_interfaces.cmake
-index a6d8263..e3bb6ac 100644
---- a/cmake/rosidl_generator_py_generate_interfaces.cmake
-+++ b/cmake/rosidl_generator_py_generate_interfaces.cmake
+Index: git/cmake/rosidl_generator_py_generate_interfaces.cmake
+===================================================================
+--- git.orig/cmake/rosidl_generator_py_generate_interfaces.cmake
++++ git/cmake/rosidl_generator_py_generate_interfaces.cmake
 @@ -21,6 +21,7 @@ find_package(PythonInterp 3.6 REQUIRED)
  
  find_package(python_cmake_module REQUIRED)
@@ -31,7 +31,7 @@ index a6d8263..e3bb6ac 100644
  
  # Get a list of typesupport implementations from valid rmw implementations.
  rosidl_generator_py_get_typesupports(_typesupport_impls)
-@@ -165,52 +166,23 @@ set(rosidl_generator_py_suffix "__rosidl_generator_py")
+@@ -160,52 +161,23 @@ set(rosidl_generator_py_suffix "__rosidl
  set(_target_name_lib "${rosidl_generate_interfaces_TARGET}${rosidl_generator_py_suffix}")
  add_library(${_target_name_lib} SHARED ${_generated_c_files})
  target_link_libraries(${_target_name_lib}
@@ -87,8 +87,8 @@ index a6d8263..e3bb6ac 100644
  
  foreach(_typesupport_impl ${_typesupport_impls})
    find_package(${_typesupport_impl} REQUIRED)
-@@ -245,27 +217,28 @@ foreach(_typesupport_impl ${_typesupport_impls})
-   endif()
+@@ -238,27 +210,28 @@ foreach(_typesupport_impl ${_typesupport
+     SUFFIX "${PythonExtra_EXTENSION_EXTENSION}")
    target_link_libraries(
      ${_target_name}
 +    PRIVATE
@@ -120,7 +120,7 @@ index a6d8263..e3bb6ac 100644
        ${_pkg_name}
      )
    endforeach()
-@@ -273,7 +246,7 @@ foreach(_typesupport_impl ${_typesupport_impls})
+@@ -266,7 +239,7 @@ foreach(_typesupport_impl ${_typesupport
    add_dependencies(${_target_name}
      ${rosidl_generate_interfaces_TARGET}__${_typesupport_impl}
    )
@@ -129,7 +129,7 @@ index a6d8263..e3bb6ac 100644
      "rosidl_runtime_c"
      "rosidl_generator_py"
    )
-@@ -288,7 +261,7 @@ set(PYTHON_EXECUTABLE ${_PYTHON_EXECUTABLE})
+@@ -281,7 +254,7 @@ set(PYTHON_EXECUTABLE ${_PYTHON_EXECUTAB
  
  # Depend on rosidl_generator_py generated targets from our dependencies
  foreach(_pkg_name ${rosidl_generate_interfaces_DEPENDENCY_PACKAGE_NAMES})
@@ -137,7 +137,4 @@ index a6d8263..e3bb6ac 100644
 +  target_link_libraries(${_target_name_lib} PRIVATE ${${_pkg_name}_TARGETS${rosidl_generator_py_suffix}})
  endforeach()
  
- set_lib_properties("")
--- 
-2.35.1
-
+ set_target_properties(${_target_name_lib} PROPERTIES
