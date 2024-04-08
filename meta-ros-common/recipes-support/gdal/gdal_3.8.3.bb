@@ -1,5 +1,5 @@
 DESCRIPTION = "A translator library for raster and vector geospatial data formats"
-LICENSE = "Apache-2.0 & BSD-3-Clause & MIT & ISC & Unknown"
+LICENSE = "Apache-2.0 & BSD-3-Clause & MIT & ISC & Info-ZIP & Qhull"
 LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=c50ab31669698143abc7d61e9404b940 \
                     file://alg/internal_libqhull/COPYING.txt;md5=484ee0cacf0472e8b40225b116f6296c \
                     file://autotest/gdrivers/data/netcdf_cf_xml/udunits2-LICENCE;md5=b19151c1ce22098c7740b5bc0871b24a \
@@ -44,7 +44,7 @@ DEPENDS = " \
     libxml2 \
     lz4 \
     openjpeg \
-    pcre \
+    libpcre2 \
     postgresql \
     python3-numpy \
     python3-setuptools-native \
@@ -65,14 +65,14 @@ FILES:${PN} += " \
 "
 
 FILES:python3-${PN} = " \
-    /usr/lib/python3.10/site-packages/GDAL-3.8.3-py3.10.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/GDAL-3.8.3-py${PYTHON_BASEVERSION}.egg-info \
     ${PYTHON_SITEPACKAGES_DIR}/osgeo \
     ${PYTHON_SITEPACKAGES_DIR}/osgeo_utils \
 "
 
 # ERROR: gdal-3.8.3-r0 do_package_qa: QA Issue: gdal: ... maximum shebang size exceeded, the maximum size is 128.
 do_install:append() {
-    # Modify the Python scripts to use the runtime path to Python
+    # Modify the Python scripts to use the runtime path to Python 
     sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal2tiles.py
     sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/ogr_layer_algebra.py
     sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdalattachpct.py
