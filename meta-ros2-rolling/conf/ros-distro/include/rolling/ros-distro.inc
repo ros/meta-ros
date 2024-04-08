@@ -384,3 +384,8 @@ ROS_UNRESOLVED_DEP-python3-fiona = "python3-fiona"
 ROS_UNRESOLVED_DEP-python3-shapely = "python3-shapely"
 ROS_UNRESOLVED_DEP-ignition-fuel-tools7 = "ignition-fuel-tools7"
 ROS_UNRESOLVED_DEP-python3-uvloop = "python3-uvloop"
+
+ROS_UNRESOLVED_DEP-libgdal-dev = "gdal"
+ROS_UNRESOLVED_DEP-python3-smbus = "python3-smbus"
+ROS_UNRESOLVED_DEP-libxkbcommon-dev = "libxkbcommon"
+ROS_UNRESOLVED_DEP-libavdevice-dev = "ffmpeg"
