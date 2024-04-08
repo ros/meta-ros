@@ -15,3 +15,6 @@ ROS_EXEC_DEPENDS:remove = "openblas"
 
 # spirv-headers PN is empty don't add runtime dependency on it
 ROS_EXEC_DEPENDS:remove = "spirv-headers"
+
+ROS_EXEC_DEPENDS:remove = "virtual/opencl-icd"
+ROS_EXEC_DEPENDS:append = "virtual-opencl-icd"
