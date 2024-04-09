@@ -1,11 +1,6 @@
-# Copyright (c) 2020-2021 LG Electronics, Inc.
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-ROS_EXPORT_DEPENDS += " \
-    rosidl-generator-c \
-    rosidl-typesupport-c \
-    python3-numpy \
+SRC_URI:append = " \
+    file://0001-Revert-install-of-.so-files-into-python-path.patch \
 "
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-Revert-Install-generated-Python-interfaces-in-a-Pyth.patch \
-            file://0001-Use-modern-cmake-targets-to-avoid-absolute-paths-to-.patch"
