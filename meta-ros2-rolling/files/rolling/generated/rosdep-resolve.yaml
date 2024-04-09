@@ -47,9 +47,13 @@ docker.io:
 - ${ROS_UNRESOLVED_DEP-docker.io}
 doxygen:
 - doxygen@meta-oe
+dpkg:
+- dpkg@openembedded-core
 eigen:
 - libeigen@meta-oe
 ffmpeg:
+- ffmpeg@openembedded-core
+ffmpeg-dev:
 - ffmpeg@openembedded-core
 file:
 - file@openembedded-core
@@ -71,6 +75,10 @@ geos:
 - ${ROS_UNRESOLVED_DEP-geos}
 git:
 - git@openembedded-core
+glslang-dev:
+- ${ROS_UNRESOLVED_DEP-glslang-dev}
+glslc:
+- ${ROS_UNRESOLVED_DEP-glslc}
 glut:
 - freeglut@meta-oe
 google-mock:
@@ -83,6 +91,10 @@ gtk3:
 - gtk+3@openembedded-core
 hdf5-tools:
 - hdf5@meta-oe
+ignition-gazebo6:
+- ${ROS_UNRESOLVED_DEP-ignition-gazebo6}
+ignition-plugin:
+- ${ROS_UNRESOLVED_DEP-ignition-plugin}
 iwyu:
 - ${ROS_UNRESOLVED_DEP-iwyu}
 jq:
@@ -121,6 +133,8 @@ libboost-random:
 - boost@openembedded-core
 libboost-random-dev:
 - boost@openembedded-core
+libboost-regex-dev:
+- boost@openembedded-core
 libboost-system-dev:
 - boost@openembedded-core
 libboost-thread:
@@ -145,6 +159,8 @@ libfcl-dev:
 - fcl@meta-ros-common
 libflann-dev:
 - libflann@meta-ros-common
+libfreeimage-dev:
+- ${ROS_UNRESOLVED_DEP-libfreeimage-dev}
 libfreenect-dev:
 - libfreenect@meta-ros-common
 libfreetype-dev:
@@ -169,6 +185,8 @@ libgstreamer-plugins-base1.0-dev:
 - gstreamer1.0-plugins-base@openembedded-core
 libgstreamer1.0-dev:
 - gstreamer1.0@openembedded-core
+libgts:
+- ${ROS_UNRESOLVED_DEP-libgts}
 libhdf5-dev:
 - hdf5@meta-oe
 libjpeg:
@@ -185,6 +203,10 @@ liblttng-ust-dev:
 - lttng-ust@openembedded-core
 libncurses-dev:
 - ncurses@openembedded-core
+libnlopt-cxx-dev:
+- ${ROS_UNRESOLVED_DEP-libnlopt-cxx-dev}
+libnlopt-dev:
+- ${ROS_UNRESOLVED_DEP-libnlopt-dev}
 libogg:
 - libogg@openembedded-core
 libomp-dev:
@@ -205,11 +227,27 @@ libopenscenegraph:
 - ${ROS_UNRESOLVED_DEP-libopenscenegraph}
 liborocos-kdl-dev:
 - orocos-kdl@meta-ros1-noetic
+libpaho-mqtt-dev:
+- paho-mqtt-c@meta-oe
+libpaho-mqttpp-dev:
+- paho-mqtt-cpp@meta-oe
 libpcap:
 - libpcap@openembedded-core
 libpcl-all:
 - pcl@meta-ros-common
 libpcl-all-dev:
+- pcl@meta-ros-common
+libpcl-common:
+- pcl@meta-ros-common
+libpcl-features:
+- pcl@meta-ros-common
+libpcl-filters:
+- pcl@meta-ros-common
+libpcl-io:
+- pcl@meta-ros-common
+libpcl-segmentation:
+- pcl@meta-ros-common
+libpcl-surface:
 - pcl@meta-ros-common
 libpng-dev:
 - libpng@openembedded-core
@@ -241,6 +279,8 @@ libqt5x11extras5-dev:
 - qtx11extras@meta-qt5
 libqwt-qt5-dev:
 - qwt-qt5@meta-qt5
+libshaderc-dev:
+- ${ROS_UNRESOLVED_DEP-libshaderc-dev}
 libspnav-dev:
 - ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
@@ -273,8 +313,12 @@ libwebsocketpp-dev:
 - websocketpp@meta-oe
 libx11-dev:
 - libx11@openembedded-core
+libx11-xcb-dev:
+- ${ROS_UNRESOLVED_DEP-libx11-xcb-dev}
 libxaw:
 - libxaw@meta-oe
+libxcb-randr0-dev:
+- ${ROS_UNRESOLVED_DEP-libxcb-randr0-dev}
 libxi-dev:
 - libxi@openembedded-core
 libxkbcommon-dev:
@@ -323,6 +367,8 @@ pkg-config:
 - pkgconfig@openembedded-core
 proj:
 - proj@meta-oe
+protobuf:
+- protobuf@meta-oe
 protobuf-dev:
 - protobuf@meta-oe
 pugixml-dev:
@@ -363,6 +409,8 @@ python3-dbus:
 - python3-dbus@openembedded-core
 python3-dev:
 - python3@openembedded-core
+python3-distro:
+- ${ROS_UNRESOLVED_DEP-python3-distro}
 python3-empy:
 - python3-empy@meta-ros-common
 python3-flake8:
@@ -491,6 +539,8 @@ qttools5-dev-tools:
 - qttools@meta-qt5
 range-v3:
 - ${ROS_UNRESOLVED_DEP-range-v3}
+rapidjson-dev:
+- ${ROS_UNRESOLVED_DEP-rapidjson-dev}
 rmf_building_map_tools:
 - ${ROS_UNRESOLVED_DEP-rmf-building-map-tools}
 rmf_building_sim_common:
@@ -511,6 +561,10 @@ rmf_traffic_editor_assets:
 - ${ROS_UNRESOLVED_DEP-rmf-traffic-editor-assets}
 rmf_traffic_editor_test_maps:
 - ${ROS_UNRESOLVED_DEP-rmf-traffic-editor-test-maps}
+ros_gz_bridge:
+- ${ROS_UNRESOLVED_DEP-ros-gz-bridge}
+ros_gz_sim:
+- ${ROS_UNRESOLVED_DEP-ros-gz-sim}
 ros_ign_bridge:
 - ${ROS_UNRESOLVED_DEP-ros-ign-bridge}
 ros_ign_gazebo:
@@ -523,6 +577,10 @@ ros_ign_interfaces:
 - ${ROS_UNRESOLVED_DEP-ros-ign-interfaces}
 rti-connext-dds-6.0.1:
 - ${ROS_UNRESOLVED_DEP-rti-connext-dds-6.0.1}
+rubocop:
+- ${ROS_UNRESOLVED_DEP-rubocop}
+ruby:
+- ${ROS_UNRESOLVED_DEP-ruby}
 sdl2:
 - libsdl2@openembedded-core
 simde:
@@ -578,3 +636,5 @@ zbar:
 - zbar@meta-oe
 zlib:
 - zlib@openembedded-core
+zziplib:
+- ${ROS_UNRESOLVED_DEP-zziplib}
