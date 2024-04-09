@@ -53,11 +53,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CARGO = " \
     zenoh-bridge-dds \
 "
 
-RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
-    zenoh-bridge-dds \
-"
-
 # alternative not yet supported implementation for fastrtps
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
@@ -98,8 +93,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
     ament-clang-tidy \
     ament-cmake-clang-format \
     ament-cmake-clang-tidy \
+    ffmpeg-image-transport \
     ouxt-lint-common \
     pinocchio \
+    zenoh-bridge-dds \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI}', '', d)}"
@@ -348,6 +345,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rig-reconfigure \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
+    rqt-gauges \
     rtabmap \
     rtabmap-ros \
     run-move-group \
@@ -458,6 +456,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-common-plugins \
     rqt-console \
     rqt-controller-manager \
+    rqt-gauges \
     rqt-gui \
     rqt-gui-cpp \
     rqt-gui-py \
