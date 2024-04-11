@@ -1,0 +1,55 @@
+From b2ee08cbfcdff4ea762b33863216a6bda18bd25c Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+Date: Mon, 6 May 2024 16:43:24 +0200
+Subject: [PATCH] CMakeLists.txt: shamless short circuit
+
+Well, we could try to more or less sophistically search for some
+kind of library name (which would be hard coded) at some location.
+
+There seems no good way to check for the existence of a cross compiled
+python library.
+
+Hence, we (r)depend this package on pyhton3-pykdl and be done with
+it.
+
+Upstream-Status: inappropriate [oe specific]
+
+Signed-off-by: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+---
+ CMakeLists.txt | 20 +-------------------
+ 1 file changed, 1 insertion(+), 19 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bd493da..5f24fa9 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,25 +14,7 @@ if(POLICY CMP0135)
+ endif()
+ 
+ if(NOT FORCE_BUILD_VENDOR_PKG)
+-  # Check if Python bindings are installed by trying to import from interpreter
+-  # Figure out Python3 debug/release before anything else can find_package it
+-  if(WIN32 AND CMAKE_BUILD_TYPE STREQUAL "Debug")
+-    find_package(python_cmake_module REQUIRED)
+-    find_package(PythonExtra REQUIRED)
+-
+-    # Force FindPython3 to use the debug interpreter where ROS 2 expects it
+-    set(Python3_EXECUTABLE "${PYTHON_EXECUTABLE_DEBUG}")
+-  endif()
+-  find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+-  execute_process(
+-    COMMAND ${Python3_EXECUTABLE} -c "import PyKDL"
+-    RESULT_VARIABLE pykdl_import_exit_code
+-    OUTPUT_QUIET
+-    ERROR_QUIET
+-  )
+-  if(pykdl_import_exit_code EQUAL 0)
+-    set(pykdl_FOUND 1)
+-  endif()
++  set(pykdl_FOUND 1)
+ endif()
+ 
+ macro(build_pykdl)
+-- 
+2.43.2
+

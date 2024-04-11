@@ -1,0 +1,39 @@
+From e2526b82f8b654696cb5f768bb3e7520219340d6 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+Date: Mon, 6 May 2024 15:51:03 +0200
+Subject: [PATCH] cmake: Allow PYTHON_SITE_PACKAGES_INSTALL_DIR set extern
+
+The variable PYTHON_SITE_PACKAGES_INSTALL_DIR is kind of
+hardcoded in the CMakeLists.txt to .../dist-packages. This
+is not true for all linux distros. dist-packages comes
+from debian and debian like distros. Python core uses
+site-packages.
+
+We use an unintrusive way and allow the variable to be
+passed from cmake, so you at least have the option to
+set a different install location (i.e. site-packages)
+from extern.
+
+Upstream-Status: Submitted [https://github.com/orocos/orocos_kinematics_dynamics/pull/461]
+
+Signed-off-by: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 64fdd21..e0bc2f2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -28,7 +28,7 @@ set(PYBIND11_PYTHON_VERSION ${PYTHON_VERSION} CACHE STRING "Python version used
+ find_package(Python ${PYTHON_VERSION} COMPONENTS Interpreter Development REQUIRED)
+ # get_python_lib in python3 produces path which isn't in sys.path: https://bugs.launchpad.net/ubuntu/+source/python3-stdlib-extensions/+bug/1832215
+ # execute_process(COMMAND ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(plat_specific=True, prefix=''))" OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE)
+-set(PYTHON_SITE_PACKAGES_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/lib/python${Python_VERSION_MAJOR}.${Python_VERSION_MINOR}/dist-packages")  # This might be overridden below if built with catkin.
++set(PYTHON_SITE_PACKAGES_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/lib/python${Python_VERSION_MAJOR}.${Python_VERSION_MINOR}/dist-packages" CACHE STRING "Install location of the python package")  # This might be overridden below if built with catkin.
+ set(LIBRARY_NAME "PyKDL")
+ 
+ # catkin-specific configuration (optional)
+-- 
+2.43.2
+
