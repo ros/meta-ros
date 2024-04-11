@@ -1,5 +1,3 @@
-# Copyright (c) 2022 Wind River Systems, Inc.
-
 # ERROR: QA Issue: ecl-license: Files/directories were installed but not shipped in any package:
 #  /usr/share/licenses
 #  /usr/share/licenses/COPYING
@@ -7,6 +5,19 @@
 #  /usr/share/licenses/COPYING-PLAIN
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # ecl-license: 4 installed and not shipped files. [installed-vs-shipped]
-FILES:${PN} += "${datadir}/licenses/COPYING \
-                ${datadir}/licenses/AUTHORS \
-                ${datadir}/licenses/COPYING-PLAIN"
+
+# To fix this: If we are not caring for the license package, discard (delete)
+# the files. If we are creating a -lic package, move it to the right
+# location.
+
+do_install:append () {
+    if [[ "0" -eq "${LICENSE_CREATE_PACKAGE}" ]]; then
+        rm ${D}/usr/share/licenses -Rf
+    else
+        install -m755 -d ${D}${datadir}/licenses/${PN}        
+        mv $(find ${D}${datadir}/licenses/ -type f )  ${D}${datadir}/licenses/${PN}/
+    fi
+}
+
+## overwriting "BSD" to proper SPDX 
+LICENSE = "BSD-3-Clause"
