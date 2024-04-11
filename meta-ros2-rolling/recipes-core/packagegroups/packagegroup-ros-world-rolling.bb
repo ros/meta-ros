@@ -206,6 +206,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     kortex-description \
     leo-desktop \
     leo-viz \
+    microstrain-inertial-examples \
     moveit \
     moveit-hybrid-planning \
     moveit-resources-prbt-moveit-config \
@@ -313,6 +314,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     glfw \
     libg2o \
     librealsense2 \
+    microstrain-inertial-examples \
     moveit-ros \
     moveit-ros-perception \
     moveit-ros-visualization \
@@ -562,7 +564,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-rosdev \
     gazebo-ros2-control \
     gazebo-ros2-control-demos \
-    gazebo-ros2-control \
+    gz-common-vendor \
+    gz-ogre-next-vendor \
     gz-ros2-control \
     gz-ros2-control-demos \
     irobot-create-gazebo-bringup \
@@ -708,23 +711,26 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     adwaita-icon-theme \
     color-names \
     desktop \
-    dolly-gazebo \
     dolly \
+    dolly-gazebo \
     fuse \
+    gz-common-vendor \
+    gz-ogre-next-vendor \
     libg2o \
-    moveit-ros-visualization \
+    microstrain-inertial-examples \
+    moveit \
     moveit-ros \
     moveit-ros-perception \
     moveit-ros-visualization \
+    moveit-ros-visualization \
     moveit-runtime \
     moveit-visual-tools \
-    moveit \
     mrpt2 \
     mvsim \
-    navigation2 \
     nav2-bringup \
     nav2-rviz-plugins \
     nav2-system-tests \
+    navigation2 \
     openvslam \
     pmb2-2dnav \
     rmf-visualization \
@@ -733,11 +739,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     rtabmap-ros \
     run-move-group \
     run-moveit-cpp \
-    rviz2 \
+    rviz-2d-overlay-plugins \
     rviz-common \
     rviz-default-plugins \
-    rviz-2d-overlay-plugins \
     rviz-ogre-vendor \
+    rviz2 \
     rviz-rendering \
     rviz-visual-tools \
     slam-toolbox \
@@ -871,17 +877,34 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_AWS = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'mrpt2', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MRPT2}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_MRPT2 = " \
+    kitti-metrics-eval \
+    mola \
+    mola-bridge-ros2 \
     mola-imu-preintegration \
     mola-input-euroc-dataset \
     mola-input-kitti-dataset \
+    mola-input-kitti360-dataset \
+    mola-input-mulran-dataset \
+    mola-input-paris-luco-dataset \
     mola-input-rawlog \
     mola-input-ros2 \
+    mola-input-rosbag2 \
+    mola-metric-maps \
     mola-kernel \
     mola-launcher \
+    mola-navstate-fuse \
+    mola-pose-list \
+    mola-relocalization \
+    mola-traj-tools \
     mola-viz \
     mola-yaml \
     mp2p-icp \
+    mrpt-generic-sensor \
     mrpt-path-planning \
+    mrpt-sensor-bumblebee-stereo \
+    mrpt-sensor-gnns-nmea \
+    mrpt-sensorlib \
+    mrpt-sensors \
     mrpt2 \
     mvsim \
     pose-cov-ops \
