@@ -1,4 +1,5 @@
 # Copyright (c) 2020-2021 LG Electronics, Inc.
+# Copyright (c) 2024 Wind River Systems, Inc.
 
 # Instead of fetching tvm and its submodules during do_compile, use separate tvm recipe
 DEPENDS += "tvm"
@@ -15,3 +16,7 @@ ROS_EXEC_DEPENDS:remove = "openblas"
 
 # spirv-headers PN is empty don't add runtime dependency on it
 ROS_EXEC_DEPENDS:remove = "spirv-headers"
+
+# Replace the virtual provider with the package name
+ROS_EXEC_DEPENDS:remove = "virtual/opencl-icd"
+ROS_EXEC_DEPENDS:append = "virtual-opencl-icd"
