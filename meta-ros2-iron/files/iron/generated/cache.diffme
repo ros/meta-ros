@@ -1,4 +1,4 @@
-# iron/cache.yaml 2024-03-22 28fc073f744b2b3ec6e9a3bf937426305215c853 20240322045812 1.7.0
+# iron/cache.yaml 2024-04-05 c628a7ac743886cbe9324c83a3c246603ca092d6 20240404132152 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -529,7 +529,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/aruco_opencv-release.git',
-version: 5.0.0-1
+version: 5.1.0-1
 },
 source: {
 type: git,
@@ -1966,12 +1966,22 @@ status: developed
 }
 -----
 fields2cover: {
+doc: {
+type: git,
+url: 'https://github.com/Fields2Cover/fields2cover.git',
+version: main
+},
 release: {
 tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/fields2cover-release.git',
-version: 1.2.1-2
+version: 1.2.1-3
+},
+source: {
+type: git,
+url: 'https://github.com/Fields2Cover/fields2cover.git',
+version: main
 },
 status: developed
 }
@@ -2064,7 +2074,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros-drivers-gbp/flir_camera_driver-release.git',
-version: 2.2.14-1
+version: 2.2.15-1
 },
 source: {
 type: git,
@@ -2256,7 +2266,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gazebo_ros2_control-release.git',
-version: 0.6.4-1
+version: 0.6.5-1
 },
 source: {
 type: git,
@@ -2719,7 +2729,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ign_ros2_control-release.git',
-version: 1.1.4-2
+version: 1.1.5-1
 },
 source: {
 type: git,
@@ -2941,7 +2951,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/image_common-release.git',
-version: 4.2.3-1
+version: 4.2.4-1
 },
 source: {
 test_pull_requests: true,
@@ -2972,7 +2982,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/image_pipeline-release.git',
-version: 4.0.0-1
+version: 4.0.1-1
 },
 source: {
 test_pull_requests: true,
@@ -4105,7 +4115,8 @@ url: 'https://github.com/LORD-MicroStrain/microstrain_inertial.git',
 version: ros2
 },
 release: {
-packages: [microstrain_inertial_driver,
+packages: [microstrain_inertial_description,
+microstrain_inertial_driver,
 microstrain_inertial_examples,
 microstrain_inertial_msgs,
 microstrain_inertial_rqt],
@@ -4113,7 +4124,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/microstrain_inertial-release.git',
-version: 3.2.1-1
+version: 4.1.0-1
 },
 source: {
 test_pull_requests: true,
@@ -4166,6 +4177,33 @@ type: git,
 url: 'https://github.com/MOLAorg/mola.git',
 version: develop
 },
+release: {
+packages: [kitti_metrics_eval,
+mola,
+mola_bridge_ros2,
+mola_demos,
+mola_imu_preintegration,
+mola_input_euroc_dataset,
+mola_input_kitti360_dataset,
+mola_input_kitti_dataset,
+mola_input_mulran_dataset,
+mola_input_paris_luco_dataset,
+mola_input_rawlog,
+mola_input_rosbag2,
+mola_kernel,
+mola_launcher,
+mola_metric_maps,
+mola_navstate_fuse,
+mola_pose_list,
+mola_traj_tools,
+mola_viz,
+mola_yaml],
+tags: {
+release: 'release/iron/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/mola-release.git',
+version: 1.0.1-1
+},
 source: {
 type: git,
 url: 'https://github.com/MOLAorg/mola.git',
@@ -4206,7 +4244,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mola_test_datasets-release.git',
-version: 0.3.0-1
+version: 0.3.1-1
 },
 source: {
 type: git,
@@ -4499,6 +4537,18 @@ type: git,
 url: 'https://github.com/mrpt-ros-pkg/mrpt_sensors.git',
 version: ros2
 },
+release: {
+packages: [mrpt_generic_sensor,
+mrpt_sensor_bumblebee_stereo,
+mrpt_sensor_gnns_nmea,
+mrpt_sensorlib,
+mrpt_sensors],
+tags: {
+release: 'release/iron/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/mrpt_sensors-release.git',
+version: 0.1.0-1
+},
 source: {
 type: git,
 url: 'https://github.com/mrpt-ros-pkg/mrpt_sensors.git',
@@ -4560,7 +4610,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mvsim-release.git',
-version: 0.9.1-1
+version: 0.9.2-1
 },
 source: {
 type: git,
@@ -5228,28 +5278,6 @@ version: 1.5.2-4
 }
 }
 -----
-opennav_coverage: {
-release: {
-packages: [opennav_coverage,
-opennav_coverage_bt,
-opennav_coverage_demo,
-opennav_coverage_msgs,
-opennav_coverage_navigator,
-opennav_row_coverage],
-tags: {
-release: 'release/iron/{package}/{version}'
-},
-url: 'https://github.com/open-navigation/opennav_coverage-release.git',
-version: 0.0.1-1
-},
-source: {
-type: git,
-url: 'https://github.com/open-navigation/opennav_coverage.git',
-version: iron
-},
-status: developed
-}
------
 openni2_camera: {
 doc: {
 type: git,
@@ -5778,7 +5806,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/point_cloud_transport-release.git',
-version: 2.0.4-1
+version: 2.0.5-1
 },
 source: {
 type: git,
@@ -6848,7 +6876,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmf_internal_msgs-release.git',
-version: 3.1.1-1
+version: 3.1.2-1
 },
 source: {
 type: git,
@@ -6925,7 +6953,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmf_task-release.git',
-version: 2.2.4-1
+version: 2.2.5-1
 },
 source: {
 type: git,
@@ -7045,7 +7073,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmf_visualization-release.git',
-version: 2.1.1-1
+version: 2.1.2-1
 },
 source: {
 type: git,
@@ -8351,6 +8379,20 @@ version: iron
 status: maintained
 }
 -----
+rqt_dotgraph: {
+doc: {
+type: git,
+url: 'https://github.com/niwcpac/rqt_dotgraph.git',
+version: main
+},
+source: {
+type: git,
+url: 'https://github.com/niwcpac/rqt_dotgraph.git',
+version: main
+},
+status: maintained
+}
+-----
 rqt_gauges: {
 doc: {
 type: git,
@@ -8911,7 +8953,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rviz-release.git',
-version: 12.4.6-1
+version: 12.4.7-1
 },
 source: {
 test_pull_requests: true,
@@ -9174,7 +9216,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/simple_launch-release.git',
-version: 1.9.1-1
+version: 1.9.2-1
 },
 source: {
 type: git,
@@ -10162,7 +10204,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ublox_dgnss-release.git',
-version: 0.5.2-1
+version: 0.5.3-1
 },
 source: {
 type: git,
@@ -10232,11 +10274,24 @@ status: maintained
 }
 -----
 unitree_ros: {
+doc: {
+type: git,
+url: 'https://github.com/snt-arg/unitree_ros.git',
+version: main
+},
+release: {
+tags: {
+release: 'release/iron/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/unitree_ros-release.git',
+version: 1.1.0-1
+},
 source: {
 type: git,
 url: 'https://github.com/snt-arg/unitree_ros.git',
 version: main
-}
+},
+status: developed
 }
 -----
 ur_client_library: {
@@ -18660,7 +18715,6 @@ gazebo_ros2_control_demos: <?xml version="1.0" ?>
 <exec_depend>launch_ros</exec_depend>
 <exec_depend>robot_state_publisher</exec_depend>
 <exec_depend>ros2_control</exec_depend>
-<exec_depend>ros2_controllers</exec_depend>
 <exec_depend>rclcpp</exec_depend>
 <exec_depend>std_msgs</exec_depend>
 <exec_depend>velocity_controllers</exec_depend>
@@ -19830,6 +19884,7 @@ gz_ros2_control_demos: <?xml version="1.0" ?>
 <exec_depend>geometry_msgs</exec_depend>
 <exec_depend>hardware_interface</exec_depend>
 <exec_depend>gz_ros2_control</exec_depend>
+<exec_depend>ros_gz_bridge</exec_depend>
 <exec_depend>imu_sensor_broadcaster</exec_depend>
 <exec_depend>joint_state_broadcaster</exec_depend>
 <exec_depend>joint_trajectory_controller</exec_depend>
@@ -21185,6 +21240,24 @@ kinova_gen3_7dof_robotiq_2f_85_moveit_config: <?xml version="1.0" ?>
 <exec_depend>xacro</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+kitti_metrics_eval: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>kitti_metrics_eval</name>
+<description>CLI tool to evaluate the KITTI odometry bechmark metrics to trajectory files</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">BSD</license>
+<depend>mola_common</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
 </export>
 </package>
 -----
@@ -23429,6 +23502,21 @@ by means of a dedicated graph manager</description>
 </export>
 </package>
 -----
+microstrain_inertial_description: <?xml version="1.0" ?>
+<package format="3">
+<name>microstrain_inertial_description</name>
+<description>URDF and stl files for MicroStrain sensors.</description>
+<maintainer email="rob.fisher@parker.com">Rob Fisher</maintainer>
+<maintainer email="melissa.gill@parker.com">Melissa Gill</maintainer>
+<license>MIT</license>
+<url type="website">https://github.com/LORD-MicroStrain/microstrain_inertial</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 microstrain_inertial_driver: <?xml version="1.0" ?>
 <package format="3">
 <name>microstrain_inertial_driver</name>
@@ -23454,10 +23542,12 @@ microstrain_inertial_driver: <?xml version="1.0" ?>
 <depend>sensor_msgs</depend>
 <depend>nav_msgs</depend>
 <depend>nmea_msgs</depend>
-<depend>mavros_msgs</depend>
+<depend>rtcm_msgs</depend>
 <depend>microstrain_inertial_msgs</depend>
 <depend>tf2_geometry_msgs</depend>
 <depend>lifecycle_msgs</depend>
+<build_depend>eigen</build_depend>
+<build_depend>geographiclib</build_depend>
 <build_depend>rclcpp_lifecycle</build_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
 <build_depend>jq</build_depend>
@@ -23473,23 +23563,17 @@ microstrain_inertial_driver: <?xml version="1.0" ?>
 microstrain_inertial_examples: <?xml version="1.0" ?>
 <package format="3">
 <name>microstrain_inertial_examples</name>
-<description>Example listener for Parker LORD Sensing inertial device driver ros_mscl (C++).</description>
+<description>Simple examples using the microstrain_inertial_driver for MicroStrain sensors.</description>
 <maintainer email="rob.fisher@parker.com">Rob Fisher</maintainer>
 <maintainer email="melissa.gill@parker.com">Melissa Gill</maintainer>
 <license>MIT</license>
 <url type="website">https://github.com/LORD-MicroStrain/microstrain_inertial</url>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<build_depend>rclcpp</build_depend>
-<build_depend>rclcpp_components</build_depend>
-<build_depend>microstrain_inertial_msgs</build_depend>
-<build_depend>std_msgs</build_depend>
-<build_depend>sensor_msgs</build_depend>
-<exec_depend>rclcpp</exec_depend>
-<exec_depend>rclcpp_components</exec_depend>
-<exec_depend>rclpy</exec_depend>
-<exec_depend>microstrain_inertial_msgs</exec_depend>
-<exec_depend>std_msgs</exec_depend>
+<exec_depend>microstrain_inertial_driver</exec_depend>
 <exec_depend>sensor_msgs</exec_depend>
+<exec_depend>tf2_ros</exec_depend>
+<exec_depend>rviz2</exec_depend>
+<exec_depend>rviz_imu_plugin</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -23557,6 +23641,75 @@ it provides an ExternalProject build of mimick.</description>
 </export>
 </package>"
 -----
+mola: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola</name>
+<description>Metapackage with all core open-sourced MOLA packages.</description>
+<maintainer email="jlblanco@ual.es">Jose-Luis Blanco-Claraco</maintainer>
+<author>Jose-Luis Blanco-Claraco</author>
+<license file="LICENSE">BSD</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>kitti_metrics_eval</depend>
+<depend>mola_bridge_ros2</depend>
+<depend>mola_demos</depend>
+<depend>mola_imu_preintegration</depend>
+<depend>mola_input_euroc_dataset</depend>
+<depend>mola_input_kitti360_dataset</depend>
+<depend>mola_input_kitti_dataset</depend>
+<depend>mola_input_mulran_dataset</depend>
+<depend>mola_input_paris_luco_dataset</depend>
+<depend>mola_input_rawlog</depend>
+<depend>mola_input_rosbag2</depend>
+<depend>mola_kernel</depend>
+<depend>mola_launcher</depend>
+<depend>mola_metric_maps</depend>
+<depend>mola_navstate_fuse</depend>
+<depend>mola_pose_list</depend>
+<depend>mola_traj_tools</depend>
+<depend>mola_viz</depend>
+<depend>mola_yaml</depend>
+<depend>ament_lint_common</depend>
+<depend>ament_lint_auto</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mola_bridge_ros2: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_bridge_ros2</name>
+<description>Bidirectional bridge ROS2-MOLA</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">BSD</license>
+<doc_depend>doxygen</doc_depend>
+<build_depend>ros_environment</build_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_gtest</buildtool_depend>
+<buildtool_depend>ament_cmake_gmock</buildtool_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>mola_common</depend>
+<depend>mola_kernel</depend>
+<depend>mrpt2</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>rclcpp</depend>
+<depend>sensor_msgs</depend>
+<depend>tf2</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>ament_lint_common</depend>
+<depend>ament_lint_auto</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<build_depend>ament_cmake_xmllint</build_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 mola_common: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -23576,6 +23729,289 @@ mola_common: <?xml version="1.0" ?>
 <build_depend>ament_cmake_xmllint</build_depend>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mola_demos: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_demos</name>
+<description>Demo and example launch files for MOLA</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">BSD</license>
+<doc_depend>doxygen</doc_depend>
+<build_depend>ros_environment</build_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_gtest</buildtool_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<build_depend>ament_cmake_xmllint</build_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mola_imu_preintegration: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_imu_preintegration</name>
+<description>Integrator of IMU angular velocity readings</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_common</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_input_euroc_dataset: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_input_euroc_dataset</name>
+<description>Offline RawDataSource from EUROC SLAM datasets</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">BSD</license>
+<depend>mola_common</depend>
+<depend>mola_kernel</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_input_kitti360_dataset: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_input_kitti360_dataset</name>
+<description>Offline RawDataSource from Kitti-360 datasets</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_common</depend>
+<depend>mola_kernel</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_input_kitti_dataset: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_input_kitti_dataset</name>
+<description>Offline RawDataSource from Kitti odometry/SLAM datasets</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_common</depend>
+<depend>mola_kernel</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_input_mulran_dataset: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_input_mulran_dataset</name>
+<description>Offline RawDataSource from MulRan datasets</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_common</depend>
+<depend>mola_kernel</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_input_paris_luco_dataset: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_input_paris_luco_dataset</name>
+<description>Offline RawDataSource from Paris LUCO (CT-ICP) odometry/SLAM datasets</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_common</depend>
+<depend>mola_kernel</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_input_rawlog: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_input_rawlog</name>
+<description>Offline RawDataSource from MRPT rawlog datasets</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_kernel</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_input_rosbag2: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_input_rosbag2</name>
+<description>Offline RawDataSource from rosbag2 datasets</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_kernel</depend>
+<depend>mrpt2</depend>
+<depend>tf2_ros</depend>
+<depend>rosbag2_cpp</depend>
+<depend>tf2_msgs</depend>
+<depend>cv_bridge</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>sensor_msgs</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_kernel: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_kernel</name>
+<description>Fundamental C++ virtual interfaces and data types for the rest of MOLA modules</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_common</depend>
+<depend>mola_yaml</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_launcher: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_launcher</name>
+<description>Launcher app for MOLA systems</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_kernel</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<build_depend>ros_environment</build_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_gtest</buildtool_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<build_depend>ament_cmake_xmllint</build_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mola_metric_maps: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_metric_maps</name>
+<description>Advanced metric map classes,
+using the generic `mrpt::maps::CMetricMap` interface,
+for use in other MOLA odometry and SLAM modules.</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_common</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<build_depend>ros_environment</build_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_gtest</buildtool_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<build_depend>ament_cmake_xmllint</build_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mola_navstate_fuse: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_navstate_fuse</name>
+<description>SE(3) pose and twist path data fusion estimator</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_common</depend>
+<depend>mola_imu_preintegration</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_pose_list: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_pose_list</name>
+<description>C++ library for searchable pose lists</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_common</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
 </export>
 </package>
 -----
@@ -23602,6 +24038,60 @@ mola_test_datasets: <?xml version="1.0" ?>
 <build_depend>ament_cmake_xmllint</build_depend>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mola_traj_tools: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_traj_tools</name>
+<description>CLI tools to manipulate trajectory files as a complement to the evo package</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">BSD</license>
+<depend>mola_common</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_viz: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_viz</name>
+<description>GUI for MOLA</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_kernel</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_yaml: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_yaml</name>
+<description>YAML helper library common to MOLA modules</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">BSD</license>
+<depend>mola_common</depend>
+<depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
 </export>
 </package>
 -----
@@ -25202,6 +25692,32 @@ mrpt2: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+mrpt_generic_sensor: <?xml version="1.0" ?>
+<package format="2">
+<name>mrpt_generic_sensor</name>
+<description>ROS node for interfacing any sensor supported by mrpt-hwdrivers</description>
+<url type="website">https://github.com/mrpt-ros-pkg/mrpt_sensors</url>
+<maintainer email="joseluisblancoc@gmail.com">José Luis Blanco-Claraco</maintainer>
+<author>José Luis Blanco-Claraco</author>
+<license>BSD</license>
+<url>https://wiki.ros.org/mrpt_msgs_bridge</url>
+<build_depend>ros_environment</build_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>mrpt_sensorlib</depend>
+<depend>sensor_msgs</depend>
+<depend>mrpt_msgs</depend>
+<depend>ament_lint_common</depend>
+<depend>ament_lint_auto</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 mrpt_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -25250,6 +25766,101 @@ mrpt_path_planning: <?xml version="1.0" ?>
 <export>
 <build_type>cmake</build_type>
 <rosdoc config="doc/rosdoc.yaml"/>
+</export>
+</package>
+-----
+mrpt_sensor_bumblebee_stereo: <?xml version="1.0" ?>
+<package format="2">
+<name>mrpt_sensor_bumblebee_stereo</name>
+<description>ROS node for Bumblebee Stereo Cameras using libdc1394 interface (based on mrpt-hwdrivers)</description>
+<url type="website">https://github.com/mrpt-ros-pkg/mrpt_sensors</url>
+<maintainer email="joseluisblancoc@gmail.com">José Luis Blanco-Claraco</maintainer>
+<author>José Luis Blanco-Claraco</author>
+<license>BSD</license>
+<url>https://wiki.ros.org/mrpt_msgs_bridge</url>
+<build_depend>ros_environment</build_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>mrpt2</depend>
+<depend>mrpt_msgs</depend>
+<depend>mrpt_sensorlib</depend>
+<depend>ament_lint_common</depend>
+<depend>ament_lint_auto</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mrpt_sensor_gnns_nmea: <?xml version="1.0" ?>
+<package format="2">
+<name>mrpt_sensor_gnns_nmea</name>
+<description>ROS node for GNNS receivers generating NMEA messages (based on mrpt-hwdrivers)</description>
+<url type="website">https://github.com/mrpt-ros-pkg/mrpt_sensors</url>
+<maintainer email="joseluisblancoc@gmail.com">José Luis Blanco-Claraco</maintainer>
+<author>José Luis Blanco-Claraco</author>
+<license>BSD</license>
+<url>https://wiki.ros.org/mrpt_msgs_bridge</url>
+<build_depend>ros_environment</build_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>mrpt2</depend>
+<depend>mrpt_msgs</depend>
+<depend>mrpt_sensorlib</depend>
+<depend>ament_lint_common</depend>
+<depend>ament_lint_auto</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mrpt_sensorlib: <?xml version="1.0" ?>
+<package format="2">
+<name>mrpt_sensorlib</name>
+<description>C++ library for the base generic MRPT sensor node</description>
+<url type="website">https://github.com/mrpt-ros-pkg/mrpt_sensors</url>
+<maintainer email="joseluisblancoc@gmail.com">José Luis Blanco-Claraco</maintainer>
+<author>José Luis Blanco-Claraco</author>
+<license>BSD</license>
+<build_depend>ros_environment</build_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>mrpt2</depend>
+<depend>mrpt_msgs</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>ament_lint_common</depend>
+<depend>ament_lint_auto</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mrpt_sensors: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mrpt_sensors</name>
+<description>ROS nodes for various robotics sensors via mrpt-hwdrivers. Metapackage for all mrpt_sensor packages.</description>
+<maintainer email="jlblanco@ual.es">Jose-Luis Blanco-Claraco</maintainer>
+<author>Jose-Luis Blanco-Claraco</author>
+<license>BSD</license>
+<url>https://github.com/mrpt-ros-pkg/mrpt_sensors/</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>mrpt_sensorlib</depend>
+<depend>mrpt_generic_sensor</depend>
+<depend>mrpt_sensor_gnns_nmea</depend>
+<depend>mrpt_sensor_bumblebee_stereo</depend>
+<depend>ament_lint_common</depend>
+<depend>ament_lint_auto</depend>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -27326,158 +27937,6 @@ open3d_conversions: <?xml version="1.0" ?>
 <test_depend>ament_lint_common</test_depend>
 <test_depend>ament_cmake_gtest</test_depend>
 <test_depend>ament_lint_auto</test_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-opennav_coverage: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>opennav_coverage</name>
-<description>A Task Server for complete coverage planning</description>
-<maintainer email="steve@opennav.org">Steve Macenski</maintainer>
-<license>Apache-2.0</license>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<depend>rclcpp</depend>
-<depend>rclcpp_action</depend>
-<depend>rclcpp_lifecycle</depend>
-<depend>nav2_util</depend>
-<depend>nav2_msgs</depend>
-<depend>nav_msgs</depend>
-<depend>geometry_msgs</depend>
-<depend>builtin_interfaces</depend>
-<depend>tf2_ros</depend>
-<depend>fields2cover</depend>
-<depend>opennav_coverage_msgs</depend>
-<test_depend>ament_lint_common</test_depend>
-<test_depend>ament_lint_auto</test_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-opennav_coverage_bt: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>opennav_coverage_bt</name>
-<description>A set of BT nodes and XMLs for complete coverage planning</description>
-<maintainer email="steve@opennav.org">Steve Macenski</maintainer>
-<license>Apache-2.0</license>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<depend>rclcpp</depend>
-<depend>rclcpp_action</depend>
-<depend>nav2_behavior_tree</depend>
-<depend>nav2_util</depend>
-<depend>nav2_core</depend>
-<depend>nav2_msgs</depend>
-<depend>nav_msgs</depend>
-<depend>geometry_msgs</depend>
-<depend>opennav_coverage_msgs</depend>
-<depend>behaviortree_cpp_v3</depend>
-<test_depend>ament_lint_common</test_depend>
-<test_depend>ament_lint_auto</test_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-opennav_coverage_demo: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>opennav_coverage_demo</name>
-<description>A demo using the Coverage Server,
-BT Nodes,
-and Coverage Navigator</description>
-<maintainer email="steve@opennav.org">Steve Macenski</maintainer>
-<license>Apache-2.0</license>
-<depend>rclcpp</depend>
-<depend>rclcpp_action</depend>
-<depend>nav2_util</depend>
-<depend>nav2_bringup</depend>
-<depend>opennav_coverage_msgs</depend>
-<depend>opennav_coverage_bt</depend>
-<depend>opennav_coverage</depend>
-<depend>opennav_row_coverage</depend>
-<depend>opennav_coverage_navigator</depend>
-<test_depend>ament_lint_common</test_depend>
-<test_depend>ament_lint_auto</test_depend>
-<export>
-<build_type>ament_python</build_type>
-</export>
-</package>
------
-opennav_coverage_msgs: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>opennav_coverage_msgs</name>
-<description>A set of ROS interfaces for complete coverage planning</description>
-<maintainer email="steve@opennav.org">Steve Macenski</maintainer>
-<license>Apache-2.0</license>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<depend>rclcpp</depend>
-<depend>rclcpp_action</depend>
-<depend>rclcpp_lifecycle</depend>
-<depend>nav2_util</depend>
-<depend>nav2_msgs</depend>
-<depend>nav_msgs</depend>
-<depend>geometry_msgs</depend>
-<depend>builtin_interfaces</depend>
-<depend>tf2_ros</depend>
-<depend>rosidl_default_generators</depend>
-<test_depend>ament_lint_common</test_depend>
-<test_depend>ament_lint_auto</test_depend>
-<member_of_group>rosidl_interface_packages</member_of_group>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-opennav_coverage_navigator: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>opennav_coverage_navigator</name>
-<description>A navigator plugin for BT Navigator for coverage planning</description>
-<maintainer email="steve@opennav.org">Steve Macenski</maintainer>
-<license>Apache-2.0</license>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<depend>rclcpp</depend>
-<depend>rclcpp_action</depend>
-<depend>nav2_behavior_tree</depend>
-<depend>nav2_util</depend>
-<depend>nav2_core</depend>
-<depend>nav2_msgs</depend>
-<depend>nav_msgs</depend>
-<depend>geometry_msgs</depend>
-<depend>opennav_coverage_msgs</depend>
-<depend>opennav_coverage_bt</depend>
-<depend>opennav_coverage</depend>
-<test_depend>ament_lint_common</test_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>opennav_coverage_bt</test_depend>
-<test_depend>opennav_coverage</test_depend>
-<export>
-<build_type>ament_cmake</build_type>
-<nav2_core prefix="$(prefix)/navigator_plugins.xml"/>
-</export>
-</package>
------
-opennav_row_coverage: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>opennav_row_coverage</name>
-<description>A coverage server based on pre-defined rows</description>
-<maintainer email="steve@opennav.org">Steve Macenski</maintainer>
-<license>Apache-2.0</license>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<depend>rclcpp</depend>
-<depend>nav2_util</depend>
-<depend>fields2cover</depend>
-<depend>opennav_coverage</depend>
-<depend>opennav_coverage_msgs</depend>
-<depend>tinyxml2</depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>ament_lint_common</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -38380,6 +38839,7 @@ spinnaker_camera_driver: <?xml version="1.0" ?>
 <license>Apache-2</license>
 <license>BSD</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <build_depend>python3-distro</build_depend>
 <build_depend>curl</build_depend>
 <build_depend>dpkg</build_depend>
@@ -41005,6 +41465,32 @@ unique_identifier_msgs: <?xml version="1.0" ?>
 <export>
 <build_type>ament_cmake</build_type>
 <ros1_bridge mapping_rules="mapping_rules.yaml"/>
+</export>
+</package>
+-----
+unitree_ros: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>unitree_ros</name>
+<description>Unitree ros package</description>
+<maintainer email="pmbs.123@gmail.com">Pedro Soares</maintainer>
+<license>GPL-3.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<build_depend>boost</build_depend>
+<depend>rclcpp</depend>
+<depend>std_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
