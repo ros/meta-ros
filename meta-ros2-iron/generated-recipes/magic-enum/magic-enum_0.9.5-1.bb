@@ -37,9 +37,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/nobleo/magic_enum-release/archive/release/iron/magic_enum/0.9.5-1.tar.gz
+# matches with: https://github.com/ros2-gbp/magic_enum-release/archive/release/iron/magic_enum/0.9.5-1.tar.gz
 ROS_BRANCH ?= "branch=release/iron/magic_enum"
-SRC_URI = "git://github.com/nobleo/magic_enum-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/magic_enum-release;${ROS_BRANCH};protocol=https"
 SRCREV = "69a3551539cdc430ad165e4deda32da2997ec353"
 S = "${WORKDIR}/git"
 
