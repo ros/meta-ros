@@ -19,8 +19,8 @@ ROS_CN = "marti_common"
 ROS_BPN = "swri_cli_tools"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-natsort} \
     marti-introspection-msgs \
+    python3-natsort \
     rcl-interfaces \
     rclpy \
     ros2cli \
@@ -29,8 +29,8 @@ ROS_BUILD_DEPENDS = " \
 ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-natsort} \
     marti-introspection-msgs \
+    python3-natsort \
     rcl-interfaces \
     rclpy \
     ros2cli \
@@ -39,8 +39,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-natsort} \
     marti-introspection-msgs \
+    python3-natsort \
     rcl-interfaces \
     rclpy \
     ros2cli \
