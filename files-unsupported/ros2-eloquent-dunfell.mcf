@@ -20,10 +20,10 @@ OE_Distribution = 'ros2'
 Bitbake_Branch = '1.46'
 OE_Branch = 'dunfell'
 
-ROS_Distribution = 'galactic'
+ROS_Distribution = 'eloquent'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'best-effort' # ROS2 Galactic is EOL (since 2022-12-09)
+SupportLevel = 'unsupported' # ROS2 Eloquent is EOL (final sync on 2020-12-14)
 
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']

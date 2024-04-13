@@ -15,15 +15,15 @@
 McfFileVersion = 3
 
 # Value for DISTRO
-OE_Distribution = 'ros1'
+OE_Distribution = 'ros2'
 
 Bitbake_Branch = '1.52'
 OE_Branch = 'honister'
 
-ROS_Distribution = 'noetic'
+ROS_Distribution = 'foxy'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'best-effort' # OE Honister is EOL (since 2022-05-12)
+SupportLevel = 'unsupported' # OE Honister is EOL (since 2022-05-12)
 
 # Supported MACHINE-s
 Machines = ['qemux86', 'raspberrypi4']
@@ -67,8 +67,8 @@ Layers = [
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
-('meta-ros1',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
-('meta-ros1-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros2',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros2-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
 
 ('meta-raspberrypi',                   50, 'https://github.com/agherzan/meta-raspberrypi.git',       {'branch': OE_Branch,            'commit': '1584bdd'},           {}),
 ]
@@ -78,6 +78,4 @@ Layers = [
 BblayersConfExtraLines = ['MCF_DISTRO ?= "' + OE_Distribution + '"',
                           'MCF_SUPPORTED_MACHINES ?= "' + ' '.join(Machines) + '"',
                           'MCF_OPENEMBEDDED_VERSION ?= "' + OpenEmbeddedVersion + '"',
-                          # Remove once the pin of [meta-oe] includes commit a750888a40a7e2f967dfd32ce7a6953dc6bf10f2:
-                          'SRC_URI:pn-snappy = "gitsm://github.com/google/snappy.git;protocol=https;branch=main file://0001-Add-inline-with-SNAPPY_ATTRIBUTE_ALWAYS_INLINE.patch"',
                          ]
