@@ -169,8 +169,6 @@ java:
 - ${ROS_UNRESOLVED_DEP-java}
 joystick:
 - joystick@meta-ros-common
-jq:
-- jq@meta-oe
 julius-voxforge:
 - ${ROS_UNRESOLVED_DEP-julius-voxforge}
 jython:
