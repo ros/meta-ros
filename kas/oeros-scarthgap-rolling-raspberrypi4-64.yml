@@ -1,0 +1,11 @@
+header:
+  version: 14
+  includes:
+    - yocto/scarthgap.yml
+    - ros2/rolling.yml
+    - machine/raspberrypi4-64.yml
+    - common.yml
+
+repos:
+  raspberrypi:
+    branch: "master"

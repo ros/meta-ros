@@ -1,0 +1,12 @@
+header:
+  version: 14
+
+local_conf_header:
+  common: |
+    DISTRO_FEATURES += "usrmerge"
+    IMAGE_FEATURES += "debug-tweaks"
+    INHERIT += "report-error"
+    INHERIT += "rm_work"
+    INHERIT_DISTRO:remove = "create-spdx"
+    WARN_QA:remove = "license-exists"
+    TEMPLATECONF = ""

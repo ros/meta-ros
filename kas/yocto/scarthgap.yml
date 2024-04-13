@@ -1,0 +1,33 @@
+header:
+  version: 14
+
+defaults:
+  repos:
+    branch: "scarthgap"
+
+repos:
+  openembedded-core:
+    url: "https://github.com/openembedded/openembedded-core.git"
+    commit: "0228ab43e9b659771f4f59944897aec6879f8209"
+    path: "layers/openembedded-core"
+    layers:
+      meta:
+
+  bitbake:
+    url: "https://github.com/openembedded/bitbake.git"
+    branch: "2.8"
+    commit: "833b76e9333e317cab5f17d6f7daaecc89c69547"
+    path: "layers/openembedded-core/bitbake"
+    layers:
+      bitbake: "excluded"
+
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded.git"
+    commit: "cf942682b8ff5b30393f1f60a1a4d37571c0d1ba"
+    path: "layers/meta-openembedded"
+    layers:
+      meta-oe:
+      meta-python:
+
+  ros:
+    branch: "master"

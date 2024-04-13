@@ -1,0 +1,14 @@
+header:
+  version: 14
+
+machine: "raspberrypi4-64"
+
+repos:
+  raspberrypi:
+    url: "https://github.com/agherzan/meta-raspberrypi.git"
+    path: "layers/meta-raspberrypi"
+
+local_conf_header:
+  raspberrypi: |
+    # Set the accepted license flags to allow the use of commercial graphics drivers.
+    LICENSE_FLAGS_ACCEPTED = "commercial synaptics-killswitch"

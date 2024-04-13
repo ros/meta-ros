@@ -1,0 +1,7 @@
+header:
+  version: 14
+  includes:
+    - yocto/kirkstone.yml
+    - ros2/humble.yml
+    - machine/raspberrypi4-64.yml
+    - common.yml
