@@ -28,8 +28,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-ntplib} \
     diagnostic-updater \
+    python3-ntplib \
     rclpy \
 "
 

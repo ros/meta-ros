@@ -58,9 +58,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/PickNikRobotics/topic_based_ros2_control-release/archive/release/iron/topic_based_ros2_control/0.2.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/topic_based_ros2_control-release/archive/release/iron/topic_based_ros2_control/0.2.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/iron/topic_based_ros2_control"
-SRC_URI = "git://github.com/PickNikRobotics/topic_based_ros2_control-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/topic_based_ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bc32d434a901aaf1c27bd1b4b44606194d11bf2c"
 S = "${WORKDIR}/git"
 
