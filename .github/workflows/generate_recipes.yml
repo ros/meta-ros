@@ -1,0 +1,125 @@
+name: Generate Bitbake Recipes
+on:    
+  # Allow for manually running
+  workflow_dispatch:
+    inputs:
+      ros_distro:
+        description: 'ROS Distro'
+        required: true
+        default: 'rolling'
+        type: choice
+        options:
+          - noetic
+          - humble
+          - iron
+          - rolling
+      dry_run:
+        description: 'Run the workflow but do not push'
+        required: true
+        type: boolean
+        default: false
+jobs:
+  generate-recipes:
+    runs-on: ubuntu-latest
+
+    env:
+      ROS_HOME: "${{ github.workspace }}/roshome"
+      ROSDEP_SOURCE_PATH: "${{ github.workspace }}/rosdep"
+      ROS_DISTRO: ${{ inputs.ros_distro }}
+      ROSDISTRO_URL: "https://raw.githubusercontent.com/ros/rosdistro/master/rosdep"
+      GIT_FULLNAME: "Rob Woolley"
+      GIT_EMAIL: "rob.woolley@windriver.com"
+
+    steps:
+      - run: echo "Generating recipes for $GITHUB_REF_NAME - ${ROS_DISTRO}"
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          path: meta-ros
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+      - name: Check out superflore
+        uses: actions/checkout@v4
+        with:
+          repository: ros-infrastructure/superflore
+          path: superflore
+          fetch-tags: true
+          fetch-depth: 0
+      - name: Install superflore and rosdep
+        run: |
+          cd ${GITHUB_WORKSPACE}/superflore
+          python3 -m venv venv
+          source venv/bin/activate
+          python3 ./setup.py install
+      - run: mkdir -p ${ROS_HOME}
+      - run: mkdir -p ${ROSDEP_SOURCE_PATH}
+      - name: Initialize rosdep cache
+        run: |
+          source ${GITHUB_WORKSPACE}/superflore/venv/bin/activate
+          rosdep init
+      - name: Update rosdep cache
+        run: |
+          source ${GITHUB_WORKSPACE}/superflore/venv/bin/activate
+          rosdep update
+      - name: Set local rosdep
+        run: sed -i -e "s|${ROSDISTRO_URL}|file://${GITHUB_WORKSPACE}/rosdistro/rosdep|" ${ROSDEP_SOURCE_PATH}/20-default.list
+      - name: Check 20-default.list
+        run: cat ${ROSDEP_SOURCE_PATH}/20-default.list
+      - name: Check out rosdistro
+        uses: actions/checkout@v4
+        with:
+          repository: ros/rosdistro
+          path: rosdistro
+          fetch-tags: true
+          fetch-depth: 0
+      - name: Gather ros distro parameters
+        run: |
+          cd ${GITHUB_WORKSPACE}/rosdistro
+          ROS_DISTRO_RELEASE_DATE=$(git tag --list "${ROS_DISTRO}/*" | sort | tail -n1)
+          echo "ROS_DISTRO_RELEASE_DATE=${ROS_DISTRO_RELEASE_DATE}" >> "${GITHUB_WORKSPACE}/rosdistro_commit.env"
+          ROSDISTRO_COMMIT=$(git rev-parse ${ROS_DISTRO_RELEASE_DATE})
+          echo "ROSDISTRO_COMMIT=${ROSDISTRO_COMMIT}" >> "${GITHUB_WORKSPACE}/rosdistro_commit.env"
+          ROS_DISTRO_RELEASE_DATE_ONLY=$(echo ${ROS_DISTRO_RELEASE_DATE} | cut -d/ -f2)
+          echo "ROS_DISTRO_RELEASE_DATE_ONLY=${ROS_DISTRO_RELEASE_DATE_ONLY}" >> "${GITHUB_WORKSPACE}/rosdistro_commit.env"
+        shell: bash
+      - name: Output the meta-ros parameters to use
+        run: cat ${GITHUB_WORKSPACE}/rosdistro_commit.env
+      - name: Set git config
+        run: |
+          git config --global user.name  "${GIT_FULLNAME}"
+          git config --global user.email "${GIT_EMAIL}"
+      - name: Run ros-generate-cache.sh
+        run: |
+          source ${GITHUB_WORKSPACE}/superflore/venv/bin/activate
+          source ${GITHUB_WORKSPACE}/rosdistro_commit.env
+          cd ${GITHUB_WORKSPACE}/meta-ros
+          sh scripts/ros-generate-cache.sh ${ROS_DISTRO} ${ROS_DISTRO_RELEASE_DATE_ONLY} ${GITHUB_WORKSPACE}/rosdistro/ ${ROSDISTRO_COMMIT}
+      - name: Run ros-generate-recipes.sh
+        run: |
+          cd ${GITHUB_WORKSPACE}/meta-ros
+          source ${GITHUB_WORKSPACE}/superflore/venv/bin/activate
+          sh scripts/ros-generate-recipes.sh ${ROS_DISTRO}
+      - name: Create a pull request
+        if:  ${{ ! inputs.dry_run }} 
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          source ${GITHUB_WORKSPACE}/rosdistro_commit.env
+          cd ${GITHUB_WORKSPACE}/meta-ros
+          CURRENT_BRANCH=$(git branch --show-current)
+          if [ "${CURRENT_BRANCH}" = "superflore/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}" ]; then
+            echo "Pushing to superflore/$GITHUB_REF_NAME/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}"
+            git branch -M superflore/$GITHUB_REF_NAME/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}
+            git push origin superflore/$GITHUB_REF_NAME/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}
+            echo "Creating Pull Request"
+            gh pr create --title "Superflore Update for $GITHUB_REF_NAME : ${ROS_DISTRO} : ${ROS_DISTRO_RELEASE_DATE_ONLY}" --base $GITHUB_REF_NAME --fill-verbose 
+          else
+            echo "Warning: The name of the branch didn't match the expected output."
+            echo "Branch: ${CURRENT_BRANCH}"
+            echo "Expected: superflore/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}"
+          fi      
+      - run: echo "🍏 This job's status is ${{ job.status }}."
