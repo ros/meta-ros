@@ -8,10 +8,10 @@ webOSOSEBuildNumber = 'XXX'
 Bitbake_Branch = 'master'
 OE_Branch = 'master'
 
-ROS_Distribution = 'rolling'
+ROS_Distribution = 'galactic'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'contrib'
+SupportLevel = 'unsupported'
 
 # Supported MACHINE-s
 Machines = ['qemux86-64', 'raspberrypi4-64']

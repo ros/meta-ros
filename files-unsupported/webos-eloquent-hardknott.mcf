@@ -8,10 +8,10 @@ webOSOSEBuildNumber = 'XXX'
 Bitbake_Branch = '1.50'
 OE_Branch = 'hardknott'
 
-ROS_Distribution = 'foxy'
+ROS_Distribution = 'eloquent'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'contrib'
+SupportLevel = 'unsupported' # ROS2 Eloquent is EOL (final sync on 2020-12-14)
 
 # Supported MACHINE-s
 Machines = ['qemux86-64', 'raspberrypi4-64']

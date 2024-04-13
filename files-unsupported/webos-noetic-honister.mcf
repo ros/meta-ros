@@ -8,10 +8,10 @@ webOSOSEBuildNumber = 'XXX'
 Bitbake_Branch = '1.52'
 OE_Branch = 'honister'
 
-ROS_Distribution = 'foxy'
+ROS_Distribution = 'noetic'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'contrib'
+SupportLevel = 'unsupported'
 
 # Supported MACHINE-s
 Machines = ['qemux86-64', 'raspberrypi4-64']
@@ -54,8 +54,8 @@ Layers = [
 ('meta-qt6',                           20, 'https://code.qt.io/yocto/meta-qt6.git',                  {'branch': '6.2',                'commit': 'v6.2.1'},            {}),
 
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
-('meta-ros2',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
-('meta-ros2-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros1',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
+('meta-ros1-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
 
 ('meta-webos',                         40, MetaWebos_RepoURL,                                        {'branch': MetaWebos_Branch,     'commit': MetaWebos_Commit},    {}),
 

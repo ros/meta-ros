@@ -11,7 +11,7 @@ OE_Branch = 'honister'
 ROS_Distribution = 'rolling'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'contrib'
+SupportLevel = 'unsupported'
 
 # Supported MACHINE-s
 Machines = ['qemux86-64', 'raspberrypi4-64']
