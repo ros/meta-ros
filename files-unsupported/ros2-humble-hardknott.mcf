@@ -17,13 +17,13 @@ McfFileVersion = 3
 # Value for DISTRO
 OE_Distribution = 'ros2'
 
-Bitbake_Branch = '1.52'
-OE_Branch = 'honister'
+Bitbake_Branch = '1.50'
+OE_Branch = 'hardknott'
 
 ROS_Distribution = 'humble'
 
 # One of 'full', 'best-effort', 'contrib', 'unsupported'
-SupportLevel = 'contrib' # OE Honister is EOL (since 2022-05-12)
+SupportLevel = 'unsupported' # OE Hardknott is EOL (since 2022-04-27)
 
 # Supported MACHINE-s
 Machines = ['qemux86', 'qemux86-64', 'raspberrypi4', 'raspberrypi4-64']
@@ -44,13 +44,13 @@ Machines = ['qemux86', 'qemux86-64', 'raspberrypi4', 'raspberrypi4-64']
 # <YOCTO-VERSION>; instead it is the value in the Yocto Project Version column
 # of https://wiki.yoctoproject.org/wiki/Releases for
 # <OPENEMBEDDED-RELEASE-SERIES> to which a constant "~master" is appended.
-OpenEmbeddedVersion = '3.4.4-honister'
+OpenEmbeddedVersion = '3.3.6-hardknott'
 
 # Allow the URL and branch for meta-ros to be overridden by settings in the environment.
 from os import getenv
 MetaRos_RepoURL = getenv('MCF_META_ROS_REPO_URL', 'https://github.com/robwoolley/meta-ros.git')
 MetaRos_Branch  = getenv('MCF_META_ROS_BRANCH',   OE_Branch)
-MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'honister-next')
+MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   '2348168b2bea2ecdfa64973f249eb3ac6fa322c7')
 
 # Layers = [
 # (layer-name: str, priority: int, URL: str, fetch: dict, options: dict),
@@ -59,18 +59,18 @@ MetaRos_Commit  = getenv('MCF_META_ROS_COMMIT',   'honister-next')
 # Note that the github.com/openembedded repositories are read-only mirrors of
 # the authoritative repositories on git.openembedded.org .
 Layers = [
-('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': 'c2d8f9b2137bd4a98eb0f51519493131773e7517'},          {}),
+('bitbake',                            -1, 'https://github.com/openembedded/bitbake.git',            {'branch': Bitbake_Branch,       'commit': 'd01d8326331cfe59208674cfc53aa26c0028b313'},          {}),
 
-('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': '1a6f5e27249afb6fb4d47c523b62b5dd2482a69d'},        {}),
+('meta',                                5, 'https://github.com/openembedded/openembedded-core.git',  {'branch': OE_Branch,            'commit': 'fbbb689c8df7f82644b8a9bc5bb6884bc6516660'},        {}),
 
-('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '0e6c34f82ca4d43cbca3754c5fe37c5b3bdd0f37'},        {}),
+('meta-oe',                            10, 'https://github.com/openembedded/meta-openembedded.git',  {'branch': OE_Branch,            'commit': '786d3aa313e31a718acc9611ba3adb60573ec458'},        {}),
 ('meta-python',                        13, 'https://github.com/openembedded/meta-openembedded.git',  {},                                                              {}),
 
 ('meta-ros-common',                    37, MetaRos_RepoURL,                                          {'branch': MetaRos_Branch,       'commit': MetaRos_Commit},      {}),
 ('meta-ros2',                          38, MetaRos_RepoURL,                                          {},                                                              {}),
 ('meta-ros2-' + ROS_Distribution,      39, MetaRos_RepoURL,                                          {},                                                              {}),
 
-('meta-raspberrypi',                   50, 'https://github.com/agherzan/meta-raspberrypi.git',       {'branch': OE_Branch,            'commit': '378d4b6e7ba64b6a9a701457cc3780fa896ba5dc'},           {}),
+('meta-raspberrypi',                   50, 'https://github.com/agherzan/meta-raspberrypi.git',       {'branch': OE_Branch,            'commit': 'b4ec97e4eb8e36efd1f7e2f8ae020a9e55cfc239'},           {}),
 ]
 
 # BblayersConfExtraLines is a list of strings to be appended to the generated
