@@ -1,4 +1,4 @@
-# noetic/cache.yaml 2024-03-25 f7f77d50570e639af3042d7d14111c14d1d5de0b 20240325190532 1.7.0
+# noetic/cache.yaml 2024-04-11 fde396e6a0bdf242ff98ced1649fae759d677329 20240409162236 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -706,7 +706,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/blackcoffeerobotics/bcr_bot-release.git',
-version: 0.0.1-4
+version: 0.0.2-1
 },
 source: {
 type: git,
@@ -3802,12 +3802,22 @@ status: maintained
 }
 -----
 fields2cover: {
+doc: {
+type: git,
+url: 'https://github.com/Fields2Cover/fields2cover.git',
+version: main
+},
 release: {
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/Fields2Cover/fields2cover-release.git',
-version: 1.2.1-2
+version: 2.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/Fields2Cover/fields2cover.git',
+version: main
 },
 status: developed
 }
@@ -4684,7 +4694,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://gitlab.fel.cvut.cz/cras/ros-release/gnsstk-release.git',
-version: 14.0.0-8
+version: 14.3.0-1
 },
 source: {
 type: git,
@@ -7579,7 +7589,8 @@ url: 'https://github.com/LORD-MicroStrain/microstrain_inertial.git',
 version: ros
 },
 release: {
-packages: [microstrain_inertial_driver,
+packages: [microstrain_inertial_description,
+microstrain_inertial_driver,
 microstrain_inertial_examples,
 microstrain_inertial_msgs,
 microstrain_inertial_rqt],
@@ -7587,7 +7598,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/LORD-MicroStrain/microstrain_inertial-release.git',
-version: 3.2.1-1
+version: 4.2.0-1
 },
 source: {
 test_pull_requests: true,
@@ -8210,7 +8221,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/mrpt-ros-pkg-release/mrpt2-release.git',
-version: 2.12.0-1
+version: 2.12.1-1
 },
 source: {
 type: git,
@@ -8432,7 +8443,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ual-arm-ros-pkg-release/mvsim-release.git',
-version: 0.9.1-2
+version: 0.9.2-1
 },
 source: {
 type: git,
@@ -8711,7 +8722,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/neonavigation-release.git',
-version: 0.17.0-1
+version: 0.17.1-1
 },
 source: {
 type: git,
@@ -9073,7 +9084,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/octomap_mapping-release.git',
-version: 0.6.7-1
+version: 0.6.8-1
 },
 source: {
 type: git,
@@ -9456,12 +9467,28 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/tork-a/openrtm_aist-release.git',
-version: 1.1.2-4
+version: 1.1.2-5
 },
 source: {
 type: git,
 url: 'https://github.com/tork-a/openrtm_aist-release.git',
 version: release/melodic/openrtm_aist
+},
+status: maintained
+}
+-----
+openrtm_aist_python: {
+doc: {
+type: git,
+url: 'https://github.com/tork-a/openrtm_aist_python-release.git',
+version: release/noetic/openrtm_aist_python
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/tork-a/openrtm_aist_python-release.git',
+version: 1.1.0-5
 },
 status: maintained
 }
@@ -14205,6 +14232,27 @@ version: master
 status: maintained
 }
 -----
+rtshell: {
+doc: {
+type: git,
+url: 'https://github.com/gbiggs/rtshell.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/tork-a/rtshell-release.git',
+version: 3.0.1-2
+},
+source: {
+type: git,
+url: 'https://github.com/gbiggs/rtshell.git',
+version: master
+},
+status: maintained
+}
+-----
 rtsprofile: {
 doc: {
 type: git,
@@ -15318,7 +15366,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/peci1/static_transform_mux-release.git',
-version: 1.1.1-1
+version: 1.1.2-1
 },
 source: {
 type: git,
@@ -16168,6 +16216,7 @@ ur10_moveit_config,
 ur10e_moveit_config,
 ur16e_moveit_config,
 ur20_moveit_config,
+ur30_moveit_config,
 ur3_moveit_config,
 ur3e_moveit_config,
 ur5_moveit_config,
@@ -16178,7 +16227,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-industrial-release/universal_robot-release.git',
-version: 1.3.2-1
+version: 1.3.3-1
 },
 source: {
 type: git,
@@ -16199,7 +16248,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_Client_Library-release.git',
-version: 1.3.5-1
+version: 1.3.6-1
 },
 source: {
 type: git,
@@ -16244,7 +16293,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_ROS_Driver-release.git',
-version: 2.1.3-1
+version: 2.1.4-1
 },
 source: {
 type: git,
@@ -17261,7 +17310,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/xacro-release.git',
-version: 1.14.17-2
+version: 1.14.18-1
 },
 source: {
 test_pull_requests: true,
@@ -17350,7 +17399,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/openspur/yp-spur-release.git',
-version: 1.20.2-1
+version: 1.22.0-1
 },
 source: {
 type: git,
@@ -17371,7 +17420,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/openspur/ypspur_ros-release.git',
-version: 0.3.6-1
+version: 0.5.0-1
 },
 source: {
 type: git,
@@ -18941,7 +18990,7 @@ bcr_bot: <?xml version="1.0" ?>
 <description>The bcr_bot package</description>
 <maintainer email="gaurav@blackcoffeerobotics.com">Gaurav Gupta</maintainer>
 <maintainer email="devanshu@blackcoffeerobotics.com">Devanshu Sharma</maintainer>
-<license>(C) Black Coffee Robotics</license>
+<license>Apache License 2.0</license>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>joint_state_publisher</exec_depend>
 <exec_depend>robot_state_publisher</exec_depend>
@@ -29277,6 +29326,8 @@ fields2cover: <?xml version="1.0" ?>
 <depend>libgdal-dev</depend>
 <depend>gtest</depend>
 <depend>tbb</depend>
+<depend>tinyxml2</depend>
+<depend>nlohmann-json-dev</depend>
 <depend>python3</depend>
 <depend>python3-dev</depend>
 <exec_depend>python3-matplotlib</exec_depend>
@@ -40755,6 +40806,18 @@ and a ROS node.</description>
 <run_depend>std_msgs</run_depend>
 </package>
 -----
+microstrain_inertial_description: <?xml version="1.0" ?>
+<package format="2">
+<name>microstrain_inertial_description</name>
+<description>URDF and stl files for MicroStrain sensors.</description>
+<maintainer email="rob.fisher@parker.com">Rob Fisher</maintainer>
+<license>MIT</license>
+<url type="website">https://github.com/LORD-MicroStrain/microstrain_inertial</url>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>xacro</exec_depend>
+<export/>
+</package>
+-----
 microstrain_inertial_driver: <?xml version="1.0" ?>
 <package format="2">
 <name>microstrain_inertial_driver</name>
@@ -40778,11 +40841,11 @@ microstrain_inertial_driver: <?xml version="1.0" ?>
 <depend>sensor_msgs</depend>
 <depend>nav_msgs</depend>
 <depend>nmea_msgs</depend>
-<depend>mavros_msgs</depend>
+<depend>rtcm_msgs</depend>
 <depend>tf2_geometry_msgs</depend>
 <depend>microstrain_inertial_msgs</depend>
-<build_depend>jq</build_depend>
-<build_depend>curl</build_depend>
+<build_depend>eigen</build_depend>
+<build_depend>geographiclib</build_depend>
 <build_depend>message_generation</build_depend>
 <build_depend>roslint</build_depend>
 <exec_depend>message_runtime</exec_depend>
@@ -40795,25 +40858,16 @@ microstrain_inertial_driver: <?xml version="1.0" ?>
 microstrain_inertial_examples: <?xml version="1.0" ?>
 <package format="2">
 <name>microstrain_inertial_examples</name>
-<description>Example listener for Parker LORD Sensing inertial device driver ros_mscl (C++).</description>
+<description>Simple examples using the microstrain_inertial_driver for MicroStrain sensors.</description>
 <maintainer email="rob.fisher@parker.com">Rob Fisher</maintainer>
 <maintainer email="melissa.gill@parker.com">Melissa Gill</maintainer>
 <license>MIT</license>
 <url type="website">https://github.com/LORD-MicroStrain/microstrain_inertial</url>
 <buildtool_depend>catkin</buildtool_depend>
-<build_depend>roscpp</build_depend>
-<build_depend>rospy</build_depend>
-<build_depend>std_msgs</build_depend>
-<build_depend>roslint</build_depend>
-<build_export_depend>roscpp</build_export_depend>
-<build_export_depend>rospy</build_export_depend>
-<build_export_depend>std_msgs</build_export_depend>
-<exec_depend>roscpp</exec_depend>
-<exec_depend>rospy</exec_depend>
-<exec_depend>std_msgs</exec_depend>
-<depend>cmake_modules</depend>
-<depend>sensor_msgs</depend>
-<depend>microstrain_inertial_msgs</depend>
+<exec_depend>microstrain_inertial_driver</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>tf</exec_depend>
+<exec_depend>rviz_imu_plugin</exec_depend>
 <export/>
 </package>
 -----
@@ -45797,6 +45851,32 @@ component-oriented software platform to robotics development that is made and ma
 <run_depend>catkin</run_depend>
 <run_depend>uuid</run_depend>
 <run_depend>omniorb</run_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+openrtm_aist_python: <?xml version="1.0" ?>
+<package>
+<name>openrtm_aist_python</name>
+<description>
+<p>Python binding of OpenRTM-AIST (see<a href="http://www.ros.org/wiki/openrtm_aist">openrtm_aist</a>for further information).</p>
+<p>
+<i>OpenRTM-aist is an<a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=1545521&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F10375%2F32977%2F01545521.pdf%3Farnumber%3D1545521">RT-Middleware</a>-baseed,
+component-oriented software platform to robotics development that is made and maintained in AIST (National Institute of Advanced Industrial Science and Technology) in Japan</i>(<a href="http://openrtm.org/openrtm/en/content/introduction-0">excerpts from here</a>)</p>
+</description>
+<maintainer email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</maintainer>
+<maintainer email="iisaito@kinugarage.com">Isao Isaac Saito</maintainer>
+<author email="shinji.kurihara@aist.go.jp">Shinji Kurihara</author>
+<license>EPL</license>
+<url type="website">http://ros.org/wiki/openrtm_aist</url>
+<url type="repository">https://github.com/start-jsk/openrtm_aist_core</url>
+<url type="bugtracker">https://github.com/start-jsk/openrtm_aist_core/issues</url>
+<buildtool_depend>cmake</buildtool_depend>
+<build_depend>python3-setuptools</build_depend>
+<build_depend>python-omniorb</build_depend>
+<build_depend>doxygen</build_depend>
+<run_depend>python-omniorb</run_depend>
 <export>
 <build_type>cmake</build_type>
 </export>
@@ -57727,6 +57807,27 @@ rtctree: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+rtshell: <?xml version="1.0" ?>
+<package>
+<name>rtshell</name>
+<description>
+<p>Shell commands for managing RT-Middleware running on OpenRTM-aist.</p>
+</description>
+<maintainer email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</maintainer>
+<maintainer email="iisaito@kinugarage.com">Isaac Isao Saito</maintainer>
+<author email="git@killbots.net">Geoffrey Biggs</author>
+<license>EPL</license>
+<url type="website">http://ros.org/wiki/openrtm_tools</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>python3-setuptools</build_depend>
+<build_depend>python-omniorb</build_depend>
+<run_depend>rtctree</run_depend>
+<run_depend>rtsprofile</run_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
 rtsprofile: <?xml version="1.0" ?>
 <package>
 <name>rtsprofile</name>
@@ -63220,6 +63321,7 @@ universal_robots: <?xml version="1.0" ?>
 <exec_depend>ur10_moveit_config</exec_depend>
 <exec_depend>ur16e_moveit_config</exec_depend>
 <exec_depend>ur20_moveit_config</exec_depend>
+<exec_depend>ur30_moveit_config</exec_depend>
 <exec_depend>ur3e_moveit_config</exec_depend>
 <exec_depend>ur3_moveit_config</exec_depend>
 <exec_depend>ur5e_moveit_config</exec_depend>
@@ -63342,6 +63444,37 @@ ur20_moveit_config: <?xml version="1.0" ?>
 <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn</maintainer>
 <maintainer email="miguel.prada@tecnalia.com">Miguel Prada Sarasola</maintainer>
 <maintainer email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</maintainer>
+<license>BSD</license>
+<url type="website">http://moveit.ros.org/</url>
+<url type="bugtracker">https://github.com/ros-planning/moveit_setup_assistant/issues</url>
+<url type="repository">https://github.com/ros-planning/moveit_setup_assistant</url>
+<exec_depend>joint_state_publisher</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>moveit_fake_controller_manager</exec_depend>
+<exec_depend>moveit_planners_ompl</exec_depend>
+<exec_depend>moveit_ros_benchmarks</exec_depend>
+<exec_depend>moveit_ros_move_group</exec_depend>
+<exec_depend>moveit_ros_visualization</exec_depend>
+<exec_depend>moveit_ros_warehouse</exec_depend>
+<exec_depend>warehouse_ros_mongo</exec_depend>
+<exec_depend>moveit_setup_assistant</exec_depend>
+<exec_depend>moveit_simple_controller_manager</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>tf2_ros</exec_depend>
+<exec_depend>trac_ik_kinematics_plugin</exec_depend>
+<exec_depend>ur_description</exec_depend>
+<exec_depend>xacro</exec_depend>
+<test_depend>roslaunch</test_depend>
+<buildtool_depend>catkin</buildtool_depend>
+</package>
+-----
+ur30_moveit_config: <?xml version="1.0" ?>
+<package format="2">
+<name>ur30_moveit_config</name>
+<description>An automatically generated package with all the configuration and launch files for using the ur30 with the MoveIt Motion Planning Framework</description>
+<author email="dipentima@fzi.de">Vincenzo Di Pentima</author>
+<maintainer email="dipentima@fzi.de">Vincenzo Di Pentima</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org/</url>
 <url type="bugtracker">https://github.com/ros-planning/moveit_setup_assistant/issues</url>
@@ -63560,7 +63693,8 @@ ur_description: <?xml version="1.0" ?>
 <description>URDF description for Universal UR3(e),
 UR5(e),
 UR10(e),
-UR16e and UR20 robots</description>
+UR16e,
+UR20 and UR30 robots</description>
 <author>Wim Meeussen</author>
 <author>Kelsey Hawkins</author>
 <author>Mathias Ludtke</author>
@@ -63570,6 +63704,7 @@ UR16e and UR20 robots</description>
 <maintainer email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</maintainer>
 <license>BSD</license>
 <license file="meshes/ur20/LICENSE.txt">Universal Robots A/S' Terms and Conditions for Use of Graphical Documentation</license>
+<license file="meshes/ur30/LICENSE.txt">Universal Robots A/S' Terms and Conditions for Use of Graphical Documentation</license>
 <url type="website">http://wiki.ros.org/ur_description</url>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>joint_state_publisher_gui</exec_depend>
@@ -65804,7 +65939,7 @@ ypspur_ros: <?xml version="1.0" ?>
 <depend>tf2_geometry_msgs</depend>
 <depend>tf2_ros</depend>
 <depend>trajectory_msgs</depend>
-<depend version_gte="1.20.0">ypspur</depend>
+<depend version_gte="1.22.0">ypspur</depend>
 </package>
 -----
 zbar_ros: <?xml version="1.0" ?>
