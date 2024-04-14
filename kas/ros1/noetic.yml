@@ -1,0 +1,16 @@
+header:
+  version: 14
+
+distro: "ros1"
+
+repos:
+  ros:
+    url: "https://github.com/ros/meta-ros.git"
+    path: "layers/meta-ros"
+    layers:
+      meta-ros-common:
+      meta-ros1:
+      meta-ros1-noetic:
+
+target:
+  - ros-image-core
