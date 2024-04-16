@@ -36,19 +36,12 @@ can be presumed unsupported.
 
 # Getting Started
 
-```
-git clone -b build --single-branch https://github.com/ros/meta-ros.git build
+The easiest way to get started with ROS with OpenEmbedded is to build the combination
+of Kirkstone (Yocto Project) with Humble (ROS 2).
 
-mkdir conf
-ln -snf ../conf build/.
-cp build/files/ros2-humble-kirkstone.mcf  conf/.
+You may use the kas tool to clone the necessary git repositories and kick off the build.
 
-build/scripts/mcf -f conf/ros2-humble-kirkstone.mcf
-
-source openembedded-core/oe-init-build-env
-
-bitbake ros-image-core
-```
+Instructions can be found here: https://github.com/ros/meta-ros/tree/build/kas/README.md
 
 # Repository Layout
 
