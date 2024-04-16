@@ -18,14 +18,10 @@ can be presumed unsupported.
 |                     | *(Rolling)*  | **Noetic**   | **Humble (LTS)** | **Iron**     |
 |                     |              | May 2025     | May 2027         | Nov 2024     |
 | **Scarthgap (Dev)** | Apr 2028     | **May 2025** | **May 2027**     | **Nov 2024** |
-| **Nanbield**        | Apr 2024     | **May 2025** | **Apr 2024**     | **Apr 2024** |
-| **Mickledore**      | Nov 2023     | Nov 2023     | **Nov 2023**     | **Nov 2023** |
-| Langdale            | ~~May 2023~~ | ~~May 2023~~ | May 2023 <sup>2</sup>     | ~~May 2023~~ |
+| Nanbield            | ~~Apr 2024~~ | ~~Apr 2024~~ | ~~Apr 2024~~     | ~~Apr 2024~~ |
+| Mickledore          | ~~Nov 2023~~ | ~~Nov 2023~~ | Nov 2023 <sup>1</sup>     | ~~Nov 2023~~ |
+| Langdale            | ~~May 2023~~ | ~~May 2023~~ | ~~May 2023~~     | ~~May 2023~~ |
 | **Kirkstone (LTS)** | Apr 2026     | **Apr 2024** | **Apr 2026**     | **Nov 2024** |
-| Honister            | ~~May 2022~~ | ~~May 2022~~ | ~~May 2022~~     | ~~May 2022~~ |
-| Hardknott           | ~~Apr 2022~~ | ~~Apr 2022~~ | Apr 2022 <sup>1</sup>     | ~~Apr 2022~~ |
-| Gatesgarth          | ~~May 2021~~ | ~~May 2021~~ | ~~May 2021~~     | ~~May 2021~~ |
-| **Dunfell (LTS)**   | Apr 2024     | **Apr 2024** | **Apr 2024**     | **Apr 2024** |
 
 
 
