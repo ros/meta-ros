@@ -1,8 +1,0 @@
-# Copyright (c) 2019 LG Electronics, Inc.
-
-# Force incorrectly classified ROS_EXEC_DEPENDS to be build dependencies:
-DEPENDS:append := " ${ROS_EXEC_DEPENDS}"
-ROS_EXEC_DEPENDS := ""
-
-ROS_BUILD_DEPENDS:remove = "ament-cmake"
-ROS_BUILDTOOL_DEPENDS += "ament-cmake-native"
