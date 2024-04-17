@@ -14,7 +14,7 @@ repos:
 
   bitbake:
     url: "https://github.com/openembedded/bitbake.git"
-    path: "layers/openembedded-core/bitbake"
+    path: "layers/bitbake"
     layers:
       bitbake: "excluded"
 

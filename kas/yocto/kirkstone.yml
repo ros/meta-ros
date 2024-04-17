@@ -17,7 +17,7 @@ repos:
     url: "https://github.com/openembedded/bitbake.git"
     branch: "2.0"
     commit: "40fd5f4eef7460ca67f32cfce8e229e67e1ff607"
-    path: "layers/openembedded-core/bitbake"
+    path: "layers/bitbake"
     layers:
       bitbake: "excluded"
 
