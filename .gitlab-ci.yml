@@ -1,0 +1,61 @@
+image: crops/poky:debian-12
+
+variables:
+  META_ROS_GIT: "https://github.com/ros/meta-ros.git"
+  META_ROS_BRANCH: master
+  DISTRO:
+    description: "The Robot Operating System"
+    value: "ros2"
+    options:
+      - ros
+      - ros2
+  ROS_DISTRO:
+    description: "The ROS distro"
+    value: humble
+    options:
+      - melodic
+      - humble
+      - iron
+      - rolling
+  OE_RELEASE_SERIES:
+    description: "The Yocto Project release"
+    value: kirkstone
+    options:
+      - kirkstone
+      - scarthgap
+  TARGET_RECIPE: "ros-image-core"
+  MACHINE:
+    description: "The Yocto Board Support Package"
+    value: "raspberrypi4-64"
+    options:
+      - "qemux86-64"
+      - "raspberrypi4-64"
+  FF_DISABLE_UMASK_FOR_DOCKER_EXECUTOR: true
+
+.default:
+  stage: build
+  interruptible: true
+  variables:
+    KAS_WORK_DIR: $CI_PROJECT_DIR/work
+    KAS_BUILD_DIR: $KAS_WORK_DIR/build
+    KAS_REPO_REF_DIR: $CI_PROJECT_DIR/repos
+    CACHE_DIR: $CI_BUILDS_DIR/persist
+    SSTATE_DIR: $CACHE_DIR/sstate
+    DL_DIR: $CACHE_DIR/downloads
+    TOOLCHAIN_DIR: $CACHE_DIR/toolchains
+    IMAGE_DIR: $KAS_BUILD_DIR/tmp/deploy/images
+    TOOLCHAIN_LINK_DIR: $KAS_BUILD_DIR/toolchains
+    BB_NUMBER_THREADS: "1"
+  before_script:
+    - rm -rf $KAS_WORK_DIR
+    - mkdir --verbose --parents $KAS_WORK_DIR $KAS_REPO_REF_DIR $SSTATE_DIR $DL_DIR $TOOLCHAIN_DIR $TOOLCHAIN_LINK_DIR $IMAGE_DIR
+    
+build-job:
+  stage: build
+  extends: .default
+  script:
+    - virtualenv venv
+    - source venv/bin/activate
+    - pip3 install kas
+    - cd $CI_PROJECT_DIR/kas
+    - kas build --update oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml
