@@ -31,6 +31,12 @@ variables:
     options:
       - "qemux86-64"
       - "raspberrypi4-64"
+  GITLAB_REDIRECT:
+    description: "Redirect git requests for GitHub back to GitLab"
+    value: Disabled
+    options:
+      - Enabled
+      - Disabled
   FF_DISABLE_UMASK_FOR_DOCKER_EXECUTOR: true
 
 .default:
@@ -50,6 +56,10 @@ variables:
   before_script:
     - rm -rf $KAS_WORK_DIR
     - mkdir --verbose --parents $KAS_WORK_DIR $KAS_REPO_REF_DIR $SSTATE_DIR $DL_DIR $TOOLCHAIN_DIR $TOOLCHAIN_LINK_DIR $IMAGE_DIR
+    - if [ "$GITLAB_REDIRECT" == "Enabled" ]; then git config --global url."${CI_SERVER_PROTOCOL}://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}:${CI_SERVER_PORT}/github/".insteadOf "git://github.com/"; fi
+    - if [ "$GITLAB_REDIRECT" == "Enabled" ]; then git config --global url."${CI_SERVER_PROTOCOL}://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}:${CI_SERVER_PORT}/github/".insteadOf "https://github.com/"; fi
+
+
     
 build-job:
   stage: build
