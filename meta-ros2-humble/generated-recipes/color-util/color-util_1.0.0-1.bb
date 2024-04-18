@@ -45,9 +45,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/MetroRobots-release/color_util-release/archive/release/humble/color_util/1.0.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/color_util-release/archive/release/humble/color_util/1.0.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/color_util"
-SRC_URI = "git://github.com/MetroRobots-release/color_util-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/color_util-release;${ROS_BRANCH};protocol=https"
 SRCREV = "163eed6ac69bf51547ffc26a7c83201a69772601"
 S = "${WORKDIR}/git"
 

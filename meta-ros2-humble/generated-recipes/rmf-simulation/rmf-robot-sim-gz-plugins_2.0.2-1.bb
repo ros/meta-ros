@@ -20,10 +20,9 @@ ROS_BPN = "rmf_robot_sim_gz_plugins"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-ignition-fortress} \
-    ${ROS_UNRESOLVED_DEP-libqt5-qml} \
-    ${ROS_UNRESOLVED_DEP-libqt5-quick} \
     libeigen \
     qtbase \
+    qtdeclarative \
     rclcpp \
     rmf-building-map-msgs \
     rmf-fleet-msgs \
@@ -36,10 +35,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-ignition-fortress} \
-    ${ROS_UNRESOLVED_DEP-libqt5-qml} \
-    ${ROS_UNRESOLVED_DEP-libqt5-quick} \
     libeigen \
     qtbase \
+    qtdeclarative \
     rclcpp \
     rmf-building-map-msgs \
     rmf-fleet-msgs \
@@ -50,10 +48,9 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-ignition-fortress} \
-    ${ROS_UNRESOLVED_DEP-libqt5-qml} \
-    ${ROS_UNRESOLVED_DEP-libqt5-quick} \
     libeigen \
     qtbase \
+    qtdeclarative \
     rclcpp \
     rmf-building-map-msgs \
     rmf-fleet-msgs \
