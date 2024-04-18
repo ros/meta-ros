@@ -70,9 +70,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/MetroRobots-release/polygon_ros-release/archive/release/humble/polygon_demos/1.0.2-1.tar.gz
+# matches with: https://github.com/ros2-gbp/polygon_ros-release/archive/release/humble/polygon_demos/1.0.2-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/polygon_demos"
-SRC_URI = "git://github.com/MetroRobots-release/polygon_ros-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/polygon_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8d8e6e477e755b5c4b04f6c48071bb05f73f8c92"
 S = "${WORKDIR}/git"
 
