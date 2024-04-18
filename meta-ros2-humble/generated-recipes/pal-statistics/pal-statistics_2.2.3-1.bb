@@ -60,9 +60,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/pal_statistics-release/archive/release/humble/pal_statistics/2.2.3-1.tar.gz
+# matches with: https://github.com/ros2-gbp/pal_statistics-release/archive/release/humble/pal_statistics/2.2.3-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/pal_statistics"
-SRC_URI = "git://github.com/pal-gbp/pal_statistics-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/pal_statistics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0192c9e7524d8b85e3c28dd4cc94718fe4941381"
 S = "${WORKDIR}/git"
 

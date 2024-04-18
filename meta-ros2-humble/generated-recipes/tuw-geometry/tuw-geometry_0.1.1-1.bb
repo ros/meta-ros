@@ -53,9 +53,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/tuw-robotics/tuw_geometry-release/archive/release/humble/tuw_geometry/0.1.1-1.tar.gz
+# matches with: https://github.com/ros2-gbp/tuw_geometry-release/archive/release/humble/tuw_geometry/0.1.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/tuw_geometry"
-SRC_URI = "git://github.com/tuw-robotics/tuw_geometry-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/tuw_geometry-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ee6e809cd9fbd8579194b2ac10229a59a68dbbb0"
 S = "${WORKDIR}/git"
 
