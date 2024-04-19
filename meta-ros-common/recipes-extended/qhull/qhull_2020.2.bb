@@ -14,3 +14,10 @@ EXTRA_OECMAKE += "\
 "
 
 inherit cmake
+
+# The QhullTargets-noconfig.cmake checks for the executables despite not
+# needing to execute them for the build.  Staging bindir to the sysroot
+# allows us to pass the check without building qhull natively
+SYSROOT_DIRS:append = " \
+    ${bindir} \
+"
