@@ -37,3 +37,5 @@ CXXFLAGS += "${@bb.utils.contains("TARGET_CC_ARCH", "-mfpmath=sse", "", "-ffloat
 inherit cmake
 
 FILES:${PN}-dev += "${datadir}/${BPN}-*/*.cmake ${datadir}/${BPN}-*/Modules/*.cmake"
+
+# EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release"
