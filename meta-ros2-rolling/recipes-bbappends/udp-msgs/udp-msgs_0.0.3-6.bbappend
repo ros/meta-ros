@@ -14,8 +14,5 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-introspection-cpp-native \
     rosidl-typesupport-cpp-native \
     rosidl-generator-py-native \
-"
-
-ROS_EXEC_DEPENDS += " \
     service-msgs \
 "

@@ -4,8 +4,5 @@ ROS_BUILD_DEPENDS += " \
     builtin-interfaces \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-typesupport-fastrtps-cpp-native \
-"
-
-ROS_EXEC_DEPENDS += " \
     service-msgs \
 "
