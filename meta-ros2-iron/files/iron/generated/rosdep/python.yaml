@@ -5575,6 +5575,13 @@ python3-dlib-pip:
     pip:
       depends: [cmake, build-essential, python3-dev]
       packages: [dlib]
+python3-do-mpc-pip:
+  debian:
+    pip:
+      packages: [do-mpc]
+  ubuntu:
+    pip:
+      packages: [do-mpc]
 python3-docker:
   arch: [python-docker]
   debian: [python3-docker]
@@ -6981,6 +6988,13 @@ python3-moteus-pip:
   ubuntu:
     pip:
       packages: [moteus]
+python3-motor-pip:
+  debian:
+    pip:
+      packages: [motor]
+  ubuntu:
+    pip:
+      packages: [motor]
 python3-msgpack:
   debian:
     '*': [python3-msgpack]
@@ -7730,6 +7744,16 @@ python3-py3exiv2-pip:
   ubuntu:
     pip:
       packages: [py3exiv2]
+python3-pyads-pip:
+  debian:
+    pip:
+      packages: [pyads]
+  fedora:
+    pip:
+      packages: [pyads]
+  ubuntu:
+    pip:
+      packages: [pyads]
 python3-pyassimp:
   debian:
     '*': [python3-pyassimp]
@@ -8003,6 +8027,13 @@ python3-pymongo:
   nixos: [python3Packages.pymongo]
   openembedded: [python3-pymongo@meta-python]
   ubuntu: [python3-pymongo]
+python3-pymongo-pip:
+  debian:
+    pip:
+      packages: [pymongo]
+  ubuntu:
+    pip:
+      packages: [pymongo]
 python3-pynmea2:
   debian: [python3-nmea2]
   fedora:
@@ -9328,6 +9359,19 @@ python3-toml:
   gentoo: [dev-python/toml]
   nixos: [python3Packages.toml]
   ubuntu: [python3-toml]
+python3-toppra-pip:
+  debian:
+    pip:
+      packages: [toppra]
+  fedora:
+    pip:
+      packages: [toppra]
+  osx:
+    pip:
+      packages: [toppra]
+  ubuntu:
+    pip:
+      packages: [toppra]
 python3-torch:
   arch: [python-pytorch]
   debian: [python3-torch]
@@ -9474,6 +9518,19 @@ python3-typeguard-pip:
   ubuntu:
     pip:
       packages: [typeguard]
+python3-types-pyyaml:
+  debian: [python3-typeshed]
+  fedora: [python3-types-pyyaml]
+  rhel:
+    '*': [python3-types-pyyaml]
+    '8':
+      pip:
+        packages: [types-pyyaml]
+  ubuntu:
+    '*': [python3-typeshed]
+    focal:
+      pip:
+        packages: [types-pyyaml]
 python3-typing-extensions:
   arch: [python-typing_extensions]
   debian: [python3-typing-extensions]
