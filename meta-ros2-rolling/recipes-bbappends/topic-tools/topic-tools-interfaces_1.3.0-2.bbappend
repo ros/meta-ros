@@ -4,7 +4,6 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-generators-native \
 "
 
-# QA Issue "package topic-tools-interfaces requires libservice_msgs" [file-rdeps]
-ROS_EXEC_DEPENDS += " \
+ROS_BUILD_DEPENDS += " \
     service-msgs \
 "

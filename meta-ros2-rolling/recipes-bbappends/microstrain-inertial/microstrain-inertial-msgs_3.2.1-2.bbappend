@@ -13,6 +13,6 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-introspection-cpp-native \
 "
 
-ROS_EXEC_DEPENDS += " \
+ROS_BUILD_DEPENDS += " \
     service-msgs \
 "

@@ -12,8 +12,5 @@ ROS_BUILD_DEPENDS:remove = " \
     rosidl-default-generators \
     rosidl-typesupport-fastrtps-c \
     rosidl-typesupport-fastrtps-cpp \
-"
-
-ROS_EXEC_DEPENDS += " \
     service-msgs \
 "
