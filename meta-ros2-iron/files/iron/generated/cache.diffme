@@ -1,4 +1,4 @@
-# iron/cache.yaml 2024-04-05 c628a7ac743886cbe9324c83a3c246603ca092d6 20240404132152 1.7.0
+# iron/cache.yaml 2024-04-23 5d214598898013d4dcf7155a62c6564515108db6 20240423053814 1.7.0
 distribution_file:
 - release_platforms:
 -----
@@ -183,7 +183,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ament_cmake-release.git',
-version: 2.0.4-1
+version: 2.0.5-1
 },
 source: {
 test_pull_requests: true,
@@ -479,6 +479,20 @@ version: 1.2.1-1
 source: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/apriltag_detector.git',
+version: iron
+},
+status: developed
+}
+-----
+apriltag_mit: {
+doc: {
+type: git,
+url: 'https://github.com/ros-misc-utilities/apriltag_mit.git',
+version: iron
+},
+source: {
+type: git,
+url: 'https://github.com/ros-misc-utilities/apriltag_mit.git',
 version: iron
 },
 status: developed
@@ -918,7 +932,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/cascade_lifecycle-release.git',
-version: 1.0.4-1
+version: 1.0.5-1
 },
 source: {
 type: git,
@@ -939,7 +953,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/catch_ros2-release.git',
-version: 0.2.0-1
+version: 0.2.1-1
 },
 source: {
 type: git,
@@ -1126,7 +1140,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/control_msgs-release.git',
-version: 5.0.0-1
+version: 5.1.0-1
 },
 source: {
 type: git,
@@ -1957,6 +1971,13 @@ type: git,
 url: 'https://github.com/ros-misc-utilities/ffmpeg_image_transport_tools.git',
 version: iron
 },
+release: {
+tags: {
+release: 'release/iron/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ffmpeg_image_transport_tools-release.git',
+version: 1.2.0-1
+},
 source: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/ffmpeg_image_transport_tools.git',
@@ -2365,14 +2386,17 @@ url: 'https://github.com/PickNikRobotics/generate_parameter_library.git',
 version: main
 },
 release: {
-packages: [generate_parameter_library,
+packages: [cmake_generate_parameter_module_example,
+generate_parameter_library,
+generate_parameter_library_example,
 generate_parameter_library_py,
+generate_parameter_module_example,
 parameter_traits],
 tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/generate_parameter_library-release.git',
-version: 0.3.7-1
+version: 0.3.8-3
 },
 source: {
 type: git,
@@ -2396,7 +2420,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/geographic_info-release.git',
-version: 1.0.5-1
+version: 1.0.6-1
 },
 source: {
 test_pull_requests: true,
@@ -2453,7 +2477,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/geometry2-release.git',
-version: 0.31.5-1
+version: 0.31.6-1
 },
 source: {
 test_pull_requests: true,
@@ -2729,7 +2753,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ign_ros2_control-release.git',
-version: 1.1.5-1
+version: 1.1.6-1
 },
 source: {
 type: git,
@@ -3442,7 +3466,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/launch-release.git',
-version: 2.0.2-1
+version: 2.0.3-1
 },
 source: {
 test_pull_requests: true,
@@ -4124,7 +4148,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/microstrain_inertial-release.git',
-version: 4.1.0-1
+version: 4.2.0-1
 },
 source: {
 test_pull_requests: true,
@@ -4195,6 +4219,7 @@ mola_launcher,
 mola_metric_maps,
 mola_navstate_fuse,
 mola_pose_list,
+mola_relocalization,
 mola_traj_tools,
 mola_viz,
 mola_yaml],
@@ -4202,7 +4227,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mola-release.git',
-version: 1.0.1-1
+version: 1.0.2-1
 },
 source: {
 type: git,
@@ -4421,7 +4446,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mp2p_icp-release.git',
-version: 1.3.0-1
+version: 1.3.2-1
 },
 source: {
 type: git,
@@ -4465,7 +4490,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mrpt2-release.git',
-version: 2.12.0-1
+version: 2.12.1-1
 },
 source: {
 type: git,
@@ -4675,7 +4700,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/nao_lola-release.git',
-version: 0.2.2-1
+version: 0.2.3-1
 },
 source: {
 type: git,
@@ -4836,7 +4861,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/SteveMacenski/navigation2-release.git',
-version: 1.2.6-1
+version: 1.2.7-1
 },
 source: {
 type: git,
@@ -5344,6 +5369,16 @@ url: 'https://github.com/ros2/orocos_kdl_vendor.git',
 version: iron
 },
 status: developed
+}
+-----
+ortools_vendor: {
+release: {
+tags: {
+release: 'release/iron/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ortools_vendor-release.git',
+version: 9.9.0-3
+}
 }
 -----
 osqp_vendor: {
@@ -6200,14 +6235,19 @@ url: 'https://github.com/ros-sports/r2r_spl.git',
 version: iron
 },
 release: {
-packages: [r2r_spl_7,
+packages: [r2r_spl,
+r2r_spl_7,
+r2r_spl_8,
+r2r_spl_test_interfaces,
 splsm_7,
-splsm_7_conversion],
+splsm_7_conversion,
+splsm_8,
+splsm_8_conversion],
 tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/r2r_spl-release.git',
-version: 3.0.1-3
+version: 3.1.0-1
 },
 source: {
 type: git,
@@ -6522,7 +6562,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rclcpp-release.git',
-version: 21.0.5-1
+version: 21.0.6-1
 },
 source: {
 test_pull_requests: true,
@@ -6544,7 +6584,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rclpy-release.git',
-version: 4.1.4-1
+version: 4.1.5-1
 },
 source: {
 test_pull_requests: true,
@@ -6634,7 +6674,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rcutils-release.git',
-version: 6.2.2-2
+version: 6.2.3-1
 },
 source: {
 test_pull_requests: true,
@@ -7296,7 +7336,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/robot_localization-release.git',
-version: 3.5.0-3
+version: 3.7.0-1
 },
 source: {
 test_pull_requests: true,
@@ -7623,7 +7663,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros2cli-release.git',
-version: 0.25.5-1
+version: 0.25.6-1
 },
 source: {
 test_pull_requests: true,
@@ -7736,12 +7776,13 @@ ros_ign_bridge,
 ros_ign_gazebo,
 ros_ign_gazebo_demos,
 ros_ign_image,
-ros_ign_interfaces],
+ros_ign_interfaces,
+test_ros_gz_bridge],
 tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros_ign-release.git',
-version: 0.254.0-1
+version: 0.254.1-1
 },
 source: {
 test_pull_requests: true,
@@ -8440,7 +8481,7 @@ rqt_image_overlay: {
 doc: {
 type: git,
 url: 'https://github.com/ros-sports/rqt_image_overlay.git',
-version: rolling
+version: iron
 },
 release: {
 packages: [rqt_image_overlay,
@@ -8454,7 +8495,7 @@ version: 0.3.1-3
 source: {
 type: git,
 url: 'https://github.com/ros-sports/rqt_image_overlay.git',
-version: rolling
+version: iron
 },
 status: developed
 }
@@ -9322,7 +9363,9 @@ url: 'https://github.com/ros-sports/soccer_interfaces.git',
 version: rolling
 },
 release: {
-packages: [soccer_interfaces,
+packages: [soccer_geometry_msgs,
+soccer_interfaces,
+soccer_model_msgs,
 soccer_vision_2d_msgs,
 soccer_vision_3d_msgs,
 soccer_vision_attribute_msgs],
@@ -9330,7 +9373,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/soccer_interfaces-release.git',
-version: 0.2.0-3
+version: 0.3.0-1
 },
 source: {
 type: git,
@@ -9372,7 +9415,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/soccer_vision_3d_rviz_markers-release.git',
-version: 0.0.1-3
+version: 0.1.0-1
 },
 source: {
 type: git,
@@ -10305,7 +10348,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/Universal_Robots_Client_Library-release.git',
-version: 1.3.5-1
+version: 1.3.6-1
 },
 source: {
 type: git,
@@ -10326,7 +10369,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ur_description-release.git',
-version: 2.1.3-1
+version: 2.1.4-1
 },
 source: {
 type: git,
@@ -10374,7 +10417,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git',
-version: 2.3.5-1
+version: 2.3.6-1
 },
 source: {
 type: git,
@@ -10753,7 +10796,7 @@ vision_msgs_layers: {
 doc: {
 type: git,
 url: 'https://github.com/ros-sports/vision_msgs_layers.git',
-version: rolling
+version: iron
 },
 release: {
 tags: {
@@ -10765,7 +10808,7 @@ version: 0.2.0-3
 source: {
 type: git,
 url: 'https://github.com/ros-sports/vision_msgs_layers.git',
-version: rolling
+version: iron
 },
 status: developed
 }
@@ -10784,7 +10827,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/vision_opencv-release.git',
-version: 3.4.0-3
+version: 3.5.0-1
 },
 source: {
 test_pull_requests: true,
@@ -10967,7 +11010,7 @@ tags: {
 release: 'release/iron/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/webots_ros2-release.git',
-version: 2023.1.1-2
+version: 2023.1.2-1
 },
 source: {
 test_pull_requests: true,
@@ -13677,6 +13720,24 @@ classic_bags: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+cmake_generate_parameter_module_example: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>cmake_generate_parameter_module_example</name>
+<description>Example usage of generate_parameter_library for a python module with cmake.</description>
+<maintainer email="paul.gesel@picknik.ai">Paul Gesel</maintainer>
+<license>BSD-3-Clause</license>
+<author email="paul.gesel@picknik.ai">Paul Gesel</author>
+<depend>generate_parameter_library</depend>
+<depend>rclpy</depend>
+<buildtool_depend>ament_cmake_python</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 color_names: <?xml version="1.0" ?>
 <package format="3">
 <name>color_names</name>
@@ -13885,7 +13946,7 @@ control_msgs: <?xml version="1.0" ?>
 <name>control_msgs</name>
 <description>control_msgs contains base messages and actions useful for controlling robots. It provides representations for controller setpoints and joint and cartesian trajectories.</description>
 <maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
-<license>BSD</license>
+<license>BSD-3-Clause</license>
 <url>http://ros.org/wiki/control_msgs</url>
 <author email="sglaser@willowgarage.com">Stuart Glaser</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
@@ -17438,6 +17499,30 @@ ffmpeg_image_transport_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+ffmpeg_image_transport_tools: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>ffmpeg_image_transport_tools</name>
+<description>tools for processing ffmpeg_image_transport_msgs</description>
+<maintainer email="bernd.pfrommer@gmail.com">Bernd Pfrommer</maintainer>
+<license>Apache-2</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>ros_environment</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_cmake_clang_format</test_depend>
+<depend>cv_bridge</depend>
+<depend>rclcpp</depend>
+<depend>ffmpeg_image_transport</depend>
+<depend>ffmpeg_image_transport_msgs</depend>
+<depend>rosbag2_cpp</depend>
+<depend>sensor_msgs</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 fields2cover: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -18917,6 +19002,26 @@ generate_parameter_library: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+generate_parameter_library_example: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>generate_parameter_library_example</name>
+<description>Example usage of generate_parameter_library.</description>
+<maintainer email="paul.gesel@picknik.ai">Paul Gesel</maintainer>
+<license>BSD-3-Clause</license>
+<author email="paul.gesel@picknik.ai">Paul Gesel</author>
+<depend>generate_parameter_library</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 generate_parameter_library_py: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -18930,6 +19035,25 @@ generate_parameter_library_py: <?xml version="1.0" ?>
 <depend>python3-typeguard</depend>
 <depend>python3-yaml</depend>
 <test_depend>ament_copyright</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+generate_parameter_module_example: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>generate_parameter_module_example</name>
+<description>Example usage of generate_parameter_library for a python module</description>
+<maintainer email="paulgesel@gmail.com">paul</maintainer>
+<license>BSD-3-Clause</license>
+<depend>generate_parameter_library</depend>
+<depend>generate_parameter_library_py</depend>
+<depend>rclpy</depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
 <test_depend>python3-pytest</test_depend>
 <export>
 <build_type>ament_python</build_type>
@@ -18990,7 +19114,6 @@ geographic_msgs: <?xml version="1.0" ?>
 <description>ROS messages for Geographic Information Systems.</description>
 <maintainer email="jack.oquin@gmail.com">Jack O'Quin</maintainer>
 <maintainer email="stevenmacenski@gmail.com">Steve Macenski</maintainer>
-<author>Jack O'Quin</author>
 <license>BSD</license>
 <url>http://wiki.ros.org/geographic_msgs</url>
 <url type="bugtracker">https://github.com/ros-geographic-info/geographic_info/issues</url>
@@ -19001,6 +19124,13 @@ geographic_msgs: <?xml version="1.0" ?>
 <depend>geometry_msgs</depend>
 <depend>std_msgs</depend>
 <depend>unique_identifier_msgs</depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_cppcheck</test_depend>
+<test_depend>ament_cmake_cpplint</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<test_depend>ament_cmake_uncrustify</test_depend>
+<test_depend>ament_cmake_xmllint</test_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
@@ -23666,6 +23796,7 @@ mola: <?xml version="1.0" ?>
 <depend>mola_metric_maps</depend>
 <depend>mola_navstate_fuse</depend>
 <depend>mola_pose_list</depend>
+<depend>mola_relocalization</depend>
 <depend>mola_traj_tools</depend>
 <depend>mola_viz</depend>
 <depend>mola_yaml</depend>
@@ -24008,6 +24139,28 @@ mola_pose_list: <?xml version="1.0" ?>
 <license file="LICENSE">GPLv3</license>
 <depend>mola_common</depend>
 <depend>mrpt2</depend>
+<doc_depend>doxygen</doc_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+mola_relocalization: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_relocalization</name>
+<description>C++ library with algorithms for relocalization,
+global localization,
+or pose estimation given a large initial uncertainty</description>
+<author email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</author>
+<maintainer email="joseluisblancoc@gmail.com">Jose-Luis Blanco-Claraco</maintainer>
+<url type="website">https://github.com/MOLAorg/</url>
+<license file="LICENSE">GPLv3</license>
+<depend>mola_common</depend>
+<depend>mrpt2</depend>
+<depend>mp2p_icp</depend>
+<depend>mola_test_datasets</depend>
 <doc_depend>doxygen</doc_depend>
 <buildtool_depend>cmake</buildtool_depend>
 <export>
@@ -27992,6 +28145,25 @@ it fetches and builds orocos_kdl locally.</description>
 </export>
 </package>"
 -----
+ortools_vendor: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
+<name>ortools_vendor</name>
+<description>Wrapper around ortools,
+it provides a fixed CMake module and an ExternalProject build of it.</description>
+<maintainer email=\"gonzalo.miermunoz@wur.nl\">Gonzalo Mier</maintainer>
+<license>Apache License 2.0</license>
+<url type=\"website\">https://github.com/google/or-tools</url>
+<exec_depend condition=\"$ROS_VERSION == 1\">catkin</exec_depend>
+<buildtool_depend condition=\"$ROS_VERSION == 1\" version_gte=\"3.18\">cmake</buildtool_depend>
+<buildtool_depend condition=\"$ROS_VERSION == 2\">ament_cmake</buildtool_depend>
+<buildtool_depend condition=\"$ROS_VERSION == 2\">ament_cmake_vendor_package</buildtool_depend>
+<export>
+<build_type condition=\"$ROS_VERSION == 1\">cmake</build_type>
+<build_type condition=\"$ROS_VERSION == 2\">ament_cmake</build_type>
+</export>
+</package>"
+-----
 osqp_vendor: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -30193,6 +30365,28 @@ quaternion_operation: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+r2r_spl: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>r2r_spl</name>
+<description>Robot-to-Robot Communication in RoboCup Standard Platform League</description>
+<maintainer email="kenjibrameld@gmail.com">ijnek</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>python3-construct</exec_depend>
+<exec_depend>rclpy</exec_depend>
+<exec_depend>rosidl_parser</exec_depend>
+<exec_depend>game_controller_spl_interfaces</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-numpy</test_depend>
+<test_depend>python3-pytest</test_depend>
+<test_depend>r2r_spl_test_interfaces</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
 r2r_spl_7: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -30208,6 +30402,42 @@ r2r_spl_7: <?xml version="1.0" ?>
 <test_depend>python3-pytest</test_depend>
 <export>
 <build_type>ament_python</build_type>
+</export>
+</package>
+-----
+r2r_spl_8: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>r2r_spl_8</name>
+<description>Robot-To-Robot communication in RoboCup SPL</description>
+<maintainer email="kenjibrameld@gmail.com">ijnek</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>rclpy</exec_depend>
+<exec_depend>splsm_8_conversion</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+r2r_spl_test_interfaces: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>r2r_spl_test_interfaces</name>
+<description>Messages for testing r2r_spl</description>
+<maintainer email="kenjibrameld@gmail.com">ijnek</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -38570,6 +38800,25 @@ snowbot_operating_system: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+soccer_geometry_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>soccer_geometry_msgs</name>
+<description>A package containing msgs that extend geometry_msgs for use in soccer-related packages</description>
+<maintainer email="kenjibrameld@gmail.com">ijnek</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>geometry_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 soccer_interfaces: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -38605,6 +38854,28 @@ soccer_marker_generation: <?xml version="1.0" ?>
 <deprecated>This package will be removed in ROS J-Turtle due to the deprecation of soccer_object_msgs package. Instead,
 use packages from ros-sports/soccer_vision_3d_rviz_markers,
 which provides similar features with a different API.</deprecated>
+</export>
+</package>
+-----
+soccer_model_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>soccer_model_msgs</name>
+<description>A package containing world model related message definitions in the soccer domain.</description>
+<maintainer email="kenjibrameld@gmail.com">ijnek</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>soccer_geometry_msgs</depend>
+<depend>soccer_vision_attribute_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -38907,6 +39178,42 @@ splsm_7_conversion: <?xml version="1.0" ?>
 <maintainer email="kenjibrameld@gmail.com">ijnek</maintainer>
 <license>Apache License 2.0</license>
 <exec_depend>splsm_7</exec_depend>
+<exec_depend>python3-construct</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+splsm_8: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>splsm_8</name>
+<description>RoboCup Standard Platform League Standard Message V8 ROS msg</description>
+<maintainer email="kenjibrameld@gmail.com">ijnek</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+splsm_8_conversion: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>splsm_8_conversion</name>
+<description>Converts Standard Platform League Standard Message V8 between ROS msg and UDP raw bytes</description>
+<maintainer email="kenjibrameld@gmail.com">ijnek</maintainer>
+<license>Apache License 2.0</license>
+<exec_depend>splsm_8</exec_depend>
 <exec_depend>python3-construct</exec_depend>
 <test_depend>ament_copyright</test_depend>
 <test_depend>ament_flake8</test_depend>
@@ -39847,6 +40154,28 @@ test_msgs: <?xml version="1.0" ?>
 <test_depend>ament_lint_common</test_depend>
 <test_depend>ament_cmake_gtest</test_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+test_ros_gz_bridge: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>test_ros_gz_bridge</name>
+<description>Bridge communication between ROS and Gazebo Transport</description>
+<maintainer email="adityapande@intrinsic.ai">Aditya Pande</maintainer>
+<maintainer email="ahcorde@openrobotics.org">Alejandro Hernandez</maintainer>
+<license>Apache 2.0</license>
+<author>Michael Carroll</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>ros_gz_bridge</depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>launch_testing_ament_cmake</test_depend>
+<test_depend>launch_ros</test_depend>
+<test_depend>launch_testing</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
