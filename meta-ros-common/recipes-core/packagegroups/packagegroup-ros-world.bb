@@ -18,5 +18,6 @@ RDEPENDS:${PN} += "\
     ${@ 'packagegroup-ros-world-galactic' if 'ros2-galactic-layer' in BBFILE_COLLECTIONS.split() else '' } \
     ${@ 'packagegroup-ros-world-humble' if 'ros2-humble-layer' in BBFILE_COLLECTIONS.split() else '' } \
     ${@ 'packagegroup-ros-world-iron' if 'ros2-iron-layer' in BBFILE_COLLECTIONS.split() else '' } \
+    ${@ 'packagegroup-ros-world-jazzy' if 'ros2-jazzy-layer' in BBFILE_COLLECTIONS.split() else '' } \
     ${@ 'packagegroup-ros-world-rolling' if 'ros2-rolling-layer' in BBFILE_COLLECTIONS.split() else '' } \
 "
