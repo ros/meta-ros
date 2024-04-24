@@ -16,6 +16,7 @@ variables:
       - melodic
       - humble
       - iron
+      - jazzy
       - rolling
   OE_RELEASE_SERIES:
     description: "The Yocto Project release"
