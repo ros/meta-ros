@@ -1,8 +1,6 @@
 image: crops/poky:debian-12
 
 variables:
-  META_ROS_GIT: "https://github.com/ros/meta-ros.git"
-  META_ROS_BRANCH: master
   DISTRO:
     description: "The Robot Operating System"
     value: "ros2"
@@ -69,4 +67,18 @@ build-job:
     - source venv/bin/activate
     - pip3 install kas
     - cd $CI_PROJECT_DIR/kas
-    - kas build --update oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml
+    - |
+      if [[ -n "$META_ROS_GIT" ]] && [[ -n "$META_ROS_BRANCH" ]]; then
+        cat <<EOF > custom-meta-ros.yml
+      header:
+        version: 14
+
+      repos:
+        ros:
+          url: "$META_ROS_GIT"
+          branch: $META_ROS_BRANCH
+      EOF
+        EXTRA_KAS_YAML=":custom-meta-ros.yml"
+      fi
+    - echo kas build --update ${BITBAKE_TARGET:+--target} ${BITBAKE_TARGET} ${BITBAKE_TASK:+-c} ${BITBAKE_TASK} oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml${EXTRA_KAS_YAML} -- ${EXTRA_BITBAKE_ARGS}
+    - kas build --update ${BITBAKE_TARGET:+--target} ${BITBAKE_TARGET} ${BITBAKE_TASK:+-c} ${BITBAKE_TASK} oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml${EXTRA_KAS_YAML} -- ${EXTRA_BITBAKE_ARGS}
