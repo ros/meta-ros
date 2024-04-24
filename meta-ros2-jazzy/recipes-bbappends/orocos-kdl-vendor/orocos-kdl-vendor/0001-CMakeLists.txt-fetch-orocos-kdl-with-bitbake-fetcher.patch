@@ -1,0 +1,16 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -9,9 +9,8 @@ find_package(orocos_kdl 1.5.1 QUIET)
+ 
+ ament_vendor(orocos_kdl_vendor
+   SATISFIED ${orocos_kdl_FOUND}
+-  VCS_URL https://github.com/orocos/orocos_kinematics_dynamics.git
+-  VCS_VERSION 507de66205e14b12c8c65f25eafc05c4dc66e21e
+-  SOURCE_SUBDIR orocos_kdl
++  VCS_URL orocos-kdl/orocos_kdl
++  VCS_TYPE path
+   GLOBAL_HOOK
+   CMAKE_ARGS
+     -DENABLE_TESTS:BOOL=OFF

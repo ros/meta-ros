@@ -1,0 +1,47 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -4,41 +4,15 @@ find_package(ament_cmake REQUIRED)
+ find_package(ament_cmake_python REQUIRED)
+ set(python_version "python${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}")
+ 
+-include(ExternalProject)
+-ExternalProject_Add(upstr_lely_core_libraries    # Name for custom target
+-  #--Download step--------------
+-  SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/upstream
+-  INSTALL_DIR "${CMAKE_INSTALL_PREFIX}"  # Installation prefix
+-  BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/build
+-  GIT_REPOSITORY https://gitlab.com/lely_industries/lely-core.git
+-  GIT_TAG 7824cbb2ac08d091c4fa2fb397669b938de9e3f5
+-  TIMEOUT 60
+-  #UPDATE step apply patch to fix dcf-tools install
+-  UPDATE_COMMAND
+-  COMMAND git reset --hard
+-  COMMAND git apply --whitespace=fix --reject ${CMAKE_CURRENT_SOURCE_DIR}/patches/0001-Fix-dcf-tools.patch
+-  #CONFIGURE step execute autoreconf and configure
+-  CONFIGURE_COMMAND autoreconf -i <SOURCE_DIR>
+-  COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR> --disable-cython --disable-doc --disable-tests --disable-static --disable-diag
+-  #BUILD STEP execute make
+-  BUILD_COMMAND $(MAKE) -C ${CMAKE_CURRENT_BINARY_DIR}/build
+-  #INSTALL STEP do nothing as we install in main
+-  INSTALL_COMMAND ""
+-)
+-
+-#INSTALL lely_core_libraries - execute make install
+-install(CODE "execute_process(COMMAND ${CMAKE_MAKE_PROGRAM} install VERBOSE=1 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/build)")
+-
+ set(lely_core_cmake_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+ include("cmake/lely_core_libraries-extras.cmake" NO_POLICY_SCOPE)
+ 
+-
+ install(
+   DIRECTORY cmake
+   DESTINATION share/${PROJECT_NAME}
+ )
+ 
+-ament_python_install_package(cogen SCRIPTS_DESTINATION lib/cogen)
++ament_python_install_package(cogen SKIP_COMPILE SCRIPTS_DESTINATION lib/cogen)
+ 
+ # install entry-point script(s) in bin as well
+ install(
