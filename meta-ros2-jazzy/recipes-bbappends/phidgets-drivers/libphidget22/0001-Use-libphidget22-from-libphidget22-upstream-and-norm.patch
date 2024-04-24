@@ -1,0 +1,71 @@
+Use libphidget22 from libphidget22-upstream and normal prefix
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+ CMakeLists.txt                     |   40 -------------------------------------
+ cmake/libphidget22-extras.cmake.in |    4 +--
+ 2 files changed, 3 insertions(+), 41 deletions(-)
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -3,44 +3,6 @@ project(libphidget22)
+ 
+ find_package(ament_cmake REQUIRED)
+ 
+-set(extra_c_flags "-g -O2 -Wno-incompatible-pointer-types -Wno-deprecated-declarations -Wno-format-truncation -fPIC")
+-
+-include(ExternalProject)
+-ExternalProject_Add(EP_${PROJECT_NAME}
+-    URL https://www.phidgets.com/downloads/phidget22/libraries/linux/libphidget22/libphidget22-1.13.20230224.tar.gz
+-    URL_MD5 e34f6bf266562d1950a82067ab5beaa9
+-
+-    PATCH_COMMAND patch -p1 < ${CMAKE_CURRENT_SOURCE_DIR}/patch/libphidget22-1.13.20230224-fix-warnings.patch
+-    SOURCE_DIR ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src
+-    CONFIGURE_COMMAND
+-      <SOURCE_DIR>/configure
+-      CFLAGS=${extra_c_flags}
+-      --prefix=${CMAKE_CURRENT_BINARY_DIR}/libphidget22_install
+-      --disable-ldconfig
+-    BUILD_COMMAND $(MAKE)
+-    INSTALL_COMMAND $(MAKE) install
+-)
+-
+-# The external project will install to the build folder, but we'll install that on make install.
+-# Note that we install lib and include separately so we can add the extra level of indirection
+-# to the include directory.
+-install(
+-  DIRECTORY
+-    ${CMAKE_CURRENT_BINARY_DIR}/libphidget22_install/lib/
+-  DESTINATION
+-    ${CMAKE_INSTALL_PREFIX}/opt/libphidget22/lib/
+-)
+-
+-install(
+-  DIRECTORY
+-    ${CMAKE_CURRENT_BINARY_DIR}/libphidget22_install/include/
+-  DESTINATION
+-    ${CMAKE_INSTALL_PREFIX}/opt/libphidget22/include/libphidget22/
+-)
+-
+-ament_environment_hooks(env_hook/libphidget22_library_path.sh)
+-set(ENV_VAR_NAME "LD_LIBRARY_PATH")
+-set(ENV_VAR_VALUE "opt/libphidget22/lib")
+-ament_environment_hooks(env_hook/libphidget22_library_path.dsv.in)
++find_package(libphidget22)
+ 
+ ament_package(CONFIG_EXTRAS "cmake/libphidget22-extras.cmake.in")
+Index: git/cmake/libphidget22-extras.cmake.in
+===================================================================
+--- git.orig/cmake/libphidget22-extras.cmake.in
++++ git/cmake/libphidget22-extras.cmake.in
+@@ -1,3 +1,3 @@
+ # TODO(clalancette): Does this work in general?
+-list(APPEND @PROJECT_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/../../../opt/libphidget22/include")
+-list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../opt/libphidget22/lib/libphidget22.so")
++list(APPEND @PROJECT_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/../../../../usr/include")
++list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../../usr/lib/libphidget22.so")

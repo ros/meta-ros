@@ -1,0 +1,29 @@
+Use the static library from the kortex-api recipe
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -1,11 +1,4 @@
+ cmake_minimum_required(VERSION 3.14)
+-include(FetchContent)
+-FetchContent_Declare(
+-  kinova_binary_api
+-  URL https://artifactory.kinovaapps.com:443/artifactory/generic-public/kortex/API/2.5.0/linux_x86-64_x86_gcc.zip
+-  URL_HASH MD5=64bd86e7ab8bda90ef1fc7d6a356e080
+-)
+-FetchContent_MakeAvailable(kinova_binary_api)
+ 
+ project(kortex_driver)
+ 
+@@ -42,7 +35,7 @@ endif()
+ # The package kortex_api will download and setup the include directories
+ add_library(KortexApiCpp STATIC IMPORTED)
+ set_target_properties(KortexApiCpp PROPERTIES
+-  IMPORTED_LOCATION ${kinova_binary_api_SOURCE_DIR}/lib/release/libKortexApiCpp.a
++  IMPORTED_LOCATION ${KORTEX_API_LIBRARY}
+   INTERFACE_LINK_LIBRARIES KortexApiCpp
+ )
+ target_link_libraries(KortexApiCpp INTERFACE pthread)

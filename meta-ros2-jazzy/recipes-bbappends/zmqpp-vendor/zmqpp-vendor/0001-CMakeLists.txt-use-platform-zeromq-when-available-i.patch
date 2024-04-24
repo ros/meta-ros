@@ -1,0 +1,35 @@
+Adapted from libyaml patch by Martin Jansa.
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+ CMakeLists.txt |   13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 75f3701..dd8ee8e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -29,9 +29,18 @@ macro(build_zmqpp)
+   )
+ endmacro()
+ 
+-build_zmqpp()
++find_package(ZeroMQ CONFIG REQUIRED)
++
++if(ZeroMQ_FOUND)
++  message(STATUS "Found ZeroMQ ${ZEROMQ_VERSION}")
++else()
++  message(FATAL_ERROR "ZeroMQ not found -- missing from DEPENDS?")
++  # eventually we can build one with ExternalProjectAdd
++  # build_libyaml()
++endif()
++
+ ament_export_include_directories(include)
+-ament_export_libraries(zmqpp)
++ament_export_dependencies(ZeroMQ)
+ 
+ if(BUILD_TESTING)
+   find_package(ament_lint_auto REQUIRED)
