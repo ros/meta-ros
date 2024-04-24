@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 591c4fb..87d6857 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,7 +15,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+   add_compile_options(-Wall -Wextra -Wpedantic)
+ endif()
+ 
+-set(CMAKE_CXX_FLAGS "${CMAKE_XX_FLAGS} -pthread")
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread")
+ 
+ find_package(ament_cmake REQUIRED)

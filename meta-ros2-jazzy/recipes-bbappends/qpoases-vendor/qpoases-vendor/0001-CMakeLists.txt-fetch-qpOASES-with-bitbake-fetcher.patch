@@ -1,0 +1,26 @@
+From 3664b1d914927c20da32e1ba2bad565a9950d57a Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 2 Nov 2020 09:26:59 -0800
+Subject: [PATCH] CMakeLists.txt: fetch qpOASES with bitbake fetcher
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1c49b47..4192985 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,8 +6,7 @@ find_package(catkin REQUIRED)
+ 
+ include(ExternalProject)
+ ExternalProject_Add(qpoases_3_2
+-  SVN_REPOSITORY https://projects.coin-or.org/svn/qpOASES/stable/3.2
+-  SVN_TRUST_CERT TRUE
++  SOURCE_DIR ${PROJECT_SOURCE_DIR}/qpOASES-upstream
+   BUILD_IN_SOURCE TRUE
+   INSTALL_COMMAND ""
+ )

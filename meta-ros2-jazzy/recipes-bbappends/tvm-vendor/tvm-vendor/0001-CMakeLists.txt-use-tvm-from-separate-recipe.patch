@@ -1,0 +1,103 @@
+From 7aa8447c2513b6dbc447e6a7196f37a0f2f91aab Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 18 Dec 2020 07:40:04 -0800
+Subject: [PATCH] CMakeLists.txt: use tvm from separate recipe
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 74 --------------------------------------------------
+ 1 file changed, 74 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e8a1cef..220f1fa 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -44,47 +44,6 @@ elseif(${ROS_VERSION} EQUAL 2)
+   find_package(ament_cmake REQUIRED)
+ endif()
+ 
+-include(ExternalProject)
+-
+-set(PATCH_FILE ${CMAKE_CURRENT_SOURCE_DIR}/config.cmake.patch)
+-if(ROS_VERSION EQUAL 2)
+-  set(PATCH_FILE ${CMAKE_CURRENT_SOURCE_DIR}/config.cmake.gpu.patch)
+-endif()
+-
+-ExternalProject_Add(tvm-build
+-  GIT_REPOSITORY https://github.com/apache/tvm
+-  GIT_TAG v0.9.0
+-  GIT_SHALLOW TRUE
+-  BUILD_IN_SOURCE TRUE
+-  PATCH_COMMAND git reset --hard && git apply ${PATCH_FILE}
+-  COMMAND cp <SOURCE_DIR>/cmake/config.cmake <SOURCE_DIR>
+-  CONFIGURE_COMMAND ${CMAKE_COMMAND} -DCMAKE_POSITION_INDEPENDENT_CODE=ON .
+-  INSTALL_COMMAND ""
+-)
+-
+-# Build DMLC
+-ExternalProject_Add_Step(tvm-build dmlc-build
+-  DEPENDEES patch
+-  WORKING_DIRECTORY <SOURCE_DIR>/3rdparty/dmlc-core
+-  COMMAND ${CMAKE_COMMAND} -DCMAKE_POSITION_INDEPENDENT_CODE=ON .
+-  COMMAND ${CMAKE_MAKE_PROGRAM}
+-  BYPRODUCTS libdmlc.a
+-)
+-
+-ExternalProject_Get_property(tvm-build SOURCE_DIR)
+-
+-add_library(tvm SHARED IMPORTED
+-  IMPORTED_LOCATION ${SOURCE_DIR}/libtvm.so
+-)
+-
+-add_library(tvm_runtime SHARED IMPORTED
+-  IMPORTED_LOCATION ${SOURCE_DIR}/libtvm_runtime.so
+-)
+-
+-add_library(dmlc STATIC IMPORTED
+-  IMPORTED_LOCATION ${SOURCE_DIR}/3rdparty/dmlc-core
+-)
+-
+ if(${ROS_VERSION} EQUAL 1)
+   catkin_package(
+     INCLUDE_DIRS include
+@@ -136,38 +95,5 @@ if(${ROS_VERSION} EQUAL 1)
+ elseif(${ROS_VERSION} EQUAL 2)
+   ament_export_include_directories(include include/tvm_vendor)
+   ament_export_libraries(tvm tvm_runtime)
+-
+-  install(DIRECTORY ${SOURCE_DIR}/include/tvm/runtime/
+-    DESTINATION include/${PROJECT_NAME}/tvm/runtime
+-  )
+-
+-  install(
+-    FILES
+-      ${SOURCE_DIR}/libtvm.so
+-      ${SOURCE_DIR}/libtvm_runtime.so
+-    DESTINATION lib
+-  )
+-
+-  install(
+-    FILES
+-      ${SOURCE_DIR}/3rdparty/dlpack/include/dlpack/dlpack.h
+-      ${SOURCE_DIR}/3rdparty/dlpack/contrib/dlpack/dlpackcpp.h
+-    DESTINATION include/${PROJECT_NAME}/dlpack
+-  )
+-
+-  install(DIRECTORY ${SOURCE_DIR}/3rdparty/dmlc-core/include/dmlc
+-    DESTINATION include/${PROJECT_NAME}
+-  )
+-
+-  install(FILES ${SOURCE_DIR}/3rdparty/dmlc-core/libdmlc.a
+-    DESTINATION lib
+-  )
+-
+-  install(
+-    FILES
+-      cmake/tvm_runtimeConfig.cmake
+-      cmake/tvmConfig.cmake
+-    DESTINATION share/${PROJECT_NAME}/cmake)
+-
+   ament_package()
+ endif()

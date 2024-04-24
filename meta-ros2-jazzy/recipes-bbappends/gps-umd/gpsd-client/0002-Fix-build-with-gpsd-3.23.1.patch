@@ -1,0 +1,77 @@
+From 3d2cd456f3bbc1f7450df591c7947a323c7c9177 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 1 Oct 2021 06:08:14 -0700
+Subject: [PATCH] Fix build with gpsd-3.23.1
+
+* there ware 3 API breaking changes in 3.23.1 point release without bumping GPSD_API_MAJOR_VERSION:
+
+  Change STATUS_NO_FIX to STATUS_UNK to avoid confusion with fix mode.
+  Change STATUS_FIX to STATUS_GPS to avoid confusion with fix mode.
+  Change STATUS_DGPS_FIX to STATUS_DGPS to avoid confusion with fix mode.
+
+  https://gitlab.com/gpsd/gpsd/-/commit/d4a4d8d3606fd50f10bcd20096a8a0cdb8b2d427
+  https://gitlab.com/gpsd/gpsd/-/commit/af3b7dc0d1fc8b912ea2ef3df4a74498ccade85a
+  https://gitlab.com/gpsd/gpsd/-/commit/7d7b889f5ca9ec0bdef5fcea3da0e320eb8ceb97
+
+Upstream-Status: Submitted [https://github.com/swri-robotics/gps_umd/pull/39 https://github.com/swri-robotics/gps_umd/pull/40 https://github.com/swri-robotics/gps_umd/pull/41]
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/client.cpp | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+
+diff --git a/src/client.cpp b/src/client.cpp
+index 28c7215..b4347b5 100644
+--- a/src/client.cpp
++++ b/src/client.cpp
+@@ -153,7 +153,11 @@ namespace gpsd_client
+       }
+ 
+ #if GPSD_API_MAJOR_VERSION >= 10
++#ifdef STATUS_FIX
+       if ((p->fix.status & STATUS_FIX) && !(check_fix_by_variance_ && std::isnan(p->fix.epx)))
++#else
++      if ((p->fix.status & STATUS_GPS) && !(check_fix_by_variance_ && std::isnan(p->fix.epx)))
++#endif
+ #else
+       if ((p->status & STATUS_FIX) && !(check_fix_by_variance_ && std::isnan(p->fix.epx)))
+ #endif
+@@ -164,7 +168,11 @@ namespace gpsd_client
+ // STATUS_DGPS_FIX was removed in API version 6 but re-added afterward
+ #if GPSD_API_MAJOR_VERSION != 6
+ #if GPSD_API_MAJOR_VERSION >= 10
++#ifdef STATUS_DGPS_FIX
+         if (p->fix.status & STATUS_DGPS_FIX)
++#else
++        if (p->fix.status & STATUS_DGPS)
++#endif
+ #else
+         if (p->status & STATUS_DGPS_FIX)
+ #endif
+@@ -248,15 +256,27 @@ namespace gpsd_client
+       switch (p->status)
+ #endif
+       {
++#ifdef STATUS_NO_FIX
+         case STATUS_NO_FIX:
++#else
++        case STATUS_UNK:
++#endif
+           fix->status.status = -1; // NavSatStatus::STATUS_NO_FIX;
+           break;
++#ifdef STATUS_FIX
+         case STATUS_FIX:
++#else
++        case STATUS_GPS:
++#endif
+           fix->status.status = 0; // NavSatStatus::STATUS_FIX;
+           break;
+ // STATUS_DGPS_FIX was removed in API version 6 but re-added afterward
+ #if GPSD_API_MAJOR_VERSION != 6
++#ifdef STATUS_DGPS_FIX
+         case STATUS_DGPS_FIX:
++#else
++        case STATUS_DGPS:
++#endif
+           fix->status.status = 2; // NavSatStatus::STATUS_GBAS_FIX;
+           break;
+ #endif

@@ -1,0 +1,53 @@
+From 5ca854acfedf9cb19ba6bdf189ce77968e083edb Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Wed, 25 Aug 2021 02:50:00 -0700
+Subject: [PATCH] Fix build with gpsd-3.21
+
+Adapt to changes from this commit:
+https://gitlab.com/gpsd/gpsd/-/commit/29991d6ffeb41ecfc8297db68bb68be0128c8514
+
+Upstream-Status: Submitted [https://github.com/swri-robotics/gps_umd/pull/39 https://github.com/swri-robotics/gps_umd/pull/40 https://github.com/swri-robotics/gps_umd/pull/41]
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/client.cpp | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/src/client.cpp b/src/client.cpp
+index 425d1c3..28c7215 100644
+--- a/src/client.cpp
++++ b/src/client.cpp
+@@ -152,14 +152,22 @@ namespace gpsd_client
+ #endif
+       }
+ 
++#if GPSD_API_MAJOR_VERSION >= 10
++      if ((p->fix.status & STATUS_FIX) && !(check_fix_by_variance_ && std::isnan(p->fix.epx)))
++#else
+       if ((p->status & STATUS_FIX) && !(check_fix_by_variance_ && std::isnan(p->fix.epx)))
++#endif
+       {
+         status.status = 0; // FIXME: gpsmm puts its constants in the global
+         // namespace, so `GPSStatus::STATUS_FIX' is illegal.
+ 
+ // STATUS_DGPS_FIX was removed in API version 6 but re-added afterward
+ #if GPSD_API_MAJOR_VERSION != 6
++#if GPSD_API_MAJOR_VERSION >= 10
++        if (p->fix.status & STATUS_DGPS_FIX)
++#else
+         if (p->status & STATUS_DGPS_FIX)
++#endif
+           status.status |= 18; // same here
+ #endif
+ 
+@@ -234,7 +242,11 @@ namespace gpsd_client
+        * so we need to use the ROS message's integer values
+        * for status.status
+        */
++#if GPSD_API_MAJOR_VERSION >= 10
++      switch (p->fix.status)
++#else
+       switch (p->status)
++#endif
+       {
+         case STATUS_NO_FIX:
+           fix->status.status = -1; // NavSatStatus::STATUS_NO_FIX;

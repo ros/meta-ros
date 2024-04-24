@@ -1,0 +1,24 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3ed2746..8e8c677 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -423,7 +423,7 @@ install(
+ install(
+     FILES
+         cmake/IceoryxPoshDeployment.cmake
+-    DESTINATION ${DESTINATION_CONFIGDIR}
++    DESTINATION ${DESTINATION_MODULEDIR}
+ )
+ 
+ if(ROUDI_ENVIRONMENT OR BUILD_TEST)
+diff --git a/cmake/Config.cmake.in b/cmake/Config.cmake.in
+index 0f74ce4..5becbeb 100644
+--- a/cmake/Config.cmake.in
++++ b/cmake/Config.cmake.in
+@@ -22,5 +22,5 @@ include(CMakeFindDependencyMacro)
+ find_dependency(iceoryx_hoofs)
+ 
+ include("${CMAKE_CURRENT_LIST_DIR}/@TARGETS_EXPORT_NAME@.cmake")
+-list(APPEND CMAKE_MODULE_PATH "@CMAKE_INSTALL_PREFIX@/@DESTINATION_CONFIGDIR@")
++list(APPEND CMAKE_MODULE_PATH "@CMAKE_INSTALL_PREFIX@/@DESTINATION_MODULEDIR@")
+ check_required_components("@PROJECT_NAME@")

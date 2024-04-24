@@ -1,0 +1,23 @@
+The ament_cmake_vendor_package uses "opt/${PROJECT_NAME}" as the default
+install destination. This causes vendor packages like uncrustify-vendor
+to fail package QA tests:
+
+  ERROR: uncrustify-vendor-2.2.1-1-r0 do_package: QA Issue: uncrustify-vendor: Files/directories were installed but not shipped in any package:                                                                      /usr/opt/uncrustify_vendor/bin/uncrustify
+  Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.                                                                 uncrustify-vendor: 1 installed and not shipped files. [installed-vs-shipped]
+
+The DESTINATION option must be set.  In order to ensure that it resolves
+to /usr without hardcoding it we use "." to provide a relative path.
+
+diff --git a/cmake/ament_vendor.cmake b/cmake/ament_vendor.cmake
+index 631b540db..5d5668f0d 100644
+--- a/cmake/ament_vendor.cmake
++++ b/cmake/ament_vendor.cmake
+@@ -301,7 +301,7 @@ function(_ament_vendor TARGET_NAME VCS_TYPE VCS_URL VCS_VERSION PATCHES CMAKE_AR
+   if(NOT SKIP_INSTALL)
+     install(
+       DIRECTORY "${INSTALL_DIR}/"
+-      DESTINATION "opt/${PROJECT_NAME}"
++      DESTINATION "."
+       USE_SOURCE_PERMISSIONS
+     )
+   endif()
