@@ -1,0 +1,16 @@
+header:
+  version: 14
+
+distro: "ros2"
+
+repos:
+  ros:
+    url: "https://github.com/ros/meta-ros.git"
+    path: "layers/meta-ros"
+    layers:
+      meta-ros-common:
+      meta-ros2:
+      meta-ros2-jazzy:
+
+target:
+  - ros-image-core
