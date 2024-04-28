@@ -8,7 +8,3 @@ ROS_BUILDTOOL_DEPENDS += " \
     ament-package-native \
     rosidl-default-generators-native \
 "
-
-# ERROR: QA Issue: package rviz2 contains bad RPATH .../assimp/5.2.5-r0/recipe-sysroot/usr/lib
-#        in file .../rviz2/11.2.8-1-r0/packages-split/rviz2/usr/bin/rviz2
-EXTRA_OECMAKE += "-DCMAKE_SKIP_RPATH=ON"

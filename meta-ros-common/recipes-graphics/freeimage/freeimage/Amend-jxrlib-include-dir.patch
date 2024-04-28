@@ -1,0 +1,13 @@
+Index: git/Source/FreeImage/PluginJXR.cpp
+===================================================================
+--- git.orig/Source/FreeImage/PluginJXR.cpp
++++ git/Source/FreeImage/PluginJXR.cpp
+@@ -23,7 +23,7 @@
+ #include "Utilities.h"
+ #include "../Metadata/FreeImageTag.h"
+ 
+-#include <JXRGlue.h>
++#include <jxrlib/JXRGlue.h>
+ 
+ // ==========================================================
+ // Plugin Interface

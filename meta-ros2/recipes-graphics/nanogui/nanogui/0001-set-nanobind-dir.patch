@@ -1,0 +1,10 @@
+--- a/ext/nanobind/CMakeLists.txt
++++ b/ext/nanobind/CMakeLists.txt
+@@ -129,6 +129,7 @@
+ # Include nanobind cmake functionality
+ # ---------------------------------------------------------------------------
+ 
++set(nanobind_DIR "${CMAKE_CURRENT_LIST_DIR}/cmake")
+ find_package(nanobind
+   PATHS ${CMAKE_CURRENT_SOURCE_DIR}/cmake
+   NO_DEFAULT_PATH)

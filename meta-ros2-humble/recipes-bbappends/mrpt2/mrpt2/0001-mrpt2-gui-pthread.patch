@@ -1,0 +1,11 @@
+Index: git/libs/gui/CMakeLists.txt
+===================================================================
+--- git.orig/libs/gui/CMakeLists.txt
++++ git/libs/gui/CMakeLists.txt
+@@ -68,4 +68,6 @@ if(BUILD_mrpt-gui)
+ 	if (MRPT_OPENGL_PROFILER)
+ 		target_compile_definitions(gui PRIVATE MRPT_OPENGL_PROFILER)
+ 	endif()
++
++ 	target_link_libraries(gui PRIVATE Threads::Threads)
+ endif()

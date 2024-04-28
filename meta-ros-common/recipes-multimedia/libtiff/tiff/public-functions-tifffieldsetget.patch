@@ -1,0 +1,243 @@
+From 11f3f279608ae9e68f014717393197f430f9be58 Mon Sep 17 00:00:00 2001
+From: Su Laus <sulau@freenet.de>
+Date: Sat, 14 May 2022 19:32:11 +0000
+Subject: [PATCH] Public functions TIFFFieldSetGetSize() and
+ TIFFieldSetGetCountSize() added.
+
+---
+ libtiff/libtiff.def    |   2 +
+ libtiff/tif_dir.c      |   7 +--
+ libtiff/tif_dirinfo.c  | 109 +++++++++++++++++++++++------------------
+ libtiff/tif_dirwrite.c |   4 +-
+ libtiff/tif_print.c    |   4 +-
+ libtiff/tiffio.h       |   4 +-
+ libtiff/tiffiop.h      |   4 --
+ 7 files changed, 73 insertions(+), 61 deletions(-)
+
+Index: tiff-4.3.0/libtiff/libtiff.def
+===================================================================
+--- tiff-4.3.0.orig/libtiff/libtiff.def
++++ tiff-4.3.0/libtiff/libtiff.def
+@@ -33,6 +33,8 @@ EXPORTS	TIFFAccessTagMethods
+ 	TIFFFieldWithName
+ 	TIFFFieldWithTag
+ 	TIFFFieldWriteCount
++	TIFFFieldSetGetSize
++	TIFFFieldSetGetCountSize
+ 	TIFFFileName
+ 	TIFFFileno
+ 	TIFFFindCODEC
+Index: tiff-4.3.0/libtiff/tif_dir.c
+===================================================================
+--- tiff-4.3.0.orig/libtiff/tif_dir.c
++++ tiff-4.3.0/libtiff/tif_dir.c
+@@ -605,11 +605,8 @@ _TIFFVSetField(TIFF* tif, uint32_t tag,
+ 		/*
+ 		 * Set custom value ... save a copy of the custom tag value.
+ 		 */
+-		tv_size = _TIFFDataSize(fip->field_type);
+ 		/*--: Rational2Double: For Rationals evaluate "set_field_type" to determine internal storage size. */
+-		if (fip->field_type == TIFF_RATIONAL || fip->field_type == TIFF_SRATIONAL) {
+-			tv_size = _TIFFSetGetFieldSize(fip->set_field_type);
+-		}
++		tv_size = TIFFFieldSetGetSize(fip);
+ 		if (tv_size == 0) {
+ 			status = 0;
+ 			TIFFErrorExt(tif->tif_clientdata, module,
+@@ -1245,7 +1242,7 @@ _TIFFVGetField(TIFF* tif, uint32_t tag,
+ 							case TIFF_SRATIONAL:
+ 								{
+ 									/*-- Rational2Double: For Rationals evaluate "set_field_type" to determine internal storage size and return value size. */
+-									int tv_size = _TIFFSetGetFieldSize(fip->set_field_type);
++									int tv_size = TIFFFieldSetGetSize(fip);
+ 									if (tv_size == 8) {
+ 										*va_arg(ap, double*) = *(double *)val;
+ 										ret_val = 1;
+Index: tiff-4.3.0/libtiff/tif_dirinfo.c
+===================================================================
+--- tiff-4.3.0.orig/libtiff/tif_dirinfo.c
++++ tiff-4.3.0/libtiff/tif_dirinfo.c
+@@ -563,55 +563,28 @@ TIFFDataWidth(TIFFDataType type)
+ 	}
+ }
+ 
+-/*
+- * Return size of TIFFDataType in bytes.
+- *
+- * XXX: We need a separate function to determine the space needed
+- * to store the value. For TIFF_RATIONAL values TIFFDataWidth() returns 8,
+- * but we use 4-byte float to represent rationals.
++/* 
++ * Return internal storage size of TIFFSetGetFieldType in bytes.
++ * TIFFSetField() and TIFFGetField() have to provide the parameter accordingly.
++ * Replaces internal functions _TIFFDataSize() and _TIFFSetGetFieldSize() 
++ * with now extern available function TIFFFieldSetGetSize().
+  */
+-int
+-_TIFFDataSize(TIFFDataType type)
++int 
++TIFFFieldSetGetSize(const TIFFField* fip)
+ {
+-	switch (type)
+-	{
+-		case TIFF_BYTE:
+-		case TIFF_SBYTE:
+-		case TIFF_ASCII:
+-		case TIFF_UNDEFINED:
+-		    return 1;
+-		case TIFF_SHORT:
+-		case TIFF_SSHORT:
+-		    return 2;
+-		case TIFF_LONG:
+-		case TIFF_SLONG:
+-		case TIFF_FLOAT:
+-		case TIFF_IFD:
+-		case TIFF_RATIONAL:
+-		case TIFF_SRATIONAL:
+-		    return 4;
+-		case TIFF_DOUBLE:
+-		case TIFF_LONG8:
+-		case TIFF_SLONG8:
+-		case TIFF_IFD8:
+-		    return 8;
+-		default:
+-		    return 0;
+-	}
+-}
+-
+ /*
+- * Rational2Double: 
+- * Return size of TIFFSetGetFieldType in bytes.
+- *
+- * XXX: TIFF_RATIONAL values for FIELD_CUSTOM are stored internally as 4-byte float.
+- * However, some of them should be stored internally as 8-byte double. 
+- * This is now managed by the SetGetField of the tag-definition!
+- */
+-int
+-_TIFFSetGetFieldSize(TIFFSetGetFieldType setgettype)
+-{
+-	switch (setgettype)
++ * TIFFSetField() and TIFFGetField() must provide the parameter accordingly to
++ * the definition of "set_field_type" of the tag definition in dir_info.c.
++ * This function returns the data size for that purpose.
++ * 
++ * Furthermore, this data size is also used for the internal storage,
++ * even for TIFF_RATIONAL values for FIELD_CUSTOM, which are stored internally as 4-byte float,
++ * but some of them should be stored internally as 8-byte double,
++ * depending on the "set_field_type" _FLOAT_ or _DOUBLE_.
++*/
++	if (fip == NULL) return 0;
++
++	switch (fip->set_field_type)
+ 	{
+ 		case TIFF_SETGET_UNDEFINED:
+ 		case TIFF_SETGET_ASCII:
+@@ -673,7 +646,48 @@ _TIFFSetGetFieldSize(TIFFSetGetFieldType
+ 		default:
+ 		    return 0;
+ 	}
+-} /*-- _TIFFSetGetFieldSize --- */
++} /*-- TIFFFieldSetGetSize() --- */
++
++/*
++ * Return size of count parameter of TIFFSetField() and TIFFGetField()
++ * and also if it is required:  0=none, 2=uint16_t, 4=uint32_t 
++ */
++int
++TIFFFieldSetGetCountSize(const TIFFField* fip)
++{
++	if (fip == NULL) return 0;
++
++	switch (fip->set_field_type) {
++		case TIFF_SETGET_C16_ASCII:
++		case TIFF_SETGET_C16_UINT8:
++		case TIFF_SETGET_C16_SINT8:
++		case TIFF_SETGET_C16_UINT16:
++		case TIFF_SETGET_C16_SINT16:
++		case TIFF_SETGET_C16_UINT32:
++		case TIFF_SETGET_C16_SINT32:
++		case TIFF_SETGET_C16_FLOAT:
++		case TIFF_SETGET_C16_UINT64:
++		case TIFF_SETGET_C16_SINT64:
++		case TIFF_SETGET_C16_DOUBLE:
++		case TIFF_SETGET_C16_IFD8:
++			return 2;
++		case TIFF_SETGET_C32_ASCII:
++		case TIFF_SETGET_C32_UINT8:
++		case TIFF_SETGET_C32_SINT8:
++		case TIFF_SETGET_C32_UINT16:
++		case TIFF_SETGET_C32_SINT16:
++		case TIFF_SETGET_C32_UINT32:
++		case TIFF_SETGET_C32_SINT32:
++		case TIFF_SETGET_C32_FLOAT:
++		case TIFF_SETGET_C32_UINT64:
++		case TIFF_SETGET_C32_SINT64:
++		case TIFF_SETGET_C32_DOUBLE:
++		case TIFF_SETGET_C32_IFD8:
++			return 4;
++		default:
++			return 0;
++	}
++} /*-- TIFFFieldSetGetCountSize() --- */
+ 
+ 
+ const TIFFField*
+Index: tiff-4.3.0/libtiff/tif_dirwrite.c
+===================================================================
+--- tiff-4.3.0.orig/libtiff/tif_dirwrite.c
++++ tiff-4.3.0/libtiff/tif_dirwrite.c
+@@ -819,7 +819,7 @@ TIFFWriteDirectorySec(TIFF* tif, int isi
+ 					{
+ 						/*-- Rational2Double: For Rationals evaluate "set_field_type" to determine internal storage size. */
+ 						int tv_size;
+-						tv_size = _TIFFSetGetFieldSize(tif->tif_dir.td_customValues[m].info->set_field_type);
++						tv_size = TIFFFieldSetGetSize(tif->tif_dir.td_customValues[m].info);
+ 						if (tv_size == 8) {
+ 							if (!TIFFWriteDirectoryTagRationalDoubleArray(tif,&ndir,dir,tag,count,tif->tif_dir.td_customValues[m].value))
+ 								goto bad;
+@@ -838,7 +838,7 @@ TIFFWriteDirectorySec(TIFF* tif, int isi
+ 					{
+ 						/*-- Rational2Double: For Rationals evaluate "set_field_type" to determine internal storage size. */
+ 						int tv_size;
+-						tv_size = _TIFFSetGetFieldSize(tif->tif_dir.td_customValues[m].info->set_field_type);
++						tv_size = TIFFFieldSetGetSize(tif->tif_dir.td_customValues[m].info);
+ 						if (tv_size == 8) {
+ 							if (!TIFFWriteDirectoryTagSrationalDoubleArray(tif,&ndir,dir,tag,count,tif->tif_dir.td_customValues[m].value))
+ 								goto bad;
+Index: tiff-4.3.0/libtiff/tiffio.h
+===================================================================
+--- tiff-4.3.0.orig/libtiff/tiffio.h
++++ tiff-4.3.0/libtiff/tiffio.h
+@@ -328,6 +328,8 @@ extern TIFFDataType TIFFFieldDataType(co
+ extern int TIFFFieldPassCount(const TIFFField*);
+ extern int TIFFFieldReadCount(const TIFFField*);
+ extern int TIFFFieldWriteCount(const TIFFField*);
++extern int TIFFFieldSetGetSize(const TIFFField*);        /* returns internal storage size of TIFFSetGetFieldType in bytes. */
++extern int TIFFFieldSetGetCountSize(const TIFFField*);   /* returns size of count parameter 0=none, 2=uint16_t, 4=uint32_t */
+ 
+ typedef int (*TIFFVSetMethod)(TIFF*, uint32_t, va_list);
+ typedef int (*TIFFVGetMethod)(TIFF*, uint32_t, va_list);
+@@ -483,7 +485,7 @@ extern tmsize_t TIFFWriteEncodedStrip(TI
+ extern tmsize_t TIFFWriteRawStrip(TIFF* tif, uint32_t strip, void* data, tmsize_t cc);
+ extern tmsize_t TIFFWriteEncodedTile(TIFF* tif, uint32_t tile, void* data, tmsize_t cc);
+ extern tmsize_t TIFFWriteRawTile(TIFF* tif, uint32_t tile, void* data, tmsize_t cc);
+-extern int TIFFDataWidth(TIFFDataType);    /* table of tag datatype widths */
++extern int TIFFDataWidth(TIFFDataType);    /* table of tag datatype widths within TIFF file. */
+ extern void TIFFSetWriteOffset(TIFF* tif, toff_t off);
+ extern void TIFFSwabShort(uint16_t*);
+ extern void TIFFSwabLong(uint32_t*);
+Index: tiff-4.3.0/libtiff/tiffiop.h
+===================================================================
+--- tiff-4.3.0.orig/libtiff/tiffiop.h
++++ tiff-4.3.0/libtiff/tiffiop.h
+@@ -337,10 +337,6 @@ extern int TIFFSetCompressionScheme(TIFF
+ extern int TIFFSetDefaultCompressionState(TIFF* tif);
+ extern uint32_t _TIFFDefaultStripSize(TIFF* tif, uint32_t s);
+ extern void _TIFFDefaultTileSize(TIFF* tif, uint32_t* tw, uint32_t* th);
+-extern int _TIFFDataSize(TIFFDataType type);
+-
+-/*--: Rational2Double: Return size of TIFFSetGetFieldType in bytes. */
+-extern int _TIFFSetGetFieldSize(TIFFSetGetFieldType setgettype);
+ 
+ extern void _TIFFsetByteArray(void**, void*, uint32_t);
+ extern void _TIFFsetString(char**, char*);
