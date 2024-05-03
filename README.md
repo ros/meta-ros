@@ -17,7 +17,8 @@ can be presumed unsupported.
 | ---                 | ---          | ---          | ---              | ---          |
 |                     | *(Rolling)*  | **Noetic**   | **Humble (LTS)** | **Iron**     |
 |                     |              | May 2025     | May 2027         | Nov 2024     |
-| **Scarthgap (Dev)** | Apr 2028     | **May 2025** | **May 2027**     | **Nov 2024** |
+| **Styhead (Dev)**   | (Future)     | **May 2025** | (Future)         | **Nov 2024** |
+| **Scarthgap (LTS)** | Apr 2028     | **May 2025** | **May 2027**     | **Nov 2024** |
 | Nanbield            | ~~Apr 2024~~ | ~~Apr 2024~~ | ~~Apr 2024~~     | ~~Apr 2024~~ |
 | Mickledore          | ~~Nov 2023~~ | ~~Nov 2023~~ | Nov 2023 <sup>1</sup>     | ~~Nov 2023~~ |
 | Langdale            | ~~May 2023~~ | ~~May 2023~~ | ~~May 2023~~     | ~~May 2023~~ |
