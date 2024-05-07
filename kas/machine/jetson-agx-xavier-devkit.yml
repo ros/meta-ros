@@ -1,0 +1,30 @@
+header:
+  version: 14
+
+machine: "jetson-agx-xavier-devkit"
+
+repos:
+  meta-tegra:
+    url: "https://github.com/OE4T/meta-tegra.git"
+    path: "layers/meta-tegra"
+  meta-tegra-community:
+    url: "https://github.com/OE4T/meta-tegra-community.git"
+    path: "layers/meta-tegra-community"
+  tegra-demo-distro:
+    url: "https://github.com/OE4T/tegra-demo-distro.git"
+    path: "layers/tegra-demo-distro"
+    layers:
+      layers/meta-tegrademo:
+      layers/meta-tegra-support:
+  meta-virtualization:
+    url: "https://git.yoctoproject.org/git/meta-virtualization"
+    path: "layers/meta-virtualization"
+
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded.git"
+    commit: "8bb16533532b6abc2eded7d9961ab2a108fd7a5b"
+    path: "layers/meta-openembedded"
+    layers:
+      meta-filesystems:
+      meta-networking:
+
