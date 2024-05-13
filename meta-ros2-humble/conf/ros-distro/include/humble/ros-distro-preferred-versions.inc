@@ -10,3 +10,5 @@
 # This is necessary as with ROS1 many recipes fail to build
 # as documented in https://github.com/ros/meta-ros/pull/936
 PREFERRED_VERSION_pcl = "1.12.1+git"
+
+PREFERRED_VERSION_ogre-next = "2.2.0"

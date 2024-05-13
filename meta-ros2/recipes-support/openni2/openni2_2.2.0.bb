@@ -28,6 +28,7 @@ SRC_URI = " \
     file://0018-Don-t-allocate-m_errorBuffer-on-TLS.patch \
     file://0018-Fix-javadoc-with-Java-17.patch \
     file://0019-fix-stringop-overflow.patch \
+    file://glx-remove-dead-declarations.patch \
 "
 SRC_URI[sha256sum] = "abc17f5e30d6799200c69a52d34aefaef4fd567be7921e0cb68cae353ac4495a"
 

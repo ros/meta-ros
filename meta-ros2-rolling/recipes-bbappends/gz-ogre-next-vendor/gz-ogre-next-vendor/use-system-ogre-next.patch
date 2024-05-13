@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d66ac69..c52cf49 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -4,7 +4,10 @@ project(gz_ogre_next_vendor)
+ find_package(ament_cmake REQUIRED)
+ find_package(ament_cmake_vendor_package REQUIRED)
+ 
++find_package(OGRE-Next)
++
+ ament_vendor(${PROJECT_NAME}
++  SATISFIED OGRE-Next_FOUND
+   VCS_URL https://github.com/OGRECave/ogre-next.git
+   VCS_VERSION v2.3.3
+   CMAKE_ARGS

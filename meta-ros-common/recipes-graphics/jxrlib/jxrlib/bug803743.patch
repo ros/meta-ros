@@ -1,0 +1,70 @@
+Description: libjxr-dev: Missing pkgconfig file
+Author: Mathieu Malaterre <malat@debian.org>
+Bug-Debian: https://bugs.debian.org/803743
+Forwarded: no
+Last-Update: 2021-11-26
+
+Index: jxrlib/libjxr.pc.in
+===================================================================
+--- jxrlib.orig/libjxr.pc.in
++++ jxrlib/libjxr.pc.in
+@@ -1,4 +1,4 @@
+-prefix=%(DIR_INSTALL)s
++prefix=@DIR_INSTALL@
+ exec_prefix=${prefix}
+ libdir=${exec_prefix}/lib
+ includedir=${prefix}/include
+@@ -6,7 +6,7 @@ includedir=${prefix}/include
+ Name: libjxr
+ Description: A library for reading JPEG XR images.
+ 
+-Version: %(JXR_VERSION)s
++Version: @JXR_VERSION@
+ Libs: -L${libdir} -ljpegxr -ljxrglue
+ Libs.private: -lm 
+-Cflags: -I${includedir}/libjxr/common -I${includedir}/libjxr/image/x86 -I${includedir}/libjxr/image -I${includedir}/libjxr/glue -I${includedir}/libjxr/test -D__ANSI__ -DDISABLE_PERF_MEASUREMENT %(JXR_ENDIAN)s
++Cflags: -I${includedir}/libjxr/common -I${includedir}/libjxr/image/x86 -I${includedir}/libjxr/image -I${includedir}/libjxr/glue -I${includedir}/libjxr/test -D__ANSI__ -DDISABLE_PERF_MEASUREMENT @JXR_ENDIAN@
+Index: jxrlib/CMakeLists.txt
+===================================================================
+--- jxrlib.orig/CMakeLists.txt
++++ jxrlib/CMakeLists.txt
+@@ -17,6 +17,7 @@ include(TestBigEndian)
+ test_big_endian(ISBIGENDIAN)
+ if(ISBIGENDIAN)
+   set(DEF_ENDIAN _BIG__ENDIAN_)
++  set(JXR_ENDIAN "-D${DEF_ENDIAN}")
+ endif()
+ 
+ set(DIR_SYS image/sys)
+@@ -73,7 +74,8 @@ set_property(TARGET jpegxr
+ set_property(TARGET jpegxr PROPERTY LINK_INTERFACE_LIBRARIES "")
+ set_property(TARGET jpegxr PROPERTY COMPILE_FLAGS -w)
+ # VERSION/SOVERSION
+-set_property(TARGET jpegxr PROPERTY VERSION 1.1)
++set(JXR_VERSION "1.1")
++set_property(TARGET jpegxr PROPERTY VERSION ${JXR_VERSION})
+ set_property(TARGET jpegxr PROPERTY SOVERSION 0)
+ install(TARGETS jpegxr
+   EXPORT JXRLibTargets
+@@ -94,7 +96,7 @@ set_property(TARGET jxrglue
+ #set_property(TARGET jxrglue PROPERTY LINK_INTERFACE_LIBRARIES "")
+ set_property(TARGET jxrglue PROPERTY COMPILE_FLAGS -w)
+ # VERSION/SOVERSION
+-set_property(TARGET jxrglue PROPERTY VERSION 1.1)
++set_property(TARGET jxrglue PROPERTY VERSION ${JXR_VERSION})
+ set_property(TARGET jxrglue PROPERTY SOVERSION 0)
+ install(TARGETS jxrglue
+   EXPORT JXRLibTargets
+@@ -133,3 +135,12 @@ install(FILES jxrgluelib/JXRGlue.h jxrgl
+ install(DIRECTORY common/include/ DESTINATION ${JXRLIB_INSTALL_INCLUDE_DIR}
+   FILES_MATCHING PATTERN "*.h"
+ )
++
++set(DIR_INSTALL ${CMAKE_INSTALL_PREFIX})
++configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libjxr.pc.in
++ ${CMAKE_CURRENT_BINARY_DIR}/libjxr.pc
++ @ONLY
++)
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libjxr.pc
++  DESTINATION ${JXRLIB_INSTALL_LIB_DIR}/pkgconfig COMPONENT Header
++)
