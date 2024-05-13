@@ -241,6 +241,8 @@ libdmtx-dev:
 - ${ROS_UNRESOLVED_DEP-libdmtx-dev}
 libdw-dev:
 - elfutils@openembedded-core
+libfcl-dev:
+- fcl@meta-ros-common
 libffi-dev:
 - libffi@openembedded-core
 libflann-dev:
