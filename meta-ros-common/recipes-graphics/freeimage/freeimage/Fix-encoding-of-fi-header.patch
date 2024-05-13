@@ -1,0 +1,21 @@
+From: Ghislain Antony Vaillant <ghisvail@gmail.com>
+Date: Sun, 10 Jan 2016 16:03:12 +0000
+Subject: Fix encoding of fi header.
+
+---
+ Source/FreeImage.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: FreeImage/Source/FreeImage.h
+===================================================================
+--- FreeImage.orig/Source/FreeImage.h
++++ FreeImage/Source/FreeImage.h
+@@ -3,7 +3,7 @@
+ //
+ // Design and implementation by
+ // - Floris van den Berg (flvdberg@wxs.nl)
+-// - Hervé Drolon (drolon@infonie.fr)
++// - Herve Drolon (drolon@infonie.fr)
+ //
+ // Contributors:
+ // - see changes log named 'Whatsnew.txt', see header of each .h and .cpp file

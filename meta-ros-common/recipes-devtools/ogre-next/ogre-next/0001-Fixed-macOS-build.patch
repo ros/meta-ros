@@ -1,0 +1,53 @@
+From 16e2bd3c06fee6039d411c9f2867985fd931e492 Mon Sep 17 00:00:00 2001
+From: Eugene Golushkov <e.golushkov@nospam-gmail.com>
+Date: Thu, 3 Dec 2020 12:35:58 +0200
+Subject: [PATCH] Fixed macOS build
+
+---
+ OgreMain/src/OgrePlatformInformation.cpp | 27 +++++++-----------------
+ 1 file changed, 8 insertions(+), 19 deletions(-)
+
+Index: git/OgreMain/src/OgrePlatformInformation.cpp
+===================================================================
+--- git.orig/OgreMain/src/OgrePlatformInformation.cpp
++++ git/OgreMain/src/OgrePlatformInformation.cpp
+@@ -39,31 +39,19 @@ THE SOFTWARE.
+ #elif (OGRE_COMPILER == OGRE_COMPILER_GNUC || OGRE_COMPILER == OGRE_COMPILER_CLANG) && OGRE_PLATFORM != OGRE_PLATFORM_NACL
+ #include <signal.h>
+ #include <setjmp.h>
+-#if OGRE_PLATFORM != OGRE_PLATFORM_WIN32
+-    #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
+-        #include <linux/sysctl.h>
+-    #else
+-        #include <sys/sysctl.h>
+-    #endif
+ #endif
+ 
+-    #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
+-        #include <cpu-features.h>
+-    #elif OGRE_CPU == OGRE_CPU_ARM 
+-        #if __MACH__
+-            #include <mach/machine.h>
+-            #ifndef CPU_SUBTYPE_ARM64_V8
+-                #define CPU_SUBTYPE_ARM64_V8 ((cpu_subtype_t) 1)
+-            #endif
+-            #ifndef CPU_SUBTYPE_ARM_V8
+-                #define CPU_SUBTYPE_ARM_V8 ((cpu_subtype_t) 13)
+-            #endif
+-        #endif
+-    #endif
++#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
++    #include <linux/sysctl.h>
++    #include <cpu-features.h>
++#endif
++#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE || OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
++    #include <sys/sysctl.h>
++    #include <mach/machine.h>
+ #endif
+ 
+ #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32 || OGRE_PLATFORM == OGRE_PLATFORM_WINRT
+-    #include "windows.h"
++    #include <windows.h>
+ #endif
+ 
+ // Yes, I know, this file looks very ugly, but there aren't other ways to do it better.

@@ -1,0 +1,41 @@
+diff --git a/libs/hwdrivers/CMakeLists.txt b/libs/hwdrivers/CMakeLists.txt
+index c45fc79..600a298 100644
+--- a/libs/hwdrivers/CMakeLists.txt
++++ b/libs/hwdrivers/CMakeLists.txt
+@@ -207,20 +207,22 @@ endif()
+ #  have some errors:
+ if(CMAKE_COMPILER_IS_GNUCXX AND CMAKE_MRPT_HAS_FFMPEG_SYSTEM)
+ 	set(EXTRA_ISYSTEMS "")
+-	if(EXISTS "${LIBAVCODEC_INCLUDEDIR}")
+-		set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR} ")
+-	endif()
+-
+-	if(EXISTS "${LIBAVCODEC_INCLUDEDIR}/ffmpeg")
+-		set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR}/ffmpeg ")
+-	endif()
+-
+-	if(EXISTS "${LIBAVCODEC_INCLUDEDIR}/libavcodec")
+-		set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR}/libavcodec ")
+-	endif()
+-
+-	if(EXISTS "${LIBAVCODEC_INCLUDEDIR}/libavformat")
+-		set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR}/libavformat ")
++	if (NOT "${LIBAVCODEC_INCLUDEDIR}" STREQUAL "/usr/include")
++		if(EXISTS "${LIBAVCODEC_INCLUDEDIR}")
++			set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR} ")
++		endif()
++
++		if(EXISTS "${LIBAVCODEC_INCLUDEDIR}/ffmpeg")
++			set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR}/ffmpeg ")
++		endif()
++
++		if(EXISTS "${LIBAVCODEC_INCLUDEDIR}/libavcodec")
++			set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR}/libavcodec ")
++		endif()
++
++		if(EXISTS "${LIBAVCODEC_INCLUDEDIR}/libavformat")
++			set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR}/libavformat ")
++		endif()
+ 	endif()
+ 
+ 	if (NOT "${EXTRA_ISYSTEMS}" STREQUAL "")

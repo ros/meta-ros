@@ -1,0 +1,17 @@
+diff --git a/yaml/cmake.yaml b/yaml/cmake.yaml
+index 9e3516e..3cac390 100644
+--- a/yaml/cmake.yaml
++++ b/yaml/cmake.yaml
+@@ -79,6 +79,12 @@ gtest:
+   include_dirs: [gtest_INCLUDE_DIRS]
+   libraries: [gtest_LIBRARIES]
+   name: gtest
++lanelet2_core:
++  components: []
++  include_dirs: [lanelet2_core_INCLUDE_DIRS]
++  libraries: [lanelet2_core_LIBRARIES]
++  library_dirs: []
++  name: lanelet2_core
+ libann-dev:
+   components: []
+   include_dirs: [ANN_INCLUDE_DIR]

@@ -1,0 +1,37 @@
+sip-build: Cross platform build support
+
+Projects may use the PyQtBuilder in pyproject.toml to automatically
+generate the build files and execute the build.
+
+PyQtBuilder/builder.py invokes buildable.get_module_extension() to
+create rules in QMake project files for building Python extensions
+for the target.
+
+However, this determines the module extension using the importlib module.
+This provides the extension suffix used for Python modules that
+may be imported. However, this is incorrect when running Python
+in a cross-build environment.  For OpenEmbedded, the correct
+extension suffix for the target may be obtained by referring to
+the sysconfig EXT_SUFFIX configuration variable.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/sipbuild/buildable.py
++++ b/sipbuild/buildable.py
+@@ -150,14 +150,8 @@ class BuildableModule(BuildableFromSourc
+         if self.project.py_platform == 'win32':
+             return '.pyd'
+ 
+-        from importlib.machinery import EXTENSION_SUFFIXES
+-
+-        if self.uses_limited_api:
+-            for s in EXTENSION_SUFFIXES:
+-                if '.abi3' in s:
+-                    return s
+-
+-        return EXTENSION_SUFFIXES[0]
++        import sysconfig
++        return sysconfig.get_config_var('EXT_SUFFIX')
+ 
+ 
+ class BuildableBindings(BuildableModule):

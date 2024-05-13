@@ -1,0 +1,89 @@
+diff --git a/3rdparty/nanogui/CMakeLists.txt b/3rdparty/nanogui/CMakeLists.txt
+index fb22011d..1f0a2dbf 100644
+--- a/3rdparty/nanogui/CMakeLists.txt
++++ b/3rdparty/nanogui/CMakeLists.txt
+@@ -6,7 +6,7 @@ if (POLICY CMP0058)
+   cmake_policy(SET CMP0058 NEW)
+ endif()
+ 
+-if (NOT IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/ext/nanovg/src")
++if (NOT IS_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/ext/nanovg/src")
+   message(FATAL_ERROR "The NanoGUI dependency repositories (NANOVG, etc.) are missing! "
+     "You probably did not clone the project with --recursive. It is possible to recover "
+     "by calling \"git submodule update --init --recursive\"")
+@@ -93,7 +93,7 @@ else()
+     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/")
+     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/")
+ 
+-    add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ext/glfw" "ext_build/glfw")
++    add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/ext/glfw" "ext_build/glfw")
+     # Two targets have now been defined: `glfw_objects`, which will be merged into
+     # NanoGUI at the end, and `glfw`.  The `glfw` target is the library itself
+     # (e.g., libglfw.so), but can be skipped as we do not need to link against it
+@@ -234,11 +234,11 @@ endif()
+ if (NANOGUI_USE_GLAD)
+   # Build and include GLAD on Windows
+   list(APPEND LIBNANOGUI_EXTRA_SOURCE
+-     "${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/src/glad.c"
+-	 "${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/include/glad/glad.h"
+-	 "${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/include/KHR/khrplatform.h")
++     "${CMAKE_CURRENT_LIST_DIR}/ext/glad/src/glad.c"
++	 "${CMAKE_CURRENT_LIST_DIR}/ext/glad/include/glad/glad.h"
++	 "${CMAKE_CURRENT_LIST_DIR}/ext/glad/include/KHR/khrplatform.h")
+   if (MSVC)
+-    set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/src/glad.c"
++    set_source_files_properties("${CMAKE_CURRENT_LIST_DIR}/ext/glad/src/glad.c"
+       PROPERTIES COMPILE_FLAGS "/wd4055 ")
+   endif()
+ endif()
+@@ -260,9 +260,9 @@ endif()
+ # * Roboto-Bold.ttf,  Roboto-Regular.ttf => apt install fonts-roboto-fontface
+ # * entypo+ is a custom font from: https://github.com/svenevs/nanogui-entypo
+ #   (it is NOT the same one as provided by the entypo debian package)
+-find_file(ENTYPO_TTF_FILE           entypo.ttf          PATHS "${CMAKE_CURRENT_SOURCE_DIR}/resources" REQUIRED)
+-find_file(ROBOTO_BOLD_TTF_FILE      Roboto-Bold.ttf     PATHS /usr/share/fonts/truetype/roboto-fontface/roboto/ "${CMAKE_CURRENT_SOURCE_DIR}/resources" REQUIRED)
+-find_file(ROBOTO_REGULAR_TTF_FILE   Roboto-Regular.ttf  PATHS /usr/share/fonts/truetype/roboto-fontface/roboto/ "${CMAKE_CURRENT_SOURCE_DIR}/resources" REQUIRED)
++find_file(ENTYPO_TTF_FILE           entypo.ttf          PATHS "${CMAKE_CURRENT_LIST_DIR}/resources" REQUIRED)
++find_file(ROBOTO_BOLD_TTF_FILE      Roboto-Bold.ttf     PATHS "${CMAKE_CURRENT_LIST_DIR}/resources" REQUIRED)
++find_file(ROBOTO_REGULAR_TTF_FILE   Roboto-Regular.ttf  PATHS "${CMAKE_CURRENT_LIST_DIR}/resources" REQUIRED)
+ 
+ # Glob up resource files
+ set(resources ${ENTYPO_TTF_FILE} ${ROBOTO_BOLD_TTF_FILE} ${ROBOTO_REGULAR_TTF_FILE})
+@@ -277,7 +277,7 @@ set(bin2c_cmdline
+   -DOUTPUT_C=nanogui_resources.cpp
+   -DOUTPUT_H=nanogui_resources.h
+   "-DINPUT_FILES=${resources_string}"
+-  -P "${CMAKE_CURRENT_SOURCE_DIR}/resources/bin2c.cmake")
++  -P "${CMAKE_CURRENT_LIST_DIR}/resources/bin2c.cmake")
+ 
+ # Run bin2c on resource files
+ add_custom_command(
+@@ -649,7 +649,7 @@ if (NANOGUI_BUILD_PYTHON)
+   # Detect Python
+ 
+   # Try to autodetect Python (can be overridden manually if needed)
+-  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/ext/pybind11/tools")
++  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/ext/pybind11/tools")
+   set(Python_ADDITIONAL_VERSIONS 3.7 3.6 3.5 3.4)
+   find_package(PythonLibsNew ${NANOGUI_PYTHON_VERSION})
+   if (NOT PYTHONLIBS_FOUND)
+@@ -762,8 +762,8 @@ else()
+   # Create documentation for python plugin (optional target for developers)
+ 
+   string(REPLACE " " ";" MKDOC_CXX_FLAGS_LIST ${CMAKE_CXX_FLAGS})
+-  get_property(MKDOC_INCLUDE_DIRECTORIES DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+-  get_property(MKDOC_COMPILE_DEFINITIONS DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY COMPILE_DEFINITIONS)
++  get_property(MKDOC_INCLUDE_DIRECTORIES DIRECTORY ${CMAKE_CURRENT_LIST_DIR} PROPERTY INCLUDE_DIRECTORIES)
++  get_property(MKDOC_COMPILE_DEFINITIONS DIRECTORY ${CMAKE_CURRENT_LIST_DIR} PROPERTY COMPILE_DEFINITIONS)
+ 
+   foreach (value ${MKDOC_INCLUDE_DIRECTORIES})
+     list(APPEND MKDOC_CXX_FLAGS_LIST -I${value})
+@@ -779,7 +779,7 @@ else()
+     python3 ${PROJECT_SOURCE_DIR}/docs/mkdoc_rst.py
+       ${MKDOC_CXX_FLAGS_LIST}
+       ${PROJECT_SOURCE_DIR}/include/nanogui/*.h
+-      > ${CMAKE_CURRENT_SOURCE_DIR}/python/py_doc.h)
++      > ${CMAKE_CURRENT_LIST_DIR}/python/py_doc.h)
+ 
+ endif()
+ 

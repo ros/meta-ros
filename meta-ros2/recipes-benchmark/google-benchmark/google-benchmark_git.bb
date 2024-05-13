@@ -6,10 +6,10 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-PV = "1.7.0+git${SRCPV}"
+PV = "1.8.3"
 
-# matches with tag 1.7.0
-SRCREV = "361e8d1cfe0c6c36d30b39f1b61302ece5507320"
+# matches with tag 1.8.3
+SRCREV = "344117638c8ff7e239044fd0fa7085839fc03021"
 SRC_URI = "git://github.com/google/benchmark;branch=main;protocol=https"
 
 S = "${WORKDIR}/git"

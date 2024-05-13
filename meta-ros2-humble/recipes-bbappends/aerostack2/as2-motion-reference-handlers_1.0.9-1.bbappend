@@ -7,5 +7,5 @@ ROS_BUILDTOOL_DEPENDS += " \
 # ld: cannot find -lGeographicLib: No such file or directory
 DEPENDS += "geographiclib"
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://add-geographiclib-find-package.patch"
+# FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+# SRC_URI += "file://add_geographiclib.patch"

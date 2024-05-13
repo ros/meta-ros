@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM += "file://Doc/License.txt;md5=0e5191611fba4aac850756c5d598ff23
 
 DEPENDS = "suitesparse-config"
 
-S = "${WORKDIR}/SuiteSparse/CXSparse"
+S = "${WORKDIR}/git/CXSparse"
 
 EXTRA_OEMAKE = "CC='${CC}'"
 

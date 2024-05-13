@@ -1,0 +1,75 @@
+Upstream-Status: Submitted [https://github.com/OGRECave/ogre-next/issues/430]
+
+From 480fb368e288f0a4e1c73f6b0a60f27743d5cb63 Mon Sep 17 00:00:00 2001
+From: bchoi <bchoi@neubility.co.kr>
+Date: Mon, 22 Jan 2024 16:22:31 +0900
+Subject: [PATCH] Fixed compile error
+
+---
+ .../Hlms/Pbs/src/Vct/OgreVctCascadedVoxelizer.cpp      |  2 +-
+ .../include/Math/Array/NEON/Single/OgreMathlibNEON.h   |  2 +-
+ OgreMain/src/OgreDefaultSceneQueries.cpp               |  2 +-
+ OgreMain/src/OgreMovableObject.cpp                     |  2 +-
+ Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt  |  6 ++++--
+ 4 files changed, 17 insertions(+), 7 deletions(-)
+
+Index: git/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
+===================================================================
+--- git.orig/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
++++ git/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
+@@ -645,7 +645,7 @@ namespace Ogre
+             //Netwon-Raphson, 2 iterations.
+             ArrayReal fStep0 = vrsqrteq_f32( f );
+             //Nuke NaN when f == 0
+-            fStep0 = vreinterpretq_f32_u32( vandq_u32( vtstq_u32( f, f ),
++            fStep0 = vreinterpretq_f32_u32( vandq_u32( vtstq_u32((uint32x4_t)f, (uint32x4_t)f ),
+                                                        vreinterpretq_u32_f32( fStep0 ) ) );
+             // step fStep0 = 1 / sqrt(x)
+             const ArrayReal fStepParm0  = vmulq_f32( f, fStep0 );
+Index: git/OgreMain/src/OgreDefaultSceneQueries.cpp
+===================================================================
+--- git.orig/OgreMain/src/OgreDefaultSceneQueries.cpp
++++ git/OgreMain/src/OgreDefaultSceneQueries.cpp
+@@ -535,7 +535,7 @@ namespace Ogre {
+             {
+                 //For each volume test all planes and AND the dot product.
+                 //If one is false, then we dont intersect with this volume
+-                ArrayMaskR singleVolumeMask = CastIntToReal( Mathlib::SetAll( 0xffffffff ) );
++                ArrayMaskR singleVolumeMask = (ArrayMaskR) CastIntToReal( Mathlib::SetAll( 0xffffffff ) );
+                 ArrayReal dotResult;
+                 ArrayVector3 centerPlusFlippedHS;
+     
+Index: git/OgreMain/src/OgreMovableObject.cpp
+===================================================================
+--- git.orig/OgreMain/src/OgreMovableObject.cpp
++++ git/OgreMain/src/OgreMovableObject.cpp
+@@ -472,7 +472,7 @@ namespace Ogre {
+             planes[i].planeNegD = Mathlib::SetAll( -frustumPlanes[i].d );
+         }
+         
+-        const ArrayMaskR ignoreRenderingDistance = CastIntToReal(
++        const ArrayMaskR ignoreRenderingDistance = (ArrayMaskR) CastIntToReal(
+                     Mathlib::SetAll( lodCamera->getUseRenderingDistance() ? 0 : 0xffffffff ) );
+ 
+         //TODO: Profile whether we should use XOR to flip the sign or simple multiplication.
+Index: git/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
+===================================================================
+--- git.orig/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
++++ git/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
+@@ -11,12 +11,14 @@ macro( add_recursive dir retVal )
+ 	file( GLOB_RECURSE ${retVal} ${dir}/*.h ${dir}/*.cpp ${dir}/*.c )
+ endmacro()
+ 
++set(OGRE_LIBRARIES ${OGRE_LIBRARIES} OgreMain)
++
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ 
+ add_recursive( ./ SOURCE_FILES )
+ 
+-ogre_add_executable(Sample_AnimationTagPoint WIN32 MACOSX_BUNDLE ${SOURCE_FILES} ${SAMPLE_COMMON_RESOURCES})
++ogre_add_executable(Sample_AnimationTagPoint ${SOURCE_FILES} ${SAMPLE_COMMON_RESOURCES})
+ 
+-target_link_libraries(Sample_AnimationTagPoint ${OGRE_LIBRARIES} ${OGRE_SAMPLES_LIBRARIES})
++target_link_libraries(Sample_AnimationTagPoint ${OGRE_SAMPLES_LIBRARIES} ${OGRE_LIBRARIES})
+ ogre_config_sample_lib(Sample_AnimationTagPoint)
+ ogre_config_sample_pkg(Sample_AnimationTagPoint)
