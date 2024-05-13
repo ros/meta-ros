@@ -1,4 +1,4 @@
-# noetic/cache.yaml 2024-04-11 fde396e6a0bdf242ff98ced1649fae759d677329 20240409162236 1.7.0
+# noetic/cache.yaml 2024-05-10 034adfa787934a8311d82cb2dafd8608102b45aa 20240509202133 1.8.0
 distribution_file:
 - release_platforms:
 -----
@@ -944,7 +944,7 @@ care-o-bot: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/care-o-bot.git',
-version: kinetic_release_candidate
+version: kinetic_dev
 },
 release: {
 packages: [care_o_bot,
@@ -962,7 +962,7 @@ type: git,
 url: 'https://github.com/ipa320/care-o-bot.git',
 version: kinetic_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 carla_msgs: {
@@ -1371,7 +1371,7 @@ cob_android: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_android.git',
-version: indigo_release_candidate
+version: indigo_dev
 },
 release: {
 packages: [cob_android,
@@ -1390,14 +1390,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_android.git',
 version: indigo_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_calibration_data: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_calibration_data.git',
-version: indigo_release_candidate
+version: indigo_dev
 },
 release: {
 tags: {
@@ -1411,14 +1411,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_calibration_data.git',
 version: indigo_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_command_tools: {
 doc: {
 type: git,
 url: 'https://github.com/4am-robotics/cob_command_tools.git',
-version: indigo_release_candidate
+version: indigo_dev
 },
 release: {
 packages: [cob_command_gui,
@@ -1435,21 +1435,21 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/4am-robotics/cob_command_tools-release.git',
-version: 0.6.34-1
+version: 0.6.35-2
 },
 source: {
 type: git,
 url: 'https://github.com/4am-robotics/cob_command_tools.git',
 version: indigo_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_common: {
 doc: {
 type: git,
 url: 'https://github.com/4am-robotics/cob_common.git',
-version: kinetic_release_candidate
+version: kinetic_dev
 },
 release: {
 packages: [cob_actions,
@@ -1462,21 +1462,21 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/4am-robotics/cob_common-release.git',
-version: 0.7.10-1
+version: 0.7.11-1
 },
 source: {
 type: git,
 url: 'https://github.com/4am-robotics/cob_common.git',
 version: kinetic_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_control: {
 doc: {
 type: git,
 url: 'https://github.com/4am-robotics/cob_control.git',
-version: melodic_release_candidate
+version: melodic_dev
 },
 release: {
 packages: [cob_base_controller_utils,
@@ -1500,21 +1500,21 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/4am-robotics/cob_control-release.git',
-version: 0.8.23-1
+version: 0.8.24-2
 },
 source: {
 type: git,
 url: 'https://github.com/4am-robotics/cob_control.git',
 version: melodic_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_driver: {
 doc: {
 type: git,
 url: 'https://github.com/4am-robotics/cob_driver.git',
-version: kinetic_release_candidate
+version: kinetic_dev
 },
 release: {
 packages: [cob_base_drive_chain,
@@ -1541,21 +1541,21 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/4am-robotics/cob_driver-release.git',
-version: 0.7.16-2
+version: 0.7.17-2
 },
 source: {
 type: git,
 url: 'https://github.com/4am-robotics/cob_driver.git',
 version: kinetic_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_environments: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_environments.git',
-version: indigo_release_candidate
+version: indigo_dev
 },
 release: {
 packages: [cob_default_env_config,
@@ -1571,14 +1571,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_environments.git',
 version: indigo_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_extern: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_extern.git',
-version: indigo_release_candidate
+version: indigo_dev
 },
 release: {
 packages: [cob_extern,
@@ -1598,7 +1598,7 @@ type: git,
 url: 'https://github.com/ipa320/cob_extern.git',
 version: indigo_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_fiducials: {
@@ -1619,14 +1619,14 @@ type: git,
 url: 'https://github.com/4am-robotics/cob_fiducials.git',
 version: kinetic-devel
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_gazebo_plugins: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_gazebo_plugins.git',
-version: kinetic_release_candidate
+version: kinetic_dev
 },
 release: {
 packages: [cob_gazebo_plugins,
@@ -1642,14 +1642,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_gazebo_plugins.git',
 version: kinetic_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_hand: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_hand.git',
-version: indigo_release_candidate
+version: indigo_dev
 },
 release: {
 packages: [cob_hand,
@@ -1665,14 +1665,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_hand.git',
 version: indigo_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_manipulation: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_manipulation.git',
-version: kinetic_release_candidate
+version: kinetic_dev
 },
 release: {
 packages: [cob_collision_monitor,
@@ -1693,14 +1693,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_manipulation.git',
 version: kinetic_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_navigation: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_navigation.git',
-version: indigo_release_candidate
+version: indigo_dev
 },
 release: {
 packages: [cob_linear_nav,
@@ -1722,14 +1722,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_navigation.git',
 version: indigo_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_perception_common: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_perception_common.git',
-version: indigo_release_candidate
+version: indigo_dev
 },
 release: {
 packages: [cob_3d_mapping_msgs,
@@ -1752,14 +1752,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_perception_common.git',
 version: indigo_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_robots: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_robots.git',
-version: kinetic_release_candidate
+version: kinetic_dev
 },
 release: {
 packages: [cob_bringup,
@@ -1779,14 +1779,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_robots.git',
 version: kinetic_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_simulation: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_simulation.git',
-version: kinetic_release_candidate
+version: kinetic_dev
 },
 release: {
 packages: [cob_bringup_sim,
@@ -1806,14 +1806,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_simulation.git',
 version: kinetic_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_substitute: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_substitute.git',
-version: indigo_release_candidate
+version: indigo_dev
 },
 release: {
 packages: [cob_docker_control,
@@ -1832,14 +1832,14 @@ type: git,
 url: 'https://github.com/ipa320/cob_substitute.git',
 version: indigo_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 cob_supported_robots: {
 doc: {
 type: git,
 url: 'https://github.com/ipa320/cob_supported_robots.git',
-version: indigo_release_candidate
+version: indigo_dev
 },
 release: {
 tags: {
@@ -1853,7 +1853,7 @@ type: git,
 url: 'https://github.com/ipa320/cob_supported_robots.git',
 version: indigo_dev
 },
-status: maintained
+status: end-of-life
 }
 -----
 code_coverage: {
@@ -3812,7 +3812,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/Fields2Cover/fields2cover-release.git',
-version: 2.0.0-1
+version: 2.0.0-2
 },
 source: {
 type: git,
@@ -4522,7 +4522,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/geometric_shapes-release.git',
-version: 0.7.5-1
+version: 0.7.6-1
 },
 source: {
 type: git,
@@ -7012,7 +7012,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/AutonicsLiDAR-release/lsc_ros_driver-release.git',
-version: 1.0.3-1
+version: 1.0.4-1
 },
 source: {
 type: git,
@@ -8221,7 +8221,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/mrpt-ros-pkg-release/mrpt2-release.git',
-version: 2.12.1-1
+version: 2.12.2-1
 },
 source: {
 type: git,
@@ -8292,7 +8292,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/mrpt-ros-pkg-release/mrpt_path_planning-release.git',
-version: 0.1.1-1
+version: 0.1.2-1
 },
 source: {
 type: git,
@@ -8443,7 +8443,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ual-arm-ros-pkg-release/mvsim-release.git',
-version: 0.9.2-1
+version: 0.9.4-1
 },
 source: {
 type: git,
@@ -9554,6 +9554,26 @@ url: 'https://github.com/Jmeyer1292/opw_kinematics.git',
 version: master
 },
 status: developed
+}
+-----
+ortools_vendor: {
+doc: {
+type: git,
+url: 'https://github.com/Fields2Cover/ortools_vendor.git',
+version: main
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ortools_vendor-release.git',
+version: 9.9.0-6
+},
+source: {
+type: git,
+url: 'https://github.com/Fields2Cover/ortools_vendor.git',
+version: main
+}
 }
 -----
 osqp_vendor: {
@@ -11919,7 +11939,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/cra-ros-pkg/robot_localization-release.git',
-version: 2.7.5-1
+version: 2.7.6-1
 },
 source: {
 test_pull_requests: true,
@@ -14243,7 +14263,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/tork-a/rtshell-release.git',
-version: 3.0.1-2
+version: 3.0.1-5
 },
 source: {
 type: git,
@@ -14301,7 +14321,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rviz-release.git',
-version: 1.14.20-1
+version: 1.14.23-1
 },
 source: {
 test_pull_requests: true,
@@ -16465,7 +16485,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/seqsense/urg_stamped-release.git',
-version: 0.1.0-1
+version: 0.1.1-1
 },
 source: {
 type: git,
@@ -17023,7 +17043,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/warthog-release.git',
-version: 0.1.8-1
+version: 0.1.9-1
 },
 source: {
 type: git,
@@ -17399,7 +17419,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/openspur/yp-spur-release.git',
-version: 1.22.0-1
+version: 1.22.5-1
 },
 source: {
 type: git,
@@ -17420,7 +17440,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/openspur/ypspur_ros-release.git',
-version: 0.5.0-1
+version: 0.6.0-1
 },
 source: {
 type: git,
@@ -22230,15 +22250,14 @@ cob_obstacle_distance: "<?xml version=\"1.0\" ?>
 <depend>dynamic_reconfigure</depend>
 <depend>eigen_conversions</depend>
 <depend>eigen</depend>
-<depend condition=\"$ROS_DISTRO != noetic\">libfcl-dev</depend>
-<depend condition=\"$ROS_DISTRO == noetic\">fcl</depend>
+<depend>fcl</depend>
 <depend>geometry_msgs</depend>
 <depend>kdl_conversions</depend>
 <depend>kdl_parser</depend>
+<depend>libccd-dev</depend>
+<depend>libfcl-dev</depend>
+<depend>liborocos-kdl-dev</depend>
 <depend>moveit_msgs</depend>
-<depend condition=\"$ROS_DISTRO == melodic\">orocos_kdl</depend>
-<depend condition=\"$ROS_DISTRO == noetic\">liborocos-kdl-dev</depend>
-<depend condition=\"$ROS_DISTRO == noetic\">liborocos-kdl</depend>
 <depend>pkg-config</depend>
 <depend>roscpp</depend>
 <depend>roslib</depend>
@@ -29326,10 +29345,10 @@ fields2cover: <?xml version="1.0" ?>
 <depend>libgdal-dev</depend>
 <depend>gtest</depend>
 <depend>tbb</depend>
-<depend>tinyxml2</depend>
-<depend>nlohmann-json-dev</depend>
 <depend>python3</depend>
 <depend>python3-dev</depend>
+<depend>tinyxml2</depend>
+<depend>ortools_vendor</depend>
 <exec_depend>python3-matplotlib</exec_depend>
 <exec_depend>python3-tk</exec_depend>
 <test_depend>gtest</test_depend>
@@ -45971,6 +45990,25 @@ and Michael Hofbaur.</description>
 <build_type>cmake</build_type>
 </export>
 </package>
+-----
+ortools_vendor: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
+<name>ortools_vendor</name>
+<description>Wrapper around ortools,
+it provides a fixed CMake module and an ExternalProject build of it.</description>
+<maintainer email=\"gonzalo.miermunoz@wur.nl\">Gonzalo Mier</maintainer>
+<license>Apache License 2.0</license>
+<url type=\"website\">https://github.com/google/or-tools</url>
+<exec_depend condition=\"$ROS_VERSION == 1\">catkin</exec_depend>
+<buildtool_depend condition=\"$ROS_VERSION == 1\" version_gte=\"3.15\">cmake</buildtool_depend>
+<buildtool_depend condition=\"$ROS_VERSION == 2\">ament_cmake</buildtool_depend>
+<buildtool_depend condition=\"$ROS_VERSION == 2\">ament_cmake_vendor_package</buildtool_depend>
+<export>
+<build_type condition=\"$ROS_VERSION == 1\">cmake</build_type>
+<build_type condition=\"$ROS_VERSION == 2\">ament_cmake</build_type>
+</export>
+</package>"
 -----
 osm_cartography: <?xml version="1.0" ?>
 <package format="2">
@@ -64026,10 +64064,14 @@ urg_stamped: <?xml version="1.0" ?>
 <author email="atsushi.w@ieee.org">Atsushi Watanabe</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>roscpp</depend>
+<depend>sensor_msgs</depend>
+<depend>std_msgs</depend>
+<build_depend>message_generation</build_depend>
+<build_export_depend>message_runtime</build_export_depend>
+<exec_depend>message_runtime</exec_depend>
 <test_depend>rostest</test_depend>
 <test_depend>roslint</test_depend>
 <test_depend>rosunit</test_depend>
-<depend>sensor_msgs</depend>
 </package>
 -----
 usb_cam: <?xml version="1.0" ?>
