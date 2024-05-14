@@ -32,4 +32,4 @@ repos:
       meta-python:
 
   ros:
-    branch: "mickledore-next"
+    branch: "mickledore"
