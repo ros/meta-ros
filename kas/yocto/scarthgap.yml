@@ -26,6 +26,8 @@ repos:
     commit: "a72010b414ee3d73888ac9cb4e310e8f05e13aea"
     path: "layers/meta-openembedded"
     layers:
+      meta-filesystems:
+      meta-networking:
       meta-oe:
       meta-python:
 
