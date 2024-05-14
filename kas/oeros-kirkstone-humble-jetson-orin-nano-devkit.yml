@@ -1,0 +1,7 @@
+header:
+  version: 14
+  includes:
+    - yocto/kirkstone.yml
+    - ros2/humble.yml
+    - machine/jetson-orin-nano-devkit.yml
+    - common.yml

@@ -1,0 +1,29 @@
+header:
+  version: 14
+
+machine: "jetson-orin-nano-devkit"
+
+repos:
+  meta-tegra:
+    url: "https://github.com/OE4T/meta-tegra.git"
+    path: "layers/meta-tegra"
+
+  meta-tegra-community:
+    url: "https://github.com/OE4T/meta-tegra-community.git"
+    path: "layers/meta-tegra-community"
+
+  tegra-demo-distro:
+    url: "https://github.com/OE4T/tegra-demo-distro.git"
+    path: "layers/tegra-demo-distro"
+    layers:
+      layers/meta-tegrademo:
+      layers/meta-tegra-support:
+
+  meta-virtualization:
+    url: "https://git.yoctoproject.org/git/meta-virtualization"
+    path: "layers/meta-virtualization"
+
+local_conf_header:
+  jetson-agx-xavier-devkit: |
+    # Set DISTRO_FEATURES to enable latent features in meta-virtualization
+    DISTRO_FEATURES:append = " virtualization"
