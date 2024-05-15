@@ -19,7 +19,7 @@ repos:
       layers/meta-tegrademo:
       layers/meta-tegra-support:
 
-  meta-virtualization:
+  virtualization:
     url: "https://git.yoctoproject.org/git/meta-virtualization"
     path: "layers/meta-virtualization"
 
