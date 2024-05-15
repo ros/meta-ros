@@ -30,6 +30,3 @@ repos:
       meta-networking:
       meta-oe:
       meta-python:
-
-  ros:
-    branch: "mickledore"
