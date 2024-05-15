@@ -23,6 +23,12 @@ repos:
     path: "layers/meta-openembedded"
     layers:
       meta-filesystems:
+      meta-gnome:
+      meta-initramfs:
+      meta-multimedia:
       meta-networking:
       meta-oe:
+      meta-perl:
       meta-python:
+      meta-webserver:
+      meta-xfce:
