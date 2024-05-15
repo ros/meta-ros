@@ -24,6 +24,6 @@ repos:
     path: "layers/meta-virtualization"
 
 local_conf_header:
-  jetson-agx-xavier-devkit: |
+  jetson-orin-nano-devkit: |
     # Set DISTRO_FEATURES to enable latent features in meta-virtualization
     DISTRO_FEATURES:append = " virtualization"
