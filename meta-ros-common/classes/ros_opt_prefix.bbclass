@@ -1,17 +1,20 @@
 #
 # Copyright (c) 2013 Stefan Herbrechtsmeier, Bielefeld University
 # Copyright (c) 2019-2020 LG Electronics, Inc.
+# Copyright (c) Qualcomm Innovation Center, Inc. All rights reserved
 #
 
 ros_prefix ?= "${base_prefix}/opt/ros/${ROS_DISTRO}"
 
 ros_bindir = "${ros_prefix}/bin"
+ros_sbindir = "${ros_prefix}/sbin"
 ros_libdir = "${ros_prefix}/${baselib}"
 ros_libexecdir = "${ros_libdir}/${ROS_BPN}"
 ros_includedir = "${ros_prefix}/include"
 ros_datadir = "${ros_prefix}/share"
 ros_sysconfdir = "${ros_prefix}/etc"
 ros_stacksdir = "${ros_prefix}/stacks"
+ros_toolsdir = "${ros_prefix}/tools"
 
 # Used by chrpath.bbclass
 PREPROCESS_RELOCATE_DIRS += " \
@@ -35,6 +38,8 @@ FILES:${PN} += "\
     ${ros_datadir} \
     ${ros_sysconfdir} \
     ${ros_stacksdir} \
+    ${ros_toolsdir}/ \
+    ${ros_prefix} \
     "
 
 FILES:${PN}-dev += "\
@@ -65,6 +70,8 @@ SYSROOT_DIRS:append = " \
     ${ros_datadir} \
     ${ros_stacksdir} \
     ${ros_sysconfdir} \
+    ${ros_bindir} \
+    ${ros_sbindir} \
     "
 
 SYSROOT_DIRS_NATIVE:append = " \
