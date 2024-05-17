@@ -1,6 +1,7 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
 inherit ros_distro
+inherit ros_opt_prefix
 
 # Place metadata unique to ROS 2 distros here.
 
