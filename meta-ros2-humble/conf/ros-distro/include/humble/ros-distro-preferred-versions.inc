@@ -4,3 +4,5 @@
 
 # Set PREFERRED_VERSION_<PN> here for non-platform packages for which the layers provide multiple versions and to override those
 # set in ros-distro-platform-preferred-versions.inc .
+PREFERRED_VERSION_ogre = "1.12.12"
+PREFERRED_VERSION_ogre-next = "2.2.0"
