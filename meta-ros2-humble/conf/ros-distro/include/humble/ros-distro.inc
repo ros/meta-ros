@@ -295,14 +295,16 @@ ROS_UNRESOLVED_DEP-ignition-transport11 = "ignition-transport11"
 
 ROS_UNRESOLVED_DEP-ignition-msgs8 = "ignition-msgs8"
 
-ROS_UNRESOLVED_DEP-ignition-plugin = "ignition-plugin"
+ROS_UNRESOLVED_DEP-ignition-plugin = "ignition-plugin1"
 
 ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ignition-gazebo6"
+
+ROS_UNRESOLVED_DEP-gz-sim6 = "ignition-gazebo6"
 
 ROS_UNRESOLVED_DEP-ignition-common4 = "ignition-common4"
 
 ROS_UNRESOLVED_DEP-gazebo = "gazebo"
-ROS_UNRESOLVED_DEP-gazebo11 = "gazebo-rosdev"
+ROS_UNRESOLVED_DEP-gazebo11 = "gazebo11"
 ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ignition-gazebo6"
 ROS_UNRESOLVED_DEP-libgazebo11 = "gazebo11"
 ROS_UNRESOLVED_DEP-libgazebo11-dev = "gazebo11"
@@ -328,7 +330,7 @@ ROS_UNRESOLVED_DEP-black = "python3-black"
 ROS_UNRESOLVED_DEP-black-native = "python3-black-native"
 
 ROS_UNRESOLVED_DEP-libdraco-dev = "draco"
-ROS_UNRESOLVED_DEP-sdformat12 = "sdformat"
+ROS_UNRESOLVED_DEP-sdformat12 = "sdformat12"
 
 ROS_UNRESOLVED_DEP-hdf5-tools-native = "hdf5-native"
 ROS_UNRESOLVED_DEP-libopenscenegraph = "openscenegraph"
@@ -346,5 +348,17 @@ ROS_UNRESOLVED_DEP-ignition-fuel-tools7 = "ignition-fuel-tools7"
 ROS_UNRESOLVED_DEP-libserial = "libserial"
 ROS_UNRESOLVED_DEP-libserial-dev = "libserial"
 ROS_UNRESOLVED_DEP-python3-uvloop = "python3-uvloop"
-ROS_UNRESOLVED_DEP-gz-plugin = "gz-plugin"
+ROS_UNRESOLVED_DEP-gz-plugin = "ignition-plugin1"
 ROS_UNRESOLVED_DEP-libgdal-dev = "gdal"
+
+ROS_UNRESOLVED_DEP-python3-tabulate = "python3-tabulate"
+ROS_UNRESOLVED_DEP-python3-graphviz = "python3-graphviz"
+ROS_UNRESOLVED_DEP-graphviz-dev = "graphviz"
+ROS_UNRESOLVED_DEP-python3-tqdm = "python3-tqdm"
+ROS_UNRESOLVED_DEP-python3-smbus = "python3-smbus"
+ROS_UNRESOLVED_DEP-libopus = "libopus"
+ROS_UNRESOLVED_DEP-libopus-dev = "libopus"
+ROS_UNRESOLVED_DEP-python3-colorcet = "python3-colorcet"
+ROS_UNRESOLVED_DEP-libxkbcommon-dev = "libxkbcommon"
+
+ROS_UNRESOLVED_DEP-libavdevice-dev = "ffmpeg"
