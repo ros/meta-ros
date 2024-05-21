@@ -1,0 +1,22 @@
+Index: git/src/mongo/base/generate_error_codes.py
+===================================================================
+--- git.orig/src/mongo/base/generate_error_codes.py
++++ git/src/mongo/base/generate_error_codes.py
+@@ -115,7 +115,7 @@ def generate_header(filename, error_code
+     predicate_declarations = ';\n        '.join(
+         'static bool is%s(Error err)' % ec[0] for ec in error_classes)
+ 
+-    open(filename, 'wb').write(header_template % dict(
++    open(filename, 'w').write(header_template % dict(
+             error_code_enum_declarations=enum_declarations,
+             error_code_class_predicate_declarations=predicate_declarations))
+ 
+@@ -129,7 +129,7 @@ def generate_source(filename, error_code
+         'case %s: return %s' % (ec[0], ec[0]) for ec in error_codes)
+     predicate_definitions = '\n    '.join(
+         generate_error_class_predicate_definition(*ec) for ec in error_classes)
+-    open(filename, 'wb').write(source_template % dict(
++    open(filename, 'w').write(source_template % dict(
+             symbol_to_string_cases=symbol_to_string_cases,
+             string_to_symbol_cases=string_to_symbol_cases,
+             int_to_symbol_cases=int_to_symbol_cases,

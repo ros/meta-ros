@@ -1,0 +1,31 @@
+Index: git/site_scons/buildscripts/clang_format.py
+===================================================================
+--- git.orig/site_scons/buildscripts/clang_format.py
++++ git/site_scons/buildscripts/clang_format.py
+@@ -9,7 +9,7 @@ A script that provides:
+ """
+ from __future__ import print_function, absolute_import
+ 
+-import Queue
++import queue
+ import difflib
+ import itertools
+ import os
+@@ -318,7 +318,7 @@ def parallel_process(items, func):
+ 
+     # print("Running across %d cpus" % (cpus))
+ 
+-    task_queue = Queue.Queue()
++    task_queue = queue.Queue()
+ 
+     # Use a list so that worker function will capture this variable
+     pp_event = threading.Event()
+@@ -331,7 +331,7 @@ def parallel_process(items, func):
+         while not pp_event.is_set():
+             try:
+                 item = task_queue.get_nowait()
+-            except Queue.Empty:
++            except queue.Empty:
+                 # if the queue is empty, exit the worker thread
+                 pp_event.set()
+                 return

@@ -1,0 +1,21 @@
+Author: Apollon Oikonomopoulos <apoikos@debian.org>
+Description: Fix build against Boost 1.67
+ In Boost 1.67, boost::next and boost::prior were moved from utility.hpp to
+ next_prior.hpp. Fix this by including next_prior.hpp for Boost 1.67 and
+ onwards.
+Last-Update: 2018-12-06
+Forwarded: no (EOL upstream)
+Bug-Debian: https://bugs.debian.org/911888
+--- a/src/mongo/util/net/message_port.h
++++ b/src/mongo/util/net/message_port.h
+@@ -21,6 +21,10 @@
+ 
+ #include <boost/shared_ptr.hpp>
+ #include <boost/utility.hpp>
++#include <boost/version.hpp>
++#if BOOST_VERSION >= 106700
++#include <boost/next_prior.hpp>
++#endif
+ #include <vector>
+ 
+ #include "mongo/util/net/message.h"

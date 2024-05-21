@@ -1,0 +1,15 @@
+Index: git/site_scons/buildscripts/lint.py
+===================================================================
+--- git.orig/site_scons/buildscripts/lint.py
++++ git/site_scons/buildscripts/lint.py
+@@ -2,8 +2,8 @@
+ import sys
+ import codecs
+ 
+-import cpplint
+-import utils
++from buildscripts import cpplint
++from buildscripts import utils
+ 
+ 
+ def run_lint( paths, nudgeOn=False ):

@@ -1,0 +1,22 @@
+Index: git/SConstruct
+===================================================================
+--- git.orig/SConstruct
++++ git/SConstruct
+@@ -388,7 +388,7 @@ SConsignFile(str(sconsDataDir.File('scon
+ def printLocalInfo():
+     import sys, SCons
+     print( "scons version: " + SCons.__version__ )
+-    print( "python version: " + " ".join( [ `i` for i in sys.version_info ] ) )
++    print( "python version: " + ".".join( [ str(i) for i in sys.version_info ][:3] ) )
+ 
+ printLocalInfo()
+ 
+@@ -1119,7 +1119,7 @@ def doConfigure(myenv):
+         # to make them real errors.
+         cloned.Append(CCFLAGS=['-Werror'])
+         conf = Configure(cloned, help=False, custom_tests = {
+-                'CheckFlag' : lambda(ctx) : CheckFlagTest(ctx, tool, extension, flag)
++                'CheckFlag' : lambda ctx : CheckFlagTest(ctx, tool, extension, flag)
+         })
+         available = conf.CheckFlag()
+         conf.Finish()

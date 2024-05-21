@@ -1,0 +1,35 @@
+diff --git a/SConstruct b/SConstruct
+index ed89571..dfb5686 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -928,7 +928,7 @@ if debugBuild:
+     env.Append( CPPDEFINES=["MONGO_DEBUG_BUILD"] );
+ 
+ try:
+-    umask = os.umask(022)
++    umask = os.umask(0o022)
+ except OSError:
+     pass
+ 
+Index: git/src/SConscript.client
+===================================================================
+--- git.orig/src/SConscript.client
++++ git/src/SConscript.client
+@@ -3,7 +3,7 @@
+ # This SConscript describes build and install rules for the Mongo C++ driver and associated exmaple
+ # programs.
+ import buildscripts.git
+-import httplib
++import http.client
+ import json
+ import os
+ import re
+@@ -414,7 +414,7 @@ if buildShared:
+     mongoClientPrefixInstalls.append(mongoClientSharedLibPrefixInstall)
+ 
+ inst = libEnv.InstallAs(['$INSTALL_DIR/include/' + x for x in clientHeaders], clientHeaders)
+-libEnv.AddPostAction(inst, Chmod('$TARGET', 0644))
++libEnv.AddPostAction(inst, Chmod('$TARGET', 0o0644))
+ mongoClientPrefixInstalls.append(inst);
+ 
+ 

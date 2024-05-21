@@ -1,0 +1,69 @@
+Description: use system libraries if possible
+ This patch tries to allow the usage of system libraries whenever possible.
+ Unfortunately it is not easy to perform relevant checks in a proper way,
+ so, while functional, this patch is not suitable to be sent upstream as
+ it is likely to create troubles on non-Debian systems.
+Author: Giulio Paci <giuliopaci@gmail.com>
+Forwarded: no
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/src/mongo/SConscript
++++ b/src/mongo/SConscript
+@@ -3,6 +3,7 @@
+ testEnv = env.Clone()
+ conf = Configure(testEnv)
+ conf.CheckLibWithHeader('curl', 'curl/curl.h', 'c')
++conf.CheckLibWithHeader('jsoncpp', 'jsoncpp/json/json.h', 'C++')
+ testEnv = conf.Finish()
+ 
+ staticClientEnv = testEnv.Clone()
+@@ -35,7 +36,6 @@
+     target='integration_test_main',
+     source=[
+         '../third_party/restclient/restclient.cpp',
+-        '../third_party/jsoncpp/jsoncpp.cpp',
+         'orchestration/resource.cpp',
+         'orchestration/mongo_resource.cpp',
+         'orchestration/server.cpp',
+--- a/SConstruct
++++ b/SConstruct
+@@ -932,7 +932,10 @@
+ except OSError:
+     pass
+ 
+-env.Prepend(CPPPATH=['$VARIANT_DIR/third_party/gtest-1.7.0/include'])
++conf = Configure(env)
++if not conf.CheckCXXHeader('gtest/gtest.h'):
++    env.Prepend(CPPPATH=['$VARIANT_DIR/third_party/gtest-1.7.0/include'])
++env = conf.Finish()
+ 
+ boostSuffixList = ["-mt", ""]
+ if get_option("boost-lib-search-suffixes") is not None:
+--- a/src/mongo/orchestration/resource.h
++++ b/src/mongo/orchestration/resource.h
+@@ -19,7 +19,7 @@
+ #include <string>
+ #include <vector>
+ 
+-#include "third_party/jsoncpp/json.h"
++#include "jsoncpp/json/json.h"
+ #include "third_party/restclient/restclient.h"
+ 
+ // Notes:
+--- a/src/third_party/gtest-1.7.0/SConscript
++++ b/src/third_party/gtest-1.7.0/SConscript
+@@ -1,7 +1,13 @@
+ Import('env')
+ 
+ gtestEnv = env.Clone()
+-gtestEnv.AppendUnique(CPPPATH=['$VARIANT_DIR/third_party/gtest-1.7.0'])
++gtestEnv.AppendUnique(CPPPATH=['/usr/src/gtest'])
++conf = Configure(gtestEnv)
++if not conf.CheckCXXHeader('src/gtest-all.cc'):
++    gtestEnv.AppendUnique(CPPPATH=['$VARIANT_DIR/third_party/gtest-1.7.0'])
++else:
++    gtestEnv.VariantDir('.', '/usr/src/gtest/', duplicate=0)
++gtestEnv = conf.Finish()
+ 
+ libGTestStatic = gtestEnv.StaticLibrary(
+     target='gtest',
