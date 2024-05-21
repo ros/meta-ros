@@ -25,6 +25,9 @@ ROS_BUILD_DEPENDS += " \
     nlohmann-json \
 "
 
+ROS_EXEC_DEPENDS:remove = "gtest"
+ROS_EXEC_DEPENDS:append = "googletest"
+
 inherit python3native
 
 FILES:${PN} += " \
