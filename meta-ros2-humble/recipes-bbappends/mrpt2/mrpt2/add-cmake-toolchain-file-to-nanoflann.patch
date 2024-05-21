@@ -1,0 +1,12 @@
+diff --git a/cmakemodules/script_nanoflann.cmake b/cmakemodules/script_nanoflann.cmake
+index 82a07cae..8e1d2298 100644
+--- a/cmakemodules/script_nanoflann.cmake
++++ b/cmakemodules/script_nanoflann.cmake
+@@ -19,6 +19,7 @@ if (NOT nanoflann_FOUND)
+         -DNANOFLANN_BUILD_EXAMPLES=OFF
+         -DNANOFLANN_BUILD_TESTS=OFF
+         -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}
++	-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
+       RESULT_VARIABLE result
+       WORKING_DIRECTORY "${nanoflann_EMBEDDED_BUILD_DIR}"
+       ${echo_flag}
