@@ -1,0 +1,15 @@
+Origin: upstream, r1877
+Index: Source/FreeImage/PluginDDS.cpp
+===================================================================
+diff --git a/Source/FreeImage/PluginDDS.cpp b/Source/FreeImage/PluginDDS.cpp
+--- a/Source/FreeImage/PluginDDS.cpp	(revision 1876)
++++ b/Source/FreeImage/PluginDDS.cpp	(revision 1877)
+@@ -617,7 +617,7 @@
+ 	// read the file
+ 	// -------------------------------------------------------------------------
+ 
+-	const int line = CalculateLine(width, bpp);
++	const int line = CalculateLine(width, FreeImage_GetBPP(dib));
+ 	const int filePitch = ((desc->dwFlags & DDSD_PITCH) == DDSD_PITCH) ? (int)desc->dwPitchOrLinearSize : line;
+ 	const long delta = (long)filePitch - (long)line;
+ 
