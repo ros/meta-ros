@@ -1,0 +1,17 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 230d88c..fd36868 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -276,7 +276,11 @@ endif()
+ 
+ find_library(MATH_LIBRARY m)
+ if (NOT MATH_LIBRARY)
+-	set(MATH_LIBRARY "")
++	if (UNIX)
++		set(MATH_LIBRARY "m")
++	else()
++		set(MATH_LIBRARY "")
++	endif()
+ endif()
+ 
+ ################################################################################
