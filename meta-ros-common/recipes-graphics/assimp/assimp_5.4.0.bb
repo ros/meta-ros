@@ -11,12 +11,17 @@ DEPENDS = "zlib"
 SRC_URI = "git://github.com/assimp/assimp.git;protocol=https;branch=master"
 UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>(\d+(\.\d+)+))"
 
-SRCREV = "9519a62dd20799c5493c638d1ef5a6f484e5faf1"
+SRCREV = "8b9ed34eaa3e6ad24254cb7e058fb9150f66b865"
 
 S = "${WORKDIR}/git"
 
 inherit cmake
 
-EXTRA_OECMAKE = "-DASSIMP_BUILD_ASSIMP_TOOLS=OFF -DASSIMP_BUILD_TESTS=OFF -DASSIMP_LIB_INSTALL_DIR=${baselib}"
+EXTRA_OECMAKE = " \
+    -DASSIMP_BUILD_ASSIMP_TOOLS=OFF \
+    -DASSIMP_BUILD_TESTS=OFF \
+    -DASSIMP_LIB_INSTALL_DIR=${baselib} \
+    -DASSIMP_BUILD_ZLIB=ON \
+"
 
 BBCLASSEXTEND = "native nativesdk"
