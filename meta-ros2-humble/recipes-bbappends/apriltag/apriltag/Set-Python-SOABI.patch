@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0571c58..0a1a374 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -169,7 +169,7 @@ if(BUILD_PYTHON_WRAPPER AND Python3_Development_FOUND AND Python3_NumPy_FOUND)
+     )
+ 
+     # set the SOABI manually since renaming the library via OUTPUT_NAME does not work on MSVC
+-    set(apriltag_py_target "apriltag.${Python3_SOABI}")
++    set(apriltag_py_target "apriltag.${PYTHON_SOABI}")
+     Python3_add_library(${apriltag_py_target} MODULE ${CMAKE_CURRENT_SOURCE_DIR}/apriltag_pywrap.c)
+     add_dependencies(${apriltag_py_target} apriltag_py_docstrings)
+     target_link_libraries(${apriltag_py_target} PRIVATE apriltag Python3::Python Python3::NumPy)
