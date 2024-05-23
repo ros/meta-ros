@@ -18,3 +18,6 @@ inherit pkgconfig
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-generators-native \
 "
+
+# Remove ceres-solver which is not needed at runtime
+ROS_EXEC_DEPENDS:remove = "ceres-solver"
