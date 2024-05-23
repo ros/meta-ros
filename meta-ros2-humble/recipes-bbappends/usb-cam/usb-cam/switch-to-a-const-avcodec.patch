@@ -1,0 +1,25 @@
+From 0e9fe355d55d137fcd876af1ae4d40e192c7d7b7 Mon Sep 17 00:00:00 2001
+From: Chris Lalancette <clalancette@gmail.com>
+Date: Tue, 19 Mar 2024 18:35:04 +0000
+Subject: [PATCH] Switch to a const AVCodec *.
+
+This is because newer versions of avcodec return a const AVCodec *.
+
+Signed-off-by: Chris Lalancette <clalancette@gmail.com>
+---
+ include/usb_cam/formats/mjpeg.hpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/usb_cam/formats/mjpeg.hpp b/include/usb_cam/formats/mjpeg.hpp
+index 2faff235..2b40bb2b 100644
+--- a/include/usb_cam/formats/mjpeg.hpp
++++ b/include/usb_cam/formats/mjpeg.hpp
+@@ -233,7 +233,7 @@ class MJPEG2RGB : public pixel_format_base
+     std::cerr << m_averror_str << std::endl;
+   }
+ 
+-  AVCodec * m_avcodec;
++  const AVCodec * m_avcodec;
+   AVCodecContext * m_avcodec_context;
+   AVCodecParserContext * m_avparser;
+   AVFrame * m_avframe_device;
