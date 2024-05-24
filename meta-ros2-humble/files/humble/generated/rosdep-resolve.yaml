@@ -7,6 +7,10 @@ assimp:
 - assimp@openembedded-core
 assimp-dev:
 - assimp@openembedded-core
+autoconf:
+- autoconf@openembedded-core
+automake:
+- automake@openembedded-core
 benchmark:
 - google-benchmark@meta-ros2
 binutils:
@@ -140,6 +144,8 @@ libatomic:
 - gcc-runtime@openembedded-core
 libavdevice-dev:
 - ${ROS_UNRESOLVED_DEP-libavdevice-dev}
+libblosc-dev:
+- ${ROS_UNRESOLVED_DEP-libblosc-dev}
 libbluetooth:
 - ${ROS_UNRESOLVED_DEP-libbluetooth}
 libbluetooth-dev:
@@ -248,6 +254,8 @@ libopencv-dev:
 - opencv@meta-oe
 libopencv-imgproc-dev:
 - opencv@meta-oe
+libopenexr-dev:
+- ${ROS_UNRESOLVED_DEP-libopenexr-dev}
 libopenni2-dev:
 - ${ROS_UNRESOLVED_DEP-libopenni2-dev}
 libopenscenegraph:
@@ -314,6 +322,8 @@ libtheora:
 - libtheora@openembedded-core
 libtins-dev:
 - ${ROS_UNRESOLVED_DEP-libtins-dev}
+libtool:
+- libtool@openembedded-core
 libturbojpeg:
 - libjpeg-turbo@openembedded-core
 libudev-dev:
@@ -334,6 +344,8 @@ libvulkan-dev:
 - vulkan-headers@openembedded-core
 libwebsocketpp-dev:
 - websocketpp@meta-oe
+libx11:
+- libx11@openembedded-core
 libx11-dev:
 - libx11@openembedded-core
 libxaw:
