@@ -5,3 +5,6 @@
 CXXFLAGS += "-Wno-error=return-type"
 
 inherit pkgconfig
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://switch-to-a-const-avcodec.patch"

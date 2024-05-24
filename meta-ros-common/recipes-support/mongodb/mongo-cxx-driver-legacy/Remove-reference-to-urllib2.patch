@@ -1,0 +1,12 @@
+Index: git/SConstruct
+===================================================================
+--- git.orig/SConstruct
++++ git/SConstruct
+@@ -13,7 +13,6 @@ import sys
+ import textwrap
+ import types
+ import urllib
+-import urllib2
+ 
+ import buildscripts.utils
+ import buildscripts.docs

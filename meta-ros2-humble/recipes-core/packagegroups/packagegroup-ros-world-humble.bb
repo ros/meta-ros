@@ -955,6 +955,7 @@ RDEPENDS:${PN}:remove = "usb-cam"
 
 # spinnaker-camera-driver requires the spinnaker SDK
 RDEPENDS:${PN}:remove = "spinnaker-camera-driver"
+RDEPENDS:${PN}:remove = "spinnaker-synchronized-camera-driver"
 
 # septentrio-gnss-driver
 RDEPENDS:${PN}:remove = "septentrio-gnss-driver"

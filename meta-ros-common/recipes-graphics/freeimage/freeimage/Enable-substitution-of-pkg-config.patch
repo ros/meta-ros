@@ -1,0 +1,39 @@
+From: Helmut Grohne <helmut@subdivi.de>
+Date: Tue, 13 Dec 2016 15:59:00 +0000
+Subject: Enable substitution of pkg-config
+
+---
+ Makefile.gnu | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+Index: FreeImage/Makefile.gnu
+===================================================================
+--- FreeImage.orig/Makefile.gnu
++++ FreeImage/Makefile.gnu
+@@ -11,7 +11,10 @@ INSTALLDIR ?= $(DESTDIR)/usr/lib
+ # Converts cr/lf to just lf
+ DOS2UNIX = dos2unix
+ 
+-LIBRARIES = -lstdc++ -ljxrglue $(shell pkg-config --libs libjpeg libopenjp2 libpng libraw libtiff-4 libwebpmux OpenEXR zlib) -lm
++# See Bug-Debian #845279
++PKG_CONFIG ?= pkg-config
++
++LIBRARIES = -lstdc++ -ljxrglue $(shell $(PKG_CONFIG) --libs libjpeg libopenjp2 libpng libraw libtiff-4 libwebpmux OpenEXR zlib) -lm
+ 
+ MODULES = $(SRCS:.c=.o)
+ MODULES := $(MODULES:.cpp=.o)
+@@ -23,12 +26,12 @@ override CFLAGS += -DOPJ_STATIC
+ override CFLAGS += -DNO_LCMS
+ # LibJXR
+ override CFLAGS += -DDISABLE_PERF_MEASUREMENT -D__ANSI__
+-override CFLAGS += $(INCLUDE) -I/usr/include/jxrlib $(shell pkg-config --cflags libjpeg libopenjp2 libpng libraw libtiff-4 libwebpmux OpenEXR zlib)
++override CFLAGS += $(INCLUDE) -I/usr/include/jxrlib $(shell $(PKG_CONFIG) --cflags libjpeg libopenjp2 libpng libraw libtiff-4 libwebpmux OpenEXR zlib)
+ CXXFLAGS ?= -O3 -fPIC
+ override CXXFLAGS += -fexceptions -fvisibility=hidden -Wno-ctor-dtor-privacy
+ # LibJXR
+ override CXXFLAGS += -D__ANSI__
+-override CXXFLAGS += $(INCLUDE) -I/usr/include/jxrlib $(shell pkg-config --cflags libjpeg libopenjp2 libpng libraw libtiff-4 libwebpmux OpenEXR zlib)
++override CXXFLAGS += $(INCLUDE) -I/usr/include/jxrlib $(shell $(PKG_CONFIG) --cflags libjpeg libopenjp2 libpng libraw libtiff-4 libwebpmux OpenEXR zlib)
+ 
+ TARGET  = freeimage
+ STATICLIB = lib$(TARGET).a

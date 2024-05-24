@@ -1,0 +1,34 @@
+diff --git a/libs/maps/CMakeLists.txt b/libs/maps/CMakeLists.txt
+index 55139c9..27bdee2 100644
+--- a/libs/maps/CMakeLists.txt
++++ b/libs/maps/CMakeLists.txt
+@@ -40,7 +40,7 @@ if(BUILD_mrpt-maps)
+ 		if(TARGET "EP_octomap")
+ 			add_dependencies(maps EP_octomap)
+ 		endif()
+-		target_link_libraries(maps PRIVATE ${OCTOMAP_LIBRARIES})
++		target_link_libraries(maps PUBLIC ${OCTOMAP_LIBRARIES})
+ 	endif()
+ 
+ 	target_link_libraries(maps PRIVATE ${MRPT_OPENGL_LIBS})
+diff --git a/libs/nav/CMakeLists.txt b/libs/nav/CMakeLists.txt
+index c6459bd..8a2c319 100644
+--- a/libs/nav/CMakeLists.txt
++++ b/libs/nav/CMakeLists.txt
+@@ -25,3 +25,16 @@ define_mrpt_lib(
+ 	mrpt-maps
+ 	mrpt-kinematics
+ 	)
++
++if(BUILD_mrpt-nav)
++	if (CMAKE_MRPT_HAS_OCTOMAP)
++		if (NOT "${OCTOMAP_LIBRARY_DIRS}" STREQUAL "")
++			link_directories("${OCTOMAP_LIBRARY_DIRS}")
++		endif()
++		if(TARGET "EP_octomap")
++			add_dependencies(nav EP_octomap)
++		endif()
++		target_link_libraries(nav PUBLIC ${OCTOMAP_LIBRARIES})
++	endif()
++
++endif()

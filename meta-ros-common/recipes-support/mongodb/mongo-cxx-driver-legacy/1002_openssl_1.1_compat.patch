@@ -1,0 +1,49 @@
+Author: Apollon Oikonomopoulos <apoikos@debian.org>
+Description: Fix build with OpenSSL 1.1
+ Largely based on https://jira.mongodb.org/browse/SERVER-26781
+Forwarded: no (legacy, see https://jira.mongodb.org/browse/CXX-922)
+Last-Update: 2016-11-09
+--- a/src/mongo/util/net/ssl_manager.cpp
++++ b/src/mongo/util/net/ssl_manager.cpp
+@@ -628,7 +628,7 @@
+ 
+ bool SSLManager::_setSubjectName(const std::string& keyFile, std::string& subjectName) {
+     // Read the certificate subject name and store it
+-    BIO* in = BIO_new(BIO_s_file_internal());
++    BIO* in = BIO_new(BIO_s_file());
+     if (NULL == in) {
+         error() << "failed to allocate BIO object: " << getSSLErrorMessage(ERR_get_error()) << endl;
+         return false;
+--- a/src/mongo/crypto/crypto_openssl.cpp
++++ b/src/mongo/crypto/crypto_openssl.cpp
+@@ -34,19 +34,24 @@
+  * Computes a SHA-1 hash of 'input'.
+  */
+ bool sha1(const unsigned char* input, const size_t inputLen, unsigned char* output) {
+-    EVP_MD_CTX digestCtx;
+-    EVP_MD_CTX_init(&digestCtx);
+-    ON_BLOCK_EXIT(EVP_MD_CTX_cleanup, &digestCtx);
++    EVP_MD_CTX *digestCtx;
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
++    EVP_MD_CTX_init(digestCtx);
++    ON_BLOCK_EXIT(EVP_MD_CTX_cleanup, digestCtx);
++#else
++    digestCtx = EVP_MD_CTX_new();
++    ON_BLOCK_EXIT(EVP_MD_CTX_free, digestCtx);
++#endif
+ 
+-    if (1 != EVP_DigestInit_ex(&digestCtx, EVP_sha1(), NULL)) {
++    if (1 != EVP_DigestInit_ex(digestCtx, EVP_sha1(), NULL)) {
+         return false;
+     }
+ 
+-    if (1 != EVP_DigestUpdate(&digestCtx, input, inputLen)) {
++    if (1 != EVP_DigestUpdate(digestCtx, input, inputLen)) {
+         return false;
+     }
+ 
+-    return (1 == EVP_DigestFinal_ex(&digestCtx, output, NULL));
++    return (1 == EVP_DigestFinal_ex(digestCtx, output, NULL));
+ }
+ 
+ /*

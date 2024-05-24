@@ -1,0 +1,53 @@
+Index: git/apps/benchmarking-image-features/src/mainwindow.h
+===================================================================
+--- git.orig/apps/benchmarking-image-features/src/mainwindow.h
++++ git/apps/benchmarking-image-features/src/mainwindow.h
+@@ -217,7 +217,7 @@ class MainWindow : public QMainWindow
+ 	int tracking_image_counter;	 //!< counter for moving forward in the dataset
+ 
+ 	/** tracker oject which calls the tracking method to perform tracking */
+-	::Tracker tracker_obj;
++	tracker::Tracker tracker_obj;
+ 
+ 	/// tracker parameter variables
+ 	QCheckBox* tracker_param1;	//! Checkbox for tracking parameter 1
+Index: git/apps/benchmarking-image-features/src/tracker.cpp
+===================================================================
+--- git.orig/apps/benchmarking-image-features/src/tracker.cpp
++++ git/apps/benchmarking-image-features/src/tracker.cpp
+@@ -24,7 +24,7 @@ using namespace mrpt::img;
+ /************************************************************************************************
+  *					    Tracker Constructor *
+  ************************************************************************************************/
+-Tracker::Tracker()
++tracker::Tracker::Tracker()
+ {
+ 	hasResolution = false;
+ 	step_num = 0;
+@@ -43,7 +43,7 @@ Tracker::Tracker()
+ /************************************************************************************************
+  *					    Track Them All tracker *
+  ************************************************************************************************/
+-cv::Mat Tracker::trackThemAll(
++cv::Mat tracker::Tracker::trackThemAll(
+ 	std::vector<std::string> files_fullpath_tracking,
+ 	int tracking_image_counter, int remove_lost_feats, int add_new_feats,
+ 	int max_feats, int patch_size, int window_width, int window_height)
+Index: git/apps/benchmarking-image-features/src/tracker.h
+===================================================================
+--- git.orig/apps/benchmarking-image-features/src/tracker.h
++++ git/apps/benchmarking-image-features/src/tracker.h
+@@ -48,6 +48,8 @@
+ #include <mrpt/vision/CVideoFileWriter.h>
+ #include <mrpt/vision/tracking.h>
+ 
++namespace tracker
++{
+ class Tracker
+ {
+    public:
+@@ -103,3 +105,4 @@ class Tracker
+ 		int tracking_image_counter, int remove_lost_feats, int add_new_feats,
+ 		int max_feats, int patch_size, int window_width, int window_height);
+ };
++}

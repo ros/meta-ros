@@ -1,0 +1,56 @@
+From ab9c6b78b7ad3205bdb91ef725b09ddbe3c8945d Mon Sep 17 00:00:00 2001
+From: Milian Wolff <milian.wolff@kdab.com>
+Date: Mon, 7 Jun 2021 09:56:37 +0200
+Subject: [PATCH] fix warnings about unaligned loads from UBSAN
+
+Use memcpy instead to ensure that we don't get warnings about
+unaligned loads from UBSAN:
+
+```
+../3rdParty/jxrlib/image/decode/segdec.c:66:12: runtime error: load of misaligned address 0x7fc3a0544006 for type 'U32', which requires 4 byte alignment
+0x7fc3a0544006: note: pointer points here
+ 01 01 a5 c0 b0 7c  0a 06 05 00 0c 14 10 c2  c0 30 80 38 72 41 ae 1a  8f 54 26 c2 9e f6 c1 25  a9 65
+             ^
+    #0 0x7fc3e137429a in _load4 ../3rdParty/jxrlib/image/decode/segdec.c:66
+    #1 0x7fc3e13748b8 in _flushBit16 ../3rdParty/jxrlib/image/decode/segdec.c:80
+    #2 0x7fc3e13749a6 in _getBit16 ../3rdParty/jxrlib/image/decode/segdec.c:86
+    #3 0x7fc3e1385d75 in DecodeMacroblockDC ../3rdParty/jxrlib/image/decode/segdec.c:1224
+    #4 0x7fc3e131924a in processMacroblockDec ../3rdParty/jxrlib/image/decode/strdec.c:412
+    #5 0x7fc3e137207a in ImageStrDecDecode ../3rdParty/jxrlib/image/decode/strdec.c:4003
+    #6 0x7fc3e126c0b2 in PKImageDecode_Copy_WMP ../3rdParty/jxrlib/jxrgluelib/JXRGlueJxr.c:1874
+```
+---
+ image/decode/segdec.c | 4 +++-
+ image/sys/strcodec.c  | 4 +++-
+ 2 files changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/image/decode/segdec.c b/image/decode/segdec.c
+index fb83f2b..3c890af 100644
+--- a/image/decode/segdec.c
++++ b/image/decode/segdec.c
+@@ -63,7 +63,9 @@ static U32 _FORCEINLINE _load4(void* pv)
+     v |= ((U32)((U16 *) pv)[1]) << 16;
+     return _byteswap_ulong(v);
+ #else // _M_IA64
+-    return _byteswap_ulong(*(U32*)pv);
++    U32 v;
++    memcpy(&v, pv, sizeof(U32));
++    return _byteswap_ulong(v);
+ #endif // _M_IA64
+ #endif // _BIG__ENDIAN_
+ }
+diff --git a/image/sys/strcodec.c b/image/sys/strcodec.c
+index c746d6f..b0989dd 100644
+--- a/image/sys/strcodec.c
++++ b/image/sys/strcodec.c
+@@ -694,7 +694,9 @@ U32 load4BE(void* pv)
+     v |= ((U32)((U16 *) pv)[1]) << 16;
+     return _byteswap_ulong(v);
+ #else // _M_IA64
+-    return _byteswap_ulong(*(U32*)pv);
++    U32 v;
++    memcpy(&v, pv, sizeof(U32));
++    return _byteswap_ulong(v);
+ #endif // _M_IA64
+ #endif // _BIG__ENDIAN_
+ }

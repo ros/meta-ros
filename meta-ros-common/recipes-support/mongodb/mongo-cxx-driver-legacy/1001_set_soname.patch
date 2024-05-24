@@ -1,0 +1,35 @@
+Description: fix some issues
+ Fix the following issues:
+ - adding missing soname to installed shared libraries
+Author: Giulio Paci <giuliopaci@gmail.com>
+Forwarded: yes
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/src/SConscript.client
++++ b/src/SConscript.client
+@@ -370,7 +370,7 @@
+ mongoClientSharedLib = None
+ 
+ if buildShared:
+-
++    EnsureSConsVersion(2, 3, 0)
+     # TODO: When we are ready to set a SONAME for mongoclient, set SHLIBVERSION=x.y.z in this
+     # environment to enable SCons versioned shared library support, and then change the two
+     # 'Install' calls in this block to 'InstallVersionedLibrary'. SHLIBVERSION and
+@@ -388,6 +388,7 @@
+     if not windows:
+         sharedLibEnv.AppendUnique(CCFLAGS="-fvisibility=hidden")
+         sharedLibEnv.AppendUnique(SHLINKFLAGS="-fvisibility=hidden")
++        sharedLibEnv.AppendUnique(SHLIBVERSION="0.0.0")
+ 
+     mongoClientSharedLib = sharedLibEnv.SharedLibrary(sharedLibName, clientSource)
+     libEnv.Alias('driver', mongoClientSharedLib)
+@@ -402,7 +403,7 @@
+                 mongoClientSharedLib[0].abspath
+             ))
+ 
+-    mongoClientSharedLibPrefixInstall = sharedLibEnv.Install(
++    mongoClientSharedLibPrefixInstall = sharedLibEnv.InstallVersionedLib(
+         '$INSTALL_DIR/lib', mongoClientSharedLib)
+     if darwin:
+         sharedLibEnv.AddPostAction(

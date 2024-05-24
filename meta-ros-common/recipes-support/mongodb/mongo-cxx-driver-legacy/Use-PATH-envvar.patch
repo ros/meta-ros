@@ -1,0 +1,12 @@
+Index: git/SConstruct
+===================================================================
+--- git.orig/SConstruct
++++ git/SConstruct
+@@ -507,6 +507,7 @@ if windows:
+         envDict['MSVC_USE_SCRIPT'] = msvc_script
+ 
+ env = Environment(variables=env_vars, **envDict)
++env.PrependENVPath('PATH', os.getenv('PATH'))
+ del envDict
+ 
+ def fatal_error(env, msg, *args):

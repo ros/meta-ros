@@ -1,0 +1,247 @@
+https://github.com/gazebosim/gazebo-classic/commit/6ca23806f7b67d51529e2ddb07d3464b85781c6e.patch
+
+From 6ca23806f7b67d51529e2ddb07d3464b85781c6e Mon Sep 17 00:00:00 2001
+From: Ian Chen <ichen@osrfoundation.org>
+Date: Tue, 14 Nov 2017 15:12:05 -0800
+Subject: [PATCH] fix for ogre 1.8
+
+---
+ .../rendering/CustomPSSMShadowCameraSetup.cc  | 25 +++++++++++++
+ .../rendering/CustomPSSMShadowCameraSetup.hh  | 35 +++++++++++++++++++
+ gazebo/rendering/RTShaderSystem.cc            | 12 +++++++
+ gazebo/rendering/RTShaderSystem.hh            |  1 -
+ gazebo/rendering/RTShaderSystemPrivate.hh     |  6 ++++
+ gazebo/rendering/ogre_gazebo.h                |  2 ++
+ media/rtshaderlib/SGXLib_IntegratedPSSM.glsl  | 26 ++++++++++----
+ 7 files changed, 99 insertions(+), 8 deletions(-)
+
+diff --git a/gazebo/rendering/CustomPSSMShadowCameraSetup.cc b/gazebo/rendering/CustomPSSMShadowCameraSetup.cc
+index e518ba74f8..ce065e5852 100644
+--- a/gazebo/rendering/CustomPSSMShadowCameraSetup.cc
++++ b/gazebo/rendering/CustomPSSMShadowCameraSetup.cc
+@@ -564,3 +564,28 @@ void CustomPSSMShadowCameraSetup::getShadowCamera(const Ogre::SceneManager *_sm,
+   cam->setNearClipDistance(oldNear);
+   cam->setFarClipDistance(oldFar);
+ }
++
++//////////////////////////////////////////////////
++CustomGLSLProgramWriter::CustomGLSLProgramWriter()
++  : Ogre::RTShader::GLSLProgramWriter()
++{
++  mGpuConstTypeMap[Ogre::GCT_SAMPLER2DSHADOW] = "sampler2DShadow";
++}
++
++//////////////////////////////////////////////////
++CustomGLSLProgramWriterFactory::CustomGLSLProgramWriterFactory()
++    : mLanguage("glsl")
++{
++}
++
++//////////////////////////////////////////////////
++const Ogre::String &CustomGLSLProgramWriterFactory::getTargetLanguage() const
++{
++  return mLanguage;
++}
++
++//////////////////////////////////////////////////
++Ogre::RTShader::ProgramWriter *CustomGLSLProgramWriterFactory::create()
++{
++  return OGRE_NEW CustomGLSLProgramWriter();
++}
+diff --git a/gazebo/rendering/CustomPSSMShadowCameraSetup.hh b/gazebo/rendering/CustomPSSMShadowCameraSetup.hh
+index 0ccd7918d1..04844bfd3a 100644
+--- a/gazebo/rendering/CustomPSSMShadowCameraSetup.hh
++++ b/gazebo/rendering/CustomPSSMShadowCameraSetup.hh
+@@ -119,6 +119,41 @@ namespace gazebo
+           const Ogre::Light *_light, Ogre::Camera *_texCam, size_t _iteration)
+           const;
+     };
++
++    /// \brief This overrides ogre's default GLSLProgramWriter to fix
++    /// a bug in ogre versions <= 1.8 where 'sampler2DShadow' sampler type
++    /// is missing
++    class GAZEBO_VISIBLE CustomGLSLProgramWriter :
++        public Ogre::RTShader::GLSLProgramWriter
++    {
++      /// \brief Constructor
++      public: CustomGLSLProgramWriter();
++
++      /// \brief Destructor
++      public: ~CustomGLSLProgramWriter() = default;
++    };
++
++    /// \brief A factory to create our own CustomGLSLProgramWriter.
++    class GAZEBO_VISIBLE CustomGLSLProgramWriterFactory :
++        public Ogre::RTShader::ProgramWriterFactory
++    {
++      /// \brief Constructor
++      public: CustomGLSLProgramWriterFactory();
++
++      /// \brief Destructor
++      public: ~CustomGLSLProgramWriterFactory() = default;
++
++      /// \brief Get shader language supported by this factory
++      /// \return Language supported - "glsl"
++      public: const Ogre::String &getTargetLanguage() const;
++
++      /// \brief Creates the GLSLProgramWriter
++      /// \return Ogre's program writer
++      public: virtual Ogre::RTShader::ProgramWriter* create();
++
++      /// \brief supported shader language
++      private: Ogre::String mLanguage;
++    };
+   }
+ }
+ 
+diff --git a/gazebo/rendering/RTShaderSystem.cc b/gazebo/rendering/RTShaderSystem.cc
+index ec837375f2..d4ec180917 100644
+--- a/gazebo/rendering/RTShaderSystem.cc
++++ b/gazebo/rendering/RTShaderSystem.cc
+@@ -43,6 +43,7 @@
+ #include "gazebo/common/Exception.hh"
+ #include "gazebo/common/SystemPaths.hh"
+ #include "gazebo/rendering/ogre_gazebo.h"
++#include "gazebo/rendering/CustomPSSMShadowCameraSetup.hh"
+ #include "gazebo/rendering/RenderEngine.hh"
+ #include "gazebo/rendering/Scene.hh"
+ #include "gazebo/rendering/Visual.hh"
+@@ -99,6 +100,13 @@ void RTShaderSystem::Init()
+     // Set shader cache path.
+     this->dataPtr->shaderGenerator->setShaderCachePath(cachePath);
+ 
++#if OGRE_VERSION_MAJOR >= 1 && OGRE_VERSION_MINOR <= 8
++    this->dataPtr->programWriterFactory =
++        OGRE_NEW CustomGLSLProgramWriterFactory();
++    Ogre::RTShader::ProgramWriterManager::getSingletonPtr()->addFactory(
++        this->dataPtr->programWriterFactory);
++#endif
++
+     this->dataPtr->shaderGenerator->setTargetLanguage("glsl");
+ 
+     Ogre::RTShader::SubRenderStateFactory* factory =
+@@ -129,6 +137,10 @@ void RTShaderSystem::Fini()
+ #else
+     Ogre::RTShader::ShaderGenerator::destroy();
+ #endif
++
++    if (this->dataPtr->programWriterFactory)
++      delete this->dataPtr->programWriterFactory;
++
+     this->dataPtr->shaderGenerator = NULL;
+   }
+ 
+diff --git a/gazebo/rendering/RTShaderSystem.hh b/gazebo/rendering/RTShaderSystem.hh
+index abc93f846c..7a2e46ed4b 100644
+--- a/gazebo/rendering/RTShaderSystem.hh
++++ b/gazebo/rendering/RTShaderSystem.hh
+@@ -22,7 +22,6 @@
+ #include <string>
+ 
+ #include "gazebo/rendering/ogre_gazebo.h"
+-#include "gazebo/rendering/CustomPSSMShadowCameraSetup.hh"
+ #include "gazebo/gazebo_config.h"
+ 
+ #include "gazebo/rendering/Camera.hh"
+diff --git a/gazebo/rendering/RTShaderSystemPrivate.hh b/gazebo/rendering/RTShaderSystemPrivate.hh
+index 86f9915c24..da1411a003 100644
+--- a/gazebo/rendering/RTShaderSystemPrivate.hh
++++ b/gazebo/rendering/RTShaderSystemPrivate.hh
+@@ -21,6 +21,8 @@
+ #include <string>
+ #include <vector>
+ 
++#include "gazebo/rendering/CustomPSSMShadowCameraSetup.hh"
++
+ #include "gazebo/rendering/ogre_gazebo.h"
+ #include "gazebo/gazebo_config.h"
+ 
+@@ -70,6 +72,10 @@ namespace gazebo
+ 
+       /// \brief Parallel Split Shadow Map (PSSM) overlap between splits.
+       public: double shadowSplitPadding = 2.0;
++
++      /// \brief Custom program writer factory that supports sampler2DShadow,
++      /// only used in ogre versions <= 1.8
++      public: CustomGLSLProgramWriterFactory *programWriterFactory = nullptr;
+     };
+   }
+ }
+diff --git a/gazebo/rendering/ogre_gazebo.h b/gazebo/rendering/ogre_gazebo.h
+index 0991866f68..68574ad079 100644
+--- a/gazebo/rendering/ogre_gazebo.h
++++ b/gazebo/rendering/ogre_gazebo.h
+@@ -66,6 +66,8 @@
+ #if OGRE_VERSION_MAJOR > 1 || OGRE_VERSION_MINOR >= 7
+ #include <OGRE/RTShaderSystem/OgreRTShaderSystem.h>
+ #include <OGRE/RTShaderSystem/OgreShaderProgramSet.h>
++#include <OGRE/RTShaderSystem/OgreShaderGLSLProgramWriter.h>
++#include <OGRE/RTShaderSystem/OgreShaderProgramWriterManager.h>
+ #endif
+ 
+ #if OGRE_VERSION_MAJOR > 1 || OGRE_VERSION_MINOR >= 9
+diff --git a/media/rtshaderlib/SGXLib_IntegratedPSSM.glsl b/media/rtshaderlib/SGXLib_IntegratedPSSM.glsl
+index 5238bb15fc..b7bcc4f8a3 100644
+--- a/media/rtshaderlib/SGXLib_IntegratedPSSM.glsl
++++ b/media/rtshaderlib/SGXLib_IntegratedPSSM.glsl
+@@ -55,7 +55,7 @@ void SGX_ApplyShadowFactor_Diffuse(in vec4 ambient,
+ }
+ 
+ //-----------------------------------------------------------------------------
+-float _SGX_ShadowPoisson9(sampler2DShadow shadowMap, vec4 shadowMapPos, vec2 invShadowMapSize)
++float _SGX_ShadowPoisson9(sampler2DShadow shadowMap, vec4 shadowMapPos, vec2 invShadowMapSize, bool hardwarePCF)
+ {
+   // Remove shadow outside shadow maps so that all that area appears lit
+   if (shadowMapPos.z < 0.0 || shadowMapPos.z > 1.0)
+@@ -86,13 +86,19 @@ float _SGX_ShadowPoisson9(sampler2DShadow shadowMap, vec4 shadowMapPos, vec2 inv
+     // driver hack.
+     // shadow += shadow2D(shadowMap, newUV.xyz).r;
+     float d = shadow2D(shadowMap, newUV.xyz).r;
+-    float minShadowFactor = 0.2;
+-    shadow += (step(shadowMapPos.z, d) >= 1.0) ? 1.0 : minShadowFactor;
++    if (hardwarePCF)
++      shadow += d;
++    else
++      shadow += step(shadowMapPos.z, d);
+   }
+   shadow /= 9.0;
+ 
+   // smoothstep makes shadow edges appear more crisp and hides Mach bands
+-  return smoothstep(0.0, 1.0, shadow);
++  float s = smoothstep(0.0, 1.0, shadow);
++  // make shadow lighter color
++  float minShadowFactor = 0.2;
++  s = s * (1.0 - minShadowFactor) + minShadowFactor;
++  return s;
+ }
+ 
+ //-----------------------------------------------------------------------------
+@@ -109,19 +115,25 @@ void SGX_ComputeShadowFactor_PSSM3(in float fDepth,
+ 							in vec4 invShadowMapSize2,
+ 							out float oShadowFactor)
+ {
++  // hack! On OSX the shadow size is halved so we use this as a hint to
++  // turn off hardware PCF.
++  bool hardwarePCF = false;
++  if (invShadowMapSize0.x == invShadowMapSize1.x)
++    hardwarePCF = true;
++
+   if (fDepth  <= vSplitPoints.x)
+   {
+     oShadowFactor =
+-      _SGX_ShadowPoisson9(shadowMap0, lightPosition0, invShadowMapSize0.xy);
++      _SGX_ShadowPoisson9(shadowMap0, lightPosition0, invShadowMapSize0.xy, hardwarePCF);
+   }
+   else if (fDepth <= vSplitPoints.y)
+   {
+     oShadowFactor =
+-      _SGX_ShadowPoisson9(shadowMap1, lightPosition1, invShadowMapSize1.xy);
++      _SGX_ShadowPoisson9(shadowMap1, lightPosition1, invShadowMapSize1.xy, hardwarePCF);
+   }
+   else
+   {
+     oShadowFactor =
+-      _SGX_ShadowPoisson9(shadowMap2, lightPosition2, invShadowMapSize2.xy);
++      _SGX_ShadowPoisson9(shadowMap2, lightPosition2, invShadowMapSize2.xy, hardwarePCF);
+   }
+ }

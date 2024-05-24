@@ -1,0 +1,22 @@
+Index: git/Makefile
+===================================================================
+--- git.orig/Makefile
++++ git/Makefile
+@@ -29,8 +29,6 @@
+ ##
+ build: all
+ 
+-CC=cc
+-
+ JXR_VERSION=1.1
+ 
+ DIR_SRC=$(CURDIR)
+@@ -65,7 +63,7 @@ endif
+ 
+ CD=cd
+ MK_DIR=mkdir -p
+-CFLAGS=-I. -Icommon/include -I$(DIR_SYS) $(ENDIANFLAG) -D__ANSI__ -DDISABLE_PERF_MEASUREMENT -w $(PICFLAG) -O
++CFLAGS+=$(ENDIANFLAG) -D__ANSI__ -DDISABLE_PERF_MEASUREMENT -w $(PICFLAG) -O
+ 
+ STATIC_LIBRARIES=$(DIR_BUILD)/libjxrglue.a $(DIR_BUILD)/libjpegxr.a
+ SHARED_LIBRARIES=$(DIR_BUILD)/libjxrglue.so $(DIR_BUILD)/libjpegxr.so

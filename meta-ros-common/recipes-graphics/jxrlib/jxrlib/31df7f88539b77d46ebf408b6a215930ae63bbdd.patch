@@ -1,0 +1,76 @@
+From 31df7f88539b77d46ebf408b6a215930ae63bbdd Mon Sep 17 00:00:00 2001
+From: Milian Wolff <milian.wolff@kdab.com>
+Date: Mon, 7 Jun 2021 10:30:46 +0200
+Subject: [PATCH] Fix memory leaks when handling OOM scenario
+
+If the second or third allocation failed, the code would leak
+the first and/or secon allocation. Free all buffers if we return
+early to prevent this.
+---
+ jxrtestlib/JXRTestYUV.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/jxrtestlib/JXRTestYUV.c b/jxrtestlib/JXRTestYUV.c
+index 52dc4ca..b803387 100644
+--- a/jxrtestlib/JXRTestYUV.c
++++ b/jxrtestlib/JXRTestYUV.c
+@@ -120,6 +120,9 @@ ERR PKImageEncode_WritePixels_IYUV(
+ 
+     if(pY == NULL || pU == NULL || pV == NULL)
+     {
++        free(pY);
++        free(pU);
++        free(pV);
+         return ICERR_ERROR;
+     }
+ 
+@@ -198,6 +201,9 @@ ERR PKImageEncode_WritePixels_YUV422(
+ 
+     if(pY == NULL || pU == NULL || pV == NULL)
+     {
++        free(pY);
++        free(pU);
++        free(pV);
+         return ICERR_ERROR;
+     }
+ //YYUV
+@@ -273,6 +279,9 @@ ERR PKImageEncode_WritePixels_YUV444(
+ 
+     if(pY == NULL || pU == NULL || pV == NULL)
+     {
++        free(pY);
++        free(pU);
++        free(pV);
+         return ICERR_ERROR;
+     }
+ 
+@@ -491,6 +500,9 @@ ERR PKImageDecode_Copy_IYUV(
+ 
+     if(pY == NULL || pU == NULL || pV == NULL)
+     {
++        free(pY);
++        free(pU);
++        free(pV);
+         return ICERR_ERROR;
+     }
+ 
+@@ -564,6 +576,9 @@ ERR PKImageDecode_Copy_YUV422(
+ 
+     if(pY == NULL || pU == NULL || pV == NULL)
+     {
++        free(pY);
++        free(pU);
++        free(pV);
+         return ICERR_ERROR;
+     }
+ 
+@@ -635,6 +650,9 @@ ERR PKImageDecode_Copy_YUV444(
+ 
+     if(pY == NULL || pU == NULL || pV == NULL)
+     {
++        free(pY);
++        free(pU);
++        free(pV);
+         return ICERR_ERROR;
+     }
+ 

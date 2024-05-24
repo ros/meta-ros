@@ -31,6 +31,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     fastrtps-native \
     foonathan-memory-vendor-native \
     generate-parameter-library-py-native \
+    geometry-msgs-native \
     iceoryx-binding-c-native \
     iceoryx-hoofs-native \
     iceoryx-posh-native \
@@ -138,21 +139,8 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'gl
 # ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python3-collada-pip' (but meta-ros2-rolling/generated-recipes/webots-ros2-desktop/webots-ros2-importer_0.0.3-1.bb RDEPENDS on or otherwise requires it)
 ROS_WORLD_SKIP_GROUPS += "webots-python-modules"
 
-# recipes depending on gazebo-rosdev
-ROS_WORLD_SKIP_GROUPS += "gazebo"
-
 # recipes depending on libqglviewer (https://packages.debian.org/source/stretch/libqglviewer https://packages.debian.org/stretch/libqglviewer2-qt5)
 ROS_WORLD_SKIP_GROUPS += "libqglviewer"
-
-# recipes depending on ignition-* (ROS_UNRESOLVED_DEP-ignition-gazebo5, ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-msgs7, ROS_UNRESOLVED_DEP-ignition-transport10, ROS_UNRESOLVED_DEP-ignition-rendering5, ROS_UNRESOLVED_DEP-ignition-common4, ROS_UNRESOLVED_DEP-ignition-gui5)
-ROS_WORLD_SKIP_GROUPS += "ignition"
-
-# recipes depending on legacy mongo-cxx-driver (https://packages.debian.org/source/stretch/mongo-cxx-driver-legacy)
-# the mongodb recipe in meta-oe installs just the binaries mongoc, mongos, install_compass
-# the header files searched by mongo-store, warehouse-ros-mongo cmake files cmake/FindMongoClient.cmake and cmake/FindMongoDB.cmake
-# aren't even part of current version of mongo-cxx-driver
-# src/mongo/client/dbclient.h and src/mongo/client/dbclientinterface.h are only in the legacy branches
-ROS_WORLD_SKIP_GROUPS += "mongodb-legacy-cxx-driver"
 
 # recipes depending on ros1
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'ros1-layer', '', 'ros1', d)}"
@@ -307,14 +295,16 @@ ROS_UNRESOLVED_DEP-ignition-transport11 = "ignition-transport11"
 
 ROS_UNRESOLVED_DEP-ignition-msgs8 = "ignition-msgs8"
 
-ROS_UNRESOLVED_DEP-ignition-plugin = "ignition-plugin"
+ROS_UNRESOLVED_DEP-ignition-plugin = "ignition-plugin1"
 
 ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ignition-gazebo6"
+
+ROS_UNRESOLVED_DEP-gz-sim6 = "ignition-gazebo6"
 
 ROS_UNRESOLVED_DEP-ignition-common4 = "ignition-common4"
 
 ROS_UNRESOLVED_DEP-gazebo = "gazebo"
-ROS_UNRESOLVED_DEP-gazebo11 = "gazebo-rosdev"
+ROS_UNRESOLVED_DEP-gazebo11 = "gazebo11"
 ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ignition-gazebo6"
 ROS_UNRESOLVED_DEP-libgazebo11 = "gazebo11"
 ROS_UNRESOLVED_DEP-libgazebo11-dev = "gazebo11"
@@ -340,7 +330,7 @@ ROS_UNRESOLVED_DEP-black = "python3-black"
 ROS_UNRESOLVED_DEP-black-native = "python3-black-native"
 
 ROS_UNRESOLVED_DEP-libdraco-dev = "draco"
-ROS_UNRESOLVED_DEP-sdformat12 = "sdformat"
+ROS_UNRESOLVED_DEP-sdformat12 = "sdformat12"
 
 ROS_UNRESOLVED_DEP-hdf5-tools-native = "hdf5-native"
 ROS_UNRESOLVED_DEP-libopenscenegraph = "openscenegraph"
@@ -358,5 +348,17 @@ ROS_UNRESOLVED_DEP-ignition-fuel-tools7 = "ignition-fuel-tools7"
 ROS_UNRESOLVED_DEP-libserial = "libserial"
 ROS_UNRESOLVED_DEP-libserial-dev = "libserial"
 ROS_UNRESOLVED_DEP-python3-uvloop = "python3-uvloop"
-ROS_UNRESOLVED_DEP-gz-plugin = "gz-plugin"
+ROS_UNRESOLVED_DEP-gz-plugin = "ignition-plugin1"
 ROS_UNRESOLVED_DEP-libgdal-dev = "gdal"
+
+ROS_UNRESOLVED_DEP-python3-tabulate = "python3-tabulate"
+ROS_UNRESOLVED_DEP-python3-graphviz = "python3-graphviz"
+ROS_UNRESOLVED_DEP-graphviz-dev = "graphviz"
+ROS_UNRESOLVED_DEP-python3-tqdm = "python3-tqdm"
+ROS_UNRESOLVED_DEP-python3-smbus = "python3-smbus"
+ROS_UNRESOLVED_DEP-libopus = "libopus"
+ROS_UNRESOLVED_DEP-libopus-dev = "libopus"
+ROS_UNRESOLVED_DEP-python3-colorcet = "python3-colorcet"
+ROS_UNRESOLVED_DEP-libxkbcommon-dev = "libxkbcommon"
+
+ROS_UNRESOLVED_DEP-libavdevice-dev = "ffmpeg"

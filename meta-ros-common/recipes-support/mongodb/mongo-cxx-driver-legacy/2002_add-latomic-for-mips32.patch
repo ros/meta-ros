@@ -1,0 +1,45 @@
+--- mongo-cxx-driver-legacy-1.1.2.orig/SConstruct
++++ mongo-cxx-driver-legacy-1.1.2/SConstruct
+@@ -686,7 +686,10 @@ if darwin:
+ elif linux:
+ 
+     env.Append( LIBS=['m'] )
+-
++    
++    if 'mips' in os.uname()[4] and '32bit' in py_platform.architecture():
++        env.Append( LIBS=['atomic'] )
++	
+     if os.uname()[4] == "x86_64" and not force32:
+         linux64 = True
+         nixLibPrefix = "lib64"
+@@ -1597,7 +1600,7 @@ def doConfigure(myenv):
+         test_body = """
+         #include <atomic>
+         int main(int argc, char **argv) {
+-            std::atomic<int> a(0);
++            std::atomic<long long> a(0);
+             return a.fetch_add(1);
+         }
+         """
+@@ -1609,9 +1612,9 @@ def doConfigure(myenv):
+     def CheckGCCAtomicBuiltins(context):
+         test_body = """
+         int main(int argc, char **argv) {
+-            int a = 0;
+-            int b = 0;
+-            int c = 0;
++            long long a = 0;
++            long long b = 0;
++            long long c = 0;
+ 
+             __atomic_compare_exchange(&a, &b, &c, false, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
+             return 0;
+@@ -1625,7 +1628,7 @@ def doConfigure(myenv):
+     def CheckGCCSyncBuiltins(context):
+         test_body = """
+         int main(int argc, char **argv) {
+-            int a = 0;
++            long long a = 0;
+             return __sync_fetch_and_add(&a, 1);
+         }
+ 

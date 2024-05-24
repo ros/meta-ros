@@ -1,0 +1,17 @@
+Description: lintian hardening-no-bindnow
+Author: Mathieu Malaterre <malat@debian.org>
+Forwarded: not-needed
+Last-Update: 2022-01-28
+
+--- jxrlib-1.2~git20170615.f752187.orig/CMakeLists.txt
++++ jxrlib-1.2~git20170615.f752187/CMakeLists.txt
+@@ -6,6 +6,9 @@ project(jxrlib C)
+ # Need shared libs for ABI
+ set(BUILD_SHARED_LIBS ON)
+ 
++# PIE for executables:
++set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
++
+ # helper macro to preserve original Makefile convention
+ macro(JXR_MAKE_OBJ SET_NAME)
+   foreach(src ${SRC_${SET_NAME}})

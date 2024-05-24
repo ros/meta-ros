@@ -1,0 +1,136 @@
+cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
+
+if(COMMAND CMAKE_POLICY)
+  CMAKE_POLICY(SET CMP0003 NEW)
+  CMAKE_POLICY(SET CMP0004 NEW)
+endif(COMMAND CMAKE_POLICY)
+
+if(POLICY CMP0100)
+  cmake_policy(SET CMP0100 NEW)
+endif()
+
+project (gazebomsgs_out)
+set (GAZEBO_MAJOR_VERSION 11)
+set (GAZEBO_MINOR_VERSION 14)
+# The patch version may have been bumped for prerelease purposes; be sure to
+# check gazebo-release/ubuntu/debian/changelog@default to determine what the
+# next patch version should be for a regular release.
+set (GAZEBO_PATCH_VERSION 0)
+
+set (GAZEBO_VERSION ${GAZEBO_MAJOR_VERSION}.${GAZEBO_MINOR_VERSION})
+set (GAZEBO_VERSION_FULL ${GAZEBO_MAJOR_VERSION}.${GAZEBO_MINOR_VERSION}.${GAZEBO_PATCH_VERSION})
+
+set (gazebo_cmake_dir ${PROJECT_SOURCE_DIR}/cmake CACHE PATH "Location of CMake scripts")
+
+# Use GNUInstallDirst to get canonical paths
+include(GNUInstallDirs)
+
+########################################
+# Find ignition math library
+find_package(ignition-math6 QUIET)
+if (NOT ignition-math6_FOUND)
+    message(STATUS "Looking for ignition-math6-config.cmake - not found")
+    BUILD_ERROR ("Missing: Ignition math (libignition-math6-dev)")
+else()
+  message(STATUS "Looking for ignition-math6-config.cmake - found")
+  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${ignition-math6_CXX_FLAGS}")
+  include_directories(${ignition-math6_INCLUDE_DIRS})
+  link_directories(${ignition-math6_LIBRARY_DIRS})
+endif()
+
+########################################
+execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} --modversion protobuf
+  OUTPUT_VARIABLE PROTOBUF_VERSION
+  RESULT_VARIABLE protobuf_modversion_failed)
+
+########################################
+if (PROTOBUF_VERSION LESS 2.3.0)
+  BUILD_ERROR("Incorrect version: Gazebo requires protobuf version 2.3.0 or greater")
+endif()
+
+########################################
+# The Google Protobuf library for message generation + serialization
+
+# Protobuf >= 22 requires to link abseil, so we are constrained to use
+# find_package(Protobuf) and link to protobuf::libprotobuf,
+# see https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/4075#issuecomment-1569242816
+if (DEFINED PROTOBUF_VERSION AND PROTOBUF_VERSION GREATER_EQUAL 22.0)
+  set(GZ_PROTOBUF_USE_CMAKE_CONFIG_DEFAULT ON)
+else()
+  set(GZ_PROTOBUF_USE_CMAKE_CONFIG_DEFAULT OFF)
+endif()
+option(GZ_PROTOBUF_USE_CMAKE_CONFIG "If true use protobuf-config.cmake to find protobuf" ${GZ_PROTOBUF_USE_CMAKE_CONFIG_DEFAULT})
+mark_as_advanced(GZ_PROTOBUF_USE_CMAKE_CONFIG)
+
+if(NOT GZ_PROTOBUF_USE_CMAKE_CONFIG)
+  find_package(Protobuf REQUIRED)
+  if (NOT PROTOBUF_FOUND)
+    BUILD_ERROR ("Missing: Google Protobuf (libprotobuf-dev)")
+  endif()
+  if (NOT PROTOBUF_PROTOC_EXECUTABLE)
+    BUILD_ERROR ("Missing: Google Protobuf Compiler (protobuf-compiler)")
+  endif()
+  if (NOT PROTOBUF_PROTOC_LIBRARY)
+    BUILD_ERROR ("Missing: Google Protobuf Compiler Library (libprotoc-dev)")
+  endif()
+  if ("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+    set (GZ_PROTOBUF_LIBRARY ${PROTOBUF_LIBRARY_DEBUG})
+    set (GZ_PROTOBUF_PROTOC_LIBRARY ${PROTOBUF_PROTOC_LIBRARY_DEBUG})
+  else()
+    set (GZ_PROTOBUF_LIBRARY ${PROTOBUF_LIBRARY})
+    set (GZ_PROTOBUF_PROTOC_LIBRARY ${PROTOBUF_PROTOC_LIBRARY})
+  endif()
+else()
+  find_package(Protobuf CONFIG REQUIRED)
+  set (GZ_PROTOBUF_LIBRARY protobuf::libprotobuf)
+  set (GZ_PROTOBUF_PROTOC_LIBRARY protobuf::libprotoc)
+  if(NOT DEFINED PROTOBUF_PROTOC_EXECUTABLE)
+    get_target_property(PROTOBUF_PROTOC_EXECUTABLE protobuf::protoc LOCATION)
+  endif()
+endif()
+
+########################################
+# Find Boost, if not specified manually
+include(FindBoost)
+find_package(Boost ${MIN_BOOST_VERSION} REQUIRED thread system filesystem program_options regex iostreams date_time)
+
+if (NOT Boost_FOUND)
+  set (BUILD_GAZEBO OFF CACHE INTERNAL "Build Gazebo" FORCE)
+  BUILD_ERROR ("Boost not found. Please install thread system filesystem program_options regex iostreams date_time boost version ${MIN_BOOST_VERSION} or higher.")
+endif()
+
+### ########################################
+### # set boost pkgconfig cflags
+### set (Boost_PKGCONFIG_CFLAGS ${Boost_INCLUDE_DIRS})
+### if (NOT "${Boost_PKGCONFIG_CFLAGS}" STREQUAL "")
+###   set (Boost_PKGCONFIG_CFLAGS "-I${Boost_PKGCONFIG_CFLAGS}")
+### endif (NOT "${Boost_PKGCONFIG_CFLAGS}" STREQUAL "")
+### string (REPLACE ";" " -I" Boost_PKGCONFIG_CFLAGS "${Boost_PKGCONFIG_CFLAGS}")
+### 
+### # set boost pkgconfig libs
+### set (Boost_PKGCONFIG_LIBS ${Boost_LIBRARY_DIRS})
+### if (NOT "${Boost_PKGCONFIG_LIBS}" STREQUAL "")
+###   set (Boost_PKGCONFIG_LIBS "-L${Boost_PKGCONFIG_LIBS}")
+### endif(NOT "${Boost_PKGCONFIG_LIBS}" STREQUAL "")
+### string (REPLACE ";" " -L" Boost_PKGCONFIG_LIBS "${Boost_PKGCONFIG_LIBS}")
+### 
+### foreach (b ${Boost_LIBRARIES})
+###   get_filename_component(bname ${b} NAME_WE)
+###   # Prefix -l if not already prefixed
+###   string(FIND ${bname} "-l" lprefix)
+###   if (NOT ${lprefix} EQUAL 0 )
+###     set (bname "-l${bname}")
+###   endif()
+###   # Remove the prefix lib (not always present, like in pthread)
+###   string (REPLACE "lib" "" bname "${bname}")
+###   # Some boost versions add the Boost:: component to cmake, need to change that to boost_ prefix
+###   string (REPLACE "Boost::" "boost_" bname "${bname}")
+###   set (Boost_PKGCONFIG_LIBS "${Boost_PKGCONFIG_LIBS} ${bname}")
+### endforeach(b)
+
+# Main includes for compilation
+include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_BINARY_DIR})
+include_directories(SYSTEM ${IGNITION-MATH_INCLUDE_DIRS})
+
+add_custom_target(tests)
+add_subdirectory(gazebo/msgs)

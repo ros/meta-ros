@@ -1,0 +1,43 @@
+Author: Apollon Oikonomopoulos <apoikos@debian.org>
+Description: Use C++11's std::regex instead of boost::regex
+Forwarded: no (legacy)
+Last-Update: 2016-11-09
+--- a/src/mongo/client/dbclient.cpp
++++ b/src/mongo/client/dbclient.cpp
+@@ -51,10 +51,10 @@
+ #include <boost/algorithm/string/classification.hpp>
+ #include <boost/algorithm/string/predicate.hpp>
+ #include <boost/algorithm/string/split.hpp>
+-#include <boost/regex.hpp>
+ 
+ #include <algorithm>
+ #include <cstdlib>
++#include <regex>
+ 
+ #ifdef MONGO_SSL
+ #include "mongo/client/native_sasl_client_session.h"
+@@ -380,10 +380,10 @@
+ }
+ 
+ ConnectionString ConnectionString::_parseURL(const string& url, string& errmsg) {
+-    const boost::regex mongoUrlRe(kMongoDBURL);
++    const std::regex mongoUrlRe(kMongoDBURL);
+ 
+-    boost::smatch matches;
+-    if (!boost::regex_match(url, matches, mongoUrlRe)) {
++    std::smatch matches;
++    if (!std::regex_match(url, matches, mongoUrlRe)) {
+         errmsg = "Failed to parse mongodb:// URL: " + url;
+         return ConnectionString();
+     }
+--- a/SConstruct
++++ b/SConstruct
+@@ -393,7 +393,7 @@
+ 
+ printLocalInfo()
+ 
+-boostLibs = [ "regex", "thread" , "system" ]
++boostLibs = [ "thread" , "system" ]
+ 
+ linux64  = False
+ force32 = has_option( "force32" ) 

@@ -1,0 +1,16 @@
+Description: Fix compilation due to external-static mismatch
+Author: Anton Gladky <gladk@debian.org>
+Bug-Debian: https://bugs.debian.org/964653
+Last-Update: 2020-07-15
+
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginJPEG.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginJPEG.cpp
+@@ -502,7 +502,7 @@ marker_is_icc(jpeg_saved_marker_ptr mark
+   NOTE: if the file contains invalid ICC APP2 markers, we just silently
+   return FALSE.  You might want to issue an error message instead.
+ */
+-static BOOL 
++BOOL 
+ jpeg_read_icc_profile(j_decompress_ptr cinfo, JOCTET **icc_data_ptr, unsigned *icc_data_len) {
+ 	jpeg_saved_marker_ptr marker;
+ 	int num_markers = 0;
