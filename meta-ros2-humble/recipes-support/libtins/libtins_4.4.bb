@@ -3,7 +3,7 @@ DESCRIPTION = ""
 DESCRIPTION = "High-level, multiplatform C++ network packet sniffing and crafting library."
 HOMEPAGE = "http://libtins.github.io/"
 SECTION = "examples"
-DEPENDS = "libpcap"
+DEPENDS = "libpcap openssl"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dcaaaf1a01e7f9ceb200d383a0d4320c"
 
