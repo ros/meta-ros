@@ -31,7 +31,7 @@ inherit ros_insane_dev_so
 # octomap: /usr/bin/eval_octree_accuracy contains probably-redundant RPATH /usr/lib [useless-rpaths]
 DEPENDS:append:class-target = " chrpath-replacement-native"
 do_install:append() {
-    chrpath --delete ${D}${bindir}/* ${D}${libdir}/*${SOLIBS}
+    chrpath --delete ${D}${ros_bindir}/* ${D}${ros_libdir}/*${SOLIBS}
 }
 
 # OcTreeIterator.hxx:42:39: error: 'template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator' is deprecated [-Werror=deprecated-declarations]
