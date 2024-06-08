@@ -1,0 +1,66 @@
+This corresponds to changes done in Mesa:
+
+glx: Remove dead declarations from <GL/glx.h>
+
+https://gitlab.freedesktop.org/mesa/mesa/-/commit/cc93f08f1e3e84f09cb2bb587d6de702dc836478.patch
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/ThirdParty/GL/glh/glh_genext.h b/ThirdParty/GL/glh/glh_genext.h
+index 275c61d..cddc40d 100644
+--- a/ThirdParty/GL/glh/glh_genext.h
++++ b/ThirdParty/GL/glh/glh_genext.h
+@@ -843,15 +843,9 @@ extern "C" {
+ # ifdef _WIN32
+     GLH_EXTERN PFNWGLALLOCATEMEMORYNVPROC GLH_EXT_NAME(wglAllocateMemoryNV) GLH_INITIALIZER;
+ # endif
+-# ifdef GLX_VERSION_1_3
+-    GLH_EXTERN PFNGLXALLOCATEMEMORYNVPROC GLH_EXT_NAME(glXAllocateMemoryNV) GLH_INITIALIZER;
+-# endif
+ # ifdef _WIN32
+     GLH_EXTERN PFNWGLFREEMEMORYNVPROC GLH_EXT_NAME(wglFreeMemoryNV) GLH_INITIALIZER;
+ # endif
+-# ifdef GLX_VERSION_1_3
+-    GLH_EXTERN PFNGLXFREEMEMORYNVPROC GLH_EXT_NAME(glXFreeMemoryNV) GLH_INITIALIZER;
+-# endif
+ #endif
+ 
+ #ifdef GL_NV_vertex_array_range2
+@@ -3775,21 +3769,11 @@ int glh_init_extension(const char* extension)
+         if (NULL == GLH_EXT_NAME(wglAllocateMemoryNV))
+             return GL_FALSE;
+ # endif
+-# ifdef GLX_VERSION_1_3
+-        GLH_EXT_NAME(glXAllocateMemoryNV) = (PFNGLXALLOCATEMEMORYNVPROC)GLH_EXT_GET_PROC_ADDRESS("glXAllocateMemoryNV");
+-        if (NULL == GLH_EXT_NAME(glXAllocateMemoryNV))
+-            return GL_FALSE;
+-# endif
+ # ifdef _WIN32
+         GLH_EXT_NAME(wglFreeMemoryNV) = (PFNWGLFREEMEMORYNVPROC)GLH_EXT_GET_PROC_ADDRESS("wglFreeMemoryNV");
+         if (NULL == GLH_EXT_NAME(wglFreeMemoryNV))
+             return GL_FALSE;
+ # endif
+-# ifdef GLX_VERSION_1_3
+-        GLH_EXT_NAME(glXFreeMemoryNV) = (PFNGLXFREEMEMORYNVPROC)GLH_EXT_GET_PROC_ADDRESS("glXFreeMemoryNV");
+-        if (NULL == GLH_EXT_NAME(glXFreeMemoryNV))
+-            return GL_FALSE;
+-# endif
+ 
+         return GL_TRUE;
+     }
+@@ -5130,15 +5114,9 @@ int glh_init_extension(const char* extension)
+ # ifdef _WIN32
+ #define wglAllocateMemoryNV GLH_EXT_NAME(wglAllocateMemoryNV)
+ # endif
+-# ifdef GLX_VERSION_1_3
+-#define glXAllocateMemoryNV GLH_EXT_NAME(glXAllocateMemoryNV)
+-# endif
+ # ifdef _WIN32
+ #define wglFreeMemoryNV GLH_EXT_NAME(wglFreeMemoryNV)
+ # endif
+-# ifdef GLX_VERSION_1_3
+-#define glXFreeMemoryNV GLH_EXT_NAME(glXFreeMemoryNV)
+-# endif
+ #endif
+ 
+ #ifdef GL_NV_vertex_array_range2
