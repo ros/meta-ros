@@ -104,7 +104,7 @@ do_install () {
   install -m 0600 Include/*.h ${D}${includedir}/openni2/
 
   install -d ${D}${datadir}/pkgconfig
-  install -m 0600 ${WORKDIR}/libopenni2.pc ${D}${datadir}/pkgconfig
+  install -m 0600 ${UNPACKDIR}/libopenni2.pc ${D}${datadir}/pkgconfig
 
   install -d ${D}${bindir}
   install -m 0755 Bin/*-Release/NiViewer ${D}${bindir}
