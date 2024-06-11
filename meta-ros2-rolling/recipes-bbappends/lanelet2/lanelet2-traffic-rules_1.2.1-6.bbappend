@@ -22,4 +22,5 @@ do_configure:prepend() {
     export ROS_OS_OVERRIDE="openembedded"
 }
 
-FILES:${PN}-dev += "${libdir}/liblanelet2_traffic_rules.so"
+# ERROR: QA Issue: non -dev/-dbg/nativesdk- package lanelet2-traffic-rules contains symlink .so '/opt/ros/rolling/lib/liblanelet2_traffic_rules.so' [dev-so]
+inherit ros_insane_dev_so
