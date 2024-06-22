@@ -5,5 +5,5 @@
 # RDEPENDS:${PN}-dev += "coreutils"
 
 do_install:append() {
-    sed -i 's@^#!/bin/env@#!/usr/bin/env@g' ${D}${datadir}/ament_download/cmake/download_checkmd5.py
+    sed -i 's@^#!/bin/env@#!/usr/bin/env@g' ${D}${ros_datadir}/ament_download/cmake/download_checkmd5.py
 }
