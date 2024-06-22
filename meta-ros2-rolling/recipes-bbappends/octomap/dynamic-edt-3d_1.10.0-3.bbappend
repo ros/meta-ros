@@ -26,5 +26,5 @@ inherit ros_insane_dev_so
 # ERROR: dynamic-edt-3d-1.9.7-1-r0 do_package_qa: QA Issue: dynamic-edt-3d: /usr/lib/libdynamicedt3d.so.1.9.7 contains probably-redundant RPATH /usr/lib [useless-rpaths]
 DEPENDS:append:class-target = " chrpath-replacement-native"
 do_install:append() {
-    chrpath --delete ${D}${libdir}/*${SOLIBS}
+    chrpath --delete ${D}${ros_libdir}/*${SOLIBS}
 }
