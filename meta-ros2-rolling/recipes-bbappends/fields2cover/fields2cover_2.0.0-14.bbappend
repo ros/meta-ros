@@ -54,7 +54,7 @@ EXTRA_OECMAKE += "-DINSTALL_CMAKE_DIR=${baselib}"
 
 do_install:append() {
     # Fix for QA warning [buildpaths]
-    sed -i -e "s#${S}/matplotlib-cpp/#${includedir}#g" ${D}${libdir}/cmake/matplotlib_cpp/matplotlib_cppConfig.cmake
-    sed -i -e "s#${S}/spline#${includedir}#g" ${D}${libdir}/cmake/spline/splineConfig.cmake
-    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${libdir}/cmake/fields2cover/Fields2Cover-shared-Targets.cmake
+    sed -i -e "s#${S}/matplotlib-cpp/#${includedir}#g" ${D}${ros_libdir}/cmake/matplotlib_cpp/matplotlib_cppConfig.cmake
+    sed -i -e "s#${S}/spline#${includedir}#g" ${D}${ros_libdir}/cmake/spline/splineConfig.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_libdir}/cmake/fields2cover/Fields2Cover-shared-Targets.cmake
 }
