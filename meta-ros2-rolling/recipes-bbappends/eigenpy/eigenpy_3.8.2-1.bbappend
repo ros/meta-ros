@@ -4,6 +4,9 @@ ROS_BUILDTOOL_DEPENDS += "python3-numpy-native"
 
 inherit python3native
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://fix-missing-include-for-boost.patch"
+
 # ERROR: eigenpy-2.7.14-1-r0 do_package: QA Issue: eigenpy: Files/directories were installed but not shipped in any package:
 #  /usr/share/ament_index
 #  /usr/share/ament_index/resource_index
