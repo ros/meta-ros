@@ -2,4 +2,4 @@
 
 LICENSE = "BSD-3-Clause"
 
-FILES:${PN}-dev += "${libdir}/liblanelet2_io.so"
+FILES:${PN}-dev += "${ros_libdir}/liblanelet2_io.so"
