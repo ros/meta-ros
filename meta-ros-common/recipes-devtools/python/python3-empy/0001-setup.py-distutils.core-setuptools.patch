@@ -5,7 +5,7 @@ Subject: [PATCH] setup.py: distutils.core -> setuptools
 
 Also change #!/usr/bin/env python to python3
 
-Upstream-Status: Inactive Upstream
+Upstream-Status: Inactive-Upstream
 
 Signed-off-by: Tim Orling <tim.orling@konsulko.com>
 ---
