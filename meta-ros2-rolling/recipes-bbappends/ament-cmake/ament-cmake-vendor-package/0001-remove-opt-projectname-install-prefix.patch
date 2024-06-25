@@ -8,6 +8,10 @@ to fail package QA tests:
 The DESTINATION option must be set.  In order to ensure that it resolves
 to /usr without hardcoding it we use "." to provide a relative path.
 
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 diff --git a/cmake/ament_vendor.cmake b/cmake/ament_vendor.cmake
 index 631b540db..5d5668f0d 100644
 --- a/cmake/ament_vendor.cmake
