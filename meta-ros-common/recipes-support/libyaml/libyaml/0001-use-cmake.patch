@@ -12,6 +12,8 @@ Ubuntu is still using autotools, but there are projects that use the
 CMake build system for libyaml.  This includes the CI/CD build system for
 the  C Client Library for Kubernetes.
 
+Upstream-Status: Pending
+
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 --- a/CMakeLists.txt
