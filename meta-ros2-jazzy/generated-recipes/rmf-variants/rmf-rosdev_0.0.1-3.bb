@@ -31,10 +31,7 @@ ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-rmf-building-map-tools} \
     ${ROS_UNRESOLVED_DEP-rmf-building-sim-common} \
     ${ROS_UNRESOLVED_DEP-rmf-building-sim-gz-classic-plugins} \
-    ${ROS_UNRESOLVED_DEP-rmf-building-sim-gz-plugins} \
-    ${ROS_UNRESOLVED_DEP-rmf-robot-sim-common} \
     ${ROS_UNRESOLVED_DEP-rmf-robot-sim-gz-classic-plugins} \
-    ${ROS_UNRESOLVED_DEP-rmf-robot-sim-gz-plugins} \
     ${ROS_UNRESOLVED_DEP-rmf-traffic-editor-assets} \
     ${ROS_UNRESOLVED_DEP-rmf-traffic-editor-test-maps} \
     ${ROS_UNRESOLVED_DEP-rmf-traffic-editor} \
@@ -45,6 +42,7 @@ ROS_EXEC_DEPENDS = " \
     rmf-api-msgs \
     rmf-battery \
     rmf-building-map-msgs \
+    rmf-building-sim-gz-plugins \
     rmf-charger-msgs \
     rmf-dispenser-msgs \
     rmf-door-msgs \
@@ -54,6 +52,8 @@ ROS_EXEC_DEPENDS = " \
     rmf-ingestor-msgs \
     rmf-lift-msgs \
     rmf-obstacle-msgs \
+    rmf-robot-sim-common \
+    rmf-robot-sim-gz-plugins \
     rmf-scheduler-msgs \
     rmf-site-map-msgs \
     rmf-task \
