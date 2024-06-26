@@ -196,6 +196,8 @@ libgazebo11-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
 libgdal-dev:
 - ${ROS_UNRESOLVED_DEP-libgdal-dev}
+libgeos++-dev:
+- geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
 libglew-dev:
@@ -256,6 +258,18 @@ libpcl-all:
 - pcl@meta-ros-common
 libpcl-all-dev:
 - pcl@meta-ros-common
+libpcl-common:
+- pcl@meta-ros-common
+libpcl-features:
+- pcl@meta-ros-common
+libpcl-filters:
+- pcl@meta-ros-common
+libpcl-io:
+- pcl@meta-ros-common
+libpcl-segmentation:
+- pcl@meta-ros-common
+libpcl-surface:
+- pcl@meta-ros-common
 libpng-dev:
 - libpng@openembedded-core
 libpoco-dev:
@@ -314,9 +328,13 @@ liburdfdom-headers-dev:
 - urdfdom-headers@meta-ros1
 liburdfdom-tools:
 - urdfdom@meta-ros1
+libusb:
+- ${ROS_UNRESOLVED_DEP-libusb}
 libusb-1.0:
 - libusb1@openembedded-core
 libusb-1.0-dev:
+- libusb1@openembedded-core
+libusb-dev:
 - libusb1@openembedded-core
 libv4l-dev:
 - v4l-utils@meta-oe
@@ -524,6 +542,8 @@ python3-tk:
 - python3-tkinter@openembedded-core
 python3-tornado:
 - python3-tornado@meta-python
+python3-tqdm:
+- ${ROS_UNRESOLVED_DEP-python3-tqdm}
 python3-twisted:
 - python3-twisted@meta-python
 python3-typeguard:
@@ -558,6 +578,8 @@ sdformat12:
 - ${ROS_UNRESOLVED_DEP-sdformat12}
 sdl2:
 - libsdl2@openembedded-core
+simde:
+- ${ROS_UNRESOLVED_DEP-simde}
 socat:
 - socat@openembedded-core
 spacenavd:
@@ -575,6 +597,8 @@ subversion:
 suitesparse:
 - suitesparse-cholmod@meta-ros-common
 - suitesparse-cxsparse@meta-ros-common
+swig:
+- swig@openembedded-core
 tango-icon-theme:
 - adwaita-icon-theme@openembedded-core
 tbb:
