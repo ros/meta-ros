@@ -1,6 +1,6 @@
 python3-nose: Fix manpage install directory
 
-Upstream-Status: Inactive Upstream
+Upstream-Status: Inactive-Upstream
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 ---
