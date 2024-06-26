@@ -223,8 +223,6 @@ libopencv-dev:
 - opencv@meta-oe
 libopencv-imgproc-dev:
 - opencv@meta-oe
-libopenni-dev:
-- ${ROS_UNRESOLVED_DEP-libopenni-dev}
 libopenni2-dev:
 - ${ROS_UNRESOLVED_DEP-libopenni2-dev}
 libopenscenegraph:
@@ -263,6 +261,8 @@ libqglviewer2-qt5:
 - ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5}
 libqhull:
 - qhull@meta-ros-common
+libqt5-concurrent:
+- qtbase@meta-qt5
 libqt5-core:
 - qtbase@meta-qt5
 libqt5-gui:
@@ -311,9 +311,13 @@ liburdfdom-headers-dev:
 - urdfdom-headers@meta-ros1
 liburdfdom-tools:
 - urdfdom@meta-ros1
+libusb:
+- ${ROS_UNRESOLVED_DEP-libusb}
 libusb-1.0:
 - libusb1@openembedded-core
 libusb-1.0-dev:
+- libusb1@openembedded-core
+libusb-dev:
 - libusb1@openembedded-core
 libv4l-dev:
 - v4l-utils@meta-oe
@@ -431,6 +435,8 @@ python3-distro:
 - ${ROS_UNRESOLVED_DEP-python3-distro}
 python3-empy:
 - python3-empy@meta-ros-common
+python3-fiona:
+- python3-fiona@meta-ros2
 python3-flake8:
 - python3-flake8@meta-ros-common
 python3-flake8-builtins:
@@ -519,12 +525,18 @@ python3-rospkg:
 - python3-rospkg@meta-ros-common
 python3-rospkg-modules:
 - python3-rospkg@meta-ros-common
+python3-rtree:
+- python3-rtree@meta-ros2
 python3-scipy:
 - ${ROS_UNRESOLVED_DEP-python3-scipy}
+python3-semver:
+- ${ROS_UNRESOLVED_DEP-python3-semver}
 python3-serial:
 - python3-pyserial@meta-python
 python3-setuptools:
 - python3-setuptools@openembedded-core
+python3-shapely:
+- python3-shapely@meta-ros2
 python3-smbus:
 - ${ROS_UNRESOLVED_DEP-python3-smbus}
 python3-sphinx:
@@ -595,26 +607,6 @@ range-v3:
 - ${ROS_UNRESOLVED_DEP-range-v3}
 rapidjson-dev:
 - ${ROS_UNRESOLVED_DEP-rapidjson-dev}
-rmf_building_map_tools:
-- ${ROS_UNRESOLVED_DEP-rmf-building-map-tools}
-rmf_building_sim_common:
-- ${ROS_UNRESOLVED_DEP-rmf-building-sim-common}
-rmf_building_sim_gz_classic_plugins:
-- ${ROS_UNRESOLVED_DEP-rmf-building-sim-gz-classic-plugins}
-rmf_building_sim_gz_plugins:
-- ${ROS_UNRESOLVED_DEP-rmf-building-sim-gz-plugins}
-rmf_robot_sim_common:
-- ${ROS_UNRESOLVED_DEP-rmf-robot-sim-common}
-rmf_robot_sim_gz_classic_plugins:
-- ${ROS_UNRESOLVED_DEP-rmf-robot-sim-gz-classic-plugins}
-rmf_robot_sim_gz_plugins:
-- ${ROS_UNRESOLVED_DEP-rmf-robot-sim-gz-plugins}
-rmf_traffic_editor:
-- ${ROS_UNRESOLVED_DEP-rmf-traffic-editor}
-rmf_traffic_editor_assets:
-- ${ROS_UNRESOLVED_DEP-rmf-traffic-editor-assets}
-rmf_traffic_editor_test_maps:
-- ${ROS_UNRESOLVED_DEP-rmf-traffic-editor-test-maps}
 ros_ign_bridge:
 - ${ROS_UNRESOLVED_DEP-ros-ign-bridge}
 ros_ign_gazebo:
@@ -646,6 +638,8 @@ subversion:
 suitesparse:
 - suitesparse-cholmod@meta-ros-common
 - suitesparse-cxsparse@meta-ros-common
+swig:
+- swig@openembedded-core
 tango-icon-theme:
 - adwaita-icon-theme@openembedded-core
 tbb:
