@@ -465,6 +465,13 @@ pyqt5-dev-tools:
   openembedded: ['${PYTHON_PN}-pyqt5@meta-qt5']
   rhel: [python3-qt5-devel]
   ubuntu: [pyqt5-dev-tools]
+pyqt6-dev-tools:
+  debian: [pyqt6-dev-tools]
+  fedora: [python3-pyqt6-base]
+  ubuntu:
+    '*': [pyqt6-dev-tools]
+    focal: null
+    jammy: null
 pyrebase-pip:
   debian:
     pip:
@@ -4877,6 +4884,10 @@ python3-alembic:
     '*': [python3-alembic]
     '7': null
   ubuntu: [python3-alembic]
+python3-alive-progress-pip:
+  '*':
+    pip:
+      packages: [alive-progress]
 python3-ansible-runner-pip:
   debian:
     pip:
@@ -4915,6 +4926,10 @@ python3-argcomplete:
   openembedded: [python3-argcomplete@meta-python]
   rhel: ['python%{python3_pkgversion}-argcomplete']
   ubuntu: [python3-argcomplete]
+python3-asn1tools-pip:
+  '*':
+    pip:
+      packages: [asn1tools]
 python3-astropy-pip:
   debian:
     pip:
@@ -5430,6 +5445,10 @@ python3-cryptography:
   opensuse: [python3-cryptography]
   rhel: ['python%{python3_pkgversion}-cryptography']
   ubuntu: [python3-cryptography]
+python3-customtkinter-pip:
+  '*':
+    pip:
+      packages: [customtkinter]
 python3-cvxopt:
   arch: [python-cvxopt]
   debian: [python3-cvxopt]
@@ -5448,6 +5467,16 @@ python3-cycler:
     '*': [python3-cycler]
     '7': null
   ubuntu: [python3-cycler]
+python3-dataclasses-json:
+  debian: [python3-dataclasses-json]
+  freebsd: [py39-dataclasses-json]
+  opensuse:
+    '*': [python310-dataclasses-json]
+    '15.2': null
+  ubuntu:
+    '*': [python3-dataclasses-json]
+    bionic: null
+    focal: null
 python3-datadog-pip:
   ubuntu:
     pip:
@@ -5532,6 +5561,14 @@ python3-dev:
   opensuse: [python3-devel]
   rhel: ['python%{python3_pkgversion}-devel']
   ubuntu: [python3-dev]
+python3-dill:
+  alpine: [py3-dill]
+  arch: [python-dill]
+  debian: [python3-dill]
+  fedora: [python-dill]
+  gentoo: [dev-python/dill]
+  opensuse: [python-dill]
+  ubuntu: [python3-dill]
 python3-distro:
   debian: [python3-distro]
   fedora: [python3-distro]
@@ -5784,6 +5821,15 @@ python3-fasteners-pip:
   ubuntu:
     pip:
       packages: [fasteners]
+python3-fastjsonschema:
+  debian: [python3-fastjsonschema]
+  fedora: [python3-fastjsonschema]
+  rhel:
+    '*': [python3-fastjsonschema]
+    '8': null
+  ubuntu:
+    '*': [python3-fastjsonschema]
+    focal: null
 python3-fastkml:
   debian: [python3-fastkml]
   ubuntu: [python3-fastkml]
@@ -6056,6 +6102,7 @@ python3-flask:
   fedora: [python3-flask]
   gentoo: [dev-python/flask]
   nixos: [python3Packages.flask]
+  openembedded: [python3-flask@meta-python]
   rhel: [python3-flask]
   ubuntu: [python3-flask]
 python3-flask-bcrypt:
@@ -6066,6 +6113,7 @@ python3-flask-cors:
   debian: [python3-flask-cors]
   fedora: [python3-flask-cors]
   nixos: [python3Packages.flask-cors]
+  openembedded: [python3-flask-cors@meta-python]
   rhel:
     '*': [python3-flask-cors]
     '7': null
@@ -6080,6 +6128,7 @@ python3-flask-jwt-extended:
         packages: [flask-jwt-extended]
   freebsd: [py-flask-jwt-extended]
   nixos: [python3Packages.flask-jwt-extended]
+  openembedded: [python3-flask-jwt-extended@meta-python]
   opensuse: [python-flask-jwt-extended]
   ubuntu:
     '*': [python3-python-flask-jwt-extended]
@@ -6090,6 +6139,7 @@ python3-flask-migrate:
   debian: [python3-flask-migrate]
   fedora: [python3-flask-migrate]
   gentoo: [dev-python/flask-migrate]
+  openembedded: [python3-flask-migrate@meta-python]
   rhel:
     '*': ['python%{python3_pkgversion}-flask-migrate']
     '7': null
@@ -6101,6 +6151,7 @@ python3-flask-restplus-pip:
 python3-flask-socketio:
   debian: [python3-flask-socketio]
   fedora: [python3-flask-socketio]
+  openembedded: [python3-flask-socketio@meta-python]
   ubuntu: [python3-flask-socketio]
 python3-flask-sqlalchemy:
   arch: [python-flask-sqlalchemy]
@@ -6108,6 +6159,7 @@ python3-flask-sqlalchemy:
   fedora: [python3-flask-sqlalchemy]
   gentoo: [dev-python/flask-sqlalchemy]
   nixos: [python3Packages.flask_sqlalchemy]
+  openembedded: [python3-flask-sqlalchemy@meta-python]
   opensuse: [python-Flask-SQLAlchemy]
   rhel:
     '*': [python3-flask-sqlalchemy]
@@ -6482,6 +6534,11 @@ python3-hypothesis:
   fedora: [python3-hypothesis]
   gentoo: [dev-python/hypothesis]
   ubuntu: [python3-hypothesis]
+python3-icecream:
+  debian: [python3-icecream]
+  ubuntu:
+    '*': [python3-icecream]
+    focal: null
 python3-ifcfg:
   debian:
     buster: [python3-ifcfg]
@@ -6741,6 +6798,10 @@ python3-kml2geojson-pip:
   ubuntu:
     pip:
       packages: [kml2geojson]
+python3-kornia-pip:
+  '*':
+    pip:
+      packages: [kornia]
 python3-lark-parser:
   alpine: [py3-lark-parser]
   arch: [python-lark-parser]
@@ -7134,6 +7195,22 @@ python3-nclib-pip:
   ubuntu:
     pip:
       packages: [nclib]
+python3-nest-asyncio:
+  alpine: [py3-nest_asyncio]
+  arch: [python-nest-asyncio]
+  debian: [python3-nest-asyncio]
+  fedora: [python3-nest-asyncio]
+  gentoo: [dev-python/nest-asyncio]
+  nixos: [python312Packages.nest-asyncio]
+  opensuse:
+    '*': [python-nest-asyncio]
+    '15.2': null
+  rhel:
+    '*': [python3-nest-asyncio]
+    '8': null
+  ubuntu:
+    '*': [python3-nest-asyncio]
+    focal: null
 python3-netcdf4:
   arch: [python-netcdf4]
   debian: [python3-netcdf4]
@@ -7610,6 +7687,11 @@ python3-pil:
     slackpkg:
       packages: [python3-pillow]
   ubuntu: [python3-pil]
+python3-pil-imagetk:
+  debian: [python3-pil.imagetk]
+  fedora: [python3-pillow-tk]
+  rhel: [python3-pillow-tk]
+  ubuntu: [python3-pil.imagetk]
 python3-pip:
   alpine: [py3-pip]
   debian: [python3-pip]
@@ -7874,6 +7956,9 @@ python3-pydantic:
   fedora: [python3-pydantic]
   gentoo: [dev-python/pydantic]
   nixos: [python3Packages.pydantic]
+  rhel:
+    '*': [python3-pydantic]
+    '8': null
   ubuntu:
     '*': [python3-pydantic]
     bionic:
@@ -7907,6 +7992,10 @@ python3-pyee:
   fedora: [python3-ee]
   opensuse: [python3-pyee]
   ubuntu: [python3-pyee]
+python3-pyfirmata2-pip:
+  '*':
+    pip:
+      packages: [pyfirmata2]
 python3-pyftdi-pip:
   debian:
     pip:
@@ -7957,6 +8046,10 @@ python3-pygments:
     '*': [python3-pygments]
     '7': null
   ubuntu: [python3-pygments]
+python3-pygnssutils-pip:
+  '*':
+    pip:
+      packages: [pygnssutils]
 python3-pygraphviz:
   alpine: [py3-pygraphviz]
   debian: [python3-pygraphviz]
@@ -8188,6 +8281,10 @@ python3-pyqtgraph:
   gentoo: [dev-python/pyqtgraph]
   nixos: [python3Packages.pyqtgraph]
   ubuntu: [python3-pyqtgraph]
+python3-pyrender-pip:
+  '*':
+    pip:
+      packages: [pyrender]
 python3-pyro-ppl-pip:
   debian:
     pip:
@@ -8412,6 +8509,10 @@ python3-pyvista-pip:
   ubuntu:
     pip:
       packages: [pyvista]
+python3-pyxb-x-pip:
+  '*':
+    pip:
+      packages: [PyXB-X]
 python3-pyxdg-pip:
   debian:
     pip:
@@ -8483,6 +8584,10 @@ python3-qtpy:
   rhel:
     '8': [python3-QtPy]
   ubuntu: [python3-qtpy]
+python3-quick2wire-api-pip:
+  '*':
+    pip:
+      packages: [quick2wire-api]
 python3-qwt:
   debian: [python3-qwt]
   ubuntu: [python3-qwt]
@@ -8864,6 +8969,7 @@ python3-semver:
   debian: [python3-semver]
   fedora: [python3-semver]
   freebsd: [py36-semver]
+  rhel: [python3-semver]
   ubuntu: [python3-semver]
 python3-sense-emu-pip:
   debian:
@@ -9263,6 +9369,10 @@ python3-stonesoup-pip:
   ubuntu:
     pip:
       packages: [stonesoup]
+python3-streamlit-pip:
+  '*':
+    pip:
+      packages: [streamlit]
 python3-suas-interop-clients-pip:
   debian:
     pip:
@@ -9276,6 +9386,10 @@ python3-suas-interop-clients-pip:
   ubuntu:
     pip:
       packages: [suas-interop-clients]
+python3-supervision-pip:
+  '*':
+    pip:
+      packages: [supervision]
 python3-svg.path:
   alpine: [py3-svgpath]
   debian: [python3-svg.path]
@@ -9663,6 +9777,10 @@ python3-unidiff:
   opensuse: [python-unidiff]
   rhel: [python3-unidiff]
   ubuntu: [python3-unidiff]
+python3-urchin-pip:
+  '*':
+    pip:
+      packages: [urchin]
 python3-urdfpy-pip:
   debian:
     pip:
@@ -9947,6 +10065,10 @@ python3-yolov5:
   ubuntu:
     pip:
       packages: [yolov5]
+python3-yourdfpy-pip:
+  '*':
+    pip:
+      packages: [yourdfpy]
 python3-zmq:
   arch: [python-pyzmq]
   debian: [python3-zmq]

@@ -1,4 +1,4 @@
-# noetic/cache.yaml 2024-05-10 034adfa787934a8311d82cb2dafd8608102b45aa 20240509202133 1.8.0
+# noetic/cache.yaml 2024-06-20 07bc6494b6d14f356abc6428ab027f7d9561cb1d 20240617142839 1.8.0
 distribution_file:
 - release_platforms:
 -----
@@ -289,7 +289,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/fictionlab-gbp/aruco_opencv-release.git',
-version: 0.4.0-1
+version: 0.4.1-1
 },
 source: {
 type: git,
@@ -533,7 +533,7 @@ type: git,
 url: 'https://github.com/autoware-ai/messages.git',
 version: master
 },
-status: maintained
+status: end-of-life
 }
 -----
 auv_msgs: {
@@ -755,6 +755,30 @@ source: {
 type: git,
 url: 'https://github.com/BehaviorTree/BehaviorTree.CPP.git',
 version: master
+},
+status: developed
+}
+-----
+beluga: {
+doc: {
+type: git,
+url: 'https://github.com/Ekumen-OS/beluga.git',
+version: main
+},
+release: {
+packages: [beluga,
+beluga_amcl,
+beluga_ros],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/beluga-release.git',
+version: 2.0.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/Ekumen-OS/beluga.git',
+version: main
 },
 status: developed
 }
@@ -2635,7 +2659,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/luxonis/depthai-core-release.git',
-version: 2.24.0-2
+version: 2.26.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3244,7 +3268,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/stack-of-tasks/eigenpy-ros-release.git',
-version: 3.1.4-5
+version: 3.7.0-1
 },
 source: {
 type: git,
@@ -3442,6 +3466,11 @@ status: maintained
 }
 -----
 etsi_its_messages: {
+doc: {
+type: git,
+url: 'https://github.com/ika-rwth-aachen/etsi_its_messages.git',
+version: main
+},
 release: {
 packages: [etsi_its_cam_coding,
 etsi_its_cam_conversion,
@@ -3460,7 +3489,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ika-rwth-aachen/etsi_its_messages-release.git',
-version: 2.0.1-1
+version: 2.0.2-2
 },
 source: {
 type: git,
@@ -3812,7 +3841,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/Fields2Cover/fields2cover-release.git',
-version: 2.0.0-2
+version: 2.0.0-4
 },
 source: {
 type: git,
@@ -5148,7 +5177,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/humanoid-path-planner/hpp-fcl-ros-release.git',
-version: 2.4.0-1
+version: 2.4.4-1
 },
 source: {
 type: git,
@@ -5784,7 +5813,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/clearpath-gbp/jackal-release.git',
-version: 0.8.9-1
+version: 0.8.10-1
 },
 source: {
 type: git,
@@ -6970,7 +6999,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/locator_ros_bridge-release.git',
-version: 1.0.10-1
+version: 1.0.11-2
 },
 source: {
 type: git,
@@ -7289,7 +7318,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavlink-gbp-release.git',
-version: 2024.3.3-1
+version: 2024.6.6-1
 },
 source: {
 type: git,
@@ -7315,7 +7344,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/mavlink/mavros-release.git',
-version: 1.18.0-1
+version: 1.19.0-1
 },
 source: {
 test_pull_requests: true,
@@ -7598,7 +7627,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/LORD-MicroStrain/microstrain_inertial-release.git',
-version: 4.2.0-1
+version: 4.3.0-1
 },
 source: {
 test_pull_requests: true,
@@ -7914,7 +7943,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/moveit-release.git',
-version: 1.1.13-2
+version: 1.1.14-1
 },
 source: {
 test_commits: false,
@@ -8200,7 +8229,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ika-rwth-aachen/mqtt_client-release.git',
-version: 2.2.1-1
+version: 2.3.0-1
 },
 source: {
 type: git,
@@ -8221,7 +8250,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/mrpt-ros-pkg-release/mrpt2-release.git',
-version: 2.12.2-1
+version: 2.13.1-1
 },
 source: {
 type: git,
@@ -8344,7 +8373,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/mrpt-ros-pkg-release/mrpt_slam-release.git',
-version: 0.1.16-1
+version: 0.1.17-1
 },
 source: {
 type: git,
@@ -8774,7 +8803,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/neonavigation_rviz_plugins-release.git',
-version: 0.11.7-1
+version: 0.17.1-1
 },
 source: {
 type: git,
@@ -11917,7 +11946,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/fetchrobotics-gbp/robot_controllers-release.git',
-version: 0.7.0-1
+version: 0.7.1-4
 },
 source: {
 test_pull_requests: true,
@@ -12450,7 +12479,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ros_controllers-release.git',
-version: 0.21.2-1
+version: 0.22.0-1
 },
 source: {
 type: git,
@@ -12476,7 +12505,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_ROS_controllers_cartesian-release.git',
-version: 0.1.5-1
+version: 0.1.6-1
 },
 source: {
 type: git,
@@ -14321,7 +14350,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rviz-release.git',
-version: 1.14.23-1
+version: 1.14.25-1
 },
 source: {
 test_pull_requests: true,
@@ -14707,7 +14736,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/septentrio-users/septentrio_gnss_driver-release.git',
-version: 1.3.2-1
+version: 1.4.0-5
 },
 source: {
 test_pull_requests: true,
@@ -16268,7 +16297,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_Client_Library-release.git',
-version: 1.3.6-1
+version: 1.3.7-1
 },
 source: {
 type: git,
@@ -16313,7 +16342,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_ROS_Driver-release.git',
-version: 2.1.4-1
+version: 2.1.5-1
 },
 source: {
 type: git,
@@ -19065,6 +19094,103 @@ behaviortree_cpp_v3: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+beluga: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>beluga</name>
+<description>A generic MCL library for ROS2.</description>
+<maintainer email="glpuga@ekumenlabs.com">Gerardo Puga</maintainer>
+<maintainer email="ivanpauno@ekumenlabs.com">Ivan Paunovic</maintainer>
+<maintainer email="nespinosa@ekumenlabs.com">Nahuel Espinosa</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>cmake</buildtool_depend>
+<depend>eigen</depend>
+<depend>libhdf5-dev</depend>
+<depend>range-v3</depend>
+<depend>sophus</depend>
+<depend>tbb</depend>
+<test_depend>clang-format</test_depend>
+<test_depend>clang-tidy</test_depend>
+<test_depend>benchmark</test_depend>
+<test_depend>gtest</test_depend>
+<test_depend>libgmock-dev</test_depend>
+<doc_depend>doxygen</doc_depend>
+<doc_depend>graphviz</doc_depend>
+<doc_depend>texlive-latex-base</doc_depend>
+<export>
+<build_type>cmake</build_type>
+</export>
+</package>
+-----
+beluga_amcl: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>beluga_amcl</name>
+<description>An AMCL node implementation for ROS2 using Beluga.</description>
+<maintainer email="glpuga@ekumenlabs.com">Gerardo Puga</maintainer>
+<maintainer email="ivanpauno@ekumenlabs.com">Ivan Paunovic</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
+<maintainer email="nespinosa@ekumenlabs.com">Nahuel Espinosa</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<depend>beluga</depend>
+<depend>beluga_ros</depend>
+<depend>message_filters</depend>
+<depend>std_srvs</depend>
+<depend condition="$ROS_VERSION == 1">diagnostic_updater</depend>
+<depend condition="$ROS_VERSION == 1">dynamic_reconfigure</depend>
+<depend condition="$ROS_VERSION == 1">nodelet</depend>
+<depend condition="$ROS_VERSION == 2">bondcpp</depend>
+<depend condition="$ROS_VERSION == 1">roscpp</depend>
+<depend condition="$ROS_VERSION == 2">rclcpp</depend>
+<depend condition="$ROS_VERSION == 2">rclcpp_components</depend>
+<depend condition="$ROS_VERSION == 2">rclcpp_lifecycle</depend>
+<test_depend condition="$ROS_VERSION == 1">rostest</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_cmake_gmock</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_cmake_gtest</test_depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+<nodelet condition="$ROS_VERSION == 1" plugin="${prefix}/nodelet_plugins.xml"/>
+</export>
+</package>
+-----
+beluga_ros: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>beluga_ros</name>
+<description>Utilities to interface ROS with Beluga.</description>
+<maintainer email="glpuga@ekumenlabs.com">Gerardo Puga</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
+<maintainer email="nespinosa@ekumenlabs.com">Nahuel Espinosa</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake_python</buildtool_depend>
+<depend>beluga</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>std_msgs</depend>
+<depend>tf2</depend>
+<depend>tf2_eigen</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>tf2_ros</depend>
+<depend>visualization_msgs</depend>
+<test_depend condition="$ROS_VERSION == 1">rostest</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_cmake_gmock</test_depend>
+<test_depend condition="$ROS_VERSION == 2">ament_cmake_gtest</test_depend>
+<exec_depend condition="$ROS_VERSION == 2">python3-h5py</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">python3-matplotlib</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">python3-numpy</exec_depend>
+<exec_depend condition="$ROS_VERSION == 2">python3-scipy</exec_depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
 bond: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -19861,6 +19987,7 @@ cartesian_control_msgs: <?xml version="1.0" ?>
 </package>
 -----
 cartesian_interface: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
 <name>cartesian_interface</name>
 <description>Defines a hardware interface to send Cartesian commands to a robot hardware and read Cartesian states.</description>
@@ -19873,7 +20000,6 @@ cartesian_interface: <?xml version="1.0" ?>
 <depend>hardware_interface</depend>
 <depend>geometry_msgs</depend>
 <test_depend>rosunit</test_depend>
-<export/>
 </package>
 -----
 cartesian_msgs: <?xml version="1.0" ?>
@@ -19896,6 +20022,7 @@ cartesian_msgs: <?xml version="1.0" ?>
 </package>
 -----
 cartesian_trajectory_controller: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
 <name>cartesian_trajectory_controller</name>
 <description>A Cartesian trajectory controller with multiple hardware interface support</description>
@@ -19947,6 +20074,7 @@ cartesian_trajectory_controller: <?xml version="1.0" ?>
 </package>
 -----
 cartesian_trajectory_interpolation: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
 <name>cartesian_trajectory_interpolation</name>
 <description>Cartesian trajectory interpolation as a standalone library</description>
@@ -19968,7 +20096,6 @@ cartesian_trajectory_interpolation: <?xml version="1.0" ?>
 <exec_depend>rospy</exec_depend>
 <exec_depend>roscpp</exec_depend>
 <test_depend>rosunit</test_depend>
-<export/>
 </package>
 -----
 catch_ros: <?xml version="1.0" ?>
@@ -23489,7 +23616,7 @@ costmap_cspace_rviz_plugins: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>roscpp</depend>
 <depend>costmap_cspace_msgs</depend>
-<depend>rviz</depend>
+<depend version_gte="1.14.21">rviz</depend>
 <depend>libqt5-core</depend>
 <depend>libqt5-gui</depend>
 <depend>libqt5-widgets</depend>
@@ -24897,7 +25024,7 @@ depthai: <?xml version="1.0" ?>
 <package format="3">
 <name>depthai</name>
 <description>DepthAI core is a C++ library which comes with firmware and an API to interact with OAK Platform</description>
-<maintainer email="sachin@luxonis.com">Sachin Guruswamy</maintainer>
+<maintainer email="adam.serafin@luxonis.com">Adam Serafin</maintainer>
 <author email="martin@luxonis.com">Martin Peterlin</author>
 <license>MIT</license>
 <url type="website">https://www.luxonis.com/</url>
@@ -27327,7 +27454,9 @@ eigenpy: <?xml version="1.0" ?>
 <depend condition="$ROS_PYTHON_VERSION == 2">python</depend>
 <depend condition="$ROS_PYTHON_VERSION == 3">python3</depend>
 <depend condition="$ROS_PYTHON_VERSION == 2">python-numpy</depend>
+<depend condition="$ROS_PYTHON_VERSION == 2">python-scipy</depend>
 <depend condition="$ROS_PYTHON_VERSION == 3">python3-numpy</depend>
+<depend condition="$ROS_PYTHON_VERSION == 3">python3-scipy</depend>
 <depend>eigen</depend>
 <depend>boost</depend>
 <buildtool_depend>cmake</buildtool_depend>
@@ -29334,21 +29463,24 @@ fiducials: <?xml version="1.0" ?>
 -----
 fields2cover: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="2">
+<package format="3">
 <name>fields2cover</name>
 <description>Robust and efficient coverage paths for autonomous agricultural vehicles. A modular and extensible Coverage Path Planning library</description>
 <maintainer email="gonzalo.miermunoz@wur.nl">Gonzalo Mier</maintainer>
 <license>BSD-3</license>
 <buildtool_depend>cmake</buildtool_depend>
+<depend>boost</depend>
 <depend>eigen</depend>
 <depend>git</depend>
 <depend>libgdal-dev</depend>
+<depend>libgeos++-dev</depend>
 <depend>gtest</depend>
 <depend>tbb</depend>
 <depend>python3</depend>
 <depend>python3-dev</depend>
 <depend>tinyxml2</depend>
-<depend>ortools_vendor</depend>
+<depend>protobuf-dev</depend>
+<depend>swig</depend>
 <exec_depend>python3-matplotlib</exec_depend>
 <exec_depend>python3-tk</exec_depend>
 <test_depend>gtest</test_depend>
@@ -41644,8 +41776,8 @@ where developers' usability and maintenance effort was non-trivial. See<a href="
 <maintainer email="130s@2000.jukuin.keio.ac.jp">Isaac I. Y. Saito</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
 <author email="isucan@google.com">Ioan Sucan</author>
 <author email="robot.moveit@gmail.com">Sachin Chitta</author>
 <buildtool_depend>catkin</buildtool_depend>
@@ -41687,8 +41819,8 @@ moveit_commander: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-pkg</buildtool_depend>
 <buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-pkg</buildtool_depend>
@@ -41720,8 +41852,8 @@ moveit_core: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend>pkg-config</buildtool_depend>
 <depend>assimp</depend>
@@ -41759,15 +41891,16 @@ moveit_core: <?xml version="1.0" ?>
 <depend>visualization_msgs</depend>
 <depend>xmlrpcpp</depend>
 <depend>pluginlib</depend>
+<build_depend>angles</build_depend>
 <doc_depend>python3-sphinx-rtd-theme</doc_depend>
 <test_depend>moveit_resources_panda_moveit_config</test_depend>
 <test_depend>moveit_resources_pr2_description</test_depend>
-<test_depend>angles</test_depend>
 <test_depend>tf2_kdl</test_depend>
-<test_depend condition="$ROS_DISTRO != noetic">orocos_kdl</test_depend>
-<test_depend condition="$ROS_DISTRO == noetic">liborocos-kdl-dev</test_depend>
+<test_depend condition="$ROS_DISTRO == melodic">orocos_kdl</test_depend>
+<test_depend condition="$ROS_DISTRO != melodic">liborocos-kdl-dev</test_depend>
 <test_depend>rosunit</test_depend>
 <test_depend>rostest</test_depend>
+<test_depend>benchmark</test_depend>
 <export>
 <moveit_core plugin="${prefix}/collision_detector_fcl_description.xml"/>
 <moveit_core plugin="${prefix}/collision_detector_bullet_description.xml"/>
@@ -41783,8 +41916,8 @@ moveit_fake_controller_manager: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>moveit_core</depend>
 <depend>moveit_ros_planning</depend>
@@ -41808,8 +41941,8 @@ moveit_kinematics: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>roscpp</depend>
 <depend>moveit_core</depend>
@@ -41817,8 +41950,8 @@ moveit_kinematics: <?xml version="1.0" ?>
 <depend>eigen</depend>
 <depend>tf2</depend>
 <depend>tf2_kdl</depend>
-<depend condition="$ROS_DISTRO != noetic">orocos_kdl</depend>
-<depend condition="$ROS_DISTRO == noetic">liborocos-kdl-dev</depend>
+<depend condition="$ROS_DISTRO == melodic">orocos_kdl</depend>
+<depend condition="$ROS_DISTRO != melodic">liborocos-kdl-dev</depend>
 <exec_depend>liburdfdom-tools</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-lxml</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-lxml</exec_depend>
@@ -41912,8 +42045,8 @@ moveit_planners: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>chomp_motion_planner</exec_depend>
 <exec_depend>moveit_planners_chomp</exec_depend>
@@ -41954,8 +42087,8 @@ moveit_planners_ompl: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>moveit_core</depend>
 <depend>ompl</depend>
@@ -42250,8 +42383,8 @@ moveit_ros: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>moveit_ros_perception</exec_depend>
 <exec_depend>moveit_ros_planning</exec_depend>
@@ -42275,8 +42408,8 @@ moveit_ros_benchmarks: <?xml version="1.0" ?>
 <maintainer email="dave@picknik.ai">Dave Coleman</maintainer>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>moveit_ros_planning</depend>
@@ -42318,8 +42451,8 @@ moveit_ros_manipulation: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>actionlib</depend>
 <depend>dynamic_reconfigure</depend>
@@ -42348,8 +42481,8 @@ moveit_ros_move_group: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>actionlib</depend>
 <depend>moveit_core</depend>
@@ -42379,8 +42512,8 @@ moveit_ros_occupancy_map_monitor: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>moveit_core</depend>
 <depend>moveit_msgs</depend>
@@ -42403,8 +42536,8 @@ moveit_ros_perception: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>moveit_core</depend>
 <depend>roscpp</depend>
@@ -42448,8 +42581,8 @@ moveit_ros_planning: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>moveit_core</depend>
 <depend>moveit_ros_occupancy_map_monitor</depend>
@@ -42487,8 +42620,8 @@ moveit_ros_planning_interface: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-pkg</buildtool_depend>
 <buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-pkg</buildtool_depend>
@@ -42525,8 +42658,8 @@ moveit_ros_robot_interaction: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>moveit_ros_planning</depend>
 <depend>roscpp</depend>
@@ -42550,8 +42683,8 @@ moveit_ros_visualization: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend>pkg-config</buildtool_depend>
 <build_depend>class_loader</build_depend>
@@ -42590,8 +42723,8 @@ moveit_ros_warehouse: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>warehouse_ros</depend>
 <depend>moveit_ros_planning</depend>
@@ -42632,7 +42765,7 @@ moveit_servo: <?xml version="1.0" ?>
 <maintainer email="blakeanderson@utexas.edu">Blake Anderson</maintainer>
 <maintainer email="andyz@utexas.edu">Andy Zelenak</maintainer>
 <license>BSD 3-Clause</license>
-<url type="website">https://ros-planning.github.io/moveit_tutorials</url>
+<url type="website">https://moveit.github.io/moveit_tutorials</url>
 <author>Brian O'Neil</author>
 <author email="andyz@utexas.edu">Andy Zelenak</author>
 <author>Blake Anderson</author>
@@ -42667,8 +42800,8 @@ moveit_setup_assistant: <?xml version="1.0" ?>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>libogre-dev</build_depend>
 <build_depend>qtbase5-dev</build_depend>
@@ -42726,8 +42859,8 @@ simple controller manager plugin for MoveIt.</description>
 <maintainer email="moveit_releasers@googlegroups.com">MoveIt Release Team</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>moveit_core</depend>
 <depend>roscpp</depend>
@@ -43020,11 +43153,11 @@ mqtt_client: <?xml version="1.0" ?>
 <author email="lennart.reiher@rwth-aachen.de">Lennart Reiher</author>
 <author email="bastian.lampe@rwth-aachen.de">Bastian Lampe</author>
 <author email="christian.wende@rwth-aachen.de">Christian Wende</author>
+<depend>fmt</depend>
 <depend>mqtt_client_interfaces</depend>
 <depend>ros_environment</depend>
 <depend>std_msgs</depend>
 <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
-<depend condition="$ROS_VERSION == 2">fmt</depend>
 <depend condition="$ROS_VERSION == 2">libpaho-mqtt-dev</depend>
 <depend condition="$ROS_VERSION == 2">libpaho-mqttpp-dev</depend>
 <depend condition="$ROS_VERSION == 2">rclcpp</depend>
@@ -43034,7 +43167,6 @@ mqtt_client: <?xml version="1.0" ?>
 <depend condition="$ROS_VERSION == 1">nodelet</depend>
 <depend condition="$ROS_VERSION == 1">paho-mqtt-cpp</depend>
 <depend condition="$ROS_VERSION == 1">roscpp</depend>
-<depend condition="$ROS_VERSION == 1">rosfmt</depend>
 <depend condition="$ROS_VERSION == 1">topic_tools</depend>
 <export>
 <build_type condition="$ROS_VERSION == 1">catkin</build_type>
@@ -43103,11 +43235,9 @@ mrpt2: <?xml version="1.0" ?>
 <build_depend>libpcap</build_depend>
 <build_depend>libudev-dev</build_depend>
 <build_depend>libusb-1.0-dev</build_depend>
-<build_depend>libqt5-opengl-dev</build_depend>
 <build_depend>pkg-config</build_depend>
 <build_depend>pybind11-dev</build_depend>
 <build_depend>python3-pip</build_depend>
-<build_depend>qtbase5-dev</build_depend>
 <build_depend>tinyxml2</build_depend>
 <build_depend>wx-common</build_depend>
 <build_depend>wxwidgets</build_depend>
@@ -47274,8 +47404,8 @@ CIRC and sequences thereof.</description>
 <maintainer email="h.slusarek@pilz.de">Hagen Slusarek</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>joint_limits_interface</depend>
 <depend>moveit_ros_planning_interface</depend>
@@ -47283,8 +47413,8 @@ CIRC and sequences thereof.</description>
 <depend>moveit_core</depend>
 <depend>moveit_ros_planning</depend>
 <depend>moveit_ros_move_group</depend>
-<depend condition="$ROS_DISTRO != noetic">orocos_kdl</depend>
-<depend condition="$ROS_DISTRO == noetic">liborocos-kdl-dev</depend>
+<depend condition="$ROS_DISTRO == melodic">orocos_kdl</depend>
+<depend condition="$ROS_DISTRO != melodic">liborocos-kdl-dev</depend>
 <depend>pluginlib</depend>
 <depend>roscpp</depend>
 <depend>tf2</depend>
@@ -47319,8 +47449,8 @@ pilz_industrial_motion_planner_testutils: <?xml version="1.0" ?>
 <maintainer email="h.slusarek@pilz.de">Hagen Slusarek</maintainer>
 <license>BSD</license>
 <url type="website">http://moveit.ros.org</url>
-<url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
-<url type="repository">https://github.com/ros-planning/moveit</url>
+<url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+<url type="repository">https://github.com/moveit/moveit</url>
 <build_depend>moveit_core</build_depend>
 <build_depend>moveit_msgs</build_depend>
 <build_depend>tf2_eigen</build_depend>
@@ -52476,9 +52606,8 @@ robot_controllers: <?xml version="1.0" ?>
 <name>robot_controllers</name>
 <description>Some basic robot controllers for use with robot_controllers_interface.</description>
 <author>Michael Ferguson</author>
-<maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
-<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
+<maintainer email="eric.relson@zebra.com">Eric Relson</maintainer>
+<maintainer email="jeffrey.wilson@zebra.com">Jeff Wilson</maintainer>
 <maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
@@ -52510,9 +52639,8 @@ robot_controllers_interface: <?xml version="1.0" ?>
 <name>robot_controllers_interface</name>
 <description>Generic framework for robot controls.</description>
 <author>Michael Ferguson</author>
-<maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
-<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
+<maintainer email="eric.relson@zebra.com">Eric Relson</maintainer>
+<maintainer email="jeffrey.wilson@zebra.com">Jeff Wilson</maintainer>
 <maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
@@ -52531,9 +52659,8 @@ robot_controllers_msgs: <?xml version="1.0" ?>
 <name>robot_controllers_msgs</name>
 <description>Messages for use with robot_controllers framework.</description>
 <author>Michael Ferguson</author>
-<maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
-<maintainer email="csaldanha@fetchrobotics.com">Carl Saldanha</maintainer>
-<maintainer email="erelson@fetchrobotics.com">Eric Relson</maintainer>
+<maintainer email="eric.relson@zebra.com">Eric Relson</maintainer>
+<maintainer email="jeffrey.wilson@zebra.com">Jeff Wilson</maintainer>
 <maintainer email="opensource@fetchrobotics.com">Fetch Robotics Open Source Team</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
@@ -53423,6 +53550,7 @@ ros_controllers: "<?xml version=\"1.0\" ?>
 </package>"
 -----
 ros_controllers_cartesian: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
 <name>ros_controllers_cartesian</name>
 <description>Metapackage for Cartesian ROS controllers</description>
@@ -59090,21 +59218,34 @@ including cameras and scanning laser rangefinders.</description>
 </package>"
 -----
 septentrio_gnss_driver: '<?xml version="1.0" ?>
-<package format="2">
+<package format="3">
 <name>septentrio_gnss_driver</name>
-<description>ROSaic: C++ driver for Septentrio''s mosaic receivers and beyond</description>
+<description>ROSaic: C++ driver for Septentrio''s GNSS and INS receivers</description>
+<maintainer email="tibor.doeme@alumni.ethz.ch">Tibor Dome</maintainer>
+<maintainer email="thomas.emter@iosb.fraunhofer.de">Thomas Emter</maintainer>
 <maintainer email="githubuser@septentrio.com">Septentrio</maintainer>
 <license>BSD 3-Clause License</license>
 <url type="website">https://github.com/septentrio-gnss/septentrio_gnss_driver</url>
 <url type="website">https://www.ros.org/wiki/septentrio_gnss_driver</url>
 <author>Tibor Dome</author>
-<buildtool_depend>catkin</buildtool_depend>
+<author>Thomas Emter</author>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 2">rosidl_default_generators</build_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<member_of_group condition="$ROS_VERSION == 2">rosidl_interface_packages</member_of_group>
+<depend condition="$ROS_VERSION == 2">rclcpp</depend>
+<depend condition="$ROS_VERSION == 2">rclcpp_components</depend>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
+<depend condition="$ROS_VERSION == 1">roscpp</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
 <depend>diagnostic_msgs</depend>
 <depend>nmea_msgs</depend>
 <depend>sensor_msgs</depend>
 <depend>geometry_msgs</depend>
+<depend condition="$ROS_VERSION == 2">gps_msgs</depend>
+<depend condition="$ROS_VERSION == 1">gps_common</depend>
 <depend>nav_msgs</depend>
-<depend>gps_common</depend>
 <depend>boost</depend>
 <depend>libpcap</depend>
 <depend>geographiclib</depend>
@@ -59112,29 +59253,9 @@ septentrio_gnss_driver: '<?xml version="1.0" ?>
 <depend>tf2_eigen</depend>
 <depend>tf2_geometry_msgs</depend>
 <depend>tf2_ros</depend>
-<build_depend>cpp_common</build_depend>
-<build_depend>rosconsole</build_depend>
-<build_depend>message_generation</build_depend>
-<build_depend>roscpp</build_depend>
-<build_depend>roscpp_serialization</build_depend>
-<build_depend>rostime</build_depend>
-<build_depend>xmlrpcpp</build_depend>
-<build_export_depend>cpp_common</build_export_depend>
-<build_export_depend>rosconsole</build_export_depend>
-<build_export_depend>roscpp</build_export_depend>
-<build_export_depend>roscpp_serialization</build_export_depend>
-<build_export_depend>rostime</build_export_depend>
-<build_export_depend>xmlrpcpp</build_export_depend>
-<build_export_depend>message_runtime</build_export_depend>
-<exec_depend>message_runtime</exec_depend>
-<exec_depend>cpp_common</exec_depend>
-<exec_depend>rosconsole</exec_depend>
-<exec_depend>roscpp</exec_depend>
-<exec_depend>roscpp_serialization</exec_depend>
-<exec_depend>rostime</exec_depend>
-<exec_depend>xmlrpcpp</exec_depend>
 <export>
-<rosdoc config="rosdoc.yaml"/>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
 </export>
 </package>'
 -----
@@ -62394,7 +62515,7 @@ trajectory_tracker_rviz_plugins: <?xml version="1.0" ?>
 <exec_depend>libqt5-gui</exec_depend>
 <exec_depend>libqt5-widgets</exec_depend>
 <depend>pluginlib</depend>
-<depend>rviz</depend>
+<depend version_gte="1.14.21">rviz</depend>
 <depend>trajectory_tracker_msgs</depend>
 <export>
 <rviz plugin="${prefix}/plugin_description.xml"/>
@@ -62980,6 +63101,7 @@ turtlesim: <?xml version="1.0" ?>
 </package>
 -----
 twist_controller: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
 <name>twist_controller</name>
 <description>A ros_control controller accepting Cartesian twist messages in order to move a robot manipulator. It uses a Cartesian interface to the robot,
@@ -62989,6 +63111,7 @@ so that the robot hardware takes care about doing the inverse kinematics. This c
 <license>Apache-2.0</license>
 <url type="website">http://wiki.ros.org/twist_controller</url>
 <author email="exner@fzi.de">Felix Exner</author>
+<author email="scherzin@fzi.de">Stefan Scherzinger</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>cartesian_interface</depend>
 <depend>dynamic_reconfigure</depend>
@@ -62997,7 +63120,9 @@ so that the robot hardware takes care about doing the inverse kinematics. This c
 <depend>realtime_tools</depend>
 <depend>roscpp</depend>
 <build_depend>controller_interface</build_depend>
+<build_depend>pluginlib</build_depend>
 <exec_depend>controller_interface</exec_depend>
+<exec_depend>pluginlib</exec_depend>
 <build_export_depend>controller_interface</build_export_depend>
 <export>
 <controller_interface plugin="${prefix}/twist_controller_plugin.xml"/>
