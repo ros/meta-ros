@@ -552,13 +552,15 @@ clang-format:
   alpine: [clang]
   arch: [clang]
   debian: [clang-format]
-  fedora: [clang]
+  fedora: [clang-tools-extra, git-clang-format]
   gentoo: [sys-devel/clang]
   nixos: [clang]
   osx:
     homebrew:
       packages: [clang-format]
-  rhel: [clang]
+  rhel:
+    '*': [clang-tools-extra, git-clang-format]
+    '7': null
   ubuntu: [clang-format]
 clang-tidy:
   alpine: [clang-extra-tools]
@@ -3456,6 +3458,27 @@ libflann-dev:
   openembedded: [libflann@meta-ros-common]
   rhel: [flann-devel]
   ubuntu: [libflann-dev]
+libflatbuffers-dev:
+  alpine: [flatbuffers-dev]
+  arch: [flatbuffers]
+  debian: [libflatbuffers-dev]
+  fedora: [flatbuffers-devel]
+  freebsd: [flatbuffers]
+  gentoo: [dev-libs/flatbuffers]
+  nixos: [flatbuffers]
+  opensuse:
+    '*': [flatbuffers-devel]
+    '15.2': null
+    '15.3': null
+  osx:
+    homebrew:
+      packages: [flatbuffers]
+    macports:
+      packages: [flatbuffers]
+  rhel:
+    '*': [flatbuffers-devel]
+    '8': null
+  ubuntu: [libflatbuffers-dev]
 libfltk-dev:
   arch: [fltk]
   debian:
@@ -3815,21 +3838,21 @@ libgps:
   rhel: [gpsd-devel]
   ubuntu: [libgps-dev]
 libgrpc:
-  alpine: [grpc]
+  alpine: [grpc-dev]
   arch: [grpc]
   debian: [libgrpc++-dev]
-  fedora: [grpc-cpp]
+  fedora: [grpc-devel]
   gentoo: [net-libs/grpc]
   nixos: [grpc]
   openembedded: [grpc@meta-networking]
-  opensuse: [grpc]
+  opensuse: [grpc-devel]
   osx:
     homebrew:
       packages: [grpc]
     macports:
       packages: [grpc]
   rhel:
-    '*': [grpc]
+    '*': [grpc-devel]
     '8': null
   ubuntu: [libgrpc++-dev]
 libgsl:
@@ -4526,6 +4549,11 @@ libnss3-dev:
   gentoo: [=dev-libs/nss-3*]
   nixos: [nss]
   ubuntu: [libnss3-dev]
+liboctomap-dev:
+  debian: [liboctomap-dev]
+  fedora: [octomap-devel]
+  rhel: [octomap-devel]
+  ubuntu: [liboctomap-dev]
 libogg:
   arch: [libogg]
   debian: [libogg-dev]
@@ -6270,6 +6298,13 @@ libvlccore-dev:
   fedora: [vlc-devel]
   opensuse: [vlc-devel]
   ubuntu: [libvlccore-dev]
+libvorbis-dev:
+  alpine: [libvorbis-dev]
+  debian: [libvorbis-dev]
+  fedora: [libvorbis-devel]
+  opensuse: [libvorbis-devel]
+  rhel: [libvorbis-devel]
+  ubuntu: [libvorbis-dev]
 libvpx-dev:
   debian: [libvpx-dev]
   fedora: [libvpx-devel]
@@ -6602,14 +6637,21 @@ libzip-dev:
   ubuntu: [libzip-dev]
 libzmq3-dev:
   arch: [zeromq]
-  debian: [libzmq3-dev]
+  debian:
+    '*': [libzmq3-dev, cppzmq-dev]
+    bullseye: [libzmq3-dev]
+    buster: [libzmq3-dev]
   fedora: [cppzmq-devel]
   gentoo: [net-libs/cppzmq]
   nixos: [cppzmq]
   openembedded: [zeromq@meta-oe]
   opensuse: [zeromq-devel]
   rhel: [cppzmq-devel]
-  ubuntu: [libzmq3-dev]
+  ubuntu:
+    '*': [libzmq3-dev, cppzmq-dev]
+    bionic: [libzmq3-dev]
+    focal: [libzmq3-dev]
+    jammy: [libzmq3-dev]
 libzmqpp-dev:
   ubuntu: [libzmqpp-dev]
 libzmqpp3:
@@ -6836,9 +6878,7 @@ matio:
   fedora: [matio-devel]
   gentoo: [sci-libs/matio]
   nixos: [matio]
-  rhel:
-    '*': null
-    '8': [matio-devel]
+  rhel: [matio-devel]
   ubuntu: [libmatio-dev]
 maven:
   alpine: [maven]
@@ -8974,6 +9014,7 @@ xvfb:
   fedora: [xorg-x11-server-Xvfb]
   gentoo: [x11-misc/xvfb-run]
   nixos: [xorg.xorgserver]
+  rhel: [xorg-x11-server-Xvfb]
   ubuntu: [xvfb]
 xz-utils:
   arch: [xz]
