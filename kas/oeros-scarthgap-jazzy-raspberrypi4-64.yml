@@ -5,7 +5,3 @@ header:
     - ros2/jazzy.yml
     - machine/raspberrypi4-64.yml
     - common.yml
-
-repos:
-  raspberrypi:
-    branch: "master"
