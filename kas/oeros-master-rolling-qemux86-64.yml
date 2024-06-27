@@ -1,0 +1,11 @@
+header:
+  version: 14
+  includes:
+    - yocto/master.yml
+    - ros2/rolling.yml
+    - machine/qemux86-64.yml
+    - common.yml
+
+repos:
+  raspberrypi:
+    branch: "master"
