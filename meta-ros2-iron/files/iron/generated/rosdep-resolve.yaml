@@ -50,8 +50,6 @@ cwiid:
 cwiid-dev:
 - ${ROS_UNRESOLVED_DEP-cwiid-dev}
 dkms: []
-docker.io:
-- ${ROS_UNRESOLVED_DEP-docker.io}
 doxygen:
 - doxygen@meta-oe
 dpkg:
@@ -92,6 +90,10 @@ gtk3:
 - gtk+3@openembedded-core
 gurumdds-2.8:
 - ${ROS_UNRESOLVED_DEP-gurumdds-2.8}
+gz-plugin:
+- ${ROS_UNRESOLVED_DEP-gz-plugin}
+gz-sim6:
+- ${ROS_UNRESOLVED_DEP-gz-sim6}
 hdf5-tools:
 - hdf5@meta-oe
 ignition-cmake2:
@@ -126,6 +128,8 @@ libatomic:
 - gcc-runtime@openembedded-core
 libavdevice-dev:
 - ${ROS_UNRESOLVED_DEP-libavdevice-dev}
+libblosc-dev:
+- ${ROS_UNRESOLVED_DEP-libblosc-dev}
 libbluetooth:
 - ${ROS_UNRESOLVED_DEP-libbluetooth}
 libbluetooth-dev:
@@ -192,12 +196,16 @@ libgazebo11-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
 libgdal-dev:
 - ${ROS_UNRESOLVED_DEP-libgdal-dev}
+libgeos++-dev:
+- geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
 libglew-dev:
 - glew@openembedded-core
 libglfw3-dev:
 - glfw@meta-intel-realsense
+libgmock-dev:
+- gtest@meta-oe
 libgoogle-glog-dev:
 - glog@meta-oe
 libgps:
@@ -232,6 +240,8 @@ libopencv-dev:
 - opencv@meta-oe
 libopencv-imgproc-dev:
 - opencv@meta-oe
+libopenexr-dev:
+- ${ROS_UNRESOLVED_DEP-libopenexr-dev}
 libopenni2-dev:
 - ${ROS_UNRESOLVED_DEP-libopenni2-dev}
 libopenscenegraph:
@@ -244,7 +254,21 @@ libpaho-mqttpp-dev:
 - paho-mqtt-cpp@meta-oe
 libpcap:
 - libpcap@openembedded-core
+libpcl-all:
+- pcl@meta-ros-common
 libpcl-all-dev:
+- pcl@meta-ros-common
+libpcl-common:
+- pcl@meta-ros-common
+libpcl-features:
+- pcl@meta-ros-common
+libpcl-filters:
+- pcl@meta-ros-common
+libpcl-io:
+- pcl@meta-ros-common
+libpcl-segmentation:
+- pcl@meta-ros-common
+libpcl-surface:
 - pcl@meta-ros-common
 libpng-dev:
 - libpng@openembedded-core
@@ -304,9 +328,13 @@ liburdfdom-headers-dev:
 - urdfdom-headers@meta-ros1
 liburdfdom-tools:
 - urdfdom@meta-ros1
+libusb:
+- ${ROS_UNRESOLVED_DEP-libusb}
 libusb-1.0:
 - libusb1@openembedded-core
 libusb-1.0-dev:
+- libusb1@openembedded-core
+libusb-dev:
 - libusb1@openembedded-core
 libv4l-dev:
 - v4l-utils@meta-oe
@@ -314,6 +342,8 @@ libvulkan-dev:
 - vulkan-headers@openembedded-core
 libwebsocketpp-dev:
 - websocketpp@meta-oe
+libx11:
+- libx11@openembedded-core
 libx11-dev:
 - libx11@openembedded-core
 libxaw:
@@ -418,6 +448,8 @@ python3-future:
 - python3-future@meta-python
 python3-git:
 - python3-git@openembedded-core
+python3-h5py:
+- python3-h5py@meta-python
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
@@ -510,6 +542,8 @@ python3-tk:
 - python3-tkinter@openembedded-core
 python3-tornado:
 - python3-tornado@meta-python
+python3-tqdm:
+- ${ROS_UNRESOLVED_DEP-python3-tqdm}
 python3-twisted:
 - python3-twisted@meta-python
 python3-typeguard:
@@ -544,6 +578,8 @@ sdformat12:
 - ${ROS_UNRESOLVED_DEP-sdformat12}
 sdl2:
 - libsdl2@openembedded-core
+simde:
+- ${ROS_UNRESOLVED_DEP-simde}
 socat:
 - socat@openembedded-core
 spacenavd:
@@ -561,6 +597,8 @@ subversion:
 suitesparse:
 - suitesparse-cholmod@meta-ros-common
 - suitesparse-cxsparse@meta-ros-common
+swig:
+- swig@openembedded-core
 tango-icon-theme:
 - adwaita-icon-theme@openembedded-core
 tbb:
