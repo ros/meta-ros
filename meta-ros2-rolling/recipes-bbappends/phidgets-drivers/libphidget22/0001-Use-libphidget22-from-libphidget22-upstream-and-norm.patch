@@ -66,5 +66,5 @@ index 7a386fa1..ccf3d59c 100644
  # TODO(clalancette): Does this work in general?
 -list(APPEND @PROJECT_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/../../../opt/libphidget22/include")
 -list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../opt/libphidget22/lib/libphidget22.so")
-+list(APPEND @PROJECT_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/../../../../usr/include")
-+list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../../usr/lib/libphidget22.so")
++list(APPEND @PROJECT_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/../../../../../../usr/include")
++list(APPEND @PROJECT_NAME@_LIBRARIES "${@PROJECT_NAME@_DIR}/../../../../../../usr/lib/libphidget22.so")
