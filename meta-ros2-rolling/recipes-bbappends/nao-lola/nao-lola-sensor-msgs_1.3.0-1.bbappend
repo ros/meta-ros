@@ -5,7 +5,7 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-runtime-native \
 "
 
-ROS_EXEC_DEPENDS += " \
+ROS_BUILD_DEPENDS += " \
     builtin-interfaces \
     fastcdr \
     rcutils \
