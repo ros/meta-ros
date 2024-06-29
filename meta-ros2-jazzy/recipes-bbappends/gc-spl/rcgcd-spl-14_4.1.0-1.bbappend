@@ -13,7 +13,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 # QA Issue: /usr/lib/librcgcd_spl_14__rosidl_typesupport_fastrtps_cpp.so contained in package rcgcd-spl-14 requires librosidl_typesupport_fastrtps_cpp.so()(64bit), but no providers found in RDEPENDS:rcgcd-spl-14? [file-rdeps]
 # QA Issue: /usr/lib/librcgcd_spl_14__rosidl_typesupport_introspection_c.so contained in package rcgcd-spl-14 requires librosidl_typesupport_introspection_c.so()(64bit), but no providers found in RDEPENDS:rcgcd-spl-14? [file-rdeps]
 # QA Issue: /usr/lib/librcgcd_spl_14__rosidl_typesupport_introspection_cpp.so contained in package rcgcd-spl-14 requires librosidl_typesupport_introspection_cpp.so()(64bit), but no providers found in RDEPENDS:rcgcd-spl-14? [file-rdeps]
-ROS_EXEC_DEPENDS += " \
+ROS_BUILD_DEPENDS += " \
     fastcdr \
     rcutils \
     rosidl-runtime-c \
