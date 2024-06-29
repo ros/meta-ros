@@ -11,9 +11,9 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-introspection-cpp \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-typesupport-fastrtps-cpp-native \
+    service-msgs \
 "
 
 ROS_EXEC_DEPENDS += " \
     builtin-interfaces \
-    service-msgs \
 "
