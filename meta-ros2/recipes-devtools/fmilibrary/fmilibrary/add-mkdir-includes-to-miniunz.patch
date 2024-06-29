@@ -1,0 +1,22 @@
+Include headers for mkdir()
+
+The third party minizip had the headers for mkdir() in minizip.c but not in
+miniunz.c. This resolves a build error by making the two files match.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/ThirdParty/Minizip/minizip/miniunz.c b/ThirdParty/Minizip/minizip/miniunz.c
+index 2264705c..73ed34cd 100644
+--- a/ThirdParty/Minizip/minizip/miniunz.c
++++ b/ThirdParty/Minizip/minizip/miniunz.c
+@@ -53,6 +53,8 @@
+ #else
+ # include <unistd.h>
+ # include <utime.h>
++# include <sys/types.h>
++# include <sys/stat.h>
+ #endif
+ 
+ 
