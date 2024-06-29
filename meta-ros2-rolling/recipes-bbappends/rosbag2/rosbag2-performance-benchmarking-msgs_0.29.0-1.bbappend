@@ -11,7 +11,7 @@ EXTRA_OECMAKE += "-DBUILD_ROSBAG2_BENCHMARKS=ON"
 # QA Issue: /usr/lib/librosbag2_performance_benchmarking_msgs__rosidl_typesupport_fastrtps_cpp.so contained in package rosbag2-performance-benchmarking-msgs requires librosidl_typesupport_fastrtps_cpp.so()(64bit), but no providers found in RDEPENDS:rosbag2-performance-benchmarking-msgs? [file-rdeps]
 # QA Issue: /usr/lib/librosbag2_performance_benchmarking_msgs__rosidl_typesupport_introspection_c.so contained in package rosbag2-performance-benchmarking-msgs requires librosidl_typesupport_introspection_c.so()(64bit), but no providers found in RDEPENDS:rosbag2-performance-benchmarking-msgs? [file-rdeps]
 # QA Issue: /usr/lib/librosbag2_performance_benchmarking_msgs__rosidl_typesupport_introspection_cpp.so contained in package rosbag2-performance-benchmarking-msgs requires librosidl_typesupport_introspection_cpp.so()(64bit), but no providers found in RDEPENDS:rosbag2-performance-benchmarking-msgs? [file-rdeps]
-ROS_EXEC_DEPENDS += " \
+ROS_BUILD_DEPENDS += " \
     fastcdr \
     rcutils \
     rosidl-runtime-c \
