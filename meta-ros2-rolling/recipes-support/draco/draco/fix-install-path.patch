@@ -15,15 +15,15 @@ Index: git/cmake/draco_install.cmake
 ===================================================================
 --- git.orig/cmake/draco_install.cmake
 +++ git/cmake/draco_install.cmake
-@@ -37,9 +37,9 @@ macro(draco_setup_install_target)
+@@ -39,9 +39,9 @@ macro(draco_setup_install_target)
  
-   # Strip $draco_src_root from the file paths: we need to install relative to
-   # $include_directory.
--  list(TRANSFORM draco_api_includes REPLACE "${draco_src_root}/" "")
+     # Strip $draco_src_root from the file paths: we need to install relative to
+     # $include_directory.
+-    list(TRANSFORM draco_api_includes REPLACE "${draco_src_root}/" "")
  
--  foreach(draco_api_include ${draco_api_includes})
-+  foreach(includefile ${draco_api_includes})
-+    string(REPLACE "${draco_src_root}/" "" draco_api_include ${includefile})
-     get_filename_component(file_directory ${draco_api_include} DIRECTORY)
-     set(target_directory "${includes_path}/draco/${file_directory}")
-     install(FILES ${draco_src_root}/${draco_api_include}
+-    foreach(draco_api_include ${draco_api_includes})
++   foreach(includefile ${draco_api_includes})
++     string(REPLACE "${draco_src_root}/" "" draco_api_include ${includefile})
+       get_filename_component(file_directory ${draco_api_include} DIRECTORY)
+       set(target_directory "${includes_path}/draco/${file_directory}")
+       install(FILES ${draco_src_root}/${draco_api_include}
