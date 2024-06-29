@@ -3,8 +3,8 @@
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package gz-math-vendor contains symlink .so '/opt/ros/rolling/lib/libgz-math7.so' [dev-so]
 inherit ros_insane_dev_so
 
-ROS_BUILD_DEPENDS += "gz-math7"
+DEPENDS += "gz-math7"
 
-export GZ_RELAX_VERSION_MATCH="1"
+SYSROOT_DIRS += "${ros_prefix}/opt/gz_math_vendor/extra_cmake/lib/cmake/gz-math"
 
 BBCLASSEXTEND = "native nativesdk"
