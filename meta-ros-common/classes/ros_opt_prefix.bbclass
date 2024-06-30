@@ -15,6 +15,7 @@ ros_datadir = "${ros_prefix}/share"
 ros_sysconfdir = "${ros_prefix}/etc"
 ros_stacksdir = "${ros_prefix}/stacks"
 ros_toolsdir = "${ros_prefix}/tools"
+ros_optdir = "${ros_prefix}/opt/${ROS_BPN}"
 
 # Used by chrpath.bbclass
 PREPROCESS_RELOCATE_DIRS += " \
@@ -72,6 +73,7 @@ SYSROOT_DIRS:append = " \
     ${ros_sysconfdir} \
     ${ros_bindir} \
     ${ros_sbindir} \
+    ${ros_optdir} \
     "
 
 SYSROOT_DIRS_NATIVE:append = " \
