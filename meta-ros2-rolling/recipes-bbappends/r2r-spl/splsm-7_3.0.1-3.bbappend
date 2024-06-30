@@ -14,7 +14,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 # QA Issue: /usr/lib/libsplsm_7__rosidl_typesupport_fastrtps_cpp.so contained in package splsm-7 requires librosidl_typesupport_fastrtps_cpp.so()(64bit), but no providers found in RDEPENDS:splsm-7? [file-rdeps]
 # QA Issue: /usr/lib/libsplsm_7__rosidl_typesupport_introspection_c.so contained in package splsm-7 requires librosidl_typesupport_introspection_c.so()(64bit), but no providers found in RDEPENDS:splsm-7? [file-rdeps]
 # QA Issue: /usr/lib/libsplsm_7__rosidl_typesupport_introspection_cpp.so contained in package splsm-7 requires librosidl_typesupport_introspection_cpp.so()(64bit), but no providers found in RDEPENDS:splsm-7? [file-rdeps]
-ROS_EXEC_DEPENDS += " \
+ROS_BUILD_DEPENDS += " \
     fastcdr \
     rcutils \
     rosidl-runtime-c \
