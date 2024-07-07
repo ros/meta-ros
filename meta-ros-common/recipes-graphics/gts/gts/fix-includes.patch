@@ -1,0 +1,46 @@
+Use the build directory to find the generated header files.
+
+Remove -I$(includedir) from the Makefile to avoid host contamination:
+
+   cc1: warning: include location "/usr/include" is unsafe for cross-compilation [-Wpoison-system-directories]
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/examples/Makefile.am
+===================================================================
+--- git.orig/examples/Makefile.am
++++ git/examples/Makefile.am
+@@ -1,6 +1,6 @@
+ ## Process this file with automake to produce Makefile.in
+
+-INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/src -I$(includedir)\
++INCLUDES = -I$(top_builddir) -I$(top_srcdir)/src -I$(top_builddir)/src \
+	 -DG_LOG_DOMAIN=\"Gts-examples\"
+ LDADD = $(top_builddir)/src/libgts.la -lm
+ DEPS = $(top_builddir)/src/libgts.la
+Index: git/src/Makefile.am
+===================================================================
+--- git.orig/src/Makefile.am
++++ git/src/Makefile.am
+@@ -1,6 +1,6 @@
+ ## Process this file with automake to produce Makefile.in
+
+-INCLUDES = -I$(top_srcdir) -I$(includedir) -DG_LOG_DOMAIN=\"Gts\"
++INCLUDES = -I$(top_builddir) -DG_LOG_DOMAIN=\"Gts\"
+
+ bin_SCRIPTS=gts-config
+
+Index: git/tools/Makefile.am
+===================================================================
+--- git.orig/tools/Makefile.am
++++ git/tools/Makefile.am
+@@ -1,6 +1,6 @@
+ ## Process this file with automake to produce Makefile.in
+
+-INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/src -I$(includedir)\
++INCLUDES = -I$(top_builddir) -I$(top_srcdir)/src -I$(top_builddir)/src \
+	 -DG_LOG_DOMAIN=\"Gts-tools\"
+ LDADD = $(top_builddir)/src/libgts.la -lm
+ DEPS = $(top_builddir)/src/libgts.la
