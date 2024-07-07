@@ -1,0 +1,32 @@
+Description: Document PNM output
+Author: Mathieu Malaterre <malat@debian.org>
+Bug-Debian: https://bugs.debian.org/771912
+Forwarded: https://github.com/4creators/jxrlib/pull/4
+Last-Update: 2021-11-26
+
+--- jxrlib-1.2~git20170615.f752187.orig/jxrencoderdecoder/JxrDecApp.c
++++ jxrlib-1.2~git20170615.f752187/jxrencoderdecoder/JxrDecApp.c
+@@ -82,8 +82,9 @@ void WmpDecAppUsage(const char* szExe)
+     printf(CRLF);
+     printf("  -i input.jxr/wdp             Input JPEG XR/HD Photo file name" CRLF);
+     printf(CRLF);
+-    printf("  -o output.bmp/tif/jxr        Output image file name" CRLF);
++    printf("  -o output.bmp/pnm/tif/jxr    Output image file name" CRLF);
+     printf("                               bmp: <=8bpc, BGR" CRLF);
++    printf("                               pnm: >=8bpc, RGB" CRLF);
+     printf("                               tif: >=8bpc, RGB" CRLF);
+     printf("                               jxr: for compressed domain transcode" CRLF);
+     printf(CRLF);
+--- jxrlib-1.2~git20170615.f752187.orig/jxrencoderdecoder/JxrEncApp.c
++++ jxrlib-1.2~git20170615.f752187/jxrencoderdecoder/JxrEncApp.c
+@@ -55,8 +55,9 @@ void WmpEncAppUsage(const char* szExe)
+     printf(CRLF);
+     printf("%s [options]..." CRLF, szExe);
+     printf(CRLF);
+-    printf("  -i input.bmp/tif/hdr         Input image file name" CRLF);
++    printf("  -i input.bmp/pnm/tif/hdr     Input image file name" CRLF);
+     printf("                               bmp: <=8bpc, BGR" CRLF);
++    printf("                               pnm: >=8bpc, RGB" CRLF);
+     printf("                               tif: >=8bpc, RGB" CRLF);
+     printf("                               hdr: 32bppRGBE only" CRLF);
+     printf(CRLF);
