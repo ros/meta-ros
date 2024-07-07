@@ -1,0 +1,99 @@
+From: Ghislain Antony Vaillant <ghisvail@gmail.com>
+Date: Tue, 3 Nov 2015 15:20:45 +0000
+Subject: Fix compatibility with system libpng.
+
+[Ghislain Antony Vaillant]
+The PNG plugin of FreeImage makes use of optional features of libpng, which
+are not enabled in Debian. This commit adds the necessary guards for FreeImage
+to compile and run without these features.
+
+[Tobias Frost]
+Fix FTBFS with libpng 1.6.
+---
+ Source/FreeImage/PluginPNG.cpp | 35 ++++++++++++++++++++++++++++-------
+ 1 file changed, 28 insertions(+), 7 deletions(-)
+
+Index: FreeImage/Source/FreeImage/PluginPNG.cpp
+===================================================================
+--- FreeImage.orig/Source/FreeImage/PluginPNG.cpp
++++ FreeImage/Source/FreeImage/PluginPNG.cpp
+@@ -115,9 +115,11 @@ ReadMetadata(png_structp png_ptr, png_in
+ 			// create a tag
+ 			tag = FreeImage_CreateTag();
+ 			if(!tag) return FALSE;
+-
++#ifdef PNG_iTXt_SUPPORTED
+ 			DWORD tag_length = (DWORD) MAX(text_ptr[i].text_length, text_ptr[i].itxt_length);
+-
++#else
++			DWORD tag_length = text_ptr[i].text_length;
++#endif
+ 			FreeImage_SetTagLength(tag, tag_length);
+ 			FreeImage_SetTagCount(tag, tag_length);
+ 			FreeImage_SetTagType(tag, FIDT_ASCII);
+@@ -185,14 +187,19 @@ WriteMetadata(png_structp png_ptr, png_i
+ 	if(mdhandle) {
+ 		do {
+ 			memset(&text_metadata, 0, sizeof(png_text));
++#ifdef PNG_iTXt_SUPPORTED
+ 			text_metadata.compression = 1;							// iTXt, none
++#else
++			text_metadata.compression = -1;
++#endif
+ 			text_metadata.key = (char*)FreeImage_GetTagKey(tag);	// keyword, 1-79 character description of "text"
+ 			text_metadata.text = (char*)FreeImage_GetTagValue(tag);	// comment, may be an empty string (ie "")
+ 			text_metadata.text_length = FreeImage_GetTagLength(tag);// length of the text string
++#ifdef PNG_iTXt_SUPPORTED
+ 			text_metadata.itxt_length = FreeImage_GetTagLength(tag);// length of the itxt string
+ 			text_metadata.lang = 0;		 // language code, 0-79 characters or a NULL pointer
+ 			text_metadata.lang_key = 0;	 // keyword translated UTF-8 string, 0 or more chars or a NULL pointer
+-
++#endif
+ 			// set the tag 
+ 			png_set_text(png_ptr, info_ptr, &text_metadata, 1);
+ 
+@@ -211,10 +218,11 @@ WriteMetadata(png_structp png_ptr, png_i
+ 		text_metadata.key = (char*)g_png_xmp_keyword;			// keyword, 1-79 character description of "text"
+ 		text_metadata.text = (char*)FreeImage_GetTagValue(tag);	// comment, may be an empty string (ie "")
+ 		text_metadata.text_length = FreeImage_GetTagLength(tag);// length of the text string
++#ifdef PNG_iTXt_SUPPORTED
+ 		text_metadata.itxt_length = FreeImage_GetTagLength(tag);// length of the itxt string
+ 		text_metadata.lang = 0;		 // language code, 0-79 characters or a NULL pointer
+ 		text_metadata.lang_key = 0;	 // keyword translated UTF-8 string, 0 or more chars or a NULL pointer
+-
++#endif
+ 		// set the tag 
+ 		png_set_text(png_ptr, info_ptr, &text_metadata, 1);
+ 		bResult &= TRUE;
+@@ -707,11 +715,19 @@ Load(FreeImageIO *io, fi_handle handle,
+ 
+ 			if (png_get_valid(png_ptr, info_ptr, PNG_INFO_iCCP)) {
+ 				png_charp profile_name = NULL;
+-				png_bytep profile_data = NULL;
++#if PNG_LIBPNG_VER_MAJOR >= 1 && PNG_LIBPNG_VER_MINOR >= 4
++				png_bytepp profile_data = NULL;
++#else
++				png_charp profile_data = NULL;
++#endif
+ 				png_uint_32 profile_length = 0;
+ 				int  compression_type;
+ 
++#if PNG_LIBPNG_VER_MAJOR >= 1 && PNG_LIBPNG_VER_MINOR >= 4
++				png_get_iCCP(png_ptr, info_ptr, &profile_name, &compression_type, profile_data, &profile_length);
++#else
+ 				png_get_iCCP(png_ptr, info_ptr, &profile_name, &compression_type, &profile_data, &profile_length);
++#endif
+ 
+ 				// copy ICC profile data (must be done after FreeImage_AllocateHeader)
+ 
+@@ -746,8 +762,9 @@ Load(FreeImageIO *io, fi_handle handle,
+ 			for (png_uint_32 k = 0; k < height; k++) {
+ 				row_pointers[height - 1 - k] = FreeImage_GetScanLine(dib, k);
+ 			}
+-
++#ifdef PNG_BENIGN_ERRORS_SUPPORTED
+ 			png_set_benign_errors(png_ptr, 1);
++#endif
+ 			png_read_image(png_ptr, row_pointers);
+ 
+ 			// check if the bitmap contains transparency, if so enable it in the header
