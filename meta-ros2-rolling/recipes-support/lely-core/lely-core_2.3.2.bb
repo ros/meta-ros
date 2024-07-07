@@ -17,6 +17,10 @@ DEPENDS += "python3-setuptools-native python3-wheel-native"
 
 EXTRA_OECONF += " --disable-cython --disable-tests --disable-python2"
 
+# include/lely/coapp/device.hpp:1003:3: error: 'virtual void lely::canopen::Device::OnWrite(uint16_t, uint8_t)' was hidden [-Werror=overloaded-virtual=]
+CXXFLAGS += "-Wno-error=overloaded-virtual"
+
+
 PACKAGES =+ " \
     liblely-can \
     liblely-can1 \
