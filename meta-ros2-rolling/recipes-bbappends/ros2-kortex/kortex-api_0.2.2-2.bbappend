@@ -8,3 +8,10 @@ SRC_URI += " \
   file://0001-use-bitbake-fetcher.patch \
   file://0002-install-libraries.patch \
 "
+
+COMPATIBLE_MACHINE = "(^$)"
+COMPATIBLE_MACHINE:x86-64 = "(.*)"
+COMPATIBLE_MACHINE:x86 = "(^$)"
+COMPATIBLE_MACHINE:aarch64 = "(^$)"
+COMPATIBLE_MACHINE:armv7a = "(^$)"
+COMPATIBLE_MACHINE:armv7ve = "(^$)"
