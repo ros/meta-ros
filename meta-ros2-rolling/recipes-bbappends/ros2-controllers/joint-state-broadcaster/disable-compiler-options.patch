@@ -1,0 +1,16 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5c383897c..726eaa206 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,11 +1,6 @@
+ cmake_minimum_required(VERSION 3.16)
+ project(joint_state_broadcaster LANGUAGES CXX)
+ 
+-if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+-  add_compile_options(-Wall -Wextra -Wpedantic -Werror=conversion -Werror=unused-but-set-variable
+-                      -Werror=return-type -Werror=shadow -Werror=format)
+-endif()
+-
+ set(THIS_PACKAGE_INCLUDE_DEPENDS
+   builtin_interfaces
+   control_msgs
