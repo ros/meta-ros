@@ -1,0 +1,36 @@
+rmf-fleet-adapter fails to build due to error in rxcpp header
+
+rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp: In member function 'rxcpp::notifications::notification<T>::on_error_notification& rxcpp::notifications::notification<T>::on_error_notification::operator=(rxcpp::notifications::notification<T>::on_error_notification)':
+rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp:153:88: error: no match for 'operator=' (operand types are 'const rxcpp::util::error_ptr' {aka 'const std::__exception_ptr::exception_ptr'} and 'std::remove_reference<const std::__exception_ptr::exception_ptr&>::type' {aka 'const std::__exception_ptr::exception_ptr'})
+  153 |         on_error_notification& operator=(on_error_notification o) { ep = std::move(o.ep); return *this; }
+      |                                                                                        ^
+In file included from rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/exception:166,
+                 from rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/ios:41,
+                 from rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/ostream:40,
+                 from rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/iostream:41,
+                 from rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-trace.hpp:8,
+                 from rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-includes.hpp:8:
+rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/bits/exception_ptr.h:213:5: note: candidate: 'std::__exception_ptr::exception_ptr& std::__exception_ptr::exception_ptr::operator=(const std::__exception_ptr::exception_ptr&)' (near match)
+  213 |     exception_ptr::operator=(const exception_ptr& __other) _GLIBCXX_USE_NOEXCEPT
+      |     ^~~~~~~~~~~~~
+rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/bits/exception_ptr.h:213:5: note:   passing 'const rxcpp::util::error_ptr*' {aka 'const std::__exception_ptr::exception_ptr*'} as 'this' argument discards qualifiers
+rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/bits/exception_ptr.h:140:7: note: candidate: 'std::__exception_ptr::exception_ptr& std::__exception_ptr::exception_ptr::operator=(std::__exception_ptr::exception_ptr&&)' (near match)
+  140 |       operator=(exception_ptr&& __o) noexcept
+      |       ^~~~~~~~
+rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/bits/exception_ptr.h:140:7: note:   conversion of argument 1 would be ill-formed:
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp b/rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp
+index 20e0c694..3f13619b 100644
+--- a/rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp
++++ b/rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp
+@@ -167,7 +167,7 @@ private:
+         virtual void accept(const typename base::observer_type& o) const {
+             o.on_error(ep);
+         }
+-        const rxu::error_ptr ep;
++        rxu::error_ptr ep;
+     };
+
+     struct on_completed_notification : public base {

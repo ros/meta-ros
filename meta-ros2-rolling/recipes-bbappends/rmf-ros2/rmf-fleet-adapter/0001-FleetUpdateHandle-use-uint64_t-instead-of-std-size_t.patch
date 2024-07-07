@@ -48,12 +48,12 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp     | 4 ++--
  2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp b/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
-index 9740163..de07931 100644
---- a/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
-+++ b/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
-@@ -71,10 +71,10 @@ public:
-     std::function<void(std::shared_ptr<RobotUpdateHandle> handle)> handle_cb);
+Index: git/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
+===================================================================
+--- git.orig/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
++++ git/include/rmf_fleet_adapter/agv/FleetUpdateHandle.hpp
+@@ -205,10 +205,10 @@ public:
+     ConsiderRequest consider);
  
    /// Specify a set of lanes that should be closed.
 -  void close_lanes(std::vector<std::size_t> lane_indices);
@@ -63,13 +63,13 @@ index 9740163..de07931 100644
 -  void open_lanes(std::vector<std::size_t> lane_indices);
 +  void open_lanes(std::vector<uint64_t> lane_indices);
  
-   /// Set the parameters required for task planning. Without calling this
-   /// function, this fleet will not bid for and accept tasks.
-diff --git a/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp b/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
-index 67a0864..c341141 100644
---- a/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
-+++ b/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
-@@ -1101,7 +1101,7 @@ void FleetUpdateHandle::add_robot(
+   /// During a fire emergency, real-life lifts might be required to move to a
+   /// specific level and refuse to stop or go to any other level. This function
+Index: git/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
+===================================================================
+--- git.orig/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
++++ git/src/rmf_fleet_adapter/agv/FleetUpdateHandle.cpp
+@@ -1798,7 +1798,7 @@ FleetUpdateHandle& FleetUpdateHandle::co
  }
  
  //==============================================================================
@@ -78,7 +78,7 @@ index 67a0864..c341141 100644
  {
    _pimpl->worker.schedule(
      [w = weak_from_this(), lane_indices = std::move(lane_indices)](const auto&)
-@@ -1141,7 +1141,7 @@ void FleetUpdateHandle::close_lanes(std::vector<std::size_t> lane_indices)
+@@ -1850,7 +1850,7 @@ void FleetUpdateHandle::close_lanes(std:
  }
  
  //==============================================================================
