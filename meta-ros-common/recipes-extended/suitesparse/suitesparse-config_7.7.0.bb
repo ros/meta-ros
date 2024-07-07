@@ -1,22 +1,18 @@
 # Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2024 Wind River Systems, Inc.
 
-require suitesparse-5.4.0.inc
+require suitesparse-7.7.0.inc
 
 LICENSE = "PD"
-LIC_FILES_CHKSUM += "file://README.txt;md5=9da0dd2832f2ab6d304cae1d28eecc11"
+LIC_FILES_CHKSUM += "file://README.txt;md5=dabbb8fc940f88cfe4fde254fad9dd68"
 
 S = "${WORKDIR}/git/SuiteSparse_config"
 
-EXTRA_OEMAKE = "CC='${CC}'"
+inherit cmake pkgconfig
 
-do_compile() {
-    # build only the library, not the demo
-    oe_runmake library
-}
+DEPENDS = "openblas"
 
-do_install() {
-    oe_runmake install INSTALL=${D}${prefix}
-}
+EXTRA_OECMAKE = "-DSUITESPARSE_USE_64BIT_BLAS=ON -DBLA_PREFER_PKGCONFIG=ON"
 
 DEPENDS:append:class-target = " chrpath-replacement-native"
 # For some reason ends with bad RPATH
