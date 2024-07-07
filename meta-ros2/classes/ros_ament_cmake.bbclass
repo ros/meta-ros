@@ -1,3 +1,4 @@
+# Copyright (c) 2019-2021 LG Electronics, Inc.
 # Copyright (c) Qualcomm Innovation Center, Inc. All rights reserved
 
 # The SOABI setting changed in newer python3 with:
