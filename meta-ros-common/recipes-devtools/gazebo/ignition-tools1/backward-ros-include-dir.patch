@@ -1,0 +1,10 @@
+Index: git/src/backward.cc
+===================================================================
+--- git.orig/src/backward.cc
++++ git/src/backward.cc
+@@ -1,4 +1,4 @@
+-#include "backward.hpp"
++#include "backward_ros/backward.hpp"
+
+ namespace ignition {
+ namespace tools {
