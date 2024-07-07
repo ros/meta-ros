@@ -1,9 +1,10 @@
 # Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2024 Wind River Systems, Inc.
 
-require suitesparse-5.4.0.inc
+require suitesparse-7.7.0.inc
 
 LICENSE = "LGPL-2.1-or-later"
-LIC_FILES_CHKSUM += "file://Doc/License.txt;md5=5d8c39b6ee2eb7c9e0e226a333be30cc"
+LIC_FILES_CHKSUM += "file://Doc/License.txt;md5=56def293641dc4b931815801e87b5aea"
 
 DEPENDS = " \
     suitesparse-config \
@@ -11,23 +12,15 @@ DEPENDS = " \
     suitesparse-colamd \
     suitesparse-ccolamd \
     suitesparse-camd \
-    suitesparse-metis \
     lapack \
     openblas \
 "
 
-S = "${WORKDIR}/SuiteSparse/CHOLMOD"
+S = "${WORKDIR}/git/CHOLMOD"
 
-EXTRA_OEMAKE = "CC='${CC}' BLAS='-lblas'"
+inherit cmake pkgconfig
 
-do_compile() {
-    # build only the library, not the demo
-    oe_runmake library
-}
-
-do_install() {
-    oe_runmake install INSTALL=${D}${prefix}
-}
+EXTRA_OECMAKE = "-DSUITESPARSE_USE_64BIT_BLAS=ON -DBLA_PREFER_PKGCONFIG=ON"
 
 DEPENDS:append:class-target = " chrpath-replacement-native"
 # For some reason ends with bad RPATH
