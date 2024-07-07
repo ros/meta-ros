@@ -1,3 +1,4 @@
+# Copyright OpenEmbedded Contributors
 # Copyright (c) 2018-2019 LG Electronics, Inc.
 # Copyright (c) Qualcomm Innovation Center, Inc. All rights reserved
 
@@ -20,6 +21,15 @@ do_install:append() {
             sed -i -e s:${STAGING_BINDIR_NATIVE}:${bindir}:g $i
         fi
     done
+
+    #
+    # FIXME: Bandaid against wrong datadir computation
+    #        (ament_index  ament_index_python  ament_package  rosidl_cli)
+    #
+    if [ -e ${D}${ros_datadir}/share ]; then
+        cp -r ${D}${ros_datadir}/share/* ${D}${ros_datadir}/
+        rm -rf ${D}${ros_datadir}/share
+    fi
 }
 
 FILES:${PN}:prepend = " \
