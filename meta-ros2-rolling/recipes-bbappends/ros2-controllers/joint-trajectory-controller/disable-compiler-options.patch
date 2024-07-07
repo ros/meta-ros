@@ -1,0 +1,21 @@
+Disable compiler options
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4b0ca82df..2b7455731 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,10 +1,6 @@
+ cmake_minimum_required(VERSION 3.16)
+ project(joint_trajectory_controller LANGUAGES CXX)
+ 
+-if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+-  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type -Werror=shadow -Werror=format)
+-endif()
+-
+ set(THIS_PACKAGE_INCLUDE_DEPENDS
+   angles
+   control_msgs
