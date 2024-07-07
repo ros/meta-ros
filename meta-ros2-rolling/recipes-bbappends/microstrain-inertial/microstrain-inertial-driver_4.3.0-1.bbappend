@@ -60,7 +60,7 @@ FILES:${PN}-prebuilt-boost = "${libdir}/libboost_*"
 # non -dev/-dbg/nativesdk- package microstrain-inertial-driver contains symlink .so '/usr/opt/ros/galactic/lib/libboost_prg_exec_monitor.so'
 # non -dev/-dbg/nativesdk- package microstrain-inertial-driver contains symlink .so '/usr/opt/ros/galactic/lib/libboost_unit_test_framework.so'
 # non -dev/-dbg/nativesdk- package microstrain-inertial-driver contains symlink .so '/usr/opt/ros/galactic/lib/libboost_system.so' [dev-so]
-INSANE_SKIP:${PN} += "dev-so"
+inherit ros_insane_dev_so
 
 # ERROR: microstrain-inertial-driver-2.0.4-1-r0 do_package_qa: QA Issue:
 # microstrain-inertial-driver-prebuilt-boost: found library in wrong location: /usr/opt/ros/galactic/lib/libboost_timer.so.1.68.0
