@@ -62,7 +62,7 @@ FILES:${PN}-dbg += "\
 
 FILES:${PN}-staticdev += "\
     ${ros_libdir}/*.a \
-    ${ros_libdir}/${BPN}/*.a \
+    ${ros_libdir}/${ROS_BPN}/*.a \
     "
 
 SYSROOT_DIRS:append = " \
