@@ -1,0 +1,42 @@
+Add missing standard headers
+
+The build fails with the following errors due to standard C++ headers not being
+explicitly included.
+
+git/test/performance/logging.cc:79:16: error: 'max_element' is not a member of 'std'; did you mean 'tuple_element'?
+git/test/performance/logging.cc:109:12: error: 'max_element' is not a member of 'std'; did you mean 'tuple_element'?
+git/testing/include/gz/common/testing/detail/AutoLogFixture.hh:79:8: error: 'replace' is not a member of 'std'
+git/testing/include/gz/common/testing/detail/AutoLogFixture.hh:79:8: error: 'replace' is not a member of 'std'
+git/testing/include/gz/common/testing/detail/AutoLogFixture.hh:79:8: error: 'replace' is not a member of 'std'
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/test/performance/logging.cc b/test/performance/logging.cc
+index 8d1d77e6..52194013 100644
+--- a/test/performance/logging.cc
++++ b/test/performance/logging.cc
+@@ -16,6 +16,7 @@
+ */
+ #include <gtest/gtest.h>
+ 
++#include <algorithm>
+ #include <atomic>
+ #include <map>
+ #include <thread>
+diff --git a/testing/include/gz/common/testing/detail/AutoLogFixture.hh b/testing/include/gz/common/testing/detail/AutoLogFixture.hh
+index 658d3ba8..8238cc0f 100644
+--- a/testing/include/gz/common/testing/detail/AutoLogFixture.hh
++++ b/testing/include/gz/common/testing/detail/AutoLogFixture.hh
+@@ -17,6 +17,10 @@
+ #ifndef GZ_COMMON_TESTING_DETAIL_AUTOLOGFIXTURE_HH_
+ #define GZ_COMMON_TESTING_DETAIL_AUTOLOGFIXTURE_HH_
+ 
++#include <iostream>
++#include <algorithm>
++#include <cmath>
++#include <vector>
+ #include <memory>
+ #include <string>
+ 

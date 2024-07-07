@@ -1,0 +1,13 @@
+Index: git/src/backward.cc
+===================================================================
+--- git.orig/src/backward.cc
++++ git/src/backward.cc
+@@ -15,7 +15,7 @@
+  *
+  */
+
+-#include "backward.hpp"
++#include "backward_ros/backward.hpp"
+
+ namespace gz {
+ namespace tools {
