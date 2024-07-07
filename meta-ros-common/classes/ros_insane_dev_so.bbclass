@@ -9,5 +9,5 @@ FILES:${PN}:prepend:ros1-distro = " \
 "
 
 FILES:${PN}:prepend:ros2-distro= " \
-    ${libdir}/lib*${SOLIBS} \
+    ${ros_libdir}/lib*${SOLIBS} \
 "
