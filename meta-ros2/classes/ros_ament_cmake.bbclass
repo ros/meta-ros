@@ -29,6 +29,7 @@ inherit cmake python3native
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
+EXTRA_OECMAKE:append = " -DAMENT_CMAKE_ENVIRONMENT_PARENT_PREFIX_PATH_GENERATION=OFF"
 
 EXTRA_OECMAKE:prepend:class-target = "\
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}${ros_prefix};${STAGING_DIR_HOST}${prefix}' \
