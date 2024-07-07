@@ -2,4 +2,4 @@
 
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package gtsam contains symlink .so '/usr/lib/libgtsam.so'
 # non -dev/-dbg/nativesdk- package gtsam contains symlink .so '/usr/lib/libgtsam_unstable.so' [dev-so]
-FILES:${PN}-dev += "${libdir}/libgtsam.so ${libdir}/libgtsam_unstable.so"
+inherit ros_insane_dev_so
