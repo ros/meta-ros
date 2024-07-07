@@ -1,0 +1,32 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -48,12 +48,6 @@ ign_find_package(ignition-plugin1 REQUIR
+ set(IGN_PLUGIN_VER ${ignition-plugin1_VERSION_MAJOR})
+
+ #--------------------------------------
+-# Find FreeImage
+-ign_find_package(FreeImage VERSION 3.9
+-  REQUIRED_BY optix
+-  PRIVATE_FOR optix)
+-
+-#--------------------------------------
+ # Find OpenGL
+ # See CMP0072 for more details (cmake --help-policy CMP0072)
+ if ((NOT ${CMAKE_VERSION} VERSION_LESS 3.11) AND (NOT OpenGL_GL_PREFERENCE))
+@@ -139,7 +133,14 @@ if(NOT MSVC)
+
+   if (OptiX_FOUND AND CUDA_FOUND)
+     set(HAVE_OPTIX TRUE)
++
++    #--------------------------------------
++    # Find FreeImage
++    ign_find_package(FreeImage VERSION 3.9
++        REQUIRED_BY optix
++        PRIVATE_FOR optix)
+   endif()
++
+ endif()
+
+ #####################################

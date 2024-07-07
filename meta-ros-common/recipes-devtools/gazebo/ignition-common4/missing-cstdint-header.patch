@@ -1,0 +1,26 @@
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 1243852c4bd8525ffc760a620e7d97f94cc2375c Mon Sep 17 00:00:00 2001
+From: Jose Luis Rivero <jrivero@osrfoundation.org>
+Date: Thu, 10 Aug 2023 17:44:13 +0200
+Subject: [PATCH] Missing cstdint header to use uint32_t with gcc-13 (#528)
+
+Signed-off-by: Jose Luis Rivero <jrivero@osrfoundation.org>
+---
+ profiler/src/ProfilerImpl.hh | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/profiler/src/ProfilerImpl.hh b/profiler/src/ProfilerImpl.hh
+index 82d3ddad2..02d4a3769 100644
+--- a/profiler/src/ProfilerImpl.hh
++++ b/profiler/src/ProfilerImpl.hh
+@@ -18,6 +18,7 @@
+ #ifndef GZ_COMMON_PROFILERIMPL_HH_
+ #define GZ_COMMON_PROFILERIMPL_HH_
+ 
++#include <cstdint>
+ #include <string>
+ 
+ namespace ignition

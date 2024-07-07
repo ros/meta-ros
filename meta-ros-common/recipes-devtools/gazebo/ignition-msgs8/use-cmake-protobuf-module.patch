@@ -1,0 +1,49 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -62,12 +62,7 @@ message(STATUS "\n\n-- ====== Finding De
+ 
+ #--------------------------------------
+ # Find Protobuf
+-set(REQ_PROTOBUF_VER 3)
+-ign_find_package(IgnProtobuf
+-                 VERSION ${REQ_PROTOBUF_VER}
+-                 REQUIRED
+-                 COMPONENTS all
+-                 PRETTY Protobuf)
++find_package(Protobuf MODULE REQUIRED)
+ 
+ #--------------------------------------
+ # Find ignition-math
+Index: git/src/CMakeLists.txt
+===================================================================
+--- git.orig/src/CMakeLists.txt
++++ git/src/CMakeLists.txt
+@@ -3,7 +3,13 @@
+ ign_add_executable(ign_msgs_gen Generator.cc generator_main.cc)
+ target_link_libraries(ign_msgs_gen
+   protobuf::libprotoc
+-  protobuf::libprotobuf)
++  protobuf::libprotobuf
++  absl_log_internal_check_op
++  absl_log_internal_message
++  absl_raw_hash_set
++  absl_hash
++  absl_raw_logging_internal
++)
+ target_include_directories(ign_msgs_gen PRIVATE ${PROTOBUF_INCLUDE_DIR})
+ target_compile_features(ign_msgs_gen PRIVATE ${IGN_CXX_11_FEATURES})
+ 
+@@ -186,6 +192,11 @@ target_link_libraries(${PROJECT_LIBRARY_
+   PUBLIC
+     protobuf::libprotobuf
+     ignition-math${IGN_MATH_VER}::ignition-math${IGN_MATH_VER}
++    absl_log_internal_check_op
++    absl_log_internal_message
++    absl_raw_hash_set
++    absl_hash
++    absl_raw_logging_internal
+   PRIVATE
+     TINYXML2::TINYXML2
+ )
