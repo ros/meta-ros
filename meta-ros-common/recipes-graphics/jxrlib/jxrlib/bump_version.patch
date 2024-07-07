@@ -1,0 +1,16 @@
+Description: Version is 1.2
+Author: Mathieu Malaterre <malat@debian.org>
+Forwarded: not-needed
+Last-Update: 2021-11-26
+
+--- jxrlib-1.2~git20170615.f752187.orig/CMakeLists.txt
++++ jxrlib-1.2~git20170615.f752187/CMakeLists.txt
+@@ -74,7 +74,7 @@ set_property(TARGET jpegxr
+ set_property(TARGET jpegxr PROPERTY LINK_INTERFACE_LIBRARIES "")
+ set_property(TARGET jpegxr PROPERTY COMPILE_FLAGS -w)
+ # VERSION/SOVERSION
+-set(JXR_VERSION "1.1")
++set(JXR_VERSION "1.2")
+ set_property(TARGET jpegxr PROPERTY VERSION ${JXR_VERSION})
+ set_property(TARGET jpegxr PROPERTY SOVERSION 0)
+ install(TARGETS jpegxr
