@@ -25,5 +25,8 @@ ROS_EXEC_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp \
     rosidl-typesupport-introspection-c \
     rosidl-typesupport-introspection-cpp \
+"
+
+ROS_BUILD_DEPENDS += " \
     service-msgs \
 "
