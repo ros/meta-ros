@@ -13,7 +13,7 @@ SRCREV_FORMAT = "release_upstream"
 EXTRA_OECMAKE += "-Dnlohmann_json_DIR=${STAGING_INCDIR}"
 
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package nlohmann-json-schema-validator-vendor contains symlink .so '/usr/lib/libnlohmann_json_schema_validator.so' [dev-so]
-FILES:${PN}-dev += "${libdir}/libnlohmann_json_schema_validator.so"
+inherit ros_insane_dev_so
 
 # Doesn't need runtime dependency on nlohmann-json
 ROS_EXEC_DEPENDS:remove = "nlohmann-json"
