@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c0b0ed0..c874ef7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -45,7 +45,7 @@ find_package(eigen_stl_containers REQUIRED)
+ find_package(geometry_msgs REQUIRED)
+ # Enforce the system package version on Ubuntu jammy and noble which is also used by libfcl-dev
+ # The version is fixed to prevent ABI conflicts with ros-octomap
+-find_package(octomap 1.9.7...<1.10.0 REQUIRED)
++find_package(octomap 1.9.7...1.10.0 REQUIRED)
+ find_package(QHULL REQUIRED)
+ find_package(random_numbers REQUIRED)
+ find_package(rclcpp REQUIRED)
