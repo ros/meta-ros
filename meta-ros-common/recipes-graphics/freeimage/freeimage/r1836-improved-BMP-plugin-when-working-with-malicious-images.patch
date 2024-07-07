@@ -1,0 +1,159 @@
+Origin: upstream, r1836
+Index: Source/FreeImage/PluginBMP.cpp
+---
+diff --git a/Source/FreeImage/PluginBMP.cpp b/Source/FreeImage/PluginBMP.cpp
+--- a/Source/FreeImage/PluginBMP.cpp	(revision 1835)
++++ b/Source/FreeImage/PluginBMP.cpp	(revision 1836)
+@@ -139,6 +139,75 @@
+ // --------------------------------------------------------------------------
+ 
+ /**
++Check if a BITMAPINFOHEADER is valid
++@return Returns TRUE if successful, returns FALSE otherwise
++*/
++static BOOL
++CheckBitmapInfoHeader(BITMAPINFOHEADER *bih) {
++	if (bih->biSize != sizeof(BITMAPINFOHEADER)) {
++		// The size, in bytes, of the image.This may be set to zero for BI_RGB bitmaps.
++		// If biCompression is BI_JPEG or BI_PNG, biSizeImage indicates the size of the JPEG or PNG image buffer, respectively.
++		if ((bih->biSize == 0) && (bih->biCompression != BI_RGB)) {
++			return FALSE;
++		}
++		else if ((bih->biCompression == BI_JPEG) || (bih->biCompression == BI_PNG)) {
++			// JPEG or PNG is not yet supported
++			return FALSE;
++		}
++		else {
++			return FALSE;
++		}
++	}
++	if (bih->biWidth < 0) {
++		return FALSE;
++	}
++	if (bih->biHeight < 0) {
++		// If biHeight is negative, indicating a top-down DIB, biCompression must be either BI_RGB or BI_BITFIELDS. 
++		// Top-down DIBs cannot be compressed.
++		// If biCompression is BI_JPEG or BI_PNG, the biHeight member specifies the height of the decompressed JPEG or PNG image file, respectively.
++		if ((bih->biCompression != BI_RGB) && (bih->biCompression != BI_BITFIELDS)) {
++			return FALSE;
++		}
++	}
++	if (bih->biPlanes != 1) {
++		//  The number of planes for the target device. This value must be set to 1.
++		return FALSE;
++	}
++	switch (bih->biBitCount) {
++		case 0:
++			// The number of bits-per-pixel is specified or is implied by the JPEG or PNG format.
++			// JPEG or PNG is not yet supported			
++			return FALSE;
++			break;
++		case 1:
++		case 4:
++		case 8:
++		case 16:
++		case 24:
++		case 32:
++			break;
++		default:
++			// Unsupported bitdepth
++			return FALSE;
++	}
++	switch (bih->biCompression) {
++		case BI_RGB:
++		case BI_RLE8:
++		case BI_RLE4:
++		case BI_BITFIELDS:
++			break;
++		case BI_JPEG:
++		case BI_PNG:
++		default:
++			return FALSE;
++	}
++
++	return TRUE;
++}
++
++// --------------------------------------------------------------------------
++
++/**
+ Load uncompressed image pixels for 1-, 4-, 8-, 16-, 24- and 32-bit dib
+ @param io FreeImage IO
+ @param handle FreeImage IO handle
+@@ -458,6 +527,10 @@
+ 		SwapInfoHeader(&bih);
+ #endif
+ 
++		if (CheckBitmapInfoHeader(&bih) == FALSE) {
++			throw FI_MSG_ERROR_INVALID_FORMAT;
++		}
++
+ 		// keep some general information about the bitmap
+ 
+ 		unsigned used_colors	= bih.biClrUsed;
+@@ -555,10 +628,18 @@
+ 			case 16 :
+ 			{
+ 				int use_bitfields = 0;
+-				if (bih.biCompression == BI_BITFIELDS) use_bitfields = 3;
+-				else if (bih.biCompression == BI_ALPHABITFIELDS) use_bitfields = 4;
+-				else if (type == 52) use_bitfields = 3;
+-				else if (type >= 56) use_bitfields = 4;
++				if (bih.biCompression == BI_BITFIELDS) {
++					use_bitfields = 3;
++				}
++				else if (bih.biCompression == BI_ALPHABITFIELDS) {
++					use_bitfields = 4;
++				}
++				else if (type == 52) {
++					use_bitfields = 3;
++				}
++				else if (type >= 56) {
++					use_bitfields = 4;
++				}
+ 				
+ 				if (use_bitfields > 0) {
+  					DWORD bitfields[4];
+@@ -595,10 +676,18 @@
+ 			case 32 :
+ 			{
+ 				int use_bitfields = 0;
+-				if (bih.biCompression == BI_BITFIELDS) use_bitfields = 3;
+-				else if (bih.biCompression == BI_ALPHABITFIELDS) use_bitfields = 4;
+-				else if (type == 52) use_bitfields = 3;
+-				else if (type >= 56) use_bitfields = 4;
++				if (bih.biCompression == BI_BITFIELDS) {
++					use_bitfields = 3;
++				}
++				else if (bih.biCompression == BI_ALPHABITFIELDS) {
++					use_bitfields = 4;
++				}
++				else if (type == 52) {
++					use_bitfields = 3;
++				}
++				else if (type >= 56) {
++					use_bitfields = 4;
++				}
+ 
+  				if (use_bitfields > 0) {
+ 					DWORD bitfields[4];
+@@ -676,6 +765,10 @@
+ 		SwapInfoHeader(&bih);
+ #endif
+ 
++		if (CheckBitmapInfoHeader(&bih) == FALSE) {
++			throw FI_MSG_ERROR_INVALID_FORMAT;
++		}
++
+ 		// keep some general information about the bitmap
+ 
+ 		unsigned used_colors	= bih.biClrUsed;
+@@ -780,7 +873,7 @@
+ 
+ 			case 16 :
+ 			{
+-				if (bih.biCompression == 3) {
++				if (bih.biCompression == BI_BITFIELDS) {
+ 					DWORD bitfields[3];
+ 
+ 					io->read_proc(bitfields, 3 * sizeof(DWORD), 1, handle);

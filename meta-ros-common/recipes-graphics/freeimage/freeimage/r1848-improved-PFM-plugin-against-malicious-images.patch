@@ -1,0 +1,227 @@
+Origin: upstream, r1848
+Index: Source/FreeImage/PluginPFM.cpp
+---
+diff --git a/Source/FreeImage/PluginPFM.cpp b/Source/FreeImage/PluginPFM.cpp
+--- a/Source/FreeImage/PluginPFM.cpp	(revision 1847)
++++ b/Source/FreeImage/PluginPFM.cpp	(revision 1848)
+@@ -23,6 +23,12 @@
+ #include "Utilities.h"
+ 
+ // ==========================================================
++// Plugin Interface
++// ==========================================================
++
++static int s_format_id;
++
++// ==========================================================
+ // Internal functions
+ // ==========================================================
+ 
+@@ -59,6 +65,9 @@
+ 
+ /**
+ Get an integer value from the actual position pointed by handle
++@param io
++@param handle
++@return Returns -1 in case of failure, returns the found number otherwise
+ */
+ static int
+ pfm_get_int(FreeImageIO *io, fi_handle handle) {
+@@ -65,70 +74,72 @@
+     char c = 0;
+ 	BOOL bFirstChar;
+ 
+-    // skip forward to start of next number
++	try {
+ 
+-	if(!io->read_proc(&c, 1, 1, handle)) {
+-		throw FI_MSG_ERROR_PARSING;
+-	}
++		// skip forward to start of next number
+ 
+-    while (1) {
+-        // eat comments
++		if (io->read_proc(&c, 1, 1, handle) != 1) {
++			throw FI_MSG_ERROR_PARSING;
++		}
+ 
+-        if (c == '#') {
+-			// if we're at a comment, read to end of line
++		while (1) {
++			// eat comments
+ 
+-            bFirstChar = TRUE;
++			if (c == '#') {
++				// if we're at a comment, read to end of line
+ 
+-            while (1) {
+-				if(!io->read_proc(&c, 1, 1, handle)) {
+-					throw FI_MSG_ERROR_PARSING;
+-				}
++				bFirstChar = TRUE;
+ 
+-				if (bFirstChar && c == ' ') {
+-					// loop off 1 sp after #
+-					bFirstChar = FALSE;
+-				} else if (c == '\n') {
+-					break;
++				while (1) {
++					if (io->read_proc(&c, 1, 1, handle) != 1) {
++						throw FI_MSG_ERROR_PARSING;
++					}
++
++					if (bFirstChar && c == ' ') {
++						// loop off 1 sp after #
++						bFirstChar = FALSE;
++					}
++					else if (c == '\n') {
++						break;
++					}
+ 				}
+ 			}
+-		}
+ 
+-        if (c >= '0' && c <='9') {
+-			// we've found what we were looking for
+-            break;
+-		}
++			if (c >= '0' && c <= '9') {
++				// we've found what we were looking for
++				break;
++			}
+ 
+-		if(!io->read_proc(&c, 1, 1, handle)) {
+-			throw FI_MSG_ERROR_PARSING;
++			if (io->read_proc(&c, 1, 1, handle) != 1) {
++				throw FI_MSG_ERROR_PARSING;
++			}
+ 		}
+-    }
+ 
+-    // we're at the start of a number, continue until we hit a non-number
++		// we're at the start of a number, continue until we hit a non-number
+ 
+-    int i = 0;
++		int i = 0;
+ 
+-    while (1) {
+-        i = (i * 10) + (c - '0');
++		while (1) {
++			i = (i * 10) + (c - '0');
+ 
+-		if(!io->read_proc(&c, 1, 1, handle)) {
+-			throw FI_MSG_ERROR_PARSING;
+-		}
++			if (io->read_proc(&c, 1, 1, handle) != 1) {
++				throw FI_MSG_ERROR_PARSING;
++			}
+ 
+-		if (c < '0' || c > '9') {
+-			break;
++			if (c < '0' || c > '9') {
++				break;
++			}
+ 		}
+-    }
+ 
+-    return i;
++		return i;
++	}
++	catch (const char *message) {
++		FreeImage_OutputMessageProc(s_format_id, message);
++		return -1;
++	}
+ }
+ 
+ // ==========================================================
+-// Plugin Interface
+-// ==========================================================
+-
+-static int s_format_id;
+-
+-// ==========================================================
+ // Plugin Implementation
+ // ==========================================================
+ 
+@@ -230,8 +241,12 @@
+ 		}
+ 
+ 		// Read the header information: width, height and the scale value
+-		unsigned width  = (unsigned) pfm_get_int(io, handle);
+-		unsigned height = (unsigned) pfm_get_int(io, handle);
++		int width = pfm_get_int(io, handle);
++		int height = pfm_get_int(io, handle);
++		if ((width <= 0) || (height <= 0)) {
++			throw FI_MSG_ERROR_PARSING;
++		}
++
+ 		float scalefactor = 1;
+ 
+ 		BOOL bResult = pfm_get_line(io, handle, line_buffer, PFM_MAXLINE);
+@@ -262,7 +277,7 @@
+ 				throw FI_MSG_ERROR_MEMORY;
+ 			}
+ 
+-			for (unsigned y = 0; y < height; y++) {	
++			for (int y = 0; y < height; y++) {	
+ 				FIRGBF *bits = (FIRGBF*)FreeImage_GetScanLine(dib, height - 1 - y);
+ 
+ 				if(io->read_proc(lineBuffer, sizeof(float), lineWidth, handle) != lineWidth) {
+@@ -271,7 +286,7 @@
+ 				float *channel = lineBuffer;
+ 				if(scalefactor > 0) {
+ 					// MSB
+-					for (unsigned x = 0; x < width; x++) {
++					for (int x = 0; x < width; x++) {
+ 						REVERSEBYTES(channel++, &bits[x].red);
+ 						REVERSEBYTES(channel++, &bits[x].green);
+ 						REVERSEBYTES(channel++, &bits[x].blue);
+@@ -278,7 +293,7 @@
+ 					}
+ 				} else {
+ 					// LSB					
+-					for (unsigned x = 0; x < width; x++) {
++					for (int x = 0; x < width; x++) {
+ 						bits[x].red		= *channel++;
+ 						bits[x].green	= *channel++;
+ 						bits[x].blue	= *channel++;
+@@ -296,7 +311,7 @@
+ 				throw FI_MSG_ERROR_MEMORY;
+ 			}
+ 
+-			for (unsigned y = 0; y < height; y++) {	
++			for (int y = 0; y < height; y++) {	
+ 				float *bits = (float*)FreeImage_GetScanLine(dib, height - 1 - y);
+ 
+ 				if(io->read_proc(lineBuffer, sizeof(float), lineWidth, handle) != lineWidth) {
+@@ -305,12 +320,12 @@
+ 				float *channel = lineBuffer;
+ 				if(scalefactor > 0) {
+ 					// MSB - File is Big endian
+-					for (unsigned x = 0; x < width; x++) {
++					for (int x = 0; x < width; x++) {
+ 						REVERSEBYTES(channel++, &bits[x]);
+ 					}
+ 				} else {
+ 					// LSB - File is Little Endian
+-					for (unsigned x = 0; x < width; x++) {
++					for (int x = 0; x < width; x++) {
+ 						bits[x] = *channel++;
+ 					}
+ 				}
+@@ -323,9 +338,12 @@
+ 		return dib;
+ 
+ 	} catch (const char *text)  {
+-		if(lineBuffer) free(lineBuffer);
+-		if(dib) FreeImage_Unload(dib);
+-
++		if (lineBuffer) {
++			free(lineBuffer);
++		}
++		if (dib) {
++			FreeImage_Unload(dib);
++		}
+ 		if(NULL != text) {
+ 			FreeImage_OutputMessageProc(s_format_id, text);
+ 		}
