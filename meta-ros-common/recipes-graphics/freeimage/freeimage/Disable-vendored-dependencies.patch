@@ -1,0 +1,469 @@
+From: Ghislain Antony Vaillant <ghisvail@gmail.com>
+Date: Tue, 3 Nov 2015 14:39:33 +0000
+Subject: Disable vendored dependencies.
+
+This commit disables usage of the embedded dependencies for building
+FreeImage and FreeImagePlus. Functionalities which could not use the
+packaged dependencies are delibarately disabled for security reasons.
+
+This patch is based on Fedora's FreeImage-3.17.0_unbundle patch.
+---
+ Source/FreeImage.h                 |  9 ++++-
+ Source/FreeImage/J2KHelper.cpp     |  2 +-
+ Source/FreeImage/PluginEXR.cpp     | 20 +++++-----
+ Source/FreeImage/PluginG3.cpp      |  9 +++--
+ Source/FreeImage/PluginJ2K.cpp     |  2 +-
+ Source/FreeImage/PluginJP2.cpp     |  2 +-
+ Source/FreeImage/PluginJPEG.cpp    |  6 +--
+ Source/FreeImage/PluginJXR.cpp     |  2 +-
+ Source/FreeImage/PluginPNG.cpp     |  4 +-
+ Source/FreeImage/PluginRAW.cpp     |  2 +-
+ Source/FreeImage/PluginTIFF.cpp    |  4 +-
+ Source/FreeImage/PluginWebP.cpp    |  8 ++--
+ Source/FreeImage/ZLibInterface.cpp |  5 +--
+ Source/Metadata/XTIFF.cpp          | 80 +++++++++++++++++++-------------------
+ genfipsrclist.sh                   |  9 +----
+ gensrclist.sh                      | 11 ++----
+ 16 files changed, 85 insertions(+), 90 deletions(-)
+
+Index: freeimage-3.18.0+ds2/Source/FreeImage.h
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage.h
++++ freeimage-3.18.0+ds2/Source/FreeImage.h
+@@ -473,6 +473,9 @@ FI_ENUM(FREE_IMAGE_DITHER) {
+ 	FID_BAYER16x16	= 6		//! Bayer ordered dispersed dot dithering (order 4 dithering matrix)
+ };
+ 
++/* Debian: The JPEGTransform functions are deliberately disabled in our build
++   of FreeImage, since they require usage of the vendored copy of libjpeg. */
++#if 0
+ /** Lossless JPEG transformations
+ Constants used in FreeImage_JPEGTransform
+ */
+@@ -486,6 +489,7 @@ FI_ENUM(FREE_IMAGE_JPEG_OPERATION) {
+ 	FIJPEG_OP_ROTATE_180	= 6,	//! 180-degree rotation
+ 	FIJPEG_OP_ROTATE_270	= 7		//! 270-degree clockwise (or 90 ccw)
+ };
++#endif
+ 
+ /** Tone mapping operators.
+ Constants used in FreeImage_ToneMapping.
+@@ -1088,7 +1092,9 @@ DLL_API const char* DLL_CALLCONV FreeIma
+ // --------------------------------------------------------------------------
+ // JPEG lossless transformation routines
+ // --------------------------------------------------------------------------
+-
++/* Debian: The JPEGTransform functions are deliberately disabled in our build
++   of FreeImage, since they require usage of the vendored copy of libjpeg. */
++#if 0
+ DLL_API BOOL DLL_CALLCONV FreeImage_JPEGTransform(const char *src_file, const char *dst_file, FREE_IMAGE_JPEG_OPERATION operation, BOOL perfect FI_DEFAULT(TRUE));
+ DLL_API BOOL DLL_CALLCONV FreeImage_JPEGTransformU(const wchar_t *src_file, const wchar_t *dst_file, FREE_IMAGE_JPEG_OPERATION operation, BOOL perfect FI_DEFAULT(TRUE));
+ DLL_API BOOL DLL_CALLCONV FreeImage_JPEGCrop(const char *src_file, const char *dst_file, int left, int top, int right, int bottom);
+@@ -1097,6 +1103,7 @@ DLL_API BOOL DLL_CALLCONV FreeImage_JPEG
+ DLL_API BOOL DLL_CALLCONV FreeImage_JPEGTransformCombined(const char *src_file, const char *dst_file, FREE_IMAGE_JPEG_OPERATION operation, int* left, int* top, int* right, int* bottom, BOOL perfect FI_DEFAULT(TRUE));
+ DLL_API BOOL DLL_CALLCONV FreeImage_JPEGTransformCombinedU(const wchar_t *src_file, const wchar_t *dst_file, FREE_IMAGE_JPEG_OPERATION operation, int* left, int* top, int* right, int* bottom, BOOL perfect FI_DEFAULT(TRUE));
+ DLL_API BOOL DLL_CALLCONV FreeImage_JPEGTransformCombinedFromMemory(FIMEMORY* src_stream, FIMEMORY* dst_stream, FREE_IMAGE_JPEG_OPERATION operation, int* left, int* top, int* right, int* bottom, BOOL perfect FI_DEFAULT(TRUE));
++#endif
+ 
+ 
+ // --------------------------------------------------------------------------
+Index: freeimage-3.18.0+ds2/Source/FreeImage/J2KHelper.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/J2KHelper.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/J2KHelper.cpp
+@@ -21,7 +21,7 @@
+ 
+ #include "FreeImage.h"
+ #include "Utilities.h"
+-#include "../LibOpenJPEG/openjpeg.h"
++#include <openjpeg.h>
+ #include "J2KHelper.h"
+ 
+ // --------------------------------------------------------------------------
+Index: freeimage-3.18.0+ds2/Source/FreeImage/PluginEXR.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginEXR.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginEXR.cpp
+@@ -28,16 +28,17 @@
+ #pragma warning (disable : 4800) // ImfVersion.h - 'const int' : forcing value to bool 'true' or 'false' (performance warning)
+ #endif 
+ 
+-#include "../OpenEXR/IlmImf/ImfIO.h"
+-#include "../OpenEXR/Iex/Iex.h"
+-#include "../OpenEXR/IlmImf/ImfOutputFile.h"
+-#include "../OpenEXR/IlmImf/ImfInputFile.h"
+-#include "../OpenEXR/IlmImf/ImfRgbaFile.h"
+-#include "../OpenEXR/IlmImf/ImfChannelList.h"
+-#include "../OpenEXR/IlmImf/ImfRgba.h"
+-#include "../OpenEXR/IlmImf/ImfArray.h"
+-#include "../OpenEXR/IlmImf/ImfPreviewImage.h"
+-#include "../OpenEXR/Half/half.h"
++#include <OpenEXR/ImfIO.h>
++#include <OpenEXR/Iex.h>
++#include <OpenEXR/ImfOutputFile.h>
++#include <OpenEXR/ImfInputFile.h>
++#include <OpenEXR/ImfRgbaFile.h>
++#include <OpenEXR/ImfChannelList.h>
++#include <OpenEXR/ImfRgba.h>
++#include <OpenEXR/ImfArray.h>
++#include <OpenEXR/ImfPreviewImage.h>
++#include <Imath/half.h>
++#include <Imath/ImathInt64.h>
+ 
+ 
+ // ==========================================================
+Index: freeimage-3.18.0+ds2/Source/FreeImage/PluginG3.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginG3.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginG3.cpp
+@@ -20,8 +20,6 @@
+ // Use at your own risk!
+ // ==========================================================
+ 
+-#include "../LibTIFF4/tiffiop.h"
+-
+ #include "FreeImage.h"
+ #include "Utilities.h"
+ 
+@@ -31,6 +29,7 @@
+ 
+ static int s_format_id;
+ 
++#if 0
+ // ==========================================================
+ //   Constant/Macro declarations
+ // ==========================================================
+@@ -192,6 +191,7 @@ copyFaxFile(FreeImageIO *io, fi_handle h
+ 
+ 	return (row);
+ }
++#endif
+ 
+ 
+ // ==========================================================
+@@ -229,7 +229,7 @@ SupportsExportDepth(int depth) {
+ }
+ 
+ // ----------------------------------------------------------
+-
++#if 0
+ static FIBITMAP * DLL_CALLCONV
+ Load(FreeImageIO *io, fi_handle handle, int page, int flags, void *data) {
+ 	TIFF *faxTIFF = NULL;
+@@ -406,6 +406,7 @@ Load(FreeImageIO *io, fi_handle handle,
+ 	return dib;
+ 
+ }
++#endif
+ 
+ // ==========================================================
+ //   Init
+@@ -423,7 +424,7 @@ InitG3(Plugin *plugin, int format_id) {
+ 	plugin->close_proc = NULL;
+ 	plugin->pagecount_proc = NULL;
+ 	plugin->pagecapability_proc = NULL;
+-	plugin->load_proc = Load;
++	plugin->load_proc = NULL;
+ 	plugin->save_proc = NULL;
+ 	plugin->validate_proc = NULL;
+ 	plugin->mime_proc = MimeType;
+Index: freeimage-3.18.0+ds2/Source/FreeImage/PluginJ2K.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginJ2K.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginJ2K.cpp
+@@ -21,7 +21,7 @@
+ 
+ #include "FreeImage.h"
+ #include "Utilities.h"
+-#include "../LibOpenJPEG/openjpeg.h"
++#include <openjpeg.h>
+ #include "J2KHelper.h"
+ 
+ // ==========================================================
+Index: freeimage-3.18.0+ds2/Source/FreeImage/PluginJP2.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginJP2.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginJP2.cpp
+@@ -21,7 +21,7 @@
+ 
+ #include "FreeImage.h"
+ #include "Utilities.h"
+-#include "../LibOpenJPEG/openjpeg.h"
++#include <openjpeg.h>
+ #include "J2KHelper.h"
+ 
+ // ==========================================================
+Index: freeimage-3.18.0+ds2/Source/FreeImage/PluginJPEG.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginJPEG.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginJPEG.cpp
+@@ -35,9 +35,9 @@ extern "C" {
+ #undef FAR
+ #include <setjmp.h>
+ 
+-#include "../LibJPEG/jinclude.h"
+-#include "../LibJPEG/jpeglib.h"
+-#include "../LibJPEG/jerror.h"
++#include <stdio.h>
++#include <jpeglib.h>
++#include <jerror.h>
+ }
+ 
+ #include "FreeImage.h"
+Index: freeimage-3.18.0+ds2/Source/FreeImage/PluginJXR.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginJXR.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginJXR.cpp
+@@ -23,7 +23,7 @@
+ #include "Utilities.h"
+ #include "../Metadata/FreeImageTag.h"
+ 
+-#include "../LibJXR/jxrgluelib/JXRGlue.h"
++#include <JXRGlue.h>
+ 
+ // ==========================================================
+ // Plugin Interface
+Index: freeimage-3.18.0+ds2/Source/FreeImage/PluginPNG.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginPNG.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginPNG.cpp
+@@ -40,8 +40,8 @@
+ 
+ // ----------------------------------------------------------
+ 
+-#include "../ZLib/zlib.h"
+-#include "../LibPNG/png.h"
++#include <zlib.h>
++#include <png.h>
+ 
+ // ----------------------------------------------------------
+ 
+Index: freeimage-3.18.0+ds2/Source/FreeImage/PluginRAW.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginRAW.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginRAW.cpp
+@@ -19,7 +19,7 @@
+ // Use at your own risk!
+ // ==========================================================
+ 
+-#include "../LibRawLite/libraw/libraw.h"
++#include <libraw/libraw.h>
+ 
+ #include "FreeImage.h"
+ #include "Utilities.h"
+Index: freeimage-3.18.0+ds2/Source/FreeImage/ZLibInterface.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/ZLibInterface.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/ZLibInterface.cpp
+@@ -19,10 +19,9 @@
+ // Use at your own risk!
+ // ==========================================================
+ 
+-#include "../ZLib/zlib.h"
++#include <zlib.h>
+ #include "FreeImage.h"
+ #include "Utilities.h"
+-#include "../ZLib/zutil.h"	/* must be the last header because of error C3163 in VS2008 (_vsnprintf defined in stdio.h) */
+ 
+ /**
+ Compresses a source buffer into a target buffer, using the ZLib library. 
+@@ -115,7 +114,7 @@ FreeImage_ZLibGZip(BYTE *target, DWORD t
+ 			return 0;
+         case Z_OK: {
+             // patch header, setup crc and length (stolen from mod_trace_output)
+-            BYTE *p = target + 8; *p++ = 2; *p = OS_CODE; // xflags, os_code
++            BYTE *p = target + 8; *p++ = 2; *p = 0x03; // xflags, os_code (unix)
+  	        crc = crc32(crc, source, source_size);
+ 	        memcpy(target + 4 + dest_len, &crc, 4);
+ 	        memcpy(target + 8 + dest_len, &source_size, 4);
+Index: freeimage-3.18.0+ds2/Source/Metadata/XTIFF.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/Metadata/XTIFF.cpp
++++ freeimage-3.18.0+ds2/Source/Metadata/XTIFF.cpp
+@@ -29,7 +29,7 @@
+ #pragma warning (disable : 4786) // identifier was truncated to 'number' characters
+ #endif
+ 
+-#include "../LibTIFF4/tiffiop.h"
++#include <tiffio.h>
+ 
+ #include "FreeImage.h"
+ #include "Utilities.h"
+@@ -224,6 +224,33 @@ tiff_write_geotiff_profile(TIFF *tif, FI
+ //   TIFF EXIF tag reading & writing
+ // ----------------------------------------------------------
+ 
++static uint32 exif_tag_ids[] = {
++  EXIFTAG_EXPOSURETIME, EXIFTAG_FNUMBER, EXIFTAG_EXPOSUREPROGRAM,
++  EXIFTAG_SPECTRALSENSITIVITY, EXIFTAG_ISOSPEEDRATINGS, EXIFTAG_OECF,
++  EXIFTAG_EXIFVERSION, EXIFTAG_DATETIMEORIGINAL, EXIFTAG_DATETIMEDIGITIZED,
++  EXIFTAG_COMPONENTSCONFIGURATION, EXIFTAG_COMPRESSEDBITSPERPIXEL,
++  EXIFTAG_SHUTTERSPEEDVALUE, EXIFTAG_APERTUREVALUE,
++  EXIFTAG_BRIGHTNESSVALUE, EXIFTAG_EXPOSUREBIASVALUE,
++  EXIFTAG_MAXAPERTUREVALUE, EXIFTAG_SUBJECTDISTANCE, EXIFTAG_METERINGMODE,
++  EXIFTAG_LIGHTSOURCE, EXIFTAG_FLASH, EXIFTAG_FOCALLENGTH,
++  EXIFTAG_SUBJECTAREA, EXIFTAG_MAKERNOTE, EXIFTAG_USERCOMMENT,
++  EXIFTAG_SUBSECTIME, EXIFTAG_SUBSECTIMEORIGINAL,
++  EXIFTAG_SUBSECTIMEDIGITIZED, EXIFTAG_FLASHPIXVERSION, EXIFTAG_COLORSPACE,
++  EXIFTAG_PIXELXDIMENSION, EXIFTAG_PIXELYDIMENSION,
++  EXIFTAG_RELATEDSOUNDFILE, EXIFTAG_FLASHENERGY,
++  EXIFTAG_SPATIALFREQUENCYRESPONSE, EXIFTAG_FOCALPLANEXRESOLUTION,
++  EXIFTAG_FOCALPLANEYRESOLUTION, EXIFTAG_FOCALPLANERESOLUTIONUNIT,
++  EXIFTAG_SUBJECTLOCATION, EXIFTAG_EXPOSUREINDEX, EXIFTAG_SENSINGMETHOD,
++  EXIFTAG_FILESOURCE, EXIFTAG_SCENETYPE, EXIFTAG_CFAPATTERN,
++  EXIFTAG_CUSTOMRENDERED, EXIFTAG_EXPOSUREMODE, EXIFTAG_WHITEBALANCE,
++  EXIFTAG_DIGITALZOOMRATIO, EXIFTAG_FOCALLENGTHIN35MMFILM,
++  EXIFTAG_SCENECAPTURETYPE, EXIFTAG_GAINCONTROL, EXIFTAG_CONTRAST,
++  EXIFTAG_SATURATION, EXIFTAG_SHARPNESS, EXIFTAG_DEVICESETTINGDESCRIPTION,
++  EXIFTAG_SUBJECTDISTANCERANGE, EXIFTAG_GAINCONTROL, EXIFTAG_GAINCONTROL,
++  EXIFTAG_IMAGEUNIQUEID
++};
++static int nExifTags = sizeof(exif_tag_ids) / sizeof(exif_tag_ids[0]);
++
+ /**
+ Read a single Exif tag
+ 
+@@ -575,43 +602,10 @@ tiff_read_exif_tags(TIFF *tif, TagLib::M
+ 
+ 	// loop over all Core Directory Tags
+ 	// ### uses private data, but there is no other way
++	// -> Fedora: Best we can do without private headers is to hard-code a list of known EXIF tags and read those
+ 	if(md_model == TagLib::EXIF_MAIN) {
+-		const TIFFDirectory *td = &tif->tif_dir;
+-
+-		uint32 lastTag = 0;	//<- used to prevent reading some tags twice (as stored in tif_fieldinfo)
+-
+-		for (int fi = 0, nfi = (int)tif->tif_nfields; nfi > 0; nfi--, fi++) {
+-			const TIFFField *fld = tif->tif_fields[fi];
+-
+-			const uint32 tag_id = TIFFFieldTag(fld);
+-
+-			if(tag_id == lastTag) {
+-				continue;
+-			}
+-
+-			// test if tag value is set
+-			// (lifted directly from LibTiff _TIFFWriteDirectory)
+-
+-			if( fld->field_bit == FIELD_CUSTOM ) {
+-				int is_set = FALSE;
+-
+-				for(int ci = 0; ci < td->td_customValueCount; ci++ ) {
+-					is_set |= (td->td_customValues[ci].info == fld);
+-				}
+-
+-				if( !is_set ) {
+-					continue;
+-				}
+-
+-			} else if(!TIFFFieldSet(tif, fld->field_bit)) {
+-				continue;
+-			}
+-
+-			// process *all* other tags (some will be ignored)
+-
+-			tiff_read_exif_tag(tif, tag_id, dib, md_model);
+-
+-			lastTag = tag_id;
++		for (int i = 0; i < nExifTags; ++i) {
++			tiff_read_exif_tag(tif, exif_tag_ids[i], dib, md_model);
+ 		}
+ 
+ 	}
+@@ -723,10 +717,9 @@ tiff_write_exif_tags(TIFF *tif, TagLib::
+ 	
+ 	TagLib& tag_lib = TagLib::instance();
+ 	
+-	for (int fi = 0, nfi = (int)tif->tif_nfields; nfi > 0; nfi--, fi++) {
+-		const TIFFField *fld = tif->tif_fields[fi];
+-		
+-		const uint32 tag_id = TIFFFieldTag(fld);
++	for (int fi = 0, nfi = nExifTags; nfi > 0; nfi--, fi++) {
++		const uint32 tag_id = exif_tag_ids[fi];
++		const TIFFField *fld = TIFFFieldWithTag(tif, tag_id);
+ 
+ 		if(skip_write_field(tif, tag_id)) {
+ 			// skip tags that are already handled by the LibTIFF writing process
+@@ -749,7 +742,7 @@ tiff_write_exif_tags(TIFF *tif, TagLib::
+ 				continue;
+ 			}
+ 			// type of storage may differ (e.g. rationnal array vs float array type)
+-			if((unsigned)_TIFFDataSize(tif_tag_type) != FreeImage_TagDataWidth(tag_type)) {
++			if((unsigned)TIFFFieldSetGetSize(fld) != FreeImage_TagDataWidth(tag_type)) {
+ 				// skip tag or _TIFFmemcpy will fail
+ 				continue;
+ 			}
+Index: freeimage-3.18.0+ds2/Source/FreeImage/PluginTIFF.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginTIFF.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginTIFF.cpp
+@@ -37,9 +37,9 @@
+ 
+ #include "FreeImage.h"
+ #include "Utilities.h"
+-#include "../LibTIFF4/tiffiop.h"
++#include <tiffio.h>
+ #include "../Metadata/FreeImageTag.h"
+-#include "../OpenEXR/Half/half.h"
++#include "Imath/half.h"
+ 
+ #include "FreeImageIO.h"
+ #include "PSDParser.h"
+Index: freeimage-3.18.0+ds2/Source/FreeImage/PluginWebP.cpp
+===================================================================
+--- freeimage-3.18.0+ds2.orig/Source/FreeImage/PluginWebP.cpp
++++ freeimage-3.18.0+ds2/Source/FreeImage/PluginWebP.cpp
+@@ -24,9 +24,9 @@
+ 
+ #include "../Metadata/FreeImageTag.h"
+ 
+-#include "../LibWebP/src/webp/decode.h"
+-#include "../LibWebP/src/webp/encode.h"
+-#include "../LibWebP/src/webp/mux.h"
++#include "webp/decode.h"
++#include "webp/encode.h"
++#include "webp/mux.h"
+ 
+ // ==========================================================
+ // Plugin Interface
+Index: freeimage-3.18.0+ds2/gensrclist.sh
+===================================================================
+--- freeimage-3.18.0+ds2.orig/gensrclist.sh
++++ freeimage-3.18.0+ds2/gensrclist.sh
+@@ -6,16 +6,11 @@ echo "VER_MAJOR = 3" > Makefile.srcs
+ echo "VER_MINOR = 18.0" >> Makefile.srcs
+ 
+ echo -n "SRCS = " >> Makefile.srcs
+-for DIR in $DIRLIST; do
+-	VCPRJS=`echo $DIR/*.2013.vcxproj`
+-	if [ "$VCPRJS" != "$DIR/*.2013.vcxproj" ]; then
+-		egrep 'ClCompile Include=.*\.(c|cpp)' $DIR/*.2013.vcxproj | cut -d'"' -f2 | tr '\\' '/' | awk '{print "'$DIR'/"$0}' | tr '\r\n' '  ' | tr -s ' ' >> Makefile.srcs
+-	fi
+-done
++find Source -name '*.c' -or -name '*.cpp' -not -name 'JPEGTransform.cpp' | LC_ALL=C sort | xargs echo -n >> Makefile.srcs
+ echo >> Makefile.srcs
+ 
+ echo -n "INCLS = " >> Makefile.srcs
+-find . -name "*.h" -print | xargs echo >> Makefile.srcs
++find Source -name '*.h' | LC_ALL=C sort | xargs echo -n >> Makefile.srcs
+ echo >> Makefile.srcs
+ 
+ echo -n "INCLUDE =" >> Makefile.srcs
+Index: freeimage-3.18.0+ds2/genfipsrclist.sh
+===================================================================
+--- freeimage-3.18.0+ds2.orig/genfipsrclist.sh
++++ freeimage-3.18.0+ds2/genfipsrclist.sh
+@@ -7,12 +7,7 @@ echo "VER_MAJOR = 3" > fipMakefile.srcs
+ echo "VER_MINOR = 18.0" >> fipMakefile.srcs
+ 
+ echo -n "SRCS = " >> fipMakefile.srcs
+-for DIR in $DIRLIST; do
+-	VCPRJS=`echo $DIR/*.2013.vcxproj`
+-	if [ "$VCPRJS" != "$DIR/*.2013.vcxproj" ]; then
+-		egrep 'ClCompile Include=.*\.(c|cpp)' $DIR/*.2013.vcxproj | cut -d'"' -f2 | tr '\\' '/' | awk '{print "'$DIR'/"$0}' | tr '\r\n' '  ' | tr -s ' ' >> fipMakefile.srcs
+-	fi
+-done
++find Wrapper/FreeImagePlus/src -name '*.cpp' -print | LC_ALL=C sort | xargs echo -n >> fipMakefile.srcs
+ echo >> fipMakefile.srcs
+ 
+ echo -n "INCLUDE =" >> fipMakefile.srcs
