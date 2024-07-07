@@ -14,15 +14,4 @@ ROS_BUILDTOOL_DEPENDS += " \
 #   Unknown CMake command "qt5_wrap_ui".
 inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], '', 'cmake_qt5', d)}
 
-# QA Issue: non -dev/-dbg/nativesdk- package moveit-ros-visualization contains symlink .so
-FILES:${PN}-dev += " \
-    ${libdir}/libmoveit_motion_planning_rviz_plugin.so \
-    ${libdir}/libmoveit_motion_planning_rviz_plugin_core.so \
-    ${libdir}/libmoveit_planning_scene_rviz_plugin.so \
-    ${libdir}/libmoveit_planning_scene_rviz_plugin_core.so \
-    ${libdir}/libmoveit_robot_state_rviz_plugin.so \
-    ${libdir}/libmoveit_robot_state_rviz_plugin_core.so \
-    ${libdir}/libmoveit_rviz_plugin_render_tools.so \
-    ${libdir}/libmoveit_trajectory_rviz_plugin.so \
-    ${libdir}/libmoveit_trajectory_rviz_plugin_core.so \
-"
+FILES:${PN}-dev =+ "${ros_libdir}/lib*${SOLIBSDEV}"
