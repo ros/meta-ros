@@ -18,9 +18,9 @@ Index: git/CMakeLists.txt
 @@ -81,15 +81,15 @@ macro(build_benchmark)
  endmacro()
  
- if(NOT benchmark_FOUND OR "${benchmark_VERSION}" VERSION_LESS 1.6.1)
+ if(NOT benchmark_FOUND OR "${benchmark_VERSION}" VERSION_LESS 1.8.3)
 -  build_benchmark()
-+  message(FATAL_ERROR "benchmark not found, missing dependency on google-benchmark or version less than 1.6.1, found ${benchmark_VERSION}")
++  message(FATAL_ERROR "benchmark not found, missing dependency on google-benchmark or version less than 1.8.3, found ${benchmark_VERSION}")
  elseif(benchmark_FOUND)
    # Ubuntu Focal and Jammy have a packaging bug where libbenchmark_main has no symbols,
    # causing linker failures. I'm pretty sure it shouldn't be a static library.
