@@ -12,3 +12,5 @@ ROS_EXEC_DEPENDS:remove = "gcc-runtime"
 ROS_EXEC_DEPENDS:append-class-target = " libatomic"
 # and also remove it from build time depends when buiding native rc-utils
 DEPENDS:remove:class-native = "gcc-runtime-native gcc-runtime"
+
+inherit ros_faulty_solibs
