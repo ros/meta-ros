@@ -7,8 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5b8a2a1aa14e6de44b4273134946a34c"
 
 DEPENDS = "boost libflann libeigen qhull"
 
-SRC_URI = "git://github.com/PointCloudLibrary/pcl.git;branch=master;protocol=https \
-           file://0001-MovingLeastSquares-reduce-the-number.patch"
+SRC_URI = "git://github.com/PointCloudLibrary/pcl.git;branch=master;protocol=https"
 
 S = "${WORKDIR}/git"
 
