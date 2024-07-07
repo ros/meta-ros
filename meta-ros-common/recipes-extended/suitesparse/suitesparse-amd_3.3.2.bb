@@ -1,27 +1,18 @@
 # Copyright (c) 2019 LG Electronics, Inc.
+# Copyright (c) 2024 Wind River Systems, Inc.
 
-require suitesparse-5.4.0.inc
+require suitesparse-7.7.0.inc
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM += "file://Doc/License.txt;md5=1e9c216df23255c2cc290676276a051c"
+LIC_FILES_CHKSUM += "file://Doc/License.txt;md5=5ba3300acc9ddc20a56f6c843e2d5e13"
 
 DEPENDS = " \
     suitesparse-config \
 "
 
-
 S = "${WORKDIR}/git/AMD"
 
-EXTRA_OEMAKE = "CC='${CC}'"
-
-do_compile() {
-    # build only the library, not the demo
-    oe_runmake library
-}
-
-do_install() {
-    oe_runmake install INSTALL=${D}${prefix}
-}
+inherit cmake pkgconfig
 
 DEPENDS:append:class-target = " chrpath-replacement-native"
 # For some reason ends with bad RPATH
