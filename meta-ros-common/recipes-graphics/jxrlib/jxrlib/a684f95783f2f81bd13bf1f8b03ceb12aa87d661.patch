@@ -1,0 +1,36 @@
+From a684f95783f2f81bd13bf1f8b03ceb12aa87d661 Mon Sep 17 00:00:00 2001
+From: Milian Wolff <milian.wolff@kdab.com>
+Date: Mon, 7 Jun 2021 10:00:09 +0200
+Subject: [PATCH] fix undefined behavior for left-shift of -1
+
+My hunch is that (-1 << 31) tries to build INT_MIN, so use that
+directly. Compare:
+
+1 << 31 = 2147483648
+INT_MIN = -2147483648
+---
+ image/sys/adapthuff.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/image/sys/adapthuff.c b/image/sys/adapthuff.c
+index a690889..cd83034 100644
+--- a/image/sys/adapthuff.c
++++ b/image/sys/adapthuff.c
+@@ -28,6 +28,8 @@
+ 
+ #include "strcodec.h"
+ 
++#include <limits.h>
++
+ #ifdef MEM_TRACE
+ #define TRACE_MALLOC    1
+ #define TRACE_NEW       0
+@@ -459,7 +461,7 @@ Void AdaptDiscriminant (CAdaptiveHuffman *pAdHuff)
+     assert (t < gMaxTables[iSym]);
+ 
+     //pAdHuff->m_iDiscriminant >>= 1;
+-    pAdHuff->m_iLowerBound = (t == 0) ? (-1 << 31) : -THRESHOLD;
++    pAdHuff->m_iLowerBound = (t == 0) ? INT_MIN : -THRESHOLD;
+     pAdHuff->m_iUpperBound = (t == gMaxTables[iSym] - 1) ? (1 << 30) : THRESHOLD;
+ 
+     switch (iSym) {
