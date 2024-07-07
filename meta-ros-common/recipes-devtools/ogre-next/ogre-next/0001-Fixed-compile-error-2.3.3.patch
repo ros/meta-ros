@@ -1,0 +1,118 @@
+Upstream-Status: Submitted [https://github.com/OGRECave/ogre-next/issues/430]
+
+From 480fb368e288f0a4e1c73f6b0a60f27743d5cb63 Mon Sep 17 00:00:00 2001
+From: bchoi <bchoi@neubility.co.kr>
+Date: Mon, 22 Jan 2024 16:22:31 +0900
+Subject: [PATCH] Fixed compile error
+
+---
+ .../Hlms/Pbs/src/Vct/OgreVctCascadedVoxelizer.cpp      |  2 +-
+ .../include/Math/Array/NEON/Single/OgreMathlibNEON.h   |  2 +-
+ OgreMain/src/OgreDefaultSceneQueries.cpp               |  2 +-
+ OgreMain/src/OgreMovableObject.cpp                     |  2 +-
+ Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt  |  6 ++++--
+ Tools/CmgenToCubemap/CMakeLists.txt                    | 10 +++++++++-
+ 6 files changed, 17 insertions(+), 7 deletions(-)
+
+diff --git a/Components/Hlms/Pbs/src/Vct/OgreVctCascadedVoxelizer.cpp b/Components/Hlms/Pbs/src/Vct/OgreVctCascadedVoxelizer.cpp
+index 797f3d68a8..852dab96ec 100644
+--- a/Components/Hlms/Pbs/src/Vct/OgreVctCascadedVoxelizer.cpp
++++ b/Components/Hlms/Pbs/src/Vct/OgreVctCascadedVoxelizer.cpp
+@@ -29,8 +29,8 @@ THE SOFTWARE.
+ #include "OgreStableHeaders.h"
+ 
+ #include "Vct/OgreVctCascadedVoxelizer.h"
+-
+ #include "Compositor/OgreCompositorManager2.h"
++#include "Math/Array/OgreMathlib.h"
+ #include "Math/Array/OgreBooleanMask.h"
+ #include "OgreItem.h"
+ #include "OgreSceneManager.h"
+diff --git a/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h b/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
+index 94f7bdfd1d..6cfea95135 100644
+--- a/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
++++ b/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
+@@ -601,7 +601,7 @@ namespace Ogre
+             //Netwon-Raphson, 2 iterations.
+             ArrayReal fStep0 = vrsqrteq_f32( f );
+             //Nuke NaN when f == 0
+-            fStep0 = vreinterpretq_f32_u32( vandq_u32( vtstq_u32( f, f ),
++            fStep0 = vreinterpretq_f32_u32( vandq_u32( vtstq_u32((uint32x4_t)f, (uint32x4_t)f ),
+                                                        vreinterpretq_u32_f32( fStep0 ) ) );
+             // step fStep0 = 1 / sqrt(x)
+             const ArrayReal fStepParm0  = vmulq_f32( f, fStep0 );
+diff --git a/OgreMain/src/OgreDefaultSceneQueries.cpp b/OgreMain/src/OgreDefaultSceneQueries.cpp
+index b275a7df66..3dee473700 100644
+--- a/OgreMain/src/OgreDefaultSceneQueries.cpp
++++ b/OgreMain/src/OgreDefaultSceneQueries.cpp
+@@ -537,7 +537,7 @@ namespace Ogre {
+             {
+                 //For each volume test all planes and AND the dot product.
+                 //If one is false, then we dont intersect with this volume
+-                ArrayMaskR singleVolumeMask = CastIntToReal( Mathlib::SetAll( 0xffffffff ) );
++                ArrayMaskR singleVolumeMask = (ArrayMaskR) CastIntToReal( Mathlib::SetAll( 0xffffffff ) );
+                 ArrayReal dotResult;
+                 ArrayVector3 centerPlusFlippedHS;
+     
+diff --git a/OgreMain/src/OgreMovableObject.cpp b/OgreMain/src/OgreMovableObject.cpp
+index 860e405c9a..16fcd67f1c 100644
+--- a/OgreMain/src/OgreMovableObject.cpp
++++ b/OgreMain/src/OgreMovableObject.cpp
+@@ -500,7 +500,7 @@ namespace Ogre {
+             planes[i].planeNegD = Mathlib::SetAll( -frustumPlanes[i].d );
+         }
+         
+-        const ArrayMaskR ignoreRenderingDistance = CastIntToReal(
++        const ArrayMaskR ignoreRenderingDistance = (ArrayMaskR) CastIntToReal(
+                     Mathlib::SetAll( lodCamera->getUseRenderingDistance() ? 0 : 0xffffffff ) );
+ 
+         //TODO: Profile whether we should use XOR to flip the sign or simple multiplication.
+diff --git a/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt b/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
+index c19bdd5cce..8b9a115aab 100644
+--- a/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
++++ b/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
+@@ -11,12 +11,14 @@ macro( add_recursive dir retVal )
+ 	file( GLOB_RECURSE ${retVal} ${dir}/*.h ${dir}/*.cpp ${dir}/*.c )
+ endmacro()
+ 
++set(OGRE_LIBRARIES ${OGRE_LIBRARIES} OgreMain)
++
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ 
+ add_recursive( ./ SOURCE_FILES )
+ 
+-ogre_add_executable(Sample_AnimationTagPoint WIN32 MACOSX_BUNDLE ${SOURCE_FILES} ${SAMPLE_COMMON_RESOURCES})
++ogre_add_executable(Sample_AnimationTagPoint ${SOURCE_FILES} ${SAMPLE_COMMON_RESOURCES})
+ 
+-target_link_libraries(Sample_AnimationTagPoint ${OGRE_LIBRARIES} ${OGRE_SAMPLES_LIBRARIES})
++target_link_libraries(Sample_AnimationTagPoint ${OGRE_SAMPLES_LIBRARIES} ${OGRE_LIBRARIES})
+ ogre_config_sample_lib(Sample_AnimationTagPoint)
+ ogre_config_sample_pkg(Sample_AnimationTagPoint)
+diff --git a/Tools/CmgenToCubemap/CMakeLists.txt b/Tools/CmgenToCubemap/CMakeLists.txt
+index c3d67a6c0c..c55fa27bf4 100644
+--- a/Tools/CmgenToCubemap/CMakeLists.txt
++++ b/Tools/CmgenToCubemap/CMakeLists.txt
+@@ -13,11 +13,19 @@ macro( add_recursive dir retVal )
+ 	file( GLOB_RECURSE ${retVal} ${dir}/*.h ${dir}/*.cpp ${dir}/*.c )
+ endmacro()
+ 
++find_package(JPEG REQUIRED)
++find_package(PNG REQUIRED)
++find_package(TIFF REQUIRED)
++find_package(ZLIB REQUIRED)
++
++set(PICTURE_LIBS ${JPEG} ${PNG} ${TIFF} ${ZLIB})
++set(OGRE_LIBRARIES ${OGRE_LIBRARIES} ${OGRE_NEXT}Main)
++
+ add_recursive( ./ SOURCE_FILES )
+ 
+ ogre_add_executable(OgreCmgenToCubemap ${SOURCE_FILES})
+ 
+-target_link_libraries(OgreCmgenToCubemap ${OGRE_LIBRARIES})
++target_link_libraries(OgreCmgenToCubemap ${OGRE_LIBRARIES} ${PICTURE_LIBS})
+ 
+ if (APPLE)
+     set_target_properties(OgreCmgenToCubemap PROPERTIES
+-- 
+2.25.1
+
