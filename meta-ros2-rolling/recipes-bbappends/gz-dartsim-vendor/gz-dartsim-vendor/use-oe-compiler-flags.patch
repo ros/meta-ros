@@ -1,0 +1,12 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -11,6 +11,7 @@ ament_vendor(${PROJECT_NAME}
+     -DDART_BUILD_GUI_OSG:BOOL=FALSE
+     -DDART_BUILD_DARTPY:BOOL=FALSE
+     -DDART_BUILD_EXTRAS:BOOL=FALSE
++    -DDART_VERBOSE:BOOL=TRUE
+   GLOBAL_HOOK
+   PATCHES patches
+ )

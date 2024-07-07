@@ -1,0 +1,18 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6b642f8..6145f19 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -4,7 +4,13 @@ project(gz_dartsim_vendor)
+ find_package(ament_cmake REQUIRED)
+ find_package(ament_cmake_vendor_package REQUIRED)
+
++include(FindPkgConfig)
++pkg_search_module(DART REQUIRED dart)
++
++message("DART_FOUND: ${DART_FOUND}")
++
+ ament_vendor(${PROJECT_NAME}
++  SATISFIED $(DART_FOUND)
+   VCS_URL https://github.com/dartsim/dart.git
+   VCS_VERSION v6.13.2
+   CMAKE_ARGS
