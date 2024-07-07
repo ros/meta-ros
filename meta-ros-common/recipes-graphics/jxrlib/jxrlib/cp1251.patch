@@ -1,0 +1,207 @@
+Description: Convert some national-encoding file to utf-8
+ W: libjxr-dev: national-encoding usr/include/jxrlib/wmsal.h
+ Steps:
+ % iconv -f CP1251 -t UTF-8 input.h -o input.h
+Author: Mathieu Malaterre <malat@debian.org>
+Forwarded: not-needed
+Last-Update: 2021-11-26
+
+Index: jxrlib/jxrgluelib/JXRMeta.h
+===================================================================
+--- jxrlib.orig/jxrgluelib/JXRMeta.h
++++ jxrlib/jxrgluelib/JXRMeta.h
+@@ -1,14 +1,14 @@
+ //*@@@+++@@@@******************************************************************
+ //
+-// Copyright © Microsoft Corp.
++// Copyright Â© Microsoft Corp.
+ // All rights reserved.
+ // 
+ // Redistribution and use in source and binary forms, with or without
+ // modification, are permitted provided that the following conditions are met:
+ // 
+-// • Redistributions of source code must retain the above copyright notice,
++// â€¢ Redistributions of source code must retain the above copyright notice,
+ //   this list of conditions and the following disclaimer.
+-// • Redistributions in binary form must reproduce the above copyright notice,
++// â€¢ Redistributions in binary form must reproduce the above copyright notice,
+ //   this list of conditions and the following disclaimer in the documentation
+ //   and/or other materials provided with the distribution.
+ // 
+Index: jxrlib/jxrtestlib/JXRTest.h
+===================================================================
+--- jxrlib.orig/jxrtestlib/JXRTest.h
++++ jxrlib/jxrtestlib/JXRTest.h
+@@ -1,14 +1,14 @@
+ //*@@@+++@@@@******************************************************************
+ //
+-// Copyright © Microsoft Corp.
++// Copyright Â© Microsoft Corp.
+ // All rights reserved.
+ // 
+ // Redistribution and use in source and binary forms, with or without
+ // modification, are permitted provided that the following conditions are met:
+ // 
+-// • Redistributions of source code must retain the above copyright notice,
++// â€¢ Redistributions of source code must retain the above copyright notice,
+ //   this list of conditions and the following disclaimer.
+-// • Redistributions in binary form must reproduce the above copyright notice,
++// â€¢ Redistributions in binary form must reproduce the above copyright notice,
+ //   this list of conditions and the following disclaimer in the documentation
+ //   and/or other materials provided with the distribution.
+ // 
+Index: jxrlib/common/include/guiddef.h
+===================================================================
+--- jxrlib.orig/common/include/guiddef.h
++++ jxrlib/common/include/guiddef.h
+@@ -1,14 +1,14 @@
+ //+---------------------------------------------------------------------------
+ //
+-// Copyright © Microsoft Corp.
++// Copyright Â© Microsoft Corp.
+ // All rights reserved.
+ // 
+ // Redistribution and use in source and binary forms, with or without
+ // modification, are permitted provided that the following conditions are met:
+ // 
+-// • Redistributions of source code must retain the above copyright notice,
++// â€¢ Redistributions of source code must retain the above copyright notice,
+ //   this list of conditions and the following disclaimer.
+-// • Redistributions in binary form must reproduce the above copyright notice,
++// â€¢ Redistributions in binary form must reproduce the above copyright notice,
+ //   this list of conditions and the following disclaimer in the documentation
+ //   and/or other materials provided with the distribution.
+ // 
+Index: jxrlib/common/include/wmspecstring.h
+===================================================================
+--- jxrlib.orig/common/include/wmspecstring.h
++++ jxrlib/common/include/wmspecstring.h
+@@ -1,14 +1,14 @@
+ //*@@@+++@@@@******************************************************************
+ //
+-// Copyright © Microsoft Corp.
++// Copyright Â© Microsoft Corp.
+ // All rights reserved.
+ // 
+ // Redistribution and use in source and binary forms, with or without
+ // modification, are permitted provided that the following conditions are met:
+ // 
+-// • Redistributions of source code must retain the above copyright notice,
++// â€¢ Redistributions of source code must retain the above copyright notice,
+ //   this list of conditions and the following disclaimer.
+-// • Redistributions in binary form must reproduce the above copyright notice,
++// â€¢ Redistributions in binary form must reproduce the above copyright notice,
+ //   this list of conditions and the following disclaimer in the documentation
+ //   and/or other materials provided with the distribution.
+ // 
+Index: jxrlib/image/sys/windowsmediaphoto.h
+===================================================================
+--- jxrlib.orig/image/sys/windowsmediaphoto.h
++++ jxrlib/image/sys/windowsmediaphoto.h
+@@ -1,14 +1,14 @@
+ //*@@@+++@@@@******************************************************************
+ //
+-// Copyright © Microsoft Corp.
++// Copyright Â© Microsoft Corp.
+ // All rights reserved.
+ // 
+ // Redistribution and use in source and binary forms, with or without
+ // modification, are permitted provided that the following conditions are met:
+ // 
+-// • Redistributions of source code must retain the above copyright notice,
++// â€¢ Redistributions of source code must retain the above copyright notice,
+ //   this list of conditions and the following disclaimer.
+-// • Redistributions in binary form must reproduce the above copyright notice,
++// â€¢ Redistributions in binary form must reproduce the above copyright notice,
+ //   this list of conditions and the following disclaimer in the documentation
+ //   and/or other materials provided with the distribution.
+ // 
+Index: jxrlib/common/include/wmspecstrings_adt.h
+===================================================================
+--- jxrlib.orig/common/include/wmspecstrings_adt.h
++++ jxrlib/common/include/wmspecstrings_adt.h
+@@ -1,14 +1,14 @@
+ //*@@@+++@@@@******************************************************************
+ //
+-// Copyright © Microsoft Corp.
++// Copyright Â© Microsoft Corp.
+ // All rights reserved.
+ // 
+ // Redistribution and use in source and binary forms, with or without
+ // modification, are permitted provided that the following conditions are met:
+ // 
+-// • Redistributions of source code must retain the above copyright notice,
++// â€¢ Redistributions of source code must retain the above copyright notice,
+ //   this list of conditions and the following disclaimer.
+-// • Redistributions in binary form must reproduce the above copyright notice,
++// â€¢ Redistributions in binary form must reproduce the above copyright notice,
+ //   this list of conditions and the following disclaimer in the documentation
+ //   and/or other materials provided with the distribution.
+ // 
+Index: jxrlib/common/include/wmspecstrings_strict.h
+===================================================================
+--- jxrlib.orig/common/include/wmspecstrings_strict.h
++++ jxrlib/common/include/wmspecstrings_strict.h
+@@ -1,14 +1,14 @@
+ //*@@@+++@@@@******************************************************************
+ //
+-// Copyright © Microsoft Corp.
++// Copyright Â© Microsoft Corp.
+ // All rights reserved.
+ // 
+ // Redistribution and use in source and binary forms, with or without
+ // modification, are permitted provided that the following conditions are met:
+ // 
+-// • Redistributions of source code must retain the above copyright notice,
++// â€¢ Redistributions of source code must retain the above copyright notice,
+ //   this list of conditions and the following disclaimer.
+-// • Redistributions in binary form must reproduce the above copyright notice,
++// â€¢ Redistributions in binary form must reproduce the above copyright notice,
+ //   this list of conditions and the following disclaimer in the documentation
+ //   and/or other materials provided with the distribution.
+ // 
+Index: jxrlib/common/include/wmspecstrings_undef.h
+===================================================================
+--- jxrlib.orig/common/include/wmspecstrings_undef.h
++++ jxrlib/common/include/wmspecstrings_undef.h
+@@ -1,14 +1,14 @@
+ //*@@@+++@@@@******************************************************************
+ //
+-// Copyright © Microsoft Corp.
++// Copyright Â© Microsoft Corp.
+ // All rights reserved.
+ // 
+ // Redistribution and use in source and binary forms, with or without
+ // modification, are permitted provided that the following conditions are met:
+ // 
+-// • Redistributions of source code must retain the above copyright notice,
++// â€¢ Redistributions of source code must retain the above copyright notice,
+ //   this list of conditions and the following disclaimer.
+-// • Redistributions in binary form must reproduce the above copyright notice,
++// â€¢ Redistributions in binary form must reproduce the above copyright notice,
+ //   this list of conditions and the following disclaimer in the documentation
+ //   and/or other materials provided with the distribution.
+ // 
+Index: jxrlib/common/include/wmsal.h
+===================================================================
+--- jxrlib.orig/common/include/wmsal.h
++++ jxrlib/common/include/wmsal.h
+@@ -1,15 +1,15 @@
+ /***
+ *sal.h - markers for documenting the semantics of APIs
+ *
+-* Copyright © Microsoft Corp.
++* Copyright Â© Microsoft Corp.
+ * All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ * 
+-* • Redistributions of source code must retain the above copyright notice,
++* â€¢ Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+-* • Redistributions in binary form must reproduce the above copyright notice,
++* â€¢ Redistributions in binary form must reproduce the above copyright notice,
+ *   this list of conditions and the following disclaimer in the documentation
+ *   and/or other materials provided with the distribution.
+ * 
