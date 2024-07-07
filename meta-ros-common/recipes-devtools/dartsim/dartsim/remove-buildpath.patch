@@ -1,0 +1,32 @@
+Remove reference to build path
+
+The dart config.hpp file is generated using CMAKE_CURRENT_SOURCE_DIR as
+the value for DART_SOURCE_DIR.
+
+This results in host contamination with the build path being in the target:
+
+    WARNING: dartsim-6.13.2-r0 do_package_qa: QA Issue: File /usr/lib/libdart-utils.so.6.14.0 in package dartsim contains reference to TMPDIR [buildpaths]
+
+Replacing it with the installation path ensure that it reflects where the
+header file is located on the target.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/dart/config.hpp.in b/dart/config.hpp.in
+index 7ee2997fd7a8..15dc0d872af9 100644
+--- a/dart/config.hpp.in
++++ b/dart/config.hpp.in
+@@ -81,9 +81,9 @@
+
+ // Deprecated in DART 6.2 and will be removed in DART 7.
+-#define DART_ROOT_PATH "@DART_SOURCE_DIR@/"
++#define DART_ROOT_PATH "@DART_ADDITIONAL_DOCUMENTATION_INSTALL_PATH@/"
+-#define DART_DATA_PATH "@DART_SOURCE_DIR@/data/"
++#define DART_DATA_PATH "@DART_ADDITIONAL_DOCUMENTATION_INSTALL_PATH@/data/"
+
+-#define DART_DATA_LOCAL_PATH "@DART_SOURCE_DIR@/data/"
++#define DART_DATA_LOCAL_PATH "@DART_ADDITIONAL_DOCUMENTATION_INSTALL_PATH@/data/"
+ #define DART_DATA_GLOBAL_PATH                                                  \
+   "@CMAKE_INSTALL_PREFIX@/@DART_ADDITIONAL_DOCUMENTATION_INSTALL_PATH@/data/"

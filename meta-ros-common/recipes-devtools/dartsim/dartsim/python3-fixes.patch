@@ -1,0 +1,42 @@
+Replace outdated distuils.log with logging
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/python/dartpy/CMakeLists.txt b/python/dartpy/CMakeLists.txt
+index b316e8671479..6e9e92089cdb 100644
+--- a/python/dartpy/CMakeLists.txt
++++ b/python/dartpy/CMakeLists.txt
+@@ -7,8 +7,7 @@
+ # This file is provided under the "BSD-style" License
+
+ execute_process(COMMAND ${Python3_EXECUTABLE} -c
+-  "from distutils.sysconfig import get_python_lib;\
+-  print(get_python_lib(plat_specific=True))"
++  "import sysconfig; print(sysconfig.get_path('platlib'))"
+   OUTPUT_VARIABLE PYTHON_SITE_PACKAGES
+   OUTPUT_STRIP_TRAILING_WHITESPACE
+ )
+diff --git a/setup.py b/setup.py
+index e24332b0bd9c..ed5a6388514d 100644
+--- a/setup.py
++++ b/setup.py
+@@ -4,7 +4,7 @@
+ # References:
+ # - https://pybind11.readthedocs.io/en/stable/compiling.html
+
+-import distutils.log
++import logging
+ import os
+ import re
+ import subprocess
+@@ -32,7 +32,7 @@ with open(os.path.join(dart_root, "README.md"), encoding="utf-8") as f:
+     long_description = f.read()
+ description = "Python API of Dynamic Animation and Robotics Toolkit."
+
+-distutils.log.set_verbosity(distutils.log.DEBUG)  # Set DEBUG level
++logging.basicConfig(level=logging.DEBUG) # Set DEBUG level
+
+
+ # A CMakeExtension needs a sourcedir instead of a file list.
