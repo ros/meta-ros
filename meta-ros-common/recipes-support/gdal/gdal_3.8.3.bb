@@ -92,3 +92,5 @@ do_install:append() {
     sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_edit.py
     sed -i -e '1s|^#!.*|#!${bindir}/env python3|' ${D}${bindir}/gdal_retile.py
 }
+
+BBCLASSEXTEND = "native nativesdk"
