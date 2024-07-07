@@ -40,3 +40,6 @@ DEPENDS += "\
 # [dev-so]
 inherit ros_insane_dev_so
 inherit pkgconfig
+
+# collision_common.cpp:578:40: error: ISO C++ forbids declaration of 'type name' with no type [-fpermissive]
+# CXXFLAGS:append = " -fpermissive"
