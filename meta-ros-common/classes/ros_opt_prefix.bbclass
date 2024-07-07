@@ -83,6 +83,8 @@ do_install:prepend:class-nativesdk() {
 
 FILES_SOLIBSDEV += " ${ros_libdir}/lib*${SOLIBSDEV}"
 
+FILES_SOLIBSDEV += " ${ros_libdir}/lib*${SOLIBSDEV}"
+
 FILES:${PN} += "\
     ${ros_bindir} ${ros_libexecdir} ${ros_libdir}/lib*.so \
     ${PYTHON_SITEPACKAGES_DIR} \
