@@ -102,8 +102,6 @@ ROS_WORLD_SKIP_GROUPS += "opensplice"
 ROS_WORLD_SKIP_GROUPS += "gurumdds"
 # recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
 ROS_WORLD_SKIP_GROUPS += "turtlebot3"
-# recipes depending on coinor-libipopt
-ROS_WORLD_SKIP_GROUPS += "coinor-libipopt"
 # Needs work to launch qemu to run tests on image on build machine.
 ROS_WORLD_SKIP_GROUPS += "launch"
 # recipes depending on ROS_UNRESOLVED_DEP-python3-babeltrace which cannot be just
@@ -118,8 +116,6 @@ ROS_WORLD_SKIP_GROUPS += "libspnav"
 ROS_WORLD_SKIP_GROUPS += "libopen3d"
 # recipes depends on aws
 ROS_WORLD_SKIP_GROUPS += "aws"
-# recipes depends on mrpt2
-ROS_WORLD_SKIP_GROUPS += "mrpt2"
 
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
@@ -144,9 +140,6 @@ ROS_WORLD_SKIP_GROUPS += "gazebo"
 
 # recipes depending on libqglviewer (https://packages.debian.org/source/stretch/libqglviewer https://packages.debian.org/stretch/libqglviewer2-qt5)
 ROS_WORLD_SKIP_GROUPS += "libqglviewer"
-
-# recipes depending on ignition-* (ROS_UNRESOLVED_DEP-ignition-gazebo5, ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-msgs7, ROS_UNRESOLVED_DEP-ignition-transport10, ROS_UNRESOLVED_DEP-ignition-rendering5, ROS_UNRESOLVED_DEP-ignition-common4, ROS_UNRESOLVED_DEP-ignition-gui5)
-ROS_WORLD_SKIP_GROUPS += "ignition"
 
 # recipes depending on legacy mongo-cxx-driver (https://packages.debian.org/source/stretch/mongo-cxx-driver-legacy)
 # the mongodb recipe in meta-oe installs just the binaries mongoc, mongos, install_compass
