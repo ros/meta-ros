@@ -1,0 +1,41 @@
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From d83b49b1395721faea5215c3da63337db2f02653 Mon Sep 17 00:00:00 2001
+From: Jose Luis Blanco-Claraco <joseluisblancoc@gmail.com>
+Date: Fri, 21 Jun 2024 13:01:25 +0200
+Subject: [PATCH] move dtor to its proper translation unit
+
+---
+ libs/gui/include/mrpt/3rdparty/mathplot/mathplot.h | 2 +-
+ libs/gui/src/mathplots/mathplot.cpp                | 3 +++
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/libs/gui/include/mrpt/3rdparty/mathplot/mathplot.h b/libs/gui/include/mrpt/3rdparty/mathplot/mathplot.h
+index 83fe45936c..32b4acfdaa 100644
+--- a/libs/gui/include/mrpt/3rdparty/mathplot/mathplot.h
++++ b/libs/gui/include/mrpt/3rdparty/mathplot/mathplot.h
+@@ -1684,7 +1684,7 @@ class WXDLLIMPEXP_MATHPLOT mpMovableObject : public mpLayer
+ 	 */
+ 	mpMovableObject() : m_shape_xs(0), m_shape_ys(0) { m_type = mpLAYER_PLOT; }
+ 
+-	~mpMovableObject() override = default;
++	~mpMovableObject() override;
+ 
+ 	/** Get the current coordinate transformation.
+ 	 */
+diff --git a/libs/gui/src/mathplots/mathplot.cpp b/libs/gui/src/mathplots/mathplot.cpp
+index 9ec0dc26d3..a03eb7c95d 100644
+--- a/libs/gui/src/mathplots/mathplot.cpp
++++ b/libs/gui/src/mathplots/mathplot.cpp
+@@ -2646,6 +2646,9 @@ bool mpPrintout::HasPage(int page) { return (page == 1); }
+ //-----------------------------------------------------------------------------
+ // mpMovableObject - provided by Jose Luis Blanco
+ //-----------------------------------------------------------------------------
++
++mpMovableObject::~mpMovableObject() = default;
++
+ void mpMovableObject::TranslatePoint(double x, double y, double& out_x, double& out_y)
+ {
+   double ccos = cos(m_reference_phi);  // Avoid computing cos/sin twice.
