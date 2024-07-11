@@ -1,6 +1,6 @@
-From 1e0b46a476c1c950e22403a2d8950f5c97a1a0fe Mon Sep 17 00:00:00 2001
-From: Martin Jansa <martin.jansa@lge.com>
-Date: Fri, 5 Jun 2020 11:35:25 -0700
+From ec37b8a45ee6302b44654e3b46219b7eba0f6383 Mon Sep 17 00:00:00 2001
+From: Mikhail Rudenko <mike.rudenko@gmail.com>
+Date: Thu, 11 Jul 2024 01:25:22 +0300
 Subject: [PATCH] CMakeLists.txt: prevent building zstd with ExternalProject
 
 * use pkg-config, because zstd doesn't provide cmake find
@@ -13,26 +13,27 @@ Rebase patch on humble release.
 
 Signed-off-by: Sandeep Gundlupet Raju <sandeep.gundlupet-raju@amd.com>
 ---
- CMakeLists.txt                      | 54 +++--------------------------
+ CMakeLists.txt                      | 55 +++--------------------------
  cmake_minimum_required_2.8.12.patch | 26 --------------
- no_internal_headers.patch           | 27 ---------------
- 3 files changed, 4 insertions(+), 103 deletions(-)
+ no_internal_headers.patch           | 27 --------------
+ 3 files changed, 4 insertions(+), 104 deletions(-)
  delete mode 100644 cmake_minimum_required_2.8.12.patch
  delete mode 100644 no_internal_headers.patch
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e3d4a22a0..fb0adec42 100644
+index da202fbef..b2143987a 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -9,58 +9,12 @@ option(FORCE_BUILD_VENDOR_PKG
+@@ -11,59 +11,12 @@ option(FORCE_BUILD_VENDOR_PKG
    OFF)
- 
+
  if(NOT FORCE_BUILD_VENDOR_PKG)
--  find_package(zstd QUIET)
+-  # We need at least VERSION 1.4.4, version check is done in Findzstd.cmake
+-  find_package(zstd 1.4.4 QUIET)
 +  find_package(PkgConfig REQUIRED)
 +  pkg_check_modules(ZSTD REQUIRED libzstd>=1.4.4)
  endif()
- 
+
 -macro(build_zstd)
 -  set(extra_cmake_args)
 -
@@ -80,7 +81,7 @@ index e3d4a22a0..fb0adec42 100644
 -    USE_SOURCE_PERMISSIONS)
 -endmacro()
 -
--if (NOT zstd_FOUND OR "${zstd_VERSION}" VERSION_LESS 1.4.4)
+-if (NOT zstd_FOUND)
 -  build_zstd()
 +if (NOT ZSTD_FOUND OR "${ZSTD_VERSION}" VERSION_LESS 1.4.4)
 +  message(STATUS "Zstd not found, missing dependency or version less than 1.4.4, found ${ZSTD_VERSION}")
