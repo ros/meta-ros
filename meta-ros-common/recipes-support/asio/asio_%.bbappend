@@ -1,3 +1,3 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
