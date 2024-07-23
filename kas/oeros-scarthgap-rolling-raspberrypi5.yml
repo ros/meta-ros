@@ -1,0 +1,7 @@
+header:
+  version: 14
+  includes:
+    - yocto/scarthgap.yml
+    - ros2/rolling.yml
+    - machine/raspberrypi5.yml
+    - common.yml
