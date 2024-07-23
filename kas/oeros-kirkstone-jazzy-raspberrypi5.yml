@@ -1,0 +1,7 @@
+header:
+  version: 14
+  includes:
+    - yocto/kirkstone.yml
+    - ros2/jazzy.yml
+    - machine/raspberrypi5.yml
+    - common.yml
