@@ -1,0 +1,11 @@
+header:
+  version: 14
+  includes:
+    - yocto/master.yml
+    - ros2/humble.yml
+    - machine/raspberrypi5.yml
+    - common.yml
+
+repos:
+  raspberrypi:
+    branch: "master"
