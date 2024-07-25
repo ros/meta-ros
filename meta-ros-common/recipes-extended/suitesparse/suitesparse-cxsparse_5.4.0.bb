@@ -2,7 +2,7 @@
 
 require suitesparse-5.4.0.inc
 
-LICENSE = "LGPL-2.1+"
+LICENSE = "LGPL-2.1-or-later"
 LIC_FILES_CHKSUM += "file://Doc/License.txt;md5=0e5191611fba4aac850756c5d598ff23"
 
 DEPENDS = "suitesparse-config"
