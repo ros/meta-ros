@@ -1,5 +1,7 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 # "rosrun" uses array variables, so we can't use the BASH provided by "busybox" but must use a "real" one. NB. "busybox" is only
 # present on the target.
 do_install:append:class-target() {
