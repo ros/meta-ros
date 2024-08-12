@@ -22,3 +22,6 @@ EXTRA_OECMAKE += " -DSM_RUN_RESULT=0 -DSM_RUN_RESULT__TRYRUN_OUTPUT=PTHREAD_RWLO
 sysroot_stage_all:append() {
     sysroot_stage_dir ${D}${bindir} ${SYSROOT_DESTDIR}${bindir}
 }
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+SRC_URI += "file://0001-FindTinyXML2.cmake-fix-find_library-libtinyxml2.patch"
