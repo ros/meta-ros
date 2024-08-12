@@ -1,0 +1,22 @@
+Use TinyXML2 from the target sysroot directory.
+
+Upstream-Status: Pending
+
+Signed-off-by: Romain Gimenez <romain.gimenez@protonmail.ch>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+diff --git a/cmake/modules/FindTinyXML2.cmake b/cmake/modules/FindTinyXML2.cmake
+index 44b8e645..ba964578 100644
+--- a/cmake/modules/FindTinyXML2.cmake
++++ b/cmake/modules/FindTinyXML2.cmake
+@@ -39,7 +39,10 @@ else()
+     if(TINYXML2_FROM_SOURCE)
+         find_path(TINYXML2_SOURCE_DIR NAMES tinyxml2.cpp NO_CMAKE_FIND_ROOT_PATH)
+     else()
+-        find_library(TINYXML2_LIBRARY tinyxml2)
++        find_library(TINYXML2_LIBRARIES tinyxml2)
++        add_library(tinyxml2 SHARED IMPORTED)
++        set_property(TARGET tinyxml2 APPEND PROPERTY IMPORTED_LOCATION "${TINYXML2_LIBRARIES}")
++        set(TINYXML2_LIBRARY tinyxml2)
+     endif()
+
+     include(FindPackageHandleStandardArgs)
