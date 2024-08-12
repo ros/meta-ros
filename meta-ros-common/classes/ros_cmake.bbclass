@@ -3,7 +3,7 @@
 
 inherit cmake
 
-EXTRA_OECMAKE:prepend = "\
+EXTRA_OECMAKE:prepend:class-target = "\
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}${ros_prefix};${STAGING_DIR_HOST}${prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
     -DCMAKE_MODULE_PATH='${STAGING_DIR_HOST}${ros_datadir}/cmake/Modules/' \
@@ -11,5 +11,10 @@ EXTRA_OECMAKE:prepend = "\
 
 EXTRA_OECMAKE:prepend:class-native = "\
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_NATIVE}${ros_prefix};${STAGING_DIR_NATIVE}${prefix}' \
+    -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
+"
+
+EXTRA_OECMAKE:prepend:class-nativesdk = "\
+    -DCMAKE_PREFIX_PATH='${STAGING_DIR_NATIVE}/opt/ros/${ROS_DISTRO};${STAGING_DIR_NATIVE}${ros_prefix};${STAGING_DIR_NATIVE}${prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
 "
