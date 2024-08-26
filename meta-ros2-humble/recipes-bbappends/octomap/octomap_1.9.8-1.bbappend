@@ -34,6 +34,3 @@ inherit ros_insane_dev_so
 # octomap: /usr/bin/edit_octree contains probably-redundant RPATH /usr/lib
 # octomap: /usr/bin/eval_octree_accuracy contains probably-redundant RPATH /usr/lib [useless-rpaths]
 DEPENDS:append:class-target = " chrpath-replacement-native"
-do_install:append() {
-    chrpath --delete ${D}${bindir}/* ${D}${libdir}/*${SOLIBS}
-}
