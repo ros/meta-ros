@@ -1,0 +1,24 @@
+From 107260818dc02e51a0e47ea1a2007d7531fb55b1 Mon Sep 17 00:00:00 2001
+From: Jiaxing Shi <quic_jiaxshi@quicinc.com>
+Date: Wed, 15 May 2024 14:45:56 +0800
+Subject: [PATCH] Set cross-compile prefix to CMAKE_INSTALL_PREFIX
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 99c9e2d..f56a56c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,7 +14,7 @@ else()
+   set(PYTHON_INSTALL_DIR "lib/python${PYTHON_MAJOR_MINOR}/site-packages")
+   set(SHELL_EXT "sh")
+ endif()
+-set(AMENT_PACKAGE_DIR "${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_DIR}/ament_package")
++set(AMENT_PACKAGE_DIR "$ENV{STAGING_DIR_NATIVE}/${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_DIR}/ament_package")
+ if(NOT EXISTS "${AMENT_PACKAGE_DIR}")
+   # Check for an .egg-link file and use the listed directory if it exists
+   get_filename_component(AMENT_PACKAGE_EGG_LINK "${AMENT_PACKAGE_DIR}" DIRECTORY)
+--
+2.17.1

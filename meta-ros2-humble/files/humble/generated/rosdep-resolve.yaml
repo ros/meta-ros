@@ -7,6 +7,10 @@ assimp:
 - assimp@openembedded-core
 assimp-dev:
 - assimp@openembedded-core
+autoconf:
+- autoconf@openembedded-core
+automake:
+- automake@openembedded-core
 benchmark:
 - google-benchmark@meta-ros2
 binutils:
@@ -50,8 +54,6 @@ cwiid:
 cwiid-dev:
 - ${ROS_UNRESOLVED_DEP-cwiid-dev}
 dkms: []
-docker.io:
-- ${ROS_UNRESOLVED_DEP-docker.io}
 doxygen:
 - doxygen@meta-oe
 dpkg:
@@ -140,6 +142,8 @@ libatomic:
 - gcc-runtime@openembedded-core
 libavdevice-dev:
 - ${ROS_UNRESOLVED_DEP-libavdevice-dev}
+libblosc-dev:
+- ${ROS_UNRESOLVED_DEP-libblosc-dev}
 libbluetooth:
 - ${ROS_UNRESOLVED_DEP-libbluetooth}
 libbluetooth-dev:
@@ -206,18 +210,24 @@ libgazebo11-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
 libgdal-dev:
 - ${ROS_UNRESOLVED_DEP-libgdal-dev}
+libgeos++-dev:
+- geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
 libglew-dev:
 - glew@openembedded-core
 libglfw3-dev:
 - glfw@meta-intel-realsense
+libgmock-dev:
+- gtest@meta-oe
 libgoogle-glog-dev:
 - glog@meta-oe
 libgpiod-dev:
 - ${ROS_UNRESOLVED_DEP-libgpiod-dev}
 libgps:
 - gpsd@meta-oe
+libgrpc:
+- grpc@meta-networking
 libgstreamer-plugins-base1.0-dev:
 - gstreamer1.0-plugins-base@openembedded-core
 libgstreamer1.0-dev:
@@ -248,6 +258,8 @@ libopencv-dev:
 - opencv@meta-oe
 libopencv-imgproc-dev:
 - opencv@meta-oe
+libopenexr-dev:
+- ${ROS_UNRESOLVED_DEP-libopenexr-dev}
 libopenni2-dev:
 - ${ROS_UNRESOLVED_DEP-libopenni2-dev}
 libopenscenegraph:
@@ -265,6 +277,8 @@ libpcap:
 libpcl-all:
 - pcl@meta-ros-common
 libpcl-all-dev:
+- pcl@meta-ros-common
+libpcl-common:
 - pcl@meta-ros-common
 libpng-dev:
 - libpng@openembedded-core
@@ -314,6 +328,8 @@ libtheora:
 - libtheora@openembedded-core
 libtins-dev:
 - ${ROS_UNRESOLVED_DEP-libtins-dev}
+libtool:
+- libtool@openembedded-core
 libturbojpeg:
 - libjpeg-turbo@openembedded-core
 libudev-dev:
@@ -324,9 +340,13 @@ liburdfdom-headers-dev:
 - urdfdom-headers@meta-ros1
 liburdfdom-tools:
 - urdfdom@meta-ros1
+libusb:
+- ${ROS_UNRESOLVED_DEP-libusb}
 libusb-1.0:
 - libusb1@openembedded-core
 libusb-1.0-dev:
+- libusb1@openembedded-core
+libusb-dev:
 - libusb1@openembedded-core
 libv4l-dev:
 - v4l-utils@meta-oe
@@ -334,6 +354,8 @@ libvulkan-dev:
 - vulkan-headers@openembedded-core
 libwebsocketpp-dev:
 - websocketpp@meta-oe
+libx11:
+- libx11@openembedded-core
 libx11-dev:
 - libx11@openembedded-core
 libxaw:
@@ -384,6 +406,8 @@ proj:
 - proj@meta-oe
 protobuf:
 - protobuf@meta-oe
+protobuf-compiler-grpc:
+- ${ROS_UNRESOLVED_DEP-protobuf-compiler-grpc}
 protobuf-dev:
 - protobuf@meta-oe
 pugixml-dev:
@@ -442,6 +466,8 @@ python3-git:
 - python3-git@openembedded-core
 python3-graphviz:
 - ${ROS_UNRESOLVED_DEP-python3-graphviz}
+python3-h5py:
+- python3-h5py@meta-python
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
@@ -607,6 +633,8 @@ subversion:
 suitesparse:
 - suitesparse-cholmod@meta-ros-common
 - suitesparse-cxsparse@meta-ros-common
+swig:
+- swig@openembedded-core
 tango-icon-theme:
 - adwaita-icon-theme@openembedded-core
 tbb:

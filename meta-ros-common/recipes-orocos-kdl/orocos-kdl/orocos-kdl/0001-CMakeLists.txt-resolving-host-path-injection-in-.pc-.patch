@@ -1,0 +1,31 @@
+From e8fec8686cb25be9f037cb6073da0a6c722f995b Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+Date: Thu, 11 Apr 2024 12:54:00 +0200
+Subject: [PATCH] CMakeLists.txt: resolving host path injection in .pc file
+
+Removing the addition of eigen include path into the pc file, which
+will cause a TMPDIR leakage.
+
+Upstream-Status: inappropriate [embedded specific]
+
+Signed-off-by: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b070d10..f8fc347 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -54,7 +54,7 @@ if(NOT EIGEN3_FOUND)
+   include(${PROJ_SOURCE_DIR}/cmake/FindEigen3.cmake)
+ endif()
+ include_directories(${EIGEN3_INCLUDE_DIR})
+-SET(KDL_CFLAGS "${KDL_CFLAGS} -I\"${EIGEN3_INCLUDE_DIR}\"")
++SET(KDL_CFLAGS "${KDL_CFLAGS}")
+ 
+ # Check the platform STL containers capabilities
+ include(cmake/CheckSTLContainers.cmake)
+-- 
+2.43.2
+
