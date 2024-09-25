@@ -12,6 +12,7 @@ on:
           - noetic
           - humble
           - iron
+          - jazzy
           - rolling
       dry_run:
         description: 'Run the workflow but do not push'
