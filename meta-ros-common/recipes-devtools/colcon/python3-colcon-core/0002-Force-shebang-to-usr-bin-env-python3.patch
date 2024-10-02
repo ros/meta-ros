@@ -1,0 +1,22 @@
+python3-colcon-core: Fix python interpreter
+
+This ensures that the colcon-core Python module sets the correct
+Python executable when building scripts with setuptools.
+
+Upstream-Status: Pending
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+
+Index: colcon-core-0.18.3/colcon_core/task/python/build.py
+===================================================================
+--- colcon-core-0.18.3.orig/colcon_core/task/python/build.py
++++ colcon-core-0.18.3/colcon_core/task/python/build.py
+@@ -113,7 +113,7 @@ class PythonBuildTask(TaskExtensionPoint
+                         os.path.realpath(args.path))]
+             cmd += [
+                 'build', '--build-base', os.path.join(
+-                    args.build_base, 'build'),
++                    args.build_base, 'build'), '--executable', '/usr/bin/env python3',
+                 'install',
+                 '--record', os.path.join(args.build_base, 'install.log')]
+             # Extract and explicitly pass install-scripts to setuptools.
