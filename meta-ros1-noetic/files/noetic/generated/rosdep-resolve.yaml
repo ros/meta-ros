@@ -319,6 +319,8 @@ libnlopt-dev:
 - ${ROS_UNRESOLVED_DEP-libnlopt-dev}
 libnlopt0:
 - ${ROS_UNRESOLVED_DEP-libnlopt0}
+liboctomap-dev:
+- ${ROS_UNRESOLVED_DEP-liboctomap-dev}
 libogg:
 - libogg@openembedded-core
 libogre:
