@@ -1,8 +1,11 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
+# Copyright (c) 2023 Wind River Systems, Inc.
 
 inherit ros_insane_dev_so
 
 FILES:${PN} += "${prefix}/tools"
+# ERROR: fastrtps-2.10.2-1-r0 do_package: QA Issue: fastrtps: Files/directories were installed but not shipped in any package:
+FILES:${PN} += "${datadir}/fastRTPS_profiles.xsd ${datadir}/fastdds_static_discovery.xsd"
 
 # CMake Error: TRY_RUN() invoked in cross-compiling mode, please set the
 # following cache variables appropriately:
@@ -19,3 +22,6 @@ EXTRA_OECMAKE += " -DSM_RUN_RESULT=0 -DSM_RUN_RESULT__TRYRUN_OUTPUT=PTHREAD_RWLO
 sysroot_stage_all:append() {
     sysroot_stage_dir ${D}${bindir} ${SYSROOT_DESTDIR}${bindir}
 }
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+SRC_URI += "file://0001-FindTinyXML2.cmake-fix-find_library-libtinyxml2.patch"
