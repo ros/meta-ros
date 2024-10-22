@@ -50,11 +50,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pr2-gbp/pr2_common-release/archive/release/noetic/pr2_msgs/1.13.1-1.tar.gz
-ROS_BRANCH ?= "branch=release/noetic/pr2_msgs"
-SRC_URI = "git://github.com/pr2-gbp/pr2_common-release;${ROS_BRANCH};protocol=https"
-SRCREV = "658971e633ad49f39dae59eec7e01b295c3db615"
-S = "${WORKDIR}/git"
+ROS_BRANCH ?= "branch=melodic-devel"
+SRC_URI = "git://github.com/pr2/pr2_common;${ROS_BRANCH};protocol=https;name=pr2_msgs;subpath=pr2_msgs"
+SRCREV = "c8b534898026f55b1a8c29c0a93c813c41a78597"
+S = "${WORKDIR}/pr2_msgs"
 
 ROS_BUILD_TYPE = "catkin"
 
