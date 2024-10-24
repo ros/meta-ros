@@ -9,7 +9,7 @@ DESCRIPTION = "Basic state estimator for AeroStack2"
 AUTHOR = "CVAR-UPM <cvar.upm3@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BDS-3-Clause"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=bf4ae491377eb66f24ed1346d5c8de3b"
 
 ROS_CN = "aerostack2"

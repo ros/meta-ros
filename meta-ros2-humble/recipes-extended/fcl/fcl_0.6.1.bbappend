@@ -6,3 +6,7 @@
 # meta-ros-common/recipes-extended/fcl/fcl_0.6.1.bb
 # but moveit-core from foxy, needs octomap support to be enabled
 DEPENDS += "octomap"
+
+inherit ros_opt_prefix
+inherit ros_cmake
+inherit ros_insane_dev_so

@@ -19,7 +19,6 @@ from setuptools import setup
 setup(
        name="${PYPI_PACKAGE}",
        version="${PV}",
-       license="${LICENSE}",
 )
 EOF
 }

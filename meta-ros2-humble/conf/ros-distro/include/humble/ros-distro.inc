@@ -340,7 +340,7 @@ ROS_UNRESOLVED_DEP-black = "python3-black"
 ROS_UNRESOLVED_DEP-black-native = "python3-black-native"
 
 ROS_UNRESOLVED_DEP-libdraco-dev = "draco"
-ROS_UNRESOLVED_DEP-sdformat12 = "sdformat"
+ROS_UNRESOLVED_DEP-sdformat12 = "sdformat12"
 
 ROS_UNRESOLVED_DEP-hdf5-tools-native = "hdf5-native"
 ROS_UNRESOLVED_DEP-libopenscenegraph = "openscenegraph"
