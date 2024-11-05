@@ -1,0 +1,20 @@
+Remove the comments about newlines in description
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+
+diff --git a/src/catkin_pkg/package.py b/src/catkin_pkg/package.py
+index da2b1b8..e2c8f2d 100644
+--- a/src/catkin_pkg/package.py
++++ b/src/catkin_pkg/package.py
+@@ -253,9 +253,6 @@ class Package(object):
+ 
+         if not self.description:
+             errors.append('Package description must not be empty')
+-        else:
+-            if '\n' in self.description:
+-                new_warnings.append('Package "%s" has newlines in the description')
+ 
+         if not self.maintainers:
+             errors.append("Package '{0}' must declare at least one maintainer".format(self.name))
