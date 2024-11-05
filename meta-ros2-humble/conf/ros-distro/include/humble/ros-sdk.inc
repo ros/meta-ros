@@ -18,7 +18,10 @@ TOOLCHAIN_HOST_TASK:append = " \
 "
 
 TOOLCHAIN_TARGET_TASK:append = " \
+    ament-cmake-python \
+    ament-cmake-ros \
     ament-package \
+    ament-lint \
     ament-cmake \
     ament-cmake-auto \
     ament-cmake-core \
@@ -29,32 +32,30 @@ TOOLCHAIN_TARGET_TASK:append = " \
     ament-cmake-export-libraries \
     ament-cmake-export-link-flags \
     ament-cmake-export-targets \
+    ament-cmake-gen-version-h \
     ament-cmake-gmock \
     ament-cmake-gtest \
     ament-cmake-include-directories \
     ament-cmake-libraries \
     ament-cmake-pytest \
     ament-cmake-python \
-    ament-cmake-ros \
     ament-cmake-target-dependencies \
     ament-cmake-test \
+    ament-cmake-vendor-package \
     ament-cmake-version \
-    ament-cmake-gen-version-h \
-    ament-lint-auto \
     foonathan-memory-staticdev \
     \
-    nav-msgs \
-    sensor-msgs \
     rclcpp \
     rclcpp-lifecycle \
     rclcpp-action \
     rclcpp-components \
     builtin-interfaces \
+    common-interfaces \
     fastrtps-cmake-module \
     rosidl-default-generators \
     rosidl-generator-c \
     rosidl-generator-cpp \
     rosidl-cmake \
-    \
     ros-workspace \
+    pluginlib \
 "
