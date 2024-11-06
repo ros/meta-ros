@@ -17,9 +17,9 @@ ROS_CN = "velodyne_simulator"
 ROS_BPN = "velodyne_gazebo_plugins"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-gazebo-msgs} \
     ${ROS_UNRESOLVED_DEP-gazebo-rosdev} \
     ${ROS_UNRESOLVED_DEP-gazebo-ros} \
+    gazebo-msgs \
     rclcpp \
     sensor-msgs \
 "
@@ -29,9 +29,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-gazebo-msgs} \
     ${ROS_UNRESOLVED_DEP-gazebo-rosdev} \
     ${ROS_UNRESOLVED_DEP-gazebo-ros} \
+    gazebo-msgs \
     rclcpp \
     sensor-msgs \
 "
@@ -39,9 +39,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-gazebo-msgs} \
     ${ROS_UNRESOLVED_DEP-gazebo-rosdev} \
     ${ROS_UNRESOLVED_DEP-gazebo-ros} \
+    gazebo-msgs \
     rclcpp \
     sensor-msgs \
 "
