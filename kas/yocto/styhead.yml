@@ -1,0 +1,39 @@
+header:
+  version: 14
+
+defaults:
+  repos:
+    branch: "styhead"
+
+# https://downloads.yoctoproject.org/releases/yocto/yocto-5.1/RELEASENOTES
+repos:
+  openembedded-core:
+    url: "https://github.com/openembedded/openembedded-core.git"
+    commit: "161c5b311f1aeb8f254dca96331b31d5b67fc92d"
+    path: "layers/openembedded-core"
+    layers:
+      meta:
+
+  bitbake:
+    url: "https://github.com/openembedded/bitbake.git"
+    branch: "2.10"
+    commit: "d3c84198771b7f79aa84dc73061d8ca071fe18f3"
+    path: "layers/bitbake"
+    layers:
+      bitbake: "excluded"
+
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded.git"
+    commit: "461d85a1831318747af5abe86da193bcde3fd9b4"
+    path: "layers/meta-openembedded"
+    layers:
+      meta-filesystems:
+      meta-gnome:
+      meta-initramfs:
+      meta-multimedia:
+      meta-networking:
+      meta-oe:
+      meta-perl:
+      meta-python:
+      meta-webserver:
+      meta-xfce:
