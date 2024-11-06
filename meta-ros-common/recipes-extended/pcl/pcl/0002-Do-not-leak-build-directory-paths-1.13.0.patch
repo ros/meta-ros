@@ -25,7 +25,7 @@ index b6322c623..b7e290c23 100644
      set(BOOST_ROOT "${PCL_ROOT}/3rdParty/Boost")
    elseif(NOT BOOST_INCLUDEDIR)
 -    set(BOOST_INCLUDEDIR "@Boost_INCLUDE_DIR@")
-+    set(BOOST_INCLUDEDIR "$ENV{OECORE_TARGET_SYSROOT}/usr/include")
++    set(BOOST_INCLUDEDIR "/usr/include")
    endif()
 -  
 +
@@ -37,7 +37,7 @@ index b6322c623..b7e290c23 100644
      set(EIGEN_ROOT "${PCL_ROOT}/3rdParty/Eigen")
    elseif(NOT EIGEN_ROOT)
 -    get_filename_component(EIGEN_ROOT "@EIGEN_INCLUDE_DIRS@" ABSOLUTE)
-+    get_filename_component(EIGEN_ROOT "$ENV{OECORE_TARGET_SYSROOT}/usr/include/eigen3" ABSOLUTE)
++    get_filename_component(EIGEN_ROOT "/usr/include/eigen3" ABSOLUTE)
    endif()
    find_package(Eigen 3.3)
  endmacro()
@@ -46,7 +46,7 @@ index b6322c623..b7e290c23 100644
      set(FLANN_ROOT "${PCL_ROOT}/3rdParty/Flann")
    elseif(NOT FLANN_ROOT)
 -    set(FLANN_ROOT "@FLANN_ROOT@")
-+    set(FLANN_ROOT "$ENV{OECORE_TARGET_SYSROOT}/usr")
++    set(FLANN_ROOT "/usr")
    endif()
  
    set(PCL_FLANN_REQUIRED_TYPE @PCL_FLANN_REQUIRED_TYPE@)
