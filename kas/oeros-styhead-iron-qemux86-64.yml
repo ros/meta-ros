@@ -1,0 +1,7 @@
+header:
+  version: 14
+  includes:
+    - yocto/scarthgap.yml
+    - ros2/iron.yml
+    - machine/qemux86-64.yml
+    - common.yml
