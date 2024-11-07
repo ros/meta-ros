@@ -3,9 +3,9 @@
 
 LICENSE = "BSD-3-Clause"
 
-inherit python3targetconfig
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
 
-inherit qmake5_base
+inherit python3native
 
 export SIP_PROJECT_INCLUDE_DIRS="${STAGING_DIR_TARGET}/${libdir}/${PYTHON_DIR}/site-packages/PyQt5/bindings"
 
