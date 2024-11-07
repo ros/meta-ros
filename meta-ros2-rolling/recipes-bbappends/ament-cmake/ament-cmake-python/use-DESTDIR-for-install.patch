@@ -1,3 +1,9 @@
+Use DESTDIR as a prefix for the install directory
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 Index: git/cmake/ament_python_install_module.cmake
 ===================================================================
 --- git.orig/cmake/ament_python_install_module.cmake
