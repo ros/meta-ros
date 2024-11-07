@@ -1,0 +1,20 @@
+Use tinyxml2 package name instead of library path to link libraries.
+
+Otherwise, a reference to the host build path gets implanted in the CMake
+files installed on the target.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Index: git/src/cpp/CMakeLists.txt
+===================================================================
+--- git.orig/src/cpp/CMakeLists.txt
++++ git/src/cpp/CMakeLists.txt
+@@ -482,7 +482,7 @@ endif()
+ # Link library to external libraries.
+ target_link_libraries(${PROJECT_NAME} ${PRIVACY} fastcdr foonathan_memory
+     ${CMAKE_THREAD_LIBS_INIT} ${CMAKE_DL_LIBS}
+-    ${TINYXML2_LIBRARY}
++    tinyxml2
+     $<$<BOOL:${LINK_SSL}>:OpenSSL::SSL$<SEMICOLON>OpenSSL::Crypto$<$<BOOL:${WIN32}>:$<SEMICOLON>crypt32.lib>>
+     $<$<BOOL:${WIN32}>:iphlpapi$<SEMICOLON>Shlwapi>
+     ${THIRDPARTY_BOOST_LINK_LIBS}
