@@ -1,3 +1,10 @@
+Updated to reintroduce ament_export_dependencies(yaml).
+
+This was necessary to avoid host paths leaking into generated CMake
+files in packages that use libyaml-vendor.  (eg. rcl-yaml-param-parser)
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 From cb4604bb0cbc3eb2c9b65fbe451213ebf624f7e3 Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 9 Jul 2020 01:34:26 -0700
@@ -15,7 +22,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 86446c1..c4d5ec9 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -82,11 +82,18 @@ macro(build_libyaml)
+@@ -82,11 +82,19 @@ macro(build_libyaml)
    set(yaml_LIBRARIES yaml)
  endmacro()
  
@@ -33,7 +40,7 @@ index 86446c1..c4d5ec9 100644
 +endif()
  
  ament_export_libraries(yaml)
--ament_export_dependencies(yaml)
+ ament_export_dependencies(yaml)
  
  if(BUILD_TESTING)
    find_package(ament_lint_auto REQUIRED)
