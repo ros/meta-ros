@@ -1,8 +1,8 @@
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 6aa4095..66c4a25 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -149,7 +149,7 @@ install(
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -176,8 +176,8 @@ install(
    DESTINATION include/${PROJECT_NAME})
  install(
    TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
@@ -12,3 +12,4 @@ index 6aa4095..66c4a25 100644
 +  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
    RUNTIME DESTINATION bin
  )
+ ament_generate_version_header(${PROJECT_NAME})
