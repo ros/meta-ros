@@ -55,3 +55,14 @@ do_install:append() {
         fi
     done
 }
+
+# catkin provides a template file (pkgConfig.cmake.in) with a section of code that is unreachable on the target
+# this section references CMAKE_CURRENT_SOURCE_DIR which causes host paths to leak into generated CMake files
+# this causes do_package_qa to fail on ROS packages that use catkin
+# we can safely remove the host paths for the target recipes without making any changes to the end result
+do_install:append:class-target() {
+    find ${D}${ros_prefix}/share -name '*cmake' -type f \
+            | xargs --no-run-if-empty sed -i \
+                -e 's@set(\([a-zA-Z0-9_]*\)_SOURCE_PREFIX ${WORKDIR}/git)@set(\1_SOURCE_PREFIX "")@g' \
+                -e 's@set(\([a-zA-Z0-9_]*\)_DEVEL_PREFIX ${WORKDIR}/devel)@set(\1_DEVEL_PREFIX "")@g'
+}
