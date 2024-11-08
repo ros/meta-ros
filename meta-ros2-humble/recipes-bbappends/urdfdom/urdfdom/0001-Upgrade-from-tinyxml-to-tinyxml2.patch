@@ -1,0 +1,2055 @@
+Upgrade from tinyXML to tinyXML2
+
+The urdfdom had a host path in its generated CMake files caused by
+tinyXML.  This backports an upstream patch that updates urdfdom to
+use tinyXML2.
+
+This has the added benefit of eliminating an unnecessary dependency
+thus reducing footprint and removing an unmaintained package.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 18325bea276abb3d5c014a10b0df54fe5ef255fc Mon Sep 17 00:00:00 2001
+From: Felix F Xu <84662027+felixf4xu@users.noreply.github.com>
+Date: Thu, 7 Dec 2023 03:57:24 +0800
+Subject: [PATCH] Upgrade from tinyxml to tinyxml2 (#186)
+
+* upgrade from tinyxml to tinyxml2
+
+* Remove 'using tinyxml2'
+
+* Update github actions.
+
+* Add in FindTinyXML2 for systems that don't have it.
+
+* Make sure that tinyxml2::tinyxml2 is available in downstream packages
+
+* Update urdfdom-config.cmake.in
+
+* Replace InsertNewChildElement with GetDocument()->NewElement.
+
+The former doesn't exist in older TinyXML2, and is just
+a convenience function anyway.
+
+* Fix generation of CMake config files.
+
+Use the provided CMake primitives for this, which should
+make it work in all situations.
+
+* Install the FindTinyXML2.cmake file.
+
+This is so downstream projects can always find it.
+
+* Backup and restore the CMAKE_MODULE_PATH.
+
+So we don't permanently manipulate it.
+
+Signed-off-by: Chris Lalancette <clalancette@gmail.com>
+Co-authored-by: Silvio Traversaro <silvio@traversaro.it>
+---
+ .github/workflows/ros1.yaml                   |  10 +-
+ .github/workflows/ros2.yaml                   |  14 +-
+ .github/workflows/{system.yml => system.yaml} |   6 +-
+ CMakeLists.txt                                |  44 +++--
+ cmake/FindTinyXML.cmake                       |  74 -------
+ cmake/FindTinyXML2.cmake                      |  78 ++++++++
+ cmake/urdfdom-config.cmake.in                 |  10 +-
+ package.xml                                   |   8 +-
+ urdf_parser/CMakeLists.txt                    |   5 +-
+ urdf_parser/include/urdf_parser/urdf_parser.h |  24 +--
+ urdf_parser/src/joint.cpp                     | 124 ++++++------
+ urdf_parser/src/link.cpp                      | 180 +++++++++---------
+ urdf_parser/src/model.cpp                     |  55 +++---
+ urdf_parser/src/pose.cpp                      |  22 +--
+ urdf_parser/src/twist.cpp                     |  15 +-
+ urdf_parser/src/urdf_model_state.cpp          |  18 +-
+ urdf_parser/src/urdf_sensor.cpp               |  38 ++--
+ urdf_parser/src/world.cpp                     |  18 +-
+ 18 files changed, 377 insertions(+), 366 deletions(-)
+ rename .github/workflows/{system.yml => system.yaml} (92%)
+ delete mode 100644 cmake/FindTinyXML.cmake
+ create mode 100644 cmake/FindTinyXML2.cmake
+
+Index: git/.github/workflows/ros1.yaml
+===================================================================
+--- git.orig/.github/workflows/ros1.yaml
++++ git/.github/workflows/ros1.yaml
+@@ -8,12 +8,12 @@ on:
+ jobs:
+   build_ros1:
+     name: ROS1 CI
+-    runs-on: ubuntu-18.04
++    runs-on: ubuntu-20.04
+     steps:
+-      - uses: ros-tooling/setup-ros@v0.2
++      - uses: ros-tooling/setup-ros@v0.7
+         with:
+-          required-ros-distributions: melodic
+-      - uses: ros-tooling/action-ros-ci@v0.2
++          required-ros-distributions: noetic
++      - uses: ros-tooling/action-ros-ci@v0.3
+         with:
+           package-name: urdfdom
+-          target-ros1-distro: melodic
++          target-ros1-distro: noetic
+Index: git/.github/workflows/ros2.yaml
+===================================================================
+--- git.orig/.github/workflows/ros2.yaml
++++ git/.github/workflows/ros2.yaml
+@@ -1,5 +1,5 @@
+ ---
+-name: urdfdom ROS2 CI
++name: urdfdom ROS 2 CI
+ 
+ on:
+   push:
+@@ -8,13 +8,13 @@ on:
+ jobs:
+ 
+   build_ros2:
+-    name: ROS2 CI
+-    runs-on: ubuntu-20.04
++    name: ROS 2 CI
++    runs-on: ubuntu-22.04
+     steps:
+-      - uses: ros-tooling/setup-ros@v0.2
++      - uses: ros-tooling/setup-ros@v0.7
+         with:
+-          required-ros-distributions: galactic
+-      - uses: ros-tooling/action-ros-ci@v0.2
++          required-ros-distributions: rolling
++      - uses: ros-tooling/action-ros-ci@v0.3
+         with:
+           package-name: urdfdom
+-          target-ros2-distro: galactic
++          target-ros2-distro: rolling
+Index: git/.github/workflows/system.yml
+===================================================================
+--- git.orig/.github/workflows/system.yml
++++ /dev/null
+@@ -1,69 +0,0 @@
+----
+-name: urdfdom system CI
+-
+-on:
+-  push:
+-  pull_request:
+-
+-jobs:
+-  # This workflow contains a single job called "build"
+-  build:
+-    # The type of runner that the job will run on
+-    name: ${{ matrix.config.name }}
+-    runs-on: ${{ matrix.config.os }}
+-    strategy:
+-      fail-fast: false
+-      matrix:
+-        config:
+-          - {
+-              name: "Ubuntu Latest GCC",
+-              os: ubuntu-latest,
+-              build_type: "Release",
+-              cc: "gcc",
+-              cxx: "g++",
+-            }
+-          - {
+-              name: "Ubuntu Latest GCC",
+-              os: ubuntu-latest,
+-              build_type: "Debug",
+-              cc: "gcc",
+-              cxx: "g++",
+-            }
+-          - {
+-              name: "Ubuntu Bionic GCC",
+-              os: ubuntu-18.04,
+-              build_type: "Release",
+-              cc: "gcc",
+-              cxx: "g++",
+-            }
+-    steps:
+-      - uses: actions/checkout@v2
+-
+-      - name: Install dependencies on ubuntu
+-        if: startsWith(matrix.config.name, 'Ubuntu')
+-        run: |
+-          sudo apt-get -qq update
+-          sudo apt-get -qq upgrade -y
+-          sudo apt-get -qq install -y build-essential cmake libconsole-bridge-dev liburdfdom-headers-dev libtinyxml-dev
+-          cmake --version
+-          gcc --version
+-
+-      - name: Configure
+-        shell: bash
+-        run: |
+-          mkdir build
+-          cmake \
+-            -S . \
+-            -B build \
+-            -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }}
+-
+-      - name: Build
+-        shell: bash
+-        run: cmake --build build --config ${{ matrix.config.build_type }}
+-
+-      - name: Run tests on Ubuntu
+-        if: startsWith(matrix.config.name, 'Ubuntu')
+-        shell: bash
+-        run: |
+-          cd build
+-          make test ARGS="-VV"
+Index: git/.github/workflows/system.yaml
+===================================================================
+--- /dev/null
++++ git/.github/workflows/system.yaml
+@@ -0,0 +1,69 @@
++---
++name: urdfdom system CI
++
++on:
++  push:
++  pull_request:
++
++jobs:
++  # This workflow contains a single job called "build"
++  build:
++    # The type of runner that the job will run on
++    name: ${{ matrix.config.name }}
++    runs-on: ${{ matrix.config.os }}
++    strategy:
++      fail-fast: false
++      matrix:
++        config:
++          - {
++              name: "Ubuntu Latest GCC",
++              os: ubuntu-latest,
++              build_type: "Release",
++              cc: "gcc",
++              cxx: "g++",
++            }
++          - {
++              name: "Ubuntu Latest GCC",
++              os: ubuntu-latest,
++              build_type: "Debug",
++              cc: "gcc",
++              cxx: "g++",
++            }
++          - {
++              name: "Ubuntu Focal GCC",
++              os: ubuntu-20.04,
++              build_type: "Release",
++              cc: "gcc",
++              cxx: "g++",
++            }
++    steps:
++      - uses: actions/checkout@v2
++
++      - name: Install dependencies on ubuntu
++        if: startsWith(matrix.config.name, 'Ubuntu')
++        run: |
++          sudo apt-get -qq update
++          sudo apt-get -qq upgrade -y
++          sudo apt-get -qq install -y build-essential cmake libconsole-bridge-dev liburdfdom-headers-dev libtinyxml2-dev
++          cmake --version
++          gcc --version
++
++      - name: Configure
++        shell: bash
++        run: |
++          mkdir build
++          cmake \
++            -S . \
++            -B build \
++            -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }}
++
++      - name: Build
++        shell: bash
++        run: cmake --build build --config ${{ matrix.config.build_type }}
++
++      - name: Run tests on Ubuntu
++        if: startsWith(matrix.config.name, 'Ubuntu')
++        shell: bash
++        run: |
++          cd build
++          make test ARGS="-VV"
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -45,16 +45,9 @@ endif (MSVC OR MSVC90 OR MSVC10)
+ 
+ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+ 
+-find_package(tinyxml_vendor QUIET)
+-find_package(TinyXML)
+-# bionic has not cmake module, workaround
+-if (NOT TinyXML_FOUND AND UNIX)
+-  include(FindPkgConfig)
+-  pkg_check_modules (TinyXML tinyxml)
+-else()
+-  # Make it fail in platforms without pkgconfig
+-  find_package(TinyXML REQUIRED) # bionic has not cmake module
+-endif()
++find_package(tinyxml2_vendor QUIET)
++find_package(TinyXML2 REQUIRED)
++
+ find_package(urdfdom_headers 1.0 REQUIRED)
+ find_package(console_bridge_vendor QUIET) # Provides console_bridge 0.4.0 on platforms without it.
+ find_package(console_bridge REQUIRED)
+@@ -78,18 +71,36 @@ add_subdirectory(urdf_parser)
+ 
+ set(PKG_NAME ${PROJECT_NAME})
+ set(PKG_LIBRARIES urdfdom_sensor urdfdom_model_state urdfdom_model urdfdom_world)
+-set(PKG_DEPENDS urdfdom_headers console_bridge)
++set(PKG_DEPENDS TinyXML2 urdfdom_headers console_bridge)
+ set(PKG_EXPORTS urdfdom)
+-set(cmake_conf_file "cmake/urdfdom-config.cmake")
+-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/${cmake_conf_file}.in" "${CMAKE_BINARY_DIR}/${cmake_conf_file}" @ONLY)
++set(cmake_conf_file "cmake/urdfdom-config")
++include(CMakePackageConfigHelpers)
++write_basic_package_version_file(
++  "${CMAKE_CURRENT_BINARY_DIR}/${cmake_conf_file}Version.cmake"
++  VERSION ${URDF_VERSION}
++  COMPATIBILITY SameMajorVersion
++)
++configure_package_config_file("${cmake_conf_file}.cmake.in"
++  "${CMAKE_CURRENT_BINARY_DIR}/${cmake_conf_file}.cmake"
++  INSTALL_DESTINATION ${CMAKE_CONFIG_INSTALL_DIR}
++)
++install(FILES
++  "${CMAKE_CURRENT_BINARY_DIR}/${cmake_conf_file}.cmake"
++  "${CMAKE_CURRENT_BINARY_DIR}/${cmake_conf_file}Version.cmake"
++  DESTINATION ${CMAKE_CONFIG_INSTALL_DIR}
++)
++
++# Some operating systems (like Ubuntu 22.04) do not provide a default
++# way to find TinyXML2.  For that reason, this package provides it
++install(FILES cmake/FindTinyXML2.cmake
++  DESTINATION ${CMAKE_CONFIG_INSTALL_DIR})
++
+ install(FILES package.xml DESTINATION share/${PROJECT_NAME})
+-install(FILES ${CMAKE_BINARY_DIR}/${cmake_conf_file}
+-  DESTINATION ${CMAKE_CONFIG_INSTALL_DIR} COMPONENT cmake)
+ 
+ # Make the package config file
+ if (NOT MSVC)
+   set(PKG_DESC "Unified Robot Description Format")
+-  set(PKG_DEPENDS "urdfdom_headers console_bridge") # make the list separated by spaces instead of ;
++  set(PKG_DEPENDS "tinyxml2 urdfdom_headers console_bridge") # make the list separated by spaces instead of ;
+   set(PKG_URDF_LIBS "-lurdfdom_sensor -lurdfdom_model_state -lurdfdom_model -lurdfdom_world")
+   set(pkg_conf_file "cmake/pkgconfig/urdfdom.pc")
+   configure_file("${CMAKE_CURRENT_SOURCE_DIR}/${pkg_conf_file}.in" "${CMAKE_BINARY_DIR}/${pkg_conf_file}" @ONLY)
+@@ -97,7 +108,6 @@ if (NOT MSVC)
+     DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig/ COMPONENT pkgconfig)
+ endif()
+ 
+-
+ # Add uninstall target
+ # Ref: http://www.cmake.org/Wiki/CMake_FAQ#Can_I_do_.22make_uninstall.22_with_CMake.3F
+ configure_file(
+Index: git/cmake/FindTinyXML.cmake
+===================================================================
+--- git.orig/cmake/FindTinyXML.cmake
++++ /dev/null
+@@ -1,74 +0,0 @@
+-##################################################################################################
+-# 
+-# CMake script for finding TinyXML.
+-# 
+-# Input variables:
+-# 
+-# - TinyXML_ROOT_DIR (optional): When specified, header files and libraries will be searched for in
+-#     ${TinyXML_ROOT_DIR}/include
+-#     ${TinyXML_ROOT_DIR}/libs
+-#   respectively, and the default CMake search order will be ignored. When unspecified, the default
+-#   CMake search order is used.
+-#   This variable can be specified either as a CMake or environment variable. If both are set,
+-#   preference is given to the CMake variable.
+-#   Use this variable for finding packages installed in a nonstandard location, or for enforcing
+-#   that one of multiple package installations is picked up.
+-# 
+-# 
+-# Cache variables (not intended to be used in CMakeLists.txt files)
+-# 
+-# - TinyXML_INCLUDE_DIR: Absolute path to package headers.
+-# - TinyXML_LIBRARY: Absolute path to library.
+-# 
+-# 
+-# Output variables:
+-# 
+-# - TinyXML_FOUND: Boolean that indicates if the package was found
+-# - TinyXML_INCLUDE_DIRS: Paths to the necessary header files
+-# - TinyXML_LIBRARIES: Package libraries
+-# 
+-# 
+-# Example usage:
+-# 
+-#  find_package(TinyXML)
+-#  if(NOT TinyXML_FOUND)
+-#    # Error handling
+-#  endif()
+-#  ...
+-#  include_directories(${TinyXML_INCLUDE_DIRS} ...)
+-#  ...
+-#  target_link_libraries(my_target ${TinyXML_LIBRARIES})
+-# 
+-##################################################################################################
+-
+-# Get package location hint from environment variable (if any)
+-if(NOT TinyXML_ROOT_DIR AND DEFINED ENV{TinyXML_ROOT_DIR})
+-  set(TinyXML_ROOT_DIR "$ENV{TinyXML_ROOT_DIR}" CACHE PATH
+-      "TinyXML base directory location (optional, used for nonstandard installation paths)")
+-endif()
+-
+-# Search path for nonstandard package locations
+-if(TinyXML_ROOT_DIR)
+-  set(TinyXML_INCLUDE_PATH PATHS "${TinyXML_ROOT_DIR}/include" NO_DEFAULT_PATH)
+-  set(TinyXML_LIBRARY_PATH PATHS "${TinyXML_ROOT_DIR}/lib"     NO_DEFAULT_PATH)
+-endif()
+-
+-# Find headers and libraries
+-find_path(TinyXML_INCLUDE_DIR NAMES tinyxml.h PATH_SUFFIXES "tinyxml" ${TinyXML_INCLUDE_PATH})
+-find_library(TinyXML_LIBRARY  NAMES tinyxml   PATH_SUFFIXES "tinyxml" ${TinyXML_LIBRARY_PATH})
+-
+-mark_as_advanced(TinyXML_INCLUDE_DIR
+-                 TinyXML_LIBRARY)
+-
+-# Output variables generation
+-include(FindPackageHandleStandardArgs)
+-find_package_handle_standard_args(TinyXML DEFAULT_MSG TinyXML_LIBRARY
+-                                                      TinyXML_INCLUDE_DIR)
+-
+-set(TinyXML_FOUND ${TINYXML_FOUND}) # Enforce case-correctness: Set appropriately cased variable...
+-unset(TINYXML_FOUND) # ...and unset uppercase variable generated by find_package_handle_standard_args
+-
+-if(TinyXML_FOUND)
+-  set(TinyXML_INCLUDE_DIRS ${TinyXML_INCLUDE_DIR})
+-  set(TinyXML_LIBRARIES ${TinyXML_LIBRARY})
+-endif()
+Index: git/cmake/FindTinyXML2.cmake
+===================================================================
+--- /dev/null
++++ git/cmake/FindTinyXML2.cmake
+@@ -0,0 +1,78 @@
++# TinyXML2_FOUND
++# TinyXML2_INCLUDE_DIRS
++# TinyXML2_LIBRARIES
++
++# try to find the CMake config file for TinyXML2 first
++if(NOT TinyXML2_FOUND)
++  find_package(TinyXML2 CONFIG QUIET)
++endif()
++if(TinyXML2_FOUND)
++  message(STATUS "Found TinyXML2 via Config file: ${TinyXML2_DIR}")
++  if(NOT TINYXML2_LIBRARY)
++    # in this case, we're probably using TinyXML2 version 5.0.0 or greater
++    # in which case tinyxml2 is an exported target and we should use that
++    if(TARGET tinyxml2)
++      set(TINYXML2_LIBRARY tinyxml2)
++    elseif(TARGET tinyxml2::tinyxml2)
++      set(TINYXML2_LIBRARY tinyxml2::tinyxml2)
++    elseif(TinyXML2_FIND_REQUIRED)
++      message(FATAL_ERROR "Unable to determine target for TinyXML2")
++    endif()
++    list(APPEND TinyXML2_TARGETS ${TINYXML2_LIBRARY})
++  else()
++    # Only perform that logic once
++    if(NOT TARGET tinyxml2::tinyxml2)
++      # TINYXML2_LIBRARY is composed of debug;<path\to\debug.lib>;optimized;<path\to\release.lib>
++      # we have to extract the appropriate component based on the current configuration.
++      list(LENGTH TINYXML2_LIBRARY TINYXML_LIBRARY_LIST_LENGTH)
++      if(NOT ${TINYXML_LIBRARY_LIST_LENGTH} EQUAL 4)
++        message(FATAL_ERROR "Unable to extract the library file path from ${TINYXML2_LIBRARY}")
++      endif()
++      if(CMAKE_BUILD_TYPE MATCHES DEBUG)
++        list(GET TINYXML2_LIBRARY 0 ASSERT_DEBUG)
++        if(NOT ${ASSERT_DEBUG} STREQUAL "debug")
++          message(FATAL_ERROR "could not parse debug library path from ${TINYXML2_LIBRARY}")
++        endif()
++        list(GET TINYXML2_LIBRARY 1 TINYXML2_LIBRARY_PATH)
++      else()
++        list(GET TINYXML2_LIBRARY 2 ASSERT_OPTIMIZED)
++        if(NOT ${ASSERT_OPTIMIZED} STREQUAL "optimized")
++          message(FATAL_ERROR "could not parse library path from ${TINYXML2_LIBRARY}")
++        endif()
++        list(GET TINYXML2_LIBRARY 3 TINYXML2_LIBRARY_PATH)
++      endif()
++      if(NOT EXISTS ${TINYXML2_LIBRARY_PATH})
++        message(FATAL_ERROR "library file path ${TINYXML2_LIBRARY_PATH} does not exist")
++      endif()
++
++      add_library(tinyxml2::tinyxml2 UNKNOWN IMPORTED)
++      set_property(TARGET tinyxml2::tinyxml2 PROPERTY IMPORTED_LOCATION ${TINYXML2_LIBRARY_PATH})
++      set_property(TARGET tinyxml2::tinyxml2 PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${TINYXML2_INCLUDE_DIR})
++      list(APPEND TinyXML2_TARGETS tinyxml2::tinyxml2)
++    endif()
++  endif()
++else()
++  find_path(TINYXML2_INCLUDE_DIR NAMES tinyxml2.h)
++
++  find_library(TINYXML2_LIBRARY tinyxml2)
++
++  include(FindPackageHandleStandardArgs)
++  find_package_handle_standard_args(TinyXML2 DEFAULT_MSG TINYXML2_LIBRARY TINYXML2_INCLUDE_DIR)
++
++  mark_as_advanced(TINYXML2_INCLUDE_DIR TINYXML2_LIBRARY)
++
++  if(NOT TARGET tinyxml2::tinyxml2)
++    add_library(tinyxml2::tinyxml2 UNKNOWN IMPORTED)
++    set_property(TARGET tinyxml2::tinyxml2 PROPERTY IMPORTED_LOCATION ${TINYXML2_LIBRARY})
++    set_property(TARGET tinyxml2::tinyxml2 PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${TINYXML2_INCLUDE_DIR})
++    list(APPEND TinyXML2_TARGETS tinyxml2::tinyxml2)
++  endif()
++endif()
++
++# Set mixed case INCLUDE_DIRS and LIBRARY variables from upper case ones.
++if(NOT TinyXML2_INCLUDE_DIRS)
++  set(TinyXML2_INCLUDE_DIRS ${TINYXML2_INCLUDE_DIR})
++endif()
++if(NOT TinyXML2_LIBRARIES)
++  set(TinyXML2_LIBRARIES ${TINYXML2_LIBRARY})
++endif()
+Index: git/cmake/urdfdom-config.cmake.in
+===================================================================
+--- git.orig/cmake/urdfdom-config.cmake.in
++++ git/cmake/urdfdom-config.cmake.in
+@@ -1,9 +1,14 @@
++@PACKAGE_INIT@
++
+ if (@PKG_NAME@_CONFIG_INCLUDED)
+   return()
+ endif()
+ set(@PKG_NAME@_CONFIG_INCLUDED TRUE)
+ 
+-set(@PKG_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/@RELATIVE_PATH_CMAKE_DIR_TO_PREFIX@/@CMAKE_INSTALL_INCLUDEDIR@" "@TinyXML_INCLUDE_DIRS@")
++set(CMAKE_MODULE_PATH_BACKUP_URDFDOM ${CMAKE_MODULE_PATH})
++list(APPEND CMAKE_MODULE_PATH "${@PROJECT_NAME@_DIR}")
++
++set(@PKG_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/@RELATIVE_PATH_CMAKE_DIR_TO_PREFIX@/@CMAKE_INSTALL_INCLUDEDIR@")
+ 
+ foreach(lib @PKG_LIBRARIES@)
+   set(onelib "${lib}-NOTFOUND")
+@@ -30,6 +35,7 @@ foreach(lib @PKG_LIBRARIES@)
+   list(APPEND @PKG_NAME@_TARGETS @PROJECT_NAME@::${lib})
+ endforeach()
+ 
++find_package(tinyxml2_vendor QUIET)
+ foreach(dep @PKG_DEPENDS@)
+   if(NOT ${dep}_FOUND)
+     find_package(${dep})
+@@ -41,3 +47,5 @@ endforeach()
+ foreach(exp @PKG_EXPORTS@)
+   include(${@PROJECT_NAME@_DIR}/${exp}Export.cmake)
+ endforeach()
++
++set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH_BACKUP_URDFDOM})
+Index: git/package.xml
+===================================================================
+--- git.orig/package.xml
++++ git/package.xml
+@@ -17,16 +17,16 @@
+ 
+   <build_depend>console_bridge_vendor</build_depend>
+   <build_depend>libconsole-bridge-dev</build_depend>
+-  <build_depend>tinyxml</build_depend>
+-  <build_depend>tinyxml_vendor</build_depend>
++  <build_depend>tinyxml2</build_depend>
++  <build_depend>tinyxml2_vendor</build_depend>
+   <build_depend version_gte="0.2.3">urdfdom_headers</build_depend>
+   
+   <buildtool_depend>cmake</buildtool_depend>
+ 
+   <exec_depend>console_bridge_vendor</exec_depend>
+   <exec_depend>libconsole-bridge-dev</exec_depend>
+-  <exec_depend>tinyxml</exec_depend>
+-  <exec_depend>tinyxml_vendor</exec_depend>
++  <exec_depend>tinyxml2</exec_depend>
++  <exec_depend>tinyxml2_vendor</exec_depend>
+   <exec_depend version_gte="0.2.3">urdfdom_headers</exec_depend>
+ 
+   <export>
+Index: git/urdf_parser/CMakeLists.txt
+===================================================================
+--- git.orig/urdf_parser/CMakeLists.txt
++++ git/urdf_parser/CMakeLists.txt
+@@ -5,8 +5,6 @@ macro(add_urdfdom_library)
+ 
+   add_library(${add_urdfdom_library_LIBNAME} SHARED
+     ${add_urdfdom_library_SOURCES})
+-  target_include_directories(${add_urdfdom_library_LIBNAME} SYSTEM PUBLIC
+-    ${TinyXML_INCLUDE_DIRS})
+   target_include_directories(${add_urdfdom_library_LIBNAME} PUBLIC
+     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
+@@ -14,7 +12,8 @@ macro(add_urdfdom_library)
+     ${add_urdfdom_library_LINK}
+     ${console_bridge_link_libs}
+     ${urdfdom_headers_link_libs}
+-    ${TinyXML_LIBRARIES})
++    tinyxml2::tinyxml2
++  )
+   if(NOT CMAKE_CXX_STANDARD)
+     target_compile_features(${add_urdfdom_library_LIBNAME} PUBLIC cxx_std_14)
+   endif()
+Index: git/urdf_parser/include/urdf_parser/urdf_parser.h
+===================================================================
+--- git.orig/urdf_parser/include/urdf_parser/urdf_parser.h
++++ git/urdf_parser/include/urdf_parser/urdf_parser.h
+@@ -1,13 +1,13 @@
+ /*********************************************************************
+ * Software License Agreement (BSD License)
+-* 
++*
+ *  Copyright (c) 2008, Willow Garage, Inc.
+ *  All rights reserved.
+-* 
++*
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+-* 
++*
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+@@ -17,7 +17,7 @@
+ *   * Neither the name of the Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+-* 
++*
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+@@ -41,7 +41,7 @@
+ #include <string>
+ #include <vector>
+ 
+-#include <tinyxml.h>
++#include <tinyxml2.h>
+ #include <urdf_model/model.h>
+ #include <urdf_model/color.h>
+ #include <urdf_model/utils.h>
+@@ -143,13 +143,13 @@ namespace urdf{
+ 
+   URDFDOM_DLLAPI ModelInterfaceSharedPtr parseURDF(const std::string &xml_string);
+   URDFDOM_DLLAPI ModelInterfaceSharedPtr parseURDFFile(const std::string &path);
+-  URDFDOM_DLLAPI TiXmlDocument*  exportURDF(ModelInterfaceSharedPtr &model);
+-  URDFDOM_DLLAPI TiXmlDocument*  exportURDF(const ModelInterface &model);
+-  URDFDOM_DLLAPI bool parsePose(Pose&, TiXmlElement*);
+-  URDFDOM_DLLAPI bool parseCamera(Camera&, TiXmlElement*);
+-  URDFDOM_DLLAPI bool parseRay(Ray&, TiXmlElement*);
+-  URDFDOM_DLLAPI bool parseSensor(Sensor&, TiXmlElement*);
+-  URDFDOM_DLLAPI bool parseModelState(ModelState&, TiXmlElement*);
++  URDFDOM_DLLAPI tinyxml2::XMLDocument*  exportURDF(ModelInterfaceSharedPtr &model);
++  URDFDOM_DLLAPI tinyxml2::XMLDocument*  exportURDF(const ModelInterface &model);
++  URDFDOM_DLLAPI bool parsePose(Pose&, tinyxml2::XMLElement*);
++  URDFDOM_DLLAPI bool parseCamera(Camera&, tinyxml2::XMLElement*);
++  URDFDOM_DLLAPI bool parseRay(Ray&, tinyxml2::XMLElement*);
++  URDFDOM_DLLAPI bool parseSensor(Sensor&, tinyxml2::XMLElement*);
++  URDFDOM_DLLAPI bool parseModelState(ModelState&, tinyxml2::XMLElement*);
+ }
+ 
+ #endif
+Index: git/urdf_parser/src/joint.cpp
+===================================================================
+--- git.orig/urdf_parser/src/joint.cpp
++++ git/urdf_parser/src/joint.cpp
+@@ -1,13 +1,13 @@
+ /*********************************************************************
+ * Software Ligcense Agreement (BSD License)
+-* 
++*
+ *  Copyright (c) 2008, Willow Garage, Inc.
+ *  All rights reserved.
+-* 
++*
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+-* 
++*
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+@@ -17,7 +17,7 @@
+ *   * Neither the name of the Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+-* 
++*
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+@@ -40,14 +40,14 @@
+ #include <string>
+ #include <urdf_model/joint.h>
+ #include <console_bridge/console.h>
+-#include <tinyxml.h>
++#include <tinyxml2.h>
+ #include <urdf_parser/urdf_parser.h>
+ 
+ namespace urdf{
+ 
+-bool parsePose(Pose &pose, TiXmlElement* xml);
++bool parsePose(Pose &pose, tinyxml2::XMLElement* xml);
+ 
+-bool parseJointDynamics(JointDynamics &jd, TiXmlElement* config)
++bool parseJointDynamics(JointDynamics &jd, tinyxml2::XMLElement* config)
+ {
+   jd.clear();
+ 
+@@ -94,7 +94,7 @@ bool parseJointDynamics(JointDynamics &j
+   }
+ }
+ 
+-bool parseJointLimits(JointLimits &jl, TiXmlElement* config)
++bool parseJointLimits(JointLimits &jl, tinyxml2::XMLElement* config)
+ {
+   jl.clear();
+ 
+@@ -165,7 +165,7 @@ bool parseJointLimits(JointLimits &jl, T
+   return true;
+ }
+ 
+-bool parseJointSafety(JointSafety &js, TiXmlElement* config)
++bool parseJointSafety(JointSafety &js, tinyxml2::XMLElement* config)
+ {
+   js.clear();
+ 
+@@ -239,7 +239,7 @@ bool parseJointSafety(JointSafety &js, T
+   return true;
+ }
+ 
+-bool parseJointCalibration(JointCalibration &jc, TiXmlElement* config)
++bool parseJointCalibration(JointCalibration &jc, tinyxml2::XMLElement* config)
+ {
+   jc.clear();
+ 
+@@ -280,7 +280,7 @@ bool parseJointCalibration(JointCalibrat
+   return true;
+ }
+ 
+-bool parseJointMimic(JointMimic &jm, TiXmlElement* config)
++bool parseJointMimic(JointMimic &jm, tinyxml2::XMLElement* config)
+ {
+   jm.clear();
+ 
+@@ -294,14 +294,14 @@ bool parseJointMimic(JointMimic &jm, TiX
+   }
+   else
+     jm.joint_name = joint_name_str;
+-  
++
+   // Get mimic multiplier
+   const char* multiplier_str = config->Attribute("multiplier");
+ 
+   if (multiplier_str == NULL)
+   {
+     CONSOLE_BRIDGE_logDebug("urdfdom.joint_mimic: no multiplier, using default value of 1");
+-    jm.multiplier = 1;    
++    jm.multiplier = 1;
+   }
+   else
+   {
+@@ -313,7 +313,7 @@ bool parseJointMimic(JointMimic &jm, TiX
+     }
+   }
+ 
+-  
++
+   // Get mimic offset
+   const char* offset_str = config->Attribute("offset");
+   if (offset_str == NULL)
+@@ -334,7 +334,7 @@ bool parseJointMimic(JointMimic &jm, TiX
+   return true;
+ }
+ 
+-bool parseJoint(Joint &joint, TiXmlElement* config)
++bool parseJoint(Joint &joint, tinyxml2::XMLElement* config)
+ {
+   joint.clear();
+ 
+@@ -348,7 +348,7 @@ bool parseJoint(Joint &joint, TiXmlEleme
+   joint.name = name;
+ 
+   // Get transform from Parent Link to Joint Frame
+-  TiXmlElement *origin_xml = config->FirstChildElement("origin");
++  tinyxml2::XMLElement *origin_xml = config->FirstChildElement("origin");
+   if (!origin_xml)
+   {
+     CONSOLE_BRIDGE_logDebug("urdfdom: Joint [%s] missing origin tag under parent describing transform from Parent Link to Joint Frame, (using Identity transform).", joint.name.c_str());
+@@ -365,7 +365,7 @@ bool parseJoint(Joint &joint, TiXmlEleme
+   }
+ 
+   // Get Parent Link
+-  TiXmlElement *parent_xml = config->FirstChildElement("parent");
++  tinyxml2::XMLElement *parent_xml = config->FirstChildElement("parent");
+   if (parent_xml)
+   {
+     const char *pname = parent_xml->Attribute("link");
+@@ -380,7 +380,7 @@ bool parseJoint(Joint &joint, TiXmlEleme
+   }
+ 
+   // Get Child Link
+-  TiXmlElement *child_xml = config->FirstChildElement("child");
++  tinyxml2::XMLElement *child_xml = config->FirstChildElement("child");
+   if (child_xml)
+   {
+     const char *pname = child_xml->Attribute("link");
+@@ -401,7 +401,7 @@ bool parseJoint(Joint &joint, TiXmlEleme
+     CONSOLE_BRIDGE_logError("joint [%s] has no type, check to see if it's a reference.", joint.name.c_str());
+     return false;
+   }
+-  
++
+   std::string type_str = type_char;
+   if (type_str == "planar")
+     joint.type = Joint::PLANAR;
+@@ -425,7 +425,7 @@ bool parseJoint(Joint &joint, TiXmlEleme
+   if (joint.type != Joint::FLOATING && joint.type != Joint::FIXED)
+   {
+     // axis
+-    TiXmlElement *axis_xml = config->FirstChildElement("axis");
++    tinyxml2::XMLElement *axis_xml = config->FirstChildElement("axis");
+     if (!axis_xml){
+       CONSOLE_BRIDGE_logDebug("urdfdom: no axis elemement for Joint link [%s], defaulting to (1,0,0) axis", joint.name.c_str());
+       joint.axis = Vector3(1.0, 0.0, 0.0);
+@@ -445,7 +445,7 @@ bool parseJoint(Joint &joint, TiXmlEleme
+   }
+ 
+   // Get limit
+-  TiXmlElement *limit_xml = config->FirstChildElement("limit");
++  tinyxml2::XMLElement *limit_xml = config->FirstChildElement("limit");
+   if (limit_xml)
+   {
+     joint.limits.reset(new JointLimits());
+@@ -463,12 +463,12 @@ bool parseJoint(Joint &joint, TiXmlEleme
+   }
+   else if (joint.type == Joint::PRISMATIC)
+   {
+-    CONSOLE_BRIDGE_logError("Joint [%s] is of type PRISMATIC without limits", joint.name.c_str()); 
++    CONSOLE_BRIDGE_logError("Joint [%s] is of type PRISMATIC without limits", joint.name.c_str());
+     return false;
+   }
+ 
+   // Get safety
+-  TiXmlElement *safety_xml = config->FirstChildElement("safety_controller");
++  tinyxml2::XMLElement *safety_xml = config->FirstChildElement("safety_controller");
+   if (safety_xml)
+   {
+     joint.safety.reset(new JointSafety());
+@@ -481,7 +481,7 @@ bool parseJoint(Joint &joint, TiXmlEleme
+   }
+ 
+   // Get calibration
+-  TiXmlElement *calibration_xml = config->FirstChildElement("calibration");
++  tinyxml2::XMLElement *calibration_xml = config->FirstChildElement("calibration");
+   if (calibration_xml)
+   {
+     joint.calibration.reset(new JointCalibration());
+@@ -494,7 +494,7 @@ bool parseJoint(Joint &joint, TiXmlEleme
+   }
+ 
+   // Get Joint Mimic
+-  TiXmlElement *mimic_xml = config->FirstChildElement("mimic");
++  tinyxml2::XMLElement *mimic_xml = config->FirstChildElement("mimic");
+   if (mimic_xml)
+   {
+     joint.mimic.reset(new JointMimic());
+@@ -507,7 +507,7 @@ bool parseJoint(Joint &joint, TiXmlEleme
+   }
+ 
+   // Get Dynamics
+-  TiXmlElement *prop_xml = config->FirstChildElement("dynamics");
++  tinyxml2::XMLElement *prop_xml = config->FirstChildElement("dynamics");
+   if (prop_xml)
+   {
+     joint.dynamics.reset(new JointDynamics());
+@@ -524,71 +524,71 @@ bool parseJoint(Joint &joint, TiXmlEleme
+ 
+ 
+ /* exports */
+-bool exportPose(Pose &pose, TiXmlElement* xml);
++bool exportPose(Pose &pose, tinyxml2::XMLElement* xml);
+ 
+-bool exportJointDynamics(JointDynamics &jd, TiXmlElement* xml)
++bool exportJointDynamics(JointDynamics &jd, tinyxml2::XMLElement* xml)
+ {
+-  TiXmlElement *dynamics_xml = new TiXmlElement("dynamics");
+-  dynamics_xml->SetAttribute("damping", urdf_export_helpers::values2str(jd.damping) );
+-  dynamics_xml->SetAttribute("friction", urdf_export_helpers::values2str(jd.friction) );
++  tinyxml2::XMLElement *dynamics_xml = xml->GetDocument()->NewElement("dynamics");
++  dynamics_xml->SetAttribute("damping", urdf_export_helpers::values2str(jd.damping).c_str() );
++  dynamics_xml->SetAttribute("friction", urdf_export_helpers::values2str(jd.friction).c_str() );
+   xml->LinkEndChild(dynamics_xml);
+   return true;
+ }
+ 
+-bool exportJointLimits(JointLimits &jl, TiXmlElement* xml)
++bool exportJointLimits(JointLimits &jl, tinyxml2::XMLElement* xml)
+ {
+-  TiXmlElement *limit_xml = new TiXmlElement("limit");
+-  limit_xml->SetAttribute("effort", urdf_export_helpers::values2str(jl.effort) );
+-  limit_xml->SetAttribute("velocity", urdf_export_helpers::values2str(jl.velocity) );
+-  limit_xml->SetAttribute("lower", urdf_export_helpers::values2str(jl.lower) );
+-  limit_xml->SetAttribute("upper", urdf_export_helpers::values2str(jl.upper) );
++  tinyxml2::XMLElement *limit_xml = xml->GetDocument()->NewElement("limit");
++  limit_xml->SetAttribute("effort", urdf_export_helpers::values2str(jl.effort).c_str());
++  limit_xml->SetAttribute("velocity", urdf_export_helpers::values2str(jl.velocity).c_str());
++  limit_xml->SetAttribute("lower", urdf_export_helpers::values2str(jl.lower).c_str());
++  limit_xml->SetAttribute("upper", urdf_export_helpers::values2str(jl.upper).c_str());
+   xml->LinkEndChild(limit_xml);
+   return true;
+ }
+ 
+-bool exportJointSafety(JointSafety &js, TiXmlElement* xml)
++bool exportJointSafety(JointSafety &js, tinyxml2::XMLElement* xml)
+ {
+-  TiXmlElement *safety_xml = new TiXmlElement("safety_controller");
+-  safety_xml->SetAttribute("k_position", urdf_export_helpers::values2str(js.k_position) );
+-  safety_xml->SetAttribute("k_velocity", urdf_export_helpers::values2str(js.k_velocity) );
+-  safety_xml->SetAttribute("soft_lower_limit", urdf_export_helpers::values2str(js.soft_lower_limit) );
+-  safety_xml->SetAttribute("soft_upper_limit", urdf_export_helpers::values2str(js.soft_upper_limit) );
++  tinyxml2::XMLElement *safety_xml = xml->GetDocument()->NewElement("safety_controller");
++  safety_xml->SetAttribute("k_position", urdf_export_helpers::values2str(js.k_position).c_str());
++  safety_xml->SetAttribute("k_velocity", urdf_export_helpers::values2str(js.k_velocity).c_str());
++  safety_xml->SetAttribute("soft_lower_limit", urdf_export_helpers::values2str(js.soft_lower_limit).c_str());
++  safety_xml->SetAttribute("soft_upper_limit", urdf_export_helpers::values2str(js.soft_upper_limit).c_str());
+   xml->LinkEndChild(safety_xml);
+   return true;
+ }
+ 
+-bool exportJointCalibration(JointCalibration &jc, TiXmlElement* xml)
++bool exportJointCalibration(JointCalibration &jc, tinyxml2::XMLElement* xml)
+ {
+   if (jc.falling || jc.rising)
+   {
+-    TiXmlElement *calibration_xml = new TiXmlElement("calibration");
++    tinyxml2::XMLElement *calibration_xml = xml->GetDocument()->NewElement("calibration");
+     if (jc.falling)
+-      calibration_xml->SetAttribute("falling", urdf_export_helpers::values2str(*jc.falling) );
++      calibration_xml->SetAttribute("falling", urdf_export_helpers::values2str(*jc.falling).c_str());
+     if (jc.rising)
+-      calibration_xml->SetAttribute("rising", urdf_export_helpers::values2str(*jc.rising) );
++      calibration_xml->SetAttribute("rising", urdf_export_helpers::values2str(*jc.rising).c_str());
+     //calibration_xml->SetAttribute("reference_position", urdf_export_helpers::values2str(jc.reference_position) );
+     xml->LinkEndChild(calibration_xml);
+   }
+   return true;
+ }
+ 
+-bool exportJointMimic(JointMimic &jm, TiXmlElement* xml)
++bool exportJointMimic(JointMimic &jm, tinyxml2::XMLElement* xml)
+ {
+   if (!jm.joint_name.empty())
+   {
+-    TiXmlElement *mimic_xml = new TiXmlElement("mimic");
+-    mimic_xml->SetAttribute("offset", urdf_export_helpers::values2str(jm.offset) );
+-    mimic_xml->SetAttribute("multiplier", urdf_export_helpers::values2str(jm.multiplier) );
+-    mimic_xml->SetAttribute("joint", jm.joint_name );
++    tinyxml2::XMLElement *mimic_xml = xml->GetDocument()->NewElement("mimic");
++    mimic_xml->SetAttribute("offset", urdf_export_helpers::values2str(jm.offset).c_str());
++    mimic_xml->SetAttribute("multiplier", urdf_export_helpers::values2str(jm.multiplier).c_str());
++    mimic_xml->SetAttribute("joint", jm.joint_name.c_str());
+     xml->LinkEndChild(mimic_xml);
+   }
+   return true;
+ }
+ 
+-bool exportJoint(Joint &joint, TiXmlElement* xml)
++bool exportJoint(Joint &joint, tinyxml2::XMLElement* xml)
+ {
+-  TiXmlElement * joint_xml = new TiXmlElement("joint");
+-  joint_xml->SetAttribute("name", joint.name);
++  tinyxml2::XMLElement * joint_xml = xml->GetDocument()->NewElement("joint");
++  joint_xml->SetAttribute("name", joint.name.c_str());
+   if (joint.type == urdf::Joint::PLANAR)
+     joint_xml->SetAttribute("type", "planar");
+   else if (joint.type == urdf::Joint::FLOATING)
+@@ -608,18 +608,18 @@ bool exportJoint(Joint &joint, TiXmlElem
+   exportPose(joint.parent_to_joint_origin_transform, joint_xml);
+ 
+   // axis
+-  TiXmlElement * axis_xml = new TiXmlElement("axis");
+-  axis_xml->SetAttribute("xyz", urdf_export_helpers::values2str(joint.axis));
++  tinyxml2::XMLElement * axis_xml = joint_xml->GetDocument()->NewElement("axis");
++  axis_xml->SetAttribute("xyz", urdf_export_helpers::values2str(joint.axis).c_str());
+   joint_xml->LinkEndChild(axis_xml);
+ 
+-  // parent 
+-  TiXmlElement * parent_xml = new TiXmlElement("parent");
+-  parent_xml->SetAttribute("link", joint.parent_link_name);
++  // parent
++  tinyxml2::XMLElement * parent_xml = joint_xml->GetDocument()->NewElement("parent");
++  parent_xml->SetAttribute("link", joint.parent_link_name.c_str());
+   joint_xml->LinkEndChild(parent_xml);
+ 
+   // child
+-  TiXmlElement * child_xml = new TiXmlElement("child");
+-  child_xml->SetAttribute("link", joint.child_link_name);
++  tinyxml2::XMLElement * child_xml = joint_xml->GetDocument()->NewElement("child");
++  child_xml->SetAttribute("link", joint.child_link_name.c_str());
+   joint_xml->LinkEndChild(child_xml);
+ 
+   if (joint.dynamics)
+Index: git/urdf_parser/src/link.cpp
+===================================================================
+--- git.orig/urdf_parser/src/link.cpp
++++ git/urdf_parser/src/link.cpp
+@@ -1,13 +1,13 @@
+ /*********************************************************************
+ * Software License Agreement (BSD License)
+-* 
++*
+ *  Copyright (c) 2008, Willow Garage, Inc.
+ *  All rights reserved.
+-* 
++*
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+-* 
++*
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+@@ -17,7 +17,7 @@
+ *   * Neither the name of the Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+-* 
++*
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+@@ -45,14 +45,14 @@
+ #include <utility>
+ #include <vector>
+ #include <algorithm>
+-#include <tinyxml.h>
++#include <tinyxml2.h>
+ #include <console_bridge/console.h>
+ 
+ namespace urdf{
+ 
+-bool parsePose(Pose &pose, TiXmlElement* xml);
++bool parsePose(Pose &pose, tinyxml2::XMLElement* xml);
+ 
+-bool parseMaterial(Material &material, TiXmlElement *config, bool only_name_is_ok)
++bool parseMaterial(Material &material, tinyxml2::XMLElement *config, bool only_name_is_ok)
+ {
+   bool has_rgb = false;
+   bool has_filename = false;
+@@ -64,11 +64,11 @@ bool parseMaterial(Material &material, T
+     CONSOLE_BRIDGE_logError("Material must contain a name attribute");
+     return false;
+   }
+-  
++
+   material.name = config->Attribute("name");
+ 
+   // texture
+-  TiXmlElement *t = config->FirstChildElement("texture");
++  tinyxml2::XMLElement *t = config->FirstChildElement("texture");
+   if (t)
+   {
+     if (t->Attribute("filename"))
+@@ -79,7 +79,7 @@ bool parseMaterial(Material &material, T
+   }
+ 
+   // color
+-  TiXmlElement *c = config->FirstChildElement("color");
++  tinyxml2::XMLElement *c = config->FirstChildElement("color");
+   if (c)
+   {
+     if (c->Attribute("rgba")) {
+@@ -88,7 +88,7 @@ bool parseMaterial(Material &material, T
+         material.color.init(c->Attribute("rgba"));
+         has_rgb = true;
+       }
+-      catch (ParseError &e) {  
++      catch (ParseError &e) {
+         material.color.clear();
+         CONSOLE_BRIDGE_logError(std::string("Material [" + material.name + "] has malformed color rgba values: " + e.what()).c_str());
+       }
+@@ -107,7 +107,7 @@ bool parseMaterial(Material &material, T
+ }
+ 
+ 
+-bool parseSphere(Sphere &s, TiXmlElement *c)
++bool parseSphere(Sphere &s, tinyxml2::XMLElement *c)
+ {
+   s.clear();
+ 
+@@ -130,10 +130,10 @@ bool parseSphere(Sphere &s, TiXmlElement
+   return true;
+ }
+ 
+-bool parseBox(Box &b, TiXmlElement *c)
++bool parseBox(Box &b, tinyxml2::XMLElement *c)
+ {
+   b.clear();
+-  
++
+   b.type = Geometry::BOX;
+   if (!c->Attribute("size"))
+   {
+@@ -153,7 +153,7 @@ bool parseBox(Box &b, TiXmlElement *c)
+   return true;
+ }
+ 
+-bool parseCylinder(Cylinder &y, TiXmlElement *c)
++bool parseCylinder(Cylinder &y, tinyxml2::XMLElement *c)
+ {
+   y.clear();
+ 
+@@ -187,7 +187,7 @@ bool parseCylinder(Cylinder &y, TiXmlEle
+ }
+ 
+ 
+-bool parseMesh(Mesh &m, TiXmlElement *c)
++bool parseMesh(Mesh &m, tinyxml2::XMLElement *c)
+ {
+   m.clear();
+ 
+@@ -216,19 +216,19 @@ bool parseMesh(Mesh &m, TiXmlElement *c)
+   return true;
+ }
+ 
+-GeometrySharedPtr parseGeometry(TiXmlElement *g)
++GeometrySharedPtr parseGeometry(tinyxml2::XMLElement *g)
+ {
+   GeometrySharedPtr geom;
+   if (!g) return geom;
+ 
+-  TiXmlElement *shape = g->FirstChildElement();
++  tinyxml2::XMLElement *shape = g->FirstChildElement();
+   if (!shape)
+   {
+     CONSOLE_BRIDGE_logError("Geometry tag contains no child element.");
+     return geom;
+   }
+ 
+-  std::string type_name = shape->ValueStr();
++  std::string type_name = shape->Value();
+   if (type_name == "sphere")
+   {
+     Sphere *s = new Sphere();
+@@ -255,30 +255,30 @@ GeometrySharedPtr parseGeometry(TiXmlEle
+     Mesh *m = new Mesh();
+     geom.reset(m);
+     if (parseMesh(*m, shape))
+-      return geom;    
++      return geom;
+   }
+   else
+   {
+     CONSOLE_BRIDGE_logError("Unknown geometry type '%s'", type_name.c_str());
+     return geom;
+   }
+-  
++
+   return GeometrySharedPtr();
+ }
+ 
+-bool parseInertial(Inertial &i, TiXmlElement *config)
++bool parseInertial(Inertial &i, tinyxml2::XMLElement *config)
+ {
+   i.clear();
+ 
+   // Origin
+-  TiXmlElement *o = config->FirstChildElement("origin");
++  tinyxml2::XMLElement *o = config->FirstChildElement("origin");
+   if (o)
+   {
+     if (!parsePose(i.origin, o))
+       return false;
+   }
+ 
+-  TiXmlElement *mass_xml = config->FirstChildElement("mass");
++  tinyxml2::XMLElement *mass_xml = config->FirstChildElement("mass");
+   if (!mass_xml)
+   {
+     CONSOLE_BRIDGE_logError("Inertial element must have a mass element");
+@@ -300,7 +300,7 @@ bool parseInertial(Inertial &i, TiXmlEle
+     return false;
+   }
+ 
+-  TiXmlElement *inertia_xml = config->FirstChildElement("inertia");
++  tinyxml2::XMLElement *inertia_xml = config->FirstChildElement("inertia");
+   if (!inertia_xml)
+   {
+     CONSOLE_BRIDGE_logError("Inertial element must have inertia element");
+@@ -318,7 +318,7 @@ bool parseInertial(Inertial &i, TiXmlEle
+ 
+   for (auto& attr : attrs)
+   {
+-    if (!inertia_xml->Attribute(attr.first))
++    if (!inertia_xml->Attribute(attr.first.c_str()))
+     {
+       std::stringstream stm;
+       stm << "Inertial: inertia element missing " << attr.first << " attribute";
+@@ -346,19 +346,19 @@ bool parseInertial(Inertial &i, TiXmlEle
+   return true;
+ }
+ 
+-bool parseVisual(Visual &vis, TiXmlElement *config)
++bool parseVisual(Visual &vis, tinyxml2::XMLElement *config)
+ {
+   vis.clear();
+ 
+   // Origin
+-  TiXmlElement *o = config->FirstChildElement("origin");
++  tinyxml2::XMLElement *o = config->FirstChildElement("origin");
+   if (o) {
+     if (!parsePose(vis.origin, o))
+       return false;
+   }
+ 
+   // Geometry
+-  TiXmlElement *geom = config->FirstChildElement("geometry");
++  tinyxml2::XMLElement *geom = config->FirstChildElement("geometry");
+   vis.geometry = parseGeometry(geom);
+   if (!vis.geometry)
+     return false;
+@@ -368,7 +368,7 @@ bool parseVisual(Visual &vis, TiXmlEleme
+     vis.name = name_char;
+ 
+   // Material
+-  TiXmlElement *mat = config->FirstChildElement("material");
++  tinyxml2::XMLElement *mat = config->FirstChildElement("material");
+   if (mat) {
+     // get material name
+     if (!mat->Attribute("name")) {
+@@ -376,7 +376,7 @@ bool parseVisual(Visual &vis, TiXmlEleme
+       return false;
+     }
+     vis.material_name = mat->Attribute("name");
+-    
++
+     // try to parse material element in place
+     vis.material.reset(new Material());
+     if (!parseMaterial(*vis.material, mat, true))
+@@ -384,23 +384,23 @@ bool parseVisual(Visual &vis, TiXmlEleme
+       vis.material.reset();
+     }
+   }
+-  
++
+   return true;
+ }
+ 
+-bool parseCollision(Collision &col, TiXmlElement* config)
+-{  
++bool parseCollision(Collision &col, tinyxml2::XMLElement* config)
++{
+   col.clear();
+ 
+   // Origin
+-  TiXmlElement *o = config->FirstChildElement("origin");
++  tinyxml2::XMLElement *o = config->FirstChildElement("origin");
+   if (o) {
+     if (!parsePose(col.origin, o))
+       return false;
+   }
+-  
++
+   // Geometry
+-  TiXmlElement *geom = config->FirstChildElement("geometry");
++  tinyxml2::XMLElement *geom = config->FirstChildElement("geometry");
+   col.geometry = parseGeometry(geom);
+   if (!col.geometry)
+     return false;
+@@ -412,9 +412,9 @@ bool parseCollision(Collision &col, TiXm
+   return true;
+ }
+ 
+-bool parseLink(Link &link, TiXmlElement* config)
++bool parseLink(Link &link, tinyxml2::XMLElement* config)
+ {
+-  
++
+   link.clear();
+ 
+   const char *name_char = config->Attribute("name");
+@@ -426,7 +426,7 @@ bool parseLink(Link &link, TiXmlElement*
+   link.name = std::string(name_char);
+ 
+   // Inertial (optional)
+-  TiXmlElement *i = config->FirstChildElement("inertial");
++  tinyxml2::XMLElement *i = config->FirstChildElement("inertial");
+   if (i)
+   {
+     link.inertial.reset(new Inertial());
+@@ -438,7 +438,7 @@ bool parseLink(Link &link, TiXmlElement*
+   }
+ 
+   // Multiple Visuals (optional)
+-  for (TiXmlElement* vis_xml = config->FirstChildElement("visual"); vis_xml; vis_xml = vis_xml->NextSiblingElement("visual"))
++  for (tinyxml2::XMLElement* vis_xml = config->FirstChildElement("visual"); vis_xml; vis_xml = vis_xml->NextSiblingElement("visual"))
+   {
+ 
+     VisualSharedPtr vis;
+@@ -459,14 +459,14 @@ bool parseLink(Link &link, TiXmlElement*
+   // Assign the first visual to the .visual ptr, if it exists
+   if (!link.visual_array.empty())
+     link.visual = link.visual_array[0];
+-  
++
+   // Multiple Collisions (optional)
+-  for (TiXmlElement* col_xml = config->FirstChildElement("collision"); col_xml; col_xml = col_xml->NextSiblingElement("collision"))
++  for (tinyxml2::XMLElement* col_xml = config->FirstChildElement("collision"); col_xml; col_xml = col_xml->NextSiblingElement("collision"))
+   {
+     CollisionSharedPtr col;
+     col.reset(new Collision());
+     if (parseCollision(*col, col_xml))
+-    {      
++    {
+       link.collision_array.push_back(col);
+     }
+     else
+@@ -476,8 +476,8 @@ bool parseLink(Link &link, TiXmlElement*
+       return false;
+     }
+   }
+-  
+-  // Collision (optional)  
++
++  // Collision (optional)
+   // Assign the first collision to the .collision ptr, if it exists
+   if (!link.collision_array.empty())
+     link.collision = link.collision_array[0];
+@@ -486,67 +486,67 @@ bool parseLink(Link &link, TiXmlElement*
+ }
+ 
+ /* exports */
+-bool exportPose(Pose &pose, TiXmlElement* xml);
++bool exportPose(Pose &pose, tinyxml2::XMLElement* xml);
+ 
+-bool exportMaterial(Material &material, TiXmlElement *xml)
++bool exportMaterial(Material &material, tinyxml2::XMLElement *xml)
+ {
+-  TiXmlElement *material_xml = new TiXmlElement("material");
+-  material_xml->SetAttribute("name", material.name);
++  tinyxml2::XMLElement* material_xml = xml->GetDocument()->NewElement("material");
++  material_xml->SetAttribute("name", material.name.c_str());
+ 
+-  TiXmlElement* texture = new TiXmlElement("texture");
++  tinyxml2::XMLElement* texture = material_xml->GetDocument()->NewElement("texture");
+   if (!material.texture_filename.empty())
+-    texture->SetAttribute("filename", material.texture_filename);
++    texture->SetAttribute("filename", material.texture_filename.c_str());
+   material_xml->LinkEndChild(texture);
+ 
+-  TiXmlElement* color = new TiXmlElement("color");
+-  color->SetAttribute("rgba", urdf_export_helpers::values2str(material.color));
++  tinyxml2::XMLElement* color = material_xml->GetDocument()->NewElement("color");
++  color->SetAttribute("rgba", urdf_export_helpers::values2str(material.color).c_str());
+   material_xml->LinkEndChild(color);
+   xml->LinkEndChild(material_xml);
+   return true;
+ }
+ 
+-bool exportSphere(Sphere &s, TiXmlElement *xml)
++bool exportSphere(Sphere &s, tinyxml2::XMLElement *xml)
+ {
+   // e.g. add <sphere radius="1"/>
+-  TiXmlElement *sphere_xml = new TiXmlElement("sphere");
+-  sphere_xml->SetAttribute("radius", urdf_export_helpers::values2str(s.radius));
++  tinyxml2::XMLElement *sphere_xml = xml->GetDocument()->NewElement("sphere");
++  sphere_xml->SetAttribute("radius", urdf_export_helpers::values2str(s.radius).c_str());
+   xml->LinkEndChild(sphere_xml);
+   return true;
+ }
+ 
+-bool exportBox(Box &b, TiXmlElement *xml)
++bool exportBox(Box &b, tinyxml2::XMLElement *xml)
+ {
+   // e.g. add <box size="1 1 1"/>
+-  TiXmlElement *box_xml = new TiXmlElement("box");
+-  box_xml->SetAttribute("size", urdf_export_helpers::values2str(b.dim));
++  tinyxml2::XMLElement *box_xml = xml->GetDocument()->NewElement("box");
++  box_xml->SetAttribute("size", urdf_export_helpers::values2str(b.dim).c_str());
+   xml->LinkEndChild(box_xml);
+   return true;
+ }
+ 
+-bool exportCylinder(Cylinder &y, TiXmlElement *xml)
++bool exportCylinder(Cylinder &y, tinyxml2::XMLElement *xml)
+ {
+   // e.g. add <cylinder radius="1"/>
+-  TiXmlElement *cylinder_xml = new TiXmlElement("cylinder");
+-  cylinder_xml->SetAttribute("radius", urdf_export_helpers::values2str(y.radius));
+-  cylinder_xml->SetAttribute("length", urdf_export_helpers::values2str(y.length));
++  tinyxml2::XMLElement *cylinder_xml = xml->GetDocument()->NewElement("cylinder");
++  cylinder_xml->SetAttribute("radius", urdf_export_helpers::values2str(y.radius).c_str());
++  cylinder_xml->SetAttribute("length", urdf_export_helpers::values2str(y.length).c_str());
+   xml->LinkEndChild(cylinder_xml);
+   return true;
+ }
+ 
+-bool exportMesh(Mesh &m, TiXmlElement *xml)
++bool exportMesh(Mesh &m, tinyxml2::XMLElement *xml)
+ {
+   // e.g. add <mesh filename="my_file" scale="1 1 1"/>
+-  TiXmlElement *mesh_xml = new TiXmlElement("mesh");
++  tinyxml2::XMLElement *mesh_xml = xml->GetDocument()->NewElement("mesh");
+   if (!m.filename.empty())
+-    mesh_xml->SetAttribute("filename", m.filename);
+-  mesh_xml->SetAttribute("scale", urdf_export_helpers::values2str(m.scale));
++    mesh_xml->SetAttribute("filename", m.filename.c_str());
++  mesh_xml->SetAttribute("scale", urdf_export_helpers::values2str(m.scale).c_str());
+   xml->LinkEndChild(mesh_xml);
+   return true;
+ }
+ 
+-bool exportGeometry(GeometrySharedPtr &geom, TiXmlElement *xml)
++bool exportGeometry(GeometrySharedPtr &geom, tinyxml2::XMLElement *xml)
+ {
+-  TiXmlElement *geometry_xml = new TiXmlElement("geometry");
++  tinyxml2::XMLElement *geometry_xml = xml->GetDocument()->NewElement("geometry");
+   if (urdf::dynamic_pointer_cast<Sphere>(geom))
+   {
+     exportSphere((*(urdf::dynamic_pointer_cast<Sphere>(geom).get())), geometry_xml);
+@@ -576,36 +576,36 @@ bool exportGeometry(GeometrySharedPtr &g
+   return true;
+ }
+ 
+-bool exportInertial(Inertial &i, TiXmlElement *xml)
++bool exportInertial(Inertial &i, tinyxml2::XMLElement *xml)
+ {
+   // adds <inertial>
+   //        <mass value="1"/>
+   //        <pose xyz="0 0 0" rpy="0 0 0"/>
+   //        <inertia ixx="1" ixy="0" />
+   //      </inertial>
+-  TiXmlElement *inertial_xml = new TiXmlElement("inertial");
++  tinyxml2::XMLElement *inertial_xml = xml->GetDocument()->NewElement("inertial");
+ 
+-  TiXmlElement *mass_xml = new TiXmlElement("mass");
+-  mass_xml->SetAttribute("value", urdf_export_helpers::values2str(i.mass));
++  tinyxml2::XMLElement *mass_xml = inertial_xml->GetDocument()->NewElement("mass");
++  mass_xml->SetAttribute("value", urdf_export_helpers::values2str(i.mass).c_str());
+   inertial_xml->LinkEndChild(mass_xml);
+ 
+   exportPose(i.origin, inertial_xml);
+ 
+-  TiXmlElement *inertia_xml = new TiXmlElement("inertia");
+-  inertia_xml->SetAttribute("ixx", urdf_export_helpers::values2str(i.ixx));
+-  inertia_xml->SetAttribute("ixy", urdf_export_helpers::values2str(i.ixy));
+-  inertia_xml->SetAttribute("ixz", urdf_export_helpers::values2str(i.ixz));
+-  inertia_xml->SetAttribute("iyy", urdf_export_helpers::values2str(i.iyy));
+-  inertia_xml->SetAttribute("iyz", urdf_export_helpers::values2str(i.iyz));
+-  inertia_xml->SetAttribute("izz", urdf_export_helpers::values2str(i.izz));
++  tinyxml2::XMLElement *inertia_xml = inertial_xml->GetDocument()->NewElement("inertia");
++  inertia_xml->SetAttribute("ixx", urdf_export_helpers::values2str(i.ixx).c_str());
++  inertia_xml->SetAttribute("ixy", urdf_export_helpers::values2str(i.ixy).c_str());
++  inertia_xml->SetAttribute("ixz", urdf_export_helpers::values2str(i.ixz).c_str());
++  inertia_xml->SetAttribute("iyy", urdf_export_helpers::values2str(i.iyy).c_str());
++  inertia_xml->SetAttribute("iyz", urdf_export_helpers::values2str(i.iyz).c_str());
++  inertia_xml->SetAttribute("izz", urdf_export_helpers::values2str(i.izz).c_str());
+   inertial_xml->LinkEndChild(inertia_xml);
+ 
+   xml->LinkEndChild(inertial_xml);
+-  
++
+   return true;
+ }
+ 
+-bool exportVisual(Visual &vis, TiXmlElement *xml)
++bool exportVisual(Visual &vis, tinyxml2::XMLElement *xml)
+ {
+   // <visual group="default">
+   //   <origin rpy="0 0 0" xyz="0 0 0"/>
+@@ -614,7 +614,7 @@ bool exportVisual(Visual &vis, TiXmlElem
+   //   </geometry>
+   //   <material name="Grey"/>
+   // </visual>
+-  TiXmlElement * visual_xml = new TiXmlElement("visual");
++  tinyxml2::XMLElement * visual_xml = xml->GetDocument()->NewElement("visual");
+ 
+   exportPose(vis.origin, visual_xml);
+ 
+@@ -628,8 +628,8 @@ bool exportVisual(Visual &vis, TiXmlElem
+   return true;
+ }
+ 
+-bool exportCollision(Collision &col, TiXmlElement* xml)
+-{  
++bool exportCollision(Collision &col, tinyxml2::XMLElement* xml)
++{
+   // <collision group="default">
+   //   <origin rpy="0 0 0" xyz="0 0 0"/>
+   //   <geometry>
+@@ -637,7 +637,7 @@ bool exportCollision(Collision &col, TiX
+   //   </geometry>
+   //   <material name="Grey"/>
+   // </collision>
+-  TiXmlElement * collision_xml = new TiXmlElement("collision");
++  tinyxml2::XMLElement * collision_xml = xml->GetDocument()->NewElement("collision");
+ 
+   exportPose(col.origin, collision_xml);
+ 
+@@ -648,10 +648,10 @@ bool exportCollision(Collision &col, TiX
+   return true;
+ }
+ 
+-bool exportLink(Link &link, TiXmlElement* xml)
++bool exportLink(Link &link, tinyxml2::XMLElement* xml)
+ {
+-  TiXmlElement * link_xml = new TiXmlElement("link");
+-  link_xml->SetAttribute("name", link.name);
++  tinyxml2::XMLElement * link_xml = xml->GetDocument()->NewElement("link");
++  link_xml->SetAttribute("name", link.name.c_str());
+ 
+   if (link.inertial)
+     exportInertial(*link.inertial, link_xml);
+Index: git/urdf_parser/src/model.cpp
+===================================================================
+--- git.orig/urdf_parser/src/model.cpp
++++ git/urdf_parser/src/model.cpp
+@@ -1,13 +1,13 @@
+ /*********************************************************************
+ * Software License Agreement (BSD License)
+-* 
++*
+ *  Copyright (c) 2008, Willow Garage, Inc.
+ *  All rights reserved.
+-* 
++*
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+-* 
++*
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+@@ -17,7 +17,7 @@
+ *   * Neither the name of the Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+-* 
++*
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+@@ -43,9 +43,9 @@
+ 
+ namespace urdf{
+ 
+-bool parseMaterial(Material &material, TiXmlElement *config, bool only_name_is_ok);
+-bool parseLink(Link &link, TiXmlElement *config);
+-bool parseJoint(Joint &joint, TiXmlElement *config);
++bool parseMaterial(Material &material, tinyxml2::XMLElement *config, bool only_name_is_ok);
++bool parseLink(Link &link, tinyxml2::XMLElement *config);
++bool parseJoint(Joint &joint, tinyxml2::XMLElement *config);
+ 
+ ModelInterfaceSharedPtr  parseURDFFile(const std::string &path)
+ {
+@@ -93,17 +93,17 @@ ModelInterfaceSharedPtr  parseURDF(const
+   ModelInterfaceSharedPtr model(new ModelInterface);
+   model->clear();
+ 
+-  TiXmlDocument xml_doc;
++  tinyxml2::XMLDocument xml_doc;
+   xml_doc.Parse(xml_string.c_str());
+   if (xml_doc.Error())
+   {
+-    CONSOLE_BRIDGE_logError(xml_doc.ErrorDesc());
++    CONSOLE_BRIDGE_logError(xml_doc.ErrorStr());
+     xml_doc.ClearError();
+     model.reset();
+     return model;
+   }
+ 
+-  TiXmlElement *robot_xml = xml_doc.FirstChildElement("robot");
++  tinyxml2::XMLElement *robot_xml = xml_doc.FirstChildElement("robot");
+   if (!robot_xml)
+   {
+     CONSOLE_BRIDGE_logError("Could not find the 'robot' element in the xml file");
+@@ -137,7 +137,7 @@ ModelInterfaceSharedPtr  parseURDF(const
+   }
+ 
+   // Get all Material elements
+-  for (TiXmlElement* material_xml = robot_xml->FirstChildElement("material"); material_xml; material_xml = material_xml->NextSiblingElement("material"))
++  for (tinyxml2::XMLElement* material_xml = robot_xml->FirstChildElement("material"); material_xml; material_xml = material_xml->NextSiblingElement("material"))
+   {
+     MaterialSharedPtr material;
+     material.reset(new Material);
+@@ -166,7 +166,7 @@ ModelInterfaceSharedPtr  parseURDF(const
+   }
+ 
+   // Get all Link elements
+-  for (TiXmlElement* link_xml = robot_xml->FirstChildElement("link"); link_xml; link_xml = link_xml->NextSiblingElement("link"))
++  for (tinyxml2::XMLElement* link_xml = robot_xml->FirstChildElement("link"); link_xml; link_xml = link_xml->NextSiblingElement("link"))
+   {
+     LinkSharedPtr link;
+     link.reset(new Link);
+@@ -209,7 +209,7 @@ ModelInterfaceSharedPtr  parseURDF(const
+   }
+ 
+   // Get all Joint elements
+-  for (TiXmlElement* joint_xml = robot_xml->FirstChildElement("joint"); joint_xml; joint_xml = joint_xml->NextSiblingElement("joint"))
++  for (tinyxml2::XMLElement* joint_xml = robot_xml->FirstChildElement("joint"); joint_xml; joint_xml = joint_xml->NextSiblingElement("joint"))
+   {
+     JointSharedPtr joint;
+     joint.reset(new Joint);
+@@ -243,7 +243,7 @@ ModelInterfaceSharedPtr  parseURDF(const
+   parent_link_tree.clear();
+ 
+   // building tree: name mapping
+-  try 
++  try
+   {
+     model->initTree(parent_link_tree);
+   }
+@@ -265,19 +265,19 @@ ModelInterfaceSharedPtr  parseURDF(const
+     model.reset();
+     return model;
+   }
+-  
++
+   return model;
+ }
+ 
+-bool exportMaterial(Material &material, TiXmlElement *config);
+-bool exportLink(Link &link, TiXmlElement *config);
+-bool exportJoint(Joint &joint, TiXmlElement *config);
+-TiXmlDocument*  exportURDF(const ModelInterface &model)
++bool exportMaterial(Material &material, tinyxml2::XMLElement *config);
++bool exportLink(Link &link, tinyxml2::XMLElement *config);
++bool exportJoint(Joint &joint, tinyxml2::XMLElement *config);
++tinyxml2::XMLDocument*  exportURDF(const ModelInterface &model)
+ {
+-  TiXmlDocument *doc = new TiXmlDocument();
++  tinyxml2::XMLDocument *doc = new tinyxml2::XMLDocument();
+ 
+-  TiXmlElement *robot = new TiXmlElement("robot");
+-  robot->SetAttribute("name", model.name_);
++  tinyxml2::XMLElement* robot = doc->NewElement("robot");
++  robot->SetAttribute("name", model.name_.c_str());
+   doc->LinkEndChild(robot);
+ 
+ 
+@@ -287,13 +287,13 @@ TiXmlDocument*  exportURDF(const ModelIn
+     exportMaterial(*(m->second), robot);
+   }
+ 
+-  for (std::map<std::string, LinkSharedPtr>::const_iterator l=model.links_.begin(); l!=model.links_.end(); l++)  
++  for (std::map<std::string, LinkSharedPtr>::const_iterator l=model.links_.begin(); l!=model.links_.end(); ++l)
+   {
+     CONSOLE_BRIDGE_logDebug("urdfdom: exporting link [%s]\n",l->second->name.c_str());
+     exportLink(*(l->second), robot);
+   }
+   	
+-  for (std::map<std::string, JointSharedPtr>::const_iterator j=model.joints_.begin(); j!=model.joints_.end(); j++)  
++  for (std::map<std::string, JointSharedPtr>::const_iterator j=model.joints_.begin(); j!=model.joints_.end(); ++j)
+   {
+     CONSOLE_BRIDGE_logDebug("urdfdom: exporting joint [%s]\n",j->second->name.c_str());
+     exportJoint(*(j->second), robot);
+@@ -301,12 +301,11 @@ TiXmlDocument*  exportURDF(const ModelIn
+ 
+   return doc;
+ }
+-    
+-TiXmlDocument*  exportURDF(ModelInterfaceSharedPtr &model)
++
++tinyxml2::XMLDocument*  exportURDF(ModelInterfaceSharedPtr &model)
+ {
+   return exportURDF(*model);
+ }
+ 
+ 
+ }
+-
+Index: git/urdf_parser/src/pose.cpp
+===================================================================
+--- git.orig/urdf_parser/src/pose.cpp
++++ git/urdf_parser/src/pose.cpp
+@@ -1,13 +1,13 @@
+ /*********************************************************************
+ * Software License Agreement (BSD License)
+-* 
++*
+ *  Copyright (c) 2008, Willow Garage, Inc.
+ *  All rights reserved.
+-* 
++*
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+-* 
++*
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+@@ -17,7 +17,7 @@
+ *   * Neither the name of the Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+-* 
++*
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+@@ -40,7 +40,7 @@
+ #include <sstream>
+ #include <algorithm>
+ #include <console_bridge/console.h>
+-#include <tinyxml.h>
++#include <tinyxml2.h>
+ #include <urdf_parser/urdf_parser.h>
+ 
+ namespace urdf_export_helpers {
+@@ -87,7 +87,7 @@ std::string values2str(double d)
+ 
+ namespace urdf{
+ 
+-bool parsePose(Pose &pose, TiXmlElement* xml)
++bool parsePose(Pose &pose, tinyxml2::XMLElement* xml)
+ {
+   pose.clear();
+   if (xml)
+@@ -119,17 +119,15 @@ bool parsePose(Pose &pose, TiXmlElement*
+   return true;
+ }
+ 
+-bool exportPose(Pose &pose, TiXmlElement* xml)
++bool exportPose(Pose &pose, tinyxml2::XMLElement* xml)
+ {
+-  TiXmlElement *origin = new TiXmlElement("origin");
++  tinyxml2::XMLElement* origin = xml->GetDocument()->NewElement("origin");
+   std::string pose_xyz_str = urdf_export_helpers::values2str(pose.position);
+   std::string pose_rpy_str = urdf_export_helpers::values2str(pose.rotation);
+-  origin->SetAttribute("xyz", pose_xyz_str);
+-  origin->SetAttribute("rpy", pose_rpy_str);
++  origin->SetAttribute("xyz", pose_xyz_str.c_str());
++  origin->SetAttribute("rpy", pose_rpy_str.c_str());
+   xml->LinkEndChild(origin);
+   return true;
+ }
+ 
+ }
+-
+-
+Index: git/urdf_parser/src/twist.cpp
+===================================================================
+--- git.orig/urdf_parser/src/twist.cpp
++++ git/urdf_parser/src/twist.cpp
+@@ -1,13 +1,13 @@
+ /*********************************************************************
+ * Software License Agreement (BSD License)
+-* 
++*
+ *  Copyright (c) 2008, Willow Garage, Inc.
+ *  All rights reserved.
+-* 
++*
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+-* 
++*
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+@@ -17,7 +17,7 @@
+ *   * Neither the name of the Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+-* 
++*
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+@@ -39,12 +39,12 @@
+ #include <fstream>
+ #include <sstream>
+ #include <algorithm>
+-#include <tinyxml.h>
++#include <tinyxml2.h>
+ #include <console_bridge/console.h>
+ 
+ namespace urdf{
+ 
+-bool parseTwist(Twist &twist, TiXmlElement* xml)
++bool parseTwist(Twist &twist, tinyxml2::XMLElement* xml)
+ {
+   twist.clear();
+   if (xml)
+@@ -79,6 +79,3 @@ bool parseTwist(Twist &twist, TiXmlEleme
+ }
+ 
+ }
+-
+-
+-
+Index: git/urdf_parser/src/urdf_model_state.cpp
+===================================================================
+--- git.orig/urdf_parser/src/urdf_model_state.cpp
++++ git/urdf_parser/src/urdf_model_state.cpp
+@@ -1,13 +1,13 @@
+ /*********************************************************************
+ * Software License Agreement (BSD License)
+-* 
++*
+ *  Copyright (c) 2008, Willow Garage, Inc.
+ *  All rights reserved.
+-* 
++*
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+-* 
++*
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+@@ -17,7 +17,7 @@
+ *   * Neither the name of the Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+-* 
++*
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+@@ -43,13 +43,13 @@
+ #include <stdexcept>
+ #include <string>
+ #include <algorithm>
+-#include <tinyxml.h>
++#include <tinyxml2.h>
+ #include <console_bridge/console.h>
+ 
+ #include <urdf_parser/urdf_parser.h>
+ namespace urdf{
+ 
+-bool parseModelState(ModelState &ms, TiXmlElement* config)
++bool parseModelState(ModelState &ms, tinyxml2::XMLElement* config)
+ {
+   ms.clear();
+ 
+@@ -72,7 +72,7 @@ bool parseModelState(ModelState &ms, TiX
+     }
+   }
+ 
+-  TiXmlElement *joint_state_elem = config->FirstChildElement("joint_state");
++  tinyxml2::XMLElement *joint_state_elem = config->FirstChildElement("joint_state");
+   if (joint_state_elem)
+   {
+     JointStateSharedPtr joint_state;
+@@ -86,7 +86,7 @@ bool parseModelState(ModelState &ms, TiX
+       CONSOLE_BRIDGE_logError("No joint name given for the model_state.");
+       return false;
+     }
+-    
++
+     // parse position
+     const char *position_char = joint_state_elem->Attribute("position");
+     if (position_char)
+@@ -150,5 +150,3 @@ bool parseModelState(ModelState &ms, TiX
+ 
+ 
+ }
+-
+-
+Index: git/urdf_parser/src/urdf_sensor.cpp
+===================================================================
+--- git.orig/urdf_parser/src/urdf_sensor.cpp
++++ git/urdf_parser/src/urdf_sensor.cpp
+@@ -1,13 +1,13 @@
+ /*********************************************************************
+ * Software License Agreement (BSD License)
+-* 
++*
+ *  Copyright (c) 2008, Willow Garage, Inc.
+ *  All rights reserved.
+-* 
++*
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+-* 
++*
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+@@ -17,7 +17,7 @@
+ *   * Neither the name of the Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+-* 
++*
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+@@ -42,21 +42,21 @@
+ #include <stdexcept>
+ #include <string>
+ #include <algorithm>
+-#include <tinyxml.h>
++#include <tinyxml2.h>
+ #include <console_bridge/console.h>
+ 
+ #include <urdf_parser/urdf_parser.h>
+ 
+ namespace urdf{
+ 
+-bool parsePose(Pose &pose, TiXmlElement* xml);
++bool parsePose(Pose &pose, tinyxml2::XMLElement* xml);
+ 
+-bool parseCamera(Camera &camera, TiXmlElement* config)
++bool parseCamera(Camera &camera, tinyxml2::XMLElement* config)
+ {
+   camera.clear();
+   camera.type = VisualSensor::CAMERA;
+ 
+-  TiXmlElement *image = config->FirstChildElement("image");
++  tinyxml2::XMLElement *image = config->FirstChildElement("image");
+   if (image)
+   {
+     const char* width_char = image->Attribute("width");
+@@ -114,7 +114,7 @@ bool parseCamera(Camera &camera, TiXmlEl
+     {
+       CONSOLE_BRIDGE_logError("Camera sensor needs an image format attribute");
+       return false;
+-    }    
++    }
+ 
+     const char* hfov_char = image->Attribute("hfov");
+     if (hfov_char)
+@@ -163,7 +163,7 @@ bool parseCamera(Camera &camera, TiXmlEl
+       CONSOLE_BRIDGE_logError("Camera sensor needs an image far attribute");
+       return false;
+     }
+-    
++
+   }
+   else
+   {
+@@ -173,12 +173,12 @@ bool parseCamera(Camera &camera, TiXmlEl
+   return true;
+ }
+ 
+-bool parseRay(Ray &ray, TiXmlElement* config)
++bool parseRay(Ray &ray, tinyxml2::XMLElement* config)
+ {
+   ray.clear();
+   ray.type = VisualSensor::RAY;
+ 
+-  TiXmlElement *horizontal = config->FirstChildElement("horizontal");
++  tinyxml2::XMLElement *horizontal = config->FirstChildElement("horizontal");
+   if (horizontal)
+   {
+     const char* samples_char = horizontal->Attribute("samples");
+@@ -233,8 +233,8 @@ bool parseRay(Ray &ray, TiXmlElement* co
+       }
+     }
+   }
+-  
+-  TiXmlElement *vertical = config->FirstChildElement("vertical");
++
++  tinyxml2::XMLElement *vertical = config->FirstChildElement("vertical");
+   if (vertical)
+   {
+     const char* samples_char = vertical->Attribute("samples");
+@@ -292,12 +292,12 @@ bool parseRay(Ray &ray, TiXmlElement* co
+   return false;
+ }
+ 
+-VisualSensorSharedPtr parseVisualSensor(TiXmlElement *g)
++VisualSensorSharedPtr parseVisualSensor(tinyxml2::XMLElement *g)
+ {
+   VisualSensorSharedPtr visual_sensor;
+ 
+   // get sensor type
+-  TiXmlElement *sensor_xml;
++  tinyxml2::XMLElement *sensor_xml;
+   if (g->FirstChildElement("camera"))
+   {
+     Camera *camera = new Camera();
+@@ -322,7 +322,7 @@ VisualSensorSharedPtr parseVisualSensor(
+ }
+ 
+ 
+-bool parseSensor(Sensor &sensor, TiXmlElement* config)
++bool parseSensor(Sensor &sensor, tinyxml2::XMLElement* config)
+ {
+   sensor.clear();
+ 
+@@ -344,7 +344,7 @@ bool parseSensor(Sensor &sensor, TiXmlEl
+   sensor.parent_link_name = std::string(parent_link_name_char);
+ 
+   // parse origin
+-  TiXmlElement *o = config->FirstChildElement("origin");
++  tinyxml2::XMLElement *o = config->FirstChildElement("origin");
+   if (o)
+   {
+     if (!parsePose(sensor.origin, o))
+@@ -358,5 +358,3 @@ bool parseSensor(Sensor &sensor, TiXmlEl
+ 
+ 
+ }
+-
+-
+Index: git/urdf_parser/src/world.cpp
+===================================================================
+--- git.orig/urdf_parser/src/world.cpp
++++ git/urdf_parser/src/world.cpp
+@@ -1,13 +1,13 @@
+ /*********************************************************************
+ * Software License Agreement (BSD License)
+-* 
++*
+ *  Copyright (c) 2008, Willow Garage, Inc.
+ *  All rights reserved.
+-* 
++*
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+-* 
++*
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+@@ -17,7 +17,7 @@
+ *   * Neither the name of the Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+-* 
++*
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+@@ -41,12 +41,12 @@
+ #include <fstream>
+ #include <sstream>
+ #include <algorithm>
+-#include <tinyxml.h>
++#include <tinyxml2.h>
+ #include <console_bridge/console.h>
+ 
+ namespace urdf{
+ 
+-bool parseWorld(World &/*world*/, TiXmlElement* /*config*/)
++bool parseWorld(World &/*world*/, tinyxml2::XMLElement* /*config*/)
+ {
+ 
+   // to be implemented
+@@ -54,10 +54,10 @@ bool parseWorld(World &/*world*/, TiXmlE
+   return true;
+ }
+ 
+-bool exportWorld(World &world, TiXmlElement* xml)
++bool exportWorld(World &world, tinyxml2::XMLElement* xml)
+ {
+-  TiXmlElement * world_xml = new TiXmlElement("world");
+-  world_xml->SetAttribute("name", world.name);
++  tinyxml2::XMLElement * world_xml = xml->GetDocument()->NewElement("world");
++  world_xml->SetAttribute("name", world.name.c_str());
+ 
+   // to be implemented
+   // exportModels(*world.models, world_xml);
