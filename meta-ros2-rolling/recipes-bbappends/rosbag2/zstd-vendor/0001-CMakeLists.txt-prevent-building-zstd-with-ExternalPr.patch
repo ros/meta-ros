@@ -1,49 +1,38 @@
-From 1e0b46a476c1c950e22403a2d8950f5c97a1a0fe Mon Sep 17 00:00:00 2001
-From: Martin Jansa <martin.jansa@lge.com>
-Date: Fri, 5 Jun 2020 11:35:25 -0700
+From 313ec3dcc07a04209d0359d62910e3a6394b57cb Mon Sep 17 00:00:00 2001
+From: Stephen Street <stephen@redrocketcomputing.com>
+Date: Fri, 8 Nov 2024 15:52:59 -0800
 Subject: [PATCH] CMakeLists.txt: prevent building zstd with ExternalProject
 
-* use pkg-config, because zstd doesn't provide cmake find
-
-Upstream-Status: Pending
-
-Signed-off-by: Martin Jansa <martin.jansa@lge.com>
-
-Rebase patch on rolling release.
-
-Signed-off-by: Sandeep Gundlupet Raju <sandeep.gundlupet-raju@amd.com>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
 ---
- CMakeLists.txt                      | 54 +++--------------------------
- cmake_minimum_required_2.8.12.patch | 26 --------------
- no_internal_headers.patch           | 27 ---------------
- 3 files changed, 4 insertions(+), 103 deletions(-)
- delete mode 100644 cmake_minimum_required_2.8.12.patch
- delete mode 100644 no_internal_headers.patch
+ CMakeLists.txt | 19 +++++++------------
+ 1 file changed, 7 insertions(+), 12 deletions(-)
 
-Index: git/CMakeLists.txt
-===================================================================
---- git.orig/CMakeLists.txt
-+++ git/CMakeLists.txt
-@@ -6,18 +6,14 @@ find_package(ament_cmake_vendor_package
- 
- list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
- # We need at least VERSION 1.4.8, version check is done in Findzstd.cmake
--find_package(zstd 1.4.8 QUIET)
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9ec3c07a1..d205c812f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -8,19 +8,14 @@ list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
+ # We need at least VERSION 1.5.5, version check is done in Findzstd.cmake
+ # The platform with the oldest supported version is RHEL-9,
+ # which has zstd 1.5.1.  Make sure we have at least that version.
+-find_package(zstd 1.5.1 QUIET)
 +find_package(PkgConfig REQUIRED)
-+pkg_check_modules(ZSTD REQUIRED libzstd>=1.4.8)
++pkg_check_modules(ZSTD REQUIRED libzstd>=1.5.5)
  
 -ament_vendor(zstd_vendor
 -  SATISFIED ${zstd_FOUND}
 -  VCS_URL https://github.com/facebook/zstd.git
--  VCS_VERSION v1.4.8
+-  VCS_VERSION v1.5.5
 -  SOURCE_SUBDIR build/cmake
 -  CMAKE_ARGS
 -    -DZSTD_BUILD_STATIC:BOOL=OFF
 -    -DZSTD_BUILD_SHARED:BOOL=ON
 -    -DZSTD_BUILD_PROGRAMS:BOOL=OFF
+-    PATCHES patches
 -)
 +if(NOT ZSTD_FOUND)
-+  message(STATUS "Zstd not found, missing dependency or version less than 1.4.8, found ${ZSTD_VERSION}")
++  message(STATUS "Zstd not found, missing dependency or version less than 1.5.5, found ${ZSTD_VERSION}")
 +else()
 +  message(STATUS "Found Zstd, skipping build.")
 +endif()
