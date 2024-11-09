@@ -389,3 +389,6 @@ ROS_UNRESOLVED_DEP-libavdevice-dev = "ffmpeg"
 
 ROS_UNRESOLVED_DEP-liblz4-dev = "lz4"
 ROS_UNRESOLVED_DEP-liblz4 = "lz4"
+
+ROS_UNRESOLVED_DEP-python3-semver = "python3-semver"
+ROS_UNRESOLVED_DEP-python3-deprecated = "python3-deprecated"
