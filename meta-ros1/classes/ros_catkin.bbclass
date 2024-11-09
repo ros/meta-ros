@@ -43,6 +43,11 @@ EXTRA_OECMAKE:prepend = "\
     -DCATKIN_ENABLE_TESTING=0 \
     "
 
+DEBUG_PREFIX_MAP += " \
+    -fdebug-prefix-map=${WORKDIR}/devel=${ros_prefix} \
+    -fmacro-prefix-map=${WORKDIR}/devel=${ros_prefix} \
+"
+
 # similar to what distutil3.bbclass does here:
 # https://git.openembedded.org/openembedded-core/tree/meta/classes/distutils3.bbclass?h=hardknott#n46
 # but catkin recipe don't inherit whole distutils3 (only distutils3-base) and also with ros_opt_prefix.bbclass
