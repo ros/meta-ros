@@ -1,0 +1,24 @@
+Replace embedded source file path with destination path
+
+This corrects the embedded file path inserted into the pyc files.
+
+This is necessary to avoid build failures when host build paths
+are found in do_package_qa.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/cmake/pkg-genmsg.cmake.em b/cmake/pkg-genmsg.cmake.em
+index eca9adc..a991870 100644
+--- a/cmake/pkg-genmsg.cmake.em
++++ b/cmake/pkg-genmsg.cmake.em
+@@ -137,7 +137,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS @(pkg_name)_generate_messages_@(l[3
+ 
+ if(@(l)_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${@(l)_INSTALL_DIR}/@pkg_name)
+ @[if l == 'genpy']@
+-  install(CODE "execute_process(COMMAND \"@(PYTHON_EXECUTABLE)\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${@(l)_INSTALL_DIR}/@pkg_name\")")
++  install(CODE "execute_process(COMMAND \"@(PYTHON_EXECUTABLE)\" -m compileall -s \"${CATKIN_DEVEL_PREFIX}\" -p \"${CMAKE_INSTALL_PREFIX}\" \"${CATKIN_DEVEL_PREFIX}/${@(l)_INSTALL_DIR}/@pkg_name\")")
+ @[end if]@
+   # install generated code
+   install(
