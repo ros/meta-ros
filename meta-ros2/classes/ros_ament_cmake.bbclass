@@ -25,7 +25,7 @@ export AMENT_PREFIX_PATH="${STAGING_DIR_HOST}${prefix};${STAGING_DIR_NATIVE}${pr
 
 inherit cmake python3native
 
-PYTHONPATH:prepend:class-nativesdk = "${STAGING_DIR_NATIVE}/opt/ros/${ROS_DISTRO}/lib/python${PYTHON_BASEVERSION}/site-packages:"
+PYTHONPATH:prepend:class-nativesdk = "${STAGING_DIR_NATIVE}${ros_base_prefix}/lib/python${PYTHON_BASEVERSION}/site-packages:"
 
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
@@ -42,6 +42,6 @@ EXTRA_OECMAKE:prepend:class-native = "\
 "
 
 EXTRA_OECMAKE:prepend:class-nativesdk = "\
-    -DCMAKE_PREFIX_PATH='${STAGING_DIR_NATIVE}/opt/ros/${ROS_DISTRO};${STAGING_DIR_NATIVE}${ros_prefix};${STAGING_DIR_NATIVE}${prefix}' \
+    -DCMAKE_PREFIX_PATH='${STAGING_DIR_NATIVE}${ros_base_prefix};${STAGING_DIR_NATIVE}${ros_prefix};${STAGING_DIR_NATIVE}${prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
 "
