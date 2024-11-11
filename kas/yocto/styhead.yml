@@ -37,3 +37,8 @@ repos:
       meta-python:
       meta-webserver:
       meta-xfce:
+
+local_conf_header:
+  oe-core: |
+    # Use a temporary workaround to skip buildpath warnings in libgfortran
+    INSANE_SKIP:pn-libgfortran += "buildpaths"
