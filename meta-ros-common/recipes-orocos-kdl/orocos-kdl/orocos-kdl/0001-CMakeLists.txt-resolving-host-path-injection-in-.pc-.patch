@@ -6,7 +6,7 @@ Subject: [PATCH] CMakeLists.txt: resolving host path injection in .pc file
 Removing the addition of eigen include path into the pc file, which
 will cause a TMPDIR leakage.
 
-Upstream-Status: inappropriate [embedded specific]
+Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
 ---
