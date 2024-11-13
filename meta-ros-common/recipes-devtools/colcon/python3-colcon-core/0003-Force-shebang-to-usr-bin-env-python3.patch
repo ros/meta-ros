@@ -1,3 +1,12 @@
+python3-colcon-core: Fix python interpreter
+
+This ensures that the colcon-core Python module sets the correct
+Python executable when building scripts with setuptools.
+
+Upstream-Status: Pending
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+
 diff --git a/colcon_core/task/python/build.py b/colcon_core/task/python/build.py
 index 7181d20..eb82058 100644
 --- a/colcon_core/task/python/build.py
