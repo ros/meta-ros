@@ -25,3 +25,6 @@ inherit cmake python3-dir python3native
 FILES:${PN}:append = " \
     ${PYTHON_SITEPACKAGES_DIR}/PyKDL.so \
 "
+
+# QA Issue: File '/usr/lib/python3.13/site-packages/PyKDL.so' from python3-pykdl was already stripped, this will prevent future debugging! [already-stripped]
+INSANE_SKIP:${PN} += "already-stripped"
