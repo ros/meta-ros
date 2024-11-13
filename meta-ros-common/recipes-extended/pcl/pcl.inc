@@ -39,3 +39,10 @@ inherit cmake pkgconfig
 FILES:${PN}-dev += "${datadir}/${BPN}-*/*.cmake ${datadir}/${BPN}-*/Modules/*.cmake"
 
 # EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release"
+
+BPV = "${@'.'.join(d.getVar('PV').split('.')[0:2])}"
+
+do_install:append() {
+    # Fix for QA warning [buildpaths]
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${datadir}/pcl-${BPV}/PCLConfig.cmake
+}
