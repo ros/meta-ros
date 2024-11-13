@@ -34,7 +34,7 @@ EXTRA_OECMAKE += "\
 #Setting -ffloat-store to alleviate 32bit vs 64bit discrepancies on non-SSE platforms.
 CXXFLAGS += "${@bb.utils.contains("TARGET_CC_ARCH", "-mfpmath=sse", "", "-ffloat-store", d)}"
 
-inherit cmake
+inherit cmake pkgconfig
 
 FILES:${PN}-dev += "${datadir}/${BPN}-*/*.cmake ${datadir}/${BPN}-*/Modules/*.cmake"
 
