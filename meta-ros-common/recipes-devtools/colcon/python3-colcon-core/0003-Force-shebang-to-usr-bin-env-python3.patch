@@ -1,0 +1,13 @@
+diff --git a/colcon_core/task/python/build.py b/colcon_core/task/python/build.py
+index 7181d20..eb82058 100644
+--- a/colcon_core/task/python/build.py
++++ b/colcon_core/task/python/build.py
+@@ -73,7 +73,7 @@ class PythonBuildTask(TaskExtensionPoint):
+                     os.path.realpath(args.build_base),
+                     os.path.realpath(args.path)),
+                 'build', '--build-base', os.path.join(
+-                    args.build_base, 'build'),
++                    args.build_base, 'build'), '--executable', '/usr/bin/env python3',
+                 'install', '--prefix', args.install_base,
+                 '--record', os.path.join(args.build_base, 'install.log'),
+                 # prevent installation of dependencies specified in setup.py

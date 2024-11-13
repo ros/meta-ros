@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 96ef1b3e..b7487bf6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,6 +6,7 @@ find_package(ament_cmake_ros REQUIRED)
+ find_package(rcutils REQUIRED)
+ find_package(rmw REQUIRED)
+ find_package(libyaml_vendor REQUIRED)
++find_package(yaml)
+ 
+ # Default to C++14
+ if(NOT CMAKE_CXX_STANDARD)
