@@ -15,6 +15,7 @@ TOOLCHAIN_HOST_TASK:append = " \
     nativesdk-rosidl-typesupport-fastrtps-cpp \
     nativesdk-rosidl-typesupport-introspection-c \
     nativesdk-rosidl-typesupport-introspection-cpp \
+    nativesdk-ros-sdk-env \
 "
 
 TOOLCHAIN_TARGET_TASK = " \
