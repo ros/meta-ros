@@ -1,10 +1,10 @@
 
-SUMMARY = "Extension for colcon to recursively crawl for packages."
+SUMMARY = "Extension for colcon to process packages in parallel."
 SECTION = "devel/python"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://setup.cfg;beginline=22;endline=22;md5=3d0bd1ac53c1dd582844ed15eee7f8e2"
 
-SRC_URI[sha256sum] = "80a11b3a203960aff4187e9b562930ffe4bb54c061178ae1daedbf06b6da1b96"
+SRC_URI[sha256sum] = "e7137fcaf4c61db792955fd641bfad7dbad4b41928c6b81ff87a78339e116644"
 
 inherit pypi setuptools3
 
