@@ -4,7 +4,8 @@
 # Copyright (c) Qualcomm Innovation Center, Inc. All rights reserved
 #
 
-ros_prefix ?= "${base_prefix}/opt/ros/${ROS_DISTRO}"
+ros_base_prefix ?= "/opt/ros/${ROS_DISTRO}"
+ros_prefix ?= "${base_prefix}${ros_base_prefix}"
 
 ros_bindir = "${ros_prefix}/bin"
 ros_sbindir = "${ros_prefix}/sbin"
