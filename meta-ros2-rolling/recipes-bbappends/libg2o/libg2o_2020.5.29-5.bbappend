@@ -23,3 +23,15 @@ EXTRA_OECMAKE += " \
 FILES:${PN}-dev += " \
     ${ros_libdir}/libg2o*.so \
 "
+
+# ERROR: libg2o-2020.5.29-5-r0 do_package_qa: QA Issue: File /opt/ros/rolling/bin/g2o in package libg2o contains reference to TMPDIR [buildpaths]
+# ERROR: libg2o-2020.5.29-5-r0 do_package_qa: QA Issue: File /opt/ros/rolling/lib/libg2o_cli.so.0.1.0 in package libg2o contains reference to TMPDIR [buildpaths]
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://remove-build-paths.patch"
+
+# ERROR: libg2o-2020.5.29-5-r0 do_package_qa: QA Issue: File /opt/ros/rolling/lib/cmake/g2o/g2oTargets.cmake in package libg2o contains reference to TMPDIR [buildpaths]
+# ERROR: libg2o-2020.5.29-5-r0 do_package_qa: QA Issue: File /opt/ros/rolling/include/g2o/config.h in package libg2o-dev contains reference to TMPDIR [buildpaths]
+do_install:append() {
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_libdir}/cmake/g2o/g2oTargets.cmake
+    sed -i -e "s#${S}##g" ${D}${ros_includedir}/g2o/config.h
+}
