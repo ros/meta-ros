@@ -5,3 +5,5 @@
 COMPATIBLE_MACHINE = "(^$)"
 COMPATIBLE_MACHINE:aarch64 = "(.*)"
 COMPATIBLE_MACHINE:x86-64 = "(.*)"
+
+LICENSE = "BSD-3-Clause"
