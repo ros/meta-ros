@@ -9,3 +9,14 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://do-not-search-source-tree-for-dataset.patch"
 
 EXTRA_OECMAKE += " -DGTSAM_USE_SYSTEM_EIGEN=ON"
+
+# ERROR: QA Issue: File /opt/ros/rolling/lib/cmake/GTSAM_UNSTABLE/GTSAM_UNSTABLEConfig.cmake in package gtsam contains reference to TMPDIR [buildpaths]
+# ERROR: QA Issue: File /opt/ros/rolling/lib/cmake/GTSAM/GTSAM-exports.cmake in package gtsam contains reference to TMPDIR [buildpaths]
+# ERROR: QA Issue: File /opt/ros/rolling/lib/cmake/GTSAM/GTSAMConfig.cmake in package gtsam contains reference to TMPDIR [buildpaths]
+# ERROR: QA Issue: File /opt/ros/rolling/include/gtsam/config.h in package gtsam-dev contains reference to TMPDIR [buildpaths]
+do_install:append() {
+    sed -i -e "s#${S}##g" ${D}${ros_libdir}/cmake/GTSAM_UNSTABLE/GTSAM_UNSTABLEConfig.cmake
+    sed -i -e "s#${S}##g" ${D}${ros_libdir}/cmake/GTSAM/GTSAMConfig.cmake
+    sed -i -e "s#${S}##g" ${D}${ros_includedir}/gtsam/config.h
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_libdir}/cmake/GTSAM/GTSAM-exports.cmake
+}
