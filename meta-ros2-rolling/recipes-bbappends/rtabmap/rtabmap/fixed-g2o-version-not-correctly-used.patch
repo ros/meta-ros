@@ -1,0 +1,64 @@
+From 6fe5e6375f3f18dd9715b1f98c2617b3599547ad Mon Sep 17 00:00:00 2001
+From: matlabbe <matlabbe@gmail.com>
+Date: Mon, 13 Mar 2023 22:10:24 -0700
+Subject: [PATCH] Fixed g2o version not correctly used, D400: set default to
+ IR+Depth
+
+---
+ corelib/src/optimizer/OptimizerG2O.cpp | 6 +++---
+ guilib/src/PreferencesDialog.cpp       | 6 +++++-
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/corelib/src/optimizer/OptimizerG2O.cpp b/corelib/src/optimizer/OptimizerG2O.cpp
+index 753e548f94..405882e4b1 100644
+--- a/corelib/src/optimizer/OptimizerG2O.cpp
++++ b/corelib/src/optimizer/OptimizerG2O.cpp
+@@ -153,7 +153,7 @@ OptimizerG2O::OptimizerG2O(const ParametersMap & parameters) :
+ 	// Issue on android, have to explicitly register this type when using fixed root prior below
+ 	if(!g2o::Factory::instance()->knowsTag("CACHE_SE3_OFFSET"))
+ 	{
+-#if defined(RTABMAP_G2O_CPP11) and RTABMAP_G2O_CPP11 == 1
++#if defined(RTABMAP_G2O_CPP11) && RTABMAP_G2O_CPP11 == 1
+ 		g2o::Factory::instance()->registerType("CACHE_SE3_OFFSET", g2o::make_unique<g2o::HyperGraphElementCreator<g2o::CacheSE3Offset> >());
+ #else
+ 		g2o::Factory::instance()->registerType("CACHE_SE3_OFFSET", new g2o::HyperGraphElementCreator<g2o::CacheSE3Offset>);
+@@ -1414,7 +1414,7 @@ std::map<int, Transform> OptimizerG2O::optimizeBA(
+ 	{
+ 		g2o::SparseOptimizer optimizer;
+ 		//optimizer.setVerbose(ULogger::level()==ULogger::kDebug);
+-#if defined(RTABMAP_G2O_CPP11) and not defined(RTABMAP_ORB_SLAM)
++#if defined(RTABMAP_G2O_CPP11) && !defined(RTABMAP_ORB_SLAM)
+ 		std::unique_ptr<g2o::BlockSolver_6_3::LinearSolverType> linearSolver;
+ #else
+ 		g2o::BlockSolver_6_3::LinearSolverType * linearSolver = 0;
+@@ -1478,7 +1478,7 @@ std::map<int, Transform> OptimizerG2O::optimizeBA(
+ 		else
+ #endif
+ 		{
+-#if defined(RTABMAP_G2O_CPP11) and not defined(RTABMAP_ORB_SLAM)
++#if defined(RTABMAP_G2O_CPP11) && !defined(RTABMAP_ORB_SLAM)
+ 			optimizer.setAlgorithm(new g2o::OptimizationAlgorithmLevenberg(
+ 					g2o::make_unique<g2o::BlockSolver_6_3>(std::move(linearSolver))));
+ #else
+diff --git a/guilib/src/PreferencesDialog.cpp b/guilib/src/PreferencesDialog.cpp
+index fed95e7892..4910410e6c 100644
+--- a/guilib/src/PreferencesDialog.cpp
++++ b/guilib/src/PreferencesDialog.cpp
+@@ -3921,12 +3921,16 @@ void PreferencesDialog::selectSourceDriver(Src src, int variant)
+ 				_ui->spinBox_rs2_width->setValue(1280);
+ 				_ui->spinBox_rs2_height->setValue(720);
+ 				_ui->spinBox_rs2_rate->setValue(30);
++				_ui->checkbox_rs2_irMode->setChecked(false);
++				_ui->checkbox_rs2_emitter->setChecked(true);
+ 			}
+-			else
++			else // D400
+ 			{
+ 				_ui->spinBox_rs2_width->setValue(848);
+ 				_ui->spinBox_rs2_height->setValue(480);
+ 				_ui->spinBox_rs2_rate->setValue(60);
++				_ui->checkbox_rs2_irMode->setChecked(true);
++				_ui->checkbox_rs2_emitter->setChecked(false);
+ 			}
+ 		}
+ 	}
