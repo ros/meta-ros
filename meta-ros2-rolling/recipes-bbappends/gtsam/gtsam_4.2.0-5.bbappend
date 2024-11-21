@@ -7,3 +7,5 @@ LICENSE = "BSD-3-Clause & MIT & Apache-2.0 & MPL-2.0 & GPL-3.0-or-later & LGPL-2
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://do-not-search-source-tree-for-dataset.patch"
+
+EXTRA_OECMAKE += " -DGTSAM_USE_SYSTEM_EIGEN=ON"
