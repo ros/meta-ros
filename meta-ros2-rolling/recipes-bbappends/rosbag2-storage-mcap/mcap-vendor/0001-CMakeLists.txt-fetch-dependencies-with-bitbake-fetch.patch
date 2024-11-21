@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [openembedded only]
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
