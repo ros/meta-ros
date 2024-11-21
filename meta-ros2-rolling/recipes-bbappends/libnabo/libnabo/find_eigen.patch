@@ -1,0 +1,39 @@
+libnabo: Use find_package to find Eigen3
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -90,17 +90,8 @@ endif ()
+ 
+ include(GNUInstallDirs)
+ 
+-# eigen 2 or 3
+-find_path(EIGEN_INCLUDE_DIR NAMES signature_of_eigen3_matrix_library
+-  HINTS  ENV EIGEN3_INC_DIR
+-         ENV EIGEN3_DIR
+-  PATHS  Eigen/Core
+-         /usr/local/include
+-         /usr/include
+-         /opt/local/include
+-  PATH_SUFFIXES include eigen3 eigen2 eigen
+-  DOC "Directory containing the Eigen3 header files"
+-)
++find_package(eigen3_cmake_module REQUIRED)
++find_package(Eigen3)
+ 
+ # optionally, opencl
+ # OpenCL disabled as its code is not up-to-date with API
+@@ -153,7 +144,7 @@ endif ()
+ set_target_properties(${LIB_NAME} PROPERTIES VERSION "${PROJECT_VERSION}" SOVERSION 1)
+ 
+ target_include_directories(${LIB_NAME} PUBLIC
+-	${EIGEN_INCLUDE_DIR}
++	${Eigen3_INCLUDE_DIRS}
+ 	$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+ 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+   )
