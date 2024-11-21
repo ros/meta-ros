@@ -1,5 +1,6 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
+LICENSE = "BSD-2-Clause"
 
 PACKAGECONFIG ?= "${@bb.utils.filter('DISTRO_FEATURES', 'opengl', d)}"
 PACKAGECONFIG[opengl] = "-DG2O_USE_OPENGL=ON,-DG2O_USE_OPENGL=OFF,libglu"
