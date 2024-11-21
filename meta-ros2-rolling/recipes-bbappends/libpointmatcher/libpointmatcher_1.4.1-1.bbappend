@@ -7,4 +7,7 @@ COMPATIBLE_MACHINE:aarch64 = "(.*)"
 COMPATIBLE_MACHINE:x86-64 = "(.*)"
 
 LICENSE = "BSD-3-Clause"
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://replace-deprecated-boost-functions.patch"
 BBCLASSEXTEND = "native"
