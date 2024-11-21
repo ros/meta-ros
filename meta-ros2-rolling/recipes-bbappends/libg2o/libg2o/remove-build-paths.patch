@@ -1,0 +1,37 @@
+libg2o: Remove references to host build paths
+
+ERROR: libg2o-2020.5.29-5-r0 do_package_qa: QA Issue: File /opt/ros/rolling/bin/g2o in package libg2o contains reference to TMPDIR [buildpaths]
+
+ERROR: libg2o-2020.5.29-5-r0 do_package_qa: QA Issue: File /opt/ros/rolling/lib/libg2o_cli.so.0.1.0 in package libg2o contains reference to TMPDIR [buildpaths]
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -488,7 +488,8 @@ set(G2O_HAVE_CHOLMOD ${CHOLMOD_FOUND})
+ set(G2O_HAVE_CSPARSE ${G2O_USE_CSPARSE})
+ set(G2O_SHARED_LIBS ${BUILD_SHARED_LIBS})
+ set(G2O_LGPL_SHARED_LIBS ${BUILD_LGPL_SHARED_LIBS})
+-set(G2O_CXX_COMPILER "${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER}")
++cmake_path(GET CMAKE_CXX_COMPILER FILENAME CMAKE_CXX_COMPILER_FILENAME)
++set(G2O_CXX_COMPILER "${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_FILENAME}")
+ 
+ # Generate cmake configuration scripts
+ set(G2O_GENERATED_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
+Index: git/g2o/apps/g2o_cli/CMakeLists.txt
+===================================================================
+--- git.orig/g2o/apps/g2o_cli/CMakeLists.txt
++++ git/g2o/apps/g2o_cli/CMakeLists.txt
+@@ -13,7 +13,7 @@ if (APPLE)
+   set_target_properties(g2o_cli_library PROPERTIES INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
+ endif()
+ 
+-set_property(TARGET g2o_cli_library APPEND PROPERTY COMPILE_DEFINITIONS G2O_DEFAULT_TYPES_DIR_="${CMAKE_LIBRARY_OUTPUT_DIRECTORY}" G2O_DEFAULT_SOLVERS_DIR_="${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
++set_property(TARGET g2o_cli_library APPEND PROPERTY COMPILE_DEFINITIONS G2O_DEFAULT_TYPES_DIR_="${CMAKE_INSTALL_PREFIX}/lib" G2O_DEFAULT_SOLVERS_DIR_="${CMAKE_INSTALL_PREFIX}/lib")
+ 
+ target_link_libraries(g2o_cli_library core)
+ if(UNIX)
