@@ -17,3 +17,21 @@ inherit cmake
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
+
+# ERROR: octomap-1.10.0-r0 do_package_qa: QA Issue: octomap:
+#   /usr/bin/compare_octrees
+#   /usr/bin/binvox2bt
+#   /usr/bin/edit_octree
+#   /usr/bin/graph2tree
+#   /usr/bin/log2graph
+#   /usr/bin/bt2vrml
+#   /usr/bin/eval_octree_accuracy
+#   /usr/bin/convert_octree
+#   /usr/lib/liboctomap.so.1.10.0
+#   /usr/lib/liboctomath.so.1.10.0
+#   contains probably-redundant RPATH /usr/lib [useless-rpaths]
+DEPENDS:append:class-target = " chrpath-replacement-native"
+do_install:append() {
+    chrpath --delete ${D}${bindir}/*
+    chrpath --delete ${D}${libdir}/*${SOLIBS}
+}
