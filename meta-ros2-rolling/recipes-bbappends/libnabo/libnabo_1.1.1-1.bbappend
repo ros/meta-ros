@@ -8,3 +8,5 @@ LICENSE = "BSD-3-Clause"
 do_install:append() {
     sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_datadir}/libnabo/cmake/libnabo-targets.cmake
 }
+
+BBCLASSEXTEND = "native"
