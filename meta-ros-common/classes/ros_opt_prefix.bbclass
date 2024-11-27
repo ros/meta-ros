@@ -30,9 +30,56 @@ ROS_PYTHON_VERSION ?= "3"
 inherit ${@'python3-dir' if d.getVar('ROS_PYTHON_VERSION') == '3' else 'python-dir'}
 
 PKG_CONFIG_PATH .= ":${PKG_CONFIG_DIR}:${STAGING_DIR_HOST}${ros_libdir}/pkgconfig:${STAGING_DATADIR}/pkgconfig"
+
 PYTHON_SITEPACKAGES_DIR = "${ros_libdir}/${PYTHON_DIR}/site-packages"
-export PYTHONPATH:prepend = "${STAGING_DIR_NATIVE}${PYTHON_SITEPACKAGES_DIR}:"
-PYTHONPATH:class-native:prepend = "${PYTHON_SITEPACKAGES_DIR}:"
+
+setup_rosoptprefix_config() {
+        if [ -n "$PYTHON" ]; then export PYTHONPATH=${STAGING_DIR_NATIVE}${ros_libdir}/${PYTHON_DIR}/site-packages:$PYTHONPATH; fi
+}
+
+do_configure:prepend:class-target() {
+        setup_rosoptprefix_config
+}
+
+do_compile:prepend:class-target() {
+        setup_rosoptprefix_config
+}
+
+do_install:prepend:class-target() {
+        setup_rosoptprefix_config
+}
+
+setup_rosoptprefix_native_config() {
+        if [ -n "$PYTHON" ]; then export PYTHONPATH=${ros_libdir}/${PYTHON_DIR}/site-packages:$PYTHONPATH; fi
+}
+
+do_configure:prepend:class-native() {
+        setup_rosoptprefix_native_config
+}
+
+do_compile:prepend:class-native() {
+        setup_rosoptprefix_native_config
+}
+
+do_install:prepend:class-native() {
+        setup_rosoptprefix_native_config
+}
+
+setup_rosoptprefix_nativesdk_config() {
+        if [ -n "$PYTHON" ]; then export PYTHONPATH=${STAGING_DIR_NATIVE}${ros_base_prefix}/lib/${PYTHON_DIR}/site-packages:$PYTHONPATH; fi
+}
+
+do_configure:prepend:class-nativesdk() {
+        setup_rosoptprefix_nativesdk_config
+}
+
+do_compile:prepend:class-nativesdk() {
+        setup_rosoptprefix_nativesdk_config
+}
+
+do_install:prepend:class-nativesdk() {
+        setup_rosoptprefix_nativesdk_config
+}
 
 FILES_SOLIBSDEV += " ${ros_libdir}/lib*${SOLIBSDEV}"
 
