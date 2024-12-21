@@ -16,6 +16,7 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-typesupport-fastrtps-cpp-native \
     rosidl-typesupport-introspection-cpp-native \
+    rosidl-default-runtime \
 "
 
 ROS_BUILD_DEPENDS += " \
