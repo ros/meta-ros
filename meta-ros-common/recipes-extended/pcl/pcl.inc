@@ -7,8 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5b8a2a1aa14e6de44b4273134946a34c"
 
 DEPENDS = "boost libflann libeigen qhull"
 
-SRC_URI = "git://github.com/PointCloudLibrary/pcl.git;branch=master;protocol=https \
-           file://0001-MovingLeastSquares-reduce-the-number.patch"
+SRC_URI = "git://github.com/PointCloudLibrary/pcl.git;branch=master;protocol=https"
 
 S = "${WORKDIR}/git"
 
@@ -35,8 +34,15 @@ EXTRA_OECMAKE += "\
 #Setting -ffloat-store to alleviate 32bit vs 64bit discrepancies on non-SSE platforms.
 CXXFLAGS += "${@bb.utils.contains("TARGET_CC_ARCH", "-mfpmath=sse", "", "-ffloat-store", d)}"
 
-inherit cmake
+inherit cmake pkgconfig
 
 FILES:${PN}-dev += "${datadir}/${BPN}-*/*.cmake ${datadir}/${BPN}-*/Modules/*.cmake"
 
 # EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release"
+
+BPV = "${@'.'.join(d.getVar('PV').split('.')[0:2])}"
+
+do_install:append() {
+    # Fix for QA warning [buildpaths]
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${datadir}/pcl-${BPV}/PCLConfig.cmake
+}

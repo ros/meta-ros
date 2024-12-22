@@ -102,8 +102,6 @@ ROS_WORLD_SKIP_GROUPS += "opensplice"
 ROS_WORLD_SKIP_GROUPS += "gurumdds"
 # recipes depending on turtlebot3 specific recipes which weren't ported to eloquent yet
 ROS_WORLD_SKIP_GROUPS += "turtlebot3"
-# recipes depending on coinor-libipopt
-ROS_WORLD_SKIP_GROUPS += "coinor-libipopt"
 # Needs work to launch qemu to run tests on image on build machine.
 ROS_WORLD_SKIP_GROUPS += "launch"
 # recipes depending on ROS_UNRESOLVED_DEP-python3-babeltrace which cannot be just
@@ -118,8 +116,6 @@ ROS_WORLD_SKIP_GROUPS += "libspnav"
 ROS_WORLD_SKIP_GROUPS += "libopen3d"
 # recipes depends on aws
 ROS_WORLD_SKIP_GROUPS += "aws"
-# recipes depends on mrpt2
-ROS_WORLD_SKIP_GROUPS += "mrpt2"
 
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
@@ -144,9 +140,6 @@ ROS_WORLD_SKIP_GROUPS += "gazebo"
 
 # recipes depending on libqglviewer (https://packages.debian.org/source/stretch/libqglviewer https://packages.debian.org/stretch/libqglviewer2-qt5)
 ROS_WORLD_SKIP_GROUPS += "libqglviewer"
-
-# recipes depending on ignition-* (ROS_UNRESOLVED_DEP-ignition-gazebo5, ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-msgs7, ROS_UNRESOLVED_DEP-ignition-transport10, ROS_UNRESOLVED_DEP-ignition-rendering5, ROS_UNRESOLVED_DEP-ignition-common4, ROS_UNRESOLVED_DEP-ignition-gui5)
-ROS_WORLD_SKIP_GROUPS += "ignition"
 
 # recipes depending on legacy mongo-cxx-driver (https://packages.debian.org/source/stretch/mongo-cxx-driver-legacy)
 # the mongodb recipe in meta-oe installs just the binaries mongoc, mongos, install_compass
@@ -386,3 +379,55 @@ ROS_UNRESOLVED_DEP-libgdal-dev = "gdal"
 ROS_UNRESOLVED_DEP-python3-smbus = "python3-smbus"
 ROS_UNRESOLVED_DEP-libxkbcommon-dev = "libxkbcommon"
 ROS_UNRESOLVED_DEP-libavdevice-dev = "ffmpeg"
+
+ROS_UNRESOLVED_DEP-glslc = "shaderc"
+ROS_UNRESOLVED_DEP-libshaderc-dev = "shaderc"
+ROS_UNRESOLVED_DEP-libgts = "gts"
+ROS_UNRESOLVED_DEP-liblz4 = "lz4"
+ROS_UNRESOLVED_DEP-liblz4-dev = "lz4"
+ROS_UNRESOLVED_DEP-qml-module-qtquick-extras = "qtdeclarative"
+ROS_UNRESOLVED_DEP-qml-module-qtcharts = "qtcharts"
+ROS_UNRESOLVED_DEP-qml-module-qtgraphicaleffects = "qtgraphicaleffects"
+ROS_UNRESOLVED_DEP-qml-module-qt-labs-folderlistmodel = "qtdeclarative"
+ROS_UNRESOLVED_DEP-qml-module-qt-labs-platform = "qtdeclarative"
+ROS_UNRESOLVED_DEP-qml-module-qt-labs-settings = "qtdeclarative"
+ROS_UNRESOLVED_DEP-qml-module-qtlocation = "qtlocation"
+ROS_UNRESOLVED_DEP-qml-module-qtpositioning = "qtlocation"
+ROS_UNRESOLVED_DEP-qml-module-qtquick2 = "qtdeclarative"
+ROS_UNRESOLVED_DEP-qml-module-qtquick-controls = "qtquickcontrols"
+ROS_UNRESOLVED_DEP-qml-module-qtquick-controls2 = "qtquickcontrols2"
+ROS_UNRESOLVED_DEP-qml-module-qtquick-dialogs = "qtdeclarative"
+ROS_UNRESOLVED_DEP-qml-module-qtquick-layouts = "qtdeclarative"
+ROS_UNRESOLVED_DEP-qml-module-qtquick-templates2 = "qtdeclarative"
+ROS_UNRESOLVED_DEP-qml-module-qtquick-window2 = "qtdeclarative"
+ROS_UNRESOLVED_DEP-ruby = "ruby"
+ROS_UNRESOLVED_DEP-zziplib = "zziplib"
+ROS_UNRESOLVED_DEP-libnlopt-dev = "nlopt"
+ROS_UNRESOLVED_DEP-libnlopt-cxx-dev = "nlopt"
+ROS_UNRESOLVED_DEP-rapidjson-dev = "rapidjson"
+ROS_UNRESOLVED_DEP-libwebsockets = "libwebsockets"
+ROS_UNRESOLVED_DEP-qtquickcontrols2-5-dev = "qtquickcontrols2"
+ROS_UNRESOLVED_DEP-qtquickcontrols2-5 = "qtquickcontrols2"
+ROS_UNRESOLVED_DEP-libfreeimage = "freeimage"
+ROS_UNRESOLVED_DEP-libfreeimage-dev = "freeimage"
+
+ROS_UNRESOLVED_DEP-libxcb-randr0-dev = "libxcb"
+ROS_UNRESOLVED_DEP-glslang-dev = "glslang"
+ROS_UNRESOLVED_DEP-libx11-xcb-dev = "libxcb"
+ROS_UNRESOLVED_DEP-libwebsockets-dev = "libwebsockets"
+ROS_UNRESOLVED_DEP-libcurl-dev = "curl"
+ROS_UNRESOLVED_DEP-libzip-dev = "libzip"
+ROS_UNRESOLVED_DEP-ignition-math6 = "ignition-math6"
+
+ROS_UNRESOLVED_DEP-ros-ign = "ros-gz"
+ROS_UNRESOLVED_DEP-ros-ign-gazebo = "ros-gz-sim"
+ROS_UNRESOLVED_DEP-ros-ign-gazebo-demos = "ros-gz-sim-demos"
+ROS_UNRESOLVED_DEP-ros-ign-image = "ros-gz-image"
+ROS_UNRESOLVED_DEP-ros-ign-interfaces = "ros-gz-interfaces"
+ROS_UNRESOLVED_DEP-ros-ign-bridge = "ros-gz-bridge"
+
+ROS_UNRESOLVED_DEP-python3-deprecated = "python3-deprecated"
+ROS_UNRESOLVED_DEP-coinor-libipopt-dev = "ipopt"
+
+ROS_UNRESOLVED_DEP-python3-semver = "python3-semver"
+ROS_UNRESOLVED_DEP-libusb = "libusb-compat"

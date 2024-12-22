@@ -9,18 +9,18 @@ Upstream-Status: Pending
  setup.cfg | 4 ----
  1 file changed, 4 deletions(-)
 
-diff --git a/setup.cfg b/setup.cfg
-index 64b4562..09afd3c 100644
---- a/setup.cfg
-+++ b/setup.cfg
-@@ -30,10 +30,6 @@ install_requires =
- 	coloredlogs; sys_platform == 'win32'
- 	distlib
+Index: colcon-core-0.18.3/setup.cfg
+===================================================================
+--- colcon-core-0.18.3.orig/setup.cfg
++++ colcon-core-0.18.3/setup.cfg
+@@ -32,10 +32,6 @@ install_requires =
  	EmPy
+ 	importlib-metadata; python_version < "3.8"
+ 	packaging
 -	pytest
 -	pytest-cov
 -	pytest-repeat
 -	pytest-rerunfailures
  	setuptools>=30.3.0
+ 	tomli>=1.0.0; python_version < "3.11"
  packages = find:
- tests_require = 

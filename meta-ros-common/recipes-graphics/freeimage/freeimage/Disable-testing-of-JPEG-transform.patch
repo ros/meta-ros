@@ -1,0 +1,42 @@
+From: Ghislain Antony Vaillant <ghisvail@gmail.com>
+Date: Tue, 3 Nov 2015 18:15:18 +0000
+Subject: Disable testing of JPEG transform.
+
+Reason: the JPEG transform features are disabled from the Debian build as a
+result of the stripping of the vendored dependencies.
+---
+ TestAPI/testJPEG.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+Index: FreeImage/TestAPI/testJPEG.cpp
+===================================================================
+--- FreeImage.orig/TestAPI/testJPEG.cpp
++++ FreeImage/TestAPI/testJPEG.cpp
+@@ -25,6 +25,7 @@
+ // Local test functions
+ // ----------------------------------------------------------
+ 
++#if 0
+ void testJPEGTransform(const char *src_file) {
+ 	BOOL bResult;
+ 	BOOL perfect;
+@@ -193,11 +194,13 @@ void testJPEGSameFile(const char *src_fi
+ 	bResult = FreeImage_JPEGTransform("test.jpg", "test.jpg", FIJPEG_OP_ROTATE_270, perfect);
+ 	assert(bResult);
+ }
++#endif
+ 
+ // Main test function
+ // ----------------------------------------------------------
+ 
+ void testJPEG() {
++#if 0
+ 	const char *src_file = "exif.jpg";
+ 
+ 	printf("testJPEG (should throw exceptions) ...\n");
+@@ -213,4 +216,5 @@ void testJPEG() {
+ 
+ 	// using the same file for src & dst is allowed
+ 	testJPEGSameFile(src_file);
++#endif
+ }

@@ -14,5 +14,5 @@ EXTRA_OECMAKE += " \
 
 # non -dev/-dbg/nativesdk- package libg2o contains symlink .so '/usr/lib/libg2o_stuff.so'
 FILES:${PN}-dev += " \
-    ${libdir}/libg2o*.so \
+    ${ros_libdir}/libg2o*.so \
 "

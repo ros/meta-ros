@@ -1,0 +1,19 @@
+Index: git/Makefile.gnu
+===================================================================
+--- git.orig/Makefile.gnu
++++ git/Makefile.gnu
+@@ -26,12 +26,12 @@ override CFLAGS += -DOPJ_STATIC
+ override CFLAGS += -DNO_LCMS
+ # LibJXR
+ override CFLAGS += -DDISABLE_PERF_MEASUREMENT -D__ANSI__
+-override CFLAGS += $(INCLUDE) -I/usr/include/jxrlib $(shell $(PKG_CONFIG) --cflags libjpeg libopenjp2 libpng libraw libtiff-4 libwebpmux OpenEXR zlib)
++override CFLAGS += $(INCLUDE) $(shell $(PKG_CONFIG) --cflags libjpeg libopenjp2 libpng libraw libtiff-4 libwebpmux OpenEXR zlib libjxr)
+ CXXFLAGS ?= -O3 -fPIC
+ override CXXFLAGS += -fexceptions -fvisibility=hidden -Wno-ctor-dtor-privacy
+ # LibJXR
+ override CXXFLAGS += -D__ANSI__
+-override CXXFLAGS += $(INCLUDE) -I/usr/include/jxrlib $(shell $(PKG_CONFIG) --cflags libjpeg libopenjp2 libpng libraw libtiff-4 libwebpmux OpenEXR zlib)
++override CXXFLAGS += $(INCLUDE) $(shell $(PKG_CONFIG) --cflags libjpeg libopenjp2 libpng libraw libtiff-4 libwebpmux OpenEXR zlib libjxr)
+ 
+ TARGET  = freeimage
+ STATICLIB = lib$(TARGET).a

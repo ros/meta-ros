@@ -1,0 +1,20 @@
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1040259
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Description: Fix FTBFS on some big-endian targets
+Bug-Debian: https://bugs.debian.org/1002610
+Origin: backport, https://sourceforge.net/p/freeimage/svn/1809/
+
+Index: git/Source/FreeImage/PluginRAW.cpp
+===================================================================
+--- git.orig/Source/FreeImage/PluginRAW.cpp
++++ git/Source/FreeImage/PluginRAW.cpp
+@@ -691,7 +691,7 @@ Load(FreeImageIO *io, fi_handle handle,
+ 		// --------------------------------------------
+ 
+ 		// (-s [0..N-1]) Select one raw image from input file
+-		RawProcessor->imgdata.params.shot_select = 0;
++		RawProcessor->imgdata.rawparams.shot_select = 0;
+ 		// (-w) Use camera white balance, if possible (otherwise, fallback to auto_wb)
+ 		RawProcessor->imgdata.params.use_camera_wb = 1;
+ 		// (-M) Use any color matrix from the camera metadata. This option only affects Olympus, Leaf, and Phase One cameras.

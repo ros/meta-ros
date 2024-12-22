@@ -1,0 +1,30 @@
+Use the native compiler to build the predicates_init build tool.
+
+Execute the native binary, predicates_init, located in the build directory.
+
+  /bin/bash: line 1: ./predicates_init: No such file or directory
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/src/Makefile.am
+===================================================================
+--- git.orig/src/Makefile.am
++++ git/src/Makefile.am
+@@ -63,13 +63,13 @@ include_HEADERS = \
+	gts.h gtsconfig.h
+
+ predicates.o: predicates.c predicates_init.h predicates.h
+-	$(COMPILE) -c $(srcdir)/predicates.c
++	$(BUILD_CC) $(INCLUDES) $(BUILD_CPPFLAGS) $(BUILD_CFLAGS) -c $(srcdir)/predicates.c
+
+ predicates_init: predicates_init.c rounding.h
+-	$(COMPILE) $(srcdir)/predicates_init.c -o $(srcdir)/predicates_init
++	$(BUILD_CC) $(INCLUDES) $(BUILD_CPPFLAGS) $(BUILD_CFLAGS) $(srcdir)/predicates_init.c -o $(builddir)/predicates_init
+
+ predicates_init.h: predicates_init
+-	./predicates_init >  $(srcdir)/predicates_init.h
++	$(builddir)/predicates_init >  $(srcdir)/predicates_init.h
+
+ CLEANFILES = $(BUILT_SOURCES)

@@ -1,0 +1,20 @@
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c557a4970..389929b1d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,11 +1,6 @@
+ cmake_minimum_required(VERSION 3.16)
+ project(hardware_interface LANGUAGES CXX)
+ 
+-if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+-  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type -Werror=shadow
+-          -Werror=missing-braces)
+-endif()
+-
+ set(THIS_PACKAGE_INCLUDE_DEPENDS
+   control_msgs
+   lifecycle_msgs

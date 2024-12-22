@@ -3,8 +3,8 @@ HOMEPAGE = "https://github.com/flexible-collision-library/fcl"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7de20b14c33be61ee0c714b41e286d0b"
 
-# Octomap dependency not included as it is optional.
-DEPENDS = "boost libccd libeigen"
+# octomap support in fcl is needed by moveit
+DEPENDS = "boost libccd libeigen octomap"
 
 SRCREV = "97455a46de121fb7c0f749e21a58b1b54cd2c6be"
 ROS_BRANCH ?= "branch=master"

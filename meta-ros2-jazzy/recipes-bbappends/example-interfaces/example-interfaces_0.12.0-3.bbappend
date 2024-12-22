@@ -14,6 +14,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
+    action-msgs \
 "
 
 ROS_EXEC_DEPENDS += " \

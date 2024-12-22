@@ -386,3 +386,8 @@ ROS_UNRESOLVED_DEP-libgdal-dev = "gdal"
 ROS_UNRESOLVED_DEP-python3-smbus = "python3-smbus"
 ROS_UNRESOLVED_DEP-libxkbcommon-dev = "libxkbcommon"
 ROS_UNRESOLVED_DEP-libavdevice-dev = "ffmpeg"
+
+ROS_UNRESOLVED_DEP-liblz4-dev = "lz4"
+ROS_UNRESOLVED_DEP-liblz4 = "lz4"
+
+ROS_UNRESOLVED_DEP-python3-deprecated = "python3-deprecated"

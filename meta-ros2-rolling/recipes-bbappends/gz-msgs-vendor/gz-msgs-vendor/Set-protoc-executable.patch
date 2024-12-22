@@ -1,0 +1,11 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1ca5fc1..9641111 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -44,6 +44,7 @@ ament_vendor(${LIB_NAME_UNDERSCORE}_vendor
+   VCS_VERSION ${GITHUB_NAME}${LIB_VER_MAJOR}_${LIB_VER}
+   CMAKE_ARGS
+     -DBUILD_DOCS:BOOL=OFF
++    -DPROTOBUF_PROTOC_EXECUTABLE=${PROTOBUF_PROTOC_EXECUTABLE}
+   GLOBAL_HOOK
+ )

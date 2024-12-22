@@ -49,6 +49,8 @@ chromium-browser:
 - ${ROS_UNRESOLVED_DEP-chromium-browser}
 clang:
 - clang-native@meta-clang
+clang-format:
+- ${ROS_UNRESOLVED_DEP-clang-format}
 clang-tidy:
 - ${ROS_UNRESOLVED_DEP-clang-tidy}
 clpe_ros_msgs:
@@ -241,6 +243,8 @@ libdmtx-dev:
 - ${ROS_UNRESOLVED_DEP-libdmtx-dev}
 libdw-dev:
 - elfutils@openembedded-core
+libfcl-dev:
+- fcl@meta-ros-common
 libffi-dev:
 - libffi@openembedded-core
 libflann-dev:
@@ -265,6 +269,8 @@ libglfw3-dev:
 - glfw@meta-intel-realsense
 libglib-dev:
 - glib-2.0@openembedded-core
+libgmock-dev:
+- gtest@meta-oe
 libgoogle-glog-dev:
 - glog@meta-oe
 libgpgme-dev:
@@ -313,6 +319,8 @@ libnlopt-dev:
 - ${ROS_UNRESOLVED_DEP-libnlopt-dev}
 libnlopt0:
 - ${ROS_UNRESOLVED_DEP-libnlopt0}
+liboctomap-dev:
+- ${ROS_UNRESOLVED_DEP-liboctomap-dev}
 libogg:
 - libogg@openembedded-core
 libogre:
@@ -778,6 +786,8 @@ qtdeclarative5-dev:
 - qtdeclarative@meta-qt5
 qtmultimedia5-dev:
 - qtmultimedia@meta-qt5
+range-v3:
+- ${ROS_UNRESOLVED_DEP-range-v3}
 rsync:
 - rsync@openembedded-core
 rviz_mesh_plugin:

@@ -1,0 +1,57 @@
+From 08f03200ea9cd7990a10c1cf5c868dc46013f5d0 Mon Sep 17 00:00:00 2001
+From: Jiaxing Shi <quic_jiaxshi@quicinc.com>
+Date: Mon, 19 Aug 2024 15:39:15 +0800
+Subject: [PATCH] CMakeLists.txt: fix dependency issue for bitbake
+
+---
+ CMakeLists.txt | 16 ++++++----------
+ 1 file changed, 6 insertions(+), 10 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0b121ba58..af01f7687 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -5,8 +5,8 @@ project(mcap_vendor LANGUAGES C CXX)
+ find_package(ament_cmake REQUIRED)
+ find_package(liblz4_vendor REQUIRED)
+ find_package(lz4 REQUIRED)
+-find_package(zstd_vendor REQUIRED)
+-find_package(zstd REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(ZSTD libzstd REQUIRED)
+ 
+ # Avoid DOWNLOAD_EXTRACT_TIMESTAMP warning for CMake >= 3.24
+ if (POLICY CMP0135)
+@@ -32,17 +32,13 @@ endif()
+ 
+ ## Define vendor macro
+ macro(build_mcap_vendor)
+-  include(FetchContent)
+-  fetchcontent_declare(mcap
+-    URL https://github.com/foxglove/mcap/archive/refs/tags/releases/cpp/v1.1.0.tar.gz
+-    URL_HASH SHA1=3220ddd900d987575ae1066254dd97cdec877a26 # v1.1.0
+-  )
+-  fetchcontent_makeavailable(mcap)
++
+ 
+   add_library(mcap SHARED
+     src/main.cpp
+   )
+-
++  set(lz4_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lz4)
++  set(mcap_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/mcap)
+   set(_mcap_include_dir ${mcap_SOURCE_DIR}/cpp/mcap/include)
+   file(GLOB _mcap_installed_headers ${_mcap_include_dir}/mcap/*.hpp)
+ 
+@@ -50,7 +46,7 @@ macro(build_mcap_vendor)
+     "$<BUILD_INTERFACE:${_mcap_include_dir}>"
+     "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+   )
+-  target_link_libraries(mcap LZ4::lz4 zstd::zstd)
++  target_link_libraries(mcap LZ4::lz4)
+ 
+   install(
+     FILES ${_mcap_installed_headers}
+-- 
+2.25.1
+

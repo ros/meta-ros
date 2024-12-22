@@ -17,7 +17,12 @@ S = "${WORKDIR}/git"
 
 inherit cmake
 
-EXTRA_OECMAKE = "-DASSIMP_BUILD_ASSIMP_TOOLS=OFF -DASSIMP_BUILD_TESTS=OFF -DASSIMP_LIB_INSTALL_DIR=${baselib}"
+EXTRA_OECMAKE = " \
+    -DASSIMP_BUILD_ASSIMP_TOOLS=OFF \
+    -DASSIMP_BUILD_TESTS=OFF \
+    -DASSIMP_LIB_INSTALL_DIR=${baselib} \
+    -DASSIMP_BUILD_ZLIB=ON \
+"
 
 # error: 'void* __builtin_memmove(void*, const void*, long unsigned int)' forming offset 4 is out of the bounds [0, 4] [-Werror=array-bounds=]
 CXXFLAGS += "-Wno-error=array-bounds"

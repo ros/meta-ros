@@ -2,4 +2,4 @@
 # libraries with version number and symlinks without version number to them.
 # This class sets up bitbake to handle improper set up software packages.
 FILES_SOLIBSDEV = ""
-FILES:${PN} += "${libdir}/lib*${SOLIBSDEV}"
+FILES:${PN} += "${libdir}/lib*${SOLIBSDEV} ${ros_libdir}/lib*${SOLIBSDEV}"

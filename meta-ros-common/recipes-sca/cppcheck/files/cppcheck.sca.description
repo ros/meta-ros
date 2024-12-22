@@ -1,6 +1,0 @@
-{
-    "languages": ["C", "CPP"],
-    "buildspeed" : "fast",
-    "execspeed": "fast",
-    "quality": "good"
-}

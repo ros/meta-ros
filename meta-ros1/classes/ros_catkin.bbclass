@@ -43,6 +43,11 @@ EXTRA_OECMAKE:prepend = "\
     -DCATKIN_ENABLE_TESTING=0 \
     "
 
+DEBUG_PREFIX_MAP += " \
+    -fdebug-prefix-map=${WORKDIR}/devel=${ros_prefix} \
+    -fmacro-prefix-map=${WORKDIR}/devel=${ros_prefix} \
+"
+
 # similar to what distutil3.bbclass does here:
 # https://git.openembedded.org/openembedded-core/tree/meta/classes/distutils3.bbclass?h=hardknott#n46
 # but catkin recipe don't inherit whole distutils3 (only distutils3-base) and also with ros_opt_prefix.bbclass
@@ -54,4 +59,15 @@ do_install:append() {
             sed -i -e s:${STAGING_BINDIR_NATIVE}:${bindir}:g $i
         fi
     done
+}
+
+# catkin provides a template file (pkgConfig.cmake.in) with a section of code that is unreachable on the target
+# this section references CMAKE_CURRENT_SOURCE_DIR which causes host paths to leak into generated CMake files
+# this causes do_package_qa to fail on ROS packages that use catkin
+# we can safely remove the host paths for the target recipes without making any changes to the end result
+do_install:append:class-target() {
+    find ${D}${ros_prefix}/share -name '*cmake' -type f \
+            | xargs --no-run-if-empty sed -i \
+                -e 's@set(\([a-zA-Z0-9_]*\)_SOURCE_PREFIX ${WORKDIR}/git)@set(\1_SOURCE_PREFIX "")@g' \
+                -e 's@set(\([a-zA-Z0-9_]*\)_DEVEL_PREFIX ${WORKDIR}/devel)@set(\1_DEVEL_PREFIX "")@g'
 }
