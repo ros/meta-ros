@@ -4,7 +4,7 @@ header:
 local_conf_header:
   common: |
     DISTRO_FEATURES += "usrmerge"
-    IMAGE_FEATURES += "debug-tweaks"
+    IMAGE_FEATURES += "empty-root-password allow-empty-password allow-root-login post-install-logging"
     INHERIT += "report-error"
     INHERIT += "rm_work"
     INHERIT_DISTRO:remove = "create-spdx"
