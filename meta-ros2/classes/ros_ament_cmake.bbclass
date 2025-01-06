@@ -26,8 +26,6 @@ export AMENT_PREFIX_PATH="${STAGING_DIR_HOST}${prefix};${STAGING_DIR_NATIVE}${pr
 
 inherit cmake python3native
 
-PYTHONPATH:prepend:class-nativesdk = "${STAGING_DIR_NATIVE}${ros_base_prefix}/lib/python${PYTHON_BASEVERSION}/site-packages:"
-
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
