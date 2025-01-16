@@ -1,0 +1,32 @@
+Use pkgconfig to find the libusb-1.0 dependency.
+
+This is necessary to avoid an absolute path being included in the
+generated CMake target file.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -1,7 +1,8 @@
+ cmake_minimum_required(VERSION 3.5)
+ project(crazyflie_cpp VERSION 0.0.1)
+ 
+-find_library(USB_LIB usb-1.0)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(LIBUSB REQUIRED libusb-1.0)
+ 
+ # Enable C++11 and warnings
+ set(CMAKE_CXX_STANDARD 11)
+@@ -27,7 +28,7 @@ target_include_directories(crazyflie_cpp
+ 
+ target_link_libraries(crazyflie_cpp
+   PRIVATE
+-    ${USB_LIB}
++    ${LIBUSB_LIBRARIES}
+ )
+ 
+ include(CMakePackageConfigHelpers)
