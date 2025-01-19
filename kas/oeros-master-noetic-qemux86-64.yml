@@ -1,0 +1,7 @@
+header:
+  version: 14
+  includes:
+    - yocto/master.yml
+    - ros1/noetic.yml
+    - machine/qemux86-64.yml
+    - common.yml
