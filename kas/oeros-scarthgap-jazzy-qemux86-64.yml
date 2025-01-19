@@ -3,9 +3,5 @@ header:
   includes:
     - yocto/scarthgap.yml
     - ros2/jazzy.yml
-    - machine/raspberrypi4-64.yml
+    - machine/qemux86-64.yml
     - common.yml
-
-repos:
-  raspberrypi:
-    branch: "master"

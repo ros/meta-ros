@@ -5,7 +5,3 @@ header:
     - ros2/humble.yml
     - machine/qemux86-64.yml
     - common.yml
-
-repos:
-  raspberrypi:
-    branch: "master"
