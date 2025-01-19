@@ -1,3 +1,9 @@
+Use CMake to find yaml
+
+Upstream-Status: Pending
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 96ef1b3e..b7487bf6 100644
 --- a/CMakeLists.txt
