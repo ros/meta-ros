@@ -1,12 +1,18 @@
+Add GeographicLib to project dependencies
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -23,6 +23,7 @@ find_package(as2_core REQUIRED)
- find_package(as2_msgs REQUIRED)
- find_package(std_srvs REQUIRED)
- find_package(Eigen3 REQUIRED)
-+find_package(GeographicLib REQUIRED)
+@@ -25,6 +25,7 @@ set(PROJECT_DEPENDENCIES
+   as2_msgs
+   geometry_msgs
+   Eigen3
++  GeographicLib
+ )
  
- 
- #download the crazyflie_cpp from github
+ foreach(DEPENDENCY ${PROJECT_DEPENDENCIES})
