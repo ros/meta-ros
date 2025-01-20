@@ -106,6 +106,8 @@ gtest:
 - gtest@meta-oe
 gtk3:
 - gtk+3@openembedded-core
+gurumdds-3.2:
+- ${ROS_UNRESOLVED_DEP-gurumdds-3.2}
 hdf5-tools:
 - hdf5@meta-oe
 iwyu:
@@ -166,6 +168,8 @@ libboost-timer-dev:
 - ${ROS_UNRESOLVED_DEP-libboost-timer-dev}
 libcairo2-dev:
 - cairo@openembedded-core
+libcap-dev:
+- libcap@openembedded-core
 libccd-dev:
 - libccd@meta-ros-common
 libceres-dev:
@@ -182,6 +186,8 @@ libdraco-dev:
 - ${ROS_UNRESOLVED_DEP-libdraco-dev}
 libdw-dev:
 - elfutils@openembedded-core
+libfcl:
+- fcl@meta-ros-common
 libfcl-dev:
 - fcl@meta-ros-common
 libflann-dev:
@@ -328,6 +334,8 @@ libqt5x11extras5-dev:
 - qtx11extras@meta-qt5
 libqwt-qt5-dev:
 - qwt-qt5@meta-qt5
+libreadline:
+- readline@openembedded-core
 libshaderc-dev:
 - ${ROS_UNRESOLVED_DEP-libshaderc-dev}
 libspnav-dev:
@@ -488,6 +496,8 @@ python3-distro:
 - ${ROS_UNRESOLVED_DEP-python3-distro}
 python3-empy:
 - python3-empy@meta-ros-common
+python3-expiringdict:
+- ${ROS_UNRESOLVED_DEP-python3-expiringdict}
 python3-fiona:
 - python3-fiona@meta-ros2
 python3-flake8:
@@ -502,6 +512,8 @@ python3-flake8-import-order:
 - python3-flake8-import-order@meta-ros-common
 python3-flake8-quotes:
 - python3-flake8-quotes@meta-ros-common
+python3-flask:
+- python3-flask@meta-python
 python3-future:
 - python3-future@meta-python
 python3-git:
@@ -570,6 +582,8 @@ python3-pyside2:
 - ${ROS_UNRESOLVED_DEP-python3-pyside2}
 python3-pytest:
 - python3-pytest@meta-python
+python3-pytest-cov:
+- python3-pytest-cov@meta-ros-common
 python3-pytest-mock:
 - python3-pytest-mock@meta-ros-common
 python3-pytest-timeout:
@@ -620,6 +634,8 @@ python3-vcstool:
 - python3-vcstool@meta-ros-common
 python3-venv:
 - ${ROS_UNRESOLVED_DEP-python3-venv}
+python3-waitress:
+- ${ROS_UNRESOLVED_DEP-python3-waitress}
 python3-websocket:
 - python3-websocket-client@meta-python
 python3-whichcraft:
@@ -680,8 +696,6 @@ ros_ign_gazebo:
 - ${ROS_UNRESOLVED_DEP-ros-ign-gazebo}
 rti-connext-dds-6.0.1:
 - ${ROS_UNRESOLVED_DEP-rti-connext-dds-6.0.1}
-rubocop:
-- ${ROS_UNRESOLVED_DEP-rubocop}
 ruby:
 - ${ROS_UNRESOLVED_DEP-ruby}
 sdl2:
@@ -731,6 +745,8 @@ wayland-dev:
 - wayland@openembedded-core
 wget:
 - wget@openembedded-core
+wireless-tools:
+- ${ROS_UNRESOLVED_DEP-wireless-tools}
 wx-common:
 - wxwidgets@meta-ros-common
 wxwidgets:
