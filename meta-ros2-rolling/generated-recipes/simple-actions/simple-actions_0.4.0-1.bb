@@ -45,7 +45,7 @@ ROS_EXEC_DEPENDS = " \
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    action-tutorials-interfaces \
+    ${ROS_UNRESOLVED_DEP-action-tutorials-interfaces} \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
