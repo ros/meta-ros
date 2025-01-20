@@ -9,4 +9,5 @@
 # REP-2000 specifies 1.12.1 for humble and iron and 1.14.0 for jazzy
 # This is necessary as with ROS1 many recipes fail to build
 # as documented in https://github.com/ros/meta-ros/pull/936
-PREFERRED_VERSION_pcl = "1.14.1"
+# The head of the tree should be used for rolling
+PREFERRED_VERSION_pcl = "1.14.1+git"
