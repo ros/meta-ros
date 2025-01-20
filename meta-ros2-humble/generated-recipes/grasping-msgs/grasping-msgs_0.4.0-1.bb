@@ -55,9 +55,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/mikeferguson/grasping_msgs-ros2-gbp/archive/release/humble/grasping_msgs/0.4.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/grasping_msgs-release/archive/release/humble/grasping_msgs/0.4.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/grasping_msgs"
-SRC_URI = "git://github.com/mikeferguson/grasping_msgs-ros2-gbp;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/grasping_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "36f13b1f1fd1c4f918a77131231b48fcb956e8a9"
 S = "${WORKDIR}/git"
 
