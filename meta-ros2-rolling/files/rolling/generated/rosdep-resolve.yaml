@@ -1,6 +1,8 @@
 # rolling/rosdep-resolve.yaml
 acl:
 - acl@openembedded-core
+action_tutorials_interfaces:
+- ${ROS_UNRESOLVED_DEP-action-tutorials-interfaces}
 asio:
 - asio@meta-oe
 assimp:
@@ -91,6 +93,8 @@ gtest:
 - gtest@meta-oe
 gtk3:
 - gtk+3@openembedded-core
+gurumdds-3.2:
+- ${ROS_UNRESOLVED_DEP-gurumdds-3.2}
 hdf5-tools:
 - hdf5@meta-oe
 iwyu:
@@ -149,6 +153,8 @@ libboost-timer-dev:
 - ${ROS_UNRESOLVED_DEP-libboost-timer-dev}
 libcairo2-dev:
 - cairo@openembedded-core
+libcap-dev:
+- libcap@openembedded-core
 libccd-dev:
 - libccd@meta-ros-common
 libceres-dev:
@@ -165,6 +171,8 @@ libdraco-dev:
 - ${ROS_UNRESOLVED_DEP-libdraco-dev}
 libdw-dev:
 - elfutils@openembedded-core
+libfcl:
+- fcl@meta-ros-common
 libfcl-dev:
 - fcl@meta-ros-common
 libflann-dev:
@@ -195,8 +203,6 @@ libgstreamer-plugins-base1.0-dev:
 - gstreamer1.0-plugins-base@openembedded-core
 libgstreamer1.0-dev:
 - gstreamer1.0@openembedded-core
-libgts:
-- ${ROS_UNRESOLVED_DEP-libgts}
 libhdf5-dev:
 - hdf5@meta-oe
 libjpeg:
@@ -295,6 +301,8 @@ libqt5x11extras5-dev:
 - qtx11extras@meta-qt5
 libqwt-qt5-dev:
 - qwt-qt5@meta-qt5
+libserial-dev:
+- ${ROS_UNRESOLVED_DEP-libserial-dev}
 libshaderc-dev:
 - ${ROS_UNRESOLVED_DEP-libshaderc-dev}
 libspnav-dev:
@@ -447,28 +455,40 @@ python3-distro:
 - ${ROS_UNRESOLVED_DEP-python3-distro}
 python3-empy:
 - python3-empy@meta-ros-common
+python3-expiringdict:
+- ${ROS_UNRESOLVED_DEP-python3-expiringdict}
 python3-fastapi:
 - ${ROS_UNRESOLVED_DEP-python3-fastapi}
 python3-fiona:
 - python3-fiona@meta-ros2
 python3-flake8:
 - python3-flake8@meta-ros-common
+python3-flake8-blind-except:
+- ${ROS_UNRESOLVED_DEP-python3-flake8-blind-except}
 python3-flake8-builtins:
 - python3-flake8-builtins@meta-ros-common
+python3-flake8-class-newline:
+- ${ROS_UNRESOLVED_DEP-python3-flake8-class-newline}
 python3-flake8-comprehensions:
 - python3-flake8-comprehensions@meta-ros-common
+python3-flake8-deprecated:
+- ${ROS_UNRESOLVED_DEP-python3-flake8-deprecated}
 python3-flake8-docstrings:
 - python3-flake8-docstrings@meta-ros-common
 python3-flake8-import-order:
 - python3-flake8-import-order@meta-ros-common
 python3-flake8-quotes:
 - python3-flake8-quotes@meta-ros-common
+python3-flask:
+- python3-flask@meta-python
 python3-flask-socketio:
 - python3-flask-socketio@meta-python
 python3-future:
 - python3-future@meta-python
 python3-git:
 - python3-git@openembedded-core
+python3-icecream:
+- ${ROS_UNRESOLVED_DEP-python3-icecream}
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
@@ -487,6 +507,8 @@ python3-matplotlib:
 - python3-matplotlib@meta-python
 python3-mock:
 - python3-mock@meta-ros-common
+python3-msgpack:
+- python3-msgpack@meta-python
 python3-mypy:
 - python3-mypy@meta-ros-common
 python3-natsort:
@@ -507,10 +529,10 @@ python3-pil:
 - python3-pillow@meta-python
 python3-pip:
 - python3-pip@openembedded-core
-python3-pkg-resources:
-- python3-setuptools@openembedded-core
 python3-ply:
 - ${ROS_UNRESOLVED_DEP-python3-ply}
+python3-pre-commit:
+- ${ROS_UNRESOLVED_DEP-python3-pre-commit}
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
@@ -529,8 +551,12 @@ python3-pyproj:
 - python3-pyproj@meta-ros-common
 python3-pyqt5.qtwebengine:
 - ${PYTHON_PN}-pyqt5@meta-qt5
+python3-pyside2:
+- ${ROS_UNRESOLVED_DEP-python3-pyside2}
 python3-pytest:
 - python3-pytest@meta-python
+python3-pytest-cov:
+- python3-pytest-cov@meta-ros-common
 python3-pytest-mock:
 - python3-pytest-mock@meta-ros-common
 python3-pytest-timeout:
@@ -539,6 +565,8 @@ python3-qt5-bindings:
 - python3-pyqt5@meta-qt5
 python3-requests:
 - python3-requests@meta-python
+python3-rich:
+- ${ROS_UNRESOLVED_DEP-python3-rich}
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
 python3-rospkg:
@@ -569,6 +597,8 @@ python3-twisted:
 - python3-twisted@meta-python
 python3-typeguard:
 - python3-typeguard@meta-python
+python3-typing-extensions:
+- ${ROS_UNRESOLVED_DEP-python3-typing-extensions}
 python3-unidiff:
 - python3-unidiff@meta-python
 python3-uvicorn:
@@ -579,6 +609,8 @@ python3-vcstool:
 - python3-vcstool@meta-ros-common
 python3-venv:
 - ${ROS_UNRESOLVED_DEP-python3-venv}
+python3-waitress:
+- ${ROS_UNRESOLVED_DEP-python3-waitress}
 python3-websocket:
 - python3-websocket-client@meta-python
 python3-whichcraft:
@@ -637,8 +669,6 @@ ros_ign_gazebo:
 - ${ROS_UNRESOLVED_DEP-ros-ign-gazebo}
 rti-connext-dds-6.0.1:
 - ${ROS_UNRESOLVED_DEP-rti-connext-dds-6.0.1}
-rubocop:
-- ${ROS_UNRESOLVED_DEP-rubocop}
 ruby:
 - ${ROS_UNRESOLVED_DEP-ruby}
 sdl2:
@@ -690,6 +720,8 @@ wx-common:
 - wxwidgets@meta-ros-common
 wxwidgets:
 - wxwidgets@meta-ros-common
+xclip:
+- ${ROS_UNRESOLVED_DEP-xclip}
 xvfb:
 - ${ROS_UNRESOLVED_DEP-xvfb}
 yaml:
