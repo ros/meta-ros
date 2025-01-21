@@ -431,3 +431,7 @@ ROS_UNRESOLVED_DEP-coinor-libipopt-dev = "ipopt"
 
 ROS_UNRESOLVED_DEP-python3-semver = "python3-semver"
 ROS_UNRESOLVED_DEP-libusb = "libusb-compat"
+ROS_UNRESOLVED_DEP-python3-typing-extensions = "python3-typing-extensions"
+ROS_UNRESOLVED_DEP-python3-flake8-deprecated = "python3-flake8-deprecated"
+ROS_UNRESOLVED_DEP-python3-flake8-blind-except = "python3-flake8-blind-except"
+ROS_UNRESOLVED_DEP-python3-flake8-class-newline = "python3-flake8-class-newline"
