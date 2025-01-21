@@ -4,18 +4,13 @@ SUMMARY = "Library to work around various flaws in the C++ STL allocator model"
 HOMEPAGE = "https://github.com/foonathan/memory"
 SECTION = "devel"
 LICENSE = "Zlib"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=416a165d541fc79ae4852280a9ecb39f"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=858ac481b3e933be38e4d36cb0dfcee8"
 
-PV = "0.6.2+git${SRCPV}"
+PV = "0.7.3+git${SRCPV}"
 
 SRCREV_FORMAT = "main"
-SRCREV_main = "8f6a027d473f9b4796509158962d8ddf89fbe086"
-SRCREV_comp = "cf13bff238397aab0d8c49b7f6263233cf8a2396"
-SRCREV_catch = "89f5f8435176aad44624442b7f1e874a513bee67"
-SRC_URI = "git://github.com/foonathan/memory.git;branch=main;protocol=https;name=main \
-    git://github.com/foonathan/compatibility.git;protocol=https;name=comp;destsuffix=git/cmake/comp;branch=master \
-    git://github.com/catchorg/Catch2.git;branch=v2.x;protocol=https;name=catch;destsuffix=git/catch-upstream \
-"
+SRCREV_main = "016c9fbd61b57ed2058551dcf225c15a0e716cce"
+SRC_URI = "git://github.com/foonathan/memory.git;branch=main;protocol=https;name=main"
 S = "${WORKDIR}/git"
 
 DEPENDS = "qemu-native"
@@ -80,7 +75,7 @@ EXTRA_OECMAKE += "-DFOONATHAN_MEMORY_BUILD_TESTS=OFF"
 # because ${B}/test (as CMAKE_CURRENT_BINARY_DIR is recreated as empty, I can patch test/CMakeLists.txt to use
 # catch.hpp from ${S}/CMAKE_CURRENT_SOURCE_DIR but we don't need the tests, lets disable them completely
 
-FILES:${PN}-dev += "${datadir}/foonathan_memory/cmake"
+FILES:${PN}-dev += "${libdir}/foonathan_memory/cmake"
 FILES:${PN}-doc += "${datadir}/foonathan_memory"
 
 BBCLASSEXTEND = "native nativesdk"
