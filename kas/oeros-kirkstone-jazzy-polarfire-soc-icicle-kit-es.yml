@@ -1,0 +1,12 @@
+header:
+  version: 14
+  includes:
+    - yocto/kirkstone.yml
+    - ros2/jazzy.yml
+    - machine/polarfire-soc-icicle-kit-es.yml
+    - common.yml
+    - systemd.yml
+
+repos:
+  polarfire:
+    branch: "master"
