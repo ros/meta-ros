@@ -1,0 +1,13 @@
+header:
+  version: 14
+
+machine: "icicle-kit-es"
+
+repos:
+  polarfire:
+    url: "https://github.com/polarfire-soc/meta-polarfire-soc-yocto-bsp.git"
+    path: "layers/meta-polarfire-soc-yocto-bsp"
+    layers:
+      meta-polarfire-soc-bsp:
+      meta-polarfire-soc-community:
+      meta-polarfire-soc-extras:
