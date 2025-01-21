@@ -1,0 +1,8 @@
+header:
+  version: 14
+
+local_conf_header:
+  systemd: |
+    DISTRO_FEATURES += " pam systemd "
+    DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
+    VIRTUAL-RUNTIME_init_manager = "systemd"
