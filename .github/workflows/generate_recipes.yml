@@ -115,7 +115,7 @@ jobs:
           if [ "${CURRENT_BRANCH}" = "superflore/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}" ]; then
             echo "Pushing to superflore/$GITHUB_REF_NAME/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}"
             git branch -M superflore/$GITHUB_REF_NAME/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}
-            git push origin superflore/$GITHUB_REF_NAME/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}
+            git push --set-upstream origin superflore/$GITHUB_REF_NAME/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}
             echo "Creating Pull Request"
             gh pr create --title "Superflore Update for $GITHUB_REF_NAME : ${ROS_DISTRO} : ${ROS_DISTRO_RELEASE_DATE_ONLY}" --base $GITHUB_REF_NAME --fill-verbose 
           else
