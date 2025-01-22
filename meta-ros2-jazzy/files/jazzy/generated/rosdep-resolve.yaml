@@ -21,6 +21,8 @@ bison:
 - bison@openembedded-core
 black:
 - python3-black@meta-ros
+bluez:
+- bluez5@openembedded-core
 boost:
 - boost@openembedded-core
 bullet:
@@ -336,6 +338,8 @@ libqwt-qt5-dev:
 - qwt-qt5@meta-qt5
 libreadline:
 - readline@openembedded-core
+libserial-dev:
+- ${ROS_UNRESOLVED_DEP-libserial-dev}
 libshaderc-dev:
 - ${ROS_UNRESOLVED_DEP-libshaderc-dev}
 libspnav-dev:
@@ -498,6 +502,8 @@ python3-empy:
 - python3-empy@meta-ros-common
 python3-expiringdict:
 - ${ROS_UNRESOLVED_DEP-python3-expiringdict}
+python3-fastapi:
+- ${ROS_UNRESOLVED_DEP-python3-fastapi}
 python3-fiona:
 - python3-fiona@meta-ros2
 python3-flake8:
@@ -514,6 +520,8 @@ python3-flake8-quotes:
 - python3-flake8-quotes@meta-ros-common
 python3-flask:
 - python3-flask@meta-python
+python3-flask-socketio:
+- python3-flask-socketio@meta-python
 python3-future:
 - python3-future@meta-python
 python3-git:
@@ -538,6 +546,8 @@ python3-matplotlib:
 - python3-matplotlib@meta-python
 python3-mock:
 - python3-mock@meta-ros-common
+python3-msgpack:
+- python3-msgpack@meta-python
 python3-mypy:
 - python3-mypy@meta-ros-common
 python3-natsort:
@@ -550,6 +560,8 @@ python3-opencv:
 - opencv@meta-oe
 python3-packaging:
 - python3-packaging@openembedded-core
+python3-paho-mqtt:
+- ${ROS_UNRESOLVED_DEP-python3-paho-mqtt}
 python3-pandas:
 - python3-pandas@meta-python
 python3-pexpect:
@@ -562,12 +574,16 @@ python3-pkg-resources:
 - python3-setuptools@openembedded-core
 python3-ply:
 - ${ROS_UNRESOLVED_DEP-python3-ply}
+python3-pre-commit:
+- ${ROS_UNRESOLVED_DEP-python3-pre-commit}
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
 - python3-psutil@meta-python
 python3-pycodestyle:
 - python3-pycodestyle@meta-python
+python3-pydantic:
+- ${ROS_UNRESOLVED_DEP-python3-pydantic}
 python3-pydot:
 - python3-pydot@meta-ros-common
 python3-pygraphviz:
@@ -592,6 +608,8 @@ python3-qt5-bindings:
 - python3-pyqt5@meta-qt5
 python3-requests:
 - python3-requests@meta-python
+python3-rich:
+- ${ROS_UNRESOLVED_DEP-python3-rich}
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
 python3-rospkg:
@@ -628,6 +646,8 @@ python3-typeguard:
 - python3-typeguard@meta-python
 python3-unidiff:
 - python3-unidiff@meta-python
+python3-uvicorn:
+- ${ROS_UNRESOLVED_DEP-python3-uvicorn}
 python3-uvloop:
 - python3-uvloop@meta-ros2
 python3-vcstool:
