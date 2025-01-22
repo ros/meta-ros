@@ -548,6 +548,8 @@ python3-matplotlib:
 - python3-matplotlib@meta-python
 python3-mock:
 - python3-mock@meta-ros-common
+python3-msgpack:
+- python3-msgpack@meta-python
 python3-multipledispatch:
 - ${ROS_UNRESOLVED_DEP-python3-multipledispatch}
 python3-mypy:
