@@ -1,0 +1,13 @@
+--- cargo_home/bitbake/cyclors-0.3.3/objcopy/CMakeLists.txt.org	2025-01-23 13:39:11.380872528 +0900
++++ cargo_home/bitbake/cyclors-0.3.3/objcopy/CMakeLists.txt	2025-01-23 13:48:41.591769628 +0900
+@@ -4,6 +4,10 @@
+ # Include the CMakeFindBinUtils module to find objcopy
+ include(CMakeFindBinUtils)
+ 
++if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")
++  set(CMAKE_OBJCOPY "llvm-objcopy" CACHE PATH "llvm-objcopy" FORCE)
++endif()
++
+ # Ensure objcopy is available
+ if(NOT CMAKE_OBJCOPY)
+     message(FATAL_ERROR "CMAKE_OBJCOPY is not defined. Ensure objcopy is installed on your system!")
