@@ -3,7 +3,7 @@
 
 LICENSE = "BSD-3-Clause"
 
-inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'qmake5_base', '', d)}
 
 inherit python3native
 
