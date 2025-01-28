@@ -1,5 +1,7 @@
 Based on work done by Sean Yen and Jochen Sprickerhof.
 
+Upstream-Status: Pending
+
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 https://github.com/ros-o/python_qt_binding/pull/1
