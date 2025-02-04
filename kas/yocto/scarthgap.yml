@@ -9,7 +9,7 @@ defaults:
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "f888dd911529a828820799a7a1b75dfd3a44847c"
+    commit: "336eec6808710f260a5336ca8ca98139a80ccb14"
     path: "layers/openembedded-core"
     layers:
       meta:
@@ -17,14 +17,14 @@ repos:
   bitbake:
     url: "https://github.com/openembedded/bitbake.git"
     branch: "2.8"
-    commit: "d251668d9a7a8dd25bd8767efb30d6d9ff8b1ad3"
+    commit: "f40a3a477d5241b697bf2fb030dd804c1ff5839f"
     path: "layers/bitbake"
     layers:
       bitbake: "excluded"
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
-    commit: "2e3126c9c16bb3df0560f6b3896d01539a3bfad7"
+    commit: "dda0d53326017d6758ec6bdfdaf2f484c089d13f"
     path: "layers/meta-openembedded"
     layers:
       meta-filesystems:
