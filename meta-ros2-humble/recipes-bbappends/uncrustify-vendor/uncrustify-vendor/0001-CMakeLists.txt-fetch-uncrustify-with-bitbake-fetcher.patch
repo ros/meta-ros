@@ -1,3 +1,9 @@
+Use bitbake fetcher to clone uncrustify
+
+Upstream-Status: Inappropriate [OE specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index ca0f133..fc2b0d0 100644
 --- a/CMakeLists.txt
