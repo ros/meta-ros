@@ -5,7 +5,7 @@ defaults:
   repos:
     branch: "kirkstone"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-4.0.22/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-4.0.24/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"

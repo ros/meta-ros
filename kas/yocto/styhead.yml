@@ -5,7 +5,7 @@ defaults:
   repos:
     branch: "styhead"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-5.1/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-5.1.2/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
