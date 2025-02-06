@@ -1,17 +1,16 @@
 HOMEPAGE = "https://github.com/dartsim/dart"
 LICENSE = "BSD-2-Clause & BSD-3-Clause & MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=a89a91ad8b0e80a94a412a7a37b5b492 \
+LIC_FILES_CHKSUM = "file://LICENSE;md5=f9c9b64e6293fa51cd808f54fa1733d9 \
                     file://data/mjcf/openai/LICENSE.md;md5=b7fcc920c21836f90e2ba40fd8fad0a7"
 
 SRC_URI = "git://github.com/dartsim/dart.git;protocol=https;branch=release-6.14 \
            file://python3-fixes.patch \
-           file://use-system-googletest.patch \
-           file://use-system-pybind11.patch \
            file://fix-pkgconfig-cflags.patch \
            file://remove-buildpath.patch \
+           file://set-dart-pkgconfig-deps-to-eigen3.patch \
 "
 
-SRCREV = "2b6abb557652fe4eb7f80a7be52706d7ca20cf86"
+SRCREV = "a51e08c210d7892605c6dc0b9ae96fce4446d9fe"
 
 S = "${WORKDIR}/git"
 
@@ -22,7 +21,6 @@ DEPENDS = " \
     fmt-native \
     fcl \
     google-benchmark \
-    googletest-native \
     libccd \
     libeigen \
     libtinyxml2 \
@@ -32,7 +30,6 @@ DEPENDS = " \
     ode \
     openscenegraph \
     pagmo \
-    python3-pybind11 \
     python3-requests \
     python3-pytest \
     urdfdom \
