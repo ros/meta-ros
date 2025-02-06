@@ -14,19 +14,21 @@ Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-diff --git a/dart/config.hpp.in b/dart/config.hpp.in
-index 7ee2997fd7a8..15dc0d872af9 100644
---- a/dart/config.hpp.in
-+++ b/dart/config.hpp.in
-@@ -81,9 +81,9 @@
-
+Index: git/dart/config.hpp.in
+===================================================================
+--- git.orig/dart/config.hpp.in
++++ git/dart/config.hpp.in
+@@ -63,10 +63,10 @@
+ #cmakedefine01 DART_ENABLE_SIMD
+ 
  // Deprecated in DART 6.2 and will be removed in DART 7.
 -#define DART_ROOT_PATH "@DART_SOURCE_DIR@/"
-+#define DART_ROOT_PATH "@DART_ADDITIONAL_DOCUMENTATION_INSTALL_PATH@/"
 -#define DART_DATA_PATH "@DART_SOURCE_DIR@/data/"
++#define DART_ROOT_PATH "@DART_ADDITIONAL_DOCUMENTATION_INSTALL_PATH@/"
 +#define DART_DATA_PATH "@DART_ADDITIONAL_DOCUMENTATION_INSTALL_PATH@/data/"
-
+ 
 -#define DART_DATA_LOCAL_PATH "@DART_SOURCE_DIR@/data/"
 +#define DART_DATA_LOCAL_PATH "@DART_ADDITIONAL_DOCUMENTATION_INSTALL_PATH@/data/"
- #define DART_DATA_GLOBAL_PATH                                                  \
-   "@CMAKE_INSTALL_PREFIX@/@DART_ADDITIONAL_DOCUMENTATION_INSTALL_PATH@/data/"
+ #define DART_DATA_GLOBAL_PATH "@CMAKE_INSTALL_PREFIX@/@DART_ADDITIONAL_DOCUMENTATION_INSTALL_PATH@/data/"
+ 
+ // See #451
