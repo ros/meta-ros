@@ -20,7 +20,7 @@ DEPENDS = " \
     libyaml \
     libzip \
     backward-cpp \
-    gz-cmake3 \
+    gz-cmake4 \
 "
 
 
