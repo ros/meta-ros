@@ -10,7 +10,7 @@ CMAKE_INSTALL_FULL_LIBDIR/pkgconfig which is an absolute path.
 We should use CMAKE_INSTALL_LIBDIR instead so that it is a
 relative path and CMAKE_INSTALL_PREFIX can be used.
 
-Upsteam-Status: Inappropriate [oe specific]
+Upstream-Status: Inappropriate [oe specific]
 
 Signed-off by: Rob Woolley <rob.woolley@windriver.com>
 
