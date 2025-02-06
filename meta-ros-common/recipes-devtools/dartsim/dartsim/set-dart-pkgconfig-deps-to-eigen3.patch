@@ -1,0 +1,19 @@
+Use eigen3 as the dependency name
+
+Upstream-Status: Inappropriate [OE specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index acdfebf04dc8..d2f8a1b038d9 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -72,7 +72,7 @@ string(REGEX REPLACE "^<version>([0-9]+)\\.([0-9]+)\\.([0-9]+)</version>$" "\\3"
+ set(DART_VERSION "${DART_MAJOR_VERSION}.${DART_MINOR_VERSION}.${DART_PATCH_VERSION}")
+ 
+ set(DART_PKG_DESC "Dynamic Animation and Robotics Toolkit.")
+-set(DART_PKG_EXTERNAL_DEPS "eigen, ccd, fcl, assimp")
++set(DART_PKG_EXTERNAL_DEPS "eigen3, ccd, fcl, assimp")
+ 
+ #===============================================================================
+ # Build options
