@@ -1,0 +1,29 @@
+Disable compiler options
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 77c9d9183b..c5cd7ae94d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -5,12 +5,6 @@ project(gripper_controllers)
+ # S1 from https://github.com/ros-controls/ros2_controllers/issues/1053
+ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+ 
+-if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+-  add_compile_options(-Wall -Wextra -Wpedantic -Werror=conversion -Werror=unused-but-set-variable
+-                      -Werror=return-type -Werror=shadow -Werror=format -Werror=range-loop-construct
+-                      -Werror=missing-braces)
+-endif()
+-
+ set(THIS_PACKAGE_INCLUDE_DEPENDS
+   control_msgs
+   control_toolbox
+-- 
+2.43.0
+
