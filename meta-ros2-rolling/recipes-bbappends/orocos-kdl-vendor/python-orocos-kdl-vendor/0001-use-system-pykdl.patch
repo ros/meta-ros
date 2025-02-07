@@ -1,31 +1,31 @@
-Set pykdl_FOUND if PyKDL.so exists
+From 68f743036fbd6e9052c7ba08cdcd95a088063680 Mon Sep 17 00:00:00 2001
+From: Stephen Street <stephen@redrocketcomputing.com>
+Date: Wed, 5 Feb 2025 14:31:58 -0800
+Subject: [PATCH] Set pykdl_FOUND if PyKDL.so exists
 
 There is no pkgconfig for PyKDL and the Python site-packages directory
 is not in the find_library() search path.
 
 Therefore simply, set pykdl_FOUND if PyKDL.so exists.
 
+Upstream-Status: Inappropriate [oe specific]
+
 Signed-off-by: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index bd493da..aece216 100644
+index 0f5522f..b0f085a 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -14,23 +14,8 @@ if(POLICY CMP0135)
- endif()
-
+@@ -29,14 +29,8 @@ cmake_policy(SET CMP0094 NEW)
+ set(Python3_FIND_UNVERSIONED_NAMES FIRST)
+ 
  if(NOT FORCE_BUILD_VENDOR_PKG)
--  # Check if Python bindings are installed by trying to import from interpreter
--  # Figure out Python3 debug/release before anything else can find_package it
--  if(WIN32 AND CMAKE_BUILD_TYPE STREQUAL "Debug")
--    find_package(python_cmake_module REQUIRED)
--    find_package(PythonExtra REQUIRED)
--
--    # Force FindPython3 to use the debug interpreter where ROS 2 expects it
--    set(Python3_EXECUTABLE "${PYTHON_EXECUTABLE_DEBUG}")
--  endif()
--  find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+-  find_package(Python3 REQUIRED COMPONENTS Interpreter)
 -  execute_process(
 -    COMMAND ${Python3_EXECUTABLE} -c "import PyKDL"
 -    RESULT_VARIABLE pykdl_import_exit_code
