@@ -1,0 +1,36 @@
+From e38d40f551eb668b527676fd3042e6fa3b555746 Mon Sep 17 00:00:00 2001
+From: Stephen Street <stephen@redrocketcomputing.com>
+Date: Tue, 4 Feb 2025 17:24:31 -0800
+Subject: [PATCH] Backport make backward_rosConfig cmake relocatable
+
+See https://github.com/pal-robotics/backward_ros/pull/23 for additional
+information.
+
+Upstream-Status: Pending
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ backward_rosConfig.cmake.in | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/backward_rosConfig.cmake.in b/backward_rosConfig.cmake.in
+index 6713e91..bd9397a 100644
+--- a/backward_rosConfig.cmake.in
++++ b/backward_rosConfig.cmake.in
+@@ -1,9 +1,11 @@
+ @PACKAGE_INIT@
+-set_and_check(backward_ros_INCLUDE_DIRS "@BACKWARD_ROS_INSTALL_PREFIX@/include")
++set_and_check(backward_ros_INCLUDE_DIRS "@PACKAGE_BACKWARD_ROS_INSTALL_PREFIX@/include")
+ if(WIN32)
+-set_and_check(backward_ros_LIBRARIES "@BACKWARD_ROS_INSTALL_PREFIX@/lib/backward.lib")
++set_and_check(backward_ros_LIBRARIES "@PACKAGE_BACKWARD_ROS_INSTALL_PREFIX@/lib/backward.lib")
++elseif(APPLE)
++set_and_check(backward_ros_LIBRARIES "@PACKAGE_BACKWARD_ROS_INSTALL_PREFIX@/lib/libbackward.dylib")
+ else()
+-set_and_check(backward_ros_LIBRARIES "@BACKWARD_ROS_INSTALL_PREFIX@/lib/libbackward.so")
++set_and_check(backward_ros_LIBRARIES "@PACKAGE_BACKWARD_ROS_INSTALL_PREFIX@/lib/libbackward.so")
+ endif()
+ check_required_components(backward_ros)
+-include(@BACKWARD_ROS_INSTALL_PREFIX@/share/@PROJECT_NAME@/cmake/BackwardConfigAment.cmake)
+\ No newline at end of file
++include(@PACKAGE_BACKWARD_ROS_INSTALL_PREFIX@/share/@PROJECT_NAME@/cmake/BackwardConfigAment.cmake)
