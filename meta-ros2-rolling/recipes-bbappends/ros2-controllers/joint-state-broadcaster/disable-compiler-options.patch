@@ -1,16 +1,26 @@
+Disable compiler options
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 6 ------
+ 1 file changed, 6 deletions(-)
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 5c383897c..726eaa206 100644
+index adbd5254e1..5f0c5236da 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -1,11 +1,6 @@
+@@ -1,12 +1,6 @@
  cmake_minimum_required(VERSION 3.16)
- project(joint_state_broadcaster LANGUAGES CXX)
+ project(joint_state_broadcaster)
  
 -if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
 -  add_compile_options(-Wall -Wextra -Wpedantic -Werror=conversion -Werror=unused-but-set-variable
--                      -Werror=return-type -Werror=shadow -Werror=format)
+-                      -Werror=return-type -Werror=shadow -Werror=format -Werror=range-loop-construct
+-                      -Werror=missing-braces)
 -endif()
 -
- set(THIS_PACKAGE_INCLUDE_DEPENDS
-   builtin_interfaces
-   control_msgs
+ # using this instead of visibility macros
+ # S1 from https://github.com/ros-controls/ros2_controllers/issues/1053
+ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
