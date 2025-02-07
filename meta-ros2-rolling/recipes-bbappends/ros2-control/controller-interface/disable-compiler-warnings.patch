@@ -6,9 +6,13 @@ the build system, not set by controller-interface.
 Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 5 -----
+ 1 file changed, 5 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 3dc3bc4d0..b6fc44940 100644
+index 60b213cd5..3cb708ef9 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,11 +1,6 @@
@@ -20,6 +24,6 @@ index 3dc3bc4d0..b6fc44940 100644
 -          -Werror=missing-braces)
 -endif()
 -
- set(THIS_PACKAGE_INCLUDE_DEPENDS
-   hardware_interface
-   rclcpp_lifecycle
+ # using this instead of visibility macros
+ # S1 from https://github.com/ros-controls/ros2_controllers/issues/1053
+ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
