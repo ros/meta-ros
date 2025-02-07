@@ -1,16 +1,32 @@
+From aeb957b5e180ce772976e92d10a0d960016e49f1 Mon Sep 17 00:00:00 2001
+From: Stephen Street <stephen@redrocketcomputing.com>
+Date: Wed, 5 Feb 2025 15:25:18 -0800
+Subject: [PATCH] Disable compiler options
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 6 ------
+ 1 file changed, 6 deletions(-)
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 4885c69c8..aa2a03222 100644
+index f7610c5f85..3eff4339bb 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -1,11 +1,6 @@
+@@ -1,12 +1,6 @@
  cmake_minimum_required(VERSION 3.16)
- project(forward_command_controller LANGUAGES CXX)
+ project(forward_command_controller)
  
 -if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
 -  add_compile_options(-Wall -Wextra -Wpedantic -Werror=conversion -Werror=unused-but-set-variable
--                      -Werror=return-type -Werror=shadow -Werror=format)
+-                      -Werror=return-type -Werror=shadow -Werror=format -Werror=range-loop-construct
+-                      -Werror=missing-braces)
 -endif()
 -
- set(THIS_PACKAGE_INCLUDE_DEPENDS
-   controller_interface
-   generate_parameter_library
+ # using this instead of visibility macros
+ # S1 from https://github.com/ros-controls/ros2_controllers/issues/1053
+ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+-- 
+2.43.0
+

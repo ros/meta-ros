@@ -1,6 +1,6 @@
-From 30eac73d39f90eb83066182bdf0fbd56815e4510 Mon Sep 17 00:00:00 2001
+From 218e702cdf7717ea27e08777e916de3be432ac60 Mon Sep 17 00:00:00 2001
 From: Stephen Street <stephen@redrocketcomputing.com>
-Date: Wed, 5 Feb 2025 15:06:45 -0800
+Date: Wed, 5 Feb 2025 16:22:46 -0800
 Subject: [PATCH] Disable compiler options
 
 Upstream-Status: Inappropriate [oe specific]
@@ -11,12 +11,12 @@ Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
  1 file changed, 6 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index adbd5254e1..5f0c5236da 100644
+index b5669530dc..258ac81f48 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,12 +1,6 @@
  cmake_minimum_required(VERSION 3.16)
- project(joint_state_broadcaster)
+ project(tricycle_steering_controller)
  
 -if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
 -  add_compile_options(-Wall -Wextra -Wpedantic -Werror=conversion -Werror=unused-but-set-variable
@@ -27,3 +27,6 @@ index adbd5254e1..5f0c5236da 100644
  # using this instead of visibility macros
  # S1 from https://github.com/ros-controls/ros2_controllers/issues/1053
  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+-- 
+2.43.0
+

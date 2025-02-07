@@ -1,0 +1,26 @@
+From 56560053f858d2ab35ac176e6a7cb17c129031d0 Mon Sep 17 00:00:00 2001
+From: Stephen Street <stephen@redrocketcomputing.com>
+Date: Tue, 4 Feb 2025 17:33:58 -0800
+Subject: [PATCH] Remove missing braces and shadow warning as errors
+
+Upstream-Status: Pending
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5f874bb60..f197e6f1a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,8 +2,7 @@ cmake_minimum_required(VERSION 3.16)
+ project(joint_limits LANGUAGES CXX)
+ 
+ if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+-  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type -Werror=shadow
+-          -Werror=missing-braces)
++  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type)
+ endif()
+ 
+ # using this instead of visibility macros

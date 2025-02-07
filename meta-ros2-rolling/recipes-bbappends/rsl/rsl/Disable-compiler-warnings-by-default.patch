@@ -8,6 +8,9 @@ ideal when shipping code to be used by many third parties. In fact
 it's even better to disable warnings by default since compiler
 warnings are not hard requirements. They're merely a development
 tool that developers should opt into.
+
+Upstream-Status: Pending
+
 ---
  CMakeLists.txt    | 3 ++-
  CMakePresets.json | 3 ++-

@@ -1,13 +1,20 @@
-Disable compiler options
+From 147add0af76c55906fc72e94ac1d35a6911055a4 Mon Sep 17 00:00:00 2001
+From: Stephen Street <stephen@redrocketcomputing.com>
+Date: Tue, 4 Feb 2025 18:35:18 -0800
+Subject: [PATCH] Disable compiler options
 
 We prefer to use the compiler options set by bitbake.
 
-Upstream-status: Inappropriate [oe specific]
+Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 5 -----
+ 1 file changed, 5 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c3c0de773..402514fd6 100644
+index 5d91604ce..69bb4b73e 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,11 +1,6 @@
@@ -19,6 +26,6 @@ index c3c0de773..402514fd6 100644
 -          -Werror=missing-braces)
 -endif()
 -
- set(THIS_PACKAGE_INCLUDE_DEPENDS
-   ament_index_cpp
-   controller_interface
+ # using this instead of visibility macros
+ # S1 from https://github.com/ros-controls/ros2_controllers/issues/1053
+ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)

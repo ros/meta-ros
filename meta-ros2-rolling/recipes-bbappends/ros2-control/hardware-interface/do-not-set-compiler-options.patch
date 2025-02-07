@@ -1,9 +1,18 @@
+From f66af66473f8b89de39e20d119d0de9092adf61c Mon Sep 17 00:00:00 2001
+From: Stephen Street <stephen@redrocketcomputing.com>
+Date: Tue, 4 Feb 2025 17:49:36 -0800
+Subject: [PATCH] do not set compiler options
+
 Upstream-Status: Pending
 
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+ CMakeLists.txt | 5 -----
+ 1 file changed, 5 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c557a4970..389929b1d 100644
+index 673704c86..896175fad 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,11 +1,6 @@
@@ -15,6 +24,6 @@ index c557a4970..389929b1d 100644
 -          -Werror=missing-braces)
 -endif()
 -
- set(THIS_PACKAGE_INCLUDE_DEPENDS
-   control_msgs
-   lifecycle_msgs
+ # using this instead of visibility macros
+ # S1 from https://github.com/ros-controls/ros2_controllers/issues/1053
+ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
