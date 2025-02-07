@@ -1,3 +1,8 @@
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+
 diff --git a/setup.cfg b/setup.cfg
 index ef02ee65..66c2850b 100644
 --- a/setup.cfg
