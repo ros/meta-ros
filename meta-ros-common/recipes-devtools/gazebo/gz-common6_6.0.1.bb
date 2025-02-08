@@ -3,10 +3,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://profiler/src/Remotery/LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
-SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=gz-common5 \
-           file://add-missing-headers.patch"
+SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=gz-common6"
 
-SRCREV = "84df3704bfcffb85fa476c29e6181fba55c904dd"
+SRCREV = "1deb6d9e6cbeb28d7def20167c3d3146edd71633"
 
 S = "${WORKDIR}/git"
 
@@ -23,9 +22,9 @@ DEPENDS = " \
     doxygen-native \
     gdal \
     graphviz-native \
-    gz-cmake3 \
-    gz-math7 \
-    gz-utils2 \
+    gz-cmake4 \
+    gz-math8 \
+    gz-utils3 \
     gts \
     ffmpeg \
     freeimage \
@@ -34,8 +33,7 @@ DEPENDS = " \
 "
 
 FILES:${PN} += " \
-    ${datadir}/gz/gz-common5/profiler_vis/* \
-    ${datadir}/gz/gz-common5/gz-common5.tag.xml \
+    ${datadir}/gz/gz-common6/profiler_vis/* \
 "
 
 BBCLASSEXTEND = "native nativesdk"
