@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/debian-phototools-team/jxrlib/-/blob/master/debian/patches/pkg-config.patch?ref_type=heads]
+
 Description: Incorrect path to include directory in pkg-config (libjxr.pc)
  The pkg-config file for libjxr contains incorrect paths to the headers: it
  refers to paths used by the upstream Makefile (sub-directories of

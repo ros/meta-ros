@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/debian-phototools-team/jxrlib/-/blob/master/debian/patches/pie.patch?ref_type=heads]
+
 Description: lintian hardening-no-bindnow
 Author: Mathieu Malaterre <malat@debian.org>
 Forwarded: not-needed
