@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/Fix-encoding-of-fi-header.patch?ref_type=heads]
+
 From: Ghislain Antony Vaillant <ghisvail@gmail.com>
 Date: Sun, 10 Jan 2016 16:03:12 +0000
 Subject: Fix encoding of fi header.

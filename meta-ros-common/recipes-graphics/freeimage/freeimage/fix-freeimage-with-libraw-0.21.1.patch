@@ -1,4 +1,5 @@
-https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1040259
+Upstream-Status: Backport [https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1040259]
+
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 Description: Fix FTBFS on some big-endian targets

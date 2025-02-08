@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/Fix-compatibility-with-system-libpng.patch?ref_type=heads]
+
 From: Ghislain Antony Vaillant <ghisvail@gmail.com>
 Date: Tue, 3 Nov 2015 15:20:45 +0000
 Subject: Fix compatibility with system libpng.
