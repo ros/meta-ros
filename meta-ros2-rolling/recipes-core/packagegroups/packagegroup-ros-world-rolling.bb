@@ -943,3 +943,16 @@ RDEPENDS:${PN}:remove = "canopen-tests"
 # nao-lola
 # "Please use nao_lola_client. nao_lola will be removed in K-turtle."
 RDEPENDS:${PN}:remove = "nao-lola"
+
+# Depends on python3-expiringdict
+RDEPENDS:${PN}:remove = "yasmin-demos"
+RDEPENDS:${PN}:remove = "yasmin-viewer"
+
+# Depends on python3-uvicorn
+RDEPENDS:${PN}:remove = "rmf-demos-fleet-adapter"
+
+# Depends on xclip
+RDEPENDS:${PN}:remove = "log-view"
+
+# Depends on python3-pyside2
+RDEPENDS:${PN}:remove = "rqt-dotgraph"
