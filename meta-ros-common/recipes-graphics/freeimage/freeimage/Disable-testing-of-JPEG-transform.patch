@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/Disable-testing-of-JPEG-transform.patch?ref_type=heads]
+
 From: Ghislain Antony Vaillant <ghisvail@gmail.com>
 Date: Tue, 3 Nov 2015 18:15:18 +0000
 Subject: Disable testing of JPEG transform.

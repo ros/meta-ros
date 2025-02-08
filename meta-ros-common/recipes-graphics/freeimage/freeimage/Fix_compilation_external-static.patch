@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/Fix_compilation_external-static.patch?ref_type=heads]
+
 Description: Fix compilation due to external-static mismatch
 Author: Anton Gladky <gladk@debian.org>
 Bug-Debian: https://bugs.debian.org/964653

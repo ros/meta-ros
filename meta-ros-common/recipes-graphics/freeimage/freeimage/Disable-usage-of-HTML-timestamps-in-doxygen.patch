@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/Disable-usage-of-HTML-timestamps-in-doxygen.patch?ref_type=heads]
+
 From: Ghislain Antony Vaillant <ghisvail@gmail.com>
 Date: Tue, 10 Nov 2015 13:50:59 +0000
 Subject: Disable usage of HTML timestamps in doxygen.

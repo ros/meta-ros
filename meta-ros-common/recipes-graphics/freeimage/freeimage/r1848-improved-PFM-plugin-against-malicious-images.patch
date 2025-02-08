@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/r1848-improved-PFM-plugin-against-malicious-images.patch?ref_type=heads]
+
 Origin: upstream, r1848
 Index: Source/FreeImage/PluginPFM.cpp
 ---

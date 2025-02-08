@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/r1830-minor-refactoring.patch?ref_type=heads]
+
 Index: Source/Utilities.h
 ===================================================================
 diff --git a/Source/Utilities.h b/Source/Utilities.h

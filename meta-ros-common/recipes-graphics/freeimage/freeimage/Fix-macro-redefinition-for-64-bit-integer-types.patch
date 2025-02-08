@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/Fix-macro-redefinition-for-64-bit-integer-types.patch?ref_type=heads]
+
 From: Debian QA Group <packages@qa.debian.org>
 Date: Fri, 6 Nov 2015 13:51:20 +0000
 Subject: Fix macro redefinition for 64-bit integer types.
