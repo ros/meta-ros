@@ -1,6 +1,8 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2024 Wind River Systems, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 ROS_BUILD_DEPENDS += "glew"
 
 # CMake Warning at /jenkins/mjansa/build/ros/ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/rviz-rendering/8.2.0-1-r0/recipe-sysroot/usr/lib/cmake/Qt5/Qt5Config.cmake:7 (message):
