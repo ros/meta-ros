@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
