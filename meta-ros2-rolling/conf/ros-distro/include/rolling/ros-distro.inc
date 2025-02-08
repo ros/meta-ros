@@ -25,6 +25,7 @@ require conf/ros-distro/include/rolling/ros-distro-preferred-providers.inc
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     action-msgs-native \
     ament-acceleration-native \
+    ament-index-cpp-native \
     ament-lint-native \
     ament-cmake-cpplint-native \
     ament-cmake-uncrustify-native \
@@ -87,6 +88,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     spdlog-vendor-native \
     std-msgs-native \
     tracetools-native \
+    type-description-interfaces-native \
     uncrustify-vendor-native \
     unique-identifier-msgs-native \
 "
