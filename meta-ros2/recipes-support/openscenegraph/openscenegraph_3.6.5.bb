@@ -6,6 +6,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=1997b5e8aad6beab407654a49b4ac50c \
 
 SRC_URI = "git://github.com/openscenegraph/OpenSceneGraph.git;protocol=https;branch=OpenSceneGraph-3.6"
 
+# WxWindows-exception-3.1 is a valid SPDX identifier but bitbake does not recognize it
+ERROR_QA:remove = "license-exists"
+
 # Modify these as desired
 PV = "3.6.5+git${SRCPV}"
 SRCREV = "a827840baf0786d72e11ac16d5338a4ee25779db"
