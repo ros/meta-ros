@@ -11,18 +11,4 @@ ROS_BUILD_DEPENDS = "dartsim"
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://use-system-dartsim.patch"
 
-# do_install:append:class-target () {
-#     sed -i -e "s,--sysroot=${STAGING_DIR_TARGET},,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-#     sed -i -e "s,-fdebug-prefix-map=${STAGING_DIR_HOST}=,,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-#     sed -i -e "s,-fmacro-prefix-map=${STAGING_DIR_HOST}=,,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-#     sed -i -e "s,-fdebug-prefix-map=${STAGING_DIR_NATIVE}=,,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-#     sed -i -e "s, -fmacro-prefix-map=${S}=${TARGET_DBGSRC_DIR},,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-#     sed -i -e "s, -fdebug-prefix-map=${S}=${TARGET_DBGSRC_DIR},,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-#     sed -i -e "s, -fmacro-prefix-map=${B}=${TARGET_DBGSRC_DIR},,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-#     sed -i -e "s, -fdebug-prefix-map=${B}=${TARGET_DBGSRC_DIR},,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-#     sed -i -e "s, -fdebug-prefix-map=${STAGING_DIR_HOST}=,,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-#     sed -i -e "s, -fmacro-prefix-map=${STAGING_DIR_HOST}=,,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-#     sed -i -e "s, -fdebug-prefix-map=${STAGING_DIR_NATIVE}=,,g" ${D}${ros_libdir}/pkgconfig/dart.pc
-# }
-
 inherit pkgconfig
