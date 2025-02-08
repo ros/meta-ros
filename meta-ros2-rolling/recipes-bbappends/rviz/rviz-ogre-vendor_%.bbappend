@@ -5,7 +5,9 @@
 DEPENDS += "ogre"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-CMakeLists-remove-all-ament_vendor-calls.patch"
+SRC_URI += "file://use-system-dependencies.patch"
+
+inherit pkgconfig
 
 # libxaw is empty, the library is installed in libxaw6 and libxaw7 packages
 # and ogre should get runtime dependency automatically through shlibs
