@@ -16,4 +16,8 @@ DEPENDS = "glib-2.0"
 
 inherit autotools pkgconfig
 
+do_install:append() {
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${bindir}/gts-config
+}
+
 BBCLASSEXTEND = "native nativesdk"
