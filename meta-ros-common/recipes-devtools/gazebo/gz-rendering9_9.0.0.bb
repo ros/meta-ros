@@ -3,9 +3,9 @@ LICENSE = "Apache-2.0 & OFL-1.1"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://ogre/src/media/fonts/liberation-sans/SIL%20Open%20Font%20License.txt;md5=a4b00b7892bfb2fc9398e7f292af5b3d"
 
-SRC_URI = "git://github.com/gazebosim/gz-rendering.git;protocol=https;branch=gz-rendering8"
+SRC_URI = "git://github.com/gazebosim/gz-rendering.git;protocol=https;branch=gz-rendering9"
 
-SRCREV = "8a547d5386a33789313abbb5bbbe1b2ec4c04741"
+SRCREV = "cd1d3f8858d896e84e9399314639ab10989e829c"
 
 S = "${WORKDIR}/git"
 
@@ -14,23 +14,22 @@ DEPENDS = " \
     freeglut \
     freeimage \
     glew \
-    gz-cmake3 \
-    gz-common5 \
-    gz-math7 \
-    gz-plugin2 \
+    gz-cmake4 \
+    gz-common6 \
+    gz-math8 \
+    gz-plugin3 \
+    gz-utils3 \
     libglu \
     libxi \
     libxmu \
     ogre \
-    ogre-next \
-    virtual/libgl \
-    virtual/libglx \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'virtual/libgl libglu', '', d)} \
 "
 
 inherit cmake pkgconfig
 
 # Copied from rviz_ogre_vendor CMakeLists.txt
-OGRE_CXX_FLAGS += " \
+CXXFLAGS += " \
     -Wno-deprecated-declarations \
     -Wno-mismatched-new-delete \
     -Wno-range-loop-construct \
@@ -41,7 +40,6 @@ OGRE_CXX_FLAGS += " \
 
 EXTRA_OECMAKE = " \
     -DSKIP_optix:BOOL=TRUE \
-    -DCMAKE_CXX_FLAGS=${OGRE_CXX_FLAGS} \
 "
 
 # CMake Error: TRY_RUN() invoked in cross-compiling mode, please set the following cache variables appropriately:
@@ -53,11 +51,11 @@ OECMAKE_GENERATOR = "Unix Makefiles"
 
 FILES:${PN} += " \
     ${datadir}/gz/* \
-    ${libdir}/gz-rendering-8/engine-plugins/lib*${SOLIBS} \
+    ${libdir}/gz-rendering-9/engine-plugins/lib*${SOLIBS} \
 "
 
 FILES:${PN}-dev += " \
-    ${libdir}/gz-rendering-8/engine-plugins/lib*${SOLIBSDEV} \
+    ${libdir}/gz-rendering-9/engine-plugins/lib*${SOLIBSDEV} \
 "
 
 BBCLASSEXTEND = "native nativesdk"
