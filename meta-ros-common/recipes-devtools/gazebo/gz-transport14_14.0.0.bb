@@ -2,18 +2,18 @@
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
-SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=gz-transport13"
+SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=gz-transport14"
 
-SRCREV = "a5af52592810c2aa4f2fec417cc736a18f616e93"
+SRCREV = "cc9703319dee492fcd6b519ff93465016acafe5f"
 
 S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig python3targetconfig
 
 DEPENDS = " \
-    gz-cmake3 \
-    gz-msgs10 \
-    gz-utils2 \
+    gz-cmake4 \
+    gz-msgs11 \
+    gz-utils3 \
     sqlite3 \
     util-linux-libuuid \
     zeromq \
