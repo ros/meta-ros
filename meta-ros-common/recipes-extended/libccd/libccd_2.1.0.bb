@@ -5,7 +5,8 @@ LIC_FILES_CHKSUM = "file://BSD-LICENSE;md5=ff7a32175d897961df3eec70a6166429"
 
 SRCREV = "7931e764a19ef6b21b443376c699bbc9c6d4fba8"
 ROS_BRANCH ?= "branch=master"
-SRC_URI = "git://github.com/danfis/libccd;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/danfis/libccd;${ROS_BRANCH};protocol=https \
+           file://find-math-library.patch"
 
 S = "${WORKDIR}/git"
 

@@ -1,0 +1,17 @@
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 1407080..016d2d5 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -53,7 +53,7 @@ if(NOT WIN32)
+   if(NOT LIBM_LIBRARY)
+     message(FATAL_ERROR "Could NOT find required library LibM")
+   endif()
+-  target_link_libraries(ccd "${LIBM_LIBRARY}")
++  target_link_libraries(ccd m)
+   if(BUILD_SHARED_LIBS)
+     set(CCD_PKGCONFIG_EXTRA_LIBS -lm PARENT_SCOPE)
+   endif()
