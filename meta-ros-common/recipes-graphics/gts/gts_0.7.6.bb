@@ -1,4 +1,4 @@
-LICENSE = "LGPL-2.0-only & Unknown"
+LICENSE = "LGPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=3bf50002aefd002f49e7bb854063f7e7 \
                     file://debian/copyright;md5=98f2cb72cc54864f096332707c784f81"
 
