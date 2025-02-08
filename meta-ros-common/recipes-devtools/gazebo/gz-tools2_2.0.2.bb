@@ -6,7 +6,7 @@ SRC_URI = " \
     git://github.com/gazebosim/gz-tools.git;protocol=https;branch=gz-tools2 \
 "
 
-SRCREV = "efcc504bd3665151266f38db627c9095e5a5773f"
+SRCREV = "2d2cf690aae6533d46cc9264f3347d8986c79037"
 
 S = "${WORKDIR}/git"
 
@@ -28,7 +28,7 @@ FILES:${PN} = " \
     ${bindir}/gz \
     ${datadir}/bash-completion/completions/gz \
     ${libdir}/libgz-tools2-backward.so.2 \
-    ${libdir}/libgz-tools2-backward.so.2.0.1 \
+    ${libdir}/libgz-tools2-backward.so.2.0.2 \
     ${datadir}/gz/gz.completion \
 "
 
