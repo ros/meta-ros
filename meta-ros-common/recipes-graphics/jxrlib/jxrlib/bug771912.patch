@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/debian-phototools-team/jxrlib/-/blob/master/debian/patches/bug771912.patch?ref_type=heads]
+
 Description: Document PNM output
 Author: Mathieu Malaterre <malat@debian.org>
 Bug-Debian: https://bugs.debian.org/771912

@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/debian-phototools-team/jxrlib/-/blob/master/debian/patches/082bb032be1f6c75173bf603252e4f37bfded9fa.patch?ref_type=heads]
+
 From 082bb032be1f6c75173bf603252e4f37bfded9fa Mon Sep 17 00:00:00 2001
 From: Milian Wolff <milian.wolff@kdab.com>
 Date: Mon, 7 Jun 2021 09:45:26 +0200

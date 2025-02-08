@@ -1,3 +1,7 @@
+Upstream-Status: Inactive-Upstream
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 Index: git/Makefile
 ===================================================================
 --- git.orig/Makefile
