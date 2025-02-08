@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/debian-phototools-team/jxrlib/-/blob/master/debian/patches/cp1251.patch?ref_type=heads]
+
 Description: Convert some national-encoding file to utf-8
  W: libjxr-dev: national-encoding usr/include/jxrlib/wmsal.h
  Steps:

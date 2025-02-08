@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/debian-phototools-team/jxrlib/-/blob/master/debian/patches/typos.patch?ref_type=heads]
+
 Description: Fix typos and remove some warnings
 Author: Mathieu Malaterre <malat@debian.org>
 
