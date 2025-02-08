@@ -1,3 +1,7 @@
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 Index: git/Makefile.gnu
 ===================================================================
 --- git.orig/Makefile.gnu

@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/r1877-improved-DDS-plugin-against-malicious-images.patch?ref_type=heads]
+
 Origin: upstream, r1877
 Index: Source/FreeImage/PluginDDS.cpp
 ===================================================================

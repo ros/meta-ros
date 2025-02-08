@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/Fix-libraw-compilation.patch?ref_type=heads]
+
 Description: Fix FTBFS against libraw 0.20.0
 Origin: https://sourceforge.net/p/freeimage/svn/1842/
 Acked-By: Anton Gladky <gladk@debian.org>
