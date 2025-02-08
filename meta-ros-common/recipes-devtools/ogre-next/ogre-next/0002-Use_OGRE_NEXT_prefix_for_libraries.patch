@@ -1,3 +1,11 @@
+Use the OGRE_NEXT variable to rename the libraries.
+
+This avoids a filesystem conflict between OGRE and OGRE-Next lirbaries
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 Index: git/CMake/Templates/OGREConfig.cmake.in
 ===================================================================
 --- git.orig/CMake/Templates/OGREConfig.cmake.in

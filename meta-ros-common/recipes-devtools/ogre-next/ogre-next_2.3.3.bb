@@ -1,6 +1,6 @@
-# Copyright (c) 2023 Wind River Systems, Inc.
+# Copyright (c) 2023-2025 Wind River Systems, Inc.
 
-LICENSE = "MIT & Unknown"
+LICENSE = "MIT & BSL-1.0 & CC-BY-3.0 & LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://CMake/Templates/DemoLicense.rtf;md5=2711c49576d18cf781ec81aad76f40d6 \
                     file://COPYING;md5=65d1ee510d57bbd05663424f2ff8d660 \
                     file://OgreMain/src/nedmalloc/License.txt;md5=e4224ccaecb14d942c71d31bef20d78c \
@@ -29,7 +29,7 @@ DEPENDS = " \
     freetype \
     glslang \
     libsdl2 \
-    libtinyxml \
+    libtinyxml2 \
     libx11 \
     libxaw \
     libxcb \
@@ -63,18 +63,16 @@ EXTRA_OECMAKE += " \
     -DOGRE_GLSUPPORT_USE_GLX:BOOL=TRUE \
 "
 
-# This may be necessary if the GLES2 render system is enabled instead of GL3PLUS:
-#
-# do_configure:append() {
-#    # Remove the old copy of glxext.h to use the system one that defines PFNGLXSWAPINTERVALMESAPROC
-#    #    https://gitlab.freedesktop.org/mesa/mesa/-/commit/cc93f08f1e3e84f09cb2bb587d6de702dc836478
-#    #
-#    # These resolves a build error when using GL3Plus:
-#    #   git/RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp:720:9: error: 'PFNGLXSWAPINTERVALMESAPROC' 
-#    #       was not declared in this scope; did you mean 'PFNGLXSWAPINTERVALEXTPROC'?
-#    #   git/RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp:721:9: error: '_glXSwapInterval
-#    rm ${S}/RenderSystems/GL3Plus/include/GL/glxext.h
-#}
+do_configure:append() {
+    # Remove the old copy of glxext.h to use the system one that defines PFNGLXSWAPINTERVALMESAPROC
+    #    https://gitlab.freedesktop.org/mesa/mesa/-/commit/cc93f08f1e3e84f09cb2bb587d6de702dc836478
+    #
+    # These resolves a build error when using GL3Plus:
+    #   git/RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp:720:9: error: 'PFNGLXSWAPINTERVALMESAPROC' 
+    #       was not declared in this scope; did you mean 'PFNGLXSWAPINTERVALEXTPROC'?
+    #   git/RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp:721:9: error: '_glXSwapInterval
+    rm ${S}/RenderSystems/GL3Plus/include/GL/glxext.h
+}
 
 FILES:${PN}-dev += "${libdir}/OGRE-Next/cmake ${libdir}/OGRE-Next/*${SOLIBSDEV}"
 FILES:${PN} += "${datadir}/OGRE-Next ${libdir}/OGRE-Next "
