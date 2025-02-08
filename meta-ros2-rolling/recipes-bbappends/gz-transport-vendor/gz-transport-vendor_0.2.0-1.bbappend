@@ -1,11 +1,9 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-export GZ_RELAX_VERSION_MATCH="1"
-
 inherit pkgconfig
 
 ROS_BUILD_DEPENDS += " \
-    gz-transport13 \
+    gz-transport14 \
     protobuf \
 "
 

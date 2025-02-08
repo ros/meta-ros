@@ -8,7 +8,7 @@ Index: git/CMakeLists.txt
 @@ -12,28 +12,10 @@ set(LIB_VER ${LIB_VER_MAJOR}.${LIB_VER_M
  find_package(ament_cmake REQUIRED)
  find_package(ament_cmake_vendor_package REQUIRED)
-
+ 
 -# Set the VERSION_MATCH to "EXACT" by default, but relax the requirement
 -# if we are users are building from source (determined by the
 -# GZ_BUILD_FROM_SOURCE environment variable) or if explicitly told to do so
@@ -19,7 +19,7 @@ Index: git/CMakeLists.txt
 -endif()
 +include(FindPkgConfig)
 +pkg_search_module(DART REQUIRED dart)
-
+ 
 -if(NOT $ENV{GZ_RELAX_VERSION_MATCH} STREQUAL "")
 -  set(VERSION_MATCH "")
 -endif()
@@ -34,6 +34,6 @@ Index: git/CMakeLists.txt
 -  QUIET
 -)
 +message("DART_FOUND: ${DART_FOUND}")
-
+ 
  ament_vendor(${PROJECT_NAME}
    SATISFIED ${DART_FOUND}
