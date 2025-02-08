@@ -8,7 +8,7 @@ SRCREV = "cc524e7ebea952652aea3b03a95f13dc6416c563"
 
 S = "${WORKDIR}/git"
 
-inherit cmake pkgconfig
+inherit cmake pkgconfig python3targetconfig
 
 DEPENDS = " \
     gz-cmake-vendor \
@@ -22,13 +22,14 @@ DEPENDS = " \
     urdfdom \
 "
 
+PACKAGES =+ "python3-${PN}"
+
 FILES:${PN} += " \
     ${libdir}/ruby/gz \
     ${datadir}/gz \
     ${datadir}/sdformat15/* \
 "
 
-do_install:append() {
-    rm ${D}/usr/lib/python/sdformat15.cpython-312-x86_64-linux-gnu.so
-    rm -r ${D}/usr/lib/python
-}
+FILES:python3-${PN} += " \
+    ${libdir}/python \
+"
