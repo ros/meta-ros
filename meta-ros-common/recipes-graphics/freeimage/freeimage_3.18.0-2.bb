@@ -1,4 +1,4 @@
-LICENSE = "GPL-2.0-or-later | GPL-3.0-or-later | FIPL-1.0"
+LICENSE = "GPL-2.0-or-later | GPL-3.0-or-later | FreeImage"
 LIC_FILES_CHKSUM = "file://Wrapper/Delphi/license.txt;md5=d9993e75dec47df89dbb5da6c939d046 \
                     file://license-fi.txt;md5=8e1438cab62c8f655288588dc43daaf6 \
                     file://license-gplv2.txt;md5=1fbed70be9d970d3da399f33dae9cc51"
