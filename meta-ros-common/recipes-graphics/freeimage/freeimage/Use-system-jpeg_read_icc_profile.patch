@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/Use-system-jpeg_read_icc_profile.patch?ref_type=heads]
+
 Description: Use jpeg_read_icc_profile() from libjpeg
  Current version of libjpeg8-turbo provides jpeg_read_icc_profile(), which
  means our static definition now conflicts with the system headers.  Drop

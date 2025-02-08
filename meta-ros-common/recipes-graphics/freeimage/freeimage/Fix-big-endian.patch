@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://salsa.debian.org/science-team/freeimage/-/blob/debian/sid/debian/patches/Fix-big-endian.patch?ref_type=heads]
+
 Description: Fix FTBFS on some big-endian targets
 Bug-Debian: https://bugs.debian.org/1002610
 Origin: backport, https://sourceforge.net/p/freeimage/svn/1809/
