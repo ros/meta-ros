@@ -1,6 +1,8 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2023 Wind River Systems, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 # CMake Warning at TOPDIR/tmp-glibc/work/core2-64-oe-linux/rviz-common/11.2.8-1-r0/recipe-sysroot/usr/lib/cmake/Qt5/Qt5Config.cmake:7 (message):
 # SkippingbecauseOE_QMAKE_PATH_EXTERNAL_HOST_BINSisnotdefined
 # ...
