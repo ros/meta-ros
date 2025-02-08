@@ -34,7 +34,7 @@ DEPENDS = " \
     python3-pytest \
     urdfdom \
     urdfdom-headers \
-    virtual/libgl \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'virtual/libgl libglu', '', d)} \
 "
 
 
