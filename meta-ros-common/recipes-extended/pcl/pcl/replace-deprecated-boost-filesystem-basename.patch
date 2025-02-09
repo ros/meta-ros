@@ -1,0 +1,145 @@
+Upstream-Status: Backport
+
+From 95f8d3ec6896c3b4685248110008276ebb610a1c Mon Sep 17 00:00:00 2001
+From: Kino <cybao292261@163.com>
+Date: Mon, 18 Dec 2023 03:27:33 +0800
+Subject: [PATCH] replace deprecated boost filesystem basename (#5901)
+
+* replace deprecated boost filesystem basename
+
+* try to address CI clang-tidy issues
+
+* address CI clang-tidy issues
+
+* fix Windows build errors
+---
+ .../tools/standalone_texture_mapping.cpp         |  2 +-
+ io/src/image_grabber.cpp                         | 16 ++++++++--------
+ .../include/pcl/outofcore/impl/octree_base.hpp   |  4 ++--
+ .../pcl/outofcore/impl/octree_base_node.hpp      |  2 +-
+ 4 files changed, 12 insertions(+), 12 deletions(-)
+
+Index: git/gpu/kinfu_large_scale/tools/standalone_texture_mapping.cpp
+===================================================================
+--- git.orig/gpu/kinfu_large_scale/tools/standalone_texture_mapping.cpp
++++ git/gpu/kinfu_large_scale/tools/standalone_texture_mapping.cpp
+@@ -439,7 +439,7 @@ main (int argc, char** argv)
+     {
+       pcl::TextureMapping<pcl::PointXYZ>::Camera cam;
+       readCamPoseFile(it->path ().string (), cam);
+-      cam.texture_file = boost::filesystem::basename (it->path ()) + ".png";
++      cam.texture_file = it->path ().stem ().string () + ".png";
+       my_cams.push_back (cam);
+     }
+   }
+Index: git/io/src/image_grabber.cpp
+===================================================================
+--- git.orig/io/src/image_grabber.cpp
++++ git/io/src/image_grabber.cpp
+@@ -269,7 +269,7 @@ pcl::ImageGrabberBase::ImageGrabberImpl:
+   {
+     extension = boost::algorithm::to_upper_copy (itr->path ().extension ().string ());
+     pathname = itr->path ().string ();
+-    basename = boost::filesystem::basename (itr->path ());
++    basename = itr->path ().stem ().string ();
+     if (!boost::filesystem::is_directory (itr->status ())
+         && isValidExtension (extension))
+     {
+@@ -312,7 +312,7 @@ pcl::ImageGrabberBase::ImageGrabberImpl:
+   {
+     extension = boost::algorithm::to_upper_copy (itr->path ().extension ().string ());
+     pathname = itr->path ().string ();
+-    basename = boost::filesystem::basename (itr->path ());
++    basename = itr->path ().stem ().string ();
+     if (!boost::filesystem::is_directory (itr->status ())
+         && isValidExtension (extension))
+     {
+@@ -327,7 +327,7 @@ pcl::ImageGrabberBase::ImageGrabberImpl:
+   {
+     extension = boost::algorithm::to_upper_copy (itr->path ().extension ().string ());
+     pathname = itr->path ().string ();
+-    basename = boost::filesystem::basename (itr->path ());
++    basename = itr->path ().stem ().string ();
+     if (!boost::filesystem::is_directory (itr->status ())
+         && isValidExtension (extension))
+     {
+@@ -368,7 +368,7 @@ pcl::ImageGrabberBase::ImageGrabberImpl:
+   {
+     extension = boost::algorithm::to_upper_copy (itr->path ().extension ().string ());
+     pathname = itr->path ().string ();
+-    basename = boost::filesystem::basename (itr->path ());
++    basename = itr->path ().stem ().string ();
+     if (!boost::filesystem::is_directory (itr->status ())
+         && isValidExtension (extension))
+     {
+@@ -429,7 +429,7 @@ pcl::ImageGrabberBase::ImageGrabberImpl:
+ {
+   // For now, we assume the file is of the form frame_[22-char POSIX timestamp]_*
+   char timestamp_str[256];
+-  int result = std::sscanf (boost::filesystem::basename (filepath).c_str (),
++  int result = std::sscanf (boost::filesystem::path (filepath).stem ().string ().c_str (),
+                             "frame_%22s_%*s",
+                             timestamp_str);
+   if (result > 0)
+@@ -974,7 +974,7 @@ pcl::ImageGrabberBase::getCurrentDepthFi
+     pathname = impl_->depth_pclzf_files_[impl_->cur_frame_];
+   else
+     pathname = impl_->depth_image_files_[impl_->cur_frame_];
+-  std::string basename = boost::filesystem::basename (pathname);
++  std::string basename = boost::filesystem::path (pathname).stem ().string ();
+   return (basename);
+ }
+ //////////////////////////////////////////////////////////////////////////////////////////
+@@ -986,7 +986,7 @@ pcl::ImageGrabberBase::getPrevDepthFileN
+     pathname = impl_->depth_pclzf_files_[impl_->cur_frame_-1];
+   else
+     pathname = impl_->depth_image_files_[impl_->cur_frame_-1];
+-  std::string basename = boost::filesystem::basename (pathname);
++  std::string basename = boost::filesystem::path (pathname).stem ().string ();
+   return (basename);
+ }
+ 
+@@ -999,7 +999,7 @@ pcl::ImageGrabberBase::getDepthFileNameA
+     pathname = impl_->depth_pclzf_files_[idx];
+   else
+     pathname = impl_->depth_image_files_[idx];
+-  std::string basename = boost::filesystem::basename (pathname);
++  std::string basename = boost::filesystem::path (pathname).stem ().string ();
+   return (basename);
+ }
+ 
+Index: git/outofcore/include/pcl/outofcore/impl/octree_base.hpp
+===================================================================
+--- git.orig/outofcore/include/pcl/outofcore/impl/octree_base.hpp
++++ git/outofcore/include/pcl/outofcore/impl/octree_base.hpp
+@@ -93,7 +93,7 @@ namespace pcl
+       root_node_->m_tree_ = this;
+ 
+       // Set the path to the outofcore octree metadata (unique to the root folder) ending in .octree
+-      boost::filesystem::path treepath = root_name.parent_path () / (boost::filesystem::basename (root_name) + TREE_EXTENSION_);
++      boost::filesystem::path treepath = root_name.parent_path () / (root_name.stem ().string () + TREE_EXTENSION_);
+ 
+       //Load the JSON metadata
+       metadata_->loadMetadataFromDisk (treepath);
+@@ -169,7 +169,7 @@ namespace pcl
+       root_node_->m_tree_ = this;
+       
+       // Set root nodes file path
+-      boost::filesystem::path treepath = dir / (boost::filesystem::basename (root_name) + TREE_EXTENSION_);
++      boost::filesystem::path treepath = dir / (root_name.stem ().string () + TREE_EXTENSION_);
+ 
+       //fill the fields of the metadata
+       metadata_->setCoordinateSystem (coord_sys);
+Index: git/outofcore/include/pcl/outofcore/impl/octree_base_node.hpp
+===================================================================
+--- git.orig/outofcore/include/pcl/outofcore/impl/octree_base_node.hpp
++++ git/outofcore/include/pcl/outofcore/impl/octree_base_node.hpp
+@@ -1937,7 +1937,7 @@ namespace pcl
+     template<typename ContainerT, typename PointT> void
+     OutofcoreOctreeBaseNode<ContainerT, PointT>::convertToXYZRecursive ()
+     {
+-      std::string fname = boost::filesystem::basename (node_metadata_->getPCDFilename ()) + std::string (".dat.xyz");
++      std::string fname = node_metadata_->getPCDFilename ().stem ().string () + ".dat.xyz";
+       boost::filesystem::path xyzfile = node_metadata_->getDirectoryPathname () / fname;
+       payload_->convertToXYZ (xyzfile);
+ 
