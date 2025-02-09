@@ -1,5 +1,7 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 # ERROR: octomap-1.9.7-1-r0 do_package: QA Issue: octomap: Files/directories were installed but not shipped in any package:
 #   /usr/share/ament_index
 #   /usr/share/ament_index/resource_index
