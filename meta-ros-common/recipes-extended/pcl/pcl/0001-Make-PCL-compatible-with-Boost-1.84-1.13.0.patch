@@ -1,5 +1,7 @@
 Refreshed patch for integration with pcl-0.13.0
 
+Upstream-Status: Backport
+
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 From c750d074cdc5fbb5382ff302ba9afe43ce51a101 Mon Sep 17 00:00:00 2001
