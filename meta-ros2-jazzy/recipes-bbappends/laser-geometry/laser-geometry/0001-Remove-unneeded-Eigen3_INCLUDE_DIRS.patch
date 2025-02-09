@@ -1,0 +1,24 @@
+From aab625410af5d0b52bc6f5aff30cd60c2026ba3f Mon Sep 17 00:00:00 2001
+From: Stephen Street <stephen@redrocketcomputing.com>
+Date: Fri, 22 Nov 2024 15:18:54 -0800
+Subject: [PATCH] Remove unneeded Eigen3_INCLUDE_DIRS
+
+Upstream-Status: Pending
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7cfcd03..cad8094 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -22,7 +22,6 @@ target_include_directories(laser_geometry
+   PUBLIC
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+     $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
+-  ${Eigen3_INCLUDE_DIRS}
+ )
+ target_link_libraries(laser_geometry PUBLIC
+   ${sensor_msgs_TARGETS}
