@@ -195,3 +195,6 @@ SKIP_RECIPE[webots-ros2-tutorials] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROU
 SKIP_RECIPE[webots-ros2-universal-robot] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'opengl', 'x11'], 'qt5: rdepends on rviz2 which depends on qtbase; opengl: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; x11: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on libx11,libxrandr,libxaw which require x11 in DISTRO_FEATURES', '', d)}"
 SKIP_RECIPE[wiimote] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', 'Depends on unavailable ROS_UNRESOLVED_DEP-cwiid-dev', '', d)}"
 SKIP_RECIPE[zenoh-bridge-dds] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['clang', 'cargo'], 'clang: depends on clang which requires meta-clang layer; cargo: depends on cargo which requires meta-rust layer (or oe-core[honister] or newer)', '', d)}"
+
+# meta-ros provides a recipe for octomap to use instead of the generated one
+BBMASK +=  "generated-recipes/octomap/octomap_1.9.8-1.bb"
