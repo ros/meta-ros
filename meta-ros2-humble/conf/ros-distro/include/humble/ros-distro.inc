@@ -24,6 +24,7 @@ require conf/ros-distro/include/humble/ros-distro-preferred-providers.inc
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     ament-acceleration-native \
+    ament-index-cpp-native \
     ament-lint-native \
     cyclonedds-native \
     domain-coordinator-native \
@@ -84,6 +85,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     action-msgs-native \
     rcl-logging-spdlog-native \
     tracetools-native \
+    type-description-interfaces-native \
     libyaml-vendor-native \
     rmw-fastrtps-cpp-native \
     rmw-cyclonedds-cpp-native \
