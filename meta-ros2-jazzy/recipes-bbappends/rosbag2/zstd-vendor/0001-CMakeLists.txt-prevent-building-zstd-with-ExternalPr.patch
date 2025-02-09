@@ -24,14 +24,12 @@ Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -8,19 +8,14 @@ list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE
+@@ -8,20 +8,14 @@ list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE
  # We need at least VERSION 1.5.5, version check is done in Findzstd.cmake
  # The platform with the oldest supported version is RHEL-9,
  # which has zstd 1.5.1.  Make sure we have at least that version.
 -find_package(zstd 1.5.1 QUIET)
-+find_package(PkgConfig REQUIRED)
-+pkg_check_modules(ZSTD REQUIRED libzstd>=1.5.5)
- 
+-
 -ament_vendor(zstd_vendor
 -  SATISFIED ${zstd_FOUND}
 -  VCS_URL https://github.com/facebook/zstd.git
@@ -43,11 +41,14 @@ Index: git/CMakeLists.txt
 -    -DZSTD_BUILD_PROGRAMS:BOOL=OFF
 -    PATCHES patches
 -)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(ZSTD REQUIRED libzstd>=1.5.5)
+ 
 +if(NOT ZSTD_FOUND)
 +  message(STATUS "Zstd not found, missing dependency or version less than 1.5.5, found ${ZSTD_VERSION}")
 +else()
 +  message(STATUS "Found Zstd, skipping build.")
 +endif()
- 
  install(DIRECTORY cmake DESTINATION share/${PROJECT_NAME})
  
+ ament_package(CONFIG_EXTRAS zstd_vendor-extras.cmake)
