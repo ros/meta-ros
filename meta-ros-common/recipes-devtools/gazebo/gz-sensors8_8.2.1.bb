@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-sensors.git;protocol=https;branch=gz-sensors8"
 
-SRCREV = "410a999f1e0e91bdcf81c6aff70fa3e95e369757"
+SRCREV = "f44c31f6ddedff4440d2df8896f77ab94dcc25d2"
 
 S = "${WORKDIR}/git"
 
@@ -27,5 +27,10 @@ inherit cmake
 EXTRA_OECMAKE += " \
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
 "
+
+do_install:append() {
+    # Remove references to the build directory in the Doxygen tagfile
+    sed -i -e "s:${S}::g" ${D}${datadir}/gz/gz-sensors8/gz-sensors8.tag.xml
+}
 
 FILES:${PN} += "${datadir}/gz/gz-sensors8"

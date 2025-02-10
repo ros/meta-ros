@@ -39,6 +39,11 @@ EXTRA_OECMAKE += " \
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
 "
 
+do_install:append() {
+    # Remove references to the build directory in the Doxygen tagfile
+    sed -i -e "s:${S}::g" ${D}${datadir}/gz/gz-gui8/gz-gui8.tag.xml
+}
+
 FILES:${PN} += " \
     ${libdir}/gz-gui-8/plugins/* \
     ${libdir}/ruby/gz/* \

@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
 
 SRC_URI = "git://github.com/gazebosim/gz-physics.git;protocol=https;branch=gz-physics7"
 
-SRCREV = "f54d4ded615626d3cff34a5dcfa0cedfe8bd903f"
+SRCREV = "550c6b14e24bbf81087c5c03ed3b6a3e17e18cca"
 
 S = "${WORKDIR}/git"
 
