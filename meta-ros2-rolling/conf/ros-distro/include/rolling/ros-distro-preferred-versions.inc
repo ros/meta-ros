@@ -11,3 +11,5 @@
 # as documented in https://github.com/ros/meta-ros/pull/936
 # The head of the tree should be used for rolling
 PREFERRED_VERSION_pcl = "1.14.1+git"
+
+PREFERRED_VERSION_sdformat = "15.1.1"
