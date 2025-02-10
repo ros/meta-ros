@@ -10,3 +10,5 @@
 # This is necessary as with ROS1 many recipes fail to build
 # as documented in https://github.com/ros/meta-ros/pull/936
 PREFERRED_VERSION_pcl = "1.13.0"
+
+PREFERRED_VERSION_sdformat = "14.4.0"
