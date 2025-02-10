@@ -1,7 +1,7 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 include gz-msgs10.inc
 
-SRCREV = "876b89d5cab32d9ddfd5f95ce8cf365ce77f27ef"
+SRCREV = "d9501cf8ab410288d8ca388971eece8ff40a67e3"
 
 DEPENDS = "gz-math7 gz-cmake3 gz-utils2 gz-msgs10-native libtinyxml2 protobuf protobuf-native ${PN}-native"
 DEPENDS += "${PN}-native"
