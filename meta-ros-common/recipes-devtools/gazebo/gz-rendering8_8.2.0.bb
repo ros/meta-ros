@@ -18,13 +18,10 @@ DEPENDS = " \
     gz-common5 \
     gz-math7 \
     gz-plugin2 \
-    libglu \
     libxi \
     libxmu \
     ogre \
-    ogre-next \
-    virtual/libgl \
-    virtual/libglx \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'virtual/libgl libglu', '', d)} \
 "
 
 inherit cmake pkgconfig
@@ -41,7 +38,6 @@ OGRE_CXX_FLAGS += " \
 
 EXTRA_OECMAKE = " \
     -DSKIP_optix:BOOL=TRUE \
-    -DCMAKE_CXX_FLAGS=${OGRE_CXX_FLAGS} \
 "
 
 # CMake Error: TRY_RUN() invoked in cross-compiling mode, please set the following cache variables appropriately:
