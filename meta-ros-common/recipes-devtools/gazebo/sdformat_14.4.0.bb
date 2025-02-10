@@ -8,7 +8,7 @@ SRCREV = "f05f4e7ad1a6784f9ff1a6c1b362191677baa70d"
 
 S = "${WORKDIR}/git"
 
-inherit cmake pkgconfig
+inherit cmake pkgconfig python3targetconfig
 
 DEPENDS = " \
     gz-cmake-vendor \
@@ -21,9 +21,14 @@ DEPENDS = " \
     ruby-native \
     urdfdom \
 "
+PACKAGES =+ "python3-${PN}"
 
 FILES:${PN} += " \
     ${libdir}/ruby/gz \
     ${datadir}/gz \
     ${datadir}/sdformat14/* \
+"
+
+FILES:python3-${PN} += " \
+    ${libdir}/python \
 "
