@@ -4,8 +4,14 @@
 LICENSE = "BSD-3-Clause"
 
 inherit python3targetconfig
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'qmake5_base', '', d)}
 
 inherit qmake5_base
+
+export SIP_PROJECT_INCLUDE_DIRS="${STAGING_DIR_TARGET}/${libdir}/${PYTHON_DIR}/site-packages/PyQt5/bindings"
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://use-cmake-target-libraries.patch"
 
 export SIP_PROJECT_INCLUDE_DIRS="${STAGING_DIR_TARGET}/${libdir}/${PYTHON_DIR}/site-packages/PyQt5/bindings"
 
