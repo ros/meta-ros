@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-fuel-tools;protocol=https;branch=gz-fuel-tools9"
 
-SRCREV = "c7cd3dd6580db102bbaabfcf4835ae68be9ff66e"
+SRCREV = "9726ac5ec3299a7b13dc9d09db0edb1be08f9d96"
 
 S = "${WORKDIR}/git"
 
