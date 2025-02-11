@@ -12,16 +12,6 @@ ROS_BUILDTOOL_DEPENDS += " \
 # Without the target rosidl-typesupport-{c,cpp}, ament finds the native packages and then fails to link (error: incompatible
 # target).
 ROS_BUILD_DEPENDS += " \
-    action-msgs \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
-    service-msgs \
-"
-
-ROS_EXEC_DEPENDS += " \
-    builtin-interfaces \
-    fastcdr \
-    unique-identifier-msgs \
-    rosidl-typesupport-fastrtps-c \
-    rosidl-typesupport-fastrtps-cpp \
 "
