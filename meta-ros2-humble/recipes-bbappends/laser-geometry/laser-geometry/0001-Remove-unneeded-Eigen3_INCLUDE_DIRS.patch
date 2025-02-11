@@ -10,11 +10,11 @@ Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
  CMakeLists.txt | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7cfcd03..cad8094 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -22,7 +22,6 @@ target_include_directories(laser_geometry
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -21,7 +21,6 @@ target_include_directories(laser_geometr
    PUBLIC
      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
      $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
