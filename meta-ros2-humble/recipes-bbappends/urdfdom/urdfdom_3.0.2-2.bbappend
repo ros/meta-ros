@@ -1,11 +1,11 @@
-# Copyright (c) 2024 Wind River Systems, Inc.
+# Copyright (c) 2025 Wind River Systems, Inc
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-Upgrade-from-tinyxml-to-tinyxml2.patch"
+SRC_URI += "file://use-tinyxml-by-name.patch"
 
-# Replace tinyXML with tinyXML2
-ROS_BUILD_DEPENDS:remove = "tinyxml-vendor libtinyxml"
-ROS_EXEC_DEPENDS:remove = "tinyxml-vendor libtinyxml"
-
-ROS_BUILD_DEPENDS += "tinyxml2-vendor libtinyxml2"
-ROS_EXEC_DEPENDS += "tinyxml2-vendor libtinyxml2"
+# QA Issue: File /opt/ros/humble/lib/urdfdom/cmake/urdfdomExport.cmake in package urdfdom contains reference to TMPDIR [buildpaths]
+# QA Issue: File /opt/ros/humble/lib/urdfdom/cmake/urdfdom-config.cmake in package urdfdom contains reference to TMPDIR [buildpaths]
+do_install:append() {
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_prefix}/lib/urdfdom/cmake/urdfdomExport.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_prefix}/lib/urdfdom/cmake/urdfdom-config.cmake
+}

@@ -1,0 +1,15 @@
+Upstream-Status: Pending
+
+diff --git a/urdf_parser/CMakeLists.txt b/urdf_parser/CMakeLists.txt
+index ac7c079..02dc339 100644
+--- a/urdf_parser/CMakeLists.txt
++++ b/urdf_parser/CMakeLists.txt
+@@ -14,7 +14,7 @@ macro(add_urdfdom_library)
+     ${add_urdfdom_library_LINK}
+     ${console_bridge_link_libs}
+     ${urdfdom_headers_link_libs}
+-    ${TinyXML_LIBRARIES})
++    tinyxml)
+   if(NOT CMAKE_CXX_STANDARD)
+     target_compile_features(${add_urdfdom_library_LIBNAME} PUBLIC cxx_std_14)
+   endif()
