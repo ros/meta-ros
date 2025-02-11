@@ -20,16 +20,16 @@ Signed-off-by: Sandeep Gundlupet Raju <sandeep.gundlupet-raju@amd.com>
  delete mode 100644 cmake_minimum_required_2.8.12.patch
  delete mode 100644 no_internal_headers.patch
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index da202fbef..b2143987a 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -11,59 +11,12 @@ option(FORCE_BUILD_VENDOR_PKG
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -11,59 +11,13 @@ option(FORCE_BUILD_VENDOR_PKG
    OFF)
 
  if(NOT FORCE_BUILD_VENDOR_PKG)
 -  # We need at least VERSION 1.4.4, version check is done in Findzstd.cmake
--  find_package(zstd 1.4.4 QUIET)
+   find_package(zstd 1.4.4 QUIET)
 +  find_package(PkgConfig REQUIRED)
 +  pkg_check_modules(ZSTD REQUIRED libzstd>=1.4.4)
  endif()
@@ -88,10 +88,9 @@ index da202fbef..b2143987a 100644
  else()
    message(STATUS "Found Zstd, skipping build.")
  endif()
-diff --git a/cmake_minimum_required_2.8.12.patch b/cmake_minimum_required_2.8.12.patch
-deleted file mode 100644
-index 939252dfa..000000000
---- a/cmake_minimum_required_2.8.12.patch
+Index: git/cmake_minimum_required_2.8.12.patch
+===================================================================
+--- git.orig/cmake_minimum_required_2.8.12.patch
 +++ /dev/null
 @@ -1,26 +0,0 @@
 -From eca046fb11a29fa9ace41844f7797bc4e21540ac Mon Sep 17 00:00:00 2001
@@ -120,10 +119,9 @@ index 939252dfa..000000000
 --- 
 -2.17.1
 -
-diff --git a/no_internal_headers.patch b/no_internal_headers.patch
-deleted file mode 100644
-index e091fb4b1..000000000
---- a/no_internal_headers.patch
+Index: git/no_internal_headers.patch
+===================================================================
+--- git.orig/no_internal_headers.patch
 +++ /dev/null
 @@ -1,27 +0,0 @@
 -From e85114a0200c06dc5bb523a6b5764e938b0e8047 Mon Sep 17 00:00:00 2001
@@ -153,6 +151,3 @@ index e091fb4b1..000000000
 --- 
 -2.34.1
 -
--- 
-2.34.1
-
