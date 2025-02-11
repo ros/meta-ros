@@ -1,4 +1,5 @@
 # Copyright (c) 2020 LG Electronics, Inc.
+# Copyright (c) 2023 Wind River Systems, Inc.
 
 LICENSE = "Apache-2.0 & BSD-3-Clause"
 
