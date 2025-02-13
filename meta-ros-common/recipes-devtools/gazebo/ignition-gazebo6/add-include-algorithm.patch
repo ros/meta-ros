@@ -1,0 +1,22 @@
+Add include for algorithm
+
+This helps resolve the following error:
+
+    error: 'find_if' is not a member of 'std'; did you mean 'find'
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/include/gz/sim/components/Factory.hh b/include/gz/sim/components/Factory.hh
+index 456cf3fc2..1704e953d 100644
+--- a/include/gz/sim/components/Factory.hh
++++ b/include/gz/sim/components/Factory.hh
+@@ -17,6 +17,7 @@
+ #ifndef GZ_GAZEBO_COMPONENTS_FACTORY_HH_
+ #define GZ_GAZEBO_COMPONENTS_FACTORY_HH_
+ 
++#include <algorithm>
+ #include <cstdint>
+ #include <cstring>
+ #include <deque>
