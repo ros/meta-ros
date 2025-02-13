@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 # https://github.com/gazebosim/gz-common/commit/870eaf029e43ec52d34e0dd026d78fbb961a5f77.patch
 From 870eaf029e43ec52d34e0dd026d78fbb961a5f77 Mon Sep 17 00:00:00 2001
 From: Michael Carroll <michael@openrobotics.org>
@@ -192,7 +194,7 @@ Index: git/av/src/AudioDecoder.cc
          // Resize the audio buffer as necessary
          if (*_outBufferSize + size > maxBufferSize)
          {
-@@ -170,51 +170,7 @@ bool AudioDecoder::Decode(uint8_t **_out
+@@ -170,50 +170,6 @@ bool AudioDecoder::Decode(uint8_t **_out
              size);
          *_outBufferSize += size;
      }
@@ -243,8 +245,7 @@ Index: git/av/src/AudioDecoder.cc
      }
      av_packet_unref(packet);
    }
-
-@@ -271,20 +226,8 @@ bool AudioDecoder::SetFile(const std::st
+@@ -271,20 +227,8 @@ bool AudioDecoder::SetFile(const std::st
    this->data->audioStream = -1;
    for (i = 0; i < this->data->formatCtx->nb_streams; ++i)
    {
@@ -265,7 +266,7 @@ Index: git/av/src/AudioDecoder.cc
      {
        this->data->audioStream = i;
        break;
-@@ -300,21 +243,7 @@ bool AudioDecoder::SetFile(const std::st
+@@ -300,21 +244,7 @@ bool AudioDecoder::SetFile(const std::st
      return false;
    }
 
@@ -287,7 +288,7 @@ Index: git/av/src/AudioDecoder.cc
    this->data->codec = avcodec_find_decoder(this->data->formatCtx->streams[
      this->data->audioStream]->codecpar->codec_id);
    if (!this->data->codec)
-@@ -331,9 +260,6 @@ bool AudioDecoder::SetFile(const std::st
+@@ -331,9 +261,6 @@ bool AudioDecoder::SetFile(const std::st
    // Copy all relevant parameters from codepar to codecCtx
    avcodec_parameters_to_context(this->data->codecCtx,
      this->data->formatCtx->streams[this->data->audioStream]->codecpar);
@@ -297,13 +298,15 @@ Index: git/av/src/AudioDecoder.cc
 
    if (this->data->codec == nullptr)
    {
-@@ -344,13 +270,8 @@ bool AudioDecoder::SetFile(const std::st
+@@ -344,15 +271,10 @@ bool AudioDecoder::SetFile(const std::st
      return false;
    }
 
 -#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(56, 60, 100)
+ #if LIBAVCODEC_VERSION_MAJOR < 60
    if (this->data->codec->capabilities & AV_CODEC_CAP_TRUNCATED)
      this->data->codecCtx->flags |= AV_CODEC_FLAG_TRUNCATED;
+ #endif
 -#else
 -  if (this->data->codec->capabilities & CODEC_CAP_TRUNCATED)
 -    this->data->codecCtx->flags |= CODEC_FLAG_TRUNCATED;
@@ -395,7 +398,7 @@ Index: git/av/src/Video.cc
    // AVCodecContext is not included in an AVStream as of ffmpeg 3.1
    // allocate a codec context based on updated example
    // github.com/FFmpeg/FFmpeg/commit/bba6a03b2816d805d44bce4f9701a71f7d3f8dad
-@@ -173,21 +193,11 @@ bool Video::Load(const std::string &_fil
+@@ -173,23 +193,13 @@ bool Video::Load(const std::string &_fil
             << std::endl;
      return false;
    }
@@ -408,8 +411,10 @@ Index: git/av/src/Video.cc
    // Inform the codec that we can handle truncated bitstreams -- i.e.,
    // bitstreams where frame boundaries can fall in the middle of packets
 -#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(56, 60, 100)
+ #if LIBAVCODEC_VERSION_MAJOR < 60
    if (codec->capabilities & AV_CODEC_CAP_TRUNCATED)
      this->dataPtr->codecCtx->flags |= AV_CODEC_FLAG_TRUNCATED;
+ #endif
 -#else
 -  if (codec->capabilities & CODEC_CAP_TRUNCATED)
 -    this->dataPtr->codecCtx->flags |= CODEC_FLAG_TRUNCATED;
@@ -417,7 +422,7 @@ Index: git/av/src/Video.cc
 
    // Open codec
    if (avcodec_open2(this->dataPtr->codecCtx, codec, nullptr) < 0)
-@@ -212,7 +222,7 @@ bool Video::Load(const std::string &_fil
+@@ -214,7 +224,7 @@ bool Video::Load(const std::string &_fil
    }
 
    // swscale needs 32-byte-aligned output frame on some systems
@@ -426,7 +431,7 @@ Index: git/av/src/Video.cc
    this->dataPtr->avFrameDst->format = this->dataPtr->dstPixelFormat;
    this->dataPtr->avFrameDst->width = this->dataPtr->codecCtx->width;
    this->dataPtr->avFrameDst->height = this->dataPtr->codecCtx->height;
-@@ -291,7 +301,7 @@ bool Video::NextFrame(unsigned char **_b
+@@ -293,7 +303,7 @@ bool Video::NextFrame(unsigned char **_b
      }
 
      // Process all the data in the frame
@@ -482,13 +487,12 @@ Index: git/av/src/VideoEncoder.cc
 -    AVOutputFormat *outputFormat = nullptr;
 -    while ((outputFormat = av_output_video_device_next(outputFormat))
 -           != nullptr)
--    {
--      // Break when the output device name matches 'v4l2'
--      if (this->dataPtr->format.compare(outputFormat->name) == 0)
 +#if defined(HAVE_AVDEVICE)
 +    OutputFormat outputFormat = nullptr;
 +    do
-+    {
+     {
+-      // Break when the output device name matches 'v4l2'
+-      if (this->dataPtr->format.compare(outputFormat->name) == 0)
 +      outputFormat = av_output_video_device_next(outputFormat);
 +
 +      if (outputFormat)
