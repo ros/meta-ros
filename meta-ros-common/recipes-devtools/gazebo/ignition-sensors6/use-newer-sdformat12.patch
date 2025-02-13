@@ -1,0 +1,19 @@
+Use sdformat12 12.8.0
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9de52ed..adb3fce 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -87,7 +87,7 @@ set(IGN_MSGS_VER ${ignition-msgs8_VERSION_MAJOR})
+ 
+ #--------------------------------------
+ # Find SDFormat
+-ign_find_package(sdformat12 REQUIRED VERSION 12.6.0)
++ign_find_package(sdformat12 REQUIRED VERSION 12.8.0)
+ set(SDF_VER ${sdformat12_VERSION_MAJOR})
+ 
+ set(IGN_SENSORS_PLUGIN_PATH ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
