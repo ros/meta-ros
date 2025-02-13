@@ -1,5 +1,7 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
+
 LICENSE = "Apache-2.0"
+
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=ign-transport11"
@@ -11,16 +13,22 @@ S = "${WORKDIR}/git"
 inherit cmake pkgconfig
 
 DEPENDS = " \
+    cppzmq \
     ignition-cmake2 \
     ignition-msgs8 \
     ignition-utils1 \
+    protobuf \
+    protobuf-native \
     sqlite3 \
     util-linux-libuuid \
     zeromq \
-    cppzmq \
 "
 
 RDEPENDS:${PN} += "ruby"
+
+EXTRA_OECMAKE += " \
+    -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
+"
 
 FILES:${PN} += " \
   /usr/lib/ruby/gz/cmdtransport11.rb \
