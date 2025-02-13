@@ -10,7 +10,7 @@ SRCREV = "2d2cf690aae6533d46cc9264f3347d8986c79037"
 
 S = "${WORKDIR}/git"
 
-inherit cmake
+inherit cmake pkgconfig
 
 EXTRA_OECMAKE = "-DUSE_SYSTEM_BACKWARDCPP:BOOL=ON"
 
