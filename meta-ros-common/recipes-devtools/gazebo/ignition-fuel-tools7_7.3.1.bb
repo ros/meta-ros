@@ -1,10 +1,12 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
+
 LICENSE = "Apache-2.0"
+
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-fuel-tools;protocol=https;branch=ign-fuel-tools7"
 
-SRCREV = "0bdbb7a0f54a6db260abcc391de064662f193d3e"
+SRCREV = "5fc527d021f1c52398e5e7b6af4913de69f30c10"
 
 S = "${WORKDIR}/git"
 
