@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [oe specific]
+
 Index: git/src/backward.cc
 ===================================================================
 --- git.orig/src/backward.cc
