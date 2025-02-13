@@ -19,19 +19,6 @@ Index: git/CMake/Templates/OGREConfig.cmake.in
  
  message(STATUS "Found OGRE")
  message(STATUS "  libraries : '${OGRE_LIBRARIES}' from ${OGRE_LIBRARY_DIRS}")
-Index: git/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
-===================================================================
---- git.orig/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
-+++ git/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
-@@ -11,7 +11,7 @@ macro( add_recursive dir retVal )
- 	file( GLOB_RECURSE ${retVal} ${dir}/*.h ${dir}/*.cpp ${dir}/*.c )
- endmacro()
- 
--set(OGRE_LIBRARIES ${OGRE_LIBRARIES} OgreMain)
-+set(OGRE_LIBRARIES ${OGRE_LIBRARIES} ${OGRE_NEXT}Main)
- 
- include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
- 
 Index: git/Tests/CMakeLists.txt
 ===================================================================
 --- git.orig/Tests/CMakeLists.txt
