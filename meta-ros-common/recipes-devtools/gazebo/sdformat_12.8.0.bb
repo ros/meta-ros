@@ -3,10 +3,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://LICENSE;md5=881ceadb4a5b6db70a8a48a5f5f0050f"
 
-SRC_URI = "git://github.com/gazebosim/sdformat.git;protocol=https;branch=main"
+SRC_URI = "git://github.com/gazebosim/sdformat.git;protocol=https;branch=sdf12"
 
-PV = "12.0.0+git${SRCPV}"
-SRCREV = "c9494fbeaa36f45f085921f2b509a4074f3984ca"
+SRCREV = "21757c1773d8806157efe2c64f48fc237d53180b"
 
 S = "${WORKDIR}/git"
 
@@ -27,4 +26,5 @@ FILES:${PN} += " \
     ${libdir}/ruby/ignition/cmdsdformat12.rb \
     ${datadir}/ignition/sdformat12.yaml \
     ${datadir}/sdformat12/* \
+    ${datadir}/gz/gz1.completion.d/sdf12.bash_completion.sh \
 "
