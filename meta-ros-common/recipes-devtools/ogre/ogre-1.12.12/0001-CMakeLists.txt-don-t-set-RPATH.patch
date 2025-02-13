@@ -1,0 +1,38 @@
+From 9158baedbd8c5f7e6648659fa1f7af113fccd02a Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 28 May 2020 14:43:04 -0700
+Subject: [PATCH] CMakeLists.txt: don't set RPATH
+
+WARNING: ogre-1.12.6-r0 do_package_qa: QA Issue:
+ogre: /work/core2-64-oe-linux/ogre/1.12.6-r0/packages-split/ogre/usr/lib/libOgreVolume.so.1.12.6 contains probably-redundant RPATH /usr/lib
+ogre: /work/core2-64-oe-linux/ogre/1.12.6-r0/packages-split/ogre/usr/lib/libOgreMeshLodGenerator.so.1.12.6 contains probably-redundant RPATH /usr/lib
+ogre: /work/core2-64-oe-linux/ogre/1.12.6-r0/packages-split/ogre/usr/lib/libOgreRTShaderSystem.so.1.12.6 contains probably-redundant RPATH /usr/lib
+ogre: /work/core2-64-oe-linux/ogre/1.12.6-r0/packages-split/ogre/usr/lib/libOgreProperty.so.1.12.6 contains probably-redundant RPATH /usr/lib
+ogre: /work/core2-64-oe-linux/ogre/1.12.6-r0/packages-split/ogre/usr/lib/libOgrePaging.so.1.12.6 contains probably-redundant RPATH /usr/lib
+ogre: /work/core2-64-oe-linux/ogre/1.12.6-r0/packages-split/ogre/usr/lib/libOgreTerrain.so.1.12.6 contains probably-redundant RPATH /usr/lib
+ogre: /work/core2-64-oe-linux/ogre/1.12.6-r0/packages-split/ogre/usr/lib/libOgreMain.so.1.12.6 contains probably-redundant RPATH /usr/lib
+ogre: /work/core2-64-oe-linux/ogre/1.12.6-r0/packages-split/ogre/usr/bin/OgreXMLConverter contains probably-redundant RPATH /usr/lib
+ogre: /work/core2-64-oe-linux/ogre/1.12.6-r0/packages-split/ogre/usr/bin/OgreMeshUpgrader contains probably-redundant RPATH /usr/lib
+ogre: /work/core2-64-oe-linux/ogre/1.12.6-r0/packages-split/ogre/usr/bin/VRMLConverter contains probably-redundant RPATH /usr/lib [useless-rpaths]
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 3 ---
+ 1 file changed, 3 deletions(-)
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -437,9 +437,6 @@ mark_as_advanced(
+ ###################################################################
+ include(ConfigureBuild)
+ 
+-set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH};${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}")
+-set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+-
+ ###################################################################
+ # disable way too common compiler warnings on project level
+ ###################################################################
