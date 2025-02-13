@@ -1,0 +1,26 @@
+Remove unneeded Eigen3 include directory
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d7f3be705..40f1649db 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -104,6 +104,7 @@ target_link_libraries(rviz_rendering
+   Qt5::Widgets
+   ament_index_cpp::ament_index_cpp
+   resource_retriever::resource_retriever
++  Eigen3::Eigen
+ )
+ 
+ if("${assimp_VERSION}" VERSION_GREATER 4.1.0)
+@@ -116,7 +117,6 @@ target_include_directories(rviz_rendering
+   PUBLIC
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+     $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
+-    ${Eigen3_INCLUDE_DIRS}
+ )
+ # Causes the visibility macros to use dllexport rather than dllimport,
+ # which is appropriate when building the dll but not consuming it.
