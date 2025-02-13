@@ -11,4 +11,8 @@
 # as documented in https://github.com/ros/meta-ros/pull/936
 PREFERRED_VERSION_pcl = "1.12.1"
 
-PREFERRED_VERSION_sdformat = "12.0.0"
+PREFERRED_VERSION_sdformat = "12.8.0"
+
+PREFERRED_VERSION_ogre-next = "2.2.7"
+
+PREFERRED_VERSION_ogre = "1.12.12"
