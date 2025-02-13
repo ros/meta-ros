@@ -1,0 +1,76 @@
+Use the CMake targets for OpenGL
+
+Using the Cmake targets for OpenGL is the recommended approach.
+
+This is needed to avoid injecting buildpaths into the generated CMake files.
+
+Upstream-Status: Inactive-Upstream
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/RenderSystems/GL/CMakeLists.txt
+===================================================================
+--- git.orig/RenderSystems/GL/CMakeLists.txt
++++ git/RenderSystems/GL/CMakeLists.txt
+@@ -63,13 +63,11 @@ add_definitions(-DOGRE_GLPLUGIN_EXPORTS
+ #Note that in the next row SOURCE_FILES are added last. This is to prevent compilation problems of unity build found on Windows Visual Studio. 
+ #In this situation any file added after the "glew.cpp" file, which belongs to the SOURCE_FILES package, does not compile
+ add_library(RenderSystem_GL ${OGRE_LIB_TYPE} ${HEADER_FILES} ${GLSL_SOURCE} ${ATIFS_SOURCE} ${NVPARSE_SOURCE} ${SOURCE_FILES})
+-target_link_libraries(RenderSystem_GL PUBLIC OgreMain ${OPENGL_gl_LIBRARY} PRIVATE OgreGLSupport)
++target_link_libraries(RenderSystem_GL PUBLIC OgreMain OpenGL::GL PRIVATE OgreGLSupport)
+ target_include_directories(RenderSystem_GL PUBLIC 
+     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+     $<INSTALL_INTERFACE:include/OGRE/RenderSystems/GL>)
+ 
+-target_include_directories(RenderSystem_GL PUBLIC ${OPENGL_INCLUDE_DIR})
+-
+ ogre_config_framework(RenderSystem_GL)
+ 
+ ogre_config_plugin(RenderSystem_GL)
+Index: git/RenderSystems/GL3Plus/CMakeLists.txt
+===================================================================
+--- git.orig/RenderSystems/GL3Plus/CMakeLists.txt
++++ git/RenderSystems/GL3Plus/CMakeLists.txt
+@@ -24,15 +24,13 @@ if(OGRE_CONFIG_ENABLE_GL_STATE_CACHE_SUP
+     PROPERTIES COMPILE_DEFINITIONS OGRE_ENABLE_STATE_CACHE)
+ endif()
+ add_library(RenderSystem_GL3Plus ${OGRE_LIB_TYPE} ${HEADER_FILES} ${GLSL_HEADERS} ${GLSL_SOURCE} ${SOURCE_FILES})
+-target_link_libraries(RenderSystem_GL3Plus PUBLIC OgreMain ${OPENGL_gl_LIBRARY} ${CMAKE_DL_LIBS} PRIVATE OgreGLSupport)
++target_link_libraries(RenderSystem_GL3Plus PUBLIC OgreMain OpenGL::GL ${CMAKE_DL_LIBS} PRIVATE OgreGLSupport)
+ target_include_directories(RenderSystem_GL3Plus PUBLIC
+     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+     $<INSTALL_INTERFACE:include/OGRE/RenderSystems/GL3Plus>
+     PRIVATE
+     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/GLSL/include>")
+ 
+-target_include_directories(RenderSystem_GL3Plus PUBLIC ${OPENGL_INCLUDE_DIR})
+-
+ generate_export_header(RenderSystem_GL3Plus
+     EXPORT_MACRO_NAME _OgreGL3PlusExport
+     EXPORT_FILE_NAME ${PROJECT_BINARY_DIR}/include/OgreGL3PlusExports.h)
+Index: git/RenderSystems/GLSupport/CMakeLists.txt
+===================================================================
+--- git.orig/RenderSystems/GLSupport/CMakeLists.txt
++++ git/RenderSystems/GLSupport/CMakeLists.txt
+@@ -81,7 +81,7 @@ elseif (UNIX)
+         ${CMAKE_CURRENT_SOURCE_DIR}/include/GLX
+         ${OPENGL_INCLUDE_DIR})
+     
+-    set(PLATFORM_LIBS ${X11_LIBRARIES} ${X11_Xrandr_LIB} ${OPENGL_gl_LIBRARY})
++    set(PLATFORM_LIBS ${X11_LIBRARIES} ${X11_Xrandr_LIB} OpenGL::GL)
+   endif()
+ endif ()
+ 
+Index: git/RenderSystems/GLES2/CMakeLists.txt
+===================================================================
+--- git.orig/RenderSystems/GLES2/CMakeLists.txt
++++ git/RenderSystems/GLES2/CMakeLists.txt
+@@ -59,7 +59,7 @@ endif ()
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/GLSLES/include)
+ 
+ add_library(RenderSystem_GLES2 ${OGRE_LIB_TYPE} ${HEADER_FILES} ${GLESW_HEADERS} ${KHR_HEADERS} ${PLATFORM_HEADERS} ${SOURCE_FILES} ${PLATFORM_SOURCES} ${GLSLES_FILES})
+-target_link_libraries(RenderSystem_GLES2 PUBLIC OgreMain ${OPENGLES2_LIBRARIES} ${CMAKE_DL_LIBS} PRIVATE OgreGLSupport)
++target_link_libraries(RenderSystem_GLES2 PUBLIC OgreMain OpenGL::GLES2 ${CMAKE_DL_LIBS} PRIVATE OgreGLSupport)
+ target_include_directories(RenderSystem_GLES2 PUBLIC 
+     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+     $<INSTALL_INTERFACE:include/OGRE/RenderSystems/GLES2>)
