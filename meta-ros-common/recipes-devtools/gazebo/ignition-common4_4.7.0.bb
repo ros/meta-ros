@@ -1,7 +1,8 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
+
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://COPYING;md5=2a461be67a1edf991251f85f3aadd1d0 \
-                    file://LICENSE;md5=2e9f68f022747514564aa13818fcb7c6 \
+
+LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://profiler/src/Remotery/LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
 SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=ign-common4 \
@@ -9,7 +10,7 @@ SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=ign-co
            file://missing-cstdint-header.patch \
 "
 
-SRCREV = "ade3fa20db31a094388d1fca96bbddaf5eeb262d"
+SRCREV = "60b1fddf05ce020ba7cb79022fdf40be545eb789"
 
 S = "${WORKDIR}/git"
 
@@ -33,6 +34,11 @@ DEPENDS = " \
     libtinyxml2 \
     util-linux \
 "
+
+do_install:append() {
+    # Remove references to the build directory in the Doxygen tagfile
+    sed -i -e "s:${S}::g" ${D}${datadir}/ignition/ignition-common4/ignition-common4.tag.xml
+}
 
 FILES:${PN} += " \
     ${datadir}/ignition/ignition-common4/profiler_vis/* \
