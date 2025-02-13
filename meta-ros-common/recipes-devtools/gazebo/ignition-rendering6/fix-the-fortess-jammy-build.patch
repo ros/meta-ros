@@ -1,0 +1,24 @@
+Upstream-Status: Backport
+
+From b355e716c87c848ec3cd094121195041aabb1d96 Mon Sep 17 00:00:00 2001
+From: Nate Koenig <natekoenig@gmail.com>
+Date: Mon, 22 Jul 2024 05:47:36 -0700
+Subject: [PATCH] Fix the Fortress + Jammy build
+
+Signed-off-by: Nate Koenig <natekoenig@gmail.com>
+---
+ include/gz/rendering/GraphicsAPI.hh | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/gz/rendering/GraphicsAPI.hh b/include/gz/rendering/GraphicsAPI.hh
+index 505e4019d..b5708fd41 100644
+--- a/include/gz/rendering/GraphicsAPI.hh
++++ b/include/gz/rendering/GraphicsAPI.hh
+@@ -17,6 +17,7 @@
+ #ifndef IGNITION_RENDERING_GRAPHICSAPI_HH_
+ #define IGNITION_RENDERING_GRAPHICSAPI_HH_
+ 
++#include <cstdint>
+ #include <string>
+ #include "ignition/rendering/config.hh"
+ #include "ignition/rendering/Export.hh"
