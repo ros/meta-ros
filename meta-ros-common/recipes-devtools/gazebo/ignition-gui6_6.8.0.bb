@@ -1,6 +1,7 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
 LICENSE = "Apache-2.0"
+
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-gui.git;protocol=https;branch=ign-gui6"
@@ -20,7 +21,7 @@ DEPENDS = " \
     ignition-common4 \
     ignition-math6 \
     ignition-msgs8 \
-    ignition-plugin \
+    ignition-plugin1 \
     ignition-rendering6 \
     ignition-tools1 \
     ignition-transport11 \
