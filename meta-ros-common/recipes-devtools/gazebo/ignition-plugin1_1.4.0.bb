@@ -1,5 +1,7 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
+
 LICENSE = "Apache-2.0"
+
 LIC_FILES_CHKSUM = "file://COPYING;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://LICENSE;md5=2e9f68f022747514564aa13818fcb7c6"
 
