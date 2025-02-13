@@ -1,0 +1,27 @@
+Upstream-Status: Backport
+
+From e34ef06bb0d49ce847efe3a80ebe01c9762ea0b1 Mon Sep 17 00:00:00 2001
+From: Pavel Rojtberg <rojtberg@gmail.com>
+Date: Fri, 11 Feb 2022 20:26:57 +0100
+Subject: [PATCH] CMake: rename FeatureSummary.cmake to avoid name clashes
+
+---
+ CMake/{FeatureSummary.cmake => OgreFeatureSummary.cmake} | 0
+ CMakeLists.txt                                           | 2 +-
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ rename CMake/{FeatureSummary.cmake => OgreFeatureSummary.cmake} (100%)
+
+diff --git a/CMake/FeatureSummary.cmake b/CMake/OgreFeatureSummary.cmake
+similarity index 100%
+rename from CMake/FeatureSummary.cmake
+rename to CMake/OgreFeatureSummary.cmake
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8583b8882f0..544a7643d68 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -512,4 +512,4 @@ include(Packaging)
+ 
+ 
+ # Show feature summary
+-include(FeatureSummary)
++include(OgreFeatureSummary)

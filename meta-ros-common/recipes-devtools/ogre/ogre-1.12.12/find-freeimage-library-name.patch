@@ -1,0 +1,30 @@
+Find FreeImage library name
+
+Extract the library name from the absolute path to remove buildpaths from
+generated CMake files.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMake/Packages/FindFreeImage.cmake b/CMake/Packages/FindFreeImage.cmake
+index 7c89ec53b8..fa6f2d00ed 100644
+--- a/CMake/Packages/FindFreeImage.cmake
++++ b/CMake/Packages/FindFreeImage.cmake
+@@ -40,8 +40,14 @@ findpkg_framework(FreeImage)
+ 
+ find_path(FreeImage_INCLUDE_DIR NAMES FreeImage.h HINTS ${FreeImage_INC_SEARCH_PATH} ${FreeImage_PKGC_INCLUDE_DIRS})
+ 
+-find_library(FreeImage_LIBRARY_REL NAMES ${FreeImage_LIBRARY_NAMES} HINTS ${FreeImage_LIB_SEARCH_PATH} ${FreeImage_PKGC_LIBRARY_DIRS} PATH_SUFFIXES "" Release RelWithDebInfo MinSizeRel)
+-find_library(FreeImage_LIBRARY_DBG NAMES ${FreeImage_LIBRARY_NAMES_DBG} HINTS ${FreeImage_LIB_SEARCH_PATH} ${FreeImage_PKGC_LIBRARY_DIRS} PATH_SUFFIXES "" Debug)
++find_library(FreeImage_LIBRARY_REL_PATH NAMES ${FreeImage_LIBRARY_NAMES} HINTS ${FreeImage_LIB_SEARCH_PATH} ${FreeImage_PKGC_LIBRARY_DIRS} PATH_SUFFIXES "" Release RelWithDebInfo MinSizeRel)
++find_library(FreeImage_LIBRARY_DBG_PATH NAMES ${FreeImage_LIBRARY_NAMES_DBG} HINTS ${FreeImage_LIB_SEARCH_PATH} ${FreeImage_PKGC_LIBRARY_DIRS} PATH_SUFFIXES "" Debug)
++
++get_filename_component(FreeImage_LIBRARY_REL ${FreeImage_LIBRARY_REL_PATH} NAME_WE)
++string(REGEX REPLACE "^lib" "" FreeImage_LIBRARY_REL ${FreeImage_LIBRARY_REL})
++
++get_filename_component(FreeImage_LIBRARY_DBG ${FreeImage_LIBRARY_DBG_PATH} NAME_WE)
++string(REGEX REPLACE "^lib" "" FreeImage_LIBRARY_DBG ${FreeImage_LIBRARY_DBG})
+ 
+ make_library_set(FreeImage_LIBRARY)
+ 
