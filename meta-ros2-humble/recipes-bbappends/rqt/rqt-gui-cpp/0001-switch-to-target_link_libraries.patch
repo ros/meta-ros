@@ -1,0 +1,66 @@
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From d1dd282ffa514229d2d5d7d18083215407a9852e Mon Sep 17 00:00:00 2001
+From: Chris Lalancette <clalancette@gmail.com>
+Date: Mon, 27 Nov 2023 11:31:45 -0500
+Subject: [PATCH] Switch to target_link_libraries. (#297)
+
+That way we can split our dependencies into PUBLIC and
+PRIVATE.
+
+Signed-off-by: Chris Lalancette <clalancette@gmail.com>
+---
+ rqt_gui_cpp/CMakeLists.txt                    | 23 +++++++++----------
+ rqt_gui_cpp/package.xml                       |  2 --
+ .../rqt_gui_cpp/nodelet_plugin_provider.cpp   |  2 ++
+ 3 files changed, 13 insertions(+), 14 deletions(-)
+
+diff --git a/rqt_gui_cpp/CMakeLists.txt b/rqt_gui_cpp/CMakeLists.txt
+index 0d63a38..2b039be 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -24,17 +24,14 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
+ set(CMAKE_AUTOMOC ON)
+ 
+ find_package(pluginlib REQUIRED)
+-find_package(Qt5Widgets CONFIG REQUIRED)
++find_package(Qt5 REQUIRED COMPONENTS Widgets)
+ find_package(rclcpp REQUIRED)
+-find_package(qt_gui REQUIRED)
+ find_package(qt_gui_cpp REQUIRED)
+ 
+ ament_export_dependencies(
+-  Qt5Widgets
+-  pluginlib
+   rclcpp
+   qt_gui_cpp
+-  qt_gui)
++)
+ 
+ add_library(${PROJECT_NAME} SHARED
+   src/rqt_gui_cpp/nodelet_plugin_provider.cpp
+@@ -48,13 +45,15 @@ if(APPLE)
+   set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
+ endif()
+ 
+-ament_target_dependencies(${PROJECT_NAME}
+-  rclcpp
+-  Qt5Widgets
+-  pluginlib
+-  rclcpp
+-  qt_gui_cpp
+-  qt_gui)
++target_link_libraries(${PROJECT_NAME} PUBLIC
++  qt_gui_cpp::qt_gui_cpp
++  rclcpp::rclcpp
++)
++
++target_link_libraries(${PROJECT_NAME} PRIVATE
++  pluginlib::pluginlib
++  Qt5::Widgets
++)
+ 
+ install(
+   TARGETS ${PROJECT_NAME}
