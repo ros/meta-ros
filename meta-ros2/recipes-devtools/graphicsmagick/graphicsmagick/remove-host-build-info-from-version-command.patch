@@ -1,0 +1,58 @@
+Remove build information from version command
+
+The version command stores information about how the build was configured
+and the compiler and linker flags.
+
+This isn't needed when cross-compiling and will also prevent reproducible
+builds.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+--- a/magick/command.c
++++ b/magic/command.c	
+@@ -17388,44 +17388,6 @@
+ #endif /* defined(HasZLIB) */
+   PrintFeature("ZLIB", supported);
+ 
+-#if defined(GM_BUILD_HOST)
+-  (void) fprintf(stdout,"\nHost type: %.1024s\n", GM_BUILD_HOST);
+-#endif /* defined(GM_BUILD_HOST) */
+-
+-#if defined(GM_BUILD_CONFIGURE_ARGS)
+-  (void) fprintf(stdout,"\nConfigured using the command:\n  %.1024s\n",
+-                 GM_BUILD_CONFIGURE_ARGS);
+-#endif /* defined(GM_BUILD_CONFIGURE_ARGS) */
+-
+-#if defined(GM_BUILD_CC)
+-  (void) fprintf(stdout,"\nFinal Build Parameters:\n");
+-  (void) fprintf(stdout,"  CC       = %.1024s\n", GM_BUILD_CC);
+-#endif /* defined(GM_BUILD_CC) */
+-
+-#if defined(GM_BUILD_CFLAGS)
+-  (void) fprintf(stdout,"  CFLAGS   = %.1024s\n", GM_BUILD_CFLAGS);
+-#endif /* defined(GM_BUILD_CFLAGS) */
+-
+-#if defined(GM_BUILD_CPPFLAGS)
+-  (void) fprintf(stdout,"  CPPFLAGS = %.1024s\n", GM_BUILD_CPPFLAGS);
+-#endif /* defined(GM_BUILD_CPPFLAGS) */
+-
+-#if defined(GM_BUILD_CXX)
+-  (void) fprintf(stdout,"  CXX      = %.1024s\n", GM_BUILD_CXX);
+-#endif /* defined(GM_BUILD_CXX) */
+-
+-#if defined(GM_BUILD_CXXFLAGS)
+-  (void) fprintf(stdout,"  CXXFLAGS = %.1024s\n", GM_BUILD_CXXFLAGS);
+-#endif /* defined(GM_BUILD_CXXFLAGS) */
+-
+-#if defined(GM_BUILD_LDFLAGS)
+-  (void) fprintf(stdout,"  LDFLAGS  = %.1024s\n", GM_BUILD_LDFLAGS);
+-#endif /* defined(GM_BUILD_LDFLAGS) */
+-
+-#if defined(GM_BUILD_LIBS)
+-  (void) fprintf(stdout,"  LIBS     = %.1024s\n", GM_BUILD_LIBS);
+-#endif /* defined(GM_BUILD_LIBS) */
+-
+ #if defined(_VISUALC_)
+ 
+   (void) fprintf(stdout,"\nWindows Build Parameters:\n\n");
