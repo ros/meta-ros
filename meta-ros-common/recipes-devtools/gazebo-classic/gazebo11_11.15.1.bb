@@ -11,7 +11,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://gazebo/rendering/skyx/License.txt;md5=ff710947873a98e70722effe719e2d48 \
                     file://media/gui/fonts/BITSTREAM-LICENSE;md5=11308e907cc211412cb9543184b1e623"
 
-SRC_URI = "git://github.com/gazebosim/gazebo-classic.git;protocol=https;branch=gazebo11"
+SRC_URI = "git://github.com/gazebosim/gazebo-classic.git;protocol=https;branch=gazebo11 \
+           file://pkgconfig-use-ogre19.patch"
 
 SRCREV = "b22c6e15e52299865b31093b8feebc9ca19e26e8"
 
