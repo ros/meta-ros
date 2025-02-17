@@ -1,0 +1,28 @@
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 9d28d5bf..4969b3f8 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -180,7 +180,6 @@ target_link_libraries(${sdf_target} PUBLIC ${IGNITION-MATH_LIBRARIES})
+ 
+ target_include_directories(${sdf_target}
+   PUBLIC
+-    ${IGNITION-MATH_INCLUDE_DIRS}
+     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+     $<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/..>
+ )
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index 22926fd5..343306ba 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -4,7 +4,6 @@ include_directories (
+   ${PROJECT_SOURCE_DIR}/test/gtest/include
+   ${PROJECT_SOURCE_DIR}/test/gtest
+   ${PROJECT_SOURCE_DIR}/test
+-  ${IGNITION-MATH_INCLUDE_DIRS}
+ )
+ 
+ link_directories(
