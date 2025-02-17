@@ -2,6 +2,9 @@
 
 LICENSE = "BSD-3-Clause"
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://remove_unneeded_qt5widgets_include_dir.patch"
+
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-generators-native \
 "
