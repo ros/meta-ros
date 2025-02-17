@@ -6,7 +6,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 "
 
 do_install:append() {
-    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_prefix}/share/bondcpp/cmake/bondcppExport.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}/usr/include/uuid##g" ${D}${ros_prefix}/share/bondcpp/cmake/bondcppExport.cmake
 }
 
 inherit pkgconfig
