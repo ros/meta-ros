@@ -27,11 +27,16 @@ DEPENDS = " \
     ignition-transport11 \
     ignition-utils1 \
     protobuf \
+    protobuf-native \
     libtinyxml2 \
     qtbase \
     qtquickcontrols2 \
 "
 DEPENDS:append:class-target = "xserver-xorg"
+
+EXTRA_OECMAKE += " \
+    -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
+"
 
 FILES:${PN} += " \
     ${libdir}/ign-gui-6/plugins/* \
