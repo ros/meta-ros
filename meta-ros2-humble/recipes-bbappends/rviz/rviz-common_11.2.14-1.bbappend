@@ -22,3 +22,8 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-introspection-cpp-native \
     rosidl-typesupport-cpp-native \
 "
+
+# QA Issue: File /opt/ros/humble/share/rviz_common/cmake/rviz_commonExport.cmake in package rviz-common-dev contains reference to TMPDIR [buildpaths]
+do_install:append() {
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_prefix}/share/rviz_common/cmake/rviz_commonExport.cmake
+}
