@@ -1,0 +1,20 @@
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -64,11 +64,6 @@ else()
+ endif()
+ 
+ #--------------------------------------
+-# Find libdl
+-ign_find_package(
+-  DL REQUIRED PRIVATE PRETTY libdl PURPOSE "Required for plugins")
+-
+-#--------------------------------------
+ # Find dependencies that we ignore for Visual Studio
+ if(NOT MSVC)
+ 
