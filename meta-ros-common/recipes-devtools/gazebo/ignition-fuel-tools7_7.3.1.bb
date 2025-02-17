@@ -12,9 +12,6 @@ S = "${WORKDIR}/git"
 
 inherit cmake
 
-# Specify any options you want to pass to cmake using EXTRA_OECMAKE:
-EXTRA_OECMAKE = ""
-
 DEPENDS = " \
     ignition-cmake2 \
     ignition-common4 \
