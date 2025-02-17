@@ -1,0 +1,856 @@
+Add the OGRE version to the filenames
+
+This is needed to allow Gazebo Classic to use OGRE 1.9 alongside
+the OGRE version required for newer Gazebo releases.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMake/CMakeLists.txt b/CMake/CMakeLists.txt
+index 4c496b7cf5..0bcfbd2689 100755
+--- a/CMake/CMakeLists.txt
++++ b/CMake/CMakeLists.txt
+@@ -16,7 +16,7 @@
+ if(WIN32 OR APPLE)
+ 	set(OGRE_CMAKE_DIR "CMake")
+ else()
+-	set(OGRE_CMAKE_DIR "${OGRE_LIB_DIRECTORY}/OGRE/cmake")
++	set(OGRE_CMAKE_DIR "${OGRE_LIB_DIRECTORY}/OGRE19/cmake")
+ endif()
+ 
+ set(INST_FILES
+diff --git a/CMake/ConfigureBuild.cmake b/CMake/ConfigureBuild.cmake
+index 077db5a58d..f2b938ee96 100644
+--- a/CMake/ConfigureBuild.cmake
++++ b/CMake/ConfigureBuild.cmake
+@@ -183,7 +183,7 @@ endif ()
+ 
+ # generate OgreBuildSettings.h
+ configure_file(${OGRE_TEMPLATES_DIR}/OgreBuildSettings.h.in ${OGRE_BINARY_DIR}/include/OgreBuildSettings.h @ONLY)
+-install(FILES ${OGRE_BINARY_DIR}/include/OgreBuildSettings.h DESTINATION include/OGRE)
++install(FILES ${OGRE_BINARY_DIR}/include/OgreBuildSettings.h DESTINATION include/OGRE19)
+ 
+ 
+ # Create the pkg-config package files on Unix systems
+@@ -214,50 +214,50 @@ if (UNIX)
+     endif ()
+     # there is no pkgconfig file for freeimage, so we need to add that lib manually
+     set(OGRE_ADDITIONAL_LIBS "${OGRE_ADDITIONAL_LIBS} -lfreeimage")
+-    configure_file(${OGRE_TEMPLATES_DIR}/OGREStatic.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE.pc @ONLY)
++    configure_file(${OGRE_TEMPLATES_DIR}/OGREStatic.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE19.pc @ONLY)
+   else ()
+-    configure_file(${OGRE_TEMPLATES_DIR}/OGRE.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE.pc @ONLY)
++    configure_file(${OGRE_TEMPLATES_DIR}/OGRE.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE19.pc @ONLY)
+   endif ()
+-  install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
++  install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE19.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
+ 
+   # configure additional packages
+ 
+   if (OGRE_BUILD_PLUGIN_PCZ)
+-    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-PCZ.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE-PCZ.pc @ONLY)
+-    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE-PCZ.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
++    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-PCZ.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-PCZ.pc @ONLY)
++    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-PCZ.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
+   endif ()
+ 
+   if (OGRE_BUILD_COMPONENT_PAGING)
+-    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Paging.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE-Paging.pc @ONLY)
+-    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE-Paging.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
++    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Paging.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-Paging.pc @ONLY)
++    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-Paging.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
+   endif ()
+ 
+   if (OGRE_BUILD_COMPONENT_TERRAIN)
+     if (OGRE_BUILD_COMPONENT_PAGING)
+       set(OGRE_PAGING_ADDITIONAL_PACKAGES ", OGRE-Paging = ${OGRE_VERSION}")
+     endif ()
+-    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Terrain.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE-Terrain.pc @ONLY)
+-    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE-Terrain.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
++    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Terrain.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-Terrain.pc @ONLY)
++    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-Terrain.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
+   endif ()
+ 
+   if (OGRE_BUILD_COMPONENT_RTSHADERSYSTEM)
+-    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-RTShaderSystem.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE-RTShaderSystem.pc @ONLY)
+-    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE-RTShaderSystem.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
++    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-RTShaderSystem.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-RTShaderSystem.pc @ONLY)
++    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-RTShaderSystem.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
+   endif ()
+ 
+   if (OGRE_BUILD_COMPONENT_PROPERTY)
+-    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Property.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE-Property.pc @ONLY)
+-    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE-Property.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
++    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Property.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-Property.pc @ONLY)
++    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-Property.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
+   endif ()
+ 
+   if (OGRE_BUILD_COMPONENT_OVERLAY)
+-    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Overlay.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE-Overlay.pc @ONLY)
+-    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE-Overlay.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
++    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Overlay.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-Overlay.pc @ONLY)
++    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-Overlay.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
+   endif ()
+ 
+   if (OGRE_BUILD_COMPONENT_VOLUME)
+-    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Volume.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE-Volume.pc @ONLY)
+-    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE-Volume.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
++    configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Volume.pc.in ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-Volume.pc @ONLY)
++    install(FILES ${OGRE_BINARY_DIR}/pkgconfig/OGRE19-Volume.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
+   endif ()
+ 
+   if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+diff --git a/CMake/InstallResources.cmake b/CMake/InstallResources.cmake
+index ae7bfa1f2c..5f2a337fa4 100644
+--- a/CMake/InstallResources.cmake
++++ b/CMake/InstallResources.cmake
+@@ -46,16 +46,16 @@ elseif (APPLE)
+   set(OGRE_SAMPLES_DIR_DBG "")
+   set(OGRE_CFG_INSTALL_PATH "bin")
+ elseif (UNIX)
+-  set(OGRE_MEDIA_PATH "share/OGRE/Media")
++  set(OGRE_MEDIA_PATH "share/OGRE19/Media")
+   set(OGRE_MEDIA_DIR_REL "${CMAKE_INSTALL_PREFIX}/${OGRE_MEDIA_PATH}")
+   set(OGRE_MEDIA_DIR_DBG "${CMAKE_INSTALL_PREFIX}/${OGRE_MEDIA_PATH}")
+   set(OGRE_TEST_MEDIA_DIR_REL "${CMAKE_INSTALL_PREFIX}/Tests/Media")
+   set(OGRE_TEST_MEDIA_DIR_DBG "${CMAKE_INSTALL_PREFIX}/Tests/Media")
+-  set(OGRE_PLUGIN_DIR_REL "${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/OGRE")
+-  set(OGRE_PLUGIN_DIR_DBG "${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/OGRE")
+-  set(OGRE_SAMPLES_DIR_REL "${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/OGRE/Samples")
+-  set(OGRE_SAMPLES_DIR_DBG "${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/OGRE/Samples")
+-  set(OGRE_CFG_INSTALL_PATH "share/OGRE")
++  set(OGRE_PLUGIN_DIR_REL "${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/OGRE19")
++  set(OGRE_PLUGIN_DIR_DBG "${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/OGRE19")
++  set(OGRE_SAMPLES_DIR_REL "${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/OGRE19/Samples")
++  set(OGRE_SAMPLES_DIR_DBG "${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/OGRE19/Samples")
++  set(OGRE_CFG_INSTALL_PATH "share/OGRE19")
+ endif ()
+ 
+ # configure plugins.cfg
+diff --git a/CMake/Utils/OgreConfigTargets.cmake b/CMake/Utils/OgreConfigTargets.cmake
+index c6b3b40ac0..6238cc22b9 100644
+--- a/CMake/Utils/OgreConfigTargets.cmake
++++ b/CMake/Utils/OgreConfigTargets.cmake
+@@ -73,9 +73,9 @@ elseif (UNIX)
+   if (APPLE)
+     set(OGRE_PLUGIN_PATH "/")
+   else()
+-    set(OGRE_PLUGIN_PATH "/OGRE")
++    set(OGRE_PLUGIN_PATH "/OGRE19")
+   endif(APPLE)
+-  set(OGRE_SAMPLE_PATH "/OGRE/Samples")
++  set(OGRE_SAMPLE_PATH "/OGRE19/Samples")
+ endif ()
+ 
+ # create vcproj.user file for Visual Studio to set debug working directory
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3e99bb09fa..7914f90f24 100755
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -215,10 +215,10 @@ endif (APPLE)
+ # Find dependencies
+ include(Dependencies)
+ # definitions for samples
+-set(OGRE_LIBRARIES OgreMain)
+-set(OGRE_Paging_LIBRARIES OgrePaging)
+-set(OGRE_Terrain_LIBRARIES OgreTerrain)
+-set(OGRE_Volume_LIBRARIES OgreVolume)
++set(OGRE_LIBRARIES Ogre19Main)
++set(OGRE_Paging_LIBRARIES Ogre19Paging)
++set(OGRE_Terrain_LIBRARIES Ogre19Terrain)
++set(OGRE_Volume_LIBRARIES Ogre19Volume)
+ set(OGRE_Plugin_PCZSceneManager_LIBRARIES Plugin_PCZSceneManager)
+ set(OGRE_Plugin_OctreeZone_LIBRARIES Plugin_OctreeZone)
+ 
+@@ -438,8 +438,8 @@ set(OGRE_LIB_DIRECTORY "lib${LIB_SUFFIX}" CACHE STRING "Install path for librari
+ if (WIN32)
+ 	option(OGRE_INSTALL_VSPROPS "Install Visual Studio Property Page." FALSE)
+ 	if (OGRE_INSTALL_VSPROPS)
+-		configure_file(${OGRE_TEMPLATES_DIR}/OGRE.props.in ${OGRE_BINARY_DIR}/OGRE.props)
+-		install(FILES ${OGRE_BINARY_DIR}/OGRE.props DESTINATION "${CMAKE_INSTALL_PREFIX}")
++		configure_file(${OGRE_TEMPLATES_DIR}/OGRE.props.in ${OGRE_BINARY_DIR}/OGRE19.props)
++		install(FILES ${OGRE_BINARY_DIR}/OGRE19.props DESTINATION "${CMAKE_INSTALL_PREFIX}")
+ 	endif ()
+ endif ()
+ 
+diff --git a/Components/Overlay/CMakeLists.txt b/Components/Overlay/CMakeLists.txt
+index 7767132b24..c83d512665 100644
+--- a/Components/Overlay/CMakeLists.txt
++++ b/Components/Overlay/CMakeLists.txt
+@@ -11,7 +11,7 @@
+ # Overlay optional component
+ ############################################################
+ 
+-PROJECT(OgreOverlay)
++PROJECT(Ogre19Overlay)
+ 
+ # define header and source files for the library
+ file(GLOB HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
+@@ -25,18 +25,18 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
+ 
+ # setup target
+-ogre_add_library(OgreOverlay ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})
+-set_target_properties(OgreOverlay PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
+-target_link_libraries(OgreOverlay OgreMain ${FREETYPE_LIBRARIES})
++ogre_add_library(Ogre19Overlay ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})
++set_target_properties(Ogre19Overlay PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
++target_link_libraries(Ogre19Overlay Ogre19Main ${FREETYPE_LIBRARIES})
+ if (OGRE_CONFIG_THREADS)
+-  target_link_libraries(OgreOverlay ${OGRE_THREAD_LIBRARIES})
++  target_link_libraries(Ogre19Overlay ${OGRE_THREAD_LIBRARIES})
+ endif ()
+ 
+ # install 
+-ogre_config_framework(OgreOverlay)
+-ogre_config_component(OgreOverlay)
++ogre_config_framework(Ogre19Overlay)
++ogre_config_component(Ogre19Overlay)
+ 
+ install(FILES ${HEADER_FILES}
+-  DESTINATION include/OGRE/Overlay
++  DESTINATION include/OGRE19/Overlay
+ )
+ 
+diff --git a/Components/Paging/CMakeLists.txt b/Components/Paging/CMakeLists.txt
+index 29d852c560..5a6b7e9a2a 100644
+--- a/Components/Paging/CMakeLists.txt
++++ b/Components/Paging/CMakeLists.txt
+@@ -11,7 +11,7 @@
+ # Paging optional component
+ ############################################################
+ 
+-PROJECT(OgrePaging)
++PROJECT(Ogre19Paging)
+ 
+ # define header and source files for the library
+ file(GLOB HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
+@@ -25,17 +25,17 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
+ 
+ # setup target
+-ogre_add_library(OgrePaging ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})
+-set_target_properties(OgrePaging PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
+-target_link_libraries(OgrePaging OgreMain)
++ogre_add_library(Ogre19Paging ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})
++set_target_properties(Ogre19Paging PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
++target_link_libraries(Ogre19Paging Ogre19Main)
+ if (OGRE_CONFIG_THREADS)
+-  target_link_libraries(OgrePaging ${OGRE_THREAD_LIBRARIES})
++  target_link_libraries(Ogre19Paging ${OGRE_THREAD_LIBRARIES})
+ endif ()
+ 
+ # install 
+-ogre_config_framework(OgrePaging)
+-ogre_config_component(OgrePaging)
++ogre_config_framework(Ogre19Paging)
++ogre_config_component(Ogre19Paging)
+ 
+ install(FILES ${HEADER_FILES}
+-  DESTINATION include/OGRE/Paging
++  DESTINATION include/OGRE19/Paging
+ )
+diff --git a/Components/Property/CMakeLists.txt b/Components/Property/CMakeLists.txt
+index 9cc1ccb995..c148bfe316 100644
+--- a/Components/Property/CMakeLists.txt
++++ b/Components/Property/CMakeLists.txt
+@@ -11,7 +11,7 @@
+ # Paging optional component
+ ############################################################
+ 
+-PROJECT(OgreProperty)
++PROJECT(Ogre19Property)
+ 
+ # define header and source files for the library
+ set (HEADER_FILES
+@@ -33,18 +33,18 @@ include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
+ include_directories(${Boost_INCLUDE_DIRS})
+ 
+ # setup target
+-ogre_add_library(OgreProperty ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})
+-set_target_properties(OgreProperty PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
+-target_link_libraries(OgreProperty OgreMain)
++ogre_add_library(Ogre19Property ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})
++set_target_properties(Ogre19Property PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
++target_link_libraries(Ogre19Property Ogre19Main)
+ if (OGRE_CONFIG_THREADS)
+-  target_link_libraries(OgreProperty ${OGRE_THREAD_LIBRARIES})
++  target_link_libraries(Ogre19Property ${OGRE_THREAD_LIBRARIES})
+ endif ()
+ 
+ # install 
+-ogre_config_framework(OgreProperty)
+-ogre_config_component(OgreProperty)
++ogre_config_framework(Ogre19Property)
++ogre_config_component(Ogre19Property)
+ 
+ install(FILES ${HEADER_FILES}
+-  DESTINATION include/OGRE/Property
++  DESTINATION include/OGRE19/Property
+ )
+ 
+diff --git a/Components/RTShaderSystem/CMakeLists.txt b/Components/RTShaderSystem/CMakeLists.txt
+index 7db9349730..c5a9bc8bb4 100644
+--- a/Components/RTShaderSystem/CMakeLists.txt
++++ b/Components/RTShaderSystem/CMakeLists.txt
+@@ -9,20 +9,20 @@
+ 
+ # Configure Ogre RTShader System build
+ 
+-PROJECT(OgreRTShaderSystem)
++PROJECT(Ogre19RTShaderSystem)
+ 
+ file(GLOB HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
+ file(GLOB SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+ 
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ 
+-ogre_add_library(OgreRTShaderSystem ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
+-set_target_properties(OgreRTShaderSystem PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
+-target_link_libraries(OgreRTShaderSystem OgreMain)
++ogre_add_library(Ogre19RTShaderSystem ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
++set_target_properties(Ogre19RTShaderSystem PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
++target_link_libraries(Ogre19RTShaderSystem Ogre19Main)
+ 
+-ogre_config_framework(OgreRTShaderSystem)
+-ogre_config_component(OgreRTShaderSystem)
++ogre_config_framework(Ogre19RTShaderSystem)
++ogre_config_component(Ogre19RTShaderSystem)
+ 
+ install(FILES ${HEADER_FILES}
+-  DESTINATION include/OGRE/RTShaderSystem
++  DESTINATION include/OGRE19/RTShaderSystem
+ )
+diff --git a/Components/Terrain/CMakeLists.txt b/Components/Terrain/CMakeLists.txt
+index 8c02386074..75487ec45e 100644
+--- a/Components/Terrain/CMakeLists.txt
++++ b/Components/Terrain/CMakeLists.txt
+@@ -11,7 +11,7 @@
+ # Terrain optional component
+ ############################################################
+ 
+-PROJECT(OgreTerrain)
++PROJECT(Ogre19Terrain)
+ 
+ # define header and source files for the library
+ file(GLOB HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
+@@ -44,22 +44,22 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
+ 
+ # setup target
+-ogre_add_library(OgreTerrain ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})
+-set_target_properties(OgreTerrain PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
+-target_link_libraries(OgreTerrain OgreMain)
++ogre_add_library(Ogre19Terrain ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})
++set_target_properties(Ogre19Terrain PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
++target_link_libraries(Ogre19Terrain Ogre19Main)
+ if (OGRE_BUILD_COMPONENT_PAGING)
+-	target_link_libraries(OgreTerrain OgrePaging)
++	target_link_libraries(Ogre19Terrain Ogre19Paging)
+ endif ()
+ if (OGRE_CONFIG_THREADS)
+-  target_link_libraries(OgreTerrain ${OGRE_THREAD_LIBRARIES})
++  target_link_libraries(Ogre19Terrain ${OGRE_THREAD_LIBRARIES})
+ endif ()
+ 
+ 
+ # install 
+-ogre_config_framework(OgreTerrain)
+-ogre_config_component(OgreTerrain)
++ogre_config_framework(Ogre19Terrain)
++ogre_config_component(Ogre19Terrain)
+ 
+ install(FILES ${HEADER_FILES}
+-  DESTINATION include/OGRE/Terrain
++  DESTINATION include/OGRE19/Terrain
+ )
+ 
+diff --git a/Components/Volume/CMakeLists.txt b/Components/Volume/CMakeLists.txt
+index 74e801d2c1..c7af48e906 100644
+--- a/Components/Volume/CMakeLists.txt
++++ b/Components/Volume/CMakeLists.txt
+@@ -11,7 +11,7 @@
+ # Volume optional component
+ ############################################################
+ 
+-PROJECT(OgreVolume)
++PROJECT(Ogre19Volume)
+ 
+ # define header and source files for the library
+ file(GLOB HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
+@@ -25,19 +25,19 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
+ 
+ # setup target
+-ogre_add_library(OgreVolume ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})
+-set_target_properties(OgreVolume PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
+-target_link_libraries(OgreVolume OgreMain)
++ogre_add_library(Ogre19Volume ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})
++set_target_properties(Ogre19Volume PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
++target_link_libraries(Ogre19Volume Ogre19Main)
+ if (OGRE_CONFIG_THREADS)
+-  target_link_libraries(OgreVolume ${OGRE_THREAD_LIBRARIES})
++  target_link_libraries(Ogre19Volume ${OGRE_THREAD_LIBRARIES})
+ endif ()
+ 
+ 
+ # install 
+-ogre_config_framework(OgreVolume)
+-ogre_config_component(OgreVolume)
++ogre_config_framework(Ogre19Volume)
++ogre_config_component(Ogre19Volume)
+ 
+ install(FILES ${HEADER_FILES}
+-  DESTINATION include/OGRE/Volume
++  DESTINATION include/OGRE19/Volume
+ )
+ 
+diff --git a/Docs/CMakeLists.txt b/Docs/CMakeLists.txt
+index c39e549b52..b0c570341c 100644
+--- a/Docs/CMakeLists.txt
++++ b/Docs/CMakeLists.txt
+@@ -16,7 +16,7 @@
+ if (WIN32 OR APPLE)
+   set(OGRE_DOCS_PATH "Docs")
+ elseif (UNIX)
+-  set(OGRE_DOCS_PATH "share/OGRE/docs")
++  set(OGRE_DOCS_PATH "share/OGRE19/docs")
+ endif ()
+   
+ if (OGRE_INSTALL_DOCS)
+diff --git a/OgreMain/CMakeLists.txt b/OgreMain/CMakeLists.txt
+index 6a433783f2..bc30c29c3b 100644
+--- a/OgreMain/CMakeLists.txt
++++ b/OgreMain/CMakeLists.txt
+@@ -11,7 +11,7 @@
+ # OgreMain core library
+ ############################################################
+ 
+-PROJECT(OgreMain)
++PROJECT(Ogre19Main)
+ 
+ include(PrecompiledHeader)
+ 
+@@ -275,19 +275,19 @@ set (TARGET_LINK_FLAGS "")
+ # setup OgreMain target
+ if (OGRE_BUILD_PLATFORM_WINRT OR OGRE_BUILD_PLATFORM_WINDOWS_PHONE)
+ 	# exclude OgreTimer.cpp from unity builds; causes problem
+-	ogre_add_library(OgreMain ${OGRE_LIB_TYPE} ${PREC_HEADER} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADERS} ${PLATFORM_SOURCE_FILES} ${THREAD_HEADER_FILES} ${THREAD_SOURCE_FILES} SEPARATE "src/WIN32/OgreTimer.cpp")
++	ogre_add_library(Ogre19Main ${OGRE_LIB_TYPE} ${PREC_HEADER} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADERS} ${PLATFORM_SOURCE_FILES} ${THREAD_HEADER_FILES} ${THREAD_SOURCE_FILES} SEPARATE "src/WIN32/OgreTimer.cpp")
+ else ()
+ 	# exclude OgreAlignedAllocator.cpp from unity builds; causes problems on Linux
+-	ogre_add_library(OgreMain ${OGRE_LIB_TYPE} ${PREC_HEADER} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADERS} ${PLATFORM_SOURCE_FILES} ${THREAD_HEADER_FILES} ${THREAD_SOURCE_FILES} SEPARATE "src/OgreAlignedAllocator.cpp")
++	ogre_add_library(Ogre19Main ${OGRE_LIB_TYPE} ${PREC_HEADER} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADERS} ${PLATFORM_SOURCE_FILES} ${THREAD_HEADER_FILES} ${THREAD_SOURCE_FILES} SEPARATE "src/OgreAlignedAllocator.cpp")
+ endif ()
+ # In visual studio 2010 - 64 bit we get this error: "LINK : fatal error LNK1210: exceeded internal ILK size limit; link with /INCREMENTAL:NO"
+ if(WIN32 AND MSVC10 AND CMAKE_CL_64)
+-  set_target_properties(OgreMain PROPERTIES 
++  set_target_properties(Ogre19Main PROPERTIES 
+                         VERSION ${OGRE_SOVERSION}
+                         LINK_FLAGS "/INCREMENTAL:NO"
+                       )
+ else()
+-  set_target_properties(OgreMain PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
++  set_target_properties(Ogre19Main PROPERTIES VERSION ${OGRE_SOVERSION} SOVERSION ${OGRE_SOVERSION})
+ endif()
+ 
+ if(OGRE_GCC_VERSION VERSION_EQUAL 4.8 OR OGRE_GCC_VERSION VERSION_GREATER 4.8)
+@@ -296,15 +296,15 @@ endif()
+ 
+ if (APPLE)
+   if (OGRE_BUILD_PLATFORM_APPLE_IOS)
+-    set_target_properties(OgreMain PROPERTIES INSTALL_NAME_DIR "OGRE")
++    set_target_properties(Ogre19Main PROPERTIES INSTALL_NAME_DIR "OGRE")
+   else ()
+-    set_target_properties(OgreMain PROPERTIES
++    set_target_properties(Ogre19Main PROPERTIES
+         LINK_FLAGS "-framework IOKit -framework Cocoa -framework Carbon -framework OpenGL -framework CoreVideo"
+     )
+ 
+     set(OGRE_OSX_BUILD_CONFIGURATION "$(PLATFORM_NAME)/$(CONFIGURATION)")
+   
+-  	add_custom_command(TARGET OgreMain POST_BUILD
++  	add_custom_command(TARGET Ogre19Main POST_BUILD
+ 		COMMAND mkdir ARGS -p ${OGRE_BINARY_DIR}/lib/${OGRE_OSX_BUILD_CONFIGURATION}/Ogre.framework/Headers/Threading
+         COMMAND ditto 
+ 		${OGRE_SOURCE_DIR}/OgreMain/include/Threading/*.h ${OGRE_BINARY_DIR}/lib/${OGRE_OSX_BUILD_CONFIGURATION}/Ogre.framework/Headers/Threading
+@@ -317,7 +317,7 @@ if (APPLE)
+     foreach(HEADER_PATH ${THREAD_HEADER_FILES})
+         get_filename_component(HEADER_FILE ${HEADER_PATH} NAME)
+         set(FWK_HEADER_PATH ${OGRE_BINARY_DIR}/lib/${OGRE_OSX_BUILD_CONFIGURATION}/Ogre.framework/Headers/${HEADER_FILE})
+-        add_custom_command(TARGET OgreMain POST_BUILD
++        add_custom_command(TARGET Ogre19Main POST_BUILD
+             COMMAND rm -f ${FWK_HEADER_PATH}
+             )
+     endforeach()
+@@ -325,37 +325,37 @@ if (APPLE)
+     foreach(HEADER_PATH ${PLATFORM_HEADERS})
+         get_filename_component(HEADER_FILE ${HEADER_PATH} NAME)
+         set(FWK_HEADER_PATH ${OGRE_BINARY_DIR}/lib/${OGRE_OSX_BUILD_CONFIGURATION}/Ogre.framework/Headers/${HEADER_FILE})
+-        add_custom_command(TARGET OgreMain POST_BUILD
++        add_custom_command(TARGET Ogre19Main POST_BUILD
+             COMMAND rm -f ${FWK_HEADER_PATH}
+             )
+     endforeach()
+ 
+-    ogre_config_framework(OgreMain)
++    ogre_config_framework(Ogre19Main)
+   endif ()
+ 
+   # Framework is called 'Ogre'
+-  set_target_properties(OgreMain PROPERTIES	OUTPUT_NAME Ogre)
++  set_target_properties(Ogre19Main PROPERTIES	OUTPUT_NAME Ogre)
+ endif ()
+-target_link_libraries(OgreMain ${LIBRARIES})
++target_link_libraries(Ogre19Main ${LIBRARIES})
+ if (MINGW)
+   # may need winsock htons functions for FreeImage
+-  target_link_libraries(OgreMain ws2_32)
++  target_link_libraries(Ogre19Main ws2_32)
+ endif ()
+ 
+ # specify a precompiled header to use
+-use_precompiled_header(OgreMain 
++use_precompiled_header(Ogre19Main 
+   "${CMAKE_CURRENT_SOURCE_DIR}/include/OgreStableHeaders.h"
+   "${CMAKE_CURRENT_SOURCE_DIR}/src/OgrePrecompiledHeaders.cpp"
+ )
+ 
+ # install OgreMain
+-ogre_config_lib(OgreMain TRUE)
++ogre_config_lib(Ogre19Main TRUE)
+ install(FILES ${HEADER_FILES}
+-  DESTINATION include/OGRE
++  DESTINATION include/OGRE19
+ )
+ install(FILES ${PLATFORM_HEADERS}
+-  DESTINATION include/OGRE/${PLATFORM_HEADER_INSTALL}
++  DESTINATION include/OGRE19/${PLATFORM_HEADER_INSTALL}
+ )
+ install(FILES ${THREAD_HEADER_FILES}
+-	DESTINATION include/OGRE/Threading
++	DESTINATION include/OGRE19/Threading
+ )
+diff --git a/PlugIns/BSPSceneManager/CMakeLists.txt b/PlugIns/BSPSceneManager/CMakeLists.txt
+index 33b29d9308..5b33fd7fd6 100644
+--- a/PlugIns/BSPSceneManager/CMakeLists.txt
++++ b/PlugIns/BSPSceneManager/CMakeLists.txt
+@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ add_definitions(-D_USRDLL)
+ 
+ ogre_add_library(Plugin_BSPSceneManager ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
+-target_link_libraries(Plugin_BSPSceneManager OgreMain)
++target_link_libraries(Plugin_BSPSceneManager Ogre19Main)
+ if (NOT OGRE_STATIC)
+   set_target_properties(Plugin_BSPSceneManager PROPERTIES
+     COMPILE_DEFINITIONS OGRE_BSPPLUGIN_EXPORTS
+@@ -25,6 +25,6 @@ endif ()
+ 
+ ogre_config_framework(Plugin_BSPSceneManager)
+ 
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/BSPSceneManager)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/BSPSceneManager)
+ 
+ ogre_config_plugin(Plugin_BSPSceneManager)
+diff --git a/PlugIns/CgProgramManager/CMakeLists.txt b/PlugIns/CgProgramManager/CMakeLists.txt
+index 4b6a393c09..f2c70f6b5c 100644
+--- a/PlugIns/CgProgramManager/CMakeLists.txt
++++ b/PlugIns/CgProgramManager/CMakeLists.txt
+@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${Cg_INCLUDE_DIRS})
+ add_definitions(-D_USRDLL)
+ 
+ ogre_add_library(Plugin_CgProgramManager ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
+-target_link_libraries(Plugin_CgProgramManager OgreMain ${Cg_LIBRARIES})
++target_link_libraries(Plugin_CgProgramManager Ogre19Main ${Cg_LIBRARIES})
+ if (NOT OGRE_STATIC)
+   set_target_properties(Plugin_CgProgramManager PROPERTIES
+     COMPILE_DEFINITIONS OGRE_CGPLUGIN_EXPORTS
+@@ -26,4 +26,4 @@ endif (NOT OGRE_STATIC)
+ ogre_config_framework(Plugin_CgProgramManager)
+ 
+ ogre_config_plugin(Plugin_CgProgramManager)
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/CgProgramManager)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/CgProgramManager)
+diff --git a/PlugIns/OctreeSceneManager/CMakeLists.txt b/PlugIns/OctreeSceneManager/CMakeLists.txt
+index 3d30fc3e97..90c29b6834 100644
+--- a/PlugIns/OctreeSceneManager/CMakeLists.txt
++++ b/PlugIns/OctreeSceneManager/CMakeLists.txt
+@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ add_definitions(-D_USRDLL)
+ 
+ ogre_add_library(Plugin_OctreeSceneManager ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
+-target_link_libraries(Plugin_OctreeSceneManager OgreMain)
++target_link_libraries(Plugin_OctreeSceneManager Ogre19Main)
+ if (NOT OGRE_STATIC)
+   set_target_properties(Plugin_OctreeSceneManager PROPERTIES
+     COMPILE_DEFINITIONS OGRE_OCTREEPLUGIN_EXPORTS
+@@ -26,4 +26,4 @@ endif ()
+ ogre_config_framework(Plugin_OctreeSceneManager)
+ 
+ ogre_config_plugin(Plugin_OctreeSceneManager)
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/OctreeSceneManager)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/OctreeSceneManager)
+diff --git a/PlugIns/OctreeZone/CMakeLists.txt b/PlugIns/OctreeZone/CMakeLists.txt
+index 64f609b3c3..b9a3927efe 100644
+--- a/PlugIns/OctreeZone/CMakeLists.txt
++++ b/PlugIns/OctreeZone/CMakeLists.txt
+@@ -17,7 +17,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../PCZSceneManager/include)
+ add_definitions(-D_USRDLL)
+ 
+ ogre_add_library(Plugin_OctreeZone ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
+-target_link_libraries(Plugin_OctreeZone OgreMain Plugin_PCZSceneManager)
++target_link_libraries(Plugin_OctreeZone Ogre19Main Plugin_PCZSceneManager)
+ if (NOT OGRE_STATIC)
+   set_property(TARGET Plugin_OctreeZone PROPERTY
+     COMPILE_DEFINITIONS OGRE_OCTREEZONEPLUGIN_EXPORTS)
+@@ -27,11 +27,11 @@ endif ()
+ # to find the PCZSceneManager library
+ if (UNIX)
+   set_property(TARGET Plugin_OctreeZone APPEND PROPERTY
+-    INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/OGRE
++    INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/OGRE19
+   )
+ endif ()
+ 
+ ogre_config_framework(Plugin_OctreeZone)
+ 
+ ogre_config_plugin(Plugin_OctreeZone)
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/OctreeZone)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/OctreeZone)
+diff --git a/PlugIns/PCZSceneManager/CMakeLists.txt b/PlugIns/PCZSceneManager/CMakeLists.txt
+index f972ba6ba9..0775e87726 100644
+--- a/PlugIns/PCZSceneManager/CMakeLists.txt
++++ b/PlugIns/PCZSceneManager/CMakeLists.txt
+@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ add_definitions(-D_USRDLL)
+ 
+ ogre_add_library(Plugin_PCZSceneManager ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
+-target_link_libraries(Plugin_PCZSceneManager OgreMain)
++target_link_libraries(Plugin_PCZSceneManager Ogre19Main)
+ if (NOT OGRE_STATIC)
+   set_target_properties(Plugin_PCZSceneManager PROPERTIES
+     COMPILE_DEFINITIONS OGRE_PCZPLUGIN_EXPORTS
+@@ -26,4 +26,4 @@ endif ()
+ ogre_config_framework(Plugin_PCZSceneManager)
+ 
+ ogre_config_plugin(Plugin_PCZSceneManager)
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/PCZSceneManager)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/PCZSceneManager)
+diff --git a/PlugIns/ParticleFX/CMakeLists.txt b/PlugIns/ParticleFX/CMakeLists.txt
+index 2511e3c3ef..e20a4bf9f0 100644
+--- a/PlugIns/ParticleFX/CMakeLists.txt
++++ b/PlugIns/ParticleFX/CMakeLists.txt
+@@ -17,7 +17,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ add_definitions(-D_USRDLL)
+ 
+ ogre_add_library(Plugin_ParticleFX ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
+-target_link_libraries(Plugin_ParticleFX OgreMain)
++target_link_libraries(Plugin_ParticleFX Ogre19Main)
+ if (NOT OGRE_STATIC)
+   set_target_properties(Plugin_ParticleFX PROPERTIES
+     COMPILE_DEFINITIONS OGRE_PARTICLEFXPLUGIN_EXPORTS
+@@ -27,5 +27,5 @@ endif ()
+ ogre_config_framework(Plugin_ParticleFX)
+ 
+ ogre_config_plugin(Plugin_ParticleFX)
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/ParticleFX)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/ParticleFX)
+ 
+diff --git a/RenderSystems/Direct3D11/CMakeLists.txt b/RenderSystems/Direct3D11/CMakeLists.txt
+index 1a8e21c769..3bf750106f 100644
+--- a/RenderSystems/Direct3D11/CMakeLists.txt
++++ b/RenderSystems/Direct3D11/CMakeLists.txt
+@@ -36,4 +36,4 @@ if (OGRE_CONFIG_THREADS)
+ endif ()
+ 
+ ogre_config_plugin(RenderSystem_Direct3D11)
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/RenderSystems/Direct3D11)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/RenderSystems/Direct3D11)
+diff --git a/RenderSystems/Direct3D9/CMakeLists.txt b/RenderSystems/Direct3D9/CMakeLists.txt
+index 201ee66a40..e3aa5330e9 100644
+--- a/RenderSystems/Direct3D9/CMakeLists.txt
++++ b/RenderSystems/Direct3D9/CMakeLists.txt
+@@ -37,4 +37,4 @@ if (OGRE_CONFIG_THREADS)
+ endif ()
+ 
+ ogre_config_plugin(RenderSystem_Direct3D9)
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/RenderSystems/Direct3D9)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/RenderSystems/Direct3D9)
+diff --git a/RenderSystems/GL/CMakeLists.txt b/RenderSystems/GL/CMakeLists.txt
+index d1afd2bc8b..c346a379a6 100644
+--- a/RenderSystems/GL/CMakeLists.txt
++++ b/RenderSystems/GL/CMakeLists.txt
+@@ -96,7 +96,7 @@ endif()
+ #Note that in the next row SOURCE_FILES are added last. This is to prevent compilation problems of unity build found on Windows Visual Studio. 
+ #In this situation any file added after the "glew.cpp" file, which belongs to the SOURCE_FILES package, does not compile
+ ogre_add_library(RenderSystem_GL ${OGRE_LIB_TYPE} ${HEADER_FILES} ${GLSL_SOURCE} ${ATIFS_SOURCE} ${NVPARSE_SOURCE} ${PLATFORM_HEADERS} ${PLATFORM_SOURCES} ${SOURCE_FILES})
+-target_link_libraries(RenderSystem_GL OgreMain ${OPENGL_LIBRARIES} ${PLATFORM_LIBS})
++target_link_libraries(RenderSystem_GL Ogre19Main ${OPENGL_LIBRARIES} ${PLATFORM_LIBS})
+ 
+ if (NOT OGRE_STATIC)
+   set_target_properties(RenderSystem_GL PROPERTIES
+@@ -115,7 +115,7 @@ endif ()
+ ogre_config_framework(RenderSystem_GL)
+ 
+ ogre_config_plugin(RenderSystem_GL)
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/RenderSystems/GL)
+-install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE/RenderSystems/GL/${PLATFORM_HEADER_INSTALL})
+-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/GL DESTINATION include/OGRE/RenderSystems/GL)
+-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/GLSL/include/ DESTINATION include/OGRE/RenderSystems/GL)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/RenderSystems/GL)
++install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE19/RenderSystems/GL/${PLATFORM_HEADER_INSTALL})
++install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/GL DESTINATION include/OGRE19/RenderSystems/GL)
++install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/GLSL/include/ DESTINATION include/OGRE19/RenderSystems/GL)
+diff --git a/RenderSystems/GL3Plus/CMakeLists.txt b/RenderSystems/GL3Plus/CMakeLists.txt
+index 3ce9607dbd..16642b7ff3 100644
+--- a/RenderSystems/GL3Plus/CMakeLists.txt
++++ b/RenderSystems/GL3Plus/CMakeLists.txt
+@@ -60,7 +60,7 @@ if (UNIX AND NOT APPLE)
+ else()
+   ogre_add_library(RenderSystem_GL3Plus ${OGRE_LIB_TYPE} ${HEADER_FILES} ${GLSL_SOURCE} ${PLATFORM_HEADERS} ${PLATFORM_SOURCES} ${SOURCE_FILES})
+ endif()
+-target_link_libraries(RenderSystem_GL3Plus OgreMain ${OPENGL_LIBRARIES} ${PLATFORM_LIBS})
++target_link_libraries(RenderSystem_GL3Plus Ogre19Main ${OPENGL_LIBRARIES} ${PLATFORM_LIBS})
+ 
+ if (NOT OGRE_STATIC)
+   set_target_properties(RenderSystem_GL3Plus PROPERTIES
+@@ -79,7 +79,7 @@ endif ()
+ ogre_config_framework(RenderSystem_GL3Plus)
+ 
+ ogre_config_plugin(RenderSystem_GL3Plus)
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/RenderSystems/GL3Plus)
+-install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE/RenderSystems/GL3Plus/${PLATFORM_HEADER_INSTALL})
+-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include DESTINATION include/OGRE/RenderSystems/GL3Plus)
+-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/GLSL/include/ DESTINATION include/OGRE/RenderSystems/GL3Plus)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/RenderSystems/GL3Plus)
++install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE19/RenderSystems/GL3Plus/${PLATFORM_HEADER_INSTALL})
++install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include DESTINATION include/OGRE19/RenderSystems/GL3Plus)
++install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/GLSL/include/ DESTINATION include/OGRE19/RenderSystems/GL3Plus)
+diff --git a/RenderSystems/GLES/CMakeLists.txt b/RenderSystems/GLES/CMakeLists.txt
+index e58708b03c..3c9fb51b04 100644
+--- a/RenderSystems/GLES/CMakeLists.txt
++++ b/RenderSystems/GLES/CMakeLists.txt
+@@ -69,7 +69,7 @@ include_directories(
+ )
+ 
+ ogre_add_library(RenderSystem_GLES ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADERS} ${PLATFORM_SOURCES})
+-target_link_libraries(RenderSystem_GLES OgreMain ${OPENGLES_LIBRARIES} ${PLATFORM_LIBS})
++target_link_libraries(RenderSystem_GLES Ogre19Main ${OPENGLES_LIBRARIES} ${PLATFORM_LIBS})
+ 
+ if (NOT OGRE_STATIC)
+   set_target_properties(RenderSystem_GLES PROPERTIES
+@@ -82,5 +82,5 @@ if (OGRE_CONFIG_THREADS)
+ endif ()
+ 
+ ogre_config_plugin(RenderSystem_GLES)
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/RenderSystems/GLES)
+-install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE/RenderSystems/GLES/${PLATFORM_HEADER_INSTALL})
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/RenderSystems/GLES)
++install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE19/RenderSystems/GLES/${PLATFORM_HEADER_INSTALL})
+diff --git a/RenderSystems/GLES2/CMakeLists.txt b/RenderSystems/GLES2/CMakeLists.txt
+index 1bab924544..d0dbafdb20 100755
+--- a/RenderSystems/GLES2/CMakeLists.txt
++++ b/RenderSystems/GLES2/CMakeLists.txt
+@@ -127,7 +127,7 @@ include_directories(
+ )
+ 
+ ogre_add_library(RenderSystem_GLES2 ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${STATECACHE_HEADERS} ${GLESW_HEADERS} ${KHR_HEADERS} ${GLSLES_FILES} ${PLATFORM_HEADERS} ${PLATFORM_SOURCES})
+-target_link_libraries(RenderSystem_GLES2 OgreMain ${OPENGLES3_LIBRARIES} ${OPENGLES2_LIBRARIES} ${EGL_LIBRARIES} ${PLATFORM_LIBS})
++target_link_libraries(RenderSystem_GLES2 Ogre19Main ${OPENGLES3_LIBRARIES} ${OPENGLES2_LIBRARIES} ${EGL_LIBRARIES} ${PLATFORM_LIBS})
+ 
+ if (NOT OGRE_STATIC)
+   set_target_properties(RenderSystem_GLES2 PROPERTIES
+@@ -141,9 +141,9 @@ endif ()
+ 
+ ogre_config_plugin(RenderSystem_GLES2)
+ 
+-install(FILES ${HEADER_FILES} DESTINATION include/OGRE/RenderSystems/GLES2)
+-install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE/RenderSystems/GLES2/${PLATFORM_HEADER_INSTALL})
+-install(FILES ${GLESW_HEADERS} DESTINATION include/OGRE/RenderSystems/GLES2/${GLESW_HEADER_INSTALL})
+-install(FILES ${KHR_HEADERS} DESTINATION include/OGRE/RenderSystems/GLES2/KHR)
+-install(FILES ${STATECACHE_HEADERS} DESTINATION include/OGRE/RenderSystems/GLES2/StateCacheManager)
+-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/GLSLES/include/ DESTINATION include/OGRE/RenderSystems/GLES2/GLSLES)
++install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/RenderSystems/GLES2)
++install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE19/RenderSystems/GLES2/${PLATFORM_HEADER_INSTALL})
++install(FILES ${GLESW_HEADERS} DESTINATION include/OGRE19/RenderSystems/GLES2/${GLESW_HEADER_INSTALL})
++install(FILES ${KHR_HEADERS} DESTINATION include/OGRE19/RenderSystems/GLES2/KHR)
++install(FILES ${STATECACHE_HEADERS} DESTINATION include/OGRE19/RenderSystems/GLES2/StateCacheManager)
++install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/GLSLES/include/ DESTINATION include/OGRE19/RenderSystems/GLES2/GLSLES)
+diff --git a/Samples/CMakeLists.txt b/Samples/CMakeLists.txt
+index 8719410c2e..6ff5274512 100644
+--- a/Samples/CMakeLists.txt
++++ b/Samples/CMakeLists.txt
+@@ -198,7 +198,7 @@ if (OGRE_INSTALL_SAMPLES_SOURCE)
+   if (WIN32 OR APPLE)
+     set(OGRE_SAMPLES_DIR Samples)
+   elseif (UNIX)
+-    set(OGRE_SAMPLES_DIR share/OGRE/Samples)
++    set(OGRE_SAMPLES_DIR share/OGRE19/Samples)
+   endif ()
+   install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION ${OGRE_SAMPLES_DIR}
+     REGEX "^CMakeLists.txt$" EXCLUDE
+@@ -220,7 +220,7 @@ endif ()
+ # Install sample headers, some people rely on these
+ file(GLOB SAMPLE_COMMON_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/Common/include/*.h")
+ install(FILES ${SAMPLE_COMMON_HEADERS}
+-		DESTINATION include/OGRE)
++		DESTINATION include/OGRE19)
+ 		
+ if (MSVC)
+   find_package(Wix)
+diff --git a/Samples/Media/CMakeLists.txt b/Samples/Media/CMakeLists.txt
+index bdcf6a10c5..2c13ae7448 100644
+--- a/Samples/Media/CMakeLists.txt
++++ b/Samples/Media/CMakeLists.txt
+@@ -17,7 +17,7 @@ if (WIN32)
+ elseif (APPLE)
+   set(OGRE_MEDIA_PATH "Media")
+ elseif (UNIX)
+-  set(OGRE_MEDIA_PATH "share/OGRE/Media")
++  set(OGRE_MEDIA_PATH "share/OGRE19/Media")
+ endif ()
+ 
+ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
+diff --git a/Tools/MeshUpgrader/CMakeLists.txt b/Tools/MeshUpgrader/CMakeLists.txt
+index f2d7930c7e..7b3b75e4fc 100644
+--- a/Tools/MeshUpgrader/CMakeLists.txt
++++ b/Tools/MeshUpgrader/CMakeLists.txt
+@@ -13,12 +13,12 @@ set(SOURCE_FILES
+   src/main.cpp
+ )
+ 
+-ogre_add_executable(OgreMeshUpgrader ${SOURCE_FILES})
+-target_link_libraries(OgreMeshUpgrader ${OGRE_LIBRARIES})
++ogre_add_executable(Ogre19MeshUpgrader ${SOURCE_FILES})
++target_link_libraries(Ogre19MeshUpgrader ${OGRE_LIBRARIES})
+ 
+ if (APPLE)
+-    set_target_properties(OgreMeshUpgrader PROPERTIES
++    set_target_properties(Ogre19MeshUpgrader PROPERTIES
+         LINK_FLAGS "-framework Cocoa")
+ endif ()
+ 
+-ogre_config_tool(OgreMeshUpgrader)
++ogre_config_tool(Ogre19MeshUpgrader)
+diff --git a/Tools/XMLConverter/CMakeLists.txt b/Tools/XMLConverter/CMakeLists.txt
+index a806d84c98..6b2b2c242a 100644
+--- a/Tools/XMLConverter/CMakeLists.txt
++++ b/Tools/XMLConverter/CMakeLists.txt
+@@ -39,12 +39,12 @@ endif(NOT TINYXML_FOUND)
+ 
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${TINYXML_INCLUDE_DIR})
+ add_definitions(-DTIXML_USE_STL)
+-ogre_add_executable(OgreXMLConverter ${HEADER_FILES} ${SOURCE_FILES})
+-target_link_libraries(OgreXMLConverter ${OGRE_LIBRARIES} ${TINYXML_LIBRARIES})
++ogre_add_executable(Ogre19XMLConverter ${HEADER_FILES} ${SOURCE_FILES})
++target_link_libraries(Ogre19XMLConverter ${OGRE_LIBRARIES} ${TINYXML_LIBRARIES})
+ 
+ if (APPLE)
+-    set_target_properties(OgreXMLConverter PROPERTIES
++    set_target_properties(Ogre19XMLConverter PROPERTIES
+         LINK_FLAGS "-framework Cocoa")
+ endif ()
+ 
+-ogre_config_tool(OgreXMLConverter)
++ogre_config_tool(Ogre19XMLConverter)
