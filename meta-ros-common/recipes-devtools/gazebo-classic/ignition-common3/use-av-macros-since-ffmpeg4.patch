@@ -1,0 +1,50 @@
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 8aa96c1c87a065d91d33107285c22abe7e63e9b0 Mon Sep 17 00:00:00 2001
+From: Steve Peters <scpeters@openrobotics.org>
+Date: Sun, 22 Apr 2018 22:05:43 -0700
+Subject: [PATCH] use AV_* macros since ffmpeg4 has removed the old ones
+
+---
+ av/src/AudioDecoder.cc | 5 +++++
+ av/src/Video.cc        | 5 +++++
+ 2 files changed, 10 insertions(+)
+
+Index: git/av/src/AudioDecoder.cc
+===================================================================
+--- git.orig/av/src/AudioDecoder.cc
++++ git/av/src/AudioDecoder.cc
+@@ -271,8 +271,13 @@ bool AudioDecoder::SetFile(const std::st
+     return false;
+   }
+ 
++#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(56, 60, 100)
+   if (this->data->codec->capabilities & AV_CODEC_CAP_TRUNCATED)
+     this->data->codecCtx->flags |= AV_CODEC_FLAG_TRUNCATED;
++#else
++  if (this->data->codec->capabilities & AV_CODEC_CAP_TRUNCATED)
++    this->data->codecCtx->flags |= AV_CODEC_FLAG_TRUNCATED;
++#endif
+ 
+   // Open codec
+   if (avcodec_open2(this->data->codecCtx, this->data->codec, nullptr) < 0)
+Index: git/av/src/Video.cc
+===================================================================
+--- git.orig/av/src/Video.cc
++++ git/av/src/Video.cc
+@@ -196,8 +196,13 @@ bool Video::Load(const std::string &_fil
+ 
+   // Inform the codec that we can handle truncated bitstreams -- i.e.,
+   // bitstreams where frame boundaries can fall in the middle of packets
++#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(56, 60, 100)
+   if (codec->capabilities & AV_CODEC_CAP_TRUNCATED)
+     this->dataPtr->codecCtx->flags |= AV_CODEC_FLAG_TRUNCATED;
++#else
++  if (codec->capabilities & AV_CODEC_CAP_TRUNCATED)
++    this->dataPtr->codecCtx->flags |= AV_CODEC_FLAG_TRUNCATED;
++#endif
+ 
+   // Open codec
+   if (avcodec_open2(this->dataPtr->codecCtx, codec, nullptr) < 0)
