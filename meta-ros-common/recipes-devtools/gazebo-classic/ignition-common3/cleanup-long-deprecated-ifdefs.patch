@@ -1,0 +1,858 @@
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+# https://github.com/gazebosim/gz-common/commit/870eaf029e43ec52d34e0dd026d78fbb961a5f77.patch
+From 870eaf029e43ec52d34e0dd026d78fbb961a5f77 Mon Sep 17 00:00:00 2001
+From: Michael Carroll <michael@openrobotics.org>
+Date: Wed, 31 Aug 2022 13:13:24 -0500
+Subject: [PATCH] Cleanup long-deprecated ifdefs (#329)
+
+Signed-off-by: Michael Carroll <michael@openrobotics.org>
+
+Co-authored-by: Louise Poubel <louise@openrobotics.org>
+---
+ CMakeLists.txt                     |   1 +
+ av/include/gz/common/ffmpeg_inc.hh |  60 +++++++++-
+ av/src/AudioDecoder.cc             |  97 ++--------------
+ av/src/Video.cc                    |  58 ++++++----
+ av/src/VideoEncoder.cc             | 175 ++++++-----------------------
+ av/src/ffmpeg_inc.cc               |  25 -----
+ 6 files changed, 135 insertions(+), 281 deletions(-)
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -93,6 +93,7 @@ ign_find_package(SWSCALE REQUIRED_BY av
+ #------------------------------------
+ # Find avdevice
+ ign_find_package(AVDEVICE VERSION 56.4.100 REQUIRED_BY av PRETTY libavdevice)
++set(HAVE_AVDEVICE ${AVDEVICE_FOUND})
+ 
+ #------------------------------------
+ # Find avformat
+Index: git/av/include/gz/common/ffmpeg_inc.hh
+===================================================================
+--- git.orig/av/include/gz/common/ffmpeg_inc.hh
++++ git/av/include/gz/common/ffmpeg_inc.hh
+@@ -17,6 +17,60 @@
+ #ifndef GZ_COMMON_FFMPEG_INC_HH_
+ #define GZ_COMMON_FFMPEG_INC_HH_
+ 
++/// Versions of FFMPEG on Gazebo supported platforms
++// v4.2.7 (Ubuntu Focal)
++// libavutil      56. 31.100 / 56. 31.100
++// libavcodec     58. 54.100 / 58. 54.100
++// libavformat    58. 29.100 / 58. 29.100
++// libavdevice    58.  8.100 / 58.  8.100
++// libavfilter     7. 57.100 /  7. 57.100
++// libavresample   4.  0.  0 /  4.  0.  0
++// libswscale      5.  5.100 /  5.  5.100
++// libswresample   3.  5.100 /  3.  5.100
++// libpostproc    55.  5.100 / 55.  5.100
++
++// v4.4.1 (Windows CI vcpkg)
++// libavutil      56. 70.100 / 56. 70.100
++// libavcodec     58.134.100 / 58.134.100
++// libavformat    58. 76.100 / 58. 76.100
++// libavdevice    58. 13.100 / 58. 13.100
++// libavfilter     7.110.100 /  7.110.100
++// libswscale      5.  9.100 /  5.  9.100
++// libswresample   3.  9.100 /  3.  9.100
++// libpostproc    55.  9.100 / 55.  9.100
++
++// v4.4.2 (Ubuntu Jammy)
++// libavutil      56. 70.100 / 56. 70.100
++// libavcodec     58.134.100 / 58.134.100
++// libavformat    58. 76.100 / 58. 76.100
++// libavdevice    58. 13.100 / 58. 13.100
++// libavfilter     7.110.100 /  7.110.100
++// libswscale      5.  9.100 /  5.  9.100
++// libswresample   3.  9.100 /  3.  9.100
++// libpostproc    55.  9.100 / 55.  9.100
++
++// v5.1 (homebrew)
++//  libavutil      57. 28.100 / 57. 28.100
++//  libavcodec     59. 37.100 / 59. 37.100
++//  libavformat    59. 27.100 / 59. 27.100
++//  libavdevice    59.  7.100 / 59.  7.100
++//  libavfilter     8. 44.100 /  8. 44.100
++//  libswscale      6.  7.100 /  6.  7.100
++//  libswresample   4.  7.100 /  4.  7.100
++//  libpostproc    56.  6.100 / 56.  6.100
++
++/// Additional versions of FFMPEG not officially supported
++// v5.0.1 (conda-forge)
++// libavutil      57. 17.100 / 57. 17.100
++// libavcodec     59. 18.100 / 59. 18.100
++// libavformat    59. 16.100 / 59. 16.100
++// libavdevice    59.  4.100 / 59.  4.100
++// libavfilter     8. 24.100 /  8. 24.100
++// libswscale      6.  4.100 /  6.  4.100
++// libswresample   4.  3.100 /  4.  3.100
++// libpostproc    56.  3.100 / 56.  3.100
++
++
+ #include <string>
+ 
+ #include <gz/common/config.hh>
+@@ -44,7 +98,7 @@ extern "C" {
+ #include <libavutil/imgutils.h>
+ #include <libavutil/hwcontext.h>
+ 
+-#if defined(__linux__) && defined(HAVE_AVDEVICE)
++#if defined(HAVE_AVDEVICE)
+ #include <libavdevice/avdevice.h>
+ #endif
+ }
+@@ -57,15 +111,18 @@ namespace ignition
+   {
+     /// \brief Helper function to avoid deprecation warnings.
+     IGNITION_COMMON_AV_VISIBLE
++    IGN_DEPRECATED(5)
+     AVFrame *AVFrameAlloc(void);
+ 
+     /// \brief Helper function to avoid deprecation warnings.
+     IGNITION_COMMON_AV_VISIBLE
++    IGN_DEPRECATED(5)
+     void AVFrameUnref(AVFrame *_frame);
+ 
+     /// \brief Helper function to avoid deprecation warnings.
+     /// \param[in] _packet AVPacket structure that stores compressed data
+     IGNITION_COMMON_AV_VISIBLE
++    IGN_DEPRECATED(5)
+     void AVPacketUnref(AVPacket *_packet);
+ 
+     /// \brief Helper function to avoid deprecation warnings
+@@ -80,6 +137,7 @@ namespace ignition
+     /// \note If the codec is in draining mode, _packet can be null. The return
+     /// value on success will then be 0, but _gotFrame will be non-zero.
+     IGNITION_COMMON_AV_VISIBLE
++    IGN_DEPRECATED(5)
+     int AVCodecDecode(AVCodecContext *_codecCtx,
+         AVFrame *_frame, int *_gotFrame, AVPacket *_packet);
+ 
+Index: git/av/src/AudioDecoder.cc
+===================================================================
+--- git.orig/av/src/AudioDecoder.cc
++++ git/av/src/AudioDecoder.cc
+@@ -35,7 +35,7 @@ class gz::common::AudioDecoderPrivate
+   public: AVCodecContext *codecCtx;
+ 
+   /// \brief libavcodec audio codec.
+-  public: const AVCodec *codec;
++  public: const AVCodec *codec {nullptr};
+ 
+   /// \brief Index of the audio stream.
+   public: int audioStream;
+@@ -77,12 +77,7 @@ void AudioDecoder::Cleanup()
+ /////////////////////////////////////////////////
+ bool AudioDecoder::Decode(uint8_t **_outBuffer, unsigned int *_outBufferSize)
+ {
+-#if LIBAVFORMAT_VERSION_MAJOR < 59
+-  AVPacket *packet, packet1;
+-  int bytesDecoded = 0;
+-#else
+   AVPacket *packet;
+-#endif
+   unsigned int maxBufferSize = 0;
+   AVFrame *decodedFrame = nullptr;
+ 
+@@ -108,7 +103,7 @@ bool AudioDecoder::Decode(uint8_t **_out
+ 
+   bool result = true;
+ 
+-  if (!(decodedFrame = AVFrameAlloc()))
++  if (!(decodedFrame = av_frame_alloc()))
+   {
+     ignerr << "Audio decoder out of memory\n";
+     result = false;
+@@ -125,7 +120,6 @@ bool AudioDecoder::Decode(uint8_t **_out
+   {
+     if (packet->stream_index == this->data->audioStream)
+     {
+-#if LIBAVFORMAT_VERSION_MAJOR >= 59
+       // Inspired from
+       // https://github.com/FFmpeg/FFmpeg/blob/n5.0/doc/examples/decode_audio.c#L71
+ 
+@@ -152,12 +146,18 @@ bool AudioDecoder::Decode(uint8_t **_out
+             return false;
+         }
+ 
++#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(59, 24, 100)
++        int numChannels = this->data->codecCtx->ch_layout.nb_channels;
++#else
++        int numChannels = this->data->codecCtx->channels;
++#endif
++
+         // Total size of the data. Some padding can be added to
+         // decodedFrame->data[0], which is why we can't use
+         // decodedFrame->linesize[0].
+         int size = decodedFrame->nb_samples *
+           av_get_bytes_per_sample(this->data->codecCtx->sample_fmt) *
+-          this->data->codecCtx->ch_layout.nb_channels;
++          numChannels;
+         // Resize the audio buffer as necessary
+         if (*_outBufferSize + size > maxBufferSize)
+         {
+@@ -170,50 +170,6 @@ bool AudioDecoder::Decode(uint8_t **_out
+             size);
+         *_outBufferSize += size;
+     }
+-#else
+-      int gotFrame = 0;
+-
+-      packet1 = *packet;
+-      while (packet1.size)
+-      {
+-        // Some frames rely on multiple packets, so we have to make sure
+-        // the frame is finished before we can use it
+-#ifndef _WIN32
+-# pragma GCC diagnostic push
+-# pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+-#endif
+-        bytesDecoded = avcodec_decode_audio4(this->data->codecCtx, decodedFrame,
+-            &gotFrame, &packet1);
+-#ifndef _WIN32
+-# pragma GCC diagnostic pop
+-#endif
+-
+-        if (gotFrame)
+-        {
+-          // Total size of the data. Some padding can be added to
+-          // decodedFrame->data[0], which is why we can't use
+-          // decodedFrame->linesize[0].
+-          int size = decodedFrame->nb_samples *
+-            av_get_bytes_per_sample(this->data->codecCtx->sample_fmt) *
+-            this->data->codecCtx->channels;
+-
+-          // Resize the audio buffer as necessary
+-          if (*_outBufferSize + size > maxBufferSize)
+-          {
+-            maxBufferSize += size * 5;
+-            *_outBuffer = reinterpret_cast<uint8_t*>(realloc(*_outBuffer,
+-                  maxBufferSize * sizeof(*_outBuffer[0])));
+-          }
+-
+-          memcpy(*_outBuffer + *_outBufferSize, decodedFrame->data[0],
+-              size);
+-          *_outBufferSize += size;
+-        }
+-
+-        packet1.data += bytesDecoded;
+-        packet1.size -= bytesDecoded;
+-      }
+-#endif
+     }
+     av_packet_unref(packet);
+   }
+@@ -271,20 +227,8 @@ bool AudioDecoder::SetFile(const std::st
+   this->data->audioStream = -1;
+   for (i = 0; i < this->data->formatCtx->nb_streams; ++i)
+   {
+-#ifndef _WIN32
+-# pragma GCC diagnostic push
+-# pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+-#endif
+-#if LIBAVFORMAT_VERSION_MAJOR >= 59
+     if (this->data->formatCtx->streams[i]->codecpar->codec_type == // NOLINT(*)
+         AVMEDIA_TYPE_AUDIO)
+-#else
+-    if (this->data->formatCtx->streams[i]->codec->codec_type == // NOLINT(*)
+-        AVMEDIA_TYPE_AUDIO)
+-#endif
+-#ifndef _WIN32
+-# pragma GCC diagnostic pop
+-#endif
+     {
+       this->data->audioStream = i;
+       break;
+@@ -300,21 +244,7 @@ bool AudioDecoder::SetFile(const std::st
+     return false;
+   }
+ 
+-  // Get the audio stream codec
+-#ifndef _WIN32
+-# pragma GCC diagnostic push
+-# pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+-#endif
+-#if LIBAVFORMAT_VERSION_MAJOR < 59
+-  this->data->codecCtx = this->data->formatCtx->streams[
+-    this->data->audioStream]->codec;
+-#endif
+-#ifndef _WIN32
+-# pragma GCC diagnostic pop
+-#endif
+-
+   // Find a decoder
+-#if LIBAVFORMAT_VERSION_MAJOR >= 59
+   this->data->codec = avcodec_find_decoder(this->data->formatCtx->streams[
+     this->data->audioStream]->codecpar->codec_id);
+   if (!this->data->codec)
+@@ -331,9 +261,6 @@ bool AudioDecoder::SetFile(const std::st
+   // Copy all relevant parameters from codepar to codecCtx
+   avcodec_parameters_to_context(this->data->codecCtx,
+     this->data->formatCtx->streams[this->data->audioStream]->codecpar);
+-#else
+-  this->data->codec = avcodec_find_decoder(this->data->codecCtx->codec_id);
+-#endif
+ 
+   if (this->data->codec == nullptr)
+   {
+@@ -344,15 +271,8 @@ bool AudioDecoder::SetFile(const std::st
+     return false;
+   }
+ 
+-#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(56, 60, 100)
+-#if LIBAVCODEC_VERSION_MAJOR < 60
+   if (this->data->codec->capabilities & AV_CODEC_CAP_TRUNCATED)
+     this->data->codecCtx->flags |= AV_CODEC_FLAG_TRUNCATED;
+-#endif
+-#else
+-  if (this->data->codec->capabilities & CODEC_CAP_TRUNCATED)
+-    this->data->codecCtx->flags |= CODEC_FLAG_TRUNCATED;
+-#endif
+ 
+   // Open codec
+   if (avcodec_open2(this->data->codecCtx, this->data->codec, nullptr) < 0)
+Index: git/av/src/Video.cc
+===================================================================
+--- git.orig/av/src/Video.cc
++++ git/av/src/Video.cc
+@@ -59,6 +59,37 @@ class gz::common::VideoPrivate
+   public: bool drainingMode = false;
+ };
+ 
++int AVCodecDecode(AVCodecContext *_codecCtx,
++    AVFrame *_frame, int *_gotFrame, AVPacket *_packet)
++{
++  // from https://blogs.gentoo.org/lu_zero/2016/03/29/new-avcodec-api/
++  int ret;
++
++  *_gotFrame = 0;
++
++  if (_packet)
++  {
++    ret = avcodec_send_packet(_codecCtx, _packet);
++    if (ret < 0)
++    {
++      return ret == AVERROR_EOF ? 0 : ret;
++    }
++  }
++
++  ret = avcodec_receive_frame(_codecCtx, _frame);
++  if (ret < 0 && ret != AVERROR(EAGAIN))
++  {
++    return ret;
++  }
++  if (ret >= 0)
++  {
++    *_gotFrame = 1;
++  }
++
++  // new API always consumes the whole packet
++  return _packet ? _packet->size : 0;
++}
++
+ /////////////////////////////////////////////////
+ Video::Video()
+ : dataPtr(new VideoPrivate)
+@@ -100,7 +131,7 @@ bool Video::Load(const std::string &_fil
+     this->Cleanup();
+   }
+ 
+-  this->dataPtr->avFrame = AVFrameAlloc();
++  this->dataPtr->avFrame = av_frame_alloc();
+ 
+   // Open video file
+   if (avformat_open_input(&this->dataPtr->formatCtx, _filename.c_str(),
+@@ -121,13 +152,7 @@ bool Video::Load(const std::string &_fil
+   for (unsigned int i = 0; i < this->dataPtr->formatCtx->nb_streams; ++i)
+   {
+     enum AVMediaType codec_type;
+-    // codec parameter deprecated in ffmpeg version 3.1
+-    // github.com/FFmpeg/FFmpeg/commit/9200514ad8717c
+-#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(57, 48, 101)
+     codec_type = this->dataPtr->formatCtx->streams[i]->codecpar->codec_type;
+-#else
+-    codec_type = this->dataPtr->formatCtx->streams[i]->codec->codec_type;
+-#endif
+     if (codec_type == AVMEDIA_TYPE_VIDEO)
+     {
+       this->dataPtr->videoStream = static_cast<int>(i);
+@@ -143,18 +168,13 @@ bool Video::Load(const std::string &_fil
+ 
+   // Find the decoder for the video stream
+   auto stream = this->dataPtr->formatCtx->streams[this->dataPtr->videoStream];
+-#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(57, 48, 101)
+   codec = avcodec_find_decoder(stream->codecpar->codec_id);
+-#else
+-  codec = avcodec_find_decoder(stream->codec->codec_id);
+-#endif
+   if (codec == nullptr)
+   {
+     ignerr << "Codec not found\n";
+     return false;
+   }
+ 
+-#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(57, 48, 101)
+   // AVCodecContext is not included in an AVStream as of ffmpeg 3.1
+   // allocate a codec context based on updated example
+   // github.com/FFmpeg/FFmpeg/commit/bba6a03b2816d805d44bce4f9701a71f7d3f8dad
+@@ -173,23 +193,11 @@ bool Video::Load(const std::string &_fil
+            << std::endl;
+     return false;
+   }
+-#else
+-  // Get a pointer to the codec context for the video stream
+-  this->dataPtr->codecCtx = this->dataPtr->formatCtx->streams[
+-    this->dataPtr->videoStream]->codec;
+-#endif
+ 
+   // Inform the codec that we can handle truncated bitstreams -- i.e.,
+   // bitstreams where frame boundaries can fall in the middle of packets
+-#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(56, 60, 100)
+-#if LIBAVCODEC_VERSION_MAJOR < 60
+   if (codec->capabilities & AV_CODEC_CAP_TRUNCATED)
+     this->dataPtr->codecCtx->flags |= AV_CODEC_FLAG_TRUNCATED;
+-#endif
+-#else
+-  if (codec->capabilities & CODEC_CAP_TRUNCATED)
+-    this->dataPtr->codecCtx->flags |= CODEC_FLAG_TRUNCATED;
+-#endif
+ 
+   // Open codec
+   if (avcodec_open2(this->dataPtr->codecCtx, codec, nullptr) < 0)
+@@ -214,7 +222,7 @@ bool Video::Load(const std::string &_fil
+   }
+ 
+   // swscale needs 32-byte-aligned output frame on some systems
+-  this->dataPtr->avFrameDst = AVFrameAlloc();
++  this->dataPtr->avFrameDst = av_frame_alloc();
+   this->dataPtr->avFrameDst->format = this->dataPtr->dstPixelFormat;
+   this->dataPtr->avFrameDst->width = this->dataPtr->codecCtx->width;
+   this->dataPtr->avFrameDst->height = this->dataPtr->codecCtx->height;
+@@ -293,7 +301,7 @@ bool Video::NextFrame(unsigned char **_b
+     }
+ 
+     // Process all the data in the frame
+-    ret = AVCodecDecode(
++    ret = ::AVCodecDecode(
+       this->dataPtr->codecCtx, this->dataPtr->avFrame, &frameAvailable,
+       this->dataPtr->drainingMode ? nullptr : packet);
+ 
+Index: git/av/src/VideoEncoder.cc
+===================================================================
+--- git.orig/av/src/VideoEncoder.cc
++++ git/av/src/VideoEncoder.cc
+@@ -14,6 +14,7 @@
+  * limitations under the License.
+  *
+ */
++
+ #include <stdio.h>
+ 
+ #include <mutex>
+@@ -32,6 +33,14 @@ using namespace ignition;
+ using namespace common;
+ using namespace std;
+ 
++// After AVDevice 59.0.100, const pointers are used.
++#if LIBAVDEVICE_VERSION_INT >= AV_VERSION_INT(59, 0, 100)
++using OutputFormat = const AVOutputFormat*;
++#else
++using OutputFormat = AVOutputFormat*;
++#endif
++
++
+ // Private data class
+ // hidden visibility specifier has to be explicitly set to silent a gcc warning
+ class IGNITION_COMMON_AV_HIDDEN common::VideoEncoderPrivate
+@@ -53,11 +62,7 @@ class IGNITION_COMMON_AV_HIDDEN common::
+   public: AVFrame *avOutFrame = nullptr;
+ 
+   /// \brief libav input image data (aligned to 32 bytes)
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 24, 1)
+-  public: AVPicture *avInFrame = nullptr;
+-#else
+   public: AVFrame *avInFrame = nullptr;
+-#endif
+ 
+   /// \brief Pixel format of the input frame. So far it is hardcoded.
+   public: AVPixelFormat inPixFormat = AV_PIX_FMT_RGB24;
+@@ -340,34 +345,37 @@ bool VideoEncoder::Start(
+   // Special case for video4linux2. Here we attempt to find the v4l2 device
+   if (this->dataPtr->format.compare("v4l2") == 0)
+   {
+-#if LIBAVDEVICE_VERSION_INT >= AV_VERSION_INT(56, 4, 100)
+-    AVOutputFormat *outputFormat = nullptr;
+-    while ((outputFormat = av_output_video_device_next(outputFormat))
+-           != nullptr)
+-    {
+-      // Break when the output device name matches 'v4l2'
+-      if (this->dataPtr->format.compare(outputFormat->name) == 0)
++#if defined(HAVE_AVDEVICE)
++    OutputFormat outputFormat = nullptr;
++    do
++    {
++      outputFormat = av_output_video_device_next(outputFormat);
++      
++      if (outputFormat)
+       {
+-        // Allocate the context using the correct outputFormat
+-        auto result = avformat_alloc_output_context2(&this->dataPtr->formatCtx,
+-            outputFormat, nullptr, this->dataPtr->filename.c_str());
+-        if (result < 0)
++        // Break when the output device name matches 'v4l2'
++        if (this->dataPtr->format.compare(outputFormat->name) == 0)
+         {
+-          ignerr << "Failed to allocate AV context [" << av_err2str_cpp(result)
+-                 << "]" << std::endl;
++          // Allocate the context using the correct outputFormat
++          auto result = avformat_alloc_output_context2(&this->dataPtr->formatCtx,
++              outputFormat, nullptr, this->dataPtr->filename.c_str());
++          if (result < 0)
++          {
++            ignerr << "Failed to allocate AV context [" << av_err2str_cpp(result)
++                   << "]" << std::endl;
++          }
++          break;
+         }
+-        break;
+       }
+     }
+-#else
+-    ignerr << "libavdevice version >= 56.4.100 is required for v4l2 recording. "
+-          << "This version is available on Ubuntu Xenial or greater.\n";
+-    return false;
++    while (outputFormat);
++
++
+ #endif
+   }
+   else
+   {
+-    const AVOutputFormat *outputFormat = av_guess_format(nullptr,
++    auto* outputFormat = av_guess_format(nullptr,
+                                    this->dataPtr->filename.c_str(), nullptr);
+ 
+     if (!outputFormat)
+@@ -376,28 +384,6 @@ bool VideoEncoder::Start(
+         << "Using MPEG.\n";
+     }
+ 
+-#if LIBAVFORMAT_VERSION_INT < AV_VERSION_INT(56, 40, 1)
+-        this->dataPtr->formatCtx = avformat_alloc_context();
+-        if (outputFormat)
+-        {
+-          this->dataPtr->formatCtx->oformat = outputFormat;
+-        }
+-        else
+-        {
+-          this->dataPtr->formatCtx->oformat =
+-            av_guess_format("mpeg", nullptr, nullptr);
+-        }
+-#ifdef WIN32
+-        _sprintf(this->dataPtr->formatCtx->filename,
+-                 sizeof(this->dataPtr->formatCtx->filename),
+-                 "%s", _filename.c_str());
+-#else
+-        snprintf(this->dataPtr->formatCtx->filename,
+-                sizeof(this->dataPtr->formatCtx->filename),
+-                "%s", _filename.c_str());
+-#endif
+-
+-#else
+     auto result = avformat_alloc_output_context2(&this->dataPtr->formatCtx,
+         nullptr, nullptr, this->dataPtr->filename.c_str());
+     if (result < 0)
+@@ -405,7 +391,6 @@ bool VideoEncoder::Start(
+       ignerr << "Failed to allocate AV context [" << av_err2str_cpp(result)
+              << "]" << std::endl;
+     }
+-#endif
+   }
+ 
+   // Make sure allocation occurred.
+@@ -428,11 +413,7 @@ bool VideoEncoder::Start(
+   if (!encoder)
+   {
+     ignerr << "Codec for["
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 24, 1)
+-          << this->dataPtr->formatCtx->oformat->name
+-#else
+           << avcodec_get_name(codecId)
+-#endif
+           << "] not found. Video encoding is not started.\n";
+     this->Reset();
+     return false;
+@@ -441,13 +422,8 @@ bool VideoEncoder::Start(
+   ignmsg << "Using encoder " << encoder->name << std::endl;
+ 
+   // Create a new video stream
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 24, 1)
+-  this->dataPtr->videoStream = avformat_new_stream(this->dataPtr->formatCtx,
+-    encoder);
+-#else
+   this->dataPtr->videoStream = avformat_new_stream(this->dataPtr->formatCtx,
+       nullptr);
+-#endif
+ 
+   if (!this->dataPtr->videoStream)
+   {
+@@ -458,11 +434,7 @@ bool VideoEncoder::Start(
+   this->dataPtr->videoStream->id = this->dataPtr->formatCtx->nb_streams-1;
+ 
+   // Allocate a new video context
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 24, 1)
+-  this->dataPtr->codecCtx = this->dataPtr->videoStream->codec;
+-#else
+   this->dataPtr->codecCtx = avcodec_alloc_context3(encoder);
+-#endif
+ 
+   if (!this->dataPtr->codecCtx)
+   {
+@@ -475,11 +447,7 @@ bool VideoEncoder::Start(
+   // some formats want stream headers to be separate
+   if (this->dataPtr->formatCtx->oformat->flags & AVFMT_GLOBALHEADER)
+   {
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 24, 1)
+-    this->dataPtr->codecCtx->flags |= CODEC_FLAG_GLOBAL_HEADER;
+-#else
+     this->dataPtr->codecCtx->flags |= AV_CODEC_FLAG_GLOBAL_HEADER;
+-#endif
+   }
+ 
+   // Frames per second
+@@ -517,13 +485,7 @@ bool VideoEncoder::Start(
+   if (this->dataPtr->codecCtx->codec_id == AV_CODEC_ID_H264)
+   {
+     av_opt_set(this->dataPtr->codecCtx->priv_data, "preset", "slow", 0);
+-
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 24, 1)
+-    av_opt_set(this->dataPtr->videoStream->codec->priv_data,
+-        "preset", "slow", 0);
+-#else
+     av_opt_set(this->dataPtr->videoStream->priv_data, "preset", "slow", 0);
+-#endif
+   }
+ 
+   // we misuse this field a bit, as docs say it is unused in encoders
+@@ -560,11 +522,7 @@ bool VideoEncoder::Start(
+     return false;
+   }
+ 
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(55, 28, 1)
+-  this->dataPtr->avOutFrame = avcodec_alloc_frame();
+-#else
+   this->dataPtr->avOutFrame = av_frame_alloc();
+-#endif
+ 
+   if (!this->dataPtr->avOutFrame)
+   {
+@@ -589,14 +547,9 @@ bool VideoEncoder::Start(
+   }
+ 
+   // Copy parameters from the context to the video stream
+-#if LIBAVFORMAT_VERSION_INT < AV_VERSION_INT(57, 40, 101)
+-//  ret = avcodec_copy_context(this->dataPtr->videoStream->codec,
+-//                       this->dataPtr->codecCtx);
+-#else
+   // codecpar was implemented in ffmpeg version 3.1
+   ret = avcodec_parameters_from_context(
+       this->dataPtr->videoStream->codecpar, this->dataPtr->codecCtx);
+-#endif
+   if (ret < 0)
+   {
+     ignerr << "Could not copy the stream parameters:" << av_err2str_cpp(ret)
+@@ -690,11 +643,7 @@ bool VideoEncoder::AddFrame(const unsign
+     this->dataPtr->swsCtx = nullptr;
+ 
+     if (this->dataPtr->avInFrame)
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 24, 1)
+-      av_free(this->dataPtr->avInFrame);
+-#else
+       av_frame_free(&this->dataPtr->avInFrame);
+-#endif
+     this->dataPtr->avInFrame = nullptr;
+   }
+ 
+@@ -705,19 +654,12 @@ bool VideoEncoder::AddFrame(const unsign
+ 
+     if (!this->dataPtr->avInFrame)
+     {
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 24, 1)
+-      this->dataPtr->avInFrame = new AVPicture;
+-      avpicture_alloc(this->dataPtr->avInFrame,
+-          this->dataPtr->inPixFormat, this->dataPtr->inWidth,
+-          this->dataPtr->inHeight);
+-#else
+       this->dataPtr->avInFrame = av_frame_alloc();
+       this->dataPtr->avInFrame->width = this->dataPtr->inWidth;
+       this->dataPtr->avInFrame->height = this->dataPtr->inHeight;
+       this->dataPtr->avInFrame->format = this->dataPtr->inPixFormat;
+ 
+       av_frame_get_buffer(this->dataPtr->avInFrame, 32);
+-#endif
+     }
+ 
+     av_image_fill_linesizes(this->dataPtr->inputLineSizes,
+@@ -779,24 +721,6 @@ bool VideoEncoder::AddFrame(const unsign
+   {
+     frameToEncode->pts = this->dataPtr->frameCount++;
+ 
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 40, 101)
+-    int gotOutput = 0;
+-    AVPacket avPacket;
+-    av_init_packet(&avPacket);
+-    avPacket.data = nullptr;
+-    avPacket.size = 0;
+-
+-    ret = avcodec_encode_video2(this->dataPtr->codecCtx, &avPacket,
+-        frameToEncode, &gotOutput);
+-
+-    if (ret >= 0 && gotOutput == 1)
+-      ret = ProcessPacket(&avPacket);
+-
+-    av_free_packet(&avPacket);
+-
+-    // #else for libavcodec version check
+-#else
+-
+     AVPacket* avPacket = av_packet_alloc();
+ 
+     avPacket->data = nullptr;
+@@ -817,7 +741,6 @@ bool VideoEncoder::AddFrame(const unsign
+     }
+ 
+     av_packet_unref(avPacket);
+-#endif
+   }
+   return ret >= 0 || ret == AVERROR(EAGAIN);
+ }
+@@ -859,31 +782,6 @@ bool VideoEncoder::Stop()
+   // drain remaining packets from the encoder
+   if (this->dataPtr->encoding && this->dataPtr->codecCtx)
+   {
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 40, 101)
+-    if ((this->dataPtr->codecCtx->capabilities & AV_CODEC_CAP_DELAY) > 0)
+-    {
+-      int gotOutput = 1;
+-      int ret = 0;
+-      AVPacket avPacket;
+-      av_init_packet(&avPacket);
+-      avPacket.data = nullptr;
+-      avPacket.size = 0;
+-
+-      while (ret >= 0 && gotOutput == 1)
+-      {
+-        ret = avcodec_encode_video2(this->dataPtr->codecCtx, &avPacket,
+-            nullptr, &gotOutput);
+-
+-        if (ret >= 0 && gotOutput == 1)
+-          ret = ProcessPacket(&avPacket);
+-      }
+-
+-      av_free_packet(&avPacket);
+-  }
+-
+-// #else for libavcodec version check
+-#else
+-
+     int ret = 0;
+     // enter drain state
+     ret = avcodec_send_frame(this->dataPtr->codecCtx, nullptr);
+@@ -906,32 +804,21 @@ bool VideoEncoder::Stop()
+       }
+       av_packet_unref(avPacket);
+     }
+-#endif
+   }
+ 
+   if (this->dataPtr->encoding && this->dataPtr->formatCtx)
+     av_write_trailer(this->dataPtr->formatCtx);
+ 
+-#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(57, 24, 1)
+   if (this->dataPtr->codecCtx)
+     avcodec_free_context(&this->dataPtr->codecCtx);
+-#endif
+   this->dataPtr->codecCtx = nullptr;
+ 
+   if (this->dataPtr->avInFrame)
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 24, 1)
+-    av_free(this->dataPtr->avInFrame);
+-#else
+     av_frame_free(&this->dataPtr->avInFrame);
+-#endif
+   this->dataPtr->avInFrame = nullptr;
+ 
+   if (this->dataPtr->avOutFrame)
+-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(57, 24, 1)
+-    av_free(this->dataPtr->avOutFrame);
+-#else
+     av_frame_free(&this->dataPtr->avOutFrame);
+-#endif
+   this->dataPtr->avOutFrame = nullptr;
+ 
+   if (this->dataPtr->swsCtx)
+Index: git/av/src/ffmpeg_inc.cc
+===================================================================
+--- git.orig/av/src/ffmpeg_inc.cc
++++ git/av/src/ffmpeg_inc.cc
+@@ -21,38 +21,25 @@ using namespace ignition;
+ //////////////////////////////////////////////////
+ AVFrame *common::AVFrameAlloc(void)
+ {
+-#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(55, 28, 1)
+   return av_frame_alloc();
+-#else
+-  return avcodec_alloc_frame();
+-#endif
+ }
+ 
+ //////////////////////////////////////////////////
+ void common::AVFrameUnref(AVFrame *_frame)
+ {
+-#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(55, 28, 1)
+   av_frame_unref(_frame);
+-#else
+-  avcodec_get_frame_defaults(_frame);
+-#endif
+ }
+ 
+ //////////////////////////////////////////////////
+ void common::AVPacketUnref(AVPacket *_packet)
+ {
+-#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(57, 24, 102)
+   av_packet_unref(_packet);
+-#else
+-  av_free_packet(_packet);
+-#endif
+ }
+ 
+ //////////////////////////////////////////////////
+ int common::AVCodecDecode(AVCodecContext *_codecCtx,
+     AVFrame *_frame, int *_gotFrame, AVPacket *_packet)
+ {
+-#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(57, 48, 101)
+   // from https://blogs.gentoo.org/lu_zero/2016/03/29/new-avcodec-api/
+   int ret;
+ 
+@@ -79,16 +66,4 @@ int common::AVCodecDecode(AVCodecContext
+ 
+   // new API always consumes the whole packet
+   return _packet ? _packet->size : 0;
+-#else
+-  // this was deprecated in ffmpeg version 3.1
+-  // github.com/FFmpeg/FFmpeg/commit/7fc329e2dd6226dfecaa4a1d7adf353bf2773726
+-# ifndef _WIN32
+-#  pragma GCC diagnostic push
+-#  pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+-# endif
+-  return avcodec_decode_video2(_codecCtx, _frame, _gotFrame, _packet);
+-# ifndef _WIN32
+-#  pragma GCC diagnostic pop
+-# endif
+-#endif
+ }
