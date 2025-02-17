@@ -27,9 +27,12 @@ do_install:append() {
     chrpath --delete ${D}${ros_libdir}/*${SOLIBS}
     # QA Issue: File /opt/ros/rolling/share/ompl/cmake/omplConfig.cmake in package ompl-dev contains reference to TMPDIR [buildpaths]
     # QA Issue: File /opt/ros/rolling/lib/pkgconfig/ompl.pc in package ompl-dev contains reference to TMPDIR [buildpaths]
-    sed -i -e "s#${RECEIPE_SYSROOT}/usr/lib/##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
-    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
-    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_prefix}/lib/pkgconfig/ompl.pc
+    sed -i -e "s#${RECIPE_SYSROOT}/usr/include/eigen3##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}/usr/include##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}/usr/lib/##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}/usr/lib##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}/usr/lib/##g" ${D}${ros_prefix}/lib/pkgconfig/ompl.pc
+    sed -i -e "s#-I${RECIPE_SYSROOT}/usr/include##g" ${D}${ros_prefix}/lib/pkgconfig/ompl.pc
 }
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
