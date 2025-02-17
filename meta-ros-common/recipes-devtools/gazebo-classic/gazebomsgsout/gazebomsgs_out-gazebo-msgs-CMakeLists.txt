@@ -1,0 +1,51 @@
+# Cross-compilation related options
+# In a cross-compilation scenario, it is possible that the gazebomsgs_out
+# generator compiled for the target machine cannot be used to generate
+# the C++ code corresponding to the .proto definition. For this scenario, 
+# the following two options can be used as follows. 
+# First of all, gazebo is compiled targeting the host machine, and in the
+# build targeting the host, the INSTALL_GAZEBOMSGS_OUT_EXECUTABLE option is
+# enabled:
+# > cmake -DINSTALL_GAZEBOMSGS_OUT_EXECUTABLE:BOOL=ON .. 
+# ensuring that the gazebomsgs_out is installed in 
+# <host_install_prefix>/bin/gazebomsgs_out . Then, the same version of gazebo
+# can be cross-compiled, and in the cross-compilation build the location of the
+# host gazebomsgs_out is specified via the GAZEBOMSGS_OUT_EXECUTABLE 
+# CMake cache variable: 
+# > cmake -DGAZEBOMSGS_OUT_EXECUTABLE=<host_install_prefix>/bin/gazebomsgs_out .. 
+
+option(
+  INSTALL_GAZEBOMSGS_OUT_EXECUTABLE
+  "Install the gazebomsgs_out executable."
+  OFF)
+mark_as_advanced(INSTALL_GAZEBOMSGS_OUT_EXECUTABLE)
+
+set(
+  GAZEBOMSGS_OUT_EXECUTABLE
+  "$<TARGET_FILE:gazebomsgs_out>"
+  CACHE STRING
+  "gazebomsgs_out executable used in gazebo protobuf msgs generation.")
+mark_as_advanced(GAZEBOMSGS_OUT_EXECUTABLE)
+
+include (${gazebo_cmake_dir}/GazeboUtils.cmake)
+include_directories(${IGNITION-MATH_INCLUDE_DIRS} ${IGNITION-MSGS_INCLUDE_DIRS})
+
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
+add_executable(gazebomsgs_out generator/GazeboGenerator.cc generator/gazebo_generator.cc)
+target_link_libraries(gazebomsgs_out ${GZ_PROTOBUF_LIBRARY} ${GZ_PROTOBUF_PROTOC_LIBRARY})
+if (UNIX)
+  target_link_libraries(gazebomsgs_out pthread)
+endif()
+# Visual Studio enables c++11 support by default
+if (NOT MSVC)
+  if(CMAKE_VERSION VERSION_LESS 3.8.2)
+    target_compile_options(gazebomsgs_out PRIVATE -std=c++11)
+  else()
+    target_compile_features(gazebomsgs_out PRIVATE cxx_std_11)
+  endif()
+endif()
+
+if (INSTALL_GAZEBOMSGS_OUT_EXECUTABLE)
+  gz_install_executable(gazebomsgs_out)
+endif()
