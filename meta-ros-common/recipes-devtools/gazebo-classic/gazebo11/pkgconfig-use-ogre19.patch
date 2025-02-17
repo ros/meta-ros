@@ -1,0 +1,48 @@
+Use pkgconfig to find OGRE19
+
+We need this specific version of OGRE for Gazebo Classic.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/cmake/SearchForStuff.cmake b/cmake/SearchForStuff.cmake
+index 732cbb4e2d..70f9b1b3b1 100644
+--- a/cmake/SearchForStuff.cmake
++++ b/cmake/SearchForStuff.cmake
+@@ -366,7 +366,7 @@ if (PKG_CONFIG_FOUND)
+   # Find OGRE
+ 
+   pkg_check_modules(OGRE-RTShaderSystem
+-                    OGRE-RTShaderSystem>=${MIN_OGRE_VERSION})
++                    OGRE19-RTShaderSystem>=${MIN_OGRE_VERSION})
+ 
+   if (OGRE-RTShaderSystem_FOUND)
+     set(ogre_ldflags ${OGRE-RTShaderSystem_LDFLAGS})
+@@ -380,7 +380,7 @@ if (PKG_CONFIG_FOUND)
+     set (INCLUDE_RTSHADER OFF CACHE BOOL "Enable GPU shaders")
+   endif ()
+ 
+-  pkg_check_modules(OGRE OGRE>=${MIN_OGRE_VERSION})
++  pkg_check_modules(OGRE OGRE19>=${MIN_OGRE_VERSION})
+   
+   if (PKG_CONFIG_EXECUTABLE AND OGRE_FOUND AND NOT DEFINED OGRE_VERSION)
+     execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} --modversion OGRE
+@@ -451,7 +451,7 @@ if (PKG_CONFIG_FOUND)
+     set(ogre_cflags ${ogre_cflags} ${OGRE_CFLAGS})
+   endif ()
+ 
+-  pkg_check_modules(OGRE-Terrain OGRE-Terrain)
++  pkg_check_modules(OGRE-Terrain OGRE19-Terrain)
+   if (OGRE-Terrain_FOUND)
+     set(ogre_ldflags ${ogre_ldflags} ${OGRE-Terrain_LDFLAGS})
+     set(ogre_include_dirs ${ogre_include_dirs} ${OGRE-Terrain_INCLUDE_DIRS})
+@@ -460,7 +460,7 @@ if (PKG_CONFIG_FOUND)
+     set(ogre_cflags ${ogre_cflags} ${OGRE-Terrain_CFLAGS})
+   endif()
+ 
+-  pkg_check_modules(OGRE-Overlay OGRE-Overlay)
++  pkg_check_modules(OGRE-Overlay OGRE19-Overlay)
+   if (OGRE-Overlay_FOUND)
+     set(ogre_ldflags ${ogre_ldflags} ${OGRE-Overlay_LDFLAGS})
+     set(ogre_include_dirs ${ogre_include_dirs} ${OGRE-Overlay_INCLUDE_DIRS})
