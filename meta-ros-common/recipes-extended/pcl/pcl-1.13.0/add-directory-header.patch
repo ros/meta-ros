@@ -1,0 +1,30 @@
+Add directory header file
+
+Boost 1.72 moved components to separate header files.
+
+https://www.boost.org/doc/libs/1_72_0/libs/filesystem/doc/deprecated.html
+
+This causes an error when directory_iterator cannot be found.
+
+pcl/1.13.0/git/recognition/include/pcl/recognition/face_detection/face_detector_data_provider.h:40:44: error: 'directory_iterator' is not a member of 'bf'; did you mean 'directory_entry'?
+   40 |           for (const auto& dir_entry : bf::directory_iterator(dir))                                                                                                                                            |                                            ^~~~~~~~~~~~~~~~~~                                                                                                                                                  |                                            directory_entry
+
+Include directory.hpp to provide a definition of directory_iterator.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+
+Index: git/recognition/include/pcl/recognition/face_detection/face_detector_data_provider.h
+===================================================================
+--- git.orig/recognition/include/pcl/recognition/face_detection/face_detector_data_provider.h
++++ git/recognition/include/pcl/recognition/face_detection/face_detector_data_provider.h
+@@ -13,6 +13,7 @@
+ 
+ #include <boost/algorithm/string.hpp>
+ #include <boost/filesystem/operations.hpp>
++#include <boost/filesystem/directory.hpp>
+ 
+ #include <fstream>
+ #include <string>
