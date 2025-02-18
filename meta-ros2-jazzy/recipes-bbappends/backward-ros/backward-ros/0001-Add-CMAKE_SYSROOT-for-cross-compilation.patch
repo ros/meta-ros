@@ -1,0 +1,25 @@
+From e877e9787985eb504311529616074cb32821c6a5 Mon Sep 17 00:00:00 2001
+From: Jiaxing Shi <quic_jiaxshi@quicinc.com>
+Date: Tue, 18 Feb 2025 09:37:12 +0800
+Subject: [PATCH] Add CMAKE_SYSROOT for cross compilation
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 64af86c..a9c48da 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -118,7 +118,7 @@ install(DIRECTORY cmake
+ )
+ 
+ include(CMakePackageConfigHelpers)
+-set(BACKWARD_ROS_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}" CACHE PATH "backward_ros install prefix")
++set(BACKWARD_ROS_INSTALL_PREFIX "\${CMAKE_SYSROOT}/${CMAKE_INSTALL_PREFIX}" CACHE PATH "backward_ros install prefix")
+ configure_package_config_file(
+     "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}Config.cmake.in"
+     "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+-- 
+2.34.1
+
