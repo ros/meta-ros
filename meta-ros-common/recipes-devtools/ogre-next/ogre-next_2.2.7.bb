@@ -22,6 +22,10 @@ S = "${WORKDIR}/git"
 
 inherit cmake features_check pkgconfig
 
+# OGRE-Next supports both clang and gcc, but clang is recommended for SIMD optimizations
+# https://github.com/OGRECave/ogre-next/issues/451
+TOOLCHAIN = "clang"
+
 DEPENDS = " \
     cppunit \
     doxygen-native \
@@ -61,6 +65,8 @@ EXTRA_OECMAKE += " \
     -DOGRE_CONFIG_UNIX_NO_X11:BOOL=FALSE \
     -DOGRE_GLSUPPORT_USE_EGL_HEADLESS:BOOL=TRUE \
     -DOGRE_GLSUPPORT_USE_GLX:BOOL=TRUE \
+    -DOGRE_SIMD_NEON:BOOL=FALSE \
+    -DOGRE_SIMD_SSE2:BOOL=FALSE \
 "
 
 do_configure:append() {
