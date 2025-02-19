@@ -3,7 +3,8 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://profiler/src/Remotery/LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
-SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=gz-common6"
+SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=gz-common6 \
+           file://add-missing-includes.patch"
 
 SRCREV = "1deb6d9e6cbeb28d7def20167c3d3146edd71633"
 
