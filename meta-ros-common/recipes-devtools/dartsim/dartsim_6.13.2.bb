@@ -46,7 +46,7 @@ EXTRA_OECMAKE:prepend = "\
     -DDART_ENABLE_SIMD=OFF \
 "
 
-CXXFLAGS += "-Wno-error=deprecated-copy -Wno-error=reorder"
+CXXFLAGS += "-Wno-error=deprecated-copy -Wno-error=reorder -Wno-error=maybe-uninitialized"
 
 FILES:${PN} += "${datadir}/dart"
 
