@@ -3,6 +3,10 @@
 
 inherit python3targetconfig
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://reverse-deprecated.patch \
+            file://reverse-types.patch"
+
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-generator-py-native \
 "
