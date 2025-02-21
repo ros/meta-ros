@@ -1,0 +1,17 @@
+# noetic/rosdep-resolve.yaml
+cmake:
+- cmake@openembedded-core
+google-mock:
+- gtest@meta-oe
+gtest:
+- gtest@meta-oe
+python3-catkin-pkg:
+- python3-catkin-pkg@meta-ros-common
+python3-empy:
+- python3-empy@meta-ros-common
+python3-mock:
+- python3-mock@meta-ros-common
+python3-nose:
+- python3-nose@openembedded-core
+python3-setuptools:
+- python3-setuptools@openembedded-core
