@@ -15,6 +15,7 @@ SRC_URI = "git://github.com/OGRECave/ogre;protocol=https;branch=master \
     file://find-assimp-package.patch \
     file://rename-featuresummary-to-avoid-name-clashes.patch \
     file://find-freeimage-library-name.patch \
+    file://find-opengl.patch \
 "
 
 S = "${WORKDIR}/git"

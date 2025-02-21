@@ -1,0 +1,1446 @@
+Add FindOpenGL.cmake from newer CMake release
+
+The FindOpenGL.cmake provided with CMake 3.22.3 does not contain a
+target for GLES2.
+
+This makes OGRE fail to configure with the following message:
+
+| CMake Error at RenderSystems/GLES2/CMakeLists.txt:61 (add_library):
+|   Target "RenderSystem_GLES2" links to target "OpenGL::GLES2" but the target
+|   was not found.  Perhaps a find_package() call is missing for an IMPORTED
+|   target, or an ALIAS target is missing?
+
+Providing a newer copy of FindOpenGL.cmake from CMake allows it to succeed.
+
+This is needed to avoid buildpaths from appearing in the generated CMake files.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMake/Packages/FindOpenGL.cmake
+===================================================================
+--- /dev/null
++++ git/CMake/Packages/FindOpenGL.cmake
+@@ -0,0 +1,752 @@
++# Distributed under the OSI-approved BSD 3-Clause License.  See accompanying
++# file Copyright.txt or https://cmake.org/licensing for details.
++
++#[=======================================================================[.rst:
++FindOpenGL
++----------
++
++FindModule for OpenGL and OpenGL Utility Library (GLU).
++
++.. versionchanged:: 3.2
++  X11 is no longer added as a dependency on Unix/Linux systems.
++
++.. versionadded:: 3.10
++  GLVND support on Linux.  See the :ref:`Linux Specific` section below.
++
++Optional COMPONENTS
++^^^^^^^^^^^^^^^^^^^
++
++.. versionadded:: 3.10
++
++This module respects several optional COMPONENTS:
++
++``EGL``
++  The EGL interface between OpenGL, OpenGL ES and the underlying windowing system.
++
++``GLX``
++  An extension to X that interfaces OpenGL, OpenGL ES with X window system.
++
++``OpenGL``
++  The cross platform API for 3D graphics.
++
++``GLES2``
++  .. versionadded:: 3.27
++
++  A subset of OpenGL API for embedded systems with limited capabilities.
++
++``GLES3``
++  .. versionadded:: 3.27
++
++  A subset of OpenGL API for embedded systems with more capabilities.
++
++IMPORTED Targets
++^^^^^^^^^^^^^^^^
++
++.. versionadded:: 3.8
++
++This module defines the :prop_tgt:`IMPORTED` targets:
++
++``OpenGL::GL``
++  Defined to the platform-specific OpenGL libraries if the system has OpenGL.
++``OpenGL::GLU``
++  Defined if the system has OpenGL Utility Library (GLU).
++
++.. versionadded:: 3.10
++  Additionally, the following GLVND-specific library targets are defined:
++
++``OpenGL::OpenGL``
++  Defined to libOpenGL if the system is GLVND-based.
++``OpenGL::GLX``
++  Defined if the system has OpenGL Extension to the X Window System (GLX).
++``OpenGL::EGL``
++  Defined if the system has EGL.
++``OpenGL::GLES2``
++  .. versionadded:: 3.27
++
++  Defined if the system has GLES2.
++``OpenGL::GLES3``
++  .. versionadded:: 3.27
++
++  Defined if the system has GLES3.
++
++Result Variables
++^^^^^^^^^^^^^^^^
++
++This module sets the following variables:
++
++``OPENGL_FOUND``
++ True, if the system has OpenGL and all components are found.
++``OPENGL_XMESA_FOUND``
++ True, if the system has XMESA.
++``OPENGL_GLU_FOUND``
++ True, if the system has GLU.
++``OpenGL_OpenGL_FOUND``
++ True, if the system has an OpenGL library.
++``OpenGL_GLX_FOUND``
++ True, if the system has GLX.
++``OpenGL_EGL_FOUND``
++ True, if the system has EGL.
++``OpenGL::GLES2``
++ Defined if the system has GLES2.
++``OpenGL::GLES3``
++ Defined if the system has GLES3.
++``OPENGL_INCLUDE_DIR``
++ Path to the OpenGL include directory.
++``OPENGL_EGL_INCLUDE_DIRS``
++ Path to the EGL include directory.
++``OPENGL_LIBRARIES``
++ Paths to the OpenGL library, windowing system libraries, and GLU libraries.
++ On Linux, this assumes GLX and is never correct for EGL-based targets.
++ Clients are encouraged to use the ``OpenGL::*`` import targets instead.
++
++.. versionadded:: 3.10
++  Variables for GLVND-specific libraries ``OpenGL``, ``EGL`` and ``GLX``.
++
++Cache variables
++^^^^^^^^^^^^^^^
++
++The following cache variables may also be set:
++
++``OPENGL_egl_LIBRARY``
++ Path to the EGL library.
++``OPENGL_glu_LIBRARY``
++ Path to the GLU library.
++``OPENGL_glx_LIBRARY``
++ Path to the GLVND 'GLX' library.
++``OPENGL_opengl_LIBRARY``
++ Path to the GLVND 'OpenGL' library
++``OPENGL_gl_LIBRARY``
++ Path to the OpenGL library.  New code should prefer the ``OpenGL::*`` import
++ targets.
++``OPENGL_gles2_LIBRARY``
++  .. versionadded:: 3.27
++
++  Path to the OpenGL GLES2 library.
++``OPENGL_gles3_LIBRARY``
++  .. versionadded:: 3.27
++
++  Path to the OpenGL GLES3 library.
++
++.. versionadded:: 3.10
++  Variables for GLVND-specific libraries ``OpenGL``, ``EGL`` and ``GLX``.
++
++.. _`Linux Specific`:
++
++Linux-specific
++^^^^^^^^^^^^^^
++
++Some Linux systems utilize GLVND as a new ABI for OpenGL.  GLVND separates
++context libraries from OpenGL itself; OpenGL lives in "libOpenGL", and
++contexts are defined in "libGLX" or "libEGL".  GLVND is currently the only way
++to get OpenGL 3+ functionality via EGL in a manner portable across vendors.
++Projects may use GLVND explicitly with target ``OpenGL::OpenGL`` and either
++``OpenGL::GLX`` or ``OpenGL::EGL``.
++
++Projects may use the ``OpenGL::GL`` target (or ``OPENGL_LIBRARIES`` variable)
++to use legacy GL interfaces.  These will use the legacy GL library located
++by ``OPENGL_gl_LIBRARY``, if available.  If ``OPENGL_gl_LIBRARY`` is empty or
++not found and GLVND is available, the ``OpenGL::GL`` target will use GLVND
++``OpenGL::OpenGL`` and ``OpenGL::GLX`` (and the ``OPENGL_LIBRARIES``
++variable will use the corresponding libraries).  Thus, for non-EGL-based
++Linux targets, the ``OpenGL::GL`` target is most portable.
++
++A ``OpenGL_GL_PREFERENCE`` variable may be set to specify the preferred way
++to provide legacy GL interfaces in case multiple choices are available.
++The value may be one of:
++
++``GLVND``
++ If the GLVND OpenGL and GLX libraries are available, prefer them.
++ This forces ``OPENGL_gl_LIBRARY`` to be empty.
++
++ .. versionchanged:: 3.11
++  This is the default, unless policy :policy:`CMP0072` is set to ``OLD``
++  and no components are requeted (since components
++  correspond to GLVND libraries).
++
++``LEGACY``
++ Prefer to use the legacy libGL library, if available.
++
++For EGL targets the client must rely on GLVND support on the user's system.
++Linking should use the ``OpenGL::OpenGL OpenGL::EGL`` targets.  Using GLES*
++libraries is theoretically possible in place of ``OpenGL::OpenGL``, but this
++module does not currently support that; contributions welcome.
++
++``OPENGL_egl_LIBRARY`` and ``OPENGL_EGL_INCLUDE_DIRS`` are defined in the case of
++GLVND.  For non-GLVND Linux and other systems these are left undefined.
++
++macOS-Specific
++^^^^^^^^^^^^^^
++
++On OSX FindOpenGL defaults to using the framework version of OpenGL. People
++will have to change the cache values of OPENGL_glu_LIBRARY and
++OPENGL_gl_LIBRARY to use OpenGL with X11 on OSX.
++#]=======================================================================]
++
++set(_OpenGL_REQUIRED_VARS OPENGL_gl_LIBRARY)
++
++# Provide OPENGL_USE_<C> variables for each component.
++foreach(component ${OpenGL_FIND_COMPONENTS})
++  string(TOUPPER ${component} _COMPONENT)
++  set(OPENGL_USE_${_COMPONENT} 1)
++endforeach()
++
++set(_OpenGL_CACHE_VARS)
++
++if (WIN32)
++
++  if(BORLAND)
++    set (OPENGL_gl_LIBRARY import32 CACHE STRING "OpenGL library for win32")
++    set (OPENGL_glu_LIBRARY import32 CACHE STRING "GLU library for win32")
++  else()
++    set (OPENGL_gl_LIBRARY opengl32 CACHE STRING "OpenGL library for win32")
++    set (OPENGL_glu_LIBRARY glu32 CACHE STRING "GLU library for win32")
++  endif()
++
++  list(APPEND _OpenGL_CACHE_VARS
++    OPENGL_gl_LIBRARY
++    OPENGL_glu_LIBRARY
++    )
++elseif (APPLE)
++  # The OpenGL.framework provides both gl and glu
++  find_library(OPENGL_gl_LIBRARY OpenGL DOC "OpenGL library for OS X")
++  find_library(OPENGL_glu_LIBRARY OpenGL DOC
++    "GLU library for OS X (usually same as OpenGL library)")
++  find_path(OPENGL_INCLUDE_DIR OpenGL/gl.h DOC "Include for OpenGL on OS X")
++  list(APPEND _OpenGL_REQUIRED_VARS OPENGL_INCLUDE_DIR)
++
++  list(APPEND _OpenGL_CACHE_VARS
++    OPENGL_INCLUDE_DIR
++    OPENGL_gl_LIBRARY
++    OPENGL_glu_LIBRARY
++    )
++else()
++  if (CMAKE_ANDROID_NDK)
++    set(_OPENGL_INCLUDE_PATH ${CMAKE_ANDROID_NDK}/sysroot/usr/include)
++    set(_OPENGL_LIB_PATH ${CMAKE_ANDROID_NDK}/platforms/android-${CMAKE_SYSTEM_VERSION}/arch-${CMAKE_ANDROID_ARCH}/usr/lib)
++  elseif (CMAKE_SYSTEM_NAME MATCHES "HP-UX")
++    # Handle HP-UX cases where we only want to find OpenGL in either hpux64
++    # or hpux32 depending on if we're doing a 64 bit build.
++    if(CMAKE_SIZEOF_VOID_P EQUAL 4)
++      set(_OPENGL_LIB_PATH
++        /opt/graphics/OpenGL/lib/hpux32/)
++    else()
++      set(_OPENGL_LIB_PATH
++        /opt/graphics/OpenGL/lib/hpux64/
++        /opt/graphics/OpenGL/lib/pa20_64)
++    endif()
++  elseif(CMAKE_SYSTEM_NAME STREQUAL Haiku)
++    set(_OPENGL_LIB_PATH
++      /boot/develop/lib/x86)
++    set(_OPENGL_INCLUDE_PATH
++      /boot/develop/headers/os/opengl)
++  elseif (CMAKE_SYSTEM_NAME STREQUAL "Linux")
++    # CMake doesn't support arbitrary globs in search paths.
++    file(GLOB _OPENGL_LIB_PATH
++      # The NVidia driver installation tool on Linux installs libraries to a
++      # `nvidia-<version>` subdirectory.
++      "/usr/lib/nvidia-*"
++      "/usr/lib32/nvidia-*")
++  endif()
++
++  # The first line below is to make sure that the proper headers
++  # are used on a Linux machine with the NVidia drivers installed.
++  # They replace Mesa with NVidia's own library but normally do not
++  # install headers and that causes the linking to
++  # fail since the compiler finds the Mesa headers but NVidia's library.
++  # Make sure the NVIDIA directory comes BEFORE the others.
++  #  - Atanas Georgiev <atanas@cs.columbia.edu>
++  find_path(OPENGL_INCLUDE_DIR GL/gl.h
++    /usr/share/doc/NVIDIA_GLX-1.0/include
++    /usr/openwin/share/include
++    /opt/graphics/OpenGL/include
++    ${_OPENGL_INCLUDE_PATH}
++  )
++  find_path(OPENGL_GLX_INCLUDE_DIR GL/glx.h ${_OPENGL_INCLUDE_PATH})
++  find_path(OPENGL_EGL_INCLUDE_DIR EGL/egl.h ${_OPENGL_INCLUDE_PATH})
++  find_path(OPENGL_GLES2_INCLUDE_DIR GLES2/gl2.h ${_OPENGL_INCLUDE_PATH})
++  find_path(OPENGL_GLES3_INCLUDE_DIR GLES3/gl3.h ${_OPENGL_INCLUDE_PATH})
++  find_path(OPENGL_xmesa_INCLUDE_DIR GL/xmesa.h
++    /usr/share/doc/NVIDIA_GLX-1.0/include
++    /usr/openwin/share/include
++    /opt/graphics/OpenGL/include
++  )
++
++  list(APPEND _OpenGL_CACHE_VARS
++    OPENGL_INCLUDE_DIR
++    OPENGL_GLX_INCLUDE_DIR
++    OPENGL_EGL_INCLUDE_DIR
++    OPENGL_GLES2_INCLUDE_DIR
++    OPENGL_GLES3_INCLUDE_DIR
++    OPENGL_xmesa_INCLUDE_DIR
++    )
++
++  # Search for the GLVND libraries.  We do this regardless of COMPONENTS; we'll
++  # take into account the COMPONENTS logic later.
++  find_library(OPENGL_opengl_LIBRARY
++    NAMES OpenGL
++    PATHS ${_OPENGL_LIB_PATH}
++  )
++
++  find_library(OPENGL_glx_LIBRARY
++    NAMES GLX
++    PATHS ${_OPENGL_LIB_PATH}
++    PATH_SUFFIXES libglvnd
++  )
++
++  find_library(OPENGL_egl_LIBRARY
++    NAMES EGL
++    PATHS ${_OPENGL_LIB_PATH}
++    PATH_SUFFIXES libglvnd
++  )
++
++  find_library(OPENGL_gles2_LIBRARY
++    NAMES GLESv2
++    PATHS ${_OPENGL_LIB_PATH}
++  )
++
++  find_library(OPENGL_gles3_LIBRARY
++    NAMES GLESv3
++          GLESv2 # mesa provides only libGLESv2
++    PATHS ${_OPENGL_LIB_PATH}
++  )
++
++  find_library(OPENGL_glu_LIBRARY
++    NAMES GLU MesaGLU
++    PATHS ${OPENGL_gl_LIBRARY}
++          /opt/graphics/OpenGL/lib
++          /usr/openwin/lib
++          /usr/shlib
++  )
++
++  list(APPEND _OpenGL_CACHE_VARS
++    OPENGL_opengl_LIBRARY
++    OPENGL_glx_LIBRARY
++    OPENGL_egl_LIBRARY
++    OPENGL_gles2_LIBRARY
++    OPENGL_gles3_LIBRARY
++    OPENGL_glu_LIBRARY
++    )
++
++  set(_OpenGL_GL_POLICY_WARN 0)
++  if(NOT DEFINED OpenGL_GL_PREFERENCE)
++    set(OpenGL_GL_PREFERENCE "")
++  endif()
++  if(NOT OpenGL_GL_PREFERENCE STREQUAL "")
++    # A preference has been explicitly specified.
++    if(NOT OpenGL_GL_PREFERENCE MATCHES "^(GLVND|LEGACY)$")
++      message(FATAL_ERROR
++        "OpenGL_GL_PREFERENCE value '${OpenGL_GL_PREFERENCE}' not recognized.  "
++        "Allowed values are 'GLVND' and 'LEGACY'."
++        )
++    endif()
++  elseif(OpenGL_FIND_COMPONENTS)
++    # No preference was explicitly specified, but the caller did request
++    # at least one GLVND component.  Prefer GLVND for legacy GL.
++    set(OpenGL_GL_PREFERENCE "GLVND")
++  else()
++    # No preference was explicitly specified and no GLVND components were
++    # requested.  Use a policy to choose the default.
++    cmake_policy(GET CMP0072 _OpenGL_GL_POLICY)
++    if("x${_OpenGL_GL_POLICY}x" STREQUAL "xNEWx")
++      set(OpenGL_GL_PREFERENCE "GLVND")
++    else()
++      set(OpenGL_GL_PREFERENCE "LEGACY")
++      if("x${_OpenGL_GL_POLICY}x" STREQUAL "xx")
++        set(_OpenGL_GL_POLICY_WARN 1)
++      endif()
++    endif()
++    unset(_OpenGL_GL_POLICY)
++  endif()
++
++  if("x${OpenGL_GL_PREFERENCE}x" STREQUAL "xGLVNDx" AND OPENGL_opengl_LIBRARY AND OPENGL_glx_LIBRARY)
++    # We can provide legacy GL using GLVND libraries.
++    # Do not use any legacy GL library.
++    set(OPENGL_gl_LIBRARY "")
++  else()
++    # We cannot provide legacy GL using GLVND libraries.
++    # Search for the legacy GL library.
++    find_library(OPENGL_gl_LIBRARY
++      NAMES GL MesaGL
++      PATHS /opt/graphics/OpenGL/lib
++            /usr/openwin/lib
++            /usr/shlib
++            ${_OPENGL_LIB_PATH}
++      PATH_SUFFIXES libglvnd
++      )
++    list(APPEND _OpenGL_CACHE_VARS OPENGL_gl_LIBRARY)
++  endif()
++
++  if(_OpenGL_GL_POLICY_WARN AND OPENGL_gl_LIBRARY AND OPENGL_opengl_LIBRARY AND OPENGL_glx_LIBRARY)
++    cmake_policy(GET_WARNING CMP0072 _cmp0072_warning)
++    message(AUTHOR_WARNING
++      "${_cmp0072_warning}\n"
++      "FindOpenGL found both a legacy GL library:\n"
++      "  OPENGL_gl_LIBRARY: ${OPENGL_gl_LIBRARY}\n"
++      "and GLVND libraries for OpenGL and GLX:\n"
++      "  OPENGL_opengl_LIBRARY: ${OPENGL_opengl_LIBRARY}\n"
++      "  OPENGL_glx_LIBRARY: ${OPENGL_glx_LIBRARY}\n"
++      "OpenGL_GL_PREFERENCE has not been set to \"GLVND\" or \"LEGACY\", so for "
++      "compatibility with CMake 3.10 and below the legacy GL library will be used."
++      )
++  endif()
++  unset(_OpenGL_GL_POLICY_WARN)
++
++  # FPHSA cannot handle "this OR that is required", so we conditionally set what
++  # it must look for.  First clear any previous config we might have done:
++  set(_OpenGL_REQUIRED_VARS)
++
++  # now we append the libraries as appropriate.  The complicated logic
++  # basically comes down to "use libOpenGL when we can, and add in specific
++  # context mechanisms when requested, or we need them to preserve the previous
++  # default where glx is always available."
++  if((NOT OPENGL_USE_EGL AND
++      NOT OPENGL_opengl_LIBRARY AND
++          OPENGL_glx_LIBRARY AND
++      NOT OPENGL_gl_LIBRARY) OR
++     (NOT OPENGL_USE_EGL AND
++      NOT OPENGL_USE_GLES3 AND
++      NOT OPENGL_USE_GLES2 AND
++      NOT OPENGL_glx_LIBRARY AND
++      NOT OPENGL_gl_LIBRARY) OR
++     (NOT OPENGL_USE_EGL AND
++          OPENGL_opengl_LIBRARY AND
++          OPENGL_glx_LIBRARY) OR
++     (NOT OPENGL_USE_GLES3 AND
++      NOT OPENGL_USE_GLES2 AND
++          OPENGL_USE_EGL))
++    list(APPEND _OpenGL_REQUIRED_VARS OPENGL_opengl_LIBRARY)
++  endif()
++
++  # GLVND GLX library.  Preferred when available.
++  if((NOT OPENGL_USE_OPENGL AND
++      NOT OPENGL_USE_GLX AND
++      NOT OPENGL_USE_EGL AND
++      NOT OPENGL_USE_GLES3 AND
++      NOT OPENGL_USE_GLES2 AND
++      NOT OPENGL_glx_LIBRARY AND
++      NOT OPENGL_gl_LIBRARY) OR
++     (    OPENGL_USE_GLX AND
++      NOT OPENGL_USE_EGL AND
++      NOT OPENGL_USE_GLES3 AND
++      NOT OPENGL_USE_GLES2 AND
++      NOT OPENGL_glx_LIBRARY AND
++      NOT OPENGL_gl_LIBRARY) OR
++     (NOT OPENGL_USE_EGL AND
++      NOT OPENGL_USE_GLES3 AND
++      NOT OPENGL_USE_GLES2 AND
++          OPENGL_opengl_LIBRARY AND
++          OPENGL_glx_LIBRARY) OR
++     (OPENGL_USE_GLX AND OPENGL_USE_EGL))
++    list(APPEND _OpenGL_REQUIRED_VARS OPENGL_glx_LIBRARY)
++  endif()
++
++  # GLVND EGL library.
++  if(OPENGL_USE_EGL)
++    list(APPEND _OpenGL_REQUIRED_VARS OPENGL_egl_LIBRARY)
++  endif()
++
++  # GLVND GLES2 library.
++  if(OPENGL_USE_GLES2)
++    list(APPEND _OpenGL_REQUIRED_VARS OPENGL_gles2_LIBRARY)
++  endif()
++
++  # GLVND GLES3 library.
++  if(OPENGL_USE_GLES3)
++    list(APPEND _OpenGL_REQUIRED_VARS OPENGL_gles3_LIBRARY)
++  endif()
++
++  # Old-style "libGL" library: used as a fallback when GLVND isn't available.
++  if((NOT OPENGL_USE_EGL AND
++      NOT OPENGL_opengl_LIBRARY AND
++          OPENGL_glx_LIBRARY AND
++          OPENGL_gl_LIBRARY) OR
++     (NOT OPENGL_USE_EGL AND
++      NOT OPENGL_glx_LIBRARY AND
++          OPENGL_gl_LIBRARY))
++    list(PREPEND _OpenGL_REQUIRED_VARS OPENGL_gl_LIBRARY)
++  endif()
++
++  # We always need the 'gl.h' include dir.
++  if(OPENGL_USE_EGL)
++    list(APPEND _OpenGL_REQUIRED_VARS OPENGL_EGL_INCLUDE_DIR)
++  else()
++    list(APPEND _OpenGL_REQUIRED_VARS OPENGL_INCLUDE_DIR)
++  endif()
++
++  unset(_OPENGL_INCLUDE_PATH)
++  unset(_OPENGL_LIB_PATH)
++
++  find_library(OPENGL_glu_LIBRARY
++    NAMES GLU MesaGLU
++    PATHS ${OPENGL_gl_LIBRARY}
++          /opt/graphics/OpenGL/lib
++          /usr/openwin/lib
++          /usr/shlib
++  )
++endif ()
++
++if(OPENGL_xmesa_INCLUDE_DIR)
++  set( OPENGL_XMESA_FOUND "YES" )
++else()
++  set( OPENGL_XMESA_FOUND "NO" )
++endif()
++
++if(OPENGL_glu_LIBRARY)
++  set( OPENGL_GLU_FOUND "YES" )
++else()
++  set( OPENGL_GLU_FOUND "NO" )
++endif()
++
++# OpenGL_OpenGL_FOUND is a bit unique in that it is okay if /either/ libOpenGL
++# or libGL is found.
++# Using libGL with libEGL is never okay, though; we handle that case later.
++if(NOT OPENGL_opengl_LIBRARY AND NOT OPENGL_gl_LIBRARY)
++  set(OpenGL_OpenGL_FOUND FALSE)
++else()
++  set(OpenGL_OpenGL_FOUND TRUE)
++endif()
++
++if(OPENGL_glx_LIBRARY AND OPENGL_GLX_INCLUDE_DIR)
++  set(OpenGL_GLX_FOUND TRUE)
++else()
++  set(OpenGL_GLX_FOUND FALSE)
++endif()
++
++if(OPENGL_egl_LIBRARY AND OPENGL_EGL_INCLUDE_DIR)
++  set(OpenGL_EGL_FOUND TRUE)
++else()
++  set(OpenGL_EGL_FOUND FALSE)
++endif()
++
++if(OPENGL_gles2_LIBRARY AND OPENGL_GLES2_INCLUDE_DIR)
++  set(OpenGL_GLES2_FOUND TRUE)
++else()
++  set(OpenGL_GLES2_FOUND FALSE)
++endif()
++
++if(OPENGL_gles3_LIBRARY AND OPENGL_GLES3_INCLUDE_DIR)
++  set(OpenGL_GLES3_FOUND TRUE)
++else()
++  set(OpenGL_GLES3_FOUND FALSE)
++endif()
++
++# User-visible names should be plural.
++if(OPENGL_EGL_INCLUDE_DIR)
++  set(OPENGL_EGL_INCLUDE_DIRS ${OPENGL_EGL_INCLUDE_DIR})
++endif()
++
++include(${CMAKE_CURRENT_LIST_DIR}/FindPackageHandleStandardArgs.cmake)
++if (CMAKE_FIND_PACKAGE_NAME STREQUAL "GLU")
++  # FindGLU include()'s this module. It's an old pattern, but rather than
++  # trying to suppress this from outside the module (which is then sensitive to
++  # the contents, detect the case in this module and suppress it explicitly.
++  set(FPHSA_NAME_MISMATCHED 1)
++endif ()
++FIND_PACKAGE_HANDLE_STANDARD_ARGS(OpenGL REQUIRED_VARS ${_OpenGL_REQUIRED_VARS}
++                                  HANDLE_COMPONENTS)
++unset(FPHSA_NAME_MISMATCHED)
++unset(_OpenGL_REQUIRED_VARS)
++
++# OpenGL:: targets
++if(OPENGL_FOUND)
++  # ::OpenGL is a GLVND library, and thus Linux-only: we don't bother checking
++  # for a framework version of this library.
++  if(OPENGL_opengl_LIBRARY AND NOT TARGET OpenGL::OpenGL)
++    if(IS_ABSOLUTE "${OPENGL_opengl_LIBRARY}")
++      add_library(OpenGL::OpenGL UNKNOWN IMPORTED)
++      set_target_properties(OpenGL::OpenGL PROPERTIES IMPORTED_LOCATION
++                            "${OPENGL_opengl_LIBRARY}")
++    else()
++      add_library(OpenGL::OpenGL INTERFACE IMPORTED)
++      set_target_properties(OpenGL::OpenGL PROPERTIES IMPORTED_LIBNAME
++                            "${OPENGL_opengl_LIBRARY}")
++    endif()
++    set_target_properties(OpenGL::OpenGL PROPERTIES INTERFACE_INCLUDE_DIRECTORIES
++                          "${OPENGL_INCLUDE_DIR}")
++    set(_OpenGL_EGL_IMPL OpenGL::OpenGL)
++  endif()
++
++  # ::GLX is a GLVND library, and thus Linux-only: we don't bother checking
++  # for a framework version of this library.
++  if(OpenGL_GLX_FOUND AND NOT TARGET OpenGL::GLX AND TARGET OpenGL::OpenGL)
++    if(IS_ABSOLUTE "${OPENGL_glx_LIBRARY}")
++      add_library(OpenGL::GLX UNKNOWN IMPORTED)
++      set_target_properties(OpenGL::GLX PROPERTIES IMPORTED_LOCATION
++                            "${OPENGL_glx_LIBRARY}")
++    else()
++      add_library(OpenGL::GLX INTERFACE IMPORTED)
++      set_target_properties(OpenGL::GLX PROPERTIES IMPORTED_LIBNAME
++                            "${OPENGL_glx_LIBRARY}")
++    endif()
++    set_target_properties(OpenGL::GLX PROPERTIES INTERFACE_LINK_LIBRARIES
++                          OpenGL::OpenGL)
++    set_target_properties(OpenGL::GLX PROPERTIES INTERFACE_INCLUDE_DIRECTORIES
++                          "${OPENGL_GLX_INCLUDE_DIR}")
++  endif()
++
++  # ::GLES2 is a GLVND library, and thus Linux-only: we don't bother checking
++  # for a framework version of this library.
++  if(OpenGL_GLES2_FOUND AND NOT TARGET OpenGL::GLES2)
++
++    # Initialize target
++    if(NOT OPENGL_gles2_LIBRARY)
++      add_library(OpenGL::GLES2 INTERFACE IMPORTED)
++    else()
++      if(IS_ABSOLUTE "${OPENGL_gles2_LIBRARY}")
++        add_library(OpenGL::GLES2 UNKNOWN IMPORTED)
++        set_target_properties(OpenGL::GLES2 PROPERTIES
++          IMPORTED_LOCATION "${OPENGL_gles2_LIBRARY}"
++        )
++      else()
++        add_library(OpenGL::GLES2 INTERFACE IMPORTED)
++        set_target_properties(OpenGL::GLES2 PROPERTIES
++          IMPORTED_LIBNAME "${OPENGL_gles2_LIBRARY}"
++        )
++      endif()
++    endif()
++
++    # Attach target properties
++    set_target_properties(OpenGL::GLES2
++      PROPERTIES
++        INTERFACE_INCLUDE_DIRECTORIES
++          "${OPENGL_GLES2_INCLUDE_DIR}"
++    )
++
++    if (OPENGL_USE_GLES2)
++      set(_OpenGL_EGL_IMPL OpenGL::GLES2)
++    endif ()
++
++  endif()
++
++  # ::GLES3 is a GLVND library, and thus Linux-only: we don't bother checking
++  # for a framework version of this library.
++  if(OpenGL_GLES3_FOUND AND NOT TARGET OpenGL::GLES3)
++
++    # Initialize target
++    if(NOT OPENGL_gles3_LIBRARY)
++      add_library(OpenGL::GLES3 INTERFACE IMPORTED)
++    else()
++      if(IS_ABSOLUTE "${OPENGL_gles3_LIBRARY}")
++        add_library(OpenGL::GLES3 UNKNOWN IMPORTED)
++        set_target_properties(OpenGL::GLES3 PROPERTIES
++          IMPORTED_LOCATION "${OPENGL_gles3_LIBRARY}"
++        )
++      else()
++        add_library(OpenGL::GLES3 INTERFACE IMPORTED)
++        set_target_properties(OpenGL::GLES3 PROPERTIES
++          IMPORTED_LIBNAME "${OPENGL_gles3_LIBRARY}"
++        )
++      endif()
++    endif()
++
++    # Attach target properties
++    set_target_properties(OpenGL::GLES3 PROPERTIES
++      INTERFACE_INCLUDE_DIRECTORIES
++        "${OPENGL_GLES3_INCLUDE_DIR}"
++    )
++
++    if (OPENGL_USE_GLES3)
++      set(_OpenGL_EGL_IMPL OpenGL::GLES3)
++    endif ()
++
++  endif()
++
++  if(OPENGL_gl_LIBRARY AND NOT TARGET OpenGL::GL)
++    # A legacy GL library is available, so use it for the legacy GL target.
++    if(IS_ABSOLUTE "${OPENGL_gl_LIBRARY}")
++      add_library(OpenGL::GL UNKNOWN IMPORTED)
++      if(OPENGL_gl_LIBRARY MATCHES "/([^/]+)\\.framework$")
++        set(_gl_fw "${OPENGL_gl_LIBRARY}/${CMAKE_MATCH_1}")
++        if(EXISTS "${_gl_fw}.tbd")
++          string(APPEND _gl_fw ".tbd")
++        endif()
++        set_target_properties(OpenGL::GL PROPERTIES
++          IMPORTED_LOCATION "${_gl_fw}")
++      else()
++        set_target_properties(OpenGL::GL PROPERTIES
++          IMPORTED_LOCATION "${OPENGL_gl_LIBRARY}")
++      endif()
++    else()
++      add_library(OpenGL::GL INTERFACE IMPORTED)
++      set_target_properties(OpenGL::GL PROPERTIES
++        IMPORTED_LIBNAME "${OPENGL_gl_LIBRARY}")
++    endif()
++    set_target_properties(OpenGL::GL PROPERTIES
++      INTERFACE_INCLUDE_DIRECTORIES "${OPENGL_INCLUDE_DIR}")
++  elseif(NOT TARGET OpenGL::GL AND TARGET OpenGL::OpenGL AND TARGET OpenGL::GLX)
++    # A legacy GL library is not available, but we can provide the legacy GL
++    # target using GLVND OpenGL+GLX.
++    add_library(OpenGL::GL INTERFACE IMPORTED)
++    set_target_properties(OpenGL::GL PROPERTIES INTERFACE_LINK_LIBRARIES
++                          OpenGL::OpenGL)
++    set_property(TARGET OpenGL::GL APPEND PROPERTY INTERFACE_LINK_LIBRARIES
++                 OpenGL::GLX)
++    set_target_properties(OpenGL::GL PROPERTIES INTERFACE_INCLUDE_DIRECTORIES
++                          "${OPENGL_INCLUDE_DIR}")
++  endif()
++
++  # ::EGL is a GLVND library, and thus Linux-only: we don't bother checking
++  # for a framework version of this library.
++  # Note we test whether _OpenGL_EGL_IMPL is set. Based on the OpenGL implementation,
++  # _OpenGL_EGL_IMPL will be one of OpenGL::OpenGL, OpenGL::GLES2, OpenGL::GLES3
++  if(_OpenGL_EGL_IMPL AND OpenGL_EGL_FOUND AND NOT TARGET OpenGL::EGL)
++    if(IS_ABSOLUTE "${OPENGL_egl_LIBRARY}")
++      add_library(OpenGL::EGL UNKNOWN IMPORTED)
++      set_target_properties(OpenGL::EGL PROPERTIES IMPORTED_LOCATION
++                            "${OPENGL_egl_LIBRARY}")
++    else()
++      add_library(OpenGL::EGL INTERFACE IMPORTED)
++      set_target_properties(OpenGL::EGL PROPERTIES IMPORTED_LIBNAME
++                            "${OPENGL_egl_LIBRARY}")
++    endif()
++    set_target_properties(OpenGL::EGL PROPERTIES INTERFACE_LINK_LIBRARIES
++                          "${_OpenGL_EGL_IMPL}")
++    # Note that EGL's include directory is different from OpenGL/GLX's!
++    set_target_properties(OpenGL::EGL PROPERTIES INTERFACE_INCLUDE_DIRECTORIES
++                          "${OPENGL_EGL_INCLUDE_DIR}")
++  endif()
++
++  if(OPENGL_GLU_FOUND AND NOT TARGET OpenGL::GLU)
++    if(IS_ABSOLUTE "${OPENGL_glu_LIBRARY}")
++      add_library(OpenGL::GLU UNKNOWN IMPORTED)
++      if(OPENGL_glu_LIBRARY MATCHES "/([^/]+)\\.framework$")
++        set(_glu_fw "${OPENGL_glu_LIBRARY}/${CMAKE_MATCH_1}")
++        if(EXISTS "${_glu_fw}.tbd")
++          string(APPEND _glu_fw ".tbd")
++        endif()
++        set_target_properties(OpenGL::GLU PROPERTIES
++          IMPORTED_LOCATION "${_glu_fw}")
++      else()
++        set_target_properties(OpenGL::GLU PROPERTIES
++          IMPORTED_LOCATION "${OPENGL_glu_LIBRARY}")
++      endif()
++    else()
++      add_library(OpenGL::GLU INTERFACE IMPORTED)
++      set_target_properties(OpenGL::GLU PROPERTIES
++        IMPORTED_LIBNAME "${OPENGL_glu_LIBRARY}")
++    endif()
++    set_target_properties(OpenGL::GLU PROPERTIES
++      INTERFACE_LINK_LIBRARIES OpenGL::GL)
++  endif()
++
++  # OPENGL_LIBRARIES mirrors OpenGL::GL's logic ...
++  if(OPENGL_gl_LIBRARY)
++    set(OPENGL_LIBRARIES ${OPENGL_gl_LIBRARY})
++  elseif(TARGET OpenGL::OpenGL AND TARGET OpenGL::GLX)
++    set(OPENGL_LIBRARIES ${OPENGL_opengl_LIBRARY} ${OPENGL_glx_LIBRARY})
++  else()
++    set(OPENGL_LIBRARIES "")
++  endif()
++  # ... and also includes GLU, if available.
++  if(TARGET OpenGL::GLU)
++    list(APPEND OPENGL_LIBRARIES ${OPENGL_glu_LIBRARY})
++  endif()
++endif()
++
++# This deprecated setting is for backward compatibility with CMake1.4
++set(OPENGL_LIBRARY ${OPENGL_LIBRARIES})
++# This deprecated setting is for backward compatibility with CMake1.4
++set(OPENGL_INCLUDE_PATH ${OPENGL_INCLUDE_DIR})
++
++mark_as_advanced(${_OpenGL_CACHE_VARS})
++unset(_OpenGL_CACHE_VARS)
+Index: git/CMake/Packages/FindPackageHandleStandardArgs.cmake
+===================================================================
+--- /dev/null
++++ git/CMake/Packages/FindPackageHandleStandardArgs.cmake
+@@ -0,0 +1,611 @@
++# Distributed under the OSI-approved BSD 3-Clause License.  See accompanying
++# file Copyright.txt or https://cmake.org/licensing for details.
++
++#[=======================================================================[.rst:
++FindPackageHandleStandardArgs
++-----------------------------
++
++This module provides functions intended to be used in :ref:`Find Modules`
++implementing :command:`find_package(<PackageName>)` calls.
++
++.. command:: find_package_handle_standard_args
++
++  This command handles the ``REQUIRED``, ``QUIET`` and version-related
++  arguments of :command:`find_package`.  It also sets the
++  ``<PackageName>_FOUND`` variable.  The package is considered found if all
++  variables listed contain valid results, e.g. valid filepaths.
++
++  There are two signatures:
++
++  .. code-block:: cmake
++
++    find_package_handle_standard_args(<PackageName>
++      (DEFAULT_MSG|<custom-failure-message>)
++      <required-var>...
++      )
++
++    find_package_handle_standard_args(<PackageName>
++      [FOUND_VAR <result-var>]
++      [REQUIRED_VARS <required-var>...]
++      [VERSION_VAR <version-var>]
++      [HANDLE_VERSION_RANGE]
++      [HANDLE_COMPONENTS]
++      [CONFIG_MODE]
++      [NAME_MISMATCHED]
++      [REASON_FAILURE_MESSAGE <reason-failure-message>]
++      [FAIL_MESSAGE <custom-failure-message>]
++      )
++
++  The ``<PackageName>_FOUND`` variable will be set to ``TRUE`` if all
++  the variables ``<required-var>...`` are valid and any optional
++  constraints are satisfied, and ``FALSE`` otherwise.  A success or
++  failure message may be displayed based on the results and on
++  whether the ``REQUIRED`` and/or ``QUIET`` option was given to
++  the :command:`find_package` call.
++
++  The options are:
++
++  ``(DEFAULT_MSG|<custom-failure-message>)``
++    In the simple signature this specifies the failure message.
++    Use ``DEFAULT_MSG`` to ask for a default message to be computed
++    (recommended).  Not valid in the full signature.
++
++  ``FOUND_VAR <result-var>``
++    .. deprecated:: 3.3
++
++    Specifies either ``<PackageName>_FOUND`` or
++    ``<PACKAGENAME>_FOUND`` as the result variable.  This exists only
++    for compatibility with older versions of CMake and is now ignored.
++    Result variables of both names are always set for compatibility.
++
++  ``REQUIRED_VARS <required-var>...``
++    Specify the variables which are required for this package.
++    These may be named in the generated failure message asking the
++    user to set the missing variable values.  Therefore these should
++    typically be cache entries such as ``FOO_LIBRARY`` and not output
++    variables like ``FOO_LIBRARIES``.
++
++    .. versionchanged:: 3.18
++      If ``HANDLE_COMPONENTS`` is specified, this option can be omitted.
++
++  ``VERSION_VAR <version-var>``
++    Specify the name of a variable that holds the version of the package
++    that has been found.  This version will be checked against the
++    (potentially) specified required version given to the
++    :command:`find_package` call, including its ``EXACT`` option.
++    The default messages include information about the required
++    version and the version which has been actually found, both
++    if the version is ok or not.
++
++  ``HANDLE_VERSION_RANGE``
++    .. versionadded:: 3.19
++
++    Enable handling of a version range, if one is specified. Without this
++    option, a developer warning will be displayed if a version range is
++    specified.
++
++  ``HANDLE_COMPONENTS``
++    Enable handling of package components.  In this case, the command
++    will report which components have been found and which are missing,
++    and the ``<PackageName>_FOUND`` variable will be set to ``FALSE``
++    if any of the required components (i.e. not the ones listed after
++    the ``OPTIONAL_COMPONENTS`` option of :command:`find_package`) are
++    missing.
++
++  ``CONFIG_MODE``
++    Specify that the calling find module is a wrapper around a
++    call to ``find_package(<PackageName> NO_MODULE)``.  This implies
++    a ``VERSION_VAR`` value of ``<PackageName>_VERSION``.  The command
++    will automatically check whether the package configuration file
++    was found.
++
++  ``REASON_FAILURE_MESSAGE <reason-failure-message>``
++    .. versionadded:: 3.16
++
++    Specify a custom message of the reason for the failure which will be
++    appended to the default generated message.
++
++  ``FAIL_MESSAGE <custom-failure-message>``
++    Specify a custom failure message instead of using the default
++    generated message.  Not recommended.
++
++  ``NAME_MISMATCHED``
++    .. versionadded:: 3.17
++
++    Indicate that the ``<PackageName>`` does not match
++    ``${CMAKE_FIND_PACKAGE_NAME}``. This is usually a mistake and raises a
++    warning, but it may be intentional for usage of the command for components
++    of a larger package.
++
++Example for the simple signature:
++
++.. code-block:: cmake
++
++  find_package_handle_standard_args(LibXml2 DEFAULT_MSG
++    LIBXML2_LIBRARY LIBXML2_INCLUDE_DIR)
++
++The ``LibXml2`` package is considered to be found if both
++``LIBXML2_LIBRARY`` and ``LIBXML2_INCLUDE_DIR`` are valid.
++Then also ``LibXml2_FOUND`` is set to ``TRUE``.  If it is not found
++and ``REQUIRED`` was used, it fails with a
++:command:`message(FATAL_ERROR)`, independent whether ``QUIET`` was
++used or not.  If it is found, success will be reported, including
++the content of the first ``<required-var>``.  On repeated CMake runs,
++the same message will not be printed again.
++
++.. note::
++
++  If ``<PackageName>`` does not match ``CMAKE_FIND_PACKAGE_NAME`` for the
++  calling module, a warning that there is a mismatch is given. The
++  ``FPHSA_NAME_MISMATCHED`` variable may be set to bypass the warning if using
++  the old signature and the ``NAME_MISMATCHED`` argument using the new
++  signature. To avoid forcing the caller to require newer versions of CMake for
++  usage, the variable's value will be used if defined when the
++  ``NAME_MISMATCHED`` argument is not passed for the new signature (but using
++  both is an error)..
++
++Example for the full signature:
++
++.. code-block:: cmake
++
++  find_package_handle_standard_args(LibArchive
++    REQUIRED_VARS LibArchive_LIBRARY LibArchive_INCLUDE_DIR
++    VERSION_VAR LibArchive_VERSION)
++
++In this case, the ``LibArchive`` package is considered to be found if
++both ``LibArchive_LIBRARY`` and ``LibArchive_INCLUDE_DIR`` are valid.
++Also the version of ``LibArchive`` will be checked by using the version
++contained in ``LibArchive_VERSION``.  Since no ``FAIL_MESSAGE`` is given,
++the default messages will be printed.
++
++Another example for the full signature:
++
++.. code-block:: cmake
++
++  find_package(Automoc4 QUIET NO_MODULE HINTS /opt/automoc4)
++  find_package_handle_standard_args(Automoc4  CONFIG_MODE)
++
++In this case, a ``FindAutmoc4.cmake`` module wraps a call to
++``find_package(Automoc4 NO_MODULE)`` and adds an additional search
++directory for ``automoc4``.  Then the call to
++``find_package_handle_standard_args`` produces a proper success/failure
++message.
++
++.. command:: find_package_check_version
++
++  .. versionadded:: 3.19
++
++  Helper function which can be used to check if a ``<version>`` is valid
++  against version-related arguments of :command:`find_package`.
++
++  .. code-block:: cmake
++
++    find_package_check_version(<version> <result-var>
++      [HANDLE_VERSION_RANGE]
++      [RESULT_MESSAGE_VARIABLE <message-var>]
++      )
++
++  The ``<result-var>`` will hold a boolean value giving the result of the check.
++
++  The options are:
++
++  ``HANDLE_VERSION_RANGE``
++    Enable handling of a version range, if one is specified. Without this
++    option, a developer warning will be displayed if a version range is
++    specified.
++
++  ``RESULT_MESSAGE_VARIABLE <message-var>``
++    Specify a variable to get back a message describing the result of the check.
++
++Example for the usage:
++
++.. code-block:: cmake
++
++  find_package_check_version(1.2.3 result HANDLE_VERSION_RANGE
++    RESULT_MESSAGE_VARIABLE reason)
++  if (result)
++    message (STATUS "${reason}")
++  else()
++    message (FATAL_ERROR "${reason}")
++  endif()
++#]=======================================================================]
++
++include(${CMAKE_CURRENT_LIST_DIR}/FindPackageMessage.cmake)
++
++
++cmake_policy(PUSH)
++# numbers and boolean constants
++cmake_policy (SET CMP0012 NEW)
++# IN_LIST operator
++cmake_policy (SET CMP0057 NEW)
++
++
++# internal helper macro
++macro(_FPHSA_FAILURE_MESSAGE _msg)
++  set (__msg "${_msg}")
++  if (FPHSA_REASON_FAILURE_MESSAGE)
++    string(APPEND __msg "\n    Reason given by package: ${FPHSA_REASON_FAILURE_MESSAGE}\n")
++  endif()
++  if (${_NAME}_FIND_REQUIRED)
++    message(FATAL_ERROR "${__msg}")
++  else ()
++    if (NOT ${_NAME}_FIND_QUIETLY)
++      message(STATUS "${__msg}")
++    endif ()
++  endif ()
++endmacro()
++
++
++# internal helper macro to generate the failure message when used in CONFIG_MODE:
++macro(_FPHSA_HANDLE_FAILURE_CONFIG_MODE)
++  # <PackageName>_CONFIG is set, but FOUND is false, this means that some other of the REQUIRED_VARS was not found:
++  if(${_NAME}_CONFIG)
++    _FPHSA_FAILURE_MESSAGE("${FPHSA_FAIL_MESSAGE}: missing:${MISSING_VARS} (found ${${_NAME}_CONFIG} ${VERSION_MSG})")
++  else()
++    # If _CONSIDERED_CONFIGS is set, the config-file has been found, but no suitable version.
++    # List them all in the error message:
++    if(${_NAME}_CONSIDERED_CONFIGS)
++      set(configsText "")
++      list(LENGTH ${_NAME}_CONSIDERED_CONFIGS configsCount)
++      math(EXPR configsCount "${configsCount} - 1")
++      foreach(currentConfigIndex RANGE ${configsCount})
++        list(GET ${_NAME}_CONSIDERED_CONFIGS ${currentConfigIndex} filename)
++        list(GET ${_NAME}_CONSIDERED_VERSIONS ${currentConfigIndex} version)
++        string(APPEND configsText "\n    ${filename} (version ${version})")
++      endforeach()
++      if (${_NAME}_NOT_FOUND_MESSAGE)
++        if (FPHSA_REASON_FAILURE_MESSAGE)
++          string(PREPEND FPHSA_REASON_FAILURE_MESSAGE "${${_NAME}_NOT_FOUND_MESSAGE}\n    ")
++        else()
++          set(FPHSA_REASON_FAILURE_MESSAGE "${${_NAME}_NOT_FOUND_MESSAGE}")
++        endif()
++      else()
++        string(APPEND configsText "\n")
++      endif()
++      _FPHSA_FAILURE_MESSAGE("${FPHSA_FAIL_MESSAGE} ${VERSION_MSG}, checked the following files:${configsText}")
++
++    else()
++      # Simple case: No Config-file was found at all:
++      _FPHSA_FAILURE_MESSAGE("${FPHSA_FAIL_MESSAGE}: found neither ${_NAME}Config.cmake nor ${_NAME_LOWER}-config.cmake ${VERSION_MSG}")
++    endif()
++  endif()
++endmacro()
++
++
++function(FIND_PACKAGE_CHECK_VERSION version result)
++  cmake_parse_arguments (PARSE_ARGV 2 FPCV "HANDLE_VERSION_RANGE;NO_AUTHOR_WARNING_VERSION_RANGE" "RESULT_MESSAGE_VARIABLE" "")
++
++  if (FPCV_UNPARSED_ARGUMENTS)
++    message (FATAL_ERROR "find_package_check_version(): ${FPCV_UNPARSED_ARGUMENTS}: unexpected arguments")
++  endif()
++  if ("RESULT_MESSAGE_VARIABLE" IN_LIST FPCV_KEYWORDS_MISSING_VALUES)
++    message (FATAL_ERROR "find_package_check_version(): RESULT_MESSAGE_VARIABLE expects an argument")
++  endif()
++
++  set (${result} FALSE PARENT_SCOPE)
++  if (FPCV_RESULT_MESSAGE_VARIABLE)
++    unset (${FPCV_RESULT_MESSAGE_VARIABLE} PARENT_SCOPE)
++  endif()
++
++  if (_CMAKE_FPHSA_PACKAGE_NAME)
++    set (package "${_CMAKE_FPHSA_PACKAGE_NAME}")
++  elseif (CMAKE_FIND_PACKAGE_NAME)
++    set (package "${CMAKE_FIND_PACKAGE_NAME}")
++  else()
++    message (FATAL_ERROR "find_package_check_version(): Cannot be used outside a 'Find Module'")
++  endif()
++
++  if (NOT FPCV_NO_AUTHOR_WARNING_VERSION_RANGE
++      AND ${package}_FIND_VERSION_RANGE AND NOT FPCV_HANDLE_VERSION_RANGE)
++    message(AUTHOR_WARNING
++      "`find_package()` specify a version range but the option "
++      "HANDLE_VERSION_RANGE` is not passed to `find_package_check_version()`. "
++      "Only the lower endpoint of the range will be used.")
++  endif()
++
++
++  set (version_ok FALSE)
++  unset (version_msg)
++
++  if (FPCV_HANDLE_VERSION_RANGE AND ${package}_FIND_VERSION_RANGE)
++    if ((${package}_FIND_VERSION_RANGE_MIN STREQUAL "INCLUDE"
++          AND version VERSION_GREATER_EQUAL ${package}_FIND_VERSION_MIN)
++        AND ((${package}_FIND_VERSION_RANGE_MAX STREQUAL "INCLUDE"
++            AND version VERSION_LESS_EQUAL ${package}_FIND_VERSION_MAX)
++          OR (${package}_FIND_VERSION_RANGE_MAX STREQUAL "EXCLUDE"
++            AND version VERSION_LESS ${package}_FIND_VERSION_MAX)))
++      set (version_ok TRUE)
++      set(version_msg "(found suitable version \"${version}\", required range is \"${${package}_FIND_VERSION_RANGE}\")")
++    else()
++      set(version_msg "Found unsuitable version \"${version}\", required range is \"${${package}_FIND_VERSION_RANGE}\"")
++    endif()
++  elseif (DEFINED ${package}_FIND_VERSION)
++    if(${package}_FIND_VERSION_EXACT)       # exact version required
++      # count the dots in the version string
++      string(REGEX REPLACE "[^.]" "" version_dots "${version}")
++      # add one dot because there is one dot more than there are components
++      string(LENGTH "${version_dots}." version_dots)
++      if (version_dots GREATER ${package}_FIND_VERSION_COUNT)
++        # Because of the C++ implementation of find_package() ${package}_FIND_VERSION_COUNT
++        # is at most 4 here. Therefore a simple lookup table is used.
++        if (${package}_FIND_VERSION_COUNT EQUAL 1)
++          set(version_regex "[^.]*")
++        elseif (${package}_FIND_VERSION_COUNT EQUAL 2)
++          set(version_regex "[^.]*\\.[^.]*")
++        elseif (${package}_FIND_VERSION_COUNT EQUAL 3)
++          set(version_regex "[^.]*\\.[^.]*\\.[^.]*")
++        else()
++          set(version_regex "[^.]*\\.[^.]*\\.[^.]*\\.[^.]*")
++        endif()
++        string(REGEX REPLACE "^(${version_regex})\\..*" "\\1" version_head "${version}")
++        if (NOT ${package}_FIND_VERSION VERSION_EQUAL version_head)
++          set(version_msg "Found unsuitable version \"${version}\", but required is exact version \"${${package}_FIND_VERSION}\"")
++        else ()
++          set(version_ok TRUE)
++          set(version_msg "(found suitable exact version \"${_FOUND_VERSION}\")")
++        endif ()
++      else ()
++        if (NOT ${package}_FIND_VERSION VERSION_EQUAL version)
++          set(version_msg "Found unsuitable version \"${version}\", but required is exact version \"${${package}_FIND_VERSION}\"")
++        else ()
++          set(version_ok TRUE)
++          set(version_msg "(found suitable exact version \"${version}\")")
++        endif ()
++      endif ()
++    else()     # minimum version
++      if (${package}_FIND_VERSION VERSION_GREATER version)
++        set(version_msg "Found unsuitable version \"${version}\", but required is at least \"${${package}_FIND_VERSION}\"")
++      else()
++        set(version_ok TRUE)
++        set(version_msg "(found suitable version \"${version}\", minimum required is \"${${package}_FIND_VERSION}\")")
++      endif()
++    endif()
++  else ()
++    set(version_ok TRUE)
++    set(version_msg "(found version \"${version}\")")
++  endif()
++
++  set (${result} ${version_ok} PARENT_SCOPE)
++  if (FPCV_RESULT_MESSAGE_VARIABLE)
++    set (${FPCV_RESULT_MESSAGE_VARIABLE} "${version_msg}" PARENT_SCOPE)
++  endif()
++endfunction()
++
++
++function(FIND_PACKAGE_HANDLE_STANDARD_ARGS _NAME _FIRST_ARG)
++
++  # Set up the arguments for `cmake_parse_arguments`.
++  set(options  CONFIG_MODE  HANDLE_COMPONENTS NAME_MISMATCHED HANDLE_VERSION_RANGE)
++  set(oneValueArgs  FAIL_MESSAGE  REASON_FAILURE_MESSAGE VERSION_VAR  FOUND_VAR)
++  set(multiValueArgs REQUIRED_VARS)
++
++  # Check whether we are in 'simple' or 'extended' mode:
++  set(_KEYWORDS_FOR_EXTENDED_MODE  ${options} ${oneValueArgs} ${multiValueArgs} )
++  list(FIND _KEYWORDS_FOR_EXTENDED_MODE "${_FIRST_ARG}" INDEX)
++
++  unset(FPHSA_NAME_MISMATCHED_override)
++  if (DEFINED FPHSA_NAME_MISMATCHED)
++    # If the variable NAME_MISMATCHED variable is set, error if it is passed as
++    # an argument. The former is for old signatures, the latter is for new
++    # signatures.
++    list(FIND ARGN "NAME_MISMATCHED" name_mismatched_idx)
++    if (NOT name_mismatched_idx EQUAL "-1")
++      message(FATAL_ERROR
++        "The `NAME_MISMATCHED` argument may only be specified by the argument or "
++        "the variable, not both.")
++    endif ()
++
++    # But use the variable if it is not an argument to avoid forcing minimum
++    # CMake version bumps for calling modules.
++    set(FPHSA_NAME_MISMATCHED_override "${FPHSA_NAME_MISMATCHED}")
++  endif ()
++
++  if(${INDEX} EQUAL -1)
++    set(FPHSA_FAIL_MESSAGE ${_FIRST_ARG})
++    set(FPHSA_REQUIRED_VARS ${ARGN})
++    set(FPHSA_VERSION_VAR)
++  else()
++    cmake_parse_arguments(FPHSA "${options}" "${oneValueArgs}" "${multiValueArgs}"  ${_FIRST_ARG} ${ARGN})
++
++    if(FPHSA_UNPARSED_ARGUMENTS)
++      message(FATAL_ERROR "Unknown keywords given to FIND_PACKAGE_HANDLE_STANDARD_ARGS(): \"${FPHSA_UNPARSED_ARGUMENTS}\"")
++    endif()
++
++    if(NOT FPHSA_FAIL_MESSAGE)
++      set(FPHSA_FAIL_MESSAGE  "DEFAULT_MSG")
++    endif()
++
++    # In config-mode, we rely on the variable <PackageName>_CONFIG, which is set by find_package()
++    # when it successfully found the config-file, including version checking:
++    if(FPHSA_CONFIG_MODE)
++      list(INSERT FPHSA_REQUIRED_VARS 0 ${_NAME}_CONFIG)
++      list(REMOVE_DUPLICATES FPHSA_REQUIRED_VARS)
++      set(FPHSA_VERSION_VAR ${_NAME}_VERSION)
++    endif()
++
++    if(NOT FPHSA_REQUIRED_VARS AND NOT FPHSA_HANDLE_COMPONENTS)
++      message(FATAL_ERROR "No REQUIRED_VARS specified for FIND_PACKAGE_HANDLE_STANDARD_ARGS()")
++    endif()
++  endif()
++
++  if (DEFINED FPHSA_NAME_MISMATCHED_override)
++    set(FPHSA_NAME_MISMATCHED "${FPHSA_NAME_MISMATCHED_override}")
++  endif ()
++
++  if (DEFINED CMAKE_FIND_PACKAGE_NAME
++      AND NOT FPHSA_NAME_MISMATCHED
++      AND NOT _NAME STREQUAL CMAKE_FIND_PACKAGE_NAME)
++    message(AUTHOR_WARNING
++      "The package name passed to `find_package_handle_standard_args` "
++      "(${_NAME}) does not match the name of the calling package "
++      "(${CMAKE_FIND_PACKAGE_NAME}). This can lead to problems in calling "
++      "code that expects `find_package` result variables (e.g., `_FOUND`) "
++      "to follow a certain pattern.")
++  endif ()
++
++  if (${_NAME}_FIND_VERSION_RANGE AND NOT FPHSA_HANDLE_VERSION_RANGE)
++    message(AUTHOR_WARNING
++      "`find_package()` specify a version range but the module ${_NAME} does "
++      "not support this capability. Only the lower endpoint of the range "
++      "will be used.")
++  endif()
++
++  # to propagate package name to FIND_PACKAGE_CHECK_VERSION
++  set(_CMAKE_FPHSA_PACKAGE_NAME "${_NAME}")
++
++  # now that we collected all arguments, process them
++
++  if("x${FPHSA_FAIL_MESSAGE}" STREQUAL "xDEFAULT_MSG")
++    set(FPHSA_FAIL_MESSAGE "Could NOT find ${_NAME}")
++  endif()
++
++  if (FPHSA_REQUIRED_VARS)
++    list(GET FPHSA_REQUIRED_VARS 0 _FIRST_REQUIRED_VAR)
++  endif()
++
++  string(TOUPPER ${_NAME} _NAME_UPPER)
++  string(TOLOWER ${_NAME} _NAME_LOWER)
++
++  if(FPHSA_FOUND_VAR)
++    set(_FOUND_VAR_UPPER ${_NAME_UPPER}_FOUND)
++    set(_FOUND_VAR_MIXED ${_NAME}_FOUND)
++    if(FPHSA_FOUND_VAR STREQUAL _FOUND_VAR_MIXED  OR  FPHSA_FOUND_VAR STREQUAL _FOUND_VAR_UPPER)
++      set(_FOUND_VAR ${FPHSA_FOUND_VAR})
++    else()
++      message(FATAL_ERROR "The argument for FOUND_VAR is \"${FPHSA_FOUND_VAR}\", but only \"${_FOUND_VAR_MIXED}\" and \"${_FOUND_VAR_UPPER}\" are valid names.")
++    endif()
++  else()
++    set(_FOUND_VAR ${_NAME_UPPER}_FOUND)
++  endif()
++
++  # collect all variables which were not found, so they can be printed, so the
++  # user knows better what went wrong (#6375)
++  set(MISSING_VARS "")
++  set(DETAILS "")
++  # check if all passed variables are valid
++  set(FPHSA_FOUND_${_NAME} TRUE)
++  foreach(_CURRENT_VAR ${FPHSA_REQUIRED_VARS})
++    if(NOT ${_CURRENT_VAR})
++      set(FPHSA_FOUND_${_NAME} FALSE)
++      string(APPEND MISSING_VARS " ${_CURRENT_VAR}")
++    else()
++      string(APPEND DETAILS "[${${_CURRENT_VAR}}]")
++    endif()
++  endforeach()
++  if(FPHSA_FOUND_${_NAME})
++    set(${_NAME}_FOUND TRUE)
++    set(${_NAME_UPPER}_FOUND TRUE)
++  else()
++    set(${_NAME}_FOUND FALSE)
++    set(${_NAME_UPPER}_FOUND FALSE)
++  endif()
++
++  # component handling
++  unset(FOUND_COMPONENTS_MSG)
++  unset(MISSING_COMPONENTS_MSG)
++
++  if(FPHSA_HANDLE_COMPONENTS)
++    foreach(comp ${${_NAME}_FIND_COMPONENTS})
++      if(${_NAME}_${comp}_FOUND)
++
++        if(NOT DEFINED FOUND_COMPONENTS_MSG)
++          set(FOUND_COMPONENTS_MSG "found components:")
++        endif()
++        string(APPEND FOUND_COMPONENTS_MSG " ${comp}")
++
++      else()
++
++        if(NOT DEFINED MISSING_COMPONENTS_MSG)
++          set(MISSING_COMPONENTS_MSG "missing components:")
++        endif()
++        string(APPEND MISSING_COMPONENTS_MSG " ${comp}")
++
++        if(${_NAME}_FIND_REQUIRED_${comp})
++          set(${_NAME}_FOUND FALSE)
++          string(APPEND MISSING_VARS " ${comp}")
++        endif()
++
++      endif()
++    endforeach()
++    set(COMPONENT_MSG "${FOUND_COMPONENTS_MSG} ${MISSING_COMPONENTS_MSG}")
++    string(APPEND DETAILS "[c${COMPONENT_MSG}]")
++  endif()
++
++  # version handling:
++  set(VERSION_MSG "")
++  set(VERSION_OK TRUE)
++
++  # check that the version variable is not empty to avoid emitting a misleading
++  # message (i.e. `Found unsuitable version ""`)
++  if (DEFINED ${_NAME}_FIND_VERSION)
++    if(DEFINED ${FPHSA_VERSION_VAR})
++      if(NOT "${${FPHSA_VERSION_VAR}}" STREQUAL "")
++        set(_FOUND_VERSION ${${FPHSA_VERSION_VAR}})
++        if (FPHSA_HANDLE_VERSION_RANGE)
++          set (FPCV_HANDLE_VERSION_RANGE HANDLE_VERSION_RANGE)
++        else()
++          set(FPCV_HANDLE_VERSION_RANGE NO_AUTHOR_WARNING_VERSION_RANGE)
++        endif()
++        find_package_check_version ("${_FOUND_VERSION}" VERSION_OK RESULT_MESSAGE_VARIABLE VERSION_MSG
++          ${FPCV_HANDLE_VERSION_RANGE})
++      else()
++        set(VERSION_OK FALSE)
++      endif()
++    endif()
++    if("${${FPHSA_VERSION_VAR}}" STREQUAL "")
++      # if the package was not found, but a version was given, add that to the output:
++      if(${_NAME}_FIND_VERSION_EXACT)
++        set(VERSION_MSG "(Required is exact version \"${${_NAME}_FIND_VERSION}\")")
++      elseif (FPHSA_HANDLE_VERSION_RANGE AND ${_NAME}_FIND_VERSION_RANGE)
++        set(VERSION_MSG "(Required is version range \"${${_NAME}_FIND_VERSION_RANGE}\")")
++      else()
++        set(VERSION_MSG "(Required is at least version \"${${_NAME}_FIND_VERSION}\")")
++      endif()
++    endif()
++  else ()
++    # Check with DEFINED as the found version may be 0.
++    if(DEFINED ${FPHSA_VERSION_VAR})
++      set(VERSION_MSG "(found version \"${${FPHSA_VERSION_VAR}}\")")
++    endif()
++  endif ()
++
++  if(VERSION_OK)
++    string(APPEND DETAILS "[v${${FPHSA_VERSION_VAR}}(${${_NAME}_FIND_VERSION})]")
++  else()
++    set(${_NAME}_FOUND FALSE)
++  endif()
++
++
++  # print the result:
++  if (${_NAME}_FOUND)
++    FIND_PACKAGE_MESSAGE(${_NAME} "Found ${_NAME}: ${${_FIRST_REQUIRED_VAR}} ${VERSION_MSG} ${COMPONENT_MSG}" "${DETAILS}")
++  else ()
++
++    if(FPHSA_CONFIG_MODE)
++      _FPHSA_HANDLE_FAILURE_CONFIG_MODE()
++    else()
++      if(NOT VERSION_OK)
++        set(RESULT_MSG)
++        if (_FIRST_REQUIRED_VAR)
++          string (APPEND RESULT_MSG "found ${${_FIRST_REQUIRED_VAR}}")
++        endif()
++        if (COMPONENT_MSG)
++          if (RESULT_MSG)
++            string (APPEND RESULT_MSG ", ")
++          endif()
++          string (APPEND RESULT_MSG "${FOUND_COMPONENTS_MSG}")
++        endif()
++        _FPHSA_FAILURE_MESSAGE("${FPHSA_FAIL_MESSAGE}: ${VERSION_MSG} (${RESULT_MSG})")
++      else()
++        _FPHSA_FAILURE_MESSAGE("${FPHSA_FAIL_MESSAGE} (missing:${MISSING_VARS}) ${VERSION_MSG}")
++      endif()
++    endif()
++
++  endif ()
++
++  set(${_NAME}_FOUND ${${_NAME}_FOUND} PARENT_SCOPE)
++  set(${_NAME_UPPER}_FOUND ${${_NAME}_FOUND} PARENT_SCOPE)
++endfunction()
++
++
++cmake_policy(POP)
+Index: git/CMake/Packages/FindPackageMessage.cmake
+===================================================================
+--- /dev/null
++++ git/CMake/Packages/FindPackageMessage.cmake
+@@ -0,0 +1,48 @@
++# Distributed under the OSI-approved BSD 3-Clause License.  See accompanying
++# file Copyright.txt or https://cmake.org/licensing for details.
++
++#[=======================================================================[.rst:
++FindPackageMessage
++------------------
++
++.. code-block:: cmake
++
++  find_package_message(<name> "message for user" "find result details")
++
++This function is intended to be used in FindXXX.cmake modules files.
++It will print a message once for each unique find result.  This is
++useful for telling the user where a package was found.  The first
++argument specifies the name (XXX) of the package.  The second argument
++specifies the message to display.  The third argument lists details
++about the find result so that if they change the message will be
++displayed again.  The macro also obeys the QUIET argument to the
++find_package command.
++
++Example:
++
++.. code-block:: cmake
++
++  if(X11_FOUND)
++    find_package_message(X11 "Found X11: ${X11_X11_LIB}"
++      "[${X11_X11_LIB}][${X11_INCLUDE_DIR}]")
++  else()
++   ...
++  endif()
++#]=======================================================================]
++
++function(find_package_message pkg msg details)
++  # Avoid printing a message repeatedly for the same find result.
++  if(NOT ${pkg}_FIND_QUIETLY)
++    string(REPLACE "\n" "" details "${details}")
++    set(DETAILS_VAR FIND_PACKAGE_MESSAGE_DETAILS_${pkg})
++    if(NOT "${details}" STREQUAL "${${DETAILS_VAR}}")
++      # The message has not yet been printed.
++      message(STATUS "${msg}")
++
++      # Save the find details in the cache to avoid printing the same
++      # message again.
++      set("${DETAILS_VAR}" "${details}"
++        CACHE INTERNAL "Details about finding ${pkg}")
++    endif()
++  endif()
++endfunction()
