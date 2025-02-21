@@ -22,7 +22,8 @@ DEPENDS = " \
     libglu \
     libxi \
     libxmu \
-    ogre \
+    ogre19 \
+    ogre-next \
     ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'virtual/libgl libglu', '', d)} \
 "
 
