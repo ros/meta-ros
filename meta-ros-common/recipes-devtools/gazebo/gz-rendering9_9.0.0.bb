@@ -48,6 +48,10 @@ EXTRA_OECMAKE = " \
 #    FREEIMAGE_RUNS__TRYRUN_OUTPUT (advanced)
 EXTRA_OECMAKE += " -DFREEIMAGE_RUNS=1 -DFREEIMAGE_RUNS__TRYRUN_OUTPUT=0"
 
+# ERROR: QA Issue: package gz-rendering9 contains bad RPATH .../gz-rendering9/9.0.0-r0/recipe-sysroot/usr/lib
+#        in file .../gz-rendering9/9.0.0-r0/packages-split/gz-rendering9/usr/lib/libgz-rendering9-ogre2.so.9.0.0
+EXTRA_OECMAKE += "-DCMAKE_SKIP_RPATH=ON"
+
 OECMAKE_GENERATOR = "Unix Makefiles"
 
 FILES:${PN} += " \
