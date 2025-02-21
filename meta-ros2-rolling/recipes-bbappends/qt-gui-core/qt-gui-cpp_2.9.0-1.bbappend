@@ -32,13 +32,13 @@ DEPENDS += "python3-pyqt5-native sip3-native"
 OECMAKE_GENERATOR = "Unix Makefiles"
 
 do_compile:prepend () {
-    cp ${STAGING_LIBDIR}/${PYTHON_DIR}${PYTHON_ABI}/site-packages/sipconfig.py ${STAGING_DATADIR}/python_qt_binding/cmake/
-    sed -i -e "s|--sysroot |--sysroot ${STAGING_DIR_TARGET}|g" ${STAGING_DATADIR}/python_qt_binding/cmake/sipconfig.py
-    sed -i -e "s|--sysroot=[^ ']*|--sysroot=${STAGING_DIR_TARGET}|g" ${STAGING_DATADIR}/python_qt_binding/cmake/sipconfig.py
-    sed -i -e "s|\('[a-z_]*_dir': *'\)\([^']*',\)|\1${STAGING_DIR_TARGET}\2|g" ${STAGING_DATADIR}/python_qt_binding/cmake/sipconfig.py
-    sed -i -e "s|\('sip_bin': *'\)\(/usr/bin/sip',\)|\1${STAGING_DIR_NATIVE}\2|" ${STAGING_DATADIR}/python_qt_binding/cmake/sipconfig.py
+    cp ${STAGING_LIBDIR}/${PYTHON_DIR}/site-packages/sipconfig.py ${STAGING_DIR_HOST}${ros_datadir}/python_qt_binding/cmake/
+    sed -i -e "s|--sysroot |--sysroot ${STAGING_DIR_TARGET}|g" ${STAGING_DIR_HOST}${ros_datadir}/python_qt_binding/cmake/sipconfig.py
+    sed -i -e "s|--sysroot=[^ ']*|--sysroot=${STAGING_DIR_TARGET}|g" ${STAGING_DIR_HOST}${ros_datadir}/python_qt_binding/cmake/sipconfig.py
+    sed -i -e "s|\('[a-z_]*_dir': *'\)\([^']*',\)|\1${STAGING_DIR_TARGET}\2|g" ${STAGING_DIR_HOST}${ros_datadir}/python_qt_binding/cmake/sipconfig.py
+    sed -i -e "s|\('sip_bin': *'\)\(/usr/bin/sip',\)|\1${STAGING_DIR_NATIVE}\2|" ${STAGING_DIR_HOST}${ros_datadir}/python_qt_binding/cmake/sipconfig.py
 }
 
 do_install:append () {
-    chrpath --delete ${D}${libdir}/${PYTHON_DIR}/site-packages/qt_gui_cpp/libqt_gui_cpp_sip.so
+    chrpath --delete ${D}${ros_libdir}/${PYTHON_DIR}/site-packages/qt_gui_cpp/libqt_gui_cpp_sip.so
 }
