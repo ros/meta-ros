@@ -1,0 +1,38 @@
+Remove Samples
+
+Remove Samples altogether, since almost all of them contain or depend on
+non-free items (fonts and some media objects, see Debian and upstream bug
+report).
+
+Upstream-Status: Backport
+
+https://salsa.debian.org/games-team/ogre/-/commit/8b607b95574691ff2085208eec6ae419f676c537
+
+Signed-off-by: Manuel A. Fernandez Montecelo <mafm@debian.org>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -518,9 +518,6 @@ if (OGRE_BUILD_TESTS)
+   add_subdirectory(Tests)
+ endif ()
+ 
+-# Setup samples
+-add_subdirectory(Samples)
+-
+ #Add android JNI binding
+ if(ANDROID)
+   include(toolchain/AndroidJNI)
+@@ -541,11 +538,6 @@ if (OGRE_BUILD_DOCS)
+   add_subdirectory(Docs)
+ endif ()
+ 
+-# Install media files
+-if (OGRE_INSTALL_SAMPLES OR OGRE_INSTALL_SAMPLES_SOURCE)
+-  add_subdirectory(Samples/Media)
+-endif ()
+-
+ # Install CMake modules
+ add_subdirectory(CMake)
+ 

@@ -7,10 +7,10 @@ Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-diff --git a/CMake/CMakeLists.txt b/CMake/CMakeLists.txt
-index 4c496b7cf5..0bcfbd2689 100755
---- a/CMake/CMakeLists.txt
-+++ b/CMake/CMakeLists.txt
+Index: git/CMake/CMakeLists.txt
+===================================================================
+--- git.orig/CMake/CMakeLists.txt
++++ git/CMake/CMakeLists.txt
 @@ -16,7 +16,7 @@
  if(WIN32 OR APPLE)
  	set(OGRE_CMAKE_DIR "CMake")
@@ -20,10 +20,10 @@ index 4c496b7cf5..0bcfbd2689 100755
  endif()
  
  set(INST_FILES
-diff --git a/CMake/ConfigureBuild.cmake b/CMake/ConfigureBuild.cmake
-index 077db5a58d..f2b938ee96 100644
---- a/CMake/ConfigureBuild.cmake
-+++ b/CMake/ConfigureBuild.cmake
+Index: git/CMake/ConfigureBuild.cmake
+===================================================================
+--- git.orig/CMake/ConfigureBuild.cmake
++++ git/CMake/ConfigureBuild.cmake
 @@ -183,7 +183,7 @@ endif ()
  
  # generate OgreBuildSettings.h
@@ -101,10 +101,10 @@ index 077db5a58d..f2b938ee96 100644
    endif ()
  
    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-diff --git a/CMake/InstallResources.cmake b/CMake/InstallResources.cmake
-index ae7bfa1f2c..5f2a337fa4 100644
---- a/CMake/InstallResources.cmake
-+++ b/CMake/InstallResources.cmake
+Index: git/CMake/InstallResources.cmake
+===================================================================
+--- git.orig/CMake/InstallResources.cmake
++++ git/CMake/InstallResources.cmake
 @@ -46,16 +46,16 @@ elseif (APPLE)
    set(OGRE_SAMPLES_DIR_DBG "")
    set(OGRE_CFG_INSTALL_PATH "bin")
@@ -128,10 +128,10 @@ index ae7bfa1f2c..5f2a337fa4 100644
  endif ()
  
  # configure plugins.cfg
-diff --git a/CMake/Utils/OgreConfigTargets.cmake b/CMake/Utils/OgreConfigTargets.cmake
-index c6b3b40ac0..6238cc22b9 100644
---- a/CMake/Utils/OgreConfigTargets.cmake
-+++ b/CMake/Utils/OgreConfigTargets.cmake
+Index: git/CMake/Utils/OgreConfigTargets.cmake
+===================================================================
+--- git.orig/CMake/Utils/OgreConfigTargets.cmake
++++ git/CMake/Utils/OgreConfigTargets.cmake
 @@ -73,9 +73,9 @@ elseif (UNIX)
    if (APPLE)
      set(OGRE_PLUGIN_PATH "/")
@@ -144,10 +144,10 @@ index c6b3b40ac0..6238cc22b9 100644
  endif ()
  
  # create vcproj.user file for Visual Studio to set debug working directory
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 3e99bb09fa..7914f90f24 100755
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
 @@ -215,10 +215,10 @@ endif (APPLE)
  # Find dependencies
  include(Dependencies)
@@ -163,7 +163,7 @@ index 3e99bb09fa..7914f90f24 100755
  set(OGRE_Plugin_PCZSceneManager_LIBRARIES Plugin_PCZSceneManager)
  set(OGRE_Plugin_OctreeZone_LIBRARIES Plugin_OctreeZone)
  
-@@ -438,8 +438,8 @@ set(OGRE_LIB_DIRECTORY "lib${LIB_SUFFIX}" CACHE STRING "Install path for librari
+@@ -438,8 +438,8 @@ set(OGRE_LIB_DIRECTORY "lib${LIB_SUFFIX}
  if (WIN32)
  	option(OGRE_INSTALL_VSPROPS "Install Visual Studio Property Page." FALSE)
  	if (OGRE_INSTALL_VSPROPS)
@@ -174,10 +174,10 @@ index 3e99bb09fa..7914f90f24 100755
  	endif ()
  endif ()
  
-diff --git a/Components/Overlay/CMakeLists.txt b/Components/Overlay/CMakeLists.txt
-index 7767132b24..c83d512665 100644
---- a/Components/Overlay/CMakeLists.txt
-+++ b/Components/Overlay/CMakeLists.txt
+Index: git/Components/Overlay/CMakeLists.txt
+===================================================================
+--- git.orig/Components/Overlay/CMakeLists.txt
++++ git/Components/Overlay/CMakeLists.txt
 @@ -11,7 +11,7 @@
  # Overlay optional component
  ############################################################
@@ -187,7 +187,7 @@ index 7767132b24..c83d512665 100644
  
  # define header and source files for the library
  file(GLOB HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
-@@ -25,18 +25,18 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+@@ -25,18 +25,18 @@ include_directories(${CMAKE_CURRENT_SOUR
  include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
  
  # setup target
@@ -213,10 +213,10 @@ index 7767132b24..c83d512665 100644
 +  DESTINATION include/OGRE19/Overlay
  )
  
-diff --git a/Components/Paging/CMakeLists.txt b/Components/Paging/CMakeLists.txt
-index 29d852c560..5a6b7e9a2a 100644
---- a/Components/Paging/CMakeLists.txt
-+++ b/Components/Paging/CMakeLists.txt
+Index: git/Components/Paging/CMakeLists.txt
+===================================================================
+--- git.orig/Components/Paging/CMakeLists.txt
++++ git/Components/Paging/CMakeLists.txt
 @@ -11,7 +11,7 @@
  # Paging optional component
  ############################################################
@@ -226,7 +226,7 @@ index 29d852c560..5a6b7e9a2a 100644
  
  # define header and source files for the library
  file(GLOB HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
-@@ -25,17 +25,17 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+@@ -25,17 +25,17 @@ include_directories(${CMAKE_CURRENT_SOUR
  include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
  
  # setup target
@@ -251,10 +251,10 @@ index 29d852c560..5a6b7e9a2a 100644
 -  DESTINATION include/OGRE/Paging
 +  DESTINATION include/OGRE19/Paging
  )
-diff --git a/Components/Property/CMakeLists.txt b/Components/Property/CMakeLists.txt
-index 9cc1ccb995..c148bfe316 100644
---- a/Components/Property/CMakeLists.txt
-+++ b/Components/Property/CMakeLists.txt
+Index: git/Components/Property/CMakeLists.txt
+===================================================================
+--- git.orig/Components/Property/CMakeLists.txt
++++ git/Components/Property/CMakeLists.txt
 @@ -11,7 +11,7 @@
  # Paging optional component
  ############################################################
@@ -264,7 +264,7 @@ index 9cc1ccb995..c148bfe316 100644
  
  # define header and source files for the library
  set (HEADER_FILES
-@@ -33,18 +33,18 @@ include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
+@@ -33,18 +33,18 @@ include_directories(${OGRE_SOURCE_DIR}/O
  include_directories(${Boost_INCLUDE_DIRS})
  
  # setup target
@@ -290,10 +290,10 @@ index 9cc1ccb995..c148bfe316 100644
 +  DESTINATION include/OGRE19/Property
  )
  
-diff --git a/Components/RTShaderSystem/CMakeLists.txt b/Components/RTShaderSystem/CMakeLists.txt
-index 7db9349730..c5a9bc8bb4 100644
---- a/Components/RTShaderSystem/CMakeLists.txt
-+++ b/Components/RTShaderSystem/CMakeLists.txt
+Index: git/Components/RTShaderSystem/CMakeLists.txt
+===================================================================
+--- git.orig/Components/RTShaderSystem/CMakeLists.txt
++++ git/Components/RTShaderSystem/CMakeLists.txt
 @@ -9,20 +9,20 @@
  
  # Configure Ogre RTShader System build
@@ -322,10 +322,10 @@ index 7db9349730..c5a9bc8bb4 100644
 -  DESTINATION include/OGRE/RTShaderSystem
 +  DESTINATION include/OGRE19/RTShaderSystem
  )
-diff --git a/Components/Terrain/CMakeLists.txt b/Components/Terrain/CMakeLists.txt
-index 8c02386074..75487ec45e 100644
---- a/Components/Terrain/CMakeLists.txt
-+++ b/Components/Terrain/CMakeLists.txt
+Index: git/Components/Terrain/CMakeLists.txt
+===================================================================
+--- git.orig/Components/Terrain/CMakeLists.txt
++++ git/Components/Terrain/CMakeLists.txt
 @@ -11,7 +11,7 @@
  # Terrain optional component
  ############################################################
@@ -335,7 +335,7 @@ index 8c02386074..75487ec45e 100644
  
  # define header and source files for the library
  file(GLOB HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
-@@ -44,22 +44,22 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+@@ -44,22 +44,22 @@ include_directories(${CMAKE_CURRENT_SOUR
  include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
  
  # setup target
@@ -366,10 +366,10 @@ index 8c02386074..75487ec45e 100644
 +  DESTINATION include/OGRE19/Terrain
  )
  
-diff --git a/Components/Volume/CMakeLists.txt b/Components/Volume/CMakeLists.txt
-index 74e801d2c1..c7af48e906 100644
---- a/Components/Volume/CMakeLists.txt
-+++ b/Components/Volume/CMakeLists.txt
+Index: git/Components/Volume/CMakeLists.txt
+===================================================================
+--- git.orig/Components/Volume/CMakeLists.txt
++++ git/Components/Volume/CMakeLists.txt
 @@ -11,7 +11,7 @@
  # Volume optional component
  ############################################################
@@ -379,7 +379,7 @@ index 74e801d2c1..c7af48e906 100644
  
  # define header and source files for the library
  file(GLOB HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
-@@ -25,19 +25,19 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+@@ -25,19 +25,19 @@ include_directories(${CMAKE_CURRENT_SOUR
  include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
  
  # setup target
@@ -406,10 +406,10 @@ index 74e801d2c1..c7af48e906 100644
 +  DESTINATION include/OGRE19/Volume
  )
  
-diff --git a/Docs/CMakeLists.txt b/Docs/CMakeLists.txt
-index c39e549b52..b0c570341c 100644
---- a/Docs/CMakeLists.txt
-+++ b/Docs/CMakeLists.txt
+Index: git/Docs/CMakeLists.txt
+===================================================================
+--- git.orig/Docs/CMakeLists.txt
++++ git/Docs/CMakeLists.txt
 @@ -16,7 +16,7 @@
  if (WIN32 OR APPLE)
    set(OGRE_DOCS_PATH "Docs")
@@ -419,10 +419,10 @@ index c39e549b52..b0c570341c 100644
  endif ()
    
  if (OGRE_INSTALL_DOCS)
-diff --git a/OgreMain/CMakeLists.txt b/OgreMain/CMakeLists.txt
-index 6a433783f2..bc30c29c3b 100644
---- a/OgreMain/CMakeLists.txt
-+++ b/OgreMain/CMakeLists.txt
+Index: git/OgreMain/CMakeLists.txt
+===================================================================
+--- git.orig/OgreMain/CMakeLists.txt
++++ git/OgreMain/CMakeLists.txt
 @@ -11,7 +11,7 @@
  # OgreMain core library
  ############################################################
@@ -532,11 +532,11 @@ index 6a433783f2..bc30c29c3b 100644
 -	DESTINATION include/OGRE/Threading
 +	DESTINATION include/OGRE19/Threading
  )
-diff --git a/PlugIns/BSPSceneManager/CMakeLists.txt b/PlugIns/BSPSceneManager/CMakeLists.txt
-index 33b29d9308..5b33fd7fd6 100644
---- a/PlugIns/BSPSceneManager/CMakeLists.txt
-+++ b/PlugIns/BSPSceneManager/CMakeLists.txt
-@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+Index: git/PlugIns/BSPSceneManager/CMakeLists.txt
+===================================================================
+--- git.orig/PlugIns/BSPSceneManager/CMakeLists.txt
++++ git/PlugIns/BSPSceneManager/CMakeLists.txt
+@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOUR
  add_definitions(-D_USRDLL)
  
  ogre_add_library(Plugin_BSPSceneManager ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
@@ -553,11 +553,11 @@ index 33b29d9308..5b33fd7fd6 100644
 +install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/BSPSceneManager)
  
  ogre_config_plugin(Plugin_BSPSceneManager)
-diff --git a/PlugIns/CgProgramManager/CMakeLists.txt b/PlugIns/CgProgramManager/CMakeLists.txt
-index 4b6a393c09..f2c70f6b5c 100644
---- a/PlugIns/CgProgramManager/CMakeLists.txt
-+++ b/PlugIns/CgProgramManager/CMakeLists.txt
-@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${Cg_INCLUDE_DIRS})
+Index: git/PlugIns/CgProgramManager/CMakeLists.txt
+===================================================================
+--- git.orig/PlugIns/CgProgramManager/CMakeLists.txt
++++ git/PlugIns/CgProgramManager/CMakeLists.txt
+@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOUR
  add_definitions(-D_USRDLL)
  
  ogre_add_library(Plugin_CgProgramManager ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
@@ -572,11 +572,11 @@ index 4b6a393c09..f2c70f6b5c 100644
  ogre_config_plugin(Plugin_CgProgramManager)
 -install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/CgProgramManager)
 +install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/CgProgramManager)
-diff --git a/PlugIns/OctreeSceneManager/CMakeLists.txt b/PlugIns/OctreeSceneManager/CMakeLists.txt
-index 3d30fc3e97..90c29b6834 100644
---- a/PlugIns/OctreeSceneManager/CMakeLists.txt
-+++ b/PlugIns/OctreeSceneManager/CMakeLists.txt
-@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+Index: git/PlugIns/OctreeSceneManager/CMakeLists.txt
+===================================================================
+--- git.orig/PlugIns/OctreeSceneManager/CMakeLists.txt
++++ git/PlugIns/OctreeSceneManager/CMakeLists.txt
+@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOUR
  add_definitions(-D_USRDLL)
  
  ogre_add_library(Plugin_OctreeSceneManager ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
@@ -591,11 +591,11 @@ index 3d30fc3e97..90c29b6834 100644
  ogre_config_plugin(Plugin_OctreeSceneManager)
 -install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/OctreeSceneManager)
 +install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/OctreeSceneManager)
-diff --git a/PlugIns/OctreeZone/CMakeLists.txt b/PlugIns/OctreeZone/CMakeLists.txt
-index 64f609b3c3..b9a3927efe 100644
---- a/PlugIns/OctreeZone/CMakeLists.txt
-+++ b/PlugIns/OctreeZone/CMakeLists.txt
-@@ -17,7 +17,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../PCZSceneManager/include)
+Index: git/PlugIns/OctreeZone/CMakeLists.txt
+===================================================================
+--- git.orig/PlugIns/OctreeZone/CMakeLists.txt
++++ git/PlugIns/OctreeZone/CMakeLists.txt
+@@ -17,7 +17,7 @@ include_directories(${CMAKE_CURRENT_SOUR
  add_definitions(-D_USRDLL)
  
  ogre_add_library(Plugin_OctreeZone ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
@@ -618,11 +618,11 @@ index 64f609b3c3..b9a3927efe 100644
  ogre_config_plugin(Plugin_OctreeZone)
 -install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/OctreeZone)
 +install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/OctreeZone)
-diff --git a/PlugIns/PCZSceneManager/CMakeLists.txt b/PlugIns/PCZSceneManager/CMakeLists.txt
-index f972ba6ba9..0775e87726 100644
---- a/PlugIns/PCZSceneManager/CMakeLists.txt
-+++ b/PlugIns/PCZSceneManager/CMakeLists.txt
-@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+Index: git/PlugIns/PCZSceneManager/CMakeLists.txt
+===================================================================
+--- git.orig/PlugIns/PCZSceneManager/CMakeLists.txt
++++ git/PlugIns/PCZSceneManager/CMakeLists.txt
+@@ -16,7 +16,7 @@ include_directories(${CMAKE_CURRENT_SOUR
  add_definitions(-D_USRDLL)
  
  ogre_add_library(Plugin_PCZSceneManager ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
@@ -637,11 +637,11 @@ index f972ba6ba9..0775e87726 100644
  ogre_config_plugin(Plugin_PCZSceneManager)
 -install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/PCZSceneManager)
 +install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/PCZSceneManager)
-diff --git a/PlugIns/ParticleFX/CMakeLists.txt b/PlugIns/ParticleFX/CMakeLists.txt
-index 2511e3c3ef..e20a4bf9f0 100644
---- a/PlugIns/ParticleFX/CMakeLists.txt
-+++ b/PlugIns/ParticleFX/CMakeLists.txt
-@@ -17,7 +17,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+Index: git/PlugIns/ParticleFX/CMakeLists.txt
+===================================================================
+--- git.orig/PlugIns/ParticleFX/CMakeLists.txt
++++ git/PlugIns/ParticleFX/CMakeLists.txt
+@@ -17,7 +17,7 @@ include_directories(${CMAKE_CURRENT_SOUR
  add_definitions(-D_USRDLL)
  
  ogre_add_library(Plugin_ParticleFX ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
@@ -657,30 +657,30 @@ index 2511e3c3ef..e20a4bf9f0 100644
 -install(FILES ${HEADER_FILES} DESTINATION include/OGRE/Plugins/ParticleFX)
 +install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/Plugins/ParticleFX)
  
-diff --git a/RenderSystems/Direct3D11/CMakeLists.txt b/RenderSystems/Direct3D11/CMakeLists.txt
-index 1a8e21c769..3bf750106f 100644
---- a/RenderSystems/Direct3D11/CMakeLists.txt
-+++ b/RenderSystems/Direct3D11/CMakeLists.txt
+Index: git/RenderSystems/Direct3D11/CMakeLists.txt
+===================================================================
+--- git.orig/RenderSystems/Direct3D11/CMakeLists.txt
++++ git/RenderSystems/Direct3D11/CMakeLists.txt
 @@ -36,4 +36,4 @@ if (OGRE_CONFIG_THREADS)
  endif ()
  
  ogre_config_plugin(RenderSystem_Direct3D11)
 -install(FILES ${HEADER_FILES} DESTINATION include/OGRE/RenderSystems/Direct3D11)
 +install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/RenderSystems/Direct3D11)
-diff --git a/RenderSystems/Direct3D9/CMakeLists.txt b/RenderSystems/Direct3D9/CMakeLists.txt
-index 201ee66a40..e3aa5330e9 100644
---- a/RenderSystems/Direct3D9/CMakeLists.txt
-+++ b/RenderSystems/Direct3D9/CMakeLists.txt
+Index: git/RenderSystems/Direct3D9/CMakeLists.txt
+===================================================================
+--- git.orig/RenderSystems/Direct3D9/CMakeLists.txt
++++ git/RenderSystems/Direct3D9/CMakeLists.txt
 @@ -37,4 +37,4 @@ if (OGRE_CONFIG_THREADS)
  endif ()
  
  ogre_config_plugin(RenderSystem_Direct3D9)
 -install(FILES ${HEADER_FILES} DESTINATION include/OGRE/RenderSystems/Direct3D9)
 +install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/RenderSystems/Direct3D9)
-diff --git a/RenderSystems/GL/CMakeLists.txt b/RenderSystems/GL/CMakeLists.txt
-index d1afd2bc8b..c346a379a6 100644
---- a/RenderSystems/GL/CMakeLists.txt
-+++ b/RenderSystems/GL/CMakeLists.txt
+Index: git/RenderSystems/GL/CMakeLists.txt
+===================================================================
+--- git.orig/RenderSystems/GL/CMakeLists.txt
++++ git/RenderSystems/GL/CMakeLists.txt
 @@ -96,7 +96,7 @@ endif()
  #Note that in the next row SOURCE_FILES are added last. This is to prevent compilation problems of unity build found on Windows Visual Studio. 
  #In this situation any file added after the "glew.cpp" file, which belongs to the SOURCE_FILES package, does not compile
@@ -702,10 +702,10 @@ index d1afd2bc8b..c346a379a6 100644
 +install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE19/RenderSystems/GL/${PLATFORM_HEADER_INSTALL})
 +install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/GL DESTINATION include/OGRE19/RenderSystems/GL)
 +install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/GLSL/include/ DESTINATION include/OGRE19/RenderSystems/GL)
-diff --git a/RenderSystems/GL3Plus/CMakeLists.txt b/RenderSystems/GL3Plus/CMakeLists.txt
-index 3ce9607dbd..16642b7ff3 100644
---- a/RenderSystems/GL3Plus/CMakeLists.txt
-+++ b/RenderSystems/GL3Plus/CMakeLists.txt
+Index: git/RenderSystems/GL3Plus/CMakeLists.txt
+===================================================================
+--- git.orig/RenderSystems/GL3Plus/CMakeLists.txt
++++ git/RenderSystems/GL3Plus/CMakeLists.txt
 @@ -60,7 +60,7 @@ if (UNIX AND NOT APPLE)
  else()
    ogre_add_library(RenderSystem_GL3Plus ${OGRE_LIB_TYPE} ${HEADER_FILES} ${GLSL_SOURCE} ${PLATFORM_HEADERS} ${PLATFORM_SOURCES} ${SOURCE_FILES})
@@ -727,10 +727,10 @@ index 3ce9607dbd..16642b7ff3 100644
 +install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE19/RenderSystems/GL3Plus/${PLATFORM_HEADER_INSTALL})
 +install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include DESTINATION include/OGRE19/RenderSystems/GL3Plus)
 +install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/GLSL/include/ DESTINATION include/OGRE19/RenderSystems/GL3Plus)
-diff --git a/RenderSystems/GLES/CMakeLists.txt b/RenderSystems/GLES/CMakeLists.txt
-index e58708b03c..3c9fb51b04 100644
---- a/RenderSystems/GLES/CMakeLists.txt
-+++ b/RenderSystems/GLES/CMakeLists.txt
+Index: git/RenderSystems/GLES/CMakeLists.txt
+===================================================================
+--- git.orig/RenderSystems/GLES/CMakeLists.txt
++++ git/RenderSystems/GLES/CMakeLists.txt
 @@ -69,7 +69,7 @@ include_directories(
  )
  
@@ -748,10 +748,10 @@ index e58708b03c..3c9fb51b04 100644
 -install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE/RenderSystems/GLES/${PLATFORM_HEADER_INSTALL})
 +install(FILES ${HEADER_FILES} DESTINATION include/OGRE19/RenderSystems/GLES)
 +install(FILES ${PLATFORM_HEADERS} DESTINATION include/OGRE19/RenderSystems/GLES/${PLATFORM_HEADER_INSTALL})
-diff --git a/RenderSystems/GLES2/CMakeLists.txt b/RenderSystems/GLES2/CMakeLists.txt
-index 1bab924544..d0dbafdb20 100755
---- a/RenderSystems/GLES2/CMakeLists.txt
-+++ b/RenderSystems/GLES2/CMakeLists.txt
+Index: git/RenderSystems/GLES2/CMakeLists.txt
+===================================================================
+--- git.orig/RenderSystems/GLES2/CMakeLists.txt
++++ git/RenderSystems/GLES2/CMakeLists.txt
 @@ -127,7 +127,7 @@ include_directories(
  )
  
@@ -777,45 +777,10 @@ index 1bab924544..d0dbafdb20 100755
 +install(FILES ${KHR_HEADERS} DESTINATION include/OGRE19/RenderSystems/GLES2/KHR)
 +install(FILES ${STATECACHE_HEADERS} DESTINATION include/OGRE19/RenderSystems/GLES2/StateCacheManager)
 +install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/GLSLES/include/ DESTINATION include/OGRE19/RenderSystems/GLES2/GLSLES)
-diff --git a/Samples/CMakeLists.txt b/Samples/CMakeLists.txt
-index 8719410c2e..6ff5274512 100644
---- a/Samples/CMakeLists.txt
-+++ b/Samples/CMakeLists.txt
-@@ -198,7 +198,7 @@ if (OGRE_INSTALL_SAMPLES_SOURCE)
-   if (WIN32 OR APPLE)
-     set(OGRE_SAMPLES_DIR Samples)
-   elseif (UNIX)
--    set(OGRE_SAMPLES_DIR share/OGRE/Samples)
-+    set(OGRE_SAMPLES_DIR share/OGRE19/Samples)
-   endif ()
-   install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION ${OGRE_SAMPLES_DIR}
-     REGEX "^CMakeLists.txt$" EXCLUDE
-@@ -220,7 +220,7 @@ endif ()
- # Install sample headers, some people rely on these
- file(GLOB SAMPLE_COMMON_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/Common/include/*.h")
- install(FILES ${SAMPLE_COMMON_HEADERS}
--		DESTINATION include/OGRE)
-+		DESTINATION include/OGRE19)
- 		
- if (MSVC)
-   find_package(Wix)
-diff --git a/Samples/Media/CMakeLists.txt b/Samples/Media/CMakeLists.txt
-index bdcf6a10c5..2c13ae7448 100644
---- a/Samples/Media/CMakeLists.txt
-+++ b/Samples/Media/CMakeLists.txt
-@@ -17,7 +17,7 @@ if (WIN32)
- elseif (APPLE)
-   set(OGRE_MEDIA_PATH "Media")
- elseif (UNIX)
--  set(OGRE_MEDIA_PATH "share/OGRE/Media")
-+  set(OGRE_MEDIA_PATH "share/OGRE19/Media")
- endif ()
- 
- install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
-diff --git a/Tools/MeshUpgrader/CMakeLists.txt b/Tools/MeshUpgrader/CMakeLists.txt
-index f2d7930c7e..7b3b75e4fc 100644
---- a/Tools/MeshUpgrader/CMakeLists.txt
-+++ b/Tools/MeshUpgrader/CMakeLists.txt
+Index: git/Tools/MeshUpgrader/CMakeLists.txt
+===================================================================
+--- git.orig/Tools/MeshUpgrader/CMakeLists.txt
++++ git/Tools/MeshUpgrader/CMakeLists.txt
 @@ -13,12 +13,12 @@ set(SOURCE_FILES
    src/main.cpp
  )
@@ -833,10 +798,10 @@ index f2d7930c7e..7b3b75e4fc 100644
  
 -ogre_config_tool(OgreMeshUpgrader)
 +ogre_config_tool(Ogre19MeshUpgrader)
-diff --git a/Tools/XMLConverter/CMakeLists.txt b/Tools/XMLConverter/CMakeLists.txt
-index a806d84c98..6b2b2c242a 100644
---- a/Tools/XMLConverter/CMakeLists.txt
-+++ b/Tools/XMLConverter/CMakeLists.txt
+Index: git/Tools/XMLConverter/CMakeLists.txt
+===================================================================
+--- git.orig/Tools/XMLConverter/CMakeLists.txt
++++ git/Tools/XMLConverter/CMakeLists.txt
 @@ -39,12 +39,12 @@ endif(NOT TINYXML_FOUND)
  
  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${TINYXML_INCLUDE_DIR})

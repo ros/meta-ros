@@ -1,0 +1,19 @@
+Create new patch support-arm64.patch to try to fix FTBFS on this port
+
+Upstream-Status: Backport
+
+https://salsa.debian.org/games-team/ogre/-/blob/ogre-1.9/debian/patches/support-arm64.patch?ref_type=heads
+
+Signed-off-by: Manuel A. Fernandez Montecelo <mafm@debian.org>
+
+--- a/OgreMain/include/OgrePlatform.h
++++ b/OgreMain/include/OgrePlatform.h
+@@ -166,7 +166,7 @@
+ #endif
+ 
+     /* Find the arch type */
+-#if defined(__x86_64__) || defined(_M_X64) || defined(__powerpc64__) || defined(__alpha__) || defined(__ia64__) || defined(__s390__) || defined(__s390x__) || defined(__arm64__) || defined(_aarch64_) || defined(__mips64) || defined(__mips64_)
++#if defined(__x86_64__) || defined(_M_X64) || defined(__powerpc64__) || defined(__alpha__) || defined(__ia64__) || defined(__s390__) || defined(__s390x__) || defined(__arm64__) || defined(__aarch64__) || defined(__mips64) || defined(__mips64_)
+ #   define OGRE_ARCH_TYPE OGRE_ARCHITECTURE_64
+ #else
+ #   define OGRE_ARCH_TYPE OGRE_ARCHITECTURE_32
