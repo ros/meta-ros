@@ -15,6 +15,13 @@ inherit python3native
 # |
 # | CMake Error at src/qt_gui_cpp/CMakeLists.txt:35 (qt5_wrap_cpp):
 # |   Unknown CMake command "qt5_wrap_cpp".
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
+
+# This is needed to ensure that the qt.conf is generated to find include directories:
+# | In file included from siplibqt_gui_cpp_sipQList0101qt_gui_cppPluginProvider.cpp:7:
+# | sipAPIlibqt_gui_cpp_sip.h:12:10: fatal error: QMetaType: No such file or directory
+# |    12 | #include <QMetaType>
+# |       |          ^~~~~~~~~~~
 inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'qmake5_base', '', d)}
 
 # | CMake Warning at ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/qt-gui-cpp/1.0.8-1-r0/recipe-sysroot/usr/share/python_qt_binding/cmake/sip_helper.cmake:27 (message):
