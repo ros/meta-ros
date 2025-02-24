@@ -9,7 +9,7 @@ DESCRIPTION = "Driiver for devices implementing CIA402 profile"
 AUTHOR = "Christoph Hellmann Santos <christoph.hellmann.santos@ipa.fraunhofer.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "LGPL-v3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=71a08a7068882504cf938165d6f2e844"
 
 ROS_CN = "ros2_canopen"
