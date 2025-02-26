@@ -43,7 +43,7 @@ build/tmp-glibc/deploy/images/raspberrypi4-64/ros-image-core-humble-raspberrypi4
 If using [Balena Etcher](https://etcher.balena.io/), you may provide it with
 this file directly.
 
-If using dd or bmaptool, you must first decompress the bzip2 file.
+If using dd, you must first decompress the bzip2 file.
 
 If using bmaptool, you may follow the instructions here:
 https://docs.yoctoproject.org/dev/dev-manual/bmaptool.html
