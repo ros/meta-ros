@@ -1,6 +1,6 @@
 DESCRIPTION = "OpenNI2 framework"
 HOMEPAGE = "https://github.com/structureio/OpenNI2"
-LICENSE = "Apache-2.0 & LGPL-2.1-only & Unknown"
+LICENSE = "Apache-2.0 & LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57 \
                     file://ThirdParty/PSCommon/XnLib/ThirdParty/libusb-1.0.9-Android/COPYING;md5=fbc093901857fcd118f065f900982c24 \
                     file://debian/copyright;md5=3bb3d5d1304eba74f9ee6e3c5d573fde"
