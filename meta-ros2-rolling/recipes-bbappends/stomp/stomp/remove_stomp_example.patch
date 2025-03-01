@@ -1,3 +1,9 @@
+Disable stomp example
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
