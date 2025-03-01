@@ -1,0 +1,19 @@
+Skip compiling cogen
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -12,7 +12,7 @@ find_package(ament_cmake REQUIRED)
+   DESTINATION share/${PROJECT_NAME}
+ )
+ 
+-ament_python_install_package(cogen SCRIPTS_DESTINATION lib/cogen)
++ament_python_install_package(cogen SKIP_COMPILE SCRIPTS_DESTINATION lib/cogen)
+ 
+ # install entry-point script(s) in bin as well
+ install(

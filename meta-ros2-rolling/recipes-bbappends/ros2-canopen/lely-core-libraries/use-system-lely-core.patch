@@ -1,8 +1,14 @@
+Use lely_core provided by system
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -4,41 +4,15 @@ find_package(ament_cmake REQUIRED)
+@@ -4,31 +4,6 @@ find_package(ament_cmake REQUIRED)
  find_package(ament_cmake_python REQUIRED)
  set(python_version "python${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}")
  
@@ -34,14 +40,3 @@ Index: git/CMakeLists.txt
  set(lely_core_cmake_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
  include("cmake/lely_core_libraries-extras.cmake" NO_POLICY_SCOPE)
  
--
- install(
-   DIRECTORY cmake
-   DESTINATION share/${PROJECT_NAME}
- )
- 
--ament_python_install_package(cogen SCRIPTS_DESTINATION lib/cogen)
-+ament_python_install_package(cogen SKIP_COMPILE SCRIPTS_DESTINATION lib/cogen)
- 
- # install entry-point script(s) in bin as well
- install(
