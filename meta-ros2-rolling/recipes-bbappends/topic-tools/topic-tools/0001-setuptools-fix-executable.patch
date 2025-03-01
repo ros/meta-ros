@@ -1,3 +1,9 @@
+Explicitly set interpreter for topic_tools wrapper
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 Index: git/topic_tools/setup.cfg
 ===================================================================
 --- git.orig/topic_tools/setup.cfg
