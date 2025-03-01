@@ -1,0 +1,19 @@
+Use rclcpp target to remove buildpaths from generated CMake files.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 33eb0df3..fe38cc01 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -124,7 +124,7 @@ ament_target_dependencies(device_container_node
+ target_include_directories(device_container_node PUBLIC
+   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+   "$<INSTALL_INTERFACE:include>"
+-  ${rclcpp_INCLUDE_DIRS}
++  rclcpp::rclcpp
+ )
+ 
+ install(
