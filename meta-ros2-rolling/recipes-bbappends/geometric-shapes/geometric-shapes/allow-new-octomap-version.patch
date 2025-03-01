@@ -1,3 +1,12 @@
+A change was made upstream to prevent an ABI-incompatibility
+between ros-octomap and liboctomap-dev.
+
+https://github.com/moveit/geometric_shapes/commit/9e862f7b1a4d4930d69036589726ac9058451b4e
+
+However, we use the system liboctomap.
+
+Upstream-Status: Inappropriate [oe specific]
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index c0b0ed0..c874ef7 100644
 --- a/CMakeLists.txt
