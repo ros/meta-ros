@@ -1,5 +1,7 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 # Uses rospkg/os_detect.py at build time resulting in:
 # | CMake Error at /jenkins/mjansa/build/ros/webos-foxy-dunfell/tmp-glibc/work/qemux86-webos-linux/lanelet2-maps/1.1.1-1-r0/recipe-sysroot-native/usr/share/mrt_cmake_modules/cmake/Modules/GatherDeps.cmake:24 (message):
 # |   Gather depenencies failed: Traceback (most recent call last):
