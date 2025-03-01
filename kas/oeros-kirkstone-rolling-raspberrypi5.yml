@@ -1,7 +1,7 @@
 header:
   version: 14
   includes:
-    - yocto/kirkstone.yml
-    - ros2/rolling.yml
-    - machine/raspberrypi5.yml
-    - common.yml
+    - kas/yocto/kirkstone.yml
+    - kas/ros2/rolling.yml
+    - kas/machine/raspberrypi5.yml
+    - kas/common.yml
