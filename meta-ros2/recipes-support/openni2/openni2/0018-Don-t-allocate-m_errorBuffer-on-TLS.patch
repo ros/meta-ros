@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
 Date: Sun, 1 Dec 2019 12:07:52 +0100
 Subject: Don't allocate m_errorBuffer on TLS

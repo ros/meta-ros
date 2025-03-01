@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 From: Jochen Sprickerhof <jochen@sprickerhof.de>
 Date: Fri, 28 Feb 2014 11:23:06 +0100
 Subject: Add unused attribute to fix compilation with gcc-4.8

@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
 Date: Sat, 23 Jan 2016 15:56:22 +0100
 Subject: Fix GCC6 compilation

@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 From: Hauke Wintjen <hwintjen@rimpl-consulting.de>
 Date: Fri, 29 Mar 2013 22:21:36 +0100
 Subject: Use system wide libjpeg

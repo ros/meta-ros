@@ -1,6 +1,6 @@
 Disable Java
 
-Upstream-Status: Not applicable
+Upstream-Status: Inappropriate [oe specific]
 
 --- a/Makefile
 +++ b/Makefile

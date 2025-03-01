@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 From: Hauke Wintjen <hwintjen@rimpl-consulting.de>
 Date: Tue, 2 Apr 2013 21:09:09 +0200
 Subject: disable rpath

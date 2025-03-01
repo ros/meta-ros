@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 From: Hauke Wintjen <hwintjen@rimpl-consulting.de>
 Date: Fri, 29 Mar 2013 21:04:33 +0100
 Subject: Add SONAME to libraries

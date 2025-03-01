@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
   Linux/XnLinuxINI.cpp: In function 'XnStatus FindEntry(const XnChar*, const XnChar*, const XnChar*, XnChar*)':
   Linux/XnLinuxINI.cpp:51:32: error: writing 1 byte into a region of size 0 [-Werror=stringop-overflow=]
     51 |                 dest[destSize] = '\0';                                                          \

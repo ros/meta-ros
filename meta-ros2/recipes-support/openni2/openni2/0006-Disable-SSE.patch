@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 From: Jochen Sprickerhof <jochen@sprickerhof.de>
 Date: Mon, 20 May 2013 13:06:29 +0200
 Subject: Disable SSE

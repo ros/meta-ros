@@ -4,6 +4,8 @@ glx: Remove dead declarations from <GL/glx.h>
 
 https://gitlab.freedesktop.org/mesa/mesa/-/commit/cc93f08f1e3e84f09cb2bb587d6de702dc836478.patch
 
+Upstream-Status: Pending
+
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 diff --git a/ThirdParty/GL/glh/glh_genext.h b/ThirdParty/GL/glh/glh_genext.h

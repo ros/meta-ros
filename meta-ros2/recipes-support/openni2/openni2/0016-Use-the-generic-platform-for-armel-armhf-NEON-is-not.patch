@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 From: Adrian Bunk <bunk@debian.org>
 Date: Sat, 9 Sep 2017 15:02:51 +0200
 Subject: Use the generic platform for armel+armhf NEON is not part of the

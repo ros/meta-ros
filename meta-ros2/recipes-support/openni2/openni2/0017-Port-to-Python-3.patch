@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
 Date: Sat, 14 Sep 2019 10:02:15 +0200
 Subject: Port to Python 3

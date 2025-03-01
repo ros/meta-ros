@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 --- a/Packaging/Harvest.py
 +++ b/Packaging/Harvest.py
 @@ -98,9 +98,7 @@ class Harvest:

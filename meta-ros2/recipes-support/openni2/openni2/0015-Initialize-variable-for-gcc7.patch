@@ -1,3 +1,5 @@
+Upstream-Status: Backport
+
 From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
 Date: Tue, 8 Aug 2017 22:53:14 +0200
 Subject: Initialize variable for gcc7
