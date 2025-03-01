@@ -1,7 +1,7 @@
 header:
   version: 14
   includes:
-    - yocto/master.yml
-    - ros2/humble.yml
-    - machine/qemux86-64.yml
-    - common.yml
+    - kas/yocto/master.yml
+    - kas/ros2/humble.yml
+    - kas/machine/qemux86-64.yml
+    - kas/common.yml

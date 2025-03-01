@@ -1,7 +1,7 @@
 header:
   version: 14
   includes:
-    - yocto/scarthgap.yml
-    - ros2/humble.yml
-    - machine/raspberrypi4-64.yml
-    - common.yml
+    - kas/yocto/scarthgap.yml
+    - kas/ros2/humble.yml
+    - kas/machine/raspberrypi4-64.yml
+    - kas/common.yml
