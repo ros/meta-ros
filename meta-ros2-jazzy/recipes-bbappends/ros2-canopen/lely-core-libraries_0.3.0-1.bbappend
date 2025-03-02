@@ -19,9 +19,9 @@ OECMAKE_GENERATOR = "Unix Makefiles"
 PACKAGES += "python3-cogen"
 
 FILES:python3-cogen = " \
-    ${libdir}/python*/site-packages/cogen/cogen.py \
-    ${libdir}/cogen/cogen \
-    ${bindir}/cogen \
+    ${ros_libdir}/python*/site-packages/cogen/cogen.py \
+    ${ros_libdir}/cogen/cogen \
+    ${ros_bindir}/cogen \
 "
 
 # QA Issue: python3-cogen: /usr/lib/cogen/cogen maximum shebang size exceeded, the maximum size is 128. [shebang-size]
@@ -30,8 +30,8 @@ FILES:python3-cogen = " \
 # QA Issue: /usr/bin/cogen contained in package lely-core-libraries requires .../python3, but no providers found in RDEPENDS:lely-core-libraries? [file-rdeps]
 do_install:append() {
     # Modify the Python scripts to use the runtime path to Python 
-    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/cogen
-    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${libdir}/cogen/cogen
+    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${ros_bindir}/cogen
+    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${ros_libdir}/cogen/cogen
 }
 
 BBCLASSEXTEND = "native nativesdk"
