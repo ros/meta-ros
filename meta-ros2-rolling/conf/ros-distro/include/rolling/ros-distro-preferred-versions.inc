@@ -13,3 +13,6 @@
 PREFERRED_VERSION_pcl = "1.14.1+git"
 
 PREFERRED_VERSION_sdformat = "15.1.1"
+
+# required for python3-scipy
+PREFERRED_VERSION_python3-gast = "0.5.0"
