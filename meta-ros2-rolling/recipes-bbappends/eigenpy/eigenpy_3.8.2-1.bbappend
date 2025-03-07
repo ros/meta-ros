@@ -13,6 +13,11 @@ EXTRA_OECMAKE += "-DBUILD_TESTING_SCIPY=OFF"
 
 inherit python3native
 
+# QA Issue: File /opt/ros/rolling/lib/pkgconfig/eigenpy.pc in package eigenpy-dev contains reference to TMPDIR [buildpaths]
+do_install:append() {
+    sed -i -e "s#-I${RECIPE_SYSROOT_NATIVE}#-I#g" ${D}${ros_prefix}/lib/pkgconfig/eigenpy.pc
+}
+
 # ERROR: eigenpy-2.7.14-1-r0 do_package: QA Issue: eigenpy: Files/directories were installed but not shipped in any package:
 #  /usr/share/ament_index
 #  /usr/share/ament_index/resource_index
