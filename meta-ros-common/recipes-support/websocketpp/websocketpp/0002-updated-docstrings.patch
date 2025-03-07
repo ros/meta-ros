@@ -1,0 +1,64 @@
+Upstream-Status: Pending
+
+From 30e77468e093e8384fa07819b345f81a0431eb37 Mon Sep 17 00:00:00 2001
+From: Amini Allight <amini.allight@protonmail.com>
+Date: Wed, 12 Feb 2025 04:46:30 +0000
+Subject: [PATCH 2/7] updated docstrings
+
+---
+ websocketpp/transport/asio/endpoint.hpp      | 4 ++--
+ websocketpp/transport/asio/security/none.hpp | 2 +-
+ websocketpp/transport/asio/security/tls.hpp  | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/websocketpp/transport/asio/endpoint.hpp b/websocketpp/transport/asio/endpoint.hpp
+index 0545343..13dda05 100644
+--- a/websocketpp/transport/asio/endpoint.hpp
++++ b/websocketpp/transport/asio/endpoint.hpp
+@@ -510,7 +510,7 @@ public:
+      *
+      * @param host A string identifying a location. May be a descriptive name or
+      * a numeric address string.
+-     * @param service A string identifying the requested service. This may be a
++     * @param context A string identifying the requested service. This may be a
+      * descriptive name or a numeric string corresponding to a port number.
+      * @param ec Set to indicate what error occurred, if any.
+      */
+@@ -628,7 +628,7 @@ public:
+      *
+      * @param host A string identifying a location. May be a descriptive name 
+      * or a numeric address string.
+-     * @param service A string identifying the requested service. This may be a
++     * @param context A string identifying the requested service. This may be a
+      * descriptive name or a numeric string corresponding to a port number.
+      * @param ec Set to indicate what error occurred, if any.
+      */
+diff --git a/websocketpp/transport/asio/security/none.hpp b/websocketpp/transport/asio/security/none.hpp
+index c667b91..3033b76 100644
+--- a/websocketpp/transport/asio/security/none.hpp
++++ b/websocketpp/transport/asio/security/none.hpp
+@@ -159,7 +159,7 @@ protected:
+      * Asio components to the io_context. At this stage the connection is
+      * speculative, the server may not have actually received a new connection.
+      *
+-     * @param service A pointer to the endpoint's io_context
++     * @param context A pointer to the endpoint's io_context
+      * @param strand A shared pointer to the connection's asio strand
+      * @param is_server Whether or not the endpoint is a server or not.
+      */
+diff --git a/websocketpp/transport/asio/security/tls.hpp b/websocketpp/transport/asio/security/tls.hpp
+index 6e747df..d65c48c 100644
+--- a/websocketpp/transport/asio/security/tls.hpp
++++ b/websocketpp/transport/asio/security/tls.hpp
+@@ -178,7 +178,7 @@ protected:
+      * init_asio is called once immediately after construction to initialize
+      * Asio components to the io_context
+      *
+-     * @param service A pointer to the endpoint's io_context
++     * @param context A pointer to the endpoint's io_context
+      * @param strand A pointer to the connection's strand
+      * @param is_server Whether or not the endpoint is a server or not.
+      */
+-- 
+2.43.0
+

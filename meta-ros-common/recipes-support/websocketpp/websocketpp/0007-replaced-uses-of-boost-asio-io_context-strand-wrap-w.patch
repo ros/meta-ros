@@ -1,0 +1,146 @@
+Upstream-Status: Pending
+
+From a11fa6fe4937ca251753e90b1836a68bf57768a9 Mon Sep 17 00:00:00 2001
+From: Amini Allight <amini.allight@protonmail.com>
+Date: Thu, 20 Feb 2025 17:25:03 +0000
+Subject: [PATCH 7/7] replaced uses of boost::asio::io_context::strand::wrap
+ with boost::asio::bind_executor to avoid future deprecation issues
+
+---
+ websocketpp/transport/asio/connection.hpp   | 16 ++++++++--------
+ websocketpp/transport/asio/endpoint.hpp     |  6 +++---
+ websocketpp/transport/asio/security/tls.hpp |  4 ++--
+ 3 files changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/websocketpp/transport/asio/connection.hpp b/websocketpp/transport/asio/connection.hpp
+index 3c14261..5f47466 100644
+--- a/websocketpp/transport/asio/connection.hpp
++++ b/websocketpp/transport/asio/connection.hpp
+@@ -324,7 +324,7 @@ public:
+         );
+ 
+         if (config::enable_multithreading) {
+-            new_timer->async_wait(m_strand->wrap(lib::bind(
++            new_timer->async_wait(lib::asio::bind_executor(*m_strand, lib::bind(
+                 &type::handle_timer, get_shared(),
+                 new_timer,
+                 callback,
+@@ -635,7 +635,7 @@ protected:
+             lib::asio::async_write(
+                 socket_con_type::get_next_layer(),
+                 m_bufs,
+-                m_strand->wrap(lib::bind(
++                lib::asio::bind_executor(*m_strand, lib::bind(
+                     &type::handle_proxy_write, get_shared(),
+                     callback,
+                     lib::placeholders::_1
+@@ -718,7 +718,7 @@ protected:
+                 socket_con_type::get_next_layer(),
+                 m_proxy_data->read_buf,
+                 "\r\n\r\n",
+-                m_strand->wrap(lib::bind(
++                lib::asio::bind_executor(*m_strand, lib::bind(
+                     &type::handle_proxy_read, get_shared(),
+                     callback,
+                     lib::placeholders::_1, lib::placeholders::_2
+@@ -856,7 +856,7 @@ protected:
+                 socket_con_type::get_socket(),
+                 lib::asio::buffer(buf,len),
+                 lib::asio::transfer_at_least(num_bytes),
+-                m_strand->wrap(make_custom_alloc_handler(
++                lib::asio::bind_executor(*m_strand, make_custom_alloc_handler(
+                     m_read_handler_allocator,
+                     lib::bind(
+                         &type::handle_async_read, get_shared(),
+@@ -925,7 +925,7 @@ protected:
+             lib::asio::async_write(
+                 socket_con_type::get_socket(),
+                 m_bufs,
+-                m_strand->wrap(make_custom_alloc_handler(
++                lib::asio::bind_executor(*m_strand, make_custom_alloc_handler(
+                     m_write_handler_allocator,
+                     lib::bind(
+                         &type::handle_async_write, get_shared(),
+@@ -965,7 +965,7 @@ protected:
+             lib::asio::async_write(
+                 socket_con_type::get_socket(),
+                 m_bufs,
+-                m_strand->wrap(make_custom_alloc_handler(
++                lib::asio::bind_executor(*m_strand, make_custom_alloc_handler(
+                     m_write_handler_allocator,
+                     lib::bind(
+                         &type::handle_async_write, get_shared(),
+@@ -1030,7 +1030,7 @@ protected:
+      */
+     lib::error_code interrupt(interrupt_handler handler) {
+         if (config::enable_multithreading) {
+-            lib::asio::post(m_io_context->get_executor(), m_strand->wrap(handler));
++            lib::asio::post(m_io_context->get_executor(), lib::asio::bind_executor(*m_strand, handler));
+         } else {
+             lib::asio::post(m_io_context->get_executor(), handler);
+         }
+@@ -1039,7 +1039,7 @@ protected:
+ 
+     lib::error_code dispatch(dispatch_handler handler) {
+         if (config::enable_multithreading) {
+-            lib::asio::post(m_io_context->get_executor(), m_strand->wrap(handler));
++            lib::asio::post(m_io_context->get_executor(), lib::asio::bind_executor(*m_strand, handler));
+         } else {
+             lib::asio::post(m_io_context->get_executor(), handler);
+         }
+diff --git a/websocketpp/transport/asio/endpoint.hpp b/websocketpp/transport/asio/endpoint.hpp
+index 60b4576..4d03ba5 100644
+--- a/websocketpp/transport/asio/endpoint.hpp
++++ b/websocketpp/transport/asio/endpoint.hpp
+@@ -802,7 +802,7 @@ public:
+         if (config::enable_multithreading) {
+             m_acceptor->async_accept(
+                 tcon->get_raw_socket(),
+-                tcon->get_strand()->wrap(lib::bind(
++                lib::asio::bind_executor(*tcon->get_strand(), lib::bind(
+                     &type::handle_accept,
+                     this,
+                     callback,
+@@ -930,7 +930,7 @@ protected:
+             m_resolver->async_resolve(
+                 host,
+                 port,
+-                tcon->get_strand()->wrap(lib::bind(
++                lib::asio::bind_executor(*tcon->get_strand(), lib::bind(
+                     &type::handle_resolve,
+                     this,
+                     tcon,
+@@ -1040,7 +1040,7 @@ protected:
+             lib::asio::async_connect(
+                 tcon->get_raw_socket(),
+                 results,
+-                tcon->get_strand()->wrap(lib::bind(
++                lib::asio::bind_executor(*tcon->get_strand(), lib::bind(
+                     &type::handle_connect,
+                     this,
+                     tcon,
+diff --git a/websocketpp/transport/asio/security/tls.hpp b/websocketpp/transport/asio/security/tls.hpp
+index 1db1a10..f894f0e 100644
+--- a/websocketpp/transport/asio/security/tls.hpp
++++ b/websocketpp/transport/asio/security/tls.hpp
+@@ -277,7 +277,7 @@ protected:
+         if (m_strand) {
+             m_socket->async_handshake(
+                 get_handshake_type(),
+-                m_strand->wrap(lib::bind(
++                lib::asio::bind_executor(*m_strand, lib::bind(
+                     &type::handle_init, get_shared(),
+                     callback,
+                     lib::placeholders::_1
+@@ -337,7 +337,7 @@ protected:
+ 
+     void async_shutdown(socket::shutdown_handler callback) {
+         if (m_strand) {
+-            m_socket->async_shutdown(m_strand->wrap(callback));
++            m_socket->async_shutdown(lib::asio::bind_executor(*m_strand, callback));
+         } else {
+             m_socket->async_shutdown(callback);
+         }
+-- 
+2.43.0
+
