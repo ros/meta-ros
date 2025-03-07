@@ -36,6 +36,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     fastrtps-native \
     foonathan-memory-vendor-native \
     generate-parameter-library-py-native \
+    geometry-msgs-native \
     iceoryx-binding-c-native \
     iceoryx-hoofs-native \
     iceoryx-posh-native \
