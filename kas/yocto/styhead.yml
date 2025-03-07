@@ -5,11 +5,11 @@ defaults:
   repos:
     branch: "styhead"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-5.1.2/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-5.1.3/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "62dfe689246d648f9970a5476716e486b1a33765"
+    commit: "35ffa0ed523ba95f069dff5b7df3f819ef031015"
     path: "layers/openembedded-core"
     layers:
       meta:
@@ -17,14 +17,14 @@ repos:
   bitbake:
     url: "https://github.com/openembedded/bitbake.git"
     branch: "2.10"
-    commit: "1452e74cc4ddfaadc6537a049877a66cec253c8d"
+    commit: "58e5c70a0572ff5994dc181694e05cd5d3ddaf66"
     path: "layers/bitbake"
     layers:
       bitbake: "excluded"
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
-    commit: "74b08dcbb1d0f4600527602804544c9d63697ebc"
+    commit: "c93994f1bb601c57548b588d4f77a044d90822cf"
     path: "layers/meta-openembedded"
     layers:
       meta-filesystems:
