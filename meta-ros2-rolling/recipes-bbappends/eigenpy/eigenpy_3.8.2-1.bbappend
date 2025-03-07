@@ -2,6 +2,8 @@
 
 LICENSE = "BSD-2-Clause"
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://allow-cxx11-compatibility.patch"
 ROS_BUILDTOOL_DEPENDS += "python3-numpy-native"
 
 inherit python3native
