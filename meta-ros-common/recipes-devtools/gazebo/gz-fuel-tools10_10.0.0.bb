@@ -26,3 +26,5 @@ FILES:${PN} += " \
     ${datadir}/gz/fuel10.yaml \
     ${datadir}/gz/fuel_tools10/config.yaml \
 "
+
+BBCLASSEXTEND = "native nativesdk"
