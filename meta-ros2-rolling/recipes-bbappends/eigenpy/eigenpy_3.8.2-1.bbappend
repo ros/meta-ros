@@ -8,6 +8,9 @@ SRC_URI += "file://allow-cxx11-compatibility.patch \
 
 ROS_BUILDTOOL_DEPENDS += "python3-numpy-native"
 
+# Disable the unit tests which fail to find scipy
+EXTRA_OECMAKE += "-DBUILD_TESTING_SCIPY=OFF"
+
 inherit python3native
 
 # ERROR: eigenpy-2.7.14-1-r0 do_package: QA Issue: eigenpy: Files/directories were installed but not shipped in any package:
