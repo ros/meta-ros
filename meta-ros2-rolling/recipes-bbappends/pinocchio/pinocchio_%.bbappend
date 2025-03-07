@@ -1,4 +1,7 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
+
+LICENSE = "BSD-2-Clause"
+
 ROS_BUILDTOOL_DEPENDS:remove = "clang-native-native"
 
 ROS_BUILDTOOL_DEPENDS += " \
