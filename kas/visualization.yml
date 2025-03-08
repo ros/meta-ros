@@ -18,4 +18,4 @@ local_conf_header:
     PACKAGECONFIG:append:pn-qtbase-native = " gui"
     PACKAGECONFIG:append:pn-python3 = "  tk"
     PACKAGECONFIG:append:pn-mesa = " glvnd "
-    LICENSE_FLAGS_ACCEPTED = "commercial"
+    LICENSE_FLAGS_ACCEPTED += "commercial"
