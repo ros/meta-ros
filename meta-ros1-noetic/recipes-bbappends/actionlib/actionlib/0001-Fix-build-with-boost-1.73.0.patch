@@ -1,4 +1,4 @@
-From dd7e661db5dbff07b62d3b80625ccaf6cb280fe7 Mon Sep 17 00:00:00 2001
+From c4db06f52b9c3ac3fd2a1fdd10eb093329d273de Mon Sep 17 00:00:00 2001
 From: Martin Jansa <martin.jansa@lge.com>
 Date: Thu, 20 Aug 2020 09:43:02 -0700
 Subject: [PATCH] Fix build with boost-1.73.0
@@ -38,7 +38,7 @@ Signed-off-by: Martin Jansa <martin.jansa@lge.com>
  13 files changed, 34 insertions(+), 34 deletions(-)
 
 diff --git a/include/actionlib/client/action_client.h b/include/actionlib/client/action_client.h
-index cfd64af..cb79ae2 100644
+index 85b32dc..21d0102 100644
 --- a/include/actionlib/client/action_client.h
 +++ b/include/actionlib/client/action_client.h
 @@ -236,17 +236,17 @@ private:
@@ -75,7 +75,7 @@ index cfd64af..cb79ae2 100644
        );
      return n_.subscribe(ops);
 diff --git a/include/actionlib/client/goal_manager_imp.h b/include/actionlib/client/goal_manager_imp.h
-index 789ada0..30dbc35 100644
+index 28f4979..4e3281b 100644
 --- a/include/actionlib/client/goal_manager_imp.h
 +++ b/include/actionlib/client/goal_manager_imp.h
 @@ -74,7 +74,7 @@ ClientGoalHandle<ActionSpec> GoalManager<ActionSpec>::initGoal(const Goal & goal
@@ -88,7 +88,7 @@ index 789ada0..30dbc35 100644
    if (send_goal_func_) {
      send_goal_func_(action_goal);
 diff --git a/include/actionlib/client/simple_action_client.h b/include/actionlib/client/simple_action_client.h
-index 52637ed..cfbd206 100644
+index 436516f..02df1ae 100644
 --- a/include/actionlib/client/simple_action_client.h
 +++ b/include/actionlib/client/simple_action_client.h
 @@ -330,8 +330,8 @@ void SimpleActionClient<ActionSpec>::sendGoal(const Goal & goal,
@@ -103,7 +103,7 @@ index 52637ed..cfbd206 100644
  
  template<class ActionSpec>
 diff --git a/include/actionlib/managed_list.h b/include/actionlib/managed_list.h
-index 11c4889..b7f9231 100644
+index 2c91960..b2c4f89 100644
 --- a/include/actionlib/managed_list.h
 +++ b/include/actionlib/managed_list.h
 @@ -218,7 +218,7 @@ private:
@@ -116,7 +116,7 @@ index 11c4889..b7f9231 100644
  
    /**
 diff --git a/include/actionlib/one_shot_timer.h b/include/actionlib/one_shot_timer.h
-index e462abb..ccbf37f 100644
+index e3c821d..7839294 100644
 --- a/include/actionlib/one_shot_timer.h
 +++ b/include/actionlib/one_shot_timer.h
 @@ -60,7 +60,7 @@ public:
@@ -165,7 +165,7 @@ index ac5444d..2f0265e 100644
  }
  
 diff --git a/include/actionlib/server/simple_action_server_imp.h b/include/actionlib/server/simple_action_server_imp.h
-index a5e51bb..d8b906a 100644
+index 0255515..a361cd7 100644
 --- a/include/actionlib/server/simple_action_server_imp.h
 +++ b/include/actionlib/server/simple_action_server_imp.h
 @@ -56,8 +56,8 @@ SimpleActionServer<ActionSpec>::SimpleActionServer(std::string name,
@@ -189,7 +189,7 @@ index a5e51bb..d8b906a 100644
 +      boost::bind(&SimpleActionServer::preemptCallback, this, boost::placeholders::_1),
        auto_start));
  
-   if (execute_callback_ != NULL) {
+   if (execute_callback_) {
 @@ -85,8 +85,8 @@ SimpleActionServer<ActionSpec>::SimpleActionServer(std::string name,
  {
    // create the action server
@@ -200,7 +200,7 @@ index a5e51bb..d8b906a 100644
 +      boost::bind(&SimpleActionServer::preemptCallback, this, boost::placeholders::_1),
        true));
  
-   if (execute_callback_ != NULL) {
+   if (execute_callback_) {
 @@ -104,8 +104,8 @@ SimpleActionServer<ActionSpec>::SimpleActionServer(ros::NodeHandle n, std::strin
  {
    // create the action server
@@ -211,7 +211,7 @@ index a5e51bb..d8b906a 100644
 +      boost::bind(&SimpleActionServer::preemptCallback, this, boost::placeholders::_1),
        auto_start));
  
-   if (execute_callback_ != NULL) {
+   if (execute_callback_) {
 @@ -121,8 +121,8 @@ SimpleActionServer<ActionSpec>::SimpleActionServer(ros::NodeHandle n, std::strin
  {
    // create the action server
@@ -222,7 +222,7 @@ index a5e51bb..d8b906a 100644
 +      boost::bind(&SimpleActionServer::preemptCallback, this, boost::placeholders::_1),
        auto_start));
  
-   if (execute_callback_ != NULL) {
+   if (execute_callback_) {
 @@ -138,8 +138,8 @@ SimpleActionServer<ActionSpec>::SimpleActionServer(ros::NodeHandle n, std::strin
  {
    // create the action server
@@ -233,7 +233,7 @@ index a5e51bb..d8b906a 100644
 +      boost::bind(&SimpleActionServer::preemptCallback, this, boost::placeholders::_1),
        true));
  
-   if (execute_callback_ != NULL) {
+   if (execute_callback_) {
 diff --git a/test/add_two_ints_server.cpp b/test/add_two_ints_server.cpp
 index 098c315..84ddace 100644
 --- a/test/add_two_ints_server.cpp
