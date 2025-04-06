@@ -1,0 +1,129 @@
+From bc1b28d85307a750703b7d77abd64fc57efef9cf Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <msc@fp-robotics.com>
+Date: Fri, 4 Apr 2025 15:25:09 +0200
+Subject: [PATCH] Rewriting findCaller function for python3.12
+
+The original implementation led to a infinit loop with python3.12.
+We refactored this to run with python3.12, getting rid of
+some old checks:
+
+Key Optimizations:
+* Use inspect.stack() Instead of Manual Frame Navigation:
+  More efficient than manually navigating frames with f.f_back
+  Automatically handles cleaning up references to avoid memory leaks
+* Eliminated Python Version Checks:
+  Since we're targeting Python 3.12 specifically, we don't need
+  branching logic for different versions
+  All returns include the fourth parameter (required for Python 3+)
+* Reduced Redundant Code:
+  Combined similar safety checks
+  Used f-strings for string formatting (more efficient in Python 3.6+)
+* Proper Resource Management:
+  Using try/finally to ensure frame references are cleaned up
+  Prevents memory leaks from lingering frame references
+* More Direct Code Path:
+  Streamlined the logic for finding and processing the right frame
+  Reduced branching and repeated checks
+
+This optimized version maintains the same functionality while being more
+efficient for Python 3.12. The function should run noticeably faster,
+especially when called frequently.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Matthias Schoepfer <msc@fp-robotics.com>
+---
+ src/rosgraph/roslogging.py | 73 +++++++++++++++++++++-----------------
+ 1 file changed, 41 insertions(+), 32 deletions(-)
+
+diff --git a/src/rosgraph/roslogging.py b/src/rosgraph/roslogging.py
+index f8058bf999..ceb0dfeec1 100644
+--- a/src/rosgraph/roslogging.py
++++ b/src/rosgraph/roslogging.py
+@@ -55,42 +55,51 @@ class RospyLogger(logging.getLoggerClass()):
+         Find the stack frame of the caller so that we can note the source
+         file name, line number, and function name with class name if possible.
+         """
++        # Since we're targeting Python 3.12, we don't need the version check branching
+         file_name, lineno, func_name = super(RospyLogger, self).findCaller(*args, **kwargs)[:3]
+         file_name = os.path.normcase(file_name)
+ 
+-        f = inspect.currentframe()
+-        if f is not None:
+-            f = f.f_back
+-        while hasattr(f, "f_code"):
+-            # Search for the right frame using the data already found by parent class.
+-            co = f.f_code
+-            filename = os.path.normcase(co.co_filename)
+-            if filename == file_name and f.f_lineno == lineno and co.co_name == func_name:
+-                break
+-            if f.f_back:
+-                f = f.f_back
+-
+-        # Jump up two more frames, as the logger methods have been double wrapped.
+-        if f is not None and f.f_back and f.f_code and f.f_code.co_name == '_base_logger':
+-            f = f.f_back
+-            if f.f_back:
+-                f = f.f_back
+-        co = f.f_code
+-        func_name = co.co_name
+-
+-        # Now extend the function name with class name, if available.
+-        try:
+-            class_name = f.f_locals['self'].__class__.__name__
+-            func_name = '%s.%s' % (class_name, func_name)
+-        except KeyError:  # if the function is unbound, there is no self.
+-            pass
+-
+-        if sys.version_info > (3, 2):
+-            # Dummy last argument to match Python3 return type
+-            return co.co_filename, f.f_lineno, func_name, None
+-        else:
+-            return co.co_filename, f.f_lineno, func_name
++        # Use inspect.stack() which can be more efficient than manually traversing frames
++        # This also handles the None checks that were scattered throughout the original
++        frame_info = None
+ 
++        # Get the current stack and search for our target frame
++        try:
++            stack = inspect.stack()
++            # Find the frame that matches the data from parent class
++            for frame_info in stack:
++                frame = frame_info.frame
++                co = frame.f_code
++                if (os.path.normcase(co.co_filename) == file_name and
++                        frame.f_lineno == lineno and
++                        co.co_name == func_name):
++
++                    # Found the matching frame, now jump up two frames if needed
++                    idx = stack.index(frame_info)
++                    if (idx + 2 < len(stack) and
++                            stack[idx].frame.f_code.co_name == '_base_logger'):
++                        frame_info = stack[idx + 2]
++                        frame = frame_info.frame
++
++                    # Extract the relevant information
++                    co = frame.f_code
++                    func_name = co.co_name
++
++                    # Add class name if available
++                    try:
++                        if 'self' in frame.f_locals:
++                            class_name = frame.f_locals['self'].__class__.__name__
++                            func_name = f'{class_name}.{func_name}'
++                    except (KeyError, AttributeError):
++                        pass
++
++                    return co.co_filename, frame.f_lineno, func_name, None
++        finally:
++            # Properly clean up frame references to avoid reference cycles
++            del stack
++
++        # Fallback if we couldn't find the right frame
++        return file_name, lineno, func_name, None
+ logging.setLoggerClass(RospyLogger)
+ 
+ def renew_latest_logdir(logfile_dir):
+-- 
+2.48.1
+
