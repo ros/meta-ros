@@ -1,0 +1,35 @@
+From 3ecd728ecb016fee816e28273b86a362463f6f79 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+Date: Thu, 27 Mar 2025 20:39:41 +0100
+Subject: [PATCH] fixing compile with newer boost
+
+The boost tuple seems to have changed, and the header was missing
+
+Upstream-Status: Pending
+
+Signed-off-by: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+---
+ src/buffer_core.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/buffer_core.cpp b/src/buffer_core.cpp
+index b2eb4877b..de01cf73b 100644
+--- a/src/buffer_core.cpp
++++ b/src/buffer_core.cpp
+@@ -38,6 +38,7 @@
+ #include <console_bridge/console.h>
+ #include "tf2/LinearMath/Transform.h"
+ #include <boost/foreach.hpp>
++#include <boost/tuple/tuple.hpp>
+ 
+ namespace tf2
+ {
+@@ -1412,7 +1413,7 @@ void BufferCore::testTransformableRequests()
+   boost::mutex::scoped_lock lock(transformable_requests_mutex_);
+   V_TransformableRequest::iterator it = transformable_requests_.begin();
+ 
+-  typedef boost::tuple<TransformableCallback&, TransformableRequestHandle, std::string,
++  typedef boost::tuples::tuple<TransformableCallback&, TransformableRequestHandle, std::string,
+                        std::string, ros::Time&, TransformableResult&> TransformableTuple;
+   std::vector<TransformableTuple> transformables;
+ 
