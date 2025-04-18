@@ -17,7 +17,6 @@ ROS_CN = "mrpt_ros"
 ROS_BPN = "mrpt_apps"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     ament-cmake \
     assimp \
     ffmpeg \
@@ -33,6 +32,7 @@ ROS_BUILD_DEPENDS = " \
     mesa \
     mrpt-libapps \
     mrpt-libnav \
+    openni2 \
     pkgconfig \
     python3-pip \
     python3-pybind11 \

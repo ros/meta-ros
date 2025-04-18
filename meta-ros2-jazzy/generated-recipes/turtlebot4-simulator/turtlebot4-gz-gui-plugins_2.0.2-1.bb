@@ -18,8 +18,8 @@ ROS_CN = "turtlebot4_simulator"
 ROS_BPN = "turtlebot4_gz_gui_plugins"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-qml-module-qtquick-extras} \
     gz-gui-vendor \
+    qtquickcontrols2 \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -27,15 +27,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-qml-module-qtquick-extras} \
     gz-gui-vendor \
+    qtquickcontrols2 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-qml-module-qtquick-extras} \
     gz-gui-vendor \
+    qtquickcontrols2 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
