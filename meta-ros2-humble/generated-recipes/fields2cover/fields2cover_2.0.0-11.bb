@@ -18,8 +18,8 @@ ROS_CN = "fields2cover"
 ROS_BPN = "fields2cover"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libgdal-dev} \
     boost \
+    gdal \
     geos \
     git \
     gtest \
@@ -36,8 +36,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libgdal-dev} \
     boost \
+    gdal \
     geos \
     git \
     gtest \
@@ -52,8 +52,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libgdal-dev} \
     boost \
+    gdal \
     geos \
     git \
     gtest \

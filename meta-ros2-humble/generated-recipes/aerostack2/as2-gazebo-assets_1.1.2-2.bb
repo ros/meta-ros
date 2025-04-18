@@ -48,11 +48,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-pydantic} \
     as2-core \
     backward-ros \
     geometry-msgs \
     python3-jinja2 \
+    python3-pydantic \
     rclcpp \
     ros-gz-bridge \
     ros-gz-sim \

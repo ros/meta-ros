@@ -19,8 +19,8 @@ ROS_CN = "apriltag_mit"
 ROS_BPN = "apriltag_mit"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-clang-tidy} \
     boost \
+    clang \
     libeigen \
     opencv \
 "
@@ -30,8 +30,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-clang-tidy} \
     boost \
+    clang \
     libeigen \
     opencv \
 "
@@ -39,8 +39,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-clang-tidy} \
     boost \
+    clang \
     libeigen \
     opencv \
 "
