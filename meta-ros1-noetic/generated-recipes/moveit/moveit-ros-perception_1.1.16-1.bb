@@ -17,7 +17,6 @@ ROS_CN = "moveit"
 ROS_BPN = "moveit_ros_perception"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libomp-dev} \
     cv-bridge \
     freeglut \
     glew \
@@ -31,6 +30,7 @@ ROS_BUILD_DEPENDS = " \
     moveit-ros-planning \
     nodelet \
     object-recognition-msgs \
+    openmp \
     pluginlib \
     rosconsole \
     roscpp \
@@ -47,7 +47,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libomp-dev} \
     cv-bridge \
     freeglut \
     glew \
@@ -60,6 +59,7 @@ ROS_EXPORT_DEPENDS = " \
     moveit-ros-planning \
     nodelet \
     object-recognition-msgs \
+    openmp \
     pluginlib \
     rosconsole \
     roscpp \
@@ -74,7 +74,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libomp-dev} \
     cv-bridge \
     freeglut \
     glew \
@@ -87,6 +86,7 @@ ROS_EXEC_DEPENDS = " \
     moveit-ros-planning \
     nodelet \
     object-recognition-msgs \
+    openmp \
     pluginlib \
     rosconsole \
     roscpp \

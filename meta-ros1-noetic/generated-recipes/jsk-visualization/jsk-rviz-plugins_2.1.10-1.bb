@@ -47,7 +47,6 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     cv-bridge \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -63,6 +62,7 @@ ROS_EXEC_DEPENDS = " \
     message-generation \
     people-msgs \
     posedetection-msgs \
+    python3-scipy \
     rviz \
     std-msgs \
     urdfdom-py \

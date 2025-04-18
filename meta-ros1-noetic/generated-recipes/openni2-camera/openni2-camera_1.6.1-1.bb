@@ -17,12 +17,12 @@ ROS_CN = "openni2_camera"
 ROS_BPN = "openni2_camera"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     camera-info-manager \
     dynamic-reconfigure \
     image-transport \
     message-generation \
     nodelet \
+    openni2 \
     roscpp \
     sensor-msgs \
 "
@@ -32,12 +32,12 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     camera-info-manager \
     dynamic-reconfigure \
     image-transport \
     message-runtime \
     nodelet \
+    openni2 \
     roscpp \
     sensor-msgs \
 "
@@ -45,12 +45,12 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     camera-info-manager \
     dynamic-reconfigure \
     image-transport \
     message-runtime \
     nodelet \
+    openni2 \
     roscpp \
     sensor-msgs \
 "
