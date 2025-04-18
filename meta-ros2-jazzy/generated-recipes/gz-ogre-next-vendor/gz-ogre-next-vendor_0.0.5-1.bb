@@ -22,11 +22,8 @@ ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-glslang-dev} \
     ${ROS_UNRESOLVED_DEP-glslc} \
     ${ROS_UNRESOLVED_DEP-libfreeimage-dev} \
-    ${ROS_UNRESOLVED_DEP-libshaderc-dev} \
     ${ROS_UNRESOLVED_DEP-libx11-xcb-dev} \
     ${ROS_UNRESOLVED_DEP-libxcb-randr0-dev} \
-    ${ROS_UNRESOLVED_DEP-rapidjson-dev} \
-    ${ROS_UNRESOLVED_DEP-zziplib} \
     boost \
     freetype \
     libsdl2 \
@@ -36,8 +33,11 @@ ROS_BUILD_DEPENDS = " \
     libxrandr \
     mesa \
     poco \
+    rapidjson \
+    shaderc \
     tbb \
     vulkan-headers \
+    zziplib \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -49,11 +49,8 @@ ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-glslang-dev} \
     ${ROS_UNRESOLVED_DEP-glslc} \
     ${ROS_UNRESOLVED_DEP-libfreeimage-dev} \
-    ${ROS_UNRESOLVED_DEP-libshaderc-dev} \
     ${ROS_UNRESOLVED_DEP-libx11-xcb-dev} \
     ${ROS_UNRESOLVED_DEP-libxcb-randr0-dev} \
-    ${ROS_UNRESOLVED_DEP-rapidjson-dev} \
-    ${ROS_UNRESOLVED_DEP-zziplib} \
     boost \
     freetype \
     libsdl2 \
@@ -63,8 +60,11 @@ ROS_EXPORT_DEPENDS = " \
     libxrandr \
     mesa \
     poco \
+    rapidjson \
+    shaderc \
     tbb \
     vulkan-headers \
+    zziplib \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
@@ -73,11 +73,8 @@ ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-glslang-dev} \
     ${ROS_UNRESOLVED_DEP-glslc} \
     ${ROS_UNRESOLVED_DEP-libfreeimage-dev} \
-    ${ROS_UNRESOLVED_DEP-libshaderc-dev} \
     ${ROS_UNRESOLVED_DEP-libx11-xcb-dev} \
     ${ROS_UNRESOLVED_DEP-libxcb-randr0-dev} \
-    ${ROS_UNRESOLVED_DEP-rapidjson-dev} \
-    ${ROS_UNRESOLVED_DEP-zziplib} \
     boost \
     freetype \
     libsdl2 \
@@ -87,8 +84,11 @@ ROS_EXEC_DEPENDS = " \
     libxrandr \
     mesa \
     poco \
+    rapidjson \
+    shaderc \
     tbb \
     vulkan-headers \
+    zziplib \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
