@@ -18,7 +18,6 @@ ROS_CN = "caret_analyze"
 ROS_BPN = "caret_analyze"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-graphviz-dev} \
     ${ROS_UNRESOLVED_DEP-python3-colorcet} \
     ${ROS_UNRESOLVED_DEP-python3-graphviz} \
     graphviz \

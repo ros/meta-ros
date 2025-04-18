@@ -16,14 +16,14 @@ ROS_CN = "aerostack2"
 ROS_BPN = "as2_python_api"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-pydantic} \
-    ${ROS_UNRESOLVED_DEP-python3-pymap3d} \
     action-msgs \
     as2-motion-reference-handlers \
     as2-msgs \
     geographic-msgs \
     geometry-msgs \
     nav-msgs \
+    python3-pydantic \
+    python3-pymap3d \
     rclpy \
     sensor-msgs \
     std-srvs \
@@ -32,14 +32,14 @@ ROS_BUILD_DEPENDS = " \
 ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-pydantic} \
-    ${ROS_UNRESOLVED_DEP-python3-pymap3d} \
     action-msgs \
     as2-motion-reference-handlers \
     as2-msgs \
     geographic-msgs \
     geometry-msgs \
     nav-msgs \
+    python3-pydantic \
+    python3-pymap3d \
     rclpy \
     sensor-msgs \
     std-srvs \
@@ -48,14 +48,14 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-pydantic} \
-    ${ROS_UNRESOLVED_DEP-python3-pymap3d} \
     action-msgs \
     as2-motion-reference-handlers \
     as2-msgs \
     geographic-msgs \
     geometry-msgs \
     nav-msgs \
+    python3-pydantic \
+    python3-pymap3d \
     rclpy \
     sensor-msgs \
     std-srvs \
