@@ -17,13 +17,13 @@ ROS_CN = "eigenpy"
 ROS_BPN = "eigenpy"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     boost \
     doxygen \
     git \
     libeigen \
     python3 \
     python3-numpy \
+    python3-scipy \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -31,22 +31,22 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     boost \
     libeigen \
     python3 \
     python3-numpy \
+    python3-scipy \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     boost \
     catkin \
     libeigen \
     python3 \
     python3-numpy \
+    python3-scipy \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

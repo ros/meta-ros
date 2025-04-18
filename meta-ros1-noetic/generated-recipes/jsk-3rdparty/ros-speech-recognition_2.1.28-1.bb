@@ -28,7 +28,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-sound-theme-freedesktop} \
     audio-capture \
     audio-common-msgs \
     dynamic-reconfigure \
@@ -37,13 +36,13 @@ ROS_EXPORT_DEPENDS = " \
     python3-gnupg \
     python3-pycryptodomex \
     sound-play \
+    sound-theme-freedesktop \
     speech-recognition-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-sound-theme-freedesktop} \
     audio-capture \
     audio-common-msgs \
     dynamic-reconfigure \
@@ -52,6 +51,7 @@ ROS_EXEC_DEPENDS = " \
     python3-gnupg \
     python3-pycryptodomex \
     sound-play \
+    sound-theme-freedesktop \
     speech-recognition-msgs \
 "
 
