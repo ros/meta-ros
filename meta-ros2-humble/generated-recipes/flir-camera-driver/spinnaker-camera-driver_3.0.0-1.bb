@@ -16,7 +16,6 @@ ROS_CN = "flir_camera_driver"
 ROS_BPN = "spinnaker_camera_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-distro} \
     camera-info-manager \
     curl \
     dpkg \
@@ -24,6 +23,7 @@ ROS_BUILD_DEPENDS = " \
     flir-camera-msgs \
     image-transport \
     libusb1 \
+    python3-distro \
     rclcpp \
     rclcpp-components \
     sensor-msgs \

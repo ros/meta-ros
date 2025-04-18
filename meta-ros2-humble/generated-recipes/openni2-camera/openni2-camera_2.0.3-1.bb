@@ -17,10 +17,10 @@ ROS_CN = "openni2_camera"
 ROS_BPN = "openni2_camera"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     builtin-interfaces \
     camera-info-manager \
     image-transport \
+    openni2 \
     pkgconfig \
     rclcpp \
     rclcpp-components \
@@ -33,10 +33,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     builtin-interfaces \
     camera-info-manager \
     image-transport \
+    openni2 \
     rclcpp \
     rclcpp-components \
     sensor-msgs \
@@ -45,11 +45,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     builtin-interfaces \
     camera-info-manager \
     depth-image-proc \
     image-transport \
+    openni2 \
     rclcpp \
     rclcpp-components \
     rosidl-default-runtime \
