@@ -17,11 +17,11 @@ ROS_CN = "pick_ik"
 ROS_BPN = "pick_ik"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-range-v3} \
     fmt \
     generate-parameter-library \
     moveit-core \
     pluginlib \
+    range-v3 \
     rclcpp \
     rsl \
     tf2-geometry-msgs \
@@ -34,11 +34,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-range-v3} \
     fmt \
     generate-parameter-library \
     moveit-core \
     pluginlib \
+    range-v3 \
     rclcpp \
     rsl \
     tf2-geometry-msgs \
@@ -49,11 +49,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-range-v3} \
     fmt \
     generate-parameter-library \
     moveit-core \
     pluginlib \
+    range-v3 \
     rclcpp \
     rsl \
     tf2-geometry-msgs \

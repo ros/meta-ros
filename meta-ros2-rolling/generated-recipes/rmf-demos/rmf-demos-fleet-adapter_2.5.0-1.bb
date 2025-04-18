@@ -27,11 +27,11 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-python3-fastapi} \
-    ${ROS_UNRESOLVED_DEP-python3-pydantic} \
     ${ROS_UNRESOLVED_DEP-python3-uvicorn} \
     launch-xml \
     python3-flask-socketio \
     python3-numpy \
+    python3-pydantic \
     python3-pyproj \
     python3-pyyaml \
     python3-requests \
