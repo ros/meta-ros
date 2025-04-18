@@ -16,7 +16,7 @@ ROS_CN = "camera_aravis2"
 ROS_BPN = "camera_aravis2"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-aravis-dev} \
+    aravis \
     camera-aravis2-msgs \
     camera-info-manager \
     cv-bridge \
