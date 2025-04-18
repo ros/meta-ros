@@ -18,7 +18,6 @@ ROS_BPN = "mrpt_libopengl"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-liboctomap-dev} \
-    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     ament-cmake \
     assimp \
     cv-bridge \
@@ -36,6 +35,7 @@ ROS_BUILD_DEPENDS = " \
     mrpt-libbase \
     mrpt-libposes \
     opencv \
+    openni2 \
     pkgconfig \
     python3-pip \
     python3-pybind11 \
