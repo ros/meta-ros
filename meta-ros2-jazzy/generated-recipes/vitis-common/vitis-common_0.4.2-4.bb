@@ -19,8 +19,8 @@ ROS_CN = "vitis_common"
 ROS_BPN = "vitis_common"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     opencl-headers \
+    opencl-icd-loader \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \

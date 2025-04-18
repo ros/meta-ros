@@ -2,7 +2,7 @@
 acl:
 - acl@openembedded-core
 aravis-dev:
-- ${ROS_UNRESOLVED_DEP-aravis-dev}
+- aravis@meta-multimedia
 asio:
 - asio@meta-oe
 assimp:
@@ -21,24 +21,28 @@ bison:
 - bison@openembedded-core
 black:
 - python3-black@meta-ros
+bluez:
+- bluez5@openembedded-core
 boost:
 - boost@openembedded-core
 bullet:
 - bullet@meta-ros-common
 bzip2:
 - bzip2@openembedded-core
+can-utils:
+- can-utils@meta-oe
 cargo:
 - cargo@openembedded-core
 catch2:
-- ${ROS_UNRESOLVED_DEP-catch2}
+- catch2@meta-oe
 chrony:
-- ${ROS_UNRESOLVED_DEP-chrony}
+- chrony@meta-networking
 clang:
-- clang-native@meta-clang
+- clang@meta-clang
 clang-format:
-- ${ROS_UNRESOLVED_DEP-clang-format}
+- clang@meta-clang
 clang-tidy:
-- ${ROS_UNRESOLVED_DEP-clang-tidy}
+- clang@meta-clang
 cmake:
 - cmake@openembedded-core
 coinor-libcbc-dev:
@@ -76,10 +80,6 @@ flex:
 - flex@openembedded-core
 fmt:
 - fmt@meta-oe
-gazebo_dev:
-- ${ROS_UNRESOLVED_DEP-gazebo-rosdev}
-gazebo_ros:
-- ${ROS_UNRESOLVED_DEP-gazebo-ros}
 gazebo_ros_pkgs:
 - ${ROS_UNRESOLVED_DEP-gazebo-ros-pkgs}
 geographiclib:
@@ -87,7 +87,7 @@ geographiclib:
 geographiclib-tools:
 - geographiclib@meta-ros-common
 geos:
-- ${ROS_UNRESOLVED_DEP-geos}
+- geos@meta-oe
 git:
 - git@openembedded-core
 glslang-dev:
@@ -101,7 +101,7 @@ google-mock:
 graphicsmagick:
 - graphicsmagick@meta-ros2
 graphviz:
-- graphviz@meta-ros-common
+- graphviz@meta-oe
 gtest:
 - gtest@meta-oe
 gtk3:
@@ -110,6 +110,8 @@ gurumdds-3.2:
 - ${ROS_UNRESOLVED_DEP-gurumdds-3.2}
 hdf5-tools:
 - hdf5@meta-oe
+iproute2:
+- iproute2@openembedded-core
 iwyu:
 - ${ROS_UNRESOLVED_DEP-iwyu}
 jq:
@@ -123,13 +125,13 @@ libabsl-dev:
 libatomic:
 - gcc-runtime@openembedded-core
 libavdevice-dev:
-- ${ROS_UNRESOLVED_DEP-libavdevice-dev}
+- ffmpeg@openembedded-core
 libblosc-dev:
 - ${ROS_UNRESOLVED_DEP-libblosc-dev}
 libbluetooth:
-- ${ROS_UNRESOLVED_DEP-libbluetooth}
+- bluez5@openembedded-core
 libbluetooth-dev:
-- ${ROS_UNRESOLVED_DEP-libbluetooth-dev}
+- bluez5@openembedded-core
 libboost-chrono-dev:
 - boost@openembedded-core
 libboost-date-time:
@@ -175,17 +177,19 @@ libccd-dev:
 libceres-dev:
 - ceres-solver@meta-oe
 libclang-dev:
-- ${ROS_UNRESOLVED_DEP-libclang-dev}
+- clang@meta-clang
 libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libcurl-dev:
 - ${ROS_UNRESOLVED_DEP-libcurl-dev}
 libdbus-dev:
-- ${ROS_UNRESOLVED_DEP-libdbus-dev}
+- dbus@openembedded-core
 libdraco-dev:
 - ${ROS_UNRESOLVED_DEP-libdraco-dev}
 libdw-dev:
 - elfutils@openembedded-core
+libepoxy-dev:
+- libepoxy@openembedded-core
 libfcl:
 - fcl@meta-ros-common
 libfcl-dev:
@@ -201,7 +205,7 @@ libfreetype-dev:
 libfreetype6:
 - freetype@openembedded-core
 libgdal-dev:
-- ${ROS_UNRESOLVED_DEP-libgdal-dev}
+- gdal@meta-ros-common
 libgeos++-dev:
 - geos@meta-oe
 libgflags-dev:
@@ -217,7 +221,7 @@ libgmock-dev:
 libgoogle-glog-dev:
 - glog@meta-oe
 libgpiod-dev:
-- ${ROS_UNRESOLVED_DEP-libgpiod-dev}
+- libgpiod@meta-oe
 libgps:
 - gpsd@meta-oe
 libgstreamer-plugins-base1.0-dev:
@@ -225,7 +229,7 @@ libgstreamer-plugins-base1.0-dev:
 libgstreamer1.0-dev:
 - gstreamer1.0@openembedded-core
 libgts:
-- ${ROS_UNRESOLVED_DEP-libgts}
+- gts@meta-ros-common
 libhdf5-dev:
 - hdf5@meta-oe
 libjpeg:
@@ -241,9 +245,9 @@ liblttng-ctl-dev:
 liblttng-ust-dev:
 - lttng-ust@openembedded-core
 liblz4:
-- ${ROS_UNRESOLVED_DEP-liblz4}
+- lz4@openembedded-core
 liblz4-dev:
-- ${ROS_UNRESOLVED_DEP-liblz4-dev}
+- lz4@openembedded-core
 libncurses-dev:
 - ncurses@openembedded-core
 libnlopt-cxx-dev:
@@ -257,7 +261,7 @@ libogg:
 libogre-dev:
 - ogre@meta-ros-common
 libomp-dev:
-- ${ROS_UNRESOLVED_DEP-libomp-dev}
+- openmp@meta-clang
 libopenblas-dev:
 - openblas@meta-ros-common
 libopencv-dev:
@@ -265,11 +269,11 @@ libopencv-dev:
 libopencv-imgproc-dev:
 - opencv@meta-oe
 libopenexr-dev:
-- ${ROS_UNRESOLVED_DEP-libopenexr-dev}
+- openexr@meta-ros-common
 libopenni2-dev:
-- ${ROS_UNRESOLVED_DEP-libopenni2-dev}
+- openni2@meta-ros2
 libopenscenegraph:
-- ${ROS_UNRESOLVED_DEP-libopenscenegraph}
+- openscenegraph@meta-ros2
 libopenvdb-dev:
 - ${ROS_UNRESOLVED_DEP-libopenvdb-dev}
 liborocos-kdl-dev:
@@ -336,8 +340,10 @@ libqwt-qt5-dev:
 - qwt-qt5@meta-qt5
 libreadline:
 - readline@openembedded-core
+libserial-dev:
+- ${ROS_UNRESOLVED_DEP-libserial-dev}
 libshaderc-dev:
-- ${ROS_UNRESOLVED_DEP-libshaderc-dev}
+- shaderc@openembedded-core
 libspnav-dev:
 - ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
@@ -389,7 +395,7 @@ libxcb-randr0-dev:
 libxi-dev:
 - libxi@openembedded-core
 libxkbcommon-dev:
-- ${ROS_UNRESOLVED_DEP-libxkbcommon-dev}
+- libxkbcommon@openembedded-core
 libxml2:
 - libxml2@openembedded-core
 libxml2-utils:
@@ -407,7 +413,7 @@ libyaml:
 libyaml-dev:
 - libyaml@openembedded-core
 libzip-dev:
-- ${ROS_UNRESOLVED_DEP-libzip-dev}
+- libzip@meta-oe
 libzmq3-dev:
 - zeromq@meta-oe
 libzstd-dev:
@@ -429,7 +435,7 @@ network-manager:
 nlohmann-json-dev:
 - nlohmann-json@meta-oe
 ocl-icd-opencl-dev:
-- ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev}
+- opencl-icd-loader@meta-oe
 opencl-headers:
 - opencl-headers@meta-oe
 opende:
@@ -465,7 +471,7 @@ python3-argcomplete:
 python3-autobahn:
 - python3-autobahn@meta-python
 python3-babeltrace:
-- ${ROS_UNRESOLVED_DEP-python3-babeltrace}
+- babeltrace@openembedded-core
 python3-bson:
 - python3-pymongo@meta-python
 python3-cairo:
@@ -479,7 +485,7 @@ python3-click:
 python3-collada:
 - ${ROS_UNRESOLVED_DEP-python3-collada}
 python3-construct:
-- ${ROS_UNRESOLVED_DEP-python3-construct}
+- python3-construct@meta-ros2
 python3-coverage:
 - python3-coverage@meta-python
 python3-cryptography:
@@ -493,11 +499,13 @@ python3-deprecated:
 python3-dev:
 - python3@openembedded-core
 python3-distro:
-- ${ROS_UNRESOLVED_DEP-python3-distro}
+- python3-distro@meta-python
 python3-empy:
 - python3-empy@meta-ros-common
 python3-expiringdict:
 - ${ROS_UNRESOLVED_DEP-python3-expiringdict}
+python3-fastapi:
+- ${ROS_UNRESOLVED_DEP-python3-fastapi}
 python3-fiona:
 - python3-fiona@meta-ros2
 python3-flake8:
@@ -514,12 +522,16 @@ python3-flake8-quotes:
 - python3-flake8-quotes@meta-ros-common
 python3-flask:
 - python3-flask@meta-python
+python3-flask-socketio:
+- python3-flask-socketio@meta-python
 python3-future:
 - python3-future@meta-python
 python3-git:
 - python3-git@openembedded-core
 python3-h5py:
 - python3-h5py@meta-python
+python3-httpx:
+- ${ROS_UNRESOLVED_DEP-python3-httpx}
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
@@ -538,6 +550,8 @@ python3-matplotlib:
 - python3-matplotlib@meta-python
 python3-mock:
 - python3-mock@meta-ros-common
+python3-msgpack:
+- python3-msgpack@meta-python
 python3-mypy:
 - python3-mypy@meta-ros-common
 python3-natsort:
@@ -550,6 +564,8 @@ python3-opencv:
 - opencv@meta-oe
 python3-packaging:
 - python3-packaging@openembedded-core
+python3-paho-mqtt:
+- ${ROS_UNRESOLVED_DEP-python3-paho-mqtt}
 python3-pandas:
 - python3-pandas@meta-python
 python3-pexpect:
@@ -560,14 +576,20 @@ python3-pip:
 - python3-pip@openembedded-core
 python3-pkg-resources:
 - python3-setuptools@openembedded-core
+python3-platformdirs:
+- ${ROS_UNRESOLVED_DEP-python3-platformdirs}
 python3-ply:
-- ${ROS_UNRESOLVED_DEP-python3-ply}
+- python3-ply@openembedded-core
+python3-pre-commit:
+- ${ROS_UNRESOLVED_DEP-python3-pre-commit}
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
 - python3-psutil@meta-python
 python3-pycodestyle:
 - python3-pycodestyle@meta-python
+python3-pydantic:
+- python3-pydantic@meta-python
 python3-pydot:
 - python3-pydot@meta-ros-common
 python3-pygraphviz:
@@ -592,6 +614,8 @@ python3-qt5-bindings:
 - python3-pyqt5@meta-qt5
 python3-requests:
 - python3-requests@meta-python
+python3-rich:
+- ${ROS_UNRESOLVED_DEP-python3-rich}
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
 python3-rospkg:
@@ -601,17 +625,19 @@ python3-rospkg-modules:
 python3-rtree:
 - python3-rtree@meta-ros2
 python3-scipy:
-- ${ROS_UNRESOLVED_DEP-python3-scipy}
+- python3-scipy@meta-scipy
 python3-semver:
 - ${ROS_UNRESOLVED_DEP-python3-semver}
 python3-serial:
 - python3-pyserial@meta-python
+python3-setproctitle:
+- ${ROS_UNRESOLVED_DEP-python3-setproctitle}
 python3-setuptools:
 - python3-setuptools@openembedded-core
 python3-shapely:
 - python3-shapely@meta-ros2
 python3-smbus:
-- ${ROS_UNRESOLVED_DEP-python3-smbus}
+- python3-smbus@meta-python
 python3-sphinx:
 - python3-sphinx@meta-ros-common
 python3-tk:
@@ -628,16 +654,22 @@ python3-typeguard:
 - python3-typeguard@meta-python
 python3-unidiff:
 - python3-unidiff@meta-python
+python3-uvicorn:
+- ${ROS_UNRESOLVED_DEP-python3-uvicorn}
 python3-uvloop:
 - python3-uvloop@meta-ros2
 python3-vcstool:
 - python3-vcstool@meta-ros-common
 python3-venv:
-- ${ROS_UNRESOLVED_DEP-python3-venv}
+- python3@openembedded-core
 python3-waitress:
 - ${ROS_UNRESOLVED_DEP-python3-waitress}
+python3-watchdog:
+- python3-watchdog@meta-python
 python3-websocket:
 - python3-websocket-client@meta-python
+python3-wheel:
+- ${ROS_UNRESOLVED_DEP-python3-wheel}
 python3-whichcraft:
 - python3-whichcraft@meta-ros-common
 python3-yaml:
@@ -665,7 +697,7 @@ qml-module-qtquick-controls2:
 qml-module-qtquick-dialogs:
 - ${ROS_UNRESOLVED_DEP-qml-module-qtquick-dialogs}
 qml-module-qtquick-extras:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtquick-extras}
+- qtquickcontrols2@meta-qt5
 qml-module-qtquick-layouts:
 - ${ROS_UNRESOLVED_DEP-qml-module-qtquick-layouts}
 qml-module-qtquick-templates2:
@@ -687,9 +719,9 @@ qtquickcontrols2-5-dev:
 qttools5-dev-tools:
 - qttools@meta-qt5
 range-v3:
-- ${ROS_UNRESOLVED_DEP-range-v3}
+- range-v3@meta-ros2
 rapidjson-dev:
-- ${ROS_UNRESOLVED_DEP-rapidjson-dev}
+- rapidjson@meta-oe
 ros_ign_bridge:
 - ${ROS_UNRESOLVED_DEP-ros-ign-bridge}
 ros_ign_gazebo:
@@ -701,7 +733,7 @@ ruby:
 sdl2:
 - libsdl2@openembedded-core
 simde:
-- ${ROS_UNRESOLVED_DEP-simde}
+- simde@meta-ros2
 socat:
 - socat@openembedded-core
 spacenavd:
@@ -714,6 +746,8 @@ spirv-tools:
 - spirv-tools@openembedded-core
 sqlite3:
 - sqlite3@openembedded-core
+stress:
+- ${ROS_UNRESOLVED_DEP-stress}
 subversion:
 - subversion@openembedded-core
 suitesparse:
@@ -752,9 +786,9 @@ wx-common:
 wxwidgets:
 - wxwidgets@meta-ros-common
 xsimd:
-- ${ROS_UNRESOLVED_DEP-xsimd}
+- xsimd@meta-ros2
 xtensor:
-- ${ROS_UNRESOLVED_DEP-xtensor}
+- xtensor@meta-ros2
 xvfb:
 - ${ROS_UNRESOLVED_DEP-xvfb}
 yaml:
@@ -766,4 +800,4 @@ zbar:
 zlib:
 - zlib@openembedded-core
 zziplib:
-- ${ROS_UNRESOLVED_DEP-zziplib}
+- zziplib@meta-ros-common
