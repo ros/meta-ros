@@ -17,11 +17,11 @@ ROS_BPN = "feetech_ros2_driver"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-libserial-dev} \
-    ${ROS_UNRESOLVED_DEP-range-v3} \
     fmt \
     hardware-interface \
     pkgconfig \
     pluginlib \
+    range-v3 \
     rclcpp \
     spdlog \
     tl-expected \
@@ -33,11 +33,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-libserial-dev} \
-    ${ROS_UNRESOLVED_DEP-range-v3} \
     fmt \
     hardware-interface \
     pkgconfig \
     pluginlib \
+    range-v3 \
     rclcpp \
     spdlog \
     tl-expected \
@@ -47,11 +47,11 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-libserial-dev} \
-    ${ROS_UNRESOLVED_DEP-range-v3} \
     fmt \
     hardware-interface \
     pkgconfig \
     pluginlib \
+    range-v3 \
     rclcpp \
     spdlog \
     tl-expected \
