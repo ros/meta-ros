@@ -16,11 +16,11 @@ ROS_CN = "kuka_drivers"
 ROS_BPN = "kuka_sunrise_fri_driver"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libnanopb-dev} \
     controller-manager-msgs \
     hardware-interface \
     kuka-driver-interfaces \
     kuka-drivers-core \
+    nanopb \
     std-msgs \
     std-srvs \
 "
@@ -30,11 +30,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libnanopb-dev} \
     controller-manager-msgs \
     hardware-interface \
     kuka-driver-interfaces \
     kuka-drivers-core \
+    nanopb \
     std-msgs \
     std-srvs \
 "
@@ -42,7 +42,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libnanopb-dev} \
     controller-manager-msgs \
     fri-configuration-controller \
     fri-state-broadcaster \
@@ -55,6 +54,7 @@ ROS_EXEC_DEPENDS = " \
     kuka-drivers-core \
     kuka-event-broadcaster \
     kuka-lbr-iiwa-support \
+    nanopb \
     ros2-control \
     std-msgs \
     std-srvs \

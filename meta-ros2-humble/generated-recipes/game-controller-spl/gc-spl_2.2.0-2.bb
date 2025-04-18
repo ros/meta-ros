@@ -26,8 +26,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-construct} \
     gc-spl-interfaces \
+    python3-construct \
     rclpy \
 "
 

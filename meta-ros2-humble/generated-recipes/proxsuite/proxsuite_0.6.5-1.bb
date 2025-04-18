@@ -17,12 +17,12 @@ ROS_CN = "proxsuite"
 ROS_BPN = "proxsuite"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
-    ${ROS_UNRESOLVED_DEP-simde} \
     doxygen \
     git \
     libeigen \
     python3-numpy \
+    python3-scipy \
+    simde \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -30,19 +30,19 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
-    ${ROS_UNRESOLVED_DEP-simde} \
     libeigen \
     python3-numpy \
+    python3-scipy \
+    simde \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
-    ${ROS_UNRESOLVED_DEP-simde} \
     libeigen \
     python3-numpy \
+    python3-scipy \
+    simde \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

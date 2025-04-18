@@ -18,9 +18,9 @@ ROS_CN = "beluga"
 ROS_BPN = "beluga"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-range-v3} \
     hdf5 \
     libeigen \
+    range-v3 \
     sophus \
     tbb \
 "
@@ -30,9 +30,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-range-v3} \
     hdf5 \
     libeigen \
+    range-v3 \
     sophus \
     tbb \
 "
@@ -40,17 +40,16 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-range-v3} \
     hdf5 \
     libeigen \
+    range-v3 \
     sophus \
     tbb \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-clang-format} \
-    ${ROS_UNRESOLVED_DEP-clang-tidy} \
+    clang \
     google-benchmark \
     gtest \
 "

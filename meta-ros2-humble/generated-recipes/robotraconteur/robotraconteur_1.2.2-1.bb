@@ -19,9 +19,9 @@ ROS_CN = "robotraconteur"
 ROS_BPN = "robotraconteur"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libbluetooth-dev} \
-    ${ROS_UNRESOLVED_DEP-libdbus-dev} \
+    bluez5 \
     boost \
+    dbus \
     libusb1 \
     openssl \
     python3 \
@@ -35,9 +35,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libbluetooth-dev} \
-    ${ROS_UNRESOLVED_DEP-libdbus-dev} \
+    bluez5 \
     boost \
+    dbus \
     libusb1 \
     openssl \
     python3 \
@@ -49,9 +49,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libbluetooth-dev} \
-    ${ROS_UNRESOLVED_DEP-libdbus-dev} \
+    bluez5 \
     boost \
+    dbus \
     libusb1 \
     openssl \
     python3 \

@@ -17,11 +17,11 @@ ROS_CN = "pangolin"
 ROS_BPN = "pangolin"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libxkbcommon-dev} \
     glew \
     libeigen \
     libjpeg-turbo \
     libpng \
+    libxkbcommon \
     python3 \
     wayland \
 "
@@ -31,20 +31,20 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libxkbcommon-dev} \
     glew \
     libjpeg-turbo \
     libpng \
+    libxkbcommon \
     python3 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libxkbcommon-dev} \
     glew \
     libjpeg-turbo \
     libpng \
+    libxkbcommon \
     python3 \
     wayland \
 "
