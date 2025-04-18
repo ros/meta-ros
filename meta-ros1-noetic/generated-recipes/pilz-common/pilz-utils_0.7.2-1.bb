@@ -18,7 +18,7 @@ ROS_CN = "pilz_common"
 ROS_BPN = "pilz_utils"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-clang-tidy} \
+    clang \
     roscpp \
 "
 

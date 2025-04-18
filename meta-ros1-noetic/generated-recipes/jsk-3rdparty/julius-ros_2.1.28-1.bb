@@ -29,7 +29,6 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-julius-voxforge} \
     ${ROS_UNRESOLVED_DEP-nkf} \
-    ${ROS_UNRESOLVED_DEP-sound-theme-freedesktop} \
     audio-capture \
     audio-common-msgs \
     julius \
@@ -37,6 +36,7 @@ ROS_EXEC_DEPENDS = " \
     python3-rospkg \
     rospy \
     sound-play \
+    sound-theme-freedesktop \
     speech-recognition-msgs \
     std-srvs \
 "

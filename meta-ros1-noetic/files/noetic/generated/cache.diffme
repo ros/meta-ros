@@ -1,4 +1,4 @@
-# noetic/cache.yaml 2025-01-17 72c58c10f9f7dff72b748d9309d647912cc8d358 20250110182110 1.8.0
+# noetic/cache.yaml 2025-04-08 bf901cba84182ed8b2f43962bb5fefeee3edda60 20250408214326 1.8.0
 distribution_file:
 - release_platforms:
 -----
@@ -210,7 +210,7 @@ angles: {
 doc: {
 type: git,
 url: 'https://github.com/ros/angles.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -223,7 +223,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/angles.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -831,7 +831,7 @@ bond_core: {
 doc: {
 type: git,
 url: 'https://github.com/ros/bond_core.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 packages: [bond,
@@ -849,7 +849,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/bond_core.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -2368,7 +2368,8 @@ url: 'https://github.com/ctu-vras/ros-utils.git',
 version: master
 },
 release: {
-packages: [cras_cpp_common,
+packages: [cras_bag_tools,
+cras_cpp_common,
 cras_docs_common,
 cras_py_common,
 cras_topic_tools,
@@ -2377,7 +2378,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://gitlab.fel.cvut.cz/cras/ros-release/ros-utils.git',
-version: 2.4.8-1
+version: 2.5.1-1
 },
 source: {
 type: git,
@@ -2696,6 +2697,15 @@ version: master
 status: maintained
 }
 -----
+depth_obstacle_detect_ros: {
+source: {
+type: git,
+url: 'https://github.com/analogdevicesinc/depth-obstacle-detect-ros.git',
+version: noetic-devel
+},
+status: maintained
+}
+-----
 depthai: {
 doc: {
 type: git,
@@ -2707,7 +2717,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/luxonis/depthai-core-release.git',
-version: 2.29.0-1
+version: 2.30.0-1
 },
 source: {
 test_pull_requests: true,
@@ -2736,7 +2746,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/luxonis/depthai-ros-release.git',
-version: 2.10.5-1
+version: 2.11.2-1
 },
 source: {
 test_pull_requests: true,
@@ -3152,7 +3162,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ROBOTIS-GIT-release/DynamixelSDK-release.git',
-version: 3.7.51-4
+version: 3.8.0-1
 },
 source: {
 type: git,
@@ -3535,6 +3545,9 @@ etsi_its_cpm_ts_msgs,
 etsi_its_denm_coding,
 etsi_its_denm_conversion,
 etsi_its_denm_msgs,
+etsi_its_denm_ts_coding,
+etsi_its_denm_ts_conversion,
+etsi_its_denm_ts_msgs,
 etsi_its_mapem_ts_coding,
 etsi_its_mapem_ts_conversion,
 etsi_its_mapem_ts_msgs,
@@ -3553,7 +3566,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ika-rwth-aachen/etsi_its_messages-release.git',
-version: 3.0.0-1
+version: 3.1.0-1
 },
 source: {
 type: git,
@@ -3615,7 +3628,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/executive_smach-release.git',
-version: 2.5.2-1
+version: 2.5.3-1
 },
 source: {
 test_pull_requests: true,
@@ -3724,6 +3737,48 @@ url: 'https://github.com/iron-ox/fadecandy_ros.git',
 version: master
 },
 status: developed
+}
+-----
+fanuc: {
+doc: {
+type: git,
+url: 'https://github.com/ros-industrial/fanuc.git',
+version: noetic
+},
+release: {
+packages: [fanuc_cr35ia_support,
+fanuc_cr7ia_support,
+fanuc_crx10ia_support,
+fanuc_driver,
+fanuc_lrmate200i_support,
+fanuc_lrmate200ib_support,
+fanuc_lrmate200ic_support,
+fanuc_lrmate200id_support,
+fanuc_m10ia_support,
+fanuc_m16ib_support,
+fanuc_m20ia_support,
+fanuc_m20ib_support,
+fanuc_m430ia_support,
+fanuc_m6ib_support,
+fanuc_m710ic_support,
+fanuc_m900ia_support,
+fanuc_m900ib_support,
+fanuc_r1000ia_support,
+fanuc_r2000ib_support,
+fanuc_r2000ic_support,
+fanuc_resources],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ros-industrial-release/fanuc-release.git',
+version: 0.6.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-industrial/fanuc.git',
+version: noetic-devel
+},
+status: maintained
 }
 -----
 fath_pivot_mount_description: {
@@ -4195,7 +4250,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/foxglove/ros_foxglove_bridge-release.git',
-version: 0.8.1-1
+version: 0.8.4-1
 },
 source: {
 type: git,
@@ -4407,7 +4462,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/gazebo_ros_pkgs-release.git',
-version: 2.9.2-1
+version: 2.9.3-1
 },
 source: {
 test_pull_requests: true,
@@ -4415,7 +4470,8 @@ type: git,
 url: 'https://github.com/ros-simulation/gazebo_ros_pkgs.git',
 version: noetic-devel
 },
-status: maintained
+status: end-of-life,
+status_description: Deprecated. Use ros_gz instead.
 }
 -----
 gazebo_set_joint_positions_plugin: {
@@ -4460,7 +4516,7 @@ gencpp: {
 doc: {
 type: git,
 url: 'https://github.com/ros/gencpp.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -4472,7 +4528,7 @@ version: 0.7.0-1
 source: {
 type: git,
 url: 'https://github.com/ros/gencpp.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -4502,7 +4558,7 @@ genlisp: {
 doc: {
 type: git,
 url: 'https://github.com/ros/genlisp.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -4515,7 +4571,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/genlisp.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -4524,7 +4580,7 @@ genmsg: {
 doc: {
 type: git,
 url: 'https://github.com/ros/genmsg.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -4537,7 +4593,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/genmsg.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -4583,7 +4639,7 @@ genpy: {
 doc: {
 type: git,
 url: 'https://github.com/ros/genpy.git',
-version: main
+version: noetic-devel
 },
 release: {
 tags: {
@@ -4596,7 +4652,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/genpy.git',
-version: main
+version: noetic-devel
 },
 status: maintained
 }
@@ -4710,7 +4766,7 @@ geometry_tutorials: {
 doc: {
 type: git,
 url: 'https://github.com/ros/geometry_tutorials.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 packages: [geometry_tutorials,
@@ -4725,7 +4781,7 @@ version: 0.2.3-1
 source: {
 type: git,
 url: 'https://github.com/ros/geometry_tutorials.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -4734,7 +4790,7 @@ gl_dependency: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/gl_dependency.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -4746,7 +4802,7 @@ version: 1.1.2-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/gl_dependency.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -5010,7 +5066,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/CogRobRelease/catkin_grpc-release.git',
-version: 0.0.12-2
+version: 0.0.16-2
 },
 source: {
 type: git,
@@ -6658,7 +6714,7 @@ laser_geometry: {
 doc: {
 type: git,
 url: 'https://github.com/ros-perception/laser_geometry.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -6671,7 +6727,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-perception/laser_geometry.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -7357,7 +7413,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/swri-robotics-gbp/marti_common-release.git',
-version: 2.15.2-1
+version: 2.15.4-1
 },
 source: {
 test_pull_requests: true,
@@ -7508,7 +7564,7 @@ media_export: {
 doc: {
 type: git,
 url: 'https://github.com/ros/media_export.git',
-version: indigo-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -7521,7 +7577,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/media_export.git',
-version: indigo-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -7589,7 +7645,7 @@ message_generation: {
 doc: {
 type: git,
 url: 'https://github.com/ros/message_generation.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -7601,7 +7657,7 @@ version: 0.4.1-1
 source: {
 type: git,
 url: 'https://github.com/ros/message_generation.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -7610,7 +7666,7 @@ message_runtime: {
 doc: {
 type: git,
 url: 'https://github.com/ros/message_runtime.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -7622,7 +7678,7 @@ version: 0.4.13-1
 source: {
 type: git,
 url: 'https://github.com/ros/message_runtime.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -8259,19 +8315,30 @@ status: developed
 movie_publisher: {
 doc: {
 type: git,
-url: 'https://github.com/peci1/movie_publisher.git',
+url: 'https://github.com/ctu-vras/movie_publisher.git',
 version: melodic-devel
 },
 release: {
+packages: [camera_info_manager_lib,
+camera_info_manager_metadata_extractor,
+exiftool_metadata_extractor,
+exiv2_metadata_extractor,
+lensfun_metadata_extractor,
+libexif_metadata_extractor,
+movie_publisher,
+movie_publisher_plugins,
+movie_publisher_plugins_copyleft,
+movie_publisher_plugins_nonfree,
+movie_publisher_plugins_permissive],
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/peci1/movie_publisher-release.git',
-version: 1.4.0-1
+version: 2.0.3-1
 },
 source: {
 type: git,
-url: 'https://github.com/peci1/movie_publisher.git',
+url: 'https://github.com/ctu-vras/movie_publisher.git',
 version: melodic-devel
 },
 status: maintained
@@ -8288,7 +8355,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/mrpt-ros-pkg-release/mp2p_icp-release.git',
-version: 1.6.3-1
+version: 1.6.6-1
 },
 source: {
 type: git,
@@ -8626,7 +8693,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ual-arm-ros-pkg-release/mvsim-release.git',
-version: 0.13.0-1
+version: 0.13.2-1
 },
 source: {
 type: git,
@@ -8905,7 +8972,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/neonavigation-release.git',
-version: 0.17.3-1
+version: 0.17.6-1
 },
 source: {
 type: git,
@@ -11199,7 +11266,7 @@ python_qt_binding: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/python_qt_binding.git',
-version: melodic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -11212,7 +11279,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/python_qt_binding.git',
-version: melodic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -11354,6 +11421,27 @@ version: production-noetic
 status: developed
 }
 -----
+qoi_image_transport: {
+doc: {
+type: git,
+url: 'https://github.com/ctu-vras/qoi_image_transport.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://gitlab.fel.cvut.cz/cras/ros-release/qoi_image_transport.git',
+version: 1.0.4-1
+},
+source: {
+type: git,
+url: 'https://github.com/ctu-vras/qoi_image_transport.git',
+version: master
+},
+status: developed
+}
+-----
 qpoases_vendor: {
 doc: {
 type: git,
@@ -11401,7 +11489,7 @@ qt_gui_core: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/qt_gui_core.git',
-version: melodic-devel
+version: noetic-devel
 },
 release: {
 packages: [qt_dotgraph,
@@ -11420,7 +11508,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/qt_gui_core.git',
-version: melodic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -11469,7 +11557,7 @@ qwt_dependency: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/qwt_dependency.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -11481,7 +11569,7 @@ version: 1.1.1-2
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/qwt_dependency.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -11890,20 +11978,20 @@ resource_retriever: {
 doc: {
 type: git,
 url: 'https://github.com/ros/resource_retriever.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/resource_retriever-release.git',
-version: 1.12.7-1
+version: 1.12.8-1
 },
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/resource_retriever.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -12085,6 +12173,15 @@ source: {
 type: git,
 url: 'https://github.com/rm-controls/rm_description.git',
 version: master
+},
+status: developed
+}
+-----
+robnux_arm_kinematics_trajectory: {
+source: {
+type: git,
+url: 'https://github.com/ROBNUX/arm_kinematics_trajectory.git',
+version: 1.0.0
 },
 status: developed
 }
@@ -12579,7 +12676,7 @@ ros_comm_msgs: {
 doc: {
 type: git,
 url: 'https://github.com/ros/ros_comm_msgs.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 packages: [rosgraph_msgs,
@@ -12593,7 +12690,7 @@ version: 1.11.3-1
 source: {
 type: git,
 url: 'https://github.com/ros/ros_comm_msgs.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -13029,7 +13126,7 @@ version: 1.0.1-1
 source: {
 type: git,
 url: 'https://github.com/ros/rosbag_migration_rule.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13183,7 +13280,7 @@ rosconsole_bridge: {
 doc: {
 type: git,
 url: 'https://github.com/ros/rosconsole_bridge.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13196,7 +13293,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/rosconsole_bridge.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -13588,7 +13685,7 @@ rqt: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 packages: [rqt,
@@ -13605,7 +13702,7 @@ version: 0.5.3-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -13614,7 +13711,7 @@ rqt_action: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_action.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13626,7 +13723,7 @@ version: 0.4.9-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_action.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13635,7 +13732,7 @@ rqt_bag: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_bag.git',
-version: master
+version: noetic-devel
 },
 release: {
 packages: [rqt_bag,
@@ -13649,7 +13746,7 @@ version: 0.5.1-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_bag.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13658,7 +13755,7 @@ rqt_common_plugins: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_common_plugins.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13671,7 +13768,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/rqt_common_plugins.git',
-version: master
+version: noetic-devel
 },
 status: unmaintained
 }
@@ -13680,7 +13777,7 @@ rqt_console: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_console.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13692,7 +13789,7 @@ version: 0.4.12-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_console.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13701,7 +13798,7 @@ rqt_dep: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_dep.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13713,7 +13810,7 @@ version: 0.4.12-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_dep.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13743,7 +13840,7 @@ rqt_graph: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_graph.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13756,7 +13853,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/rqt_graph.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13785,7 +13882,7 @@ rqt_image_view: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_image_view.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13798,7 +13895,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/rqt_image_view.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13829,7 +13926,7 @@ rqt_logger_level: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_logger_level.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13841,7 +13938,7 @@ version: 0.4.12-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_logger_level.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13871,7 +13968,7 @@ rqt_msg: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_msg.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13883,7 +13980,7 @@ version: 0.4.10-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_msg.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13925,7 +14022,7 @@ rqt_plot: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_plot.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13937,7 +14034,7 @@ version: 0.4.13-2
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_plot.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13946,7 +14043,7 @@ rqt_pose_view: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_pose_view.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -13958,7 +14055,7 @@ version: 0.5.11-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_pose_view.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -13988,7 +14085,7 @@ rqt_publisher: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_publisher.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14000,7 +14097,7 @@ version: 0.4.10-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_publisher.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14009,7 +14106,7 @@ rqt_py_console: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_py_console.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14021,7 +14118,7 @@ version: 0.4.10-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_py_console.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14051,7 +14148,7 @@ rqt_reconfigure: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_reconfigure.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14064,7 +14161,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/rqt_reconfigure.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14138,7 +14235,7 @@ rqt_robot_steering: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_robot_steering.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14150,7 +14247,7 @@ version: 0.5.12-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_robot_steering.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14180,7 +14277,7 @@ rqt_rviz: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_rviz.git',
-version: melodic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14193,7 +14290,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/rqt_rviz.git',
-version: melodic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -14202,7 +14299,7 @@ rqt_service_caller: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_service_caller.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14214,7 +14311,7 @@ version: 0.4.10-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_service_caller.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14223,7 +14320,7 @@ rqt_shell: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_shell.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14235,7 +14332,7 @@ version: 0.4.11-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_shell.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14244,7 +14341,7 @@ rqt_srv: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_srv.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14256,7 +14353,7 @@ version: 0.4.9-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_srv.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14265,7 +14362,7 @@ rqt_tf_tree: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_tf_tree.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14278,7 +14375,7 @@ source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros-visualization/rqt_tf_tree.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14287,7 +14384,7 @@ rqt_top: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_top.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14299,7 +14396,7 @@ version: 0.4.10-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_top.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14308,7 +14405,7 @@ rqt_topic: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_topic.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14320,7 +14417,7 @@ version: 0.4.13-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_topic.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14329,7 +14426,7 @@ rqt_web: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_web.git',
-version: master
+version: noetic-devel
 },
 release: {
 tags: {
@@ -14341,7 +14438,7 @@ version: 0.4.10-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/rqt_web.git',
-version: master
+version: noetic-devel
 },
 status: maintained
 }
@@ -14400,7 +14497,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/introlab/rtabmap-release.git',
-version: 0.21.9-1
+version: 0.21.10-1
 },
 source: {
 type: git,
@@ -14436,7 +14533,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/introlab/rtabmap_ros-release.git',
-version: 0.21.9-1
+version: 0.21.10-1
 },
 source: {
 type: git,
@@ -14938,7 +15035,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/septentrio-users/septentrio_gnss_driver-release.git',
-version: 1.4.1-1
+version: 1.4.2-1
 },
 source: {
 test_pull_requests: true,
@@ -15653,7 +15750,7 @@ std_msgs: {
 doc: {
 type: git,
 url: 'https://github.com/ros/std_msgs.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -15665,7 +15762,7 @@ version: 0.5.13-1
 source: {
 type: git,
 url: 'https://github.com/ros/std_msgs.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -16542,7 +16639,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_Client_Library-release.git',
-version: 1.5.0-1
+version: 1.9.0-1
 },
 source: {
 type: git,
@@ -16563,7 +16660,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-industrial-release/ur_msgs-release.git',
-version: 1.4.0-1
+version: 1.5.0-1
 },
 source: {
 type: git,
@@ -16587,7 +16684,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/UniversalRobots/Universal_Robots_ROS_Driver-release.git',
-version: 2.1.5-1
+version: 2.2.0-1
 },
 source: {
 type: git,
@@ -16601,7 +16698,7 @@ urdf: {
 doc: {
 type: git,
 url: 'https://github.com/ros/urdf.git',
-version: melodic-devel
+version: noetic-devel
 },
 release: {
 packages: [urdf,
@@ -16615,7 +16712,7 @@ version: 1.13.2-1
 source: {
 type: git,
 url: 'https://github.com/ros/urdf.git',
-version: melodic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -17398,7 +17495,7 @@ webkit_dependency: {
 doc: {
 type: git,
 url: 'https://github.com/ros-visualization/webkit_dependency.git',
-version: kinetic-devel
+version: noetic-devel
 },
 release: {
 tags: {
@@ -17410,7 +17507,7 @@ version: 1.1.2-1
 source: {
 type: git,
 url: 'https://github.com/ros-visualization/webkit_dependency.git',
-version: kinetic-devel
+version: noetic-devel
 },
 status: maintained
 }
@@ -17604,7 +17701,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/xacro-release.git',
-version: 1.14.19-1
+version: 1.14.20-1
 },
 source: {
 test_pull_requests: true,
@@ -19983,6 +20080,57 @@ saving and restoring the camera calibration data.</description>
 <run_depend>roslib</run_depend>
 <run_depend>sensor_msgs</run_depend>
 <test_depend>gtest</test_depend>
+</package>
+-----
+camera_info_manager_lib: <?xml version="1.0" ?>
+<package format="3">
+<name>camera_info_manager_lib</name>
+<description>camera_info_manager API without an active ROS node.</description>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<license file="LICENSE">BSD</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://wiki.ros.org/camera_info_manager_lib</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>camera_calibration_parsers</build_depend>
+<exec_depend>camera_calibration_parsers</exec_depend>
+<depend>cras_cpp_common</depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
+<test_depend>roslint</test_depend>
+<test_depend>rostest</test_depend>
+<export>
+<rosdoc config="rosdoc.yaml"/>
+</export>
+</package>
+-----
+camera_info_manager_metadata_extractor: <?xml version="1.0" ?>
+<package format="3">
+<name>camera_info_manager_metadata_extractor</name>
+<description>Metadata extractor that matches existing camera info to a particular camera and lens.</description>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<license file="LICENSE">BSD</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://wiki.ros.org/camera_info_manager_metadata_extractor</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>camera_info_manager_lib</build_depend>
+<build_depend>cras_cpp_common</build_depend>
+<build_depend>movie_publisher</build_depend>
+<build_depend>pluginlib</build_depend>
+<exec_depend>camera_info_manager_lib</exec_depend>
+<exec_depend>cras_cpp_common</exec_depend>
+<exec_depend>movie_publisher</exec_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
+<test_depend>roslint</test_depend>
+<test_depend>rostest</test_depend>
+<export>
+<rosdoc config="rosdoc.yaml"/>
+<movie_publisher metadata_plugins="${prefix}/plugins.xml"/>
+</export>
 </package>
 -----
 can_dbc_parser: <?xml version="1.0" ?>
@@ -24081,6 +24229,45 @@ cpr_onav_description: <?xml version="1.0" ?>
 <export/>
 </package>
 -----
+cras_bag_tools: <?xml version="1.0" ?>
+<package format="3">
+<name>cras_bag_tools</name>
+<description>Various utilities to work with bag files</description>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<license>BSD</license>
+<url type="website">https://wiki.ros.org/cras_bag_tools</url>
+<url type="bugtracker">https://github.com/ctu-vras/ros-utils/issues</url>
+<url type="repository">https://github.com/ctu-vras/ros-utils</url>
+<buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
+<exec_depend>cras_py_common</exec_depend>
+<exec_depend>cv_bridge</exec_depend>
+<exec_depend>genpy</exec_depend>
+<exec_depend>image_transport_codecs</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-marisa</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-marisa</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-matplotlib</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-matplotlib</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-tqdm</exec_depend>
+<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-tqdm</exec_depend>
+<exec_depend>rosbag</exec_depend>
+<exec_depend>roslib</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<exec_depend>tf2_msgs</exec_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
+<test_depend>roslint</test_depend>
+<doc_depend>cras_docs_common</doc_depend>
+<doc_depend>rosdoc_lite</doc_depend>
+<export>
+<rosdoc config="rosdoc.yaml"/>
+<cras_bag_tools filters="cras_bag_tools.message_filters"/>
+</export>
+</package>
+-----
 cras_cpp_common: <?xml version="1.0" ?>
 <package format="3">
 <name>cras_cpp_common</name>
@@ -24264,7 +24451,9 @@ cras_py_common: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
 <buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
+<build_depend>sensor_msgs</build_depend>
 <exec_depend>dynamic_reconfigure</exec_depend>
+<exec_depend>genpy</exec_depend>
 <exec_depend>geometry_msgs</exec_depend>
 <exec_depend>language-pack-en</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-enum34</exec_depend>
@@ -24276,7 +24465,8 @@ cras_py_common: <?xml version="1.0" ?>
 <exec_depend>tf2_msgs</exec_depend>
 <exec_depend>tf2_ros</exec_depend>
 <test_depend>cras_cpp_common</test_depend>
-<exec_depend>language-pack-de</exec_depend>
+<test_depend>image_transport</test_depend>
+<test_depend>language-pack-de</test_depend>
 <test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
 <test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
 <test_depend condition="$ROS_PYTHON_VERSION == 2">python-numpy</test_depend>
@@ -25453,7 +25643,7 @@ depthai-ros: <?xml version="1.0" ?>
 <maintainer email="adam.serafin@luxonis.com">Adam Serafin</maintainer>
 <author>Sachin Guruswamy</author>
 <license>MIT</license>
-<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend>catkin</buildtool_depend>
 <exec_depend>depthai</exec_depend>
 <exec_depend>depthai_ros_msgs</exec_depend>
 <exec_depend>depthai_bridge</exec_depend>
@@ -25462,7 +25652,7 @@ depthai-ros: <?xml version="1.0" ?>
 <exec_depend>depthai_examples</exec_depend>
 <exec_depend>depthai_ros_driver</exec_depend>
 <export>
-<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<metapackage/>
 </export>
 </package>
 -----
@@ -26801,7 +26991,8 @@ is a software development library that provides Dynamixel control functions for 
 <author email="zerom@robotis.com">Zerom</author>
 <author email="thlim@robotis.com">Darby Lim</author>
 <author>Leon</author>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
+<author email="willson@robotis.com">Will Son</author>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <url type="website">http://wiki.ros.org/dynamixel_sdk</url>
 <url type="emanual">http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_sdk/overview/</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/DynamixelSDK</url>
@@ -26815,8 +27006,10 @@ dynamixel_sdk_examples: <?xml version="1.0" ?>
 <package format="2">
 <name>dynamixel_sdk_examples</name>
 <description>The DYNAMIXEL SDK ROS example package</description>
-<author email="zerom@robotis.com">zerom</author>--&gt;<maintainer email="willson@robotis.com">Will Son</maintainer>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <license>Apache 2.0</license>
+<author email="zerom@robotis.com">zerom</author>
+<author email="willson@robotis.com">Will Son</author>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>roscpp</depend>
 <depend>std_msgs</depend>
@@ -28316,6 +28509,7 @@ etsi_its_coding: <?xml version="1.0" ?>
 <depend>etsi_its_cam_ts_coding</depend>
 <depend>etsi_its_cpm_ts_coding</depend>
 <depend>etsi_its_denm_coding</depend>
+<depend>etsi_its_denm_ts_coding</depend>
 <depend>etsi_its_mapem_ts_coding</depend>
 <depend>etsi_its_spatem_ts_coding</depend>
 <depend>etsi_its_vam_ts_coding</depend>
@@ -28343,6 +28537,7 @@ etsi_its_conversion: <?xml version="1.0" ?>
 <depend>etsi_its_cam_ts_conversion</depend>
 <depend>etsi_its_cpm_ts_conversion</depend>
 <depend>etsi_its_denm_conversion</depend>
+<depend>etsi_its_denm_ts_conversion</depend>
 <depend>etsi_its_mapem_ts_conversion</depend>
 <depend>etsi_its_spatem_ts_conversion</depend>
 <depend>etsi_its_vam_ts_conversion</depend>
@@ -28499,6 +28694,74 @@ etsi_its_denm_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+etsi_its_denm_ts_coding: <?xml version="1.0" ?>
+<package format="3">
+<name>etsi_its_denm_ts_coding</name>
+<description>C++ compatible C source code for ETSI ITS DENMs (TS) generated from ASN.1 using asn1c</description>
+<maintainer email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</maintainer>
+<maintainer email="guido.kueppers@rwth-aachen.de">Guido Küppers</maintainer>
+<maintainer email="lennart.reiher@rwth-aachen.de">Lennart Reiher</maintainer>
+<author email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</author>
+<author email="guido.kueppers@rwth-aachen.de">Guido Küppers</author>
+<author email="lennart.reiher@rwth-aachen.de">Lennart Reiher</author>
+<license>MIT</license>
+<depend>ros_environment</depend>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
+etsi_its_denm_ts_conversion: <?xml version="1.0" ?>
+<package format="3">
+<name>etsi_its_denm_ts_conversion</name>
+<description>Conversion functions for converting ROS messages to and from ASN.1-encoded ETSI ITS DENMs (TS)</description>
+<maintainer email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</maintainer>
+<maintainer email="guido.kueppers@rwth-aachen.de">Guido Küppers</maintainer>
+<maintainer email="lennart.reiher@rwth-aachen.de">Lennart Reiher</maintainer>
+<author email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</author>
+<author email="guido.kueppers@rwth-aachen.de">Guido Küppers</author>
+<author email="lennart.reiher@rwth-aachen.de">Lennart Reiher</author>
+<license>MIT</license>
+<depend>etsi_its_denm_ts_coding</depend>
+<depend>etsi_its_denm_ts_msgs</depend>
+<depend>etsi_its_primitives_conversion</depend>
+<depend>ros_environment</depend>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
+etsi_its_denm_ts_msgs: <?xml version="1.0" ?>
+<package format="3">
+<name>etsi_its_denm_ts_msgs</name>
+<description>ROS messages for ETSI ITS DENM (TS)</description>
+<maintainer email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</maintainer>
+<maintainer email="guido.kueppers@rwth-aachen.de">Guido Küppers</maintainer>
+<maintainer email="lennart.reiher@rwth-aachen.de">Lennart Reiher</maintainer>
+<author email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</author>
+<author email="guido.kueppers@rwth-aachen.de">Guido Küppers</author>
+<author email="lennart.reiher@rwth-aachen.de">Lennart Reiher</author>
+<license>MIT</license>
+<depend>ros_environment</depend>
+<depend>std_msgs</depend>
+<buildtool_depend condition="$ROS_VERSION == 2">rosidl_default_generators</buildtool_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<member_of_group condition="$ROS_VERSION == 2">rosidl_interface_packages</member_of_group>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<depend condition="$ROS_VERSION == 1">message_generation</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
 etsi_its_mapem_ts_coding: <?xml version="1.0" ?>
 <package format="3">
 <name>etsi_its_mapem_ts_coding</name>
@@ -28606,6 +28869,7 @@ etsi_its_msgs: <?xml version="1.0" ?>
 <depend>etsi_its_cam_ts_msgs</depend>
 <depend>etsi_its_cpm_ts_msgs</depend>
 <depend>etsi_its_denm_msgs</depend>
+<depend>etsi_its_denm_ts_msgs</depend>
 <depend>etsi_its_mapem_ts_msgs</depend>
 <depend>etsi_its_spatem_ts_msgs</depend>
 <depend>etsi_its_vam_ts_msgs</depend>
@@ -28678,7 +28942,11 @@ etsi_its_rviz_plugins: <?xml version="1.0" ?>
 <build_depend condition="$ROS_VERSION == 2">rviz_ogre_vendor</build_depend>
 <build_depend condition="$ROS_VERSION == 2">qtbase5-dev</build_depend>
 <build_export_depend condition="$ROS_VERSION == 2">rviz_ogre_vendor</build_export_depend>
-<depend condition="$ROS_VERSION == 2">etsi_its_msgs</depend>
+<depend condition="$ROS_VERSION == 2">etsi_its_cam_msgs</depend>
+<depend condition="$ROS_VERSION == 2">etsi_its_cpm_ts_msgs</depend>
+<depend condition="$ROS_VERSION == 2">etsi_its_denm_msgs</depend>
+<depend condition="$ROS_VERSION == 2">etsi_its_mapem_ts_msgs</depend>
+<depend condition="$ROS_VERSION == 2">etsi_its_spatem_ts_msgs</depend>
 <depend condition="$ROS_VERSION == 2">etsi_its_msgs_utils</depend>
 <depend condition="$ROS_VERSION == 2">pluginlib</depend>
 <depend condition="$ROS_VERSION == 2">python3-pyproj</depend>
@@ -29092,6 +29360,63 @@ executive_smach_visualization: <?xml version="1.0" ?>
 <run_depend>smach_viewer</run_depend>
 <export>
 <metapackage/>
+</export>
+</package>
+-----
+exiftool_metadata_extractor: <?xml version="1.0" ?>
+<package format="3">
+<name>exiftool_metadata_extractor</name>
+<description>Metadata extractor utilizing exiftool.</description>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<license file="LICENSE">BSD</license>
+<license file="src/cpp_exiftool/LICENSE">ExiftoolCpp</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://wiki.ros.org/exiftool_metadata_extractor</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>cras_cpp_common</build_depend>
+<build_depend>movie_publisher</build_depend>
+<build_depend>pluginlib</build_depend>
+<exec_depend>cras_cpp_common</exec_depend>
+<exec_depend>libimage-exiftool-perl</exec_depend>
+<exec_depend>movie_publisher</exec_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
+<test_depend>roslint</test_depend>
+<test_depend>rostest</test_depend>
+<export>
+<rosdoc config="rosdoc.yaml"/>
+<movie_publisher metadata_plugins="${prefix}/plugins.xml"/>
+</export>
+</package>
+-----
+exiv2_metadata_extractor: <?xml version="1.0" ?>
+<package format="3">
+<name>exiv2_metadata_extractor</name>
+<description>Metadata extractor utilizing exiv2 library.</description>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<license file="LICENSE">BSD</license>
+<license file="LICENSE.GPL">GPLv2</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://wiki.ros.org/exiv2_metadata_extractor</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>cras_cpp_common</build_depend>
+<build_depend>libexiv2-dev</build_depend>
+<build_depend>movie_publisher</build_depend>
+<build_depend>pluginlib</build_depend>
+<exec_depend>cras_cpp_common</exec_depend>
+<exec_depend>exiv2</exec_depend>
+<exec_depend>movie_publisher</exec_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
+<test_depend>roslint</test_depend>
+<test_depend>rostest</test_depend>
+<export>
+<rosdoc config="rosdoc.yaml"/>
+<movie_publisher metadata_plugins="${prefix}/plugins.xml"/>
 </export>
 </package>
 -----
@@ -29674,6 +29999,1124 @@ fake_localization: <?xml version="1.0" ?>
 <depend>roscpp</depend>
 <depend>rospy</depend>
 <depend>tf2_ros</depend>
+</package>
+-----
+fanuc_cr35ia_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_cr35ia_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc CR-35iA (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc CR-35iA manipulators. This currently includes the base model only.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>CR-35iA - Normal Range</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot CR-35iA Mechanical Unit Operator''s Manual</em>version<em>B-83734EN/01</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+<p>
+<b>Note</b>: there is currently some confusion over the correct values for the joint limits of joints 2 and 3. Version<em>B-83734EN/01</em>of the Operator''s Manual incorrectly states that 1.05 rad equals 120 degrees,
+and that 0.39 rad equals 45 degrees (joint 2). Additionally,
+it gives a value of -122.9 degrees for the lower limit of joint 3,
+whereas (at least) Roboguide Rev K have this limit set to -182 degrees. We advise users to pay extra attention when verifying the xacro in this support package until this is cleared up.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_cr35ia_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>cr35ia</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>support_package</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_cr7ia_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_cr7ia_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc CR-7iA (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc CR-7iA manipulators. This currently includes the base and /L model.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>CR-7iA - Normal Range</li>
+<li>CR-7iA/L - Normal Range</li>
+</ul>
+<p>Link lengths are based on information in<em>FANUC Robot CR-4iA,
+CR-7iA,
+CR-7iA/L,
+CR-14iA/L Mechanical Unit Operator''s Manual</em>version<em>B-83774EN/04</em>. Joint limits and maximum joint velocities are based on the information in the system variables of the supported variants (either from FRVCs or real controllers). All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+<p>
+<b>Note</b>: collaborative robots make use of special safety systems embedded in the OEM controller which continuously monitor the state of the robot and adapt limits where and when necessary. The joint limits specified in the xacros provided by this package are the maximum joint limits as specified by Fanuc. As there is no information available on how the collaborative safety system works,
+we cannot model it here and thus it''s very likely the joint limits in these files are unattainable by the actual robot.</p>
+</description>
+<author email="dniewinski@clearpathrobotics.com">Dave Niewinski</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_cr7ia_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>cr7ia</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>support_package</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_crx10ia_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_crx10ia_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc CRX-10iA (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc CRX-10iA manipulators. This currently includes the /L model only.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>CRX-10iA/L - 1418mm reach</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot CRX-10iA,
+CRX-10iA/L Mechanical Unit Operator''s Manual</em>version<em>B-84194EN/01</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author email="ademola.oridate@wsrobots.com">Ademola Oridate (Wilder Systems Robots)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_crx10ia_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>crx10ia</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>support_package</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_driver: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_driver</name>
+<description>
+<p>ROS-Industrial nodes for interfacing with Fanuc robot controllers.</p>
+<p>This package is part of the ROS-Industrial program and contains nodes for interfacing with Fanuc industrial robot controllers that support the KAREL programming environment.</p>
+<p>Refer to the readme of this package for a note on the performance of the driver.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_driver</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<depend>industrial_robot_client</depend>
+<test_depend>roslaunch</test_depend>
+<export>
+<rosindex>
+<tags>
+<tag>driver</tag>
+<tag>simple_message</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>KAREL</tag>
+<tag>R-30iA</tag>
+<tag>R-30iB</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>
+-----
+fanuc_lrmate200i_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_lrmate200i_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc LR Mate 200i.</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc LR Mate 200i manipulators. This currently includes the base model only.</p>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robotics LR Mate 200i Datasheet</em>version<em>FRNA-10/9-DS-005</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_lrmate200i_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>lrmate200ib</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_lrmate200ib_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_lrmate200ib_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc LR Mate 200iB (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc LR Mate 200iB manipulators. This currently includes the base model and the /3L.</p>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>Fanuc LR Mate 200iB-200iB/3L datasheet</em>,
+dated<em>24-Feb-2003</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+<p>
+<b>Contributors</b>:</p>
+<p>This support package has received contributions from: Victor Lamoine.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://ros.org/wiki/fanuc_lrmate200ib_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>lrmate200ib</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_lrmate200ic_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_lrmate200ic_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc LR Mate 200iC (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc LR Mate 200iC manipulators. This includes the base model (/5C,
+/5WP),
+/5H,
+/5L (/5LC),
+/5F and the /5HS. Variants in brackets are supported by the files for the referenced model.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>LR Mate 200iC - &quot;J1 - Normal Range&quot;</li>
+<li>LR Mate 200iC/5H - &quot;J1 - Normal Range&quot;</li>
+<li>LR Mate 200iC/5L - &quot;J1 - Normal Range&quot;</li>
+<li>LR Mate 200iC/5F - &quot;J1 - Normal Range&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot LR Mate 200iC Mechanical Unit Operator''s Manual</em>version<em>B-82584EN/07</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_lrmate200ic_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>lrmate200ic</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_lrmate200id_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_lrmate200id_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc LR Mate 200iD (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc LR Mate 200iD manipulators. This includes the base model (/7C,
+/7WP),
+/7H,
+/7L,
+/7LC and the /4S,
+/4SC and /4SH. The variants in parentheses are supported by the files for the variant immediately preceeding the parentheses.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>LR Mate 200iD - &quot;J1 - Normal Range&quot;</li>
+<li>LR Mate 200iD/4S - &quot;J1 - Normal Range&quot;</li>
+<li>LR Mate 200iD/4SC - &quot;J1 - Normal Range&quot;</li>
+<li>LR Mate 200iD/4SH - &quot;J1 - Normal Range; J5 - Horizontal Wrist Zero&quot;</li>
+<li>LR Mate 200iD/7H - &quot;J1 - Normal Range; J5 - Horizontal Wrist Zero&quot;</li>
+<li>LR Mate 200iD/7L - &quot;J1 - Normal Range&quot;</li>
+<li>LR Mate 200iD/7LC - &quot;J1 - Normal Range&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot LR Mate 200iD Mechanical Unit Operator''s Manual</em>version<em>B-83494EN/03</em>and the<em>FANUC Robot LR Mate 200iD/4S/4SH/4SC Mechanical Unit Operator''s Manual</em>version<em>B-83574EN/03</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_lrmate200id_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>lrmate200id</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_m10ia_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_m10ia_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc M-10iA (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc M-10iA manipulators. This includes the base model and the /7L variant.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>M-10iA - &quot;Conventional dress-out&quot;</li>
+<li>M-10iA/7L - &quot;Conventional dress-out&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot M-10iA Mechanical Unit Operator''s Manual</em>version<em>B-82754EN/09</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_m10ia_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>m10ia</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_m16ib_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_m16ib_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc M-16iB / ARC Mate 120iB (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc M-16iB / ARC Mate 120iB manipulators. This currently includes the /20 only.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>M-16iB/20 - &quot;Default J1 range&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot ARC Mate 120iB,
+Fanuc Robot M-16iB/20 Mechanical Unit Maintenance Manual</em>version<em>B-81765EN/02</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_m16ib_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>m16ib</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_m20ia_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_m20ia_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc M-20iA / ARC Mate 120iC (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc M-20iA / ARC Mate 120iC manipulators. This currently includes the base model and /10L.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>M-20iA - &quot;Cable integrated J3 Arm&quot;</li>
+<li>M-20iA/10L - &quot;Cable integrated J3 Arm&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot ARC Mate 120iC,
+FANUC Robot M-20iA Mechanical Unit Operator''s Manual</em>version<em>B-82874EN/06</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+<p>
+<b>Contributors</b>:</p>
+<p>This support package has received contributions from: Joe Spanier (M-20iA/10L).</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_m20ia_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>m20ia</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_m20ib_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_m20ib_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc M-20iB (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc M-20iB manipulators. This currently includes the /25 model only.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>M-20iB/25 - &quot;Cable integrated J3 Arm&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot M-20iB Mechanical Unit Operator''s Manual</em>version<em>B-83754EN/01</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_m20ib_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>m20ib</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_m430ia_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_m430ia_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc M-430iA (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc M-430iA manipulators. This currently includes the /2F and /2P.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>M-430iA/2F - &quot;Default J1 range&quot;</li>
+<li>M-430iA/2P - &quot;Default J1 range&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot M-430iA Mechanical Unit Operator''s Manual</em>version<em>B-82554EN/05</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_m430ia_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>m430ia</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_m6ib_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_m6ib_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc M-6iB (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc M-6iB manipulators. This currently includes the base model and the /6S variant.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>M-6iB - Normal Range</li>
+<li>M-6iB/6S - Normal Range</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot ARC Mate 100i Model B,
+FANUC Robot M-6i Model B Maintenance Manual</em>version<em>B-81545EN/01</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_m6ib_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>m6ib</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_m710ic_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_m710ic_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc M-710iC (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc M-710iC manipulators. This currently includes the /45M and /50 variants.</p>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot M-710iC Mechanical Unit Operator''s Manual</em>version<em>B-82274EN/09</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_m710ic_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>m710ic</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_m900ia_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_m900ia_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc M-900iA (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc M-900iA manipulators. This currently includes the /260 model only.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>M-900iA/260L - &quot;Standard Flange&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot M-900iA/260L Mechanical Manual,
+Maintenance Manual</em>version<em>B-82135EN/05</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_m900ia_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>m900ia</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_m900ib_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_m900ib_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc M-900iB (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc M-900iB manipulators. This currently includes the /700 variant only.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>M-900iB/700 - Standard Flange</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot M-900iB/700 Mechanical Unit Operator''s Manual</em>version<em>B-83444EN/01</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+<p>
+<b>Note 1</b>: the xacro for the /700 variant includes optional geometry for the forklift pockets,
+balancers and counterweight that can be enabled and disabled to correspond to the robot''s actual configuration. By default,
+only the balancers and the counterweight are included,
+but this can be changed by making use of the provided xacro macro.</p>
+<p>
+<b>Note 2</b>: visualisation of the balancers and the counterweight is an approximation only and may not always accurately represent the state of the physical robot.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_m900ib_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>m900ib</tag>
+<tag>ros-industrial</tag>
+<tag>support_package</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_r1000ia_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_r1000ia_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc R-1000iA (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc R-1000iA manipulators. This currently includes the /80F only.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>R-1000iA/80F - &quot;flange: standard flange&quot;,
+&quot;motion range: standard type&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot R-1000iA Mechanical Unit Operator''s Manual</em>version<em>B-83004EN/03</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_r1000ia_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>r1000ia</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_r2000ib_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_r2000ib_support</name>
+<description>
+<p>ROS-Industrial support package for the Fanuc R-2000iB (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc R-2000iB manipulators. This currently includes the /210F variant only.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>R-2000iB/210F - &quot;J1 - Normal Range&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC R-2000iB Mechanical Unit Operator''s Manual</em>version<em>B-82234EN/11</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author email="ademola.oridate@wsrobots.com">Ademola Oridate (Wilder Systems)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_r2000ib_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>r2000ib</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_r2000ic_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_r2000ic_support</name>
+<description>
+<p>ROS-Industrial support for the Fanuc R-2000iC (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for Fanuc R-2000iC manipulators. This includes the /125L,
+/165F,
+/210F,
+/210L and /270F variants.</p>
+<p>
+<b>Note</b>: for use with current ROS packages,
+the /210F is identical to the /165F and reuses the meshes,
+kinematic structure and the OPW parameters of the /165. Only the joint limits are different.</p>
+<p>
+<b>Specifications</b>:</p>
+<ul>
+<li>R-2000iC/125L - &quot;Conventional dress-out&quot;</li>
+<li>R-2000iC/165F - &quot;Conventional dress-out&quot;</li>
+<li>R-2000iC/210F - &quot;Conventional dress-out&quot;</li>
+<li>R-2000iC/210L - &quot;Conventional dress-out&quot;</li>
+<li>R-2000iC/270F - &quot;Conventional dress-out&quot;</li>
+</ul>
+<p>Joint limits and maximum joint velocities are based on the information in the<em>FANUC Robot R-2000iC Mechanical Unit Operator''s Manual</em>version<em>B-83644EN/01</em>. All urdfs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+<p>
+<b>Contributors</b>:</p>
+<p>This support package has received contributions from: Timo Birnkraut and Simon Schmeisser (125L),
+Didier Quirin (210F),
+Haris Suwignyo (Alten Nederland) (270F) and Ademola Oridate (Wilder Systems) (210L).</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_r2000ic_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>fanuc_driver</exec_depend>
+<exec_depend>fanuc_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>r2000ic</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
+fanuc_resources: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>fanuc_resources</name>
+<description>
+<p>Shared configuration data,
+3D models and launch files for Fanuc manipulators.</p>
+<p>This package contains configuration data,
+3D models and launch files that are shared between different Fanuc robot support packages within the ROS-Industrial program. This package also contains common urdf / xacro resources used by other Fanuc related packages.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+<license>BSD</license>
+<url type="website">http://wiki.ros.org/fanuc_resources</url>
+<url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+<url type="repository">https://github.com/ros-industrial/fanuc</url>
+<buildtool_depend>catkin</buildtool_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>urdf</tag>
+<tag>xacro</tag>
+<tag>colour</tag>
+<tag>material</tag>
+<tag>mesh</tag>
+<tag>resources</tag>
+<tag>fanuc</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
 </package>
 -----
 fath_pivot_mount_description: <?xml version="1.0" ?>
@@ -31724,16 +33167,20 @@ gazebo_dev: <?xml version="1.0" ?>
 <package format="2">
 <name>gazebo_dev</name>
 <description>Provides a cmake config for the default version of Gazebo for the ROS distribution.</description>
-<maintainer email="hsu@osrfoundation.org">John Hsu</maintainer>
-<maintainer email="davetcoleman@gmail.com">Dave Coleman</maintainer>
+<maintainer email="ahcorde@osrfoundation.org">Alejandro Hernández Cordero</maintainer>
 <license>Apache 2.0</license>
 <url type="website">http://gazebosim.org/tutorials?cat=connect_ros</url>
 <url type="bugtracker">https://github.com/ros-simulation/gazebo_ros_pkgs/issues</url>
 <url type="repository">https://github.com/ros-simulation/gazebo_ros_pkgs</url>
+<author>Dave Coleman</author>
+<author>John Hsu</author>
 <author>Johannes Meyer</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_export_depend>libgazebo11-dev</build_export_depend>
 <exec_depend>gazebo11</exec_depend>
+<export>
+<deprecated>This package has been deprecated as of January 2025 with Gazebo classic 11 reaching end-of-life. Users are highly encouraged to migrate to the new Gazebo using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration)</deprecated>
+</export>
 </package>
 -----
 gazebo_model_attachment_plugin: <?xml version="1.0" ?>
@@ -31762,6 +33209,7 @@ gazebo_msgs: <?xml version="1.0" ?>
 <package format="2">
 <name>gazebo_msgs</name>
 <description>Message and service data structures for interacting with Gazebo from ROS.</description>
+<maintainer email="ahcorde@osrfoundation.org">Alejandro Hernández Cordero</maintainer>
 <maintainer email="jrivero@osrfoundation.org">Jose Luis Rivero</maintainer>
 <license>BSD</license>
 <url type="website">http://gazebosim.org/tutorials?cat=connect_ros</url>
@@ -31781,6 +33229,9 @@ gazebo_msgs: <?xml version="1.0" ?>
 <exec_depend>std_msgs</exec_depend>
 <exec_depend>message_runtime</exec_depend>
 <exec_depend>std_srvs</exec_depend>
+<export>
+<deprecated>This package has been deprecated as of January 2025 with Gazebo classic 11 reaching end-of-life. Users are highly encouraged to migrate to the new Gazebo using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration)</deprecated>
+</export>
 </package>
 -----
 gazebo_noisy_depth_camera: <?xml version="1.0" ?>
@@ -31804,6 +33255,7 @@ gazebo_plugins: <?xml version="1.0" ?>
 <name>gazebo_plugins</name>
 <description>Robot-independent Gazebo plugins for sensors,
 motors and dynamic reconfigurable components.</description>
+<maintainer email="ahcorde@osrfoundation.org">Alejandro Hernández Cordero</maintainer>
 <maintainer email="jrivero@osrfoundation.org">Jose Luis Rivero</maintainer>
 <license>BSD,
 Apache 2.0</license>
@@ -31843,6 +33295,7 @@ Apache 2.0</license>
 <test_depend>rostest</test_depend>
 <export>
 <gazebo_ros plugin_path="${prefix}/../../lib" gazebo_media_path="${prefix}"/>
+<deprecated>This package has been deprecated as of January 2025 with Gazebo classic 11 reaching end-of-life. Users are highly encouraged to migrate to the new Gazebo using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration)</deprecated>
 </export>
 </package>
 -----
@@ -31850,6 +33303,7 @@ gazebo_ros: <?xml version="1.0" ?>
 <package format="2">
 <name>gazebo_ros</name>
 <description>Provides ROS plugins that offer message and service publishers for interfacing with<a href="http://gazebosim.org">Gazebo</a>through ROS. Formally simulator_gazebo/gazebo</description>
+<maintainer email="ahcorde@osrfoundation.org">Alejandro Hernández Cordero</maintainer>
 <maintainer email="jrivero@osrfoundation.org">Jose Luis Rivero</maintainer>
 <license>Apache 2.0</license>
 <url type="website">http://gazebosim.org/tutorials?cat=connect_ros</url>
@@ -31873,12 +33327,16 @@ gazebo_ros: <?xml version="1.0" ?>
 <depend>geometry_msgs</depend>
 <depend>tinyxml</depend>
 <exec_depend>python-argparse</exec_depend>
+<export>
+<deprecated>This package has been deprecated as of January 2025 with Gazebo classic 11 reaching end-of-life. Users are highly encouraged to migrate to the new Gazebo using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration)</deprecated>
+</export>
 </package>
 -----
 gazebo_ros_control: <?xml version="1.0" ?>
 <package format="2">
 <name>gazebo_ros_control</name>
 <description>gazebo_ros_control</description>
+<maintainer email="ahcorde@osrfoundation.org">Alejandro Hernández Cordero</maintainer>
 <maintainer email="jrivero@osrfoundation.org">Jose Luis Rivero</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/gazebo_ros_control</url>
@@ -31901,6 +33359,7 @@ gazebo_ros_control: <?xml version="1.0" ?>
 <depend>angles</depend>
 <export>
 <gazebo_ros_control plugin="${prefix}/robot_hw_sim_plugins.xml"/>
+<deprecated>This package has been deprecated as of January 2025 with Gazebo classic 11 reaching end-of-life. Users are highly encouraged to migrate to the new Gazebo using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration)</deprecated>
 </export>
 </package>
 -----
@@ -31946,6 +33405,7 @@ gazebo_ros_pkgs: <?xml version="1.0" ?>
 <package format="2">
 <name>gazebo_ros_pkgs</name>
 <description>Interface for using ROS with the<a href="http://gazebosim.org/">Gazebo</a>simulator.</description>
+<maintainer email="ahcorde@osrfoundation.org">Alejandro Hernández Cordero</maintainer>
 <maintainer email="jrivero@osrfoundation.org">Jose Luis Rivero</maintainer>
 <license>BSD,LGPL,Apache 2.0</license>
 <url type="website">http://gazebosim.org/tutorials?cat=connect_ros</url>
@@ -31961,6 +33421,7 @@ Dave Coleman</author>
 <exec_depend>gazebo_ros</exec_depend>
 <export>
 <metapackage/>
+<deprecated>This package has been deprecated as of January 2025 with Gazebo classic 11 reaching end-of-life. Users are highly encouraged to migrate to the new Gazebo using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration)</deprecated>
 </export>
 </package>
 -----
@@ -33350,18 +34811,18 @@ gripper_action_controller: "<?xml version=\"1.0\" ?>
 </package>"
 -----
 grpc: <?xml version="1.0" ?>
-<package>
+<package format="3">
 <name>grpc</name>
 <description>Catkinized gRPC Package</description>
 <maintainer email="shengye@ucsd.edu">Shengye Wang</maintainer>
 <license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
 <build_depend>autoconf</build_depend>
 <build_depend>libtool</build_depend>
-<build_depend>rsync</build_depend>
 <build_depend>git</build_depend>
-<build_depend>zlib</build_depend>
-<buildtool_depend>catkin</buildtool_depend>
-<run_depend>rsync</run_depend>
+<depend>libssl-dev</depend>
+<depend>rsync</depend>
+<depend>zlib</depend>
 </package>
 -----
 gtsam: <?xml version="1.0" ?>
@@ -39300,6 +40761,42 @@ leg_detector: <?xml version="1.0" ?>
 <test_depend>roslint</test_depend>
 </package>
 -----
+lensfun_metadata_extractor: <?xml version="1.0" ?>
+<package format="3">
+<name>lensfun_metadata_extractor</name>
+<description>Metadata extractor utilizing the lensfun library.</description>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<license file="LICENSE">BSD</license>
+<license file="LICENSE.CC-BY-SA-3.0">CC-BY-SA 3.0</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://wiki.ros.org/lensfun_metadata_extractor</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>cras_cpp_common</build_depend>
+<build_depend>cv_bridge</build_depend>
+<build_depend>image_geometry</build_depend>
+<build_depend>lensfun-dev</build_depend>
+<build_depend>libglib-dev</build_depend>
+<build_depend>movie_publisher</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>sensor_msgs</build_depend>
+<exec_depend>cras_cpp_common</exec_depend>
+<exec_depend>cv_bridge</exec_depend>
+<exec_depend>image_geometry</exec_depend>
+<exec_depend>lensfun</exec_depend>
+<exec_depend>movie_publisher</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
+<test_depend>roslint</test_depend>
+<test_depend>rostest</test_depend>
+<export>
+<rosdoc config="rosdoc.yaml"/>
+<movie_publisher metadata_plugins="${prefix}/plugins.xml"/>
+</export>
+</package>
+-----
 leo: <?xml version="1.0" ?>
 <package format="2">
 <name>leo</name>
@@ -39694,6 +41191,34 @@ so other packages can use it. The code was obtained from https://github.com/davi
 <maintainer email="richard.bormann@ipa.fraunhofer.de">Richard Bormann</maintainer>
 <license>Boost Software License</license>
 <buildtool_depend>catkin</buildtool_depend>
+</package>
+-----
+libexif_metadata_extractor: <?xml version="1.0" ?>
+<package format="3">
+<name>libexif_metadata_extractor</name>
+<description>Metadata extractor utilizing libexif.</description>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<license file="LICENSE">BSD</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://wiki.ros.org/libexif_metadata_extractor</url>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>cras_cpp_common</build_depend>
+<build_depend>libexif-dev</build_depend>
+<build_depend>movie_publisher</build_depend>
+<build_depend>pluginlib</build_depend>
+<exec_depend>cras_cpp_common</exec_depend>
+<exec_depend>libexif</exec_depend>
+<exec_depend>movie_publisher</exec_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
+<test_depend>roslint</test_depend>
+<test_depend>rostest</test_depend>
+<export>
+<rosdoc config="rosdoc.yaml"/>
+<movie_publisher metadata_plugins="${prefix}/plugins.xml"/>
+</export>
 </package>
 -----
 libfranka: "<?xml version=\"1.0\" ?>
@@ -43945,21 +45470,132 @@ moveit_visual_tools: <?xml version="1.0" ?>
 movie_publisher: <?xml version="1.0" ?>
 <package format="3">
 <name>movie_publisher</name>
-<description>Node for using a video file as video topic source.</description>
+<description>Using a video file as image topic source.</description>
 <maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
-<license>BSD</license>
-<url type="website">http://www.ros.org/wiki/movie_publisher</url>
+<license file="LICENSE">BSD</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://www.ros.org/wiki/movie_publisher</url>
 <author email="peckama2@fel.cvut.cz">Martin Pecka</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend>cv_bridge</exec_depend>
+<build_depend>compass_conversions</build_depend>
+<build_depend>cras_topic_tools</build_depend>
+<build_depend>ffmpeg-dev</build_depend>
+<build_depend>image_geometry</build_depend>
+<build_depend>image_transport</build_depend>
+<build_depend>image_transport_codecs</build_depend>
+<build_depend>muparser</build_depend>
+<build_depend>nodelet</build_depend>
+<build_depend>rosbag</build_depend>
+<build_depend>tf2</build_depend>
+<build_depend>tf2_geometry_msgs</build_depend>
+<build_depend>tf2_msgs</build_depend>
+<build_depend>tf2_ros</build_depend>
+<exec_depend>compass_conversions</exec_depend>
+<exec_depend>cras_bag_tools</exec_depend>
+<exec_depend>cras_topic_tools</exec_depend>
 <exec_depend>ffmpeg</exec_depend>
-<exec_depend condition="$ROS_DISTRO != noetic">python-imageio</exec_depend>
-<exec_depend condition="$ROS_DISTRO == noetic">python3-imageio</exec_depend>
-<exec_depend condition="$ROS_DISTRO != noetic">python-opencv</exec_depend>
-<exec_depend condition="$ROS_DISTRO == noetic">python3-opencv</exec_depend>
+<exec_depend>image_geometry</exec_depend>
+<exec_depend>image_transport</exec_depend>
+<exec_depend>image_transport_codecs</exec_depend>
+<exec_depend>muparser</exec_depend>
+<exec_depend>nodelet</exec_depend>
+<exec_depend>rosbag</exec_depend>
+<exec_depend>tf2</exec_depend>
+<exec_depend>tf2_geometry_msgs</exec_depend>
+<exec_depend>tf2_msgs</exec_depend>
+<exec_depend>tf2_ros</exec_depend>
+<depend>compass_msgs</depend>
+<depend>cras_cpp_common</depend>
+<depend>gps_common</depend>
+<depend>roscpp</depend>
+<depend>sensor_msgs</depend>
+<exec_depend>ffmpeg</exec_depend>
 <exec_depend version_gte="1.0.2">rosbash_params</exec_depend>
 <exec_depend>rospy</exec_depend>
-<exec_depend>sensor_msgs</exec_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
+<test_depend>compressed_image_transport</test_depend>
+<test_depend>roslaunch</test_depend>
+<test_depend>roslint</test_depend>
+<test_depend>rostest</test_depend>
+<export>
+<nodelet plugin="${prefix}/nodelet.xml"/>
+<rosdoc config="rosdoc.yaml"/>
+<movie_publisher metadata_plugins="${prefix}/metadata_plugins.xml"/>
+</export>
+</package>
+-----
+movie_publisher_plugins: <?xml version="1.0" ?>
+<package format="3">
+<name>movie_publisher_plugins</name>
+<description>movie_publisher metadata plugins (all licenses)</description>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<license file="LICENSE">BSD</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://wiki.ros.org/movie_publisher</url>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>movie_publisher_plugins_copyleft</exec_depend>
+<exec_depend>movie_publisher_plugins_nonfree</exec_depend>
+<exec_depend>movie_publisher_plugins_permissive</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
+movie_publisher_plugins_copyleft: <?xml version="1.0" ?>
+<package format="3">
+<name>movie_publisher_plugins_copyleft</name>
+<description>movie_publisher metadata plugins with copyleft licenses</description>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<license file="LICENSE">BSD</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://wiki.ros.org/movie_publisher</url>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>exiv2_metadata_extractor</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
+movie_publisher_plugins_nonfree: <?xml version="1.0" ?>
+<package format="3">
+<name>movie_publisher_plugins_nonfree</name>
+<description>movie_publisher metadata plugins with nonfree licenses. exiftool is free for personal use.</description>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<license file="LICENSE">BSD</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://wiki.ros.org/movie_publisher</url>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>exiftool_metadata_extractor</exec_depend>
+<export>
+<metapackage/>
+</export>
+</package>
+-----
+movie_publisher_plugins_permissive: <?xml version="1.0" ?>
+<package format="3">
+<name>movie_publisher_plugins_permissive</name>
+<description>movie_publisher metadata plugins with permissive licenses</description>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<license file="LICENSE">BSD</license>
+<url type="repository">https://github.com/ctu-vras/movie_publisher</url>
+<url type="bugtracker">https://github.com/ctu-vras/movie_publisher/issues</url>
+<url type="website">https://wiki.ros.org/movie_publisher</url>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>camera_info_manager_metadata_extractor</exec_depend>
+<exec_depend>lensfun_metadata_extractor</exec_depend>
+<exec_depend>libexif_metadata_extractor</exec_depend>
+<export>
+<metapackage/>
+</export>
 </package>
 -----
 mp2p_icp: <?xml version="1.0" ?>
@@ -52964,6 +54600,43 @@ qb_softhand_industry_utils: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>roscpp</depend>
 <doc_depend>doxygen</doc_depend>
+</package>
+-----
+qoi_image_transport: <?xml version="1.0" ?>
+<package format="3">
+<name>qoi_image_transport</name>
+<description>Image transport using QOI format</description>
+<maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+<author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+<license file="LICENSES/BSD-3-Clause.txt">BSD</license>
+<license file="LICENSES/MIT.txt">MIT</license>
+<url type="website">https://wiki.ros.org/qoi_image_transport</url>
+<url type="repository">https://github.com/ctu-vras/qoi_image_transport</url>
+<url type="bugtracker">https://github.com/ctu-vras/qoi_image_transport/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
+<depend>cras_cpp_common</depend>
+<depend>cras_topic_tools</depend>
+<depend>image_transport_codecs</depend>
+<depend>sensor_msgs</depend>
+<build_depend>image_transport</build_depend>
+<build_depend>pluginlib</build_depend>
+<exec_depend>image_transport</exec_depend>
+<exec_depend>pluginlib</exec_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
+<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
+<test_depend>rosbag</test_depend>
+<test_depend>roslaunch</test_depend>
+<test_depend>roslint</test_depend>
+<test_depend>rostest</test_depend>
+<doc_depend>cras_docs_common</doc_depend>
+<doc_depend>rosdoc_lite</doc_depend>
+<export>
+<image_transport plugin="${prefix}/transport.xml"/>
+<image_transport_codecs plugin="${prefix}/codec.xml"/>
+<rosdoc config="rosdoc.yaml"/>
+</export>
 </package>
 -----
 qpoases_vendor: "<?xml version=\"1.0\" ?>
@@ -62628,7 +64301,7 @@ swri_cli_tools: <?xml version="1.0" ?>
 <name>swri_cli_tools</name>
 <description>rosman contains the rosman tool for introspecting ROS nodes</description>
 <maintainer email="robert.brothers@swri.org">Robert Brothers</maintainer>
-<maintainer email="matthew.bries@swri.org">Matt Bries</maintainer>
+<maintainer email="david.anthony@swri.org">David Anthony</maintainer>
 <license>BSD</license>
 <url>https://github.com/swri-robotics/marti_common</url>
 <author email="robert.brothers@swri.org">Robert Brothers</author>
@@ -62755,7 +64428,8 @@ swri_nodelet: <?xml version="1.0" ?>
 <package format="2">
 <name>swri_nodelet</name>
 <description>This package provides a simple script to write simple launch files that can easily switch between running nodelets together or as standalone nodes.</description>
-<maintainer email="preed@swri.org">P. J. Reed</maintainer>
+<author>P. J. Reed</author>
+<maintainer email="swri-robotics@swri.org">Southwest Research Institute</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>boost</depend>
@@ -62789,7 +64463,7 @@ swri_prefix_tools: <?xml version="1.0" ?>
 <name>swri_prefix_tools</name>
 <description>Contains scripts that are useful as prefix commands for nodes started by roslaunch.</description>
 <author>Elliot Johnson</author>
-<maintainer email="preed@swri.org">P. J. Reed</maintainer>
+<maintainer email="swri-robotics@swri.org">Southwest Research Institute</maintainer>
 <license>BSD</license>
 <url>https://github.com/swri-robotics/marti_common</url>
 <buildtool_depend>catkin</buildtool_depend>
@@ -62849,8 +64523,9 @@ swri_profiler_tools: <?xml version="1.0" ?>
 swri_roscpp: <?xml version="1.0" ?>
 <package format="2">
 <name>swri_roscpp</name>
-<description>swri_roscpp</description>
-<maintainer email="preed@swri.org">P. J. Reed</maintainer>
+<description>Enhancements to roscpp functionality to reduce boilerplate code and implement common patterns.</description>
+<author>P. J. Reed</author>
+<maintainer email="swri-robotics@swri.org">Southwest Research Institute</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend>pkg-config</buildtool_depend>
@@ -62876,7 +64551,8 @@ swri_rospy: <?xml version="1.0" ?>
 <name>swri_rospy</name>
 <description>This package provides added functionality on top of rospy,
 including a single-threaded callback queue.</description>
-<maintainer email="preed@swri.edu">P. J. Reed</maintainer>
+<author>P. J. Reed</author>
+<maintainer email="swri-robotics@swri.org">Southwest Research Institute</maintainer>
 <license>BSD</license>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
@@ -65641,7 +67317,9 @@ ur_calibration: <?xml version="1.0" ?>
 <package format="2">
 <name>ur_calibration</name>
 <description>Package for extracting the factory calibration from a UR robot and change it such that it can be used by ur_description to gain a correct URDF</description>
-<maintainer email="exner@fzi.de">Felix Exner</maintainer>
+<maintainer email="feex@universal-robots.com">Felix Exner</maintainer>
+<maintainer email="rsk@universal-robots.com">Rune Søe-Knudsen</maintainer>
+<maintainer email="ros@universal-robots.com">Universal Robots A/S</maintainer>
 <license>Apache-2.0</license>
 <buildtool_depend>catkin</buildtool_depend>
 <depend>eigen</depend>
@@ -65662,7 +67340,9 @@ ur_client_library: <?xml version="1.0" ?>
 <author>Felix Exner</author>
 <author>Lea Steffen</author>
 <author>Tristan Schnell</author>
-<maintainer email="exner@fzi.de">Felix Exner</maintainer>
+<maintainer email="feex@universal-robots.com">Felix Exner</maintainer>
+<maintainer email="rsk@universal-robots.com">Rune Søe-Knudsen</maintainer>
+<maintainer email="ros@universal-robots.com">Universal Robots A/S</maintainer>
 <license file="LICENSE_apache_2_0">Apache-2.0</license>
 <license file="include/ur_client_library/queue/LICENSE.md">BSD-2-Clause</license>
 <license file="include/ur_client_library/queue/atomicops.h">Zlib</license>
@@ -65682,7 +67362,9 @@ ur_dashboard_msgs: <?xml version="1.0" ?>
 <package format="2">
 <name>ur_dashboard_msgs</name>
 <description>Messages around the UR Dashboard server.</description>
-<maintainer email="exner@FZI.de">Felix Exner</maintainer>
+<maintainer email="feex@universal-robots.com">Felix Exner</maintainer>
+<maintainer email="rsk@universal-robots.com">Rune Søe-Knudsen</maintainer>
+<maintainer email="ros@universal-robots.com">Universal Robots A/S</maintainer>
 <license>Apache-2.0</license>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
@@ -65790,7 +67472,9 @@ UR5 and UR10 robots with CB3 controllers and the e-series.</description>
 <author>Felix Exner</author>
 <author>Lea Steffen</author>
 <author>Tristan Schnell</author>
-<maintainer email="exner@fzi.de">Felix Exner</maintainer>
+<maintainer email="feex@universal-robots.com">Felix Exner</maintainer>
+<maintainer email="rsk@universal-robots.com">Rune Søe-Knudsen</maintainer>
+<maintainer email="ros@universal-robots.com">Universal Robots A/S</maintainer>
 <license>Apache-2.0</license>
 <license>BSD-2-Clause</license>
 <license>Zlib</license>
