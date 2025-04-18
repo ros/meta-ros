@@ -1,4 +1,4 @@
-# rolling/cache.yaml 2025-01-17 0d9a6f9eea5073fc27bdaf0f5e242b9d0c1b8d4a 20250117190031 1.8.0
+# rolling/cache.yaml 2025-04-16 2a1df4bbcb28a21c35d15d5dc13c4870e0f44c8b 20250416163336 1.8.0
 distribution_file:
 - release_platforms:
 -----
@@ -111,6 +111,20 @@ url: 'https://github.com/ros-acceleration/adaptive_component.git',
 version: rolling
 },
 status: developed
+}
+-----
+adi_iio: {
+doc: {
+type: git,
+url: 'https://github.com/analogdevicesinc/iio_ros2.git',
+version: rolling
+},
+source: {
+type: git,
+url: 'https://github.com/analogdevicesinc/iio_ros2.git',
+version: rolling
+},
+status: maintained
 }
 -----
 ament_acceleration: {
@@ -226,12 +240,15 @@ version: rolling
 },
 release: {
 packages: [ament_cmake_ros,
-domain_coordinator],
+ament_cmake_ros_core,
+domain_coordinator,
+rmw_test_fixture,
+rmw_test_fixture_implementation],
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ament_cmake_ros-release.git',
-version: 0.13.1-1
+version: 0.14.1-1
 },
 source: {
 test_pull_requests: true,
@@ -329,7 +346,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ament_lint-release.git',
-version: 0.19.0-1
+version: 0.19.1-1
 },
 source: {
 test_pull_requests: true,
@@ -456,7 +473,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/apriltag-release.git',
-version: 3.4.2-1
+version: 3.4.3-1
 },
 source: {
 type: git,
@@ -470,23 +487,24 @@ apriltag_detector: {
 doc: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/apriltag_detector.git',
-version: rolling
+version: release
 },
 release: {
 packages: [apriltag_detector,
 apriltag_detector_mit,
 apriltag_detector_umich,
-apriltag_draw],
+apriltag_draw,
+apriltag_tools],
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/apriltag_detector-release.git',
-version: 2.0.0-1
+version: 3.0.1-2
 },
 source: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/apriltag_detector.git',
-version: rolling
+version: release
 },
 status: developed
 }
@@ -495,7 +513,7 @@ apriltag_mit: {
 doc: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/apriltag_mit.git',
-version: rolling
+version: release
 },
 release: {
 tags: {
@@ -507,7 +525,7 @@ version: 1.0.3-1
 source: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/apriltag_mit.git',
-version: rolling
+version: release
 },
 status: developed
 }
@@ -540,6 +558,24 @@ source: {
 type: git,
 url: 'https://github.com/christianrauch/apriltag_ros.git',
 version: master
+},
+status: developed
+}
+-----
+ardrone_ros: {
+source: {
+type: git,
+url: 'https://github.com/vtalpaert/ardrone-ros2.git',
+version: main
+},
+status: developed
+}
+-----
+aruco_markers: {
+source: {
+type: git,
+url: 'https://github.com/namo-robotics/aruco_markers.git',
+version: rolling
 },
 status: developed
 }
@@ -661,6 +697,13 @@ type: git,
 url: 'https://github.com/automatika-robotics/ros-agents.git',
 version: main
 },
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/automatika_embodied_agents-release.git',
+version: 0.3.2-1
+},
 source: {
 type: git,
 url: 'https://github.com/automatika-robotics/ros-agents.git',
@@ -680,7 +723,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/automatika_ros_sugar-release.git',
-version: 0.2.5-1
+version: 0.2.9-1
 },
 source: {
 type: git,
@@ -761,7 +804,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/autoware_cmake-release.git',
-version: 1.0.0-1
+version: 1.0.2-1
 },
 source: {
 type: git,
@@ -774,13 +817,15 @@ status: developed
 autoware_internal_msgs: {
 release: {
 packages: [autoware_internal_debug_msgs,
+autoware_internal_metric_msgs,
 autoware_internal_msgs,
-autoware_internal_perception_msgs],
+autoware_internal_perception_msgs,
+autoware_internal_planning_msgs],
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/autoware_internal_msgs-release.git',
-version: 1.3.0-1
+version: 1.8.1-2
 },
 source: {
 type: git,
@@ -798,7 +843,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/autoware_lanelet2_extension-release.git',
-version: 0.6.2-1
+version: 0.7.0-1
 },
 source: {
 type: git,
@@ -814,6 +859,7 @@ packages: [autoware_common_msgs,
 autoware_control_msgs,
 autoware_localization_msgs,
 autoware_map_msgs,
+autoware_msgs,
 autoware_perception_msgs,
 autoware_planning_msgs,
 autoware_sensing_msgs,
@@ -824,27 +870,11 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/autoware_msgs-release.git',
-version: 1.3.0-1
+version: 1.6.0-1
 },
 source: {
 type: git,
 url: 'https://github.com/autowarefoundation/autoware_msgs.git',
-version: main
-},
-status: developed
-}
------
-autoware_utils: {
-release: {
-tags: {
-release: 'release/rolling/{package}/{version}'
-},
-url: 'https://github.com/ros2-gbp/autoware_utils-release.git',
-version: 1.0.0-1
-},
-source: {
-type: git,
-url: 'https://github.com/autowarefoundation/autoware_utils.git',
 version: main
 },
 status: developed
@@ -945,7 +975,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/backward_ros-release.git',
-version: 1.0.6-1
+version: 1.0.7-1
 },
 source: {
 type: git,
@@ -1056,7 +1086,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/bond_core-release.git',
-version: 4.1.0-1
+version: 4.1.2-1
 },
 source: {
 test_pull_requests: true,
@@ -1096,6 +1126,27 @@ version: main
 }
 }
 -----
+boost_sml_vendor: {
+doc: {
+type: git,
+url: 'https://github.com/nobleo/boost_sml_vendor.git',
+version: main
+},
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/boost_sml_vendor-release.git',
+version: 1.1.11-1
+},
+source: {
+type: git,
+url: 'https://github.com/nobleo/boost_sml_vendor.git',
+version: main
+},
+status: maintained
+}
+-----
 camera_ros: {
 doc: {
 type: git,
@@ -1107,7 +1158,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/camera_ros-release.git',
-version: 0.3.0-1
+version: 0.4.0-1
 },
 source: {
 type: git,
@@ -1272,7 +1323,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/coal-release.git',
-version: 3.0.0-1
+version: 3.0.1-1
 },
 source: {
 type: git,
@@ -1280,6 +1331,30 @@ url: 'https://github.com/coal-library/coal.git',
 version: master
 },
 status: developed
+}
+-----
+cob_common: {
+doc: {
+type: git,
+url: 'https://github.com/4am-robotics/cob_common.git',
+version: foxy
+},
+release: {
+packages: [cob_actions,
+cob_msgs,
+cob_srvs],
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/cob_common-release.git',
+version: 2.8.12-1
+},
+source: {
+type: git,
+url: 'https://github.com/4am-robotics/cob_common.git',
+version: foxy
+},
+status: maintained
 }
 -----
 color_names: {
@@ -1349,7 +1424,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/common_interfaces-release.git',
-version: 5.4.2-1
+version: 5.5.0-1
 },
 source: {
 test_pull_requests: true,
@@ -1415,7 +1490,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/control_msgs-release.git',
-version: 5.3.0-1
+version: 6.0.0-1
 },
 source: {
 type: git,
@@ -1436,7 +1511,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/control_toolbox-release.git',
-version: 3.5.0-1
+version: 5.1.0-1
 },
 source: {
 type: git,
@@ -1598,6 +1673,7 @@ version: ros2
 release: {
 packages: [diagnostic_aggregator,
 diagnostic_common_diagnostics,
+diagnostic_remote_logging,
 diagnostic_updater,
 diagnostics,
 self_test],
@@ -1605,7 +1681,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/diagnostics-release.git',
-version: 4.3.1-1
+version: 4.4.3-1
 },
 source: {
 test_pull_requests: true,
@@ -1664,6 +1740,15 @@ version: main
 status: developed
 }
 -----
+doom_ros: {
+source: {
+type: git,
+url: 'https://github.com/gstavrinos/doom_ros.git',
+version: master
+},
+status: developed
+}
+-----
 dual_laser_merger: {
 doc: {
 type: git,
@@ -1706,6 +1791,38 @@ version: rolling
 status: developed
 }
 -----
+dynamixel_hardware_interface: {
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/dynamixel_hardware_interface-release.git',
+version: 1.4.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/dynamixel_hardware_interface.git',
+version: main
+},
+status: developed
+}
+-----
+dynamixel_interfaces: {
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/dynamixel_interfaces-release.git',
+version: 1.0.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/dynamixel_interfaces.git',
+version: main
+},
+status: developed
+}
+-----
 dynamixel_sdk: {
 doc: {
 type: git,
@@ -1720,7 +1837,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/dynamixel_sdk-release.git',
-version: 3.7.40-5
+version: 3.8.3-1
 },
 source: {
 type: git,
@@ -1743,7 +1860,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/dynamixel_workbench-release.git',
-version: 2.2.3-4
+version: 2.2.4-1
 },
 source: {
 type: git,
@@ -1764,7 +1881,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/dynamixel_workbench_msgs-release.git',
-version: 2.0.3-4
+version: 2.1.0-1
 },
 source: {
 type: git,
@@ -1929,7 +2046,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/eigen_stl_containers-release.git',
-version: 1.0.0-6
+version: 1.1.0-1
 },
 source: {
 test_pull_requests: true,
@@ -1951,7 +2068,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/eigenpy-release.git',
-version: 3.8.2-1
+version: 3.10.3-1
 },
 source: {
 type: git,
@@ -2138,7 +2255,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/fastcdr-release.git',
-version: 2.2.5-1
+version: 2.3.0-1
 },
 source: {
 test_commits: false,
@@ -2150,25 +2267,25 @@ version: 2.2.x
 status: maintained
 }
 -----
-fastrtps: {
+fastdds: {
 doc: {
 type: git,
-url: 'https://github.com/eProsima/Fast-RTPS.git',
-version: 2.14.x
+url: 'https://github.com/eProsima/Fast-DDS.git',
+version: 3.1.x
 },
 release: {
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
-url: 'https://github.com/ros2-gbp/fastrtps-release.git',
-version: 2.14.4-1
+url: 'https://github.com/ros2-gbp/fastdds-release.git',
+version: 3.2.1-1
 },
 source: {
 test_commits: true,
 test_pull_requests: false,
 type: git,
 url: 'https://github.com/eProsima/Fast-DDS.git',
-version: 2.14.x
+version: 3.1.x
 },
 status: maintained
 }
@@ -2200,7 +2317,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ffmpeg_encoder_decoder-release.git',
-version: 1.0.1-1
+version: 2.0.0-1
 },
 source: {
 type: git,
@@ -2214,19 +2331,19 @@ ffmpeg_image_transport: {
 doc: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/ffmpeg_image_transport.git',
-version: rolling
+version: release
 },
 release: {
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ffmpeg_image_transport-release.git',
-version: 1.0.1-1
+version: 2.0.2-1
 },
 source: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/ffmpeg_image_transport.git',
-version: rolling
+version: release
 },
 status: developed
 }
@@ -2235,7 +2352,7 @@ ffmpeg_image_transport_msgs: {
 doc: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/ffmpeg_image_transport_msgs.git',
-version: rolling
+version: release
 },
 release: {
 tags: {
@@ -2247,7 +2364,7 @@ version: 1.0.2-2
 source: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/ffmpeg_image_transport_msgs.git',
-version: rolling
+version: release
 },
 status: developed
 }
@@ -2256,19 +2373,19 @@ ffmpeg_image_transport_tools: {
 doc: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/ffmpeg_image_transport_tools.git',
-version: rolling
+version: release
 },
 release: {
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ffmpeg_image_transport_tools-release.git',
-version: 1.0.1-1
+version: 2.1.1-1
 },
 source: {
 type: git,
 url: 'https://github.com/ros-misc-utilities/ffmpeg_image_transport_tools.git',
-version: rolling
+version: release
 },
 status: developed
 }
@@ -2337,6 +2454,24 @@ version: rolling-devel
 status: maintained
 }
 -----
+fkie_message_filters: {
+source: {
+type: git,
+url: 'https://github.com/fkie/message_filters.git',
+version: ros2
+},
+status: maintained
+}
+-----
+fkie_potree_rviz_plugin: {
+source: {
+type: git,
+url: 'https://github.com/fkie/potree_rviz_plugin.git',
+version: ros2
+},
+status: developed
+}
+-----
 flex_sync: {
 doc: {
 type: git,
@@ -2403,7 +2538,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/flir_camera_driver-release.git',
-version: 3.0.0-1
+version: 3.0.1-1
 },
 source: {
 type: git,
@@ -2516,7 +2651,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/foxglove_bridge-release.git',
-version: 0.8.2-1
+version: 0.8.3-1
 },
 source: {
 type: git,
@@ -2537,7 +2672,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/foxglove_compressed_video_transport-release.git',
-version: 1.0.1-1
+version: 1.0.2-1
 },
 source: {
 type: git,
@@ -2558,7 +2693,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros_foxglove_msgs-release.git',
-version: 3.0.1-1
+version: 3.1.0-1
 },
 source: {
 type: git,
@@ -2690,7 +2825,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/geometric_shapes-release.git',
-version: 2.3.1-1
+version: 2.3.2-1
 },
 source: {
 type: git,
@@ -2822,6 +2957,20 @@ test_pull_requests: true,
 type: git,
 url: 'https://github.com/swri-robotics/gps_umd.git',
 version: ros2-devel
+},
+status: developed
+}
+-----
+graph_monitor: {
+doc: {
+type: git,
+url: 'https://github.com/ros-tooling/graph-monitor.git',
+version: main
+},
+source: {
+type: git,
+url: 'https://github.com/ros-tooling/graph-monitor.git',
+version: main
 },
 status: developed
 }
@@ -2963,7 +3112,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_cmake_vendor-release.git',
-version: 0.2.1-1
+version: 0.2.2-1
 },
 source: {
 test_pull_requests: true,
@@ -2985,7 +3134,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_common_vendor-release.git',
-version: 0.2.2-1
+version: 0.2.3-1
 },
 source: {
 test_pull_requests: true,
@@ -3029,7 +3178,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_fuel_tools_vendor-release.git',
-version: 0.2.0-1
+version: 0.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3051,7 +3200,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_gui_vendor-release.git',
-version: 0.2.0-1
+version: 0.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3073,7 +3222,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_launch_vendor-release.git',
-version: 0.2.0-1
+version: 0.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3095,7 +3244,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_math_vendor-release.git',
-version: 0.2.2-1
+version: 0.2.3-1
 },
 source: {
 test_pull_requests: true,
@@ -3161,7 +3310,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_physics_vendor-release.git',
-version: 0.2.0-1
+version: 0.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3183,7 +3332,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_plugin_vendor-release.git',
-version: 0.2.0-1
+version: 0.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3205,7 +3354,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_rendering_vendor-release.git',
-version: 0.2.0-1
+version: 0.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3229,7 +3378,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ign_ros2_control-release.git',
-version: 2.0.3-1
+version: 2.0.7-1
 },
 source: {
 type: git,
@@ -3250,7 +3399,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_sensors_vendor-release.git',
-version: 0.2.0-1
+version: 0.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3272,7 +3421,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_sim_vendor-release.git',
-version: 0.2.0-1
+version: 0.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3294,7 +3443,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_tools_vendor-release.git',
-version: 0.1.1-1
+version: 0.1.2-1
 },
 source: {
 test_pull_requests: true,
@@ -3316,7 +3465,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_transport_vendor-release.git',
-version: 0.2.0-1
+version: 0.2.1-1
 },
 source: {
 test_pull_requests: true,
@@ -3338,7 +3487,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/gz_utils_vendor-release.git',
-version: 0.2.1-1
+version: 0.2.2-1
 },
 source: {
 test_pull_requests: true,
@@ -3381,7 +3530,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/hatchbed_common-release.git',
-version: 0.1.1-1
+version: 0.1.2-1
 },
 source: {
 type: git,
@@ -3412,6 +3561,27 @@ version: main
 status: maintained
 }
 -----
+hebi_cpp_api: {
+doc: {
+type: git,
+url: 'https://github.com/HebiRobotics/hebi_cpp_api_ros.git',
+version: ros2
+},
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/hebi_cpp_api-release.git',
+version: 3.12.3-1
+},
+source: {
+type: git,
+url: 'https://github.com/HebiRobotics/hebi_cpp_api_ros.git',
+version: ros2
+},
+status: maintained
+}
+-----
 hls_lfcd_lds_driver: {
 doc: {
 type: git,
@@ -3423,7 +3593,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/hls_lfcd_lds_driver-release.git',
-version: 2.0.4-5
+version: 2.1.0-1
 },
 source: {
 type: git,
@@ -3575,7 +3745,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/image_pipeline-release.git',
-version: 6.0.7-1
+version: 6.0.10-1
 },
 source: {
 test_pull_requests: true,
@@ -3602,7 +3772,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/image_transport_plugins-release.git',
-version: 5.0.1-1
+version: 5.0.2-1
 },
 source: {
 test_pull_requests: true,
@@ -3868,7 +4038,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/kinematics_interface-release.git',
-version: 1.2.1-1
+version: 2.0.0-1
 },
 source: {
 type: git,
@@ -3970,6 +4140,15 @@ doc: {
 type: git,
 url: 'https://github.com/automatika-robotics/kompass.git',
 version: main
+},
+release: {
+packages: [kompass,
+kompass_interfaces],
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/kompass-release.git',
+version: 0.2.1-1
 },
 source: {
 type: git,
@@ -4109,7 +4288,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/launch-release.git',
-version: 3.7.1-1
+version: 3.8.0-1
 },
 source: {
 test_pull_requests: true,
@@ -4164,6 +4343,22 @@ url: 'https://github.com/ros2/launch_ros.git',
 version: rolling
 },
 status: maintained
+}
+-----
+ld08_driver: {
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ld08_driver-release.git',
+version: 1.1.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/ld08_driver.git',
+version: main
+},
+status: developed
 }
 -----
 leo_common: {
@@ -4352,7 +4547,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/libcamera-release.git',
-version: 0.4.0-1
+version: 0.5.0-2
 },
 source: {
 type: git,
@@ -4453,6 +4648,15 @@ version: rolling
 status: maintained
 }
 -----
+lidar_mirror_fov_reshaper: {
+source: {
+type: git,
+url: 'https://github.com/ioskn/lidar_mirror_fov_reshaper.git',
+version: rolling
+},
+status: maintained
+}
+-----
 linux_isolate_process: {
 doc: {
 type: git,
@@ -4532,7 +4736,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mapviz-release.git',
-version: 2.4.4-1
+version: 2.4.6-1
 },
 source: {
 type: git,
@@ -4729,7 +4933,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros2_message_filters-release.git',
-version: 7.0.0-1
+version: 7.1.0-1
 },
 source: {
 test_pull_requests: true,
@@ -4772,7 +4976,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/metavision_driver-release.git',
-version: 2.0.0-1
+version: 2.0.1-1
 },
 source: {
 type: git,
@@ -4938,7 +5142,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mola-release.git',
-version: 1.5.1-1
+version: 1.6.3-1
 },
 source: {
 type: git,
@@ -4969,6 +5173,27 @@ version: develop
 status: developed
 }
 -----
+mola_gnss_to_markers: {
+doc: {
+type: git,
+url: 'https://github.com/MOLAorg/mola_gnss_to_markers.git',
+version: develop
+},
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/mola_gnss_to_markers-release.git',
+version: 0.1.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/MOLAorg/mola_gnss_to_markers.git',
+version: develop
+},
+status: developed
+}
+-----
 mola_lidar_odometry: {
 doc: {
 type: git,
@@ -4980,7 +5205,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mola_lidar_odometry-release.git',
-version: 0.5.4-1
+version: 0.7.1-1
 },
 source: {
 type: git,
@@ -5005,7 +5230,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mola_state_estimation-release.git',
-version: 1.6.1-1
+version: 1.8.0-1
 },
 source: {
 type: git,
@@ -5111,7 +5336,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/moveit2-release.git',
-version: 2.12.0-1
+version: 2.13.2-1
 },
 source: {
 test_commits: false,
@@ -5183,7 +5408,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/moveit_visual_tools-release.git',
-version: 4.1.1-1
+version: 4.1.2-1
 },
 source: {
 type: git,
@@ -5204,7 +5429,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mp2p_icp-release.git',
-version: 1.6.4-1
+version: 1.6.7-1
 },
 source: {
 type: git,
@@ -5405,7 +5630,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/mvsim-release.git',
-version: 0.13.0-1
+version: 0.13.2-1
 },
 source: {
 test_pull_requests: true,
@@ -5639,6 +5864,22 @@ status: developed,
 status_description: ROS2 support is work-in-progress. Help wanted!
 }
 -----
+nobleo_socketcan_bridge: {
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/nobleo_socketcan_bridge-release.git',
+version: 1.0.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/nobleo/nobleo_socketcan_bridge.git',
+version: main
+},
+status: maintained
+}
+-----
 nodl: {
 doc: {
 type: git,
@@ -5863,7 +6104,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/odom_to_tf_ros2-release.git',
-version: 1.0.4-1
+version: 1.0.5-2
 },
 source: {
 type: git,
@@ -5916,6 +6157,20 @@ version: main
 status: developed
 }
 -----
+open_manipulator: {
+doc: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/open_manipulator.git',
+version: main
+},
+source: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/open_manipulator.git',
+version: main
+},
+status: developed
+}
+-----
 openeb_vendor: {
 doc: {
 type: git,
@@ -5927,7 +6182,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/openeb_vendor-release.git',
-version: 2.0.1-2
+version: 2.0.2-1
 },
 source: {
 type: git,
@@ -6139,7 +6394,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/pal_statistics-release.git',
-version: 2.6.0-1
+version: 2.6.2-1
 },
 source: {
 type: git,
@@ -6150,12 +6405,17 @@ status: maintained
 }
 -----
 pangolin: {
+doc: {
+type: git,
+url: 'https://github.com/stevenlovegrove/Pangolin.git',
+version: master
+},
 release: {
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/Pangolin-release.git',
-version: 0.9.1-2
+version: 0.9.3-1
 },
 source: {
 type: git,
@@ -6213,7 +6473,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/perception_pcl-release.git',
-version: 2.6.1-3
+version: 2.6.3-1
 },
 source: {
 test_pull_requests: true,
@@ -6344,7 +6604,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/picknik_controllers-release.git',
-version: 0.0.3-2
+version: 0.0.4-2
 },
 source: {
 type: git,
@@ -6365,7 +6625,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/pinocchio-release.git',
-version: 3.3.0-1
+version: 3.4.0-3
 },
 source: {
 type: git,
@@ -6591,7 +6851,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/polygon_ros-release.git',
-version: 1.1.0-1
+version: 1.2.0-1
 },
 source: {
 test_pull_requests: true,
@@ -6748,6 +7008,28 @@ version: devel
 status: developed
 }
 -----
+py_trees_ros_tutorials: {
+doc: {
+type: git,
+url: 'https://github.com/splintered-reality/py_trees_ros_tutorials.git',
+version: devel
+},
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/py_trees_ros_tutorials-release.git',
+version: 2.3.0-1
+},
+source: {
+test_pull_requests: true,
+type: git,
+url: 'https://github.com/splintered-reality/py_trees_ros_tutorials.git',
+version: devel
+},
+status: developed
+}
+-----
 py_trees_ros_viewer: {
 doc: {
 type: git,
@@ -6889,7 +7171,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/qml_ros2_plugin-release.git',
-version: 1.0.1-1
+version: 2.25.2-2
 },
 source: {
 type: git,
@@ -7193,7 +7475,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rcl-release.git',
-version: 10.0.1-1
+version: 10.1.0-1
 },
 source: {
 test_pull_requests: true,
@@ -7317,7 +7599,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rclcpp-release.git',
-version: 29.3.0-1
+version: 29.4.0-1
 },
 source: {
 test_pull_requests: true,
@@ -7339,7 +7621,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rclpy-release.git',
-version: 8.0.0-1
+version: 9.0.0-1
 },
 source: {
 test_pull_requests: true,
@@ -7361,7 +7643,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rcpputils-release.git',
-version: 2.13.2-1
+version: 2.13.3-1
 },
 source: {
 test_pull_requests: true,
@@ -7429,7 +7711,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rcutils-release.git',
-version: 6.9.3-1
+version: 6.9.5-1
 },
 source: {
 test_pull_requests: true,
@@ -7491,7 +7773,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/realtime_tools-release.git',
-version: 3.1.0-1
+version: 4.2.0-1
 },
 source: {
 type: git,
@@ -7912,12 +8194,13 @@ version: rolling
 },
 release: {
 packages: [rmw,
-rmw_implementation_cmake],
+rmw_implementation_cmake,
+rmw_security_common],
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmw-release.git',
-version: 7.5.1-1
+version: 7.8.1-1
 },
 source: {
 test_pull_requests: true,
@@ -7942,7 +8225,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmw_connextdds-release.git',
-version: 0.25.0-1
+version: 1.0.0-1
 },
 source: {
 type: git,
@@ -7964,7 +8247,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmw_cyclonedds-release.git',
-version: 3.2.0-1
+version: 4.0.1-1
 },
 source: {
 test_pull_requests: true,
@@ -7986,13 +8269,34 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmw_dds_common-release.git',
-version: 3.2.0-1
+version: 3.2.1-1
 },
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros2/rmw_dds_common.git',
 version: rolling
+},
+status: maintained
+}
+-----
+rmw_desert: {
+doc: {
+type: git,
+url: 'https://github.com/signetlabdei/rmw_desert.git',
+version: main
+},
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/rmw_desert-release.git',
+version: 3.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/signetlabdei/rmw_desert.git',
+version: main
 },
 status: maintained
 }
@@ -8011,7 +8315,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmw_fastrtps-release.git',
-version: 9.2.0-1
+version: 9.3.1-1
 },
 source: {
 test_pull_requests: true,
@@ -8056,7 +8360,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmw_implementation-release.git',
-version: 3.0.3-1
+version: 3.0.4-1
 },
 source: {
 test_pull_requests: true,
@@ -8080,7 +8384,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rmw_zenoh-release.git',
-version: 0.3.0-1
+version: 0.5.0-1
 },
 source: {
 type: git,
@@ -8119,7 +8423,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/robot_localization-release.git',
-version: 3.9.1-1
+version: 3.9.2-2
 },
 source: {
 test_pull_requests: true,
@@ -8234,11 +8538,32 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros2_control-release.git',
-version: 4.24.0-1
+version: 4.27.0-1
 },
 source: {
 type: git,
 url: 'https://github.com/ros-controls/ros2_control.git',
+version: master
+},
+status: developed
+}
+-----
+ros2_control_cmake: {
+doc: {
+type: git,
+url: 'https://github.com/ros-controls/ros2_control_cmake.git',
+version: master
+},
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/ros2_control_cmake-release.git',
+version: 0.1.1-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-controls/ros2_control_cmake.git',
 version: master
 },
 status: developed
@@ -8280,7 +8605,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros2_controllers-release.git',
-version: 4.19.0-1
+version: 4.22.0-1
 },
 source: {
 type: git,
@@ -8454,7 +8779,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros2cli-release.git',
-version: 0.36.1-1
+version: 0.37.0-1
 },
 source: {
 test_pull_requests: true,
@@ -8523,7 +8848,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros_babel_fish-release.git',
-version: 0.10.2-1
+version: 3.25.2-1
 },
 source: {
 type: git,
@@ -8546,7 +8871,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros_battery_monitoring-release.git',
-version: 1.0.0-1
+version: 1.0.1-1
 },
 source: {
 test_pull_requests: true,
@@ -8614,7 +8939,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ros_ign-release.git',
-version: 2.1.3-2
+version: 2.1.6-1
 },
 source: {
 test_pull_requests: true,
@@ -8748,14 +9073,13 @@ rosbag2_test_common,
 rosbag2_test_msgdefs,
 rosbag2_tests,
 rosbag2_transport,
-shared_queues_vendor,
 sqlite3_vendor,
 zstd_vendor],
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rosbag2-release.git',
-version: 0.29.0-1
+version: 0.31.0-1
 },
 source: {
 test_pull_requests: true,
@@ -8774,6 +9098,21 @@ url: 'https://github.com/ros2/rosbag2_bag_v2.git',
 version: master
 },
 status_description: Maintained in source form only since no ROS 1 packages available in Rolling
+}
+-----
+rosbag2_broll: {
+doc: {
+type: git,
+url: 'https://github.com/ros-tooling/rosbag2_broll.git',
+version: main
+},
+source: {
+test_commits: false,
+type: git,
+url: 'https://github.com/ros-tooling/rosbag2_broll.git',
+version: main
+},
+status: developed
 }
 -----
 rosbag2_to_video: {
@@ -8815,7 +9154,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rosbridge_suite-release.git',
-version: 2.1.0-1
+version: 2.2.0-1
 },
 source: {
 type: git,
@@ -8964,7 +9303,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rosidl_dynamic_typesupport_fastrtps-release.git',
-version: 0.3.0-1
+version: 0.4.0-1
 },
 source: {
 test_pull_requests: true,
@@ -9020,6 +9359,20 @@ version: rolling
 status: maintained
 }
 -----
+rosidl_rust: {
+doc: {
+type: git,
+url: 'https://github.com/ros2-rust/rosidl_rust.git',
+version: main
+},
+source: {
+type: git,
+url: 'https://github.com/ros2-rust/rosidl_rust.git',
+version: main
+},
+status: developed
+}
+-----
 rosidl_typesupport: {
 doc: {
 type: git,
@@ -9033,7 +9386,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rosidl_typesupport-release.git',
-version: 3.3.1-1
+version: 3.3.2-1
 },
 source: {
 test_pull_requests: true,
@@ -9051,14 +9404,13 @@ url: 'https://github.com/ros2/rosidl_typesupport_fastrtps.git',
 version: rolling
 },
 release: {
-packages: [fastrtps_cmake_module,
-rosidl_typesupport_fastrtps_c,
+packages: [rosidl_typesupport_fastrtps_c,
 rosidl_typesupport_fastrtps_cpp],
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rosidl_typesupport_fastrtps-release.git',
-version: 3.7.1-1
+version: 3.8.0-1
 },
 source: {
 test_pull_requests: true,
@@ -9186,7 +9538,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt-release.git',
-version: 1.8.0-1
+version: 1.9.0-1
 },
 source: {
 test_pull_requests: true,
@@ -9336,7 +9688,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt_graph-release.git',
-version: 1.6.1-1
+version: 1.7.0-1
 },
 source: {
 test_pull_requests: true,
@@ -9445,7 +9797,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt_plot-release.git',
-version: 1.6.0-1
+version: 1.6.2-1
 },
 source: {
 type: git,
@@ -9487,7 +9839,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt_py_console-release.git',
-version: 1.3.0-1
+version: 1.4.0-1
 },
 source: {
 type: git,
@@ -9572,7 +9924,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt_robot_steering-release.git',
-version: 1.0.0-5
+version: 1.0.1-2
 },
 source: {
 type: git,
@@ -9614,7 +9966,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rqt_service_caller-release.git',
-version: 1.3.0-1
+version: 1.4.0-1
 },
 source: {
 type: git,
@@ -9852,7 +10204,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/rviz-release.git',
-version: 14.4.1-1
+version: 14.4.4-1
 },
 source: {
 test_pull_requests: true,
@@ -9942,7 +10294,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/sdformat_vendor-release.git',
-version: 0.2.3-2
+version: 0.2.4-1
 },
 source: {
 test_pull_requests: true,
@@ -9964,7 +10316,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/septentrio_gnss_driver_ros2-release.git',
-version: 1.4.1-1
+version: 1.4.2-1
 },
 source: {
 test_pull_requests: true,
@@ -10104,6 +10456,15 @@ version: main
 status: developed
 }
 -----
+sicks300_ros2: {
+doc: {
+type: git,
+url: 'https://github.com/ajtudela/sicks300_ros2.git',
+version: main
+},
+status: maintained
+}
+-----
 simple_actions: {
 doc: {
 type: git,
@@ -10158,7 +10519,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/simple_launch-release.git',
-version: 1.10.1-1
+version: 1.11.0-1
 },
 source: {
 type: git,
@@ -10481,6 +10842,27 @@ version: ros2-devel
 status: developed
 }
 -----
+synapticon_ros2_control: {
+doc: {
+type: git,
+url: 'https://github.com/synapticon/synapticon_ros2_control.git',
+version: main
+},
+release: {
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/synapticon/synapticon_ros2_control-release.git',
+version: 0.1.2-1
+},
+source: {
+type: git,
+url: 'https://github.com/synapticon/synapticon_ros2_control.git',
+version: main
+},
+status: maintained
+}
+-----
 system_fingerprint: {
 doc: {
 type: git,
@@ -10592,7 +10974,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/teleop_twist_joy-release.git',
-version: 2.6.2-1
+version: 2.6.3-1
 },
 source: {
 test_pull_requests: true,
@@ -10817,7 +11199,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/topic_tools-release.git',
-version: 1.4.1-1
+version: 1.4.2-1
 },
 source: {
 type: git,
@@ -10964,23 +11346,65 @@ version: main
 status: developed
 }
 -----
+turtlebot3: {
+doc: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/turtlebot3.git',
+version: main
+},
+source: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/turtlebot3.git',
+version: main
+},
+status: developed
+}
+-----
+turtlebot3_autorace: {
+doc: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/turtlebot3_autorace.git',
+version: main
+},
+source: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/turtlebot3_autorace.git',
+version: main
+},
+status: developed
+}
+-----
+turtlebot3_manipulation: {
+doc: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git',
+version: main
+},
+source: {
+type: git,
+url: 'https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git',
+version: main
+},
+status: developed
+}
+-----
 turtlebot3_msgs: {
 doc: {
 type: git,
 url: 'https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git',
-version: rolling-devel
+version: main
 },
 release: {
 tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/turtlebot3_msgs-release.git',
-version: 2.2.1-4
+version: 2.3.0-1
 },
 source: {
 type: git,
 url: 'https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git',
-version: rolling-devel
+version: main
 },
 status: developed
 }
@@ -10989,7 +11413,7 @@ turtlebot3_simulations: {
 doc: {
 type: git,
 url: 'https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git',
-version: ros2
+version: main
 },
 release: {
 packages: [turtlebot3_fake_node,
@@ -10999,14 +11423,14 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/turtlebot3_simulations-release.git',
-version: 2.2.5-4
+version: 2.3.2-1
 },
 source: {
 type: git,
 url: 'https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git',
-version: ros2
+version: main
 },
-status: maintained
+status: developed
 }
 -----
 tuw_geometry: {
@@ -11188,7 +11612,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ublox_dgnss-release.git',
-version: 0.5.4-3
+version: 0.5.5-4
 },
 source: {
 type: git,
@@ -11268,7 +11692,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/Universal_Robots_Client_Library-release.git',
-version: 1.5.0-1
+version: 1.9.0-1
 },
 source: {
 type: git,
@@ -11289,7 +11713,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ur_description-release.git',
-version: 3.0.0-1
+version: 3.1.0-1
 },
 source: {
 type: git,
@@ -11310,7 +11734,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/ur_msgs-release.git',
-version: 2.1.0-1
+version: 2.2.0-1
 },
 source: {
 type: git,
@@ -11337,7 +11761,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git',
-version: 3.0.1-1
+version: 3.1.1-1
 },
 source: {
 type: git,
@@ -11658,30 +12082,6 @@ version: ros2
 status: developed
 }
 -----
-velodyne_simulator: {
-doc: {
-type: git,
-url: 'https://bitbucket.org/DataspeedInc/velodyne_simulator.git',
-version: foxy-devel
-},
-release: {
-packages: [velodyne_description,
-velodyne_gazebo_plugins,
-velodyne_simulator],
-tags: {
-release: 'release/rolling/{package}/{version}'
-},
-url: 'https://github.com/ros2-gbp/velodyne_simulator-release.git',
-version: 2.0.3-3
-},
-source: {
-type: git,
-url: 'https://bitbucket.org/DataspeedInc/velodyne_simulator.git',
-version: foxy-devel
-},
-status: maintained
-}
------
 vision_msgs: {
 doc: {
 type: git,
@@ -11912,8 +12312,10 @@ version: master
 release: {
 packages: [webots_ros2,
 webots_ros2_control,
+webots_ros2_crazyflie,
 webots_ros2_driver,
 webots_ros2_epuck,
+webots_ros2_husarion,
 webots_ros2_importer,
 webots_ros2_mavic,
 webots_ros2_msgs,
@@ -11926,7 +12328,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/webots_ros2-release.git',
-version: 2023.1.3-1
+version: 2025.0.0-1
 },
 source: {
 test_pull_requests: true,
@@ -11948,7 +12350,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/xacro-release.git',
-version: 2.0.12-1
+version: 2.0.13-1
 },
 source: {
 type: git,
@@ -11991,7 +12393,7 @@ tags: {
 release: 'release/rolling/{package}/{version}'
 },
 url: 'https://github.com/ros2-gbp/yasmin-release.git',
-version: 3.0.3-1
+version: 3.1.0-1
 },
 source: {
 type: git,
@@ -12019,6 +12421,28 @@ version: 0.7.0-1
 source: {
 type: git,
 url: 'https://github.com/ros-drivers/zbar_ros.git',
+version: rolling
+},
+status: maintained
+}
+-----
+zed-ros2-interfaces: {
+doc: {
+type: git,
+url: 'https://github.com/stereolabs/zed-ros2-interfaces.git',
+version: master
+},
+release: {
+packages: [zed_msgs],
+tags: {
+release: 'release/rolling/{package}/{version}'
+},
+url: 'https://github.com/ros2-gbp/zed-ros2-interfaces-release.git',
+version: 5.0.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/stereolabs/zed-ros2-interfaces.git',
 version: rolling
 },
 status: maintained
@@ -12299,25 +12723,24 @@ admittance_controller: <?xml version="1.0" ?>
 <author email="zelenak@picknik.ai">Andy Zelenak</author>
 <author email="paulgesel@gmail.com">Paul Gesel</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
+<depend>angles</depend>
 <depend>backward_ros</depend>
 <depend>control_msgs</depend>
 <depend>control_toolbox</depend>
 <depend>controller_interface</depend>
-<depend>kinematics_interface</depend>
-<depend>filters</depend>
 <depend>generate_parameter_library</depend>
 <depend>geometry_msgs</depend>
 <depend>hardware_interface</depend>
-<depend>joint_trajectory_controller</depend>
+<depend>kinematics_interface</depend>
 <depend>pluginlib</depend>
-<depend>rclcpp</depend>
 <depend>rclcpp_lifecycle</depend>
+<depend>rclcpp</depend>
 <depend>realtime_tools</depend>
-<depend>tf2</depend>
 <depend>tf2_eigen</depend>
 <depend>tf2_geometry_msgs</depend>
 <depend>tf2_kdl</depend>
 <depend>tf2_ros</depend>
+<depend>tf2</depend>
 <depend>trajectory_msgs</depend>
 <test_depend>ament_cmake_gmock</test_depend>
 <test_depend>controller_manager</test_depend>
@@ -13065,6 +13488,26 @@ ament_cmake_ros: <?xml version="1.0" ?>
 <buildtool_export_depend>ament_cmake_gtest</buildtool_export_depend>
 <buildtool_export_depend>ament_cmake_gmock</buildtool_export_depend>
 <buildtool_export_depend>ament_cmake_pytest</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_ros_core</buildtool_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+ament_cmake_ros_core: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>ament_cmake_ros_core</name>
+<description>Core ROS specific CMake bits in the ament buildsystem.</description>
+<maintainer email="brandon@openrobotics.org">Brandon Ong</maintainer>
+<license>Apache License 2.0</license>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
+<author email="michel@ekumenlabs.com">Michel Hidalgo</author>
+<buildtool_depend>ament_cmake_core</buildtool_depend>
+<buildtool_depend>ament_cmake_export_dependencies</buildtool_depend>
+<buildtool_export_depend>ament_cmake_core</buildtool_export_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <export>
@@ -13702,13 +14145,13 @@ apriltag_detector: <?xml version="1.0" ?>
 <maintainer email="bernd.pfrommer@gmail.com">Bernd Pfrommer</maintainer>
 <license>Apache2</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<buildtool_depend>ament_cmake_ros</buildtool_depend>
-<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<depend>apriltag_msgs</depend>
+<depend>cv_bridge</depend>
+<depend>image_transport</depend>
+<depend>pluginlib</depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_components</depend>
-<depend>apriltag_msgs</depend>
 <depend>sensor_msgs</depend>
-<depend>pluginlib</depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <test_depend>ament_cmake_clang_format</test_depend>
@@ -13731,8 +14174,6 @@ apriltag_detector_mit: <?xml version="1.0" ?>
 <depend>apriltag_detector</depend>
 <depend>apriltag_mit</depend>
 <depend>apriltag_msgs</depend>
-<depend>cv_bridge</depend>
-<depend>image_transport</depend>
 <depend>pluginlib</depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_components</depend>
@@ -13758,11 +14199,9 @@ apriltag_detector_umich: <?xml version="1.0" ?>
 <depend>apriltag_detector</depend>
 <depend>apriltag</depend>
 <depend>apriltag_msgs</depend>
-<depend>cv_bridge</depend>
-<depend>image_transport</depend>
+<depend>libopencv-dev</depend>
 <depend>pluginlib</depend>
 <depend>rclcpp</depend>
-<depend>rclcpp_components</depend>
 <depend>sensor_msgs</depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
@@ -13851,6 +14290,27 @@ apriltag_ros: <?xml version="1.0" ?>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_cmake_clang_format</test_depend>
 <test_depend>ament_cmake_cppcheck</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+apriltag_tools: <?xml version="1.0" ?>
+<package format="3">
+<name>apriltag_tools</name>
+<description>misc tools for working with apriltags under ROS2</description>
+<maintainer email="bernd.pfrommer@gmail.com">Bernd Pfrommer</maintainer>
+<license>Apache2</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ros_environment</buildtool_depend>
+<depend>apriltag_detector</depend>
+<depend>apriltag_draw</depend>
+<depend>apriltag_msgs</depend>
+<depend>rclcpp</depend>
+<depend>rosbag2_transport</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_cmake_clang_format</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -14023,6 +14483,31 @@ async_web_server_cpp: <?xml version="1.0" ?>
 <test_depend>python3-websocket</test_depend>
 </package>
 -----
+automatika_embodied_agents: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>automatika_embodied_agents</name>
+<description>agents</description>
+<maintainer email="contact@automatikarobotics.com">Automatika Robotics</maintainer>
+<license>MIT</license>
+<depend>builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>python3-tqdm</depend>
+<depend>python3-platformdirs</depend>
+<depend>python3-httpx</depend>
+<depend>automatika_ros_sugar</depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_python</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 automatika_ros_sugar: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -14045,6 +14530,13 @@ automatika_ros_sugar: <?xml version="1.0" ?>
 <depend>python3-opencv</depend>
 <depend>python3-jinja2</depend>
 <depend>python3-msgpack</depend>
+<depend>python3-setproctitle</depend>
+<test_depend>ament_cmake_pytest</test_depend>
+<test_depend>ament_index_python</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>launch</test_depend>
+<test_depend>launch_testing</test_depend>
+<test_depend>python3-pytest</test_depend>
 <buildtool_depend>rosidl_default_generators</buildtool_depend>
 <exec_depend>rosidl_default_runtime</exec_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
@@ -14293,19 +14785,42 @@ autoware_internal_debug_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+autoware_internal_metric_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>autoware_internal_metric_msgs</name>
+<description>The autoware_internal_metric_msgs package</description>
+<maintainer email="temkei.kem@tier4.jp">Temkei Kem</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<depend>builtin_interfaces</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 autoware_internal_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>autoware_internal_msgs</name>
 <description>Autoware internal messages package.</description>
 <maintainer email="berkay@leodrive.ai">Berkay Karaman</maintainer>
-<maintainer email="mfc@leodrive.ai">M. Fatih Cırıt</maintainer>
+<maintainer email="mfc@autoware.org">M. Fatih Cırıt</maintainer>
 <maintainer email="ryohsuke.mitsudome@tier4.jp">Ryohsuke Mitsudome</maintainer>
 <maintainer email="yukihiro.saito@tier4.jp">Yukihiro Saito</maintainer>
 <maintainer email="yutaka.kondo@tier4.jp">Yutaka Kondo</maintainer>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake_auto</buildtool_depend>
 <buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>autoware_internal_debug_msgs</exec_depend>
+<exec_depend>autoware_internal_metric_msgs</exec_depend>
+<exec_depend>autoware_internal_perception_msgs</exec_depend>
+<exec_depend>autoware_internal_planning_msgs</exec_depend>
 <exec_depend>rosidl_default_runtime</exec_depend>
 <depend>builtin_interfaces</depend>
 <depend>std_msgs</depend>
@@ -14342,6 +14857,32 @@ autoware_internal_perception_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+autoware_internal_planning_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>autoware_internal_planning_msgs</name>
+<description>The autoware_internal_planning_msgs package</description>
+<maintainer email="yukihiro.saito@tier4.jp">Yukihiro Saito</maintainer>
+<maintainer email="cynthia.liu@autocore.ai">Cynthia Liu</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake_auto</buildtool_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<depend>autoware_common_msgs</depend>
+<depend>autoware_perception_msgs</depend>
+<depend>autoware_planning_msgs</depend>
+<depend>builtin_interfaces</depend>
+<depend>geometry_msgs</depend>
+<depend>std_msgs</depend>
+<depend>unique_identifier_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 autoware_lanelet2_extension: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -14358,7 +14899,6 @@ autoware_lanelet2_extension: <?xml version="1.0" ?>
 <buildtool_depend>autoware_cmake</buildtool_depend>
 <depend>autoware_map_msgs</depend>
 <depend>autoware_planning_msgs</depend>
-<depend>autoware_utils</depend>
 <depend>geographiclib</depend>
 <depend>geometry_msgs</depend>
 <depend>lanelet2_core</depend>
@@ -14475,6 +15015,31 @@ autoware_map_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+autoware_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>autoware_msgs</name>
+<description>Meta package for the autoware_msgs packages</description>
+<maintainer email="mfc@autoware.org">M. Fatih Cırıt</maintainer>
+<maintainer email="ryosuke.mitsudome@tier4.jp">Ryosuke Mitsudome</maintainer>
+<maintainer email="yutaka.kondo@tier4.jp">Yutaka Kondo</maintainer>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<exec_depend>autoware_common_msgs</exec_depend>
+<exec_depend>autoware_control_msgs</exec_depend>
+<exec_depend>autoware_localization_msgs</exec_depend>
+<exec_depend>autoware_map_msgs</exec_depend>
+<exec_depend>autoware_perception_msgs</exec_depend>
+<exec_depend>autoware_planning_msgs</exec_depend>
+<exec_depend>autoware_sensing_msgs</exec_depend>
+<exec_depend>autoware_system_msgs</exec_depend>
+<exec_depend>autoware_v2x_msgs</exec_depend>
+<exec_depend>autoware_vehicle_msgs</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 autoware_perception_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -14566,27 +15131,6 @@ Isamu</maintainer>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-autoware_utils: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
-<name>autoware_utils</name>
-<description>The autoware_utils package</description>
-<maintainer email="ryohsuke.mitsudome@tier4.jp">Ryohsuke Mitsudome</maintainer>
-<maintainer email="esteve.fernandez@tier4.jp">Esteve Fernandez</maintainer>
-<maintainer email="yutaka.kondo@tier4.jp">Yutaka Kondo</maintainer>
-<license>Apache License 2.0</license>
-<buildtool_depend>ament_cmake_auto</buildtool_depend>
-<buildtool_depend>autoware_cmake</buildtool_depend>
-<depend>builtin_interfaces</depend>
-<depend>libboost-system-dev</depend>
-<depend>rclcpp</depend>
-<depend>unique_identifier_msgs</depend>
-<test_depend>ament_cmake_ros</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -14885,7 +15429,7 @@ A and B,
 to know when the other has terminated,
 either cleanly or by crashing. The bond remains connected until it is either broken explicitly or until a heartbeat times out.</description>
 <maintainer email="geoff@openrobotics.org">Geoffrey Biggs</maintainer>
-<license>BSD</license>
+<license>BSD-3-Clause</license>
 <url type="website">http://www.ros.org/wiki/bond</url>
 <url type="bugtracker">https://github.com/ros/bond_core/issues</url>
 <url type="repository">https://github.com/ros/bond_core</url>
@@ -14915,7 +15459,7 @@ A and B,
 to know when the other has terminated,
 either cleanly or by crashing. The bond remains connected until it is either broken explicitly or until a heartbeat times out.</description>
 <maintainer email="geoff@openrobotics.org">Geoffrey Biggs</maintainer>
-<license>BSD</license>
+<license>BSD-3-Clause</license>
 <url type="website">http://www.ros.org/wiki/bond_core</url>
 <url type="bugtracker">https://github.com/ros/bond_core/issues</url>
 <url type="repository">https://github.com/ros/bond_core</url>
@@ -14937,7 +15481,7 @@ bondcpp: <?xml version="1.0" ?>
 <description>C++ implementation of bond,
 a mechanism for checking when another process has terminated.</description>
 <maintainer email="geoff@openrobotics.org">Geoffrey Biggs</maintainer>
-<license>BSD</license>
+<license>BSD-3-Clause</license>
 <url type="website">http://www.ros.org/wiki/bondcpp</url>
 <url type="bugtracker">https://github.com/ros/bond_core/issues</url>
 <url type="repository">https://github.com/ros/bond_core</url>
@@ -14969,7 +15513,7 @@ bondpy: <?xml version="1.0" ?>
 <description>Python implementation of bond,
 a mechanism for checking when another process has terminated.</description>
 <maintainer email="geoff@openrobotics.org">Geoffrey Biggs</maintainer>
-<license>BSD</license>
+<license>BSD-3-Clause</license>
 <url type="bugtracker">https://github.com/ros/bond_core/issues</url>
 <url type="repository">https://github.com/ros/bond_core</url>
 <author email="michael@openrobotics.org">Michael Carroll</author>
@@ -15004,6 +15548,24 @@ boost_geometry_util: <?xml version="1.0" ?>
 <build_type>ament_cmake</build_type>
 </export>
 </package>
+-----
+boost_sml_vendor: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"2\">
+<name>boost_sml_vendor</name>
+<description>Vendor package for the Boost SML (State Machine Language)</description>
+<maintainer email=\"tim.clephas@nobleo.nl\">Tim Clephas</maintainer>
+<license>MIT</license>
+<license>BSL-1.0</license>
+<url type=\"website\">https://github.com/boost-ext/sml</url>
+<author email=\"tim.clephas@nobleo.nl\">Tim Clephas</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>git</buildtool_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>"
 -----
 builtin_interfaces: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -15745,6 +16307,73 @@ coal: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+cob_actions: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>cob_actions</name>
+<description>This Package contains Care-O-bot specific action definitions.</description>
+<license>Apache 2.0</license>
+<maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
+<author email="felixmessmer@gmail.com">Felix Messmer</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>builtin_interfaces</depend>
+<depend>action_msgs</depend>
+<depend>actionlib_msgs</depend>
+<depend>geometry_msgs</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+cob_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>cob_msgs</name>
+<description>Messages for representing state information,
+such as battery information and emergency stop status.</description>
+<maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
+<maintainer email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</maintainer>
+<author email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</author>
+<license>Apache 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>builtin_interfaces</depend>
+<depend>diagnostic_msgs</depend>
+<depend>std_msgs</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+cob_srvs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>cob_srvs</name>
+<description>This Package contains Care-O-bot specific service definitions.</description>
+<license>Apache 2.0</license>
+<url type="website">http://ros.org/wiki/cob_srvs</url>
+<maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
+<maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
+<author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>builtin_interfaces</depend>
+<depend>geometry_msgs</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 color_names: <?xml version="1.0" ?>
 <package format="3">
 <name>color_names</name>
@@ -15995,6 +16624,7 @@ control_toolbox: <?xml version="1.0" ?>
 <author>Sachin Chitta</author>
 <author>John Hsu</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>ros2_control_cmake</build_depend>
 <depend>control_msgs</depend>
 <depend>eigen</depend>
 <depend>filters</depend>
@@ -16005,7 +16635,6 @@ control_toolbox: <?xml version="1.0" ?>
 <depend>rcutils</depend>
 <depend>realtime_tools</depend>
 <test_depend>ament_cmake_gmock</test_depend>
-<test_depend>ament_cmake_gtest</test_depend>
 <test_depend>rclcpp_lifecycle</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
@@ -16049,7 +16678,6 @@ controller_manager: <?xml version="1.0" ?>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_depend>ament_cmake_gen_version_h</buildtool_depend>
 <buildtool_depend>ament_cmake_python</buildtool_depend>
-<depend>ament_index_cpp</depend>
 <depend>backward_ros</depend>
 <depend>controller_interface</depend>
 <depend>controller_manager_msgs</depend>
@@ -16640,6 +17268,7 @@ diagnostic_common_diagnostics: <?xml version="1.0" ?>
 <exec_depend>lm-sensors</exec_depend>
 <exec_depend>python3-ntplib</exec_depend>
 <exec_depend>python3-psutil</exec_depend>
+<exec_depend>rclpy</exec_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_cmake_xmllint</test_depend>
 <test_depend>ament_cmake_lint_cmake</test_depend>
@@ -16674,6 +17303,25 @@ diagnostic_msgs: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+diagnostic_remote_logging: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>diagnostic_remote_logging</name>
+<description>diagnostic_remote_logging</description>
+<maintainer email="dwijffels@lely.com">Daan Wijffels</maintainer>
+<license>BSD-3-Clause</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>diagnostic_msgs</build_depend>
+<build_depend>rclcpp_components</build_depend>
+<build_depend>curl</build_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_cmake_gtest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 diagnostic_updater: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -16693,6 +17341,7 @@ etc.</description>
 <author email="brice.rebsamen@gmail.com">Brice Rebsamen</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_depend>ament_cmake_python</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <depend>diagnostic_msgs</depend>
 <depend>rclcpp</depend>
 <depend>rclpy</depend>
@@ -17085,6 +17734,55 @@ dynamixel_hardware: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+dynamixel_hardware_interface: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>dynamixel_hardware_interface</name>
+<description>ROS 2 package providing a hardware interface for controlling Dynamixel motors via the ROS 2 control framework.</description>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
+<license>Apache 2.0</license>
+<author email="hjkim@robotis.com">Hye-Jong KIM</author>
+<author email="wsh@robotis.com">Sungho Woo</author>
+<author email="wwj@robotis.com">Woojin Wie</author>
+<author email="ywh@robotis.com">Wonho Yun</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>hardware_interface</depend>
+<depend>pluginlib</depend>
+<depend>realtime_tools</depend>
+<depend>dynamixel_sdk</depend>
+<depend>std_srvs</depend>
+<depend>dynamixel_interfaces</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+dynamixel_interfaces: <?xml version="1.0" ?>
+<package format="3">
+<name>dynamixel_interfaces</name>
+<description>dynamixel_interfaces contains base messages and service useful for controlling Dynamixel.</description>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
+<license>Apache 2.0</license>
+<author email="hjkim@robotis.com">Hye-Jong KIM</author>
+<author email="wsh@robotis.com">Sungho Woo</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<depend>action_msgs</depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>builtin_interfaces</depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 dynamixel_sdk: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -17093,16 +17791,18 @@ dynamixel_sdk: <?xml version="1.0" ?>
 or SDK,
 is a software development library that provides Dynamixel control functions for packet communication. The API is designed for Dynamixel actuators and Dynamixel-based platforms.</description>
 <license>Apache 2.0</license>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
+<url type="website">http://wiki.ros.org/dynamixel_sdk</url>
+<url type="repository">https://github.com/ROBOTIS-GIT/DynamixelSDK</url>
+<url type="bugtracker">https://github.com/ROBOTIS-GIT/DynamixelSDK/issues</url>
 <author email="pyo@robotis.com">Pyo</author>
 <author email="thlim@robotis.com">Darby Lim</author>
 <author email="zerom@robotis.com">Zerom</author>
+<author email="willson@robotis.com">Will Son</author>
 <author>Leon</author>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
-<url type="website">http://wiki.ros.org/dynamixel_sdk</url>
-<url type="emanual">http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_sdk/overview/</url>
-<url type="repository">https://github.com/ROBOTIS-GIT/DynamixelSDK</url>
-<url type="bugtracker">https://github.com/ROBOTIS-GIT/DynamixelSDK/issues</url>
+<author email="ywh@robotis.com">Wonho Yun</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_python</buildtool_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -17112,15 +17812,13 @@ dynamixel_sdk_custom_interfaces: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>dynamixel_sdk_custom_interfaces</name>
-<description>ROS2 custom interface examples using ROBOTIS DYNAMIXEL SDK</description>
-<maintainer email="willson@robotis.com">willson</maintainer>
+<description>ROS 2 custom interface examples using ROBOTIS DYNAMIXEL SDK</description>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <license>Apache 2.0</license>
-<author email="willson@robotis.com">Will Son</author>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
 <url type="website">http://wiki.ros.org/dynamixel_sdk</url>
-<url type="emanual">http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_sdk/overview/</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/DynamixelSDK</url>
 <url type="bugtracker">https://github.com/ROBOTIS-GIT/DynamixelSDK/issues</url>
+<author email="willson@robotis.com">Will Son</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_depend>rosidl_default_generators</buildtool_depend>
 <build_depend>builtin_interfaces</build_depend>
@@ -17135,16 +17833,18 @@ dynamixel_sdk_custom_interfaces: <?xml version="1.0" ?>
 dynamixel_sdk_examples: <?xml version="1.0" ?>
 <package format="3">
 <name>dynamixel_sdk_examples</name>
-<description>ROS2 examples using ROBOTIS DYNAMIXEL SDK</description>
+<description>ROS 2 examples using ROBOTIS DYNAMIXEL SDK</description>
 <license>Apache 2.0</license>
-<author email="willson@robotis.com">Will Son</author>
-<maintainer email="willson@robotis.com">willson</maintainer>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <url type="website">http://wiki.ros.org/dynamixel_sdk</url>
-<url type="emanual">http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_sdk/overview/</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/DynamixelSDK</url>
 <url type="bugtracker">https://github.com/ROBOTIS-GIT/DynamixelSDK/issues</url>
+<author email="willson@robotis.com">Will Son</author>
+<author email="ywh@robotis.com">Wonho Yun</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_python</buildtool_depend>
 <depend>rclcpp</depend>
+<depend>rclpy</depend>
 <depend>dynamixel_sdk</depend>
 <depend>dynamixel_sdk_custom_interfaces</depend>
 <test_depend>ament_lint_auto</test_depend>
@@ -17161,7 +17861,7 @@ dynamixel_workbench: <?xml version="1.0" ?>
 <description>Dynamixel-Workbench is dynamixel solution for ROS. This metapackage allows you to easily change the ID,
 baudrate and operating mode of the Dynamixel. Furthermore,
 it supports various controllers based on operating mode and Dynamixel SDK. These controllers are commanded by operators.</description>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <license>Apache 2.0</license>
 <url type="website">http://wiki.ros.org/dynamixel_workbench</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/dynamixel-workbench</url>
@@ -17169,6 +17869,7 @@ it supports various controllers based on operating mode and Dynamixel SDK. These
 <author email="thlim@robotis.com">Darby Lim</author>
 <author email="willson@robotis.com">Will Son</author>
 <author>Ryan Shim</author>
+<author email="ywh@robotis.com">Wonho Yun</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <exec_depend>dynamixel_workbench_toolbox</exec_depend>
 <export>
@@ -17181,13 +17882,14 @@ dynamixel_workbench_msgs: <?xml version="1.0" ?>
 <package format="3">
 <name>dynamixel_workbench_msgs</name>
 <description>This package includes ROS messages and services for dynamixel_workbench packages</description>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <license>Apache 2.0</license>
 <url type="website">http://wiki.ros.org/dynamixel_workbench_msgs</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/dynamixel-workbench-msgs</url>
 <url type="bugtracker">https://github.com/ROBOTIS-GIT/dynamixel-workbench-msgs/issues</url>
 <author email="thlim@robotis.com">Darby Lim</author>
 <author>Ryan Shim</author>
+<author email="willson@robotis.com">Will Son</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_depend>rosidl_default_generators</buildtool_depend>
 <build_depend>builtin_interfaces</build_depend>
@@ -17209,7 +17911,7 @@ dynamixel_workbench_toolbox: <?xml version="1.0" ?>
 <description>This package is composed of 'dynamixel_item',
 'dynamixel_tool',
 'dynamixel_driver' and 'dynamixel_workbench' class. The 'dynamixel_item' is saved as control table item and information of DYNAMIXEL. The 'dynamixel_tool' class loads its by model number of DYNAMIXEL. The 'dynamixel_driver' class includes wraped function used in DYNAMIXEL SDK. The 'dynamixel_workbench' class make simple to use DYNAMIXEL.</description>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <license>Apache 2.0</license>
 <url type="website">http://wiki.ros.org/dynamixel_workbench_toolbox</url>
 <url type="emanual">http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/</url>
@@ -17218,6 +17920,7 @@ dynamixel_workbench_toolbox: <?xml version="1.0" ?>
 <author email="thlim@robotis.com">Darby Lim</author>
 <author email="jhshim@robotis.com">Ryan Shim</author>
 <author email="willson@robotis.com">Will Son</author>
+<author email="ywh@robotis.com">Wonho Yun</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <depend>rclcpp</depend>
 <depend>dynamixel_sdk</depend>
@@ -19034,17 +19737,18 @@ fastcdr: <?xml version="1.0" ?>
 </export>
 </package>
 -----
-fastrtps: <?xml version="1.0" ?>
+fastdds: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-<name>fastrtps</name>
-<description>*eprosima Fast DDS* (formerly Fast RTPS) is a C++ implementation of the DDS (Data Distribution Service) standard of the OMG (Object Management Group). eProsima Fast DDS implements the RTPS (Real Time Publish Subscribe) protocol,
+<name>fastdds</name>
+<description>eProsima Fast DDS is a C++ implementation of the DDS (Data Distribution Service) standard of the OMG (Object Management Group). eProsima Fast DDS implements the RTPS (Real Time Publish Subscribe) protocol,
 which provides publisher-subscriber communications over unreliable transports such as UDP,
-as defined and maintained by the Object Management Group (OMG) consortium. RTPS is also the wire interoperability protocol defined for the Data Distribution Service (DDS) standard. *eProsima Fast DDS* expose an API to access directly the RTPS protocol,
+as defined and maintained by the Object Management Group (OMG) consortium. RTPS is also the wire interoperability protocol defined for the Data Distribution Service (DDS) standard. eProsima Fast DDS expose an API to access directly the RTPS protocol,
 giving the user full access to the protocol internals.</description>
+<maintainer email="raulsanchezmateos@eprosima.com">Raul Sanchez Mateos</maintainer>
 <maintainer email="miguelcompany@eprosima.com">Miguel Company</maintainer>
-<maintainer email="eduardoponz@eprosima.com">Eduardo Ponz</maintainer>
 <license file="LICENSE">Apache 2.0</license>
+<replace>fastrtps</replace>
 <url type="website">https://www.eprosima.com/</url>
 <url type="bugtracker">https://github.com/eProsima/Fast-DDS/issues</url>
 <url type="repository">https://github.com/eProsima/Fast-DDS</url>
@@ -19058,24 +19762,6 @@ giving the user full access to the protocol internals.</description>
 <doc_depend>doxygen</doc_depend>
 <export>
 <build_type>cmake</build_type>
-</export>
-</package>
------
-fastrtps_cmake_module: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="2">
-<name>fastrtps_cmake_module</name>
-<description>Provide CMake module to find eProsima FastRTPS.</description>
-<maintainer email="sloretz@openrobotics.org">Shane Loretz</maintainer>
-<license>Apache License 2.0</license>
-<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
-<author email="michel@ekumenlabs.com">Michel Hidalgo</author>
-<author>Ricardo González</author>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>ament_lint_common</test_depend>
-<export>
-<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -19141,20 +19827,15 @@ ffmpeg_image_transport: <?xml version="1.0" ?>
 <author>Bernd Pfrommer</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
-<buildtool_depend>pkg-config</buildtool_depend>
 <buildtool_depend>ros_environment</buildtool_depend>
-<depend>cv_bridge</depend>
+<depend>ffmpeg_encoder_decoder</depend>
+<depend>ffmpeg_image_transport_msgs</depend>
 <depend>image_transport</depend>
-<depend>libogg</depend>
-<depend>libopencv-imgproc-dev</depend>
 <depend>pluginlib</depend>
 <depend>rclcpp</depend>
 <depend>rcutils</depend>
 <depend>sensor_msgs</depend>
 <depend>std_msgs</depend>
-<depend>ffmpeg_image_transport_msgs</depend>
-<depend>ffmpeg</depend>
-<depend>libavdevice-dev</depend>
 <test_depend>ament_lint_common</test_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_cmake_clang_format</test_depend>
@@ -19198,7 +19879,7 @@ ffmpeg_image_transport_tools: <?xml version="1.0" ?>
 <test_depend>ament_cmake_clang_format</test_depend>
 <depend>cv_bridge</depend>
 <depend>rclcpp</depend>
-<depend>ffmpeg_image_transport</depend>
+<depend>ffmpeg_encoder_decoder</depend>
 <depend>ffmpeg_image_transport_msgs</depend>
 <depend>rosbag2_cpp</depend>
 <depend>rosbag2_storage</depend>
@@ -21016,13 +21697,15 @@ gz_cmake_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_cmake_vendor</name>
-<description>Vendor package for: gz-cmake4 4.1.0 Gazebo CMake : CMake Modules for Gazebo Projects</description>
+<description>Vendor package for: gz-cmake4 4.1.1 Gazebo CMake : CMake Modules for Gazebo Projects</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-cmake</url>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
+<buildtool_depend>pkg-config</buildtool_depend>
 <test_depend>cmake</test_depend>
 <depend condition="$GZ_BUILD_FROM_SOURCE != ''''">gz-cmake4</depend>
 <test_depend>ament_cmake_copyright</test_depend>
@@ -21037,7 +21720,7 @@ gz_common_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_common_vendor</name>
-<description>Vendor package for: gz-common6 6.0.1 Gazebo Common : AV,
+<description>Vendor package for: gz-common6 6.0.2 Gazebo Common : AV,
 Graphics,
 Events,
 and much more.</description>
@@ -21111,13 +21794,14 @@ gz_fuel_tools_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_fuel_tools_vendor</name>
-<description>Vendor package for: gz-fuel_tools10 10.0.0 Gazebo Fuel Tools: Classes and tools for interacting with Gazebo Fuel</description>
+<description>Vendor package for: gz-fuel_tools10 10.0.1 Gazebo Fuel Tools: Classes and tools for interacting with Gazebo Fuel</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-fuel-tools</url>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
 <build_depend>libcurl-dev</build_depend>
 <build_depend>libgflags-dev</build_depend>
 <build_depend>libjsoncpp-dev</build_depend>
@@ -21149,13 +21833,14 @@ gz_gui_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_gui_vendor</name>
-<description>Vendor package for: gz-gui9 9.0.0 Gazebo GUI : Graphical interfaces for robotics applications</description>
+<description>Vendor package for: gz-gui9 9.0.1 Gazebo GUI : Graphical interfaces for robotics applications</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-rendering</url>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
 <build_depend>libqt5-core</build_depend>
 <build_depend>libqt5-qml</build_depend>
 <build_depend>libqt5-quick</build_depend>
@@ -21227,13 +21912,14 @@ gz_launch_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_launch_vendor</name>
-<description>Vendor package for: gz-launch8 8.0.0 Gazebo Launch : Run and manage programs and plugins</description>
+<description>Vendor package for: gz-launch8 8.0.1 Gazebo Launch : Run and manage programs and plugins</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-launch</url>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
 <build_depend>binutils</build_depend>
 <build_depend>libgflags-dev</build_depend>
 <build_depend>libwebsockets-dev</build_depend>
@@ -21273,7 +21959,7 @@ gz_math_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_math_vendor</name>
-<description>Vendor package for: gz-math8 8.1.0 Gazebo Math : Math classes and functions for robot applications</description>
+<description>Vendor package for: gz-math8 8.1.1 Gazebo Math : Math classes and functions for robot applications</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-math</url>
@@ -21374,13 +22060,14 @@ gz_physics_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_physics_vendor</name>
-<description>Vendor package for: gz-physics8 8.0.0 Gazebo Physics : Physics classes and functions for robot applications</description>
+<description>Vendor package for: gz-physics8 8.1.0 Gazebo Physics : Physics classes and functions for robot applications</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-physics</url>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
 <build_depend>benchmark</build_depend>
 <build_depend>bullet</build_depend>
 <build_depend>eigen</build_depend>
@@ -21407,13 +22094,14 @@ gz_plugin_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_plugin_vendor</name>
-<description>Vendor package for: gz-plugin3 3.0.0 Gazebo Plugin : Cross-platform C++ library for dynamically loading plugins.</description>
+<description>Vendor package for: gz-plugin3 3.0.1 Gazebo Plugin : Cross-platform C++ library for dynamically loading plugins.</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-plugin</url>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
 <depend>gz_cmake_vendor</depend>
 <depend>gz_tools_vendor</depend>
 <depend>gz_utils_vendor</depend>
@@ -21430,13 +22118,14 @@ gz_rendering_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_rendering_vendor</name>
-<description>Vendor package for: gz-rendering9 9.0.0 Gazebo Rendering: Rendering library for robot applications</description>
+<description>Vendor package for: gz-rendering9 9.1.0 Gazebo Rendering: Rendering library for robot applications</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-rendering</url>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
 <build_depend>glut</build_depend>
 <build_depend>libfreeimage-dev</build_depend>
 <build_depend>libglew-dev</build_depend>
@@ -21534,7 +22223,6 @@ gz_ros2_control_demos: <?xml version="1.0" ?>
 <exec_depend>ros2controlcli</exec_depend>
 <exec_depend>tricycle_controller</exec_depend>
 <exec_depend>velocity_controllers</exec_depend>
-<test_depend>ament_cmake_gtest</test_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <export>
@@ -21546,13 +22234,14 @@ gz_sensors_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_sensors_vendor</name>
-<description>Vendor package for: gz-sensors9 9.0.0 Gazebo Sensors : Sensor models for simulation</description>
+<description>Vendor package for: gz-sensors9 9.1.0 Gazebo Sensors : Sensor models for simulation</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-sensors</url>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
 <test_depend>xvfb</test_depend>
 <depend>gz_cmake_vendor</depend>
 <depend>gz_common_vendor</depend>
@@ -21575,13 +22264,14 @@ gz_sim_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_sim_vendor</name>
-<description>Vendor package for: gz-sim9 9.0.0 Gazebo Sim : A Robotic Simulator</description>
+<description>Vendor package for: gz-sim9 9.1.0 Gazebo Sim : A Robotic Simulator</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-sim</url>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
 <build_depend>benchmark</build_depend>
 <build_depend>glut</build_depend>
 <build_depend>libfreeimage-dev</build_depend>
@@ -21651,13 +22341,14 @@ gz_tools_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_tools_vendor</name>
-<description>Vendor package for: gz-tools2 2.0.1 Gazebo Tools: Entrypoint to Gazebo''s command line interface</description>
+<description>Vendor package for: gz-tools2 2.0.2 Gazebo Tools: Entrypoint to Gazebo''s command line interface</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-tools</url>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
 <exec_depend>ruby</exec_depend>
 <depend>gz_cmake_vendor</depend>
 <depend condition="$GZ_BUILD_FROM_SOURCE != ''''">gz-tools2</depend>
@@ -21673,7 +22364,7 @@ gz_transport_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_transport_vendor</name>
-<description>Vendor package for: gz-transport14 14.0.0 Gazebo Transport: Provides fast and efficient asynchronous message passing,
+<description>Vendor package for: gz-transport14 14.0.1 Gazebo Transport: Provides fast and efficient asynchronous message passing,
 services,
 and data logging.</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
@@ -21682,6 +22373,7 @@ and data logging.</description>
 <buildtool_depend>ament_cmake_core</buildtool_depend>
 <buildtool_depend>ament_cmake_test</buildtool_depend>
 <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+<buildtool_depend>cmake</buildtool_depend>
 <build_depend>libsqlite3-dev</build_depend>
 <build_depend>libzmq3-dev</build_depend>
 <build_depend>pkg-config</build_depend>
@@ -21718,7 +22410,7 @@ gz_utils_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>gz_utils_vendor</name>
-<description>Vendor package for: gz-utils3 3.1.0 Gazebo Utils : Classes and functions for robot applications</description>
+<description>Vendor package for: gz-utils3 3.1.1 Gazebo Utils : Classes and functions for robot applications</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
 <license>Apache License 2.0</license>
 <url type="website">https://github.com/gazebosim/gz-utils</url>
@@ -21748,15 +22440,16 @@ hardware_interface: <?xml version="1.0" ?>
 <buildtool_depend>ament_cmake_gen_version_h</buildtool_depend>
 <depend>backward_ros</depend>
 <depend>control_msgs</depend>
+<depend>joint_limits</depend>
 <depend>lifecycle_msgs</depend>
+<depend>pal_statistics</depend>
 <depend>pluginlib</depend>
 <depend>rclcpp_lifecycle</depend>
 <depend>rcpputils</depend>
 <depend>realtime_tools</depend>
-<depend>tinyxml2_vendor</depend>
-<depend>joint_limits</depend>
-<depend>urdf</depend>
 <depend>sdformat_urdf</depend>
+<depend>tinyxml2_vendor</depend>
+<depend>urdf</depend>
 <build_depend>rcutils</build_depend>
 <exec_depend>rcutils</exec_depend>
 <test_depend>ament_cmake_gmock</test_depend>
@@ -21838,24 +22531,43 @@ heaphook: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+hebi_cpp_api: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>hebi_cpp_api</name>
+<description>A ROS 2 package providing access to the HEBI C++ API.</description>
+<maintainer email="chris@hebirobotics.com">Chris Bollinger</maintainer>
+<maintainer email="hariharan@hebirobotics.com">Hariharan Ravichandran</maintainer>
+<author email="chris@hebirobotics.com">Chris Bollinger</author>
+<author email="matt@hebirobotics.com">Matthew Tesch</author>
+<url type="website">http://docs.hebi.us/tools.html#cpp-api</url>
+<url type="website">http://hebirobotics.com</url>
+<license>Apache License 2.0</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>eigen</build_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 hls_lfcd_lds_driver: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>hls_lfcd_lds_driver</name>
-<description>ROS package for LDS(HLS-LFCD2). The LDS (Laser Distance Sensor) is a sensor sending the data to Host for the simultaneous localization and mapping (SLAM). Simultaneously the detecting obstacle data can also be sent to Host. HLDS(Hitachi-LG Data Storage) is developing the technology for the moving platform sensor such as Robot Vacuum Cleaners,
+<description>ROS package for LDS-01(HLS-LFCD2). The LDS (Laser Distance Sensor) is a sensor sending the data to Host for the simultaneous localization and mapping (SLAM). Simultaneously the detecting obstacle data can also be sent to Host. HLDS(Hitachi-LG Data Storage) is developing the technology for the moving platform sensor such as Robot Vacuum Cleaners,
 Home Robot,
 Robotics Lawn Mower Sensor,
 etc.</description>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <license>BSD</license>
-<author email="thlim@robotis.com">Darby Lim</author>
-<author email="pyo@robotis.com">Pyo</author>
-<author>JH Yang</author>
-<author>SP Kong</author>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
 <url type="website">http://wiki.ros.org/hls_lfcd_lds_driver</url>
-<url type="emanual">http://turtlebot3.robotis.com</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver</url>
 <url type="bugtracker">https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver/issues</url>
+<author email="thlim@robotis.com">Darby Lim</author>
+<author email="pyo@robotis.com">Pyo</author>
+<author email="willson@robotis.com">Will Son</author>
+<author>JH Yang</author>
+<author>SP Kong</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <depend>rclcpp</depend>
 <depend>sensor_msgs</depend>
@@ -23332,6 +24044,42 @@ kobuki_velocity_smoother: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+kompass: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>kompass</name>
+<description>Kompass: Event-driven navigation system</description>
+<maintainer email="contact@automatikarobotics.com">Automatika Robotics</maintainer>
+<license>MIT</license>
+<depend>python3-pykdl</depend>
+<depend>kompass_interfaces</depend>
+<depend>automatika_ros_sugar</depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>'
+-----
+kompass_interfaces: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>kompass_interfaces</name>
+<description>ROS2 Interfaces for Kompass</description>
+<maintainer email="contact@automatikarobotics.com">Automatika Robotics</maintainer>
+<license>MIT</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<depend>builtin_interfaces</depend>
+<depend>std_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>action_msgs</depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 kortex_api: <?xml version="1.0" ?>
 <package format="2">
 <name>kortex_api</name>
@@ -23831,9 +24579,9 @@ launch: <?xml version="1.0" ?>
 <author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
 <author email="william@osrfoundation.org">William Woodall</author>
-<depend>osrf_pycommon</depend>
 <doc_depend>lark</doc_depend>
 <exec_depend>ament_index_python</exec_depend>
+<exec_depend>osrf_pycommon</exec_depend>
 <exec_depend>python3-importlib-metadata</exec_depend>
 <exec_depend>python3-lark-parser</exec_depend>
 <exec_depend>python3-yaml</exec_depend>
@@ -23887,7 +24635,6 @@ launch_pytest: <?xml version="1.0" ?>
 <test_depend>ament_flake8</test_depend>
 <test_depend>ament_pep257</test_depend>
 <test_depend>ament_xmllint</test_depend>
-<test_depend>launch</test_depend>
 <export>
 <build_type>ament_python</build_type>
 </export>
@@ -23973,7 +24720,6 @@ launch_testing: <?xml version="1.0" ?>
 <test_depend>ament_flake8</test_depend>
 <test_depend>ament_pep257</test_depend>
 <test_depend>ament_xmllint</test_depend>
-<test_depend>launch</test_depend>
 <group_depend>launch_frontend_packages</group_depend>
 <export>
 <build_type>ament_python</build_type>
@@ -24071,7 +24817,7 @@ launch_xml: <?xml version="1.0" ?>
 <author email="ivanpauno@ekumenlabs.com">Ivan Paunovic</author>
 <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
 <author email="william@osrfoundation.org">William Woodall</author>
-<depend>launch</depend>
+<exec_depend>launch</exec_depend>
 <test_depend>ament_copyright</test_depend>
 <test_depend>ament_flake8</test_depend>
 <test_depend>ament_pep257</test_depend>
@@ -24095,7 +24841,7 @@ launch_yaml: <?xml version="1.0" ?>
 <author email="ivanpauno@ekumenlabs.com">Ivan Paunovic</author>
 <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
 <author email="william@osrfoundation.org">William Woodall</author>
-<depend>launch</depend>
+<exec_depend>launch</exec_depend>
 <test_depend>ament_copyright</test_depend>
 <test_depend>ament_flake8</test_depend>
 <test_depend>ament_pep257</test_depend>
@@ -24104,6 +24850,30 @@ launch_yaml: <?xml version="1.0" ?>
 <member_of_group>launch_frontend_packages</member_of_group>
 <export>
 <build_type>ament_python</build_type>
+</export>
+</package>
+-----
+ld08_driver: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>ld08_driver</name>
+<description>ROS package for LDS-02(LD08) Lidar. The Lidar sensor sends data to the Host controller for the Simultaneous Localization And Mapping(SLAM).</description>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
+<license>Apache 2.0</license>
+<url type="website">http://wiki.ros.org/ld08_driver</url>
+<url type="repository">https://github.com/ROBOTIS-GIT/ld08_driver</url>
+<url type="bugtracker">https://github.com/ROBOTIS-GIT/ld08_driver/issues</url>
+<author>LD Robot</author>
+<author>Weyne</author>
+<author email="willson@robotis.com">Will Son</author>
+<author email="hjkim@robotis.com">Hye-Jong KIM</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>boost</depend>
+<depend>sensor_msgs</depend>
+<depend>libudev-dev</depend>
+<depend>rclcpp</depend>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -24560,7 +25330,8 @@ and ChromeOS</description>
 <url>https://libcamera.org</url>
 <author email="libcamera-devel@lists.libcamera.org">libcamera project</author>
 <buildtool_depend>meson</buildtool_depend>
-<build_depend>pkg-config</build_depend>
+<buildtool_depend>pkg-config</buildtool_depend>
+<buildtool_depend>git</buildtool_depend>
 <build_depend>python3-yaml</build_depend>
 <build_depend>python3-ply</build_depend>
 <build_depend>python3-jinja2</build_depend>
@@ -26017,6 +26788,7 @@ mola_bridge_ros2: <?xml version="1.0" ?>
 <depend>mola_msgs</depend>
 <depend>mrpt_libmaps</depend>
 <depend>mrpt_libros_bridge</depend>
+<depend>mrpt_nav_interfaces</depend>
 <depend>nav_msgs</depend>
 <depend>rclcpp</depend>
 <depend>sensor_msgs</depend>
@@ -26069,6 +26841,28 @@ mola_demos: <?xml version="1.0" ?>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <build_depend>ament_cmake_xmllint</build_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+mola_gnss_to_markers: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>mola_gnss_to_markers</name>
+<description>Takes GNSS (GPS) readings,
+a MOLA georeferenced map,
+and publishes markers to visualize the datums as ellipsoids on the map</description>
+<maintainer email="joseluisblancoc@gmail.com">José Luis Blanco-Claraco</maintainer>
+<license>BSD-3-Clause</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>std_msgs</depend>
+<depend>mrpt_nav_interfaces</depend>
+<depend>visualization_msgs</depend>
+<depend>mrpt_libobs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -26451,7 +27245,7 @@ mola_state_estimation_smoother: <?xml version="1.0" ?>
 <depend>mola_kernel</depend>
 <depend>mola_imu_preintegration</depend>
 <depend>mrpt_libobs</depend>
-<build_depend>gtsam</build_depend>
+<depend>gtsam</depend>
 <build_depend>libboost-serialization-dev</build_depend>
 <build_depend>libboost-system-dev</build_depend>
 <build_depend>libboost-filesystem-dev</build_depend>
@@ -26899,7 +27693,7 @@ moveit_planners: <?xml version="1.0" ?>
 <author email="isucan@google.com">Ioan Sucan</author>
 <author email="sachinc@willowgarage.com">Sachin Chitta</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<exec_depend>chomp_motion_planner</exec_depend>
+<exec_depend>moveit_planners_chomp</exec_depend>
 <exec_depend>moveit_planners_ompl</exec_depend>
 <exec_depend>moveit_planners_stomp</exec_depend>
 <exec_depend>pilz_industrial_motion_planner</exec_depend>
@@ -27818,7 +28612,7 @@ moveit_setup_app_plugins: <?xml version="1.0" ?>
 <maintainer email="davidvlu@gmail.com">David V. Lu!!</maintainer>
 <license>BSD-3-Clause</license>
 <author email="davidvlu@gmail.com">David V. Lu!!</author>
-<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <depend>ament_index_cpp</depend>
 <depend>moveit_configs_utils</depend>
 <depend>moveit_ros_visualization</depend>
@@ -27873,7 +28667,7 @@ moveit_setup_controllers: <?xml version="1.0" ?>
 <maintainer email="davidvlu@gmail.com">David V. Lu!!</maintainer>
 <license>BSD-3-Clause</license>
 <author email="davidvlu@gmail.com">David V. Lu!!</author>
-<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <depend>ament_index_cpp</depend>
 <depend>moveit_setup_framework</depend>
 <depend>pluginlib</depend>
@@ -27895,7 +28689,7 @@ moveit_setup_core_plugins: <?xml version="1.0" ?>
 <maintainer email="davidvlu@gmail.com">David V. Lu!!</maintainer>
 <license>BSD-3-Clause</license>
 <author email="davidvlu@gmail.com">David V. Lu!!</author>
-<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <depend>ament_index_cpp</depend>
 <depend>moveit_ros_visualization</depend>
 <depend>moveit_setup_framework</depend>
@@ -27916,7 +28710,7 @@ moveit_setup_framework: <?xml version="1.0" ?>
 <maintainer email="davidvlu@gmail.com">David V. Lu!!</maintainer>
 <license>BSD-3-Clause</license>
 <author email="davidvlu@gmail.com">David V. Lu!!</author>
-<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <depend>ament_index_cpp</depend>
 <depend>moveit_common</depend>
 <depend>moveit_core</depend>
@@ -27942,7 +28736,7 @@ moveit_setup_srdf_plugins: <?xml version="1.0" ?>
 <maintainer email="davidvlu@gmail.com">David V. Lu!!</maintainer>
 <license>BSD-3-Clause</license>
 <author email="davidvlu@gmail.com">David V. Lu!!</author>
-<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <depend>moveit_setup_framework</depend>
 <depend>pluginlib</depend>
 <test_depend>ament_cmake_gtest</test_depend>
@@ -29873,6 +30667,35 @@ nmea_navsat_driver: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+nobleo_socketcan_bridge: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>nobleo_socketcan_bridge</name>
+<description>Simple wrapper around SocketCAN</description>
+<maintainer email="ramon.wijnands@nobleo.nl">Ramon Wijnands</maintainer>
+<license>Apache-2.0</license>
+<url type="repository">https://github.com/nobleo/nobleo_socketcan_bridge</url>
+<url type="bugtracker">https://github.com/nobleo/nobleo_socketcan_bridge/issues</url>
+<author email="ramon.wijnands@nobleo.nl">Ramon Wijnands</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>ament_cmake_ros</build_depend>
+<depend>can_msgs</depend>
+<depend>diagnostic_msgs</depend>
+<depend>diagnostic_updater</depend>
+<depend>fmt</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_components</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend condition="$ROS_DISTRO != humble">ament_cmake_clang_format</test_depend>
+<test_depend>ament_cmake_cppcheck</test_depend>
+<test_depend>ament_cmake_cpplint</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<test_depend>ament_cmake_xmllint</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 nodl_python: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -30545,11 +31368,12 @@ pal_statistics: <?xml version="1.0" ?>
 <description>The pal_statistics package</description>
 <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
 <maintainer email="noel.jimenez@pal-robotics.com">Noel Jimenez</maintainer>
+<maintainer email="sai.kishor@pal-robotics.com">Sai Kishor Kothakota</maintainer>
 <license>MIT</license>
 <url type="website">https://github.com/pal-robotics/pal_statistics</url>
 <buildtool_depend>ament_cmake_auto</buildtool_depend>
 <buildtool_depend>ament_cmake_python</buildtool_depend>
-<depend>boost</depend>
+<depend>libboost-dev</depend>
 <depend>pal_statistics_msgs</depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_lifecycle</depend>
@@ -30595,13 +31419,17 @@ numeric or video based programs and algorithms.</description>
 <license>MIT</license>
 <buildtool_depend>cmake</buildtool_depend>
 <depend>libglew-dev</depend>
+<depend>libepoxy-dev</depend>
 <depend>python3-dev</depend>
 <build_depend>eigen</build_depend>
 <depend>libpng-dev</depend>
 <depend>libturbojpeg</depend>
 <depend>libxkbcommon-dev</depend>
+<depend>opengl</depend>
 <build_depend>wayland-dev</build_depend>
 <exec_depend>wayland</exec_depend>
+<build_depend>python3-wheel</build_depend>
+<test_depend>catch2</test_depend>
 <export>
 <build_type>cmake</build_type>
 </export>
@@ -30680,6 +31508,7 @@ pcl_conversions: <?xml version="1.0" ?>
 <url type="bugtracker">https://github.com/ros-perception/perception_pcl/issues</url>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <build_depend>libpcl-all-dev</build_depend>
+<build_export_depend>libpcl-all-dev</build_export_depend>
 <depend>eigen</depend>
 <depend>message_filters</depend>
 <depend>pcl_msgs</depend>
@@ -30738,6 +31567,7 @@ pcl_ros: <?xml version="1.0" ?>
 <author email="william@osrfoundation.org">William Woodall</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <build_depend>libpcl-all-dev</build_depend>
+<build_export_depend>libpcl-all-dev</build_export_depend>
 <depend>eigen</depend>
 <depend>pcl_conversions</depend>
 <depend>rclcpp</depend>
@@ -30746,6 +31576,7 @@ pcl_ros: <?xml version="1.0" ?>
 <depend>geometry_msgs</depend>
 <depend>tf2</depend>
 <depend>tf2_geometry_msgs</depend>
+<depend>tf2_eigen</depend>
 <depend>tf2_ros</depend>
 <exec_depend>libpcl-common</exec_depend>
 <exec_depend>libpcl-features</exec_depend>
@@ -31798,7 +32629,7 @@ polygon_rviz_plugins: <?xml version="1.0" ?>
 <description>RViz visualizations for polygons</description>
 <maintainer email="davidvlu@gmail.com">David V. Lu!!</maintainer>
 <license>BSD</license>
-<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <depend>color_util</depend>
 <depend>geometry_msgs</depend>
 <depend>pluginlib</depend>
@@ -32084,6 +32915,54 @@ py_trees_ros_interfaces: <?xml version="1.0" ?>
 <member_of_group>rosidl_interface_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+py_trees_ros_tutorials: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>py_trees_ros_tutorials</name>
+<description>Tutorials for py_trees on ROS2.</description>
+<author>Daniel Stonier</author>
+<maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+<maintainer email="sebas.a.castro@gmail.com">Sebastian Castro</maintainer>
+<license>BSD</license>
+<url type="website">https://py-trees-ros-tutorials.readthedocs.io/en/release-2.0.x/</url>
+<url type="repository">https://github.com/splintered-treality/py_trees_ros_tutorials</url>
+<url type="bugtracker">https://github.com/splintered-treality/py_trees_ros_tutorials/issues</url>
+<build_depend>python3-setuptools</build_depend>
+<build_depend>pyqt5-dev-tools</build_depend>
+<build_depend>qttools5-dev-tools</build_depend>
+<test_depend>python3-pytest</test_depend>
+<exec_depend>action_msgs</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>py_trees</exec_depend>
+<exec_depend>py_trees_ros</exec_depend>
+<exec_depend>py_trees_ros_interfaces</exec_depend>
+<exec_depend>python3-qt5-bindings</exec_depend>
+<exec_depend>rcl_interfaces</exec_depend>
+<exec_depend>rclpy</exec_depend>
+<exec_depend>sensor_msgs</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>py_trees</exec_depend>
+<exec_depend>py_trees_ros</exec_depend>
+<exec_depend>py_trees_ros_interfaces</exec_depend>
+<exec_depend>rcl_interfaces</exec_depend>
+<exec_depend>rclpy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>launch</exec_depend>
+<exec_depend>launch_ros</exec_depend>
+<exec_depend>ros2launch</exec_depend>
+<exec_depend>ros2param</exec_depend>
+<exec_depend>ros2run</exec_depend>
+<exec_depend>ros2service</exec_depend>
+<exec_depend>ros2topic</exec_depend>
+<test_depend>action_msgs</test_depend>
+<test_depend>py_trees</test_depend>
+<test_depend>py_trees_ros</test_depend>
+<test_depend>rclpy</test_depend>
+<export>
+<build_type>ament_python</build_type>
 </export>
 </package>
 -----
@@ -33621,7 +34500,8 @@ rcutils: <?xml version="1.0" ?>
 <maintainer email="william@openrobotics.org">William Woodall</maintainer>
 <license>Apache License 2.0</license>
 <author email="karsten@osrfoundation.org">Karsten Knese</author>
-<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros_core</buildtool_depend>
 <buildtool_depend>python3-empy</buildtool_depend>
 <depend>libatomic</depend>
 <test_depend>ament_cmake_gmock</test_depend>
@@ -33655,6 +34535,8 @@ without breaking the realtime behavior.</description>
 <author email="sloretz@openrobotics.org">Shane Loretz</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<build_depend>ros2_control_cmake</build_depend>
+<depend>libboost-dev</depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_action</depend>
 <depend>libcap-dev</depend>
@@ -35014,6 +35896,7 @@ rmw_connextdds_common: <?xml version="1.0" ?>
 <depend>rcpputils</depend>
 <depend>rmw</depend>
 <depend>rmw_dds_common</depend>
+<depend>rmw_security_common</depend>
 <depend>rosidl_runtime_c</depend>
 <depend>rosidl_runtime_cpp</depend>
 <depend>rosidl_typesupport_fastrtps_c</depend>
@@ -35045,6 +35928,7 @@ rmw_cyclonedds_cpp: <?xml version="1.0" ?>
 <depend>rcpputils</depend>
 <depend>rmw</depend>
 <depend>rmw_dds_common</depend>
+<depend>rmw_security_common</depend>
 <depend>rosidl_runtime_c</depend>
 <depend>rosidl_typesupport_introspection_c</depend>
 <depend>rosidl_typesupport_introspection_cpp</depend>
@@ -35072,6 +35956,7 @@ rmw_dds_common: <?xml version="1.0" ?>
 <depend>rcutils</depend>
 <depend>rcpputils</depend>
 <depend>rmw</depend>
+<depend>rmw_security_common</depend>
 <depend>rosidl_runtime_c</depend>
 <depend>rosidl_runtime_cpp</depend>
 <test_depend>ament_cmake_gmock</test_depend>
@@ -35080,6 +35965,42 @@ rmw_dds_common: <?xml version="1.0" ?>
 <test_depend>osrf_testing_tools_cpp</test_depend>
 <test_depend>performance_test_fixture</test_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rmw_desert: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rmw_desert</name>
+<description>Implement the ROS middleware interface using the DESERT protocol stack for underwater communications.</description>
+<maintainer email="davide.cst00@gmail.com">Davide Costa</maintainer>
+<license>GPLv3</license>
+<buildtool_depend>rosidl_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_export_depend>ament_cmake</buildtool_export_depend>
+<buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+<build_depend>rmw</build_depend>
+<build_depend>rmw_dds_common</build_depend>
+<build_depend>rosidl_runtime_c</build_depend>
+<build_depend>rosidl_typesupport_introspection_c</build_depend>
+<build_depend>rosidl_typesupport_introspection_cpp</build_depend>
+<build_depend>rcutils</build_depend>
+<build_depend>rcpputils</build_depend>
+<build_export_depend>rmw</build_export_depend>
+<build_export_depend>rmw_dds_common</build_export_depend>
+<build_export_depend>rosidl_runtime_c</build_export_depend>
+<build_export_depend>rosidl_typesupport_introspection_c</build_export_depend>
+<build_export_depend>rosidl_typesupport_introspection_cpp</build_export_depend>
+<build_export_depend>rcutils</build_export_depend>
+<build_export_depend>rcpputils</build_export_depend>
+<exec_depend>rmw</exec_depend>
+<exec_depend>rcutils</exec_depend>
+<exec_depend>rcpputils</exec_depend>
+<exec_depend>rosidl_typesupport_introspection_c</exec_depend>
+<exec_depend>rosidl_typesupport_introspection_cpp</exec_depend>
+<member_of_group>rmw_implementation_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -35098,11 +36019,9 @@ rmw_fastrtps_cpp: <?xml version="1.0" ?>
 <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
 <author>Ricardo González</author>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
-<buildtool_depend>fastrtps_cmake_module</buildtool_depend>
 <buildtool_export_depend>ament_cmake</buildtool_export_depend>
 <build_depend>fastcdr</build_depend>
-<build_depend>fastrtps</build_depend>
-<build_depend>fastrtps_cmake_module</build_depend>
+<build_depend>fastdds</build_depend>
 <build_depend>rcpputils</build_depend>
 <build_depend>rcutils</build_depend>
 <build_depend>rmw</build_depend>
@@ -35116,8 +36035,7 @@ rmw_fastrtps_cpp: <?xml version="1.0" ?>
 <build_depend>rosidl_typesupport_fastrtps_cpp</build_depend>
 <build_depend>tracetools</build_depend>
 <build_export_depend>fastcdr</build_export_depend>
-<build_export_depend>fastrtps</build_export_depend>
-<build_export_depend>fastrtps_cmake_module</build_export_depend>
+<build_export_depend>fastdds</build_export_depend>
 <build_export_depend>rcutils</build_export_depend>
 <build_export_depend>rmw_dds_common</build_export_depend>
 <build_export_depend>rmw_fastrtps_shared_cpp</build_export_depend>
@@ -35159,11 +36077,9 @@ rmw_fastrtps_dynamic_cpp: <?xml version="1.0" ?>
 <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
 <author>Ricardo González</author>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
-<buildtool_depend>fastrtps_cmake_module</buildtool_depend>
 <buildtool_export_depend>ament_cmake</buildtool_export_depend>
 <build_depend>fastcdr</build_depend>
-<build_depend>fastrtps</build_depend>
-<build_depend>fastrtps_cmake_module</build_depend>
+<build_depend>fastdds</build_depend>
 <build_depend>rcpputils</build_depend>
 <build_depend>rcutils</build_depend>
 <build_depend>rmw</build_depend>
@@ -35174,8 +36090,7 @@ rmw_fastrtps_dynamic_cpp: <?xml version="1.0" ?>
 <build_depend>rosidl_typesupport_introspection_cpp</build_depend>
 <build_depend>tracetools</build_depend>
 <build_export_depend>fastcdr</build_export_depend>
-<build_export_depend>fastrtps</build_export_depend>
-<build_export_depend>fastrtps_cmake_module</build_export_depend>
+<build_export_depend>fastdds</build_export_depend>
 <build_export_depend>rcpputils</build_export_depend>
 <build_export_depend>rcutils</build_export_depend>
 <build_export_depend>rmw</build_export_depend>
@@ -35210,28 +36125,27 @@ rmw_fastrtps_shared_cpp: <?xml version="1.0" ?>
 <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
 <author>Ricardo González</author>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
-<buildtool_depend>fastrtps_cmake_module</buildtool_depend>
 <buildtool_export_depend>ament_cmake</buildtool_export_depend>
 <build_depend>rosidl_dynamic_typesupport</build_depend>
 <build_depend>fastcdr</build_depend>
-<build_depend>fastrtps</build_depend>
-<build_depend>fastrtps_cmake_module</build_depend>
+<build_depend>fastdds</build_depend>
 <build_depend>rcpputils</build_depend>
 <build_depend>rcutils</build_depend>
 <build_depend>rmw</build_depend>
 <build_depend>rmw_dds_common</build_depend>
+<build_depend>rmw_security_common</build_depend>
 <build_depend>rosidl_runtime_c</build_depend>
 <build_depend>rosidl_typesupport_introspection_c</build_depend>
 <build_depend>rosidl_typesupport_introspection_cpp</build_depend>
 <build_depend>tracetools</build_depend>
 <build_export_depend>rosidl_dynamic_typesupport</build_export_depend>
 <build_export_depend>fastcdr</build_export_depend>
-<build_export_depend>fastrtps</build_export_depend>
-<build_export_depend>fastrtps_cmake_module</build_export_depend>
+<build_export_depend>fastdds</build_export_depend>
 <build_export_depend>rcpputils</build_export_depend>
 <build_export_depend>rcutils</build_export_depend>
 <build_export_depend>rmw</build_export_depend>
 <build_export_depend>rmw_dds_common</build_export_depend>
+<build_export_depend>rmw_security_common</build_export_depend>
 <build_export_depend>rosidl_typesupport_introspection_c</build_export_depend>
 <build_export_depend>rosidl_typesupport_introspection_cpp</build_export_depend>
 <build_export_depend>tracetools</build_export_depend>
@@ -35332,6 +36246,68 @@ rmw_implementation_cmake: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+rmw_security_common: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rmw_security_common</name>
+<description>Define a common rmw secutiry utils</description>
+<maintainer email="alejandro@openrobotics.org">Alejandro Hernandez Cordero</maintainer>
+<license>Apache License 2.0</license>
+<author email="alejandro@openrobotics.org">Alejandro Hernandez Cordero</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rcutils</depend>
+<depend>rmw</depend>
+<test_depend>ament_cmake_gmock</test_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rmw_test_fixture: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rmw_test_fixture</name>
+<description>Plugin interface for tools for isolating ROS communication at the RMW layer</description>
+<maintainer email="brandon@openrobotics.org">Brandon Ong</maintainer>
+<license>Apache License 2.0</license>
+<author email="logans@cottsay.net">Scott K Logan</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros_core</buildtool_depend>
+<build_export_depend>rmw</build_export_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+rmw_test_fixture_implementation: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>rmw_test_fixture_implementation</name>
+<description>Tools for isolating ROS environments at the RMW layer</description>
+<maintainer email="brandon@openrobotics.org">Brandon Ong</maintainer>
+<license>Apache License 2.0</license>
+<author email="logans@cottsay.net">Scott K Logan</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros_core</buildtool_depend>
+<build_depend>python3-dev</build_depend>
+<exec_depend condition="$DISABLE_GROUPS_WORKAROUND != 1">rmw_zenoh_cpp</exec_depend>
+<depend>rcpputils</depend>
+<depend>rcutils</depend>
+<depend>rmw</depend>
+<depend>rmw_implementation</depend>
+<depend>rmw_test_fixture</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<group_depend>rmw_test_fixture_implementation_packages</group_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 rmw_zenoh_cpp: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -35339,7 +36315,6 @@ rmw_zenoh_cpp: <?xml version="1.0" ?>
 <description>A ROS 2 middleware implementation using zenoh-cpp</description>
 <maintainer email="yadunund@openrobotics.org">Yadunund</maintainer>
 <license>Apache License 2.0</license>
-<license>MIT</license>
 <license>BSD</license>
 <author email="clalancette@gmail.com">Chris Lalancette</author>
 <author>Franco Cipollone</author>
@@ -35601,6 +36576,25 @@ ros2_control: <?xml version="1.0" ?>
 </export>
 </package>
 -----
+ros2_control_cmake: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>ros2_control_cmake</name>
+<description>Provides CMake macros used by the ros2_control framework</description>
+<maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+<maintainer email="denis@stoglrobotics.de">Denis Štogl</maintainer>
+<maintainer email="christoph.froehlich@ait.ac.at">Christoph Froehlich</maintainer>
+<maintainer email="sai.kishor@pal-robotics.com">Sai Kishor Kothakota</maintainer>
+<license>Apache-2.0</license>
+<author email="christoph.froehlich@ait.ac.at">Christoph Froehlich</author>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
 ros2_control_test_assets: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -35796,6 +36790,7 @@ ros2bag: <?xml version="1.0" ?>
 <test_depend>ament_copyright</test_depend>
 <test_depend>ament_flake8</test_depend>
 <test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
 <test_depend>launch_testing</test_depend>
 <test_depend>launch_testing_ros</test_depend>
 <test_depend>python3-pytest</test_depend>
@@ -36477,6 +37472,7 @@ calling of services and actions with messages known only at runtime as long as t
 <author email="ros_babel_fish@stefanfabian.me">Stefan Fabian</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <depend>ament_index_cpp</depend>
+<depend>geometry_msgs</depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_action</depend>
 <depend>rcpputils</depend>
@@ -36484,7 +37480,6 @@ calling of services and actions with messages known only at runtime as long as t
 <depend>rosidl_typesupport_cpp</depend>
 <depend>rosidl_typesupport_introspection_cpp</depend>
 <build_depend>example_interfaces</build_depend>
-<build_depend>geometry_msgs</build_depend>
 <test_depend>ament_cmake_gtest</test_depend>
 <test_depend>ament_cmake_clang_format</test_depend>
 <test_depend>ament_cmake_cppcheck</test_depend>
@@ -36877,8 +37872,7 @@ etc.</description>
 <url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
 <url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
 <author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
-<maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
-<maintainer email="ros-tooling@foxglove.dev">Foxglove</maintainer>
+<maintainer email="blazej@fictionlab.pl">Błażej Sowa</maintainer>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <exec_depend>rosapi_msgs</exec_depend>
 <exec_depend>builtin_interfaces</exec_depend>
@@ -36886,10 +37880,9 @@ etc.</description>
 <exec_depend>rcl_interfaces</exec_depend>
 <exec_depend>rosbridge_library</exec_depend>
 <exec_depend>ros2node</exec_depend>
-<exec_depend>ros2param</exec_depend>
-<exec_depend>ros2pkg</exec_depend>
 <exec_depend>ros2service</exec_depend>
 <exec_depend>ros2topic</exec_depend>
+<test_depend>ament_cmake_mypy</test_depend>
 <test_depend>ament_cmake_pytest</test_depend>
 <test_depend>sensor_msgs</test_depend>
 <test_depend>shape_msgs</test_depend>
@@ -36914,8 +37907,7 @@ etc.</description>
 <url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
 <url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
 <author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
-<maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
-<maintainer email="ros-tooling@foxglove.dev">Foxglove</maintainer>
+<maintainer email="blazej@fictionlab.pl">Błażej Sowa</maintainer>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <buildtool_depend>rosidl_default_generators</buildtool_depend>
 <build_depend>builtin_interfaces</build_depend>
@@ -36945,7 +37937,6 @@ rosbag2: <?xml version="1.0" ?>
 <exec_depend>rosbag2_py</exec_depend>
 <exec_depend>rosbag2_storage</exec_depend>
 <exec_depend>rosbag2_transport</exec_depend>
-<exec_depend>shared_queues_vendor</exec_depend>
 <exec_depend>rosbag2_compression_zstd</exec_depend>
 <exec_depend>rosbag2_storage_default_plugins</exec_depend>
 <test_depend>rosbag2_test_common</test_depend>
@@ -37031,11 +38022,11 @@ rosbag2_cpp: <?xml version="1.0" ?>
 <depend>rosidl_runtime_cpp</depend>
 <depend>rosidl_typesupport_cpp</depend>
 <depend>rosidl_typesupport_introspection_cpp</depend>
-<depend>shared_queues_vendor</depend>
 <test_depend>rosbag2_storage_default_plugins</test_depend>
 <test_depend>ament_cmake_gmock</test_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
+<test_depend>rmw_implementation_cmake</test_depend>
 <test_depend>test_msgs</test_depend>
 <test_depend>std_msgs</test_depend>
 <test_depend>rosbag2_test_common</test_depend>
@@ -37080,6 +38071,7 @@ rosbag2_examples_py: <?xml version="1.0" ?>
 <test_depend>ament_copyright</test_depend>
 <test_depend>ament_flake8</test_depend>
 <test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
 <test_depend>python3-pytest</test_depend>
 <export>
 <build_type>ament_python</build_type>
@@ -37184,7 +38176,7 @@ rosbag2_py: <?xml version="1.0" ?>
 <author email="jacob@openrobotics.org">Jacob Perron</author>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <buildtool_depend>ament_cmake_python</buildtool_depend>
-<buildtool_depend>python_cmake_module</buildtool_depend>
+<build_depend>python3-dev</build_depend>
 <depend>pybind11_vendor</depend>
 <depend>rosbag2_compression</depend>
 <depend>rosbag2_cpp</depend>
@@ -37320,11 +38312,14 @@ rosbag2_test_common: <?xml version="1.0" ?>
 <license>Apache License 2.0</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_depend>ament_cmake_python</buildtool_depend>
-<buildtool_depend>python_cmake_module</buildtool_depend>
 <build_depend>rclcpp</build_depend>
+<build_depend>rcpputils</build_depend>
 <build_depend>rcutils</build_depend>
+<build_depend>test_msgs</build_depend>
 <exec_depend>rclcpp</exec_depend>
+<exec_depend>rcpputils</exec_depend>
 <exec_depend>rcutils</exec_depend>
+<exec_depend>test_msgs</exec_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
 <export>
@@ -37424,12 +38419,13 @@ rosbag2_transport: <?xml version="1.0" ?>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_components</depend>
+<depend>rcpputils</depend>
+<depend>rcutils</depend>
 <depend>rmw</depend>
 <depend>rosbag2_compression</depend>
 <depend>rosbag2_cpp</depend>
 <depend>rosbag2_interfaces</depend>
 <depend>rosbag2_storage</depend>
-<depend>shared_queues_vendor</depend>
 <depend>yaml_cpp_vendor</depend>
 <depend>keyboard_handler</depend>
 <test_depend>ament_cmake_gmock</test_depend>
@@ -37461,8 +38457,7 @@ and interact with params.</description>
 <url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
 <url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
 <author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
-<maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
-<maintainer email="ros-tooling@foxglove.dev">Foxglove</maintainer>
+<maintainer email="blazej@fictionlab.pl">Błażej Sowa</maintainer>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <build_depend>python3-pil</build_depend>
@@ -37473,6 +38468,7 @@ and interact with params.</description>
 <exec_depend>python3-bson</exec_depend>
 <test_depend>rosbridge_test_msgs</test_depend>
 <test_depend>action_msgs</test_depend>
+<test_depend>ament_cmake_mypy</test_depend>
 <test_depend>ament_cmake_pytest</test_depend>
 <test_depend>builtin_interfaces</test_depend>
 <test_depend>diagnostic_msgs</test_depend>
@@ -37497,8 +38493,7 @@ rosbridge_msgs: <?xml version="1.0" ?>
 <name>rosbridge_msgs</name>
 <description>Package containing message files</description>
 <author email="achim@intermodalics.eu">Hans-Joachim Krauch</author>
-<maintainer email="achim@intermodalics.eu">Hans-Joachim Krauch</maintainer>
-<maintainer email="ros-tooling@foxglove.dev">Foxglove</maintainer>
+<maintainer email="blazej@fictionlab.pl">Błażej Sowa</maintainer>
 <license>BSD</license>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <buildtool_depend>rosidl_default_generators</buildtool_depend>
@@ -37519,8 +38514,7 @@ rosbridge_server: <?xml version="1.0" ?>
 <url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
 <url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
 <author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
-<maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
-<maintainer email="ros-tooling@foxglove.dev">Foxglove</maintainer>
+<maintainer email="blazej@fictionlab.pl">Błażej Sowa</maintainer>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
 <exec_depend>python3-tornado</exec_depend>
@@ -37529,6 +38523,7 @@ rosbridge_server: <?xml version="1.0" ?>
 <exec_depend>rosbridge_library</exec_depend>
 <exec_depend>rosbridge_msgs</exec_depend>
 <exec_depend>rosapi</exec_depend>
+<test_depend>ament_cmake_mypy</test_depend>
 <test_depend>example_interfaces</test_depend>
 <test_depend>python3-autobahn</test_depend>
 <test_depend>launch</test_depend>
@@ -37554,8 +38549,7 @@ and helper packages.</description>
 <url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
 <url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
 <author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
-<maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
-<maintainer email="ros-tooling@foxglove.dev">Foxglove</maintainer>
+<maintainer email="blazej@fictionlab.pl">Błażej Sowa</maintainer>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <exec_depend>rosbridge_library</exec_depend>
 <exec_depend>rosbridge_server</exec_depend>
@@ -37574,8 +38568,7 @@ rosbridge_test_msgs: <?xml version="1.0" ?>
 <url type="bugtracker">https://github.com/RobotWebTools/rosbridge_suite/issues</url>
 <url type="repository">https://github.com/RobotWebTools/rosbridge_suite</url>
 <author email="jonathan.c.mace@gmail.com">Jonathan Mace</author>
-<maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
-<maintainer email="ros-tooling@foxglove.dev">Foxglove</maintainer>
+<maintainer email="blazej@fictionlab.pl">Błażej Sowa</maintainer>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <build_depend>builtin_interfaces</build_depend>
 <build_depend>std_msgs</build_depend>
@@ -37829,11 +38822,11 @@ rosidl_dynamic_typesupport_fastrtps: <?xml version="1.0" ?>
 <license>Apache License 2.0</license>
 <author email="brandon@openrobotics.org">Brandon Ong</author>
 <buildtool_depend>ament_cmake_ros</buildtool_depend>
-<buildtool_depend>fastrtps_cmake_module</buildtool_depend>
+<depend>rcpputils</depend>
 <depend>rcutils</depend>
 <depend>rosidl_dynamic_typesupport</depend>
 <depend>fastcdr</depend>
-<depend>fastrtps</depend>
+<depend>fastdds</depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -38220,10 +39213,10 @@ rosidl_typesupport_fastrtps_c: <?xml version="1.0" ?>
 <author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
 <author>Ricardo González</author>
-<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros_core</buildtool_depend>
 <buildtool_depend>ament_cmake_python</buildtool_depend>
-<buildtool_export_depend>ament_cmake_ros</buildtool_export_depend>
-<buildtool_export_depend>fastrtps_cmake_module</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_ros_core</buildtool_export_depend>
 <buildtool_export_depend>python3</buildtool_export_depend>
 <buildtool_export_depend>rosidl_generator_c</buildtool_export_depend>
 <build_export_depend>rosidl_runtime_cpp</build_export_depend>
@@ -38258,11 +39251,10 @@ rosidl_typesupport_fastrtps_cpp: <?xml version="1.0" ?>
 <author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
 <author>Ricardo González</author>
-<buildtool_depend>ament_cmake_ros</buildtool_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros_core</buildtool_depend>
 <buildtool_depend>ament_cmake_python</buildtool_depend>
-<buildtool_depend>fastrtps_cmake_module</buildtool_depend>
-<buildtool_export_depend>ament_cmake_ros</buildtool_export_depend>
-<buildtool_export_depend>fastrtps_cmake_module</buildtool_export_depend>
+<buildtool_export_depend>ament_cmake_ros_core</buildtool_export_depend>
 <buildtool_export_depend>python3</buildtool_export_depend>
 <buildtool_export_depend>rosidl_generator_c</buildtool_export_depend>
 <buildtool_export_depend>rosidl_generator_cpp</buildtool_export_depend>
@@ -38765,8 +39757,13 @@ rqt_graph: <?xml version="1.0" ?>
 <exec_depend>ament_index_python</exec_depend>
 <exec_depend>python_qt_binding</exec_depend>
 <exec_depend version_gte="1.1.2">qt_dotgraph</exec_depend>
+<exec_depend>rclpy</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
 <test_depend>python3-pytest</test_depend>
 <export>
 <build_type>ament_python</build_type>
@@ -38791,8 +39788,11 @@ rqt_gui: <?xml version="1.0" ?>
 <exec_depend>python3-catkin-pkg-modules</exec_depend>
 <exec_depend version_gte="0.3.0">qt_gui</exec_depend>
 <exec_depend>rclpy</exec_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
+<test_depend>python3-pytest</test_depend>
 <export>
 <build_type>ament_python</build_type>
 </export>
@@ -38834,12 +39834,15 @@ rqt_gui_py: <?xml version="1.0" ?>
 <url type="bugtracker">https://github.com/ros-visualization/rqt/issues</url>
 <author>Dirk Thomas</author>
 <author email="michael.jeronimo@openrobotics.org">Michael Jeronimo</author>
-<build_depend version_gte="0.3.0">qt_gui</build_depend>
-<build_depend version_gte="0.3.0">rqt_gui</build_depend>
+<exec_depend>python_qt_binding</exec_depend>
 <exec_depend version_gte="0.3.0">qt_gui</exec_depend>
+<exec_depend>rclpy</exec_depend>
 <exec_depend version_gte="0.3.0">rqt_gui</exec_depend>
-<test_depend>ament_lint_auto</test_depend>
-<test_depend>ament_lint_common</test_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
+<test_depend>python3-pytest</test_depend>
 <export>
 <rqt_gui plugin="${prefix}/plugin.xml"/>
 <build_type>ament_python</build_type>
@@ -39144,6 +40147,10 @@ rqt_py_console: <?xml version="1.0" ?>
 <exec_depend>rclpy</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
 <test_depend>python3-pytest</test_depend>
 <export>
 <architecture_independent/>
@@ -39316,9 +40323,15 @@ rqt_service_caller: <?xml version="1.0" ?>
 <author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <author>Dorian Scholz</author>
 <author email="mikeblautman@gmail.com">Mike Lautman</author>
+<exec_depend>ament_index_python</exec_depend>
+<exec_depend>python_qt_binding</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
 <exec_depend>rqt_py_common</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>ament_xmllint</test_depend>
 <test_depend>python3-pytest</test_depend>
 <export>
 <architecture_independent/>
@@ -40105,7 +41118,7 @@ sdformat_vendor: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>sdformat_vendor</name>
-<description>Vendor package for: sdformat15 15.1.1 SDFormat is an XML file format that describes environments,
+<description>Vendor package for: sdformat15 15.2.0 SDFormat is an XML file format that describes environments,
 objects,
 and robots in a manner suitable for robotic applications</description>
 <maintainer email="addisuzt@intrinsic.ai">Addisu Z. Taddese</maintainer>
@@ -40362,23 +41375,6 @@ shape_msgs: <?xml version="1.0" ?>
 <exec_depend>rosidl_default_runtime</exec_depend>
 <test_depend>ament_lint_common</test_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-shared_queues_vendor: <?xml version="1.0" ?>
-<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="2">
-<name>shared_queues_vendor</name>
-<description>Vendor package for concurrent queues from moodycamel</description>
-<maintainer email="michael.orlov@apex.ai">Michael Orlov</maintainer>
-<maintainer email="geoff@openrobotics.org">Geoffrey Biggs</maintainer>
-<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
-<maintainer email="me@emersonknapp.com">Emerson Knapp</maintainer>
-<maintainer email="ros-tooling@googlegroups.com">ROS Tooling Working Group</maintainer>
-<license>Apache License 2.0</license>
-<buildtool_depend>ament_cmake</buildtool_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -40725,7 +41721,7 @@ smclib: <?xml version="1.0" ?>
 <description>The State Machine Compiler (SMC) from http://smc.sourceforge.net/ converts a language-independent description of a state machine into the source code to support that state machine. This package contains the libraries that a compiled state machine depends on,
 but it does not contain the compiler itself.</description>
 <maintainer email="geoff@openrobotics.org">Geoffrey Biggs</maintainer>
-<license>Mozilla Public License Version 1.1</license>
+<license>MPL-1.1</license>
 <url type="website">http://smc.sourceforge.net/</url>
 <url type="bugtracker">https://github.com/ros/bond_core/issues</url>
 <url type="repository">https://github.com/ros/bond_core</url>
@@ -41026,6 +42022,7 @@ spinnaker_synchronized_camera_driver: <?xml version="1.0" ?>
 <maintainer email="bernd.pfrommer@gmail.com">Bernd Pfrommer</maintainer>
 <license>Apache-2</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_ros</buildtool_depend>
 <depend>spinnaker_camera_driver</depend>
 <depend>rclcpp</depend>
 <depend>rclcpp_components</depend>
@@ -41699,6 +42696,36 @@ swri_transform_util: <?xml version="1.0" ?>
 <export>
 <build_type>ament_cmake</build_type>
 <rosdoc config="rosdoc.yaml"/>
+</export>
+</package>
+-----
+synapticon_ros2_control: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>synapticon_ros2_control</name>
+<description>A ros2_control interface for Synapticon motor drivers</description>
+<author email="andyzelenak@elevaterobotics.ai">Elevate Robotics</author>
+<maintainer email="andyzelenak@elevaterobotics.ai">Elevate Robotics</maintainer>
+<maintainer email="zloncarevic@synapticon.com">Zvezdan Loncarevic</maintainer>
+<maintainer email="fweisshardt@synapticon.com">Florian Weisshardt</maintainer>
+<url type="website">https://docs.ros.org/en/humble/p/synapticon_ros2_control.html</url>
+<license>MIT</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>hardware_interface</depend>
+<depend>libcap-dev</depend>
+<depend>pluginlib</depend>
+<depend>rclcpp</depend>
+<depend>rclcpp_lifecycle</depend>
+<exec_depend>controller_manager</exec_depend>
+<exec_depend>forward_command_controller</exec_depend>
+<exec_depend>joint_state_broadcaster</exec_depend>
+<exec_depend>joint_trajectory_controller</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>ros2controlcli</exec_depend>
+<exec_depend>ros2launch</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<build_type>ament_cmake</build_type>
 </export>
 </package>
 -----
@@ -43181,14 +44208,15 @@ turtlebot3_fake_node: <?xml version="1.0" ?>
 <name>turtlebot3_fake_node</name>
 <description>Package for TurtleBot3 fake node. With this package,
 simple tests can be done without a robot. You can do simple tests using this package on rviz without real robots.</description>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <license>Apache 2.0</license>
 <url type="website">http://turtlebot3.robotis.com</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_simulations</url>
 <url type="bugtracker">https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues</url>
 <author email="pyo@robotis.com">Pyo</author>
 <author email="thlim@robotis.com">Darby Lim</author>
-<author email="jhshim@robotis.com">Ryan Shim</author>
+<author>Ryan Shim</author>
+<author email="willson@robotis.com">Will Son</author>
 <depend>ament_cmake</depend>
 <depend>geometry_msgs</depend>
 <depend>nav_msgs</depend>
@@ -43208,19 +44236,22 @@ turtlebot3_gazebo: <?xml version="1.0" ?>
 <package format="3">
 <name>turtlebot3_gazebo</name>
 <description>Gazebo simulation package for the TurtleBot3</description>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <license>Apache 2.0</license>
 <url type="website">http://turtlebot3.robotis.com</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_simulations</url>
 <url type="bugtracker">https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues</url>
 <author email="thlim@robotis.com">Darby Lim</author>
 <author email="pyo@robotis.com">Pyo</author>
-<author email="jhshim@robotis.com">Ryan Shim</author>
+<author>Ryan Shim</author>
+<author email="kimhg@robotis.com">Hyungyu Kim</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
-<depend>gazebo_ros_pkgs</depend>
 <depend>geometry_msgs</depend>
 <depend>nav_msgs</depend>
 <depend>rclcpp</depend>
+<depend>ros_gz_bridge</depend>
+<depend>ros_gz_image</depend>
+<depend>ros_gz_sim</depend>
 <depend>sensor_msgs</depend>
 <depend>tf2</depend>
 <export>
@@ -43233,23 +44264,30 @@ turtlebot3_msgs: '<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>turtlebot3_msgs</name>
-<description>Message and service types: custom messages and services for TurtleBot3 packages for ROS2</description>
+<description>Message and service types: custom messages and services for TurtleBot3 packages for ROS 2</description>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <license>Apache 2.0</license>
+<url type="website">http://wiki.ros.org/turtlebot3_msgs</url>
+<url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_msgs</url>
+<url type="bugtracker">https://github.com/ROBOTIS-GIT/turtlebot3_msgs/issues</url>
 <author email="pyo@robotis.com">Pyo</author>
 <author email="thlim@robotis.com">Darby Lim</author>
 <author email="kkjong@robotis.com">Gilbert</author>
 <author email="vgh@amazon.com">Vineet Ghatge</author>
-<author email="jhshim@robotis.com">Ryan Shim</author>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
-<url type="website">http://wiki.ros.org/turtlebot3_msgs</url>
-<url type="emanual">http://turtlebot3.robotis.com</url>
-<url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_msgs</url>
-<url type="bugtracker">https://github.com/ROBOTIS-GIT/turtlebot3_msgs/issues</url>
+<author email="junyeong4321@gmail.com">Junyeong Jeong</author>
+<author>Ryan Shim</author>
+<author email="willson@robotis.com">Will Son</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <buildtool_depend>rosidl_default_generators</buildtool_depend>
-<depend>action_msgs</depend>
-<depend>builtin_interfaces</depend>
-<depend>std_msgs</depend>
+<build_depend>action_msgs</build_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>rosidl_default_runtime</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<exec_depend>action_msgs</exec_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
 <exec_depend>rosidl_default_runtime</exec_depend>
 <test_depend>ament_lint_common</test_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
@@ -43263,14 +44301,16 @@ turtlebot3_simulations: <?xml version="1.0" ?>
 <package format="3">
 <name>turtlebot3_simulations</name>
 <description>ROS 2 packages for TurtleBot3 simulations</description>
-<maintainer email="willson@robotis.com">Will Son</maintainer>
+<maintainer email="pyo@robotis.com">Pyo</maintainer>
 <license>Apache 2.0</license>
 <url type="website">http://turtlebot3.robotis.com</url>
 <url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_simulations</url>
 <url type="bugtracker">https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues</url>
 <author email="thlim@robotis.com">Darby Lim</author>
 <author email="pyo@robotis.com">Pyo</author>
-<author email="jhshim@robotis.com">Ryan Shim</author>
+<author>Ryan Shim</author>
+<author email="willson@robotis.com">Will Son</author>
+<author email="kimhg@robotis.com">Hyungyu Kim</author>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <exec_depend>turtlebot3_fake_node</exec_depend>
 <exec_depend>turtlebot3_gazebo</exec_depend>
@@ -44085,7 +45125,9 @@ ur_client_library: <?xml version="1.0" ?>
 <author>Felix Exner</author>
 <author>Lea Steffen</author>
 <author>Tristan Schnell</author>
-<maintainer email="exner@fzi.de">Felix Exner</maintainer>
+<maintainer email="feex@universal-robots.com">Felix Exner</maintainer>
+<maintainer email="rsk@universal-robots.com">Rune Søe-Knudsen</maintainer>
+<maintainer email="ros@universal-robots.com">Universal Robots A/S</maintainer>
 <license file="LICENSE_apache_2_0">Apache-2.0</license>
 <license file="include/ur_client_library/queue/LICENSE.md">BSD-2-Clause</license>
 <license file="include/ur_client_library/queue/atomicops.h">Zlib</license>
@@ -44121,6 +45163,7 @@ ur_controllers: <?xml version="1.0" ?>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <depend>angles</depend>
 <depend>controller_interface</depend>
+<depend>generate_parameter_library</depend>
 <depend>geometry_msgs</depend>
 <depend>hardware_interface</depend>
 <depend>joint_trajectory_controller</depend>
@@ -44186,10 +45229,13 @@ ur_description: <?xml version="1.0" ?>
 <author>Denis Stogl</author>
 <author>Andy Zelenak</author>
 <author>Marvin Grosse Besselmann</author>
-<maintainer email="exner@fzi.de">Felix Exner</maintainer>
-<maintainer email="schnell@fzi.de">Tristan Schnell</maintainer>
-<maintainer email="lovro.ivanov@gmail.com">Lovro Ivanov</maintainer>
-<maintainer email="denis@stoglrobotics.de">Denis Stogl</maintainer>
+<author email="schnell@fzi.de">Tristan Schnell</author>
+<author email="lovro.ivanov@gmail.com">Lovro Ivanov</author>
+<author email="denis@stoglrobotics.de">Denis Stogl</author>
+<author email="dipentima@fzi.de">Vincenzo Di Pentima</author>
+<maintainer email="feex@universal-robots.com">Felix Exner</maintainer>
+<maintainer email="rsk@universal-robots.com">Rune Søe-Knudsen</maintainer>
+<maintainer email="ros@universal-robots.com">Universal Robots A/S</maintainer>
 <license file="LICENSE">BSD-3-Clause</license>
 <license file="meshes/ur20/LICENSE.txt">Universal Robots A/S’ Terms and Conditions for Use of Graphical Documentation</license>
 <url type="bugtracker">https://github.com/UniversalRobots/Universal_Robots_ROS2_Description/issues</url>
@@ -44258,6 +45304,7 @@ ur_msgs: <?xml version="1.0" ?>
 <buildtool_depend>rosidl_default_generators</buildtool_depend>
 <depend>builtin_interfaces</depend>
 <depend>geometry_msgs</depend>
+<depend>action_msgs</depend>
 <exec_depend>rosidl_default_runtime</exec_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
@@ -44729,24 +45776,6 @@ velodyne: <?xml version="1.0" ?>
 </export>
 </package>
 -----
-velodyne_description: <?xml version="1.0" ?>
-<package format="3">
-<name>velodyne_description</name>
-<description>URDF and meshes describing Velodyne laser scanners.</description>
-<license>BSD</license>
-<author>Kevin Hallenbeck</author>
-<maintainer email="khallenbeck@dataspeedinc.com">Kevin Hallenbeck</maintainer>
-<url type="website">http://wiki.ros.org/velodyne_description</url>
-<url type="repository">https://bitbucket.org/dataspeedinc/velodyne_simulator</url>
-<url type="bugtracker">https://bitbucket.org/dataspeedinc/velodyne_simulator/issues</url>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<exec_depend>urdf</exec_depend>
-<exec_depend>xacro</exec_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
 velodyne_driver: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
@@ -44773,27 +45802,6 @@ velodyne_driver: <?xml version="1.0" ?>
 <test_depend>ament_cmake_gtest</test_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-velodyne_gazebo_plugins: <?xml version="1.0" ?>
-<package format="3">
-<name>velodyne_gazebo_plugins</name>
-<description>Gazebo plugin to provide simulated data from Velodyne laser scanners.</description>
-<license>BSD</license>
-<author>Kevin Hallenbeck</author>
-<maintainer email="khallenbeck@dataspeedinc.com">Kevin Hallenbeck</maintainer>
-<url type="website">http://wiki.ros.org/velodyne_gazebo_plugins</url>
-<url type="repository">https://bitbucket.org/dataspeedinc/velodyne_simulator</url>
-<url type="bugtracker">https://bitbucket.org/dataspeedinc/velodyne_simulator/issues</url>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<depend>gazebo_dev</depend>
-<depend>gazebo_ros</depend>
-<depend>gazebo_msgs</depend>
-<depend>rclcpp</depend>
-<depend>sensor_msgs</depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -44875,24 +45883,6 @@ velodyne_pointcloud: <?xml version="1.0" ?>
 <test_depend>ament_index_cpp</test_depend>
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
-<export>
-<build_type>ament_cmake</build_type>
-</export>
-</package>
------
-velodyne_simulator: <?xml version="1.0" ?>
-<package format="3">
-<name>velodyne_simulator</name>
-<description>Metapackage allowing easy installation of Velodyne simulation components.</description>
-<license>BSD</license>
-<author>Kevin Hallenbeck</author>
-<maintainer email="khallenbeck@dataspeedinc.com">Kevin Hallenbeck</maintainer>
-<url type="website">http://wiki.ros.org/velodyne_simulator</url>
-<url type="repository">https://bitbucket.org/dataspeedinc/velodyne_simulator</url>
-<url type="bugtracker">https://bitbucket.org/dataspeedinc/velodyne_simulator/issues</url>
-<buildtool_depend>ament_cmake</buildtool_depend>
-<exec_depend>velodyne_description</exec_depend>
-<exec_depend>velodyne_gazebo_plugins</exec_depend>
 <export>
 <build_type>ament_cmake</build_type>
 </export>
@@ -45224,6 +46214,8 @@ webots_ros2: <?xml version="1.0" ?>
 <exec_depend>webots_ros2_tiago</exec_depend>
 <exec_depend>webots_ros2_turtlebot</exec_depend>
 <exec_depend>webots_ros2_universal_robot</exec_depend>
+<exec_depend>webots_ros2_crazyflie</exec_depend>
+<exec_depend>webots_ros2_husarion</exec_depend>
 <test_depend>ament_copyright</test_depend>
 <test_depend>python3-pytest</test_depend>
 <test_depend>webots_ros2_tests</test_depend>
@@ -45254,6 +46246,26 @@ webots_ros2_control: <?xml version="1.0" ?>
 <test_depend>ament_lint_common</test_depend>
 <export>
 <build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+webots_ros2_crazyflie: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>webots_ros2_crazyflie</name>
+<description>ROS2 package for Crazyflie webots simulator</description>
+<maintainer email="kimberly@bitcraze.io">Kimberly McGuire (Bitcraze AB)</maintainer>
+<license>MIT</license>
+<exec_depend>rclpy</exec_depend>
+<exec_depend>builtin_interfaces</exec_depend>
+<exec_depend>webots_ros2_driver</exec_depend>
+<exec_depend>tf_transformations</exec_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
 </export>
 </package>
 -----
@@ -45317,6 +46329,30 @@ webots_ros2_epuck: <?xml version="1.0" ?>
 <exec_depend>webots_ros2_control</exec_depend>
 <test_depend>ament_copyright</test_depend>
 <test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package>
+-----
+webots_ros2_husarion: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>webots_ros2_husarion</name>
+<description>Husarion ROSbot 2R and XL robots ROS2 interface for Webots.</description>
+<author email="jakub.delicat@husarion.com">Jakub Delicat</author>
+<maintainer email="support@husarion.com">Husarion</maintainer>
+<license>Apache License 2.0</license>
+<url type="website">http://wiki.ros.org/webots_ros2</url>
+<url type="repository">https://github.com/cyberbotics/webots_ros2</url>
+<url type="bugtracker">https://github.com/cyberbotics/webots_ros2/issues</url>
+<exec_depend>webots_ros2_driver</exec_depend>
+<exec_depend>webots_ros2_control</exec_depend>
+<exec_depend>diff_drive_controller</exec_depend>
+<exec_depend>joint_state_broadcaster</exec_depend>
+<exec_depend>controller_manager</exec_depend>
+<exec_depend>laser_filters</exec_depend>
+<exec_depend>robot_localization</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
 <export>
 <build_type>ament_python</build_type>
 </export>
@@ -45438,6 +46474,7 @@ webots_ros2_tests: <?xml version="1.0" ?>
 <test_depend>webots_ros2_tesla</test_depend>
 <test_depend>webots_ros2_mavic</test_depend>
 <test_depend>webots_ros2_tiago</test_depend>
+<test_depend>webots_ros2_husarion</test_depend>
 <test_depend>tf2_ros</test_depend>
 <test_depend>std_msgs</test_depend>
 <test_depend>sensor_msgs</test_depend>
@@ -45805,6 +46842,44 @@ zbar_ros_interfaces: <?xml version="1.0" ?>
 <test_depend>ament_lint_common</test_depend>
 <build_depend>rosidl_default_generators</build_depend>
 <exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
+-----
+zed_msgs: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+<name>zed_msgs</name>
+<description>Contains message and service definitions used by the ZED ROS2 nodes.</description>
+<maintainer email="support@stereolabs.com">STEREOLABS</maintainer>
+<maintainer email="walter.lucetti@stereolabs.com">Walter Lucetti</maintainer>
+<maintainer email="aymeric.dujardin@stereolabs.com">Aymeric Dujardin</maintainer>
+<maintainer email="olivier.braun@stereolabs.com">Olivier Braun</maintainer>
+<maintainer email="pierre.yver@stereolabs.com">Pierre Yver</maintainer>
+<license>Apache License 2.0</license>
+<url type="website">https://www.stereolabs.com/</url>
+<url type="repository">https://github.com/stereolabs/zed-ros2-wrapper</url>
+<url type="bugtracker">https://github.com/stereolabs/zed-ros2-wrapper/issues</url>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>ament_cmake_auto</build_depend>
+<build_depend>builtin_interfaces</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>geometry_msgs</build_depend>
+<build_depend>shape_msgs</build_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>shape_msgs</exec_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_cmake_copyright</test_depend>
+<test_depend>ament_cmake_cppcheck</test_depend>
+<test_depend>ament_cmake_lint_cmake</test_depend>
+<test_depend>ament_cmake_pep257</test_depend>
+<test_depend>ament_cmake_uncrustify</test_depend>
+<test_depend>ament_cmake_xmllint</test_depend>
 <member_of_group>rosidl_interface_packages</member_of_group>
 <export>
 <build_type>ament_cmake</build_type>
