@@ -21,7 +21,7 @@ DEPENDS += "aws-c-common aws-c-event-stream aws-checksums curl openssl zlib"
 
 # Build only what is needed for aws-common
 # other components need more dependencies like pulseaudio etc
-BUILD_COMPONENTS="core;logs;monitoring;s3;kinesis;iot;lex;polly"
+BUILD_COMPONENTS = "core;logs;monitoring;s3;kinesis;iot;lex;polly"
 
 EXTRA_OECMAKE += "-DBUILD_DEPS=OFF -DBUILD_SHARED_LIBS=ON -DBUILD_ONLY='${BUILD_COMPONENTS}'"
 EXTRA_OECMAKE += "-DCURL_HAS_H2_EXITCODE=0 -DCURL_HAS_H2_EXITCODE__TRYRUN_OUTPUT='' -DCURL_HAS_TLS_PROXY_EXITCODE=0 -DCURL_HAS_TLS_PROXY_EXITCODE__TRYRUN_OUTPUT=''"
