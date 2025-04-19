@@ -8,6 +8,6 @@ FILES:${PN}:prepend:ros1-distro = " \
     ${ros_libdir}/lib*${SOLIBS} \
 "
 
-FILES:${PN}:prepend:ros2-distro= " \
+FILES:${PN}:prepend:ros2-distro = " \
     ${ros_libdir}/lib*${SOLIBS} \
 "
