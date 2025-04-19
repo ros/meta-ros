@@ -9,9 +9,9 @@ Index: git/src/cpp/CMakeLists.txt
 ===================================================================
 --- git.orig/src/cpp/CMakeLists.txt
 +++ git/src/cpp/CMakeLists.txt
-@@ -482,7 +482,7 @@ endif()
- # Link library to external libraries.
- target_link_libraries(${PROJECT_NAME} ${PRIVACY} fastcdr foonathan_memory
+@@ -506,7 +506,7 @@ target_link_libraries(${PROJECT_NAME}
+     fastcdr
+     foonathan_memory
      ${CMAKE_THREAD_LIBS_INIT} ${CMAKE_DL_LIBS}
 -    ${TINYXML2_LIBRARY}
 +    tinyxml2
