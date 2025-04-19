@@ -11,7 +11,7 @@ SRC_URI = " \
 
 SRCREV_release = "e5a8f99c246ee8436d8530e4513ee056a360d0cf"
 SRCREV_upstream = "eba86625b707e3c8c99bbfc4624e51f42dc9e561"
-SRCREV_lua= "5d708c3f9cae12820e415d4f89c9eacbe2ab964b"
+SRCREV_lua = "5d708c3f9cae12820e415d4f89c9eacbe2ab964b"
 SRCREV_FORMAT = "release_upstream_lua"
 
 EXTRA_OECMAKE += "-DLUA_SOURCE_DIR=${S}/lua"
