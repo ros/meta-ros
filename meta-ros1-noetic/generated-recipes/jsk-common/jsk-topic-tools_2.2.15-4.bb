@@ -48,7 +48,6 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-iputils-ping} \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     diagnostic-aggregator \
     diagnostic-msgs \
     diagnostic-updater \
@@ -61,6 +60,7 @@ ROS_EXEC_DEPENDS = " \
     nodelet \
     opencv \
     python3-numpy \
+    python3-scipy \
     roscpp \
     roslaunch \
     rosnode \

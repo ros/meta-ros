@@ -29,7 +29,7 @@ ROS_BUILD_DEPENDS = " \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
-    clang-native-native \
+    clang-native \
     cmake-native \
 "
 
