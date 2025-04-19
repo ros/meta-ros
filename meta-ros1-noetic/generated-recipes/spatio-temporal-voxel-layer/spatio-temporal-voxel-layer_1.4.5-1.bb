@@ -18,7 +18,6 @@ ROS_CN = "spatio_temporal_voxel_layer"
 ROS_BPN = "spatio_temporal_voxel_layer"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb} \
     costmap-2d \
@@ -27,6 +26,7 @@ ROS_BUILD_DEPENDS = " \
     laser-geometry \
     message-filters \
     message-generation \
+    openexr \
     pcl-conversions \
     pcl-ros \
     pluginlib \
@@ -44,7 +44,6 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb} \
     costmap-2d \
@@ -52,6 +51,7 @@ ROS_EXPORT_DEPENDS = " \
     geometry-msgs \
     laser-geometry \
     message-filters \
+    openexr \
     pcl-conversions \
     pcl-ros \
     pluginlib \
@@ -67,7 +67,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb} \
     costmap-2d \
@@ -75,6 +74,7 @@ ROS_EXEC_DEPENDS = " \
     geometry-msgs \
     laser-geometry \
     message-filters \
+    openexr \
     pcl-conversions \
     pcl-ros \
     pluginlib \

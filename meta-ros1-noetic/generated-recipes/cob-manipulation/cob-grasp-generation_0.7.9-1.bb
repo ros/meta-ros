@@ -30,7 +30,6 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     ${ROS_UNRESOLVED_DEP-python3-six} \
     actionlib \
     actionlib-msgs \
@@ -38,6 +37,7 @@ ROS_EXEC_DEPENDS = " \
     cob-manipulation-msgs \
     geometry-msgs \
     moveit-msgs \
+    python3-scipy \
     robot-state-publisher \
     roslib \
     rospy \

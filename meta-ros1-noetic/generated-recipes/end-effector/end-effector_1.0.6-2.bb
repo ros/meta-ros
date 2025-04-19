@@ -19,9 +19,9 @@ ROS_CN = "end-effector"
 ROS_BPN = "end_effector"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-muparser} \
     kdl-parser \
     moveit-ros-planning-interface \
+    muparser \
     roscpp \
     rosee-msg \
     rospy \
@@ -34,9 +34,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-muparser} \
     kdl-parser \
     moveit-ros-planning-interface \
+    muparser \
     roscpp \
     rosee-msg \
     rospy \
@@ -47,11 +47,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-muparser} \
     joint-state-publisher-gui \
     kdl-parser \
     message-runtime \
     moveit-ros-planning-interface \
+    muparser \
     roscpp \
     rosee-msg \
     rospy \
