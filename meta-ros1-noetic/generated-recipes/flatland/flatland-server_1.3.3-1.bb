@@ -17,11 +17,11 @@ ROS_CN = "flatland"
 ROS_BPN = "flatland_server"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-lua-dev} \
     cmake-modules \
     flatland-msgs \
     geometry-msgs \
     interactive-markers \
+    lua \
     opencv \
     pluginlib \
     roscpp \
@@ -38,10 +38,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-lua-dev} \
     flatland-msgs \
     geometry-msgs \
     interactive-markers \
+    lua \
     opencv \
     pluginlib \
     roscpp \
@@ -56,10 +56,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-lua-dev} \
     flatland-msgs \
     geometry-msgs \
     interactive-markers \
+    lua \
     opencv \
     pluginlib \
     roscpp \

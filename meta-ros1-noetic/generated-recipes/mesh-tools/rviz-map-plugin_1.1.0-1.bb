@@ -19,10 +19,10 @@ ROS_CN = "mesh_tools"
 ROS_BPN = "rviz_map_plugin"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     hdf5-map-io \
     mesh-msgs \
     opencl-headers \
+    opencl-icd-loader \
     qtbase \
     roscpp \
     rviz \
@@ -34,10 +34,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     hdf5-map-io \
     mesh-msgs \
     opencl-headers \
+    opencl-icd-loader \
     qtbase \
     roscpp \
     rviz \
@@ -47,10 +47,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     hdf5-map-io \
     mesh-msgs \
     opencl-headers \
+    opencl-icd-loader \
     qtbase \
     roscpp \
     rviz \
