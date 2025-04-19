@@ -51,7 +51,6 @@ ROS_SDK_TARGET_PACKAGES = " \
     rclcpp-components \
     builtin-interfaces \
     common-interfaces \
-    fastrtps-cmake-module \
     rosidl-default-generators \
     rosidl-core-generators \
     rosidl-cmake \
