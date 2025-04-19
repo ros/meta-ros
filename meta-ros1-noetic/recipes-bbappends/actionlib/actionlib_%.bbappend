@@ -1,5 +1,7 @@
 # Copyright (c) 2019-2020 LG Electronics, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 # Currently, wxpython doesn't build, but it's only needed by the GUI debug tools ax*.py => don't install them and remove the
 # RDEPENDS on "wxpython" until it builds.
 
