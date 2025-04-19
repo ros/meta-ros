@@ -13,7 +13,6 @@ ROS_BUILDTOOL_DEPENDS += " \
 ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
-    fastrtps-cmake-module \
     rmw-fastrtps-cpp \
     rmw-fastrtps-shared-cpp \
     rmw-implementation \
