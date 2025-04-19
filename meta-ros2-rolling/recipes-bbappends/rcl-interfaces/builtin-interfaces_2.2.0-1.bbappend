@@ -25,7 +25,6 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp \
     rosidl-runtime-c \
     rosidl-runtime-cpp \
-    fastrtps-cmake-module \
     python-cmake-module \
     rosidl-typesupport-fastrtps-cpp-native \
     rosidl-typesupport-fastrtps-c-native \

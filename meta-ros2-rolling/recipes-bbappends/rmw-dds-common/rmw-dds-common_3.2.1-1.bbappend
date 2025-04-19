@@ -11,14 +11,12 @@ ROS_BUILDTOOL_DEPENDS += " \
 # target).
 ROS_BUILD_DEPENDS += " \
     fastcdr \
-    fastrtps \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
     rosidl-typesupport-fastrtps-c \
     rosidl-typesupport-fastrtps-cpp \
     rosidl-runtime-c \
     rosidl-runtime-cpp \
-    fastrtps-cmake-module \
     python-cmake-module \
     rosidl-typesupport-fastrtps-cpp-native \
     rosidl-typesupport-fastrtps-c-native \

@@ -2,8 +2,6 @@
 
 ROS_BUILD_DEPENDS += " \
     fastcdr \
-    fastrtps \
-    fastrtps-cmake-module \
     rosidl-default-runtime \
     rosidl-default-generators \
     rosidl-typesupport-fastrtps-c \
