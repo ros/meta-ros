@@ -18,7 +18,7 @@ ROS_BPN = "wiimote"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-cwiid-dev} \
-    ${ROS_UNRESOLVED_DEP-libbluetooth-dev} \
+    bluez5 \
     geometry-msgs \
     rclcpp \
     rclcpp-components \
@@ -49,7 +49,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-cwiid} \
-    ${ROS_UNRESOLVED_DEP-libbluetooth} \
+    bluez5 \
     geometry-msgs \
     rclcpp \
     rclcpp-components \

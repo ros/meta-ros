@@ -26,8 +26,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     python3-numpy \
+    python3-scipy \
     rqt-gui-py \
 "
 
