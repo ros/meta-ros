@@ -18,8 +18,8 @@ ROS_CN = "turtlebot4_robot"
 ROS_BPN = "turtlebot4_base"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libgpiod-dev} \
     irobot-create-msgs \
+    libgpiod \
     rclcpp \
     rclcpp-action \
     rcutils \
@@ -34,8 +34,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libgpiod-dev} \
     irobot-create-msgs \
+    libgpiod \
     rclcpp \
     rclcpp-action \
     rcutils \
@@ -48,8 +48,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libgpiod-dev} \
     irobot-create-msgs \
+    libgpiod \
     rclcpp \
     rclcpp-action \
     rcutils \

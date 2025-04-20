@@ -18,7 +18,7 @@ ROS_CN = "rosbag2"
 ROS_BPN = "liblz4_vendor"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-liblz4-dev} \
+    lz4 \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -27,13 +27,13 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-liblz4-dev} \
+    lz4 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-liblz4} \
+    lz4 \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
