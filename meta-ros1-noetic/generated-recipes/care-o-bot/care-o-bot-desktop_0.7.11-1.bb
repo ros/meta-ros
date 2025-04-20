@@ -32,7 +32,6 @@ ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-chromium-browser} \
     ${ROS_UNRESOLVED_DEP-gimp} \
     ${ROS_UNRESOLVED_DEP-gitg} \
-    ${ROS_UNRESOLVED_DEP-htop} \
     ${ROS_UNRESOLVED_DEP-language-pack-de} \
     ${ROS_UNRESOLVED_DEP-language-pack-en} \
     ${ROS_UNRESOLVED_DEP-meld} \
@@ -40,11 +39,12 @@ ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-terminator} \
     ${ROS_UNRESOLVED_DEP-texlive-fonts-recommended} \
     ${ROS_UNRESOLVED_DEP-texmaker} \
-    ${ROS_UNRESOLVED_DEP-tmux} \
-    ${ROS_UNRESOLVED_DEP-tree} \
-    ${ROS_UNRESOLVED_DEP-vim} \
     care-o-bot \
     desktop-full \
+    htop \
+    tmux \
+    tree \
+    vim \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

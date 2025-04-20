@@ -29,10 +29,10 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     calibration-msgs \
     python3-matplotlib \
     python3-pykdl \
+    python3-scipy \
     rospy \
     rostest \
     sensor-msgs \
