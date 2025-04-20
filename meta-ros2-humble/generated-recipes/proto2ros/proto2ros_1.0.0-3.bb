@@ -16,8 +16,8 @@ ROS_CN = "proto2ros"
 ROS_BPN = "proto2ros"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-clang-tidy} \
     builtin-interfaces \
+    clang \
     protobuf \
     rclcpp \
     std-msgs \
