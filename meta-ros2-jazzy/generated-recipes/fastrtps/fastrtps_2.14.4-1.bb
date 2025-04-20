@@ -58,9 +58,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros2-gbp/fastrtps-release/archive/release/jazzy/fastrtps/2.14.4-1.tar.gz
+# matches with: https://github.com/ros2-gbp/fastdds-release/archive/release/jazzy/fastrtps/2.14.4-1.tar.gz
 ROS_BRANCH ?= "branch=release/jazzy/fastrtps"
-SRC_URI = "git://github.com/ros2-gbp/fastrtps-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/fastdds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e0266de0cee3d08918746a0cf559c4bbdf936da1"
 S = "${WORKDIR}/git"
 
