@@ -37,13 +37,13 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     baldor \
     criutils \
     geometry-msgs \
     message-runtime \
     python3-matplotlib \
     python3-numpy \
+    python3-scipy \
     std-msgs \
 "
 

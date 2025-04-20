@@ -18,7 +18,6 @@ ROS_BPN = "mrpt_libapps"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-liboctomap-dev} \
-    ${ROS_UNRESOLVED_DEP-libopenni2-dev} \
     assimp \
     cv-bridge \
     ffmpeg \
@@ -38,6 +37,7 @@ ROS_BUILD_DEPENDS = " \
     mrpt-libslam \
     mrpt-libtclap \
     opencv \
+    openni2 \
     pkgconfig \
     python3-pip \
     python3-pybind11 \
