@@ -38,7 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-can-utils} \
+    can-utils \
     clearpath-socketcan-interface \
     diagnostic-updater \
     joy \
