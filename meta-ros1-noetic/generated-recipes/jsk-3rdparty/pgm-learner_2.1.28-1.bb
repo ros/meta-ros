@@ -31,8 +31,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-python-libpgm-pip} \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     message-runtime \
+    python3-scipy \
     rospy \
 "
 
