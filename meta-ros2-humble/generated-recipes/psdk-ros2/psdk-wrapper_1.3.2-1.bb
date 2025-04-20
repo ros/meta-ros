@@ -16,9 +16,9 @@ ROS_CN = "psdk_ros2"
 ROS_BPN = "psdk_wrapper"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopus-dev} \
     ffmpeg \
     geometry-msgs \
+    libopus \
     libusb1 \
     nav-msgs \
     nlohmann-json \
@@ -37,9 +37,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopus-dev} \
     ffmpeg \
     geometry-msgs \
+    libopus \
     libusb1 \
     nav-msgs \
     nlohmann-json \
@@ -56,9 +56,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopus-dev} \
     ffmpeg \
     geometry-msgs \
+    libopus \
     libusb1 \
     nav-msgs \
     nlohmann-json \
