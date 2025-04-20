@@ -19,8 +19,7 @@ ROS_CN = "camera_aravis"
 ROS_BPN = "camera_aravis"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-aravis-dev} \
-    ${ROS_UNRESOLVED_DEP-aravis} \
+    aravis \
     camera-info-manager \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -40,7 +39,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-aravis} \
+    aravis \
     camera-info-manager \
     diagnostic-msgs \
     dynamic-reconfigure \
@@ -56,7 +55,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-aravis} \
+    aravis \
     camera-info-manager \
     diagnostic-msgs \
     dynamic-reconfigure \
