@@ -51,13 +51,13 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-scipy} \
     beluga \
     geometry-msgs \
     nav-msgs \
     python3-h5py \
     python3-matplotlib \
     python3-numpy \
+    python3-scipy \
     sensor-msgs \
     std-msgs \
     tf2 \

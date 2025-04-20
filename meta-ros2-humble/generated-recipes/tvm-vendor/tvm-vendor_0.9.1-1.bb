@@ -18,11 +18,11 @@ ROS_CN = "tvm_vendor"
 ROS_BPN = "tvm_vendor"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     git \
     libxml2 \
     openblas \
     opencl-headers \
+    opencl-icd-loader \
     ros-environment \
     spirv-headers \
     spirv-tools \
@@ -34,11 +34,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     git \
     libxml2 \
     openblas \
     opencl-headers \
+    opencl-icd-loader \
     spirv-headers \
     spirv-tools \
     vulkan-headers \
@@ -47,11 +47,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev} \
     git \
     libxml2 \
     openblas \
     opencl-headers \
+    opencl-icd-loader \
     spirv-headers \
     spirv-tools \
     vulkan-headers \

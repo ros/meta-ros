@@ -18,12 +18,12 @@ ROS_CN = "spatio_temporal_voxel_layer"
 ROS_BPN = "spatio_temporal_voxel_layer"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
     builtin-interfaces \
     geometry-msgs \
     laser-geometry \
     message-filters \
     nav2-costmap-2d \
+    openexr \
     openvdb-vendor \
     pcl \
     pcl-conversions \
@@ -44,12 +44,12 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
     builtin-interfaces \
     geometry-msgs \
     laser-geometry \
     message-filters \
     nav2-costmap-2d \
+    openexr \
     openvdb-vendor \
     pcl \
     pcl-conversions \
@@ -67,12 +67,12 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libopenexr-dev} \
     builtin-interfaces \
     geometry-msgs \
     laser-geometry \
     message-filters \
     nav2-costmap-2d \
+    openexr \
     openvdb-vendor \
     pcl \
     pcl-conversions \

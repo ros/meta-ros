@@ -19,10 +19,10 @@ ROS_CN = "reach"
 ROS_BPN = "reach"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libomp-dev} \
     boost \
     boost-plugin-loader \
     libeigen \
+    openmp \
     pcl \
     ros-industrial-cmake-boilerplate \
     yaml-cpp \
@@ -33,10 +33,10 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libomp-dev} \
     boost \
     boost-plugin-loader \
     libeigen \
+    openmp \
     pcl \
     ros-industrial-cmake-boilerplate \
     yaml-cpp \
@@ -45,10 +45,10 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libomp-dev} \
     boost \
     boost-plugin-loader \
     libeigen \
+    openmp \
     pcl \
     ros-industrial-cmake-boilerplate \
     yaml-cpp \
