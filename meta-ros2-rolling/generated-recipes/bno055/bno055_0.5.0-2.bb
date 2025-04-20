@@ -16,23 +16,23 @@ ROS_CN = "bno055"
 ROS_BPN = "bno055"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-smbus} \
     python3-pyserial \
+    python3-smbus \
 "
 
 ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-smbus} \
     python3-pyserial \
+    python3-smbus \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-smbus} \
     example-interfaces \
     python3-pyserial \
+    python3-smbus \
     rclpy \
     std-msgs \
 "
