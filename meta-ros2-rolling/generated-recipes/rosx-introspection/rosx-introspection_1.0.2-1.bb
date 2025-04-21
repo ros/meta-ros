@@ -17,9 +17,9 @@ ROS_CN = "rosx_introspection"
 ROS_BPN = "rosx_introspection"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-rapidjson-dev} \
     ament-index-cpp \
     fastcdr \
+    rapidjson \
     rclcpp \
     rosbag2-cpp \
 "
@@ -29,9 +29,9 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-rapidjson-dev} \
     ament-index-cpp \
     fastcdr \
+    rapidjson \
     rclcpp \
     rosbag2-cpp \
 "
@@ -39,9 +39,9 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-rapidjson-dev} \
     ament-index-cpp \
     fastcdr \
+    rapidjson \
     rclcpp \
     rosbag2-cpp \
 "
