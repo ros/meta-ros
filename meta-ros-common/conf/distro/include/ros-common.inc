@@ -8,7 +8,7 @@ DISTRO_CODENAME = "${ROS_DISTRO}"
 ROS_DISTRO_VERSION_APPEND ??= ""
 DISTRO_VERSION = "${ROS_DISTRO_METADATA_VERSION}${ROS_DISTRO_VERSION_APPEND}"
 
-MAINTAINER = "Herb Kuta <herb.kuta@lge.com>"
+MAINTAINER = "Rob Woolley <rob.woolley@windriver.com>"
 
 # Use systemd execusively with no sysvinit scripts
 # (see https://www.yoctoproject.org/docs/2.6.2/mega-manual/mega-manual.html#selecting-an-initialization-manager).
