@@ -162,5 +162,5 @@ if [ $ROS_DISTRO_RELEASE_DATE = "pre-release" ]; then
 else
     release="release $ROS_DISTRO_RELEASE_DATE"
 fi
-git commit -m "{$ROS_DISTRO} Update cache.yaml and rosdep files for $ROS_DISTRO $release as of $ROS_ROSDISTRO_COMMIT_DATETIME"
+git commit -s -m "{$ROS_DISTRO} Update cache.yaml and rosdep files for $ROS_DISTRO $release as of $ROS_ROSDISTRO_COMMIT_DATETIME"
 unset release
