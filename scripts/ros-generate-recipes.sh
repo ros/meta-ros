@@ -179,7 +179,7 @@ ROS_GENERATE_CACHE_PROGRAM_VERSION = "$ROS_GENERATE_CACHE_VERSION"
 ROS_GENERATE_RECIPES_PROGRAM_VERSION = "$SCRIPT_VERSION"
 !
     git add $generated_inc
-    git commit --amend -q -C HEAD
+    git commit -s --amend -q -C HEAD
 
     unset generated_inc
 fi
