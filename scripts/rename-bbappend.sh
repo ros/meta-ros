@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Usage: cd meta-ros
-#        scripts/rename-bbappend.sh ROS_DISTRO_LAYER SYNC_COMMIT_ID
+#        scripts/rename-bbappend.sh ROS_DISTRO SYNC_COMMIT_ID
 #
 # Uses the sync commit to automatically rename all the bbappend files in git
 #
@@ -13,7 +13,7 @@ readonly SCRIPT_VERSION="1.0.0"
 
 usage() {
     echo "Usage: cd meta-ros"
-    echo "       scripts/rename-bbappend.sh ROS_DISTRO_LAYER SYNC_COMMIT_ID"
+    echo "       scripts/rename-bbappend.sh ROS_DISTRO SYNC_COMMIT_ID"
     exit 1
 }
 
@@ -24,13 +24,21 @@ fi
 
 [ $# -ne 2 ] && usage
 
-ROS_DISTRO_LAYER="$1"
+ROS_DISTRO="$1"
 SYNC_COMMIT_ID="$2"
 
 GIT_SYNC_LIST=$(git log --format=%B -n 1 ${SYNC_COMMIT_ID})
 
+ROS_DISTRO_LAYER=$(ls -d meta-ros?-${ROS_DISTRO})
+
 if [ ! -d ${ROS_DISTRO_LAYER} ]; then
     echo "ERROR: Could not find directory ${ROS_DISTRO_LAYER}"
+    exit 1
+fi
+
+SYNC_COMMIT_MSG=$(git show ${SYNC_COMMIT_ID} ${ROS_DISTRO_LAYER})
+if [ -z "${SYNC_COMMIT_MSG}" ]; then
+    echo "ERROR: Sync commit does not contain changes in ${ROS_DISTRO_LAYER}"
     exit 1
 fi
 
