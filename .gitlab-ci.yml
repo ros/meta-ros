@@ -20,8 +20,9 @@ variables:
     value: kirkstone
     options:
       - kirkstone
-      - mickledore
       - scarthgap
+      - styhead
+      - master
   TARGET_RECIPE: "ros-image-core"
   MACHINE:
     description: "The Yocto Board Support Package"
