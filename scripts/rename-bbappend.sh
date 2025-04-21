@@ -34,6 +34,12 @@ if [ ! -d ${ROS_DISTRO_LAYER} ]; then
     exit 1
 fi
 
+ROS_DISTRO_NAME=$(grep -h 'ROS[12]_DISTRO =' ${ROS_DISTRO_LAYER}/conf/ros-distro/include/*/ros-distro.inc | sed 's/.*= "\(.*\)"/\1/g')
+if [ -z "${ROS_DISTRO_NAME}" ]; then
+    echo "ERROR: Could not find ROS distro name in ${ROS_DISTRO_LAYER}"
+    exit 1
+fi
+
 echo "${GIT_SYNC_LIST}" | head -n1 | grep "Sync to files/[a-z]*/generated/cache.yaml as of" 2>&1 > /dev/null
 if [ $? -ne 0 ]; then
     echo "ERROR: Commit ${SYNC_COMMIT_ID} was not a sync commit"
@@ -67,3 +73,5 @@ while IFS= read -r line; do
         done <<< "${BBAPPEND_FILES}"
     fi
 done <<< "${GIT_SYNC_LIST}"
+
+git commit -s -m "{$ROS_DISTRO_NAME} Rename bbappends to match new versions"
