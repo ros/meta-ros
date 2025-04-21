@@ -30,6 +30,7 @@ variables:
     options:
       - "qemux86-64"
       - "raspberrypi4-64"
+      - "raspberrypi5"
   GITLAB_REDIRECT:
     description: "Redirect git requests for GitHub back to GitLab"
     value: Disabled
