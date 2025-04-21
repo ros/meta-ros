@@ -103,6 +103,11 @@ jobs:
           cd ${GITHUB_WORKSPACE}/meta-ros
           source ${GITHUB_WORKSPACE}/superflore/venv/bin/activate
           sh scripts/ros-generate-recipes.sh ${ROS_DISTRO}
+      - name: Rename the bbappends to the new versions
+        run: |
+          cd ${GITHUB_WORKSPACE}/meta-ros
+          ROS_SYNC_ID=$(git rev-parse HEAD)
+          sh scripts/rename-bbappend.sh ${ROS_DISTRO} ${ROS_SYNC_ID}
       - name: Create a pull request
         if:  ${{ ! inputs.dry_run }} 
         env:
