@@ -9,7 +9,7 @@ variables:
       - ros2
   ROS_DISTRO:
     description: "The ROS distro"
-    value: humble
+    value: rolling
     options:
       - melodic
       - humble
@@ -17,7 +17,7 @@ variables:
       - rolling
   OE_RELEASE_SERIES:
     description: "The Yocto Project release"
-    value: kirkstone
+    value: master
     options:
       - kirkstone
       - scarthgap
@@ -26,7 +26,7 @@ variables:
   TARGET_RECIPE: "ros-image-core"
   MACHINE:
     description: "The Yocto Board Support Package"
-    value: "raspberrypi4-64"
+    value: "raspberrypi5"
     options:
       - "qemux86-64"
       - "raspberrypi4-64"
