@@ -5,11 +5,11 @@ defaults:
   repos:
     branch: "kirkstone"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-4.0.25/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-4.0.26/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "5a794fd244f7fdeb426bd5e3def6b4effc0e8c62"
+    commit: "1efbe1004bc82e7c14c1e8bd4ce644f5015c3346"
     path: "layers/openembedded-core"
     layers:
       meta:
@@ -17,14 +17,14 @@ repos:
   bitbake:
     url: "https://github.com/openembedded/bitbake.git"
     branch: "2.0"
-    commit: "e71f1ce53cf3b8320caa481ae62d1ce2900c4670"
+    commit: "046871d9fd76efdca7b72718b328d8f545523f7e"
     path: "layers/bitbake"
     layers:
       bitbake: "excluded"
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
-    commit: "de8681b4a2a101b99dd2c48d89a7de2ccd9a961f"
+    commit: "f8dddbfcbfe502cb71375a7a907e61a92e8d4474"
     path: "layers/meta-openembedded"
     layers:
       meta-filesystems:
