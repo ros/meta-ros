@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/sdformat.git;protocol=https;branch=sdf15"
 
-SRCREV = "cc524e7ebea952652aea3b03a95f13dc6416c563"
+SRCREV = "7ea246dd2ccba74831c7049898d80832a1e8d976"
 
 S = "${WORKDIR}/git"
 
