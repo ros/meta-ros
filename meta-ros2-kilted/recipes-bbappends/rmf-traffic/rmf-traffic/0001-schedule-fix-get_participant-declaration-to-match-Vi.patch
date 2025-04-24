@@ -1,0 +1,137 @@
+From 8c3f055a2c4dc6d89e7dceead607d4c16a1917db Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Sat, 12 Jun 2021 19:54:33 +0000
+Subject: [PATCH] schedule: fix get_participant() declaration to match Viewer
+
+* fixes:
+FAILED: CMakeFiles/rmf_traffic.dir/src/rmf_traffic/schedule/Rectifier.cpp.o
+/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -DRMF_TRAFFIC__USING_FCL_0_6 -Drmf_traffic_EXPORTS -I/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/git/include -I/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot/usr/include/eigen3 -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0=/usr/src/debug/rmf-traffic/1.3.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0=/usr/src/debug/rmf-traffic/1.3.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot -std=gnu++11 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -std=gnu++17 -MD -MT CMakeFiles/rmf_traffic.dir/src/rmf_traffic/schedule/Rectifier.cpp.o -MF CMakeFiles/rmf_traffic.dir/src/rmf_traffic/schedule/Rectifier.cpp.o.d -o CMakeFiles/rmf_traffic.dir/src/rmf_traffic/schedule/Rectifier.cpp.o -c /jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/git/src/rmf_traffic/schedule/Rectifier.cpp
+In file included from /jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/git/src/rmf_traffic/schedule/Rectifier.cpp:20:
+/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/git/include/rmf_traffic/schedule/Database.hpp:116:49: error: 'std::shared_ptr<const rmf_traffic::schedule::ParticipantDescription> rmf_traffic::schedule::Database::get_participant(std::size_t) const' marked 'final', but is not virtual
+  116 |   std::shared_ptr<const ParticipantDescription> get_participant(
+      |                                                 ^~~~~~~~~~~~~~~
+FAILED: CMakeFiles/rmf_traffic.dir/src/rmf_traffic/schedule/Viewer.cpp.o
+/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -DRMF_TRAFFIC__USING_FCL_0_6 -Drmf_traffic_EXPORTS -I/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/git/include -I/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot/usr/include/eigen3 -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0=/usr/src/debug/rmf-traffic/1.3.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0=/usr/src/debug/rmf-traffic/1.3.0-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/recipe-sysroot -std=gnu++11 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -std=gnu++17 -MD -MT CMakeFiles/rmf_traffic.dir/src/rmf_traffic/schedule/Viewer.cpp.o -MF CMakeFiles/rmf_traffic.dir/src/rmf_traffic/schedule/Viewer.cpp.o.d -o CMakeFiles/rmf_traffic.dir/src/rmf_traffic/schedule/Viewer.cpp.o -c /jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/git/src/rmf_traffic/schedule/Viewer.cpp
+In file included from /jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/git/src/rmf_traffic/schedule/Viewer.cpp:24:
+/jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/qemux86-webos-linux/rmf-traffic/1.3.0-1-r0/git/include/rmf_traffic/schedule/Database.hpp:116:49: error: 'std::shared_ptr<const rmf_traffic::schedule::ParticipantDescription> rmf_traffic::schedule::Database::get_participant(std::size_t) const' marked 'final', but is not virtual
+  116 |   std::shared_ptr<const ParticipantDescription> get_participant(
+      |                                                 ^~~~~~~~~~~~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+
+---
+ include/rmf_traffic/schedule/Database.hpp | 2 +-
+ include/rmf_traffic/schedule/Mirror.hpp   | 2 +-
+ src/rmf_traffic/schedule/Database.cpp     | 2 +-
+ src/rmf_traffic/schedule/Mirror.cpp       | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+Index: git/include/rmf_traffic/schedule/Database.hpp
+===================================================================
+--- git.orig/include/rmf_traffic/schedule/Database.hpp
++++ git/include/rmf_traffic/schedule/Database.hpp
+@@ -113,7 +113,7 @@ public:
+ 
+   // Documentation inherited from Viewer
+   std::shared_ptr<const ParticipantDescription> get_participant(
+-    std::size_t participant_id) const final;
++    ParticipantId participant_id) const final;
+ 
+   // Documentation inherited from Viewer
+   Version latest_version() const;
+@@ -125,11 +125,11 @@ public:
+ 
+   // Documentation inherited from ItineraryViewer
+   std::optional<ItineraryView> get_itinerary(
+-    std::size_t participant_id) const final;
++    ParticipantId participant_id) const;
+ 
+   // Documentation inherited from ItineraryViewer
+   std::optional<PlanId> get_current_plan_id(
+-    std::size_t participant_id) const final;
++    ParticipantId participant_id) const;
+ 
+   // Documentation inherited from ItineraryViewer
+   const std::vector<CheckpointId>* get_current_progress(
+Index: git/include/rmf_traffic/schedule/Mirror.hpp
+===================================================================
+--- git.orig/include/rmf_traffic/schedule/Mirror.hpp
++++ git/include/rmf_traffic/schedule/Mirror.hpp
+@@ -51,11 +51,11 @@ public:
+ 
+   // Documentation inherited from Viewer
+   std::shared_ptr<const ParticipantDescription> get_participant(
+-    std::size_t participant_id) const final;
++    ParticipantId participant_id) const final;
+ 
+   // Documentation inherited from Viewer
+   std::optional<ItineraryView> get_itinerary(
+-    std::size_t participant_id) const final;
++    ParticipantId participant_id) const;
+ 
+   // Documentation inherited from Viewer
+   std::optional<Version> latest_version() const;
+Index: git/src/rmf_traffic/schedule/Database.cpp
+===================================================================
+--- git.orig/src/rmf_traffic/schedule/Database.cpp
++++ git/src/rmf_traffic/schedule/Database.cpp
+@@ -1303,7 +1303,7 @@ const std::unordered_set<ParticipantId>&
+ 
+ //==============================================================================
+ std::shared_ptr<const ParticipantDescription> Database::get_participant(
+-  std::size_t participant_id) const
++  ParticipantId participant_id) const
+ {
+   const auto state_it = _pimpl->descriptions.find(participant_id);
+   if (state_it == _pimpl->descriptions.end())
+@@ -1320,7 +1320,7 @@ Version Database::latest_version() const
+ 
+ //==============================================================================
+ std::optional<ItineraryView> Database::get_itinerary(
+-  const std::size_t participant_id) const
++  const ParticipantId participant_id) const
+ {
+   const auto state_it = _pimpl->states.find(participant_id);
+   if (state_it == _pimpl->states.end())
+@@ -1345,7 +1345,7 @@ std::optional<ItineraryView> Database::g
+ 
+ //==============================================================================
+ std::optional<PlanId> Database::get_current_plan_id(
+-  const std::size_t participant_id) const
++  ParticipantId participant_id) const
+ {
+   const auto state_it = _pimpl->states.find(participant_id);
+   if (state_it == _pimpl->states.end())
+Index: git/src/rmf_traffic/schedule/Mirror.cpp
+===================================================================
+--- git.orig/src/rmf_traffic/schedule/Mirror.cpp
++++ git/src/rmf_traffic/schedule/Mirror.cpp
+@@ -255,7 +255,7 @@ const std::unordered_set<ParticipantId>&
+ 
+ //==============================================================================
+ std::shared_ptr<const ParticipantDescription> Mirror::get_participant(
+-  std::size_t participant_id) const
++  ParticipantId participant_id) const
+ {
+   const auto p = _pimpl->descriptions.find(participant_id);
+   if (p == _pimpl->descriptions.end())
+@@ -272,7 +272,7 @@ std::optional<Version> Mirror::latest_ve
+ 
+ //==============================================================================
+ std::optional<ItineraryView> Mirror::get_itinerary(
+-  const std::size_t participant_id) const
++  ParticipantId participant_id) const
+ {
+   const auto p = _pimpl->states.find(participant_id);
+   if (p == _pimpl->states.end())
+@@ -297,7 +297,7 @@ std::optional<ItineraryView> Mirror::get
+ 
+ //==============================================================================
+ std::optional<PlanId> Mirror::get_current_plan_id(
+-  const std::size_t participant_id) const
++  ParticipantId participant_id) const
+ {
+   const auto p = _pimpl->states.find(participant_id);
+   if (p == _pimpl->states.end())

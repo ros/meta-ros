@@ -1,0 +1,18 @@
+Explicitly set interpreter for topic_tools wrapper
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/topic_tools/setup.cfg
+===================================================================
+--- git.orig/topic_tools/setup.cfg
++++ git/topic_tools/setup.cfg
+@@ -1,5 +1,7 @@
+ [develop]
+ script_dir=$base/lib/topic_tools
++[build]
++executable=/usr/bin/env python
+ [install]
+ install_scripts=$base/lib/topic_tools
+ [options.entry_points]
