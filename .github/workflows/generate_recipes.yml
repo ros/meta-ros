@@ -98,17 +98,17 @@ jobs:
           source ${GITHUB_WORKSPACE}/superflore/venv/bin/activate
           source ${GITHUB_WORKSPACE}/rosdistro_commit.env
           cd ${GITHUB_WORKSPACE}/meta-ros
-          sh scripts/ros-generate-cache.sh ${ROS_DISTRO} ${ROS_DISTRO_RELEASE_DATE_ONLY} ${GITHUB_WORKSPACE}/rosdistro/ ${ROSDISTRO_COMMIT}
+          bash scripts/ros-generate-cache.sh ${ROS_DISTRO} ${ROS_DISTRO_RELEASE_DATE_ONLY} ${GITHUB_WORKSPACE}/rosdistro/ ${ROSDISTRO_COMMIT}
       - name: Run ros-generate-recipes.sh
         run: |
           cd ${GITHUB_WORKSPACE}/meta-ros
           source ${GITHUB_WORKSPACE}/superflore/venv/bin/activate
-          sh scripts/ros-generate-recipes.sh ${ROS_DISTRO}
+          bash scripts/ros-generate-recipes.sh ${ROS_DISTRO}
       - name: Rename the bbappends to the new versions
         run: |
           cd ${GITHUB_WORKSPACE}/meta-ros
           ROS_SYNC_ID=$(git rev-parse HEAD)
-          sh scripts/rename-bbappend.sh ${ROS_DISTRO} ${ROS_SYNC_ID}
+          bash scripts/rename-bbappend.sh ${ROS_DISTRO} ${ROS_SYNC_ID}
       - name: Create a pull request
         if:  ${{ ! inputs.dry_run }} 
         env:
