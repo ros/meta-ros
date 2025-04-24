@@ -36,7 +36,7 @@ if [ ! -d ${ROS_DISTRO_LAYER} ]; then
     exit 1
 fi
 
-SYNC_COMMIT_MSG=$(git show ${SYNC_COMMIT_ID} ${ROS_DISTRO_LAYER})
+SYNC_COMMIT_MSG=$(git show --no-patch ${SYNC_COMMIT_ID} ${ROS_DISTRO_LAYER})
 if [ -z "${SYNC_COMMIT_MSG}" ]; then
     echo "ERROR: Sync commit does not contain changes in ${ROS_DISTRO_LAYER}"
     exit 1
