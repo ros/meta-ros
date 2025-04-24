@@ -7,3 +7,5 @@ SRC_URI += "file://0001-CMakeLists-use-tinyxml2-by-name.patch \
 
 # ERROR: fastdds-3.2.1-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package fastdds contains symlink .so '/opt/ros/rolling/lib/libfastdds.so' [dev-so]
 FILES:${PN}-dev += "${ros_libdir}/libfastdds.so"
+
+BBCLASSEXTEND = "native nativesdk"
