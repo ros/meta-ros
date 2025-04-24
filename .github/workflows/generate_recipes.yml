@@ -81,9 +81,9 @@ jobs:
           cd ${GITHUB_WORKSPACE}/rosdistro
           ROS_DISTRO_RELEASE_DATE=$(git tag --list "${ROS_DISTRO}/*" | sort | tail -n1)
           echo "ROS_DISTRO_RELEASE_DATE=${ROS_DISTRO_RELEASE_DATE}" >> "${GITHUB_WORKSPACE}/rosdistro_commit.env"
-          ROSDISTRO_COMMIT=$(git rev-parse ${ROS_DISTRO_RELEASE_DATE})
+          ROSDISTRO_COMMIT=$(git rev-parse ${ROS_DISTRO_RELEASE_DATE:-HEAD})
           echo "ROSDISTRO_COMMIT=${ROSDISTRO_COMMIT}" >> "${GITHUB_WORKSPACE}/rosdistro_commit.env"
-          ROS_DISTRO_RELEASE_DATE_ONLY=$(echo ${ROS_DISTRO_RELEASE_DATE} | cut -d/ -f2)
+          ROS_DISTRO_RELEASE_DATE_ONLY=$(echo ${ROS_DISTRO_RELEASE_DATE:-pre-release} | cut -d/ -f2)
           echo "ROS_DISTRO_RELEASE_DATE_ONLY=${ROS_DISTRO_RELEASE_DATE_ONLY}" >> "${GITHUB_WORKSPACE}/rosdistro_commit.env"
         shell: bash
       - name: Output the meta-ros parameters to use
