@@ -1,4 +1,4 @@
-# noetic/cache.yaml 2025-04-08 bf901cba84182ed8b2f43962bb5fefeee3edda60 20250408214326 1.8.0
+# noetic/cache.yaml 2025-04-24 347b84a37595a213eedf80c168862d75e72b1a8c 20250422162206 1.9.0
 distribution_file:
 - release_platforms:
 -----
@@ -7,6 +7,44 @@ ubuntu:
 - focal
 -----
 repositories:
+-----
+abb: {
+doc: {
+type: git,
+url: 'https://github.com/ros-industrial/abb.git',
+version: noetic
+},
+release: {
+packages: [abb,
+abb_crb15000_support,
+abb_irb1200_support,
+abb_irb120_support,
+abb_irb1600_support,
+abb_irb2400_support,
+abb_irb2600_support,
+abb_irb4400_support,
+abb_irb4600_support,
+abb_irb52_support,
+abb_irb5400_support,
+abb_irb6600_support,
+abb_irb6640_support,
+abb_irb6650s_support,
+abb_irb6700_support,
+abb_irb7600_support,
+abb_resources],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/ros-industrial-release/abb-release.git',
+version: 1.5.0-1
+},
+source: {
+type: git,
+url: 'https://github.com/ros-industrial/abb.git',
+version: noetic-devel
+},
+status: maintained
+}
 -----
 abb_driver: {
 doc: {
@@ -88,12 +126,26 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/actionlib-release.git',
-version: 1.14.0-1
+version: 1.14.1-1
 },
 source: {
 test_pull_requests: true,
 type: git,
 url: 'https://github.com/ros/actionlib.git',
+version: noetic-devel
+},
+status: maintained
+}
+-----
+adi_3dtof_adtf31xx: {
+doc: {
+type: git,
+url: 'https://github.com/analogdevicesinc/adi_3dtof_adtf31xx.git',
+version: noetic-devel
+},
+source: {
+type: git,
+url: 'https://github.com/analogdevicesinc/adi_3dtof_adtf31xx.git',
 version: noetic-devel
 },
 status: maintained
@@ -217,7 +269,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/geometry_angles_utils-release.git',
-version: 1.9.13-1
+version: 1.9.14-1
 },
 source: {
 test_pull_requests: true,
@@ -1128,7 +1180,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/catkin-release.git',
-version: 0.8.10-1
+version: 0.8.11-1
 },
 source: {
 test_pull_requests: true,
@@ -1210,7 +1262,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/class_loader-release.git',
-version: 0.5.0-1
+version: 0.5.1-1
 },
 source: {
 test_pull_requests: true,
@@ -1382,7 +1434,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/cmake_modules-release.git',
-version: 0.5.0-1
+version: 0.5.1-1
 },
 source: {
 test_pull_requests: true,
@@ -2666,7 +2718,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/pal-gbp/ddynamic_reconfigure.git',
-version: 0.3.2-1
+version: 0.4.2-1
 },
 source: {
 type: git,
@@ -2698,6 +2750,20 @@ status: maintained
 }
 -----
 depth_obstacle_detect_ros: {
+doc: {
+type: git,
+url: 'https://github.com/analogdevicesinc/depth-obstacle-detect-ros.git',
+version: noetic-devel
+},
+release: {
+packages: [depth_obstacle_detect_ros,
+depth_obstacle_detect_ros_msgs],
+tags: {
+release: 'release/noetic/{package}/{version}'
+},
+url: 'https://github.com/anilsripadarao/depth-obstacle-detect-ros-release.git',
+version: 1.0.0-2
+},
 source: {
 type: git,
 url: 'https://github.com/analogdevicesinc/depth-obstacle-detect-ros.git',
@@ -3056,7 +3122,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/dynamic_reconfigure-release.git',
-version: 1.7.3-1
+version: 1.7.4-1
 },
 source: {
 test_pull_requests: true,
@@ -3551,6 +3617,9 @@ etsi_its_denm_ts_msgs,
 etsi_its_mapem_ts_coding,
 etsi_its_mapem_ts_conversion,
 etsi_its_mapem_ts_msgs,
+etsi_its_mcm_uulm_coding,
+etsi_its_mcm_uulm_conversion,
+etsi_its_mcm_uulm_msgs,
 etsi_its_messages,
 etsi_its_msgs,
 etsi_its_msgs_utils,
@@ -3566,7 +3635,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ika-rwth-aachen/etsi_its_messages-release.git',
-version: 3.1.0-1
+version: 3.2.0-1
 },
 source: {
 type: git,
@@ -3995,7 +4064,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/filters-release.git',
-version: 1.9.2-1
+version: 1.9.3-1
 },
 source: {
 test_pull_requests: true,
@@ -4523,7 +4592,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/gencpp-release.git',
-version: 0.7.0-1
+version: 0.7.1-1
 },
 source: {
 type: git,
@@ -4587,7 +4656,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/genmsg-release.git',
-version: 0.6.0-1
+version: 0.6.1-1
 },
 source: {
 test_pull_requests: true,
@@ -4646,7 +4715,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/genpy-release.git',
-version: 0.6.15-1
+version: 0.6.17-1
 },
 source: {
 test_pull_requests: true,
@@ -4718,7 +4787,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/geometry-release.git',
-version: 1.13.2-1
+version: 1.13.3-1
 },
 source: {
 test_pull_requests: true,
@@ -4751,7 +4820,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/geometry2-release.git',
-version: 0.7.7-1
+version: 0.7.8-1
 },
 source: {
 test_pull_requests: true,
@@ -4776,7 +4845,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/geometry_tutorials-release.git',
-version: 0.2.3-1
+version: 0.2.4-1
 },
 source: {
 type: git,
@@ -4797,7 +4866,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/gl_dependency-release.git',
-version: 1.1.2-1
+version: 1.1.3-1
 },
 source: {
 type: git,
@@ -5539,7 +5608,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/image_common-release.git',
-version: 1.12.0-1
+version: 1.12.1-1
 },
 source: {
 test_pull_requests: true,
@@ -5802,7 +5871,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/interactive_markers-release.git',
-version: 1.12.0-1
+version: 1.12.1-1
 },
 source: {
 test_pull_requests: true,
@@ -6079,7 +6148,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/joint_state_publisher-release.git',
-version: 1.15.1-1
+version: 1.15.2-1
 },
 source: {
 test_pull_requests: true,
@@ -6721,7 +6790,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/laser_geometry-release.git',
-version: 1.6.7-1
+version: 1.6.8-1
 },
 source: {
 test_pull_requests: true,
@@ -6913,6 +6982,20 @@ url: 'https://github.com/lgsvl/lgsvl_msgs.git',
 version: noetic-devel
 },
 status: developed
+}
+-----
+libaditof: {
+doc: {
+type: git,
+url: 'https://github.com/analogdevicesinc/libaditof.git',
+version: main
+},
+source: {
+type: git,
+url: 'https://github.com/analogdevicesinc/libaditof.git',
+version: main
+},
+status: maintained
 }
 -----
 libcreate: {
@@ -7790,7 +7873,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/LORD-MicroStrain/microstrain_inertial-release.git',
-version: 4.5.0-1
+version: 4.6.0-1
 },
 source: {
 test_pull_requests: true,
@@ -8972,7 +9055,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/at-wat/neonavigation-release.git',
-version: 0.17.6-1
+version: 0.17.7-1
 },
 source: {
 type: git,
@@ -9286,7 +9369,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/LORD-MicroStrain/ntrip_client-release.git',
-version: 1.4.0-1
+version: 1.4.1-1
 },
 source: {
 test_pull_requests: true,
@@ -9759,7 +9842,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/tork-a/openrtm_aist_python-release.git',
-version: 1.1.0-5
+version: 1.1.0-8
 },
 status: maintained
 }
@@ -10456,7 +10539,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/pluginlib-release.git',
-version: 1.13.0-1
+version: 1.13.1-1
 },
 source: {
 test_pull_requests: true,
@@ -11273,7 +11356,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/python_qt_binding-release.git',
-version: 0.4.4-1
+version: 0.4.5-1
 },
 source: {
 test_pull_requests: true,
@@ -11502,7 +11585,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/qt_gui_core-release.git',
-version: 0.4.2-1
+version: 0.4.3-1
 },
 source: {
 test_pull_requests: true,
@@ -11985,7 +12068,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/resource_retriever-release.git',
-version: 1.12.8-1
+version: 1.12.9-1
 },
 source: {
 test_pull_requests: true,
@@ -12372,7 +12455,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/robot_state_publisher-release.git',
-version: 1.15.2-1
+version: 1.15.3-1
 },
 source: {
 test_pull_requests: true,
@@ -12561,7 +12644,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ros-release.git',
-version: 1.15.8-1
+version: 1.15.9-1
 },
 source: {
 test_pull_requests: true,
@@ -12685,7 +12768,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ros_comm_msgs-release.git',
-version: 1.11.3-1
+version: 1.11.4-1
 },
 source: {
 type: git,
@@ -13048,7 +13131,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/ros_tutorials-release.git',
-version: 0.10.2-1
+version: 0.10.3-1
 },
 source: {
 test_pull_requests: true,
@@ -13116,12 +13199,17 @@ status: developed
 }
 -----
 rosbag_migration_rule: {
+doc: {
+type: git,
+url: 'https://github.com/ros/rosbag_migration_rule.git',
+version: noetic-devel
+},
 release: {
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rosbag_migration_rule-release.git',
-version: 1.0.1-1
+version: 1.0.2-1
 },
 source: {
 type: git,
@@ -13265,7 +13353,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rosconsole-release.git',
-version: 1.14.3-1
+version: 1.14.4-1
 },
 source: {
 test_pull_requests: true,
@@ -13287,7 +13375,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rosconsole_bridge-release.git',
-version: 0.5.4-1
+version: 0.5.5-1
 },
 source: {
 test_pull_requests: true,
@@ -13533,7 +13621,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rospack-release.git',
-version: 2.6.2-1
+version: 2.6.3-1
 },
 source: {
 test_pull_requests: true,
@@ -13697,7 +13785,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt-release.git',
-version: 0.5.3-1
+version: 0.5.4-1
 },
 source: {
 type: git,
@@ -13718,7 +13806,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_action-release.git',
-version: 0.4.9-1
+version: 0.4.10-1
 },
 source: {
 type: git,
@@ -13741,7 +13829,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_bag-release.git',
-version: 0.5.1-1
+version: 0.5.2-1
 },
 source: {
 type: git,
@@ -13762,7 +13850,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_common_plugins-release.git',
-version: 0.4.9-1
+version: 0.4.10-1
 },
 source: {
 test_pull_requests: true,
@@ -13784,7 +13872,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_console-release.git',
-version: 0.4.12-1
+version: 0.4.13-1
 },
 source: {
 type: git,
@@ -13805,7 +13893,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_dep-release.git',
-version: 0.4.12-1
+version: 0.4.13-1
 },
 source: {
 type: git,
@@ -13847,7 +13935,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_graph-release.git',
-version: 0.4.14-1
+version: 0.4.15-1
 },
 source: {
 test_pull_requests: true,
@@ -13889,7 +13977,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_image_view-release.git',
-version: 0.4.17-1
+version: 0.4.18-1
 },
 source: {
 test_pull_requests: true,
@@ -13975,7 +14063,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_msg-release.git',
-version: 0.4.10-1
+version: 0.4.11-1
 },
 source: {
 type: git,
@@ -14029,7 +14117,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_plot-release.git',
-version: 0.4.13-2
+version: 0.4.15-1
 },
 source: {
 type: git,
@@ -14050,7 +14138,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_pose_view-release.git',
-version: 0.5.11-1
+version: 0.5.12-1
 },
 source: {
 type: git,
@@ -14071,7 +14159,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_pr2_dashboard-release.git',
-version: 0.4.1-1
+version: 0.4.2-1
 },
 source: {
 type: git,
@@ -14092,7 +14180,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_publisher-release.git',
-version: 0.4.10-1
+version: 0.4.11-1
 },
 source: {
 type: git,
@@ -14113,7 +14201,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_py_console-release.git',
-version: 0.4.10-1
+version: 0.4.11-1
 },
 source: {
 type: git,
@@ -14155,7 +14243,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_reconfigure-release.git',
-version: 0.5.5-1
+version: 0.5.6-1
 },
 source: {
 test_pull_requests: true,
@@ -14242,7 +14330,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_robot_steering-release.git',
-version: 0.5.12-1
+version: 0.5.13-1
 },
 source: {
 type: git,
@@ -14284,7 +14372,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_rviz-release.git',
-version: 0.7.0-1
+version: 0.7.1-1
 },
 source: {
 test_pull_requests: true,
@@ -14306,7 +14394,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_service_caller-release.git',
-version: 0.4.10-1
+version: 0.4.11-1
 },
 source: {
 type: git,
@@ -14348,7 +14436,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_srv-release.git',
-version: 0.4.9-1
+version: 0.4.10-1
 },
 source: {
 type: git,
@@ -14391,7 +14479,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_top-release.git',
-version: 0.4.10-1
+version: 0.4.11-1
 },
 source: {
 type: git,
@@ -14412,7 +14500,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_topic-release.git',
-version: 0.4.13-1
+version: 0.4.14-1
 },
 source: {
 type: git,
@@ -14433,7 +14521,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/rqt_web-release.git',
-version: 0.4.10-1
+version: 0.4.11-1
 },
 source: {
 type: git,
@@ -15757,7 +15845,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/std_msgs-release.git',
-version: 0.5.13-1
+version: 0.5.14-1
 },
 source: {
 type: git,
@@ -16605,6 +16693,7 @@ release: {
 packages: [universal_robots,
 ur10_moveit_config,
 ur10e_moveit_config,
+ur12e_moveit_config,
 ur16e_moveit_config,
 ur20_moveit_config,
 ur30_moveit_config,
@@ -16612,13 +16701,14 @@ ur3_moveit_config,
 ur3e_moveit_config,
 ur5_moveit_config,
 ur5e_moveit_config,
+ur7e_moveit_config,
 ur_description,
 ur_gazebo],
 tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-industrial-release/universal_robot-release.git',
-version: 1.3.3-1
+version: 1.4.0-1
 },
 source: {
 type: git,
@@ -16707,7 +16797,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/urdf-release.git',
-version: 1.13.2-1
+version: 1.13.3-1
 },
 source: {
 type: git,
@@ -17210,7 +17300,7 @@ tags: {
 release: 'release/noetic/{package}/{version}'
 },
 url: 'https://github.com/ros-gbp/visualization_tutorials-release.git',
-version: 0.11.0-1
+version: 0.11.1-1
 },
 source: {
 test_pull_requests: true,
@@ -17862,6 +17952,98 @@ version: 2
 name: noetic
 release_package_xmls:
 -----
+abb: <?xml version="1.0" ?>
+<package format="2">
+<name>abb</name>
+<description>ROS-Industrial support for ABB manipulators (metapackage).</description>
+<author>Shaun Edwards</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>BSD-3-Clause</license>
+<license>Apache-2.0</license>
+<url type="website">http://ros.org/wiki/abb</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<buildtool_depend>catkin</buildtool_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_crb15000_support</exec_depend>
+<exec_depend>abb_irb1200_support</exec_depend>
+<exec_depend>abb_irb120_support</exec_depend>
+<exec_depend>abb_irb1600_support</exec_depend>
+<exec_depend>abb_irb2400_support</exec_depend>
+<exec_depend>abb_irb2600_support</exec_depend>
+<exec_depend>abb_irb4400_support</exec_depend>
+<exec_depend>abb_irb4600_support</exec_depend>
+<exec_depend>abb_irb52_support</exec_depend>
+<exec_depend>abb_irb5400_support</exec_depend>
+<exec_depend>abb_irb6600_support</exec_depend>
+<exec_depend>abb_irb6640_support</exec_depend>
+<exec_depend>abb_irb6650s_support</exec_depend>
+<exec_depend>abb_irb6700_support</exec_depend>
+<exec_depend>abb_irb7600_support</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<export>
+<metapackage/>
+<architecture_independent/>
+</export>
+</package>
+-----
+abb_crb15000_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_crb15000_support</name>
+<description>
+<p>ROS-Industrial support for the ABB GoFa CRB 15000 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB GoFa CRB 15000 manipulators. This currently includes the CRB 15000-5/0.95 and CRB 15000-12/1.27 variants.</p>
+<p>Joint limits and max joint velocities are based on the information in the<em>ABB CRB 15000 Datasheet</em>,
+document ID:<em>TODO,
+Feb 2021</em>for the CRB 15000-5/0.95. For CRB 15000-12/1.27,
+they are based on the information in<em>ABB CRB 15000 Product manual</em>,
+document ID:<em>3HAC077389-001,
+Rev. P</em>. All urdfs / xacros are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Note 1: the CRB 15000-5/0.95 is an early conversion from CAD data downloaded from ABB''s library with geometry and kinematics partially based on the GoFa datasheet. There may be conversion errors and other deviations from the real robot.</p>
+<p>Note 2: this support package does not currently include launch files for loading a driver,
+as no driver has been tested with OmniCore controllers and/or CRB 15000 robots yet.</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+<author>Marco Palma (TU Vienna Institute of Art and Design)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_crb15000_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+<rosindex>
+<tags>
+<tag>support_package</tag>
+<tag>description</tag>
+<tag>abb</tag>
+<tag>industrial</tag>
+<tag>ros-industrial</tag>
+<tag>crb15000</tag>
+<tag>gofa</tag>
+</tags>
+</rosindex>
+<ros_industrial>
+<support_level value="community"/>
+</ros_industrial>
+</export>
+</package>'
+-----
 abb_driver: <?xml version="1.0" ?>
 <package format="2">
 <name>abb_driver</name>
@@ -17897,6 +18079,521 @@ representing Externally Guided Motion (EGM) data from ABB robot controllers.</de
 <depend>std_msgs</depend>
 </package>
 -----
+abb_irb1200_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb1200_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 1200 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 1200 manipulators. This currently includes the IRB 1200-5/0.9 and the IRB 1200-7/0.7 variants.</p>
+<p>Joint limits and max joint velocities are based on the information in the<em>ABB IRB 1200 Datasheet</em>,
+document ID:<em>ROB0275EN_A,
+Sept 2016</em>. All urdfs / xacros are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Note 1: inertial and dynamics values for the 5/0.9 variant were calculated from the meshes using<em>Meshlab</em>,
+assuming constant density. As the datasheet only provides the mass of the entire robot,
+the mass of each link was estimated based on its volume,
+assuming constant density for the entire robot.</p>
+<p>Note 2: maximum joint effort values for the 5/0.9 variant do not correspond to real world limits of the robot. The current values were chosen to accomodate Gazebo simulations of this specific variant but are fictional values.</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Geoffrey Chiou (SwRI)</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_irb1200_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb120_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb120_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 120 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 120 manipulators. This includes the base model (120) and the 120T.</p>
+<p>Joint limits and max joint velocities are based on the information in the<a href="http://new.abb.com/products/robotics/industrial-robots/irb-120/irb-120-data">ABB IRB 120 technical data sheet</a>(Version: ROB0149EN_D,
+May 2012). All urdfs / xacros are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Inertial and mass properties were calculated using 3D modelling software,
+based on the supplied<a href="http://new.abb.com/products/robotics/industrial-robots/irb-120/irb-120-cad">ABB IRB 120 CAD model</a>.</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Mark Culleton (Trinity College Dublin)</author>
+<author>Kevin Kelly (Trinity College Dublin)</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_irb120_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb1600_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb1600_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 1600 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 1600 manipulators. This package includes the 6kg 1.2m and the 8kg and 10kg 1.45m versions.</p>
+<p>Joint limits and max joint velocities are based on the information in<em>ABB Product specification - IRB 1600/1660ID</em>,
+document ID:<em>3HAC023604-001,
+Rev AQ</em>. All URDFs / XACROs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Ahmed Abdelmawgoud (SwRI)</author>
+<author>Austin Deric (SwRI)</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_irb1600_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb2400_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb2400_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 2400 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 2400 manipulators. This currently includes the base model.</p>
+<p>Joint limits and max joint velocities are based on the information in the ABB data sheets. All URDFs / XACROs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+<p>The unqualified IRB 2400 model will be removed in ROS-Lunar,
+please use the IRB 2400-12/1.55 as a replacement.</p>
+</description>
+<author>Dan Solomon (SwRI)</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://ros.org/wiki/abb_irb2400_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb2600_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb2600_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 2600 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 2600 manipulators. This currently includes the IRB 2600-12/1.65 (20/1.65) and the IRB 2600-12/1.85. Variants listed in parenthesis may use the files of the preceding model.</p>
+<p>Joint limits and max joint velocities are based on the information in the<a href="http://new.abb.com/products/robotics/industrial-robots/irb-2600/irb-2600-data">ABB IRB 2600 technical data sheet</a>(Version: ROB0142EN_B,
+October 2010) and the<em>ABB Product specification IRB 2600</em>,
+document ID:<em>3HAC035959-001,
+Rev. AE</em>for the IRB 2600-12/1.85 variant. All urdfs / xacros are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Cody Bressler (SwRI)</author>
+<author>Jonathan Meyer (SwRI)</author>
+<author>Anouk Leunissen</author>
+<author>Menno Sytsma</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_irb2600_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb4400_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb4400_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 4400 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 4400 manipulators. This currently includes the L30.</p>
+<p>Joint limits and max joint velocities are based on the information in the<a href="http://www05.abb.com/global/scot/scot352.nsf/veritydisplay/c90b98aaa057bd6ec12576cb00528ef6/$file/Product%20specification%204400%20M99%20BWOS3.2.pdf">ABB IRB 4400 product specification document</a>(Article No: 3HAC 8770-1). All urdfs / xacros are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Dan Solomon</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_irb4400_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb_experimental/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb_experimental</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb4600_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb4600_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 4600 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 4600 manipulators. This currently includes the 20/2.50,
+the 40/2.55 and the 60/2.05 variants.</p>
+<p>Joint limits and max joint velocities are based on the information in the<em>ABB IRB 4600 Product Specification</em>,<em>3HAC032885-001,
+Rev Z</em>. All urdfs / xacros are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Jonathan Meyer (SwRI)</author>
+<author>Rik Tonnaer (SAM|XL)</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_irb4600_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb52_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb52_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 52 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 52 manipulators. This currently includes the 7/1.2 and 7/1.45 variants.</p>
+<p>Joint limits and max joint velocities are based on the information in the<a href="https://library.e.abb.com/public/2acc052fe4720ff9c12576ef002a2fe5/IRB%2052%20Datasheet.pdf">ABB IRB 52 product specification document</a>All URDFs / XACROs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Michael Ripperger</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_irb52_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb5400_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb5400_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 5400 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 5400 manipulators. This currently includes the base model.</p>
+<p>Joint limits and max joint velocities are based on the information in the ABB data sheets. All URDFs / XACROs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Dan Solomon (SwRI)</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://ros.org/wiki/abb_irb5400_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb6600_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb6600_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 6600 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 6600 manipulators. This currently includes the base model.</p>
+<p>Joint limits and max joint velocities are based on the information in the ABB data sheets. All URDFs / XACROs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+<p>The unqualified IRB 6400 model will be removed in ROS-Lunar,
+please use the abb_irb6640_support as a replacement.</p>
+</description>
+<author>Dan Solomon (SwRI)</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://ros.org/wiki/abb_irb6600_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb6640_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb6640_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 6640 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 6640 manipulators. This currently includes the IRB 6640-185/2.8m (6640-185) only.</p>
+<p>Joint limits and max joint velocities are based on the information in the<a href="http://www.abbrobots.co.uk/en/3HAC028284-en.pdf">ABB IRB 6640 technical data sheet</a>(Version: 3HAC 028284-001 Rev. N). All urdfs / xacros are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Dan Solomon (SwRI)</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_irb6640_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb6650s_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb6650s_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB_6650S (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB_6650S manipulators. This currently includes the base model.</p>
+<p>Joint limits and max joint velocities are based on the information in the<a href="https://library.e.abb.com/public/9fcf15f419454768823fccb5fa26df11/3HAC030822-en.pdf">ABB IRB 6650S product specification document</a>All URDFs / XACROs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Michael Ripperger</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://ros.org/wiki/abb_irb_6650s_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb6700_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb6700_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 6700 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 6700 manipulators. This currently includes the 200/2.60 and 235/2.65 variants.</p>
+<p>Joint limits and max joint velocities are based on the information in the<a href="https://library.e.abb.com/public/f69fdf358ddc4264b2d86c02b019ec0e/3HAC044265%20PS%20IRB%206700-en.pdf">ABB IRB 6700 product specification document</a>All URDFs / XACROs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Michael Ripperger</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_irb6700_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
+abb_irb7600_support: '<?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_irb7600_support</name>
+<description>
+<p>ROS-Industrial support for the ABB IRB 7600 (and variants).</p>
+<p>This package contains configuration data,
+3D models and launch files for ABB IRB 7600 manipulators. This currently includes the 150/3.50 variant only.</p>
+<p>Joint limits and max joint velocities are based on the information in the<a href="https://library.e.abb.com/public/10b88af5de1b4396a3337e734869f364/PR10074_EN_R11_HR.pdf">ABB IRB 7600 product specification document</a>. All URDFs / XACROs are based on the default motion and joint velocity limits,
+unless noted otherwise (ie: no support for high speed joints,
+extended / limited motion ranges or other options).</p>
+<p>Before using any of the configuration files and / or meshes included in this package,
+be sure to check they are correct for the particular robot model and configuration you intend to use them with.</p>
+</description>
+<author>Michael Ripperger</author>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_irb7600_support</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
+<test_depend>roslaunch</test_depend>
+<exec_depend>abb_driver</exec_depend>
+<exec_depend>abb_resources</exec_depend>
+<exec_depend>industrial_robot_client</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>xacro</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>'
+-----
 abb_rapid_msgs: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
@@ -17925,6 +18622,23 @@ representing interaction with ABB robot controllers using the RobotWare StateMac
 <depend>message_generation</depend>
 <depend>message_runtime</depend>
 <depend>std_msgs</depend>
+</package>
+-----
+abb_resources: <?xml version="1.0" ?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+<name>abb_resources</name>
+<description>
+<p>Shared configuration data for ABB manipulators.</p>
+<p>This package contains common urdf / xacro resources used by ABB related packages.</p>
+</description>
+<author>Levi Armstrong (SwRI)</author>
+<maintainer email="noreply@rosindustrial.org">ROS-Industrial community</maintainer>
+<license>Apache-2.0</license>
+<url type="website">http://wiki.ros.org/abb_resources</url>
+<url type="bugtracker">https://github.com/ros-industrial/abb/issues</url>
+<url type="repository">https://github.com/ros-industrial/abb</url>
+<buildtool_depend>catkin</buildtool_depend>
 </package>
 -----
 abb_robot_msgs: <?xml version="1.0" ?>
@@ -18279,22 +18993,26 @@ from Andrew Howard's excellent 'amcl' Player driver.</p>
 <test_depend>tf2_py</test_depend>
 </package>
 -----
-angles: <?xml version="1.0" ?>
-<package>
+angles: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>angles</name>
 <description>This package provides a set of simple math utilities to work with angles. The utilities cover simple things like normalizing an angle and conversion between degrees and radians. But even if you're trying to calculate things like the shortest angular distance between two joint space positions of your robot,
 but the joint motion is constrained by joint limits,
 this package is what you need. The code in this package is stable and well tested. There are no plans for major changes in the near future.</description>
-<author email="hsu@osrfoundation.org">John Hsu</author>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<author email=\"hsu@osrfoundation.org\">John Hsu</author>
+<author email=\"tfoote@openrobotics.org\">Tully Foote</author>
+<maintainer email=\"geoff@openrobotics.org\">Geoffrey Biggs</maintainer>
 <license>BSD</license>
 <url>http://wiki.ros.org/angles</url>
-<buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+<buildtool_depend version_gte=\"0.5.68\">catkin</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
 <test_depend>rosunit</test_depend>
 <export>
 <architecture_independent/>
 </export>
-</package>
+</package>"
 -----
 app_manager: <?xml version="1.0" ?>
 <package format="3">
@@ -20037,7 +20755,6 @@ camera_calibration_parsers: <?xml version="1.0" ?>
 <url type="repository">https://github.com/ros-perception/image_common</url>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>boost</build_depend>
-<build_depend>pkg-config</build_depend>
 <build_depend>rosconsole</build_depend>
 <build_depend>sensor_msgs</build_depend>
 <build_depend>yaml-cpp</build_depend>
@@ -20584,8 +21301,8 @@ catkin: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>catkin</name>
 <description>Low-level build system macros and infrastructure for ROS.</description>
-<maintainer email=\"michael@openrobotics.org\">Michael Carroll</maintainer>
-<maintainer email=\"tfoote@openrobotics.org\">Tully Foote</maintainer>
+<maintainer email=\"geoff@openrobotics.org\">Geoffrey Biggs</maintainer>
+<maintainer email=\"ivanpauno@ekumenlabs.com\">Ivan Santiago Paunovic</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://wiki.ros.org/catkin</url>
 <url type=\"bugtracker\">https://github.com/ros/catkin/issues</url>
@@ -20594,6 +21311,8 @@ catkin: "<?xml version=\"1.0\" ?>
 <author>Morten Kjaergaard</author>
 <author>Brian Gerkey</author>
 <author>Dirk Thomas</author>
+<author email=\"michael@openrobotics.org\">Michael Carroll</author>
+<author email=\"tfoote@openrobotics.org\">Tully Foote</author>
 <depend condition=\"$ROS_PYTHON_VERSION == 2\">python-argparse</depend>
 <depend condition=\"$ROS_PYTHON_VERSION == 2\" version_gt=\"0.4.3\">python-catkin-pkg</depend>
 <depend condition=\"$ROS_PYTHON_VERSION == 3\" version_gt=\"0.4.3\">python3-catkin-pkg</depend>
@@ -20832,16 +21551,19 @@ class_loader: <?xml version="1.0" ?>
 <description>The class_loader package is a ROS-independent package for loading plugins during runtime and the foundation of the higher level ROS &quot;pluginlib&quot; library. class_loader utilizes the host operating system's runtime loader to open runtime libraries (e.g. .so/.dll files),
 introspect the library for exported plugin classes,
 and allows users to instantiate objects of said exported classes without the explicit declaration (i.e. header file) for those classes.</description>
-<maintainer email="stevenragnarok@osrfoundation.org">Steven! Ragnarök</maintainer>
+<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/class_loader</url>
 <url type="bugtracker">https://github.com/ros/class_loader/issues</url>
 <url type="repository">https://github.com/ros/class_loader</url>
 <author>Mirza Shah</author>
+<author email="stevenragnarok@osrfoundation.org">Steven! Ragnarök</author>
 <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
 <build_depend version_gte="0.3.3">cmake_modules</build_depend>
 <depend>libboost-thread-dev</depend>
 <depend>libboost-system-dev</depend>
+<depend>libboost-filesystem-dev</depend>
 <depend>libconsole-bridge-dev</depend>
 <depend>libpoco-dev</depend>
 </package>
@@ -21130,7 +21852,7 @@ cmake_modules: <?xml version="1.0" ?>
 <package>
 <name>cmake_modules</name>
 <description>A common repository for CMake Modules which are not distributed with CMake but are commonly used by ROS packages.</description>
-<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
 <license>BSD</license>
 <url type="repository">https://github.com/ros/cmake_modules</url>
 <url type="bugtracker">https://github.com/ros/cmake_modules/issues</url>
@@ -25615,6 +26337,57 @@ as well as registering (reprojecting) a depth image into another camera frame.</
 <run_depend>sensor_msgs</run_depend>
 </package>
 -----
+depth_obstacle_detect_ros: <?xml version="1.0" ?>
+<package format="2">
+<name>depth_obstacle_detect_ros</name>
+<description>A depth based obstacle detection package</description>
+<maintainer email="ros@analog.com">Analog Devices</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>roscpp</build_depend>
+<build_depend>rospy</build_depend>
+<build_depend>std_msgs</build_depend>
+<build_depend>nodelet</build_depend>
+<build_depend>image_transport</build_depend>
+<build_depend>cv_bridge</build_depend>
+<build_depend>camera_info_manager</build_depend>
+<build_depend>depth_obstacle_detect_ros_msgs</build_depend>
+<build_export_depend>roscpp</build_export_depend>
+<build_export_depend>rospy</build_export_depend>
+<build_export_depend>std_msgs</build_export_depend>
+<build_export_depend>image_transport</build_export_depend>
+<build_export_depend>cv_bridge</build_export_depend>
+<build_export_depend>camera_info_manager</build_export_depend>
+<build_export_depend>depth_obstacle_detect_ros_msgs</build_export_depend>
+<exec_depend>roscpp</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>nodelet</exec_depend>
+<exec_depend>image_transport</exec_depend>
+<exec_depend>cv_bridge</exec_depend>
+<exec_depend>camera_info_manager</exec_depend>
+<exec_depend>depth_obstacle_detect_ros_msgs</exec_depend>
+<export>
+<nodelet plugin="${prefix}/nodelet_plugins.xml"/>
+</export>
+</package>
+-----
+depth_obstacle_detect_ros_msgs: <?xml version="1.0" ?>
+<package format="2">
+<name>depth_obstacle_detect_ros_msgs</name>
+<description>The obstacle_msg package</description>
+<maintainer email="ros@analog.com">Analog Devices</maintainer>
+<license>BSD</license>
+<buildtool_depend>catkin</buildtool_depend>
+<build_depend>message_generation</build_depend>
+<build_depend>std_msgs</build_depend>
+<exec_depend>message_runtime</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<export>
+<architecture_independent/>
+</export>
+</package>
+-----
 depthai: <?xml version="1.0" ?>
 <package format="3">
 <name>depthai</name>
@@ -26941,6 +27714,7 @@ dynamic_reconfigure: <?xml version="1.0" ?>
 <exec_depend>roslib</exec_depend>
 <exec_depend>rospy</exec_depend>
 <exec_depend>rosservice</exec_depend>
+<test_depend>rosbash</test_depend>
 </package>
 -----
 dynamic_robot_state_publisher: <?xml version="1.0" ?>
@@ -28539,6 +29313,7 @@ etsi_its_conversion: <?xml version="1.0" ?>
 <depend>etsi_its_denm_conversion</depend>
 <depend>etsi_its_denm_ts_conversion</depend>
 <depend>etsi_its_mapem_ts_conversion</depend>
+<depend>etsi_its_mcm_uulm_conversion</depend>
 <depend>etsi_its_spatem_ts_conversion</depend>
 <depend>etsi_its_vam_ts_conversion</depend>
 <depend>ros_environment</depend>
@@ -28809,6 +29584,74 @@ etsi_its_mapem_ts_msgs: <?xml version="1.0" ?>
 <package format="3">
 <name>etsi_its_mapem_ts_msgs</name>
 <description>ROS messages for ETSI ITS MAPEM (TS)</description>
+<maintainer email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</maintainer>
+<maintainer email="guido.kueppers@rwth-aachen.de">Guido Küppers</maintainer>
+<maintainer email="lennart.reiher@rwth-aachen.de">Lennart Reiher</maintainer>
+<author email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</author>
+<author email="guido.kueppers@rwth-aachen.de">Guido Küppers</author>
+<author email="lennart.reiher@rwth-aachen.de">Lennart Reiher</author>
+<license>MIT</license>
+<depend>ros_environment</depend>
+<depend>std_msgs</depend>
+<buildtool_depend condition="$ROS_VERSION == 2">rosidl_default_generators</buildtool_depend>
+<exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
+<member_of_group condition="$ROS_VERSION == 2">rosidl_interface_packages</member_of_group>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<depend condition="$ROS_VERSION == 1">message_generation</depend>
+<exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
+etsi_its_mcm_uulm_coding: <?xml version="1.0" ?>
+<package format="3">
+<name>etsi_its_mcm_uulm_coding</name>
+<description>C++ compatible C source code for draft MCM (TS) version of UULM generated from ASN.1 using asn1c</description>
+<maintainer email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</maintainer>
+<maintainer email="guido.kueppers@rwth-aachen.de">Guido Küppers</maintainer>
+<maintainer email="lennart.reiher@rwth-aachen.de">Lennart Reiher</maintainer>
+<author email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</author>
+<author email="guido.kueppers@rwth-aachen.de">Guido Küppers</author>
+<author email="lennart.reiher@rwth-aachen.de">Lennart Reiher</author>
+<license>MIT</license>
+<depend>ros_environment</depend>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
+etsi_its_mcm_uulm_conversion: <?xml version="1.0" ?>
+<package format="3">
+<name>etsi_its_mcm_uulm_conversion</name>
+<description>Conversion functions for converting ROS messages to and from ASN.1-encoded UULM draft MCMs (TS)</description>
+<maintainer email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</maintainer>
+<maintainer email="guido.kueppers@rwth-aachen.de">Guido Küppers</maintainer>
+<maintainer email="lennart.reiher@rwth-aachen.de">Lennart Reiher</maintainer>
+<author email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</author>
+<author email="guido.kueppers@rwth-aachen.de">Guido Küppers</author>
+<author email="lennart.reiher@rwth-aachen.de">Lennart Reiher</author>
+<license>MIT</license>
+<depend>etsi_its_mcm_uulm_coding</depend>
+<depend>etsi_its_mcm_uulm_msgs</depend>
+<depend>etsi_its_primitives_conversion</depend>
+<depend>ros_environment</depend>
+<buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+<export>
+<build_type condition="$ROS_VERSION == 1">catkin</build_type>
+<build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+</export>
+</package>
+-----
+etsi_its_mcm_uulm_msgs: <?xml version="1.0" ?>
+<package format="3">
+<name>etsi_its_mcm_uulm_msgs</name>
+<description>ROS messages for draft MCM (TS) version of UULM</description>
 <maintainer email="jean-pierre.busch@rwth-aachen.de">Jean-Pierre Busch</maintainer>
 <maintainer email="guido.kueppers@rwth-aachen.de">Guido Küppers</maintainer>
 <maintainer email="lennart.reiher@rwth-aachen.de">Lennart Reiher</maintainer>
@@ -33676,8 +34519,7 @@ genpy: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>genpy</name>
 <description>Python ROS message and service generators.</description>
-<maintainer email=\"mabel@openrobotics.org\">Mabel Zhang</maintainer>
-<maintainer email=\"sloretz@openrobotics.org\">Shane Loretz</maintainer>
+<maintainer email=\"geoff@openrobotics.org\">Geoffrey Biggs</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://wiki.ros.org/genpy</url>
 <url type=\"bugtracker\">https://github.com/ros/genpy/issues</url>
@@ -33686,6 +34528,8 @@ genpy: "<?xml version=\"1.0\" ?>
 <author>Troy Straszheim</author>
 <author>Morten Kjaergaard</author>
 <author>Dirk Thomas</author>
+<author email=\"mabel@openrobotics.org\">Mabel Zhang</author>
+<author email=\"sloretz@openrobotics.org\">Shane Loretz</author>
 <depend>genmsg</depend>
 <buildtool_depend version_gte=\"0.5.78\">catkin</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
@@ -33924,8 +34768,9 @@ gl_dependency: <?xml version="1.0" ?>
 <package format="3">
 <name>gl_dependency</name>
 <description>This encapsulates the GL dependency for a specific ROS distribution and its Qt version</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-qt5-bindings-gl</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-qt5-bindings-gl</exec_depend>
@@ -36937,7 +37782,7 @@ interactive_marker_tutorials: <?xml version="1.0" ?>
 <package>
 <name>interactive_marker_tutorials</name>
 <description>The interactive_marker_tutorials package</description>
-<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/interactive_marker_tutorials</url>
 <author>David Gossow</author>
@@ -36969,15 +37814,19 @@ interactive_marker_twist_server: <?xml version="1.0" ?>
 <test_depend>roslint</test_depend>
 </package>
 -----
-interactive_markers: <?xml version="1.0" ?>
-<package format="2">
+interactive_markers: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>interactive_markers</name>
 <description>3D interactive marker communication library for RViz and similar tools.</description>
-<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<maintainer email=\"dharini@openrobotics.org\">Dharini Dutia</maintainer>
 <license>BSD</license>
 <author>David Gossow</author>
+<author email=\"william@osrfoundation.org\">William Woodall</author>
 <url>http://ros.org/wiki/interactive_markers</url>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
 <depend>rosconsole</depend>
 <depend>roscpp</depend>
 <depend>rospy</depend>
@@ -36986,7 +37835,7 @@ interactive_markers: <?xml version="1.0" ?>
 <depend>tf2_ros</depend>
 <depend>tf2_geometry_msgs</depend>
 <depend>visualization_msgs</depend>
-</package>
+</package>"
 -----
 interval_intersection: <?xml version="1.0" ?>
 <package>
@@ -40498,15 +41347,22 @@ it contains functionality to account for the skew resulting from moving robots o
 <url>http://ros.org/wiki/laser_geometry</url>
 <buildtool_depend version_gte=\"0.5.68\">catkin</buildtool_depend>
 <depend>angles</depend>
-<depend>boost</depend>
-<depend>eigen</depend>
 <depend>roscpp</depend>
 <depend>sensor_msgs</depend>
 <depend>tf</depend>
 <depend>tf2</depend>
+<build_depend>eigen</build_depend>
+<build_depend>libboost-dev</build_depend>
+<build_depend>libboost-thread-dev</build_depend>
 <build_depend>tf2_geometry_msgs</build_depend>
+<build_export_depend>eigen</build_export_depend>
+<build_export_depend>libboost-dev</build_export_depend>
+<build_export_depend>libboost-thread-dev</build_export_depend>
+<build_export_depend>tf2_geometry_msgs</build_export_depend>
+<build_depend>rostest</build_depend>
 <exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-numpy</exec_depend>
 <exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-numpy</exec_depend>
+<exec_depend>libboost-thread</exec_depend>
 <test_depend>rosunit</test_depend>
 </package>"
 -----
@@ -41423,7 +42279,7 @@ librviz_tutorial: <?xml version="1.0" ?>
 <package>
 <name>librviz_tutorial</name>
 <description>Tutorial showing how to compile your own C++ program with RViz displays and features.</description>
-<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/librviz_tutorial</url>
 <author>Dave Hershberger</author>
@@ -54677,12 +55533,14 @@ qt_dotgraph: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>qt_dotgraph</name>
 <description>qt_dotgraph provides helpers to work with dot graphs.</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"cottsay@openrobotics.org\">Scott Logan</maintainer>
+<maintainer email=\"sloretz@openrobotics.org\">Shane Loretz</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://ros.org/wiki/qt_dotgraph</url>
 <url type=\"repository\">https://github.com/ros-visualization/qt_gui_core</url>
 <url type=\"bugtracker\">https://github.com/ros-visualization/qt_gui_core/issues</url>
 <author>Thibault Kruse</author>
+<author email=\"dthomas@osrfoundation.org\">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
 <buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
@@ -54698,7 +55556,8 @@ qt_gui: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>qt_gui</name>
 <description>qt_gui provides the infrastructure for an integrated graphical user interface based on Qt. It is extensible with Python- and C++-based plugins (implemented in separate packages) which can contribute arbitrary widgets. It requires either PyQt or PySide bindings.</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"cottsay@openrobotics.org\">Scott Logan</maintainer>
+<maintainer email=\"sloretz@openrobotics.org\">Shane Loretz</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://ros.org/wiki/qt_gui</url>
 <url type=\"repository\">https://github.com/ros-visualization/qt_gui_core</url>
@@ -54721,7 +55580,8 @@ qt_gui_app: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>qt_gui_app</name>
 <description>qt_gui_app provides the main to start an instance of the integrated graphical user interface provided by qt_gui.</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"cottsay@openrobotics.org\">Scott Logan</maintainer>
+<maintainer email=\"sloretz@openrobotics.org\">Shane Loretz</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://ros.org/wiki/qt_gui_app</url>
 <url type=\"repository\">https://github.com/ros-visualization/qt_gui_app</url>
@@ -54738,7 +55598,8 @@ qt_gui_core: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>qt_gui_core</name>
 <description>Integration of the ROS package system and ROS-specific plugins for a Qt-based GUI.</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"cottsay@openrobotics.org\">Scott Logan</maintainer>
+<maintainer email=\"sloretz@openrobotics.org\">Shane Loretz</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://ros.org/wiki/qt_gui_core</url>
 <url type=\"repository\">https://github.com/ros-visualization/qt_gui_core</url>
@@ -54760,7 +55621,8 @@ qt_gui_cpp: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>qt_gui_cpp</name>
 <description>qt_gui_cpp provides the foundation for C++-bindings for qt_gui and creates bindings for every generator available. At least one specific binding must be available in order to use C++-plugins.</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"cottsay@openrobotics.org\">Scott Logan</maintainer>
+<maintainer email=\"sloretz@openrobotics.org\">Shane Loretz</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://ros.org/wiki/qt_gui_cpp</url>
 <url type=\"repository\">https://github.com/ros-visualization/qt_gui_core</url>
@@ -54789,7 +55651,8 @@ qt_gui_py_common: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>qt_gui_py_common</name>
 <description>qt_gui_py_common provides common functionality for GUI plugins written in Python.</description>
-<maintainer email=\"scholz@sim.tu-darmstadt.de\">Dorian Scholz</maintainer>
+<maintainer email=\"cottsay@openrobotics.org\">Scott Logan</maintainer>
+<maintainer email=\"sloretz@openrobotics.org\">Shane Loretz</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://ros.org/wiki/qt_gui_py_common</url>
 <url type=\"repository\">https://github.com/ros-visualization/qt_gui_core</url>
@@ -55475,6 +56338,8 @@ but it can be used for any type of data. The resource retriever is based on the 
 <url type=\"repository\">https://github.com/ros/resource_retriever</url>
 <url type=\"bugtracker\">https://github.com/ros/resource_retriever/issues</url>
 <buildtool_depend version_gte=\"0.5.68\">catkin</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
 <build_depend>libcurl-dev</build_depend>
 <depend>roslib</depend>
 <depend>rosconsole</depend>
@@ -57383,13 +58248,15 @@ ros_tutorials: <?xml version="1.0" ?>
 <name>ros_tutorials</name>
 <description>ros_tutorials contains packages that demonstrate various features of ROS,
 as well as support packages which help demonstrate those features.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
+<maintainer email="sloretz@openrobotics.org">Shane Loretz</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/ros_tutorials</url>
 <url type="bugtracker">https://github.com/ros/ros_tutorials/issues</url>
 <url type="repository">https://github.com/ros/ros_tutorials</url>
 <author>Josh Faust</author>
 <author>Ken Conley</author>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <run_depend>roscpp_tutorials</run_depend>
 <run_depend>rospy_tutorials</run_depend>
@@ -57561,9 +58428,10 @@ rosbag_migration_rule: <?xml version="1.0" ?>
 <package>
 <name>rosbag_migration_rule</name>
 <description>This empty package allows to export rosbag migration rule files without depending on rosbag.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/rosbag_migration_rule</url>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 </package>
 -----
@@ -57966,13 +58834,13 @@ rosconsole_bridge: <?xml version="1.0" ?>
 <package>
 <name>rosconsole_bridge</name>
 <description>rosconsole_bridge is a package used in conjunction with console_bridge and rosconsole for connecting console_bridge-based logging to rosconsole-based logging.</description>
-<author>Ioan Sucan</author>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
-<maintainer email="isucan@gmail.com">Ioan Sucan</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/rosconsole_bridge</url>
 <url type="bugtracker">https://github.com/ros/rosconsole_bridge/issues</url>
 <url type="repository">https://github.com/ros/rosconsole_bridge</url>
+<author email="isucan@gmail.com">Ioan Sucan</author>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>cpp_common</build_depend>
 <build_depend>libconsole-bridge-dev</build_depend>
@@ -58088,12 +58956,14 @@ including using messages,
 servers,
 parameters,
 etc.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
+<maintainer email="sloretz@openrobotics.org">Shane Loretz</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/roscpp_tutorials</url>
 <url type="bugtracker">https://github.com/ros/ros_tutorials/issues</url>
 <url type="repository">https://github.com/ros/ros_tutorials</url>
 <author>Morgan Quigley</author>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>libboost-date-time-dev</build_depend>
 <build_depend>libboost-thread-dev</build_depend>
@@ -58389,10 +59259,11 @@ rosgraph_msgs: <?xml version="1.0" ?>
 <package>
 <name>rosgraph_msgs</name>
 <description>Messages relating to the ROS Computation Graph. These are generally considered to be low-level messages that end users do not interact with.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/rosgraph_msgs</url>
 <author>Ken Conley</author>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
 <build_depend>std_msgs</build_depend>
@@ -58810,7 +59681,7 @@ rospack: "<?xml version=\"1.0\" ?>
 <package format=\"3\">
 <name>rospack</name>
 <description>ROS Package Tool</description>
-<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"jacob@openrobotics.org\">Jacob Perron</maintainer>
 <license>BSD</license>
 <url type=\"website\">http://wiki.ros.org/rospack</url>
 <url type=\"bugtracker\">https://github.com/ros/rospack/issues</url>
@@ -59032,12 +59903,14 @@ including using messages,
 servers,
 parameters,
 etc. These tutorials are compatible with the nodes in roscpp_tutorial.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
+<maintainer email="sloretz@openrobotics.org">Shane Loretz</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/rospy_tutorials</url>
 <url type="bugtracker">https://github.com/ros/ros_tutorials/issues</url>
 <url type="repository">https://github.com/ros/ros_tutorials</url>
 <author>Ken Conley</author>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
 <build_depend>rostest</build_depend>
@@ -59590,7 +60463,7 @@ support rplidar A1/A2/A3/S1/S2/S3/T1/C1</description>
 </package>
 -----
 rqt: <?xml version="1.0" ?>
-<package>
+<package format="3">
 <name>rqt</name>
 <description>rqt is a Qt-based framework for GUI development for ROS. It consists of three parts/metapackages<br/>
 <ul>
@@ -59600,7 +60473,7 @@ rqt: <?xml version="1.0" ?>
 <li>
 <a href="http://ros.org/wiki/rqt_robot_plugins">rqt_robot_plugins</a>- Tools for interacting with robots during their runtime.</li>
 </ul>rqt metapackage provides a widget<a href="http://ros.org/wiki/rqt_gui">rqt_gui</a>that enables multiple `rqt` widgets to be docked in a single window.</description>
-<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
+<maintainer email="dharini@openrobotics.org">Dharini Dutia</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt</url>
 <url type="repository">https://github.com/ros-visualization/rqt</url>
@@ -59608,90 +60481,101 @@ rqt: <?xml version="1.0" ?>
 <author>Dirk Thomas</author>
 <author>Dorian Scholz</author>
 <author>Aaron Blasdel</author>
+<author email="michael.jeronimo@openrobotics.org">Michael Jeronimo</author>
 <buildtool_depend>catkin</buildtool_depend>
-<run_depend version_gte="0.3.0">rqt_gui</run_depend>
-<run_depend version_gte="0.3.0">rqt_gui_cpp</run_depend>
-<run_depend version_gte="0.3.0">rqt_gui_py</run_depend>
+<exec_depend version_gte="0.3.0">rqt_gui</exec_depend>
+<exec_depend version_gte="0.3.0">rqt_gui_cpp</exec_depend>
+<exec_depend version_gte="0.3.0">rqt_gui_py</exec_depend>
 <export>
 <metapackage/>
 </export>
 </package>
 -----
-rqt_action: <?xml version="1.0" ?>
-<package>
+rqt_action: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_action</name>
 <description>rqt_action provides a feature to introspect all available ROS action (from actionlib) types. By utilizing rqt_msg,
 the output format is unified with it and rqt_srv. Note that the actions shown on this plugin is the ones that are stored on your machine,
 not on the ROS core your rqt instance connects to.</description>
-<maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
-<maintainer email="ablasdel@gmail.com">Aaron Blasdel</maintainer>
-<maintainer email="geoffrey.biggs@aist.go.jp">Geoffrey Biggs</maintainer>
+<maintainer email=\"mikael@osrfoundation.org\">Mikael Arguedas</maintainer>
+<maintainer email=\"ablasdel@gmail.com\">Aaron Blasdel</maintainer>
+<maintainer email=\"geoffrey.biggs@aist.go.jp\">Geoffrey Biggs</maintainer>
+<maintainer email=\"mabel@openrobotics.org\">Mabel Zhang</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_action</url>
-<url type="repository">https://github.com/ros-visualization/rqt_action</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_action/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_action</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_action</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_action/issues</url>
 <author>Isaac Isao Saito</author>
 <buildtool_depend>catkin</buildtool_depend>
-<run_depend>rospy</run_depend>
-<run_depend>rqt_msg</run_depend>
-<run_depend>rqt_py_common</run_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>rqt_msg</exec_depend>
+<exec_depend>rqt_py_common</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
-rqt_bag: <?xml version="1.0" ?>
-<package format="3">
+rqt_bag: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_bag</name>
 <description>rqt_bag provides a GUI plugin for displaying and replaying ROS bag files.</description>
-<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
-<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
+<maintainer email=\"mabel@openrobotics.org\">Mabel Zhang</maintainer>
+<maintainer email=\"michael.jeronimo@openrobotics.org\">Michael Jeronimo</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_bag</url>
-<url type="repository">https://github.com/ros-visualization/rqt_bag</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_bag/issues</url>
-<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
-<author email="ablasdel@gmail.com">Aaron Blasdel</author>
-<author email="namniart@gmail.com">Austin Hendrix</author>
+<url type=\"website\">http://wiki.ros.org/rqt_bag</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_bag</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_bag/issues</url>
+<author email=\"dthomas@osrfoundation.org\">Dirk Thomas</author>
+<author email=\"ablasdel@gmail.com\">Aaron Blasdel</author>
+<author email=\"namniart@gmail.com\">Austin Hendrix</author>
 <author>Tim Field</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
 <exec_depend>rosbag</exec_depend>
 <exec_depend>rosgraph_msgs</exec_depend>
 <exec_depend>roslib</exec_depend>
 <exec_depend>rosnode</exec_depend>
 <exec_depend>rospy</exec_depend>
-<exec_depend version_gte="0.2.12">rqt_gui</exec_depend>
+<exec_depend version_gte=\"0.2.12\">rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
-rqt_bag_plugins: <?xml version="1.0" ?>
-<package format="3">
+rqt_bag_plugins: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_bag_plugins</name>
 <description>rqt_bag provides a GUI plugin for displaying and replaying ROS bag files.</description>
-<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
-<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
+<maintainer email=\"mabel@openrobotics.org\">Mabel Zhang</maintainer>
+<maintainer email=\"michael.jeronimo@openrobotics.org\">Michael Jeronimo</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_bag</url>
-<url type="repository">https://github.com/ros-visualization/rqt_bag</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_bag/issues</url>
-<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
-<author email="ablasdel@gmail.com">Aaron Blasdel</author>
-<author email="namniart@gmail.com">Austin Hendrix</author>
+<url type=\"website\">http://wiki.ros.org/rqt_bag</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_bag</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_bag/issues</url>
+<author email=\"dthomas@osrfoundation.org\">Dirk Thomas</author>
+<author email=\"ablasdel@gmail.com\">Aaron Blasdel</author>
+<author email=\"namniart@gmail.com\">Austin Hendrix</author>
 <author>Tim Field</author>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
 <exec_depend>geometry_msgs</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-cairo</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-cairo</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-imaging</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-pil</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-cairo</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-cairo</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-imaging</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-pil</exec_depend>
 <exec_depend>rosbag</exec_depend>
 <exec_depend>roslib</exec_depend>
 <exec_depend>rospy</exec_depend>
@@ -59703,9 +60587,9 @@ rqt_bag_plugins: <?xml version="1.0" ?>
 <exec_depend>std_msgs</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_bag plugin="${prefix}/plugin.xml"/>
+<rqt_bag plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_common_plugins: <?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -59726,16 +60610,17 @@ then select any plugins you want from the GUI that launches afterwards.<br/>
 </ul>
 <br/>
 </description>
-<maintainer email="ablasdel@gmail.com">Aaron Blasdel</maintainer>
+<maintainer email="geoff@openrobotics.org">Geoffrey Biggs</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt_common_plugins</url>
 <url type="repository">https://github.com/ros-visualization/rqt_common_plugins</url>
 <url type="bugtracker">https://github.com/ros-visualization/rqt_common_plugins/issues</url>
+<author>Aaron Blasdel</author>
 <author>Dirk Thomas</author>
 <author>Dorian Scholz</author>
-<author>Thibault Kruse</author>
-<author>Aaron Blasdel</author>
 <author>Isaac Saito</author>
+<author email="ivanpauno@ekumenlabs.com">Ivan Paunovic</author>
+<author>Thibault Kruse</author>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>rqt_action</exec_depend>
 <exec_depend>rqt_bag</exec_depend>
@@ -59820,34 +60705,37 @@ rqt_controller_manager: "<?xml version=\"1.0\" ?>
 </export>
 </package>"
 -----
-rqt_dep: <?xml version="1.0" ?>
-<package format="3">
+rqt_dep: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_dep</name>
 <description>rqt_dep provides a GUI plugin for visualizing the ROS dependency graph.</description>
-<maintainer email="ivanpauno@ekumenlabs.com">Ivan Paunovic</maintainer>
+<maintainer email=\"ivanpauno@ekumenlabs.com\">Ivan Paunovic</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_dep</url>
-<url type="repository">https://github.com/ros-visualization/rqt_dep</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_dep/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_dep</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_dep</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_dep/issues</url>
 <author>Aaron Blasdel</author>
 <author>Dirk Thomas</author>
 <author>Thibault Kruse</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
 <exec_depend>qt_dotgraph</exec_depend>
 <exec_depend>qt_gui</exec_depend>
 <exec_depend>qt_gui_py_common</exec_depend>
 <exec_depend>rqt_graph</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
-<test_depend condition="$ROS_PYTHON_VERSION == 2">python-mock</test_depend>
-<test_depend condition="$ROS_PYTHON_VERSION == 3">python3-mock</test_depend>
+<test_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-mock</test_depend>
+<test_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-mock</test_depend>
 <export>
 <architecture_independent/>
-<qt_gui plugin="${prefix}/plugin.xml"/>
+<qt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_drone_teleop: <?xml version="1.0" ?>
 <package format="3">
@@ -59899,21 +60787,25 @@ rqt_ez_publisher: <?xml version="1.0" ?>
 </export>
 </package>
 -----
-rqt_graph: <?xml version="1.0" ?>
-<package format="3">
+rqt_graph: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_graph</name>
-<description>rqt_graph provides a GUI plugin for visualizing the ROS computation graph.<br/>Its components are made generic so that other packages where you want to achieve graph representation can depend upon this pkg (use<a href="http://www.ros.org/wiki/rqt_dep">rqt_dep</a>to find out the pkgs that depend. rqt_dep itself depends on rqt_graph too).</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
-<maintainer email="ablasdel@gmail.com">Aaron Blasdel</maintainer>
+<description>rqt_graph provides a GUI plugin for visualizing the ROS computation graph.<br/>Its components are made generic so that other packages where you want to achieve graph representation can depend upon this pkg (use<a href=\"http://www.ros.org/wiki/rqt_dep\">rqt_dep</a>to find out the pkgs that depend. rqt_dep itself depends on rqt_graph too).</description>
+<maintainer email=\"michael.jeronimo@openrobotics.org\">Michael Jeronimo</maintainer>
+<maintainer email=\"william@openrobotics.org\">William Woodall</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_graph</url>
-<url type="repository">https://github.com/ros-visualization/rqt_graph</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_graph/issues</url>
-<author>Dirk Thomas</author>
+<url type=\"website\">http://wiki.ros.org/rqt_graph</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_graph</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_graph/issues</url>
+<author email=\"dthomas@osrfoundation.org\">Dirk Thomas</author>
+<author email=\"ablasdel@gmail.com\">Aaron Blasdel</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
 <exec_depend>qt_dotgraph</exec_depend>
 <exec_depend>rosgraph</exec_depend>
 <exec_depend>rosgraph_msgs</exec_depend>
@@ -59926,9 +60818,9 @@ rqt_graph: <?xml version="1.0" ?>
 <exec_depend>rqt_gui_py</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_ground_robot_teleop: <?xml version="1.0" ?>
 <package format="3">
@@ -59956,13 +60848,16 @@ rqt_gui: <?xml version="1.0" ?>
 <package format="3">
 <name>rqt_gui</name>
 <description>rqt_gui provides the main to start an instance of the ROS integrated graphical user interface provided by qt_gui.</description>
-<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
+<maintainer email="dharini@openrobotics.org">Dharini Dutia</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt_gui</url>
 <url type="repository">https://github.com/ros-visualization/rqt</url>
 <url type="bugtracker">https://github.com/ros-visualization/rqt/issues</url>
 <author>Dirk Thomas</author>
+<author email="michael.jeronimo@openrobotics.org">Michael Jeronimo</author>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
 <build_depend version_gte="0.3.0">qt_gui</build_depend>
 <exec_depend>python_qt_binding</exec_depend>
 <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg-modules</exec_depend>
@@ -59972,25 +60867,28 @@ rqt_gui: <?xml version="1.0" ?>
 </package>
 -----
 rqt_gui_cpp: <?xml version="1.0" ?>
-<package>
+<package format="3">
 <name>rqt_gui_cpp</name>
 <description>rqt_gui_cpp enables GUI plugins to use the C++ client library for ROS.</description>
-<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
+<maintainer email="dharini@openrobotics.org">Dharini Dutia</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt_gui_cpp</url>
 <url type="repository">https://github.com/ros-visualization/rqt</url>
 <url type="bugtracker">https://github.com/ros-visualization/rqt/issues</url>
 <author>Dirk Thomas</author>
+<author email="michael.jeronimo@openrobotics.org">Michael Jeronimo</author>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
 <build_depend version_gte="0.3.0">qt_gui</build_depend>
 <build_depend version_gte="0.3.0">qt_gui_cpp</build_depend>
 <build_depend>qtbase5-dev</build_depend>
 <build_depend>roscpp</build_depend>
 <build_depend>nodelet</build_depend>
-<run_depend version_gte="0.3.0">qt_gui</run_depend>
-<run_depend version_gte="0.3.0">qt_gui_cpp</run_depend>
-<run_depend>roscpp</run_depend>
-<run_depend>nodelet</run_depend>
+<exec_depend version_gte="0.3.0">qt_gui</exec_depend>
+<exec_depend version_gte="0.3.0">qt_gui_cpp</exec_depend>
+<exec_depend>roscpp</exec_depend>
+<exec_depend>nodelet</exec_depend>
 <export>
 <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lrqt_gui_cpp"/>
 <qt_gui plugin="${prefix}/plugin.xml"/>
@@ -59998,22 +60896,25 @@ rqt_gui_cpp: <?xml version="1.0" ?>
 </package>
 -----
 rqt_gui_py: <?xml version="1.0" ?>
-<package>
+<package format="3">
 <name>rqt_gui_py</name>
 <description>rqt_gui_py enables GUI plugins to use the Python client library for ROS.</description>
-<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
+<maintainer email="dharini@openrobotics.org">Dharini Dutia</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt_gui_py</url>
 <url type="repository">https://github.com/ros-visualization/rqt</url>
 <url type="bugtracker">https://github.com/ros-visualization/rqt/issues</url>
 <author>Dirk Thomas</author>
+<author email="michael.jeronimo@openrobotics.org">Michael Jeronimo</author>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
 <build_depend version_gte="0.3.0">qt_gui</build_depend>
 <build_depend version_gte="0.3.0">rqt_gui</build_depend>
 <build_depend>rospy</build_depend>
-<run_depend version_gte="0.3.0">qt_gui</run_depend>
-<run_depend version_gte="0.3.0">rqt_gui</run_depend>
-<run_depend>rospy</run_depend>
+<exec_depend version_gte="0.3.0">qt_gui</exec_depend>
+<exec_depend version_gte="0.3.0">rqt_gui</exec_depend>
+<exec_depend>rospy</exec_depend>
 <export>
 <rqt_gui plugin="${prefix}/plugin.xml"/>
 </export>
@@ -60201,22 +61102,25 @@ please post issue reports to the designated tracker (not MoveIt!'s main tracker)
 </export>
 </package>"
 -----
-rqt_msg: <?xml version="1.0" ?>
-<package format="3">
+rqt_msg: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_msg</name>
 <description>A Python GUI plugin for introspecting available ROS message types. Note that the msgs available through this plugin is the ones that are stored on your machine,
 not on the ROS core your rqt instance connects to.</description>
-<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+<maintainer email=\"michael@openrobotics.org\">Michael Carroll</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_msg</url>
-<url type="repository">https://github.com/ros-visualization/rqt_msg</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_msg/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_msg</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_msg</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_msg/issues</url>
 <author>Aaron Blasdel</author>
 <author>Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
 <exec_depend>roslib</exec_depend>
 <exec_depend>rosmsg</exec_depend>
 <exec_depend>rospy</exec_depend>
@@ -60226,9 +61130,9 @@ not on the ROS core your rqt instance connects to.</description>
 <exec_depend>rqt_console</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_multiplot: <?xml version="1.0" ?>
 <package format="2">
@@ -60278,29 +61182,32 @@ rqt_nav_view: <?xml version="1.0" ?>
 </export>
 </package>
 -----
-rqt_plot: <?xml version="1.0" ?>
-<package format="3">
+rqt_plot: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_plot</name>
 <description>rqt_plot provides a GUI plugin visualizing numeric values in a 2D plot using different plotting backends.</description>
-<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
-<maintainer email="logans@cottsay.net">Scott K Logan</maintainer>
-<maintainer email="scholz@sim.tu-darmstadt.de">Dorian Scholz</maintainer>
-<maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
+<maintainer email=\"mabel@openrobotics.org\">Mabel Zhang</maintainer>
+<maintainer email=\"logans@cottsay.net\">Scott K Logan</maintainer>
+<maintainer email=\"scholz@sim.tu-darmstadt.de\">Dorian Scholz</maintainer>
+<maintainer email=\"namniart@gmail.com\">Austin Hendrix</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_plot</url>
-<url type="repository">https://github.com/ros-visualization/rqt_plot</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_plot/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_plot</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_plot</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_plot/issues</url>
 <author>Dorian Scholz</author>
-<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
+<author email=\"dthomas@osrfoundation.org\">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-matplotlib</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-matplotlib</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-numpy</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-numpy</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
-<exec_depend version_gte="0.2.25">qt_gui_py_common</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-matplotlib</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-matplotlib</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-numpy</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-numpy</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
+<exec_depend version_gte=\"0.2.25\">qt_gui_py_common</exec_depend>
 <exec_depend>qwt_dependency</exec_depend>
 <exec_depend>rosgraph</exec_depend>
 <exec_depend>rostopic</exec_depend>
@@ -60310,30 +61217,33 @@ rqt_plot: <?xml version="1.0" ?>
 <exec_depend>std_msgs</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
-rqt_pose_view: <?xml version="1.0" ?>
-<package format="3">
+rqt_pose_view: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_pose_view</name>
 <description>rqt_pose_view provides a GUI plugin for visualizing 3D poses.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
-<maintainer email="scholz@sim.tu-darmstadt.de">Dorian Scholz</maintainer>
-<maintainer email="ablasdel@gmail.com">Aaron Blasdel</maintainer>
+<maintainer email=\"scott@openrobotics.org\">Scott Logan</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_pose_view</url>
-<url type="repository">https://github.com/ros-visualization/rqt_pose_view</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_pose_view/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_pose_view</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_pose_view</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_pose_view/issues</url>
+<author>Aaron Blasdel</author>
+<author>Dirk Thomas</author>
 <author>Dorian Scholz</author>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
 <exec_depend>geometry_msgs</exec_depend>
 <exec_depend>gl_dependency</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-opengl</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-opengl</exec_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-opengl</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-opengl</exec_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
 <exec_depend>rospy</exec_depend>
 <exec_depend>rostopic</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
@@ -60341,9 +61251,9 @@ rqt_pose_view: <?xml version="1.0" ?>
 <exec_depend>rqt_py_common</exec_depend>
 <exec_depend>tf</exec_depend>
 <export>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_pr2_dashboard: <?xml version="1.0" ?>
 <package format="3">
@@ -60374,77 +61284,85 @@ as well as integrating tools like rqt_console and robot_monitor.</description>
 </export>
 </package>
 -----
-rqt_publisher: <?xml version="1.0" ?>
-<package format="3">
+rqt_publisher: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_publisher</name>
 <description>rqt_publisher provides a GUI plugin for publishing arbitrary messages with fixed or computed field values.</description>
-<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+<maintainer email=\"geoff@openrobotics.org\">Geoffrey Biggs</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_publisher</url>
-<url type="repository">https://github.com/ros-visualization/rqt_publisher</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_publisher/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_publisher</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_publisher</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_publisher/issues</url>
 <author>Dirk Thomas</author>
 <author>Dorian Scholz</author>
+<author email=\"michael@openrobotics.org\">Michael Carroll</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
 <exec_depend>qt_gui_py_common</exec_depend>
 <exec_depend>roslib</exec_depend>
-<exec_depend version_gte="1.9.49">rosmsg</exec_depend>
+<exec_depend version_gte=\"1.9.49\">rosmsg</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
 <exec_depend>rqt_py_common</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_py_common: <?xml version="1.0" ?>
-<package>
+<package format="3">
 <name>rqt_py_common</name>
 <description>rqt_py_common provides common functionality for rqt plugins written in Python. Despite no plugin is provided,
 this package is part of the rqt_common_plugins repository to keep refactoring generic functionality from these common plugins into this package as easy as possible. Functionality included in this package should cover generic ROS concepts and should not introduce any special dependencies beside &quot;ros_base&quot;.</description>
-<maintainer email="scholz@sim.tu-darmstadt.de">Dorian Scholz</maintainer>
-<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
+<maintainer email="dharini@openrobotics.org">Dharini Dutia</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/rqt_py_common</url>
 <url type="repository">https://github.com/ros-visualization/rqt_common_plugins</url>
 <url type="bugtracker">https://github.com/ros-visualization/rqt_common_plugins/issues</url>
-<author>Dorian Scholz</author>
+<author email="scholz@sim.tu-darmstadt.de">Dorian Scholz</author>
 <author>Isaac Saito</author>
 <author>Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+<buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
 <build_depend>genmsg</build_depend>
 <build_depend>std_msgs</build_depend>
-<run_depend>genpy</run_depend>
-<run_depend version_gte="0.2.19">python_qt_binding</run_depend>
-<run_depend>qt_gui</run_depend>
-<run_depend>roslib</run_depend>
-<run_depend>rospy</run_depend>
-<run_depend>rostopic</run_depend>
-<run_depend>actionlib</run_depend>
-<run_depend>rosbag</run_depend>
+<exec_depend>genpy</exec_depend>
+<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
+<exec_depend>qt_gui</exec_depend>
+<exec_depend>roslib</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>rostopic</exec_depend>
+<exec_depend>actionlib</exec_depend>
+<exec_depend>rosbag</exec_depend>
 <export>
 <architecture_independent/>
 </export>
 </package>
 -----
-rqt_py_console: <?xml version="1.0" ?>
-<package format="3">
+rqt_py_console: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_py_console</name>
 <description>rqt_py_console is a Python GUI plugin providing an interactive Python console.</description>
-<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+<maintainer email=\"michael@openrobotics.org\">Michael Carroll</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_py_console</url>
-<url type="repository">https://github.com/ros-visualization/rqt_py_console</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_py_console/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_py_console</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_py_console</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_py_console/issues</url>
 <author>Dorian Scholz</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
 <exec_depend>qt_gui</exec_depend>
 <exec_depend>qt_gui_py_common</exec_depend>
 <exec_depend>rospy</exec_depend>
@@ -60452,9 +61370,9 @@ rqt_py_console: <?xml version="1.0" ?>
 <exec_depend>rqt_gui_py</exec_depend>
 <export>
 <architecture_independent/>
-<qt_gui plugin="${prefix}/plugin.xml"/>
+<qt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_py_trees: <?xml version="1.0" ?>
 <package>
@@ -60494,8 +61412,9 @@ rqt_py_trees: <?xml version="1.0" ?>
 </export>
 </package>
 -----
-rqt_reconfigure: <?xml version="1.0" ?>
-<package format="3">
+rqt_reconfigure: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_reconfigure</name>
 <description>This rqt plugin succeeds former dynamic_reconfigure's GUI (reconfigure_gui),
 and provides the way to view and edit the parameters that are accessible via dynamic_reconfigure.<br/>
@@ -60503,22 +61422,23 @@ and provides the way to view and edit the parameters that are accessible via dyn
 arbitrary parameters that are not associated with any nodes (which are not handled by dynamic_reconfigure) might become handled. However,
 currently as the name indicates,
 this pkg solely is dependent on dynamic_reconfigure that allows access to only those params latched to nodes.</description>
-<maintainer email="logans@cottsay.net">Scott K Logan</maintainer>
-<maintainer email="michael.jeronimo@openrobotics.org">Michael Jeronimo</maintainer>
+<maintainer email=\"dharini@openrobotics.org\">Dharini Dutia</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_reconfigure</url>
-<url type="repository">https://github.com/ros-visualization/rqt_reconfigure</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_reconfigure/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_reconfigure</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_reconfigure</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_reconfigure/issues</url>
 <author>Isaac Saito</author>
 <author>Ze'ev Klapow</author>
+<author email=\"logans@cottsay.net\">Scott K Logan</author>
+<author email=\"michael.jeronimo@openrobotics.org\">Michael Jeronimo</author>
 <buildtool_depend>catkin</buildtool_depend>
-<buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
-<buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
 <build_depend>roslint</build_depend>
 <exec_depend>dynamic_reconfigure</exec_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-yaml</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-yaml</exec_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-yaml</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-yaml</exec_depend>
 <exec_depend>rospy</exec_depend>
 <exec_depend>rqt_console</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
@@ -60527,9 +61447,9 @@ this pkg solely is dependent on dynamic_reconfigure that allows access to only t
 <test_depend>rostest</test_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_robot_dashboard: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
@@ -60640,29 +61560,33 @@ then select any plugins you want from the GUI that launches afterwards.<br/>
 </export>
 </package>
 -----
-rqt_robot_steering: <?xml version="1.0" ?>
-<package format="3">
+rqt_robot_steering: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_robot_steering</name>
 <description>rqt_robot_steering provides a GUI plugin for steering a robot using Twist messages.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
-<maintainer email="ablasdel@gmail.com">Aaron Blasdel</maintainer>
+<maintainer email=\"dthomas@osrfoundation.org\">Dirk Thomas</maintainer>
+<maintainer email=\"ablasdel@gmail.com\">Aaron Blasdel</maintainer>
+<maintainer email=\"srishtidhm@gmail.com\">Srishti Dhamija</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_robot_steering</url>
-<url type="repository">https://github.com/ros-visualization/rqt_robot_steering</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_robot_steering/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_robot_steering</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_robot_steering</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_robot_steering/issues</url>
 <author>Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
 <exec_depend>geometry_msgs</exec_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
 <exec_depend>rostopic</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
 <export>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_rosbag_fancy: <?xml version="1.0" ?>
 <package format="3">
@@ -60762,29 +61686,32 @@ rqt_rviz: <?xml version="1.0" ?>
 </export>
 </package>
 -----
-rqt_service_caller: <?xml version="1.0" ?>
-<package format="3">
+rqt_service_caller: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_service_caller</name>
 <description>rqt_service_caller provides a GUI plugin for calling arbitrary services.</description>
-<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+<maintainer email=\"michael@openrobotics.org\">Michael Carroll</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_service_caller</url>
-<url type="repository">https://github.com/ros-visualization/rqt_service_caller</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_service_caller/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_service_caller</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_service_caller</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_service_caller/issues</url>
 <author>Dirk Thomas</author>
 <author>Dorian Scholz</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
 <exec_depend>rosservice</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
 <exec_depend>rqt_py_common</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_shell: <?xml version="1.0" ?>
 <package format="3">
@@ -60811,29 +61738,32 @@ rqt_shell: <?xml version="1.0" ?>
 </export>
 </package>
 -----
-rqt_srv: <?xml version="1.0" ?>
-<package>
+rqt_srv: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_srv</name>
 <description>A Python GUI plugin for introspecting available ROS message types. Note that the srvs available through this plugin is the ones that are stored on your machine,
 not on the ROS core your rqt instance connects to.</description>
-<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+<maintainer email=\"michael@openrobotics.org\">Michael Carroll</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_srv</url>
-<url type="repository">https://github.com/ros-visualization/rqt_srv</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_srv/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_srv</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_srv</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_srv/issues</url>
 <author>Aaron Blasdel</author>
 <author>Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
-<run_depend>rosmsg</run_depend>
-<run_depend>rospy</run_depend>
-<run_depend>rqt_gui</run_depend>
-<run_depend>rqt_gui_py</run_depend>
-<run_depend>rqt_msg</run_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend>rosmsg</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>rqt_gui</exec_depend>
+<exec_depend>rqt_gui_py</exec_depend>
+<exec_depend>rqt_msg</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rqt_tf_tree: "<?xml version=\"1.0\" ?>
 <?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
@@ -60869,73 +61799,82 @@ rqt_tf_tree: "<?xml version=\"1.0\" ?>
 </export>
 </package>"
 -----
-rqt_top: <?xml version="1.0" ?>
-<package format="3">
+rqt_top: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_top</name>
 <description>RQT plugin for monitoring ROS processes.</description>
-<author email="dan@lazewatsky.com">Dan Lazewatsky</author>
-<maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+<author email=\"dan@lazewatsky.com\">Dan Lazewatsky</author>
+<maintainer email=\"michael@openrobotics.org\">Michael Carroll</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_top</url>
-<url type="repository">https://github.com/ros-visualization/rqt_top</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_top/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_top</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_top</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_top/issues</url>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-psutil</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-psutil</exec_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-psutil</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-psutil</exec_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
 <exec_depend>rospy</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
-rqt_topic: <?xml version="1.0" ?>
-<package format="3">
+rqt_topic: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_topic</name>
 <description>rqt_topic provides a GUI plugin for displaying debug information about ROS topics including publishers,
 subscribers,
 publishing rate,
 and ROS Messages.</description>
-<maintainer email="scholz@sim.tu-darmstadt.de">Dorian Scholz</maintainer>
-<maintainer email="scott@openrobotics.org">Scott K Logan</maintainer>
+<maintainer email=\"scholz@sim.tu-darmstadt.de\">Dorian Scholz</maintainer>
+<maintainer email=\"scott@openrobotics.org\">Scott K Logan</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_topic</url>
-<url type="repository">https://github.com/ros-visualization/rqt_topic</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_topic/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_topic</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_topic</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_topic/issues</url>
 <author>Dirk Thomas</author>
 <author>Dorian Scholz</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
 <exec_depend>rostopic</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
 <exec_depend>rqt_gui_py</exec_depend>
 <exec_depend>std_msgs</exec_depend>
 <export>
 <architecture_independent/>
-<rqt_gui plugin="${prefix}/plugin.xml"/>
+<rqt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
-rqt_web: <?xml version="1.0" ?>
-<package format="3">
+rqt_web: "<?xml version=\"1.0\" ?>
+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\"\n  schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+<package format=\"3\">
 <name>rqt_web</name>
 <description>rqt_web is a simple web content viewer for rqt. Users can show web content in Qt-based window by specifying its URL.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
-<maintainer email="ablasdel@gmail.com">Aaron Blasdel</maintainer>
+<maintainer email=\"scott@openrobotics.org\">Scott Logan</maintainer>
 <license>BSD</license>
-<url type="website">http://wiki.ros.org/rqt_web</url>
-<url type="repository">https://github.com/ros-visualization/rqt_web</url>
-<url type="bugtracker">https://github.com/ros-visualization/rqt_web/issues</url>
+<url type=\"website\">http://wiki.ros.org/rqt_web</url>
+<url type=\"repository\">https://github.com/ros-visualization/rqt_web</url>
+<url type=\"bugtracker\">https://github.com/ros-visualization/rqt_web/issues</url>
 <author>Aaron Blasdel</author>
+<author>Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
-<exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-<exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-setuptools</buildtool_depend>
+<buildtool_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-setuptools</buildtool_depend>
+<exec_depend version_gte=\"0.2.19\">python_qt_binding</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 2\">python-rospkg</exec_depend>
+<exec_depend condition=\"$ROS_PYTHON_VERSION == 3\">python3-rospkg</exec_depend>
 <exec_depend>qt_gui</exec_depend>
 <exec_depend>rospy</exec_depend>
 <exec_depend>rqt_gui</exec_depend>
@@ -60943,9 +61882,9 @@ rqt_web: <?xml version="1.0" ?>
 <exec_depend>webkit_dependency</exec_depend>
 <export>
 <architecture_independent/>
-<qt_gui plugin="${prefix}/plugin.xml"/>
+<qt_gui plugin=\"${prefix}/plugin.xml\"/>
 </export>
-</package>
+</package>"
 -----
 rslidar_sdk: <?xml version="1.0" ?>
 <package format="3">
@@ -61667,7 +62606,7 @@ rviz_plugin_tutorials: <?xml version="1.0" ?>
 <package>
 <name>rviz_plugin_tutorials</name>
 <description>Tutorials showing how to write plugins for RViz.</description>
-<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/rviz_plugin_tutorials</url>
 <author>Dave Hershberger</author>
@@ -61688,7 +62627,7 @@ rviz_python_tutorial: <?xml version="1.0" ?>
 <package>
 <name>rviz_python_tutorial</name>
 <description>Tutorials showing how to call into rviz internals from python scripts.</description>
-<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/rviz_python_tutorial</url>
 <author>Dave Hershberger</author>
@@ -64158,7 +65097,7 @@ std_msgs: <?xml version="1.0" ?>
 such as multiarrays. For common,
 generic robot-specific message types,
 please see<a href="http://www.ros.org/wiki/common_msgs">common_msgs</a>.</description>
-<maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/std_msgs</url>
 <url type="repository">https://github.com/ros/std_msgs</url>
@@ -64166,6 +65105,7 @@ please see<a href="http://www.ros.org/wiki/common_msgs">common_msgs</a>.</descri
 <author email="mquigley@cs.stanford.edu">Morgan Quigley</author>
 <author email="kwc@willowgarage.com">Ken Conley</author>
 <author email="leibs@willowgarage.com">Jeremy Leibs</author>
+<author email="tfoote@osrfoundation.org">Tully Foote</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
 <run_depend>message_runtime</run_depend>
@@ -64175,10 +65115,11 @@ std_srvs: <?xml version="1.0" ?>
 <package>
 <name>std_srvs</name>
 <description>Common service definitions.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/std_srvs</url>
 <author>Morgan Quigley</author>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>message_generation</build_depend>
 <run_depend>message_runtime</run_depend>
@@ -65317,7 +66258,6 @@ tf2_bullet: <?xml version="1.0" ?>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/tf2_bullet</url>
 <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
-<buildtool_depend>pkg-config</buildtool_depend>
 <build_depend>tf2</build_depend>
 <build_depend>bullet</build_depend>
 <build_depend>geometry_msgs</build_depend>
@@ -66585,12 +67525,14 @@ turtlesim: <?xml version="1.0" ?>
 <package>
 <name>turtlesim</name>
 <description>turtlesim is a tool made for teaching ROS and ROS packages.</description>
-<maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
+<maintainer email="sloretz@openrobotics.org">Shane Loretz</maintainer>
 <license>BSD</license>
 <url type="website">http://www.ros.org/wiki/turtlesim</url>
 <url type="bugtracker">https://github.com/ros/ros_tutorials/issues</url>
 <url type="repository">https://github.com/ros/ros_tutorials</url>
 <author>Josh Faust</author>
+<author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 <buildtool_depend>catkin</buildtool_depend>
 <build_depend>geometry_msgs</build_depend>
 <build_depend>libboost-thread-dev</build_depend>
@@ -67000,6 +67942,7 @@ universal_robots: <?xml version="1.0" ?>
 <buildtool_depend>catkin</buildtool_depend>
 <exec_depend>ur10e_moveit_config</exec_depend>
 <exec_depend>ur10_moveit_config</exec_depend>
+<exec_depend>ur12e_moveit_config</exec_depend>
 <exec_depend>ur16e_moveit_config</exec_depend>
 <exec_depend>ur20_moveit_config</exec_depend>
 <exec_depend>ur30_moveit_config</exec_depend>
@@ -67007,6 +67950,7 @@ universal_robots: <?xml version="1.0" ?>
 <exec_depend>ur3_moveit_config</exec_depend>
 <exec_depend>ur5e_moveit_config</exec_depend>
 <exec_depend>ur5_moveit_config</exec_depend>
+<exec_depend>ur7e_moveit_config</exec_depend>
 <exec_depend>ur_description</exec_depend>
 <exec_depend>ur_gazebo</exec_depend>
 <export>
@@ -67055,6 +67999,39 @@ ur10e_moveit_config: <?xml version="1.0" ?>
 <package format="2">
 <name>ur10e_moveit_config</name>
 <description>An automatically generated package with all the configuration and launch files for using the ur10e with the MoveIt Motion Planning Framework</description>
+<author>Felix Messmer</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn</maintainer>
+<maintainer email="miguel.prada@tecnalia.com">Miguel Prada Sarasola</maintainer>
+<maintainer email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</maintainer>
+<license>BSD</license>
+<url type="website">http://moveit.ros.org/</url>
+<url type="bugtracker">https://github.com/ros-planning/moveit_setup_assistant/issues</url>
+<url type="repository">https://github.com/ros-planning/moveit_setup_assistant</url>
+<exec_depend>joint_state_publisher</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>moveit_fake_controller_manager</exec_depend>
+<exec_depend>moveit_planners_ompl</exec_depend>
+<exec_depend>moveit_ros_benchmarks</exec_depend>
+<exec_depend>moveit_ros_move_group</exec_depend>
+<exec_depend>moveit_ros_visualization</exec_depend>
+<exec_depend>moveit_ros_warehouse</exec_depend>
+<exec_depend>warehouse_ros_mongo</exec_depend>
+<exec_depend>moveit_setup_assistant</exec_depend>
+<exec_depend>moveit_simple_controller_manager</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>tf2_ros</exec_depend>
+<exec_depend>trac_ik_kinematics_plugin</exec_depend>
+<exec_depend>ur_description</exec_depend>
+<exec_depend>xacro</exec_depend>
+<test_depend>roslaunch</test_depend>
+<buildtool_depend>catkin</buildtool_depend>
+</package>
+-----
+ur12e_moveit_config: <?xml version="1.0" ?>
+<package format="2">
+<name>ur12e_moveit_config</name>
+<description>An automatically generated package with all the configuration and launch files for using the ur12e with the MoveIt Motion Planning Framework</description>
 <author>Felix Messmer</author>
 <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn</maintainer>
 <maintainer email="miguel.prada@tecnalia.com">Miguel Prada Sarasola</maintainer>
@@ -67284,6 +68261,39 @@ ur5e_moveit_config: <?xml version="1.0" ?>
 <package format="2">
 <name>ur5e_moveit_config</name>
 <description>An automatically generated package with all the configuration and launch files for using the ur5e with the MoveIt Motion Planning Framework</description>
+<author>Felix Messmer</author>
+<maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn</maintainer>
+<maintainer email="miguel.prada@tecnalia.com">Miguel Prada Sarasola</maintainer>
+<maintainer email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</maintainer>
+<license>BSD</license>
+<url type="website">http://moveit.ros.org/</url>
+<url type="bugtracker">https://github.com/ros-planning/moveit_setup_assistant/issues</url>
+<url type="repository">https://github.com/ros-planning/moveit_setup_assistant</url>
+<exec_depend>joint_state_publisher</exec_depend>
+<exec_depend>joint_state_publisher_gui</exec_depend>
+<exec_depend>moveit_fake_controller_manager</exec_depend>
+<exec_depend>moveit_planners_ompl</exec_depend>
+<exec_depend>moveit_ros_benchmarks</exec_depend>
+<exec_depend>moveit_ros_move_group</exec_depend>
+<exec_depend>moveit_ros_visualization</exec_depend>
+<exec_depend>moveit_ros_warehouse</exec_depend>
+<exec_depend>warehouse_ros_mongo</exec_depend>
+<exec_depend>moveit_setup_assistant</exec_depend>
+<exec_depend>moveit_simple_controller_manager</exec_depend>
+<exec_depend>robot_state_publisher</exec_depend>
+<exec_depend>rviz</exec_depend>
+<exec_depend>tf2_ros</exec_depend>
+<exec_depend>trac_ik_kinematics_plugin</exec_depend>
+<exec_depend>ur_description</exec_depend>
+<exec_depend>xacro</exec_depend>
+<test_depend>roslaunch</test_depend>
+<buildtool_depend>catkin</buildtool_depend>
+</package>
+-----
+ur7e_moveit_config: <?xml version="1.0" ?>
+<package format="2">
+<name>ur7e_moveit_config</name>
+<description>An automatically generated package with all the configuration and launch files for using the ur7e with the MoveIt Motion Planning Framework</description>
 <author>Felix Messmer</author>
 <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn</maintainer>
 <maintainer email="miguel.prada@tecnalia.com">Miguel Prada Sarasola</maintainer>
@@ -68511,7 +69521,7 @@ visualization_marker_tutorials: <?xml version="1.0" ?>
 <package>
 <name>visualization_marker_tutorials</name>
 <description>The visulalization_marker_tutorials package</description>
-<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
 <license>BSD</license>
 <url type="website">http://ros.org/wiki/visualization_marker_tutorials</url>
 <author>Josh Faust</author>
@@ -68577,7 +69587,7 @@ visualization_tutorials: <?xml version="1.0" ?>
 <package>
 <name>visualization_tutorials</name>
 <description>Metapackage referencing tutorials related to rviz and visualization.</description>
-<maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+<maintainer email="mabel@openrobotics.org">Mabel Zhang</maintainer>
 <license>BSD</license>
 <url>http://ros.org/wiki/visualization_tutorials</url>
 <author>Dave Hershberger</author>
