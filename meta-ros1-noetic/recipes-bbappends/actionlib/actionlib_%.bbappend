@@ -10,6 +10,3 @@ do_install:append() {
 }
 
 RDEPENDS:${PN}:remove = "wxpython"
-
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-Fix-build-with-boost-1.73.0.patch"
