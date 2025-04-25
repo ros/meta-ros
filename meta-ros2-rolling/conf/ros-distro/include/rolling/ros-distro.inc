@@ -33,7 +33,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     cyclonedds-native \
     domain-coordinator-native \
     fastcdr-native \
-    fastrtps-native \
+    fastdds-native \
     foonathan-memory-vendor-native \
     generate-parameter-library-py-native \
     geometry-msgs-native \
@@ -66,8 +66,12 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-fastrtps-cpp-native \
     rmw-fastrtps-dynamic-cpp-native \
     rmw-fastrtps-shared-cpp-native \
+    rmw-test-fixture-native \
+    rmw-test-fixture-implementation-native \
     rmw-implementation-native \
     rmw-native \
+    rmw-security-common-native \
+    rmw-zenoh-cpp-native \
     ros2cli-native \
     ros2pkg-native \
     rosgraph-msgs-native \
@@ -92,6 +96,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     type-description-interfaces-native \
     uncrustify-vendor-native \
     unique-identifier-msgs-native \
+    zenoh-cpp-vendor-native \
 "
 
 # this needs google-benchmark-vendor-native but we probably don't need native version
