@@ -1,0 +1,31 @@
+header:
+  version: 14
+
+
+# https://github.com/madisongh/tegra-test-distro/wiki/Using-AWS-S3-for-sstate-and-downloads-mirrors
+repos:
+  tegra-demo-distro:
+    url: "https://github.com/robwoolley/tegra-demo-distro.git"
+    path: "layers/tegra-demo-distro"
+    branch: "ci-fixes"
+    layers:
+      layers/meta-demo-ci:
+
+local_conf_header:
+  awsci: |
+    # Configuration for populating the download mirrors
+    BB_GENERATE_MIRROR_TARBALLS = "1"
+    UPDATE_DOWNLOADS_MIRROR = "1"
+    DOWNLOADS_MIRROR_URL = "s3://oeros-bitbake-cache/downloads"
+
+    # Configuration for sstate mirroring
+    UPDATE_SSTATE_MIRROR = "1"
+    SSTATE_MIRROR_URL = "s3://oeros-bitbake-cache/sstate-cache"
+
+    # Configuration for downloading from the mirrors
+    SOURCE_MIRROR_URL = "s3://oeros-bitbake-cache/downloads"
+    INHERIT += "own-mirrors"
+    SSTATE_MIRRORS = "file://.* s3://oeros-bitbake-cache/sstate-cache/PATH;downloadfilename=PATH"
+
+    # Configuration for uploading to mirrors
+    INHERIT += "mirror_updates"
