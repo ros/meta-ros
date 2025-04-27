@@ -64,6 +64,8 @@ variables:
 build-job:
   stage: build
   extends: .default
+  rules:
+    - when: manual
   script:
     - virtualenv venv
     - source venv/bin/activate
