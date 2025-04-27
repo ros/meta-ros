@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-plugin.git;protocol=https;branch=gz-plugin3"
 
-SRCREV = "faaf65e805cca46b4539e1941266189beb6b0bae"
+SRCREV = "4c0ba4bef006d9a395023c46bc7cce4b0dc626aa"
 
 S = "${WORKDIR}/git"
 
