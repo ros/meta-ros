@@ -38,6 +38,9 @@ variables:
     options:
       - Enabled
       - Disabled
+  VIRTUAL_ENV_PKGS:
+    description: "Create a virtualenv for bitbake with these pypi packages installed"
+    value: "boto3"
   FF_DISABLE_UMASK_FOR_DOCKER_EXECUTOR: true
 
 .default:
@@ -58,6 +61,8 @@ variables:
     - mkdir --verbose --parents $KAS_WORK_DIR $KAS_REPO_REF_DIR $SSTATE_DIR $DL_DIR $TOOLCHAIN_DIR $TOOLCHAIN_LINK_DIR $IMAGE_DIR
     - if [ "$GITLAB_REDIRECT" == "Enabled" ]; then git config --global url."${CI_SERVER_PROTOCOL}://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}:${CI_SERVER_PORT}/github/".insteadOf "git://github.com/"; fi
     - if [ "$GITLAB_REDIRECT" == "Enabled" ]; then git config --global url."${CI_SERVER_PROTOCOL}://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}:${CI_SERVER_PORT}/github/".insteadOf "https://github.com/"; fi
+    - if [ -n "$VIRTUAL_ENV_PKGS" ]; then bash scripts/create_virtualenv.sh "${CI_PROJECT_DIR}" "meta-virtualenv" "${VIRTUAL_ENV_PKGS}"; echo "DEBUG ${CI_PROJECT_DIR}/meta-virtualenv/layer.conf"; cat "${CI_PROJECT_DIR}/meta-virtualenv/conf/layer.conf"; fi
+
 
 
     
@@ -83,6 +88,18 @@ build-job:
           branch: $META_ROS_BRANCH
       EOF
         EXTRA_KAS_YAML="${EXTRA_KAS_YAML}${EXTRA_KAS_YAML:+:}custom-meta-ros.yml"
+      fi
+    - |
+      if [ -n "$VIRTUAL_ENV_PKGS" ]; then
+        cat <<EOF > custom-meta-virtualenv.yml
+      header:
+        version: 14
+
+      repos:
+        virtualenv:
+          path: "${CI_PROJECT_DIR}/meta-virtualenv"
+      EOF
+        EXTRA_KAS_YAML="${EXTRA_KAS_YAML}${EXTRA_KAS_YAML:+:}custom-meta-virtualenv.yml"
       fi
     - echo kas build --update ${BITBAKE_TARGET:+--target} ${BITBAKE_TARGET} ${BITBAKE_TASK:+-c} ${BITBAKE_TASK} oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml${EXTRA_KAS_YAML:+:}${EXTRA_KAS_YAML} -- ${EXTRA_BITBAKE_ARGS}
     - kas build --update ${BITBAKE_TARGET:+--target} ${BITBAKE_TARGET} ${BITBAKE_TASK:+-c} ${BITBAKE_TASK} oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml${EXTRA_KAS_YAML:+:}${EXTRA_KAS_YAML} -- ${EXTRA_BITBAKE_ARGS}
