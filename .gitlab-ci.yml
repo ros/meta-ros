@@ -80,7 +80,7 @@ build-job:
           url: "$META_ROS_GIT"
           branch: $META_ROS_BRANCH
       EOF
-        EXTRA_KAS_YAML=":custom-meta-ros.yml"
+        EXTRA_KAS_YAML="${EXTRA_KAS_YAML}${EXTRA_KAS_YAML:+:}custom-meta-ros.yml"
       fi
-    - echo kas build --update ${BITBAKE_TARGET:+--target} ${BITBAKE_TARGET} ${BITBAKE_TASK:+-c} ${BITBAKE_TASK} oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml${EXTRA_KAS_YAML} -- ${EXTRA_BITBAKE_ARGS}
-    - kas build --update ${BITBAKE_TARGET:+--target} ${BITBAKE_TARGET} ${BITBAKE_TASK:+-c} ${BITBAKE_TASK} oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml${EXTRA_KAS_YAML} -- ${EXTRA_BITBAKE_ARGS}
+    - echo kas build --update ${BITBAKE_TARGET:+--target} ${BITBAKE_TARGET} ${BITBAKE_TASK:+-c} ${BITBAKE_TASK} oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml${EXTRA_KAS_YAML:+:}${EXTRA_KAS_YAML} -- ${EXTRA_BITBAKE_ARGS}
+    - kas build --update ${BITBAKE_TARGET:+--target} ${BITBAKE_TARGET} ${BITBAKE_TASK:+-c} ${BITBAKE_TASK} oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml${EXTRA_KAS_YAML:+:}${EXTRA_KAS_YAML} -- ${EXTRA_BITBAKE_ARGS}
