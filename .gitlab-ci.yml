@@ -38,6 +38,12 @@ variables:
     options:
       - Enabled
       - Disabled
+  ENABLE_AWS_SUPPORT:
+    description: "Install AWS CLI and add awsci.yml"
+    value: Enabled
+    options:
+      - Enabled
+      - Disabled
   VIRTUAL_ENV_PKGS:
     description: "Create a virtualenv for bitbake with these pypi packages installed"
     value: "boto3"
@@ -61,6 +67,7 @@ variables:
     - mkdir --verbose --parents $KAS_WORK_DIR $KAS_REPO_REF_DIR $SSTATE_DIR $DL_DIR $TOOLCHAIN_DIR $TOOLCHAIN_LINK_DIR $IMAGE_DIR
     - if [ "$GITLAB_REDIRECT" == "Enabled" ]; then git config --global url."${CI_SERVER_PROTOCOL}://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}:${CI_SERVER_PORT}/github/".insteadOf "git://github.com/"; fi
     - if [ "$GITLAB_REDIRECT" == "Enabled" ]; then git config --global url."${CI_SERVER_PROTOCOL}://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}:${CI_SERVER_PORT}/github/".insteadOf "https://github.com/"; fi
+    - if [ "$ENABLE_AWS_SUPPORT" == "Enabled" ]; then bash scripts/install_awscli.sh; fi
     - if [ -n "$VIRTUAL_ENV_PKGS" ]; then bash scripts/create_virtualenv.sh "${CI_PROJECT_DIR}" "meta-virtualenv" "${VIRTUAL_ENV_PKGS}"; echo "DEBUG ${CI_PROJECT_DIR}/meta-virtualenv/layer.conf"; cat "${CI_PROJECT_DIR}/meta-virtualenv/conf/layer.conf"; fi
 
 
@@ -72,10 +79,12 @@ build-job:
   rules:
     - when: manual
   script:
+    - export PATH="$HOME/.local/bin:$PATH"
     - virtualenv venv
     - source venv/bin/activate
     - pip3 install kas
     - cd $CI_PROJECT_DIR/kas
+    - if [ "$ENABLE_AWS_SUPPORT" == "Enabled" ]; then EXTRA_KAS_YAML="${EXTRA_KAS_YAML}${EXTRA_KAS_YAML:+:}awsci.yml"; fi
     - |
       if [[ -n "$META_ROS_GIT" ]] && [[ -n "$META_ROS_BRANCH" ]]; then
         cat <<EOF > custom-meta-ros.yml
