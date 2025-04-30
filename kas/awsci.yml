@@ -7,7 +7,6 @@ repos:
   tegra-demo-distro:
     url: "https://github.com/robwoolley/tegra-demo-distro.git"
     path: "layers/tegra-demo-distro"
-    branch: "ci-fixes"
     layers:
       layers/meta-demo-ci:
 
