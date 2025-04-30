@@ -66,9 +66,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros-navigation/nav2_minimal_turtlebot_simulation-release/archive/release/jazzy/nav2_minimal_tb4_sim/1.0.1-1.tar.gz
+# matches with: https://github.com/ros2-gbp/nav2_minimal_turtlebot_simulation-release/archive/release/jazzy/nav2_minimal_tb4_sim/1.0.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/jazzy/nav2_minimal_tb4_sim"
-SRC_URI = "git://github.com/ros-navigation/nav2_minimal_turtlebot_simulation-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/nav2_minimal_turtlebot_simulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8761baaf35829730ab24dbd553f7d437b4a542dc"
 S = "${WORKDIR}/git"
 
