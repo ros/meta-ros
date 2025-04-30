@@ -785,6 +785,8 @@ wx-common:
 - wxwidgets@meta-ros-common
 wxwidgets:
 - wxwidgets@meta-ros-common
+xclip:
+- ${ROS_UNRESOLVED_DEP-xclip}
 xsimd:
 - xsimd@meta-ros2
 xtensor:
