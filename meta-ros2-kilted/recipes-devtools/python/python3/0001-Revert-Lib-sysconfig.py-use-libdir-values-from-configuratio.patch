@@ -1,0 +1,43 @@
+Revert "Lib/sysconfig.py: use libdir values from configuration file"
+
+This reverts "0001-Revert-Lib-sysconfig.py-use-libdir-values-from-configuratio.patch"
+to match the change made upstream in oe-core during the Python 3.10
+update.
+
+See commit fae4ba632bc739cdf7369659f9b3bea2dd1cde45 for details.
+
+"native and target 0001-Lib-sysconfig.py-use-libdir-values-from-configuratio.patch
+replaced by native-only 0001-Lib-sysconfig.py-use-prefix-value-from-build-configu.patch
+which is more reboust against upstream changes, and keeps target code unmodified.
+
+This however necessitated adding 0001-sysconfig.py-use-platlibdir-also-for-purelib.patch
+to avoid hardcoding 'lib' on target builds as libdir."
+
+Signed-off-by: Alexander Kanavin <alex@linutronix.de>
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+ Lib/sysconfig.py | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/Lib/sysconfig.py b/Lib/sysconfig.py
+index bf04ac5..ed0462b 100644
+--- a/Lib/sysconfig.py
++++ b/Lib/sysconfig.py
+@@ -20,10 +20,10 @@ __all__ = [
+ 
+ _INSTALL_SCHEMES = {
+     'posix_prefix': {
+-        'stdlib': '{LIBDEST}',
+-        'platstdlib': '{LIBDEST}',
+-        'purelib': '{LIBDEST}/site-packages',
+-        'platlib': '{LIBDEST}/site-packages',
++        'stdlib': '{installed_base}/{platlibdir}/python{py_version_short}',
++        'platstdlib': '{platbase}/{platlibdir}/python{py_version_short}',
++        'purelib': '{base}/lib/python{py_version_short}/site-packages',
++        'platlib': '{platbase}/{platlibdir}/python{py_version_short}/site-packages',
+         'include':
+             '{installed_base}/include/python{py_version_short}{abiflags}',
+         'platinclude':
+-- 
+2.24.0
+

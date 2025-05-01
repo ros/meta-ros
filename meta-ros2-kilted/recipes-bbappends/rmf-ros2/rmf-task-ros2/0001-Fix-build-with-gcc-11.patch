@@ -1,0 +1,82 @@
+From c99b4fb39cd25d2f806c5843c23a24e55724451a Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 8 Jul 2021 17:40:24 +0000
+Subject: [PATCH] Fix build with gcc-11
+
+* fixes:
+FAILED: CMakeFiles/rmf_task_ros2.dir/src/rmf_task_ros2/bidding/Auctioneer.cpp.o
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/recipe-sysroot-native/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++ -DDEFAULT_RMW_IMPLEMENTATION=rmw_cyclonedds_cpp -Drmf_task_ros2_EXPORTS -I/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/include -I/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/recipe-sysroot/usr/include/eigen3 -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0=/usr/src/debug/rmf-task-ros2/1.3.0-3-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0=/usr/src/debug/rmf-task-ros2/1.3.0-3-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/recipe-sysroot -Wall -Wextra -Wpedantic -fPIC -std=gnu++17 -MD -MT CMakeFiles/rmf_task_ros2.dir/src/rmf_task_ros2/bidding/Auctioneer.cpp.o -MF CMakeFiles/rmf_task_ros2.dir/src/rmf_task_ros2/bidding/Auctioneer.cpp.o.d -o CMakeFiles/rmf_task_ros2.dir/src/rmf_task_ros2/bidding/Auctioneer.cpp.o -c /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp
+In file included from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/internal_Auctioneer.hpp:23,
+                 from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp:18:
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/include/rmf_task_ros2/bidding/Auctioneer.hpp:46:18: error: 'optional' in namespace 'std' does not name a template type
+   46 |       const std::optional<Submission> winner)>;
+      |                  ^~~~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/include/rmf_task_ros2/bidding/Auctioneer.hpp:24:1: note: 'std::optional' is defined in header '<optional>'; did you forget to '#include <optional>'?
+   23 | #include <rmf_utils/impl_ptr.hpp>
+  +++ |+#include <optional>
+   24 |
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/include/rmf_task_ros2/bidding/Auctioneer.hpp:46:26: error: expected ',' or '...' before '<' token
+   46 |       const std::optional<Submission> winner)>;
+      |                          ^
+In file included from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp:18:
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/internal_Auctioneer.hpp:74:8: error: 'optional' in namespace 'std' does not name a template type
+   74 |   std::optional<Submission> evaluate(const Submissions& submissions);
+      |        ^~~~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/internal_Auctioneer.hpp:28:1: note: 'std::optional' is defined in header '<optional>'; did you forget to '#include <optional>'?
+   27 | #include <rmf_task_ros2/StandardNames.hpp>
+  +++ |+#include <optional>
+   28 |
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/internal_Auctioneer.hpp:83:6: error: 'optional' in namespace 'std' does not name a template type
+   83 | std::optional<Submission> evaluate(
+      |      ^~~~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/internal_Auctioneer.hpp:83:1: note: 'std::optional' is defined in header '<optional>'; did you forget to '#include <optional>'?
+   83 | std::optional<Submission> evaluate(
+      | ^~~
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp: In member function 'bool rmf_task_ros2::bidding::Auctioneer::Implementation::determine_winner(const rmf_task_ros2::bidding::Auctioneer::Implementation::BiddingTask&)':
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp:129:10: error: 'optional' is not a member of 'std'
+  129 |     std::optional<Submission> winner = std::nullopt;
+      |          ^~~~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp:19:1: note: 'std::optional' is defined in header '<optional>'; did you forget to '#include <optional>'?
+   18 | #include "internal_Auctioneer.hpp"
+  +++ |+#include <optional>
+   19 |
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp:129:29: error: expected primary-expression before '>' token
+  129 |     std::optional<Submission> winner = std::nullopt;
+      |                             ^
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp:129:31: error: 'winner' was not declared in this scope
+  129 |     std::optional<Submission> winner = std::nullopt;
+      |                               ^~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp:129:45: error: 'nullopt' is not a member of 'std'
+  129 |     std::optional<Submission> winner = std::nullopt;
+      |                                             ^~~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp:138:16: error: 'evaluate' was not declared in this scope; did you mean 'evaluator'?
+  138 |       winner = evaluate(bidding_task.submissions);
+      |                ^~~~~~~~
+      |                evaluator
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp: At global scope:
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp:156:6: error: 'optional' in namespace 'std' does not name a template type
+  156 | std::optional<Submission> Auctioneer::Implementation::evaluate(
+      |      ^~~~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/rmf-task-ros2/1.3.0-3-r0/git/src/rmf_task_ros2/bidding/Auctioneer.cpp:156:1: note: 'std::optional' is defined in header '<optional>'; did you forget to '#include <optional>'?
+  156 | std::optional<Submission> Auctioneer::Implementation::evaluate(
+      | ^~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/rmf_task_ros2/bidding/Auctioneer.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/rmf_task_ros2/bidding/Auctioneer.hpp b/include/rmf_task_ros2/bidding/Auctioneer.hpp
+index 4b9b5a8..2f5fc5f 100644
+--- a/include/rmf_task_ros2/bidding/Auctioneer.hpp
++++ b/include/rmf_task_ros2/bidding/Auctioneer.hpp
+@@ -19,6 +19,7 @@
+ #define RMF_TASK_ROS2__BIDDING__AUCTIONEER_HPP
+ 
+ #include <queue>
++#include <optional>
+ #include <rclcpp/node.hpp>
+ #include <rmf_utils/impl_ptr.hpp>
+ 
