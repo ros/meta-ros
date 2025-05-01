@@ -1,0 +1,12 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -26,6 +26,7 @@ set(PROJECT_DEPENDENCIES
+   as2_motion_reference_handlers
+   geometry_msgs
+   Eigen3
++  GeographicLib
+ )
+ 
+ foreach(DEPENDENCY ${PROJECT_DEPENDENCIES})

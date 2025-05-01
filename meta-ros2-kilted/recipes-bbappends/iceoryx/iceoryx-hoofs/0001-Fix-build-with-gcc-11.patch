@@ -1,0 +1,60 @@
+From 626d6886671e1eac636e27f31c5f5207c9ff524d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 4 May 2021 23:34:48 -0700
+Subject: [PATCH] Fix build with gcc-11
+
+* fixes:
+FAILED: CMakeFiles/iceoryx_utils.dir/source/relocatable_pointer/base_relative_pointer.cpp.o
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -Diceoryx_utils_EXPORTS -I/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include -I/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/platform/linux/include -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0=/usr/src/debug/iceoryx-utils/0.99.7-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0=/usr/src/debug/iceoryx-utils/0.99.7-1-r0                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/recipe-sysroot=                      -fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/recipe-sysroot -fPIC -W -Wall -Wextra -Wuninitialized -Wpedantic -Wstrict-aliasing -Wcast-align -Wno-noexcept-type -Wconversion -std=gnu++14 -MD -MT CMakeFiles/iceoryx_utils.dir/source/relocatable_pointer/base_relative_pointer.cpp.o -MF CMakeFiles/iceoryx_utils.dir/source/relocatable_pointer/base_relative_pointer.cpp.o.d -o CMakeFiles/iceoryx_utils.dir/source/relocatable_pointer/base_relative_pointer.cpp.o -c /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/source/relocatable_pointer/base_relative_pointer.cpp
+In file included from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include/iceoryx_utils/internal/relocatable_pointer/base_relative_pointer.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/source/relocatable_pointer/base_relative_pointer.cpp:18:
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include/iceoryx_utils/internal/relocatable_pointer/pointer_repository.hpp:52:45: error: 'numeric_limits' is not a member of 'std'
+   52 |     static constexpr id_t INVALID_ID = std::numeric_limits<id_t>::max();
+      |                                             ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include/iceoryx_utils/internal/relocatable_pointer/pointer_repository.hpp:52:64: error: expected primary-expression before '>' token
+   52 |     static constexpr id_t INVALID_ID = std::numeric_limits<id_t>::max();
+      |                                                                ^
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include/iceoryx_utils/internal/relocatable_pointer/pointer_repository.hpp:52:67: error: '::max' has not been declared; did you mean 'std::max'?
+   52 |     static constexpr id_t INVALID_ID = std::numeric_limits<id_t>::max();
+      |                                                                   ^~~
+      |                                                                   std::max
+In file included from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/recipe-sysroot/usr/include/c++/11.1.0/algorithm:62,
+                 from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include/iceoryx_utils/cxx/vector.hpp:20,
+                 from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include/iceoryx_utils/internal/relocatable_pointer/pointer_repository.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include/iceoryx_utils/internal/relocatable_pointer/base_relative_pointer.hpp:21,
+                 from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/source/relocatable_pointer/base_relative_pointer.cpp:18:
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/recipe-sysroot/usr/include/c++/11.1.0/bits/stl_algo.h:3467:5: note: 'std::max' declared here
+ 3467 |     max(initializer_list<_Tp> __l, _Compare __comp)
+      |     ^~~
+In file included from /jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/source/relocatable_pointer/base_relative_pointer.cpp:18:
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include/iceoryx_utils/internal/relocatable_pointer/base_relative_pointer.hpp:173:50: error: 'numeric_limits' is not a member of 'std'
+  173 |     static constexpr id_t NULL_POINTER_ID = std::numeric_limits<id_t>::max();
+      |                                                  ^~~~~~~~~~~~~~
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include/iceoryx_utils/internal/relocatable_pointer/base_relative_pointer.hpp:173:69: error: expected primary-expression before '>' token
+  173 |     static constexpr id_t NULL_POINTER_ID = std::numeric_limits<id_t>::max();
+      |                                                                     ^
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-utils/0.99.7-1-r0/git/include/iceoryx_utils/internal/relocatable_pointer/base_relative_pointer.hpp:173:72: error: '::max' has not been declared; did you mean 'std::max'?
+  173 |     static constexpr id_t NULL_POINTER_ID = std::numeric_limits<id_t>::max();
+      |                                                                        ^~~
+      |                                                                        std::max
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ .../internal/relocatable_pointer/base_relative_pointer.hpp       | 1 +
+ .../internal/relocatable_pointer/pointer_repository.hpp          | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/include/iceoryx_hoofs/internal/relocatable_pointer/base_relative_pointer.hpp b/include/iceoryx_hoofs/internal/relocatable_pointer/base_relative_pointer.hpp
+index 9ad88e5..dd6711b 100644
+--- a/include/iceoryx_hoofs/internal/relocatable_pointer/base_relative_pointer.hpp
++++ b/include/iceoryx_hoofs/internal/relocatable_pointer/base_relative_pointer.hpp
+@@ -20,6 +20,7 @@
+ 
+ #include "pointer_repository.hpp"
+ 
++#include <limits>
+ #include <cstdint>
+ 
+ namespace iox

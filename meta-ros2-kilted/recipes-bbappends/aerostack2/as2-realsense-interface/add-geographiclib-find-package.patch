@@ -1,0 +1,12 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -21,6 +21,7 @@ set(PROJECT_DEPENDENCIES
+   realsense2
+   tf2
+   tf2_ros
++  GeographicLib
+   )
+ 
+ foreach(dependency ${PROJECT_DEPENDENCIES})

@@ -1,0 +1,26 @@
+Index: git/cmake/ament_python_install_module.cmake
+===================================================================
+--- git.orig/cmake/ament_python_install_module.cmake
++++ git/cmake/ament_python_install_module.cmake
+@@ -65,7 +65,7 @@ function(_ament_cmake_python_install_mod
+       "execute_process(
+         COMMAND
+         \"${python_interpreter}\" \"-m\" \"compileall\"
+-        \"${CMAKE_INSTALL_PREFIX}/${destination}/${module_file}\"
++	\"\$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/${destination}/${module_file}\"
+       )"
+     )
+   endif()
+Index: git/cmake/ament_python_install_package.cmake
+===================================================================
+--- git.orig/cmake/ament_python_install_package.cmake
++++ git/cmake/ament_python_install_package.cmake
+@@ -195,7 +195,7 @@ setup(
+       "execute_process(
+         COMMAND
+         \"${python_interpreter_config}\" \"-m\" \"compileall\"
+-        \"${CMAKE_INSTALL_PREFIX}/${ARG_DESTINATION}/${package_name}\"
++	\"\$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/${ARG_DESTINATION}/${package_name}\"
+       )"
+     )
+   endif()

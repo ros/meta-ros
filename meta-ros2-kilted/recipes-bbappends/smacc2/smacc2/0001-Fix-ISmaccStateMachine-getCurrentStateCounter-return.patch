@@ -1,0 +1,61 @@
+From 0a599c7cd573a8cca85302b0ad61f6d6ab4ba30d Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 27 Sep 2021 09:26:38 -0700
+Subject: [PATCH] Fix ISmaccStateMachine::getCurrentStateCounter return type
+
+* the declaration and implementation don't match:
+  include/smacc2/impl/smacc_state_machine_impl.hpp:uint64_t ISmaccStateMachine::getCurrentStateCounter() const { return this->stateSeqCounter_; }
+  include/smacc2/smacc_state_machine.hpp:  inline unsigned long getCurrentStateCounter() const;
+
+  and e.g. 32bit x86 it fails with:
+FAILED: CMakeFiles/smacc2.dir/src/smacc2/smacc_client_behavior.cpp.o
+TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/recipe-sysroot-native/usr/bin/i686-webos-linux/i686-webos-linux-g++ -DBOOST_ALL_NO_LIB -DBOOST_THREAD_DYN_LINK -DDEFAULT_RMW_IMPLEMENTATION=rmw_cyclonedds_cpp -Dsmacc2_EXPORTS -ITOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/recipe-sysroot  -O2 -pipe -g -feliminate-unused-debug-types -fmacro-prefix-map=TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0=/usr/src/debug/smacc2/0.1.0-1-r0                      -fdebug-prefix-map=TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0=/usr/src/debug/smacc2/0.1.0-1-r0                      -fdebug-prefix-map=TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/recipe-sysroot=                      -fdebug-prefix-map=TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/recipe-sysroot-native=  -fvisibility-inlines-hidden   -m32 -march=core2 -mtune=core2 -msse3 -mfpmath=sse -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Werror=return-type  --sysroot=TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/recipe-sysroot -fPIC -Wall -Wextra -Wpedantic -std=gnu++17 -MD -MT CMakeFiles/smacc2.dir/src/smacc2/smacc_client_behavior.cpp.o -MF CMakeFiles/smacc2.dir/src/smacc2/smacc_client_behavior.cpp.o.d -o CMakeFiles/smacc2.dir/src/smacc2/smacc_client_behavior.cpp.o -c TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/src/smacc2/smacc_client_behavior.cpp
+In file included from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/recipe-sysroot/usr/include/boost/bind.hpp:30,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/recipe-sysroot/usr/include/boost/statechart/fifo_worker.hpp:14,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/recipe-sysroot/usr/include/boost/statechart/fifo_scheduler.hpp:12,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/recipe-sysroot/usr/include/boost/statechart/asynchronous_state_machine.hpp:12,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/common.hpp:23,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/smacc_client_behavior_base.hpp:25,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/smacc_client_behavior.hpp:22,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/src/smacc2/smacc_client_behavior.cpp:15:
+TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/recipe-sysroot/usr/include/boost/bind.hpp:36:1: note: '#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.'
+   36 | BOOST_PRAGMA_MESSAGE(
+      | ^~~~~~~~~~~~~~~~~~~~
+In file included from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/impl/smacc_client_impl.hpp:23,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/smacc_state_machine.hpp:231,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/impl/smacc_client_behavior_impl.hpp:23,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/smacc_client_behavior.hpp:34,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/src/smacc2/smacc_client_behavior.cpp:15:
+TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/impl/smacc_state_machine_impl.hpp:643:10: error: no declaration matches 'uint64_t smacc2::ISmaccStateMachine::getCurrentStateCounter() const'
+  643 | uint64_t ISmaccStateMachine::getCurrentStateCounter() const { return this->stateSeqCounter_; }
+      |          ^~~~~~~~~~~~~~~~~~
+In file included from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/impl/smacc_client_behavior_impl.hpp:23,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/smacc_client_behavior.hpp:34,
+                 from TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/src/smacc2/smacc_client_behavior.cpp:15:
+TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/smacc_state_machine.hpp:140:24: note: candidate is: 'long unsigned int smacc2::ISmaccStateMachine::getCurrentStateCounter() const'
+  140 |   inline unsigned long getCurrentStateCounter() const;
+      |                        ^~~~~~~~~~~~~~~~~~~~~~
+TOPDIR/tmp-glibc/work/qemux86-webos-linux/smacc2/0.1.0-1-r0/git/include/smacc2/smacc_state_machine.hpp:63:7: note: 'class smacc2::ISmaccStateMachine' defined here
+   63 | class ISmaccStateMachine
+      |       ^~~~~~~~~~~~~~~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/smacc2/impl/smacc_state_machine_impl.hpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/smacc2/impl/smacc_state_machine_impl.hpp b/include/smacc2/impl/smacc_state_machine_impl.hpp
+index c2d7b3c..f3e29ed 100644
+--- a/include/smacc2/impl/smacc_state_machine_impl.hpp
++++ b/include/smacc2/impl/smacc_state_machine_impl.hpp
+@@ -640,7 +640,7 @@ void ISmaccStateMachine::buildStateMachineInfo()
+   this->checkStateMachineConsistence();
+ }
+ 
+-uint64_t ISmaccStateMachine::getCurrentStateCounter() const { return this->stateSeqCounter_; }
++unsigned long ISmaccStateMachine::getCurrentStateCounter() const { return this->stateSeqCounter_; }
+ 
+ ISmaccState * ISmaccStateMachine::getCurrentState() const { return this->currentState_; }
+ 
