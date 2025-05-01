@@ -1,0 +1,44 @@
+From b2b73fe1ccbc8f97b32a812473117ccd664b8339 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 15 Nov 2021 03:37:56 -0800
+Subject: [PATCH] CMakeLists.txt: prevent duplicate rule for domain_bridge
+
+* fixes:
+| CMake Error:
+|   Running
+|
+|    'ninja' '-C' '/jenkins/mjansa/build/ros/webos-galactic-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/domain-bridge/0.4.0-1-r0/build' '-t' 'recompact'
+|
+|   failed with:
+|
+|    ninja: error: build.ninja:180: multiple rules generate domain_bridge [-w dupbuild=err]
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 98d0ef3..ea063e5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -27,7 +27,7 @@ find_package(yaml_cpp_vendor REQUIRED)
+ find_package(PkgConfig REQUIRED)
+ pkg_check_modules(ZSTD libzstd REQUIRED)
+ 
+-rosidl_generate_interfaces(${PROJECT_NAME}
++rosidl_generate_interfaces(${PROJECT_NAME}_rosidl
+   msg/CompressedMsg.msg
+ )
+ 
+@@ -58,7 +58,7 @@ ament_target_dependencies(${PROJECT_NAME}_lib
+ )
+ 
+ rosidl_get_typesupport_target(cpp_typesupport_target
+-  ${PROJECT_NAME} "rosidl_typesupport_cpp")
++  ${PROJECT_NAME}_rosidl "rosidl_typesupport_cpp")
+ target_link_libraries(${PROJECT_NAME}_lib "${cpp_typesupport_target}")
+ 
+ set_target_properties(${PROJECT_NAME}_lib PROPERTIES OUTPUT_NAME ${PROJECT_NAME})

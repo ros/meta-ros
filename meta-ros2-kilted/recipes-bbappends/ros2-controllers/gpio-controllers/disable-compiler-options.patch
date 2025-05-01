@@ -1,0 +1,29 @@
+Disable compiler options
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 62274b0cf9..9369753b99 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,12 +1,6 @@
+ cmake_minimum_required(VERSION 3.8)
+ project(gpio_controllers)
+ 
+-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-  add_compile_options(-Wall -Wextra -Wpedantic -Werror=conversion -Werror=unused-but-set-variable
+-  -Werror=return-type -Werror=shadow -Werror=format  -Werror=range-loop-construct
+-  -Werror=missing-braces)
+-endif()
+-
+ # using this instead of visibility macros
+ # S1 from https://github.com/ros-controls/ros2_controllers/issues/1053
+ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+-- 
+2.43.0
+

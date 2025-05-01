@@ -1,0 +1,49 @@
+Use system dependencies
+
+Instead of making private vendor copies we should instead use
+the libraries provided by the system.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -4,6 +4,11 @@ project(rviz_ogre_vendor)
+ find_package(ament_cmake REQUIRED)
+ find_package(ament_cmake_vendor_package REQUIRED)
+ 
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(freetype2 REQUIRED freetype2)
++pkg_check_modules(OGRE REQUIRED OGRE)
++pkg_check_modules(zlib REQUIRED zlib)
++
+ if(WIN32)
+   set(FREETYPE_C_FLAGS "${CMAKE_C_FLAGS}")
+   if(MSVC)
+@@ -14,6 +19,7 @@ if(WIN32)
+   endif()
+ 
+   ament_vendor(freetype_vendor
++    SATISFIED ${freetype2_FOUND}
+     VCS_URL https://git.savannah.gnu.org/git/freetype/freetype2.git
+     VCS_VERSION VER-2-13-2
+     CMAKE_ARGS
+@@ -30,6 +36,7 @@ if(WIN32)
+   endif()
+ 
+   ament_vendor(zlib_vendor
++    SATISFIED ${zlib_FOUND}
+     VCS_URL https://github.com/madler/zlib.git
+     VCS_VERSION v1.3
+     CMAKE_ARGS
+@@ -80,6 +87,7 @@ if(APPLE)
+ endif()
+ 
+ ament_vendor(ogre_vendor
++  SATISFIED ${OGRE_FOUND}
+   VCS_URL https://github.com/OGRECave/ogre.git
+   VCS_VERSION v1.12.10
+   CMAKE_ARGS

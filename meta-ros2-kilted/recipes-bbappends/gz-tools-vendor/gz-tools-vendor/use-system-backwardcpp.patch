@@ -1,0 +1,11 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b30781b..f872685 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -34,6 +34,7 @@ ament_vendor(${LIB_NAME_UNDERSCORE}_vendor
+   VCS_VERSION ${GITHUB_NAME}${LIB_VER_MAJOR}_${LIB_VER}
+   CMAKE_ARGS
+     -DBUILD_DOCS:BOOL=OFF
++    -DUSE_SYSTEM_BACKWARDCPP=ON
+   GLOBAL_HOOK
+ )
