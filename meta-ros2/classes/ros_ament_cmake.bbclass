@@ -13,7 +13,10 @@ PYTHON_SOABI_ARCH_SUFFIX:arm = ""
 # Another exception is i686 TUNE_ARCH in dunfell and newer with this change:
 # https://git.openembedded.org/openembedded-core/commit/?h=dunfell&id=6beab388e73b3ac6157650855a6c1fb1d71e8015
 PYTHON_SOABI_ARCH:i686 = "i386-${TARGET_OS}"
-PYTHON_SOABI = "cpython-${@d.getVar('PYTHON_BASEVERSION').replace('.', '')}${PYTHON_ABI}-${PYTHON_SOABI_ARCH}${PYTHON_SOABI_ARCH_SUFFIX}"
+# Add in hf suffix if on a hard float capable device
+HF = ""
+HF:class-target = "${@ bb.utils.contains('TUNE_CCARGS_MFLOAT', 'hard', 'hf', '', d)}"
+PYTHON_SOABI = "cpython-${@d.getVar('PYTHON_BASEVERSION').replace('.', '')}${PYTHON_ABI}-${PYTHON_SOABI_ARCH}${PYTHON_SOABI_ARCH_SUFFIX}${HF}"
 
 EXTRA_OECMAKE:append = " -DBUILD_TESTING=OFF"
 EXTRA_OECMAKE:append:class-target = " -DPYTHON_SOABI=${PYTHON_SOABI}"
