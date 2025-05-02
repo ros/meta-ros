@@ -1,6 +1,8 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2023 Wind River Systems, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 # Without the target dependencies, ament finds the native packages and then fails to link (error: incompatible target).
 ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-c-native \
