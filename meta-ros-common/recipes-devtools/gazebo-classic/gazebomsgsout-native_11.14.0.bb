@@ -19,7 +19,6 @@ OECMAKE_GENERATOR = "Unix Makefiles"
 EXTRA_OECMAKE = " \
     -DINSTALL_GAZEBOMSGS_OUT_EXECUTABLE:BOOL=ON \
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
-    -DGZ_PROTOBUF_USE_CMAKE_CONFIG:BOOL=ON \
 "
 
 inherit cmake pkgconfig
@@ -33,8 +32,8 @@ DEPENDS = " \
 "
 
 do_configure:prepend() {
-    cp ${UNPACKDIR}/gazebomsgs_out-CMakeLists.txt ${S}/CMakeLists.txt
-    cp ${UNPACKDIR}/gazebomsgs_out-gazebo-msgs-CMakeLists.txt ${S}/gazebo/msgs/CMakeLists.txt
+    cp ${WORKDIR}/gazebomsgs_out-CMakeLists.txt ${S}/CMakeLists.txt
+    cp ${WORKDIR}/gazebomsgs_out-gazebo-msgs-CMakeLists.txt ${S}/gazebo/msgs/CMakeLists.txt
 }
 
 inherit native
