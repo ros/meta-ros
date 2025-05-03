@@ -1,0 +1,51 @@
+Use configure_package_config_file
+
+The stage_ros package failed to build because the stage-config.cmake
+file contained an absolute target path.
+
+Using configure_package_config_file instead of configure_file allows
+us to generate an appropriate CMake config file.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -187,7 +187,16 @@ else()
+   get_filename_component(STAGE_TARGET_NAME "${location_}" NAME)
+   unset(location_)
+ endif()
+-CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/stage-config.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/stage-config.cmake @ONLY)
++set(INCLUDE_INSTALL_DIR "include")
++set(SHARE_CMAKE_INSTALL_DIR "share/${PROJECT_NAME}/cmake")
++include(CMakePackageConfigHelpers)
++configure_package_config_file(
++  ${CMAKE_CURRENT_SOURCE_DIR}/stage-config.cmake.in
++  ${CMAKE_CURRENT_BINARY_DIR}/stage-config.cmake
++  INSTALL_DESTINATION "${SHARE_CMAKE_INSTALL_DIR}"
++  PATH_VARS "INCLUDE_INSTALL_DIR"
++)
++
+ if (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.${CMAKE_PATCH_VERSION} GREATER 2.8.11)
+   # Also run it through file(GENERATE ...) to expand generator expressions (if the version of cmake supports it).
+   FILE (GENERATE
+Index: git/stage-config.cmake.in
+===================================================================
+--- git.orig/stage-config.cmake.in
++++ git/stage-config.cmake.in
+@@ -1,9 +1,11 @@
++@PACKAGE_INIT@
++
+ # - Config file for Stage
+ # It defines the following variables:
+ #    STAGE_INCLUDE_DIRS - Stage Include directories
+ #    STAGE_LIBRARIES    - Stage link libraries
+ 
+-set(STAGE_INCLUDE_DIRS "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME@-@APIVERSION@"
++set(STAGE_INCLUDE_DIRS "@PACKAGE_INCLUDE_INSTALL_DIR@/@PROJECT_NAME@-@APIVERSION@"
+   "@FLTK_INCLUDE_DIR@"
+   "@OPENGL_INCLUDE_DIR@")
+ list(REMOVE_DUPLICATES STAGE_INCLUDE_DIRS)
