@@ -33,8 +33,6 @@ ROS_WORLD_SKIP_GROUPS += "lisp"
 # http://cgit.openembedded.org/meta-openembedded/commit/meta-oe/recipes-core/glfw/glfw_3.3.bb?id=a7464eaa69a7ee4734001aab2e232102e7135772
 # but we don't have a backports layer from dunfell yet, lets skip it for now
 ROS_WORLD_SKIP_GROUPS += "glfw"
-# recipes depending on gazebo, for which there is no OE recipe
-ROS_WORLD_SKIP_GROUPS += "gazebo"
 # recipes depending on wxpython
 ROS_WORLD_SKIP_GROUPS += "wxpython"
 # recipes depending on libnlopt0 (http://neuro.debian.net/pkgs/libnlopt0.html)
@@ -42,8 +40,6 @@ ROS_WORLD_SKIP_GROUPS += "trac-ik"
 # recipes depending on libogre
 # there was ogre recipe in OE-classic 10 years ago:
 # https://github.com/openembedded/openembedded/blob/master/recipes/ogre/ogre-egl_svn.bb
-# but wasn'te ever ported to new layers
-ROS_WORLD_SKIP_GROUPS += "ogre"
 # recipes depending on python-scipy
 ROS_WORLD_SKIP_GROUPS += "python-scipy"
 # recipes depending on python-speechrecognition-pip
@@ -64,12 +60,6 @@ ROS_WORLD_SKIP_GROUPS += "clang-tidy"
 ROS_WORLD_SKIP_GROUPS += "turtlebot3"
 # recipes depending on muparser
 ROS_WORLD_SKIP_GROUPS += "muparser"
-# recipes depending on openni (libopenni-dev)
-ROS_WORLD_SKIP_GROUPS += "openni"
-# recipes depending on openni2 (libopenni2-dev)
-ROS_WORLD_SKIP_GROUPS += "openni2"
-# recipes depending on coinor-libipopt
-ROS_WORLD_SKIP_GROUPS += "coinor-libipopt"
 # recipes depending on libvtk-qt
 ROS_WORLD_SKIP_GROUPS += "vtk-qt"
 # recipes depending on libopenscenegraph
@@ -109,8 +99,6 @@ ROS_WORLD_SKIP_GROUPS += "libspnav"
 ROS_WORLD_SKIP_GROUPS += "heifu-ros-utils"
 # expects users to install official IDS uEye drivers (http://en.ids-imaging.com/download-ueye.html)
 ROS_WORLD_SKIP_GROUPS += "ueye"
-# recipes depending on ignition-* (ROS_UNRESOLVED_DEP-ignition-math6, ROS_UNRESOLVED_DEP-ignition-msgs5, ROS_UNRESOLVED_DEP-ignition-transport8)
-ROS_WORLD_SKIP_GROUPS += "ignition"
 # recipes depending on python3-wxgtk4.0
 ROS_WORLD_SKIP_GROUPS += "python3-wxgtk4.0"
 # recipes depending on xclip
@@ -168,7 +156,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     p2os-urdf \
     pointgrey-camera-driver \
     pr2-description \
-    qt-gui-cpp \
     rail-mesh-icp \
     robot-body-filter \
     ros-reflexxes \
@@ -180,7 +167,6 @@ ROS_WORLD_SKIP_GROUPS += " \
     schunk-libm5api \
     schunk-sdh \
     soem \
-    stage-ros \
     usb-cam-controllers \
     wamv-description \
 "
@@ -193,12 +179,8 @@ ROS_WORLD_SKIP_GROUPS += " \
 
 # recipes depending on various unavailable python modules
 # ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-cairosvg' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-joblib' (but generated-recipes/fiducials/aruco-detect_0.11.0-1.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-urlgrabber' (but generated-recipes/jsk-visualization/jsk-rqt-plugins_2.1.5.bb DEPENDS on or otherwise requires it)
 # ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-sklearn' (but generated-recipes/jsk-visualization/jsk-rqt-plugins_2.1.5.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-cairo' (but generated-recipes/rqt-bag/rqt-bag-plugins_0.4.12.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing PROVIDES 'ROS_UNRESOLVED_DEP-python-opengl' (but generated-recipes/rqt-pose-view/rqt-pose-view_0.5.8.bb DEPENDS on or otherwise requires it)
-# ERROR: Nothing RPROVIDES 'ROS_UNRESOLVED_DEP-python-termcolor' (but generated-recipes/criutils/criutils_0.1.3-2.bb RDEPENDS on or otherwise requires it)
 ROS_WORLD_SKIP_GROUPS += "python-deps"
 
 # recipes depending on something from meta-qt5 layer
@@ -222,12 +204,6 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains_any('LICENSE_FLAGS_ACCEPTED', ['c
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains_any('LICENSE_FLAGS_ACCEPTED', ['commercial', 'gstreamer1.0-plugins-ugly', 'commercial_gstreamer1.0-plugins-ugly'], '', 'gst-ugly', d)}"
 # recipes depending on vlc from meta-multimedia layer which depends on ffmpeg which has commercial LICENSE_FLAGS restriction
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains_any('LICENSE_FLAGS_ACCEPTED', ['commercial', 'vlc', 'commercial_vlc'], '', 'vlc', d)}"
-
-# recipes depending on python*-pyqt5 from meta-qt5 layer
-# Use separate group, because e.g. webOS OSE has meta-qt5 layer included, but python*-pyqt5
-# is blacklisted, because webOS OSE is missing newer meta-qt5 from warrior with older meta-oe thud which has
-# incompatible old sip
-ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'pyqt5', d)}"
 
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
