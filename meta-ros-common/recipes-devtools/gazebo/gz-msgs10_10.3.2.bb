@@ -1,7 +1,7 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 include gz-msgs10.inc
 
-SRCREV = "d9501cf8ab410288d8ca388971eece8ff40a67e3"
+SRCREV = "3c0ca9455a9686d71c4d7819417e434ae1b47ad6"
 
 DEPENDS = "gz-math7 gz-cmake3 gz-utils2 gz-msgs10-native libtinyxml2 protobuf protobuf-native ${PN}-native"
 DEPENDS += "${PN}-native"
@@ -13,6 +13,6 @@ EXTRA_OECMAKE += " \
 "
 
 FILES:${PN} += " \
-    ${datadir}/gz/gz1.completion.d/msgs8.bash_completion.sh \
-    ${datadir}/gz/msgs8.yaml \
+    ${datadir}/gz/gz1.completion.d/msgs10.bash_completion.sh \
+    ${datadir}/gz/msgs10.yaml \
 "
