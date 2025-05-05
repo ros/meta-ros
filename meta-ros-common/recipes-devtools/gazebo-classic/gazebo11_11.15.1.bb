@@ -65,6 +65,11 @@ EXTRA_OECMAKE = " \
 inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], '', 'cmake_qt5', d)}
 
 
+do_configure:prepend() {
+    # CMake Error: The imported target "hdf5::h5diff" references the file ... The imported target "hdf5::h5diff" references the file.
+    sed -ie '/list(APPEND _IMPORT_CHECK_FILES_FOR_hdf5::.*"${_IMPORT_PREFIX}\/bin/d' ${RECIPE_SYSROOT}/${datadir}/cmake/hdf5/hdf5-targets-relwithdebinfo.cmake
+}
+
 FILES:${PN} += " \
     ${datadir}/gazebo-11 \
     ${datadir}/gazebo \
