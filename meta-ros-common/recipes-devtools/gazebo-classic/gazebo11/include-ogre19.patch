@@ -1,0 +1,169 @@
+Include headers from OGRE19
+
+We need this specific version of OGRE for Gazebo Classic.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/gazebo/rendering/Scene.hh b/gazebo/rendering/Scene.hh
+index 58bf94ba29..7cbf45665e 100644
+--- a/gazebo/rendering/Scene.hh
++++ b/gazebo/rendering/Scene.hh
+@@ -25,7 +25,7 @@
+ #include <boost/enable_shared_from_this.hpp>
+ #include <boost/shared_ptr.hpp>
+ 
+-#include <OGRE/OgrePrerequisites.h>
++#include <OGRE19/OgrePrerequisites.h>
+ 
+ #include <sdf/sdf.hh>
+ 
+diff --git a/gazebo/rendering/ogre_gazebo.h b/gazebo/rendering/ogre_gazebo.h
+index a171782c1e..4bd458af00 100644
+--- a/gazebo/rendering/ogre_gazebo.h
++++ b/gazebo/rendering/ogre_gazebo.h
+@@ -23,73 +23,73 @@
+ // This prevents some deprecation #warning messages on OSX 10.9
+ #pragma clang diagnostic ignored "-W#warnings"
+ 
+-#include <OGRE/Ogre.h>
+-#include <OGRE/OgreBillboard.h>
+-#include <OGRE/OgreImageCodec.h>
+-#include <OGRE/OgreMovableObject.h>
+-#include <OGRE/OgreRenderable.h>
+-#include <OGRE/OgrePlugin.h>
+-#include <OGRE/OgreDataStream.h>
+-#include <OGRE/OgreLogManager.h>
+-#include <OGRE/OgreSceneQuery.h>
+-#include <OGRE/OgreRoot.h>
+-#include <OGRE/OgreSceneManager.h>
+-#include <OGRE/OgreSceneNode.h>
+-#include <OGRE/OgreVector3.h>
+-#include <OGRE/OgreMatrix4.h>
+-#include <OGRE/OgreManualObject.h>
+-#include <OGRE/OgreMaterialManager.h>
+-#include <OGRE/OgreColourValue.h>
+-#include <OGRE/OgreQuaternion.h>
+-#include <OGRE/OgreMesh.h>
+-#include <OGRE/OgreHardwareBufferManager.h>
+-#include <OGRE/OgreCamera.h>
+-#include <OGRE/OgreNode.h>
+-#include <OGRE/OgreSimpleRenderable.h>
+-#include <OGRE/OgreFrameListener.h>
+-#include <OGRE/OgreTexture.h>
+-#include <OGRE/OgreRenderObjectListener.h>
+-#include <OGRE/OgreTechnique.h>
+-#include <OGRE/OgrePass.h>
+-#include <OGRE/OgreTextureUnitState.h>
+-#include <OGRE/OgreGpuProgramManager.h>
+-#include <OGRE/OgreHighLevelGpuProgramManager.h>
+-#include <OGRE/OgreHardwarePixelBuffer.h>
+-#include <OGRE/OgreShadowCameraSetupPSSM.h>
+-#include <OGRE/Paging/OgrePageManager.h>
+-#include <OGRE/Paging/OgrePagedWorld.h>
+-#include <OGRE/Terrain/OgreTerrainPaging.h>
+-#include <OGRE/Terrain/OgreTerrainMaterialGeneratorA.h>
+-#include <OGRE/Terrain/OgreTerrain.h>
+-#include <OGRE/Terrain/OgreTerrainGroup.h>
++#include <OGRE19/Ogre.h>
++#include <OGRE19/OgreBillboard.h>
++#include <OGRE19/OgreImageCodec.h>
++#include <OGRE19/OgreMovableObject.h>
++#include <OGRE19/OgreRenderable.h>
++#include <OGRE19/OgrePlugin.h>
++#include <OGRE19/OgreDataStream.h>
++#include <OGRE19/OgreLogManager.h>
++#include <OGRE19/OgreSceneQuery.h>
++#include <OGRE19/OgreRoot.h>
++#include <OGRE19/OgreSceneManager.h>
++#include <OGRE19/OgreSceneNode.h>
++#include <OGRE19/OgreVector3.h>
++#include <OGRE19/OgreMatrix4.h>
++#include <OGRE19/OgreManualObject.h>
++#include <OGRE19/OgreMaterialManager.h>
++#include <OGRE19/OgreColourValue.h>
++#include <OGRE19/OgreQuaternion.h>
++#include <OGRE19/OgreMesh.h>
++#include <OGRE19/OgreHardwareBufferManager.h>
++#include <OGRE19/OgreCamera.h>
++#include <OGRE19/OgreNode.h>
++#include <OGRE19/OgreSimpleRenderable.h>
++#include <OGRE19/OgreFrameListener.h>
++#include <OGRE19/OgreTexture.h>
++#include <OGRE19/OgreRenderObjectListener.h>
++#include <OGRE19/OgreTechnique.h>
++#include <OGRE19/OgrePass.h>
++#include <OGRE19/OgreTextureUnitState.h>
++#include <OGRE19/OgreGpuProgramManager.h>
++#include <OGRE19/OgreHighLevelGpuProgramManager.h>
++#include <OGRE19/OgreHardwarePixelBuffer.h>
++#include <OGRE19/OgreShadowCameraSetupPSSM.h>
++#include <OGRE19/Paging/OgrePageManager.h>
++#include <OGRE19/Paging/OgrePagedWorld.h>
++#include <OGRE19/Terrain/OgreTerrainPaging.h>
++#include <OGRE19/Terrain/OgreTerrainMaterialGeneratorA.h>
++#include <OGRE19/Terrain/OgreTerrain.h>
++#include <OGRE19/Terrain/OgreTerrainGroup.h>
+ 
+ #if OGRE_VERSION_MAJOR > 1 || OGRE_VERSION_MINOR >= 7
+-#include <OGRE/RTShaderSystem/OgreRTShaderSystem.h>
+-#include <OGRE/RTShaderSystem/OgreShaderProgramSet.h>
+-#include <OGRE/RTShaderSystem/OgreShaderGLSLProgramWriter.h>
+-#include <OGRE/RTShaderSystem/OgreShaderProgramWriterManager.h>
+-#include <OGRE/RTShaderSystem/OgreShaderFunction.h>
+-#include <OGRE/RTShaderSystem/OgreShaderProgram.h>
++#include <OGRE19/RTShaderSystem/OgreRTShaderSystem.h>
++#include <OGRE19/RTShaderSystem/OgreShaderProgramSet.h>
++#include <OGRE19/RTShaderSystem/OgreShaderGLSLProgramWriter.h>
++#include <OGRE19/RTShaderSystem/OgreShaderProgramWriterManager.h>
++#include <OGRE19/RTShaderSystem/OgreShaderFunction.h>
++#include <OGRE19/RTShaderSystem/OgreShaderProgram.h>
+ #endif
+ 
+ #if OGRE_VERSION_MAJOR > 1 || OGRE_VERSION_MINOR >= 9
+-#include <OGRE/Overlay/OgreOverlayManager.h>
+-#include <OGRE/Overlay/OgreOverlayElement.h>
+-#include <OGRE/Overlay/OgreOverlayContainer.h>
+-#include <OGRE/Overlay/OgreFontManager.h>
+-#include <OGRE/Overlay/OgreOverlaySystem.h>
++#include <OGRE19/Overlay/OgreOverlayManager.h>
++#include <OGRE19/Overlay/OgreOverlayElement.h>
++#include <OGRE19/Overlay/OgreOverlayContainer.h>
++#include <OGRE19/Overlay/OgreFontManager.h>
++#include <OGRE19/Overlay/OgreOverlaySystem.h>
+ #else
+-#include <OGRE/OgreFontManager.h>
++#include <OGRE19/OgreFontManager.h>
+ #endif
+ 
+ #if OGRE_VERSION_MAJOR == 1 && OGRE_VERSION_MINOR < 11
+-// The  <OGRE/OgreWindowEventUtilities.h> header has always been included in
++// The  <OGRE19/OgreWindowEventUtilities.h> header has always been included in
+ // public headers for Gazebo <= 10, but was moved to the Bites component in
+ // Ogre 1.11 (see  https://github.com/OGRECave/ogre/pull/647). As it is not
+ // used at all in Gazebo, we can just include it for Ogre <= 1.10 to avoid
+ // breaking transitive includes in downstream projects.
+ // In Gazebo 11, this can be removed.
+-#include <OGRE/OgreWindowEventUtilities.h>
++#include <OGRE19/OgreWindowEventUtilities.h>
+ #endif
+ 
+ #if OGRE_VERSION_MAJOR == 1 && OGRE_VERSION_MINOR >= 11
+diff --git a/gazebo/rendering/skyx/include/Prerequisites.h b/gazebo/rendering/skyx/include/Prerequisites.h
+index 99d5548795..202ea1197a 100644
+--- a/gazebo/rendering/skyx/include/Prerequisites.h
++++ b/gazebo/rendering/skyx/include/Prerequisites.h
+@@ -35,9 +35,9 @@ http://www.gnu.org/copyleft/lesser.txt.
+ #endif
+ 
+ /// Include external headers
+-#include <OGRE/Ogre.h>
+-#include <OGRE/OgreFrameListener.h>
+-#include <OGRE/OgreBillboard.h>
++#include <OGRE19/Ogre.h>
++#include <OGRE19/OgreFrameListener.h>
++#include <OGRE19/OgreBillboard.h>
+ 
+ /// Define the dll export qualifier if compiling for Windows
+ #if defined BUILDING_STATIC_LIBS
