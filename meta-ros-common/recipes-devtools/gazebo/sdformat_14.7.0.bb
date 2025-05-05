@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/sdformat.git;protocol=https;branch=sdf14"
 
-SRCREV = "993d04fb95a6b9cee44121ac6294a2da2493847d"
+SRCREV = "33b8c91cbbd0ad6f7f8e35d6693ab120192c17c7"
 
 S = "${WORKDIR}/git"
 
@@ -21,6 +21,7 @@ DEPENDS = " \
     ruby-native \
     urdfdom \
 "
+
 PACKAGES =+ "python3-${PN}"
 
 FILES:${PN} += " \
