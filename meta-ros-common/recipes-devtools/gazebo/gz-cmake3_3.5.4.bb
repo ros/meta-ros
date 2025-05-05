@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 SRC_URI = "git://github.com/gazebosim/gz-cmake.git;protocol=https;branch=gz-cmake3 \
            file://Fix-pkgconfig-install-dir.patch"
 
-SRCREV = "ddd38ff196640024d6e054ff59cf5fea1ef01d73"
+SRCREV = "4d88b0f45c7c387dbf728b8656e7ae7bc9c95a30"
 
 S = "${WORKDIR}/git"
 
