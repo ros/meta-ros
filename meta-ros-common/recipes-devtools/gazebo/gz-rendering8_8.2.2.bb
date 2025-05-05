@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
 
 SRC_URI = "git://github.com/gazebosim/gz-rendering.git;protocol=https;branch=gz-rendering8"
 
-SRCREV = "c28c1cc00a1c14f6c6980ca7ad8f27301c756598"
+SRCREV = "3feca6130076f8efb3eb704451cadcde40dff165"
 
 S = "${WORKDIR}/git"
 
