@@ -222,3 +222,21 @@ ROS_UNRESOLVED_DEP-libsndfile1-dev = "libsndfile1"
 ROS_UNRESOLVED_DEP-portaudio19-dev = "portaudio-v19"
 # https://layers.openembedded.org/layerindex/recipe/71/
 ROS_UNRESOLVED_DEP-tar = "tar"
+
+# Add entries for the Gazebo recipes
+ROS_UNRESOLVED_DEP-gazebo = "gazebo"
+ROS_UNRESOLVED_DEP-gazebo11 = "gazebo-rosdev"
+ROS_UNRESOLVED_DEP-ignition-common4 = "ignition-common4"
+ROS_UNRESOLVED_DEP-ignition-fortress = "ignition-fortress"
+ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ignition-gazebo6"
+ROS_UNRESOLVED_DEP-ignition-gui6-native = "ignition-gui6-native"
+ROS_UNRESOLVED_DEP-ignition-msgs8 = "ignition-msgs8"
+ROS_UNRESOLVED_DEP-ignition-plugin = "ignition-plugin"
+ROS_UNRESOLVED_DEP-ignition-transport11 = "ignition-transport11"
+ROS_UNRESOLVED_DEP-libgazebo11 = "gazebo11"
+ROS_UNRESOLVED_DEP-libgazebo11-dev = "gazebo11"
+
+ROS_UNRESOLVED_DEP-libcurl = "curl"
+ROS_UNRESOLVED_DEP-libcurl-dev = "curl"
+
+ROS_UNRESOLVED_DEP-python3-opengl = "python3-opengl"
