@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e23fadd6ceef8c618fc1c65191d846fa \
 
 SRC_URI = "git://github.com/gazebosim/gz-sim.git;protocol=https;branch=gz-sim8"
 
-SRCREV = "c298007066eb3a0a4b260884fe9a1148903e7bc3"
+SRCREV = "49670c95d2cab9e1c4f993fb675a31ca97452805"
 
 S = "${WORKDIR}/git"
 
