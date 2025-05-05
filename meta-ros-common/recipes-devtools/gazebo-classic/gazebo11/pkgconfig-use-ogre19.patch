@@ -6,10 +6,10 @@ Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-diff --git a/cmake/SearchForStuff.cmake b/cmake/SearchForStuff.cmake
-index 732cbb4e2d..70f9b1b3b1 100644
---- a/cmake/SearchForStuff.cmake
-+++ b/cmake/SearchForStuff.cmake
+Index: git/cmake/SearchForStuff.cmake
+===================================================================
+--- git.orig/cmake/SearchForStuff.cmake
++++ git/cmake/SearchForStuff.cmake
 @@ -366,7 +366,7 @@ if (PKG_CONFIG_FOUND)
    # Find OGRE
  
@@ -46,3 +46,31 @@ index 732cbb4e2d..70f9b1b3b1 100644
    if (OGRE-Overlay_FOUND)
      set(ogre_ldflags ${ogre_ldflags} ${OGRE-Overlay_LDFLAGS})
      set(ogre_include_dirs ${ogre_include_dirs} ${OGRE-Overlay_INCLUDE_DIRS})
+Index: git/cmake/gazebo-config.cmake.in
+===================================================================
+--- git.orig/cmake/gazebo-config.cmake.in
++++ git/cmake/gazebo-config.cmake.in
+@@ -152,12 +152,12 @@ foreach(lib @PKG_LIBRARIES@)
+ endforeach()
+ 
+ # Get the install prefix for OGRE
+-execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=prefix OGRE
++execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=prefix OGRE19
+   OUTPUT_VARIABLE OGRE_INSTALL_PREFIX OUTPUT_STRIP_TRAILING_WHITESPACE)
+ 
+ # Add the OGRE cmake path to CMAKE_MODULE_PATH
+ set(CMAKE_MODULE_PATH
+-  "${OGRE_INSTALL_PREFIX}/share/OGRE/cmake/modules;${OGRE_INSTALL_PREFIX}/lib/OGRE/cmake;${OGRE_INSTALL_PREFIX}/CMake;${CMAKE_MODULE_PATH}")
++  "$ENV{PKG_CONFIG_SYSROOT_DIR}${OGRE_INSTALL_PREFIX}/share/OGRE19/cmake/modules;$ENV{PKG_CONFIG_SYSROOT_DIR}${OGRE_INSTALL_PREFIX}/lib/OGRE19/cmake;$ENV{PKG_CONFIG_SYSROOT_DIR}${OGRE_INSTALL_PREFIX}/CMake;${CMAKE_MODULE_PATH}")
+ 
+ # Find boost
+ find_package(Boost @MIN_BOOST_VERSION@ REQUIRED thread system
+@@ -185,7 +185,7 @@ list(APPEND @PKG_NAME@_INCLUDE_DIRS ${SD
+ list(APPEND @PKG_NAME@_LIBRARIES ${SDFormat_LIBRARIES})
+ 
+ # Find OGRE
+-find_package(OGRE REQUIRED COMPONENTS Terrain Paging)
++find_package(OGRE19 REQUIRED COMPONENTS Terrain Paging)
+ list(APPEND @PKG_NAME@_INCLUDE_DIRS ${OGRE_INCLUDE_DIRS})
+ list(APPEND @PKG_NAME@_LIBRARIES ${OGRE_LIBRARIES})
+ # When including OGRE, also include the Terrain and Paging components
