@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-math.git;protocol=https;branch=gz-math7"
 
-SRCREV = "5072602c5ea8b8434a11d42f296aeedf1b695498"
+SRCREV = "4ef29f8335113730d2ea40a2b21da851b01829cc"
 
 S = "${WORKDIR}/git"
 
