@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-sensors.git;protocol=https;branch=gz-sensors8"
 
-SRCREV = "f44c31f6ddedff4440d2df8896f77ab94dcc25d2"
+SRCREV = "9348f9fe8a11b9d50381819f51e17e136aedab8a"
 
 S = "${WORKDIR}/git"
 
