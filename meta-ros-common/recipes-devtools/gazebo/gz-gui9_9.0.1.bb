@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-gui.git;protocol=https;branch=gz-gui9"
 
-SRCREV = "d110e5b288e8b580b28c0a7256d0e1f0e0c402e2"
+SRCREV = "db69c56f4be1bc8ee8427c283f6f4cb8799962da"
 
 S = "${WORKDIR}/git"
 
