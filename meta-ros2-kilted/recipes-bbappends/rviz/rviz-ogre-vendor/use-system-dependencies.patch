@@ -28,7 +28,7 @@ Index: git/CMakeLists.txt
  
    ament_vendor(freetype_vendor
 +    SATISFIED ${freetype2_FOUND}
-     VCS_URL https://git.savannah.gnu.org/git/freetype/freetype2.git
+     VCS_URL https://github.com/freetype/freetype.git
      VCS_VERSION VER-2-13-2
      CMAKE_ARGS
 @@ -30,6 +36,7 @@ if(WIN32)
