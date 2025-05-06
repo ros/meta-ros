@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=gz-transport14"
 
-SRCREV = "cc9703319dee492fcd6b519ff93465016acafe5f"
+SRCREV = "c79276843edf4264e9b78d57b557f46e2e527b14"
 
 S = "${WORKDIR}/git"
 
