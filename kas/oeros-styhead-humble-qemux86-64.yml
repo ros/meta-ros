@@ -5,3 +5,9 @@ header:
     - kas/ros2/humble.yml
     - kas/machine/qemux86-64.yml
     - kas/common.yml
+
+repos:
+  qt5:
+    branch: "master"
+  raspberrypi:
+    branch: "master"

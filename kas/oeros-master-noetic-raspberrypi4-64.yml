@@ -7,5 +7,7 @@ header:
     - kas/common.yml
 
 repos:
+  qt5:
+    branch: "master"
   raspberrypi:
     branch: "master"
