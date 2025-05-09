@@ -1,0 +1,37 @@
+Upstream-Status: Backport
+
+From be28fbd6579121cb1cfec9c39345cf6afb2be9bd Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Tue, 21 Jan 2025 22:35:54 +0100
+Subject: [PATCH] Add missing includes (#660)
+
+Signed-off-by: Guilhem Saurel <guilhem.saurel@laas.fr>
+---
+ test/performance/logging.cc                                | 1 +
+ testing/include/gz/common/testing/detail/AutoLogFixture.hh | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/test/performance/logging.cc b/test/performance/logging.cc
+index 2403d0b6e..79191b055 100644
+--- a/test/performance/logging.cc
++++ b/test/performance/logging.cc
+@@ -16,6 +16,7 @@
+ */
+ #include <gtest/gtest.h>
+ 
++#include <algorithm>
+ #include <atomic>
+ #include <map>
+ #include <thread>
+diff --git a/testing/include/gz/common/testing/detail/AutoLogFixture.hh b/testing/include/gz/common/testing/detail/AutoLogFixture.hh
+index 658d3ba83..cb94de259 100644
+--- a/testing/include/gz/common/testing/detail/AutoLogFixture.hh
++++ b/testing/include/gz/common/testing/detail/AutoLogFixture.hh
+@@ -17,6 +17,7 @@
+ #ifndef GZ_COMMON_TESTING_DETAIL_AUTOLOGFIXTURE_HH_
+ #define GZ_COMMON_TESTING_DETAIL_AUTOLOGFIXTURE_HH_
+ 
++#include <algorithm>
+ #include <memory>
+ #include <string>
+ 
