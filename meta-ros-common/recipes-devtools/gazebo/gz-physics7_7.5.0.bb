@@ -9,18 +9,15 @@ SRCREV = "966563e1a403e90bf9a9cbf642dd0f58809f4a36"
 
 S = "${WORKDIR}/git"
 
-DEPENDS += " \
+DEPENDS = " \
     gz-cmake3 \
     gz-common5 \
     gz-dartsim-vendor \
     gz-math7 \
-    gz-msgs10 \
-    gz-rendering8 \
-    gz-transport13 \
-    protobuf \
+    gz-plugin2 \
+    gz-utils2 \
     sdformat \
     bullet \
-    cppcheck-native \
     google-benchmark-vendor \
 "
 
