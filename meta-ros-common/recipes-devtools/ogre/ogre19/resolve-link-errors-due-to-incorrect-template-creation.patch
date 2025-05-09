@@ -1,0 +1,137 @@
+Resolve link errors due to incorrect template creation
+
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From e98b7c8a1a53b0a8dfaf0d692034be45e489c206 Mon Sep 17 00:00:00 2001
+From: David Rogers <masterfalcon@ogre3d.org>
+Date: Wed, 25 Dec 2013 03:32:57 -0600
+Subject: [PATCH] =?UTF-8?q?[OGRE-357]=20Resolve=20link=20errors=20due=20to?=
+ =?UTF-8?q?=20incorrect=20template=20creation=20that=20is=20a=20allowed=20?=
+ =?UTF-8?q?by=20some=20compilers=20but=20isn=E2=80=99t=20actually=20correc?=
+ =?UTF-8?q?t=20c++=20usage.?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ .../include/OgreProgressiveMeshGenerator.h    | 40 ++++++++++++++++++-
+ OgreMain/src/OgreProgressiveMeshGenerator.cpp | 38 ------------------
+ 2 files changed, 38 insertions(+), 40 deletions(-)
+
+diff --git a/OgreMain/include/OgreProgressiveMeshGenerator.h b/OgreMain/include/OgreProgressiveMeshGenerator.h
+index b3f1af3492e..fe023a90359 100644
+--- a/OgreMain/include/OgreProgressiveMeshGenerator.h
++++ b/OgreMain/include/OgreProgressiveMeshGenerator.h
+@@ -34,6 +34,7 @@
+ #include "OgreSmallVector.h"
+ #include "OgreMesh.h"
+ #include "OgreLodConfig.h"
++#include "OgreLogManager.h"
+ 
+ namespace Ogre
+ {
+@@ -214,9 +215,44 @@ class _OgreExport ProgressiveMeshGenerator :
+ 	size_t calcLodVertexCount(const LodLevel& lodConfig);
+ 	void tuneContainerSize();
+ 	void addVertexData(VertexData* vertexData, bool useSharedVertexLookup);
+-	template<typename IndexType>
+-	void addIndexDataImpl(IndexType* iPos, const IndexType* iEnd, VertexLookupList& lookup, unsigned short submeshID);
+ 	void addIndexData(IndexData* indexData, bool useSharedVertexLookup, unsigned short submeshID);
++    template<typename IndexType>
++    void addIndexDataImpl(IndexType* iPos, const IndexType* iEnd,
++                                                    VertexLookupList& lookup,
++                                                    unsigned short submeshID)
++    {
++
++        // Loop through all triangles and connect them to the vertices.
++        for (; iPos < iEnd; iPos += 3) {
++            // It should never reallocate or every pointer will be invalid.
++            OgreAssert(mTriangleList.capacity() > mTriangleList.size(), "");
++            mTriangleList.push_back(PMTriangle());
++            PMTriangle* tri = &mTriangleList.back();
++            tri->isRemoved = false;
++            tri->submeshID = submeshID;
++            for (int i = 0; i < 3; i++) {
++                // Invalid index: Index is bigger then vertex buffer size.
++                OgreAssert(iPos[i] < lookup.size(), "");
++                tri->vertexID[i] = iPos[i];
++                tri->vertex[i] = lookup[iPos[i]];
++            }
++            if (tri->isMalformed()) {
++#if OGRE_DEBUG_MODE
++                stringstream str;
++                str << "In " << mMeshName << " malformed triangle found with ID: " << getTriangleID(tri) << ". " <<
++                std::endl;
++                printTriangle(tri, str);
++                str << "It will be excluded from LOD level calculations.";
++                LogManager::getSingleton().stream() << str.str();
++#endif
++                tri->isRemoved = true;
++                mIndexBufferInfoList[tri->submeshID].indexCount -= 3;
++                continue;
++            }
++            tri->computeNormal();
++            addTriangleToEdges(tri);
++        }
++    }
+ 
+ 	void computeCosts();
+ 	bool isBorderVertex(const PMVertex* vertex) const;
+diff --git a/OgreMain/src/OgreProgressiveMeshGenerator.cpp b/OgreMain/src/OgreProgressiveMeshGenerator.cpp
+index b0aa854db1b..675181790d5 100644
+--- a/OgreMain/src/OgreProgressiveMeshGenerator.cpp
++++ b/OgreMain/src/OgreProgressiveMeshGenerator.cpp
+@@ -45,7 +45,6 @@
+ #include "OgreSubMesh.h"
+ #include "OgreMesh.h"
+ #include "OgreLodStrategy.h"
+-#include "OgreLogManager.h"
+ #include "OgrePixelCountLodStrategy.h"
+ 
+ namespace Ogre
+@@ -219,43 +218,6 @@ void ProgressiveMeshGenerator::addVertexData(VertexData* vertexData, bool useSha
+ 	}
+ 	vbuf->unlock();
+ }
+-template<typename IndexType>
+-void ProgressiveMeshGenerator::addIndexDataImpl(IndexType* iPos, const IndexType* iEnd,
+-                                                VertexLookupList& lookup,
+-                                                unsigned short submeshID)
+-{
+-
+-	// Loop through all triangles and connect them to the vertices.
+-	for (; iPos < iEnd; iPos += 3) {
+-		// It should never reallocate or every pointer will be invalid.
+-		OgreAssert(mTriangleList.capacity() > mTriangleList.size(), "");
+-		mTriangleList.push_back(PMTriangle());
+-		PMTriangle* tri = &mTriangleList.back();
+-		tri->isRemoved = false;
+-		tri->submeshID = submeshID;
+-		for (int i = 0; i < 3; i++) {
+-			// Invalid index: Index is bigger then vertex buffer size.
+-			OgreAssert(iPos[i] < lookup.size(), "");
+-			tri->vertexID[i] = iPos[i];
+-			tri->vertex[i] = lookup[iPos[i]];
+-		}
+-		if (tri->isMalformed()) {
+-#if OGRE_DEBUG_MODE
+-			stringstream str;
+-			str << "In " << mMeshName << " malformed triangle found with ID: " << getTriangleID(tri) << ". " <<
+-			std::endl;
+-			printTriangle(tri, str);
+-			str << "It will be excluded from LOD level calculations.";
+-			LogManager::getSingleton().stream() << str.str();
+-#endif
+-			tri->isRemoved = true;
+-			mIndexBufferInfoList[tri->submeshID].indexCount -= 3;
+-			continue;
+-		}
+-		tri->computeNormal();
+-		addTriangleToEdges(tri);
+-	}
+-}
+ 
+ void ProgressiveMeshGenerator::addIndexData(IndexData* indexData, bool useSharedVertexLookup, unsigned short submeshID)
+ {
