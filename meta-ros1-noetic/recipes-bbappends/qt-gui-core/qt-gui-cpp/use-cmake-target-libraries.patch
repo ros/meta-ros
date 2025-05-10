@@ -1,0 +1,48 @@
+This uses the CMake target variables for libraries instead of the generator.
+
+The generator approach was resulting in TARGET_FILE:Python3::Python appearing
+directly in the generated pyproject.toml and libqt_gui_cpp_sip.pro files.
+
+Eventually, pip install was invoked which called QMake then Make.  The linker
+did not like it and would fail.
+
+This resulted in pip reporting "error: subprocess-exited-with-error"
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Upstream-status: Pending
+
+Index: git/src/qt_gui_cpp_sip/CMakeLists.txt
+===================================================================
+--- git.orig/src/qt_gui_cpp_sip/CMakeLists.txt
++++ git/src/qt_gui_cpp_sip/CMakeLists.txt
+@@ -55,8 +55,8 @@ find_package(Python3 REQUIRED COMPONENTS
+
+ set(_qt_gui_cpp_sip_LIBRARIES
+   ${deps_libraries}
+-  Python3::Python
+-  qt_gui_cpp
++  ${Python3_LIBRARIES}
++  ${qt_gui_cpp_LIBRARIES}
+ )
+
+ # sip needs libraries to have resolved paths and cannot link to cmake targets
+@@ -90,12 +90,17 @@ if(sip_helper_FOUND)
+     DEPENDENCIES qt_gui_cpp
+   )
+
++  execute_process(
++    COMMAND ${Python3_EXECUTABLE} -c "import sysconfig as c; print(c.get_config_var('EXT_SUFFIX'), end='')"
++    OUTPUT_VARIABLE PYTHON_EXTENSION_MODULE_SUFFIX
++    ERROR_QUIET)
++
+   if(APPLE)
+     set(LIBQT_GUI_CPP_SIP_SUFFIX .so)
+   elseif(WIN32)
+     set(LIBQT_GUI_CPP_SIP_SUFFIX .pyd)
+   else()
+-    set(LIBQT_GUI_CPP_SIP_SUFFIX ${CMAKE_SHARED_LIBRARY_SUFFIX})
++    set(LIBQT_GUI_CPP_SIP_SUFFIX ${PYTHON_EXTENSION_MODULE_SUFFIX})
+   endif()
+
+   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libqt_gui_cpp_sip${LIBQT_GUI_CPP_SIP_SUFFIX}
