@@ -33,8 +33,8 @@ DEPENDS = " \
 "
 
 do_configure:prepend() {
-    cp ${WORKDIR}/gazebomsgs_out-CMakeLists.txt ${S}/CMakeLists.txt
-    cp ${WORKDIR}/gazebomsgs_out-gazebo-msgs-CMakeLists.txt ${S}/gazebo/msgs/CMakeLists.txt
+    cp ${UNPACKDIR}/gazebomsgs_out-CMakeLists.txt ${S}/CMakeLists.txt
+    cp ${UNPACKDIR}/gazebomsgs_out-gazebo-msgs-CMakeLists.txt ${S}/gazebo/msgs/CMakeLists.txt
 }
 
 inherit native
