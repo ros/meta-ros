@@ -1,0 +1,76 @@
+Remove buildpaths from generated code
+
+The dynamic_reconfigure package injects the srcfile into
+the generated C++ and Python code.  This causes a QA issue in
+packages that use dynamic_reconfigure as the buildpath can be
+found in artifacts packaged for the target.
+
+Since the srcfile parameter is only used for debugging output
+we can safely truncate the path to just the filename.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/src/dynamic_reconfigure/parameter_generator_catkin.py
+===================================================================
+--- git.orig/src/dynamic_reconfigure/parameter_generator_catkin.py
++++ git/src/dynamic_reconfigure/parameter_generator_catkin.py
+@@ -112,7 +112,7 @@ class ParameterGenerator(object):
+             self.state = state
+ 
+             self.srcline = inspect.currentframe().f_back.f_lineno
+-            self.srcfile = inspect.getsourcefile(inspect.currentframe().f_back.f_code)
++            self.srcfile = os.path.basename(inspect.getsourcefile(inspect.currentframe().f_back.f_code))
+ 
+             self.instances[self.id] = self
+ 
+@@ -136,7 +136,7 @@ class ParameterGenerator(object):
+                 'min': min,
+                 'max': max,
+                 'srcline': inspect.currentframe().f_back.f_lineno,
+-                'srcfile': inspect.getsourcefile(inspect.currentframe().f_back.f_code),
++                'srcfile': os.path.basename(inspect.getsourcefile(inspect.currentframe().f_back.f_code)),
+                 'edit_method': edit_method,
+             }
+             if (paramtype == str_t or paramtype == bool_t) and (max is not None or min is not None):
+@@ -271,7 +271,7 @@ class ParameterGenerator(object):
+             'type': type,
+             'value': value,
+             'srcline': inspect.currentframe().f_back.f_lineno,
+-            'srcfile': inspect.getsourcefile(inspect.currentframe().f_back.f_code),
++            'srcfile': os.path.basename(inspect.getsourcefile(inspect.currentframe().f_back.f_code)),
+             'description': descr
+         }
+         check_description(descr)
+Index: git/src/dynamic_reconfigure/parameter_generator.py
+===================================================================
+--- git.orig/src/dynamic_reconfigure/parameter_generator.py
++++ git/src/dynamic_reconfigure/parameter_generator.py
+@@ -109,7 +109,7 @@ class ParameterGenerator:
+             self.state = state
+ 
+             self.srcline = inspect.currentframe().f_back.f_lineno
+-            self.srcfile = inspect.getsourcefile(inspect.currentframe().f_back.f_code)
++            self.srcfile = os.path.basename(inspect.getsourcefile(inspect.currentframe().f_back.f_code))
+ 
+             self.instances[self.id] = self
+ 
+@@ -133,7 +133,7 @@ class ParameterGenerator:
+                 'min': min,
+                 'max': max,
+                 'srcline': inspect.currentframe().f_back.f_lineno,
+-                'srcfile': inspect.getsourcefile(inspect.currentframe().f_back.f_code),
++                'srcfile': os.path.basename(inspect.getsourcefile(inspect.currentframe().f_back.f_code)),
+                 'edit_method': edit_method,
+             }
+             if type == str_t and (max is not None or min is not None):
+@@ -252,7 +252,7 @@ class ParameterGenerator:
+             'type': type,
+             'value': value,
+             'srcline': inspect.currentframe().f_back.f_lineno,
+-            'srcfile': inspect.getsourcefile(inspect.currentframe().f_back.f_code),
++            'srcfile': os.path.basename(inspect.getsourcefile(inspect.currentframe().f_back.f_code)),
+             'description': descr
+         }
+         check_description(descr)
