@@ -6,7 +6,13 @@ inherit python3targetconfig
 
 # | CMake Warning at rviz/1.14.25-1-r0/recipe-sysroot/opt/ros/noetic/share/python_qt_binding/cmake/sip_helper.cmake:28 (message):
 # |   SIP binding generator NOT available.
-DEPENDS += "python3-pyqt5-native sip3-native"
+ROS_BUILDTOOL_DEPENDS += "python3-pyqt5-native sip-native"
+
+# | CMake Warning at rviz/1.14.25-1-r0/recipe-sysroot/opt/ros/noetic/share/python_qt_binding/cmake/sip_helper.cmake:28 (message):
+# |   SIP binding generator NOT available.
+DEPENDS += "python3-pyqt5-native sip-native"
+
+export SIP_PROJECT_INCLUDE_DIRS = "${STAGING_DIR_TARGET}/${libdir}/${PYTHON_DIR}/site-packages/PyQt5/bindings"
 
 # | CMake Error at src/rviz/CMakeLists.txt:23 (add_library):
 # |   Target "rviz" links to target "Qt5::Widgets" but the target was not found.
@@ -31,16 +37,8 @@ inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'qmake5_base', '
 # hard-coded command that violates ninja syntax: cd <DIR> && $(MAKE)
 OECMAKE_GENERATOR = "Unix Makefiles"
 
-do_compile:prepend () {
-    cp ${STAGING_LIBDIR}/${PYTHON_DIR}/site-packages/sipconfig.py ${STAGING_DIR_HOST}${ros_datadir}/python_qt_binding/cmake/
-    sed -i -e "s|--sysroot |--sysroot ${STAGING_DIR_TARGET}|g" ${STAGING_DIR_HOST}${ros_datadir}/python_qt_binding/cmake/sipconfig.py
-    sed -i -e "s|--sysroot=[^ ']*|--sysroot=${STAGING_DIR_TARGET}|g" ${STAGING_DIR_HOST}${ros_datadir}/python_qt_binding/cmake/sipconfig.py
-    sed -i -e "s|\('[a-z_]*_dir': *'\)\([^']*',\)|\1${STAGING_DIR_TARGET}\2|g" ${STAGING_DIR_HOST}${ros_datadir}/python_qt_binding/cmake/sipconfig.py
-    sed -i -e "s|\('sip_bin': *'\)\(/usr/bin/sip',\)|\1${STAGING_DIR_NATIVE}\2|" ${STAGING_DIR_HOST}${ros_datadir}/python_qt_binding/cmake/sipconfig.py
-}
-
 # ERROR: QA Issue: package rviz contains bad RPATH .../rviz/1.14.25-1-r0/devel/lib
 #        in file .../rviz/1.14.25-1-r0/packages-split/rviz/opt/ros/noetic/lib/python3.10/site-packages/rviz/librviz_sip.so
-do_install:append() {
-    chrpath --delete ${D}${ros_libdir}/${PYTHON_DIR}/site-packages/rviz/librviz_sip.so
-}
+#do_install:append() {
+#    chrpath --delete ${D}${ros_libdir}/${PYTHON_DIR}/site-packages/rviz/librviz_sip*${SOLIBS}
+#}
