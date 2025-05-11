@@ -1,0 +1,43 @@
+header:
+  version: 14
+
+defaults:
+  repos:
+    branch: "walnascar"
+
+# https://downloads.yoctoproject.org/releases/yocto/yocto-5.2/RELEASENOTES
+repos:
+  openembedded-core:
+    url: "https://github.com/openembedded/openembedded-core.git"
+    commit: "6ec2c52b938302b894f119f701ffcf0a847eee85"
+    path: "layers/openembedded-core"
+    layers:
+      meta:
+
+  bitbake:
+    url: "https://github.com/openembedded/bitbake.git"
+    branch: "2.12"
+    commit: "5b4e20377eea8d428edf1aeb2187c18f82ca6757"
+    path: "layers/bitbake"
+    layers:
+      bitbake: "excluded"
+
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded.git"
+    commit: "0d2d2d193a1619b6dbebaf335f1ef785478049e3"
+    path: "layers/meta-openembedded"
+    layers:
+      meta-filesystems:
+      meta-gnome:
+      meta-initramfs:
+      meta-multimedia:
+      meta-networking:
+      meta-oe:
+      meta-perl:
+      meta-python:
+      meta-webserver:
+      meta-xfce:
+
+local_conf_header:
+  distro: |
+    ERROR_QA:remove = "license-exists"
