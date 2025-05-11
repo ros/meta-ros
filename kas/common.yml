@@ -8,5 +8,4 @@ local_conf_header:
     INHERIT += "report-error"
     INHERIT += "rm_work"
     INHERIT_DISTRO:remove = "create-spdx"
-    WARN_QA:remove = "license-exists"
     TEMPLATECONF = ""
