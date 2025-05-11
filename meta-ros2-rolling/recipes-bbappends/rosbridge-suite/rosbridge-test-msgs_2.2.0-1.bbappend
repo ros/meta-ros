@@ -9,6 +9,14 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-typesupport-fastrtps-cpp-native \
 "
+# Without the target rosidl-typesupport-{c,cpp}, ament finds the native packages and then fails to link (error: incompatible
+# target).
+ROS_BUILD_DEPENDS += " \
+    action-msgs \
+    rosidl-generator-c \
+    rosidl-typesupport-c \
+    rosidl-typesupport-cpp \
+"
 ROS_BUILD_DEPENDS:remove = " \
     rosidl-default-generators \
     rosidl-typesupport-fastrtps-c \
