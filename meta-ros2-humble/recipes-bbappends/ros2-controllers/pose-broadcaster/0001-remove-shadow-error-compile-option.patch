@@ -1,0 +1,23 @@
+From b33e51a489db69250158401cd5e344ef619d80c4 Mon Sep 17 00:00:00 2001
+From: Amelia Grace <agrace@bastiansolutions.com>
+Date: Wed, 30 Apr 2025 14:51:32 -0600
+Subject: [PATCH] remove shadow error compile option
+
+Signed-off-by: Amelia Grace <agrace@bastiansolutions.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 46028cf258..b41835f449 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,7 +6,7 @@ project(pose_broadcaster
+ 
+ if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+   add_compile_options(-Wall -Wextra -Wpedantic -Werror=conversion -Werror=unused-but-set-variable
+-                      -Werror=return-type -Werror=shadow -Werror=format)
++                      -Werror=return-type -Werror=format)
+ endif()
+ 
+ set(THIS_PACKAGE_INCLUDE_DEPENDS
