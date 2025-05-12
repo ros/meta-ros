@@ -1,5 +1,7 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 inherit ros_insane_dev_so
 
 # used only as runtime dependency, but there is no ode/libode recipe, try to set it empty to test in runtime if this new dependency from 1.5.2 version is really mandatory
