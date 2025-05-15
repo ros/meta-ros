@@ -8,3 +8,8 @@ CXXFLAGS += "-Wno-error=deprecated-declarations"
 
 # foxglove-bridge/0.7.3-1-r0/recipe-sysroot/usr/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/received_message_period.hpp:174:32: error: unused parameter 'message_info' [-Werror=unused-parameter]
 CXXFLAGS += "-Wno-error=unused-parameter"
+
+# error: "RCLCPP_VERSION_MAJOR" redefined [-Werror]
+# The issue was fixed by https://github.com/foxglove/ros-foxglove-bridge/pull/344
+SRC_URI += "https://github.com/foxglove/ros-foxglove-bridge/commit/9a950ae0fd6e4c87c4ea50b98e6bc3256e2e498f.patch"
+SRC_URI[sha256sum] = "5f92827a44499fcb712d7f5c8c2733cd89f8e723ab627f795add11737d78a5c3"
