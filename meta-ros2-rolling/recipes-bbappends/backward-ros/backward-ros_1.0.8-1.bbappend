@@ -3,5 +3,3 @@
 DEPENDS += "ament-cmake-native"
 
 BBCLASSEXTEND = "native nativesdk"
-
-FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
