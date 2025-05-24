@@ -17,3 +17,4 @@ bitbake-cookerdaemon.log
 .kas_shell_history
 build/
 layers/
+.config.yaml*
