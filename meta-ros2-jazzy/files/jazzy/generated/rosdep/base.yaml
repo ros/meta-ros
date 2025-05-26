@@ -495,6 +495,17 @@ catch2:
   ubuntu:
     '*': [catch2]
     focal: null
+cbindgen:
+  alpine: [cbindgen]
+  arch: [cbindgen]
+  debian: [cbindgen]
+  fedora: [cbindgen]
+  rhel:
+    '*': [cbindgen]
+    '8': null
+  ubuntu:
+    '*': [cbindgen]
+    focal: null
 cccc:
   debian: [cccc]
   gentoo: [dev-util/cccc]
@@ -1898,6 +1909,13 @@ gurumdds-2.8:
 gurumdds-3.0:
   ubuntu:
     jammy: [gurumdds-3.0]
+gurumdds-3.1:
+  ubuntu:
+    jammy: [gurumdds-3.1]
+gurumdds-3.2:
+  ubuntu:
+    jammy: [gurumdds-3.2]
+    noble: [gurumdds-3.2]
 gv:
   debian: [gv]
   fedora: [gv]
@@ -3663,6 +3681,18 @@ libexpat1-dev:
   gentoo: [dev-libs/expat]
   openembedded: [expat@openembedded-core]
   ubuntu: [libexpat1-dev]
+libexpected-dev:
+  alpine: [tl-expected]
+  arch: [tl-expected]
+  debian: [libexpected-dev]
+  fedora: [expected-devel]
+  gentoo: [dev-cpp/expected]
+  nixos: [tl-expected]
+  osx:
+    homebrew:
+      packages: [tl-expected]
+  rhel: [expected-devel]
+  ubuntu: [libexpected-dev]
 libext2fs-dev:
   alpine: [e2fsprogs-dev]
   arch: [e2fsprogs]
@@ -5911,7 +5941,10 @@ libqt5-core:
   opensuse: [libQt5Core5]
   rhel: [qt5-qtbase]
   slackware: [qt5]
-  ubuntu: [libqt5core5a]
+  ubuntu:
+    '*': [libqt5core5t64]
+    focal: [libqt5core5a]
+    jammy: [libqt5core5a]
 libqt5-gstreamer-dev:
   debian: [libqt5gstreamer-dev]
   ubuntu: [libqt5gstreamer-dev]
@@ -6086,6 +6119,60 @@ libqt5x11extras5-dev:
   openembedded: [qtx11extras@meta-qt5]
   rhel: [qt5-qtx11extras-devel]
   ubuntu: [libqt5x11extras5-dev]
+libqt6-core:
+  alpine: [qt6-qtbase]
+  arch: [qt6-base]
+  debian: [libqt6core6]
+  fedora: [qt6-qtbase]
+  gentoo: ['dev-qt/qtcore:6']
+  nixos: [qt6.qtbase]
+  openembedded: [qtbase@meta-qt6]
+  opensuse:
+    '*': [libQt6Core6]
+    '15.2': null
+  rhel:
+    '*': [qt6-qtbase]
+    '8': null
+  slackware: [qt6]
+  ubuntu:
+    '*': [libqt6core6t64]
+    'focal': null
+    'jammy': [libqt6core6]
+libqt6-multimedia:
+  arch: [qt6-multimedia]
+  debian: [libqt6multimedia6]
+  fedora: [qt6-qtmultimedia]
+  nixos: [qt6.qtmultimedia]
+  rhel:
+    '*': [qt6-qtmultimedia]
+    '8': null
+  ubuntu:
+    '*': [libqt6multimedia6]
+    'focal': null
+libqt6-qml:
+  arch: [qt6-declarative]
+  debian: [libqt6qml6]
+  gentoo: ['dev-qt/qtdeclarative:6']
+  nixos: [qt6.qtdeclarative]
+  openembedded: [qtdeclarative@meta-qt6]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [libqt6qml6]
+    'focal': null
+libqt6-quick:
+  arch: [qt6-declarative]
+  debian: [libqt6quick6]
+  gentoo: ['dev-qt/qtdeclarative:6']
+  nixos: [qt6.qtdeclarative]
+  openembedded: [qtdeclarative@meta-qt6]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [libqt6quick6]
+    'focal': null
 libqtgui4:
   debian: [libqtgui4]
   fedora: [qt-x11]
@@ -8305,6 +8392,27 @@ qml-module-qtquick2:
   nixos: [qt5.qtquickcontrols2]
   rhel: [qt5-qtdeclarative]
   ubuntu: [qml-module-qtquick2]
+qml6-module-qtqml-workerscript:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtqml-workerscript]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtqml-workerscript]
+    'focal': null
+qml6-module-qtquick:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtquick]
+  fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtquickcontrols]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtquick]
+    'focal': null
 qrencode:
   arch: [qrencode]
   debian: [qrencode]
@@ -8355,6 +8463,50 @@ qt5-qmake:
   rhel: [qt5-qtbase-devel]
   slackware: [qt5]
   ubuntu: [qt5-qmake]
+qt6-base-dev:
+  alpine: [qt6-qtbase-dev]
+  arch: [qt6-base]
+  debian: [qt6-base-dev]
+  fedora: [qt6-qtbase-devel]
+  gentoo: ['dev-qt/qtcore:6', 'dev-qt/qtwidgets:6', 'dev-qt/qttest:6']
+  nixos: [qt6.qtbase]
+  openembedded: [qtbase@meta-qt6]
+  opensuse:
+    '*': [libqt6-qtbase-devel]
+    '15.2': null
+  rhel:
+    '*': [qt6-qtbase-devel]
+    '8': null
+  slackware: [qt6]
+  ubuntu:
+    '*': [qt6-base-dev]
+    'focal': null
+qt6-declarative-dev:
+  arch: [qt6-declarative]
+  debian: [qt6-declarative-dev]
+  fedora: [qt6-qtdeclarative-devel]
+  gentoo: ['dev-qt/qtdeclarative:6']
+  nixos: [qt6.qtdeclarative]
+  openembedded: [qtdeclarative@meta-qt6]
+  rhel:
+    '*': [qt6-qtdeclarative-devel]
+    '8': null
+  ubuntu:
+    '*': [qt6-declarative-dev]
+    'focal': null
+qt6-multimedia-dev:
+  arch: [qt6-multimedia]
+  debian: [qt6-multimedia-dev]
+  fedora: [qt6-qtmultimedia-devel]
+  gentoo: ['dev-qt/qtmultimedia:6']
+  nixos: [qt6.qtmultimedia]
+  openembedded: [qtmultimedia@meta-qt6]
+  rhel:
+    '*': [qt6-qtmultimedia-devel]
+    '8': null
+  ubuntu:
+    '*': [qt6-multimedia-dev]
+    'focal': null
 qtbase5-dev:
   alpine: [qt5-qtbase-dev]
   arch: [qt5-base]
@@ -8556,11 +8708,21 @@ rti-connext-dds-6.0.1:
     '*': [rti-connext-dds-6.0.1]
     bionic: null
 rti-connext-dds-7.3.0:
+  debian:
+    '*': [rti-connext-dds-7.3.0-ros]
+    bullseye: null
   nixos: []
   ubuntu:
     '*': [rti-connext-dds-7.3.0-ros]
     focal: null
     jammy: null
+rtklib:
+  debian: [rtklib]
+  fedora: [rtklib]
+  opensuse:
+    '*': [rtklib]
+    '15.2': null
+  ubuntu: [rtklib]
 rtmidi:
   arch: [rtmidi]
   debian: [librtmidi-dev]
