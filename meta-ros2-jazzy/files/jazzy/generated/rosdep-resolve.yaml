@@ -43,6 +43,8 @@ clang-format:
 - clang@meta-clang
 clang-tidy:
 - clang@meta-clang
+cli11:
+- cli11@meta-oe
 cmake:
 - cmake@openembedded-core
 coinor-libcbc-dev:
@@ -446,6 +448,8 @@ openssl:
 - openssl@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+portaudio19-dev:
+- portaudio-v19@meta-oe
 proj:
 - proj@meta-oe
 protobuf:
@@ -506,6 +510,8 @@ python3-expiringdict:
 - ${ROS_UNRESOLVED_DEP-python3-expiringdict}
 python3-fastapi:
 - ${ROS_UNRESOLVED_DEP-python3-fastapi}
+python3-filelock:
+- ${ROS_UNRESOLVED_DEP-python3-filelock}
 python3-fiona:
 - python3-fiona@meta-ros2
 python3-flake8:
