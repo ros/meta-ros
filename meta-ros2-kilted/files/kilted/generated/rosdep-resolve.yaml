@@ -33,6 +33,8 @@ clang-format:
 - clang@meta-clang
 clang-tidy:
 - clang@meta-clang
+cli11:
+- cli11@meta-oe
 cmake:
 - cmake@openembedded-core
 coinor-libipopt-dev:
@@ -77,6 +79,8 @@ google-mock:
 - gtest@meta-oe
 graphviz:
 - graphviz@meta-oe
+gripper_controllers:
+- ${ROS_UNRESOLVED_DEP-gripper-controllers}
 gtest:
 - gtest@meta-oe
 gtk3:
@@ -215,8 +219,6 @@ libncurses-dev:
 - ncurses@openembedded-core
 libnlopt-cxx-dev:
 - ${ROS_UNRESOLVED_DEP-libnlopt-cxx-dev}
-libnlopt-dev:
-- ${ROS_UNRESOLVED_DEP-libnlopt-dev}
 liboctomap-dev:
 - ${ROS_UNRESOLVED_DEP-liboctomap-dev}
 libogg:
@@ -479,8 +481,6 @@ python3-git:
 - python3-git@openembedded-core
 python3-httpx:
 - ${ROS_UNRESOLVED_DEP-python3-httpx}
-python3-icecream:
-- ${ROS_UNRESOLVED_DEP-python3-icecream}
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
