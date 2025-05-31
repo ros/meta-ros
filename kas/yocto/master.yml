@@ -32,7 +32,3 @@ repos:
       meta-python:
       meta-webserver:
       meta-xfce:
-
-local_conf_header:
-  distro: |
-    ERROR_QA:remove = "license-exists"
