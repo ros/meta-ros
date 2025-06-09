@@ -1,0 +1,99 @@
+From 9a950ae0fd6e4c87c4ea50b98e6bc3256e2e498f Mon Sep 17 00:00:00 2001
+From: johannesschrimpf <johannes.schrimpf@blueye.no>
+Date: Wed, 5 Mar 2025 00:52:27 +0100
+Subject: [PATCH] Use RCLCPP_VERSION_GTE from rclcpp/version.h in
+ generic_client.cpp (#344)
+
+### Changelog
+Use RCLCPP_VERSION_GTE from rclcpp/version.h in `generic_client.cpp`
+
+### Docs
+
+<!-- Link to a Docs PR, tracking ticket in Linear, OR write "None" if no
+documentation changes are needed. -->
+
+### Description
+
+The custom version of RCLCPP_VERSION_GTE was added in this commit:
+https://github.com/foxglove/ros-foxglove-bridge/commit/9d920682c4b997a1e7546b5ca09f26f9daa3b940
+
+In my build environment, the corresponding definitions conflict with the
+definitions from roscpp/version.h included in parameter_interface.cpp,
+added here:
+https://github.com/foxglove/ros-foxglove-bridge/commit/05f362ab858c90358932d8fec07a19848e0e3884
+
+```
+| In file included from /data/yocto-styhead/build/tmp/work/cortexa9t2hf-neon-poky-linux-gnueabi/foxglove-bridge/0.8.2-1/git/ros2_foxglove_bridge/src/parameter_interface.cpp:5:
+| /data/yocto-styhead/build/tmp/work/cortexa9t2hf-neon-poky-linux-gnueabi/foxglove-bridge/0.8.2-1/recipe-sysroot/usr/include/rclcpp/rclcpp/version.h:20:9: error: "RCLCPP_VERSION_MAJOR" redefined [-Werror]
+|    20 | #define RCLCPP_VERSION_MAJOR (28)
+|       |         ^~~~~~~~~~~~~~~~~~~~
+| <command-line>: note: this is the location of the previous definition
+| /data/yocto-styhead/build/tmp/work/cortexa9t2hf-neon-poky-linux-gnueabi/foxglove-bridge/0.8.2-1/recipe-sysroot/usr/include/rclcpp/rclcpp/version.h:24:9: error: "RCLCPP_VERSION_MINOR" redefined [-Werror]
+|    24 | #define RCLCPP_VERSION_MINOR (1)
+|       |         ^~~~~~~~~~~~~~~~~~~~
+| <command-line>: note: this is the location of the previous definition
+| /data/yocto-styhead/build/tmp/work/cortexa9t2hf-neon-poky-linux-gnueabi/foxglove-bridge/0.8.2-1/recipe-sysroot/usr/include/rclcpp/rclcpp/version.h:28:9: error: "RCLCPP_VERSION_PATCH" redefined [-Werror]
+|    28 | #define RCLCPP_VERSION_PATCH (6)
+|       |         ^~~~~~~~~~~~~~~~~~~~
+| <command-line>: note: this is the location of the previous definition
+```
+
+Using the definitions from `version.h` directly resolve the build error.
+Is there a reason not to use the version from rclcpp?
+
+I have not tested the changes runtime, but the build succeeds.
+---
+ CMakeLists.txt                              |  7 -------
+ ros2_foxglove_bridge/src/generic_client.cpp | 16 +---------------
+ 2 files changed, 1 insertion(+), 22 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 40f40689..c0b21c19 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -156,13 +156,6 @@ elseif("$ENV{ROS_VERSION}" STREQUAL "2")
+       ros2_foxglove_bridge/src/generic_client.cpp
+     )
+ 
+-    target_compile_definitions(foxglove_bridge_component
+-      PRIVATE
+-        RCLCPP_VERSION_MAJOR=${rclcpp_VERSION_MAJOR}
+-        RCLCPP_VERSION_MINOR=${rclcpp_VERSION_MINOR}
+-        RCLCPP_VERSION_PATCH=${rclcpp_VERSION_PATCH}
+-    )
+-
+     target_include_directories(foxglove_bridge_component
+       PUBLIC
+         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/foxglove_bridge_base/include>
+diff --git a/ros2_foxglove_bridge/src/generic_client.cpp b/ros2_foxglove_bridge/src/generic_client.cpp
+index 7c58801c..b3a4eca2 100644
+--- a/ros2_foxglove_bridge/src/generic_client.cpp
++++ b/ros2_foxglove_bridge/src/generic_client.cpp
+@@ -4,26 +4,12 @@
+ #include <rclcpp/client.hpp>
+ #include <rclcpp/serialized_message.hpp>
+ #include <rclcpp/typesupport_helpers.hpp>
++#include <rclcpp/version.h>
+ #include <rosidl_typesupport_introspection_cpp/field_types.hpp>
+ #include <rosidl_typesupport_introspection_cpp/service_introspection.hpp>
+ 
+ #include <foxglove_bridge/generic_client.hpp>
+ 
+-// clang-format off
+-/* True if the version of RCLCPP is at least major.minor.patch */
+-#define RCLCPP_VERSION_GTE(major, minor, patch)        \
+-  (major < RCLCPP_VERSION_MAJOR                        \
+-     ? true                                            \
+-     : major > RCLCPP_VERSION_MAJOR                    \
+-         ? false                                       \
+-         : minor < RCLCPP_VERSION_MINOR                \
+-             ? true                                    \
+-             : minor > RCLCPP_VERSION_MINOR            \
+-                 ? false                               \
+-                 : patch < RCLCPP_VERSION_PATCH ? true \
+-                                                : patch > RCLCPP_VERSION_PATCH ? false : true)
+-// clang-format on
+-
+ namespace {
+ 
+ // Copy of github.com/ros2/rclcpp/blob/33dae5d67/rclcpp/src/rclcpp/typesupport_helpers.cpp#L69-L92
