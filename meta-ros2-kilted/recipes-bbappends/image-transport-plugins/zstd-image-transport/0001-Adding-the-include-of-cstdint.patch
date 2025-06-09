@@ -1,0 +1,37 @@
+From 84923df94851766f92531a19b8a41a675478d606 Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Date: Mon, 9 Jun 2025 20:56:22 +0200
+Subject: [PATCH 1/1] Adding the include of cstdint
+
+Issue fixed when compiling with GCC 15
+
+.../src/zlib_cpp.hpp:47:3: error: 'uint8_t' does not name a type
+|    47 |   uint8_t * ptr;
+|       |   ^~~~~~~
+| .../src/zlib_cpp.hpp:40:1: note: 'uint8_t' is defined in header '<cstdint>'; this is probably fixable by adding '#include <cstdint>'
+|    39 | #include <memory>
+|   +++ |+#include <cstdint>
+|    40 | #include <tuple>
+
+Upstream-Status: Submitted [https://github.com/ros-perception/image_transport_plugins/pull/189]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ src/zlib_cpp.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/zlib_cpp.hpp b/src/zlib_cpp.hpp
+index 7925b443..d3049f34 100644
+--- a/src/zlib_cpp.hpp
++++ b/src/zlib_cpp.hpp
+@@ -37,6 +37,7 @@
+ 
+ #include <list>
+ #include <memory>
++#include <cstdint>
+ #include <tuple>
+ 
+ namespace zlib
+-- 
+2.39.5
+
