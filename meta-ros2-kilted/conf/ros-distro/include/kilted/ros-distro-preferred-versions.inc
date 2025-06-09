@@ -10,7 +10,7 @@
 # REP-2000 specifies 1.14.0 for jazzy and kilted
 # This is necessary as with ROS1 many recipes fail to build
 # as documented in https://github.com/ros/meta-ros/pull/936
-PREFERRED_VERSION_pcl = "1.14.1"
+PREFERRED_VERSION_pcl = "1.15.0"
 
 PREFERRED_VERSION_sdformat = "15.2.0"
 
