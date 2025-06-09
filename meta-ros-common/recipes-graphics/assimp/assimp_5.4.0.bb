@@ -26,5 +26,7 @@ EXTRA_OECMAKE = " \
 
 # types.h:347:54: error: '<anonymous>' may be used uninitialized [-Werror=maybe-uninitialized]
 CXXFLAGS += " -Wno-error=maybe-uninitialized"
+# code/AssetLib/X3D/X3DGeoHelper.cpp:194:20: error: array subscript -1 is outside array bounds of 'int [2305843009213693951]' [-Werror=array-bounds=]
+CXXFLAGS += "-Wno-error=array-bounds"
 
 BBCLASSEXTEND = "native nativesdk"

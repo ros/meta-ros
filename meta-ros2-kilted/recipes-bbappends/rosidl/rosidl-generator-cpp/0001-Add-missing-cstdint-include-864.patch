@@ -1,0 +1,30 @@
+From b3d84469b7a82ba63cf7ce3f708ba2db6b9d7607 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?=C3=98ystein=20Sture?= <oysstu@users.noreply.github.com>
+Date: Mon, 5 May 2025 13:44:47 +0200
+Subject: [PATCH 1/1] Add missing cstdint include (#864)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Backport [https://github.com/ros2/rosidl/commit/b3d84469b7a82ba63cf7ce3f708ba2db6b9d7607]
+
+Signed-off-by: Øystein Sture <os@skarvtech.com>
+---
+ resource/idl__struct.hpp.em         | 1 +
+ 1 files changed, 1 insertions(+)
+
+diff --git a/resource/idl__struct.hpp.em b/resource/idl__struct.hpp.em
+index c4b7c28..b8f9856 100644
+--- a/resource/idl__struct.hpp.em
++++ b/resource/idl__struct.hpp.em
+@@ -28,6 +28,7 @@ include_directives = set()
+ 
+ #include <algorithm>
+ #include <array>
++#include <cstdint>
+ #include <memory>
+ #include <string>
+ #include <vector>
+-- 
+2.39.5
+

@@ -1,8 +1,6 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 # Copyright (C) 2023 Advanced Micro Devices, Inc.  All rights reserved.
 
-LICENSE = "BSD-3-Clause"
-
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-parser-native \
     rosidl-adapter-native \
