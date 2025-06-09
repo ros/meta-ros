@@ -11,5 +11,5 @@ CXXFLAGS += "-Wno-error=unused-parameter"
 
 # error: "RCLCPP_VERSION_MAJOR" redefined [-Werror]
 # The issue was fixed by https://github.com/foxglove/ros-foxglove-bridge/pull/344
-SRC_URI += "https://github.com/foxglove/ros-foxglove-bridge/commit/9a950ae0fd6e4c87c4ea50b98e6bc3256e2e498f.patch"
-SRC_URI[sha256sum] = "5f92827a44499fcb712d7f5c8c2733cd89f8e723ab627f795add11737d78a5c3"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://Use-RCLCPP_VERSION_GTE.patch"
