@@ -19,8 +19,8 @@ ROS_CN = "cob_common"
 ROS_BPN = "cob_actions"
 
 ROS_BUILD_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-actionlib-msgs} \
     action-msgs \
-    actionlib-msgs \
     builtin-interfaces \
     geometry-msgs \
 "
@@ -31,8 +31,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-actionlib-msgs} \
     action-msgs \
-    actionlib-msgs \
     builtin-interfaces \
     geometry-msgs \
 "
@@ -40,8 +40,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-actionlib-msgs} \
     action-msgs \
-    actionlib-msgs \
     builtin-interfaces \
     geometry-msgs \
     rosidl-default-runtime \

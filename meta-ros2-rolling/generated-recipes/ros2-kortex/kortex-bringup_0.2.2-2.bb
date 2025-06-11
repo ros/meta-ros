@@ -29,8 +29,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-gazebo-ros2-control} \
+    ${ROS_UNRESOLVED_DEP-gripper-controllers} \
     controller-manager \
-    gripper-controllers \
     joint-state-broadcaster \
     joint-state-publisher \
     joint-trajectory-controller \
