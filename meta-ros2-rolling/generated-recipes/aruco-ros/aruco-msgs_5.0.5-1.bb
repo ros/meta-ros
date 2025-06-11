@@ -52,9 +52,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/aruco_ros-release/archive/release/rolling/aruco_msgs/5.0.5-1.tar.gz
+# matches with: https://github.com/ros2-gbp/aruco_ros-release/archive/release/rolling/aruco_msgs/5.0.5-1.tar.gz
 ROS_BRANCH ?= "branch=release/rolling/aruco_msgs"
-SRC_URI = "git://github.com/pal-gbp/aruco_ros-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/aruco_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7938091ebd1c7023cfed193add32d60e10f9d672"
 S = "${WORKDIR}/git"
 
