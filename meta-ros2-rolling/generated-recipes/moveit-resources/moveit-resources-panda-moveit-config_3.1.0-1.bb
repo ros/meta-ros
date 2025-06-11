@@ -27,8 +27,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-gripper-controllers} \
     controller-manager \
-    gripper-controllers \
     joint-state-publisher \
     joint-state-publisher-gui \
     moveit-resources-panda-description \
