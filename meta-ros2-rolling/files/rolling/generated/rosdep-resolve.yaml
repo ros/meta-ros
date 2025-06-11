@@ -3,6 +3,8 @@ acl:
 - acl@openembedded-core
 action_tutorials_interfaces:
 - ${ROS_UNRESOLVED_DEP-action-tutorials-interfaces}
+actionlib_msgs:
+- ${ROS_UNRESOLVED_DEP-actionlib-msgs}
 asio:
 - asio@meta-oe
 assimp:
@@ -35,6 +37,8 @@ clang-format:
 - clang@meta-clang
 clang-tidy:
 - clang@meta-clang
+cli11:
+- cli11@meta-oe
 cmake:
 - cmake@openembedded-core
 coinor-libipopt-dev:
@@ -83,6 +87,8 @@ google-mock:
 - gtest@meta-oe
 graphviz:
 - graphviz@meta-oe
+gripper_controllers:
+- ${ROS_UNRESOLVED_DEP-gripper-controllers}
 gtest:
 - gtest@meta-oe
 gtk3:
@@ -221,8 +227,6 @@ libncurses-dev:
 - ncurses@openembedded-core
 libnlopt-cxx-dev:
 - ${ROS_UNRESOLVED_DEP-libnlopt-cxx-dev}
-libnlopt-dev:
-- ${ROS_UNRESOLVED_DEP-libnlopt-dev}
 liboctomap-dev:
 - ${ROS_UNRESOLVED_DEP-liboctomap-dev}
 libogg:
@@ -377,6 +381,8 @@ lm-sensors:
 - lmsensors@meta-oe
 lttng-tools:
 - lttng-tools@openembedded-core
+lua-dev:
+- lua@openembedded-core
 lua5.2-dev:
 - lua@meta-oe
 lz4:
@@ -385,6 +391,8 @@ matio:
 - ${ROS_UNRESOLVED_DEP-matio}
 meson:
 - ${ROS_UNRESOLVED_DEP-meson}
+mosquittopp-dev:
+- ${ROS_UNRESOLVED_DEP-mosquittopp-dev}
 nlohmann-json-dev:
 - nlohmann-json@meta-oe
 ocl-icd-opencl-dev:
@@ -455,6 +463,8 @@ python3-expiringdict:
 - ${ROS_UNRESOLVED_DEP-python3-expiringdict}
 python3-fastapi:
 - ${ROS_UNRESOLVED_DEP-python3-fastapi}
+python3-filelock:
+- ${ROS_UNRESOLVED_DEP-python3-filelock}
 python3-fiona:
 - python3-fiona@meta-ros2
 python3-flake8:
@@ -485,8 +495,6 @@ python3-git:
 - python3-git@openembedded-core
 python3-httpx:
 - ${ROS_UNRESOLVED_DEP-python3-httpx}
-python3-icecream:
-- ${ROS_UNRESOLVED_DEP-python3-icecream}
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
@@ -673,8 +681,8 @@ ros_ign_bridge:
 - ${ROS_UNRESOLVED_DEP-ros-ign-bridge}
 ros_ign_gazebo:
 - ${ROS_UNRESOLVED_DEP-ros-ign-gazebo}
-rti-connext-dds-6.0.1:
-- ${ROS_UNRESOLVED_DEP-rti-connext-dds-6.0.1}
+rti-connext-dds-7.3.0:
+- ${ROS_UNRESOLVED_DEP-rti-connext-dds-7.3.0}
 ruby:
 - ${ROS_UNRESOLVED_DEP-ruby}
 sdl2:
