@@ -1,0 +1,24 @@
+Add a missing cstdint include that causes a build error with GCC 15.1.1.
+
+Upstream-Status: Backport [https://github.com/foxglove/mcap/commit/ba0d926f112ec7fa207c7a7c6d2a4809570db850]
+
+Signed-off-by: Øystein Sture <os@skarvtech.com>
+---
+ cpp/mcap/include/mcap/types.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/cpp/mcap/include/mcap/types.hpp b/cpp/mcap/include/mcap/types.hpp
+index ffd8f4e62..535270200 100644
+--- a/cpp/mcap/include/mcap/types.hpp
++++ b/cpp/mcap/include/mcap/types.hpp
+@@ -3,6 +3,7 @@
+ #include "errors.hpp"
+ #include "visibility.hpp"
+ #include <cstddef>
++#include <cstdint>
+ #include <functional>
+ #include <limits>
+ #include <memory>
+-- 
+2.39.5
+
