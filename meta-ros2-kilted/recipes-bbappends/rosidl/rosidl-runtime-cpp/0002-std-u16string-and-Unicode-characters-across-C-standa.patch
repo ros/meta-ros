@@ -1,0 +1,41 @@
+From dfd28e20dda9aea6cfe42aafddbf0a6eb7b37147 Mon Sep 17 00:00:00 2001
+From: Tomoya Fujita <Tomoya.Fujita@sony.com>
+Date: Thu, 22 May 2025 22:19:10 -0700
+Subject: [PATCH 1/1] std::u16string and Unicode characters across C++
+ standards.
+
+Upstream-Status: Submitted [https://github.com/ros2/rosidl/pull/871/commits/1510ffc59550aad04c4195888574aabd9668ece0]
+
+Signed-off-by: Tomoya Fujita <Tomoya.Fujita@sony.com>
+---
+ include/rosidl_runtime_cpp/traits.hpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/include/rosidl_runtime_cpp/traits.hpp b/include/rosidl_runtime_cpp/traits.hpp
+index 5a4773c66..bccd9a520 100644
+--- a/include/rosidl_runtime_cpp/traits.hpp
++++ b/include/rosidl_runtime_cpp/traits.hpp
+@@ -129,14 +129,20 @@ inline void value_to_yaml(const std::string & value, std::ostream & out)
+ inline void value_to_yaml(const std::u16string & value, std::ostream & out)
+ {
+   out << "\"";
++#if __cplusplus < 201703L
+   std::wstring_convert<std::codecvt_utf8_utf16<char16_t>, char16_t> convert;
++#endif
+   auto flags = out.flags();
+   size_t index = 0;
+   while (index < value.size()) {
+     uint_least16_t character = static_cast<uint_least16_t>(value[index]);
+     if (!(character & 0xff80)) {  // ASCII
++#if __cplusplus < 201703L
+       std::string character_as_string = convert.to_bytes(character);
+       out << std::hex << character_as_string.c_str();
++#else
++      out << static_cast<char>(character);
++#endif
+     } else if (!(character & 0xff00)) {  // only 1 byte set
+       out << "\\x" << std::hex << std::setw(2) << std::setfill('0') << \
+         character;
+-- 
+2.39.5
+
