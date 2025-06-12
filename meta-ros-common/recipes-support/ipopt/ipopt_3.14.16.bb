@@ -11,5 +11,5 @@ DEPENDS = "coinor-buildtools-native lapack"
 
 do_configure:prepend () {
     mkdir -p ${S}/coinor-m4
-    cp ${STAGING_DIR_NATIVE}/${datadir}/coinor/* ${S}/coinor-m4
+    cp ${STAGING_DIR_NATIVE}/${datadir}/coinor/* ${STAGING_DATADIR_NATIVE}/aclocal
 }
