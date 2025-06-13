@@ -14,6 +14,13 @@ S = "${WORKDIR}/git/octomap"
 
 inherit cmake
 
+# Ignore
+#  error: #warning "<ciso646> is deprecated in C++17, use <version> to detect implementation-specific macros" [-Werror=cpp]
+
+EXTRA_OECMAKE += " \
+    -DCMAKE_CXX_FLAGS='${CXXFLAGS} -Wno-cpp' \
+"
+
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
