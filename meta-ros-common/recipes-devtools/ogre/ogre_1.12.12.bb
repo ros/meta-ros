@@ -8,13 +8,19 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=41bb7e40692720ea7d7b034dc4afd191"
 
 # matches with tag v1.12.12
-SRCREV = "be8c2a225ecae636c8e669a12129b603db6b0e3c"
-SRC_URI = "git://github.com/OGRECave/ogre;protocol=https;branch=master \
+SRCREV_ogre = "be8c2a225ecae636c8e669a12129b603db6b0e3c"
+# matches with tag v1.79
+SRCREV_imgui = "e5cb04b132cba94f902beb6186cb58b864777012"
+SRCREV_FORMAT = "ogre_imgui"
+
+SRC_URI = "git://github.com/OGRECave/ogre;protocol=https;branch=master;name=ogre \
+    git://github.com/ocornut/imgui.git;name=imgui;destsuffix=git/Components/Overlay/imgui-1.79;branch=master;protocol=https \
     file://0001-CMakeLists.txt-don-t-set-RPATH.patch \
     file://use-opengl-cmake-targets.patch \
     file://find-assimp-package.patch \
     file://rename-featuresummary-to-avoid-name-clashes.patch \
     file://find-freeimage-library-name.patch \
+    file://use-bitbake-fetcher-for-imgui.patch \
 "
 
 S = "${WORKDIR}/git"
