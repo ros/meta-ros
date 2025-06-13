@@ -1,0 +1,19 @@
+Use Bitbake fetcher for imgui
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: ogre-1.12.12/Components/Overlay/CMakeLists.txt
+===================================================================
+--- ogre-1.12.12.orig/Components/Overlay/CMakeLists.txt
++++ ogre-1.12.12/Components/Overlay/CMakeLists.txt
+@@ -19,7 +19,7 @@ list(APPEND HEADER_FILES
+ file(GLOB SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+ 
+ if(OGRE_BUILD_COMPONENT_OVERLAY_IMGUI)
+-  set(IMGUI_DIR "${PROJECT_BINARY_DIR}/imgui-1.79" CACHE PATH "")
++  set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/imgui-1.79" CACHE PATH "")
+   if(NOT EXISTS ${IMGUI_DIR})
+     message(STATUS "Downloading imgui")
+     file(DOWNLOAD
