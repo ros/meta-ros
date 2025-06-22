@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dijkstra_mesh_planner"
 SRC_URI = "git://github.com/uos-gbp/mesh_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f15f2ca374b022ee906fd0aa98aa83bdc0168e9e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

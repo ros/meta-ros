@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/virtual_force_publisher"
 SRC_URI = "git://github.com/tork-a/jsk_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "74cafb8b156df7f55f5a1598271504fa3a31f9a8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

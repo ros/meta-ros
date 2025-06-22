@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fingertip_pressure"
 SRC_URI = "git://github.com/pr2-gbp/pr2_ethercat_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8199b4fee4dff01d84c27fc815389e546e97f10b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

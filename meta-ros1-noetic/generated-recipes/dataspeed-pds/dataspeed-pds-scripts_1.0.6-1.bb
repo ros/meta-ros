@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dataspeed_pds_scripts"
 SRC_URI = "git://github.com/DataspeedInc-release/dataspeed_pds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ae06e5e5ac5d55cfbc2c77516c1f266350d8e05"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

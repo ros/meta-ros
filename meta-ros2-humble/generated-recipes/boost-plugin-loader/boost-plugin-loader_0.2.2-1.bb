@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/boost_plugin_loader"
 SRC_URI = "git://github.com/tesseract-robotics-release/boost_plugin_loader-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5a80dc29c763973528487223b7ed76b46df32cf9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/py_trees_ros_viewer"
 SRC_URI = "git://github.com/ros2-gbp/py_trees_ros_viewer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "67669dc3a57d3c16295c641b91322ad40a57f36b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

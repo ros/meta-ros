@@ -99,7 +99,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rviz_visual_tools"
 SRC_URI = "git://github.com/PickNikRobotics/rviz_visual_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7e4cd481aaa5aaf06c5711a5adbdd4194e80757b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

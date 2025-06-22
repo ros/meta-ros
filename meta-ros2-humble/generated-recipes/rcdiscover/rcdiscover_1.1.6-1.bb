@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rcdiscover"
 SRC_URI = "git://github.com/ros2-gbp/rcdiscover-release;${ROS_BRANCH};protocol=https"
 SRCREV = "040a6f86e0390bd6c362136d4868c3b1a4c5532f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

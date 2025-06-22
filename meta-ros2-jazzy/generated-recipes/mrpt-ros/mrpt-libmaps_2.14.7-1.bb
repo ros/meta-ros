@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mrpt_libmaps"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e2ba547e097abdc478a57579c42fb683d9b052c3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

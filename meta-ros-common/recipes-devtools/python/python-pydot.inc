@@ -10,6 +10,5 @@ SRCREV = "979b0b7685c911fd8ef05feec1d3fe8c62e3247d"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/pydot/pydot;${ROS_BRANCH};protocol=https"
 
-S = "${WORKDIR}/git"
 
 BBCLASSEXTEND = "native nativesdk"

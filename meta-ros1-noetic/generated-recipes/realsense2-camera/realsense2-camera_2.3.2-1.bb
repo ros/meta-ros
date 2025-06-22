@@ -93,7 +93,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/realsense2_camera"
 SRC_URI = "git://github.com/IntelRealSense/realsense-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e93cb02dbfd5a3dd3e3c02657af4a31f56f0c560"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

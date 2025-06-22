@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/velodyne_description"
 SRC_URI = "git://github.com/DataspeedInc-release/velodyne_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f1f22fd263411a4d9f36ad4e495ddad70b42fff2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

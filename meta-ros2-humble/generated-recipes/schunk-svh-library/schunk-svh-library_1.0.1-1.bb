@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/schunk_svh_library"
 SRC_URI = "git://github.com/ros2-gbp/schunk_svh_library-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eb88f49a96664c56f57002f2564ab41a961d28e5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

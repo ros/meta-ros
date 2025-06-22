@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/system_fingerprint"
 SRC_URI = "git://github.com/ros2-gbp/ros_system_fingerprint-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0ee0c1f74f519caf695ef608418dcccf163a7412"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

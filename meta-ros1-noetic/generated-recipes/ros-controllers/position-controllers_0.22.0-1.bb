@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/position_controllers"
 SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "af4d0c1fba8d48fcd3745ebf30815ee0da6e7015"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

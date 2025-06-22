@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/grasping_msgs"
 SRC_URI = "git://github.com/mikeferguson/grasping_msgs-gbp;${ROS_BRANCH};protocol=https"
 SRCREV = "19399b84658be0c0f920805cd9a3d3762d62393d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

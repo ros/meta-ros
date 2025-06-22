@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/control_box_rst"
 SRC_URI = "git://github.com/ros2-gbp/control_box_rst-release;${ROS_BRANCH};protocol=https"
 SRCREV = "109cacd4e494bd81bba619b97f9c8775e7f855b2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

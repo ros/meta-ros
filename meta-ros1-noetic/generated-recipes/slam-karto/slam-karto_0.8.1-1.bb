@@ -76,7 +76,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/slam_karto"
 SRC_URI = "git://github.com/ros-gbp/slam_karto-release;${ROS_BRANCH};protocol=https"
 SRCREV = "223ead7baa1eb57eafeef6cafd06d9c8a9b5dc0d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

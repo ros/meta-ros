@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_py_console"
 SRC_URI = "git://github.com/ros-gbp/rqt_py_console-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1511fa009304b1adb8083c83f9fea31b44611d25"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -101,7 +101,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/spatio_temporal_voxel_layer"
 SRC_URI = "git://github.com/SteveMacenski/spatio_temporal_voxel_layer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "626f1631cfda3a245d3e58bd0e7fd527a17e1c36"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

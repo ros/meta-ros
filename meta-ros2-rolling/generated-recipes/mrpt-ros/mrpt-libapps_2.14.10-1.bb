@@ -86,7 +86,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/mrpt_libapps"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f1643014a880c86d4374dd6bf73a7fdf9c9ea8fb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

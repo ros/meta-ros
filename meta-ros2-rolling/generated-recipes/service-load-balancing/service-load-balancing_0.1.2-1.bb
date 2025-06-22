@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/service_load_balancing"
 SRC_URI = "git://github.com/ros2-gbp/service_load_balancing-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4a69dff2b365238a443159d41d3dcb692947de2d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

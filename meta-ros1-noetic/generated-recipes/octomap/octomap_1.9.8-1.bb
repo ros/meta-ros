@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/octomap"
 SRC_URI = "git://github.com/ros-gbp/octomap-release;${ROS_BRANCH};protocol=https"
 SRCREV = "82d5fc331e9807808d6c95ebcc61cbb7417552cc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sr_hand_detector"
 SRC_URI = "git://github.com/shadow-robot/sr_hand_detector-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b62ea67d7cb755dea72b57744660538d897b65bf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

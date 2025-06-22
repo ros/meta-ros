@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ipcamera_driver"
 SRC_URI = "git://github.com/alireza-hosseini/ipcamera_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2edb40fcbcbeaf3f9096d5fba45477a7ba8d5ee3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

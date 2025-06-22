@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ptz_action_server_msgs"
 SRC_URI = "git://github.com/clearpath-gbp/ptz_action_server-release;${ROS_BRANCH};protocol=https"
 SRCREV = "472eefd2ad604251fdfc1e92a90f10e7ada77553"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

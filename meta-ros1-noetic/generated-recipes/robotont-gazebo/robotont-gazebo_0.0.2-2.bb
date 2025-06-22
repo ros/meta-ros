@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robotont_gazebo"
 SRC_URI = "git://github.com/robotont-release/robotont_gazebo-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e4bbf9545d6a9269c5d8db5be6e954ad07835b93"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hector_gazebo_thermal_camera"
 SRC_URI = "git://github.com/tu-darmstadt-ros-pkg-gbp/hector_gazebo-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b5f64075887769fb3a0b0b66751049d30b411028"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/mavlink"
 SRC_URI = "git://github.com/ros2-gbp/mavlink-gbp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a4ecb791e1244ff24a7c756b5f6bdd17caefec12"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

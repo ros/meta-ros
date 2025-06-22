@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rm_orientation_controller"
 SRC_URI = "git://github.com/rm-controls/rm_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6b4c73694f31e7d89c126a4cad3f64317e5f0a4d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

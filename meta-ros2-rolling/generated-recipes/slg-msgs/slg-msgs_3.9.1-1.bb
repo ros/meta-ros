@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/slg_msgs"
 SRC_URI = "git://github.com/ros2-gbp/slg_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "17744cc0a867f23af547719aa637298e95db10eb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

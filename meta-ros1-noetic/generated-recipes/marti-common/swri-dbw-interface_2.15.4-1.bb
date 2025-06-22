@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/swri_dbw_interface"
 SRC_URI = "git://github.com/swri-robotics-gbp/marti_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b6a65ab4b8ddb72b982847c01c84960d32830158"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

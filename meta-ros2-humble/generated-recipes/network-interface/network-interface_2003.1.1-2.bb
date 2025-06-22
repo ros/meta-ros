@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/network_interface"
 SRC_URI = "git://github.com/astuff/network_interface-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4de617ce2a7a38da49620a34fb842022196c862f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/leo_gazebo_worlds"
 SRC_URI = "git://github.com/fictionlab-gbp/leo_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c1cdbb783b53c8db296ef80007cef8c2d309e094"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

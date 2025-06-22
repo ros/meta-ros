@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/exotica_pinocchio_dynamics_solver"
 SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e435eee72777054c08e143346309a27fcd445e02"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

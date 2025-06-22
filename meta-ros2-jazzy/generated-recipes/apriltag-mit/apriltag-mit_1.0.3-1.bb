@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/apriltag_mit"
 SRC_URI = "git://github.com/ros2-gbp/apriltag_mit-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fce3634b5b12e17f90fa8c0f404fa7fca1bcb8cc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_robot_plugins"
 SRC_URI = "git://github.com/ros-gbp/rqt_robot_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "19a98ae9037043c0e0b93c7b3d041af46809ff15"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

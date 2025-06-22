@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/tiago_moveit_config"
 SRC_URI = "git://github.com/pal-gbp/tiago_moveit_config-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3cb410b655a5e236bdce3e0e8b941e74e9336d5d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

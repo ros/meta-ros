@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/quanergy_client"
 SRC_URI = "git://github.com/QuanergySystems/quanergy_client-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2e595e7e99aecc5043c5135e48e3a5902f4f4d6c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

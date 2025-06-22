@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/lockfree"
 SRC_URI = "git://github.com/ros-gbp/ros_realtime-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1fc8d5d7e74122b7d636db95bc9d6fb86b22a7b4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

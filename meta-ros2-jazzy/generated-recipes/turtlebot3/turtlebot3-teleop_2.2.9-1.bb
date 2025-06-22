@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/turtlebot3_teleop"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot3-release;${ROS_BRANCH};protocol=https"
 SRCREV = "946bed07a470ed097283d9a693f8982af02eceed"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

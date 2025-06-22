@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/exiftool_metadata_extractor"
 SRC_URI = "git://github.com/peci1/movie_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8a3410c812765e36f4cd58ee238a32e29625cba0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

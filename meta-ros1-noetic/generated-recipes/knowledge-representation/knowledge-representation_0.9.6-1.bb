@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/knowledge_representation"
 SRC_URI = "git://github.com/utexas-bwi-gbp/knowledge_representation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bfd3601a591d05ee81f2bcb19618c52addf12f31"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

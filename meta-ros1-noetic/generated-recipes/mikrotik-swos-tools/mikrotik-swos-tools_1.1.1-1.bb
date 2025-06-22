@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mikrotik_swos_tools"
 SRC_URI = "git://github.com/peci1/mikrotik_swos_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cff761d80fddfaf5f3f63cb56a5f3919c8eda819"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

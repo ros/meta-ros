@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/find_object_2d"
 SRC_URI = "git://github.com/introlab/find_object_2d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "69008dd52cc7fdecb1733f801b24a0af9d64349c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

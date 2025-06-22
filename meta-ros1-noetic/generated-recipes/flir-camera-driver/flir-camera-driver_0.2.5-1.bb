@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/flir_camera_driver"
 SRC_URI = "git://github.com/ros-drivers-gbp/flir_camera_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cc0fa4d62363cae9c8de5e6f62ee2635fa343d24"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

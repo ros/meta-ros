@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/nicla_vision_ros2"
 SRC_URI = "git://github.com/ros2-gbp/nicla_vision_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b33eddec43e1c091d1fa1ba7e2f472af3c16a049"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

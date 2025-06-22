@@ -12,7 +12,6 @@ SRC_URI = "git://github.com/gazebosim/gazebo-classic.git;protocol=https;branch=g
 PV = "11.14.0"
 SRCREV = "9b72949304e409d5f33150e87e6b348c54b5c015"
 
-S = "${WORKDIR}/git"
 
 OECMAKE_GENERATOR = "Unix Makefiles"
 

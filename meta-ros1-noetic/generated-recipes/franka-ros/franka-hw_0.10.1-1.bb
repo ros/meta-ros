@@ -88,7 +88,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/franka_hw"
 SRC_URI = "git://github.com/frankaemika/franka_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2744fd195ffe7493f3a53cc191d15c2331649266"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

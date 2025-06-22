@@ -97,7 +97,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/play_motion2"
 SRC_URI = "git://github.com/pal-gbp/play_motion2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ba10fa1c5623bae618d8a928f7e7685df6665262"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

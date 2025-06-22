@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/libpointmatcher"
 SRC_URI = "git://github.com/ros2-gbp/libpointmatcher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0ed5b47746e28c0e56fde1b7aa17bdc0200bd58c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

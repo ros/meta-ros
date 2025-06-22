@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/webots_ros"
 SRC_URI = "git://github.com/cyberbotics/webots_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "61b03b9e8c7e254d29edd9c8d168d49587d62c23"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

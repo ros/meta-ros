@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nav2d_remote"
 SRC_URI = "git://github.com/skasperski/navigation_2d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "147da5d9693513c679586b4c30b1b78d9bf2da11"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

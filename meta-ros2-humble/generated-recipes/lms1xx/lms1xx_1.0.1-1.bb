@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/lms1xx"
 SRC_URI = "git://github.com/clearpath-gbp/LMS1xx-release;${ROS_BRANCH};protocol=https"
 SRCREV = "306e91a393ab7b794aba681d6177a0d7b4efdfb3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

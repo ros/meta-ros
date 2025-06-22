@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/camera_aravis"
 SRC_URI = "git://github.com/FraunhoferIOSB/camera_aravis-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e2ac47c53b93f00c99985dcbf2991e03679ddf2d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/xv_11_laser_driver"
 SRC_URI = "git://github.com/rohbotics/xv_11_laser_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "af3ac1af48cbb81d68eb65fbe4f6749e2ed16ba3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

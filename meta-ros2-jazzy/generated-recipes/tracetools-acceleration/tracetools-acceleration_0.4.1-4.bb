@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/tracetools_acceleration"
 SRC_URI = "git://github.com/ros2-gbp/tracetools_acceleration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5b343e424887e2d3703364dad8973a5a1c578660"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

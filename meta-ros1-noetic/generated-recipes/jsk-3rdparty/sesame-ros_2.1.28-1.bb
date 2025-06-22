@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sesame_ros"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0ed909ab9fbe19f569de10209b87ff6f392f18d2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

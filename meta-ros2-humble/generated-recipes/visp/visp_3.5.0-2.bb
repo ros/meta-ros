@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/visp"
 SRC_URI = "git://github.com/ros2-gbp/visp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c5b45df014e51b0dd4fc4a30a0d07f31c0dca6b8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/marvelmind_nav"
 SRC_URI = "git://github.com/MarvelmindRobotics/marvelmind_nav-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2b7af04b8e99dc33ec9f9c8b521afe15f2d78066"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

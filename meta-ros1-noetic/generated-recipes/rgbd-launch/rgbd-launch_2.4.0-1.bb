@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rgbd_launch"
 SRC_URI = "git://github.com/ros-gbp/rgbd_launch-release;${ROS_BRANCH};protocol=https"
 SRCREV = "97080ec4063ff7cd23917ab6da79fa69cb6644e8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

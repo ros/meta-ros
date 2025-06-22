@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/multi_map_server"
 SRC_URI = "git://github.com/tork-a/jsk_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "21b94963c3586fb16ac10501c84646988a3ead19"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

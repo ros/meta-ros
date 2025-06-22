@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ros_pytest"
 SRC_URI = "git://github.com/machinekoder/ros_pytest-release;${ROS_BRANCH};protocol=https"
 SRCREV = "65e41925a62b4f41c59c1537d76a4a4641f09995"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

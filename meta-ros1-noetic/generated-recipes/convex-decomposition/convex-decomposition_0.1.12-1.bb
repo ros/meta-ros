@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/convex_decomposition"
 SRC_URI = "git://github.com/ros-gbp/convex_decomposition-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4708718846996ac70138e7d8b6fd773003f86ab1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_tuck_arms_action"
 SRC_URI = "git://github.com/pr2-gbp/pr2_common_actions-release;${ROS_BRANCH};protocol=https"
 SRCREV = "10d47d0a464d88e09b9cf419b476af18d2c21a6c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

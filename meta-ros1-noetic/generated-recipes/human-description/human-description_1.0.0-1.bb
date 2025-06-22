@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/human_description"
 SRC_URI = "git://github.com/ros4hri/human_description-release;${ROS_BRANCH};protocol=https"
 SRCREV = "67ab0074515dbd3d383e601568b7fd0740679b0d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -6,7 +6,6 @@ SRC_URI = "git://github.com/AcademySoftwareFoundation/Imath.git;protocol=https;b
 PV = "3.1.9+git${SRCPV}"
 SRCREV = "642312b48e4c054198a3887b9e4e53da08fb7531"
 
-S = "${WORKDIR}/git"
 
 DEPENDS = " \
    boost \

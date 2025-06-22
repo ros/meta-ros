@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/gazebo_no_physics_plugin"
 SRC_URI = "git://github.com/ros2-gbp/gazebo_no_physics_plugin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c25ba6596689ae642412614a9aeb00dd0102e042"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

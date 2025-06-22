@@ -12,7 +12,6 @@ SRC_URI = "git://github.com/dartsim/dart.git;protocol=https;branch=release-6.14 
 
 SRCREV = "a51e08c210d7892605c6dc0b9ae96fce4446d9fe"
 
-S = "${WORKDIR}/git"
 
 DEPENDS = " \
     assimp \

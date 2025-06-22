@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_ground_robot_teleop"
 SRC_URI = "git://github.com/JdeRobot/drones-release;${ROS_BRANCH};protocol=https"
 SRCREV = "15c86b824e05253ffba17298e4f0d7395a475948"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

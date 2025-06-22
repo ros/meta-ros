@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/audio_video_recorder"
 SRC_URI = "git://github.com/tork-a/jsk_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d27282d847337291aa656cb4530d3103e9d66540"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

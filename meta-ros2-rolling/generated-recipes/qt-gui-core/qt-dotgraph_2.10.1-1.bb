@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/qt_dotgraph"
 SRC_URI = "git://github.com/ros2-gbp/qt_gui_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "92272be7b78372c65f3fd4f8410667bb149ae427"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

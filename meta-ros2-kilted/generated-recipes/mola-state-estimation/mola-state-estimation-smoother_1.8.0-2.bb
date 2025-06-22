@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mola_state_estimation_smoother"
 SRC_URI = "git://github.com/ros2-gbp/mola_state_estimation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c3cefe24e59c991f07d328ca458dc9e82f4de41e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/wireless_msgs"
 SRC_URI = "git://github.com/clearpath-gbp/wireless-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d3f5aac7adb62b58901392f706c3f6b79e4e40d7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

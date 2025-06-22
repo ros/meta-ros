@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rospack"
 SRC_URI = "git://github.com/ros-gbp/rospack-release;${ROS_BRANCH};protocol=https"
 SRCREV = "284e1f7755b644c69e4118e5621242d14126dd60"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

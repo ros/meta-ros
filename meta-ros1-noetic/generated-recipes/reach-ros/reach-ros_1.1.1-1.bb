@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/reach_ros"
 SRC_URI = "git://github.com/ros-industrial-release/reach_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dad8114b684adfb862bdbf5e0ca006933248defc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

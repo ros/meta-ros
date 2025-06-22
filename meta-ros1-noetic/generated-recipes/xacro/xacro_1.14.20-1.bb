@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/xacro"
 SRC_URI = "git://github.com/ros-gbp/xacro-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1ddb95929786f0d05d34fac29d7b6f111ceaf271"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

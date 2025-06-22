@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/razor_imu_9dof"
 SRC_URI = "git://github.com/ENSTABretagneRobotics/razor_imu_9dof-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3a6958684e0f42bf21e6dce216681cbd807bc0a3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

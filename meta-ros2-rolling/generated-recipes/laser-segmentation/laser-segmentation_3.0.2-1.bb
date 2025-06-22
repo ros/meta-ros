@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/laser_segmentation"
 SRC_URI = "git://github.com/ros2-gbp/laser_segmentation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "18117b81054865877d943544c6036d4e1f91deb2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

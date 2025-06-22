@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laptop_battery_monitor"
 SRC_URI = "git://github.com/ros-gbp/linux_peripheral_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "46c4727c5a00d78e82fcba1352253daed16830c4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

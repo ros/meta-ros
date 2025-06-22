@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/find_object_2d"
 SRC_URI = "git://github.com/ros2-gbp/find_object_2d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3caab7056dc6caf9228ab2d43b2f8921ca557009"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

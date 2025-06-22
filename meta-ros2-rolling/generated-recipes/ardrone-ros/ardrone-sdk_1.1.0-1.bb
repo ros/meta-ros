@@ -41,7 +41,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ardrone_sdk"
 SRC_URI = "git://github.com/ros2-gbp/ardrone_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "74a7de9f6e7d5c84448bc68fdf1eb027b56bc361"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

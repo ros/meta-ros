@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/kobuki_core"
 SRC_URI = "git://github.com/ros2-gbp/kobuki_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1472e4df37392766a692c93da72ff3072f11303c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

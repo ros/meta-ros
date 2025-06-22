@@ -9,7 +9,7 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/${BPN}/distrib/GeographicLib-${PV}.tar.gz"
 SRC_URI[md5sum] = "52407e8380335957377c6ac6118ce6e3"
 SRC_URI[sha256sum] = "5d4145cd16ebf51a2ff97c9244330a340787d131165cfd150e4b2840c0e8ac2b"
 
-S = "${WORKDIR}/GeographicLib-${PV}"
+S = "${UNPACKDIR}/GeographicLib-${PV}"
 
 PACKAGE_BEFORE_PN += "${PN}-tools"
 

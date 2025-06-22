@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/simple_term_menu_vendor"
 SRC_URI = "git://github.com/clearpath-gbp/simple_term_menu_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6d081d38e3a3dbecab23bfada30ef8135cdef18f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

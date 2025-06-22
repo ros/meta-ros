@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rc_reason_clients"
 SRC_URI = "git://github.com/ros2-gbp/rc_reason_clients-release;${ROS_BRANCH};protocol=https"
 SRCREV = "23990489c5bbdd53b5db3fc9f14d469a359008ff"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

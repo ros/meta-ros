@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/goal_passer"
 SRC_URI = "git://github.com/ros-gbp/navigation_experimental-release;${ROS_BRANCH};protocol=https"
 SRCREV = "66cf5c221d6944bc3bc2a78ba0983768555ae4b8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

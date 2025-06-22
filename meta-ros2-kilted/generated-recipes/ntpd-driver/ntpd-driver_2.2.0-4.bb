@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ntpd_driver"
 SRC_URI = "git://github.com/ros2-gbp/ntpd_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7b489bbccc4cc701e487aa5c277dd56cc51a9afd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

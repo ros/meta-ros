@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/libfranka"
 SRC_URI = "git://github.com/frankaemika/libfranka-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aee3024ca8bbd6cb6da518b6d356c3cb33927cb2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

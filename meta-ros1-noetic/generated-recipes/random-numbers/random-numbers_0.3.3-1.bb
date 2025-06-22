@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/random_numbers"
 SRC_URI = "git://github.com/ros-gbp/random_numbers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "821f4f3b800f5060a2a2f140c9f032ce6b611ca7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

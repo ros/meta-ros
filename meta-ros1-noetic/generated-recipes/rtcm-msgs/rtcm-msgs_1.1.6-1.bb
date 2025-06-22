@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rtcm_msgs"
 SRC_URI = "git://github.com/nobleo/rtcm_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "080e7bf0bb84f6396cce315353818e38bc5f0fbd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosmsg_cpp"
 SRC_URI = "git://github.com/ctu-vras/rosmsg_cpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a11d93e6eedc43104e5699ee42fa2bccc08661f2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -6,6 +6,5 @@ SRC_URI = "gitsm://github.com/simd-everywhere/simde.git;protocol=https;branch=ma
 PV = "0.7.6+git${SRCPV}"
 SRCREV = "fefc7857ff3e785b988a61a8f5f3c5bd5eb24342"
 
-S = "${WORKDIR}/git"
 
 inherit meson
