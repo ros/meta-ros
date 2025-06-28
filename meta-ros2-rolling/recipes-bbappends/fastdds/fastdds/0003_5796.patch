@@ -1,0 +1,83 @@
+From c24121f1f572d31b0365d61c35aaf1d580ad4245 Mon Sep 17 00:00:00 2001
+From: Mario Dominguez <mariodominguez@eprosima.com>
+Date: Mon, 5 May 2025 10:04:55 +0200
+Subject: [PATCH 1/3] Refs #23110: Add cstdint header for uint8_t
+
+Upstream-Status: Backport [https://github.com/eProsima/Fast-DDS/pull/5796]
+
+Signed-off-by: Mario Dominguez <mariodominguez@eprosima.com>
+---
+ .../fastdds/topic/DDSSQLFilter/DDSFilterCompoundCondition.hpp    | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterCompoundCondition.hpp b/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterCompoundCondition.hpp
+index d4759dec719..9f30bde460e 100644
+--- a/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterCompoundCondition.hpp
++++ b/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterCompoundCondition.hpp
+@@ -19,6 +19,7 @@
+ #ifndef _FASTDDS_TOPIC_DDSSQLFILTER_DDSFILTERCOMPOUNDCONDITION_HPP_
+ #define _FASTDDS_TOPIC_DDSSQLFILTER_DDSFILTERCOMPOUNDCONDITION_HPP_
+ 
++#include <cstdint>
+ #include <memory>
+ 
+ #include "DDSFilterCondition.hpp"
+
+From d7496f2892dca8d6f8936946cc62672146162908 Mon Sep 17 00:00:00 2001
+From: Mario Dominguez <mariodominguez@eprosima.com>
+Date: Mon, 5 May 2025 10:05:08 +0200
+Subject: [PATCH 2/3] Refs #23110: Remove unused using
+
+Signed-off-by: Mario Dominguez <mariodominguez@eprosima.com>
+---
+ src/cpp/rtps/reader/BaseReader.cpp | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/cpp/rtps/reader/BaseReader.cpp b/src/cpp/rtps/reader/BaseReader.cpp
+index 40f634e50f9..d8fad36cb97 100644
+--- a/src/cpp/rtps/reader/BaseReader.cpp
++++ b/src/cpp/rtps/reader/BaseReader.cpp
+@@ -517,7 +517,6 @@ void BaseReader::setup_datasharing(
+ 
+     if (att.endpoint.data_sharing_configuration().kind() != fastdds::dds::DataSharingKind::OFF)
+     {
+-        using std::placeholders::_1;
+         std::shared_ptr<DataSharingNotification> notification = DataSharingNotification::create_notification(
+             getGuid(), att.endpoint.data_sharing_configuration().shm_directory());
+         if (notification)
+
+From c9c039bcbc125b27ae379503ac75d180d5124d3b Mon Sep 17 00:00:00 2001
+From: cferreiragonz <carlosferreira@eprosima.com>
+Date: Thu, 8 May 2025 09:07:24 +0200
+Subject: [PATCH 3/3] Refs #23110: Add missing cstdint to more headers
+
+Signed-off-by: cferreiragonz <carlosferreira@eprosima.com>
+---
+ src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterPredicate.hpp | 1 +
+ src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterValue.hpp     | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterPredicate.hpp b/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterPredicate.hpp
+index a4ac02ad320..7a53b807d3a 100644
+--- a/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterPredicate.hpp
++++ b/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterPredicate.hpp
+@@ -19,6 +19,7 @@
+ #ifndef _FASTDDS_TOPIC_DDSSQLFILTER_DDSFILTERPREDICATE_HPP_
+ #define _FASTDDS_TOPIC_DDSSQLFILTER_DDSFILTERPREDICATE_HPP_
+ 
++#include <cstdint>
+ #include <memory>
+ 
+ #include "DDSFilterCondition.hpp"
+diff --git a/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterValue.hpp b/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterValue.hpp
+index 4ae70cb485e..bdb25584dfb 100644
+--- a/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterValue.hpp
++++ b/src/cpp/fastdds/topic/DDSSQLFilter/DDSFilterValue.hpp
+@@ -21,6 +21,7 @@
+ 
+ #include <fastcdr/cdr/fixed_size_string.hpp>
+ 
++#include <cstdint>
+ #include <memory>
+ #include <regex>
+ 
