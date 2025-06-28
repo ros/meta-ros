@@ -20,7 +20,7 @@ repos:
     commit: "5b4e20377eea8d428edf1aeb2187c18f82ca6757"
     path: "layers/bitbake"
     layers:
-      bitbake: "excluded"
+      bitbake: "disabled"
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
