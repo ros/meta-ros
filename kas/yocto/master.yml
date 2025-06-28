@@ -16,7 +16,7 @@ repos:
     url: "https://github.com/openembedded/bitbake.git"
     path: "layers/bitbake"
     layers:
-      bitbake: "excluded"
+      bitbake: "disabled"
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
