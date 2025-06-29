@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=gz-transport14"
 
-SRCREV = "c79276843edf4264e9b78d57b557f46e2e527b14"
+SRCREV = "57eb756917a7e155606b57338bcce64b0c8d4cb8"
 
 
 inherit cmake pkgconfig python3targetconfig
