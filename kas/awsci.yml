@@ -30,4 +30,4 @@ local_conf_header:
     INHERIT += "mirror_updates"
 
     # Set FETCHCMD_s3 manually as kas creates its own environment
-    FETCHCMD_s3 = "/home/pokyuser/.local/bin/aws s3"
+    # FETCHCMD_s3 = "/home/pokyuser/.local/bin/aws s3"
