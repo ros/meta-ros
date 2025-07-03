@@ -24,8 +24,7 @@ DEPENDS = "\
 
 SRC_URI = "git://github.com/gazebosim/gz-math.git;protocol=https;branch=gz-math8"
 
-SRCREV = "d38dc97f7c56e73d828342e3005ed0c4f9497e49"
-
+SRCREV = "4b3b642a0fc2119df624968c7973b9e87f5925ee"
 
 inherit cmake python3targetconfig
 
