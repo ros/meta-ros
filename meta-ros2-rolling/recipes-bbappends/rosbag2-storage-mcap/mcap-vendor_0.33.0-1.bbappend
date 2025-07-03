@@ -3,10 +3,11 @@
 # Use Bitbake to fetch https://github.com/foxglove/mcap.git
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 
-SRC_URI = " \
+SRC_URI = "\
     git://github.com/ros2-gbp/rosbag2-release;name=release;${ROS_BRANCH};protocol=https \
-    git://github.com/foxglove/mcap.git;protocol=https;name=mcap;destsuffix=git/mcap;branch=main;lfs=0 \
-    file://0001-CMakeLists.txt-fetch-dependencies-with-bitbake-fetch.patch\
+    git://github.com/foxglove/mcap.git;protocol=https;name=mcap;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/mcap;branch=main;lfs=0 \
+    file://0001-CMakeLists.txt-fetch-dependencies-with-bitbake-fetch.patch \
+    file://0001-cpp-add-missing-cstdint-include-gcc15-build-failure-.patch;patchdir=${S}/mcap \
 "
 
 SRCREV_release = "${SRCREV}"
