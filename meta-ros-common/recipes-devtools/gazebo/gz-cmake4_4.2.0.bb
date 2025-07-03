@@ -19,7 +19,6 @@ FILES:${PN} += "${datadir}/gz/gz-cmake4/*"
 
 FILES:${PN}-dev += "\
     pkgconfig/gz-cmake4.pc \
-    ${includedir} \
     ${datadir}/cmake/gz-cmake4/cmake4/ \
     ${datadir}/gz/gz-cmake4/ \
 "
