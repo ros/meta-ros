@@ -6,13 +6,15 @@ SECTION = "devel"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=9b0e1f01a68f441eeaf7b5e18812d3c8"
 
-SRC_URI = "git://github.com/OctoMap/octomap.git;protocol=https;branch=devel"
+SRC_URI = "git://github.com/OctoMap/octomap.git;protocol=https;branch=devel;subpath=octomap"
 
 SRCREV = "863e069489ef619d7179e3b21480dffb41b2af66"
 
-S = "${UNPACKDIR}/git/octomap"
+S = "${UNPACKDIR}/octomap"
 
 inherit cmake
+
+CXXFLAGS += "-Wno-error=cpp"
 
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
