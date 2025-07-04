@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/four_wheel_steering_msgs"
 SRC_URI = "git://github.com/ros-drivers-gbp/four_wheel_steering_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6048943d2188bd28a3ff9ccc6e15944660dcdc05"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

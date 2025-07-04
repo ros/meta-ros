@@ -85,7 +85,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/off_highway_premium_radar_sample"
 SRC_URI = "git://github.com/ros2-gbp/off_highway_sensor_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c8a69e034e76bd3748856633ceb4ee1fe3a32214"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

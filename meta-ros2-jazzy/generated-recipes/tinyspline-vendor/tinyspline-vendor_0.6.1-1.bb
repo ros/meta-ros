@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/tinyspline_vendor"
 SRC_URI = "git://github.com/ros2-gbp/tinyspline_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a06565ed4aff7d2c19a4a058ea3f43323075b2ab"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

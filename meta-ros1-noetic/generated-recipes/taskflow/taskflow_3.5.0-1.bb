@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/taskflow"
 SRC_URI = "git://github.com/ros-industrial-release/taskflow-release;${ROS_BRANCH};protocol=https"
 SRCREV = "74ef1f12e159355ac05b63ec57969fc88479d4bf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

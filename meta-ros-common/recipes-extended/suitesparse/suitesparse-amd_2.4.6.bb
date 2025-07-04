@@ -10,7 +10,7 @@ DEPENDS = " \
 "
 
 
-S = "${WORKDIR}/git/AMD"
+S = "${UNPACKDIR}/git/AMD"
 
 EXTRA_OEMAKE = "CC='${CC}'"
 

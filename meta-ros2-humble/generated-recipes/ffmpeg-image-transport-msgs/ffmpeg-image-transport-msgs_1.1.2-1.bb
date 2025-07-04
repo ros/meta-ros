@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ffmpeg_image_transport_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ffmpeg_image_transport_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2f65dd20d1c10ed6350cb139bcb75fe16eda7474"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

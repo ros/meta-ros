@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/network_bridge"
 SRC_URI = "git://github.com/ros2-gbp/network_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c625bfef13c67072a1a39f37fc3859d5f3cfb27b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

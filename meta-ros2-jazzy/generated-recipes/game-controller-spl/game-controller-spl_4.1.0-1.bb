@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/game_controller_spl"
 SRC_URI = "git://github.com/ros2-gbp/game_controller_spl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "84d9c529450b32dd0149ec82377c1ec753afed07"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

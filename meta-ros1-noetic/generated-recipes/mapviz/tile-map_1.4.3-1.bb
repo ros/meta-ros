@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tile_map"
 SRC_URI = "git://github.com/swri-robotics-gbp/mapviz-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d9700ea34beafe4e31d8e6d76d906e3e7680c82b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

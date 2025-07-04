@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/fastcdr"
 SRC_URI = "git://github.com/ros2-gbp/fastcdr-release;${ROS_BRANCH};protocol=https"
 SRCREV = "63848105b11d4d659ffa4a0044c853d2d111fc0f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

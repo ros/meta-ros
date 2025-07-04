@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rc_reason_msgs"
 SRC_URI = "git://github.com/ros2-gbp/rc_reason_clients-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b688a3f2716e6836c2e1e5f91e38309dd88a11d2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

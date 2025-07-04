@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/camera_aravis2_msgs"
 SRC_URI = "git://github.com/ros2-gbp/camera_aravis2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ba149f9be526fe2eef13e18b2a94c6a077a4feaa"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

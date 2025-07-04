@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rqt_bag_plugins"
 SRC_URI = "git://github.com/ros2-gbp/rqt_bag-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f0dbcf4a1f88ab52916a640893f57db1d6712706"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

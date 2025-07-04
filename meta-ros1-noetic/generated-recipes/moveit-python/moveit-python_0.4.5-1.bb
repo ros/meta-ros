@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_python"
 SRC_URI = "git://github.com/mikeferguson/moveit_python-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1a4c0e14a47f6629485566250f323c095893d3d7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

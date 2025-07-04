@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/image_transport_plugins"
 SRC_URI = "git://github.com/ros2-gbp/image_transport_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "359fc331a50693e9eae74f5406e2fc05dafe410e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

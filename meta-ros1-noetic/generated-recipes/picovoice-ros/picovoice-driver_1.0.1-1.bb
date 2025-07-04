@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/picovoice_driver"
 SRC_URI = "git://github.com/reinzor/picovoice_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "928d2a1de68d22e9f7b9cd7568f9f2784802b517"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

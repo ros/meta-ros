@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/proxsuite"
 SRC_URI = "git://github.com/ros2-gbp/proxsuite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b1b7dbc9106d896b347c4d5db9d01de37e0c2a2c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

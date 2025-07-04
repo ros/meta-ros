@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mrpt_sensors"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_sensors-release;${ROS_BRANCH};protocol=https"
 SRCREV = "83b9c6ab174c2d9f1ee78b4c58f9b7b761ad10f6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/slider_publisher"
 SRC_URI = "git://github.com/oKermorgant/slider_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "70e89c6c83d5b3af2c6edf8c7d428b8a226311b6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

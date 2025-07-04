@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/soccer_geometry_msgs"
 SRC_URI = "git://github.com/ros2-gbp/soccer_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "889363aa5db8950eaa22156ff7e66d46ab9acc61"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

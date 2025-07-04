@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/statistics_msgs"
 SRC_URI = "git://github.com/ros-drivers-gbp/pointgrey_camera_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bad0838a4a7e0384bc0582c987a6981050fb7596"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

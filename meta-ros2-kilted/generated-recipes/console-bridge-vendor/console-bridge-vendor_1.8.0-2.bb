@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/console_bridge_vendor"
 SRC_URI = "git://github.com/ros2-gbp/console_bridge_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f1caf4cc083744d865fe6d9a889fe713fdd941c0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

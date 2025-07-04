@@ -98,7 +98,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/schunk_sdh"
 SRC_URI = "git://github.com/ipa320/schunk_modular_robotics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9001235f9af03fb3213f02c7f14fbe7b7dae5c42"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

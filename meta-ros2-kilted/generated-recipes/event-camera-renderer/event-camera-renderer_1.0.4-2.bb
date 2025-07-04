@@ -73,7 +73,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/event_camera_renderer"
 SRC_URI = "git://github.com/ros2-gbp/event_camera_renderer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3d816add412f7bd2b0b227e564d7000217a47eb8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

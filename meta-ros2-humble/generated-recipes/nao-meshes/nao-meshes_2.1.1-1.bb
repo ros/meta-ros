@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/nao_meshes"
 SRC_URI = "git://github.com/ros-naoqi/nao_meshes-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a1b5adc1469d370672e3a05cfdf427b9560b073f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

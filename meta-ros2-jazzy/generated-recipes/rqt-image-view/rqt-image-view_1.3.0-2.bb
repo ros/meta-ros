@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rqt_image_view"
 SRC_URI = "git://github.com/ros2-gbp/rqt_image_view-release;${ROS_BRANCH};protocol=https"
 SRCREV = "44d834181b382620bcbbec51491a33d0ddb6c497"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

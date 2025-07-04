@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/joy_tester"
 SRC_URI = "git://github.com/ros2-gbp/joy_tester-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e95963fd8ad4f10b6b5c4610e90d56e64033c495"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

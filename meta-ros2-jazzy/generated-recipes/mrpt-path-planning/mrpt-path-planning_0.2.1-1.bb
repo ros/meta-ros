@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mrpt_path_planning"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_path_planning-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a865c44808b365e056cead017a67543f53aab4ee"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

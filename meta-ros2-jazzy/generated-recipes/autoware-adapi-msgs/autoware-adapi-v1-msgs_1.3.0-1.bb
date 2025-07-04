@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/autoware_adapi_v1_msgs"
 SRC_URI = "git://github.com/ros2-gbp/autoware_adapi_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5b4fd78663bd8c77f2a944341b129ebbc0de4beb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

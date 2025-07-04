@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mrt_cmake_modules"
 SRC_URI = "git://github.com/ros2-gbp/mrt_cmake_modules-release;${ROS_BRANCH};protocol=https"
 SRCREV = "594a0a1eeaf421f36e68f2912c1d1c7368d44ae0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

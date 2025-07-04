@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/trajectory_tracker_rviz_plugins"
 SRC_URI = "git://github.com/at-wat/neonavigation_rviz_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0e720bda10985ef23daf0b260a375109e87cf0fa"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

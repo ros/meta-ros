@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hri_msgs"
 SRC_URI = "git://github.com/ros4hri/hri_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ddfa33f7148bbfd76ca7f438c8bb4cd6264f2fab"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

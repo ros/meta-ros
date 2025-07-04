@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/data_tamer_cpp"
 SRC_URI = "git://github.com/ros2-gbp/data_tamer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3b652f177e320b472953e35a759cb36123dec996"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

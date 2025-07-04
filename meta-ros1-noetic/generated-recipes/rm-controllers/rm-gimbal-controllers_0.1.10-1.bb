@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rm_gimbal_controllers"
 SRC_URI = "git://github.com/rm-controls/rm_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3dfbb26b4749b504e3afaf532af5cf4131cbacfa"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

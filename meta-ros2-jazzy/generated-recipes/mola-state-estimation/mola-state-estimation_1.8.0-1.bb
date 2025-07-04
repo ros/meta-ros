@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mola_state_estimation"
 SRC_URI = "git://github.com/ros2-gbp/mola_state_estimation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "279de4d99fffebed9fe8b64ca572186a2f76243b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

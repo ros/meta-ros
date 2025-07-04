@@ -73,7 +73,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/stag_ros"
 SRC_URI = "git://github.com/usrl-uofsc/stag_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a8e4c41f104c3f7680779671c2c3801adb30b38a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

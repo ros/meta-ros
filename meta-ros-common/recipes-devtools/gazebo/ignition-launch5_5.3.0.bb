@@ -8,7 +8,6 @@ SRC_URI = "git://github.com/gazebosim/gz-launch.git;protocol=https;branch=ign-la
 
 SRCREV = "894e2e2319617fbde652960b847e13436391ec9c"
 
-S = "${WORKDIR}/git"
 
 DEPENDS = "elfutils"
 

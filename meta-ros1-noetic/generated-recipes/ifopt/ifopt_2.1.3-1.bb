@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ifopt"
 SRC_URI = "git://github.com/ethz-adrl/ifopt-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a380dc5ab559fee9ceeabf99d321169d9abd7462"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

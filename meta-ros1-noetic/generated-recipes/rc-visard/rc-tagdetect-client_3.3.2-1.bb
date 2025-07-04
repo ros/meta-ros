@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rc_tagdetect_client"
 SRC_URI = "git://github.com/roboception-gbp/rc_visard-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d9579eb5fb715499b679ab5d656f1e24d9dd7d69"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

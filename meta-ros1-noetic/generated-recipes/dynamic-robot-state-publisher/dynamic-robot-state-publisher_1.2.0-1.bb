@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dynamic_robot_state_publisher"
 SRC_URI = "git://github.com/peci1/dynamic_robot_state_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2b8a19bd3f58748cbb64c3004974db4d5cb2802d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

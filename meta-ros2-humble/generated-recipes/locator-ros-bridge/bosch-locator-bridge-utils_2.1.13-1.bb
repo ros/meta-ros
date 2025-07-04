@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/bosch_locator_bridge_utils"
 SRC_URI = "git://github.com/ros2-gbp/locator_ros_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f002e936216e4d172f1fb7f102b3129c7ae55b2b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

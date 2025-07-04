@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/um6"
 SRC_URI = "git://github.com/ros-drivers-gbp/um6-release;${ROS_BRANCH};protocol=https"
 SRCREV = "51058d983b494c0c4914abe37c65c72e69002cee"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

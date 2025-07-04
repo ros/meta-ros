@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/zenoh_bridge_dds"
 SRC_URI = "git://github.com/ros2-gbp/zenoh_bridge_dds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ae9f3eba9d4ad512dc69d75605e4e046d0617b92"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

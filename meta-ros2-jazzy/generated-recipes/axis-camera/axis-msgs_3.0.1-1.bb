@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/axis_msgs"
 SRC_URI = "git://github.com/clearpath-gbp/axis_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2e8bcb00b2e3f6063e8bf310eb9e433172d84489"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

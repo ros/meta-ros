@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rqt_tf_tree"
 SRC_URI = "git://github.com/ros2-gbp/rqt_tf_tree-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bddd1dc3eb5c80eae48a68e9701110d3e5832e0c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

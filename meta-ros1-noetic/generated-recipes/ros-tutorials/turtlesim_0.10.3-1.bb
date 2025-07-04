@@ -78,7 +78,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/turtlesim"
 SRC_URI = "git://github.com/ros-gbp/ros_tutorials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b385dbde14507867dab7402f252218c3f56e2ace"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

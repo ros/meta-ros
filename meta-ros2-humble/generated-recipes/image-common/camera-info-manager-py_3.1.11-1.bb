@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/camera_info_manager_py"
 SRC_URI = "git://github.com/ros2-gbp/image_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5fbde1f455cb3e8f403e5cf6f478175d339dab6f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mrpt_sensorlib"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/mrpt_sensors-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2131f26a2060d2fdddd103b34a540d1b2d7b43b3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

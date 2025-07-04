@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/iceoryx_introspection"
 SRC_URI = "git://github.com/ros2-gbp/iceoryx-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4917f9b5656f260fb9eae93e6976fa5061aef01a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

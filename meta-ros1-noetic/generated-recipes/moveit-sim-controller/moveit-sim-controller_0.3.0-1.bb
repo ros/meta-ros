@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_sim_controller"
 SRC_URI = "git://github.com/PickNikRobotics/moveit_sim_controller-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7c114307494fd9e2600c0c270dd1eea6f8508fe1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

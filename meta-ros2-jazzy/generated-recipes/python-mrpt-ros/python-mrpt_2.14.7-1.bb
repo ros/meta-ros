@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/python_mrpt"
 SRC_URI = "git://github.com/ros2-gbp/python_mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c0a7652f1cdb1ce8d95ceaa0a990c21b5e1a84ef"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

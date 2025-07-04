@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/generic_throttle"
 SRC_URI = "git://github.com/4am-robotics/cob_command_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b7f05b0b1de608c67d6420c7b85674e9c81d548b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

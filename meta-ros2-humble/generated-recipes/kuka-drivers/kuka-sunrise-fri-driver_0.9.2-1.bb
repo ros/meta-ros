@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/kuka_sunrise_fri_driver"
 SRC_URI = "git://github.com/ros2-gbp/kuka_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6d81aab581c449f433dc9d565ac3ac537602d741"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

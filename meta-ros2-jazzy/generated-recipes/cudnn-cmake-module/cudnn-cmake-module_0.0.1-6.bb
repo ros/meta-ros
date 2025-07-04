@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/cudnn_cmake_module"
 SRC_URI = "git://github.com/ros2-gbp/cudnn_cmake_module-release;${ROS_BRANCH};protocol=https"
 SRCREV = "de4d4f9f0b0abe550eb0594bb9cea11ceeb536e7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

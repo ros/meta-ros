@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/resource_retriever"
 SRC_URI = "git://github.com/ros-gbp/resource_retriever-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b642a19f8916a5ae92dc376de6eb82d805bfdd3b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

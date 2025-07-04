@@ -10,10 +10,10 @@ Upstream-Status: Pending
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 diff --git a/gz-msgs-extras.cmake.in b/gz-msgs-extras.cmake.in
-index 8bbdbe5..7317d84 100644
+index 7c322b1..400092c 100644
 --- a/gz-msgs-extras.cmake.in
 +++ b/gz-msgs-extras.cmake.in
-@@ -46,8 +46,12 @@ endif()
+@@ -41,8 +41,12 @@ endif()
  if(NOT DEFINED @PROJECT_NAME@_PYTHON_INTERPRETER)
    set(@PROJECT_NAME@_PYTHON_INTERPRETER Python3::Interpreter)
  endif()
@@ -25,4 +25,4 @@ index 8bbdbe5..7317d84 100644
 +endif()
  
  ##################################################
- # A function to generate a target mesage library from a group of protobuf files .
+ # A function to generate a target message library from a group of protobuf files .

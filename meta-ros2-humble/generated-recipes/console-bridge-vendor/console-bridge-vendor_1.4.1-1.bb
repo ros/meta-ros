@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/console_bridge_vendor"
 SRC_URI = "git://github.com/ros2-gbp/console_bridge_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "365230890ff7502a0bb63ef4ae3f23d444dddd2a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -87,7 +87,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/usb_cam"
 SRC_URI = "git://github.com/ros2-gbp/usb_cam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "580389e7b6f129f271d10910ee84dd320ee989ce"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nmea_navsat_driver"
 SRC_URI = "git://github.com/ros-drivers-gbp/nmea_navsat_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bb80302498b0420b23630c5bf591b12beb2caf04"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

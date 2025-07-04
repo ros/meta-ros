@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/exotica_time_indexed_rrt_connect_solver"
 SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9aa49f94455ae06cd10a6c217a3893d750a32a6f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

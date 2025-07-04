@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mod"
 SRC_URI = "git://github.com/OrebroUniversity/mod-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5d987e338ef1ab5b2f3d5a09ff90e3c19d5839e9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

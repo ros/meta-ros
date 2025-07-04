@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/locomotor_msgs"
 SRC_URI = "git://github.com/DLu/robot_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "14e010ead1fe56fbcd21b57d731878b5f0f8865e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

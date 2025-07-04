@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joint_trajectory_controller"
 SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2163bec2a0220c2d7283fd1f284b3adc8af0b73d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

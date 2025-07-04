@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/test_apex_test_tools"
 SRC_URI = "git://github.com/ros2-gbp/apex_test_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "71e368087972b09b0749b6889f598503fd122e2e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

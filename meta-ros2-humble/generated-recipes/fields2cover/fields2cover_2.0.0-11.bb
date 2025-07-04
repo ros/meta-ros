@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/fields2cover"
 SRC_URI = "git://github.com/ros2-gbp/fields2cover-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b84ffc8b2b8aba8cbaa385f58f6257a83e5d0c44"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

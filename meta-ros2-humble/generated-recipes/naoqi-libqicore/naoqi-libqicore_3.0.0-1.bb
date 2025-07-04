@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/naoqi_libqicore"
 SRC_URI = "git://github.com/ros-naoqi/libqicore-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e3e30d7e4d5c784ea1580f30b8359f84ddc194e9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

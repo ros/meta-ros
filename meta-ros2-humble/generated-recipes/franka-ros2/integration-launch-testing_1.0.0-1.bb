@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/integration_launch_testing"
 SRC_URI = "git://github.com/ros2-gbp/franka_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "36249263f5f658ce4488fec0c9312d27c652d609"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

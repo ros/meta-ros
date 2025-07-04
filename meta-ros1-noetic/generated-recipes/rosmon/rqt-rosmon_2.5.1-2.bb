@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_rosmon"
 SRC_URI = "git://github.com/xqms/rosmon-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c36ab6b7ce0351a96fce0feaa17ba715cd2298a9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

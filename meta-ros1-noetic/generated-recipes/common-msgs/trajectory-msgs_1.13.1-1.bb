@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/trajectory_msgs"
 SRC_URI = "git://github.com/ros-gbp/common_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "704a88a0e789605562b376fc1661767544bb8f60"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

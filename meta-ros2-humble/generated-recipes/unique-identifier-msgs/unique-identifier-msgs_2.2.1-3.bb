@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/unique_identifier_msgs"
 SRC_URI = "git://github.com/ros2-gbp/unique_identifier_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "76d43047f71a1ff2c9865094b325bf1b0a4becae"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

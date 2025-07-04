@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hector_sensors_gazebo"
 SRC_URI = "git://github.com/tu-darmstadt-ros-pkg-gbp/hector_gazebo-release;${ROS_BRANCH};protocol=https"
 SRCREV = "08f8ce50e50d00753353b4212295f2b90530046d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

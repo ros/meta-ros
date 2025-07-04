@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robot_pose_ekf"
 SRC_URI = "git://github.com/ros-gbp/robot_pose_ekf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a8fe9a9277b83e82ca96b726acbaecd32443f6ea"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

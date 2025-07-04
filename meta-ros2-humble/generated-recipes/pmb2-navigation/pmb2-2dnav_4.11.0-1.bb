@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pmb2_2dnav"
 SRC_URI = "git://github.com/pal-gbp/pmb2_navigation-gbp;${ROS_BRANCH};protocol=https"
 SRCREV = "60e1a5db295da6869318a868f75a910ce5637cba"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

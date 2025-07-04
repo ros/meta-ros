@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/dynamixel_workbench_toolbox"
 SRC_URI = "git://github.com/ros2-gbp/dynamixel_workbench-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4bd799502b3a8cb3945abdd7ba184dd18a38144e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

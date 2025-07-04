@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hector_components_description"
 SRC_URI = "git://github.com/tu-darmstadt-ros-pkg-gbp/hector_models-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a6538a1c9be21deb0268b99d6e01e9654789aa8a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/vector_map_msgs"
 SRC_URI = "git://github.com/autoware-ai/messages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "09801fd0e709adaed6b8aa8a27f56d65a3b71ab3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/nmea_msgs"
 SRC_URI = "git://github.com/ros2-gbp/nmea_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "76db6bd9dc2ad52c0ad45de27871f22c64ba03b1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

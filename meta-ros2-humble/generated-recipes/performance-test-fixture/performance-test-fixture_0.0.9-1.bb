@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/performance_test_fixture"
 SRC_URI = "git://github.com/ros2-gbp/performance_test_fixture-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3949e059c67917a72d8eb73e71fc46f176c2e4ad"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

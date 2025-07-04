@@ -80,7 +80,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rmw_cyclonedds_cpp"
 SRC_URI = "git://github.com/ros2-gbp/rmw_cyclonedds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ad80536830d4fd057f02588def4fa9032337408d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/srdfdom"
 SRC_URI = "git://github.com/ros2-gbp/srdfdom-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c1c59841d30a28cc7e9a27338a8effc014dd5b24"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

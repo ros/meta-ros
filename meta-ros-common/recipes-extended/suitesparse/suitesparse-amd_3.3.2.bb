@@ -10,7 +10,7 @@ DEPENDS = " \
     suitesparse-config \
 "
 
-S = "${WORKDIR}/git/AMD"
+S = "${UNPACKDIR}/git/AMD"
 
 inherit cmake pkgconfig
 

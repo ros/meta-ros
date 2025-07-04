@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/point_cloud_msg_wrapper"
 SRC_URI = "git://github.com/ros2-gbp/point_cloud_msg_wrapper-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0d85557d2e774b246906e7f020d65bf0b4720655"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

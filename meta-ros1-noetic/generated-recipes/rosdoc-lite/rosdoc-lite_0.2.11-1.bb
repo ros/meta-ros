@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosdoc_lite"
 SRC_URI = "git://github.com/ros-gbp/rosdoc_lite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bd5367bedee524e30c61d5db9fd622c50f392275"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

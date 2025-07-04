@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/kartech_linear_actuator_msgs"
 SRC_URI = "git://github.com/astuff/astuff_sensor_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "47a6cfc08f3b536aeb4f2657411ebf4d248e649e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

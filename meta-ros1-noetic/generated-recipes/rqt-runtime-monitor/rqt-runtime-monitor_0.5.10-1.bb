@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_runtime_monitor"
 SRC_URI = "git://github.com/ros-gbp/rqt_runtime_monitor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2b493aa22f285cd4c6b0545db8c3cd42d4e9c545"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

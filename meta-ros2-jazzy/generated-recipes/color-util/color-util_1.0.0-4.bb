@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/color_util"
 SRC_URI = "git://github.com/ros2-gbp/color_util-release;${ROS_BRANCH};protocol=https"
 SRCREV = "231c6ee5d3a4330fa1d39e1085f260961d1acaf9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

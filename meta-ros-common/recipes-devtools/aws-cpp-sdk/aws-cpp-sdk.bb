@@ -13,7 +13,6 @@ SRCREV = "59337ec3dd6a998bddb41e4bad39e783cad34b6b"
 SRC_URI = "git://github.com/aws/aws-sdk-cpp.git;protocol=https;branch=master \
     file://0001-cmake-AWSSDKConfig.cmake-add-missing-quotes-to-fix-b.patch \
 "
-S = "${WORKDIR}/git"
 
 inherit cmake ros_faulty_solibs
 

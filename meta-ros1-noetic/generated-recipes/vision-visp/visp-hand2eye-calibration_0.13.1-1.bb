@@ -73,7 +73,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/visp_hand2eye_calibration"
 SRC_URI = "git://github.com/lagadic/vision_visp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3776ed22b6a0ece08084b9b573dc34473e91d1e1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

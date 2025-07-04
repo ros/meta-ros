@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rc_dynamics_api"
 SRC_URI = "git://github.com/roboception-gbp/rc_dynamics_api-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ba885c0f260993b1d9bfff18b64f750e862b6904"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/beluga"
 SRC_URI = "git://github.com/ros2-gbp/beluga-release;${ROS_BRANCH};protocol=https"
 SRCREV = "058aadf7244d41f83e17cd45d979166bc8c8abe5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

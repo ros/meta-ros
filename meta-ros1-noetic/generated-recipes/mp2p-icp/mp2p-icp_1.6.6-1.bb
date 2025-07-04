@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mp2p_icp"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/mp2p_icp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cd73f080d1b5350ba16ba8eda965e3e865eb4bb2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

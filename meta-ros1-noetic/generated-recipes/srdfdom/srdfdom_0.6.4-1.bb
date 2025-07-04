@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/srdfdom"
 SRC_URI = "git://github.com/ros-gbp/srdfdom-release;${ROS_BRANCH};protocol=https"
 SRCREV = "912c6c02f336bc39693bcfe053c01137620af689"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

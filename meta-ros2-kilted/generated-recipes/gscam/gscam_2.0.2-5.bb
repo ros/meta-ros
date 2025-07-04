@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/gscam"
 SRC_URI = "git://github.com/ros2-gbp/gscam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a5b056b0685a060fba548eb3f7abf7303dad73e6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

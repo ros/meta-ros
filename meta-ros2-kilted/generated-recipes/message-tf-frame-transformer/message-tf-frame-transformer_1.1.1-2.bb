@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/message_tf_frame_transformer"
 SRC_URI = "git://github.com/ros2-gbp/message_tf_frame_transformer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1ed6d025f3670fefec010c6952a96ebc5defeb92"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

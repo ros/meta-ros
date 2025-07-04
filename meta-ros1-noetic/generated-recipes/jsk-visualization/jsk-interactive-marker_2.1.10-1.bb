@@ -123,7 +123,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/jsk_interactive_marker"
 SRC_URI = "git://github.com/tork-a/jsk_visualization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "322053ab1f51b8b9a130a4c047ea078c0cdddd01"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

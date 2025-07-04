@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ros2_socketcan_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ros2_socketcan-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ad6d4962edd86e81eef43390316970e54ab89279"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/care_o_bot_simulation"
 SRC_URI = "git://github.com/ipa320/care-o-bot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bc2071b64c3c9aa892a935d983ed673ddb005100"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

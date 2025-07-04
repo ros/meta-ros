@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/image_common"
 SRC_URI = "git://github.com/ros-gbp/image_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3b37dccbac43728827f247a5d299cedc26d32740"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/crane_plus_moveit_config"
 SRC_URI = "git://github.com/ros2-gbp/crane_plus-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9252ce90510986c645947ee946c701fb436edc2e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

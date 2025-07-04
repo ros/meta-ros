@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pepper_meshes"
 SRC_URI = "git://github.com/ros-naoqi/pepper_meshes2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a42aa93822d467d212ff2155ceefae30eaf645ba"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

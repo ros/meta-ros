@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/event_camera_codecs"
 SRC_URI = "git://github.com/ros2-gbp/event_camera_codecs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2b75d1d430468ed948dbadcf0a2509c55dd2dbbb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

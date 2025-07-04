@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pincher_arm_moveit_demos"
 SRC_URI = "git://github.com/fictionlab-gbp/pincher_arm-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1a7fe989d8c123bef3c87307277f63c0587bc73f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

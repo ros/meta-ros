@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/fkie_message_filters"
 SRC_URI = "git://github.com/ros2-gbp/fkie_message_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "802a83347110fbb7d3bde44d1cc13ce4c4d36c09"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

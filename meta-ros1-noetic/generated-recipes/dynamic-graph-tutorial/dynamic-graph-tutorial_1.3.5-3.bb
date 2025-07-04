@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dynamic-graph-tutorial"
 SRC_URI = "git://github.com/stack-of-tasks/dynamic-graph-tutorial-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c363c365c5316a5a9dbbe69419dc018ef59de3dc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -11,6 +11,6 @@ SRC_URI[sha256sum] = "ee96ca001d1ca0561fa8e46f23e2d2460b18a86696373cab644e102ae0
 
 inherit pypi
 
-S = "${WORKDIR}/flake8_deprecated-2.2.1"
+S = "${UNPACKDIR}/flake8_deprecated-2.2.1"
 
 BBCLASSEXTEND = "native nativesdk"

@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/oxford_gps_eth"
 SRC_URI = "git://github.com/DataspeedInc-release/oxford_gps_eth-release;${ROS_BRANCH};protocol=https"
 SRCREV = "578e458f585345820880c2e243bc8493edca51ac"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/imu_complementary_filter"
 SRC_URI = "git://github.com/uos-gbp/imu_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2465adc5cb833b96a946204ff7326e8464f15fa8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

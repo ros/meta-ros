@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/lusb"
 SRC_URI = "git://github.com/DataspeedInc-release/lusb-release;${ROS_BRANCH};protocol=https"
 SRCREV = "99f53a090103fbb76cfdb20f368375d2c1fd6824"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

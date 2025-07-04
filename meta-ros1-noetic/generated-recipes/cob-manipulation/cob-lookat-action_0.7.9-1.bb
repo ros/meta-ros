@@ -95,7 +95,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_lookat_action"
 SRC_URI = "git://github.com/ipa320/cob_manipulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "afd61095e00d13bc45e0a32a9588d536482076a1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -89,7 +89,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/om_spring_actuator_controller"
 SRC_URI = "git://github.com/ros2-gbp/open_manipulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1bbc1a4a1937b767effb9a99ac53b4eef9d4f9b3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

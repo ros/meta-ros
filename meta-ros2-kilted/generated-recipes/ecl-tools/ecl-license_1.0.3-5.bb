@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ecl_license"
 SRC_URI = "git://github.com/ros2-gbp/ecl_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "82be18cfb0314aa509f14ebdf0f62747cf06477f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

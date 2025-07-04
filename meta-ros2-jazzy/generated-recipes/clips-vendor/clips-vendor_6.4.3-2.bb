@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/clips_vendor"
 SRC_URI = "git://github.com/ros2-gbp/clips_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "39be2a87760b71f3e3a6bbe75eba3a45294f4574"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

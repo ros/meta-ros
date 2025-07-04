@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/backward_ros"
 SRC_URI = "git://github.com/ros2-gbp/backward_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2f1f1d1d44c1fa55e09f8a7dc939e39b50738822"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosbag_rviz_panel"
 SRC_URI = "git://github.com/fada-catec/rosbag_rviz_panel-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1baf06a5a482379350f0a136060daf4afb7d6bf3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

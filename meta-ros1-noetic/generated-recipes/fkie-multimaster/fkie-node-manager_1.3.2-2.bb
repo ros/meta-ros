@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fkie_node_manager"
 SRC_URI = "git://github.com/fkie-release/multimaster_fkie-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ecf8b02cf96c3cc89a7813157c77a8944a77f4f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

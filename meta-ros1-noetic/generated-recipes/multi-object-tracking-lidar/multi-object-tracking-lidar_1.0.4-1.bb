@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/multi_object_tracking_lidar"
 SRC_URI = "git://github.com/praveen-palanisamy/multi_object_tracking_lidar-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e8dfd9d96077d2356fd80192f6f52418cbdfa1d5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

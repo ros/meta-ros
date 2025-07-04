@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ffmpeg_encoder_decoder"
 SRC_URI = "git://github.com/ros2-gbp/ffmpeg_encoder_decoder-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b4d371036faddc4afce3f794815251867d31ab50"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

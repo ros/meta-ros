@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/metro_benchmark_msgs"
 SRC_URI = "git://github.com/ros2-gbp/metrics_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ab126a1fbe5a0b1144a3d9c4876efdf79c2da310"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

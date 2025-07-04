@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_rviz"
 SRC_URI = "git://github.com/ros-gbp/rqt_rviz-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fa8165e4fa85e3a3a4a4f9907dbb85b8df71b773"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rosx_introspection"
 SRC_URI = "git://github.com/ros2-gbp/rosx_introspection-release;${ROS_BRANCH};protocol=https"
 SRCREV = "02a0c9e70eb60d10f9590739864b061f6d6ad667"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -88,7 +88,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ros_comm"
 SRC_URI = "git://github.com/ros-gbp/ros_comm-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3edda1f16fb8abf73373e28e397970ef5630ca87"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

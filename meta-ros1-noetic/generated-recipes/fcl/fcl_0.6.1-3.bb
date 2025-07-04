@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fcl"
 SRC_URI = "git://github.com/ros-gbp/fcl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ad12bd823d24a1469b08f25ac50eacb6a51a8cc3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

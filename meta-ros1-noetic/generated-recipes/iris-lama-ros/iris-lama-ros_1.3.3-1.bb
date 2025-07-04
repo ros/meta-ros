@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/iris_lama_ros"
 SRC_URI = "git://github.com/eupedrosa/iris_lama_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0624f8eb0172209483a2eb0f306712eaed72466b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

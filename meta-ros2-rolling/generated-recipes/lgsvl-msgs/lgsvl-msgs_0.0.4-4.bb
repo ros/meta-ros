@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/lgsvl_msgs"
 SRC_URI = "git://github.com/ros2-gbp/lgsvl_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aaba584950b8524e53fc28df0888cb3aaaf1ff23"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

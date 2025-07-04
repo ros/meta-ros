@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ignition_math6_vendor"
 SRC_URI = "git://github.com/ros2-gbp/ignition_math6_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b5212d1728b71644c7c817796bb37ec7fa33b46b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

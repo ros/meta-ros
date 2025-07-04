@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/srdfdom"
 SRC_URI = "git://github.com/ros2-gbp/srdfdom-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5f58c6f742111a1f9f1bc01a7353f652f8d5b347"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

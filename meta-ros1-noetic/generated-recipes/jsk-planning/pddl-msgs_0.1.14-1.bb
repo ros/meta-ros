@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pddl_msgs"
 SRC_URI = "git://github.com/tork-a/jsk_planning-release;${ROS_BRANCH};protocol=https"
 SRCREV = "375805c6843a80a9e4a66b647f23a1cea397d70c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

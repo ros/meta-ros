@@ -99,7 +99,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mola_lidar_odometry"
 SRC_URI = "git://github.com/ros2-gbp/mola_lidar_odometry-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2a9d74a7e652f77581cdf14d0fc1fa9b290e2569"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

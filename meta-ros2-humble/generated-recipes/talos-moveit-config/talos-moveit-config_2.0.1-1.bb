@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/talos_moveit_config"
 SRC_URI = "git://github.com/pal-gbp/talos_moveit_config-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3b9fc064e888ca32f3f3133a7bf7e4880eff2503"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

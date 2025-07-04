@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/delphi_mrr_msgs"
 SRC_URI = "git://github.com/ros2-gbp/astuff_sensor_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3f3306d41cb188a17d0f7166bb51d6f8557980ac"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rqt_gauges"
 SRC_URI = "git://github.com/ros2-gbp/rqt_gauges-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4a0554e45ca3d3a92a83d66e4695ba18363d358a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

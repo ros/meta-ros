@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/soem"
 SRC_URI = "git://github.com/mgruhler/soem-gbp;${ROS_BRANCH};protocol=https"
 SRCREV = "1a2578f7faa42927526796e84e0c998086b2344f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

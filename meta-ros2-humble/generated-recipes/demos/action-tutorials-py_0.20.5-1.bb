@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/action_tutorials_py"
 SRC_URI = "git://github.com/ros2-gbp/demos-release;${ROS_BRANCH};protocol=https"
 SRCREV = "554df61f8fdbb0f80e5a31e3614ced150e9e2ec5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

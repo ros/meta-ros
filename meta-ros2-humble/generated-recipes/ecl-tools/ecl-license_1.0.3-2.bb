@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ecl_license"
 SRC_URI = "git://github.com/ros2-gbp/ecl_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9035ca0ee4fe6e0c98c3569574f200b37127153f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

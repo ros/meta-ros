@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/imu_sensor_controller"
 SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "22c3ea6501df97df83a45eff0804595e7acf7cf5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/message_filters"
 SRC_URI = "git://github.com/ros2-gbp/ros2_message_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5a6c167a2c523e6da537656a37bbf9120f4eae01"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/cartographer"
 SRC_URI = "git://github.com/ros2-gbp/cartographer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "927e0d39ec39304cb217cf0e5c7c73e132b58dbf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

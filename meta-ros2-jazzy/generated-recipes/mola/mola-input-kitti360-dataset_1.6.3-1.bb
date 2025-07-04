@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mola_input_kitti360_dataset"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d9cef563c3a904146b8c57bcea04074aafb046c8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

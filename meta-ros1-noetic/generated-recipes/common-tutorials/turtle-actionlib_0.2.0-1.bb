@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/turtle_actionlib"
 SRC_URI = "git://github.com/ros-gbp/common_tutorials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "544f7d9c48d1aab6fc44f8ac57bc6918cc29d6c8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

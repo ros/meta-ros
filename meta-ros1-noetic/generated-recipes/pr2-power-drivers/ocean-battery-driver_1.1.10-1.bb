@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ocean_battery_driver"
 SRC_URI = "git://github.com/pr2-gbp/pr2_power_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aa6c0010c332eded9ab443a615904b4e2feb26c3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

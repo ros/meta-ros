@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/boost_sml"
 SRC_URI = "git://github.com/PickNikRobotics/boost_sml-release;${ROS_BRANCH};protocol=https"
 SRCREV = "85cc0602b5c4ec041506b90047de5c1d61356690"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

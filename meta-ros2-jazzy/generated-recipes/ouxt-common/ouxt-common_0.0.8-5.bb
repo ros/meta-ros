@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ouxt_common"
 SRC_URI = "git://github.com/ros2-gbp/ouxt_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "73ece7bb9cee3dc13c28efd24b80a0804f0a7f41"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

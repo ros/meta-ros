@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rig_reconfigure"
 SRC_URI = "git://github.com/ros2-gbp/rig_reconfigure-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7be95c9a7ff4a26c765705a1ef07fa73136d4d6a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

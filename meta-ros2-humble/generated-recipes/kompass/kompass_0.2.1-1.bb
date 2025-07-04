@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/kompass"
 SRC_URI = "git://github.com/ros2-gbp/kompass-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4dd23a486342fb6ceb52df57aae37e21a9667c6e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

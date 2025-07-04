@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/nmea_msgs"
 SRC_URI = "git://github.com/ros2-gbp/nmea_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eb1055b6e660ea46b727cf4adffac804a42cb551"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

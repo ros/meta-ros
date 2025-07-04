@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mouse_teleop"
 SRC_URI = "git://github.com/ros-gbp/teleop_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "41742c5c53094a101ff379fa27cdee03b33cc7f6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

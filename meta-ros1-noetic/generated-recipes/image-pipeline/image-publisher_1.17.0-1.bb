@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/image_publisher"
 SRC_URI = "git://github.com/ros-gbp/image_pipeline-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ab42747126a4fb6d34acfdb7070a0fb2fb7e6056"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

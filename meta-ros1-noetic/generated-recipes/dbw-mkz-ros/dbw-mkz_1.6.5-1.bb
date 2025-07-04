@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dbw_mkz"
 SRC_URI = "git://github.com/DataspeedInc-release/dbw_mkz_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "271564d8a951698e3de79c807b3122e231442fac"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

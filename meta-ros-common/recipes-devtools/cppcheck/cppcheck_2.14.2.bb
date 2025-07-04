@@ -12,7 +12,6 @@ SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https;branch=2.14.x \
 
 SRCREV = "fc2210afa95a4cea1afba01d5390d13d6d8d75c8"
 
-S = "${WORKDIR}/git"
 
 DEPENDS = "libpcre boost"
 

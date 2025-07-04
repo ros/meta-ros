@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/costmap_converter"
 SRC_URI = "git://github.com/rst-tu-dortmund/costmap_converter-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1918d551766875e1d7b3ea8d4b1f56ce9c9494d4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

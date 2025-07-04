@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/lanelet2_routing"
 SRC_URI = "git://github.com/fzi-forschungszentrum-informatik/lanelet2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cf73c73802bd44d6f382bb441b60fbe7731dc47b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -114,7 +114,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mavros"
 SRC_URI = "git://github.com/mavlink/mavros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a0976245878714590450925f1ca6bf6b6c788739"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

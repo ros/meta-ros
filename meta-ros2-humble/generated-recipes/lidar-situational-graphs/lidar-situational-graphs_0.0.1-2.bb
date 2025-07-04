@@ -125,7 +125,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/lidar_situational_graphs"
 SRC_URI = "git://github.com/ros2-gbp/lidar_situational_graphs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d8f00159932a58183b450001b9dcde2413c8b026"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

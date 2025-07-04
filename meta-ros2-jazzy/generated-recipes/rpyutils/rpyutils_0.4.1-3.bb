@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rpyutils"
 SRC_URI = "git://github.com/ros2-gbp/rpyutils-release;${ROS_BRANCH};protocol=https"
 SRCREV = "65683d21b74349178a9e518eeac64287dc528127"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

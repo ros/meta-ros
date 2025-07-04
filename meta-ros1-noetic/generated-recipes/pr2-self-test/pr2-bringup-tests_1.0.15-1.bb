@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_bringup_tests"
 SRC_URI = "git://github.com/pr2-gbp/pr2_self_test-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d2dc0fda5179e3015cf273125c420d84bce610a9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

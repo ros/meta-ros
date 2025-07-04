@@ -76,7 +76,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/camera_ros"
 SRC_URI = "git://github.com/ros2-gbp/camera_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1737068030ec86827744977268e45a54c99db518"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

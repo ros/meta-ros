@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ubnt_airos_tools"
 SRC_URI = "git://github.com/peci1/ubnt_airos_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6bd7b26d0af74483f755fa7879a771ecfc7f8dbf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

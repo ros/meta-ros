@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libsensors_monitor"
 SRC_URI = "git://github.com/ros-gbp/linux_peripheral_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "30f3e42926dee4f905f71eb66adedad162362821"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

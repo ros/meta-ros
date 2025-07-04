@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rosx_introspection"
 SRC_URI = "git://github.com/ros2-gbp/rosx_introspection-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0cc0f63428c7ce410700ef79cf00c01a266fd09a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

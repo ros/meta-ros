@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/flir_camera_msgs"
 SRC_URI = "git://github.com/ros-drivers-gbp/flir_camera_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e65c16a03b736d8f01688e46d60a7983f8b55231"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

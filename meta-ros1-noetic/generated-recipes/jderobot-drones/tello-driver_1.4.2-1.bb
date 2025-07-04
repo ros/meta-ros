@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tello_driver"
 SRC_URI = "git://github.com/JdeRobot/drones-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3afe3d78507d2dec2af0cc290096561806812969"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

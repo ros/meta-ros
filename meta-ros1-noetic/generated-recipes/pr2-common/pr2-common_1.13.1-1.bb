@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_common"
 SRC_URI = "git://github.com/pr2-gbp/pr2_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ad52b6dcca1c5229ad86cab4882771be61719083"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

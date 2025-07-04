@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/gtsam"
 SRC_URI = "git://github.com/ros2-gbp/gtsam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "417ef871550e7e13a51a717e2f4b16ebf17e3f81"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

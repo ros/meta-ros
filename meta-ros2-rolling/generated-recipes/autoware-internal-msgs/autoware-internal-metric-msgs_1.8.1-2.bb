@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/autoware_internal_metric_msgs"
 SRC_URI = "git://github.com/ros2-gbp/autoware_internal_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "29bfa60cc3512cb7fbb349b63c4a244421d3f345"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

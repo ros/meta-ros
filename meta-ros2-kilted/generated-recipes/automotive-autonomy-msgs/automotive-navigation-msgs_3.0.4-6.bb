@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/automotive_navigation_msgs"
 SRC_URI = "git://github.com/ros2-gbp/automotive_autonomy_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b8b3564bb866d169088c6ef73ed35e7112503a43"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

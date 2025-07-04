@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rmw_dds_common"
 SRC_URI = "git://github.com/ros2-gbp/rmw_dds_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eb132be25c7d578317738dff094d37f10587e676"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

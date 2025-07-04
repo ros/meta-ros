@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rc_genicam_camera"
 SRC_URI = "git://github.com/roboception-gbp/rc_genicam_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7d02efc697c2dfdb0ca010668e55769084081a17"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

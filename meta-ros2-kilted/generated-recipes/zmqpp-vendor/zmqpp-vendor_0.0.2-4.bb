@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/zmqpp_vendor"
 SRC_URI = "git://github.com/ros2-gbp/zmqpp_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ee44d69829ea102dd5f51b74829f20d1a45745b4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

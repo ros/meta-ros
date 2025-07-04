@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/network_interface"
 SRC_URI = "git://github.com/astuff/network_interface-release;${ROS_BRANCH};protocol=https"
 SRCREV = "07ec3968536d0a15fb01f32b85408548030bfa91"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

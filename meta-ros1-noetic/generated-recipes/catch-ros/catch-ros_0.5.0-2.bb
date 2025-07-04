@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/catch_ros"
 SRC_URI = "git://github.com/AIS-Bonn/catch_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "500b3fd316f188a1cf0ed0bbf12c3d765f8b018a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

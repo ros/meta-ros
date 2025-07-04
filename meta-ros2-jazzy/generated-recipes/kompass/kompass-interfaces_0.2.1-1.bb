@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/kompass_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/kompass-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ae7fadafcfcc88badf26c96be805377f9f694653"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

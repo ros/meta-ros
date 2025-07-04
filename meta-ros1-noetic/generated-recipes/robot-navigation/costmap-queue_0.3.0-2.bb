@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/costmap_queue"
 SRC_URI = "git://github.com/DLu/robot_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1cd1d8519b829cdf14a070a0a19dbbeaa5f30908"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

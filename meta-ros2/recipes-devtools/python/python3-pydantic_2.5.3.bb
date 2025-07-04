@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "b3ef57c62535b0941697cce638c08900d87fcb67e29cfa99e8a68f747f
 
 inherit pypi python_hatchling
 
-S = "${WORKDIR}/pydantic-2.5.3"
+S = "${UNPACKDIR}/pydantic-2.5.3"
 
 DEPENDS += " \
     python3-hatch-fancy-pypi-readme-native \

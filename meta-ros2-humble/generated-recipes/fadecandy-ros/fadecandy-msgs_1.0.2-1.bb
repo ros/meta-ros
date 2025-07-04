@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/fadecandy_msgs"
 SRC_URI = "git://github.com/eurogroep/fadecandy_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d51812fa76ada17d476c8c37cd38ab72b0aa69e4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

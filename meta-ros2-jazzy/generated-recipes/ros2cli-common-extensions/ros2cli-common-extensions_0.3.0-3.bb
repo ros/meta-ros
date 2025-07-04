@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ros2cli_common_extensions"
 SRC_URI = "git://github.com/ros2-gbp/ros2cli_common_extensions-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1687ba1b3328e41ebee8c4e51255f1d728243bf0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

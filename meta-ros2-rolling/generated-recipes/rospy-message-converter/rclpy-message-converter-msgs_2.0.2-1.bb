@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rclpy_message_converter_msgs"
 SRC_URI = "git://github.com/ros2-gbp/rospy_message_converter-release;${ROS_BRANCH};protocol=https"
 SRCREV = "62f2fd348e57474a9695e76a0a5c462b6e6d1357"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

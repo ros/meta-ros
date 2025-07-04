@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dynamic_reconfigure"
 SRC_URI = "git://github.com/ros-gbp/dynamic_reconfigure-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d4297c36a0f755ab8889ca74066b5d32fd8066b0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

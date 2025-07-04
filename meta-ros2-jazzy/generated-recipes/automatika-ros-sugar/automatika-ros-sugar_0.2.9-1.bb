@@ -96,7 +96,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/automatika_ros_sugar"
 SRC_URI = "git://github.com/ros2-gbp/automatika_ros_sugar-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fd14f4cefb87c97d74f8ea7da9f12b45d955cfca"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

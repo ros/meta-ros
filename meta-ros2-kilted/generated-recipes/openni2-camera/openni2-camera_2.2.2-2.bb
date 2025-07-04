@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/openni2_camera"
 SRC_URI = "git://github.com/ros2-gbp/openni2_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6ffbdbe1019448f88b47cb6647f39c2f9f65b476"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

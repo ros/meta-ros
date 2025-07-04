@@ -41,7 +41,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/magic_enum"
 SRC_URI = "git://github.com/nobleo/magic_enum-release;${ROS_BRANCH};protocol=https"
 SRCREV = "55d8d50d1018e2f3be95bc8e3223dcb8cf1274d1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

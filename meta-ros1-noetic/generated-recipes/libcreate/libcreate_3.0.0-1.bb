@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libcreate"
 SRC_URI = "git://github.com/AutonomyLab/libcreate-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e9b7fb57c3c2a252557c113e54b21779b45156c1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

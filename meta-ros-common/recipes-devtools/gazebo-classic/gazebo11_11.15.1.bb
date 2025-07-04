@@ -17,7 +17,6 @@ SRC_URI = "git://github.com/gazebosim/gazebo-classic.git;protocol=https;branch=g
 
 SRCREV = "b22c6e15e52299865b31093b8feebc9ca19e26e8"
 
-S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
 

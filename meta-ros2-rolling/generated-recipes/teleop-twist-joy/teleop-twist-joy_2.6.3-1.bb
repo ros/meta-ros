@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/teleop_twist_joy"
 SRC_URI = "git://github.com/ros2-gbp/teleop_twist_joy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "011cde727c7031269d71dfdaf717e1a34aaf4e99"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

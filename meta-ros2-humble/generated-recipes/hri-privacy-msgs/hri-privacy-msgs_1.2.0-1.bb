@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/hri_privacy_msgs"
 SRC_URI = "git://github.com/ros4hri/hri_privacy_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "94d720b6e90cff46a345272ac9a6354dfd9806f9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

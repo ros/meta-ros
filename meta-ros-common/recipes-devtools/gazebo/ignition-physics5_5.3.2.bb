@@ -10,7 +10,6 @@ SRC_URI = "git://github.com/gazebosim/gz-physics.git;protocol=https;branch=ign-p
 
 SRCREV = "9faf6b55975031e249a0a4f3ee0fcfc4cc5c0c72"
 
-S = "${WORKDIR}/git"
 
 DEPENDS += " \
     bullet \

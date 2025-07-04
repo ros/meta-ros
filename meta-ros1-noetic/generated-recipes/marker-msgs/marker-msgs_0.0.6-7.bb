@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/marker_msgs"
 SRC_URI = "git://github.com/tuw-robotics/marker_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1592d816c74bbfea7d771965eb8634b1b061a561"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

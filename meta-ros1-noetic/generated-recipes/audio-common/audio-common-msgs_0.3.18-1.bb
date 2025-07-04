@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/audio_common_msgs"
 SRC_URI = "git://github.com/ros-gbp/audio_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "34058e286668d83033b7b1b2354fa9696bd1aad4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rmf_battery"
 SRC_URI = "git://github.com/ros2-gbp/rmf_battery-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ddc66e4bb0a4cbac3cb8ca9ab9f582d926f7c010"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

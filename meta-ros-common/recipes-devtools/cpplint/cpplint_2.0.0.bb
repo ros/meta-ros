@@ -9,7 +9,6 @@ SRC_URI = "git://github.com/cpplint/cpplint;protocol=https;branch=develop"
 PV = "2.0.0+git${SRCPV}"
 SRCREV = "f4363d7fc0d5f38c4fd41b658e069e96583da0d5"
 
-S = "${WORKDIR}/git"
 
 inherit setuptools3
 

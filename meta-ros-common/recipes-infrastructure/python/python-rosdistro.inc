@@ -8,7 +8,6 @@ SRCREV = "221369488df68ffcaed8c7a53983fd5b3e52866d"
 ROS_BRANCH ?= "branch=master"
 SRC_URI = "git://github.com/ros-infrastructure/rosdistro;${ROS_BRANCH};protocol=https"
 
-S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} += "${PYTHON_PN}-pyyaml"
 

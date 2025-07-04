@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/er_public_msgs"
 SRC_URI = "git://github.com/enabled-robotics/er_public_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "49df11755c22b71dfea1a6def28d0520eeb67129"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

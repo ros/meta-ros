@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/witmotion_ros"
 SRC_URI = "git://github.com/twdragon/witmotion_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "96e3fcfc4ec5af5d907c495933bd7b2c6d3eb7e4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

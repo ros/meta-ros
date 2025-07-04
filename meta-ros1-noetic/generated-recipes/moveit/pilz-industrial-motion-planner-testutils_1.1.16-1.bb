@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pilz_industrial_motion_planner_testutils"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
 SRCREV = "97118805888883c6b4ee7183a4a604bf60b8a51e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

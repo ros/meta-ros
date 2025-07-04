@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/nicla_vision_ros2"
 SRC_URI = "git://github.com/ros2-gbp/nicla_vision_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "79e97ba4fb6b107e01e5fa4dd5fd308ad9a41aa9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

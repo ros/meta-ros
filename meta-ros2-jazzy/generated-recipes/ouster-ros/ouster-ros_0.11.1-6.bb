@@ -94,7 +94,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ouster_ros"
 SRC_URI = "git://github.com/ros2-gbp/ouster-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

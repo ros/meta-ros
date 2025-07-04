@@ -29,7 +29,6 @@ ROS_SDK_TARGET_PACKAGES = " \
     ament-cmake-export-definitions \
     ament-cmake-export-dependencies \
     ament-cmake-export-include-directories \
-    ament-cmake-export-interfaces \
     ament-cmake-export-libraries \
     ament-cmake-export-link-flags \
     ament-cmake-export-targets \

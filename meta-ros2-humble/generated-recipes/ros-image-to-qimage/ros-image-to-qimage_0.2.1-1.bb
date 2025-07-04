@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ros_image_to_qimage"
 SRC_URI = "git://github.com/ros2-gbp/ros_image_to_qimage-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6a7a548a3c8984141e6d9714f69be44ece6e484f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

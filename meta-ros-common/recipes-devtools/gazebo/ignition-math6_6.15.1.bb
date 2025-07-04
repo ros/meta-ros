@@ -8,7 +8,6 @@ SRC_URI = "git://github.com/gazebosim/gz-math.git;protocol=https;branch=ign-math
 
 SRCREV = "c5c3fc4f5f74a4b014834b8bfe4b995929dc2533"
 
-S = "${WORKDIR}/git"
 
 DEPENDS = " \
     ruby-native \

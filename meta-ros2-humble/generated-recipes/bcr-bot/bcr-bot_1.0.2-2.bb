@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/bcr_bot"
 SRC_URI = "git://github.com/blackcoffeerobotics/bcr_bot_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c25b4fd4d7873b066aaed03516792d7bbe741bf2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

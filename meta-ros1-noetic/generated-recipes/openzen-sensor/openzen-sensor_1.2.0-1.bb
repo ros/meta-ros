@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/openzen_sensor"
 SRC_URI = "git://github.com/lp-research/openzen_sensor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9234702ac923b979a8f127f2c72ab12b3215653a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

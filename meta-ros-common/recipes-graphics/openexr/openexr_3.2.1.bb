@@ -6,7 +6,6 @@ SRC_URI = "git://github.com/AcademySoftwareFoundation/openexr.git;protocol=https
 PV = "3.2.1+git${SRCPV}"
 SRCREV = "6258740337bf3859ed8abcf8d99a1671b2cdd06d"
 
-S = "${WORKDIR}/git"
 
 DEPENDS += " \
     doxygen \

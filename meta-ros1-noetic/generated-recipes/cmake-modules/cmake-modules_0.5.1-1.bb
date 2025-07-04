@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cmake_modules"
 SRC_URI = "git://github.com/ros-gbp/cmake_modules-release;${ROS_BRANCH};protocol=https"
 SRCREV = "069ac5023a3c4616d83137c0f768aaebb39803e4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

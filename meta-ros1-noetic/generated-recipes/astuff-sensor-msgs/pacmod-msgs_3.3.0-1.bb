@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pacmod_msgs"
 SRC_URI = "git://github.com/astuff/astuff_sensor_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fe8ef4f3632f16b9d636175ae35657f046534d95"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

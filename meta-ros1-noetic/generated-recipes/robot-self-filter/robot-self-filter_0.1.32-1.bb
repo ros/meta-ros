@@ -79,7 +79,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robot_self_filter"
 SRC_URI = "git://github.com/pr2-gbp/robot_self_filter-gbp;${ROS_BRANCH};protocol=https"
 SRCREV = "d482dae68189eb40388bedc891433f33b87a7c5a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

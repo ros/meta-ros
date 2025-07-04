@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/flexbe_onboard"
 SRC_URI = "git://github.com/flexbe/flexbe_behavior_engine-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c3c17b7c7985eb8d102ce3cdb861e86846990477"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

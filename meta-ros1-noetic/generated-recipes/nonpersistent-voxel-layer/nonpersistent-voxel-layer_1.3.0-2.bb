@@ -93,7 +93,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nonpersistent_voxel_layer"
 SRC_URI = "git://github.com/SteveMacenski/nonpersistent_voxel_layer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a77995d5fa53690d9bcb4336038a5a91779b03da"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

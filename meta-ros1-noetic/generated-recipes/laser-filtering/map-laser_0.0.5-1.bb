@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/map_laser"
 SRC_URI = "git://github.com/wu-robotics/laser_filtering_release;${ROS_BRANCH};protocol=https"
 SRCREV = "945853aa9da62c1badb9327e7c103f4bebc9b5e3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

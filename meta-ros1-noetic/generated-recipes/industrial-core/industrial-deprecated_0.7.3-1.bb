@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/industrial_deprecated"
 SRC_URI = "git://github.com/ros-industrial-release/industrial_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c90ab1724abc8e2f41f4aada1b8687863177cfc9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

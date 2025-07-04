@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ntpd_driver"
 SRC_URI = "git://github.com/ros2-gbp/ntpd_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3e0ce55274357cab0b1d80da16108f1838abfdd0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

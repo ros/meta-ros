@@ -9,7 +9,6 @@ SRC_URI = "git://gitlab.com/lely_industries/lely-core.git;protocol=https;branch=
 PV = "2.3.2+git${SRCPV}"
 SRCREV = "7824cbb2ac08d091c4fa2fb397669b938de9e3f5"
 
-S = "${WORKDIR}/git"
 
 inherit pkgconfig autotools setuptools3-base
 

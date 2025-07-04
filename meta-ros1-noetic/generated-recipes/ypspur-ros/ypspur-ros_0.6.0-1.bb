@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ypspur_ros"
 SRC_URI = "git://github.com/openspur/ypspur_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "55fab59ca0861090ef5b9e49da5db23e5c27654e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/clearpath_ros2_socketcan_interface"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_ros2_socketcan_interface-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ae72e3d2c12896e2dc1a37d2fda99f9210e74a1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

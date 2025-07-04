@@ -12,7 +12,6 @@ SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=ign-co
 
 SRCREV = "60b1fddf05ce020ba7cb79022fdf40be545eb789"
 
-S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
 

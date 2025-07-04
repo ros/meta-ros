@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/power_msgs"
 SRC_URI = "git://github.com/fetchrobotics-gbp/power_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4c0ef1643b3d3385186205f055d25f44e4d70164"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

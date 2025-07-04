@@ -41,7 +41,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/qwt_dependency"
 SRC_URI = "git://github.com/ros-gbp/qwt_dependency-release;${ROS_BRANCH};protocol=https"
 SRCREV = "122df4bf10b83f1fab1a873da2ea4ca5fc9c4ef6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

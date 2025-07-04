@@ -75,7 +75,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/reach_ros"
 SRC_URI = "git://github.com/ros2-gbp/reach_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2f39a8e1d313463e22dcf957b464888521c9ecbb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "1713cc04c171baffc5b259ba8531c58acc2a301707b7f021d88a15ed09
 inherit pypi
 inherit setuptools3
 
-S = "${WORKDIR}/shapely-${PV}"
+S = "${UNPACKDIR}/shapely-${PV}"
 
 do_configure:prepend() {
 cat > ${S}/setup.py <<-EOF

@@ -43,7 +43,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_safety_controller"
 SRC_URI = "git://github.com/ipa320/cob_substitute-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0501fc930b6569cac5094ce54a1d4fd8599c2cbe"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

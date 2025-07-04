@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_collision_monitor"
 SRC_URI = "git://github.com/ipa320/cob_manipulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1bddb9db7ea463f138443e2ffd9ec442a67c045f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hls_lfcd_lds_driver"
 SRC_URI = "git://github.com/ROBOTIS-GIT-release/hls-lfcd-lds-driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2e332d7490be13585cc62476dcce00472bb48e36"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

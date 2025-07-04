@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/opw_kinematics"
 SRC_URI = "git://github.com/ros-industrial-release/opw_kinematics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4de57561403d5a201e19d865386bc20035b8c0d4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

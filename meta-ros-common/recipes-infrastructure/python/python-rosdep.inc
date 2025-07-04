@@ -8,7 +8,6 @@ SRCREV = "ac8484eb382302c5ab8f72355cfd0dce4474e542"
 ROS_BRANCH ?= "branch=master"
 SRC_URI = "git://github.com/ros-infrastructure/rosdep;${ROS_BRANCH};protocol=https"
 
-S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} += "${PYTHON_PN}-catkin-pkg ${PYTHON_PN}-pyyaml ${PYTHON_PN}-netclient ${PYTHON_PN}-rosdistro"
 RDEPENDS:${PN} += "ca-certificates"

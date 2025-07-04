@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/grepros"
 SRC_URI = "git://github.com/suurjaak/grepros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e0991e91205dc5e7c369bb7b6a3b578eb8fc8803"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

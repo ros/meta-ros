@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libpointmatcher"
 SRC_URI = "git://github.com/nobleo/libpointmatcher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "555a8b700b27252de81234b7bd859c752744adab"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

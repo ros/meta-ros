@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/tiago_navigation"
 SRC_URI = "git://github.com/pal-gbp/tiago_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c8c50df054c545747251ffec0d573a2683f99386"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

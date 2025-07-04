@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/aruco_opencv_msgs"
 SRC_URI = "git://github.com/fictionlab-gbp/aruco_opencv-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b7f56fc21f1d3d390eeaeeeccd3e3d282aaf4044"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/marine_acoustic_msgs"
 SRC_URI = "git://github.com/ros2-gbp/marine_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "38d4fc11273b589bf376bb015127ddac160964e7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/codec_image_transport"
 SRC_URI = "git://github.com/yoshito-n-students/codec_image_transport-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c7e7eac5e5dff8dab00251197f30fdb75af7f4d2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/talos_gazebo"
 SRC_URI = "git://github.com/pal-gbp/talos_simulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "928dbe5396309fd9c6e6e5911728e1feb83a4e1b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
