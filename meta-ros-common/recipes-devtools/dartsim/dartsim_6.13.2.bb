@@ -1,3 +1,4 @@
+SUMMARY = "DART: Dynamic Animation and Robotics Toolkit "
 HOMEPAGE = "https://github.com/dartsim/dart"
 LICENSE = "BSD-2-Clause & BSD-3-Clause & MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f9c9b64e6293fa51cd808f54fa1733d9 \
@@ -12,30 +13,28 @@ SRC_URI = "git://github.com/dartsim/dart.git;protocol=https;branch=release-6.14 
 
 SRCREV = "a51e08c210d7892605c6dc0b9ae96fce4446d9fe"
 
-
-DEPENDS = " \
+DEPENDS = "\
     assimp \
     bullet \
     doxygen-native \
-    fmt-native \
     fcl \
+    fmt-native \
     google-benchmark \
+    ipopt \
     libccd \
     libeigen \
     libtinyxml2 \
-    ipopt \
     nlopt \
     octomap \
     ode \
     openscenegraph \
     pagmo \
-    python3-requests \
     python3-pytest \
+    python3-requests \
     urdfdom \
     urdfdom-headers \
     ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'virtual/libgl libglu', '', d)} \
 "
-
 
 inherit setuptools3 cmake pkgconfig
 
@@ -45,7 +44,7 @@ EXTRA_OECMAKE:prepend = "\
     -DDART_ENABLE_SIMD=OFF \
 "
 
-CXXFLAGS += "-Wno-error=deprecated-copy -Wno-error=reorder"
+CXXFLAGS += "-Wno-error=deprecated-copy -Wno-error=reorder -Wno-error=cpp"
 
 FILES:${PN} += "${datadir}/dart"
 
