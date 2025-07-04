@@ -59,11 +59,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-gripper-controllers} \
     control-msgs \
     controller-manager \
     generate-parameter-library \
     geometry-msgs \
-    gripper-controllers \
     joint-state-broadcaster \
     joint-trajectory-controller \
     joy \
