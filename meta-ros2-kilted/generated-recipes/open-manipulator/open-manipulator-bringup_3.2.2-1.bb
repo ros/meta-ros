@@ -39,8 +39,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-gripper-controllers} \
     dynamixel-hardware-interface \
-    gripper-controllers \
     gz-ros2-control \
     open-manipulator-description \
     rclpy \
