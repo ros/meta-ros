@@ -1385,6 +1385,9 @@ python-dt-apriltags-pip:
     pip: [dt-apriltags]
   ubuntu:
     pip: [dt-apriltags]
+python-duckdb-pip:
+  '*':
+    pip: [duckdb]
 python-dxfgrabber-pip:
   ubuntu:
     pip: [dxfgrabber]
@@ -4741,6 +4744,10 @@ python3:
   opensuse: [python3-devel]
   rhel: ['python%{python3_pkgversion}-devel']
   ubuntu: [python3-dev]
+python3-aabbtree-pip:
+  '*':
+    pip:
+      packages: [aabbtree]
 python3-adafruit-blinka-pip:
   debian:
     pip:
@@ -4935,6 +4942,10 @@ python3-apa102-pi-pip:
   ubuntu:
     pip:
       packages: [apa102-pi]
+python3-apscheduler:
+  debian: [python3-apscheduler]
+  fedora: [python3-APScheduler]
+  ubuntu: [python3-apscheduler]
 python3-apt:
   debian: [python3-apt]
   fedora: [python3-apt]
@@ -4981,6 +4992,10 @@ python3-autobahn:
     '*': ['python%{python3_pkgversion}-autobahn']
     '7': null
   ubuntu: [python3-autobahn]
+python3-awsiotclient-pip:
+  '*':
+    pip:
+      packages: [awsiotclient]
 python3-awsiotsdk-pip:
   debian:
     pip:
@@ -5505,7 +5520,7 @@ python3-cvxopt:
   debian: [python3-cvxopt]
   fedora: [python-cvxopt]
   gentoo: [dev-python/cvxopt]
-  nixos: [python311Packages.cvxopt]
+  nixos: [python3Packages.cvxopt]
   ubuntu: [python3-cvxopt]
 python3-cvxpy-pip: *migrate_eol_2025_04_30_python3_cvxpy_pip
 python3-cycler:
@@ -6503,6 +6518,13 @@ python3-google-auth-oauthlib:
     '*': [python3-google-auth-oauthlib]
     bionic: null
     focal: null
+python3-google-cloud-firestore-pip:
+  debian:
+    pip:
+      packages: [google-cloud-firestore]
+  ubuntu:
+    pip:
+      packages: [google-cloud-firestore]
 python3-google-cloud-pubsub-pip:
   debian:
     pip:
@@ -6904,6 +6926,13 @@ python3-joblib:
   nixos: [python3Packages.joblib]
   opensuse: [python3-joblib]
   ubuntu: [python3-joblib]
+python3-jraph-pip:
+  debian:
+    pip:
+      packages: [jraph]
+  ubuntu:
+    pip:
+      packages: [jraph]
 python3-json-stream-pip:
   '*':
     pip:
@@ -7240,6 +7269,10 @@ python3-mccabe:
   opensuse: [python3-mccabe]
   rhel: [python3-mccabe]
   ubuntu: [python3-mccabe]
+python3-mcp-pip:
+  '*':
+    pip:
+      packages: [mcp]
 python3-mechanize:
   debian:
     '*': [python3-mechanize]
@@ -7549,7 +7582,7 @@ python3-nest-asyncio:
   debian: [python3-nest-asyncio]
   fedora: [python3-nest-asyncio]
   gentoo: [dev-python/nest-asyncio]
-  nixos: [python312Packages.nest-asyncio]
+  nixos: [python3Packages.nest-asyncio]
   opensuse:
     '*': [python-nest-asyncio]
     '15.2': null
@@ -7785,6 +7818,10 @@ python3-onnxruntime-pip:
   ubuntu:
     pip:
       packages: [onnxruntime]
+python3-open-gopro-pip:
+  '*':
+    pip:
+      packages: [open_gopro]
 python3-open3d:
   debian:
     '*': [python3-open3d]
@@ -7794,6 +7831,7 @@ python3-open3d:
     '*': [python3-open3d]
     bionic: null
     focal: null
+    noble: null
 python3-open3d-pip:
   debian:
     pip:
@@ -7829,6 +7867,10 @@ python3-opencv:
     '7': null
     '8': null
   ubuntu: [python3-opencv]
+python3-opengen-pip:
+  '*':
+    pip:
+      packages: [opengen]
 python3-opengl:
   debian: [python3-opengl]
   fedora: [python3-pyopengl]
@@ -7931,7 +7973,7 @@ python3-owslib:
   debian: [python3-owslib]
   fedora: [python3-OWSLib]
   gentoo: [dev-python/owslib]
-  nixos: [python312Packages.owslib]
+  nixos: [python3Packages.owslib]
   rhel: [python3-OWSLib]
   ubuntu: [python3-owslib]
 python3-packaging:
@@ -8194,6 +8236,18 @@ python3-polling2-pip:
   ubuntu:
     pip:
       packages: [polling2]
+python3-posix-ipc:
+  '*':
+    pip:
+      packages: [posix-ipc]
+  fedora: [python3-posix-ipc]
+  rhel:
+    '9': [python3-posix-ipc]
+  ubuntu:
+    '*':
+      pip: [posix-ipc]
+    focal: [python3-posix-ipc]
+    jammy: [python3-posix-ipc]
 python3-pqdict-pip:
   debian:
     pip:
@@ -8411,6 +8465,9 @@ python3-pydantic:
     '*': [python3-pydantic]
     bionic:
       pip: [pydantic]
+python3-pydantic-xml-pip:
+  '*':
+    pip: [pydantic-xml]
 python3-pydbus:
   debian: [python3-pydbus]
   fedora: [python3-pydbus]
@@ -8707,6 +8764,10 @@ python3-pyproj:
     '*': ['python%{python3_pkgversion}-pyproj']
     '7': null
   ubuntu: [python3-pyproj]
+python3-pypylon-pip:
+  ubuntu:
+    pip:
+      packages: [pypylon]
 python3-pyqrcode:
   arch: [python-qrcode]
   debian: [python3-pyqrcode]
@@ -8770,6 +8831,10 @@ python3-pyrender-pip:
   '*':
     pip:
       packages: [pyrender]
+python3-pyright-pip:
+  '*':
+    pip:
+      packages: [pyright]
 python3-pyro-ppl-pip:
   debian:
     pip:
@@ -9152,7 +9217,7 @@ python3-pytest-xvfb:
   debian: [python3-pytest-xvfb]
   fedora: [python3-pytest-xvfb]
   gentoo: [dev-python/pytest-xvfb]
-  nixos: [python312Packages.pytest-xvfb]
+  nixos: [python3Packages.pytest-xvfb]
   opensuse: [python3-pytest-xvfb]
   rhel:
     pip:
@@ -9163,6 +9228,10 @@ python3-python-snap7-pip:
     pip:
       packages: [python-snap7]
 python3-pytorch-pip: *migrate_eol_2025_04_30_python3_pytorch_pip
+python3-pytransform3d-pip:
+  '*':
+    pip:
+      packages: [pytransform3d]
 python3-pytrinamic-pip:
   debian:
     pip:
@@ -9334,6 +9403,34 @@ python3-rdflib:
   rhel:
     '8': ['python%{python3_pkgversion}-rdflib']
   ubuntu: [python3-rdflib]
+python3-reedsolo:
+  arch: [python-reedsolo]
+  debian:
+    pip:
+      packages: [reedsolo]
+  fedora: [python3-reedsolo]
+  gentoo: [dev-python/reedsolo]
+  ubuntu:
+    '*': [python3-reedsolo]
+    focal:
+      pip:
+        packages: [reedsolo]
+    jammy:
+      pip:
+        packages: [reedsolo]
+python3-reedsolo-pip:
+  '*':
+    pip:
+      packages: [reedsolo]
+python3-regex:
+  arch: [python-regex]
+  debian: [python3-regex]
+  fedora: [python3-regex]
+  gentoo: [dev-python/regex]
+  nixos: [python3Packages.regex]
+  opensuse: [python3-regex]
+  rhel: [python3-regex]
+  ubuntu: [python3-regex]
 python3-reportlab:
   arch: [python-reportlab]
   debian: [python3-reportlab]
@@ -9783,6 +9880,10 @@ python3-shapely:
       packages: [shapely]
   rhel: [python3-shapely]
   ubuntu: [python3-shapely]
+python3-sila2-pip:
+  '*':
+    pip:
+      packages: [sila2]
 python3-sila2lib-pip:
   debian:
     pip:
@@ -9977,10 +10078,8 @@ python3-sounddevice-pip:
     pip:
       packages: [sounddevice]
 python3-soundfile:
-  debian:
-    package: [python3-soundfile]
-  ubuntu:
-    package: [python3-soundfile]
+  debian: [python3-soundfile]
+  ubuntu: [python3-soundfile]
 python3-sparkfun-ublox-gps-pip:
   debian:
     pip:
@@ -10022,6 +10121,15 @@ python3-sphinx-autoapi-pip:
   ubuntu:
     pip:
       packages: [sphinx-autoapi]
+python3-sphinx-copybutton:
+  debian: [python3-sphinx-copybutton]
+  fedora: [python3-sphinx-copybutton]
+  rhel:
+    '*': [python3-sphinx-copybutton]
+    '8':
+      pip:
+        packages: [sphinx-copybutton]
+  ubuntu: [python3-sphinx-copybutton]
 python3-sphinx-rtd-theme:
   debian: [python3-sphinx-rtd-theme]
   fedora: [python3-sphinx_rtd_theme]
@@ -10167,8 +10275,12 @@ python3-svg.path:
   debian: [python3-svg.path]
   fedora: [python3-svg-path]
   gentoo: [dev-python/svg-path]
-  nixos: [python311Packages.svg-path]
+  nixos: [python3Packages.svg-path]
   ubuntu: [python3-svg.path]
+python3-svgpath2mpl-pip:
+  '*':
+    pip:
+      packages: [svgpath2mpl]
 python3-sympy:
   debian: [python3-sympy]
   fedora: [python3-sympy]
@@ -10252,7 +10364,7 @@ python3-textual:
   arch: [python-textual]
   debian: [python3-textual]
   fedora: [python3-textual]
-  nixos: [python311Packages.textual]
+  nixos: [python3Packages.textual]
   ubuntu:
     '*': [python3-textual]
     focal: null
@@ -10342,6 +10454,7 @@ python3-toml:
   fedora: [python3-toml]
   gentoo: [dev-python/toml]
   nixos: [python3Packages.toml]
+  rhel: [python3-toml]
   ubuntu: [python3-toml]
 python3-toppra-pip:
   debian:
@@ -10400,6 +10513,10 @@ python3-tornado:
       packages: [tornado]
   rhel: ['python%{python3_pkgversion}-tornado']
   ubuntu: [python3-tornado]
+python3-touchlab-comm-py-pip:
+  '*':
+    pip:
+      packages: [touchlab-comm-py]
 python3-tqdm:
   alpine: [py3-tqdm]
   debian: [python3-tqdm]
@@ -10510,6 +10627,22 @@ python3-typeguard-pip:
   ubuntu:
     pip:
       packages: [typeguard]
+python3-typer:
+  debian: [python3-typer]
+  fedora: [python3-typer]
+  rhel:
+    '*': [python3-typer]
+    '8':
+      pip:
+        packages: [typer]
+    '9':
+      pip:
+        packages: [typer]
+  ubuntu:
+    '*': [python3-typer]
+    focal:
+      pip:
+        packages: [typer]
 python3-types-pyyaml:
   debian: [python3-typeshed]
   fedora: [python3-types-pyyaml]
@@ -10727,8 +10860,12 @@ python3-wand:
   brew: [imagemagick]
   debian: [python3-wand]
   gentoo: [dev-python/wand]
-  nixos: [python311Packages.wand]
+  nixos: [python3Packages.wand]
   ubuntu: [python3-wand]
+python3-wandb-pip:
+  '*':
+    pip:
+      packages: [wandb]
 python3-watchdog:
   debian: [python3-watchdog]
   fedora: [python3-watchdog]
