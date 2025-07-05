@@ -43,6 +43,8 @@ clang-format:
 - clang@meta-clang
 clang-tidy:
 - clang@meta-clang
+cli11:
+- cli11@meta-oe
 cmake:
 - cmake@openembedded-core
 coinor-libcbc-dev:
@@ -114,8 +116,6 @@ iproute2:
 - iproute2@openembedded-core
 iwyu:
 - ${ROS_UNRESOLVED_DEP-iwyu}
-jq:
-- jq@meta-oe
 jupyter-notebook:
 - ${ROS_UNRESOLVED_DEP-jupyter-notebook}
 lcov:
@@ -248,6 +248,8 @@ liblz4:
 - lz4@openembedded-core
 liblz4-dev:
 - lz4@openembedded-core
+libmodbus-dev:
+- libmodbus@meta-oe
 libncurses-dev:
 - ncurses@openembedded-core
 libnlopt-cxx-dev:
@@ -446,6 +448,8 @@ openssl:
 - openssl@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+portaudio19-dev:
+- portaudio-v19@meta-oe
 proj:
 - proj@meta-oe
 protobuf:
@@ -462,6 +466,12 @@ pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros-common
 pyqt5-dev-tools:
 - ${PYTHON_PN}-pyqt5@meta-qt5
+python-attrs-pip:
+- ${ROS_UNRESOLVED_DEP-python-attrs-pip}
+python-is-python3:
+- ${ROS_UNRESOLVED_DEP-python-is-python3}
+python-numpy-quaternion-pip:
+- ${ROS_UNRESOLVED_DEP-python-numpy-quaternion-pip}
 python3:
 - python3@openembedded-core
 python3-antlr4:
@@ -506,6 +516,8 @@ python3-expiringdict:
 - ${ROS_UNRESOLVED_DEP-python3-expiringdict}
 python3-fastapi:
 - ${ROS_UNRESOLVED_DEP-python3-fastapi}
+python3-filelock:
+- ${ROS_UNRESOLVED_DEP-python3-filelock}
 python3-fiona:
 - python3-fiona@meta-ros2
 python3-flake8:
@@ -556,6 +568,8 @@ python3-mypy:
 - python3-mypy@meta-ros-common
 python3-natsort:
 - python3-natsort@meta-python
+python3-networkx:
+- ${ROS_UNRESOLVED_DEP-python3-networkx}
 python3-ntplib:
 - python3-ntplib@meta-python
 python3-numpy:
