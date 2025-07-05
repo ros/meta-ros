@@ -134,8 +134,6 @@ iwyu:
 - ${ROS_UNRESOLVED_DEP-iwyu}
 java:
 - ${ROS_UNRESOLVED_DEP-java}
-jq:
-- jq@meta-oe
 jupyter-notebook:
 - ${ROS_UNRESOLVED_DEP-jupyter-notebook}
 lcov:
@@ -424,6 +422,8 @@ linux-kernel-headers:
 - linux-libc-headers@openembedded-core
 lm-sensors:
 - lmsensors@meta-oe
+lua-dev:
+- lua@openembedded-core
 lua5.2-dev:
 - lua@meta-oe
 lz4:
@@ -432,6 +432,8 @@ matio:
 - ${ROS_UNRESOLVED_DEP-matio}
 meson:
 - ${ROS_UNRESOLVED_DEP-meson}
+mosquittopp-dev:
+- ${ROS_UNRESOLVED_DEP-mosquittopp-dev}
 network-manager:
 - ${ROS_UNRESOLVED_DEP-network-manager}
 nlohmann-json-dev:
@@ -440,14 +442,14 @@ ocl-icd-opencl-dev:
 - opencl-icd-loader@meta-oe
 opencl-headers:
 - opencl-headers@meta-oe
-opende:
-- ode@meta-ros-common
 opengl:
 - mesa@openembedded-core
 openssl:
 - openssl@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+portaudio19-dev:
+- portaudio-v19@meta-oe
 proj:
 - proj@meta-oe
 protobuf:
@@ -642,6 +644,8 @@ python3-scp:
 - ${ROS_UNRESOLVED_DEP-python3-scp}
 python3-seaborn:
 - ${ROS_UNRESOLVED_DEP-python3-seaborn}
+python3-semver:
+- ${ROS_UNRESOLVED_DEP-python3-semver}
 python3-serial:
 - python3-pyserial@meta-python
 python3-setproctitle:
