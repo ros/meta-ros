@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "09a80a8ca7abd3f089c4d5a7d7a5827bec023160efd4356d809b025505
 inherit pypi
 inherit setuptools3
 
-S = "${WORKDIR}/pymap3d-3.0.1"
+S = "${UNPACKDIR}/pymap3d-3.0.1"
 
 do_configure:prepend() {
 cat > ${S}/setup.py <<-EOF

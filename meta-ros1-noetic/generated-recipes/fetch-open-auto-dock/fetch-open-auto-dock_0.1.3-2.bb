@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fetch_open_auto_dock"
 SRC_URI = "git://github.com/fetchrobotics-gbp/fetch_open_auto_dock-gbp;${ROS_BRANCH};protocol=https"
 SRCREV = "2b8d1ba05a1f3a06f37837bbb7d35a2bec79f7d8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

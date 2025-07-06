@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rqt_runtime_monitor"
 SRC_URI = "git://github.com/ros2-gbp/rqt_runtime_monitor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1d5e70ee264fb8cdd3bd68e38e77bcdb370ae582"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

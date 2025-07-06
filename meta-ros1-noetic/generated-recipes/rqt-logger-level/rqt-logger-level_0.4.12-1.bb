@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_logger_level"
 SRC_URI = "git://github.com/ros-gbp/rqt_logger_level-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a436bef697915351d5ba84e5723cb128b9c8871b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

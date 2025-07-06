@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/aws_robomaker_small_warehouse_world"
 SRC_URI = "git://github.com/ros2-gbp/aws_robomaker_small_warehouse_world-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f9c9070e9cd91a1427854905bb1f46810f66d37d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

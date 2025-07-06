@@ -79,7 +79,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pose_cov_ops"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/pose_cov_ops-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c0bec88e5c0fe3fe8f7fa7ba43732b7cf0c4d0a3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

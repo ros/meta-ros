@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/zed_msgs"
 SRC_URI = "git://github.com/ros2-gbp/zed-ros2-interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5ed1f7d0a834d782fc72274438d4515165c96399"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

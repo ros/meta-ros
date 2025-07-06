@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cpr_onav_description"
 SRC_URI = "git://github.com/clearpath-gbp/cpr_onav_description-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3909e9cd83c1cdd303e7ffdfaaf4e4f44bcdea1e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

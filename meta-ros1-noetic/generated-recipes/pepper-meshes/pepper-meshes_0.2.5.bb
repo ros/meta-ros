@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pepper_meshes"
 SRC_URI = "git://github.com/ros-naoqi/pepper_meshes-release;${ROS_BRANCH};protocol=https"
 SRCREV = "49779062de9df6caf9008c61f5e4f3a83ed857a7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

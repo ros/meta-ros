@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/jsk_pr2eus"
 SRC_URI = "git://github.com/tork-a/jsk_pr2eus-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0dbe086a8dd3994db28da69d83d6b892e365bfd8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/cob_actions"
 SRC_URI = "git://github.com/ros2-gbp/cob_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "271b088901c19e068d51565f569119846793e37c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cvp_mesh_planner"
 SRC_URI = "git://github.com/uos-gbp/mesh_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "61ec9addfcdc1bf598c778cdc0ff0e6f05801d55"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

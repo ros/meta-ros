@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rc_genicam_api"
 SRC_URI = "git://github.com/ros2-gbp/rc_genicam_api-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6adea602a6392957855b69ef6209f289fb7b964f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

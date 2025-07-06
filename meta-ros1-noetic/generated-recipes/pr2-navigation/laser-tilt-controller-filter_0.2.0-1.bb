@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laser_tilt_controller_filter"
 SRC_URI = "git://github.com/pr2-gbp/pr2_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6c3f1c837248d83a82d09c679b5a763b7b92f23b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

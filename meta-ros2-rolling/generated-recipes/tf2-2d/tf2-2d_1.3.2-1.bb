@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tf2_2d"
 SRC_URI = "git://github.com/ros2-gbp/tf2_2d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5b688950be33fb8fd52237708faf954b63ecb22d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

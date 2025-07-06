@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/libcaer"
 SRC_URI = "git://github.com/ros2-gbp/libcaer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0d8bc0a1927052796e61bdaf21bd76ed90e2802b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

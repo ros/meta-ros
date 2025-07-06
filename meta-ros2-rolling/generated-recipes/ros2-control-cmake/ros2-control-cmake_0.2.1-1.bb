@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ros2_control_cmake"
 SRC_URI = "git://github.com/ros2-gbp/ros2_control_cmake-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dbeb08b3c2ad65573e6a935ae00223ea817717a7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

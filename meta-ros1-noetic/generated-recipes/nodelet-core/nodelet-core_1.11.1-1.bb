@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nodelet_core"
 SRC_URI = "git://github.com/ros-gbp/nodelet_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "edb31615c69bb1fcc19a031bfcc19ca428240e70"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

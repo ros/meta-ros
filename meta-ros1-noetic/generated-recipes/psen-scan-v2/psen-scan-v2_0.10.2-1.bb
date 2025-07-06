@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/psen_scan_v2"
 SRC_URI = "git://github.com/PilzDE/psen_scan_v2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "55433af00f6e13f5c15d7b35fcc5e624dcb47ad0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

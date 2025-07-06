@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/leo_desktop"
 SRC_URI = "git://github.com/ros2-gbp/leo_desktop-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c1a54f9b40ddbf3bc97fee01d5c59273e6dde297"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/marti_sensor_msgs"
 SRC_URI = "git://github.com/swri-robotics-gbp/marti_messages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9c09a185e53ca2d0a8071d4c61c50dafde32cf8d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

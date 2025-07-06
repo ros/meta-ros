@@ -116,7 +116,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robot_mechanism_controllers"
 SRC_URI = "git://github.com/pr2-gbp/pr2_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2b8d04a072641a20428871f149101f3255eda11d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

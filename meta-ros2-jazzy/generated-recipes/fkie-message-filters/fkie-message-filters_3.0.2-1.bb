@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/fkie_message_filters"
 SRC_URI = "git://github.com/ros2-gbp/fkie_message_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4409ff20b5cd03cf126ce91e984f2568b2e60702"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

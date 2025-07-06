@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_motor_diagnostic_tool"
 SRC_URI = "git://github.com/pr2-gbp/pr2_self_test-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a79598f5bf609bc2f0be367eeec179b51cd9e97d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

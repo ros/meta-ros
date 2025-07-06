@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/jskeus"
 SRC_URI = "git://github.com/tork-a/jskeus-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2527fdbf47c7169be2644b0a8fd58b11d260622b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

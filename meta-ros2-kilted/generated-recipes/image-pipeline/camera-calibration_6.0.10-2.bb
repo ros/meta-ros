@@ -73,7 +73,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/camera_calibration"
 SRC_URI = "git://github.com/ros2-gbp/image_pipeline-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0a4a48fe453a23329bf4aae408aa23fa6016ef66"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

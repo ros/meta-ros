@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/keyboard_handler"
 SRC_URI = "git://github.com/ros2-gbp/keyboard_handler-release;${ROS_BRANCH};protocol=https"
 SRCREV = "729c5983d0bd1e85180da2978c7853bc957ac88b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

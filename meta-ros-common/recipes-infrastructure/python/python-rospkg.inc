@@ -8,8 +8,6 @@ SRCREV = "75c3645eb1d38e61fd39ca414e86b26dbf4cce88"
 ROS_BRANCH ?= "branch=master"
 SRC_URI = "git://github.com/ros-infrastructure/rospkg;${ROS_BRANCH};protocol=https"
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} += "${PYTHON_PN}-xml ${PYTHON_PN}-rosdep ${PYTHON_PN}-distro"
 
 BBCLASSEXTEND = "native"

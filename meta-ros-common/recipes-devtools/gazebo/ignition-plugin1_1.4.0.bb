@@ -9,8 +9,6 @@ SRC_URI = "git://github.com/gazebosim/gz-plugin.git;protocol=https;branch=ign-pl
 
 SRCREV = "1d5a4c987668ed0584ddbf4398dc81b519412c54"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 DEPENDS = "ignition-cmake2"

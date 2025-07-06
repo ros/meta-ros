@@ -6,8 +6,6 @@ SRC_URI = "git://github.com/gazebosim/gz-msgs.git;protocol=https;branch=gz-msgs1
 
 SRCREV = "21a942be1223e08c9b42c5aefb29e0414e9ddd2a"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 FILES:${PN} += " \

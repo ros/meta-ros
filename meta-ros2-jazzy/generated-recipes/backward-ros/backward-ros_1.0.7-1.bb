@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/backward_ros"
 SRC_URI = "git://github.com/ros2-gbp/backward_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ed34919d01479535ff85d655a15de0b69b3732b8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

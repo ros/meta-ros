@@ -113,7 +113,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mvsim"
 SRC_URI = "git://github.com/ros2-gbp/mvsim-release;${ROS_BRANCH};protocol=https"
 SRCREV = "31aeea642a82f317ff200df71edf6c847879826e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

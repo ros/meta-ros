@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rosidlcpp"
 SRC_URI = "git://github.com/ros2-gbp/rosidlcpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "27a4c03beec6d8e56571e64aaaadca36477dfe4d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

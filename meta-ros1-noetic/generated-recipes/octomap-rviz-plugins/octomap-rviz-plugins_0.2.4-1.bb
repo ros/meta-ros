@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/octomap_rviz_plugins"
 SRC_URI = "git://github.com/ros-gbp/octomap_rviz_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c62e74245e429a58df82374b87511a7f24a45127"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

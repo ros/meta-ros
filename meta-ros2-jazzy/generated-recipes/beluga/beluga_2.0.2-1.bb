@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/beluga"
 SRC_URI = "git://github.com/ros2-gbp/beluga-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5a4b604ada6fee862adc8b71acd5e7a8b76ad2bd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

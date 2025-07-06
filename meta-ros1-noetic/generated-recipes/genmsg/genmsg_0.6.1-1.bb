@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/genmsg"
 SRC_URI = "git://github.com/ros-gbp/genmsg-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3db66479cff70a382c363eb9acdbb6835882fdee"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

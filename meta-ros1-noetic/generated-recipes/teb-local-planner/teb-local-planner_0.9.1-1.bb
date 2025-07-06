@@ -102,7 +102,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/teb_local_planner"
 SRC_URI = "git://github.com/rst-tu-dortmund/teb_local_planner-release;${ROS_BRANCH};protocol=https"
 SRCREV = "14705fe0c2709f8db83f2cfdd405f9f956ea0133"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

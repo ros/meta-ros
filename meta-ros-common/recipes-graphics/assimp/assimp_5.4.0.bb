@@ -13,8 +13,6 @@ UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>(\d+(\.\d+)+))"
 
 SRCREV = "8b9ed34eaa3e6ad24254cb7e058fb9150f66b865"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 EXTRA_OECMAKE = " \

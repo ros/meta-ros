@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/quality_of_service_demo_py"
 SRC_URI = "git://github.com/ros2-gbp/demos-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f79eb04ce9894bf88b6f34f8895294804532f997"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

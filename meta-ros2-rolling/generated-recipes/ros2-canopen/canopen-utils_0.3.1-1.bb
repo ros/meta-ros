@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/canopen_utils"
 SRC_URI = "git://github.com/ros2-gbp/ros2_canopen-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e694cb4e19cbb9f66db49747ca8d3811e41e83ce"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

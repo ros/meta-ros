@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_reconfigure"
 SRC_URI = "git://github.com/ros-gbp/rqt_reconfigure-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bb870faec6804bf4c6f2357d9f0f44fcb04d0b36"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

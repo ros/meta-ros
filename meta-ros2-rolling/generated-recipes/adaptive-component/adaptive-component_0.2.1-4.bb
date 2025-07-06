@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/adaptive_component"
 SRC_URI = "git://github.com/ros2-gbp/adaptive_component-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cea369fddf909c0d41112e9c498b90d7cd44c0de"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

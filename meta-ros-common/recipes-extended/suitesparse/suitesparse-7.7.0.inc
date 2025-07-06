@@ -6,8 +6,6 @@ DESCRIPTION = "SuiteSparse is a suite of sparse matrix algorithms, including: UM
 
 LIC_FILES_CHKSUM = "file://../LICENSE.txt;md5=f412ac88bc7d8314b59d3d103e0ffb75"
 
-S = "${WORKDIR}/git"
-
 SRC_URI = "git://github.com/DrTimothyAldenDavis/SuiteSparse.git;branch=stable;protocol=https"
 
 SRCREV = "13806726cbf470914d012d132a85aea1aff9ee77"

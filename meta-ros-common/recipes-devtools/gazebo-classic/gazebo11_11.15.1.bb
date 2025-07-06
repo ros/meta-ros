@@ -17,8 +17,6 @@ SRC_URI = "git://github.com/gazebosim/gazebo-classic.git;protocol=https;branch=g
 
 SRCREV = "b22c6e15e52299865b31093b8feebc9ca19e26e8"
 
-S = "${WORKDIR}/git"
-
 inherit cmake pkgconfig
 
 DEPENDS += " \
@@ -64,7 +62,6 @@ EXTRA_OECMAKE = " \
 # Call Stack (most recent call first):
 #   src/gui/plugins/modules/CMakeLists.txt:5 (gz_add_gui_library)
 inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], '', 'cmake_qt5', d)}
-
 
 FILES:${PN} += " \
     ${datadir}/gazebo-11 \

@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/khi_duaro_description"
 SRC_URI = "git://github.com/Kawasaki-Robotics/khi_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0b8db3870bf339e50aef31e28d4ce440c2ff963a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

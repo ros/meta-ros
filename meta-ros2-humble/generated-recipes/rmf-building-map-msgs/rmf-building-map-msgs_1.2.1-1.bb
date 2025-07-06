@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rmf_building_map_msgs"
 SRC_URI = "git://github.com/ros2-gbp/rmf_building_map_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0c2fd53632f5076ccb37dc5bd545bb5165aea6f1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

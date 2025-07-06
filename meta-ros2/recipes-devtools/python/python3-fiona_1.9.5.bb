@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "99e2604332caa7692855c2ae6ed91e1fffdf9b59449aa8032dd18e070e
 inherit pypi
 inherit setuptools3
 
-S = "${WORKDIR}/fiona-${PV}"
+S = "${UNPACKDIR}/fiona-${PV}"
 
 do_configure:prepend() {
 cat > ${S}/setup.py <<-EOF

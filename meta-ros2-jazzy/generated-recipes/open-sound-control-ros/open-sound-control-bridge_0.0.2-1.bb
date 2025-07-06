@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/open_sound_control_bridge"
 SRC_URI = "git://github.com/ros2-gbp/open_sound_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "efc1ab2726c0b114f3d39143a913b0746071f573"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

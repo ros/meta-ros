@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/vrpn_mocap"
 SRC_URI = "git://github.com/ros2-gbp/vrpn_mocap-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ff6e0e030ec5415d376d4e42d65f759e5454bdaf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

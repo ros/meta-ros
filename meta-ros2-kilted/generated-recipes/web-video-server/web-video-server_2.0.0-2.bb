@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/web_video_server"
 SRC_URI = "git://github.com/ros2-gbp/web_video_server-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4aef1ce278a91acae2c815906be793b931800b73"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

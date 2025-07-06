@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/swri_console"
 SRC_URI = "git://github.com/ros2-gbp/swri_console-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2647a582e54d48b8de8c4cc57f17b60d25b86524"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

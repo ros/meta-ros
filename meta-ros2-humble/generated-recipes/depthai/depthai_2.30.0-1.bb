@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/depthai"
 SRC_URI = "git://github.com/luxonis/depthai-core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "88fe08a6ffd6489caf969fa360a526ffe0f2c9b9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

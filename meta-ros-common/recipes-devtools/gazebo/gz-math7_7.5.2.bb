@@ -6,8 +6,6 @@ SRC_URI = "git://github.com/gazebosim/gz-math.git;protocol=https;branch=gz-math7
 
 SRCREV = "4ef29f8335113730d2ea40a2b21da851b01829cc"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = " \
     gz-cmake3 \
     gz-cmake3-native \

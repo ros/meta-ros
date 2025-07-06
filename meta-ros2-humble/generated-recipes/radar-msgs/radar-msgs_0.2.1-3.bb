@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/radar_msgs"
 SRC_URI = "git://github.com/ros2-gbp/radar_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "78a5d5a75c9741da280e7ab42f412774e567e4a4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

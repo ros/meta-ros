@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ruckig"
 SRC_URI = "git://github.com/pantor/ruckig-release;${ROS_BRANCH};protocol=https"
 SRCREV = "89a7a93110cb81e336d274c80c23a2946f3a23b6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

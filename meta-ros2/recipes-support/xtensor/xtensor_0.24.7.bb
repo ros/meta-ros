@@ -6,8 +6,6 @@ SRC_URI = "git://github.com/xtensor-stack/xtensor.git;protocol=https;branch=mast
 PV = "0.24.7+git${SRCPV}"
 SRCREV = "44b56bbae2185ebf19e6f617ac5690344b9e35a4"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 DEPENDS = "xtl nlohmann-json tbb xsimd"

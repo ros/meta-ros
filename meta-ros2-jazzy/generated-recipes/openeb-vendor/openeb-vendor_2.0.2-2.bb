@@ -87,7 +87,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/openeb_vendor"
 SRC_URI = "git://github.com/ros2-gbp/openeb_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b4d7feaa1a8354b577d6170bf520c87e38982b29"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

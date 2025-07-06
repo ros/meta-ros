@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/kinematics_interface_pinocchio"
 SRC_URI = "git://github.com/justagist/kinematics_interface_pinocchio-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1eeea72e03338a14f38b136bc16187807d7ed350"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

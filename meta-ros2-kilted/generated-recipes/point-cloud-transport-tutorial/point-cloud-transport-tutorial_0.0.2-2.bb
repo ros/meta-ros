@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/point_cloud_transport_tutorial"
 SRC_URI = "git://github.com/ros2-gbp/point_cloud_transport_tutorial-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b25909825bd5458840fb164109e646224e251576"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

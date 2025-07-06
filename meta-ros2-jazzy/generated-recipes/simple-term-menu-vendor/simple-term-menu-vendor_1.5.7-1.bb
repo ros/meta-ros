@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/simple_term_menu_vendor"
 SRC_URI = "git://github.com/clearpath-gbp/simple_term_menu_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6ab8fbe31338a72360563ee2b2f44ba1512e745d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

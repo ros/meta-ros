@@ -9,8 +9,6 @@ SRC_URI = " \
 PV = "1.0+git${SRCPV}"
 SRCREV = "30020f18e9931e4ada66c6ed41e175eae1d4266b"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 DEPENDS = "google-benchmark libeigen googletest"

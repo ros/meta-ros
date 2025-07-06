@@ -73,7 +73,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rviz_satellite"
 SRC_URI = "git://github.com/nobleo/rviz_satellite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9abb9d0059ccaf4d8fe5fe8b66e42760c6a62f5b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

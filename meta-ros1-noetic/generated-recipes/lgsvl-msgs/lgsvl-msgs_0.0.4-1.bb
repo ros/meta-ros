@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/lgsvl_msgs"
 SRC_URI = "git://github.com/lgsvl/lgsvl_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9fe3a58c36abf1e42ed3cf8395c52fa6a57ff0e0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

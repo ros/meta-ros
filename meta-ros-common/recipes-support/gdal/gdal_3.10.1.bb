@@ -29,8 +29,6 @@ SRC_URI = " \
 PV = "3.10.1+git${SRCPV}"
 SRCREV = "9b7a7c8ffa7b7aff696974c432d4254a809b3efe"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = " \
     curl \
     expat \

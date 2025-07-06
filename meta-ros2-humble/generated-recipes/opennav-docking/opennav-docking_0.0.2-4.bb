@@ -97,7 +97,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/opennav_docking"
 SRC_URI = "git://github.com/open-navigation/opennav_docking-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f20f53a505249d6e11c72478dd39a6c2694d9886"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

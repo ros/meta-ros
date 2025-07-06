@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rot_conv"
 SRC_URI = "git://github.com/ros2-gbp/rot_conv_lib-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a61148e0f5bd8fbd7480973e37023da1777a9c5f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

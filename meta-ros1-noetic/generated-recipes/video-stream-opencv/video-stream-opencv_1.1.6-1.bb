@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/video_stream_opencv"
 SRC_URI = "git://github.com/ros-drivers/video_stream_opencv-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1a1ad5ad5872028c90f7f675b8088065af185793"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

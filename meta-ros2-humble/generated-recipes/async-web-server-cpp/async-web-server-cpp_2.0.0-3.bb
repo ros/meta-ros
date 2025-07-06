@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/async_web_server_cpp"
 SRC_URI = "git://github.com/ros2-gbp/async_web_server_cpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "da6bf2dfe2ff62bb07c2052033dad73cdd59b3e0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

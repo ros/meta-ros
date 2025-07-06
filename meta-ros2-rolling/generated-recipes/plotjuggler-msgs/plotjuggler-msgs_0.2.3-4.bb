@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/plotjuggler_msgs"
 SRC_URI = "git://github.com/ros2-gbp/plotjuggler_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2a9c8a2f70e615f842e408e6ca6c4738f3893a11"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

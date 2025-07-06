@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mola_yaml"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "00088df7798a67fae503c393f48cf8d0f46d61bb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

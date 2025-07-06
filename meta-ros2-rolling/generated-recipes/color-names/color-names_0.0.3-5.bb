@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/color_names"
 SRC_URI = "git://github.com/ros2-gbp/color_names-release;${ROS_BRANCH};protocol=https"
 SRCREV = "95114d283146ea0c7f98ff3c354fb6ecd2627daf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

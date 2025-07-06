@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fanuc_m16ib_support"
 SRC_URI = "git://github.com/ros-industrial-release/fanuc-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cc01a1e0a2c0e7d7f244bd7845c654c6e893e1de"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

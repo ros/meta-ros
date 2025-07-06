@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sbg_driver"
 SRC_URI = "git://github.com/SBG-Systems/sbg_ros_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "af833341b1a69b99f864a4711531d2a8ec70a110"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

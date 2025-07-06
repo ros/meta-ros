@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/autoware_auto_msgs"
 SRC_URI = "git://github.com/ros2-gbp/autoware_auto_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e37c95c2094eda8c7d0958de0e76fb122784705d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

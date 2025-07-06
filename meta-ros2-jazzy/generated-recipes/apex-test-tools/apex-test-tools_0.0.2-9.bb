@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/apex_test_tools"
 SRC_URI = "git://github.com/ros2-gbp/apex_test_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1de070b1ce7d0efb9a77e69eac2e17a3f1f3d212"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/clober_msgs"
 SRC_URI = "git://github.com/CLOBOT-Co-Ltd-release/clober_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2b1e31afef7208eb6f561995538cc15d19ace0c8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

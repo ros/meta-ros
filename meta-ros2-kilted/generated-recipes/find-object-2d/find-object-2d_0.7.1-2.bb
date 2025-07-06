@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/find_object_2d"
 SRC_URI = "git://github.com/ros2-gbp/find_object_2d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b1f5de2db417c60451ca4d7a367eee0e9e37cc89"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

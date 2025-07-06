@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/prbt_grippers"
 SRC_URI = "git://github.com/PilzDE/prbt_grippers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0d81ab3422b586554250de1c2c0806d29a98056f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

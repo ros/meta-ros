@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ament_black"
 SRC_URI = "git://github.com/ros2-gbp/ament_black-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e327a9bfe96798c1878fd4b0e0d43ee201d73757"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

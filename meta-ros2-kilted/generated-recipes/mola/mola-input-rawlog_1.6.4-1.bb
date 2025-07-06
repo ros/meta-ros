@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mola_input_rawlog"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "db5f97af717e8245e15250a2dab5a19a0b20b036"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

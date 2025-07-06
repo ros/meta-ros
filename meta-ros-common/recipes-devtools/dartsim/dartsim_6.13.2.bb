@@ -12,8 +12,6 @@ SRC_URI = "git://github.com/dartsim/dart.git;protocol=https;branch=release-6.14 
 
 SRCREV = "a51e08c210d7892605c6dc0b9ae96fce4446d9fe"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = " \
     assimp \
     bullet \
@@ -36,7 +34,6 @@ DEPENDS = " \
     urdfdom-headers \
     ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'virtual/libgl libglu', '', d)} \
 "
-
 
 inherit setuptools3 cmake pkgconfig
 

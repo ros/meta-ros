@@ -10,8 +10,6 @@ SRC_URI = " \
 PV = "1.0+git${SRCPV}"
 SRCREV = "3bddf06c4a9fc1b32f5abe4406aa70d2c636e026"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 DEPENDS = " \

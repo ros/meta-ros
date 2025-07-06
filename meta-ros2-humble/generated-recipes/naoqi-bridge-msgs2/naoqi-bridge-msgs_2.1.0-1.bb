@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/naoqi_bridge_msgs"
 SRC_URI = "git://github.com/ros-naoqi/naoqi_bridge_msgs2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "56017993766254f457b37cb7ba0e6536835bd31d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

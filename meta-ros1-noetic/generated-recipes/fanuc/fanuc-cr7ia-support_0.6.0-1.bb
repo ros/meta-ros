@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fanuc_cr7ia_support"
 SRC_URI = "git://github.com/ros-industrial-release/fanuc-release;${ROS_BRANCH};protocol=https"
 SRCREV = "91170a710ebb9db4e61b867f73f54e920d854143"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/stereo_msgs"
 SRC_URI = "git://github.com/ros-gbp/common_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ee34627187c0970697155b3c7b1eda4079525b03"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

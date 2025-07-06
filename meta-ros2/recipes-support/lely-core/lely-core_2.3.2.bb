@@ -9,8 +9,6 @@ SRC_URI = "git://gitlab.com/lely_industries/lely-core.git;protocol=https;branch=
 PV = "2.3.2+git${SRCPV}"
 SRCREV = "7824cbb2ac08d091c4fa2fb397669b938de9e3f5"
 
-S = "${WORKDIR}/git"
-
 inherit pkgconfig autotools setuptools3-base
 
 DEPENDS += "python3-setuptools-native python3-wheel-native"
@@ -19,7 +17,6 @@ EXTRA_OECONF += " --disable-cython --disable-tests --disable-python2"
 
 # include/lely/coapp/device.hpp:1003:3: error: 'virtual void lely::canopen::Device::OnWrite(uint16_t, uint8_t)' was hidden [-Werror=overloaded-virtual=]
 CXXFLAGS += "-Wno-error=overloaded-virtual"
-
 
 PACKAGES =+ " \
     liblely-can \

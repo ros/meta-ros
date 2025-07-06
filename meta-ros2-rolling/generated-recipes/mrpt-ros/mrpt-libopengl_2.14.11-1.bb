@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/mrpt_libopengl"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f30d884755d51bb62d487bca7b1d9d62551f12ac"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

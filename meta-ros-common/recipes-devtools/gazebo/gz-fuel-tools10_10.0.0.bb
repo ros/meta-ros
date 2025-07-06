@@ -6,8 +6,6 @@ SRC_URI = "git://github.com/gazebosim/gz-fuel-tools;protocol=https;branch=gz-fue
 
 SRCREV = "93803c78dc55a978e39dfbb2a89d47585ff3c999"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 DEPENDS = " \

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/kortex_description"
 SRC_URI = "git://github.com/ros2-gbp/ros2_kortex-release;${ROS_BRANCH};protocol=https"
 SRCREV = "819182cb6c4933cae39cd85e078838b614ec5ea6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/bosch_locator_bridge"
 SRC_URI = "git://github.com/ros-gbp/locator_ros_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "84a5e372b4d8627a8e032859a2274542e8b142bf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

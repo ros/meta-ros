@@ -12,8 +12,6 @@ SRC_URI = "git://github.com/gazebosim/gz-utils.git;protocol=https;branch=gz-util
 
 SRCREV = "fd0a40c09be4fd7b2a40d877bb56d2fa1c7607e3"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 BBCLASSEXTEND = "native nativesdk"

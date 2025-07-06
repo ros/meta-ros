@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rqt_joint_trajectory_controller"
 SRC_URI = "git://github.com/ros2-gbp/ros2_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0f7064cbeaa2db5e2e38b04976056b388d1d8dac"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

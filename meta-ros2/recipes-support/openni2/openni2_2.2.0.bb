@@ -45,8 +45,6 @@ DEPENDS = " \
   freeglut \
 "
 
-S = "${WORKDIR}/git"
-
 # There are 54 uses of the register identifier which is no longer permitted by ISO C++17
 # ../../ThirdParty/LibJPEG/jccolor.c: In function 'void rgb_ycc_convert(j_compress_ptr, JSAMPARRAY, JSAMPIMAGE, JDIMENSION, int)':
 # ../../ThirdParty/LibJPEG/jccolor.c:135:16: error: ISO C++17 does not allow 'register' storage class specifier [-Werror=register]

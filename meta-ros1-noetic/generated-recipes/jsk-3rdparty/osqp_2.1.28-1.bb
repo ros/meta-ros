@@ -41,7 +41,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/osqp"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a35199a538814800da4815b10216cea8a7e543a8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

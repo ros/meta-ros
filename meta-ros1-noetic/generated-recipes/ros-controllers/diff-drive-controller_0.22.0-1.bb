@@ -82,7 +82,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/diff_drive_controller"
 SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d216c6360e2627023dc1151b68ff3be6916e43da"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

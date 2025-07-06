@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/can_dbc_parser"
 SRC_URI = "git://github.com/nobleo/raptor-dbw-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9e87a007c9189d3843f59b3cebc0ed06a2676866"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

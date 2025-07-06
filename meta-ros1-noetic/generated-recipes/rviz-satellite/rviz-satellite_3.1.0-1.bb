@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rviz_satellite"
 SRC_URI = "git://github.com/nobleo/rviz_satellite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4649f2b4e974f04e80407d5b819e761c2ddf0e6b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

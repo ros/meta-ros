@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sot-dynamic-pinocchio"
 SRC_URI = "git://github.com/stack-of-tasks/sot-dynamic-pinocchio-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "13debe6c1830bf4ba8ba20ebdda2e0b382c9e3fd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

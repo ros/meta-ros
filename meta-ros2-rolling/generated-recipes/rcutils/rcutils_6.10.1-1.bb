@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rcutils"
 SRC_URI = "git://github.com/ros2-gbp/rcutils-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0e0d19f5db78d763681d6013727e81e2ff08c1a8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

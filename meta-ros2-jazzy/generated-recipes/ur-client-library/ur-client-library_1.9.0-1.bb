@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ur_client_library"
 SRC_URI = "git://github.com/ros2-gbp/Universal_Robots_Client_Library-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6177d52e8097bc9c4577940f99b434bff5a4f904"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dynamixel_workbench_operators"
 SRC_URI = "git://github.com/ROBOTIS-GIT-release/dynamixel-workbench-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e11f237b0d752bafaa27efa8a9f944ee10a031bf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

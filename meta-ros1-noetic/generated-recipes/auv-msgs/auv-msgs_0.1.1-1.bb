@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/auv_msgs"
 SRC_URI = "git://github.com/oceansystemslab/auv_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "90142975ed375d9ac70f54c8c24ab3755c769e17"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

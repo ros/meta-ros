@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fkie_potree_rviz_plugin"
 SRC_URI = "git://github.com/fkie-release/potree_rviz_plugin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e7dc9158efc212480c8dc507b994b8f46f35562c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

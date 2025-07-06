@@ -6,11 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=6a8aaf0595c2efc1a9c2e0913e9c1a2c"
 
 PR = "r0"
 
-S = "${WORKDIR}/git"
-
 SRC_URI = "git://github.com/jbeder/${BPN}.git;branch=master;protocol=https"
 SRCREV = "f7320141120f720aecc4c32be25586e7da9eb978"
-
 
 EXTRA_OECMAKE = "-DBUILD_SHARED_LIBS=ON -DYAML_CPP_BUILD_TESTS=OFF -DYAML_CPP_BUILD_TOOLS=OFF -DYAML_CPP_BUILD_CONTRIB=OFF"
 

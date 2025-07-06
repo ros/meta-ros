@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/mola_gnss_to_markers"
 SRC_URI = "git://github.com/ros2-gbp/mola_gnss_to_markers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "794dadfc20e56075d655b803178539a99aa18804"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

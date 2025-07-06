@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/aruco_markers_msgs"
 SRC_URI = "git://github.com/namo-robotics/aruco_markers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7535d14f1040a3119032291bb04ee0c391e8fc88"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

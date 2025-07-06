@@ -18,8 +18,6 @@ SRC_URI = "git://github.com/stevengj/nlopt.git;protocol=https;branch=master"
 PV = "2.7.1+git${SRCPV}"
 SRCREV = "09b3c2a6da71cabcb98d2c8facc6b83d2321ed71"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "swig-native"
 
 inherit cmake python3-dir python3native

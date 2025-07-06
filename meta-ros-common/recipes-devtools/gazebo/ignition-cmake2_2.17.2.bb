@@ -8,8 +8,6 @@ SRC_URI = "git://github.com/gazebosim/gz-cmake.git;protocol=https;branch=ign-cma
 
 SRCREV = "5441bc74997de9fe6b23e9d844251b6897e1f197"
 
-S = "${WORKDIR}/git"
-
 FILES:${PN} += "${datadir}/ignition/ignition-cmake2/*"
 inherit cmake
 

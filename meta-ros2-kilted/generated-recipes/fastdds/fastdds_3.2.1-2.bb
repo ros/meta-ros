@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/fastdds"
 SRC_URI = "git://github.com/ros2-gbp/fastdds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "133bc7557328220fa94bc6062bd099bfae023198"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

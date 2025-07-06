@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ur7e_moveit_config"
 SRC_URI = "git://github.com/ros-industrial-release/universal_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "205cdfc62285dc0331693e49ed55bbc155b101d1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

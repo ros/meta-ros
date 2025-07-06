@@ -43,7 +43,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/smach"
 SRC_URI = "git://github.com/ros2-gbp/executive_smach-release;${ROS_BRANCH};protocol=https"
 SRCREV = "01c1799e7375f9b52075793fad1b5f4b632a3b74"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

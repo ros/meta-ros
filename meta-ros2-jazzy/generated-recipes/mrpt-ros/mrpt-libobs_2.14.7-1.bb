@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mrpt_libobs"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8c8fcb1cdd25e537b88db561c54336c24fd694d3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

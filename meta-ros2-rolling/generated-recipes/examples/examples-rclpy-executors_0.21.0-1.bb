@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/examples_rclpy_executors"
 SRC_URI = "git://github.com/ros2-gbp/examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e9af124c933d080a0620200b34d95c693f9856ab"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

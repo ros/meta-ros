@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laser_assembler"
 SRC_URI = "git://github.com/ros-gbp/laser_assembler-release;${ROS_BRANCH};protocol=https"
 SRCREV = "69afa4455ffd6e4982e1b260b8dc3d3d193ae61e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

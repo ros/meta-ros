@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ompl"
 SRC_URI = "git://github.com/ros2-gbp/ompl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "52d3af400596c57fc4cd6ab3d423fc8f026ab7f0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

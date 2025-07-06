@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/vrpn_client_ros"
 SRC_URI = "git://github.com/ros-drivers-gbp/vrpn_client_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "713eb37c766b70b090eee0b04a77007c7039a44a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

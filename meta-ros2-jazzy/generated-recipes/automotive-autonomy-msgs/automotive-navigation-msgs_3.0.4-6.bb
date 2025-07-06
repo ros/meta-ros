@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/automotive_navigation_msgs"
 SRC_URI = "git://github.com/ros2-gbp/automotive_autonomy_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a7a4af96be7bcd5fb697f17127c2e7b3364b993b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

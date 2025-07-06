@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dingo_desktop"
 SRC_URI = "git://github.com/clearpath-gbp/dingo_desktop-release;${ROS_BRANCH};protocol=https"
 SRCREV = "436c53d70fcbbd23dd13d5285cb849cf796bd184"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

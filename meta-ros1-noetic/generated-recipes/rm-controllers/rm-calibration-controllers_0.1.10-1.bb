@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rm_calibration_controllers"
 SRC_URI = "git://github.com/rm-controls/rm_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dc82f1b9db0a301875d84370b7501ec080fdcedf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

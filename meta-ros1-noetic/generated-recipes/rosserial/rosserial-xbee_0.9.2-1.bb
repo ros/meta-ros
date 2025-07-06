@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosserial_xbee"
 SRC_URI = "git://github.com/ros-gbp/rosserial-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d00bb2b8f803ef663a0dc48c67a7b68f96edcdf6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

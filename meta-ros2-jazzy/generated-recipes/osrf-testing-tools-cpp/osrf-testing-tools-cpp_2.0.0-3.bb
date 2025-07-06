@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/osrf_testing_tools_cpp"
 SRC_URI = "git://github.com/ros2-gbp/osrf_testing_tools_cpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5ecc33aa92e5f47d455076ace8533a0145c88b54"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

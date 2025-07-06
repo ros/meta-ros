@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/test_interface_files"
 SRC_URI = "git://github.com/ros2-gbp/test_interface_files-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7c8c858d5d2079070164f9179657d8e328b0a86f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -12,6 +12,4 @@ SRC_URI = "gitsm://github.com/google/draco.git;protocol=https;branch=master \
 PV = "1.5.6+git${SRCPV}"
 SRCREV = "9f856abaafb4b39f1f013763ff061522e0261c6f"
 
-S = "${WORKDIR}/git"
-
 inherit cmake

@@ -7,8 +7,6 @@ SRC_URI = "git://github.com/ericniebler/range-v3.git;protocol=https;branch=maste
 PV = "0.12.0+git${SRCPV}"
 SRCREV = "a81477931a8aa2ad025c6bda0609f38e09e4d7ec"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "boost"
 
 inherit cmake

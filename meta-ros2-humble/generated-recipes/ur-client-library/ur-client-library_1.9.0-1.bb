@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ur_client_library"
 SRC_URI = "git://github.com/ros2-gbp/Universal_Robots_Client_Library-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f7405de048b19ef0589f1601e6639e1e88d338e1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

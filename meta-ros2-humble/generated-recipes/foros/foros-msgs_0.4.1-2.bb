@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/foros_msgs"
 SRC_URI = "git://github.com/ros2-gbp/foros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a2621dabcd63ebb67347338b2a126b0694d198c1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

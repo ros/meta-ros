@@ -85,7 +85,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rc_genicam_driver"
 SRC_URI = "git://github.com/roboception-gbp/rc_genicam_driver_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "88d9f784fe6afa083b4cbf4c90723849ff0390cd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

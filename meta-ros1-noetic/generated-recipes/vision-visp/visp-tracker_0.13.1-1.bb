@@ -88,7 +88,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/visp_tracker"
 SRC_URI = "git://github.com/lagadic/vision_visp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "06cea623a396fd94fbd2c628a25b5c85851f33b7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

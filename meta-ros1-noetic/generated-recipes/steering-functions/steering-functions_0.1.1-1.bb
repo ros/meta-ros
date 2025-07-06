@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/steering_functions"
 SRC_URI = "git://github.com/nobleo/steering_functions-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f712672dad0e6535a5cb2eb06278e978f97219ca"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

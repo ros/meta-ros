@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/jackal_msgs"
 SRC_URI = "git://github.com/clearpath-gbp/jackal-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c7817952e9eb4a9cc9a98ec1e180a7fb7186263e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

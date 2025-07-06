@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rqt_plot"
 SRC_URI = "git://github.com/ros2-gbp/rqt_plot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3009155adf49c45bbffe13302079b4a1daec8294"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

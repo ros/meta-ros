@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/twist_mux"
 SRC_URI = "git://github.com/ros2-gbp/twist_mux-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bc23d2160fa10661623ea6843db5ebff5a1e92d2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

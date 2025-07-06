@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosapi"
 SRC_URI = "git://github.com/RobotWebTools-release/rosbridge_suite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a84b4d92f680ae5024cc43d149b1ceeda5aa9cfe"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

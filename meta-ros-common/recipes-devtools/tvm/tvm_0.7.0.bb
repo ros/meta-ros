@@ -21,8 +21,6 @@ SRC_URI = "git://github.com/apache/tvm;name=tvm;branch=main;protocol=https \
     git://github.com/apache/incubator-tvm-vta;name=vta-hw;destsuffix=git/3rdparty/vta-hw;branch=master;protocol=https \
 "
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 # ERROR: tvm-0.7.0-r0 do_package_qa: QA Issue:

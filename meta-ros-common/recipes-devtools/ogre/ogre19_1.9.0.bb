@@ -14,8 +14,6 @@ SRC_URI = "git://github.com/OGRECave/ogre;protocol=https;branch=master \
            file://fix-stringconverter-tostring.patch \
            file://resolve-link-errors-due-to-incorrect-template-creation.patch"
 
-S = "${WORKDIR}/git"
-
 inherit cmake features_check pkgconfig
 
 REQUIRED_DISTRO_FEATURES = "x11"

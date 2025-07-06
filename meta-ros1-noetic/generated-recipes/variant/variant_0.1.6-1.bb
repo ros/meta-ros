@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/variant"
 SRC_URI = "git://github.com/anybotics/variant-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0f662c72166496fc5481377c10204e63a500a9d4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

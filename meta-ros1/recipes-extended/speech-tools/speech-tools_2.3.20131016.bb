@@ -15,7 +15,7 @@ SRC_URI = "http://tts.speech.cs.cmu.edu/awb/${SNAPSHOT}/speech_tools-${SHRT_VER}
 SRC_URI[md5sum] = "1e6878a0ecc5bde6c2f4c91ae0113547"
 SRC_URI[sha256sum] = "26c08519313cd83f9a54daf3a86e6924e2797f3991af222fa6dcb61812815783"
 
-S = "${WORKDIR}/speech_tools"
+S = "${UNPACKDIR}/speech_tools"
 
 inherit autotools-brokensep
 

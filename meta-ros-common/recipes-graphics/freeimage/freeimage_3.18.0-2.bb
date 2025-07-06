@@ -31,8 +31,6 @@ SRC_URI = " \
 PV = "3.18.0-2+git${SRCPV}"
 SRCREV = "10780151a1fb824a7fc9f58ca3014624605a50b3"
 
-S = "${WORKDIR}/git"
-
 CFLAGS += "-fPIC"
 CXXFLAGS += "-fPIC"
 

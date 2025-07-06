@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/plotjuggler"
 SRC_URI = "git://github.com/facontidavide/plotjuggler-release;${ROS_BRANCH};protocol=https"
 SRCREV = "90ee21869faa9abd57d2a246422995a85fe7def7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

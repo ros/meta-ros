@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/imu_monitor"
 SRC_URI = "git://github.com/pr2-gbp/pr2_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "23d838cc2d8f5be85552faa9ad9dd8229f864903"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

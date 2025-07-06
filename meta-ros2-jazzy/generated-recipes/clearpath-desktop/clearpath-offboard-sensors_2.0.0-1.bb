@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/clearpath_offboard_sensors"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_desktop-release;${ROS_BRANCH};protocol=https"
 SRCREV = "04f877510b804b3d9ad07ba32f7ff32069f77e83"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
