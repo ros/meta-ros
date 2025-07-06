@@ -26,7 +26,7 @@ DEPENDS = " \
 
 SRC_URI = "git://github.com/gazebosim/sdformat.git;protocol=https;branch=sdf15"
 
-SRCREV = "7ea246dd2ccba74831c7049898d80832a1e8d976"
+SRCREV = "02e30ddf750fe2eceaee7d84c46ee9dd24cf69fb"
 
 S = "${WORKDIR}/git"
 
