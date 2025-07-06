@@ -11,4 +11,4 @@
 # as documented in https://github.com/ros/meta-ros/pull/936
 PREFERRED_VERSION_pcl = "1.14.1"
 
-PREFERRED_VERSION_sdformat = "15.2.0"
+PREFERRED_VERSION_sdformat = "15.3.0"
