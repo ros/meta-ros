@@ -27,7 +27,7 @@ local_conf_header:
     SSTATE_MIRRORS = "file://.* s3://oeros-bitbake-cache/sstate-cache/PATH;downloadfilename=PATH"
 
     # Configuration for uploading to mirrors
-    INHERIT += "mirror_updates"
+    INHERIT:append = " mirror_updates"
 
     # Set FETCHCMD_s3 manually as kas creates its own environment
-    FETCHCMD_s3 = "/home/pokyuser/.local/bin/aws s3"
+    # FETCHCMD_s3 = "/home/pokyuser/.local/bin/aws s3"

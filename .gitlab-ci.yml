@@ -1,4 +1,4 @@
-image: crops/poky:debian-12
+image: $CI_REGISTRY/oeros/aws-runner/crops-container:latest
 
 variables:
   DISTRO:
@@ -11,7 +11,7 @@ variables:
     description: "The ROS distro"
     value: rolling
     options:
-      - melodic
+      - noetic
       - humble
       - jazzy
       - kilted
@@ -44,9 +44,6 @@ variables:
     options:
       - Enabled
       - Disabled
-  VIRTUAL_ENV_PKGS:
-    description: "Create a virtualenv for bitbake with these pypi packages installed"
-    value: "boto3"
   FF_DISABLE_UMASK_FOR_DOCKER_EXECUTOR: true
 
 .default:
