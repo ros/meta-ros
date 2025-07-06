@@ -17,6 +17,7 @@ DEPENDS = " \
     gz-plugin2 \
     gz-utils2 \
     sdformat \
+    libeigen \
     bullet \
     google-benchmark-vendor \
 "
