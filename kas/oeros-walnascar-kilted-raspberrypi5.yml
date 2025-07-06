@@ -1,0 +1,11 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/walnascar.yml
+    - kas/ros2/kilted.yml
+    - kas/machine/raspberrypi5.yml
+    - kas/common.yml
+
+repos:
+  raspberrypi:
+    branch: "walnascar"

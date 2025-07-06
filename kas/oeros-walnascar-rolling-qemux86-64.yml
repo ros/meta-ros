@@ -1,0 +1,7 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/walnascar.yml
+    - kas/ros2/rolling.yml
+    - kas/machine/qemux86-64.yml
+    - kas/common.yml

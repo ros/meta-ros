@@ -1,0 +1,7 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/walnascar.yml
+    - kas/ros2/humble.yml
+    - kas/machine/raspberrypi0-2w-64.yml
+    - kas/common.yml
