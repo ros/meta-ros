@@ -19,6 +19,7 @@ DEPENDS += " \
     gz-transport13 \
     protobuf \
     sdformat \
+    libeigen \
     bullet \
     cppcheck-native \
     google-benchmark-vendor \
