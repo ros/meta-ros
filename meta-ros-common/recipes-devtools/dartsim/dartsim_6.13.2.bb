@@ -1,3 +1,4 @@
+SUMMARY = "DART: Dynamic Animation and Robotics Toolkit "
 HOMEPAGE = "https://github.com/dartsim/dart"
 LICENSE = "BSD-2-Clause & BSD-3-Clause & MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f9c9b64e6293fa51cd808f54fa1733d9 \
@@ -46,7 +47,7 @@ EXTRA_OECMAKE:prepend = "\
     -DDART_ENABLE_SIMD=OFF \
 "
 
-CXXFLAGS += "-Wno-error=deprecated-copy -Wno-error=reorder"
+CXXFLAGS += "-Wno-error=deprecated-copy -Wno-error=reorder  -Wno-error=cpp"
 
 FILES:${PN} += "${datadir}/dart"
 
