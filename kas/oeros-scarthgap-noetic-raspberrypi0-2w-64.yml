@@ -1,0 +1,7 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/scarthgap.yml
+    - kas/ros1/noetic.yml
+    - kas/machine/raspberrypi0-2w-64.yml
+    - kas/common.yml

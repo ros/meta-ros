@@ -1,0 +1,11 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/scarthgap.yml
+    - kas/ros2/kilted.yml
+    - kas/machine/raspberrypi4-64.yml
+    - kas/common.yml
+
+repos:
+  raspberrypi:
+    branch: "scarthgap"
