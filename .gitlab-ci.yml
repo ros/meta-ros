@@ -22,7 +22,6 @@ variables:
     options:
       - kirkstone
       - scarthgap
-      - styhead
       - master
   TARGET_RECIPE: "ros-image-core"
   MACHINE:
