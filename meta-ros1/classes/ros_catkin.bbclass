@@ -25,7 +25,7 @@ EXTRA_OECMAKE_CATKIN = "\
     -DPYTHON_EXECUTABLE_TARGET='/usr/bin/env python3' \
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}${ros_prefix};${STAGING_DIR_HOST}${prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
-    -DCATKIN_DEVEL_PREFIX='${WORKDIR}/devel' \
+    -DCATKIN_DEVEL_PREFIX='${UNPACKDIR}/devel' \
     "
 
 EXTRA_OECMAKE_CATKIN:class-native = "\
@@ -33,7 +33,7 @@ EXTRA_OECMAKE_CATKIN:class-native = "\
     -DCMAKE_PREFIX_PATH='${ros_prefix}' \
     -DCMAKE_INSTALL_PREFIX:PATH='${ros_prefix}' \
     -DRT_LIBRARY=${libdir_native} \
-    -DCATKIN_DEVEL_PREFIX='${WORKDIR}/devel' \
+    -DCATKIN_DEVEL_PREFIX='${UNPACKDIR}/devel' \
     "
 
 EXTRA_OECMAKE:prepend = "\
@@ -44,8 +44,8 @@ EXTRA_OECMAKE:prepend = "\
     "
 
 DEBUG_PREFIX_MAP += " \
-    -fdebug-prefix-map=${WORKDIR}/devel=${ros_prefix} \
-    -fmacro-prefix-map=${WORKDIR}/devel=${ros_prefix} \
+    -fdebug-prefix-map=${UNPACKDIR}/devel=${ros_prefix} \
+    -fmacro-prefix-map=${UNPACKDIR}/devel=${ros_prefix} \
 "
 
 # similar to what distutil3.bbclass does here:
@@ -68,6 +68,6 @@ do_install:append() {
 do_install:append:class-target() {
     find ${D}${ros_prefix}/share -name '*cmake' -type f \
             | xargs --no-run-if-empty sed -i \
-                -e 's@set(\([a-zA-Z0-9_]*\)_SOURCE_PREFIX ${WORKDIR}/git)@set(\1_SOURCE_PREFIX "")@g' \
-                -e 's@set(\([a-zA-Z0-9_]*\)_DEVEL_PREFIX ${WORKDIR}/devel)@set(\1_DEVEL_PREFIX "")@g'
+                -e 's@set(\([a-zA-Z0-9_]*\)_SOURCE_PREFIX ${UNPACKDIR}/git)@set(\1_SOURCE_PREFIX "")@g' \
+                -e 's@set(\([a-zA-Z0-9_]*\)_DEVEL_PREFIX ${UNPACKDIR}/devel)@set(\1_DEVEL_PREFIX "")@g'
 }
