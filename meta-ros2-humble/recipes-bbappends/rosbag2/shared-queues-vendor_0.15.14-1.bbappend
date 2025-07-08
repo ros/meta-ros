@@ -6,8 +6,8 @@
 # with curl during do_compile use bitbake git fetcher
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-readerwriterqueue-and-concurren.patch \
-    git://github.com/cameron314/readerwriterqueue.git;protocol=https;name=singleproducerconsumer-upstream;destsuffix=git/singleproducerconsumer-upstream;branch=master \
-    git://github.com/cameron314/concurrentqueue.git;protocol=https;name=concurrentqueue-upstream;destsuffix=git/concurrentqueue-upstream;branch=master \
+    git://github.com/cameron314/readerwriterqueue.git;protocol=https;name=singleproducerconsumer-upstream;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/singleproducerconsumer-upstream;branch=master \
+    git://github.com/cameron314/concurrentqueue.git;protocol=https;name=concurrentqueue-upstream;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/concurrentqueue-upstream;branch=master \
 "
 SRCREV_singleproducerconsumer-upstream = "ef7dfbf553288064347d51b8ac335f1ca489032a"
 SRCREV_concurrentqueue-upstream = "8f65a8734d77c3cc00d74c0532efca872931d3ce"
