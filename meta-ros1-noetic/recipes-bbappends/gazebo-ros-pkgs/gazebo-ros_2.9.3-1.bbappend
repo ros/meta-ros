@@ -12,14 +12,14 @@ EXTRA_OECMAKE += " -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc"
 # WARNING: gazebo-plugins-2.9.3-1-r0 do_package_qa: QA Issue: File ... in package gazebo-plugins contains reference to TMPDIR
 #     Remove buildpaths from comment lines
 do_compile:append() {
-    chrpath --delete ${WORKDIR}/devel/${baselib}/libgazebo_ros_paths_plugin.so
-    chrpath --delete ${WORKDIR}/devel/${baselib}/libgazebo_ros_api_plugin.so
+    chrpath --delete ${UNPACKDIR}/devel/${baselib}/libgazebo_ros_paths_plugin.so
+    chrpath --delete ${UNPACKDIR}/devel/${baselib}/libgazebo_ros_api_plugin.so
 
-    sed -i -e "s#${RECIPE_SYSROOT}##g" ${WORKDIR}/devel/include/gazebo_ros/PhysicsConfig.h
-    sed -i -e "s#${WORKDIR}/devel##g" ${WORKDIR}/devel/${baselib}/${PYTHON_DIR}/site-packages/gazebo_ros/cfg/PhysicsConfig.py
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${UNPACKDIR}/devel/include/gazebo_ros/PhysicsConfig.h
+    sed -i -e "s#${UNPACKDIR}/devel##g" ${UNPACKDIR}/devel/${baselib}/${PYTHON_DIR}/site-packages/gazebo_ros/cfg/PhysicsConfig.py
 
-    nativepython3 -mcompileall -f -s ${WORKDIR}/devel ${WORKDIR}/devel/${baselib}/${PYTHON_DIR}/site-packages/gazebo_ros/cfg/
-    nativepython3 -mcompileall -f -s ${WORKDIR}/devel ${WORKDIR}/devel/${baselib}/${PYTHON_DIR}/site-packages/gazebo_ros/cfg/PhysicsConfig.py
+    nativepython3 -mcompileall -f -s ${UNPACKDIR}/devel ${UNPACKDIR}/devel/${baselib}/${PYTHON_DIR}/site-packages/gazebo_ros/cfg/
+    nativepython3 -mcompileall -f -s ${UNPACKDIR}/devel ${UNPACKDIR}/devel/${baselib}/${PYTHON_DIR}/site-packages/gazebo_ros/cfg/PhysicsConfig.py
 }
 
 
