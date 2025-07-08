@@ -1,0 +1,26 @@
+Upstream-Status: Backport [https://github.com/ros/urdfdom/commit/4768260074a90510571810d7439113960a304d44]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 4768260074a90510571810d7439113960a304d44 Mon Sep 17 00:00:00 2001
+From: Pierre Ballif <65809021+Warggr@users.noreply.github.com>
+Date: Fri, 2 May 2025 21:57:38 +0200
+Subject: [PATCH] fix: missing header (#216)
+
+Signed-off-by: Pierre Ballif <pierre@ballif.eu>
+---
+ urdf_parser/include/urdf_parser/urdf_parser.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/urdf_parser/include/urdf_parser/urdf_parser.h b/urdf_parser/include/urdf_parser/urdf_parser.h
+index 240e9df3..933739a5 100644
+--- a/urdf_parser/include/urdf_parser/urdf_parser.h
++++ b/urdf_parser/include/urdf_parser/urdf_parser.h
+@@ -37,6 +37,7 @@
+ #ifndef URDF_PARSER_URDF_PARSER_H
+ #define URDF_PARSER_URDF_PARSER_H
+ 
++#include <cstdint>
+ #include <stdexcept>
+ #include <string>
+ #include <vector>
