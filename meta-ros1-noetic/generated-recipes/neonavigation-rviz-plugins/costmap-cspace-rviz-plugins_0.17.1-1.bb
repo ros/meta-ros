@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/costmap_cspace_rviz_plugins"
 SRC_URI = "git://github.com/at-wat/neonavigation_rviz_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ebaa989293dd7c3a4a2d9e117e47bf4e1d869890"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

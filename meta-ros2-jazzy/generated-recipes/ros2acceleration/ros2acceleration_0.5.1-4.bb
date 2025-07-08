@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ros2acceleration"
 SRC_URI = "git://github.com/ros2-gbp/ros2acceleration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "18eede7c818416a07f43314c8a39b6c7abc5b03e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

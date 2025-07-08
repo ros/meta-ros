@@ -75,7 +75,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/end_effector"
 SRC_URI = "git://github.com/ADVRHumanoids/ROSEndEffector-release;${ROS_BRANCH};protocol=https"
 SRCREV = "87433738d18663cffae16c431d03931f70c32b4c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

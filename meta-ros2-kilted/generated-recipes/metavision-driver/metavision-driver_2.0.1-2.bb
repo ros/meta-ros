@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/metavision_driver"
 SRC_URI = "git://github.com/ros2-gbp/metavision_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a523bfc1a50dfe1c5fed7e49a66aed76cdca9b89"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

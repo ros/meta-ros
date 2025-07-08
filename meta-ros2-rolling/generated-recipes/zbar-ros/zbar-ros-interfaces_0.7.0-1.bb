@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/zbar_ros_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/zbar_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b6f3834f9fc0e2b762ddeb051f4dbdc8ddadaa96"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

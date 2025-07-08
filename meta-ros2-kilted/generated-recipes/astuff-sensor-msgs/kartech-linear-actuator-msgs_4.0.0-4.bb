@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/kartech_linear_actuator_msgs"
 SRC_URI = "git://github.com/ros2-gbp/astuff_sensor_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "663415994926ec85cf6e9584979a3d1fca9d239f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

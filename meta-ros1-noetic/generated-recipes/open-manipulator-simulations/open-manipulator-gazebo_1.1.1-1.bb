@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/open_manipulator_gazebo"
 SRC_URI = "git://github.com/ROBOTIS-GIT-release/open_manipulator_simulations-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b66de42bbf1f360fc02ebb7a2b1ce16b117346b5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

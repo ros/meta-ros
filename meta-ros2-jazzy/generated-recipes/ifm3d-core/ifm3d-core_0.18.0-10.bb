@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ifm3d_core"
 SRC_URI = "git://github.com/ros2-gbp/ifm3d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a24997b1557ad4919fe504bf6ac3580cac5f6e46"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

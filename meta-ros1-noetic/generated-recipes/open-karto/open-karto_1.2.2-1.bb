@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/open_karto"
 SRC_URI = "git://github.com/ros-gbp/open_karto-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d01cb3379623f2a438b2ebebb40561273f7c2879"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

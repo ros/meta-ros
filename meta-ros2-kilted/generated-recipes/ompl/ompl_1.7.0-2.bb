@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ompl"
 SRC_URI = "git://github.com/ros2-gbp/ompl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7db0a47214202481b315227c9975d7dc7a607bb7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mrpt_libnav"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0c198b16eaca151d0341af5723079f11493ef553"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

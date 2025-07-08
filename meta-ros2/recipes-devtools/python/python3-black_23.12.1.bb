@@ -11,7 +11,7 @@ SRC_URI[sha256sum] = "4ce3ef14ebe8d9509188014d96af1c456a910d5b5cbf434a09fef7e024
 
 inherit pypi python_hatchling
 
-S = "${WORKDIR}/black-${PV}"
+S = "${UNPACKDIR}/black-${PV}"
 
 DEPENDS += " \
     python3-hatch-fancy-pypi-readme-native \

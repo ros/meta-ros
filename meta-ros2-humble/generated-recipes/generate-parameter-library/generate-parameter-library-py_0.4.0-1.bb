@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/generate_parameter_library_py"
 SRC_URI = "git://github.com/ros2-gbp/generate_parameter_library-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1dc3bd34808f9a2dda23e8ac95a06980c51a1628"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

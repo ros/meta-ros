@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pilz_status_indicator_rqt"
 SRC_URI = "git://github.com/PilzDE/pilz_robots-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d4918cd02f123b3f01866bd88a3ec919937d8b9a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

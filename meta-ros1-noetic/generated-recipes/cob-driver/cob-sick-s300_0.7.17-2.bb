@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_sick_s300"
 SRC_URI = "git://github.com/4am-robotics/cob_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f0e5b9d31bc174e211d90eafbd200d78d5a65e3d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

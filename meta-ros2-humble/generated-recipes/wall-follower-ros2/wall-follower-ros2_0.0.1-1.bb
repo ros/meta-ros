@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/wall_follower_ros2"
 SRC_URI = "git://github.com/ros2-gbp/wall_follower_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9b37054f732ca90d4bab9b9a95daff86b8efc7b5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

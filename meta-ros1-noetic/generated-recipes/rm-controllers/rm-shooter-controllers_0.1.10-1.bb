@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rm_shooter_controllers"
 SRC_URI = "git://github.com/rm-controls/rm_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "729356974335456c2398fa0879bb9109e4a10c36"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

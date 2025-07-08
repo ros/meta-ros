@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mimick_vendor"
 SRC_URI = "git://github.com/ros2-gbp/mimick_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c2c7cccbfa6551d7fc2bc10a126313e45c963c0b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

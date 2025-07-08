@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosserial_mbed"
 SRC_URI = "git://github.com/ros-gbp/rosserial-release;${ROS_BRANCH};protocol=https"
 SRCREV = "379662d21713fa3c430d1280ca826241fbdc9dcc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

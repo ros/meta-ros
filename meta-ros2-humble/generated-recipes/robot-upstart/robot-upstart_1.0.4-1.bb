@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/robot_upstart"
 SRC_URI = "git://github.com/clearpath-gbp/robot_upstart-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8f2593cf8880d7acacc63873d18a9a9c4f64beaa"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

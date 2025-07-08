@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mrpt_libnav"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e3bc75c66b08a0c0a1b85505d9f8f1257ef32b21"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

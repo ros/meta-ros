@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/andino_apps"
 SRC_URI = "git://github.com/ros2-gbp/andino-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c030fb6741b496dd776bf81881ca8f9ae7ff54de"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

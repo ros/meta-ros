@@ -88,7 +88,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/apriltag_ros"
 SRC_URI = "git://github.com/AprilRobotics/apriltag_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "058166132dc1bad77954716c78aebf0c71c76def"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

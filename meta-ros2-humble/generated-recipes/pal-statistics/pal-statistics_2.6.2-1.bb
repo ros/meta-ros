@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pal_statistics"
 SRC_URI = "git://github.com/ros2-gbp/pal_statistics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "098632eb6260d2fbfff24548a3b9140e5e81be72"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

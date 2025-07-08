@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nmea_msgs"
 SRC_URI = "git://github.com/ros-drivers-gbp/nmea_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5621a974633fc1ed5e383d341c2fbf10ef07ae3d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

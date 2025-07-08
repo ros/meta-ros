@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pcl_msgs"
 SRC_URI = "git://github.com/ros-gbp/pcl_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a53a99b9eace62a52e14d14c75833ade995d8533"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -78,7 +78,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rc_hand_eye_calibration_client"
 SRC_URI = "git://github.com/roboception-gbp/rc_visard-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a79a8c13452d7c6fac1ab6a275fac8a6d638d67b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

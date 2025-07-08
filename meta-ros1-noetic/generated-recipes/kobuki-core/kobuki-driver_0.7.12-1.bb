@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/kobuki_driver"
 SRC_URI = "git://github.com/yujinrobot-release/kobuki_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "def66c3b294a8f1dee66896ddcb13cc1d7906428"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

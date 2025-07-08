@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/prbt_ikfast_manipulator_plugin"
 SRC_URI = "git://github.com/PilzDE/pilz_robots-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9298cc88f64428f41374670168d31f407361a6bb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

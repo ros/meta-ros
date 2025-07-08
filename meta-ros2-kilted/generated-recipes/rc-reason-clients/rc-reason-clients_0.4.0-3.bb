@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rc_reason_clients"
 SRC_URI = "git://github.com/ros2-gbp/rc_reason_clients-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a39365cb8f1edd5c5febd5206e6da5c9eff00e26"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

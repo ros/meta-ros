@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ros2_socketcan_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ros2_socketcan-release;${ROS_BRANCH};protocol=https"
 SRCREV = "070a6498f05f92b0aa07165fee5412fc6fa1b958"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

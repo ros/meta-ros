@@ -8,8 +8,6 @@ SRC_URI = "git://github.com/gazebosim/gz-sensors.git;protocol=https;branch=ign-s
 
 SRCREV = "9b408698a74903c6e3c5eb5745567a0cddef2ef7"
 
-S = "${WORKDIR}/git"
-
 DEPENDS += " \
     ignition-cmake2 \
     ignition-common4 \

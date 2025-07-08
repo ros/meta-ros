@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/volta_msgs"
 SRC_URI = "git://github.com/botsync-gbp/volta-release;${ROS_BRANCH};protocol=https"
 SRCREV = "969f388d4d483078e62be1020cd63303562ba5a0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

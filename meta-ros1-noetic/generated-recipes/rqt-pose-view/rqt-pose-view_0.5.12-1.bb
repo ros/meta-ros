@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_pose_view"
 SRC_URI = "git://github.com/ros-gbp/rqt_pose_view-release;${ROS_BRANCH};protocol=https"
 SRCREV = "487b7842b3623a87f48e2e97838170ba7aa44d68"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

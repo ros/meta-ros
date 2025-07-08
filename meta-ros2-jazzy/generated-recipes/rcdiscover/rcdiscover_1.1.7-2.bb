@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rcdiscover"
 SRC_URI = "git://github.com/ros2-gbp/rcdiscover-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f1d160f25f0eca51cf73316956d15bef7df6bcce"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

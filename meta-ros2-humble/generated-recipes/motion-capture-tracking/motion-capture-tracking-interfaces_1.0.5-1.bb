@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/motion_capture_tracking_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/motion_capture_tracking-release;${ROS_BRANCH};protocol=https"
 SRCREV = "195b48946d44b301595188e39b639ad4d77e9420"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

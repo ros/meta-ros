@@ -89,7 +89,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rmf_dev"
 SRC_URI = "git://github.com/ros2-gbp/rmf_variants-release;${ROS_BRANCH};protocol=https"
 SRCREV = "844b092fe10885f11327c84f9f7c1fd7ffdcee12"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

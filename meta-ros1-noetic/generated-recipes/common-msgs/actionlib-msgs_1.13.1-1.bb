@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/actionlib_msgs"
 SRC_URI = "git://github.com/ros-gbp/common_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b826dc3a2059b14c0bfb33002b49da798f9776b2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

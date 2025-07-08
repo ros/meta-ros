@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/catkin_virtualenv"
 SRC_URI = "git://github.com/locusrobotics/catkin_virtualenv-release;${ROS_BRANCH};protocol=https"
 SRCREV = "690e3bf83e73566d4f59d89d7347a3d3de44e260"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

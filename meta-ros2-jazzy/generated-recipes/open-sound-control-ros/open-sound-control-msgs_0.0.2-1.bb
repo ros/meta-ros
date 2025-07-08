@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/open_sound_control_msgs"
 SRC_URI = "git://github.com/ros2-gbp/open_sound_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c6cdc8f1fc1aabd4d78179a888bbd47ebeed397a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tf2_server"
 SRC_URI = "git://github.com/peci1/tf2_server-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1be328e27e96970d6d8ef770be9ad588abcc208c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

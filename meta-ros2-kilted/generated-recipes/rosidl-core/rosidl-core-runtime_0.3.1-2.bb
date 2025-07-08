@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rosidl_core_runtime"
 SRC_URI = "git://github.com/ros2-gbp/rosidl_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dc99dcf8b83f930c9a2df6f1a2a01ac3b8bc6d38"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

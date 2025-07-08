@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/monkeywrench"
 SRC_URI = "git://github.com/cst0/ros-monkeywrench-release;${ROS_BRANCH};protocol=https"
 SRCREV = "06402167d3421a684caaba38e2c6ba44fe031c67"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

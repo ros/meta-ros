@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pmb2_controller_configuration"
 SRC_URI = "git://github.com/pal-gbp/pmb2_robot-gbp;${ROS_BRANCH};protocol=https"
 SRCREV = "6a8874a1cfa5b3976f01b1108b9e39e2c29d0294"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

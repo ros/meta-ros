@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/aandd_ekew_driver_py"
 SRC_URI = "git://github.com/ros2-gbp/aandd_ekew_driver_py-release;${ROS_BRANCH};protocol=https"
 SRCREV = "528affc79fa3d65174e5784a404eb0d14be995c1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

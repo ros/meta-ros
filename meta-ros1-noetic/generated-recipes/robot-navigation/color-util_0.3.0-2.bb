@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/color_util"
 SRC_URI = "git://github.com/DLu/robot_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "83ee75ae697d803c6141ac93679f470f860d3fde"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

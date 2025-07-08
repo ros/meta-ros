@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mrpt_libslam"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "52ecda0b75a8d74111682ab600a3247e745355b5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

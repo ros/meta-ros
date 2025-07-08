@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/switchbot_ros"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0e04e2ba0bf52dbc7a61a51e91a324fb3889b91c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

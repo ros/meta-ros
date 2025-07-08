@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/kuka_resources"
 SRC_URI = "git://github.com/ros2-gbp/kuka_robot_descriptions-release;${ROS_BRANCH};protocol=https"
 SRCREV = "86214956f6f15b57dd04f5f69127e5b75324b597"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

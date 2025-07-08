@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/cartographer"
 SRC_URI = "git://github.com/ros2-gbp/cartographer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9985ea5634e38f87cd15a64c35a15f34616d8e10"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

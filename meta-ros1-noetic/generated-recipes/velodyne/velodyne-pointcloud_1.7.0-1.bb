@@ -88,7 +88,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/velodyne_pointcloud"
 SRC_URI = "git://github.com/ros-drivers-gbp/velodyne-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8c34551bd93a2803736728eb9808118b85f1d35b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

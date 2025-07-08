@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ament_cppcheck"
 SRC_URI = "git://github.com/ros2-gbp/ament_lint-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b4d6bdde3403ea58a630a37c49cf04441ed7a9b0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

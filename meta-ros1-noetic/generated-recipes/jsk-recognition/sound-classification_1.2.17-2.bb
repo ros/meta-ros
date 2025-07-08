@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sound_classification"
 SRC_URI = "git://github.com/tork-a/jsk_recognition-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ca7d0acde76dc1d7374292ace8e5de066f826639"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

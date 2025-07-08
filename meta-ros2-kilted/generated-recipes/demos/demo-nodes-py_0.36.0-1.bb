@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/demo_nodes_py"
 SRC_URI = "git://github.com/ros2-gbp/demos-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3fe4ec15f88fad308d3613e8335a60af839251b3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

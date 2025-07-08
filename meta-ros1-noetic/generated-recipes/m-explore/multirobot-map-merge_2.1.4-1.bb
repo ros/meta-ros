@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/multirobot_map_merge"
 SRC_URI = "git://github.com/hrnr/m-explore-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1b585d794ad4d9460002e319a8ab8b0638fb6eea"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

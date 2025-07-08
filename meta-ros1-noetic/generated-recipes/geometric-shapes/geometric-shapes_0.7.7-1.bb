@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/geometric_shapes"
 SRC_URI = "git://github.com/ros-gbp/geometric_shapes-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dc69470a0bcff5881f376e451f57c70efab01440"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

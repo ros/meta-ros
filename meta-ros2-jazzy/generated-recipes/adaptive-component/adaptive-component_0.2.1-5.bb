@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/adaptive_component"
 SRC_URI = "git://github.com/ros2-gbp/adaptive_component-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d9dd18ab639552e3a078a7ee900a99583d7368b7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

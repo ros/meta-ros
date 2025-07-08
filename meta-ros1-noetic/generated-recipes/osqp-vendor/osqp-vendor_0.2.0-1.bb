@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/osqp_vendor"
 SRC_URI = "git://github.com/tier4/osqp_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9fcdf01fa12e5ee9f1a843f1fe3ba553d3258acd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

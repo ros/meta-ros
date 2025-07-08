@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libnabo"
 SRC_URI = "git://github.com/nobleo/libnabo-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c0535019386478ae0c475c77c11821d2eb50bd72"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

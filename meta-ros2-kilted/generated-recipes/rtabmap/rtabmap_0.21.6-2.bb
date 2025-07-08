@@ -76,7 +76,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rtabmap"
 SRC_URI = "git://github.com/ros2-gbp/rtabmap-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6ddc747946939c864ab5992f578f26fda20fa27e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

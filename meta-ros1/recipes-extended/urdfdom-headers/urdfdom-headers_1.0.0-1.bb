@@ -10,7 +10,7 @@ SRC_URI = "https://salsa.debian.org/science-team/urdfdom-headers/-/archive/debia
 
 SRC_URI[md5sum] = "9101c3c3e942e262a6a95094813a22c1"
 SRC_URI[sha256sum] = "2837029360405719fc16d0b156ce3972074b34977d7dc407fa94260410abe801"
-S = "${WORKDIR}/urdfdom-headers-debian-${PV}"
+S = "${UNPACKDIR}/urdfdom-headers-debian-${PV}"
 
 # Taken from https://salsa.debian.org/science-team/urdfdom-headers/blob/debian/1.0.0-1/debian/control:
 DEPENDS = " \

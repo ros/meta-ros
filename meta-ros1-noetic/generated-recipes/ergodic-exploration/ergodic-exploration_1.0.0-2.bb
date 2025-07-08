@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ergodic_exploration"
 SRC_URI = "git://github.com/bostoncleek/ergodic_exploration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c2d7ffecd6c074ea3b15c043950673a7ea3e4023"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

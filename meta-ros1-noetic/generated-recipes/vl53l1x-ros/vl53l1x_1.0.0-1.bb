@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/vl53l1x"
 SRC_URI = "git://github.com/okalachev/vl53l1x_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "42cdc69ada0cfeb91d64a1907a237f933cceb33b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

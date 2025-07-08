@@ -78,7 +78,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/vision_msgs_rviz_plugins"
 SRC_URI = "git://github.com/ros2-gbp/vision_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ebb9be37660ba670afd284336523d0de9dd2d0ee"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

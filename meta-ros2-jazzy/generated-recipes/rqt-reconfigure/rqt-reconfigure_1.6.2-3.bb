@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rqt_reconfigure"
 SRC_URI = "git://github.com/ros2-gbp/rqt_reconfigure-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a7fa894fe92c07f1c317c593830ae7d31bcc59ad"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/gtsam"
 SRC_URI = "git://github.com/ros2-gbp/gtsam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "037f94dcc3b6450a9b731f9e4a7cbe18dbd09129"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

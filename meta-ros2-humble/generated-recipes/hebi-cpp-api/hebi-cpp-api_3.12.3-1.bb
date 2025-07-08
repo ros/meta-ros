@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/hebi_cpp_api"
 SRC_URI = "git://github.com/ros2-gbp/hebi_cpp_api-release;${ROS_BRANCH};protocol=https"
 SRCREV = "89319f3395a7c07d8d998852139a7b51801e6673"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

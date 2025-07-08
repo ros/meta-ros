@@ -10,8 +10,6 @@ SRC_URI = "git://anonscm.debian.org/git/debian-science/packages/gts.git;protocol
 PV = "0.7.6+git${SRCPV}"
 SRCREV = "7cfcef0d9fc44f4fe424455027e78b73864590ec"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "glib-2.0"
 
 inherit autotools pkgconfig

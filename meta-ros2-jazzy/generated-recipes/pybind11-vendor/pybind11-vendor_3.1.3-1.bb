@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/pybind11_vendor"
 SRC_URI = "git://github.com/ros2-gbp/pybind11_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d5ba3dad4b2f85c3a9070704e78942dee6d54861"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

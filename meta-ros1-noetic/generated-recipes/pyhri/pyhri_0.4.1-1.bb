@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pyhri"
 SRC_URI = "git://github.com/ros4hri/pyhri-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aaead9472b1be9a6ffc51ba91737b61b6bd9869f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

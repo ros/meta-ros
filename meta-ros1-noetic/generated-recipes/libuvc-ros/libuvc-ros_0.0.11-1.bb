@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libuvc_ros"
 SRC_URI = "git://github.com/ros-drivers-gbp/libuvc_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b1c0132786e13386cc63043d7fa70c8b8a970a68"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

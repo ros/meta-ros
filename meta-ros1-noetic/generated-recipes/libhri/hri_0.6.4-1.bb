@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hri"
 SRC_URI = "git://github.com/ros4hri/libhri-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dbd9bb98e20525849990274b80c02ac43c0d0b07"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

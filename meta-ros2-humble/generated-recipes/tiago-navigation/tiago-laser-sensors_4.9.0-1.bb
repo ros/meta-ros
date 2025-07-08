@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/tiago_laser_sensors"
 SRC_URI = "git://github.com/pal-gbp/tiago_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b1ff93b92bb6025b8ebf8d1411f587f9cf08d799"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

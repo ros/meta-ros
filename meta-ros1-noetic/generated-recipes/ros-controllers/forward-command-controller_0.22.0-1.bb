@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/forward_command_controller"
 SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e531b731d296bbf9aa0f1694ba4eaf3d101cdefa"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

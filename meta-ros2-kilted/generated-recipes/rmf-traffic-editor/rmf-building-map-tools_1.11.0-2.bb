@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rmf_building_map_tools"
 SRC_URI = "git://github.com/ros2-gbp/rmf_traffic_editor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "43b2bb35653a32983b894c1f07c46bef027cef87"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

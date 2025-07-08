@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/py_binding_tools"
 SRC_URI = "git://github.com/ros2-gbp/py_binding_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0fafff8b9e026ff89795612763d180f8acb12bdf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosauth"
 SRC_URI = "git://github.com/gt-rail-release/rosauth-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f2e2ad3fdbd09e3a9c1b9ab6239469bb21af97c5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

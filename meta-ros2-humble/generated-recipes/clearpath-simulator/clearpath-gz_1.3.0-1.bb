@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/clearpath_gz"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1e82d2058624a1643dc0ba50c4dc1c4bec742b9d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

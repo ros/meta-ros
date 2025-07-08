@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/coal"
 SRC_URI = "git://github.com/ros2-gbp/coal-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8ec291dab736f4ec873d702eab61a1b6c3d19d89"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

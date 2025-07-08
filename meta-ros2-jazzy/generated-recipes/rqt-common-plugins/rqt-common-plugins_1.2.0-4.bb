@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rqt_common_plugins"
 SRC_URI = "git://github.com/ros2-gbp/rqt_common_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "67b5569cee6ac6ea7774944fbc2b9344d3317eac"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

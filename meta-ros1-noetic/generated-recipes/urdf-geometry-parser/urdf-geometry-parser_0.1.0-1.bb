@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/urdf_geometry_parser"
 SRC_URI = "git://github.com/ros-gbp/urdf_geometry_parser-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c3dd7aae465ee14420e8f1afdd796c9a169ade09"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

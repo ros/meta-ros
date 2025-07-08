@@ -13,7 +13,7 @@ SRC_URI[sha256sum] = "c642ae9b75fee120b2d96c712538bd2cf283228d2337df2cf2988e3c02
 
 SRC_URI += "file://0001-use-cmake.patch"
 
-S = "${WORKDIR}/yaml-${PV}"
+S = "${UNPACKDIR}/yaml-${PV}"
 
 inherit cmake
 

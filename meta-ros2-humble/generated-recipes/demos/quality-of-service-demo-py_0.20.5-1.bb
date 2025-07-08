@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/quality_of_service_demo_py"
 SRC_URI = "git://github.com/ros2-gbp/demos-release;${ROS_BRANCH};protocol=https"
 SRCREV = "67efb13c82ee2848a69fa28e0709d7859f1981da"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

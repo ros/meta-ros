@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/adi_3dtof_image_stitching"
 SRC_URI = "git://github.com/raebelchristo-adi/adi_3dtof_image_stitching-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9670e65ff7bbaa489778c8513d33f62515d1488f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

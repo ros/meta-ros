@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/geodesy"
 SRC_URI = "git://github.com/ros2-gbp/geographic_info-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a02a9219427f2c7f404dd0099e72df45d8b7d318"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -7,8 +7,6 @@ SRC_URI = "git://github.com/gazebosim/gz-gui.git;protocol=https;branch=gz-gui9"
 
 SRCREV = "d110e5b288e8b580b28c0a7256d0e1f0e0c402e2"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 # CMake Error at src/plugins/CMakeLists.txt:26 (QT5_WRAP_CPP):

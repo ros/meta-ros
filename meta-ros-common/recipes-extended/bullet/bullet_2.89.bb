@@ -11,7 +11,6 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=74f06ab3011994d1b43d71ecbb42a7cf"
 
 SRCREV = "830f0a9565b1829a07e21e2f16be2aa9966bd28c"
 SRC_URI = "git://github.com/bulletphysics/bullet3;protocol=https;branch=master"
-S = "${WORKDIR}/git"
 
 inherit cmake
 

@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/cudnn_cmake_module"
 SRC_URI = "git://github.com/ros2-gbp/cudnn_cmake_module-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a8ff5bec117c29bd02870896182d7a7a4345abce"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -22,8 +22,6 @@ SRC_URI = " \
 PV = "1.2+git${SRCPV}"
 SRCREV = "1b84578fa80eae689c2677970cda64f53953880b"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 # JXRGlueJxr.c:66:48: error: implicit declaration of function 'wcslen' [-Wimplicit-function-declaration]

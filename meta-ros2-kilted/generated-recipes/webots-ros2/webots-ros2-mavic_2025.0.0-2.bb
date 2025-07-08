@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/webots_ros2_mavic"
 SRC_URI = "git://github.com/ros2-gbp/webots_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "71a2c356011896fd097979202cc6dc48a2282ecc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

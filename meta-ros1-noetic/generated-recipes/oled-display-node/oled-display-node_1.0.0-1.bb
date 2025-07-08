@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/oled_display_node"
 SRC_URI = "git://github.com/UbiquityRobotics-release/oled_display_node-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c1fce5bf609ad80ecf016272a059ee1333cca7cc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

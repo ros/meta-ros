@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_tuckarm"
 SRC_URI = "git://github.com/pr2-gbp/pr2_apps-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1368c60ba6a0bf6ec2bd20b7a079ed66c25cd3dc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

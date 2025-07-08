@@ -8,8 +8,6 @@ SRC_URI = "git://github.com/wgois/OIS;protocol=https;branch=master"
 
 SRCREV = "6edb487cccb54d59e5b0fff86549d5eef475dea6"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "libx11 xinput"
 
 inherit cmake

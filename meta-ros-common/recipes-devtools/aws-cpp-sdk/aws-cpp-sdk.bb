@@ -13,7 +13,6 @@ SRCREV = "59337ec3dd6a998bddb41e4bad39e783cad34b6b"
 SRC_URI = "git://github.com/aws/aws-sdk-cpp.git;protocol=https;branch=master \
     file://0001-cmake-AWSSDKConfig.cmake-add-missing-quotes-to-fix-b.patch \
 "
-S = "${WORKDIR}/git"
 
 inherit cmake ros_faulty_solibs
 
@@ -25,7 +24,6 @@ BUILD_COMPONENTS = "core;logs;monitoring;s3;kinesis;iot;lex;polly"
 
 EXTRA_OECMAKE += "-DBUILD_DEPS=OFF -DBUILD_SHARED_LIBS=ON -DBUILD_ONLY='${BUILD_COMPONENTS}'"
 EXTRA_OECMAKE += "-DCURL_HAS_H2_EXITCODE=0 -DCURL_HAS_H2_EXITCODE__TRYRUN_OUTPUT='' -DCURL_HAS_TLS_PROXY_EXITCODE=0 -DCURL_HAS_TLS_PROXY_EXITCODE__TRYRUN_OUTPUT=''"
-
 
 # aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core/source/client/AWSErrorMarshaller.cpp:95:82: error: implicitly-declared 'Aws::Client::AWSError<Aws::Client::CoreErrors>& Aws::Client::AWSError<Aws::Client::CoreErrors>::operator=(const Aws::Client::AWSError<Aws::Client::CoreErrors>&)' is deprecated [-Werror=deprecated-copy]
 # aws-cpp-sdk/1.6.53+gitAUTOINC+59337ec3dd-r0/git/aws-cpp-sdk-core/source/client/AWSErrorMarshaller.cpp:107:75: error: implicitly-declared 'Aws::Client::AWSError<Aws::Client::CoreErrors>& Aws::Client::AWSError<Aws::Client::CoreErrors>::operator=(const Aws::Client::AWSError<Aws::Client::CoreErrors>&)' is deprecated [-Werror=deprecated-copy]

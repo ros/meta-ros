@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/eus_nlopt"
 SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d249f136f91b70d55073bb8dd2dbcf0530b90959"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

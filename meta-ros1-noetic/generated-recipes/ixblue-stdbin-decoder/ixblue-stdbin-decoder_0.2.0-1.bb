@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ixblue_stdbin_decoder"
 SRC_URI = "git://github.com/ixblue/ixblue_stdbin_decoder-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9a585ead3de7e469b01e7b9eb48c7e8f6c1a0b46"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

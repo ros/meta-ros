@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/keyboard_handler"
 SRC_URI = "git://github.com/ros2-gbp/keyboard_handler-release;${ROS_BRANCH};protocol=https"
 SRCREV = "69c6f6299fa48d6a45e44fbdb040e4dc0fae1423"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

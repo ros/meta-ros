@@ -12,8 +12,6 @@ PV = "1.8.3"
 SRCREV = "344117638c8ff7e239044fd0fa7085839fc03021"
 SRC_URI = "git://github.com/google/benchmark;branch=main;protocol=https"
 
-S = "${WORKDIR}/git"
-
 # Needs gtest
 EXTRA_OECMAKE += "-DBENCHMARK_ENABLE_GTEST_TESTS=OFF -DBENCHMARK_ENABLE_TESTING=OFF"
 

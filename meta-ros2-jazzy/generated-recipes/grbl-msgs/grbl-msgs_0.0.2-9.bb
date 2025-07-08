@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/grbl_msgs"
 SRC_URI = "git://github.com/ros2-gbp/grbl_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b34c59b7115f76da24c00f80b924d9514b88c7ea"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

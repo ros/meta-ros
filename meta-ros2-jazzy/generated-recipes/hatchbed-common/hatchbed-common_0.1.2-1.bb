@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/hatchbed_common"
 SRC_URI = "git://github.com/ros2-gbp/hatchbed_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c221d6bef7fc2fd2424a3de3c109574c597a1f78"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

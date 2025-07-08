@@ -11,8 +11,6 @@ SRC_URI = "git://github.com/gazebosim/gz-rendering.git;protocol=https;branch=ign
 
 SRCREV = "ce934018fe0d8c9bbe9fc39e8dbb34ace5190e8d"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = " \
     boost \
     ignition-cmake2 \
@@ -23,7 +21,6 @@ DEPENDS = " \
     ogre \
     ogre-next \
 "
-
 
 inherit cmake pkgconfig
 

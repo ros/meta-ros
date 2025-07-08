@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/smacc_msgs"
 SRC_URI = "git://github.com/robosoft-ai/smacc-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ba24c7f8a8eac49dab824eaa34166583bd36b43a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

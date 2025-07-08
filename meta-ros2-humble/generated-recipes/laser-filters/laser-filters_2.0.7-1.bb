@@ -76,7 +76,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/laser_filters"
 SRC_URI = "git://github.com/ros2-gbp/laser_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ddf92596b77e02474d56200a1c2043d7a6b2114e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

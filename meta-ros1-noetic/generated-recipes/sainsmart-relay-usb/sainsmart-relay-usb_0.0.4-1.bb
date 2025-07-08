@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sainsmart_relay_usb"
 SRC_URI = "git://github.com/DataspeedInc-release/sainsmart_relay_usb-release;${ROS_BRANCH};protocol=https"
 SRCREV = "62bfe99d3fab8154f581c00a7181dab3209701f7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

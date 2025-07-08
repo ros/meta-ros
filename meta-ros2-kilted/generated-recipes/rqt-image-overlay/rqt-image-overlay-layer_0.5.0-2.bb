@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rqt_image_overlay_layer"
 SRC_URI = "git://github.com/ros2-gbp/rqt_image_overlay-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d6c0cd17f7dfc8a0b34505eebd76104405087f27"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

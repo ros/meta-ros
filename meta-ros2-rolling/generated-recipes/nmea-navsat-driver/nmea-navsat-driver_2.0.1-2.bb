@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/nmea_navsat_driver"
 SRC_URI = "git://github.com/ros2-gbp/nmea_navsat_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2dadf09b62ddc47adf7c9e60794c05308bf996d9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

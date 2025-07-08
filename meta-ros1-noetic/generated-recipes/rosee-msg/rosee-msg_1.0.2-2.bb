@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosee_msg"
 SRC_URI = "git://github.com/ADVRHumanoids/rosee_msg-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b9f985fa6d7e2bdb3103709dc24bd4c7148e8b3d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

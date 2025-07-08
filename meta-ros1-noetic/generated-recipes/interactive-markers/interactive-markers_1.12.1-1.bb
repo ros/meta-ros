@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/interactive_markers"
 SRC_URI = "git://github.com/ros-gbp/interactive_markers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "de233faefc330c431499e262cf45f0b0323ebf15"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/turtlebot3_manipulation_navigation2"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot3_manipulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c8502b5993462f5e505806a872059aaaf7cd06e6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

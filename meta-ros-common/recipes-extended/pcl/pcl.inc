@@ -9,8 +9,6 @@ DEPENDS = "boost libflann libeigen qhull"
 
 SRC_URI = "git://github.com/PointCloudLibrary/pcl.git;branch=master;protocol=https"
 
-S = "${WORKDIR}/git"
-
 EXTRA_OECMAKE += "\
   -DCMAKE_SKIP_RPATH=ON \
   -DHAVE_MM_MALLOC_EXITCODE=0 -DHAVE_MM_MALLOC_EXITCODE__TRYRUN_OUTPUT=0 \

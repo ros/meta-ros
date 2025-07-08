@@ -90,7 +90,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_navigation_perception"
 SRC_URI = "git://github.com/pr2-gbp/pr2_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e7e41c929152585b0934d9f7d6eea875e7e68911"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

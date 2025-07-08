@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/nerian_stereo"
 SRC_URI = "git://github.com/nerian-vision/nerian_stereo_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c4bc6df97c388d2e0be18fe7da10f9ce7b5ba47d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

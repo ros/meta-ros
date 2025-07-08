@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/track_odometry"
 SRC_URI = "git://github.com/at-wat/neonavigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "87a5c60556df4ea92ccc432d9d2885bffc71b1e0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

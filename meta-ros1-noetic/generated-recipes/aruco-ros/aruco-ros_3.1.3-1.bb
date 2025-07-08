@@ -75,7 +75,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/aruco_ros"
 SRC_URI = "git://github.com/pal-gbp/aruco_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4137892afdf644752011ada1d9d846fc31a08c84"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

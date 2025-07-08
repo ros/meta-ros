@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pilz_control"
 SRC_URI = "git://github.com/PilzDE/pilz_robots-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a38d1e98b9922fe09650e14d1b291647def8488d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/novatel_gps_msgs"
 SRC_URI = "git://github.com/ros2-gbp/novatel_gps_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4b613edee9f15b2189f5b337a65da47c02143ae8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/nobleo_socketcan_bridge"
 SRC_URI = "git://github.com/ros2-gbp/nobleo_socketcan_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "80b2de5bc0dd24768ea23d0a1daf6216db480e17"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

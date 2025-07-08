@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/allocators"
 SRC_URI = "git://github.com/ros-gbp/ros_realtime-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6d6783d453201a1a86c3f9e7d55bf1f2587a7142"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

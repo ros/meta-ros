@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/semantic_point_annotator"
 SRC_URI = "git://github.com/pr2-gbp/pr2_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8c835f39f4087654f2a329b6e61d8145c3f1cec3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

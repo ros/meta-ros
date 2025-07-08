@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/urg_node_msgs"
 SRC_URI = "git://github.com/ros2-gbp/urg_node_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4b2efb8baf255e8c5325f11a9530c963ff6f5e55"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

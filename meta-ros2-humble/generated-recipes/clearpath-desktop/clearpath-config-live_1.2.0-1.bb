@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/clearpath_config_live"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_desktop-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0800882060ccac5a4cd25b36e1155378f1a403ca"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

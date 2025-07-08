@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/sophus"
 SRC_URI = "git://github.com/ros2-gbp/sophus-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ff76a1cf8b7ec1815e549c2beff1d8b3ea0e62b4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

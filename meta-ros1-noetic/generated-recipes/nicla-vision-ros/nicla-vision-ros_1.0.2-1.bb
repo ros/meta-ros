@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nicla_vision_ros"
 SRC_URI = "git://github.com/ADVRHumanoids/nicla_vision_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "442713b988955e9339ff015e51713d21a9a98195"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

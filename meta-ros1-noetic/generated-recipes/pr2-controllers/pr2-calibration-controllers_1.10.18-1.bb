@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_calibration_controllers"
 SRC_URI = "git://github.com/pr2-gbp/pr2_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ca6bcd8c03008bfb134fa2ef5aeb03f8ed18277e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosserial_tivac"
 SRC_URI = "git://github.com/ros-gbp/rosserial-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2e534db0512c4a716a515d48b9ee1a2961c5bc85"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

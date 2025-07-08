@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_resources_prbt_ikfast_manipulator_plugin"
 SRC_URI = "git://github.com/ros-gbp/moveit_resources-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f6d61da87b41cb19cfed5806952d9fb2f5e320ff"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -102,7 +102,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robot_body_filter"
 SRC_URI = "git://github.com/peci1/robot_body_filter-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a2cf5a2b1c58683f5abcb83d4d1bc261a2d3f589"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

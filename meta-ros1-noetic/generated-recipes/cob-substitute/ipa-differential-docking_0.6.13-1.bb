@@ -43,7 +43,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ipa_differential_docking"
 SRC_URI = "git://github.com/ipa320/cob_substitute-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7ddd85db8bcfe666c380c070720752ddd79d8a86"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

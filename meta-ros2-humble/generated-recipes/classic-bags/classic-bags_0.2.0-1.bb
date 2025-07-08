@@ -73,7 +73,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/classic_bags"
 SRC_URI = "git://github.com/ros2-gbp/classic_bags-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0ff3fa8fd0b096b1a2ed05ef82c5e8655d25b11d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

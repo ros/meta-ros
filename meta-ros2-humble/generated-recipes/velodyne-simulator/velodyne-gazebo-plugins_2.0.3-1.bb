@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/velodyne_gazebo_plugins"
 SRC_URI = "git://github.com/ros2-gbp/velodyne_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9bd6c3eb7da9490d80492e378b195389ed61fd91"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

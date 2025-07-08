@@ -16,7 +16,7 @@ DEPENDS = " \
     openblas \
 "
 
-S = "${WORKDIR}/git/CHOLMOD"
+S = "${UNPACKDIR}/git/CHOLMOD"
 
 inherit cmake pkgconfig
 

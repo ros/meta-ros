@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sparse_bundle_adjustment"
 SRC_URI = "git://github.com/ros-gbp/sparse_bundle_adjustment-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a90c5c07d5da0ca7363ecb5adf261381553c3a4c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

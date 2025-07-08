@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rmf_api_msgs"
 SRC_URI = "git://github.com/ros2-gbp/rmf_api_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4418fc3b6cdc5ba308fae642fe43f33cf4953585"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

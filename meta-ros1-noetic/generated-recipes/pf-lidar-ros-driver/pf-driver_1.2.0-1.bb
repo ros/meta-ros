@@ -89,7 +89,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pf_driver"
 SRC_URI = "git://github.com/PepperlFuchs/pf_lidar_ros_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5c77134dffaae6040f8b1e2e579d1b3478432970"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

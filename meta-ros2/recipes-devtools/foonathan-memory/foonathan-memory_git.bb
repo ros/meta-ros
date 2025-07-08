@@ -11,7 +11,6 @@ PV = "0.7.3+git${SRCPV}"
 SRCREV_FORMAT = "main"
 SRCREV_main = "016c9fbd61b57ed2058551dcf225c15a0e716cce"
 SRC_URI = "git://github.com/foonathan/memory.git;branch=main;protocol=https;name=main"
-S = "${WORKDIR}/git"
 
 DEPENDS = "qemu-native"
 inherit cmake qemu

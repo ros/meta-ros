@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libntcan"
 SRC_URI = "git://github.com/ipa320/cob_extern-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ffe4ca07bbdd2840ea329d27db676e6ea1afa837"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

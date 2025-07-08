@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/teleop_legged_robots"
 SRC_URI = "git://github.com/SoftServeSAG/teleop_legged_robots-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e894487a0452e818bd2f42adba5fbb5434520cd0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

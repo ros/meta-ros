@@ -87,7 +87,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/assisted_teleop"
 SRC_URI = "git://github.com/ros-gbp/navigation_experimental-release;${ROS_BRANCH};protocol=https"
 SRCREV = "da8f06eed65146ca2de6cb9b71ba8f42b4884680"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

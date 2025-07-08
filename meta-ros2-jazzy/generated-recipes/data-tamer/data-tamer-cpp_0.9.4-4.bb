@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/data_tamer_cpp"
 SRC_URI = "git://github.com/ros2-gbp/data_tamer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5274316290956c5257fb416f790585cc9aa31cd6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

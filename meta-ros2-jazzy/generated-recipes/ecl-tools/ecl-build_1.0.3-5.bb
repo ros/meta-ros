@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ecl_build"
 SRC_URI = "git://github.com/ros2-gbp/ecl_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d6b76b771a66754d6a4b03c493decf0a0b33c207"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

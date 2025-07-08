@@ -87,7 +87,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/usb_cam"
 SRC_URI = "git://github.com/ros2-gbp/usb_cam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9d2e5af7197f8021a289b5af78c7362eaf86fcb4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

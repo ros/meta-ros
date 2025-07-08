@@ -89,7 +89,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sick_scan_xd"
 SRC_URI = "git://github.com/SICKAG/sick_scan_xd-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3b23f158be9e41e5ed3d91b9d3923b376e1ed408"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

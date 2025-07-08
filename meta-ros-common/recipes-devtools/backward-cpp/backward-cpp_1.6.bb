@@ -5,8 +5,6 @@ SRC_URI = "git://github.com/bombela/backward-cpp.git;protocol=https;branch=maste
 
 SRCREV = "3bb9240cb15459768adb3e7d963a20e1523a6294"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "libunwind elfutils"
 
 inherit cmake

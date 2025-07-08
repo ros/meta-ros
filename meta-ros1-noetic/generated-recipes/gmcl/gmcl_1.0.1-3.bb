@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gmcl"
 SRC_URI = "git://github.com/adler-1994/gmcl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c91cbd0551e78b516ee4bc3f1f81827ae4f96a05"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

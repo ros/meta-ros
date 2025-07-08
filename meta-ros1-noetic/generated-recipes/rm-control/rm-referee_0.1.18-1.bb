@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rm_referee"
 SRC_URI = "git://github.com/rm-controls/rm_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3fe015f9c390ac9cf610c196096778aec1548625"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

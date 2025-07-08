@@ -75,7 +75,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/message_tf_frame_transformer"
 SRC_URI = "git://github.com/ika-rwth-aachen/message_tf_frame_transformer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eee2afe48c4e5a23ccb96b0d1bd547a3c5c78caa"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

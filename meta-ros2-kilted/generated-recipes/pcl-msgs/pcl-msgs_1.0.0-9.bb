@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/pcl_msgs"
 SRC_URI = "git://github.com/ros2-gbp/pcl_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cff044fc3b2de4971483cf859f9457e26b7062ba"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

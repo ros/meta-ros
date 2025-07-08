@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/abb_rapid_sm_addin_msgs"
 SRC_URI = "git://github.com/ros-industrial-release/abb_robot_driver_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4bca27cf057c7de09d62ddb80aef2e051f48604b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

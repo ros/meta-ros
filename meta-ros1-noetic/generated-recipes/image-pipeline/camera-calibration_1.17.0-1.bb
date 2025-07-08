@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/camera_calibration"
 SRC_URI = "git://github.com/ros-gbp/image_pipeline-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f07aff4f6acc9c552d8abc4e87974a731250f47a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

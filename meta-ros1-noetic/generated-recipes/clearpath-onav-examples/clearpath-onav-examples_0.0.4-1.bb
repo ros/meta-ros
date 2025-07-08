@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/clearpath_onav_examples"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_onav_examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f5cb906d546539435fcc318512b42e0df2f6b2db"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

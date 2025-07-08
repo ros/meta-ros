@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fmi_adapter"
 SRC_URI = "git://github.com/boschresearch/fmi_adapter-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ebabc0691f1083e87d45e2199032550cc6a6646a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -9,8 +9,6 @@ SRC_URI = " \
 PV = "1.0.0+git${SRCPV}"
 SRCREV = "461b19e2f883574b9d52b3eb94d25847ebfbd85a"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "boost doxygen-native gtest"
 
 inherit cmake python3-dir

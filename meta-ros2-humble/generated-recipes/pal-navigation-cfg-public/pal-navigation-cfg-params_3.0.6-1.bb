@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pal_navigation_cfg_params"
 SRC_URI = "git://github.com/pal-gbp/pal_navigation_cfg_public-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5cc4118e1f1c5493d7e9083d715f3cbf967a7b8f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

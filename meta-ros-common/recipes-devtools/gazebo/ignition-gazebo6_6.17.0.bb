@@ -11,8 +11,6 @@ SRC_URI = "git://github.com/gazebosim/gz-sim.git;protocol=https;branch=ign-gazeb
 
 SRCREV = "d9b18d85a17400d32494bca4c3589f519aca7e81"
 
-S = "${WORKDIR}/git"
-
 inherit cmake python3native
 
 # CMake Error at src/plugins/CMakeLists.txt:26 (QT5_WRAP_CPP):

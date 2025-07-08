@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rqt_runtime_monitor"
 SRC_URI = "git://github.com/ros2-gbp/rqt_runtime_monitor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f30d349549c838cdf2f7ff70e8e3c1d6c49c028f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

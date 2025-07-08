@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/marvelmind_ros2_msgs"
 SRC_URI = "git://github.com/MarvelmindRobotics/marvelmind_ros2_msgs_release;${ROS_BRANCH};protocol=https"
 SRCREV = "e2cf711f412e715d454cc7f4c7d26966f4408d8b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

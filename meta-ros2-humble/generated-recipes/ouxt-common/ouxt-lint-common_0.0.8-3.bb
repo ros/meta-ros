@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ouxt_lint_common"
 SRC_URI = "git://github.com/ros2-gbp/ouxt_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cdedf33462670102feaf023bbd60311269776a7f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

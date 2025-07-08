@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/compressed_depth_image_transport"
 SRC_URI = "git://github.com/ros2-gbp/image_transport_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9e8f653fd6dd5cde058c64cd168da3294075e4d3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

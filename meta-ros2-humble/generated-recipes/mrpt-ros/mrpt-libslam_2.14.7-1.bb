@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mrpt_libslam"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ddc0ff5543beffc65d5177853b059795b4c70b07"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/costmap_cspace_msgs"
 SRC_URI = "git://github.com/at-wat/neonavigation_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9307ba37cbc8d8a3d86be6dbf75bb84e32d50db2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

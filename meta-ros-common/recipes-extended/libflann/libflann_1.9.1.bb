@@ -8,8 +8,6 @@ SRCREV = "06a49513138009d19a1f4e0ace67fbff13270c69"
 ROS_BRANCH ?= "branch=master"
 SRC_URI = "git://github.com/mariusmuja/flann;${ROS_BRANCH};protocol=https"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 # Prevent it finding python

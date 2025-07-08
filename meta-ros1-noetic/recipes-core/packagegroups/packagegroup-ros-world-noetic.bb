@@ -13,7 +13,6 @@ PACKAGES = "${PN}"
 
 RDEPENDS:${PN} = "${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES}"
 
-
 # Use opencv-apps-ros, because there is
 # meta-openembedded/meta-oe/recipes-support/opencv/opencv_4.1.0.bb
 # with package name PN-apps which conflicts with

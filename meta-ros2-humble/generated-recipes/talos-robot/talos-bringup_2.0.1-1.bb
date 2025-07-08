@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/talos_bringup"
 SRC_URI = "git://github.com/pal-gbp/talos_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b4cb8f092176618a2d324135750e4612cc07fbef"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

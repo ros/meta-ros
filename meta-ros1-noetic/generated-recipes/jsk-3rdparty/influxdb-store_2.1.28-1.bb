@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/influxdb_store"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "545d1e6012a641134a4e04537c601207212b50f2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

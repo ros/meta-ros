@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tof_radar_controller"
 SRC_URI = "git://github.com/rm-controls/rm_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ccb20ff79fbb38b806ba333f94c7014b0139dc8f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

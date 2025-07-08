@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ridgeback_gazebo"
 SRC_URI = "git://github.com/clearpath-gbp/ridgeback_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b3134aea2e5711a97a3756ac6b964d13d4cf64aa"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

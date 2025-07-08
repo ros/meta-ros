@@ -7,8 +7,6 @@ SRC_URI = "git://github.com/esa/pagmo2.git;protocol=https;branch=master"
 
 SRCREV = "27ae9159f4fcd11bb93de0ae8189d15352655b0a"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 DEPENDS = " \

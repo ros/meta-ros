@@ -94,7 +94,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/geometric_shapes"
 SRC_URI = "git://github.com/ros2-gbp/geometric_shapes-release;${ROS_BRANCH};protocol=https"
 SRCREV = "451af9c027971dedfa746a3b6a1359d39e18a3af"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

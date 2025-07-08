@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/log_view"
 SRC_URI = "git://github.com/hatchbed/log_view-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4489d85237f58d56b55ffbe6a2e4870e8550913d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

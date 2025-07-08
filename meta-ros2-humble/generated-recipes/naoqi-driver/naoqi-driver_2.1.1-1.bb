@@ -91,7 +91,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/naoqi_driver"
 SRC_URI = "git://github.com/ros-naoqi/naoqi_driver2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b7a486d8009c46f800cde7a6db3b536339fdb172"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

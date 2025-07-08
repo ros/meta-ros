@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/demo_nodes_py"
 SRC_URI = "git://github.com/ros2-gbp/demos-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e02223d3cfeaf484b6e77330e9b8fa8c11019711"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

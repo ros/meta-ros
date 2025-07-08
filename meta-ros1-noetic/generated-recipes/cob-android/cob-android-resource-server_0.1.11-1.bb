@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_android_resource_server"
 SRC_URI = "git://github.com/ipa320/cob_android-release;${ROS_BRANCH};protocol=https"
 SRCREV = "08bd46f8eb4e718abbe40c75d71b920a980876ca"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -10,7 +10,6 @@ PV = "1.2+git${SRCPV}"
 
 SRCREV = "195694afee514370aaf28712e1e09c48bdaf2af7"
 SRC_URI = "git://github.com/UbiquityRobotics/raspicam_node;protocol=https;branch=kinetic"
-S = "${WORKDIR}/git"
 
 inherit ros1_distro
 inherit ros_component

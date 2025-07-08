@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/robot_calibration_msgs"
 SRC_URI = "git://github.com/ros2-gbp/robot_calibration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e818a369595e90768349ad25213d4dcf3c57effc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

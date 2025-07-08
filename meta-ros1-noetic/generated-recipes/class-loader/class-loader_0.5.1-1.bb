@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/class_loader"
 SRC_URI = "git://github.com/ros-gbp/class_loader-release;${ROS_BRANCH};protocol=https"
 SRCREV = "72afdd8705ee8e44e884159190ebfda96c779f3b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

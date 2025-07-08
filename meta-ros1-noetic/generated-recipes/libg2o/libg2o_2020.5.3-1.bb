@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libg2o"
 SRC_URI = "git://github.com/ros-gbp/libg2o-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f0970d36406eac761fdb7dc6b6793085ac8c62ad"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/udp_msgs"
 SRC_URI = "git://github.com/ros2-gbp/udp_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2542d01c443f6776233d3b317c177bb3c6c3a1ca"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

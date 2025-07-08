@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fetch_description"
 SRC_URI = "git://github.com/fetchrobotics-gbp/fetch_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9219544e9d77b0f2a8db2711b2b191d7972d420e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

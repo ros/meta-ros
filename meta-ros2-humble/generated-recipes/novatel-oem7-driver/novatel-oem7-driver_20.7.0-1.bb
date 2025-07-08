@@ -85,7 +85,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/novatel_oem7_driver"
 SRC_URI = "git://github.com/novatel-gbp/novatel_oem7_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9dfaafa7fe40f0763d1c407dc4fd0bac9be85975"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

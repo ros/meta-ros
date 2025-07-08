@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/nao_lola"
 SRC_URI = "git://github.com/ros2-gbp/nao_lola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ebf22a304bfd7229e34ccd77659973634946bacb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

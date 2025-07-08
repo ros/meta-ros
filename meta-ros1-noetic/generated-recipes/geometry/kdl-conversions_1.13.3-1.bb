@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/kdl_conversions"
 SRC_URI = "git://github.com/ros-gbp/geometry-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0695efb686bc6133f8bd5baf3cc616af67a992fa"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

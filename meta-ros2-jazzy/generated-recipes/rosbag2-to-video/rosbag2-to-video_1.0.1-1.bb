@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rosbag2_to_video"
 SRC_URI = "git://github.com/ros2-gbp/rosbag2_to_video-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c5fa0cb1200dd9348df1591f9ad9b8a8125eb3f5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

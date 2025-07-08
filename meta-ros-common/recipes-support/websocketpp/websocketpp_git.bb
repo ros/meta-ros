@@ -27,8 +27,6 @@ RDEPENDS:${PN}-dev = ""
 # branch develop
 SRCREV = "b9aeec6eaf3d5610503439b4fae3581d9aff08e8"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 PACKAGES =+ "${PN}-examples"

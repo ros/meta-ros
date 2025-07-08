@@ -13,8 +13,6 @@ UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>(\d+(\.\d+)+))"
 
 SRCREV = "8b9ed34eaa3e6ad24254cb7e058fb9150f66b865"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 EXTRA_OECMAKE = " \
@@ -26,5 +24,7 @@ EXTRA_OECMAKE = " \
 
 # types.h:347:54: error: '<anonymous>' may be used uninitialized [-Werror=maybe-uninitialized]
 CXXFLAGS += " -Wno-error=maybe-uninitialized"
+# code/AssetLib/X3D/X3DGeoHelper.cpp:194:20: error: array subscript -1 is outside array bounds of 'int [2305843009213693951]' [-Werror=array-bounds=]
+CXXFLAGS += "-Wno-error=array-bounds"
 
 BBCLASSEXTEND = "native nativesdk"

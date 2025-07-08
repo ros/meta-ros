@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/openslam_gmapping"
 SRC_URI = "git://github.com/ros-gbp/openslam_gmapping-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d94b4d280ba29de1e9f519b1ea80b42a2d7cdbe0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

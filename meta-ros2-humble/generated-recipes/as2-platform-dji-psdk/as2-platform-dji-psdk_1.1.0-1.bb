@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/as2_platform_dji_psdk"
 SRC_URI = "git://github.com/ros2-gbp/as2_platform_dji_psdk-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2bee91df71c75efb7a787918e1bc685605d25f24"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

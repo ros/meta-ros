@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ur_description"
 SRC_URI = "git://github.com/ros-industrial-release/universal_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "65f375c311f76dbccf36defa503133cb001654ae"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

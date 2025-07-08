@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mola_yaml"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f105d7bcabb847c57375cf7c05823ba476be9b0f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

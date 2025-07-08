@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/tf2_tools"
 SRC_URI = "git://github.com/ros2-gbp/geometry2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a5fb5093651f011c6c8c6e65e1ae4a2a4c66bd67"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

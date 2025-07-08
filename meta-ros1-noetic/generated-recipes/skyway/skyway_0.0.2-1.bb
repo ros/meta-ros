@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/skyway"
 SRC_URI = "git://github.com/ntt-t3/skyway_for_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "314236efc1d67801ca7d758449f1d37b45256933"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

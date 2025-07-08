@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/udp_com"
 SRC_URI = "git://github.com/flynneva/udp_com-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3b18e9330f8c841161fb6e403d5208a002100d89"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

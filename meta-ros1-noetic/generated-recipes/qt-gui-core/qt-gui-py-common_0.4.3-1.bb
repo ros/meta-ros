@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/qt_gui_py_common"
 SRC_URI = "git://github.com/ros-gbp/qt_gui_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "014bd9c9e509a10438b70deea2b95271da9b2d6e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

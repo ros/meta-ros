@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/trac_ik"
 SRC_URI = "git://github.com/ros2-gbp/trac_ik-release;${ROS_BRANCH};protocol=https"
 SRCREV = "92b5f9f982498bed253e7fe0aaccabb177014abb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

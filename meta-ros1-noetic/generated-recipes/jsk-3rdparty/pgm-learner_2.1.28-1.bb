@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pgm_learner"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a55a1a646d3133fc13c34d5d6761e0b1398bf942"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

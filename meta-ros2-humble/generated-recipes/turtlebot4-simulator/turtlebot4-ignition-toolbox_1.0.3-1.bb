@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/turtlebot4_ignition_toolbox"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot4_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f3d31aa8a3557477fe613f1f1fa0b5b7b0fad2fb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

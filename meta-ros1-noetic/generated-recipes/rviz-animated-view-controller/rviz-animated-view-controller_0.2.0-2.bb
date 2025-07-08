@@ -78,7 +78,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rviz_animated_view_controller"
 SRC_URI = "git://github.com/ros-gbp/rviz_animated_view_controller-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8cfd2a0eb4475277c718c4cc5a5e6c6f725b1a94"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

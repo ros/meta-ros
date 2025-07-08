@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_run_stop_auto_restart"
 SRC_URI = "git://github.com/pr2-gbp/pr2_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "839d6c39c33ac5eb5e6f55be1387d6815d0d99bd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

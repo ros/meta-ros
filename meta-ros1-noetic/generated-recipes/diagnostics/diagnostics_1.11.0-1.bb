@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/diagnostics"
 SRC_URI = "git://github.com/ros-gbp/diagnostics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "34b68b5deda9b2975e225de44028341f50a82c6a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

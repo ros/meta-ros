@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/plotjuggler_msgs"
 SRC_URI = "git://github.com/facontidavide/plotjuggler_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b2dc8fd261bf40943bb1f30a8c780cd3dbcc05b7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

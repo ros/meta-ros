@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/situational_graphs_datasets"
 SRC_URI = "git://github.com/ros2-gbp/situational_graphs_dataset-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d1c6f328541c6804859d4b373d9efd0ce9342a02"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

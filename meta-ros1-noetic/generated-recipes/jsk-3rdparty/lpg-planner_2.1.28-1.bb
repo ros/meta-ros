@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/lpg_planner"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2f566dfe1e47cf6eea28fe31c234ff7fce4acc38"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

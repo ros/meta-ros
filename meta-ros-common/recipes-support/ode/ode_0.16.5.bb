@@ -23,8 +23,6 @@ SRC_URI = "git://bitbucket.org/odedevs/ode.git;protocol=https;branch=0.16.x"
 PV = "0.16.5+git"
 SRCREV = "cc5ca0e9417a8cf4000a63a5346c96eba0f5610b"
 
-S = "${WORKDIR}/git"
-
 PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'opengl', d)}"
 PACKAGECONFIG[opengl] = "-DODE_WITH_DEMOS=ON,-DODE_WITH_DEMOS=OFF,virtual/libgl freeglut libx11"
 PACKAGECONFIG[ccd] = "-DODE_WITH_LIBCCD=ON,-DODE_WITH_LIBCCD=OFF,ccd"

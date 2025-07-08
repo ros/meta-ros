@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/neobotix_usboard_msgs"
 SRC_URI = "git://github.com/astuff/astuff_sensor_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "92c483d24f93782b7fa9c7c6850d4e695227c35a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

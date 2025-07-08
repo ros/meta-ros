@@ -86,7 +86,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/laser_filters"
 SRC_URI = "git://github.com/ros2-gbp/laser_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "090983ea27b43a0d90479d15d0bc8c7b9e1414db"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

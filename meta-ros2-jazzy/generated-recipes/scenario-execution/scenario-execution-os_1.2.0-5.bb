@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/scenario_execution_os"
 SRC_URI = "git://github.com/ros2-gbp/scenario_execution-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1ec61eb0d2bad321094e024283ada9ddbe0a3bac"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

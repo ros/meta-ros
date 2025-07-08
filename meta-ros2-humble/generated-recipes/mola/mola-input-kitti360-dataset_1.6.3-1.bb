@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mola_input_kitti360_dataset"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d0a727e9bfc9ea8da16e21b1b54f07b41975b22d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sensor_filters"
 SRC_URI = "git://github.com/ctu-vras/sensor_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e22a347b77b59227b5876de12fa037421792d57f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nodelet_tutorial_math"
 SRC_URI = "git://github.com/ros-gbp/common_tutorials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6db3564e5f1840ecdd56af4b5a3306d3885f493d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

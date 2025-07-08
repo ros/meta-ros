@@ -8,7 +8,7 @@ SRC_URI = "http://deb.debian.org/debian/pool/main/r/ros-vcstool/ros-vcstool_${PV
 SRC_URI[md5sum] = "d96b39878a3da1935db8c0bf5f157e25"
 SRC_URI[sha256sum] = "2b6e4a97454983166e9a5fe08aca41cd8b28288ef693b954bc0e8b8518eafd3b"
 
-S = "${WORKDIR}/${SRCNAME}-${PV}"
+S = "${UNPACKDIR}/${SRCNAME}-${PV}"
 
 FILES:${PN} += "${datadir}/vcstool-completion"
 

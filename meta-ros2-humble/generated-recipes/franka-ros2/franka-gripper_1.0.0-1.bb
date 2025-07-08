@@ -82,7 +82,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/franka_gripper"
 SRC_URI = "git://github.com/ros2-gbp/franka_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "98e20cc91ea253c5e2b975e5e3aa91a2afd9ec57"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

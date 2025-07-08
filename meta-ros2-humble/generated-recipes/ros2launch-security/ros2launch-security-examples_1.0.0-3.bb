@@ -76,7 +76,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ros2launch_security_examples"
 SRC_URI = "git://github.com/ros2-gbp/ros2launch_security-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0a4348ea553fc4418d73c3fa687f4a16124bf2d6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

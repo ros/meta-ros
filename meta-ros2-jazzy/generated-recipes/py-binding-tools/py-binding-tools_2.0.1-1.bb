@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/py_binding_tools"
 SRC_URI = "git://github.com/ros-gbp/py_binding_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6bbf5eea730e839c4edc430134463a29759f9a99"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

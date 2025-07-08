@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/orocos_kdl_vendor"
 SRC_URI = "git://github.com/ros2-gbp/orocos_kdl_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "16e565aaeb8d569bbd798590cac69376a0378100"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

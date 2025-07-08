@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/google_benchmark_vendor"
 SRC_URI = "git://github.com/ros2-gbp/google_benchmark_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2da4208dbfcb32f943585ece1d9ff3e51cb916c6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

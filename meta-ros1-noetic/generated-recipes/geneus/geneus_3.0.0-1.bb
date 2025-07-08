@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/geneus"
 SRC_URI = "git://github.com/tork-a/geneus-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c56ec9cf504d179e4a58dadb12f60c262096fc54"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

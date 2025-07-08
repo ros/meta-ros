@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/libcaer"
 SRC_URI = "git://github.com/ros2-gbp/libcaer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "54d2c9c883483fddd86769c6f9522a8ef306f86a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

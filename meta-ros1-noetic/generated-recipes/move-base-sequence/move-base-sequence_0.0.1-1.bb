@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/move_base_sequence"
 SRC_URI = "git://github.com/MarkNaeem/move_base_sequence-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e414da164855c11fc31e40375591bbf2e62133c6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

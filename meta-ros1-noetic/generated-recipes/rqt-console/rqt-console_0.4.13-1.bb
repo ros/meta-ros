@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_console"
 SRC_URI = "git://github.com/ros-gbp/rqt_console-release;${ROS_BRANCH};protocol=https"
 SRCREV = "157582b0659bf783920754ab47a0acc40bdd21d9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

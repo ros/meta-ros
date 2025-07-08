@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/domain_bridge"
 SRC_URI = "git://github.com/ros2-gbp/domain_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f1f41bc5525b65f81b10c699b48338d25385d20c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

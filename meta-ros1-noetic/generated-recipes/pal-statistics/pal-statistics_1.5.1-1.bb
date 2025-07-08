@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pal_statistics"
 SRC_URI = "git://github.com/pal-gbp/pal_statistics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bf44423fa0b9e23e443e472ebf1b9d990069ecd0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ruckig"
 SRC_URI = "git://github.com/ros2-gbp/ruckig-release;${ROS_BRANCH};protocol=https"
 SRCREV = "625fcaa86a2bc323b989040868f9687bed5d7f3d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

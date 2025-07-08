@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/bcr_bot"
 SRC_URI = "git://github.com/blackcoffeerobotics/bcr_bot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2b21f0937d31d6ec8493dbcdc972678cecf28bf0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

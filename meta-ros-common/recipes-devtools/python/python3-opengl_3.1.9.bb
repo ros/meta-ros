@@ -6,8 +6,6 @@ SRC_URI = "git://github.com/mcfletch/pyopengl;protocol=https;branch=master"
 PV = "3.1.9"
 SRCREV = "5dfca4745d3b124bb0020fb8b1f84b4579ae1739"
 
-S = "${WORKDIR}/git"
-
 inherit setuptools3
 
 RDEPENDS:${PN} += "\

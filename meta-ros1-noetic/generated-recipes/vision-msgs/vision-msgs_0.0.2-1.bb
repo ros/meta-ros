@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/vision_msgs"
 SRC_URI = "git://github.com/Kukanani/vision_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1ddcded0bb02246eac50c40eed4ec5b41479ea79"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rqt_robot_steering"
 SRC_URI = "git://github.com/ros2-gbp/rqt_robot_steering-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4875a3aa0f27062f7a3cbf05c957a8462877f77f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

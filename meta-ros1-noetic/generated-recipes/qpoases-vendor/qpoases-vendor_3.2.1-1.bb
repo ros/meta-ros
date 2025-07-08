@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/qpoases_vendor"
 SRC_URI = "git://github.com/autoware-ai/qpoases_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "37962324bdc1c603d4889b77b2c7389e8d91a01b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

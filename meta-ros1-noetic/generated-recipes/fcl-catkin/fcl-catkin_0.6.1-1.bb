@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fcl_catkin"
 SRC_URI = "git://github.com/wxmerkt/fcl_catkin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fa130d1ccd1c66c39b29f10d0f94cc3f0f8ba1b3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

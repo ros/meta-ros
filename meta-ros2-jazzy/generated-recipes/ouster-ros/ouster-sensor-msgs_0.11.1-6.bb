@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ouster_sensor_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ouster-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "88c8ddb06249e2ea9d794edd07856dfb06d05ebd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

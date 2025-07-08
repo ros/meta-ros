@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/khi_rs_ikfast_plugin"
 SRC_URI = "git://github.com/Kawasaki-Robotics/khi_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "23de4074269deea956b51545b9bf4177fbfe27eb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

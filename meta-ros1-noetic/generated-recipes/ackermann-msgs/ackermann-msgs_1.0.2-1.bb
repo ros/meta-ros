@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ackermann_msgs"
 SRC_URI = "git://github.com/ros-drivers-gbp/ackermann_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ed7480696ff3e6527e999dde77e18ca36fada9a3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

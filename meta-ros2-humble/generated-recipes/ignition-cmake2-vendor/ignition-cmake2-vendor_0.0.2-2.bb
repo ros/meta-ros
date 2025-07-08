@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ignition_cmake2_vendor"
 SRC_URI = "git://github.com/ros2-gbp/ignition_cmake2_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "18bf27798d4be2ba4a85e9e9fb129681e4e7af2b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

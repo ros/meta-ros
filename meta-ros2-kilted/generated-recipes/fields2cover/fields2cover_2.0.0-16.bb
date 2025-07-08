@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/fields2cover"
 SRC_URI = "git://github.com/ros2-gbp/fields2cover-release;${ROS_BRANCH};protocol=https"
 SRCREV = "afbcba6d81e2d1808b7888072176611abba7cfef"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

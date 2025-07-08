@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/launch_system_modes"
 SRC_URI = "git://github.com/ros2-gbp/system_modes-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a08a9c8c80eee8713a7f490c95cd4db75d3f1805"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

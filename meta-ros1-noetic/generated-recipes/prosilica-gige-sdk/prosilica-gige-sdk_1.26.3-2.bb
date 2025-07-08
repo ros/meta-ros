@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/prosilica_gige_sdk"
 SRC_URI = "git://github.com/ros-drivers-gbp/prosilica_gige_sdk-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a53438d04d5c5230719ce3e8ed0f24407c02c5b5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

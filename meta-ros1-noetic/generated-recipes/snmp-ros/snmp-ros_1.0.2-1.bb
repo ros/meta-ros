@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/snmp_ros"
 SRC_URI = "git://github.com/ctu-vras/snmp_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f7c126e27ecd795837caa65e0b5896e505a366a6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

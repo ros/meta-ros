@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/steering_functions"
 SRC_URI = "git://github.com/ros2-gbp/steering_functions-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4cee3f506fc1c29814bf9dbdb0c6c0bf485aa01c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

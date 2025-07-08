@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/cob_srvs"
 SRC_URI = "git://github.com/ros2-gbp/cob_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dbc194274f078105a3d0659bcae4afe489172461"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/nao_button_sim"
 SRC_URI = "git://github.com/ros2-gbp/nao_button_sim-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d6e2e510b0855374ca7c6b7c6d96141c70b59bd4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/lgsvl_msgs"
 SRC_URI = "git://github.com/ros2-gbp/lgsvl_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "df62ae3eea8caa26f3b54f6c394ca369ddfa63be"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
