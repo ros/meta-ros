@@ -28,7 +28,6 @@ SRC_URI = "git://github.com/gazebosim/sdformat.git;protocol=https;branch=sdf15"
 
 SRCREV = "7ea246dd2ccba74831c7049898d80832a1e8d976"
 
-S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig python3targetconfig
 

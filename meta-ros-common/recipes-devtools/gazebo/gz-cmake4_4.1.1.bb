@@ -13,7 +13,6 @@ SRC_URI = "git://github.com/gazebosim/gz-cmake.git;protocol=https;branch=gz-cmak
 
 SRCREV = "1c65374c074268ec93df72be4a2d21722920e62a"
 
-S = "${WORKDIR}/git"
 
 inherit cmake
 

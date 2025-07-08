@@ -8,7 +8,6 @@ SRC_URI = "git://github.com/gazebosim/gz-launch.git;protocol=https;branch=gz-lau
 
 SRCREV = "598d32e356572712f1b28958fe42fa08b9285f7e"
 
-S = "${WORKDIR}/git"
 
 DEPENDS = " \
     gz-cmake4 \

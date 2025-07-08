@@ -10,7 +10,6 @@ SRC_URI = "git://github.com/gdraheim/zziplib;protocol=https;branch=master"
 PV = "0.13.74+git"
 SRCREV = "df9e9c06634cb0c48bdc42efe9f7ac55847503a5"
 
-S = "${WORKDIR}/git"
 
 DEPENDS = "zlib libsdl2"
 

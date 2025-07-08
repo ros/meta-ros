@@ -21,7 +21,6 @@ SRC_URI = "git://github.com/apache/tvm;name=tvm;branch=main;protocol=https \
     git://github.com/apache/incubator-tvm-vta;name=vta-hw;destsuffix=git/3rdparty/vta-hw;branch=master;protocol=https \
 "
 
-S = "${WORKDIR}/git"
 
 inherit cmake
 

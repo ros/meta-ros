@@ -34,9 +34,9 @@ do_install() {
     install -d -m 0755 ${D}/${datadir}/GeographicLib/geoids
     install -d -m 0755 ${D}/${datadir}/GeographicLib/gravity
     install -d -m 0755 ${D}/${datadir}/GeographicLib/magnetic
-    install -D -m 0644 ${WORKDIR}/geoids/* ${D}/${datadir}/GeographicLib/geoids
-    install -D -m 0644 ${WORKDIR}/gravity/* ${D}/${datadir}/GeographicLib/gravity
-    install -D -m 0644 ${WORKDIR}/magnetic/* ${D}/${datadir}/GeographicLib/magnetic
+    install -D -m 0644 ${UNPACKDIR}/geoids/* ${D}/${datadir}/GeographicLib/geoids
+    install -D -m 0644 ${UNPACKDIR}/gravity/* ${D}/${datadir}/GeographicLib/gravity
+    install -D -m 0644 ${UNPACKDIR}/magnetic/* ${D}/${datadir}/GeographicLib/magnetic
 }
 
 FILES:${PN} = " \

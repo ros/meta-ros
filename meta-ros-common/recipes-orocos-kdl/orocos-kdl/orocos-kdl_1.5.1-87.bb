@@ -10,7 +10,7 @@ SRC_URI = " \
 
 SRCREV = "129693e571a7822655d1f58bb0f83b385542a3d8"
 
-S = "${WORKDIR}/git/orocos_kdl"
+S = "${UNPACKDIR}/${BPN}-${PV}/orocos_kdl"
 
 DEPENDS = " \
     libeigen \

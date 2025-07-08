@@ -17,7 +17,6 @@ SRC_URI = "git://github.com/OGRECave/ogre;protocol=https;branch=master \
     file://find-freeimage-library-name.patch \
 "
 
-S = "${WORKDIR}/git"
 
 inherit cmake features_check pkgconfig python3native
 

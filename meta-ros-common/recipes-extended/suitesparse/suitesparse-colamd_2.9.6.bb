@@ -9,7 +9,7 @@ DEPENDS = " \
     suitesparse-config \
 "
 
-S = "${WORKDIR}/git/COLAMD"
+S = "${UNPACKDIR}/git/COLAMD"
 
 EXTRA_OEMAKE = "CC='${CC}'"
 

@@ -7,7 +7,6 @@ SRC_URI = "git://github.com/gazebosim/gz-utils.git;protocol=https;branch=gz-util
 
 SRCREV = "5e1e78be9e4df46c4cfc97165a6447753d179cff"
 
-S = "${WORKDIR}/git"
 
 inherit cmake
 

@@ -14,6 +14,6 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 # Set the version field of the name of this file to the YYYYMMDD when this was done.
 # ASSERT(${sysconfdir} == /etc) as the tarball contents are under etc/.
 SRC_URI = "file://${BPN}.tar.gz;subdir=${P}"
-S = "${WORKDIR}/${P}"
+S = "${UNPACKDIR}/${P}"
 
 inherit bin_package

@@ -10,7 +10,7 @@ DEPENDS = " \
     suitesparse-config \
 "
 
-S = "${WORKDIR}/git/CCOLAMD"
+S = "${UNPACKDIR}/git/CCOLAMD"
 
 inherit cmake pkgconfig
 

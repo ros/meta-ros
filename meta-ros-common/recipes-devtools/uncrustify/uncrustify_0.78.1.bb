@@ -6,7 +6,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
 SRC_URI = "git://github.com/uncrustify/uncrustify.git;protocol=https;branch=master"
 SRCREV = "b8c95286f70ef8e0e83bd055a3a7aabb614a0781"
 
-S = "${WORKDIR}/git"
 
 inherit cmake
 

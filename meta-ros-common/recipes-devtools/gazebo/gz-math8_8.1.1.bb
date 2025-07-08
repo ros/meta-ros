@@ -26,7 +26,6 @@ SRC_URI = "git://github.com/gazebosim/gz-math.git;protocol=https;branch=gz-math8
 
 SRCREV = "d38dc97f7c56e73d828342e3005ed0c4f9497e49"
 
-S = "${WORKDIR}/git"
 
 inherit cmake python3targetconfig
 

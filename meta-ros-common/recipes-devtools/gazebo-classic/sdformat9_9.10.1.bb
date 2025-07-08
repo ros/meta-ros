@@ -7,7 +7,6 @@ SRC_URI = "git://github.com/gazebosim/sdformat.git;protocol=https;branch=main \
 PV = "9.10.1"
 SRCREV = "1774642ee6ac2d46f9fb335470dd7e881d0e6cc5"
 
-S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig 
 inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}

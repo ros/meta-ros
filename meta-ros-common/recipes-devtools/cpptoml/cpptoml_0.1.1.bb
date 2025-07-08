@@ -8,7 +8,6 @@ SRC_URI = "gitsm://github.com/skystrife/cpptoml.git;protocol=https;branch=master
 PV = "0.1.1+git"
 SRCREV = "fededad7169e538ca47e11a9ee9251bc361a9a65"
 
-S = "${WORKDIR}/git"
 
 inherit cmake
 
