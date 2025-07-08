@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mola_pose_list"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d9408fd078c0f26e6a8e7e2257a96f9937cf0d35"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

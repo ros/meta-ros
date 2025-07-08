@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/simple_launch"
 SRC_URI = "git://github.com/ros2-gbp/simple_launch-release;${ROS_BRANCH};protocol=https"
 SRCREV = "acdca828fe28d17e28db8242d7c476c0556979fc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

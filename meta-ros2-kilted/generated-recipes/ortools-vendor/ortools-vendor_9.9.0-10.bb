@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ortools_vendor"
 SRC_URI = "git://github.com/ros2-gbp/ortools_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "472dd05ee6faf7c5570c4b81ab87fa064847c6c9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

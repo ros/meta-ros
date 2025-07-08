@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ffmpeg_image_transport_tools"
 SRC_URI = "git://github.com/ros2-gbp/ffmpeg_image_transport_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8b1c7d1e61187246e8770888fe69bc98827907a3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

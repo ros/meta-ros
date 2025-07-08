@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/cartographer"
 SRC_URI = "git://github.com/ros2-gbp/cartographer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "24c164e2220081e7eedbaf78a847b7ed6f7895f4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

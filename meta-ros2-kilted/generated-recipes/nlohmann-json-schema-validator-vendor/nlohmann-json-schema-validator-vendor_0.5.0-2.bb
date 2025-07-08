@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/nlohmann_json_schema_validator_vendor"
 SRC_URI = "git://github.com/ros2-gbp/nlohmann_json_schema_validator_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fa30c0a523b93cdbee225b4a65b8df1b8ea452f5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

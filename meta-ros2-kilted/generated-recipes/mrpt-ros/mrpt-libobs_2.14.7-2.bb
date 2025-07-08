@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mrpt_libobs"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6a61247a86366bacb8976e80d781757ab44fd1ff"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

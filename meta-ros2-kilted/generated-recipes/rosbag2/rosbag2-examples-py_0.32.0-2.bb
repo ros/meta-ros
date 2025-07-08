@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rosbag2_examples_py"
 SRC_URI = "git://github.com/ros2-gbp/rosbag2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "81c1096b731ae6482af94f5653fc9bc1db41bcfe"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

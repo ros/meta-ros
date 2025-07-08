@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ur_simulation_gz"
 SRC_URI = "git://github.com/ros2-gbp/ur_simulation_gz-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4bf74a7445fc2de6ab3755cd11029ddd1a2560dc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
