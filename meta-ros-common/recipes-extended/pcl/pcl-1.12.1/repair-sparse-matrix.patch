@@ -1,0 +1,62 @@
+Upstream-Status: Backport [https://github.com/PointCloudLibrary/pcl/commit/d253f645f0bfbcd2c818fa5d0a6970c61f39c6b5]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From d253f645f0bfbcd2c818fa5d0a6970c61f39c6b5 Mon Sep 17 00:00:00 2001
+From: Thomas Dickerson <elfprince13@gmail.com>
+Date: Thu, 12 May 2022 14:28:41 -0400
+Subject: [PATCH] Repair sparse_matrix.hpp
+
+Unclear why nobody has noticed for a decade that this code was just totally uncompilable. `SparseMatrix` does not have methods `Columns()` or `Rows()`, and `m_ppElements[i]` is a pointer so can't possibly have anything called with `.`.
+---
+ .../3rdparty/poisson4/sparse_matrix.hpp        | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/surface/include/pcl/surface/3rdparty/poisson4/sparse_matrix.hpp b/surface/include/pcl/surface/3rdparty/poisson4/sparse_matrix.hpp
+index e6564cdc5bb..02c2db5bd55 100644
+--- a/surface/include/pcl/surface/3rdparty/poisson4/sparse_matrix.hpp
++++ b/surface/include/pcl/surface/3rdparty/poisson4/sparse_matrix.hpp
+@@ -250,9 +250,9 @@ namespace pcl
+     template<class T>
+     SparseMatrix<T>& SparseMatrix<T>::operator *= (const T& V)
+     {
+-      for (int i=0; i<this->Rows(); i++)
++      for (int i=0; i<rows; i++)
+       {
+-        for(int ii=0;ii<m_ppElements[i].size();i++){m_ppElements[i][ii].Value*=V;}
++        for(int ii=0;ii<rowSizes[i];i++){m_ppElements[i][ii].Value*=V;}
+       }
+       return *this;
+     }
+@@ -260,12 +260,12 @@ namespace pcl
+     template<class T>
+     SparseMatrix<T> SparseMatrix<T>::Multiply( const SparseMatrix<T>& M ) const
+     {
+-      SparseMatrix<T> R( this->Rows(), M.Columns() );
+-      for(int i=0; i<R.Rows(); i++){
+-        for(int ii=0;ii<m_ppElements[i].size();ii++){
++      SparseMatrix<T> R( rows, M._maxEntriesPerRow );
++      for(int i=0; i<R.rows; i++){
++        for(int ii=0;ii<rowSizes[i];ii++){
+           int N=m_ppElements[i][ii].N;
+           T Value=m_ppElements[i][ii].Value;
+-          for(int jj=0;jj<M.m_ppElements[N].size();jj++){
++          for(int jj=0;jj<M.rowSizes[N];jj++){
+             R(i,M.m_ppElements[N][jj].N) += Value * M.m_ppElements[N][jj].Value;
+           }
+         }
+@@ -319,11 +319,11 @@ namespace pcl
+     template<class T>
+     SparseMatrix<T> SparseMatrix<T>::Transpose() const
+     {
+-      SparseMatrix<T> M( this->Columns(), this->Rows() );
++      SparseMatrix<T> M( _maxEntriesPerRow, rows );
+ 
+-      for (int i=0; i<this->Rows(); i++)
++      for (int i=0; i<rows; i++)
+       {
+-        for(int ii=0;ii<m_ppElements[i].size();ii++){
++        for(int ii=0;ii<rowSizes[i];ii++){
+           M(m_ppElements[i][ii].N,i) = m_ppElements[i][ii].Value;
+         }
+       }
