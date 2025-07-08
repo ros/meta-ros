@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "6f8ee504dde5d005b25b08aaf5be0b3404af3ad5fece6e1ddcde35908a
 inherit pypi
 inherit setuptools3
 
-S = "${WORKDIR}/Rtree-${PV}"
+S = "${UNPACKDIR}/Rtree-${PV}"
 
 PYPI_PACKAGE = "Rtree"
 

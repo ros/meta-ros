@@ -15,7 +15,6 @@ SRC_URI = "git://github.com/modelon-community/fmi-library;branch=master;protocol
     file://add-mkdir-includes-to-miniunz.patch \
 "
 
-S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
 

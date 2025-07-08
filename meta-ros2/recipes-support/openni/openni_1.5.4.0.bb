@@ -42,7 +42,6 @@ SRC_URI = "git://salsa.debian.org/multimedia-team/openni.git;protocol=https;bran
 PV = "1.5.4.0+git${SRCPV}"
 SRCREV = "4701cc457627ecf9441db1cde24e0939103b8052"
 
-S = "${WORKDIR}/git"
 B = "${S}"
 
 inherit python3native
