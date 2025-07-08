@@ -26,7 +26,7 @@ SRC_URI[POSLEX.sha256sum] = "e7c6e3642dbd5b0d64942bc015a986fdd6244a79e51ec2e8309
 SRC_URI[kallpc16k.md5sum] = "3869af78f473b616601cac3fa83cc14e"
 SRC_URI[kallpc16k.sha256sum] = "7a357c34086fbba8b813f9750f6b5ba13e2a00478a0a2e78a97981cb76395578"
 
-S = "${WORKDIR}/${BPN}"
+S = "${UNPACKDIR}/${BPN}"
 
 inherit autotools-brokensep
 
@@ -35,13 +35,13 @@ PARALLEL_MAKE = ""
 
 do_configure:prepend() { 
     #point to speech-tools in sysroots
-    cp -ra ${STAGING_DIR_TARGET}${datadir}/speech-tools ${WORKDIR}/speech-tools
+    cp -ra ${STAGING_DIR_TARGET}${datadir}/speech-tools ${UNPACKDIR}/speech-tools
 
     # fix gcc_defaults.mak to point to our RSS with --sysroot, not the one from speech-tools
-    sed -i 's:^CC=.*$:CC=${CC}:g' ${WORKDIR}/speech-tools/config/compilers/gcc_defaults.mak
-    sed -i 's:^CXX=.*$:CXX=${CC} ${LDFLAGS}:g' ${WORKDIR}/speech-tools/config/compilers/gcc_defaults.mak
+    sed -i 's:^CC=.*$:CC=${CC}:g' ${UNPACKDIR}/speech-tools/config/compilers/gcc_defaults.mak
+    sed -i 's:^CXX=.*$:CXX=${CC} ${LDFLAGS}:g' ${UNPACKDIR}/speech-tools/config/compilers/gcc_defaults.mak
 
-    sed -i 's:EST=$(TOP)/../speech_tools:EST=${WORKDIR}/speech-tools:g' ${S}/config/config.in
+    sed -i 's:EST=$(TOP)/../speech_tools:EST=${UNPACKDIR}/speech-tools:g' ${S}/config/config.in
 
     #exclude experimental includes
     sed -i 's:ALSO_INCLUDE:#ALSO_INCLUDE:g' ${S}/config/config.in

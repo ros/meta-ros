@@ -10,7 +10,7 @@ ROS_BPN = "urdfdom"
 SRC_URI = "https://salsa.debian.org/science-team/urdfdom/-/archive/debian/${PV}/urdfdom-debian-${PV}.tar.gz"
 SRC_URI[md5sum] = "22983da597aae07ae1c99bafa4b62869"
 SRC_URI[sha256sum] = "8480c81da21fc2ef5a0d40e096184dd4bbdb8f28df5f44707e21c26d7e176284"
-S = "${WORKDIR}/urdfdom-debian-${PV}"
+S = "${UNPACKDIR}/urdfdom-debian-${PV}"
 
 # Taken from https://salsa.debian.org/science-team/urdfdom/blob/debian/1.0.0-2/debian/control:
 DEPENDS = " \
