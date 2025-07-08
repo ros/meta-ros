@@ -1,0 +1,89 @@
+Upstream-Status: Backport [https://github.com/gazebosim/gz-msgs/commit/bd692ab84aa41b649567ed4ac9c98513e7778f0c]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From bd692ab84aa41b649567ed4ac9c98513e7778f0c Mon Sep 17 00:00:00 2001
+From: Shameek Ganguly <shameek@intrinsic.ai>
+Date: Fri, 27 Jun 2025 09:24:23 -0700
+Subject: [PATCH] Update protobuf dep in bazel build to v30.1 (#521)
+
+Fixes downstream build issues with projects using protobuf v30.1. Some of the return types in protobuf were changed to std::string_view instead of std::string in v30. Some usages in core/generator_lite/Generator.cc need to be updated as a result.
+
+I also had to update the version of the bazel-contrib script we use for bazel CI to circumvent an error on bazel 8.0.0rc1 (brought in transitively with the protobuf upgrade). With this change, bazel 8.x CI now uses bazel 8.0.0.
+
+Signed-off-by: Shameek Ganguly <shameek@intrinsic.ai>
+---
+ core/generator_lite/Generator.cc | 21 +++++++++++----------
+ 3 files changed, 13 insertions(+), 12 deletions(-)
+
+Index: ignition-msgs8-8.7.0/src/Generator.cc
+===================================================================
+--- ignition-msgs8-8.7.0.orig/src/Generator.cc
++++ ignition-msgs8-8.7.0/src/Generator.cc
+@@ -71,12 +71,12 @@ bool Generator::Generate(const FileDescr
+                                OutputDirectory *_generatorContext,
+                                std::string * /*_error*/) const
+ {
+-  std::string headerFilename = _file->name();
++  std::string headerFilename(_file->name());
+   std::string delim = ".proto";
+   size_t pos = headerFilename.rfind(delim);
+   headerFilename.replace(pos, delim.size(), ".pb.h");
+ 
+-  std::string sourceFilename = _file->name();
++  std::string sourceFilename(_file->name());
+   pos = sourceFilename.rfind(delim);
+   sourceFilename.replace(pos, delim.size(), ".pb.cc");
+ 
+@@ -144,9 +144,12 @@ bool Generator::Generate(const FileDescr
+     // Call the IGN_REGISTER_STATIC_MSG macro for each message
+     for (auto i = 0; i < _file->message_type_count(); ++i)
+     {
++      const auto *desc = _file->message_type(i);
++      std::string descName(desc->name());
++
+       std::string factory = "IGN_REGISTER_STATIC_MSG(\"ign_msgs.";
+-      factory += _file->message_type(i)->name() + "\", " +
+-        _file->message_type(i)->name() +")\n";
++      factory += descName + "\", " +
++        descName +")\n";
+       printer.Print(factory.c_str(), "name", "includes");
+     }
+   }
+@@ -160,25 +163,28 @@ bool Generator::Generate(const FileDescr
+ 
+     for (auto i = 0; i < _file->message_type_count(); ++i)
+     {
++      const auto *desc = _file->message_type(i);
++      std::string descName(desc->name());
++
+       // Define std::unique_ptr types for our messages
+       std::string ptrTypes = "typedef std::unique_ptr<"
+-        + _file->message_type(i)->name() + "> "
+-        + _file->message_type(i)->name() + "UniquePtr;\n";
++        + descName + "> "
++        + descName + "UniquePtr;\n";
+ 
+       // Define const std::unique_ptr types for our messages
+       ptrTypes += "typedef std::unique_ptr<const "
+-        + _file->message_type(i)->name() + "> Const"
+-        + _file->message_type(i)->name() + "UniquePtr;\n";
++        + descName + "> Const"
++        + descName + "UniquePtr;\n";
+ 
+       // Define std::shared_ptr types for our messages
+       ptrTypes += "typedef std::shared_ptr<"
+-        + _file->message_type(i)->name() + "> "
+-        + _file->message_type(i)->name() + "SharedPtr;\n";
++        + descName + "> "
++        + descName + "SharedPtr;\n";
+ 
+       // Define const std::shared_ptr types for our messages
+       ptrTypes += "typedef std::shared_ptr<const "
+-        + _file->message_type(i)->name() + "> Const"
+-        + _file->message_type(i)->name() + "SharedPtr;\n";
++        + descName + "> Const"
++        + descName + "SharedPtr;\n";
+ 
+       printer.Print(ptrTypes.c_str(), "name", "namespace_scope");
+     }
