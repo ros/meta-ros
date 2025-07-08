@@ -9,7 +9,7 @@ ROS_EXEC_DEPENDS:remove = "uncrustify"
 # during do_compile
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-uncrustify-with-bitbake-fetcher.patch \
-    git://github.com/uncrustify/uncrustify.git;protocol=https;name=uncrustify;destsuffix=git/uncrustify-upstream;branch=master \
+    git://github.com/uncrustify/uncrustify.git;protocol=https;name=uncrustify;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/uncrustify-upstream;branch=master \
     file://install-patch.diff;name=patch;patchdir=uncrustify-upstream \
 "
 # Using uncrustify-0.72.0 tag
