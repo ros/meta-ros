@@ -5,7 +5,7 @@ PACKAGECONFIG[python3] = "--enable-python-bindings,,python3 swig-native"
 
 RDEPENDS:${PN}-python = "python3-core"
 
-inherit python3native distutils3-base
+inherit python3native
 
 PACKAGES =+ "python3-${PN}"
 
