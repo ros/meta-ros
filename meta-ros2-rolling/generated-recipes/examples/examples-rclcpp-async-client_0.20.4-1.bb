@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/examples_rclcpp_async_client"
 SRC_URI = "git://github.com/ros2-gbp/examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ae28da4964eae43416c1756351f3421cfbadce53"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -108,7 +108,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ur_controllers"
 SRC_URI = "git://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9fd6d82d86b53b9cd7a3983968a49283e52db3fd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -82,7 +82,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rmf_visualization_rviz2_plugins"
 SRC_URI = "git://github.com/ros2-gbp/rmf_visualization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "331871422276d7828b62b69cc986a71090d035c1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

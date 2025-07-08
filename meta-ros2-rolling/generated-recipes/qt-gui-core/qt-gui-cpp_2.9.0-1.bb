@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/qt_gui_cpp"
 SRC_URI = "git://github.com/ros2-gbp/qt_gui_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d26686fb79ea7010edb6f76740fe70b4462d72f2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

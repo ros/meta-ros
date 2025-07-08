@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/gtest_vendor"
 SRC_URI = "git://github.com/ros2-gbp/googletest-release;${ROS_BRANCH};protocol=https"
 SRCREV = "76baff7823620c1c36ed5464b28bfd8c9b52d081"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

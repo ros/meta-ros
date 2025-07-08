@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/kdl_parser"
 SRC_URI = "git://github.com/ros2-gbp/kdl_parser-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cdbf9b2a8a2f95a13051dfb795e795b836e5530a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

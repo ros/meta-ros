@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/spinnaker_synchronized_camera_driver"
 SRC_URI = "git://github.com/ros2-gbp/flir_camera_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7586e148606f6cefbf8816a921c395ca9b6fb1ac"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

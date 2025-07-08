@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/python_orocos_kdl_vendor"
 SRC_URI = "git://github.com/ros2-gbp/orocos_kdl_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "97c2f24677475f85f6a30754f8e57f79b6d61461"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

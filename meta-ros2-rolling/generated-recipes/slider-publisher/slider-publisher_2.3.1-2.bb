@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/slider_publisher"
 SRC_URI = "git://github.com/ros2-gbp/slider_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d628ed2b9a8034affc7aa6da4127bfea724f26ad"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

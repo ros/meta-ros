@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/realtime_tools"
 SRC_URI = "git://github.com/ros2-gbp/realtime_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cce77a53eabd2313d67591f3bf2346f1ec14fce7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

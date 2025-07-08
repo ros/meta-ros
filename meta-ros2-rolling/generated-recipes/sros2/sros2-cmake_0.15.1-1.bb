@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/sros2_cmake"
 SRC_URI = "git://github.com/ros2-gbp/sros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "12a51521d0473892f40f6003e843e7e38d88bc5c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

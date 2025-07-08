@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/kinematics_interface"
 SRC_URI = "git://github.com/ros2-gbp/kinematics_interface-release;${ROS_BRANCH};protocol=https"
 SRCREV = "126541b656eee700c6579f453d8f28fd00848a6c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tango_icons_vendor"
 SRC_URI = "git://github.com/ros2-gbp/tango_icons_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e452bedb4beb3b68a82a6e5bfcf8b7a5e055319a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

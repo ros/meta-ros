@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/mavros_msgs"
 SRC_URI = "git://github.com/ros2-gbp/mavros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5c966a31df4e36aac68e1f16022a31c089c21512"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

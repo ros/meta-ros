@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/interactive_markers"
 SRC_URI = "git://github.com/ros2-gbp/interactive_markers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "12910416b6111a7c66270bad48233b2082e6c88b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

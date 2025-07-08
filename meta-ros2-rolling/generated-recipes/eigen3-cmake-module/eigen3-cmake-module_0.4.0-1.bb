@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/eigen3_cmake_module"
 SRC_URI = "git://github.com/ros2-gbp/eigen3_cmake_module-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cc75f807bbc52d044c86fdfc4c7a8e075a1ddf53"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

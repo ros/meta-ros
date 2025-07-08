@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/behaviortree_cpp"
 SRC_URI = "git://github.com/ros2-gbp/behaviortree_cpp_v4-release;${ROS_BRANCH};protocol=https"
 SRCREV = "97fadfef60911ff5e59326f26c684ef1511dd3de"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

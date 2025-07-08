@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ament_pclint"
 SRC_URI = "git://github.com/ros2-gbp/ament_lint-release;${ROS_BRANCH};protocol=https"
 SRCREV = "427de12070266d2df92dabed5b3f5028205738c1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

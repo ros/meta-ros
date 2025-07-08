@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rmw_security_common"
 SRC_URI = "git://github.com/ros2-gbp/rmw-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4b1e838c8ba69e7e31773d0e7cb92280f81ca9c9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

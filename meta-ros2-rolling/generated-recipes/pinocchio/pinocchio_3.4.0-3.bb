@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/pinocchio"
 SRC_URI = "git://github.com/ros2-gbp/pinocchio-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5782f0cf8b845f4b5df225d0ab4b73564a5591dc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

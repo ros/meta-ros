@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/yaml_cpp_vendor"
 SRC_URI = "git://github.com/ros2-gbp/yaml_cpp_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9e9bcdb19d0f039cda3f7b85d7d1967375ed4e75"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

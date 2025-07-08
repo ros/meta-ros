@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/cyclonedds"
 SRC_URI = "git://github.com/ros2-gbp/cyclonedds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7f10fb21cb022d5f70201931f11f0b97b4d37d1f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

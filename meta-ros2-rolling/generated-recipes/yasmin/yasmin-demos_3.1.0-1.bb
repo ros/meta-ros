@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/yasmin_demos"
 SRC_URI = "git://github.com/ros2-gbp/yasmin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7e8e7b150dbbafcc7b3f56c629f9cb5b05d9e6d3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

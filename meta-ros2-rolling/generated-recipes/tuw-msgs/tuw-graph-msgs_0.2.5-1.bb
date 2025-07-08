@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tuw_graph_msgs"
 SRC_URI = "git://github.com/ros2-gbp/tuw_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f0849a95308c6774826fcb2e0941b4f2523abc9c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

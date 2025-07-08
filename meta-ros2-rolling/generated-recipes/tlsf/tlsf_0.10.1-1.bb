@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tlsf"
 SRC_URI = "git://github.com/ros2-gbp/tlsf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e531350f83af805ebd943fbdb9441d99f32d9fc2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/gps_tools"
 SRC_URI = "git://github.com/ros2-gbp/gps_umd-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9a31b611731b288d0e6e348a809458bd3c6c1c86"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

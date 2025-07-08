@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/flir_camera_description"
 SRC_URI = "git://github.com/ros2-gbp/flir_camera_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "818c5320a087c135c8f1d201e2d7c68e22eaf84c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

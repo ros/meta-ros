@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/pose_cov_ops"
 SRC_URI = "git://github.com/ros2-gbp/pose_cov_ops-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0fb300e86e3226a4501a0b2b0966d51eb2eb1aee"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

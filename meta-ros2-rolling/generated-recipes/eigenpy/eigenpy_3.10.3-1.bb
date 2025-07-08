@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/eigenpy"
 SRC_URI = "git://github.com/ros2-gbp/eigenpy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1d4119ea4d51612cd3ea4cd2ce6494084e33fbbe"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

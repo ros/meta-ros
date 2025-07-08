@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rc_reason_msgs"
 SRC_URI = "git://github.com/ros2-gbp/rc_reason_clients-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d8ac46af0adb4d828a3f3b293871a4c978e72cd1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/example_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/example_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "368ac34d464d3bf9a41f0ba57b4e620015ee41fe"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

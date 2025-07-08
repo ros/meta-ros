@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rqt_service_caller"
 SRC_URI = "git://github.com/ros2-gbp/rqt_service_caller-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8c3ae90bd185aa5ffb60fcd282c2a26fe62fba8a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

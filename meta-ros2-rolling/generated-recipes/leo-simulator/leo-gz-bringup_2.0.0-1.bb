@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/leo_gz_bringup"
 SRC_URI = "git://github.com/ros2-gbp/leo_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bffe89cbf7c9717c2bf9ab3f3b06bad5e86417f5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

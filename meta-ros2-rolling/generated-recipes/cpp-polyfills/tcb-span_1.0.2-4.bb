@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tcb_span"
 SRC_URI = "git://github.com/ros2-gbp/cpp_polyfills-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6512481c861c90c5702c8baf994a281b9df9d022"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

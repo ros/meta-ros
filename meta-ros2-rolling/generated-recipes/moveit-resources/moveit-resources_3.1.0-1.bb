@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/moveit_resources"
 SRC_URI = "git://github.com/ros2-gbp/moveit_resources-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0c88002b41768277f736f843fd6867b96e85491c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

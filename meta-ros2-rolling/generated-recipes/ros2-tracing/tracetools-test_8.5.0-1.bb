@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tracetools_test"
 SRC_URI = "git://github.com/ros2-gbp/ros2_tracing-release;${ROS_BRANCH};protocol=https"
 SRCREV = "445a2a755a019cde58b37c429d5daf8cdc4a0961"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ament_index_cpp"
 SRC_URI = "git://github.com/ros2-gbp/ament_index-release;${ROS_BRANCH};protocol=https"
 SRCREV = "de1404cfe677aacf5068bd9d292438878b4551a6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

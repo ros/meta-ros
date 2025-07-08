@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tuw_object_map_msgs"
 SRC_URI = "git://github.com/ros2-gbp/tuw_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b46ec36558d8ea0236a764d7fa5115096231c9d3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

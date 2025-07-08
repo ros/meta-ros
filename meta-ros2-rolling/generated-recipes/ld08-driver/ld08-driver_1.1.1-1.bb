@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ld08_driver"
 SRC_URI = "git://github.com/ros2-gbp/ld08_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "96ce0b3574e8dfe66c1f41722b3849d3534e489e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/nav2_minimal_tb4_description"
 SRC_URI = "git://github.com/ros2-gbp/nav2_minimal_turtlebot_simulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d755ce764ebbd54cc28a8f3e8d5160e5aef24c74"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

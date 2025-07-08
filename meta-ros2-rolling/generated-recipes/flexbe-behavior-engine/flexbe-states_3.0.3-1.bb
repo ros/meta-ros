@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/flexbe_states"
 SRC_URI = "git://github.com/ros2-gbp/flexbe_behavior_engine-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4c86a317b76c58c3b06c4e002dafd18129c20e19"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

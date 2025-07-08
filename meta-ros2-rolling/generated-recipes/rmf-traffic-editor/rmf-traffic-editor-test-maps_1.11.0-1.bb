@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rmf_traffic_editor_test_maps"
 SRC_URI = "git://github.com/ros2-gbp/rmf_traffic_editor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3056f6205fdd4590fdf1eba5acee594295c4b4a8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

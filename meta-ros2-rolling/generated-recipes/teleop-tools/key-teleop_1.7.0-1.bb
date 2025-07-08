@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/key_teleop"
 SRC_URI = "git://github.com/ros2-gbp/teleop_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1e58df485614cc690114ed7e815ef743c73c82f6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/python_qt_binding"
 SRC_URI = "git://github.com/ros2-gbp/python_qt_binding-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7f687ab903a3513f6deda9b43e67b1a0edbeb97f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

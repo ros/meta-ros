@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rqt_gui_py"
 SRC_URI = "git://github.com/ros2-gbp/rqt-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a38641e4ce4537393091000109d05b98edcf0811"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

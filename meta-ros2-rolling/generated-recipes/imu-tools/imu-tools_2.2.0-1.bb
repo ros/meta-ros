@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/imu_tools"
 SRC_URI = "git://github.com/ros2-gbp/imu_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8a41ced25e631717e56c24cfa375edff7d68ad20"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/geometry_tutorials"
 SRC_URI = "git://github.com/ros2-gbp/geometry_tutorials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "25f63a818f4ffab78daa70fcdbee5e05d3a48653"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

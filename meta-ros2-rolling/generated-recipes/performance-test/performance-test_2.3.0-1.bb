@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/performance_test"
 SRC_URI = "git://github.com/ros2-gbp/performance_test-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bb8375cdd83c85fd78c27dbb34f7c75ee5444628"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

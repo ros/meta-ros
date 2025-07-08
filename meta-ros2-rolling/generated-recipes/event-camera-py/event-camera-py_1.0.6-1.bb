@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/event_camera_py"
 SRC_URI = "git://github.com/ros2-gbp/event_camera_py-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d8d4e7da07d442fb6c0a5293960c10c1ee4194e2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

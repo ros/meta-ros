@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/imu_processors"
 SRC_URI = "git://github.com/ros2-gbp/imu_pipeline-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ac0bccd63f6a97ba4c83f001b94564efbf62296"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

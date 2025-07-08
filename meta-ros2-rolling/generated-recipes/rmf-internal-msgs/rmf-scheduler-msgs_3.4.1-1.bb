@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rmf_scheduler_msgs"
 SRC_URI = "git://github.com/ros2-gbp/rmf_internal_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "225b627d58f9f5526661022613dabdd10ebba38b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

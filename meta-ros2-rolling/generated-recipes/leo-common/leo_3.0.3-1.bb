@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/leo"
 SRC_URI = "git://github.com/ros2-gbp/leo_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fb908a97861b43c2c72b2ec5ed193a3adf0f5201"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

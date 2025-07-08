@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rosidl_generator_dds_idl"
 SRC_URI = "git://github.com/ros2-gbp/rosidl_dds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6a982f6a23613fc9e11e8ecba8e801572e086db4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/cascade_lifecycle_msgs"
 SRC_URI = "git://github.com/ros2-gbp/cascade_lifecycle-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7ad0edb701febd76972bf734e2a8c57c66391308"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

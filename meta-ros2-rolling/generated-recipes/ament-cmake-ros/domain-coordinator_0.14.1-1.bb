@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/domain_coordinator"
 SRC_URI = "git://github.com/ros2-gbp/ament_cmake_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d0fb206cc22c9af502e9f38c1d505c3bf3e5bc2b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

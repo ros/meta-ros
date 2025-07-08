@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/aruco_opencv"
 SRC_URI = "git://github.com/ros2-gbp/aruco_opencv-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8a6e6a56f544b99eb6c8be848f1a5a4b9a463d9b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -75,7 +75,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/foxglove_compressed_video_transport"
 SRC_URI = "git://github.com/ros2-gbp/foxglove_compressed_video_transport-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a8260eca188bf8cce3a0c9c1420c0d8ab4bb82fd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

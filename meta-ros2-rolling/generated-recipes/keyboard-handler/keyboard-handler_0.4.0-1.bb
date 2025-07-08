@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/keyboard_handler"
 SRC_URI = "git://github.com/ros2-gbp/keyboard_handler-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5518cbbb786b7a6d0ef4d1406544c7ac4fdf3c31"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

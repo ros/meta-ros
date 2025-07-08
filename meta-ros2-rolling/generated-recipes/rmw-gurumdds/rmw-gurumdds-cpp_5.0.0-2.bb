@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rmw_gurumdds_cpp"
 SRC_URI = "git://github.com/ros2-gbp/rmw_gurumdds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "085def94504969a914feaee68f4498ee563f6aab"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

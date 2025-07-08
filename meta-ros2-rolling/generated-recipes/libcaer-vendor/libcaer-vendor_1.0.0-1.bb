@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/libcaer_vendor"
 SRC_URI = "git://github.com/ros2-gbp/libcaer_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "541500c206151a84a4b2e6c8fc6503690077a69f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

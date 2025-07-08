@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/hls_lfcd_lds_driver"
 SRC_URI = "git://github.com/ros2-gbp/hls_lfcd_lds_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3c582dbc257f0ebf7629c2a256c28314fab21597"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

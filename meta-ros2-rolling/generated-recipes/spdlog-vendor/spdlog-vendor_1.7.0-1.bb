@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/spdlog_vendor"
 SRC_URI = "git://github.com/ros2-gbp/spdlog_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f9ebbb06b3af20a3e9f5cb13a1ae2e26d42e3f32"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

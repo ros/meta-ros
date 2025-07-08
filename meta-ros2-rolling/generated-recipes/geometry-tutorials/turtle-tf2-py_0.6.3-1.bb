@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/turtle_tf2_py"
 SRC_URI = "git://github.com/ros2-gbp/geometry_tutorials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3c2706c7a9d09b819c1dab0ee6e13baee0eaeb82"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

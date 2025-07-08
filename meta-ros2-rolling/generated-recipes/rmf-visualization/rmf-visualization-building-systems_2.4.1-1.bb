@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rmf_visualization_building_systems"
 SRC_URI = "git://github.com/ros2-gbp/rmf_visualization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e4dbe1e632168051a340168bc3b1205577e259fa"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

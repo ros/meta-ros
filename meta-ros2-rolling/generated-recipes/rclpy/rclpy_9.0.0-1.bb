@@ -100,7 +100,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rclpy"
 SRC_URI = "git://github.com/ros2-gbp/rclpy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "95e8b3de3597924862e22956c74cbef46826c692"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

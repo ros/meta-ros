@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/robotiq_controllers"
 SRC_URI = "git://github.com/ros2-gbp/ros2_robotiq_gripper-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0d7e56423ce92d510911df6678f4ac0bb93173c2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

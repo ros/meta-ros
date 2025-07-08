@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/pluginlib"
 SRC_URI = "git://github.com/ros2-gbp/pluginlib-release;${ROS_BRANCH};protocol=https"
 SRCREV = "05e60ed809104e9e5d8d4c3fb2bfb5dccdd7ab20"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

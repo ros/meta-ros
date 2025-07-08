@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tinyxml2_vendor"
 SRC_URI = "git://github.com/ros2-gbp/tinyxml2_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "141f943e8a56d4445d631696658690d2fe25c311"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/libstatistics_collector"
 SRC_URI = "git://github.com/ros2-gbp/libstatistics_collector-release;${ROS_BRANCH};protocol=https"
 SRCREV = "94b7dd7e7505bd7c6516a4a78c1ac90aa46ee8ce"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

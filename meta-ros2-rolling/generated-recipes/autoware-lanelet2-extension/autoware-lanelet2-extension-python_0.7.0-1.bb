@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/autoware_lanelet2_extension_python"
 SRC_URI = "git://github.com/ros2-gbp/autoware_lanelet2_extension-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2c65851a283cbcd3f519fb250df3591903b02ec5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

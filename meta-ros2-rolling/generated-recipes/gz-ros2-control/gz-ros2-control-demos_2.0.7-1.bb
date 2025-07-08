@@ -78,7 +78,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/gz_ros2_control_demos"
 SRC_URI = "git://github.com/ros2-gbp/ign_ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9a4dcb110bcefa8587784ca02c8404af1d5e033b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/uncrustify_vendor"
 SRC_URI = "git://github.com/ros2-gbp/uncrustify_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1305134544d1939805a070f24b44ec66ce3baf0c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/data_tamer_msgs"
 SRC_URI = "git://github.com/ros2-gbp/data_tamer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a2a401f97e0492abb8c838db9e20bafffff19eb9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/leo_bringup"
 SRC_URI = "git://github.com/ros2-gbp/leo_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8919309b4bf2cc863c799517bd300c49c7fa2fab"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

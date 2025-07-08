@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ros2_controllers_test_nodes"
 SRC_URI = "git://github.com/ros2-gbp/ros2_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "45d113472928b7faf922f5cd9a2adc997285772b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

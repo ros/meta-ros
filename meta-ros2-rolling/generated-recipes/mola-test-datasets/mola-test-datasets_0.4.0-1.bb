@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/mola_test_datasets"
 SRC_URI = "git://github.com/ros2-gbp/mola_test_datasets-release;${ROS_BRANCH};protocol=https"
 SRCREV = "392c24f1c4220d93ddc2dcf30744dcf30972f2b4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

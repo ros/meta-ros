@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/google_benchmark_vendor"
 SRC_URI = "git://github.com/ros2-gbp/google_benchmark_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4cd9ab59e6d6008c683bfbaa1d6318b4161f1107"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

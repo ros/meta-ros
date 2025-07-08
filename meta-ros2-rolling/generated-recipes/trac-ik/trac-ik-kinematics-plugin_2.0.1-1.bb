@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/trac_ik_kinematics_plugin"
 SRC_URI = "git://github.com/ros2-gbp/trac_ik-release;${ROS_BRANCH};protocol=https"
 SRCREV = "24bf5772c012f78fdf75894cda26c296f9dda8d5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

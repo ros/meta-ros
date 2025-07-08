@@ -94,7 +94,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/septentrio_gnss_driver"
 SRC_URI = "git://github.com/ros2-gbp/septentrio_gnss_driver_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "99f5092e3ad400d7cdf160289a64b77a708a5678"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

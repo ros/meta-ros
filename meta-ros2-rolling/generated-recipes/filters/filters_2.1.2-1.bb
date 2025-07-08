@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/filters"
 SRC_URI = "git://github.com/ros2-gbp/filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3faf06b85a865df2e87bbe24556e4e7faecdbd33"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

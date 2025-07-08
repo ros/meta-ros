@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/turtlesim"
 SRC_URI = "git://github.com/ros2-gbp/ros_tutorials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4fa7d0da6427665fa4540503b0c5bc5cf85314db"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

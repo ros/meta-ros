@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/turbojpeg_compressed_image_transport"
 SRC_URI = "git://github.com/ros2-gbp/turbojpeg_compressed_image_transport-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7a7cfccd327c480d90d212802c88a4da983ddfcd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

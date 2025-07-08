@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/flex_sync"
 SRC_URI = "git://github.com/ros2-gbp/flex_sync-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c9912ffa6d31b5704c13c376b92c0c201fa7ad30"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

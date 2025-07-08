@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/laser_geometry"
 SRC_URI = "git://github.com/ros2-gbp/laser_geometry-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2335b87461c55e15bee5bed3f9508b7b9dd6793c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

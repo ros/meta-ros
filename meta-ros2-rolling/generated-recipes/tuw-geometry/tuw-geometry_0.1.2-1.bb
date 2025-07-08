@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tuw_geometry"
 SRC_URI = "git://github.com/ros2-gbp/tuw_geometry-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5bde208311d150c82a76f5eb8b1c93ed5128cc1d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
