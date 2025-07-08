@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/vrpn"
 SRC_URI = "git://github.com/ros-drivers-gbp/vrpn-release;${ROS_BRANCH};protocol=https"
 SRCREV = "95a6a5232a64559152df35581ea5c0581adad844"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

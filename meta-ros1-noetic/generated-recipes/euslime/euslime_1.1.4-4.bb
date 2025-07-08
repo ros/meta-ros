@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/euslime"
 SRC_URI = "git://github.com/jsk-ros-pkg/euslime-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4530be1a9ed654e0e51a63f710321b202b0d15bb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

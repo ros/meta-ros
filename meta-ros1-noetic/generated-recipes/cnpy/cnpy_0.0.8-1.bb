@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cnpy"
 SRC_URI = "git://github.com/PeterMitrano/cnpy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f30abafb41a0889664efc3de7f24d993f65221d4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

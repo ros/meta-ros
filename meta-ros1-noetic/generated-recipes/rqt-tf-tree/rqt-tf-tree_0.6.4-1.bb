@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_tf_tree"
 SRC_URI = "git://github.com/ros-gbp/rqt_tf_tree-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4dcb5a0355ff2449903f8df99cdf24441fb23524"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

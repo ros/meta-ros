@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/visualization_tutorials"
 SRC_URI = "git://github.com/ros-gbp/visualization_tutorials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3cc8a74f312eddc445c70f43f46af66824c98196"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

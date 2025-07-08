@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libuvc_camera"
 SRC_URI = "git://github.com/ros-drivers-gbp/libuvc_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5cf833a71e077d80feabc521188db4a449612eb4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

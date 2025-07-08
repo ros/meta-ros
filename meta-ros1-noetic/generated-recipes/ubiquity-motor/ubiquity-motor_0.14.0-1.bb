@@ -76,7 +76,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ubiquity_motor"
 SRC_URI = "git://github.com/UbiquityRobotics-release/ubiquity_motor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "db1a61d7da6d512eca05af77dd0e3818e717e8e5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

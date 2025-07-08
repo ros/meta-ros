@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/eusurdf"
 SRC_URI = "git://github.com/tork-a/jsk_model_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "de9a4b8df01898bc01f8889d1c72359782e033b1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

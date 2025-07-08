@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/grid_map_visualization"
 SRC_URI = "git://github.com/anybotics/grid_map-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d6f38b66fd49a2cb478a2ca987ca90f0ba7d43c4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

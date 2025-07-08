@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ira_laser_tools"
 SRC_URI = "git://github.com/iralabdisco/ira_laser_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1cc47163845166df57d5794d33e1cf03fb1bdee7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

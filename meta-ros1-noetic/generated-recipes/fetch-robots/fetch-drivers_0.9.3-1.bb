@@ -110,7 +110,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fetch_drivers"
 SRC_URI = "git://github.com/fetchrobotics-gbp/fetch_robots-release;${ROS_BRANCH};protocol=https"
 SRCREV = "49912cd02a33ab92188261118f79d497f8de35e4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

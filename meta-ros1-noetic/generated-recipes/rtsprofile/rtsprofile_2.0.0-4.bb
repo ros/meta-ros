@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rtsprofile"
 SRC_URI = "git://github.com/tork-a/rtsprofile-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1fcc79db5949ab46eb96dd2fe8a8af5436d79418"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

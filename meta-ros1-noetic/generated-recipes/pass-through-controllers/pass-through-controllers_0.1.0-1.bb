@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pass_through_controllers"
 SRC_URI = "git://github.com/UniversalRobots/Universal_Robots_ROS_passthrough_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3336e744ae65ea7d62e630a695367a4311c2178d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

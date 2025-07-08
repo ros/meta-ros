@@ -103,7 +103,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/jsk_footstep_controller"
 SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dda04de9b7a5dcb636ea3c686f93453812196376"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

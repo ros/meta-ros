@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/eiquadprog"
 SRC_URI = "git://github.com/stack-of-tasks/eiquadprog-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "07656bd9d650e2060883e20a51efac334e546a28"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/chomp_motion_planner"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7edba64cd9c951459d74a3841043570ae78acb24"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

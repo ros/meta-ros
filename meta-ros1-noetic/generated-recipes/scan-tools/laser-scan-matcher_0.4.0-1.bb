@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laser_scan_matcher"
 SRC_URI = "git://github.com/ros-gbp/scan_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6ae9b2c658ce6c282026f84544f8a1e68e8234b9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

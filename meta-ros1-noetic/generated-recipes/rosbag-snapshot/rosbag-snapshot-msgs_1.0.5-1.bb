@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosbag_snapshot_msgs"
 SRC_URI = "git://github.com/ros-gbp/rosbag_snapshot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0729c55053a239ca2e840fbf9b4cf4bef69d3e14"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

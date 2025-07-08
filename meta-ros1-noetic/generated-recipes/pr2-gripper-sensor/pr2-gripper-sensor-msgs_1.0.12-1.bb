@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_gripper_sensor_msgs"
 SRC_URI = "git://github.com/pr2-gbp/pr2_gripper_sensor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f0e01133eed19642f978d4b739e4e2248adf2f1e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nao_meshes"
 SRC_URI = "git://github.com/ros-naoqi/nao_meshes-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3a3c83f6e551fc7e07fe20c7c92893e1d717e231"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

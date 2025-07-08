@@ -78,7 +78,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/thunder_line_follower_pmr3100"
 SRC_URI = "git://github.com/ThundeRatz/thunder_line_follower_pmr3100-release;${ROS_BRANCH};protocol=https"
 SRCREV = "665529bf5011f916613e4c2f27b61c7514f00997"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

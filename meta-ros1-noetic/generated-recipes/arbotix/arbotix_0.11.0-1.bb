@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/arbotix"
 SRC_URI = "git://github.com/vanadiumlabs/arbotix_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3e41ac502609a53d2d7f7f29fb849a423109406b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

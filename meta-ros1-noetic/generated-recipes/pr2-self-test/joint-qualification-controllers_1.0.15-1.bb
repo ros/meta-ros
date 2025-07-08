@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joint_qualification_controllers"
 SRC_URI = "git://github.com/pr2-gbp/pr2_self_test-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b1800487bdd09b32810f18f12a763cb0ffd20612"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

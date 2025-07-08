@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rviz_tool_cursor"
 SRC_URI = "git://github.com/ros-industrial-release/rviz_tool_cursor;${ROS_BRANCH};protocol=https"
 SRCREV = "6ecdf810f3de9564e9a09827ea34c0109ff01401"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

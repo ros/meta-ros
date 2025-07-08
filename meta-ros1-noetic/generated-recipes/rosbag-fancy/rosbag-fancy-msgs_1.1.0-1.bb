@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosbag_fancy_msgs"
 SRC_URI = "git://github.com/xqms/rosbag_fancy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eeee93ed66f4193a3a97143495584e42251e8b40"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

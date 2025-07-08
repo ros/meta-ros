@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cartesian_interface"
 SRC_URI = "git://github.com/UniversalRobots/Universal_Robots_ROS_controllers_cartesian-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c4dfa227cc22c03ec6f56c6947b652478ecd4832"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

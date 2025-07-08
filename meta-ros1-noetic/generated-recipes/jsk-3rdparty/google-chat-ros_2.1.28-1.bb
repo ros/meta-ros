@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/google_chat_ros"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a3d864d861fec2202a4e7db17c1027dcc17f30b5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

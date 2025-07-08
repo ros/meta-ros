@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/move_slow_and_clear"
 SRC_URI = "git://github.com/ros-gbp/navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "feec189e85b5a9620b7139d538093616caaea36e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ess_imu_ros1_uart_driver"
 SRC_URI = "git://github.com/cubicleguy/ess_imu_ros1_uart_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5c7b5ad5d1b311e5651f794d2efa44beb69084a5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

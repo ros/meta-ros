@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ros_numpy"
 SRC_URI = "git://github.com/eric-wieser/ros_numpy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c301ac4d22e94438f2ae1e76d528cd8ab07377d7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosconsole_bridge"
 SRC_URI = "git://github.com/ros-gbp/rosconsole_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7a4a0f4686206d87e04c33d64634d4cc318e68c8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

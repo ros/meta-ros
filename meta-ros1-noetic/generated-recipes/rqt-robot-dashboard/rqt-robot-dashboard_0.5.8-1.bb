@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_robot_dashboard"
 SRC_URI = "git://github.com/ros-gbp/rqt_robot_dashboard-release;${ROS_BRANCH};protocol=https"
 SRCREV = "42c30fd19de9308580e264f18cad12e13c9c92b6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

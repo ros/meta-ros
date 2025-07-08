@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mongodb_store"
 SRC_URI = "git://github.com/strands-project-releases/mongodb_store;${ROS_BRANCH};protocol=https"
 SRCREV = "36f221208aa9e50e8828485dae6a899cbb0d4392"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

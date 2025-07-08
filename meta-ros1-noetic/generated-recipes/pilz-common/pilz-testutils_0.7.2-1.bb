@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pilz_testutils"
 SRC_URI = "git://github.com/PilzDE/pilz_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1410bb71b813a17297fe2a06cbaa3e38697e3bd7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

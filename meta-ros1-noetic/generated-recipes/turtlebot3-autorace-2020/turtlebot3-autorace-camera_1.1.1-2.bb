@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/turtlebot3_autorace_camera"
 SRC_URI = "git://github.com/ROBOTIS-GIT-release/turtlebot3_autorace_2020_release;${ROS_BRANCH};protocol=https"
 SRCREV = "2d5f69c1a75a968a95a12296b8c7ad6fb2e9b26f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

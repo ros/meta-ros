@@ -93,7 +93,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/aruco_detect"
 SRC_URI = "git://github.com/UbiquityRobotics-release/fiducials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "75cf3c9ca5dbd6be9402a7f4e8f6526fda4c0d20"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

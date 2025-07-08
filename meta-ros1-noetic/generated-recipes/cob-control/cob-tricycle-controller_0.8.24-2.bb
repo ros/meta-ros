@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_tricycle_controller"
 SRC_URI = "git://github.com/4am-robotics/cob_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ff5f6d473bcf415b3e416144126b431fca1a4044"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

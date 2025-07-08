@@ -79,7 +79,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/create_driver"
 SRC_URI = "git://github.com/autonomylab/create_autonomy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e9025be91cfba6bb1ff99d6c2d2b42b19e0218bc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

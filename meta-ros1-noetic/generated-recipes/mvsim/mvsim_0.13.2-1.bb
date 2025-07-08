@@ -117,7 +117,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mvsim"
 SRC_URI = "git://github.com/ual-arm-ros-pkg-release/mvsim-release;${ROS_BRANCH};protocol=https"
 SRCREV = "60ebdb8bdc88d465ce2783159ed99dc0a6f3e85e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

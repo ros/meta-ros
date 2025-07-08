@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tesseract_support"
 SRC_URI = "git://github.com/ros-industrial-release/tesseract-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9c0bad2e485d5a3723882c0663610dd7a1480bd1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/scaled_controllers"
 SRC_URI = "git://github.com/UniversalRobots/Universal_Robots_ROS_scaled_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5ed2fbbe8a192a358e29b83a51e7a5a823ba0105"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/velocity_controllers"
 SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "436bdfd31d01eb843d0699fefc4fa2e47cfc60dc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

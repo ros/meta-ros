@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ifm3d"
 SRC_URI = "git://github.com/ifm/ifm3d-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0d8db58f56135dea741897500b80812b41f4202c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

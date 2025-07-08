@@ -108,7 +108,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_gazebo"
 SRC_URI = "git://github.com/pr2-gbp/pr2_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a9c680b29eb81a343572f5e6e836004a5200f8ba"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

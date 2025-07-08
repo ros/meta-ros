@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/perception_pcl"
 SRC_URI = "git://github.com/ros-gbp/perception_pcl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "98a08ec191619f3a7dd1b66c45a2a5e9cce75de9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

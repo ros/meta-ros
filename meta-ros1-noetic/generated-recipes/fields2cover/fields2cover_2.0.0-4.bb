@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fields2cover"
 SRC_URI = "git://github.com/Fields2Cover/fields2cover-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9cd39cfa7e8e56ab59ea548c00b9fdb8a5d36d6f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

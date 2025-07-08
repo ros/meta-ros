@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/paho-mqtt-c"
 SRC_URI = "git://github.com/nobleo/paho.mqtt.c-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f788133816f67e57c9a09584474cf06dfe977a03"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

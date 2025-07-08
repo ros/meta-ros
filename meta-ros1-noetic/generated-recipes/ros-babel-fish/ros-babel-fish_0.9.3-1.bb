@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ros_babel_fish"
 SRC_URI = "git://github.com/StefanFabian/ros_babel_fish-release;${ROS_BRANCH};protocol=https"
 SRCREV = "96c24285215e9ea6ec01c5b6ff5eb87953d831ac"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sob_layer"
 SRC_URI = "git://github.com/dorezyuk/sob_layer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "551af2358326a4ae41d509748c6f051490e5f56c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

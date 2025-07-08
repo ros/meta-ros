@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/global_planner_tests"
 SRC_URI = "git://github.com/DLu/robot_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2b3fb4fcbf05f5f194cf6730873cecabc70c1518"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

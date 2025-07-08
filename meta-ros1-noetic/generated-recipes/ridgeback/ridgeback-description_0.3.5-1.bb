@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ridgeback_description"
 SRC_URI = "git://github.com/clearpath-gbp/ridgeback-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a4bbbe214bea1ea3ce1a7935ceefc8e73a7dbf74"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

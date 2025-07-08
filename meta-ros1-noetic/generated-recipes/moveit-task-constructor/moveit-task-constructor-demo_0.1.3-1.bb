@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_task_constructor_demo"
 SRC_URI = "git://github.com/ros-gbp/moveit_task_constructor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "71b2984d90404728d1a9801e3b202c884cd2d555"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

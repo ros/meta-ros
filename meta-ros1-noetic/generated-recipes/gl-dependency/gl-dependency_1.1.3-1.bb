@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gl_dependency"
 SRC_URI = "git://github.com/ros-gbp/gl_dependency-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c236850692cb968d8560e9777d9737cccde49ee9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

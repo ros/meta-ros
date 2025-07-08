@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/static_transform_mux"
 SRC_URI = "git://github.com/peci1/static_transform_mux-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1697b1be88ae31dda559016d371a8cd7ac824109"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 
