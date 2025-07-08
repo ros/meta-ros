@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/python_mrpt"
 SRC_URI = "git://github.com/ros2-gbp/python_mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cd4dcdda3ed20188673f452bceb431bf49e8c7e9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/zed_msgs"
 SRC_URI = "git://github.com/ros2-gbp/zed-ros2-interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "60e0b92b1735f8e99aa7bb867ff698dda86a3153"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

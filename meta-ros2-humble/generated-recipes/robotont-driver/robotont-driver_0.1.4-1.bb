@@ -86,7 +86,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/robotont_driver"
 SRC_URI = "git://github.com/ros2-gbp/robotont_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "54ea48dbc7551170e79e515e2b7a98066a013cbd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

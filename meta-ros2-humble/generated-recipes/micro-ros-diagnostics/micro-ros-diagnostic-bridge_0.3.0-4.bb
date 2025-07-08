@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/micro_ros_diagnostic_bridge"
 SRC_URI = "git://github.com/ros2-gbp/micro_ros_diagnostics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "732edd31cab38486ec40f73af771fd29b462aee9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

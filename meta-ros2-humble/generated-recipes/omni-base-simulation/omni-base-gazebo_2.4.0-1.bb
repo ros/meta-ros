@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/omni_base_gazebo"
 SRC_URI = "git://github.com/pal-gbp/omni_base_simulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b1888be3da7ef98c82d094a55426b3c251777d2d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

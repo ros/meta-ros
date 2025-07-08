@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ld08_driver"
 SRC_URI = "git://github.com/ros2-gbp/ld08_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d7fb37fe957bdf163b7e5ec1801d858431d9c368"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

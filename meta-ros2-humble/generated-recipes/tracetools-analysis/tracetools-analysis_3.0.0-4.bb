@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/tracetools_analysis"
 SRC_URI = "git://github.com/ros2-gbp/tracetools_analysis-release;${ROS_BRANCH};protocol=https"
 SRCREV = "704228283a0d07032f1a3f67259665c9fec79c09"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

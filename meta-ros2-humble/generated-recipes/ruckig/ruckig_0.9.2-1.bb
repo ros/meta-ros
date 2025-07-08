@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ruckig"
 SRC_URI = "git://github.com/ros2-gbp/ruckig-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ce2e814413156ae2c9330118cb7d349cf867358a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

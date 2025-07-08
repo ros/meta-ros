@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/fast_gicp"
 SRC_URI = "git://github.com/ros2-gbp/fast_gicp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2df9bd9c735513ed193ce6b27f8851ee01245a67"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

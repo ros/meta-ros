@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/autoware_cmake"
 SRC_URI = "git://github.com/ros2-gbp/autoware_cmake-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ac4c924305a4eb99d89a73f24a9ce408700830c8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

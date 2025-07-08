@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mola_relocalization"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "939a869c43bcd3f1e751ab5fa0fcd7b985873229"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

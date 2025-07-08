@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/irobot_create_msgs"
 SRC_URI = "git://github.com/ros2-gbp/irobot_create_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "77836ff7d886185b9661229719a11695c2a6fb88"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

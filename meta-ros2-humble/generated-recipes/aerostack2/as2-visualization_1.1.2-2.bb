@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/as2_visualization"
 SRC_URI = "git://github.com/ros2-gbp/aerostack2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2d5b0893ceb173b39624bf787e1c14bc0f2c4606"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

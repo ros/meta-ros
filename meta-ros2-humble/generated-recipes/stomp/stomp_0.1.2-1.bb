@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/stomp"
 SRC_URI = "git://github.com/ros2-gbp/stomp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3572a971675147c9fffb5cbd2c464d7705d06abd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

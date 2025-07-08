@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/python_cmake_module"
 SRC_URI = "git://github.com/ros2-gbp/python_cmake_module-release;${ROS_BRANCH};protocol=https"
 SRCREV = "afb4c5c6c5f78ced88a5f5802caf5707025b6b33"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/smacc2_msgs"
 SRC_URI = "git://github.com/robosoft-ai/SMACC2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "47c9dcc091b4a224853e3c2a998c2684377b4f77"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

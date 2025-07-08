@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/as2_platform_crazyflie"
 SRC_URI = "git://github.com/ros2-gbp/as2_platform_crazyfile-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5cc884d8c796a30c2a325ede90971889c749261a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

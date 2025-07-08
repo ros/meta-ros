@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/aws_sdk_cpp_vendor"
 SRC_URI = "git://github.com/ros2-gbp/aws_sdk_cpp_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fa5e596553d046bd8e1f9481987a3af8e887e1ad"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

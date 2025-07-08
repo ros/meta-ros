@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mola_input_euroc_dataset"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fc32daf0ab9bef7f4c2970093a3e4ce81e78ec05"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 
