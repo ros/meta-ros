@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ros_image_to_qimage"
 SRC_URI = "git://github.com/ros2-gbp/ros_image_to_qimage-release;${ROS_BRANCH};protocol=https"
 SRCREV = "73eb2db321f27aab67b475a236a19607124896be"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

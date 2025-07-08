@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/clearpath_ros2_socketcan_interface"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_ros2_socketcan_interface-release;${ROS_BRANCH};protocol=https"
 SRCREV = "802e652d590b9ced257c3b939bc346d8002d2340"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

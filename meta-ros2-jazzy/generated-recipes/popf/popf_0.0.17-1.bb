@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/popf"
 SRC_URI = "git://github.com/ros2-gbp/popf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bb811a0ad2d771cc49a83ab9e42b7fb663637791"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

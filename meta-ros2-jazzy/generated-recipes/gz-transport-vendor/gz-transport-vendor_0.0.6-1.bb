@@ -86,7 +86,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/gz_transport_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_transport_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4f33dac3ec8ae1aa73bbc2b96f0d2fc6c4ccb574"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
