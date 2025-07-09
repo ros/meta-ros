@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/OctoMap/octomap.git;protocol=https;branch=devel"
 
 SRCREV = "863e069489ef619d7179e3b21480dffb41b2af66"
 
-S = "${UNPACKDIR}/git/octomap"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/octomap"
 
 inherit cmake
 
