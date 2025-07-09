@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rc_common_msgs"
 SRC_URI = "git://github.com/ros2-gbp/rc_common_msgs_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "97860016ef09eac11070946859c63e3adbcadcb9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

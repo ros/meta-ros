@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/examples_rclpy_minimal_publisher"
 SRC_URI = "git://github.com/ros2-gbp/examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a78c3ad6f6e7a5e077ffc2896d3b183e248e4eca"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/libnabo"
 SRC_URI = "git://github.com/ros2-gbp/libnabo-release;${ROS_BRANCH};protocol=https"
 SRCREV = "49d1a2614e6b772794b45ce1924bb9b6738092f0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

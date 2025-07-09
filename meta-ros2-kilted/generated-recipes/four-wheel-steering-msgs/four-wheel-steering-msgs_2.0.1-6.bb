@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/four_wheel_steering_msgs"
 SRC_URI = "git://github.com/ros2-gbp/four_wheel_steering_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8383f09339c68b443be5089a024d902a18428553"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

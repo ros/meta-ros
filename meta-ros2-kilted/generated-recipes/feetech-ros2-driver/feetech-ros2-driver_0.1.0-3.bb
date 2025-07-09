@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/feetech_ros2_driver"
 SRC_URI = "git://github.com/ros2-gbp/feetech_ros2_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1a9601c4716c80a446627bcccb523b744a5d82e5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

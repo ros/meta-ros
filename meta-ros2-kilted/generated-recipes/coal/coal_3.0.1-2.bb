@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/coal"
 SRC_URI = "git://github.com/ros2-gbp/coal-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f69f98cfcb87b1e893c30b139403ab68aed6c13f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

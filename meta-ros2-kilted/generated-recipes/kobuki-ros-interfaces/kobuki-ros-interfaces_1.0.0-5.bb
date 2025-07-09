@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/kobuki_ros_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/kobuki_ros_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6942bb3ec9d3c423348db2034496a783c6d4a9bc"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -69,6 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ros2nodl"
 SRC_URI = "git://github.com/ros2-gbp/nodl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f8f05863b465dadba676ea50d306d78ed0b2d848"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -80,6 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/pointcloud_to_laserscan"
 SRC_URI = "git://github.com/ros2-gbp/pointcloud_to_laserscan-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fe0ce066507791afec489c7086fc45ee596ac72a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

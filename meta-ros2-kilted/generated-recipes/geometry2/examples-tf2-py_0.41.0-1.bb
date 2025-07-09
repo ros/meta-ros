@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/examples_tf2_py"
 SRC_URI = "git://github.com/ros2-gbp/geometry2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "619659da8d1184d7a2700919b21eb8593966dbf3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

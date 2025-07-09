@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/color_util"
 SRC_URI = "git://github.com/ros2-gbp/color_util-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c851c4d075498e22bcfdcd7f0bcf510de77533dd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

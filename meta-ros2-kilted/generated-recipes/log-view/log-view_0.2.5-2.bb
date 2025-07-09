@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/log_view"
 SRC_URI = "git://github.com/ros2-gbp/log_view-release;${ROS_BRANCH};protocol=https"
 SRCREV = "efacb65532f755bddf47497cec19e96c14639e77"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

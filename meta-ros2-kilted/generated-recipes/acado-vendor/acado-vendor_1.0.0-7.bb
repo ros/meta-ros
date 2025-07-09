@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/acado_vendor"
 SRC_URI = "git://github.com/ros2-gbp/acado_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "12a054df1bcdb0555d82c1c109b51207e1896618"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

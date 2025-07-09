@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mrpt_msgs"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cb78815b03db69b4825b420dc3a99c1de08ca880"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

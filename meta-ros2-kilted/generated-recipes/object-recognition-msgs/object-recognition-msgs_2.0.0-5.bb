@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/object_recognition_msgs"
 SRC_URI = "git://github.com/ros2-gbp/object_recognition_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "38dcaafe75d5f791c0a0f6a137eeef9977349d02"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

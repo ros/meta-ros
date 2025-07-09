@@ -59,11 +59,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-gripper-controllers} \
     control-msgs \
     controller-manager \
     generate-parameter-library \
     geometry-msgs \
-    gripper-controllers \
     joint-state-broadcaster \
     joint-trajectory-controller \
     joy \
@@ -104,6 +104,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/moveit_servo"
 SRC_URI = "git://github.com/ros2-gbp/moveit2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "de640fa084c821db8a2766bf2187f1fe9b2311d4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

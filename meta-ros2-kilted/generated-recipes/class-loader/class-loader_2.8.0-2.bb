@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/class_loader"
 SRC_URI = "git://github.com/ros2-gbp/class_loader-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cad0b31f932bd479ddd83147636eb053e980878d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

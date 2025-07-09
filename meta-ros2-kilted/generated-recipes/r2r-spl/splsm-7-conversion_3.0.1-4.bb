@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/splsm_7_conversion"
 SRC_URI = "git://github.com/ros2-gbp/r2r_spl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7f2740531281744f07964ee59b465f66eefc644f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

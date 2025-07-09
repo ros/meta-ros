@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/can_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ros_canopen-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b08dd3addce38e30fc21486e596dd3f3ce4ed4d2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

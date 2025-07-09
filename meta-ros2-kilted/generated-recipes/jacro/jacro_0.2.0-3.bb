@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/jacro"
 SRC_URI = "git://github.com/ros2-gbp/jacro-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c451fb5c6fa270170e38d633f5cf5f589b536ce9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/twist_stamper"
 SRC_URI = "git://github.com/ros2-gbp/twist_stamper-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f4ee9998fc84ca803976cef5c13ed270fb539e97"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

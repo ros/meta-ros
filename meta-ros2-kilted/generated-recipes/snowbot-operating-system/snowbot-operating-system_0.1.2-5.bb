@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/snowbot_operating_system"
 SRC_URI = "git://github.com/ros2-gbp/snowbot_release;${ROS_BRANCH};protocol=https"
 SRCREV = "ae1e84ab29e7f9f78c56f3dd1812b6629b322e15"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

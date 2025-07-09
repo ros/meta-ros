@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/proxsuite"
 SRC_URI = "git://github.com/ros2-gbp/proxsuite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1ded99b9224c49091f654baf87cb46c1d3099ba5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

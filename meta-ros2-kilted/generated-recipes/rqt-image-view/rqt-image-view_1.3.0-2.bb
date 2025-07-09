@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rqt_image_view"
 SRC_URI = "git://github.com/ros2-gbp/rqt_image_view-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2ed2f8c8dc2522beebcd8afd60ca468dfaf675b6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

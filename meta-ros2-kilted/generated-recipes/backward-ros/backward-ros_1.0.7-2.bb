@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/backward_ros"
 SRC_URI = "git://github.com/ros2-gbp/backward_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "341749457630c45267bb4f96c5ba294f2a58a427"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

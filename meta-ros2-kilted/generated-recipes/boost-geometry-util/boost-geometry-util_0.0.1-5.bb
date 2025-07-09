@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/boost_geometry_util"
 SRC_URI = "git://github.com/ros2-gbp/boost_geometry_util-release;${ROS_BRANCH};protocol=https"
 SRCREV = "03977060f021c17dc0d3653014a90acd0e40170d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
