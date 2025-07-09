@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ecl_sigslots_lite"
 SRC_URI = "git://github.com/ros2-gbp/ecl_lite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "95d136bc1418084990b97777a7a3a35563ec9b06"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

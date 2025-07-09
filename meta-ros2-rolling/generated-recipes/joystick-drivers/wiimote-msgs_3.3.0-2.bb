@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/wiimote_msgs"
 SRC_URI = "git://github.com/ros2-gbp/joystick_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ad48e8fe2bf4366d8f0ce3e6d5b5fba311fed897"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

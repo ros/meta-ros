@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/neo_simulation2"
 SRC_URI = "git://github.com/ros2-gbp/neo_simulation2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "12120f476ec8fe484d75e8c14fbb3a9d0976b3df"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/libpointmatcher"
 SRC_URI = "git://github.com/ros2-gbp/libpointmatcher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "23e3db61b290da2cd55b842f885bcaf52b2c7d5a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tvm_vendor"
 SRC_URI = "git://github.com/ros2-gbp/tvm_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "86b5d14e89904fa76c2a266601ee5f171607445a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

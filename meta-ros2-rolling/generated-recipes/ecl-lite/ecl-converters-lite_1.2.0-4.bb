@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ecl_converters_lite"
 SRC_URI = "git://github.com/ros2-gbp/ecl_lite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "da9921de2be3c1b5e77124804d56bbcfbe9d47d2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

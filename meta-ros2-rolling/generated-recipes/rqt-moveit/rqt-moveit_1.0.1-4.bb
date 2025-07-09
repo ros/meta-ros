@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rqt_moveit"
 SRC_URI = "git://github.com/ros2-gbp/rqt_moveit-release;${ROS_BRANCH};protocol=https"
 SRCREV = "77d26a0f8c1dbfb5f7e482933936a95ff0173b5d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

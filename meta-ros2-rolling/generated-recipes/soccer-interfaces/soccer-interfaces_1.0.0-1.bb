@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/soccer_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/soccer_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b358a9e2bdbc9f45a07ae1cf636a165f52a0e686"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

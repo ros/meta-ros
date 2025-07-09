@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rmf_demos_bridges"
 SRC_URI = "git://github.com/ros2-gbp/rmf_demos-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0358fe4804d336161f1fd0c8529750d794bf7e57"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

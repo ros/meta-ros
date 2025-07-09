@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/octomap_mapping"
 SRC_URI = "git://github.com/ros2-gbp/octomap_mapping-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6cd31f823198e3f9f2d6170ee0daf5979eabccc2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

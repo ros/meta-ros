@@ -83,6 +83,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/gz_fuel_tools_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_fuel_tools_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "52b3fe497ef701459a74b62617371ee9697892fe"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

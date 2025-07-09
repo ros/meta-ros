@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/soccer_vision_3d_msgs"
 SRC_URI = "git://github.com/ros2-gbp/soccer_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "72599c545ef722b418ffd81f89a3f171b17454c4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

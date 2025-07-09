@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/vrpn"
 SRC_URI = "git://github.com/ros2-gbp/vrpn-release;${ROS_BRANCH};protocol=https"
 SRCREV = "358301cb68d6b50ecb00e64c22c69a6021ba0900"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/fmi_adapter"
 SRC_URI = "git://github.com/ros2-gbp/fmi_adapter-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4d5abe287d3113eed130e46e8f4c0cab8fa90d14"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

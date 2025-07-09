@@ -29,8 +29,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-gazebo-ros2-control} \
+    ${ROS_UNRESOLVED_DEP-gripper-controllers} \
     controller-manager \
-    gripper-controllers \
     joint-state-broadcaster \
     joint-state-publisher \
     joint-trajectory-controller \
@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/kortex_bringup"
 SRC_URI = "git://github.com/ros2-gbp/ros2_kortex-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7b1b9e5b58add56d94b77593684e748c7b8b68d0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ublox"
 SRC_URI = "git://github.com/ros2-gbp/ublox-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2d85ed646da6998974f76b2e2dbd086401b46e61"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ecl_errors"
 SRC_URI = "git://github.com/ros2-gbp/ecl_lite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5a23e831f2c3b763d31cec43181e94b67713142c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

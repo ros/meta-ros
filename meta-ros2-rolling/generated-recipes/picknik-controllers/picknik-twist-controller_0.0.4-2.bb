@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/picknik_twist_controller"
 SRC_URI = "git://github.com/ros2-gbp/picknik_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f5715dd5fe4c58851066f2e0d05c6bad2393440f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

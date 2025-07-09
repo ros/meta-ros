@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/geographic_info"
 SRC_URI = "git://github.com/ros2-gbp/geographic_info-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d383a93b5b352857206ef02b4826a1ef3b2a3e96"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rmf_cmake_uncrustify"
 SRC_URI = "git://github.com/ros2-gbp/rmf_cmake_uncrustify-release;${ROS_BRANCH};protocol=https"
 SRCREV = "66787d123188380569a9ad1d29680caad59e36ac"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

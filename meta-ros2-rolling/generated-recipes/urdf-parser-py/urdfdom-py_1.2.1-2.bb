@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/urdfdom_py"
 SRC_URI = "git://github.com/ros2-gbp/urdfdom_py-release;${ROS_BRANCH};protocol=https"
 SRCREV = "63259c8319609c2dcd7e7fff99db12ce70f88a1a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

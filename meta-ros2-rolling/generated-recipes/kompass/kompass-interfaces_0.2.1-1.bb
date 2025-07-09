@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/kompass_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/kompass-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c91fdb8f65b49854edf8f3ffd530197c03b38730"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/v4l2_camera"
 SRC_URI = "git://github.com/ros2-gbp/ros2_v4l2_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e61c389ceb5ed83ae6b99ffd97f1b3dddb2a471e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

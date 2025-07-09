@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/lanelet2_core"
 SRC_URI = "git://github.com/ros2-gbp/lanelet2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "47f8a7582fc3a5b5ef4050e1053a3ed6c0d03d20"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

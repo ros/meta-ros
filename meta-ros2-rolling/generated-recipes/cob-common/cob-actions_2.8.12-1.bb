@@ -19,8 +19,8 @@ ROS_CN = "cob_common"
 ROS_BPN = "cob_actions"
 
 ROS_BUILD_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-actionlib-msgs} \
     action-msgs \
-    actionlib-msgs \
     builtin-interfaces \
     geometry-msgs \
 "
@@ -31,8 +31,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-actionlib-msgs} \
     action-msgs \
-    actionlib-msgs \
     builtin-interfaces \
     geometry-msgs \
 "
@@ -40,8 +40,8 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-actionlib-msgs} \
     action-msgs \
-    actionlib-msgs \
     builtin-interfaces \
     geometry-msgs \
     rosidl-default-runtime \
@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/cob_actions"
 SRC_URI = "git://github.com/ros2-gbp/cob_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9de65746ff18225218b2c90c15328a2f93ff40f2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

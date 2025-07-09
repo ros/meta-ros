@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/webots_ros2_turtlebot"
 SRC_URI = "git://github.com/ros2-gbp/webots_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9a297091fcb81f5caa2e26c7848bd19cd7e05fdb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

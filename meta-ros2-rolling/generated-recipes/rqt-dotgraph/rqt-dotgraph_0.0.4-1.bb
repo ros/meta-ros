@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rqt_dotgraph"
 SRC_URI = "git://github.com/ros2-gbp/rqt_dotgraph-release;${ROS_BRANCH};protocol=https"
 SRCREV = "788cc0d517274033826b8575df2af82af45627c1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

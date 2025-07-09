@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/heaphook"
 SRC_URI = "git://github.com/ros2-gbp/heaphook-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0dfc6a7bc97643a1c10712d92295746dc868ca44"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

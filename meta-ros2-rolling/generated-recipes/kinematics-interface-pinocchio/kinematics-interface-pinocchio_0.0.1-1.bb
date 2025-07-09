@@ -62,10 +62,11 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/justagist/kinematics_interface_pinocchio-release/archive/release/rolling/kinematics_interface_pinocchio/0.0.1-1.tar.gz
+# matches with: https://github.com/ros2-gbp/kinematics_interface_pinocchio-release/archive/release/rolling/kinematics_interface_pinocchio/0.0.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/rolling/kinematics_interface_pinocchio"
-SRC_URI = "git://github.com/justagist/kinematics_interface_pinocchio-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/kinematics_interface_pinocchio-release;${ROS_BRANCH};protocol=https"
 SRCREV = "685ba38b166a5fd828fbec3bcd1edc71299ae4d9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

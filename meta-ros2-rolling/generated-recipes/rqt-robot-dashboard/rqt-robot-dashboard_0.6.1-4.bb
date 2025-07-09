@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rqt_robot_dashboard"
 SRC_URI = "git://github.com/ros2-gbp/rqt_robot_dashboard-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5f494a3d0b594188ba864a2ef165ea22e059566e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/system_modes_msgs"
 SRC_URI = "git://github.com/ros2-gbp/system_modes-release;${ROS_BRANCH};protocol=https"
 SRCREV = "54ca985a62ba5234ccc4578a795f722e79168f9d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -70,6 +70,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/serial_driver"
 SRC_URI = "git://github.com/ros2-gbp/transport_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5b14e2c9bc4cd956a787b6b94e60b1b927a9e4bd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

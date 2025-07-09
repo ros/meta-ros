@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/sol_vendor"
 SRC_URI = "git://github.com/ros2-gbp/sol_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ea37ff0118e62b1f8577475d5389ee754adc7ef"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

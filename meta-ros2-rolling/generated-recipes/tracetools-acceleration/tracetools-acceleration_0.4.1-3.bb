@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/tracetools_acceleration"
 SRC_URI = "git://github.com/ros2-gbp/tracetools_acceleration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d1327c40ea324d3b25c1e04ee3f0e6dd4d41dfb2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
