@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rviz_2d_overlay_plugins"
 SRC_URI = "git://github.com/ros2-gbp/rviz_2d_overlay_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f6ef872542d6767372ca02e7c05355892b7df967"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

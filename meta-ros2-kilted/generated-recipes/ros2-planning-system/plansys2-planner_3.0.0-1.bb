@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/plansys2_planner"
 SRC_URI = "git://github.com/ros2-gbp/ros2_planning_system-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ace3e6155a32f075e377b12a4ba9c6f24b66a453"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

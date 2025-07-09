@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/imu_transformer"
 SRC_URI = "git://github.com/ros2-gbp/imu_pipeline-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1de3ff736496d0189e70d8f086484ef004fb7e7a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

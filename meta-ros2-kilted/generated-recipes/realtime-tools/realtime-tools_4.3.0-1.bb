@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/realtime_tools"
 SRC_URI = "git://github.com/ros2-gbp/realtime_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "846be673692d3042e8966e0a7bc8cfbf5e285c83"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

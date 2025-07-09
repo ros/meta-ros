@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/trac_ik_lib"
 SRC_URI = "git://github.com/ros2-gbp/trac_ik-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fe905624d1a4e8289d35533bc58e0a4a6c248594"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

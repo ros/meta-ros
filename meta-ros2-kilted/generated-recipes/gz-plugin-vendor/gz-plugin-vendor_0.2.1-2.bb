@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/gz_plugin_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_plugin_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5842db3c1684ae6919c4880ed008dd26d85b6f63"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ament_cmake_black"
 SRC_URI = "git://github.com/ros2-gbp/ament_black-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f3927ca82c570f0adc5bc4c8b3b43786473cd805"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

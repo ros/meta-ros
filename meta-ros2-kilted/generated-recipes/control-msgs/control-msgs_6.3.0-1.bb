@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/control_msgs"
 SRC_URI = "git://github.com/ros2-gbp/control_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fad0d2de84e05a9a637b7fa87df56893ba9f1d26"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

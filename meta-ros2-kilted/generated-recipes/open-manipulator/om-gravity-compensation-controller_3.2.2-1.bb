@@ -89,7 +89,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/om_gravity_compensation_controller"
 SRC_URI = "git://github.com/ros2-gbp/open_manipulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2df8c1a903559e78a4ea22bb2b01aa941ed35ff7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

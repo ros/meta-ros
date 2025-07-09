@@ -76,7 +76,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/foxglove_bridge"
 SRC_URI = "git://github.com/ros2-gbp/foxglove_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "45c479bc165bf83eff9c10383f6489a8b02a7d9c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

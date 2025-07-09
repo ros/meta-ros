@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mola_common"
 SRC_URI = "git://github.com/ros2-gbp/mola_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3d50b57e35f8eb07be7223427b0eec235f56cf61"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

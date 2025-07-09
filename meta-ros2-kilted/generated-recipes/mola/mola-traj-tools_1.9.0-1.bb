@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mola_traj_tools"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1f5b033d45c57ec969179cc9bced5b5447efa61d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/nav2_loopback_sim"
 SRC_URI = "git://github.com/ros2-gbp/navigation2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d840d6866f8687735dbf5034e71537d194f9028c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

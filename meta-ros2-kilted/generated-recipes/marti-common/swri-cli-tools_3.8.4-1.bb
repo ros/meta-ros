@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/swri_cli_tools"
 SRC_URI = "git://github.com/ros2-gbp/marti_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "97da771373b83ec9da7a278152880d7c98779887"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

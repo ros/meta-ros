@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/nav2_simple_commander"
 SRC_URI = "git://github.com/ros2-gbp/navigation2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "41b72472b16ea7865387e98409bf30882b7f8a5e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

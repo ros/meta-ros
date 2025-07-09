@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ffmpeg_encoder_decoder"
 SRC_URI = "git://github.com/ros2-gbp/ffmpeg_encoder_decoder-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4593aa4b319a68b1e7d5d4e77be49a93741e208a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

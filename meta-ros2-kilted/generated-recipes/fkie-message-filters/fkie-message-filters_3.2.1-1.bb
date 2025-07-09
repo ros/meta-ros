@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/fkie_message_filters"
 SRC_URI = "git://github.com/ros2-gbp/fkie_message_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "04d928db2da4c0cb6a4f09ffed321205e0442cdf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

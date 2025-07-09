@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rosidl_cli"
 SRC_URI = "git://github.com/ros2-gbp/rosidl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3e13ddb867e2cae9b81f040b823df8e3f8bfaa4e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

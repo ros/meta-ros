@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/r2r_spl_7"
 SRC_URI = "git://github.com/ros2-gbp/r2r_spl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9f5998ae9678af8b0a423719be440051cdd9e9f0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

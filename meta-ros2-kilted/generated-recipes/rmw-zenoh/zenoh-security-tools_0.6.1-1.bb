@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/zenoh_security_tools"
 SRC_URI = "git://github.com/ros2-gbp/rmw_zenoh-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d8f88776436f03aaaa3da7f55d22b809f99d0246"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

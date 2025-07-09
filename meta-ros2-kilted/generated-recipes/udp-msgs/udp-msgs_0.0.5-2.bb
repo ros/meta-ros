@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/udp_msgs"
 SRC_URI = "git://github.com/ros2-gbp/udp_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a28fb7c954614f1cd4daad2957729555c73485fd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

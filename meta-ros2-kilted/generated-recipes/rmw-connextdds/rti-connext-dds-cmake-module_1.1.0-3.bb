@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rti_connext_dds_cmake_module"
 SRC_URI = "git://github.com/ros2-gbp/rmw_connextdds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3947d1dfd9204f3217cbe4a7ff96ecc2cdb124f3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

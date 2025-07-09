@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rclpy_cascade_lifecycle"
 SRC_URI = "git://github.com/ros2-gbp/cascade_lifecycle-release;${ROS_BRANCH};protocol=https"
 SRCREV = "201eb45b59fbc9e0afa8d8dcaa9140342755d81f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

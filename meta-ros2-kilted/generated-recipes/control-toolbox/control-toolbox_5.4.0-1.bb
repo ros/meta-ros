@@ -87,7 +87,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/control_toolbox"
 SRC_URI = "git://github.com/ros2-gbp/control_toolbox-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d6805c34a1942153abcd2c4c6fce15b6376573b4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

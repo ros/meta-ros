@@ -93,7 +93,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rmw_connextdds_common"
 SRC_URI = "git://github.com/ros2-gbp/rmw_connextdds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b5dd1b7ada9149c1a3e14c21ce4e41d2ae1f707d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

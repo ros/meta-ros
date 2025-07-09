@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rqt_joint_trajectory_controller"
 SRC_URI = "git://github.com/ros2-gbp/ros2_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b47ecc1d9b8b1df3d0f0fab3cdc133c8cb97c5fb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

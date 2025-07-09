@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/pick_ik"
 SRC_URI = "git://github.com/ros2-gbp/pick_ik-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a3c3ec04543ffd26bba73a012765507ac2ffffb7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

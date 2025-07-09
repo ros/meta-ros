@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/polygon_utils"
 SRC_URI = "git://github.com/ros2-gbp/polygon_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b9a6e5a398470c182e90c525fc02764ce0a0e607"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

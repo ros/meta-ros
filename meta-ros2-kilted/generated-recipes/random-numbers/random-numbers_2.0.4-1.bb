@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/random_numbers"
 SRC_URI = "git://github.com/ros2-gbp/random_numbers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5ec80697854141a9bf6859aef2c2a9cccb5dc69f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

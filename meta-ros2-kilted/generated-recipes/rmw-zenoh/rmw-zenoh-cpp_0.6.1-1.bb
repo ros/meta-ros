@@ -80,7 +80,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rmw_zenoh_cpp"
 SRC_URI = "git://github.com/ros2-gbp/rmw_zenoh-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ea690cb6dd0a166cb8452ea90934aead90570a01"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

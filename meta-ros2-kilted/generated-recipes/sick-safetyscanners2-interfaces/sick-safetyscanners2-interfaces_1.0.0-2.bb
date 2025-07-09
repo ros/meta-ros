@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/sick_safetyscanners2_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/sick_safetyscanners2_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "32b2a7f9f020485bcd508d3aaa481b32f5e5fccd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

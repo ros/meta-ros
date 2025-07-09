@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ecal"
 SRC_URI = "git://github.com/ros2-gbp/ecal-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3730c86b7e30ad518932206497e4d0569378c2d3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

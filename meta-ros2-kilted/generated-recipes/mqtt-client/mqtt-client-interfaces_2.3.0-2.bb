@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mqtt_client_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/mqtt_client-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7902802d0ad8c9c3f5d536338130c99c8fe620a1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

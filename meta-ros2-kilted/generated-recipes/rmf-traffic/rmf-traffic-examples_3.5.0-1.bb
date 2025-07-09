@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rmf_traffic_examples"
 SRC_URI = "git://github.com/ros2-gbp/rmf_traffic-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6d69768991cd0a34f011fbbc8ff7d008e1e25969"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

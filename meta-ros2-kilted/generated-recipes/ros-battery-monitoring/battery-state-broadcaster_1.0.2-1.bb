@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/battery_state_broadcaster"
 SRC_URI = "git://github.com/ros2-gbp/ros_battery_monitoring-release;${ROS_BRANCH};protocol=https"
 SRCREV = "72a1d1bbd713d959913d4a8a111e8b2cf80bdc27"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/gurumdds_cmake_module"
 SRC_URI = "git://github.com/ros2-gbp/rmw_gurumdds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b5e263d0216194b978e419644f03e40e3615d09f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
