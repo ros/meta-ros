@@ -4,7 +4,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://profiler/src/Remotery/LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
 SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=gz-common5 \
-           file://add-missing-headers.patch"
+           file://add-missing-headers.patch \
+           file://added-missing-includes.patch"
 
 SRCREV = "9d775ab82cf8284d9078e0b1b58e22b87c177e61"
 
