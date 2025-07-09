@@ -1,0 +1,26 @@
+Upstream-Status: Backport [https://github.com/ros-perception/image_transport_plugins/commit/e073dbc7b4f8d7e494758a5b72d95af9b06e7fdb]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From e073dbc7b4f8d7e494758a5b72d95af9b06e7fdb Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Date: Tue, 10 Jun 2025 11:58:27 +0200
+Subject: [PATCH] Adding the include of cstdint (#189)
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ zstd_image_transport/src/zlib_cpp.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/zstd_image_transport/src/zlib_cpp.hpp b/zstd_image_transport/src/zlib_cpp.hpp
+index 7925b443..8cc574af 100644
+--- a/src/zlib_cpp.hpp
++++ b/src/zlib_cpp.hpp
+@@ -35,6 +35,7 @@
+ 
+ #include <zlib.h>
+ 
++#include <cstdint>
+ #include <list>
+ #include <memory>
+ #include <tuple>
