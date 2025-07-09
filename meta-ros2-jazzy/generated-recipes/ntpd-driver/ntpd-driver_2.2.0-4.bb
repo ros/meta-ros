@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ntpd_driver"
 SRC_URI = "git://github.com/ros2-gbp/ntpd_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "88930151cfd996362a02a17d50c6a727638abe2e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

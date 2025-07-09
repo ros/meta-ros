@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ament_pyflakes"
 SRC_URI = "git://github.com/ros2-gbp/ament_lint-release;${ROS_BRANCH};protocol=https"
 SRCREV = "574c31969702486c9b001d1e18503498434d0392"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/coal"
 SRC_URI = "git://github.com/ros2-gbp/coal-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f8060588818478e6eac950f0294a293357c6f593"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

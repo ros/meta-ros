@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/velodyne_description"
 SRC_URI = "git://github.com/ros2-gbp/velodyne_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "91a9e18e5cce0e4c64a5d4419e7b0ab226c37ea1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

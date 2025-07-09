@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/vitis_common"
 SRC_URI = "git://github.com/ros2-gbp/vitis_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "28bbce9694fa95111d41b949a4c850475095198f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

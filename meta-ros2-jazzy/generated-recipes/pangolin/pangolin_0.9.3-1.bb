@@ -72,6 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/pangolin"
 SRC_URI = "git://github.com/ros2-gbp/Pangolin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "752d52ad42059bbcd1e1ab4e886608b04341d321"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

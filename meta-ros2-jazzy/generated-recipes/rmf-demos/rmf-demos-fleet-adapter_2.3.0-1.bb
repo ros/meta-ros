@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rmf_demos_fleet_adapter"
 SRC_URI = "git://github.com/ros2-gbp/rmf_demos-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f65aab80fe6bac40c7683cce6ab42d2fabb7a875"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

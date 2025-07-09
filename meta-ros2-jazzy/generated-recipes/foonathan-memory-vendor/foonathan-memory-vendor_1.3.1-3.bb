@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/foonathan_memory_vendor"
 SRC_URI = "git://github.com/ros2-gbp/foonathan_memory_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "446ac182791f3c0ab3817f3b503c38954e6a0133"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

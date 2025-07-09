@@ -41,6 +41,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ament_download"
 SRC_URI = "git://github.com/ros2-gbp/ament_download-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6ce6469292c63e6bc20f3e38a9062b0a027f92e4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

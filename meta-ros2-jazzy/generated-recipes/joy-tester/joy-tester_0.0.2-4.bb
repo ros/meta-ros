@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/joy_tester"
 SRC_URI = "git://github.com/ros2-gbp/joy_tester-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7287ff765bbd548f037e3d25bea88aeaca17a6f2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

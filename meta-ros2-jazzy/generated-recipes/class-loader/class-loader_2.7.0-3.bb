@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/class_loader"
 SRC_URI = "git://github.com/ros2-gbp/class_loader-release;${ROS_BRANCH};protocol=https"
 SRCREV = "769259c0b275d43eccf56c3ad2c5a0b7f9bfe0f1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

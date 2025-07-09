@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ptz_action_server_msgs"
 SRC_URI = "git://github.com/clearpath-gbp/ptz_action_server-release;${ROS_BRANCH};protocol=https"
 SRCREV = "505ffae6af784a7695caeca0157829d6c48a097e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

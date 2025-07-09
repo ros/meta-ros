@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/py_trees"
 SRC_URI = "git://github.com/ros2-gbp/py_trees-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ff9fdc3820715bd5139b26337df35b936111068"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

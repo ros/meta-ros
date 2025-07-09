@@ -69,6 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/raspimouse_fake"
 SRC_URI = "git://github.com/ros2-gbp/raspimouse_sim-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d45b0d5bd89a979b875b733f0f80286ab3772740"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

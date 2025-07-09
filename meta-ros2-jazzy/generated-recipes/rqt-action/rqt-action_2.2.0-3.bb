@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rqt_action"
 SRC_URI = "git://github.com/ros2-gbp/rqt_action-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3e7beb2f37abb99e324091b4b07801e0517f66fd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

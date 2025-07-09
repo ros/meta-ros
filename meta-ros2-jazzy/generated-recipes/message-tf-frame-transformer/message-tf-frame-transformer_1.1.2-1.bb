@@ -69,6 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/message_tf_frame_transformer"
 SRC_URI = "git://github.com/ros2-gbp/message_tf_frame_transformer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bfe9a7f73c48565396efa8f1fa0e0b927a903b07"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

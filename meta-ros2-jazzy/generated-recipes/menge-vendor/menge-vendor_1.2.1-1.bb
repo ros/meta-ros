@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/menge_vendor"
 SRC_URI = "git://github.com/ros2-gbp/menge_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dc8e4100a05e84a960dcb1362a6c08fd42f7cb06"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

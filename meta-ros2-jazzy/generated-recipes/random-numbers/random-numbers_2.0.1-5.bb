@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/random_numbers"
 SRC_URI = "git://github.com/ros2-gbp/random_numbers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bc34cb9eb07ea35f6aa223286de5e1bb40c689af"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

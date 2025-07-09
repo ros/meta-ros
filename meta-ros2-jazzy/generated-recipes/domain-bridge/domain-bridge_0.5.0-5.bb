@@ -83,6 +83,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/domain_bridge"
 SRC_URI = "git://github.com/ros2-gbp/domain_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "23216d613ab4e031c139bbcf42e6306f907b0d13"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

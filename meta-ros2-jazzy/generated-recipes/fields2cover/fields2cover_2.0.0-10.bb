@@ -84,6 +84,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/fields2cover"
 SRC_URI = "git://github.com/ros2-gbp/fields2cover-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8cbb6e0b0e5d36e65182e2ed06497dd2ce9e97b2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/libyaml_vendor"
 SRC_URI = "git://github.com/ros2-gbp/libyaml_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6716b363b25f6dd62d1d1673537ea10bc9f9c3d8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

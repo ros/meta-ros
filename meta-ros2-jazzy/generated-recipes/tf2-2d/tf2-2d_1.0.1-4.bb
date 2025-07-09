@@ -67,6 +67,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/tf2_2d"
 SRC_URI = "git://github.com/ros2-gbp/tf2_2d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0fc501d87112fe781ad6945eb8c997ac317dbdd4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -42,6 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ruckig"
 SRC_URI = "git://github.com/ros2-gbp/ruckig-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6e6056ac1b4b292b397710b0c242512eaac92bd4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

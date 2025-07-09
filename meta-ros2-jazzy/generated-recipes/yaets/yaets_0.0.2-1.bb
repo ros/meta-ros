@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/yaets"
 SRC_URI = "git://github.com/fmrico/yaets-release;${ROS_BRANCH};protocol=https"
 SRCREV = "61cad49f2230d2635ce87fbabc890cff2c2e8283"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/libpointmatcher"
 SRC_URI = "git://github.com/ros2-gbp/libpointmatcher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "42d41781f7dcc4dc8151c3985cb5825bdeaf8978"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

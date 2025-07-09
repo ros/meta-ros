@@ -65,6 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/kobuki_core"
 SRC_URI = "git://github.com/ros2-gbp/kobuki_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "00876e81a32953ec6b09b474c2f8e82289245f75"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

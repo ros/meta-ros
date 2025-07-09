@@ -80,6 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/sbg_driver"
 SRC_URI = "git://github.com/SBG-Systems/sbg_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1ad1983cd85fcbe27bcf446d77e011893f14375e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

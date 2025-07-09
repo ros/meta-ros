@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rslidar_sdk"
 SRC_URI = "git://github.com/ros2-gbp/rslidar_sdk-release;${ROS_BRANCH};protocol=https"
 SRCREV = "490b6edae6ef8949c8f9da5a15afc4f578789d18"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

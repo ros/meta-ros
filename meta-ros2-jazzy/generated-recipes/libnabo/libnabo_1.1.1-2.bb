@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/libnabo"
 SRC_URI = "git://github.com/ros2-gbp/libnabo-release;${ROS_BRANCH};protocol=https"
 SRCREV = "160592c7ea514f53d953d86d718910a908cbfd21"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

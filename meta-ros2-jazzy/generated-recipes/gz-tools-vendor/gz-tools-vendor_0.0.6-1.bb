@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/gz_tools_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_tools_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a4b672bc82f198130c7eb327b8ad473d317290e2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -79,6 +79,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ros_babel_fish"
 SRC_URI = "git://github.com/ros2-gbp/ros_babel_fish-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c0e79e8d11a96004a24dd0250c8f983fec4f35e2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

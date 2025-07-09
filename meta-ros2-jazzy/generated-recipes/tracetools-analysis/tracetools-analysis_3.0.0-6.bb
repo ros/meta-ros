@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/tracetools_analysis"
 SRC_URI = "git://github.com/ros2-gbp/tracetools_analysis-release;${ROS_BRANCH};protocol=https"
 SRCREV = "64fed20f71cccc3ad9670dd36ce9066b14545df4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

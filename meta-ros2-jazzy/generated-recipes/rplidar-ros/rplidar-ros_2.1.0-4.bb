@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rplidar_ros"
 SRC_URI = "git://github.com/ros2-gbp/rplidar_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "62ee07ff9d0bf9532bbdcdb1b8f0c22f8e7b25b8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

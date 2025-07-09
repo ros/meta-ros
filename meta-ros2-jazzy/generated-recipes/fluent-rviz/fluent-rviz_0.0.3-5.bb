@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/fluent_rviz"
 SRC_URI = "git://github.com/ros2-gbp/fluent_rviz-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e271cd3172ef0ebd5a1c682f0443b893ee909caa"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/sensor_msgs_py"
 SRC_URI = "git://github.com/ros2-gbp/common_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b34ef510a50c640802b68adfe25ee78167c8ca20"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

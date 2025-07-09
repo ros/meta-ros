@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/depth_obstacle_detect_ros"
 SRC_URI = "git://github.com/ros2-gbp/depth_obstacle_detect_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8c6f3ad126e9c2417eef9d4d8f951e2299727225"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

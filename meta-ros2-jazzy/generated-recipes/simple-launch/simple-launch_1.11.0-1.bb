@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/simple_launch"
 SRC_URI = "git://github.com/ros2-gbp/simple_launch-release;${ROS_BRANCH};protocol=https"
 SRCREV = "56c154775799c1531cc07db597c4362d48ac9872"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

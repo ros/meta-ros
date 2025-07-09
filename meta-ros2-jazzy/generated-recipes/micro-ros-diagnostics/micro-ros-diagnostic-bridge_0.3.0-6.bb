@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/micro_ros_diagnostic_bridge"
 SRC_URI = "git://github.com/ros2-gbp/micro_ros_diagnostics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "453216f9df2aeba2bd83c63ba0fe56186fc34585"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

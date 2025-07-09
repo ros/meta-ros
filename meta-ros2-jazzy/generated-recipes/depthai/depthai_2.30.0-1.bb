@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/depthai"
 SRC_URI = "git://github.com/luxonis/depthai-core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bcb5450bbb7d87228d46af63223e4b37d1474c1b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

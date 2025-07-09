@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/steering_functions"
 SRC_URI = "git://github.com/ros2-gbp/steering_functions-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6bc9fd51c83a1040d0e1a7f66aca7dfa3a716611"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

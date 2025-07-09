@@ -67,6 +67,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/laser_segmentation"
 SRC_URI = "git://github.com/ros2-gbp/laser_segmentation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f1943d1defec9a66043ef4651b99c0859ec00576"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
