@@ -4,9 +4,10 @@ LICENSE = "Apache-2.0"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
-SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=ign-transport11"
+SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=ign-transport11 \
+           file://add-compatibility-with-protobuf-28.patch"
 
-SRCREV = "69e9592544c36d4e10eed74953258662569d91fd"
+SRCREV = "3e534addedf63a206cf579c80acf994b12c698ec"
 
 
 inherit cmake pkgconfig
