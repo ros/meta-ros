@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/control_msgs"
 SRC_URI = "git://github.com/ros2-gbp/control_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5d3c7710deee3b0df44d582df326bfdb05754268"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

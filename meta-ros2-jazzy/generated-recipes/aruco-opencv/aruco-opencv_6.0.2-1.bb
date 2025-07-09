@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/aruco_opencv"
 SRC_URI = "git://github.com/ros2-gbp/aruco_opencv-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1e5da65802824138ca53da3bf599e902d34359f2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

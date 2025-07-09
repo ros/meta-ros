@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ffw_teleop"
 SRC_URI = "git://github.com/ros2-gbp/ai_worker-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ab443d9d63846f2cc3a5fb5d5257e3441ed28e6b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

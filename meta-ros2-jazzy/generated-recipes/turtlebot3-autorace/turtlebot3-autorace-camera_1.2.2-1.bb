@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/turtlebot3_autorace_camera"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot3_autorace-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c86ce05df697f274c9b391e6ab394a3c3fa9305a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/naoqi_libqi"
 SRC_URI = "git://github.com/ros-naoqi/libqi-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0c8a4622a66db58098e99def22ddcef773d8f85a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

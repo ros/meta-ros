@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/clearpath_config"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_config-release;${ROS_BRANCH};protocol=https"
 SRCREV = "89927a51e923a3658030642da4892977c359e045"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

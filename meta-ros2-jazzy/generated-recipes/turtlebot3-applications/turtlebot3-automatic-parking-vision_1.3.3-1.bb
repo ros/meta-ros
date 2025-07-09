@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/turtlebot3_automatic_parking_vision"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot3_applications-release;${ROS_BRANCH};protocol=https"
 SRCREV = "20219915a8938f2486451010eedeede2b989f70b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

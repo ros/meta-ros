@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mola_input_video"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b53a85e097b0ddaee1cdd651226cc1030da77e0b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

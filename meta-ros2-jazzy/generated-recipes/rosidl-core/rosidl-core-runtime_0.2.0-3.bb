@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rosidl_core_runtime"
 SRC_URI = "git://github.com/ros2-gbp/rosidl_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c188af0ac3b90cc867086c53c7401cd8aafa7fab"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

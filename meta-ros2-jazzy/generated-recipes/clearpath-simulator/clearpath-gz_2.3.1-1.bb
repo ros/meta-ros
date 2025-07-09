@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/clearpath_gz"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "34055c46f73ac7810bb7d9874e6e2d5c17db6e57"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

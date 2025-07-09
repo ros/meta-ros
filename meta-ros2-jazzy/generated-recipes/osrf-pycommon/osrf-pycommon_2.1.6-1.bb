@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/osrf_pycommon"
 SRC_URI = "git://github.com/ros2-gbp/osrf_pycommon-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aa0013f41b822d3ad22858480b14bef9af9ee1e0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

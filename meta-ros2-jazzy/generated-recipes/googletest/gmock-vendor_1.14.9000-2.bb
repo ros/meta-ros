@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/gmock_vendor"
 SRC_URI = "git://github.com/ros2-gbp/googletest-release;${ROS_BRANCH};protocol=https"
 SRCREV = "969537cdd819e38a3448dedc902a148616965a9f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/small_gicp_vendor"
 SRC_URI = "git://github.com/ros2-gbp/multisensor_calibration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a0027651cc21f6f10625bde37938ad4e4d3de57b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

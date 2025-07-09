@@ -76,7 +76,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rtabmap"
 SRC_URI = "git://github.com/ros2-gbp/rtabmap-release;${ROS_BRANCH};protocol=https"
 SRCREV = "00968c94b59466881e9ec562510d75749e4b3221"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

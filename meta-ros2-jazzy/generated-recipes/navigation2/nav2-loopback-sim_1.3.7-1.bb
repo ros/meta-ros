@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/nav2_loopback_sim"
 SRC_URI = "git://github.com/SteveMacenski/navigation2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "171f7c69033e46001d785f1b80d2cf4829161793"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

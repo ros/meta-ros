@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/crazyflie_py"
 SRC_URI = "git://github.com/ros2-gbp/crazyswarm2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "77f7e9ac9539641cb444fde621c75e0e5bdb5bfd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

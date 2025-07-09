@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/autoware_utils_debug"
 SRC_URI = "git://github.com/ros2-gbp/autoware_utils-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8b574be9afaec35d3592a89405b4cbce3c1d2893"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

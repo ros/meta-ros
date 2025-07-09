@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mola_input_mulran_dataset"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "db0789c14a09e33a90ff7c24ac66bfcf22a50527"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

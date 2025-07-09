@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mp2p_icp"
 SRC_URI = "git://github.com/ros2-gbp/mp2p_icp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c4b2d0655cb2ecb1591bba3f7f36958c9413f305"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

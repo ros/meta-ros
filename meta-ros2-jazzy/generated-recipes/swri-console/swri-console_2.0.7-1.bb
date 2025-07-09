@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/swri_console"
 SRC_URI = "git://github.com/ros2-gbp/swri_console-release;${ROS_BRANCH};protocol=https"
 SRCREV = "01c98c037b5aee61eee7cd20782928e96bdf9cff"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

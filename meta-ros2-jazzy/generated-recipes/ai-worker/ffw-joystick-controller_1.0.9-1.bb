@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ffw_joystick_controller"
 SRC_URI = "git://github.com/ros2-gbp/ai_worker-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0e497a2e7ded5120a29d19dcc1eea35838778ca2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

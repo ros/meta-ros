@@ -79,7 +79,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/libcaer_driver"
 SRC_URI = "git://github.com/ros2-gbp/libcaer_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6c603e1432a75eb07b02fe31502de83add45df5e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

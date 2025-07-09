@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ffw_moveit_config"
 SRC_URI = "git://github.com/ros2-gbp/ai_worker-release;${ROS_BRANCH};protocol=https"
 SRCREV = "08732a4ca0d9003dc802e57f7f0e62a1013f5c3e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

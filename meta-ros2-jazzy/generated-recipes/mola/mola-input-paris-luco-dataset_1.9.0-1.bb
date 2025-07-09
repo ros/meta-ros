@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mola_input_paris_luco_dataset"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "00aa82e88eb788c5ef61d4e2427b3c025cd09f48"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ffmpeg_image_transport_tools"
 SRC_URI = "git://github.com/ros2-gbp/ffmpeg_image_transport_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7f010520d7b15e00ae410f565c89e3cb19d63b1e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ffw_spring_actuator_controller"
 SRC_URI = "git://github.com/ros2-gbp/ai_worker-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5d420b882bdc16cbedb3691fac4461ac2caab436"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

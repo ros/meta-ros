@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/wireless_msgs"
 SRC_URI = "git://github.com/clearpath-gbp/wireless-release;${ROS_BRANCH};protocol=https"
 SRCREV = "86fbf25317ff2114306346703e92fed1fd0d71b9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

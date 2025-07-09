@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/canboat_vendor"
 SRC_URI = "git://github.com/ros2-gbp/canboat_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a3070853a7e43a9c3b700d5e791814293e814272"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

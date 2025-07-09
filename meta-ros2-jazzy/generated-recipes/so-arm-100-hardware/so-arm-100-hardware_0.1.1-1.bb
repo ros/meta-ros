@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/so_arm_100_hardware"
 SRC_URI = "git://github.com/brukg/so_arm_100_hardware-release;${ROS_BRANCH};protocol=https"
 SRCREV = "42a4368898d80091bd7752345e1dfdda34383570"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

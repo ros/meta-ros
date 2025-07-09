@@ -73,7 +73,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/event_camera_renderer"
 SRC_URI = "git://github.com/ros2-gbp/event_camera_renderer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ce87123b0dae6464647fd80a8039546a59b33c58"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rmw_desert"
 SRC_URI = "git://github.com/ros2-gbp/rmw_desert-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f21dd6fae2fa06917c0dcd5b63c917f51b7c2a6b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/web_video_server"
 SRC_URI = "git://github.com/ros2-gbp/web_video_server-release;${ROS_BRANCH};protocol=https"
 SRCREV = "479b75076a069e26c9a2bc93bde0870cdcf681db"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

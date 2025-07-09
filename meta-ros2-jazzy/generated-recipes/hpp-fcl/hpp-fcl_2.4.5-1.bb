@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/hpp-fcl"
 SRC_URI = "git://github.com/ros2-gbp/hpp_fcl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d9086e0b71e208d4630555b0d0e47cf07a8ddee5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

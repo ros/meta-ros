@@ -90,7 +90,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/canopen_inventus_driver"
 SRC_URI = "git://github.com/clearpath-gbp/canopen_inventus-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6353840169ef8dbf3ea648c8477f674972e96b0a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/tecgihan_driver"
 SRC_URI = "git://github.com/tecgihan/tecgihan_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a8cbb2c65f0a5480ff93057c120e1b4ebdc599e6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

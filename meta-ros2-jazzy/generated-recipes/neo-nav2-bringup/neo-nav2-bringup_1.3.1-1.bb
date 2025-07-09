@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/neo_nav2_bringup"
 SRC_URI = "git://github.com/ros2-gbp/neo_nav2_bringup-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fa56a3274e0473fe7fbd0cef2d2f9345b1212678"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

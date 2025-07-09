@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mouse_teleop"
 SRC_URI = "git://github.com/ros2-gbp/teleop_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "23c8043ca6a7ab70a1be0d0679f66cb0dc3cb376"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

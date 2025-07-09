@@ -41,7 +41,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/magic_enum"
 SRC_URI = "git://github.com/ros2-gbp/magic_enum-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3902a9d0889326323d903f8f788dab02860013b0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

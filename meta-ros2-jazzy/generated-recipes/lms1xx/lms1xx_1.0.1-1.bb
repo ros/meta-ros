@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/lms1xx"
 SRC_URI = "git://github.com/clearpath-gbp/LMS1xx-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1f25b20d8ee155cef5b97e84e644264385dca91f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

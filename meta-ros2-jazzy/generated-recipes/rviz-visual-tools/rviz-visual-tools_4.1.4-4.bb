@@ -114,7 +114,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rviz_visual_tools"
 SRC_URI = "git://github.com/ros2-gbp/rviz_visual_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2e05b97387c407ea702931822cc02c3f29dea126"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

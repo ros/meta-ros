@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mola_imu_preintegration"
 SRC_URI = "git://github.com/ros2-gbp/mola_state_estimation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f5741278e1c68682b249eabc397ff7156c74e44a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

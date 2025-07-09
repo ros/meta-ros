@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/turtlebot3_yolo_object_detection"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot3_applications-release;${ROS_BRANCH};protocol=https"
 SRCREV = "427db8f30746cbd40be0bc1baa49c067332e1da4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

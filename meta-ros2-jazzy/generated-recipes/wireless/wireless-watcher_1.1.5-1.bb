@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/wireless_watcher"
 SRC_URI = "git://github.com/clearpath-gbp/wireless-release;${ROS_BRANCH};protocol=https"
 SRCREV = "df17b68f37deb6bf1b3c453505fdf06998ff1090"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

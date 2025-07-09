@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/coin_d4_driver"
 SRC_URI = "git://github.com/ros2-gbp/coin_d4_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5aae433f957864ac72a4d713b7938794a41ddf12"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

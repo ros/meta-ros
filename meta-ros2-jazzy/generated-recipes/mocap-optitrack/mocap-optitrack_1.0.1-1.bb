@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mocap_optitrack"
 SRC_URI = "git://github.com/ros2-gbp/mocap_optitrack-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a49fdd53e5673165e28bdb87646fab829b853000"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

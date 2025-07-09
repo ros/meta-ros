@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/crazyflie_examples"
 SRC_URI = "git://github.com/ros2-gbp/crazyswarm2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2a2d2858b6ce89f6a67376e57157e05365e9e8de"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

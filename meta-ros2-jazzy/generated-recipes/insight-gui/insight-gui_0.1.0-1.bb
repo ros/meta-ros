@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/insight_gui"
 SRC_URI = "git://github.com/ros2-gbp/insight_gui-release;${ROS_BRANCH};protocol=https"
 SRCREV = "472f05bd55576aec250e0581e5a3f59b13b4f7cb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

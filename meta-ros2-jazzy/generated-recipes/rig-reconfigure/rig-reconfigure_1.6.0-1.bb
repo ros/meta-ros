@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rig_reconfigure"
 SRC_URI = "git://github.com/ros2-gbp/rig_reconfigure-release;${ROS_BRANCH};protocol=https"
 SRCREV = "41716529bc5bdceb0766d8c545a2afe999e6258d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

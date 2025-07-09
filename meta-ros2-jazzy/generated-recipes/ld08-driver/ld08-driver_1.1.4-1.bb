@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ld08_driver"
 SRC_URI = "git://github.com/ros2-gbp/ld08_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "56ed27b88a056b5a1169b5de82942b358b8f8c3b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mrpt_libopengl"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c3efe485e06dbebf462407e464b8c362d93f5fcc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

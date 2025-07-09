@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/mola_input_rawlog"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d22fd1cc1396acb66be8aaab9b83979418a6a128"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 
