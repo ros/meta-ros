@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/graph_msgs"
 SRC_URI = "git://github.com/ros2-gbp/graph_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f4120aae7ca5141b367d82bb42066f4b7e2bc321"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/nodl_to_policy"
 SRC_URI = "git://github.com/ros2-gbp/nodl_to_policy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c36cf6636fb76d8d170a8afbb8f182db45fd351d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

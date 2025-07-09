@@ -64,10 +64,11 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/synapticon/synapticon_ros2_control-release/archive/release/rolling/synapticon_ros2_control/0.1.2-1.tar.gz
+# matches with: https://github.com/ros2-gbp/synapticon_ros2_control-release/archive/release/rolling/synapticon_ros2_control/0.1.2-1.tar.gz
 ROS_BRANCH ?= "branch=release/rolling/synapticon_ros2_control"
-SRC_URI = "git://github.com/synapticon/synapticon_ros2_control-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/synapticon_ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "722bddb33b7edfa56fe1bebd5b46d76d694207d3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

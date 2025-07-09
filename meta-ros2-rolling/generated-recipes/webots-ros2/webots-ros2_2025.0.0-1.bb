@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/webots_ros2"
 SRC_URI = "git://github.com/ros2-gbp/webots_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8a4e2263f62f6825fc4d3ef40d87c4e0057dd865"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

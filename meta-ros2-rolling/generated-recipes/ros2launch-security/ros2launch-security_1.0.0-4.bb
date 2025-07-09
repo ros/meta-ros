@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ros2launch_security"
 SRC_URI = "git://github.com/ros2-gbp/ros2launch_security-release;${ROS_BRANCH};protocol=https"
 SRCREV = "43e55f1907071b6ac525d871539b6a3a8b9f11ca"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

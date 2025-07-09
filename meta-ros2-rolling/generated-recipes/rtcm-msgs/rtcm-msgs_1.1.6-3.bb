@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rtcm_msgs"
 SRC_URI = "git://github.com/ros2-gbp/rtcm_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "79254b5d483f7f53b6915dfb4c74340b3b81de42"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

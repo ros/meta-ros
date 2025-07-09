@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rc_dynamics_api"
 SRC_URI = "git://github.com/ros2-gbp/rc_dynamics_api-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5a56399da72a6ebe28a7701f1717a0e5308c7003"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

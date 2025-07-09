@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rosbag2_to_video"
 SRC_URI = "git://github.com/ros2-gbp/rosbag2_to_video-release;${ROS_BRANCH};protocol=https"
 SRCREV = "661e2dbb6a6fe64d1615442ab0666b76b20e36ba"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

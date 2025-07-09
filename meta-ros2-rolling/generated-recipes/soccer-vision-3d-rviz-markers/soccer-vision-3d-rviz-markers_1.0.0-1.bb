@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/soccer_vision_3d_rviz_markers"
 SRC_URI = "git://github.com/ros2-gbp/soccer_vision_3d_rviz_markers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "16ff40e17d867a539d60d883f2a2f818152022e4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

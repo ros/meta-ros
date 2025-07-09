@@ -73,6 +73,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/classic_bags"
 SRC_URI = "git://github.com/ros2-gbp/classic_bags-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e2538f43275fa7e7c37016cad69ba2a72e9dff4e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

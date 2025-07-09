@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/eiquadprog"
 SRC_URI = "git://github.com/ros2-gbp/eiquadprog-release;${ROS_BRANCH};protocol=https"
 SRCREV = "265e6828eb243aed9d4aca603e4e5233a90c0a8d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 
