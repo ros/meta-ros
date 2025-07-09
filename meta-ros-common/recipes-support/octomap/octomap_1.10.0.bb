@@ -14,6 +14,8 @@ S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/octomap"
 
 inherit cmake
 
+CXXFLAGS += "-Wno-error=cpp"
+
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
