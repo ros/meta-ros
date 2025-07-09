@@ -1,0 +1,25 @@
+Fix compatibility with protobuf v30 for removed test
+
+The twoProcsPubSubMixedSubscribers_aux test executable has been removed in later
+releases.
+
+This means that the necessary fix doesn't exist in the fix commit that was backported:
+https://github.com/gazebosim/gz-transport/pull/615/commits/a97df10905f75147981a7e7e5c1a35e8874f5829
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: gz-transport13-13.4.1/test/integration/test_executables/twoProcsPubSubMixedSubscribers_aux.cc
+===================================================================
+--- gz-transport13-13.4.1.orig/test/integration/test_executables/twoProcsPubSubMixedSubscribers_aux.cc
++++ gz-transport13-13.4.1/test/integration/test_executables/twoProcsPubSubMixedSubscribers_aux.cc
+@@ -97,7 +97,7 @@ void runSubscriber()
+   // Subscribe to topic using a mix of Subscribe / CreateSubscriber APIs
+   EXPECT_TRUE(node.Subscribe(g_topic, cb));
+   EXPECT_TRUE(node.SubscribeRaw(g_topic, cbRaw,
+-                                msgs::Vector3d().GetTypeName()));
++                                std::string(msgs::Vector3d().GetTypeName())));
+   transport::Node::Subscriber sub = node.CreateSubscriber(g_topic, cbCreateSub);
+   EXPECT_TRUE(sub);
+   transport::Node::Subscriber sub2 = node.CreateSubscriber(g_topic,
