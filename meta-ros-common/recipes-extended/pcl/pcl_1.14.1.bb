@@ -3,6 +3,7 @@
 
 require pcl.inc
 
-SRC_URI += "file://prepare-for-boost-1.87.patch"
+SRC_URI += "file://prepare-for-boost-1.87.patch \
+            file://compatibility-with-clang-19.patch"
 
 SRCREV = "5f608cfb5397fe848c7d61c4ae5f5b1ab760ba80"
