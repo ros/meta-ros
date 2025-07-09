@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/stomp"
 SRC_URI = "git://github.com/ros2-gbp/stomp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c1e4e1532f24c1e358dfefcc990cf3a080a8eca8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/visp"
 SRC_URI = "git://github.com/ros2-gbp/visp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "78cd8706075c57d4933b5c286ed4f9a2858e6313"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

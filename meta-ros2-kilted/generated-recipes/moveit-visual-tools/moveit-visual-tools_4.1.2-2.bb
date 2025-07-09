@@ -84,6 +84,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/moveit_visual_tools"
 SRC_URI = "git://github.com/ros2-gbp/moveit_visual_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ecbba407ee7a341828e026cc5c8000c3081ec07"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

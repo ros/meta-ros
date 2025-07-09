@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/sensor_msgs_py"
 SRC_URI = "git://github.com/ros2-gbp/common_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1a22bddc76abfe52f6fc9ca7d48d00a7ebc1d6e2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

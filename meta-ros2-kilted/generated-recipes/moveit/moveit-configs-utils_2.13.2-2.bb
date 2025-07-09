@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/moveit_configs_utils"
 SRC_URI = "git://github.com/ros2-gbp/moveit2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a468f637389b1c0aeeb9a4712abc140013a8a1a2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

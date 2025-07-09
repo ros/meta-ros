@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/libg2o"
 SRC_URI = "git://github.com/ros2-gbp/libg2o-release;${ROS_BRANCH};protocol=https"
 SRCREV = "86c0c222c4db2efe5d3d88735f9b3890a02ae9e6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

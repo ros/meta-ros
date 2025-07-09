@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/marker_msgs"
 SRC_URI = "git://github.com/ros2-gbp/marker_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "669d0656b6e9b8b632ff7115b71c30bcb3b1a8ac"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

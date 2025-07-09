@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/launch_param_builder"
 SRC_URI = "git://github.com/ros2-gbp/launch_param_builder-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ed8a7d37e8206740cd35783b939431556066f28e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/osqp_vendor"
 SRC_URI = "git://github.com/ros2-gbp/osqp_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8528c6bd7bc0c54a21eccd5b0075b02a2b619b4a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/splsm_7"
 SRC_URI = "git://github.com/ros2-gbp/r2r_spl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7ac1d99ae8a3d815a3c67b30a2c83d5f6b81ba99"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

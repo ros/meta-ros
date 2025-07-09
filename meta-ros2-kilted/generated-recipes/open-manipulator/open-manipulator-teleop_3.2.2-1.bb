@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/open_manipulator_teleop"
 SRC_URI = "git://github.com/ros2-gbp/open_manipulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8c87806d74f9d5cead57f94693d5a93081339f5d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

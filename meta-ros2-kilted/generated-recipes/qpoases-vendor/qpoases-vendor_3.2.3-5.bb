@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/qpoases_vendor"
 SRC_URI = "git://github.com/ros2-gbp/qpoases_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a72f2ebcc8f1df24e3d6d3ee3e0ef101c7bd5153"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

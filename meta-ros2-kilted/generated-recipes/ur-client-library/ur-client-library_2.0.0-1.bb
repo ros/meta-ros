@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ur_client_library"
 SRC_URI = "git://github.com/ros2-gbp/Universal_Robots_Client_Library-release;${ROS_BRANCH};protocol=https"
 SRCREV = "693c7cc01638d09fa5dbf013d89424f050bdeda5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

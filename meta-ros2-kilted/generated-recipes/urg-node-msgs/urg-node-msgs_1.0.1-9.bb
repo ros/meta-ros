@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/urg_node_msgs"
 SRC_URI = "git://github.com/ros2-gbp/urg_node_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9376449e4608738468c328cae29ba9f66d8fb1da"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

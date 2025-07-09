@@ -89,6 +89,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/nmea_hardware_interface"
 SRC_URI = "git://github.com/ros2-gbp/nmea_hardware_interface-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cdc0d4f861a60c3fbd8bfb66eef7ff24654a419b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

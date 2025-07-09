@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ouster_sensor_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ouster-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8192c8ea25ec56408eebb46d1ad47ff34f929fd8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

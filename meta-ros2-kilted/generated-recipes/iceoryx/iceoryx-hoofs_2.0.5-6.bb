@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/iceoryx_hoofs"
 SRC_URI = "git://github.com/ros2-gbp/iceoryx-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5ac39da230d81ab976f9c1a58c0a41dad88f1de4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

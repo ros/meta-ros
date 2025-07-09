@@ -41,6 +41,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/magic_enum"
 SRC_URI = "git://github.com/ros2-gbp/magic_enum-release;${ROS_BRANCH};protocol=https"
 SRCREV = "08c659cb4c3effc0a1cfba05326ef81ed55e3fb0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/synapticon_ros2_control"
 SRC_URI = "git://github.com/ros2-gbp/synapticon_ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b2d2a6789252d6c4ac235771a711b62bb26cf41a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/apex_test_tools"
 SRC_URI = "git://github.com/ros2-gbp/apex_test_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3036aa59a4bb4420bf94ebfeff33cbbc0800bd7b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

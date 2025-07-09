@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/hpp-fcl"
 SRC_URI = "git://github.com/ros2-gbp/hpp_fcl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c3a55b51d38a5dc2416b4cec8212b42988e634e6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/executive_smach"
 SRC_URI = "git://github.com/ros2-gbp/executive_smach-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e6951a3f4b54d08e2fe9346f8d4e085c189b8c91"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

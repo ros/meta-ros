@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/azure_iot_sdk_c"
 SRC_URI = "git://github.com/ros2-gbp/azure_iot_sdk_c-release;${ROS_BRANCH};protocol=https"
 SRCREV = "20343351ade19080fc81cb9160d6d2ae004e82a0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

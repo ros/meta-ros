@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/pluginlib"
 SRC_URI = "git://github.com/ros2-gbp/pluginlib-release;${ROS_BRANCH};protocol=https"
 SRCREV = "746fc76e002545f0570085e1ba99d30fda0af85a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

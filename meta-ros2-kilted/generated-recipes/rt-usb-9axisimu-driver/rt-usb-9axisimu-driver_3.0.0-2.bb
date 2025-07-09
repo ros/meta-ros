@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rt_usb_9axisimu_driver"
 SRC_URI = "git://github.com/ros2-gbp/rt_usb_9axisimu_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cb798ceae0973f023c202065e696ed6dc478ae53"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

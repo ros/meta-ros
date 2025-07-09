@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rsl"
 SRC_URI = "git://github.com/ros2-gbp/RSL-release;${ROS_BRANCH};protocol=https"
 SRCREV = "75637bfc940f0f7af976f523f65fcd736c355eb0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

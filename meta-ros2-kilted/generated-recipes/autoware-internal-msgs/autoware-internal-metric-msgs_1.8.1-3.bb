@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/autoware_internal_metric_msgs"
 SRC_URI = "git://github.com/ros2-gbp/autoware_internal_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0c2a93ef6b423a5c58e88f74e7528547e1485d25"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

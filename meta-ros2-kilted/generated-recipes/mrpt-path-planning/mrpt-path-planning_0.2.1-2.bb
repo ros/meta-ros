@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mrpt_path_planning"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_path_planning-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6ad10c8abcd7684bda29968e75565d3417427551"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

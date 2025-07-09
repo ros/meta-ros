@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/marine_sensor_msgs"
 SRC_URI = "git://github.com/ros2-gbp/marine_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6caa9a9be51ab3ce1e692f3cb97835746a09c9af"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

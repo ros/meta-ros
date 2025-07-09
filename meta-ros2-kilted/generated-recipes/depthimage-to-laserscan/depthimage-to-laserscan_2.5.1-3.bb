@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/depthimage_to_laserscan"
 SRC_URI = "git://github.com/ros2-gbp/depthimage_to_laserscan-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b19197dad70d679d5a4c1dee39c0ba47cbe7fafb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

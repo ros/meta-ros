@@ -114,6 +114,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rviz_visual_tools"
 SRC_URI = "git://github.com/ros2-gbp/rviz_visual_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "342fa0f180af66b0de28084fec2d1d7f06824c21"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

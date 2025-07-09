@@ -76,6 +76,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/camera_ros"
 SRC_URI = "git://github.com/ros2-gbp/camera_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1f55fb0a031464a697ba4afa9ab12e634ba08997"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

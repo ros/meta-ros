@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/control_box_rst"
 SRC_URI = "git://github.com/ros2-gbp/control_box_rst-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7005c8a15ca5cefc5dc7bed455e3e80a093d66aa"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

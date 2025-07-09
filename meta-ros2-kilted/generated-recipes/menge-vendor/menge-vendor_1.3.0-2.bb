@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/menge_vendor"
 SRC_URI = "git://github.com/ros2-gbp/menge_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d74faf3fe9e34e0775e52ce694544a4b080eaa7d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

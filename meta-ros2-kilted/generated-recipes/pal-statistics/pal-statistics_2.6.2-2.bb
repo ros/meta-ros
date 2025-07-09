@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/pal_statistics"
 SRC_URI = "git://github.com/ros2-gbp/pal_statistics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "37f2120285ad8b1f5afba6035b06ff7e9814a3db"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

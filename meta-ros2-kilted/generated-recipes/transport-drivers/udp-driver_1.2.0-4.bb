@@ -75,6 +75,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/udp_driver"
 SRC_URI = "git://github.com/ros2-gbp/transport_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "65bc5cfd3006f1176cec861654ad549f66a02896"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

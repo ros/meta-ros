@@ -65,6 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/polygon_rviz_plugins"
 SRC_URI = "git://github.com/ros2-gbp/polygon_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4b39fbc68d3c0cc266316f76c71b85b81c6361f9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

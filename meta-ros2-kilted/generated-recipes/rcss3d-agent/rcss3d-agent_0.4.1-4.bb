@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rcss3d_agent"
 SRC_URI = "git://github.com/ros2-gbp/rcss3d_agent-release;${ROS_BRANCH};protocol=https"
 SRCREV = "261f2aa36a4b467e573bff22e58114013b1967e0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

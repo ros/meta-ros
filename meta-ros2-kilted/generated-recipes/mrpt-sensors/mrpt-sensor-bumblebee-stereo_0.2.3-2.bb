@@ -94,6 +94,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mrpt_sensor_bumblebee_stereo"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_sensors-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c86c709f5208044ad95e6f83fbb61d1a2f9b9602"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

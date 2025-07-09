@@ -67,6 +67,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/velodyne_driver"
 SRC_URI = "git://github.com/ros2-gbp/velodyne-release;${ROS_BRANCH};protocol=https"
 SRCREV = "16d0112d0b8cec8e76126eaa644ee6e5a330116d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

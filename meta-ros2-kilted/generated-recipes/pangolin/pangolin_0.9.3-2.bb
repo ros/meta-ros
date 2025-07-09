@@ -72,6 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/pangolin"
 SRC_URI = "git://github.com/ros2-gbp/Pangolin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9160803b472abc6b2657ec571aa609607c87fa57"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

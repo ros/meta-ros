@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/yasmin_ros"
 SRC_URI = "git://github.com/ros2-gbp/yasmin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "acc540da689a66d60afeb9b0eab6681267583ffd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

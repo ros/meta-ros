@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/dynamixel_hardware_interface"
 SRC_URI = "git://github.com/ros2-gbp/dynamixel_hardware_interface-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e6b6967582c1a0a2d261d2707a2d1cc474db8627"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

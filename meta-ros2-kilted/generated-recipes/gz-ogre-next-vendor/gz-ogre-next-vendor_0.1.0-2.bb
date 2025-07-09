@@ -108,6 +108,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/gz_ogre_next_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_ogre_next_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8c5f6b9d95b057cd3442f1619cea74ab2d28a83b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

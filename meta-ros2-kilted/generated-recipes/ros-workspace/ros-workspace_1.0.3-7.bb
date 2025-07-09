@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ros_workspace"
 SRC_URI = "git://github.com/ros2-gbp/ros_workspace-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8ef37c6283e14e2c837764098abc9a2ff76cd4f4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 
