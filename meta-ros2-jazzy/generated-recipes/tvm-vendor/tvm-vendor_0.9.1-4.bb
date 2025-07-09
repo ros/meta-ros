@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/tvm_vendor"
 SRC_URI = "git://github.com/ros2-gbp/tvm_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a415b453b01fd87caf6873f53e56e002c0354596"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

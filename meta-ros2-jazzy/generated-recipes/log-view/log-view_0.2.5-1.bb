@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/log_view"
 SRC_URI = "git://github.com/ros2-gbp/log_view-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7b055a63027c1ca53226068f207c79119f087afc"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

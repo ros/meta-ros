@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/actuator_msgs"
 SRC_URI = "git://github.com/ros2-gbp/actuator_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5b3260652e5c325a328b021361985c4ef8b508f8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

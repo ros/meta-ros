@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/picknik_reset_fault_controller"
 SRC_URI = "git://github.com/ros2-gbp/picknik_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0ed965b262bd3f554c77065ff2f71487ff787fd7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

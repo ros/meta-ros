@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/tf_transformations"
 SRC_URI = "git://github.com/ros2-gbp/tf_transformations_release;${ROS_BRANCH};protocol=https"
 SRCREV = "c623ec1a59d1afc184a119057bd42cba948a1722"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

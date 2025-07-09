@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/moveit_configs_utils"
 SRC_URI = "git://github.com/ros2-gbp/moveit2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8f60f9ab36f879ff2ebd828d0599dfd48f700e95"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

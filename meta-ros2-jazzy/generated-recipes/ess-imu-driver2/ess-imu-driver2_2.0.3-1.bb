@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ess_imu_driver2"
 SRC_URI = "git://github.com/ros2-gbp/ess_imu_driver2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5cae0d71330689da0a42025737bb24fb5b94bd02"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

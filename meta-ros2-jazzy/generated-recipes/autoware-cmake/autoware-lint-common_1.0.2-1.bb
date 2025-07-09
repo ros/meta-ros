@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/autoware_lint_common"
 SRC_URI = "git://github.com/ros2-gbp/autoware_cmake-release;${ROS_BRANCH};protocol=https"
 SRCREV = "056d4a72c66554597b736c82070aff8e36d85da6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/nao_lola_sensor_msgs"
 SRC_URI = "git://github.com/ros2-gbp/nao_lola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fe59a77b09ee5da05220551d7714d0099e545e04"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

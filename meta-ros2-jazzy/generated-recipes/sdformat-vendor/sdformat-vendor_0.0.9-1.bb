@@ -74,6 +74,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/sdformat_vendor"
 SRC_URI = "git://github.com/ros2-gbp/sdformat_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ace22b1b85edf3ce5bd59da21f100b2f3e3b77fb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

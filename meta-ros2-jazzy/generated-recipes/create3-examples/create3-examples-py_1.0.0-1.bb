@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/create3_examples_py"
 SRC_URI = "git://github.com/ros2-gbp/create3_examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "73e32f23d1c658c5227bef87c0d39dfca91c1a5b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

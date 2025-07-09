@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/zbar_ros"
 SRC_URI = "git://github.com/ros2-gbp/zbar_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bd55b012222f2a79ae26429d1990cc2e818de827"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

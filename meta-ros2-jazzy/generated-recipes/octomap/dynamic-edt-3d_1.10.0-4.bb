@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/dynamic_edt_3d"
 SRC_URI = "git://github.com/ros2-gbp/octomap-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0915c4cff28e454f7fe2ac3338d5550f466cbcfb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

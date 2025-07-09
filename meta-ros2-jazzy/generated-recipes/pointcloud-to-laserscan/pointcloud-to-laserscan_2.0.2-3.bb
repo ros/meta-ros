@@ -80,6 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/pointcloud_to_laserscan"
 SRC_URI = "git://github.com/ros2-gbp/pointcloud_to_laserscan-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d19872adb793dfa32827e6e782be47947070a30a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

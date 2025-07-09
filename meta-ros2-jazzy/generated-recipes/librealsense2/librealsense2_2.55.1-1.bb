@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/librealsense2"
 SRC_URI = "git://github.com/IntelRealSense/librealsense2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9b999a96567dc0721be20811b3f715c0c33227d1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

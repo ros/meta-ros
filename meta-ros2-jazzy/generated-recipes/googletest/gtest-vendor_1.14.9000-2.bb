@@ -42,6 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/gtest_vendor"
 SRC_URI = "git://github.com/ros2-gbp/googletest-release;${ROS_BRANCH};protocol=https"
 SRCREV = "949478db25504854988f1510571c5b93a67f9c4b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

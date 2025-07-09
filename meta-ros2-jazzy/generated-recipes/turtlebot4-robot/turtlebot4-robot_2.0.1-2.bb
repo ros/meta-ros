@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/turtlebot4_robot"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot4_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "94ab12bc4ef6fabb9f79a38720d1dcedca945e5a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

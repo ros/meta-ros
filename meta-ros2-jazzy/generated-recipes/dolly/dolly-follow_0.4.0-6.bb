@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/dolly_follow"
 SRC_URI = "git://github.com/ros2-gbp/dolly-release;${ROS_BRANCH};protocol=https"
 SRCREV = "47cbab8d3916e099b2487642be419d68f98efa7f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

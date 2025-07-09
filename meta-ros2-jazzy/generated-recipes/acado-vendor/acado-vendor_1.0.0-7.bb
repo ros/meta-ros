@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/acado_vendor"
 SRC_URI = "git://github.com/ros2-gbp/acado_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d4d640fe222daa32943cda8da9e45e859c98111c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -69,6 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ros2nodl"
 SRC_URI = "git://github.com/ros2-gbp/nodl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "79e166114dcef2812bc1d7bc0d91b798323565ea"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

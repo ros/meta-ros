@@ -86,6 +86,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/laser_filters"
 SRC_URI = "git://github.com/ros2-gbp/laser_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9027226428db0efb963e57af7fd2ae1682457134"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

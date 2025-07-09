@@ -81,6 +81,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/gscam"
 SRC_URI = "git://github.com/ros2-gbp/gscam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9de9e1c8a5353dc48666256b4fbdb77f6cbcfc66"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

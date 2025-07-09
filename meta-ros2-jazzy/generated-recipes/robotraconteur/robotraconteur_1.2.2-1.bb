@@ -76,6 +76,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/robotraconteur"
 SRC_URI = "git://github.com/ros2-gbp/robotraconteur-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ee1fbebc5e9d29bcb6250b83c47f98316cee882d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

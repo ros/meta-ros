@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/flexbe_input"
 SRC_URI = "git://github.com/ros2-gbp/flexbe_behavior_engine-release;${ROS_BRANCH};protocol=https"
 SRCREV = "15e469e007b5664e9321f2a291e2a952409147b5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

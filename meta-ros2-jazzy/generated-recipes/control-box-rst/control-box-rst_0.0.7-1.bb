@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/control_box_rst"
 SRC_URI = "git://github.com/ros2-gbp/control_box_rst-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d516096763524853e8317020610ec07aac7b0da4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

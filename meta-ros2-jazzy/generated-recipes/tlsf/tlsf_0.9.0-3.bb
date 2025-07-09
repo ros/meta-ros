@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/tlsf"
 SRC_URI = "git://github.com/ros2-gbp/tlsf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e5404343cc186e3237c2bae081bcc270af9eab45"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

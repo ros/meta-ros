@@ -77,6 +77,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/sick_safetyscanners2"
 SRC_URI = "git://github.com/ros2-gbp/sick_safetyscanners2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c1a1e2df0257642d655cc3c48b1dfdd6993618e1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

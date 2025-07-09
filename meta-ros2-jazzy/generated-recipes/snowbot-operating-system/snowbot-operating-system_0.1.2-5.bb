@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/snowbot_operating_system"
 SRC_URI = "git://github.com/ros2-gbp/snowbot_release;${ROS_BRANCH};protocol=https"
 SRCREV = "df8b6b2679855c245fb9cb9e6f80612438815599"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

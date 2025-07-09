@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/robot_upstart"
 SRC_URI = "git://github.com/clearpath-gbp/robot_upstart-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bd299c8ce71d1419b31afc8daebfe81daa2c4e13"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

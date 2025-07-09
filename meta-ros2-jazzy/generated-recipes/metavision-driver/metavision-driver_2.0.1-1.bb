@@ -70,6 +70,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/metavision_driver"
 SRC_URI = "git://github.com/ros2-gbp/metavision_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "66769a5396b2ed03d49d49507893766a8f5a74db"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

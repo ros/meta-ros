@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/foxglove_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ros_foxglove_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "16128175ac2f6115f8dc6189f54d8e765b0bb88e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

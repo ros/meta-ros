@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/novatel_oem7_msgs"
 SRC_URI = "git://github.com/novatel-gbp/novatel_oem7_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "10fe093769b1fdf4b99b3d8248995ea101031bd7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

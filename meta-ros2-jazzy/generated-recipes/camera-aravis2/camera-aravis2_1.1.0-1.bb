@@ -76,6 +76,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/camera_aravis2"
 SRC_URI = "git://github.com/ros2-gbp/camera_aravis2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a9f7b9061720fe42ecf3042faffc946fbd5fc1d7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

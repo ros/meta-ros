@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/create3_lidar_slam"
 SRC_URI = "git://github.com/ros2-gbp/create3_examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d4e05e13f1ea844bb4ab14dc41584f521370cc6b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

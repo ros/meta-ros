@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/kompass"
 SRC_URI = "git://github.com/ros2-gbp/kompass-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3666342d884ca2623fdd38d2b5f4b4ac75a88c1c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/examples_rclpy_guard_conditions"
 SRC_URI = "git://github.com/ros2-gbp/examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c65b074a3f9fe3cf1a30861c68f4663f76f97978"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

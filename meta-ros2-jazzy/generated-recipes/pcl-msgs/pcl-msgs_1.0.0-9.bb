@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/pcl_msgs"
 SRC_URI = "git://github.com/ros2-gbp/pcl_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7dc61b313025de201d4d87702c28542f88d4a2ac"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

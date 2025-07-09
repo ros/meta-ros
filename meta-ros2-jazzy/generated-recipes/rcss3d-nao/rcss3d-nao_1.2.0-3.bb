@@ -74,6 +74,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rcss3d_nao"
 SRC_URI = "git://github.com/ros2-gbp/rcss3d_nao-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5e5fbf6b7aca0c8cb593e6b23ea545b41323e774"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/nmea_msgs"
 SRC_URI = "git://github.com/ros2-gbp/nmea_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b80bfbffa9a31b97cfa2952ce66e2758c00bd0ac"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/aws_sdk_cpp_vendor"
 SRC_URI = "git://github.com/ros2-gbp/aws_sdk_cpp_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "41c63dd8468ba63aab2d7669694a8f32637fa771"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

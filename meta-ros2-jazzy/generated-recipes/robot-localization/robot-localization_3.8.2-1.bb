@@ -114,6 +114,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/robot_localization"
 SRC_URI = "git://github.com/ros2-gbp/robot_localization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fb6aa7dc5b8ac4dd9f97c278f9081cbe40876da5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

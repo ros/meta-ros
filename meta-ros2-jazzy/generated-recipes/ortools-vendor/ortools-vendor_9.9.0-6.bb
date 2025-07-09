@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ortools_vendor"
 SRC_URI = "git://github.com/ros2-gbp/ortools_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "87e2a82f7ef8300503e749a1647146e94baff921"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

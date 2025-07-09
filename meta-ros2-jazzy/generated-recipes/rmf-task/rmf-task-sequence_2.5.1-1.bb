@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rmf_task_sequence"
 SRC_URI = "git://github.com/ros2-gbp/rmf_task-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d571a0315533786952852c1e372bb868a43bf059"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

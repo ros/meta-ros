@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/test_interface_files"
 SRC_URI = "git://github.com/ros2-gbp/test_interface_files-release;${ROS_BRANCH};protocol=https"
 SRCREV = "be3978a0de425a0be5cb3530800a3d34f2fe0027"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

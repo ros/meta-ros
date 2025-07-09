@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/lusb"
 SRC_URI = "git://github.com/DataspeedInc-release/lusb-release;${ROS_BRANCH};protocol=https"
 SRCREV = "37d85f008df91a5f6e79482a7538328264e1993d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

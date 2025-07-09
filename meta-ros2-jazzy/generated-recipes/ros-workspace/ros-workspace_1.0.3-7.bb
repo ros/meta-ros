@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ros_workspace"
 SRC_URI = "git://github.com/ros2-gbp/ros_workspace-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0a743e57ed7f163f48cff4f0574739393957ad61"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

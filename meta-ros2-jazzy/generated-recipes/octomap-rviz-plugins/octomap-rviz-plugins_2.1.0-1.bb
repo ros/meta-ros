@@ -69,6 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/octomap_rviz_plugins"
 SRC_URI = "git://github.com/ros2-gbp/octomap_rviz_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8dadcae1b5f69dd2291df40df5f949fb0a62b3b0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

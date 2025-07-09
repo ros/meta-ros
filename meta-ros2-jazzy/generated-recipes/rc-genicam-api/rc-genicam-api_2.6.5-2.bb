@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rc_genicam_api"
 SRC_URI = "git://github.com/ros2-gbp/rc_genicam_api-release;${ROS_BRANCH};protocol=https"
 SRCREV = "57bf6c445677c596d425b929c0f82266f98c1cda"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

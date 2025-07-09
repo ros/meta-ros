@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/performance_test"
 SRC_URI = "git://github.com/ros2-gbp/performance_test-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ca283fe37b185a11c03565f4506cb0eb36c12564"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

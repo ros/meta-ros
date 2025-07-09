@@ -84,6 +84,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/plotjuggler"
 SRC_URI = "git://github.com/ros2-gbp/plotjuggler-release;${ROS_BRANCH};protocol=https"
 SRCREV = "243d8c1cf472c0d6cac26cc2ab34fad9f2bb0622"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

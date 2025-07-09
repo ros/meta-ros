@@ -65,6 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rt_manipulators_cpp"
 SRC_URI = "git://github.com/ros2-gbp/rt_manipulators_cpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1f5ee7c892f026a96f5cab09961b0622ef6f5f4c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
