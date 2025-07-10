@@ -4,7 +4,7 @@ require orocos-kdl.inc
 
 DESCRIPTION = "The python bindings PyKDL for the Kinematics and Dynamics Library (KDL), distributed by the Orocos Project."
 SECTION = "devel"
-LICENSE = "LGPLv2.1+"
+LICENSE = "LGPL-2.1-or-later"
 #LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=11;endline=11;md5=27620a6c8e31b44ce8d87ab1e2127522"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=46ee8693f40a89a31023e97ae17ecf19"
 
