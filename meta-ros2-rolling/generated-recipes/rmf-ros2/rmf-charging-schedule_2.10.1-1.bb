@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rmf_charging_schedule"
 SRC_URI = "git://github.com/ros2-gbp/rmf_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "87335b5f4ed33797fa15b20def649912bb443520"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/laser_proc"
 SRC_URI = "git://github.com/ros2-gbp/laser_proc-release;${ROS_BRANCH};protocol=https"
 SRCREV = "db3550d1b6d8912db50d828d428b1522a8567b3a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

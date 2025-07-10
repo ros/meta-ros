@@ -79,7 +79,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/libcaer_driver"
 SRC_URI = "git://github.com/ros2-gbp/libcaer_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c700334419504b8d7518c00f62470d5593a76afe"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

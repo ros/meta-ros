@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rosidl_dynamic_typesupport"
 SRC_URI = "git://github.com/ros2-gbp/rosidl_dynamic_typesupport-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5a005d93f243327ce035f647ae6eb68b866436c6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

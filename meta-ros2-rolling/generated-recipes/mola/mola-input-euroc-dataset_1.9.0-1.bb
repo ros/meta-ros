@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/mola_input_euroc_dataset"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eab2bc8d89b85d556004c1239583a18b61fcbbe5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

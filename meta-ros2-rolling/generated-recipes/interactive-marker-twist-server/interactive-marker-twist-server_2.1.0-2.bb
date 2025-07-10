@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/interactive_marker_twist_server"
 SRC_URI = "git://github.com/ros2-gbp/interactive_marker_twist_server-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a614494c6cd56baf9e33e1f965c91cab37f76cb9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

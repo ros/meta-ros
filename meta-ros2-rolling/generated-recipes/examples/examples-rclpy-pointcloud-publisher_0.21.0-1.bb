@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/examples_rclpy_pointcloud_publisher"
 SRC_URI = "git://github.com/ros2-gbp/examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f664ee1bff21888d7ee3dbe4dd36623d991c0a97"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

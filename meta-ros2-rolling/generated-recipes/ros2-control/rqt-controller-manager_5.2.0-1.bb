@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/rqt_controller_manager"
 SRC_URI = "git://github.com/ros2-gbp/ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ee44692a53ef6789b557c1ff47feebb21134b18"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

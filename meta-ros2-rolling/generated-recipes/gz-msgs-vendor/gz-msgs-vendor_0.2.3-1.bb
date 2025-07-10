@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/gz_msgs_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_msgs_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eb0d9f5669415b69049a56a0217fe11aa01957b9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

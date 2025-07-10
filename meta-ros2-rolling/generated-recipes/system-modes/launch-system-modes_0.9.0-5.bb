@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/launch_system_modes"
 SRC_URI = "git://github.com/ros2-gbp/system_modes-release;${ROS_BRANCH};protocol=https"
 SRCREV = "23b76ea51b2cf529435b57f4eee3ff9b1ced4042"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

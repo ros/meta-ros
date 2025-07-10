@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/open_manipulator_bringup"
 SRC_URI = "git://github.com/ros2-gbp/open_manipulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2db4ac16de3c83e1bc2157b4da74585ad13e0c34"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

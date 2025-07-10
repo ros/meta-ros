@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/ntrip_client"
 SRC_URI = "git://github.com/ros2-gbp/ntrip_client-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4bb0296101bbb6483d9b0bea374c0535b1fe12d7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

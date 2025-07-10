@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/py_trees_ros_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/py_trees_ros_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c7ccf77296f1f37510a9a965d893ec647aad85cf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

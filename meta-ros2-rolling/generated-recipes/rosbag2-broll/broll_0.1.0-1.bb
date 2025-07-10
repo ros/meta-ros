@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/rolling/broll"
 SRC_URI = "git://github.com/ros2-gbp/rosbag2_broll-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e91404f991a4a59491d4e3d41bf403b605554573"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
