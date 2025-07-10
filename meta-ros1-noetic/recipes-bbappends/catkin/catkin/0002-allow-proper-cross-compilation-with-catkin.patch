@@ -20,10 +20,10 @@ Upstream-Status: Pending
  4 files changed, 79 insertions(+), 4 deletions(-)
  create mode 100644 cmake/catkin_strip_root_path.cmake
 
-diff --git a/cmake/all.cmake b/cmake/all.cmake
-index 7768f968..dd9271e1 100644
---- a/cmake/all.cmake
-+++ b/cmake/all.cmake
+Index: git/cmake/all.cmake
+===================================================================
+--- git.orig/cmake/all.cmake
++++ git/cmake/all.cmake
 @@ -133,6 +133,7 @@ foreach(filename
      catkin_metapackage
      catkin_package
@@ -32,10 +32,10 @@ index 7768f968..dd9271e1 100644
      custom_install # required by catkin_symlink_install and test/gtest
      catkin_symlink_install
      catkin_workspace
-diff --git a/cmake/catkin_package.cmake b/cmake/catkin_package.cmake
-index df36e236..995e5e5b 100644
---- a/cmake/catkin_package.cmake
-+++ b/cmake/catkin_package.cmake
+Index: git/cmake/catkin_package.cmake
+===================================================================
+--- git.orig/cmake/catkin_package.cmake
++++ git/cmake/catkin_package.cmake
 @@ -439,6 +439,14 @@ function(_catkin_package)
    # package cmake dir is the folder where the generated pkgConfig.cmake is located
    set(PKG_CMAKE_DIR "\${${PROJECT_NAME}_DIR}")
@@ -51,11 +51,10 @@ index df36e236..995e5e5b 100644
    if(NOT PROJECT_SKIP_PKG_CONFIG_GENERATION)
      # ensure that output folder exists
      file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/catkin_generated/installspace)
-diff --git a/cmake/catkin_strip_root_path.cmake b/cmake/catkin_strip_root_path.cmake
-new file mode 100644
-index 00000000..ca5c4532
+Index: git/cmake/catkin_strip_root_path.cmake
+===================================================================
 --- /dev/null
-+++ b/cmake/catkin_strip_root_path.cmake
++++ git/cmake/catkin_strip_root_path.cmake
 @@ -0,0 +1,32 @@
 +#
 +# Strip CMAKE_FIND_ROOT_PATH prefixes from each path in the list ``var``.
@@ -89,10 +88,10 @@ index 00000000..ca5c4532
 +  endforeach()
 +  set(${var} ${output} PARENT_SCOPE)
 +endfunction()
-diff --git a/cmake/templates/pkgConfig.cmake.in b/cmake/templates/pkgConfig.cmake.in
-index 4e52046d..dcf3b7c2 100644
---- a/cmake/templates/pkgConfig.cmake.in
-+++ b/cmake/templates/pkgConfig.cmake.in
+Index: git/cmake/templates/pkgConfig.cmake.in
+===================================================================
+--- git.orig/cmake/templates/pkgConfig.cmake.in
++++ git/cmake/templates/pkgConfig.cmake.in
 @@ -78,6 +78,15 @@ else()
    set(@PROJECT_NAME@_PREFIX ${@PROJECT_NAME@_INSTALL_PREFIX})
  endif()
@@ -109,7 +108,7 @@ index 4e52046d..dcf3b7c2 100644
  # warn when using a deprecated package
  if(NOT "@PROJECT_DEPRECATED@" STREQUAL "")
    set(_msg "WARNING: package '@PROJECT_NAME@' is deprecated")
-@@ -102,7 +111,19 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DIRS@ " STREQUAL " ")
+@@ -102,7 +111,19 @@ if(NOT "@PROJECT_CMAKE_CONFIG_INCLUDE_DI
      set(_report "Report the problem to the maintainer '@PROJECT_MAINTAINER@' and request to fix the problem.")
    endif()
    foreach(idir ${_include_dirs})
@@ -130,8 +129,8 @@ index 4e52046d..dcf3b7c2 100644
        set(include ${idir})
      elseif("${idir} " STREQUAL "@CATKIN_GLOBAL_INCLUDE_DESTINATION@ ")
        get_filename_component(include "${@PROJECT_NAME@_DIR}/../../../@CATKIN_GLOBAL_INCLUDE_DESTINATION@" ABSOLUTE)
-@@ -148,18 +169,31 @@ foreach(library ${libraries})
-     list(APPEND @PROJECT_NAME@_LIBRARIES "${interface_target_name}")
+@@ -150,18 +171,31 @@ foreach(library ${libraries})
+     list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
    elseif(TARGET ${library})
      list(APPEND @PROJECT_NAME@_LIBRARIES ${library})
 +  elseif(IS_ABSOLUTE ${library} AND CMAKE_CROSSCOMPILING)
