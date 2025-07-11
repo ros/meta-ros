@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joint_state_controller"
 SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5ded734d0bcf5f7829afd86547277bc361d96479"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

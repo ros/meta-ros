@@ -41,6 +41,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/multisense_description"
 SRC_URI = "git://github.com/carnegieroboticsllc/multisense_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e4e7a735a9a501b733483444a9415b121d17d057"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

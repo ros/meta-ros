@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ntrip_client"
 SRC_URI = "git://github.com/LORD-MicroStrain/ntrip_client-release;${ROS_BRANCH};protocol=https"
 SRCREV = "38b3a4c1907e63837939af0b60e8ceec32a2ace4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

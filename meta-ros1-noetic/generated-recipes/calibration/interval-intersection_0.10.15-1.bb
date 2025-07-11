@@ -75,6 +75,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/interval_intersection"
 SRC_URI = "git://github.com/ros-gbp/calibration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c8aaa29025cf353e2380637e54ad223dcfd6c513"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

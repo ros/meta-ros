@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gpp_interface"
 SRC_URI = "git://github.com/dorezyuk/gpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9ec3844ab70ee13b33cbbc57473dfe40e874e1e8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

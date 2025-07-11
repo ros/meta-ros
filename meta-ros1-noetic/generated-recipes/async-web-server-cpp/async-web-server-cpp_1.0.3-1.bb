@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/async_web_server_cpp"
 SRC_URI = "git://github.com/fkie-release/async_web_server_cpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a20da252b605c2539af63291b2ceecc054380f73"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

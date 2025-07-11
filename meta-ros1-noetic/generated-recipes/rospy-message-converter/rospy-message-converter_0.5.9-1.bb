@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rospy_message_converter"
 SRC_URI = "git://github.com/uos-gbp/rospy_message_converter-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1da01dd1bd2e61235127a5efa3427d3d884ecba1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

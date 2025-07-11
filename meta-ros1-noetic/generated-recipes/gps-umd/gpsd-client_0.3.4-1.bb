@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gpsd_client"
 SRC_URI = "git://github.com/swri-robotics-gbp/gps_umd-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8d6386b0d4ed97f48c87a3120034454bfb268468"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/kvh_geo_fog_3d"
 SRC_URI = "git://github.com/MITRE/kvh_geo_fog_3d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1186d61094065e3ecac4495b14bcf1bef9efd0ae"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

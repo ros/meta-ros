@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/openni2_launch"
 SRC_URI = "git://github.com/ros-gbp/openni2_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "097c181d2fad85aafa539da1efd572c9af0fa5d1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

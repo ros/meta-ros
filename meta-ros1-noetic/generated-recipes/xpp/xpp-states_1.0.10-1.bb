@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/xpp_states"
 SRC_URI = "git://github.com/leggedrobotics/xpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5b2ca70805b43a3fd259637453a1923937d6a2ff"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

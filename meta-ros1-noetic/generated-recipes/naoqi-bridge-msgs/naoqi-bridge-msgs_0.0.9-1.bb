@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/naoqi_bridge_msgs"
 SRC_URI = "git://github.com/ros-naoqi/naoqi_bridge_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d06a1b332089f929ef34c8538762f2b52188385a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

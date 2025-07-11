@@ -93,6 +93,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/lvr2"
 SRC_URI = "git://github.com/uos-gbp/lvr2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fb8e55e0d7de9df8d6bd783767f466c52a5090e6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

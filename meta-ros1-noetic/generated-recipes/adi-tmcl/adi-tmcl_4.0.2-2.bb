@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/adi_tmcl"
 SRC_URI = "git://github.com/ros2-gbp/adi_tmcl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "930d264f34562b15707bd00712084e8856dd2f0c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

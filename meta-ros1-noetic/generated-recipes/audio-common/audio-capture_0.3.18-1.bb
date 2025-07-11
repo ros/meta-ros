@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/audio_capture"
 SRC_URI = "git://github.com/ros-gbp/audio_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0c186be0a4c234a9cefcf9c3754f7049fd042b6c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

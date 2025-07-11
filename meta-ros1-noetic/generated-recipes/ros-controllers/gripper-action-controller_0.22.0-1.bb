@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gripper_action_controller"
 SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "74ace83b933c27334783270ac9f911d9649a79dd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/usb_cam"
 SRC_URI = "git://github.com/ros-gbp/usb_cam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "499baf3ad2d524b004066f1dc233d9a2f955d38e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

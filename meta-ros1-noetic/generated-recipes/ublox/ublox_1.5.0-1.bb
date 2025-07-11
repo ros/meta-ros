@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ublox"
 SRC_URI = "git://github.com/KumarRobotics/ublox-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6e97f2b28969481cc4c2f70d71bbb32ad6664548"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

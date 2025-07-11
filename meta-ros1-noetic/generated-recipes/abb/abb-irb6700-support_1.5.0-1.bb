@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/abb_irb6700_support"
 SRC_URI = "git://github.com/ros-industrial-release/abb-release;${ROS_BRANCH};protocol=https"
 SRCREV = "85328afe37993f711f6dcf07d68931b78f979f07"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

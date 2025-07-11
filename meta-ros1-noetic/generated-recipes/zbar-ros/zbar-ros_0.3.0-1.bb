@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/zbar_ros"
 SRC_URI = "git://github.com/ros-drivers-gbp/zbar_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "56c92fe678842c8c7e8cc107ca3e903e474612f8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/monocam_settler"
 SRC_URI = "git://github.com/ros-gbp/calibration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8af09fc77286135c69b89abdd7f861add2c38a67"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

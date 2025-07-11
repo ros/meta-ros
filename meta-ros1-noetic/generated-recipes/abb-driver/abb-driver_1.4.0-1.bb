@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/abb_driver"
 SRC_URI = "git://github.com/ros-industrial-release/abb_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ac31fe3f3295e94c9ab43dcce2a5e182eb31b1ad"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

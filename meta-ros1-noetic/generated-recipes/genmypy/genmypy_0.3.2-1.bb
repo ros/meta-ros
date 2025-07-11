@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/genmypy"
 SRC_URI = "git://github.com/rospypi/genmypy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bf2e1397c3aea147be6c55abb9fb5f250b76da09"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

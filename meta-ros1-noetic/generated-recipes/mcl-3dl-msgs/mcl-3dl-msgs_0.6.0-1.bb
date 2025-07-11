@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mcl_3dl_msgs"
 SRC_URI = "git://github.com/at-wat/mcl_3dl_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "23926c1b4a377af12143b1428b5337f5919b8657"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/handeye"
 SRC_URI = "git://github.com/crigroup/handeye-release;${ROS_BRANCH};protocol=https"
 SRCREV = "886615d5491159af8b6fd612a143ec9a05c8e3cc"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

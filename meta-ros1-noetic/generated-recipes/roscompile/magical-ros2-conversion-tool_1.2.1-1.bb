@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/magical_ros2_conversion_tool"
 SRC_URI = "git://github.com/wu-robotics/roscompile-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4513a228adbd79a7fe875b160791e39d230d538c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

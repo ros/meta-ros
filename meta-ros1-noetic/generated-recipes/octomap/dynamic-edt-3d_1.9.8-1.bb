@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dynamic_edt_3d"
 SRC_URI = "git://github.com/ros-gbp/octomap-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5c487ffff3f8e572566b0e93b0efa7b011c871c1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -74,6 +74,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_undercarriage_ctrl"
 SRC_URI = "git://github.com/4am-robotics/cob_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "11cf3ca7c3433f256918af246265f0a00c970711"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

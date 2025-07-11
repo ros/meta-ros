@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/py_binding_tools"
 SRC_URI = "git://github.com/ros-gbp/py_binding_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "df413c6b127c11cdfe2d0f27f897276fb301749d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

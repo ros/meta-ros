@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/stage"
 SRC_URI = "git://github.com/ros-gbp/stage-release;${ROS_BRANCH};protocol=https"
 SRCREV = "999f92a6c31633d729d5e90c086a266d85b4e0d3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

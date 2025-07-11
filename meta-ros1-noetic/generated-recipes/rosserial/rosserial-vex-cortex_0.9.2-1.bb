@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosserial_vex_cortex"
 SRC_URI = "git://github.com/ros-gbp/rosserial-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9db4155b4730daeceff99749e069bc4e8a8802c0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

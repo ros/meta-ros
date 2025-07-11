@@ -101,6 +101,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/points_preprocessor"
 SRC_URI = "git://github.com/nobleo/core_perception-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6676540c9f4d350080bcfc4616d56014f076dc52"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

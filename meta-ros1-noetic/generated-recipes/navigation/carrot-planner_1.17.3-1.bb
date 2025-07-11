@@ -73,6 +73,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/carrot_planner"
 SRC_URI = "git://github.com/ros-gbp/navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5c3ea606c455cb48cb8c020ed36ab7060de39f27"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

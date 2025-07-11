@@ -72,6 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/theora_image_transport"
 SRC_URI = "git://github.com/ros2-gbp/image_transport_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b274113b41d31b82b8e1d0b1264e95ca46350ddc"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

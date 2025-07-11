@@ -75,6 +75,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dnn_detect"
 SRC_URI = "git://github.com/UbiquityRobotics-release/dnn_detect-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b4c8f656dc96ca50bfbe44a3bc8719f770d76069"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

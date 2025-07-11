@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rtctree"
 SRC_URI = "git://github.com/tork-a/rtctree-release;${ROS_BRANCH};protocol=https"
 SRCREV = "431baac76cdb7f80a032d774c21e17bbf2e80963"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

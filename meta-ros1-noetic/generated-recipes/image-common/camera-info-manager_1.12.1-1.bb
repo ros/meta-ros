@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/camera_info_manager"
 SRC_URI = "git://github.com/ros-gbp/image_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e12affa769d8f9078256cf24c6c2ea95c8248cb0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robotont_msgs"
 SRC_URI = "git://github.com/robotont-release/robotont_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c7113f7a3032915e4716318d149be743977dfe69"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tf2_2d"
 SRC_URI = "git://github.com/locusrobotics/tf2_2d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fe2af1e023fe305499485d834ef190366c62af50"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/backward_ros"
 SRC_URI = "git://github.com/pal-gbp/backward_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "86cf55066313ed8b43d4b483d0a5343c031c99c9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

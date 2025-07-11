@@ -76,6 +76,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/label_manager"
 SRC_URI = "git://github.com/uos-gbp/mesh-tools;${ROS_BRANCH};protocol=https"
 SRCREV = "c7c0921d955aa3f10da8dfff347355ca45d1ac8e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

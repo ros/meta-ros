@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/realtime_tools"
 SRC_URI = "git://github.com/ros-gbp/realtime_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "51f3b31b7cf5b7c9fd4c34f63c8c380c27980d8a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pyquaternion"
 SRC_URI = "git://github.com/Achllle/pyquaternion-release;${ROS_BRANCH};protocol=https"
 SRCREV = "79720c2f2161b0510d793211caebf73a17fe60e6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

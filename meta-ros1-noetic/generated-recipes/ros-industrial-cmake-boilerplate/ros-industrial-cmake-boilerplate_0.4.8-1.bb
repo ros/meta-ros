@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ros_industrial_cmake_boilerplate"
 SRC_URI = "git://github.com/ros-industrial-release/ros_industrial_cmake_boilerplate-release;${ROS_BRANCH};protocol=https"
 SRCREV = "15e5a23f7c39d61aade6a0a0b934af38b44a9173"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

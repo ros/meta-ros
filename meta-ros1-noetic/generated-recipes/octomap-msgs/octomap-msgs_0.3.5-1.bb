@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/octomap_msgs"
 SRC_URI = "git://github.com/ros-gbp/octomap_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f820fed2543e333b8b15ce591ef92c675052adf9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

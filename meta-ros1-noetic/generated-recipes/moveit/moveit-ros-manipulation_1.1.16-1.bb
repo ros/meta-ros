@@ -76,6 +76,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_ros_manipulation"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e7ce2af0d263a4c35cc6652bdab3bcad819d952e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

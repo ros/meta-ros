@@ -261,6 +261,8 @@ libfcl-dev:
 - fcl@meta-ros-common
 libffi-dev:
 - libffi@openembedded-core
+libfl-dev:
+- ${ROS_UNRESOLVED_DEP-libfl-dev}
 libflann-dev:
 - libflann@meta-ros-common
 libfltk-dev:
@@ -702,6 +704,8 @@ python3-pycryptodome:
 - python3-pycryptodomex@meta-python
 python3-pydot:
 - python3-pydot@meta-ros-common
+python3-pydub:
+- ${ROS_UNRESOLVED_DEP-python3-pydub}
 python3-pygame:
 - ${ROS_UNRESOLVED_DEP-python3-pygame}
 python3-pygraphviz:
@@ -760,6 +764,8 @@ python3-skimage:
 - ${ROS_UNRESOLVED_DEP-python3-skimage}
 python3-sklearn:
 - ${ROS_UNRESOLVED_DEP-python3-sklearn}
+python3-soundfile:
+- ${ROS_UNRESOLVED_DEP-python3-soundfile}
 python3-sphinx:
 - python3-sphinx@meta-ros-common
 python3-tabulate:
@@ -778,6 +784,8 @@ python3-twisted:
 - python3-twisted@meta-python
 python3-tz:
 - ${ROS_UNRESOLVED_DEP-python3-tz}
+python3-unidecode:
+- ${ROS_UNRESOLVED_DEP-python3-unidecode}
 python3-usb:
 - python3-pyusb@meta-python
 python3-venv:

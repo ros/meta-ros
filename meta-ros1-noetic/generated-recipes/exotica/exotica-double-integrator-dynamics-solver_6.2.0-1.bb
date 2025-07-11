@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/exotica_double_integrator_dynamics_solver"
 SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0b1f6bea9e28d10c33cc50840b7934cd50e5081b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

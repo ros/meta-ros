@@ -83,6 +83,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gazebo_ros_control_select_joints"
 SRC_URI = "git://github.com/tu-darmstadt-ros-pkg-gbp/gazebo_ros_control_select_joints-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dbaf2662440b709f0257e1f128726ff15d694c92"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

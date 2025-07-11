@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_calibration_data"
 SRC_URI = "git://github.com/ipa320/cob_calibration_data-release;${ROS_BRANCH};protocol=https"
 SRCREV = "73a0e77ef33bcb4e91b06a91f67ba50fea8cef1c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

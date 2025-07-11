@@ -69,6 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sbpl_recovery"
 SRC_URI = "git://github.com/ros-gbp/navigation_experimental-release;${ROS_BRANCH};protocol=https"
 SRCREV = "54c3bbeb37775b9fc53669713a79abbf57c85946"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

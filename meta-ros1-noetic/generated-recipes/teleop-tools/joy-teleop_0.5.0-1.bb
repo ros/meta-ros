@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joy_teleop"
 SRC_URI = "git://github.com/ros-gbp/teleop_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "719cf06f1d5a2243fc47e9fc0da156233314df7f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

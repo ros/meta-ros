@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/scan_to_cloud_converter"
 SRC_URI = "git://github.com/ros-gbp/scan_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b5cb8b367b20adb7abe6a598aa30647d777c85c6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

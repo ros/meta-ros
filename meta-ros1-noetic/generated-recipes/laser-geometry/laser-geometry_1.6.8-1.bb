@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laser_geometry"
 SRC_URI = "git://github.com/ros-gbp/laser_geometry-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dcf908962cf3acbeb081ca7d25edb566ce912685"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -74,6 +74,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sbpl_lattice_planner"
 SRC_URI = "git://github.com/ros-gbp/navigation_experimental-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9f1da258f9cfd2d2af8009270e12c498621c7625"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_gazebo_tools"
 SRC_URI = "git://github.com/ipa320/cob_simulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "793288db3c497cb734eb8762d29a62826ae24383"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

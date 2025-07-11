@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pal_carbon_collector"
 SRC_URI = "git://github.com/pal-gbp/pal_statistics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "27b02aa57292c040b8f596b93ad612d95e51f861"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

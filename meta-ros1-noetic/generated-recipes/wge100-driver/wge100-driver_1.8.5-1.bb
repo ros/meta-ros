@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/wge100_driver"
 SRC_URI = "git://github.com/ros-drivers-gbp/wge100_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f016cf4e0e17423c8c04f7e5322943e27cc4fbbd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

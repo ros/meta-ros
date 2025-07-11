@@ -43,6 +43,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/jderobot_assets"
 SRC_URI = "git://github.com/JdeRobot/assets-release;${ROS_BRANCH};protocol=https"
 SRCREV = "86a7d0fd1249dcb617b53e862a00cc0254c633a0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

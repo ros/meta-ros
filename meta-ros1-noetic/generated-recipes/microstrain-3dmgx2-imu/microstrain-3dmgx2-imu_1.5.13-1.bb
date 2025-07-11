@@ -72,6 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/microstrain_3dmgx2_imu"
 SRC_URI = "git://github.com/ros-gbp/microstrain_3dmgx2_imu-release;${ROS_BRANCH};protocol=https"
 SRCREV = "81ebb8c5ae3f5da68625bb57787fb0dc190a6913"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

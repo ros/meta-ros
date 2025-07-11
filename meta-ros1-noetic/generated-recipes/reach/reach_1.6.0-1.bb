@@ -70,6 +70,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/reach"
 SRC_URI = "git://github.com/ros2-gbp/reach-release;${ROS_BRANCH};protocol=https"
 SRCREV = "13da932a731031c271ff777e713169630e49a179"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

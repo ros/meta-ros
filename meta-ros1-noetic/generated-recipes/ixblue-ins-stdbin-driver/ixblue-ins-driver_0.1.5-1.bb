@@ -72,6 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ixblue_ins_driver"
 SRC_URI = "git://github.com/ixblue/ixblue_ins_stdbin_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "de4c24b855d74fbb6992139bb907a20766d99f16"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

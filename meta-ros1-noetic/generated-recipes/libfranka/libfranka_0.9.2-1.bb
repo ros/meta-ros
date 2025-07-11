@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libfranka"
 SRC_URI = "git://github.com/frankaemika/libfranka-release;${ROS_BRANCH};protocol=https"
 SRCREV = "343a45575e54c41500ce4061a937d5f19fea3fa9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

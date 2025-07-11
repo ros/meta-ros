@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joint_trajectory_action"
 SRC_URI = "git://github.com/pr2-gbp/pr2_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7911f40f83170cd47703e54f93f6064268924594"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

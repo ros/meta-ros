@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/settlerlib"
 SRC_URI = "git://github.com/ros-gbp/calibration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2efff72da66f09ed9c78bc44c993ade09ee7f2fa"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

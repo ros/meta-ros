@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/novatel_gps_msgs"
 SRC_URI = "git://github.com/swri-robotics-gbp/novatel_gps_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3ef2f4b4db28ef602c7a1ff9f154ef2962fe174d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

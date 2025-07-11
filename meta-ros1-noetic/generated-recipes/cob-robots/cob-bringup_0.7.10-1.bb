@@ -120,6 +120,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_bringup"
 SRC_URI = "git://github.com/ipa320/cob_robots-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d93ab0055bc6b02ce4bb3926468df524673cfcf7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

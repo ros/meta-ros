@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/neonavigation_metrics_msgs"
 SRC_URI = "git://github.com/at-wat/neonavigation_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4779f92227c81604baa048773751762d88f2675b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -73,6 +73,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_teleop"
 SRC_URI = "git://github.com/pr2-gbp/pr2_apps-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1e70b8dac95be829bd17d3f062939b4fd09979ad"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

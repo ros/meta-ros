@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/voxel_grid"
 SRC_URI = "git://github.com/ros-gbp/navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "99bc9c35c56761bd3e6a53ffa709045ec22eb7f8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

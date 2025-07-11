@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/iris_lama"
 SRC_URI = "git://github.com/eupedrosa/iris_lama-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a9aa58bf68e190d4fb2e5969eece00ea4b711261"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

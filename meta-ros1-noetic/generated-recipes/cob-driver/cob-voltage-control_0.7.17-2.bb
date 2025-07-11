@@ -65,6 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_voltage_control"
 SRC_URI = "git://github.com/4am-robotics/cob_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "715320e71629ca9860f387bfa2dbcaf48b2bf0f2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

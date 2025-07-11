@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/wrapyfi_ros_interfaces"
 SRC_URI = "git://github.com/modular-ml/wrapyfi_ros_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1f8be4f8d7f97fa9120d1dfbe23b04c0dbd37ea6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

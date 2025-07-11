@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/filters"
 SRC_URI = "git://github.com/ros-gbp/filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5f04b4169db96e8f7be89b8ac175b7fa292125d5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

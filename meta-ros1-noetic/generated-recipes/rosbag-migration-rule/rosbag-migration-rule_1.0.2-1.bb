@@ -42,6 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosbag_migration_rule"
 SRC_URI = "git://github.com/ros-gbp/rosbag_migration_rule-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5718a552486970040d405709b29fb530f3837f9f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -78,6 +78,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mrpt_local_obstacles"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/mrpt_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "24aeb3555a0ca32e489659b27b9d83e0f374ea09"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

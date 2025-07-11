@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/can_msgs"
 SRC_URI = "git://github.com/ros-industrial-release/ros_canopen-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0f94480e8d8af22a54280bd46dc8826f3fc42b2c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

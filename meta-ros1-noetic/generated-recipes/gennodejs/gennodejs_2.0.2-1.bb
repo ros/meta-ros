@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gennodejs"
 SRC_URI = "git://github.com/sloretz/gennodejs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4c9b60d1dbe17f4da9a4d63523d7df91fc92f8ef"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

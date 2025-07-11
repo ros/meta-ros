@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_perception_msgs"
 SRC_URI = "git://github.com/ipa320/cob_perception_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "624f62b99541eb1f32817b2b91c849e05eb118b3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

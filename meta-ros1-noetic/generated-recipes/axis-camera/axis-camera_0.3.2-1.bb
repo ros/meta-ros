@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/axis_camera"
 SRC_URI = "git://github.com/ros-drivers-gbp/axis_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ef75e8f6f126e584d5ca65aa46f0ce2d2f289626"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

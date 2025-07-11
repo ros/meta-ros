@@ -75,6 +75,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_mechanism_diagnostics"
 SRC_URI = "git://github.com/pr2-gbp/pr2_mechanism-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c842b5081757df84b79c92d9492f293deb98df96"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

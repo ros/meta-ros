@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/force_torque_sensor_controller"
 SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0864dc9d06b512dbf38f9221db31c3dd5ee95941"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

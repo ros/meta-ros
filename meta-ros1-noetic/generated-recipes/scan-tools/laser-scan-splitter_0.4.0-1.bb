@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laser_scan_splitter"
 SRC_URI = "git://github.com/ros-gbp/scan_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "32a5203d7e9f8ece8ed496382e690d4c1bc5821f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

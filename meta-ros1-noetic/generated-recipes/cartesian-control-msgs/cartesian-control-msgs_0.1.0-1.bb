@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cartesian_control_msgs"
 SRC_URI = "git://github.com/UniversalRobots/Universal_Robots_ROS_cartesian_control_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2089159c66c35cc3a36d8ad028297da34a458f51"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

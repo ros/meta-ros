@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/twist_mux_msgs"
 SRC_URI = "git://github.com/ros-gbp/twist_mux_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b36615835c688fa7a74810c393b0d3ce88186cf3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rviz_robot_description_topic"
 SRC_URI = "git://github.com/nobleo/rviz_robot_description_topic-release;${ROS_BRANCH};protocol=https"
 SRCREV = "724a6125dd434df6f613a59609492c30141b02dc"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

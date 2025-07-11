@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tablet_socket_msgs"
 SRC_URI = "git://github.com/autoware-ai/messages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9e5912fd2c84c0f63917531056a4ade6ae229a1d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

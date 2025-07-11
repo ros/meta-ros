@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/angles"
 SRC_URI = "git://github.com/ros-gbp/geometry_angles_utils-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f08f4f0882ef9701e4611dc21042a871b2bede79"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

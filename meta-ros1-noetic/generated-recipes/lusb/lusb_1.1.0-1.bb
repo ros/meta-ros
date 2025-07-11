@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/lusb"
 SRC_URI = "git://github.com/DataspeedInc-release/lusb-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4afd608b7e74fc27ab65c52f3c337721efc8da80"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

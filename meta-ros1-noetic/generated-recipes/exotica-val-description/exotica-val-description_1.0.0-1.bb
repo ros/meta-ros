@@ -41,6 +41,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/exotica_val_description"
 SRC_URI = "git://github.com/wxmerkt/exotica_val_description-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8a39ce0e22e247534f4a1b555b958700f32383ed"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

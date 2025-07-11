@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mobile_robot_simulator"
 SRC_URI = "git://github.com/nobleo/mobile_robot_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "86d195111bcbc3a193718389f4eaef2c55d29dfe"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

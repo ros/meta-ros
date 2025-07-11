@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hebi_cpp_api"
 SRC_URI = "git://github.com/HebiRobotics/hebi_cpp_api_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "abea941730ec4b2981736cb90dee5ada3e09db57"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

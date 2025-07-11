@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hector_marker_drawing"
 SRC_URI = "git://github.com/tu-darmstadt-ros-pkg-gbp/hector_slam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "36ddb41b8caff0f07244cbdca98aa4118104f5de"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

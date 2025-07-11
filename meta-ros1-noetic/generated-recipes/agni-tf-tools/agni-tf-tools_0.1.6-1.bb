@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/agni_tf_tools"
 SRC_URI = "git://github.com/ubi-agni-gbp/agni_tf_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3b3291eb73d38e717d1e4ca121b6c5f91b06834a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

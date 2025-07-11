@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/audibot"
 SRC_URI = "git://github.com/robustify/audibot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4d7b96da0644a35fe948d223320167104d0f08f4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

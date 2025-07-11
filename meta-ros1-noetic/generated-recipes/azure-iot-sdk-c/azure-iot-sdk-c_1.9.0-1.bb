@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/azure-iot-sdk-c"
 SRC_URI = "git://github.com/nobleo/azure-iot-sdk-c-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9ad1ff6396dca65757b1525faba08af25ac20d9b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

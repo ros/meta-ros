@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/power_monitor"
 SRC_URI = "git://github.com/pr2-gbp/pr2_power_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e3c0083300107d84dfd75edeb69265b30ccc8ea6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

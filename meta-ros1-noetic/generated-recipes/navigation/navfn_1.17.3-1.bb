@@ -81,6 +81,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/navfn"
 SRC_URI = "git://github.com/ros-gbp/navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cd20896ececf1139a25e639e22e3d442ae4c9101"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

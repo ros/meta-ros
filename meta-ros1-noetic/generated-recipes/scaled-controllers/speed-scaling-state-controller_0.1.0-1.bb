@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/speed_scaling_state_controller"
 SRC_URI = "git://github.com/UniversalRobots/Universal_Robots_ROS_scaled_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "032828c176dd09b3f9331ac9096a1d38af384cfc"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

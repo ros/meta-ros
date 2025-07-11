@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dataspeed_can_tools"
 SRC_URI = "git://github.com/DataspeedInc-release/dataspeed_can-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1016b305764e922404587c19411315fc0ec2db48"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

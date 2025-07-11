@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rviz_marker_tools"
 SRC_URI = "git://github.com/ros-gbp/moveit_task_constructor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c2af972a2b8a300466ab457226b13d47a284bc7c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

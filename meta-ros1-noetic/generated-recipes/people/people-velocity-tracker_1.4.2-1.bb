@@ -67,6 +67,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/people_velocity_tracker"
 SRC_URI = "git://github.com/OSUrobotics/people-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5be6183fe88c77d7ce190cfa6d6d4431872cfe43"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

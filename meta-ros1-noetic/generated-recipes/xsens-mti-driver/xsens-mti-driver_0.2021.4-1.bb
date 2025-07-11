@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/xsens_mti_driver"
 SRC_URI = "git://github.com/nobleo/xsens_mti_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1e8bdec7dda1c6f95a25e76703dfc906e8939a3b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

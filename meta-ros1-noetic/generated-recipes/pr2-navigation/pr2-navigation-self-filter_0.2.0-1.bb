@@ -75,6 +75,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_navigation_self_filter"
 SRC_URI = "git://github.com/pr2-gbp/pr2_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "26d84e5edbde9d4263cc52fbb4aa771cd14200e7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

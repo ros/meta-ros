@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/flatland"
 SRC_URI = "git://github.com/avidbots/flatland-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e54142177bb8ed5fbd241b2143729c1d36c80905"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

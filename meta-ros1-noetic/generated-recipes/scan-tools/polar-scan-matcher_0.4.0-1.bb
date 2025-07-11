@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/polar_scan_matcher"
 SRC_URI = "git://github.com/ros-gbp/scan_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "19cc6b2b46d30db498f2893cd7557a21510b9df7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/test_osm"
 SRC_URI = "git://github.com/ros-geographic-info/open_street_map-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0a2fae143e9c69484c93edb17f9fa0b281cabf5d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

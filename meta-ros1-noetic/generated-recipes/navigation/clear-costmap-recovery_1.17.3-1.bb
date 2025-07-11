@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/clear_costmap_recovery"
 SRC_URI = "git://github.com/ros-gbp/navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c73e4b378d4ced9a9d2181dd423af56fb6dba7c2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

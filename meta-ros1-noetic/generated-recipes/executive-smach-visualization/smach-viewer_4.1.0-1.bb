@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/smach_viewer"
 SRC_URI = "git://github.com/jbohren/executive_smach_visualization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "06508579da320405fa5b8cfb2a820bf1e74f7e54"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

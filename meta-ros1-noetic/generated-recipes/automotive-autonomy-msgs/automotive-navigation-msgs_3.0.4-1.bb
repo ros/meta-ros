@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/automotive_navigation_msgs"
 SRC_URI = "git://github.com/astuff/automotive_autonomy_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f6da1bac0b8089b7996bd98c311741fde0fb0cf5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

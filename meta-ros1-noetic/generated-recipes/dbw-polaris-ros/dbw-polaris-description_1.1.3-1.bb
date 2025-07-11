@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dbw_polaris_description"
 SRC_URI = "git://github.com/DataspeedInc-release/dbw_polaris_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f9b43c8b1607052e0a2258392334f999a3a55415"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

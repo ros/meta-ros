@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/snowbot_operating_system"
 SRC_URI = "git://github.com/PickNikRobotics/snowbot_release;${ROS_BRANCH};protocol=https"
 SRCREV = "80e8daaeb8544d6c0e1f309435c6cf62cd4facff"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

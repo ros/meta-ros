@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/jderobot_drones"
 SRC_URI = "git://github.com/JdeRobot/drones-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0d8bced58d645b1aaa949f2f659c9a9199af29e3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cl_transforms"
 SRC_URI = "git://github.com/ros-gbp/roslisp_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0609cfb6862fa31a1ebd4b0e608fc297d77e5aef"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

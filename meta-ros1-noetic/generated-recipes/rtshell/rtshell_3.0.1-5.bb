@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rtshell"
 SRC_URI = "git://github.com/tork-a/rtshell-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ad1cd03ce78048658dd49fdce8cbd22a2116389b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

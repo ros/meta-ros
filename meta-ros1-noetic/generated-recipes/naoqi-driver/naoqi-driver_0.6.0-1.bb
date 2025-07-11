@@ -75,6 +75,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/naoqi_driver"
 SRC_URI = "git://github.com/ros-naoqi/naoqi_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "946da122abdd02fb2914eef2c2f881493c68038d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

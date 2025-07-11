@@ -72,6 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pinocchio"
 SRC_URI = "git://github.com/stack-of-tasks/pinocchio-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "634b9ef6d43d16c0f9f9cbacdedf35e85dbe4fe1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

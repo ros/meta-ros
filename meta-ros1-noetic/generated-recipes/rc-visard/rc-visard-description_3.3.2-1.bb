@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rc_visard_description"
 SRC_URI = "git://github.com/roboception-gbp/rc_visard-release;${ROS_BRANCH};protocol=https"
 SRCREV = "14b3c90395494d9ce61e24c3ee2ec92bec95cef6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -72,6 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/etsi_its_msgs"
 SRC_URI = "git://github.com/ika-rwth-aachen/etsi_its_messages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ac11a4406c73c658c4890efec707d1880f13aa3d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_default_env_config"
 SRC_URI = "git://github.com/ipa320/cob_environments-release;${ROS_BRANCH};protocol=https"
 SRCREV = "646f1b6aa06076b10c428650ef8a1977f40f8f43"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

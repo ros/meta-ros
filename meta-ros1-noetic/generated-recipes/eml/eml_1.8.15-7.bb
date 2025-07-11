@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/eml"
 SRC_URI = "git://github.com/ros-gbp/eml-release;${ROS_BRANCH};protocol=https"
 SRCREV = "beadfc0a01d1994dfab7b9215133ca71ffc574eb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

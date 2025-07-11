@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/remote_rosbag_record"
 SRC_URI = "git://github.com/yoshito-n-students/remote_rosbag_record-release;${ROS_BRANCH};protocol=https"
 SRCREV = "46609d24732a01c07c34b5493dfdbffad6312a2b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

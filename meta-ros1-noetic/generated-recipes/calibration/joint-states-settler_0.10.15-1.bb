@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joint_states_settler"
 SRC_URI = "git://github.com/ros-gbp/calibration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "15ff83c59588ec9e4f1d1a51c1695b79b8949155"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mpc_local_planner_msgs"
 SRC_URI = "git://github.com/rst-tu-dortmund/mpc_local_planner-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7940c6d23475eecef98ba277b1736134cc1ca760"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

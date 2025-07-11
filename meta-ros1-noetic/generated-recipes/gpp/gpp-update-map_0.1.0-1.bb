@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gpp_update_map"
 SRC_URI = "git://github.com/dorezyuk/gpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a380fc83b3857653d0a3740ca0f26fca8a42288a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_navigation_teleop"
 SRC_URI = "git://github.com/pr2-gbp/pr2_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0c0ea5d5b5742f54fb8bde6214adf112014c7344"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

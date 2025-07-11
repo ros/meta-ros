@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/roboticsgroup_upatras_gazebo_plugins"
 SRC_URI = "git://github.com/roboticsgroup/roboticsgroup_upatras_gazebo_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6f2939f48a4313bd1c92a77bdcd89fb2ef0ad902"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

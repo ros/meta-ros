@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/graph_msgs"
 SRC_URI = "git://github.com/PickNikRobotics/graph_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "40f9afc8d135742e0ef077f098bace575018cd4f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

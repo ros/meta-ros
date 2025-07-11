@@ -77,6 +77,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gazebo_ros_control"
 SRC_URI = "git://github.com/ros-gbp/gazebo_ros_pkgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a2ee07170649f14df8238426fc4f03c1a7a97cfd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

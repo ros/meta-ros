@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pose_base_controller"
 SRC_URI = "git://github.com/ros-gbp/navigation_experimental-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2c0a4446e55185ad4276f1939cb4ef9e38fd0874"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

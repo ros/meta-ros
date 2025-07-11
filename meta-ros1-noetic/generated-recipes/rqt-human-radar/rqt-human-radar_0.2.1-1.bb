@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_human_radar"
 SRC_URI = "git://github.com/ros4hri/rqt_human_radar-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bbb2730fc16d4b22b0bcdf42e2f6af151ffb4170"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

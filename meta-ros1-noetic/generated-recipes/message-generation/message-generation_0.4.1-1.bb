@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/message_generation"
 SRC_URI = "git://github.com/ros-gbp/message_generation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b247a74da11ad901f3a24e80e2c9874e40442d50"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

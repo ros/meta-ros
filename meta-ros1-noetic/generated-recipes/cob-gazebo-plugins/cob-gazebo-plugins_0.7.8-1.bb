@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_gazebo_plugins"
 SRC_URI = "git://github.com/ipa320/cob_gazebo_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1786911f68d8a4fe2ec20d7babfd7b5b122ace52"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

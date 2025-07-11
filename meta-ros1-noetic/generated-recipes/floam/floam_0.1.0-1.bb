@@ -93,6 +93,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/floam"
 SRC_URI = "git://github.com/flynneva/floam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9fdc9f40a45e6e1de5efabf4caa30910d097e50f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rx_service_tools"
 SRC_URI = "git://github.com/nobleo/rx_service_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "383ada457432b83c8b615241b7316cef860c25ee"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

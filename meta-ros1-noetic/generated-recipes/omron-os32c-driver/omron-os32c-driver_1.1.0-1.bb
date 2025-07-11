@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/omron_os32c_driver"
 SRC_URI = "git://github.com/ros-drivers-gbp/omron-release;${ROS_BRANCH};protocol=https"
 SRCREV = "10e1d7bc8e258284edd830e6a699e4369a0b3c08"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

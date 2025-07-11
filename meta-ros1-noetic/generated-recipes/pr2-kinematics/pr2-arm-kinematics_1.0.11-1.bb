@@ -73,6 +73,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_arm_kinematics"
 SRC_URI = "git://github.com/pr2-gbp/pr2_kinematics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ea26fd6d5e76d8ce89fa5c2826023d898bbb59cf"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -72,6 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_counterbalance_check"
 SRC_URI = "git://github.com/pr2-gbp/pr2_self_test-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0d120ac3fd3c3add4ba4b7ab64b972c0e7469bb9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

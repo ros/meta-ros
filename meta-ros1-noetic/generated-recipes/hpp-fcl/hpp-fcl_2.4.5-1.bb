@@ -69,6 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hpp-fcl"
 SRC_URI = "git://github.com/humanoid-path-planner/hpp-fcl-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8de65eb4e609a12f8f1392600fb8b91286a30f01"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

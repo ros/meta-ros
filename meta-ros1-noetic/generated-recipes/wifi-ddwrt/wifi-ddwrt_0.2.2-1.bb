@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/wifi_ddwrt"
 SRC_URI = "git://github.com/ros-gbp/wifi_ddwrt-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c9575c8abc979e5af6803ad5764fa20310329efd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

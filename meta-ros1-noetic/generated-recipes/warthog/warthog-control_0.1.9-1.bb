@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/warthog_control"
 SRC_URI = "git://github.com/clearpath-gbp/warthog-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6f8ab5a6537f8b1345d7ff848fcd2988d0b75fab"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

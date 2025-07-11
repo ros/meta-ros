@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/serial"
 SRC_URI = "git://github.com/wjwwood/serial-release;${ROS_BRANCH};protocol=https"
 SRCREV = "edd5de7001c282db38e570ddeb9d3629d493c8e7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

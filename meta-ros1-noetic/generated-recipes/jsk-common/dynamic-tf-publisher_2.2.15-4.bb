@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dynamic_tf_publisher"
 SRC_URI = "git://github.com/tork-a/jsk_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8f4eeaf53fb4331fa663a1cfc67d057529dae5f0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

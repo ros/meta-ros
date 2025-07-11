@@ -80,6 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nerian_stereo"
 SRC_URI = "git://github.com/nerian-vision/nerian_stereo-release;${ROS_BRANCH};protocol=https"
 SRCREV = "df98dbfd81ff899415e6ff6b5927d89ece3a56f6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

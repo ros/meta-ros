@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/combined_robot_hw"
 SRC_URI = "git://github.com/ros-gbp/ros_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "339e8b38c81c0437a2e089ef2a42702020f632c2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

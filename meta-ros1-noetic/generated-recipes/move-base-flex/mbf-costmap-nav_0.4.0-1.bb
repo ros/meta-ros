@@ -97,6 +97,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mbf_costmap_nav"
 SRC_URI = "git://github.com/uos-gbp/move_base_flex-release;${ROS_BRANCH};protocol=https"
 SRCREV = "30b406b27c9c860dad37f6372562b3b0377774ac"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

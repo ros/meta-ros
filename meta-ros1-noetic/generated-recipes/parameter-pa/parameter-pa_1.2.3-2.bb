@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/parameter_pa"
 SRC_URI = "git://github.com/TUC-ProAut/ros_parameter-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0130634c08bce81d68cc861298470387332505f1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

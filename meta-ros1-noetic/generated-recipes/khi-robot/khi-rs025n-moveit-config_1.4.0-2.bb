@@ -73,6 +73,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/khi_rs025n_moveit_config"
 SRC_URI = "git://github.com/Kawasaki-Robotics/khi_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1eef16fbf8ba0b03dba15ae3af8955c401346f85"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

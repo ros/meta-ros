@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/industrial_robot_status_interface"
 SRC_URI = "git://github.com/gavanderhoorn/industrial_robot_status_controller-release;${ROS_BRANCH};protocol=https"
 SRCREV = "49a93934c73b09fa62bae1f7c12b3c65b5223e23"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

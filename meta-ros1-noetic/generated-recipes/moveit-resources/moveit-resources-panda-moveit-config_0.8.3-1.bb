@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_resources_panda_moveit_config"
 SRC_URI = "git://github.com/ros-gbp/moveit_resources-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8ac3d6def782c9a5a80bd49ff7ced18052790ad9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -78,6 +78,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/image_cb_detector"
 SRC_URI = "git://github.com/ros-gbp/calibration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7024ad11ad29cb8f84b0d66214cf73e8bcc35b7a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -102,6 +102,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/base_local_planner"
 SRC_URI = "git://github.com/ros-gbp/navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ebdf9ac0767f36ccfa5eb4acf5565b5fcbe63d68"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

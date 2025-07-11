@@ -86,6 +86,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ros_ign_bridge"
 SRC_URI = "git://github.com/ros-gbp/ros_ign-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c0deba3740de04301db4cc95d562ea20d92762ae"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

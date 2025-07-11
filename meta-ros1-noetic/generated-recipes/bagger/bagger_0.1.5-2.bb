@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/bagger"
 SRC_URI = "git://github.com/squarerobot/bagger-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0000183794f752e4d3875cd75f850221645fb0bd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

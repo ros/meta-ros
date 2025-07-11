@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/led_msgs"
 SRC_URI = "git://github.com/CopterExpress/ros_led-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f263e414993001ba4c4a25a2a1191e2f0833a1dd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

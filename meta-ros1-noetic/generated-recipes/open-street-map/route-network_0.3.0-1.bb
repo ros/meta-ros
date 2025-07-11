@@ -69,6 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/route_network"
 SRC_URI = "git://github.com/ros-geographic-info/open_street_map-release;${ROS_BRANCH};protocol=https"
 SRCREV = "adeb55ad1e4d663046953ba003adf9760c49635c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

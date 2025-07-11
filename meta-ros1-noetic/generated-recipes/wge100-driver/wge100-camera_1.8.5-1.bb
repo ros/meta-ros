@@ -84,6 +84,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/wge100_camera"
 SRC_URI = "git://github.com/ros-drivers-gbp/wge100_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6458626629e6e22f2f90a9e3b9cf9ae366b928a3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

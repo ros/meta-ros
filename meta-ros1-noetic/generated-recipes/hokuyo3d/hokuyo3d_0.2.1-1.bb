@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hokuyo3d"
 SRC_URI = "git://github.com/at-wat/hokuyo3d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "729c5274cec7ee10b5afb86ab2b2bfa17875138a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

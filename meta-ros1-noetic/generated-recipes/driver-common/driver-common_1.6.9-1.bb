@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/driver_common"
 SRC_URI = "git://github.com/ros-gbp/driver_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cbf895f735bb4927efa1d48b768d2a0964317228"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

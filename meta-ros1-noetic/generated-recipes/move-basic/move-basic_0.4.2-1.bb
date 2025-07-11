@@ -96,6 +96,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/move_basic"
 SRC_URI = "git://github.com/UbiquityRobotics-release/move_basic-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7c9e2a136ded8530e5e35e734ab907205c626854"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

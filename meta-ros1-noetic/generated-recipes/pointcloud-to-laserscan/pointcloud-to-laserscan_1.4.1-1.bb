@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pointcloud_to_laserscan"
 SRC_URI = "git://github.com/ros-gbp/pointcloud_to_laserscan-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d7c18ab0aafe0101c23c1305d7ed6407ffd3af19"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

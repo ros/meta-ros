@@ -94,6 +94,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robot_controllers"
 SRC_URI = "git://github.com/fetchrobotics-gbp/robot_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ecd01abee22df81a987b679f49355ffb1ea95f31"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

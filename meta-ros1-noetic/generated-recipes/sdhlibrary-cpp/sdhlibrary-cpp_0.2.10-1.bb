@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sdhlibrary_cpp"
 SRC_URI = "git://github.com/ipab-slmc/SDHLibrary-CPP-release;${ROS_BRANCH};protocol=https"
 SRCREV = "108ac1cc953744cff57e32c6d6f6a192a73e5f89"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

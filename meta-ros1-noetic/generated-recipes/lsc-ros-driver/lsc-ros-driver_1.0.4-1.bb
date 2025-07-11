@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/lsc_ros_driver"
 SRC_URI = "git://github.com/AutonicsLiDAR-release/lsc_ros_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3111de341a2a357311583b18bd0185de9cef2c0f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

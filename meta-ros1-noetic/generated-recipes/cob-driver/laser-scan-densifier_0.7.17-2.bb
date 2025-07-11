@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laser_scan_densifier"
 SRC_URI = "git://github.com/4am-robotics/cob_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "21394f36efadb8900d6d4b0f25cc72320aefa4f1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/naoqi_libqi"
 SRC_URI = "git://github.com/ros-naoqi/libqi-release;${ROS_BRANCH};protocol=https"
 SRCREV = "42efc3d79c606540c91a659c6e5e23bfcd1a5521"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

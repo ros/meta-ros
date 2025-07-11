@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robot_upstart"
 SRC_URI = "git://github.com/clearpath-gbp/robot_upstart-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f831ec05f793289015567df9db7af6d7e487c2c6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

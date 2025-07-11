@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/imagezero_image_transport"
 SRC_URI = "git://github.com/swri-robotics-gbp/imagezero_transport-release;${ROS_BRANCH};protocol=https"
 SRCREV = "71df186975f11c7835416c4895ee0ee0b3b9fc55"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

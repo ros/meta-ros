@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/warehouse_ros_sqlite"
 SRC_URI = "git://github.com/ros-gbp/warehouse_ros_sqlite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b5d344718fdbd9882821474c516cc3f6677e79ac"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

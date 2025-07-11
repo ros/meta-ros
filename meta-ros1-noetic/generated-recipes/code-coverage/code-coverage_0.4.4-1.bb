@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/code_coverage"
 SRC_URI = "git://github.com/mikeferguson/code_coverage-gbp;${ROS_BRANCH};protocol=https"
 SRCREV = "9a564e5d5c7cbd6fc3e518eb404e95efb61c3fa2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

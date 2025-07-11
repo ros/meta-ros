@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fath_pivot_mount_description"
 SRC_URI = "git://github.com/clearpath-gbp/fath_pivot_mount_description-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f0c10a5eafcc039c0b001e90861bb13272538ea1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

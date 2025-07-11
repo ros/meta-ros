@@ -128,6 +128,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_obstacle_distance"
 SRC_URI = "git://github.com/4am-robotics/cob_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3c83dcaea5ae8b07ebadd1bdd13ec2974d0f8c13"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

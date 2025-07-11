@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rplidar_ros"
 SRC_URI = "git://github.com/Slamtec/rplidar_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8c7762104f42fa0b923cb10e7633a303b22260c4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

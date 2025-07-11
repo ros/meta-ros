@@ -72,6 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laser_ortho_projector"
 SRC_URI = "git://github.com/ros-gbp/scan_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d184c3f1a61e09e2efa87afbcda84e2991f1eac5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

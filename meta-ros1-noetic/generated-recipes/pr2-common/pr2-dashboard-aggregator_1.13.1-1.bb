@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_dashboard_aggregator"
 SRC_URI = "git://github.com/pr2-gbp/pr2_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "17a4d13d979c3631737c465a5b58d87204f88d2a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

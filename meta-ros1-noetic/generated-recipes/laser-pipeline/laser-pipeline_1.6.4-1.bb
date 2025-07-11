@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laser_pipeline"
 SRC_URI = "git://github.com/ros-gbp/laser_pipeline-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a48cc668e88f8b812f1ecc7d7dfffee85c2e684c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

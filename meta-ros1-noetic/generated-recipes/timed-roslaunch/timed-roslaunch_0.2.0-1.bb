@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/timed_roslaunch"
 SRC_URI = "git://github.com/Tiryoh/timed_roslaunch-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4be52382bf06470bcb94cc1cc973780b4aa67813"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

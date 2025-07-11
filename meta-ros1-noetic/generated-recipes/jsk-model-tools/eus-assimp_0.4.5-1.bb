@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/eus_assimp"
 SRC_URI = "git://github.com/tork-a/jsk_model_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1ec7a5bf062b84ab07192716e2d1bc3c140948d7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

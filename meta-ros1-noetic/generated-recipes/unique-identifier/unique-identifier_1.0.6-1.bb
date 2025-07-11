@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/unique_identifier"
 SRC_URI = "git://github.com/ros-geographic-info/unique_identifier-release;${ROS_BRANCH};protocol=https"
 SRCREV = "56a130be3ef945ca6b67a9e57c697c66b5ead747"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

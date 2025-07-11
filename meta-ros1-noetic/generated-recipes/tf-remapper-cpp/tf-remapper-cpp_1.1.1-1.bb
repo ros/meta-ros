@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tf_remapper_cpp"
 SRC_URI = "git://github.com/peci1/tf_remapper_cpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "70292fcc206a6b7c7e8eae53b74a5ee22cd46c2e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 
