@@ -12,7 +12,7 @@ repos:
 
 local_conf_header:
   world: |
-    DISTRO_FEATURES:append = " x11 opengl vulkan polkit"
+    DISTRO_FEATURES:append = " x11 opengl vulkan polkit glvnd"
     PACKAGECONFIG:append:pn-clang = "  libomp"
     PACKAGECONFIG:append:pn-qtbase-native = " gui"
     PACKAGECONFIG:append:pn-python3 = "  tk"
