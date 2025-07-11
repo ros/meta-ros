@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/swri_profiler_msgs"
 SRC_URI = "git://github.com/swri-robotics-gbp/swri_profiler-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fa93c0b4d29bad3906d5f1bc135ca45f0a027b14"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

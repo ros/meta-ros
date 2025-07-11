@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/socketcan_interface"
 SRC_URI = "git://github.com/ros-industrial-release/ros_canopen-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5bebab5f60cda0bea2782397ba07b754facb44d9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/freight_bringup"
 SRC_URI = "git://github.com/fetchrobotics-gbp/fetch_robots-release;${ROS_BRANCH};protocol=https"
 SRCREV = "103a3acbe712b5cbd9067fe9c5b23539a76da704"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

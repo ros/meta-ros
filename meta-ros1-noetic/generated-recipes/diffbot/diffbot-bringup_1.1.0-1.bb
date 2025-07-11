@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/diffbot_bringup"
 SRC_URI = "git://github.com/ros-mobile-robots-release/diffbot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "df020546d6c2a97e72cee09bf0dd6667db36802a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

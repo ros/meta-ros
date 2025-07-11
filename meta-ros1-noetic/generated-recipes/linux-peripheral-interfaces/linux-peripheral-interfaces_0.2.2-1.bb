@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/linux_peripheral_interfaces"
 SRC_URI = "git://github.com/ros-gbp/linux_peripheral_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9d312843d3c7eeded356971b69c2347cfb77cba6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

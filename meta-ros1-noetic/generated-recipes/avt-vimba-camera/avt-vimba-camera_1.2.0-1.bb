@@ -74,6 +74,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/avt_vimba_camera"
 SRC_URI = "git://github.com/astuff/avt_vimba_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "734d2a2a5772d115fb71957490dd09368b83df11"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sbpl"
 SRC_URI = "git://github.com/ros-gbp/sbpl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cb709353cf2f9794d2018710795a73d4f538071c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

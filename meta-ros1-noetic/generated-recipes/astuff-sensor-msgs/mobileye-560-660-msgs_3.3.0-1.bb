@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mobileye_560_660_msgs"
 SRC_URI = "git://github.com/astuff/astuff_sensor_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "80b5f0aa72977d25e20cbd2c069e22e8c5dd6aff"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

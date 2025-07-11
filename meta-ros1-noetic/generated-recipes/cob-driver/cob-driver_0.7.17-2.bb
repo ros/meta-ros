@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_driver"
 SRC_URI = "git://github.com/4am-robotics/cob_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a33a6f585b8951d4672c6655074b41903821c27e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

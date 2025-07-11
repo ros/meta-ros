@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/polled_camera"
 SRC_URI = "git://github.com/ros-gbp/image_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "41f501cd1a7598234b736b585182173a6efa9172"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

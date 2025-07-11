@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pluginlib_tutorials"
 SRC_URI = "git://github.com/ros-gbp/common_tutorials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "192c1dd450c1d0aefa77a3dd772b1110278ac7a7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

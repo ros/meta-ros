@@ -77,6 +77,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/foxglove_bridge"
 SRC_URI = "git://github.com/foxglove/ros_foxglove_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "51a0f81f1e6c4e6a9f5eb3a8d3b880b3df62497f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

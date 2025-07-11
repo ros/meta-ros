@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/atf_recorder_plugins"
 SRC_URI = "git://github.com/floweisshardt/atf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2cdd4bf307ae47e2c80fd3612aacabd99775824c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

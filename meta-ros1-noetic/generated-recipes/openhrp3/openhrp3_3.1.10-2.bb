@@ -80,6 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/openhrp3"
 SRC_URI = "git://github.com/tork-a/openhrp3-release;${ROS_BRANCH};protocol=https"
 SRCREV = "87c837e2d7aed12d58cf44caecae98be31129183"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -92,6 +92,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/leg_detector"
 SRC_URI = "git://github.com/OSUrobotics/people-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b709cdde0555490f1d6e9460f5d02484f622ea48"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

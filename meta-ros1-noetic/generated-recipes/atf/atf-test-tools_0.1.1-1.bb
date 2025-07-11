@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/atf_test_tools"
 SRC_URI = "git://github.com/floweisshardt/atf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b54d46c12a744351aeb05040efb589c4572403fd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

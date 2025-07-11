@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hector_imu_attitude_to_tf"
 SRC_URI = "git://github.com/tu-darmstadt-ros-pkg-gbp/hector_slam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fc564b3f4b5d35cd804d89300a721ffec3224408"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

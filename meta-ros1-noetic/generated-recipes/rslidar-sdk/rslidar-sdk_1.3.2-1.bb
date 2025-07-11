@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rslidar_sdk"
 SRC_URI = "git://github.com/nobleo/rslidar_sdk-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2a7ee8e3944d65d388bc45cca01c76d55e4ecca7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

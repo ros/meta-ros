@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/smach_msgs"
 SRC_URI = "git://github.com/ros-gbp/executive_smach-release;${ROS_BRANCH};protocol=https"
 SRCREV = "17d3d500d319c94af5a89bb52540e3a2b5e2c053"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

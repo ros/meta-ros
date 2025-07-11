@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/people_msgs"
 SRC_URI = "git://github.com/OSUrobotics/people-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7159a7ff3f528a4ab290eef96c1d4fc0abd07c63"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

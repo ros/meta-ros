@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_chomp_optimizer_adapter"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cb667377f026b6ceed9ef218d45c020fcd3022a8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

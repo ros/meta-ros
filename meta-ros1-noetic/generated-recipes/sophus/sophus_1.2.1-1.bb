@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sophus"
 SRC_URI = "git://github.com/yujinrobot-release/sophus-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d703a30647a1b8114cd36bd5bc1f3bee9a0a9a49"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

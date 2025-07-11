@@ -84,6 +84,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_visual_tools"
 SRC_URI = "git://github.com/ros-gbp/moveit_visual_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c2bbbebb1d5dedbf1f0568db1a8627bd2734c493"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

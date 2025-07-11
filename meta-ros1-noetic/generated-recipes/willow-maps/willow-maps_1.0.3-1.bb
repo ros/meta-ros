@@ -42,6 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/willow_maps"
 SRC_URI = "git://github.com/ros-gbp/willow_maps-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7a329838e9b77480029ae951215ab47057134c2f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

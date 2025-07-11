@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/schunk_simulated_tactile_sensors"
 SRC_URI = "git://github.com/ipa320/schunk_modular_robotics-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9c564bf25230be619851564b7c939cd40e37ccc2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

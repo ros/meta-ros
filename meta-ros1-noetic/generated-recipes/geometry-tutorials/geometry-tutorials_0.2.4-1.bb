@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/geometry_tutorials"
 SRC_URI = "git://github.com/ros-gbp/geometry_tutorials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6fc29bfe63d8b373acc7c43cd8850c131f1150e6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

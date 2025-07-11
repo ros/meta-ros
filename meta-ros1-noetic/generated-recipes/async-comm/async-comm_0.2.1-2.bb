@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/async_comm"
 SRC_URI = "git://github.com/dpkoch/async_comm-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ab37803e7162c0e866fcf2878946edb0f20ac9f9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

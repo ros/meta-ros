@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosbag_pandas"
 SRC_URI = "git://github.com/eurogroep/rosbag_pandas-release;${ROS_BRANCH};protocol=https"
 SRCREV = "59522f377af2e78aec0372f8bb64a32910687008"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

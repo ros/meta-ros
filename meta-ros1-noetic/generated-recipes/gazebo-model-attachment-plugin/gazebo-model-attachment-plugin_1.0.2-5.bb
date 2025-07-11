@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gazebo_model_attachment_plugin"
 SRC_URI = "git://github.com/ros2-gbp/boeing_gazebo_model_attachement_plugin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "61de97bf2e2c1d966dc1d953ff0d66d01171abf7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

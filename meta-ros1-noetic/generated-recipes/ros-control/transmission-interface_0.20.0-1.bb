@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/transmission_interface"
 SRC_URI = "git://github.com/ros-gbp/ros_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9a3dd6aa279dee1d05824db3087d0e326a7e128f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -78,6 +78,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ethercat_hardware"
 SRC_URI = "git://github.com/pr2-gbp/pr2_ethercat_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "67b928a88f2b05ca759a13f25abe8be4f1492880"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

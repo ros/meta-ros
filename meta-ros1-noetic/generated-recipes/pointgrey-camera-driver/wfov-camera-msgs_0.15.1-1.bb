@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/wfov_camera_msgs"
 SRC_URI = "git://github.com/ros-drivers-gbp/pointgrey_camera_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2b267a7c000f60b638dd0cc44eb605bf72e5cdff"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

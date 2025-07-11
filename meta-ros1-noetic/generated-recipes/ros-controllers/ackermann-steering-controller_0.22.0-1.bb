@@ -80,6 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ackermann_steering_controller"
 SRC_URI = "git://github.com/ros-gbp/ros_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f7b662aeea4c0e5d3965afe3a41e6ee441f0ed87"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

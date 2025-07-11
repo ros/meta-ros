@@ -42,6 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rcdiscover"
 SRC_URI = "git://github.com/roboception-gbp/rcdiscover-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6401bc234a5e824a9ce8e03e4d5d43002d3eed53"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

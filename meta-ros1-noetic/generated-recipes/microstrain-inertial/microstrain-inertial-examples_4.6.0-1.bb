@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/microstrain_inertial_examples"
 SRC_URI = "git://github.com/LORD-MicroStrain/microstrain_inertial-release;${ROS_BRANCH};protocol=https"
 SRCREV = "25b83b7a5f2798f22536cd243f66434d64138b76"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

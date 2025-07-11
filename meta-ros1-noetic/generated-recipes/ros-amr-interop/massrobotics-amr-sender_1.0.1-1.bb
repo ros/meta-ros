@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/massrobotics_amr_sender"
 SRC_URI = "git://github.com/inorbit-ai/ros_amr_interop-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5fc8c5ae05eca8aff8c373c4f88f6408fe588d96"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

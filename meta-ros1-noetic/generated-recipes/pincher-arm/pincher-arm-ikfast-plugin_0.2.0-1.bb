@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pincher_arm_ikfast_plugin"
 SRC_URI = "git://github.com/fictionlab-gbp/pincher_arm-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f2981083398cf37bd18154b71f90de7e82ab4566"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

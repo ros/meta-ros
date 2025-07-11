@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mia_hand_ros_pkgs"
 SRC_URI = "git://github.com/Prensilia-srl/mia_hand_ros_pkgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "388368ac6eaf800ade42281d1bf48b5acc25097a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

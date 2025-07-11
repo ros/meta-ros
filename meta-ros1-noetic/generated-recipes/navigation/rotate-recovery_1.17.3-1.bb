@@ -75,6 +75,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rotate_recovery"
 SRC_URI = "git://github.com/ros-gbp/navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dc3591e8d562633a057660ef25aea784652a069f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

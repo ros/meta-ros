@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/web_video_server"
 SRC_URI = "git://github.com/RobotWebTools-release/web_video_server-release;${ROS_BRANCH};protocol=https"
 SRCREV = "789e178d66f408312b019f5154b284804839f551"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/inorbit_republisher"
 SRC_URI = "git://github.com/inorbit-ai/ros_inorbit_samples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9581fb63c100377cc37d3b84016110b8b90b340a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

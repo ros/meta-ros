@@ -80,6 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nav2d_karto"
 SRC_URI = "git://github.com/skasperski/navigation_2d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "83068a0688cd86423816481d84f79a12cdaaa549"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

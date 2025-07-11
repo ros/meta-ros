@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/urdf_sim_tutorial"
 SRC_URI = "git://github.com/ros-gbp/urdf_sim_tutorial-release;${ROS_BRANCH};protocol=https"
 SRCREV = "436e70c6a7e6b5e9591d1e08a06ea702d23a97dd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

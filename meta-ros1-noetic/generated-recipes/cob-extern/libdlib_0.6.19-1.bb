@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libdlib"
 SRC_URI = "git://github.com/ipa320/cob_extern-release;${ROS_BRANCH};protocol=https"
 SRCREV = "745ac3ab80f2544a0b71f0b8eb2f6f4c3553551c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

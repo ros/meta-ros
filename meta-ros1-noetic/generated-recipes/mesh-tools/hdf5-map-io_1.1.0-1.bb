@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hdf5_map_io"
 SRC_URI = "git://github.com/uos-gbp/mesh-tools;${ROS_BRANCH};protocol=https"
 SRCREV = "d417441d257d928e72fd92e90f53e52d6e7eed25"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

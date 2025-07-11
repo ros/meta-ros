@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/graceful_controller"
 SRC_URI = "git://github.com/mikeferguson/graceful_controller-gbp;${ROS_BRANCH};protocol=https"
 SRCREV = "54823aebf9056de4c820677ee4dfbe18bc2b350c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

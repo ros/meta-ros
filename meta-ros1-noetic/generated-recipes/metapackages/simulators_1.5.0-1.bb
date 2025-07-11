@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/simulators"
 SRC_URI = "git://github.com/ros-gbp/metapackages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eb92bb93e7b41f21d8b5222b97eef4091dd309d8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

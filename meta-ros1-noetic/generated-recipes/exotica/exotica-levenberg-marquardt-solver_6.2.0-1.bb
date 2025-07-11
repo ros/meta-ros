@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/exotica_levenberg_marquardt_solver"
 SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2acf781ce42e55ca23d3f0772bdbf6d07c260f57"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

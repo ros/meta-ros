@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hatchbed_common"
 SRC_URI = "git://github.com/ros2-gbp/hatchbed_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d037eeabc505122d55ba05f93f7b9c2b559222ce"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

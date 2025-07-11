@@ -100,6 +100,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/move_base"
 SRC_URI = "git://github.com/ros-gbp/navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c66de71eb337986dfc67b0ef78bf6e7a2a619b57"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/depthimage_to_laserscan"
 SRC_URI = "git://github.com/ros-gbp/depthimage_to_laserscan-release;${ROS_BRANCH};protocol=https"
 SRCREV = "844f2f797a7c6b0002ce564f7ecbc1fe4d743ddc"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

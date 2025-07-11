@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pid"
 SRC_URI = "git://github.com/AndyZe/pid-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3f05ca854ab23167bb9bea1d560522448a59546b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

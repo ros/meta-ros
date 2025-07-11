@@ -86,6 +86,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/urg_node"
 SRC_URI = "git://github.com/ros-gbp/urg_node-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9635849226fcc4e8b4254dcd0af908f46b8e79fc"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

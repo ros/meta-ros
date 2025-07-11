@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/openrtm_aist"
 SRC_URI = "git://github.com/tork-a/openrtm_aist-release;${ROS_BRANCH};protocol=https"
 SRCREV = "37ae57227bf2ae0520c3f8c13d6f8503d12c21fb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

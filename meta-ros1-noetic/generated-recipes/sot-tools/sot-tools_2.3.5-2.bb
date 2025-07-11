@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sot-tools"
 SRC_URI = "git://github.com/stack-of-tasks/sot-tools-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "43410ad1f414dfd4b1453f1d9d9d214382a60df6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

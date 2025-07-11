@@ -96,6 +96,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rospilot"
 SRC_URI = "git://github.com/rospilot/rospilot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a855a273d5c91f5678f335163488d80f54eda053"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

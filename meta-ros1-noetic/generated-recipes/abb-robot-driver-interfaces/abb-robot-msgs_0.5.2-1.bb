@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/abb_robot_msgs"
 SRC_URI = "git://github.com/ros-industrial-release/abb_robot_driver_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "06a446022237f8235efa975d6b8b62728f796226"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

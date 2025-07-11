@@ -75,6 +75,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_tilt_laser_interface"
 SRC_URI = "git://github.com/pr2-gbp/pr2_common_actions-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4916b8bd5493bdaa8ba2452507f2c116ecea8112"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/clpe_ros"
 SRC_URI = "git://github.com/canlab-co/clpe_ros-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "978363b8a4fee60f6cf0114bbc4d789a4a23d44f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

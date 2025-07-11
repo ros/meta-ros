@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_simulator"
 SRC_URI = "git://github.com/pr2-gbp/pr2_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "47b101d590f5a92455536cfceedbf691d9323777"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

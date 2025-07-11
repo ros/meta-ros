@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joint_limits_interface"
 SRC_URI = "git://github.com/ros-gbp/ros_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "232ecea610dd26bd4833ba89e4bb984c9f01a967"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

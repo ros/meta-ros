@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/py_trees_msgs"
 SRC_URI = "git://github.com/stonier/py_trees_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fa45496c1c23b55afd3e256b2ed2328bf02134af"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

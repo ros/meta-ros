@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mqtt_bridge"
 SRC_URI = "git://github.com/groove-x/mqtt_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0279e4aef09df8d774e08a964b6fb0bc831f9599"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

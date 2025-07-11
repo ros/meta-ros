@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_controller_manager"
 SRC_URI = "git://github.com/ros-gbp/ros_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cedfb6c7b44432edb67c9503ff96863787d458a9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

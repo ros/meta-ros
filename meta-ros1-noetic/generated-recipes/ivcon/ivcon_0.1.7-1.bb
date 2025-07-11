@@ -42,6 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ivcon"
 SRC_URI = "git://github.com/ros-gbp/ivcon-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b95c8034f1cf4f39fc73a472a976df549dc6b616"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

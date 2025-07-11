@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/eigenpy"
 SRC_URI = "git://github.com/stack-of-tasks/eigenpy-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d74ab7f97805744f540e0c8c2c8ff7a1f4301aef"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/autoware_lanelet2_msgs"
 SRC_URI = "git://github.com/autoware-ai/messages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fd4003fe6c1a8f49a1a91f9e1edc79083b25c747"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

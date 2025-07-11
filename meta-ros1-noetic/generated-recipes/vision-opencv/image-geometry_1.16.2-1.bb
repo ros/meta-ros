@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/image_geometry"
 SRC_URI = "git://github.com/ros-gbp/vision_opencv-release;${ROS_BRANCH};protocol=https"
 SRCREV = "41fc84535640e16d6d3117fdfca3e6caa87d2514"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/interactive_marker_twist_server"
 SRC_URI = "git://github.com/ros-gbp/interactive_marker_twist_server-release;${ROS_BRANCH};protocol=https"
 SRCREV = "086791d148f64c1e8344046117ae6c5574ab9423"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

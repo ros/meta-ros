@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/boost_plugin_loader"
 SRC_URI = "git://github.com/tesseract-robotics-release/boost_plugin_loader-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8817130123940158fb67dbec096aff907a254265"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

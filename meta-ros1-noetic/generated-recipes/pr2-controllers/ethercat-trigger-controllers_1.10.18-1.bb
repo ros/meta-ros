@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ethercat_trigger_controllers"
 SRC_URI = "git://github.com/pr2-gbp/pr2_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aa38f4476a9858f17be21e0b5c7194a888cb9b0f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

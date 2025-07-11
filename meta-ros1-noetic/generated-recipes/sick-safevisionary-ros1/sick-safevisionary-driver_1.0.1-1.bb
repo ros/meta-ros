@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sick_safevisionary_driver"
 SRC_URI = "git://github.com/SICKAG/sick_safevisionary_ros1-release;${ROS_BRANCH};protocol=https"
 SRCREV = "838c31bc15266cf257c2fab5f30e3caafa0a82f3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

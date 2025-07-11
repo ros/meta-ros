@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/turtlebot3_autorace_detect"
 SRC_URI = "git://github.com/ROBOTIS-GIT-release/turtlebot3_autorace_2020_release;${ROS_BRANCH};protocol=https"
 SRCREV = "63092a961bca4bbc5fd14fcc03fba419be17c22a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

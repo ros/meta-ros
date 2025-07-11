@@ -80,6 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/explore_lite"
 SRC_URI = "git://github.com/hrnr/m-explore-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8900e06e8d53c9bebb2107c7c56d9c019c7bfe9c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -111,6 +111,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/face_detector"
 SRC_URI = "git://github.com/OSUrobotics/people-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b9a1790e49e336da22f0175766967243ee018f57"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

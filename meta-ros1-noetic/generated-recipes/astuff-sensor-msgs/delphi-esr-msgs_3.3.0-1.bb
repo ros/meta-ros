@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/delphi_esr_msgs"
 SRC_URI = "git://github.com/astuff/astuff_sensor_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8038aa2683eaae1c818362dc044648d8e1d3f6ea"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

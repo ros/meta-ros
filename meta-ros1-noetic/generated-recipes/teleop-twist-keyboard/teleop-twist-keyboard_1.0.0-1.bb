@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/teleop_twist_keyboard"
 SRC_URI = "git://github.com/ros-gbp/teleop_twist_keyboard-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cbf2bf6acc0307e7fa7e2fc833c50e646375d874"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

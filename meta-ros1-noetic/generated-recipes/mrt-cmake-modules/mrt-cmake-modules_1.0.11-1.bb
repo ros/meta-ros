@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mrt_cmake_modules"
 SRC_URI = "git://github.com/KIT-MRT/mrt_cmake_modules-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2dab99a0b52c66be8d5443d85337572ad3a1aa13"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

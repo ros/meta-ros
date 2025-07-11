@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/librealsense2"
 SRC_URI = "git://github.com/IntelRealSense/librealsense2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "af0d54a18d1f21c5c4715535e32ee0f445913dd3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

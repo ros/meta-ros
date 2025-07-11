@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/behaviortree_cpp_v3"
 SRC_URI = "git://github.com/BehaviorTree/behaviortree_cpp_v3-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6510293590dfd3aa2d4542c2de4269efe7fcc85d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/controller_manager_msgs"
 SRC_URI = "git://github.com/ros-gbp/ros_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "81aeb999fc8292963d8e90034ac133a6230f5776"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

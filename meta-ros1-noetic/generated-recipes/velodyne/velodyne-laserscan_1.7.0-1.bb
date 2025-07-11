@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/velodyne_laserscan"
 SRC_URI = "git://github.com/ros-drivers-gbp/velodyne-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5899d686a961a0e22ebcab31a60db896d3ba15f3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

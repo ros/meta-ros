@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joint_state_publisher"
 SRC_URI = "git://github.com/ros-gbp/joint_state_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fdf4ce5ffade4b2a55b8700aac0d5e80ae11bf57"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

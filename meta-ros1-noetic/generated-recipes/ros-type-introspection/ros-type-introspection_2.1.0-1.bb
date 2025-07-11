@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ros_type_introspection"
 SRC_URI = "git://github.com/facontidavide/ros_type_introspection-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0eb13ee6e248b9acbdc4b9006970c31f387ca1b7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

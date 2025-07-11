@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rviz_map_plugin"
 SRC_URI = "git://github.com/uos-gbp/mesh-tools;${ROS_BRANCH};protocol=https"
 SRCREV = "781f00f82ef1e6549fb49d8aaa1278188c1bb6f9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

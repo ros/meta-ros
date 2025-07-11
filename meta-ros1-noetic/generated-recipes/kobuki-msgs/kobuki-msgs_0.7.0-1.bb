@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/kobuki_msgs"
 SRC_URI = "git://github.com/yujinrobot-release/kobuki_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f71c41464189e88a9638f894fe5c7166590d11bb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

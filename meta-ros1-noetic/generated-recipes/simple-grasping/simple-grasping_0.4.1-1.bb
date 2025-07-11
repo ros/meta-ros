@@ -78,6 +78,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/simple_grasping"
 SRC_URI = "git://github.com/ros-gbp/simple_grasping-release;${ROS_BRANCH};protocol=https"
 SRCREV = "56b9d947aaf3ee660c70a8915885a28781d6a7d7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

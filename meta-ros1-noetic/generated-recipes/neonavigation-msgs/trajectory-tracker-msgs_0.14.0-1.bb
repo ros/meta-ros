@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/trajectory_tracker_msgs"
 SRC_URI = "git://github.com/at-wat/neonavigation_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "31c5df2f0425c58b36da285567b690d90eeadf9b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

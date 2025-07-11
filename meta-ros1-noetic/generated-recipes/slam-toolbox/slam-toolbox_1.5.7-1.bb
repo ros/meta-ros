@@ -125,6 +125,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/slam_toolbox"
 SRC_URI = "git://github.com/SteveMacenski/slam_toolbox-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ef84f93c8b007a303e4955875ea580ea7bb7551"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

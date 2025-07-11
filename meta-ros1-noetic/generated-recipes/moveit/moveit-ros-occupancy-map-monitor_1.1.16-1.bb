@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_ros_occupancy_map_monitor"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
 SRCREV = "58ae19688bc420478b50568c7f2e67e03d26adce"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

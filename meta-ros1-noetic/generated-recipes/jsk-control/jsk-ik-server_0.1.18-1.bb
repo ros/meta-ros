@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/jsk_ik_server"
 SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d6a0ef11073962303c61fe348340efdb71ae87a1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

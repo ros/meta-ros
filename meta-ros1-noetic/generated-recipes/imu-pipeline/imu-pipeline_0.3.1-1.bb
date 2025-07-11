@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/imu_pipeline"
 SRC_URI = "git://github.com/ros-gbp/imu_pipeline-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bff5f7d4781cf96ef2f1740b32f71f9a98471d7d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

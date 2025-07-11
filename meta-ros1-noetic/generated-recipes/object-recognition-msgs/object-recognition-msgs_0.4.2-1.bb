@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/object_recognition_msgs"
 SRC_URI = "git://github.com/ros-gbp/object_recognition_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5536aaebd4158084a09a567201e2d950bf33ca2b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

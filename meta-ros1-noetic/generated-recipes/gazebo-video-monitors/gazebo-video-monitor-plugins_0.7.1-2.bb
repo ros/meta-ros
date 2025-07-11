@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gazebo_video_monitor_plugins"
 SRC_URI = "git://github.com/nlamprian/gazebo_video_monitors-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f74be638ca4a133f6b718ea1398a28474d948207"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

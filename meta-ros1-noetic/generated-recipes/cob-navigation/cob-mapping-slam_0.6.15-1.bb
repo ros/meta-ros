@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_mapping_slam"
 SRC_URI = "git://github.com/ipa320/cob_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b0774bdcd202f29889dfdddcd71203e70b36dc43"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

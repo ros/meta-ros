@@ -76,6 +76,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/neo_local_planner"
 SRC_URI = "git://github.com/neobotix/neo_local_planner-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1740a84d166d015b9ac00507765383359601f4ca"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

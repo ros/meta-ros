@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robot_calibration_msgs"
 SRC_URI = "git://github.com/ros-gbp/robot_calibration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bf7fceea7799b8d6e8be06c611dab7a8d4644610"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

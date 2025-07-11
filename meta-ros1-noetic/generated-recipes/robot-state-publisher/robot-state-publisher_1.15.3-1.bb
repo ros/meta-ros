@@ -77,6 +77,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robot_state_publisher"
 SRC_URI = "git://github.com/ros-gbp/robot_state_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eb624513858d255b6909e7b0ec6d561f20d937b3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

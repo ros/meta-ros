@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fadecandy_msgs"
 SRC_URI = "git://github.com/iron-ox/fadecandy_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "570a7418791015f51a883e0ef1e3041b765eaeb3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

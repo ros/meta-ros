@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/leo_description"
 SRC_URI = "git://github.com/fictionlab-gbp/leo_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a97bc18ce4082d7a1af6e31d3dd18ba7d3b47518"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

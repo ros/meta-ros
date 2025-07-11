@@ -92,6 +92,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mbf_simple_nav"
 SRC_URI = "git://github.com/uos-gbp/move_base_flex-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9c7da25f5b96124a8f1cf1a9d2ad043f5be8a6b8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

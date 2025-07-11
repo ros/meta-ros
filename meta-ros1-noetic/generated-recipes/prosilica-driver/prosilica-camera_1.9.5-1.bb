@@ -85,6 +85,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/prosilica_camera"
 SRC_URI = "git://github.com/ros-drivers-gbp/prosilica_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eb23668fa17a68b4c6fd68523ff7f4a65e23fe36"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

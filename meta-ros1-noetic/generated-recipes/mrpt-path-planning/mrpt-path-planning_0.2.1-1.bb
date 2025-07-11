@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mrpt_path_planning"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/mrpt_path_planning-release;${ROS_BRANCH};protocol=https"
 SRCREV = "67f4d53375574f1ca5d725f44035fcc43af4a930"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joy_mouse"
 SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "debf0e9d121cf4ded556ae31b18af28939ac0079"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

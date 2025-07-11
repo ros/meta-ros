@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tsid"
 SRC_URI = "git://github.com/stack-of-tasks/tsid-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7bbb10643957472fdfebf26238b71e0bf2d55bd7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/viz"
 SRC_URI = "git://github.com/ros-gbp/metapackages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2a934ef64089a4a09f1b3f31999e30e25ba1d08b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

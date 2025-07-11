@@ -74,6 +74,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_object_detection_visualizer"
 SRC_URI = "git://github.com/ipa320/cob_perception_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "73c5b08474b0d34cfd468d1da7f6c09537654e6f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

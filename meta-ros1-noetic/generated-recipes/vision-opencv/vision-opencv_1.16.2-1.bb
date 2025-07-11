@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/vision_opencv"
 SRC_URI = "git://github.com/ros-gbp/vision_opencv-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9c7e57510698dcf6324c06b366e601a52ebf901d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

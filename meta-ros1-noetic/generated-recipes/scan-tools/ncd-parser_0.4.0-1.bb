@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ncd_parser"
 SRC_URI = "git://github.com/ros-gbp/scan_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0c98d54a8998b3098af9f07c45a45b0dd8397508"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

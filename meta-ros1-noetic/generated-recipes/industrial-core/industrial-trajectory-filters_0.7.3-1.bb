@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/industrial_trajectory_filters"
 SRC_URI = "git://github.com/ros-industrial-release/industrial_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8bc815149b43d7299d54a938806efe69ca989eee"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

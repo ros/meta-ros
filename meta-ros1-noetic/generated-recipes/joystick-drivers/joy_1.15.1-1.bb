@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joy"
 SRC_URI = "git://github.com/ros-gbp/joystick_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "66244144c5938df2c29096c926d8e4609a119049"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

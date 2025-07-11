@@ -42,6 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libpcan"
 SRC_URI = "git://github.com/ipa320/cob_extern-release;${ROS_BRANCH};protocol=https"
 SRCREV = "385fad2cd08b0be7eaef06292ff9b25d7ee91bb5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

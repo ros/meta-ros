@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_opw_kinematics_plugin"
 SRC_URI = "git://github.com/JeroenDM/moveit_opw_kinematics_plugin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8aaa143653ea5033e8d3a872f2d7c0ea8e45bd30"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

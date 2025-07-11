@@ -81,6 +81,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/canopen_motor_node"
 SRC_URI = "git://github.com/ros-industrial-release/ros_canopen-release;${ROS_BRANCH};protocol=https"
 SRCREV = "af15376f3f463b26df16869f83d3cb326f5642f7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

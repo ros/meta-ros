@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/imu_from_ios_sensorlog"
 SRC_URI = "git://github.com/pietrocolombo/imu_from_ios_sensorlog-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d8fc2b36dfb7a910a3b155b73df5d79c7c121bba"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

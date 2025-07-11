@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/leo_example_object_detection"
 SRC_URI = "git://github.com/fictionlab-gbp/leo_examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aee33e8a4944a9ed807aa6e37888749c7f821491"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

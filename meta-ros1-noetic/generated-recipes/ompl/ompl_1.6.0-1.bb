@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ompl"
 SRC_URI = "git://github.com/ros-gbp/ompl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "24760fbfdfc0daf75fb9943081cc14c618668c40"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

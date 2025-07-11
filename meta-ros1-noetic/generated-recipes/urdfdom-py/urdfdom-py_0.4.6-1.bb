@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/urdfdom_py"
 SRC_URI = "git://github.com/ros-gbp/urdfdom_py-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9d6b6357d34c5ce98e6ed72c7d6cb3f2a29370ed"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

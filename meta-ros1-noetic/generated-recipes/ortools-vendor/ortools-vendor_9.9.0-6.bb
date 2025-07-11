@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ortools_vendor"
 SRC_URI = "git://github.com/ros2-gbp/ortools_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3a5bde429c4d80a02a2311e9ea11e240d283ef07"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

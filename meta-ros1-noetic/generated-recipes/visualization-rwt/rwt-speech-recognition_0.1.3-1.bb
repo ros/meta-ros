@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rwt_speech_recognition"
 SRC_URI = "git://github.com/tork-a/visualization_rwt-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c07c338b862a4ae7acf3ae39007cc17ff30a9c73"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

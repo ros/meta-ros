@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_simple_controller_manager"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
 SRCREV = "42cdaa4c4f959cbd856419e97ec40b47652f4014"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

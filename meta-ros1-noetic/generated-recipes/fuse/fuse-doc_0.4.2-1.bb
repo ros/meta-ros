@@ -43,6 +43,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fuse_doc"
 SRC_URI = "git://github.com/locusrobotics/fuse-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4358e2bbd31f4a4ca7b5fde6daf6eee4d3c1bce7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

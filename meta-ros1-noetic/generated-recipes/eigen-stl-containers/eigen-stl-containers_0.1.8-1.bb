@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/eigen_stl_containers"
 SRC_URI = "git://github.com/ros-gbp/eigen_stl_containers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "84526930641bae08d342422922acc1f5a9e37058"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

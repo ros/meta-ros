@@ -89,6 +89,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mrpt_icp_slam_2d"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/mrpt_slam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "523d74a213800c0ca278e33c0906497ede2b1aa1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

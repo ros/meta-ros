@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/collada_parser"
 SRC_URI = "git://github.com/ros-gbp/collada_urdf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1dff980fee222aed902d8deffc0f1ba93e9384f0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/schunk_svh_library"
 SRC_URI = "git://github.com/SCHUNK-GmbH-Co-KG/schunk_svh_library-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5d9854ac8b86e8b36e727bac1bb26bbd928dab24"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

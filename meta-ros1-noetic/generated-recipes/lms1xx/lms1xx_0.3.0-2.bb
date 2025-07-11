@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/lms1xx"
 SRC_URI = "git://github.com/clearpath-gbp/lms1xx-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7d76acebd2d8a32c8cf1a45d7e89c69311519b47"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

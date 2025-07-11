@@ -70,6 +70,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_multiplot"
 SRC_URI = "git://github.com/anybotics/rqt_multiplot_plugin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8909fd22dfa2800076952bd5da8be44a9d1f6489"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hardware_interface"
 SRC_URI = "git://github.com/ros-gbp/ros_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d83495571dee659b5250eb47805633a9eff805df"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

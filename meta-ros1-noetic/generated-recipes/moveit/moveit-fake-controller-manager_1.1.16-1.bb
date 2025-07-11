@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/moveit_fake_controller_manager"
 SRC_URI = "git://github.com/ros-gbp/moveit-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c6d538072b310f2a541cbc8bfa293c91fa5db3ca"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

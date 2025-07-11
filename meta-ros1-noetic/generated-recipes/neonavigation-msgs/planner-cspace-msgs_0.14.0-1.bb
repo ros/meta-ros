@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/planner_cspace_msgs"
 SRC_URI = "git://github.com/at-wat/neonavigation_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "75a69a82e695b5155bc97535dbde85e8a57a6ef1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

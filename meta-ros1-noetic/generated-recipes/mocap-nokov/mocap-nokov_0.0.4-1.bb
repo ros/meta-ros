@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mocap_nokov"
 SRC_URI = "git://github.com/NOKOV-MOCAP/mocap_nokov_release;${ROS_BRANCH};protocol=https"
 SRCREV = "669fde1541a6612a69993aa554d0f78c2967e0d9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

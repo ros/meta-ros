@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/control_toolbox"
 SRC_URI = "git://github.com/ros-gbp/control_toolbox-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f7add972b60ab05968b3225676f1799536f7c912"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

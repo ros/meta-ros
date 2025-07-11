@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/point_cloud2_filters"
 SRC_URI = "git://github.com/ADVRHumanoids/point_cloud2_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "36ad10fa5577bfb35f2f74ffdcf554724da9b5b9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

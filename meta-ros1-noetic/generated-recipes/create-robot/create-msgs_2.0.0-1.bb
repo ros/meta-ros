@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/create_msgs"
 SRC_URI = "git://github.com/autonomylab/create_autonomy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6f4ce929c53580341f87c2f440c324b5ae3e1cfc"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

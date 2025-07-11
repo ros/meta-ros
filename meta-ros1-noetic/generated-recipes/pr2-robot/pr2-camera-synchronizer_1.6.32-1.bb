@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_camera_synchronizer"
 SRC_URI = "git://github.com/pr2-gbp/pr2_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0e17e34b34adcaf5586526f43d94d8f667c05831"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

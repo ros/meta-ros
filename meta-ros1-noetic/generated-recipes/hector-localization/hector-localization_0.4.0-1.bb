@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hector_localization"
 SRC_URI = "git://github.com/tu-darmstadt-ros-pkg-gbp/hector_localization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "27cd84ecbe0f6b7ace76559eddd16e6d11910007"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

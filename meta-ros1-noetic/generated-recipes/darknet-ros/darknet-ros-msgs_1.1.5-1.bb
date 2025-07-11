@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/darknet_ros_msgs"
 SRC_URI = "git://github.com/leggedrobotics/darknet_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f1519cb6911a85444d36427697ccfb34899a6f1b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

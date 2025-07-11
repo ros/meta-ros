@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/schunk_svh_msgs"
 SRC_URI = "git://github.com/SCHUNK-GmbH-Co-KG/schunk_svh_ros_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "133a334ae9432bce0a0c2ccaca04118b800aa891"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

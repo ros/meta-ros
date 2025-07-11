@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ipa_3d_fov_visualization"
 SRC_URI = "git://github.com/ipa320/cob_perception_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "80202e6086241d9c6f9080c25356aa77b9deec6b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

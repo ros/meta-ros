@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rc_genicam_api"
 SRC_URI = "git://github.com/roboception-gbp/rc_genicam_api-release;${ROS_BRANCH};protocol=https"
 SRCREV = "afdf87c61ae464789fa99ba32aa8f47525d2817e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

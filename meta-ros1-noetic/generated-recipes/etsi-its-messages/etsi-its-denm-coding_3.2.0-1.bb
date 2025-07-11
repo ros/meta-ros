@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/etsi_its_denm_coding"
 SRC_URI = "git://github.com/ika-rwth-aachen/etsi_its_messages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8f06ac1e17e54ebfbfd1613067b7e0916c91934d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hri_rviz"
 SRC_URI = "git://github.com/ros4hri/hri_rviz-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5a3c7130fff693d09e71b722e78cdc4c98e23e1f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

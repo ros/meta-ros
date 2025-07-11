@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laser_proc"
 SRC_URI = "git://github.com/ros-gbp/laser_proc-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1e9c7cf73610717ea9f364f2fb407f4a96a26b96"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

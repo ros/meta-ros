@@ -113,6 +113,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robot_localization"
 SRC_URI = "git://github.com/cra-ros-pkg/robot_localization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b0dccbe1188de484b315e7ade84e0bfaa2eb8b48"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

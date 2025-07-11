@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cartesian_msgs"
 SRC_URI = "git://github.com/PickNikRobotics/cartesian_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7a6c009819020c25fa506e75e74b8a8681197c3b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

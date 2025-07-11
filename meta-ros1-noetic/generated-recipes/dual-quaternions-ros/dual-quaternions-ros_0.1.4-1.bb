@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dual_quaternions_ros"
 SRC_URI = "git://github.com/Achllle/dual_quaternions_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7491e8ea68c51764f0a973ea1204c6ebc585945f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

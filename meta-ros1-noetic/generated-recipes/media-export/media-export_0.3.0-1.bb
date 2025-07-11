@@ -42,6 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/media_export"
 SRC_URI = "git://github.com/ros-gbp/media_export-release;${ROS_BRANCH};protocol=https"
 SRCREV = "971665f50168c0e4f9ddd6f6ac9a933bd4c3024c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -77,6 +77,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dbw_fca_can"
 SRC_URI = "git://github.com/DataspeedInc-release/dbw_fca_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a8015bce561412ccf3711dd842ca84237f404081"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

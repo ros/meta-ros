@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/turtle_tf"
 SRC_URI = "git://github.com/ros-gbp/geometry_tutorials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8500bdab3f1ce44d71b832d99d9aa116cf4efb6f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

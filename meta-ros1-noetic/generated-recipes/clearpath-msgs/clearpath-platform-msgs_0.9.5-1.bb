@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/clearpath_platform_msgs"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a99786079d445d02a9b03bf326017c1a99702078"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

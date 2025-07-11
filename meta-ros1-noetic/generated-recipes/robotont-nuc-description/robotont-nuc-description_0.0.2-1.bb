@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robotont_nuc_description"
 SRC_URI = "git://github.com/robotont-release/robotont_nuc_description-release;${ROS_BRANCH};protocol=https"
 SRCREV = "960113b7e7ae3630929fdd866c35e058c27966d1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

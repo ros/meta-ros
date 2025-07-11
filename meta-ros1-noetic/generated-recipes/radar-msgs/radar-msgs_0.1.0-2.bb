@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/radar_msgs"
 SRC_URI = "git://github.com/ros2-gbp/radar_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bbea5a149fce9e52726669e50fad2d4771819f36"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

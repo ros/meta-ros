@@ -74,6 +74,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/image_view2"
 SRC_URI = "git://github.com/tork-a/jsk_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3e1633a21faad37ff26ea6ab24a2fae1835ce557"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

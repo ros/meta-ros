@@ -93,6 +93,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/visp"
 SRC_URI = "git://github.com/lagadic/visp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c6293d1654988af3b602dafe4618a6d04b6a63f8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

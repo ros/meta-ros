@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cmvision"
 SRC_URI = "git://github.com/teshanshanuka/cmvision-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2a20f6df9efcc966fb50ba5946afdca2a878aac9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

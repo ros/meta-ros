@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fiducial_msgs"
 SRC_URI = "git://github.com/UbiquityRobotics-release/fiducials-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c7bb4b7824abe805fa871911a401af6804dc61fe"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/depthai-ros"
 SRC_URI = "git://github.com/luxonis/depthai-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2be257e3e2710e8511fb897bdb0257a804e7581f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

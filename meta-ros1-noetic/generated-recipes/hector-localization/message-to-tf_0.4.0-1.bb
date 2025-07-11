@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/message_to_tf"
 SRC_URI = "git://github.com/tu-darmstadt-ros-pkg-gbp/hector_localization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e55d2f23087abf0bc0d9c967cecc519b4f3f5cff"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

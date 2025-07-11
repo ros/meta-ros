@@ -65,6 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/p2os_urdf"
 SRC_URI = "git://github.com/allenh1/p2os-release;${ROS_BRANCH};protocol=https"
 SRCREV = "636fd8b74de0cf9e43eaf4a129f05bece4d9f20c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/csm"
 SRC_URI = "git://github.com/ros-gbp/csm-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1b65f8ffdfb31cbb8b5710b019867e4f74d78b89"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

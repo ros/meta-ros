@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/control_box_rst"
 SRC_URI = "git://github.com/rst-tu-dortmund/control_box_rst-release;${ROS_BRANCH};protocol=https"
 SRCREV = "40eacc09fb3a1ceb7e641ee0c46e55cf13b0a587"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

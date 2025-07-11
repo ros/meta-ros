@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/roscompile"
 SRC_URI = "git://github.com/wu-robotics/roscompile-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9204fab8af09d9668517687b91b0208058aae4e9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

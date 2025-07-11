@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fake_localization"
 SRC_URI = "git://github.com/ros-gbp/navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e4c0098eecc5279e5cf8098ca63e2e9e064cd7f7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

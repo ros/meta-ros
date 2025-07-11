@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/genlisp"
 SRC_URI = "git://github.com/ros-gbp/genlisp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "25a5501e47cf569e5d04fd3e35484de9fe7069b5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

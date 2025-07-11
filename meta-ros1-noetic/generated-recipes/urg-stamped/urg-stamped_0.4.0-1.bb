@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/urg_stamped"
 SRC_URI = "git://github.com/seqsense/urg_stamped-release;${ROS_BRANCH};protocol=https"
 SRCREV = "75f6a35696f9904241d6582f54bf0c79ef2381c2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

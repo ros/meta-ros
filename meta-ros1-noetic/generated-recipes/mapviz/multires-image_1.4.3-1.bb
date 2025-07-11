@@ -79,6 +79,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/multires_image"
 SRC_URI = "git://github.com/swri-robotics-gbp/mapviz-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f96f4c3cb1f40d9b231bc2fb4d0e1db645ae0e48"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

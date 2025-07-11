@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/twist_controller"
 SRC_URI = "git://github.com/UniversalRobots/Universal_Robots_ROS_controllers_cartesian-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ac26f8549e1febce8e0e140b27e2098d8671b54"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

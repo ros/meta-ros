@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/navigation_experimental"
 SRC_URI = "git://github.com/ros-gbp/navigation_experimental-release;${ROS_BRANCH};protocol=https"
 SRCREV = "49a78bec29c707a2faedbc51df6693ebc68ec1f0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

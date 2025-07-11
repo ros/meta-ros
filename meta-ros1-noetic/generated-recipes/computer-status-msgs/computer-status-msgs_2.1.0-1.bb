@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/computer_status_msgs"
 SRC_URI = "git://github.com/kinu-garage/computer_status_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ab2645d138a04808ced8416e1fddf3c29bcd0c0e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

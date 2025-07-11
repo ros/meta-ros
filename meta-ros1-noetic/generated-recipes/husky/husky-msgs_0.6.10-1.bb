@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/husky_msgs"
 SRC_URI = "git://github.com/clearpath-gbp/husky-release;${ROS_BRANCH};protocol=https"
 SRCREV = "11c5b381009e8f196c26e9f77e0e1ece0a20b970"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -65,6 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/kdl_parser"
 SRC_URI = "git://github.com/ros-gbp/kdl_parser-release;${ROS_BRANCH};protocol=https"
 SRCREV = "10ce6ea344623cd286247bba5706d4dece1c74f6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

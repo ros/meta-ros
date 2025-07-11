@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dingo_gazebo"
 SRC_URI = "git://github.com/clearpath-gbp/dingo_simulator-release;${ROS_BRANCH};protocol=https"
 SRCREV = "39a41e0219efbb64cc3a2d40eb9cef37a6c825b7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

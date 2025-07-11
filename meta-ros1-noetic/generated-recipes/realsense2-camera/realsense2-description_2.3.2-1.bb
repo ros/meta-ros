@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/realsense2_description"
 SRC_URI = "git://github.com/IntelRealSense/realsense-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "60414874c6a417413cdef0dfadbe1b1bac0745f9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

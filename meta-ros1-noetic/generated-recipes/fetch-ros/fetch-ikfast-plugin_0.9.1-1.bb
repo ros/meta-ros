@@ -64,6 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fetch_ikfast_plugin"
 SRC_URI = "git://github.com/fetchrobotics-gbp/fetch_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d032045047a58f1ce5b5616a83f5a98bbd75666f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

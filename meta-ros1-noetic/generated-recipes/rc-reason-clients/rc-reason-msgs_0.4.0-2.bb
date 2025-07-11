@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rc_reason_msgs"
 SRC_URI = "git://github.com/roboception-gbp/rc_reason_clients_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "626d5a34d7b57bc1bc6a4ffc170685720f55e46a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/app_manager"
 SRC_URI = "git://github.com/ros-gbp/app_manager-release;${ROS_BRANCH};protocol=https"
 SRCREV = "898b82dc6fbbe01c1f7a9c6976a21aa68365a0ad"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

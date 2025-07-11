@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gtsam"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/gtsam-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e8017b53e9b8cf94bf39a2b09f86e74259c55651"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mola_common"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/mola_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ba344fc24b52f4314d1f6689c5c1278a589ebe2f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

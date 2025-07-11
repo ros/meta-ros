@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sick_tim"
 SRC_URI = "git://github.com/uos-gbp/sick_tim-release;${ROS_BRANCH};protocol=https"
 SRCREV = "08bd4e87d22524abe42a364f668859b2e590f955"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

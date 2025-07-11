@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/perception"
 SRC_URI = "git://github.com/ros-gbp/metapackages-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cd18e93e2a884cbeafd22dc08d1f3498be844e3d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

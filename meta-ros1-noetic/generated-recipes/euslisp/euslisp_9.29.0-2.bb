@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/euslisp"
 SRC_URI = "git://github.com/tork-a/euslisp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6db5aab3b7e87f537855345782900d1264a0b01f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/criutils"
 SRC_URI = "git://github.com/crigroup/criutils-release;${ROS_BRANCH};protocol=https"
 SRCREV = "14cd4f610d02adb0a66550e59e733b077c155cde"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cmd_vel_smoother"
 SRC_URI = "git://github.com/tork-a/jsk_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e12f1d06864f65ccf9bfb43ca3e45ca63ee34aad"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

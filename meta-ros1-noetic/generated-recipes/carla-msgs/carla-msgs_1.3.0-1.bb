@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/carla_msgs"
 SRC_URI = "git://github.com/carla-simulator/ros-carla-msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ba3d2416be4dbc00b640e2512880a7f63614366c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

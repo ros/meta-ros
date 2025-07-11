@@ -98,6 +98,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_omni_drive_controller"
 SRC_URI = "git://github.com/4am-robotics/cob_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0adfe31d42254c4c20cd1e8bf6748b4a863d1017"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

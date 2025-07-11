@@ -69,6 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cob_hand_bridge"
 SRC_URI = "git://github.com/ipa320/cob_hand-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9ba47ef31e344f892cd6f6fb499ea6023708557b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

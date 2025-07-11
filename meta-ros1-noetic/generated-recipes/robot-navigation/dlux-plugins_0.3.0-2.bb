@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dlux_plugins"
 SRC_URI = "git://github.com/DLu/robot_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "df88b44b438491e40b30b66dcd74f323519ca813"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

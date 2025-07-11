@@ -70,6 +70,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rwt_image_view"
 SRC_URI = "git://github.com/tork-a/visualization_rwt-release;${ROS_BRANCH};protocol=https"
 SRCREV = "44d3fd3939a590bef3027b7debdded025e291566"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

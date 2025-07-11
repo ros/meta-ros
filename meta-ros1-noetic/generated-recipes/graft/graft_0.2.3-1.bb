@@ -70,6 +70,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/graft"
 SRC_URI = "git://github.com/ros-gbp/graft-release;${ROS_BRANCH};protocol=https"
 SRCREV = "55d514bee23ae0a5811423d715f3ee2c5ca34e2c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

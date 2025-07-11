@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/spacenav_node"
 SRC_URI = "git://github.com/ros-gbp/joystick_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fccf352152e5d89a8dd69c50a9d6b7aa2af6c095"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

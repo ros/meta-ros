@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/robot_state_controller"
 SRC_URI = "git://github.com/rm-controls/rm_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "230ba00f0fd9565ac461899fba7db11d93f4a62f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

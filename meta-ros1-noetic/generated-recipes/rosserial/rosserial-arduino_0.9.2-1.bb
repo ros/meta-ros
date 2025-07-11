@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosserial_arduino"
 SRC_URI = "git://github.com/ros-gbp/rosserial-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b9728c6c8c2d47643587564e9cac20f07b0b8a78"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

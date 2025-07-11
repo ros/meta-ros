@@ -73,6 +73,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nav_grid_pub_sub"
 SRC_URI = "git://github.com/DLu/robot_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0360dc10e2b940d98f70262f7cce026c4f3f6b01"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 
