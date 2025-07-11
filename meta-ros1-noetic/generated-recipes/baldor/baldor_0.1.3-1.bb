@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/baldor"
 SRC_URI = "git://github.com/crigroup/baldor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "38c8ba9f82c1fdb403118ea8a9de78a03f8204de"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

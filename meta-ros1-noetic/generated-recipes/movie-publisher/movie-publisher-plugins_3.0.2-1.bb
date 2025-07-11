@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/movie_publisher_plugins"
 SRC_URI = "git://github.com/peci1/movie_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "80d36169ae565415ed32d7557c103da942cf82b7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

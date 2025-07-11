@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/downward"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e148dc99d914e26f9269bc04e8e46b880579ca63"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

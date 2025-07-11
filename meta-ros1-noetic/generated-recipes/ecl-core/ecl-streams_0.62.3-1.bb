@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ecl_streams"
 SRC_URI = "git://github.com/yujinrobot-release/ecl_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f02a3dd0560a5d39321549e0205046c1ea4c0a27"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mrpt_libposes"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e36fbb083ae170ece61e2f2ecf58dd316e58c581"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

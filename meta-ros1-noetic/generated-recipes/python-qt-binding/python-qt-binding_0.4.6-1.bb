@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/python_qt_binding"
 SRC_URI = "git://github.com/ros-gbp/python_qt_binding-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a7089e9aa764a9c923ba67266a6f0049aeab51bc"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

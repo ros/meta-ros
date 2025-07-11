@@ -78,7 +78,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tf"
 SRC_URI = "git://github.com/ros-gbp/geometry-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7acd7f536c42d5e98f00eb439e4ea4ac40a421cd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

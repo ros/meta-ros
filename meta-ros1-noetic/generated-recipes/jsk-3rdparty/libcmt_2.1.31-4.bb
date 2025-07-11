@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libcmt"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a7b9665e9581c142e15ad35d1e06b88206bbde63"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

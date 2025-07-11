@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/bond_core"
 SRC_URI = "git://github.com/ros-gbp/bond_core-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7097ba25490bf1351e16f4add925187917178720"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

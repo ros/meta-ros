@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/camera_info_manager_lib"
 SRC_URI = "git://github.com/peci1/movie_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8fbbbd72f7cd38570abe0198fa824e41d8dbe1b0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rtabmap_rviz_plugins"
 SRC_URI = "git://github.com/introlab/rtabmap_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6fc84808292e4986a2e732c8e67c31c84c5470d7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

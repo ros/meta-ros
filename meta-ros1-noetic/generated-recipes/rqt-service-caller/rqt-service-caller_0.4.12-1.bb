@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_service_caller"
 SRC_URI = "git://github.com/ros-gbp/rqt_service_caller-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1199aa6a28c546dcfb1c80e0f6599c8843f91b9b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

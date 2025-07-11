@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/xmlrpcpp"
 SRC_URI = "git://github.com/ros-gbp/ros_comm-release;${ROS_BRANCH};protocol=https"
 SRCREV = "18053e2a37e42234737ffa0cdacc5554995702d0"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gmapping"
 SRC_URI = "git://github.com/ros-gbp/slam_gmapping-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9c76b3b045360741bd0bf997e89cdd8c99ae805f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fanuc_lrmate200i_support"
 SRC_URI = "git://github.com/ros-industrial-release/fanuc-release;${ROS_BRANCH};protocol=https"
 SRCREV = "115e06bc11d43c1cadd200c8862cc58adb10370e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

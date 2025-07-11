@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ur_client_library"
 SRC_URI = "git://github.com/UniversalRobots/Universal_Robots_Client_Library-release;${ROS_BRANCH};protocol=https"
 SRCREV = "86489c1a694cb81854cfde06544a18f151557ea9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

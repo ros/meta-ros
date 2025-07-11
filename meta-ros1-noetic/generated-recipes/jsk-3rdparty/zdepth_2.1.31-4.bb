@@ -43,7 +43,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/zdepth"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "40af68d32dee18ed88da4d030e39b7b0e6918405"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

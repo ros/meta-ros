@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ros_google_cloud_language"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7ba1d128db6f41ccbdba5f0819e4b45d30bb1ed2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/marine_acoustic_msgs"
 SRC_URI = "git://github.com/CCOMJHC/marine_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "41555d5dcb6ce8dd282c72d417c2ea4582c8029a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

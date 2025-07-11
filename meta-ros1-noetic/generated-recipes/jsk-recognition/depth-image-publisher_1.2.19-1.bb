@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/depth_image_publisher"
 SRC_URI = "git://github.com/tork-a/jsk_recognition-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c3d037fb8c5d1631d67af284d0869e55dc0aebdb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

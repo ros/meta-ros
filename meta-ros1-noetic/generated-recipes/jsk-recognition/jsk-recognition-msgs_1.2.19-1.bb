@@ -65,7 +65,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/jsk_recognition_msgs"
 SRC_URI = "git://github.com/tork-a/jsk_recognition-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0c583ad01d73a27ee5978f5f6fa8faa97aa03406"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

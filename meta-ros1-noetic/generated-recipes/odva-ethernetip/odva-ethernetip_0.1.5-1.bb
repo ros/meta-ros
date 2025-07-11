@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/odva_ethernetip"
 SRC_URI = "git://github.com/ros-drivers-gbp/odva_ethernetip-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1503ec9d759355b55ef7d4e29321da5afb1a98a5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

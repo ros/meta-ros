@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/nav2d_navigator"
 SRC_URI = "git://github.com/skasperski/navigation_2d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b5a935354f8d8cad6fc6593a8e17f7e56ba18e06"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

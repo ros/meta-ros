@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/hector_xacro_tools"
 SRC_URI = "git://github.com/tu-darmstadt-ros-pkg-gbp/hector_models-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9c3d8891f901a1254269bf9134427adf79d573c8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_robot_steering"
 SRC_URI = "git://github.com/ros-gbp/rqt_robot_steering-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bf6aff10f2aa399eefa51396ff45a62239aced25"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

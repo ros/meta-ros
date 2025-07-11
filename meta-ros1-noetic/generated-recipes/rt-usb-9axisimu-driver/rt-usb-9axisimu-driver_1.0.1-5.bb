@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rt_usb_9axisimu_driver"
 SRC_URI = "git://github.com/rt-net-gbp/rt_usb_9axisimu_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d63e15c758b45471b109f2b162bd5ed08f3b19ca"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

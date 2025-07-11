@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/scan_tools"
 SRC_URI = "git://github.com/ros-gbp/scan_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "437e95cf02c484c0ea27d03eaa9d9b01689fb47d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

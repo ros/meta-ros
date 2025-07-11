@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/velodyne"
 SRC_URI = "git://github.com/ros-drivers-gbp/velodyne-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5a8e971d2c6ae21f3a81df71dd8f60daf34bd788"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

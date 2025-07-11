@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ur_gazebo"
 SRC_URI = "git://github.com/ros-industrial-release/universal_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "22cef0c84afb0bfd1246054c45521d591561ef23"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

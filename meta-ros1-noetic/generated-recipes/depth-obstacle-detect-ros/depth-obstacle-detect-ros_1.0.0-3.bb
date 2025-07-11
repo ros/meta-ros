@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/depth_obstacle_detect_ros"
 SRC_URI = "git://github.com/anilsripadarao/depth-obstacle-detect-ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "49eafb8e82a7adaf8195adee7a2739c9c81b0a54"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -89,7 +89,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/checkerboard_detector"
 SRC_URI = "git://github.com/tork-a/jsk_recognition-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c8964530ac8f28eb4c6ed5d89dafbd066a4d675b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

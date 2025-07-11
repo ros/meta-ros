@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mir_navigation"
 SRC_URI = "git://github.com/uos-gbp/mir_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ec052e759a5ecadfafbb74d94304c7cc501f7ff9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

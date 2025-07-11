@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_common_plugins"
 SRC_URI = "git://github.com/ros-gbp/rqt_common_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "92e601d659758037f6fa5d7ecee3811cd5d41fe6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

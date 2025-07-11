@@ -76,7 +76,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/frame_editor"
 SRC_URI = "git://github.com/ipa320/rqt_frame_editor_plugin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "30aa7b98bd3b656309c5df0d8e800f0e9d8a122f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

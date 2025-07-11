@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/urdf_parser_plugin"
 SRC_URI = "git://github.com/ros-gbp/urdf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "613a5c1262c7cc7d90620b2168e178bd15d5323e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

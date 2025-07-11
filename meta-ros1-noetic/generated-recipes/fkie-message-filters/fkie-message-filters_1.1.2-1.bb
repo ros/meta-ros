@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/fkie_message_filters"
 SRC_URI = "git://github.com/fkie-release/message_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9bf94361c163b9bfec0638637b7a5b79c2227ae7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

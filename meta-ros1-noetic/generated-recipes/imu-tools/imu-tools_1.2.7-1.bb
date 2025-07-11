@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/imu_tools"
 SRC_URI = "git://github.com/uos-gbp/imu_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "340f67804cf58f87340679b323c7001c3eddef14"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

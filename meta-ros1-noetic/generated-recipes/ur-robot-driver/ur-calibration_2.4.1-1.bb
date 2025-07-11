@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ur_calibration"
 SRC_URI = "git://github.com/UniversalRobots/Universal_Robots_ROS_Driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3801c6338a1abcba2bef94cd00013c10ebb41bbf"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

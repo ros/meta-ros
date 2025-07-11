@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/python_mrpt"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/python_mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "877914e8cbb9b7402026ae5a36b4ad16fb85f1ba"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

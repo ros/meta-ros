@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/audio_to_spectrogram"
 SRC_URI = "git://github.com/tork-a/jsk_recognition-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a136916a506414b33b360b2263a4a9b4a993303c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

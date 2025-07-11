@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mocap_optitrack"
 SRC_URI = "git://github.com/ros-drivers-gbp/mocap_optitrack-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ee33d134a5ad5c9b31bbb1919891af6f1422b845"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

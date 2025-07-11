@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tf2_bullet"
 SRC_URI = "git://github.com/ros-gbp/geometry2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "05cc4e03e13e354ebe81f7a716c5edfed7ef8454"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

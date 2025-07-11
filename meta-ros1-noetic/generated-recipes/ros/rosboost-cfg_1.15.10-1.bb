@@ -43,7 +43,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosboost_cfg"
 SRC_URI = "git://github.com/ros-gbp/ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "affcfa48e578361a9d7bb24dcdb2b61a3531aaf4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

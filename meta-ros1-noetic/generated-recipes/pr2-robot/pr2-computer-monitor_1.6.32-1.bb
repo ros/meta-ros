@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_computer_monitor"
 SRC_URI = "git://github.com/pr2-gbp/pr2_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "23158ca46fa8481709bf11d477996421e198b888"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

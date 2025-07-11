@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pr2_app_manager"
 SRC_URI = "git://github.com/pr2-gbp/pr2_apps-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6900330caa03e8b1c3ddcf7c182a012d4ce29f54"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

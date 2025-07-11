@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/cv_camera"
 SRC_URI = "git://github.com/OTL/cv_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b9b5ad72d301360212407a391ab9a552418f3274"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

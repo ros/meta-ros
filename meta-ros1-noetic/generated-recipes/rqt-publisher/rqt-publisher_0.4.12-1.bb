@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_publisher"
 SRC_URI = "git://github.com/ros-gbp/rqt_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "669036ac3dd1df31ec7e6287204d7cb5494b00e5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

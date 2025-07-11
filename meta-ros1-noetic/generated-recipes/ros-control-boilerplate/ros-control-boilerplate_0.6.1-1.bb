@@ -86,7 +86,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ros_control_boilerplate"
 SRC_URI = "git://github.com/PickNikRobotics/ros_control_boilerplate-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7a24688d1a3950afdcc6560153f46d6b87a43fbe"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

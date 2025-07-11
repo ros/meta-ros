@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/lensfun_metadata_extractor"
 SRC_URI = "git://github.com/peci1/movie_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "11e3858a5da706a66b991b3e69300fad0beacf51"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -80,7 +80,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mesh_map"
 SRC_URI = "git://github.com/uos-gbp/mesh_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3515a49844b04a6d34ef5f8d8be90ec6ee667b89"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

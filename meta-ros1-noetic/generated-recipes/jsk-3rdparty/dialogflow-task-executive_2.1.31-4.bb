@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/dialogflow_task_executive"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "264b0ea1800c52aa5b18144684349dee1dd22eee"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

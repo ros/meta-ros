@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mesh_msgs_transform"
 SRC_URI = "git://github.com/uos-gbp/mesh-tools;${ROS_BRANCH};protocol=https"
 SRCREV = "8baad9eb92decaf2b395d613e3165ac09b1ce5bd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

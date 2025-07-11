@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/phidgets_humidity"
 SRC_URI = "git://github.com/ros-drivers-gbp/phidgets_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0cacd8423bc6310a09fbe72dc29773d79fc03488"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

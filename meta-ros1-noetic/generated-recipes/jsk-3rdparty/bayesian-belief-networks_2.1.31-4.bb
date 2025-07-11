@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/bayesian_belief_networks"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5506f58a58c4273ec5dd4a5c07a9b0af68329bf5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

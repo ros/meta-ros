@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/laser_cb_detector"
 SRC_URI = "git://github.com/ros-gbp/calibration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "68d725c35c588a714be7f1c2901af677648ec22f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -91,7 +91,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/septentrio_gnss_driver"
 SRC_URI = "git://github.com/septentrio-users/septentrio_gnss_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "baf1c3dab9a09dab0ac6dad072dda9ce883e8c4d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

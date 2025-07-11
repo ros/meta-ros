@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gpmf_metadata_extractor"
 SRC_URI = "git://github.com/peci1/movie_publisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e481be8f517056e26b0c3ba6f2d79e9d65b6e5c5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

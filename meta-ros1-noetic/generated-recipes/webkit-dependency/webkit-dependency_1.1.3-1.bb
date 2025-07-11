@@ -43,7 +43,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/webkit_dependency"
 SRC_URI = "git://github.com/ros-gbp/webkit_dependency-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bc860e80fa5b97b636b5f9e9188cca54075126d6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

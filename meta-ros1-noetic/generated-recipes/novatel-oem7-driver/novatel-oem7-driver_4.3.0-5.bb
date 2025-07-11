@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/novatel_oem7_driver"
 SRC_URI = "git://github.com/novatel-gbp/novatel_oem7_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1efdba9b0b6f04244a58ff4d4dd9cfdf15dbd987"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

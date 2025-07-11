@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/resized_image_transport"
 SRC_URI = "git://github.com/tork-a/jsk_recognition-release;${ROS_BRANCH};protocol=https"
 SRCREV = "09ac6301f2c160efd930184be037946e3ea64702"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

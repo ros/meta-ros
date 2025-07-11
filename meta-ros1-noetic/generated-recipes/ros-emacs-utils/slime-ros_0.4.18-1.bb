@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/slime_ros"
 SRC_URI = "git://github.com/code-iai-release/ros_emacs_utils-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c3353034ceac64c8fc29817a9267bffa1e401867"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

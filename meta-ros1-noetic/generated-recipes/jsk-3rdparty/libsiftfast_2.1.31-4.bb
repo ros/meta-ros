@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/libsiftfast"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1e97d07fcc45b809c0ab589e8939a194f50cbf9b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

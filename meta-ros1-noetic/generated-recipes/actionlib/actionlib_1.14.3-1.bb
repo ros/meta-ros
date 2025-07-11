@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/actionlib"
 SRC_URI = "git://github.com/ros-gbp/actionlib-release;${ROS_BRANCH};protocol=https"
 SRCREV = "707858a3cc6abc2610747365c4c2143d7f7d61a8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/opt_camera"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c6131567acf0c0502ab2d0645e0caae0d82e5acb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

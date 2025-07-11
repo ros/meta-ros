@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/exotica_examples"
 SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ba1b69bd91611e1438ae40c90315a69dcd126ad8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

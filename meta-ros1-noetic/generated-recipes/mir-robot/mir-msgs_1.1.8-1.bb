@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mir_msgs"
 SRC_URI = "git://github.com/uos-gbp/mir_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "59152b0ff38bf9907fd5e3eb7db7ab1f33e3d48b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

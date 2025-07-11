@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mlx90640_thermal_camera"
 SRC_URI = "git://github.com/vakshit/mlx90640_thermal_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aa1edd94c7a0528bf51ec849c69a3777a7d653d5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

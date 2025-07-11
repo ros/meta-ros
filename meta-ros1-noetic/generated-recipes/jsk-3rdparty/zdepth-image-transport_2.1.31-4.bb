@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/zdepth_image_transport"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "df786970b72788a28caf2c7787d3dceea50c1f44"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

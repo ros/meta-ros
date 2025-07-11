@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joystick_interrupt"
 SRC_URI = "git://github.com/at-wat/neonavigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "75244adf8f1647328c0af7ce49501dad09e6c44f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

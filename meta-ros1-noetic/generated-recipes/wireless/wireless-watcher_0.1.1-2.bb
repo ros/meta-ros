@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/wireless_watcher"
 SRC_URI = "git://github.com/clearpath-gbp/wireless-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8736ec9b8165cd6ccbb40fc9b6ebc2d900405db7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

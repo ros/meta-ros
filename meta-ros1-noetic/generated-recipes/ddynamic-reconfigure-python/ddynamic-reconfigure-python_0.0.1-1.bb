@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ddynamic_reconfigure_python"
 SRC_URI = "git://github.com/pal-gbp/ddynamic_reconfigure_python-release;${ROS_BRANCH};protocol=https"
 SRCREV = "715ad90e0cfeaf2a24817f3237182c81600108ca"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

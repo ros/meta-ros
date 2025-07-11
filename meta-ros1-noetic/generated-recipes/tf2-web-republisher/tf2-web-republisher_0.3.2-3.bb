@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/tf2_web_republisher"
 SRC_URI = "git://github.com/RobotWebTools-release/tf2_web_republisher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c64d591897edc89338b899458d3a922e0854630e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

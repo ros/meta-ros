@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/sensor_msgs"
 SRC_URI = "git://github.com/ros-gbp/common_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ec7abc702a62f3c98970f25bf7b6d85e57b3746c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mqtt_client"
 SRC_URI = "git://github.com/ika-rwth-aachen/mqtt_client-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a735107227891cd5dedbd62ebef149384ead6dec"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

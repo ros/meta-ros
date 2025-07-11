@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/obj_to_pointcloud"
 SRC_URI = "git://github.com/at-wat/neonavigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "93e460ef62375290e286ea7a85571f14b4d3af03"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

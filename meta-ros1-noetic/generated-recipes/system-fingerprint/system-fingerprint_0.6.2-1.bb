@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/system_fingerprint"
 SRC_URI = "git://github.com/MetroRobots/ros_system_fingerprint-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4732a5b9187705291fadcaf7f8a9982f9b8ec8eb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/phidgets_magnetometer"
 SRC_URI = "git://github.com/ros-drivers-gbp/phidgets_drivers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "64bf9d55fc17880f0ec809c51e467e30a2ca122e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/pybind11_catkin"
 SRC_URI = "git://github.com/wxmerkt/pybind11_catkin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "58a6edca6420889dbcb1ac86938e7daf58d9f0e5"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

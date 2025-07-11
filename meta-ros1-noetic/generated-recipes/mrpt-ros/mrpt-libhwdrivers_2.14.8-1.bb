@@ -80,7 +80,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mrpt_libhwdrivers"
 SRC_URI = "git://github.com/mrpt-ros-pkg-release/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a6af5f5041b9e81878f9b25e0dff36ea6c1d68c8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

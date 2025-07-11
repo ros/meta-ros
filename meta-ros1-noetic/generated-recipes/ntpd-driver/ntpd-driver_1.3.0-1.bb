@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ntpd_driver"
 SRC_URI = "git://github.com/vooon/ntpd_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "430a27b0ead7f94f1a9e2b734df58beeb3fe1984"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

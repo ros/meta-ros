@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/exotica_collision_scene_fcl_latest"
 SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fcca935960073695396bc333da4820611d1a0bb1"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

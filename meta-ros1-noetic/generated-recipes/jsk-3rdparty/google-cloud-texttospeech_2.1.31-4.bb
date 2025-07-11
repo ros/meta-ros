@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/google_cloud_texttospeech"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b113e34d28e024841727f8fba3d1575906ce3bfd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

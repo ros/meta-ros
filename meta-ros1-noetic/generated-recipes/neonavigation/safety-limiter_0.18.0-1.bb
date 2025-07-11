@@ -94,7 +94,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/safety_limiter"
 SRC_URI = "git://github.com/at-wat/neonavigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "36dd95c5733405e7caefa35ad12efd6c08180a74"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

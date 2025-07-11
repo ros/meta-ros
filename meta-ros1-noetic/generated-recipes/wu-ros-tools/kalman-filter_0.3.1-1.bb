@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/kalman_filter"
 SRC_URI = "git://github.com/wu-robotics/wu_ros_tools;${ROS_BRANCH};protocol=https"
 SRCREV = "ec6d80d83c99384a20d39b172a8818f035138f48"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rviz_imu_plugin"
 SRC_URI = "git://github.com/uos-gbp/imu_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f5efb141c6cf56ff97651a86e6e3637988902a9b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

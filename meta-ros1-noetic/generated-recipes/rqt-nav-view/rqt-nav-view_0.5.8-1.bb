@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rqt_nav_view"
 SRC_URI = "git://github.com/ros-gbp/rqt_nav_view-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0b491928e48848421eecd6d20b5b678245d97f4e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

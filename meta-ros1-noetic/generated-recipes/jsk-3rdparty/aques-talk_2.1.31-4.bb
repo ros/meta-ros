@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/aques_talk"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "de0a54d4be93d4cfa47e8eeb0d34a7c7007495ff"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

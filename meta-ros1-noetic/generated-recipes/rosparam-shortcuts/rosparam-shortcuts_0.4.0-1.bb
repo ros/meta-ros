@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/rosparam_shortcuts"
 SRC_URI = "git://github.com/PickNikRobotics/rosparam_shortcuts-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ad841f77b142a86f68a458060afb6d0fc8d93328"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

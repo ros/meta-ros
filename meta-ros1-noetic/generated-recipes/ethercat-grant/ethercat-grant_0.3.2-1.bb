@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/ethercat_grant"
 SRC_URI = "git://github.com/shadow-robot/ethercat_grant-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8dbc443e7f2a50820936554c3b0c5438c826ed66"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

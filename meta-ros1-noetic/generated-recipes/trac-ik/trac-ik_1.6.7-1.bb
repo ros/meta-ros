@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/trac_ik"
 SRC_URI = "git://github.com/traclabs/trac_ik-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f19a9f3760d6893233696c1ddffc9f7abd8bea92"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

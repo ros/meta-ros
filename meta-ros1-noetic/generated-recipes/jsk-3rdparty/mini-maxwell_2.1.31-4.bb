@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/mini_maxwell"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "51190861ff8ae19e14f2cf6599ff331fff5e7c86"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

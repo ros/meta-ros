@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/easy_markers"
 SRC_URI = "git://github.com/wu-robotics/wu_ros_tools;${ROS_BRANCH};protocol=https"
 SRCREV = "0019aed300171b5716f3d5d76261360777d49b9e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

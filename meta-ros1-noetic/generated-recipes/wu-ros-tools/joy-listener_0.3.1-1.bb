@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/joy_listener"
 SRC_URI = "git://github.com/wu-robotics/wu_ros_tools;${ROS_BRANCH};protocol=https"
 SRCREV = "f0db7d22bc301580261362c101e5b33b359d4c1c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

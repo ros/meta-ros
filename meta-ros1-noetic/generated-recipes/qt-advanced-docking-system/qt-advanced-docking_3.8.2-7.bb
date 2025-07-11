@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/qt_advanced_docking"
 SRC_URI = "git://github.com/tesseract-robotics-release/qt_advanced_docking_system-release;${ROS_BRANCH};protocol=https"
 SRCREV = "67c06632d5d70c425cfa5f970d042d678f786298"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

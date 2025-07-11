@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/voicevox"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "22ef181b128be4933bc5def7c6821e4f4abb03e9"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

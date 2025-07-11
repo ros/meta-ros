@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/gencpp"
 SRC_URI = "git://github.com/ros-gbp/gencpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f78bd3edcc857fe6b84c233a3fd8fe101303fafb"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

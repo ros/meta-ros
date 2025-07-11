@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/exotica_pendulum_dynamics_solver"
 SRC_URI = "git://github.com/ipab-slmc/exotica-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a88dd363fff63c8938536caf24eb7c677bc0f632"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

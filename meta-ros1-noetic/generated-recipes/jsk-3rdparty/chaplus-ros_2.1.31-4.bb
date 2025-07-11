@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/chaplus_ros"
 SRC_URI = "git://github.com/tork-a/jsk_3rdparty-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e6fcd41f3145850e51830a6e6dcf5f7c12b36266"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 

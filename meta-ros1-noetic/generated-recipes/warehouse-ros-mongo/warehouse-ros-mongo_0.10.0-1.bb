@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/noetic/warehouse_ros_mongo"
 SRC_URI = "git://github.com/ros-gbp/warehouse_ros_mongo-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a0475b32ebcf38513b1a7327453832f31e0d5a8a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "catkin"
 
