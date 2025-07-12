@@ -19,7 +19,8 @@ inherit cmake
 
 EXTRA_OECMAKE += "-DINSTALL_CMAKE_DIR=lib/cmake/yaml \
                   -DBUILD_TESTING=OFF \
-                  -DBUILD_SHARED_LIBS=ON"
+                  -DBUILD_SHARED_LIBS=ON \
+                  -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
 DISABLE_STATIC:class-nativesdk = ""
 DISABLE_STATIC:class-native = ""
