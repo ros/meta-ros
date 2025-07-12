@@ -1,7 +1,4 @@
 # Copyright (c) 2020 LG Electronics, Inc.
-#
-# Similar to meta-ros1/recipes-extended/bullet/bullet_2.87.bb
-# but newer version without python2 support
 
 DESCRIPTION = "Real-time collision detection and multi-physics simulation"
 HOMEPAGE = "https://github.com/bulletphysics/bullet3"
@@ -16,6 +13,7 @@ inherit cmake
 
 EXTRA_OECMAKE = "-DUSE_DOUBLE_PRECISION=ON -DCMAKE_BUILD_TYPE=Release"
 EXTRA_OECMAKE += "-DBUILD_SHARED_LIBS=ON -DINSTALL_LIBS=ON -DINSTALL_EXTRA_LIBS=ON"
+EXTRA_OECMAKE += "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
 # Tries to link with prebuilt x86 libraries e.g.
 # aarch64-oe-linux/9.3.0/ld: skipping incompatible
