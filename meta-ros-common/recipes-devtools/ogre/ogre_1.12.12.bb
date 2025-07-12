@@ -23,7 +23,6 @@ SRC_URI = "git://github.com/OGRECave/ogre;protocol=https;branch=master;name=ogre
     file://use-bitbake-fetcher-for-imgui.patch \
 "
 
-
 inherit cmake features_check pkgconfig python3native
 
 REQUIRED_DISTRO_FEATURES = "x11"
@@ -48,7 +47,7 @@ DEPENDS = " \
 
 # extra flags from rviz-ogre-vendor ExternalProject_Add in:
 # https://github.com/ros2/rviz/blob/16ad728224246ac8361e7073e1c89baec5a0eaf1/rviz_ogre_vendor/CMakeLists.txt#L162
-EXTRA_OECMAKE_RVIZ_OGRE_VENDOR = " \
+EXTRA_OECMAKE_RVIZ_OGRE_VENDOR = "\
     -DOGRE_STATIC:BOOL=OFF \
     -DOGRE_INSTALL_PDB:BOOL=OFF \
     -DOGRE_BUILD_DEPENDENCIES:BOOL=OFF \
@@ -64,6 +63,7 @@ EXTRA_OECMAKE_RVIZ_OGRE_VENDOR = " \
     -DOGRE_BUILD_COMPONENT_CSHARP:BOOL=FALSE \
     -DOGRE_BUILD_COMPONENT_BITES:BOOL=FALSE \
     -DDOGRE_BUILD_PLUGIN_GLSLANG:BOOL=ON \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
 "
 
 EXTRA_OECMAKE += "${EXTRA_OECMAKE_RVIZ_OGRE_VENDOR}"
