@@ -12,3 +12,9 @@ bitbake-cookerdaemon.log
 
 # From OpenEmbedded-Build-Instructions.md (manually created)
 /conf
+
+# kas
+.config.yaml*
+layers/
+build/
+.kas_shell_history
