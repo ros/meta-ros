@@ -1,0 +1,24 @@
+From 01ed8b5645ef274f109ad4a8c4de92d10cf10c0b Mon Sep 17 00:00:00 2001
+From: Timo Gurr <timo.gurr@gmail.com>
+Date: Thu, 22 May 2025 21:25:51 +0200
+Subject: [PATCH] Fix build with CMake >= 4.0
+
+Upstream-Status: Submitted [https://github.com/skystrife/cpptoml/pull/132]
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4ec25cc..dd98df7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.1.0)
++cmake_minimum_required(VERSION 3.10)
+ project(cpptoml)
+ 
+ set(cpptoml_VERSION 0.4.0)
+-- 
+2.39.5
+
