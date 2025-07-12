@@ -6,7 +6,6 @@ LIC_FILES_CHKSUM = "file://Copyright.txt;md5=5ad9b143299aada53e485843fbafd494"
 SRC_URI = "${SOURCEFORGE_MIRROR}/${BPN}/GraphicsMagick-${PV}.tar.xz \
            file://remove-host-build-info-from-version-command.patch"
 
-SRC_URI[md5sum] = "5eb76e9af7b887a8828fce11aa1e2f1c"
 SRC_URI[sha256sum] = "dcea5167414f7c805557de2d7a47a9b3147bcbf617b91f5f0f4afe5e6543026b"
 
 S = "${UNPACKDIR}/GraphicsMagick-${PV}"
