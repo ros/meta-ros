@@ -5,9 +5,3 @@ header:
     - kas/ros2/rolling.yml
     - kas/machine/raspberrypi5.yml
     - kas/common.yml
-
-repos:
-  qt5:
-    branch: "master"
-  raspberrypi:
-    branch: "master"
