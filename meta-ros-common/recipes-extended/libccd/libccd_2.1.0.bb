@@ -8,9 +8,12 @@ ROS_BRANCH ?= "branch=master"
 SRC_URI = "git://github.com/danfis/libccd;${ROS_BRANCH};protocol=https \
            file://find-math-library.patch"
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/git"
 
-EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release -DCCD_DOUBLE=1"
+EXTRA_OECMAKE += "\
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCCD_DOUBLE=1 \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
 inherit pkgconfig cmake
 
