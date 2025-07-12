@@ -1,18 +1,11 @@
-# Branch `[dunfell]`
+# Branch `[dunfell]` (UNSUPPORTED)
 
-As of Milestone 17 (2022-06-05), this branch can be used to build the releases
-current in mid-November 2021 of ROS 2 **foxy** and **galactic** and ROS 1
-**melodic** and **noetic** with the **dunfell** OpenEmbedded release series as
-of the beginning of December 2021.
-
-The mid-November 2021 release (and earlier releases) of ROS 2 **rolling** can no
-longer be built because the commits referenced by its recipes have been removed
-from the `[release/rolling/*]`branches of the release repositories.
-
-A "best effort" has been made to keep the EOL-ed ROS 2 **dashing** and
-**eloquent** distros buildable, but some of the packages that are used to create
-the `ros-image-world` image do not build. However, the `ros-image-core` image
-does successfully build.
+The **dunfell** OpenEmbedded release series has reached its EOL (see
+https://wiki.yoctoproject.org/wiki/Releases). Following the
+[OpenEmbedded Release Series Support Policy](https://github.com/ros/meta-ros/wiki/Policies#openembedded-release-series-support),
+support for ROS distro releases newer than those of Milestone 17 (2020-07-04)
+have not been added to this branch, and building with **dunfell** is no
+longer supported.
 
 Instructions for using `meta-ros` are
 [here](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions).
