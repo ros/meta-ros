@@ -1,6 +1,6 @@
 DESCRIPTION = "Library for nonlinear optimization, wrapping many algorithms for global and local, constrained or unconstrained, optimization"
 LICENSE = "MIT & LGPL-2.1-or-later & BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://COPYING;md5=7036bf07f719818948a837064b1af213 \
+LIC_FILES_CHKSUM = "file://COPYING;md5=bd64d5de9621ced0bbf488c45413e534 \
                     file://COPYRIGHT;md5=1b4ae9cf9d4ec57f6dc120948e9b483a \
                     file://doc/docs/NLopt_License_and_Copyright.md;md5=9a4df202e8a0eb3830515fbd3cad5b8e \
                     file://src/algs/ags/COPYRIGHT;md5=df8018c0130b3c4b5961d163c169567b \
@@ -15,9 +15,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=7036bf07f719818948a837064b1af213 \
 
 SRC_URI = "git://github.com/stevengj/nlopt.git;protocol=https;branch=master"
 
-PV = "2.7.1+git${SRCPV}"
-SRCREV = "09b3c2a6da71cabcb98d2c8facc6b83d2321ed71"
-
+SRCREV = "7d04da19236148f9ae9d8dfa470a2264f5d2aa33"
 
 DEPENDS = "swig-native"
 
