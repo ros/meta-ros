@@ -1,12 +1,11 @@
-# Branch `[zeus]` (REDUCED SUPPORT)
+# Branch `[zeus]` (UNSUPPORTED)
 
-The Support Level of the **zeus** OpenEmbedded release series is now
-**Community** (see https://wiki.yoctoproject.org/wiki/Releases). Following the
+The **zeus** OpenEmbedded release series has reached its EOL (see
+https://wiki.yoctoproject.org/wiki/Releases). Following the
 [OpenEmbedded Release Series Support Policy](https://github.com/ros/meta-ros/wiki/Policies#openembedded-release-series-support),
 support for ROS distro releases newer than those of Milestone 13 (2020-07-04)
-has not been added to this branch, and, as of Milestone 15 (2020-12-23), only a
-"best effort" is being made to keep the releases of **melodic**, **dashing**,
-and **foxy** from Milestone 13 buildable with it.
+has not been added to this branch, and building with **zeus** is no
+longer supported as of Milestone 17 (2022-06-05).
 
 Instructions for using `meta-ros` are
 [here](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions).
