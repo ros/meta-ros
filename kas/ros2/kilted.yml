@@ -12,5 +12,11 @@ repos:
       meta-ros2:
       meta-ros2-kilted:
 
+  zenoh:
+    url: "https://github.com/Jarsop/meta-zenoh.git"
+    path: "layers/meta-zenoh"
+    layers:
+      meta-zenoh:
+
 target:
   - ros-image-core
