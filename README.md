@@ -127,6 +127,6 @@ packages.
 To join the conversation about meta-ros you may find us on the forum or at our
 bi-weekly working group meeting:
 
-* [OpenEmbedded category on the ROS Discourse forum](https://discourse.ros.org/c/openembedded/26)
+* [OpenEmbedded category on the ROS Discourse forum](https://discourse.ros.org/c/community-groups/openembedded/26)
 * ROS OpenEmbedded Working Group ([minutes](https://docs.google.com/document/d/1LqUjcu6vdlqVJO62SreCyjzddNDZhfO2n-7qYghY_cQ/edit#heading=h.3vrwbu9vio04), [meeting invites](https://groups.google.com/g/ros-openembedded-working-group-invites))
 
