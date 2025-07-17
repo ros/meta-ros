@@ -15,10 +15,10 @@ SRCREV_vta-hw = "87ce9acfae550d1a487746e9d06c2e250076e54c"
 SRCREV_FORMAT = "tvm_dlmc-core_dlpack_rang_vta-hw"
 
 SRC_URI = "git://github.com/apache/tvm;name=tvm;branch=main;protocol=https \
-    git://github.com/dmlc/dmlc-core;name=dlmc-core;destsuffix=git/3rdparty/dmlc-core;branch=master;protocol=https \
-    git://github.com/dmlc/dlpack;name=dlpack;destsuffix=git/3rdparty/dlpack;branch=master;protocol=https \
-    git://github.com/agauniyal/rang;name=rang;destsuffix=git/3rdparty/rang;branch=master;protocol=https \
-    git://github.com/apache/incubator-tvm-vta;name=vta-hw;destsuffix=git/3rdparty/vta-hw;branch=master;protocol=https \
+    git://github.com/dmlc/dmlc-core;name=dlmc-core;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/3rdparty/dmlc-core;branch=main;protocol=https \
+    git://github.com/dmlc/dlpack;name=dlpack;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/3rdparty/dlpack;branch=master;protocol=https \
+    git://github.com/agauniyal/rang;name=rang;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/3rdparty/rang;branch=master;protocol=https \
+    git://github.com/apache/incubator-tvm-vta;name=vta-hw;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/3rdparty/vta-hw;branch=master;protocol=https \
 "
 
 S = "${WORKDIR}/git"
