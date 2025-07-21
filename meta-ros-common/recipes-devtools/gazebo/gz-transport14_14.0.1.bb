@@ -2,7 +2,8 @@
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
-SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=gz-transport14"
+SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=gz-transport14 \
+           file://fix-compatibility-with-protobuf-v30.patch"
 
 SRCREV = "c79276843edf4264e9b78d57b557f46e2e527b14"
 
