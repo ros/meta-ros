@@ -5,7 +5,7 @@ require suitesparse-5.4.0.inc
 LICENSE = "PD"
 LIC_FILES_CHKSUM += "file://README.txt;md5=9da0dd2832f2ab6d304cae1d28eecc11"
 
-S = "${UNPACKDIR}/git/SuiteSparse_config"
+S = "${UNPACKDIR}/${BPN}-${PV}/SuiteSparse_config"
 
 EXTRA_OEMAKE = "CC='${CC}'"
 

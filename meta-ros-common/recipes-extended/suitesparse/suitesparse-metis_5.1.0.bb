@@ -5,7 +5,7 @@ require suitesparse-5.4.0.inc
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM += "file://LICENSE.txt;md5=b46727c71b60d35ad5d2f927c4a3929b"
 
-S = "${UNPACKDIR}/git/metis-${PV}"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/metis-${PV}"
 
 inherit cmake
 

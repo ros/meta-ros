@@ -10,7 +10,7 @@ DEPENDS = " \
     suitesparse-config \
 "
 
-S = "${UNPACKDIR}/git/CAMD"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/CAMD"
 
 inherit cmake pkgconfig
 

@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM += "file://Doc/License.txt;md5=0e5191611fba4aac850756c5d598ff23
 
 DEPENDS = "suitesparse-config"
 
-S = "${UNPACKDIR}/git/CXSparse"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/CXSparse"
 
 inherit cmake pkgconfig
 

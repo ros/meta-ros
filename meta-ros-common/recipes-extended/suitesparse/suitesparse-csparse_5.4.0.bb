@@ -5,7 +5,7 @@ require suitesparse-5.4.0.inc
 LICENSE = "LGPL-2.1-or-later"
 LIC_FILES_CHKSUM += "file://Doc/License.txt;md5=c2a06105a6d78da59c0d0c5d0d9b1394"
 
-S = "${UNPACKDIR}/git/CSparse"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/CSparse"
 
 EXTRA_OEMAKE = "CC='${CC}'"
 
