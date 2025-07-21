@@ -15,7 +15,7 @@ DEPENDS = " \
     openblas \
 "
 
-S = "${WORKDIR}/git/SPQR"
+S = "${UNPACKDIR}/git/SPQR"
 
 inherit cmake pkgconfig
 
