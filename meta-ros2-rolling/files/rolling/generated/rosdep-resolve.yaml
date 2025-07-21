@@ -389,8 +389,8 @@ matio:
 - ${ROS_UNRESOLVED_DEP-matio}
 meson:
 - ${ROS_UNRESOLVED_DEP-meson}
-mosquittopp-dev:
-- ${ROS_UNRESOLVED_DEP-mosquittopp-dev}
+nanobind-dev:
+- ${ROS_UNRESOLVED_DEP-nanobind-dev}
 nlohmann-json-dev:
 - nlohmann-json@meta-oe
 ocl-icd-opencl-dev:
@@ -421,10 +421,6 @@ pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros-common
 pyqt5-dev-tools:
 - ${PYTHON_PN}-pyqt5@meta-qt5
-python-attrs-pip:
-- ${ROS_UNRESOLVED_DEP-python-attrs-pip}
-python-numpy-quaternion-pip:
-- ${ROS_UNRESOLVED_DEP-python-numpy-quaternion-pip}
 python3:
 - python3@openembedded-core
 python3-argcomplete:
