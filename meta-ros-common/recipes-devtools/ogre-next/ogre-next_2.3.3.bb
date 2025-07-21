@@ -13,7 +13,8 @@ LIC_FILES_CHKSUM = "file://CMake/Templates/DemoLicense.rtf;md5=2711c49576d18cf78
 
 SRC_URI = "git://github.com/OGRECave/ogre-next.git;protocol=https;branch=master \
            file://0001-Fixed-compile-error-2.3.3.patch \
-           file://0002-Use_OGRE_NEXT_prefix_for_libraries.patch"
+           file://0002-Use_OGRE_NEXT_prefix_for_libraries.patch \
+           file://build-error-with-gcc15.patch"
 
 PV = "2.3.3"
 SRCREV = "8d4daeaf46d7d8f85f1833f17daedd7dac05daec"
@@ -61,17 +62,6 @@ EXTRA_OECMAKE += " \
     -DOGRE_GLSUPPORT_USE_EGL_HEADLESS:BOOL=TRUE \
     -DOGRE_GLSUPPORT_USE_GLX:BOOL=TRUE \
 "
-
-do_configure:append() {
-    # Remove the old copy of glxext.h to use the system one that defines PFNGLXSWAPINTERVALMESAPROC
-    #    https://gitlab.freedesktop.org/mesa/mesa/-/commit/cc93f08f1e3e84f09cb2bb587d6de702dc836478
-    #
-    # These resolves a build error when using GL3Plus:
-    #   git/RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp:720:9: error: 'PFNGLXSWAPINTERVALMESAPROC' 
-    #       was not declared in this scope; did you mean 'PFNGLXSWAPINTERVALEXTPROC'?
-    #   git/RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp:721:9: error: '_glXSwapInterval
-    rm ${S}/RenderSystems/GL3Plus/include/GL/glxext.h
-}
 
 FILES:${PN}-dev += "${libdir}/OGRE-Next/cmake ${libdir}/OGRE-Next/*${SOLIBSDEV}"
 FILES:${PN} += "${datadir}/OGRE-Next ${libdir}/OGRE-Next "
