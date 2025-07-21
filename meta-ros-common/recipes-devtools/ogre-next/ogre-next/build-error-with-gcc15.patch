@@ -1,0 +1,16 @@
+Build error for ogre-next 2.3.3 with g++-15 in OgreMemorySTLAllocator.h
+
+Upstream-Status: Pending [https://github.com/OGRECave/ogre-next/issues/522]
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/OgreMain/include/OgreMemorySTLAllocator.h~  2023-11-05 22:38:38.000000000 +0100
++++ b/OgreMain/include/OgreMemorySTLAllocator.h   2025-04-28 19:02:16.138089303 +0200
+@@ -100,7 +100,7 @@
+         };
+ 
+         /// ctor
+-        inline explicit STLAllocator()
++        inline STLAllocator()
+         { }
+ 
+         /// dtor
