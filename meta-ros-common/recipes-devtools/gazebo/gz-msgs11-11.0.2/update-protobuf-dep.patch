@@ -1,0 +1,71 @@
+Upstream-Status: Backport [https://github.com/gazebosim/gz-msgs/commit/bd692ab84aa41b649567ed4ac9c98513e7778f0c]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From bd692ab84aa41b649567ed4ac9c98513e7778f0c Mon Sep 17 00:00:00 2001
+From: Shameek Ganguly <shameek@intrinsic.ai>
+Date: Fri, 27 Jun 2025 09:24:23 -0700
+Subject: [PATCH] Update protobuf dep in bazel build to v30.1 (#521)
+
+Fixes downstream build issues with projects using protobuf v30.1. Some of the return types in protobuf were changed to std::string_view instead of std::string in v30. Some usages in core/generator_lite/Generator.cc need to be updated as a result.
+
+I also had to update the version of the bazel-contrib script we use for bazel CI to circumvent an error on bazel 8.0.0rc1 (brought in transitively with the protobuf upgrade). With this change, bazel 8.x CI now uses bazel 8.0.0.
+
+Signed-off-by: Shameek Ganguly <shameek@intrinsic.ai>
+---
+ .github/workflows/bazel.yml      |  2 +-
+ MODULE.bazel                     |  2 +-
+ core/generator_lite/Generator.cc | 21 +++++++++++----------
+ 3 files changed, 13 insertions(+), 12 deletions(-)
+
+Index: gz-msgs11-11.0.2/core/generator_lite/Generator.cc
+===================================================================
+--- gz-msgs11-11.0.2.orig/core/generator_lite/Generator.cc
++++ gz-msgs11-11.0.2/core/generator_lite/Generator.cc
+@@ -60,8 +60,8 @@ bool Generator::Generate(const FileDescr
+                                std::string * /*_error*/) const
+ {
+   std::string delim = ".proto";
+-  auto headerFilename = _file->name();
+-  auto sourceFilename = _file->name();
++  std::string headerFilename(_file->name());
++  std::string sourceFilename(_file->name());
+ 
+   {
+     auto pos = headerFilename.rfind(delim);
+@@ -87,26 +87,27 @@ bool Generator::Generate(const FileDescr
+     {
+       const auto *desc = _file->message_type(i);
+       std::string ptrTypes;
++      std::string descName(desc->name());
+ 
+       // Define std::unique_ptr types for our messages
+       ptrTypes += "typedef std::unique_ptr<"
+-        + desc->name() + "> "
+-        + desc->name() + "UniquePtr;\n";
++        + descName + "> "
++        + descName + "UniquePtr;\n";
+ 
+       // Define const std::unique_ptr types for our messages
+       ptrTypes += "typedef std::unique_ptr<const "
+-        + desc->name() + "> Const"
+-        + desc->name() + "UniquePtr;\n";
++        + descName + "> Const"
++        + descName + "UniquePtr;\n";
+ 
+       // Define std::shared_ptr types for our messages
+       ptrTypes += "typedef std::shared_ptr<"
+-        + desc->name() + "> "
+-        + desc->name() + "SharedPtr;\n";
++        + descName + "> "
++        + descName + "SharedPtr;\n";
+ 
+       // Define const std::shared_ptr types for our messages
+       ptrTypes += "typedef std::shared_ptr<const "
+-        + desc->name() + "> Const"
+-        + desc->name() + "SharedPtr;\n";
++        + descName + "> Const"
++        + descName + "SharedPtr;\n";
+ 
+       printer.PrintRaw(ptrTypes.c_str());
+     }

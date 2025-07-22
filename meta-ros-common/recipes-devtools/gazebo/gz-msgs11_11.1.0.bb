@@ -1,6 +1,10 @@
 # Copyright (c) 2024-2025 Wind River Systems, Inc.
 include gz-msgs11.inc
 
+SRC_URI += "file://override-generator-scripts.patch"
+
+SRCREV = "1f5f19e44faaaa8ece97903eb09b685b4640dea1"
+
 DEPENDS = "gz-cmake4 gz-math8 gz-tools2 gz-msgs11-native libtinyxml2 protobuf protobuf-native ${PN}-native"
 DEPENDS += "${PN}-native"
 EXTRA_OECMAKE += " \
