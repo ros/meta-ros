@@ -1,12 +1,7 @@
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
-SRC_URI = "git://github.com/gazebosim/gz-msgs.git;protocol=https;branch=gz-msgs11 \
-           file://override-generator-scripts.patch"
-
-SRCREV = "1f5f19e44faaaa8ece97903eb09b685b4640dea1"
-
-S = "${WORKDIR}/git"
+SRC_URI = "git://github.com/gazebosim/gz-msgs.git;protocol=https;branch=gz-msgs11"
 
 inherit cmake
 
