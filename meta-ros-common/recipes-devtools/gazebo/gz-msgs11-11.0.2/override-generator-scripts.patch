@@ -25,4 +25,4 @@ Index: git/gz-msgs-extras.cmake.in
 +endif()
  
  ##################################################
- # A function to generate a target message library from a group of protobuf files .
+ # A function to generate a target mesage library from a group of protobuf files .
