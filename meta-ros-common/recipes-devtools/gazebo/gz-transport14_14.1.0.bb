@@ -3,11 +3,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=gz-transport14 \
-           file://fix-compatibility-with-protobuf-v30.patch"
+           file://fix-compatibility-part2.patch"
 
 SRCREV = "57eb756917a7e155606b57338bcce64b0c8d4cb8"
-
-S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig python3targetconfig
 
