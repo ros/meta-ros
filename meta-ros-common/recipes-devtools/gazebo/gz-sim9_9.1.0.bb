@@ -6,7 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e23fadd6ceef8c618fc1c65191d846fa \
                     file://src/systems/elevator/vender/metapushkin/LICENSE;md5=ed0f22fa6f2ee0a77567130e0e8c8d15 \
                     file://test/gtest_vendor/LICENSE;md5=cbbd27594afd089daa160d3a16dd515a"
 
-SRC_URI = "git://github.com/gazebosim/gz-sim.git;protocol=https;branch=gz-sim9"
+SRC_URI = "git://github.com/gazebosim/gz-sim.git;protocol=https;branch=gz-sim9 \
+           file://add-support-for-systems.patch"
 
 SRCREV = "2a9ee988bf2b47e892e684f6c6b5601ec4e9fe36"
 
