@@ -1,13 +1,7 @@
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
-SRC_URI = "git://github.com/gazebosim/gz-msgs.git;protocol=https;branch=gz-msgs11 \
-           file://override-generator-scripts.patch \
-           file://fix-compatibility-with-protobuf-v30.patch \
-           file://update-protobuf-dep.patch"
-
-SRCREV = "21a942be1223e08c9b42c5aefb29e0414e9ddd2a"
-
+SRC_URI = "git://github.com/gazebosim/gz-msgs.git;protocol=https;branch=gz-msgs11"
 
 inherit cmake
 
