@@ -87,6 +87,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/openeb_vendor"
 SRC_URI = "git://github.com/ros2-gbp/openeb_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "990f9258a2caf34a4d08e59a18690fdef8e461d7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

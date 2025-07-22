@@ -65,6 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mocap4r2_msgs"
 SRC_URI = "git://github.com/MOCAP4ROS2-Project/mocap4r2_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d9ca3d5153da6060508bea9117898a9b3a3882e5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

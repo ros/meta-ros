@@ -65,6 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/quaternion_operation"
 SRC_URI = "git://github.com/ros2-gbp/quaternion_operation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "49cc6236dfd05529bbfe792c9b4569999cb398a8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

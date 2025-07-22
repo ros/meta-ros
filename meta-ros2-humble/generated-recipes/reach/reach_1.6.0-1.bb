@@ -70,6 +70,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/reach"
 SRC_URI = "git://github.com/ros2-gbp/reach-release;${ROS_BRANCH};protocol=https"
 SRCREV = "36d1ee8d158fc122621bd75070f6dc13c926fc30"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

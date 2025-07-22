@@ -88,6 +88,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/franka_robot_state_broadcaster"
 SRC_URI = "git://github.com/ros2-gbp/franka_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3e0dc9752932d90883e834e952f365ef3efc57ab"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -89,6 +89,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/nonpersistent_voxel_layer"
 SRC_URI = "git://github.com/SteveMacenski/nonpersistent_voxel_layer-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d1c7f6c25745fcc2dde4a3217e063be8a11978eb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

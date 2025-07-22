@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/fadecandy_driver"
 SRC_URI = "git://github.com/eurogroep/fadecandy_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "181ceb15e2948bd0a7161601e81ca79ee40fd44f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

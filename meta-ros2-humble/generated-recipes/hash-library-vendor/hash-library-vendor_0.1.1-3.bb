@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/hash_library_vendor"
 SRC_URI = "git://github.com/ros2-gbp/hash_library_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e31045b72d50216a20845e9bd76f689bff2f00f0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

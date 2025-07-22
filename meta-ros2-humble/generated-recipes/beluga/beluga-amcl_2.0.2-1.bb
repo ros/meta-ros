@@ -73,6 +73,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/beluga_amcl"
 SRC_URI = "git://github.com/ros2-gbp/beluga-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6fc6eae2f642c6440457488681e1c69e05c94535"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

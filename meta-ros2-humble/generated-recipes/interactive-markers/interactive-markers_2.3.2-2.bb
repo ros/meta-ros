@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/interactive_markers"
 SRC_URI = "git://github.com/ros2-gbp/interactive_markers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dace99fbd8e164b82258ba4bc7f8bc213c9140b4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

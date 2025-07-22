@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/urdf_launch"
 SRC_URI = "git://github.com/ros2-gbp/urdf_launch-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8d2890cc56409cb2354a24a467eda1ea1a5e20b3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

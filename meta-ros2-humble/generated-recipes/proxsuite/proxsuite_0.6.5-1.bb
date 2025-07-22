@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/proxsuite"
 SRC_URI = "git://github.com/ros2-gbp/proxsuite-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c1d0dcc011d9ece07c1d4dac720af8b59113598e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

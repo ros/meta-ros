@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/create3_teleop"
 SRC_URI = "git://github.com/ros2-gbp/create3_examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5973ccabce0d22732926b8ca66902927aa32c984"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

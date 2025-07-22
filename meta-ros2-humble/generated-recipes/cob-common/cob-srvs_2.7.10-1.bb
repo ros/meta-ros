@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/cob_srvs"
 SRC_URI = "git://github.com/4am-robotics/cob_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "02b406c887e817af0d57df6dc634d52ad1e29c16"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

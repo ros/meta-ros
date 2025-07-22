@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/vision_msgs_layers"
 SRC_URI = "git://github.com/ros2-gbp/vision_msgs_layers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c64c4ca97583e1ab6c88fbf684509da0a455a658"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

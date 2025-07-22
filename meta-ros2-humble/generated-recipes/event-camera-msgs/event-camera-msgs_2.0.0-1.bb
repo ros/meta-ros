@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/event_camera_msgs"
 SRC_URI = "git://github.com/ros2-gbp/event_camera_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b85b313bc0db786b685f9eb1dad45052630dc26a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

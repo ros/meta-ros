@@ -42,6 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/axis_description"
 SRC_URI = "git://github.com/clearpath-gbp/axis_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5f4c56310c8ada130f7370fe9755f27d8a8151bd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

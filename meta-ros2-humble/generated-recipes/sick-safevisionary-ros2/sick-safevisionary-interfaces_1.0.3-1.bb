@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/sick_safevisionary_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/sick_safevisionary_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2d830a00e13d0a0592f88f06e60b6428da437290"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

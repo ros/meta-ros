@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/apex_containers"
 SRC_URI = "git://github.com/ros2-gbp/apex_containers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "377b63c3af9da61c7ee03a8275df1582270bf161"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

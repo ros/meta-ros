@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/dolly_gazebo"
 SRC_URI = "git://github.com/ros2-gbp/dolly-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1faae2586d9bff0da482d5d2dcb4716e649790f7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

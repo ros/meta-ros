@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/neo_nav2_bringup"
 SRC_URI = "git://github.com/ros2-gbp/neo_nav2_bringup-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dc6a8b98acdbc29515b2166d3501a82da1d4fa00"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

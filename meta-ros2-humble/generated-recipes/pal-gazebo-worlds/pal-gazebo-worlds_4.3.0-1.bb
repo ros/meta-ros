@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pal_gazebo_worlds"
 SRC_URI = "git://github.com/pal-gbp/pal_gazebo_worlds-ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "965d468bc7e705adc616678195f275186afd0591"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

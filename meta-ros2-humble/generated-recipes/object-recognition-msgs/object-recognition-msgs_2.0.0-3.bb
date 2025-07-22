@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/object_recognition_msgs"
 SRC_URI = "git://github.com/ros2-gbp/object_recognition_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f039ec36be03ee7b713cbffc86a5d6a4534ba2a2"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

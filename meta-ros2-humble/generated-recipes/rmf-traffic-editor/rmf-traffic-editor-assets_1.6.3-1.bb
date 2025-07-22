@@ -41,6 +41,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rmf_traffic_editor_assets"
 SRC_URI = "git://github.com/ros2-gbp/rmf_traffic_editor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ae6fe627a23d9f327f24d825f2fb5f1fbcf4a4b4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

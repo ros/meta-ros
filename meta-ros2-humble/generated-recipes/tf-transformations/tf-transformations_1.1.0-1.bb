@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/tf_transformations"
 SRC_URI = "git://github.com/ros2-gbp/tf_transformations_release;${ROS_BRANCH};protocol=https"
 SRCREV = "c21b0f3eedd971c8bfc0c5311cffd9d4663a107c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

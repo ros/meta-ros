@@ -74,6 +74,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/proto2ros"
 SRC_URI = "git://github.com/bdaiinstitute/proto2ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "15ea3f314010ea24ef8b8067c2c213140c46d31d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

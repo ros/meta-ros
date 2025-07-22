@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/teleop_twist_keyboard"
 SRC_URI = "git://github.com/ros2-gbp/teleop_twist_keyboard-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0afb8b35ef4e3aca5a904b61bc231acd2cea127d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

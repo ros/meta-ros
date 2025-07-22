@@ -41,6 +41,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/kortex_api"
 SRC_URI = "git://github.com/ros2-gbp/ros2_kortex-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9eec7ac863f6a7d5c8d341f831659eddb4afd91e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

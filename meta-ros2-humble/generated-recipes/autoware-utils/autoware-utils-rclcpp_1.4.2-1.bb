@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/autoware_utils_rclcpp"
 SRC_URI = "git://github.com/ros2-gbp/autoware_utils-release;${ROS_BRANCH};protocol=https"
 SRCREV = "08d5fb40a6e9354d1babbc77fcdaec26d153a085"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
