@@ -1,0 +1,27 @@
+Fix compatibility with protobuf v30 (cpp 6.30.0)
+
+gz-transport14-14.1.0/test/integration/test_executables/twoProcsPubSubMixedSubscribers_aux.cc:
+In function 'void runSubscriber()':
+twoProcsPubSubMixedSubscribers_aux.cc:100:61: error: cannot convert 'absl::lts_20250512::string_view' {aka 'std::basic_string_view<char>'} to 'const std::string&' {aka 'const std::__cxx11::basic_string<char>&'}
+  100 |                                 msgs::Vector3d().GetTypeName()));
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+      |                                                             |
+      |                                                             absl::lts_20250512::string_view {aka std::basic_string_view<char>}
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: gz-transport14-14.1.0/test/integration/test_executables/twoProcsPubSubMixedSubscribers_aux.cc
+===================================================================
+--- gz-transport14-14.1.0.orig/test/integration/test_executables/twoProcsPubSubMixedSubscribers_aux.cc
++++ gz-transport14-14.1.0/test/integration/test_executables/twoProcsPubSubMixedSubscribers_aux.cc
+@@ -97,7 +97,7 @@ void runSubscriber()
+   // Subscribe to topic using a mix of Subscribe / CreateSubscriber APIs
+   EXPECT_TRUE(node.Subscribe(g_topic, cb));
+   EXPECT_TRUE(node.SubscribeRaw(g_topic, cbRaw,
+-                                msgs::Vector3d().GetTypeName()));
++                                std::string(msgs::Vector3d().GetTypeName())));
+   transport::Node::Subscriber sub = node.CreateSubscriber(g_topic, cbCreateSub);
+   EXPECT_TRUE(sub);
+   transport::Node::Subscriber sub2 = node.CreateSubscriber(g_topic,
