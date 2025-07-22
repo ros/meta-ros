@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/librealsense2"
 SRC_URI = "git://github.com/IntelRealSense/librealsense2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "831eb48ceacd706c19fbd97098cdb7a0cc72534c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

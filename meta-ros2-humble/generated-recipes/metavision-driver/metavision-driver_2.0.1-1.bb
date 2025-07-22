@@ -70,6 +70,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/metavision_driver"
 SRC_URI = "git://github.com/ros2-gbp/metavision_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "642bee86861ac503646076fe71110f142c512d35"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/base2d_kinematics"
 SRC_URI = "git://github.com/ros2-gbp/metro_nav-release;${ROS_BRANCH};protocol=https"
 SRCREV = "596fe0db3224aae00523fd21607a9ea171f5a6b7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

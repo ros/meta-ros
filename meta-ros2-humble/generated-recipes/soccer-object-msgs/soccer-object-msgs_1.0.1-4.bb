@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/soccer_object_msgs"
 SRC_URI = "git://github.com/ros2-gbp/soccer_object_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "662d3ec38925a4ffd53e39d7f4d278f6f611ef2d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/weight_scale_interfaces"
 SRC_URI = "git://github.com/TechMagicKK/weight_scale_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "261f0e54629bfadb0f11907d4505ed87aee82832"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

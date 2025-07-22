@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/nao_command_msgs"
 SRC_URI = "git://github.com/ros2-gbp/nao_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7790e581f49c7c8f45c73a46c7df8e2ea7c03e1e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

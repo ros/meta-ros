@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ifm3d_core"
 SRC_URI = "git://github.com/ros2-gbp/ifm3d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "34d2f5d56f7a23db780d75b53c7133cd68e5a313"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

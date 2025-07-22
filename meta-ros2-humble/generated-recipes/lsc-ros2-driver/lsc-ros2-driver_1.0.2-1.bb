@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/lsc_ros2_driver"
 SRC_URI = "git://github.com/AutonicsLiDAR-release/lsc_ros2_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d557f8bb12228ee8b670a6cc5c8aae2d0a754440"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

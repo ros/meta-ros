@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ros_industrial_cmake_boilerplate"
 SRC_URI = "git://github.com/ros2-gbp/ros_industrial_cmake_boilerplate-release;${ROS_BRANCH};protocol=https"
 SRCREV = "35398618a1d0516c78e430b82eae0ac778c7d64e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

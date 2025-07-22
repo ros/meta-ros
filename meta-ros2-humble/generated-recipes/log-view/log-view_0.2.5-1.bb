@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/log_view"
 SRC_URI = "git://github.com/hatchbed/log_view-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2e9777c970cf7b07027d194a6a946c5a1cf970cc"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

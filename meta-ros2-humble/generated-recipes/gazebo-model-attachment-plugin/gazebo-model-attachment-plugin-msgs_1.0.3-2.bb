@@ -66,6 +66,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/gazebo_model_attachment_plugin_msgs"
 SRC_URI = "git://github.com/ros2-gbp/boeing_gazebo_model_attachement_plugin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d6fc5995054bc293323829f89d049f788d3a64ef"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

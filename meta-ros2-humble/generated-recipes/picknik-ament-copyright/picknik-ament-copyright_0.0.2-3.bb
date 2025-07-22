@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/picknik_ament_copyright"
 SRC_URI = "git://github.com/ros2-gbp/picknik_ament_copyright-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4194ce4ed7bb413d14d86bbda024c3e05c2273cf"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

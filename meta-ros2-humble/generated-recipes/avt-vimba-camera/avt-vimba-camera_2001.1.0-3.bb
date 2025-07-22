@@ -74,6 +74,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/avt_vimba_camera"
 SRC_URI = "git://github.com/ros2-gbp/avt_vimba_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "98269e9716399c2d996f6dedfd1cd2d1dac97b03"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

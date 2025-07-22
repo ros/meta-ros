@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/fluent_rviz"
 SRC_URI = "git://github.com/ros2-gbp/fluent_rviz-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aef48e1063a9b33619c2d27537e626d287669544"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/dolly_ignition"
 SRC_URI = "git://github.com/ros2-gbp/dolly-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a1879098defd0ef21e2c823a4ea32884571037c1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

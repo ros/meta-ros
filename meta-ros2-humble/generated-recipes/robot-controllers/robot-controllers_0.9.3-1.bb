@@ -96,6 +96,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/robot_controllers"
 SRC_URI = "git://github.com/fetchrobotics-gbp/robot_controllers-ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d66b0d3775796b3b90f7af6689062931683ea73a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

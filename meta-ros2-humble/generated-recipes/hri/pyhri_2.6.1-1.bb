@@ -78,6 +78,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pyhri"
 SRC_URI = "git://github.com/ros4hri/libhri-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2705e8f705e87f7eb5240e63fad5b6f3d47111cb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

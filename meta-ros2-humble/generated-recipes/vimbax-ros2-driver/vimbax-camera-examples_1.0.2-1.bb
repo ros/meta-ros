@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/vimbax_camera_examples"
 SRC_URI = "git://github.com/ros2-gbp/vimbax_ros2_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "df322254a7170e4456516f27f9e71139a1176a4e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

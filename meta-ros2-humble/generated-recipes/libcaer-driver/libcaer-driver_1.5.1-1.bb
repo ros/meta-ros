@@ -79,6 +79,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/libcaer_driver"
 SRC_URI = "git://github.com/ros2-gbp/libcaer_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "39fef623be97f6d328c7db19e5939896150c3f8c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

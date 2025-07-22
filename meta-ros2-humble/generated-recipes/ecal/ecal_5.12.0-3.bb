@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ecal"
 SRC_URI = "git://github.com/ros2-gbp/ecal-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7775ff69c05541e3459d674034cbae981a3e51df"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

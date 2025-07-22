@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/caret_msgs"
 SRC_URI = "git://github.com/ros2-gbp/caret_trace-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2877644443d74ce54b6e1ec92e47184d477167fa"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

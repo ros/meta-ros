@@ -80,6 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/as2_python_api"
 SRC_URI = "git://github.com/ros2-gbp/aerostack2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "323e802adf76f4936b62c7cc0aaf23399b864c67"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

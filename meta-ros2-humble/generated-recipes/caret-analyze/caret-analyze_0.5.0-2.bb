@@ -65,6 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/caret_analyze"
 SRC_URI = "git://github.com/ros2-gbp/caret_analyze-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d95760aa55ae23c6958bfbfd940952c9e02b5ce1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

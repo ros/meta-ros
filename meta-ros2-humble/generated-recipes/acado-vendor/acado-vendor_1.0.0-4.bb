@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/acado_vendor"
 SRC_URI = "git://github.com/ros2-gbp/acado_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9131c70aa3926aa2813f07d3aacbf8a206d25025"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -46,6 +46,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ros_workspace"
 SRC_URI = "git://github.com/ros2-gbp/ros_workspace-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8fd20fe34b5a5cbbf636bbdf3f62efcae053166d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

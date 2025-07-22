@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/point_cloud_msg_wrapper"
 SRC_URI = "git://github.com/ros2-gbp/point_cloud_msg_wrapper-release;${ROS_BRANCH};protocol=https"
 SRCREV = "eea3733e4c4aaab42d6e6e6f8b721b00088d0d48"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/webots_ros2_importer"
 SRC_URI = "git://github.com/ros2-gbp/webots_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bfa31bd4f3ebb5ade8ac9fae557b465ebab3bdd7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -86,6 +86,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/vector_pursuit_controller"
 SRC_URI = "git://github.com/ros2-gbp/vector_pursuit_controller-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9e4609f21a3e30d0571e971691b494fe820eb654"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

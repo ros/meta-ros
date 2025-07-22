@@ -65,6 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rt_manipulators_cpp"
 SRC_URI = "git://github.com/ros2-gbp/rt_manipulators_cpp-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8a05fbc9ba0244df63cc8a87c0cd08537b4927d1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/dynamic_edt_3d"
 SRC_URI = "git://github.com/ros2-gbp/octomap-release;${ROS_BRANCH};protocol=https"
 SRCREV = "29c9ce0b0a49db5405883739ee1673e205511f1e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

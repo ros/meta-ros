@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/create_bringup"
 SRC_URI = "git://github.com/AutonomyLab/create_autonomy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "94f016770a93904f1bb6a84830d2a83f3a576390"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

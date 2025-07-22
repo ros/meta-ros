@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/turtlebot4_desktop"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot4_desktop-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a35838ecb2a91d884106f74da7a85370280c866e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
