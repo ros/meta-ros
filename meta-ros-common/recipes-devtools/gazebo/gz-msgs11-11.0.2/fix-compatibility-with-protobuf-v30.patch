@@ -1,0 +1,84 @@
+Upstream-Status: Backport [https://github.com/gazebosim/gz-msgs/commit/22c57006798470db63e8ecaff7b49dce34d5e76f]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 22c57006798470db63e8ecaff7b49dce34d5e76f Mon Sep 17 00:00:00 2001
+From: "mergify[bot]" <37929162+mergify[bot]@users.noreply.github.com>
+Date: Fri, 28 Mar 2025 20:57:42 +0100
+Subject: [PATCH] Fix compatibility with protobuf v30 (cpp 6.30.0) (#499)
+ (#500)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Øystein Sture <os@skarvtech.com>
+(cherry picked from commit 546846e27a16f072a2f564a5b94df8159265a49e)
+
+Co-authored-by: Øystein Sture <oysstu@users.noreply.github.com>
+---
+ core/generator/Generator.cc | 32 ++++++++++++++++++--------------
+ 1 file changed, 18 insertions(+), 14 deletions(-)
+
+diff --git a/core/generator/Generator.cc b/core/generator/Generator.cc
+index 70edc18e..94edffab 100644
+--- a/core/generator/Generator.cc
++++ b/core/generator/Generator.cc
+@@ -132,7 +132,11 @@ GZ_UTILS_WARN_IGNORE__DEPRECATED_DECLARATION
+ GZ_UTILS_WARN_RESUME__DEPRECATED_DECLARATION
+ )");
+ 
++#if GOOGLE_PROTOBUF_VERSION >= 6030000
++    auto ns = getNamespaces(std::string(_file->package()));
++#else
+     auto ns = getNamespaces(_file->package());
++#endif
+ 
+     for (const auto &name : ns)
+         printer.PrintRaw("namespace " + name + " {\n");
+@@ -140,32 +144,32 @@ GZ_UTILS_WARN_RESUME__DEPRECATED_DECLARATION
+     for (auto i = 0; i < _file->message_type_count(); ++i)
+     {
+       const auto *desc = _file->message_type(i);
+-      std::string ptrTypes;
++      std::stringstream ptrTypes;
+ 
+       indexPrinter.PrintRaw(desc->name());
+       indexPrinter.PrintRaw("\n");
+ 
+       // Define std::unique_ptr types for our messages
+-      ptrTypes += "typedef std::unique_ptr<"
+-        + desc->name() + "> "
+-        + desc->name() + "UniquePtr;\n";
++      ptrTypes << "typedef std::unique_ptr<"
++        << desc->name() << "> "
++        << desc->name() << "UniquePtr;\n";
+ 
+       // Define const std::unique_ptr types for our messages
+-      ptrTypes += "typedef std::unique_ptr<const "
+-        + desc->name() + "> Const"
+-        + desc->name() + "UniquePtr;\n";
++      ptrTypes << "typedef std::unique_ptr<const "
++        << desc->name() << "> Const"
++        << desc->name() << "UniquePtr;\n";
+ 
+       // Define std::shared_ptr types for our messages
+-      ptrTypes += "typedef std::shared_ptr<"
+-        + desc->name() + "> "
+-        + desc->name() + "SharedPtr;\n";
++      ptrTypes << "typedef std::shared_ptr<"
++        << desc->name() << "> "
++        << desc->name() << "SharedPtr;\n";
+ 
+       // Define const std::shared_ptr types for our messages
+-      ptrTypes += "typedef std::shared_ptr<const "
+-        + desc->name() + "> Const"
+-        + desc->name() + "SharedPtr;\n";
++      ptrTypes << "typedef std::shared_ptr<const "
++        << desc->name() << "> Const"
++        << desc->name() << "SharedPtr;\n";
+ 
+-      printer.PrintRaw(ptrTypes.c_str());
++      printer.PrintRaw(ptrTypes.str());
+     }
+ 
+     for (auto name = ns.rbegin(); name != ns.rend(); name++)
