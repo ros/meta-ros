@@ -1,0 +1,14 @@
+header:
+  version: 14
+
+repos:
+  python-ai:
+    url: "https://github.com/zboszor/meta-python-ai"
+    path: "layers/meta-python-ai"
+
+local_conf_header:
+  python-ai: |
+    FORTRAN:forcevariable = ",fortran"
+    RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
+    HOSTTOOLS += "gfortran"
+    # TOOLCHAIN_TARGET_TASK:append = " gfortran"
