@@ -1,0 +1,14 @@
+header:
+  version: 14
+
+repos:
+  zenoh:
+    url: "https://github.com/Jarsop/meta-zenoh.git"
+    path: "layers/meta-zenoh"
+    layers:
+      meta-zenoh:
+
+local_conf_header:
+  zenoh: |
+    ZENOH_SHARED_MEMORY = "true"
+    ZENOH_UNSTABLE_API = "true"
