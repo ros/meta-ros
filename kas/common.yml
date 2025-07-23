@@ -1,5 +1,7 @@
 header:
   version: 14
+  includes:
+    - kas/layer/zenoh.yml
 
 local_conf_header:
   common: |
