@@ -32,3 +32,6 @@ repos:
       meta-python:
       meta-webserver:
       meta-xfce:
+
+  python-ai:
+    branch: "main"
