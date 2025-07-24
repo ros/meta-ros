@@ -5,3 +5,8 @@ header:
     - kas/ros2/humble.yml
     - kas/machine/jetson-agx-xavier-devkit.yml
     - kas/common.yml
+
+repos:
+  zenoh:
+    layers:
+      meta-zenoh: "disabled"

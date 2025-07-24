@@ -9,3 +9,6 @@ header:
 repos:
   raspberrypi:
     branch: "kirkstone"
+  zenoh:
+    layers:
+      meta-zenoh: "disabled"

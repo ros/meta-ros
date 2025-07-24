@@ -10,3 +10,6 @@ header:
 repos:
   polarfire:
     branch: "master"
+  zenoh:
+    layers:
+      meta-zenoh: "disabled"

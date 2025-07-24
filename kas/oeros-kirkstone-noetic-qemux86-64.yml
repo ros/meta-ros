@@ -5,3 +5,8 @@ header:
     - kas/ros1/noetic.yml
     - kas/machine/qemux86-64.yml
     - kas/common.yml
+
+repos:
+  zenoh:
+    layers:
+      meta-zenoh: "disabled"
