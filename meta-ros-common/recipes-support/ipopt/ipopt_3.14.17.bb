@@ -9,7 +9,11 @@ S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig
 
-DEPENDS = "coinor-buildtools-native lapack"
+DEPENDS = "coinor-buildtools-native openblas"
+
+EXTRA_OECONF = "\
+    -with-lapack-lflags="-lopenblas" \
+"
 
 do_configure:prepend () {
     mkdir -p ${S}/coinor-m4
