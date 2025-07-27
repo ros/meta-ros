@@ -8,7 +8,11 @@ SRCREV = "43a63412f73d9ad3ff9074d38b49362fc9d7f8f1"
 
 inherit autotools pkgconfig
 
-DEPENDS = "coinor-buildtools-native lapack"
+DEPENDS = "coinor-buildtools-native openblas"
+
+EXTRA_OECONF = "\
+    -with-lapack-lflags="-lopenblas" \
+"
 
 do_configure:prepend () {
     mkdir -p ${S}/coinor-m4
