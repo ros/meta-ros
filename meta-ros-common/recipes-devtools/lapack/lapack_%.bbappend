@@ -1,10 +1,6 @@
-# Copyright (c) 2021 LG Electronics, Inc.
+# Copyright (c) 2024 Wind River Systems, Inc.
 
-# enable cblas
-EXTRA_OECMAKE += "-DCBLAS=ON"
-
-# fix configure error during FortranCInterface detect
-OECMAKE_FIND_ROOT_PATH_MODE_PROGRAM = "BOTH"
-
-# We were using openblas recipe to build cblas
-PROVIDES += "openblas"
+# QA Issue: File /usr/lib/cmake/lapack-3.12.0/lapack-config.cmake in package lapack-dev contains reference to TMPDIR [buildpaths]
+do_install:append() {
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${libdir}/cmake/${PN}-*/lapack-config.cmake
+}
