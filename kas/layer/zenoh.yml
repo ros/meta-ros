@@ -12,3 +12,4 @@ local_conf_header:
   zenoh: |
     ZENOH_SHARED_MEMORY = "true"
     ZENOH_UNSTABLE_API = "true"
+    INSANE_SKIP:pn-zenoh-c += "buildpaths"
