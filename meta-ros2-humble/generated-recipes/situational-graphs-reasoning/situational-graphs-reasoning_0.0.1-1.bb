@@ -88,6 +88,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/situational_graphs_reasoning"
 SRC_URI = "git://github.com/ros2-gbp/situational_graphs_reasoning-release;${ROS_BRANCH};protocol=https"
 SRCREV = "81ff076ca29b0349c6097144f2b1b8a5165f83c6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

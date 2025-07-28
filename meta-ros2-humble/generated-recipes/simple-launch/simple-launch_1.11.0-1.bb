@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/simple_launch"
 SRC_URI = "git://github.com/ros2-gbp/simple_launch-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f7348c8d9deaa5e962ae251c5676f203feb27c4d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/eigen3_cmake_module"
 SRC_URI = "git://github.com/ros2-gbp/eigen3_cmake_module-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fb6325b445a199f927e85fa6eb1e2136f1b938b9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

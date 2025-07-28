@@ -114,6 +114,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/robot_localization"
 SRC_URI = "git://github.com/ros2-gbp/robot_localization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b8edfccec623e605ee5615956804e63bbb59c0b5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/jacro"
 SRC_URI = "git://github.com/JafarAbdi/jacro-release;${ROS_BRANCH};protocol=https"
 SRCREV = "60828dda8170c599ca6ef2726e7d03abaa62a2b7"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

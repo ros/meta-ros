@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/spdlog_vendor"
 SRC_URI = "git://github.com/ros2-gbp/spdlog_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "43818fb2f0ba4af12876cc909d548dc3dfb7d01c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

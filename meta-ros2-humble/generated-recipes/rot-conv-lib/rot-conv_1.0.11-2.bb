@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rot_conv"
 SRC_URI = "git://github.com/ros2-gbp/rot_conv_lib-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e793af8fd25bf694648d7b8e11490252c3b848ff"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

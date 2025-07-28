@@ -92,6 +92,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rmf_dev"
 SRC_URI = "git://github.com/ros2-gbp/rmf_variants-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7896a68c8253b09a90bde6f138f06d9e85918844"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/gazebo_set_joint_positions_plugin"
 SRC_URI = "git://github.com/ros2-gbp/gazebo_set_joint_positions_plugin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "057114a1346a5ff5fec6ece2694e955efcf152df"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

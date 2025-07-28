@@ -95,6 +95,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/clearpath_mecanum_drive_controller"
 SRC_URI = "git://github.com/clearpath-gbp/clearpath_mecanum_drive_controller-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8e1387cc494a09e18a72a76805824e9956abbe85"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

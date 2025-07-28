@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/color_util"
 SRC_URI = "git://github.com/ros2-gbp/color_util-release;${ROS_BRANCH};protocol=https"
 SRCREV = "163eed6ac69bf51547ffc26a7c83201a69772601"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

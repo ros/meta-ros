@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/schunk_svh_description"
 SRC_URI = "git://github.com/ros2-gbp/schunk_svh_ros_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "85f4ed9a3a249097bba6baf98a9c4f7e8cf225b3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

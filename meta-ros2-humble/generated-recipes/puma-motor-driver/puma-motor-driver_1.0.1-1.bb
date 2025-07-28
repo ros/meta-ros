@@ -61,6 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/puma_motor_driver"
 SRC_URI = "git://github.com/clearpath-gbp/puma_motor_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dd40b72a1061a81a97e357f11627185b0b97aa42"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

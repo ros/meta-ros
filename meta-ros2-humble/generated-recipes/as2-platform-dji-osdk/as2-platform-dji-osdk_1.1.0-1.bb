@@ -82,6 +82,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/as2_platform_dji_osdk"
 SRC_URI = "git://github.com/ros2-gbp/as2_platform_dji_osdk-release;${ROS_BRANCH};protocol=https"
 SRCREV = "673f3f097533897b89182b9660bea929992f838b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

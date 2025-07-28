@@ -44,6 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pal_maps"
 SRC_URI = "git://github.com/pal-gbp/pal_maps-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c39227dff2464ac4c9fd656a85d7e3db60c348a8"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

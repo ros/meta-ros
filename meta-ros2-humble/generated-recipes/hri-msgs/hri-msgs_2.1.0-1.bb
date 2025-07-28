@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/hri_msgs"
 SRC_URI = "git://github.com/ros4hri/hri_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ada143cbd4b40d4f7ca6151a317b8d147365f7bb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

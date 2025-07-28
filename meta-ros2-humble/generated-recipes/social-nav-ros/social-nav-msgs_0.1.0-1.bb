@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/social_nav_msgs"
 SRC_URI = "git://github.com/ros2-gbp/social_nav_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2f1f313f2eff65f498fb53843122672fffb12d76"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

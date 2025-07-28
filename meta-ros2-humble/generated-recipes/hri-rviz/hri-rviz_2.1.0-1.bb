@@ -77,6 +77,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/hri_rviz"
 SRC_URI = "git://github.com/ros4hri/hri_rviz-release;${ROS_BRANCH};protocol=https"
 SRCREV = "78c7a2f336335a109748772f33254e21261e4bd9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -68,6 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/popf"
 SRC_URI = "git://github.com/fmrico/popf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "17394a4bbdbb21f29f7bfe2ac5d51939fb00ec5e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

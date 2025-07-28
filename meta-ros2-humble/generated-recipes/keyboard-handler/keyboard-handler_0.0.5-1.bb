@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/keyboard_handler"
 SRC_URI = "git://github.com/ros2-gbp/keyboard_handler-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e36b47c7a817f4f13a53124a0fcc0a4230d24589"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

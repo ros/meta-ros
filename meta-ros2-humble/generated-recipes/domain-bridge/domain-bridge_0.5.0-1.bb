@@ -83,6 +83,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/domain_bridge"
 SRC_URI = "git://github.com/ros2-gbp/domain_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "08bee6f17bed4a71315027f4aee8ad03a5401efd"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

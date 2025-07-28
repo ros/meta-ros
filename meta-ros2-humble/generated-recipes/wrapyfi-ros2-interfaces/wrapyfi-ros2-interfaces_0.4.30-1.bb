@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/wrapyfi_ros2_interfaces"
 SRC_URI = "git://github.com/modular-ml/wrapyfi_ros2_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0a1e569618e04ffe690abb47688d2d0bf6551673"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

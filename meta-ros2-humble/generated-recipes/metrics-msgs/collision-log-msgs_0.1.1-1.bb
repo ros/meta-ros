@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/collision_log_msgs"
 SRC_URI = "git://github.com/ros2-gbp/metrics_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0df00e7cad19dac73cfbcaa07a7cea3770cc0a9a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

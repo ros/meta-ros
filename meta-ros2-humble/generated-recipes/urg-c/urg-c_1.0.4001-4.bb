@@ -42,6 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/urg_c"
 SRC_URI = "git://github.com/ros2-gbp/urg_c-release;${ROS_BRANCH};protocol=https"
 SRCREV = "284660bdc9b127bdf4c0fe637b2220cd28c0bd8e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

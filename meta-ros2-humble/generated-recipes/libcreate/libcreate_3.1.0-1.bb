@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/libcreate"
 SRC_URI = "git://github.com/AutonomyLab/libcreate-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2a01604fd598bf4c7d8e0fb20f72ee2f1856be14"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

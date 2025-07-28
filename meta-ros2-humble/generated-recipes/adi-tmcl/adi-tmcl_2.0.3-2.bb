@@ -59,6 +59,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/adi_tmcl"
 SRC_URI = "git://github.com/ros2-gbp/adi_tmcl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a85beacad4f613b93b214d1c0c02712fba9c82aa"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

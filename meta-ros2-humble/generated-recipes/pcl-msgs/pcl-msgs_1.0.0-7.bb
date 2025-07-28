@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pcl_msgs"
 SRC_URI = "git://github.com/ros2-gbp/pcl_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bfc47345603ead755899b092e701d2308a0af0a5"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

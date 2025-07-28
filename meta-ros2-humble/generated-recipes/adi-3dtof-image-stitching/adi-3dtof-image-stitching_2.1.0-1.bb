@@ -84,6 +84,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/adi_3dtof_image_stitching"
 SRC_URI = "git://github.com/ros2-gbp/adi_3dtof_image_stitching-release;${ROS_BRANCH};protocol=https"
 SRCREV = "64169744fd172742d9edaf6c0f87301522432adb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -71,6 +71,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/raspimouse_navigation"
 SRC_URI = "git://github.com/ros2-gbp/raspimouse_slam_navigation_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "380c2be291c396b2d49add0f62076e8f0e81f08f"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/scenario_execution_nav2"
 SRC_URI = "git://github.com/ros2-gbp/scenario_execution-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ec43f58556ff8f986d586a71f603faa662884994"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

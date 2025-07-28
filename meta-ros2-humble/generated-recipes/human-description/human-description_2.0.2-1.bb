@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/human_description"
 SRC_URI = "git://github.com/ros4hri/human_description-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5fb50ef714fad0657acfe76e3f4e9554435d53df"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

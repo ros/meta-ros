@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ess_imu_driver2"
 SRC_URI = "git://github.com/ros2-gbp/ess_imu_driver2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "73f26e54a7a260cc2ef2c36d7c1b1bc27007d97a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

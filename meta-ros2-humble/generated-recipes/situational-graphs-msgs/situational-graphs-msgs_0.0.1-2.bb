@@ -70,6 +70,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/situational_graphs_msgs"
 SRC_URI = "git://github.com/ros2-gbp/situational_graphs_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d429f63e2cb5374218f7b7082cd74a671e7418c0"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

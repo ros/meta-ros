@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pal_gripper"
 SRC_URI = "git://github.com/pal-gbp/pal_gripper-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a4660c0a184bed517ec33cbaa7aef52eeb822f86"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

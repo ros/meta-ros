@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mola_common"
 SRC_URI = "git://github.com/ros2-gbp/mola_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "65d1ed0291f2037d13e20f38efeafd9326e80fda"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

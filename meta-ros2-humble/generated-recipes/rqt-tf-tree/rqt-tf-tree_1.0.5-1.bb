@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rqt_tf_tree"
 SRC_URI = "git://github.com/ros2-gbp/rqt_tf_tree-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bef8d3e511c6458c7a3c481fff3b54aff5d1c2cb"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

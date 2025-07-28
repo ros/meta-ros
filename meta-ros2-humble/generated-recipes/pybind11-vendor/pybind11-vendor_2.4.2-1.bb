@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pybind11_vendor"
 SRC_URI = "git://github.com/ros2-gbp/pybind11_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dc70c591e023aaf6e9da9f193dce726004555fa4"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

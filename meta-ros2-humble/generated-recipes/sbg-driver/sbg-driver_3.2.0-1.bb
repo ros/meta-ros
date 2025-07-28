@@ -80,6 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/sbg_driver"
 SRC_URI = "git://github.com/SBG-Systems/sbg_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2d175e638166e19e04c78dcaed65eaaf19b9822d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

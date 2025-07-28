@@ -62,6 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/eigenpy"
 SRC_URI = "git://github.com/ros2-gbp/eigenpy-release;${ROS_BRANCH};protocol=https"
 SRCREV = "30163b301464082dff7550cae5cbddb5900ae59d"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

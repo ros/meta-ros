@@ -47,6 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/automotive_autonomy_msgs"
 SRC_URI = "git://github.com/ros2-gbp/automotive_autonomy_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5880c3cc38021677950701ebac2d2ac0c0b665c1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

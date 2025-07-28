@@ -60,6 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/urinterfaces"
 SRC_URI = "git://github.com/ros2-gbp/urinterfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d5ed6a2f9273b18059bdc22e8ae1ed526565aece"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

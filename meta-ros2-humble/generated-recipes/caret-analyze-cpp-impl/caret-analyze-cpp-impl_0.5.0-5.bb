@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/caret_analyze_cpp_impl"
 SRC_URI = "git://github.com/ros2-gbp/caret_analyze_cpp_impl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ac598f3f19bf8b93fd132ce73ccea4462639cb76"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

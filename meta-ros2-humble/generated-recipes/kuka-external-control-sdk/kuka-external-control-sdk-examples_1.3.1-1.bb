@@ -48,6 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/kuka_external_control_sdk_examples"
 SRC_URI = "git://github.com/ros2-gbp/kuka_external_control_sdk-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c30baf86576f88717d806330bd664efb254eb7b9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

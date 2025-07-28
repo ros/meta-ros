@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/gazebo_video_monitor_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/gazebo_video_monitors-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6164af169c503cd3b28b619abaac88a9a65c731e"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

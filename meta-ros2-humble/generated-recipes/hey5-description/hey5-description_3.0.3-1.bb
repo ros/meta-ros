@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/hey5_description"
 SRC_URI = "git://github.com/pal-gbp/hey5_description-release;${ROS_BRANCH};protocol=https"
 SRCREV = "19b64f032d024f198af590f9217fd2552e737909"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

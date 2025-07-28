@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/topic_monitor"
 SRC_URI = "git://github.com/ros2-gbp/demos-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2ecfec84967aca167a8c1f6f86a05bd73d8ab23c"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

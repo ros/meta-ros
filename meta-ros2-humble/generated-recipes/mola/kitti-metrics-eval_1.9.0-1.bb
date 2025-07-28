@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/kitti_metrics_eval"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "63fe158b03d99e99ec4593c66ec7e5ff4fd6953a"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

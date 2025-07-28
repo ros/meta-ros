@@ -83,6 +83,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/hri_face_body_matcher"
 SRC_URI = "git://github.com/ros4hri/hri_face_body_matcher-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f858244924d52c65c388027f25c8594c446f5f97"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

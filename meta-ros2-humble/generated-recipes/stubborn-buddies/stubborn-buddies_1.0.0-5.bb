@@ -57,6 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/stubborn_buddies"
 SRC_URI = "git://github.com/ros2-gbp/stubborn_buddies-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3a57d99c24c5c430c9c76a32585eb7817f1fab25"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

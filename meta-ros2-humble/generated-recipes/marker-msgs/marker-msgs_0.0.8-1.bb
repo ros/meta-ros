@@ -58,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/marker_msgs"
 SRC_URI = "git://github.com/ros2-gbp/marker_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f0867619e6a8f356b9ed78f5833a5093ffa95cb9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

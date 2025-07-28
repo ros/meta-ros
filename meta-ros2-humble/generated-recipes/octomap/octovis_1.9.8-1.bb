@@ -51,6 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/octovis"
 SRC_URI = "git://github.com/ros2-gbp/octomap-release;${ROS_BRANCH};protocol=https"
 SRCREV = "55c571b77872f5b0747f694dffc5d3449a70adb3"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

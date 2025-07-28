@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ackermann_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ackermann_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aecae023dd2cfc21f69f76992951a3f9de9aee19"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

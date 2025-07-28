@@ -53,6 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/fogros2_examples"
 SRC_URI = "git://github.com/ros2-gbp/fogros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a1afb6b4adc434fc77a89b93e8fc98aac6c9a54b"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

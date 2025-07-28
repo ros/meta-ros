@@ -67,6 +67,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/turtlebot4_diagnostics"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot4_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "108c8ccd1e5f9c779b0d039cc47f1ebb16c54810"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

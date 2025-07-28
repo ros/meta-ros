@@ -63,6 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rclpy_message_converter"
 SRC_URI = "git://github.com/ros2-gbp/rospy_message_converter-release;${ROS_BRANCH};protocol=https"
 SRCREV = "411f97bf6b8ac5bad0b46dac0d21d712133098d6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

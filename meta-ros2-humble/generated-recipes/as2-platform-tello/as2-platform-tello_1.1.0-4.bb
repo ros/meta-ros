@@ -82,6 +82,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/as2_platform_tello"
 SRC_URI = "git://github.com/ros2-gbp/as2_platform_tello-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a1a29764969587e0442d0f7242a7b97ba1b68317"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

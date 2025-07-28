@@ -54,6 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/topic_tools_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/topic_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "79ad6f29fc30a3a99b5144114db5a7378ae370c9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -55,6 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/franka_inria_inverse_dynamics_solver"
 SRC_URI = "git://github.com/ros2-gbp/inverse_dynamics_solver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "04852d60751710c29392d6cef8b219bbde3906e1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

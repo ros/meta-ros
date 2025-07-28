@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rqt_reconfigure"
 SRC_URI = "git://github.com/ros2-gbp/rqt_reconfigure-release;${ROS_BRANCH};protocol=https"
 SRCREV = "10597d24e0aaa3becf93ca2d76728919920619ea"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

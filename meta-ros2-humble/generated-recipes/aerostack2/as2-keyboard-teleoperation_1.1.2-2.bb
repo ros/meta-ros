@@ -56,6 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/as2_keyboard_teleoperation"
 SRC_URI = "git://github.com/ros2-gbp/aerostack2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0d28951409f508e267a9f209d28fe511e20334f1"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -49,6 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/splsm_7_conversion"
 SRC_URI = "git://github.com/ros2-gbp/r2r_spl-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0b5b18c3cfff1fc55b0f2318a801f021207f5347"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

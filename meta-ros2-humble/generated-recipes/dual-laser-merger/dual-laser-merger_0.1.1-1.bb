@@ -86,6 +86,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/dual_laser_merger"
 SRC_URI = "git://github.com/ros2-gbp/dual_laser_merger-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3622a7ced9eaf2af499b153d8ab29ed0aad75051"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -50,6 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mouse_teleop"
 SRC_URI = "git://github.com/ros2-gbp/teleop_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f65cf9648950e807aeebdf4257982515225a8ab6"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 
