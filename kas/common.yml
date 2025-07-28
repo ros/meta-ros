@@ -2,6 +2,7 @@ header:
   version: 14
   includes:
     - kas/layer/zenoh.yml
+    - kas/layer/python-ai.yml
 
 local_conf_header:
   common: |
