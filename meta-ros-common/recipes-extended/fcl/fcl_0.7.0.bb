@@ -10,6 +10,7 @@ SRCREV = "df2702ca5e703dec98ebd725782ce13862e87fc8"
 ROS_BRANCH ?= "branch=master"
 SRC_URI = " \
     git://github.com/flexible-collision-library/fcl;${ROS_BRANCH};protocol=https \
+    file://0001-Add-missing-cassert-include-in-fcl-common-types.h-62.patch \
 "
 
 

@@ -1,0 +1,26 @@
+From a3fbc9fe4f619d7bb1117dc137daa497d2de454b Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio.traversaro@iit.it>
+Date: Thu, 13 Mar 2025 15:51:44 +0100
+Subject: [PATCH] Add missing cassert include in fcl/common/types.h (#620)
+
+Upstream-Status: Backport [https://github.com/flexible-collision-library/fcl/commit/a3fbc9fe4f619d7bb1117dc137daa497d2de454b]
+
+---
+ include/fcl/common/types.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/fcl/common/types.h b/include/fcl/common/types.h
+index 892e2b0..1d41e2c 100644
+--- a/include/fcl/common/types.h
++++ b/include/fcl/common/types.h
+@@ -38,6 +38,7 @@
+ #ifndef FCL_DATA_TYPES_H
+ #define FCL_DATA_TYPES_H
+ 
++#include <cassert>
+ #include <cstddef>
+ #include <cstdint>
+ #include <vector>
+-- 
+2.39.5
+
