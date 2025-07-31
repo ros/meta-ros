@@ -15,6 +15,6 @@ EXTRA_OECONF = "\
 "
 
 do_configure:prepend () {
-    mkdir -p ${S}/coinor-m4
+    mkdir -p ${STAGING_DATADIR_NATIVE}/aclocal
     cp ${STAGING_DIR_NATIVE}/${datadir}/coinor/* ${STAGING_DATADIR_NATIVE}/aclocal
 }
