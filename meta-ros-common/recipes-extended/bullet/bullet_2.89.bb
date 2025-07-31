@@ -1,7 +1,4 @@
 # Copyright (c) 2020 LG Electronics, Inc.
-#
-# Similar to meta-ros1/recipes-extended/bullet/bullet_2.87.bb
-# but newer version without python2 support
 
 DESCRIPTION = "Real-time collision detection and multi-physics simulation"
 HOMEPAGE = "https://github.com/bulletphysics/bullet3"
@@ -25,6 +22,3 @@ EXTRA_OECMAKE += "-DBUILD_BULLET2_DEMOS=OFF"
 
 # Fails to find -lBussIK
 EXTRA_OECMAKE += "-DBUILD_UNIT_TESTS=OFF"
-
-#CFLAGS += "-fsigned-char"
-#CXXFLAGS += "-fsigned-char"
