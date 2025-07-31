@@ -7,6 +7,7 @@ SRC_URI = "git://github.com/gazebosim/gz-rendering.git;protocol=https;branch=gz-
 
 SRCREV = "cd6009ee6f6a80fb41e54ddb8e805330111660fd"
 
+S = "${WORKDIR}/git"
 
 DEPENDS = " \
     boost \
