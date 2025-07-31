@@ -11,6 +11,8 @@ DEPENDS = "libunwind elfutils"
 
 inherit cmake
 
+EXTRA_OECMAKE = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
 FILES:${PN}-dev += "${libdir}/backward/BackwardConfig.cmake"
 
 BBCLASSEXTEND = "native nativesdk"
