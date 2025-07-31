@@ -17,4 +17,6 @@ DEPENDS = "\
     libeigen \
 "
 
+EXTRA_OECMAKE = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
 inherit cmake
