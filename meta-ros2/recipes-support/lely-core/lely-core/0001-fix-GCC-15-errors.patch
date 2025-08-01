@@ -1,0 +1,64 @@
+From 0b1daefaab1d88999f5e0ac24f5a38644eeca17a Mon Sep 17 00:00:00 2001
+From: "J. S. Seldenthuis" <jseldenthuis@lely.com>
+Date: Tue, 8 Jul 2025 17:15:14 +0200
+Subject: [PATCH] fix GCC 15 errors
+
+Upstream-Status: Backport [https://gitlab.com/lely_industries/lely-core/-/commit/6ed995fa86d828957b636a11470f150830d877ec]
+
+---
+ include/lely/libc/stdatomic.h | 8 +++++++-
+ src/util/print.c              | 4 ++--
+ 2 files changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/include/lely/libc/stdatomic.h b/include/lely/libc/stdatomic.h
+index 841d1baf..4b35ed97 100644
+--- a/include/lely/libc/stdatomic.h
++++ b/include/lely/libc/stdatomic.h
+@@ -3,7 +3,7 @@
+  * includes `<stdatomic.h>`, if it exists, and defines any missing
+  * functionality.
+  *
+- * @copyright 2013-2018 Lely Industries N.V.
++ * @copyright 2013-2025 Lely Industries N.V.
+  *
+  * @author J. S. Seldenthuis <jseldenthuis@lely.com>
+  *
+@@ -32,7 +32,13 @@
+ #endif // !LELY_HAVE_STDATOMIC_H
+ 
+ #if LELY_HAVE_STDATOMIC_H
++
+ #include <stdatomic.h>
++
++#ifndef ATOMIC_VAR_INIT
++#define ATOMIC_VAR_INIT(value) (value)
++#endif
++
+ #else // !LELY_HAVE_STDATOMIC_H
+ 
+ #if defined(__clang__) && __has_extension(c_atomic)
+diff --git a/src/util/print.c b/src/util/print.c
+index 94d8aa59..99779ad1 100644
+--- a/src/util/print.c
++++ b/src/util/print.c
+@@ -4,7 +4,7 @@
+  *
+  * @see lely/util/print.h
+  *
+- * @copyright 2017-2019 Lely Industries N.V.
++ * @copyright 2017-2025 Lely Industries N.V.
+  *
+  * @author J. S. Seldenthuis <jseldenthuis@lely.com>
+  *
+@@ -262,7 +262,7 @@ size_t
+ print_base64(char **pbegin, char *end, const void *ptr, size_t n)
+ {
+ 	// clang-format off
+-	static const char tab[64] =
++	static const char tab[] =
+ 			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef"
+ 			"ghijklmnopqrstuvwxyz0123456789+/";
+ 	// clang-format on
+-- 
+2.43.0
+
