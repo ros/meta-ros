@@ -1,0 +1,42 @@
+Add target for lely_core_libraries
+
+This allows us to add include directories and libraries by target
+and avoid injecting buildpaths into CMake files.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -15,14 +15,26 @@ install(
+ 
+ ament_python_install_package(cogen SKIP_COMPILE SCRIPTS_DESTINATION lib/cogen)
+ 
++add_library(${PROJECT_NAME} INTERFACE)
++
++target_link_libraries(${PROJECT_NAME} INTERFACE lely-can lely-co lely-coapp lely-ev lely-io2 lely-libc lely-tap lely-util)
++
+ # install entry-point script(s) in bin as well
+ install(
+     DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/ament_cmake_python/cogen/scripts/
+     DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/
+     USE_SOURCE_PERMISSIONS)
+ 
+-ament_export_include_directories(include)
+-ament_export_libraries(lely-can lely-co lely-coapp lely-ev lely-io2 lely-libc lely-tap lely-util)
++install(
++    TARGETS ${PROJECT_NAME}
++    EXPORT export_${PROJECT_NAME}
++    LIBRARY DESTINATION lib
++    ARCHIVE DESTINATION lib
++    RUNTIME DESTINATION bin
++)
++
++ament_export_targets(export_${PROJECT_NAME})
++
+ ament_package(
+   CONFIG_EXTRAS
+   "cmake/lely_core_libraries-extras.cmake"
