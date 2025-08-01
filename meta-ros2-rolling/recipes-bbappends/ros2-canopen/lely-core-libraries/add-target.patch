@@ -11,13 +11,13 @@ Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -14,14 +14,26 @@ install(
+@@ -15,14 +15,26 @@ install(
  
  ament_python_install_package(cogen SKIP_COMPILE SCRIPTS_DESTINATION lib/cogen)
  
 +add_library(${PROJECT_NAME} INTERFACE)
 +
-+target_link_libraries(${PROJECT_NAME} INTERFACE lely-can lely-co lely-coapp lely-ev lely-io2 lely-io lely-libc lely-tap lely-util)
++target_link_libraries(${PROJECT_NAME} INTERFACE lely-can lely-co lely-coapp lely-ev lely-io2 lely-libc lely-tap lely-util)
 +
  # install entry-point script(s) in bin as well
  install(
@@ -26,7 +26,7 @@ Index: git/CMakeLists.txt
      USE_SOURCE_PERMISSIONS)
  
 -ament_export_include_directories(include)
--ament_export_libraries(lely-can lely-co lely-coapp lely-ev lely-io2 lely-io lely-libc lely-tap lely-util)
+-ament_export_libraries(lely-can lely-co lely-coapp lely-ev lely-io2 lely-libc lely-tap lely-util)
 +install(
 +    TARGETS ${PROJECT_NAME}
 +    EXPORT export_${PROJECT_NAME}
