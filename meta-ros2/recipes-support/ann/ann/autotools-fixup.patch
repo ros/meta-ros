@@ -1,0 +1,20 @@
+Remove obsolete references to the macro archive
+
+Upstream-Status: Inactive-Upstream [lastrelease: Jan 27, 2010]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: ann-1.1.2/configure.ac
+===================================================================
+--- ann-1.1.2.orig/configure.ac
++++ ann-1.1.2/configure.ac
+@@ -32,9 +32,6 @@ AC_C_CONST
+ AC_C_INLINE
+ AC_HEADER_TIME
+ AC_STRUCT_TM
+-AC_CXX_HAVE_STD
+-AC_CXX_HAVE_STL
+-AC_CXX_TYPENAME
+ 
+ # Checks for library functions.
+ AC_PROG_GCC_TRADITIONAL

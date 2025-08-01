@@ -1,0 +1,42 @@
+Upstream-Status: Inactive-Upstream [lastrelease: Jan 27, 2010]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From: =?utf-8?q?Picca_Fr=C3=A9d=C3=A9ric-Emmanuel?= <picca@debian.org>
+Date: Thu, 8 Sep 2022 16:26:57 +0200
+Subject: update autotools file for the cctbx variant
+
+---
+ Makefile.am  | 2 +-
+ configure.ac | 5 +++--
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 668bab0..17f6b4f 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1 +1 @@
+-SUBDIRS = src include ann2fig sample test
++SUBDIRS = src include ann2fig sample test ann-cctbx
+diff --git a/configure.ac b/configure.ac
+index 4626b86..6437292 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -3,7 +3,7 @@ AC_INIT([ann], [1.0], [bornik@icg.tu-graz.aca.t])
+ 
+ AC_CONFIG_AUX_DIR(cfg)
+ 
+-AM_INIT_AUTOMAKE
++AM_INIT_AUTOMAKE([subdir-objects])
+ AC_CONFIG_HEADERS(config.h)
+ AM_MAINTAINER_MODE
+ 
+@@ -49,6 +49,7 @@ AC_CONFIG_FILES([Makefile
+                  include/Makefile
+                  ann2fig/Makefile
+                  sample/Makefile
+-                 test/Makefile])
++                 test/Makefile
++                 ann-cctbx/Makefile])
+ 
+ AC_OUTPUT
