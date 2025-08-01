@@ -1,0 +1,65 @@
+libnabo: Use find_package to find Eigen3
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -90,17 +90,8 @@ endif ()
+ 
+ include(GNUInstallDirs)
+ 
+-# eigen 2 or 3
+-find_path(EIGEN_INCLUDE_DIR NAMES signature_of_eigen3_matrix_library
+-  HINTS  ENV EIGEN3_INC_DIR
+-         ENV EIGEN3_DIR
+-  PATHS  Eigen/Core
+-         /usr/local/include
+-         /usr/include
+-         /opt/local/include
+-  PATH_SUFFIXES include eigen3 eigen2 eigen
+-  DOC "Directory containing the Eigen3 header files"
+-)
++find_package(eigen3_cmake_module REQUIRED)
++find_package(Eigen3)
+ 
+ # optionally, opencl
+ # OpenCL disabled as its code is not up-to-date with API
+@@ -153,7 +144,7 @@ endif ()
+ set_target_properties(${LIB_NAME} PROPERTIES VERSION "${PROJECT_VERSION}" SOVERSION 1)
+ 
+ target_include_directories(${LIB_NAME} PUBLIC
+-	${EIGEN_INCLUDE_DIR}
++	${Eigen3_INCLUDE_DIRS}
+ 	$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+ 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+   )
+Index: git/python/CMakeLists.txt
+===================================================================
+--- git.orig/python/CMakeLists.txt
++++ git/python/CMakeLists.txt
+@@ -59,7 +59,7 @@ if (PYTHONLIBS_FOUND AND PYTHONINTERP_FO
+ 			endforeach(file)
+ 			python_add_module(pynabo ${PYTHON_SRC})
+ 			target_link_libraries(pynabo ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
+-			target_include_directories(pynabo PRIVATE ${EIGEN_INCLUDE_DIR})
++			target_include_directories(pynabo PRIVATE ${Eigen3_INCLUDE_DIRS})
+ 		endif ()
+ 		# fix for old python_add_module
+ 		set_target_properties(pynabo PROPERTIES PREFIX "")
+Index: git/tests/CMakeLists.txt
+===================================================================
+--- git.orig/tests/CMakeLists.txt
++++ git/tests/CMakeLists.txt
+@@ -81,7 +81,7 @@ macro(try_compile_cloud_types MAT_TYPE T
+ 	try_compile(COMPILE_SUCCEEDED
+ 	              "${CMAKE_CURRENT_BINARY_DIR}"
+ 	              "${CMAKE_CURRENT_SOURCE_DIR}/invalid_matrix_types.cpp"
+-	              COMPILE_DEFINITIONS "-std=c++11 -D${MAT_TYPE} -D${TREE_TYPE} -I${CMAKE_CURRENT_SOURCE_DIR}/../ -I${CMAKE_CURRENT_SOURCE_DIR}/../third_party/ -I${EIGEN_INCLUDE_DIR} -l${LIB_NAME}"
++		      COMPILE_DEFINITIONS "-std=c++11 -D${MAT_TYPE} -D${TREE_TYPE} -I${CMAKE_CURRENT_SOURCE_DIR}/../ -I${CMAKE_CURRENT_SOURCE_DIR}/../third_party/ -I${Eigen3_INCLUDE_DIRS} -l${LIB_NAME}"
+ 	              CMAKE_FLAGS "-DCMAKE_CXX_LINK_EXECUTABLE='echo not linking now...'"
+ 	              OUTPUT_VARIABLE OUTPUT)
+ 
