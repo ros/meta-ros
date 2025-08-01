@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/color_names"
 SRC_URI = "git://github.com/ros2-gbp/color_names-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1fc9bf4e0d46443ad9ba826600c47c081dcc2c55"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

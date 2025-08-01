@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/odom_to_tf_ros2"
 SRC_URI = "git://github.com/ros2-gbp/odom_to_tf_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fd590ef68051a8df2851a247be334d8958837674"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

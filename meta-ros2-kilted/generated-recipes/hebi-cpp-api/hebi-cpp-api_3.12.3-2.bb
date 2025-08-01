@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/hebi_cpp_api"
 SRC_URI = "git://github.com/ros2-gbp/hebi_cpp_api-release;${ROS_BRANCH};protocol=https"
 SRCREV = "226e5061e3c84db3b95f9c4128db700f86ccb906"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

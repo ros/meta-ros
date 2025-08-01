@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ackermann_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ackermann_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "152044ba73df36a4c1ab9f820389f2ca8dbc01aa"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

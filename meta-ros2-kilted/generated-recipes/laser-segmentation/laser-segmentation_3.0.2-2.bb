@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/laser_segmentation"
 SRC_URI = "git://github.com/ros2-gbp/laser_segmentation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aa0f6b07ac8ddd276606d42e84877fe2801c0e2b"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

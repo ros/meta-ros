@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/urg_c"
 SRC_URI = "git://github.com/ros2-gbp/urg_c-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bab130904ee9a7877f878431c4946affbc92a108"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rosx_introspection"
 SRC_URI = "git://github.com/ros2-gbp/rosx_introspection-release;${ROS_BRANCH};protocol=https"
 SRCREV = "da93be6eba62c34f037aebb8e72e0dfea20331fd"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

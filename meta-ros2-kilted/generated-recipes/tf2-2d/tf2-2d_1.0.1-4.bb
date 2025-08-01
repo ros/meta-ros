@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/tf2_2d"
 SRC_URI = "git://github.com/ros2-gbp/tf2_2d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "89cea91a62dd38afefb7d9af7b332155c58e07ca"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

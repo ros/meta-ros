@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rmf_visualization_msgs"
 SRC_URI = "git://github.com/ros2-gbp/rmf_visualization_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b4e08c34cde485e8c062e8a4a2651dec8bdcfcb8"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

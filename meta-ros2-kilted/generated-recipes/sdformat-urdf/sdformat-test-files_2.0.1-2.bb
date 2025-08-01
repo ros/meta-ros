@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/sdformat_test_files"
 SRC_URI = "git://github.com/ros2-gbp/sdformat_urdf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "db145fd7c98366e446a9dd717a3c472edb41af15"
-
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

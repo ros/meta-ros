@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/sick_safevisionary_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/sick_safevisionary_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2b85eb43c2b7a20f716f2f507a693445e06d9e14"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

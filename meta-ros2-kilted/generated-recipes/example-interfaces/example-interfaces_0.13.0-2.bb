@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/example_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/example_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7b7d078118a326b47468f8239ce74a5eb0d84e46"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

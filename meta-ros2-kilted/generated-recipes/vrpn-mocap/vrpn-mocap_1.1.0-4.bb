@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/vrpn_mocap"
 SRC_URI = "git://github.com/ros2-gbp/vrpn_mocap-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b0db00ceabe74fa4059e605851969d8df1c18926"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rqt_tf_tree"
 SRC_URI = "git://github.com/ros2-gbp/rqt_tf_tree-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c47d2273617c3c59a861f1ad0ad94e97b2855f26"
-
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

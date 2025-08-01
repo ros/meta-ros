@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/picknik_ament_copyright"
 SRC_URI = "git://github.com/ros2-gbp/picknik_ament_copyright-release;${ROS_BRANCH};protocol=https"
 SRCREV = "838d55cefa87676cc83748cb2a5890d53283a626"
-
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

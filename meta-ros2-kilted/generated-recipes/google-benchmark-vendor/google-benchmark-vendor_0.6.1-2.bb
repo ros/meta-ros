@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/google_benchmark_vendor"
 SRC_URI = "git://github.com/ros2-gbp/google_benchmark_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0563415995fad10d8c03d500309e07345b183ccc"
-
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

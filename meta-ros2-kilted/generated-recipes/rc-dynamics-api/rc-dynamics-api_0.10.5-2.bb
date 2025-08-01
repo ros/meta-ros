@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rc_dynamics_api"
 SRC_URI = "git://github.com/ros2-gbp/rc_dynamics_api-release;${ROS_BRANCH};protocol=https"
 SRCREV = "99c5c01225debdf235363c55896c9c6df4d46992"
-
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/robot_calibration_msgs"
 SRC_URI = "git://github.com/ros2-gbp/robot_calibration-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b9d759fbf7257229fc35a27315ac9ed8a11ff8e8"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

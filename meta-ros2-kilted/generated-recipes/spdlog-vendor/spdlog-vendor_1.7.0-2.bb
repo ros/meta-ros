@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/spdlog_vendor"
 SRC_URI = "git://github.com/ros2-gbp/spdlog_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7dc5db81bf440d98f091af54b1a21f9a13a0b94c"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

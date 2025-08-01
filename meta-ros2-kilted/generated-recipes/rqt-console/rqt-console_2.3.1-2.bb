@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rqt_console"
 SRC_URI = "git://github.com/ros2-gbp/rqt_console-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b4bbe8e23f2e64cfbb701993cf6ed27abe68f63a"
-
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

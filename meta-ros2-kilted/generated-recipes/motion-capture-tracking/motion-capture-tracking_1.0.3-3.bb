@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/motion_capture_tracking"
 SRC_URI = "git://github.com/ros2-gbp/motion_capture_tracking-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b4d285e8c858f5442ce77349c00ca2888cc5149b"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

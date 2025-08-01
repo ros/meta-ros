@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rot_conv"
 SRC_URI = "git://github.com/ros2-gbp/rot_conv_lib-release;${ROS_BRANCH};protocol=https"
 SRCREV = "21fa0455177d0aeaf87c4319296e41afc92ada32"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

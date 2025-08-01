@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/catch_ros2"
 SRC_URI = "git://github.com/ros2-gbp/catch_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9abd9997a295cd76d879902f35eaa37ede070151"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
