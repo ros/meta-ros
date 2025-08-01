@@ -1,9 +1,8 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://repackage-lely-core.patch"
-
-SRCREV_upstream = "7824cbb2ac08d091c4fa2fb397669b938de9e3f5"
+SRC_URI += "file://repackage-lely-core.patch \
+            file://add-target.patch"
 
 DEPENDS += "lely-core lely-core-native"
 
