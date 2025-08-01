@@ -1,0 +1,33 @@
+Upstream-Status: Inactive-Upstream [lastrelease: Jan 27, 2010]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From: =?utf-8?q?Picca_Fr=C3=A9d=C3=A9ric-Emmanuel?= <picca@debian.org>
+Date: Wed, 7 Sep 2022 11:56:36 +0200
+Subject: avoid segfault when a pointer is null
+
+---
+ src/kd_tree.cpp | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/src/kd_tree.cpp b/src/kd_tree.cpp
+index 2828fd2..ed7a106 100644
+--- a/src/kd_tree.cpp
++++ b/src/kd_tree.cpp
+@@ -193,10 +193,12 @@ void ANNkd_tree::getStats(						// get tree statistics
+ {
+ 	st.reset(dim, n_pts, bkt_size);				// reset stats
+ 												// create bounding box
+-	ANNorthRect bnd_box(dim, bnd_box_lo, bnd_box_hi);
+-	if (root != NULL) {							// if nonempty tree
+-		root->getStats(dim, st, bnd_box);		// get statistics
+-		st.avg_ar = st.sum_ar / st.n_lf;		// average leaf asp ratio
++        if (pts != NULL) {
++          ANNorthRect bnd_box(dim, bnd_box_lo, bnd_box_hi);
++          if (root != NULL) {                                                   // if nonempty tree
++            root->getStats(dim, st, bnd_box);           // get statistics
++            st.avg_ar = st.sum_ar / st.n_lf;            // average leaf asp ratio
++          }
+ 	}
+ }
+ 

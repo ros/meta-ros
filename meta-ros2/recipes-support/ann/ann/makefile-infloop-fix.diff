@@ -1,0 +1,59 @@
+Upstream-Status: Inactive-Upstream [lastrelease: Jan 27, 2010]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From: Teemu Ikonen <tpikonen@gmail.com>
+Date: Mon, 26 Mar 2018 12:25:33 +0300
+Subject: [PATCH] Fix inf-loop on clean and realclean targets on upstream
+ Makefile.
+
+---
+ Makefile | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index fb5e674..7a21557 100644
+--- a/Makefile
++++ b/Makefile
+@@ -66,13 +66,13 @@ alpha-g++ macosx-g++ linux-g++ sgi sunos4 sunos4-g++ sunos5 sunos5-g++ sunos5-g+
+ # Remove .o files and core files
+ #-----------------------------------------------------------------------------
+ clean:
+-	cd src ; $(MAKE) clean
+-	cd test ; $(MAKE) clean
+-	cd sample ; $(MAKE) clean
+-	cd ann2fig ; $(MAKE) clean
+-	cd doc ; $(MAKE) clean
+-	cd MS_Win32; $(MAKE) clean
+-	cd validate ; $(MAKE) clean
++	-$(MAKE) -C src clean
++	-$(MAKE) -C test clean
++	-$(MAKE) -C sample clean
++	-$(MAKE) -C ann2fig clean
++	-$(MAKE) -C doc clean
++	-$(MAKE) -C MS_Win32 clean
++	-$(MAKE) -C validate clean
+ 
+ #-----------------------------------------------------------------------------
+ # Remove everthing that can be remade
+@@ -80,13 +80,13 @@ clean:
+ realclean: 
+ 	-rm -f lib/*
+ 	-rm -f bin/*
+-	cd src ; $(MAKE) realclean
+-	cd test ; $(MAKE) realclean
+-	cd sample ; $(MAKE) realclean
+-	cd ann2fig ; $(MAKE) realclean
+-	cd doc ; $(MAKE) realclean
+-	cd MS_Win32; $(MAKE) realclean
+-	cd validate ; $(MAKE) realclean
++	-$(MAKE) -C src realclean
++	-$(MAKE) -C test realclean
++	-$(MAKE) -C sample realclean
++	-$(MAKE) -C ann2fig realclean
++	-$(MAKE) -C doc realclean
++	-$(MAKE) -C MS_Win32 realclean
++	-$(MAKE) -C validate realclean
+ 
+ #-----------------------------------------------------------------------------
+ # Make distribution package (for use by authors only)
