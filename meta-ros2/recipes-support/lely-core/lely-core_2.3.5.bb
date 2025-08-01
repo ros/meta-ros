@@ -4,10 +4,10 @@ DESCRIPTION = "A collection of C and C++ libraries and tools, providing hih-perf
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-SRC_URI = "git://gitlab.com/lely_industries/lely-core.git;protocol=https;branch=v2.3"
+SRC_URI = "git://gitlab.com/lely_industries/lely-core.git;protocol=https;branch=v2.3 \
+    file://0001-fix-GCC-15-errors.patch"
 
-PV = "2.3.2+git${SRCPV}"
-SRCREV = "7824cbb2ac08d091c4fa2fb397669b938de9e3f5"
+SRCREV = "9e3267d26018f6f6babd50786f6ae2af89cc57ea"
 
 
 inherit pkgconfig autotools setuptools3-base
