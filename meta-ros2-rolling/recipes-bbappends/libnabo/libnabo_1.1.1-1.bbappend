@@ -11,7 +11,7 @@ ROS_BUILD_DEPENDS += "eigen3-cmake-module"
 
 # ERROR: libnabo-1.1.1-1-r0 do_package_qa: QA Issue: File /opt/ros/rolling/share/libnabo/cmake/libnabo-targets.cmake in package libnabo-dev contains reference to TMPDIR [buildpaths]
 do_install:append() {
-    sed -i -e "s#${RECIPE_SYSROOT}${prefix}#$\{CMAKE_PREFIX_PATH\}#g" ${D}${ros_datadir}/libnabo/cmake/libnabo-targets.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_datadir}/libnabo/cmake/libnabo-targets.cmake
 }
 
 BBCLASSEXTEND = "native"
