@@ -55,6 +55,7 @@ jobs:
           cd ${GITHUB_WORKSPACE}/superflore
           python3 -m venv venv
           source venv/bin/activate
+          python3 -m pip install -r requirements.txt
           python3 ./setup.py install
       - run: mkdir -p ${ROS_HOME}
       - run: mkdir -p ${ROSDEP_SOURCE_PATH}
