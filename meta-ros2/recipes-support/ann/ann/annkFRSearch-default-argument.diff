@@ -1,0 +1,25 @@
+Upstream-Status: Inactive-Upstream [lastrelease: Jan 27, 2010]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From: =?utf-8?q?Picca_Fr=C3=A9d=C3=A9ric-Emmanuel?= <picca@debian.org>
+Date: Wed, 7 Sep 2022 11:58:25 +0200
+Subject: set the annkFRSearch-default-argument
+
+---
+ include/ANN/ANN.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/ANN/ANN.h b/include/ANN/ANN.h
+index dffee3c..bf6eb30 100644
+--- a/include/ANN/ANN.h
++++ b/include/ANN/ANN.h
+@@ -755,7 +755,7 @@ public:
+ 	int annkFRSearch(					// approx fixed-radius kNN search
+ 		ANNpoint		q,				// the query point
+ 		ANNdist			sqRad,			// squared radius of query ball
+-		int				k,				// number of neighbors to return
++		int				k = 0,				// number of neighbors to return
+ 		ANNidxArray		nn_idx = NULL,	// nearest neighbor array (modified)
+ 		ANNdistArray	dd = NULL,		// dist to near neighbors (modified)
+ 		double			eps=0.0);		// error bound

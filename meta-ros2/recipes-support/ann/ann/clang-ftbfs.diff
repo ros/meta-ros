@@ -1,0 +1,33 @@
+Upstream-Status: Inactive-Upstream [lastrelease: Jan 27, 2010]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From: Arthur Marble <arthur@info9.net>
+Date: Wed, 7 Sep 2022 12:00:56 +0200
+Subject: Fix FTBFS with clang.
+
+Bug-Debian: http://bugs.debian.org/748817
+Reviewed-by: Anton Gladky <gladk@debian.org>
+Last-Update: 2014-05-31
+
+ Fixed "wrong main declaration" error in ann2fig/ann2fig.cpp
+---
+ ann2fig/ann2fig.cpp | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/ann2fig/ann2fig.cpp b/ann2fig/ann2fig.cpp
+index 87d70f3..b1a45b0 100644
+--- a/ann2fig/ann2fig.cpp
++++ b/ann2fig/ann2fig.cpp
+@@ -580,8 +580,10 @@ void readANN()
+ // procedure.
+ //----------------------------------------------------------------------
+ 
+-main(int argc, char **argv)
++int main(int argc, char **argv)
+ {
+ 	getArgs(argc, argv);						// get input arguments
+ 	readANN();									// read the dump file
++
++	return 0;
+ }
