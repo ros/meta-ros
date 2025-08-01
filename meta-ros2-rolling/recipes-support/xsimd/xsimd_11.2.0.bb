@@ -11,3 +11,4 @@ inherit cmake
 
 DEPENDS = "xtl"
 
+EXTRA_OECMAKE = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
