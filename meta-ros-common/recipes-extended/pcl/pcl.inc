@@ -5,7 +5,7 @@ SECTION = "devel"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5b8a2a1aa14e6de44b4273134946a34c"
 
-DEPENDS = "boost libflann libeigen qhull"
+DEPENDS = "boost libflann libeigen qhull lz4"
 
 SRC_URI = "git://github.com/PointCloudLibrary/pcl.git;branch=master;protocol=https"
 
