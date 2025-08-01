@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/nao_command_msgs"
 SRC_URI = "git://github.com/ros2-gbp/nao_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f82329fcb49e91ac856ee22da5307c5f345db023"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

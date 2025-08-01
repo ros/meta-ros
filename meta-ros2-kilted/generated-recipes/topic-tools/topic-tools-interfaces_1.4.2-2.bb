@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/topic_tools_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/topic_tools-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4353c399c207c34139d53ad28a9d137708e64b4a"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

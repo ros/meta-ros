@@ -81,7 +81,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/aruco_ros"
 SRC_URI = "git://github.com/ros2-gbp/aruco_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bd2be737ccab0d26cb8f481dab3979cdeb93b55d"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

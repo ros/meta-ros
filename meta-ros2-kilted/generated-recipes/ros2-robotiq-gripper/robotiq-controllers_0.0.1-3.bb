@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/robotiq_controllers"
 SRC_URI = "git://github.com/ros2-gbp/ros2_robotiq_gripper-release;${ROS_BRANCH};protocol=https"
 SRCREV = "050499ab8c0ae2e68518b28fe325cd4852a816c6"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

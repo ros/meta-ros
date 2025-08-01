@@ -87,7 +87,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/gz_dartsim_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_dartsim_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5c999af495f0552b303da30cf153305ddebdba26"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

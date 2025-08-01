@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/libcaer_vendor"
 SRC_URI = "git://github.com/ros2-gbp/libcaer_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e6fafe5e9c9eb709f2385cf625262e3b65ced32a"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

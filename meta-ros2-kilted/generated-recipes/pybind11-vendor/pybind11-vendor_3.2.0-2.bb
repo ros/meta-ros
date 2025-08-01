@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/pybind11_vendor"
 SRC_URI = "git://github.com/ros2-gbp/pybind11_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3f469cf2b877384ec887c46e0c13b5c30293af8b"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

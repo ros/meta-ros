@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/gz_utils_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_utils_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "377531d891b3f9e48b1a1498e3e49172b6359785"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

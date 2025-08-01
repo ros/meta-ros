@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/raspimouse_msgs"
 SRC_URI = "git://github.com/ros2-gbp/raspimouse2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "753778650a28ecbea20db6871799278bbc95f9fd"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

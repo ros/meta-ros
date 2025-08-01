@@ -80,7 +80,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/gz_physics_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_physics_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "907953f440db5a2281199e40752e0470170e5d41"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

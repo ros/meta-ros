@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rosbag2_to_video"
 SRC_URI = "git://github.com/ros2-gbp/rosbag2_to_video-release;${ROS_BRANCH};protocol=https"
 SRCREV = "55ad85864d58c832ec94480e0188e6040f0f2967"
-
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

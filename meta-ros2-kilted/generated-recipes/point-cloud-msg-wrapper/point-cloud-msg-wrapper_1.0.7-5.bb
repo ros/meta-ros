@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/point_cloud_msg_wrapper"
 SRC_URI = "git://github.com/ros2-gbp/point_cloud_msg_wrapper-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9c993e35ab54e9d706e2569a6afedfd481455981"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

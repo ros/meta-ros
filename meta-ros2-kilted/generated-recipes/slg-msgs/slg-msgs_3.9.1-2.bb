@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/slg_msgs"
 SRC_URI = "git://github.com/ros2-gbp/slg_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "833eb11e22fa2ac5d57f6c5f8d6ba9587b68e602"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

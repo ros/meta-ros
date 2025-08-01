@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/sdformat_vendor"
 SRC_URI = "git://github.com/ros2-gbp/sdformat_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d0f07235bc17eeab5c3276294f24338f42ffa3e0"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
