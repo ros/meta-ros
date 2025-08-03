@@ -153,8 +153,21 @@ export ROSDISTRO_INDEX_URL="file://$tmpdir/index-v4.yaml"
 export SUPERFLORE_GENERATION_DATETIME="$ROS_ROSDISTRO_COMMIT_DATETIME"
 
 before_commit=$(git rev-list -1 HEAD)
-$SUPERFLORE_GEN_OE_RECIPES --dry-run --no-branch --ros-distro $ROS_DISTRO --output-repository-path . --upstream-branch HEAD \
-                            $only_option
+
+CMD="$SUPERFLORE_GEN_OE_RECIPES\
+ --dry-run\
+ --no-branch\
+ --ros-distro $ROS_DISTRO\
+ --output-repository-path .\
+ --upstream-branch HEAD\
+ $only_option"
+
+echo "Running: $CMD"
+$CMD
+
+if [ $? -ne 0 ]; then
+    echo "ABORT: $SUPERFLORE_GEN_OE_RECIPES failed to run."
+fi
 
 after_commit=$(git rev-list -1 HEAD)
 if [ $after_commit != $before_commit -a -z "$only_option" ]; then
