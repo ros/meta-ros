@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/message_filters"
 SRC_URI = "git://github.com/ros2-gbp/ros2_message_filters-release;${ROS_BRANCH};protocol=https"
 SRCREV = "941f5d81cfbe47821228d72d298eb9e194d1b412"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

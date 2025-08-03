@@ -73,7 +73,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rmw_dds_common"
 SRC_URI = "git://github.com/ros2-gbp/rmw_dds_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7f4849563451593521026060f72ec93943f793ba"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

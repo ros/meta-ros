@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/popf"
 SRC_URI = "git://github.com/ros2-gbp/popf-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0aaf7fd19d47a0acb9e50f2781b60feedb3542ff"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

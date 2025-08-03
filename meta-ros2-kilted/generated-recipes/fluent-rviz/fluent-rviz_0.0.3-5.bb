@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/fluent_rviz"
 SRC_URI = "git://github.com/ros2-gbp/fluent_rviz-release;${ROS_BRANCH};protocol=https"
 SRCREV = "67d35d26e2001d8d46e83969a9a5e8cfa6ce3940"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

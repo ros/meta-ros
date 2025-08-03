@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ntrip_client"
 SRC_URI = "git://github.com/ros2-gbp/ntrip_client-release;${ROS_BRANCH};protocol=https"
 SRCREV = "87fe54aa0835e463d0fc83434d62c2d09206961a"
-
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

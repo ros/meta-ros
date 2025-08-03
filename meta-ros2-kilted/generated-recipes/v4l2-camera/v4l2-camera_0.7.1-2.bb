@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/v4l2_camera"
 SRC_URI = "git://github.com/ros2-gbp/ros2_v4l2_camera-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4ced102fe3863853905f9d58c47a56f6daab4b34"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

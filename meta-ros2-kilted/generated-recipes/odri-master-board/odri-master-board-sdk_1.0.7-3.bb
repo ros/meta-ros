@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/odri_master_board_sdk"
 SRC_URI = "git://github.com/ros2-gbp/odri_master_board_sdk-release;${ROS_BRANCH};protocol=https"
 SRCREV = "af4d15d7affbeaa03e5dfdc654665b7d16eccf2b"
-
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

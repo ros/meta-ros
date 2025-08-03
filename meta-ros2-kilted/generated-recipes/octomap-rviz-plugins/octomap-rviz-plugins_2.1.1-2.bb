@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/octomap_rviz_plugins"
 SRC_URI = "git://github.com/ros2-gbp/octomap_rviz_plugins-release;${ROS_BRANCH};protocol=https"
 SRCREV = "533356a81ad76237b874e88660bf2ade71a063bb"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

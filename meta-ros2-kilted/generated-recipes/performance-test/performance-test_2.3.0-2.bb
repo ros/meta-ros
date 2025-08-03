@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/performance_test"
 SRC_URI = "git://github.com/ros2-gbp/performance_test-release;${ROS_BRANCH};protocol=https"
 SRCREV = "87767ca781735109adc4713691e7d8602cf208db"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

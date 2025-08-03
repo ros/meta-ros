@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/zbar_ros_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/zbar_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0a0678c5137a3819e488b1136ee713850748ebe5"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

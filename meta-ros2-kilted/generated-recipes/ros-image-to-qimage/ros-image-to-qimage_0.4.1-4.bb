@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ros_image_to_qimage"
 SRC_URI = "git://github.com/ros2-gbp/ros_image_to_qimage-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4b7e209e269b97d42bfc1367045d9ab3857e5b9e"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

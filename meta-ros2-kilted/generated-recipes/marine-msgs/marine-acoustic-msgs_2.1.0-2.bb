@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/marine_acoustic_msgs"
 SRC_URI = "git://github.com/ros2-gbp/marine_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9bf8f4577d0167a06cbae429c40da4835e01be1e"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

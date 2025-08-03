@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ouxt_common"
 SRC_URI = "git://github.com/ros2-gbp/ouxt_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "670e5258b1cec54c10a8dd04a135778403ea00f2"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

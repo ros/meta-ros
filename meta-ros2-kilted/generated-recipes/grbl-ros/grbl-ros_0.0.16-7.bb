@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/grbl_ros"
 SRC_URI = "git://github.com/ros2-gbp/grbl_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f7528b721fc4dc410414b8bb34a0dd6a2169417f"
-
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

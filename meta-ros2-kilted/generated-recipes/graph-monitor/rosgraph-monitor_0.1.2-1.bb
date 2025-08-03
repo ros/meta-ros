@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rosgraph_monitor"
 SRC_URI = "git://github.com/ros2-gbp/graph_monitor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ca77502bd205b7d79fbc7265b5197119b80e0053"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

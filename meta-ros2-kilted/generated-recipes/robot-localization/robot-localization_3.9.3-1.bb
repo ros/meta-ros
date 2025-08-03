@@ -115,7 +115,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/robot_localization"
 SRC_URI = "git://github.com/ros2-gbp/robot_localization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "33373af525ad547af5751dee277df0e91570b3b1"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

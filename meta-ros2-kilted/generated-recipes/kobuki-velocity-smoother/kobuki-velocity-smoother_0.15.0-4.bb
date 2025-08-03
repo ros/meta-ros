@@ -69,7 +69,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/kobuki_velocity_smoother"
 SRC_URI = "git://github.com/ros2-gbp/kobuki_velocity_smoother-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bf366fbcfb4433b845edc455082a89b2908552f6"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

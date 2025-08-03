@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rmw_desert"
 SRC_URI = "git://github.com/ros2-gbp/rmw_desert-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cd4feeae118248dcb573bf0242a66540e076c8ed"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

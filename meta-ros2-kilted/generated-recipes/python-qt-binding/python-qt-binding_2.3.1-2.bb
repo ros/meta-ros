@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/python_qt_binding"
 SRC_URI = "git://github.com/ros2-gbp/python_qt_binding-release;${ROS_BRANCH};protocol=https"
 SRCREV = "088925fdb8343736a3639d7c3da3bc9bbc3e3bf4"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

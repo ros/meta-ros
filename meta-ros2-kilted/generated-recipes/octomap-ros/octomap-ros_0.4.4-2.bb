@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/octomap_ros"
 SRC_URI = "git://github.com/ros2-gbp/octomap_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ef1353c3f2a5aba83fc35758662dae515a6178ca"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
