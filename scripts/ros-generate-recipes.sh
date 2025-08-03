@@ -69,6 +69,41 @@ if [ $# -gt 1 ]; then
     only_option="--only $*"
 fi
 
+layerconf=meta-ros$ROS_VERSION-$ROS_DISTRO/conf/layer.conf
+if [ ! -f $layerconf ]; then
+    echo "ABORT: $layerconf doesn't exist"
+    exit 1
+fi
+
+YOCTO_RELEASE=$(grep "^LAYERSERIES_COMPAT_ros$ROS_VERSION-${ROS_DISTRO}-layer" $layerconf | sed 's/[^=]* *= *"\(.*\)"/\1/')
+if [ -z "${YOCTO_RELEASE}" ]; then
+    echo "ABORT: Could not detect Yocto Project release from $layerconf"
+    exit 1
+fi
+
+# Check if it is a known release
+case $YOCTO_RELEASE in
+    # End-of-life
+    "thud"|"warrior"|"zeus"|"dunfell"|"gatesgarth"|"hardknott"|"honister")
+        ;;
+
+    # Recent End-of-life
+    "langdale"|"mickledore"|"nanbield"|"styhead")
+        ;;
+
+    # Supported LTS releases
+    "kirkstone"|"scarthgap")
+        ;;
+
+    # Supported non-LTS releases
+    "walnascar"|"whinlatter"|"wrynose")
+        ;;
+
+    *)  echo "ABORT: Unrecognized YOCTO_RELEASE: $YOCTO_RELEASE"
+        exit 1
+        ;;
+esac
+
 generated=meta-ros$ROS_VERSION-$ROS_DISTRO/files/$ROS_DISTRO/generated
 if [ ! -f $generated/cache.yaml ]; then
     echo "ABORT: $generated/cache.yaml doesn't exist -- run ros-generate-cache.sh to create it"
@@ -158,6 +193,7 @@ CMD="$SUPERFLORE_GEN_OE_RECIPES\
  --dry-run\
  --no-branch\
  --ros-distro $ROS_DISTRO\
+ --yocto-release $YOCTO_RELEASE\
  --output-repository-path .\
  --upstream-branch HEAD\
  $only_option"
