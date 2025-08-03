@@ -79,7 +79,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/qml_ros2_plugin"
 SRC_URI = "git://github.com/ros2-gbp/qml_ros2_plugin-release;${ROS_BRANCH};protocol=https"
 SRCREV = "bf9b745ba9bd6749e794110e4f33b06832acce0a"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

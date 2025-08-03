@@ -97,7 +97,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mrpt_sensor_gnss_nmea"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_sensors-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c001c53f225ac6b977b2a1b63e9953882cd1d64a"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

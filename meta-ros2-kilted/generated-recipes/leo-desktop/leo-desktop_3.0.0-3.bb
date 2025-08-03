@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/leo_desktop"
 SRC_URI = "git://github.com/ros2-gbp/leo_desktop-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8c82fcf18b07d3ee57360065489ce5d323f4b52e"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

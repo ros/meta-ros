@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/nav2_dwb_controller"
 SRC_URI = "git://github.com/ros2-gbp/navigation2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5aaf1e02b905c8f883d79fe1e4ebc4d0bc9fec16"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

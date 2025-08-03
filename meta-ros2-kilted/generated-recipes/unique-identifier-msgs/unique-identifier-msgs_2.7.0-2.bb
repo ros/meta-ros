@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/unique_identifier_msgs"
 SRC_URI = "git://github.com/ros2-gbp/unique_identifier_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fce9e2bd78ac8dd43c1718acd157d540b43118a3"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

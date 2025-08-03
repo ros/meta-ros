@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/vision_msgs_layers"
 SRC_URI = "git://github.com/ros2-gbp/vision_msgs_layers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5ecade440e76f7a3166475f389e043092f76924a"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

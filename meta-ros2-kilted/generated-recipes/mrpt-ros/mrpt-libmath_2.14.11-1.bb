@@ -83,7 +83,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/mrpt_libmath"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b13c2b7d7f83486a90ee95651c5668395cb78d00"
-
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

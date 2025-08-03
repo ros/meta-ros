@@ -72,7 +72,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rc_genicam_driver"
 SRC_URI = "git://github.com/ros2-gbp/rc_genicam_driver_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f62953a1a46ca706cea6e22949b5488573556150"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

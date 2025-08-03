@@ -116,7 +116,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/nav2_costmap_2d"
 SRC_URI = "git://github.com/ros2-gbp/navigation2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7c0ed6803c6803fcd2a5a7babcef868c9ac4eb58"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

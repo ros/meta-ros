@@ -87,7 +87,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/openeb_vendor"
 SRC_URI = "git://github.com/ros2-gbp/openeb_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2a3cf348bef9a9443c2fcb267a4116e6a96efeb7"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

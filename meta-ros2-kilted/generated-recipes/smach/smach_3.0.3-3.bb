@@ -43,7 +43,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/smach"
 SRC_URI = "git://github.com/ros2-gbp/executive_smach-release;${ROS_BRANCH};protocol=https"
 SRCREV = "be214151ef2beaec4354084505d6277dd2e8848b"
-
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

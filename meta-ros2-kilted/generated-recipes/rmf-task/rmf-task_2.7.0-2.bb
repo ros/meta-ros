@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rmf_task"
 SRC_URI = "git://github.com/ros2-gbp/rmf_task-release;${ROS_BRANCH};protocol=https"
 SRCREV = "581944eb497a727ee5566a7bab92fbf009e126db"
-
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

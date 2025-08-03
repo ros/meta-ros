@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/tinyxml_vendor"
 SRC_URI = "git://github.com/ros2-gbp/tinyxml_vendor-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7abd865b56050e9241b48d47f5e69c6996715e14"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

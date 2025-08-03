@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/radar_msgs"
 SRC_URI = "git://github.com/ros2-gbp/radar_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2251fab6512d92f3d56d522dc2db68c7a4f1f840"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

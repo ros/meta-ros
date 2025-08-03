@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ros_babel_fish_test_msgs"
 SRC_URI = "git://github.com/ros2-gbp/ros_babel_fish-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a0d6b6dc1b3100a3695400dc5993a115d0554600"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

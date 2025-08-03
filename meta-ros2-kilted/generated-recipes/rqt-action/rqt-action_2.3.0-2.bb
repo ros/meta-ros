@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/rqt_action"
 SRC_URI = "git://github.com/ros2-gbp/rqt_action-release;${ROS_BRANCH};protocol=https"
 SRCREV = "207d233b5007516aea4dd3f1fbae8a24e38a6ee5"
-
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

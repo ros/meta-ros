@@ -66,7 +66,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ros2launch_security"
 SRC_URI = "git://github.com/ros2-gbp/ros2launch_security-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3086a3748b7146492f8e41d0436696aa5b7a8549"
-
 ROS_BUILD_TYPE = "ament_python"
 
 inherit ros_${ROS_BUILD_TYPE}

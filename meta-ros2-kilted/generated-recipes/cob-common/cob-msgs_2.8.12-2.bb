@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/cob_msgs"
 SRC_URI = "git://github.com/ros2-gbp/cob_common-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4a52fb3e9e0f2fca93777299a078f1d7b3800d90"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

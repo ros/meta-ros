@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/picknik_twist_controller"
 SRC_URI = "git://github.com/ros2-gbp/picknik_controllers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "185ce52c2618300abb068d15d844e7ffb9189c48"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

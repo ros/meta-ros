@@ -71,7 +71,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/nobleo_socketcan_bridge"
 SRC_URI = "git://github.com/ros2-gbp/nobleo_socketcan_bridge-release;${ROS_BRANCH};protocol=https"
 SRCREV = "412fda7b38df885b80d2c19cb358287b05e1d381"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

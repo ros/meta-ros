@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/libstatistics_collector"
 SRC_URI = "git://github.com/ros2-gbp/libstatistics_collector-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f401dab83343f23c28b50915ca1de1fc9b84ec4f"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

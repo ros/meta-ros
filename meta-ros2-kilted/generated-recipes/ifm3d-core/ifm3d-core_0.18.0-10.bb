@@ -57,7 +57,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/ifm3d_core"
 SRC_URI = "git://github.com/ros2-gbp/ifm3d-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f7d34a6057a7a6162c4bde02d47674455b718fcc"
-
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

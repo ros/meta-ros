@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/battery_state_rviz_overlay"
 SRC_URI = "git://github.com/ros2-gbp/ros_battery_monitoring-release;${ROS_BRANCH};protocol=https"
 SRCREV = "275ceb27ae2ba9b309e7f89d7bf43213d3d4d363"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

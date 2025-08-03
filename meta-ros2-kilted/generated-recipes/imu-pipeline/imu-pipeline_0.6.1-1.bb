@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/kilted/imu_pipeline"
 SRC_URI = "git://github.com/ros2-gbp/imu_pipeline-release;${ROS_BRANCH};protocol=https"
 SRCREV = "6f5a5e1e4ad7a8c7dc1bc6979ac588ecf5f3be66"
-
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
