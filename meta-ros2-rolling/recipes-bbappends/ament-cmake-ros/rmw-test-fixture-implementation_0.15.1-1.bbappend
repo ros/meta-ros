@@ -4,5 +4,5 @@ ROS_BUILD_DEPENDS += "\
     rosidl-generator-cpp-native \
 "
 
-ROS_EXEC_DEPENDS:remove = "rmw-zenoh-cpp"
-ROS_EXEC_DEPENDS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-layer', 'rmw-zenoh-cpp', '', d)}"
+# Remove rmw-zenoh-cpp if zenoh-layer is not present
+ROS_EXEC_DEPENDS:remove = "${@bb.utils.contains('BBFILE_COLLECTIONS', 'zenoh-layer', '', 'rmw-zenoh-cpp', d)}"
