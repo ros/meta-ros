@@ -9,10 +9,16 @@ S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig
 
-DEPENDS = "coinor-buildtools-native openblas"
+DEPENDS = "coinor-buildtools-native lapack"
 
-EXTRA_OECONF = "\
-    -with-lapack-lflags="-lopenblas" \
+PACKAGECONFIG ??= "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-python-ai', 'openblas', '', d)}"
+
+PACKAGECONFIG[openblas] = "\
+    -with-lapack-lflags="-lopenblas", \
+    , \
+    openblas, \
+    , \
+    \
 "
 
 do_configure:prepend () {
