@@ -17,9 +17,9 @@ can be presumed unsupported.
 | ---                 | ---          | ---          | ---              | ---             | ---          |
 |                     | *(Rolling)*  | **Noetic**   | **Humble (LTS)** | **Jazzy (LTS)** | **Kilted**   |
 |                     |              | May 2025     | May 2027         | May 2029        | Nov 2026     |
-| **Walnascar**       | Nov 2025     | **May 2025** | **May 2027**     | **Nov 2025**    | **Nov 2025** |
+| **Walnascar**       | Nov 2025     | **May 2025** | **Nov 2025**     | **Nov 2025**    | **Nov 2025** |
 | Styhead             | ~~May 2025~~ | ~~May 2025~~ | ~~May 2025~~     | ~~May 2025~~    | ~~May 2025~~ |
-| **Scarthgap (LTS)** | Apr 2028     | **May 2025** | **May 2027**     | **Apr 2028**    | **Apr 2028** |
+| **Scarthgap (LTS)** | Apr 2028     | **May 2025** | **May 2027**     | **Apr 2028**    | **Nov 2026** |
 | Nanbield            | ~~Apr 2024~~ | ~~Apr 2024~~ | ~~Apr 2024~~     | ~~Apr 2024~~    | ~~Apr 2024~~ |
 | Mickledore          | ~~Nov 2023~~ | ~~Nov 2023~~ | ~~Nov 2023~~     | ~~Nov 2023~~    | ~~Nov 2023~~ |
 | Langdale            | ~~May 2023~~ | ~~May 2023~~ | ~~May 2023~~     | ~~May 2023~~    | ~~May 2023~~ |
