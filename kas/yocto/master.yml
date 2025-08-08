@@ -34,4 +34,4 @@ repos:
       meta-xfce:
 
   python-ai:
-    branch: "main"
+    branch: "master"
