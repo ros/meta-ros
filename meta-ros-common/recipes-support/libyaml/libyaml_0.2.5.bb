@@ -17,9 +17,8 @@ S = "${WORKDIR}/yaml-${PV}"
 
 inherit cmake
 
-EXTRA_OECMAKE += "-DINSTALL_CMAKE_DIR=${libdir}/cmake/yaml \
+EXTRA_OECMAKE += "-DINSTALL_CMAKE_DIR=${baselib}/cmake/yaml \
                   -DBUILD_TESTING=OFF \
-                  -DINSTALL_LIB_DIR=${baselib} \
                   -DBUILD_SHARED_LIBS=ON"
 
 DISABLE_STATIC:class-nativesdk = ""
