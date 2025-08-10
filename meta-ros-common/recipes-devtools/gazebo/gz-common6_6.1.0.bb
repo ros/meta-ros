@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
 SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=gz-common6"
 SRCREV = "338e73441841de6e387b619859e4e185e7c5fc2f"
 
+S = "${WORKDIR}/git"
+
 inherit cmake pkgconfig
 
 # CMake Error: TRY_RUN() invoked in cross-compiling mode, please set the following cache variables appropriately:
