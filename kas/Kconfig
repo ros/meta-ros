@@ -1,0 +1,159 @@
+mainmenu "meta-ros Image configuration"
+
+menu "Yocto build options"
+
+	choice
+		prompt "Select machine"
+		default MACHINE_QEMUX86
+
+		config MACHINE_QEMUX86
+			bool "qemux86-64"
+
+		config MACHINE_RPI4
+			bool "raspberrypi4-64"
+
+		config MACHINE_RPI5
+			bool "raspberrypi5"
+	endchoice
+
+	choice
+		prompt "Select Yocto release"
+		default YOCTO_RELEASE_MASTER
+
+		config YOCTO_RELEASE_MASTER
+			bool "master"
+
+		config YOCTO_RELEASE_WALNASCAR
+			bool "walnascar"
+			help
+				5.2
+
+		config YOCTO_RELEASE_STYHEAD
+			bool "styhead"
+			help
+				5.1 (EOL)
+
+		config YOCTO_RELEASE_SCARTHGAP
+			bool "scarthgap"
+			help
+				5.0 LTS
+
+		config YOCTO_RELEASE_MICKLEDORE
+			bool "mickledore"
+			help
+				4.2 (EOL)
+
+		config YOCTO_RELEASE_KIRKSTONE
+			bool "kirkstone"
+			help
+			4.0 LTS
+
+	endchoice
+
+endmenu
+
+menu "ROS build options"
+	choice
+		prompt "Select ROS release"
+		default ROS_RELEASE_ROLLING
+
+		config ROS_RELEASE_ROLLING
+			bool "rolling"
+
+		config ROS_RELEASE_KILTED
+			bool "kilted"
+			help
+				ROS2 Kilted Kaiju
+
+		config ROS_RELEASE_JAZZY
+			bool "jazzy"
+			help
+				ROS2 Jazzy Jalisco
+
+		config ROS_RELEASE_HUMBLE
+			bool "humble"
+			help
+				ROS2 Humble Hawksbill
+
+		config ROS_RELEASE_NOETIC
+			bool "noetic"
+			help
+			ROS Noetic Ninjemys
+
+	endchoice
+
+endmenu
+
+menu "ROS image"
+	choice
+		prompt "Select ROS image"
+		default ROS_IMAGE_CORE
+
+		config ROS_IMAGE_CORE
+			bool "ros-image-core"
+
+		config ROS_IMAGE_WORLD
+			bool "ros-image-world"
+
+		config ROS_IMAGE_DESKTOP
+			bool "ros-image-desktop"
+
+		config ROS_IMAGE_DESKTOPFULL
+			bool "ros-image-desktopfull"
+	endchoice
+endmenu
+
+config KAS_TARGET_CHOICE
+       string
+	default "ros-image-core" if ROS_IMAGE_CORE
+	default "ros-image-world" if ROS_IMAGE_WORLD
+	default "ros-image-desktop" if ROS_IMAGE_DESKTOP
+	default "ros-image-desktopfull" if ROS_IMAGE_DESKTOPFULL
+
+config KAS_INCLUDE_YOCTO_RELEASE
+	string
+	default "kas/yocto/master.yml" if YOCTO_RELEASE_MASTER
+	default "kas/yocto/walnascar.yml" if YOCTO_RELEASE_WALNASCAR
+	default "kas/yocto/styhead.yml" if YOCTO_RELEASE_STYHEAD
+	default "kas/yocto/scarthgap.yml" if YOCTO_RELEASE_SCARTHGAP
+	default "kas/yocto/mickledore.yml" if YOCTO_RELEASE_MICKLEDORE
+	default "kas/yocto/kirkstone.yml" if YOCTO_RELEASE_KIRKSTONE
+
+config KAS_INCLUDE_ROS_RELEASE
+	string
+	default "kas/ros2/rolling.yml" if ROS_RELEASE_ROLLING
+	default "kas/ros2/kilted.yml" if ROS_RELEASE_KILTED
+	default "kas/ros2/jazzy.yml" if ROS_RELEASE_JAZZY
+	default "kas/ros2/humble.yml" if ROS_RELEASE_HUMBLE
+	default "kas/ros1/noetic.yml" if ROS_RELEASE_NOETIC
+
+config KAS_INCLUDE_MACHINE
+	string
+	default "kas/machine/qemux86-64.yml" if MACHINE_QEMUX86
+	default "kas/machine/raspberrypi4-64.yml" if MACHINE_RPI4
+	default "kas/machine/raspberrypi5.yml" if MACHINE_RPI5
+
+
+config KAS_INCLUDE_COMMON
+	string
+	default "kas/common.yml"
+
+config KAS_INCLUDE_SYSTEMD
+	string
+	default "kas/systemd.yml"
+
+config KAS_INCLUDE_VISIALIZATION
+	string
+	default "kas/visualization.yml"
+	depends on ROS_IMAGE_DESKTOP || ROS_IMAGE_DESKTOPFULL
+
+config KAS_MACHINE
+	string
+	default "qemux86-64" if MACHINE_QEMUX86
+	default "raspberrypi4-64" if MACHINE_RPI4
+	default "raspberrypi5" if MACHINE_RPI5
+
+config KAS_DISTRO
+	string
+	default "ros1" if ROS_RELEASE_NOETIC
+	default "ros2"
