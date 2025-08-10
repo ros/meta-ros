@@ -30,4 +30,5 @@ EXTRA_OECMAKE = "\
 do_install:append() {
     sed -i -e "s#-L${RECIPE_SYSROOT}${libdir};##g" ${D}${libdir}/pkgconfig/flann.pc
     sed -i -e "s#${RECIPE_SYSROOT}${libdir}/##g" ${D}${libdir}/cmake/flann/flann-targets.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}${libdir}/##g" ${D}${libdir}/cmake/flann/flann-targets-relwithdebinfo.cmake
 }
