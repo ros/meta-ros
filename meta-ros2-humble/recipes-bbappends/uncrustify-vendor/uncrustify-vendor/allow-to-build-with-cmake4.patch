@@ -1,0 +1,18 @@
+cpptoml: Allow to build with CMake 4+
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: uncrustify-vendor-2.0.2-2/CMakeLists.txt
+===================================================================
+--- uncrustify-vendor-2.0.2-2.orig/CMakeLists.txt
++++ uncrustify-vendor-2.0.2-2/CMakeLists.txt
+@@ -47,6 +47,7 @@ macro(build_uncrustify)
+     SOURCE_DIR ${CMAKE_SOURCE_DIR}/uncrustify-upstream
+     CMAKE_ARGS
+       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
++      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+       ${extra_cmake_args}
+       -Wno-dev
+       --no-warn-unused-cli
