@@ -1,0 +1,20 @@
+cpptoml: Allow to build with CMake 4+
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: iceoryx-posh-2.0.5-1/cmake/cpptoml/CMakeLists.txt
+===================================================================
+--- iceoryx-posh-2.0.5-1.orig/cmake/cpptoml/CMakeLists.txt
++++ iceoryx-posh-2.0.5-1/cmake/cpptoml/CMakeLists.txt
+@@ -64,7 +64,8 @@ set(CMAKE_ADDITIONAL_OPTIONS
+     "-DCMAKE_C_COMPILER_TARGET=${CMAKE_C_COMPILER_TARGET}"
+     "-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}"
+     "-DCMAKE_CXX_COMPILER_TARGET=${CMAKE_CXX_COMPILER_TARGET}"
+-    "-DCMAKE_LINKER=${CMAKE_LINKER}")
++    "-DCMAKE_LINKER=${CMAKE_LINKER}"
++    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5")
+ 
+ if(DEFINED CMAKE_TOOLCHAIN_FILE)
+     list(APPEND CMAKE_ADDITIONAL_OPTIONS "-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
