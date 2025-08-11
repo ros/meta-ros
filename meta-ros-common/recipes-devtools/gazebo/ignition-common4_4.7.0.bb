@@ -8,6 +8,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
 SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=ign-common4 \
            file://cleanup-long-deprecated-ifdefs.patch \
            file://missing-cstdint-header.patch \
+           file://added-missing-includes.patch \
+           file://add-missing-cstdint-to-gtest.patch \
 "
 
 SRCREV = "60b1fddf05ce020ba7cb79022fdf40be545eb789"
