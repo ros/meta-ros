@@ -14,7 +14,8 @@ LIC_FILES_CHKSUM = "file://CMake/Templates/DemoLicense.rtf;md5=2711c49576d18cf78
 SRC_URI = "git://github.com/OGRECave/ogre-next.git;protocol=https;branch=master \
            file://0002-Use_OGRE_NEXT_prefix_for_libraries.patch \
            file://add-ogre_use_new_project_name-cmake-option.patch \
-           file://remainder-of-use_new_package_name-updates.patch"
+           file://remainder-of-use_new_package_name-updates.patch \
+           file://build-error-with-gcc15.patch"
 
 SRCREV = "bc6377730ddebf98dce9d3c71bbbc611dcc4b48f"
 
