@@ -1,0 +1,27 @@
+Add missing cstdint to gtest
+
+When building the older ingition-common4 package with a newer compiler
+it gives an error:
+
+  error: 'uintptr_t' does not name a type
+
+  ignition-common4-4.7.0/test/gtest/src/gtest-death-test.cc:49:1:
+  note: 'uintptr_t' is defined in header '<cstdint>'; this is probably
+        fixable by adding '#include <cstdint>'
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: ignition-common4-4.7.0/test/gtest/src/gtest-death-test.cc
+===================================================================
+--- ignition-common4-4.7.0.orig/test/gtest/src/gtest-death-test.cc
++++ ignition-common4-4.7.0/test/gtest/src/gtest-death-test.cc
+@@ -32,6 +32,7 @@
+ 
+ #include "gtest/gtest-death-test.h"
+ 
++#include <cstdint>
+ #include <utility>
+ 
+ #include "gtest/internal/gtest-port.h"
