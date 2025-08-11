@@ -12,7 +12,7 @@ S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
 
-DEPENDS = "hdf5 lz4 openmp"
+DEPENDS = "hdf5 hdf5-native lz4 openmp"
 
 # Prevent it finding python
 EXTRA_OECMAKE = "\
@@ -24,6 +24,11 @@ EXTRA_OECMAKE = "\
     -DBUILD_CUDA_LIB=OFF \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
 "
+
+do_configure:prepend() {
+    # CMake Error: The imported target "hdf5::h5diff" references the file ... The imported target "hdf5::h5diff" references the file.
+    sed -ie '/list(APPEND _IMPORT_CHECK_FILES_FOR_hdf5::.*"${_IMPORT_PREFIX}\/bin/d' ${RECIPE_SYSROOT}/${datadir}/cmake/hdf5/hdf5-targets-relwithdebinfo.cmake
+}
 
 # ERROR: QA Issue: File /usr/lib/pkgconfig/flann.pc in package libflann-dev contains reference to TMPDIR [buildpaths]
 # ERROR: QA Issue: File /usr/lib/cmake/flann/flann-targets.cmake in package libflann-dev contains reference to TMPDIR [buildpaths]
