@@ -3,7 +3,7 @@
 # v0.1.1 tag
 SRCREV_cpptoml = "0bfa56fc8361e1715de05709b349bc44d910c7db"
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "git://github.com/skystrife/cpptoml.git;name=cpptoml;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/cpptoml-upstream;branch=master;protocol=https \
+SRC_URI += "git://github.com/skystrife/cpptoml.git;name=cpptoml;destsuffix=git/cpptoml-upstream;branch=master;protocol=https \
     file://0001-Fix-build-with-gcc-11.patch;patchdir=cpptoml-upstream \
     file://0001-cpptoml-fetch-with-bitbake-fetcher-instead-of-Extern.patch \
     file://0001-Revert-iox-713-document-the-restrictions-on-size-and.patch \
