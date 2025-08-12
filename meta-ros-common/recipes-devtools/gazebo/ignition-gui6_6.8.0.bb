@@ -4,7 +4,9 @@ LICENSE = "Apache-2.0"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
-SRC_URI = "git://github.com/gazebosim/gz-gui.git;protocol=https;branch=ign-gui6"
+SRC_URI = "git://github.com/gazebosim/gz-gui.git;protocol=https;branch=ign-gui6 \
+           file://fix-compatibility-with-protobuf-v30.patch \
+           file://add-missing-absl-library.patch"
 
 SRCREV = "982aafca1b96dbc6d12ea5de4d8df27c288be532"
 
