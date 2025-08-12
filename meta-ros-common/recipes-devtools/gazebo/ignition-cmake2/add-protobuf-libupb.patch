@@ -1,0 +1,35 @@
+Packages that use protobuf may complain that protobuf::libupb is not
+defined.
+
+CMake Error at .../ros-gz-image/0.244.20-1/recipe-sysroot/usr/lib/cmake/protobuf/protobuf-targets.cmake:42 (message):
+  Some (but not all) targets in this export set were already defined.
+
+  Targets Defined: protobuf::libprotobuf-lite, protobuf::libprotobuf,
+  protobuf::libprotoc
+
+  Targets not yet defined: protobuf::libupb
+
+See https://github.com/protocolbuffers/protobuf/issues/18307
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: ignition-cmake2-2.17.2/cmake/FindIgnProtobuf.cmake
+===================================================================
+--- ignition-cmake2-2.17.2.orig/cmake/FindIgnProtobuf.cmake
++++ ignition-cmake2-2.17.2/cmake/FindIgnProtobuf.cmake
+@@ -97,6 +97,13 @@ if(${Protobuf_FOUND})
+       INCLUDE_VAR PROTOBUF_INCLUDE_DIR)
+   endif()
+ 
++  if(NOT TARGET protobuf::libupb)
++    ign_import_target(protobuf
++      TARGET_NAME protobuf::libupb
++      LIB_VAR PROTOBUF_UPB_LIBRARY
++      INCLUDE_VAR PROTOBUF_INCLUDE_DIR)
++  endif()
++
+   if(NOT TARGET protobuf::protoc)
+     add_executable(protobuf::protoc IMPORTED)
+     set_target_properties(protobuf::protoc PROPERTIES

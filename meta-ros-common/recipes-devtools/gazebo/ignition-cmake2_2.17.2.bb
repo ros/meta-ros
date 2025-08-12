@@ -4,7 +4,8 @@ LICENSE = "Apache-2.0"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
-SRC_URI = "git://github.com/gazebosim/gz-cmake.git;protocol=https;branch=ign-cmake2"
+SRC_URI = "git://github.com/gazebosim/gz-cmake.git;protocol=https;branch=ign-cmake2 \
+           file://add-protobuf-libupb.patch"
 
 SRCREV = "5441bc74997de9fe6b23e9d844251b6897e1f197"
 
