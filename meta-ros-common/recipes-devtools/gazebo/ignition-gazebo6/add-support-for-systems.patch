@@ -1,0 +1,203 @@
+Add missing casting for GetTypeName
+
+The return value from GetTypeName() needs to be cast as std::string.
+
+This pulls in the complete upstream patch with minor changes for
+BUILD>bazel and MODULE.bazel which do not yet exist.
+
+Upstream-Status: Backport [https://github.com/gazebosim/gz-sim/commit/51688596b20b1bef8901d7a9a98e8783f9fac561]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 51688596b20b1bef8901d7a9a98e8783f9fac561 Mon Sep 17 00:00:00 2001
+From: Shameek Ganguly <shameekarcanesphinx@gmail.com>
+Date: Thu, 10 Jul 2025 13:16:28 -0700
+Subject: [PATCH] [bazel] Add support for Systems (#2966)
+
+Signed-off-by: Shameek Ganguly <shameek@intrinsic.ai>
+---
+ BUILD.bazel                                   | 1611 ++++++++++++++++-
+ CMakeLists.txt                                |    3 +
+ MODULE.bazel                                  |   17 +
+ bazel/BUILD.bazel                             |    7 +
+ bazel/gz_sim_system_libraries.bzl             |  110 ++
+ src/SdfGenerator_TEST.cc                      |   10 +-
+ src/systems/dvl/DopplerVelocityLogSystem.cc   |    2 -
+ .../TransformTypes.hh                         |    4 +-
+ .../JointPositionController.cc                |    2 +-
+ src/systems/log/LogRecord.cc                  |    2 +-
+ .../optical_tactile_plugin/Visualization.hh   |    1 +
+ .../triggered_publisher/TriggeredPublisher.cc |    4 +-
+ test/BUILD.bazel                              |   86 +
+ test/helpers/EnvTestFixture.hh                |    5 +-
+ 14 files changed, 1843 insertions(+), 21 deletions(-)
+ create mode 100644 bazel/BUILD.bazel
+ create mode 100644 bazel/gz_sim_system_libraries.bzl
+
+Index: ignition-gazebo6-6.17.0/bazel/BUILD.bazel
+===================================================================
+--- /dev/null
++++ ignition-gazebo6-6.17.0/bazel/BUILD.bazel
+@@ -0,0 +1,7 @@
++load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
++
++bzl_library(
++    name = "rules",
++    srcs = ["gz_sim_system_libraries.bzl"],
++    visibility = ["//:__subpackages__"],
++)
+Index: ignition-gazebo6-6.17.0/bazel/gz_sim_system_libraries.bzl
+===================================================================
+--- /dev/null
++++ ignition-gazebo6-6.17.0/bazel/gz_sim_system_libraries.bzl
+@@ -0,0 +1,110 @@
++load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
++load("@rules_cc//cc:cc_library.bzl", "cc_library")
++
++visibility("public")
++
++def _generate_static_plugin_src_impl(ctx):
++    ctx.actions.expand_template(
++        template = ctx.file.plugin_cc,
++        output = ctx.outputs.out,
++        substitutions = {
++            # Macro substitutions:
++            "GZ_ADD_PLUGIN": "GZ_ADD_STATIC_PLUGIN",
++            "GZ_ADD_PLUGIN_ALIAS": "GZ_ADD_STATIC_PLUGIN_ALIAS",
++            # Header substitutions:
++            "plugin/Register.hh": "plugin/RegisterStatic.hh",
++            "plugin/RegisterMore.hh": "plugin/RegisterStatic.hh",
++        },
++    )
++
++# This rule performs a substitution to link the plugin class to the static
++# plugin registry instead of the plugin hook registry for dynamic loading.
++_generate_static_plugin_src = rule(
++    attrs = {
++        "plugin_cc": attr.label(allow_single_file = True, mandatory = True),
++        "out": attr.output(mandatory = True),
++    },
++    implementation = _generate_static_plugin_src_impl,
++)
++
++def gz_sim_system_libraries(static_lib_name, so_lib_name, srcs, includes = [], **kwargs):
++    """
++    Adds two library targets for the System plugin for static and dynamic loading respectively
++
++    Args:
++        static_lib_name: Name of the `cc_library` target with static linking.
++          Note that the plugin registration macro is substituted with
++          `GZ_ADD_STATIC_PLUGIN` in the source file for this target to register
++          the plugin with the static registry.
++          The `alwayslink` attribute of this target is set to True, so that
++          downstream linking preserves symbols which are not referenced
++          explicitly.
++        so_lib_name: Name of the `cc_binary` shared library target which can be
++          loaded at runtime. Set this to empty string if the shared library
++          target should not be added.
++        srcs: List of source files including private headers. For example, this
++          can be a globbed list of *.cc and *.hh files.
++          ```
++          srcs = glob(
++              [
++                  "src/systems/wheel_slip/**/*.cc",
++                  "src/systems/wheel_slip/**/*.hh",
++              ],
++          ),
++          ```
++          Any test files should be excluded and can be added to separate
++           `cc_test` targets.
++        includes: List of include dirs to be added to the `cc_library` and
++          `cc_binary` targets
++        **kwargs: Forwarded to both the `cc_library` and `cc_binary` targets.
++    """
++    if not static_lib_name:
++        fail("The static_lib_name field must be non-empty.")
++
++    supported_cc_extensions = ["cc", "cpp"]
++    cc_files = [f for f in srcs if f.split(".")[-1] in supported_cc_extensions]
++    non_cc_files = [f for f in srcs if f not in cc_files]
++
++    if not cc_files:
++        fail("Did not find any .cc files in the provided srcs for library with static_lib_name '", static_lib_name, "'.")
++
++    plugin_dir = "/".join(cc_files[0].split("/")[:-1])
++
++    # Run the _generate_static_plugin_src rule to generate modified source files
++    # suitable for registering the System plugin(s) with the static plugin
++    # registry. Ideally the rule only needs to be run on source files which
++    # register System plugins with the GZ_ADD_PLUGIN macro. However, in the
++    # bazel analysis phase, there is no way to determine whether a particular
++    # .cc file registers a System plugin or not. To circumvent this limitation,
++    # the _generate_static_plugin_src rule is simply run for all source files.
++    # This has a very small overhead of writing out the original file as is into
++    # a new source file for the input source files which do not register a
++    # System plugin.
++    static_cc_files = []
++    for cc_file in cc_files:
++        name_without_extension = ".".join(cc_file.split(".")[:-1])
++        static_plugin_src_gen_without_extension = name_without_extension + "_static_plugin"
++        static_plugin_src_gen = static_plugin_src_gen_without_extension + ".cc"
++        _generate_static_plugin_src(
++            name = static_plugin_src_gen_without_extension,
++            plugin_cc = cc_file,
++            out = static_plugin_src_gen,
++        )
++        static_cc_files.append(static_plugin_src_gen)
++
++    cc_library(
++        name = static_lib_name,
++        alwayslink = True,
++        includes = includes + [plugin_dir],
++        srcs = non_cc_files + static_cc_files,
++        **kwargs
++    )
++
++    if so_lib_name:
++        cc_binary(
++            name = so_lib_name,
++            linkshared = True,
++            includes = includes,
++            srcs = srcs,
++            **kwargs
++        )
+Index: ignition-gazebo6-6.17.0/src/systems/log/LogRecord.cc
+===================================================================
+--- ignition-gazebo6-6.17.0.orig/src/systems/log/LogRecord.cc
++++ ignition-gazebo6-6.17.0/src/systems/log/LogRecord.cc
+@@ -298,7 +298,7 @@ bool LogRecordPrivate::Start(const std::
+   if (!validSdfTopic.empty())
+   {
+     this->sdfPub = this->node.Advertise(validSdfTopic,
+-        this->sdfMsg.GetTypeName());
++        std::string(this->sdfMsg.GetTypeName()));
+   }
+   else
+   {
+Index: ignition-gazebo6-6.17.0/src/systems/optical_tactile_plugin/Visualization.hh
+===================================================================
+--- ignition-gazebo6-6.17.0.orig/src/systems/optical_tactile_plugin/Visualization.hh
++++ ignition-gazebo6-6.17.0/src/systems/optical_tactile_plugin/Visualization.hh
+@@ -24,6 +24,7 @@
+ #include <gz/sim/config.hh>
+ #include <gz/sim/System.hh>
+ #include <gz/msgs/marker.pb.h>
++#include <gz/transport/Node.hh>
+ 
+ #include "gz/sim/components/ContactSensorData.hh"
+ 
+Index: ignition-gazebo6-6.17.0/src/systems/triggered_publisher/TriggeredPublisher.cc
+===================================================================
+--- ignition-gazebo6-6.17.0.orig/src/systems/triggered_publisher/TriggeredPublisher.cc
++++ ignition-gazebo6-6.17.0/src/systems/triggered_publisher/TriggeredPublisher.cc
+@@ -582,8 +582,8 @@ void TriggeredPublisher::Configure(const
+       info.msgData = msgs::Factory::New(info.msgType, msgStr);
+       if (nullptr != info.msgData)
+       {
+-        info.pub =
+-            this->node.Advertise(info.topic, info.msgData->GetTypeName());
++        info.pub = this->node.Advertise(info.topic,
++            std::string(info.msgData->GetTypeName()));
+         if (info.pub.Valid())
+         {
+           this->outputInfo.push_back(std::move(info));
