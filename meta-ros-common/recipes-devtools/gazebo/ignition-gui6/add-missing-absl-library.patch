@@ -1,0 +1,22 @@
+Add missing abseil library
+
+Compiling the tests results in this linker error message:
+
+  ld: test/integration/CMakeFiles/INTEGRATION_transport_scene_manager.dir/transport_scene_manager.cc.o: undefined reference to symbol '_ZN4absl12lts_2025051212log_internal9kCharNullE'
+  ld: libabsl_log_internal_nullguard.so.2505.0.0: error adding symbols: DSO missing from command line
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/test/integration/CMakeLists.txt b/test/integration/CMakeLists.txt
+index aeb5c8f1..4855e7e2 100644
+--- a/test/integration/CMakeLists.txt
++++ b/test/integration/CMakeLists.txt
+@@ -9,5 +9,6 @@ ign_build_tests(
+     ${PROJECT_NAME}_test_helpers
+     ignition-plugin${IGN_PLUGIN_VER}::loader
+     ignition-rendering${IGN_RENDERING_VER}::ignition-rendering${IGN_RENDERING_VER}
++    absl::log_internal_nullguard
+     Qt5::Test
+ )
