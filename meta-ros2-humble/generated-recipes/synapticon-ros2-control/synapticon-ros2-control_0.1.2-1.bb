@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/synapticon_ros2_control"
 SRC_URI = "git://github.com/synapticon/synapticon_ros2_control-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b6cf2029d84c9a5cdcfa7de7b366182f2d47d7a4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

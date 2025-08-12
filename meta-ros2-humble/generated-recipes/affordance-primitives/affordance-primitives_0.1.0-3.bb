@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/affordance_primitives"
 SRC_URI = "git://github.com/PickNikRobotics/affordance_primitives-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4314af7d9f5595083ea8dc9b1ad7e597d034c67b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/ros2interface"
 SRC_URI = "git://github.com/ros2-gbp/ros2cli-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c74ed073703b30b3d544cf2e6b8466c21efdf3ac"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/omni_base_2dnav"
 SRC_URI = "git://github.com/pal-gbp/omni_base_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8fcea1c46e157b3f67b578f9878d0bacf05fd99a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

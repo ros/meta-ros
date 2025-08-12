@@ -43,7 +43,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/digestible"
 SRC_URI = "git://github.com/tier4/digestible-release;${ROS_BRANCH};protocol=https"
 SRCREV = "97951e829fc5790b3cd62374612b11c351dd797a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

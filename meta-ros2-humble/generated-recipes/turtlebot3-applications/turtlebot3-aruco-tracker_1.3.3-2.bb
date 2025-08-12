@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/turtlebot3_aruco_tracker"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot3_applications-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e61f5a8c56822eca170829baae1f144869f60880"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

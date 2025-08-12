@@ -73,7 +73,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rtabmap"
 SRC_URI = "git://github.com/ros2-gbp/rtabmap-release;${ROS_BRANCH};protocol=https"
 SRCREV = "fd70a14ba9ea2b3bde49db67bdba4aa86fa7210a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

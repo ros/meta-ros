@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/tf2_ros_py"
 SRC_URI = "git://github.com/ros2-gbp/geometry2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "79dde81d4ae20564969f2cf87058db6249406b88"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

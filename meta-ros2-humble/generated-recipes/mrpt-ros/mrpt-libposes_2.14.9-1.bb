@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mrpt_libposes"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1f9e84348d057ff29cecf9cf7fb60087e0bef1f8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

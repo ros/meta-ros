@@ -49,7 +49,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/examples_rclpy_minimal_subscriber"
 SRC_URI = "git://github.com/ros2-gbp/examples-release;${ROS_BRANCH};protocol=https"
 SRCREV = "cd95bed5c2ab5b28d9d8cc263905babd00fdaf39"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

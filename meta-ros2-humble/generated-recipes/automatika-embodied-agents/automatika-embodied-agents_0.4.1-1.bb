@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/automatika_embodied_agents"
 SRC_URI = "git://github.com/ros2-gbp/automatika_embodied_agents-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3b88f76bf8e99d76fe49a0efe1103051d4c8b681"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

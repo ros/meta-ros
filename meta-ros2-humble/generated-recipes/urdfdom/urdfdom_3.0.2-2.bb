@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/urdfdom"
 SRC_URI = "git://github.com/ros2-gbp/urdfdom-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f542c91673cb3fa3c8742164d1565a09de150c30"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

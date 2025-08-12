@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/omni_base_controller_configuration"
 SRC_URI = "git://github.com/pal-gbp/omni_base_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "aa70f72bd17e1440006ab070cabe7b2729879ef8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

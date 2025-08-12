@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/omni_base_laser_sensors"
 SRC_URI = "git://github.com/pal-gbp/omni_base_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5bbb42836e4069a56c6dfc803f41fe23753e4ff7"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

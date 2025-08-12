@@ -50,7 +50,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/tecgihan_driver"
 SRC_URI = "git://github.com/tecgihan/tecgihan_driver-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1770ab1f40c2474364c6ae177f9bac696015172f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

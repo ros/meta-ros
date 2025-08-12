@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mrpt_path_planning"
 SRC_URI = "git://github.com/ros2-gbp/mrpt_path_planning-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e5977b582a2a1e8c090fc69df3a5029207f0639a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

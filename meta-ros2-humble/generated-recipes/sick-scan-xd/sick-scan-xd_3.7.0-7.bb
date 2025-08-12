@@ -80,7 +80,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/sick_scan_xd"
 SRC_URI = "git://github.com/ros2-gbp/sick_scan_xd-release;${ROS_BRANCH};protocol=https"
 SRCREV = "373cd26d797205cb18b44dcf0c3bfac099b8fb06"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

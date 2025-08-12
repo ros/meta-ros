@@ -62,7 +62,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/fastrtps"
 SRC_URI = "git://github.com/ros2-gbp/fastdds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e23b049e57589014503604da9fff632e39cec239"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

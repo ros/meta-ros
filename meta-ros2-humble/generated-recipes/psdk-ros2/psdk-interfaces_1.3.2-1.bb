@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/psdk_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/psdk_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0f375e65abc9e2c11605df73af0ebebbe982ecc6"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/turtlebot3_autorace_mission"
 SRC_URI = "git://github.com/ros2-gbp/turtlebot3_autorace-release;${ROS_BRANCH};protocol=https"
 SRCREV = "9738d9a1dc353712f4334d3a4cf418dc2593ea77"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

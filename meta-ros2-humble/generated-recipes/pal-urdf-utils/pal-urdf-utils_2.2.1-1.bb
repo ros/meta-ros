@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pal_urdf_utils"
 SRC_URI = "git://github.com/pal-gbp/pal_urdf_utils-release;${ROS_BRANCH};protocol=https"
 SRCREV = "0359229b93d0a9454fa10bae284802b2cbc2d451"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

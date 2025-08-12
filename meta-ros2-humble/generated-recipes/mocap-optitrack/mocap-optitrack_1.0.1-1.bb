@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mocap_optitrack"
 SRC_URI = "git://github.com/ros2-gbp/mocap_optitrack-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8d2a36dc5e58aa0add327ea15b19ff88b22c3f9a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

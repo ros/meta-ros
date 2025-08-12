@@ -90,7 +90,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/as2_platform_mavlink"
 SRC_URI = "git://github.com/ros2-gbp/as2_platform_mavlink-release;${ROS_BRANCH};protocol=https"
 SRCREV = "571708fe8f65c8ca8b0b6ea89de9cbf2f426a6d3"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

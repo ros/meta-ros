@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/soccer_marker_generation"
 SRC_URI = "git://github.com/ros2-gbp/soccer_visualization-release;${ROS_BRANCH};protocol=https"
 SRCREV = "01da0b4dbb28210916847d97feab66618ec23347"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

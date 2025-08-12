@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/pmb2_gazebo"
 SRC_URI = "git://github.com/pal-gbp/pmb2_simulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "13c497ee5e0b1990ff6f0b4c5c17d1a9df9c775c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

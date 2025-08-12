@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rtabmap_python"
 SRC_URI = "git://github.com/introlab/rtabmap_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c64ac3d1d50201568c1a0a88bd22ca4ea003fdae"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

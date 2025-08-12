@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/tsid"
 SRC_URI = "git://github.com/ros2-gbp/tsid-release;${ROS_BRANCH};protocol=https"
 SRCREV = "f427e3c868f75fac873be0d558ef358ffcea274b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

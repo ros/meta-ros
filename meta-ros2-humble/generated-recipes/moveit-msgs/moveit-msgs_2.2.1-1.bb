@@ -74,7 +74,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/moveit_msgs"
 SRC_URI = "git://github.com/ros2-gbp/moveit_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "d6dc68834f8c3058ae31143ed9e559dcb9d9e68a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

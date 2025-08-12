@@ -67,7 +67,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/sicks300_2"
 SRC_URI = "git://github.com/ros2-gbp/sicks300_ros2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "3786e33fedf70b31f48608fd24f0a1d87bcc5d9e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

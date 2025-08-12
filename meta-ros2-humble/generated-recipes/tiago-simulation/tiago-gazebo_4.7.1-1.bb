@@ -70,7 +70,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/tiago_gazebo"
 SRC_URI = "git://github.com/pal-gbp/tiago_simulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b9a25ec7a3bd334419eff7771ca0a5dc715d292b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

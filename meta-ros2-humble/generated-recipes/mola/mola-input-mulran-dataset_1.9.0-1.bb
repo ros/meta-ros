@@ -58,7 +58,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/mola_input_mulran_dataset"
 SRC_URI = "git://github.com/ros2-gbp/mola-release;${ROS_BRANCH};protocol=https"
 SRCREV = "12c9ad7b4720e8aa1b137738f89b4165bb8c918c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

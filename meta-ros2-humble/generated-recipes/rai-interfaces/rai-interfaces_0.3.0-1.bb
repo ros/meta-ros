@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/humble/rai_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/rai_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "a259375418b71e7876766e4943e004579305b7c4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
