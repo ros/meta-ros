@@ -10,3 +10,5 @@ inherit python3native
 PACKAGES =+ "python3-${PN}"
 
 FILES:python3-${PN} = "${PYTHON_SITEPACKAGES_DIR}"
+
+export PYTHON_CONFIG="${STAGING_EXECPREFIXDIR}/python-target-config/python3-config"
