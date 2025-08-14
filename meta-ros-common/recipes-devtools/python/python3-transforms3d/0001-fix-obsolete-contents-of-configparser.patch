@@ -1,0 +1,28 @@
+From 6a17b30b4dab8d589675a6deb51f6798dd551e27 Mon Sep 17 00:00:00 2001
+From: Albert Han <rw0501610@163.com>
+Date: Fri, 15 Aug 2025 01:31:33 +0800
+Subject: [PATCH] fix obsolete contents of configparser
+
+---
+ versioneer.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/versioneer.py b/versioneer.py
+index 03b9a96..c98beeb 100644
+--- a/versioneer.py
++++ b/versioneer.py
+@@ -335,9 +335,9 @@ def get_config_from_root(root):
+     # configparser.NoOptionError (if it lacks "VCS="). See the docstring at
+     # the top of versioneer.py for instructions on writing your setup.cfg .
+     setup_cfg = os.path.join(root, "setup.cfg")
+-    parser = configparser.SafeConfigParser()
++    parser = configparser.ConfigParser()
+     with open(setup_cfg, "r") as f:
+-        parser.readfp(f)
++        parser.read_file(f)
+     VCS = parser.get("versioneer", "VCS")  # mandatory
+ 
+     def get(parser, name):
+-- 
+2.43.0
+
