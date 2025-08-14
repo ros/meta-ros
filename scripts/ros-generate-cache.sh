@@ -123,6 +123,20 @@ if [ "$ROS_DISTRO" = "dashing" -o "$ROS_DISTRO" = "eloquent" ] ; then
 fi
 
 rosdistro_build_cache --debug --preclean --ignore-local $tmpdir/index-v4.yaml $ROS_DISTRO
+if [ $? -ne 0 ]; then
+    echo "ABORT: rosdistro_build_cache returned a runtime error"
+    exit 1
+fi
+
+if [ ! -f $tmpdir/index-v4.yaml ]; then
+    echo "ABORT: $tmpdir/index-v4.yaml could not be found."
+    exit 1
+fi
+
+if [ ! -f $tmpdir/$ROS_DISTRO-cache.yaml.gz ]; then
+    echo "ABORT: $tmpdir/$ROS_DISTRO-cache.yaml.gz could not be found."
+    exit 1
+fi
 
 cd - > /dev/null
 
