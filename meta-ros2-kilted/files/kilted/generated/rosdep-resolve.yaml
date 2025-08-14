@@ -57,6 +57,7 @@ cwiid:
 - ${ROS_UNRESOLVED_DEP-cwiid}
 cwiid-dev:
 - ${ROS_UNRESOLVED_DEP-cwiid-dev}
+dkms: []
 doxygen:
 - doxygen@meta-oe
 dpkg:
@@ -119,6 +120,10 @@ libbluetooth:
 - bluez5@openembedded-core
 libbluetooth-dev:
 - bluez5@openembedded-core
+libboost-atomic:
+- boost@openembedded-core
+libboost-chrono:
+- boost@openembedded-core
 libboost-chrono-dev:
 - boost@openembedded-core
 libboost-date-time:
@@ -133,6 +138,8 @@ libboost-filesystem-dev:
 - boost@openembedded-core
 libboost-iostreams-dev:
 - boost@openembedded-core
+libboost-program-options:
+- boost@openembedded-core
 libboost-program-options-dev:
 - boost@openembedded-core
 libboost-python:
@@ -143,9 +150,13 @@ libboost-random:
 - boost@openembedded-core
 libboost-random-dev:
 - boost@openembedded-core
+libboost-regex:
+- boost@openembedded-core
 libboost-regex-dev:
 - boost@openembedded-core
 libboost-serialization-dev:
+- boost@openembedded-core
+libboost-system:
 - boost@openembedded-core
 libboost-system-dev:
 - boost@openembedded-core
@@ -211,6 +222,8 @@ libgstreamer1.0-dev:
 - gstreamer1.0@openembedded-core
 libhdf5-dev:
 - hdf5@meta-oe
+libicu-dev:
+- ${ROS_UNRESOLVED_DEP-libicu-dev}
 libjpeg:
 - jpeg@openembedded-core
 libjsoncpp:
@@ -351,6 +364,8 @@ libwebsocketpp-dev:
 - websocketpp@meta-oe
 libwebsockets-dev:
 - ${ROS_UNRESOLVED_DEP-libwebsockets-dev}
+libx11:
+- libx11@openembedded-core
 libx11-dev:
 - libx11@openembedded-core
 libx11-xcb-dev:
@@ -399,8 +414,8 @@ matio:
 - ${ROS_UNRESOLVED_DEP-matio}
 meson:
 - ${ROS_UNRESOLVED_DEP-meson}
-mosquittopp-dev:
-- ${ROS_UNRESOLVED_DEP-mosquittopp-dev}
+nanobind-dev:
+- ${ROS_UNRESOLVED_DEP-nanobind-dev}
 nlohmann-json-dev:
 - nlohmann-json@meta-oe
 ocl-icd-opencl-dev:
@@ -435,6 +450,8 @@ python3:
 - python3@openembedded-core
 python3-argcomplete:
 - python3-argcomplete@meta-python
+python3-attrs:
+- ${ROS_UNRESOLVED_DEP-python3-attrs}
 python3-autobahn:
 - python3-autobahn@meta-python
 python3-babeltrace:
@@ -523,6 +540,8 @@ python3-mock:
 - python3-mock@meta-ros-common
 python3-msgpack:
 - python3-msgpack@meta-python
+python3-msgpack-numpy:
+- ${ROS_UNRESOLVED_DEP-python3-msgpack-numpy}
 python3-mypy:
 - python3-mypy@meta-ros-common
 python3-natsort:
@@ -609,6 +628,8 @@ python3-sphinx:
 - python3-sphinx@meta-ros-common
 python3-tk:
 - python3-tkinter@openembedded-core
+python3-toml:
+- ${ROS_UNRESOLVED_DEP-python3-toml}
 python3-tornado:
 - python3-tornado@meta-python
 python3-tqdm:
@@ -718,12 +739,16 @@ swig:
 - swig@openembedded-core
 tango-icon-theme:
 - adwaita-icon-theme@openembedded-core
+tar:
+- tar@openembedded-core
 tbb:
 - tbb@meta-oe
 tinyxml:
 - libtinyxml@meta-oe
 tinyxml2:
 - libtinyxml2@meta-oe
+udev:
+- udev@openembedded-core
 uncrustify:
 - uncrustify@meta-ros-common
 unzip:
@@ -752,6 +777,8 @@ yaml-cpp:
 - yaml-cpp@meta-ros-common
 zbar:
 - zbar@meta-oe
+zip:
+- zip@openembedded-core
 zlib:
 - zlib@openembedded-core
 zziplib:
