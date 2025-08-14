@@ -3,6 +3,8 @@ inherit ${@bb.utils.contains('PACKAGECONFIG', 'python', 'python3targetconfig', '
 PACKAGECONFIG ??= "python3"
 PACKAGECONFIG[python3] = "--enable-python-bindings,,python3 swig-native"
 
+DEPENDS += "python3-setuptools-native"
+
 RDEPENDS:${PN}-python = "python3-core"
 
 inherit python3native
