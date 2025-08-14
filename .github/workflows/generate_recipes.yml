@@ -59,6 +59,10 @@ jobs:
           python3 ./setup.py install
       - run: mkdir -p ${ROS_HOME}
       - run: mkdir -p ${ROSDEP_SOURCE_PATH}
+      - name: Add ros-generate-cache.sh dependency
+        run: |
+          source ${GITHUB_WORKSPACE}/superflore/venv/bin/activate
+          python3 -m pip install ruamel.yaml
       - name: Initialize rosdep cache
         run: |
           source ${GITHUB_WORKSPACE}/superflore/venv/bin/activate
