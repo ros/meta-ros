@@ -108,6 +108,37 @@ fi
 tmpdir=$(mktemp -t -d ros-generate-cache-XXXXXXXX)
 trap "rm -rf $tmpdir" 0
 
+function set_release_version {
+    package=$1
+    oldversion=$2
+    newversion=$3
+
+    python3 <<HEREDOC
+from ruamel.yaml import YAML
+
+yaml = YAML()
+yaml.preserve_quotes = True  # keep existing quotes if any
+
+def set_release_version(data, repo_name, oldversion, newversion):
+    print("set_release_version")
+    if repo_name in data.get("repositories", {}):
+        release_section = data["repositories"][repo_name].get("release", {})
+        if "version" in release_section:
+            if release_section["version"] == oldversion:
+                release_section["version"] = newversion
+
+# Load the file
+with open("$ROS_DISTRO/distribution.yaml", "r") as f:
+    data = yaml.load(f)
+
+set_release_version(data, '$1', '$2', '$3')
+
+# Write back the file
+with open("$ROS_DISTRO/distribution.yaml", "w") as f:
+    yaml.dump(data, f)
+HEREDOC
+}
+
 # Create a directory tree under $tmpdir with the contents of ros/rosdistro.git at commit $ROS_ROSDISTRO_COMMIT.
 cd $path_to_ros_rosdistro
 git archive $ROS_ROSDISTRO_COMMIT | tar -C $tmpdir -xf -
@@ -116,10 +147,15 @@ cd - > /dev/null
 # Create $tmpdir/$ROS_DISTRO-cache.yaml.gz .
 cd $tmpdir
 
+# Make changes to distribution.yaml
 if [ "$ROS_DISTRO" = "dashing" -o "$ROS_DISTRO" = "eloquent" ] ; then
     sed 's#boschresearch/fmilibrary_vendor-release#ros2-gbp/fmilibrary_vendor-release#g' -i $ROS_DISTRO/distribution.yaml
     sed 's#boschresearch/fmi_adapter_ros2-release#ros2-gbp/fmi_adapter-release#g' -i $ROS_DISTRO/distribution.yaml
     sed 's#fmi_adapter_ros2#fmi_adapter#g' -i $ROS_DISTRO/distribution.yaml
+fi
+
+if [ "$ROS_DISTRO" = "kilted" ] ; then
+   set_release_version 'py_binding_tools' '2.0.2-1' '2.1.0-1'
 fi
 
 rosdistro_build_cache --debug --preclean --ignore-local $tmpdir/index-v4.yaml $ROS_DISTRO
