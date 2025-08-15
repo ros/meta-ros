@@ -4,7 +4,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://ogre/src/media/fonts/liberation-sans/SIL%20Open%20Font%20License.txt;md5=a4b00b7892bfb2fc9398e7f292af5b3d"
 
 SRC_URI = "git://github.com/gazebosim/gz-rendering.git;protocol=https;branch=gz-rendering9 \
-           file://added-missing-includes.patch"
+           file://added-missing-includes.patch \
+           file://support_legacy_opengl.patch"
 
 SRCREV = "a48f757d9448e05bdc3e6e73c61ddf4869febac6"
 
