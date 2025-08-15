@@ -7,13 +7,13 @@ Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-Index: git/CMakeLists.txt
+Index: rviz-ogre-vendor-15.0.4-1/CMakeLists.txt
 ===================================================================
---- git.orig/CMakeLists.txt
-+++ git/CMakeLists.txt
-@@ -4,6 +4,11 @@ project(rviz_ogre_vendor)
- find_package(ament_cmake REQUIRED)
- find_package(ament_cmake_vendor_package REQUIRED)
+--- rviz-ogre-vendor-15.0.4-1.orig/CMakeLists.txt
++++ rviz-ogre-vendor-15.0.4-1/CMakeLists.txt
+@@ -6,6 +6,11 @@ find_package(ament_cmake_vendor_package
+ 
+ option(RVIZ_OGRE_VENDOR_MANGLE_NAME_OF_LIBRARIES_USED_BY_RVIZ "If enabled, append a unique name to OgreMain, OgreOverlay and OgreGLSupport." FALSE)
  
 +find_package(PkgConfig REQUIRED)
 +pkg_check_modules(freetype2 REQUIRED freetype2)
@@ -23,7 +23,7 @@ Index: git/CMakeLists.txt
  if(WIN32)
    set(FREETYPE_C_FLAGS "${CMAKE_C_FLAGS}")
    if(MSVC)
-@@ -14,6 +19,7 @@ if(WIN32)
+@@ -16,6 +21,7 @@ if(WIN32)
    endif()
  
    ament_vendor(freetype_vendor
@@ -31,7 +31,7 @@ Index: git/CMakeLists.txt
      VCS_URL https://github.com/freetype/freetype.git
      VCS_VERSION VER-2-13-2
      CMAKE_ARGS
-@@ -30,6 +36,7 @@ if(WIN32)
+@@ -32,6 +38,7 @@ if(WIN32)
    endif()
  
    ament_vendor(zlib_vendor
@@ -39,7 +39,7 @@ Index: git/CMakeLists.txt
      VCS_URL https://github.com/madler/zlib.git
      VCS_VERSION v1.3
      CMAKE_ARGS
-@@ -80,6 +87,7 @@ if(APPLE)
+@@ -82,6 +89,7 @@ if(APPLE)
  endif()
  
  ament_vendor(ogre_vendor
