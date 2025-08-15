@@ -5,6 +5,8 @@ LICENSE = "BSD-3-Clause"
 
 inherit python3targetconfig
 
+DEPENDS += "python3-pip-native"
+
 # This is needed to set OE_QMAKE_PATH_EXTERNAL_HOST_BINS to resolve:
 # | -- Found PythonLibs: ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/qt-gui-cpp/1.0.8-1-r0/recipe-sysroot/usr/lib/libpython3.8.so (found suitable version "3.8.2", minimum required is "3.8")
 # | CMake Warning at ros2-foxy-dunfell/tmp-glibc/work/core2-64-oe-linux/qt-gui-cpp/1.0.8-1-r0/recipe-sysroot/usr/lib/cmake/Qt5/Qt5Config.cmake:7 (message):
