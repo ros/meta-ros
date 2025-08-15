@@ -15,3 +15,6 @@ PREFERRED_VERSION_sdformat = "15.3.0"
 
 # required for python3-scipy
 PREFERRED_VERSION_python3-gast = "0.6.0"
+
+# python-pygraphviz needed a version < 13
+PREFERRED_VERSION_graphviz = "12.2.1"
