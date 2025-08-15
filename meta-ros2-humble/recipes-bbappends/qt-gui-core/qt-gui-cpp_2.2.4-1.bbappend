@@ -7,7 +7,9 @@ inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'qmake5_base', '
 
 inherit python3native
 
-export SIP_PROJECT_INCLUDE_DIRS="${STAGING_DIR_TARGET}/${libdir}/${PYTHON_DIR}/site-packages/PyQt5/bindings"
+DEPENDS += "python3-pip-native"
+
+export SIP_PROJECT_INCLUDE_DIRS = "${STAGING_DIR_TARGET}/${libdir}/${PYTHON_DIR}/site-packages/PyQt5/bindings"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://use-cmake-target-libraries.patch"
