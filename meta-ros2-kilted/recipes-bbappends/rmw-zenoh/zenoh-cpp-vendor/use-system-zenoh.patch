@@ -1,0 +1,46 @@
+Use system-provided zenoh packages
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: zenoh-cpp-vendor-0.6.1-1/CMakeLists.txt
+===================================================================
+--- zenoh-cpp-vendor-0.6.1-1.orig/CMakeLists.txt
++++ zenoh-cpp-vendor-0.6.1-1/CMakeLists.txt
+@@ -17,6 +17,8 @@ find_package(ament_cmake_vendor_package
+ # when expanded.
+ set(ZENOHC_CARGO_FLAGS "--no-default-features$<SEMICOLON>--features=shared-memory zenoh/transport_compression zenoh/transport_tcp zenoh/transport_udp zenoh/transport_tls")
+ 
++find_package(zenohc)
++
+ # Set VCS_VERSION to include latest changes from zenoh/zenoh-c/zenoh-cpp to benefit from:
+ # - Fix a bug leading to invalid inapropriate "Unable to push non droppable network message" log and transport closure:
+ #    - https://github.com/eclipse-zenoh/zenoh/pull/1855
+@@ -35,6 +37,7 @@ set(ZENOHC_CARGO_FLAGS "--no-default-fea
+ # - Improve tracing for better analysis on the system like rmw_zenoh
+ #    - https://github.com/eclipse-zenoh/zenoh/pull/1844
+ ament_vendor(zenoh_c_vendor
++  SATISFIED zenohc_FOUND
+   VCS_URL https://github.com/eclipse-zenoh/zenoh-c.git
+   VCS_VERSION f60bbaba51417256b267f59f909a48eb99f1833b
+   CMAKE_ARGS
+@@ -46,15 +49,16 @@ ament_vendor(zenoh_c_vendor
+ 
+ ament_export_dependencies(zenohc)
+ 
++find_package(zenohcxx)
++
+ ament_vendor(zenoh_cpp_vendor
++  SATISFIED zenoh_FOUND
+   VCS_URL https://github.com/eclipse-zenoh/zenoh-cpp
+   VCS_VERSION 868fdad0e7418e8f8cb96e94c89a3aed05905e63
+   CMAKE_ARGS
+     -DZENOHCXX_ZENOHC=OFF
+ )
+ 
+-externalproject_add_stepdependencies(zenoh_cpp_vendor configure zenoh_c_vendor)
+-
+ ament_export_dependencies(zenohcxx)
+ 
+ ament_package()
