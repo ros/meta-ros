@@ -36,3 +36,6 @@ PREFERRED_VERSION_gz-transport14 = "14.0.1"
 PREFERRED_VERSION_gz-utils3 = "3.1.1"
 
 PREFERRED_VERSION_ogre-next = "2.3.3"
+
+# python-pygraphviz needed a version < 13
+PREFERRED_VERSION_graphviz = "12.2.1"
