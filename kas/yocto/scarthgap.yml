@@ -1,5 +1,7 @@
 header:
   version: 14
+  includes:
+    - kas/layer/clang-revival.yml
 
 defaults:
   repos:
