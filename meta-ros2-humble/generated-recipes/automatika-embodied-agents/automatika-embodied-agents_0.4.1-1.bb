@@ -16,11 +16,11 @@ ROS_CN = "automatika_embodied_agents"
 ROS_BPN = "automatika_embodied_agents"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-httpx} \
-    ${ROS_UNRESOLVED_DEP-python3-platformdirs} \
     ${ROS_UNRESOLVED_DEP-python3-tqdm} \
     automatika-ros-sugar \
     builtin-interfaces \
+    python3-httpx \
+    python3-platformdirs \
     sensor-msgs \
     std-msgs \
 "
@@ -32,11 +32,11 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-httpx} \
-    ${ROS_UNRESOLVED_DEP-python3-platformdirs} \
     ${ROS_UNRESOLVED_DEP-python3-tqdm} \
     automatika-ros-sugar \
     builtin-interfaces \
+    python3-httpx \
+    python3-platformdirs \
     sensor-msgs \
     std-msgs \
 "
@@ -44,11 +44,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-httpx} \
-    ${ROS_UNRESOLVED_DEP-python3-platformdirs} \
     ${ROS_UNRESOLVED_DEP-python3-tqdm} \
     automatika-ros-sugar \
     builtin-interfaces \
+    python3-httpx \
+    python3-platformdirs \
     rosidl-default-runtime \
     sensor-msgs \
     std-msgs \
