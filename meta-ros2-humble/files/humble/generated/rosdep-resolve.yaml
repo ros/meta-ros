@@ -130,6 +130,8 @@ ignition-plugin:
 - ${ROS_UNRESOLVED_DEP-ignition-plugin}
 ignition-transport11:
 - ${ROS_UNRESOLVED_DEP-ignition-transport11}
+iproute2:
+- iproute2@openembedded-core
 iwyu:
 - ${ROS_UNRESOLVED_DEP-iwyu}
 java:
@@ -154,6 +156,10 @@ libbluetooth:
 - bluez5@openembedded-core
 libbluetooth-dev:
 - bluez5@openembedded-core
+libboost-atomic:
+- boost@openembedded-core
+libboost-chrono:
+- boost@openembedded-core
 libboost-chrono-dev:
 - boost@openembedded-core
 libboost-coroutine:
@@ -184,9 +190,13 @@ libboost-random:
 - boost@openembedded-core
 libboost-random-dev:
 - boost@openembedded-core
+libboost-regex:
+- boost@openembedded-core
 libboost-regex-dev:
 - boost@openembedded-core
 libboost-serialization-dev:
+- boost@openembedded-core
+libboost-system:
 - boost@openembedded-core
 libboost-system-dev:
 - boost@openembedded-core
@@ -470,6 +480,7 @@ pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros-common
 pyqt5-dev-tools:
 - ${PYTHON_PN}-pyqt5@meta-qt5
+python-argparse: []
 python-is-python3:
 - ${ROS_UNRESOLVED_DEP-python-is-python3}
 python3:
@@ -479,7 +490,7 @@ python3-antlr4:
 python3-argcomplete:
 - python3-argcomplete@meta-python
 python3-attrs:
-- ${ROS_UNRESOLVED_DEP-python3-attrs}
+- python3-attrs@openembedded-core
 python3-autobahn:
 - python3-autobahn@meta-python
 python3-babeltrace:
@@ -507,7 +518,7 @@ python3-construct:
 python3-coverage:
 - python3-coverage@meta-python
 python3-cryptography:
-- python3-cryptography@meta-python
+- python3-cryptography@openembedded-core
 python3-dbus:
 - python3-dbus@openembedded-core
 python3-defusedxml:
@@ -535,7 +546,7 @@ python3-graphviz:
 python3-h5py:
 - python3-h5py@meta-python
 python3-httpx:
-- ${ROS_UNRESOLVED_DEP-python3-httpx}
+- python3-httpx@meta-python
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
@@ -595,7 +606,7 @@ python3-pip:
 python3-pkg-resources:
 - python3-setuptools@openembedded-core
 python3-platformdirs:
-- ${ROS_UNRESOLVED_DEP-python3-platformdirs}
+- python3-platformdirs@meta-python
 python3-ply:
 - python3-ply@openembedded-core
 python3-pre-commit:
@@ -657,7 +668,7 @@ python3-semver:
 python3-serial:
 - python3-pyserial@meta-python
 python3-setproctitle:
-- ${ROS_UNRESOLVED_DEP-python3-setproctitle}
+- python3-setproctitle@meta-python
 python3-setuptools:
 - python3-setuptools@openembedded-core
 python3-shapely:
@@ -671,7 +682,7 @@ python3-tabulate:
 python3-tk:
 - python3-tkinter@openembedded-core
 python3-toml:
-- ${ROS_UNRESOLVED_DEP-python3-toml}
+- python3-toml@meta-python
 python3-torch-geometric-pip:
 - ${ROS_UNRESOLVED_DEP-python3-torch-geometric-pip}
 python3-tornado:
