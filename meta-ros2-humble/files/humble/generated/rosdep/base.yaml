@@ -41,6 +41,14 @@ acpitool:
   gentoo: [sys-power/acpitool]
   nixos: [acpitool]
   openembedded: [acpitool@meta-oe]
+adwaita-icon-theme:
+  arch: [adwaita-icon-theme]
+  debian: [adwaita-icon-theme]
+  fedora: [adwaita-icon-theme]
+  gentoo: ['x11-themes/adwaita-icon-theme']
+  nixos: [adwaita-icon-theme]
+  openembedded: [adwaita-icon-theme@openembedded-core]
+  ubuntu: [adwaita-icon-theme]
 alsa-oss:
   arch: [alsa-oss]
   debian: [alsa-oss]
@@ -203,6 +211,7 @@ atlas:
   fedora: [atlas-devel]
   gentoo: [sci-libs/atlas]
   macports: [atlas]
+  nixos: [atlas]
   rhel: [atlas-devel]
   ubuntu: [libatlas-base-dev]
 autoconf:
@@ -1893,6 +1902,20 @@ gtk3:
     slackpkg:
       packages: [gtk+3]
   ubuntu: [libgtk-3-dev]
+gtk4:
+  arch: [gtk4]
+  debian: [libgtk-4-dev]
+  fedora: [gtk4-devel]
+  freebsd: [gtk4]
+  gentoo: ['gui-libs/gtk']
+  nixos: [gtk4]
+  openembedded: [gtk4@openembedded-core]
+  rhel:
+    '*': [gtk4-devel]
+    '8': null
+  ubuntu:
+    '*': [libgtk-4-dev]
+    focal: null
 gurumdds-2.6:
   ubuntu:
     bionic: [gurumdds-2.6]
@@ -2631,6 +2654,18 @@ libadolc-dev:
   nixos: [adolc]
   opensuse: [adolc-devel]
   ubuntu: [libadolc-dev]
+libadwaita-dev:
+  debian: [libadwaita-1-dev]
+  fedora: [libadwaita-devel]
+  gentoo: ['gui-libs/libadwaita']
+  nixos: [libadwaita]
+  openembedded: [libadwaita@openembedded-core]
+  rhel:
+    '*': [libadwaita-devel]
+    '8': null
+  ubuntu:
+    '*': [libadwaita-1-dev]
+    focal: null
 libaio-dev:
   alpine: [libaio-dev]
   arch: [libaio]
@@ -3717,6 +3752,9 @@ libext2fs-dev:
   opensuse: [libext2fs-devel]
   rhel: [e2fsprogs-devel]
   ubuntu: [libext2fs-dev]
+libfccp-dev:
+  debian: [libfccp-dev]
+  ubuntu: [libfccp-dev]
 libfcl:
   debian:
     '*': [libfcl0.7]
@@ -3760,8 +3798,16 @@ libfftw3:
 libfl-dev:
   debian: [libfl-dev]
   fedora: [libfl-devel]
+  nixos: [flex]
   opensuse: [libfl-devel]
   ubuntu: [libfl-dev]
+libflac-dev:
+  alpine: [flac-dev]
+  debian: [libflac-dev]
+  fedora: [flac-devel]
+  opensuse: [flac-devel]
+  rhel: [flac-devel]
+  ubuntu: [libflac-dev]
 libflann:
   arch: [flann]
   debian:
@@ -4040,6 +4086,13 @@ libgif-dev:
   gentoo: [media-libs/giflib]
   nixos: [giflib]
   ubuntu: [libgif-dev]
+libgirepository-dev:
+  arch: [gobject-introspection]
+  debian: [libgirepository1.0-dev]
+  fedora: [gobject-introspection-devel]
+  gentoo: [dev-libs/gobject-introspection]
+  nixos: [gobject-introspection]
+  ubuntu: [libgirepository1.0-dev]
 libglew-dev:
   arch: [glew]
   debian: [libglew-dev]
@@ -4329,6 +4382,7 @@ libicu-dev:
   fedora: [libicu-devel]
   gentoo: [dev-libs/icu]
   nixos: [icu]
+  rhel: [libicu-devel]
   ubuntu: [libicu-dev]
 libignition-common3:
   debian:
@@ -4451,6 +4505,7 @@ libiio-dev:
   debian: [libiio-dev]
   fedora: [libiio-devel]
   gentoo: [net-libs/libiio]
+  nixos: [libiio]
   ubuntu: [libiio-dev]
 libimage-exiftool-perl:
   arch: [perl-image-exiftool]
@@ -5976,7 +6031,10 @@ libqt5-gui:
   opensuse: [libQt5Gui5]
   rhel: [qt5-qtbase-gui]
   slackware: [qt5]
-  ubuntu: [libqt5gui5]
+  ubuntu:
+    '*': [libqt5gui5t64]
+    focal: [libqt5gui5]
+    jammy: [libqt5gui5]
 libqt5-multimedia:
   arch: [qt5-multimedia]
   debian: [libqt5multimedia5]
@@ -6114,12 +6172,18 @@ libqt5-widgets:
   opensuse: [libQt5Widgets5]
   rhel: [qt5-qtbase]
   slackware: [qt5]
-  ubuntu: [libqt5widgets5]
+  ubuntu:
+    '*': [libqt5widgets5t64]
+    focal: [libqt5widgets5]
+    jammy: [libqt5widgets5]
 libqt5-xml:
   arch: [qt5-base]
   debian: [libqt5xml5]
   nixos: [qt5.qtbase]
-  ubuntu: [libqt5xml5]
+  ubuntu:
+    '*': [libqt5xml5t64]
+    focal: [libqt5xml5]
+    jammy: [libqt5xml5]
 libqt5multimedia5-plugins:
   arch: [qt5-multimedia]
   debian: [libqt5multimedia5-plugins]
@@ -6190,6 +6254,19 @@ libqt6-quick:
     '8': null
   ubuntu:
     '*': [libqt6quick6]
+    'focal': null
+libqt6svg6:
+  alpine: [qt6-qtsvg]
+  arch: [qt6-svg]
+  debian: [libqt6svg6]
+  fedora: [qt6-qtsvg]
+  gentoo: ['dev-qt/qtsvg:6']
+  openembedded: [qtsvg@meta-qt6]
+  rhel:
+    '*': [qt6-qtsvg-devel]
+    '8': null
+  ubuntu:
+    '*': [libqt6svg6]
     'focal': null
 libqtgui4:
   debian: [libqtgui4]
@@ -6310,6 +6387,12 @@ libreadline-java:
   debian: [libreadline-java]
   gentoo: [dev-java/libreadline-java]
   ubuntu: [libreadline-java]
+librocksdb-dev:
+  alpine: [rocksdb-dev]
+  debian: [librocksdb-dev]
+  fedora: [rocksdb-devel]
+  rhel: [rocksdb-devel]
+  ubuntu: [librocksdb-dev]
 librtaudio-dev:
   arch: [rtaudio]
   debian: [librtaudio-dev]
@@ -7381,6 +7464,7 @@ lua-dev:
   macports: [lua51]
   nixos: [lua]
   openembedded: [lua@openembedded-core]
+  rhel: [compat-lua-devel]
   ubuntu: [liblua5.1-0-dev]
 lua5.2-dev:
   arch: [lua52]
@@ -8426,6 +8510,96 @@ qml-module-qtquick2:
   nixos: [qt5.qtquickcontrols2]
   rhel: [qt5-qtdeclarative]
   ubuntu: [qml-module-qtquick2]
+qml6-module-qt-labs-folderlistmodel:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qt-labs-folderlistmodel]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qt-labs-folderlistmodel]
+    'focal': null
+qml6-module-qt-labs-platform:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qt-labs-platform]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qt-labs-platform]
+    'focal': null
+qml6-module-qt-labs-settings:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qt-labs-settings]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qt-labs-settings]
+    'focal': null
+qml6-module-qt5compat-graphicaleffects:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qt5compat-graphicaleffects]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qt5compat-graphicaleffects]
+    'focal': null
+qml6-module-qtcharts:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtcharts]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtcharts]
+    'focal': null
+qml6-module-qtcore:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtcore]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtcore]
+    'focal': null
+qml6-module-qtpositioning:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtpositioning]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtpositioning]
+    'focal': null
+qml6-module-qtqml:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtqml]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtqml]
+    'focal': null
+qml6-module-qtqml-models:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtqml-models]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtqml-models]
+    'focal': null
 qml6-module-qtqml-workerscript:
   arch: [qt6-declarative]
   debian: [qml6-module-qtqml-workerscript]
@@ -8446,6 +8620,56 @@ qml6-module-qtquick:
     '8': null
   ubuntu:
     '*': [qml6-module-qtquick]
+    'focal': null
+qml6-module-qtquick-controls:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtquick-controls]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtquick-controls]
+    'focal': null
+qml6-module-qtquick-dialogs:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtquick-dialogs]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtquick-dialogs]
+    'focal': null
+qml6-module-qtquick-layouts:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtquick-layouts]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtquick-layouts]
+    'focal': null
+qml6-module-qtquick-templates:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtquick-templates]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtquick-templates]
+    'focal': null
+qml6-module-qtquick-window:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qtquick-window]
+  fedora: [qt6-qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtquick-window]
     'focal': null
 qrencode:
   arch: [qrencode]
@@ -8497,6 +8721,20 @@ qt5-qmake:
   rhel: [qt5-qtbase-devel]
   slackware: [qt5]
   ubuntu: [qt5-qmake]
+qt6-5compat-dev:
+  alpine: [qt6-qt5compat]
+  arch: [qt6-5compat]
+  debian: [qt6-5compat-dev]
+  fedora: [qt6-qt5compat]
+  gentoo: ['dev-qt/qt5compat:6']
+  openembedded: [qt5compat@meta-qt6]
+  rhel:
+    '*': [qt6-qt5compat-devel]
+    '8': null
+  ubuntu:
+    '*': [qt6-5compat-dev]
+    'focal': null
+    'jammy': [libqt6core5compat6-dev]
 qt6-base-dev:
   alpine: [qt6-qtbase-dev]
   arch: [qt6-base]
@@ -8515,6 +8753,19 @@ qt6-base-dev:
   ubuntu:
     '*': [qt6-base-dev]
     'focal': null
+qt6-base-private-dev:
+  alpine: [qt6-qtbase-private-dev]
+  arch: [qt6-base]
+  debian: [qt6-base-private-dev]
+  fedora: [qt6-qtbase-private-devel]
+  gentoo: ['dev-qt/qtbase:6']
+  openembedded: [qtbase@meta-qt6]
+  rhel:
+    '*': [qt6-qtbase-private-devel]
+    '8': null
+  ubuntu:
+    '*': [qt6-base-private-dev]
+    'focal': null
 qt6-declarative-dev:
   arch: [qt6-declarative]
   debian: [qt6-declarative-dev]
@@ -8527,6 +8778,19 @@ qt6-declarative-dev:
     '8': null
   ubuntu:
     '*': [qt6-declarative-dev]
+    'focal': null
+qt6-declarative-private-dev:
+  alpine: [qt6-qtdeclarative-private-dev]
+  arch: [qt6-declarative]
+  debian: [qt6-declarative-private-dev]
+  fedora: [qt6-qtdeclarative-devel]
+  gentoo: ['dev-qt/qtdeclarative:6']
+  openembedded: [qtdeclarative@meta-qt6]
+  rhel:
+    '*': [qt6-qtdeclarative-private-devel]
+    '8': null
+  ubuntu:
+    '*': [qt6-declarative-private-dev]
     'focal': null
 qt6-multimedia-dev:
   arch: [qt6-multimedia]
@@ -8718,9 +8982,13 @@ rsync:
   opensuse: [rsync]
   ubuntu: [rsync]
 rsyslog:
+  alpine: [rsyslog]
   debian: [rsyslog]
   fedora: [rsyslog]
+  gentoo: [app-admin/rsyslog]
   nixos: [rsyslog]
+  opensuse: [rsyslog]
+  rhel: [rsyslog]
   ubuntu: [rsyslog]
 rt-tests:
   arch: [rt-tests]
@@ -8818,16 +9086,19 @@ sdformat:
 sdformat11:
   debian:
     buster: [libsdformat11-dev]
+  nixos: [sdformat_11]
   ubuntu:
     focal: [libsdformat11-dev]
 sdformat12:
   debian:
     buster: [libsdformat12-dev]
+  nixos: [sdformat_12]
   ubuntu:
     focal: [libsdformat12-dev]
     jammy: [libsdformat12-dev]
 sdformat13:
   gentoo: ['dev-libs/sdformat:13']
+  nixos: [sdformat_13]
 sdl:
   arch: [sdl12-compat]
   debian: [libsdl1.2-dev]
@@ -8988,6 +9259,7 @@ sound-theme-freedesktop:
   debian: [sound-theme-freedesktop]
   fedora: [sound-theme-freedesktop]
   gentoo: [x11-themes/sound-theme-freedesktop]
+  nixos: [sound-theme-freedesktop]
   openembedded: [sound-theme-freedesktop@meta-oe]
   ubuntu: [sound-theme-freedesktop]
 sox:
@@ -9469,6 +9741,18 @@ udev:
 udhcpc:
   debian: [udhcpc]
   ubuntu: [udhcpc]
+uhubctl:
+  alpine: [uhubctl]
+  debian: [uhubctl]
+  fedora: [uhubctl]
+  gentoo: [sys-power/uhubctl]
+  nixos: [uhubctl]
+  opensuse: [uhubctl]
+  osx:
+    homebrew:
+      packages: [uhubctl]
+  rhel: [uhubctl]
+  ubuntu: [uhubctl]
 unclutter:
   debian: [unclutter]
   nixos: [unclutter]
