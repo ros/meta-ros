@@ -7,6 +7,9 @@ header:
     - kas/common.yml
 
 repos:
+  python-ai:
+    layers:
+      meta-python-ai: "disabled"
   zenoh:
     layers:
       meta-zenoh: "disabled"
