@@ -1,0 +1,7 @@
+header:
+  version: 14
+
+repos:
+  clang-revival:
+    url: "https://github.com/zboszor/meta-clang-revival"
+    path: "layers/meta-clang-revival"
