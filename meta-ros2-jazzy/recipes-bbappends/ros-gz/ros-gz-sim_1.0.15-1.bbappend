@@ -8,6 +8,8 @@ ROS_BUILDTOOL_DEPENDS += " \
     protobuf-native \
 "
 
+RDEPENDS:${PN}:remove = "cli11"
+
 EXTRA_OECMAKE += " \
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
 "
