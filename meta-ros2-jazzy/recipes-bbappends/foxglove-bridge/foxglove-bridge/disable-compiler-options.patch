@@ -1,0 +1,111 @@
+Disable strict compiler warnings
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -14,16 +14,6 @@ project(foxglove_bridge LANGUAGES CXX VE
+ set(CMAKE_CXX_STANDARD 17)
+ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ 
+-macro(enable_strict_compiler_warnings target)
+-  if (MSVC)
+-    target_compile_options(${target} PRIVATE /WX /W4)
+-  elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-    target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic -Werror -Wold-style-cast -Wfloat-equal -Wmost -Wunused-exception-parameter)
+-  else()
+-    target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic -Werror -Wold-style-cast -Wfloat-equal)
+-  endif()
+-endmacro()
+-
+ find_package(nlohmann_json QUIET)
+ find_package(OpenSSL REQUIRED)
+ find_package(Threads REQUIRED)
+@@ -92,7 +82,6 @@ if(nlohmann_json_FOUND)
+ else()
+   message(STATUS "nlohmann_json not found, will search at compile time")
+ endif()
+-enable_strict_compiler_warnings(foxglove_bridge_base)
+ 
+ message(STATUS "ROS_VERSION: " $ENV{ROS_VERSION})
+ message(STATUS "ROS_DISTRO: " $ENV{ROS_DISTRO})
+@@ -126,12 +115,10 @@ if("$ENV{ROS_VERSION}" STREQUAL "1")
+         ${catkin_INCLUDE_DIRS}
+     )
+     target_link_libraries(foxglove_bridge_nodelet foxglove_bridge_base ${catkin_LIBRARIES})
+-    enable_strict_compiler_warnings(foxglove_bridge_nodelet)
+ 
+     add_executable(foxglove_bridge ros1_foxglove_bridge/src/ros1_foxglove_bridge_node.cpp)
+     target_include_directories(foxglove_bridge SYSTEM PRIVATE ${catkin_INCLUDE_DIRS})
+     target_link_libraries(foxglove_bridge ${catkin_LIBRARIES})
+-    enable_strict_compiler_warnings(foxglove_bridge)
+   else()
+     message(FATAL_ERROR "Could not find catkin")
+   endif()
+@@ -172,13 +159,11 @@ elseif("$ENV{ROS_VERSION}" STREQUAL "2")
+     ament_target_dependencies(foxglove_bridge_component ament_index_cpp rclcpp rclcpp_components resource_retriever rosgraph_msgs rosx_introspection)
+     target_link_libraries(foxglove_bridge_component foxglove_bridge_base)
+     rclcpp_components_register_nodes(foxglove_bridge_component "foxglove_bridge::FoxgloveBridge")
+-    enable_strict_compiler_warnings(foxglove_bridge_component)
+     add_executable(foxglove_bridge
+       ros2_foxglove_bridge/src/ros2_foxglove_bridge_node.cpp
+     )
+     target_include_directories(foxglove_bridge SYSTEM PRIVATE ${rclcpp_INCLUDE_DIRS})
+     ament_target_dependencies(foxglove_bridge rclcpp rclcpp_components)
+-    enable_strict_compiler_warnings(foxglove_bridge)
+   else()
+     message(FATAL_ERROR "Could not find ament_cmake")
+   endif()
+@@ -201,15 +186,12 @@ if(ROS_BUILD_TYPE STREQUAL "catkin")
+ 
+     catkin_add_gtest(version_test foxglove_bridge_base/tests/version_test.cpp)
+     target_link_libraries(version_test foxglove_bridge_base ${Boost_LIBRARIES})
+-    enable_strict_compiler_warnings(version_test)
+ 
+     catkin_add_gtest(serialization_test foxglove_bridge_base/tests/serialization_test.cpp)
+     target_link_libraries(serialization_test foxglove_bridge_base ${Boost_LIBRARIES})
+-    enable_strict_compiler_warnings(foxglove_bridge)
+ 
+     catkin_add_gtest(base64_test foxglove_bridge_base/tests/base64_test.cpp)
+     target_link_libraries(base64_test foxglove_bridge_base ${Boost_LIBRARIES})
+-    enable_strict_compiler_warnings(foxglove_bridge)
+ 
+     add_rostest_gtest(smoke_test ros1_foxglove_bridge/tests/smoke.test ros1_foxglove_bridge/tests/smoke_test.cpp)
+     target_include_directories(smoke_test SYSTEM PRIVATE
+@@ -218,7 +200,6 @@ if(ROS_BUILD_TYPE STREQUAL "catkin")
+       $<INSTALL_INTERFACE:include>
+     )
+     target_link_libraries(smoke_test foxglove_bridge_base ${catkin_LIBRARIES})
+-    enable_strict_compiler_warnings(smoke_test)
+   endif()
+ elseif(ROS_BUILD_TYPE STREQUAL "ament_cmake")
+   if(BUILD_TESTING)
+@@ -230,24 +211,19 @@ elseif(ROS_BUILD_TYPE STREQUAL "ament_cm
+ 
+     ament_add_gtest(version_test foxglove_bridge_base/tests/version_test.cpp)
+     target_link_libraries(version_test foxglove_bridge_base)
+-    enable_strict_compiler_warnings(version_test)
+ 
+     ament_add_gtest(serialization_test foxglove_bridge_base/tests/serialization_test.cpp)
+     target_link_libraries(serialization_test foxglove_bridge_base)
+-    enable_strict_compiler_warnings(serialization_test)
+ 
+     ament_add_gtest(base64_test foxglove_bridge_base/tests/base64_test.cpp)
+     target_link_libraries(base64_test foxglove_bridge_base)
+-    enable_strict_compiler_warnings(base64_test)
+ 
+     ament_add_gtest(smoke_test ros2_foxglove_bridge/tests/smoke_test.cpp)
+     ament_target_dependencies(smoke_test rclcpp rclcpp_components std_msgs std_srvs)
+     target_link_libraries(smoke_test foxglove_bridge_component)
+-    enable_strict_compiler_warnings(smoke_test)
+ 
+     ament_add_gtest(utils_test ros2_foxglove_bridge/tests/utils_test.cpp)
+     target_link_libraries(utils_test foxglove_bridge_component)
+-    enable_strict_compiler_warnings(utils_test)
+   endif()
+ endif()
+ 
