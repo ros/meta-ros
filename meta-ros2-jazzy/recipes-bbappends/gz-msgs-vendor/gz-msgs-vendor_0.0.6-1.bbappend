@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-ROS_BUILD_DEPENDS += "gz-msgs11"
+ROS_BUILD_DEPENDS += "gz-msgs10"
 ROS_BUILDTOOL_DEPENDS += "gz-msgs11-native protobuf-native"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
