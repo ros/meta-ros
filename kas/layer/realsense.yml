@@ -1,0 +1,7 @@
+header:
+  version: 14
+
+repos:
+  realsense:
+    url: "https://github.com/IntelRealSense/meta-intel-realsense.git"
+    path: "layers/meta-intel-realsense"
