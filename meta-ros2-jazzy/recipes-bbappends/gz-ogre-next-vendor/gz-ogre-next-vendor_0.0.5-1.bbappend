@@ -4,3 +4,6 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://use-system-ogre-next.patch"
 
 DEPENDS += "ogre-next"
+
+ROS_EXEC_DEPENDS:remove = "libxaw"
+ROS_EXEC_DEPENDS:append = "libxaw7"
