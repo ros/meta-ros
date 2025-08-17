@@ -1,0 +1,28 @@
+Disable compiler warnings
+
+The package should be compiled with the compiler options provided by
+the build system, not set by controller-interface.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 5 -----
+ 1 file changed, 5 deletions(-)
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -1,10 +1,6 @@
+ cmake_minimum_required(VERSION 3.5)
+ project(controller_interface)
+ 
+-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type -Werror=shadow)
+-endif()
+-
+ find_package(ament_cmake REQUIRED)
+ find_package(hardware_interface REQUIRED)
+ find_package(rclcpp_lifecycle REQUIRED)
