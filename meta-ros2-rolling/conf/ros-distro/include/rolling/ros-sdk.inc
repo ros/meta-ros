@@ -2,6 +2,7 @@ ROS_SDK_HOST_PACKAGES = " \
     nativesdk-ament-package \
     nativesdk-python3-colcon-common-extensions \
     nativesdk-python3-numpy \
+    nativesdk-python3-rosdoc2 \
     nativesdk-rosidl-adapter \
     nativesdk-rosidl-cli \
     nativesdk-rosidl-cmake \
