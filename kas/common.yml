@@ -3,6 +3,7 @@ header:
   includes:
     - kas/layer/zenoh.yml
     - kas/layer/python-ai.yml
+    - kas/layer/realsense.yml
 
 local_conf_header:
   common: |
