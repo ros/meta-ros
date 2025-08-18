@@ -1,9 +1,12 @@
 header:
   version: 14
   includes:
-    - kas/layer/zenoh.yml
-    - kas/layer/python-ai.yml
+    - kas/layer/clang.yml
+    - kas/layer/clang-revival.yml
     - kas/layer/realsense.yml
+    - kas/layer/python-ai.yml
+    - kas/layer/qt5.yml
+    - kas/layer/zenoh.yml
 
 local_conf_header:
   common: |
