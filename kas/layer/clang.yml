@@ -1,0 +1,11 @@
+header:
+  version: 14
+
+repos:
+  clang:
+    url: "https://github.com/kraj/meta-clang.git"
+    path: "layers/meta-clang"
+
+local_conf_header:
+  clang: |
+    PACKAGECONFIG:append:pn-clang = "  libomp"
