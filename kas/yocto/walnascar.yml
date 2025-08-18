@@ -38,10 +38,6 @@ repos:
       meta-webserver:
       meta-xfce:
 
-  zenoh:
-    branch: "master"
-    commit: "207e9cb6b8c03308882e000ddeabf51b4fd11205"
-
 local_conf_header:
   distro: |
     ERROR_QA:remove = "license-exists"
