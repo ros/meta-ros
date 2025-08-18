@@ -1,12 +1,14 @@
 image: $CI_REGISTRY/oeros/aws-runner/crops-container:latest
 
 variables:
-  DISTRO:
-    description: "The Robot Operating System"
-    value: "ros2"
+  OE_RELEASE_SERIES:
+    description: "The Yocto Project release"
+    value: master
     options:
-      - ros
-      - ros2
+      - kirkstone
+      - scarthgap
+      - walnascar
+      - master
   ROS_DISTRO:
     description: "The ROS distro"
     value: rolling
@@ -16,14 +18,6 @@ variables:
       - jazzy
       - kilted
       - rolling
-  OE_RELEASE_SERIES:
-    description: "The Yocto Project release"
-    value: master
-    options:
-      - kirkstone
-      - scarthgap
-      - walnascar
-      - master
   TARGET_RECIPE: "ros-image-core"
   MACHINE:
     description: "The Yocto Board Support Package"
