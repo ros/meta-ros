@@ -33,5 +33,5 @@ repos:
       meta-webserver:
       meta-xfce:
 
-  python-ai:
-    branch: "master"
+  clang-revival:
+    branch: "main"
