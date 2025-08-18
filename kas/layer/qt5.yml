@@ -1,0 +1,11 @@
+header:
+  version: 14
+
+repos:
+  qt5:
+    url: "https://github.com/meta-qt5/meta-qt5.git"
+    path: "layers/meta-qt5"
+
+local_conf_header:
+  qt5: |
+    PACKAGECONFIG:append:pn-qtbase-native = " gui"
