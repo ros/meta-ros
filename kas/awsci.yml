@@ -5,7 +5,7 @@ header:
 # https://github.com/madisongh/tegra-test-distro/wiki/Using-AWS-S3-for-sstate-and-downloads-mirrors
 repos:
   tegra-demo-distro:
-    url: "https://github.com/robwoolley/tegra-demo-distro.git"
+    url: "https://github.com/OE4T/tegra-demo-distro.git"
     path: "layers/tegra-demo-distro"
     layers:
       layers/meta-demo-ci:
