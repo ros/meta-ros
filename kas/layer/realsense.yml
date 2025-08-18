@@ -3,5 +3,5 @@ header:
 
 repos:
   realsense:
-    url: "https://github.com/IntelRealSense/meta-intel-realsense.git"
+    url: "https://github.com/robwoolley/meta-intel-realsense.git"
     path: "layers/meta-intel-realsense"
