@@ -38,6 +38,11 @@ repos:
       meta-webserver:
       meta-xfce:
 
+  clang-revival:
+    branch: "master"
+    layers:
+      meta-clang-revival: "disabled"
+
   python-ai:
     branch: "master"
     layers:
