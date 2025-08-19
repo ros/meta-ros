@@ -39,7 +39,7 @@ repos:
       meta-xfce:
 
   clang-revival:
-    branch: "master"
+    branch: "main"
     layers:
       meta-clang-revival: "disabled"
 
