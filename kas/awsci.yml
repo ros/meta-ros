@@ -32,5 +32,7 @@ local_conf_header:
     # Set FETCHCMD_s3 manually as kas creates its own environment
     # FETCHCMD_s3 = "/home/pokyuser/.local/bin/aws s3"
 
+    PARALLEL_MAKE ?= "-j 16 -l 16"
+
     # Temporary workaround to limit the number of parallel jobs for AWS builds
     PARALLEL_MAKE:pn-pcl = "-j 2"
