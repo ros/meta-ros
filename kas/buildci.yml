@@ -1,0 +1,10 @@
+
+header:
+  version: 14
+
+local_conf_header:
+  buildci: |
+    INHERIT += "buildhistory"
+    INHERIT += "buildstats"
+    INHERIT += "buildstats-summary"
+    INHERIT += "image-buildinfo"
