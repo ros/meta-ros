@@ -39,6 +39,9 @@ variables:
       - Enabled
       - Disabled
   FF_DISABLE_UMASK_FOR_DOCKER_EXECUTOR: true
+  GIT_STRATEGY: clone
+  GIT_CLEAN_FLAGS: -fdx
+
 
 .default:
   stage: build
