@@ -41,21 +41,20 @@ variables:
   FF_DISABLE_UMASK_FOR_DOCKER_EXECUTOR: true
   GIT_STRATEGY: clone
   GIT_CLEAN_FLAGS: -fdx
+  KAS_WORK_DIR: $CI_PROJECT_DIR/work
+  KAS_BUILD_DIR: $KAS_WORK_DIR/build
+  KAS_REPO_REF_DIR: $CI_PROJECT_DIR/repos
+  CACHE_DIR: $CI_BUILDS_DIR/persist
+  SSTATE_DIR: $CACHE_DIR/sstate
+  DL_DIR: $CACHE_DIR/downloads
+  TOOLCHAIN_DIR: $CACHE_DIR/toolchains
+  IMAGE_DIR: $KAS_BUILD_DIR/tmp/deploy/images
+  TOOLCHAIN_LINK_DIR: $KAS_BUILD_DIR/toolchains
 
 
 .default:
   stage: build
   interruptible: true
-  variables:
-    KAS_WORK_DIR: $CI_PROJECT_DIR/work
-    KAS_BUILD_DIR: $KAS_WORK_DIR/build
-    KAS_REPO_REF_DIR: $CI_PROJECT_DIR/repos
-    CACHE_DIR: $CI_BUILDS_DIR/persist
-    SSTATE_DIR: $CACHE_DIR/sstate
-    DL_DIR: $CACHE_DIR/downloads
-    TOOLCHAIN_DIR: $CACHE_DIR/toolchains
-    IMAGE_DIR: $KAS_BUILD_DIR/tmp/deploy/images
-    TOOLCHAIN_LINK_DIR: $KAS_BUILD_DIR/toolchains
   before_script:
     - rm -rf $KAS_WORK_DIR
     - mkdir --verbose --parents $KAS_WORK_DIR $KAS_REPO_REF_DIR $SSTATE_DIR $DL_DIR $TOOLCHAIN_DIR $TOOLCHAIN_LINK_DIR $IMAGE_DIR
