@@ -106,3 +106,15 @@ build-job:
       fi
     - echo kas build --update ${BITBAKE_TARGET:+--target} ${BITBAKE_TARGET} ${BITBAKE_TASK:+-c} ${BITBAKE_TASK} oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml${EXTRA_KAS_YAML:+:}${EXTRA_KAS_YAML} -- ${EXTRA_BITBAKE_ARGS}
     - kas build --update ${BITBAKE_TARGET:+--target} ${BITBAKE_TARGET} ${BITBAKE_TASK:+-c} ${BITBAKE_TASK} oeros-${OE_RELEASE_SERIES}-${ROS_DISTRO}-${MACHINE}.yml${EXTRA_KAS_YAML:+:}${EXTRA_KAS_YAML} -- ${EXTRA_BITBAKE_ARGS}
+  artifacts:
+      name: "logs"
+      when: always
+      expire_in: 1 week
+      paths:
+        - $KAS_BUILD_DIR/bitbake-cookerdaemon.log
+        - $KAS_BUILD_DIR/buildhistory/metadata-revs
+        - $KAS_BUILD_DIR/conf/local.conf
+        - $KAS_BUILD_DIR/tmp*/buildstats/**
+        - $KAS_BUILD_DIR/tmp*/log/cooker/*
+        - $KAS_BUILD_DIR/tmp*/error-report/*
+        - $KAS_BUILD_DIR/tmp*/qa.log
