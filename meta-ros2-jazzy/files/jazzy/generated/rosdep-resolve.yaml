@@ -1,6 +1,8 @@
 # jazzy/rosdep-resolve.yaml
 acl:
 - acl@openembedded-core
+adwaita-icon-theme:
+- adwaita-icon-theme@openembedded-core
 aravis-dev:
 - aravis@meta-multimedia
 asio:
@@ -108,6 +110,8 @@ gtest:
 - gtest@meta-oe
 gtk3:
 - gtk+3@openembedded-core
+gtk4:
+- gtk4@openembedded-core
 gurumdds-3.2:
 - ${ROS_UNRESOLVED_DEP-gurumdds-3.2}
 hdf5-tools:
@@ -122,6 +126,8 @@ lcov:
 - lcov@meta-oe
 libabsl-dev:
 - abseil-cpp@meta-oe
+libadwaita-dev:
+- libadwaita@openembedded-core
 libatomic:
 - gcc-runtime@openembedded-core
 libavdevice-dev:
@@ -210,6 +216,8 @@ libgeos++-dev:
 - geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
+libgirepository-dev:
+- ${ROS_UNRESOLVED_DEP-libgirepository-dev}
 libglew-dev:
 - glew@openembedded-core
 libglfw3-dev:
@@ -232,6 +240,8 @@ libgts:
 - gts@meta-ros-common
 libhdf5-dev:
 - hdf5@meta-oe
+libicu-dev:
+- ${ROS_UNRESOLVED_DEP-libicu-dev}
 libjpeg:
 - jpeg@openembedded-core
 libjsoncpp:
@@ -419,11 +429,13 @@ libzip-dev:
 libzmq3-dev:
 - zeromq@meta-oe
 libzstd-dev:
-- zstd@meta-oe
+- zstd@openembedded-core
 lm-sensors:
 - lmsensors@meta-oe
 lttng-tools:
 - lttng-tools@openembedded-core
+lua-dev:
+- lua@openembedded-core
 lua5.2-dev:
 - lua@meta-oe
 lz4:
@@ -432,6 +444,8 @@ matio:
 - ${ROS_UNRESOLVED_DEP-matio}
 meson:
 - ${ROS_UNRESOLVED_DEP-meson}
+nanobind-dev:
+- ${ROS_UNRESOLVED_DEP-nanobind-dev}
 network-manager:
 - ${ROS_UNRESOLVED_DEP-network-manager}
 nlohmann-json-dev:
@@ -466,18 +480,16 @@ pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros-common
 pyqt5-dev-tools:
 - ${PYTHON_PN}-pyqt5@meta-qt5
-python-attrs-pip:
-- ${ROS_UNRESOLVED_DEP-python-attrs-pip}
 python-is-python3:
 - ${ROS_UNRESOLVED_DEP-python-is-python3}
-python-numpy-quaternion-pip:
-- ${ROS_UNRESOLVED_DEP-python-numpy-quaternion-pip}
 python3:
 - python3@openembedded-core
 python3-antlr4:
 - ${ROS_UNRESOLVED_DEP-python3-antlr4}
 python3-argcomplete:
 - python3-argcomplete@meta-python
+python3-attrs:
+- python3-attrs@openembedded-core
 python3-autobahn:
 - python3-autobahn@meta-python
 python3-babeltrace:
@@ -499,7 +511,7 @@ python3-construct:
 python3-coverage:
 - python3-coverage@meta-python
 python3-cryptography:
-- python3-cryptography@meta-python
+- python3-cryptography@openembedded-core
 python3-dbus:
 - python3-dbus@openembedded-core
 python3-defusedxml:
@@ -517,7 +529,7 @@ python3-expiringdict:
 python3-fastapi:
 - ${ROS_UNRESOLVED_DEP-python3-fastapi}
 python3-filelock:
-- ${ROS_UNRESOLVED_DEP-python3-filelock}
+- python3-filelock@meta-python
 python3-fiona:
 - python3-fiona@meta-ros2
 python3-flake8:
@@ -538,12 +550,16 @@ python3-flask-socketio:
 - python3-flask-socketio@meta-python
 python3-future:
 - python3-future@meta-python
+python3-gi:
+- python3-pygobject@openembedded-core
+python3-gi-cairo:
+- ${ROS_UNRESOLVED_DEP-python3-gi-cairo}
 python3-git:
 - python3-git@openembedded-core
 python3-h5py:
 - python3-h5py@meta-python
 python3-httpx:
-- ${ROS_UNRESOLVED_DEP-python3-httpx}
+- python3-httpx@meta-python
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
@@ -564,6 +580,8 @@ python3-mock:
 - python3-mock@meta-ros-common
 python3-msgpack:
 - python3-msgpack@meta-python
+python3-msgpack-numpy:
+- ${ROS_UNRESOLVED_DEP-python3-msgpack-numpy}
 python3-mypy:
 - python3-mypy@meta-ros-common
 python3-natsort:
@@ -591,7 +609,7 @@ python3-pip:
 python3-pkg-resources:
 - python3-setuptools@openembedded-core
 python3-platformdirs:
-- ${ROS_UNRESOLVED_DEP-python3-platformdirs}
+- python3-platformdirs@meta-python
 python3-ply:
 - python3-ply@openembedded-core
 python3-pre-commit:
@@ -617,7 +635,7 @@ python3-pyqt5.qtwebengine:
 python3-pyside2:
 - ${ROS_UNRESOLVED_DEP-python3-pyside2}
 python3-pytest:
-- python3-pytest@meta-python
+- python3-pytest@openembedded-core
 python3-pytest-cov:
 - python3-pytest-cov@meta-ros-common
 python3-pytest-mock:
@@ -627,7 +645,7 @@ python3-pytest-timeout:
 python3-qt5-bindings:
 - python3-pyqt5@meta-qt5
 python3-requests:
-- python3-requests@meta-python
+- python3-requests@openembedded-core
 python3-rich:
 - ${ROS_UNRESOLVED_DEP-python3-rich}
 python3-rosdistro-modules:
@@ -645,7 +663,7 @@ python3-semver:
 python3-serial:
 - python3-pyserial@meta-python
 python3-setproctitle:
-- ${ROS_UNRESOLVED_DEP-python3-setproctitle}
+- python3-setproctitle@meta-python
 python3-setuptools:
 - python3-setuptools@openembedded-core
 python3-shapely:
@@ -656,6 +674,8 @@ python3-sphinx:
 - python3-sphinx@meta-ros-common
 python3-tk:
 - python3-tkinter@openembedded-core
+python3-toml:
+- python3-toml@meta-python
 python3-tornado:
 - python3-tornado@meta-python
 python3-tqdm:
@@ -683,11 +703,11 @@ python3-watchdog:
 python3-websocket:
 - python3-websocket-client@meta-python
 python3-wheel:
-- ${ROS_UNRESOLVED_DEP-python3-wheel}
+- python3-wheel@openembedded-core
 python3-whichcraft:
 - python3-whichcraft@meta-ros-common
 python3-yaml:
-- python3-pyyaml@meta-python
+- python3-pyyaml@openembedded-core
 python3-zmq:
 - ${ROS_UNRESOLVED_DEP-python3-zmq}
 qml-module-qt-labs-folderlistmodel:
