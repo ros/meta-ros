@@ -1,5 +1,9 @@
 # Copyright (c) 2022 Wind River Systems, Inc.
 
+ROS_BUILDTOOL_DEPENDS += " \
+    ament-cmake-native \
+"
+
 # error: conversion to 'int' from 'unsigned int' may change the sign of the result [-Werror=sign-conversion]
 # error: conversion to 'long long int' from 'uint64_t' {aka 'long unsigned int'} may change the sign of the result [-Werror=sign-conversion]
 # error: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Werror=sign-conversion]
