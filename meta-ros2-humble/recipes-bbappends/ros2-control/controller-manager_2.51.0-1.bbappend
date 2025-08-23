@@ -15,4 +15,6 @@ ROS_BUILDTOOL_DEPENDS += " \
 "
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-setuptools-fix-executable.patch"
+SRC_URI += "file://0001-setuptools-fix-executable.patch \
+            file://0001-Disable-Werror-shadow-in-compile-options.patch \
+"

@@ -302,6 +302,8 @@ ROS_UNRESOLVED_DEP-libdbus-dev = "dbus"
 
 ROS_UNRESOLVED_DEP-python3-distro = "python3-distro"
 
+ROS_UNRESOLVED_DEP-python3-filelock = "python3-filelock"
+
 ROS_UNRESOLVED_DEP-python3-img2pdf = "python3-img2pdf"
 
 ROS_UNRESOLVED_DEP-python3-ntplib = " python3-ntplib"

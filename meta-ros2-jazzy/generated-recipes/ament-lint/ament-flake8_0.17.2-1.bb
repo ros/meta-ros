@@ -29,11 +29,6 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     ament-lint \
     python3-flake8 \
-    python3-flake8-builtins \
-    python3-flake8-comprehensions \
-    python3-flake8-docstrings \
-    python3-flake8-import-order \
-    python3-flake8-quotes \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

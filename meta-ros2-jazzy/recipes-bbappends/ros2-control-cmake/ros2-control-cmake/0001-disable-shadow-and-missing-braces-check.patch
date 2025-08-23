@@ -1,0 +1,14 @@
+diff --git a/cmake/ros2_control.cmake b/cmake/ros2_control.cmake
+index 9d74527..06a92f2 100644
+--- a/cmake/ros2_control.cmake
++++ b/cmake/ros2_control.cmake
+@@ -35,8 +35,7 @@ endmacro()
+ macro(set_compiler_options)
+   if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+     add_compile_options(-Wall -Wextra -Wpedantic -Werror=conversion -Werror=unused-but-set-variable
+-                        -Werror=return-type -Werror=shadow -Werror=format
+-                        -Werror=missing-braces)
++                        -Werror=return-type -Werror=format)
+     message(STATUS "Compiler warnings enabled for ${CMAKE_CXX_COMPILER_ID}")
+ 
+     # https://docs.ros.org/en/rolling/How-To-Guides/Ament-CMake-Documentation.html#compiler-and-linker-options

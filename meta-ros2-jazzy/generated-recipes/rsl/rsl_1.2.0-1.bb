@@ -26,6 +26,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = " \
     doxygen-native \
+    ament-cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = " \
