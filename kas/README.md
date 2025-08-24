@@ -1,8 +1,8 @@
 # Building meta-ros with kas
 
-Here are simple instructions for getting started building the long-term support
-releases of Yocto (kirkstone) and ROS 2 (humble).  Documentation for kas can be
-found at https://kas.readthedocs.io/en/latest/
+Here are simple instructions for getting started building the releases of Yocto
+and ROS 2.
+Documentation for kas can be found at https://kas.readthedocs.io/en/latest/
 
 ## Installing kas
 
@@ -37,6 +37,33 @@ sdcard.
 ```
 build/tmp-glibc/deploy/images/raspberrypi4-64/ros-image-core-humble-raspberrypi4-64.rootfs.wic.bz2
 ```
+
+## Using kas menu
+
+To configure your build with the `kas` tool and `menuconfig`:
+
+```bash
+mkdir $PROJECT_DIR
+KAS_WORK_DIR=$PROJECT_DIR
+kas menu meta-ros/kas/Kconfig
+```
+
+Select:
+
+  * Yocto release
+  * Machine selection (qemu86-64, raspberrypi4-64, raspberrypi5)
+  * ROS release
+  * Image selection (core, desktop, desktopfull, world)
+
+This generates a configuration file: `.config.yaml`.
+
+This file can be used as:
+
+```
+kas build .config.yaml
+```
+
+More info: https://kas.readthedocs.io/en/latest/userguide/plugins.html#module-kas.plugins.menu
 
 ## Writing the image
 
