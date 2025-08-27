@@ -1,0 +1,26 @@
+Upstream-Status: Backport [https://github.com/gazebosim/gz-rendering/commit/7f186a1c98c32ad8846d6fcb8d8d6d59524b74fc]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 7f186a1c98c32ad8846d6fcb8d8d6d59524b74fc Mon Sep 17 00:00:00 2001
+From: Alejandro Hernandez Cordero <ahcorde@gmail.com>
+Date: Tue, 29 Apr 2025 18:41:32 +0200
+Subject: [PATCH] Added missing includes
+
+Signed-off-by: Alejandro Hernandez Cordero <ahcorde@gmail.com>
+---
+ include/gz/rendering/NativeWindow.hh | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/gz/rendering/NativeWindow.hh b/include/gz/rendering/NativeWindow.hh
+index 1e8982fcb..2303e59d2 100644
+--- a/include/gz/rendering/NativeWindow.hh
++++ b/include/gz/rendering/NativeWindow.hh
+@@ -17,6 +17,7 @@
+ #ifndef GZ_RENDERING_NATIVEWINDOW_HH_
+ #define GZ_RENDERING_NATIVEWINDOW_HH_
+ 
++#include <cstdint>
+ #include <map>
+ #include <string>
+ #include "gz/rendering/config.hh"
