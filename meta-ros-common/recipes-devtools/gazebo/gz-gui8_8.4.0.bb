@@ -3,7 +3,8 @@
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
-SRC_URI = "git://github.com/gazebosim/gz-gui.git;protocol=https;branch=gz-gui8"
+SRC_URI = "git://github.com/gazebosim/gz-gui.git;protocol=https;branch=gz-gui8 \
+           file://fix-compatibility-with-protobuf-v30.patch"
 
 SRCREV = "6d6cd72cd9b7d520030c6df43e031ecbe8fa742a"
 

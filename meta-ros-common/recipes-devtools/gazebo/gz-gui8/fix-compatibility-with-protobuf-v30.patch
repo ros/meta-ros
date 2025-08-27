@@ -1,0 +1,36 @@
+Upstream-Status: Backport [https://github.com/gazebosim/gz-gui/pull/677/commits/dd0dfe5a9589a2ab68a1d94087c43dc8951e8abc]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From dd0dfe5a9589a2ab68a1d94087c43dc8951e8abc Mon Sep 17 00:00:00 2001
+From: bill ross <4451962+bill997@users.noreply.github.com>
+Date: Mon, 21 Apr 2025 15:45:36 +1000
+Subject: [PATCH] Fix compatibility with protobuf v30 (cpp 6.30.0) - similar to
+ gz-msgs #499
+
+Signed-off-by: bill ross <4451962+bill997@users.noreply.github.com>
+---
+ src/plugins/topic_viewer/TopicViewer.cc | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/src/plugins/topic_viewer/TopicViewer.cc b/src/plugins/topic_viewer/TopicViewer.cc
+index 97d4e5997..c03e47d7d 100644
+--- a/src/plugins/topic_viewer/TopicViewer.cc
++++ b/src/plugins/topic_viewer/TopicViewer.cc
+@@ -266,12 +266,13 @@ void TopicViewer::Implementation::AddField(QStandardItem *_parentItem,
+     auto messageType = msgField->message_type();
+ 
+     if (messageType)
+-      this->AddField(msgItem, msgField->name(), messageType->full_name());
++      this->AddField(msgItem, std::string(msgField->name()),
++          std::string(messageType->full_name()));
+ 
+     else
+     {
+-      auto msgFieldItem = this->FactoryItem(msgField->name(),
+-                                            msgField->type_name());
++      auto msgFieldItem = this->FactoryItem(std::string(msgField->name()),
++                                            std::string(msgField->type_name()));
+       msgItem->appendRow(msgFieldItem);
+ 
+       this->SetItemPath(msgFieldItem);
