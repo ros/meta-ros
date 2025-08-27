@@ -25,5 +25,4 @@ sysroot_stage_all:append() {
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 SRC_URI += "file://0001-FindTinyXML2.cmake-fix-find_library-libtinyxml2.patch \
-            file://0001-CMakeLists-use-tinyxml2-by-name.patch \
-            file://address-some-compilation-warnings-with-gcc-latest.patch"
+            file://0001-CMakeLists-use-tinyxml2-by-name.patch"
