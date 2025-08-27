@@ -13,15 +13,25 @@ SRC_URI = "git://git.efficios.com/babeltrace.git;branch=stable-1.5;protocol=http
 SRCREV = "91c00f70884887ff5c4849a8e3d47e311a22ba9d"
 UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>1(\.\d+)+)$"
 
-S = "${WORKDIR}/git"
-
 inherit autotools pkgconfig ptest
 
+PACKAGECONFIG ??= "python3"
+PACKAGECONFIG[python3] = "--enable-python-bindings,,python3 swig-native python3-setuptools-native"
+
+inherit ${@bb.utils.contains('PACKAGECONFIG', 'python3', 'python3targetconfig', '', d)}
+
+PACKAGES =+ "python3-${PN}"
+
+FILES:python3-${PN} = "${PYTHON_SITEPACKAGES_DIR}"
+
 EXTRA_OECONF = "--disable-debug-info"
+
+export PYTHON_CONFIG = "${STAGING_EXECPREFIXDIR}/python-target-config/python3-config"
 
 ASNEEDED = ""
 
 RDEPENDS:${PN}-ptest += "bash gawk make"
+RDEPENDS:python3-${PN} = "python3-core"
 
 addtask do_patch_ptest_path after do_patch before do_configure
 do_patch_ptest_path () {
