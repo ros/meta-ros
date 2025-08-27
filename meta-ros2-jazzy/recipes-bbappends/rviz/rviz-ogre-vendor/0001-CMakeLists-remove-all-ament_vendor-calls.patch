@@ -7,7 +7,7 @@ Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -43,80 +43,11 @@ if(WIN32)
+@@ -45,81 +45,11 @@ if(WIN32)
    )
  endif()
  
@@ -75,6 +75,7 @@ Index: git/CMakeLists.txt
 -    -DOGRE_BUILD_RENDERSYSTEM_D3D11:BOOL=OFF
 -    -DOGRE_BUILD_RENDERSYSTEM_D3D9:BOOL=OFF
 -    -DCMAKE_POLICY_DEFAULT_CMP0074=NEW
+-    -DOGRE_MANGLE_NAME_OF_LIBRARIES_USED_BY_RVIZ:BOOL=${RVIZ_OGRE_VENDOR_MANGLE_NAME_OF_LIBRARIES_USED_BY_RVIZ}
 -    "-DCMAKE_CXX_FLAGS=${OGRE_CXX_FLAGS}"
 -    ${OGRE_CMAKE_ARGS}
 -  PATCHES patches
