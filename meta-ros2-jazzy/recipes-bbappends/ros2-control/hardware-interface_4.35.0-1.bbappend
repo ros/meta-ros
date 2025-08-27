@@ -4,3 +4,8 @@ ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-ros-native \
     python3-numpy-native \
 "
+
+# QA Issue: File /opt/ros/rolling/share/hardware_interface/cmake/export_hardware_interfaceExport.cmake in package hardware-interface-dev contains reference to TMPDIR [buildpaths]
+do_install:append() {
+    sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${ros_prefix}/share/hardware_interface/cmake/export_hardware_interfaceExport.cmake
+}
