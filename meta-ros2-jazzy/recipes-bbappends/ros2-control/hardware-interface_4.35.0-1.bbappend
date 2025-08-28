@@ -1,5 +1,15 @@
 # Copyright (c) 2022 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://use-tinyxml-by-name.patch"
+
+inherit pkgconfig
+
+ROS_BUILD_DEPENDS += " \
+    tinyxml2-vendor \
+    libtinyxml2 \
+"
+
 ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-ros-native \
     python3-numpy-native \
