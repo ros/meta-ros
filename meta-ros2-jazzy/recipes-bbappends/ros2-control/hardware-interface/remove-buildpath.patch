@@ -1,0 +1,35 @@
+Remove buildpath
+
+Adding pal_statistics_INCLUDE_DIRS causes the absolute path to be
+included in export_hardware_interfaceExport.cmake.
+
+Including the CMake target in target_link_lirbaries() instead
+automatically adds the include directory at compile time. This
+also results in the target being used in the exported cmake file.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -40,7 +40,6 @@ target_compile_features(hardware_interfa
+ target_include_directories(hardware_interface PUBLIC
+   $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+   $<INSTALL_INTERFACE:include/hardware_interface>
+-  ${pal_statistics_INCLUDE_DIRS}
+ )
+ target_link_libraries(hardware_interface PUBLIC
+                       rclcpp::rclcpp
+@@ -53,7 +52,8 @@ target_link_libraries(hardware_interface
+                       ${joint_limits_TARGETS}
+                       ${TinyXML2_LIBRARIES}
+                       ${tinyxml2_vendor_LIBRARIES}
+-                      ${pal_statistics_LIBRARIES}
++                      ${pal_statistics_TARGETS}
++                      ${pal_statistics_msgs_TARGETS}
+                       ${control_msgs_TARGETS}
+                       ${lifecycle_msgs_TARGETS}
+                       fmt::fmt)
