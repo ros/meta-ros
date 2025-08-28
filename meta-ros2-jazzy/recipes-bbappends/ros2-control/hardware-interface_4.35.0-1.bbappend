@@ -10,7 +10,7 @@ ROS_BUILD_DEPENDS += " \
     libtinyxml2 \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS += " \
     ament-cmake-ros-native \
     python3-numpy-native \
 "
