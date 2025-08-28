@@ -1,7 +1,8 @@
 # Copyright (c) 2022 Wind River Systems, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://use-tinyxml-by-name.patch"
+SRC_URI += "file://use-tinyxml-by-name.patch \
+            file://remove-buildpath.patch"
 
 inherit pkgconfig
 
