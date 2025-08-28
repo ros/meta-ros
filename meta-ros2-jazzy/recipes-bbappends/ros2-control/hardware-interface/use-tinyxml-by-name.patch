@@ -1,0 +1,44 @@
+Use pkg-config to find TinyXML2
+
+This helps avoid absolute paths from being injected into the
+generated cmake files.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -13,8 +13,6 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
+   rcpputils
+   rcutils
+   realtime_tools
+-  TinyXML2
+-  tinyxml2_vendor
+   joint_limits
+   urdf
+   pal_statistics
+@@ -24,6 +22,10 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
+ find_package(ament_cmake REQUIRED)
+ find_package(ament_cmake_gen_version_h REQUIRED)
+ find_package(backward_ros REQUIRED)
++
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(tinyxml REQUIRED tinyxml2)
++
+ foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
+   find_package(${Dependency} REQUIRED)
+ endforeach()
+@@ -49,9 +51,8 @@ target_link_libraries(hardware_interface
+                       realtime_tools::realtime_tools
+                       rcutils::rcutils
+                       rcpputils::rcpputils
++		      TinyXML2::TinyXML2
+                       ${joint_limits_TARGETS}
+-                      ${TinyXML2_LIBRARIES}
+-                      ${tinyxml2_vendor_LIBRARIES}
+ 		      ${pal_statistics_TARGETS}
+ 		      ${pal_statistics_msgs_TARGETS}
+                       ${control_msgs_TARGETS}
