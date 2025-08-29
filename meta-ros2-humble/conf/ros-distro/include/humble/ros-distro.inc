@@ -126,6 +126,10 @@ ROS_WORLD_SKIP_GROUPS += "libopen3d"
 ROS_WORLD_SKIP_GROUPS += "aws"
 # recipes depends on mrpt2
 ROS_WORLD_SKIP_GROUPS += "mrpt2"
+# recipes depends on openblas
+ROS_WORLD_SKIP_GROUPS += "openblas"
+# recipes depends on python hatchling backend
+ROS_WORLD_SKIP_GROUPS += "hatchling"
 
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
