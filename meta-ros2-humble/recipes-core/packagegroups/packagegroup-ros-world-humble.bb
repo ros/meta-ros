@@ -966,6 +966,23 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_NANOBIND = " \
     nanoeigenpy \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unresolved', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_UNRESOLVED}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_UNRESOLVED = " \
+    kuka-external-control-sdk-examples \
+    kuka-iiqka-eac-driver \
+    kuka-drivers \
+    kuka-external-control-sdk \
+    hri-face-body-matcher \
+    iiqka-moveit-example \
+    lidar-situational-graphs \
+    libdlib \
+    proto2ros \
+    situational-graphs-reasoning \
+    ROS_UNRESOLVED_DEP-python3-torch-geometric-pip \
+    ROS_UNRESOLVED_DEP-protobuf-compiler-grpc \
+    ROS_UNRESOLVED_DEP-python3-multipledispatch \
+"
+
 RDEPENDS:${PN}:remove = "vitis-common"
 
 # sophus does not directly provide any runtime components
