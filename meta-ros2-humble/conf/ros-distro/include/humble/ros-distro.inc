@@ -311,9 +311,10 @@ ROS_UNRESOLVED_DEP-ignition-transport11 = "ignition-transport11"
 
 ROS_UNRESOLVED_DEP-ignition-msgs8 = "ignition-msgs8"
 
-ROS_UNRESOLVED_DEP-ignition-plugin = "ignition-plugin"
+ROS_UNRESOLVED_DEP-ignition-plugin = "ignition-plugin1"
 
 ROS_UNRESOLVED_DEP-ignition-gazebo6 = "ignition-gazebo6"
+ROS_UNRESOLVED_DEP-gz-sim6 = "ignition-gazebo6"
 
 ROS_UNRESOLVED_DEP-ignition-common4 = "ignition-common4"
 
@@ -447,3 +448,12 @@ ROS_UNRESOLVED_DEP-nanobind = "python3-nanobind"
 ROS_UNRESOLVED_DEP-nanobind-dev = "python3-nanobind"
 ROS_UNRESOLVED_DEP-libgirepository = "gobject-introspection"
 ROS_UNRESOLVED_DEP-libgirepository-dev = "gobject-introspection"
+
+ROS_UNRESOLVED_DEP-libdlib-dev = "libdlib"
+ROS_UNRESOLVED_DEP-libiio-dev = "libiio"
+ROS_UNRESOLVED_DEP-python3-colorcet = "python3-colorcet"
+ROS_UNRESOLVED_DEP-python3-graphviz = "python3-graphviz"
+ROS_UNRESOLVED_DEP-python3-inflection = "python3-inflection"
+ROS_UNRESOLVED_DEP-python3-pytorch-pip = "python3-pytorch"
+ROS_UNRESOLVED_DEP-python3-seaborn = "python3-seaborn"
+ROS_UNRESOLVED_DEP-python3-tabulate = "python3-tabulate"
