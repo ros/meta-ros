@@ -1172,6 +1172,33 @@ RDEPENDS:${PN}:remove = "septentrio-gnss-driver"
 # but it has no dependencies
 RDEPENDS:${PN}:remove = "behaviortree-cpp"
 
+# blosc is not available
+RDEPENDS:${PN}:remove = "openvdb-vendor"
+RDEPENDS:${PN}:remove = "openvdb-vendor-dev"
+RDEPENDS:${PN}:remove = "openvdb"
+RDEPENDS:${PN}:remove = "openvdb-dev"
+RDEPENDS:${PN}:remove = "blosc"
+RDEPENDS:${PN}:remove = "spatio-temporal-voxel-layer"
+RDEPENDS:${PN}:remove = "spatio-temporal-voxel-layer-dev"
+
+# python3-rich is not available
+RDEPENDS:${PN}:remove = "python3-rich"
+RDEPENDS:${PN}:remove = "jacro"
+RDEPENDS:${PN}:remove = "jacro-dev"
+
+# aravis is not available
+RDEPENDS:${PN}:remove = "aravis"
+RDEPENDS:${PN}:remove = "camera-aravis2"
+RDEPENDS:${PN}:remove = "camera-aravis2-dev"
+
+# python3-httpd is not available
+RDEPENDS:${PN}:remove = "python3-httpx"
+
+# python3-platformdirs is not available
+RDEPENDS:${PN}:remove = "automatika-embodied-agents"
+RDEPENDS:${PN}:remove = "automatika-embodied-agents-dev"
+RDEPENDS:${PN}:remove = "python3-platformdirs"
+
 # nao-meshes requires Java and confirmation to a non-commercial license
 # developers using the NAO robot may build it separately
 RDEPENDS:${PN}:remove = "nao-meshes"
