@@ -1102,6 +1102,33 @@ RDEPENDS:${PN}:remove = "behaviortree-cpp"
 RDEPENDS:${PN}:remove = "smacc2"
 RDEPENDS:${PN}:remove = "smacc2-msgs"
 
+# blosc is not available
+RDEPENDS:${PN}:remove = "openvdb-vendor"
+RDEPENDS:${PN}:remove = "openvdb-vendor-dev"
+RDEPENDS:${PN}:remove = "openvdb"
+RDEPENDS:${PN}:remove = "openvdb-dev"
+RDEPENDS:${PN}:remove = "blosc"
+RDEPENDS:${PN}:remove = "spatio-temporal-voxel-layer"
+RDEPENDS:${PN}:remove = "spatio-temporal-voxel-layer-dev"
+
+# python3-rich is not available
+RDEPENDS:${PN}:remove = "python3-rich"
+RDEPENDS:${PN}:remove = "jacro"
+RDEPENDS:${PN}:remove = "jacro-dev"
+
+# aravis is not available
+RDEPENDS:${PN}:remove = "aravis"
+RDEPENDS:${PN}:remove = "camera-aravis2"
+RDEPENDS:${PN}:remove = "camera-aravis2-dev"
+
+# python3-httpd is not available
+RDEPENDS:${PN}:remove = "python3-httpx"
+
+# python3-platformdirs is not available
+RDEPENDS:${PN}:remove = "automatika-embodied-agents"
+RDEPENDS:${PN}:remove = "automatika-embodied-agents-dev"
+RDEPENDS:${PN}:remove = "python3-platformdirs"
+
 # novatel-gps-driver
 RDEPENDS:${PN}:remove = "novatel-gps-driver"
 
