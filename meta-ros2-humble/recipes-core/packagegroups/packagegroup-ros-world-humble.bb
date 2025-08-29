@@ -557,6 +557,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_QT5_WIDGETS = " \
 # NB. gazebo-msgs is a dependency of non-Gazebo packages, so it doesn't appear here.
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
+    andino-apps \
     andino-bringup \
     andino-control \
     andino-description \
@@ -574,18 +575,35 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     gazebo-plugins \
     gazebo11 \
     gazebo-model-attachment-plugin \
+    gazebo-no-physics-plugin \
+    gazebo-planar-move-plugin \
+    gazebo-plugins \
     gazebo-ros-pkgs \
     gazebo-ros \
     gazebo-rosdev \
-    gazebo-ros2-control-demos \
     gazebo-ros2-control \
+    gazebo-ros2-control-demos \
+    gazebo-set-joint-positions-plugin \
     gazebo-video-monitors \
     gazebo-video-monitor-plugins \
+    hri-face-body-matcher \
     irobot-create-gazebo-bringup \
     irobot-create-gazebo-plugins \
     irobot-create-gazebo-sim \
     kortex-bringup \
+    leo-gz-plugins \
+    leo-gz-bringup \
+    leo-simulator \
+    libdlib \
     nav2-system-tests \
+    omni-base-bringup \
+    omni-base-description \
+    omni-base-gazebo \
+    omni-base-robot \
+    omni-base-simulation \
+    open-manipulator \
+    open-manipulator-x-bringup \
+    open-manipulator-x-teleop \
     pal-gazebo-plugins \
     pmb2-gazebo \
     pmb2-simulation \
@@ -600,13 +618,23 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GAZEBO = " \
     rmf-robot-sim-gz-plugins \
     rmf-robot-sim-gz-classic-plugins \
     rmf-rosdev \
+    rmf-traffic-editor-test-maps \
+    talos-gazebo \
+    tiago-bringup \
+    tiago-description \
     tiago-gazebo \
+    tiago-moveit-config \
+    tiago-robot \
     tiago-simulation \
     turtlebot3-gazebo \
     turtlebot3-manipulation \
     turtlebot3-manipulation-bringup \
+    turtlebot3-manipulation-gazebo \
     turtlebot3-manipulation-teleop \
     turtlebot3-simulations \
+    turtlebot4-simulator \
+    turtlebot4-ignition-bringup \
+    turtlebot4-ignition-gui-plugins \
     urdf-sim-tutorial \
     velodyne-description \
     velodyne-simulator \
