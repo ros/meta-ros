@@ -26,8 +26,10 @@ ROS_BUILD_DEPENDS += " \
     boost \
     gdal \
     geos \
+    googletest \
     libtinyxml2 \
     nlohmann-json \
+    tinyxml2-vendor \
 "
 
 inherit python3native
