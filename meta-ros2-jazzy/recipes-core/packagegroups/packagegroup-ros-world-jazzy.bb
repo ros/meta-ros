@@ -835,8 +835,19 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOPEN3D = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'scipy', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY = " \
+    beluga-amcl \
+    beluga-ros \
+    coal \
+    eigenpy \
+    hpp-fcl \
+    kinematics-interface-pinocchio \
+    pinocchio \
     proxsuite \
     slider-publisher \
+    tsid \
+    turtlebot3-applications \
+    turtlebot3-automatic-parking-vision \
+    turtlebot3-home-service-challenge-aruco \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hunter', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HUNTER}', '', d)}"
