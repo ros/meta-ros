@@ -142,13 +142,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBQGLVIEWER = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ignition', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
+    aerostack2 \
+    andino-apps \
     andino-bringup \
     andino-control \
     andino-description \
-    andino-navigation \
     andino-gz-classic \
+    andino-navigation \
     andino-slam \
-    aerostack2 \
     as2-gazebo-classic-assets \
     as2-ign-gazebo-assets \
     as2-platform-ign-gazebo \
@@ -157,10 +158,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     clearpath-nav2-demos \
     clearpath-simulator \
     clearpath-viz \
-    crane-plus-moveit-config \
     color-names \
-    dolly-ignition \
+    crane-plus-moveit-config \
     dolly \
+    dolly-ignition \
     etsi-its-rviz-plugins \
     gazebo-ros2-control \
     grid-map \
@@ -170,9 +171,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     ign-rviz \
     ign-rviz-common \
     ign-rviz-plugins \
-    ignition-cmake2-vendor \
-    ignition-math6-vendor \
     ignition-cmake2 \
+    ignition-cmake2-vendor \
     ignition-common4 \
     ignition-fortress \
     ignition-fuel-tools7 \
@@ -180,6 +180,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     ignition-gui6 \
     ignition-launch5 \
     ignition-math6 \
+    ignition-math6-vendor \
     ignition-msgs8 \
     ignition-physics5 \
     ignition-plugin \
@@ -190,8 +191,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     ignition-utils1 \
     irobot-create-common-bringup \
     irobot-create-ignition-bringup \
-    irobot-create-ignition-sim \
     irobot-create-ignition-plugins \
+    irobot-create-ignition-sim \
     irobot-create-ignition-toolbox \
     irobot-create-nodes \
     irobot-create-toolbox \
@@ -243,11 +244,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     robotiq-description \
+    ros-gz \
     ros-gz-bridge \
     ros-gz-image \
     ros-gz-sim \
     ros-gz-sim-demos \
-    ros-gz \
     ros-ign \
     ros-ign-bridge \
     ros-ign-gazebo \
@@ -258,10 +259,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     rtabmap-launch \
     rtabmap-ros \
     rtabmap-rviz-plugins \
-    rviz2 \
     rviz-default-plugins \
     rviz-satellite \
     rviz-visual-tools \
+    rviz2 \
     sdformat \
     sdformat-urdf \
     simulation \
@@ -279,10 +280,10 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_IGNITION = " \
     turtlebot3-manipulation-description \
     turtlebot3-manipulation-navigation2 \
     turtlebot3-navigation2 \
-    turtlebot4-navigation \
     turtlebot4-desktop \
     turtlebot4-ignition-bringup \
     turtlebot4-ignition-gui-plugins \
+    turtlebot4-navigation \
     turtlebot4-python-tutorials \
     turtlebot4-simulator \
     turtlebot4-tutorials \
