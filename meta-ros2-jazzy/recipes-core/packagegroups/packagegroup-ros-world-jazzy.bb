@@ -1023,6 +1023,48 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENBLAS = " \
     tvm-vendor \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hatchling', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HATCHLING}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HATCHLING = " \
+    canopen-ros2-controllers \
+    clearpath-common \
+    clearpath-config-live \
+    clearpath-control \
+    clearpath-generator-common \
+    clearpath-generator-gz \
+    clearpath-tests \
+    controller-manager \
+    ffw \
+    ffw-bringup \
+    ffw-moveit-config \
+    gz-ros2-control \
+    irobot-create-gz-bringup \
+    irobot-create-gz-sim \
+    moveit-resources-fanuc-moveit-config \
+    moveit-resources-panda-moveit-config \
+    moveit-servo \
+    open-manipulator \
+    open-manipulator-bringup \
+    open-manipulator-moveit-config \
+    python3-filelock \
+    python3-uvicorn \
+    raspimouse-description \
+    raspimouse-gazebo \
+    raspimouse-sim \
+    rmf-demos-fleet-adapter \
+    ros2-control \
+    ros2controlcli \
+    rqt-controller-manager \
+    synapticon-ros2-control \
+    turtlebot3-home-service-challenge \
+    turtlebot3-home-service-challenge-core \
+    turtlebot3-home-service-challenge-manipulator \
+    turtlebot3-home-service-challenge-tools \
+    turtlebot3-manipulation-bringup \
+    ur-moveit-config \
+    ur-simulation-gz \
+"
+
+
 RDEPENDS:${PN}:remove = "vitis-common"
 
 # sophus does not directly provide any runtime components
