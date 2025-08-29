@@ -23,9 +23,13 @@ require conf/ros-distro/include/humble/ros-distro-preferred-providers.inc
 # Since superflore doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
+    action-msgs-native \
     ament-acceleration-native \
     ament-index-cpp-native \
     ament-lint-native \
+    ament-cmake-cpplint-native \
+    ament-cmake-uncrustify-native \
+    composition-interfaces-native \
     cyclonedds-native \
     domain-coordinator-native \
     fastcdr-native \
@@ -35,65 +39,66 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     iceoryx-binding-c-native \
     iceoryx-hoofs-native \
     iceoryx-posh-native \
-    iceoryx-hoofs-native \
     launch-native \
     launch-ros-native \
-    launch-yaml-native \
-    launch-xml-native \
     launch-testing-ros-native \
+    launch-xml-native \
+    launch-yaml-native \
+    libstatistics-collector-native \
+    libyaml-vendor-native \
     lifecycle-msgs-native \
     osrf-pycommon-native \
-    rcutils-native \
+    parameter-traits-native \
+    pybind11-vendor-native \
+    rcl-action-native \
+    rcl-interfaces-native \
+    rcl-lifecycle-native \
+    rcl-logging-interface-native \
+    rcl-logging-spdlog-native \
+    rcl-native \
+    rcl-yaml-param-parser-native \
+    rclcpp-lifecycle-native \
+    rclcpp-native \
     rclpy-native \
     rcpputils-native \
+    rcutils-native \
+    rmf-building-map-msgs-native \
+    rmf-site-map-msgs-native \
+    rmw-cyclonedds-cpp-native \
     rmw-dds-common-native \
     rmw-fastrtps-cpp-native \
+    rmw-fastrtps-dynamic-cpp-native \
     rmw-fastrtps-shared-cpp-native \
+    rmw-implementation-native \
     rmw-native \
     ros2cli-native \
     ros2pkg-native \
+    rosgraph-msgs-native \
     rosidl-adapter-native \
     rosidl-cli-native \
+    rosidl-core-runtime-native \
     rosidl-default-runtime-native \
-    rosidl-parser-native \
-    rosidl-runtime-c-native \
-    rosidl-runtime-cpp-native \
-    rosidl-typesupport-fastrtps-c-native \
-    rpyutils-native \
-    uncrustify-vendor-native \
+    rosidl-dynamic-typesupport-native \
+    rosidl-generator-type-description-native \
     rosidl-parser-native \
     rosidl-runtime-c-native \
     rosidl-runtime-cpp-native \
     rosidl-typesupport-c-native \
     rosidl-typesupport-cpp-native \
     rosidl-typesupport-fastrtps-c-native \
-    fastcdr-native \
-    fastrtps-native \
-    composition-interfaces-native \
-    pybind11-vendor-native \
-    rcl-yaml-param-parser-native \
-    rcl-action-native \
-    rcl-interfaces-native \
-    rcl-lifecycle-native \
-    rcl-logging-interface-native \
-    rcl-native \
-    rcl-yaml-param-parser-native \
-    rmw-implementation-native \
-    rosgraph-msgs-native \
-    unique-identifier-msgs-native \
-    rmw-fastrtps-shared-cpp-native \
-    action-msgs-native \
-    rcl-logging-spdlog-native \
+    rosidlcpp-generator-core-native \
+    rosidlcpp-parser-native \
+    rpyutils-native \
+    rsl-native \
+    spdlog-vendor-native \
+    statistics-msgs-native \
+    std-msgs-native \
+    tcb-span-native \
+    tl-expected-native \
     tracetools-native \
     type-description-interfaces-native \
-    libyaml-vendor-native \
-    rmw-fastrtps-cpp-native \
-    rmw-cyclonedds-cpp-native \
-    rmw-fastrtps-dynamic-cpp-native \
-    spdlog-vendor-native \
-    rmf-building-map-msgs-native \
-    std-msgs-native \
-    rmf-site-map-msgs-native \
+    uncrustify-vendor-native \
+    unique-identifier-msgs-native \
 "
 
 # this needs google-benchmark-vendor-native but we probably don't need native version
