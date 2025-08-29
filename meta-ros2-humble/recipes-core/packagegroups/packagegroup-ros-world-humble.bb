@@ -937,6 +937,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_G2O = " \
     rtabmap-viz \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'nanobind', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_NANOBIND}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_NANOBIND = " \
+    nanoeigenpy \
+"
+
 RDEPENDS:${PN}:remove = "vitis-common"
 
 # sophus does not directly provide any runtime components
