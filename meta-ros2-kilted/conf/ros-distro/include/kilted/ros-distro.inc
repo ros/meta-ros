@@ -45,6 +45,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     launch-yaml-native \
     launch-xml-native \
     launch-testing-ros-native \
+    libstatistics-collector-native \
     libyaml-vendor-native \
     lifecycle-msgs-native \
     osrf-pycommon-native \
@@ -57,6 +58,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rcl-logging-spdlog-native \
     rcl-native \
     rcl-yaml-param-parser-native \
+    rclcpp-native \
     rclpy-native \
     rcpputils-native \
     rmf-building-map-msgs-native \
@@ -89,8 +91,10 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-runtime-c-native \
     rosidl-runtime-cpp-native \
+    rosidlcpp-parser-native \
     rpyutils-native \
     spdlog-vendor-native \
+    statistics-msg-native \
     std-msgs-native \
     tracetools-native \
     type-description-interfaces-native \
