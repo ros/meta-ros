@@ -17,6 +17,11 @@ SRCREV_matplotlib-cpp = "75c15d0c907a4b68bca5ef97032302bd14ccab8e"
 
 SRCREV_FORMAT = "release_steering-functions_spline_matplotlib-cpp"
 
+ROS_BUILD_DEPENDS:remove = "gtest"
+ROS_EXPORT_DEPENDS:remove = "gtest"
+ROS_EXEC_DEPENDS:remove = "gtest"
+ROS_TEST_DEPENDS:remove = "gtest"
+
 ROS_BUILD_DEPENDS += " \
     boost \
     gdal \
