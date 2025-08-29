@@ -1,23 +1,23 @@
-Remove missing braces and shadow warning as errors
+Remove missing braces and shadow warning as errors by not
+setting compiler options.
 
 Upstream-Status: Pending
 
 Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 ---
  CMakeLists.txt | 3 +--
  1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 5f874bb60..f197e6f1a 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -2,8 +2,7 @@ cmake_minimum_required(VERSION 3.16)
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.16)
  project(joint_limits LANGUAGES CXX)
  
- if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
--  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type -Werror=shadow
--          -Werror=missing-braces)
-+  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type)
- endif()
+ find_package(ros2_control_cmake REQUIRED)
+-set_compiler_options()
+ export_windows_symbols()
  
- # using this instead of visibility macros
+ set(THIS_PACKAGE_INCLUDE_DEPENDS
