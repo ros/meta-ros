@@ -25,10 +25,10 @@ require conf/ros-distro/include/jazzy/ros-distro-preferred-providers.inc
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     action-msgs-native \
     ament-acceleration-native \
-    ament-index-cpp-native \
-    ament-lint-native \
     ament-cmake-cpplint-native \
     ament-cmake-uncrustify-native \
+    ament-index-cpp-native \
+    ament-lint-native \
     composition-interfaces-native \
     cyclonedds-native \
     domain-coordinator-native \
@@ -41,16 +41,15 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     iceoryx-posh-native \
     launch-native \
     launch-ros-native \
-    launch-yaml-native \
-    launch-xml-native \
     launch-testing-ros-native \
+    launch-xml-native \
+    launch-yaml-native \
     libstatistics-collector-native \
     libyaml-vendor-native \
     lifecycle-msgs-native \
     osrf-pycommon-native \
     parameter-traits-native \
     pybind11-vendor-native \
-    rcutils-native \
     rcl-action-native \
     rcl-interfaces-native \
     rcl-lifecycle-native \
@@ -58,10 +57,11 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rcl-logging-spdlog-native \
     rcl-native \
     rcl-yaml-param-parser-native \
-    rclcpp-native \
     rclcpp-lifecycle-native \
+    rclcpp-native \
     rclpy-native \
     rcpputils-native \
+    rcutils-native \
     rmf-building-map-msgs-native \
     rmf-site-map-msgs-native \
     rmw-cyclonedds-cpp-native \
@@ -86,10 +86,8 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-typesupport-c-native \
     rosidl-typesupport-cpp-native \
     rosidl-typesupport-fastrtps-c-native \
-    rosidl-runtime-c-native \
-    rosidl-runtime-cpp-native \
-    rosidlcpp-parser-native \
     rosidlcpp-generator-core-native \
+    rosidlcpp-parser-native \
     rpyutils-native \
     rsl-native \
     spdlog-vendor-native \
