@@ -891,8 +891,41 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOPEN3D = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'scipy', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY = " \
+    autoware-qp-interface \
+    autoware-motion-velocity-obstacle-stop-module \
+    autoware-core-planning \
+    autoware-core \
+    autoware-motion-velocity-planner \
+    autoware-behavior-velocity-planner \
+    autoware-behavior-velocity-stop-line-module \
+    autoware-motion-velocity-planner-common \
+    autoware-behavior-velocity-planner-common \
+    autoware-velocity-smoother \
+    coal \
+    eigenpy \
+    franka-bringup \
+    franka-example-controllers \
+    franka-fr3-moveit-config \
+    franka-gazebo-bringup \
+    franka-gripper \
+    franka-hardware \
+    franka-ign-ros2-control \
+    franka-robot-state-broadcaster \
+    franka-ros2 \
+    franka-semantic-components \
+    hpp-fcl \
+    kinematics-interface-pinocchio \
+    libfranka \
+    pinocchio \
     proxsuite \
+    python3-scipy \
     slider-publisher \
+    tsid \
+    turtlebot3-applications \
+    turtlebot3-automatic-parking-vision \
+    turtlebot3-home-service-challenge-aruco \
+    turtlebot3-home-service-challenge-core \
+    turtlebot3-home-service-challenge \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'hunter', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HUNTER}', '', d)}"
