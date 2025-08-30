@@ -1,0 +1,49 @@
+Remove license-files from pyproject.toml
+
+Traceback (most recent call last):
+  File "<BUILDDIR>/tmp-glibc/work/cortexa76-oe-linux/python3-types-pyyaml/6.0.12.20250822/types_pyyaml-6.0.12.20250822/setup.py", line 4, in <module>
+    setup(package_data={'yaml-stubs': ['__init__.pyi', '_yaml.pyi', 'composer.pyi', 'constructor.pyi', 'cyaml.pyi', 'dumper.pyi', 'emitter.pyi', 'error.pyi', 'events.pyi', 'loader.pyi', 'nodes.pyi', 'parser.pyi', 'reader.pyi', 'representer.pyi', 'resolver.pyi', 'scanner.pyi', 'serializer.pyi', 'tokens.pyi', 'METADATA.toml', 'py.typed']})
+  File "<BUILDDIR>/tmp-glibc/work/cortexa76-oe-linux/python3-types-pyyaml/6.0.12.20250822/recipe-sysroot-native/usr/lib/python3.12/site-packages/setuptools/__init__.py", line 103, in setup
+    return distutils.core.setup(**attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<BUILDDIR>/tmp-glibc/work/cortexa76-oe-linux/python3-types-pyyaml/6.0.12.20250822/recipe-sysroot-native/usr/lib/python3.12/site-packages/setuptools/_distutils/core.py", line 159, in setup
+    dist.parse_config_files()
+  File "<BUILDDIR>/tmp-glibc/work/cortexa76-oe-linux/python3-types-pyyaml/6.0.12.20250822/recipe-sysroot-native/usr/lib/python3.12/site-packages/setuptools/dist.py", line 627, in parse_config_files
+    pyprojecttoml.apply_configuration(self, filename, ignore_option_errors)
+  File "<BUILDDIR>/tmp-glibc/work/cortexa76-oe-linux/python3-types-pyyaml/6.0.12.20250822/recipe-sysroot-native/usr/lib/python3.12/site-packages/setuptools/config/pyprojecttoml.py", line 67, in apply_configuration
+    config = read_configuration(filepath, True, ignore_option_errors, dist)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<BUILDDIR>/tmp-glibc/work/cortexa76-oe-linux/python3-types-pyyaml/6.0.12.20250822/recipe-sysroot-native/usr/lib/python3.12/site-packages/setuptools/config/pyprojecttoml.py", line 128, in read_configuration
+    validate(subset, filepath)
+  File "<BUILDDIR>/tmp-glibc/work/cortexa76-oe-linux/python3-types-pyyaml/6.0.12.20250822/recipe-sysroot-native/usr/lib/python3.12/site-packages/setuptools/config/pyprojecttoml.py", line 56, in validate
+    raise ValueError(f"{error}\n{summary}") from None
+ValueError: invalid pyproject.toml config: `project.license`.
+configuration error: `project.license` must be valid exactly by one definition (2 matches found):
+
+    - keys:
+        'file': {type: string}
+      required: ['file']
+    - keys:
+        'text': {type: string}
+      required: ['text']
+
+ERROR: 'python3 setup.py bdist_wheel ' execution failed.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: types_pyyaml-6.0.12.20250822/pyproject.toml
+===================================================================
+--- types_pyyaml-6.0.12.20250822.orig/pyproject.toml
++++ types_pyyaml-6.0.12.20250822/pyproject.toml
+@@ -5,8 +5,7 @@ requires = ["setuptools>=77.0.3"]
+ [project]
+ name = "types-PyYAML"
+ version = "6.0.12.20250822"
+-license = "Apache-2.0"
+-license-files = ["LICENSE"]
++license = { text = "Apache-2.0" }
+ description = "Typing stubs for PyYAML"
+ readme = { text = """\
+ ## Typing stubs for PyYAML
