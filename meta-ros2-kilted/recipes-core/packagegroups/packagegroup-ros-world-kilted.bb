@@ -788,6 +788,7 @@ RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'webots-p
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
     webots-ros2 \
     webots-ros2-abb \
+    webots-ros2-crazyflie \
     webots-ros2-control \
     webots-ros2-core \
     webots-ros2-demos \
@@ -795,6 +796,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_WEBOTS_PYTHON_MODULES = " \
     webots-ros2-driver \
     webots-ros2-epuck \
     webots-ros2-examples \
+    webots-ros2-husarion\
     webots-ros2-importer \
     webots-ros2-mavic \
     webots-ros2-tesla \
