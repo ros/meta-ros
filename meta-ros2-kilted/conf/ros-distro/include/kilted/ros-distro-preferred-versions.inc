@@ -15,7 +15,7 @@ PREFERRED_VERSION_pcl = "1.14.1"
 PREFERRED_VERSION_sdformat = "15.3.0"
 
 # required for python3-scipy
-PREFERRED_VERSION_python3-gast = "0.5.0"
+PREFERRED_VERSION_python3-gast = "0.5.4"
 
 PREFERRED_VERSION_dartsim = "6.13.2"
 
