@@ -25,10 +25,10 @@ require conf/ros-distro/include/rolling/ros-distro-preferred-providers.inc
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     action-msgs-native \
     ament-acceleration-native \
-    ament-index-cpp-native \
-    ament-lint-native \
     ament-cmake-cpplint-native \
     ament-cmake-uncrustify-native \
+    ament-index-cpp-native \
+    ament-lint-native \
     composition-interfaces-native \
     cyclonedds-native \
     domain-coordinator-native \
@@ -41,14 +41,13 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     iceoryx-posh-native \
     launch-native \
     launch-ros-native \
-    launch-yaml-native \
-    launch-xml-native \
     launch-testing-ros-native \
+    launch-xml-native \
+    launch-yaml-native \
     libyaml-vendor-native \
     lifecycle-msgs-native \
     osrf-pycommon-native \
     pybind11-vendor-native \
-    rcutils-native \
     rcl-action-native \
     rcl-interfaces-native \
     rcl-lifecycle-native \
@@ -58,6 +57,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rcl-yaml-param-parser-native \
     rclpy-native \
     rcpputils-native \
+    rcutils-native \
     rmf-building-map-msgs-native \
     rmf-site-map-msgs-native \
     rmw-cyclonedds-cpp-native \
@@ -65,11 +65,11 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rmw-fastrtps-cpp-native \
     rmw-fastrtps-dynamic-cpp-native \
     rmw-fastrtps-shared-cpp-native \
-    rmw-test-fixture-native \
-    rmw-test-fixture-implementation-native \
     rmw-implementation-native \
     rmw-native \
     rmw-security-common-native \
+    rmw-test-fixture-implementation-native \
+    rmw-test-fixture-native \
     rmw-zenoh-cpp-native \
     ros2cli-native \
     ros2pkg-native \
@@ -82,12 +82,12 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-generator-type-description-native \
     rosidl-parser-native \
     rosidl-runtime-c-native \
+    rosidl-runtime-c-native \
+    rosidl-runtime-cpp-native \
     rosidl-runtime-cpp-native \
     rosidl-typesupport-c-native \
     rosidl-typesupport-cpp-native \
     rosidl-typesupport-fastrtps-c-native \
-    rosidl-runtime-c-native \
-    rosidl-runtime-cpp-native \
     rpyutils-native \
     spdlog-vendor-native \
     std-msgs-native \
