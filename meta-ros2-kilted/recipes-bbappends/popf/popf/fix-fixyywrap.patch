@@ -1,0 +1,27 @@
+Remove parameter to -i when using sed
+
+MacOS' sed requires '' as a parameter to -i but this causes problems for
+GNU sed so we must remove it
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/src/VALfiles/parsing/fixyywrap
+===================================================================
+--- git.orig/src/VALfiles/parsing/fixyywrap
++++ git/src/VALfiles/parsing/fixyywrap
+@@ -4,10 +4,11 @@ $bindir = shift @ARGV;
+ $srcdir = shift @ARGV;
+ 
+ # MacOS' sed requires '' as a parameter to -i
+-system("sed -i '' 's/yyerror(char/yyerror(const char/' $bindir/pddl+.cpp");
++# but this causes problems for GNU sed so we must remove it
++system("sed -i 's/yyerror(char/yyerror(const char/' $bindir/pddl+.cpp");
+ 
+ # add Homebrew's flex include path
+-open IN, "g++ -E -I/usr/local/opt/flex/include $srcdir/fixyywrap.cpp |";
++open IN, "$ENV{'CXX'} $ENV{'CXXFLAGS'} -E $srcdir/fixyywrap.cpp |";
+ open OUT, "> $bindir/fixyywrap.h";
+ 
+ while (<IN>) {
