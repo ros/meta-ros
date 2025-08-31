@@ -930,12 +930,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_NANOBIND = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'zenoh', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ZENOH}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ZENOH = " \
     launch-testing-ros \
-    rmw-zenoh-cpp \
     rmw-test-fixture-implementation \
+    rmw-zenoh-cpp \
     zenoh \
     zenoh-c \
     zenoh-cpp \
+    zenoh-cpp-vendor \
     zenoh-pico \
+    zenoh-security-tools \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gripper', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GRIPPER}', '', d)}"
