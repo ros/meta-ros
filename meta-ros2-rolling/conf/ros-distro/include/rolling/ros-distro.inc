@@ -146,6 +146,8 @@ ROS_WORLD_SKIP_GROUPS += "libspnav"
 ROS_WORLD_SKIP_GROUPS += "libopen3d"
 # recipes depends on aws
 ROS_WORLD_SKIP_GROUPS += "aws"
+# recipes depends on openblas
+ROS_WORLD_SKIP_GROUPS += "openblas"
 
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
