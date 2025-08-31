@@ -208,6 +208,8 @@ ROS_WORLD_SKIP_GROUPS += "pyside2"
 
 ROS_WORLD_SKIP_GROUPS += "nanobind"
 
+ROS_WORLD_SKIP_GROUPS += "gripper"
+
 # Must use a _pn- override in this file to override the ROS_BUILD_TYPE of a generated recipe,
 # because we need to set this variable before the "inherit" line in the recipe is parsed,
 # and having it in a .bbappend sets it too late.
