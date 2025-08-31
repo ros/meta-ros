@@ -1032,6 +1032,33 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENBLAS = " \
     tvm-vendor \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unresolved', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_UNRESOLVED}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_UNRESOLVED = " \
+    python3-filelock \
+    canopen-ros2-controllers \
+    ros2controlcli \
+    synapticon-ros2-control \
+    nmea-hardware-interface \
+    ros2-control \
+    open-manipulator-bringup \
+    open-manipulator \
+    ur-calibration \
+    ur-robot-driver \
+    controller-manager \
+    rqt-controller-manager \
+    open-manipulator-moveit-config \
+    moveit-hybrid-planning \
+    moveit-resources-fanuc-moveit-config \
+    moveit-resources-panda-moveit-config \
+\
+    python3-rich \
+    jacro \
+\
+    python3-httpx \
+    automatika-embodied-agents \
+"
+
+
 RDEPENDS:${PN}:remove = "vitis-common"
 
 # sophus does not directly provide any runtime components

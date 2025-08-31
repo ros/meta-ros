@@ -135,6 +135,8 @@ ROS_WORLD_SKIP_GROUPS += "aws"
 # recipes depends on openblas
 ROS_WORLD_SKIP_GROUPS += "openblas"
 
+ROS_WORLD_SKIP_GROUPS += "unresolved"
+
 # recipes depending on 'x11' in DISTRO_FEATURES
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'x11', d)}"
 # recipes depending on 'opengl' in DISTRO_FEATURES
