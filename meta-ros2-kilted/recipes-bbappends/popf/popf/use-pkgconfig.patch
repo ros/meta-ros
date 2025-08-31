@@ -1,0 +1,58 @@
+Use pkg-config to find coin-or dependencies
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -11,10 +11,11 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ set( CMAKE_MODULE_PATH    ${CMAKE_MODULE_PATH}
+                           ${CMAKE_CURRENT_SOURCE_DIR}/src/cmake/modules)
+ 
+-find_package(Clp)
+-find_package(CoinUtils)
+-find_package(Cbc)
+-find_package(Cgl)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(CLP REQUIRED clp)
++pkg_check_modules(CoinUtils REQUIRED coinutils)
++pkg_check_modules(CBC REQUIRED cbc)
++pkg_check_modules(CGL REQUIRED cgl)
+ 
+ set(val_SOURCE_DIR src/VALfiles)
+ set(popf_SOURCE_DIR src/popf)
+@@ -25,9 +26,9 @@ include_directories(
+   ${val_SOURCE_DIR} 
+   ${parsePDDL_SOURCE_DIR}
+   ${val_BINARY_DIR} 
+-  ${CLP_INCLUDES}/coin
+-  ${CBC_INCLUDES}/coin  
+-  ${CPLEX_INCLUDES} 
++  ${CLP_INCLUDE_DIRS}
++  ${CBC_INCLUDE_DIRS}
++  ${CPLEX_INCLUDE} 
+   ${CONCERT_INCLUDES}
+ )
+ 
+@@ -169,7 +170,7 @@ install(TARGETS popfCommon ParsePDDL Ins
+ ADD_EXECUTABLE(popf ${popf_SOURCE_DIR}/popfMain.cpp)
+ target_link_libraries(popf
+   popfCommon
+-  ${CBC_LIBRARY} ${CGL_LIBRARIES} ${CLP_LIBRARIES}  ${COINUTILS_LIBRARIES}
++  ${CBC_LIBRARIES} ${CGL_LIBRARIES} ${CLP_LIBRARIES} ${COINUTILS_LIBRARIES}
+ )
+ install(TARGETS popf
+   ARCHIVE DESTINATION lib
+@@ -182,6 +183,6 @@ install(FILES src/popf/Popf.hpp
+ )
+ 
+ ament_export_include_directories(include)
+-ament_export_libraries(popfCommon ParsePDDL Inst ${CBC_LIBRARY} ${CGL_LIBRARIES} ${OSICLP_LIBRARIES} ${OSI_LIBRARIES} ${CLP_LIBRARIES}  ${COINUTILS_LIBRARIES})
++ament_export_libraries(popfCommon ParsePDDL Inst ${CBC_LIBRARIES} ${CGL_LIBRARIES} ${OSICLP_LIBRARIES} ${OSI_LIBRARIES} ${CLP_LIBRARIES}  ${COINUTILS_LIBRARIES})
+ ament_export_dependencies(${dependencies})
+-ament_package()
+\ No newline at end of file
++ament_package()
