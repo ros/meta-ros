@@ -1,0 +1,30 @@
+Disable compiler options
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -20,20 +20,6 @@ project(nanoflann VERSION "${NANOFLANN_V
+ message(STATUS "nanoflann version: ${NANOFLANN_VERSION_MAJOR}.${NANOFLANN_VERSION_MINOR}.${NANOFLANN_VERSION_PATCH}")
+ file(WRITE "${nanoflann_BINARY_DIR}/version" "${NANOFLANN_VERSION_MAJOR}.${NANOFLANN_VERSION_MINOR}.${NANOFLANN_VERSION_PATCH}")
+ 
+-# Enable a high level of warnings.
+-if (CMAKE_COMPILER_IS_GNUCXX)
+-	# The -Wno-long-long is required in 64bit systems when including sytem headers.
+-	# The -Wno-variadic-macros was needed for Eigen3, StdVector.h
+-	add_compile_options(-Wall -Wshadow -Wno-long-long -Wno-variadic-macros)
+-	if (NOT "${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+-		add_compile_options(-O2 -mtune=native)
+-	endif()
+-	# Workaround: Eigen <3.4 produces *tons* of warnings in GCC >=6. See http://eigen.tuxfamily.org/bz/show_bug.cgi?id=1221
+-	if (NOT ${CMAKE_CXX_COMPILER_VERSION} LESS "6.0")
+-		add_compile_options(-Wno-ignored-attributes -Wno-int-in-bool-context)
+-	endif()
+-endif()
+-
+ if(MSVC)
+ 	 add_definitions( "/W3 /D_CRT_SECURE_NO_WARNINGS /nologo" )
+ endif()
