@@ -844,9 +844,14 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOPEN3D = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'scipy', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY = " \
+    coal \
+    eigenpy \
+    hpp-fcl \
     kinematics-interface-pinocchio \
     pinocchio \
     proxsuite \
+    python3-platformdirs \
+    python3-scipy \
     slider-publisher \
     tsid \
 "
