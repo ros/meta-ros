@@ -284,6 +284,7 @@ while IFS= read -r COMMIT_ID; do
     while IFS= read -r REPLACE_FILEPATH; do
         OLD_FILE=$(echo "${REPLACE_FILEPATH}" | cut -d: -f1)
         NEW_FILE=$(echo "${REPLACE_FILEPATH}" | cut -d: -f2)
+        NEW_PATCH=$(echo "${NEW_PATCH}" | sed -e "s|^Subject:\(.*\){${OLD_DISTRO_NAME}}\(.*\)|Subject:\1{${NEW_DISTRO_NAME}}\2|")
         NEW_PATCH=$(echo "${NEW_PATCH}" | sed -e "s|^diff --git a/${OLD_FILE}|diff --git a/${NEW_FILE}|g")
         NEW_PATCH=$(echo "${NEW_PATCH}" | sed -e "s|^\(diff --git .*\)b/${OLD_FILE}|\1b/${NEW_FILE}|g")
         NEW_PATCH=$(echo "${NEW_PATCH}" | sed -e "s|^--- a/${OLD_FILE}|--- a/${NEW_FILE}|g")
