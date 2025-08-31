@@ -32,3 +32,7 @@ CXXFLAGS += "-Wno-error=sign-conversion -Wno-error=old-style-cast"
 # error declaration of 'invalid_index' shadows a member of 'rclcpp::exceptions::InvalidServiceNameError' [-Werror=shadow]
 CFLAGS += "-Wno-error=shadow"
 CXXFLAGS += "-Wno-error=shadow"
+
+ROS_BUILDTOOL_DEPENDS += " \
+    rosidl-default-runtime-native \
+"
