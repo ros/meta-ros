@@ -3,7 +3,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fa146738cbe7d5c7435f87912e8b77"
 
 SRC_URI = "git://github.com/coin-or-tools/BuildTools.git;protocol=https;branch=master"
 
-SRCREV = "20208f47f7bbc0056a92adefdfd43fded969f674"
+SRCREV = "743a4f662032b246661042902da1a2e374b956c5"
 
 PV = "0.8.10+git"
 
