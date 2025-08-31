@@ -96,7 +96,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rpyutils-native \
     rsl-native \
     spdlog-vendor-native \
-    statistics-msg-native \
+    statistics-msgs-native \
     std-msgs-native \
     tcb-span-native \
     tl-expected-native \
