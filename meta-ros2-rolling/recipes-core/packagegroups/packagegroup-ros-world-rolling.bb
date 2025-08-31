@@ -1064,6 +1064,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_UNRESOLVED = " \
     synapticon-ros2-control \
     ur-calibration \
     ur-robot-driver \
+\
+    python3-rich \
+    jacro \
+\
+    python3-httpx \
+    automatika-embodied-agents \
 "
 
 RDEPENDS:${PN}:remove = "vitis-common"
