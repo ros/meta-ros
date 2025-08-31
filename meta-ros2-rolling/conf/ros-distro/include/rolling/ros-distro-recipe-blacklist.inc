@@ -184,9 +184,12 @@ SKIP_RECIPE[zenoh-bridge-dds] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUP
 
 # Renamed to fuse-ros in recipes-bbappends/fuse to avoid conflict with
 # meta-filesystems/recipes-support/fuse/fuse_2.9.9.bb
-BBMASK +=  "generated-recipes/fuse/fuse_1.2.3-1.bb"
 # And renamed fuse-doc to fuse-ros-doc to avoid conflict with PN-doc package created by fuse recipe
-BBMASK +=  "generated-recipes/fuse/fuse-doc_1.2.3-1.bb"
+BBMASK +=  "generated-recipes/fuse/fuse_.*.bb"
+BBMASK +=  "generated-recipes/fuse/fuse-doc_.*.bb"
 
 # meta-ros provides a recipe for octomap to use instead of the generated one
-BBMASK +=  "generated-recipes/octomap/octomap_1.10.0-3.bb"
+BBMASK += "generated-recipes/octomap/octomap_.*.bb"
+BBMASK += "generated-recipes/libcamera/libcamera_.*.bb"
+
+BBMASK += "generated-recipes/librealsense2/librealsense2_.*.bb"
