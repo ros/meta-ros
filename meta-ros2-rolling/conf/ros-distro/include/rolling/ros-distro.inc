@@ -35,8 +35,10 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     fastcdr-native \
     fastdds-native \
     foonathan-memory-vendor-native \
+    generate-parameter-library-native \
     generate-parameter-library-py-native \
     geometry-msgs-native \
+    gz-common-vendor-native \
     iceoryx-binding-c-native \
     iceoryx-hoofs-native \
     iceoryx-posh-native \
@@ -45,9 +47,11 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     launch-testing-ros-native \
     launch-xml-native \
     launch-yaml-native \
+    libstatistics-collector-native \
     libyaml-vendor-native \
     lifecycle-msgs-native \
     osrf-pycommon-native \
+    parameter-traits-native \
     pybind11-vendor-native \
     rcl-action-native \
     rcl-interfaces-native \
@@ -56,6 +60,8 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rcl-logging-spdlog-native \
     rcl-native \
     rcl-yaml-param-parser-native \
+    rclcpp-lifecycle-native \
+    rclcpp-native \
     rclpy-native \
     rcpputils-native \
     rcutils-native \
@@ -89,9 +95,25 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-typesupport-c-native \
     rosidl-typesupport-cpp-native \
     rosidl-typesupport-fastrtps-c-native \
+    rosidlcpp-generator-c-native \
+    rosidlcpp-generator-core-native \
+    rosidlcpp-generator-cpp-native \
+    rosidlcpp-generator-py-native \
+    rosidlcpp-generator-type-description-native \
+    rosidlcpp-parser-native \
+    rosidlcpp-typesupport-c-native \
+    rosidlcpp-typesupport-cpp-native \
+    rosidlcpp-typesupport-fastrtps-c-native \
+    rosidlcpp-typesupport-fastrtps-cpp-native \
+    rosidlcpp-typesupport-introspection-c-native \
+    rosidlcpp-typesupport-introspection-cpp-native \
     rpyutils-native \
+    rsl-native \
     spdlog-vendor-native \
+    statistics-msgs-native \
     std-msgs-native \
+    tcb-span-native \
+    tl-expected-native \
     tracetools-native \
     type-description-interfaces-native \
     uncrustify-vendor-native \
