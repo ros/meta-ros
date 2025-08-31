@@ -99,7 +99,6 @@ SKIP_RECIPE[rmw-connextdds-common] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROU
 SKIP_RECIPE[rmw-connext-shared-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds which is not available', '', d)}"
 SKIP_RECIPE[rmw-gurumdds-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gurumdds', 'gurumdds: depends on gurumdds-2.6 which is not available', '', d)}"
 SKIP_RECIPE[rmw-gurumdds-shared-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gurumdds', 'gurumdds: depends on gurumdds-2.6 which is not available', '', d)}"
-SKIP_RECIPE[rmw-test-fixture-implementation] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'zenoh', 'rmw-test-fixture-implementation: depends on zenoh-cpp which requires meta-zenoh to be included', '', d)}"
 SKIP_RECIPE[rmw-zenoh-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'zenoh', 'rmw-zenoh-cpp: depends on zenoh-cpp which requires meta-zenoh to be included', '', d)}"
 SKIP_RECIPE[ros2-ouster] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ros2-ouster', 'Depends on unavailable ROS_UNRESOLVED_DEP-libtins-dev', '', d)}"
 SKIP_RECIPE[ros2trace-analysis] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'babeltrace-python', 'babeltrace-python: depends on tracetools-analysis which rdepends on tracetools-read which rdepends on ROS_UNRESOLVED_DEP-python3-babeltrace and python bindings in babeltrace are not enabled as shown in log.do_configure - configure: You may configure with --enable-python-bindings if you want Python bindings.', '', d)}"
