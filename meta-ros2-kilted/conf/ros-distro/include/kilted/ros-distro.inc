@@ -36,6 +36,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     fastdds-native \
     foonathan-memory-vendor-native \
     generate-parameter-library-py-native \
+    geometry-msgs-native \
     iceoryx-binding-c-native \
     iceoryx-hoofs-native \
     iceoryx-posh-native \
@@ -95,7 +96,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rpyutils-native \
     rsl-native \
     spdlog-vendor-native \
-    statistics-msg-native \
+    statistics-msgs-native \
     std-msgs-native \
     tcb-span-native \
     tl-expected-native \
