@@ -10,6 +10,7 @@ S = "${WORKDIR}/git"
 
 do_install () {
     install -d -m 0755 ${D}/${datadir}/coinor
+    install -D -m 0755 ${S}/Makemain.inc ${D}${datadir}/coinor
     install -D -m 0755 ${S}/coin.m4 ${D}${datadir}/coinor
     install -D -m 0755 ${S}/coin-functions ${D}${datadir}/coinor
     install -D -m 0755 ${S}/coin_chk_lapack.m4 ${D}${datadir}/coinor
