@@ -942,6 +942,29 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GRIPPER = " \
     ur-simulation-gz \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'unresolved', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_UNRESOLVED}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_UNRESOLVED = " \
+    python3-filelock \
+    canopen-ros2-controllers \
+    controller-manager \
+    gz-ros2-control \
+    kinova-gen3-6dof-robotiq-2f-85-moveit-config \
+    kinova-gen3-7dof-robotiq-2f-85-moveit-config \
+    moveit-hybrid-planning \
+    moveit-resources-fanuc-moveit-config \
+    moveit-resources-panda-moveit-config \
+    nmea-hardware-interface \
+    open-manipulator \
+    open-manipulator-bringup \
+    open-manipulator-moveit-config \
+    ros2-control \
+    ros2controlcli \
+    rqt-controller-manager \
+    synapticon-ros2-control \
+    ur-calibration \
+    ur-robot-driver \
+"
+
 RDEPENDS:${PN}:remove = "vitis-common"
 
 # sophus does not directly provide any runtime components
