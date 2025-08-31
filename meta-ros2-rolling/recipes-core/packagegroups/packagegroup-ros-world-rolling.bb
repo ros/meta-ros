@@ -924,6 +924,15 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ZENOH = " \
     zenoh-pico \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gripper', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GRIPPER}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GRIPPER = " \
+    gripper-controllers \
+    moveit-servo \
+    ur \
+    ur-moveit-config \
+    ur-simulation-gz \
+"
+
 RDEPENDS:${PN}:remove = "vitis-common"
 
 # sophus does not directly provide any runtime components
