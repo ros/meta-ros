@@ -992,3 +992,7 @@ RDEPENDS:${PN}:remove = "log-view"
 
 # Depends on python3-pyside2
 RDEPENDS:${PN}:remove = "rqt-dotgraph"
+
+# Depends on actionlib-msgs, which was removed from the ROS index
+RDEPENDS:${PN}:remove = "cob-actions"
+RDEPENDS:${PN}:remove = "actionlib-msgs"
