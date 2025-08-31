@@ -20,4 +20,6 @@ do_install () {
     install -D -m 0755 ${S}/coin_math.m4 ${D}${datadir}/coinor
 }
 
+FILES:${PN}-dev += "${datadir}/coinor/*"
+
 BBCLASSEXTEND = "native nativesdk"
