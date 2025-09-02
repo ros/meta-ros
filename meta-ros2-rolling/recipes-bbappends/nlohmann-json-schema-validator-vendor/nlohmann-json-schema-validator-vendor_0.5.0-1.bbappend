@@ -3,7 +3,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI = " \
   git://github.com/ros2-gbp/nlohmann_json_schema_validator_vendor-release;name=release;${ROS_BRANCH};protocol=https \
-  git://github.com/pboettch/json-schema-validator.git;name=upstream;destsuffix=git/nlohmann_json_schema_validator;branch=main;protocol=https \
+  git://github.com/pboettch/json-schema-validator.git;name=upstream;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/nlohmann_json_schema_validator;branch=main;protocol=https \
   file://0001-CMakeLists.txt-fetch-source-with-bitbake-fetcher.patch \
 "
 
