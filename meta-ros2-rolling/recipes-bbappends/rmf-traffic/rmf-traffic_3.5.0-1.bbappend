@@ -16,3 +16,9 @@ FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
 
+do_install:append() {
+    # QA Issue: File /opt/ros/rolling/lib/rmf_traffic/cmake/rmf_traffic-targets.cmake in package rmf-traffic contains reference to TMPDIR [buildpaths]
+    sed -i -e "s#${S}/include;##g" ${D}${ros_libdir}/rmf_traffic/cmake/rmf_traffic-targets.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}${includedir}#${includedir}#g" ${D}${ros_libdir}/rmf_traffic/cmake/rmf_traffic-targets.cmake
+    sed -i -e "s#${B}##g" ${D}${ros_libdir}/rmf_traffic/cmake/rmf_traffic-targets.cmake
+}
