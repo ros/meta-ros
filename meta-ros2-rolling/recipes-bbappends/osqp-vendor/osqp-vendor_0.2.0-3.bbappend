@@ -7,8 +7,8 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI = " \
     git://github.com/ros2-gbp/osqp_vendor-release;name=release;${ROS_BRANCH};protocol=https \
     file://0002-CMakeLists.txt-fetch-osqp-with-bitbake-fetcher.patch \
-    git://github.com/oxfordcontrol/osqp.git;protocol=https;name=osqp;destsuffix=git/osqp-upstream;branch=master \
-    git://github.com/oxfordcontrol/qdldl.git;protocol=https;name=qdldl;destsuffix=git/osqp-upstream/lin_sys/direct/qdldl/qdldl_sources;branch=master \
+    git://github.com/oxfordcontrol/osqp.git;protocol=https;name=osqp;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/osqp-upstream;branch=master \
+    git://github.com/oxfordcontrol/qdldl.git;protocol=https;name=qdldl;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/osqp-upstream/lin_sys/direct/qdldl/qdldl_sources;branch=master \
 "
 SRCREV_release = "${SRCREV}"
 SRCREV_osqp = "f9fc23d3436e4b17dd2cb95f70cfa1f37d122c24"
