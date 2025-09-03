@@ -2,6 +2,7 @@
 
 ROS_BUILD_DEPENDS += " \
     fastcdr \
+    geometry-msgs \
     rosidl-default-runtime \
     rosidl-default-generators \
     rosidl-typesupport-fastrtps-c \
