@@ -1,5 +1,8 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://clear-geoemtry-msgs-dependencies-and-remove-pose2d.patch"
+
 ROS_BUILD_DEPENDS += " \
     fastcdr \
     geometry-msgs \
