@@ -1,0 +1,35 @@
+Do not set compiler options
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -45,24 +45,6 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CO
+     set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS  "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+ endif()
+ 
+-if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_C_COMPILER_ID MATCHES "Clang")
+-    add_compile_options(-Wall -Wextra)
+-    add_compile_options(-Wpedantic)
+-    if(CMAKE_C_COMPILER_ID MATCHES "Clang")
+-        add_compile_options(
+-            -Wno-gnu-zero-variadic-macro-arguments
+-            -Wno-strict-prototypes
+-            -Wno-static-in-inline
+-        )
+-    endif()
+-    add_compile_options(-Wno-shift-negative-value)
+-    if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.24.0")
+-      set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
+-    else()
+-      add_compile_options(-Werror)
+-    endif()
+-endif()
+-
+ if(CMAKE_C_COMPILER_ID MATCHES "Clang" AND CMAKE_C_SIMULATE_ID MATCHES "MSVC")
+     # error: 'strdup' is deprecated: The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup.
+     # "strdup" is standard since C23
