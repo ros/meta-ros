@@ -3,9 +3,9 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI = " \
     git://github.com/Fields2Cover/fields2cover-release;name=release;${ROS_BRANCH};protocol=https \
-    git://github.com/Fields2Cover/steering_functions.git;protocol=https;name=steering-functions;destsuffix=git/steering_functions;branch=master \
-    git://github.com/Fields2Cover/spline.git;protocol=https;name=spline;destsuffix=git/spline;branch=master \
-    git://github.com/Fields2Cover/matplotlib-cpp.git;protocol=https;name=matplotlib-cpp;destsuffix=git/matplotlib-cpp;branch=master \
+    git://github.com/Fields2Cover/steering_functions.git;protocol=https;name=steering-functions;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/steering_functions;branch=master \
+    git://github.com/Fields2Cover/spline.git;protocol=https;name=spline;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/spline;branch=master \
+    git://github.com/Fields2Cover/matplotlib-cpp.git;protocol=https;name=matplotlib-cpp;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/matplotlib-cpp;branch=master \
     file://use-bitbake-fetcher.patch \
 "
 NOT_INCLUDED = " \
