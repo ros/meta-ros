@@ -1,8 +1,5 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-schedule-fix-get_participant-declaration-to-match-Vi.patch"
-
 # ERROR: rmf-traffic-2.0.0-2-r0 do_package: QA Issue: rmf-traffic: Files/directories were installed but not shipped in any package:
 #  /usr/share/ament_index
 #  /usr/share/ament_index/resource_index
