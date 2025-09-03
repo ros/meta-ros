@@ -1,0 +1,81 @@
+Upstream-Status: Backport [https://github.com/open-rmf/rmf_internal_msgs/pull/88/commits/dd7b8c5194025f2085e11966af72bf7522dbbeeb]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From dd7b8c5194025f2085e11966af72bf7522dbbeeb Mon Sep 17 00:00:00 2001
+From: Luca Della Vedova <lucadv@intrinsic.ai>
+Date: Wed, 16 Jul 2025 15:05:17 +0800
+Subject: [PATCH] Clear geometry_msgs dependencies and remove Pose2D
+
+Signed-off-by: Luca Della Vedova <lucadv@intrinsic.ai>
+---
+ rmf_traffic_msgs/CMakeLists.txt   | 4 ++--
+ rmf_traffic_msgs/msg/Pose2D.msg   | 3 +++
+ rmf_traffic_msgs/msg/Space.msg    | 2 +-
+ rmf_traffic_msgs/package.xml      | 2 --
+ 8 files changed, 7 insertions(+), 13 deletions(-)
+ create mode 100644 rmf_traffic_msgs/msg/Pose2D.msg
+
+diff --git rmf_traffic_msgs/CMakeLists.txt rmf_traffic_msgs/CMakeLists.txt
+index 0aaaeba..ae40d22 100644
+--- rmf_traffic_msgs/CMakeLists.txt
++++ rmf_traffic_msgs/CMakeLists.txt
+@@ -14,7 +14,6 @@ endif()
+ 
+ find_package(ament_cmake REQUIRED)
+ find_package(builtin_interfaces REQUIRED)
+-find_package(geometry_msgs REQUIRED)
+ find_package(rosidl_default_generators REQUIRED)
+ 
+ set(msg_files
+@@ -63,6 +62,7 @@ set(msg_files
+   "msg/NegotiationTreeNode.msg"
+   "msg/Participant.msg"
+   "msg/Participants.msg"
++  "msg/Pose2D.msg"
+   "msg/ScheduleIdentity.msg"
+   "msg/ScheduleInconsistency.msg"
+   "msg/ScheduleInconsistencyRange.msg"
+@@ -91,7 +91,7 @@ set(srv_files
+ rosidl_generate_interfaces(${PROJECT_NAME}
+   ${msg_files}
+   ${srv_files}
+-  DEPENDENCIES builtin_interfaces geometry_msgs
++  DEPENDENCIES builtin_interfaces
+   ADD_LINTER_TESTS
+ )
+ 
+diff --git rmf_traffic_msgs/msg/Pose2D.msg rmf_traffic_msgs/msg/Pose2D.msg
+new file mode 100644
+index 0000000..3acb858
+--- /dev/null
++++ rmf_traffic_msgs/msg/Pose2D.msg
+@@ -0,0 +1,3 @@
++float64 x
++float64 y
++float64 theta
+diff --git rmf_traffic_msgs/msg/Space.msg rmf_traffic_msgs/msg/Space.msg
+index b8b62d4..96dd09c 100644
+--- rmf_traffic_msgs/msg/Space.msg
++++ rmf_traffic_msgs/msg/Space.msg
+@@ -3,4 +3,4 @@
+ Shape shape
+ 
+ # The pose of this space
+-geometry_msgs/Pose2D pose
++Pose2D pose
+diff --git rmf_traffic_msgs/package.xml rmf_traffic_msgs/package.xml
+index eee8bee..ed51896 100644
+--- rmf_traffic_msgs/package.xml
++++ rmf_traffic_msgs/package.xml
+@@ -13,10 +13,8 @@
+   <buildtool_depend>rosidl_default_generators</buildtool_depend>
+ 
+   <build_depend>builtin_interfaces</build_depend>
+-  <build_depend>geometry_msgs</build_depend>
+ 
+   <exec_depend>builtin_interfaces</exec_depend>
+-  <exec_depend>geometry_msgs</exec_depend>
+   <exec_depend>rosidl_default_runtime</exec_depend>
+ 
+   <test_depend>ament_lint_common</test_depend>
