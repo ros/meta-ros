@@ -1,0 +1,25 @@
+Remove buildpaths
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -40,13 +40,13 @@ target_link_libraries(rmf_battery
+   PUBLIC
+     rmf_utils::rmf_utils
+     rmf_traffic::rmf_traffic
++    Eigen3::Eigen
+ )
+ 
+ target_include_directories(rmf_battery
+   PUBLIC
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+-    ${Eigen3_INCLUDE_DIRS}
+ )
+ 
+ if(BUILD_TESTING AND ament_cmake_catch2_FOUND AND ament_cmake_uncrustify_FOUND)

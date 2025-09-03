@@ -1,5 +1,8 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://remove-buildpaths.patch"
+
 # ERROR: QA Issue: rmf-battery: Files/directories were installed but not shipped in any package:
 #   /usr/share/ament_index
 #   /usr/share/ament_index/resource_index
