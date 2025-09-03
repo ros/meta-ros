@@ -1,0 +1,27 @@
+Disable compiler options
+
+We prefer to use the compiler options set by bitbake.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 5 -----
+ 1 file changed, 5 deletions(-)
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -1,10 +1,6 @@
+ cmake_minimum_required(VERSION 3.5)
+ project(controller_manager)
+ 
+-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type -Werror=shadow)
+-endif()
+-
+ set(THIS_PACKAGE_INCLUDE_DEPENDS
+     ament_index_cpp
+     controller_interface

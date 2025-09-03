@@ -17,6 +17,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://0001-setuptools-fix-executable.patch \
+    file://disable-compiler-options.patch \
 "
 
 # exceptions.hpp:71:79: error: declaration of 'invalid_index' shadows a member of 'rclcpp::exceptions::InvalidNodeNameError' [-Werror=shadow]
