@@ -35,6 +35,8 @@ PACKAGES =+ "${PN}-examples"
 
 FILES:${PN}-examples = "${docdir}"
 
+EXTRA_OECMAKE = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
 do_install:append() {
 	install -d ${D}${docdir}/${BPN}
 	cp -R ${S}/examples ${D}${docdir}/${BPN}
