@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://tinyspline/LICENSE;md5=c610fed0222ab3c9f2b3e20448a3b3
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI = " \
   git://github.com/ros2-gbp/tinyspline_vendor-release;name=release;${ROS_BRANCH};protocol=https \
-  git://github.com/msteinbeck/tinyspline.git;name=upstream;destsuffix=git/tinyspline;branch=master;protocol=https \
+  git://github.com/msteinbeck/tinyspline.git;name=upstream;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/tinyspline;branch=master;protocol=https \
   file://0001-CMakeLists.txt-fetch-dependencies-with-bitbake-fetch.patch \
   file://0002-fix-pkgconfig-files.patch \
 "
