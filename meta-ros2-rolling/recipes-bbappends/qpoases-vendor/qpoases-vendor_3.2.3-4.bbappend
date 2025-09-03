@@ -9,7 +9,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI = " \
     git://github.com/ros2-gbp/qpoases_vendor-release;name=release;${ROS_BRANCH};protocol=https \
     file://0001-CMakeLists.txt-fetch-qpOASES-with-bitbake-fetcher.patch \
-    git://github.com/coin-or/qpOASES;protocol=https;branch=stable/3.2;name=qpOASES-upstream;destsuffix=git/qpOASES-upstream \
+    git://github.com/coin-or/qpOASES;protocol=https;branch=stable/3.2;name=qpOASES-upstream;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/qpOASES-upstream \
 "
 SRCREV_release = "9cbeef616ed2d3b92733f9c38bfc33d56075dfe2"
 SRCREV_qpOASES-upstream = "4799956d98cb9a5ca32e818c6ef79b69103392d8"
