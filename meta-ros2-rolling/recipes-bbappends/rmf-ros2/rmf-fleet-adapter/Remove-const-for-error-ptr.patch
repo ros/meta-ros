@@ -19,6 +19,8 @@ rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/bits/exception_p
       |       ^~~~~~~~
 rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/bits/exception_ptr.h:140:7: note:   conversion of argument 1 would be ill-formed:
 
+Upstream-Status: Pending
+
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 diff --git a/rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp b/rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp
