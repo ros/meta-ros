@@ -24,7 +24,7 @@ diff --git a/CMakeModules/FindPython.cmake b/CMakeModules/FindPython.cmake
 index 44ad5c3a..44ac253c 100644
 --- a/CMakeModules/FindPython.cmake
 +++ b/CMakeModules/FindPython.cmake
-@@ -204,10 +204,16 @@ endmacro(find_boost_numpy)
+@@ -226,10 +226,16 @@ endmacro(find_boost_numpy)
  macro(install_python)
      if (PYTHON_FOUND)
          cmake_parse_arguments(install_python "" "DESTINATION;COMPONENT;RENAME" "PROGRAMS" "${ARGN}")
@@ -35,8 +35,8 @@ index 44ad5c3a..44ac253c 100644
 +        endif()
          foreach(script ${install_python_PROGRAMS})
              file(READ ${script} _contents)
--            string(REPLACE "#!/usr/bin/env python" "#!${PYTHON_EXEC}" _fixed "${_contents}")
-+            string(REPLACE "#!/usr/bin/env python" "${install_python_shebang}" _fixed "${_contents}")
+-            string(REPLACE "#!/usr/bin/env python3" "#!${PYTHON_EXEC}" _fixed "${_contents}")
++            string(REPLACE "#!/usr/bin/env python3" "${install_python_shebang}" _fixed "${_contents}")
              get_filename_component(_realscript "${script}" NAME)
 +            message(INFO "Changing the shebang in ${PROJECT_BINARY_DIR}/${install_python_DESTINATION}/${_realscript} from '#!/usr/bin/env python' to '${install_python_shebang}'")
              file(WRITE "${PROJECT_BINARY_DIR}/${install_python_DESTINATION}/${_realscript}" "${_fixed}")
