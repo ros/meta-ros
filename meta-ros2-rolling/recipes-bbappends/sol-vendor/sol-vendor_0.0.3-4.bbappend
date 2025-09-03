@@ -3,8 +3,8 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI = " \
   git://github.com/ros2-gbp/sol_vendor-release;name=release;${ROS_BRANCH};protocol=https \
-  git://github.com/ThePhD/sol2.git;name=upstream;destsuffix=git/sol2;branch=main;protocol=https \
-  git://github.com/lua/lua;name=lua;destsuffix=git/lua;branch=master;protocol=https \
+  git://github.com/ThePhD/sol2.git;name=upstream;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/sol2;branch=main;protocol=https \
+  git://github.com/lua/lua;name=lua;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/lua;branch=master;protocol=https \
   file://0001-CMakeLists.txt-fetch-source-with-bitbake-fetcher.patch \
   file://0002-lua-source-dir.patch;patchdir=sol2 \
 "
