@@ -7,7 +7,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI = " \
   git://github.com/ros2-gbp/rig_reconfigure-release;name=release;${ROS_BRANCH};protocol=https \
-  git://github.com/ocornut/imgui.git;name=upstream;destsuffix=git/imgui;branch=docking;protocol=https \
+  git://github.com/ocornut/imgui.git;name=upstream;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/imgui;branch=docking;protocol=https \
   file://0001-use-bitbake-fetcher.patch \
 "
 
