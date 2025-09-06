@@ -19,8 +19,8 @@ ROS_CN = "vision_opencv"
 ROS_BPN = "image_geometry"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-deprecated} \
     opencv \
+    python3-deprecated \
     sensor-msgs \
 "
 
@@ -30,16 +30,16 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-deprecated} \
     opencv \
+    python3-deprecated \
     sensor-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-deprecated} \
     opencv \
+    python3-deprecated \
     sensor-msgs \
 "
 
