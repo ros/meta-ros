@@ -16,19 +16,19 @@ ROS_CN = "automatika_ros_sugar"
 ROS_BPN = "automatika_ros_sugar"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-attrs} \
     ${ROS_UNRESOLVED_DEP-python3-msgpack-numpy} \
-    ${ROS_UNRESOLVED_DEP-python3-setproctitle} \
-    ${ROS_UNRESOLVED_DEP-python3-toml} \
     builtin-interfaces \
     geometry-msgs \
     lifecycle-msgs \
     nav-msgs \
     opencv \
+    python3-attrs \
     python3-jinja2 \
     python3-msgpack \
     python3-numpy \
     python3-pyyaml \
+    python3-setproctitle \
+    python3-toml \
     rclcpp \
     rclpy \
     sensor-msgs \
@@ -43,19 +43,19 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-attrs} \
     ${ROS_UNRESOLVED_DEP-python3-msgpack-numpy} \
-    ${ROS_UNRESOLVED_DEP-python3-setproctitle} \
-    ${ROS_UNRESOLVED_DEP-python3-toml} \
     builtin-interfaces \
     geometry-msgs \
     lifecycle-msgs \
     nav-msgs \
     opencv \
+    python3-attrs \
     python3-jinja2 \
     python3-msgpack \
     python3-numpy \
     python3-pyyaml \
+    python3-setproctitle \
+    python3-toml \
     rclcpp \
     rclpy \
     sensor-msgs \
@@ -66,19 +66,19 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-attrs} \
     ${ROS_UNRESOLVED_DEP-python3-msgpack-numpy} \
-    ${ROS_UNRESOLVED_DEP-python3-setproctitle} \
-    ${ROS_UNRESOLVED_DEP-python3-toml} \
     builtin-interfaces \
     geometry-msgs \
     lifecycle-msgs \
     nav-msgs \
     opencv \
+    python3-attrs \
     python3-jinja2 \
     python3-msgpack \
     python3-numpy \
     python3-pyyaml \
+    python3-setproctitle \
+    python3-toml \
     rclcpp \
     rclpy \
     rosidl-default-runtime \
