@@ -28,10 +28,10 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-pybind11-json-vendor} \
     ament-cmake-catch2 \
     menge-vendor \
     nlohmann-json-schema-validator-vendor \
-    pybind11-json-vendor \
     rmf-api-msgs \
     rmf-battery \
     rmf-building-map-msgs \
