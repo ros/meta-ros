@@ -40,8 +40,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-python3-expiringdict} \
-    ${ROS_UNRESOLVED_DEP-python3-waitress} \
     python3-flask \
+    python3-waitress \
     rclcpp \
     rclpy \
     yasmin \
