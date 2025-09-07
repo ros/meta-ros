@@ -1,31 +1,34 @@
 Use system-provided zenoh packages
 
-Upstream-Status: Pending
+Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+ CMakeLists.txt | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-Index: zenoh-cpp-vendor-0.8.1-1/CMakeLists.txt
-===================================================================
---- zenoh-cpp-vendor-0.8.1-1.orig/CMakeLists.txt
-+++ zenoh-cpp-vendor-0.8.1-1/CMakeLists.txt
-@@ -17,6 +17,8 @@ find_package(ament_cmake_vendor_package
- # when expanded.
- set(ZENOHC_CARGO_FLAGS "--no-default-features$<SEMICOLON>--features=shared-memory zenoh/transport_compression zenoh/transport_tcp zenoh/transport_udp zenoh/transport_tls")
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9064522..963e405 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,6 +17,8 @@ find_package(ament_cmake_vendor_package REQUIRED)
+ # latter is a list separater in cmake and hence the string will be split into two when expanded.
+ set(ZENOHC_CARGO_FLAGS "--features=shared-memory zenoh/transport_serial")
  
 +find_package(zenohc)
 +
- # Set VCS_VERSION to 1.4.0 commits of zenoh/zenoh-c/zenoh-cpp to benefit from:
- # - Add a "bind" config option for endpoints:
- #    - https://github.com/eclipse-zenoh/zenoh/pull/1892
-@@ -30,6 +32,7 @@ set(ZENOHC_CARGO_FLAGS "--no-default-fea
- # - Add support for DiffServ's DSCP config for endpoints:
- #    - https://github.com/eclipse-zenoh/zenoh/pull/1937
+ # Set VCS_VERSION to 1.5.0 commits of zenoh/zenoh-c/zenoh-cpp to benefit from:
+ #   - Add CongestionControl::BlockFirst QoS
+ #      - https://github.com/eclipse-zenoh/zenoh/pull/2014
+@@ -38,6 +40,7 @@ set(ZENOHC_CARGO_FLAGS "--features=shared-memory zenoh/transport_serial")
+ #     - https://github.com/eclipse-zenoh/zenoh-c/pull/1079
  ament_vendor(zenoh_c_vendor
-+  SATISFIED zenohc_FOUND
    VCS_URL https://github.com/eclipse-zenoh/zenoh-c.git
-   VCS_VERSION 6bea1f1ebc29412548f36af91cf2225c8bf476d4
++  SATISFIED zenohc_FOUND
+   VCS_VERSION 71af32739394bc3200aa1bea32206dc28216e04e
    CMAKE_ARGS
-@@ -41,15 +44,16 @@ ament_vendor(zenoh_c_vendor
+     "-DZENOHC_CARGO_FLAGS=${ZENOHC_CARGO_FLAGS}"
+@@ -48,15 +51,16 @@ ament_vendor(zenoh_c_vendor
  
  ament_export_dependencies(zenohc)
  
@@ -34,7 +37,7 @@ Index: zenoh-cpp-vendor-0.8.1-1/CMakeLists.txt
  ament_vendor(zenoh_cpp_vendor
 +  SATISFIED zenoh_FOUND
    VCS_URL https://github.com/eclipse-zenoh/zenoh-cpp
-   VCS_VERSION 7379592436398079934f4296d2fa90217f8eddf9
+   VCS_VERSION d0eae207c6cfee8df9fb8622812a297ef9bfd18e
    CMAKE_ARGS
      -DZENOHCXX_ZENOHC=OFF
  )
@@ -44,3 +47,6 @@ Index: zenoh-cpp-vendor-0.8.1-1/CMakeLists.txt
  ament_export_dependencies(zenohcxx)
  
  ament_package()
+-- 
+2.43.0
+
