@@ -1,5 +1,7 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 # ERROR: velodyne-driver-2.3.0-1-r0 do_package_qa: QA Issue: /usr/lib/velodyne_driver/vdump contained in package velodyne-driver requires /bin/bash, but no providers found in RDEPENDS:velodyne-driver? [file-rdeps]
 RDEPENDS:${PN} += "bash"
 
