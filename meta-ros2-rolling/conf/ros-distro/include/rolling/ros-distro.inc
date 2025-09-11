@@ -26,6 +26,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     action-msgs-native \
     ament-acceleration-native \
     ament-cmake-cpplint-native \
+    ament-cmake-mypy-native \
     ament-cmake-uncrustify-native \
     ament-index-cpp-native \
     ament-lint-native \
