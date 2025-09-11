@@ -45,7 +45,7 @@ EXTRA_OECMAKE += " \
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
 "
 
-PACKAGES =+ "python3-${PN}"
+PACKAGES =+ "python3-${BPN}"
 
 FILES:${PN} += " \
     ${datadir}/ignition/* \
