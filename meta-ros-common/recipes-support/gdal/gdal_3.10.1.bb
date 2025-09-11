@@ -57,7 +57,7 @@ DEPENDS = " \
 
 inherit cmake python3-dir python3native python3targetconfig
 
-PACKAGES += "python3-${PN}"
+PACKAGES += "python3-${BPN}"
 
 FILES:${PN} += " \
     ${datadir}/bash-completion/completions/ \
