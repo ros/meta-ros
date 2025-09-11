@@ -20,7 +20,7 @@ PACKAGECONFIG[python3] = "--enable-python-bindings,,python3 swig-native python3-
 
 inherit ${@bb.utils.contains('PACKAGECONFIG', 'python3', 'python3targetconfig', '', d)}
 
-PACKAGES =+ "python3-${PN}"
+PACKAGES =+ "python3-${BPN}"
 
 FILES:python3-${PN} = "${PYTHON_SITEPACKAGES_DIR}"
 
