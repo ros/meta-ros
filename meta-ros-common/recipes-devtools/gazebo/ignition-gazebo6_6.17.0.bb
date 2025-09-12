@@ -60,6 +60,4 @@ FILES:python3-${PN} += " \
     ${libdir}/python \
 "
 
-BBCLASSEXTEND = "native nativesdk"
-
 inherit ros_insane_dev_so
