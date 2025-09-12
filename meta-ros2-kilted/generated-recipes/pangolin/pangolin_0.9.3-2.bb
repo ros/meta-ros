@@ -17,7 +17,6 @@ ROS_CN = "pangolin"
 ROS_BPN = "pangolin"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-wheel} \
     glew \
     libeigen \
     libepoxy \
@@ -26,6 +25,7 @@ ROS_BUILD_DEPENDS = " \
     libxkbcommon \
     mesa \
     python3 \
+    python3-wheel \
     wayland \
 "
 

@@ -17,11 +17,11 @@ ROS_CN = "image_pipeline"
 ROS_BPN = "camera_calibration"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-semver} \
     cv-bridge \
     image-geometry \
     message-filters \
     opencv \
+    python3-semver \
     rclpy \
     sensor-msgs \
     std-srvs \
@@ -30,11 +30,11 @@ ROS_BUILD_DEPENDS = " \
 ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-semver} \
     cv-bridge \
     image-geometry \
     message-filters \
     opencv \
+    python3-semver \
     rclpy \
     sensor-msgs \
     std-srvs \
@@ -43,11 +43,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-semver} \
     cv-bridge \
     image-geometry \
     message-filters \
     opencv \
+    python3-semver \
     rclpy \
     sensor-msgs \
     std-srvs \
