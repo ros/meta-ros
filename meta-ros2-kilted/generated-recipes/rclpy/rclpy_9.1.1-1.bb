@@ -60,12 +60,12 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-typing-extensions} \
     action-msgs \
     ament-index-python \
     builtin-interfaces \
     lifecycle-msgs \
     python3-pyyaml \
+    python3-typing-extensions \
     rcl \
     rcl-action \
     rcl-interfaces \
