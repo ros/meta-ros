@@ -41,6 +41,14 @@ acpitool:
   gentoo: [sys-power/acpitool]
   nixos: [acpitool]
   openembedded: [acpitool@meta-oe]
+adwaita-icon-theme:
+  arch: [adwaita-icon-theme]
+  debian: [adwaita-icon-theme]
+  fedora: [adwaita-icon-theme]
+  gentoo: ['x11-themes/adwaita-icon-theme']
+  nixos: [adwaita-icon-theme]
+  openembedded: [adwaita-icon-theme@openembedded-core]
+  ubuntu: [adwaita-icon-theme]
 alsa-oss:
   arch: [alsa-oss]
   debian: [alsa-oss]
@@ -479,7 +487,7 @@ castxml:
   fedora: [castxml]
   macports: [castxml]
   nixos: [castxml]
-  openembedded: [castxml@meta-clang]
+  openembedded: [castxml@meta-oe]
   ubuntu: [castxml]
 catch2:
   alpine: [catch2]
@@ -1227,7 +1235,7 @@ fmt:
   fedora: [fmt-devel]
   gentoo: [dev-libs/libfmt]
   nixos: [fmt]
-  openembedded: [fmt@meta-oe]
+  openembedded: [fmt@openembedded-core]
   osx:
     homebrew:
       packages: [fmt]
@@ -1894,6 +1902,20 @@ gtk3:
     slackpkg:
       packages: [gtk+3]
   ubuntu: [libgtk-3-dev]
+gtk4:
+  arch: [gtk4]
+  debian: [libgtk-4-dev]
+  fedora: [gtk4-devel]
+  freebsd: [gtk4]
+  gentoo: ['gui-libs/gtk']
+  nixos: [gtk4]
+  openembedded: [gtk4@openembedded-core]
+  rhel:
+    '*': [gtk4-devel]
+    '8': null
+  ubuntu:
+    '*': [libgtk-4-dev]
+    focal: null
 gurumdds-2.6:
   ubuntu:
     bionic: [gurumdds-2.6]
@@ -2632,6 +2654,18 @@ libadolc-dev:
   nixos: [adolc]
   opensuse: [adolc-devel]
   ubuntu: [libadolc-dev]
+libadwaita-dev:
+  debian: [libadwaita-1-dev]
+  fedora: [libadwaita-devel]
+  gentoo: ['gui-libs/libadwaita']
+  nixos: [libadwaita]
+  openembedded: [libadwaita@openembedded-core]
+  rhel:
+    '*': [libadwaita-devel]
+    '8': null
+  ubuntu:
+    '*': [libadwaita-1-dev]
+    focal: null
 libaio-dev:
   alpine: [libaio-dev]
   arch: [libaio]
@@ -3559,6 +3593,20 @@ libdw-dev:
       packages: [elfutils]
   rhel: [elfutils-devel]
   ubuntu: [libdw-dev]
+libdwarf-dev:
+  alpine: [libdwarf-dev]
+  arch: [libdwarf]
+  debian: [libdwarf-dev]
+  fedora: [libdwarf-devel]
+  gentoo: [dev-libs/libdwarf]
+  nixos: [libdwarf]
+  openembedded: [libdwarf]
+  opensuse: [libdwarf-devel]
+  osx:
+    homebrew:
+      packages: [dwarfutils]
+  rhel: [libdwarf-devel]
+  ubuntu: [libdwarf-dev]
 libdxflib-dev:
   debian: [libdxflib-dev]
   fedora: [libdxflib-devel]
@@ -3767,6 +3815,13 @@ libfl-dev:
   nixos: [flex]
   opensuse: [libfl-devel]
   ubuntu: [libfl-dev]
+libflac-dev:
+  alpine: [flac-dev]
+  debian: [libflac-dev]
+  fedora: [flac-devel]
+  opensuse: [flac-devel]
+  rhel: [flac-devel]
+  ubuntu: [libflac-dev]
 libflann:
   arch: [flann]
   debian:
@@ -4045,6 +4100,13 @@ libgif-dev:
   gentoo: [media-libs/giflib]
   nixos: [giflib]
   ubuntu: [libgif-dev]
+libgirepository-dev:
+  arch: [gobject-introspection]
+  debian: [libgirepository1.0-dev]
+  fedora: [gobject-introspection-devel]
+  gentoo: [dev-libs/gobject-introspection]
+  nixos: [gobject-introspection]
+  ubuntu: [libgirepository1.0-dev]
 libglew-dev:
   arch: [glew]
   debian: [libglew-dev]
@@ -4189,7 +4251,7 @@ libgrpc:
   fedora: [grpc-devel]
   gentoo: [net-libs/grpc]
   nixos: [grpc]
-  openembedded: [grpc@meta-networking]
+  openembedded: [grpc@meta-oe]
   opensuse: [grpc-devel]
   osx:
     homebrew:
@@ -4717,7 +4779,7 @@ libmicrohttpd:
   fedora: [libmicrohttpd-devel]
   gentoo: [net-libs/libmicrohttpd]
   nixos: [libmicrohttpd]
-  openembedded: [libmicrohttpd@meta-oe]
+  openembedded: [libmicrohttpd@openembedded-core]
   rhel: [libmicrohttpd-devel]
   ubuntu: [libmicrohttpd-dev]
 libmlpack-dev:
@@ -5014,7 +5076,7 @@ libomp-dev:
   fedora: [libomp-devel]
   gentoo: [sys-libs/libomp]
   nixos: [llvmPackages.openmp]
-  openembedded: [openmp@meta-clang]
+  openembedded: [openmp@openembedded-core]
   rhel:
     '*': [libomp-devel]
     '7': null
@@ -6207,6 +6269,18 @@ libqt6-quick:
   ubuntu:
     '*': [libqt6quick6]
     'focal': null
+libqt6bluetooth6:
+  alpine: [qt6-qtconnectivity]
+  arch: [qt6-connectivity]
+  debian: [libqt6bluetooth6]
+  fedora: [qt6-qtconnectivity]
+  gentoo: ['dev-qt/qtconnectivity:6']
+  rhel:
+    '*': [qt6-qtconnectivity]
+    '8': null
+  ubuntu:
+    '*': [libqt6bluetooth6]
+    'focal': null
 libqt6svg6:
   alpine: [qt6-qtsvg]
   arch: [qt6-svg]
@@ -6686,6 +6760,13 @@ libturbojpeg:
   rhel: [libjpeg-turbo-devel, turbojpeg-devel]
   ubuntu:
     '*': [libturbojpeg0-dev]
+libtweeny-dev:
+  alpine: [tweeny]
+  debian: [libtweeny-dev]
+  fedora: [tweeny-devel]
+  freebsd: [tweeny]
+  nixos: [tweeny]
+  ubuntu: [libtweeny-dev]
 libudev-dev:
   arch: [systemd]
   debian: [libudev-dev]
@@ -7262,7 +7343,7 @@ libzstd-dev:
   freebsd: [zstd]
   gentoo: [app-arch/zstd]
   nixos: [zstd]
-  openembedded: [zstd@meta-oe]
+  openembedded: [zstd@openembedded-core]
   rhel: [libzstd-devel]
   ubuntu:
     '*': [libzstd-dev]
@@ -8718,6 +8799,18 @@ qt6-base-private-dev:
   ubuntu:
     '*': [qt6-base-private-dev]
     'focal': null
+qt6-connectivity-dev:
+  alpine: [qt6-qtconnectivity-dev]
+  arch: [qt6-connectivity]
+  debian: [qt6-connectivity-dev]
+  fedora: [qt6-qtconnectivity-devel]
+  gentoo: ['dev-qt/qtconnectivity:6']
+  rhel:
+    '*': [qt6-qtconnectivity-devel]
+    '8': null
+  ubuntu:
+    '*': [qt6-connectivity-dev]
+    'focal': null
 qt6-declarative-dev:
   arch: [qt6-declarative]
   debian: [qt6-declarative-dev]
@@ -9058,7 +9151,7 @@ sdl:
   gentoo: [media-libs/libsdl]
   macports: [libsdl]
   nixos: [SDL]
-  openembedded: [libsdl@openembedded-core]
+  openembedded: [libsdl@meta-oe]
   opensuse: [libSDL-devel]
   rhel: [SDL-devel]
   ubuntu: [libsdl1.2-dev]
