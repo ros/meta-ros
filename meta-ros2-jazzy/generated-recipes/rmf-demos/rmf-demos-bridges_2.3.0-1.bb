@@ -26,8 +26,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-paho-mqtt} \
     python3-flask-socketio \
+    python3-paho-mqtt \
     python3-pyproj \
     python3-pyyaml \
     rmf-building-map-tools \
