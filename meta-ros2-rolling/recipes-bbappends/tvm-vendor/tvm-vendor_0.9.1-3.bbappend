@@ -19,4 +19,4 @@ ROS_EXEC_DEPENDS:remove = "spirv-headers"
 
 # Replace the virtual provider with the package name
 ROS_EXEC_DEPENDS:remove = "virtual/opencl-icd"
-ROS_EXEC_DEPENDS:append = "virtual-opencl-icd"
+ROS_EXEC_DEPENDS:append = " virtual-opencl-icd"

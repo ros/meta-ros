@@ -5,7 +5,7 @@ LICENSE = "BSD-3-Clause & MIT & Apache-2.0 & MPL-2.0 & GPL-3.0-or-later & LGPL-2
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://do-not-search-source-tree-for-dataset.patch"
 
-EXTRA_OECMAKE += " -DGTSAM_USE_SYSTEM_EIGEN=ON"
+EXTRA_OECMAKE += "-DGTSAM_USE_SYSTEM_EIGEN=ON"
 
 # ERROR: QA Issue: File /opt/ros/rolling/lib/cmake/GTSAM_UNSTABLE/GTSAM_UNSTABLEConfig.cmake in package gtsam contains reference to TMPDIR [buildpaths]
 # ERROR: QA Issue: File /opt/ros/rolling/lib/cmake/GTSAM/GTSAM-exports.cmake in package gtsam contains reference to TMPDIR [buildpaths]

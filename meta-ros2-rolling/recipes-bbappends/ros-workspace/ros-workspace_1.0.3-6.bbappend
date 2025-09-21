@@ -3,7 +3,7 @@
 
 ROS_BUILD_DEPENDS:remove = "ament-cmake-core"
 ROS_BUILD_DEPENDS:remove = "ament-package"
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     ament-cmake-core-native \
     ament-package-native \
 "

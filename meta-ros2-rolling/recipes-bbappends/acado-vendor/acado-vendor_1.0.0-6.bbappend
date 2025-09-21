@@ -5,7 +5,7 @@
 # https://github.com/cho3/hpmpc.git   GIT_TAG abbcf0806e4c8763ab2129a90efd827d194c1b00
 # during do_compile
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI = " \
+SRC_URI = "\
     git://github.com/ros2-gbp/acado_vendor-release;name=release;${ROS_BRANCH};protocol=https \
     file://0001-CMakeLists.txt-fetch-acado-hpmpc-with-bitbake-fetche.patch \
     git://github.com/cho3/acado.git;protocol=https;name=acado-upstream;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/acado-upstream;branch=submodule \

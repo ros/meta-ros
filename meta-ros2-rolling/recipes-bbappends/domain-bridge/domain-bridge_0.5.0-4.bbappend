@@ -5,7 +5,7 @@ SRC_URI += "file://0001-CMakeLists.txt-don-t-depend-on-zstd_vendor.patch \
     file://0002-CMakeLists.txt-prevent-duplicate-rule-for-domain_bri.patch \
 "
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     rosidl-typesupport-fastrtps-c-native \
     rosidl-typesupport-fastrtps-cpp-native \
 "

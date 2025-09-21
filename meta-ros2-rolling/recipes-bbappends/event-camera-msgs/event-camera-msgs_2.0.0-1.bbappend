@@ -2,6 +2,6 @@
 
 LICENSE = "Apache-2.0"
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     rosidl-default-runtime-native \
 "

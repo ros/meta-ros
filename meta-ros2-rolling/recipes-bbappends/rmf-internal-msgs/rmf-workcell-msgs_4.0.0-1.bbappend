@@ -1,6 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-ROS_BUILD_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     fastcdr \
     rosidl-default-runtime \
     rosidl-default-generators \

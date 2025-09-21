@@ -71,7 +71,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-GenicamConfig.cmake-detect-ARCHITECTURE-only-when-no.patch"
 
 # in version 2.4.1-1 only aarch64 prebuilt binaries ware missing GNU_HASH, but in 2.5.0-1 it's missing for all 4 supported architectures (32_ARMhf, 32_i86, 64_ARM, 64_x64)
-INSANE_SKIP:${PN} += " ldflags"
+INSANE_SKIP:${PN} += "ldflags"
 
 # rc-genicam-driver/0.1.3-1-r0/recipe-sysroot/usr/lib/rc_genicam_api/RC_GENICAM_APITargets.cmake:110 (message):
 # expects the binary to exist:

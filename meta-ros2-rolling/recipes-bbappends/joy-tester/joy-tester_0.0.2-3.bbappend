@@ -7,6 +7,6 @@ ROS_BUILD_DEPENDS:remove = " \
 ROS_EXPORT_DEPENDS:remove = " \
     python3-tkinter \
 "
-ROS_BUILD_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     python3 \
 "

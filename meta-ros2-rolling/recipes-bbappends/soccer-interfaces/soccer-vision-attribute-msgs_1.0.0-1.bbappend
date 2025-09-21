@@ -1,6 +1,6 @@
 # Copyright (c) 2022 Wind River Systems, Inc.
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     ament-cmake-ros-native \
     rosidl-adapter-native \
     python3-numpy-native \
@@ -13,6 +13,6 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-introspection-cpp-native \
 "
 
-ROS_BUILD_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     rosidl-default-runtime \
 "
