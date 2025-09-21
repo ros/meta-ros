@@ -1,6 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     ament-cmake-ros-native \
     python3-numpy-native \
     rosidl-adapter-native \
@@ -17,6 +17,6 @@ ROS_BUILDTOOL_DEPENDS += " \
 ROS_BUILD_DEPENDS:remove = "python-catkin-pkg"
 ROS_BUILD_DEPENDS:append = " python3-catkin-pkg"
 
-ROS_BUILD_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     service-msgs \
 "

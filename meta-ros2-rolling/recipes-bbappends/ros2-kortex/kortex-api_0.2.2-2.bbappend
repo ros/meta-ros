@@ -4,7 +4,7 @@ SRC_URI += "https://artifactory.kinovaapps.com:443/artifactory/generic-public/ko
 SRC_URI[zip.md5sum] = "64bd86e7ab8bda90ef1fc7d6a356e080"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += " \
+SRC_URI += "\
   file://0001-use-bitbake-fetcher.patch \
   file://0002-install-libraries.patch \
 "

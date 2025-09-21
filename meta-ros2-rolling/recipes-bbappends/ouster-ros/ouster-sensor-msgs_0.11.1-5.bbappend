@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     ament-cmake-ros \
     ament-cmake-gmock \
     ament-cmake-gtest \
@@ -18,7 +18,7 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-introspection-cpp-native \
 "
 
-ROS_BUILD_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     rosidl-core-generators \
     rosidl-core-runtime \
     rosidl-default-runtime \

@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     protobuf-native \
     launch-native \
     launch-ros-native \
@@ -8,7 +8,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 
 inherit python3native
 
-EXTRA_OECMAKE += " \
+EXTRA_OECMAKE += "\
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
 "
 

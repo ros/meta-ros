@@ -7,6 +7,6 @@ inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets']
 ROS_BUILD_DEPENDS += "gz-sim9"
 ROS_BUILDTOOL_DEPENDS += "protobuf-native"
 
-EXTRA_OECMAKE += " \
+EXTRA_OECMAKE += "\
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
 "

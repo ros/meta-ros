@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     rosidl-default-generators-native \
 "
 
@@ -14,7 +14,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 # ... requires librosidl_typesupport_fastrtps_cpp.so()(64bit)
 # ... requires librosidl_typesupport_introspection_c.so()(64bit)
 # ... requires librosidl_typesupport_introspection_cpp.so()(64bit)
-ROS_EXEC_DEPENDS += " \
+ROS_EXEC_DEPENDS += "\
     builtin-interfaces \
     fastcdr \
     rcutils \
@@ -27,6 +27,6 @@ ROS_EXEC_DEPENDS += " \
     rosidl-typesupport-introspection-cpp \
 "
 
-ROS_BUILD_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     service-msgs \
 "

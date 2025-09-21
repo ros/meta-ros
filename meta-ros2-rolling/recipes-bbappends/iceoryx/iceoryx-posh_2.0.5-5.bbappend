@@ -22,7 +22,7 @@ sysroot_stage_all:append() {
 }
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += " \
+SRC_URI += "\
     file://0001-Revert-iox-713-document-the-restrictions-on-size-and.patch \
     file://0002-Revert-iox-14-add-member-to-ChunkHeader-reduce-its-a.patch \
     file://0001-IceoryxPoshDeployment.cmake-change-DESTINATION_CONFIG.patch \
