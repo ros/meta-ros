@@ -10,7 +10,7 @@ DEPENDS:remove = "${DEPENDS_TO_REMOVE}"
 RDEPENDS:${PN}:remove = "${DEPENDS_TO_REMOVE}"
 
 # Don't try to read /proc/cpuinfo as we're cross-compling
-EXTRA_OECMAKE += " \
+EXTRA_OECMAKE += "\
     -DDO_SSE_AUTODETECT=OFF \
     ${@bb.utils.contains("TARGET_CC_ARCH", "-msse2", "", "-DDISABLE_SSE2=ON", d)} \
     ${@bb.utils.contains("TARGET_CC_ARCH", "-msse3", "", "-DDISABLE_SSE3=ON", d)} \
@@ -20,7 +20,7 @@ EXTRA_OECMAKE += " \
 "
 
 # non -dev/-dbg/nativesdk- package libg2o contains symlink .so '/usr/lib/libg2o_stuff.so'
-FILES:${PN}-dev += " \
+FILES:${PN}-dev += "\
     ${ros_libdir}/libg2o*.so \
 "
 

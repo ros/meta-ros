@@ -6,7 +6,7 @@ LICENSE = "BSD-3-Clause"
 #   SkippingbecauseOE_QMAKE_PATH_EXTERNAL_HOST_BINSisnotdefined
 inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], '', 'cmake_qt5', d)}
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     ament-package-native \
     rosidl-default-generators-native \
 "

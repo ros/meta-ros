@@ -1,7 +1,7 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2023 Wind River Systems, Inc.
 
-ROS_BUILD_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     action-msgs \
     fastcdr \
     rosidl-default-runtime \

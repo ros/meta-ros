@@ -5,8 +5,8 @@
 DEPENDS:remove = "orocos-kdl"
 ROS_EXEC_DEPENDS:remove = "orocos-kdl"
 
-DEPENDS:append = "orocos-kdl-vendor"
-ROS_EXEC_DEPENDS:append = "orocos-kdl-vendor"
+DEPENDS:append = " orocos-kdl-vendor"
+ROS_EXEC_DEPENDS:append = " orocos-kdl-vendor"
 
 # Doesn't need runtime dependency on ceres-solver
 ROS_EXEC_DEPENDS:remove = "ceres-solver"

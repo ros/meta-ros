@@ -1,6 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-DEPENDS += " \
+DEPENDS += "\
     ament-cmake \
     ament-cmake-core \
     ament-cmake-libraries \

@@ -1,7 +1,7 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2023 Wind River Systems, Inc.
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     generate-parameter-library-py-native \
 "
 

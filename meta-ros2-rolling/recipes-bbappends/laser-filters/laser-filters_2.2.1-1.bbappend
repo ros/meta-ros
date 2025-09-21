@@ -2,7 +2,7 @@
 
 LICENSE = "BSD-3-Clause"
 
-DEPENDS += " \
+DEPENDS += "\
     ament-cmake \
     ament-cmake-core \
     ament-cmake-libraries \

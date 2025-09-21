@@ -1,7 +1,7 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += " \
+SRC_URI += "\
     file://0001-CMakeLists.txt-link-with-dl.patch \
     file://0001-FindLuaGoogle.cmake-explicitly-link-with-dl.patch \
     file://cmake.dont.add.Werror.uninitialized.patch \
@@ -17,7 +17,7 @@ inherit pkgconfig
 # be native and needs quite a lot of native python dependencies
 ROS_BUILD_DEPENDS:remove = "${PYTHON_PN}-sphinx python-sphinx"
 
-DEPENDS += " \
+DEPENDS += "\
     protobuf-native \
 "
 

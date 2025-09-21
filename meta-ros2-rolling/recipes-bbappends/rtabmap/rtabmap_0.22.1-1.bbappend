@@ -22,7 +22,7 @@ CXXFLAGS += "-DDISABLE_VTK"
 
 # Build without Qt, examples and tools
 # Build as release
-EXTRA_OECMAKE += " \
+EXTRA_OECMAKE += "\
     -DBUILD_TOOLS=OFF \
     -DBUILD_EXAMPLES=OFF \
     -DWITH_QT=OFF \
@@ -32,7 +32,7 @@ EXTRA_OECMAKE += " \
     -DCOMPILER_SUPPORTS_CXX17=ON \
 "
 
-EXTRA_OECMAKE:class-native += " \
+EXTRA_OECMAKE:class-native += "\
     -DUNIX=ON \
     -DANDROID_PREBUILD=ON \
 "
@@ -42,7 +42,7 @@ export LD_LIBRARY_PATH = "${RECIPE_SYSROOT_NATIVE}/${ros_libdir}"
 # ERROR: rtabmap-0.21.5-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package rtabmap contains symlink .so '/opt/ros/rolling/lib/librtabmap_core.so' [dev-so]
 # ERROR: rtabmap-0.21.5-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package rtabmap contains symlink .so '/opt/ros/rolling/lib/librtabmap_utilite.so' [dev-so]
 # Undo ros_faulty_solibs and include uncommon cmake config path:
-FILES:${PN}-dev += " \
+FILES:${PN}-dev += "\
     ${ros_libdir}/${PN}-0.20/ \
     ${ros_libdir}/lib*${SOLIBSDEV} \
 "

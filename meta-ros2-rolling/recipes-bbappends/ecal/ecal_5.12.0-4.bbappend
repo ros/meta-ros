@@ -1,6 +1,6 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
-DEPENDS += " \
+DEPENDS += "\
     protobuf-native \
 "
 
