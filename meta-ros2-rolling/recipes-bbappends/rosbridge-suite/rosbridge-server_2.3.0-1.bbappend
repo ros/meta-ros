@@ -2,7 +2,7 @@
 
 LICENSE = "BSD-3-Clause"
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     ament-cmake-gmock \
     ament-cmake-gtest \
     ament-cmake-pytest \

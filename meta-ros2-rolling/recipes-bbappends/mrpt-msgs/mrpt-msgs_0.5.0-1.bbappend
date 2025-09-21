@@ -1,5 +1,5 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
-ROS_EXEC_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     service-msgs \
 "

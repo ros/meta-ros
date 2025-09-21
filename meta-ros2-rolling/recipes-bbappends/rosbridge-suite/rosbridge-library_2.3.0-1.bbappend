@@ -2,7 +2,7 @@
 
 LICENSE = "BSD-3-Clause"
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     python3-numpy-native \
     rosidl-adapter-native \
     rosidl-generator-c-native \

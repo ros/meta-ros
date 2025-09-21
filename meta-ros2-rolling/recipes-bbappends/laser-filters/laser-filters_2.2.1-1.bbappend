@@ -1,6 +1,8 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-DEPENDS += " \
+LICENSE = "BSD-3-Clause"
+
+DEPENDS += "\
     ament-cmake \
     ament-cmake-core \
     ament-cmake-libraries \

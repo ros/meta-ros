@@ -2,7 +2,7 @@
 
 ROS_BUILD_DEPENDS += "eigen3-cmake-module"
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     rosidl-default-generators-native \
 "
 

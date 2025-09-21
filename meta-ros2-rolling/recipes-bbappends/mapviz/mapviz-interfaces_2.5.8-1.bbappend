@@ -1,10 +1,9 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     rosidl-default-runtime-native \
 "
 
-# QA Issue "package mapviz-interfaces-msgs requires libservice_msgs" [file-rdeps]
-ROS_EXEC_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     service-msgs \
 "

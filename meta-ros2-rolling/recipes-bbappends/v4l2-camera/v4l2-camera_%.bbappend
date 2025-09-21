@@ -38,7 +38,7 @@
 # |
 # | CMake Generate step failed.  Build files cannot be regenerated correctly.
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     ament-cmake-ros-native \
     python3-numpy-native \
 "

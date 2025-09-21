@@ -6,7 +6,7 @@ ROS_BUILDTOOL_DEPENDS += "gz-msgs11-native protobuf-native"
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://Set-protoc-executable.patch"
 
-EXTRA_OECMAKE += " \
+EXTRA_OECMAKE += "\
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
 "
 

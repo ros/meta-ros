@@ -33,6 +33,6 @@ CXXFLAGS += "-Wno-error=sign-conversion -Wno-error=old-style-cast"
 CFLAGS += "-Wno-error=shadow"
 CXXFLAGS += "-Wno-error=shadow"
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     rosidl-default-runtime-native \
 "

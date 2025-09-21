@@ -2,7 +2,7 @@
 
 inherit pkgconfig
 
-ROS_BUILD_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     ament-cmake-ros-native \
     python3-numpy-native \
     rosidl-adapter-native \

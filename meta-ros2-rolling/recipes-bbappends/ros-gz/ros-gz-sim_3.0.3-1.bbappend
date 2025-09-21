@@ -1,14 +1,14 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-ROS_BUILD_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     protobuf \
 "
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     protobuf-native \
 "
 
-EXTRA_OECMAKE += " \
+EXTRA_OECMAKE += "\
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
 "
 

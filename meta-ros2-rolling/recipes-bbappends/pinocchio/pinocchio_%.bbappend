@@ -1,7 +1,7 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 ROS_BUILDTOOL_DEPENDS:remove = "clang-native-native"
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     clang-native \
     doxygen-native \
     python3-numpy-native \

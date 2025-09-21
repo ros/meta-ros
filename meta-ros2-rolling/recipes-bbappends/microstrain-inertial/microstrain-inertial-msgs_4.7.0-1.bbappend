@@ -1,6 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-ROS_BUILDTOOL_DEPENDS += " \
+ROS_BUILDTOOL_DEPENDS += "\
     python-cmake-module-native \
     rosidl-adapter-native \
     rosidl-generator-c-native \
@@ -13,6 +13,6 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-introspection-cpp-native \
 "
 
-ROS_EXEC_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     service-msgs \
 "

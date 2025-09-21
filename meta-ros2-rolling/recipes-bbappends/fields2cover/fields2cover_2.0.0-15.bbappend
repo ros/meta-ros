@@ -26,7 +26,7 @@ ROS_EXPORT_DEPENDS:remove = "gtest"
 ROS_EXEC_DEPENDS:remove = "gtest"
 ROS_TEST_DEPENDS:remove = "gtest"
 
-ROS_BUILD_DEPENDS += " \
+ROS_BUILD_DEPENDS += "\
     boost \
     gdal \
     geos \
@@ -38,7 +38,7 @@ ROS_BUILD_DEPENDS += " \
 
 inherit python3native
 
-FILES:${PN} += " \
+FILES:${PN} += "\
     ${datadir}/Fields2Cover/package.xml \
 "
 

@@ -1,6 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
-DEPENDS += " \
+DEPENDS += "\
     ament-cmake-gen-version-h \
     ament-package-native \
     python3-catkin-pkg-native \
