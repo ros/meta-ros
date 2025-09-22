@@ -252,23 +252,9 @@ ROS_UNRESOLVED_DEP-libyaml-dev = "libyaml"
 ROS_UNRESOLVED_DEP-python3-vcstool-native = "python3-vcstools-native"
 
 # Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
-ROS_UNRESOLVED_DEP-python3-flake8-import-order = "python3-flake8-import-order"
-
-# Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
-ROS_UNRESOLVED_DEP-python3-flake8-builtins = "python3-flake8-builtins"
-
-# Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
 ROS_UNRESOLVED_DEP-python3-flake8-comprehensions = "python3-flake8-comprehensions"
 
-# Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
-ROS_UNRESOLVED_DEP-python3-flake8-docstrings = "python3-flake8-docstrings"
-
-# Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
-ROS_UNRESOLVED_DEP-python3-flake8-quotes = "python3-flake8-quotes"
-
 ROS_UNRESOLVED_DEP-meson-native = "meson-native"
-ROS_UNRESOLVED_DEP-python3-ply = "python3-ply"
-ROS_UNRESOLVED_DEP-python3-jinja2 = "python3-jinja2"
 
 # https://layers.openembedded.org/layerindex/recipe/4681/
 ROS_UNRESOLVED_DEP-file = "file"
@@ -288,18 +274,6 @@ ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev = "virtual/opencl-icd"
 # https://layers.openembedded.org/layerindex/recipe/56447/
 ROS_UNRESOLVED_DEP-pybind11-dev = "python3-pybind11"
 
-# https://layers.openembedded.org/layerindex/recipe/51342/
-ROS_UNRESOLVED_DEP-python3-dbus = "python3-dbus"
-
-# https://layers.openembedded.org/layerindex/recipe/51298/
-ROS_UNRESOLVED_DEP-python3-git = "python3-git"
-
-# https://layers.openembedded.org/layerindex/recipe/148975/
-ROS_UNRESOLVED_DEP-python3-jinja2 = "python3-jinja2"
-
-# https://layers.openembedded.org/layerindex/recipe/120600/
-ROS_UNRESOLVED_DEP-python3-typeguard = "python3-typeguard"
-
 ROS_UNRESOLVED_DEP-libtins-dev = "libtins"
 
 ROS_UNRESOLVED_DEP-python3-whichcraft = "python3-whichcraft"
@@ -307,13 +281,7 @@ ROS_UNRESOLVED_DEP-python3-whichcraft = "python3-whichcraft"
 # https://layers.openembedded.org/layerindex/recipe/27305/
 ROS_UNRESOLVED_DEP-jq = "jq"
 
-ROS_UNRESOLVED_DEP-python3-construct = "python3-construct"
-
-ROS_UNRESOLVED_DEP-python3-jsonschema = "python3-jsonschema"
-
 ROS_UNRESOLVED_DEP-box2d = "box2d"
-
-ROS_UNRESOLVED_DEP-python3-babeltrace = "python3-babeltrace"
 
 ROS_UNRESOLVED_DEP-geos = "geos"
 
@@ -332,27 +300,13 @@ ROS_UNRESOLVED_DEP-libbluetooth-dev = "bluez5"
 
 ROS_UNRESOLVED_DEP-libdbus-dev = "dbus"
 
-ROS_UNRESOLVED_DEP-python3-distro = "python3-distro"
-
-ROS_UNRESOLVED_DEP-python3-filelock = "python3-filelock"
-
-ROS_UNRESOLVED_DEP-python3-img2pdf = "python3-img2pdf"
-
-ROS_UNRESOLVED_DEP-python3-ntplib = " python3-ntplib"
-
-ROS_UNRESOLVED_DEP-python3-ntplib = " python3-pydantic"
-
 ROS_UNRESOLVED_DEP-python3-watchdog = "python3-watchdog"
-
-ROS_UNRESOLVED_DEP-python3-protobuf = "python3-protobuf"
 
 ROS_UNRESOLVED_DEP-socat = "socat"
 
 ROS_UNRESOLVED_DEP-python3-scipy = "python3-scipy"
 
 ROS_UNRESOLVED_DEP-libgpiod-dev = "libgpiod"
-
-ROS_UNRESOLVED_DEP-python3-natsort = "python3-natsort"
 
 ROS_UNRESOLVED_DEP-libfyaml-dev = "libfyaml"
 
@@ -394,8 +348,6 @@ ROS_UNRESOLVED_DEP-xtensor = "xtensor"
 ROS_UNRESOLVED_DEP-libopenni-dev = "openni"
 ROS_UNRESOLVED_DEP-libopenni2-dev = "openni2"
 
-ROS_UNRESOLVED_DEP-python3-pydantic = "python3-pydantic"
-ROS_UNRESOLVED_DEP-python3-pymap3d = "python3-pymap3d"
 ROS_UNRESOLVED_DEP-python3-unidiff = "python3-unidiff"
 ROS_UNRESOLVED_DEP-black = "python3-black"
 ROS_UNRESOLVED_DEP-black-native = "python3-black-native"
@@ -412,14 +364,10 @@ ROS_UNRESOLVED_DEP-clang-format-native = "clang-native"
 ROS_UNRESOLVED_DEP-clang-tidy = "clang"
 ROS_UNRESOLVED_DEP-clang-tidy-native = "clang-native"
 
-ROS_UNRESOLVED_DEP-python3-rtree = "python3-rtree"
-ROS_UNRESOLVED_DEP-python3-fiona = "python3-fiona"
-ROS_UNRESOLVED_DEP-python3-shapely = "python3-shapely"
 ROS_UNRESOLVED_DEP-ignition-fuel-tools7 = "ignition-fuel-tools7"
 ROS_UNRESOLVED_DEP-python3-uvloop = "python3-uvloop"
 
 ROS_UNRESOLVED_DEP-libgdal-dev = "gdal"
-ROS_UNRESOLVED_DEP-python3-smbus = "python3-smbus"
 ROS_UNRESOLVED_DEP-libxkbcommon-dev = "libxkbcommon"
 ROS_UNRESOLVED_DEP-libavdevice-dev = "ffmpeg"
 
@@ -469,32 +417,22 @@ ROS_UNRESOLVED_DEP-ros-ign-image = "ros-gz-image"
 ROS_UNRESOLVED_DEP-ros-ign-interfaces = "ros-gz-interfaces"
 ROS_UNRESOLVED_DEP-ros-ign-bridge = "ros-gz-bridge"
 
-ROS_UNRESOLVED_DEP-python3-deprecated = "python3-deprecated"
 ROS_UNRESOLVED_DEP-coinor-libipopt-dev = "ipopt"
 
-ROS_UNRESOLVED_DEP-python3-semver = "python3-semver"
 ROS_UNRESOLVED_DEP-libusb = "libusb-compat"
-ROS_UNRESOLVED_DEP-python3-typing-extensions = "python3-typing-extensions"
 ROS_UNRESOLVED_DEP-python3-flake8-deprecated = "python3-flake8-deprecated"
 ROS_UNRESOLVED_DEP-python3-flake8-blind-except = "python3-flake8-blind-except"
 ROS_UNRESOLVED_DEP-python3-flake8-class-newline = "python3-flake8-class-newline"
 ROS_UNRESOLVED_DEP-liboctomap-dev = "octomap"
-ROS_UNRESOLVED_DEP-python3-rich = "python3-rich"
 ROS_UNRESOLVED_DEP-libserial-dev = "libserial"
 ROS_UNRESOLVED_DEP-libqt5-multimedia = "qtmultimedia"
 ROS_UNRESOLVED_DEP-libboost-timer-dev = "boost"
 ROS_UNRESOLVED_DEP-gazebo-msgs = "gazebo-msgs"
-ROS_UNRESOLVED_DEP-python3-icecream = "python3-icecream"
 ROS_UNRESOLVED_DEP-python3-waitress = "python3-waitress"
-ROS_UNRESOLVED_DEP-python3-paho-mqtt = "python3-paho-mqtt"
 ROS_UNRESOLVED_DEP-network-manager = "networkmanager"
-ROS_UNRESOLVED_DEP-python3-antlr4 = "python3-antlr4-runtime"
 ROS_UNRESOLVED_DEP-python3-expiringdict = "python3-expiringdict"
 ROS_UNRESOLVED_DEP-python3-fastapi = "python3-fastapi"
-ROS_UNRESOLVED_DEP-python3-gi-cairo = "python3-pygobject"
 ROS_UNRESOLVED_DEP-python3-msgpack-numpy = "python3-msgpack-numpy"
-ROS_UNRESOLVED_DEP-python3-networkx = "python3-networkx"
-ROS_UNRESOLVED_DEP-python3-tqdm = "python3-tqdm"
 ROS_UNRESOLVED_DEP-python3-transforms3d = "python3-transforms3d"
 ROS_UNRESOLVED_DEP-python3-uvicorn = "python3-uvicorn"
 ROS_UNRESOLVED_DEP-python-is-python3 = "python3"
@@ -512,18 +450,12 @@ ROS_UNRESOLVED_DEP-libgirepository = "gobject-introspection"
 ROS_UNRESOLVED_DEP-libgirepository-dev = "gobject-introspection"
 
 ROS_UNRESOLVED_DEP-gripper-controllers = "gripper-controllers"
-ROS_UNRESOLVED_DEP-python3-attrs = "python3-attrs"
-ROS_UNRESOLVED_DEP-python3-setproctitle = "python3-setproctitle"
-ROS_UNRESOLVED_DEP-python3-toml = "python3-toml"
 ROS_UNRESOLVED_DEP-python3-wheel = "python3-wheel"
-ROS_UNRESOLVED_DEP-python3-types-pyyaml = "python3-types-pyyaml"
 ROS_UNRESOLVED_DEP-coinor-libcgl-dev = "coinor-cgl"
 ROS_UNRESOLVED_DEP-coinor-libcbc-dev = "coinor-cbc"
 ROS_UNRESOLVED_DEP-coinor-libclp-dev = "coinor-clp"
 ROS_UNRESOLVED_DEP-coinor-libcoinutils-dev = "coinutils"
 ROS_UNRESOLVED_DEP-libnanoflann = "nanoflann"
 ROS_UNRESOLVED_DEP-libnanoflann-dev = "nanoflann"
-ROS_UNRESOLVED_DEP-python3-platformdirs = "python3-platformdirs"
-ROS_UNRESOLVED_DEP-python3-httpx = "python3-httpx"
 ROS_UNRESOLVED_DEP-actionlib-msgs = "actionlib-msgs"
 ROS_UNRESOLVED_DEP-pybind11-json-dev = "python3-pybind11-json"
