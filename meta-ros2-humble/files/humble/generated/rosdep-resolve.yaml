@@ -75,7 +75,7 @@ file:
 flex:
 - flex@openembedded-core
 fmt:
-- fmt@meta-oe
+- fmt@openembedded-core
 gazebo:
 - ${ROS_UNRESOLVED_DEP-gazebo}
 gazebo11:
@@ -261,7 +261,7 @@ libgpiod-dev:
 libgps:
 - gpsd@meta-oe
 libgrpc:
-- grpc@meta-networking
+- grpc@meta-oe
 libgstreamer-plugins-base1.0-dev:
 - gstreamer1.0-plugins-base@openembedded-core
 libgstreamer1.0-dev:
@@ -280,6 +280,8 @@ liblapack-dev:
 - lapack@meta-oe
 liblttng-ust-dev:
 - lttng-ust@openembedded-core
+libmodbus-dev:
+- libmodbus@meta-oe
 libnanopb-dev:
 - nanopb@meta-oe
 libncurses-dev:
@@ -289,7 +291,7 @@ liboctomap-dev:
 libogg:
 - libogg@openembedded-core
 libomp-dev:
-- openmp@meta-clang
+- openmp@openembedded-core
 libopen3d-dev:
 - ${ROS_UNRESOLVED_DEP-libopen3d-dev}
 libopenblas-dev:
@@ -429,7 +431,7 @@ libxxf86vm:
 libzmq3-dev:
 - zeromq@meta-oe
 libzstd-dev:
-- zstd@meta-oe
+- zstd@openembedded-core
 linux-kernel-headers:
 - linux-libc-headers@openembedded-core
 lm-sensors:
@@ -495,22 +497,26 @@ python3-autobahn:
 - python3-autobahn@meta-python
 python3-babeltrace:
 - babeltrace@openembedded-core
+python3-bidict:
+- python3-bidict@meta-python
 python3-boto3:
 - python3-boto3@meta-ros-common
 python3-bson:
 - python3-pymongo@meta-python
 python3-cairo:
 - python3-pycairo@openembedded-core
+python3-cairosvg:
+- ${ROS_UNRESOLVED_DEP-python3-cairosvg}
 python3-catkin-pkg:
 - python3-catkin-pkg@meta-ros-common
 python3-catkin-pkg-modules:
 - python3-catkin-pkg@meta-ros-common
 python3-click:
-- python3-click@meta-python
+- python3-click@openembedded-core
 python3-collada:
 - ${ROS_UNRESOLVED_DEP-python3-collada}
 python3-colorama:
-- python3-colorama@meta-python
+- python3-colorama@openembedded-core
 python3-colorcet:
 - ${ROS_UNRESOLVED_DEP-python3-colorcet}
 python3-construct:
@@ -550,13 +556,15 @@ python3-httpx:
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
-- python3-importlib-metadata@openembedded-core
+- python3-importlib-metadata@meta-python
 python3-importlib-resources:
 - python3@openembedded-core
 python3-inflection:
 - ${ROS_UNRESOLVED_DEP-python3-inflection}
 python3-jinja2:
 - python3-jinja2@openembedded-core
+python3-jsonpickle:
+- ${ROS_UNRESOLVED_DEP-python3-jsonpickle}
 python3-jsonschema:
 - python3-jsonschema@openembedded-core
 python3-lark-parser:
@@ -564,7 +572,7 @@ python3-lark-parser:
 python3-lttng:
 - lttng-tools@openembedded-core
 python3-lxml:
-- python3-lxml@meta-python
+- python3-lxml@openembedded-core
 python3-matplotlib:
 - python3-matplotlib@meta-python
 python3-mock:
@@ -610,7 +618,7 @@ python3-platformdirs:
 python3-ply:
 - python3-ply@openembedded-core
 python3-pre-commit:
-- ${ROS_UNRESOLVED_DEP-python3-pre-commit}
+- python3-pre-commit@meta-python
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
@@ -631,10 +639,8 @@ python3-pyproj:
 - python3-pyproj@meta-ros-common
 python3-pyqt5.qtwebengine:
 - ${PYTHON_PN}-pyqt5@meta-qt5
-python3-pyside2:
-- ${ROS_UNRESOLVED_DEP-python3-pyside2}
 python3-pytest:
-- python3-pytest@meta-python
+- python3-pytest@openembedded-core
 python3-pytest-cov:
 - python3-pytest-cov@meta-ros-common
 python3-pytest-mock:
@@ -646,9 +652,9 @@ python3-pytorch-pip:
 python3-qt5-bindings:
 - python3-pyqt5@meta-qt5
 python3-requests:
-- python3-requests@meta-python
+- python3-requests@openembedded-core
 python3-rich:
-- ${ROS_UNRESOLVED_DEP-python3-rich}
+- python3-rich@meta-python
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
 python3-rospkg:
@@ -664,7 +670,7 @@ python3-scp:
 python3-seaborn:
 - ${ROS_UNRESOLVED_DEP-python3-seaborn}
 python3-semver:
-- ${ROS_UNRESOLVED_DEP-python3-semver}
+- python3-semver@meta-python
 python3-serial:
 - python3-pyserial@meta-python
 python3-setproctitle:
@@ -673,10 +679,12 @@ python3-setuptools:
 - python3-setuptools@openembedded-core
 python3-shapely:
 - python3-shapely@meta-ros2
+python3-skimage:
+- ${ROS_UNRESOLVED_DEP-python3-skimage}
 python3-smbus:
 - python3-smbus@meta-python
 python3-sphinx:
-- python3-sphinx@meta-ros-common
+- python3-sphinx@openembedded-core
 python3-tabulate:
 - ${ROS_UNRESOLVED_DEP-python3-tabulate}
 python3-tk:
@@ -688,13 +696,17 @@ python3-torch-geometric-pip:
 python3-tornado:
 - python3-tornado@meta-python
 python3-tqdm:
-- ${ROS_UNRESOLVED_DEP-python3-tqdm}
+- python3-tqdm@meta-python
 python3-transforms3d:
 - ${ROS_UNRESOLVED_DEP-python3-transforms3d}
 python3-twisted:
 - python3-twisted@meta-python
 python3-typeguard:
 - python3-typeguard@meta-python
+python3-typer:
+- ${ROS_UNRESOLVED_DEP-python3-typer}
+python3-typing-extensions:
+- python3-typing-extensions@openembedded-core
 python3-unidiff:
 - python3-unidiff@meta-python
 python3-uvloop:
@@ -704,7 +716,7 @@ python3-vcstool:
 python3-venv:
 - python3@openembedded-core
 python3-waitress:
-- ${ROS_UNRESOLVED_DEP-python3-waitress}
+- python3-waitress@meta-python
 python3-watchdog:
 - python3-watchdog@meta-python
 python3-websocket:
@@ -712,7 +724,7 @@ python3-websocket:
 python3-whichcraft:
 - python3-whichcraft@meta-ros-common
 python3-yaml:
-- python3-pyyaml@meta-python
+- python3-pyyaml@openembedded-core
 python3-zmq:
 - ${ROS_UNRESOLVED_DEP-python3-zmq}
 qml-module-qtquick-extras:
