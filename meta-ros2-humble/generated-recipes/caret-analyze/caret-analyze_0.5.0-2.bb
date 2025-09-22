@@ -38,10 +38,10 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-python3-colorcet} \
     ${ROS_UNRESOLVED_DEP-python3-graphviz} \
-    ${ROS_UNRESOLVED_DEP-python3-tqdm} \
     graphviz \
     python3-pyyaml \
     python3-setuptools \
+    python3-tqdm \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
