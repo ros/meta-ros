@@ -92,8 +92,6 @@ gripper_controllers:
 - ${ROS_UNRESOLVED_DEP-gripper-controllers}
 gtest:
 - gtest@meta-oe
-gtk3:
-- gtk+3@openembedded-core
 gurumdds-3.2:
 - ${ROS_UNRESOLVED_DEP-gurumdds-3.2}
 hdf5-tools:
@@ -160,6 +158,8 @@ libboost-thread-dev:
 - boost@openembedded-core
 libboost-timer-dev:
 - ${ROS_UNRESOLVED_DEP-libboost-timer-dev}
+libc++-dev:
+- ${ROS_UNRESOLVED_DEP-libc++-dev}
 libcairo2-dev:
 - cairo@openembedded-core
 libcap-dev:
@@ -174,12 +174,16 @@ libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libcurl-dev:
 - ${ROS_UNRESOLVED_DEP-libcurl-dev}
+libcurl_vendor:
+- ${ROS_UNRESOLVED_DEP-libcurl-vendor}
 libdbus-dev:
 - dbus@openembedded-core
 libdraco-dev:
 - ${ROS_UNRESOLVED_DEP-libdraco-dev}
 libdw-dev:
 - elfutils@openembedded-core
+libdwarf-dev:
+- libdwarf
 libepoxy-dev:
 - libepoxy@openembedded-core
 libfcl:
@@ -234,6 +238,8 @@ liblz4:
 - lz4@openembedded-core
 liblz4-dev:
 - lz4@openembedded-core
+libmodbus-dev:
+- libmodbus@meta-oe
 libncurses-dev:
 - ncurses@openembedded-core
 libnlopt-cxx-dev:
@@ -310,6 +316,8 @@ libqt5-widgets:
 - qtbase@meta-qt5
 libqt5x11extras5-dev:
 - qtx11extras@meta-qt5
+libqt6svg6:
+- qtsvg@meta-qt6
 libqwt-qt5-dev:
 - qwt-qt5@meta-qt5
 libserial-dev:
@@ -404,6 +412,10 @@ matio:
 - ${ROS_UNRESOLVED_DEP-matio}
 meson:
 - ${ROS_UNRESOLVED_DEP-meson}
+mola_imu_preintegration:
+- ${ROS_UNRESOLVED_DEP-mola-imu-preintegration}
+muparser:
+- muparser@meta-qt5-extra
 nanobind-dev:
 - ${ROS_UNRESOLVED_DEP-nanobind-dev}
 nlohmann-json-dev:
@@ -561,7 +573,7 @@ python3-platformdirs:
 python3-ply:
 - python3-ply@openembedded-core
 python3-pre-commit:
-- ${ROS_UNRESOLVED_DEP-python3-pre-commit}
+- python3-pre-commit@meta-python
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
@@ -580,8 +592,6 @@ python3-pyproj:
 - python3-pyproj@meta-ros-common
 python3-pyqt5.qtwebengine:
 - ${PYTHON_PN}-pyqt5@meta-qt5
-python3-pyside2:
-- ${ROS_UNRESOLVED_DEP-python3-pyside2}
 python3-pytest:
 - python3-pytest@openembedded-core
 python3-pytest-cov:
@@ -654,46 +664,58 @@ python3-whichcraft:
 - python3-whichcraft@meta-ros-common
 python3-yaml:
 - python3-pyyaml@openembedded-core
-qml-module-qt-labs-folderlistmodel:
-- ${ROS_UNRESOLVED_DEP-qml-module-qt-labs-folderlistmodel}
-qml-module-qt-labs-platform:
-- ${ROS_UNRESOLVED_DEP-qml-module-qt-labs-platform}
-qml-module-qt-labs-settings:
-- ${ROS_UNRESOLVED_DEP-qml-module-qt-labs-settings}
-qml-module-qtcharts:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtcharts}
-qml-module-qtgraphicaleffects:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtgraphicaleffects}
-qml-module-qtlocation:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtlocation}
-qml-module-qtpositioning:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtpositioning}
-qml-module-qtquick-controls:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtquick-controls}
-qml-module-qtquick-controls2:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtquick-controls2}
-qml-module-qtquick-dialogs:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtquick-dialogs}
-qml-module-qtquick-extras:
-- qtquickcontrols2@meta-qt5
-qml-module-qtquick-layouts:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtquick-layouts}
-qml-module-qtquick-templates2:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtquick-templates2}
-qml-module-qtquick-window2:
-- ${ROS_UNRESOLVED_DEP-qml-module-qtquick-window2}
 qml-module-qtquick2:
 - ${ROS_UNRESOLVED_DEP-qml-module-qtquick2}
+qml6-module-qt-labs-folderlistmodel:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qt-labs-folderlistmodel}
+qml6-module-qt-labs-platform:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qt-labs-platform}
+qml6-module-qt-labs-settings:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qt-labs-settings}
+qml6-module-qt5compat-graphicaleffects:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qt5compat-graphicaleffects}
+qml6-module-qtcharts:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtcharts}
+qml6-module-qtcore:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtcore}
+qml6-module-qtpositioning:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtpositioning}
+qml6-module-qtqml:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtqml}
+qml6-module-qtqml-models:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtqml-models}
+qml6-module-qtqml-workerscript:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtqml-workerscript}
+qml6-module-qtquick:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtquick}
+qml6-module-qtquick-controls:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtquick-controls}
+qml6-module-qtquick-dialogs:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtquick-dialogs}
+qml6-module-qtquick-layouts:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtquick-layouts}
+qml6-module-qtquick-templates:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtquick-templates}
+qml6-module-qtquick-window:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtquick-window}
 qt5-qmake:
 - qtbase@meta-qt5
+qt6-5compat-dev:
+- qt5compat@meta-qt6
+qt6-base-dev:
+- qtbase@meta-qt6
+qt6-base-private-dev:
+- qtbase@meta-qt6
+qt6-declarative-dev:
+- qtdeclarative@meta-qt6
+qt6-declarative-private-dev:
+- qtdeclarative@meta-qt6
 qtbase5-dev:
 - qtbase@meta-qt5
 qtdeclarative5-dev:
 - qtdeclarative@meta-qt5
 qtmultimedia5-dev:
 - qtmultimedia@meta-qt5
-qtquickcontrols2-5-dev:
-- ${ROS_UNRESOLVED_DEP-qtquickcontrols2-5-dev}
 qttools5-dev-tools:
 - qttools@meta-qt5
 range-v3:
