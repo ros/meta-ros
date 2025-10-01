@@ -18,7 +18,7 @@ ROS_CN = "ublox_dgnss"
 ROS_BPN = "ntrip_client_node"
 
 ROS_BUILD_DEPENDS = " \
-    libcurl-vendor \
+    ${ROS_UNRESOLVED_DEP-libcurl-vendor} \
     pkgconfig \
     rclcpp \
     rclcpp-components \
@@ -30,7 +30,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
-    libcurl-vendor \
+    ${ROS_UNRESOLVED_DEP-libcurl-vendor} \
     rclcpp \
     rclcpp-components \
     rtcm-msgs \
@@ -39,7 +39,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    libcurl-vendor \
+    ${ROS_UNRESOLVED_DEP-libcurl-vendor} \
     rclcpp \
     rclcpp-components \
     rtcm-msgs \
