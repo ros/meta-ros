@@ -518,6 +518,27 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     webots-ros2-universal-robot \
 "
 
+RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'qt6', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT6}', '', d)}"
+ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT6 = " \
+    desktop-full \
+    dolly-ignition \
+    gz-launch-vendor \
+    gz-gui-vendor \
+    gz-ros2-control \
+    gz-sim-vendor \
+    leo-gz-bringup \
+    leo-gz-plugins \
+    leo-simulator \
+    nav2-minimal-tb3-sim \
+    nav2-minimal-tb4-sim \
+    open-manipulator \
+    open-manipulator-bringup \
+    ros-gz \
+    ros-gz-sim \
+    ros-gz-sim-demos \
+    simulation \
+"
+
 # OE won't let us build ffmpeg unless LICENSE_FLAGS_ACCEPTED contains "commercial" or "commercial_ffmpeg" or "ffmpeg".
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ffmpeg', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_FFMPEG = " \
