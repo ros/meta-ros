@@ -283,8 +283,6 @@ ROS_UNRESOLVED_DEP-pybind11-dev = "python3-pybind11"
 
 ROS_UNRESOLVED_DEP-libtins-dev = "libtins"
 
-ROS_UNRESOLVED_DEP-python3-whichcraft = "python3-whichcraft"
-
 # https://layers.openembedded.org/layerindex/recipe/27305/
 ROS_UNRESOLVED_DEP-jq = "jq"
 
