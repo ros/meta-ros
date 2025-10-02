@@ -461,3 +461,7 @@ ROS_UNRESOLVED_DEP-libnanoflann-dev = "nanoflann"
 ROS_UNRESOLVED_DEP-actionlib-msgs = "actionlib-msgs"
 ROS_UNRESOLVED_DEP-pybind11-json-dev = "python3-pybind11-json"
 ROS_UNRESOLVED_DEP-libc++-dev = "libcxx"
+
+# Needed by ntrip-client-node which refers to libcurl-vendor
+# However libcurl-vendor has been removed from the ROS index
+ROS_UNRESOLVED_DEP-libcurl-vendor = "curl"
