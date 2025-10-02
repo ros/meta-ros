@@ -2,7 +2,7 @@ header:
   version: 14
 
 local_conf_header:
-  world: |
+  visualization: |
     DISTRO_FEATURES:append = " x11 opengl vulkan polkit"
     PACKAGECONFIG:append:pn-python3 = "  tk"
     LICENSE_FLAGS_ACCEPTED += "commercial"
