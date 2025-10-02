@@ -1032,3 +1032,6 @@ RDEPENDS:${PN}:remove = "mola-state-estimation"
 RDEPENDS:${PN}:remove = "mola-state-estimation-simple"
 RDEPENDS:${PN}:remove = "mola-state-estimation-smoother"
 RDEPENDS:${PN}:remove = "mola-lidar-odometry"
+
+# Depends on muparser, which is only available in meta-qt5-extra
+RDEPENDS:${PN}:remove = "parameter-expression"
