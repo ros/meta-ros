@@ -1,0 +1,58 @@
+Fix build with Boost 1.89.0
+
+Refreshed upstream fix and removed system from
+PCLCONFIG_AVAILABLE_BOOST_MODULES.
+
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 99333442ac63971297b4cdd05fab9d2bd2ff57a4 Mon Sep 17 00:00:00 2001
+From: Michael Cho <michael@michaelcho.dev>
+Date: Wed, 27 Aug 2025 10:05:48 -0400
+Subject: [PATCH] Fix build with Boost 1.89.0
+
+This fixes a regression in 0404f7c382099e50196da6640c0ebba6d829392f
+/ 1.15.1 as `Boost::system` is not valid since Boost 1.89.0.
+
+PCL requires a minimum of Boost 1.71.0 so Boost.System is guaranteed to
+be header-only (since 1.69[^1]) and the component can be removed.
+
+[^1]: https://www.boost.org/doc/libs/1_69_0/libs/system/doc/html/system.html#changes_in_boost_1_69
+---
+ cmake/pcl_find_boost.cmake | 4 ++--
+ outofcore/CMakeLists.txt   | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+Index: pcl-1.14.1/cmake/pcl_find_boost.cmake
+===================================================================
+--- pcl-1.14.1.orig/cmake/pcl_find_boost.cmake
++++ pcl-1.14.1/cmake/pcl_find_boost.cmake
+@@ -19,12 +19,12 @@ if(CMAKE_CXX_STANDARD MATCHES "14")
+   # Optional boost modules
+   set(BOOST_OPTIONAL_MODULES serialization mpi)
+   # Required boost modules
+-  set(BOOST_REQUIRED_MODULES filesystem iostreams system)
++  set(BOOST_REQUIRED_MODULES filesystem iostreams)
+ else()
+   # Optional boost modules
+   set(BOOST_OPTIONAL_MODULES filesystem serialization mpi)
+   # Required boost modules
+-  set(BOOST_REQUIRED_MODULES iostreams system)
++  set(BOOST_REQUIRED_MODULES iostreams)
+ endif()
+ 
+ find_package(Boost 1.65.0 QUIET COMPONENTS ${BOOST_OPTIONAL_MODULES})
+Index: pcl-1.14.1/cmake/pcl_pclconfig.cmake
+===================================================================
+--- pcl-1.14.1.orig/cmake/pcl_pclconfig.cmake
++++ pcl-1.14.1/cmake/pcl_pclconfig.cmake
+@@ -85,7 +85,7 @@ foreach(_ss ${PCL_SUBSYSTEMS_MODULES})
+ endforeach()
+ 
+ #Boost modules
+-set(PCLCONFIG_AVAILABLE_BOOST_MODULES "system iostreams")
++set(PCLCONFIG_AVAILABLE_BOOST_MODULES "iostreams")
+ if(Boost_FILESYSTEM_FOUND)
+   string(APPEND PCLCONFIG_AVAILABLE_BOOST_MODULES " filesystem")
+ endif()
