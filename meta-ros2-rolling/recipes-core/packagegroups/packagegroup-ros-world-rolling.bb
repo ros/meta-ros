@@ -1157,3 +1157,9 @@ RDEPENDS:${PN}:remove = "rqt-dotgraph"
 # Depends on actionlib-msgs, which was removed from the ROS index
 RDEPENDS:${PN}:remove = "cob-actions"
 RDEPENDS:${PN}:remove = "actionlib-msgs"
+
+# Depends on mola-imu-preintegration, which was removed from the ROS index
+RDEPENDS:${PN}:remove = "mola-state-estimation"
+RDEPENDS:${PN}:remove = "mola-state-estimation-simple"
+RDEPENDS:${PN}:remove = "mola-state-estimation-smoother"
+RDEPENDS:${PN}:remove = "mola-lidar-odometry"
