@@ -10,6 +10,7 @@ SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=ign-co
            file://missing-cstdint-header.patch \
            file://added-missing-includes.patch \
            file://add-missing-cstdint-to-gtest.patch \
+           file://fix-deprecation-warnings.patch \
 "
 
 SRCREV = "60b1fddf05ce020ba7cb79022fdf40be545eb789"

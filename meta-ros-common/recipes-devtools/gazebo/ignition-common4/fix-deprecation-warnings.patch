@@ -1,0 +1,77 @@
+Fix deprecation warnings (#603)
+
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From ac3fd976334ce3712f773179dd6c820ba286b652 Mon Sep 17 00:00:00 2001
+From: "Addisu Z. Taddese" <addisu@openrobotics.org>
+Date: Tue, 7 May 2024 16:24:50 -0500
+Subject: [PATCH] Fix deprecation warnings (#603)
+
+Signed-off-by: Addisu Z. Taddese <addisu@openrobotics.org>
+---
+ av/src/AudioDecoder.cc         | 6 ++++++
+ av/src/Video.cc                | 4 ++++
+ include/gz/common/EnumIface.hh | 7 +++++++
+ 3 files changed, 17 insertions(+)
+
+diff --git a/av/src/AudioDecoder.cc b/av/src/AudioDecoder.cc
+index fbb63f8d4..c7f51489e 100644
+--- a/av/src/AudioDecoder.cc
++++ b/av/src/AudioDecoder.cc
+@@ -67,7 +67,13 @@ void AudioDecoder::Cleanup()
+ {
+   // Close the codec
+   if (this->data->codecCtx)
++  {
++#if LIBAVFORMAT_VERSION_MAJOR < 59
+     avcodec_close(this->data->codecCtx);
++#else
++    avcodec_free_context(&this->data->codecCtx);
++#endif
++  }
+ 
+   // Close the audio file
+   if (this->data->formatCtx)
+diff --git a/av/src/Video.cc b/av/src/Video.cc
+index 95d4cbdc9..321d0b5b1 100644
+--- a/av/src/Video.cc
++++ b/av/src/Video.cc
+@@ -83,7 +83,11 @@ void Video::Cleanup()
+   avformat_close_input(&this->dataPtr->formatCtx);
+ 
+   // Close the codec
++#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(57, 48, 101)
++  avcodec_free_context(&this->dataPtr->codecCtx);
++#else
+   avcodec_close(this->dataPtr->codecCtx);
++#endif
+ 
+   av_free(this->dataPtr->avFrameDst);
+ }
+diff --git a/include/gz/common/EnumIface.hh b/include/gz/common/EnumIface.hh
+index b95ce1b39..0cb6d8275 100644
+--- a/include/gz/common/EnumIface.hh
++++ b/include/gz/common/EnumIface.hh
+@@ -140,6 +140,10 @@ namespace ignition
+     ///   std::cout << "Type++ Name[" << myTypeIface.Str(*i) << "]\n";
+     /// }
+     /// \verbatim
++#if defined __APPLE__ && defined __clang__
++  _Pragma("clang diagnostic push")
++  _Pragma("clang diagnostic ignored \"-Wdeprecated-declarations\"")
++#endif
+     template<typename Enum>
+     class EnumIterator
+     : std::iterator<std::bidirectional_iterator_tag, Enum>
+@@ -217,6 +221,9 @@ namespace ignition
+       /// member value ever used.
+       private: Enum c;
+     };
++#if defined __APPLE__ && defined __clang__
++  _Pragma("clang diagnostic pop")
++#endif
+ 
+     /// \brief Equality operator
+     /// \param[in] _e1 First iterator
