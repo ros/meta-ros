@@ -1206,3 +1206,7 @@ RDEPENDS:${PN}:remove = "nao-meshes"
 # pepper-meshes requires Java and confirmation to a non-commercial license
 # developers using the Pepper robot may build it separately
 RDEPENDS:${PN}:remove = "pepper-meshes"
+
+# namosim requires python3-jsonpickle, python3-cairosvg, python3-skimage
+# python3-typer, and jupyter-notebook
+RDEPENDS:${PN}:remove = "namosim"
