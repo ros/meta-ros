@@ -10,6 +10,7 @@ SRC_URI += "file://0001-MovingLeastSquares-reduce-the-number.patch \
             file://add-directory-header.patch \
             file://replace-deprecated-boost-filesystem-extension.patch \
             file://replace-deprecated-boost-filesystem-basename.patch \
-            file://prepare-for-boost-1.87.patch"
+            file://prepare-for-boost-1.87.patch \
+            file://fix-build-with-boost-1.89.0.patch"
 
 SRCREV = "371a8e1373f7b2f66bbb92291be2f3e50dc19856"
