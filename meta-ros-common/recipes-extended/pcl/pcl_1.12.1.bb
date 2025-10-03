@@ -11,6 +11,7 @@ SRC_URI += "file://0001-MovingLeastSquares-reduce-the-number.patch \
             file://replace-deprecated-boost-filesystem-extension.patch \
             file://replace-deprecated-boost-filesystem-basename.patch \
             file://prepare-for-boost-1.87.patch \
-            file://remove-pcl-source-dir.patch"
+            file://remove-pcl-source-dir.patch \
+            file://fix-build-with-boost-1.89.0.patch"
 
 SRCREV = "e8ed4be802f7d0b1acff2f8b01d7c5f381190e05"
