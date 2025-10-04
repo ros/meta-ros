@@ -15,7 +15,7 @@ inherit pkgconfig
 
 # This is used only to generate documentation so it should
 # be native and needs quite a lot of native python dependencies
-ROS_BUILD_DEPENDS:remove = "${PYTHON_PN}-sphinx python-sphinx"
+ROS_BUILD_DEPENDS:remove = "python3-sphinx python-sphinx"
 
 DEPENDS += "\
     protobuf-native \
