@@ -16,11 +16,13 @@ ROS_BUILD_DEPENDS += "\
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
     service-msgs \
+    action-msgs \
+    service-msgs \
+    unique-identifier-msgs \
 "
 
 # Fix QA Issue with missing dependency, "but no providers found in RDEPENDS:action-msgs? [file-rdeps]"
 ROS_EXEC_DEPENDS += " \
     builtin-interfaces \
     fastcdr \
-    unique-identifier-msgs \
 "
