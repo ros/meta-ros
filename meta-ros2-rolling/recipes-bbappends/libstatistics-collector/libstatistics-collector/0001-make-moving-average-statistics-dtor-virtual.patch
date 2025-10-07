@@ -1,0 +1,24 @@
+libstatistics-collector: Make dtor virtual
+
+The MovingAverageStatistics had a non-virtual destructor with virtual
+member functions.  This caused rclcpp to emit an error:
+
+warning: 'class libstatistics_collector::moving_average_statistics::MovingAverageStatistics' has virtual functions and accessible non-virtual destructor [-Wnon-virtual-dtor]
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/include/libstatistics_collector/moving_average_statistics/moving_average.hpp
+===================================================================
+--- git.orig/include/libstatistics_collector/moving_average_statistics/moving_average.hpp
++++ git/include/libstatistics_collector/moving_average_statistics/moving_average.hpp
+@@ -53,7 +53,7 @@ public:
+   MovingAverageStatistics() = default;
+
+   LIBSTATISTICS_COLLECTOR_PUBLIC
+-  ~MovingAverageStatistics() = default;
++  virtual ~MovingAverageStatistics() = default;
+
+   /**
+    *  Returns the arithmetic mean of all data recorded. If no observations have been made, returns NaN.
