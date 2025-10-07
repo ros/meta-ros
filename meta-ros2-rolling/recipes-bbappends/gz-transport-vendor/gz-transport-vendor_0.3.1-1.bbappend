@@ -7,6 +7,10 @@ ROS_BUILD_DEPENDS += "\
     protobuf \
 "
 
+# meta-zenoh does not support Kirkstone
+ROS_EXEC_DEPENDS:remove = "zenoh-cpp-vendor"
+ROS_BUILD_DEPENDS:remove = "zenoh-cpp-vendor"
+
 ROS_BUILDTOOL_DEPENDS += "\
     protobuf-native \
     cppcheck-native \
