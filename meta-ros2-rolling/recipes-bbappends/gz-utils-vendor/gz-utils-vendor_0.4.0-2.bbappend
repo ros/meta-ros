@@ -5,4 +5,8 @@ inherit ros_insane_dev_so
 
 ROS_BUILD_DEPENDS += "gz-utils3"
 
+# Not required in vendor package
+ROS_BUILD_DEPENDS:remove = "cli11"
+ROS_EXEC_DEPENDS:remove = "cli11"
+
 BBCLASSEXTEND = "native nativesdk"
