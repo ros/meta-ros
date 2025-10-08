@@ -1033,6 +1033,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_HATCHLING = " \
     clearpath-generator-gz \
     clearpath-tests \
     controller-manager \
+    ewellix-sim \
     ffw \
     ffw-bringup \
     ffw-moveit-config \
