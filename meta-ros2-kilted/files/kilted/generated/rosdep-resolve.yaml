@@ -80,6 +80,8 @@ geographiclib-tools:
 - geographiclib@meta-ros-common
 geos:
 - geos@meta-oe
+gfortran:
+- ${ROS_UNRESOLVED_DEP-gfortran}
 git:
 - git@openembedded-core
 glslang-dev:
@@ -96,8 +98,6 @@ graphviz:
 - graphviz@meta-oe
 gtest:
 - gtest@meta-oe
-gtk3:
-- gtk+3@openembedded-core
 gurumdds-3.2:
 - ${ROS_UNRESOLVED_DEP-gurumdds-3.2}
 hdf5-tools:
@@ -270,6 +270,8 @@ libpaho-mqttpp-dev:
 - paho-mqtt-cpp@meta-oe
 libpcap:
 - libpcap@openembedded-core
+libpcl-all:
+- pcl@meta-ros-common
 libpcl-all-dev:
 - pcl@meta-ros-common
 libpcl-common:
@@ -569,7 +571,7 @@ python3-pre-commit:
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
-- python3-psutil@meta-python
+- python3-psutil@openembedded-core
 python3-pycodestyle:
 - python3-pycodestyle@meta-python
 python3-pydantic:
@@ -581,11 +583,9 @@ python3-pygraphviz:
 python3-pykdl:
 - python3-pykdl@meta-ros1-noetic
 python3-pyproj:
-- python3-pyproj@meta-ros-common
+- python3-pyproj@meta-python
 python3-pyqt5.qtwebengine:
 - ${PYTHON_PN}-pyqt5@meta-qt5
-python3-pyside2:
-- ${ROS_UNRESOLVED_DEP-python3-pyside2}
 python3-pytest:
 - python3-pytest@openembedded-core
 python3-pytest-cov:
@@ -659,7 +659,7 @@ python3-websocket:
 python3-wheel:
 - python3-wheel@openembedded-core
 python3-whichcraft:
-- python3-whichcraft@meta-ros-common
+- python3-whichcraft@meta-ros2
 python3-yaml:
 - python3-pyyaml@openembedded-core
 python3-zmq:
