@@ -521,11 +521,17 @@ cccc:
   nixos: [cccc]
   ubuntu: [cccc]
 cdk:
-  debian: [libcdk5]
+  debian:
+    '*': [libcdk5t64]
+    bookworm: [libcdk5nc6]
+    bullseye: [libcdk5nc6]
   fedora: [cdk]
   gentoo: [dev-libs/cdk]
   nixos: [cdk]
-  ubuntu: [libcdk5]
+  ubuntu:
+    '*': [libcdk5t64]
+    focal: [libcdk5nc6]
+    jammy: [libcdk5nc6]
 cdk-dev:
   debian: [libcdk5-dev]
   fedora: [cdk-devel]
@@ -4129,12 +4135,12 @@ libglfw3-dev:
     '*': [libglfw3-dev]
 libglib-dev:
   arch: [glib2]
-  debian: [libglib2.0-dev]
+  debian: [libglib2.0-dev, libglib2.0-dev-bin]
   fedora: [glib2-devel]
   gentoo: [dev-libs/glib]
   nixos: [glib]
   openembedded: [glib-2.0@openembedded-core]
-  ubuntu: [libglib2.0-dev]
+  ubuntu: [libglib2.0-dev, libglib2.0-dev-bin]
 libglm-dev:
   arch: [glm]
   debian: [libglm-dev]
@@ -4273,8 +4279,8 @@ libgsl:
   macports: [gsl]
   nixos: [gsl]
   openembedded: [gsl@meta-oe]
-  ubuntu:
-    '*': [libgsl-dev]
+  rhel: [gsl-devel]
+  ubuntu: [libgsl-dev]
 libgstreamer-plugins-bad1.0-dev:
   arch: [gst-plugins-bad]
   debian: [libgstreamer-plugins-bad1.0-dev]
@@ -5246,8 +5252,8 @@ liborocos-bfl-dev:
   ubuntu: [liborocos-bfl-dev]
 liborocos-kdl:
   debian:
-    '*': [liborocos-kdl1.4]
-    stretch: [liborocos-kdl1.3]
+    '*': [liborocos-kdl1.5]
+    bullseye: [liborocos-kdl1.4]
   fedora: [orocos-kdl]
   gentoo: [sci-libs/orocos_kdl]
   nixos: [orocos-kdl]
@@ -5850,6 +5856,13 @@ libprocps6:
     stretch: [libprocps6]
   ubuntu:
     bionic: [libprocps6]
+libpsl-dev:
+  alpine: [libpsl-dev]
+  debian: [libpsl-dev]
+  fedora: [libpsl-devel]
+  opensuse: [libpsl-devel]
+  rhel: [libpsl-devel]
+  ubuntu: [libpsl-dev]
 libpt-dev:
   debian: [libpt-dev]
   fedora: [ptlib-devel]
@@ -8852,6 +8865,18 @@ qt6-multimedia-dev:
   ubuntu:
     '*': [qt6-multimedia-dev]
     'focal': null
+qt6-scxml-dev:
+  arch: [qt6-scxml]
+  debian: [qt6-scxml-dev]
+  fedora: [qt6-qtscxml-devel]
+  gentoo: ['dev-qt/qtscxml:6']
+  openembedded: [qtscxml@meta-qt6]
+  rhel:
+    '*': [qt6-qtscxml-devel]
+    '8': null
+  ubuntu:
+    '*': [qt6-scxml-dev]
+    'focal': null
 qtbase5-dev:
   alpine: [qt5-qtbase-dev]
   arch: [qt5-base]
@@ -9331,6 +9356,12 @@ sparsehash:
   gentoo: [dev-cpp/sparsehash]
   nixos: [sparsehash]
   ubuntu: [libsparsehash-dev]
+spatialite-bin:
+  debian: [spatialite-bin]
+  fedora: [spatialite-tools]
+  gentoo: [dev-db/spatialite-tools]
+  nixos: [spatialite-tools]
+  ubuntu: [spatialite-bin]
 spdlog:
   alpine: [spdlog-dev]
   arch: [spdlog]
