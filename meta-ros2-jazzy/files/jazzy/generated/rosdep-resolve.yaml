@@ -108,8 +108,6 @@ graphviz:
 - graphviz@meta-oe
 gtest:
 - gtest@meta-oe
-gtk3:
-- gtk+3@openembedded-core
 gtk4:
 - gtk4@openembedded-core
 gurumdds-3.2:
@@ -270,6 +268,8 @@ liblz4-dev:
 - lz4@openembedded-core
 libmodbus-dev:
 - libmodbus@meta-oe
+libnanoflann-dev:
+- ${ROS_UNRESOLVED_DEP-libnanoflann-dev}
 libncurses-dev:
 - ncurses@openembedded-core
 libnlopt-cxx-dev:
@@ -491,8 +491,6 @@ pyflakes3:
 pyqt5-dev-tools:
 - ${PYTHON_PN}-pyqt5@meta-qt5
 python-argparse: []
-python-is-python3:
-- ${ROS_UNRESOLVED_DEP-python-is-python3}
 python3:
 - python3@openembedded-core
 python3-antlr4:
@@ -628,7 +626,7 @@ python3-pre-commit:
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
-- python3-psutil@meta-python
+- python3-psutil@openembedded-core
 python3-pycodestyle:
 - python3-pycodestyle@meta-python
 python3-pydantic:
@@ -640,7 +638,7 @@ python3-pygraphviz:
 python3-pykdl:
 - python3-pykdl@meta-ros1-noetic
 python3-pyproj:
-- python3-pyproj@meta-ros-common
+- python3-pyproj@meta-python
 python3-pyqt5.qtwebengine:
 - ${PYTHON_PN}-pyqt5@meta-qt5
 python3-pytest:
@@ -682,7 +680,7 @@ python3-smbus:
 python3-sphinx:
 - python3-sphinx@openembedded-core
 python3-tabulate:
-- ${ROS_UNRESOLVED_DEP-python3-tabulate}
+- python3-tabulate@meta-python
 python3-tk:
 - python3-tkinter@openembedded-core
 python3-toml:
@@ -716,7 +714,7 @@ python3-websocket:
 python3-wheel:
 - python3-wheel@openembedded-core
 python3-whichcraft:
-- python3-whichcraft@meta-ros-common
+- python3-whichcraft@meta-ros2
 python3-yaml:
 - python3-pyyaml@openembedded-core
 python3-zmq:
