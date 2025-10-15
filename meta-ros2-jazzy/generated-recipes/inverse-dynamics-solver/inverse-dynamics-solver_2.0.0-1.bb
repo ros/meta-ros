@@ -45,11 +45,11 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-tabulate} \
     libeigen \
     pluginlib \
     python3-matplotlib \
     python3-numpy \
+    python3-tabulate \
     rclcpp \
     rosbag2-cpp \
     rosbag2-storage \
