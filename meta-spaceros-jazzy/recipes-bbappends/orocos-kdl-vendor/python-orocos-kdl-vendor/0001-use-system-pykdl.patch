@@ -1,0 +1,37 @@
+Set pykdl_FOUND if PyKDL.so exists
+
+There is no pkgconfig for PyKDL and the Python site-packages directory
+is not in the find_library() search path.
+
+Therefore simply, set pykdl_FOUND if PyKDL.so exists.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Matthias Schoepfer <matthias.schoepfer@googlemail.com>
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0f5522f..b0f085a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -23,14 +23,8 @@ if(NOT FORCE_BUILD_VENDOR_PKG)
+     # Force FindPython3 to use the debug interpreter where ROS 2 expects it
+     set(Python3_EXECUTABLE "${PYTHON_EXECUTABLE_DEBUG}")
+   endif()
+-  find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+-  execute_process(
+-    COMMAND ${Python3_EXECUTABLE} -c "import PyKDL"
+-    RESULT_VARIABLE pykdl_import_exit_code
+-    OUTPUT_QUIET
+-    ERROR_QUIET
+-  )
+-  if(pykdl_import_exit_code EQUAL 0)
++  # Check if Python bindings are installed by searching for them
++  if(EXISTS $ENV{STAGING_LIBDIR}/$ENV{PYTHON_DIR}/site-packages/PyKDL.so)
+     set(pykdl_FOUND 1)
+   endif()
+ endif()

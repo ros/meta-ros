@@ -1,0 +1,30 @@
+Ignore uncrustify verison suffix
+
+The uncrustify package introduced a suffix for cases where the make_version.py
+could not run.  Thus it is the fallback version string:
+   https://github.com/uncrustify/uncrustify/pull/1083
+
+This is known by the maintainer cause problems with Debian as well:
+  https://github.com/uncrustify/uncrustify/issues/2782
+
+The uncrustify-vendor CMakeLists.txt file assumes the fallback suffix is
+present.  We make this conditional as we build uncrustify cleanly and it 
+doesn't have the suffix.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ddbe2ba..9f5098c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,7 +15,7 @@ function(check_uncrustify RESULT PROGRAM)
+     set(${RESULT} FALSE PARENT_SCOPE)
+   else()
+     # Before 0.65 uncrustify used a different versioning scheme so the regex won't match
+-    string(REGEX REPLACE "^Uncrustify(_d|)-(.*)_f$" "\\2" version_prefix_match "${out}")
++    string(REGEX REPLACE "^Uncrustify(_d|)-(.*)(_f|)$" "\\2" version_prefix_match "${out}")
+     if(NOT version_prefix_match OR version_prefix_match VERSION_LESS 0.78)
+       set(${RESULT} FALSE PARENT_SCOPE)
+     endif()

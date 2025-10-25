@@ -1,0 +1,89 @@
+From 4f53e1beb966c46cc4140348aaea5c0694b98a38 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 16 Apr 2021 08:50:47 +0000
+Subject: [PATCH] IceoryxPackageHelper.cmake: change DESTINATION_CONFIGDIR to
+ share/cmake/Modules
+
+* use separate variable DESTINATION_CONFIGDIR for:
+  image/usr/lib/cmake/iceoryx_utils/iceoryx_utilsConfig.cmake
+  image/usr/lib/cmake/iceoryx_utils/iceoryx_utilsConfigVersion.cmake
+  image/usr/lib/cmake/iceoryx_utils/iceoryx_utilsTargets.cmake
+  image/usr/lib/cmake/iceoryx_utils/iceoryx_utilsTargets-noconfig.cmake
+  and DESTINATION_MODULEDIR for:
+  image/usr/share/cmake/Modules/IceoryxPlatform.cmake
+  image/usr/share/cmake/Modules/IceoryxVersion.cmake
+  image/usr/share/cmake/Modules/IceoryxPackageHelper.cmake
+
+* this way it will be included in the default CMAKE_MODULE_PATH
+  "${STAGING_DATADIR}/cmake/Modules/" set by cmake.bbclass:
+  https://github.com/openembedded/openembedded-core/blob/e9180c9575f0723b51915a0da58452511b6b03bf/meta/classes/cmake.bbclass#L136
+
+* fixes iceoryx-posh failure:
+CMake Error at CMakeLists.txt:38 (include):
+  include could not find load file:
+
+    IceoryxPackageHelper
+
+CMake Error at CMakeLists.txt:39 (include):
+  include could not find load file:
+
+    IceoryxPlatform
+
+-- [i] <<<<<<<<<<<<< Start iceoryx_posh configuration: >>>>>>>>>>>>>
+-- [i] Using m:n communication only!
+-- [i] IOX_MAX_PUBLISHERS:512
+-- [i] IOX_MAX_SUBSCRIBERS:1024
+-- [i] IOX_MAX_INTERFACE_NUMBER:4
+-- [i] IOX_MAX_SUBSCRIBERS_PER_PUBLISHER:256
+-- [i] IOX_MAX_CHUNKS_ALLOCATED_PER_PUBLISHER_SIMULTANEOUSLY:8
+-- [i] IOX_MAX_PUBLISHER_HISTORY:16
+-- [i] IOX_MAX_CHUNKS_HELD_PER_SUBSCRIBER_SIMULTANEOUSLY:256
+-- [i] <<<<<<<<<<<<<< End iceoryx_posh configuration: >>>>>>>>>>>>>>
+CMake Error at CMakeLists.txt:64 (setup_package_name_and_create_files):
+  Unknown CMake command "setup_package_name_and_create_files".
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt                   | 2 +-
+ cmake/Config.cmake.in            | 2 +-
+ cmake/IceoryxPackageHelper.cmake | 1 +
+ 3 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d8b56dd..c4f21bc 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -251,7 +251,7 @@ install(
+         cmake/IceoryxPackageHelper.cmake
+         cmake/IceoryxPlatform.cmake
+         cmake/IceoryxVersion.cmake
+-    DESTINATION ${DESTINATION_CONFIGDIR}
++    DESTINATION ${DESTINATION_MODULEDIR}
+ )
+ 
+ if(BUILD_TEST)
+diff --git a/cmake/Config.cmake.in b/cmake/Config.cmake.in
+index c03b3b5..6b6fd86 100644
+--- a/cmake/Config.cmake.in
++++ b/cmake/Config.cmake.in
+@@ -19,5 +19,5 @@
+ include(CMakeFindDependencyMacro)
+ 
+ include("${CMAKE_CURRENT_LIST_DIR}/@TARGETS_EXPORT_NAME@.cmake")
+-list(APPEND CMAKE_MODULE_PATH "@CMAKE_INSTALL_PREFIX@/@DESTINATION_CONFIGDIR@")
++list(APPEND CMAKE_MODULE_PATH "@CMAKE_INSTALL_PREFIX@/@DESTINATION_MODULEDIR@")
+ check_required_components("@PROJECT_NAME@")
+diff --git a/cmake/IceoryxPackageHelper.cmake b/cmake/IceoryxPackageHelper.cmake
+index f3aabf5..f222b13 100644
+--- a/cmake/IceoryxPackageHelper.cmake
++++ b/cmake/IceoryxPackageHelper.cmake
+@@ -37,6 +37,7 @@ Macro(setup_package_name_and_create_files)
+     set(DESTINATION_LIBDIR ${CMAKE_INSTALL_LIBDIR})
+     set(DESTINATION_INCLUDEDIR ${CMAKE_INSTALL_INCLUDEDIR}/${PARAMS_PROJECT_PREFIX})
+     set(DESTINATION_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${PARAMS_NAME})
++    set(DESTINATION_MODULEDIR share/cmake/Modules )
+ 
+     # create package files
+     include(CMakePackageConfigHelpers)

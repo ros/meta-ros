@@ -1,0 +1,36 @@
+From 8d85ed19faa6c596404b7c0a691df90b3ceb8d57 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 24 May 2021 15:52:35 +0000
+Subject: [PATCH] Revert "iox-#14 add member to ChunkHeader, reduce its
+ alignment requirents and adjust code accordingly"
+
+This reverts commit 4f204bdd416d4c0a540903b48e115b314c131bb1.
+
+Restore alignas() for ChunkHeader to fix:
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/1.0.0-2-r0/git/source/mepoo/chunk_header.cpp: In constructor 'iox::mepoo::ChunkHeader::ChunkHeader(uint32_t, const iox::mepoo::ChunkSettings&)':
+/jenkins/mjansa/build/ros/webos-rolling-honister/tmp-glibc/work/qemux86-webos-linux/iceoryx-posh/1.0.0-2-r0/git/source/mepoo/chunk_header.cpp:32:40: error: static assertion failed: All the calculations expect the ChunkHeader alignment to be at least 8!
+   32 |     static_assert(alignof(ChunkHeader) >= 8U,
+      |                   ~~~~~~~~~~~~~~~~~~~~~^~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ include/iceoryx_posh/mepoo/chunk_header.hpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/iceoryx_posh/mepoo/chunk_header.hpp b/include/iceoryx_posh/mepoo/chunk_header.hpp
+index 7d187dd..694d94d 100644
+--- a/include/iceoryx_posh/mepoo/chunk_header.hpp
++++ b/include/iceoryx_posh/mepoo/chunk_header.hpp
+@@ -38,7 +38,9 @@ struct NoUserHeader
+ {
+ };
+ 
+-struct ChunkHeader
++/// @brief IMPORTANT the alignment MUST be 32 or less since all mempools are
++///         32 byte aligned otherwise we get alignment problems! change from 32 to 8 to fix iceoryx-posh/1.0.0-2-r0/git/source/mepoo/chunk_header.cpp:34:40: error: static assertion failed: The ChunkHeader must not exceed the alignment of the mempool chunks, which are aligned to 'MemPool::CHUNK_MEMORY_ALIGNMENT'!
++struct alignas(8) ChunkHeader
+ {
+     using UserPayloadOffset_t = uint32_t;
+ 

@@ -1,0 +1,43 @@
+From 8601a22b7a98d58ba6f742f73d109cdf5023e820 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Mon, 24 May 2021 15:30:21 +0000
+Subject: [PATCH] Revert "iox-#713 document the restrictions on size and
+ alignment of RelativePointerData and ShmSafeUnmanagedChunk"
+
+This reverts commit 48baea6323a6b34db465ed8341cd1446661f1704.
+
+Doesn't work in cross-compile build:
+iceoryx-utils/1.0.0-2-r0/git/source/relocatable_pointer/relative_pointer_data.cpp:30:43: error: static assertion failed: A RelativePointerData must be placed on an address which does not cross the native alignment!
+   30 | static_assert(sizeof(RelativePointerData) == alignof(RelativePointerData),
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ source/relocatable_pointer/relative_pointer_data.cpp | 10 ----------
+ 1 file changed, 10 deletions(-)
+
+diff --git a/source/relocatable_pointer/relative_pointer_data.cpp b/source/relocatable_pointer/relative_pointer_data.cpp
+index ec01fa6..585ce09 100644
+--- a/source/relocatable_pointer/relative_pointer_data.cpp
++++ b/source/relocatable_pointer/relative_pointer_data.cpp
+@@ -21,18 +21,7 @@ namespace iox
+ {
+ namespace rp
+ {
+-// This is necessary if an supervising application needs to do a cleanup of resources hold by a crashed application. If
+-// the size is larger than 8 bytes on a 64 bit system, torn writes happens and if the application crashes at the wrong
+-// time, the supervisor reads corrupt data.
+-// NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers)
+ static_assert(sizeof(RelativePointerData) <= 8U, "The RelativePointerData size must not exceed 64 bit!");
+-// This ensures that the address of the RelativePointerData object is appropriately aligned to be accessed within one
+-// CPU cycle, i.e. if the size is 8 and the alignment is 4 it could be placed at an address with modulo 4 which would
+-// also result in torn writes.
+-static_assert(sizeof(RelativePointerData) == alignof(RelativePointerData),
+-              "A RelativePointerData must be placed on an address which does not cross the native alignment!");
+-// This is important for the use in the SOFI where under some conditions the copy operation could work on partially
+-// obsolet data and therefore non-trivial copy ctor/assignment operator or dtor would work on corrupted data.
+ static_assert(std::is_trivially_copyable<RelativePointerData>::value,
+               "The RelativePointerData must be trivially copyable!");
+ 

@@ -1,0 +1,67 @@
+# Recipe created by ros-generate
+#
+# Copyright (c) 2025 Open Source Robotics Foundation, Inc.
+
+inherit ros_distro_jazzy
+inherit ros_generate_generated
+
+DESCRIPTION = "Test fixture and CMake macro for using osrf_testing_tools_cpp with Google Benchmark"
+AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"
+ROS_AUTHOR = "Scott K Logan <scott@openrobotics.org>"
+HOMEPAGE = "https://wiki.ros.org"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+
+ROS_CN = "performance_test_fixture"
+ROS_BPN = "performance_test_fixture"
+
+ROS_BUILD_DEPENDS = "\
+    google-benchmark-vendor\
+    osrf-testing-tools-cpp\
+"
+
+ROS_BUILDTOOL_DEPENDS = "\
+    ament-cmake-core-native\
+    ament-cmake-export-dependencies-native\
+    ament-cmake-export-targets-native\
+    ament-cmake-test-native\
+"
+
+ROS_EXPORT_DEPENDS = "\
+    google-benchmark-vendor\
+    osrf-testing-tools-cpp\
+"
+
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
+    ament-cmake-google-benchmark-native\
+"
+
+ROS_EXEC_DEPENDS = "\
+    google-benchmark-vendor\
+    osrf-testing-tools-cpp\
+"
+
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = "\
+    ament-cmake-google-benchmark\
+    ament-lint-auto\
+    ament-lint-common\
+"
+
+DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
+# Bitbake doesn't support the "export" concept, so build them as if we needed
+# them to build this package (even though we actually don't) so that they're
+# guaranteed to have been staged should this package appear in another's
+# DEPENDS.
+DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+
+RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
+
+ROS_BRANCH ?= "branch=jazzy"
+SRC_URI = "git://github.com/ros2/performance_test_fixture.git;${ROS_BRANCH};protocol=https"
+SRCREV = "74dc1d7680fa2837213ff6ab144007fa5b38c828"
+S = "${WORKDIR}/git"
+
+ROS_BUILD_TYPE = "ament_cmake"
+
+inherit ros_${ROS_BUILD_TYPE}
