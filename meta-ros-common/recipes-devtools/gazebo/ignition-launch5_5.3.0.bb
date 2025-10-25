@@ -13,7 +13,7 @@ S = "${WORKDIR}/git"
 DEPENDS = "elfutils"
 
 inherit cmake
-inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], '', 'cmake_qt5', d)}
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
 
 DEPENDS = " \
     elfutils \

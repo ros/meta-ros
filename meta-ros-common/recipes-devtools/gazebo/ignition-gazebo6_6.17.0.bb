@@ -19,7 +19,7 @@ inherit cmake python3native
 
 # CMake Error at src/plugins/CMakeLists.txt:26 (QT5_WRAP_CPP):
 #   Unknown CMake command "QT5_WRAP_CPP".
-inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], '', 'cmake_qt5', d)}
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
 
 DEPENDS = " \
     ignition-cmake2 \
