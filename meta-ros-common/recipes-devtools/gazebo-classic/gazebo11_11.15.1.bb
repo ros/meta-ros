@@ -62,7 +62,7 @@ EXTRA_OECMAKE = " \
 #   Unknown CMake command "QT5_WRAP_CPP".
 # Call Stack (most recent call first):
 #   src/gui/plugins/modules/CMakeLists.txt:5 (gz_add_gui_library)
-inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], '', 'cmake_qt5', d)}
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
 
 
 FILES:${PN} += " \
