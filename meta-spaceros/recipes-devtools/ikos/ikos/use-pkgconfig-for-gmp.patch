@@ -1,0 +1,103 @@
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/analyzer/CMakeLists.txt b/analyzer/CMakeLists.txt
+index 1df5dcf..abc8491 100644
+--- a/analyzer/CMakeLists.txt
++++ b/analyzer/CMakeLists.txt
+@@ -92,7 +92,8 @@ find_package(Boost 1.55.0 REQUIRED
+              COMPONENTS filesystem system thread)
+ include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+ 
+-find_package(GMP REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(GMP REQUIRED gmp)
+ include_directories(SYSTEM ${GMP_INCLUDE_DIR})
+ include_directories(SYSTEM ${GMPXX_INCLUDE_DIR})
+ 
+diff --git a/ar/CMakeLists.txt b/ar/CMakeLists.txt
+index 2f9c6a3..37b894f 100644
+--- a/ar/CMakeLists.txt
++++ b/ar/CMakeLists.txt
+@@ -86,7 +86,8 @@ endif()
+ find_package(Boost 1.55.0 REQUIRED)
+ include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+ 
+-find_package(GMP REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(GMP REQUIRED gmp)
+ include_directories(SYSTEM ${GMP_INCLUDE_DIR})
+ include_directories(SYSTEM ${GMPXX_INCLUDE_DIR})
+ 
+diff --git a/cmake/FindAPRON.cmake b/cmake/FindAPRON.cmake
+index c613e38..98eff22 100644
+--- a/cmake/FindAPRON.cmake
++++ b/cmake/FindAPRON.cmake
+@@ -55,7 +55,9 @@ if (NOT APRON_FOUND)
+     list(APPEND APRON_LIBRARY_SEARCH_DIRS "$ENV{APRON_INSTALL}/lib")
+   endif()
+ 
+-  find_package(GMP)
++  find_package(PkgConfig REQUIRED)
++  pkg_check_modules(GMP REQUIRED gmp)
++
+   find_package(MPFR)
+   find_package(PPL)
+ 
+diff --git a/cmake/FindMPFR.cmake b/cmake/FindMPFR.cmake
+index 11bf559..fa0e80b 100644
+--- a/cmake/FindMPFR.cmake
++++ b/cmake/FindMPFR.cmake
+@@ -43,7 +43,8 @@
+ if (NOT MPFR_FOUND)
+   set(MPFR_ROOT "" CACHE PATH "Path to mpfr install directory")
+ 
+-  find_package(GMP)
++  find_package(PkgConfig REQUIRED)
++  pkg_check_modules(GMP REQUIRED gmp)
+ 
+   find_path(MPFR_INCLUDE_DIR
+     NAMES mpfr.h
+diff --git a/cmake/FindPPL.cmake b/cmake/FindPPL.cmake
+index 9958ced..9c44145 100644
+--- a/cmake/FindPPL.cmake
++++ b/cmake/FindPPL.cmake
+@@ -76,7 +76,8 @@ if (NOT PPL_FOUND)
+     list(APPEND PPL_LIB_SEARCH_DIRS ${PPL_CONFIG_LIB_DIR})
+   endif()
+ 
+-  find_package(GMP)
++  find_package(PkgConfig REQUIRED)
++  pkg_check_modules(GMP REQUIRED gmp)
+ 
+   find_path(PPL_INCLUDE_DIR
+     NAMES ppl_c.h
+diff --git a/core/CMakeLists.txt b/core/CMakeLists.txt
+index 056498c..ace7362 100644
+--- a/core/CMakeLists.txt
++++ b/core/CMakeLists.txt
+@@ -87,7 +87,8 @@ find_package(Boost 1.55.0 REQUIRED
+              COMPONENTS unit_test_framework)
+ include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+ 
+-find_package(GMP REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(GMP REQUIRED gmp)
+ include_directories(SYSTEM ${GMP_INCLUDE_DIR})
+ include_directories(SYSTEM ${GMPXX_INCLUDE_DIR})
+ 
+diff --git a/frontend/llvm/CMakeLists.txt b/frontend/llvm/CMakeLists.txt
+index cef8fd1..ee2d4e9 100644
+--- a/frontend/llvm/CMakeLists.txt
++++ b/frontend/llvm/CMakeLists.txt
+@@ -90,7 +90,8 @@ find_package(Boost 1.55.0 REQUIRED
+              COMPONENTS filesystem system)
+ include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+ 
+-find_package(GMP REQUIRED)
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(GMP REQUIRED gmp)
+ include_directories(SYSTEM ${GMP_INCLUDE_DIR})
+ include_directories(SYSTEM ${GMPXX_INCLUDE_DIR})
+ 
