@@ -1,0 +1,21 @@
+Use the mimick system package
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 110b4c9..e095e52 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,8 +3,10 @@ project(mimick_vendor)
+ 
+ find_package(ament_cmake REQUIRED)
+ find_package(ament_cmake_vendor_package REQUIRED)
++find_package(mimick)
+ 
+ ament_vendor(mimick_vendor
++  SATISFIED mimick_FOUND
+   VCS_URL https://github.com/ros2/Mimick.git
+   VCS_VERSION 4dbd495e9f3d87a83c3201ef9d851e85f7133db7
+ )
