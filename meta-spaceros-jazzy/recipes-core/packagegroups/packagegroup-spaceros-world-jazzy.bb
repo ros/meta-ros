@@ -107,7 +107,6 @@ RDEPENDS:${PN} = "\
     nav-msgs\
     orocos-kdl-vendor\
     osrf-pycommon\
-    osrf-testing-tools-cpp\
     performance-test-fixture\
     pluginlib\
     process-sarif\
@@ -195,7 +194,6 @@ RDEPENDS:${PN} = "\
     test-launch-ros\
     test-launch-testing\
     test-msgs\
-    test-osrf-testing-tools-cpp\
     test-rmw-implementation\
     test-ros2trace\
     test-tf2\
@@ -231,3 +229,4 @@ RDEPENDS:${PN} = "\
 # Temporarily removed from packagegroup
 #    ament-ikos
 #    ament-cmake-ikos
+#    test-osrf-testing-tools-cpp
