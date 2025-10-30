@@ -1,0 +1,39 @@
+Revert changes to make test files unoptimized
+
+This change results avoids conflict with _FORTIFY_SOURCE:
+error: #warning _FORTIFY_SOURCE requires compiling with optimization (-O) [-Werror=cpp]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Upstream-Status: Pending
+diff --cc CMakeLists.txt
+index c911dd3,f069b59..0000000
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -204,13 +204,6 @@ endfunction ()
+ 
+ function (add_mimick_test _NAME)
+   add_executable (${_NAME} EXCLUDE_FROM_ALL ${ARGN})
+-
+-  if (NOT MSVC)
+-    foreach (ARG ${ARGN})
+-      set_source_files_properties (${ARG} PROPERTIES COMPILE_FLAGS -O0)
+-    endforeach ()
+-  endif ()
+-
+   target_link_libraries (${_NAME} mimick foo)
+   add_mimick_sample(${_NAME})
+ endfunction ()
+diff --git a/sample/strdup/CMakeLists.txt b/sample/strdup/CMakeLists.txt
+index f04bb9d..a912cc6 100644
+--- a/sample/strdup/CMakeLists.txt
++++ b/sample/strdup/CMakeLists.txt
+@@ -2,8 +2,4 @@ add_library (strdup SHARED strdup.c)
+ add_executable (strdup_test test.c)
+ target_link_libraries (strdup_test strdup mimick)
+ 
+-if (NOT MSVC)
+-    set_source_files_properties (test.c PROPERTIES COMPILE_FLAGS -O0)
+-endif ()
+-
+ add_mimick_sample (strdup_test)

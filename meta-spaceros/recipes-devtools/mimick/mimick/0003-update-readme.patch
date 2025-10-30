@@ -1,0 +1,24 @@
+Upstream-Status: Backport
+
+From 90d02296025f38da2e33c67b02b7fa0c7c7d460c Mon Sep 17 00:00:00 2001
+From: Ziyao <ziyao@disroot.org>
+Date: Tue, 28 Mar 2023 11:03:55 +0800
+Subject: [PATCH] Update README.md
+
+---
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/README.md b/README.md
+index b22fc16..7b911ef 100644
+--- a/README.md
++++ b/README.md
+@@ -90,6 +90,8 @@ Supported Compilers: GCC 4.6+, Clang 3.5+, MSVC 14+
+ | ARM     | ✓ | ? | ✓ | ✕ |
+ | ARM64   | ✓ | ? | ? | ∄ |
+ | PPC     | ✕ | ✕ | ✕ | ∄ |
++| RISCV32 | ✕ | ∄ | ✕ | ∄ |
++| RISCV64 | ✓ | ∄ | ? | ∄ |
+ 
+ ## F.A.Q.
+ 
