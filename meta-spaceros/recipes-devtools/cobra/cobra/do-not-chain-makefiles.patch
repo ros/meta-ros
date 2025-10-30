@@ -1,0 +1,24 @@
+Do not chain the Makefiles for src and src_app
+
+The src/makefile invokes make on src_app/makefile.
+
+This means that during the install phase, src_app will clean and build
+over again.  This behaviour is unexpected when managing the build for
+reproducible results.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/src/makefile b/src/makefile
+index 3d8a561..4838840 100644
+--- a/src/makefile
++++ b/src/makefile
+@@ -58,7 +58,6 @@ install: c.ar man
+ 	cp -f cobra $(BINDIR)
+ 	cp -f ../gui/icobra.tcl $(BINDIR)/icobra
+ 	cp -f ../gui/window.tcl $(BINDIR)
+-	cd $(APP); make clean install
+ 
+ ${OS1}:	cobra.h cobra_fe.h
+ ${OS2}:	cobra.h cobra_fe.h cobra_eval.c cobra_prog.c

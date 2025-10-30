@@ -1,0 +1,24 @@
+Use LDFLAGS for cobra
+
+Resolves this bitbake error:
+
+ERROR: cobra-4.8-r0 do_package_qa: QA Issue: File /usr/bin/json_convert in package cobra doesn't have GNU_HASH (didn't pass LDFLAGS?)
+File /usr/bin/cobra in package cobra doesn't have GNU_HASH (didn't pass LDFLAGS?) [ldflags]
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/src/makefile b/src/makefile
+index 3d8a561..c0091e8 100644
+--- a/src/makefile
++++ b/src/makefile
+@@ -39,7 +39,7 @@ CMAC=-I. -Wall ${F} -pedantic -Werror -Wshadow -std=c99 -DYY_NO_INPUT
+ .PHONY:	linux cygwin mac install clean man
+ 
+ all:	$(OS1) $(OS2)
+-	$(CC) $(CFLAGS) -o cobra $(OS1) $(OS2) $(LIB)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o cobra $(OS1) $(OS2) $(LIB)
+ 
+ mac:	$(OS1) $(OS2)
+ 	$(CC) $(CMAC) -o cobra $(OS1) $(OS2) $(LIBM)

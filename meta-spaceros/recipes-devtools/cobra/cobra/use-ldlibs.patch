@@ -1,0 +1,52 @@
+Use LDLIBS
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/src_app/makefile b/src_app/makefile
+index 943b448..15025b7 100644
+--- a/src_app/makefile
++++ b/src_app/makefile
+@@ -31,7 +31,7 @@ OTHER=abstract \
+ 	switch_default
+ 
+ .PHONY: all install clean
+-LDFLAGS?=c.ar -pthread
++LDLIBS?=c.ar
+ CC?=gcc
+ F?=-O2
+ BINDIR?=/usr/local/bin
+@@ -44,26 +44,26 @@ OTHER=abstract \
+ all:	c.ar cwe scope_check find_taint json_convert duplicates
+ 
+ cwe:	cwe.h c.ar c_api.h $(CWE)
+-	$(CC) $(CFLAGS) -o $@ $(CWE) $(LDFLAGS)
++	$(CC) $(CFLAGS) -o $@ $(CWE) $(LDFLAGS) $(LDLIBS)
+ 
+ scope_check: c.ar c_api.h scope_check.c cwe_util.c
+-	$(CC) $(CFLAGS) -o $@ scope_check.c cwe_util.c $(LDFLAGS)
++	$(CC) $(CFLAGS) -o $@ scope_check.c cwe_util.c $(LDFLAGS) $(LDLIBS)
+ 
+ c.ar:
+ 	cd ../src; make c.ar
+ 
+ find_taint:	find_taint.h find_taint.c find_taint_tbl.c find_taint_cfg.c cwe_util.c
+-	$(CC) $(CFLAGSNOPT) -o $@ find_taint.c find_taint_tbl.c find_taint_cfg.c cwe_util.c $(LDFLAGS)
++	$(CC) $(CFLAGSNOPT) -o $@ find_taint.c find_taint_tbl.c find_taint_cfg.c cwe_util.c $(LDFLAGS) $(LDLIBS)
+ 	# executes faster if backend is compiled without optimization
+ 
+ json_convert:	json_convert.c
+-	$(CC) $(CFLAGS) -o $@ json_convert.c
++	$(CC) $(CFLAGS) -o $@ json_convert.c $(LDFLAGS)
+ 
+ find_stats:	find_stats.c cwe_util.c
+-	$(CC) $(CFLAGS) -o $@ find_stats.c cwe_util.c $(LDFLAGS)
++	$(CC) $(CFLAGS) -o $@ find_stats.c cwe_util.c $(LDFLAGS) $(LDLIBS)
+ 
+ duplicates: duplicates.c
+-	$(CC) $(CFLAGS) -o $@ duplicates.c cwe_util.c $(LDFLAGS)
++	$(CC) $(CFLAGS) -o $@ duplicates.c cwe_util.c $(LDFLAGS) $(LDLIBS)
+ 
+ $(OTHER): c_api.h c.ar
+ 
