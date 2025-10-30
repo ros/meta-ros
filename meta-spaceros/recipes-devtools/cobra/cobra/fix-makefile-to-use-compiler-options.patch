@@ -1,0 +1,30 @@
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/makefile b/makefile
+index 3d8a561..cb72a9f 100644
+--- a/src/makefile
++++ b/src/makefile
+@@ -29,7 +29,7 @@ LIBM?=			# mac
+ BINDIR?=/usr/local/bin
+ 
+ CC?=gcc
+-CFLAGS=-I. -Wall ${F} -pedantic -Werror -Wshadow -std=c99 -DYY_NO_INPUT -Wformat-truncation=1
++CFLAGS?=-I. -Wall ${F} -pedantic -Werror -Wshadow -std=c99 -DYY_NO_INPUT -Wformat-truncation=1
+ CMAC=-I. -Wall ${F} -pedantic -Werror -Wshadow -std=c99 -DYY_NO_INPUT
+ 
+ # adding -DPC uses "dotty" instead of "dot -Tx11" for dot displays
+diff --git a/src_app/makefile b/src_app/makefile
+index 943b448..8bb6a8d 100644
+--- a/src_app/makefile
++++ b/src_app/makefile
+@@ -38,7 +38,7 @@ BINDIR?=/usr/local/bin
+ 
+ 		# on mac: make LDFLAGS=c.ar
+ 		# gprof: make F="-g -pg"
+-CFLAGS=-Wall -pedantic -Werror -Wshadow ${F} -DYY_NO_INPUT -I. -std=c99
++CFLAGS?=-Wall -pedantic -Werror -Wshadow ${F} -DYY_NO_INPUT -I. -std=c99
+ CFLAGSNOPT=-Wall -pedantic -Werror -Wshadow -DYY_NO_INPUT -I. -std=c99
+ 
+ all:	c.ar cwe scope_check find_taint json_convert duplicates
