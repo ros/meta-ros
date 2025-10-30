@@ -1,0 +1,19 @@
+Fix ppl Makefile
+
+Remove libap_ppl_test to avoid build failure
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/ppl/Makefile.orig
++++ b/ppl/Makefile
+@@ -65,7 +65,7 @@ CCINC = ppl_user.hh ppl_poly.hh ppl_grid
+ # Rules
+ #---------------------------------------
+ 
+-all: libap_ppl.a libap_ppl_debug.a ap_ppl_test
++all: libap_ppl.a libap_ppl_debug.a
+ ifneq ($(HAS_SHARED),)
+ all: libap_ppl.so libap_ppl_debug.so
+ endif

@@ -1,0 +1,17 @@
+Upstream-Status: Inappropriate [old version]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/octagons/Makefile b/octagons/Makefile
+index 7aa3f3e..90125da 100644
+--- a/octagons/Makefile
++++ b/octagons/Makefile
+@@ -133,7 +133,7 @@ install:
+ 		if test -f $$i; then $(INSTALL) $$i $(LIBDIR); fi; \
+ 	done
+ 	for i in dlloct*_caml.so; do \
+-		cp -f -d $$i $(LIBDIR); \
++		if test -f $$i; then cp -f -d $$i $(LIBDIR); fi; \
+ 	done
+ 	for i in octtest?? octtop?? octrun??; do \
+ 		if test -f $$i; then $(INSTALL) $$i $(BINDIR); fi; \

@@ -1,0 +1,23 @@
+Fix apron install directory
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/apron/Makefile.orig
++++ b/apron/Makefile
+@@ -78,10 +78,10 @@
+ 	/bin/rm -fr html
+ 
+ install: all
+-	mkdir -p $(APRON_PREFIX)/include
+-	cp $(H_FILES) $(APRON_PREFIX)/include
+-	mkdir -p $(APRON_PREFIX)/lib
+-	for i in libapron.a libapron_debug.a libapron.so libapron_debug.so; do if test -f $$i; then $(INSTALL) $$i $(APRON_PREFIX)/lib; fi; done
++	mkdir -p $(INCDIR)
++	cp $(H_FILES) $(INCDIR)
++	mkdir -p $(LIBDIR)
++	for i in libapron.a libapron_debug.a libapron.so libapron_debug.so; do if test -f $$i; then $(INSTALL) $$i $(LIBDIR); fi; done
+ 
+ distclean:
+ 	/bin/rm -f $(H_FILES:%=$(APRON_PREFIX)/include/%)

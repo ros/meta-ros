@@ -1,0 +1,16 @@
+Index: products/Makefile
+===================================================================
+--- a/products/Makefile
++++ b/products/Makefile
+@@ -106,9 +106,9 @@ libap_pkgrid_debug.a: ap_pkgrid_debug.o
+ 	$(AR) rcs $@ $^
+ 	$(RANLIB) $@
+ libap_pkgrid.so: ap_pkgrid.o
+-	$(CXX) $(CXXFLAGS) -shared -o $@ $^
++	$(CXX) $(CXXFLAGS) -shared -o $@ $^ -L../newpolka -lpolkaMPQ $(LIBS)
+ libap_pkgrid_debug.so: ap_pkgrid_debug.o
+-	$(CXX) $(CXXFLAGS_DEBUG) -shared -o $@ $^
++	$(CXX) $(CXXFLAGS_DEBUG) -shared -o $@ $^ -L../newpolka -lpolkaMPQ $(LIBS_DEBUG)
+ 
+ #---------------------------------------
+ # C rules

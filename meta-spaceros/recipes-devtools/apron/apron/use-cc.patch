@@ -1,0 +1,28 @@
+Use CC instead of hardcoding gcc compiler by name
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/apronxx/Makefile.orig	2025-10-26 23:41:18.134656278 -0400
++++ b/apronxx/Makefile	2025-10-26 23:41:33.054371462 -0400
+@@ -28,7 +28,7 @@
+ #---------------------------------------
+ 
+ # Library creation
+-SHARED = gcc -shared
++SHARED = $(CC) -shared
+ 
+ 
+ #---------------------------------------
+--- a/octagons/Makefile.orig	2025-10-26 23:41:22.154579047 -0400
++++ b/octagons/Makefile	2025-10-26 23:41:39.258254497 -0400
+@@ -23,7 +23,7 @@
+ #---------------------------------------
+ 
+ # Library creation
+-SHARED = gcc -shared
++SHARED = $(CC) -shared
+ 
+ #---------------------------------------
+ # Flags

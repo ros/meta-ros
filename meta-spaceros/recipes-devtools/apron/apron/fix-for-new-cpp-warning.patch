@@ -1,0 +1,33 @@
+Fix for new C++ warning
+
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 51682c8357e49dd0b866e3ccbb738283ccfd35b8 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Antoine=20Min=C3=A9?= <antoinemine@users.noreply.github.com>
+Date: Tue, 4 Feb 2014 15:34:16 +0000
+Subject: [PATCH] fix for new C++ warning
+
+---
+ ppl/ppl_user.cc | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/ppl/ppl_user.cc b/ppl/ppl_user.cc
+index 67c955f0..1cd28587 100644
+--- a/ppl/ppl_user.cc
++++ b/ppl/ppl_user.cc
+@@ -320,7 +320,12 @@ bool ap_ppl_of_box(Congruence_System& r, ap_interval_t** a, size_t intdim, size_
+       exact = false;
+     }
+     /* singleton */
+-    else r.insert(Constraint(Variable(i)==temp));
++    else {
++      /* integerness check */
++      mpz_class temp2 = mpz_class(temp);
++      if (temp==temp2) r.insert(Constraint(Variable(i)==temp2));
++      else exact = false;
++    }
+   }
+   return exact;
+ }

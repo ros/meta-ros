@@ -1,0 +1,136 @@
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/Makefile.config.model
++++ b/Makefile.config.model
+@@ -9,7 +9,11 @@
+-HAS_SHARED=1
++HAS_SHARED = 1
+ 
+ # If defined to non-empty value, compiles the OCaml interface
+-HAS_OCAML = 1
++HAS_OCAML =
++HAS_OCAMLOPT =
++OCAMLFIND =
++
++HAS_JAVA =
+ 
+ # If defined to non-empty value, compiles the C++ interface (beta version)
+ 
+@@ -18,7 +22,7 @@
+ # If defined to non-empty value, compiles the PPL domain
+ # (require included patch to PPL, see ppl/README and ppl/ppl.patch)
+ 
+-# HAS_PPL = 1
++HAS_PPL = 1
+ 
+ # If defined to non-empty value, support for "long double" is enabled
+ 
+@@ -32,55 +36,55 @@
+ # Where to install and to find APRON
+ # ($(APRON_PREFIX)/include, $(APRON_PREFIX)/lib)
+ #
+-APRON_PREFIX = /usr
++# APRON_PREFIX = /usr
+ 
+ # Where to install and to find MLGMPIDL
+ # ($(MLGMPIDL_PREFIX)/lib)
+ #
+-MLGMPIDL_PREFIX = /usr/local
++# MLGMPIDL_PREFIX = /usr/local
+ 
+ # Where to find GMP ($(GMP_PREFIX)/include, ($GMP_PREFIX)/lib
+ #
+-GMP_PREFIX = /usr
++# GMP_PREFIX = /usr
+ 
+ # Where to find MPFR ($(MPFR_PREFIX)/include, ($MPFR_PREFIX)/lib
+ #
+-MPFR_PREFIX = /usr
++# MPFR_PREFIX = /usr
+ 
+ # Where to find PPL ($(PPL_PREFIX)/include, $(PPL_PREFIX)/lib
+ #
+-PPL_PREFIX = /usr
++# PPL_PREFIX = /usr
+ 
+ # Where to find OCAML ($(CAML_PREFIX)/bin, $(CAML_PREFIX)/lib/ocaml, ...)
+ #
+-CAML_PREFIX = /usr
++# CAML_PREFIX = /usr
+ 
+ # Where to find CAMLIDL ($(CAMLIDL_PREFIX)/bin, $(CAMLIDL_PREFIX)/lib/ocaml, ...)
+ #
+-CAMLIDL_PREFIX = /usr
++# CAMLIDL_PREFIX = /usr
+ 
+ ######################################################################
+ # Tools and Flags
+ ######################################################################
+ 
+ # C compiler
+-CC = gcc
++# CC = gcc
+ 
+ # C compilation flags
+-CFLAGS = \
+--Wcast-qual -Wswitch -Werror-implicit-function-declaration \
+--Wall -Wextra -Wundef -Wbad-function-cast -Wcast-align -Wstrict-prototypes \
+--Wno-unused \
+--std=c99 -U__STRICT_ANSI__ \
+--fPIC -O3 -DNDEBUG
++# CFLAGS = \
++# -Wcast-qual -Wswitch -Werror-implicit-function-declaration \
++# -Wall -Wextra -Wundef -Wbad-function-cast -Wcast-align -Wstrict-prototypes \
++# -Wno-unused \
++# -std=c99 -U__STRICT_ANSI__ \
++# -fPIC -O3 -DNDEBUG
+ 
+ # C compilation flags in debug (or profile) mode
+-CFLAGS_DEBUG = \
+--Wcast-qual -Wswitch -Werror-implicit-function-declaration \
+--Wall -Wextra -Wundef -Wbad-function-cast -Wcast-align -Wstrict-prototypes \
+--Wno-unused \
+--std=c99  -U__STRICT_ANSI__ \
+--fPIC -g -O0 -UNDEBUG
++# CFLAGS_DEBUG = \
++# -Wcast-qual -Wswitch -Werror-implicit-function-declaration \
++# -Wall -Wextra -Wundef -Wbad-function-cast -Wcast-align -Wstrict-prototypes \
++# -Wno-unused \
++# -std=c99  -U__STRICT_ANSI__ \
++# -fPIC -g -O0 -UNDEBUG
+ 
+ # Examples of CFLAGS
+ # CFLAGS = -Wswitch -Werror-implicit-function-declaration -Wall -std=c99	\
+@@ -89,19 +93,19 @@
+ #	   -mfpmath=sse -ftracer -funit-at-a-time -funroll-loops -fmove-all-movables
+ 
+ # C++ compiler
+-CXX = g++
++# CXX = g++
+ # C++ compilation flags
+-CXXFLAGS = \
+--Wcast-qual -Wswitch \
+--Wall -Wextra -Wundef -Wcast-align \
+--Wno-unused \
+--fPIC -O3 -DNDEBUG
++# CXXFLAGS = \
++# -Wcast-qual -Wswitch \
++# -Wall -Wextra -Wundef -Wcast-align \
++# -Wno-unused \
++# -fPIC -O3 -DNDEBUG
+ # C++ compilation flags in debug (or profile) mode
+-CXXFLAGS_DEBUG = \
+--Wcast-qual -Wswitch \
+--Wall -Wextra -Wundef -Wcast-align \
+--Wno-unused \
+--fPIC -g -O0 -UNDEBUG
++# CXXFLAGS_DEBUG = \
++# -Wcast-qual -Wswitch \
++# -Wall -Wextra -Wundef -Wcast-align \
++# -Wno-unused \
++# -fPIC -g -O0 -UNDEBUG
+ 
+ AR = ar
+ RANLIB = ranlib

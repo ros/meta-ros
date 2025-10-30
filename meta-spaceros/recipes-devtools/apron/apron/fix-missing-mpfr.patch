@@ -1,0 +1,21 @@
+--- a/apron/Makefile
++++ b/apron/Makefile
+@@ -191,7 +191,7 @@
+ ap_scalar.o: ap_scalar.c ap_scalar.h ap_config.h
+ ap_interval.o: ap_interval.c ap_interval.h \
+   ap_config.h \
+-  ap_scalar.h $(MPFR_PREFIX)/include/mpfr.h
++  ap_scalar.h
+ ap_coeff.o: ap_coeff.c ap_coeff.h \
+   ap_config.h \
+   ap_scalar.h \
+@@ -287,7 +287,7 @@
+ ap_scalar_debug.o: ap_scalar.c ap_scalar.h ap_config.h
+ ap_interval_debug.o: ap_interval.c ap_interval.h \
+   ap_config.h \
+-  ap_scalar.h $(MPFR_PREFIX)/include/mpfr.h
++  ap_scalar.h
+ ap_coeff_debug.o: ap_coeff.c ap_coeff.h \
+   ap_config.h \
+   ap_scalar.h \
+
