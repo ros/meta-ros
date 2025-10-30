@@ -1,0 +1,55 @@
+Hardcode the PPL version
+
+Executing a binary to find the library version doesn't work with
+cross-compilation.
+
+Instead we hardcode the value as this package hasn't been updated in a
+very long time.
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/cmake/FindPPL.cmake.orig
++++ b/cmake/FindPPL.cmake
+@@ -97,39 +97,7 @@
+     DOC "Path to ppl_c library"
+   )
+ 
+-  if (PPL_INCLUDE_DIR AND PPL_C_LIB AND GMP_FOUND)
+-    file(WRITE "${PROJECT_BINARY_DIR}/FindPPLVersion.c" "
+-      #include <stdio.h>
+-      #include <ppl_c.h>
+-
+-      int main() {
+-        const char* version;
+-        ppl_initialize();
+-        ppl_version(&version);
+-        printf(\"%s\", version);
+-        return ppl_finalize();
+-      }
+-    ")
+-
+-    try_run(
+-      RUN_RESULT
+-      COMPILE_RESULT
+-      "${PROJECT_BINARY_DIR}"
+-      "${PROJECT_BINARY_DIR}/FindPPLVersion.c"
+-      CMAKE_FLAGS
+-        "-DINCLUDE_DIRECTORIES:STRING=${PPL_INCLUDE_DIR};${GMP_INCLUDE_DIR}"
+-        "-DLINK_LIBRARIES:STRING=${PPL_C_LIB};${GMP_LIB}"
+-      COMPILE_OUTPUT_VARIABLE COMPILE_OUTPUT
+-      RUN_OUTPUT_VARIABLE PPL_VERSION
+-    )
+-
+-    if (NOT COMPILE_RESULT)
+-      message(FATAL_ERROR "error when trying to compile a program with PPL:\n${COMPILE_OUTPUT}")
+-    endif()
+-    if (RUN_RESULT)
+-      message(FATAL_ERROR "error when running a program linked with PPL:\n${PPL_VERSION}")
+-    endif()
+-  endif()
++  set(PPL_VERSION "1.2")
+ 
+   include(FindPackageHandleStandardArgs)
+   find_package_handle_standard_args(PPL

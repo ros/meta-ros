@@ -1,3 +1,5 @@
+Use pkgconfig
+
 Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
@@ -6,7 +8,7 @@ diff --git a/analyzer/CMakeLists.txt b/analyzer/CMakeLists.txt
 index 1df5dcf..abc8491 100644
 --- a/analyzer/CMakeLists.txt
 +++ b/analyzer/CMakeLists.txt
-@@ -92,7 +92,8 @@ find_package(Boost 1.55.0 REQUIRED
+@@ -92,14 +92,15 @@ find_package(Boost 1.55.0 REQUIRED
               COMPONENTS filesystem system thread)
  include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
  
@@ -16,6 +18,14 @@ index 1df5dcf..abc8491 100644
  include_directories(SYSTEM ${GMP_INCLUDE_DIR})
  include_directories(SYSTEM ${GMPXX_INCLUDE_DIR})
  
+ find_package(TBB 2 REQUIRED)
+ include_directories(SYSTEM ${TBB_INCLUDE_DIRS})
+ 
+-find_package(SQLite3 REQUIRED)
++pkg_check_modules(SQLite3 REQUIRED sqlite3)
+ include_directories(SYSTEM ${SQLITE3_INCLUDE_DIR})
+ 
+ find_package(APRON)
 diff --git a/ar/CMakeLists.txt b/ar/CMakeLists.txt
 index 2f9c6a3..37b894f 100644
 --- a/ar/CMakeLists.txt
@@ -34,7 +44,7 @@ diff --git a/cmake/FindAPRON.cmake b/cmake/FindAPRON.cmake
 index c613e38..98eff22 100644
 --- a/cmake/FindAPRON.cmake
 +++ b/cmake/FindAPRON.cmake
-@@ -55,7 +55,9 @@ if (NOT APRON_FOUND)
+@@ -55,8 +55,10 @@ if (NOT APRON_FOUND)
      list(APPEND APRON_LIBRARY_SEARCH_DIRS "$ENV{APRON_INSTALL}/lib")
    endif()
  
@@ -42,9 +52,11 @@ index c613e38..98eff22 100644
 +  find_package(PkgConfig REQUIRED)
 +  pkg_check_modules(GMP REQUIRED gmp)
 +
-   find_package(MPFR)
+-  find_package(MPFR)
++  pkg_check_modules(MPFR REQUIRED mpfr)
    find_package(PPL)
  
+   find_path(APRON_INCLUDE_DIR
 diff --git a/cmake/FindMPFR.cmake b/cmake/FindMPFR.cmake
 index 11bf559..fa0e80b 100644
 --- a/cmake/FindMPFR.cmake
