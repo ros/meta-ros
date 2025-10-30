@@ -1,0 +1,47 @@
+Use system package for cobra
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1a3bd8d..2d691e0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,35 +2,7 @@ cmake_minimum_required(VERSION 3.16)
+ project(cobra_vendor NONE)
+ 
+ find_package(ament_cmake REQUIRED)
+-
+-set(extra_cmake_args)
+-
+-if(DEFINED CMAKE_BUILD_TYPE)
+-  list(APPEND extra_cmake_args "-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}")
+-endif()
+-
+-# The Cobra source code version/revision numbers
+-set(VER "4.8")
+-set(REV "5af7230ecf29a6c9b46ff1bdd60c5d9e51d032db")
+-
+-include(ExternalProject)
+-ExternalProject_Add(cobra-${VER}
+-  PREFIX cobra-${VER}
+-  GIT_REPOSITORY https://github.com/nimble-code/cobra
+-  GIT_TAG ${REV}
+-  INSTALL_DIR "${CMAKE_CURRENT_BINARY_DIR}/cobra_install"
+-  BUILD_IN_SOURCE TRUE
+-  CONFIGURE_COMMAND ""
+-  BUILD_COMMAND
+-  ${CMAKE_COMMAND} -E chdir <SOURCE_DIR>/src make all && ${CMAKE_COMMAND} -E chdir <SOURCE_DIR>/src_app make all LDFLAGS=-Wl,c.ar\ -pthread
+-  INSTALL_COMMAND
+-  ${CMAKE_COMMAND} -E chdir <SOURCE_DIR>/src sudo make install MAN=<SOURCE_DIR>/src_app LDFLAGS=-Wl,c.ar\ -pthread && ${CMAKE_COMMAND} -E chdir <SOURCE_DIR>/src_app sudo make install LDFLAGS=-Wl,c.ar\ -pthread
+-)
+-
+-install(DIRECTORY 
+-  ${CMAKE_CURRENT_BINARY_DIR}/cobra-${VER}/src/cobra-${VER}/rules
+-  DESTINATION share/${PROJECT_NAME}
+-)
++find_package(cobra)
+ 
+ ament_environment_hooks(env_hook/cobra_vendor_base.dsv.in)
+ 
