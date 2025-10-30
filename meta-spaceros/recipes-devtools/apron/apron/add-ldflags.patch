@@ -1,0 +1,183 @@
+Add LDFLAGS
+
+Resolves the error message:
+
+QA Issue: File ... in package apron doesn't have GNU_HASH (didn't pass LDFLAGS?)
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: apron/apron/Makefile
+===================================================================
+--- apron.orig/apron/Makefile
++++ apron/apron/Makefile
+@@ -133,12 +133,12 @@ libapron_debug.a: $(C_FILES:%.c=%_debug.
+ 
+ libapron.so: $(C_FILES:%.c=%.o) $(C_FILES_AUX:%.c=%MPQ.o) $(C_FILES_AUX:%.c=%D.o)  $(C_FILES_AUX:%.c=%MPFR.o) ../itv/libitv.a
+ 	for i in `$(AR) t ../itv/libitv.a`; do ln -s ../itv/$$i $$i; done
+-	$(CC) $(CFLAGS) -shared -o $@ $(C_FILES:%.c=%.o) $(C_FILES_AUX:%.c=%MPQ.o) $(C_FILES_AUX:%.c=%D.o) $(C_FILES_AUX:%.c=%MPFR.o) `$(AR) t ../itv/libitv.a`
++	$(CC) $(CFLAGS) $(LDFLAGS) -shared -o $@ $(C_FILES:%.c=%.o) $(C_FILES_AUX:%.c=%MPQ.o) $(C_FILES_AUX:%.c=%D.o) $(C_FILES_AUX:%.c=%MPFR.o) `$(AR) t ../itv/libitv.a`
+ 	for i in `$(AR) t ../itv/libitv.a`; do $(RM) $$i; done
+ 
+ libapron_debug.so: $(C_FILES:%.c=%_debug.o) $(C_FILES_AUX:%.c=%MPQ_debug.o) $(C_FILES_AUX:%.c=%D_debug.o) $(C_FILES_AUX:%.c=%MPFR_debug.o) ../itv/libitv_debug.a
+ 	for i in `$(AR) t ../itv/libitv_debug.a`; do ln -s ../itv/$$i $$i; done
+-	$(CC) $(CFLAGS_DEBUG) -shared -o $@ $(C_FILES:%.c=%.o) $(C_FILES_AUX:%.c=%MPQ.o) $(C_FILES_AUX:%.c=%D.o) $(C_FILES_AUX:%.c=%MPFR.o) `$(AR) t ../itv/libitv_debug.a`
++	$(CC) $(CFLAGS_DEBUG) $(LDFLAGS) -shared -o $@ $(C_FILES:%.c=%.o) $(C_FILES_AUX:%.c=%MPQ.o) $(C_FILES_AUX:%.c=%D.o) $(C_FILES_AUX:%.c=%MPFR.o) `$(AR) t ../itv/libitv_debug.a`
+ 	for i in `$(AR) t ../itv/libitv_debug.a`; do $(RM) $$i; done
+ 
+ .PHONY : dep
+Index: apron/box/Makefile
+===================================================================
+--- apron.orig/box/Makefile
++++ apron/box/Makefile
+@@ -145,9 +145,9 @@ libbox%_debug.a: $(subst .c,%_debug.o,$(
+ 	$(AR) rcs $@ $^
+ 	$(RANLIB) $@
+ libbox%.so:  $(subst .c,%.o,$(CCMODULES:%=%.c))
+-	$(CC) $(CFLAGS) -shared -o $@ $^
++	$(CC) $(CFLAGS) $(LDFLAGS) -shared -o $@ $^
+ libbox%_debug.so: $(subst .c,%_debug.o,$(CCMODULES:%=%.c))
+-	$(CC) $(CFLAGS_DEBUG) -shared -o $@ $^
++	$(CC) $(CFLAGS_DEBUG) $(LDFLAGS) -shared -o $@ $^
+ 
+ %MPQ.o: %.c
+ 	$(CC) $(CFLAGS) $(ICFLAGS) -DNUM_MPQ -c -o $@ $<
+@@ -178,9 +178,9 @@ libbox%_caml_debug.a: box_caml_debug.o l
+ 	$(RANLIB) $@
+ 
+ libbox%_caml.so: box_caml.o libbox%.so
+-	$(CC) $(CFLAGS) -shared -o $@ box_caml.o  -L. -lbox$* -Wl,-rpath,$(APRON_PREFIX)/lib
++	$(CC) $(CFLAGS) $(LDFLAGS) -shared -o $@ box_caml.o  -L. -lbox$* -Wl,-rpath,$(APRON_PREFIX)/lib
+ libbox%_caml_debug.so: box_caml_debug.o libbox%_debug.so
+-	$(CC) $(CFLAGS8DEBUG) -shared -o $@ box_caml_debug.o -L. -lbox$*_debug -Wl,-rpath,$(APRON_PREFIX)/lib
++	$(CC) $(CFLAGS8DEBUG) $(LDFLAGS) -shared -o $@ box_caml_debug.o -L. -lbox$*_debug -Wl,-rpath,$(APRON_PREFIX)/lib
+ 
+ dllbox%_caml.so: libbox%_caml.so
+ 	ln -s -f $^ $@
+Index: apron/mlapronidl/Makefile
+===================================================================
+--- apron.orig/mlapronidl/Makefile
++++ apron/mlapronidl/Makefile
+@@ -118,10 +118,10 @@ libapron_caml_debug.a: $(CCMODULES:%=%_d
+ 	$(RANLIB) $@
+ 
+ libapron_caml.so: $(CCMODULES:%=%.o) ../apron/libapron.so
+-	$(CC) $(CFLAGS) -shared -o $@ $(CCMODULES:%=%.o) -L../apron -lapron -Wl,-rpath,$(APRON_PREFIX)/lib
++	$(CC) $(CFLAGS) $(LDFLAGS) -shared -o $@ $(CCMODULES:%=%.o) -L../apron -lapron -Wl,-rpath,$(APRON_PREFIX)/lib
+ 
+ libapron_caml_debug.so: $(CCMODULES:%=%_debug.o) ../apron/libapron_debug.so
+-	$(CC) $(CFLAGS_DEBUG) -shared -o $@ $(CCMODULES:%=%_debug.o) -L../apron -lapron -Wl,-rpath,$(APRON_PREFIX)/lib
++	$(CC) $(CFLAGS_DEBUG) $(LDFLAGS) -shared -o $@ $(CCMODULES:%=%_debug.o) -L../apron -lapron -Wl,-rpath,$(APRON_PREFIX)/lib
+ 
+ dllapron_caml.so: libapron_caml.so
+ 	ln -s $^ $@
+Index: apron/newpolka/Makefile
+===================================================================
+--- apron.orig/newpolka/Makefile
++++ apron/newpolka/Makefile
+@@ -169,9 +169,9 @@ libpolka%_debug.a: $(subst .c,%_debug.o,
+ 	$(AR) rcs $@ $^
+ 	$(RANLIB) $@
+ libpolka%.so:  $(subst .c,%.o,$(CCMODULES:%=%.c))
+-	$(CC) $(CFLAGS) -shared -o $@ $^
++	$(CC) $(CFLAGS) $(LDFLAGS) -shared -o $@ $^
+ libpolka%_debug.so: $(subst .c,%_debug.o,$(CCMODULES:%=%.c))
+-	$(CC) $(CFLAGS_DEBUG) -shared -o $@ $^
++	$(CC) $(CFLAGS_DEBUG) $(LDFLAGS) -shared -o $@ $^
+ 
+ %Rl.o: %.c $(CCINC)
+ 	$(CC) $(CFLAGS) $(ICFLAGS) -DNUM_LONGRAT -c -o $@ $<
+@@ -209,9 +209,9 @@ libpolka%_caml_debug.a: polka_caml_debug
+ 	$(RANLIB) $@
+ 
+ libpolka%_caml.so: polka_caml.o libpolka%.so
+-	$(CC) $(CFLAGS) -shared -o $@ polka_caml.o -L. -lpolka$* -Wl,-rpath,$(APRON_PREFIX)/lib
++	$(CC) $(CFLAGS) $(LDFLAGS) -shared -o $@ polka_caml.o -L. -lpolka$* -Wl,-rpath,$(APRON_PREFIX)/lib
+ libpolka%_caml_debug.so: polka_caml_debug.o libpolka%_debug.so
+-	$(CC) $(CFLAGS_DEBUG) -shared -o $@ polka_caml_debug.o -L. -lpolka$*_debug -Wl,-rpath,$(APRON_PREFIX)/lib
++	$(CC) $(CFLAGS_DEBUG) $(LDFLAGS) -shared -o $@ polka_caml_debug.o -L. -lpolka$*_debug -Wl,-rpath,$(APRON_PREFIX)/lib
+ 
+ dllpolka%_caml.so: libpolka%_caml.so
+ 	ln -s -f $^ $@
+Index: apron/octagons/Makefile
+===================================================================
+--- apron.orig/octagons/Makefile
++++ apron/octagons/Makefile
+@@ -174,7 +174,7 @@ liboct%_debug.a: $(subst .c,%_debug.o,$(
+ 	$(RANLIB) $@
+ 
+ liboct%.so: $(subst .c,%.o,$(CCSOURCES))
+-	$(SHARED) -o $@ $^
++	$(SHARED) $(LDFLAGS) -o $@ $^
+ 
+ octtest%: liboct%_debug.a oct_test%.o
+ 	$(CC) $(CFLAGS_DEBUG) $(ICFLAGS) -o $@ oct_test$*.o \
+@@ -289,9 +289,9 @@ liboct%_caml_debug.a: oct_caml_debug.o l
+ 	$(AR) rcs $@ $<
+ 	$(RANLIB) $@
+ liboct%_caml.so: oct_caml.o liboct%.so
+-	$(SHARED) -o $@ oct_caml.o -L. -loct$* -Wl,-rpath,$(APRON_PREFIX)/lib
++	$(SHARED) $(LDFLAGS) -o $@ oct_caml.o -L. -loct$* -Wl,-rpath,$(APRON_PREFIX)/lib
+ liboct%_caml_debug.so: oct_caml_debug.o liboct%_debug.so
+-	$(SHARED) -o $@ oct_caml_debug.o -L. -loct$*_debug -Wl,-rpath,$(APRON_PREFIX)/lib
++	$(SHARED) $(LDFLAGS) -o $@ oct_caml_debug.o -L. -loct$*_debug -Wl,-rpath,$(APRON_PREFIX)/lib
+ dlloct%_caml.so: liboct%_caml.so
+ 	ln -s -f $^ $@
+ dlloct%_caml_debug.so: liboct%_caml_debug.so
+Index: apron/ppl/Makefile
+===================================================================
+--- apron.orig/ppl/Makefile
++++ apron/ppl/Makefile
+@@ -126,9 +126,9 @@ libap_ppl_debug.a: $(subst .cc,_debug.o,
+ 	$(AR) rcs $@ $^
+ 	$(RANLIB) $@
+ libap_ppl.so: $(subst .cc,.o,$(CXXSOURCES))
+-	$(CXX) $(CXXFLAGS) -shared -o $@ $^ -lppl -lgmpxx -L$(PPL_PREFIX)/lib -L$(GMP_PREFIX)/lib -Wl,-rpath,$(PPL_PREFIX)/lib:$(APRON_PREFIX)/lib:$(GMP_PREFIX)/lib
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -o $@ $^ -lppl -lgmpxx -L$(PPL_PREFIX)/lib -L$(GMP_PREFIX)/lib -Wl,-rpath,$(PPL_PREFIX)/lib:$(APRON_PREFIX)/lib:$(GMP_PREFIX)/lib
+ libap_ppl_debug.so: $(subst .cc,_debug.o,$(CXXSOURCES))
+-	$(CXX) $(CXXFLAGS_DEBUG) -shared -o $@ $^ -lppl -lgmpxx -L$(PPL_PREFIX)/lib -L$(GMP_PREFIX)/lib -Wl,-rpath,$(PPL_PREFIX)/lib:$(APRON_PREFIX)/lib:$(GMP_PREFIX)/lib
++	$(CXX) $(CXXFLAGS_DEBUG) $(LDFLAGS) -shared -o $@ $^ -lppl -lgmpxx -L$(PPL_PREFIX)/lib -L$(GMP_PREFIX)/lib -Wl,-rpath,$(PPL_PREFIX)/lib:$(APRON_PREFIX)/lib:$(GMP_PREFIX)/lib
+ 
+ ap_ppl_test: libap_ppl_debug.a ppl_test_debug.o
+ 	$(CXX) $(CXXFLAGS) -o $@ ppl_test_debug.o \
+@@ -177,9 +177,9 @@ libap_ppl_caml_debug.a: ap_ppl_caml_debu
+ 	$(AR) rcs $@ $^
+ 	$(RANLIB) $@
+ libap_ppl_caml.so: ap_ppl_caml.o libap_ppl.so
+-	$(CXX) $(CXXFLAGS) -shared -o $@ $< -lap_ppl -lppl -lgmpxx -L. -L$(PPL_PREFIX)/lib -L$(GMP_PREFIX)/lib -Wl,-rpath,$(PPL_PREFIX)/lib:$(APRON_PREFIX)/lib
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -o $@ $< -lap_ppl -lppl -lgmpxx -L. -L$(PPL_PREFIX)/lib -L$(GMP_PREFIX)/lib -Wl,-rpath,$(PPL_PREFIX)/lib:$(APRON_PREFIX)/lib
+ libap_ppl_caml_debug.so: ap_ppl_caml_debug.o libap_ppl_debug.so
+-	$(CXX) $(CXXFLAGS) -shared -o $@ $< -lap_ppl_debug -lppl -lgmpxx -L. -L$(PPL_PREFIX)/lib -L$(GMP_PREFIX)/lib -Wl,-rpath,$(PPL_PREFIX)/lib:$(APRON_PREFIX)/lib
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -o $@ $< -lap_ppl_debug -lppl -lgmpxx -L. -L$(PPL_PREFIX)/lib -L$(GMP_PREFIX)/lib -Wl,-rpath,$(PPL_PREFIX)/lib:$(APRON_PREFIX)/lib
+ dllap_ppl_caml.so: libap_ppl_caml.so
+ 	ln -s -f $^ $@
+ dllap_ppl_caml_debug.so: libap_ppl_caml_debug.so
+Index: apron/products/Makefile
+===================================================================
+--- apron.orig/products/Makefile
++++ apron/products/Makefile
+@@ -106,9 +106,9 @@ libap_pkgrid_debug.a: ap_pkgrid_debug.o
+ 	$(AR) rcs $@ $^
+ 	$(RANLIB) $@
+ libap_pkgrid.so: ap_pkgrid.o
+-	$(CXX) $(CXXFLAGS) -shared -o $@ $^ -L../newpolka -lpolkaMPQ $(LIBS)
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -o $@ $^ -L../newpolka -lpolkaMPQ $(LIBS)
+ libap_pkgrid_debug.so: ap_pkgrid_debug.o
+-	$(CXX) $(CXXFLAGS_DEBUG) -shared -o $@ $^ -L../newpolka -lpolkaMPQ $(LIBS_DEBUG)
++	$(CXX) $(CXXFLAGS_DEBUG) $(LDFLAGS) -shared -o $@ $^ -L../newpolka -lpolkaMPQ $(LIBS_DEBUG)
+ 
+ #---------------------------------------
+ # C rules
+@@ -121,9 +121,9 @@ libpolkaGrid_caml_debug.a: polkaGrid_cam
+ 	$(AR) rcs $@ $^
+ 	$(RANLIB) $@
+ libpolkaGrid_caml.so: polkaGrid_caml.o libap_pkgrid.so
+-	$(CXX) $(CXXFLAGS) -shared -o $@ $< -lap_pkgrid -L. -Wl-rpath,$(APRON_PREFIX)/lib
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -o $@ $< -lap_pkgrid -L. -Wl-rpath,$(APRON_PREFIX)/lib
+ libpolkaGrid_caml_debug.so: polkaGrid_caml_debug.o libap_pkgrid_debug.so
+-	$(CXX) $(CXXFLAGS) -shared -o $@ $< -lap_pkgrid_debug -L. -Wl-rpath,$(APRON_PREFIX)/lib
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -o $@ $< -lap_pkgrid_debug -L. -Wl-rpath,$(APRON_PREFIX)/lib
+ dllpolkaGrid_caml.so: libpolkaGrid_caml.so
+ 	ln -s -f $^ $@
+ dllpolkaGrid_caml_debug.so: libpolkaGrid_caml_debug.so
