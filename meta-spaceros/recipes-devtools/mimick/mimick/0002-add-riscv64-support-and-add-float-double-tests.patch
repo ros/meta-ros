@@ -1,0 +1,261 @@
+Upstream-Status: Backport
+
+From 689653c60539425a3201a360b2190b1562e6f571 Mon Sep 17 00:00:00 2001
+From: Ziyao <ziyao@disroot.org>
+Date: Sat, 25 Mar 2023 03:30:11 +0800
+Subject: [PATCH] Add RISCV-64 support and add float/double tests
+
+---
+ CMakeLists.txt               |   6 ++
+ src/asm/trampoline-riscv64.S | 112 +++++++++++++++++++++++++++++++++++
+ test/libfoo.c                |  27 +++++++++
+ test/libfoo.h                |   4 ++
+ test/test.c                  |  29 +++++++++
+ 5 files changed, 178 insertions(+)
+ create mode 100644 src/asm/trampoline-riscv64.S
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f7a7b54..8001e1a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -25,6 +25,7 @@ set (I386 "^(i[3-7]|x)86$")
+ set (AMD64 "^(x86_|x86-|AMD|amd|x)64$")
+ set (ARM32 "^(arm|ARM|A)(32|v7l|v6l)?$")
+ set (ARM64 "^(arm|ARM|A|aarch|AARCH)64$")
++set (RISCV64 "^riscv64$")
+ 
+ if (MIMICK_TARGET_ARCH)
+   set(_ARCH "${MIMICK_TARGET_ARCH}")
+@@ -89,6 +90,11 @@ else ()
+     set (MMK_ABI "aarch64")
+     set (MMK_BITS 64)
+     set (MMK_ARCH_ARM64 1)
++  elseif (_ARCH MATCHES "${RISCV64}")
++    set (MMK_ARCH "riscv64")
++    set (MMK_ABI "riscv64")
++    set (MMK_BITS 64)
++    set (MMK_ARCH_RISCV64 1)
+   else ()
+     message (FATAL_ERROR "Architecture '${_ARCH}' is not supported.")
+   endif ()
+diff --git a/src/asm/trampoline-riscv64.S b/src/asm/trampoline-riscv64.S
+new file mode 100644
+index 0000000..a898a8a
+--- /dev/null
++++ b/src/asm/trampoline-riscv64.S
+@@ -0,0 +1,112 @@
++/*
++ * The MIT License (MIT)
++ *
++ * Copyright (c) 2023 Ziyao <ziyao@disroot.org>
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to deal
++ * in the Software without restriction, including without limitation the rights
++ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++ * copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in
++ * all copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
++ * THE SOFTWARE.
++ */
++
++#include "mangling.h"
++
++	.global		MANGLE(mmk_trampoline), MANGLE(mmk_trampoline_end)
++MANGLE(mmk_trampoline):
++
++/*
++ *	struct mmk_stub*		8bytes
++ *	plt_fn*				8bytes
++ *	trampoline code			...
++ *	=>
++ *		start: jal t0, next	4bytes
++ */
++start:
++	jal	t0,	next			// 4 bytes for an instruction
++next:
++	add	sp,	sp,	-8 * 20		// a0 - a7 + t0 + ra +
++						// *struct mmk_stub aligned to
++						// 16bytes
++	sd	t0,	0(sp)			// 0(sp) label next
++	ld	t0,	-20(t0)			// t0 -> struct mmk_stub*
++	sd	t0,	8(sp)			// 8(sp) struct mmk_stub*
++	sd	ra,	16(sp)
++
++	/*	Save caller arguments	*/
++	sd	a0,	24(sp)
++	sd	a1,	32(sp)
++	sd	a2,	40(sp)
++	sd	a3,	48(sp)
++	sd	a4,	56(sp)
++	sd	a5,	64(sp)
++	sd	a6,	72(sp)
++	sd	a7,	80(sp)
++	fsd	fa0,	88(sp)
++	fsd	fa1,	96(sp)
++	fsd	fa2,	104(sp)
++	fsd	fa3,	112(sp)
++	fsd	fa4,	120(sp)
++	fsd	fa5,	128(sp)
++	fsd	fa6,	136(sp)
++	fsd	fa7,	144(sp)
++	//	8 bytes padding
++
++	mv	a0,	t0
++	ld	ra,	8(t0)			// ctx_set
++	jalr	ra
++
++	ld	t0,	8(sp)
++
++	ld	ra,	0(t0)			// ctx_asked
++	jalr	ra
++	mv	t0,	a0
++
++	/*	Restore caller arguments	*/
++	ld	a0,	24(sp)
++	ld	a1,	32(sp)
++	ld	a2,	40(sp)
++	ld	a3,	48(sp)
++	ld	a4,	56(sp)
++	ld	a5,	64(sp)
++	ld	a6,	72(sp)
++	ld	a7,	80(sp)
++	fld	fa0,	88(sp)
++	fld	fa1,	96(sp)
++	fld	fa2,	104(sp)
++	fld	fa3,	112(sp)
++	fld	fa4,	120(sp)
++	fld	fa5,	128(sp)
++	fld	fa6,	136(sp)
++	fld	fa7,	144(sp)
++
++	bnez	t0,	return_context
++	/*	stub trampoline jump	*/
++	ld	t0,	0(sp)
++	ld	t0,	-12(t0)
++	ld	ra,	16(sp)
++	add	sp,	sp,	8 * 20
++	jr	t0
++
++return_context:
++	ld	t0,	8(sp)
++	ld	ra,	16(t0)			// struct mmk_stub* -> ctx_get()
++	jalr	ra
++	ld	ra,	16(sp)
++	add	sp,	sp,	8 * 20
++	ret
++
++MANGLE(mmk_trampoline_end):
++	nop
+diff --git a/test/libfoo.c b/test/libfoo.c
+index 8c9bcde..a27c9fd 100644
+--- a/test/libfoo.c
++++ b/test/libfoo.c
+@@ -49,3 +49,30 @@ int fn_ii_va(int i, ...)
+     (void) i;
+     abort();
+ }
++
++void fn_vf(float f)
++{
++    (void)f;
++    abort();
++    return; 
++}
++
++float fn_ff(float f)
++{
++    (void)f;
++    abort();
++    return f;
++}
++
++void fn_vd(double d)
++{
++    (void)d;
++    abort();
++    return;
++}
++
++double fn_dd(double d)
++{
++    abort();
++    return d;
++}
+diff --git a/test/libfoo.h b/test/libfoo.h
+index 4734e82..d5f7383 100644
+--- a/test/libfoo.h
++++ b/test/libfoo.h
+@@ -38,6 +38,10 @@ FOO_API void fn_vli(long l, int i);
+ FOO_API int fn_ili(long l, int i);
+ FOO_API void fn_vi_va(int i, ...);
+ FOO_API int fn_ii_va(int i, ...);
++FOO_API void fn_vf(float f);
++FOO_API float fn_ff(float f);
++FOO_API void fn_vd(double d);
++FOO_API double fn_dd(double d);
+ 
+ # ifdef __cplusplus
+ }
+diff --git a/test/test.c b/test/test.c
+index 3ba8306..5dbb233 100644
+--- a/test/test.c
++++ b/test/test.c
+@@ -43,6 +43,19 @@ int int_eq(int val) {
+     return val == expected_int;
+ }
+ 
++mmk_mock_define (fn_dd_mock, double, double);
++
++double mul_two(double d)
++{
++	return d * 2;
++}
++
++mmk_mock_define (fn_ff_mock, float, float);
++float mmk_f_abs(float f)
++{
++	return f < 0 ? -f : f;
++}
++
+ #define check_called_exact(Expr, Times) do {                                   \
+         size_t times = (Times);                                                \
+         if (times == 0) {                                                      \
+@@ -66,6 +79,8 @@ int int_eq(int val) {
+         }                                                                      \
+     } while (0)
+ 
++#define mmk_abs(x) ((x) < 0 ? -(x) : (x))
++
+ int main(void)
+ {
+     mmk_mock("fn_vv", fn_vv_mock);
+@@ -130,5 +145,19 @@ int main(void)
+ 
+     mmk_reset(fn_ii_va);
+ 
++    mmk_mock("fn_dd", fn_dd_mock);
++    mmk_when(fn_dd(mmk_any(double)), .then_call = (mmk_fn) mul_two);
++    mmk_assert(mmk_abs(fn_dd(2.) - 4.) < 1e-4);
++    mmk_assert(mmk_abs(fn_dd(10.) - 20.) < 1e-4);
++    mmk_reset(fn_dd);
++
++    mmk_mock("fn_ff", fn_ff_mock);
++    mmk_when(fn_ff(mmk_any(float)), .then_call = (mmk_fn) mmk_f_abs);
++    mmk_assert(mmk_abs(1.) == fn_ff(1.));
++    mmk_assert(mmk_abs(-42.) == fn_ff(-42.));
++    mmk_assert(mmk_abs(-21.) == fn_ff(21.));
++    mmk_assert(mmk_abs(4.) == fn_ff(-4.));
++    mmk_reset(fn_ff);
++
+     return 0;
+ }
