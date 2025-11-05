@@ -214,6 +214,8 @@ libgoogle-glog-dev:
 - glog@meta-oe
 libgps:
 - gpsd@meta-oe
+libgsl:
+- gsl@meta-oe
 libgstreamer-plugins-base1.0-dev:
 - gstreamer1.0-plugins-base@openembedded-core
 libgstreamer1.0-dev:
@@ -412,8 +414,6 @@ matio:
 - ${ROS_UNRESOLVED_DEP-matio}
 meson:
 - ${ROS_UNRESOLVED_DEP-meson}
-mola_imu_preintegration:
-- ${ROS_UNRESOLVED_DEP-mola-imu-preintegration}
 muparser:
 - muparser@meta-qt5-extra
 nanobind-dev:
@@ -577,7 +577,7 @@ python3-pre-commit:
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
-- python3-psutil@meta-python
+- python3-psutil@openembedded-core
 python3-pycodestyle:
 - python3-pycodestyle@meta-python
 python3-pydantic:
@@ -589,7 +589,7 @@ python3-pygraphviz:
 python3-pykdl:
 - python3-pykdl@meta-ros1-noetic
 python3-pyproj:
-- python3-pyproj@meta-ros-common
+- python3-pyproj@meta-python
 python3-pyqt5.qtwebengine:
 - ${PYTHON_PN}-pyqt5@meta-qt5
 python3-pytest:
@@ -661,7 +661,7 @@ python3-websocket:
 python3-wheel:
 - python3-wheel@openembedded-core
 python3-whichcraft:
-- python3-whichcraft@meta-ros-common
+- python3-whichcraft@meta-ros2
 python3-yaml:
 - python3-pyyaml@openembedded-core
 qml-module-qtquick2:
