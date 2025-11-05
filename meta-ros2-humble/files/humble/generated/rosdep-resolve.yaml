@@ -100,8 +100,6 @@ graphviz-dev:
 - graphviz@meta-oe
 gtest:
 - gtest@meta-oe
-gtk3:
-- gtk+3@openembedded-core
 gurumdds-3.0:
 - ${ROS_UNRESOLVED_DEP-gurumdds-3.0}
 gz-plugin:
@@ -282,6 +280,8 @@ liblttng-ust-dev:
 - lttng-ust@openembedded-core
 libmodbus-dev:
 - libmodbus@meta-oe
+libnanoflann-dev:
+- ${ROS_UNRESOLVED_DEP-libnanoflann-dev}
 libnanopb-dev:
 - nanopb@meta-oe
 libncurses-dev:
@@ -483,8 +483,6 @@ pyflakes3:
 pyqt5-dev-tools:
 - ${PYTHON_PN}-pyqt5@meta-qt5
 python-argparse: []
-python-is-python3:
-- ${ROS_UNRESOLVED_DEP-python-is-python3}
 python3:
 - python3@openembedded-core
 python3-antlr4:
@@ -567,6 +565,8 @@ python3-jsonpickle:
 - ${ROS_UNRESOLVED_DEP-python3-jsonpickle}
 python3-jsonschema:
 - python3-jsonschema@openembedded-core
+python3-junitparser:
+- ${ROS_UNRESOLVED_DEP-python3-junitparser}
 python3-lark-parser:
 - python3-lark-parser@meta-ros-common
 python3-lttng:
@@ -622,7 +622,7 @@ python3-pre-commit:
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
-- python3-psutil@meta-python
+- python3-psutil@openembedded-core
 python3-pycodestyle:
 - python3-pycodestyle@meta-python
 python3-pydantic:
@@ -636,7 +636,7 @@ python3-pykdl:
 python3-pymap3d:
 - python3-pymap3d@meta-ros2
 python3-pyproj:
-- python3-pyproj@meta-ros-common
+- python3-pyproj@meta-python
 python3-pyqt5.qtwebengine:
 - ${PYTHON_PN}-pyqt5@meta-qt5
 python3-pytest:
@@ -686,7 +686,9 @@ python3-smbus:
 python3-sphinx:
 - python3-sphinx@openembedded-core
 python3-tabulate:
-- ${ROS_UNRESOLVED_DEP-python3-tabulate}
+- python3-tabulate@meta-python
+python3-termcolor:
+- python3-termcolor@meta-python
 python3-tk:
 - python3-tkinter@openembedded-core
 python3-toml:
@@ -722,7 +724,7 @@ python3-watchdog:
 python3-websocket:
 - python3-websocket-client@meta-python
 python3-whichcraft:
-- python3-whichcraft@meta-ros-common
+- python3-whichcraft@meta-ros2
 python3-yaml:
 - python3-pyyaml@openembedded-core
 python3-zmq:
