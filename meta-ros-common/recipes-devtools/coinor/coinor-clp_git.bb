@@ -6,8 +6,6 @@ SRC_URI = "git://github.com/coin-or/Clp.git;protocol=https;branch=master"
 PV = "1.17.10+git"
 SRCREV = "e28045d7d35465c4880118538b050e5478e01fa3"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "coinor-buildtools-native coinutils coinor-osi"
 
 inherit autotools pkgconfig

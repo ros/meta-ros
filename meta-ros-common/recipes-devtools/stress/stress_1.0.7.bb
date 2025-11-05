@@ -5,6 +5,4 @@ SRC_URI = "git://github.com/resurrecting-open-source-projects/stress;protocol=ht
 
 SRCREV = "f725109e8b98260933fdca7cf8166e017311bac4"
 
-S = "${WORKDIR}/git"
-
 inherit autotools

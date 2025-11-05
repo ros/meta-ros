@@ -8,7 +8,6 @@ SRCREV = "ffd24f05c068ba84c84eb39de5bb308ed2dc3fb5"
 DEPENDS = "coinor-buildtools-native lapack"
 
 PV = "2.11.12+git"
-S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig
 

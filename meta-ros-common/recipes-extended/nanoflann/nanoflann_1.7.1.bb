@@ -8,8 +8,6 @@ SRC_URI = "git://github.com/jlblancoc/nanoflann.git;protocol=https;branch=master
 PV = "1.7.1+git"
 SRCREV = "9a653cb243db6a09c94f833b28732b62f033e2b5"
 
-S = "${WORKDIR}/git"
-
 inherit cmake pkgconfig
 
 DEPENDS += "libeigen googletest"
