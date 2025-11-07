@@ -17,11 +17,11 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
  src/laser_geometry.cpp | 36 +++++++++++++++++-------------------
  2 files changed, 30 insertions(+), 26 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index b4de5c6d..7cfcd033 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -24,10 +24,18 @@ target_include_directories(laser_geometry
+Index: laser-geometry-2.4.1-1/CMakeLists.txt
+===================================================================
+--- laser-geometry-2.4.1-1.orig/CMakeLists.txt
++++ laser-geometry-2.4.1-1/CMakeLists.txt
+@@ -23,10 +23,18 @@ target_include_directories(laser_geometr
      $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
    ${Eigen3_INCLUDE_DIRS}
  )
@@ -44,7 +44,7 @@ index b4de5c6d..7cfcd033 100644
  )
  
  # Causes the visibility macros to use dllexport rather than dllimport,
-@@ -42,9 +50,7 @@ ament_export_libraries(laser_geometry)
+@@ -41,9 +49,7 @@ ament_export_libraries(laser_geometry)
  ament_export_targets(laser_geometry)
  
  ament_export_dependencies(
@@ -54,7 +54,7 @@ index b4de5c6d..7cfcd033 100644
    sensor_msgs
    tf2
  )
-@@ -80,7 +86,7 @@ if(BUILD_TESTING)
+@@ -79,7 +85,7 @@ if(BUILD_TESTING)
      test/projection_test.cpp
      TIMEOUT 240)
    if(TARGET projection_test)
@@ -63,10 +63,10 @@ index b4de5c6d..7cfcd033 100644
    endif()
  
    # Python test
-diff --git a/src/laser_geometry.cpp b/src/laser_geometry.cpp
-index d07b7c55..1693a25c 100644
---- a/src/laser_geometry.cpp
-+++ b/src/laser_geometry.cpp
+Index: laser-geometry-2.4.1-1/src/laser_geometry.cpp
+===================================================================
+--- laser-geometry-2.4.1-1.orig/src/laser_geometry.cpp
++++ laser-geometry-2.4.1-1/src/laser_geometry.cpp
 @@ -30,16 +30,14 @@
  
  #include "laser_geometry/laser_geometry.hpp"
@@ -166,7 +166,7 @@ index d07b7c55..1693a25c 100644
      cloud_out.fields[field_size + 2].offset = offset;
      cloud_out.fields[field_size + 2].count = 1;
      offset += 4;
-@@ -330,7 +328,7 @@ void LaserProjection::transformLaserScanToPointCloud_(
+@@ -330,7 +328,7 @@ void LaserProjection::transformLaserScan
      memcpy(&pt_index, &cloud_out.data[i * cloud_out.point_step + index_offset], sizeof(uint32_t));
  
      // Assume constant motion during the laser-scan and use slerp to compute intermediate transforms
@@ -175,14 +175,3 @@ index d07b7c55..1693a25c 100644
  
      // TODO(anon): Make a function that performs both the slerp and linear interpolation needed to
      // interpolate a Full Transform (Quaternion + Vector)
-@@ -423,8 +421,8 @@ void LaserProjection::transformLaserScanToPointCloud_(
-   double range_cutoff,
-   int channel_options)
- {
--  TIME start_time = scan_in.header.stamp;
--  TIME end_time = scan_in.header.stamp;
-+  rclcpp::Time start_time = scan_in.header.stamp;
-+  rclcpp::Time end_time = scan_in.header.stamp;
-   // TODO(anonymous): reconcile all the different time constructs
-   if (!scan_in.ranges.empty()) {
-     end_time = start_time + rclcpp::Duration::from_seconds(
