@@ -1,0 +1,31 @@
+This uses the CMake config variables for libraries instead of the generator.
+
+The generator approach was resulting in TARGET_FILE:tinyxml2::tinyxml2 appearing
+directly in the generated pyproject.toml and libqt_gui_cpp_sip.pro files.
+
+Commenting out this line avoids TinyXML2_LIBRARIES being fed into a loop that
+adds TARGET_FILE:tinyxml2::tinyxml2. The tinyxml2 library path is already present
+in deps_libraries.
+
+Eventually, pip install was invoked which called QMake then Make.  The linker
+did not like it and would fail.
+
+This resulted in pip reporting "error: subprocess-exited-with-error"
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Upstream-Status: Pending
+
+Index: git/src/qt_gui_cpp_sip/CMakeLists.txt
+===================================================================
+--- git.orig/src/qt_gui_cpp_sip/CMakeLists.txt
++++ git/src/qt_gui_cpp_sip/CMakeLists.txt
+@@ -33,7 +33,7 @@ set(qt_gui_cpp_sip_LDFLAGS_OTHER ${qt_gu
+ 
+ ament_get_recursive_properties(deps_include_dirs deps_libraries ${pluginlib_TARGETS})
+ list(APPEND deps_include_dirs ${TinyXML2_INCLUDE_DIRS})
+-list(APPEND deps_libraries ${TinyXML2_LIBRARIES})
++# list(APPEND deps_libraries ${TinyXML2_LIBRARIES})
+ 
+ find_package(Python3 REQUIRED COMPONENTS Development)
+ 
