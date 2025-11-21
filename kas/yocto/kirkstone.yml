@@ -5,11 +5,11 @@ defaults:
   repos:
     branch: "kirkstone"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-4.0.30/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-4.0.31/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "d381eeb5e70bd0ce9e78032c909e4a23564f4dd7"
+    commit: "99204008786f659ab03538cd2ae2fd23ed4164c5"
     path: "layers/openembedded-core"
     layers:
       meta:
@@ -24,7 +24,7 @@ repos:
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
-    commit: "96fbc156364fd78530d2bfbe1b8a77789f52997d"
+    commit: "07ac1890c843b374c27e150f1a2e53ad3db2a8e4"
     path: "layers/meta-openembedded"
     layers:
       meta-filesystems:
