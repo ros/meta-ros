@@ -214,6 +214,8 @@ libgoogle-glog-dev:
 - glog@meta-oe
 libgps:
 - gpsd@meta-oe
+libgsl:
+- gsl@meta-oe
 libgstreamer-plugins-base1.0-dev:
 - gstreamer1.0-plugins-base@openembedded-core
 libgstreamer1.0-dev:
@@ -456,6 +458,8 @@ python3-autobahn:
 - python3-autobahn@meta-python
 python3-babeltrace:
 - babeltrace@openembedded-core
+python3-boto3:
+- python3-boto3@meta-ros-common
 python3-bson:
 - python3-pymongo@meta-python
 python3-cairo:
@@ -530,6 +534,8 @@ python3-jinja2:
 - python3-jinja2@openembedded-core
 python3-jsonschema:
 - python3-jsonschema@openembedded-core
+python3-junitparser:
+- ${ROS_UNRESOLVED_DEP-python3-junitparser}
 python3-lark-parser:
 - python3-lark-parser@meta-ros-common
 python3-lxml:
@@ -624,6 +630,8 @@ python3-smbus:
 - python3-smbus@meta-python
 python3-sphinx:
 - python3-sphinx@openembedded-core
+python3-termcolor:
+- python3-termcolor@meta-python
 python3-tk:
 - python3-tkinter@openembedded-core
 python3-toml:
@@ -642,6 +650,8 @@ python3-types-pyyaml:
 - ${ROS_UNRESOLVED_DEP-python3-types-pyyaml}
 python3-typing-extensions:
 - python3-typing-extensions@openembedded-core
+python3-ujson:
+- ${ROS_UNRESOLVED_DEP-python3-ujson}
 python3-unidiff:
 - python3-unidiff@meta-python
 python3-uvicorn:
@@ -656,6 +666,8 @@ python3-waitress:
 - python3-waitress@meta-python
 python3-websocket:
 - python3-websocket-client@meta-python
+python3-websockets:
+- python3-websockets@openembedded-core
 python3-wheel:
 - python3-wheel@openembedded-core
 python3-whichcraft:
