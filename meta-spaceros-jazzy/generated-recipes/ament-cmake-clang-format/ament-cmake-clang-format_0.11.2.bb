@@ -1,9 +1,9 @@
-# Recipe created by ros-generate
+# Recipe created by mash
 #
 # Copyright (c) 2025 Open Source Robotics Foundation, Inc.
 
 inherit ros_distro_jazzy
-inherit ros_generate_generated
+inherit mash_generated
 
 DESCRIPTION = "The CMake API for ament_clang_format to lint C / C++ code using clang format."
 AUTHOR = "Audrow Nash <audrow@openrobotics.org>"

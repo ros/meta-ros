@@ -1,9 +1,9 @@
-# Recipe created by ros-generate
+# Recipe created by mash
 #
 # Copyright (c) 2025 Open Source Robotics Foundation, Inc.
 
 inherit ros_distro_jazzy
-inherit ros_generate_generated
+inherit mash_generated
 
 DESCRIPTION = "Test fixture and CMake macro for using osrf_testing_tools_cpp with Google Benchmark"
 AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"

@@ -10,7 +10,7 @@ ROS2_DISTRO = "jazzy"
 
 ROS_DISTRO_TYPE = "spaceros"
 
-SPACEROS_RELEASE = "jazzy-2025.07.0"
+SPACEROS_RELEASE = "jazzy-2025.10.0"
 
 # The platform release that the metadata for this ROS distro targets. This determines the versions of the platform packages that
 # OE must provide. It must be one of the values of ROS_DISTRO_RELEASE_PLATFORMS (which is set in

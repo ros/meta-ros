@@ -1,9 +1,9 @@
-# Recipe created by ros-generate
+# Recipe created by mash
 #
 # Copyright (c) 2025 Open Source Robotics Foundation, Inc.
 
 inherit ros_distro_jazzy
-inherit ros_generate_generated
+inherit mash_generated
 
 DESCRIPTION = "Test package, which uses things exported by osrf_testing_tools_cpp."
 AUTHOR = "Geoffrey Biggs <geoff@openrobotics.org>"

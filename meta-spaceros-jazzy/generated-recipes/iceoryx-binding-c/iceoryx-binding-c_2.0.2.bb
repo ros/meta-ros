@@ -1,9 +1,9 @@
-# Recipe created by ros-generate
+# Recipe created by mash
 #
 # Copyright (c) 2025 Open Source Robotics Foundation, Inc.
 
 inherit ros_distro_jazzy
-inherit ros_generate_generated
+inherit mash_generated
 
 DESCRIPTION = "Eclipse iceoryx inter-process-communication (IPC) middleware C-Language Binding"
 AUTHOR = "Eclipse Foundation, Inc. <iceoryx-oss-support@apex.ai>"

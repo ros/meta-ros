@@ -1,9 +1,9 @@
-# Recipe created by ros-generate
+# Recipe created by mash
 #
 # Copyright (c) 2025 Open Source Robotics Foundation, Inc.
 
 inherit ros_distro_jazzy
-inherit ros_generate_generated
+inherit mash_generated
 
 DESCRIPTION = "This package contains a C++ base class for URDF parsers."
 AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"

@@ -1,9 +1,9 @@
-# Recipe created by ros-generate
+# Recipe created by mash
 #
 # Copyright (c) 2025 Open Source Robotics Foundation, Inc.
 
 inherit ros_distro_jazzy
-inherit ros_generate_generated
+inherit mash_generated
 
 DESCRIPTION = "The auto-magic functions for ease to use of the ament buildsystem in CMake."
 AUTHOR = "Chris Lalancette <clalancette@gmail.com>"

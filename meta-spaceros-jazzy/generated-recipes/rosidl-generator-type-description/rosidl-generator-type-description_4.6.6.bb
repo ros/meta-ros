@@ -1,9 +1,9 @@
-# Recipe created by ros-generate
+# Recipe created by mash
 #
 # Copyright (c) 2025 Open Source Robotics Foundation, Inc.
 
 inherit ros_distro_jazzy
-inherit ros_generate_generated
+inherit mash_generated
 
 DESCRIPTION = "Generate hashes and descriptions of ROS 2 interface types, per REP-2011."
 AUTHOR = "Emerson Knapp <me@emersonknapp.com>"
