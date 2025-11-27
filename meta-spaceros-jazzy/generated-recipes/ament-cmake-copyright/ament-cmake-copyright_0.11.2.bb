@@ -1,9 +1,9 @@
-# Recipe created by ros-generate
+# Recipe created by mash
 #
 # Copyright (c) 2025 Open Source Robotics Foundation, Inc.
 
 inherit ros_distro_jazzy
-inherit ros_generate_generated
+inherit mash_generated
 
 DESCRIPTION = "The CMake API for ament_copyright to check every source file contains copyright reference."
 AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
