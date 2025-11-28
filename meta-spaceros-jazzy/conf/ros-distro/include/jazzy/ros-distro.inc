@@ -27,6 +27,7 @@ MASH_GENERATED_BUILDTOOLS = "\
     action-msgs-native\
     ament-clang-format-native\
     ament-clang-tidy-native\
+    ament-cmake-auto-native\
     ament-cmake-core-native\
     ament-cmake-cppcheck-native\
     ament-cmake-cpplint-native\
@@ -81,6 +82,7 @@ MASH_GENERATED_BUILDTOOLS = "\
     domain-coordinator-native\
     eigen3-cmake-module-native\
     fastrtps-cmake-module-native\
+    generate-parameter-library-py-native\
     gcc-runtime-native\
     git-native\
     gmock-vendor-native\
