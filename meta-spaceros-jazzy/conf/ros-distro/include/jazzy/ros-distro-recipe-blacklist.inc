@@ -205,7 +205,7 @@ BBMASK +=  "generated-recipes/fuse/fuse_.*.bb"
 BBMASK +=  "generated-recipes/fuse/fuse-doc_.*.bb"
 
 # meta-ros provides a recipe for octomap to use instead of the generated one
-BBMASK += "generated-recipes/octomap/octomap_.*.bb"
+BBMASK += "generated-recipes-moveit2/octomap/octomap_.*.bb"
 BBMASK += "generated-recipes/libcamera/libcamera_.*.bb"
 
 BBMASK += "generated-recipes/librealsense2/librealsense2_.*.bb"
