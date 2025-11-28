@@ -23,7 +23,7 @@ require conf/ros-distro/include/jazzy/ros-distro-preferred-providers.inc
 
 # Since ros-generate doesn't know when it's generating a recipe that it will be for a build tool, it can't know that what's in
 # ROS_EXEC_DEPEND are also build tools. Manually add them here.
-ROS_GENERATE_GENERATED_BUILDTOOLS = "\
+MASH_GENERATED_BUILDTOOLS = "\
     action-msgs-native\
     ament-clang-format-native\
     ament-clang-tidy-native\
