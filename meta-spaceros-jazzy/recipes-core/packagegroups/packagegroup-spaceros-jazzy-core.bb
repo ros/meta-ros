@@ -107,6 +107,7 @@ RDEPENDS:${PN} = "\
     nav-msgs\
     orocos-kdl-vendor\
     osrf-pycommon\
+    osrf-testing-tools-cpp\
     performance-test-fixture\
     pluginlib\
     process-sarif\
@@ -147,6 +148,7 @@ RDEPENDS:${PN} = "\
     ros2node\
     ros2param\
     ros2pkg\
+    ros2plugin\
     ros2run\
     ros2service\
     ros2test\
