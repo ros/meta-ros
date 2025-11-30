@@ -1,3 +1,5 @@
+# Copyright (c) 2025 Wind River Systems, Inc.
+
 # It is unclear why this fix is needed for Space ROS
 # and has not been an issue with ROS 2 Jazzy
 
