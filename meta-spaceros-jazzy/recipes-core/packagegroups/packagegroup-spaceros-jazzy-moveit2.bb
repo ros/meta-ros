@@ -1,6 +1,6 @@
 # Copyright (c) 2025 Wind River Systems, Inc.
 
-DESCRIPTION = "All packages from Space ROS"
+DESCRIPTION = "MoveIt2 packages from Space ROS"
 LICENSE = "MIT"
 
 inherit packagegroup
