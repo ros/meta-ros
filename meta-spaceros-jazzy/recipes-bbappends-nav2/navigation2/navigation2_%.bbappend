@@ -1,3 +1,5 @@
+# Copyright (c) 2025 Wind River Systems, Inc.
+
 # nav2-rviz-plugins depends on Qt
 ROS_EXEC_DEPENDS:remove = "nav2-rviz-plugins"
 
