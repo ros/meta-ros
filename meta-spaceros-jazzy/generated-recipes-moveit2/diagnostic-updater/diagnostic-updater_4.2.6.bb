@@ -69,7 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/diagnostic_updater"
 SRC_URI = "git://github.com/ros2-gbp/diagnostics-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "f8fbf12a911c5ff179ee878a927944c20e41473d"
-S = "${WORKDIR}/git/diagnostic_updater"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
